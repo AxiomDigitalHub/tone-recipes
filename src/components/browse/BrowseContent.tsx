@@ -69,9 +69,9 @@ export default function BrowseContent() {
   }, [genreFilter, platformFilter, sortBy]);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
+    <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
       {/* Header */}
-      <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h1 className="text-3xl font-bold">Browse Tone Recipes</h1>
           <p className="mt-2 text-muted">
@@ -108,7 +108,7 @@ export default function BrowseContent() {
       </div>
 
       {/* Genre filters */}
-      <div className="scrollbar-hide mb-6 flex gap-2 overflow-x-auto pb-2 md:flex-wrap md:overflow-x-visible md:pb-0">
+      <div className="scrollbar-hide mb-8 flex gap-2 overflow-x-auto pb-2 md:flex-wrap md:overflow-x-visible md:pb-0">
         <button
           onClick={() => setGenreFilter(null)}
           className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
@@ -135,7 +135,7 @@ export default function BrowseContent() {
       </div>
 
       {/* Platform filters */}
-      <div className="mb-8">
+      <div className="mb-10">
         <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted">
           Platform
         </h2>
@@ -188,7 +188,7 @@ export default function BrowseContent() {
       )}
 
       {/* Artists quick links */}
-      <div className="mb-10">
+      <div className="mb-14">
         <h2 className="mb-4 text-lg font-semibold text-muted">By Artist</h2>
         <div className="scrollbar-hide flex gap-3 overflow-x-auto pb-2 md:flex-wrap md:overflow-x-visible md:pb-0">
           {artists.map((artist) => (
@@ -204,7 +204,7 @@ export default function BrowseContent() {
       </div>
 
       {/* Recipe grid */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {filteredRecipes.map(({ recipe, artist, song }) => (
           <RecipeCard
             key={recipe.slug}

@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useAuth } from "@/lib/auth/auth-context";
 
 const navLinks = [
   { href: "/browse", label: "Browse" },
@@ -14,6 +15,38 @@ const navLinks = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const { user, loading, signOut } = useAuth();
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setDropdownOpen(false);
+      }
+    }
+    if (dropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [dropdownOpen]);
+
+  const handleSignOut = async () => {
+    setDropdownOpen(false);
+    setMobileOpen(false);
+    await signOut();
+  };
+
+  /** Initials for avatar circle */
+  const initials = user
+    ? (user.displayName || user.email)
+        .slice(0, 2)
+        .toUpperCase()
+    : "";
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
@@ -36,7 +69,7 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Search button + Auth buttons */}
+        {/* Search button + Auth area */}
         <div className="hidden items-center gap-3 md:flex">
           <button
             onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
@@ -60,20 +93,56 @@ export default function Header() {
               &#8984;K
             </kbd>
           </button>
-        </div>
-        <div className="hidden items-center gap-3 md:flex">
-          <Link
-            href="/login"
-            className="text-sm font-medium text-muted transition-colors hover:text-foreground"
-          >
-            Log in
-          </Link>
-          <Link
-            href="/signup"
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
-          >
-            Sign up
-          </Link>
+
+          {/* Auth: avatar dropdown or sign-in links */}
+          {!loading && user ? (
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-xs font-bold text-background transition-opacity hover:opacity-90"
+                aria-label="User menu"
+              >
+                {initials}
+              </button>
+
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 rounded-lg border border-border bg-surface py-1 shadow-xl">
+                  <p className="truncate px-4 py-2 text-xs text-muted">
+                    {user.email}
+                  </p>
+                  <hr className="border-border" />
+                  <Link
+                    href="/saved"
+                    onClick={() => setDropdownOpen(false)}
+                    className="block px-4 py-2 text-sm text-foreground transition-colors hover:bg-surface-hover"
+                  >
+                    Saved Recipes
+                  </Link>
+                  <button
+                    onClick={handleSignOut}
+                    className="w-full px-4 py-2 text-left text-sm text-muted transition-colors hover:bg-surface-hover hover:text-foreground"
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : !loading ? (
+            <>
+              <Link
+                href="/login"
+                className="text-sm font-medium text-muted transition-colors hover:text-foreground"
+              >
+                Log in
+              </Link>
+              <Link
+                href="/signup"
+                className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+              >
+                Sign up
+              </Link>
+            </>
+          ) : null}
         </div>
 
         {/* Mobile hamburger */}
@@ -112,16 +181,45 @@ export default function Header() {
               </Link>
             ))}
             <hr className="border-border" />
-            <Link href="/login" className="text-sm font-medium text-muted" onClick={() => setMobileOpen(false)}>
-              Log in
-            </Link>
-            <Link
-              href="/signup"
-              className="rounded-lg bg-accent px-4 py-2 text-center text-sm font-semibold text-background"
-              onClick={() => setMobileOpen(false)}
-            >
-              Sign up
-            </Link>
+
+            {!loading && user ? (
+              <>
+                <div className="flex items-center gap-3 py-1">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-xs font-bold text-background">
+                    {initials}
+                  </div>
+                  <span className="truncate text-sm text-muted">
+                    {user.email}
+                  </span>
+                </div>
+                <Link
+                  href="/saved"
+                  className="text-sm font-medium text-muted"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Saved Recipes
+                </Link>
+                <button
+                  onClick={handleSignOut}
+                  className="text-left text-sm font-medium text-muted"
+                >
+                  Sign Out
+                </button>
+              </>
+            ) : !loading ? (
+              <>
+                <Link href="/login" className="text-sm font-medium text-muted" onClick={() => setMobileOpen(false)}>
+                  Log in
+                </Link>
+                <Link
+                  href="/signup"
+                  className="rounded-lg bg-accent px-4 py-2 text-center text-sm font-semibold text-background"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Sign up
+                </Link>
+              </>
+            ) : null}
           </nav>
         </div>
       )}

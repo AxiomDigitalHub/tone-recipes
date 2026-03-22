@@ -45,7 +45,7 @@ export default function CollapsibleSection({
   }, [updateMaxHeight]);
 
   return (
-    <section id={id} className="mb-6 scroll-mt-32">
+    <section id={id} className="mb-10 scroll-mt-32">
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}

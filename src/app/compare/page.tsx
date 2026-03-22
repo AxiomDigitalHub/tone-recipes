@@ -42,9 +42,9 @@ function CompareContent() {
   const bothSelected = recipeA && recipeB;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
+    <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
       {/* Breadcrumb */}
-      <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
+      <nav className="mb-8 flex items-center gap-2 text-sm text-muted">
         <Link href="/browse" className="hover:text-foreground">
           Browse
         </Link>
@@ -52,14 +52,14 @@ function CompareContent() {
         <span className="text-foreground">Compare</span>
       </nav>
 
-      <h1 className="mb-2 text-3xl font-bold md:text-4xl">Compare Tones</h1>
-      <p className="mb-8 text-muted">
+      <h1 className="mb-3 text-3xl font-bold md:text-4xl">Compare Tones</h1>
+      <p className="mb-10 text-muted">
         Select two recipes to compare their signal chains, guitar specs, and
         tonal approach side by side.
       </p>
 
       {/* Selectors */}
-      <div className="mb-10 grid gap-4 md:grid-cols-2">
+      <div className="mb-12 grid gap-6 md:grid-cols-2">
         <RecipeSelector
           label="Recipe A"
           value={slugA}
@@ -77,7 +77,7 @@ function CompareContent() {
       {/* Comparison */}
       {bothSelected ? (
         <>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2">
             <RecipeColumn recipe={recipeA} song={songA} artist={artistA} />
             <RecipeColumn recipe={recipeB} song={songB} artist={artistB} />
           </div>
@@ -164,7 +164,7 @@ function RecipeColumn({
   artist?: Artist;
 }) {
   return (
-    <div className="rounded-xl border border-border bg-surface p-6">
+    <div className="rounded-xl border border-border bg-surface p-6 md:p-8">
       {/* Header */}
       {artist && (
         <p className="text-xs font-medium text-accent">{artist.name}</p>
@@ -382,8 +382,8 @@ function KeyDifferences({
   if (diffs.length === 0) return null;
 
   return (
-    <section className="mt-10">
-      <h2 className="mb-4 text-xl font-bold">Key Differences</h2>
+    <section className="mt-14">
+      <h2 className="mb-6 text-xl font-bold">Key Differences</h2>
       <div className="rounded-xl border border-border bg-surface p-6">
         <ul className="space-y-2">
           {diffs.map((d, i) => (

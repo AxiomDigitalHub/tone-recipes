@@ -14,6 +14,7 @@ import Badge from "@/components/ui/Badge";
 import CollapsibleSection from "@/components/ui/CollapsibleSection";
 import ReadMore from "@/components/ui/ReadMore";
 import RecipeCard from "@/components/recipe/RecipeCard";
+import FavoriteButton from "@/components/ui/FavoriteButton";
 import { DIFFICULTY_COLORS } from "@/lib/constants";
 import Link from "next/link";
 import type { Platform } from "@/types/recipe";
@@ -106,13 +107,13 @@ export default async function RecipePage({ params }: RecipePageProps) {
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
+    <div className="mx-auto max-w-5xl px-4 py-16 md:py-20">
       {/* ----------------------------------------------------------------- */}
       {/* Hero area */}
       {/* ----------------------------------------------------------------- */}
 
       {/* Breadcrumb */}
-      <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
+      <nav className="mb-8 flex items-center gap-2 text-sm text-muted">
         <Link href="/browse" className="hover:text-foreground">
           Browse
         </Link>
@@ -132,16 +133,19 @@ export default async function RecipePage({ params }: RecipePageProps) {
       </nav>
 
       {/* Title block */}
-      <div className="mb-4">
-        {artist && (
-          <p className="text-sm font-medium text-accent">{artist.name}</p>
-        )}
-        <h1 className="mt-1 text-3xl font-bold md:text-4xl">{recipe.title}</h1>
-        {song && (
-          <p className="mt-2 text-muted">
-            {song.title} ({song.year}) &middot; {song.album}
-          </p>
-        )}
+      <div className="mb-4 flex items-start justify-between gap-4">
+        <div>
+          {artist && (
+            <p className="text-sm font-medium text-accent">{artist.name}</p>
+          )}
+          <h1 className="mt-1 text-3xl font-bold md:text-4xl">{recipe.title}</h1>
+          {song && (
+            <p className="mt-2 text-muted">
+              {song.title} ({song.year}) &middot; {song.album}
+            </p>
+          )}
+        </div>
+        <FavoriteButton slug={recipe.slug} size="md" />
       </div>
 
       {/* Tags */}
@@ -161,7 +165,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
       </div>
 
       {/* Quick stats */}
-      <p className="mb-6 text-sm text-muted">
+      <p className="mb-8 text-sm text-muted">
         {nodeCount} nodes &middot; {platformCount} platform
         {platformCount !== 1 ? "s" : ""} &middot;{" "}
         <span className="capitalize">{difficulty}</span>
@@ -169,14 +173,14 @@ export default async function RecipePage({ params }: RecipePageProps) {
       </p>
 
       {/* Description */}
-      <div className="mb-8 rounded-xl border border-border bg-surface p-6">
+      <div className="mb-12 rounded-xl border border-border bg-surface p-6 md:p-8">
         <ReadMore text={recipe.description} lines={3} />
       </div>
 
       {/* ----------------------------------------------------------------- */}
       {/* Sticky section nav */}
       {/* ----------------------------------------------------------------- */}
-      <nav className="sticky top-16 z-40 -mx-4 mb-8 overflow-x-auto border-b border-border bg-background/90 px-4 backdrop-blur-sm">
+      <nav className="sticky top-16 z-40 -mx-4 mb-12 overflow-x-auto border-b border-border bg-background/90 px-4 backdrop-blur-sm">
         <div className="flex items-center gap-2 py-2">
           {navItems
             .filter((item) => item.show)
@@ -204,7 +208,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
         badge={`${nodeCount} nodes`}
       >
         <div className="rounded-xl border border-border bg-surface">
-          <p className="px-6 pt-4 text-xs text-muted">
+          <p className="px-6 pt-5 text-xs text-muted md:px-8">
             Click any node to see settings and tips
           </p>
           <SignalChainViewer
@@ -238,8 +242,8 @@ export default async function RecipePage({ params }: RecipePageProps) {
         title="Guitar &amp; Setup"
         defaultOpen={false}
       >
-        <div className="rounded-xl border border-border bg-surface p-6">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="rounded-xl border border-border bg-surface p-6 md:p-8">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <p className="text-xs text-muted">Model</p>
               <p className="font-medium">{recipe.guitar_specs.model_name}</p>
@@ -274,8 +278,8 @@ export default async function RecipePage({ params }: RecipePageProps) {
         title="Original Gear (Recording)"
         defaultOpen={false}
       >
-        <div className="rounded-xl border border-border bg-surface p-6">
-          <div className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-xl border border-border bg-surface p-6 md:p-8">
+          <div className="grid gap-6 sm:grid-cols-2">
             <div>
               <p className="text-xs text-muted">Guitar</p>
               <p className="text-sm font-medium">
@@ -375,7 +379,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
       {/* Related Recipes */}
       {/* ----------------------------------------------------------------- */}
       {relatedRecipes.length > 0 && (
-        <section className="mt-12">
+        <section className="mt-16 pt-10 border-t border-border">
           <h2 className="mb-4 text-xl font-bold">Related Recipes</h2>
           <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4">
             {relatedRecipes.map((r) => {

@@ -65,9 +65,9 @@ export default async function GearDetailPage({ params }: GearPageProps) {
     : [];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
+    <div className="mx-auto max-w-5xl px-4 py-16 md:py-20">
       {/* Breadcrumb */}
-      <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
+      <nav className="mb-8 flex items-center gap-2 text-sm text-muted">
         <Link href="/browse" className="hover:text-foreground">
           Browse
         </Link>
@@ -80,7 +80,7 @@ export default async function GearDetailPage({ params }: GearPageProps) {
       </nav>
 
       {/* Header */}
-      <div className="mb-8">
+      <div className="mb-10">
         <p className="text-sm font-medium text-accent">{gear.manufacturer}</p>
         <h1 className="mt-1 text-3xl font-bold md:text-4xl">{gear.name}</h1>
         <div className="mt-4 flex flex-wrap gap-2">
@@ -89,14 +89,14 @@ export default async function GearDetailPage({ params }: GearPageProps) {
       </div>
 
       {/* Description */}
-      <div className="mb-10 rounded-xl border border-border bg-surface p-6">
+      <div className="mb-14 rounded-xl border border-border bg-surface p-6 md:p-8">
         <p className="leading-relaxed text-foreground/90">{gear.description}</p>
       </div>
 
       {/* Default Settings */}
       {knobs && knobs.length > 0 && (
-        <section className="mb-10">
-          <h2 className="mb-4 text-xl font-bold">Default Settings</h2>
+        <section className="mb-14">
+          <h2 className="mb-6 text-xl font-bold">Default Settings</h2>
           <div className="rounded-xl border border-border bg-surface p-6">
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {knobs.map((knob) => (
@@ -121,8 +121,8 @@ export default async function GearDetailPage({ params }: GearPageProps) {
 
       {/* Modeler Equivalents */}
       {equivalents.length > 0 && (
-        <section className="mb-10">
-          <h2 className="mb-4 text-xl font-bold">Modeler Equivalents</h2>
+        <section className="mb-14">
+          <h2 className="mb-6 text-xl font-bold">Modeler Equivalents</h2>
           <div className="rounded-xl border border-border bg-surface p-6">
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {equivalents.map(([platformId, blockName]) => {
@@ -153,8 +153,8 @@ export default async function GearDetailPage({ params }: GearPageProps) {
 
       {/* Used In Recipes */}
       {recipesUsingGear.length > 0 && (
-        <section className="mb-10">
-          <h2 className="mb-4 text-xl font-bold">Used In Recipes</h2>
+        <section className="mb-14">
+          <h2 className="mb-6 text-xl font-bold">Used In Recipes</h2>
           <div className="grid gap-6 sm:grid-cols-2">
             {recipesUsingGear.map((recipe) => {
               const song = getSongBySlug(recipe.song_slug);

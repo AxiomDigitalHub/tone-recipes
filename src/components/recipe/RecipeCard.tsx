@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Badge from "@/components/ui/Badge";
+import FavoriteButton from "@/components/ui/FavoriteButton";
 import type { ToneRecipe, Artist, Song } from "@/types/recipe";
 import { DIFFICULTY_COLORS, PLATFORMS } from "@/lib/constants";
 
@@ -22,12 +23,15 @@ export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
       href={`/recipe/${recipe.slug}`}
       className="card-hover group relative flex flex-col rounded-xl border border-border bg-surface p-5 transition-all hover:border-accent/40 hover:bg-surface-hover"
     >
-      {/* Genre tag - top right */}
-      {song?.genres?.[0] && (
-        <span className="absolute top-3 right-3 rounded-full bg-primary/60 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-accent">
-          {song.genres[0]}
-        </span>
-      )}
+      {/* Top-right actions */}
+      <div className="absolute top-3 right-3 flex items-center gap-1.5">
+        {song?.genres?.[0] && (
+          <span className="rounded-full bg-primary/60 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-accent">
+            {song.genres[0]}
+          </span>
+        )}
+        <FavoriteButton slug={recipe.slug} size="sm" />
+      </div>
 
       {/* Header */}
       <div className="mb-3 pr-16">

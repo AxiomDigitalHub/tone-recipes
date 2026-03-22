@@ -29,16 +29,16 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
   );
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
+    <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
       {/* Breadcrumb */}
-      <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
+      <nav className="mb-8 flex items-center gap-2 text-sm text-muted">
         <Link href="/browse" className="hover:text-foreground">Browse</Link>
         <span>/</span>
         <span className="text-foreground">{artist.name}</span>
       </nav>
 
       {/* Artist header */}
-      <div className="mb-10">
+      <div className="mb-14">
         <h1 className="text-3xl font-bold md:text-4xl">{artist.name}</h1>
         <p className="mt-3 max-w-2xl leading-relaxed text-muted">{artist.bio}</p>
         <div className="mt-4 flex flex-wrap gap-2">
@@ -49,8 +49,8 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
       </div>
 
       {/* Songs */}
-      <h2 className="mb-4 text-xl font-bold">Songs</h2>
-      <div className="mb-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <h2 className="mb-6 text-xl font-bold">Songs</h2>
+      <div className="mb-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {artistSongs.map((song) => (
           <div
             key={song.slug}
@@ -65,8 +65,8 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
       </div>
 
       {/* Tone Recipes */}
-      <h2 className="mb-4 text-xl font-bold">Tone Recipes</h2>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <h2 className="mb-6 text-xl font-bold">Tone Recipes</h2>
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {artistRecipes.map((recipe) => {
           const song = allSongs.find((s) => s.slug === recipe.song_slug);
           return (

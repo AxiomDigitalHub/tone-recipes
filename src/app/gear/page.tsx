@@ -39,9 +39,9 @@ function getTypeLabel(gear: { type: string; subcategory?: string }): string {
 
 export default function GearBrowsePage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
+    <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
       {/* Breadcrumb */}
-      <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
+      <nav className="mb-8 flex items-center gap-2 text-sm text-muted">
         <Link href="/browse" className="hover:text-foreground">
           Browse
         </Link>
@@ -49,15 +49,15 @@ export default function GearBrowsePage() {
         <span className="text-foreground">Gear</span>
       </nav>
 
-      <h1 className="mb-8 text-3xl font-bold md:text-4xl">Gear Database</h1>
+      <h1 className="mb-12 text-3xl font-bold md:text-4xl">Gear Database</h1>
 
       {TYPE_ORDER.map((group) => {
         const items = gearItems.filter((g) => g.type === group.type);
         if (items.length === 0) return null;
 
         return (
-          <section key={group.type} className="mb-10">
-            <h2 className="mb-4 text-xl font-bold">{group.label}</h2>
+          <section key={group.type} className="mb-14">
+            <h2 className="mb-6 text-xl font-bold">{group.label}</h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {items.map((gear) => (
                 <Link
