@@ -16,6 +16,7 @@ import ReadMore from "@/components/ui/ReadMore";
 import RecipeCard from "@/components/recipe/RecipeCard";
 import FavoriteButton from "@/components/ui/FavoriteButton";
 import { DIFFICULTY_COLORS } from "@/lib/constants";
+import Image from "next/image";
 import Link from "next/link";
 import type { Platform } from "@/types/recipe";
 
@@ -132,9 +133,20 @@ export default async function RecipePage({ params }: RecipePageProps) {
         {song && <span className="text-foreground">{song.title}</span>}
       </nav>
 
-      {/* Title block */}
-      <div className="mb-4 flex items-start justify-between gap-4">
-        <div>
+      {/* Title block with album art */}
+      <div className="mb-4 flex items-start gap-5">
+        {song?.album_art_url && (
+          <div className="hidden sm:block shrink-0">
+            <Image
+              src={song.album_art_url}
+              alt={`${song.album} album art`}
+              width={120}
+              height={120}
+              className="rounded-lg border border-border shadow-lg"
+            />
+          </div>
+        )}
+        <div className="flex-1 min-w-0">
           {artist && (
             <p className="text-sm font-medium text-accent">{artist.name}</p>
           )}

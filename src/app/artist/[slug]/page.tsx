@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getArtistBySlug, getSongsByArtistSlug, toneRecipes, songs as allSongs, artists as allArtists } from "@/lib/data";
+import Image from "next/image";
 import RecipeCard from "@/components/recipe/RecipeCard";
 import Badge from "@/components/ui/Badge";
 import Link from "next/link";
@@ -38,13 +39,26 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
       </nav>
 
       {/* Artist header */}
-      <div className="mb-14">
-        <h1 className="text-3xl font-bold md:text-4xl">{artist.name}</h1>
-        <p className="mt-3 max-w-2xl leading-relaxed text-muted">{artist.bio}</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {artist.genres.map((g) => (
-            <Badge key={g}>{g}</Badge>
-          ))}
+      <div className="mb-14 flex items-start gap-6">
+        {artist.image_url && (
+          <div className="hidden sm:block shrink-0">
+            <Image
+              src={artist.image_url}
+              alt={artist.name}
+              width={140}
+              height={140}
+              className="rounded-xl border border-border shadow-lg object-cover"
+            />
+          </div>
+        )}
+        <div>
+          <h1 className="text-3xl font-bold md:text-4xl">{artist.name}</h1>
+          <p className="mt-3 max-w-2xl leading-relaxed text-muted">{artist.bio}</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {artist.genres.map((g) => (
+              <Badge key={g}>{g}</Badge>
+            ))}
+          </div>
         </div>
       </div>
 

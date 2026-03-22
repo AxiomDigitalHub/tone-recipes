@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { artists, songs, toneRecipes, getAllGenres } from "@/lib/data";
 import RecipeCard from "@/components/recipe/RecipeCard";
 import { PLATFORMS } from "@/lib/constants";
@@ -195,8 +196,21 @@ export default function BrowseContent() {
             <Link
               key={artist.slug}
               href={`/artist/${artist.slug}`}
-              className="shrink-0 rounded-lg border border-border bg-surface px-4 py-2 text-sm font-medium transition-colors hover:border-accent/40 hover:text-accent"
+              className="group shrink-0 flex items-center gap-2.5 rounded-lg border border-border bg-surface px-3 py-2 text-sm font-medium transition-colors hover:border-accent/40 hover:text-accent"
             >
+              {artist.image_url ? (
+                <Image
+                  src={artist.image_url}
+                  alt={artist.name}
+                  width={28}
+                  height={28}
+                  className="rounded-full object-cover"
+                />
+              ) : (
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/20 text-xs font-bold text-accent">
+                  {artist.name.charAt(0)}
+                </span>
+              )}
               {artist.name}
             </Link>
           ))}

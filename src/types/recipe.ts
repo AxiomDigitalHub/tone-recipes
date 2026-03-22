@@ -82,6 +82,7 @@ export interface Song {
   title: string;
   slug: string;
   album: string;
+  album_art_url?: string;
   year: number;
   genres: string[];
   difficulty: "beginner" | "intermediate" | "advanced";
