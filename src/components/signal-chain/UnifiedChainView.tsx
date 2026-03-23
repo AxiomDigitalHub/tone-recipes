@@ -130,37 +130,47 @@ function NodeDetailDrawer({
 
 function GuitarHeader({ specs }: { specs: GuitarSpecs }) {
   return (
-    <div className="border-b border-border px-4 py-4 md:px-6">
-      <div className="flex items-center gap-4">
-        {/* Guitar icon */}
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-2 border-accent/50 bg-surface">
-          <Guitar className="h-6 w-6 text-accent" strokeWidth={1.5} />
+    <div className="border-b border-border px-4 py-5 md:px-6">
+      <div className="flex items-center gap-5">
+        {/* Guitar icon — matches album art / artist thumbnail height */}
+        <div className="flex h-[120px] w-[120px] shrink-0 items-center justify-center rounded-xl border-2 border-accent/50 bg-surface">
+          <Guitar className="h-12 w-12 text-accent" strokeWidth={1.25} />
         </div>
         {/* Specs */}
-        <div className="flex flex-1 flex-wrap items-center gap-x-5 gap-y-1">
+        <div className="flex flex-1 flex-col gap-3">
           <div>
             <p className="text-xs text-muted">Guitar</p>
-            <p className="text-sm font-semibold text-foreground">
+            <p className="text-lg font-semibold text-foreground">
               {specs.model_name}
             </p>
           </div>
-          <div className="hidden sm:block">
-            <p className="text-xs text-muted">Pickups</p>
-            <p className="text-sm font-medium text-foreground">
-              {specs.pickup_config} ({specs.pickup_position})
-            </p>
-          </div>
-          <div className="hidden md:block">
-            <p className="text-xs text-muted">Tuning</p>
-            <p className="text-sm font-medium text-foreground">
-              {specs.tuning}
-            </p>
-          </div>
-          <div className="hidden md:block">
-            <p className="text-xs text-muted">Strings</p>
-            <p className="text-sm font-medium text-foreground">
-              {specs.string_gauge}
-            </p>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <div>
+              <p className="text-xs text-muted">Pickups</p>
+              <p className="text-sm font-medium text-foreground">
+                {specs.pickup_config} ({specs.pickup_position})
+              </p>
+            </div>
+            <div>
+              <p className="text-xs text-muted">Tuning</p>
+              <p className="text-sm font-medium text-foreground">
+                {specs.tuning}
+              </p>
+            </div>
+            <div>
+              <p className="text-xs text-muted">Strings</p>
+              <p className="text-sm font-medium text-foreground">
+                {specs.string_gauge}
+              </p>
+            </div>
+            {specs.notable_mods && (
+              <div>
+                <p className="text-xs text-muted">Mods</p>
+                <p className="text-sm font-medium text-foreground">
+                  {specs.notable_mods}
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
