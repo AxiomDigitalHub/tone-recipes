@@ -8,8 +8,7 @@ import {
   toneRecipes,
   songs,
 } from "@/lib/data";
-import SignalChainViewer from "@/components/signal-chain/SignalChainViewer";
-import PlatformView from "@/components/signal-chain/PlatformView";
+import UnifiedChainView from "@/components/signal-chain/UnifiedChainView";
 import Badge from "@/components/ui/Badge";
 import CollapsibleSection from "@/components/ui/CollapsibleSection";
 import ReadMore from "@/components/ui/ReadMore";
@@ -70,8 +69,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
   const hasSources = recipe.sources.length > 0;
 
   const navItems: NavItem[] = [
-    { id: "signal-chain", label: "Signal Chain", show: true },
-    { id: "platforms", label: "Platforms", show: platformCount > 0 },
+    { id: "signal-chain", label: `Signal Chain${platformCount > 0 ? ` · ${platformCount + 1}` : ""}`, show: true },
     { id: "guitar", label: "Guitar", show: true },
     { id: "gear", label: "Gear", show: true },
     { id: "learn", label: "Learn", show: !!hasLearn },
@@ -212,41 +210,23 @@ export default async function RecipePage({ params }: RecipePageProps) {
       {/* Collapsible sections */}
       {/* ----------------------------------------------------------------- */}
 
-      {/* Signal Chain */}
+      {/* Signal Chain (unified: Physical + all platforms) */}
       <CollapsibleSection
         id="signal-chain"
         title="Signal Chain"
         defaultOpen={true}
-        badge={`${nodeCount} nodes`}
+        badge={`${platformCount + 1} platforms · ${nodeCount} nodes`}
       >
-        <div className="rounded-xl border border-border bg-surface">
-          <p className="px-6 pt-5 text-xs text-muted md:px-8">
-            Click any node to see settings and tips
-          </p>
-          <SignalChainViewer
-            guitarSpecs={recipe.guitar_specs}
-            signalChain={recipe.signal_chain}
-          />
-        </div>
+        <UnifiedChainView
+          guitarSpecs={recipe.guitar_specs}
+          signalChain={recipe.signal_chain}
+          platformTranslations={
+            recipe.platform_translations as Partial<
+              Record<Platform, (typeof recipe.platform_translations)["helix"]>
+            >
+          }
+        />
       </CollapsibleSection>
-
-      {/* Platform Translations */}
-      {platformCount > 0 && (
-        <CollapsibleSection
-          id="platforms"
-          title="Platform Translations"
-          defaultOpen={true}
-          badge={`${platformCount} platform${platformCount !== 1 ? "s" : ""}`}
-        >
-          <PlatformView
-            translations={
-              recipe.platform_translations as Partial<
-                Record<Platform, (typeof recipe.platform_translations)["helix"]>
-              >
-            }
-          />
-        </CollapsibleSection>
-      )}
 
       {/* Guitar & Setup */}
       <CollapsibleSection
