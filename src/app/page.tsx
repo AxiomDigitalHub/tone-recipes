@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Guitar, Zap, Volume2, Repeat, Speaker, Mic } from "lucide-react";
 import { PLATFORMS } from "@/lib/constants";
 
 export default function Home() {
@@ -36,13 +37,32 @@ export default function Home() {
           </div>
 
           {/* Animated signal chain preview */}
-          <div className="mx-auto mt-16 flex max-w-lg items-center justify-center gap-2">
-            {["GTR", "OD", "AMP", "DLY", "CAB", "MIC"].map((label, i) => (
-              <div key={label} className="flex items-center gap-2">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-surface text-xs font-mono text-muted transition-all hover:border-accent hover:text-accent">
-                  {label}
+          <div className="mx-auto mt-16 flex max-w-2xl items-center justify-center gap-2">
+            {[
+              { icon: Guitar, label: "Guitar", color: "#f59e0b" },
+              { icon: Zap, label: "Overdrive", color: "#22c55e" },
+              { icon: Volume2, label: "Amp", color: "#ef4444" },
+              { icon: Repeat, label: "Delay", color: "#3b82f6" },
+              { icon: Speaker, label: "Cabinet", color: "#a855f7" },
+              { icon: Mic, label: "Mic", color: "#6b7280" },
+            ].map((node, i) => (
+              <div key={node.label} className="flex items-center gap-2">
+                <div className="group flex flex-col items-center">
+                  <div
+                    className="node-glow flex h-14 w-14 items-center justify-center rounded-xl border-2 bg-surface transition-all hover:bg-surface-hover md:h-16 md:w-16"
+                    style={{ borderColor: node.color + "70" }}
+                  >
+                    <node.icon
+                      className="h-6 w-6 md:h-7 md:w-7"
+                      style={{ color: node.color }}
+                      strokeWidth={1.5}
+                    />
+                  </div>
+                  <span className="mt-1.5 text-[10px] font-medium uppercase text-muted">
+                    {node.label}
+                  </span>
                 </div>
-                {i < 5 && <div className="signal-line h-0.5 w-6 rounded-full" />}
+                {i < 5 && <div className="signal-line h-0.5 w-4 rounded-full md:w-6" />}
               </div>
             ))}
           </div>
