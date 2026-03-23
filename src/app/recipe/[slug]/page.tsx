@@ -70,7 +70,6 @@ export default async function RecipePage({ params }: RecipePageProps) {
 
   const navItems: NavItem[] = [
     { id: "signal-chain", label: `Signal Chain${platformCount > 0 ? ` · ${platformCount + 1}` : ""}`, show: true },
-    { id: "guitar", label: "Guitar", show: true },
     { id: "gear", label: "Gear", show: true },
     { id: "learn", label: "Learn", show: !!hasLearn },
     { id: "sources", label: "Sources", show: !!hasSources },
@@ -226,42 +225,6 @@ export default async function RecipePage({ params }: RecipePageProps) {
             >
           }
         />
-      </CollapsibleSection>
-
-      {/* Guitar & Setup */}
-      <CollapsibleSection
-        id="guitar"
-        title="Guitar &amp; Setup"
-        defaultOpen={false}
-      >
-        <div className="rounded-xl border border-border bg-surface p-6 md:p-8">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div>
-              <p className="text-xs text-muted">Model</p>
-              <p className="font-medium">{recipe.guitar_specs.model_name}</p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Pickups</p>
-              <p className="font-medium">
-                {recipe.guitar_specs.pickup_config} (
-                {recipe.guitar_specs.pickup_position})
-              </p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Tuning</p>
-              <p className="font-medium">{recipe.guitar_specs.tuning}</p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Strings</p>
-              <p className="font-medium">{recipe.guitar_specs.string_gauge}</p>
-            </div>
-          </div>
-          {recipe.guitar_specs.notable_mods && (
-            <p className="mt-4 text-sm text-muted">
-              {recipe.guitar_specs.notable_mods}
-            </p>
-          )}
-        </div>
       </CollapsibleSection>
 
       {/* Original Gear */}
