@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Badge from "@/components/ui/Badge";
 import FavoriteButton from "@/components/ui/FavoriteButton";
+import { getChainIcon } from "@/lib/chain-icons";
 import type { ToneRecipe, Artist, Song } from "@/types/recipe";
 import { DIFFICULTY_COLORS, PLATFORMS } from "@/lib/constants";
 
@@ -74,25 +75,27 @@ export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
 
         {/* Mini signal chain preview */}
         <div className="mb-3 flex items-center gap-1 overflow-hidden">
-          {recipe.signal_chain.slice(0, 5).map((node, i) => (
+          {recipe.signal_chain.slice(0, 5).map((node, i) => {
+            const NodeIcon = getChainIcon(node.category, node.subcategory);
+            return (
             <div key={i} className="flex items-center gap-1">
               <div
-                className="node-glow flex h-8 w-8 items-center justify-center rounded-md border border-border text-[10px] font-mono transition-all"
+                className="node-glow flex h-8 w-8 items-center justify-center rounded-md border border-border transition-all"
                 style={{ borderColor: node.icon_color + "60" }}
                 title={node.gear_name}
               >
-                {node.category === "effect" && "FX"}
-                {node.category === "preamp" && "AMP"}
-                {node.category === "cabinet" && "CAB"}
-                {node.category === "microphone" && "MIC"}
-                {node.category === "wet_effect" && "WET"}
-                {node.category === "guitar" && "GTR"}
+                <NodeIcon
+                  className="h-4 w-4"
+                  style={{ color: node.icon_color }}
+                  strokeWidth={1.5}
+                />
               </div>
               {i < Math.min(recipe.signal_chain.length - 1, 4) && (
                 <div className="signal-line h-px w-3" />
               )}
             </div>
-          ))}
+            );
+          })}
           {chainLength > 5 && (
             <span className="text-xs text-muted">+{chainLength - 5}</span>
           )}

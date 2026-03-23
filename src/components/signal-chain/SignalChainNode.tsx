@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { SignalChainNode as NodeType, GuitarSpecs } from "@/types/recipe";
+import { getChainIcon, getChainIconLabel } from "@/lib/chain-icons";
 
 interface SignalChainNodeProps {
   node?: NodeType;
@@ -12,18 +13,9 @@ interface SignalChainNodeProps {
 export default function SignalChainNode({ node, guitarSpecs }: SignalChainNodeProps) {
   const [expanded, setExpanded] = useState(false);
 
-  const categoryLabel: Record<string, string> = {
-    effect: "Effect",
-    preamp: "Amp",
-    wet_effect: "Effect",
-    power_amp: "Power",
-    cabinet: "Cabinet",
-    microphone: "Mic",
-    guitar: "Guitar",
-  };
-
   // Guitar node mode
   if (guitarSpecs) {
+    const GuitarIcon = getChainIcon("guitar");
     const guitarSettings: Record<string, string> = {
       Pickups: `${guitarSpecs.pickup_config} (${guitarSpecs.pickup_position})`,
       Tuning: guitarSpecs.tuning_custom || guitarSpecs.tuning,
@@ -38,8 +30,8 @@ export default function SignalChainNode({ node, guitarSpecs }: SignalChainNodePr
           onClick={() => setExpanded(!expanded)}
           className="node-glow group flex h-20 w-20 flex-col items-center justify-center rounded-xl border-2 border-accent/50 bg-surface transition-all hover:bg-surface-hover"
         >
-          <span className="text-[10px] font-medium uppercase text-muted">Guitar</span>
-          <div className="mt-0.5 h-6 w-6 rounded bg-accent/20" />
+          <GuitarIcon className="h-6 w-6 text-accent" strokeWidth={1.5} />
+          <span className="mt-1 text-[10px] font-medium uppercase text-muted">Guitar</span>
         </button>
 
         <p className="mt-2 max-w-[100px] text-center text-[11px] font-medium leading-tight text-foreground">
@@ -75,6 +67,9 @@ export default function SignalChainNode({ node, guitarSpecs }: SignalChainNodePr
   // Standard chain node mode
   if (!node) return null;
 
+  const Icon = getChainIcon(node.category, node.subcategory);
+  const label = getChainIconLabel(node.category, node.subcategory);
+
   return (
     <div className="flex flex-col items-center">
       {/* Node icon */}
@@ -83,13 +78,14 @@ export default function SignalChainNode({ node, guitarSpecs }: SignalChainNodePr
         className="node-glow group flex h-20 w-20 flex-col items-center justify-center rounded-xl border-2 bg-surface transition-all hover:bg-surface-hover"
         style={{ borderColor: node.icon_color + "80" }}
       >
-        <span className="text-[10px] font-medium uppercase text-muted">
-          {node.subcategory || categoryLabel[node.category] || node.category}
-        </span>
-        <div
-          className="mt-0.5 h-6 w-6 rounded"
-          style={{ backgroundColor: node.icon_color + "40" }}
+        <Icon
+          className="h-6 w-6"
+          style={{ color: node.icon_color }}
+          strokeWidth={1.5}
         />
+        <span className="mt-1 text-[10px] font-medium uppercase text-muted">
+          {label}
+        </span>
       </button>
 
       {/* Gear name */}

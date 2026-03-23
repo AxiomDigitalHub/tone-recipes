@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Badge from "@/components/ui/Badge";
+import { getChainIcon } from "@/lib/chain-icons";
 import {
   toneRecipes,
   songs,
@@ -243,13 +244,19 @@ function SpecItem({ label, value }: { label: string; value: string }) {
 
 function ChainNodeCard({ node }: { node: SignalChainNode }) {
   const settingEntries = Object.entries(node.settings);
+  const Icon = getChainIcon(node.category, node.subcategory);
 
   return (
     <div
       className="rounded-lg border border-border bg-background/50 p-3"
       style={{ borderLeftWidth: 3, borderLeftColor: node.icon_color }}
     >
-      <div className="flex items-start justify-between gap-2">
+      <div className="flex items-start gap-2.5">
+        <Icon
+          className="mt-0.5 h-4 w-4 shrink-0"
+          style={{ color: node.icon_color }}
+          strokeWidth={1.5}
+        />
         <div>
           <p className="text-sm font-semibold text-foreground">
             {node.gear_name}
