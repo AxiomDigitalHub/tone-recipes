@@ -22,9 +22,23 @@ export async function generateMetadata({ params }: GearPageProps) {
   const gear = getGearBySlug(slug);
   if (!gear) return { title: "Gear Not Found" };
 
+  const title = `${gear.name} - ${gear.manufacturer}`;
+  const description = gear.description.slice(0, 160);
+
   return {
-    title: `${gear.name} - ${gear.manufacturer} | ToneRecipes`,
-    description: gear.description.slice(0, 160),
+    title,
+    description,
+    keywords: [gear.name, gear.manufacturer, gear.type, "guitar gear", "tone recipes"],
+    openGraph: {
+      title: `${gear.name} - ${gear.manufacturer} | ToneRecipes`,
+      description,
+      type: "article",
+    },
+    twitter: {
+      card: "summary",
+      title: `${gear.name} - ${gear.manufacturer}`,
+      description,
+    },
   };
 }
 

@@ -31,9 +31,32 @@ export async function generateMetadata({ params }: RecipePageProps) {
   const song = getSongBySlug(recipe.song_slug);
   const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
 
+  const title = `${recipe.title} - ${artist?.name || ""}`;
+  const description = recipe.description.slice(0, 160);
+
   return {
-    title: `${recipe.title} - ${artist?.name || ""}`,
-    description: recipe.description.slice(0, 160),
+    title,
+    description,
+    keywords: [
+      artist?.name,
+      song?.title,
+      "tone recipe",
+      "signal chain",
+      "guitar tone",
+      ...recipe.tags,
+    ].filter(Boolean),
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      ...(song?.album_art_url ? { images: [{ url: song.album_art_url, alt: `${song.album} album art` }] } : {}),
+    },
+    twitter: {
+      card: song?.album_art_url ? "summary_large_image" : "summary",
+      title,
+      description,
+      ...(song?.album_art_url ? { images: [song.album_art_url] } : {}),
+    },
   };
 }
 

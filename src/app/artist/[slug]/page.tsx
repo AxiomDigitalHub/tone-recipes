@@ -13,9 +13,24 @@ export async function generateMetadata({ params }: ArtistPageProps) {
   const { slug } = await params;
   const artist = getArtistBySlug(slug);
   if (!artist) return { title: "Artist Not Found" };
+  const title = `${artist.name} Tone Recipes`;
+  const description = `Guitar tone recipes for ${artist.name} songs. Signal chains, settings, and platform translations.`;
+
   return {
-    title: `${artist.name} Tone Recipes`,
-    description: `Guitar tone recipes for ${artist.name} songs. Signal chains, settings, and platform translations.`,
+    title,
+    description,
+    keywords: [artist.name, "tone recipes", "guitar tone", "signal chain", ...artist.genres],
+    openGraph: {
+      title,
+      description,
+      type: "profile",
+      ...(artist.image_url ? { images: [{ url: artist.image_url, alt: artist.name }] } : {}),
+    },
+    twitter: {
+      card: artist.image_url ? "summary_large_image" : "summary",
+      title,
+      description,
+    },
   };
 }
 

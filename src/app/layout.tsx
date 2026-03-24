@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -16,6 +16,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#0a0a0a",
+};
+
 export const metadata: Metadata = {
   title: {
     default: "ToneRecipes - Build the tones you hear",
@@ -23,10 +27,35 @@ export const metadata: Metadata = {
   },
   description:
     "Song-specific tone recipes for Helix, Quad Cortex, TONEX, and your physical rig. The cross-platform Rosetta Stone for guitar tone.",
+  keywords: [
+    "guitar tone",
+    "tone recipes",
+    "signal chain",
+    "Helix",
+    "Quad Cortex",
+    "TONEX",
+    "guitar effects",
+    "amp settings",
+    "guitar rig",
+    "modeler presets",
+  ],
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "ToneRecipes",
+    title: "ToneRecipes - Build the tones you hear",
+    description:
+      "Song-specific tone recipes for Helix, Quad Cortex, TONEX, and your physical rig.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ToneRecipes - Build the tones you hear",
+    description:
+      "Song-specific tone recipes for Helix, Quad Cortex, TONEX, and your physical rig.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

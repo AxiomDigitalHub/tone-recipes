@@ -4,9 +4,16 @@ import Badge from "@/components/ui/Badge";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Gear Database | ToneRecipes",
+  title: "Gear Database",
   description:
-    "Browse guitars, effects pedals, amps, cabinets, and microphones used in our tone recipes.",
+    "Browse guitars, effects pedals, amps, cabinets, and microphones used in our tone recipes. Compare real gear to modeler equivalents.",
+  openGraph: {
+    title: "Gear Database | ToneRecipes",
+    description:
+      "Browse guitars, effects pedals, amps, cabinets, and microphones used in our tone recipes.",
+    type: "website",
+  },
+  keywords: ["guitar gear", "effects pedals", "amps", "cabinets", "microphones", "modeler equivalents"],
 };
 
 const TYPE_ORDER: Array<{

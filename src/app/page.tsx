@@ -1,8 +1,14 @@
 import Link from "next/link";
-import { Guitar, Zap, Volume2, Repeat, Speaker, Mic } from "lucide-react";
+import Image from "next/image";
+import { Guitar, Zap, Orbit, Volume2, Clock, Speaker, Mic } from "lucide-react";
 import { PLATFORMS } from "@/lib/constants";
+import { toneRecipes, songs, artists, getSongBySlug, getArtistBySlug } from "@/lib/data";
+import RecipeCard from "@/components/recipe/RecipeCard";
+import Badge from "@/components/ui/Badge";
 
 export default function Home() {
+  const featuredRecipes = toneRecipes.slice(0, 6);
+
   return (
     <>
       {/* Hero */}
@@ -41,8 +47,9 @@ export default function Home() {
             {[
               { icon: Guitar, label: "Guitar", color: "#f59e0b" },
               { icon: Zap, label: "Overdrive", color: "#22c55e" },
-              { icon: Volume2, label: "Amp", color: "#ef4444" },
-              { icon: Repeat, label: "Delay", color: "#3b82f6" },
+              { icon: Orbit, label: "Chorus", color: "#8b5cf6" },
+              { icon: Volume2, label: "Preamp", color: "#ef4444" },
+              { icon: Clock, label: "Delay", color: "#3b82f6" },
               { icon: Speaker, label: "Cabinet", color: "#a855f7" },
               { icon: Mic, label: "Mic", color: "#6b7280" },
             ].map((node, i) => (
@@ -62,15 +69,109 @@ export default function Home() {
                     {node.label}
                   </span>
                 </div>
-                {i < 5 && <div className="signal-line h-0.5 w-4 rounded-full md:w-6" />}
+                {i < 6 && <div className="signal-line h-0.5 w-4 rounded-full md:w-6" />}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How it works */}
+      {/* Featured Recipes */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-10 flex items-end justify-between">
+            <div>
+              <h2 className="text-2xl font-bold md:text-3xl">
+                Featured Recipes
+              </h2>
+              <p className="mt-2 text-muted">
+                Iconic tones, broken down step by step.
+              </p>
+            </div>
+            <Link
+              href="/browse"
+              className="hidden text-sm font-medium text-accent transition-colors hover:text-accent-hover sm:block"
+            >
+              View all &rarr;
+            </Link>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredRecipes.map((recipe) => {
+              const song = getSongBySlug(recipe.song_slug);
+              const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
+              return (
+                <RecipeCard
+                  key={recipe.slug}
+                  recipe={recipe}
+                  song={song}
+                  artist={artist}
+                />
+              );
+            })}
+          </div>
+
+          <div className="mt-8 text-center sm:hidden">
+            <Link
+              href="/browse"
+              className="text-sm font-medium text-accent transition-colors hover:text-accent-hover"
+            >
+              View all recipes &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Artists */}
       <section className="border-y border-border bg-surface/50 py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-center text-2xl font-bold md:text-3xl">
+            Popular Artists
+          </h2>
+          <p className="mx-auto mt-2 max-w-xl text-center text-muted">
+            Explore tone recipes from the guitarists who shaped the sound of modern music.
+          </p>
+
+          <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {artists.slice(0, 10).map((artist) => (
+              <Link
+                key={artist.slug}
+                href={`/artist/${artist.slug}`}
+                className="group flex flex-col items-center rounded-xl border border-border bg-surface p-5 text-center transition-all hover:border-accent/40 hover:bg-surface-hover"
+              >
+                <div className="relative h-20 w-20 overflow-hidden rounded-full border-2 border-border transition-colors group-hover:border-accent/50">
+                  {artist.image_url ? (
+                    <Image
+                      src={artist.image_url}
+                      alt={artist.name}
+                      fill
+                      className="object-cover"
+                      sizes="80px"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-accent/10 text-xl font-bold text-accent">
+                      {artist.name.charAt(0)}
+                    </div>
+                  )}
+                </div>
+                <h3 className="mt-3 text-sm font-semibold text-foreground group-hover:text-accent transition-colors">
+                  {artist.name}
+                </h3>
+                <div className="mt-2 flex flex-wrap justify-center gap-1">
+                  {artist.genres.slice(0, 2).map((genre) => (
+                    <Badge key={genre} variant="outline" className="text-[10px]">
+                      {genre}
+                    </Badge>
+                  ))}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-center text-2xl font-bold md:text-3xl">
             How it works
@@ -109,7 +210,7 @@ export default function Home() {
       </section>
 
       {/* Supported platforms */}
-      <section className="py-20">
+      <section className="border-t border-border bg-surface/50 py-20">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <h2 className="text-2xl font-bold md:text-3xl">
             Every tone. Every platform.
@@ -140,24 +241,22 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-border bg-surface/50 py-20">
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <h2 className="text-2xl font-bold md:text-3xl">
             Ready to find your tone?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-muted">
-            Join the waitlist and be the first to access song-specific tone
-            recipes for your platform.
+            Explore hundreds of song-specific tone recipes, broken down for your
+            platform.
           </p>
-          <div className="mx-auto mt-8 flex max-w-sm gap-3">
-            <input
-              type="email"
-              placeholder="you@email.com"
-              className="flex-1 rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder-muted outline-none transition-colors focus:border-accent"
-            />
-            <button className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-accent-hover">
-              Join
-            </button>
+          <div className="mt-8">
+            <Link
+              href="/browse"
+              className="inline-block rounded-xl bg-accent px-10 py-4 text-base font-semibold text-background transition-colors hover:bg-accent-hover"
+            >
+              Browse All Recipes
+            </Link>
           </div>
         </div>
       </section>
