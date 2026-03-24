@@ -157,8 +157,10 @@ const SUBCATEGORY_ICONS: Record<string, IconComponent> = {
 
 /**
  * Category → icon mapping (fallback).
+ * Includes both physical chain categories AND platform block_category values.
  */
 const CATEGORY_ICONS: Record<string, IconComponent> = {
+  // Physical chain categories
   guitar: Guitar,
   effect: Zap,
   preamp: Volume2,
@@ -166,17 +168,45 @@ const CATEGORY_ICONS: Record<string, IconComponent> = {
   wet_effect: Clock,
   cabinet: Speaker,
   microphone: Mic,
+
+  // Platform block_category values (Helix / QC / Katana / TONEX)
+  amp: Volume2,
+  "amp type": Volume2,
+  cab: Speaker,
+  drive: Zap,
+  distortion: Zap,
+  stomp: Zap,
+  booster: BoostIcon,
+  dynamics: DynamicsIcon,
+  modulation: Orbit,
+  mod: Orbit,
+  delay: Clock,
+  reverb: ReverbIcon,
+  wah: WahIcon,
+  pitch: PitchIcon,
+  "pitch/synth": PitchIcon,
+  fx: Zap,
+  "pedal fx": Zap,
+  "tone model": Volume2,
+  eq: SlidersHorizontal,
+  filter: WahIcon,
 };
 
 export function getChainIcon(
   category: string,
   subcategory?: string | null
 ): IconComponent {
+  // Try subcategory first (case-insensitive)
   if (subcategory) {
     const sub = subcategory.toLowerCase();
     if (SUBCATEGORY_ICONS[sub]) return SUBCATEGORY_ICONS[sub];
   }
-  return CATEGORY_ICONS[category] || Zap;
+  // Try category (case-insensitive)
+  const cat = category.toLowerCase();
+  if (CATEGORY_ICONS[cat]) return CATEGORY_ICONS[cat];
+  // Try category as subcategory (platform block_category often matches subcategory names)
+  if (SUBCATEGORY_ICONS[cat]) return SUBCATEGORY_ICONS[cat];
+  return Zap;
 }
 
 /**
@@ -198,5 +228,6 @@ export function getChainIconLabel(
     microphone: "Mic",
   };
 
-  return labels[category] || category;
+  // Try exact match first, then lowercase
+  return labels[category] || labels[category.toLowerCase()] || category;
 }
