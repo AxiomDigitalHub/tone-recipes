@@ -369,7 +369,7 @@ export const gearItems: GearItem[] = [
     type: "amp",
     manufacturer: "Fender",
     icon_type: "fender_combo",
-    icon_color: "#1a1a2e",
+    icon_color: "#ef4444",
     description:
       "A 1964 blackface Fender combo with 1x15 JBL speaker. SRV's primary amp. Rich, warm cleans that break up beautifully when pushed. Spring reverb and vibrato built in.",
     default_settings: {
@@ -422,7 +422,7 @@ export const gearItems: GearItem[] = [
     type: "amp",
     manufacturer: "Hiwatt",
     icon_type: "marshall_head",
-    icon_color: "#4a4a6a",
+    icon_color: "#8b5cf6",
     description:
       "David Gilmour's primary amp. Extremely loud, extremely clean headroom. Where a Marshall breaks up early, a Hiwatt stays clean much longer, providing a pristine platform for effects. The pedal-friendly amp.",
     default_settings: {
@@ -501,7 +501,7 @@ export const gearItems: GearItem[] = [
     type: "amp",
     manufacturer: "Marshall",
     icon_type: "marshall_head",
-    icon_color: "#1a1a1a",
+    icon_color: "#a1a1aa",
     description:
       "The Marshall Plexi. The sound of rock guitar. Hendrix, Page, Angus Young, Slash. Cranked to full volume, it produces the most iconic overdrive tone in guitar history.",
     default_settings: {
@@ -530,7 +530,7 @@ export const gearItems: GearItem[] = [
     subcategory: "wah",
     manufacturer: "Dunlop",
     icon_type: "wah",
-    icon_color: "#1a1a1a",
+    icon_color: "#a1a1aa",
     description:
       "The standard wah pedal. Hendrix made it famous. Used on Voodoo Child, White Room, and thousands of other recordings.",
     default_settings: {
@@ -589,7 +589,7 @@ export const gearItems: GearItem[] = [
     type: "cabinet",
     manufacturer: "Marshall",
     icon_type: "cab_4x12",
-    icon_color: "#1a1a1a",
+    icon_color: "#a1a1aa",
     description:
       "The classic 4x12 with Celestion G12M Greenback speakers. Warm, woody midrange with controlled top end. The sound of classic rock.",
     modeler_equivalents: {
@@ -641,7 +641,7 @@ export const gearItems: GearItem[] = [
     type: "amp",
     manufacturer: "Marshall",
     icon_type: "marshall_head",
-    icon_color: "#1a1a1a",
+    icon_color: "#a1a1aa",
     description:
       "The definitive 1980s rock amp. A single-channel, high-gain evolution of the Plexi circuit. Slash, Zakk Wylde, Tom Morello, and countless others built their tone on the JCM800's aggressive, punchy overdrive with tight low end and searing mids.",
     default_settings: {
@@ -707,7 +707,7 @@ export const gearItems: GearItem[] = [
     type: "amp",
     manufacturer: "Two Rock",
     icon_type: "fender_combo",
-    icon_color: "#4a5568",
+    icon_color: "#94a3b8",
     description:
       "A boutique, hand-wired amplifier favored by John Mayer. Inspired by blackface Fender circuits but with more headroom, richer harmonics, and a sweeter overdrive. Responds beautifully to pick dynamics and guitar volume changes.",
     default_settings: {
@@ -744,7 +744,7 @@ export const gearItems: GearItem[] = [
     type: "amp",
     manufacturer: "Fender",
     icon_type: "fender_combo",
-    icon_color: "#1a1a2e",
+    icon_color: "#ef4444",
     description:
       "A tiny 5-watt, single-ended, 1x8 practice amp that became a secret weapon in recording studios. When cranked to full volume, the Champ produces a rich, creamy overdrive with natural compression. Used on countless classic recordings including Layla and early Clapton sessions.",
     default_settings: {
@@ -766,7 +766,7 @@ export const gearItems: GearItem[] = [
     type: "guitar",
     manufacturer: "Gibson",
     icon_type: "les_paul",
-    icon_color: "#1a1a1a",
+    icon_color: "#a1a1aa",
     description:
       "B.B. King's beloved 'Lucille.' A semi-hollow ES-355 with dual humbuckers, Varitone switch, and a warm, singing tone. The semi-hollow body provides natural resonance and sustain that makes single notes sing like a human voice.",
     modeler_equivalents: {},
@@ -814,7 +814,7 @@ export const gearItems: GearItem[] = [
     type: "amp",
     manufacturer: "Silvertone",
     icon_type: "fender_combo",
-    icon_color: "#2d2d2d",
+    icon_color: "#a1a1aa",
     description:
       "A budget department-store amp from the 1960s that Jack White turned into a signature sound. Six 10-inch speakers, tube-driven, with a raw, lo-fi character that breaks up beautifully when pushed. The definition of garage rock tone.",
     default_settings: {
@@ -870,7 +870,7 @@ export const gearItems: GearItem[] = [
     type: "amp",
     manufacturer: "Mesa/Boogie",
     icon_type: "marshall_head",
-    icon_color: "#2d2d2d",
+    icon_color: "#a1a1aa",
     description:
       "The holy grail of metal amps. The Mark IIC+ is the most sought-after Mesa/Boogie ever made, with a tight, aggressive lead channel that defined 1980s thrash metal. Metallica's Master of Puppets, Ride the Lightning, and ...And Justice for All were all recorded with Mark IIC+ amps.",
     default_settings: {
@@ -961,7 +961,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "fender-vibroverb-blackface",
         gear_name: "Fender Vibroverb (1964 Blackface)",
         icon_type: "fender_combo",
-        icon_color: "#1a1a2e",
+        icon_color: "#ef4444",
         is_in_effects_loop: false,
         settings: { Volume: 8, Treble: 6, Bass: 4, Reverb: 3, Speed: 0 },
         notes:
@@ -974,7 +974,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: null,
         gear_name: "Built-in 1x15 JBL D130F",
         icon_type: "cab_1x12",
-        icon_color: "#1a1a2e",
+        icon_color: "#ef4444",
         is_in_effects_loop: false,
         settings: {},
         notes:
@@ -1204,7 +1204,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "hiwatt-dr103",
         gear_name: "Hiwatt DR103 Custom 100",
         icon_type: "marshall_head",
-        icon_color: "#4a4a6a",
+        icon_color: "#8b5cf6",
         is_in_effects_loop: false,
         settings: {
           "Normal Vol": 5,
@@ -1237,7 +1237,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: null,
         gear_name: "WEM 4x12 Cabinet (Fane speakers)",
         icon_type: "cab_4x12",
-        icon_color: "#4a4a6a",
+        icon_color: "#8b5cf6",
         is_in_effects_loop: false,
         settings: {},
         notes:
@@ -1418,7 +1418,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "dunlop-cry-baby-wah",
         gear_name: "Dunlop Cry Baby Wah",
         icon_type: "wah",
-        icon_color: "#1a1a1a",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: { Position: "rocked back and forth" },
         notes:
@@ -1444,7 +1444,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "marshall-super-lead-1959",
         gear_name: "Marshall Super Lead 1959",
         icon_type: "marshall_head",
-        icon_color: "#1a1a1a",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: {
           Presence: 6,
@@ -1464,7 +1464,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "marshall-4x12-greenback",
         gear_name: "Marshall 4x12 Cabinet (Greenback)",
         icon_type: "cab_4x12",
-        icon_color: "#1a1a1a",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: {},
         notes:
@@ -1702,7 +1702,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: null,
         gear_name: "Mesa/Boogie Studio .22 Preamp",
         icon_type: "marshall_head",
-        icon_color: "#2d2d2d",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: { Gain: 6, Master: 7, Treble: 5, Mid: 3, Bass: 6 },
         notes:
@@ -1715,7 +1715,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: null,
         gear_name: "Mesa 1x12 Cabinet",
         icon_type: "cab_1x12",
-        icon_color: "#2d2d2d",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: {},
         notes:
@@ -1938,7 +1938,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: null,
         gear_name: "Marshall Major 200W",
         icon_type: "marshall_head",
-        icon_color: "#1a1a1a",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: {
           Volume: 3,
@@ -1957,7 +1957,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "marshall-4x12-greenback",
         gear_name: "Marshall 4x12 Cabinet (Greenback)",
         icon_type: "cab_4x12",
-        icon_color: "#1a1a1a",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: {},
         notes:
@@ -2140,7 +2140,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "marshall-jcm800",
         gear_name: "Marshall JCM800 2203",
         icon_type: "marshall_head",
-        icon_color: "#1a1a1a",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: { Preamp: 8, Master: 6, Bass: 5, Middle: 8, Treble: 7, Presence: 6 },
         notes:
@@ -2153,7 +2153,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "marshall-4x12-greenback",
         gear_name: "Marshall 4x12 Cabinet (Greenback)",
         icon_type: "cab_4x12",
-        icon_color: "#1a1a1a",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: {},
         notes:
@@ -2320,7 +2320,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "marshall-super-lead-1959",
         gear_name: "Marshall Super Lead 1959 (Plexi) via Variac",
         icon_type: "marshall_head",
-        icon_color: "#1a1a1a",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: {
           Presence: 5,
@@ -2340,7 +2340,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "marshall-4x12-greenback",
         gear_name: "Marshall 4x12 Cabinet (Greenback)",
         icon_type: "cab_4x12",
-        icon_color: "#1a1a1a",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: {},
         notes:
@@ -2751,7 +2751,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "two-rock-custom-reverb",
         gear_name: "Two Rock Custom Reverb",
         icon_type: "fender_combo",
-        icon_color: "#4a5568",
+        icon_color: "#94a3b8",
         is_in_effects_loop: false,
         settings: { Volume: 6, Treble: 6, Mid: 5, Bass: 5, Reverb: 3, Master: 5 },
         notes:
@@ -2764,7 +2764,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: null,
         gear_name: "Two Rock 2x12 Cabinet (EVM 12L speakers)",
         icon_type: "cab_1x12",
-        icon_color: "#4a5568",
+        icon_color: "#94a3b8",
         is_in_effects_loop: false,
         settings: {},
         notes:
@@ -2941,7 +2941,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "fender-champ",
         gear_name: "Fender Champ (cranked)",
         icon_type: "fender_combo",
-        icon_color: "#1a1a2e",
+        icon_color: "#ef4444",
         is_in_effects_loop: false,
         settings: { Volume: 12 },
         notes:
@@ -2954,7 +2954,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: null,
         gear_name: "Fender Champ Built-in 1x8 Speaker",
         icon_type: "cab_1x12",
-        icon_color: "#1a1a2e",
+        icon_color: "#ef4444",
         is_in_effects_loop: false,
         settings: {},
         notes:
@@ -3084,7 +3084,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "fender-vibroverb-blackface",
         gear_name: "Fender Vibrolux Reverb",
         icon_type: "fender_combo",
-        icon_color: "#1a1a2e",
+        icon_color: "#ef4444",
         is_in_effects_loop: false,
         settings: { Volume: 5, Treble: 6, Bass: 5, Reverb: 3, Speed: 0 },
         notes:
@@ -3097,7 +3097,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: null,
         gear_name: "Built-in Fender 2x10 Speakers",
         icon_type: "cab_1x12",
-        icon_color: "#1a1a2e",
+        icon_color: "#ef4444",
         is_in_effects_loop: false,
         settings: {},
         notes:
@@ -3436,7 +3436,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "silvertone-1485",
         gear_name: "Silvertone 1485 Amp",
         icon_type: "fender_combo",
-        icon_color: "#2d2d2d",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: { Volume: 8, Tone: 6 },
         notes:
@@ -3449,7 +3449,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: null,
         gear_name: "Silvertone Built-in 6x10 Speakers",
         icon_type: "cab_4x12",
-        icon_color: "#2d2d2d",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: {},
         notes:
@@ -3606,7 +3606,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "dunlop-cry-baby-wah",
         gear_name: "Dunlop Cry Baby Wah",
         icon_type: "wah",
-        icon_color: "#1a1a1a",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: { Position: "rocked for solo effects" },
         notes:
@@ -3632,7 +3632,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "marshall-jcm800",
         gear_name: "Marshall JCM800 2205 (50W)",
         icon_type: "marshall_head",
-        icon_color: "#1a1a1a",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: { Preamp: 8, Master: 5, Bass: 6, Middle: 7, Treble: 6, Presence: 5 },
         notes:
@@ -3645,7 +3645,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "marshall-4x12-greenback",
         gear_name: "Marshall 4x12 Cabinet",
         icon_type: "cab_4x12",
-        icon_color: "#1a1a1a",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: {},
         notes: "Standard Marshall 4x12 for a full, powerful sound.",
@@ -3839,7 +3839,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: "mesa-boogie-mark-iic-plus",
         gear_name: "Mesa/Boogie Mark IIC+ (Lead Channel)",
         icon_type: "marshall_head",
-        icon_color: "#2d2d2d",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: {
           Volume: 7,
@@ -3860,7 +3860,7 @@ export const toneRecipes: ToneRecipe[] = [
         gear_slug: null,
         gear_name: "Mesa/Boogie 4x12 Rectifier Cabinet",
         icon_type: "cab_4x12",
-        icon_color: "#2d2d2d",
+        icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: {},
         notes:
