@@ -75,6 +75,10 @@ export default function BrowseContent() {
       <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h1 className="text-3xl font-bold">Browse Tone Recipes</h1>
+          <p className="mt-1 text-sm text-muted">
+            {toneRecipes.length} recipes across {artists.length} artists &middot;{" "}
+            {PLATFORMS.filter((p) => p.id !== "physical").length} platforms
+          </p>
           <p className="mt-2 text-muted">
             Find the tone you want. Every recipe includes the full signal chain,
             settings, and platform translations.

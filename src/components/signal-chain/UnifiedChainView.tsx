@@ -376,6 +376,9 @@ export default function UnifiedChainView({
               );
             })}
           </div>
+          {selectedNodeIndex === null && (
+            <p className="text-xs text-muted text-center py-2">Tap any node to see settings &#8595;</p>
+          )}
         </div>
       ) : activeTranslation ? (
         <div role="tabpanel" aria-label={`${activePlatformMeta?.label || activeTab} signal chain`} className="w-full md:overflow-x-auto">

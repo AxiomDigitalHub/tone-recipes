@@ -55,11 +55,12 @@ function searchAll(query: string): SearchResult[] {
     .slice(0, 5);
   for (const s of matchedSongs) {
     const artist = artists.find((a) => a.slug === s.artist_slug);
+    const recipe = toneRecipes.find((r) => r.song_slug === s.slug);
     results.push({
       type: "song",
       label: s.title,
       description: artist ? artist.name : s.artist_slug,
-      href: `/artist/${s.artist_slug}`,
+      href: recipe ? `/recipe/${recipe.slug}` : `/artist/${s.artist_slug}`,
     });
   }
 

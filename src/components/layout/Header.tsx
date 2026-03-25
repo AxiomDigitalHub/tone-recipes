@@ -3,14 +3,13 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/lib/auth/auth-context";
+import { Search } from "lucide-react";
 
 const navLinks = [
   { href: "/browse", label: "Browse" },
   { href: "/gear", label: "Gear" },
   { href: "/compare", label: "Compare" },
-  { href: "/learn", label: "Learn" },
-  { href: "/blog", label: "Blog" },
-  { href: "/admin", label: "Admin" },
+  { href: "/how-it-works", label: "How It Works" },
 ];
 
 export default function Header() {
@@ -145,13 +144,20 @@ export default function Header() {
           ) : null}
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-        >
+        {/* Mobile search + hamburger */}
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
+            aria-label="Search"
+            className="flex h-11 w-11 items-center justify-center rounded-lg text-muted transition-colors hover:text-foreground"
+          >
+            <Search className="h-5 w-5" />
+          </button>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+          >
           <svg
             className="h-6 w-6 text-foreground"
             fill="none"
@@ -164,7 +170,8 @@ export default function Header() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
-        </button>
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
