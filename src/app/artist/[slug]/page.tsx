@@ -62,7 +62,9 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
               alt={artist.name}
               width={140}
               height={140}
+              priority
               className="rounded-xl border border-border shadow-lg object-cover"
+              sizes="140px"
             />
           </div>
         )}

@@ -204,7 +204,9 @@ export default function BrowseContent() {
                   alt={artist.name}
                   width={28}
                   height={28}
+                  loading="lazy"
                   className="rounded-full object-cover"
+                  sizes="28px"
                 />
               ) : (
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/20 text-xs font-bold text-accent">

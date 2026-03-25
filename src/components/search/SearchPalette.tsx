@@ -220,7 +220,7 @@ export default function SearchPalette() {
   let flatIndex = 0;
 
   return (
-    <div className="fixed inset-0 z-[100]" onKeyDown={handleKeyDown}>
+    <div className="fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-label="Search" onKeyDown={handleKeyDown}>
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-background/80 backdrop-blur-sm"
@@ -251,6 +251,10 @@ export default function SearchPalette() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search recipes, artists, gear..."
+              aria-label="Search"
+              aria-autocomplete="list"
+              aria-controls="search-results-listbox"
+              aria-activedescendant={flatResults[activeIndex] ? `search-result-${activeIndex}` : undefined}
               className="w-full bg-transparent p-4 text-lg text-foreground placeholder:text-muted outline-none"
             />
             <kbd className="shrink-0 rounded border border-border px-1.5 py-0.5 text-xs text-muted">
@@ -259,7 +263,7 @@ export default function SearchPalette() {
           </div>
 
           {/* Results */}
-          <div ref={resultsRef} className="max-h-80 overflow-y-auto p-2">
+          <div ref={resultsRef} id="search-results-listbox" role="listbox" aria-label="Search results" className="max-h-80 overflow-y-auto p-2">
             {query.trim() === "" && (
               <div className="px-4 py-8 text-center text-sm text-muted">
                 Type to search recipes, artists, gear...
@@ -287,6 +291,9 @@ export default function SearchPalette() {
                         key={`${type}-${i}`}
                         href={item.href}
                         onClick={closeModal}
+                        id={`search-result-${currentIndex}`}
+                        role="option"
+                        aria-selected={isActive}
                         data-active={isActive}
                         className={`flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors ${
                           isActive

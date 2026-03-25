@@ -162,7 +162,9 @@ export default async function RecipePage({ params }: RecipePageProps) {
               alt={`${song.album} album art`}
               width={120}
               height={120}
+              priority
               className="rounded-lg border border-border shadow-lg"
+              sizes="120px"
             />
           </div>
         )}

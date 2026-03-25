@@ -48,7 +48,10 @@ export default function CollapsibleSection({
     <section id={id} className="mb-10 scroll-mt-32">
       <button
         type="button"
+        id={`${id}-toggle`}
         onClick={() => setIsOpen((prev) => !prev)}
+        aria-expanded={isOpen}
+        aria-controls={`${id}-content`}
         className="flex w-full items-center justify-between border-b border-border pb-3 text-left"
       >
         <div className="flex items-center gap-3">
@@ -73,6 +76,9 @@ export default function CollapsibleSection({
       </button>
       <div
         ref={contentRef}
+        id={`${id}-content`}
+        role="region"
+        aria-labelledby={`${id}-toggle`}
         className="overflow-hidden transition-[max-height] duration-300 ease-in-out"
         style={{ maxHeight }}
       >

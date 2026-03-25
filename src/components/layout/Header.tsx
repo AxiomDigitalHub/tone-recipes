@@ -57,7 +57,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -150,6 +150,7 @@ export default function Header() {
           className="md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           <svg
             className="h-6 w-6 text-foreground"
@@ -169,7 +170,7 @@ export default function Header() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="border-t border-border bg-background px-4 pb-4 md:hidden">
-          <nav className="flex flex-col gap-3 pt-3">
+          <nav aria-label="Mobile navigation" className="flex flex-col gap-3 pt-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

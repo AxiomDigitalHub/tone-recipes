@@ -145,6 +145,7 @@ export default function Home() {
                       src={artist.image_url}
                       alt={artist.name}
                       fill
+                      loading="lazy"
                       className="object-cover"
                       sizes="80px"
                     />

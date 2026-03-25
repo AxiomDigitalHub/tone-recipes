@@ -79,6 +79,7 @@ function NodeDetailDrawer({
         </div>
         <button
           onClick={onClose}
+          aria-label="Close"
           className="rounded-lg p-1.5 text-muted transition-colors hover:bg-surface hover:text-foreground"
         >
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -217,6 +218,8 @@ function PlatformBlockNode({
     <div className="flex flex-col items-center">
       <button
         onClick={onSelect}
+        aria-label={`${block.block_name} – ${block.block_category} settings`}
+        aria-pressed={!!isSelected}
         className={`node-glow group flex h-20 w-20 flex-col items-center justify-center rounded-xl border-2 bg-surface transition-all hover:bg-surface-hover ${
           isSelected ? "ring-2 ring-offset-2 ring-offset-background" : ""
         }`}
@@ -294,8 +297,10 @@ export default function UnifiedChainView({
       <GuitarHeader specs={guitarSpecs} />
 
       {/* Platform tabs */}
-      <div className="flex gap-1 overflow-x-auto border-b border-border p-2 scrollbar-hide">
+      <div role="tablist" aria-label="Signal chain platform" className="flex gap-1 overflow-x-auto border-b border-border p-2 scrollbar-hide">
         <button
+          role="tab"
+          aria-selected={activeTab === "physical"}
           onClick={() => handleTabSwitch("physical")}
           className={`shrink-0 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
             activeTab === "physical"
@@ -311,6 +316,8 @@ export default function UnifiedChainView({
           return (
             <button
               key={pid}
+              role="tab"
+              aria-selected={isActive}
               onClick={() => handleTabSwitch(pid)}
               className={`shrink-0 flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                 isActive
@@ -331,7 +338,7 @@ export default function UnifiedChainView({
 
       {/* Chain area */}
       {activeTab === "physical" ? (
-        <div className="w-full md:overflow-x-auto">
+        <div role="tabpanel" aria-label="Physical signal chain" className="w-full md:overflow-x-auto">
           <div className="flex flex-col items-center gap-2 px-4 py-6 md:flex-row md:items-start md:justify-center">
             {signalChain.map((node, i) => {
               const nextNode = signalChain[i + 1];
@@ -371,7 +378,7 @@ export default function UnifiedChainView({
           </div>
         </div>
       ) : activeTranslation ? (
-        <div className="w-full md:overflow-x-auto">
+        <div role="tabpanel" aria-label={`${activePlatformMeta?.label || activeTab} signal chain`} className="w-full md:overflow-x-auto">
           <div className="flex flex-col items-center gap-2 px-4 py-6 md:flex-row md:items-start md:justify-center">
             {activeTranslation.chain_blocks.map((block, i) => (
               <div
