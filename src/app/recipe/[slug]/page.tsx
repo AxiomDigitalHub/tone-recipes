@@ -212,7 +212,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
       {/* ----------------------------------------------------------------- */}
       {/* Sticky section nav */}
       {/* ----------------------------------------------------------------- */}
-      <nav className="sticky top-16 z-40 -mx-4 mb-12 overflow-x-auto border-b border-border bg-background/90 px-4 backdrop-blur-sm">
+      <nav className="scrollbar-hide sticky top-16 z-40 -mx-4 mb-12 overflow-x-auto border-b border-border bg-background/90 px-4 backdrop-blur-sm">
         <div className="flex items-center gap-2 py-2">
           {navItems
             .filter((item) => item.show)
@@ -343,7 +343,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
                   href={src}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-accent hover:underline"
+                  className="text-sm text-accent hover:underline break-all"
                 >
                   {src}
                 </a>

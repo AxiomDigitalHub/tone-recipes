@@ -3,6 +3,7 @@
 import { Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import Badge from "@/components/ui/Badge";
 import { getChainIcon } from "@/lib/chain-icons";
 import {
@@ -143,6 +144,7 @@ function RecipeSelector({
               <option key={r.slug} value={r.slug}>
                 {artist ? `${artist.name} - ` : ""}
                 {r.title}
+                {song ? ` (${song.title}, ${song.year})` : ""}
               </option>
             );
           })}
@@ -167,22 +169,62 @@ function RecipeColumn({
   return (
     <div className="rounded-xl border border-border bg-surface p-6 md:p-8">
       {/* Header */}
-      {artist && (
-        <p className="text-xs font-medium text-accent">{artist.name}</p>
-      )}
-      <h2 className="mt-1 text-xl font-bold text-foreground">
-        <Link
-          href={`/recipe/${recipe.slug}`}
-          className="hover:text-accent transition-colors"
-        >
-          {recipe.title}
-        </Link>
-      </h2>
-      {song && (
-        <p className="mt-1 text-sm text-muted">
-          {song.title} ({song.year}) &middot; {song.album}
-        </p>
-      )}
+      <div className="flex items-start gap-4">
+        {song?.album_art_url && (
+          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-border">
+            <Image
+              src={song.album_art_url}
+              alt={`${song.album} album art`}
+              fill
+              className="object-cover"
+              sizes="64px"
+            />
+          </div>
+        )}
+        <div>
+          {artist && (
+            <p className="text-xs font-medium text-accent">{artist.name}</p>
+          )}
+          <h2 className="mt-1 text-xl font-bold text-foreground">
+            <Link
+              href={`/recipe/${recipe.slug}`}
+              className="hover:text-accent transition-colors"
+            >
+              {recipe.title}
+            </Link>
+          </h2>
+          {song && (
+            <p className="mt-1 text-sm text-muted">
+              {song.title} ({song.year}) &middot; {song.album}
+            </p>
+          )}
+        </div>
+      </div>
+
+      {/* Mini chain preview */}
+      <div className="mt-4 flex items-center gap-1 overflow-hidden">
+        {recipe.signal_chain.map((node, i) => {
+          const NodeIcon = getChainIcon(node.category, node.subcategory);
+          return (
+            <div key={i} className="flex items-center gap-1">
+              <div
+                className="flex h-8 w-8 items-center justify-center rounded-md border border-border"
+                style={{ borderColor: node.icon_color + "60" }}
+                title={node.gear_name}
+              >
+                <NodeIcon
+                  className="h-4 w-4"
+                  style={{ color: node.icon_color }}
+                  strokeWidth={1.5}
+                />
+              </div>
+              {i < recipe.signal_chain.length - 1 && (
+                <div className="h-px w-3 bg-border" />
+              )}
+            </div>
+          );
+        })}
+      </div>
 
       {/* Guitar Specs */}
       <div className="mt-5">

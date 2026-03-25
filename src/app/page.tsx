@@ -43,7 +43,7 @@ export default function Home() {
           </div>
 
           {/* Animated signal chain preview */}
-          <div className="mx-auto mt-16 flex max-w-2xl items-center justify-center gap-2">
+          <div className="scrollbar-hide mx-auto mt-16 flex max-w-2xl items-center justify-center gap-2 overflow-x-auto px-4 pb-2">
             {[
               { icon: Guitar, label: "Guitar", color: "#f59e0b" },
               { icon: Zap, label: "Overdrive", color: "#22c55e" },
@@ -53,14 +53,14 @@ export default function Home() {
               { icon: Speaker, label: "Cabinet", color: "#a855f7" },
               { icon: Mic, label: "Mic", color: "#6b7280" },
             ].map((node, i) => (
-              <div key={node.label} className="flex items-center gap-2">
+              <div key={node.label} className="flex shrink-0 items-center gap-2">
                 <div className="group flex flex-col items-center">
                   <div
-                    className="node-glow flex h-14 w-14 items-center justify-center rounded-xl border-2 bg-surface transition-all hover:bg-surface-hover md:h-16 md:w-16"
+                    className="node-glow flex h-11 w-11 items-center justify-center rounded-xl border-2 bg-surface transition-all hover:bg-surface-hover sm:h-14 sm:w-14 md:h-16 md:w-16"
                     style={{ borderColor: node.color + "70" }}
                   >
                     <node.icon
-                      className="h-6 w-6 md:h-7 md:w-7"
+                      className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7"
                       style={{ color: node.color }}
                       strokeWidth={1.5}
                     />
@@ -69,7 +69,7 @@ export default function Home() {
                     {node.label}
                   </span>
                 </div>
-                {i < 6 && <div className="signal-line h-0.5 w-4 rounded-full md:w-6" />}
+                {i < 6 && <div className="signal-line h-0.5 w-2 rounded-full sm:w-4 md:w-6" />}
               </div>
             ))}
           </div>
@@ -137,7 +137,7 @@ export default function Home() {
               <Link
                 key={artist.slug}
                 href={`/artist/${artist.slug}`}
-                className="group flex flex-col items-center rounded-xl border border-border bg-surface p-5 text-center transition-all hover:border-accent/40 hover:bg-surface-hover"
+                className="group flex flex-col items-center rounded-xl border border-border bg-surface p-3 sm:p-5 text-center transition-all hover:border-accent/40 hover:bg-surface-hover"
               >
                 <div className="relative h-20 w-20 overflow-hidden rounded-full border-2 border-border transition-colors group-hover:border-accent/50">
                   {artist.image_url ? (

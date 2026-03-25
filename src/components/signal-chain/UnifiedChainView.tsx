@@ -131,10 +131,10 @@ function NodeDetailDrawer({
 function GuitarHeader({ specs }: { specs: GuitarSpecs }) {
   return (
     <div className="border-b border-border px-4 py-5 md:px-6">
-      <div className="flex items-center gap-5">
+      <div className="flex items-center gap-3 sm:gap-5">
         {/* Guitar icon — matches album art / artist thumbnail height */}
-        <div className="flex h-[120px] w-[120px] shrink-0 items-center justify-center rounded-xl border-2 border-accent/50 bg-surface">
-          <Guitar className="h-12 w-12 text-accent" strokeWidth={1.25} />
+        <div className="flex h-16 w-16 sm:h-[120px] sm:w-[120px] shrink-0 items-center justify-center rounded-xl border-2 border-accent/50 bg-surface">
+          <Guitar className="h-8 w-8 sm:h-12 sm:w-12 text-accent" strokeWidth={1.25} />
         </div>
         {/* Specs */}
         <div className="flex flex-1 flex-col gap-3">
@@ -144,7 +144,7 @@ function GuitarHeader({ specs }: { specs: GuitarSpecs }) {
               {specs.model_name}
             </p>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2">
+          <div className="flex flex-col gap-y-1.5 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2">
             <div>
               <p className="text-xs text-muted">Pickups</p>
               <p className="text-sm font-medium text-foreground">
@@ -164,7 +164,7 @@ function GuitarHeader({ specs }: { specs: GuitarSpecs }) {
               </p>
             </div>
             {specs.notable_mods && (
-              <div>
+              <div className="hidden sm:block">
                 <p className="text-xs text-muted">Mods</p>
                 <p className="text-sm font-medium text-foreground">
                   {specs.notable_mods}
