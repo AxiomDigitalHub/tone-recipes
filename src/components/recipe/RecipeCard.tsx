@@ -3,11 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Badge from "@/components/ui/Badge";
 import FavoriteButton from "@/components/ui/FavoriteButton";
 import { getChainIcon } from "@/lib/chain-icons";
 import type { ToneRecipe, Artist, Song } from "@/types/recipe";
-import { DIFFICULTY_COLORS, PLATFORMS } from "@/lib/constants";
+import { PLATFORMS } from "@/lib/constants";
 
 interface RecipeCardProps {
   recipe: ToneRecipe;
@@ -107,47 +106,39 @@ export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
           {recipe.description}
         </p>
 
-        {/* Footer */}
-        <div className="flex flex-wrap items-center gap-2">
-          {song && (
-            <Badge variant="outline">
-              <span className={DIFFICULTY_COLORS[song.difficulty]}>
-                {song.difficulty}
-              </span>
-            </Badge>
-          )}
-          {recipe.tags.slice(0, 2).map((tag) => (
-            <Badge key={tag}>{tag}</Badge>
-          ))}
-
-          {/* Compare link */}
-          <span
-            role="link"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              router.push(`/compare?a=${recipe.slug}`);
-            }}
-            className="text-xs text-muted transition-colors hover:text-accent cursor-pointer"
-          >
-            Compare
-          </span>
-
-          {/* Platform dots */}
-          <div className="ml-auto flex items-center gap-1.5">
+        {/* Footer: platforms + compare */}
+        <div className="flex items-center justify-between gap-2">
+          {/* Platform labels */}
+          <div className="flex flex-wrap gap-1.5">
             {platformKeys.map((key) => {
               const platform = PLATFORMS.find((p) => p.id === key);
               if (!platform) return null;
               return (
                 <span
                   key={key}
-                  title={platform.label}
-                  className="h-2.5 w-2.5 rounded-full border border-background/50"
-                  style={{ backgroundColor: platform.color }}
-                />
+                  className="rounded-full px-2 py-0.5 text-[10px] font-medium"
+                  style={{
+                    color: platform.color,
+                    backgroundColor: platform.color + "15",
+                  }}
+                >
+                  {platform.label}
+                </span>
               );
             })}
           </div>
+
+          {/* Compare button */}
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              router.push(`/compare?a=${recipe.slug}`);
+            }}
+            className="shrink-0 rounded-lg border border-border px-2.5 py-1 text-[11px] font-medium text-muted transition-colors hover:border-accent/40 hover:text-accent"
+          >
+            Compare
+          </button>
         </div>
       </div>
     </Link>
