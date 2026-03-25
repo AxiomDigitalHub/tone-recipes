@@ -38,10 +38,10 @@ export default function Home() {
               Browse Tone Recipes
             </Link>
             <Link
-              href="/signup"
+              href="/how-it-works"
               className="rounded-xl border border-border px-8 py-3.5 text-base font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
             >
-              Get Early Access
+              How It Works
             </Link>
           </div>
 
