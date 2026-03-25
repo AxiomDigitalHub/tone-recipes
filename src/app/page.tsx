@@ -17,14 +17,17 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,_rgba(245,158,11,0.08),_transparent_60%)]" />
 
         <div className="mx-auto max-w-7xl px-4 pb-20 pt-24 text-center md:pt-32">
-          <h1 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
-            Build the tones you{" "}
-            <span className="text-accent">hear</span>.
+          <p className="text-sm font-medium uppercase tracking-widest text-accent">
+            Guitar Tone Recipes
+          </p>
+          <h1 className="mx-auto mt-4 max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
+            Make their tone,{" "}
+            <span className="text-accent">your tone</span>.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted md:text-xl">
-            Song-specific tone recipes for Helix, Quad Cortex, TONEX, and your
-            physical rig. See the signal chain, understand why it works, and dial
-            it in on your gear.
+            Pick a song. See exactly what gear and settings recreate that sound
+            on your Helix, Quad Cortex, Katana, or physical rig.
+            Step-by-step signal chains you can actually dial in.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
