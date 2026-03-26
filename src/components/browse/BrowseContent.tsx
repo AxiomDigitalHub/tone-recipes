@@ -1,12 +1,13 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { artists, songs, toneRecipes, getAllGenres } from "@/lib/data";
 import RecipeCard from "@/components/recipe/RecipeCard";
 import { PLATFORMS } from "@/lib/constants";
 import { useBrowseStore } from "@/lib/stores/browse-store";
+import { usePlatformStore } from "@/lib/stores/platform-store";
 
 const SORT_OPTIONS = [
   { value: "popular" as const, label: "Most Popular" },
@@ -24,6 +25,19 @@ export default function BrowseContent() {
     setSortBy,
     clearFilters,
   } = useBrowseStore();
+
+  const { preferredPlatform } = usePlatformStore();
+  const hasAppliedPreference = useRef(false);
+
+  // Auto-apply preferred platform filter on first load
+  useEffect(() => {
+    if (hasAppliedPreference.current) return;
+    hasAppliedPreference.current = true;
+    if (preferredPlatform && platformFilter === null) {
+      setPlatformFilter(preferredPlatform);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const genres = useMemo(() => getAllGenres(), []);
 

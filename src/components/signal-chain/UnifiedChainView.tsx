@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import type {
   SignalChainNode as NodeType,
@@ -17,6 +17,7 @@ import ChainTooltip from "./ChainTooltip";
 import DownloadPatchButton from "./DownloadPatchButton";
 import CommunitySubmissions from "./CommunitySubmissions";
 import { getChainTip } from "@/lib/chain-tips";
+import { usePlatformStore } from "@/lib/stores/platform-store";
 
 interface UnifiedChainViewProps {
   guitarSpecs: GuitarSpecs;
@@ -274,6 +275,21 @@ export default function UnifiedChainView({
   const availablePlatforms = Object.keys(platformTranslations) as Platform[];
   const [activeTab, setActiveTab] = useState<"physical" | Platform>("physical");
   const [selectedNodeIndex, setSelectedNodeIndex] = useState<number | null>(null);
+  const { preferredPlatform } = usePlatformStore();
+  const hasAppliedPreference = useRef(false);
+
+  // Apply preferred platform on mount
+  useEffect(() => {
+    if (hasAppliedPreference.current) return;
+    hasAppliedPreference.current = true;
+    if (
+      preferredPlatform &&
+      availablePlatforms.includes(preferredPlatform as Platform)
+    ) {
+      setActiveTab(preferredPlatform as Platform);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Physical chain: tip between guitar and first node
   const firstNode = signalChain[0];

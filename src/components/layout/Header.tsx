@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/lib/auth/auth-context";
 import { Search } from "lucide-react";
+import PlatformPicker from "./PlatformPicker";
 
 const navLinks = [
   { href: "/browse", label: "Browse" },
@@ -68,8 +69,9 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Search button + Auth area */}
+        {/* Platform picker + Search button + Auth area */}
         <div className="hidden items-center gap-3 md:flex">
+          <PlatformPicker />
           <button
             onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
             className="flex items-center gap-2 rounded-lg border border-border bg-surface px-3 py-1.5 text-sm text-muted transition-colors hover:text-foreground"
@@ -188,6 +190,10 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-muted">My Platform:</span>
+              <PlatformPicker />
+            </div>
             <hr className="border-border" />
 
             {!loading && user ? (
