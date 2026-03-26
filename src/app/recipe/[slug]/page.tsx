@@ -179,7 +179,15 @@ export default async function RecipePage({ params }: RecipePageProps) {
             </p>
           )}
         </div>
-        <FavoriteButton slug={recipe.slug} size="md" />
+        <div className="flex items-center gap-2">
+          <Link
+            href={`/compare?a=${recipe.slug}`}
+            className="shrink-0 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-medium text-muted transition-colors hover:border-accent/40 hover:text-foreground"
+          >
+            Compare
+          </Link>
+          <FavoriteButton slug={recipe.slug} size="md" />
+        </div>
       </div>
 
       {/* Tags */}
@@ -257,7 +265,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
       <CollapsibleSection
         id="gear"
         title="Original Gear (Recording)"
-        defaultOpen={false}
+        defaultOpen={true}
       >
         <div className="rounded-xl border border-border bg-surface p-6 md:p-8">
           <div className="grid gap-6 sm:grid-cols-2">
@@ -362,18 +370,21 @@ export default async function RecipePage({ params }: RecipePageProps) {
       {relatedRecipes.length > 0 && (
         <section className="mt-16 pt-10 border-t border-border">
           <h2 className="mb-4 text-xl font-bold">Related Recipes</h2>
-          <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4">
-            {relatedRecipes.map((r) => {
-              const rSong = getSongBySlug(r.song_slug);
-              const rArtist = rSong
-                ? getArtistBySlug(rSong.artist_slug)
-                : undefined;
-              return (
-                <div key={r.slug} className="w-72 shrink-0">
-                  <RecipeCard recipe={r} artist={rArtist} song={rSong} />
-                </div>
-              );
-            })}
+          <div className="relative">
+            <div className="scrollbar-hide flex gap-4 overflow-x-auto pb-4 -mx-4 px-4">
+              {relatedRecipes.map((r) => {
+                const rSong = getSongBySlug(r.song_slug);
+                const rArtist = rSong
+                  ? getArtistBySlug(rSong.artist_slug)
+                  : undefined;
+                return (
+                  <div key={r.slug} className="w-72 shrink-0">
+                    <RecipeCard recipe={r} artist={rArtist} song={rSong} />
+                  </div>
+                );
+              })}
+            </div>
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-background to-transparent" />
           </div>
         </section>
       )}

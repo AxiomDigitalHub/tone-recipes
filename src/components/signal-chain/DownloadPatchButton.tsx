@@ -2,6 +2,8 @@
 
 import type { PlatformTranslation } from "@/types/recipe";
 import { generateHelixPreset, slugifyPresetName } from "@/lib/helix/generate-hlx";
+import { generateQCPreset, slugifyPresetName as slugifyQC } from "@/lib/quadcortex/generate-qc";
+import { generateKatanaTSL, slugifyPresetName as slugifyKatana } from "@/lib/katana/generate-tsl";
 
 interface DownloadPatchButtonProps {
   translation: PlatformTranslation;
@@ -9,20 +11,57 @@ interface DownloadPatchButtonProps {
   platform: string;
 }
 
+const PLATFORM_CONFIG: Record<
+  string,
+  {
+    generate: (t: PlatformTranslation, name: string) => string;
+    slugify: (name: string) => string;
+    extension: string;
+    mimeType: string;
+    color: string;
+    label: string;
+  }
+> = {
+  helix: {
+    generate: generateHelixPreset,
+    slugify: slugifyPresetName,
+    extension: ".hlx",
+    mimeType: "application/json",
+    color: "#cc0000",
+    label: "Download Helix Patch",
+  },
+  quad_cortex: {
+    generate: generateQCPreset,
+    slugify: slugifyQC,
+    extension: ".json",
+    mimeType: "application/json",
+    color: "#00b4d8",
+    label: "Download Quad Cortex Patch",
+  },
+  katana: {
+    generate: generateKatanaTSL,
+    slugify: slugifyKatana,
+    extension: ".tsl",
+    mimeType: "application/xml",
+    color: "#e11d48",
+    label: "Download Katana Patch",
+  },
+};
+
 export default function DownloadPatchButton({
   translation,
   presetName,
   platform,
 }: DownloadPatchButtonProps) {
-  // Only render for Helix (we'll add Katana etc. later)
-  if (platform !== "helix") return null;
+  const config = PLATFORM_CONFIG[platform];
+  if (!config) return null;
 
   function handleDownload() {
-    const hlxJson = generateHelixPreset(translation, presetName);
-    const blob = new Blob([hlxJson], { type: "application/json" });
+    const content = config.generate(translation, presetName);
+    const blob = new Blob([content], { type: config.mimeType });
     const url = URL.createObjectURL(blob);
 
-    const filename = `${slugifyPresetName(presetName)}.hlx`;
+    const filename = `${config.slugify(presetName)}${config.extension}`;
 
     const a = document.createElement("a");
     a.href = url;
@@ -38,8 +77,13 @@ export default function DownloadPatchButton({
   return (
     <button
       onClick={handleDownload}
-      className="inline-flex items-center gap-1.5 rounded-lg border border-[#cc0000]/30 bg-[#cc0000]/10 px-3 py-1.5 text-xs font-medium text-[#cc0000] transition-colors hover:bg-[#cc0000]/20 hover:border-[#cc0000]/50"
-      title="Download Helix preset (.hlx)"
+      className="inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors"
+      style={{
+        borderColor: config.color + "4d",
+        backgroundColor: config.color + "1a",
+        color: config.color,
+      }}
+      title={`${config.label} (${config.extension})`}
     >
       {/* Download icon */}
       <svg
@@ -55,7 +99,7 @@ export default function DownloadPatchButton({
           d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3"
         />
       </svg>
-      Download .hlx
+      {config.label}
     </button>
   );
 }

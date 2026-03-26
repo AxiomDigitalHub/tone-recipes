@@ -306,7 +306,7 @@ export default function UnifiedChainView({
       <GuitarHeader
         specs={guitarSpecs}
         actions={
-          activeTab === "helix" && activeTranslation ? (
+          (activeTab === "helix" || activeTab === "quad_cortex" || activeTab === "katana") && activeTranslation ? (
             <DownloadPatchButton
               translation={activeTranslation}
               presetName={presetName}
