@@ -1,0 +1,157 @@
+---
+title: "How to Get Stevie Ray Vaughan's Tone on Line 6 Helix"
+description: "The complete SRV Helix preset guide. Amp model, drive settings, and the secret sauce that makes it sound like Texas."
+date: "2026-03-12"
+author: "ToneRecipes"
+category: "artist-tone"
+tags: ["srv", "stevie-ray-vaughan", "helix", "blues", "texas-blues"]
+---
+
+## What Makes SRV's Tone
+
+Before we touch the Helix, you need to understand what made Stevie Ray Vaughan sound like Stevie Ray Vaughan. The gear mattered, but it only mattered because of *how* he used it.
+
+SRV's tone was built on a few key elements:
+
+- **Heavy strings** — .013 gauge on the high E, sometimes heavier. This is critical. Heavy strings produce more output, more sustain, and a fatter fundamental tone. They also require serious hand strength, which contributed to his aggressive pick attack.
+- **Fender Stratocaster with the neck pickup** — Number One, his primary Strat, had a 1959 body, a 1962 neck, and a left-handed tremolo bar setup on a right-handed guitar. The neck pickup was his home base — warm, round, and thick.
+- **Tube Screamer into a cranked Fender amp** — This is the core of the tone. An Ibanez TS808 (and later a TS10) set as a mid-boost, pushing the front end of a Fender Vibroverb, Super Reverb, or Dumble Steel String Singer that was already breaking up on its own.
+- **Volume and air** — SRV played LOUD. His amps were cranked, and the interaction between the guitar, the amp, and the air moving through the speakers was a massive part of the tone. That sag, that compression, that bloom — it all comes from volume.
+
+The last point is the hardest to replicate on a modeler. But we can get surprisingly close with the right settings.
+
+## The Amp Model: US Double Nrm
+
+The foundation of any SRV Helix patch is the **US Double Nrm** amp model. This is Helix's version of a Fender Twin Reverb on the normal channel — a loud, clean, American amplifier with tons of headroom.
+
+SRV actually used several amps, including Vibroverbs and Super Reverbs, but the Twin Reverb is the closest match in the Helix library to the clean-but-on-the-edge character of his tone. The normal channel (not the vibrato channel) gives you a flatter, more direct response that takes pedals beautifully.
+
+### Amp Settings
+
+- **Drive:** 5.5-6.0 — You want the amp just starting to break up on its own. Not clean, not crunchy — right at that sweet spot where hard picking causes the amp to bark.
+- **Bass:** 5.0
+- **Mid:** 6.0 — SRV's tone is mid-forward. Don't scoop the mids.
+- **Treble:** 6.5 — Enough brightness to cut, but not harsh.
+- **Presence:** 5.0
+- **Master:** 8.0-10.0 — Crank this. On a modeler, the master volume affects the power amp modeling — sag, compression, and harmonic content. Higher master = more of that cranked-amp feel.
+- **Sag:** 6.0-7.0 (if available in the advanced settings) — This simulates the power supply compression of a tube amp running hard. More sag = more squish and bloom on your notes.
+- **Hum:** 1.0-2.0 — A touch of 60-cycle hum adds authenticity. Don't overdo it.
+- **Ripple:** 5.0 — Power supply ripple contributes to that organic, living feel.
+
+## The Drive Block: Scream 808
+
+This is where the magic happens. The **Scream 808** is Helix's TS808 model, and it's the most important block in the entire patch.
+
+Here's the thing most people get wrong: the Tube Screamer in an SRV context is **not** a distortion pedal. It's a mid-boost and a signal conditioner. SRV ran his TS808 with the gain relatively low — the overdrive came from the amp, not the pedal. The Tube Screamer pushed the amp harder, added a midrange hump that gave his Strat more body, and tightened the low end.
+
+### Scream 808 Settings
+
+- **Gain:** 3.0-4.0 — This is low. Lower than you think. The TS is not your dirt source; the amp is. The gain adds a touch of hair, but the real job is done by the level knob.
+- **Tone:** 5.5-6.0 — Right around noon or slightly above. Too high and it gets shrill. Too low and you lose the cut.
+- **Level:** 7.0-8.0 — This is the key setting. The level controls how hard the Scream 808 pushes the amp model. Higher level = more amp breakup, more sustain, more SRV.
+
+Place the Scream 808 **before** the amp block. This is non-negotiable — it's a front-of-amp effect.
+
+## The Cab: Getting the Speaker Right
+
+SRV's tone came through various Fender combo speakers — Jensen, JBL, and Electro-Voice speakers in different combos. The Helix cab that gets closest is:
+
+**1x12 US Double** — This is the matching cab for the Twin Reverb model. It works, but you can improve on it.
+
+For a more authentic SRV tone, try these approaches:
+
+### Option 1: Stock Helix Cab
+
+Use the **1x12 US Double** cab with these mic settings:
+
+- **Mic:** 57 Dynamic (SM57)
+- **Distance:** 2-3 inches
+- **Position:** Slightly off-center (around 3.0-4.0 on the Helix's positioning parameter)
+
+The SM57 slightly off-axis tames the high-end harshness while keeping the midrange punch that defines SRV's tone.
+
+### Option 2: Third-Party IR
+
+If you want to step up the realism, a third-party impulse response of a Fender combo speaker makes a noticeable difference. Look for IRs captured from:
+
+- **Fender Vibroverb** with a 15-inch JBL speaker
+- **Fender Super Reverb** with 10-inch Jensen speakers
+- **Any Fender 1x12 or 2x12** with vintage speakers
+
+Load the IR using a **IR block** instead of the stock cab block. The IR replaces both the speaker and microphone modeling, often with more detail and realism.
+
+## Additional Blocks
+
+### Reverb
+
+SRV used spring reverb from his Fender amps. Add a **Simple Spring** or **'63 Spring** reverb block after the amp:
+
+- **Mix:** 15-20% — SRV's reverb was subtle. You should feel it more than hear it. It adds depth and space without washing things out.
+- **Decay:** 3.0-4.0
+- **Tone:** 5.0
+
+### Optional: Wah
+
+SRV used a Vox wah for certain songs. If you want to add one, use the **UK Wah 846** block before the Scream 808, assigned to an expression pedal. But for his core tone, skip the wah.
+
+### Optional: Chorus/Vibrato
+
+For "Cold Shot" and some clean tones, SRV used a vibrato effect. The **Vibe Rotary** or a subtle **chorus** block after the amp can approximate this. Keep the mix low and the rate slow.
+
+## The Signal Chain
+
+Here's the complete block order:
+
+1. **Input**
+2. **Scream 808** (drive)
+3. **US Double Nrm** (amp)
+4. **1x12 US Double** or **IR block** (cab)
+5. **'63 Spring Reverb** (reverb)
+6. **Output**
+
+That's it. Five blocks. SRV's tone was not complicated from a gear perspective — it was all in the hands and the amp.
+
+## The Secret Sauce: Making It Feel Right
+
+Here's where most SRV Helix patches fail. They nail the frequency response — the EQ sounds about right — but they miss the *feel.* SRV's tone had a bounce, a sag, a push-pull dynamic that made single notes bloom and chords bark.
+
+### Tip 1: Crank the Master Volume
+
+The biggest mistake is running the amp model's master volume too low. On a real amp, cranking the master pushes the power tubes into saturation, adding compression, sag, and harmonic richness. The Helix models this, but only if you actually turn the master up. Set it to 8 or higher.
+
+### Tip 2: Use Your Guitar's Volume Knob
+
+SRV cleaned up by rolling back his volume knob, not by switching channels or turning off pedals. Practice rolling your guitar's volume from 10 (full dirty) to 7 (slight crunch) to 5 (chimey clean). The Scream 808 into the amp model responds to this just like real gear.
+
+### Tip 3: Pick Hard, Then Harder
+
+SRV attacked the strings. His tone was built on a strong, confident pick attack with heavy strings. If you're picking gently, even a perfect preset will sound weak and lifeless. Dig in. Use the thick part of the pick. Hit the strings like you mean it.
+
+### Tip 4: Neck Pickup, Tone Rolled Slightly Back
+
+SRV lived on the neck pickup with the tone knob rolled back slightly — maybe to 7 or 8. This takes the ice-pick edge off the Stratocaster's brightness and warms the tone up. On a Helix, you can approximate this with the amp's treble and presence settings, but actually rolling your guitar's tone knob back is more authentic.
+
+### Tip 5: Don't Overdo the Gain
+
+The temptation is to add more gain to get more sustain. Resist it. SRV's tone had note definition and clarity even at its most aggressive. You could hear every note in a double-stop, every string in a chord. If your notes are blurring together, you have too much gain. Back the Scream 808's gain down, and compensate with a harder pick attack.
+
+## Quick Reference Settings
+
+| Block | Parameter | Value |
+|-------|-----------|-------|
+| Scream 808 | Gain | 3.0-4.0 |
+| Scream 808 | Tone | 5.5-6.0 |
+| Scream 808 | Level | 7.0-8.0 |
+| US Double Nrm | Drive | 5.5-6.0 |
+| US Double Nrm | Bass | 5.0 |
+| US Double Nrm | Mid | 6.0 |
+| US Double Nrm | Treble | 6.5 |
+| US Double Nrm | Master | 8.0-10.0 |
+| '63 Spring | Mix | 15-20% |
+| '63 Spring | Decay | 3.0-4.0 |
+
+## Final Thoughts
+
+Getting SRV's tone on the Helix is less about finding the perfect settings and more about understanding *why* his tone worked. It was a Stratocaster neck pickup through a pushed Fender amp with a Tube Screamer providing the midrange shove — simple gear, played with ferocious dynamics and feel.
+
+Dial in the settings above as a starting point, then focus on your playing. Pick harder. Use your volume knob. Play with conviction. The preset gets you in the ballpark, but your hands get you home.
