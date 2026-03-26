@@ -249,6 +249,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
               Record<Platform, (typeof recipe.platform_translations)["helix"]>
             >
           }
+          presetName={recipe.title}
         />
       </CollapsibleSection>
 

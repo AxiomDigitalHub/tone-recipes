@@ -14,12 +14,14 @@ import { getChainIcon, getChainIconLabel } from "@/lib/chain-icons";
 import { Guitar } from "lucide-react";
 import SignalChainNode from "./SignalChainNode";
 import ChainTooltip from "./ChainTooltip";
+import DownloadPatchButton from "./DownloadPatchButton";
 import { getChainTip } from "@/lib/chain-tips";
 
 interface UnifiedChainViewProps {
   guitarSpecs: GuitarSpecs;
   signalChain: NodeType[];
   platformTranslations: Partial<Record<Platform, PlatformTranslation>>;
+  presetName?: string;
 }
 
 /* ------------------------------------------------------------------ */
@@ -258,6 +260,7 @@ export default function UnifiedChainView({
   guitarSpecs,
   signalChain,
   platformTranslations,
+  presetName = "Tone Recipe",
 }: UnifiedChainViewProps) {
   const availablePlatforms = Object.keys(platformTranslations) as Platform[];
   const [activeTab, setActiveTab] = useState<"physical" | Platform>("physical");
@@ -419,6 +422,17 @@ export default function UnifiedChainView({
               </div>
             ))}
           </div>
+
+          {/* Download patch button (Helix only) */}
+          {activeTab === "helix" && (
+            <div className="flex justify-center pb-2">
+              <DownloadPatchButton
+                translation={activeTranslation}
+                presetName={presetName}
+                platform={activeTab}
+              />
+            </div>
+          )}
 
           {/* Platform notes (when no node selected) */}
           {activeTranslation.notes && selectedNodeIndex === null && (
