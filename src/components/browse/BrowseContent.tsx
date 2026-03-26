@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useEffect, useRef } from "react";
+import { useMemo, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { artists, songs, toneRecipes, getAllGenres } from "@/lib/data";
@@ -28,6 +28,7 @@ export default function BrowseContent() {
 
   const { preferredPlatform } = usePlatformStore();
   const hasAppliedPreference = useRef(false);
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   // Auto-apply preferred platform filter on first load
   useEffect(() => {
@@ -52,21 +53,18 @@ export default function BrowseContent() {
       return { recipe, song, artist };
     });
 
-    // Filter by genre
     if (genreFilter) {
       results = results.filter(({ song }) =>
         song?.genres.includes(genreFilter)
       );
     }
 
-    // Filter by platform
     if (platformFilter) {
       results = results.filter(({ recipe }) =>
         Object.keys(recipe.platform_translations).includes(platformFilter)
       );
     }
 
-    // Sort
     results.sort((a, b) => {
       switch (sortBy) {
         case "popular":
@@ -83,105 +81,68 @@ export default function BrowseContent() {
     return results;
   }, [genreFilter, platformFilter, sortBy]);
 
-  return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
-      {/* Header */}
-      <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <h1 className="text-3xl font-bold">Browse Tone Recipes</h1>
-          <p className="mt-1 text-sm text-muted">
-            {toneRecipes.length} recipes across {artists.length} artists &middot;{" "}
-            {PLATFORMS.filter((p) => p.id !== "physical").length} platforms
-          </p>
-          <p className="mt-2 text-muted">
-            Find the tone you want. Every recipe includes the full signal chain,
-            settings, and platform translations.
-          </p>
-        </div>
-
-        {/* Sort by dropdown */}
-        <div className="flex items-center gap-2 shrink-0">
-          <label
-            htmlFor="sort"
-            className="text-sm text-muted whitespace-nowrap"
-          >
-            Sort by
-          </label>
-          <select
-            id="sort"
-            value={sortBy}
-            onChange={(e) =>
-              setSortBy(
-                e.target.value as "popular" | "newest" | "artist-az"
-              )
-            }
-            className="rounded-lg border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none transition-colors hover:border-accent/40 focus:border-accent"
-          >
-            {SORT_OPTIONS.map((opt) => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-      {/* Genre filters */}
-      <div className="scrollbar-hide mb-8 flex gap-2 overflow-x-auto pb-2 md:flex-wrap md:overflow-x-visible md:pb-0">
-        <button
-          onClick={() => setGenreFilter(null)}
-          className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-            genreFilter === null
-              ? "bg-accent text-background"
-              : "border border-border text-muted hover:border-accent/60 hover:text-accent hover:bg-accent/10"
-          }`}
-        >
-          All
-        </button>
-        {genres.map((genre) => (
+  /* -------------------------------------------------------------- */
+  /*  Sidebar filter panel (shared between desktop sidebar + mobile) */
+  /* -------------------------------------------------------------- */
+  const filterPanel = (
+    <div className="flex flex-col gap-6">
+      {/* Genre */}
+      <div>
+        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">
+          Genre
+        </h3>
+        <div className="flex flex-wrap gap-1.5">
           <button
-            key={genre}
-            onClick={() => setGenreFilter(genre)}
-            className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-              genreFilter === genre
+            onClick={() => setGenreFilter(null)}
+            className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+              genreFilter === null
                 ? "bg-accent text-background"
-                : "border border-border text-muted hover:border-accent/60 hover:text-accent hover:bg-accent/10"
+                : "border border-border text-muted hover:border-accent/60 hover:text-accent"
             }`}
           >
-            {genre}
+            All
           </button>
-        ))}
+          {genres.map((genre) => (
+            <button
+              key={genre}
+              onClick={() => setGenreFilter(genre)}
+              className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                genreFilter === genre
+                  ? "bg-accent text-background"
+                  : "border border-border text-muted hover:border-accent/60 hover:text-accent"
+              }`}
+            >
+              {genre}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Platform filters */}
-      <div className="mb-10">
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted">
+      {/* Platform */}
+      <div>
+        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">
           Platform
-        </h2>
-        <div className="scrollbar-hide flex gap-2 overflow-x-auto pb-2 md:overflow-x-visible md:pb-0">
+        </h3>
+        <div className="flex flex-col gap-1.5">
           {PLATFORMS.filter((p) => p.id !== "physical").map((platform) => {
             const isActive = platformFilter === platform.id;
             return (
               <button
                 key={platform.id}
-                onClick={() => setPlatformFilter(platform.id)}
-                className={`flex shrink-0 items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-medium transition-all ${
+                onClick={() =>
+                  setPlatformFilter(isActive ? null : platform.id)
+                }
+                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all text-left ${
                   isActive
-                    ? "bg-surface-hover ring-2 ring-offset-1 ring-offset-background"
+                    ? "bg-surface-hover"
                     : "hover:bg-surface-hover"
                 }`}
                 style={{
-                  borderColor: isActive
-                    ? platform.color
-                    : platform.color + "40",
-                  color: platform.color,
-                  boxShadow: isActive
-                    ? `0 0 0 2px var(--color-background), 0 0 0 4px ${platform.color}`
-                    : undefined,
+                  color: isActive ? platform.color : undefined,
                 }}
               >
                 <span
-                  className="h-2 w-2 rounded-full"
+                  className="h-2.5 w-2.5 rounded-full shrink-0"
                   style={{ backgroundColor: platform.color }}
                 />
                 {platform.label}
@@ -191,43 +152,50 @@ export default function BrowseContent() {
         </div>
       </div>
 
-      {/* Active filter summary + clear */}
-      {hasActiveFilters && (
-        <div className="mb-6 flex items-center gap-3">
-          <p className="text-sm text-muted">
-            Showing {filteredRecipes.length} of {toneRecipes.length} recipes
-          </p>
-          <button
-            onClick={clearFilters}
-            className="rounded-full border border-border px-3 py-1 text-xs font-medium text-muted transition-colors hover:border-accent/60 hover:text-accent"
-          >
-            Clear filters
-          </button>
-        </div>
-      )}
+      {/* Sort */}
+      <div>
+        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">
+          Sort by
+        </h3>
+        <select
+          value={sortBy}
+          onChange={(e) =>
+            setSortBy(e.target.value as "popular" | "newest" | "artist-az")
+          }
+          className="w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none transition-colors hover:border-accent/40 focus:border-accent"
+        >
+          {SORT_OPTIONS.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      {/* Artists quick links */}
-      <div className="mb-14">
-        <h2 className="mb-4 text-lg font-semibold text-muted">By Artist</h2>
-        <div className="scrollbar-hide flex gap-3 overflow-x-auto pb-2 md:flex-wrap md:overflow-x-visible md:pb-0">
+      {/* Artists */}
+      <div>
+        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">
+          By Artist
+        </h3>
+        <div className="flex flex-col gap-1">
           {artists.map((artist) => (
             <Link
               key={artist.slug}
               href={`/artist/${artist.slug}`}
-              className="group shrink-0 flex items-center gap-2.5 rounded-lg border border-border bg-surface px-3 py-2 text-sm font-medium transition-colors hover:border-accent/40 hover:text-accent"
+              className="group flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-muted transition-colors hover:bg-surface-hover hover:text-foreground"
             >
               {artist.image_url ? (
                 <Image
                   src={artist.image_url}
                   alt={artist.name}
-                  width={28}
-                  height={28}
+                  width={22}
+                  height={22}
                   loading="lazy"
                   className="rounded-full object-cover"
-                  sizes="28px"
+                  sizes="22px"
                 />
               ) : (
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/20 text-xs font-bold text-accent">
+                <span className="flex h-[22px] w-[22px] items-center justify-center rounded-full bg-accent/20 text-[10px] font-bold text-accent">
                   {artist.name.charAt(0)}
                 </span>
               )}
@@ -237,48 +205,102 @@ export default function BrowseContent() {
         </div>
       </div>
 
-      {/* Recipe grid */}
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {filteredRecipes.map(({ recipe, artist, song }) => (
-          <RecipeCard
-            key={recipe.slug}
-            recipe={recipe}
-            artist={artist}
-            song={song}
-          />
-        ))}
+      {/* Clear */}
+      {hasActiveFilters && (
+        <button
+          onClick={clearFilters}
+          className="rounded-lg border border-border px-3 py-2 text-xs font-medium text-muted transition-colors hover:border-accent/60 hover:text-accent"
+        >
+          Clear all filters
+        </button>
+      )}
+    </div>
+  );
+
+  return (
+    <div className="mx-auto max-w-7xl px-4 py-10 md:py-16">
+      {/* Header */}
+      <div className="mb-6 flex items-end justify-between">
+        <div>
+          <h1 className="text-2xl font-bold md:text-3xl">Browse Tone Recipes</h1>
+          <p className="mt-1 text-sm text-muted">
+            {filteredRecipes.length} of {toneRecipes.length} recipes
+            {hasActiveFilters && (
+              <button
+                onClick={clearFilters}
+                className="ml-2 text-accent hover:underline"
+              >
+                Clear filters
+              </button>
+            )}
+          </p>
+        </div>
+
+        {/* Mobile filter toggle */}
+        <button
+          onClick={() => setMobileFiltersOpen(!mobileFiltersOpen)}
+          className="flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-muted transition-colors hover:border-accent/40 lg:hidden"
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+          </svg>
+          Filters
+          {hasActiveFilters && (
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-background">
+              {(genreFilter ? 1 : 0) + (platformFilter ? 1 : 0)}
+            </span>
+          )}
+        </button>
       </div>
 
-      {/* Empty state - no filter results */}
-      {filteredRecipes.length === 0 && hasActiveFilters && (
-        <div className="mt-12 rounded-xl border border-dashed border-border p-8 text-center">
-          <p className="text-lg font-semibold text-muted">
-            No recipes match your filters
-          </p>
-          <p className="mt-2 text-sm text-muted">
-            Try adjusting your genre or platform filters.
-          </p>
-          <button
-            onClick={clearFilters}
-            className="mt-4 rounded-full bg-accent px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-accent-hover"
-          >
-            Clear filters
-          </button>
+      {/* Mobile filter drawer */}
+      {mobileFiltersOpen && (
+        <div className="mb-6 rounded-xl border border-border bg-surface p-4 lg:hidden">
+          {filterPanel}
         </div>
       )}
 
-      {/* Empty state - small catalog */}
-      {toneRecipes.length <= 2 && !hasActiveFilters && (
-        <div className="mt-12 rounded-xl border border-dashed border-border p-8 text-center">
-          <p className="text-lg font-semibold text-muted">
-            More recipes coming soon
-          </p>
-          <p className="mt-2 text-sm text-muted">
-            We are building out the database with 200+ iconic guitar tones
-            across every genre.
-          </p>
+      {/* Main layout: sidebar + content */}
+      <div className="flex gap-8">
+        {/* Left sidebar — desktop only */}
+        <aside className="hidden lg:block w-64 shrink-0">
+          <div className="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto scrollbar-hide pr-2">
+            {filterPanel}
+          </div>
+        </aside>
+
+        {/* Recipe grid */}
+        <div className="flex-1 min-w-0">
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {filteredRecipes.map(({ recipe, artist, song }) => (
+              <RecipeCard
+                key={recipe.slug}
+                recipe={recipe}
+                artist={artist}
+                song={song}
+              />
+            ))}
+          </div>
+
+          {/* Empty state */}
+          {filteredRecipes.length === 0 && hasActiveFilters && (
+            <div className="mt-12 rounded-xl border border-dashed border-border p-8 text-center">
+              <p className="text-lg font-semibold text-muted">
+                No recipes match your filters
+              </p>
+              <p className="mt-2 text-sm text-muted">
+                Try adjusting your genre or platform filters.
+              </p>
+              <button
+                onClick={clearFilters}
+                className="mt-4 rounded-full bg-accent px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-accent-hover"
+              >
+                Clear filters
+              </button>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useState, useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -122,33 +122,83 @@ function RecipeSelector({
   excludeSlug: string;
   onChange: (slug: string) => void;
 }) {
+  const [query, setQuery] = useState("");
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  // Close on outside click
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  const options = toneRecipes
+    .filter((r) => r.slug !== excludeSlug)
+    .map((r) => {
+      const song = getSongBySlug(r.song_slug);
+      const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
+      return {
+        slug: r.slug,
+        label: `${artist?.name || ""} - ${r.title}`,
+        sub: song ? `${song.title} (${song.year})` : "",
+        searchText: `${artist?.name || ""} ${r.title} ${song?.title || ""}`.toLowerCase(),
+      };
+    });
+
+  const filtered = query
+    ? options.filter((o) => o.searchText.includes(query.toLowerCase()))
+    : options;
+
+  const selectedOption = options.find((o) => o.slug === value);
+
   return (
-    <div>
+    <div ref={ref} className="relative">
       <label className="mb-1 block text-xs font-medium text-muted">
         {label}
       </label>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
+      <input
+        type="text"
+        placeholder={selectedOption ? selectedOption.label : "Type to search recipes..."}
+        value={open ? query : (selectedOption?.label || "")}
+        onChange={(e) => {
+          setQuery(e.target.value);
+          if (!open) setOpen(true);
+        }}
+        onFocus={() => {
+          setOpen(true);
+          setQuery("");
+        }}
         className="w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-sm text-foreground transition-colors focus:border-accent/60 focus:outline-none"
-      >
-        <option value="">-- Select a recipe --</option>
-        {toneRecipes
-          .filter((r) => r.slug !== excludeSlug)
-          .map((r) => {
-            const song = getSongBySlug(r.song_slug);
-            const artist = song
-              ? getArtistBySlug(song.artist_slug)
-              : undefined;
-            return (
-              <option key={r.slug} value={r.slug}>
-                {artist ? `${artist.name} - ` : ""}
-                {r.title}
-                {song ? ` (${song.title}, ${song.year})` : ""}
-              </option>
-            );
-          })}
-      </select>
+      />
+      {open && (
+        <div className="absolute z-50 mt-1 max-h-64 w-full overflow-y-auto rounded-lg border border-border bg-surface shadow-xl">
+          {filtered.length === 0 ? (
+            <p className="px-4 py-3 text-sm text-muted">No recipes match</p>
+          ) : (
+            filtered.map((o) => (
+              <button
+                key={o.slug}
+                onClick={() => {
+                  onChange(o.slug);
+                  setOpen(false);
+                  setQuery("");
+                }}
+                className={`flex w-full flex-col px-4 py-2.5 text-left transition-colors hover:bg-surface-hover ${
+                  o.slug === value ? "bg-accent/10" : ""
+                }`}
+              >
+                <span className="text-sm font-medium text-foreground">{o.label}</span>
+                <span className="text-xs text-muted">{o.sub}</span>
+              </button>
+            ))
+          )}
+        </div>
+      )}
     </div>
   );
 }
