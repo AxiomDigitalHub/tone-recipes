@@ -46,7 +46,7 @@ export default function Home() {
           </div>
 
           {/* Animated signal chain preview */}
-          <div className="scrollbar-hide mx-auto mt-16 flex max-w-2xl items-center justify-center gap-2 overflow-x-auto px-4 pb-2">
+          <div className="scrollbar-hide mx-auto mt-16 flex max-w-2xl items-center justify-center gap-2 overflow-x-auto px-4 pb-8">
             {[
               { icon: Guitar, label: "Guitar", color: "#f59e0b" },
               { icon: Zap, label: "Overdrive", color: "#22c55e" },
