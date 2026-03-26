@@ -131,10 +131,10 @@ function NodeDetailDrawer({
 /*  Guitar header bar                                                  */
 /* ------------------------------------------------------------------ */
 
-function GuitarHeader({ specs }: { specs: GuitarSpecs }) {
+function GuitarHeader({ specs, actions }: { specs: GuitarSpecs; actions?: React.ReactNode }) {
   return (
     <div className="border-b border-border px-4 py-5 md:px-6">
-      <div className="flex items-center gap-3 sm:gap-5">
+      <div className="flex items-start gap-3 sm:gap-5">
         {/* Guitar icon — matches album art / artist thumbnail height */}
         <div className="flex h-16 w-16 sm:h-[120px] sm:w-[120px] shrink-0 items-center justify-center rounded-xl border-2 border-accent/50 bg-surface">
           <Guitar className="h-8 w-8 sm:h-12 sm:w-12 text-accent" strokeWidth={1.25} />
@@ -176,6 +176,12 @@ function GuitarHeader({ specs }: { specs: GuitarSpecs }) {
             )}
           </div>
         </div>
+        {/* Actions slot (download button) */}
+        {actions && (
+          <div className="shrink-0 self-start mt-1">
+            {actions}
+          </div>
+        )}
       </div>
 
       {/* Cable connector */}
@@ -297,7 +303,18 @@ export default function UnifiedChainView({
   return (
     <div className="rounded-xl border border-border bg-surface overflow-hidden">
       {/* Guitar header bar */}
-      <GuitarHeader specs={guitarSpecs} />
+      <GuitarHeader
+        specs={guitarSpecs}
+        actions={
+          activeTab === "helix" && activeTranslation ? (
+            <DownloadPatchButton
+              translation={activeTranslation}
+              presetName={presetName}
+              platform={activeTab}
+            />
+          ) : undefined
+        }
+      />
 
       {/* Platform tabs */}
       <div role="tablist" aria-label="Signal chain platform" className="flex gap-1 overflow-x-auto border-b border-border p-2 scrollbar-hide">
@@ -422,17 +439,6 @@ export default function UnifiedChainView({
               </div>
             ))}
           </div>
-
-          {/* Download patch button (Helix only) */}
-          {activeTab === "helix" && (
-            <div className="flex justify-center pb-2">
-              <DownloadPatchButton
-                translation={activeTranslation}
-                presetName={presetName}
-                platform={activeTab}
-              />
-            </div>
-          )}
 
           {/* Platform notes (when no node selected) */}
           {activeTranslation.notes && selectedNodeIndex === null && (
