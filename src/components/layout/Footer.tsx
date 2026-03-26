@@ -4,14 +4,8 @@ const productLinks = [
   { href: "/browse", label: "Browse" },
   { href: "/gear", label: "Gear" },
   { href: "/compare", label: "Compare" },
+  { href: "/blog", label: "Blog" },
   { href: "/how-it-works", label: "How It Works" },
-];
-
-const legalLinks = [
-  { href: "/about", label: "About" },
-  { href: "/privacy", label: "Privacy" },
-  { href: "/terms", label: "Terms" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export default function Footer() {
@@ -39,19 +33,12 @@ export default function Footer() {
             ))}
           </nav>
 
-          {/* Legal / about links */}
-          <nav className="flex flex-col gap-2">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted">Company</p>
-            {legalLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted transition-colors hover:text-foreground"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+          {/* Copyright */}
+          <div className="flex flex-col justify-end">
+            <p className="text-xs text-muted">
+              &copy; {new Date().getFullYear()} ToneRecipes. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
