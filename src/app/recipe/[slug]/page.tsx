@@ -128,61 +128,48 @@ export default async function RecipePage({ params }: RecipePageProps) {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-16 md:py-20">
+    <div className="mx-auto max-w-5xl px-4 py-8 md:py-12">
       {/* ----------------------------------------------------------------- */}
-      {/* Hero area */}
+      {/* Compact hero — title + chain immediately visible */}
       {/* ----------------------------------------------------------------- */}
 
       {/* Breadcrumb */}
-      <nav className="mb-8 flex items-center gap-2 text-sm text-muted">
-        <Link href="/browse" className="hover:text-foreground">
-          Browse
-        </Link>
+      <nav className="mb-4 flex items-center gap-2 text-xs text-muted">
+        <Link href="/browse" className="hover:text-foreground">Browse</Link>
         <span>/</span>
         {artist && (
           <>
-            <Link
-              href={`/artist/${artist.slug}`}
-              className="hover:text-foreground"
-            >
-              {artist.name}
-            </Link>
+            <Link href={`/artist/${artist.slug}`} className="hover:text-foreground">{artist.name}</Link>
             <span>/</span>
           </>
         )}
         {song && <span className="text-foreground">{song.title}</span>}
       </nav>
 
-      {/* Title block with album art */}
-      <div className="mb-4 flex items-start gap-5">
+      {/* Title row: album art + title + actions */}
+      <div className="mb-6 flex items-center gap-4">
         {song?.album_art_url && (
-          <div className="hidden sm:block shrink-0">
-            <Image
-              src={song.album_art_url}
-              alt={`${song.album} album art`}
-              width={120}
-              height={120}
-              priority
-              className="rounded-lg border border-border shadow-lg"
-              sizes="120px"
-            />
-          </div>
+          <Image
+            src={song.album_art_url}
+            alt={`${song.album} album art`}
+            width={64}
+            height={64}
+            priority
+            className="hidden sm:block rounded-lg border border-border shadow-md"
+            sizes="64px"
+          />
         )}
         <div className="flex-1 min-w-0">
-          {artist && (
-            <p className="text-sm font-medium text-accent">{artist.name}</p>
-          )}
-          <h1 className="mt-1 text-3xl font-bold md:text-4xl">{recipe.title}</h1>
-          {song && (
-            <p className="mt-2 text-muted">
-              {song.title} ({song.year}) &middot; {song.album}
-            </p>
-          )}
+          <h1 className="text-xl font-bold md:text-2xl leading-tight">{recipe.title}</h1>
+          <p className="mt-0.5 text-sm text-muted">
+            {artist?.name && <span className="text-accent">{artist.name}</span>}
+            {song && <> &middot; {song.title} ({song.year})</>}
+          </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <Link
             href={`/compare?a=${recipe.slug}`}
-            className="shrink-0 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-medium text-muted transition-colors hover:border-accent/40 hover:text-foreground"
+            className="rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-medium text-muted transition-colors hover:border-accent/40 hover:text-foreground"
           >
             Compare
           </Link>
@@ -190,65 +177,10 @@ export default async function RecipePage({ params }: RecipePageProps) {
         </div>
       </div>
 
-      {/* Tags */}
-      <div className="mb-4 flex flex-wrap gap-2">
-        {song && (
-          <Badge variant="outline">
-            <span className={DIFFICULTY_COLORS[song.difficulty]}>
-              {song.difficulty}
-            </span>
-          </Badge>
-        )}
-        {toneContext && <Badge variant="accent">{toneContext}</Badge>}
-        {recipe.tags.map((tag) => (
-          <Badge key={tag}>{tag}</Badge>
-        ))}
-        {recipe.is_editorial && <Badge variant="accent">Editorial</Badge>}
-      </div>
-
-      {/* Quick stats */}
-      <p className="mb-8 text-sm text-muted">
-        {nodeCount} nodes &middot; {platformCount} platform
-        {platformCount !== 1 ? "s" : ""} &middot;{" "}
-        <span className="capitalize">{difficulty}</span>
-        {toneContext && <> &middot; <span className="capitalize">{toneContext}</span></>}
-      </p>
-
-      {/* Description */}
-      <div className="mb-12 rounded-xl border border-border bg-surface p-6 md:p-8">
-        <ReadMore text={recipe.description} lines={3} />
-      </div>
-
       {/* ----------------------------------------------------------------- */}
-      {/* Sticky section nav */}
+      {/* Signal Chain — THE HERO */}
       {/* ----------------------------------------------------------------- */}
-      <nav className="scrollbar-hide sticky top-16 z-40 -mx-4 mb-12 overflow-x-auto border-b border-border bg-background/90 px-4 backdrop-blur-sm">
-        <div className="flex items-center gap-2 py-2">
-          {navItems
-            .filter((item) => item.show)
-            .map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className="shrink-0 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-medium text-muted transition-colors hover:border-accent/40 hover:text-foreground"
-              >
-                {item.label}
-              </a>
-            ))}
-        </div>
-      </nav>
-
-      {/* ----------------------------------------------------------------- */}
-      {/* Collapsible sections */}
-      {/* ----------------------------------------------------------------- */}
-
-      {/* Signal Chain (unified: Physical + all platforms) */}
-      <CollapsibleSection
-        id="signal-chain"
-        title="Signal Chain"
-        defaultOpen={true}
-        badge={`${platformCount + 1} platforms · ${nodeCount} nodes`}
-      >
+      <section id="signal-chain" className="mb-8">
         <UnifiedChainView
           guitarSpecs={recipe.guitar_specs}
           signalChain={recipe.signal_chain}
@@ -260,6 +192,27 @@ export default async function RecipePage({ params }: RecipePageProps) {
           presetName={recipe.title}
           recipeSlug={recipe.slug}
         />
+      </section>
+
+      {/* ----------------------------------------------------------------- */}
+      {/* Details below the chain — collapsible, secondary */}
+      {/* ----------------------------------------------------------------- */}
+
+      {/* Description (collapsed by default — the chain tells the story) */}
+      <CollapsibleSection
+        id="description"
+        title="About This Tone"
+        defaultOpen={false}
+        badge={`${nodeCount} nodes`}
+      >
+        <div className="rounded-xl border border-border bg-surface p-5 md:p-6">
+          <ReadMore text={recipe.description} lines={4} />
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {recipe.tags.map((tag) => (
+              <Badge key={tag}>{tag}</Badge>
+            ))}
+          </div>
+        </div>
       </CollapsibleSection>
 
       {/* Original Gear */}
