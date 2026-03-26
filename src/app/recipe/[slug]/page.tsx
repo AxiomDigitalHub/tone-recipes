@@ -258,6 +258,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
             >
           }
           presetName={recipe.title}
+          recipeSlug={recipe.slug}
         />
       </CollapsibleSection>
 

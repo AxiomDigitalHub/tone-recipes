@@ -121,99 +121,99 @@ INSERT INTO gear_items (name, slug, type, subcategory, manufacturer, icon_type, 
 -- =========================================================================
 -- Tube Screamer TS808
 INSERT INTO gear_modeler_equivalents (gear_id, platform, equivalent_name)
-SELECT id, platform, name FROM gear_items
+SELECT gear_items.id, v.platform, v.equiv_name FROM gear_items
   CROSS JOIN (VALUES
     ('helix', 'Scream 808'), ('quad_cortex', 'TS808 OD'), ('tonex', 'TS808'),
     ('fractal', 'T808 OD'), ('kemper', 'Green Scream'), ('katana', 'Blues Driver (Booster)')
-  ) AS v(platform, name)
+  ) AS v(platform, equiv_name)
 WHERE slug = 'ibanez-tube-screamer-ts808';
 
 -- Fender Vibroverb
 INSERT INTO gear_modeler_equivalents (gear_id, platform, equivalent_name)
-SELECT id, platform, name FROM gear_items
+SELECT gear_items.id, v.platform, v.equiv_name FROM gear_items
   CROSS JOIN (VALUES
     ('helix', 'US Deluxe Vib'), ('quad_cortex', 'Vibro Verb'), ('tonex', 'Vibroverb'),
     ('fractal', 'Vibrato Verb'), ('kemper', 'Fender Vibroverb'), ('katana', 'Crunch Channel')
-  ) AS v(platform, name)
+  ) AS v(platform, equiv_name)
 WHERE slug = 'fender-vibroverb-blackface';
 
 -- Big Muff Pi
 INSERT INTO gear_modeler_equivalents (gear_id, platform, equivalent_name)
-SELECT id, platform, name FROM gear_items
+SELECT gear_items.id, v.platform, v.equiv_name FROM gear_items
   CROSS JOIN (VALUES
     ('helix', 'Triangle Fuzz'), ('quad_cortex', 'Big Pi'), ('tonex', 'Big Muff'),
     ('fractal', 'Big Muff Pi'), ('kemper', 'Big Muff'), ('katana', 'Muff Fuzz (Booster)')
-  ) AS v(platform, name)
+  ) AS v(platform, equiv_name)
 WHERE slug = 'electro-harmonix-big-muff-pi';
 
 -- Hiwatt DR103
 INSERT INTO gear_modeler_equivalents (gear_id, platform, equivalent_name)
-SELECT id, platform, name FROM gear_items
+SELECT gear_items.id, v.platform, v.equiv_name FROM gear_items
   CROSS JOIN (VALUES
     ('helix', 'Brit Plexi Brt'), ('quad_cortex', 'Hiwatt DR103'), ('tonex', 'Hiwatt'),
     ('fractal', 'Hipower 100'), ('kemper', 'Hiwatt Custom 100'), ('katana', 'Lead Channel (clean)')
-  ) AS v(platform, name)
+  ) AS v(platform, equiv_name)
 WHERE slug = 'hiwatt-dr103';
 
 -- Boss DS-1
 INSERT INTO gear_modeler_equivalents (gear_id, platform, equivalent_name)
-SELECT id, platform, name FROM gear_items
+SELECT gear_items.id, v.platform, v.equiv_name FROM gear_items
   CROSS JOIN (VALUES
     ('helix', 'Deez One Vintage'), ('quad_cortex', 'DS-1'), ('tonex', 'Boss DS-1'),
     ('fractal', 'Bender Fuzz'), ('kemper', 'DS-1'), ('katana', 'DS-1 (Booster)')
-  ) AS v(platform, name)
+  ) AS v(platform, equiv_name)
 WHERE slug = 'boss-ds1';
 
 -- Fuzz Face
 INSERT INTO gear_modeler_equivalents (gear_id, platform, equivalent_name)
-SELECT id, platform, name FROM gear_items
+SELECT gear_items.id, v.platform, v.equiv_name FROM gear_items
   CROSS JOIN (VALUES
     ('helix', 'Arbitrator Fuzz'), ('quad_cortex', 'Fuzz Face'), ('tonex', 'Fuzz Face'),
     ('fractal', 'Face Fuzz'), ('kemper', 'Fuzz Face'), ('katana', 'Fuzz Face (Booster)')
-  ) AS v(platform, name)
+  ) AS v(platform, equiv_name)
 WHERE slug = 'dallas-arbiter-fuzz-face';
 
 -- Marshall Super Lead 1959
 INSERT INTO gear_modeler_equivalents (gear_id, platform, equivalent_name)
-SELECT id, platform, name FROM gear_items
+SELECT gear_items.id, v.platform, v.equiv_name FROM gear_items
   CROSS JOIN (VALUES
     ('helix', 'Brit Plexi Brt'), ('quad_cortex', '1959 SLP'), ('tonex', 'Marshall Plexi'),
     ('fractal', 'Plexi 100W'), ('kemper', 'Marshall Plexi'), ('katana', 'Brown Channel')
-  ) AS v(platform, name)
+  ) AS v(platform, equiv_name)
 WHERE slug = 'marshall-super-lead-1959';
 
 -- Cry Baby Wah
 INSERT INTO gear_modeler_equivalents (gear_id, platform, equivalent_name)
-SELECT id, platform, name FROM gear_items
+SELECT gear_items.id, v.platform, v.equiv_name FROM gear_items
   CROSS JOIN (VALUES
     ('helix', 'Chrome'), ('quad_cortex', 'Wah'), ('tonex', 'Cry Baby'),
     ('fractal', 'Cry Baby'), ('kemper', 'Cry Baby'), ('katana', 'Pedal Wah (Pedal FX)')
-  ) AS v(platform, name)
+  ) AS v(platform, equiv_name)
 WHERE slug = 'dunlop-cry-baby-wah';
 
 -- Uni-Vibe
 INSERT INTO gear_modeler_equivalents (gear_id, platform, equivalent_name)
-SELECT id, platform, name FROM gear_items
+SELECT gear_items.id, v.platform, v.equiv_name FROM gear_items
   CROSS JOIN (VALUES
     ('helix', 'Gray Flanger (or Legacy Uni-Vibe)'), ('quad_cortex', 'Uni-Vibe'), ('tonex', 'Uni-Vibe'),
     ('fractal', 'Uni-Vibe'), ('kemper', 'Vintage Phaser'), ('katana', 'Uni-V (Mod)')
-  ) AS v(platform, name)
+  ) AS v(platform, equiv_name)
 WHERE slug = 'shin-ei-uni-vibe';
 
 -- Marshall 4x12 Greenback
 INSERT INTO gear_modeler_equivalents (gear_id, platform, equivalent_name)
-SELECT id, platform, name FROM gear_items
+SELECT gear_items.id, v.platform, v.equiv_name FROM gear_items
   CROSS JOIN (VALUES
     ('helix', '4x12 Greenback25'), ('quad_cortex', '4x12 Green 25'),
     ('fractal', '4x12 Green 25W'), ('katana', '4x12 (internal speaker sim)')
-  ) AS v(platform, name)
+  ) AS v(platform, equiv_name)
 WHERE slug = 'marshall-4x12-greenback';
 
 -- Small Clone
 INSERT INTO gear_modeler_equivalents (gear_id, platform, equivalent_name)
-SELECT id, platform, name FROM gear_items
+SELECT gear_items.id, v.platform, v.equiv_name FROM gear_items
   CROSS JOIN (VALUES
     ('helix', '70s Chorus'), ('quad_cortex', 'Small Clone'), ('tonex', 'Chorus'),
     ('fractal', 'Analog Chorus'), ('kemper', 'Small Clone'), ('katana', 'CE-1 Chorus (Mod)')
-  ) AS v(platform, name)
+  ) AS v(platform, equiv_name)
 WHERE slug = 'ehx-small-clone';

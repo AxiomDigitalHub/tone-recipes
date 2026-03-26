@@ -15,6 +15,7 @@ import { Guitar } from "lucide-react";
 import SignalChainNode from "./SignalChainNode";
 import ChainTooltip from "./ChainTooltip";
 import DownloadPatchButton from "./DownloadPatchButton";
+import CommunitySubmissions from "./CommunitySubmissions";
 import { getChainTip } from "@/lib/chain-tips";
 
 interface UnifiedChainViewProps {
@@ -22,6 +23,7 @@ interface UnifiedChainViewProps {
   signalChain: NodeType[];
   platformTranslations: Partial<Record<Platform, PlatformTranslation>>;
   presetName?: string;
+  recipeSlug?: string;
 }
 
 /* ------------------------------------------------------------------ */
@@ -267,6 +269,7 @@ export default function UnifiedChainView({
   signalChain,
   platformTranslations,
   presetName = "Tone Recipe",
+  recipeSlug,
 }: UnifiedChainViewProps) {
   const availablePlatforms = Object.keys(platformTranslations) as Platform[];
   const [activeTab, setActiveTab] = useState<"physical" | Platform>("physical");
@@ -459,6 +462,11 @@ export default function UnifiedChainView({
         <div className="p-8 text-center text-sm text-muted">
           Translation not available for this platform.
         </div>
+      )}
+
+      {/* Community submissions (non-physical platforms only) */}
+      {activeTab !== "physical" && recipeSlug && (
+        <CommunitySubmissions recipeSlug={recipeSlug} platform={activeTab} />
       )}
 
       {/* Shared detail drawer */}
