@@ -88,8 +88,22 @@ export default function BlogPostPage({
     .filter((p) => p.category === post.category && p.slug !== post.slug)
     .slice(0, 3);
 
+  const blogPostingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.description,
+    "author": { "@type": "Organization", "name": "ToneRecipes" },
+    "datePublished": post.date,
+    "publisher": { "@type": "Organization", "name": "ToneRecipes" },
+  };
+
   return (
     <article className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
+      />
       {/* Breadcrumb */}
       <nav
         aria-label="Breadcrumb"

@@ -16,6 +16,8 @@ import FavoriteButton from "@/components/ui/FavoriteButton";
 import Image from "next/image";
 import Link from "next/link";
 import type { Platform } from "@/types/recipe";
+import AffiliateGearLink from "@/components/ui/AffiliateGearLink";
+import AffiliateDisclosure from "@/components/ui/AffiliateDisclosure";
 
 interface RecipePageProps {
   params: Promise<{ slug: string }>;
@@ -100,8 +102,64 @@ export default async function RecipePage({ params }: RecipePageProps) {
     relatedRecipes = relatedRecipes.slice(0, 4);
   }
 
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": recipe.title,
+    "description": recipe.description,
+    "author": { "@type": "Organization", "name": "ToneRecipes" },
+    "step": recipe.signal_chain.map((node, i) => ({
+      "@type": "HowToStep",
+      "position": i + 1,
+      "name": node.gear_name,
+      "text": `Set ${node.gear_name}: ${Object.entries(node.settings).map(([k, v]) => `${k}: ${v}`).join(', ')}`,
+    })),
+    "tool": recipe.signal_chain.map((n) => ({ "@type": "HowToTool", "name": n.gear_name })),
+  };
+
+  const musicRecordingJsonLd = song
+    ? {
+        "@context": "https://schema.org",
+        "@type": "MusicRecording",
+        "name": song.title,
+        "byArtist": artist
+          ? { "@type": "MusicGroup", "name": artist.name }
+          : undefined,
+        "inAlbum": { "@type": "MusicAlbum", "name": song.album },
+        ...(song.album_art_url ? { "image": song.album_art_url } : {}),
+      }
+    : null;
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Browse", "item": "https://tone-recipes.vercel.app/browse" },
+      ...(artist
+        ? [{ "@type": "ListItem", "position": 2, "name": artist.name, "item": `https://tone-recipes.vercel.app/artist/${artist.slug}` }]
+        : []),
+      ...(song
+        ? [{ "@type": "ListItem", "position": artist ? 3 : 2, "name": song.title }]
+        : []),
+    ],
+  };
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-4 md:py-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+      />
+      {musicRecordingJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(musicRecordingJsonLd) }}
+        />
+      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* ----------------------------------------------------------------- */}
       {/* Compact hero — title + chain immediately visible */}
       {/* ----------------------------------------------------------------- */}
@@ -199,18 +257,22 @@ export default async function RecipePage({ params }: RecipePageProps) {
             <div>
               <p className="text-xs text-muted">Guitar</p>
               <p className="text-sm font-medium">
-                {recipe.original_gear.guitar}
+                <AffiliateGearLink name={recipe.original_gear.guitar} />
               </p>
             </div>
             <div>
               <p className="text-xs text-muted">Amp</p>
-              <p className="text-sm font-medium">{recipe.original_gear.amp}</p>
+              <p className="text-sm font-medium">
+                <AffiliateGearLink name={recipe.original_gear.amp} />
+              </p>
             </div>
             <div>
               <p className="text-xs text-muted">Effects</p>
               <ul className="text-sm font-medium">
                 {recipe.original_gear.effects.map((fx) => (
-                  <li key={fx}>{fx}</li>
+                  <li key={fx}>
+                    <AffiliateGearLink name={fx} />
+                  </li>
                 ))}
               </ul>
             </div>
@@ -290,6 +352,9 @@ export default async function RecipePage({ params }: RecipePageProps) {
           </ul>
         </CollapsibleSection>
       )}
+
+      {/* Affiliate Disclosure */}
+      <AffiliateDisclosure />
 
       {/* ----------------------------------------------------------------- */}
       {/* Related Recipes */}

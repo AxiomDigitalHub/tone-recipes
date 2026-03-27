@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SearchPalette from "@/components/search/SearchPalette";
+import { Analytics } from "@vercel/analytics/next";
 import { AuthProvider } from "@/lib/auth/auth-context";
 import "./globals.css";
 
@@ -75,6 +76,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </AuthProvider>
+        <Analytics />
       </body>
     </html>
   );

@@ -12,6 +12,9 @@ import {
 import { PLATFORMS } from "@/lib/constants";
 import RecipeCard from "@/components/recipe/RecipeCard";
 import Badge from "@/components/ui/Badge";
+import AffiliateDisclosure from "@/components/ui/AffiliateDisclosure";
+import { getAffiliateLinks } from "@/lib/affiliate";
+import { ExternalLink } from "lucide-react";
 
 interface GearPageProps {
   params: Promise<{ slug: string }>;
@@ -58,6 +61,38 @@ function getTypeLabel(gear: { type: string; subcategory?: string }): string {
   return base;
 }
 
+function WhereToBuy({ name, manufacturer }: { name: string; manufacturer: string }) {
+  const links = getAffiliateLinks(name, manufacturer);
+  const partners: { label: string; url: string | undefined }[] = [
+    { label: "Sweetwater", url: links.sweetwater },
+    { label: "Reverb", url: links.reverb },
+    { label: "Amazon", url: links.amazon },
+  ];
+
+  return (
+    <section className="mb-14">
+      <h2 className="mb-6 text-xl font-bold">Where to Buy</h2>
+      <div className="flex flex-wrap gap-3">
+        {partners.map(
+          (p) =>
+            p.url && (
+              <a
+                key={p.label}
+                href={p.url}
+                target="_blank"
+                rel="nofollow sponsored"
+                className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-5 py-3 text-sm font-medium transition-colors hover:border-accent/40 hover:text-accent"
+              >
+                {p.label}
+                <ExternalLink className="h-3.5 w-3.5 text-muted" />
+              </a>
+            )
+        )}
+      </div>
+    </section>
+  );
+}
+
 export default async function GearDetailPage({ params }: GearPageProps) {
   const { slug } = await params;
   const gear = getGearBySlug(slug);
@@ -78,8 +113,35 @@ export default async function GearDetailPage({ params }: GearPageProps) {
     ? Object.entries(gear.modeler_equivalents)
     : [];
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": gear.name,
+    "brand": { "@type": "Brand", "name": gear.manufacturer },
+    "description": gear.description,
+    "category": gear.type,
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Browse", "item": "https://tone-recipes.vercel.app/browse" },
+      { "@type": "ListItem", "position": 2, "name": "Gear", "item": "https://tone-recipes.vercel.app/gear" },
+      { "@type": "ListItem", "position": 3, "name": gear.name },
+    ],
+  };
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 md:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Breadcrumb */}
       <nav className="mb-8 flex items-center gap-2 text-sm text-muted">
         <Link href="/browse" className="hover:text-foreground">
@@ -106,6 +168,9 @@ export default async function GearDetailPage({ params }: GearPageProps) {
       <div className="mb-14 rounded-xl border border-border bg-surface p-6 md:p-8">
         <p className="leading-relaxed text-foreground/90">{gear.description}</p>
       </div>
+
+      {/* Where to Buy */}
+      <WhereToBuy name={gear.name} manufacturer={gear.manufacturer} />
 
       {/* Default Settings */}
       {knobs && knobs.length > 0 && (
@@ -187,6 +252,9 @@ export default async function GearDetailPage({ params }: GearPageProps) {
           </div>
         </section>
       )}
+
+      {/* Affiliate Disclosure */}
+      <AffiliateDisclosure />
     </div>
   );
 }

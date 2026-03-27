@@ -40,8 +40,34 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
 
   const artistSongs = getSongsByArtistSlug(slug);
 
+  const musicGroupJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": artist.name,
+    "description": artist.bio,
+    "genre": artist.genres,
+    ...(artist.image_url ? { "image": artist.image_url } : {}),
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Browse", "item": "https://tone-recipes.vercel.app/browse" },
+      { "@type": "ListItem", "position": 2, "name": artist.name },
+    ],
+  };
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(musicGroupJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Breadcrumb */}
       <nav className="mb-8 flex items-center gap-2 text-sm text-muted">
         <Link href="/browse" className="hover:text-foreground">Browse</Link>

@@ -9,8 +9,25 @@ import Badge from "@/components/ui/Badge";
 export default function Home() {
   const featuredRecipes = toneRecipes.slice(0, 6);
 
+  const webSiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ToneRecipes",
+    "url": "https://tone-recipes.vercel.app",
+    "description": "Song-specific guitar tone recipes for every modeler platform",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://tone-recipes.vercel.app/browse?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative overflow-visible">
         {/* Subtle background grid */}
