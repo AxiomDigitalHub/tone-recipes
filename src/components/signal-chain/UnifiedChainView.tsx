@@ -54,112 +54,92 @@ function NodeDetailDrawer({
       ? getChainIcon(platformBlock.block_category)
       : Guitar;
 
+  if (!isOpen) return null;
+
   return (
-    <>
-      {/* Backdrop overlay */}
-      <div
-        className={`fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
-          isOpen ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-        onClick={onClose}
-      />
-
-      {/* Bottom sheet */}
-      <div
-        className={`fixed inset-x-0 bottom-0 z-50 max-h-[70vh] transform overflow-y-auto rounded-t-2xl border-t border-border bg-background shadow-2xl transition-transform duration-300 ease-out ${
-          isOpen ? "translate-y-0" : "translate-y-full"
-        }`}
-      >
-        {/* Drag handle */}
-        <div className="sticky top-0 z-10 flex justify-center bg-background pb-2 pt-3">
-          <div className="h-1 w-10 rounded-full bg-border" />
-        </div>
-
-        <div className="px-5 pb-8 md:px-8">
-          {/* Header */}
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div
-                className="flex h-14 w-14 items-center justify-center rounded-xl border-2"
-                style={{ borderColor: color + "80", backgroundColor: color + "10" }}
-              >
-                <Icon className="h-7 w-7" style={{ color }} strokeWidth={1.5} />
-              </div>
-              <div>
-                <p className="text-lg font-bold text-foreground">{name}</p>
-                {node && (
-                  <p className="text-xs uppercase tracking-wider text-muted">
-                    {node.category}
-                    {node.subcategory ? ` / ${node.subcategory}` : ""}
-                    {node.is_in_effects_loop ? " · FX Loop" : ""}
-                  </p>
-                )}
-                {platformBlock && (
-                  <p className="text-xs text-muted">
-                    ← {platformBlock.original_gear}
-                  </p>
-                )}
-              </div>
-            </div>
-            <button
-              onClick={onClose}
-              aria-label="Close"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-surface text-muted transition-colors hover:bg-surface-hover hover:text-foreground"
-            >
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+    <div className="border-t-2 bg-background/95" style={{ borderTopColor: color + "60" }}>
+      {/* Header bar with colored accent */}
+      <div className="flex items-center justify-between gap-4 px-5 py-4 md:px-8">
+        <div className="flex items-center gap-4">
+          <div
+            className="flex h-12 w-12 items-center justify-center rounded-xl border-2"
+            style={{ borderColor: color + "80", backgroundColor: color + "10" }}
+          >
+            <Icon className="h-6 w-6" style={{ color }} strokeWidth={1.5} />
           </div>
-
-          {/* Settings — knob-style grid */}
-          {settingEntries.length > 0 ? (
-            <div className="mt-6 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
-              {settingEntries.map(([key, value]) => (
-                <div
-                  key={key}
-                  className="flex flex-col items-center rounded-xl border border-border bg-surface p-3"
-                >
-                  <span
-                    className="text-2xl font-mono font-bold"
-                    style={{ color }}
-                  >
-                    {value}
-                  </span>
-                  <span className="mt-1 text-[11px] font-medium uppercase tracking-wider text-muted">
-                    {key}
-                  </span>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className="mt-6 text-sm text-muted">No adjustable settings</p>
-          )}
-
-          {/* Notes */}
-          {notes && (
-            <div className="mt-5 rounded-xl bg-surface p-4">
-              <p className="text-xs font-semibold uppercase tracking-wider text-accent">
-                Notes
+          <div>
+            <p className="text-base font-bold text-foreground">{name}</p>
+            {node && (
+              <p className="text-[11px] uppercase tracking-wider text-muted">
+                {node.category}
+                {node.subcategory ? ` / ${node.subcategory}` : ""}
+                {node.is_in_effects_loop ? " · FX Loop" : ""}
               </p>
-              <p className="mt-1.5 text-sm leading-relaxed text-muted">
-                {notes}
+            )}
+            {platformBlock && (
+              <p className="text-[11px] text-muted">
+                ← {platformBlock.original_gear}
               </p>
-            </div>
-          )}
-
-          {/* Gear link */}
+            )}
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
           {node?.gear_slug && (
             <Link
               href={`/gear/${node.gear_slug}`}
-              className="mt-4 inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-4 py-2.5 text-sm font-medium text-accent transition-colors hover:border-accent/40 hover:bg-surface-hover"
+              className="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-accent transition-colors hover:border-accent/40"
             >
-              View gear details →
+              Gear details →
             </Link>
           )}
+          <button
+            onClick={onClose}
+            aria-label="Close"
+            className="flex h-8 w-8 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface hover:text-foreground"
+          >
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
       </div>
-    </>
+
+      {/* Settings — knob-style grid */}
+      <div className="px-5 pb-5 md:px-8">
+        {settingEntries.length > 0 ? (
+          <div className="grid grid-cols-3 gap-2.5 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+            {settingEntries.map(([key, value]) => (
+              <div
+                key={key}
+                className="flex flex-col items-center rounded-xl border border-border bg-surface p-3"
+              >
+                <span
+                  className="text-xl font-mono font-bold"
+                  style={{ color }}
+                >
+                  {value}
+                </span>
+                <span className="mt-0.5 text-[10px] font-medium uppercase tracking-wider text-muted">
+                  {key}
+                </span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-sm text-muted">No adjustable settings</p>
+        )}
+
+        {/* Notes */}
+        {notes && (
+          <div className="mt-3 rounded-lg bg-surface/50 px-4 py-3">
+            <p className="text-xs leading-relaxed text-muted">
+              <span className="font-semibold text-accent">Note: </span>
+              {notes}
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -334,6 +314,17 @@ export default function UnifiedChainView({
   const activePlatformMeta = PLATFORMS.find((p) => p.id === activeTab);
   const activeTranslation =
     activeTab !== "physical" ? platformTranslations[activeTab] : null;
+
+  // ESC key exits fullscreen
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape" && isFullscreen) {
+        setIsFullscreen(false);
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isFullscreen]);
 
   // Reset selection when switching tabs
   function handleTabSwitch(tab: "physical" | Platform) {
