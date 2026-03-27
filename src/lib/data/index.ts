@@ -744,7 +744,7 @@ export const gearItems: GearItem[] = [
       ],
     },
     modeler_equivalents: {
-      helix: "Brit Plexi Brt",
+      helix: "WhoWatt 100",
       quad_cortex: "Hiwatt DR103",
       tonex: "Hiwatt",
       fractal: "Hipower 100",
@@ -1543,7 +1543,7 @@ export const toneRecipes: ToneRecipe[] = [
       body_type: "solid",
       model_name: "Fender Stratocaster (#1 / 'Number One')",
       pickup_config: "SSS",
-      pickup_position: "neck",
+      pickup_position: "bridge",
       string_count: 6,
       scale_length: "25.5",
       tuning: "eb_standard",
@@ -1561,7 +1561,7 @@ export const toneRecipes: ToneRecipe[] = [
         icon_type: "boss_compact",
         icon_color: "#22c55e",
         is_in_effects_loop: false,
-        settings: { Drive: 3, Tone: 6, Level: 8 },
+        settings: { Drive: 1, Tone: 6, Level: 10 },
         notes:
           "Drive is LOW. This is not an overdrive sound; it's a clean boost with a mid-hump. The Level is high to slam the front of the amp. The Tone adds some brightness to cut through.",
       },
@@ -1630,7 +1630,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Scream 808",
             block_category: "Distortion",
             original_gear: "Ibanez TS808",
-            settings: { Drive: 3.0, Tone: 6.0, Level: 8.0 },
+            settings: { Drive: 1.0, Tone: 6.0, Level: 10.0 },
             notes: "Found under Distortion > Overdrive. Keep the Drive low.",
           },
           {
@@ -1919,7 +1919,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Brit Plexi Brt",
+            block_name: "WhoWatt 100",
             block_category: "Amp",
             original_gear: "Hiwatt DR103",
             settings: {
@@ -1931,7 +1931,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Ch Vol": 7.0,
             },
             notes:
-              "Helix doesn't have a dedicated Hiwatt model. The Brit Plexi Brt set clean is a reasonable starting point. Alternatively, use the Cartographer (Benson Chimera) for more headroom.",
+              "WhoWatt 100 is Helix's Hiwatt model. Set clean for a massive, full-range platform for the Big Muff. Alternatively, use the Cartographer (Benson Chimera) for more headroom.",
           },
           {
             position: 4,
@@ -2270,14 +2270,14 @@ export const toneRecipes: ToneRecipe[] = [
     guitar_specs: {
       body_type: "solid",
       model_name: "Fender Mustang",
-      pickup_config: "HH",
+      pickup_config: "SS",
       pickup_position: "bridge",
       string_count: 6,
       scale_length: "24",
       tuning: "standard",
       string_gauge: ".010-.046",
       notable_mods:
-        "Cobain preferred cheap offset guitars. The Mustang's shorter 24\" scale length contributes to a looser, slinkier feel. Stock humbuckers provide a thicker, darker tone than single-coils.",
+        "Cobain preferred cheap offset guitars. The Mustang's shorter 24\" scale length contributes to a looser, slinkier feel. Stock single-coil pickups provide a bright, biting tone.",
     },
     signal_chain: [
       {
@@ -2388,7 +2388,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "US Double Nrm",
+            block_name: "Cali Texas Ch2",
             block_category: "Amp",
             original_gear: "Mesa/Boogie Studio .22",
             settings: {
@@ -2400,7 +2400,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Ch Vol": 7.0,
             },
             notes:
-              "Helix doesn't have an exact Mesa .22 model. The US Double Nrm (based on Mesa Dual Rectifier) in the normal channel provides a similar scooped, high-gain Mesa character. Keep the mids low for that grunge scoop.",
+              "Cali Texas Ch2 approximates the Mesa .22 preamp. Keep the mids low for that grunge scoop.",
           },
           {
             position: 4,
@@ -3530,19 +3530,19 @@ export const toneRecipes: ToneRecipe[] = [
     title: "Clapton's Layla Searing Lead Tone",
     slug: "clapton-layla-lead",
     description:
-      "One of the most passionate guitar performances ever recorded. Clapton's tone on Layla is raw, urgent, and biting: a Gibson SG through a cranked Fender Champ, with the tiny amp pushed to its absolute limits. The Champ's single-ended 5-watt circuit compresses and distorts beautifully when dimed, producing a thick, creamy overdrive with natural sustain. Duane Allman's slide guitar interweaves with Clapton's lead lines, and both guitars were recorded through small amps at high volume for maximum saturation.",
+      "One of the most passionate guitar performances ever recorded. Clapton's tone on Layla is raw, urgent, and biting: a Fender Stratocaster ('Brownie') through a cranked Fender Champ, with the tiny amp pushed to its absolute limits. The Champ's single-ended 5-watt circuit compresses and distorts beautifully when dimed, producing a thick, creamy overdrive with natural sustain. Duane Allman's slide guitar interweaves with Clapton's lead lines, and both guitars were recorded through small amps at high volume for maximum saturation.",
     tone_context: "full_song",
     guitar_specs: {
       body_type: "solid",
-      model_name: "Gibson SG Standard",
-      pickup_config: "HH",
-      pickup_position: "bridge",
+      model_name: "Fender Stratocaster ('Brownie')",
+      pickup_config: "SSS",
+      pickup_position: "bridge+middle",
       string_count: 6,
-      scale_length: "24.75",
+      scale_length: "25.5",
       tuning: "standard",
       string_gauge: ".010-.046",
       notable_mods:
-        "A stock Gibson SG Standard with PAF-style humbuckers. The bridge pickup provides the biting, aggressive attack needed for the Layla riff. Clapton also used a Stratocaster on some tracks during this era.",
+        "Clapton's 'Brownie' Stratocaster, a sunburst Strat he used extensively during the Derek and the Dominos era. The bridge+middle position provides a biting, aggressive attack with a scooped quality for the Layla riff.",
     },
     signal_chain: [
       {
@@ -3587,7 +3587,7 @@ export const toneRecipes: ToneRecipe[] = [
     ],
     original_gear: {
       guitar:
-        "Gibson SG Standard, bridge pickup, stock PAF humbuckers, .010-.046 strings",
+        "Fender Stratocaster ('Brownie'), bridge+middle position, .010-.046 strings",
       effects: [],
       amp: "Fender Champ (cranked to full volume)",
       cabinet: "Built-in Fender Champ 1x8 speaker",
@@ -4432,19 +4432,6 @@ export const toneRecipes: ToneRecipe[] = [
     signal_chain: [
       {
         position: 1,
-        category: "effect",
-        subcategory: "overdrive",
-        gear_slug: "ibanez-tube-screamer-ts808",
-        gear_name: "Ibanez Tube Screamer (boost)",
-        icon_type: "boss_compact",
-        icon_color: "#22c55e",
-        is_in_effects_loop: false,
-        settings: { Drive: 0, Tone: 5, Level: 8 },
-        notes:
-          "A Tube Screamer with the drive at ZERO is used as a clean boost and mid-hump filter to tighten the Mesa's low end. This technique, later popularized widely, removes the flubby bass frequencies that can occur with high-gain amps and adds mid-frequency cut. The Level is maxed to push the front end hard.",
-      },
-      {
-        position: 2,
         category: "preamp",
         subcategory: null,
         gear_slug: "mesa-boogie-mark-iic-plus",
@@ -4465,7 +4452,7 @@ export const toneRecipes: ToneRecipe[] = [
           "The classic scooped-mid metal EQ: bass and mids are low, treble is high. This creates the characteristic thrash metal 'V-curve' EQ shape. The Lead Drive is pushed hard for saturated, sustained distortion. The Mark IIC+ has a unique gain structure that maintains note clarity and pick definition even at extreme gain levels.",
       },
       {
-        position: 3,
+        position: 2,
         category: "cabinet",
         subcategory: null,
         gear_slug: null,
@@ -4478,7 +4465,7 @@ export const toneRecipes: ToneRecipe[] = [
           "A Mesa 4x12 with Celestion Vintage 30 speakers provides a tight, modern low end with a pronounced upper-midrange presence. The V30 speakers are the standard for metal guitar tones.",
       },
       {
-        position: 4,
+        position: 3,
         category: "microphone",
         subcategory: null,
         gear_slug: "shure-sm57",
@@ -4494,7 +4481,7 @@ export const toneRecipes: ToneRecipe[] = [
     original_gear: {
       guitar:
         "ESP Explorer (custom), EMG 81 bridge pickup, standard tuning, .011-.048 strings",
-      effects: ["Ibanez Tube Screamer (clean boost, drive at zero)"],
+      effects: [],
       amp: "Mesa/Boogie Mark IIC+ (Lead channel)",
       cabinet: "Mesa/Boogie 4x12 with Celestion Vintage 30 speakers",
       microphone: "Shure SM57 (close-miked)",
@@ -4511,16 +4498,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Scream 808",
-            block_category: "Distortion",
-            original_gear: "Ibanez Tube Screamer (boost)",
-            settings: { Drive: 0, Tone: 5.0, Level: 8.0 },
-            notes:
-              "Drive at ZERO. This is a pure clean boost and low-end tightener. The mid-hump of the Screamer cuts through the mix. Level maxed to slam the amp.",
-          },
-          {
-            position: 2,
-            block_name: "Cali Rectifire",
+            block_name: "Cali Texas Ch2",
             block_category: "Amp",
             original_gear: "Mesa/Boogie Mark IIC+",
             settings: {
@@ -4532,10 +4510,10 @@ export const toneRecipes: ToneRecipe[] = [
               "Ch Vol": 6.0,
             },
             notes:
-              "Helix doesn't have an exact Mark IIC+ model. The Cali Rectifire provides a similar high-gain Mesa character with the scooped-mid metal tone. Keep bass and mids low, treble high for the classic V-curve.",
+              "Cali Texas Ch2 models the Mesa Mark IV, closest to Mark IIC+. Keep bass and mids low, treble high for the classic V-curve.",
           },
           {
-            position: 3,
+            position: 2,
             block_name: "4x12 Cali V30",
             block_category: "Cab",
             original_gear: "Mesa 4x12 V30",
@@ -4545,20 +4523,12 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "The Tube Screamer boost with drive at zero is the key technique for modern metal tones on Helix. It tightens the low end and adds mid-frequency cut. Use all downstrokes and tight palm muting for authentic Hetfield rhythms. This patch also works well with the PV Panama model as an alternative amp.",
+          "Use all downstrokes and tight palm muting for authentic Hetfield rhythms. The Cali Texas Ch2 captures the Mark series character well. This patch also works well with the PV Panama model as an alternative amp.",
       },
       quad_cortex: {
         chain_blocks: [
           {
             position: 1,
-            block_name: "TS808 OD",
-            block_category: "Drive",
-            original_gear: "Ibanez Tube Screamer (boost)",
-            settings: { Drive: 0, Tone: 5.0, Level: 8.0 },
-            notes: "Drive at zero. Clean boost to tighten the Mesa's low end.",
-          },
-          {
-            position: 2,
             block_name: "Mesa Mark IIC+",
             block_category: "Amp",
             original_gear: "Mesa/Boogie Mark IIC+",
@@ -4574,7 +4544,7 @@ export const toneRecipes: ToneRecipe[] = [
               "If a Mark IIC+ model is available, it is one of the QC's strongest metal amp models. Scooped mids, high treble, moderate gain for the classic thrash V-curve.",
           },
           {
-            position: 3,
+            position: 2,
             block_name: "4x12 V30",
             block_category: "Cab",
             original_gear: "Mesa 4x12 V30",
@@ -4583,7 +4553,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "The QC excels at high-gain metal tones. Search Cortex Cloud for 'Mark IIC+' or 'Metallica' captures. Community captures of real Mark IIC+ amps with the Tube Screamer boost are among the most popular on the platform.",
+          "The QC excels at high-gain metal tones. Search Cortex Cloud for 'Mark IIC+' or 'Metallica' captures.",
       },
       katana: {
         chain_blocks: [
@@ -4603,18 +4573,9 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "The Katana's Lead channel provides the high-gain saturation needed for thrash metal. Scoop the mids and push the treble for the V-curve EQ shape.",
           },
-          {
-            position: 2,
-            block_name: "Blues Driver",
-            block_category: "Booster",
-            original_gear: "Ibanez Tube Screamer (boost)",
-            settings: { Level: 8, Tone: 5, Drive: 0 },
-            notes:
-              "Blues Driver in the Booster slot with drive at zero acts as a clean boost and low-end tightener, mimicking the Tube Screamer boost technique.",
-          },
         ],
         notes:
-          "The Katana's Lead channel scooped with a Blues Driver boost gets a convincing thrash metal tone. Use all downstrokes, tight palm muting, and a bridge humbucker for the authentic Hetfield attack. This setup handles the Master of Puppets riffs surprisingly well.",
+          "The Katana's Lead channel scooped gets a convincing thrash metal tone. Use all downstrokes, tight palm muting, and a bridge humbucker for the authentic Hetfield attack. This setup handles the Master of Puppets riffs surprisingly well.",
       },
     },
     is_editorial: true,
@@ -4628,7 +4589,7 @@ export const toneRecipes: ToneRecipe[] = [
     title: "Angus Young's Back in Black Rhythm Tone",
     slug: "angus-young-back-in-black-rhythm",
     description:
-      "The most iconic rhythm guitar tone in hard rock. Angus Young's tone on Back in Black is deceptively simple: a Gibson SG plugged straight into a cranked Marshall JTM45 with nothing in between. No pedals, no effects, no tricks. The entire sound comes from the interaction between the SG's bridge humbucker and the amp pushed to the edge of breakup. The bright, biting attack of the SG cuts through the mix, while the JTM45's warm British overdrive provides just enough grit without losing note clarity. Malcolm Young's identical rig on rhythm creates the massive wall of sound.",
+      "The most iconic rhythm guitar tone in hard rock. Angus Young's tone on Back in Black is deceptively simple: a Gibson SG plugged straight into a cranked Marshall Super Lead 1959 (Plexi) with nothing in between. No pedals, no effects, no tricks. The entire sound comes from the interaction between the SG's bridge humbucker and the amp pushed to the edge of breakup. The bright, biting attack of the SG cuts through the mix, while the Plexi's warm British overdrive provides just enough grit without losing note clarity. Malcolm Young's identical rig on rhythm creates the massive wall of sound.",
     tone_context: "full_song",
     guitar_specs: {
       body_type: "solid",
@@ -4647,14 +4608,14 @@ export const toneRecipes: ToneRecipe[] = [
         position: 1,
         category: "preamp",
         subcategory: null,
-        gear_slug: "marshall-jtm45",
-        gear_name: "Marshall JTM45",
+        gear_slug: "marshall-plexi",
+        gear_name: "Marshall Super Lead 1959 (Plexi)",
         icon_type: "marshall_head",
         icon_color: "#a1a1aa",
         is_in_effects_loop: false,
         settings: { Volume: 8, Treble: 7, Bass: 4, Presence: 6 },
         notes:
-          "Cranked loud for natural tube overdrive. The JTM45 is essentially a British Bassman, producing a warm, fat overdrive with a singing quality. Volume at 8 puts it firmly into breakup territory. Treble is pushed to match the SG's bright character.",
+          "Cranked loud for natural tube overdrive. The Plexi produces a bright, aggressive overdrive with a singing quality. Volume at 8 puts it firmly into breakup territory. Treble is pushed to match the SG's bright character.",
       },
       {
         position: 2,
@@ -4686,7 +4647,7 @@ export const toneRecipes: ToneRecipe[] = [
     original_gear: {
       guitar: "Gibson SG Standard, bridge humbucker, standard tuning, .009-.042 strings",
       effects: [],
-      amp: "Marshall JTM45 (cranked)",
+      amp: "Marshall Super Lead 1959 Plexi (cranked)",
       cabinet: "Marshall 4x12 with Celestion Greenbacks",
       microphone: "Shure SM57",
       other_notes:
@@ -4699,9 +4660,9 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Brit J45 Nrm",
+            block_name: "Brit Plexi Brt",
             block_category: "Amp",
-            original_gear: "Marshall JTM45",
+            original_gear: "Marshall Super Lead 1959 (Plexi)",
             settings: {
               Drive: 7.5,
               Bass: 4.0,
@@ -4711,7 +4672,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Ch Vol": 7.0,
             },
             notes:
-              "The Brit J45 is Helix's JTM45 model. Push the drive for natural breakup. No drive pedals needed.",
+              "The Brit Plexi Brt is Helix's Plexi model. Push the drive for natural breakup. No drive pedals needed.",
           },
           {
             position: 2,
@@ -4729,9 +4690,9 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "JTM45",
+            block_name: "1959 SLP",
             block_category: "Amp",
-            original_gear: "Marshall JTM45",
+            original_gear: "Marshall Super Lead 1959 (Plexi)",
             settings: {
               Gain: 7.5,
               Bass: 4.0,
@@ -4740,7 +4701,7 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 6.0,
               Master: 7.0,
             },
-            notes: "Push the gain for natural JTM45 breakup. No stomp pedals needed.",
+            notes: "Push the gain for natural Plexi breakup. No stomp pedals needed.",
           },
           {
             position: 2,
@@ -4752,7 +4713,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Search Cortex Cloud for AC/DC or JTM45 captures for even more authenticity. The simplicity of this signal chain makes it an ideal candidate for amp captures.",
+          "Search Cortex Cloud for AC/DC or Plexi captures for even more authenticity. The simplicity of this signal chain makes it an ideal candidate for amp captures.",
       },
       katana: {
         chain_blocks: [
@@ -4760,7 +4721,7 @@ export const toneRecipes: ToneRecipe[] = [
             position: 1,
             block_name: "Brown",
             block_category: "Amp Type",
-            original_gear: "Marshall JTM45",
+            original_gear: "Marshall Super Lead 1959 (Plexi)",
             settings: {
               Gain: 6,
               Bass: 4,
@@ -5017,7 +4978,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Brit Plexi Brt",
+            block_name: "WhoWatt 100",
             block_category: "Amp",
             original_gear: "Hiwatt DR103",
             settings: {
@@ -5029,7 +4990,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Ch Vol": 7.5,
             },
             notes:
-              "Helix lacks a dedicated Hiwatt model. The Brit Plexi Brt pushed hard approximates the Hiwatt's powerful, clear overdrive. A third-party Hiwatt IR would improve accuracy.",
+              "WhoWatt 100 is Helix's Hiwatt model. Push it hard for the powerful, clear overdrive Townshend is known for.",
           },
           {
             position: 2,
@@ -5109,16 +5070,16 @@ export const toneRecipes: ToneRecipe[] = [
       "Jerry Garcia's tone on Truckin' is a sparkling, clean Stratocaster sound through a Fender Twin Reverb. This is about clarity and articulation, not distortion. Every note rings out with bell-like precision, and the Twin's massive clean headroom ensures the tone stays pristine even at volume. The touch of spring reverb adds depth without washing out the details. Garcia's tone is the opposite of most rock guitarists: clean, bright, and dynamically responsive to his fingerpicking and flatpicking technique.",
     tone_context: "full_song",
     guitar_specs: {
-      body_type: "solid",
-      model_name: "Fender Stratocaster",
-      pickup_config: "SSS",
+      body_type: "semi_hollow",
+      model_name: "Guild Starfire",
+      pickup_config: "HH",
       pickup_position: "middle",
       string_count: 6,
-      scale_length: "25.5",
+      scale_length: "24.75",
       tuning: "standard",
       string_gauge: ".010-.046",
       notable_mods:
-        "Garcia used various Strats and custom guitars. During the American Beauty era, a stock Stratocaster in the middle position provides the balanced, quacky clean tone heard on Truckin'.",
+        "Garcia used a Guild Starfire during the American Beauty era. The semi-hollow body adds natural resonance and warmth to the clean tone heard on Truckin'.",
     },
     signal_chain: [
       {
@@ -5161,7 +5122,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
     ],
     original_gear: {
-      guitar: "Fender Stratocaster, middle pickup, standard tuning",
+      guitar: "Guild Starfire, middle position, standard tuning",
       effects: [],
       amp: "Fender Twin Reverb (clean with spring reverb)",
       cabinet: "Built-in 2x12 Jensen speakers",
@@ -5712,7 +5673,7 @@ export const toneRecipes: ToneRecipe[] = [
     title: "Tony Iommi's Iron Man Doom Riff Tone",
     slug: "iommi-iron-man-doom-riff",
     description:
-      "The tone that invented heavy metal. Tony Iommi's detuned SG through a cranked Laney produces a thick, grinding, dark distortion that is the foundation of doom and heavy metal. The guitar is tuned down to C# standard (one and a half steps down), giving the riffs a massive, heavy character. The Rangemaster treble booster pushes the Laney into heavy saturation while maintaining note definition. Iommi's prosthetic fingertips and light string gauge contribute to a slightly looser, more aggressive attack.",
+      "The tone that invented heavy metal. Tony Iommi's SG through a cranked Laney produces a thick, grinding, dark distortion that is the foundation of doom and heavy metal. The Rangemaster treble booster pushes the Laney into heavy saturation while maintaining note definition. Iommi's prosthetic fingertips and light string gauge contribute to a slightly looser, more aggressive attack.",
     tone_context: "full_song",
     guitar_specs: {
       body_type: "solid",
@@ -5721,11 +5682,10 @@ export const toneRecipes: ToneRecipe[] = [
       pickup_position: "bridge",
       string_count: 6,
       scale_length: "24.75",
-      tuning: "custom",
-      tuning_custom: "C# Standard (C#-F#-B-E-G#-C#)",
+      tuning: "standard",
       string_gauge: ".008-.032",
       notable_mods:
-        "Iommi lost the tips of two fingers in a factory accident and wears thimble-like prosthetics. He uses extremely light strings and low tuning to accommodate his injury. The P90 pickups on his early SG Special provide a raw, aggressive bite.",
+        "Iommi lost the tips of two fingers in a factory accident and wears thimble-like prosthetics. He uses extremely light strings to accommodate his injury. The P90 pickups on his early SG Special provide a raw, aggressive bite.",
     },
     signal_chain: [
       {
@@ -5739,7 +5699,7 @@ export const toneRecipes: ToneRecipe[] = [
         is_in_effects_loop: false,
         settings: { Boost: 7 },
         notes:
-          "The Rangemaster pushes the Laney into heavy overdrive while adding treble clarity to compensate for the dark, detuned tone. Without it, the low tuning would sound muddy.",
+          "The Rangemaster pushes the Laney into heavy overdrive while adding treble clarity and presence. It adds brightness and cut to the otherwise dark SG/Laney combination.",
       },
       {
         position: 2,
@@ -5768,13 +5728,13 @@ export const toneRecipes: ToneRecipe[] = [
       },
     ],
     original_gear: {
-      guitar: "Gibson SG Special with P90 pickups, tuned to C# standard, .008-.032 strings",
+      guitar: "Gibson SG Special with P90 pickups, standard tuning, .008-.032 strings",
       effects: ["Dallas Rangemaster Treble Booster"],
       amp: "Laney LA100BL Supergroup (cranked)",
       cabinet: "4x12 with Celestion speakers",
       microphone: "Shure SM57",
       other_notes:
-        "Iommi's extremely light strings and detuning are as important as the amp settings. The loose string tension creates a unique, slightly buzzy attack that is central to the Sabbath sound.",
+        "Iommi's extremely light strings are as important as the amp settings. The lighter string tension creates a unique, slightly buzzy attack that is central to the Sabbath sound.",
     },
     tags: ["metal", "doom-metal", "hard-rock", "detuned", "black-sabbath", "heavy"],
     sources: [],
@@ -5787,7 +5747,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "Distortion",
             original_gear: "Dallas Rangemaster",
             settings: { Boost: 7.0 },
-            notes: "Treble booster to cut through the dark detuned tone and push the amp.",
+            notes: "Treble booster to add brightness and push the amp into heavier overdrive.",
           },
           {
             position: 2,
@@ -5815,7 +5775,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Tune your guitar down to C# standard. The detuning is as important as the amp settings for the authentic Sabbath doom tone. Use the bridge pickup with P90s or humbuckers.",
+          "Use the bridge pickup with P90s or humbuckers for the authentic Sabbath doom tone.",
       },
       quad_cortex: {
         chain_blocks: [
@@ -5825,7 +5785,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "Drive",
             original_gear: "Dallas Rangemaster",
             settings: { Boost: 7.0 },
-            notes: "Treble booster to push the amp and cut through the detuned muddiness.",
+            notes: "Treble booster to push the amp and add brightness.",
           },
           {
             position: 2,
@@ -5851,7 +5811,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Tune down to C# standard. Search Cortex Cloud for Laney Supergroup or Black Sabbath captures.",
+          "Search Cortex Cloud for Laney Supergroup or Black Sabbath captures.",
       },
       katana: {
         chain_blocks: [
@@ -5877,11 +5837,11 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "Booster",
             original_gear: "Dallas Rangemaster",
             settings: { Level: 7, Tone: 7 },
-            notes: "Treble Boost to cut through the detuned muddiness and push the amp harder.",
+            notes: "Treble Boost to add brightness and push the amp harder.",
           },
         ],
         notes:
-          "Tune down to C# standard. Brown channel cranked with a Treble Boost gets a convincing Sabbath doom tone.",
+          "Brown channel cranked with a Treble Boost gets a convincing Sabbath doom tone.",
       },
     },
     is_editorial: true,
@@ -5913,19 +5873,6 @@ export const toneRecipes: ToneRecipe[] = [
       {
         position: 1,
         category: "effect",
-        subcategory: "distortion",
-        gear_slug: "mxr-distortion-plus",
-        gear_name: "MXR Distortion+",
-        icon_type: "mxr",
-        icon_color: "#f5d742",
-        is_in_effects_loop: false,
-        settings: { Output: 7, Distortion: 6 },
-        notes:
-          "The MXR Distortion+ adds grit and sustain while keeping the tone tight and articulate. Not fully cranked to maintain note clarity for the fast passages.",
-      },
-      {
-        position: 2,
-        category: "effect",
         subcategory: "wah",
         gear_slug: "dunlop-cry-baby-wah",
         gear_name: "Dunlop Cry Baby Wah",
@@ -5935,6 +5882,19 @@ export const toneRecipes: ToneRecipe[] = [
         settings: { Position: "parked at ~70%" },
         notes:
           "Rhoads often parked the wah at a fixed position to shape the frequency peak, adding a nasal, vocal quality to the tone rather than sweeping it. This is especially noticeable during the solo sections.",
+      },
+      {
+        position: 2,
+        category: "effect",
+        subcategory: "distortion",
+        gear_slug: "mxr-distortion-plus",
+        gear_name: "MXR Distortion+",
+        icon_type: "mxr",
+        icon_color: "#f5d742",
+        is_in_effects_loop: false,
+        settings: { Output: 7, Distortion: 6 },
+        notes:
+          "The MXR Distortion+ adds grit and sustain while keeping the tone tight and articulate. Not fully cranked to maintain note clarity for the fast passages.",
       },
       {
         position: 3,
@@ -5978,19 +5938,19 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Minotaur",
-            block_category: "Distortion",
-            original_gear: "MXR Distortion+",
-            settings: { Gain: 6.0, Level: 7.0, Tone: 6.0 },
-            notes: "The Minotaur provides a similar mid-focused overdrive to the MXR Distortion+.",
-          },
-          {
-            position: 2,
             block_name: "Chrome",
             block_category: "Wah",
             original_gear: "Cry Baby Wah",
             settings: { Position: 70 },
             notes: "Park the wah at ~70% for the nasal, vocal quality. No expression pedal needed for the parked setting.",
+          },
+          {
+            position: 2,
+            block_name: "Compulsive Drive",
+            block_category: "Distortion",
+            original_gear: "MXR Distortion+",
+            settings: { Gain: 6.0, Level: 7.0, Tone: 6.0 },
+            notes: "The Compulsive Drive (OCD-based) is closer to the MXR Distortion+ character than the Minotaur.",
           },
           {
             position: 3,
@@ -6330,14 +6290,14 @@ export const toneRecipes: ToneRecipe[] = [
         position: 3,
         category: "preamp",
         subcategory: null,
-        gear_slug: "marshall-super-lead-1959",
-        gear_name: "Marshall Super Lead 1959",
+        gear_slug: "marshall-jcm800-2203",
+        gear_name: "Marshall JCM800 2203",
         icon_type: "marshall_head",
         icon_color: "#a1a1aa",
         is_in_effects_loop: false,
-        settings: { Presence: 6, Bass: 5, Middle: 7, Treble: 6, "Volume I": 7, "Volume II": 0 },
+        settings: { Presence: 6, Bass: 5, Middle: 7, Treble: 6, Preamp: 7, Master: 5 },
         notes:
-          "The Marshall provides the foundation of gain and sustain. Moderate drive so the DS-1 handles the primary gain staging. Pushed mids for cut and lead presence.",
+          "The JCM800 provides the foundation of gain and sustain. Moderate drive so the DS-1 handles the primary gain staging. Pushed mids for cut and lead presence.",
       },
       {
         position: 4,
@@ -6368,7 +6328,7 @@ export const toneRecipes: ToneRecipe[] = [
     original_gear: {
       guitar: "Ibanez JS Series with DiMarzio pickups, bridge humbucker, standard tuning",
       effects: ["Dunlop Cry Baby Wah", "Boss DS-1 Distortion", "Boss DD-2 Digital Delay (loop)"],
-      amp: "Marshall Super Lead 1959",
+      amp: "Marshall JCM800 2203",
       cabinet: "Marshall 4x12",
       microphone: "Shure SM57",
       other_notes:
@@ -6397,9 +6357,9 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Brit Plexi Brt",
+            block_name: "Brit 2204",
             block_category: "Amp",
-            original_gear: "Marshall Super Lead 1959",
+            original_gear: "Marshall JCM800 2203",
             settings: {
               Drive: 6.0,
               Bass: 5.0,
@@ -6408,7 +6368,7 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 6.0,
               "Ch Vol": 7.0,
             },
-            notes: "Moderate drive. The DS-1 handles primary gain staging.",
+            notes: "Brit 2204 is Helix's JCM800 model. Moderate drive. The DS-1 handles primary gain staging.",
           },
           {
             position: 4,
@@ -6450,9 +6410,9 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "1959 SLP",
+            block_name: "JCM800",
             block_category: "Amp",
-            original_gear: "Marshall Super Lead 1959",
+            original_gear: "Marshall JCM800 2203",
             settings: {
               Gain: 6.0,
               Bass: 5.0,
@@ -6489,7 +6449,7 @@ export const toneRecipes: ToneRecipe[] = [
             position: 1,
             block_name: "Brown",
             block_category: "Amp Type",
-            original_gear: "Marshall Super Lead 1959",
+            original_gear: "Marshall JCM800 2203",
             settings: {
               Gain: 6,
               Bass: 5,
@@ -6498,7 +6458,7 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 6,
               Volume: 7,
             },
-            notes: "Brown channel at moderate gain for the Marshall foundation.",
+            notes: "Brown channel at moderate gain for the JCM800 foundation.",
           },
           {
             position: 2,
@@ -6551,14 +6511,14 @@ export const toneRecipes: ToneRecipe[] = [
         position: 1,
         category: "preamp",
         subcategory: null,
-        gear_slug: "marshall-super-lead-1959",
-        gear_name: "Marshall Super Lead 1959",
+        gear_slug: "marshall-jcm900",
+        gear_name: "Marshall JCM900",
         icon_type: "marshall_head",
         icon_color: "#a1a1aa",
         is_in_effects_loop: false,
-        settings: { Presence: 6, Bass: 4, Middle: 6, Treble: 7, "Volume I": 5, "Volume II": 0 },
+        settings: { Presence: 6, Bass: 4, Middle: 6, Treble: 7, Gain: 5, Master: 5 },
         notes:
-          "The Marshall at moderate volume provides a warm crunch without heavy distortion. The treble is pushed for jangly brightness. This is a rhythm tone, so the gain should be low enough for chord clarity.",
+          "The JCM900 at moderate gain provides a warm crunch without heavy distortion. The treble is pushed for jangly brightness. This is a rhythm tone, so the gain should be low enough for chord clarity.",
       },
       {
         position: 2,
@@ -6576,7 +6536,7 @@ export const toneRecipes: ToneRecipe[] = [
     original_gear: {
       guitar: "Epiphone Riviera with capo on 2nd fret, both pickups",
       effects: [],
-      amp: "Marshall (moderate crunch)",
+      amp: "Marshall JCM900 (moderate crunch)",
       cabinet: "Marshall 4x12 with Greenbacks",
       microphone: "Shure SM57",
       other_notes:
@@ -6589,9 +6549,9 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Brit Plexi Brt",
+            block_name: "Brit J800",
             block_category: "Amp",
-            original_gear: "Marshall Super Lead 1959",
+            original_gear: "Marshall JCM900",
             settings: {
               Drive: 4.5,
               Bass: 4.0,
@@ -6600,7 +6560,7 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 6.0,
               "Ch Vol": 5.0,
             },
-            notes: "Moderate gain for jangly crunch. Push the treble for brightness.",
+            notes: "Brit J800 at moderate gain for jangly crunch. Push the treble for brightness.",
           },
           {
             position: 2,
@@ -6618,9 +6578,9 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "1959 SLP",
+            block_name: "JCM900",
             block_category: "Amp",
-            original_gear: "Marshall Super Lead 1959",
+            original_gear: "Marshall JCM900",
             settings: {
               Gain: 4.5,
               Bass: 4.0,
@@ -6641,7 +6601,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "A simple but effective patch. The QC's Plexi at low gain produces excellent jangly crunch.",
+          "A simple but effective patch. The QC's JCM900 at low gain produces excellent jangly crunch.",
       },
       katana: {
         chain_blocks: [
@@ -6649,7 +6609,7 @@ export const toneRecipes: ToneRecipe[] = [
             position: 1,
             block_name: "Crunch",
             block_category: "Amp Type",
-            original_gear: "Marshall Super Lead 1959",
+            original_gear: "Marshall JCM900",
             settings: {
               Gain: 4,
               Bass: 4,
