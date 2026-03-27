@@ -2285,8 +2285,8 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "TS808 OD",
             block_category: "Drive",
             original_gear: "Ibanez TS808",
-            settings: { Drive: 3.0, Tone: 6.0, Level: 8.0 },
-            notes: "Under Stomp > Drive.",
+            settings: { Drive: 1.0, Tone: 6.0, Level: 10.0 },
+            notes: "Under Stomp > Drive. Keep Drive at minimum — this is a clean boost, not an overdrive. Level maxed to slam the amp.",
           },
           {
             position: 2,
@@ -2323,9 +2323,9 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "TS808",
             block_category: "Stomp",
             original_gear: "Ibanez TS808",
-            settings: { Drive: 3.0, Tone: 6.0, Level: 8.0 },
+            settings: { Drive: 1.0, Tone: 6.0, Level: 10.0 },
             notes:
-              "TONEX includes a TS808 stomp model in the effects section.",
+              "TONEX includes a TS808 stomp model in the effects section. Drive at minimum — this is a clean boost. Level maxed.",
           },
           {
             position: 2,
@@ -2363,9 +2363,9 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Blues Driver",
             block_category: "Booster",
             original_gear: "Ibanez TS808",
-            settings: { Level: 8, Tone: 6, Drive: 3 },
+            settings: { Level: 10, Tone: 6, Drive: 1 },
             notes:
-              "Set the Booster to Blues Driver in Boss Tone Studio. Acts as the Tube Screamer mid-boost — low drive, high level to push the amp's front end.",
+              "Set the Booster to Blues Driver in Boss Tone Studio. Acts as the Tube Screamer mid-boost — drive at minimum, level maxed to slam the amp's front end.",
           },
         ],
         notes:
@@ -3908,7 +3908,7 @@ export const toneRecipes: ToneRecipe[] = [
         icon_type: "large_format",
         icon_color: "#2563eb",
         is_in_effects_loop: true,
-        settings: { Time: "dotted eighth (370ms at 130 BPM)", Feedback: 40, Mix: 40 },
+        settings: { Time: "dotted eighth (~357ms at 126 BPM)", Feedback: 40, Mix: 40 },
         notes:
           "The dotted eighth note delay is the heart of The Edge's sound. At the song's tempo, this creates a rhythmic pattern where the delays interlock with the picked notes. The feedback is set to give 3-4 repeats, creating a cascading wash. The mix is high enough that the delays are a prominent part of the sound, not just subtle ambience. The Korg SDD-3000 is The Edge's primary delay unit.",
       },
@@ -7231,9 +7231,9 @@ export const toneRecipes: ToneRecipe[] = [
         icon_type: "boss_compact",
         icon_color: "#22c55e",
         is_in_effects_loop: false,
-        settings: { Drive: 5, Tone: 5, Level: 7 },
+        settings: { Drive: 2, Tone: 5, Level: 8 },
         notes:
-          "For the slow blues lead, the Tube Screamer drive is pushed slightly higher than on Pride and Joy, adding more sustain and saturation for the long, singing bends. Tone at noon for a balanced, warm character.",
+          "Even on the slow blues lead, the Tube Screamer is still used primarily as a clean boost. Drive is only slightly higher than Pride and Joy. The Level is cranked to push the amp harder for the singing sustain on long bends. Tone at noon for a balanced, warm character.",
       },
       {
         position: 2,
@@ -7280,8 +7280,8 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Scream 808",
             block_category: "Distortion",
             original_gear: "Ibanez TS808",
-            settings: { Drive: 5.0, Tone: 5.0, Level: 7.0 },
-            notes: "Drive pushed higher than on Pride and Joy for more sustain on the slow blues leads.",
+            settings: { Drive: 2.0, Tone: 5.0, Level: 8.0 },
+            notes: "Still a clean boost like Pride and Joy, just slightly more drive for sustain. The Level is cranked to push the amp harder.",
           },
           {
             position: 2,
@@ -7317,8 +7317,8 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "TS808 OD",
             block_category: "Drive",
             original_gear: "Ibanez TS808",
-            settings: { Drive: 5.0, Tone: 5.0, Level: 7.0 },
-            notes: "Drive higher than the Pride and Joy setting for slow blues sustain.",
+            settings: { Drive: 2.0, Tone: 5.0, Level: 8.0 },
+            notes: "Clean boost with slightly more drive than Pride and Joy for slow blues sustain. Level pushed high to slam the amp.",
           },
           {
             position: 2,
@@ -7368,8 +7368,8 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Blues Driver",
             block_category: "Booster",
             original_gear: "Ibanez TS808",
-            settings: { Level: 7, Tone: 5, Drive: 5 },
-            notes: "Blues Driver with higher drive than the Pride and Joy setting for more sustain.",
+            settings: { Level: 8, Tone: 5, Drive: 2 },
+            notes: "Blues Driver still used as a clean boost. Level pushed high to drive the amp harder for slow blues sustain.",
           },
         ],
         notes:
