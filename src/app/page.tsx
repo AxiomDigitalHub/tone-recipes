@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-visible">
         {/* Subtle background grid */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,_rgba(245,158,11,0.08),_transparent_60%)]" />
 
@@ -46,7 +46,7 @@ export default function Home() {
           </div>
 
           {/* Animated signal chain preview */}
-          <div className="mx-auto mt-16 flex max-w-3xl items-center justify-center gap-2 px-8 pb-8">
+          <div className="mx-auto mt-16 flex max-w-3xl items-center justify-center gap-2 overflow-visible px-6 pb-8">
             {[
               { icon: Guitar, label: "Guitar", color: "#f59e0b" },
               { icon: Zap, label: "Overdrive", color: "#22c55e" },

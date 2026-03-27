@@ -11,7 +11,7 @@ import type {
 } from "@/types/recipe";
 import { PLATFORMS } from "@/lib/constants";
 import { getChainIcon, getChainIconLabel } from "@/lib/chain-icons";
-import { Guitar } from "lucide-react";
+import { Guitar, Maximize2, Minimize2 } from "lucide-react";
 import SignalChainNode from "./SignalChainNode";
 import ChainTooltip from "./ChainTooltip";
 import DownloadPatchButton from "./DownloadPatchButton";
@@ -42,8 +42,7 @@ function NodeDetailDrawer({
   platformColor?: string;
   onClose: () => void;
 }) {
-  if (!node && !platformBlock) return null;
-
+  const isOpen = !!(node || platformBlock);
   const color = platformColor || node?.icon_color || "#f59e0b";
   const name = node?.gear_name || platformBlock?.block_name || "";
   const settings = node?.settings || platformBlock?.settings || {};
@@ -56,77 +55,111 @@ function NodeDetailDrawer({
       : Guitar;
 
   return (
-    <div className="border-t border-border bg-background/50 p-4 md:p-6">
-      {/* Header row */}
-      <div className="flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div
-            className="flex h-10 w-10 items-center justify-center rounded-lg border"
-            style={{ borderColor: color + "60" }}
-          >
-            <Icon className="h-5 w-5" style={{ color }} strokeWidth={1.5} />
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-foreground">{name}</p>
-            {node && (
-              <p className="text-[11px] uppercase tracking-wider text-muted">
-                {node.category}
-                {node.subcategory ? ` / ${node.subcategory}` : ""}
-                {node.is_in_effects_loop ? " · FX Loop" : ""}
-              </p>
-            )}
-            {platformBlock && (
-              <p className="text-[11px] text-muted">
-                ← {platformBlock.original_gear}
-              </p>
-            )}
-          </div>
-        </div>
-        <button
-          onClick={onClose}
-          aria-label="Close"
-          className="rounded-lg p-1.5 text-muted transition-colors hover:bg-surface hover:text-foreground"
-        >
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+    <>
+      {/* Backdrop overlay */}
+      <div
+        className={`fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
+          isOpen ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        onClick={onClose}
+      />
 
-      {/* Settings grid */}
-      {settingEntries.length > 0 ? (
-        <div className="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6">
-          {settingEntries.map(([key, value]) => (
-            <div
-              key={key}
-              className="flex flex-col items-center rounded-lg bg-surface p-2.5"
-            >
-              <span className="text-lg font-mono font-bold text-foreground">
-                {value}
-              </span>
-              <span className="mt-0.5 text-[10px] text-muted">{key}</span>
+      {/* Bottom sheet */}
+      <div
+        className={`fixed inset-x-0 bottom-0 z-50 max-h-[70vh] transform overflow-y-auto rounded-t-2xl border-t border-border bg-background shadow-2xl transition-transform duration-300 ease-out ${
+          isOpen ? "translate-y-0" : "translate-y-full"
+        }`}
+      >
+        {/* Drag handle */}
+        <div className="sticky top-0 z-10 flex justify-center bg-background pb-2 pt-3">
+          <div className="h-1 w-10 rounded-full bg-border" />
+        </div>
+
+        <div className="px-5 pb-8 md:px-8">
+          {/* Header */}
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <div
+                className="flex h-14 w-14 items-center justify-center rounded-xl border-2"
+                style={{ borderColor: color + "80", backgroundColor: color + "10" }}
+              >
+                <Icon className="h-7 w-7" style={{ color }} strokeWidth={1.5} />
+              </div>
+              <div>
+                <p className="text-lg font-bold text-foreground">{name}</p>
+                {node && (
+                  <p className="text-xs uppercase tracking-wider text-muted">
+                    {node.category}
+                    {node.subcategory ? ` / ${node.subcategory}` : ""}
+                    {node.is_in_effects_loop ? " · FX Loop" : ""}
+                  </p>
+                )}
+                {platformBlock && (
+                  <p className="text-xs text-muted">
+                    ← {platformBlock.original_gear}
+                  </p>
+                )}
+              </div>
             </div>
-          ))}
+            <button
+              onClick={onClose}
+              aria-label="Close"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-surface text-muted transition-colors hover:bg-surface-hover hover:text-foreground"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Settings — knob-style grid */}
+          {settingEntries.length > 0 ? (
+            <div className="mt-6 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
+              {settingEntries.map(([key, value]) => (
+                <div
+                  key={key}
+                  className="flex flex-col items-center rounded-xl border border-border bg-surface p-3"
+                >
+                  <span
+                    className="text-2xl font-mono font-bold"
+                    style={{ color }}
+                  >
+                    {value}
+                  </span>
+                  <span className="mt-1 text-[11px] font-medium uppercase tracking-wider text-muted">
+                    {key}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-6 text-sm text-muted">No adjustable settings</p>
+          )}
+
+          {/* Notes */}
+          {notes && (
+            <div className="mt-5 rounded-xl bg-surface p-4">
+              <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+                Notes
+              </p>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted">
+                {notes}
+              </p>
+            </div>
+          )}
+
+          {/* Gear link */}
+          {node?.gear_slug && (
+            <Link
+              href={`/gear/${node.gear_slug}`}
+              className="mt-4 inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-4 py-2.5 text-sm font-medium text-accent transition-colors hover:border-accent/40 hover:bg-surface-hover"
+            >
+              View gear details →
+            </Link>
+          )}
         </div>
-      ) : (
-        <p className="mt-3 text-xs text-muted">No adjustable settings</p>
-      )}
-
-      {/* Notes */}
-      {notes && (
-        <p className="mt-3 text-xs leading-relaxed text-muted">{notes}</p>
-      )}
-
-      {/* Gear link */}
-      {node?.gear_slug && (
-        <Link
-          href={`/gear/${node.gear_slug}`}
-          className="mt-3 inline-flex items-center text-xs text-accent hover:underline"
-        >
-          View gear details →
-        </Link>
-      )}
-    </div>
+      </div>
+    </>
   );
 }
 
@@ -275,6 +308,7 @@ export default function UnifiedChainView({
   const availablePlatforms = Object.keys(platformTranslations) as Platform[];
   const [activeTab, setActiveTab] = useState<"physical" | Platform>("physical");
   const [selectedNodeIndex, setSelectedNodeIndex] = useState<number | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const { preferredPlatform } = usePlatformStore();
   const hasAppliedPreference = useRef(false);
 
@@ -319,19 +353,36 @@ export default function UnifiedChainView({
       ? activeTranslation.chain_blocks[selectedNodeIndex]
       : undefined;
 
-  return (
-    <div className="rounded-xl border border-border bg-surface overflow-hidden">
+  const chainContent = (
+    <div className={
+      isFullscreen
+        ? "fixed inset-0 z-40 flex flex-col bg-background overflow-y-auto"
+        : "rounded-xl border border-border bg-surface overflow-hidden"
+    }>
       {/* Guitar header bar */}
       <GuitarHeader
         specs={guitarSpecs}
         actions={
-          (activeTab === "helix" || activeTab === "quad_cortex" || activeTab === "katana") && activeTranslation ? (
-            <DownloadPatchButton
-              translation={activeTranslation}
-              presetName={presetName}
-              platform={activeTab}
-            />
-          ) : undefined
+          <div className="flex items-center gap-2">
+            {(activeTab === "helix" || activeTab === "quad_cortex" || activeTab === "katana") && activeTranslation && (
+              <DownloadPatchButton
+                translation={activeTranslation}
+                presetName={presetName}
+                platform={activeTab}
+              />
+            )}
+            <button
+              onClick={() => setIsFullscreen(!isFullscreen)}
+              aria-label={isFullscreen ? "Exit fullscreen" : "Fullscreen"}
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-surface text-muted transition-colors hover:border-accent/40 hover:text-foreground"
+            >
+              {isFullscreen ? (
+                <Minimize2 className="h-4 w-4" />
+              ) : (
+                <Maximize2 className="h-4 w-4" />
+              )}
+            </button>
+          </div>
         }
       />
 
@@ -494,4 +545,6 @@ export default function UnifiedChainView({
       />
     </div>
   );
+
+  return chainContent;
 }

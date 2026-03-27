@@ -6,7 +6,6 @@ import {
   getSongsByArtistSlug,
   getRecipesBySongSlug,
   toneRecipes,
-  songs,
 } from "@/lib/data";
 import UnifiedChainView from "@/components/signal-chain/UnifiedChainView";
 import Badge from "@/components/ui/Badge";
@@ -14,7 +13,6 @@ import CollapsibleSection from "@/components/ui/CollapsibleSection";
 import ReadMore from "@/components/ui/ReadMore";
 import RecipeCard from "@/components/recipe/RecipeCard";
 import FavoriteButton from "@/components/ui/FavoriteButton";
-import { DIFFICULTY_COLORS } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
 import type { Platform } from "@/types/recipe";
@@ -60,16 +58,6 @@ export async function generateMetadata({ params }: RecipePageProps) {
   };
 }
 
-// ---------------------------------------------------------------------------
-// Section nav items
-// ---------------------------------------------------------------------------
-
-interface NavItem {
-  id: string;
-  label: string;
-  show: boolean;
-}
-
 export default async function RecipePage({ params }: RecipePageProps) {
   const { slug } = await params;
   const recipe = getRecipeBySlug(slug);
@@ -78,25 +66,10 @@ export default async function RecipePage({ params }: RecipePageProps) {
   const song = getSongBySlug(recipe.song_slug);
   const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
 
-  // Stats
   const nodeCount = recipe.signal_chain.length;
-  const platformCount = Object.keys(recipe.platform_translations).length;
-  const difficulty = song?.difficulty ?? "intermediate";
-  const toneContext = recipe.tone_context
-    ? recipe.tone_context.replace("_", " ")
-    : null;
-
-  // Section visibility
   const hasLearn =
     song && (song.external_tab_url || song.external_video_url);
   const hasSources = recipe.sources.length > 0;
-
-  const navItems: NavItem[] = [
-    { id: "signal-chain", label: `Signal Chain${platformCount > 0 ? ` · ${platformCount + 1}` : ""}`, show: true },
-    { id: "gear", label: "Gear", show: true },
-    { id: "learn", label: "Learn", show: !!hasLearn },
-    { id: "sources", label: "Sources", show: !!hasSources },
-  ];
 
   // ---------------------------------------------------------------------------
   // Related recipes
@@ -128,13 +101,13 @@ export default async function RecipePage({ params }: RecipePageProps) {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8 md:py-12">
+    <div className="mx-auto max-w-5xl px-4 py-4 md:py-6">
       {/* ----------------------------------------------------------------- */}
       {/* Compact hero — title + chain immediately visible */}
       {/* ----------------------------------------------------------------- */}
 
       {/* Breadcrumb */}
-      <nav className="mb-4 flex items-center gap-2 text-xs text-muted">
+      <nav className="mb-2 flex items-center gap-2 text-xs text-muted">
         <Link href="/browse" className="hover:text-foreground">Browse</Link>
         <span>/</span>
         {artist && (
@@ -147,16 +120,16 @@ export default async function RecipePage({ params }: RecipePageProps) {
       </nav>
 
       {/* Title row: album art + title + actions */}
-      <div className="mb-6 flex items-center gap-4">
+      <div className="mb-3 flex items-center gap-3">
         {song?.album_art_url && (
           <Image
             src={song.album_art_url}
             alt={`${song.album} album art`}
-            width={64}
-            height={64}
+            width={48}
+            height={48}
             priority
-            className="hidden sm:block rounded-lg border border-border shadow-md"
-            sizes="64px"
+            className="hidden sm:block rounded-md border border-border shadow-sm"
+            sizes="48px"
           />
         )}
         <div className="flex-1 min-w-0">
