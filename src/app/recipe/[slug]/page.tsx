@@ -180,7 +180,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
 
       {/* Title row: album art + title + actions */}
       <div className="mb-3 flex items-center gap-3">
-        {song?.album_art_url && (
+        {song?.album_art_url && !song.spotify_track_id && (
           <Image
             src={song.album_art_url}
             alt={`${song.album} album art`}
