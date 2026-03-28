@@ -13,11 +13,11 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "ToneRecipes",
-    "url": "https://tone-recipes.vercel.app",
+    "url": "https://faderandknob.com",
     "description": "Song-specific guitar tone recipes for every modeler platform",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://tone-recipes.vercel.app/browse?q={search_term_string}",
+      "target": "https://faderandknob.com/browse?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };

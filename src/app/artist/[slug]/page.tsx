@@ -53,7 +53,7 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Browse", "item": "https://tone-recipes.vercel.app/browse" },
+      { "@type": "ListItem", "position": 1, "name": "Browse", "item": "https://faderandknob.com/browse" },
       { "@type": "ListItem", "position": 2, "name": artist.name },
     ],
   };

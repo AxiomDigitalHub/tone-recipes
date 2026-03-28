@@ -135,9 +135,9 @@ export default async function RecipePage({ params }: RecipePageProps) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Browse", "item": "https://tone-recipes.vercel.app/browse" },
+      { "@type": "ListItem", "position": 1, "name": "Browse", "item": "https://faderandknob.com/browse" },
       ...(artist
-        ? [{ "@type": "ListItem", "position": 2, "name": artist.name, "item": `https://tone-recipes.vercel.app/artist/${artist.slug}` }]
+        ? [{ "@type": "ListItem", "position": 2, "name": artist.name, "item": `https://faderandknob.com/artist/${artist.slug}` }]
         : []),
       ...(song
         ? [{ "@type": "ListItem", "position": artist ? 3 : 2, "name": song.title }]
