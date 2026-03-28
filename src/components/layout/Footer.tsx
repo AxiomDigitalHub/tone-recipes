@@ -36,7 +36,7 @@ export default function Footer() {
           {/* Copyright */}
           <div className="flex flex-col justify-end">
             <p className="text-xs text-muted">
-              &copy; {new Date().getFullYear()} Fader &amp; Knob. All rights reserved.
+              &copy; {new Date().getFullYear()} Axiom Digital. All rights reserved.
             </p>
           </div>
         </div>
