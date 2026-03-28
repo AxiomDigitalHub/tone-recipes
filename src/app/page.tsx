@@ -12,7 +12,7 @@ export default function Home() {
   const webSiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "ToneRecipes",
+    "name": "Fader & Knob",
     "url": "https://faderandknob.com",
     "description": "Song-specific guitar tone recipes for every modeler platform",
     "potentialAction": {

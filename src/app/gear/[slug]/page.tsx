@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: GearPageProps) {
     description,
     keywords: [gear.name, gear.manufacturer, gear.type, "guitar gear", "tone recipes"],
     openGraph: {
-      title: `${gear.name} - ${gear.manufacturer} | ToneRecipes`,
+      title: `${gear.name} - ${gear.manufacturer} | Fader & Knob`,
       description,
       type: "article",
     },

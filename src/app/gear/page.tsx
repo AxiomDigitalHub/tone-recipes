@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Browse guitars, effects pedals, amps, cabinets, and microphones used in our tone recipes. Compare real gear to modeler equivalents.",
   openGraph: {
-    title: "Gear Database | ToneRecipes",
+    title: "Gear Database | Fader & Knob",
     description:
       "Browse guitars, effects pedals, amps, cabinets, and microphones used in our tone recipes.",
     type: "website",

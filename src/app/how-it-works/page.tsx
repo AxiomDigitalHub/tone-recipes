@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "How It Works",
   description:
-    "Stop guessing at settings. ToneRecipes shows you exactly how to recreate iconic guitar tones on your gear.",
+    "Stop guessing at settings. Fader & Knob shows you exactly how to recreate iconic guitar tones on your gear.",
 };
 
 export default function HowItWorksPage() {

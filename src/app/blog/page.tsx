@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Tone deep dives, platform comparisons, artist tone breakdowns, and gear guides for guitar players.",
   openGraph: {
-    title: "Blog | ToneRecipes",
+    title: "Blog | Fader & Knob",
     description:
       "Tone deep dives, platform comparisons, artist tone breakdowns, and gear guides.",
   },

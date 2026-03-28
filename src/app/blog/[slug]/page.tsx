@@ -33,7 +33,7 @@ export function generateMetadata({
     title: post.title,
     description: post.description,
     openGraph: {
-      title: `${post.title} | ToneRecipes Blog`,
+      title: `${post.title} | Fader & Knob`,
       description: post.description,
       type: "article",
       publishedTime: post.date,
@@ -93,9 +93,9 @@ export default function BlogPostPage({
     "@type": "BlogPosting",
     "headline": post.title,
     "description": post.description,
-    "author": { "@type": "Organization", "name": "ToneRecipes" },
+    "author": { "@type": "Organization", "name": "Fader & Knob" },
     "datePublished": post.date,
-    "publisher": { "@type": "Organization", "name": "ToneRecipes" },
+    "publisher": { "@type": "Organization", "name": "Fader & Knob" },
   };
 
   return (

@@ -42,7 +42,7 @@ export default function LoginPage() {
     <div className="flex min-h-[60vh] items-center justify-center px-4 py-16 md:py-20">
       <div className="w-full max-w-sm rounded-xl border border-border bg-surface p-8">
         <h1 className="text-2xl font-bold">Log in</h1>
-        <p className="mt-1 text-sm text-muted">Welcome back to ToneRecipes.</p>
+        <p className="mt-1 text-sm text-muted">Welcome back to Fader &amp; Knob.</p>
 
         {isDemoMode && (
           <div className="mt-4 rounded-lg border border-accent/30 bg-accent/5 px-4 py-3 text-xs text-accent">

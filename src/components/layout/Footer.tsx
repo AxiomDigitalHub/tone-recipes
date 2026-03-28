@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <span className="text-sm font-bold text-accent">ToneRecipes</span>
+            <span className="text-sm font-bold text-accent" style={{ fontFamily: "var(--font-playfair)" }}>Fader &amp; Knob</span>
             <p className="mt-1 text-sm text-muted">Built with tone.</p>
           </div>
 
@@ -36,7 +36,7 @@ export default function Footer() {
           {/* Copyright */}
           <div className="flex flex-col justify-end">
             <p className="text-xs text-muted">
-              &copy; {new Date().getFullYear()} ToneRecipes. All rights reserved.
+              &copy; {new Date().getFullYear()} Fader &amp; Knob. All rights reserved.
             </p>
           </div>
         </div>

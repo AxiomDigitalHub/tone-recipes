@@ -108,7 +108,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
     "@type": "HowTo",
     "name": recipe.title,
     "description": recipe.description,
-    "author": { "@type": "Organization", "name": "ToneRecipes" },
+    "author": { "@type": "Organization", "name": "Fader & Knob" },
     "step": recipe.signal_chain.map((node, i) => ({
       "@type": "HowToStep",
       "position": i + 1,

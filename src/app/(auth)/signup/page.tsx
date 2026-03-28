@@ -59,7 +59,7 @@ export default function SignupPage() {
       <div className="w-full max-w-sm rounded-xl border border-border bg-surface p-8">
         <h1 className="text-2xl font-bold">Create an account</h1>
         <p className="mt-1 text-sm text-muted">
-          Join ToneRecipes and start building your tone library.
+          Join Fader &amp; Knob and start building your tone library.
         </p>
 
         {isDemoMode && (

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SearchPalette from "@/components/search/SearchPalette";
@@ -17,6 +17,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["700"],
+});
+
 export const viewport: Viewport = {
   themeColor: "#0a0a0a",
 };
@@ -24,8 +30,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://faderandknob.com"),
   title: {
-    default: "ToneRecipes - Build the tones you hear",
-    template: "%s | ToneRecipes",
+    default: "Fader & Knob - Build the tones you hear",
+    template: "%s | Fader & Knob",
   },
   description:
     "Song-specific tone recipes for Helix, Quad Cortex, TONEX, and your physical rig. The cross-platform Rosetta Stone for guitar tone.",
@@ -44,14 +50,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "ToneRecipes",
-    title: "ToneRecipes - Build the tones you hear",
+    siteName: "Fader & Knob",
+    title: "Fader & Knob - Build the tones you hear",
     description:
       "Song-specific tone recipes for Helix, Quad Cortex, TONEX, and your physical rig.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ToneRecipes - Build the tones you hear",
+    title: "Fader & Knob - Build the tones you hear",
     description:
       "Song-specific tone recipes for Helix, Quad Cortex, TONEX, and your physical rig.",
   },
@@ -69,7 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col bg-background font-sans text-foreground antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} flex min-h-screen flex-col bg-background font-sans text-foreground antialiased`}
       >
         <AuthProvider>
           <Header />
