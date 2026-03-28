@@ -30,11 +30,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://faderandknob.com"),
   title: {
-    default: "Fader & Knob - Build the tones you hear",
+    default: "Fader & Knob - Make their tone, your tone",
     template: "%s | Fader & Knob",
   },
   description:
-    "Song-specific tone recipes for Helix, Quad Cortex, TONEX, and your physical rig. The cross-platform Rosetta Stone for guitar tone.",
+    "Tone recipes for guitar players. Get the exact settings to recreate your favorite songs on Helix, Quad Cortex, Katana, or your physical rig. Stop tweaking, start playing.",
   keywords: [
     "guitar tone",
     "tone recipes",
@@ -51,15 +51,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Fader & Knob",
-    title: "Fader & Knob - Build the tones you hear",
+    title: "Fader & Knob - Make their tone, your tone",
     description:
-      "Song-specific tone recipes for Helix, Quad Cortex, TONEX, and your physical rig.",
+      "Tone recipes for guitar players. Get the exact settings to recreate your favorite songs on your gear.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fader & Knob - Build the tones you hear",
+    title: "Fader & Knob - Make their tone, your tone",
     description:
-      "Song-specific tone recipes for Helix, Quad Cortex, TONEX, and your physical rig.",
+      "Tone recipes for guitar players. Get the exact settings to recreate your favorite songs on your gear.",
   },
   robots: {
     index: true,

@@ -14,7 +14,7 @@ export default function Home() {
     "@type": "WebSite",
     "name": "Fader & Knob",
     "url": "https://faderandknob.com",
-    "description": "Song-specific guitar tone recipes for every modeler platform",
+    "description": "Tone recipes for guitar players. Get the exact settings to recreate your favorite songs on your gear.",
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://faderandknob.com/browse?q={search_term_string}",
@@ -35,16 +35,16 @@ export default function Home() {
 
         <div className="mx-auto max-w-7xl px-4 pb-20 pt-24 text-center md:pt-32">
           <p className="text-sm font-medium uppercase tracking-widest text-accent">
-            Guitar Tone Recipes
+            Tone recipes for guitar players
           </p>
           <h1 className="mx-auto mt-4 max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
             Make their tone,{" "}
             <span className="text-accent">your tone</span>.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted md:text-xl">
-            Pick a song. See exactly what gear and settings recreate that sound
-            on your Helix, Quad Cortex, Katana, or physical rig.
-            Step-by-step signal chains you can actually dial in.
+            Stop tweaking knobs and start playing.
+            Pick a song, get the exact settings for your gear, and dial in
+            the sound you hear in your head.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -265,11 +265,11 @@ export default function Home() {
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <h2 className="text-2xl font-bold md:text-3xl">
-            Ready to find your tone?
+            Less tweaking. More playing.
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-muted">
-            Explore hundreds of song-specific tone recipes, broken down for your
-            platform.
+            Get the sounds you want from the gear you have.
+            Browse tone recipes and start playing in minutes.
           </p>
           <div className="mt-8">
             <Link
