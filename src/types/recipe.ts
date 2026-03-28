@@ -88,6 +88,7 @@ export interface Song {
   difficulty: "beginner" | "intermediate" | "advanced";
   external_tab_url?: string;
   external_video_url?: string;
+  spotify_track_id?: string;
 }
 
 export interface GearItem {

@@ -27,6 +27,7 @@ export interface DbSong {
   difficulty: "beginner" | "intermediate" | "advanced";
   external_tab_url: string | null;
   external_video_url: string | null;
+  spotify_track_id: string | null;
   created_at: string;
 }
 

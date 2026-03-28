@@ -18,6 +18,7 @@ import Link from "next/link";
 import type { Platform } from "@/types/recipe";
 import AffiliateGearLink from "@/components/ui/AffiliateGearLink";
 import AffiliateDisclosure from "@/components/ui/AffiliateDisclosure";
+import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
 
 interface RecipePageProps {
   params: Promise<{ slug: string }>;
@@ -207,6 +208,13 @@ export default async function RecipePage({ params }: RecipePageProps) {
           <FavoriteButton slug={recipe.slug} size="md" />
         </div>
       </div>
+
+      {/* Spotify Player */}
+      {song?.spotify_track_id && (
+        <div className="mb-4">
+          <SpotifyEmbed trackId={song.spotify_track_id} />
+        </div>
+      )}
 
       {/* ----------------------------------------------------------------- */}
       {/* Signal Chain — THE HERO */}

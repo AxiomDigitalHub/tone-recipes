@@ -302,6 +302,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/stevie-ray-vaughan-pride-and-joy-tab-s80",
     external_video_url:
       "https://www.youtube.com/results?search_query=pride+and+joy+srv+guitar+lesson",
+    spotify_track_id: "1a2iF9XymafjRk56q7oCxo",
   },
   {
     artist_slug: "david-gilmour",
@@ -316,6 +317,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/pink-floyd-comfortably-numb-tab-s27",
     external_video_url:
       "https://www.youtube.com/results?search_query=comfortably+numb+solo+guitar+lesson",
+    spotify_track_id: "5HNCy40Ni5BZJFw1TKzRsC",
   },
   {
     artist_slug: "jimi-hendrix",
@@ -330,6 +332,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/jimi-hendrix-voodoo-child-slight-return-tab-s200",
     external_video_url:
       "https://www.youtube.com/results?search_query=voodoo+child+slight+return+guitar+lesson",
+    spotify_track_id: "2AxCeJ6PSsBYiTckM0HLY7",
   },
   {
     artist_slug: "kurt-cobain",
@@ -344,6 +347,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/nirvana-smells-like-teen-spirit-tab-s455",
     external_video_url:
       "https://www.youtube.com/results?search_query=smells+like+teen+spirit+guitar+lesson",
+    spotify_track_id: "4hy4fb5D1KL50b3sng9cjw",
   },
   {
     artist_slug: "john-frusciante",
@@ -358,6 +362,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/red-hot-chili-peppers-under-the-bridge-tab-s282",
     external_video_url:
       "https://www.youtube.com/results?search_query=under+the+bridge+guitar+lesson",
+    spotify_track_id: "3d9DChrdc6BOeFsbrZ3Is0",
   },
   {
     artist_slug: "slash",
@@ -372,6 +377,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/guns-n-roses-sweet-child-o-mine-tab-s137",
     external_video_url:
       "https://www.youtube.com/results?search_query=sweet+child+o+mine+guitar+lesson",
+    spotify_track_id: "7o2CTH4ctstm8TNelqjb51",
   },
   {
     artist_slug: "eddie-van-halen",
@@ -386,6 +392,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/van-halen-eruption-tab-s309",
     external_video_url:
       "https://www.youtube.com/results?search_query=eruption+van+halen+guitar+lesson",
+    spotify_track_id: "2tAeN2TKlQLOoSPXtARzBV",
   },
   {
     artist_slug: "the-edge",
@@ -400,6 +407,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/u2-where-the-streets-have-no-name-tab-s406",
     external_video_url:
       "https://www.youtube.com/results?search_query=where+the+streets+have+no+name+guitar+lesson",
+    spotify_track_id: "7h1YqA5MZrRxmkUFpukRcp",
   },
   {
     artist_slug: "john-mayer",
@@ -414,6 +422,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/john-mayer-slow-dancing-in-a-burning-room-tab-s12345",
     external_video_url:
       "https://www.youtube.com/results?search_query=slow+dancing+in+a+burning+room+guitar+lesson",
+    spotify_track_id: "2jdAk8ATWIL3dwT47XpRfu",
   },
   {
     artist_slug: "eric-clapton",
@@ -428,6 +437,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/derek-and-the-dominos-layla-tab-s62",
     external_video_url:
       "https://www.youtube.com/results?search_query=layla+guitar+lesson",
+    spotify_track_id: "5jrt3BfxnJ0jMfhGwTVvn3",
   },
   {
     artist_slug: "mark-knopfler",
@@ -442,6 +452,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/dire-straits-sultans-of-swing-tab-s120",
     external_video_url:
       "https://www.youtube.com/results?search_query=sultans+of+swing+guitar+lesson",
+    spotify_track_id: "6pqawkYEUzzuKve6QNfBaT",
   },
   {
     artist_slug: "bb-king",
@@ -456,6 +467,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/bb-king-the-thrill-is-gone-tab-s89",
     external_video_url:
       "https://www.youtube.com/results?search_query=the+thrill+is+gone+guitar+lesson",
+    spotify_track_id: "4NQfrmGs9iQXVQI9IpRhjM",
   },
   {
     artist_slug: "jack-white",
@@ -470,6 +482,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/the-white-stripes-seven-nation-army-tab-s341",
     external_video_url:
       "https://www.youtube.com/results?search_query=seven+nation+army+guitar+lesson",
+    spotify_track_id: "7i6r9KotUPQg3ozKKgEPIN",
   },
   {
     artist_slug: "tom-morello",
@@ -484,6 +497,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/rage-against-the-machine-killing-in-the-name-tab-s248",
     external_video_url:
       "https://www.youtube.com/results?search_query=killing+in+the+name+guitar+lesson",
+    spotify_track_id: "59WN2psjkt1tyaxjspN8fp",
   },
   {
     artist_slug: "james-hetfield",
@@ -498,6 +512,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/metallica-master-of-puppets-tab-s185",
     external_video_url:
       "https://www.youtube.com/results?search_query=master+of+puppets+guitar+lesson",
+    spotify_track_id: "54bm2e3tk8cliUz3VSdCPZ",
   },
   {
     artist_slug: "angus-young",
@@ -512,6 +527,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/ac-dc-back-in-black-tab-s4",
     external_video_url:
       "https://www.youtube.com/results?search_query=back+in+black+guitar+lesson",
+    spotify_track_id: "08mG3Y1vljYA6bvDt4Wqkj",
   },
   {
     artist_slug: "carlos-santana",
@@ -526,6 +542,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/santana-smooth-tab-s274",
     external_video_url:
       "https://www.youtube.com/results?search_query=santana+smooth+guitar+lesson",
+    spotify_track_id: "0i69ZiWitf3SFiaTA8249M",
   },
   {
     artist_slug: "pete-townshend",
@@ -540,6 +557,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/the-who-wont-get-fooled-again-tab-s371",
     external_video_url:
       "https://www.youtube.com/results?search_query=wont+get+fooled+again+guitar+lesson",
+    spotify_track_id: "6O6M5tLmzgfsmRs4GTKZDo",
   },
   {
     artist_slug: "jerry-garcia",
@@ -554,6 +572,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/grateful-dead-truckin-tab-s135",
     external_video_url:
       "https://www.youtube.com/results?search_query=truckin+grateful+dead+guitar+lesson",
+    spotify_track_id: "1I6l01BaBgBCVkfQCpIlR6",
   },
   {
     artist_slug: "alex-lifeson",
@@ -568,6 +587,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/rush-tom-sawyer-tab-s263",
     external_video_url:
       "https://www.youtube.com/results?search_query=rush+tom+sawyer+guitar+lesson",
+    spotify_track_id: "3QZ7uX97s82HFYSmQUAN1D",
   },
   {
     artist_slug: "brian-may",
@@ -582,6 +602,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/queen-bohemian-rhapsody-tab-s239",
     external_video_url:
       "https://www.youtube.com/results?search_query=bohemian+rhapsody+guitar+lesson",
+    spotify_track_id: "7tFiyTwD0nx5a1eklYtX2J",
   },
   {
     artist_slug: "tony-iommi",
@@ -596,6 +617,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/black-sabbath-iron-man-tab-s27432",
     external_video_url:
       "https://www.youtube.com/results?search_query=iron+man+black+sabbath+guitar+lesson",
+    spotify_track_id: "755bvJDSA3LNcNuFgBT9LK",
   },
   {
     artist_slug: "randy-rhoads",
@@ -610,6 +632,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/ozzy-osbourne-crazy-train-tab-s225",
     external_video_url:
       "https://www.youtube.com/results?search_query=crazy+train+guitar+lesson",
+    spotify_track_id: "2b9lp5A6CqSzwOrBfAFhof",
   },
   {
     artist_slug: "stevie-ray-vaughan",
@@ -624,6 +647,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/stevie-ray-vaughan-texas-flood-tab-s81",
     external_video_url:
       "https://www.youtube.com/results?search_query=texas+flood+srv+guitar+lesson",
+    spotify_track_id: "5MtN38MGEWJt60LwtBmFNP",
   },
   {
     artist_slug: "joe-satriani",
@@ -638,6 +662,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/joe-satriani-surfing-with-the-alien-tab-s152",
     external_video_url:
       "https://www.youtube.com/results?search_query=surfing+with+the+alien+guitar+lesson",
+    spotify_track_id: "2ekfM9Dcslm7l9Lh7HGT0i",
   },
   {
     artist_slug: "noel-gallagher",
@@ -652,6 +677,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/oasis-wonderwall-tab-s221",
     external_video_url:
       "https://www.youtube.com/results?search_query=wonderwall+guitar+lesson",
+    spotify_track_id: "5wj4E6IsrVtn8IBJQOd0Cl",
   },
   {
     artist_slug: "johnny-marr",
@@ -666,6 +692,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/the-smiths-how-soon-is-now-tab-s147",
     external_video_url:
       "https://www.youtube.com/results?search_query=how+soon+is+now+smiths+guitar+lesson",
+    spotify_track_id: "5m1dft4KRRawaB9q3p8OKC",
   },
   {
     artist_slug: "keith-richards",
@@ -680,6 +707,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/the-rolling-stones-start-me-up-tab-s281",
     external_video_url:
       "https://www.youtube.com/results?search_query=start+me+up+rolling+stones+guitar+lesson",
+    spotify_track_id: "7HKez549fwJQDzx3zLjHKC",
   },
   {
     artist_slug: "billy-gibbons",
@@ -694,6 +722,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/zz-top-la-grange-tab-s172",
     external_video_url:
       "https://www.youtube.com/results?search_query=la+grange+zz+top+guitar+lesson",
+    spotify_track_id: "70YvYr2hGlS01bKRIho1HM",
   },
   {
     artist_slug: "dimebag-darrell",
@@ -708,6 +737,7 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wsa/pantera-walk-tab-s233",
     external_video_url:
       "https://www.youtube.com/results?search_query=pantera+walk+guitar+lesson",
+    spotify_track_id: "7fcfNW0XxTWlwVlftzfDOR",
   },
 
   {
@@ -721,6 +751,7 @@ export const songs: Song[] = [
     difficulty: "intermediate",
     external_tab_url: "https://www.songsterr.com/a/wsa/led-zeppelin-whole-lotta-love-tab-s176",
     external_video_url: "https://www.youtube.com/results?search_query=whole+lotta+love+guitar+lesson",
+    spotify_track_id: "0hCB0YR03f6AmQaHbwWDe8",
   },
   {
     artist_slug: "jimmy-page",
@@ -733,6 +764,7 @@ export const songs: Song[] = [
     difficulty: "advanced",
     external_tab_url: "https://www.songsterr.com/a/wsa/led-zeppelin-stairway-to-heaven-tab-s174",
     external_video_url: "https://www.youtube.com/results?search_query=stairway+to+heaven+guitar+lesson",
+    spotify_track_id: "5CQ30WqJwcep0pYcV4AMNc",
   },
   {
     artist_slug: "david-gilmour",
@@ -745,6 +777,7 @@ export const songs: Song[] = [
     difficulty: "advanced",
     external_tab_url: "https://www.songsterr.com/a/wsa/pink-floyd-time-tab-s289",
     external_video_url: "https://www.youtube.com/results?search_query=pink+floyd+time+solo+guitar+lesson",
+    spotify_track_id: "3TO7bbrUKrOSPGRTB5MeCz",
   },
   {
     artist_slug: "slash",
@@ -757,6 +790,7 @@ export const songs: Song[] = [
     difficulty: "intermediate",
     external_tab_url: "https://www.songsterr.com/a/wsa/guns-n-roses-welcome-to-the-jungle-tab-s136",
     external_video_url: "https://www.youtube.com/results?search_query=welcome+to+the+jungle+guitar+lesson",
+    spotify_track_id: "0G21yYKMZoHa30cYVi1iA8",
   },
   {
     artist_slug: "eddie-van-halen",
@@ -769,6 +803,7 @@ export const songs: Song[] = [
     difficulty: "advanced",
     external_tab_url: "https://www.songsterr.com/a/wsa/van-halen-panama-tab-s310",
     external_video_url: "https://www.youtube.com/results?search_query=van+halen+panama+guitar+lesson",
+    spotify_track_id: "05RgAMGypEvqhNs5hPCbMS",
   },
   {
     artist_slug: "john-mayer",
@@ -781,6 +816,7 @@ export const songs: Song[] = [
     difficulty: "intermediate",
     external_tab_url: "https://www.songsterr.com/a/wsa/john-mayer-gravity-tab-s12346",
     external_video_url: "https://www.youtube.com/results?search_query=john+mayer+gravity+guitar+lesson",
+    spotify_track_id: "3SktMqZmo3M9zbB7oKMIF7",
   },
   {
     artist_slug: "jonny-greenwood",
@@ -793,6 +829,7 @@ export const songs: Song[] = [
     difficulty: "beginner",
     external_tab_url: "https://www.songsterr.com/a/wsa/radiohead-creep-tab-s243",
     external_video_url: "https://www.youtube.com/results?search_query=radiohead+creep+guitar+lesson",
+    spotify_track_id: "70LcF31zb1H0PyJoS1Sx1r",
   },
   {
     artist_slug: "alex-turner",
@@ -805,6 +842,7 @@ export const songs: Song[] = [
     difficulty: "intermediate",
     external_tab_url: "https://www.songsterr.com/a/wsa/arctic-monkeys-do-i-wanna-know-tab-s71432",
     external_video_url: "https://www.youtube.com/results?search_query=do+i+wanna+know+guitar+lesson",
+    spotify_track_id: "5FVd6KXrgO9B3JPmC8OPst",
   },
   {
     artist_slug: "james-hetfield",
@@ -817,6 +855,7 @@ export const songs: Song[] = [
     difficulty: "intermediate",
     external_tab_url: "https://www.songsterr.com/a/wsa/metallica-enter-sandman-tab-s184",
     external_video_url: "https://www.youtube.com/results?search_query=enter+sandman+guitar+lesson",
+    spotify_track_id: "3VqHuw0wFlIHcIPWkhIbdQ",
   },
   {
     artist_slug: "dave-murray",
@@ -829,6 +868,7 @@ export const songs: Song[] = [
     difficulty: "advanced",
     external_tab_url: "https://www.songsterr.com/a/wsa/iron-maiden-the-trooper-tab-s150",
     external_video_url: "https://www.youtube.com/results?search_query=iron+maiden+the+trooper+guitar+lesson",
+    spotify_track_id: "4OROzZUy6gOWN4UGQVaZMF",
   },
   {
     artist_slug: "adam-jones",
@@ -841,6 +881,7 @@ export const songs: Song[] = [
     difficulty: "advanced",
     external_tab_url: "https://www.songsterr.com/a/wsa/tool-schism-tab-s295",
     external_video_url: "https://www.youtube.com/results?search_query=tool+schism+guitar+lesson",
+    spotify_track_id: "55mJleti2WfWEFNFcBduhc",
   },
   {
     artist_slug: "matt-bellamy",
@@ -853,6 +894,7 @@ export const songs: Song[] = [
     difficulty: "advanced",
     external_tab_url: "https://www.songsterr.com/a/wsa/muse-plug-in-baby-tab-s216",
     external_video_url: "https://www.youtube.com/results?search_query=muse+plug+in+baby+guitar+lesson",
+    spotify_track_id: "429MqIq5nGH32feyRZHunv",
   },
   {
     artist_slug: "dan-auerbach",
@@ -865,6 +907,7 @@ export const songs: Song[] = [
     difficulty: "beginner",
     external_tab_url: "https://www.songsterr.com/a/wsa/the-black-keys-lonely-boy-tab-s56789",
     external_video_url: "https://www.youtube.com/results?search_query=black+keys+lonely+boy+guitar+lesson",
+    spotify_track_id: "43CFbapIGb8ustkOYQq8te",
   },
   {
     artist_slug: "gary-clark-jr",
@@ -877,6 +920,7 @@ export const songs: Song[] = [
     difficulty: "intermediate",
     external_tab_url: "https://www.songsterr.com/a/wsa/gary-clark-jr-bright-lights-tab-s67890",
     external_video_url: "https://www.youtube.com/results?search_query=gary+clark+jr+bright+lights+guitar+lesson",
+    spotify_track_id: "7aO35V27YDi4hKOL9odSya",
   },
   {
     artist_slug: "joe-bonamassa",
@@ -889,6 +933,7 @@ export const songs: Song[] = [
     difficulty: "advanced",
     external_tab_url: "https://www.songsterr.com/a/wsa/joe-bonamassa-sloe-gin-tab-s78901",
     external_video_url: "https://www.youtube.com/results?search_query=joe+bonamassa+sloe+gin+guitar+lesson",
+    spotify_track_id: "5hob2jVM2gA74CyJ4G4bJZ",
   },
   {
     artist_slug: "kirk-hammett",
@@ -901,6 +946,7 @@ export const songs: Song[] = [
     difficulty: "advanced",
     external_tab_url: "https://www.songsterr.com/a/wsa/metallica-fade-to-black-tab-s183",
     external_video_url: "https://www.youtube.com/results?search_query=metallica+fade+to+black+guitar+lesson",
+    spotify_track_id: "0dqGfCMAGyDgpUAgLNOjWd",
   },
   {
     artist_slug: "josh-homme",
@@ -913,6 +959,7 @@ export const songs: Song[] = [
     difficulty: "intermediate",
     external_tab_url: "https://www.songsterr.com/a/wsa/queens-of-the-stone-age-no-one-knows-tab-s245",
     external_video_url: "https://www.youtube.com/results?search_query=no+one+knows+qotsa+guitar+lesson",
+    spotify_track_id: "6y20BV5L33R8YXM0YuI38N",
   },
   {
     artist_slug: "stevie-ray-vaughan",
@@ -925,6 +972,7 @@ export const songs: Song[] = [
     difficulty: "advanced",
     external_tab_url: "https://www.songsterr.com/a/wsa/stevie-ray-vaughan-little-wing-tab-s82",
     external_video_url: "https://www.youtube.com/results?search_query=stevie+ray+vaughan+little+wing+guitar+lesson",
+    spotify_track_id: "5XNpdKmlLJPUbwKQceX2tW",
   },
   {
     artist_slug: "david-gilmour",
@@ -937,6 +985,7 @@ export const songs: Song[] = [
     difficulty: "intermediate",
     external_tab_url: "https://www.songsterr.com/a/wsa/pink-floyd-shine-on-you-crazy-diamond-tab-s290",
     external_video_url: "https://www.youtube.com/results?search_query=shine+on+you+crazy+diamond+guitar+lesson",
+    spotify_track_id: "6pnwfWyaWjQiHCKTiZLItr",
   },
   {
     artist_slug: "angus-young",
@@ -949,6 +998,7 @@ export const songs: Song[] = [
     difficulty: "advanced",
     external_tab_url: "https://www.songsterr.com/a/wsa/ac-dc-thunderstruck-tab-s5",
     external_video_url: "https://www.youtube.com/results?search_query=thunderstruck+ac+dc+guitar+lesson",
+    spotify_track_id: "57bgtoPSgt236HzfBOd8kj",
   },
 ];
 

@@ -62,6 +62,7 @@ function mapSong(row: Record<string, unknown>, artistSlug?: string): Song {
     difficulty: row.difficulty as Song["difficulty"],
     external_tab_url: (row.external_tab_url as string) ?? undefined,
     external_video_url: (row.external_video_url as string) ?? undefined,
+    spotify_track_id: (row.spotify_track_id as string) ?? undefined,
   };
 }
 
