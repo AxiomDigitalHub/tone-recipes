@@ -34,9 +34,21 @@ export default function Footer() {
             ))}
           </nav>
 
-          {/* Resources + RSS */}
+          {/* Community + Resources */}
           <nav className="flex flex-col gap-2">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted">Resources</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted">Community</p>
+            <Link
+              href="/community/forum"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              Forum
+            </Link>
+            <Link
+              href="/community"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              Community Hub
+            </Link>
             <Link
               href="/feed.xml"
               className="text-sm text-muted transition-colors hover:text-foreground"
