@@ -1,5 +1,6 @@
 import Link from "next/link";
 import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
+import AffiliateDisclosure from "@/components/ui/AffiliateDisclosure";
 
 const productLinks = [
   { href: "/browse", label: "Browse" },
@@ -13,7 +14,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-surface">
       <div className="mx-auto max-w-7xl px-4 py-8">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <span className="text-sm font-bold text-accent" style={{ fontFamily: "var(--font-playfair)" }}>Fader &amp; Knob</span>
@@ -32,6 +33,23 @@ export default function Footer() {
                 {link.label}
               </Link>
             ))}
+          </nav>
+
+          {/* Legal */}
+          <nav className="flex flex-col gap-2">
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted">Legal</p>
+            <Link
+              href="/affiliate-disclosure"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              Affiliate Disclosure
+            </Link>
+            <Link
+              href="/privacy"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              Privacy Policy
+            </Link>
           </nav>
 
           {/* Community + Resources */}
@@ -75,6 +93,9 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Axiom Digital. All rights reserved.
           </p>
         </div>
+      </div>
+      <div className="mx-auto max-w-7xl px-4 pb-4">
+        <AffiliateDisclosure />
       </div>
     </footer>
   );
