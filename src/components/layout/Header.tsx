@@ -115,11 +115,25 @@ export default function Header() {
                   </p>
                   <hr className="border-border" />
                   <Link
-                    href="/saved"
+                    href="/dashboard"
+                    onClick={() => setDropdownOpen(false)}
+                    className="block px-4 py-2 text-sm text-foreground transition-colors hover:bg-surface-hover"
+                  >
+                    Dashboard
+                  </Link>
+                  <Link
+                    href="/dashboard/saved"
                     onClick={() => setDropdownOpen(false)}
                     className="block px-4 py-2 text-sm text-foreground transition-colors hover:bg-surface-hover"
                   >
                     Saved Recipes
+                  </Link>
+                  <Link
+                    href="/dashboard/my-gear"
+                    onClick={() => setDropdownOpen(false)}
+                    className="block px-4 py-2 text-sm text-foreground transition-colors hover:bg-surface-hover"
+                  >
+                    My Gear
                   </Link>
                   <button
                     onClick={handleSignOut}
@@ -209,7 +223,14 @@ export default function Header() {
                   </span>
                 </div>
                 <Link
-                  href="/saved"
+                  href="/dashboard"
+                  className="text-sm font-medium text-muted"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  href="/dashboard/saved"
                   className="text-sm font-medium text-muted"
                   onClick={() => setMobileOpen(false)}
                 >

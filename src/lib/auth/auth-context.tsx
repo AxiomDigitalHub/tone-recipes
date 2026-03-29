@@ -28,6 +28,7 @@ interface AuthContextValue {
   isDemoMode: boolean;
   signIn: (email: string, password: string) => Promise<{ error?: string }>;
   signUp: (email: string, password: string) => Promise<{ error?: string }>;
+  signInWithGoogle: () => Promise<{ error?: string }>;
   signOut: () => Promise<void>;
   /** Demo mode helper: create a fake local user so favorites work */
   signInDemo: (email: string) => void;
@@ -158,6 +159,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(null);
   }, [demoMode]);
 
+  const signInWithGoogle = useCallback(async (): Promise<{ error?: string }> => {
+    if (demoMode) {
+      return { error: "Google sign-in is not available in demo mode." };
+    }
+
+    const supabase = createBrowserClient();
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
+    if (error) return { error: error.message };
+    return {};
+  }, [demoMode]);
+
   const signInDemo = useCallback((email: string) => {
     const demoUser: AuthUser = {
       id: "demo-" + email,
@@ -178,6 +195,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         isDemoMode: demoMode,
         signIn,
         signUp,
+        signInWithGoogle,
         signOut,
         signInDemo,
       }}
