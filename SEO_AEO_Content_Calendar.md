@@ -81,7 +81,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 - **Internal links to:** overdrive-vs-distortion-vs-fuzz, signal-chain-order-guide, effects-loop-explained
 - **Internal links from (update):** overdrive-vs-distortion-vs-fuzz
 
-### P1-06: Why Your Delay Sounds Muddy (and the One Setting to Change)
+### P1-06: Why Your Delay Sounds Muddy (and the One Setting to Change) ✅ PUBLISHED 2026-03-29
 - **Target queries:** "delay sounds muddy," "delay pedal muddy fix," "clean up delay tone"
 - **Writer:** Nathan Cross (delay expert, dotted-eighth specialist)
 - **Pillar:** 6 — Quick Fixes
@@ -89,7 +89,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 - **AEO structure:** Problem → cause (low-cut filter, pre-delay EQ) → single setting fix → before/after description. Open with the answer, then explain why. AI models will extract the fix directly.
 - **Internal links to:** the-edge-delay-settings, signal-chain-order-guide, effects-loop-explained
 
-### P1-07: Hendrix Fuzz Tone Recipe
+### P1-07: Hendrix Fuzz Tone Recipe ✅ PUBLISHED 2026-03-29
 - **Target queries:** "hendrix fuzz tone settings," "jimi hendrix guitar tone," "fuzz face settings hendrix"
 - **Writer:** Rick Dalton (analog patriarch, vintage tone authority)
 - **Pillar:** 1 — Tone Recipes
@@ -98,7 +98,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 - **Internal links to:** overdrive-vs-distortion-vs-fuzz, pickup-position-guide, signal-chain-order-guide
 - **Internal links from (update):** overdrive-vs-distortion-vs-fuzz, pickup-position-guide
 
-### P1-08: Klon Centaur Settings: Clean Boost, Mild OD, and Full Drive
+### P1-08: Klon Centaur Settings: Clean Boost, Mild OD, and Full Drive ✅ PUBLISHED 2026-03-29
 - **Target queries:** "klon settings," "klon centaur best settings," "klon clean boost settings"
 - **Writer:** Hank Presswood (vintage collector, owns an original gold Klon)
 - **Pillar:** 2 — Settings Guides
@@ -110,7 +110,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 
 ## Phase 1 Continued: Weeks 5-8 — 8 Posts
 
-### P2-01: Pink Floyd / David Gilmour Lead Tone Recipe
+### P2-01: Pink Floyd / David Gilmour Lead Tone Recipe ✅ PUBLISHED 2026-03-29
 - **Target queries:** "david gilmour tone settings," "pink floyd guitar tone," "comfortably numb tone"
 - **Writer:** Margot Thiessen
 - **Pillar:** 1 — Tone Recipes
@@ -118,7 +118,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 - **AEO structure:** Song-specific settings (Comfortably Numb solo, Money, Time, Shine On). Big Muff + delay + reverb chain with exact parameters. Cross-reference Big Muff guide.
 - **Internal links to:** big-muff-settings (P1-05), reverb-types-guide, the-edge-delay-settings
 
-### P2-02: Boss DS-1 Settings for Every Style
+### P2-02: Boss DS-1 Settings for Every Style ✅ PUBLISHED 2026-03-29
 - **Target queries:** "boss ds-1 settings," "ds-1 best settings," "boss ds1 metal settings"
 - **Writer:** Jess Kowalski (affordable gear, punk roots)
 - **Pillar:** 2 — Settings Guides
@@ -385,3 +385,13 @@ Based on the competitive analysis, avoid these formats:
 | 3 | Modeler EQ Guide: The 5-Band EQ Shape Every Patch Needs | "helix eq settings," "modeler eq guide," "eq for amp modeler patch" | Sean Nakamura | 4 — Modeler Masterclass | Thin modeler tone SERP — EQ is the most-referenced fix but editorial guides on modeler EQ strategy are sparse |
 | 4 | PRS Silver Sky vs. Fender Strat: Which Gets Closer to the Mayer Clean Tone? | "prs silver sky vs fender strat tone," "silver sky vs american professional strat" | Margot Thiessen | 5 — Gear Lab | John Mayer SERP — competitors mention both guitars but no direct comparison exists in editorial content |
 | 5 | Big Muff vs. Fuzz Face: Two Fuzzes, Two Completely Different Circuits | "big muff vs fuzz face," "fuzz face vs big muff which is better" | Margot Thiessen | 5 — Gear Lab | Big Muff SERP — OffsetGuitars forums have extensive discussion but no structured editorial guide; clean content gap |
+
+## SERP-Derived Topics — 2026-03-29 (Batch 2)
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | Delay Types Compared: Analog vs. Digital vs. Tape (Live vs. Studio) | "analog delay vs digital delay," "tape delay vs digital delay guitar" | Nathan Cross | 3 — Signal Chain & Tone Theory | Delay muddy SERP — no editorial guide comparing delay types for live vs. studio contexts; forum content dominates |
+| 2 | Germanium vs. Silicon Fuzz: What's the Actual Difference and When Does It Matter? | "germanium vs silicon fuzz," "fuzz face germanium vs silicon" | Hank Presswood | 3 — Signal Chain & Tone Theory | Hendrix SERP — the silicon/germanium distinction is widely referenced but never explained with actionable guidance on choosing between them |
+| 3 | The Buffer Myth: What Buffered Bypass Actually Does to Your Signal Chain | "buffered bypass vs true bypass," "does buffer pedal affect tone" | Sean Nakamura | 3 — Signal Chain & Tone Theory | Klon SERP — the Klon's buffer is heavily discussed in forums but no clean editorial guide explains the mechanics; high PAA probability |
+| 4 | Big Muff vs. Hiwatt: Which One Is Doing the Work on Comfortably Numb? | "comfortably numb pedal settings," "big muff hiwatt gilmour tone secret" | Margot Thiessen | 1 — Tone Recipes | Gilmour SERP — the interaction between Big Muff level and Hiwatt output stage is a significant gap; would attract backlinks from Pink Floyd communities |
+| 5 | Boss DS-1 vs. MXR Distortion+: Two Classic Distortions, One Amp | "ds-1 vs mxr distortion plus," "boss ds1 vs mxr distortion+" | Jess Kowalski | 5 — Gear Lab | DS-1 SERP — "ds-1 vs" query cluster has volume; no editorial comparison exists; the circuit difference (op-amp clipping vs. hard clipping) is a legitimate tone science story |
