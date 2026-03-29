@@ -111,9 +111,107 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Recipes */}
+      <section className="border-y border-border bg-surface/50 py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-10 flex items-end justify-between">
+            <div>
+              <h2 className="text-2xl font-bold md:text-3xl">
+                Featured Recipes
+              </h2>
+              <p className="mt-2 text-muted">
+                Iconic tones, broken down step by step.
+              </p>
+            </div>
+            <Link
+              href="/browse"
+              className="hidden text-sm font-medium text-accent transition-colors hover:text-accent-hover sm:block"
+            >
+              View all &rarr;
+            </Link>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredRecipes.map((recipe) => {
+              const song = getSongBySlug(recipe.song_slug);
+              const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
+              return (
+                <RecipeCard
+                  key={recipe.slug}
+                  recipe={recipe}
+                  song={song}
+                  artist={artist}
+                />
+              );
+            })}
+          </div>
+
+          <div className="mt-8 text-center sm:hidden">
+            <Link
+              href="/browse"
+              className="text-sm font-medium text-accent transition-colors hover:text-accent-hover"
+            >
+              View all recipes &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Artists */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-center text-2xl font-bold md:text-3xl">
+            Popular Artists
+          </h2>
+          <p className="mx-auto mt-2 max-w-xl text-center text-muted">
+            Explore tone recipes from the guitarists who shaped the sound of modern music.
+          </p>
+
+          <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {artists.slice(0, 10).map((artist) => (
+              <Link
+                key={artist.slug}
+                href={`/artist/${artist.slug}`}
+                className="group flex flex-col items-center rounded-xl border border-border bg-surface p-3 sm:p-5 text-center transition-all hover:border-accent/40 hover:bg-surface-hover"
+              >
+                <div className="relative h-20 w-20 overflow-hidden rounded-full border-2 border-border transition-colors group-hover:border-accent/50">
+                  {artist.image_url ? (
+                    <Image
+                      src={artist.image_url}
+                      alt={artist.name}
+                      fill
+                      loading="lazy"
+                      className="object-cover"
+                      sizes="80px"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-accent/10 text-xl font-bold text-accent">
+                      {artist.name.charAt(0)}
+                    </div>
+                  )}
+                </div>
+                <h3 className="mt-3 text-sm font-semibold text-foreground group-hover:text-accent transition-colors">
+                  {artist.name}
+                </h3>
+                <div className="mt-2 flex flex-wrap justify-center gap-1">
+                  {artist.genres.slice(0, 2).map((genre) => (
+                    <Badge key={genre} variant="outline" className="text-[10px]">
+                      {genre}
+                    </Badge>
+                  ))}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Pain points */}
       <section className="border-y border-border bg-surface/50 py-16">
         <div className="mx-auto max-w-4xl px-4">
+          <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">
+            Sound familiar?
+          </h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               "5 YouTube videos, 5 different answers",
@@ -193,101 +291,6 @@ export default function Home() {
                 <h3 className="text-lg font-semibold">{pillar.title}</h3>
                 <p className="mt-2 text-sm text-muted">{pillar.desc}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Recipes */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="mb-10 flex items-end justify-between">
-            <div>
-              <h2 className="text-2xl font-bold md:text-3xl">
-                Featured Recipes
-              </h2>
-              <p className="mt-2 text-muted">
-                Iconic tones, broken down step by step.
-              </p>
-            </div>
-            <Link
-              href="/browse"
-              className="hidden text-sm font-medium text-accent transition-colors hover:text-accent-hover sm:block"
-            >
-              View all &rarr;
-            </Link>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredRecipes.map((recipe) => {
-              const song = getSongBySlug(recipe.song_slug);
-              const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
-              return (
-                <RecipeCard
-                  key={recipe.slug}
-                  recipe={recipe}
-                  song={song}
-                  artist={artist}
-                />
-              );
-            })}
-          </div>
-
-          <div className="mt-8 text-center sm:hidden">
-            <Link
-              href="/browse"
-              className="text-sm font-medium text-accent transition-colors hover:text-accent-hover"
-            >
-              View all recipes &rarr;
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Popular Artists */}
-      <section className="border-y border-border bg-surface/50 py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-center text-2xl font-bold md:text-3xl">
-            Popular Artists
-          </h2>
-          <p className="mx-auto mt-2 max-w-xl text-center text-muted">
-            Explore tone recipes from the guitarists who shaped the sound of modern music.
-          </p>
-
-          <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {artists.slice(0, 10).map((artist) => (
-              <Link
-                key={artist.slug}
-                href={`/artist/${artist.slug}`}
-                className="group flex flex-col items-center rounded-xl border border-border bg-surface p-3 sm:p-5 text-center transition-all hover:border-accent/40 hover:bg-surface-hover"
-              >
-                <div className="relative h-20 w-20 overflow-hidden rounded-full border-2 border-border transition-colors group-hover:border-accent/50">
-                  {artist.image_url ? (
-                    <Image
-                      src={artist.image_url}
-                      alt={artist.name}
-                      fill
-                      loading="lazy"
-                      className="object-cover"
-                      sizes="80px"
-                    />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-accent/10 text-xl font-bold text-accent">
-                      {artist.name.charAt(0)}
-                    </div>
-                  )}
-                </div>
-                <h3 className="mt-3 text-sm font-semibold text-foreground group-hover:text-accent transition-colors">
-                  {artist.name}
-                </h3>
-                <div className="mt-2 flex flex-wrap justify-center gap-1">
-                  {artist.genres.slice(0, 2).map((genre) => (
-                    <Badge key={genre} variant="outline" className="text-[10px]">
-                      {genre}
-                    </Badge>
-                  ))}
-                </div>
-              </Link>
             ))}
           </div>
         </div>

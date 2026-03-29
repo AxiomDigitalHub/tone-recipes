@@ -244,8 +244,8 @@ function PlatformBlockNode({
         onClick={onSelect}
         aria-label={`${block.block_name} – ${block.block_category} settings`}
         aria-pressed={!!isSelected}
-        className={`node-glow group flex h-20 w-20 flex-col items-center justify-center rounded-xl border-2 bg-surface transition-all hover:bg-surface-hover ${
-          isSelected ? "ring-2 ring-offset-2 ring-offset-background" : ""
+        className={`node-glow group flex h-20 w-20 cursor-pointer flex-col items-center justify-center rounded-xl border-2 bg-surface transition-all hover:bg-surface-hover hover:scale-105 ${
+          isSelected ? "ring-2 ring-offset-2 ring-offset-background scale-105" : ""
         }`}
         style={{
           borderColor: isSelected ? platformColor : platformColor + "80",
@@ -277,6 +277,29 @@ function PlatformBlockNode({
 /* ------------------------------------------------------------------ */
 /*  Main unified chain view                                            */
 /* ------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------ */
+/*  Map platform block_category → chain-tip categories                  */
+/* ------------------------------------------------------------------ */
+
+function mapBlockCategory(blockCat: string): { category: string; subcategory?: string } {
+  const cat = blockCat.toLowerCase();
+  if (["amp", "amp type", "tone model", "amp model"].includes(cat)) return { category: "preamp" };
+  if (["cab", "cabinet", "ir"].includes(cat)) return { category: "cabinet" };
+  if (["mic", "microphone"].includes(cat)) return { category: "microphone" };
+  if (["delay"].includes(cat)) return { category: "wet_effect", subcategory: "delay" };
+  if (["reverb"].includes(cat)) return { category: "wet_effect", subcategory: "reverb" };
+  if (["chorus", "flanger", "phaser", "tremolo", "vibrato", "modulation"].includes(cat)) return { category: "wet_effect", subcategory: cat };
+  if (["drive", "overdrive"].includes(cat)) return { category: "effect", subcategory: "overdrive" };
+  if (["distortion", "stomp"].includes(cat)) return { category: "effect", subcategory: "distortion" };
+  if (["fuzz"].includes(cat)) return { category: "effect", subcategory: "fuzz" };
+  if (["booster", "boost"].includes(cat)) return { category: "effect", subcategory: "boost" };
+  if (["dynamics", "compressor", "comp"].includes(cat)) return { category: "effect", subcategory: "compressor" };
+  if (["wah", "filter"].includes(cat)) return { category: "effect", subcategory: "wah" };
+  if (["eq", "equalizer"].includes(cat)) return { category: "effect", subcategory: "eq" };
+  if (["fx", "effect"].includes(cat)) return { category: "effect" };
+  return { category: "effect" };
+}
 
 export default function UnifiedChainView({
   guitarSpecs,
@@ -347,7 +370,7 @@ export default function UnifiedChainView({
   const chainContent = (
     <div className={
       isFullscreen
-        ? "fixed inset-x-0 top-16 bottom-0 z-[60] flex flex-col bg-background overflow-y-auto"
+        ? "fixed inset-x-0 top-16 bottom-0 z-[60] flex flex-col bg-surface overflow-y-auto"
         : "rounded-xl border border-border bg-surface overflow-hidden"
     }>
       {/* Guitar header bar */}
@@ -378,15 +401,15 @@ export default function UnifiedChainView({
       />
 
       {/* Platform tabs */}
-      <div role="tablist" aria-label="Signal chain platform" className="flex gap-1 overflow-x-auto border-b border-border p-2 scrollbar-hide">
+      <div role="tablist" aria-label="Signal chain platform" className="flex gap-2 overflow-x-auto border-b border-border p-2 scrollbar-hide">
         <button
           role="tab"
           aria-selected={activeTab === "physical"}
           onClick={() => handleTabSwitch("physical")}
-          className={`shrink-0 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 rounded-lg border px-4 py-2 text-sm font-medium transition-all ${
             activeTab === "physical"
-              ? "bg-accent/15 text-accent"
-              : "text-muted hover:text-foreground hover:bg-surface-hover"
+              ? "border-accent/50 bg-accent/15 text-accent"
+              : "border-border text-muted hover:text-foreground hover:border-accent/30 hover:bg-surface-hover"
           }`}
         >
           Physical
@@ -400,12 +423,12 @@ export default function UnifiedChainView({
               role="tab"
               aria-selected={isActive}
               onClick={() => handleTabSwitch(pid)}
-              className={`shrink-0 flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+              className={`shrink-0 flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-all ${
                 isActive
                   ? "text-foreground"
-                  : "text-muted hover:text-foreground hover:bg-surface-hover"
+                  : "border-border text-muted hover:text-foreground hover:bg-surface-hover"
               }`}
-              style={isActive ? { backgroundColor: meta?.color + "18" } : {}}
+              style={isActive ? { backgroundColor: meta?.color + "18", borderColor: meta?.color + "50" } : {}}
             >
               <span
                 className="h-2 w-2 rounded-full"
@@ -464,42 +487,55 @@ export default function UnifiedChainView({
       ) : activeTranslation ? (
         <div role="tabpanel" aria-label={`${activePlatformMeta?.label || activeTab} signal chain`} className="w-full md:overflow-x-auto">
           <div className="flex flex-col items-center gap-2 px-4 py-6 md:flex-row md:items-start md:justify-center">
-            {activeTranslation.chain_blocks.map((block, i) => (
-              <div
-                key={i}
-                className="flex flex-col items-center md:flex-row md:items-start"
-              >
-                <PlatformBlockNode
-                  block={block}
-                  platformColor={activePlatformMeta?.color || "#f59e0b"}
-                  isSelected={selectedNodeIndex === i}
-                  onSelect={() =>
-                    setSelectedNodeIndex(
-                      selectedNodeIndex === i ? null : i
-                    )
-                  }
-                />
-                {i < activeTranslation.chain_blocks.length - 1 && (
-                  <div className="flex flex-col items-center gap-1 md:mt-8 md:flex-row">
-                    <div
-                      className="h-3 w-0.5 rounded-full md:h-0.5 md:w-6"
-                      style={{
-                        backgroundColor:
-                          (activePlatformMeta?.color || "#f59e0b") + "60",
-                      }}
-                    />
-                    <div
-                      className="h-3 w-0.5 rounded-full md:h-0.5 md:w-6"
-                      style={{
-                        backgroundColor:
-                          (activePlatformMeta?.color || "#f59e0b") + "60",
-                      }}
-                    />
-                  </div>
-                )}
-              </div>
-            ))}
+            {activeTranslation.chain_blocks.map((block, i) => {
+              const nextBlock = activeTranslation.chain_blocks[i + 1];
+              const mapped = mapBlockCategory(block.block_category);
+              const nextMapped = nextBlock ? mapBlockCategory(nextBlock.block_category) : null;
+              const tip = nextMapped
+                ? getChainTip(mapped.category, nextMapped.category, mapped.subcategory, nextMapped.subcategory)
+                : null;
+
+              return (
+                <div
+                  key={i}
+                  className="flex flex-col items-center md:flex-row md:items-start"
+                >
+                  <PlatformBlockNode
+                    block={block}
+                    platformColor={activePlatformMeta?.color || "#f59e0b"}
+                    isSelected={selectedNodeIndex === i}
+                    onSelect={() =>
+                      setSelectedNodeIndex(
+                        selectedNodeIndex === i ? null : i
+                      )
+                    }
+                  />
+                  {i < activeTranslation.chain_blocks.length - 1 && (
+                    <div className="flex flex-col items-center gap-1 md:mt-8 md:flex-row">
+                      <div
+                        className="h-3 w-0.5 rounded-full md:h-0.5 md:w-3"
+                        style={{
+                          backgroundColor:
+                            (activePlatformMeta?.color || "#f59e0b") + "60",
+                        }}
+                      />
+                      {tip && <ChainTooltip tip={tip} />}
+                      <div
+                        className="h-3 w-0.5 rounded-full md:h-0.5 md:w-3"
+                        style={{
+                          backgroundColor:
+                            (activePlatformMeta?.color || "#f59e0b") + "60",
+                        }}
+                      />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
+          {selectedNodeIndex === null && (
+            <p className="text-xs text-muted text-center py-2">Tap any node to see settings &#8595;</p>
+          )}
 
           {/* Platform notes (when no node selected) */}
           {activeTranslation.notes && selectedNodeIndex === null && (
@@ -530,9 +566,9 @@ export default function UnifiedChainView({
         onClose={() => setSelectedNodeIndex(null)}
       />
 
-      {/* Community submissions (non-physical platforms only) */}
-      {activeTab !== "physical" && recipeSlug && (
-        <CommunitySubmissions recipeSlug={recipeSlug} platform={activeTab} />
+      {/* Community submissions */}
+      {recipeSlug && (
+        <CommunitySubmissions recipeSlug={recipeSlug} platform={activeTab === "physical" ? "physical" : activeTab} />
       )}
     </div>
   );
