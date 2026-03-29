@@ -152,7 +152,7 @@ export default async function BlogPostPage({
       </nav>
 
       {/* Post header */}
-      <header className="mx-auto max-w-3xl">
+      <header>
         <span
           className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${catColor}`}
         >
