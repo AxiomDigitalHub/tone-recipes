@@ -66,6 +66,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  other: {
+    "fo-verify": "638b1d63-d8e9-4a92-a966-6831f4da02a2",
+  },
 };
 
 export default function RootLayout({
