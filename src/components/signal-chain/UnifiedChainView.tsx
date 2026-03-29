@@ -18,6 +18,7 @@ import DownloadPatchButton from "./DownloadPatchButton";
 import CommunitySubmissions from "./CommunitySubmissions";
 import { getChainTip } from "@/lib/chain-tips";
 import { usePlatformStore } from "@/lib/stores/platform-store";
+import { getPlatformSkin } from "./platform-skins";
 
 interface UnifiedChainViewProps {
   guitarSpecs: GuitarSpecs;
@@ -495,12 +496,14 @@ export default function UnifiedChainView({
                 ? getChainTip(mapped.category, nextMapped.category, mapped.subcategory, nextMapped.subcategory)
                 : null;
 
+              const SkinComponent = getPlatformSkin(activeTab);
+
               return (
                 <div
                   key={i}
                   className="flex flex-col items-center md:flex-row md:items-start"
                 >
-                  <PlatformBlockNode
+                  <SkinComponent
                     block={block}
                     platformColor={activePlatformMeta?.color || "#f59e0b"}
                     isSelected={selectedNodeIndex === i}
