@@ -146,7 +146,7 @@ Some products are bad. We don't pretend otherwise, but we follow principles:
 
 ## 3. Quality Gates (Editing Protocol)
 
-Every post must pass all seven quality gates before publication. An editor works through these sequentially. If a post fails any gate, it returns to the writer (or editorial) for revision. A post does not skip a gate because it passed the others well.
+Every post must pass all ten quality gates before publication. An editor works through these sequentially. If a post fails any gate, it returns to the writer (or editorial) for revision. A post does not skip a gate because it passed the others well.
 
 ### Gate 1: Factual Accuracy
 
@@ -164,12 +164,29 @@ Every post must pass all seven quality gates before publication. An editor works
 - Attributing a guitarist's tone to the wrong piece of gear (SRV used Tube Screamers, not Klon — the Klon didn't exist until '94)
 - Misquoting impedance values, wattage ratings, or speaker configurations
 
-### Gate 2: Voice Consistency
+### Gate 2: Persona Subtlety Check
+
+The most important voice gate. Could a reader enjoy this article without knowing which writer wrote it? If the article only works because of the byline, it needs revision.
+
+- [ ] **The 80/20 rule passes.** 80% of the article is about the subject. No more than 20% is writer-colored perspective.
+- [ ] **Self-reference count is 0-2.** The writer references their own identity, lifestyle, background, or signature perspective no more than twice per 1,000 words. Count them. If it's more, cut.
+- [ ] **Signature phrases appear at most once.** If a phrase is in the writer's signature list, it can appear once per article. Some articles should have zero. Catchphrases are callbacks, not refrains.
+- [ ] **The opener is about the subject.** The first paragraph should hook the reader into the topic. The writer's personality shows in *how* they approach it, not in announcing who they are. Rick doesn't open by telling you he's an analog guy. He opens about the subject, and you can tell he's Rick by how fast he gets to the point and what detail he leads with.
+- [ ] **The closing varies.** Signature signoff style in no more than 1 in 4 articles. Other closings should end with: a specific recommendation, a final observation about the subject, a forward-looking thought, or simply the last useful point.
+- [ ] **Persona is implicit, not performed.** The writer's identity comes through in what they notice, what they compare things to, what they skip, and what they assume the reader knows — not in self-description or lifestyle announcements.
+- [ ] **Forbidden-word avoidance isn't conspicuous.** If the absence of a word feels performed (like someone carefully not saying "workflow"), the voice needs loosening. Natural absence, not performed avoidance.
+
+**Persona subtlety red flags:**
+- The writer mentions their own gear, background, or playing situation in more than two paragraphs
+- Signature phrases appear more than once
+- The opening paragraph is about the writer rather than the topic
+- Disagreements with other writers are explicitly staged ("I respect X, but...")
+- The article reads like a character monologue rather than a person writing about guitar tone
+
+### Gate 3: Voice Consistency
 
 - [ ] The post reads like the attributed writer wrote it — sentence length, vocabulary, humor style, and technical depth match the writer's profile
-- [ ] The writer's known biases are present but not exaggerated to the point of parody
 - [ ] The writer's perspective is consistent with their previous posts (Rick doesn't suddenly love menu-diving; Elena doesn't suddenly recommend a 45-minute setup routine)
-- [ ] Verbal tics and signature phrases appear naturally, not forced ("slaps" from Jess should appear once or twice, not in every paragraph)
 - [ ] The writer's technical depth matches their profile (Carl shouldn't be explaining parallel routing; Viktor shouldn't be glossing over gain staging)
 
 **Voice consistency red flags:**
@@ -178,17 +195,47 @@ Every post must pass all seven quality gates before publication. An editor works
 - Emotional register that doesn't match (Carl being effusive, Viktor being casual, Nathan being cynical)
 - Technical depth that's too high or too low for the attributed writer
 
-### Gate 3: Jargon Accessibility
+### Gate 4: Reader Knowledge Baseline
 
-- [ ] Technical terms are either explained on first use, obvious from context, or linked to a glossary/explainer post
-- [ ] No post assumes the reader knows what an "impulse response," "buffer," or "gain staging" means without context
-- [ ] Acronyms are spelled out on first reference (IR = impulse response, DAW = digital audio workstation, DI = direct input)
-- [ ] The level of assumed knowledge is appropriate for the post's category (a "beginner's guide" assumes less than a "deep dive")
-- [ ] Technical explanations don't condescend — there's a difference between "An impulse response captures the sonic character of a real speaker cabinet" (good) and "An impulse response — that's a digital recording of a speaker, for those of you who don't know" (condescending)
+Fader & Knob assumes its reader: owns a guitar, has been playing for at least a year, knows what gain/overdrive/reverb/delay are, understands the basic concept of a signal chain, and has at least looked at a pedalboard.
 
-**The jargon test:** Could a guitarist with 1-2 years of experience follow this post? If not, either add context or recategorize the post as advanced content.
+**What we do NOT define:** Gear categories (overdrive, delay, reverb, compressor), signal chain basics, or widely-known gear (Tube Screamer, Big Muff, Boss DD series, Strymon). First-reference rules apply to specific models, not to categories.
 
-### Gate 4: Actionability
+**What we DO define on first use:** Specialized terms (impulse response, buffer, gain staging, sag, DSP), platform-specific jargon (HX Edit, Cortex Cloud, BOSS Tone Studio), and anything that requires knowledge beyond "I play guitar and have a few pedals."
+
+- [ ] The post doesn't over-explain basics that the reader already knows. Defining what an overdrive does, explaining what a signal chain is, or telling the reader a Tube Screamer is popular are all AI tells. Cut them.
+- [ ] Specialized terms are explained naturally on first use, not condescendingly
+- [ ] Acronyms are spelled out on first reference (IR = impulse response, DAW = digital audio workstation)
+- [ ] The level of assumed knowledge is appropriate for the post's category
+- [ ] The post feels like it was written for a community of players, not for someone who wandered in off the street
+
+### Gate 5: Surprised Discovery Requirement
+
+Every gear-related article must include at least one moment where the writer's expectation was wrong or their assumption was challenged. This signals genuine experience rather than reported specification.
+
+Template: "I expected [X]. What I found was [Y]. Here's why that matters."
+
+- [ ] The article includes at least one "surprised discovery" — a moment of revised expectation, a contradiction, or an unexpected finding
+- [ ] The discovery is specific and testable, not vague ("I was surprised by how good it sounded" fails; "I expected the low end to get muddy below the 5th fret, but the note separation actually held up better than my TS808" passes)
+- [ ] The article contains at least one genuine hypothesis-testing moment, not just conclusions delivered with confidence
+
+### Gate 6: Tone Description Specificity
+
+Generic tone descriptors are banned without qualifiers. "Warm," "musical," "transparent," "lush," and "rich" used alone are meaningless. They must be followed by a specific qualifier.
+
+- [ ] Every tone description includes at least one of:
+  - A comparison to a specific, named sound (a song, an album, a player's tone in a particular era)
+  - A physical/spatial metaphor that's specific ("the reverb makes the guitar feel like it's in a tiled bathroom with one window open" not "the reverb makes the guitar sound bigger")
+  - A contradiction ("it's aggressive but polite about it")
+  - A negative-space description ("there's no fizz above 4kHz, which is where most high-gain pedals fall apart")
+- [ ] No instance of "warm," "musical," "transparent," "lush," or "rich" appears without a specific qualifier following it
+- [ ] Tone descriptions read like someone who played the thing, not someone who read about it
+
+**Good:** "It sounds like a small amp being angry." / "The kind of crunch where the speaker is about to give up but doesn't." / "An amalgam of trashy punk spittle, string detail, and an imploding Fender tweed."
+
+**Bad:** "Warm overdrive with musical compression." / "Tight low-end with defined pick attack." / "Rich, lush reverb tails."
+
+### Gate 7: Actionability
 
 - [ ] The reader leaves with something they can **do** — a setting to try, a signal chain to build, a product to investigate, a technique to practice
 - [ ] Abstract claims are grounded in specific recommendations ("dynamics matter" is a thesis; "try rolling your guitar volume to 7 for the verse and 10 for the chorus" is actionable)
@@ -201,7 +248,7 @@ Every post must pass all seven quality gates before publication. An editor works
 - An amp comparison that ends with "both are great, it's up to you" instead of "if you prioritize X, buy A; if you prioritize Y, buy B"
 - A tone guide that describes a sound without giving the settings to achieve it
 
-### Gate 5: Tone Calibration
+### Gate 8: Tone Calibration
 
 - [ ] The post is opinionated without being hostile
 - [ ] The post is helpful without being condescending
@@ -219,7 +266,7 @@ Too hot: "The Strymon Flint is absolutely INSANE. If you don't own one, what are
 
 Calibrated: "The Strymon Flint does two things — reverb and tremolo — and does them well enough that it's earned a permanent spot on my board. The '70s spring reverb mode alone is worth the price." — Nathan
 
-### Gate 6: SEO Hygiene
+### Gate 9: SEO Hygiene
 
 - [ ] Meta description is 150-160 characters and includes the primary keyword naturally
 - [ ] The title is compelling, specific, and includes the primary keyword (not "Thoughts on Reverb" but "Spring vs. Plate vs. Hall Reverb: Which One Belongs on Your Board?")
@@ -230,7 +277,7 @@ Calibrated: "The Strymon Flint does two things — reverb and tremolo — and do
 - [ ] URL slug is clean, lowercase, hyphenated, and keyword-relevant (e.g., `/blog/tube-screamer-settings-guide`)
 - [ ] No keyword stuffing — if a phrase appears more than 3-4 times per 1,000 words, it's probably forced
 
-### Gate 7: Cross-Platform Fairness
+### Gate 10: Cross-Platform Fairness
 
 - [ ] If the post discusses a technique or tone goal, it includes guidance for at least two platforms (e.g., analog pedalboard AND modeler, or Helix AND Quad Cortex)
 - [ ] No post implies that one modeler brand is the "default" or "best" without specific justification for that claim in that context
@@ -247,14 +294,16 @@ Calibrated: "The Strymon Flint does two things — reverb and tremolo — and do
 Every post follows a rhythm. Not a rigid formula — but a recognizable structure that readers can rely on.
 
 **Intro (100-200 words)**
-- Hook the reader with a specific, relatable problem or question
-- Establish which writer is speaking and why they care about this topic
+- **The first paragraph is about the topic, not the writer.** Hook the reader into the subject. The writer's personality shows in *how* they approach it — what they notice, how fast they move, what they assume you know — not in announcing who they are.
 - Promise a clear deliverable: "Here are the exact settings..." or "By the end of this post, you'll know how to..."
 - No throat-clearing. The first sentence should earn the second sentence.
+- Do NOT use the intro to establish the writer's identity, lifestyle, or signature perspective. No "As someone who's been gigging since..." or "It was 2 AM in my bedroom..." unless the anecdote directly serves the topic.
 
 Bad intro: "Today we're going to talk about overdrive pedals. There are many types of overdrive pedals available..."
 
-Good intro: "You've got a Tube Screamer. Everybody's got a Tube Screamer. But I'd bet most of you are running it with the drive at noon and wondering why it sounds like a wet blanket. Here's the thing — the TS808 is five different pedals depending on how you set it." — Rick
+Also bad: "I've been playing through tube amps since 1978, so trust me when I say..." (the writer performs their identity instead of earning it through the writing)
+
+Good intro: "You've got a Tube Screamer. Everybody's got a Tube Screamer. But I'd bet most of you are running it with the drive at noon and wondering why it sounds like a wet blanket. Here's the thing — the TS808 is five different pedals depending on how you set it." (You can tell this is Rick by the directness and the assumption of shared experience, without him telling you)
 
 **Body sections (200-400 words each)**
 - Each section should be a self-contained idea with its own subheading
@@ -264,9 +313,9 @@ Good intro: "You've got a Tube Screamer. Everybody's got a Tube Screamer. But I'
 
 **Closing (100-200 words)**
 - Summarize the actionable takeaway (not a recap of every section — the single most important thing)
-- End with a perspective that's distinctly the writer's voice
-- Optionally invite engagement: "Try this tonight and tell me if I'm wrong" rather than "Leave a comment below!"
+- **Vary closings.** Only 1 in 4 articles should use the writer's signature closing style. The other 3 should end with: a specific recommendation, a final observation about the subject, a forward-looking thought, or simply the last useful point. The closing should feel like the end of a conversation, not the end of a performance.
 - Do not end with "Happy playing!" or any generic sign-off
+- The best closings are about the subject, not the byline
 
 ### Heading Hierarchy Rules
 
@@ -281,10 +330,17 @@ Good intro: "You've got a Tube Screamer. Everybody's got a Tube Screamer. But I'
 
 Consistency in settings notation prevents confusion.
 
-**Knob positions (0-10 scale):**
+**Knob positions — prefer clock positions over numbers:**
+> Drive: about 2 o'clock | Tone: noon | Level: around 3 o'clock
+
+Clock positions feel like real playing experience. Use "about" or "around" before values — real players don't think in precise numbers. Include what happens if you go too far: "Push the drive past 3 o'clock and it starts to get fizzy" tells the reader more than "Drive: 7/10."
+
+Always include context: the guitar, pickup position, and volume setting that produces the described sound. "With the bridge humbucker, volume at full, drive at about 1 o'clock" is a complete picture.
+
+**Numerical scale (0-10) when needed:**
 > Drive: 3-4 | Tone: 5 | Level: 7-8
 
-Use a 0-10 scale unless the gear uses a different system. For percentage-based controls (most modelers), use the percentage:
+Use a 0-10 scale when the gear has numbered markings or when precision matters. For percentage-based controls (most modelers), use the percentage:
 > Gain: 35% | Bass: 50% | Mid: 65% | Treble: 55% | Master: 40%
 
 **Modeler parameters:**
@@ -346,18 +402,15 @@ Fader & Knob may use affiliate links. The rules are absolute:
 
 ### Handling Writer-vs.-Writer Disagreements
 
-Crossover posts where two writers tackle the same topic from different angles are some of our best content. The tension is the point. But the disagreements must follow rules:
+**The core rule: writers never explicitly name other staff writers to set up a disagreement.** No "I respect Rick, but..." or "Sean makes a fair point, however..." These are polite, structured, and completely unlike how real musicians argue about gear.
 
-1. **Disagree on specifics, not character.** "Rick thinks digital delay loses the warmth of analog tape saturation" is a specific claim. "Rick is stuck in the past" is a personal attack. The first is great content. The second never publishes.
+Disagreements should emerge organically across articles. If Nathan writes "The BigSky is worth every penny for what it does to a room," and Jess writes in a different article "I sold my $500 reverb in three months. One good algorithm is all you need," the disagreement is alive and real without either of them performing it.
 
-2. **Steel-man the other writer's position.** Before rebutting, each writer must accurately represent the other's best argument. No straw men.
+**In crossover posts** (two writers, one topic), the same principle applies with more structure:
 
-Bad: "Sean thinks analog is dead, but he's never played through a real amp at volume, so how would he know?"
-Good: "Sean's right that modelers have closed the gap dramatically — especially in recorded contexts where you're comparing WAV files. My argument is narrower: when you're standing in front of a 4x12 at stage volume, there's a physical interaction between the speaker, the room, and your body that IRs don't capture." — Rick
-
-3. **Keep it professional and fun.** These are debates, not fights. The reader should enjoy the back-and-forth. Think sports commentary, not political attack ads.
-
-4. **End with respect.** Every crossover post ends with both writers acknowledging the other's perspective has merit. Not a false compromise — genuine acknowledgment that reasonable people disagree.
+1. **Each writer states their position with confidence.** No diplomatic preambles. No "I see where X is coming from." Just say what you think.
+2. **Disagree on specifics, not character.** "Digital delay loses something in the tape saturation" is a specific claim. "He's stuck in the past" is a personal attack.
+3. **Let the reader hold both positions.** Don't resolve the tension. Real disagreements in music don't have winners. The reader is smart enough to decide for themselves.
 
 ### When to Defer to Another Writer's Expertise
 
@@ -530,6 +583,33 @@ When editing posts written by a fictional persona, feedback should reference the
 **Say:** "Hank tells stories. This reads like a spec sheet. Where's the part where he bought this pedal at a swap meet in 1997 and it changed how he thought about fuzz? Give me the Hank version."
 
 This approach keeps the revision process collaborative and character-driven, producing better results than abstract prose criticism.
+
+---
+
+## 8. AI Content Generation Protocol
+
+When using AI to generate content in a writer's voice, follow this process. The order matters.
+
+### Step 1: Subject First, Voice Second
+Before writing, ask: "What is this article about?" not "Who is writing this article?" Write the article first for content and accuracy. Then do a voice pass to adjust sentence rhythm, vocabulary, and comparison points to match the writer.
+
+### Step 2: The Voice Pass
+During the voice pass, adjust:
+- **Sentence rhythm and length** to match the writer's patterns
+- **Comparison points** — what does this writer reach for? (Rick reaches for classic amps; Sean reaches for A/B data; Margot reaches for sensory metaphor)
+- **What gets skipped** — remove explanations the writer wouldn't bother with
+- **Assumed knowledge** — adjust what's defined vs. taken for granted
+
+### Step 3: The Subtlety Audit
+After writing, count and verify:
+- How many times does the writer's identity show explicitly? (Mentioning their own background, values, gear, or situation.) **Target: 0-2 per article.** If more, cut.
+- Does this article include at least one moment of genuine surprise, contradiction, or revised expectation?
+- Are tone descriptions specific (named comparisons, spatial metaphors, contradictions) or generic (warm, musical, transparent)?
+- Could someone enjoy this article without knowing who wrote it? If the article only works because of the byline, revise.
+- Does the opener serve the reader or introduce the character?
+
+### The North Star
+The best guitar journalism reads like you're sitting next to someone at a gig who happens to know a lot about gear. They're not introducing themselves. They're not performing a character. They're just talking about the thing in front of them, and who they are comes through in how they talk about it.
 
 ---
 

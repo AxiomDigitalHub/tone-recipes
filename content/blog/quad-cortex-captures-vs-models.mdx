@@ -10,7 +10,7 @@ tags: ["quad-cortex", "captures", "models", "neural-dsp"]
 
 ## Two Tools, Two Architectures
 
-The Quad Cortex gives you two fundamentally different engines for producing amp tones: **models** and **captures**. They both live in the same signal chain grid, they both sound great, but they work in completely different ways under the hood. Understanding the architectural difference changes how you build presets. This is the part where it gets interesting.
+The Quad Cortex gives you two fundamentally different engines for producing amp tones: **models** and **captures**. They both live in the same signal chain grid, they both sound great, but they work in completely different ways under the hood. Understanding the architectural difference changes how you build presets.
 
 ## What Models Are
 
@@ -22,23 +22,23 @@ The key word is **circuit**. The model doesn't just know what one setting sounds
 
 ## What Captures Are
 
-A capture is a **neural network snapshot of a specific amp at specific settings**. Here's what's actually happening under the hood: the Quad Cortex sends a series of test signals through a real amp (or amp + cab + mic setup) and analyzes the output response. It then trains a neural network to replicate that exact input-to-output behavior.
+A capture is a **neural network snapshot of a specific amp at specific settings**. The Quad Cortex sends a series of test signals through a real amp (or amp + cab + mic setup) and analyzes the output response. It then trains a neural network to replicate that exact input-to-output behavior.
 
 The accuracy is remarkable. A well-made capture of a cranked Marshall Plexi sounds nearly indistinguishable from the real amp -- at those exact settings. The capture has learned the amp's gain structure, EQ curve, dynamic response, and harmonic character for that one specific state.
 
 **Captures are static.** You get a snapshot, not a simulation. The controls on a capture block (gain, EQ, level) are post-processing adjustments -- they're tweaking the output of the captured neural network, not changing the virtual amp's internal behavior. Turning up the "gain" on a capture doesn't drive the virtual preamp tubes harder the way it would on a model. It applies gain to the captured signal.
 
-The analogy I keep coming back to: a model is like having the real amp in front of you with all its knobs. A capture is like having a perfect photograph of the amp at one moment in time.
+The useful analogy: a model is like having the real amp in front of you with all its knobs. A capture is like having a perfect photograph of the amp at one moment in time.
 
 ## When Captures Win
 
 ### Nailing One Specific Tone
 
-If you need to sound exactly like a specific amp at specific settings -- say, a Dumble Overdrive Special cranked to 6 with the tone knob at 3 -- a capture will get you closer than a model. The neural network has learned the exact nonlinear behavior of that specific amp in that specific state, including all the quirks and component-level imperfections that make it unique.
+If you need to sound exactly like a specific amp at specific settings -- say, a Dumble Overdrive Special with the gain at about 6 and the tone knob around 3 -- a capture will get you closer than a model. The neural network has learned the exact nonlinear behavior of that specific amp in that specific state, including all the quirks and component-level imperfections that make it unique.
 
 This is why captures are so effective for:
 
-- **Cloning your own amp** -- Capture your favorite real amp at its sweet spot, and you can take that exact tone to any gig without transporting the hardware. (I have 14 captures of my own rig at various gain stages cataloged in my Notion preset database.)
+- **Cloning your own amp** -- Capture your favorite real amp at its sweet spot, and you can take that exact tone to any gig without transporting the hardware.
 - **Premium amp tones** -- Someone with a rare, high-value amp can capture it and share it on Cortex Cloud. That tone becomes accessible to everyone.
 - **Full signal chain captures** -- Capture an amp + cab + mic chain in a studio, and you get the entire recorded tone in one block. No need to dial in a separate cab/IR.
 
@@ -54,7 +54,7 @@ If you need to adjust your tone during a set, models are far more practical. Nee
 
 ### Exploring an Amp's Range
 
-If you want to discover what a Marshall Plexi sounds like at every gain setting -- from sparkling clean to full crunch -- a model lets you do that from one block. With captures, you'd need separate captures for each gain level. Let me walk you through the math: if you want five gain stages for three different amps, that's 15 captures vs. 3 models.
+If you want to discover what a Marshall Plexi sounds like at every gain setting -- from sparkling clean to full crunch -- a model lets you do that from one block. With captures, you'd need separate captures for each gain level. The math is straightforward: if you want five gain stages for three different amps, that's 15 captures vs. 3 models.
 
 ### Building Versatile Presets
 
@@ -66,7 +66,7 @@ Models tend to interact more naturally with drive pedal blocks, compressors, and
 
 ## When It Doesn't Matter
 
-For many tones, the difference between a well-dialed model and a well-matched capture is negligible. If you're running a moderate-gain blues tone, either approach will get you there. The differences become more apparent at the extremes -- very clean tones where subtle dynamics matter, or very high-gain tones where the exact saturation character is critical.
+For many tones, the difference between a well-dialed model and a well-matched capture is negligible. If you're running a moderate-gain blues tone -- something in the SRV-through-a-Vibroverb neighborhood -- either approach will get you there. The differences become more apparent at the extremes: very clean tones where subtle dynamics matter, or very high-gain tones where the exact saturation character is the difference between tight Meshuggah-style chug and looser, fizzier gain.
 
 If you're playing live and the audience is 20 feet away, nobody can tell whether you're using a capture or a model. Choose whichever workflow is faster for you.
 
@@ -83,7 +83,7 @@ If you're playing live and the audience is 20 feet away, nobody can tell whether
 
 One of the Quad Cortex's biggest advantages is **Cortex Cloud** -- a library of thousands of user-created captures and presets that you can browse and download directly from the unit.
 
-The quality varies significantly. Some community captures are meticulous, made with premium amps and professional mic setups. Others are noisy, poorly gain-staged, or captured from mediocre source material. Here's how to navigate the library systematically:
+The quality varies significantly. Some community captures are meticulous, made with premium amps and professional mic setups. Others are noisy, poorly gain-staged, or captured from mediocre source material. To navigate the library effectively:
 
 1. **Check the ratings and download counts** -- Popular, highly rated captures tend to be better quality
 2. **Look for captures from known amp builders or studios** -- Some professional capture packs are worth seeking out
@@ -112,21 +112,12 @@ The smartest Quad Cortex users don't choose one or the other -- they use both st
 
 2. **Capture at performance volume.** An amp sounds different at bedroom volume vs stage volume. If you're capturing your own amp, capture it at the volume you'll actually perform at. The dynamic response changes with output level.
 
-3. **A/B captures against models regularly.** Sometimes the model sounds just as good (or better) than the capture you downloaded. Don't assume a capture is automatically more accurate -- test it.
+3. **Compare captures against models regularly.** Sometimes the model sounds just as good (or better) than the capture you downloaded. Don't assume a capture is automatically more accurate -- test it.
 
-4. **Name and organize your captures.** Once you accumulate 50+ captures on the unit, finding the right one becomes a search problem. Use clear naming conventions: "Marshall Plexi Gain6 SM57" is more useful than "My Fav Tone 3." (I keep a parallel log in Notion with notes on each capture's source, mic position, and intended use case.)
+4. **Name and organize your captures.** Once you accumulate 50+ captures on the unit, finding the right one becomes a search problem. Use clear naming conventions: "Marshall Plexi Gain6 SM57" is more useful than "My Fav Tone 3."
 
 5. **Use the QC's capture refinement feature.** When making your own captures, the refinement step improves accuracy by running additional training passes on the neural network. Don't skip it.
 
-## The Bottom Line
+I expected captures to consistently beat models in direct comparisons -- the whole point of profiling a real amp is that it should sound more like the real thing. What I found was that models won about as often as captures did, especially for medium-gain tones where the model's dynamic response to pick attack and volume knob changes outweighed the capture's static accuracy.
 
-Here are the key takeaways:
-
-1. Captures give you photographic accuracy of a specific tone at specific settings.
-2. Models give you flexible, adjustable simulations of an amp's full parameter range.
-3. Neither is inherently better -- they solve different problems.
-4. Use captures when you know exactly what you want and don't need to adjust it.
-5. Use models when you need flexibility, stacking behavior, or continuous parameter control.
-6. The best presets often combine both in the same signal chain.
-
-**What to try next:** Take your favorite capture and your closest-matching factory model, load them into the same preset on parallel paths, and A/B this against your real amp (if you have one). Note where the capture excels and where the model gives you more control. That comparison will tell you exactly how to balance both tools in your workflow.
+**What to try next:** Take your favorite capture and your closest-matching factory model, load them into the same preset on parallel paths, and compare them against your real amp if you have one. Note where the capture excels and where the model gives you more control. That comparison will tell you exactly how to balance both tools in your workflow.
