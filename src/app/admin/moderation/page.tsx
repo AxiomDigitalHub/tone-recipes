@@ -18,7 +18,17 @@ import {
   MessageSquare,
   Clock,
   ShieldOff,
+  Music,
+  ChevronUp,
+  Play,
+  Ban,
+  Link as LinkIcon,
 } from "lucide-react";
+import {
+  getRequests,
+  updateRequestStatus,
+  type ToneRequest,
+} from "@/lib/db/tone-requests";
 
 /* -------------------------------------------------------------------------- */
 /*  Supabase client                                                           */
@@ -39,7 +49,7 @@ function getClient() {
 /*  Types                                                                     */
 /* -------------------------------------------------------------------------- */
 
-type ModerationTab = "reports" | "recipes" | "overview";
+type ModerationTab = "reports" | "recipes" | "tone_requests" | "overview";
 
 interface PendingRecipeWithAuthor extends UserRecipe {
   author?: {
@@ -127,6 +137,13 @@ export default function ModerationPage() {
   >([]);
   const [recipesLoading, setRecipesLoading] = useState(true);
   const [recipesError, setRecipesError] = useState<string | null>(null);
+
+  // Tone requests state
+  const [toneRequests, setToneRequests] = useState<ToneRequest[]>([]);
+  const [toneRequestsLoading, setToneRequestsLoading] = useState(true);
+  const [toneRequestsError, setToneRequestsError] = useState<string | null>(null);
+  const [toneAdminNotes, setToneAdminNotes] = useState<Record<string, string>>({});
+  const [toneRecipeSlugs, setToneRecipeSlugs] = useState<Record<string, string>>({});
 
   // Overview state
   const [stats, setStats] = useState<OverviewStats>({
@@ -269,6 +286,22 @@ export default function ModerationPage() {
     }
   }, []);
 
+  /* ---- Fetch tone requests ----------------------------------------------- */
+
+  const fetchToneRequests = useCallback(async () => {
+    setToneRequestsLoading(true);
+    setToneRequestsError(null);
+
+    try {
+      const data = await getRequests({ sort: "popular", limit: 50 });
+      setToneRequests(data);
+    } catch {
+      setToneRequestsError("Failed to load tone requests.");
+    } finally {
+      setToneRequestsLoading(false);
+    }
+  }, []);
+
   /* ---- Load data on tab switch ------------------------------------------ */
 
   useEffect(() => {
@@ -276,8 +309,9 @@ export default function ModerationPage() {
 
     if (activeTab === "reports") fetchReports();
     else if (activeTab === "recipes") fetchPendingRecipes();
+    else if (activeTab === "tone_requests") fetchToneRequests();
     else if (activeTab === "overview") fetchStats();
-  }, [activeTab, isModerator, fetchReports, fetchPendingRecipes, fetchStats]);
+  }, [activeTab, isModerator, fetchReports, fetchPendingRecipes, fetchToneRequests, fetchStats]);
 
   /* ---- Report actions --------------------------------------------------- */
 
@@ -330,6 +364,34 @@ export default function ModerationPage() {
     }
   }
 
+  /* ---- Tone request actions ---------------------------------------------- */
+
+  async function handleToneRequestAction(
+    requestId: string,
+    status: "in_progress" | "completed" | "declined",
+  ) {
+    setProcessingId(requestId);
+
+    try {
+      const success = await updateRequestStatus(
+        requestId,
+        status,
+        toneAdminNotes[requestId]?.trim(),
+        status === "completed" ? toneRecipeSlugs[requestId]?.trim() : undefined,
+      );
+
+      if (success) {
+        setToneRequests((prev) =>
+          prev.map((r) => (r.id === requestId ? { ...r, status: status as ToneRequest["status"] } : r)),
+        );
+      }
+    } catch {
+      // silent
+    } finally {
+      setProcessingId(null);
+    }
+  }
+
   /* ---- Render ----------------------------------------------------------- */
 
   // Loading auth
@@ -367,6 +429,7 @@ export default function ModerationPage() {
   }[] = [
     { value: "reports", label: "Reports", icon: AlertTriangle },
     { value: "recipes", label: "Pending Recipes", icon: BookOpen },
+    { value: "tone_requests", label: "Tone Requests", icon: Music },
     { value: "overview", label: "Overview", icon: BarChart3 },
   ];
 
@@ -620,6 +683,164 @@ export default function ModerationPage() {
                   </div>
                 );
               })
+            )}
+          </div>
+        )}
+
+        {/* ---- Tone Requests Tab ---- */}
+        {activeTab === "tone_requests" && (
+          <div className="space-y-3">
+            {toneRequestsLoading ? (
+              Array.from({ length: 3 }).map((_, i) => (
+                <CardSkeleton key={i} />
+              ))
+            ) : toneRequestsError ? (
+              <div className="rounded-lg border border-border bg-surface p-6 text-center">
+                <p className="text-sm text-red-400">{toneRequestsError}</p>
+                <button
+                  onClick={fetchToneRequests}
+                  className="mt-3 text-sm font-medium text-accent hover:underline"
+                >
+                  Try again
+                </button>
+              </div>
+            ) : toneRequests.length === 0 ? (
+              <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-surface py-16">
+                <CheckCircle className="mb-4 h-10 w-10 text-green-400" />
+                <p className="text-lg font-semibold text-foreground">
+                  No tone requests
+                </p>
+                <p className="mt-1 text-sm text-muted">
+                  No requests have been submitted yet.
+                </p>
+              </div>
+            ) : (
+              toneRequests.map((req) => (
+                <div
+                  key={req.id}
+                  className="rounded-xl border border-border bg-surface p-5"
+                >
+                  <div className="min-w-0 flex-1">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="text-base font-semibold text-foreground">
+                        {req.song_name}
+                      </h3>
+                      <span className="text-sm text-muted">
+                        by {req.artist_name}
+                      </span>
+                      <span className="flex items-center gap-1 rounded-md bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent">
+                        <ChevronUp className="h-3 w-3" />
+                        {req.upvotes}
+                      </span>
+                      <span
+                        className={`rounded-md px-2 py-0.5 text-xs font-medium ${
+                          req.status === "pending"
+                            ? "bg-yellow-500/15 text-yellow-400"
+                            : req.status === "in_progress"
+                              ? "bg-blue-500/15 text-blue-400"
+                              : req.status === "completed"
+                                ? "bg-green-500/15 text-green-400"
+                                : "bg-zinc-500/15 text-zinc-400"
+                        }`}
+                      >
+                        {req.status.replace("_", " ")}
+                      </span>
+                    </div>
+
+                    <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">
+                      <span>{req.part}</span>
+                      <span>{timeAgo(req.created_at)}</span>
+                    </div>
+
+                    {req.description && (
+                      <p className="mt-2 text-sm text-muted">
+                        {req.description}
+                      </p>
+                    )}
+
+                    {req.reference_url && (
+                      <a
+                        href={req.reference_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-1 inline-flex items-center gap-1 text-xs text-accent hover:underline"
+                      >
+                        <LinkIcon className="h-3 w-3" />
+                        Reference link
+                      </a>
+                    )}
+                  </div>
+
+                  {/* Admin controls */}
+                  <div className="mt-3 space-y-2">
+                    <input
+                      type="text"
+                      value={toneAdminNotes[req.id] ?? ""}
+                      onChange={(e) =>
+                        setToneAdminNotes((prev) => ({
+                          ...prev,
+                          [req.id]: e.target.value,
+                        }))
+                      }
+                      placeholder="Admin notes (optional)..."
+                      className="w-full rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    />
+                    <input
+                      type="text"
+                      value={toneRecipeSlugs[req.id] ?? ""}
+                      onChange={(e) =>
+                        setToneRecipeSlugs((prev) => ({
+                          ...prev,
+                          [req.id]: e.target.value,
+                        }))
+                      }
+                      placeholder="Completed recipe slug (for completed status)..."
+                      className="w-full rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    />
+                  </div>
+
+                  {/* Action buttons */}
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {req.status === "pending" && (
+                      <button
+                        onClick={() =>
+                          handleToneRequestAction(req.id, "in_progress")
+                        }
+                        disabled={processingId === req.id}
+                        className="flex items-center gap-1.5 rounded-lg bg-blue-500/15 px-3 py-1.5 text-xs font-medium text-blue-400 transition-colors hover:bg-blue-500/25 disabled:opacity-50"
+                      >
+                        <Play className="h-3.5 w-3.5" />
+                        Start
+                      </button>
+                    )}
+                    {(req.status === "pending" ||
+                      req.status === "in_progress") && (
+                      <>
+                        <button
+                          onClick={() =>
+                            handleToneRequestAction(req.id, "completed")
+                          }
+                          disabled={processingId === req.id}
+                          className="flex items-center gap-1.5 rounded-lg bg-green-500/15 px-3 py-1.5 text-xs font-medium text-green-400 transition-colors hover:bg-green-500/25 disabled:opacity-50"
+                        >
+                          <CheckCircle className="h-3.5 w-3.5" />
+                          Complete
+                        </button>
+                        <button
+                          onClick={() =>
+                            handleToneRequestAction(req.id, "declined")
+                          }
+                          disabled={processingId === req.id}
+                          className="flex items-center gap-1.5 rounded-lg bg-red-500/15 px-3 py-1.5 text-xs font-medium text-red-400 transition-colors hover:bg-red-500/25 disabled:opacity-50"
+                        >
+                          <Ban className="h-3.5 w-3.5" />
+                          Decline
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </div>
+              ))
             )}
           </div>
         )}

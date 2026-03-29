@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/gear", label: "Gear" },
   { href: "/compare", label: "Compare" },
   { href: "/blog", label: "Blog" },
+  { href: "/request", label: "Request" },
   { href: "/how-it-works", label: "How It Works" },
 ];
 
