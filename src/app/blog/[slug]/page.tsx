@@ -15,7 +15,62 @@ import {
 import { getDefinitionsForPost } from "@/lib/definitions";
 import { getWriter } from "@/lib/writers";
 import BlogCard from "@/components/blog/BlogCard";
+import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
 import TableOfContents, { MobileTableOfContents, type TocItem } from "@/components/blog/TableOfContents";
+
+/* ---------- FAQ extractor ---------- */
+
+function extractFaqItems(
+  content: string
+): Array<{ question: string; answer: string }> {
+  // Find the FAQ section by looking for ## FAQ or ## Frequently Asked Questions
+  const faqSectionRegex =
+    /^##\s+(?:FAQ|Frequently Asked Questions)\s*$/im;
+  const faqMatch = faqSectionRegex.exec(content);
+  if (!faqMatch) return [];
+
+  // Get content after the FAQ heading, up to the next H2 or end of string
+  const afterFaq = content.slice(faqMatch.index + faqMatch[0].length);
+  const nextH2 = afterFaq.search(/^##\s+/m);
+  const faqContent = nextH2 !== -1 ? afterFaq.slice(0, nextH2) : afterFaq;
+
+  // Extract H3 headings as questions and the first paragraph after each as answers
+  const items: Array<{ question: string; answer: string }> = [];
+  const h3Regex = /^###\s+(.+)$/gm;
+  let h3Match;
+  const h3Positions: Array<{ question: string; index: number }> = [];
+
+  while ((h3Match = h3Regex.exec(faqContent)) !== null) {
+    h3Positions.push({
+      question: h3Match[1].replace(/\*\*/g, "").replace(/`/g, "").trim(),
+      index: h3Match.index + h3Match[0].length,
+    });
+  }
+
+  for (let i = 0; i < h3Positions.length; i++) {
+    const start = h3Positions[i].index;
+    const nextStart =
+      i + 1 < h3Positions.length
+        ? faqContent.lastIndexOf("###", h3Positions[i + 1].index)
+        : faqContent.length;
+    const sectionText = faqContent.slice(start, nextStart);
+
+    // Extract first non-empty paragraph
+    const paragraphs = sectionText
+      .split(/\n\n+/)
+      .map((p) => p.trim())
+      .filter((p) => p.length > 0 && !p.startsWith("#"));
+
+    if (paragraphs.length > 0) {
+      items.push({
+        question: h3Positions[i].question,
+        answer: paragraphs[0],
+      });
+    }
+  }
+
+  return items;
+}
 
 /* ---------- Heading extractor ---------- */
 
@@ -119,22 +174,84 @@ export default async function BlogPostPage({
     .filter((p) => p.category === post.category && p.slug !== post.slug)
     .slice(0, 3);
 
-  const blogPostingJsonLd = {
+  /* ---------- Structured data (JSON-LD) ---------- */
+
+  const articleJsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.description,
-    "author": { "@type": "Organization", "name": "Fader & Knob" },
-    "datePublished": post.date,
-    "publisher": { "@type": "Organization", "name": "Fader & Knob" },
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Fader & Knob",
+      url: "https://faderandknob.com",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://faderandknob.com/blog/${slug}`,
+    },
   };
+
+  // HowTo schema for tone-recipes and settings-guides
+  const isHowTo =
+    post.category === "tone-recipes" || post.category === "settings-guides";
+  const howToJsonLd = isHowTo
+    ? {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        name: post.title,
+        description: post.description,
+        step: headings
+          .filter((h) => h.level === 2)
+          .map((h, i) => ({
+            "@type": "HowToStep",
+            name: h.text,
+            position: i + 1,
+          })),
+      }
+    : null;
+
+  // FAQ schema when post contains an FAQ section
+  const faqItems = extractFaqItems(post.content);
+  const faqJsonLd =
+    faqItems.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqItems.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
+        }
+      : null;
 
   return (
     <article className="mx-auto max-w-7xl px-4 py-16 md:py-20">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
+      {howToJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+        />
+      )}
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       {/* Breadcrumb */}
       <nav
         aria-label="Breadcrumb"
@@ -302,6 +419,11 @@ export default async function BlogPostPage({
               </div>
             </div>
           )}
+
+          {/* Newsletter signup */}
+          <div className="mx-auto mt-12 max-w-3xl lg:mx-0">
+            <NewsletterSignup variant="inline" />
+          </div>
 
           {/* Back link */}
           <div className="mx-auto mt-8 max-w-3xl lg:mx-0">

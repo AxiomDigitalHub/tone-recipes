@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth/auth-context";
+import { isSupabaseConfigured } from "@/lib/db/client";
+import { getProfile, updateProfile } from "@/lib/db/profile";
 
 /* -------------------------------------------------------------------------- */
 /*  Constants                                                                 */
@@ -21,7 +23,7 @@ const PLATFORM_OPTIONS = [
 ] as const;
 
 /* -------------------------------------------------------------------------- */
-/*  Helpers                                                                   */
+/*  localStorage fallback helpers                                             */
 /* -------------------------------------------------------------------------- */
 
 interface UserSettings {
@@ -29,7 +31,7 @@ interface UserSettings {
   primaryPlatform: string;
 }
 
-function loadSettings(): UserSettings {
+function loadSettingsFromStorage(): UserSettings {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) return JSON.parse(raw);
@@ -39,7 +41,7 @@ function loadSettings(): UserSettings {
   return { displayName: "", primaryPlatform: "" };
 }
 
-function saveSettings(settings: UserSettings) {
+function saveSettingsToStorage(settings: UserSettings) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
   } catch {
@@ -56,20 +58,61 @@ export default function DashboardSettingsPage() {
   const [displayName, setDisplayName] = useState("");
   const [primaryPlatform, setPrimaryPlatform] = useState("");
   const [saved, setSaved] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const settings = loadSettings();
-    setDisplayName(
-      settings.displayName || user?.displayName || user?.email?.split("@")[0] || "",
-    );
-    setPrimaryPlatform(settings.primaryPlatform || "");
+    let cancelled = false;
+
+    async function load() {
+      const fallbackName = user?.displayName || user?.email?.split("@")[0] || "";
+
+      if (isSupabaseConfigured() && user?.id) {
+        const profile = await getProfile(user.id);
+        if (!cancelled) {
+          setDisplayName(profile?.display_name || fallbackName);
+          setPrimaryPlatform(profile?.primary_platform || "");
+          setLoading(false);
+        }
+      } else {
+        const settings = loadSettingsFromStorage();
+        if (!cancelled) {
+          setDisplayName(settings.displayName || fallbackName);
+          setPrimaryPlatform(settings.primaryPlatform || "");
+          setLoading(false);
+        }
+      }
+    }
+
+    load();
+    return () => {
+      cancelled = true;
+    };
   }, [user]);
 
-  function handleSave(e: React.FormEvent) {
+  async function handleSave(e: React.FormEvent) {
     e.preventDefault();
-    saveSettings({ displayName, primaryPlatform });
+
+    if (isSupabaseConfigured() && user?.id) {
+      await updateProfile(user.id, {
+        display_name: displayName,
+        primary_platform: primaryPlatform,
+      });
+    }
+
+    // Always keep localStorage in sync as a fallback
+    saveSettingsToStorage({ displayName, primaryPlatform });
+
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
+  }
+
+  if (loading) {
+    return (
+      <div>
+        <h1 className="text-2xl font-bold text-foreground">Settings</h1>
+        <p className="mt-1 text-sm text-muted">Loading...</p>
+      </div>
+    );
   }
 
   return (

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
 
 const productLinks = [
   { href: "/browse", label: "Browse" },
@@ -49,6 +50,11 @@ export default function Footer() {
               llms.txt
             </Link>
           </nav>
+
+          {/* Newsletter */}
+          <div className="col-span-2 md:col-span-1">
+            <NewsletterSignup variant="footer" />
+          </div>
         </div>
 
         {/* Bottom bar */}

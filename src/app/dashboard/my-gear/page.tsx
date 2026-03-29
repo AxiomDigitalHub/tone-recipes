@@ -1,6 +1,14 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import { useAuth } from "@/lib/auth/auth-context";
+import { isSupabaseConfigured } from "@/lib/db/client";
+import {
+  getUserGear,
+  addUserGear,
+  deleteUserGear,
+  type UserGearItem,
+} from "@/lib/db/profile";
 
 interface GearItem {
   id: string;
@@ -40,7 +48,11 @@ const TYPE_BADGE_CLASSES: Record<GearType, string> = {
 
 const STORAGE_KEY = "tone-recipes-user-gear";
 
-function loadGear(): GearItem[] {
+/* -------------------------------------------------------------------------- */
+/*  localStorage fallback helpers                                             */
+/* -------------------------------------------------------------------------- */
+
+function loadGearFromStorage(): GearItem[] {
   if (typeof window === "undefined") return [];
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -50,11 +62,29 @@ function loadGear(): GearItem[] {
   }
 }
 
-function saveGear(gear: GearItem[]) {
+function saveGearToStorage(gear: GearItem[]) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(gear));
 }
 
+/* -------------------------------------------------------------------------- */
+/*  Converters between local shape and Supabase shape                         */
+/* -------------------------------------------------------------------------- */
+
+function fromSupabase(item: UserGearItem): GearItem {
+  return {
+    id: item.id,
+    name: item.gear_name,
+    type: item.gear_type,
+    notes: item.notes,
+  };
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Page                                                                      */
+/* -------------------------------------------------------------------------- */
+
 export default function MyGearPage() {
+  const { user } = useAuth();
   const [gear, setGear] = useState<GearItem[]>([]);
   const [hydrated, setHydrated] = useState(false);
 
@@ -62,36 +92,75 @@ export default function MyGearPage() {
   const [type, setType] = useState<GearType>("guitar");
   const [notes, setNotes] = useState("");
 
-  useEffect(() => {
-    setGear(loadGear());
-    setHydrated(true);
-  }, []);
+  const useSupabase = isSupabaseConfigured() && !!user?.id;
 
-  const addGear = useCallback(() => {
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      if (useSupabase) {
+        const items = await getUserGear(user!.id);
+        if (!cancelled) {
+          setGear(items.map(fromSupabase));
+          setHydrated(true);
+        }
+      } else {
+        if (!cancelled) {
+          setGear(loadGearFromStorage());
+          setHydrated(true);
+        }
+      }
+    }
+
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, [useSupabase, user]);
+
+  const addGear = useCallback(async () => {
     const trimmed = name.trim();
     if (!trimmed) return;
 
-    const newItem: GearItem = {
-      id: crypto.randomUUID(),
-      name: trimmed,
-      type,
-      notes: notes.trim(),
-    };
+    if (useSupabase) {
+      const created = await addUserGear(user!.id, {
+        gear_name: trimmed,
+        gear_type: type,
+        notes: notes.trim(),
+      });
+      if (created) {
+        setGear((prev) => [...prev, fromSupabase(created)]);
+      }
+    } else {
+      const newItem: GearItem = {
+        id: crypto.randomUUID(),
+        name: trimmed,
+        type,
+        notes: notes.trim(),
+      };
+      const updated = [...gear, newItem];
+      setGear(updated);
+      saveGearToStorage(updated);
+    }
 
-    const updated = [...gear, newItem];
-    setGear(updated);
-    saveGear(updated);
     setName("");
     setNotes("");
-  }, [name, type, notes, gear]);
+  }, [name, type, notes, gear, useSupabase, user]);
 
   const removeGear = useCallback(
-    (id: string) => {
-      const updated = gear.filter((g) => g.id !== id);
-      setGear(updated);
-      saveGear(updated);
+    async (id: string) => {
+      if (useSupabase) {
+        const ok = await deleteUserGear(id);
+        if (ok) {
+          setGear((prev) => prev.filter((g) => g.id !== id));
+        }
+      } else {
+        const updated = gear.filter((g) => g.id !== id);
+        setGear(updated);
+        saveGearToStorage(updated);
+      }
     },
-    [gear]
+    [gear, useSupabase],
   );
 
   const grouped = GEAR_TYPES.reduce(
@@ -100,7 +169,7 @@ export default function MyGearPage() {
       if (items.length > 0) acc[t] = items;
       return acc;
     },
-    {} as Partial<Record<GearType, GearItem[]>>
+    {} as Partial<Record<GearType, GearItem[]>>,
   );
 
   const groupKeys = Object.keys(grouped) as GearType[];

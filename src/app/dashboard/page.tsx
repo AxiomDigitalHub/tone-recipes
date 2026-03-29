@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/lib/auth/auth-context";
 import { useFavoritesStore } from "@/lib/stores/favorites-store";
+import { isSupabaseConfigured } from "@/lib/db/client";
+import { getProfile, getUserGear } from "@/lib/db/profile";
 import { BookOpen, Guitar, Settings } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
@@ -25,22 +27,56 @@ export default function DashboardPage() {
   const { getFavorites, hydrate } = useFavoritesStore();
   const [hydrated, setHydrated] = useState(false);
   const [primaryPlatform, setPrimaryPlatform] = useState<string | null>(null);
+  const [gearCount, setGearCount] = useState(0);
 
   useEffect(() => {
     hydrate();
     setHydrated(true);
-    try {
-      const stored = localStorage.getItem("tone-recipes-user-settings");
-      if (stored) {
-        const settings = JSON.parse(stored);
-        if (settings.primaryPlatform) {
-          setPrimaryPlatform(settings.primaryPlatform);
+
+    let cancelled = false;
+
+    async function load() {
+      if (isSupabaseConfigured() && user?.id) {
+        const [profile, gear] = await Promise.all([
+          getProfile(user.id),
+          getUserGear(user.id),
+        ]);
+        if (!cancelled) {
+          setPrimaryPlatform(profile?.primary_platform || null);
+          setGearCount(gear.length);
+        }
+      } else {
+        // localStorage fallback
+        try {
+          const stored = localStorage.getItem("tone-recipes-user-settings");
+          if (stored) {
+            const settings = JSON.parse(stored);
+            if (settings.primaryPlatform) {
+              setPrimaryPlatform(settings.primaryPlatform);
+            }
+          }
+        } catch {
+          /* empty */
+        }
+        try {
+          const gearRaw = localStorage.getItem("tone-recipes-user-gear");
+          if (gearRaw) {
+            const gearArr = JSON.parse(gearRaw);
+            if (Array.isArray(gearArr)) {
+              setGearCount(gearArr.length);
+            }
+          }
+        } catch {
+          /* empty */
         }
       }
-    } catch {
-      /* empty */
     }
-  }, [hydrate]);
+
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, [hydrate, user]);
 
   const savedCount = hydrated ? getFavorites().length : 0;
   const displayName = user?.displayName ?? user?.email?.split("@")[0] ?? "there";
@@ -52,7 +88,7 @@ export default function DashboardPage() {
     },
     {
       label: "My Gear",
-      value: "0",
+      value: String(gearCount),
     },
     {
       label: "Platform",
