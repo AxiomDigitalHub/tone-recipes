@@ -40,7 +40,7 @@ export default function HowItWorksPage() {
 
       {/* The Problem */}
       <section className="mb-20">
-        <h2 className="mb-6 text-center text-2xl font-bold">Sound familiar?</h2>
+        <h2 className="mb-8 text-center text-2xl font-bold">Sound familiar?</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {[
             "You watched five YouTube videos and got five different signal chains",
@@ -50,9 +50,9 @@ export default function HowItWorksPage() {
           ].map((pain) => (
             <div
               key={pain}
-              className="rounded-xl border border-border bg-surface p-5"
+              className="rounded-xl border border-border bg-surface p-6"
             >
-              <p className="text-sm text-muted">{pain}</p>
+              <p className="text-base leading-relaxed text-foreground">{pain}</p>
             </div>
           ))}
         </div>
@@ -88,7 +88,7 @@ export default function HowItWorksPage() {
       {/* Benefits */}
       <section className="mb-20 rounded-2xl border border-border bg-surface p-8 md:p-12">
         <h2 className="mb-10 text-center text-2xl font-bold">
-          Built for players who want to understand, not just copy.
+          More time playing, learning, and tweaking.
         </h2>
         <div className="grid gap-8 sm:grid-cols-2">
           <Benefit
@@ -212,13 +212,13 @@ function Step({
 }) {
   return (
     <div className="flex flex-col items-center text-center">
-      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10">
+      <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10">
         <Icon className="h-7 w-7 text-accent" strokeWidth={1.5} />
+        <span className="absolute -right-1.5 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-accent text-xs font-bold text-background">
+          {number}
+        </span>
       </div>
-      <div className="mt-2 flex h-8 w-8 items-center justify-center rounded-full bg-accent text-sm font-bold text-background">
-        {number}
-      </div>
-      <h3 className="mt-4 text-lg font-semibold">{title}</h3>
+      <h3 className="mt-5 text-lg font-semibold">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-muted">{description}</p>
     </div>
   );
