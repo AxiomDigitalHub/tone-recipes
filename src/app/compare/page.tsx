@@ -55,9 +55,12 @@ function CompareContent() {
       </nav>
 
       <h1 className="mb-3 text-3xl font-bold md:text-4xl">Compare Tones</h1>
-      <p className="mb-10 text-muted">
+      <p className="mb-4 text-muted">
         Select two recipes to compare their signal chains, guitar specs, and
         tonal approach side by side.
+      </p>
+      <p className="mb-10 text-sm text-muted">
+        Comparing two recipes highlights differences in tuning, pickup configuration, effects count, and signal chain structure. This is useful when you want to understand what separates a clean Fender-style tone from a high-gain Marshall sound, or see how two artists approach similar genres with different gear choices.
       </p>
 
       {/* Selectors */}

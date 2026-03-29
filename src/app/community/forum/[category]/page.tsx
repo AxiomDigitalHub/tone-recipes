@@ -55,11 +55,18 @@ export async function generateMetadata({
     return { title: "Category Not Found" };
   }
 
+  const description =
+    category.description ??
+    `Browse threads in the ${category.name} forum category.`;
+
   return {
-    title: `${category.name} - Forum`,
-    description:
-      category.description ??
-      `Browse threads in the ${category.name} forum category.`,
+    title: `${category.name} — Forum`,
+    description,
+    openGraph: {
+      title: `${category.name} — Forum | Fader & Knob`,
+      description,
+      type: "website",
+    },
   };
 }
 

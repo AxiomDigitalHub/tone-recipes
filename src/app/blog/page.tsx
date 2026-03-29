@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     title: "Blog | Fader & Knob",
     description:
       "Tone deep dives, platform comparisons, artist tone breakdowns, and gear guides.",
+    type: "website",
   },
 };
 

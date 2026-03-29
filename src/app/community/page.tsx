@@ -2,9 +2,15 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Community - Fader & Knob",
+  title: "Community",
   description:
     "Join the Fader & Knob community — discuss gear, share tone recipes, get help dialing in your sound, and connect with other guitarists.",
+  openGraph: {
+    title: "Community | Fader & Knob",
+    description:
+      "Discuss gear, share tone recipes, get help dialing in your sound, and connect with fellow guitarists.",
+    type: "website",
+  },
 };
 
 const sections = [

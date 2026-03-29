@@ -122,7 +122,7 @@ export default function DashboardPage() {
         Welcome back, {displayName}
       </h1>
       <p className="mt-1 text-sm text-muted">
-        Here is an overview of your account.
+        Here is an overview of your account. Track your saved recipes, manage your gear collection, and keep your platform preferences up to date so every recipe shows the right settings for your rig.
       </p>
 
       {/* Stats grid */}

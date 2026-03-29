@@ -5,7 +5,13 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "How It Works",
   description:
-    "Stop guessing at settings. Fader & Knob shows you exactly how to recreate iconic guitar tones on your gear.",
+    "Stop guessing at settings. Fader & Knob shows you exactly how to recreate iconic guitar tones on your gear in three simple steps.",
+  openGraph: {
+    title: "How It Works | Fader & Knob",
+    description:
+      "From the song to your rig in three steps. Find a song, read the signal chain, switch to your platform and play.",
+    type: "website",
+  },
 };
 
 export default function HowItWorksPage() {

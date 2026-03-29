@@ -52,9 +52,16 @@ export async function generateMetadata({
     return { title: "Thread Not Found" };
   }
 
+  const description = thread.body.slice(0, 160);
+
   return {
-    title: thread.title,
-    description: thread.body.slice(0, 160),
+    title: `${thread.title} — Forum`,
+    description,
+    openGraph: {
+      title: `${thread.title} — Forum | Fader & Knob`,
+      description,
+      type: "article",
+    },
   };
 }
 

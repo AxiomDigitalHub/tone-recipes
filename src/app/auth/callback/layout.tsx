@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
-import DashboardShell from "./DashboardShell";
 
 export const metadata: Metadata = {
-  title: "Dashboard",
   robots: { index: false, follow: false },
 };
 
-export default function DashboardLayout({
+export default function AuthCallbackLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <DashboardShell>{children}</DashboardShell>;
+  return <>{children}</>;
 }

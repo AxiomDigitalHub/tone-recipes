@@ -5,6 +5,21 @@ import { PLATFORMS } from "@/lib/constants";
 import { toneRecipes, songs, artists, getSongBySlug, getArtistBySlug } from "@/lib/data";
 import RecipeCard from "@/components/recipe/RecipeCard";
 import Badge from "@/components/ui/Badge";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Fader & Knob — Guitar Tone Recipes for Every Platform",
+  },
+  description:
+    "Get exact guitar tone settings for any song. Signal chains for Helix, Quad Cortex, TONEX, and physical rigs — stop tweaking, start playing.",
+  openGraph: {
+    title: "Fader & Knob — Guitar Tone Recipes for Every Platform",
+    description:
+      "Get exact guitar tone settings for any song. Signal chains for Helix, Quad Cortex, TONEX, and physical rigs.",
+    type: "website",
+  },
+};
 
 export default function Home() {
   const featuredRecipes = toneRecipes.slice(0, 6);

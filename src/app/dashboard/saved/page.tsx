@@ -60,8 +60,8 @@ export default function DashboardSavedPage() {
       <h1 className="text-2xl font-bold text-foreground">Saved Recipes</h1>
       <p className="mt-1 text-sm text-muted">
         {resolved.length > 0
-          ? `${resolved.length} recipe${resolved.length !== 1 ? "s" : ""} saved`
-          : "Recipes you save will appear here."}
+          ? `${resolved.length} recipe${resolved.length !== 1 ? "s" : ""} saved. Tap any recipe to see its full signal chain and platform-specific settings.`
+          : "Recipes you save will appear here. Browse the catalog and tap the heart icon on any recipe to build your personal collection of go-to tones."}
       </p>
 
       {resolved.length === 0 ? (

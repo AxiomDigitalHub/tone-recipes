@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     title: "Community Forum | Fader & Knob",
     description:
       "Discuss tone recipes, share gear setups, get help dialing in sounds, and connect with fellow guitar players.",
+    type: "website",
   },
 };
 
@@ -117,6 +118,9 @@ export default async function ForumPage() {
           <p className="mt-3 max-w-2xl text-lg text-muted">
             Discuss tone recipes, share your rig, get help dialing in sounds,
             and connect with fellow guitar players.
+          </p>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+            Browse categories below to find conversations about your platform, ask for help matching a specific tone, or share tips you have picked up along the way. Every thread is searchable, so the advice here builds into a lasting resource for the community.
           </p>
         </div>
         <Link
