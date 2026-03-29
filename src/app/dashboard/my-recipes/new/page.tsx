@@ -3,6 +3,8 @@
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth/auth-context";
+import { canSubmitRecipes } from "@/lib/permissions";
+import UpgradePrompt from "@/components/ui/UpgradePrompt";
 import { isSupabaseConfigured } from "@/lib/db/client";
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { Plus, Trash2, GripVertical, ChevronDown } from "lucide-react";
@@ -264,6 +266,18 @@ export default function NewRecipePage() {
     return (
       <div className="flex min-h-[40vh] items-center justify-center">
         <p className="text-muted">Loading...</p>
+      </div>
+    );
+  }
+
+  if (!canSubmitRecipes(user.role)) {
+    return (
+      <div className="mx-auto max-w-lg py-16">
+        <UpgradePrompt
+          feature="Submit your own tone recipes"
+          tier="creator"
+          variant="inline"
+        />
       </div>
     );
   }

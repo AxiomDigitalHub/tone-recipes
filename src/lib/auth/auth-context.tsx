@@ -14,11 +14,14 @@ import { isSupabaseConfigured, createBrowserClient } from "@/lib/db/client";
 /*  Types                                                                     */
 /* -------------------------------------------------------------------------- */
 
+export type UserRole = "free" | "premium" | "creator" | "admin";
+
 export interface AuthUser {
   id: string;
   email: string;
   displayName?: string;
   avatarUrl?: string;
+  role: UserRole;
 }
 
 interface AuthContextValue {
@@ -70,28 +73,41 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // Real Supabase session
     const supabase = createBrowserClient();
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    async function buildUser(supabaseUser: { id: string; email?: string | null; user_metadata?: Record<string, unknown> }): Promise<AuthUser> {
+      const base: AuthUser = {
+        id: supabaseUser.id,
+        email: supabaseUser.email ?? "",
+        displayName: supabaseUser.user_metadata?.display_name as string | undefined,
+        avatarUrl: supabaseUser.user_metadata?.avatar_url as string | undefined,
+        role: "free",
+      };
+      // Fetch role + display_name from profile
+      try {
+        const { data } = await supabase.from("profiles").select("role, display_name, avatar_url").eq("id", supabaseUser.id).single();
+        if (data) {
+          const row = data as Record<string, unknown>;
+          base.role = (row.role as UserRole) || "free";
+          if (row.display_name) base.displayName = row.display_name as string;
+          if (row.avatar_url) base.avatarUrl = row.avatar_url as string;
+        }
+      } catch {
+        // Profile fetch failed — default to free
+      }
+      return base;
+    }
+
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (session?.user) {
-        setUser({
-          id: session.user.id,
-          email: session.user.email ?? "",
-          displayName: session.user.user_metadata?.display_name,
-          avatarUrl: session.user.user_metadata?.avatar_url,
-        });
+        setUser(await buildUser(session.user));
       }
       setLoading(false);
     });
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = supabase.auth.onAuthStateChange(async (_event, session) => {
       if (session?.user) {
-        setUser({
-          id: session.user.id,
-          email: session.user.email ?? "",
-          displayName: session.user.user_metadata?.display_name,
-          avatarUrl: session.user.user_metadata?.avatar_url,
-        });
+        setUser(await buildUser(session.user));
       } else {
         setUser(null);
       }
@@ -109,6 +125,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           id: "demo-" + email,
           email,
           displayName: email.split("@")[0],
+          role: "free",
         };
         setUser(demoUser);
         localStorage.setItem(DEMO_USER_KEY, JSON.stringify(demoUser));
@@ -133,6 +150,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           id: "demo-" + email,
           email,
           displayName: email.split("@")[0],
+          role: "free",
         };
         setUser(demoUser);
         localStorage.setItem(DEMO_USER_KEY, JSON.stringify(demoUser));
@@ -180,6 +198,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       id: "demo-" + email,
       email,
       displayName: email.split("@")[0],
+      role: "free",
     };
     setUser(demoUser);
     localStorage.setItem(DEMO_USER_KEY, JSON.stringify(demoUser));

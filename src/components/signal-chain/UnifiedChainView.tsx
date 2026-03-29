@@ -11,13 +11,15 @@ import type {
 } from "@/types/recipe";
 import { PLATFORMS } from "@/lib/constants";
 import { getChainIcon, getChainIconLabel } from "@/lib/chain-icons";
-import { Guitar, Maximize2, Minimize2 } from "lucide-react";
+import { Guitar, Maximize2, Minimize2, Lock } from "lucide-react";
 import SignalChainNode from "./SignalChainNode";
 import ChainTooltip from "./ChainTooltip";
 import DownloadPatchButton from "./DownloadPatchButton";
 import CommunitySubmissions from "./CommunitySubmissions";
 import { getChainTip } from "@/lib/chain-tips";
 import { usePlatformStore } from "@/lib/stores/platform-store";
+import { useAuth } from "@/lib/auth/auth-context";
+import { canViewAllPlatforms, canDownloadPresets, FREE_PLATFORM_LIMIT } from "@/lib/permissions";
 
 interface UnifiedChainViewProps {
   guitarSpecs: GuitarSpecs;
@@ -314,6 +316,21 @@ export default function UnifiedChainView({
   const [isFullscreen, setIsFullscreen] = useState(false);
   const { preferredPlatform } = usePlatformStore();
   const hasAppliedPreference = useRef(false);
+  const { user } = useAuth();
+  const userRole = user?.role ?? "free";
+  const hasAllPlatforms = canViewAllPlatforms(userRole);
+  const hasPresetDownload = canDownloadPresets(userRole);
+
+  // Determine which platform tabs are unlocked for free users
+  // Free users get: physical + their preferred platform (or first available)
+  const unlockedPlatform = preferredPlatform && availablePlatforms.includes(preferredPlatform as Platform)
+    ? preferredPlatform as Platform
+    : availablePlatforms[0] ?? null;
+
+  function isPlatformLocked(pid: Platform): boolean {
+    if (hasAllPlatforms) return false;
+    return pid !== unlockedPlatform;
+  }
 
   // Apply preferred platform on mount
   useEffect(() => {
@@ -378,7 +395,7 @@ export default function UnifiedChainView({
         specs={guitarSpecs}
         actions={
           <div className="flex items-center gap-2">
-            {(activeTab === "helix" || activeTab === "quad_cortex" || activeTab === "katana") && activeTranslation && (
+            {hasPresetDownload && (activeTab === "helix" || activeTab === "quad_cortex" || activeTab === "katana") && activeTranslation && (
               <DownloadPatchButton
                 translation={activeTranslation}
                 presetName={presetName}
@@ -417,23 +434,30 @@ export default function UnifiedChainView({
         {availablePlatforms.map((pid) => {
           const meta = PLATFORMS.find((p) => p.id === pid);
           const isActive = activeTab === pid;
+          const locked = isPlatformLocked(pid);
           return (
             <button
               key={pid}
               role="tab"
               aria-selected={isActive}
-              onClick={() => handleTabSwitch(pid)}
+              onClick={() => locked ? window.open("/pricing", "_self") : handleTabSwitch(pid)}
               className={`shrink-0 flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-all ${
-                isActive
-                  ? "text-foreground"
-                  : "border-border text-muted hover:text-foreground hover:bg-surface-hover"
+                locked
+                  ? "border-border text-muted/50 cursor-not-allowed"
+                  : isActive
+                    ? "text-foreground"
+                    : "border-border text-muted hover:text-foreground hover:bg-surface-hover"
               }`}
-              style={isActive ? { backgroundColor: meta?.color + "18", borderColor: meta?.color + "50" } : {}}
+              style={isActive && !locked ? { backgroundColor: meta?.color + "18", borderColor: meta?.color + "50" } : {}}
             >
-              <span
-                className="h-2 w-2 rounded-full"
-                style={{ backgroundColor: meta?.color }}
-              />
+              {locked ? (
+                <Lock className="h-3 w-3 text-muted/50" />
+              ) : (
+                <span
+                  className="h-2 w-2 rounded-full"
+                  style={{ backgroundColor: meta?.color }}
+                />
+              )}
               {meta?.label || pid}
             </button>
           );
