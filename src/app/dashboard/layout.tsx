@@ -10,6 +10,8 @@ import {
   Guitar,
   Settings,
   LogOut,
+  ChefHat,
+  Bell,
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
@@ -20,6 +22,8 @@ const NAV_ITEMS = [
   { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
   { href: "/dashboard/saved", label: "Saved Recipes", icon: Heart },
   { href: "/dashboard/my-gear", label: "My Gear", icon: Guitar },
+  { href: "/dashboard/my-recipes", label: "My Recipes", icon: ChefHat },
+  { href: "/dashboard/notifications", label: "Notifications", icon: Bell },
   { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ] as const;
 

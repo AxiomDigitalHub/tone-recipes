@@ -19,6 +19,7 @@ import type { Platform } from "@/types/recipe";
 import AffiliateGearLink from "@/components/ui/AffiliateGearLink";
 import AffiliateDisclosure from "@/components/ui/AffiliateDisclosure";
 import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
+import RecipeInteractions from "./RecipeInteractions";
 
 interface RecipePageProps {
   params: Promise<{ slug: string }>;
@@ -363,6 +364,11 @@ export default async function RecipePage({ params }: RecipePageProps) {
 
       {/* Affiliate Disclosure */}
       <AffiliateDisclosure />
+
+      {/* ----------------------------------------------------------------- */}
+      {/* Ratings & Comments */}
+      {/* ----------------------------------------------------------------- */}
+      <RecipeInteractions recipeSlug={recipe.slug} />
 
       {/* ----------------------------------------------------------------- */}
       {/* Related Recipes */}

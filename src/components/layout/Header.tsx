@@ -3,13 +3,15 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/lib/auth/auth-context";
-import { Search } from "lucide-react";
+import { Search, Bell } from "lucide-react";
 import PlatformPicker from "./PlatformPicker";
+import NotificationBell from "@/components/community/NotificationBell";
 
 const navLinks = [
   { href: "/browse", label: "Browse" },
   { href: "/gear", label: "Gear" },
   { href: "/compare", label: "Compare" },
+  { href: "/community/forum", label: "Community" },
   { href: "/blog", label: "Blog" },
   { href: "/how-it-works", label: "How It Works" },
 ];
@@ -97,7 +99,8 @@ export default function Header() {
             </kbd>
           </button>
 
-          {/* Auth: avatar dropdown or sign-in links */}
+          {/* Auth: notification bell + avatar dropdown or sign-in links */}
+          {!loading && user && <NotificationBell />}
           {!loading && user ? (
             <div className="relative" ref={dropdownRef}>
               <button
@@ -135,6 +138,21 @@ export default function Header() {
                   >
                     My Gear
                   </Link>
+                  <Link
+                    href="/dashboard/my-recipes"
+                    onClick={() => setDropdownOpen(false)}
+                    className="block px-4 py-2 text-sm text-foreground transition-colors hover:bg-surface-hover"
+                  >
+                    My Recipes
+                  </Link>
+                  <Link
+                    href="/dashboard/notifications"
+                    onClick={() => setDropdownOpen(false)}
+                    className="block px-4 py-2 text-sm text-foreground transition-colors hover:bg-surface-hover"
+                  >
+                    Notifications
+                  </Link>
+                  <hr className="border-border" />
                   <button
                     onClick={handleSignOut}
                     className="w-full px-4 py-2 text-left text-sm text-muted transition-colors hover:bg-surface-hover hover:text-foreground"
