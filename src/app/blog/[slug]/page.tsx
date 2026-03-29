@@ -11,7 +11,27 @@ import {
   getAllPosts,
   BLOG_CATEGORIES,
 } from "@/lib/blog";
+import { getDefinitionsForPost } from "@/lib/definitions";
 import BlogCard from "@/components/blog/BlogCard";
+import TableOfContents, { type TocItem } from "@/components/blog/TableOfContents";
+
+/* ---------- Heading extractor ---------- */
+
+function extractHeadings(markdown: string): TocItem[] {
+  const headingRegex = /^(#{2,3})\s+(.+)$/gm;
+  const items: TocItem[] = [];
+  let match;
+  while ((match = headingRegex.exec(markdown)) !== null) {
+    const level = match[1].length;
+    const text = match[2].replace(/\*\*/g, "").replace(/`/g, "").trim();
+    const id = text
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-");
+    items.push({ id, text, level });
+  }
+  return items;
+}
 
 /* ---------- Static generation ---------- */
 
@@ -84,6 +104,9 @@ export default async function BlogPostPage({
   const catLabel = BLOG_CATEGORIES[post.category] ?? post.category;
   const catColor =
     categoryColors[post.category] ?? "bg-accent/15 text-accent";
+
+  const headings = extractHeadings(post.content);
+  const definitions = getDefinitionsForPost(post.tags, post.category);
 
   // Related posts: same category, excluding this post, limit 3
   const related = getAllPosts()
@@ -163,6 +186,13 @@ export default async function BlogPostPage({
         <hr className="mt-8 border-border" />
       </header>
 
+      {/* Table of Contents */}
+      {headings.length >= 3 && (
+        <div className="mx-auto mt-8 max-w-3xl">
+          <TableOfContents items={headings} />
+        </div>
+      )}
+
       {/* MDX prose content */}
       <div className="prose-dark mx-auto mt-10 max-w-3xl">
         <MDXRemote
@@ -175,6 +205,27 @@ export default async function BlogPostPage({
           }}
         />
       </div>
+
+      {/* Definitions / Glossary */}
+      {definitions.length > 0 && (
+        <section className="mx-auto mt-16 max-w-3xl">
+          <div className="rounded-xl border border-border bg-surface p-6 md:p-8">
+            <h2 className="mb-4 text-lg font-bold">Key Terms</h2>
+            <dl className="space-y-4">
+              {definitions.map((def) => (
+                <div key={def.term}>
+                  <dt className="text-sm font-semibold text-accent">
+                    {def.term}
+                  </dt>
+                  <dd className="mt-1 text-sm leading-relaxed text-muted">
+                    {def.definition}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      )}
 
       {/* Back link */}
       <div className="mx-auto mt-16 max-w-3xl">

@@ -347,7 +347,7 @@ export default function UnifiedChainView({
   const chainContent = (
     <div className={
       isFullscreen
-        ? "fixed inset-0 z-40 flex flex-col bg-background overflow-y-auto"
+        ? "fixed inset-0 z-[60] flex flex-col bg-background overflow-y-auto"
         : "rounded-xl border border-border bg-surface overflow-hidden"
     }>
       {/* Guitar header bar */}
@@ -522,11 +522,6 @@ export default function UnifiedChainView({
         </div>
       )}
 
-      {/* Community submissions (non-physical platforms only) */}
-      {activeTab !== "physical" && recipeSlug && (
-        <CommunitySubmissions recipeSlug={recipeSlug} platform={activeTab} />
-      )}
-
       {/* Shared detail drawer */}
       <NodeDetailDrawer
         node={selectedPhysicalNode}
@@ -534,6 +529,11 @@ export default function UnifiedChainView({
         platformColor={activePlatformMeta?.color}
         onClose={() => setSelectedNodeIndex(null)}
       />
+
+      {/* Community submissions (non-physical platforms only) */}
+      {activeTab !== "physical" && recipeSlug && (
+        <CommunitySubmissions recipeSlug={recipeSlug} platform={activeTab} />
+      )}
     </div>
   );
 

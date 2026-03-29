@@ -9,8 +9,21 @@ export const metadata: Metadata = {
 };
 
 export default function HowItWorksPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Use Fader & Knob",
+    "description": "From the song to your rig in three steps.",
+    "step": [
+      { "@type": "HowToStep", "name": "Find the song", "text": "Search by artist, song title, or genre." },
+      { "@type": "HowToStep", "name": "Read the signal chain", "text": "A visual breakdown of every pedal, amp block, cab, and mic." },
+      { "@type": "HowToStep", "name": "Switch to your platform and play", "text": "Get settings for your specific modeler or physical rig." },
+    ],
+  };
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 md:py-20">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero */}
       <div className="mb-20 text-center">
         <p className="text-sm font-medium uppercase tracking-widest text-accent">

@@ -19,8 +19,18 @@ export default function BlogPage() {
   const featured = posts.filter((p) => p.featured);
   const rest = posts.filter((p) => !p.featured);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Fader & Knob Blog",
+    "description": "Guitar tone guides, signal chain theory, and gear comparisons.",
+    "url": "https://faderandknob.com/blog",
+    "publisher": { "@type": "Organization", "name": "Fader & Knob" },
+  };
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero */}
       <section className="text-center">
         <h1 className="text-4xl font-bold tracking-tight md:text-5xl">Blog</h1>

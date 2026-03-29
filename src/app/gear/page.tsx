@@ -109,8 +109,18 @@ function GearCard({ gear }: { gear: (typeof gearItems)[number] }) {
 }
 
 export default function GearBrowsePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Gear Database",
+    "description": "Browse guitars, effects pedals, amps, cabinets, and microphones used in our tone recipes.",
+    "url": "https://faderandknob.com/gear",
+    "isPartOf": { "@type": "WebSite", "name": "Fader & Knob", "url": "https://faderandknob.com" },
+  };
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Header */}
       <div className="mb-12">
         <h1 className="text-3xl font-bold md:text-4xl">Gear Database</h1>
