@@ -347,7 +347,7 @@ export default function UnifiedChainView({
   const chainContent = (
     <div className={
       isFullscreen
-        ? "fixed inset-0 z-[60] flex flex-col bg-background overflow-y-auto"
+        ? "fixed inset-x-0 top-16 bottom-0 z-[60] flex flex-col bg-background overflow-y-auto"
         : "rounded-xl border border-border bg-surface overflow-hidden"
     }>
       {/* Guitar header bar */}
