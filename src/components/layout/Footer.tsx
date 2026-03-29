@@ -4,6 +4,7 @@ import AffiliateDisclosure from "@/components/ui/AffiliateDisclosure";
 
 const productLinks = [
   { href: "/browse", label: "Browse" },
+  { href: "/platforms", label: "Platforms" },
   { href: "/gear", label: "Gear" },
   { href: "/compare", label: "Compare" },
   { href: "/blog", label: "Blog" },

@@ -223,15 +223,6 @@ export default function BrowseContent() {
       <div className="mb-6 flex items-end justify-between">
         <div>
           <h1 className="text-2xl font-bold md:text-3xl">Find your tone.</h1>
-          <p className="mt-1 text-sm text-muted">
-            50 iconic sounds, broken down by signal chain and translated for your platform. Filter by genre, artist, or gear.
-          </p>
-          <p className="mt-2 max-w-xl text-sm text-muted">
-            Every recipe includes the full signal chain from guitar to speaker, with exact settings for each pedal and amp block. Select your platform to see the right model names and parameter values for your specific rig.
-          </p>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-            Every recipe includes the complete signal chain, individual pedal and amp settings, and platform-specific translations for Helix, Quad Cortex, TONEX, Fractal, Kemper, and physical rigs. Use the filters to narrow results by genre or the platform you own, or browse by artist to explore a specific player&apos;s catalog.
-          </p>
           <p className="mt-1 text-xs text-muted">
             {filteredRecipes.length} of {toneRecipes.length} recipes
             {hasActiveFilters && (

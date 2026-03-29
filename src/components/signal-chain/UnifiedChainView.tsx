@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import type {
   SignalChainNode as NodeType,
@@ -311,11 +311,14 @@ export default function UnifiedChainView({
   recipeSlug,
 }: UnifiedChainViewProps) {
   const availablePlatforms = Object.keys(platformTranslations) as Platform[];
-  const [activeTab, setActiveTab] = useState<"physical" | Platform>("physical");
+  const { preferredPlatform } = usePlatformStore();
+  const initialTab: "physical" | Platform =
+    preferredPlatform && availablePlatforms.includes(preferredPlatform as Platform)
+      ? (preferredPlatform as Platform)
+      : "physical";
+  const [activeTab, setActiveTab] = useState<"physical" | Platform>(initialTab);
   const [selectedNodeIndex, setSelectedNodeIndex] = useState<number | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const { preferredPlatform } = usePlatformStore();
-  const hasAppliedPreference = useRef(false);
   const { user } = useAuth();
   const userRole = user?.role ?? "free";
   const hasAllPlatforms = canViewAllPlatforms(userRole);
@@ -332,18 +335,6 @@ export default function UnifiedChainView({
     return pid !== unlockedPlatform;
   }
 
-  // Apply preferred platform on mount
-  useEffect(() => {
-    if (hasAppliedPreference.current) return;
-    hasAppliedPreference.current = true;
-    if (
-      preferredPlatform &&
-      availablePlatforms.includes(preferredPlatform as Platform)
-    ) {
-      setActiveTab(preferredPlatform as Platform);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   // Physical chain: tip between guitar and first node
   const firstNode = signalChain[0];

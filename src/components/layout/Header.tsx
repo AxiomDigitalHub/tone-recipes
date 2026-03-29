@@ -9,6 +9,7 @@ import NotificationBell from "@/components/community/NotificationBell";
 
 const navLinks = [
   { href: "/browse", label: "Browse" },
+  { href: "/platforms", label: "Platforms" },
   { href: "/gear", label: "Gear" },
   { href: "/compare", label: "Compare" },
   { href: "/blog", label: "Blog" },
@@ -185,7 +186,7 @@ export default function Header() {
           <button
             onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
             aria-label="Search"
-            className="flex h-11 w-11 items-center justify-center rounded-lg text-muted transition-colors hover:text-foreground"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-muted transition-colors hover:text-foreground active:bg-surface-hover"
           >
             <Search className="h-5 w-5" />
           </button>

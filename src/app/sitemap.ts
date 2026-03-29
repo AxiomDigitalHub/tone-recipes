@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { toneRecipes, artists, gearItems } from "@/lib/data";
 import { getAllPosts } from "@/lib/blog";
+import { getAllPlatforms } from "@/lib/data/platforms";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://faderandknob.com";
@@ -15,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/request`, lastModified: new Date(), changeFrequency: "daily", priority: 0.7 },
     { url: `${baseUrl}/community`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     { url: `${baseUrl}/community/forum`, lastModified: new Date(), changeFrequency: "daily", priority: 0.7 },
+    { url: `${baseUrl}/platforms`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
   ];
 
   const recipePages: MetadataRoute.Sitemap = toneRecipes.map((recipe) => ({
@@ -45,5 +47,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...recipePages, ...artistPages, ...gearPages, ...blogPages];
+  const platformPages: MetadataRoute.Sitemap = getAllPlatforms().map((p) => ({
+    url: `${baseUrl}/platforms/${p.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...recipePages, ...artistPages, ...gearPages, ...blogPages, ...platformPages];
 }

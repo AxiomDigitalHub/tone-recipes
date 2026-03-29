@@ -1259,6 +1259,102 @@ export const gearItems: GearItem[] = [
     default_settings: {
       knobs: [{ name: "Position", options: ["on-axis", "off-axis", "edge of cone"] }],
     },
+    modeler_equivalents: {
+      helix: "57 Dynamic",
+      quad_cortex: "SM57",
+      fractal: "Shure 57",
+      kemper: "SM57",
+    },
+  },
+  {
+    name: "Sennheiser MD421",
+    slug: "sennheiser-md421",
+    type: "microphone",
+    manufacturer: "Sennheiser",
+    icon_type: "sm57",
+    icon_color: "#374151",
+    description:
+      "Versatile dynamic microphone with a warm, slightly scooped character. Popular for heavy and rock tones where a fuller low-mid response is desired. Great paired with an SM57 for blended cab tones.",
+    default_settings: {
+      knobs: [
+        { name: "Position", options: ["on-axis", "off-axis", "edge of cone"] },
+        { name: "Bass Roll-off", options: ["flat", "M", "S"] },
+      ],
+    },
+    modeler_equivalents: {
+      helix: "421 Dynamic",
+      quad_cortex: "MD421",
+      fractal: "Sennheiser 421",
+      kemper: "MD421",
+    },
+  },
+  {
+    name: "Royer R-121",
+    slug: "royer-r121",
+    type: "microphone",
+    manufacturer: "Royer",
+    icon_type: "sm57",
+    icon_color: "#9ca3af",
+    description:
+      "Ribbon microphone prized for its smooth, warm top end that tames harsh amp fizz. The figure-8 polar pattern captures room ambience on the rear side. A studio secret weapon for getting amps to sound like records.",
+    default_settings: {
+      knobs: [
+        { name: "Position", options: ["on-axis", "off-axis"] },
+        { name: "Distance", options: ["close (1-2 in)", "near (3-6 in)", "far (12+ in)"] },
+      ],
+    },
+    modeler_equivalents: {
+      helix: "Ribbon 121",
+      quad_cortex: "R121",
+      fractal: "Royer 121",
+      kemper: "Ribbon 121",
+    },
+  },
+  {
+    name: "Neumann U87",
+    slug: "neumann-u87",
+    type: "microphone",
+    manufacturer: "Neumann",
+    icon_type: "sm57",
+    icon_color: "#d4a574",
+    description:
+      "Large-diaphragm condenser microphone that captures detailed high-frequency content and room character. Used as a room mic or blended with a dynamic mic for a more open, three-dimensional guitar tone on recordings.",
+    default_settings: {
+      knobs: [
+        { name: "Pattern", options: ["cardioid", "omni", "figure-8"] },
+        { name: "Distance", options: ["near (6 in)", "mid (1-3 ft)", "room (6+ ft)"] },
+        { name: "Pad", options: ["0 dB", "-10 dB"] },
+      ],
+    },
+    modeler_equivalents: {
+      helix: "87 Condenser",
+      quad_cortex: "U87",
+      fractal: "Neumann 87",
+      kemper: "Large Condenser",
+    },
+  },
+  {
+    name: "AKG C414",
+    slug: "akg-c414",
+    type: "microphone",
+    manufacturer: "AKG",
+    icon_type: "sm57",
+    icon_color: "#1e40af",
+    description:
+      "Versatile large-diaphragm condenser with multiple polar patterns. Bright and detailed with a slight presence peak. Excellent as an overhead or room mic for guitar cabs, or close-miked for a crisp, articulate tone.",
+    default_settings: {
+      knobs: [
+        { name: "Pattern", options: ["cardioid", "omni", "figure-8", "hypercardioid"] },
+        { name: "Distance", options: ["close (2-4 in)", "mid (1-3 ft)", "room (6+ ft)"] },
+        { name: "Pad", options: ["0 dB", "-10 dB", "-20 dB"] },
+      ],
+    },
+    modeler_equivalents: {
+      helix: "414 Condenser",
+      quad_cortex: "C414",
+      fractal: "AKG 414",
+      kemper: "Large Condenser",
+    },
   },
   {
     name: "Marshall 4x12 Cabinet (Greenback)",
@@ -1273,7 +1369,110 @@ export const gearItems: GearItem[] = [
       helix: "4x12 Greenback25",
       quad_cortex: "4x12 Green 25",
       fractal: "4x12 Green 25W",
+      kemper: "4x12 Greenback",
       katana: "4x12 (internal speaker sim)",
+    },
+  },
+  {
+    name: "Marshall 1960A 4x12 (G12T-75)",
+    slug: "marshall-1960a",
+    type: "cabinet",
+    manufacturer: "Marshall",
+    icon_type: "cab_4x12",
+    icon_color: "#a1a1aa",
+    description:
+      "The standard-issue Marshall 4x12 loaded with Celestion G12T-75 speakers. Tighter and brighter than the Greenback version with more high-end bite. The go-to rock and metal cab from the 1980s onward.",
+    modeler_equivalents: {
+      helix: "4x12 XXL V30",
+      quad_cortex: "4x12 T75",
+      fractal: "4x12 G12T75",
+      kemper: "4x12 G12T-75",
+      katana: "4x12 (internal speaker sim)",
+    },
+  },
+  {
+    name: "Fender 1x12 Open-Back",
+    slug: "fender-1x12-open-back",
+    type: "cabinet",
+    manufacturer: "Fender",
+    icon_type: "cab_4x12",
+    icon_color: "#d4a574",
+    description:
+      "Classic open-back Fender combo cabinet with a single 12-inch Jensen or Celestion speaker. The open-back design creates a wide, airy sound with natural room interaction. Defines the Fender clean tone.",
+    modeler_equivalents: {
+      helix: "1x12 US Deluxe",
+      quad_cortex: "1x12 Deluxe",
+      fractal: "1x12 Deluxe",
+      kemper: "1x12 Fender",
+      katana: "1x12 (internal speaker sim)",
+    },
+  },
+  {
+    name: "Vox 2x12 (Celestion Blue Alnico)",
+    slug: "vox-2x12-blue",
+    type: "cabinet",
+    manufacturer: "Vox",
+    icon_type: "cab_4x12",
+    icon_color: "#7c3aed",
+    description:
+      "The AC30's signature cabinet loaded with Celestion Blue Alnico speakers. Chimey, jangly, and harmonically rich with a sweet top end that breaks up beautifully. The sound of British Invasion and jangle pop.",
+    modeler_equivalents: {
+      helix: "2x12 Blue Bell",
+      quad_cortex: "2x12 AC30 Blue",
+      fractal: "2x12 AC30 Blue",
+      kemper: "2x12 Blue Alnico",
+      katana: "2x12 (internal speaker sim)",
+    },
+  },
+  {
+    name: "Mesa Rectifier 4x12 (Vintage 30)",
+    slug: "mesa-recto-4x12",
+    type: "cabinet",
+    manufacturer: "Mesa/Boogie",
+    icon_type: "cab_4x12",
+    icon_color: "#52525b",
+    description:
+      "Oversized 4x12 loaded with Celestion Vintage 30 speakers. Tight, aggressive low end with a forward midrange presence peak. The modern high-gain standard used in metal, nu-metal, and progressive rock.",
+    modeler_equivalents: {
+      helix: "4x12 Cali V30",
+      quad_cortex: "4x12 Recto V30",
+      fractal: "4x12 Recto V30",
+      kemper: "4x12 Vintage 30",
+      katana: "4x12 (internal speaker sim)",
+    },
+  },
+  {
+    name: "Orange PPC212 (Vintage 30)",
+    slug: "orange-ppc212",
+    type: "cabinet",
+    manufacturer: "Orange",
+    icon_type: "cab_4x12",
+    icon_color: "#ea580c",
+    description:
+      "Closed-back 2x12 with Celestion Vintage 30 speakers. Known for chunky, mid-forward character with a thick low end. The closed-back design focuses the sound for a punchier, more directional response than open-back cabs.",
+    modeler_equivalents: {
+      helix: "2x12 Cali V30",
+      quad_cortex: "2x12 Orange V30",
+      fractal: "2x12 Orange V30",
+      kemper: "2x12 Orange",
+      katana: "2x12 (internal speaker sim)",
+    },
+  },
+  {
+    name: "1x10 Combo Cabinet",
+    slug: "1x10-combo-cab",
+    type: "cabinet",
+    manufacturer: "Generic",
+    icon_type: "cab_4x12",
+    icon_color: "#78716c",
+    description:
+      "Small combo-style cabinet with a single 10-inch speaker. Limited low end but punchy and focused midrange. Common in practice amps, small recording setups, and vintage tweed-era Fenders like the Princeton.",
+    modeler_equivalents: {
+      helix: "1x10 US Princess",
+      quad_cortex: "1x10 Princeton",
+      fractal: "1x10 Tweed",
+      kemper: "1x10 Small Combo",
+      katana: "1x10 (internal speaker sim)",
     },
   },
   {
