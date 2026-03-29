@@ -8,7 +8,8 @@ export interface TocItem {
   level: number;
 }
 
-export default function TableOfContents({ items }: { items: TocItem[] }) {
+/** Mobile inline TOC — collapsible, shown above the content */
+export function MobileTableOfContents({ items }: { items: TocItem[] }) {
   const [open, setOpen] = useState(false);
 
   if (items.length === 0) return null;
@@ -16,13 +17,13 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
   return (
     <nav
       aria-label="Table of contents"
-      className="mb-10 rounded-xl border border-border bg-surface"
+      className="mb-10 rounded-xl border border-border bg-surface lg:hidden"
     >
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-semibold text-foreground md:hidden"
+        className="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-semibold text-foreground"
       >
-        <span>Table of Contents</span>
+        <span>In this article</span>
         <svg
           className={`h-4 w-4 text-muted transition-transform ${open ? "rotate-180" : ""}`}
           fill="none"
@@ -34,11 +35,8 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
         </svg>
       </button>
 
-      <div className={`${open ? "block" : "hidden"} md:block`}>
-        <div className="px-5 pb-4 pt-0 md:py-4">
-          <p className="mb-3 hidden text-xs font-semibold uppercase tracking-wider text-muted md:block">
-            In this article
-          </p>
+      {open && (
+        <div className="px-5 pb-4">
           <ol className="space-y-1.5">
             {items.map((item) => (
               <li key={item.id}>
@@ -56,7 +54,39 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
             ))}
           </ol>
         </div>
-      </div>
+      )}
+    </nav>
+  );
+}
+
+/** Desktop sticky sidebar TOC */
+export default function TableOfContents({ items }: { items: TocItem[] }) {
+  if (items.length === 0) return null;
+
+  return (
+    <nav
+      aria-label="Table of contents"
+      className="sticky top-24 hidden lg:block"
+    >
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted">
+        In this article
+      </p>
+      <ol className="space-y-1.5 border-l border-border pl-4">
+        {items.map((item) => (
+          <li key={item.id}>
+            <a
+              href={`#${item.id}`}
+              className={`block text-sm transition-colors hover:text-accent ${
+                item.level === 2
+                  ? "font-medium text-foreground/80"
+                  : "pl-3 text-muted"
+              }`}
+            >
+              {item.text}
+            </a>
+          </li>
+        ))}
+      </ol>
     </nav>
   );
 }

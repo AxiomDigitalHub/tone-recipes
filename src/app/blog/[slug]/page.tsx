@@ -13,7 +13,7 @@ import {
 } from "@/lib/blog";
 import { getDefinitionsForPost } from "@/lib/definitions";
 import BlogCard from "@/components/blog/BlogCard";
-import TableOfContents, { type TocItem } from "@/components/blog/TableOfContents";
+import TableOfContents, { MobileTableOfContents, type TocItem } from "@/components/blog/TableOfContents";
 
 /* ---------- Heading extractor ---------- */
 
@@ -186,68 +186,83 @@ export default async function BlogPostPage({
         <hr className="mt-8 border-border" />
       </header>
 
-      {/* Table of Contents */}
+      {/* Mobile TOC (collapsible, shown below header on small screens) */}
       {headings.length >= 3 && (
-        <div className="mx-auto mt-8 max-w-3xl">
-          <TableOfContents items={headings} />
+        <div className="mt-8">
+          <MobileTableOfContents items={headings} />
         </div>
       )}
 
-      {/* MDX prose content */}
-      <div className="prose-dark mx-auto mt-10 max-w-3xl">
-        <MDXRemote
-          source={post.content}
-          options={{
-            mdxOptions: {
-              remarkPlugins: [remarkGfm],
-              rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
-            },
-          }}
-        />
-      </div>
+      {/* Two-column layout: sticky TOC left, content right */}
+      <div className="mt-8 lg:mt-10 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10 xl:grid-cols-[260px_1fr]">
+        {/* Desktop sticky TOC sidebar */}
+        {headings.length >= 3 && (
+          <aside className="hidden lg:block">
+            <TableOfContents items={headings} />
+          </aside>
+        )}
+        {/* If no headings, skip the sidebar column */}
+        {headings.length < 3 && <div className="hidden lg:block" />}
 
-      {/* Definitions / Glossary */}
-      {definitions.length > 0 && (
-        <section className="mx-auto mt-16 max-w-3xl">
-          <div className="rounded-xl border border-border bg-surface p-6 md:p-8">
-            <h2 className="mb-4 text-lg font-bold">Key Terms</h2>
-            <dl className="space-y-4">
-              {definitions.map((def) => (
-                <div key={def.term}>
-                  <dt className="text-sm font-semibold text-accent">
-                    {def.term}
-                  </dt>
-                  <dd className="mt-1 text-sm leading-relaxed text-muted">
-                    {def.definition}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
-      )}
-
-      {/* Back link */}
-      <div className="mx-auto mt-16 max-w-3xl">
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent-hover"
-        >
-          <svg
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15 19l-7-7 7-7"
+        {/* Main content column */}
+        <div>
+          {/* MDX prose content */}
+          <div className="prose-dark mx-auto max-w-3xl lg:mx-0">
+            <MDXRemote
+              source={post.content}
+              options={{
+                mdxOptions: {
+                  remarkPlugins: [remarkGfm],
+                  rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+                },
+              }}
             />
-          </svg>
-          Back to Blog
-        </Link>
+          </div>
+
+          {/* Definitions / Glossary */}
+          {definitions.length > 0 && (
+            <section className="mx-auto mt-16 max-w-3xl lg:mx-0">
+              <div className="rounded-xl border border-border bg-surface p-6 md:p-8">
+                <h2 className="mb-4 text-lg font-bold">Key Terms</h2>
+                <dl className="space-y-4">
+                  {definitions.map((def) => (
+                    <div key={def.term}>
+                      <dt className="text-sm font-semibold text-accent">
+                        {def.term}
+                      </dt>
+                      <dd className="mt-1 text-sm leading-relaxed text-muted">
+                        {def.definition}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </section>
+          )}
+
+          {/* Back link */}
+          <div className="mx-auto mt-16 max-w-3xl lg:mx-0">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent-hover"
+            >
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+              Back to Blog
+            </Link>
+          </div>
+        </div>
       </div>
 
       {/* Related posts */}
