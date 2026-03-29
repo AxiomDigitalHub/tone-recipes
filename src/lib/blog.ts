@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
+import { getWriter } from "./writers";
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
@@ -10,7 +11,8 @@ export interface BlogPost {
   title: string;
   description: string;
   date: string; // ISO date
-  author: string;
+  author: string; // display name (legacy field, kept for compatibility)
+  authorSlug: string; // writer slug for looking up full writer profile
   category: string; // "signal-chain" | "platform-guide" | "artist-tone" | "gear" | "effects" | "workflow"
   tags: string[];
   readingTime: string; // "8 min read"
@@ -44,12 +46,18 @@ export function getPostBySlug(slug: string): BlogPostWithContent | null {
   const { data, content } = matter(raw);
   const stats = readingTime(content);
 
+  // Support both author_slug (new) and author (legacy) frontmatter
+  const authorSlug: string = data.author_slug ?? "";
+  const writer = authorSlug ? getWriter(authorSlug) : null;
+  const authorName = writer?.name ?? data.author ?? "Fader & Knob";
+
   return {
     slug,
     title: data.title ?? "",
     description: data.description ?? "",
     date: data.date ?? "",
-    author: data.author ?? "",
+    author: authorName,
+    authorSlug: authorSlug || "fader-and-knob",
     category: data.category ?? "",
     tags: data.tags ?? [],
     readingTime: stats.text,

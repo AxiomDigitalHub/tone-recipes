@@ -5,6 +5,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import Image from "next/image";
 import {
   getPostBySlug,
   getPostSlugs,
@@ -12,6 +13,7 @@ import {
   BLOG_CATEGORIES,
 } from "@/lib/blog";
 import { getDefinitionsForPost } from "@/lib/definitions";
+import { getWriter } from "@/lib/writers";
 import BlogCard from "@/components/blog/BlogCard";
 import TableOfContents, { MobileTableOfContents, type TocItem } from "@/components/blog/TableOfContents";
 
@@ -107,6 +109,7 @@ export default async function BlogPostPage({
 
   const headings = extractHeadings(post.content);
   const definitions = getDefinitionsForPost(post.tags, post.category);
+  const writer = getWriter(post.authorSlug);
 
   // Related posts: same category, excluding this post, limit 3
   const related = getAllPosts()
@@ -162,12 +165,37 @@ export default async function BlogPostPage({
 
         <p className="mt-4 text-lg text-muted">{post.description}</p>
 
-        <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-muted">
-          <span>{post.author}</span>
-          <span className="text-border">|</span>
-          <time dateTime={post.date}>{formatDate(post.date)}</time>
-          <span className="text-border">|</span>
-          <span>{post.readingTime}</span>
+        <div className="mt-6 flex items-center gap-4">
+          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-border">
+            {writer.image ? (
+              <Image
+                src={writer.image}
+                alt={writer.name}
+                fill
+                className="object-cover"
+                sizes="48px"
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center bg-accent/10 text-sm font-bold text-accent">
+                {writer.name.charAt(0)}
+              </div>
+            )}
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-foreground">
+              {writer.name}
+              {writer.title && (
+                <span className="ml-2 font-normal text-muted">
+                  {writer.title}
+                </span>
+              )}
+            </p>
+            <div className="flex items-center gap-3 text-xs text-muted">
+              <time dateTime={post.date}>{formatDate(post.date)}</time>
+              <span className="text-border">|</span>
+              <span>{post.readingTime}</span>
+            </div>
+          </div>
         </div>
 
         {post.tags.length > 0 && (
@@ -240,8 +268,40 @@ export default async function BlogPostPage({
             </section>
           )}
 
+          {/* Writer bio card */}
+          {writer.slug !== "fader-and-knob" && (
+            <div className="mx-auto mt-16 max-w-3xl lg:mx-0">
+              <div className="flex items-start gap-4 rounded-xl border border-border bg-surface p-5 md:p-6">
+                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-border">
+                  {writer.image ? (
+                    <Image
+                      src={writer.image}
+                      alt={writer.name}
+                      fill
+                      className="object-cover"
+                      sizes="64px"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-accent/10 text-lg font-bold text-accent">
+                      {writer.name.charAt(0)}
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">{writer.name}</p>
+                  {writer.title && (
+                    <p className="text-sm text-accent">{writer.title}</p>
+                  )}
+                  <p className="mt-1 text-sm leading-relaxed text-muted">
+                    {writer.bio}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Back link */}
-          <div className="mx-auto mt-16 max-w-3xl lg:mx-0">
+          <div className="mx-auto mt-8 max-w-3xl lg:mx-0">
             <Link
               href="/blog"
               className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent-hover"
