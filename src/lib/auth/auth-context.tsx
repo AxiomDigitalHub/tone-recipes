@@ -96,11 +96,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return base;
     }
 
+    // Timeout: if getSession takes too long, show login buttons anyway
+    const timeout = setTimeout(() => setLoading(false), 3000);
+
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (session?.user) {
         setUser(await buildUser(session.user));
       }
       setLoading(false);
+      clearTimeout(timeout);
+    }).catch(() => {
+      setLoading(false);
+      clearTimeout(timeout);
     });
 
     const {
