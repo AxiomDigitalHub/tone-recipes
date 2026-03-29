@@ -2,13 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import FavoriteButton from "@/components/ui/FavoriteButton";
 import VerificationBadge from "@/components/ui/VerificationBadge";
 import { getChainIcon } from "@/lib/chain-icons";
 import { getVerificationLevel } from "@/lib/verification";
 import type { ToneRecipe, Artist, Song } from "@/types/recipe";
-import { PLATFORMS } from "@/lib/constants";
 
 interface RecipeCardProps {
   recipe: ToneRecipe;
@@ -17,9 +15,7 @@ interface RecipeCardProps {
 }
 
 export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
-  const router = useRouter();
   const chainLength = recipe.signal_chain.length;
-  const platformKeys = Object.keys(recipe.platform_translations);
   const verificationLevel = getVerificationLevel(recipe);
 
   return (
@@ -50,7 +46,7 @@ export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
         <div className="h-3 w-full bg-gradient-to-r from-accent/20 to-accent/5" />
       )}
 
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col p-4">
         {/* Top-right actions */}
         <div className="absolute top-3 right-3 flex items-center gap-1.5">
           {song?.genres?.[0] && (
@@ -61,26 +57,21 @@ export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
           <FavoriteButton slug={recipe.slug} size="sm" />
         </div>
 
-        {/* Header */}
+        {/* Title: Song + Artist */}
         <div className="mb-3">
-          {!song?.album_art_url && artist && (
-            <p className="text-xs font-medium text-accent">{artist.name}</p>
-          )}
-          {song && (
-            <p className="text-sm text-muted">
-              {song.title} ({song.year})
-            </p>
-          )}
-          <div className="mt-1 flex items-center gap-2">
-            <h3 className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
-              {recipe.title}
+          <div className="flex items-center gap-1.5">
+            <h3 className="text-base font-semibold text-foreground group-hover:text-accent transition-colors line-clamp-1">
+              {song ? song.title : recipe.title}
             </h3>
             <VerificationBadge level={verificationLevel} size="sm" />
           </div>
+          {!song?.album_art_url && artist && (
+            <p className="text-sm text-muted">{artist.name}</p>
+          )}
         </div>
 
         {/* Mini signal chain preview */}
-        <div className="mb-3 flex items-center gap-1 overflow-hidden">
+        <div className="flex items-center gap-1 overflow-hidden">
           {recipe.signal_chain.slice(0, 5).map((node, i) => {
             const NodeIcon = getChainIcon(node.category, node.subcategory);
             return (
@@ -105,46 +96,6 @@ export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
           {chainLength > 5 && (
             <span className="text-xs text-muted">+{chainLength - 5}</span>
           )}
-        </div>
-
-        {/* Description snippet */}
-        <p className="mb-4 line-clamp-2 flex-1 text-sm text-muted">
-          {recipe.description}
-        </p>
-
-        {/* Footer: platforms + compare */}
-        <div className="flex items-center justify-between gap-2">
-          {/* Platform labels */}
-          <div className="flex flex-wrap gap-1.5">
-            {platformKeys.map((key) => {
-              const platform = PLATFORMS.find((p) => p.id === key);
-              if (!platform) return null;
-              return (
-                <span
-                  key={key}
-                  className="rounded-full px-2 py-0.5 text-[10px] font-medium"
-                  style={{
-                    color: platform.color,
-                    backgroundColor: platform.color + "15",
-                  }}
-                >
-                  {platform.label}
-                </span>
-              );
-            })}
-          </div>
-
-          {/* Compare button */}
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              router.push(`/compare?a=${recipe.slug}`);
-            }}
-            className="shrink-0 rounded-lg border border-border px-2.5 py-1 text-[11px] font-medium text-muted transition-colors hover:border-accent/40 hover:text-accent"
-          >
-            Compare
-          </button>
         </div>
       </div>
     </Link>
