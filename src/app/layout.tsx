@@ -30,7 +30,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://faderandknob.com"),
   title: {
-    default: "Fader & Knob - Make their tone, your tone",
+    default: "Fader & Knob — Tone Recipes for Guitar & Modelers",
     template: "%s | Fader & Knob",
   },
   description:
@@ -51,15 +51,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Fader & Knob",
-    title: "Fader & Knob - Make their tone, your tone",
+    title: "Fader & Knob — Tone Recipes for Guitar & Modelers",
     description:
-      "Tone recipes for guitar players. Get the exact settings to recreate your favorite songs on your gear.",
+      "Tone recipes from the songs you love. Get exact settings for your Helix, Quad Cortex, TONEX, or physical rig.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fader & Knob - Make their tone, your tone",
+    title: "Fader & Knob — Tone Recipes for Guitar & Modelers",
     description:
-      "Tone recipes for guitar players. Get the exact settings to recreate your favorite songs on your gear.",
+      "Tone recipes from the songs you love. Get exact settings for your Helix, Quad Cortex, TONEX, or physical rig.",
   },
   robots: {
     index: true,
@@ -74,6 +74,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZLWYT7VMP" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PZLWYT7VMP');`,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} flex min-h-screen flex-col bg-background font-sans text-foreground antialiased`}
       >

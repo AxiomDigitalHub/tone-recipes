@@ -222,8 +222,11 @@ export default function BrowseContent() {
       {/* Header */}
       <div className="mb-6 flex items-end justify-between">
         <div>
-          <h1 className="text-2xl font-bold md:text-3xl">Browse Tone Recipes</h1>
+          <h1 className="text-2xl font-bold md:text-3xl">Find your tone.</h1>
           <p className="mt-1 text-sm text-muted">
+            50 iconic sounds, broken down by signal chain and translated for your platform. Filter by genre, artist, or gear.
+          </p>
+          <p className="mt-1 text-xs text-muted">
             {filteredRecipes.length} of {toneRecipes.length} recipes
             {hasActiveFilters && (
               <button

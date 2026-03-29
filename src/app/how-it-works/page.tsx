@@ -17,12 +17,11 @@ export default function HowItWorksPage() {
           How It Works
         </p>
         <h1 className="mt-4 text-3xl font-bold md:text-5xl">
-          Stop guessing. Start <span className="text-accent">playing</span>.
+          From the song to your rig.{" "}
+          <span className="text-accent">In three steps.</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-muted">
-          You know the tone you want. We show you exactly how to get it
-          on your gear — whether that&apos;s a Helix, Quad Cortex, Boss Katana,
-          or a pedalboard.
+          You know the sound you want. Fader &amp; Knob shows you exactly how to get there &mdash; on your gear, with your platform, from the recording you love.
         </p>
       </div>
 
@@ -31,10 +30,10 @@ export default function HowItWorksPage() {
         <h2 className="mb-6 text-center text-2xl font-bold">Sound familiar?</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {[
-            "You watched 5 YouTube videos and got 5 different answers",
-            "Forum posts from 2014 that don't match your modeler",
-            "You got close but something's still off and you don't know why",
-            "Hours tweaking knobs when you'd rather be playing",
+            "You watched five YouTube videos and got five different signal chains",
+            "The Reddit post that got you close was written for a modeler you don\u2019t own",
+            "You got close, but you can\u2019t figure out what\u2019s still off",
+            "You spent 45 minutes tweaking when you just wanted to play the song",
           ].map((pain) => (
             <div
               key={pain}
@@ -49,26 +48,26 @@ export default function HowItWorksPage() {
       {/* 3 Steps */}
       <section className="mb-20">
         <h2 className="mb-12 text-center text-2xl font-bold">
-          Three steps to any tone
+          Here&apos;s how it works.
         </h2>
         <div className="grid gap-10 md:grid-cols-3">
           <Step
             number="1"
             icon={Search}
             title="Find the song"
-            description="Search by artist, song, or genre. Every recipe is tied to a specific recording so you know exactly what you're aiming for."
+            description="Search by artist, song title, or genre. Every recipe is tied to a specific recording so you know exactly what tone you're building toward."
           />
           <Step
             number="2"
             icon={Guitar}
-            title="See the full picture"
-            description="Visual signal chain with every pedal, amp, and setting laid out. Click any node to see exactly what to dial in — and why it matters."
+            title="Read the signal chain"
+            description="A visual breakdown of every pedal, amp block, cab, and mic in the chain. Click any node to see exact settings and a plain-English explanation of what it's doing and why."
           />
           <Step
             number="3"
             icon={ArrowRightLeft}
-            title="Switch to your gear"
-            description="One tap to see the same chain translated for your platform. Helix, Quad Cortex, Katana, TONEX — same tone, your gear."
+            title="Switch to your platform and play"
+            description="Select your gear. Get a version of the chain built specifically for your modeler or physical rig. Helix, Quad Cortex, TONEX, Fractal, Kemper, Boss Katana — same tone, different platform."
           />
         </div>
       </section>
@@ -76,24 +75,24 @@ export default function HowItWorksPage() {
       {/* Benefits */}
       <section className="mb-20 rounded-2xl border border-border bg-surface p-8 md:p-12">
         <h2 className="mb-10 text-center text-2xl font-bold">
-          Why guitarists love this
+          Built for players who want to understand, not just copy.
         </h2>
         <div className="grid gap-8 sm:grid-cols-2">
           <Benefit
-            title="Spend time playing, not tweaking"
-            description="Every recipe gives you exact settings. No more guessing what 'medium gain' means on your specific amp model."
+            title="Exact settings, not guesswork"
+            description='Every recipe gives you specific knob positions and parameters. No more interpreting "moderate gain" for your particular amp block.'
           />
           <Benefit
-            title="Actually understand your signal chain"
-            description="We don't just tell you what to set — we explain why each piece matters. You'll build better tones on your own over time."
+            title="Learn why it works, not just what to set"
+            description="We explain the reasoning behind every decision in the chain. You'll start hearing tones differently and building your own from scratch."
           />
           <Benefit
-            title="Works on whatever you own"
-            description="Physical pedalboard? Line 6 Helix? Boss Katana? Neural Quad Cortex? Every recipe translates across all major platforms."
+            title="Your rig, not someone else's"
+            description="A recipe for a physical rig doesn't help you if you're on a Helix. Every recipe is translated for all major platforms so the settings actually apply to what you own."
           />
           <Benefit
-            title="Real tones from real recordings"
-            description="Every recipe is researched from the actual gear and settings used on specific songs. Not generic 'blues tone' guesses."
+            title="Sourced from the real recordings"
+            description='Every recipe traces back to the actual gear used on that song. Not a generic "blues tone." Not a best guess. The specific recording, the specific rig.'
           />
         </div>
       </section>
@@ -165,11 +164,10 @@ export default function HowItWorksPage() {
       {/* CTA */}
       <section className="rounded-2xl border border-accent/20 bg-accent/5 p-8 text-center md:p-12">
         <h2 className="text-2xl font-bold md:text-3xl">
-          Ready to nail that tone?
+          Stop guessing. Start playing.
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-muted">
-          Browse our library of song-specific tone recipes.
-          Pick a song, switch to your platform, and start playing.
+          Pick a song from our library and dial it in on your gear today.
         </p>
         <div className="mt-8">
           <Link

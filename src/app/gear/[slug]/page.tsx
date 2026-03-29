@@ -4,8 +4,6 @@ import {
   getGearBySlug,
   gearItems,
   toneRecipes,
-  songs,
-  artists,
   getSongBySlug,
   getArtistBySlug,
 } from "@/lib/data";
@@ -25,21 +23,25 @@ export async function generateMetadata({ params }: GearPageProps) {
   const gear = getGearBySlug(slug);
   if (!gear) return { title: "Gear Not Found" };
 
-  const title = `${gear.name} - ${gear.manufacturer}`;
-  const description = gear.description.slice(0, 160);
+  const recipesUsing = toneRecipes.filter((r) =>
+    r.signal_chain.some((n) => n.gear_slug === gear.slug)
+  ).length;
+
+  const title = `${gear.name} — ${gear.manufacturer}`;
+  const description = `${gear.description.slice(0, 120)}${recipesUsing > 0 ? ` Used in ${recipesUsing} tone recipes.` : ""}`;
 
   return {
     title,
     description,
     keywords: [gear.name, gear.manufacturer, gear.type, "guitar gear", "tone recipes"],
     openGraph: {
-      title: `${gear.name} - ${gear.manufacturer} | Fader & Knob`,
+      title: `${gear.name} — ${gear.manufacturer} | Fader & Knob`,
       description,
       type: "article",
     },
     twitter: {
       card: "summary",
-      title: `${gear.name} - ${gear.manufacturer}`,
+      title: `${gear.name} — ${gear.manufacturer}`,
       description,
     },
   };
@@ -56,7 +58,7 @@ function getTypeLabel(gear: { type: string; subcategory?: string }): string {
   const base = typeLabels[gear.type] || gear.type;
   if (gear.subcategory) {
     const sub = gear.subcategory.charAt(0).toUpperCase() + gear.subcategory.slice(1);
-    return `${base} - ${sub}`;
+    return `${base} — ${sub}`;
   }
   return base;
 }
@@ -69,27 +71,27 @@ function WhereToBuy({ name, manufacturer }: { name: string; manufacturer: string
     { label: "Amazon", url: links.amazon },
   ];
 
+  const hasLinks = partners.some((p) => p.url);
+  if (!hasLinks) return null;
+
   return (
-    <section className="mb-14">
-      <h2 className="mb-6 text-xl font-bold">Where to Buy</h2>
-      <div className="flex flex-wrap gap-3">
-        {partners.map(
-          (p) =>
-            p.url && (
-              <a
-                key={p.label}
-                href={p.url}
-                target="_blank"
-                rel="nofollow sponsored"
-                className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-5 py-3 text-sm font-medium transition-colors hover:border-accent/40 hover:text-accent"
-              >
-                {p.label}
-                <ExternalLink className="h-3.5 w-3.5 text-muted" />
-              </a>
-            )
-        )}
-      </div>
-    </section>
+    <div className="flex flex-wrap gap-3">
+      {partners.map(
+        (p) =>
+          p.url && (
+            <a
+              key={p.label}
+              href={p.url}
+              target="_blank"
+              rel="nofollow sponsored"
+              className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-5 py-3 text-sm font-medium transition-colors hover:border-accent/40 hover:text-accent"
+            >
+              {p.label}
+              <ExternalLink className="h-3.5 w-3.5 text-muted" />
+            </a>
+          )
+      )}
+    </div>
   );
 }
 
@@ -98,20 +100,27 @@ export default async function GearDetailPage({ params }: GearPageProps) {
   const gear = getGearBySlug(slug);
   if (!gear) notFound();
 
-  // Find recipes that use this gear
   const recipesUsingGear = toneRecipes.filter((recipe) =>
     recipe.signal_chain.some((node) => node.gear_slug === gear.slug)
   );
 
-  // Extract knobs from default_settings
   const knobs = gear.default_settings?.knobs as
     | Array<{ name: string; min?: number; max?: number; options?: string[] }>
     | undefined;
 
-  // Get modeler equivalents
   const equivalents = gear.modeler_equivalents
     ? Object.entries(gear.modeler_equivalents)
     : [];
+
+  // Find related gear (same type/subcategory, excluding self)
+  const relatedGear = gearItems
+    .filter(
+      (g) =>
+        g.slug !== gear.slug &&
+        g.type === gear.type &&
+        (gear.subcategory ? g.subcategory === gear.subcategory : true)
+    )
+    .slice(0, 3);
 
   const productJsonLd = {
     "@context": "https://schema.org",
@@ -126,9 +135,8 @@ export default async function GearDetailPage({ params }: GearPageProps) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Browse", "item": "https://faderandknob.com/browse" },
-      { "@type": "ListItem", "position": 2, "name": "Gear", "item": "https://faderandknob.com/gear" },
-      { "@type": "ListItem", "position": 3, "name": gear.name },
+      { "@type": "ListItem", "position": 1, "name": "Gear", "item": "https://faderandknob.com/gear" },
+      { "@type": "ListItem", "position": 2, "name": gear.name },
     ],
   };
 
@@ -142,13 +150,10 @@ export default async function GearDetailPage({ params }: GearPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+
       {/* Breadcrumb */}
       <nav className="mb-8 flex items-center gap-2 text-sm text-muted">
-        <Link href="/browse" className="hover:text-foreground">
-          Browse
-        </Link>
-        <span>/</span>
-        <Link href="/gear" className="hover:text-foreground">
+        <Link href="/gear" className="hover:text-foreground transition-colors">
           Gear
         </Link>
         <span>/</span>
@@ -157,25 +162,66 @@ export default async function GearDetailPage({ params }: GearPageProps) {
 
       {/* Header */}
       <div className="mb-10">
-        <p className="text-sm font-medium text-accent">{gear.manufacturer}</p>
-        <h1 className="mt-1 text-3xl font-bold md:text-4xl">{gear.name}</h1>
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="flex flex-wrap items-center gap-3">
           <Badge variant="accent">{getTypeLabel(gear)}</Badge>
+          {recipesUsingGear.length > 0 && (
+            <a href="#recipes" className="text-xs font-medium text-accent hover:underline">
+              Used in {recipesUsingGear.length} {recipesUsingGear.length === 1 ? "recipe" : "recipes"} &darr;
+            </a>
+          )}
+        </div>
+        <p className="mt-3 text-sm font-medium text-accent">{gear.manufacturer}</p>
+        <h1 className="mt-1 text-3xl font-bold md:text-4xl">{gear.name}</h1>
+      </div>
+
+      {/* Two-column layout on desktop: description + sidebar */}
+      <div className="mb-14 flex flex-col gap-8 lg:flex-row">
+        {/* Description */}
+        <div className="flex-1 rounded-xl border border-border bg-surface p-6 md:p-8">
+          <p className="leading-relaxed text-foreground/90">{gear.description}</p>
+        </div>
+
+        {/* Sidebar: quick facts */}
+        <div className="flex flex-col gap-4 lg:w-72 lg:shrink-0">
+          {/* Modeler Equivalents — compact */}
+          {equivalents.length > 0 && (
+            <div className="rounded-xl border border-border bg-surface p-5">
+              <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted">
+                On your modeler
+              </h2>
+              <div className="space-y-2">
+                {equivalents.map(([platformId, blockName]) => {
+                  const platform = PLATFORMS.find((p) => p.id === platformId);
+                  if (!platform) return null;
+                  return (
+                    <div key={platformId} className="flex items-center gap-2">
+                      <span
+                        className="h-2.5 w-2.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: platform.color }}
+                      />
+                      <span className="text-xs text-muted">{platform.label}:</span>
+                      <span className="text-sm font-medium text-foreground">{blockName}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Where to Buy */}
+          <div className="rounded-xl border border-border bg-surface p-5">
+            <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted">
+              Where to buy
+            </h2>
+            <WhereToBuy name={gear.name} manufacturer={gear.manufacturer} />
+          </div>
         </div>
       </div>
 
-      {/* Description */}
-      <div className="mb-14 rounded-xl border border-border bg-surface p-6 md:p-8">
-        <p className="leading-relaxed text-foreground/90">{gear.description}</p>
-      </div>
-
-      {/* Where to Buy */}
-      <WhereToBuy name={gear.name} manufacturer={gear.manufacturer} />
-
-      {/* Default Settings */}
+      {/* Controls / Knobs */}
       {knobs && knobs.length > 0 && (
         <section className="mb-14">
-          <h2 className="mb-6 text-xl font-bold">Default Settings</h2>
+          <h2 className="mb-4 text-xl font-bold">Controls</h2>
           <div className="rounded-xl border border-border bg-surface p-6">
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {knobs.map((knob) => (
@@ -189,7 +235,7 @@ export default async function GearDetailPage({ params }: GearPageProps) {
                   <span className="mt-1 text-xs text-muted">
                     {knob.options
                       ? knob.options.join(" / ")
-                      : `${knob.min} - ${knob.max}`}
+                      : `${knob.min} – ${knob.max}`}
                   </span>
                 </div>
               ))}
@@ -198,42 +244,15 @@ export default async function GearDetailPage({ params }: GearPageProps) {
         </section>
       )}
 
-      {/* Modeler Equivalents */}
-      {equivalents.length > 0 && (
-        <section className="mb-14">
-          <h2 className="mb-6 text-xl font-bold">Modeler Equivalents</h2>
-          <div className="rounded-xl border border-border bg-surface p-6">
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {equivalents.map(([platformId, blockName]) => {
-                const platform = PLATFORMS.find((p) => p.id === platformId);
-                if (!platform) return null;
-                return (
-                  <div
-                    key={platformId}
-                    className="flex items-center gap-3 rounded-lg bg-background p-4"
-                  >
-                    <span
-                      className="h-3 w-3 flex-shrink-0 rounded-full"
-                      style={{ backgroundColor: platform.color }}
-                    />
-                    <div className="min-w-0">
-                      <p className="text-xs text-muted">{platform.label}</p>
-                      <p className="truncate font-medium text-foreground">
-                        {blockName}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Used In Recipes */}
+      {/* Used In Recipes — prominent placement */}
       {recipesUsingGear.length > 0 && (
-        <section className="mb-14">
-          <h2 className="mb-6 text-xl font-bold">Used In Recipes</h2>
+        <section id="recipes" className="mb-14">
+          <h2 className="mb-2 text-xl font-bold">
+            Recipes using the {gear.name}
+          </h2>
+          <p className="mb-6 text-sm text-muted">
+            See exactly how this gear is dialed in across different songs and styles.
+          </p>
           <div className="grid gap-6 sm:grid-cols-2">
             {recipesUsingGear.map((recipe) => {
               const song = getSongBySlug(recipe.song_slug);
@@ -249,6 +268,29 @@ export default async function GearDetailPage({ params }: GearPageProps) {
                 />
               );
             })}
+          </div>
+        </section>
+      )}
+
+      {/* Related gear */}
+      {relatedGear.length > 0 && (
+        <section className="mb-14">
+          <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted">
+            Similar gear
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {relatedGear.map((g) => (
+              <Link
+                key={g.slug}
+                href={`/gear/${g.slug}`}
+                className="group rounded-xl border border-border bg-surface p-4 transition-all hover:border-accent/40 hover:bg-surface-hover"
+              >
+                <p className="text-xs text-accent">{g.manufacturer}</p>
+                <p className="mt-0.5 text-sm font-semibold text-foreground group-hover:text-accent transition-colors">
+                  {g.name}
+                </p>
+              </Link>
+            ))}
           </div>
         </section>
       )}

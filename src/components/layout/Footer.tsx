@@ -16,7 +16,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <span className="text-sm font-bold text-accent" style={{ fontFamily: "var(--font-playfair)" }}>Fader &amp; Knob</span>
-            <p className="mt-1 text-sm text-muted">Built with tone.</p>
+            <p className="mt-1 text-sm text-muted">Stop tweaking. Start playing.</p>
           </div>
 
           {/* Product links */}

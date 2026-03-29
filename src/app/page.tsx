@@ -14,7 +14,7 @@ export default function Home() {
     "@type": "WebSite",
     "name": "Fader & Knob",
     "url": "https://faderandknob.com",
-    "description": "Tone recipes for guitar players. Get the exact settings to recreate your favorite songs on your gear.",
+    "description": "Tone recipes from the songs you love. Get exact settings for your Helix, Quad Cortex, TONEX, or physical rig.",
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://faderandknob.com/browse?q={search_term_string}",
@@ -34,17 +34,12 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,_rgba(245,158,11,0.08),_transparent_60%)]" />
 
         <div className="mx-auto max-w-7xl px-4 pb-20 pt-24 text-center md:pt-32">
-          <p className="text-sm font-medium uppercase tracking-widest text-accent">
-            Tone recipes for guitar players
-          </p>
           <h1 className="mx-auto mt-4 max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
-            Make their tone,{" "}
-            <span className="text-accent">your tone</span>.
+            Tone recipes from the songs{" "}
+            <span className="text-accent">you love</span>.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted md:text-xl">
-            Stop tweaking knobs and start playing.
-            Pick a song, get the exact settings for your gear, and dial in
-            the sound you hear in your head.
+            Pick a song. Get exact settings for your Helix, Quad Cortex, TONEX, or physical rig. Stop tweaking. Start playing.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -52,13 +47,13 @@ export default function Home() {
               href="/browse"
               className="rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-background transition-colors hover:bg-accent-hover"
             >
-              Browse Tone Recipes
+              Browse Recipes
             </Link>
             <Link
               href="/how-it-works"
               className="rounded-xl border border-border px-8 py-3.5 text-base font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
             >
-              How It Works
+              See how it works
             </Link>
           </div>
 
@@ -90,6 +85,113 @@ export default function Home() {
                   </span>
                 </div>
                 {i < 6 && <div className="signal-line h-0.5 w-2 rounded-full sm:w-4 md:w-6" />}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Problem section */}
+      <section className="py-20">
+        <div className="mx-auto max-w-3xl px-4 text-center">
+          <h2 className="text-2xl font-bold md:text-3xl">
+            You&apos;ve been chasing that sound for a while now.
+          </h2>
+          <div className="mx-auto mt-6 max-w-2xl space-y-4 text-lg text-muted">
+            <p>
+              You&apos;ve watched the tutorials. You&apos;ve dug through the forums. You got close, but something&apos;s still off and you can&apos;t name exactly why.
+            </p>
+            <p>
+              It&apos;s not your ears. It&apos;s probably not even your gear. Nobody&apos;s ever given you a clear map from that recording to your specific rig.
+            </p>
+            <p className="font-semibold text-foreground">
+              That&apos;s what Fader &amp; Knob is for.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Pain points */}
+      <section className="border-y border-border bg-surface/50 py-16">
+        <div className="mx-auto max-w-4xl px-4">
+          <div className="grid gap-4 sm:grid-cols-2">
+            {[
+              "5 YouTube videos, 5 different answers",
+              "Forum posts from 2012 that don\u2019t match your modeler",
+              "Close, but you don\u2019t know why it\u2019s still off",
+              "An hour of tweaking when you should be playing",
+            ].map((pain) => (
+              <div
+                key={pain}
+                className="rounded-xl border border-border bg-surface p-5"
+              >
+                <p className="text-sm text-muted">{pain}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-center text-2xl font-bold md:text-3xl">
+            Three steps to any tone.
+          </h2>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {[
+              {
+                step: "1",
+                title: "Find the song",
+                desc: "Search by artist, song, or genre. Every recipe is tied to a specific recording so you know exactly what you\u2019re aiming for.",
+              },
+              {
+                step: "2",
+                title: "See the full signal chain",
+                desc: "Visual breakdown of every pedal, amp block, and routing decision. Not just what to set, but why it works.",
+              },
+              {
+                step: "3",
+                title: "Switch to your gear and dial it in",
+                desc: "One tap to see exact settings for your platform. Helix, Quad Cortex, TONEX, Fractal, Kemper, or physical rig. Same tone, your gear.",
+              },
+            ].map((item) => (
+              <div
+                key={item.step}
+                className="flex flex-col items-center rounded-xl border border-border bg-surface p-8 text-center"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-lg font-bold text-background">
+                  {item.step}
+                </div>
+                <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefit pillars */}
+      <section className="border-y border-border bg-surface/50 py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              {
+                title: "Less time tweaking",
+                desc: 'Exact settings for your specific platform. No more guessing what "medium gain" means on your amp model.',
+              },
+              {
+                title: "Understand why it works",
+                desc: "We explain the reasoning behind every setting. You\u2019ll build better tones on your own over time.",
+              },
+              {
+                title: "Works on your rig",
+                desc: "Physical board, Line 6, Neural, Boss \u2014 every recipe translates across all major platforms.",
+              },
+            ].map((pillar) => (
+              <div key={pillar.title} className="text-center">
+                <h3 className="text-lg font-semibold">{pillar.title}</h3>
+                <p className="mt-2 text-sm text-muted">{pillar.desc}</p>
               </div>
             ))}
           </div>
@@ -191,54 +293,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-center text-2xl font-bold md:text-3xl">
-            How it works
-          </h2>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {[
-              {
-                step: "1",
-                title: "Search for a song",
-                desc: "Find the tone you want from our database of iconic guitar sounds, organized by artist, song, and genre.",
-              },
-              {
-                step: "2",
-                title: "See the signal chain",
-                desc: "Visual signal chain diagram with every pedal, amp setting, and routing decision explained. Switch to your platform's view.",
-              },
-              {
-                step: "3",
-                title: "Dial it in and play",
-                desc: "See exact settings for your Helix, Quad Cortex, TONEX, or physical rig. Understand why it works, not just what to set.",
-              },
-            ].map((item) => (
-              <div
-                key={item.step}
-                className="flex flex-col items-center rounded-xl border border-border bg-surface p-8 text-center"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-lg font-bold text-background">
-                  {item.step}
-                </div>
-                <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm text-muted">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Supported platforms */}
-      <section className="border-t border-border bg-surface/50 py-20">
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <h2 className="text-2xl font-bold md:text-3xl">
-            Every tone. Every platform.
+            One recipe. Every platform.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted">
-            One tone recipe, translated across every major modeler and physical
-            gear. No more siloed communities.
+            Switch between platforms with a single tap. The same tone, translated for the gear you own.
           </p>
           <div className="mx-auto mt-10 flex max-w-2xl flex-wrap items-center justify-center gap-4">
             {PLATFORMS.map((p) => (
@@ -261,15 +323,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20">
+      {/* Closing CTA */}
+      <section className="border-t border-border bg-surface/50 py-20">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <h2 className="text-2xl font-bold md:text-3xl">
-            Less tweaking. More playing.
+            Your gear can do this. Let&apos;s prove it.
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-muted">
-            Get the sounds you want from the gear you have.
-            Browse tone recipes and start playing in minutes.
+            Browse tone recipes and dial in the sounds you actually want &mdash; in minutes, not hours.
           </p>
           <div className="mt-8">
             <Link
