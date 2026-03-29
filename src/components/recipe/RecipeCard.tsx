@@ -4,7 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import FavoriteButton from "@/components/ui/FavoriteButton";
+import VerificationBadge from "@/components/ui/VerificationBadge";
 import { getChainIcon } from "@/lib/chain-icons";
+import { getVerificationLevel } from "@/lib/verification";
 import type { ToneRecipe, Artist, Song } from "@/types/recipe";
 import { PLATFORMS } from "@/lib/constants";
 
@@ -18,6 +20,7 @@ export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
   const router = useRouter();
   const chainLength = recipe.signal_chain.length;
   const platformKeys = Object.keys(recipe.platform_translations);
+  const verificationLevel = getVerificationLevel(recipe);
 
   return (
     <Link
@@ -68,9 +71,12 @@ export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
               {song.title} ({song.year})
             </p>
           )}
-          <h3 className="mt-1 text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
-            {recipe.title}
-          </h3>
+          <div className="mt-1 flex items-center gap-2">
+            <h3 className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
+              {recipe.title}
+            </h3>
+            <VerificationBadge level={verificationLevel} size="sm" />
+          </div>
         </div>
 
         {/* Mini signal chain preview */}

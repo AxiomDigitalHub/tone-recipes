@@ -9,6 +9,8 @@ import {
 } from "@/lib/data";
 import UnifiedChainView from "@/components/signal-chain/UnifiedChainView";
 import Badge from "@/components/ui/Badge";
+import VerificationBadge from "@/components/ui/VerificationBadge";
+import { getVerificationLevel } from "@/lib/verification";
 import CollapsibleSection from "@/components/ui/CollapsibleSection";
 import ReadMore from "@/components/ui/ReadMore";
 import RecipeCard from "@/components/recipe/RecipeCard";
@@ -193,7 +195,10 @@ export default async function RecipePage({ params }: RecipePageProps) {
           />
         )}
         <div className="flex-1 min-w-0">
-          <h1 className="text-xl font-bold md:text-2xl leading-tight">{recipe.title}</h1>
+          <div className="flex items-center gap-2">
+            <h1 className="text-xl font-bold md:text-2xl leading-tight">{recipe.title}</h1>
+            <VerificationBadge level={getVerificationLevel(recipe)} size="md" />
+          </div>
           <p className="mt-0.5 text-sm text-muted">
             {artist?.name && <span className="text-accent">{artist.name}</span>}
             {song && <> &middot; {song.title} ({song.year})</>}
