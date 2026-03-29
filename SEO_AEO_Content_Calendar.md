@@ -1,0 +1,375 @@
+# Fader & Knob SEO/AEO Content Calendar
+
+**Date:** March 29, 2026
+**Existing posts:** 24
+**Target (Month 6):** 65-73 posts (~40-49 new posts needed)
+
+---
+
+## How to Read This Calendar
+
+Each topic includes:
+- **Target query** — the search intent this post captures
+- **Writer** — assigned based on persona fit
+- **Pillar** — which of the 6 content pillars it serves
+- **Priority** — P1 (publish first 4 weeks), P2 (weeks 5-8), P3 (months 3-4), P4 (months 5-6)
+- **AEO notes** — how to structure the post for AI answer engine extraction
+
+Priority is based on: (1) search volume potential, (2) competitive gap size, (3) how well it clusters with existing content, and (4) whether it fills a pillar that's currently underserved.
+
+### Pillar Coverage (Current)
+
+| Pillar | Posts | Status |
+|---|---|---|
+| 1. Tone Recipes (Artist/Genre) | 2 (SRV Helix, Edge Delay) | **Critical gap** |
+| 2. Settings Guides (Pedal/Amp) | 3 (Tube Screamer, Katana, OD/Dist/Fuzz) | Thin |
+| 3. Signal Chain & Tone Theory | 7 (signal chain order, effects loop, 4-wire, etc.) | Strongest pillar |
+| 4. Modeler Masterclass | 4 (Helix vs QC, dial-in, captures vs models, fizzy fix) | Moderate |
+| 5. Gear Lab (Comparisons) | 4 (modeler vs tube, $500 rigs, amp types) | Moderate |
+| 6. Quick Fixes & Troubleshooting | 1 (fizzy modeler) | **Critical gap** |
+
+**Conclusion:** Pillars 1 and 6 need the most attention. Pillar 1 (Tone Recipes) is the core product — it should be the largest category. Pillar 6 (Quick Fixes) targets long-tail troubleshooting queries that are low-competition and high-intent.
+
+---
+
+## Phase 1: Foundation (Weeks 1-4) — 8 Posts
+
+These fill the biggest gaps and create cluster anchors for future content.
+
+### P1-01: John Mayer Clean Tone Settings
+- **Target queries:** "john mayer clean tone settings," "how to get john mayer tone," "mayer continuum tone"
+- **Writer:** Margot Thiessen (jazz/blues sensibility, Continuum fan per bio)
+- **Pillar:** 1 — Tone Recipes
+- **Length:** 2,000-2,500 words
+- **AEO structure:** Open with a settings summary table (amp, drive, modulation, reverb with exact knob positions). AI models extract tables first. Follow with signal chain walkthrough. Include a "Quick Start" box at the top with the 5 most important settings.
+- **Internal links to:** pickup-position-guide (neck pickup emphasis), reverb-types-guide (spring reverb settings), tube-screamer-settings-guide (clean boost config)
+- **Internal links from (update):** pickup-position-guide, reverb-types-guide
+
+### P1-02: Metallica Rhythm Tone Settings
+- **Target queries:** "metallica rhythm tone settings," "james hetfield tone," "mesa boogie metal settings"
+- **Writer:** Viktor Kessler (metal scientist, gain staging expertise)
+- **Pillar:** 1 — Tone Recipes
+- **Length:** 2,500-3,000 words
+- **AEO structure:** Settings table up front. Separate sections by album era (Kill 'Em All vs. Black Album vs. modern). Each era gets its own settings block. Question-answer headers: "What amp did Hetfield use on the Black Album?" → direct answer → settings.
+- **Internal links to:** gain-staging-drop-tunings, overdrive-vs-distortion-vs-fuzz, signal-chain-order-guide
+- **Internal links from (update):** gain-staging-drop-tunings, overdrive-vs-distortion-vs-fuzz
+
+### P1-03: RAT Pedal Settings for Every Genre
+- **Target queries:** "rat pedal settings," "proco rat settings for blues," "rat settings for grunge"
+- **Writer:** Jess Kowalski (punk engineer, affordable gear advocate)
+- **Pillar:** 2 — Settings Guides
+- **Length:** 2,000-2,500 words
+- **AEO structure:** Genre-based sections (blues, classic rock, grunge, shoegaze, doom) each with a settings table. Use clock position format. Include amp pairing for each genre. FAQ section: "Is the RAT an overdrive or a distortion?" → direct answer.
+- **Internal links to:** overdrive-vs-distortion-vs-fuzz, signal-chain-order-guide, tube-screamer-settings-guide (comparison)
+- **Internal links from (update):** overdrive-vs-distortion-vs-fuzz
+
+### P1-04: Fix Thin Modeler Tone: 5 Settings to Check
+- **Target queries:** "modeler tone sounds thin," "helix tone thin fix," "digital amp thin sound"
+- **Writer:** Sean Nakamura (digital architect, modeler expert)
+- **Pillar:** 6 — Quick Fixes
+- **Length:** 800-1,200 words
+- **AEO structure:** Numbered list format. Each fix is a heading with the problem → cause → exact setting to change. Short, scannable, directly answerable by AI. This is a Pillar 6 "recipe card" — fast and specific.
+- **Internal links to:** why-modeler-tone-sounds-fizzy (companion piece), how-to-dial-in-modeler-tone, helix-vs-quad-cortex
+- **Internal links from (update):** why-modeler-tone-sounds-fizzy
+
+### P1-05: Big Muff Settings Guide
+- **Target queries:** "big muff settings," "big muff for shoegaze," "big muff fuzz settings"
+- **Writer:** Margot Thiessen (tone sommelier, knows the fuzz landscape)
+- **Pillar:** 2 — Settings Guides
+- **Length:** 2,000-2,500 words
+- **AEO structure:** Variant comparison table (NYC, Ram's Head, Op-Amp, Russian, Nano). Each variant gets a settings block for its sweet spot. Genre sections (classic rock, shoegaze, doom, David Gilmour). Direct-answer headers.
+- **Internal links to:** overdrive-vs-distortion-vs-fuzz, signal-chain-order-guide, effects-loop-explained
+- **Internal links from (update):** overdrive-vs-distortion-vs-fuzz
+
+### P1-06: Why Your Delay Sounds Muddy (and the One Setting to Change)
+- **Target queries:** "delay sounds muddy," "delay pedal muddy fix," "clean up delay tone"
+- **Writer:** Nathan Cross (delay expert, dotted-eighth specialist)
+- **Pillar:** 6 — Quick Fixes
+- **Length:** 800-1,000 words
+- **AEO structure:** Problem → cause (low-cut filter, pre-delay EQ) → single setting fix → before/after description. Open with the answer, then explain why. AI models will extract the fix directly.
+- **Internal links to:** the-edge-delay-settings, signal-chain-order-guide, effects-loop-explained
+
+### P1-07: Hendrix Fuzz Tone Recipe
+- **Target queries:** "hendrix fuzz tone settings," "jimi hendrix guitar tone," "fuzz face settings hendrix"
+- **Writer:** Rick Dalton (analog patriarch, vintage tone authority)
+- **Pillar:** 1 — Tone Recipes
+- **Length:** 2,000-2,500 words
+- **AEO structure:** Settings table (Fuzz Face → Marshall → Strat wiring). Cover guitar volume knob cleanup technique. Cross-platform section: how to approximate on Helix/QC/pedalboard. Question headers for AEO extraction.
+- **Internal links to:** overdrive-vs-distortion-vs-fuzz, pickup-position-guide, signal-chain-order-guide
+- **Internal links from (update):** overdrive-vs-distortion-vs-fuzz, pickup-position-guide
+
+### P1-08: Klon Centaur Settings: Clean Boost, Mild OD, and Full Drive
+- **Target queries:** "klon settings," "klon centaur best settings," "klon clean boost settings"
+- **Writer:** Hank Presswood (vintage collector, owns an original gold Klon)
+- **Pillar:** 2 — Settings Guides
+- **Length:** 1,800-2,200 words
+- **AEO structure:** Three use-case sections (clean boost, mild OD, full drive) each with exact Gain/Treble/Volume positions. Clones comparison table (Archer, KTR, Tumnus, Soul Food) with how settings translate. FAQ: "Is a Klon clone as good as the original?" → direct answer.
+- **Internal links to:** tube-screamer-settings-guide (TS vs Klon comparison), overdrive-vs-distortion-vs-fuzz, signal-chain-order-guide
+
+---
+
+## Phase 1 Continued: Weeks 5-8 — 8 Posts
+
+### P2-01: Pink Floyd / David Gilmour Lead Tone Recipe
+- **Target queries:** "david gilmour tone settings," "pink floyd guitar tone," "comfortably numb tone"
+- **Writer:** Margot Thiessen
+- **Pillar:** 1 — Tone Recipes
+- **Length:** 2,500-3,000 words
+- **AEO structure:** Song-specific settings (Comfortably Numb solo, Money, Time, Shine On). Big Muff + delay + reverb chain with exact parameters. Cross-reference Big Muff guide.
+- **Internal links to:** big-muff-settings (P1-05), reverb-types-guide, the-edge-delay-settings
+
+### P2-02: Boss DS-1 Settings for Every Style
+- **Target queries:** "boss ds-1 settings," "ds-1 best settings," "boss ds1 metal settings"
+- **Writer:** Jess Kowalski (affordable gear, punk roots)
+- **Pillar:** 2 — Settings Guides
+- **Length:** 1,800-2,200 words
+- **AEO structure:** Style sections (punk, grunge, classic rock, metal, recording boost) with clock-position settings. Mod tips section (Keeley mod, Monte Allums). FAQ format.
+- **Internal links to:** overdrive-vs-distortion-vs-fuzz, tube-screamer-settings-guide, signal-chain-order-guide
+
+### P2-03: How to Build a Quad Cortex Preset from Scratch
+- **Target queries:** "quad cortex preset tutorial," "build quad cortex preset," "quad cortex for beginners"
+- **Writer:** Sean Nakamura (QC owner, digital architect)
+- **Pillar:** 4 — Modeler Masterclass
+- **Length:** 2,500-3,000 words
+- **AEO structure:** Step-by-step HowTo format (numbered steps with settings at each stage). Start with signal flow diagram description. Include a "Your First Preset in 10 Minutes" fast-track section at top for AEO.
+- **Internal links to:** quad-cortex-captures-vs-models, helix-vs-quad-cortex, signal-chain-order-guide, how-to-dial-in-modeler-tone
+
+### P2-04: The Volume Drop Problem: Why Your Solo Patch Is Quieter
+- **Target queries:** "solo patch volume drop," "guitar solo volume boost," "modeler volume matching"
+- **Writer:** Nathan Cross (worship context, manages patch transitions live)
+- **Pillar:** 6 — Quick Fixes
+- **Length:** 800-1,000 words
+- **AEO structure:** Problem → three causes (gain ≠ volume, mid scoop, compressor release) → fix for each. Numbered list. Direct, extractable answers.
+- **Internal links to:** gain-staging-drop-tunings, how-to-dial-in-modeler-tone
+
+### P2-05: Marshall JCM800 Settings: Sweet Spots for Every Style
+- **Target queries:** "jcm800 settings," "marshall jcm800 best settings," "jcm800 metal settings"
+- **Writer:** Rick Dalton (Marshall Super Lead player, analog authority)
+- **Pillar:** 2 — Settings Guides
+- **Length:** 2,000-2,500 words
+- **AEO structure:** Style sections with settings tables. Cover the real amp AND the modeler versions (Helix Brit 2204, QC JCM800). Gain staging section (how to push the front end with an OD pedal).
+- **Internal links to:** tube-screamer-settings-guide (TS into Marshall), gain-staging-drop-tunings, complete-guide-guitar-amp-types
+
+### P2-06: How to Remove 60-Cycle Hum Without a Noise Gate
+- **Target queries:** "guitar hum fix," "60 cycle hum guitar," "single coil hum eliminate"
+- **Writer:** Carl Beckett (Telecaster single-coil player, practical solutions)
+- **Pillar:** 6 — Quick Fixes
+- **Length:** 800-1,000 words
+- **AEO structure:** Cause list (grounding, single coils, dimmer switches, power supply) → fix for each cause. Diagnostic flowchart in text form. Direct answers.
+- **Internal links to:** pickup-position-guide, signal-chain-order-guide
+
+### P2-07: Modern Worship Guitar Tone on Helix
+- **Target queries:** "worship guitar tone helix," "hillsong guitar tone settings," "ambient guitar helix"
+- **Writer:** Nathan Cross (worship architect, Helix-adjacent via AC30 knowledge)
+- **Pillar:** 1 — Tone Recipes
+- **Length:** 2,000-2,500 words
+- **AEO structure:** Complete preset walkthrough. Settings table for AC30 model + Timeline-style delay + BigSky-style reverb. Separate sections for "Sunday morning clean," "building dynamics," and "full worship lead." Cross-platform notes for QC.
+- **Internal links to:** worship-pedalboard-guide, the-edge-delay-settings, reverb-types-guide, best-helix-amp-models-blues
+
+### P2-08: FRFR vs Guitar Cab for Modelers
+- **Target queries:** "frfr vs guitar cab," "modeler through guitar cab," "frfr speaker for helix"
+- **Writer:** Sean Nakamura (runs studio monitors, has tested both approaches)
+- **Pillar:** 4 — Modeler Masterclass
+- **Length:** 1,800-2,200 words
+- **AEO structure:** Comparison table (FRFR vs cab vs studio monitors) with pros/cons. Decision flowchart. Settings differences (IR on/off, cab sim). FAQ: "Do I need FRFR?" → direct answer based on use case.
+- **Internal links to:** helix-vs-quad-cortex, how-to-dial-in-modeler-tone, why-modeler-tone-sounds-fizzy
+
+---
+
+## Phase 2: Production (Months 3-4) — 16 Posts
+
+### Tone Recipes (Pillar 1) — 6 Posts
+
+| # | Topic | Target Query | Writer | AEO Format |
+|---|---|---|---|---|
+| P3-01 | AC/DC Rhythm Tone Recipe | "ac/dc guitar tone settings," "angus young tone" | Rick Dalton | Settings table + gear-by-era breakdown |
+| P3-02 | Radiohead "Creep" Tone: Clean to Destroyed | "radiohead creep guitar tone," "creep guitar settings" | Jess Kowalski | Two settings blocks (clean verse, distorted chorus) + transition technique |
+| P3-03 | Andy Timmons Lead Tone | "andy timmons tone settings," "smooth lead guitar tone" | Margot Thiessen | Signal chain walkthrough with drive stacking recipe |
+| P3-04 | Nashville Session Clean: Tele + Compressor | "nashville session guitar tone," "telecaster compressor settings" | Carl Beckett | Minimal chain settings table, compressor deep-dive |
+| P3-05 | Shoegaze Wall of Sound Recipe | "shoegaze guitar tone settings," "shoegaze pedal settings" | Dev Okonkwo | Layered settings (multiple reverbs/delays), frequency-space approach |
+| P3-06 | Khruangbin Clean Funk Tone | "khruangbin guitar tone," "mark speer tone settings" | Dev Okonkwo | Minimal chain + spring reverb + pickup position emphasis |
+
+### Settings Guides (Pillar 2) — 3 Posts
+
+| # | Topic | Target Query | Writer |
+|---|---|---|---|
+| P3-07 | Blues Driver BD-2 Settings Guide | "boss blues driver settings," "bd-2 best settings" | Rick Dalton |
+| P3-08 | Fender Deluxe Reverb Settings: Finding Every Sweet Spot | "deluxe reverb settings," "deluxe reverb best settings" | Hank Presswood |
+| P3-09 | Compressor Pedal Settings: When, Why, and How Much | "compressor pedal settings guitar," "how to set compressor guitar" | Carl Beckett |
+
+### Modeler Masterclass (Pillar 4) — 3 Posts
+
+| # | Topic | Target Query | Writer |
+|---|---|---|---|
+| P3-10 | 10 Helix Amp Models You're Not Using (But Should Be) | "best helix amp models," "underrated helix amps" | Sean Nakamura |
+| P3-11 | Kemper Profiles vs. Helix Models: A Tone Comparison | "kemper vs helix tone," "kemper profiles vs helix" | Sean Nakamura |
+| P3-12 | ToneX Tone Models: How to Choose the Right One | "tonex best tone models," "tonex how to use" | Dev Okonkwo |
+
+### Quick Fixes (Pillar 6) — 2 Posts
+
+| # | Topic | Target Query | Writer |
+|---|---|---|---|
+| P3-13 | Fix Your Fizzy High Gain in 2 Minutes | "high gain fizzy fix," "distortion sounds fizzy" | Viktor Kessler |
+| P3-14 | Your Reverb Sounds Washed Out: The Decay and Mix Fix | "reverb too much," "reverb settings too washy" | Nathan Cross |
+
+### Gear Lab (Pillar 5) — 2 Posts
+
+| # | Topic | Target Query | Writer |
+|---|---|---|---|
+| P3-15 | Tube Screamer vs. Klon vs. Blues Driver: Same Amp, Three Pedals | "tube screamer vs klon," "ts808 vs blues driver" | Rick Dalton + Margot Thiessen (crossover) |
+| P3-16 | Does Cable Length Actually Affect Tone? We Measured It | "cable length tone guitar," "does guitar cable matter" | Viktor Kessler |
+
+---
+
+## Phase 2 Continued (Months 5-6) — 16 Posts
+
+### Tone Recipes (Pillar 1) — 5 Posts
+
+| # | Topic | Target Query | Writer |
+|---|---|---|---|
+| P4-01 | Tom Morello Rage Tone Recipe | "tom morello tone settings," "rage against machine guitar" | Jess Kowalski |
+| P4-02 | The Cure / Robert Smith Clean Chorus Tone | "the cure guitar tone," "robert smith chorus settings" | Dev Okonkwo |
+| P4-03 | BB King / Classic Blues Lead Tone | "bb king tone settings," "blues lead guitar tone" | Rick Dalton |
+| P4-04 | Misha Mansoor / Periphery Djent Tone | "periphery tone settings," "djent tone recipe" | Viktor Kessler |
+| P4-05 | Jack White Lo-Fi Garage Tone | "jack white tone settings," "lo-fi guitar tone" | Jess Kowalski |
+
+### Settings Guides (Pillar 2) — 3 Posts
+
+| # | Topic | Target Query | Writer |
+|---|---|---|---|
+| P4-06 | Vox AC30 Settings: From Jangle to Crunch | "vox ac30 settings," "ac30 best settings" | Nathan Cross |
+| P4-07 | How to Use Gain, Volume, and Master Controls Together | "amp gain vs volume," "master volume vs gain" | Hank Presswood |
+| P4-08 | Delay Pedal Settings: Slapback, Dotted Eighths, and Ambient | "delay settings guitar," "dotted eighth delay settings" | Nathan Cross |
+
+### Signal Chain & Tone Theory (Pillar 3) — 2 Posts
+
+| # | Topic | Target Query | Writer |
+|---|---|---|---|
+| P4-09 | Impedance and Buffers: Why Your Fuzz Sounds Different When You Move It | "buffer before fuzz," "impedance fuzz guitar" | Margot Thiessen |
+| P4-10 | EQ Pedal Placement: Before vs. After Dirt | "eq pedal placement," "eq before or after distortion" | Viktor Kessler |
+
+### Modeler Masterclass (Pillar 4) — 2 Posts
+
+| # | Topic | Target Query | Writer |
+|---|---|---|---|
+| P4-11 | IR Shootout: Stock Helix Cabs vs. Third-Party IRs | "helix stock ir vs third party," "best ir for helix" | Sean Nakamura |
+| P4-12 | Boss Katana Deep Dive: 7 Hidden Settings Most Players Miss | "boss katana hidden settings," "katana advanced tips" | Elena Ruiz |
+
+### Quick Fixes (Pillar 6) — 2 Posts
+
+| # | Topic | Target Query | Writer |
+|---|---|---|---|
+| P4-13 | Your Modeler Preset Sounds Different at the Gig (and How to Fix It) | "modeler sounds different live," "helix sounds bad live" | Nathan Cross |
+| P4-14 | How to Stop Pedal Hiss Without Killing Your Tone | "pedal noise floor," "guitar pedal hiss fix" | Carl Beckett |
+
+### Gear Lab (Pillar 5) — 2 Posts
+
+| # | Topic | Target Query | Writer |
+|---|---|---|---|
+| P4-15 | How Much Does Pick Thickness Change Your Tone? | "pick thickness tone," "does pick gauge matter guitar" | Carl Beckett |
+| P4-16 | We A/B Tested 5 Overdrive Pedals: Here Are the Settings That Worked | "best overdrive pedal comparison," "overdrive shootout" | Rick Dalton + Jess Kowalski (crossover) |
+
+---
+
+## AEO Formatting Rules (Apply to Every Post)
+
+These rules ensure content is extractable by AI answer engines (ChatGPT, Perplexity, Google AI Overviews).
+
+### 1. Lead With the Answer
+Every post opens with a summary block — the settings, the fix, or the recipe in a scannable format (table, numbered list, or callout box). The reader (and the AI) gets the answer in the first 200 words.
+
+### 2. Use Question-Format H2/H3 Headers
+"What settings should I use for blues on a Tube Screamer?" not "Blues Settings." Question headers match how people search and how AI models parse content.
+
+### 3. Settings in Tables, Not Paragraphs
+Every settings recommendation gets a table:
+
+| Control | Position | Notes |
+|---|---|---|
+| Drive | About 9 o'clock | Just enough to push the front end |
+| Tone | Noon | Flat — adjust brighter for single coils |
+| Level | About 2 o'clock | Match or slightly boost unity |
+
+Tables are the most extractable format for AI models.
+
+### 4. FAQ Section at the Bottom
+Every post ends with 3-5 FAQ questions answered in 1-2 sentences each. These target "People Also Ask" boxes and AI answer extraction. Use `<details>` or clear Q/A formatting.
+
+### 5. Comparison Format for Versus Content
+Any "X vs Y" content uses a side-by-side comparison table. AI models extract comparison tables more reliably than prose comparisons.
+
+### 6. "Start Here" Callout for Long Posts
+Posts over 2,000 words include a "Start Here" or "Quick Version" box after the intro that gives the core answer in 3-5 bullet points. This serves both impatient readers and AI extraction.
+
+---
+
+## Content Velocity Targets
+
+| Period | New Posts | Total Library | Posts/Week |
+|---|---|---|---|
+| Weeks 1-4 | 8 | 32 | 2 |
+| Weeks 5-8 | 8 | 40 | 2 |
+| Months 3-4 | 16 | 56 | 2 |
+| Months 5-6 | 16 | 72 | 2 |
+
+Consistent 2/week cadence. No sprints, no gaps. Consistency signals freshness to search engines.
+
+---
+
+## Writer Assignment Summary
+
+| Writer | Posts Assigned | Primary Pillars |
+|---|---|---|
+| Rick Dalton | 6 | Tone Recipes, Settings Guides, Gear Lab |
+| Jess Kowalski | 5 | Tone Recipes, Settings Guides, Gear Lab |
+| Sean Nakamura | 5 | Modeler Masterclass, Tone Recipes |
+| Margot Thiessen | 5 | Tone Recipes, Settings Guides |
+| Nathan Cross | 6 | Tone Recipes, Quick Fixes, Settings Guides |
+| Viktor Kessler | 5 | Tone Recipes, Quick Fixes, Signal Chain |
+| Carl Beckett | 4 | Quick Fixes, Gear Lab, Settings Guides |
+| Dev Okonkwo | 4 | Tone Recipes, Modeler Masterclass |
+| Hank Presswood | 3 | Settings Guides |
+| Elena Ruiz | 1 | Modeler Masterclass |
+
+Elena is underrepresented — her "parent player / constrained practice" angle works best for workflow content. As Pillar 6 (Quick Fixes) grows, she's a natural fit for short, time-constrained format posts.
+
+---
+
+## Pillar Page Architecture (Build in Parallel)
+
+These hub pages should be created during Phase 1 to serve as internal link anchors:
+
+1. **/tone-recipes** — "Tone Recipes: Sound Like Your Favorite Artists" — links to every artist/genre recipe
+2. **/settings-guides** — "Pedal & Amp Settings Guides" — links to every settings deep-dive
+3. **/signal-chain** — "Signal Chain Masterclass" — links to every theory/chain article
+4. **/modeler-guides** — "Modeler Tone Guides: Helix, Quad Cortex, Kemper & More" — links to all modeler content
+5. **/gear-lab** — "The Gear Lab: Tests, Comparisons, and Data" — links to all comparison/testing content
+6. **/quick-fixes** — "Quick Tone Fixes" — links to all troubleshooting posts
+
+Each pillar page is a navigational hub AND an SEO cluster anchor. Update them every time a new post publishes in that pillar.
+
+---
+
+## Structured Data Implementation (Technical SEO)
+
+Apply alongside content production:
+
+| Schema Type | Apply To | Priority |
+|---|---|---|
+| HowTo | All tone recipe posts | P1 — highest click-through impact |
+| FAQ | All posts with FAQ sections | P1 |
+| Article + author | All posts | P1 |
+| ItemList | Pillar hub pages | P2 |
+| BreadcrumbList | All pages | P2 |
+
+---
+
+## Quick Reference: What NOT to Write
+
+Based on the competitive analysis, avoid these formats:
+
+1. **"Best X of 2026" listicles** — Guitar World and Guitar Player own this format with affiliate revenue backing. F&K cannot compete and it's off-brand.
+2. **Product reviews** — Same reason. Not our lane.
+3. **History-first articles** — Lead with the recipe, add history as supporting context.
+4. **"Use your ears" conclusions** — Give a specific starting point, then tell them what to listen for.
+5. **Single-platform-only content** — Always include at least a note about how the concept translates to other platforms/gear.
