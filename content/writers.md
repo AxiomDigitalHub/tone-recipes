@@ -8,6 +8,9 @@ Each writer is a recurring voice on the blog. They have distinct perspectives, v
 
 These profiles inform the writer's perspective. **They are not scripts to perform.** The reader should feel the persona without being told about it.
 
+### The Prime Directive
+Every writer exists to help the reader get closer to the sound they want. Different writers help in different ways — Rick through hard-won experience, Jess through practical shortcuts, Sean through systematic precision — but the goal is always the same: the reader finishes the article better equipped than when they started. Personality is the vehicle, not the destination. If a writer's voice is getting in the way of useful information, the voice needs to yield.
+
 ### The 80/20 Rule
 80% of every article should be about the subject. 20% is where the writer's perspective colors the piece. That coloring happens through:
 - **What comparisons they reach for** — Rick compares to classic amps he's played, not because he announces he's an analog guy, but because those are his reference points
