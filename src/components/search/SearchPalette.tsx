@@ -153,6 +153,11 @@ export default function SearchPalette() {
           setActiveIndex(0);
         }
       }
+      if (e.key === "Escape") {
+        setOpen(false);
+        setQuery("");
+        setActiveIndex(0);
+      }
     }
 
     function handleOpenSearch() {
