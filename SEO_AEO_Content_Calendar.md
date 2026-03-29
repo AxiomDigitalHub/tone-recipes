@@ -36,7 +36,7 @@ Priority is based on: (1) search volume potential, (2) competitive gap size, (3)
 
 These fill the biggest gaps and create cluster anchors for future content.
 
-### P1-01: John Mayer Clean Tone Settings
+### P1-01: John Mayer Clean Tone Settings ✅ PUBLISHED 2026-03-29
 - **Target queries:** "john mayer clean tone settings," "how to get john mayer tone," "mayer continuum tone"
 - **Writer:** Margot Thiessen (jazz/blues sensibility, Continuum fan per bio)
 - **Pillar:** 1 — Tone Recipes
@@ -45,7 +45,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 - **Internal links to:** pickup-position-guide (neck pickup emphasis), reverb-types-guide (spring reverb settings), tube-screamer-settings-guide (clean boost config)
 - **Internal links from (update):** pickup-position-guide, reverb-types-guide
 
-### P1-02: Metallica Rhythm Tone Settings
+### P1-02: Metallica Rhythm Tone Settings ✅ PUBLISHED 2026-03-29
 - **Target queries:** "metallica rhythm tone settings," "james hetfield tone," "mesa boogie metal settings"
 - **Writer:** Viktor Kessler (metal scientist, gain staging expertise)
 - **Pillar:** 1 — Tone Recipes
@@ -54,7 +54,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 - **Internal links to:** gain-staging-drop-tunings, overdrive-vs-distortion-vs-fuzz, signal-chain-order-guide
 - **Internal links from (update):** gain-staging-drop-tunings, overdrive-vs-distortion-vs-fuzz
 
-### P1-03: RAT Pedal Settings for Every Genre
+### P1-03: RAT Pedal Settings for Every Genre ✅ PUBLISHED 2026-03-29
 - **Target queries:** "rat pedal settings," "proco rat settings for blues," "rat settings for grunge"
 - **Writer:** Jess Kowalski (punk engineer, affordable gear advocate)
 - **Pillar:** 2 — Settings Guides
@@ -63,7 +63,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 - **Internal links to:** overdrive-vs-distortion-vs-fuzz, signal-chain-order-guide, tube-screamer-settings-guide (comparison)
 - **Internal links from (update):** overdrive-vs-distortion-vs-fuzz
 
-### P1-04: Fix Thin Modeler Tone: 5 Settings to Check
+### P1-04: Fix Thin Modeler Tone: 5 Settings to Check ✅ PUBLISHED 2026-03-29
 - **Target queries:** "modeler tone sounds thin," "helix tone thin fix," "digital amp thin sound"
 - **Writer:** Sean Nakamura (digital architect, modeler expert)
 - **Pillar:** 6 — Quick Fixes
@@ -72,7 +72,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 - **Internal links to:** why-modeler-tone-sounds-fizzy (companion piece), how-to-dial-in-modeler-tone, helix-vs-quad-cortex
 - **Internal links from (update):** why-modeler-tone-sounds-fizzy
 
-### P1-05: Big Muff Settings Guide
+### P1-05: Big Muff Settings Guide ✅ PUBLISHED 2026-03-29
 - **Target queries:** "big muff settings," "big muff for shoegaze," "big muff fuzz settings"
 - **Writer:** Margot Thiessen (tone sommelier, knows the fuzz landscape)
 - **Pillar:** 2 — Settings Guides
@@ -373,3 +373,15 @@ Based on the competitive analysis, avoid these formats:
 3. **History-first articles** — Lead with the recipe, add history as supporting context.
 4. **"Use your ears" conclusions** — Give a specific starting point, then tell them what to listen for.
 5. **Single-platform-only content** — Always include at least a note about how the concept translates to other platforms/gear.
+
+---
+
+## SERP-Derived Topics — 2026-03-29
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | RAT vs. Tube Screamer vs. Big Muff: Three Classic Pedals, One Amp | "rat vs tube screamer," "rat vs big muff," "best classic distortion pedal" | Jess Kowalski | 5 — Gear Lab | RAT pedal SERP — no side-by-side comparison of all three classic pedals exists |
+| 2 | Why the Tube Screamer Before a High-Gain Amp Is the Best Metal Trick | "tube screamer before high gain amp," "ts808 before mesa boogie," "overdrive into high gain amp" | Viktor Kessler | 3 — Signal Chain & Tone Theory | Metallica SERP — OD808 + amp formula is widely referenced but never fully explained in one place |
+| 3 | Modeler EQ Guide: The 5-Band EQ Shape Every Patch Needs | "helix eq settings," "modeler eq guide," "eq for amp modeler patch" | Sean Nakamura | 4 — Modeler Masterclass | Thin modeler tone SERP — EQ is the most-referenced fix but editorial guides on modeler EQ strategy are sparse |
+| 4 | PRS Silver Sky vs. Fender Strat: Which Gets Closer to the Mayer Clean Tone? | "prs silver sky vs fender strat tone," "silver sky vs american professional strat" | Margot Thiessen | 5 — Gear Lab | John Mayer SERP — competitors mention both guitars but no direct comparison exists in editorial content |
+| 5 | Big Muff vs. Fuzz Face: Two Fuzzes, Two Completely Different Circuits | "big muff vs fuzz face," "fuzz face vs big muff which is better" | Margot Thiessen | 5 — Gear Lab | Big Muff SERP — OffsetGuitars forums have extensive discussion but no structured editorial guide; clean content gap |
