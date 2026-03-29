@@ -371,7 +371,7 @@ export default function UnifiedChainView({
     <div className={
       isFullscreen
         ? "fixed inset-x-0 top-16 bottom-0 z-[60] flex flex-col bg-surface overflow-y-auto"
-        : "rounded-xl border border-border bg-surface overflow-hidden"
+        : "rounded-xl border border-border bg-surface"
     }>
       {/* Guitar header bar */}
       <GuitarHeader
@@ -442,7 +442,7 @@ export default function UnifiedChainView({
 
       {/* Chain area */}
       {activeTab === "physical" ? (
-        <div role="tabpanel" aria-label="Physical signal chain" className="w-full md:overflow-x-auto">
+        <div role="tabpanel" aria-label="Physical signal chain" className="w-full overflow-visible">
           <div className="flex flex-col items-center gap-2 px-4 py-6 md:flex-row md:items-start md:justify-center">
             {signalChain.map((node, i) => {
               const nextNode = signalChain[i + 1];
@@ -485,7 +485,7 @@ export default function UnifiedChainView({
           )}
         </div>
       ) : activeTranslation ? (
-        <div role="tabpanel" aria-label={`${activePlatformMeta?.label || activeTab} signal chain`} className="w-full md:overflow-x-auto">
+        <div role="tabpanel" aria-label={`${activePlatformMeta?.label || activeTab} signal chain`} className="w-full overflow-visible">
           <div className="flex flex-col items-center gap-2 px-4 py-6 md:flex-row md:items-start md:justify-center">
             {activeTranslation.chain_blocks.map((block, i) => {
               const nextBlock = activeTranslation.chain_blocks[i + 1];
