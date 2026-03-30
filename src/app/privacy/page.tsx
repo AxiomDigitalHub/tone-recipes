@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
       <h1 className="mb-2 text-3xl font-bold text-zinc-100">Privacy Policy</h1>
-      <p className="mb-10 text-sm text-zinc-500">Last updated: March 29, 2026</p>
+      <p className="mb-10 text-sm text-zinc-500">Last updated: March 30, 2026</p>
 
       <div className="space-y-10 text-zinc-300 leading-relaxed">
         {/* ---- Intro ---- */}
@@ -46,8 +46,9 @@ export default function PrivacyPolicyPage() {
           <p>
             We use essential cookies for authentication sessions and localStorage
             to persist your preferences (e.g., preferred platform, theme). We
-            also use analytics cookies via Vercel Analytics. You can disable
-            non-essential cookies in your browser settings.
+            also use analytics cookies via Vercel Analytics, Google Analytics,
+            and Microsoft Clarity. You can disable non-essential cookies in your
+            browser settings.
           </p>
         </section>
 
@@ -84,6 +85,15 @@ export default function PrivacyPolicyPage() {
             <li>
               <strong className="text-zinc-200">Vercel</strong> &mdash; Website
               hosting and analytics
+            </li>
+            <li>
+              <strong className="text-zinc-200">Google Analytics</strong> &mdash;
+              Website traffic analysis and usage reporting
+            </li>
+            <li>
+              <strong className="text-zinc-200">Microsoft Clarity</strong> &mdash;
+              Behavioral analytics including heatmaps and session replay (see
+              Section 4a below)
             </li>
             <li>
               <strong className="text-zinc-200">Google OAuth</strong> &mdash;
@@ -126,6 +136,47 @@ export default function PrivacyPolicyPage() {
               className="text-amber-400 underline hover:text-amber-300"
             >
               Affiliate Disclosure
+            </a>
+            .
+          </p>
+        </section>
+
+        {/* ---- 4a ---- */}
+        <section>
+          <h2 className="mb-3 text-xl font-semibold text-zinc-100">
+            4a. Microsoft Clarity &amp; Analytics
+          </h2>
+          <p>
+            We partner with Microsoft Clarity and Microsoft Advertising to
+            capture how you use and interact with our website through behavioral
+            metrics, heatmaps, and session replay to improve and market our
+            products and services. Website usage data is captured using first and
+            third-party cookies and other tracking technologies to determine the
+            popularity of products/services and online activity. Additionally, we
+            use this information for site optimization, fraud/security purposes,
+            and advertising. For more information about how Microsoft collects
+            and uses your data, visit the{" "}
+            <a
+              href="https://www.microsoft.com/privacy/privacystatement"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-400 underline hover:text-amber-300"
+            >
+              Microsoft Privacy Statement
+            </a>
+            .
+          </p>
+          <p className="mt-3">
+            We also use Google Analytics to understand aggregate traffic
+            patterns. Google Analytics uses cookies to collect anonymous usage
+            data. You can opt out of Google Analytics by installing the{" "}
+            <a
+              href="https://tools.google.com/dlpage/gaoptout"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-400 underline hover:text-amber-300"
+            >
+              Google Analytics Opt-out Browser Add-on
             </a>
             .
           </p>

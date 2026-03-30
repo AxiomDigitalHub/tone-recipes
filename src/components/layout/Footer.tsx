@@ -95,8 +95,12 @@ export default function Footer() {
           </p>
         </div>
       </div>
-      <div className="mx-auto max-w-7xl px-4 pb-4">
+      <div className="mx-auto max-w-7xl px-4 pb-4 space-y-3">
         <AffiliateDisclosure />
+        <p className="text-[11px] leading-relaxed text-muted/70">
+          We improve our products and advertising by using Microsoft Clarity to see how you use our website. By using our site, you agree that we and Microsoft can collect and use this data. Our{" "}
+          <Link href="/privacy" className="underline hover:text-foreground">privacy policy</Link> has more details.
+        </p>
       </div>
     </footer>
   );
