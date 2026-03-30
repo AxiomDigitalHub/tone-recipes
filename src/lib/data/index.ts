@@ -1033,11 +1033,11 @@ export const gearItems: GearItem[] = [
     },
     modeler_equivalents: {
       helix: "Scream 808",
-      quad_cortex: "TS808 OD",
-      tonex: "TS808",
+      quad_cortex: "Green 808",
+      tonex: "Search ToneNET for 'TS808' (Tone Model capture)",
       fractal: "T808 OD",
       kemper: "Green Scream",
-      katana: "Blues Driver (Booster)",
+      katana: "Blues Drive (Booster)",
     },
   },
   {
@@ -1061,9 +1061,9 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "US Deluxe Vib",
       quad_cortex: "Vibro Verb",
-      tonex: "Vibroverb",
+      tonex: "Search ToneNET for 'Fender Vibroverb' (Tone Model capture)",
       fractal: "Vibrato Verb",
-      kemper: "Fender Vibroverb",
+      kemper: "Search Rig Exchange for 'Vibroverb'",
       katana: "Crunch Channel",
     },
   },
@@ -1086,10 +1086,10 @@ export const gearItems: GearItem[] = [
     },
     modeler_equivalents: {
       helix: "Triangle Fuzz",
-      quad_cortex: "Big Pi",
-      tonex: "Big Muff",
-      fractal: "Big Muff Pi",
-      kemper: "Big Muff",
+      quad_cortex: "Fuzz Pi",
+      tonex: "Search ToneNET for 'Big Muff' (Tone Model capture)",
+      fractal: "PI Fuzz",
+      kemper: "Muffin",
       katana: "Muff Fuzz (Booster)",
     },
   },
@@ -1115,9 +1115,9 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "WhoWatt 100",
       quad_cortex: "Hiwatt DR103",
-      tonex: "Hiwatt",
-      fractal: "Hipower 100",
-      kemper: "Hiwatt Custom 100",
+      tonex: "Search ToneNET for 'Hiwatt DR103' (Tone Model capture)",
+      fractal: "Hipower",
+      kemper: "Search Rig Exchange for 'Hiwatt'",
       katana: "Lead Channel (clean)",
     },
   },
@@ -1140,11 +1140,11 @@ export const gearItems: GearItem[] = [
     },
     modeler_equivalents: {
       helix: "Deez One Vintage",
-      quad_cortex: "DS-1",
-      tonex: "Boss DS-1",
-      fractal: "Bender Fuzz",
-      kemper: "DS-1",
-      katana: "DS-1 (Booster)",
+      quad_cortex: "Chief DS1",
+      tonex: "Search ToneNET for 'Boss DS-1' (Tone Model capture)",
+      fractal: "DS1 Distortion",
+      kemper: "One DS",
+      katana: "Distortion (Booster)",
     },
   },
   {
@@ -1166,10 +1166,10 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Arbitrator Fuzz",
       quad_cortex: "Fuzz Face",
-      tonex: "Fuzz Face",
+      tonex: "Search ToneNET for 'Fuzz Face' (Tone Model capture)",
       fractal: "Face Fuzz",
-      kemper: "Fuzz Face",
-      katana: "Fuzz Face (Booster)",
+      kemper: "Kemper Fuzz",
+      katana: "'60s Fuzz (Booster)",
     },
   },
   {
@@ -1194,9 +1194,9 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Brit Plexi Brt",
       quad_cortex: "1959 SLP",
-      tonex: "Marshall Plexi",
+      tonex: "Search ToneNET for 'Marshall Plexi' (Tone Model capture)",
       fractal: "Plexi 100W",
-      kemper: "Marshall Plexi",
+      kemper: "Search Rig Exchange for 'Plexi'",
       katana: "Brown Channel",
     },
   },
@@ -1216,10 +1216,10 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Chrome",
       quad_cortex: "Wah",
-      tonex: "Cry Baby",
+      tonex: "Not available (TONEX has no wah effect)",
       fractal: "Cry Baby",
-      kemper: "Cry Baby",
-      katana: "Pedal Wah (Pedal FX)",
+      kemper: "Wah Wah",
+      katana: "Wah 95E (Mod/FX)",
     },
   },
   {
@@ -1239,11 +1239,11 @@ export const gearItems: GearItem[] = [
       ],
     },
     modeler_equivalents: {
-      helix: "Gray Flanger (or Legacy Uni-Vibe)",
+      helix: "Ubiquitous Vibe",
       quad_cortex: "Uni-Vibe",
-      tonex: "Uni-Vibe",
-      fractal: "Uni-Vibe",
-      kemper: "Vintage Phaser",
+      tonex: "Phaser or Chorus (closest built-in effects; no true Uni-Vibe)",
+      fractal: "Vibe",
+      kemper: "Vibe Phaser",
       katana: "Uni-V (Mod)",
     },
   },
@@ -1262,7 +1262,7 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "57 Dynamic",
       quad_cortex: "SM57",
-      fractal: "Shure 57",
+      fractal: "Shure SM57",
       kemper: "SM57",
     },
   },
@@ -1284,7 +1284,7 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "421 Dynamic",
       quad_cortex: "MD421",
-      fractal: "Sennheiser 421",
+      fractal: "Sennheiser E609 (no MD421; closest Sennheiser mic sim)",
       kemper: "MD421",
     },
   },
@@ -1304,9 +1304,9 @@ export const gearItems: GearItem[] = [
       ],
     },
     modeler_equivalents: {
-      helix: "Ribbon 121",
+      helix: "121 Ribbon",
       quad_cortex: "R121",
-      fractal: "Royer 121",
+      fractal: "Royer R-121",
       kemper: "Ribbon 121",
     },
   },
@@ -1327,9 +1327,9 @@ export const gearItems: GearItem[] = [
       ],
     },
     modeler_equivalents: {
-      helix: "87 Condenser",
+      helix: "87 Cond",
       quad_cortex: "U87",
-      fractal: "Neumann 87",
+      fractal: "Neumann U87",
       kemper: "Large Condenser",
     },
   },
@@ -1350,9 +1350,9 @@ export const gearItems: GearItem[] = [
       ],
     },
     modeler_equivalents: {
-      helix: "414 Condenser",
+      helix: "414 Cond",
       quad_cortex: "C414",
-      fractal: "AKG 414",
+      fractal: "AKG D112 (no C414 mic sim available)",
       kemper: "Large Condenser",
     },
   },
@@ -1366,7 +1366,7 @@ export const gearItems: GearItem[] = [
     description:
       "The classic 4x12 with Celestion G12M Greenback speakers. Warm, woody midrange with controlled top end. The sound of classic rock.",
     modeler_equivalents: {
-      helix: "4x12 Greenback25",
+      helix: "4x12 Greenback 25",
       quad_cortex: "4x12 Green 25",
       fractal: "4x12 Green 25W",
       kemper: "4x12 Greenback",
@@ -1451,7 +1451,7 @@ export const gearItems: GearItem[] = [
     description:
       "Closed-back 2x12 with Celestion Vintage 30 speakers. Known for chunky, mid-forward character with a thick low end. The closed-back design focuses the sound for a punchier, more directional response than open-back cabs.",
     modeler_equivalents: {
-      helix: "2x12 Cali V30",
+      helix: "2x12 Mandarin 30",
       quad_cortex: "2x12 Orange V30",
       fractal: "2x12 Orange V30",
       kemper: "2x12 Orange",
@@ -1494,10 +1494,10 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "70s Chorus",
       quad_cortex: "Small Clone",
-      tonex: "Chorus",
+      tonex: "Chorus (built-in effect)",
       fractal: "Analog Chorus",
-      kemper: "Small Clone",
-      katana: "CE-1 Chorus (Mod)",
+      kemper: "Vintage Chorus",
+      katana: "Chorus (Mod)",
     },
   },
   {
@@ -1533,9 +1533,9 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Brit 2204",
       quad_cortex: "JCM800",
-      tonex: "JCM800",
-      fractal: "800 2204",
-      kemper: "JCM800",
+      tonex: "Search ToneNET for 'JCM800' (Tone Model capture)",
+      fractal: "Brit 800",
+      kemper: "Search Rig Exchange for 'JCM800'",
       katana: "Brown Channel",
     },
   },
@@ -1571,9 +1571,9 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Essex A30",
       quad_cortex: "AC30 TB",
-      tonex: "AC30",
+      tonex: "Search ToneNET for 'Vox AC30' (Tone Model capture)",
       fractal: "AC-30 TB",
-      kemper: "Vox AC30",
+      kemper: "Search Rig Exchange for 'AC30'",
       katana: "Crunch Channel",
     },
   },
@@ -1599,8 +1599,8 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Derailed Ingrid",
       quad_cortex: "Two Rock",
-      fractal: "Two Stone J35",
-      kemper: "Two Rock",
+      fractal: "Two-Stone J35",
+      kemper: "Search Rig Exchange for 'Two Rock'",
     },
   },
   {
@@ -1631,8 +1631,8 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "US Small Tweed",
       quad_cortex: "Champ",
-      fractal: "Tweed Champ",
-      kemper: "Fender Champ",
+      fractal: "5F1 Tweed",
+      kemper: "Search Rig Exchange for 'Champ'",
       katana: "Crunch Channel",
     },
   },
@@ -1667,9 +1667,9 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "US Deluxe Nrm",
       quad_cortex: "Bassman",
-      tonex: "Bassman",
-      fractal: "Bassman 5F6-A",
-      kemper: "Fender Bassman",
+      tonex: "Search ToneNET for 'Fender Bassman' (Tone Model capture)",
+      fractal: "59 Bassguy",
+      kemper: "Search Rig Exchange for 'Bassman'",
       katana: "Crunch Channel",
     },
   },
@@ -1702,7 +1702,7 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "US Small Tweed",
       quad_cortex: "Silvertone",
-      kemper: "Silvertone",
+      kemper: "Search Rig Exchange for 'Silvertone'",
     },
   },
   {
@@ -1724,8 +1724,8 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Pitch Wham",
       quad_cortex: "Whammy",
-      fractal: "Whammy",
-      kemper: "Whammy",
+      fractal: "Classic Whammy",
+      kemper: "Pedal Pitch",
       katana: "Pitch Shifter (Pedal FX)",
     },
   },
@@ -1761,11 +1761,11 @@ export const gearItems: GearItem[] = [
       ],
     },
     modeler_equivalents: {
-      helix: "Cali Rectifire",
+      helix: "Cali 2C+ Lead",
       quad_cortex: "Mesa Mark IIC+",
-      tonex: "Mesa Mark",
-      fractal: "Mark IIC+ Lead",
-      kemper: "Mesa Mark IIC+",
+      tonex: "Search ToneNET for 'Mesa Mark IIC+' (Tone Model capture)",
+      fractal: "USA MK IIC+",
+      kemper: "Search Rig Exchange for 'Mark IIC+'",
       katana: "Lead Channel",
     },
   },
@@ -1787,10 +1787,10 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Script Mod Phase",
       quad_cortex: "Phase 90",
-      tonex: "Phase 90",
-      fractal: "Phase 90",
-      kemper: "Phase 90",
-      katana: "Phaser (Mod)",
+      tonex: "Phaser (built-in effect)",
+      fractal: "Script",
+      kemper: "Phaser",
+      katana: "Phaser 90E (Mod)",
     },
   },
   {
@@ -1813,8 +1813,8 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Brit J45 Nrm",
       quad_cortex: "JTM45",
-      fractal: "JTM45",
-      kemper: "Marshall JTM45",
+      fractal: "Brit JM45",
+      kemper: "Search Rig Exchange for 'JTM45'",
       katana: "Brown Channel",
     },
   },
@@ -1840,8 +1840,8 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Cali Texas Ch1",
       quad_cortex: "Mesa Mark I",
-      fractal: "Mark I",
-      kemper: "Mesa Mark I",
+      fractal: "USA Lead",
+      kemper: "Search Rig Exchange for 'Mark I'",
       katana: "Lead Channel",
     },
   },
@@ -1866,8 +1866,8 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "US Double Nrm",
       quad_cortex: "Twin Reverb",
-      fractal: "Twin Reverb",
-      kemper: "Fender Twin",
+      fractal: "Double Verb",
+      kemper: "Search Rig Exchange for 'Twin Reverb'",
       katana: "Clean Channel",
     },
   },
@@ -1891,8 +1891,8 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Brit Plexi Brt",
       quad_cortex: "Laney Supergroup",
-      fractal: "Supergroup",
-      kemper: "Laney Supergroup",
+      fractal: "1959SLP (no Laney model; Marshall Plexi is closest)",
+      kemper: "Search Rig Exchange for 'Laney Supergroup'",
       katana: "Brown Channel",
     },
   },
@@ -1961,8 +1961,8 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "PV Panama",
       quad_cortex: "Randall Century",
-      fractal: "Recto2 Red Mdrn",
-      kemper: "Randall",
+      fractal: "Recto2 Red Mdrn (no Randall model; high-gain Mesa is closest)",
+      kemper: "Search Rig Exchange for 'Randall'",
       katana: "Lead Channel",
     },
   },
@@ -2004,9 +2004,9 @@ export const gearItems: GearItem[] = [
       ],
     },
     modeler_equivalents: {
-      helix: "Kinky Boost",
+      helix: "Deranged Master",
       quad_cortex: "Rangemaster",
-      fractal: "Treble Booster",
+      fractal: "FAS Boost (no Rangemaster model; clean boost approximation)",
       kemper: "Treble Booster",
       katana: "Treble Boost (Booster)",
     },
@@ -2041,9 +2041,9 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Minotaur",
       quad_cortex: "Distortion+",
-      fractal: "MXR Dist+",
-      kemper: "MXR Dist+",
-      katana: "Mid Boost (Booster)",
+      fractal: "Plus Distortion",
+      kemper: "Plus DS",
+      katana: "DST+ (Booster)",
     },
   },
   {
@@ -2067,7 +2067,7 @@ export const gearItems: GearItem[] = [
       quad_cortex: "CE-1",
       fractal: "Analog Chorus",
       kemper: "Vintage Chorus",
-      katana: "CE-1 Chorus (Mod)",
+      katana: "Chorus (Mod)",
     },
   },
   {
@@ -2093,7 +2093,7 @@ export const gearItems: GearItem[] = [
       quad_cortex: "Flanger",
       fractal: "Flanger",
       kemper: "Flanger",
-      katana: "Flanger (Mod)",
+      katana: "Flanger 117E (Mod)",
     },
   },
 
@@ -2115,8 +2115,8 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Soup Pro",
       quad_cortex: "Supro",
-      fractal: "Supro Thunderbolt",
-      kemper: "Supro",
+      fractal: "Supremo Trem",
+      kemper: "Search Rig Exchange for 'Supro'",
       katana: "Crunch Channel",
     },
   },
@@ -2142,8 +2142,8 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Cali IV Lead",
       quad_cortex: "Mesa Mark IV",
-      fractal: "Mark IV Lead",
-      kemper: "Mesa Mark IV",
+      fractal: "USA MK IV",
+      kemper: "Search Rig Exchange for 'Mark IV'",
       katana: "Lead Channel",
     },
   },
@@ -2169,8 +2169,8 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Das Benzin Lead",
       quad_cortex: "Diezel VH4",
-      fractal: "Diezel VH4 Ch3",
-      kemper: "Diezel VH4",
+      fractal: "Dizzy V4 Red",
+      kemper: "Search Rig Exchange for 'Diezel VH4'",
       katana: "Lead Channel",
     },
   },
@@ -2196,8 +2196,8 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "Deez One Mod",
       quad_cortex: "Shredmaster",
-      fractal: "Shredmaster",
-      kemper: "Shredmaster",
+      fractal: "Shred Distortion",
+      kemper: "Kemper Drive (high gain preset)",
       katana: "HM-2 (Booster)",
     },
   },
@@ -2221,8 +2221,8 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "US Deluxe Nrm",
       quad_cortex: "Deluxe Reverb",
-      fractal: "Deluxe Reverb",
-      kemper: "Fender Deluxe",
+      fractal: "Deluxe Verb",
+      kemper: "Search Rig Exchange for 'Deluxe Reverb'",
       katana: "Crunch Channel",
     },
   },
@@ -2270,8 +2270,8 @@ export const gearItems: GearItem[] = [
     modeler_equivalents: {
       helix: "US Deluxe Vib",
       quad_cortex: "Vibro-King",
-      fractal: "Vibro-King",
-      kemper: "Fender Vibro-King",
+      fractal: "Vibra-King",
+      kemper: "Search Rig Exchange for 'Vibro-King'",
       katana: "Crunch Channel",
     },
   },
@@ -2295,10 +2295,10 @@ export const gearItems: GearItem[] = [
       ],
     },
     modeler_equivalents: {
-      helix: "Cartographer",
+      helix: "Line 6 Litigator",
       quad_cortex: "Dumble ODS",
-      fractal: "Dumble ODS",
-      kemper: "Dumble ODS",
+      fractal: "ODS-100 HRM",
+      kemper: "Search Rig Exchange for 'Dumble'",
       katana: "Lead Channel",
     },
   },
@@ -2331,10 +2331,10 @@ export const gearItems: GearItem[] = [
       ],
     },
     modeler_equivalents: {
-      helix: "Ampeg B-15NF (or SV Beast Nrm)",
+      helix: "Ampeg SVT Nrm",
       quad_cortex: "Ampeg VT-40",
-      fractal: "Ampeg SVT",
-      kemper: "Ampeg",
+      fractal: "USA Bass 400 (no Ampeg VT-40 model; Mesa bass amp approximation)",
+      kemper: "Search Rig Exchange for 'Ampeg'",
       katana: "Brown Channel",
     },
   },
@@ -2360,8 +2360,8 @@ export const gearItems: GearItem[] = [
       helix: "Simple Delay",
       quad_cortex: "Digital Delay",
       fractal: "Digital Delay",
-      kemper: "Crystal Delay",
-      katana: "Digital Delay (Delay)",
+      kemper: "Single Delay",
+      katana: "Digital (Delay)",
     },
   },
   {
@@ -2389,8 +2389,8 @@ export const gearItems: GearItem[] = [
       helix: "3 OSC Synth",
       quad_cortex: "Synth",
       fractal: "Synth",
-      kemper: "Synth",
-      katana: "Octave (Pedal FX)",
+      kemper: "Harmonic Pitch + Analog Octaver",
+      katana: "Wave Synth (Mod/FX)",
     },
   },
 ];
@@ -2516,7 +2516,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "1x15 Ampeg",
+            block_name: "1x15 Ampeg B-15",
             block_category: "Cab",
             original_gear: "1x15 JBL D130F",
             settings: { Mic: "57 Dynamic", Distance: 2.0 },
@@ -2531,7 +2531,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "TS808 OD",
+            block_name: "Green 808",
             block_category: "Drive",
             original_gear: "Ibanez TS808",
             settings: { Drive: 1.0, Tone: 6.0, Level: 10.0 },
@@ -2539,7 +2539,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Vibro Verb",
+            block_name: "US Vibro",
             block_category: "Amp",
             original_gear: "Fender Vibroverb",
             settings: {
@@ -2554,7 +2554,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "1x15 Vibroverb",
+            block_name: "1x15 US",
             block_category: "Cab",
             original_gear: "1x15 JBL D130F",
             settings: { Mic: "SM57", Distance: "2 inches" },
@@ -2569,12 +2569,12 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "TS808",
-            block_category: "Stomp",
+            block_name: "Search ToneNET for 'TS808' or 'Tube Screamer'",
+            block_category: "Tone Model",
             original_gear: "Ibanez TS808",
-            settings: { Drive: 1.0, Tone: 6.0, Level: 10.0 },
+            settings: {},
             notes:
-              "TONEX includes a TS808 stomp model in the effects section. Drive at minimum — this is a clean boost. Level maxed.",
+              "TONEX does not have a built-in TS808 stomp effect. Search ToneNET for a TS808 Tone Model capture with low gain settings to use as a clean boost. Alternatively, use TONEX's built-in EQ or Compressor to approximate the mid-boost character.",
           },
           {
             position: 2,
@@ -2587,7 +2587,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "TONEX works differently from Helix and QC. Instead of modeling individual amp components, it captures the entire amp+cab+mic chain as a single 'Tone Model.' For SRV tone, find a good Vibroverb capture on ToneNET and put the TS808 stomp before it.",
+          "TONEX works differently from Helix and QC. Instead of modeling individual amp components, it uses AI-captured 'Tone Models' that clone the entire amp+cab+mic chain. For SRV tone, find a Vibroverb Tone Model on ToneNET and pair it with a TS808 Tone Model capture. TONEX's built-in effects are limited to compressor, EQ, noise gate, reverb, delay, and modulation — no drive pedal effects.",
       },
       katana: {
         chain_blocks: [
@@ -2609,16 +2609,16 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Blues Driver",
+            block_name: "Blues Drive",
             block_category: "Booster",
             original_gear: "Ibanez TS808",
             settings: { Level: 10, Tone: 6, Drive: 1 },
             notes:
-              "Set the Booster to Blues Driver in Boss Tone Studio. Acts as the Tube Screamer mid-boost — drive at minimum, level maxed to slam the amp's front end.",
+              "Set the Booster to Blues Drive in Boss Tone Studio. Acts as the Tube Screamer mid-boost — drive at minimum, level maxed to slam the amp's front end.",
           },
         ],
         notes:
-          "The Katana's Crunch channel at moderate gain approximates a pushed blackface Fender. The Blues Driver in the Booster slot acts as the Tube Screamer mid-boost. Set the Booster to Blues Driver in Boss Tone Studio. The Katana won't perfectly replicate the Vibroverb's 1x15 speaker character, but the Crunch channel gets close to that warm breakup.",
+          "The Katana's Crunch channel at moderate gain approximates a pushed blackface Fender. The Blues Drive in the Booster slot acts as the Tube Screamer mid-boost. Set the Booster to Blues Drive in Boss Tone Studio. The Katana won't perfectly replicate the Vibroverb's 1x15 speaker character, but the Crunch channel gets close to that warm breakup.",
       },
     },
     is_editorial: true,
@@ -2813,7 +2813,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Transistor Tape",
+            block_name: "Cosmos Echo",
             block_category: "Delay",
             original_gear: "Binson Echorec",
             settings: { Time: "440ms", Feedback: 35, Mix: 30 },
@@ -2822,7 +2822,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 5,
-            block_name: "Plate Reverb",
+            block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Decay: 2.5, Mix: 25, "Pre Delay": 30 },
@@ -2831,7 +2831,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 6,
-            block_name: "4x12 Greenback25",
+            block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "WEM 4x12 Fane",
             settings: { Mic: "57 Dynamic", Distance: 3.0 },
@@ -2871,21 +2871,21 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Digital Delay",
-            block_category: "FX",
+            block_name: "Digital",
+            block_category: "Delay",
             original_gear: "Binson Echorec",
             settings: { Time: "440ms", Feedback: 35, Level: 30 },
             notes:
-              "Add Digital Delay in the FX section for the spacious Gilmour sustain. Set the time to 440ms for musical repeats that fill gaps between phrases.",
+              "Add Digital delay for the spacious Gilmour sustain. Set the time to 440ms for musical repeats that fill gaps between phrases.",
           },
           {
             position: 4,
-            block_name: "Reverb",
-            block_category: "FX",
+            block_name: "Plate",
+            block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Level: 25 },
             notes:
-              "Add reverb in the FX section via Boss Tone Studio for the lush spaciousness that defines Gilmour's lead tone.",
+              "Add Plate reverb via Boss Tone Studio for the lush spaciousness that defines Gilmour's lead tone.",
           },
         ],
         notes:
@@ -3015,12 +3015,12 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Chrome",
+            block_name: "Teardrop 310",
             block_category: "Wah",
             original_gear: "Dunlop Cry Baby Wah",
             settings: { Position: "Expression Pedal" },
             notes:
-              "Assign to an expression pedal for real-time control. The Chrome wah is Helix's Cry Baby model. Set the auto-engage to on so it activates when you move the pedal.",
+              "Assign to an expression pedal for real-time control. The Teardrop 310 is Helix's Cry Baby model. Set the auto-engage to on so it activates when you move the pedal.",
           },
           {
             position: 2,
@@ -3049,7 +3049,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "4x12 Greenback25",
+            block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
             settings: { Mic: "57 Dynamic", Distance: 1.0 },
@@ -3064,7 +3064,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Wah",
+            block_name: "Crying Wah",
             block_category: "Wah",
             original_gear: "Dunlop Cry Baby Wah",
             settings: { Position: "Expression Pedal" },
@@ -3073,7 +3073,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Fuzz Face",
+            block_name: "Facial Fuzz",
             block_category: "Drive",
             original_gear: "Dallas Arbiter Fuzz Face",
             settings: { Fuzz: 7.0, Volume: 8.0 },
@@ -3082,7 +3082,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "1959 SLP",
+            block_name: "Brit Plexi 100 Bright",
             block_category: "Amp",
             original_gear: "Marshall Super Lead 1959",
             settings: {
@@ -3129,12 +3129,12 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Fuzz Face",
+            block_name: "'60s Fuzz",
             block_category: "Booster",
             original_gear: "Dallas Arbiter Fuzz Face",
             settings: { Fuzz: 7, Level: 8 },
             notes:
-              "The Fuzz Face is available in the Booster section via Boss Tone Studio. Responds to guitar volume knob changes for dynamic clean-up.",
+              "The '60s Fuzz is available in the Booster section via Boss Tone Studio. Responds to guitar volume knob changes for dynamic clean-up.",
           },
           {
             position: 3,
@@ -3147,7 +3147,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "The Katana's Brown channel is its Marshall-voiced high-gain mode. Crank the gain for cranked Plexi character. The Fuzz Face is available in the Booster section via Boss Tone Studio. For the wah, you'll need the GA-FC foot controller or use the Tone Studio to assign the Pedal FX to wah. Without an expression pedal, try the Touch Wah in Auto mode.",
+          "The Katana's Brown channel is its Marshall-voiced high-gain mode. Crank the gain for cranked Plexi character. The '60s Fuzz is available in the Booster section via Boss Tone Studio. For the wah, you'll need the GA-FC foot controller or use the Tone Studio to assign the Pedal FX to wah. Without an expression pedal, try the Touch Wah in Auto mode.",
       },
     },
     is_editorial: true,
@@ -3275,12 +3275,12 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "70s Chorus",
+            block_name: "PlastiChorus",
             block_category: "Modulation",
             original_gear: "EHX Small Clone",
             settings: { Speed: 4.0, Depth: 7.0, Mix: 60 },
             notes:
-              "The 70s Chorus is Helix's analog chorus model. Leave this on for the entire song. The deep, wobbly character is essential to the Cobain sound.",
+              "The PlastiChorus is Helix's Small Clone model. Leave this on for the entire song. The deep, wobbly character is essential to the Cobain sound.",
           },
           {
             position: 3,
@@ -3315,7 +3315,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "DS-1",
+            block_name: "Chief DS1",
             block_category: "Drive",
             original_gear: "Boss DS-1",
             settings: { Dist: 8.0, Tone: 5.0, Level: 7.0 },
@@ -3324,7 +3324,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Small Clone",
+            block_name: "Vintage Chorus",
             block_category: "Modulation",
             original_gear: "EHX Small Clone",
             settings: { Rate: 4.0, Depth: 7.0 },
@@ -3333,7 +3333,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Mesa .22",
+            block_name: "Search Cortex Cloud for 'Mesa .22' capture",
             block_category: "Amp",
             original_gear: "Mesa/Boogie Studio .22",
             settings: {
@@ -3348,7 +3348,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "1x12 Mesa",
+            block_name: "1x12 CA",
             block_category: "Cab",
             original_gear: "Mesa 1x12",
             settings: { Mic: "SM57", Distance: "1.5 inches" },
@@ -3378,16 +3378,16 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "DS-1",
+            block_name: "Distortion",
             block_category: "Booster",
             original_gear: "Boss DS-1",
             settings: { Dist: 8, Tone: 5, Level: 7 },
             notes:
-              "The DS-1 is a Boss pedal, and its digital model in the Katana is one of the most accurate recreations available. Toggle this on for chorus sections and off for clean verses.",
+              "The Distortion effect in the Booster section is based on the Boss DS-1. Toggle this on for chorus sections and off for clean verses.",
           },
           {
             position: 3,
-            block_name: "Chorus (CE-1)",
+            block_name: "Chorus",
             block_category: "Mod",
             original_gear: "EHX Small Clone",
             settings: { Rate: 4, Depth: 60 },
@@ -3396,7 +3396,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "This is where the Katana really shines — the DS-1 is a Boss pedal, and its digital model in the Katana is one of the most accurate recreations available. Scoop the mids on the Lead channel for the grunge character. Set up two patches in Tone Studio: one clean with just chorus for verses, one with DS-1 engaged for choruses. Use the channel switch to toggle.",
+          "This is where the Katana really shines — the Distortion booster is based on the Boss DS-1, and the Katana's recreation is one of the most accurate available. Scoop the mids on the Lead channel for the grunge character. Set up two patches in Tone Studio: one clean with just chorus for verses, one with Distortion engaged for choruses. Use the channel switch to toggle.",
       },
     },
     is_editorial: true,
@@ -3518,7 +3518,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "70s Chorus",
+            block_name: "Chorus CE-1",
             block_category: "Modulation",
             original_gear: "Boss CE-1 Chorus Ensemble",
             settings: { Speed: 3.0, Depth: 6.0, Mix: 50 },
@@ -3543,7 +3543,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "4x12 Greenback25",
+            block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
             settings: { Mic: "57 Dynamic", Distance: 3.0 },
@@ -3552,7 +3552,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Glitz Reverb",
+            block_name: "Glitz",
             block_category: "Reverb",
             original_gear: "Room reverb (The Mansion)",
             settings: { Decay: 1.5, Mix: 20, "Pre Delay": 20 },
@@ -3576,7 +3576,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Marshall Major",
+            block_name: "Search Cortex Cloud for 'Marshall Major' capture",
             block_category: "Amp",
             original_gear: "Marshall Major 200W",
             settings: {
@@ -3601,7 +3601,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Room Reverb",
+            block_name: "Room",
             block_category: "Reverb",
             original_gear: "Room reverb (The Mansion)",
             settings: { Decay: 1.5, Mix: 20 },
@@ -3632,7 +3632,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "CE-1 Chorus",
+            block_name: "Chorus",
             block_category: "Mod",
             original_gear: "Boss CE-1 Chorus Ensemble",
             settings: { Rate: 3, Depth: 6 },
@@ -3641,8 +3641,8 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Spring Reverb",
-            block_category: "FX",
+            block_name: "Spring",
+            block_category: "Reverb",
             original_gear: "Room reverb (The Mansion)",
             settings: { Level: 20 },
             notes:
@@ -3753,7 +3753,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Brit 2204",
+            block_name: "Brit 2203",
             block_category: "Amp",
             original_gear: "Marshall JCM800 2203",
             settings: {
@@ -3769,7 +3769,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "4x12 Greenback25",
+            block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
             settings: { Mic: "57 Dynamic", Distance: 1.0 },
@@ -3778,7 +3778,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Plate Reverb",
+            block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio room reverb",
             settings: { Decay: 1.2, Mix: 15 },
@@ -3793,7 +3793,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "JCM800",
+            block_name: "Brit 2203",
             block_category: "Amp",
             original_gear: "Marshall JCM800 2203",
             settings: {
@@ -3817,7 +3817,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Room Reverb",
+            block_name: "Room",
             block_category: "Reverb",
             original_gear: "Studio room reverb",
             settings: { Decay: 1.2, Mix: 15 },
@@ -3847,8 +3847,8 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Spring Reverb",
-            block_category: "FX",
+            block_name: "Spring",
+            block_category: "Reverb",
             original_gear: "Studio room reverb",
             settings: { Level: 15 },
             notes: "Add subtle reverb via Boss Tone Studio for studio depth and dimension.",
@@ -4004,7 +4004,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "4x12 Greenback25",
+            block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
             settings: { Mic: "57 Dynamic", Distance: 1.5 },
@@ -4012,7 +4012,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Plate Reverb",
+            block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio room reverb (Sunset Sound)",
             settings: { Decay: 1.0, Mix: 15 },
@@ -4026,7 +4026,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Phase 90",
+            block_name: "MX Phase 95",
             block_category: "Modulation",
             original_gear: "MXR Phase 90",
             settings: { Speed: 3.0 },
@@ -4034,7 +4034,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "1959 SLP",
+            block_name: "Brit Plexi 100 Bright",
             block_category: "Amp",
             original_gear: "Marshall Super Lead 1959 (Variac)",
             settings: {
@@ -4058,7 +4058,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Room Reverb",
+            block_name: "Room",
             block_category: "Reverb",
             original_gear: "Studio room reverb (Sunset Sound)",
             settings: { Decay: 1.0, Mix: 15 },
@@ -4088,17 +4088,17 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Phaser",
+            block_name: "Phaser 90E",
             block_category: "Mod",
             original_gear: "MXR Phase 90",
             settings: { Rate: 3, Depth: 50 },
             notes:
-              "Add a phaser in the Mod section for the Phase 90 swirl. Keep the rate low.",
+              "Add Phaser 90E in the Mod section for the Phase 90 swirl. Keep the rate low.",
           },
           {
             position: 3,
-            block_name: "Spring Reverb",
-            block_category: "FX",
+            block_name: "Spring",
+            block_category: "Reverb",
             original_gear: "Studio room reverb",
             settings: { Level: 15 },
             notes: "Very subtle reverb for studio ambience. Keep the level low.",
@@ -4224,7 +4224,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Essex A30",
+            block_name: "Essex A30 TB",
             block_category: "Amp",
             original_gear: "Vox AC30",
             settings: {
@@ -4282,7 +4282,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "AC30 TB",
+            block_name: "UK 30 TopBoost",
             block_category: "Amp",
             original_gear: "Vox AC30",
             settings: {
@@ -4314,7 +4314,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Hall Reverb",
+            block_name: "Hall",
             block_category: "Reverb",
             original_gear: "Hall reverb",
             settings: { Decay: 2.5, Mix: 25, "Pre Delay": 40 },
@@ -4344,8 +4344,8 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Digital Delay",
-            block_category: "FX",
+            block_name: "Digital",
+            block_category: "Delay",
             original_gear: "Korg SDD-3000",
             settings: { Time: "dotted 1/8", Feedback: 40, Level: 40 },
             notes:
@@ -4353,11 +4353,11 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Reverb",
-            block_category: "FX",
+            block_name: "Hall",
+            block_category: "Reverb",
             original_gear: "Hall reverb",
             settings: { Level: 25 },
-            notes: "Add reverb via Boss Tone Studio for the atmospheric wash behind the delay.",
+            notes: "Add Hall reverb via Boss Tone Studio for the atmospheric wash behind the delay.",
           },
         ],
         notes:
@@ -4531,7 +4531,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "TS808 OD",
+            block_name: "Green 808",
             block_category: "Drive",
             original_gear: "Ibanez TS808",
             settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 },
@@ -4539,7 +4539,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Two Rock",
+            block_name: "Search Cortex Cloud for 'Two Rock' capture",
             block_category: "Amp",
             original_gear: "Two Rock Custom Reverb",
             settings: {
@@ -4584,25 +4584,25 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Compressor",
-            block_category: "Booster",
+            block_name: "Comp",
+            block_category: "Mod",
             original_gear: "Keeley Compressor Plus",
             settings: { Sustain: 4, Level: 6 },
             notes:
-              "Use the Compressor in the Booster slot via Boss Tone Studio. Alternatively, if using the Blues Driver as the booster, set the Compressor as an external pedal. Light compression for always-on dynamics evening.",
+              "Use the Comp effect in the Mod/FX slot via Boss Tone Studio. Light compression for always-on dynamics evening.",
           },
           {
             position: 3,
-            block_name: "Blues Driver",
+            block_name: "Blues Drive",
             block_category: "Booster",
             original_gear: "Ibanez TS808",
             settings: { Level: 7, Tone: 5, Drive: 3 },
             notes:
-              "Blues Driver in the Booster slot acts as the Tube Screamer clean boost. Low drive, high level. Note: The Katana has one Booster slot, so you may need to choose between the compressor and Blues Driver, or use an external compressor pedal.",
+              "Blues Drive in the Booster slot acts as the Tube Screamer clean boost. Low drive, high level. Note: The Katana has one Booster slot, so you may need to choose between the compressor and Blues Drive, or use an external compressor pedal.",
           },
         ],
         notes:
-          "The Katana's Crunch channel with Blues Driver clean boost gets a convincing Mayer-style tone. For the always-on compression, use an external compressor pedal before the Katana, or select the Compressor as the Booster type in Tone Studio.",
+          "The Katana's Crunch channel with Blues Drive clean boost gets a convincing Mayer-style tone. For the always-on compression, use an external compressor pedal before the Katana, or select the Compressor as the Booster type in Tone Studio.",
       },
     },
     is_editorial: true,
@@ -4722,7 +4722,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Champ",
+            block_name: "Search Cortex Cloud for 'Fender Champ' capture",
             block_category: "Amp",
             original_gear: "Fender Champ",
             settings: {
@@ -4872,7 +4872,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "2x10 US Deluxe",
+            block_name: "1x12 US Deluxe",
             block_category: "Cab",
             original_gear: "Fender 2x10",
             settings: { Mic: "57 Dynamic", Distance: 2.5 },
@@ -4881,7 +4881,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Plate Reverb",
+            block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Built-in spring reverb",
             settings: { Decay: 2.0, Mix: 15 },
@@ -4903,7 +4903,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Vibro Verb",
+            block_name: "US Vibro",
             block_category: "Amp",
             original_gear: "Fender Vibrolux Reverb",
             settings: {
@@ -5071,7 +5071,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "US Deluxe Nrm",
+            block_name: "Tweed Blues Nrm",
             block_category: "Amp",
             original_gear: "Fender Bassman",
             settings: {
@@ -5087,7 +5087,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "4x10 Tweed",
+            block_name: "4x10 Tweed P10R",
             block_category: "Cab",
             original_gear: "Fender Bassman 4x10",
             settings: { Mic: "57 Dynamic", Distance: 2.5 },
@@ -5096,7 +5096,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Spring Reverb",
+            block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Spring reverb",
             settings: { Decay: 1.5, Mix: 20 },
@@ -5118,7 +5118,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Bassman",
+            block_name: "US Bassman",
             block_category: "Amp",
             original_gear: "Fender Bassman",
             settings: {
@@ -5133,7 +5133,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "4x10 Bassman",
+            block_name: "4x10 US",
             block_category: "Cab",
             original_gear: "Fender Bassman 4x10",
             settings: { Mic: "SM57", Distance: "2.5 inches" },
@@ -5141,7 +5141,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Spring Reverb",
+            block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Spring reverb",
             settings: { Decay: 1.5, Mix: 20 },
@@ -5171,16 +5171,16 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Compressor",
-            block_category: "Booster",
+            block_name: "Comp",
+            block_category: "Mod",
             original_gear: "Studio compressor",
             settings: { Sustain: 4, Level: 6 },
-            notes: "Light compression in the Booster slot for smooth, consistent blues dynamics.",
+            notes: "Light compression via the Comp effect in Mod/FX slot for smooth, consistent blues dynamics.",
           },
           {
             position: 3,
-            block_name: "Spring Reverb",
-            block_category: "FX",
+            block_name: "Spring",
+            block_category: "Reverb",
             original_gear: "Spring reverb",
             settings: { Level: 20 },
             notes: "Spring reverb adds warmth and depth to the blues tone.",
@@ -5315,7 +5315,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Whammy",
+            block_name: "Wham",
             block_category: "Pitch",
             original_gear: "DigiTech Whammy",
             settings: { Mode: "1 Oct Down", Position: "toe down" },
@@ -5323,7 +5323,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Silvertone",
+            block_name: "Search Cortex Cloud for 'Silvertone' capture",
             block_category: "Amp",
             original_gear: "Silvertone 1485",
             settings: {
@@ -5475,7 +5475,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Chrome",
+            block_name: "Teardrop 310",
             block_category: "Wah",
             original_gear: "Dunlop Cry Baby Wah",
             settings: { Position: "Expression Pedal" },
@@ -5508,7 +5508,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "4x12 Greenback25",
+            block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12",
             settings: { Mic: "57 Dynamic", Distance: 1.0 },
@@ -5522,7 +5522,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Wah",
+            block_name: "Crying Wah",
             block_category: "Wah",
             original_gear: "Dunlop Cry Baby Wah",
             settings: { Position: "Expression Pedal" },
@@ -5530,7 +5530,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Whammy",
+            block_name: "Wham",
             block_category: "Pitch",
             original_gear: "DigiTech Whammy",
             settings: { Mode: "2 Oct Up" },
@@ -5538,7 +5538,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "JCM800",
+            block_name: "Brit 2203",
             block_category: "Amp",
             original_gear: "Marshall JCM800 2205",
             settings: {
@@ -5688,7 +5688,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Cali Texas Ch2",
+            block_name: "Cali 2C+ Lead",
             block_category: "Amp",
             original_gear: "Mesa/Boogie Mark IIC+",
             settings: {
@@ -5719,7 +5719,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Mesa Mark IIC+",
+            block_name: "CA MkCC+",
             block_category: "Amp",
             original_gear: "Mesa/Boogie Mark IIC+",
             settings: {
@@ -5866,7 +5866,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "4x12 Greenback25",
+            block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
             settings: { Mic: "57 Dynamic", Distance: 1.0 },
@@ -5880,7 +5880,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "1959 SLP",
+            block_name: "Brit Plexi 100 Bright",
             block_category: "Amp",
             original_gear: "Marshall Super Lead 1959 (Plexi)",
             settings: {
@@ -6067,7 +6067,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Plate Reverb",
+            block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Decay: 2.0, Mix: 20 },
@@ -6089,7 +6089,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Mesa Mark I",
+            block_name: "Search Cortex Cloud for 'Mesa Mark I' capture",
             block_category: "Amp",
             original_gear: "Mesa/Boogie Mark I",
             settings: {
@@ -6104,7 +6104,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "1x12 Mesa",
+            block_name: "1x12 CA",
             block_category: "Cab",
             original_gear: "Mesa 1x12 Thiele",
             settings: { Mic: "SM57", Distance: "1.5 inches" },
@@ -6112,7 +6112,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Plate Reverb",
+            block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Decay: 2.0, Mix: 20 },
@@ -6142,19 +6142,19 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Compressor",
-            block_category: "Booster",
+            block_name: "Comp",
+            block_category: "Mod",
             original_gear: "Boss CS-2 Compressor",
             settings: { Sustain: 6, Level: 6 },
-            notes: "Light compression for added sustain. Use the Compressor in the Booster slot via Boss Tone Studio.",
+            notes: "Light compression for added sustain. Use the Comp effect in the Mod/FX slot via Boss Tone Studio.",
           },
           {
             position: 3,
-            block_name: "Reverb",
-            block_category: "FX",
+            block_name: "Plate",
+            block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Level: 20 },
-            notes: "Add reverb in the FX section for lush depth.",
+            notes: "Add Plate reverb for lush depth.",
           },
         ],
         notes:
@@ -6258,7 +6258,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "4x12 Greenback25",
+            block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "WEM 4x12 Fane",
             settings: { Mic: "57 Dynamic", Distance: 2.0 },
@@ -6272,7 +6272,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Hiwatt DR103",
+            block_name: "Search Cortex Cloud for 'Hiwatt DR103' capture",
             block_category: "Amp",
             original_gear: "Hiwatt DR103",
             settings: {
@@ -6417,7 +6417,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Spring Reverb",
+            block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Twin Reverb spring reverb",
             settings: { Decay: 2.0, Mix: 25 },
@@ -6447,7 +6447,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Twin Reverb",
+            block_name: "US DLX 64",
             block_category: "Amp",
             original_gear: "Fender Twin Reverb",
             settings: {
@@ -6470,7 +6470,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Spring Reverb",
+            block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Twin Reverb spring reverb",
             settings: { Decay: 2.0, Mix: 25 },
@@ -6500,8 +6500,8 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Spring Reverb",
-            block_category: "FX",
+            block_name: "Spring",
+            block_category: "Reverb",
             original_gear: "Twin Reverb spring reverb",
             settings: { Level: 40 },
             notes: "Add spring reverb in the FX section for authentic Twin Reverb ambience.",
@@ -6618,7 +6618,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "70s Chorus",
+            block_name: "Chorus CE-1",
             block_category: "Modulation",
             original_gear: "Boss CE-1",
             settings: { Speed: 4.0, Depth: 6.0, Mix: 50 },
@@ -6657,7 +6657,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 5,
-            block_name: "4x12 Greenback25",
+            block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
             settings: { Mic: "57 Dynamic", Distance: 2.0 },
@@ -6671,7 +6671,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "CE-1",
+            block_name: "Vintage Chorus",
             block_category: "Modulation",
             original_gear: "Boss CE-1",
             settings: { Rate: 4.0, Depth: 6.0 },
@@ -6679,7 +6679,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "1959 SLP",
+            block_name: "Brit Plexi 100 Bright",
             block_category: "Amp",
             original_gear: "Marshall Super Lead 1959",
             settings: {
@@ -6702,7 +6702,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Hall Reverb",
+            block_name: "Hall",
             block_category: "Reverb",
             original_gear: "Hall reverb (Le Studio)",
             settings: { Decay: 2.0, Mix: 20 },
@@ -6739,24 +6739,24 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "CE-1 Chorus",
+            block_name: "Chorus",
             block_category: "Mod",
             original_gear: "Boss CE-1",
             settings: { Rate: 4, Depth: 60 },
-            notes: "The Katana's CE-1 chorus model adds the essential shimmer. Leave always on.",
+            notes: "The Katana's Chorus effect adds the essential shimmer. Leave always on.",
           },
           {
             position: 3,
-            block_name: "Digital Delay",
-            block_category: "FX",
+            block_name: "Digital",
+            block_category: "Delay",
             original_gear: "TC 2290",
             settings: { Time: "350ms", Feedback: 25, Level: 25 },
             notes: "Delay for spatial depth. Subtle settings.",
           },
           {
             position: 4,
-            block_name: "Reverb",
-            block_category: "FX",
+            block_name: "Hall",
+            block_category: "Reverb",
             original_gear: "Hall reverb",
             settings: { Level: 20 },
             notes: "Hall reverb adds the spacious quality of the Moving Pictures production.",
@@ -6874,16 +6874,16 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Kinky Boost",
+            block_name: "Deranged Master",
             block_category: "Distortion",
             original_gear: "Dallas Rangemaster",
             settings: { Boost: 8.0 },
             notes:
-              "The Kinky Boost adds the treble-heavy gain push that drives the AC30. Essential for the Brian May sound.",
+              "The Deranged Master adds the treble-heavy gain push that drives the AC30. Essential for the Brian May sound.",
           },
           {
             position: 2,
-            block_name: "Essex A30",
+            block_name: "Essex A30 TB",
             block_category: "Amp",
             original_gear: "Vox AC30",
             settings: {
@@ -6906,7 +6906,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Plate Reverb",
+            block_name: "Plate",
             block_category: "Reverb",
             original_gear: "EMT plate reverb (Trident Studios)",
             settings: { Decay: 2.5, Mix: 25, "Pre Delay": 30 },
@@ -6928,7 +6928,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Rangemaster",
+            block_name: "Rage Booster",
             block_category: "Drive",
             original_gear: "Dallas Rangemaster",
             settings: { Boost: 8.0 },
@@ -6936,7 +6936,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "AC30 TB",
+            block_name: "UK 30 TopBoost",
             block_category: "Amp",
             original_gear: "Vox AC30",
             settings: {
@@ -6958,7 +6958,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Plate Reverb",
+            block_name: "Plate",
             block_category: "Reverb",
             original_gear: "EMT plate reverb",
             settings: { Decay: 2.5, Mix: 25 },
@@ -7005,11 +7005,11 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Reverb",
-            block_category: "FX",
+            block_name: "Plate",
+            block_category: "Reverb",
             original_gear: "Plate reverb",
             settings: { Level: 25 },
-            notes: "Add reverb via Boss Tone Studio for the lush Queen studio sound.",
+            notes: "Add Plate reverb via Boss Tone Studio for the lush Queen studio sound.",
           },
         ],
         notes:
@@ -7097,7 +7097,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Kinky Boost",
+            block_name: "Deranged Master",
             block_category: "Distortion",
             original_gear: "Dallas Rangemaster",
             settings: { Boost: 7.0 },
@@ -7121,7 +7121,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "4x12 Greenback25",
+            block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "4x12 Celestion",
             settings: { Mic: "57 Dynamic", Distance: 1.5 },
@@ -7135,7 +7135,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Rangemaster",
+            block_name: "Rage Booster",
             block_category: "Drive",
             original_gear: "Dallas Rangemaster",
             settings: { Boost: 7.0 },
@@ -7143,7 +7143,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Laney Supergroup",
+            block_name: "Search Cortex Cloud for 'Laney Supergroup' capture",
             block_category: "Amp",
             original_gear: "Laney LA100BL",
             settings: {
@@ -7305,7 +7305,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Chrome",
+            block_name: "Teardrop 310",
             block_category: "Wah",
             original_gear: "Cry Baby Wah",
             settings: { Position: 70 },
@@ -7313,7 +7313,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Compulsive Drive",
+            block_name: "Compulsive Drv",
             block_category: "Distortion",
             original_gear: "MXR Distortion+",
             settings: { Gain: 6.0, Level: 7.0, Tone: 6.0 },
@@ -7336,7 +7336,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "4x12 Greenback25",
+            block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12",
             settings: { Mic: "57 Dynamic", Distance: 1.0 },
@@ -7344,7 +7344,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 5,
-            block_name: "Plate Reverb",
+            block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Decay: 1.8, Mix: 20 },
@@ -7358,7 +7358,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Distortion+",
+            block_name: "Search Cortex Cloud for 'MXR Distortion+' capture",
             block_category: "Drive",
             original_gear: "MXR Distortion+",
             settings: { Gain: 6.0, Output: 7.0 },
@@ -7366,7 +7366,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Wah",
+            block_name: "Crying Wah",
             block_category: "Wah",
             original_gear: "Cry Baby",
             settings: { Position: 70 },
@@ -7374,7 +7374,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "1959 SLP",
+            block_name: "Brit Plexi 100 Bright",
             block_category: "Amp",
             original_gear: "Marshall Super Lead 1959",
             settings: {
@@ -7397,7 +7397,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 5,
-            block_name: "Plate Reverb",
+            block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Decay: 1.8, Mix: 20 },
@@ -7434,11 +7434,11 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Reverb",
-            block_category: "FX",
+            block_name: "Plate",
+            block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Level: 20 },
-            notes: "Add reverb via Boss Tone Studio for the spacious Blizzard of Ozz production.",
+            notes: "Add Plate reverb via Boss Tone Studio for the spacious Blizzard of Ozz production.",
           },
         ],
         notes:
@@ -7549,7 +7549,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "1x15 Ampeg",
+            block_name: "1x15 Ampeg B-15",
             block_category: "Cab",
             original_gear: "1x15 JBL D130F",
             settings: { Mic: "57 Dynamic", Distance: 2.0 },
@@ -7563,7 +7563,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "TS808 OD",
+            block_name: "Green 808",
             block_category: "Drive",
             original_gear: "Ibanez TS808",
             settings: { Drive: 2.0, Tone: 5.0, Level: 8.0 },
@@ -7571,7 +7571,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Vibro Verb",
+            block_name: "US Vibro",
             block_category: "Amp",
             original_gear: "Fender Vibroverb",
             settings: {
@@ -7585,7 +7585,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "1x15 Vibroverb",
+            block_name: "1x15 US",
             block_category: "Cab",
             original_gear: "1x15 JBL D130F",
             settings: { Mic: "SM57", Distance: "2 inches" },
@@ -7614,11 +7614,11 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Blues Driver",
+            block_name: "Blues Drive",
             block_category: "Booster",
             original_gear: "Ibanez TS808",
             settings: { Level: 8, Tone: 5, Drive: 2 },
-            notes: "Blues Driver still used as a clean boost. Level pushed high to drive the amp harder for slow blues sustain.",
+            notes: "Blues Drive still used as a clean boost. Level pushed high to drive the amp harder for slow blues sustain.",
           },
         ],
         notes:
@@ -7745,7 +7745,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Chrome",
+            block_name: "Teardrop 310",
             block_category: "Wah",
             original_gear: "Cry Baby Wah",
             settings: { Position: "Expression Pedal" },
@@ -7761,7 +7761,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Brit 2204",
+            block_name: "Brit 2203",
             block_category: "Amp",
             original_gear: "Marshall JCM800 2203",
             settings: {
@@ -7784,7 +7784,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 5,
-            block_name: "Plate Reverb",
+            block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Decay: 2.0, Mix: 20 },
@@ -7792,7 +7792,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 6,
-            block_name: "4x12 Greenback25",
+            block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12",
             settings: { Mic: "57 Dynamic", Distance: 1.5 },
@@ -7806,7 +7806,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Wah",
+            block_name: "Crying Wah",
             block_category: "Wah",
             original_gear: "Cry Baby Wah",
             settings: { Position: "Expression Pedal" },
@@ -7814,7 +7814,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "DS-1",
+            block_name: "Chief DS1",
             block_category: "Drive",
             original_gear: "Boss DS-1",
             settings: { Dist: 6.0, Tone: 6.0, Level: 7.0 },
@@ -7822,7 +7822,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "JCM800",
+            block_name: "Brit 2203",
             block_category: "Amp",
             original_gear: "Marshall JCM800 2203",
             settings: {
@@ -7845,7 +7845,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 5,
-            block_name: "Plate Reverb",
+            block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Decay: 2.0, Mix: 20 },
@@ -7882,31 +7882,31 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "DS-1",
+            block_name: "Distortion",
             block_category: "Booster",
             original_gear: "Boss DS-1",
             settings: { Dist: 6, Tone: 6, Level: 7 },
-            notes: "The Katana's DS-1 model adds smooth sustain for lead playing.",
+            notes: "The Katana's Distortion booster (based on DS-1) adds smooth sustain for lead playing.",
           },
           {
             position: 3,
-            block_name: "Digital Delay",
-            block_category: "FX",
+            block_name: "Digital",
+            block_category: "Delay",
             original_gear: "Boss DD-2",
             settings: { Time: "400ms", Feedback: 30, Level: 30 },
             notes: "Delay for spacious lead tone.",
           },
           {
             position: 4,
-            block_name: "Reverb",
-            block_category: "FX",
+            block_name: "Plate",
+            block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Level: 20 },
-            notes: "Add reverb via Boss Tone Studio for studio depth.",
+            notes: "Add Plate reverb via Boss Tone Studio for studio depth.",
           },
         ],
         notes:
-          "Brown channel with DS-1 boost, delay, and reverb provides a solid Satriani-style lead tone. Use a guitar with a locking tremolo if possible.",
+          "Brown channel with Distortion boost, delay, and reverb provides a solid Satriani-style lead tone. Use a guitar with a locking tremolo if possible.",
       },
     },
     is_editorial: true,
@@ -7990,7 +7990,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Brit J800",
+            block_name: "Brit 2204",
             block_category: "Amp",
             original_gear: "Marshall JCM900",
             settings: {
@@ -8001,11 +8001,11 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 6.0,
               "Ch Vol": 5.0,
             },
-            notes: "Brit J800 at moderate gain for jangly crunch. Push the treble for brightness.",
+            notes: "Brit 2204 at moderate gain for jangly crunch. Push the treble for brightness.",
           },
           {
             position: 2,
-            block_name: "4x12 Greenback25",
+            block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
             settings: { Mic: "57 Dynamic", Distance: 2.0 },
@@ -8013,7 +8013,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Glitz Reverb",
+            block_name: "Glitz",
             block_category: "Reverb",
             original_gear: "Room reverb (Rockfield Studio)",
             settings: { Decay: 1.5, Mix: 20 },
@@ -8027,7 +8027,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "JCM900",
+            block_name: "Brit 900 Lead",
             block_category: "Amp",
             original_gear: "Marshall JCM900",
             settings: {
@@ -8050,7 +8050,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Room Reverb",
+            block_name: "Room",
             block_category: "Reverb",
             original_gear: "Room reverb (Rockfield Studio)",
             settings: { Decay: 1.5, Mix: 20 },
@@ -8079,8 +8079,8 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Spring Reverb",
-            block_category: "FX",
+            block_name: "Spring",
+            block_category: "Reverb",
             original_gear: "Room reverb",
             settings: { Level: 20 },
             notes: "Add reverb via Boss Tone Studio for the warm Britpop studio ambience.",
@@ -8208,7 +8208,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Twin Reverb",
+            block_name: "US DLX 64",
             block_category: "Amp",
             original_gear: "Fender Twin Reverb",
             settings: {
@@ -8369,7 +8369,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Twin Reverb",
+            block_name: "US DLX 64",
             block_category: "Amp",
             original_gear: "Fender Twin Reverb",
             settings: {
@@ -8510,7 +8510,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Kinky Boost",
+            block_name: "Deranged Master",
             block_category: "Distortion",
             original_gear: "Dallas Rangemaster",
             settings: { Boost: 8.0 },
@@ -8533,7 +8533,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "4x12 Greenback25",
+            block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
             settings: { Mic: "57 Dynamic", Distance: 1.0 },
@@ -8541,7 +8541,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Spring Reverb",
+            block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Studio spring reverb",
             settings: { Decay: 1.5, Mix: 18 },
@@ -8555,7 +8555,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Rangemaster",
+            block_name: "Rage Booster",
             block_category: "Drive",
             original_gear: "Dallas Rangemaster",
             settings: { Boost: 8.0 },
@@ -8563,7 +8563,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "1959 SLP",
+            block_name: "Brit Plexi 100 Bright",
             block_category: "Amp",
             original_gear: "Marshall Super Lead 1959",
             settings: {
@@ -8586,7 +8586,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Spring Reverb",
+            block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Studio spring reverb",
             settings: { Decay: 1.5, Mix: 18 },
@@ -8623,8 +8623,8 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Spring Reverb",
-            block_category: "FX",
+            block_name: "Spring",
+            block_category: "Reverb",
             original_gear: "Studio spring reverb",
             settings: { Level: 18 },
             notes: "Subtle spring reverb for studio depth.",
@@ -8729,7 +8729,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Parametric EQ",
+            block_name: "Parametric",
             block_category: "EQ",
             original_gear: "MXR 6-Band EQ",
             settings: { "Low Freq": "+6dB", "Mid Freq": "-8dB", "High Freq": "+6dB" },
@@ -8775,7 +8775,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Randall Century",
+            block_name: "Search Cortex Cloud for 'Randall Century' capture",
             block_category: "Amp",
             original_gear: "Randall Century 200",
             settings: {
@@ -8907,13 +8907,13 @@ export const toneRecipes: ToneRecipe[] = [
       helix: {
         chain_blocks: [
           { position: 1, block_name: "Brit Plexi Brt", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 9.0, Bass: 6.0, Mid: 8.0, Treble: 7.0, Presence: 7.0, "Ch Vol": 8.0 }, notes: "Crank the drive for maximum Plexi saturation." },
-          { position: 2, block_name: "4x12 Greenback25", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback for tight, punchy midrange." },
+          { position: 2, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback for tight, punchy midrange." },
         ],
         notes: "Use the neck pickup on a Les Paul for the main riff. Switch to bridge for solos. No drive pedals -- just crank the Plexi.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "1959 SLP", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Gain: 9.0, Bass: 6.0, Mid: 8.0, Treble: 7.0, Presence: 7.0, Master: 8.0 }, notes: "Full gain for cranked Plexi saturation." },
+          { position: 1, block_name: "Brit Plexi 100 Bright", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Gain: 9.0, Bass: 6.0, Mid: 8.0, Treble: 7.0, Presence: 7.0, Master: 8.0 }, notes: "Full gain for cranked Plexi saturation." },
           { position: 2, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "SM57", Distance: "1 inch" }, notes: "Greenback cab close-miked." },
         ],
         notes: "Les Paul neck pickup for the riff, bridge for solos. All the drive comes from the amp.",
@@ -9007,8 +9007,8 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Supro", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Gain: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, Master: 5.0 }, notes: "Low-gain Supro for warm, compressed cleans." },
-          { position: 2, block_name: "1x15 Supro", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: "SM57", Distance: "3 inches" }, notes: "Warm, round cab for the clean arpeggio sections." },
+          { position: 1, block_name: "Search Cortex Cloud for 'Supro' capture", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Gain: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, Master: 5.0 }, notes: "Low-gain Supro for warm, compressed cleans." },
+          { position: 2, block_name: "1x15 US", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: "SM57", Distance: "3 inches" }, notes: "Warm, round cab for the clean arpeggio sections." },
         ],
         notes: "Use scenes to transition from clean Supro to a cranked Marshall for the solo. The song is a masterclass in dynamic tone building.",
       },
@@ -9109,14 +9109,14 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Triangle Fuzz", block_category: "Distortion", original_gear: "Big Muff Pi", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Ram's Head Big Muff for thick, singing fuzz." },
           { position: 2, block_name: "WhoWatt 100", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 5.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, "Ch Vol": 7.0 }, notes: "Clean Hiwatt platform for the Big Muff." },
           { position: 3, block_name: "Simple Delay", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 440, Feedback: 30, Mix: 35 }, notes: "Set delay to ~440ms for rhythmic repeats." },
-          { position: 4, block_name: "4x12 Greenback25", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Greenback cab as a close approximation to WEM Fane speakers." },
+          { position: 4, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Greenback cab as a close approximation to WEM Fane speakers." },
         ],
         notes: "Neck pickup, slow vibrato, precise bends. The Big Muff into a clean Hiwatt is the Gilmour formula for aggressive lead tones.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Big Pi", block_category: "Drive", original_gear: "Big Muff Pi", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Big Muff for singing fuzz sustain." },
-          { position: 2, block_name: "Hiwatt DR103", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Gain: 5.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, Master: 7.0 }, notes: "Clean Hiwatt as a pedal platform." },
+          { position: 1, block_name: "Fuzz Pi", block_category: "Drive", original_gear: "Big Muff Pi", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Big Muff for singing fuzz sustain." },
+          { position: 2, block_name: "Search Cortex Cloud for 'Hiwatt DR103' capture", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Gain: 5.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, Master: 7.0 }, notes: "Clean Hiwatt as a pedal platform." },
           { position: 3, block_name: "Digital Delay", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 440, Feedback: 30, Mix: 35 }, notes: "440ms delay for rhythmic repeats." },
         ],
         notes: "Strat neck pickup, Big Muff fuzz, clean Hiwatt, delay. The Gilmour essentials.",
@@ -9125,7 +9125,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           { position: 1, block_name: "Muff Fuzz", block_category: "Booster", original_gear: "Big Muff Pi", settings: { Sustain: 8, Tone: 6, Level: 7 }, notes: "Muff Fuzz booster in Boss Tone Studio for thick fuzz sustain." },
           { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Hiwatt DR103", settings: { Gain: 4, Bass: 5, Middle: 6, Treble: 6, Presence: 5, Volume: 7 }, notes: "Lead channel at moderate gain as a clean-ish platform for the fuzz." },
-          { position: 3, block_name: "Digital Delay", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 440, Feedback: 30, Level: 35 }, notes: "440ms delay for musical repeats." },
+          { position: 3, block_name: "Digital", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 440, Feedback: 30, Level: 35 }, notes: "440ms delay for musical repeats." },
         ],
         notes: "Use the Katana's Muff Fuzz booster into a moderate-gain Lead channel with delay for a convincing Gilmour lead tone.",
       },
@@ -9204,16 +9204,16 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Chrome", block_category: "Wah", original_gear: "Dunlop Cry Baby", settings: { Position: 70 }, notes: "Cry Baby wah for intro filter effects." },
+          { position: 1, block_name: "Teardrop 310", block_category: "Wah", original_gear: "Dunlop Cry Baby", settings: { Position: 70 }, notes: "Cry Baby wah for intro filter effects." },
           { position: 2, block_name: "Brit 2204", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Drive: 8.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 6.0, "Ch Vol": 7.0 }, notes: "JCM800 pushed hard for aggressive saturation." },
-          { position: 3, block_name: "4x12 Greenback25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked for maximum attack." },
+          { position: 3, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked for maximum attack." },
         ],
         notes: "Higher gain than the Sweet Child O' Mine preset. This is Slash at his most aggressive. Les Paul bridge pickup.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Wah", block_category: "Wah", original_gear: "Dunlop Cry Baby", settings: { Position: 70 }, notes: "Cry Baby for intro and solo accents." },
-          { position: 2, block_name: "JCM800", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Gain: 8.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 6.0, Master: 7.0 }, notes: "Cranked JCM800 for aggressive riff tone." },
+          { position: 1, block_name: "Crying Wah", block_category: "Wah", original_gear: "Dunlop Cry Baby", settings: { Position: 70 }, notes: "Cry Baby for intro and solo accents." },
+          { position: 2, block_name: "Brit 2203", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Gain: 8.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 6.0, Master: 7.0 }, notes: "Cranked JCM800 for aggressive riff tone." },
           { position: 3, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "SM57", Distance: "1 inch" }, notes: "Standard Marshall cab miking." },
         ],
         notes: "More gain than Sweet Child. Bridge pickup on a Les Paul for maximum aggression.",
@@ -9303,21 +9303,21 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           { position: 1, block_name: "Script Mod Phase", block_category: "Modulation", original_gear: "MXR Phase 90", settings: { Rate: 3.0 }, notes: "Slow phaser for subtle tone thickening." },
           { position: 2, block_name: "Brit Plexi Brt", block_category: "Amp", original_gear: "Marshall Super Lead (Variac'd)", settings: { Drive: 8.5, Bass: 5.0, Mid: 7.0, Treble: 8.0, Presence: 7.0, "Ch Vol": 7.5, Sag: 7.0 }, notes: "Increase the Sag parameter to simulate the Variac'd voltage sag and compression." },
-          { position: 3, block_name: "4x12 Greenback25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback for tight attack." },
+          { position: 3, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback for tight attack." },
         ],
         notes: "The Sag parameter is key to nailing the Variac'd brown sound. Set it high for that compressed, touch-sensitive response.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Phase 90", block_category: "Mod", original_gear: "MXR Phase 90", settings: { Rate: 3.0 }, notes: "Subtle phaser for tonal thickening." },
-          { position: 2, block_name: "1959 SLP", block_category: "Amp", original_gear: "Marshall Super Lead (Variac'd)", settings: { Gain: 8.5, Bass: 5.0, Mid: 7.0, Treble: 8.0, Presence: 7.0, Master: 7.5 }, notes: "Full gain Plexi. Adjust sag/compression settings to simulate the Variac." },
+          { position: 1, block_name: "MX Phase 95", block_category: "Mod", original_gear: "MXR Phase 90", settings: { Rate: 3.0 }, notes: "Subtle phaser for tonal thickening." },
+          { position: 2, block_name: "Brit Plexi 100 Bright", block_category: "Amp", original_gear: "Marshall Super Lead (Variac'd)", settings: { Gain: 8.5, Bass: 5.0, Mid: 7.0, Treble: 8.0, Presence: 7.0, Master: 7.5 }, notes: "Full gain Plexi. Adjust sag/compression settings to simulate the Variac." },
           { position: 3, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "SM57", Distance: "1 inch" }, notes: "Standard Marshall cab." },
         ],
         notes: "Push amp compression settings high to approximate the Variac'd power section behavior.",
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Phaser", block_category: "Mod", original_gear: "MXR Phase 90", settings: { Rate: 3, Depth: 5 }, notes: "Subtle phaser for the brown sound thickening." },
+          { position: 1, block_name: "Phaser 90E", block_category: "Mod", original_gear: "MXR Phase 90", settings: { Rate: 3, Depth: 5 }, notes: "Subtle Phaser 90E for the brown sound thickening." },
           { position: 2, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall Super Lead", settings: { Gain: 8, Bass: 5, Middle: 7, Treble: 8, Presence: 7, Volume: 7 }, notes: "Brown channel at high gain for the Van Halen brown sound." },
         ],
         notes: "The Katana's Brown channel is named after the Van Halen brown sound. Add a slow phaser for authenticity.",
@@ -9406,14 +9406,14 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Klon", block_category: "Drive", original_gear: "Klon Centaur", settings: { Drive: 1.0, Tone: 5.0, Level: 6.0 }, notes: "Transparent boost, barely any drive." },
-          { position: 2, block_name: "Two Rock", block_category: "Amp", original_gear: "Two Rock Custom Reverb", settings: { Gain: 4.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, Master: 6.0 }, notes: "Clean, dynamic Two Rock." },
+          { position: 1, block_name: "Myth Drive", block_category: "Drive", original_gear: "Klon Centaur", settings: { Drive: 1.0, Tone: 5.0, Level: 6.0 }, notes: "Transparent boost, barely any drive." },
+          { position: 2, block_name: "Search Cortex Cloud for 'Two Rock' capture", block_category: "Amp", original_gear: "Two Rock Custom Reverb", settings: { Gain: 4.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, Master: 6.0 }, notes: "Clean, dynamic Two Rock." },
         ],
         notes: "Strat neck pickup, barely-on Klon, clean Two Rock. Dynamic control is everything.",
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Blues Driver", block_category: "Booster", original_gear: "Klon Centaur", settings: { Drive: 1, Tone: 5, Level: 6 }, notes: "Blues Driver at very low gain as a transparent clean boost." },
+          { position: 1, block_name: "Blues Drive", block_category: "Booster", original_gear: "Klon Centaur", settings: { Drive: 1, Tone: 5, Level: 6 }, notes: "Blues Drive at very low gain as a transparent clean boost." },
           { position: 2, block_name: "Clean", block_category: "Amp Type", original_gear: "Two Rock Custom Reverb", settings: { Gain: 3, Bass: 5, Middle: 5, Treble: 6, Presence: 5, Volume: 6 }, notes: "Clean channel with low gain for pristine, touch-sensitive tone." },
         ],
         notes: "The Katana's Clean channel with a low-gain booster captures the essential Mayer dynamic. Neck pickup on a Strat, play with your fingers for softer passages.",
@@ -9494,16 +9494,16 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deez One Mod", block_category: "Distortion", original_gear: "Marshall Shredmaster", settings: { Gain: 9.0, Tone: 6.0, Level: 8.0 }, notes: "High-gain distortion for the chorus. Bypass for clean verses." },
-          { position: 2, block_name: "US Deluxe Nrm", block_category: "Amp", original_gear: "Fender (clean)", settings: { Drive: 3.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, "Ch Vol": 6.0 }, notes: "Clean Fender platform. All dirt comes from the Shredmaster." },
+          { position: 1, block_name: "Vermin Dist", block_category: "Distortion", original_gear: "Marshall Shredmaster", settings: { Gain: 9.0, Tone: 6.0, Level: 8.0 }, notes: "Helix has no Shredmaster model — Vermin Dist (ProCo RAT) is the closest match for the aggressive, scooped distortion. Bypass for clean verses." },
+          { position: 2, block_name: "US DLX 64", block_category: "Amp", original_gear: "Fender (clean)", settings: { Drive: 3.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, "Ch Vol": 6.0 }, notes: "Clean Fender platform. All dirt comes from the Shredmaster." },
           { position: 3, block_name: "1x12 US Deluxe", block_category: "Cab", original_gear: "Fender 1x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Standard Fender 1x12 cab." },
         ],
         notes: "Use a footswitch to toggle the Shredmaster for the clean/heavy dynamic. The contrast is the entire song.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Shredmaster", block_category: "Drive", original_gear: "Marshall Shredmaster", settings: { Gain: 9.0, Bass: 5.0, Treble: 6.0, Level: 8.0 }, notes: "Heavy distortion toggled for choruses." },
-          { position: 2, block_name: "Deluxe Reverb", block_category: "Amp", original_gear: "Fender (clean)", settings: { Gain: 3.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Master: 6.0 }, notes: "Clean amp platform." },
+          { position: 1, block_name: "Search Cortex Cloud for 'Marshall Shredmaster' capture", block_category: "Drive", original_gear: "Marshall Shredmaster", settings: { Gain: 9.0, Bass: 5.0, Treble: 6.0, Level: 8.0 }, notes: "Heavy distortion toggled for choruses." },
+          { position: 2, block_name: "US DLX 64", block_category: "Amp", original_gear: "Fender (clean)", settings: { Gain: 3.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Master: 6.0 }, notes: "Clean amp platform." },
         ],
         notes: "Toggle the Shredmaster on/off for the verse/chorus dynamic. Telecaster for authentic tone.",
       },
@@ -9598,8 +9598,8 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Big Pi", block_category: "Drive", original_gear: "Fuzz pedal", settings: { Sustain: 6.0, Tone: 4.0, Level: 6.0 }, notes: "Moderate fuzz, tone rolled dark." },
-          { position: 2, block_name: "AC30 TB", block_category: "Amp", original_gear: "Vox AC30", settings: { Gain: 5.0, Bass: 6.0, Mid: 5.0, Treble: 4.0, Master: 5.0 }, notes: "Dark Vox tone with reduced treble." },
+          { position: 1, block_name: "Fuzz Pi", block_category: "Drive", original_gear: "Fuzz pedal", settings: { Sustain: 6.0, Tone: 4.0, Level: 6.0 }, notes: "Moderate fuzz, tone rolled dark." },
+          { position: 2, block_name: "UK 30 TopBoost", block_category: "Amp", original_gear: "Vox AC30", settings: { Gain: 5.0, Bass: 6.0, Mid: 5.0, Treble: 4.0, Master: 5.0 }, notes: "Dark Vox tone with reduced treble." },
         ],
         notes: "Keep it dark and murky. The AM sound is about restraint and groove, not brightness.",
       },
@@ -9694,14 +9694,14 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "TS808 OD", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5.0, Level: 8.0 }, notes: "Clean boost for bass tightening." },
-          { position: 2, block_name: "Mesa Mark IV", block_category: "Amp", original_gear: "Mesa Mark IV", settings: { Gain: 7.0, Bass: 3.0, Mid: 3.0, Treble: 7.0, Presence: 6.0, Master: 6.0 }, notes: "Scooped mids, tight low end." },
+          { position: 1, block_name: "Green 808", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5.0, Level: 8.0 }, notes: "Clean boost for bass tightening." },
+          { position: 2, block_name: "CA MkIV Lead", block_category: "Amp", original_gear: "Mesa Mark IV", settings: { Gain: 7.0, Bass: 3.0, Mid: 3.0, Treble: 7.0, Presence: 6.0, Master: 6.0 }, notes: "Scooped mids, tight low end." },
         ],
         notes: "The QC's Mesa Mark IV model with scooped mids and a TS boost delivers an authentic Black Album tone.",
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Blues Driver", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5, Level: 8 }, notes: "Clean boost to tighten the amp's low end." },
+          { position: 1, block_name: "Blues Drive", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5, Level: 8 }, notes: "Clean boost to tighten the amp's low end." },
           { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Mesa Mark IV", settings: { Gain: 8, Bass: 3, Middle: 3, Treble: 7, Presence: 6, Volume: 6 }, notes: "Lead channel with scooped mids for tight metal rhythm." },
         ],
         notes: "Lead channel with deep mid scoop and a clean boost. Aggressive downpicking is essential.",
@@ -9783,13 +9783,13 @@ export const toneRecipes: ToneRecipe[] = [
       helix: {
         chain_blocks: [
           { position: 1, block_name: "Brit 2204", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Drive: 7.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 7.0, "Ch Vol": 7.0 }, notes: "Moderate gain JCM800 for clear note definition in fast passages." },
-          { position: 2, block_name: "4x12 Greenback25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked for maximum presence." },
+          { position: 2, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked for maximum presence." },
         ],
         notes: "Keep the gain moderate for note clarity. Iron Maiden's tone relies on definition, not saturation.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "JCM800", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Gain: 7.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 7.0, Master: 6.0 }, notes: "Moderate gain for galloping clarity." },
+          { position: 1, block_name: "Brit 2203", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Gain: 7.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 7.0, Master: 6.0 }, notes: "Moderate gain for galloping clarity." },
           { position: 2, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "SM57", Distance: "1 inch" }, notes: "Standard Marshall cab." },
         ],
         notes: "The QC's JCM800 with moderate gain is perfect for the Maiden sound. Keep it tight and defined.",
@@ -9883,7 +9883,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Diezel VH4", block_category: "Amp", original_gear: "Diezel VH4", settings: { Gain: 7.0, Bass: 6.0, Mid: 7.0, Treble: 5.0, Presence: 5.0, Master: 6.0 }, notes: "VH4 for thick, articulate high-gain." },
+          { position: 1, block_name: "D-Cell H4 Lead", block_category: "Amp", original_gear: "Diezel VH4", settings: { Gain: 7.0, Bass: 6.0, Mid: 7.0, Treble: 5.0, Presence: 5.0, Master: 6.0 }, notes: "VH4 for thick, articulate high-gain." },
           { position: 2, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa 4x12", settings: { Mic: "SM57", Distance: "1.5 inches" }, notes: "V30 cab for tight bottom end." },
         ],
         notes: "The QC's Diezel VH4 capture is excellent for Adam Jones' tone. Drop-D, Les Paul, and heavy picking.",
@@ -9985,15 +9985,15 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Pitch Wham", block_category: "Pitch/Synth", original_gear: "DigiTech Whammy", settings: { Position: 10, Mode: "1 Oct Up" }, notes: "Whammy set to +1 octave, fully engaged." },
           { position: 2, block_name: "Triangle Fuzz", block_category: "Distortion", original_gear: "Fuzz", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Heavy fuzz for the thick riff distortion." },
           { position: 3, block_name: "Brit Plexi Brt", block_category: "Amp", original_gear: "Marshall", settings: { Drive: 7.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, "Ch Vol": 7.0 }, notes: "Cranked Marshall for compression on top of fuzz." },
-          { position: 4, block_name: "4x12 Greenback25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Standard Marshall cab." },
+          { position: 4, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Standard Marshall cab." },
         ],
         notes: "Whammy octave-up into fuzz into cranked Marshall. The signature Muse riff formula.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Whammy", block_category: "Pitch", original_gear: "DigiTech Whammy", settings: { Mode: "1 Oct Up", Position: 10 }, notes: "Octave up, fully engaged." },
-          { position: 2, block_name: "Big Pi", block_category: "Drive", original_gear: "Fuzz", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Heavy fuzz for riff aggression." },
-          { position: 3, block_name: "1959 SLP", block_category: "Amp", original_gear: "Marshall", settings: { Gain: 7.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, Master: 7.0 }, notes: "Cranked Plexi for added compression." },
+          { position: 1, block_name: "Wham", block_category: "Pitch", original_gear: "DigiTech Whammy", settings: { Mode: "1 Oct Up", Position: 10 }, notes: "Octave up, fully engaged." },
+          { position: 2, block_name: "Fuzz Pi", block_category: "Drive", original_gear: "Fuzz", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Heavy fuzz for riff aggression." },
+          { position: 3, block_name: "Brit Plexi 100 Bright", block_category: "Amp", original_gear: "Marshall", settings: { Gain: 7.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, Master: 7.0 }, notes: "Cranked Plexi for added compression." },
         ],
         notes: "Whammy + fuzz + Marshall = Plug In Baby. The octave effect is essential.",
       },
@@ -10076,7 +10076,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Champ", block_category: "Amp", original_gear: "Fender Champ", settings: { Gain: 10.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, Master: 8.0 }, notes: "Cranked small amp for raw overdrive." },
+          { position: 1, block_name: "Search Cortex Cloud for 'Fender Champ' capture", block_category: "Amp", original_gear: "Fender Champ", settings: { Gain: 10.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, Master: 8.0 }, notes: "Cranked small amp for raw overdrive." },
         ],
         notes: "Guitar direct into a maxed small amp capture. Raw and simple.",
       },
@@ -10164,20 +10164,20 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           { position: 1, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Moderate overdrive for solo boost." },
           { position: 2, block_name: "US Deluxe Vib", block_category: "Amp", original_gear: "Fender Vibro-King", settings: { Drive: 5.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, "Ch Vol": 6.5 }, notes: "Warm Fender clean at edge of breakup." },
-          { position: 3, block_name: "3x10 Tweed", block_category: "Cab", original_gear: "Fender 3x10", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Multi-speaker Fender cab for full tone." },
+          { position: 3, block_name: "4x10 Tweed P10R", block_category: "Cab", original_gear: "Fender 3x10", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Multi-speaker Fender cab for full tone." },
         ],
         notes: "SG neck pickup for warm humbucking tone. Toggle the TS for solo boost. Dynamics are everything.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "TS808 OD", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Solo boost overdrive." },
+          { position: 1, block_name: "Green 808", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Solo boost overdrive." },
           { position: 2, block_name: "Vibro-King", block_category: "Amp", original_gear: "Fender Vibro-King", settings: { Gain: 5.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, Master: 6.5 }, notes: "Warm, touch-sensitive Fender." },
         ],
         notes: "Modern blues: SG into Vibro-King with a TS for solo boost. Play dynamically.",
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Blues Driver", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 4, Tone: 5, Level: 7 }, notes: "Overdrive for solo boost sections." },
+          { position: 1, block_name: "Blues Drive", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 4, Tone: 5, Level: 7 }, notes: "Overdrive for solo boost sections." },
           { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Fender Vibro-King", settings: { Gain: 5, Bass: 5, Middle: 6, Treble: 5, Presence: 5, Volume: 6 }, notes: "Crunch channel at moderate gain for warm, edge-of-breakup tone." },
         ],
         notes: "Warm Crunch channel with an overdrive for lead boost. SG neck pickup for modern blues warmth.",
@@ -10260,20 +10260,20 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           { position: 1, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "Light overdrive boost." },
           { position: 2, block_name: "Cartographer", block_category: "Amp", original_gear: "Dumble ODS", settings: { Drive: 6.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, "Ch Vol": 7.0 }, notes: "Dumble-style amp for transparent, singing overdrive." },
-          { position: 3, block_name: "4x12 Greenback25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Marshall cab for midrange presence." },
+          { position: 3, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Marshall cab for midrange presence." },
         ],
         notes: "Les Paul neck pickup for creamy sustain. Light TS boost into Dumble model for rich, harmonic lead tone.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "TS808 OD", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "Light boost for sustain." },
-          { position: 2, block_name: "Dumble ODS", block_category: "Amp", original_gear: "Dumble ODS", settings: { Gain: 6.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, Master: 7.0 }, notes: "Dumble for transparent, touch-sensitive overdrive." },
+          { position: 1, block_name: "Green 808", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "Light boost for sustain." },
+          { position: 2, block_name: "Dumbbell ODS", block_category: "Amp", original_gear: "Dumble ODS", settings: { Gain: 6.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, Master: 7.0 }, notes: "Dumble for transparent, touch-sensitive overdrive." },
         ],
         notes: "A Dumble capture with a light TS boost is the Bonamassa formula. Les Paul neck pickup, heavy strings.",
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Blues Driver", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 3, Tone: 5, Level: 7 }, notes: "Light overdrive for sustain boost." },
+          { position: 1, block_name: "Blues Drive", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 3, Tone: 5, Level: 7 }, notes: "Light overdrive for sustain boost." },
           { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Dumble ODS", settings: { Gain: 6, Bass: 5, Middle: 6, Treble: 6, Presence: 5, Volume: 7 }, notes: "Lead channel with moderate gain for singing lead tone." },
         ],
         notes: "The Katana's Lead channel with a light overdrive approximates the Dumble's touch-sensitive character. Les Paul neck pickup.",
@@ -10354,16 +10354,16 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Chrome", block_category: "Wah", original_gear: "Cry Baby", settings: { Position: "Exp Pedal" }, notes: "Wah for the solo sections." },
-          { position: 2, block_name: "Cali Rectifire", block_category: "Amp", original_gear: "Mesa Mark IIC+", settings: { Drive: 7.0, Bass: 4.0, Mid: 5.0, Treble: 6.0, Presence: 6.0, "Ch Vol": 7.0 }, notes: "Mark IIC+ lead channel for the solo. Use a snapshot to switch to clean settings for the intro." },
+          { position: 1, block_name: "Teardrop 310", block_category: "Wah", original_gear: "Cry Baby", settings: { Position: "Exp Pedal" }, notes: "Wah for the solo sections." },
+          { position: 2, block_name: "Cali 2C+ Lead", block_category: "Amp", original_gear: "Mesa Mark IIC+", settings: { Drive: 7.0, Bass: 4.0, Mid: 5.0, Treble: 6.0, Presence: 6.0, "Ch Vol": 7.0 }, notes: "Mark IIC+ lead channel for the solo. Use a snapshot to switch to clean settings for the intro." },
           { position: 3, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "Mesa 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "V30 cab for tight metal tone." },
         ],
         notes: "Use snapshots: one for clean intro (low drive, no wah) and one for the wah solo (high drive, wah engaged).",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Wah", block_category: "Wah", original_gear: "Cry Baby", settings: { Position: "Exp Pedal" }, notes: "Wah for solo sections." },
-          { position: 2, block_name: "Mesa Mark IIC+", block_category: "Amp", original_gear: "Mesa Mark IIC+", settings: { Gain: 7.0, Bass: 4.0, Mid: 5.0, Treble: 6.0, Presence: 6.0, Master: 7.0 }, notes: "Lead channel. Use scenes for clean/lead switching." },
+          { position: 1, block_name: "Crying Wah", block_category: "Wah", original_gear: "Cry Baby", settings: { Position: "Exp Pedal" }, notes: "Wah for solo sections." },
+          { position: 2, block_name: "CA MkCC+", block_category: "Amp", original_gear: "Mesa Mark IIC+", settings: { Gain: 7.0, Bass: 4.0, Mid: 5.0, Treble: 6.0, Presence: 6.0, Master: 7.0 }, notes: "Lead channel. Use scenes for clean/lead switching." },
         ],
         notes: "Scenes for clean intro vs. lead solo. The wah is Hammett's signature on this track.",
       },
@@ -10451,15 +10451,15 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "SV Beast Nrm", block_category: "Amp", original_gear: "Ampeg VT-40", settings: { Drive: 6.0, Bass: 7.0, Mid: 5.0, Treble: 4.0, "Ch Vol": 7.0 }, notes: "Ampeg/bass amp model for the massive low-end. Dark EQ with bass pushed high." },
+          { position: 1, block_name: "Ampeg SVT Nrm", block_category: "Amp", original_gear: "Ampeg VT-40", settings: { Drive: 6.0, Bass: 7.0, Mid: 5.0, Treble: 4.0, "Ch Vol": 7.0 }, notes: "Ampeg/bass amp model for the massive low-end. Dark EQ with bass pushed high." },
           { position: 2, block_name: "4x10 Tweed P10R", block_category: "Cab", original_gear: "Ampeg 4x10", settings: { Mic: "57 Dynamic", Distance: 3.0 }, notes: "4x10 cab for even low-end distribution." },
         ],
         notes: "C-standard tuning is mandatory. The bass amp model provides the huge, compressed low end that defines QOTSA. Sounds nothing like a guitar amp.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Ampeg VT-40", block_category: "Amp", original_gear: "Ampeg VT-40", settings: { Gain: 6.0, Bass: 7.0, Mid: 5.0, Treble: 4.0, Master: 7.0 }, notes: "Bass amp for massive low end." },
-          { position: 2, block_name: "4x10 Ampeg", block_category: "Cab", original_gear: "Ampeg 4x10", settings: { Mic: "SM57", Distance: "3 inches" }, notes: "Bass cab for clean low-end reproduction." },
+          { position: 1, block_name: "Search Cortex Cloud for 'Ampeg VT-40' capture", block_category: "Amp", original_gear: "Ampeg VT-40", settings: { Gain: 6.0, Bass: 7.0, Mid: 5.0, Treble: 4.0, Master: 7.0 }, notes: "Bass amp for massive low end." },
+          { position: 2, block_name: "4x10 US", block_category: "Cab", original_gear: "Ampeg 4x10", settings: { Mic: "SM57", Distance: "3 inches" }, notes: "Bass cab for clean low-end reproduction." },
         ],
         notes: "C-standard tuning through a bass amp. The QOTSA desert rock formula.",
       },
@@ -10547,20 +10547,20 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           { position: 1, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer TS808", settings: { Drive: 2.0, Tone: 6.0, Level: 8.0 }, notes: "Slightly more drive than Pride and Joy for extra sustain." },
           { position: 2, block_name: "US Deluxe Vib", block_category: "Amp", original_gear: "Fender Vibroverb", settings: { Drive: 6.5, Bass: 5.0, Mid: 5.0, Treble: 5.0, "Ch Vol": 7.0 }, notes: "Warm Vibroverb tone with more reverb." },
-          { position: 3, block_name: "1x15 Ampeg", block_category: "Cab", original_gear: "1x15 JBL", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Round 1x15 for fat tone." },
+          { position: 3, block_name: "1x15 Ampeg B-15", block_category: "Cab", original_gear: "1x15 JBL", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Round 1x15 for fat tone." },
         ],
         notes: "The Little Wing tone is warmer and more reverb-heavy than Pride and Joy. Neck pickup, Eb tuning, heavy strings.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "TS808 OD", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 2.0, Tone: 6.0, Level: 8.0 }, notes: "Light overdrive for chord melody sustain." },
-          { position: 2, block_name: "Vibro Verb", block_category: "Amp", original_gear: "Fender Vibroverb", settings: { Gain: 6.5, Bass: 5.0, Mid: 5.0, Treble: 5.0, Reverb: 4.0, Master: 7.0 }, notes: "Warm, reverb-heavy Vibroverb." },
+          { position: 1, block_name: "Green 808", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 2.0, Tone: 6.0, Level: 8.0 }, notes: "Light overdrive for chord melody sustain." },
+          { position: 2, block_name: "US Vibro", block_category: "Amp", original_gear: "Fender Vibroverb", settings: { Gain: 6.5, Bass: 5.0, Mid: 5.0, Treble: 5.0, Reverb: 4.0, Master: 7.0 }, notes: "Warm, reverb-heavy Vibroverb." },
         ],
         notes: "SRV's Little Wing: more reverb, slightly more drive than Pride and Joy. Eb tuning, .013 strings, neck pickup.",
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Blues Driver", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 2, Tone: 6, Level: 8 }, notes: "Light overdrive boost for chord melody sustain." },
+          { position: 1, block_name: "Blues Drive", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 2, Tone: 6, Level: 8 }, notes: "Light overdrive boost for chord melody sustain." },
           { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Fender Vibroverb", settings: { Gain: 6, Bass: 5, Middle: 5, Treble: 5, Presence: 5, Volume: 7 }, notes: "Warm Crunch channel with reverb for the dreamy Little Wing quality." },
         ],
         notes: "Crunch channel with light overdrive. Add reverb for the spacious, dreamlike character. Eb tuning and heavy strings are essential.",
@@ -10656,23 +10656,23 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Minotaur", block_category: "Distortion", original_gear: "Colorsound Powerboost", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Light overdrive for sustain. Keep it clean-ish." },
           { position: 2, block_name: "WhoWatt 100", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 5.0, Bass: 5.0, Mid: 5.0, Treble: 5.0, Presence: 5.0, "Ch Vol": 7.0 }, notes: "Clean Hiwatt for the singing sustain platform." },
           { position: 3, block_name: "Simple Delay", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 500, Feedback: 30, Mix: 30 }, notes: "Long delay for spacious sustain." },
-          { position: 4, block_name: "4x12 Greenback25", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: "57 Dynamic", Distance: 2.5 }, notes: "Smooth cab tone for the atmospheric feel." },
+          { position: 4, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: "57 Dynamic", Distance: 2.5 }, notes: "Smooth cab tone for the atmospheric feel." },
         ],
         notes: "Every note should sustain forever. Light overdrive, clean Hiwatt, long delay. Vibrato on every note.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Klon", block_category: "Drive", original_gear: "Colorsound Powerboost", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Light sustain-enhancing overdrive." },
-          { position: 2, block_name: "Hiwatt DR103", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Gain: 5.0, Bass: 5.0, Mid: 5.0, Treble: 5.0, Presence: 5.0, Master: 6.0 }, notes: "Clean Hiwatt platform." },
+          { position: 1, block_name: "Myth Drive", block_category: "Drive", original_gear: "Colorsound Powerboost", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Light sustain-enhancing overdrive." },
+          { position: 2, block_name: "Search Cortex Cloud for 'Hiwatt DR103' capture", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Gain: 5.0, Bass: 5.0, Mid: 5.0, Treble: 5.0, Presence: 5.0, Master: 6.0 }, notes: "Clean Hiwatt platform." },
           { position: 3, block_name: "Digital Delay", block_category: "Delay", original_gear: "Echorec", settings: { Time: 500, Feedback: 30, Mix: 30 }, notes: "Spacious delay for sustain." },
         ],
         notes: "The Shine On tone is about patience, sustain, and vibrato. Four notes that last forever.",
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Blues Driver", block_category: "Booster", original_gear: "Colorsound Powerboost", settings: { Drive: 4, Tone: 5, Level: 7 }, notes: "Light overdrive for sustain." },
+          { position: 1, block_name: "Blues Drive", block_category: "Booster", original_gear: "Colorsound Powerboost", settings: { Drive: 4, Tone: 5, Level: 7 }, notes: "Light overdrive for sustain." },
           { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Hiwatt DR103", settings: { Gain: 4, Bass: 5, Middle: 5, Treble: 5, Presence: 5, Volume: 7 }, notes: "Clean-ish Lead channel for sustaining platform." },
-          { position: 3, block_name: "Digital Delay", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 500, Feedback: 30, Level: 30 }, notes: "Long delay for spacious atmosphere." },
+          { position: 3, block_name: "Digital", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 500, Feedback: 30, Level: 30 }, notes: "Long delay for spacious atmosphere." },
         ],
         notes: "Light overdrive, clean amp, long delay. The Katana can achieve a convincing Gilmour sustain tone with patience and vibrato.",
       },
@@ -10753,13 +10753,13 @@ export const toneRecipes: ToneRecipe[] = [
       helix: {
         chain_blocks: [
           { position: 1, block_name: "Brit Plexi Brt", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 8.0, Bass: 4.0, Mid: 6.0, Treble: 8.0, Presence: 8.0, "Ch Vol": 7.5 }, notes: "Cranked Plexi with bright, cutting EQ for tapping clarity." },
-          { position: 2, block_name: "4x12 Greenback25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked for maximum attack." },
+          { position: 2, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked for maximum attack." },
         ],
         notes: "Bright, aggressive Plexi tone. SG bridge pickup. The tapping pattern requires high presence for note clarity.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "1959 SLP", block_category: "Amp", original_gear: "Marshall Super Lead", settings: { Gain: 8.0, Bass: 4.0, Mid: 6.0, Treble: 8.0, Presence: 8.0, Master: 7.5 }, notes: "Bright Plexi for tapping clarity." },
+          { position: 1, block_name: "Brit Plexi 100 Bright", block_category: "Amp", original_gear: "Marshall Super Lead", settings: { Gain: 8.0, Bass: 4.0, Mid: 6.0, Treble: 8.0, Presence: 8.0, Master: 7.5 }, notes: "Bright Plexi for tapping clarity." },
           { position: 2, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "SM57", Distance: "1 inch" }, notes: "Standard close-miking." },
         ],
         notes: "SG bridge pickup into a bright, cranked Plexi. Keep presence high for the tapping intro.",
