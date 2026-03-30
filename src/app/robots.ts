@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/admin", "/dashboard", "/saved", "/api/"],
+        disallow: ["/admin", "/dashboard", "/saved", "/api/", "/invite/"],
       },
     ],
     sitemap: "https://faderandknob.com/sitemap.xml",
