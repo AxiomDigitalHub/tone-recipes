@@ -85,9 +85,9 @@ export default function RootLayout({
         <Analytics />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-PZLWYT7VMP"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script id="gtag-init" strategy="lazyOnload">
           {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PZLWYT7VMP');`}
         </Script>
         <Script id="microsoft-clarity" strategy="lazyOnload">
