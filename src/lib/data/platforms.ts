@@ -87,6 +87,7 @@ export function getGearWithEquivalent(
 
 /** Get blog posts related to a platform (title or tags mention it). */
 export function getBlogPostsForPlatform(platformId: string): BlogPost[] {
+
   const terms = [platformId.replace("_", " ")];
 
   // Add common aliases

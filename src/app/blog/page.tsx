@@ -15,10 +15,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
-  const posts = getAllPosts();
-  const featured = posts.filter((p) => p.featured);
-  const rest = posts.filter((p) => !p.featured);
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string }>;
+}) {
+  const { category } = await searchParams;
+  const allPosts = getAllPosts();
+  const posts = category
+    ? allPosts.filter((p) => p.category === category)
+    : allPosts;
+  const featured = category ? [] : posts.filter((p) => p.featured);
+  const rest = category ? posts : posts.filter((p) => !p.featured);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -45,7 +53,11 @@ export default function BlogPage() {
       <div className="mt-10 flex gap-2 overflow-x-auto pb-2 scrollbar-none">
         <Link
           href="/blog"
-          className="shrink-0 rounded-full border border-accent bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent transition-colors hover:bg-accent/20"
+          className={`shrink-0 rounded-full border px-4 py-1.5 text-sm font-medium transition-colors ${
+            !category
+              ? "border-accent bg-accent/10 text-accent"
+              : "border-border text-muted hover:border-accent/40 hover:text-accent"
+          }`}
         >
           All
         </Link>
@@ -53,12 +65,28 @@ export default function BlogPage() {
           <Link
             key={key}
             href={`/blog?category=${key}`}
-            className="shrink-0 rounded-full border border-border px-4 py-1.5 text-sm font-medium text-muted transition-colors hover:border-accent/40 hover:text-accent"
+            className={`shrink-0 rounded-full border px-4 py-1.5 text-sm font-medium transition-colors ${
+              category === key
+                ? "border-accent bg-accent/10 text-accent"
+                : "border-border text-muted hover:border-accent/40 hover:text-accent"
+            }`}
           >
             {label}
           </Link>
         ))}
       </div>
+
+      {/* Active filter label */}
+      {category && BLOG_CATEGORIES[category as keyof typeof BLOG_CATEGORIES] && (
+        <div className="mt-6 flex items-center gap-2">
+          <h2 className="text-lg font-semibold">
+            {BLOG_CATEGORIES[category as keyof typeof BLOG_CATEGORIES]}
+          </h2>
+          <span className="text-sm text-muted">
+            ({posts.length} {posts.length === 1 ? "post" : "posts"})
+          </span>
+        </div>
+      )}
 
       {/* Featured posts */}
       {featured.length > 0 && (

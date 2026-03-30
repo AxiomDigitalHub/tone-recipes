@@ -5,6 +5,7 @@ import { PLATFORMS } from "@/lib/constants";
 import { toneRecipes, songs, artists, getSongBySlug, getArtistBySlug } from "@/lib/data";
 import RecipeCard from "@/components/recipe/RecipeCard";
 import Badge from "@/components/ui/Badge";
+import PlatformOnboarding from "@/components/home/PlatformOnboarding";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -106,6 +107,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Platform onboarding */}
+      <PlatformOnboarding />
+
       {/* Problem section */}
       <section className="py-20">
         <div className="mx-auto max-w-3xl px-4 text-center">
@@ -127,7 +131,7 @@ export default function Home() {
       </section>
 
       {/* Featured Recipes */}
-      <section className="border-y border-border bg-surface/50 py-20">
+      <section id="featured" className="border-y border-border bg-surface/50 py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mb-10 flex items-end justify-between">
             <div>
