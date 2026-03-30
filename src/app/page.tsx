@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Guitar, Zap, Orbit, Volume2, Clock, Speaker, Mic } from "lucide-react";
-import { PLATFORMS } from "@/lib/constants";
 import { toneRecipes, songs, artists, getSongBySlug, getArtistBySlug } from "@/lib/data";
 import RecipeCard from "@/components/recipe/RecipeCard";
 import Badge from "@/components/ui/Badge";
@@ -49,7 +48,7 @@ export default function Home() {
         {/* Subtle background grid */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,_rgba(245,158,11,0.08),_transparent_60%)]" />
 
-        <div className="mx-auto max-w-7xl px-4 pb-20 pt-24 text-center md:pt-32">
+        <div className="mx-auto max-w-7xl px-4 pb-16 pt-24 text-center md:pt-32">
           <h1 className="mx-auto mt-4 max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
             Tone recipes from the songs{" "}
             <span className="text-accent">you love</span>.
@@ -107,30 +106,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Platform onboarding */}
-      <PlatformOnboarding />
-
-      {/* Problem section */}
-      <section className="py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center">
-          <h2 className="text-2xl font-bold md:text-3xl">
-            You&apos;ve been chasing that sound for a while now.
-          </h2>
-          <div className="mx-auto mt-6 max-w-2xl space-y-4 text-lg text-muted">
-            <p>
-              You&apos;ve watched the tutorials. You&apos;ve dug through the forums. You got close, but something&apos;s still off and you can&apos;t name exactly why.
-            </p>
-            <p>
-              It&apos;s not your ears. It&apos;s probably not even your gear. Nobody&apos;s ever given you a clear map from that recording to your specific rig.
-            </p>
-            <p className="font-semibold text-foreground">
-              That&apos;s what Fader &amp; Knob is for.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Recipes */}
+      {/* Featured Recipes — right after the fold */}
       <section id="featured" className="border-y border-border bg-surface/50 py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mb-10 flex items-end justify-between">
@@ -176,8 +152,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Popular Artists */}
+      {/* Problem section */}
       <section className="py-20">
+        <div className="mx-auto max-w-3xl px-4 text-center">
+          <h2 className="text-2xl font-bold md:text-3xl">
+            You&apos;ve been chasing that sound for a while now.
+          </h2>
+          <div className="mx-auto mt-6 max-w-2xl space-y-4 text-lg text-muted">
+            <p>
+              You&apos;ve watched the tutorials. You&apos;ve dug through the forums. You got close, but something&apos;s still off and you can&apos;t name exactly why.
+            </p>
+            <p>
+              It&apos;s not your ears. It&apos;s probably not even your gear. Nobody&apos;s ever given you a clear map from that recording to your specific rig.
+            </p>
+            <p className="font-semibold text-foreground">
+              That&apos;s what Fader &amp; Knob is for.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Artists */}
+      <section className="border-y border-border bg-surface/50 py-20">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-center text-2xl font-bold md:text-3xl">
             Popular Artists
@@ -226,7 +222,7 @@ export default function Home() {
       </section>
 
       {/* Pain points */}
-      <section className="border-y border-border bg-surface/50 py-16">
+      <section className="py-16">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">
             Sound familiar?
@@ -250,7 +246,7 @@ export default function Home() {
       </section>
 
       {/* How it works */}
-      <section className="py-20">
+      <section className="border-y border-border bg-surface/50 py-20">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-center text-2xl font-bold md:text-3xl">
             Three steps to any tone.
@@ -289,7 +285,7 @@ export default function Home() {
       </section>
 
       {/* Benefit pillars */}
-      <section className="border-y border-border bg-surface/50 py-20">
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid gap-8 md:grid-cols-3">
             {[
@@ -315,38 +311,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Supported platforms */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <h2 className="text-2xl font-bold md:text-3xl">
-            One recipe. Every platform.
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted">
-            Switch between platforms with a single tap. The same tone, translated for the gear you own.
-          </p>
-          <div className="mx-auto mt-10 flex max-w-2xl flex-wrap items-center justify-center gap-4">
-            {PLATFORMS.map((p) => (
-              <div
-                key={p.id}
-                className="flex items-center gap-2 rounded-lg border border-border bg-surface px-5 py-3 transition-colors hover:border-accent/40"
-              >
-                <div
-                  className="h-3 w-3 rounded-full"
-                  style={{ backgroundColor: p.color }}
-                />
-                <span className="text-sm font-medium">{p.label}</span>
-              </div>
-            ))}
-            <div className="flex items-center gap-2 rounded-lg border border-border bg-surface px-5 py-3">
-              <div className="h-3 w-3 rounded-full bg-muted" />
-              <span className="text-sm font-medium">Physical Gear</span>
-            </div>
-          </div>
+      {/* Set your platform — merged onboarding + platform showcase */}
+      <section className="border-y border-border bg-surface/50 py-20">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <PlatformOnboarding />
         </div>
       </section>
 
       {/* Closing CTA */}
-      <section className="border-t border-border bg-surface/50 py-20">
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <h2 className="text-2xl font-bold md:text-3xl">
             Your gear can do this. Let&apos;s prove it.
