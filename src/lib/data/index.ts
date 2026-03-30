@@ -2620,6 +2620,38 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The Katana's Crunch channel at moderate gain approximates a pushed blackface Fender. The Blues Drive in the Booster slot acts as the Tube Screamer mid-boost. Set the Booster to Blues Drive in Boss Tone Studio. The Katana won't perfectly replicate the Vibroverb's 1x15 speaker character, but the Crunch channel gets close to that warm breakup.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Green Scream",
+            block_category: "Stomp",
+            original_gear: "Ibanez TS808",
+            settings: { Drive: 1.0, Tone: 6.0, Volume: 10.0 },
+            notes:
+              "Slot A. Kemper's Green Scream is a direct Tube Screamer emulation. Keep Drive at minimum for a clean boost, Volume maxed to push the profile's front end.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Vibroverb'",
+            block_category: "Profile",
+            original_gear: "Fender Vibroverb",
+            settings: { Gain: 7.0, Bass: 4.0, Middle: 5.0, Treble: 6.0, Presence: 5.0 },
+            notes:
+              "Search Rig Exchange for blackface Vibroverb profiles. MBritt and Tone Junkie both offer excellent Vibroverb packs. Set the Gain to edge-of-breakup. With Liquid Profiling, select the Fender tone stack for authentic EQ behavior.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. For the most authentic SRV tone, search Rig Exchange for a Vibroverb profile captured through a 1x15 JBL D130F speaker. The Green Scream into a pushed Vibroverb profile is one of the most popular combinations on the Kemper.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "T808 OD", block_category: "Drive", original_gear: "Ibanez TS808", settings: { Drive: 1.0, Tone: 6.0, Level: 10.0 }, notes: "Drive at minimum for clean boost. Level maxed to push the amp." },
+          { position: 2, block_name: "Vibrato Verb", block_category: "Amp", original_gear: "Fender Vibroverb", settings: { Drive: 7.0, Bass: 4.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, MV: 7.5 }, notes: "Closest model to a blackface Vibroverb. Push the Drive for edge-of-breakup." },
+          { position: 3, block_name: "1x15 Deluxe", block_category: "Cab", original_gear: "1x15 JBL D130F", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Round 1x15 cab for the full low-end SRV character." },
+        ],
+        notes: "Vibrato Verb with T808 OD clean boost. Eb tuning and heavy .013 strings are essential to the SRV sound.",
+      },
     },
     is_editorial: true,
     view_count: 0,
@@ -2891,6 +2923,66 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The Katana has a built-in Muff Fuzz in the Booster section (Boss Tone Studio). Set the Lead channel relatively clean so the Muff does the heavy lifting. Add Digital Delay and Reverb in the FX section for the spacious Gilmour sustain and depth.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Stomp",
+            original_gear: "MXR Dyna Comp",
+            settings: { Intensity: 5.0, Volume: 0.0 },
+            notes:
+              "Slot A. Light compression to even out dynamics. Keep Intensity moderate for subtle sustain enhancement.",
+          },
+          {
+            position: 2,
+            block_name: "Muffin",
+            block_category: "Stomp",
+            original_gear: "Big Muff Pi",
+            settings: { Volume: 7.0, Tone: 6.0, Sustain: 8.0 },
+            notes:
+              "Slot B. Kemper's Muffin is the Big Muff emulation. Sustain high but not maxed. Tone above noon to keep the sound open and present.",
+          },
+          {
+            position: 3,
+            block_name: "Search Rig Exchange for 'Hiwatt'",
+            block_category: "Profile",
+            original_gear: "Hiwatt DR103",
+            settings: { Gain: 5.0, Bass: 4.0, Middle: 5.0, Treble: 6.0, Presence: 6.0 },
+            notes:
+              "Search Rig Exchange for Hiwatt DR103 profiles. Keep the profile relatively clean so the Muffin provides the main gain and sustain character. With Liquid Profiling, select the Hiwatt tone stack.",
+          },
+          {
+            position: 4,
+            block_name: "Single Delay",
+            block_category: "Effect",
+            original_gear: "Binson Echorec",
+            settings: { "Delay Time": "440ms", Feedback: 35, Mix: 30 },
+            notes:
+              "DLY slot. Set to 440ms for musical repeats. Add some Hi Cut to warm up the repeats like the original Echorec.",
+          },
+          {
+            position: 5,
+            block_name: "Plate Reverb",
+            block_category: "Effect",
+            original_gear: "Studio plate reverb",
+            settings: { Decay: 2.5, Mix: 25, "Pre Delay": 30 },
+            notes:
+              "REV slot. Plate reverb adds the lush spaciousness essential to Gilmour's lead tone. Keep the mix moderate.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. For the most authentic Gilmour tone, search for Hiwatt profiles captured through WEM 4x12 cabinets with Fane speakers. The Muffin into a clean Hiwatt profile with delay and plate reverb is a classic Kemper setup for this tone.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "PI Fuzz", block_category: "Drive", original_gear: "Electro-Harmonix Big Muff Pi", settings: { Sustain: 7.0, Tone: 5.0, Level: 7.0 }, notes: "Big Muff fuzz for the iconic singing sustain." },
+          { position: 2, block_name: "Hipower", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 5.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, MV: 7.0 }, notes: "Clean Hiwatt platform. The Big Muff provides all the gain." },
+          { position: 3, block_name: "Digital Mono", block_category: "Delay", original_gear: "TC Electronic 2290", settings: { Time: 440, Feedback: 30, Mix: 30 }, notes: "Medium delay for depth and sustain." },
+          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Smooth Greenback cab for Gilmour's warm character." },
+        ],
+        notes: "Hipower with PI Fuzz for the Comfortably Numb sustain. Neck pickup on Strat. The delay adds depth without washing out the tone.",
+      },
     },
     is_editorial: true,
     view_count: 0,
@@ -3149,6 +3241,48 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The Katana's Brown channel is its Marshall-voiced high-gain mode. Crank the gain for cranked Plexi character. The '60s Fuzz is available in the Booster section via Boss Tone Studio. For the wah, you'll need the GA-FC foot controller or use the Tone Studio to assign the Pedal FX to wah. Without an expression pedal, try the Touch Wah in Auto mode.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Wah Wah",
+            block_category: "Stomp",
+            original_gear: "Dunlop Cry Baby Wah",
+            settings: { Position: "Expression Pedal" },
+            notes:
+              "Slot A. Assign to an expression pedal for real-time control. Kemper's Wah Wah effect works well for the Cry Baby sound. Enable Touch Wah for auto-engage when the pedal moves.",
+          },
+          {
+            position: 2,
+            block_name: "Kemper Fuzz",
+            block_category: "Stomp",
+            original_gear: "Dallas Arbiter Fuzz Face",
+            settings: { Fuzz: 7.0, Volume: 8.0 },
+            notes:
+              "Slot B. The Kemper Fuzz (OS 8.1+) covers Fuzz Face territory with both germanium and silicon voicings. Select the germanium variant for authentic Hendrix response to guitar volume changes.",
+          },
+          {
+            position: 3,
+            block_name: "Search Rig Exchange for 'Plexi'",
+            block_category: "Profile",
+            original_gear: "Marshall Super Lead 1959",
+            settings: { Gain: 9.0, Bass: 5.0, Middle: 8.0, Treble: 7.0, Presence: 6.0 },
+            notes:
+              "Search Rig Exchange for Marshall Plexi or Super Lead profiles. Look for cranked profiles with high gain. With Liquid Profiling, select the Marshall Plexi tone stack for authentic EQ behavior. MBritt and Top Jimi both offer excellent Plexi packs.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The Kemper Fuzz responds dynamically to guitar volume changes, which is essential for authentic Hendrix playing. For the best results, place the Wah before the Fuzz in the chain. The Kemper excels at this tone because profiles of real cranked Plexis capture the exact saturation and dynamics of the original amps.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Cry Baby", block_category: "Wah", original_gear: "Vox Cry Baby Wah", settings: { Position: "Exp Pedal" }, notes: "Wah is essential for the Voodoo Child intro." },
+          { position: 2, block_name: "Face Fuzz", block_category: "Drive", original_gear: "Dallas Arbiter Fuzz Face", settings: { Fuzz: 7.0, Volume: 7.0 }, notes: "Germanium Fuzz Face for thick, warm fuzz." },
+          { position: 3, block_name: "Vibrato Lux", block_category: "Amp", original_gear: "Fender Vibrolux", settings: { Drive: 6.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, MV: 7.0 }, notes: "Fender clean platform pushed by the Fuzz Face." },
+          { position: 4, block_name: "Vibe", block_category: "Modulation", original_gear: "Uni-Vibe", settings: { Speed: 4.0, Depth: 6.0, Mix: 50 }, notes: "Uni-Vibe for the swirling, psychedelic character." },
+        ],
+        notes: "Cry Baby into Face Fuzz into Vibrato Lux with Vibe. The wah work and fuzz are inseparable from this tone.",
+      },
     },
     is_editorial: true,
     view_count: 0,
@@ -3397,6 +3531,48 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "This is where the Katana really shines — the Distortion booster is based on the Boss DS-1, and the Katana's recreation is one of the most accurate available. Scoop the mids on the Lead channel for the grunge character. Set up two patches in Tone Studio: one clean with just chorus for verses, one with Distortion engaged for choruses. Use the channel switch to toggle.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "One DS",
+            block_category: "Stomp",
+            original_gear: "Boss DS-1",
+            settings: { Distortion: 8.0, Tone: 5.0, Volume: 7.0 },
+            notes:
+              "Slot A. Kemper's One DS is the DS-1 emulation. Toggle on for chorus sections, off for clean verses. The mid-scooped, aggressive character is accurate to the original.",
+          },
+          {
+            position: 2,
+            block_name: "Vintage Chorus",
+            block_category: "Stomp",
+            original_gear: "EHX Small Clone",
+            settings: { Rate: 4.0, Depth: 7.0, Mix: 60 },
+            notes:
+              "Slot B. Leave on for the entire song. Kemper's Vintage Chorus covers the lush, analog bucket-brigade character of the Small Clone. Adds the underwater Cobain shimmer.",
+          },
+          {
+            position: 3,
+            block_name: "Search Rig Exchange for 'Mesa Boogie'",
+            block_category: "Profile",
+            original_gear: "Mesa/Boogie Studio .22",
+            settings: { Gain: 6.0, Bass: 6.0, Middle: 3.0, Treble: 5.0 },
+            notes:
+              "Search Rig Exchange for Mesa Boogie profiles. Scoop the mids for the grunge character. With Liquid Profiling, select the Mesa tone stack for authentic EQ response.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. Use the Kemper's Morph feature or stomp switches to toggle the One DS on/off for the verse/chorus dynamic. The clean verse tone with just Vintage Chorus into a clean Mesa profile is lush and shimmery.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "DS1 Distortion", block_category: "Drive", original_gear: "Boss DS-1", settings: { Dist: 8.0, Tone: 5.0, Level: 7.0 }, notes: "Helix's DS-1 model. Set up a footswitch to toggle this on for chorus sections and off for clean verses. The Deez One Vintage captures the bright, aggressive DS-1 character accurately." },
+          { position: 2, block_name: "Analog Mono", block_category: "Modulation", original_gear: "EHX Small Clone", settings: { Speed: 4.0, Depth: 7.0, Mix: 60 }, notes: "The PlastiChorus is Helix's Small Clone model. Leave this on for the entire song. The deep, wobbly character is essential to the Cobain sound." },
+          { position: 3, block_name: "USA MK IV", block_category: "Amp", original_gear: "Mesa/Boogie Studio .22", settings: { Drive: 6.0, Bass: 6.0, Mid: 3.0, Treble: 5.0, Presence: 5.0, MV: 7.0 }, notes: "USA MK IV approximates the Mesa .22 preamp. Keep the mids low for the grunge scoop." },
+          { position: 4, block_name: "1x12 Deluxe", block_category: "Cab", original_gear: "Mesa 1x12", settings: { Mic: "57 Dynamic", Distance: 1.5 }, notes: "A 1x12 cab keeps the sound focused and punchy. The US Deluxe cab adds the right American-voiced character." },
+        ],
+        notes: "Helix's DS-1 model. Set up a footswitch to toggle this on for chorus sections and off for clean verses. The Deez One Vintage captures the bright, aggressive DS-1 character accurately.",
       },
     },
     is_editorial: true,
@@ -3652,6 +3828,48 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The Katana's Clean channel excels at this. Add chorus and reverb for the spacious Mansion ambience. Push the treble for sparkle on the neck pickup.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Vintage Chorus",
+            block_category: "Stomp",
+            original_gear: "Boss CE-1 Chorus Ensemble",
+            settings: { Rate: 3.0, Depth: 6.0 },
+            notes:
+              "Slot A. Kemper's Vintage Chorus emulates the bucket-brigade chorus of the 1970s CE-1 era. Keep rate slow and depth moderate for warm, subtle shimmer.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Marshall Clean'",
+            block_category: "Profile",
+            original_gear: "Marshall Major 200W",
+            settings: { Gain: 2.5, Bass: 4.0, Middle: 5.0, Treble: 7.0, Presence: 6.0 },
+            notes:
+              "Search Rig Exchange for clean Marshall profiles. The Marshall Major is rare, so look for any clean Plexi or JTM45 profile with high headroom. Keep Gain low for pristine cleans. With Liquid Profiling, select a Marshall tone stack.",
+          },
+          {
+            position: 3,
+            block_name: "Natural Reverb",
+            block_category: "Effect",
+            original_gear: "Room reverb (The Mansion)",
+            settings: { Decay: 1.5, Mix: 20 },
+            notes:
+              "REV slot. Natural Reverb emulates a realistic room. Set subtle to recreate The Mansion's natural ambience where BSSM was recorded.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. This is a minimalist clean tone that relies on a quality clean Marshall profile with subtle chorus and room reverb. The Kemper excels at clean tones because profiles capture the exact character of the original amp at its clean settings.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Japan CE-2", block_category: "Modulation", original_gear: "Boss CE-1 Chorus Ensemble", settings: { Speed: 3.0, Depth: 6.0, Mix: 50 }, notes: "The 70s Chorus captures the warm analog character of vintage chorus pedals. Keep the speed low and depth moderate for a subtle shimmer rather than obvious modulation." },
+          { position: 2, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Major 200W", settings: { Drive: 2.5, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 5.0, }, notes: "Helix doesn't have a Marshall Major model. The Brit Plexi Brt set to very low gain approximates the clean Marshall tone. Keep Drive low for pristine cleans. The treble push is important for maintaining sparkle." },
+          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 3.0 }, notes: "Pull the mic distance back slightly for a warmer, more ambient capture that suits the clean tone. The Greenback cab adds warmth and body." },
+          { position: 4, block_name: "London Plate", block_category: "Reverb", original_gear: "Room reverb (The Mansion)", settings: { Decay: 1.5, Mix: 20, "Pre Delay": 20 }, notes: "A room reverb recreates the natural ambience of The Mansion where BSSM was recorded. Keep the mix subtle for a breathing, spacious quality." },
+        ],
+        notes: "The 70s Chorus captures the warm analog character of vintage chorus pedals. Keep the speed low and depth moderate for a subtle shimmer rather than obvious modulation.",
+      },
     },
     is_editorial: true,
     view_count: 0,
@@ -3856,6 +4074,37 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "The Katana's Brown channel gets surprisingly close to the JCM800 tone. Add subtle reverb for studio dimension. Use a humbucker guitar on the neck pickup.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'JCM800'",
+            block_category: "Profile",
+            original_gear: "Marshall JCM800 2203",
+            settings: { Gain: 8.0, Bass: 5.0, Middle: 8.0, Treble: 7.0, Presence: 6.0 },
+            notes:
+              "Search Rig Exchange for JCM800 profiles cranked to high gain. MBritt and Top Jimi both offer excellent JCM800 packs. With Liquid Profiling, select the Marshall JCM800 tone stack. Push the mids high for that cutting Slash character.",
+          },
+          {
+            position: 2,
+            block_name: "Natural Reverb",
+            block_category: "Effect",
+            original_gear: "Studio room reverb",
+            settings: { Decay: 1.2, Mix: 15 },
+            notes:
+              "REV slot. Subtle room reverb for studio dimension. Keep the mix very low to maintain the in-your-face directness of the Appetite tone.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. Slash's tone is famously simple: guitar straight into a cranked Marshall. The Kemper is ideal for this because a profile of a real cranked JCM800 through a Greenback 4x12 captures the exact saturation and speaker interaction. No pedals needed.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800 2203", settings: { Drive: 7.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 7.0 }, notes: "JCM800 for Slash's aggressive, singing lead tone." },
+          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 with Celestion V30s", settings: { Mic: "57 Dynamic", Distance: 1.5 }, notes: "Greenback cab for the Slash midrange." },
+        ],
+        notes: "Brit 800 cranked for the Sweet Child O' Mine riff and solo. Les Paul Standard with the Alnico II neck pickup.",
       },
     },
     is_editorial: true,
@@ -4106,6 +4355,47 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "The Katana's Brown channel was designed with the EVH tone in mind. Add subtle reverb for studio dimension. Use a bridge humbucker and push the gain.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Phaser",
+            block_category: "Stomp",
+            original_gear: "MXR Phase 90",
+            settings: { Speed: 3.0, Mix: 50 },
+            notes:
+              "Slot A. Kemper's Phaser covers the Phase 90 territory. Keep the speed low for subtle swirl. Toggle on/off as needed.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Plexi'",
+            block_category: "Profile",
+            original_gear: "Marshall Super Lead 1959 (Variac)",
+            settings: { Gain: 8.5, Bass: 5.0, Middle: 7.0, Treble: 7.0, Presence: 5.0 },
+            notes:
+              "Search Rig Exchange for cranked Plexi profiles. Look for profiles described as 'brown sound' or 'variac'd'. With Liquid Profiling, select the Marshall Plexi tone stack. MBritt offers excellent vintage Marshall packs.",
+          },
+          {
+            position: 3,
+            block_name: "Natural Reverb",
+            block_category: "Effect",
+            original_gear: "Studio room reverb (Sunset Sound)",
+            settings: { Decay: 1.0, Mix: 15 },
+            notes:
+              "REV slot. Very subtle room reverb for Sunset Sound studio ambience. Keep the mix low to preserve the dry, direct brown sound character.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The Kemper excels at this tone because profiles of real variac'd Plexis capture the exact compression and harmonic richness of the original. The Phaser adds the signature EVH swirl.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "FAS Brown", block_category: "Amp", original_gear: "Marshall Super Lead (modded)", settings: { Drive: 8.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 7.5 }, notes: "The FAS Brown is specifically designed for the Van Halen brown sound. Modded Marshall with extra gain." },
+          { position: 2, block_name: "Script", block_category: "Phaser", original_gear: "MXR Phase 90", settings: { Rate: 3.0, Depth: 5.0 }, notes: "Subtle phaser for the swirling EVH character." },
+          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback for tight attack." },
+        ],
+        notes: "FAS Brown is the go-to EVH brown sound model on Fractal. Script phaser adds the swirl. Variac'd feel from lower MV settings.",
       },
     },
     is_editorial: true,
@@ -4363,6 +4653,47 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The Katana's Crunch channel with dotted eighth delay and reverb captures the atmospheric Edge sound. Use tap tempo religiously.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'AC30'",
+            block_category: "Profile",
+            original_gear: "Vox AC30 (Top Boost)",
+            settings: { Gain: 5.5, Bass: 4.0, Middle: 6.0, Treble: 7.0 },
+            notes:
+              "Search Rig Exchange for Vox AC30 Top Boost profiles. Set slightly pushed for chimey breakup. With Liquid Profiling, select the Vox AC30 tone stack. MBritt and Tone Junkie offer excellent AC30 packs.",
+          },
+          {
+            position: 2,
+            block_name: "Dual Delay",
+            block_category: "Effect",
+            original_gear: "Korg SDD-3000 + Memory Man",
+            settings: { "Delay 1": "dotted 1/8", "Feedback 1": 40, "Delay 2": "1/4", "Feedback 2": 25, Mix: 35 },
+            notes:
+              "DLY slot. Kemper's Dual Delay handles both The Edge's primary dotted-eighth delay and secondary quarter-note delay in a single block. Use tap tempo to sync to the song.",
+          },
+          {
+            position: 3,
+            block_name: "Hall Reverb",
+            block_category: "Effect",
+            original_gear: "Hall reverb",
+            settings: { Decay: 2.5, Mix: 25, "Pre Delay": 40 },
+            notes:
+              "REV slot. Hall reverb after the delays for the atmospheric wash. Pre-delay preserves delay clarity.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The Dual Delay is ideal for The Edge's layered delay approach. Use tap tempo and sync delays to the song tempo. The Kemper's Morph feature can be used to bring delays in and out smoothly.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Digital Stereo", block_category: "Delay", original_gear: "TC Electronic 2290 / Korg SDD-3000", settings: { Time: 340, Feedback: 30, Mix: 35 }, notes: "Dotted-eighth delay is essential. Multiple delay lines for the rhythmic pattern." },
+          { position: 2, block_name: "AC-30 TB", block_category: "Amp", original_gear: "Vox AC30", settings: { Drive: 5.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, MV: 6.0 }, notes: "AC30 provides the chiming, bright platform for the delay-driven sound." },
+          { position: 3, block_name: "2x12 AC30 Blue", block_category: "Cab", original_gear: "Vox 2x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Blue Alnico speakers for the classic Vox chime." },
+        ],
+        notes: "AC-30 TB with dotted-eighth Digital Stereo delay. The Edge's tone IS the delay. Set delay time to match the song's BPM.",
+      },
     },
     is_editorial: true,
     view_count: 0,
@@ -4604,6 +4935,48 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The Katana's Crunch channel with Blues Drive clean boost gets a convincing Mayer-style tone. For the always-on compression, use an external compressor pedal before the Katana, or select the Compressor as the Booster type in Tone Studio.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Stomp",
+            original_gear: "Keeley Compressor Plus",
+            settings: { Intensity: 4.0, Volume: 0.0 },
+            notes:
+              "Slot A. Always-on transparent compression. Kemper's Compressor with the unique Squash parameter evens out dynamics for polished consistency. Keep Intensity moderate.",
+          },
+          {
+            position: 2,
+            block_name: "Green Scream",
+            block_category: "Stomp",
+            original_gear: "Ibanez TS808",
+            settings: { Drive: 3.0, Tone: 5.0, Volume: 7.0 },
+            notes:
+              "Slot B. Classic clean-boost Tube Screamer setup: low drive, high volume. The mid-hump pushes the amp profile into sweet overdrive.",
+          },
+          {
+            position: 3,
+            block_name: "Search Rig Exchange for 'Two Rock' or 'Dumble'",
+            block_category: "Profile",
+            original_gear: "Two Rock Custom Reverb",
+            settings: { Gain: 5.5, Bass: 5.0, Middle: 5.0, Treble: 6.0 },
+            notes:
+              "Search Rig Exchange for Two Rock or Dumble-style profiles. Set to edge of breakup for touch-responsive dynamics. With Liquid Profiling, select a Fender-family tone stack. MBritt and Tone Junkie offer boutique amp packs.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The Compressor into Green Scream into a Two Rock profile is an excellent Kemper setup for Mayer's touch-sensitive blues-rock tone. The Kemper's dynamic response to pick attack is ideal for this style.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Keeley Compressor Plus", settings: { Level: 6.0, Threshold: -18, Ratio: 3 }, notes: "Always-on transparent compression. Evens out dynamics and adds sustain without squashing the feel. Essential for Mayer's polished, consistent note response." },
+          { position: 2, block_name: "T808 OD", block_category: "Drive", original_gear: "Ibanez TS808", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "Low drive, high level. Classic clean-boost Tube Screamer setup." },
+          { position: 3, block_name: "Two-Stone J35", block_category: "Amp", original_gear: "Two Rock Custom Reverb", settings: { Drive: 5.5, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, "MV": 5.5, }, notes: "The Derailed Ingrid is Helix's boutique Dumble-style amp model, which shares DNA with the Two Rock circuit. Set to edge of breakup for touch-responsive dynamics." },
+          { position: 4, block_name: "2x12 Mail C12Q", block_category: "Cab", original_gear: "Two Rock 2x12", settings: { Mic: "57 Dynamic", Distance: 2.5 }, notes: "A clean, full-range 2x12 cab. Pull the mic back slightly for warmth." },
+        ],
+        notes: "Always-on transparent compression. Evens out dynamics and adds sustain without squashing the feel. Essential for Mayer's polished, consistent note response.",
+      },
     },
     is_editorial: true,
     view_count: 0,
@@ -4746,6 +5119,28 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Community captures of cranked Fender Champs on Cortex Cloud are excellent for this tone. The QC's neural captures of real small amps at full volume are among its greatest strengths.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'Fender Champ'",
+            block_category: "Profile",
+            original_gear: "Fender Champ",
+            settings: { Gain: 10.0, Bass: 5.0, Middle: 6.0, Treble: 6.0 },
+            notes:
+              "Search Rig Exchange for cranked Fender Champ profiles. The key is maximum gain for thick, compressed overdrive. With Liquid Profiling, select the Fender Champ tone stack. Profiles of small amps at full tilt are one of Kemper's greatest strengths.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. This is a beautifully simple tone: guitar straight into a dimed Champ. The Kemper captures the exact compression and saturation of a real cranked small amp. For Clapton's 'woman tone' on slower passages, use the Kemper's built-in EQ or roll back the guitar's tone knob.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Fender Champ / Marshall", settings: { Drive: 8.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 7.0 }, notes: "Cranked amp for the Layla slide and riff tone. High gain for sustain and aggression." },
+          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Marshall cab for rock aggression." },
+        ],
+        notes: "Cranked Plexi for the aggressive Layla riff tone. Les Paul with the woman tone rolloff on the tone knob.",
       },
     },
     is_editorial: true,
@@ -4948,6 +5343,46 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "This is the easiest tone to set up on the Katana — just the Clean channel, no effects needed. The entire tone comes from playing with your fingers on the neck pickup. The Katana's Clean channel excels at this type of pristine, dynamic clean sound.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Stomp",
+            original_gear: "MXR Dyna Comp",
+            settings: { Intensity: 4.0, Volume: 0.0 },
+            notes:
+              "Slot A. Light compression to even out fingerpicked dynamics. Keep it transparent and subtle.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Vibrolux' or 'Fender Clean'",
+            block_category: "Profile",
+            original_gear: "Fender Vibrolux Reverb",
+            settings: { Gain: 4.0, Bass: 5.0, Middle: 5.0, Treble: 6.0 },
+            notes:
+              "Search Rig Exchange for clean Fender Vibrolux or similar blackface profiles. Keep the Gain low for pristine cleans. With Liquid Profiling, select the Fender tone stack.",
+          },
+          {
+            position: 3,
+            block_name: "Spring Reverb",
+            block_category: "Effect",
+            original_gear: "Built-in spring reverb",
+            settings: { Decay: 2.0, Mix: 15 },
+            notes:
+              "REV slot. Subtle spring reverb for depth. The Kemper's Spring Reverb includes a Dripstone parameter for authentic spring character.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. This is a minimalist clean tone that depends entirely on fingerpicking technique. Use your fingers instead of a pick and play on the neck pickup. The Kemper's transparent clean profiles excel at this type of articulate, dynamic tone.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Vibrato Lux", block_category: "Amp", original_gear: "Fender Vibrolux", settings: { Drive: 4.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, MV: 6.0 }, notes: "Clean Fender for Knopfler's fingerstyle clarity." },
+          { position: 2, block_name: "1x12 Deluxe", block_category: "Cab", original_gear: "Fender 2x10", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Small Fender cab for the intimate, clean tone." },
+        ],
+        notes: "Clean Vibrato Lux for the Sultans fingerstyle tone. Strat bridge/middle position. Fingerpicking technique is essential.",
       },
     },
     is_editorial: true,
@@ -5189,6 +5624,48 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Clean channel with light compression and spring reverb. Use a humbucker guitar on the neck pickup. The playing technique is everything.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Stomp",
+            original_gear: "Studio LA-2A compressor",
+            settings: { Intensity: 4.0, Volume: 0.0 },
+            notes:
+              "Slot A. Light, transparent compression for smooth, singing single-note lines. Keeps dynamics consistent without squashing feel.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Bassman'",
+            block_category: "Profile",
+            original_gear: "Fender Bassman",
+            settings: { Gain: 5.0, Bass: 6.0, Middle: 5.0, Treble: 5.0 },
+            notes:
+              "Search Rig Exchange for Fender Bassman profiles. Set for warm, slightly driven tones. With Liquid Profiling, select the Fender Bassman tone stack. Keep the tone warm and avoid harsh highs.",
+          },
+          {
+            position: 3,
+            block_name: "Spring Reverb",
+            block_category: "Effect",
+            original_gear: "Spring reverb",
+            settings: { Decay: 1.5, Mix: 20 },
+            notes:
+              "REV slot. Warm spring reverb adds depth and richness to single-note blues lines. The Kemper's Spring Reverb with Dripstone parameter provides authentic vintage character.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. B.B. King used no effects pedals. His entire sound comes from his fingers, vibrato, and bending technique. The Kemper's warm Bassman profiles with subtle compression and spring reverb provide the perfect canvas for expressive blues playing.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio LA-2A compressor", settings: { Level: 6.0, "Peak Reduction": 25 }, notes: "Light, transparent compression for smooth, consistent single-note lines. The LA-2A style comp adds warmth and sustain without squashing dynamics." },
+          { position: 2, block_name: "59 Bassguy", block_category: "Amp", original_gear: "Fender Bassman", settings: { Drive: 5.0, Bass: 6.0, Mid: 5.0, Treble: 5.0, Presence: 4.0, "MV": 6.0, }, notes: "The US Deluxe Normal is Helix's blackface Fender model. Set for warm, slightly driven tones. The Bassman is a similar Fender circuit. Keep the tone warm and avoid harsh highs." },
+          { position: 3, block_name: "4x10 Tweed", block_category: "Cab", original_gear: "Fender Bassman 4x10", settings: { Mic: "57 Dynamic", Distance: 2.5 }, notes: "The 4x10 Tweed cab matches the Bassman's speaker configuration. Slightly pulled back mic for a warmer, smoother capture." },
+          { position: 4, block_name: "Tube Spring", block_category: "Reverb", original_gear: "Spring reverb", settings: { Decay: 1.5, Mix: 20 }, notes: "Warm spring reverb adds depth and richness to the single-note blues lines." },
+        ],
+        notes: "Light, transparent compression for smooth, consistent single-note lines. The LA-2A style comp adds warmth and sustain without squashing dynamics.",
+      },
     },
     is_editorial: true,
     view_count: 0,
@@ -5370,6 +5847,38 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "The Katana can approximate this tone with the Crunch channel cranked and the Pitch Shifter in the Pedal FX section. The pitch tracking may not be as clean as dedicated Whammy models, but it captures the spirit of the garage-rock sound.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Analog Octaver",
+            block_category: "Stomp",
+            original_gear: "DigiTech Whammy (Octave Down)",
+            settings: { Mix: 100 },
+            notes:
+              "Slot A. Kemper's Analog Octaver drops the pitch one octave for the main riff. Toggle on/off with a footswitch. For more precise Whammy-style control, use the Pedal Pitch effect assigned to an expression pedal.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Silvertone' or 'Tweed'",
+            block_category: "Profile",
+            original_gear: "Silvertone 1485",
+            settings: { Gain: 8.0, Bass: 6.0, Middle: 5.0, Treble: 6.0 },
+            notes:
+              "Search Rig Exchange for Silvertone or cranked tweed-style profiles. The lo-fi, gritty character of cheap vintage amps is well captured by Kemper profiles. Push the gain for raw garage-rock distortion.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The Analog Octaver handles the iconic octave-down riff. For the lo-fi garage-rock character, search for profiles of cranked budget vintage amps. The imperfections in these profiles are what make this tone authentic.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Classic Whammy", block_category: "Pitch", original_gear: "DigiTech Whammy", settings: { Mode: "1 Oct Down", Position: "toe down" }, notes: "Set the Pitch Wham to one octave down. Assign a footswitch to toggle it on/off. Engaged for the main riff, bypassed for normal guitar sections." },
+          { position: 2, block_name: "5F1 Tweed", block_category: "Amp", original_gear: "Silvertone 1485", settings: { Drive: 8.0, Bass: 6.0, Mid: 5.0, Treble: 6.0, "MV": 7.0, }, notes: "Helix doesn't have a Silvertone model. The US Small Tweed cranked hard gets close to the raw, lo-fi character. Push the Drive for gritty distortion." },
+          { position: 3, block_name: "1x12 Deluxe", block_category: "Cab", original_gear: "Silvertone 6x10", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "No exact match for the 6x10 Silvertone cabinet. A 1x12 cab works as a substitute." },
+        ],
+        notes: "Set the Pitch Wham to one octave down. Assign a footswitch to toggle it on/off. Engaged for the main riff, bypassed for normal guitar sections.",
       },
     },
     is_editorial: true,
@@ -5592,6 +6101,47 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The Katana can handle the core rhythm tone well with the Brown channel, but the Whammy pitch effects require an external DigiTech Whammy pedal — the Katana's built-in pitch shifting is limited for this style. The wah requires the GA-FC foot controller.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Wah Wah",
+            block_category: "Stomp",
+            original_gear: "Dunlop Cry Baby Wah",
+            settings: { Position: "Expression Pedal" },
+            notes:
+              "Slot A. Assign to an expression pedal. Morello uses the wah as a tone-shaping filter, parking it at specific positions or rocking it rhythmically.",
+          },
+          {
+            position: 2,
+            block_name: "Pedal Pitch",
+            block_category: "Stomp",
+            original_gear: "DigiTech Whammy",
+            settings: { "Pitch Range": "+24 semitones" },
+            notes:
+              "Slot B. Kemper's Pedal Pitch effect on an expression pedal replicates the Whammy's pitch sweep. Set range to 2 octaves up for the signature Morello pitch screams.",
+          },
+          {
+            position: 3,
+            block_name: "Search Rig Exchange for 'JCM800'",
+            block_category: "Profile",
+            original_gear: "Marshall JCM800 2205",
+            settings: { Gain: 8.0, Bass: 6.0, Middle: 7.0, Treble: 6.0, Presence: 5.0 },
+            notes:
+              "Search Rig Exchange for cranked JCM800 profiles. Push the gain for aggressive, tight distortion. With Liquid Profiling, select the Marshall JCM800 tone stack.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The creative sound effects (killswitch stutters, toggle scratching) require technique, not gear. For a killswitch, use the Kemper's stomp switches to toggle volume on/off. Morello's playing technique is the heart of his style.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Classic Whammy", block_category: "Pitch", original_gear: "DigiTech Whammy", settings: { Mode: "variable", Position: "Exp Pedal" }, notes: "Whammy pedal for Morello's signature pitch effects." },
+          { position: 2, block_name: "USA Lead", block_category: "Amp", original_gear: "Marshall JCM800 / Peavey", settings: { Drive: 8.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 6.0, MV: 7.0 }, notes: "High-gain amp for the aggressive riff tone. No direct Peavey model; USA Lead provides similar aggression." },
+          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Standard Marshall cab." },
+        ],
+        notes: "Classic Whammy + high-gain amp. Morello's toggle switch kill technique and creative Whammy use define this tone.",
+      },
     },
     is_editorial: true,
     view_count: 0,
@@ -5767,6 +6317,28 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The Katana's Lead channel scooped gets a convincing thrash metal tone. Use all downstrokes, tight palm muting, and a bridge humbucker for the authentic Hetfield attack. This setup handles the Master of Puppets riffs surprisingly well.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'Mesa Mark IIC+'",
+            block_category: "Profile",
+            original_gear: "Mesa/Boogie Mark IIC+",
+            settings: { Gain: 7.0, Bass: 3.0, Middle: 3.0, Treble: 7.0, Presence: 5.0 },
+            notes:
+              "Search Rig Exchange for Mesa Mark IIC+ profiles. The Mark IIC+ is one of the most profiled amps on the Kemper due to its legendary metal status. Scoop the mids and push the treble for the classic V-curve EQ. With Liquid Profiling, select the Mesa Mark tone stack.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. Hetfield's tone is guitar straight into the amp with no pedals. The Kemper excels here because profiles of real Mark IIC+ amps capture the exact gain structure and note definition that makes this amp legendary for thrash metal. Use all downstrokes and tight palm muting for the authentic Hetfield attack.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "USA MK IIC+", block_category: "Amp", original_gear: "Mesa/Boogie Mark IIC+", settings: { Drive: 7.5, Bass: 3.0, Mid: 3.0, Treble: 7.0, Presence: 5.0, MV: 6.0 }, notes: "USA MK IIC+ for the Mark series V-curve. Keep bass and mids low, treble high for tight metal rhythm." },
+          { position: 2, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa 4x12 V30", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "V30 cab for tight, modern metal low end. Close-miked for maximum aggression." },
+        ],
+        notes: "USA MK IIC+ with scooped mids for the Master of Puppets rhythm tone. All downstrokes and tight palm muting.",
+      },
     },
     is_editorial: true,
     view_count: 0,
@@ -5926,6 +6498,28 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Keep it simple. Brown channel, moderate gain, bridge humbucker, and play hard. That is the AC/DC recipe. No effects needed.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'Plexi'",
+            block_category: "Profile",
+            original_gear: "Marshall Super Lead 1959 (Plexi)",
+            settings: { Gain: 7.5, Bass: 4.0, Middle: 5.0, Treble: 7.0, Presence: 6.0 },
+            notes:
+              "Search Rig Exchange for cranked Plexi profiles. Look for profiles at edge-of-breakup to moderate crunch gain levels. With Liquid Profiling, select the Marshall Plexi tone stack. No drive pedals needed.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. AC/DC's tone secret is no effects at all. Guitar straight into a cranked Plexi. The Kemper is perfect for this because a profile of a real cranked Plexi captures exactly the right amount of grit and dynamics. Use a bridge humbucker and play hard.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959 (Plexi)", settings: { Drive: 7.5, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 7.0, }, notes: "The Brit Plexi Brt is Helix's Plexi model. Push the drive for natural breakup. No drive pedals needed." },
+          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback for maximum bite and presence." },
+        ],
+        notes: "The Brit Plexi Brt is Helix's Plexi model. Push the drive for natural breakup. No drive pedals needed.",
       },
     },
     is_editorial: true,
@@ -6160,6 +6754,48 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Lead channel with boosted mids, light compression for sustain, and reverb for depth. Use the neck humbucker.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Stomp",
+            original_gear: "Boss CS-2 Compressor",
+            settings: { Intensity: 5.0, Volume: 0.0 },
+            notes:
+              "Slot A. Light compression for added sustain on long lead phrases. Keeps dynamics consistent for the singing Santana quality.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Mesa Mark I'",
+            block_category: "Profile",
+            original_gear: "Mesa/Boogie Mark I",
+            settings: { Gain: 7.0, Bass: 4.0, Middle: 8.0, Treble: 5.0, Presence: 5.0 },
+            notes:
+              "Search Rig Exchange for Mesa Mark I profiles. Push the mids high for the signature Santana vocal quality. With Liquid Profiling, select the Mesa tone stack.",
+          },
+          {
+            position: 3,
+            block_name: "Plate Reverb",
+            block_category: "Effect",
+            original_gear: "Studio plate reverb",
+            settings: { Decay: 2.0, Mix: 20 },
+            notes:
+              "REV slot. Lush plate reverb for Supernatural album production depth.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The Compressor adds sustain, and the Mesa Mark I profile provides the warm, mid-heavy character that defines Santana's tone. Use the neck humbucker and play with strong vibrato.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Boss CS-2 Compressor", settings: { Level: 6.0, Threshold: -18, Ratio: 4 }, notes: "Light compression for added sustain and consistency on lead lines." },
+          { position: 2, block_name: "USA MK IV", block_category: "Amp", original_gear: "Mesa/Boogie Mark I", settings: { Drive: 7.0, Bass: 4.0, Mid: 8.0, Treble: 5.0, Presence: 5.0, MV: 7.0 }, notes: "USA MK IV for the Mark I warm, mid-heavy character. Push the mids to 8 for Santana's vocal lead quality." },
+          { position: 3, block_name: "1x12 Recto V30", block_category: "Cab", original_gear: "Mesa 1x12 Thiele", settings: { Mic: "57 Dynamic", Distance: 1.5 }, notes: "1x12 Mesa cab for focused, tight tone." },
+          { position: 4, block_name: "London Plate", block_category: "Reverb", original_gear: "Studio plate reverb", settings: { Decay: 2.0, Mix: 20 }, notes: "Plate reverb for lush depth on the sustained lead tone." },
+        ],
+        notes: "USA MK IV with boosted mids and compression for Santana's singing sustain. PRS or SG neck pickup.",
+      },
     },
     is_editorial: true,
     view_count: 1923,
@@ -6318,6 +6954,28 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "The Katana's Brown channel provides the British-voiced crunch needed. Keep gain moderate for Hiwatt-style clarity. Strum hard with the bridge humbucker.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'Hiwatt'",
+            block_category: "Profile",
+            original_gear: "Hiwatt DR103",
+            settings: { Gain: 7.0, Bass: 5.0, Middle: 5.0, Treble: 7.0, Presence: 7.0 },
+            notes:
+              "Search Rig Exchange for cranked Hiwatt DR103 profiles. The Hiwatt's clean power and clarity are well captured by Kemper profiles. With Liquid Profiling, select the Hiwatt tone stack. Push it hard for the powerful, ringing Townshend crunch.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. Townshend's tone is guitar straight into a cranked Hiwatt with no effects. The Kemper captures the Hiwatt's unique combination of power, clarity, and musical overdrive. Use the bridge humbucker and strum aggressively.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Hipower", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 7.0, Bass: 5.0, Mid: 5.0, Treble: 7.0, Presence: 7.0, MV: 7.5 }, notes: "Hipower model pushed hard for Townshend's powerful, clear overdrive." },
+          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "WEM 4x12 Fane", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "No WEM cab available. Greenback 4x12 is the closest option." },
+        ],
+        notes: "Cranked Hipower for Townshend's windmill power chords. SG Special straight in, no effects needed.",
       },
     },
     is_editorial: true,
@@ -6509,6 +7167,48 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "The Katana's Clean channel is perfect for this. Low gain, pushed treble, and spring reverb. Use the middle pickup position on your Strat.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'Twin Reverb'",
+            block_category: "Profile",
+            original_gear: "Fender Twin Reverb",
+            settings: { Gain: 3.0, Bass: 4.0, Middle: 6.0, Treble: 7.0, Presence: 6.0 },
+            notes:
+              "Search Rig Exchange for clean Fender Twin Reverb profiles. Keep the Gain very low for sparkling cleans. With Liquid Profiling, select the Fender Twin tone stack.",
+          },
+          {
+            position: 2,
+            block_name: "Spring Reverb",
+            block_category: "Effect",
+            original_gear: "Twin Reverb spring reverb",
+            settings: { Decay: 2.0, Mix: 25 },
+            notes:
+              "REV slot. The Twin Reverb's lush spring reverb is essential to Garcia's clean tone. The Kemper's Spring Reverb with Dripstone parameter adds authentic vintage character.",
+          },
+          {
+            position: 3,
+            block_name: "Single Delay",
+            block_category: "Effect",
+            original_gear: "Slapback / ambience",
+            settings: { "Delay Time": "300ms", Feedback: 15, Mix: 20 },
+            notes:
+              "DLY slot. A short delay adds spacious depth to the clean, reverb-drenched tone.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. Garcia's tone is about sparkling cleans with lush spring reverb. The Kemper's Twin Reverb profiles capture the wide, glassy character of the original amp. Use the middle pickup position for Garcia's balanced, slightly quacky tone.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Double Verb", block_category: "Amp", original_gear: "Fender Twin Reverb", settings: { Drive: 3.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, "MV": 5.0, }, notes: "The US Double Nrm is Helix's Twin Reverb model. Keep drive very low for sparkling cleans." },
+          { position: 2, block_name: "Tube Spring", block_category: "Reverb", original_gear: "Twin Reverb spring reverb", settings: { Decay: 2.0, Mix: 25 }, notes: "The Twin Reverb's lush spring reverb is essential to Garcia's clean tone. Add a spring reverb block for the authentic spacious atmosphere." },
+          { position: 3, block_name: "Digital Mono", block_category: "Delay", original_gear: "Slapback / ambience", settings: { Time: "300ms", Feedback: 15, Mix: 20 }, notes: "A short delay adds additional spacious depth to the clean, reverb-drenched tone." },
+          { position: 4, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Twin Reverb 2x12 Jensen", settings: { Mic: "57 Dynamic", Distance: 3.0 }, notes: "The 2x12 Jensen cab captures the Twin's wide, sparkling character." },
+        ],
+        notes: "The US Double Nrm is Helix's Twin Reverb model. Keep drive very low for sparkling cleans.",
       },
     },
     is_editorial: true,
@@ -6765,6 +7465,58 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The Brown channel with CE-1 chorus, delay, and hall reverb is a great approximation of Lifeson's Moving Pictures tone.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Vintage Chorus",
+            block_category: "Stomp",
+            original_gear: "Boss CE-1 Chorus Ensemble",
+            settings: { Rate: 4.0, Depth: 6.0 },
+            notes:
+              "Slot A. Kemper's Vintage Chorus emulates the CE-1's bucket-brigade character. Always on for the shimmering Lifeson effect.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Plexi'",
+            block_category: "Profile",
+            original_gear: "Marshall Super Lead 1959",
+            settings: { Gain: 6.0, Bass: 5.0, Middle: 6.0, Treble: 7.0, Presence: 6.0 },
+            notes:
+              "Search Rig Exchange for moderate-gain Plexi profiles. Not fully cranked; keep it at a moderate drive so the chorus remains clear and defined. With Liquid Profiling, select the Marshall Plexi tone stack.",
+          },
+          {
+            position: 3,
+            block_name: "Single Delay",
+            block_category: "Effect",
+            original_gear: "TC Electronic 2290",
+            settings: { "Delay Time": "350ms", Feedback: 25, Mix: 25 },
+            notes:
+              "DLY slot. Post-amp delay for spatial depth. Moderate settings for subtle ambience.",
+          },
+          {
+            position: 4,
+            block_name: "Hall Reverb",
+            block_category: "Effect",
+            original_gear: "Hall reverb (Le Studio)",
+            settings: { Decay: 2.0, Mix: 20 },
+            notes:
+              "REV slot. Hall reverb adds the spacious quality of the Moving Pictures production.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The Vintage Chorus before the amp profile, with delay and hall reverb after, captures the wide, textured Lifeson tone. Use a semi-hollow or humbucker guitar for the warmth and resonance he gets from his ES-355.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Japan CE-2", block_category: "Modulation", original_gear: "Boss CE-1", settings: { Speed: 4.0, Depth: 6.0, Mix: 50 }, notes: "Always on. The shimmer is essential to the Lifeson tone." },
+          { position: 2, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 6.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, "MV": 6.5, }, notes: "Moderate drive so the chorus remains clear. Not fully cranked." },
+          { position: 3, block_name: "Digital Mono", block_category: "Delay", original_gear: "TC 2290", settings: { Time: "350ms", Feedback: 25, Mix: 25 }, notes: "Place after amp+cab for clean, defined repeats." },
+          { position: 4, block_name: "London Plate", block_category: "Reverb", original_gear: "Hall reverb (Le Studio)", settings: { Decay: 2.0, Mix: 20 }, notes: "Hall reverb adds the spacious quality of the Moving Pictures production. Place after the delay." },
+          { position: 5, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Standard Greenback cab for the British rock foundation." },
+        ],
+        notes: "Always on. The shimmer is essential to the Lifeson tone.",
+      },
     },
     is_editorial: true,
     view_count: 1234,
@@ -7015,6 +7767,58 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Crunch channel with Treble Boost, delay, and reverb captures the Brian May sound. Use a bright single-coil or P90 guitar if possible.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Treble Booster",
+            block_category: "Stomp",
+            original_gear: "Dallas Rangemaster",
+            settings: { Boost: 8.0 },
+            notes:
+              "Slot A. Kemper's Treble Booster adds the upper-harmonic gain push that drives the AC30 into rich overdrive. Essential for the Brian May sound.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'AC30'",
+            block_category: "Profile",
+            original_gear: "Vox AC30 (Top Boost)",
+            settings: { Gain: 6.5, Bass: 4.0, Middle: 5.0, Treble: 6.0 },
+            notes:
+              "Search Rig Exchange for Vox AC30 Top Boost profiles. The treble booster before the profile creates the pushed-AC30 character. With Liquid Profiling, select the Vox AC30 tone stack.",
+          },
+          {
+            position: 3,
+            block_name: "Single Delay",
+            block_category: "Effect",
+            original_gear: "Echoplex",
+            settings: { "Delay Time": "350ms", Feedback: 25, Mix: 25 },
+            notes:
+              "DLY slot. Subtle tape-style delay for thickness and sustain.",
+          },
+          {
+            position: 4,
+            block_name: "Plate Reverb",
+            block_category: "Effect",
+            original_gear: "EMT plate reverb (Trident Studios)",
+            settings: { Decay: 2.5, Mix: 25, "Pre Delay": 30 },
+            notes:
+              "REV slot. Lush plate reverb for the Queen studio sound.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The Treble Booster into an AC30 profile is a classic Kemper combination for the Brian May sound. Record multiple passes panned across the stereo field for guitar harmonies.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "FAS Boost", block_category: "Drive", original_gear: "Dallas Rangemaster", settings: { Boost: 8.0 }, notes: "No direct Rangemaster. FAS Boost with treble emphasis approximates the treble booster." },
+          { position: 2, block_name: "AC-30 TB", block_category: "Amp", original_gear: "Vox AC30", settings: { Drive: 6.5, Bass: 4.0, Mid: 5.0, Treble: 6.0, MV: 7.0 }, notes: "AC-30 Top Boost pushed by treble booster for Brian May cranked AC30 character." },
+          { position: 3, block_name: "Tape Mono", block_category: "Delay", original_gear: "Echoplex", settings: { Time: "350ms", Feedback: 25, Mix: 25 }, notes: "Subtle tape delay for thickness and sustain." },
+          { position: 4, block_name: "London Plate", block_category: "Reverb", original_gear: "EMT plate reverb (Trident Studios)", settings: { Decay: 2.5, Mix: 25, "Pre Delay": 30 }, notes: "Lush plate reverb for the Queen studio sound." },
+          { position: 5, block_name: "2x12 AC30 Blue", block_category: "Cab", original_gear: "AC30 2x12 Celestion Blue", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Blue Alnico cab for AC30 chime." },
+        ],
+        notes: "FAS Boost into AC-30 TB for Brian May's treble-boosted AC30 tone. Red Special guitar essential. London Plate for Queen studio sound.",
+      },
     },
     is_editorial: true,
     view_count: 3456,
@@ -7196,6 +8000,38 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Brown channel cranked with a Treble Boost gets a convincing Sabbath doom tone.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Treble Booster",
+            block_category: "Stomp",
+            original_gear: "Dallas Rangemaster",
+            settings: { Boost: 7.0 },
+            notes:
+              "Slot A. Kemper's Treble Booster pushes the amp into heavy saturation while adding brightness and cut to the dark Laney tone.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Laney' or 'Sabbath'",
+            block_category: "Profile",
+            original_gear: "Laney LA100BL Supergroup",
+            settings: { Gain: 8.0, Bass: 6.0, Middle: 5.0, Treble: 6.0 },
+            notes:
+              "Search Rig Exchange for Laney Supergroup or Black Sabbath profiles. The dark, grinding British overdrive is well captured by Kemper profiles. If no Laney profile is available, use a cranked Marshall profile with extra bass.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The Treble Booster into a Laney profile captures Iommi's heavy doom tone. The Kemper's Treble Booster and high-gain profiles are ideal for this foundational heavy metal sound.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "FAS Boost", block_category: "Drive", original_gear: "Dallas Rangemaster Treble Booster", settings: { Drive: 7.0, Tone: 8.0, Level: 7.0 }, notes: "No direct Rangemaster model. FAS Boost with bright settings for treble boost character." },
+          { position: 2, block_name: "1959SLP", block_category: "Amp", original_gear: "Laney Supergroup", settings: { Drive: 7.0, Bass: 6.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, MV: 7.0 }, notes: "No Laney model available. 1959SLP (Plexi) is the closest approximation for Iommi's Laney tone." },
+          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall/Laney 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "4x12 cab for the heavy doom character." },
+        ],
+        notes: "1959SLP with FAS Boost as Rangemaster approximation. No direct Laney or Rangemaster models; this gets close to Iommi's heavy, dark riff tone.",
       },
     },
     is_editorial: true,
@@ -7444,6 +8280,58 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Brown channel with Mid Boost and reverb captures the Rhoads tone. Use the bridge humbucker and focus on clean, precise picking technique.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Wah Wah",
+            block_category: "Stomp",
+            original_gear: "Dunlop Cry Baby Wah",
+            settings: { Position: 70 },
+            notes:
+              "Slot A. Park the wah at ~70% for the nasal, vocal quality Rhoads used. No expression pedal needed for the parked setting.",
+          },
+          {
+            position: 2,
+            block_name: "Plus DS",
+            block_category: "Stomp",
+            original_gear: "MXR Distortion+",
+            settings: { Distortion: 6.0, Output: 7.0 },
+            notes:
+              "Slot B. Kemper's Plus DS is the MXR Distortion+ emulation. Adds grit and sustain while keeping the tone tight and articulate.",
+          },
+          {
+            position: 3,
+            block_name: "Search Rig Exchange for 'Plexi'",
+            block_category: "Profile",
+            original_gear: "Marshall Super Lead 1959",
+            settings: { Gain: 7.5, Bass: 5.0, Middle: 7.0, Treble: 7.0, Presence: 7.0 },
+            notes:
+              "Search Rig Exchange for cranked Plexi profiles. Push the mids for cut and aggression. With Liquid Profiling, select the Marshall Plexi tone stack.",
+          },
+          {
+            position: 4,
+            block_name: "Plate Reverb",
+            block_category: "Effect",
+            original_gear: "Studio plate reverb (Ridge Farm Studio)",
+            settings: { Decay: 1.8, Mix: 20 },
+            notes:
+              "REV slot. Plate reverb adds the spacious, ambient quality of the Blizzard of Ozz production.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The parked Wah Wah into Plus DS into a cranked Plexi profile with plate reverb captures the Rhoads formula. Use the bridge humbucker and practice precise, classically-influenced vibrato.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Cry Baby", block_category: "Wah", original_gear: "Cry Baby Wah", settings: { Position: 70 }, notes: "Park the wah at ~70% for the nasal, vocal quality. No expression pedal needed for the parked setting." },
+          { position: 2, block_name: "Plus Distortion", block_category: "Drive", original_gear: "MXR Distortion+", settings: { Gain: 6.0, Level: 7.0, Tone: 6.0 }, notes: "Plus Distortion for the MXR Distortion+ character that Rhoads used." },
+          { position: 3, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 7.5, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 7.0, MV: 7.0 }, notes: "Cranked Plexi for the foundation. Pushed mids for cut and aggression." },
+          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked for maximum presence and tight low end." },
+          { position: 5, block_name: "London Plate", block_category: "Reverb", original_gear: "Studio plate reverb", settings: { Decay: 1.8, Mix: 20 }, notes: "London Plate reverb for the spacious Blizzard of Ozz production." },
+        ],
+        notes: "Cry Baby parked at 70% + Plus Distortion into cranked Plexi for the Crazy Train tone. London Plate for studio ambience.",
+      },
     },
     is_editorial: true,
     view_count: 2678,
@@ -7623,6 +8511,43 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Use the neck pickup and add reverb in the FX section. Play with wide vibrato and let each note sing.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Green Scream",
+            block_category: "Stomp",
+            original_gear: "Ibanez TS808",
+            settings: { Drive: 2.0, Tone: 5.0, Volume: 8.0 },
+            notes: "Slot A. Clean boost with slightly more drive for slow blues sustain. Volume pushed high to slam the amp profile.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Vibroverb'",
+            block_category: "Profile",
+            original_gear: "Fender Vibroverb (1964 Blackface)",
+            settings: { Gain: 9.0, Bass: 5.0, Middle: 5.0, Treble: 5.0 },
+            notes: "Search Rig Exchange for cranked Vibroverb profiles. Push the Gain harder for deeper overdrive and singing sustain. With Liquid Profiling, select the Fender tone stack.",
+          },
+          {
+            position: 3,
+            block_name: "Spring Reverb",
+            block_category: "Effect",
+            original_gear: "Built-in spring reverb",
+            settings: { Decay: 2.0, Mix: 25 },
+            notes: "REV slot. More reverb adds atmosphere for the slow, spacious blues feel.",
+          },
+        ],
+        notes: "Kemper profiles include the cab. Use the neck pickup and play with wide, slow vibrato. The Green Scream pushing a cranked Vibroverb profile with spring reverb captures the emotional Texas Flood slow blues lead tone.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "T808 OD", block_category: "Drive", original_gear: "Ibanez TS808", settings: { Drive: 2.0, Tone: 5.0, Level: 8.0 }, notes: "Still a clean boost like Pride and Joy, just slightly more drive for sustain. The Level is cranked to push the amp harder." },
+          { position: 2, block_name: "Vibrato Verb", block_category: "Amp", original_gear: "Fender Vibroverb", settings: { Drive: 8.0, Bass: 5.0, Mid: 5.0, Treble: 5.0, Presence: 5.0, "MV": 8.0, }, notes: "Push the amp harder than the Pride and Joy setting for deeper overdrive and more sustain." },
+          { position: 3, block_name: "1x15 Deluxe", block_category: "Cab", original_gear: "1x15 JBL D130F", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "1x15 cab for the round, full bass response." },
+        ],
+        notes: "Still a clean boost like Pride and Joy, just slightly more drive for sustain. The Level is cranked to push the amp harder.",
       },
     },
     is_editorial: true,
@@ -7908,6 +8833,63 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Brown channel with Distortion boost, delay, and reverb provides a solid Satriani-style lead tone. Use a guitar with a locking tremolo if possible.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Kemper Drive",
+            block_category: "Stomp",
+            original_gear: "Boss DS-1 / Chandler Tube Driver",
+            settings: { Drive: 6.0, Tone: 6.0, Volume: 7.0 },
+            notes: "Slot A. Kemper Drive adds smooth sustain for fluid lead playing.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'JCM800'",
+            block_category: "Profile",
+            original_gear: "Marshall JCM800 2203",
+            settings: {
+              Gain: 6.0,
+              Bass: 5.0,
+              Middle: 7.0,
+              Treble: 6.0,
+              Presence: 6.0,
+            },
+            notes:
+              "Search Rig Exchange for JCM800 profiles at moderate gain. With Liquid Profiling, select the Marshall JCM800 tone stack.",
+          },
+          {
+            position: 3,
+            block_name: "Single Delay",
+            block_category: "Effect",
+            original_gear: "Boss DD-2",
+            settings: { "Delay Time": "400ms", Feedback: 30, Mix: 30 },
+            notes: "DLY slot. Spacious delay for depth on lead lines.",
+          },
+          {
+            position: 4,
+            block_name: "Plate Reverb",
+            block_category: "Effect",
+            original_gear: "Studio plate reverb",
+            settings: { Decay: 2.0, Mix: 20 },
+            notes:
+              "REV slot. Plate reverb for spacious instrumental rock production.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab. The Kemper Drive into a JCM800 profile with delay and plate reverb captures the fluid Satriani lead tone.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Cry Baby", block_category: "Wah", original_gear: "Cry Baby Wah", settings: { Position: "Expression Pedal" }, notes: "Assign to expression pedal for expressive filter sweeps." },
+          { position: 2, block_name: "DS1 Distortion", block_category: "Drive", original_gear: "Boss DS-1", settings: { Dist: 6.0, Tone: 6.0, Level: 7.0 }, notes: "Moderate distortion for smooth lead sustain." },
+          { position: 3, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800 2203", settings: { Drive: 6.0, Bass: 5.0, Mid: 7.0, Treble: 6.0, Presence: 6.0, MV: 7.0 }, notes: "Brit 800 (JCM800) at moderate drive. The DS-1 handles primary gain staging." },
+          { position: 4, block_name: "Digital Mono", block_category: "Delay", original_gear: "Boss DD-2", settings: { Time: "400ms", Feedback: 30, Mix: 30 }, notes: "Spacious digital delay after amp+cab." },
+          { position: 5, block_name: "London Plate", block_category: "Reverb", original_gear: "Studio plate reverb", settings: { Decay: 2.0, Mix: 20 }, notes: "London Plate for spacious instrumental rock production." },
+          { position: 6, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.5 }, notes: "Greenback cab for rock lead tone." },
+        ],
+        notes: "Cry Baby wah + DS1 Distortion into Brit 800 for Satriani's vocal lead tone. London Plate reverb for studio ambience.",
+      },
     },
     is_editorial: true,
     view_count: 1789,
@@ -8088,6 +9070,44 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Crunch channel at low gain with reverb for the jangly Britpop tone. Use a capo on the 2nd fret.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'JCM900' or 'Marshall Crunch'",
+            block_category: "Profile",
+            original_gear: "Marshall JCM900",
+            settings: {
+              Gain: 4.5,
+              Bass: 4.0,
+              Middle: 6.0,
+              Treble: 7.0,
+              Presence: 6.0,
+            },
+            notes:
+              "Search Rig Exchange for JCM900 or moderate-crunch Marshall profiles. Keep gain low for jangly chord clarity. With Liquid Profiling, select the Marshall tone stack.",
+          },
+          {
+            position: 2,
+            block_name: "Natural Reverb",
+            block_category: "Effect",
+            original_gear: "Room reverb (Rockfield Studio)",
+            settings: { Decay: 1.5, Mix: 20 },
+            notes:
+              "REV slot. Room reverb glues the jangly chords together with warm studio ambience.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab. Simple setup: Marshall crunch profile with room reverb. Use a capo on the 2nd fret and layer multiple takes for the Britpop wall of sound.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM900", settings: { Drive: 4.5, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, "MV": 5.0, }, notes: "Brit 2204 at moderate gain for jangly crunch. Push the treble for brightness." },
+          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Greenback cab for warm British midrange." },
+          { position: 3, block_name: "London Plate", block_category: "Reverb", original_gear: "Room reverb (Rockfield Studio)", settings: { Decay: 1.5, Mix: 20 }, notes: "Room reverb glues the jangly chords together with warm studio ambience." },
+        ],
+        notes: "Brit 2204 at moderate gain for jangly crunch. Push the treble for brightness.",
       },
     },
     is_editorial: true,
@@ -8270,6 +9290,43 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Clean channel with deep tremolo captures the essence of How Soon Is Now. Use a bright guitar with single-coils or toaster pickups if possible.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'Twin Reverb'",
+            block_category: "Profile",
+            original_gear: "Fender Twin Reverb",
+            settings: {
+              Gain: 3.0,
+              Bass: 4.0,
+              Middle: 5.0,
+              Treble: 7.0,
+            },
+            notes:
+              "Search Rig Exchange for clean Fender Twin Reverb profiles. Keep the Gain very low for pristine cleans.",
+          },
+          {
+            position: 2,
+            block_name: "Tremolo",
+            block_category: "Stomp",
+            original_gear: "Fender Vibrato",
+            settings: { Speed: 6.0, Depth: 8.0 },
+            notes:
+              "Slot A or MOD slot. Kemper's Tremolo effect (OS 12.0+) with deep, fast settings. This is the defining feature of the tone.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab. The key is a clean profile with deep tremolo. For the full Marr multi-amp effect, use the Kemper's stereo capabilities with different tremolo speeds in left and right channels.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Double Verb", block_category: "Amp", original_gear: "Fender Twin Reverb", settings: { Drive: 3.0, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 5.0, }, notes: "Clean Twin Reverb setting. No breakup; the tone stays clean for tremolo clarity." },
+          { position: 2, block_name: "Supremo Trem", block_category: "Modulation", original_gear: "Fender Vibrato", settings: { Speed: 6.0, Depth: 8.0 }, notes: "Deep, fast tremolo is the defining effect. Set depth high for the pulsating character." },
+          { position: 3, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Twin 2x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Twin 2x12 cab for clean, full-range foundation." },
+        ],
+        notes: "Clean Twin Reverb setting. No breakup; the tone stays clean for tremolo clarity.",
+      },
     },
     is_editorial: true,
     view_count: 1345,
@@ -8414,6 +9471,33 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "The Katana's Clean channel at moderate volume nails the Richards rhythm sound. Open-G tuning and a Telecaster are more important than amp settings.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'Twin Reverb'",
+            block_category: "Profile",
+            original_gear: "Fender Twin Reverb",
+            settings: {
+              Gain: 4.0,
+              Bass: 4.0,
+              Middle: 5.0,
+              Treble: 7.0,
+            },
+            notes:
+              "Search Rig Exchange for clean Twin Reverb profiles with edge-of-breakup settings. With Liquid Profiling, select the Fender Twin tone stack.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab. The key to this tone is open-G tuning, not the gear. Tune to D-G-D-G-B-D and remove the low E string for authentic Richards riffing.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Double Verb", block_category: "Amp", original_gear: "Fender Twin Reverb", settings: { Drive: 4.0, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 6.0, }, notes: "Twin Reverb at moderate volume for clean with edge-of-breakup dynamics. Push the treble for Telecaster brightness." },
+          { position: 2, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Twin 2x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "The Twin's 2x12 cab for full, wide clean tone." },
+        ],
+        notes: "Twin Reverb at moderate volume for clean with edge-of-breakup dynamics. Push the treble for Telecaster brightness.",
       },
     },
     is_editorial: true,
@@ -8633,6 +9717,46 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Brown channel with Treble Boost and spring reverb captures the Gibbons crunch. Practice pinch harmonics for the authentic ZZ Top squeal.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Treble Booster",
+            block_category: "Stomp",
+            original_gear: "Dallas Rangemaster",
+            settings: { Boost: 8.0 },
+            notes:
+              "Slot A. Kemper's Treble Booster nails the Rangemaster's upper-harmonic push. Crank the Boost to slam the front end of the Plexi profile for that searing ZZ Top snarl.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Plexi'",
+            block_category: "Profile",
+            original_gear: "Marshall Super Lead 1959",
+            settings: { Gain: 7.5, Bass: 5.0, Middle: 7.0, Treble: 6.0, Presence: 6.0 },
+            notes:
+              "Search Rig Exchange for cranked Plexi profiles. MBritt and TopJimi offer excellent Marshall packs. With Liquid Profiling, select the Marshall tone stack for authentic Plexi EQ behavior.",
+          },
+          {
+            position: 3,
+            block_name: "Spring Reverb",
+            block_category: "Effect",
+            original_gear: "Studio spring reverb",
+            settings: { Decay: 1.5, Mix: 18 },
+            notes:
+              "REV slot. Subtle spring reverb for the warm Tres Hombres studio ambience without washing out the aggressive attack.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The Treble Booster into a cranked Plexi profile is a killer Gibbons combination. Search for Plexi profiles captured through Greenback cabs for the classic British midrange character. Practice pinch harmonics for the authentic ZZ Top squeal.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "59 Bassguy", block_category: "Amp", original_gear: "Fender Bassman / Marshall", settings: { Drive: 7.0, Bass: 6.0, Mid: 5.0, Treble: 6.0, MV: 7.0 }, notes: "Cranked Bassman for the ZZ Top shuffle tone." },
+          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall / Fender 4x10", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Standard cab for the Texas boogie." },
+        ],
+        notes: "59 Bassguy cranked for La Grange. Les Paul with hot pickups. The shuffle rhythm is the heart of ZZ Top.",
+      },
     },
     is_editorial: true,
     view_count: 1890,
@@ -8829,6 +9953,47 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Tune to D standard. The Katana's Lead channel with extreme mid-scoop and cranked gain delivers a convincing Dimebag tone. Use the graphic EQ in Tone Studio for precise frequency shaping.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Wah Wah",
+            block_category: "Stomp",
+            original_gear: "Dunlop Cry Baby from Hell",
+            settings: { Position: "swept during leads" },
+            notes:
+              "Slot A. Kemper's Wah Wah for lead sections only. Assign to an expression pedal. On the Walk riff itself, leave the wah bypassed.",
+          },
+          {
+            position: 2,
+            block_name: "Graphic Equalizer",
+            block_category: "Stomp",
+            original_gear: "MXR 6-Band EQ",
+            settings: { "Low": "+6dB", "Mid": "-8dB", "High": "+6dB" },
+            notes:
+              "Slot B. V-curve scoop is essential to the Dimebag tone: boost lows and highs, cut mids heavily. This EQ pedal is as important as the amp for the signature groove metal scoop.",
+          },
+          {
+            position: 3,
+            block_name: "Search Rig Exchange for 'Randall'",
+            block_category: "Profile",
+            original_gear: "Randall Century 200",
+            settings: { Gain: 8.0, Bass: 7.0, Middle: 3.0, Treble: 7.0 },
+            notes:
+              "Search Rig Exchange for Randall Century or Dimebag profiles. Several community profiles capture the solid-state Randall's uniquely tight, unforgiving response. If no good match, try a high-gain Mesa profile with scooped mids.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. Tune to D standard. The V-curve EQ scoop before the amp is critical. Search for Randall Century 200 profiles on Rig Exchange -- the solid-state Randall tone is highly sought after. Use the bridge humbucker with maximum output for groove metal aggression.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Graphic EQ", block_category: "EQ", original_gear: "MXR 6-Band EQ", settings: { "Low Freq": "+6dB", "Mid Freq": "-8dB", "High Freq": "+6dB" }, notes: "V-curve scoop: boost lows and highs, cut mids heavily for the Dimebag tone." },
+          { position: 2, block_name: "PVH 6160 Block", block_category: "Amp", original_gear: "Randall Century 200", settings: { Drive: 8.0, Bass: 7.0, Mid: 3.0, Treble: 7.0, Presence: 6.0, MV: 7.0 }, notes: "No Randall model available. PVH 6160 Block provides tight, aggressive high-gain. Scoop the mids hard." },
+          { position: 3, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Randall 4x12 V30", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "V30 cab for tight, modern metal low end." },
+        ],
+        notes: "D-standard tuning. PVH 6160 with V-curve EQ scoop for the Dimebag groove metal tone. No direct Randall solid-state model available.",
+      },
     },
     is_editorial: true,
     view_count: 3210,
@@ -8924,6 +10089,28 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "The Katana's Brown channel at high gain delivers a convincing Led Zeppelin tone. Use a Les Paul on the neck pickup.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'Plexi'",
+            block_category: "Profile",
+            original_gear: "Marshall Super Lead 1959",
+            settings: { Gain: 9.0, Bass: 6.0, Middle: 8.0, Treble: 7.0, Presence: 7.0 },
+            notes:
+              "Search Rig Exchange for cranked Plexi profiles. The entire drive comes from the amp -- no pedals needed. With Liquid Profiling, select the Marshall tone stack for authentic Plexi EQ response.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. This is a pure cranked-amp tone with no effects. Search for Plexi profiles captured through Greenback cabs. Use the neck pickup on a Les Paul for the main riff and switch to bridge for solos.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 9.0, Bass: 6.0, Mid: 8.0, Treble: 7.0, Presence: 7.0, "MV": 8.0 }, notes: "Crank the drive for maximum Plexi saturation." },
+          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback for tight, punchy midrange." },
+        ],
+        notes: "Crank the drive for maximum Plexi saturation.",
+      },
     },
     is_editorial: true,
     view_count: 4200,
@@ -9017,6 +10204,28 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Crunch", block_category: "Amp Type", original_gear: "Supro Thunderbolt", settings: { Gain: 2, Bass: 5, Middle: 6, Treble: 6, Presence: 5, Volume: 5 }, notes: "Crunch channel at very low gain for warm cleans that break up when you dig in." },
         ],
         notes: "The Katana's Crunch channel at low gain approximates the Supro's warm, slightly compressed clean tone. Roll back gain for the intro, push it for the build.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'Supro'",
+            block_category: "Profile",
+            original_gear: "Supro Thunderbolt S6420",
+            settings: { Gain: 3.5, Bass: 5.0, Middle: 6.0, Treble: 6.0 },
+            notes:
+              "Search Rig Exchange for Supro Thunderbolt profiles at low gain. The Supro's warm, slightly compressed cleans are perfect for the intro arpeggios. With Liquid Profiling, the Supro tone stack provides authentic EQ behavior.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. This is a pure clean-amp tone with no effects. For the famous solo section, set up a second rig slot with a cranked Plexi profile and switch to a Les Paul. The song is a masterclass in dynamic tone building.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Super Verb", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Drive: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, "MV": 5.0 }, notes: "Low gain for warm cleans. The Soup Pro model captures the Supro's compressed clean character." },
+          { position: 2, block_name: "1x12 Field Coil", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: "57 Dynamic", Distance: 3.0 }, notes: "Closest match to the Supro's warm, round speaker character." },
+        ],
+        notes: "Low gain for warm cleans. The Soup Pro model captures the Supro's compressed clean character.",
       },
     },
     is_editorial: true,
@@ -9129,6 +10338,48 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "Use the Katana's Muff Fuzz booster into a moderate-gain Lead channel with delay for a convincing Gilmour lead tone.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Muffin",
+            block_category: "Stomp",
+            original_gear: "Electro-Harmonix Big Muff Pi",
+            settings: { Sustain: 8.0, Tone: 6.0, Volume: 7.0 },
+            notes:
+              "Slot A. Kemper's Muffin is the Big Muff emulation. Push Sustain high for the thick, singing fuzz that defines Gilmour's Time solo.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Hiwatt'",
+            block_category: "Profile",
+            original_gear: "Hiwatt DR103 Custom 100",
+            settings: { Gain: 5.0, Bass: 5.0, Middle: 6.0, Treble: 6.0, Presence: 5.0 },
+            notes:
+              "Search Rig Exchange for Hiwatt DR103 profiles. Keep the profile relatively clean to let the Muffin do the distortion work. With Liquid Profiling, select the Hiwatt tone stack for authentic EQ behavior.",
+          },
+          {
+            position: 3,
+            block_name: "Single Delay",
+            block_category: "Effect",
+            original_gear: "Binson Echorec",
+            settings: { Time: 440, Feedback: 30, Mix: 35 },
+            notes:
+              "DLY slot. Set to ~440ms for the rhythmic repeats that fill space between phrases. The Binson Echorec's warm repeats are well matched by the Kemper's analog-style delay.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The Muffin into a clean Hiwatt profile is the classic Gilmour formula. Use the Strat neck pickup, slow vibrato, and precise bends for authentic phrasing.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "PI Fuzz", block_category: "Drive", original_gear: "Big Muff Pi", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Ram's Head Big Muff for thick, singing fuzz." },
+          { position: 2, block_name: "Hipower", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 5.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, "MV": 7.0 }, notes: "Clean Hiwatt platform for the Big Muff." },
+          { position: 3, block_name: "Digital Mono", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 440, Feedback: 30, Mix: 35 }, notes: "Set delay to ~440ms for rhythmic repeats." },
+          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Greenback cab as a close approximation to WEM Fane speakers." },
+        ],
+        notes: "Ram's Head Big Muff for thick, singing fuzz.",
+      },
     },
     is_editorial: true,
     view_count: 3500,
@@ -9224,6 +10475,38 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall JCM800", settings: { Gain: 8, Bass: 5, Middle: 7, Treble: 7, Presence: 6, Volume: 7 }, notes: "Brown channel cranked for aggressive Marshall saturation." },
         ],
         notes: "Katana's Brown channel at high gain with a wah pedal. Les Paul bridge pickup for maximum cut and aggression.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Wah Wah",
+            block_category: "Stomp",
+            original_gear: "Dunlop Cry Baby",
+            settings: { Position: 70 },
+            notes:
+              "Slot A. Kemper's Wah Wah for the filtered intro harmonics and solo accents. Assign to an expression pedal for real-time control.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'JCM800'",
+            block_category: "Profile",
+            original_gear: "Marshall JCM800 2203",
+            settings: { Gain: 8.0, Bass: 5.0, Middle: 7.0, Treble: 7.0, Presence: 6.0 },
+            notes:
+              "Search Rig Exchange for high-gain JCM800 profiles. Push the gain higher than Sweet Child O' Mine for the more aggressive Welcome to the Jungle saturation. With Liquid Profiling, select the Marshall tone stack.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. This is Slash at his most aggressive. Higher gain than the Sweet Child preset. Les Paul bridge pickup for maximum cut.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Cry Baby", block_category: "Wah", original_gear: "Dunlop Cry Baby", settings: { Position: 70 }, notes: "Cry Baby wah for intro filter effects." },
+          { position: 2, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Drive: 8.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 6.0, "MV": 7.0 }, notes: "JCM800 pushed hard for aggressive saturation." },
+          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked for maximum attack." },
+        ],
+        notes: "Cry Baby wah for intro filter effects.",
       },
     },
     is_editorial: true,
@@ -9322,6 +10605,38 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "The Katana's Brown channel is named after the Van Halen brown sound. Add a slow phaser for authenticity.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Phaser",
+            block_category: "Stomp",
+            original_gear: "MXR Phase 90",
+            settings: { Rate: 3.0 },
+            notes:
+              "Slot A. Kemper's Phaser at a slow rate adds the subtle thickening that is part of the brown sound. This is not an obvious phaser effect -- just a gentle swirl that adds dimension.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Plexi'",
+            block_category: "Profile",
+            original_gear: "Marshall Super Lead 1959 (Variac'd)",
+            settings: { Gain: 8.5, Bass: 5.0, Middle: 7.0, Treble: 8.0, Presence: 7.0 },
+            notes:
+              "Search Rig Exchange for cranked Plexi or EVH-style profiles. Many profilers have captured Variac'd Plexis specifically for the brown sound. With Liquid Profiling, select the Marshall tone stack.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The key to the brown sound is the Variac'd compression and warmth. Search for profiles specifically labeled 'brown sound' or 'Variac'd Plexi' on Rig Exchange.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Script", block_category: "Modulation", original_gear: "MXR Phase 90", settings: { Rate: 3.0 }, notes: "Slow phaser for subtle tone thickening." },
+          { position: 2, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead (Variac'd)", settings: { Drive: 8.5, Bass: 5.0, Mid: 7.0, Treble: 8.0, Presence: 7.0, "MV": 7.5, Sag: 7.0 }, notes: "Increase the Sag parameter to simulate the Variac'd voltage sag and compression." },
+          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback for tight attack." },
+        ],
+        notes: "Slow phaser for subtle tone thickening.",
+      },
     },
     is_editorial: true,
     view_count: 2900,
@@ -9417,6 +10732,38 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "Clean", block_category: "Amp Type", original_gear: "Two Rock Custom Reverb", settings: { Gain: 3, Bass: 5, Middle: 5, Treble: 6, Presence: 5, Volume: 6 }, notes: "Clean channel with low gain for pristine, touch-sensitive tone." },
         ],
         notes: "The Katana's Clean channel with a low-gain booster captures the essential Mayer dynamic. Neck pickup on a Strat, play with your fingers for softer passages.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "T808 OD", block_category: "Drive", original_gear: "Ibanez TS808 / Klon", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "Light overdrive boost for the smooth lead sections." },
+          { position: 2, block_name: "Two-Stone J35", block_category: "Amp", original_gear: "Two Rock John Mayer Signature", settings: { Drive: 5.0, Bass: 5.0, Mid: 5.0, Treble: 5.0, Presence: 5.0, MV: 6.5 }, notes: "Two-Stone J35 is the Fractal Two Rock model. Clean, touch-sensitive platform." },
+          { position: 3, block_name: "1x12 Deluxe", block_category: "Cab", original_gear: "Two Rock 1x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Clean Fender-style cab for the Two Rock character." },
+        ],
+        notes: "Two-Stone J35 is Fractal's Two Rock model. Light T808 boost. Strat neck pickup for Mayer's smooth, articulate tone.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Kemper Drive",
+            block_category: "Stomp",
+            original_gear: "Klon Centaur",
+            settings: { Drive: 1.0, Tone: 5.0, Volume: 6.0 },
+            notes:
+              "Slot A. Kemper Drive is the Klon emulation. Keep Drive at minimum for a transparent clean boost adding subtle harmonic richness and compression. This is about shimmer, not dirt.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Two Rock'",
+            block_category: "Profile",
+            original_gear: "Two Rock Custom Reverb Signature",
+            settings: { Gain: 4.0, Bass: 5.0, Middle: 5.0, Treble: 6.0 },
+            notes:
+              "Search Rig Exchange for Two Rock profiles. Several profilers have captured the Two Rock Custom Reverb. The goal is pristine, bell-like cleans with incredible touch sensitivity.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. This is all about dynamics and touch. Barely-on Kemper Drive into a clean Two Rock profile. Strat neck pickup, heavy strings (.011+). Every nuance of pick attack should be audible.",
       },
     },
     is_editorial: true,
@@ -9514,6 +10861,38 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "Clean channel with a heavy distortion booster toggled for the chorus. The dynamic shift is everything.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Kemper Drive",
+            block_category: "Stomp",
+            original_gear: "Marshall Shredmaster",
+            settings: { Gain: 9.0, Tone: 6.0, Volume: 8.0 },
+            notes:
+              "Slot A. Kemper Drive at high gain as a Shredmaster substitute. Bypass for the clean verses, stomp on for the crushing chorus sections. The contrast between clean and heavy is the entire song.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Fender Clean'",
+            block_category: "Profile",
+            original_gear: "Fender Eighty Five",
+            settings: { Gain: 3.0, Bass: 5.0, Middle: 5.0, Treble: 6.0 },
+            notes:
+              "Search Rig Exchange for clean Fender profiles. The amp stays clean -- all distortion comes from the Shredmaster substitute. Any Fender Deluxe or Twin profile at low gain works.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. The key to Creep is the dynamic contrast. Toggle the Kemper Drive stomp on and off for the verse/chorus shift. Telecaster for authentic tone.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Rat Distortion", block_category: "Drive", original_gear: "Marshall Shredmaster", settings: { Gain: 9.0, Tone: 6.0, Level: 8.0 }, notes: "No Shredmaster model. Rat Distortion provides similar aggressive, scooped distortion. Bypass for clean verses." },
+          { position: 2, block_name: "Deluxe Verb", block_category: "Amp", original_gear: "Fender (clean)", settings: { Drive: 3.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, MV: 6.0 }, notes: "Clean Fender platform. All dirt comes from the Shredmaster pedal." },
+          { position: 3, block_name: "1x12 Deluxe", block_category: "Cab", original_gear: "Fender 1x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Standard Fender 1x12 cab." },
+        ],
+        notes: "Rat Distortion into clean Deluxe Verb for Radiohead's Creep. No Shredmaster model; Rat approximates the aggressive scooped character. Bypass distortion for clean verses.",
+      },
     },
     is_editorial: true,
     view_count: 2800,
@@ -9609,6 +10988,38 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Vox AC30", settings: { Gain: 5, Bass: 6, Middle: 5, Treble: 4, Presence: 4, Volume: 6 }, notes: "Crunch channel with treble rolled back for dark Vox-style tone." },
         ],
         notes: "Dark, moody fuzz tone. Slight palm muting and deliberate, slow picking for the signature AM groove.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Kemper Fuzz",
+            block_category: "Stomp",
+            original_gear: "Fuzz pedal",
+            settings: { Sustain: 6.0, Tone: 4.0, Volume: 6.0 },
+            notes:
+              "Slot A. Kemper Fuzz with the Tone rolled back for a dark, murky character. Moderate sustain -- controlled and moody, not full-blast.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'AC30'",
+            block_category: "Profile",
+            original_gear: "Vox AC30",
+            settings: { Gain: 5.0, Bass: 6.0, Middle: 5.0, Treble: 4.0 },
+            notes:
+              "Search Rig Exchange for AC30 profiles with treble rolled back for a darker tone than typical Vox chime. With Liquid Profiling, select the Vox tone stack.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. Keep it dark and murky. Slight palm muting and deliberate, slow picking for the signature Arctic Monkeys groove.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "PI Fuzz", block_category: "Drive", original_gear: "Fuzz pedal", settings: { Sustain: 6.0, Tone: 4.0, Level: 6.0 }, notes: "Dark fuzz with tone rolled back." },
+          { position: 2, block_name: "Essex A30", block_category: "Amp", original_gear: "Vox AC30", settings: { Drive: 5.0, Bass: 6.0, Mid: 5.0, Treble: 4.0, "MV": 6.0, Cut: 3.0 }, notes: "AC30 with treble rolled back for a darker character." },
+          { position: 3, block_name: "2x12 AC30 Blue", block_category: "Cab", original_gear: "Vox 2x12 Alnico Blue", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Alnico Blue cab for warm compression." },
+        ],
+        notes: "Dark fuzz with tone rolled back.",
       },
     },
     is_editorial: true,
@@ -9706,6 +11117,38 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "Lead channel with deep mid scoop and a clean boost. Aggressive downpicking is essential.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Green Scream",
+            block_category: "Stomp",
+            original_gear: "Ibanez Tube Screamer",
+            settings: { Drive: 0, Tone: 5.0, Volume: 8.0 },
+            notes:
+              "Slot A. Green Scream as a clean boost to tighten the Mesa's low end. Drive at zero -- purely for the mid-hump and bass tightening that is essential for modern metal rhythm.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Mesa Mark'",
+            block_category: "Profile",
+            original_gear: "Mesa/Boogie Mark IV",
+            settings: { Gain: 7.0, Bass: 3.0, Middle: 3.0, Treble: 7.0, Presence: 6.0 },
+            notes:
+              "Search Rig Exchange for Mesa Mark IV lead channel profiles. The scooped V-curve EQ is the classic Metallica rhythm formula. With Liquid Profiling, select the Mesa tone stack.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. Tube Screamer clean boost into a scooped Mesa is the modern metal rhythm formula that Metallica pioneered. Aggressive downpicking is essential for the percussive attack.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "T808 OD", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5.0, Level: 8.0 }, notes: "Clean boost to tighten the Mesa's low end." },
+          { position: 2, block_name: "Cali IV Lead", block_category: "Amp", original_gear: "Mesa Mark IV", settings: { Drive: 7.0, Bass: 3.0, Mid: 3.0, Treble: 7.0, Presence: 6.0, "MV": 7.0 }, notes: "Scooped mids, tight bass. The classic Metallica Black Album rhythm tone." },
+          { position: 3, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa Rectifier 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "V30 cab for tight, focused metal tone." },
+        ],
+        notes: "Clean boost to tighten the Mesa's low end.",
+      },
     },
     is_editorial: true,
     view_count: 3800,
@@ -9800,6 +11243,28 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "Katana's Brown channel at moderate gain. Focus on pick attack and clarity for the galloping patterns.",
       },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'JCM800'",
+            block_category: "Profile",
+            original_gear: "Marshall JCM800 2203",
+            settings: { Gain: 7.0, Bass: 5.0, Middle: 7.0, Treble: 7.0, Presence: 7.0 },
+            notes:
+              "Search Rig Exchange for JCM800 profiles at moderate gain. Keep gain moderate for note clarity -- Iron Maiden's tone relies on definition, not saturation. With Liquid Profiling, select the Marshall tone stack.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. No effects needed -- just a JCM800 at moderate gain. The galloping triplet rhythm requires precise alternate picking and clear note definition.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Drive: 7.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 7.0, "MV": 7.0 }, notes: "Moderate gain JCM800 for clear note definition in fast passages." },
+          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked for maximum presence." },
+        ],
+        notes: "Moderate gain JCM800 for clear note definition in fast passages.",
+      },
     },
     is_editorial: true,
     view_count: 2200,
@@ -9893,6 +11358,28 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Lead", block_category: "Amp Type", original_gear: "Diezel VH4", settings: { Gain: 8, Bass: 6, Middle: 7, Treble: 5, Presence: 5, Volume: 6 }, notes: "Lead channel with dark EQ for heavy, mid-focused tone." },
         ],
         notes: "Katana's Lead channel with reduced treble and pushed mids. Drop-D tuning and a Les Paul are essential for the Tool sound.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'Diezel VH4'",
+            block_category: "Profile",
+            original_gear: "Diezel VH4 (Channel 3)",
+            settings: { Gain: 7.0, Bass: 6.0, Middle: 7.0, Treble: 5.0, Presence: 5.0 },
+            notes:
+              "Search Rig Exchange for Diezel VH4 Channel 3 profiles. The VH4's thick, mid-heavy distortion retains clarity for complex time signature changes. Roll treble back for a darker tone. With Liquid Profiling, select the Diezel tone stack.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. No effects -- just a Diezel VH4 profile in drop-D tuning. The heaviness comes from the guitar, tuning, and deliberate picking style. Les Paul bridge pickup.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4", settings: { Drive: 7.0, Bass: 6.0, Mid: 7.0, Treble: 5.0, Presence: 5.0, "MV": 7.0 }, notes: "Diezel model for thick, dark high-gain tone." },
+          { position: 2, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa/Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.5 }, notes: "V30 cab for tight, modern metal tone." },
+        ],
+        notes: "Diezel model for thick, dark high-gain tone.",
       },
     },
     is_editorial: true,
@@ -10005,6 +11492,48 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "Octave-up pitch shift + fuzz + Brown channel. The Muse sound in three blocks.",
       },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Classic Whammy", block_category: "Pitch", original_gear: "DigiTech Whammy", settings: { Position: 10, Mode: "1 Oct Up" }, notes: "Whammy set to +1 octave, fully engaged." },
+          { position: 2, block_name: "PI Fuzz", block_category: "Drive", original_gear: "Fuzz Factory / Big Muff", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Heavy fuzz for the thick riff distortion." },
+          { position: 3, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall", settings: { Drive: 7.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 7.0 }, notes: "Cranked Marshall for compression on top of fuzz." },
+          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Standard Marshall cab." },
+        ],
+        notes: "Classic Whammy octave-up into PI Fuzz into cranked Plexi. The signature Muse riff formula.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Pedal Pitch",
+            block_category: "Stomp",
+            original_gear: "DigiTech Whammy",
+            settings: { Mode: "1 Oct Up", Position: 10 },
+            notes:
+              "Slot A. Kemper's Pedal Pitch set to +1 octave, fully engaged. This adds the screaming, synth-like quality to the riff. Assign to an expression pedal for real-time control.",
+          },
+          {
+            position: 2,
+            block_name: "Muffin",
+            block_category: "Stomp",
+            original_gear: "Fuzz Factory / Big Muff",
+            settings: { Sustain: 8.0, Tone: 6.0, Volume: 7.0 },
+            notes:
+              "Slot B. Heavy fuzz for thick, aggressive distortion. The Muffin combined with the octave-up Pedal Pitch creates the unique Muse riff tone.",
+          },
+          {
+            position: 3,
+            block_name: "Search Rig Exchange for 'Marshall'",
+            block_category: "Profile",
+            original_gear: "Marshall Super Lead / JCM800",
+            settings: { Gain: 7.0, Bass: 5.0, Middle: 6.0, Treble: 7.0, Presence: 6.0 },
+            notes:
+              "Search Rig Exchange for cranked Marshall profiles. The amp adds compression and saturation on top of the fuzz. With Liquid Profiling, select the Marshall tone stack.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. Pedal Pitch octave-up into Muffin fuzz into cranked Marshall profile is the Muse formula. The octave effect is essential to the Plug In Baby sound.",
+      },
     },
     is_editorial: true,
     view_count: 2100,
@@ -10085,6 +11614,28 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Crunch", block_category: "Amp Type", original_gear: "Small tube amp", settings: { Gain: 9, Bass: 5, Middle: 6, Treble: 5, Presence: 5, Volume: 7 }, notes: "Crunch channel pushed hard for natural amp breakup." },
         ],
         notes: "Crunch channel cranked. Guitar with a P-90 or hot single-coil straight in. No effects. Keep it raw.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "5F1 Tweed", block_category: "Amp", original_gear: "Fender Champ", settings: { Drive: 10.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, "MV": 8.0 }, notes: "Tiny Tweed amp model cranked for natural breakup. All the dirt comes from the amp." },
+          { position: 2, block_name: "1x8 Tweed", block_category: "Cab", original_gear: "Champ 1x8", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Small speaker cab for compressed, lo-fi character." },
+        ],
+        notes: "Tiny Tweed amp model cranked for natural breakup. All the dirt comes from the amp.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'Champ'",
+            block_category: "Profile",
+            original_gear: "Fender Champ / small tube amp",
+            settings: { Gain: 10.0 },
+            notes:
+              "Search Rig Exchange for cranked Fender Champ or similar small tube amp profiles. The entire tone comes from a tiny amp pushed to maximum. No pedals, no effects -- just raw amp distortion.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. Guitar straight into a cranked small amp profile. Les Paul Junior with a P-90 for the raw, fat garage-rock tone. Keep it simple -- the Black Keys way.",
       },
     },
     is_editorial: true,
@@ -10182,6 +11733,38 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "Warm Crunch channel with an overdrive for lead boost. SG neck pickup for modern blues warmth.",
       },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "T808 OD", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Moderate overdrive for solo boost." },
+          { position: 2, block_name: "Vibra-King", block_category: "Amp", original_gear: "Fender Vibro-King", settings: { Drive: 5.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, MV: 6.5 }, notes: "Warm Fender clean at edge of breakup with extra midrange." },
+          { position: 3, block_name: "4x10 Tweed", block_category: "Cab", original_gear: "Fender 3x10", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Multi-speaker Fender cab for full tone." },
+        ],
+        notes: "Vibra-King model with T808 for solo boost. SG neck pickup for warm, modern blues. Dynamics are everything.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Green Scream",
+            block_category: "Stomp",
+            original_gear: "Ibanez Tube Screamer",
+            settings: { Drive: 4.0, Tone: 5.0, Volume: 7.0 },
+            notes:
+              "Slot A. Green Scream at moderate drive for solo boost. Adds mid-hump and sustain for leads.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Vibro-King'",
+            block_category: "Profile",
+            original_gear: "Fender Vibro-King",
+            settings: { Gain: 5.0, Bass: 5.0, Middle: 6.0, Treble: 5.0 },
+            notes:
+              "Search Rig Exchange for Vibro-King profiles. With Liquid Profiling, select the Fender tone stack.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. SG neck pickup, toggle the Green Scream for solo boost.",
+      },
     },
     is_editorial: true,
     view_count: 1500,
@@ -10277,6 +11860,38 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Dumble ODS", settings: { Gain: 6, Bass: 5, Middle: 6, Treble: 6, Presence: 5, Volume: 7 }, notes: "Lead channel with moderate gain for singing lead tone." },
         ],
         notes: "The Katana's Lead channel with a light overdrive approximates the Dumble's touch-sensitive character. Les Paul neck pickup.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "T808 OD", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "Light overdrive boost for sustain." },
+          { position: 2, block_name: "ODS-100 HRM", block_category: "Amp", original_gear: "Dumble ODS", settings: { Drive: 6.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, MV: 7.0 }, notes: "Dumble model for transparent, singing overdrive." },
+          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Marshall cab for midrange presence." },
+        ],
+        notes: "ODS-100 HRM with light T808 boost for the Bonamassa formula. Les Paul neck pickup for creamy sustain.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Green Scream",
+            block_category: "Stomp",
+            original_gear: "Tube Screamer",
+            settings: { Drive: 3.0, Tone: 5.0, Volume: 7.0 },
+            notes:
+              "Slot A. Light overdrive to push the Dumble profile into further saturation. Adds mid-hump for sustain.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Dumble'",
+            block_category: "Profile",
+            original_gear: "Dumble Overdrive Special",
+            settings: { Gain: 6.0, Bass: 5.0, Middle: 6.0, Treble: 6.0 },
+            notes:
+              "Search Rig Exchange for Dumble ODS profiles. The Dumble's transparent, touch-sensitive overdrive with rich harmonics is the Bonamassa core. With Liquid Profiling, select the Dumble tone stack.",
+          },
+        ],
+        notes:
+          "Kemper profiles include the cab, so no separate cab block is needed. Light Green Scream into a Dumble profile is the Bonamassa formula. Les Paul neck pickup, heavy strings, precise vibrato.",
       },
     },
     is_editorial: true,
@@ -10374,6 +11989,35 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "Use channel switching between Clean (intro) and Lead (solo). Wah pedal for the iconic Hammett phrasing.",
       },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Cry Baby", block_category: "Wah", original_gear: "Cry Baby", settings: { Position: "Exp Pedal" }, notes: "Wah for the solo sections." },
+          { position: 2, block_name: "USA MK IIC+", block_category: "Amp", original_gear: "Mesa Mark IIC+", settings: { Drive: 7.0, Bass: 4.0, Mid: 5.0, Treble: 6.0, Presence: 6.0, MV: 7.0 }, notes: "Mark IIC+ lead channel. Use scenes for clean/lead switching." },
+          { position: 3, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "V30 cab for tight metal tone." },
+        ],
+        notes: "Use scenes: clean settings for the intro arpeggios, lead settings with wah for the solo. Cry Baby wah is Hammett's signature.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Wah Wah",
+            block_category: "Stomp",
+            original_gear: "Dunlop Cry Baby Wah",
+            settings: { Position: "variable" },
+            notes: "Slot A. Kemper Wah Wah for solo sections. Assign to expression pedal.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Mark IIC+'",
+            block_category: "Profile",
+            original_gear: "Mesa/Boogie Mark IIC+",
+            settings: { Gain: 7.0, Bass: 4.0, Middle: 5.0, Treble: 6.0, Presence: 6.0 },
+            notes: "Search for Mark IIC+ lead profiles. Use Performance Mode for clean/lead switching.",
+          },
+        ],
+        notes: "Kemper profiles include the cab. Use Performance Mode: clean rig for intro arpeggios, lead with wah for the solo.",
+      },
     },
     is_editorial: true,
     view_count: 2700,
@@ -10468,6 +12112,26 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Brown", block_category: "Amp Type", original_gear: "Ampeg VT-40", settings: { Gain: 6, Bass: 8, Middle: 5, Treble: 3, Presence: 3, Volume: 7 }, notes: "Brown channel with extreme bass boost and treble cut to approximate the bass amp's dark, heavy character." },
         ],
         notes: "C-standard tuning with maximum bass and minimum treble. The Katana can not fully replicate a bass amp, but extreme EQ settings get in the ballpark.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "USA Bass 400", block_category: "Amp", original_gear: "Ampeg VT-40", settings: { Drive: 6.0, Bass: 7.0, Mid: 5.0, Treble: 4.0, MV: 7.0 }, notes: "No Ampeg VT-40 model; Mesa bass amp is closest for massive low-end. Dark EQ with bass pushed high." },
+          { position: 2, block_name: "4x10 Tweed", block_category: "Cab", original_gear: "Ampeg 4x10", settings: { Mic: "57 Dynamic", Distance: 3.0 }, notes: "4x10 cab for even low-end distribution." },
+        ],
+        notes: "C-standard tuning is mandatory. Bass amp model for the huge QOTSA wall of sound. No direct Ampeg model; USA Bass 400 approximates the massive low end.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'Ampeg'",
+            block_category: "Profile",
+            original_gear: "Ampeg VT-40",
+            settings: { Gain: 7.0, Bass: 7.0, Middle: 5.0, Treble: 4.0 },
+            notes: "Search for Ampeg bass amp profiles. Massive low-end headroom and compressed midrange for the QOTSA wall of sound.",
+          },
+        ],
+        notes: "Kemper profiles include the cab. C-standard tuning is mandatory. A bass amp profile provides the enormous low end that defines QOTSA.",
       },
     },
     is_editorial: true,
@@ -10564,6 +12228,35 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Fender Vibroverb", settings: { Gain: 6, Bass: 5, Middle: 5, Treble: 5, Presence: 5, Volume: 7 }, notes: "Warm Crunch channel with reverb for the dreamy Little Wing quality." },
         ],
         notes: "Crunch channel with light overdrive. Add reverb for the spacious, dreamlike character. Eb tuning and heavy strings are essential.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "T808 OD", block_category: "Drive", original_gear: "Tube Screamer TS808", settings: { Drive: 2.0, Tone: 6.0, Level: 8.0 }, notes: "Light overdrive for chord melody sustain." },
+          { position: 2, block_name: "Vibrato Verb", block_category: "Amp", original_gear: "Fender Vibroverb", settings: { Drive: 6.5, Bass: 5.0, Mid: 5.0, Treble: 5.0, MV: 7.0 }, notes: "Warm Vibroverb tone with built-in reverb." },
+          { position: 3, block_name: "1x15 Deluxe", block_category: "Cab", original_gear: "1x15 JBL", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Round 1x15 for fat chord melody tone." },
+        ],
+        notes: "Warmer, more reverb-heavy than SRV Pride and Joy. Neck pickup, Eb tuning, .013 strings essential.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Green Scream",
+            block_category: "Stomp",
+            original_gear: "Ibanez TS808",
+            settings: { Drive: 2.0, Tone: 6.0, Volume: 8.0 },
+            notes: "Slot A. Slightly more drive than the Pride and Joy recipe for extra sustain on chord melody passages.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Vibroverb'",
+            block_category: "Profile",
+            original_gear: "Fender Vibroverb (1964 Blackface)",
+            settings: { Gain: 7.0, Bass: 5.0, Middle: 5.0, Treble: 5.0 },
+            notes: "Search for Vibroverb profiles with more reverb than Pride and Joy. The spacious, dreamlike quality of Little Wing requires extra room. With Liquid Profiling, select the Fender tone stack.",
+          },
+        ],
+        notes: "Kemper profiles include the cab. Warmer and more reverb-heavy than the Pride and Joy recipe. Eb tuning, .013 strings, neck pickup essential for the SRV Little Wing character.",
       },
     },
     is_editorial: true,
@@ -10676,6 +12369,44 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "Light overdrive, clean amp, long delay. The Katana can achieve a convincing Gilmour sustain tone with patience and vibrato.",
       },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "FAS Boost", block_category: "Drive", original_gear: "Colorsound Powerboost", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Light overdrive for sustain without harsh distortion." },
+          { position: 2, block_name: "Hipower", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 5.0, Bass: 5.0, Mid: 5.0, Treble: 5.0, Presence: 5.0, MV: 7.0 }, notes: "Clean Hiwatt platform for singing sustain." },
+          { position: 3, block_name: "Tape Mono", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 500, Feedback: 30, Mix: 30 }, notes: "Long tape-style delay for spacious atmosphere." },
+          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: "57 Dynamic", Distance: 2.5 }, notes: "Smooth cab for atmospheric character." },
+        ],
+        notes: "Hipower model with light FAS Boost for sustain. Tape delay for the spacious four-note motif. Vibrato on every note is essential.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Kemper Drive",
+            block_category: "Stomp",
+            original_gear: "Colorsound Powerboost",
+            settings: { Drive: 4.0, Tone: 5.0, Volume: 7.0 },
+            notes: "Slot A. Light overdrive for sustain without harsh distortion.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Hiwatt'",
+            block_category: "Profile",
+            original_gear: "Hiwatt DR103 Custom 100",
+            settings: { Gain: 5.0, Bass: 5.0, Middle: 5.0, Treble: 5.0, Presence: 5.0 },
+            notes: "Clean Hiwatt profile. With Liquid Profiling, select the Hiwatt tone stack.",
+          },
+          {
+            position: 3,
+            block_name: "Single Delay",
+            block_category: "Effect",
+            original_gear: "Binson Echorec",
+            settings: { Time: 500, Feedback: 30, Mix: 30 },
+            notes: "DLY slot. Long delay for spacious sustain.",
+          },
+        ],
+        notes: "Kemper profiles include the cab. Light drive into clean Hiwatt with long delay. Vibrato on every note is essential.",
+      },
     },
     is_editorial: true,
     view_count: 3200,
@@ -10769,6 +12500,26 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall Super Lead", settings: { Gain: 8, Bass: 4, Middle: 6, Treble: 8, Presence: 8, Volume: 7 }, notes: "Brown channel with bright EQ for tapping clarity and aggressive AC/DC crunch." },
         ],
         notes: "Katana Brown channel with boosted treble and presence. SG bridge pickup for maximum cut and attack.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 8.0, Bass: 4.0, Mid: 6.0, Treble: 8.0, Presence: 8.0, MV: 7.5 }, notes: "Cranked Plexi with bright EQ for tapping clarity and AC/DC crunch." },
+          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback cab for maximum attack definition." },
+        ],
+        notes: "Plexi 100W High model with high presence. SG bridge pickup. Keep presence high for tapping clarity.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search Rig Exchange for 'Plexi'",
+            block_category: "Profile",
+            original_gear: "Marshall Super Lead 1959",
+            settings: { Gain: 8.0, Bass: 4.0, Middle: 6.0, Treble: 8.0, Presence: 8.0 },
+            notes: "Search for bright, cranked Plexi profiles. High treble and presence are essential for the tapping intro to ring out clearly. With Liquid Profiling, select the Marshall tone stack.",
+          },
+        ],
+        notes: "Kemper profiles include the cab. Pure cranked Plexi -- no effects needed. SG bridge pickup for maximum cut and attack. High presence for tapping clarity.",
       },
     },
     is_editorial: true,

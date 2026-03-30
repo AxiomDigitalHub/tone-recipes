@@ -70,6 +70,13 @@ export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
           )}
         </div>
 
+        {/* One-line description */}
+        {recipe.description && (
+          <p className="text-xs text-muted line-clamp-1 mb-3">
+            {recipe.description}
+          </p>
+        )}
+
         {/* Mini signal chain preview */}
         <div className="flex items-center gap-1 overflow-hidden">
           {recipe.signal_chain.slice(0, 5).map((node, i) => {
@@ -96,6 +103,16 @@ export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
           {chainLength > 5 && (
             <span className="text-xs text-muted">+{chainLength - 5}</span>
           )}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-auto pt-3">
+          <span className="inline-flex items-center gap-1 text-xs font-medium text-accent group-hover:underline">
+            Get this tone
+            <svg className="h-3 w-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
         </div>
       </div>
     </Link>

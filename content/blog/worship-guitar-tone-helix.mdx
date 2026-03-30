@@ -1,0 +1,206 @@
+---
+title: "Modern Worship Guitar Tone on Helix: A Complete Preset Walkthrough"
+description: "How to build a worship guitar preset on the Line 6 Helix — from ambient cleans to full lead, with exact block names, settings, and snapshot assignments."
+date: "2026-03-30"
+author: "Nathan Cross"
+author_slug: "nathan-cross"
+category: "tone-recipes"
+tags: ["worship", "helix", "ambient", "delay", "reverb", "ac30", "clean-tone", "signal-chain", "snapshots"]
+readingTime: 10
+---
+
+> **Start Here — The Worship Tone in Five Blocks:**
+> 1. Amp: **Essex A30 TB** (Vox AC30 Top Boost) — low gain, pushed by the master
+> 2. Drive: **Minotaur** (Klon-style) — always on at low drive for shimmer and sustain
+> 3. Delay 1: **Transistor Tape** — dotted eighth at low mix for rhythmic texture
+> 4. Delay 2: **Elephant Man** — long analog trail for ambient swells
+> 5. Reverb: **Searchlights** — large hall/cloud reverb, the ambient foundation
+
+---
+
+## Why the Helix Works for Worship Guitar
+
+Worship guitar demands three things simultaneously: pristine cleans that sparkle, smooth drive that sustains without harshness, and ambient effects deep enough to fill the room without drowning the vocal. Doing this with pedals requires a large board, careful gain staging, and prayer that the tap tempo syncs at the right moment.
+
+The Helix handles all of this in a single preset with snapshots. One footswitch press takes you from a shimmering clean arpeggio to a driven lead with different delay and reverb settings — no tap dancing, no volume drops, no gaps. Trails carry across snapshots, so your reverb tail from the clean section bleeds naturally into the next dynamic.
+
+This walkthrough builds a complete worship preset from an empty patch. Every block name and setting is exact — you can replicate this on a Helix Floor, Helix LT, HX Stomp, or HX Stomp XL. The HX Stomp's 8-block limit means you'll need to make some tradeoffs (covered at the end).
+
+---
+
+## The Signal Chain
+
+Here's the full chain in order, left to right on Path 1:
+
+**Input → Compressor → Drive → Amp+Cab → Delay 1 → Delay 2 → Reverb → Output**
+
+Seven blocks total. That fits comfortably on any Helix product, including the HX Stomp with one block to spare.
+
+---
+
+## Block 1: Compressor — LA Studio Comp
+
+Worship playing involves a lot of dynamic range — soft arpeggios that need to be heard, swells that build gradually, and lead lines that should sustain. A compressor at the front of the chain evens this out without squashing your expression.
+
+| Parameter | Setting | Notes |
+|---|---|---|
+| Block | LA Studio Comp | Smooth, optical-style compression |
+| Peak Reduction | 3 | Gentle — not peak-limiting |
+| Gain | Unity (adjust by ear) | Match compressed level to uncompressed |
+| Mix | 70% | Parallel blend — keeps transient attack natural |
+
+The Mix control is key. At 100%, the compressor handles everything. At 70%, your pick attack comes through naturally while the sustain tail gets lifted. This is the difference between worship compression (transparent glue) and country compression (aggressive leveling).
+
+---
+
+## Block 2: Drive — Minotaur
+
+The Minotaur is Helix's Klon Centaur model. In worship, it stays on most of the time as a light always-on drive — adding harmonic shimmer and sustain without pushing into obvious distortion.
+
+| Parameter | Setting | Notes |
+|---|---|---|
+| Gain | 2.5 | Barely clipping — the amp does the heavy lifting |
+| Treble | 5.5 | Slight sparkle without harshness |
+| Level | 6.5 | Pushing the amp just past its clean threshold |
+
+For the lead snapshot, bump the Gain to 4.5 and the Level to 7.5. This pushes the AC30 model into a singing, sustained drive without getting fuzzy. The Klon circuit's midrange character helps leads cut through the mix — the same reason it's been a worship board staple for years. The [Klon settings guide](/blog/klon-centaur-settings-guide) covers the three standard use cases in detail.
+
+---
+
+## Block 3: Amp+Cab — Essex A30 TB
+
+The Vox AC30 Top Boost is the worship guitar amp. Its chimey high end, complex midrange, and natural compression when pushed make it the foundation of modern worship tone from Hillsong to Bethel to Elevation.
+
+On the Helix, the model is called **Essex A30 TB**.
+
+| Parameter | Setting | Notes |
+|---|---|---|
+| Drive | 3.5 | Clean with harmonic complexity — not sterile |
+| Bass | 4 | Controlled low end — too much gets muddy with delays |
+| Mid | 6 | Presence and body |
+| Treble | 6 | The AC30 chime |
+| Master | 7 | Push the power section for natural compression |
+| Presence | 5 | Top-end air |
+
+### Cabinet Choice
+
+Use the stock **1x12 US Deluxe** cab (Fender Deluxe Reverb speaker) or a third-party Celestion Blue IR. The Blue speaker is what's actually in the AC30, and it has a distinctive chime in the upper midrange that defines the worship clean sound.
+
+If the top end feels harsh through your FRFR or in-ears, apply a high cut on the cab block at **8kHz**. This removes fizzy frequencies that real speakers naturally roll off. More on this in the [fizzy modeler fix guide](/blog/why-modeler-tone-sounds-fizzy).
+
+---
+
+## Block 4: Delay 1 — Transistor Tape (Dotted Eighth)
+
+The dotted eighth delay is the rhythmic backbone of modern worship guitar. It turns simple eighth-note strumming or arpeggios into a flowing, rhythmic pattern that fills the sonic space between vocal phrases.
+
+The **Transistor Tape** is Helix's Maestro Echoplex model. It adds warmth and slight saturation to the repeats, which helps them sit behind the dry signal rather than competing with it.
+
+| Parameter | Setting | Notes |
+|---|---|---|
+| Time | Dotted 8th (sync to tap tempo) | The defining rhythmic pattern |
+| Feedback | 30% | 3-4 repeats — enough pattern, not runaway |
+| Mix | 25% | Present but not dominant |
+| Wow/Flutter | 2 | Subtle tape warble — adds organic movement |
+| Bass | 4 | Roll off low end on repeats to prevent mud |
+| Treble | 5 | Warm repeats, not bright |
+
+Set the tempo with tap tempo before the first song. If your worship leader uses a click, sync the Helix to MIDI clock for automatic tempo changes.
+
+For deeper exploration of delay types and the dotted-eighth technique, see [The Edge's delay settings guide](/blog/the-edge-delay-settings) — the same rhythmic approach applied differently.
+
+---
+
+## Block 5: Delay 2 — Elephant Man (Ambient Swells)
+
+The second delay handles ambient textures — long, modulated trails for swells, pad-like backgrounds, and transitions between song sections.
+
+The **Elephant Man** is Helix's Electro-Harmonix Deluxe Memory Man model. Its analog-voiced modulation adds chorus-like movement to the repeats.
+
+| Parameter | Setting | Notes |
+|---|---|---|
+| Time | 600-800ms | Long enough to create space, not rhythmic |
+| Feedback | 40% | Extended trail that decays gradually |
+| Mix | 15% (clean), 30% (ambient snapshot) | Low in the mix normally, raised for transitions |
+| Depth | 4 | Chorus-like modulation on repeats |
+| Speed | 2 | Slow modulation — shimmer, not seasick |
+
+This delay is the "secret weapon" block. During verses, keep the mix low so it adds depth without being obvious. During transitions and ambient sections, raise the mix via snapshot to 30-35% and the space opens up dramatically.
+
+---
+
+## Block 6: Reverb — Searchlights
+
+The **Searchlights** reverb is Helix's take on a Strymon BigSky Cloud-style algorithm. It creates a large, diffuse reverb field that's the foundation of the ambient worship sound.
+
+| Parameter | Setting | Notes |
+|---|---|---|
+| Decay | 4.5s | Long tail — fills the room |
+| Pre-delay | 60ms | Keeps the attack clear; reverb blooms after the note |
+| Mix | 25% (normal), 40% (ambient snapshot) | Adjust per dynamic section |
+| Low Cut | 120Hz | Prevents low-end reverb mud |
+| High Cut | 6kHz | Softens the reverb tail — no harshness |
+
+The low cut and high cut on the reverb block are critical. Without them, the reverb accumulates bass energy and high-frequency sizzle that makes the mix soupy. Cut below 120Hz and above 6kHz and the reverb sits in its own frequency pocket.
+
+For a deeper understanding of reverb types and when to use each, the [reverb types guide](/blog/reverb-types-guide) covers hall, plate, spring, and shimmer algorithms.
+
+---
+
+## Snapshot Assignments
+
+Here's where the Helix earns its place on the worship board. Set up four snapshots for the four dynamics of a typical worship set:
+
+| Snapshot | Compressor | Drive Gain | Amp Drive | Delay 1 Mix | Delay 2 Mix | Reverb Mix | Use |
+|---|---|---|---|---|---|---|---|
+| 1: Sunday Clean | On | 2.5 | 3.5 | 25% | 15% | 25% | Verses, soft arpeggios |
+| 2: Building | On | 3 | 4 | 25% | 20% | 30% | Pre-chorus, building sections |
+| 3: Full Worship | On | 4.5 | 4 | 30% | 25% | 35% | Choruses, full band |
+| 4: Ambient Swell | On | 2.5 | 3 | 20% | 35% | 45% | Transitions, prayer moments |
+
+Trails stay on across snapshots — meaning the reverb and delay tails from your Clean snapshot carry naturally into the Building snapshot. No gaps, no cuts, no unnatural silence.
+
+To set up snapshots: press the Snapshot button, select Snapshot 1, set all your blocks as shown, then move to Snapshot 2 and adjust. The Helix saves per-snapshot parameter values automatically.
+
+---
+
+## Adapting for HX Stomp (8-Block Limit)
+
+The HX Stomp's 8-block limit means you have one block to spare with this preset. If you need to cut a block, drop the compressor first — you can manage dynamics with your picking hand. If you need the compressor, consider using the Searchlights reverb's built-in modulation instead of the second delay, consolidating two blocks into one.
+
+The HX Stomp supports 3 snapshots instead of 8, so use: Clean, Full, and Ambient as your three.
+
+---
+
+## Translating to Quad Cortex
+
+The same signal chain works on the Quad Cortex with equivalent blocks:
+
+| Helix Block | QC Equivalent |
+|---|---|
+| Essex A30 TB | UK C30 TopBoost |
+| Minotaur | Horizon Precision Drive or OD pedal capture |
+| Transistor Tape | Tape Delay |
+| Elephant Man | Analog Delay with modulation |
+| Searchlights | Cloud reverb or Nordic Concert Hall (CorOS 4.0) |
+
+The QC uses Scenes instead of Snapshots — same concept, same workflow. See the [Quad Cortex preset guide](/blog/build-quad-cortex-preset-from-scratch) for the full walkthrough.
+
+---
+
+## FAQ
+
+**Can I use this preset for other contemporary music styles?**
+Absolutely. The ambient clean-to-driven workflow applies to indie rock, shoegaze-lite, and post-rock. Adjust the drive amount and delay times to taste.
+
+**What guitar works best for worship tone on the Helix?**
+A Stratocaster or Strat-style guitar with single coils gives you the classic worship chime. A Telecaster works well for a slightly brighter, more cutting tone. Humbuckers are usable but roll the treble up slightly to compensate for the darker voicing.
+
+**Should I use stereo or mono for worship?**
+Stereo if you're running to in-ears or two FRFR speakers. The wide delay and reverb image adds significant depth. Mono if you're running to a single monitor wedge or amp. On the Helix, route Delay 2 and Reverb in stereo on Path 2 if you have the DSP budget.
+
+**How do I manage volume levels between snapshots?**
+Use the Output block's level parameter per snapshot. The Building and Full snapshots may need +1 to +2 dB above the Clean snapshot to account for the musical dynamic. The [volume drop fix guide](/blog/solo-patch-volume-drop-fix) covers the principles in detail.
+
+**What if my worship leader changes tempo mid-set?**
+Use MIDI clock from a backing track or click track to sync the Helix automatically. Without MIDI, assign tap tempo to a footswitch and tap in the new tempo during a transition. The Transistor Tape delay sounds more forgiving of slight tempo mismatches than a clean digital delay because the analog character masks small timing errors.
