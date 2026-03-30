@@ -90,7 +90,7 @@ export default function NewsletterSignup({ variant }: NewsletterSignupProps) {
         <>
           <h3
             className="text-lg font-bold text-foreground"
-            style={{ fontFamily: "var(--font-playfair)" }}
+            style={{ letterSpacing: "-0.02em" }}
           >
             Get tone recipes in your inbox
           </h3>

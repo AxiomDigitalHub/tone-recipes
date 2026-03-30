@@ -9,7 +9,7 @@
   --color-primary-light: #2a5080;
   --color-accent: #f59e0b;
   --color-accent-hover: #d97706;
-  --color-muted: #a1a1aa;
+  --color-muted: #b0b0ba;
   --color-border: #2a2a3e;
   --color-helix-red: #cc0000;
   --color-qc-teal: #00b4d8;
@@ -25,22 +25,32 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Signal flow animation */
+/* Signal flow animation — uses transform (composited, GPU-accelerated) */
 @keyframes signal-flow {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
 }
 
 .signal-line {
-  background: linear-gradient(90deg, transparent, var(--color-accent), var(--color-primary-light), transparent);
-  background-size: 200% 100%;
-  animation: signal-flow 3s linear infinite;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-border);
 }
 
-/* Glow effect on hover */
+.signal-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 50%;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  animation: signal-flow 3s linear infinite;
+  will-change: transform;
+}
+
+/* Glow effect on hover — use box-shadow instead of filter for compositing */
 .node-glow:hover {
-  filter: drop-shadow(0 0 8px var(--color-accent));
-  transition: filter 0.2s ease;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+  transition: box-shadow 0.2s ease;
 }
 
 /* Hide scrollbar for horizontal scroll areas */
@@ -52,16 +62,37 @@ body {
   display: none;
 }
 
-/* Vertical signal flow animation */
+/* Vertical signal flow animation — composited */
 @keyframes signal-flow-vertical {
-  0% { background-position: 0 200%; }
-  100% { background-position: 0 -200%; }
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
 }
 
 .signal-line-vertical {
-  background: linear-gradient(180deg, transparent, var(--color-accent), var(--color-primary-light), transparent);
-  background-size: 100% 200%;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-border);
+}
+
+.signal-line-vertical::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 50%;
+  background: linear-gradient(180deg, transparent, var(--color-accent), transparent);
   animation: signal-flow-vertical 3s linear infinite;
+  will-change: transform;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .signal-line::after,
+  .signal-line-vertical::after {
+    animation: none;
+  }
+  .card-hover:hover {
+    transform: none;
+  }
 }
 
 /* Blog prose styles (dark theme) */

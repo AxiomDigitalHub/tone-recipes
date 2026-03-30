@@ -252,7 +252,7 @@ export default function RequestPage() {
         </div>
         <h1
           className="text-3xl font-bold text-foreground sm:text-4xl"
-          style={{ fontFamily: "var(--font-playfair)" }}
+          style={{ letterSpacing: "-0.02em" }}
         >
           Request a Tone
         </h1>

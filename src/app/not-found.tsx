@@ -5,7 +5,7 @@ export default function NotFound() {
     <div className="flex min-h-[60vh] flex-col items-center justify-center px-4 text-center">
       <h1
         className="mb-4 text-4xl font-bold text-foreground md:text-5xl"
-        style={{ fontFamily: "var(--font-playfair)" }}
+        style={{ letterSpacing: "-0.02em" }}
       >
         This page doesn&apos;t exist.
       </h1>
