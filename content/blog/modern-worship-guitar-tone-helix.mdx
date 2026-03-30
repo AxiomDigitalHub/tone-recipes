@@ -1,0 +1,208 @@
+---
+title: "Modern Worship Guitar Tone on the Line 6 Helix: A Complete Preset Guide"
+description: "Build a modern worship guitar tone on the Line 6 Helix from scratch — Sunday morning clean, pad layers, and lead tones that support the room without stealing it."
+date: "2026-03-30"
+author: "Nathan Cross"
+author_slug: "nathan-cross"
+category: "Tone Recipes"
+tags: ["worship guitar", "helix preset", "hillsong tone", "bethel music tone", "ambient guitar", "worship guitar settings", "line 6 helix"]
+readingTime: 11
+---
+
+Modern worship guitar asks something specific from you: be present without being prominent, be dynamic without being unpredictable, and be ready to hold space for thirty minutes at a time without the tone fatiguing the room. That's a different design brief than most tone guides address.
+
+The Helix handles this context particularly well. The routing flexibility, the quality of the ambient effects models, and the ability to manage multiple tone states within a single preset all serve the worship context in ways that a traditional pedalboard can't match as cleanly.
+
+> **Start Here — Quick Version**
+> - Core amp: AC30 Top Boost model (or Matchless Clubman variation)
+> - Always-on foundation: light compression, subtle plate reverb running in parallel
+> - Three tone states in one preset: clean pads, building dynamics, full lead
+> - Strymon-style reverb and delay models for the ambient layers
+> - Output volume management: assign expression pedal to output level for real-time dynamics control
+
+---
+
+## What "Modern Worship Tone" Actually Means
+
+The sound associated with modern worship guitar — Hillsong United, Bethel Music, Jesus Culture, Elevation — isn't one tone. It's a family of approaches that share some common elements: clean or lightly broken-up amp tones, generous use of reverb and delay as compositional elements, dynamic control that can go from whisper to wide, and a commitment to supporting the vocal and the congregation rather than drawing attention to itself.
+
+The Edge's delay-forward approach on *The Joshua Tree* is the obvious ancestor. But modern worship has layered in ambient elements — swells, infinite pads, huge hall reverbs — that push further into atmospheric territory than U2 ever needed to go.
+
+---
+
+## The Signal Path Architecture
+
+This preset uses a moderate block count — enough to handle the full worship context without being unwieldy.
+
+| Block | Type | Notes |
+|---|---|---|
+| 1 | Noise Gate | *Poly Gate* or *Simple Gate* — keep threshold subtle |
+| 2 | Compressor | *Kinky Boost* or *Optical Compressor* — light setting, always on |
+| 3 | Overdrive (footswitch) | *Minotaur* at low gain — engaged only for lead sections |
+| 4 | Amp | *Litigator* (AC30 character) or *Matchstick Ch2* |
+| 5 | Cab | 2x12 open back, SM57 at cap edge |
+| 6 | Modulation (footswitch) | *12-String* doubler or *Chorus* — subtle, switchable |
+| 7 | Delay | *Cosmos Echo* or *Ducking Delay* — always on |
+| 8 | Reverb | *Glitz* or *Hall* — always on, generous |
+
+Total: eight blocks. The amp and both ambient effects (delay and reverb) are always active. The drive and modulation blocks are footswitched for different sections.
+
+---
+
+## The Amp: AC30 Character
+
+The AC30 Top Boost model (*Litigator* on current Helix firmware, or the *Matchstick* variants) is the anchor for this sound. Vox-family amps have a natural brightness and compression in the top end that takes delay and reverb particularly well — the harmonic content of the amp interacts with the reverb tails in a way that sounds cohesive rather than added-on.
+
+**Amp block settings:**
+
+| Parameter | Setting | Notes |
+|---|---|---|
+| Gain | About 9-10 o'clock | Light breakup on harder strums — not saturated |
+| Bass | Around 10 o'clock | Keep the low end controlled — the reverb will fill space |
+| Mid | Around noon | Neutral — the character is in the top end |
+| Treble | Around 11 o'clock | Brighter than you'd run a Marshall or Fender — this is where the AC30 lives |
+| Master | About 1 o'clock | Power amp warmth without excessive compression |
+
+The AC30's character in the upper midrange and treble is the thing that makes this amp choice work for worship. It's clear without being harsh, and the reverb tails ring out rather than blur.
+
+---
+
+## Sunday Morning Clean: The Foundation Sound
+
+This is the core sound — what plays during verses, when the congregation is finding their footing in the song, when the guitar needs to be present but not the loudest thing in the room.
+
+**Additional settings for the clean state (drive off, modulation off):**
+
+**Compressor block:**
+
+| Parameter | Setting | Notes |
+|---|---|---|
+| Sustain/Threshold | Light — about 9 o'clock | Just enough to even out strumming dynamics |
+| Attack | Around 40ms | Let the pick attack come through before compression engages |
+| Level | Unity | This is a tone enhancer, not a boost |
+
+**Delay block (Cosmos Echo or Ducking Delay):**
+
+| Parameter | Setting | Notes |
+|---|---|---|
+| Time | Dotted eighth note (tempo-synced) | The foundational worship delay setting |
+| Feedback | About 3-4 repeats | More than this starts to cloud the next chord |
+| Mix | Around 20-25% | Audible but not dominant |
+| High Cut | Around 4-5 kHz | Darken the repeats so they don't compete with the dry signal |
+
+**Reverb block (Glitz or Hall):**
+
+| Parameter | Setting | Notes |
+|---|---|---|
+| Decay | Around 2-3 seconds | Long enough to bloom, short enough to not wash out chord changes |
+| Pre-Delay | Around 60-80ms | Keeps the dry signal clear before reverb begins |
+| Mix | Around 25-30% | Generous — the room should feel larger than it is |
+| Low Cut | Around 120 Hz | Keeps the reverb tail from adding low-end mud |
+
+The surprised finding with this combination: running the reverb's low cut relatively high (around 120 Hz rather than the typical 80 Hz) clears up the low end of fast chord changes dramatically. The reverb tail's low frequencies were interfering with the next chord's attack. This small adjustment made the whole foundation feel tighter and more intentional.
+
+---
+
+## Building Dynamics: Moving Into the Bridge or Chorus
+
+The second tone state uses the same amp and ambient settings but engages the modulation block — a subtle doubling chorus or the 12-string effect — and raises the delay mix slightly for a wider, more atmospheric sound.
+
+**Changes from the clean state:**
+
+- **Modulation on:** Chorus with Rate around 9 o'clock, Depth around 8 o'clock, Mix at about 20%. The goal is shimmer, not warbly chorus — keep the depth low.
+- **Delay Mix:** Bump from 25% to about 30-35% for a wider pad feel.
+
+This state is for moments when the song is building — when you want the guitar to feel like it's expanding in the room without changing what you're physically playing.
+
+---
+
+## Full Worship Lead: The Third Tone State
+
+The third state engages the drive block and slightly increases the amp's master volume via a scene volume trim. This isn't a metal solo tone — it's a lead tone that is more present, more focused, and cuts through the mix without aggression.
+
+**Drive block (Minotaur at low gain, as a presence boost more than a dirt source):**
+
+| Parameter | Setting | Notes |
+|---|---|---|
+| Gain | About 8 o'clock | Barely any drive — primarily a mid-frequency push |
+| Tone | Around noon | Neutral — don't over-brighten |
+| Level | About 2-3 o'clock | This is where the boost lives — pure output increase |
+
+The drive block here functions as a clean boost with a mild mid-frequency emphasis. It's not adding saturation — it's adding presence and level for single-note lines and sustained notes that need to carry over the full band.
+
+**Delay for lead:**
+
+- Reduce Mix slightly (back to 20%) — lead lines need clarity, not wash.
+- If using a Ducking Delay, the ducking function handles this automatically: the delay ducks when you're playing and blooms in the space after notes. This is extremely useful for lead lines.
+
+---
+
+## The Expression Pedal: Volume Control as Dynamics Management
+
+Assign your expression pedal to the overall output level (or to a volume block at the end of the chain), with a minimum level around 40-50% and maximum at 100%. This gives you real-time dynamics control between sections without switching patches.
+
+For worship contexts specifically, the ability to swell back in volume during congregational singing — where the guitar should recede behind the voices — and then gradually return as the band builds is one of the most useful tools you can have. A volume swell into a lead tone communicates a different emotional message than a sudden patch switch.
+
+This assignment also handles the "toddler test" in quieter home practice contexts: you can gradually bring the output up from a very quiet level rather than needing to adjust the global output.
+
+---
+
+## Cross-Platform Notes: Applying This to the Quad Cortex
+
+The same signal path works on the Neural DSP Quad Cortex. The equivalent amp models:
+
+| Helix Model | Quad Cortex Equivalent |
+|---|---|
+| *Litigator* | Neural DSP's Vox AC30 Top Boost model |
+| *Matchstick Ch2* | UK Matchless-inspired clean model |
+
+The Quad Cortex's reverb and delay algorithms are excellent for this context — the reverb tail behavior in particular tends to be smoother than the Helix's at longer decay times. If you're on QC, start with the Celestial and Searchlights reverb models as alternatives to the Glitz.
+
+Also see: [how to build a Quad Cortex preset from scratch](/blog/quad-cortex-preset-from-scratch) for the block structure setup.
+
+---
+
+## Managing Your Tone for IEM vs. Open Stage
+
+In-ear monitors (IEMs) change how you experience your tone. The physical amp-in-the-room feel is gone, replaced by a direct signal that's extremely accurate and can be fatiguing over a long service.
+
+For IEM use:
+
+- Reduce high-frequency content slightly (Treble on the amp, about 9-10 o'clock)
+- Increase pre-delay on the reverb (100ms rather than 60ms) — without room acoustics, the reverb starts too immediately
+- Reduce the delay feedback slightly — in IEMs, repeats stack audibly in a way that gets muddy in an ambient live room
+
+For open stage (amp on stage, using stage monitoring):
+
+- Run a short 1x12 on stage for feel — monitoring yourself purely through wedges removes the physical response that tells you what the guitar is actually doing
+- If running full direct, increase the amp's Master volume (within the preset) slightly for more power amp warmth
+
+The tone that sounds right through IEMs will often sound slightly recessed and muted on an open stage, and vice versa. These are two different instrument configurations that happen to use the same signal path. Build separate presets for each context and label them clearly.
+
+---
+
+## Internal Links
+
+- [The Edge delay settings](/blog/the-edge-delay-settings) — the original worship delay template
+- [Reverb types guide](/blog/reverb-types-guide) — plate vs. hall vs. spring in a worship context
+- [Worship pedalboard guide](/blog/worship-pedalboard-guide) — analog approach to the same tone goals
+- [Best Helix amp models for blues and clean tones](/blog/best-helix-amp-models-blues) — more on the Litigator and clean Vox-style models
+
+---
+
+## FAQ
+
+**Can I get a modern worship tone with a simpler Helix preset? Do I need all eight blocks?**
+Yes, you can simplify. The essential blocks are: amp, cab, delay, reverb. Everything else adds nuance. A four-block preset with the Litigator, a 2x12 cab, a dotted-eighth delay, and a hall reverb will get you a recognizable worship tone. The additional blocks in the guide above (compressor, gate, drive, modulation) provide more flexibility across song sections. Start simple and add what you actually need.
+
+**Why use the AC30/Vox character instead of a Fender clean for worship?**
+Both work. The Vox family's brightness and compression are particularly well-suited to how ambient effects respond — reverb and delay tails have more harmonic content to ring out through. Fender cleans (Deluxe Reverb, Twin) are excellent for worship too, especially for more country-influenced worship sounds, but they can feel slightly flat under heavy reverb without the AC30's natural top-end shimmer. Nathan's preference is the Vox character. Both are legitimate choices.
+
+**What's the best way to handle patch switching live without audible volume jumps?**
+Use scenes within a single preset rather than separate presets. Helix scenes let you change block states (on/off) and parameter values simultaneously, with no gap or gap-noise between them. For the three-state approach described above (clean, building, lead), each scene corresponds to one state. There's no gap, no re-attack, no click.
+
+**Does this preset translate to direct recording, or is it mainly built for live use?**
+This preset was built for live use but translates well to direct recording with one adjustment: reduce the reverb mix by about 10-15% for recording. In a live room, the reverb fills space that the physical environment would otherwise provide; in a direct recording, the reverb is all you hear, and a recording-level amount is lower than a live-level amount.
+
+**How does this work through a guitar cab vs. FRFR monitors?**
+Through a guitar cab: turn off or bypass the cab IR block. The real cab is providing speaker simulation, and running the cab IR as well will produce an overprocessed, filtered sound. Through FRFR or studio monitors: keep the cab IR on. See [FRFR vs. guitar cab](/blog/frfr-vs-guitar-cab) for the full comparison. (*Coming soon.*)

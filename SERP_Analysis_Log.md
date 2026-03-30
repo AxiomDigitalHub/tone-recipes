@@ -165,3 +165,65 @@
 - **Content gaps found:** Guitar Chalk has a solid settings guide but focuses on generic rock/metal — no dedicated punk or grunge sections with artist references. The DS-1 as a recording boost (drive at minimum, level up) is a complete SERP gap. The mod section exists only on AnalogMan's site (which is product-focused). No competitor covers the Tone knob sweet spot at 11-noon as an actionable technique. Forum content (Ultimate Guitar, Strat-Talk) is fragmented. Follow-up opportunity: "Boss DS-1 vs. MXR Distortion+: Two Classic Distortions, Different Voicings" — a comparison post that would capture the "ds-1 vs" query cluster.
 - **Featured snippet opportunity:** Yes — the style-specific settings tables are extractable. "What settings does Kurt Cobain use on DS-1?" is a likely PAA box.
 - **Difficulty:** Low-Medium. Guitar Chalk has the strongest editorial presence but the guide is generic. Forum content is fragmented. A style-segmented guide with mod coverage differentiates well.
+
+## SERP Analysis — 2026-03-30
+
+### How to Build a Quad Cortex Preset from Scratch
+- **Target query:** "quad cortex preset tutorial," "build quad cortex preset," "quad cortex for beginners"
+- **Top competitors:**
+  - https://www.sweetwater.com/sweetcare/articles/neural-dsp-quad-cortex-getting-started-guide/
+  - https://neuraldsp.com/manual/quad-cortex
+  - https://quantumdsp.com/blogs/learn/loading-irs-into-hardware-units-part-one-quad-cortex
+  - https://oboe.com/learn/mastering-your-quad-cortex-for-personal-use-1wm6ixa/signal-chain-creation-mastering-your-quad-cortex-for-personal-use-2
+- **Content gaps found:** No editorial article walks through building a preset from zero with opinionated, "here's what I'd actually do" guidance. No coverage of decision-making behind Captures vs. stock amp models, Cortex Control (desktop) vs. hardware building, Scenes vs. Stomp Mode as a design choice, or CPU management across The Grid's four rows. Follow-up ideas: "Quad Cortex Scenes vs. Stomp Mode: Which Should You Build Around?", "Quad Cortex Parallel Routing: When and Why to Split Your Signal."
+- **Featured snippet opportunity:** Yes — a numbered step-by-step format would target PAA boxes for how-to queries. Current #1 (Sweetwater) is a video companion, not snippet-optimized text.
+- **Difficulty:** Medium. Sweetwater and Neural DSP official docs hold top spots by domain authority, but neither is a deep editorial tutorial. A well-structured original guide would be competitive.
+
+### The Volume Drop Problem: Why Your Solo Patch Is Quieter
+- **Target query:** "solo patch volume drop," "guitar solo volume boost," "modeler volume matching"
+- **Top competitors:**
+  - https://www.guitartoneoverload.com/2010/04/02/tone-tips-boosting-the-volume-of-your-solos/
+  - https://carvinaudio.com/blogs/guitar-bass-education/your-guitar-solo-how-to-get-heard
+  - https://www.premierguitar.com/articles/20426-tone-tips-dialing-in-maximum-tone
+  - https://www.musicradar.com/tuition/guitars/10-sure-fire-ways-to-make-your-lead-guitar-tone-cut-through-the-mix-389164
+  - https://www.guitarworld.com/features/9-ways-to-get-more-from-your-amp-modeler-and-multi-effects-pedals
+- **Content gaps found:** No editorial article explains the psychoacoustics of why gain compression creates perceived volume drop — forum discussions only. Modeler-specific patch level workflows (Helix output block, Quad Cortex Scene-level control) are absent from all editorial results. The "distortion is louder in isolation but buries in a mix" paradox is undercovered editorially. Follow-up ideas: "How to Level-Match All Your Presets (Helix, Quad Cortex, Fractal)."
+- **Featured snippet opportunity:** Yes, strong. "solo patch volume drop" currently returns mostly forum results. An editorial article with a clear fix list would likely capture a snippet or PAA placement.
+- **Difficulty:** Low to medium. Top editorial competitors are from 2010–2016. Guitar World and Premier Guitar hold authority but not with articles targeting this specific query.
+
+### Marshall JCM800 Settings: Sweet Spots for Every Style
+- **Target query:** "jcm800 settings," "marshall jcm800 best settings," "jcm800 metal settings"
+- **Top competitors:**
+  - https://www.guitarchalk.com/marshall-jcm800-settings/
+  - https://www.guitarchalk.com/marshall-jcm800-2203x-settings/
+  - https://www.musicradar.com/how-to/how-to-get-classic-marshall-jcm800-tones-using-guitar-modelling
+  - https://www.guitarworld.com/features/marshall-jcm800-2203
+  - https://grailtone.com/tone-settings/marshall/view-jcm800-settings.html
+- **Content gaps found:** No single editorial article organizes settings by musical style in clean scannable format. The 2203/2204 vs. 2205/2210 distinction is absent from all settings guides. Power tube choice (EL34 vs. 6550) and speaker pairing as a settings multiplier are undercovered. Artist-specific recreation settings (Slash, Dave Murray, Zakk Wylde) appear only in forum threads. The boost-pedal-as-settings-multiplier angle is mentioned in passing only. Follow-up ideas: "JCM800 2203 vs. 2205: What's the Difference?", "Best Pedals to Pair with a JCM800."
+- **Featured snippet opportunity:** Yes. Style-organized settings tables (Pre Gain/Bass/Mid/Treble/Presence/Master by genre) would be highly snippet-eligible. Guitar Chalk dominates but a longer, better-organized guide covering all variants could outperform it.
+- **Difficulty:** Medium to high. Guitar Chalk has two actively updated articles. Guitar World and MusicRadar carry significant domain authority. But no competitor covers all styles in one comprehensive guide — a consolidation opportunity.
+
+### How to Remove 60-Cycle Hum Without a Noise Gate
+- **Target query:** "guitar hum fix," "60 cycle hum guitar," "single coil hum eliminate"
+- **Top competitors:**
+  - https://reverb.com/news/taming-the-60-cycle-hum
+  - https://www.samash.com/spotlight/60-cycle-hum
+  - https://guitartechgenius.com/guitar-tech/guitar-grounding-how-to-eliminate-60-cycle-hum/
+  - https://www.bzzzzkill.com/blogs/news/eliminate-60-cycle-hum-without-changing-stratocaster-pickups
+  - https://medium.com/geekculture/how-i-killed-the-hum-from-my-fender-stratocaster-10f2f2effa6
+- **Content gaps found:** No competitor owns the "without a noise gate" framing as a dedicated editorial angle. No guide covers modeler-specific hum behavior (Helix, Fractal, Kemper). No guide walks through a systematic diagnosis flowchart — competitors list solutions without helping identify the problem first. The EHX Hum Debugger vs. noise gate distinction is undercovered. Follow-up idea: "Does Cavity Shielding Actually Work? A Before/After Test."
+- **Featured snippet opportunity:** Yes. "How to remove 60 cycle hum without noise gate" has no strongly owned snippet. A tightly structured post with short answer paragraph + numbered list would target a list or steps snippet.
+- **Difficulty:** Low to medium. Reverb News and Sam Ash are major-authority sites for the generic head term, but the specific "without a noise gate" angle is unowned. Forum threads ranking signal weak editorial competition.
+
+### Modern Worship Guitar Tone on the Line 6 Helix
+- **Target query:** "worship guitar tone helix," "hillsong guitar tone settings," "ambient guitar helix"
+- **Top competitors:**
+  - https://worshiptutorials.com/helix/ (commercial storefront, not editorial)
+  - https://worshiponline.com/worship-guitar-tone/
+  - https://www.axedr.com/guide-worship-guitar-tone-part-2/
+  - https://www.guitarchalk.com/cornerstone-amp-settings/
+  - https://reverb.com/news/the-gear-tones-and-techniques-of-modern-worship-guitar
+  - https://worshipguitarskills.com/unleashing-your-perfect-worship-guitar-tone-a-comprehensive-guide/
+- **Content gaps found:** No editorial piece provides actual named Helix amp block recommendations for worship contexts (e.g., specific model names, not just "a Vox-style amp"). No guide walks through a complete snapshot architecture with block order for a worship patch. No coverage of the "straight to FOH" workflow with stereo XLR routing and gain staging for live sound engineers. HX Stomp vs. Helix LT for worship is completely unaddressed editorially. Low-cut/high-cut settings on Helix IR blocks are mentioned by patch sellers but never explained editorially. Follow-up ideas: "HX Stomp vs. Helix LT for Worship: Which Should You Buy?", "The Hillsong Patch from Scratch: Building a Matchless C-30 Clean Tone in Helix."
+- **Featured snippet opportunity:** Yes, strong. "Hillsong guitar tone settings" is partially answered by a Fender Tone Community page and a Guitar Chalk song post — neither is comprehensive. A post with a clear breakdown intro + structured settings table would be a strong featured snippet candidate.
+- **Difficulty:** Low to medium. Storefront pages dominate but aren't true editorial competitors. Genuine editorial competition (WorshipOnline, Axe-Dr, Guitar Chalk) are mid-authority niche sites. Reverb News is the only high-authority competitor and its worship piece is broad rather than Helix-specific.

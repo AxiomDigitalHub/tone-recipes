@@ -126,7 +126,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 - **AEO structure:** Style sections (punk, grunge, classic rock, metal, recording boost) with clock-position settings. Mod tips section (Keeley mod, Monte Allums). FAQ format.
 - **Internal links to:** overdrive-vs-distortion-vs-fuzz, tube-screamer-settings-guide, signal-chain-order-guide
 
-### P2-03: How to Build a Quad Cortex Preset from Scratch
+### P2-03: How to Build a Quad Cortex Preset from Scratch ✅ PUBLISHED 2026-03-30
 - **Target queries:** "quad cortex preset tutorial," "build quad cortex preset," "quad cortex for beginners"
 - **Writer:** Sean Nakamura (QC owner, digital architect)
 - **Pillar:** 4 — Modeler Masterclass
@@ -134,7 +134,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 - **AEO structure:** Step-by-step HowTo format (numbered steps with settings at each stage). Start with signal flow diagram description. Include a "Your First Preset in 10 Minutes" fast-track section at top for AEO.
 - **Internal links to:** quad-cortex-captures-vs-models, helix-vs-quad-cortex, signal-chain-order-guide, how-to-dial-in-modeler-tone
 
-### P2-04: The Volume Drop Problem: Why Your Solo Patch Is Quieter
+### P2-04: The Volume Drop Problem: Why Your Solo Patch Is Quieter ✅ PUBLISHED 2026-03-30
 - **Target queries:** "solo patch volume drop," "guitar solo volume boost," "modeler volume matching"
 - **Writer:** Nathan Cross (worship context, manages patch transitions live)
 - **Pillar:** 6 — Quick Fixes
@@ -142,7 +142,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 - **AEO structure:** Problem → three causes (gain ≠ volume, mid scoop, compressor release) → fix for each. Numbered list. Direct, extractable answers.
 - **Internal links to:** gain-staging-drop-tunings, how-to-dial-in-modeler-tone
 
-### P2-05: Marshall JCM800 Settings: Sweet Spots for Every Style
+### P2-05: Marshall JCM800 Settings: Sweet Spots for Every Style ✅ PUBLISHED 2026-03-30
 - **Target queries:** "jcm800 settings," "marshall jcm800 best settings," "jcm800 metal settings"
 - **Writer:** Rick Dalton (Marshall Super Lead player, analog authority)
 - **Pillar:** 2 — Settings Guides
@@ -150,7 +150,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 - **AEO structure:** Style sections with settings tables. Cover the real amp AND the modeler versions (Helix Brit 2204, QC JCM800). Gain staging section (how to push the front end with an OD pedal).
 - **Internal links to:** tube-screamer-settings-guide (TS into Marshall), gain-staging-drop-tunings, complete-guide-guitar-amp-types
 
-### P2-06: How to Remove 60-Cycle Hum Without a Noise Gate
+### P2-06: How to Remove 60-Cycle Hum Without a Noise Gate ✅ PUBLISHED 2026-03-30
 - **Target queries:** "guitar hum fix," "60 cycle hum guitar," "single coil hum eliminate"
 - **Writer:** Carl Beckett (Telecaster single-coil player, practical solutions)
 - **Pillar:** 6 — Quick Fixes
@@ -158,7 +158,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 - **AEO structure:** Cause list (grounding, single coils, dimmer switches, power supply) → fix for each cause. Diagnostic flowchart in text form. Direct answers.
 - **Internal links to:** pickup-position-guide, signal-chain-order-guide
 
-### P2-07: Modern Worship Guitar Tone on Helix
+### P2-07: Modern Worship Guitar Tone on Helix ✅ PUBLISHED 2026-03-30
 - **Target queries:** "worship guitar tone helix," "hillsong guitar tone settings," "ambient guitar helix"
 - **Writer:** Nathan Cross (worship architect, Helix-adjacent via AC30 knowledge)
 - **Pillar:** 1 — Tone Recipes
@@ -395,3 +395,13 @@ Based on the competitive analysis, avoid these formats:
 | 3 | The Buffer Myth: What Buffered Bypass Actually Does to Your Signal Chain | "buffered bypass vs true bypass," "does buffer pedal affect tone" | Sean Nakamura | 3 — Signal Chain & Tone Theory | Klon SERP — the Klon's buffer is heavily discussed in forums but no clean editorial guide explains the mechanics; high PAA probability |
 | 4 | Big Muff vs. Hiwatt: Which One Is Doing the Work on Comfortably Numb? | "comfortably numb pedal settings," "big muff hiwatt gilmour tone secret" | Margot Thiessen | 1 — Tone Recipes | Gilmour SERP — the interaction between Big Muff level and Hiwatt output stage is a significant gap; would attract backlinks from Pink Floyd communities |
 | 5 | Boss DS-1 vs. MXR Distortion+: Two Classic Distortions, One Amp | "ds-1 vs mxr distortion plus," "boss ds1 vs mxr distortion+" | Jess Kowalski | 5 — Gear Lab | DS-1 SERP — "ds-1 vs" query cluster has volume; no editorial comparison exists; the circuit difference (op-amp clipping vs. hard clipping) is a legitimate tone science story |
+
+## SERP-Derived Topics — 2026-03-30
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | Quad Cortex Scenes vs. Stomp Mode: Which Should You Build Around? | "quad cortex scenes vs stomp mode," "quad cortex live setup scenes" | Sean Nakamura | 4 — Modeler Masterclass | Quad Cortex SERP — no editorial guide addresses the preset design choice between Scenes and Stomp Mode; forum threads dominate and signal high demand |
+| 2 | JCM800 2203 vs. 2205: What's the Difference (and Which Do You Have)? | "jcm800 2203 vs 2205," "marshall jcm800 channel switching models" | Rick Dalton | 2 — Settings Guides | JCM800 SERP — the 2203/2204 single-channel vs. 2205/2210 channel-switching distinction is absent from all editorial settings guides; a real gap for buyers and players unsure which version they own |
+| 3 | Does Cavity Shielding Actually Work? A Before/After Test | "guitar cavity shielding," "does copper shielding reduce hum guitar" | Carl Beckett | 6 — Quick Fixes | 60-cycle hum SERP — shielding is mentioned by every competitor but no one has published a before/after test with actual findings; high curiosity, low competition |
+| 4 | HX Stomp vs. Helix LT for Worship: Which Should You Buy? | "hx stomp vs helix lt worship," "helix lt vs hx stomp live worship" | Nathan Cross | 4 — Modeler Masterclass | Worship Helix SERP — no editorial piece addresses this buying/workflow question; storefront pages dominate, which signals an editorial gap for a genuine comparison with worship-specific context |
+| 5 | How to Level-Match All Your Presets: Helix, Quad Cortex, and Fractal | "helix preset volume matching," "how to level match modeler presets" | Sean Nakamura | 6 — Quick Fixes | Volume drop SERP — modeler-specific patch level workflows are completely absent from editorial results; Helix output block and Quad Cortex Scene-level control are covered only in manufacturer docs and forum posts, never in an actionable editorial guide |

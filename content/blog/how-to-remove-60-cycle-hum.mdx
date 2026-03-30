@@ -1,0 +1,120 @@
+---
+title: "How to Remove 60-Cycle Hum Without a Noise Gate"
+description: "A noise gate treats the symptom. Here's how to actually fix 60-cycle hum — by finding the cause and eliminating it at the source."
+date: "2026-03-30"
+author: "Carl Beckett"
+author_slug: "carl-beckett"
+category: "Quick Fixes"
+tags: ["60 cycle hum", "guitar hum fix", "single coil hum", "grounding", "noise floor", "hum elimination", "guitar noise"]
+readingTime: 5
+---
+
+A noise gate doesn't fix hum. It hides it between notes and cuts it off when you're not playing. The hum is still there. You're just muting it.
+
+That might be good enough for a recording or a loud stage. But if you want the hum gone, you need to find where it's coming from. There are five common causes. Most of them have a fix that doesn't cost anything.
+
+---
+
+## Cause 1: Single-Coil Pickups
+
+Single-coil pickups — Stratocasters, Telecasters, most traditional P-90 designs — are inherently susceptible to electromagnetic interference. The coil acts as an antenna. It picks up the electrical noise radiating from everything near you: lighting circuits, transformers, computer monitors, other audio equipment.
+
+This is not a defect. It's physics. It's also the reason single-coils sound the way they do.
+
+**The free fix: face the right direction.**
+
+Rotate your body 90 degrees at a time until the hum reduces or disappears. The pickup's angle relative to the interference source changes as you turn, and there's often one orientation where the noise drops significantly. This works better than you'd expect. It's the first thing to try.
+
+**The structural fix: position and shielding.**
+
+Move away from your computer monitor. Move away from fluorescent lighting. If you're near a dimmer switch, move away from it or turn the dimmer either fully on or fully off — dimmers running at half power generate significant interference.
+
+For a more permanent solution: shielding the pickup cavity with copper foil tape reduces interference pickup without changing the sound. It's a two-hour job and runs about $10 in materials. The improvement is real and measurable.
+
+---
+
+## Cause 2: Ground Loop
+
+A ground loop happens when two pieces of equipment have different electrical ground potentials and are connected to each other. The difference in potential creates a current — and that current shows up as a 60-cycle hum in your audio.
+
+The most common scenario: your guitar amp is plugged into one outlet, your pedalboard power supply is plugged into another, and the two outlets are on different circuits or share a ground with another piece of equipment that's generating noise.
+
+**The diagnostic:** Unplug every cable from your pedals except the connection from guitar to amp. If the hum goes away, you have a ground loop in your pedal chain. Add pedals back one at a time until the hum returns — that identifies the source.
+
+**The fix:**
+
+- Plug everything on your chain into the same power strip, from a single outlet.
+- If that's not possible, a Radial ProIso or similar passive isolation transformer placed at the signal chain output can break the ground loop. These run $80-$150. Worth it if the hum is chronic and you've ruled out everything else.
+- A direct injection box (DI) with ground lift can isolate the issue in live sound situations. Flip the ground lift switch and see if the hum drops.
+
+---
+
+## Cause 3: A Broken Ground Inside the Guitar
+
+If the hum disappears when you touch the strings, bridge, or any metal part of the guitar, your guitar's ground path is broken or compromised.
+
+When you touch metal parts of the guitar, your body becomes part of the ground path and shunts the hum to earth. This is called "touching the strings to fix the hum." It's common, and it means the guitar's internal ground wire is either disconnected, has a cold solder joint, or has been severed.
+
+**The fix:** Open the guitar's control cavity. Look for a wire running from the bridge saddle or bridge post cavity to the electronics. This is the ground wire. Check that it's soldered at both ends. If it's disconnected, re-solder it. Cold solder joints (dull, crumbly, grey) can be re-flowed. This is a simple repair — ten minutes and a soldering iron.
+
+If you're not comfortable with a soldering iron, any guitar tech will fix this in about fifteen minutes.
+
+---
+
+## Cause 4: Dimmer Switches and Fluorescent Lighting
+
+Both generate significant electromagnetic interference in the frequency range that single-coil pickups pick up. The hum from a dimmer switch running at 50-70% intensity is often severe enough to affect even properly shielded instruments.
+
+**The diagnostic:** Play in a different room. If the hum disappears, the problem is environmental, not with your gear.
+
+**The fix:**
+
+- Turn dimmer switches fully on or fully off. Full on/full off produces far less interference than a dimmer running at partial power.
+- Replace fluorescent tube lights with LED equivalents. Modern LED lighting produces dramatically less RFI than fluorescent tubes.
+- If you're in a venue or practice space where you can't control the lighting, distance is your friend. Getting farther from the source reduces the field strength.
+
+---
+
+## Cause 5: Pedal Power Supply Issues
+
+A cheap or failing power supply on your pedalboard will inject noise into your signal chain, and that noise will amplify through every gain stage downstream of it.
+
+**The diagnostic:** Run your guitar straight into the amp with no pedals. If the hum is gone, it's the pedalboard. Add pedals back in series until the hum returns — that identifies the noisy unit or the noisy power connection.
+
+**The fix:** Isolate each pedal to its own isolated power output on your power supply. Isolated outputs prevent noise from one pedal's current draw affecting another. Non-isolated multi-pedal power supplies (the cheap daisy-chain adapters) are one of the most common causes of pedalboard noise.
+
+If your power supply has both isolated and non-isolated outputs, put your digital pedals on isolated outputs — they generate more switching noise than analog pedals.
+
+| Power Supply Type | Noise Risk | Best For |
+|---|---|---|
+| Single daisy-chain adapter | High | Nothing, really |
+| Non-isolated multi-output supply | Medium | Analog-only boards |
+| Fully isolated multi-output supply | Low | Any board, especially with digital pedals |
+
+---
+
+## The Diagnostic Flow
+
+Run through these in order:
+
+1. Touch the strings. **Hum stops?** → Broken ground inside the guitar. Fix the ground wire.
+2. Unplug all pedals, run straight to amp. **Hum stops?** → Ground loop or noisy pedal. Add pedals back one at a time.
+3. Move to a different room. **Hum stops?** → Environmental interference. Find and fix the source.
+4. Rotate your body 90 degrees at a time. **Hum drops significantly?** → Single-coil pickup interference. Reorient, or investigate shielding.
+5. Plug everything into one power strip from one outlet. **Hum drops?** → Ground loop between different circuits. Keep everything on one strip.
+
+---
+
+## FAQ
+
+**Is 60-cycle hum the same thing as buzz?**
+Hum and buzz are related but distinct. True 60-cycle hum is a smooth, low-frequency drone at exactly 60 Hz (the frequency of AC power in North America; 50 Hz in most other countries). Buzz is a rougher, more complex sound with harmonic content above the fundamental — typically generated by digital devices, dimmer switches, or ground loops. Both are annoying. The causes sometimes overlap, but they're worth distinguishing because the diagnostic steps differ slightly.
+
+**Will a noise suppressor pedal (BOSS NS-2, ISP Decimator) fix the underlying hum?**
+No. Noise suppressors gate your signal — they cut off your output when it drops below a threshold, which hides the hum between notes. The hum is still there when you're playing. They're useful for live applications where the hum is unavoidable but manageable. They're not a substitute for finding and fixing the actual cause.
+
+**My guitar hums less with other players' equipment. What does that mean?**
+Different equipment on different electrical circuits creates different ground potential relationships. The hum you're hearing is likely a ground loop between your specific combination of gear. Use an isolation transformer or consolidate your gear to a single power circuit.
+
+**Does shielding a guitar ruin the single-coil tone?**
+No. Copper foil shielding in the control and pickup cavities reduces electromagnetic interference pickup without changing the electrical characteristics of the pickups themselves. Players who have done this report no tonal change. See [pickup position guide](/blog/pickup-position-guide) for more on how single-coil pickups work.
