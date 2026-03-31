@@ -5,7 +5,7 @@ category: "tips"
 slug: "5-studio-compression-tricks-for-modeler-patches"
 excerpt: "Most modeler players underuse compression or skip it entirely. These five techniques, borrowed from studio mixing engineers, will add polish, sustain, and clarity to your patches on any platform."
 source_url: "https://faderandknob.com/blog"
-image_url: "/images/news/compression-tricks.jpg"
+image_url: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80"
 ---
 
 Compression is the most misunderstood tool in a modeler player's arsenal. Ask most guitarists what their compressor does and you will get vague answers about "squeezing the signal" or "adding sustain." But in the studio world, compression is the difference between a guitar tone that sounds like a bedroom recording and one that sounds like a finished record.

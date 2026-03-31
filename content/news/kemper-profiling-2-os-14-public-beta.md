@@ -5,7 +5,7 @@ category: "firmware-update"
 slug: "kemper-profiling-2-os-14-public-beta"
 excerpt: "Kemper's biggest software update in years overhauls the profiling engine with dramatically higher resolution analysis. Early testers say the difference is audible, especially on high-gain amps with complex EQ curves."
 source_url: "https://kemper-amps.com/news"
-image_url: "/images/news/kemper-profiling-2.jpg"
+image_url: "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=800&q=80"
 ---
 
 Kemper has released the public beta of OS 14.0, and the centerpiece is Profiling 2.0 -- a ground-up rebuild of the profiling engine that has defined the Kemper Profiler since its launch over a decade ago.

@@ -5,7 +5,7 @@ category: "industry"
 slug: "modelers-outsell-tube-amps-2025-reverb-data"
 excerpt: "Reverb's annual market report confirms what many suspected: digital modelers and profilers accounted for more transactions than traditional tube amplifiers for the first time in the platform's history."
 source_url: "https://reverb.com/news"
-image_url: "/images/news/modelers-vs-tubes.jpg"
+image_url: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80"
 ---
 
 Reverb has published its 2025 annual marketplace report, and one data point stands out above the rest: digital modelers and profilers outsold traditional tube amplifiers in transaction volume for the first time since the platform launched in 2013.

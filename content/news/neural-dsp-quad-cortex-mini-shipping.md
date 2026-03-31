@@ -5,7 +5,7 @@ category: "new-gear"
 slug: "neural-dsp-quad-cortex-mini-shipping"
 excerpt: "Neural DSP's compact flagship is finally landing on doorsteps. The Quad Cortex Mini packs the full CorOS experience into a smaller enclosure at EUR 1,299, and first impressions from early adopters are overwhelmingly positive."
 source_url: "https://neuraldsp.com/news"
-image_url: "/images/news/quad-cortex-mini.jpg"
+image_url: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=800&q=80"
 ---
 
 After its debut at NAMM 2026 in January, the Neural DSP Quad Cortex Mini is officially shipping to pre-order customers this week. Units are arriving across North America and Europe, and the first wave of hands-on impressions is hitting forums and social media.
