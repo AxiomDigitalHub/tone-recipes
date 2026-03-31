@@ -2,11 +2,13 @@ import Link from "next/link";
 import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
 
 const productLinks = [
-  { href: "/browse", label: "Browse" },
+  { href: "/browse", label: "Browse Recipes" },
   { href: "/platforms", label: "Platforms" },
-  { href: "/gear", label: "Gear" },
-  { href: "/compare", label: "Compare" },
+  { href: "/gear", label: "Gear Database" },
+  { href: "/compare", label: "Compare Tones" },
+  { href: "/news", label: "News" },
   { href: "/blog", label: "Blog" },
+  { href: "/request", label: "Request a Tone" },
   { href: "/how-it-works", label: "How It Works" },
 ];
 

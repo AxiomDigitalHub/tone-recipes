@@ -16,6 +16,30 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "line6.com",
+      },
+      {
+        protocol: "https",
+        hostname: "images.squarespace-cdn.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.kemper-amps.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.fractalaudio.com",
+      },
+      {
+        protocol: "https",
+        hostname: "static.roland.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.ikmultimedia.com",
+      },
     ],
   },
   experimental: {

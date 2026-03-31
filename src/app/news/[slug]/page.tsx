@@ -14,7 +14,7 @@ import {
   NEWS_CATEGORY_COLORS,
   type NewsCategory,
 } from "@/lib/news";
-import { getNewsImageSync } from "@/lib/unsplash";
+import { getNewsImageSync, getNewsImageCredit } from "@/lib/unsplash";
 
 /* ---------- Static generation ---------- */
 
@@ -175,7 +175,10 @@ export default async function NewsArticlePage({
             unoptimized
           />
         </div>
-        <p className="mt-2 text-[10px] text-muted/40 text-right">Photo via Unsplash</p>
+        {(() => {
+          const credit = getNewsImageCredit(post.slug, post.category, post.image_url || undefined);
+          return credit ? <p className="mt-2 text-[10px] text-muted/40 text-right">{credit}</p> : null;
+        })()}
       </header>
 
       {/* MDX prose content */}

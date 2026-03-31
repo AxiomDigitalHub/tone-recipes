@@ -5,7 +5,7 @@ category: "firmware-update"
 slug: "helix-stadium-firmware-1-10-new-amps"
 excerpt: "Line 6 delivers the first major update to Helix Stadium's Agoura engine with eight new amp models, improved Proxy cloning accuracy, and a redesigned cab engine that makes dual-cab routing easier than ever."
 source_url: "https://line6.com/news"
-image_url: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80"
+image_url: ""
 ---
 
 Line 6 has released firmware 1.10 for the Helix Stadium, and it is a substantial one. The update brings eight new amp models built on the Agoura modeling engine, significant improvements to the Proxy cloning system, and a redesigned cab block that simplifies dual-cab routing.

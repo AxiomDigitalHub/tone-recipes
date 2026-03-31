@@ -10,12 +10,9 @@ import NotificationBell from "@/components/community/NotificationBell";
 const navLinks = [
   { href: "/browse", label: "Browse" },
   { href: "/platforms", label: "Platforms" },
-  { href: "/gear", label: "Gear" },
-  { href: "/compare", label: "Compare" },
   { href: "/news", label: "News" },
   { href: "/blog", label: "Blog" },
-  { href: "/request", label: "Request" },
-  { href: "/how-it-works", label: "How It Works" },
+  { href: "/pricing", label: "Pricing" },
 ];
 
 export default function Header() {
