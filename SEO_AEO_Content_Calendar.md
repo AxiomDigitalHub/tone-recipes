@@ -182,11 +182,11 @@ These fill the biggest gaps and create cluster anchors for future content.
 
 | # | Topic | Target Query | Writer | AEO Format |
 |---|---|---|---|---|
-| P3-01 | AC/DC Rhythm Tone Recipe | "ac/dc guitar tone settings," "angus young tone" | Rick Dalton | Settings table + gear-by-era breakdown |
-| P3-02 | Radiohead "Creep" Tone: Clean to Destroyed | "radiohead creep guitar tone," "creep guitar settings" | Jess Kowalski | Two settings blocks (clean verse, distorted chorus) + transition technique |
-| P3-03 | Andy Timmons Lead Tone | "andy timmons tone settings," "smooth lead guitar tone" | Margot Thiessen | Signal chain walkthrough with drive stacking recipe |
-| P3-04 | Nashville Session Clean: Tele + Compressor | "nashville session guitar tone," "telecaster compressor settings" | Carl Beckett | Minimal chain settings table, compressor deep-dive |
-| P3-05 | Shoegaze Wall of Sound Recipe | "shoegaze guitar tone settings," "shoegaze pedal settings" | Dev Okonkwo | Layered settings (multiple reverbs/delays), frequency-space approach |
+| P3-01 | AC/DC Rhythm Tone Recipe ✅ PUBLISHED | "ac/dc guitar tone settings," "angus young tone" | Rick Dalton | Settings table + gear-by-era breakdown |
+| P3-02 | Radiohead "Creep" Tone: Clean to Destroyed ✅ PUBLISHED | "radiohead creep guitar tone," "creep guitar settings" | Jess Kowalski | Two settings blocks (clean verse, distorted chorus) + transition technique |
+| P3-03 | Andy Timmons Lead Tone ✅ PUBLISHED | "andy timmons tone settings," "smooth lead guitar tone" | Margot Thiessen | Signal chain walkthrough with drive stacking recipe |
+| P3-04 | Nashville Session Clean: Tele + Compressor ✅ PUBLISHED | "nashville session guitar tone," "telecaster compressor settings" | Carl Beckett | Minimal chain settings table, compressor deep-dive |
+| P3-05 | Shoegaze Wall of Sound Recipe ✅ PUBLISHED | "shoegaze guitar tone settings," "shoegaze pedal settings" | Dev Okonkwo | Layered settings (multiple reverbs/delays), frequency-space approach |
 | P3-06 | Khruangbin Clean Funk Tone | "khruangbin guitar tone," "mark speer tone settings" | Dev Okonkwo | Minimal chain + spring reverb + pickup position emphasis |
 
 ### Settings Guides (Pillar 2) — 3 Posts
@@ -405,3 +405,13 @@ Based on the competitive analysis, avoid these formats:
 | 3 | Does Cavity Shielding Actually Work? A Before/After Test | "guitar cavity shielding," "does copper shielding reduce hum guitar" | Carl Beckett | 6 — Quick Fixes | 60-cycle hum SERP — shielding is mentioned by every competitor but no one has published a before/after test with actual findings; high curiosity, low competition |
 | 4 | HX Stomp vs. Helix LT for Worship: Which Should You Buy? | "hx stomp vs helix lt worship," "helix lt vs hx stomp live worship" | Nathan Cross | 4 — Modeler Masterclass | Worship Helix SERP — no editorial piece addresses this buying/workflow question; storefront pages dominate, which signals an editorial gap for a genuine comparison with worship-specific context |
 | 5 | How to Level-Match All Your Presets: Helix, Quad Cortex, and Fractal | "helix preset volume matching," "how to level match modeler presets" | Sean Nakamura | 6 — Quick Fixes | Volume drop SERP — modeler-specific patch level workflows are completely absent from editorial results; Helix output block and Quad Cortex Scene-level control are covered only in manufacturer docs and forum posts, never in an actionable editorial guide |
+
+## SERP-Derived Topics — 2026-03-31
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | Malcolm Young's Rhythm Tone: The Other Half of AC/DC's Sound | "malcolm young guitar tone," "acdc rhythm guitar settings" | Rick Dalton | 1 — Tone Recipes | AC/DC SERP — Malcolm's rhythm role is widely missed; every competitor focuses on Angus; a Malcolm-dedicated piece captures the underserved rhythm guitar angle |
+| 2 | Chicken Pickin' Compressor Settings: Keeley vs. Wampler Ego vs. Boss CS-3 | "chicken pickin compressor settings," "telecaster compressor pedal comparison" | Carl Beckett | 5 — Gear Lab | Nashville SERP — "telecaster compressor settings" SERP is dominated by TDPRI forum threads; no editorial guide compares specific compressors for the chicken-pickin context with actual settings |
+| 3 | Neo-Shoegaze Tone: How Title Fight and Nothing Update the MBV Blueprint | "neo shoegaze guitar tone," "modern shoegaze settings" | Dev Okonkwo | 1 — Tone Recipes | Shoegaze SERP — no competitor addresses classic 90s vs. neo-shoegaze tonal differences; DIIV/Nothing/Title Fight have a more compressed, mid-forward take that plays in different frequency space |
+| 4 | Marshall Shredmaster vs. ProCo RAT: Can You Fake the Creep Tone? | "marshall shredmaster alternative," "radiohead creep pedal substitute" | Jess Kowalski | 5 — Gear Lab | Creep SERP — Shredmaster is discontinued and expensive; no editorial guide benchmarks substitutes against the original; the RAT and DS-1 come up constantly in forums but no one has done a structured comparison |
+| 5 | Andy Timmons on a Budget: How to Get the Singing Lead Tone Without the Signature Gear | "smooth lead guitar tone budget," "andy timmons tone affordable" | Margot Thiessen | 1 — Tone Recipes | Andy Timmons SERP — no competitor addresses budget approximation; all guides assume you have his exact signal chain; the Timmy is $180, the Carl Martin compressor is available cheaply used, and the tone principle is the story |

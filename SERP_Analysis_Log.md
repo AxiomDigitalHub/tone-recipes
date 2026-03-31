@@ -227,3 +227,70 @@
 - **Content gaps found:** No editorial piece provides actual named Helix amp block recommendations for worship contexts (e.g., specific model names, not just "a Vox-style amp"). No guide walks through a complete snapshot architecture with block order for a worship patch. No coverage of the "straight to FOH" workflow with stereo XLR routing and gain staging for live sound engineers. HX Stomp vs. Helix LT for worship is completely unaddressed editorially. Low-cut/high-cut settings on Helix IR blocks are mentioned by patch sellers but never explained editorially. Follow-up ideas: "HX Stomp vs. Helix LT for Worship: Which Should You Buy?", "The Hillsong Patch from Scratch: Building a Matchless C-30 Clean Tone in Helix."
 - **Featured snippet opportunity:** Yes, strong. "Hillsong guitar tone settings" is partially answered by a Fender Tone Community page and a Guitar Chalk song post — neither is comprehensive. A post with a clear breakdown intro + structured settings table would be a strong featured snippet candidate.
 - **Difficulty:** Low to medium. Storefront pages dominate but aren't true editorial competitors. Genuine editorial competition (WorshipOnline, Axe-Dr, Guitar Chalk) are mid-authority niche sites. Reverb News is the only high-authority competitor and its worship piece is broad rather than Helix-specific.
+
+## SERP Analysis — 2026-03-31
+
+### AC/DC Rhythm Tone Recipe
+- **Target query:** "ac/dc guitar tone settings"
+- **Top competitors:**
+  - https://guitarspace.org/amps/ac-dc-amp-settings-guide-how-to-nail-a-classic-rock-tone/
+  - https://killerrig.com/sound-like-ac-dc-amp-settings/
+  - https://musicstrive.com/angus-young-amp-settings/
+  - https://prosoundhq.com/how-to-sound-like-ac-dc-amp-settings-guide/
+  - https://blog.andertons.co.uk/sound-like/sound-like-ac-dc
+  - https://www.gear4music.com/blog/steal-the-sound-angus-young-ac-dc/
+  - https://www.guitarworld.com/gear/the-secrets-behind-angus-youngs-guitar-tone-on-acdcs-hells-bells
+- **Content gaps found:** Malcolm Young vs. Angus Young distinction is widely missed — most pages blend or skip Malcolm's rhythm role entirely. The Schaffer-Vega wireless system as a tonal ingredient is absent from most amp-settings guides. Power-amp saturation vs. preamp gain philosophy is underexplored. Playing technique (Malcolm's right-hand palm muting attack) mentioned briefly everywhere but never given its own section. Song-specific settings (Highway to Hell, Thunderstruck) are present in top results but absent from a dedicated rhythm tone angle. Follow-up idea: "Malcolm Young's Rhythm Tone: The Other Half of AC/DC's Sound."
+- **Featured snippet opportunity:** Yes — a clean, structured settings table (Gain / Bass / Mids / Treble / Presence with clock-position values) would compete directly for the snippet. Format: settings table.
+- **Difficulty:** Medium. Dominated by niche guitar gear sites (Guitar Space, Killerrig, Music Strive, Guitar Chalk) not major publications. Fader & Knob with a Malcolm-focused rhythm angle could carve a clear niche.
+
+### Radiohead "Creep" Tone
+- **Target query:** "radiohead creep guitar tone"
+- **Top competitors:**
+  - https://www.kuassa.com/radiohead-creep-guitar-tone-breakdown/
+  - https://www.guitarchalk.com/amp-settings-creep-radiohead/
+  - https://musicstrive.com/radiohead-guitar-tone/
+  - https://www.ultimate-guitar.com/forum/showthread.php?t=1197132
+  - https://thekingofgear.com/post/182457587775
+  - https://www.justinguitar.com/songs/radiohead-creep-chords-tabs-guitar-lesson-sb-324
+- **Content gaps found:** Jonny Greenwood's intentional pre-chorus string scrape technique is almost entirely absent from tone guides. The two-guitar dynamic (Thom's clean arpeggiated verses vs. Jonny's chorus explosion) is underexplored. Modern substitutes for the discontinued Marshall Shredmaster are mentioned briefly but never benchmarked against the original sound. Noise management for the Shredmaster at full gain is only briefly touched. Follow-up ideas: "Marshall Shredmaster vs. ProCo RAT: Can You Fake the Creep Tone?", "Jonny Greenwood's Full Signal Chain on Pablo Honey."
+- **Featured snippet opportunity:** Yes — moderate. A two-column comparison table (clean verse settings vs. chorus crunch settings) or a 5-step signal chain would be snippet-eligible. "How do I get the chunky sound in Creep" People Also Ask question likely.
+- **Difficulty:** Low to medium. JustinGuitar ranks on lesson/chord content not tone. True tone-content competition is Kuassa (a plugin vendor), Guitar Chalk, and Music Strive — all beatable on depth and editorial quality.
+
+### Andy Timmons Lead Tone
+- **Target query:** "andy timmons tone settings"
+- **Top competitors:**
+  - https://www.guitarchalk.com/andy-timmons-amp-settings/
+  - https://www.premierguitar.com/andy-timmons-creating-killer-tone
+  - https://equipboard.com/pros/andy-timmons
+  - https://www.guitarpedalx.com/news/gpx-blog/andy-timmons-pedalboard-dynamics-and-essential-tone-components
+  - https://forum.fractalaudio.com/threads/how-close-can-we-get-to-andy-timmons-tone.62347/
+- **Content gaps found:** Carl Martin compressor as always-on boost with specific knob positions is absent everywhere. Right-hand technique as a tone variable is mentioned in passing but never taught. Guitar volume knob interaction with drive pedals is largely absent. No guide covers replicating the tone on a budget. "Resolution"-era tone vs. current live rig as two distinct targets is missing. JHS AT Drive V2 is covered separately by Guitar Chalk — opportunity to consolidate.
+- **Featured snippet opportunity:** Yes — a structured amp settings table plus numbered pedal chain list would be highly snippet-eligible. No competitor is cleanly owning this currently.
+- **Difficulty:** Medium. Guitar Chalk and Equipboard have strong authority but the Premier Guitar result is 17 years old and forum threads have no on-page optimization.
+
+### Nashville Session Clean: Tele + Compressor
+- **Target query:** "nashville session guitar tone"
+- **Top competitors:**
+  - https://www.soundonsound.com/people/nashville-guitars-recording-todays-country-guitar-sounds
+  - https://www.premierguitar.com/lessons/country/nashville-studio-tricks
+  - https://vintageking.com/blog/2016/08/nashville-guitar
+  - https://reverb.com/news/how-to-get-the-nashville-sound-in-your-home-studio
+  - https://www.tdpri.com/threads/ (multiple Telecaster forum threads for "telecaster compressor settings")
+- **Content gaps found:** No competitor specifically addresses Telecaster bridge pickup + compressor as an always-on clean platform with dialed-in knob positions. Sound on Sound (top result) is 15 years old and focused on pro studio mic technique, not pedalboard setup. The "invisible compressor" vs. "squish-as-effect" distinction is never explained in an accessible guide. Specific compressor pedal comparisons (Keeley, Wampler Ego, Boss CS-3, Carl Martin) in Nashville context are completely absent. Double-stop comping tone as distinct from single-note lead is missing. Follow-up ideas: "Chicken Pickin' Compressor Settings: Keeley vs. Wampler Ego vs. Boss CS-3," "Brad Paisley Telecaster Tone Recipe."
+- **Featured snippet opportunity:** Yes — a concise Nashville clean tone recipe block (Tele bridge pickup → compressor settings → clean Fender amp → spring reverb) would be a strong snippet candidate. No current result owns this in a clean, structured format.
+- **Difficulty:** Low to medium. Top result is a 15-year-old Sound on Sound article ranking on domain authority alone. A practical, beginner-accessible guide with specific settings would have room to rank.
+
+### Shoegaze Wall of Sound Recipe
+- **Target query:** "shoegaze guitar tone settings"
+- **Top competitors:**
+  - https://mixdownmag.com.au/features/a-beginners-guide-to-shoegaze-guitar/
+  - https://www.sweetwater.com/insync/essential-shoegaze-guitar-tones/
+  - https://www.riffhard.com/how-to-get-a-shoegaze-guitar-tone/
+  - https://www.izotope.com/en/learn/4-ways-to-get-a-shoegaze-sound.html
+  - https://loopydemos.com/posts/how-to-set-up-a-shoegaze-pedalboard/
+  - https://www.rpmusicstudios.com/blog/guide-to-shoegaze-guitar-pedals
+  - https://reverb.com/news/video-how-to-build-a-shoegaze-pedalboard
+- **Content gaps found:** Specific amp EQ dial-in numbers are absent from all results — articles stay vague on bass/mid/treble positions. No guide covers live single-guitar shoegaze vs. studio multi-tracking with actionable workarounds. Budget-tier pedalboard builds with specific settings are absent. DAW/plugin-only workflows for headphone players are underrepresented. Neo-shoegaze vs. classic 90s tonal differences (Title Fight/Nothing/Diiv vs. MBV/Slowdive) are unaddressed. Wet/dry/wet rig setups — a professional shoegaze staple — are not addressed in any top result. Follow-up ideas: "Neo-Shoegaze Tone: How Title Fight and Nothing Update the MBV Blueprint," "Budget Shoegaze Pedalboard Under $300."
+- **Featured snippet opportunity:** Yes — a concise step-by-step list or compact table of pedal types with recommended settings (rate, depth, mix) would be highly extractable. No current result owns a clean, structured snippet on this query.
+- **Difficulty:** Medium. Sweetwater and iZotope have high authority but generic content. Smaller sites like Loopy Demos and RPMusic Studios rank, signaling low competitive pressure. A Fader & Knob piece with concrete knob settings and "recipe card" structure would likely outperform over time.
