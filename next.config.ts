@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
         hostname: "is1-ssl.mzstatic.com",
         pathname: "/image/**",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
     ],
   },
   experimental: {

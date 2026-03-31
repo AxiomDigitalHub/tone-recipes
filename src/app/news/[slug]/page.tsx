@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
@@ -13,6 +14,7 @@ import {
   NEWS_CATEGORY_COLORS,
   type NewsCategory,
 } from "@/lib/news";
+import { getNewsImageSync } from "@/lib/unsplash";
 
 /* ---------- Static generation ---------- */
 
@@ -161,7 +163,19 @@ export default async function NewsArticlePage({
             )}
         </div>
 
-        <hr className="mt-8 border-border" />
+        {/* Hero image */}
+        <div className="mt-8 relative aspect-[2/1] w-full overflow-hidden rounded-xl bg-surface-hover">
+          <Image
+            src={getNewsImageSync(post.slug, post.category, post.image_url || undefined)}
+            alt={post.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 800px"
+            priority
+            unoptimized
+          />
+        </div>
+        <p className="mt-2 text-[10px] text-muted/40 text-right">Photo via Unsplash</p>
       </header>
 
       {/* MDX prose content */}

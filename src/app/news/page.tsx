@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   getAllNewsPosts,
   NEWS_CATEGORIES,
   NEWS_CATEGORY_COLORS,
   type NewsCategory,
 } from "@/lib/news";
+import { getNewsImageSync } from "@/lib/unsplash";
 
 export const metadata: Metadata = {
   title: "Modeler News",
@@ -125,23 +127,17 @@ export default async function NewsPage({
                 href={`/news/${post.slug}`}
                 className="group flex flex-col rounded-xl border border-border bg-surface transition-all hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
               >
-                {/* Image placeholder */}
+                {/* Cover image */}
                 <div className="relative aspect-[16/9] w-full overflow-hidden rounded-t-xl bg-surface-hover">
-                  <div className="flex h-full items-center justify-center text-muted/40">
-                    <svg
-                      className="h-12 w-12"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={1}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-                      />
-                    </svg>
-                  </div>
+                  <Image
+                    src={getNewsImageSync(post.slug, post.category, post.image_url || undefined)}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface/60 to-transparent" />
                 </div>
 
                 {/* Card body */}
