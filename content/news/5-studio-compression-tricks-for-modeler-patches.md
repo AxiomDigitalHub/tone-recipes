@@ -51,3 +51,10 @@ Combine this with reverb and delay for ambient pads that bloom naturally without
 ## The Takeaway
 
 Compression is not just for country chicken-picking. It is a fundamental mixing tool that works just as well inside your modeler as it does in a DAW. Start with technique number one -- the end-of-chain leveler -- and you will immediately hear the difference in how your patches sit in a band mix.
+
+## Dig Deeper on Fader & Knob
+
+- Getting your signal chain order right matters as much as compression settings. Read our [signal chain order guide](/blog/signal-chain-order-guide) to understand where every block belongs.
+- Struggling with volume drops when you switch to your lead patch? Our [solo patch volume drop fix](/blog/solo-patch-volume-drop-fix) covers exactly this.
+- For worship and ambient players, our guide to [worship guitar tone on Helix](/blog/worship-guitar-tone-helix) includes compression settings tailored for pad and swell playing.
+- New to modelers? Start with [how to dial in your modeler tone](/blog/how-to-dial-in-modeler-tone) for the complete framework.

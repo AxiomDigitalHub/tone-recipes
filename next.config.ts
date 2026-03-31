@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/blog/marshall-jcm800-settings-guide",
+        destination: "/blog/jcm800-settings-guide",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
@@ -15,30 +24,6 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "images.unsplash.com",
-      },
-      {
-        protocol: "https",
-        hostname: "line6.com",
-      },
-      {
-        protocol: "https",
-        hostname: "images.squarespace-cdn.com",
-      },
-      {
-        protocol: "https",
-        hostname: "www.kemper-amps.com",
-      },
-      {
-        protocol: "https",
-        hostname: "www.fractalaudio.com",
-      },
-      {
-        protocol: "https",
-        hostname: "static.roland.com",
-      },
-      {
-        protocol: "https",
-        hostname: "www.ikmultimedia.com",
       },
     ],
   },

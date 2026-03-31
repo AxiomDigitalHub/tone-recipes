@@ -41,3 +41,10 @@ The most common complaint so far is about the power supply. The Mini ships with 
 The Quad Cortex Mini is priced at EUR 1,299 (approximately USD 1,399). Pre-order customers are receiving their units now, and general retail availability through Sweetwater, Thomann, and other authorized dealers is expected by mid-April. Neural DSP has indicated that initial supply will be limited, so if you want one soon, placing an order sooner rather than later is advisable.
 
 For players who have wanted a Quad Cortex but found the size or price of the original prohibitive, the Mini is exactly the product they have been waiting for. Same sounds, smaller footprint, lower price point. That is a compelling combination.
+
+## Dig Deeper on Fader & Knob
+
+- Just got a QC Mini? Start with our step-by-step guide to [building a Quad Cortex preset from scratch](/blog/quad-cortex-preset-from-scratch).
+- Wondering whether to use captures or models? We break down [Quad Cortex captures vs. models](/blog/quad-cortex-captures-vs-models) so you can choose the right approach.
+- See how the QC stacks up in our [Helix vs. Quad Cortex](/blog/helix-vs-quad-cortex) comparison.
+- Browse all our [Quad Cortex tone recipes](/platforms/quad_cortex) for ready-to-dial signal chains.

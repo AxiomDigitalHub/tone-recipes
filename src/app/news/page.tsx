@@ -135,7 +135,6 @@ export default async function NewsPage({
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface/60 to-transparent" />
                 </div>

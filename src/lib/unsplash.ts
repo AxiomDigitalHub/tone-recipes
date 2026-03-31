@@ -14,44 +14,45 @@ const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY;
 /*  Manufacturer product images (official press/product page images)          */
 /* -------------------------------------------------------------------------- */
 
-/** Maps keyword patterns in slugs to official manufacturer product images */
+/** Maps keyword patterns in slugs to curated Unsplash images of relevant gear.
+ *  All images verified as landscape orientation and loading correctly. */
 const MANUFACTURER_IMAGES: { pattern: RegExp; url: string; credit: string }[] =
   [
-    // Line 6 Helix family
+    // Line 6 Helix family — multi-effects unit close-up with knobs & LEDs
     {
       pattern: /helix|hx-stomp|hx-effects|hx-one/i,
-      url: "https://line6.com/media/ips/uploads/monthly_2024_10/helix_lt_702x394.jpg.27f7c3b5b83a07b58bac6c1d41b59b4b.jpg",
-      credit: "Image courtesy of Line 6",
+      url: "https://images.unsplash.com/photo-1650048555068-5aa4bed8e4c8?w=800&q=80",
+      credit: "Photo via Unsplash",
     },
-    // Neural DSP Quad Cortex
+    // Neural DSP Quad Cortex — guitar + pedalboard from above
     {
       pattern: /quad.?cortex|neural.?dsp|coros/i,
-      url: "https://images.squarespace-cdn.com/content/v1/5ec34e281fa9e53e6a4fbc50/4cb11434-6e6c-41f9-bd4b-0d293b0ed8e5/QC_FrontTop_dark_bg.png",
-      credit: "Image courtesy of Neural DSP",
+      url: "https://images.unsplash.com/photo-1560849898-d058f7d93b23?w=800&q=80",
+      credit: "Photo via Unsplash",
     },
-    // Kemper
+    // Kemper — boutique amp close-up with knobs
     {
       pattern: /kemper|profil(er|ing)/i,
-      url: "https://www.kemper-amps.com/Content/img/stage/kemper-profiler-stage-hero.png",
-      credit: "Image courtesy of Kemper",
+      url: "https://images.unsplash.com/photo-1598488035175-04a5fa332d40?w=800&q=80",
+      credit: "Photo via Unsplash",
     },
-    // Fractal Audio
+    // Fractal Audio — guitar rig / pedalboard collection
     {
       pattern: /fractal|axe.?fx|fm[39]/i,
-      url: "https://www.fractalaudio.com/wp-content/uploads/2023/09/FM9-1.png",
-      credit: "Image courtesy of Fractal Audio",
+      url: "https://images.unsplash.com/photo-1614413970863-2b4b38b30d7c?w=800&q=80",
+      credit: "Photo via Unsplash",
     },
-    // Boss Katana
+    // Boss Katana — amp close-up
     {
       pattern: /katana|boss/i,
-      url: "https://static.roland.com/assets/images/products/gallery/katana-gen3-100-212_top_gal.jpg",
-      credit: "Image courtesy of Boss/Roland",
+      url: "https://images.unsplash.com/photo-1625801822528-376ebbaf1ad6?w=800&q=80",
+      credit: "Photo via Unsplash",
     },
-    // IK Multimedia TONEX
+    // IK Multimedia TONEX — pedal on amp with guitar
     {
       pattern: /tonex|ik.?multi/i,
-      url: "https://www.ikmultimedia.com/products/tonexpedal/images/tonex-pedal-hero.png",
-      credit: "Image courtesy of IK Multimedia",
+      url: "https://images.unsplash.com/photo-1609823791314-f7f966d11323?w=800&q=80",
+      credit: "Photo via Unsplash",
     },
   ];
 

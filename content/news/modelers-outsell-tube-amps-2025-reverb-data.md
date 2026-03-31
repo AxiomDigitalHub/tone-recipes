@@ -49,3 +49,11 @@ If you are a modeler player, this trend is unambiguously good news. A growing ma
 If you are a tube amp player, this changes nothing about your tone. A great amp is a great amp regardless of market trends. But it does mean the used tube amp market may offer some bargains as players sell their analog rigs to fund modeler purchases.
 
 Either way, the data tells a clear story: the modeler era is no longer emerging. It has arrived.
+
+## Dig Deeper on Fader & Knob
+
+- Curious about the modeler vs. tube debate? We put them head-to-head in our [modeler vs. tube amp shootout](/blog/modeler-vs-tube-amp-shootout).
+- Thinking about making the switch? Start with [how to dial in your modeler tone](/blog/how-to-dial-in-modeler-tone) — it is the guide we wish we had when we started.
+- On a budget? Our [$500 gigging rig challenge](/blog/500-dollar-gigging-rig) shows what is possible with a modeler and smart shopping.
+- Going FRFR? Read [FRFR vs. guitar cab for modelers](/blog/frfr-vs-guitar-cab-for-modelers) before you buy a speaker.
+- Browse all our [tone recipes](/browse) and filter by your platform.

@@ -42,3 +42,10 @@ The update also adds 16 new factory IR slots featuring captures from a collectio
 Firmware 1.10 is available now through Line 6's HX Edit software (version 3.82 or later required). As always, back up your presets before updating. The update process takes approximately 10 minutes and requires a USB-C connection.
 
 This is the kind of update that shows Line 6 is serious about the Stadium as a platform. Eight new amp models in the first major firmware cycle is an aggressive pace, and the Proxy improvements address real user feedback. If you have been holding off on building Stadium presets, now is a good time to dig in.
+
+## Dig Deeper on Fader & Knob
+
+- Already own a Helix? Check out our guide to the [best Helix amp models for blues](/blog/best-helix-amp-models-blues) — several of these new Agoura models slot right in.
+- New to the Helix ecosystem? Start with [how to dial in your modeler tone](/blog/how-to-dial-in-modeler-tone) for a general framework that applies to Stadium too.
+- Considering the Stadium vs. other flagships? Our [Helix vs. Quad Cortex](/blog/helix-vs-quad-cortex) comparison breaks down the real differences.
+- Browse all our [Helix tone recipes](/platforms/helix) for ready-to-load signal chains.

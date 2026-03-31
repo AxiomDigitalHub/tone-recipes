@@ -2874,6 +2874,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "For the most authentic Gilmour Comfortably Numb tone on Helix, consider loading a third-party Hiwatt IR (many are available for free from Helix community sites). The plate reverb adds the essential spaciousness to the lead tone.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Hiwatt DR103' or 'David Gilmour'", block_category: "Tone Model", original_gear: "Hiwatt DR103 Custom 100", settings: {}, notes: "Search ToneNET for a Hiwatt DR103 Tone Model capture. The Hiwatt's massive headroom and full-range character provide the clean platform for the Big Muff fuzz. Gilmour-specific captures may include the full signal chain." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Hiwatt DR103 or David Gilmour captures. The Big Muff Pi fuzz, Dyna Comp compressor, and Echorec delay are NOT available in TONEX — use external pedals or DAW plugins. TONEX Pedal users: use the built-in Delay (~440ms) and Reverb (plate), and place an external Big Muff before the Pedal. The spacious delay and plate reverb are essential to the lead tone.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -3201,6 +3207,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The Quad Cortex handles fuzz pedals particularly well. For even more authenticity, search Cortex Cloud for captures of real Plexi amps paired with Fuzz Faces. Use the built-in expression pedal for wah control.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Plexi' or 'Hendrix' or 'Plexi cranked'", block_category: "Tone Model", original_gear: "Marshall Super Lead 1959", settings: {}, notes: "Search ToneNET for a cranked Marshall Plexi Tone Model capture. Look for Hendrix-specific captures that may include the Fuzz Face character in the chain. Both channels of the Plexi should be cranked." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Plexi or Hendrix captures. The Cry Baby wah and Fuzz Face are NOT available in TONEX — use external wah and fuzz pedals. These are essential to the Voodoo Child sound. TONEX Pedal users: place wah and fuzz before the Pedal. Hendrix's technique — aggressive pick attack, constant wah use, volume knob manipulation, and controlled feedback — is inseparable from the tone.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -3491,6 +3503,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Use the QC's scene or stomp mode to switch between clean verses and distorted choruses. The DS-1 toggle is the heart of this patch. For extra authenticity, search Cortex Cloud for Nevermind-era tone captures.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Mesa Boogie Studio' or 'Cobain' or 'Nirvana'", block_category: "Tone Model", original_gear: "Mesa/Boogie Studio .22", settings: {}, notes: "Search ToneNET for a Mesa Studio .22 or Cobain/Nirvana Tone Model capture. Look for captures with moderate gain that can handle the DS-1's distortion stacked on top." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Mesa Studio or Nirvana captures. The Boss DS-1 distortion and Small Clone chorus are NOT available in TONEX — use external pedals or DAW plugins. The quiet-verse/loud-chorus dynamic requires toggling the DS-1 on and off. TONEX Pedal users: place the DS-1 and chorus before the Pedal. Use TONEX Pedal's built-in Modulation (chorus) as an alternative to the Small Clone.",
       },
       katana: {
         chain_blocks: [
@@ -3788,6 +3806,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "A minimalist patch with clean amp tone, subtle chorus, and room reverb for The Mansion's natural ambience. The QC's high-fidelity amp modeling shines on clean tones like this.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Major' or 'Marshall clean'", block_category: "Tone Model", original_gear: "Marshall Major 200W", settings: {}, notes: "Search ToneNET for a clean Marshall Tone Model capture. The Marshall Major 200W at low volume produces a pristine clean tone. Alternatively, search for 'Frusciante' or 'RHCP' captures." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a clean Marshall capture. The Boss CE-1 chorus is not available in TONEX — use TONEX Pedal's built-in Modulation (chorus) at subtle settings, or an external chorus pedal. TONEX Pedal users: add the built-in Reverb for room ambience. Frusciante's light touch and fingerpicking technique on the Strat neck pickup are as important as the gear.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -4044,6 +4068,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Search Cortex Cloud for 'Slash' or 'AFD' captures. Add subtle room reverb for studio depth.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'JCM800' or 'Slash' or 'Appetite for Destruction'", block_category: "Tone Model", original_gear: "Marshall JCM800 2203", settings: {}, notes: "Search ToneNET for a cranked JCM800 Tone Model capture. Slash-specific or 'AFD' (Appetite for Destruction) captures are available from the community. The JCM800's aggressive midrange and natural compression when pushed are doing all the work." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for JCM800 or Slash captures. No effects needed — Les Paul with Alnico II Pro pickups straight into a cranked Marshall. Slash's tone is famously simple: guitar into amp, no pedals. His aggressive vibrato and fluid legato technique are inseparable from the tone. TONEX is ideal for this amp-only signal chain.",
       },
       katana: {
         chain_blocks: [
@@ -4316,6 +4346,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Search Cortex Cloud for 'EVH' or 'brown sound' captures. Add subtle room reverb for studio dimension.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'EVH' or 'brown sound' or 'Variac Plexi'", block_category: "Tone Model", original_gear: "Marshall Super Lead 1959 (Variac'd)", settings: {}, notes: "Search ToneNET for EVH or 'brown sound' Tone Model captures. Many community members have captured the Variac'd Plexi character. The compressed, warm, harmonically rich overdrive is the key." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for EVH or brown sound captures. The MXR Phase 90 is not available in TONEX — use TONEX Pedal's built-in Modulation (phaser) or an external Phase 90. The Variac'd Plexi's compressed, warm tone with the single PAF humbucker and Floyd Rose is the Eruption formula. Two-handed tapping technique is essential.",
       },
       katana: {
         chain_blocks: [
@@ -4614,6 +4650,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The QC handles stacked delays and reverb well. Hall reverb after delays completes the atmospheric Edge sound. Use tap tempo to sync delays to the song tempo.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Vox AC30' or 'AC30 Top Boost'", block_category: "Tone Model", original_gear: "Vox AC30 (Top Boost)", settings: {}, notes: "Search ToneNET for a Vox AC30 Top Boost Tone Model capture. The Edge's chimey, bright AC30 character is the foundation for his delay-drenched textural approach." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for an AC30 capture. The delays are essential to The Edge's sound — use TONEX Pedal's built-in Delay set to dotted eighth note timing, or external delay pedals. The precise delay timing synchronized to the song tempo is what creates the rhythmic guitar pattern. TONEX standalone/plugin users will need DAW delay plugins.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -4895,6 +4937,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The LA Compressor before the TS808 provides the always-on transparent compression Mayer uses. The QC excels at this style of touch-sensitive, dynamic tone.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Two Rock' or 'boutique Fender'", block_category: "Tone Model", original_gear: "Two Rock Custom Reverb", settings: {}, notes: "Search ToneNET for a Two Rock Custom Reverb or boutique Fender-style Tone Model capture. The Two Rock's sweet, harmonically complex clean tone that responds to pick dynamics is the foundation of Mayer's sound." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Two Rock captures. The TS808 clean boost is not available in TONEX — search for a 'Tube Screamer' Tone Model to stack, or use TONEX Pedal's built-in Compressor for the always-on transparent compression Mayer uses. The tone responds to every nuance of pick dynamics — the SRV formula updated for the 21st century.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -5120,6 +5168,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Community captures of cranked Fender Champs on Cortex Cloud are excellent for this tone. The QC's neural captures of real small amps at full volume are among its greatest strengths.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Fender Champ' or 'Champ cranked'", block_category: "Tone Model", original_gear: "Fender Champ", settings: {}, notes: "Search ToneNET for a cranked Fender Champ Tone Model capture. The Champ at full volume produces a thick, compressed overdrive with a focused midrange. Look for captures labeled 'cranked' or 'full volume' for the Layla character." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models and excels at capturing small amps at full volume. Search ToneNET for cranked Fender Champ captures. No effects needed — Strat bridge+middle position straight into the amp. The raw urgency of the performance and Clapton's 'woman tone' (tone knob rolled back) are as important as the gear.",
+      },
       kemper: {
         chain_blocks: [
           {
@@ -5321,6 +5375,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "The simplest patch possible. The QC's clean amp models shine here. The technique is everything — use your fingers, not a pick, and play on the neck pickup for the authentic Knopfler sound.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Fender Vibrolux' or 'Fender clean'", block_category: "Tone Model", original_gear: "Fender Vibrolux Reverb", settings: {}, notes: "Search ToneNET for a clean Fender Vibrolux Reverb Tone Model capture. The clean amp is the entire signal chain — Knopfler's fingerpicking technique is what creates the tone." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a clean Fender Vibrolux capture. Use TONEX Pedal's built-in Compressor for light compression if desired. The single most important element is Knopfler's fingerpicking technique — playing without a pick produces a warmer, softer attack. No amount of gear can replicate this without the technique. Strat neck pickup.",
       },
       katana: {
         chain_blocks: [
@@ -5586,6 +5646,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Light compressor before the Bassman for consistent dynamics, spring reverb for depth. The playing technique is everything.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Fender Bassman' or 'Bassman'", block_category: "Tone Model", original_gear: "Fender Bassman", settings: {}, notes: "Search ToneNET for a Fender Bassman Tone Model capture at moderate volume. B.B. King's warm, clean tone comes from the Bassman's natural warmth with the ES-355 neck humbucker." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a Fender Bassman capture. Use TONEX Pedal's built-in Compressor for light compression and the built-in Reverb for depth. B.B. King used no effects pedals — his entire sound comes from his fingers, his butterfly vibrato, and his bending technique. The playing technique is everything.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -5816,6 +5882,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "The QC's pitch shifting is excellent for this. The octave-down effect needs to track cleanly. Community Silvertone captures on Cortex Cloud are recommended for the authentic lo-fi character.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Silvertone' or 'cranked amp lo-fi'", block_category: "Tone Model", original_gear: "Silvertone 1485", settings: {}, notes: "Search ToneNET for a Silvertone or similar cranked vintage amp Tone Model capture. The lo-fi, garage-rock character is essential — avoid overly polished captures." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Silvertone or lo-fi amp captures. The DigiTech Whammy octave-down effect is NOT available in TONEX — this is essential for the Seven Nation Army riff and must come from an external Whammy pedal. TONEX Pedal users: place a Whammy pedal before the TONEX Pedal. The lo-fi imperfections are features, not bugs.",
       },
       katana: {
         chain_blocks: [
@@ -6072,6 +6144,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The QC handles pitch shifting and wah simultaneously well. For the killswitch effect, use a volume block assigned to a stomp switch. Morello's playing technique is the most important element.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'JCM800' or 'Marshall 2205'", block_category: "Tone Model", original_gear: "Marshall JCM800 2205", settings: {}, notes: "Search ToneNET for a cranked JCM800 Tone Model capture. The core rhythm tone is a Les Paul through a cranked Marshall — the aggressive, tight palm-muted riffs come from the amp's natural distortion." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a JCM800 capture. The Cry Baby wah and DigiTech Whammy are NOT available in TONEX — these are essential to Morello's innovative sounds and must come from external pedals. The killswitch stuttering effect also requires an external killswitch or guitar modification. TONEX provides the amp tone foundation only.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -6295,6 +6373,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The QC excels at high-gain metal tones. Search Cortex Cloud for 'Mark IIC+' or 'Metallica' captures.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Mesa Mark IIC+' or 'Metallica' or 'Master of Puppets'", block_category: "Tone Model", original_gear: "Mesa/Boogie Mark IIC+", settings: {}, notes: "Search ToneNET for a Mesa Mark IIC+ Tone Model capture on the Lead channel. The Mark IIC+ is one of the most captured amps on ToneNET. Look for tight, aggressive high-gain captures with strong midrange." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Mesa Mark IIC+ or Metallica captures. No effects needed — ESP Explorer with EMG 81 straight into the amp. Hetfield's relentless all-downstroke picking technique is the most critical element. The percussive, aggressive attack of downpicking cannot be replicated with alternate picking.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -6476,6 +6560,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Search Cortex Cloud for AC/DC or Plexi captures for even more authenticity. The simplicity of this signal chain makes it an ideal candidate for amp captures.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Plexi' or 'AC/DC' or 'Angus Young'", block_category: "Tone Model", original_gear: "Marshall Super Lead 1959", settings: {}, notes: "Search ToneNET for a cranked Plexi Tone Model capture. AC/DC's tone secret is no effects at all — guitar straight into amp. Look for AC/DC-specific captures or cranked Plexi captures with Greenback cab character." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Plexi or AC/DC captures. No effects needed — SG bridge humbucker straight into a cranked Marshall. The massive AC/DC sound comes from double-tracked rhythm guitars and production layering, not from a complex signal chain. TONEX is ideal for this simple, amp-only tone.",
       },
       katana: {
         chain_blocks: [
@@ -6716,6 +6806,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Compressor for sustain, plate reverb for depth. The QC's Mesa models excel at this smooth, mid-heavy lead tone.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Mesa Mark I' or 'Santana' or 'Mesa Boogie'", block_category: "Tone Model", original_gear: "Mesa/Boogie Mark I", settings: {}, notes: "Search ToneNET for a Mesa/Boogie Mark I Tone Model capture. Look for captures with smooth, singing sustain and strong midrange. Santana-specific captures may be available." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Mesa Mark I or Santana captures. The Boss CS-2 compressor is not available in TONEX — use TONEX Pedal's built-in Compressor for added sustain. PRS neck humbucker for the warm, singing tone. Santana's vibrato technique and the amp's natural compression when pushed are the key elements.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -6933,6 +7029,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "The QC handles the Hiwatt's clean power well. Search Cortex Cloud for Hiwatt captures for extra authenticity.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Hiwatt DR103' or 'Hiwatt cranked'", block_category: "Tone Model", original_gear: "Hiwatt DR103", settings: {}, notes: "Search ToneNET for a cranked Hiwatt DR103 Tone Model capture. Townshend's aggressive windmill strumming requires a loud, clean amp that stays tight under heavy attack." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a cranked Hiwatt capture. No effects needed — SG bridge humbucker straight into the amp. Townshend's aggressive windmill strumming technique and explosive power chord attack are the defining elements, not the gear.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -7137,6 +7239,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Spring reverb is essential for the authentic Garcia/Twin Reverb atmosphere. The QC's clean amp models are among its strongest features.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Fender Twin Reverb' or 'Twin Reverb clean'", block_category: "Tone Model", original_gear: "Fender Twin Reverb", settings: {}, notes: "Search ToneNET for a clean Fender Twin Reverb Tone Model capture with spring reverb character. Garcia's tone is all about a pristine, dynamic clean amp that responds to every nuance of touch." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a Twin Reverb capture. No effects needed — Garcia's clean tone is about touch, dynamics, and fingerpicking technique. TONEX Pedal users: use the built-in Reverb for spring reverb ambience. The Guild Starfire's middle position through a clean Twin is the entire signal chain.",
       },
       katana: {
         chain_blocks: [
@@ -7419,6 +7527,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Chorus into Marshall with delay and hall reverb. Use a semi-hollow guitar for authentic resonance.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Plexi' or 'Marshall Super Lead'", block_category: "Tone Model", original_gear: "Marshall Super Lead 1959", settings: {}, notes: "Search ToneNET for a Marshall Plexi Tone Model capture at moderate gain. Lifeson's Moving Pictures tone is about layered effects over a solid Marshall platform." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a Marshall Plexi capture. The Boss CE-1 chorus and TC Electronic delay are not available in TONEX — use TONEX Pedal's built-in Modulation (chorus) and Delay, or external pedals/DAW plugins. The wide, textured sound comes from layering chorus and delay over the Marshall foundation. Semi-hollow guitar for authentic resonance.",
       },
       katana: {
         chain_blocks: [
@@ -7720,6 +7834,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Rangemaster into AC30 with plate reverb. Search Cortex Cloud for Brian May captures for extra authenticity.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Vox AC30' or 'Brian May'", block_category: "Tone Model", original_gear: "Vox AC30 (Top Boost)", settings: {}, notes: "Search ToneNET for an AC30 Tone Model capture, ideally with a Rangemaster treble booster in the chain. Brian May-specific captures may include the treble booster character. The Red Special guitar played with a sixpence coin is essential to the tone." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for AC30 or Brian May captures. The Rangemaster treble booster is not available in TONEX — search for captures that include it in the chain, or use an external treble booster pedal. TONEX Pedal users: use the built-in Delay and Reverb for tape delay and plate reverb. Multi-tracked guitar harmonies are a huge part of the Bohemian Rhapsody sound.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -7970,6 +8090,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Search Cortex Cloud for Laney Supergroup or Black Sabbath captures.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Laney Supergroup' or 'Black Sabbath' or 'Tony Iommi'", block_category: "Tone Model", original_gear: "Laney LA100BL", settings: {}, notes: "Search ToneNET for a Laney Supergroup or Black Sabbath Tone Model capture. Look for captures with heavy, grinding distortion. The Rangemaster treble booster may be included in some captures." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Laney Supergroup, Black Sabbath, or Tony Iommi captures. The Rangemaster treble booster is not available in TONEX — search for captures that include it, or use an external treble booster. The SG with P90 pickups, light strings, and Iommi's unique picking attack from his prosthetic fingertips are essential to the tone.",
       },
       katana: {
         chain_blocks: [
@@ -8243,6 +8369,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Add plate reverb for the Blizzard of Ozz production quality. Search Cortex Cloud for Randy Rhoads captures.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Plexi' or 'Randy Rhoads'", block_category: "Tone Model", original_gear: "Marshall Super Lead 1959", settings: {}, notes: "Search ToneNET for a cranked Plexi Tone Model capture. Look for captures with pushed mids and enough gain for metal lead work. Randy Rhoads-specific captures may be available." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a cranked Plexi or Randy Rhoads capture. The MXR Distortion+ and Cry Baby wah are not available in TONEX — use external pedals. TONEX Pedal users: use the built-in Reverb for plate reverb ambience, and place external distortion and wah pedals before the Pedal. Rhoads' precise vibrato and classical technique are essential.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -8482,6 +8614,13 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Neck pickup, wide vibrato, and let each note breathe. The QC's Vibroverb model pushed hard excels at this type of emotional blues lead tone.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'TS808' or 'Tube Screamer'", block_category: "Tone Model", original_gear: "Ibanez TS808", settings: {}, notes: "Search ToneNET for a TS808 Tone Model capture with slightly more drive than a clean boost — Texas Flood needs extra sustain for the slow blues leads." },
+          { position: 2, block_name: "Search ToneNET for 'Vibroverb' or 'SRV Texas Flood'", block_category: "Tone Model", original_gear: "Fender Vibroverb", settings: {}, notes: "Search for a Vibroverb capture pushed harder than the Pride and Joy preset. Look for captures with deeper overdrive for sustaining slow blues leads." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a Vibroverb capture pushed hard, paired with a TS808 capture. Texas Flood is about dynamics and emotion — neck pickup, wide vibrato, let each note breathe. The tone is similar to Pride and Joy but with more gain and sustain for the slow blues format.",
       },
       katana: {
         chain_blocks: [
@@ -8788,6 +8927,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "A fluid, versatile lead tone with plate reverb. The QC handles this type of complex signal chain well.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'JCM800' or 'Marshall 2203'", block_category: "Tone Model", original_gear: "Marshall JCM800 2203", settings: {}, notes: "Search ToneNET for a JCM800 Tone Model capture at moderate gain with pushed mids for lead cut. Satriani's smooth, fluid lead tone requires a responsive amp that sustains well." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a JCM800 capture. The DS-1 distortion and Cry Baby wah are not available in TONEX — use external pedals or DAW plugins. TONEX Pedal users: use the built-in Delay and Reverb for the spacious production, and place external wah and distortion pedals before the Pedal.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -9042,6 +9187,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "JCM900 at low gain with room reverb for jangly Britpop crunch.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'JCM900' or 'Marshall crunch'", block_category: "Tone Model", original_gear: "Marshall JCM900", settings: {}, notes: "Search ToneNET for a JCM900 Tone Model capture at moderate gain. The Britpop crunch is relatively low gain — look for captures with a jangly, crunchy character rather than high-gain saturation." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a JCM900 or Marshall crunch capture. Use TONEX Pedal's built-in Reverb for room ambience. The massive Wonderwall sound comes from layering multiple guitar tracks, not from heavy effects. Capo on 2nd fret.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -9261,6 +9412,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Use the QC's parallel routing to run two paths with different tremolo speeds for the full Marr multi-amp effect.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Fender Twin Reverb' or 'Twin clean'", block_category: "Tone Model", original_gear: "Fender Twin Reverb", settings: {}, notes: "Search ToneNET for a clean Fender Twin Reverb Tone Model capture. The clean amp is just the foundation — the deep tremolo effect is what defines How Soon Is Now." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a clean Twin Reverb capture. The deep, fast tremolo is essential — use TONEX Pedal's built-in Modulation (tremolo) or an external tremolo pedal. Marr originally used multiple amps with tremolo at different speeds for a swirling stereo effect. TONEX cannot replicate the multi-amp technique, but a single deep tremolo captures the essence.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -9450,6 +9607,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Open-G tuning is essential. The gear is secondary to the tuning and Richards' rhythmic feel.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Fender Twin Reverb' or 'Twin Reverb'", block_category: "Tone Model", original_gear: "Fender Twin Reverb", settings: {}, notes: "Search ToneNET for a Fender Twin Reverb Tone Model capture at edge-of-breakup settings. The clean, dynamic character of the Twin is the foundation — the real magic comes from the open-G tuning and Richards' rhythmic feel." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a Fender Twin Reverb capture. No effects needed — Telecaster straight into a clean amp. The open-G tuning (D-G-D-G-B-D) with the low E string removed is far more important than the amp choice. Keith Richards' rhythmic timing and feel define this tone.",
       },
       katana: {
         chain_blocks: [
@@ -9679,6 +9842,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Rangemaster into Plexi with spring reverb. Search Cortex Cloud for ZZ Top captures for extra authenticity.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Plexi' or 'ZZ Top'", block_category: "Tone Model", original_gear: "Marshall Super Lead 1959", settings: {}, notes: "Search ToneNET for a cranked Marshall Plexi Tone Model capture. Look for captures with a Rangemaster-boosted Plexi or ZZ Top-specific captures that include the treble booster in the signal chain." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Plexi or ZZ Top captures. The Dallas Rangemaster treble booster is not available in TONEX — search for captures that already include a treble booster in the chain, or use an external treble booster pedal. TONEX Pedal users: use the built-in Reverb for subtle spring reverb ambience. Practice pinch harmonics for authentic ZZ Top snarl.",
       },
       katana: {
         chain_blocks: [
@@ -9923,6 +10092,12 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Search Cortex Cloud for Dimebag or Randall captures. The solid-state Randall tone is highly sought after on the platform.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Randall' or 'Dimebag' or 'solid state metal'", block_category: "Tone Model", original_gear: "Randall Century 200", settings: {}, notes: "Search ToneNET for a Randall Century 200 or Dimebag-style Tone Model capture. The solid-state Randall's tight, precise high-gain character is unique and highly sought after. Alternatively, search for 'Pantera' or 'groove metal' captures." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Randall or Dimebag captures. The MXR 6-Band EQ V-curve scoop is not available in TONEX — use TONEX Pedal's built-in EQ or an external EQ pedal for the mid-scoop. D standard tuning with a high-output bridge humbucker. The Cry Baby wah (leads only) requires an external pedal.",
+      },
       katana: {
         chain_blocks: [
           {
@@ -10083,6 +10258,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "Les Paul neck pickup for the riff, bridge for solos. All the drive comes from the amp.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Plexi' or 'Super Lead cranked'", block_category: "Tone Model", original_gear: "Marshall Super Lead 1959", settings: {}, notes: "Search ToneNET for a fully cranked Marshall Plexi Tone Model capture. All the drive comes from the amp — no pedals. Les Paul with PAF humbuckers, neck pickup for the riff, bridge for solos." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a cranked Plexi capture. No effects needed — guitar straight into amp. The Les Paul's PAF humbuckers into a wide-open Plexi is the foundation of Whole Lotta Love's massive riff tone.",
+      },
       katana: {
         chain_blocks: [
           { position: 1, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall Super Lead 1959", settings: { Gain: 9, Bass: 6, Middle: 8, Treble: 7, Presence: 7, Volume: 7 }, notes: "Brown channel cranked for heavy Plexi-style saturation." },
@@ -10198,6 +10379,12 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "1x15 US", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: "SM57", Distance: "3 inches" }, notes: "Warm, round cab for the clean arpeggio sections." },
         ],
         notes: "Use scenes to transition from clean Supro to a cranked Marshall for the solo. The song is a masterclass in dynamic tone building.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Supro' or 'Supro Thunderbolt'", block_category: "Tone Model", original_gear: "Supro Thunderbolt", settings: {}, notes: "Search ToneNET for a Supro Thunderbolt Tone Model capture at low gain for the warm, compressed clean arpeggio intro. You may need a second preset with a Marshall Plexi capture for the solo section." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Stairway to Heaven has two distinct tones: clean Supro (intro) and cranked Marshall (solo). Search ToneNET for both a Supro and a Marshall Plexi capture, and switch between them. TONEX software users can set up two preset slots.",
       },
       katana: {
         chain_blocks: [
@@ -10329,6 +10516,12 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 3, block_name: "Digital Delay", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 440, Feedback: 30, Mix: 35 }, notes: "440ms delay for rhythmic repeats." },
         ],
         notes: "Strat neck pickup, Big Muff fuzz, clean Hiwatt, delay. The Gilmour essentials.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Hiwatt DR103' or 'Hiwatt Custom'", block_category: "Tone Model", original_gear: "Hiwatt DR103", settings: {}, notes: "Search ToneNET for a clean Hiwatt capture. The Hiwatt provides the massive, full-range platform for the Big Muff fuzz." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a Hiwatt DR103 capture. The Big Muff Pi fuzz is NOT available in TONEX — use an external Big Muff pedal or DAW fuzz plugin. For delay, use TONEX Pedal's built-in Delay set to ~440ms or an external delay. Strat neck pickup, slow vibrato, precise bends.",
       },
       katana: {
         chain_blocks: [
@@ -10469,6 +10662,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "More gain than Sweet Child. Bridge pickup on a Les Paul for maximum aggression.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'JCM800' or 'Marshall 2203 high gain'", block_category: "Tone Model", original_gear: "Marshall JCM800 2203", settings: {}, notes: "Search ToneNET for a high-gain JCM800 Tone Model capture. This needs more saturation than Sweet Child O' Mine — look for captures labeled 'high gain' or 'cranked'. Les Paul bridge pickup for maximum aggression." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a cranked JCM800 capture with more gain than the Sweet Child preset. The Cry Baby wah is not available in TONEX — use an external wah pedal. TONEX Pedal users: place a wah before the Pedal for the intro filter effects.",
+      },
       katana: {
         chain_blocks: [
           { position: 1, block_name: "Pedal Wah", block_category: "Pedal FX", original_gear: "Dunlop Cry Baby", settings: { Position: 70 }, notes: "Use the expression pedal for wah control." },
@@ -10598,6 +10797,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "Push amp compression settings high to approximate the Variac'd power section behavior.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'EVH' or 'brown sound' or 'Variac Plexi'", block_category: "Tone Model", original_gear: "Marshall Super Lead 1959 (Variac'd)", settings: {}, notes: "Search ToneNET for EVH or 'brown sound' Tone Model captures. Many community members have captured Variac'd Plexis specifically for this tone. The compressed, warm character of the reduced-voltage amp is the key." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for 'EVH', 'brown sound', or 'Variac Plexi' captures. The MXR Phase 90 is not available in TONEX — use TONEX Pedal's built-in Modulation (phaser) or an external Phase 90 pedal. The Variac'd compression and warmth are what define the brown sound.",
+      },
       katana: {
         chain_blocks: [
           { position: 1, block_name: "Phaser 90E", block_category: "Mod", original_gear: "MXR Phase 90", settings: { Rate: 3, Depth: 5 }, notes: "Subtle Phaser 90E for the brown sound thickening." },
@@ -10725,6 +10930,12 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "Search Cortex Cloud for 'Two Rock' capture", block_category: "Amp", original_gear: "Two Rock Custom Reverb", settings: { Gain: 4.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, Master: 6.0 }, notes: "Clean, dynamic Two Rock." },
         ],
         notes: "Strat neck pickup, barely-on Klon, clean Two Rock. Dynamic control is everything.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Two Rock' or 'boutique clean'", block_category: "Tone Model", original_gear: "Two Rock Custom Reverb", settings: {}, notes: "Search ToneNET for a Two Rock or boutique clean amp Tone Model capture. Look for captures with a touch-sensitive, dynamic clean character that breaks up naturally with picking attack." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Two Rock captures. The Klon Centaur boost is not available in TONEX — search for a 'Klon' Tone Model to stack, or use TONEX Pedal's built-in Compressor for subtle sustain enhancement. Mayer's dynamic control and volume knob technique are the key — play lightly for cleans, dig in for breakup.",
       },
       katana: {
         chain_blocks: [
@@ -10854,6 +11065,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "Toggle the Shredmaster on/off for the verse/chorus dynamic. Telecaster for authentic tone.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Fender clean' or 'blackface clean'", block_category: "Tone Model", original_gear: "Fender Eighty Five", settings: {}, notes: "Search ToneNET for a clean Fender Tone Model capture. The clean tone is the verse foundation — all distortion comes from the Shredmaster pedal which must be external." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a clean Fender capture. The Marshall Shredmaster distortion is NOT available in TONEX — use an external distortion pedal or DAW plugin. The entire song depends on the clean/heavy dynamic of stomping the distortion on for choruses. TONEX Pedal users: place an external distortion pedal before the Pedal.",
+      },
       katana: {
         chain_blocks: [
           { position: 1, block_name: "HM-2", block_category: "Booster", original_gear: "Marshall Shredmaster", settings: { Gain: 9, Level: 8, Tone: 6 }, notes: "HM-2 booster at high gain as a Shredmaster substitute. Bypass for verses." },
@@ -10981,6 +11198,12 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "UK 30 TopBoost", block_category: "Amp", original_gear: "Vox AC30", settings: { Gain: 5.0, Bass: 6.0, Mid: 5.0, Treble: 4.0, Master: 5.0 }, notes: "Dark Vox tone with reduced treble." },
         ],
         notes: "Keep it dark and murky. The AM sound is about restraint and groove, not brightness.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Vox AC30' or 'AC30 Top Boost'", block_category: "Tone Model", original_gear: "Vox AC30", settings: {}, notes: "Search ToneNET for a dark-sounding Vox AC30 Tone Model capture. Look for captures with rolled-back treble. The Arctic Monkeys sound is dark and restrained, not bright and chimey." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a dark AC30 capture. The fuzz pedal is not available in TONEX — use an external fuzz pedal or DAW plugin before the TONEX unit. TONEX Pedal users: use the built-in Overdrive at high settings as an approximation, or place an external fuzz before the Pedal.",
       },
       katana: {
         chain_blocks: [
@@ -11110,6 +11333,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "The QC's Mesa Mark IV model with scooped mids and a TS boost delivers an authentic Black Album tone.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Mesa Mark IV' or 'Metallica'", block_category: "Tone Model", original_gear: "Mesa/Boogie Mark IV", settings: {}, notes: "Search ToneNET for a Mesa Mark IV Tone Model capture with scooped mids. Look for captures labeled 'Black Album' or 'Metallica rhythm' for the tight, aggressive tone." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Mesa Mark IV captures with scooped mids. The Tube Screamer clean boost is not available in TONEX — search for a TS808 Tone Model to stack before the Mesa, or use TONEX Pedal's built-in Compressor to tighten the low end. Hetfield's aggressive all-downstroke picking is essential.",
+      },
       katana: {
         chain_blocks: [
           { position: 1, block_name: "Blues Drive", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5, Level: 8 }, notes: "Clean boost to tighten the amp's low end." },
@@ -11237,6 +11466,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "The QC's JCM800 with moderate gain is perfect for the Maiden sound. Keep it tight and defined.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'JCM800' or 'Marshall 2203'", block_category: "Tone Model", original_gear: "Marshall JCM800 2203", settings: {}, notes: "Search ToneNET for a JCM800 Tone Model capture at moderate gain. Iron Maiden's tone requires clarity and note definition — avoid overly saturated captures. The galloping triplet patterns must remain articulate." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a moderate-gain JCM800 capture. No effects needed — Strat bridge pickup with Hot Rails humbucker straight into the Marshall. Keep gain moderate for the fast galloping passages to remain clear and defined.",
+      },
       katana: {
         chain_blocks: [
           { position: 1, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall JCM800", settings: { Gain: 7, Bass: 5, Middle: 7, Treble: 7, Presence: 7, Volume: 6 }, notes: "Brown channel at moderate gain for NWOBHM crunch." },
@@ -11352,6 +11587,12 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa 4x12", settings: { Mic: "SM57", Distance: "1.5 inches" }, notes: "V30 cab for tight bottom end." },
         ],
         notes: "The QC's Diezel VH4 capture is excellent for Adam Jones' tone. Drop-D, Les Paul, and heavy picking.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Diezel VH4' or 'Mesa Rectifier'", block_category: "Tone Model", original_gear: "Diezel VH4 / Mesa Dual Rectifier", settings: {}, notes: "Search ToneNET for a Diezel VH4 or Mesa Dual Rectifier Tone Model capture. Look for thick, dark high-gain captures with strong midrange focus. The blended amp approach can be approximated by finding a capture that combines both amp characters." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Diezel VH4 or Mesa Rectifier captures. Drop-D tuning with a Les Paul bridge humbucker. No effects needed — the tone comes from the amp, tuning, and Adam Jones' deliberate, heavy picking technique.",
       },
       katana: {
         chain_blocks: [
@@ -11484,6 +11725,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "Whammy + fuzz + Marshall = Plug In Baby. The octave effect is essential.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Plexi' or 'Marshall crunch'", block_category: "Tone Model", original_gear: "Marshall", settings: {}, notes: "Search ToneNET for a cranked Marshall Tone Model capture. The amp provides the compressed foundation for the fuzz and octave effects." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a cranked Marshall capture. The DigiTech Whammy octave-up and fuzz effects are NOT available in TONEX — these are essential to the Plug In Baby sound and must come from external pedals or DAW plugins. TONEX Pedal users: use external Whammy and fuzz pedals before the TONEX Pedal.",
+      },
       katana: {
         chain_blocks: [
           { position: 1, block_name: "Pitch Shifter", block_category: "Pedal FX", original_gear: "DigiTech Whammy", settings: { Pitch: "+1 Oct" }, notes: "Pitch shifter set to +1 octave." },
@@ -11609,6 +11856,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "Guitar direct into a maxed small amp capture. Raw and simple.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Fender Champ' or 'small tube amp cranked'", block_category: "Tone Model", original_gear: "Small tube amp (cranked)", settings: {}, notes: "Search ToneNET for a cranked Fender Champ or small tube amp Tone Model capture. The lo-fi, raw overdrive character of a tiny amp at full volume is what defines the Black Keys sound." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for cranked small amp captures — Fender Champ, Silvertone, or similar. Guitar straight into the Tone Model with no effects. The raw, lo-fi imperfections ARE the tone. P-90 pickup for extra grit.",
+      },
       katana: {
         chain_blocks: [
           { position: 1, block_name: "Crunch", block_category: "Amp Type", original_gear: "Small tube amp", settings: { Gain: 9, Bass: 5, Middle: 6, Treble: 5, Presence: 5, Volume: 7 }, notes: "Crunch channel pushed hard for natural amp breakup." },
@@ -11725,6 +11978,12 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "Vibro-King", block_category: "Amp", original_gear: "Fender Vibro-King", settings: { Gain: 5.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, Master: 6.5 }, notes: "Warm, touch-sensitive Fender." },
         ],
         notes: "Modern blues: SG into Vibro-King with a TS for solo boost. Play dynamically.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Fender Vibro-King' or 'Vibro King'", block_category: "Tone Model", original_gear: "Fender Vibro-King", settings: {}, notes: "Search ToneNET for a Fender Vibro-King Tone Model capture at edge of breakup. The Vibro-King's warm, touch-sensitive character is essential for Gary Clark Jr.'s dynamic playing style." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Vibro-King captures. The Tube Screamer solo boost is not available in TONEX — search for a TS808 Tone Model to stack, or use TONEX Pedal's built-in Overdrive for the solo boost. Clark's dynamic control and volume knob work are the key to this tone.",
       },
       katana: {
         chain_blocks: [
@@ -11854,6 +12113,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "A Dumble capture with a light TS boost is the Bonamassa formula. Les Paul neck pickup, heavy strings.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Dumble' or 'Dumble ODS'", block_category: "Tone Model", original_gear: "Dumble Overdrive Special", settings: {}, notes: "Search ToneNET for a Dumble ODS Tone Model capture. Dumble captures are highly sought after — look for captures with transparent, touch-sensitive overdrive. A Marshall capture can be blended for extra midrange." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Dumble ODS captures for Bonamassa's transparent, singing lead tone. The Tube Screamer boost is not available in TONEX — search for a TS808 Tone Model to stack before the Dumble, or use TONEX Pedal's built-in Overdrive at low settings. Les Paul neck pickup with heavy strings.",
+      },
       katana: {
         chain_blocks: [
           { position: 1, block_name: "Blues Drive", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 3, Tone: 5, Level: 7 }, notes: "Light overdrive for sustain boost." },
@@ -11982,6 +12247,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "Scenes for clean intro vs. lead solo. The wah is Hammett's signature on this track.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Mesa Mark IIC+' or 'Mesa Boogie'", block_category: "Tone Model", original_gear: "Mesa/Boogie Mark IIC+", settings: {}, notes: "Search ToneNET for a Mesa Mark IIC+ Tone Model capture. Look for captures with both clean and lead settings — you may need two separate Tone Models for the song's dynamic range." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Mesa Mark IIC+ captures. Fade to Black transitions from clean arpeggios to a wah-drenched lead solo. The wah is not available in TONEX — use an external wah pedal or DAW plugin. Consider using two Tone Model presets: one clean for the intro and one high-gain for the solo.",
+      },
       katana: {
         chain_blocks: [
           { position: 1, block_name: "Pedal Wah", block_category: "Pedal FX", original_gear: "Cry Baby", settings: { Position: "Exp Pedal" }, notes: "Wah pedal for the lead solo." },
@@ -12107,6 +12378,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "C-standard tuning through a bass amp. The QOTSA desert rock formula.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Ampeg' or 'bass amp'", block_category: "Tone Model", original_gear: "Ampeg VT-40", settings: {}, notes: "Search ToneNET for an Ampeg or bass amp Tone Model capture. The QOTSA sound requires a bass amp's massive low end and compressed midrange — a standard guitar amp Tone Model will not work." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for bass amp captures (Ampeg VT-40, SVT, or similar). C-standard tuning is mandatory. The unconventional bass-amp-for-guitar approach is what defines the QOTSA desert rock sound. No effects needed — guitar straight into the bass amp Tone Model.",
+      },
       katana: {
         chain_blocks: [
           { position: 1, block_name: "Brown", block_category: "Amp Type", original_gear: "Ampeg VT-40", settings: { Gain: 6, Bass: 8, Middle: 5, Treble: 3, Presence: 3, Volume: 7 }, notes: "Brown channel with extreme bass boost and treble cut to approximate the bass amp's dark, heavy character." },
@@ -12221,6 +12498,13 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "US Vibro", block_category: "Amp", original_gear: "Fender Vibroverb", settings: { Gain: 6.5, Bass: 5.0, Mid: 5.0, Treble: 5.0, Reverb: 4.0, Master: 7.0 }, notes: "Warm, reverb-heavy Vibroverb." },
         ],
         notes: "SRV's Little Wing: more reverb, slightly more drive than Pride and Joy. Eb tuning, .013 strings, neck pickup.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'TS808' or 'Tube Screamer'", block_category: "Tone Model", original_gear: "Ibanez TS808", settings: {}, notes: "Search ToneNET for a TS808 Tone Model capture with slight drive for chord melody sustain." },
+          { position: 2, block_name: "Search ToneNET for 'Vibroverb' or 'SRV'", block_category: "Tone Model", original_gear: "Fender Vibroverb", settings: {}, notes: "Search for a warm Vibroverb capture with reverb. Look for captures labeled 'blackface' or 'SRV Little Wing' for the dreamy, reverb-heavy character." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a Vibroverb Tone Model paired with a TS808 capture. SRV's Little Wing has more reverb and slightly more drive than Pride and Joy. Use TONEX Pedal's built-in Reverb for added ambience if the Tone Model doesn't include enough.",
       },
       katana: {
         chain_blocks: [
@@ -12361,6 +12645,12 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes: "The Shine On tone is about patience, sustain, and vibrato. Four notes that last forever.",
       },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Hiwatt DR103' or 'Hiwatt Custom'", block_category: "Tone Model", original_gear: "Hiwatt DR103", settings: {}, notes: "Search ToneNET for a clean Hiwatt capture. The Hiwatt's massive headroom and sustaining character are essential. Look for captures at moderate gain for a singing, clean platform." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a Hiwatt DR103 capture. The Colorsound Powerboost is not available in TONEX — use TONEX Pedal's built-in Overdrive at low settings or an external overdrive pedal. For delay, use TONEX Pedal's built-in Delay or an external delay pedal/DAW plugin. The four-note Shine On motif requires maximum sustain and vibrato.",
+      },
       katana: {
         chain_blocks: [
           { position: 1, block_name: "Blues Drive", block_category: "Booster", original_gear: "Colorsound Powerboost", settings: { Drive: 4, Tone: 5, Level: 7 }, notes: "Light overdrive for sustain." },
@@ -12494,6 +12784,12 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "SM57", Distance: "1 inch" }, notes: "Standard close-miking." },
         ],
         notes: "SG bridge pickup into a bright, cranked Plexi. Keep presence high for the tapping intro.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Plexi' or 'Super Lead'", block_category: "Tone Model", original_gear: "Marshall Super Lead 1959", settings: {}, notes: "Search ToneNET for a cranked Plexi Tone Model. Look for captures with high gain and bright EQ to support the tapping intro's note clarity." },
+        ],
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a cranked Marshall Plexi capture. No effects needed — this is guitar straight into amp. TONEX Pedal users: no additional effects required. For the tapping intro, ensure the Tone Model has enough gain and presence for clean note articulation.",
       },
       katana: {
         chain_blocks: [

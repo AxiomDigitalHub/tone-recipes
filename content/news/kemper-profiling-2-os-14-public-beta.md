@@ -40,3 +40,10 @@ The OS 14.0 public beta is available through Kemper's Rig Manager software. As w
 Forum reports from beta testers have been overwhelmingly positive. The most common observation is that Profiling 2.0 captures feel more like the original amp under the fingers, particularly in how they respond to volume knob rolloffs and pick dynamics. If you are a Kemper user, this update is worth watching closely.
 
 The final release of OS 14.0 is expected in Q2 2026.
+
+## Dig Deeper on Fader & Knob
+
+- New to profiling? Our guide to [how to dial in your modeler tone](/blog/how-to-dial-in-modeler-tone) covers the fundamentals that apply to Kemper profiles too.
+- The Profiling 2.0 Mark IIC+ improvements make our [Metallica rhythm tone settings](/blog/metallica-rhythm-tone-settings) easier to nail than ever on Kemper.
+- See how the Kemper compares in our [modeler vs. tube amp shootout](/blog/modeler-vs-tube-amp-shootout).
+- Browse all our [Kemper tone recipes](/platforms/kemper) for ready-to-profile signal chains.

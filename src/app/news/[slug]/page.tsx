@@ -172,7 +172,6 @@ export default async function NewsArticlePage({
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 800px"
             priority
-            unoptimized
           />
         </div>
         {(() => {

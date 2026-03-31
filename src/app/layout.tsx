@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import SearchPalette from "@/components/search/SearchPalette";
+import LazySearchPalette from "@/components/search/LazySearchPalette";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { AuthProvider } from "@/lib/auth/auth-context";
@@ -78,7 +78,7 @@ export default function RootLayout({
       >
         <AuthProvider>
           <Header />
-          <SearchPalette />
+          <LazySearchPalette />
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />
         </AuthProvider>
