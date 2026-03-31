@@ -28,8 +28,8 @@ This is the most common cause, and it's embarrassingly simple. A modeler's pream
 
 | Platform | Where to check |
 |---|---|
-| *Helix* | Signal chain view — look for the Cab block after the Amp block |
-| *Quad Cortex* | Node graph — cab node should be active (solid outline, not grayed) |
+| [*Helix*](/platforms/helix) | Signal chain view — look for the Cab block after the Amp block |
+| [*Quad Cortex*](/platforms/quad_cortex) | Node graph — cab node should be active (solid outline, not grayed) |
 | Both | If using a custom IR, verify the IR loader isn't set to a small room/studio cab |
 
 If your chain had no cab block at all, this is your answer. Add one and you'll hear the difference immediately.
@@ -127,4 +127,4 @@ On a real amp, thin tone usually comes from physical factors — small speaker, 
 
 ---
 
-If thin tone is your main issue, this checklist resolves it in most cases. If you've run through all five fixes and still have problems, the issue is likely upstream — either the amp model itself isn't the right choice for the application, or there's a gain staging problem earlier in the chain. For that, [how to dial in modeler tone](/blog/how-to-dial-in-modeler-tone) covers the full process from scratch. And if your tone is thin *and* fizzy, those are different problems with different causes — see [why modeler tone sounds fizzy](/blog/why-modeler-tone-sounds-fizzy) for the fizz-specific checklist.
+If thin tone is your main issue, this checklist resolves it in most cases. If you've run through all five fixes and still have problems, the issue is likely upstream — either the amp model itself isn't the right choice for the application, or there's a gain staging problem earlier in the chain. For that, [how to dial in modeler tone](/blog/how-to-dial-in-modeler-tone) covers the full process from scratch. And if your tone is thin *and* fizzy, those are different problems with different causes — see [why modeler tone sounds fizzy](/blog/why-modeler-tone-sounds-fizzy) for the fizz-specific checklist. It's also worth checking whether your [FRFR or cab setup](/blog/frfr-vs-guitar-cab-for-modelers) is contributing to the problem.
