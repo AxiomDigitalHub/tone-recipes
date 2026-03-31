@@ -84,8 +84,8 @@ export default function Footer() {
             We use{" "}
             <a href="https://clarity.microsoft.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted">
               Microsoft Clarity
-            </a>{" "}
-            and Google Analytics to understand how visitors use this site. By using our site, you agree that we and Microsoft can collect and use this data.
+            </a>
+            , Google Analytics, and Contentsquare to understand how visitors use this site. By using our site, you agree that we and these providers can collect and use this data.
           </p>
         </div>
       </div>

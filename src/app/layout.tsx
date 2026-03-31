@@ -93,6 +93,10 @@ export default function RootLayout({
         <Script id="microsoft-clarity" strategy="lazyOnload">
           {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","w3jxns38n6");`}
         </Script>
+        <Script
+          src="https://t.contentsquare.net/uxa/5eb1c56789d9a.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

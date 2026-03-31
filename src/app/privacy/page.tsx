@@ -96,6 +96,11 @@ export default function PrivacyPolicyPage() {
               Section 4a below)
             </li>
             <li>
+              <strong className="text-zinc-200">Contentsquare</strong> &mdash;
+              User experience analytics to understand how visitors interact with
+              our site
+            </li>
+            <li>
               <strong className="text-zinc-200">Google OAuth</strong> &mdash;
               Sign-in authentication
             </li>
