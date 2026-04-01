@@ -229,10 +229,10 @@ export default function Home() {
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
-              "5 YouTube videos, 5 different answers",
-              "Forum posts from 2012 that don\u2019t match your modeler",
-              "Close, but you don\u2019t know why it\u2019s still off",
-              "An hour of tweaking when you should be playing",
+              "You watched 5 YouTube videos and got 5 different answers.",
+              "The best forum post you found was from 2012 \u2014 and it\u2019s for a different modeler.",
+              "You got close, but something\u2019s still off and you can\u2019t figure out what.",
+              "You spent an hour tweaking when you should have been playing.",
             ].map((pain) => (
               <div
                 key={pain}
