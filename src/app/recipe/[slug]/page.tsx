@@ -22,6 +22,8 @@ import AffiliateGearLink from "@/components/ui/AffiliateGearLink";
 import AffiliateDisclosure from "@/components/ui/AffiliateDisclosure";
 import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
 import RecipeInteractions from "./RecipeInteractions";
+import DownloadRecipePDF from "@/components/recipe/DownloadRecipePDF";
+import DownloadCounter from "@/components/recipe/DownloadCounter";
 
 interface RecipePageProps {
   params: Promise<{ slug: string }>;
@@ -212,7 +214,9 @@ export default async function RecipePage({ params }: RecipePageProps) {
             Compare
           </Link>
           <FavoriteButton slug={recipe.slug} size="md" />
+          <DownloadRecipePDF recipeSlug={recipe.slug} />
         </div>
+        <DownloadCounter className="mt-2" />
       </div>
 
       {/* Spotify Player */}

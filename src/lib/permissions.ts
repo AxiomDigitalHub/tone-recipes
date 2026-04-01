@@ -142,3 +142,10 @@ export function isAtLeast(role: UserRole, minimum: UserRole): boolean {
 
 /** Number of platform tabs a free user can see (physical + 1 platform) */
 export const FREE_PLATFORM_LIMIT = 1;
+
+/** Number of free preset downloads before requiring premium */
+export const FREE_DOWNLOAD_LIMIT = 10;
+
+export function getDownloadLimit(role: UserRole): number {
+  return role === "free" ? FREE_DOWNLOAD_LIMIT : Infinity;
+}
