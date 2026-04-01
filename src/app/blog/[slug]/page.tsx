@@ -272,7 +272,7 @@ export default async function BlogPostPage({
       </nav>
 
       {/* Post header — split layout: text left, image right */}
-      <header className={post.image ? "grid gap-8 lg:grid-cols-[1fr,400px] lg:items-start" : ""}>
+      <header className={post.image ? "grid gap-8 lg:grid-cols-[1fr_400px] lg:items-start" : ""}>
         <div>
           <span
             className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${catColor}`}
