@@ -17,6 +17,8 @@ export interface BlogPost {
   tags: string[];
   readingTime: string; // "8 min read"
   featured?: boolean;
+  image?: string; // hero image URL (Unsplash)
+  imageAlt?: string; // alt text for hero image
 }
 
 export interface BlogPostWithContent extends BlogPost {
@@ -62,6 +64,8 @@ export function getPostBySlug(slug: string): BlogPostWithContent | null {
     tags: data.tags ?? [],
     readingTime: stats.text,
     featured: data.featured ?? false,
+    image: data.image ?? undefined,
+    imageAlt: data.image_alt ?? undefined,
     content,
   };
 }

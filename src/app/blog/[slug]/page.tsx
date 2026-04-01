@@ -331,6 +331,20 @@ export default async function BlogPostPage({
           </div>
         )}
 
+        {/* Hero image */}
+        {post.image && (
+          <div className="mt-8 relative aspect-[2/1] w-full overflow-hidden rounded-xl bg-surface-hover">
+            <Image
+              src={post.image}
+              alt={post.imageAlt ?? post.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 800px"
+              priority
+            />
+          </div>
+        )}
+
         <hr className="mt-8 border-border" />
       </header>
 
