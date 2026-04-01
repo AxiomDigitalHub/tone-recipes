@@ -1,0 +1,216 @@
+---
+title: "Impulse Responses Explained: What IRs Are and How to Use Them on Any Modeler"
+description: "Learn what impulse responses are, why the cab IR is half your guitar tone, and how to load and manage IRs on Helix, Quad Cortex, Kemper, Fractal, and Katana."
+date: "2026-03-31"
+author: "Elena Ruiz"
+author_slug: "elena-ruiz"
+category: "signal-chain"
+tags: ["impulse-response", "ir", "cab-sim", "speaker-cabinet", "modeler", "helix", "quad-cortex", "guide"]
+readingTime: 9
+---
+
+Most guitarists spend hours comparing amp models. They A/B drive pedals, tweak gain staging, and agonize over whether Plexi Model A sounds slightly more authentic than Plexi Model B. And then they leave the cab block on whatever factory default the preset shipped with.
+
+That cab block is doing more to shape your tone than any amp model swap ever will. And the technology behind it — the impulse response — is one of the most powerful and least understood tools in modern guitar signal processing.
+
+---
+
+## What Is an Impulse Response?
+
+An impulse response is a short audio file that captures how a physical system changes sound. For guitar purposes, that system is a speaker cabinet, the microphone placed in front of it, the preamp the mic feeds into, and the room the whole thing sits in. When you load an IR into your modeler, you're telling it: "Make my signal sound like it came out of this exact speaker, captured by this exact mic, in this exact position."
+
+The technical version: an IR records how a system responds to a perfect impulse — a theoretically instantaneous burst of all frequencies at equal volume. By analyzing what comes back (which frequencies are boosted, which are cut, how the signal decays), the system's entire tonal fingerprint is captured in a file that's usually about 20 milliseconds long.
+
+The practical version: it's a photograph of a speaker cabinet's sound. Your modeler uses that photograph to filter your signal in real time so it sounds like it's coming out of that cabinet.
+
+The IR file itself is tiny — typically a .wav file between 10 KB and 200 KB, depending on sample rate and length. But the tonal impact is enormous.
+
+---
+
+## Why IRs Matter More Than Most Guitarists Think
+
+Here's the part that surprises people: the speaker cabinet contributes roughly 50% of what you recognize as "amp tone." Not the preamp tubes, not the power section, not the circuit topology — the wooden box with a cone in it and the microphone you point at it.
+
+A Marshall JCM800 through a 4x12 with Celestion V30s and an SM57 on the cap edge sounds like a completely different amp than the same JCM800 through a 1x12 open-back with a Celestion Alnico Blue and a ribbon mic three feet away. Same preamp. Same power section. Radically different tone.
+
+This is why swapping amp models on your modeler sometimes feels like you're making small incremental changes, while swapping the cab block or IR completely transforms the sound. The amp model handles gain character, dynamics, and harmonic content. The IR handles the frequency curve, the low-end resonance, the high-frequency rolloff, and the spatial quality of the sound. It's the difference between hearing a guitar amp in person and hearing it through a wall.
+
+If you've been [dialing in your modeler tone](/blog/how-to-dial-in-modeler-tone) and hitting a wall, the IR is the most likely place to find a breakthrough.
+
+---
+
+## Stock IRs vs Third-Party IRs vs Capturing Your Own
+
+### Stock IRs (What Ships With Your Modeler)
+
+Every major modeler includes a library of built-in cab simulations. On some platforms these are traditional cab models (algorithmically generated), while on others they're actual IR files baked into the firmware.
+
+Stock IRs are decent and designed to work well across a wide range of presets. They're voiced to be versatile, which means they tend to avoid extreme characteristics. For many players, stock IRs are perfectly fine — especially when paired with the amp models from the same platform, since the manufacturer voiced them together.
+
+The limitation: stock IRs are generic by design. They capture a "typical" SM57 on a "typical" 4x12 in a "typical" position. Real speaker cabinets vary dramatically unit to unit, and mic placement measured in millimeters changes the sound in ways that stock IRs can't represent.
+
+### Third-Party IRs
+
+This is where most players find their sound. Companies and engineers capture real cabinets in professional studios with high-end microphones, offering dozens of mic positions, distances, and blends per cabinet. A single third-party IR pack for one cabinet might include 200+ individual captures covering every practical mic position and mic type.
+
+The quality jump from stock IRs to a well-made third-party pack is often more dramatic than upgrading the modeler itself. It's the single best dollar-per-tone-improvement upgrade available to any modeler player.
+
+Popular third-party IR producers include Ownhammer, Celestion (who sell IRs of their own speakers), York Audio, ML Sound Lab, and Seacow Cabs. Each has a distinct capture style and philosophy.
+
+### Capturing Your Own
+
+If you own a real cabinet, a decent microphone, and an audio interface, you can capture your own IRs. The process involves sending a test signal (a sine sweep or a short impulse) through the cabinet, recording the result, and processing it into a usable IR file.
+
+This is the most rewarding but most time-consuming approach. You get exactly your cabinet, your mic, your room — the same sound you've been chasing digitally is now available as an IR you can load into any modeler anywhere. Software like Voxengo Deconvolver, Two Notes Torpedo, or even free tools like HiZ IR Maker handle the technical conversion.
+
+For most players, third-party IRs offer the best balance of quality and convenience. Capture your own only if you have a specific cab tone you can't find anywhere else.
+
+---
+
+## How to Load IRs on Each Major Platform
+
+The process varies by platform, but the concept is always the same: transfer the IR file to the device, then assign it to a cab/IR block in your signal chain.
+
+### Line 6 Helix
+
+1. Open **HX Edit** on your computer and connect the [Helix](/platforms/helix) via USB.
+2. Go to the **Impulse Responses** tab in HX Edit.
+3. Drag and drop .wav IR files into the available slots (up to 128 IRs).
+4. In your preset's signal chain, add an **IR** block (not a Cab block — the IR block loads your custom IRs).
+5. Select the IR slot number you just loaded.
+
+**Note:** Helix accepts mono .wav files at 48 kHz, up to 2,048 samples. Files at other sample rates will be converted automatically, but starting with 48 kHz avoids any conversion artifacts.
+
+### Neural DSP Quad Cortex
+
+1. Open **Cortex Cloud** or connect via USB and use the file manager on [Quad Cortex](/platforms/quad_cortex).
+2. Upload .wav IR files to the device storage.
+3. In your preset, add a **Cab** node and switch it to IR mode.
+4. Browse and select your uploaded IR from the list.
+
+The Quad Cortex supports up to 1,024 IR slots and accepts WAV files at 48 kHz. It also supports its own neural capture format, which is different from a standard IR — neural captures model the entire amp and cab together, while IRs model only the linear cab response.
+
+### Kemper Profiler
+
+The [Kemper](/platforms/kemper) handles things differently because its core technology is profiling rather than IR loading. However, it does support IRs in its cab section:
+
+1. Open **Rig Manager** on your computer.
+2. Import .wav or .kipr IR files into the Rig Manager library.
+3. In any rig, lock or swap the **Cabinet** section and select your imported IR.
+4. You can also use the Kemper's built-in cabinet section independently from the amp profile.
+
+Kemper accepts standard WAV IRs and converts them internally. The Kemper's cab section also lets you refine the IR with built-in high/low cut and character controls.
+
+### Fractal Audio (Axe-Fx / FM series)
+
+1. Open **Axe-Edit** or **FM-Edit** and connect your [Fractal](/platforms/fractal) unit via USB.
+2. Navigate to the **Cab** manage page.
+3. Import .wav or .syx IR files into available user cab slots.
+4. In your preset, assign the cab block to your imported IR slot.
+
+Fractal units are among the most flexible with IR management — the Axe-Fx III supports up to 2,048 user IR slots and offers UltraRes IRs that are longer and higher-resolution than standard IRs. The unit also supports mixing two IRs within a single cab block for mic blending.
+
+### Boss Katana (via Tone Studio)
+
+1. Open **Boss Tone Studio** and connect the [Katana](/platforms/katana) via USB.
+2. Navigate to the **Sneaky Amps** or **IR Loader** section (available on Katana Gen 3 and some Gen 2 models with firmware updates).
+3. Load .wav IR files into the available slots.
+4. Assign the IR to your preset's output section.
+
+**Note:** The Katana's IR support is more limited than dedicated modelers — fewer slots, fewer sample rate options, and the IR loader may not be available on all Katana variants. Check your specific model's firmware version.
+
+---
+
+## Common IR Mistakes
+
+### Wrong Sample Rate
+
+Most modelers operate internally at 48 kHz. If you load a 44.1 kHz IR (common for files created in music production) or a 96 kHz IR, the device will either reject it or resample it. Resampling isn't catastrophic, but it can introduce subtle artifacts — a slight smearing of the high-frequency response or a shift in the tonal character.
+
+**The fix:** Always check the sample rate your modeler expects and convert your IRs to match before loading. Most IR producers offer multiple sample rate versions for this reason.
+
+### Phase Issues When Blending IRs
+
+Running two IRs simultaneously (a common technique for blending mic perspectives) can cause phase cancellation if the IRs weren't captured at the same time from the same source. The result is a hollow, thin sound that no amount of EQ will fix — because the frequencies aren't being cut, they're being cancelled.
+
+**The fix:** Only blend IRs from the same pack or capture session. Reputable IR producers design their multi-mic packs to be phase-coherent. If you're mixing IRs from different sources, check the phase by flipping the polarity on one IR — if the sound gets fuller when you flip phase, the originals were partially cancelling.
+
+### Loading Too Many IRs at Once
+
+Some players go through a phase of downloading every free IR pack they can find and loading hundreds of them. The result is decision paralysis and constant A/B testing that leads nowhere.
+
+**The fix:** Audition IRs systematically. Pick one amp model you know well, keep all other settings constant, and swap only the IR. When you find three to five IRs that work for your main tones, stop looking. You can always explore more later, but having a reliable set of go-to IRs is more valuable than having a library of 500 you've half-heard.
+
+### Using Full-Mix IRs for Live Playing
+
+Some IR captures are designed for recording — they include room reflections, distant mic blends, and ambient characteristics that sound great in a mix but terrible through a live FRFR speaker. The room sound from the IR clashes with the real room you're playing in.
+
+**The fix:** For live use, stick with close-mic IRs (single mic, on-axis or slightly off-axis, no room component). Save the room-mic and blended IRs for recording through studio monitors. The [FRFR vs guitar cab guide](/blog/frfr-vs-guitar-cab-for-modelers) covers more on optimizing your monitoring setup for live versus studio use.
+
+---
+
+## Recommended Starting Points by Genre
+
+You don't need to try every IR ever made. Start with these speaker and mic combinations based on what you play, then refine from there.
+
+| Genre | Cabinet Type | Mic | Notes |
+|---|---|---|---|
+| Blues / Classic Rock | 2x12 or 4x12 with Celestion Greenbacks | SM57 slightly off-axis | Warm, midrange-focused, smooth top end |
+| Modern Rock / Pop | 4x12 with Celestion V30s | SM57 on cap edge | Tight low end, present upper mids, cuts through a mix |
+| Metal / Djent | 4x12 with V30s or a V30/T75 mix | SM57 + Royer 121 blend | The SM57 provides attack, the ribbon mic adds body |
+| Country / Clean | 1x12 open-back with Jensen or Alnico | Condenser (414 or similar) | Open, airy, full frequency range for clean sparkle |
+| Jazz | 1x12 or 1x15 closed-back | Ribbon mic, slightly off-axis | Dark, round, minimal high-end presence |
+| Ambient / Post-Rock | 2x12 with Celestion Alnico Gold or Creamback | Condenser at 6-12 inches | Extended low end and smooth highs for reverb-heavy tones |
+
+These aren't rules — they're starting coordinates. Your ears make the final call.
+
+---
+
+## Free vs Paid IR Packs: What's Worth Paying For
+
+### Free IRs
+
+Free IR packs are everywhere, and some are genuinely excellent. They're the best way to learn what IRs do and how different speakers and mics affect your tone before spending money.
+
+Good free sources include ML Sound Lab's MIKKO free pack, Seacow Cabs' free offerings, and the various free IRs that come bundled with IR loader plugins. Many YouTube creators also release free IR packs tied to their tone tutorials.
+
+The limitation of free packs is consistency and documentation. You might get 20 IRs labeled "V30 SM57 01" through "V30 SM57 20" with no indication of what changed between them. Paid packs typically include detailed documentation of every mic position, distance, and preamp used.
+
+### Paid IRs
+
+A quality paid IR pack runs between $10 and $50 and typically covers one or two cabinets in exhaustive detail — every useful mic, every useful position, multiple distances, and pre-blended options. The value isn't just the files; it's the curation and the capture quality.
+
+**Worth paying for:**
+- Packs from established producers with documented capture chains (Ownhammer, York Audio, Celestion Digital)
+- Genre-specific packs that match your playing style
+- Packs that include both close-mic and room-mic versions for studio flexibility
+
+**Not necessarily worth paying for:**
+- Mega bundles of 1,000+ IRs you'll never audition
+- IRs from unknown sources with no documentation
+- "Signature" IRs that promise to replicate a specific artist's tone (the amp, playing technique, and guitar matter more)
+
+The sweet spot for most players is two to three quality paid packs that cover their main cabinet types, supplemented by free IRs for experimentation. That's enough variety to cover any genre or gig situation without the paralysis of an unmanageable library.
+
+---
+
+## FAQ
+
+**What's the difference between an IR and a cab model?**
+A cab model is an algorithmic simulation — the modeler uses math to approximate how a speaker behaves. An IR is a measured capture of a real speaker's actual behavior. Both achieve the same goal (simulating a cabinet), but IRs capture the specific character of an individual physical cab. Many modelers support both, and you can swap freely between them in the same preset.
+
+**Can I use the same IR on different modelers?**
+Yes. A .wav IR file is a universal format. The same IR loaded on a [Helix](/platforms/helix), [Quad Cortex](/platforms/quad_cortex), [Kemper](/platforms/kemper), or [Fractal](/platforms/fractal) will produce the same tonal result, assuming the modeler handles the sample rate correctly. This is one of the best things about IRs — your cab tone is portable across platforms.
+
+**Do IRs work with real amps?**
+Yes, but you need hardware to run them. Products like the Two Notes Torpedo Captor X, Suhr Reactive Load IR, or the UA OX Box sit between your real amp's speaker output and either a load or a speaker. They apply the IR to the amp's signal for recording or silent playing. This gives you the flexibility of IR cab simulation with the feel of a real tube amp.
+
+**How many IRs do I actually need?**
+Most working guitarists settle on three to five IRs that cover their core tones: one for clean/edge-of-breakup, one for crunch rhythm, one for high-gain, and maybe one or two specialty options for recording. Start small, learn what you like, and expand only when you hit a sound you can't get from your current set.
+
+**Should I use IRs or my modeler's built-in cab models?**
+Try both. Some modelers have excellent built-in cab models that rival third-party IRs. Others have cab sections that are clearly the weakest link. Load a well-reviewed third-party IR alongside the stock cab model for the same speaker type and compare. If the stock cab sounds good to you, there's no reason to change. If the third-party IR sounds noticeably better, you've just found your biggest upgrade path.
+
+---
+
+IRs are one of those tools that seem technical and intimidating until you load your first one and hear the difference. Start with your modeler's stock cab sounds, swap in a free third-party IR, and compare. Once you hear what a well-captured cab does to your signal, you'll understand why so many modeler players say the IR mattered more than the amp model. From there, [browse tone recipes](/browse) built with specific IR recommendations to hear these concepts in action.
