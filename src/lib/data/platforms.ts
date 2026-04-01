@@ -85,6 +85,31 @@ export function getGearWithEquivalent(
     }));
 }
 
+// ---------------------------------------------------------------------------
+// Artist helpers
+// ---------------------------------------------------------------------------
+
+/** Get blog posts related to an artist (title or tags mention them). */
+export function getBlogPostsForArtist(artistSlug: string): BlogPost[] {
+  // Build search terms from slug: "david-gilmour" → ["david gilmour", "gilmour", "david-gilmour"]
+  const terms = [
+    artistSlug.replace(/-/g, " "),
+    artistSlug,
+  ];
+  // Also add last name as a search term
+  const parts = artistSlug.split("-");
+  if (parts.length > 1) {
+    terms.push(parts[parts.length - 1]); // last name
+  }
+
+  const posts = getAllPosts();
+  return posts.filter((post) => {
+    const haystack = `${post.title} ${post.tags.join(" ")} ${post.description ?? ""}`.toLowerCase();
+    return terms.some((t) => haystack.includes(t.toLowerCase()));
+  });
+}
+
+
 /** Get blog posts related to a platform (title or tags mention it). */
 export function getBlogPostsForPlatform(platformId: string): BlogPost[] {
 
