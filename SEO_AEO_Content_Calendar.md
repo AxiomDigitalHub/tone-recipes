@@ -166,7 +166,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 - **AEO structure:** Complete preset walkthrough. Settings table for AC30 model + Timeline-style delay + BigSky-style reverb. Separate sections for "Sunday morning clean," "building dynamics," and "full worship lead." Cross-platform notes for QC.
 - **Internal links to:** worship-pedalboard-guide, the-edge-delay-settings, reverb-types-guide, best-helix-amp-models-blues
 
-### P2-08: FRFR vs Guitar Cab for Modelers
+### P2-08: FRFR vs Guitar Cab for Modelers ✅ PUBLISHED
 - **Target queries:** "frfr vs guitar cab," "modeler through guitar cab," "frfr speaker for helix"
 - **Writer:** Sean Nakamura (runs studio monitors, has tested both approaches)
 - **Pillar:** 4 — Modeler Masterclass
@@ -187,21 +187,21 @@ These fill the biggest gaps and create cluster anchors for future content.
 | P3-03 | Andy Timmons Lead Tone ✅ PUBLISHED | "andy timmons tone settings," "smooth lead guitar tone" | Margot Thiessen | Signal chain walkthrough with drive stacking recipe |
 | P3-04 | Nashville Session Clean: Tele + Compressor ✅ PUBLISHED | "nashville session guitar tone," "telecaster compressor settings" | Carl Beckett | Minimal chain settings table, compressor deep-dive |
 | P3-05 | Shoegaze Wall of Sound Recipe ✅ PUBLISHED | "shoegaze guitar tone settings," "shoegaze pedal settings" | Dev Okonkwo | Layered settings (multiple reverbs/delays), frequency-space approach |
-| P3-06 | Khruangbin Clean Funk Tone | "khruangbin guitar tone," "mark speer tone settings" | Dev Okonkwo | Minimal chain + spring reverb + pickup position emphasis |
+| P3-06 | Khruangbin Clean Funk Tone ✅ PUBLISHED | "khruangbin guitar tone," "mark speer tone settings" | Dev Okonkwo | Minimal chain + spring reverb + pickup position emphasis |
 
 ### Settings Guides (Pillar 2) — 3 Posts
 
 | # | Topic | Target Query | Writer |
 |---|---|---|---|
-| P3-07 | Blues Driver BD-2 Settings Guide | "boss blues driver settings," "bd-2 best settings" | Rick Dalton |
-| P3-08 | Fender Deluxe Reverb Settings: Finding Every Sweet Spot | "deluxe reverb settings," "deluxe reverb best settings" | Hank Presswood |
-| P3-09 | Compressor Pedal Settings: When, Why, and How Much | "compressor pedal settings guitar," "how to set compressor guitar" | Carl Beckett |
+| P3-07 | Blues Driver BD-2 Settings Guide ✅ PUBLISHED | "boss blues driver settings," "bd-2 best settings" | Rick Dalton |
+| P3-08 | Fender Deluxe Reverb Settings: Finding Every Sweet Spot ✅ PUBLISHED | "deluxe reverb settings," "deluxe reverb best settings" | Hank Presswood |
+| P3-09 | Compressor Pedal Settings: When, Why, and How Much ✅ PUBLISHED | "compressor pedal settings guitar," "how to set compressor guitar" | Carl Beckett |
 
 ### Modeler Masterclass (Pillar 4) — 3 Posts
 
 | # | Topic | Target Query | Writer |
 |---|---|---|---|
-| P3-10 | 10 Helix Amp Models You're Not Using (But Should Be) | "best helix amp models," "underrated helix amps" | Sean Nakamura |
+| P3-10 | 10 Helix Amp Models You're Not Using (But Should Be) ✅ PUBLISHED | "best helix amp models," "underrated helix amps" | Sean Nakamura |
 | P3-11 | Kemper Profiles vs. Helix Models: A Tone Comparison | "kemper vs helix tone," "kemper profiles vs helix" | Sean Nakamura |
 | P3-12 | ToneX Tone Models: How to Choose the Right One | "tonex best tone models," "tonex how to use" | Dev Okonkwo |
 
@@ -415,3 +415,13 @@ Based on the competitive analysis, avoid these formats:
 | 3 | Neo-Shoegaze Tone: How Title Fight and Nothing Update the MBV Blueprint | "neo shoegaze guitar tone," "modern shoegaze settings" | Dev Okonkwo | 1 — Tone Recipes | Shoegaze SERP — no competitor addresses classic 90s vs. neo-shoegaze tonal differences; DIIV/Nothing/Title Fight have a more compressed, mid-forward take that plays in different frequency space |
 | 4 | Marshall Shredmaster vs. ProCo RAT: Can You Fake the Creep Tone? | "marshall shredmaster alternative," "radiohead creep pedal substitute" | Jess Kowalski | 5 — Gear Lab | Creep SERP — Shredmaster is discontinued and expensive; no editorial guide benchmarks substitutes against the original; the RAT and DS-1 come up constantly in forums but no one has done a structured comparison |
 | 5 | Andy Timmons on a Budget: How to Get the Singing Lead Tone Without the Signature Gear | "smooth lead guitar tone budget," "andy timmons tone affordable" | Margot Thiessen | 1 — Tone Recipes | Andy Timmons SERP — no competitor addresses budget approximation; all guides assume you have his exact signal chain; the Timmy is $180, the Carl Martin compressor is available cheaply used, and the tone principle is the story |
+
+## SERP-Derived Topics — 2026-04-01
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | Mark Speer Tone on an HX Stomp: Khruangbin Clean Funk for $299 | "khruangbin tone hx stomp," "mark speer tone budget pedalboard" | Dev Okonkwo | 4 — Modeler Masterclass | Khruangbin SERP — Fractal Audio forum threads ranking for this query confirm strong modeler-user demand; no editorial piece covers a Khruangbin-specific HX Stomp or digital preset workflow; this fills a clear cross-pillar gap between Tone Recipes and Modeler Masterclass |
+| 2 | Boss BD-2 vs. BD-2W Waza Craft: Which Settings Suit Your Style? | "bd-2 vs bd-2w," "blues driver waza craft settings difference" | Rick Dalton | 5 — Gear Lab | BD-2 SERP — Guitar Chalk has two separate articles for each version but no single comparison; forum threads specifically asking "should I upgrade to the Waza?" rank in top results; the clipping circuit difference (S/Custom mode) is the real story |
+| 3 | Fender Deluxe Reverb vs. Fender ToneMaster: Do the Same Settings Sound the Same? | "tonemaster deluxe reverb settings," "fender tonemaster vs deluxe reverb tone" | Hank Presswood | 5 — Gear Lab | Deluxe Reverb SERP — the ToneMaster digital version appears in results but no article compares its settings behavior vs. the tube original; a side-by-side with the same knob positions and honest assessment of where they diverge is a clear editorial gap that Hank is uniquely positioned to write |
+| 4 | Why Your Compressor Is Killing Your Tone (and How to Fix It) | "compressor killing guitar tone," "too much compression guitar" | Carl Beckett | 6 — Quick Fixes | Compressor SERP — "sounds squashed," "losing pick attack," and "pumping compression" are recurring pain points in forum threads that rank alongside editorial results; no editorial piece addresses compressor troubleshooting directly; this pairs naturally with the compressor settings guide as a "what went wrong" companion |
+| 5 | Best Helix Cab and IR Pairings for Each Amp Model | "helix ir pairing guide," "best ir for helix amp models" | Sean Nakamura | 4 — Modeler Masterclass | Helix underrated amps SERP — amp + IR pairing is the single most-referenced follow-up question in community discussions but has zero editorial coverage; the Helix Help reference database ranks as a top result, signaling users are going to raw data because no guide exists; this completes the "amp selection → IR pairing" workflow in a single reference post |

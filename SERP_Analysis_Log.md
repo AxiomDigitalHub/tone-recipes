@@ -294,3 +294,82 @@
 - **Content gaps found:** Specific amp EQ dial-in numbers are absent from all results — articles stay vague on bass/mid/treble positions. No guide covers live single-guitar shoegaze vs. studio multi-tracking with actionable workarounds. Budget-tier pedalboard builds with specific settings are absent. DAW/plugin-only workflows for headphone players are underrepresented. Neo-shoegaze vs. classic 90s tonal differences (Title Fight/Nothing/Diiv vs. MBV/Slowdive) are unaddressed. Wet/dry/wet rig setups — a professional shoegaze staple — are not addressed in any top result. Follow-up ideas: "Neo-Shoegaze Tone: How Title Fight and Nothing Update the MBV Blueprint," "Budget Shoegaze Pedalboard Under $300."
 - **Featured snippet opportunity:** Yes — a concise step-by-step list or compact table of pedal types with recommended settings (rate, depth, mix) would be highly extractable. No current result owns a clean, structured snippet on this query.
 - **Difficulty:** Medium. Sweetwater and iZotope have high authority but generic content. Smaller sites like Loopy Demos and RPMusic Studios rank, signaling low competitive pressure. A Fader & Knob piece with concrete knob settings and "recipe card" structure would likely outperform over time.
+
+---
+
+## SERP Analysis — 2026-04-01
+
+### Khruangbin Clean Funk Tone
+
+- **Target query:** "khruangbin guitar tone," "mark speer tone settings"
+- **Top competitors:**
+  - equipboard.com/pros/khruangbin
+  - guitarchalk.com/khruangbin-amp-settings/
+  - musicstrive.com/khruangbin-guitar-tone/
+  - thomann.de/blog/en/gear/hit-the-tone-khruangbin-guitar-magic/
+  - premierguitar.com/videos/rig-rundown/khruangbin
+- **Content gaps found:** No competitor covers modeler/HX Stomp approximation; no budget-path guide; no out-of-phase pickup wiring explanation; no song-by-song breakdown; no flatwound string guidance; Guitar Chalk's mark-speer-specific article is the only direct editorial competitor and it's low-mid authority. Follow-up post idea: "Mark Speer Tone on an HX Stomp Under $200"
+- **Featured snippet opportunity:** Yes — a structured settings table (amp EQ + pedal chain with dial positions) would likely win; no competitor currently owns a clean scannable table for this query
+- **Difficulty:** Medium — Guitar World and Premier Guitar rank on authority (not content relevance); the dedicated editorial guides are from smaller sites and are beatable
+
+---
+
+### Blues Driver BD-2 Settings Guide
+
+- **Target query:** "boss blues driver settings," "bd-2 best settings"
+- **Top competitors:**
+  - guitarchalk.com/boss-bd-2-blues-driver-settings/
+  - articles.boss.info/five-creative-way-to-use-the-bd2-blues-driver/
+  - ultimate-guitar.com forum thread
+  - tdpri.com forum threads (country picking, muddy-high-gain troubleshooting)
+  - thesoundjunky.com/boss-bd-2-blues-driver-pedal-review/
+- **Content gaps found:** No editorial article covers artist-specific BD-2 presets (SRV, Cobain, Gilmour) in a structured table; no BD-2 vs. BD-2W comparison in a single piece; no BD-2 troubleshooting guide (muddy high gain, ice-pick treble); no recording/DI guidance; forum threads dominate parts of the SERP — editorial space is underserved. Follow-up post idea: "BD-2 vs. BD-2W Waza Craft: Which Settings Suit Your Style?"
+- **Featured snippet opportunity:** Yes, strong — a genre × settings table (Genre / Gain / Tone / Level) would displace the current loosely-held Guitar Chalk snippet position
+- **Difficulty:** Low — Guitar Chalk is the main editorial competitor; significant SERP real estate held by forum threads, manufacturer blog posts, and PDFs
+
+---
+
+### Fender Deluxe Reverb Settings
+
+- **Target query:** "deluxe reverb settings," "deluxe reverb best settings"
+- **Top competitors:**
+  - guitarchalk.com/fender-deluxe-reverb-and-fender-telecaster-rig-settings/
+  - boombox.io/blog/how-to-dial-in-a-fender-deluxe-reverb-for-recording/
+  - guitargear.org/2024/02/07/fender-tonemaster-deluxe-reverb-gig-setup/
+  - tdpri.com forum (multiple threads)
+  - harmonycentral.com forum
+- **Content gaps found:** No coverage of Normal vs. Vibrato channel differences with settings; no Bright switch explanation; no settings-by-guitar-type (single coil vs. humbucker) guide; no ToneMaster vs. tube original settings comparison; "366 theory" mentioned only in forums, never in editorial; no bedroom/low-volume settings section. Follow-up post idea: "Fender Deluxe Reverb vs. Fender ToneMaster: Do the Same Settings Sound the Same?"
+- **Featured snippet opportunity:** Yes — a named presets table ("Classic Clean / Edge-of-Breakup / Recording Sparkle" with exact knob positions) would compete directly for a table snippet; no current result owns this format
+- **Difficulty:** Medium — Guitar Chalk and Boombox are the editorial competitors; heavy forum thread presence signals underserved editorial space
+
+---
+
+### Compressor Pedal Settings Guide
+
+- **Target query:** "compressor pedal settings guitar," "how to set compressor guitar"
+- **Top competitors:**
+  - wamplerpedals.com/blog — Compressors for Guitar: A Simple Guide
+  - neuraldsp.com/articles/how-to-use-a-compressor-pedal
+  - articles.boss.info — Five Creative Ways to Use a Compressor Pedal
+  - musicradar.com — Always-On Compression article
+  - izotope.com/en/learn/guitar-compression (DAW-focused)
+  - worshiponline.com — compressor guide for worship
+- **Content gaps found:** No competitor gives named dial presets for specific real pedals (e.g., "Country Chicken-Pick: Boss CS-3 Sustain at 9 o'clock..."); no compressor troubleshooting section ("sounds squashed," "losing attack," "pumping"); no single-coil vs. humbucker threshold guidance; no parallel compression for pedalboard context; "how to set" SERP pulls in DAW results — opportunity for a post bridging pedalboard + modeler + plugin compressors. Follow-up post idea: "Best Compressor Pedals for Country Guitar: Keeley vs. Wampler vs. Boss"
+- **Featured snippet opportunity:** Yes — a "Starting Settings by Style" table (Style / Ratio / Attack / Release) would be a strong table snippet candidate; no current result uses optimized table format at the top of their content
+- **Difficulty:** Medium-high — Wampler, BOSS, and Neural DSP carry brand authority; however, none are dominant editorial publications and the field is fragmented enough to exploit with more specific content
+
+---
+
+### 10 Helix Amp Models You're Not Using
+
+- **Target query:** "best helix amp models," "underrated helix amps"
+- **Top competitors:**
+  - komposition101.com/blog/the-best-helix-amp-models-and-how-to-set-them-up-for-every-genre
+  - line6.com/support community forums (multiple threads)
+  - thegearpage.net forum
+  - helixhelp.com/models (reference database)
+  - jhspedals.info/products/joshs-favorite-amps-helix (product page, not editorial)
+- **Content gaps found:** No editorial content on HX Stomp DSP constraints and which amp models are worth the budget; no Helix Native (plugin) workflow guide; the Litigator (Dumble-style) is widely praised in community threads but has almost no dedicated editorial coverage; no amp + IR pairing guide by model; "decision fatigue" with 111 models is a real reader pain point with zero editorial treatment; Grammatico, Voltage Queen, and Soup Pro models are invisible in editorial despite being community favorites. Follow-up post idea: "Best Helix Cab and IR Pairings for Each Amp Model"
+- **Featured snippet opportunity:** Yes, very high — "underrated helix amps" SERP currently returns only forums and a JHS product page; a structured editorial listicle would likely win the featured snippet with minimal competition
+- **Difficulty:** Low — "underrated helix amps" is essentially an uncontested editorial query; "best helix amp models" is also low-to-medium with only Komposition101 as a true editorial competitor
+
