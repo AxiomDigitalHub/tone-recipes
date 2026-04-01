@@ -271,81 +271,83 @@ export default async function BlogPostPage({
         <span className="truncate text-foreground">{post.title}</span>
       </nav>
 
-      {/* Post header */}
-      <header>
-        <span
-          className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${catColor}`}
-        >
-          {catLabel}
-        </span>
+      {/* Post header — split layout: text left, image right */}
+      <header className={post.image ? "grid gap-8 lg:grid-cols-[1fr,400px] lg:items-start" : ""}>
+        <div>
+          <span
+            className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${catColor}`}
+          >
+            {catLabel}
+          </span>
 
-        <h1 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-          {post.title}
-        </h1>
+          <h1 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+            {post.title}
+          </h1>
 
-        <p className="mt-4 text-lg text-muted">{post.description}</p>
+          <p className="mt-4 text-lg text-muted">{post.description}</p>
 
-        <div className="mt-6 flex items-center gap-4">
-          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-border">
-            {writer.image ? (
-              <Image
-                src={writer.image}
-                alt={writer.name}
-                fill
-                className="object-cover"
-                sizes="48px"
-              />
-            ) : (
-              <div className="flex h-full w-full items-center justify-center bg-accent/10 text-sm font-bold text-accent">
-                {writer.name.charAt(0)}
-              </div>
-            )}
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-foreground">
-              {writer.name}
-              {writer.title && (
-                <span className="ml-2 font-normal text-muted">
-                  {writer.title}
-                </span>
+          <div className="mt-6 flex items-center gap-4">
+            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-border">
+              {writer.image ? (
+                <Image
+                  src={writer.image}
+                  alt={writer.name}
+                  fill
+                  className="object-cover"
+                  sizes="48px"
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center bg-accent/10 text-sm font-bold text-accent">
+                  {writer.name.charAt(0)}
+                </div>
               )}
-            </p>
-            <div className="flex items-center gap-3 text-xs text-muted">
-              <time dateTime={post.date}>{formatDate(post.date)}</time>
-              <span className="text-border">|</span>
-              <span>{post.readingTime}</span>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-foreground">
+                {writer.name}
+                {writer.title && (
+                  <span className="ml-2 font-normal text-muted">
+                    {writer.title}
+                  </span>
+                )}
+              </p>
+              <div className="flex items-center gap-3 text-xs text-muted">
+                <time dateTime={post.date}>{formatDate(post.date)}</time>
+                <span className="text-border">|</span>
+                <span>{post.readingTime}</span>
+              </div>
             </div>
           </div>
+
+          {post.tags.length > 0 && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
 
-        {post.tags.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-2">
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* Hero image */}
+        {/* Hero image — right column on desktop, below header on mobile */}
         {post.image && (
-          <div className="mt-8 relative aspect-[2/1] w-full overflow-hidden rounded-xl bg-surface-hover">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-surface-hover lg:aspect-square">
             <Image
               src={post.image}
               alt={post.imageAlt ?? post.title}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 800px"
+              sizes="(max-width: 1024px) 100vw, 400px"
               priority
             />
           </div>
         )}
 
-        <hr className="mt-8 border-border" />
+        <hr className="mt-4 border-border lg:col-span-full" />
       </header>
 
       {/* Mobile TOC (collapsible, shown below header on small screens) */}
