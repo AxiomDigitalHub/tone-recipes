@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { getAllPosts, BLOG_CATEGORIES } from "@/lib/blog";
 import BlogCard from "@/components/blog/BlogCard";
 
@@ -99,29 +100,42 @@ export default async function BlogPage({
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group flex flex-col rounded-xl border border-border bg-surface p-6 transition-all hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5 md:p-8"
+                className="group flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-all hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
               >
-                <span className="w-fit rounded-full bg-accent/15 px-2.5 py-0.5 text-xs font-medium text-accent">
-                  Featured
-                </span>
-                <h3 className="mt-4 text-2xl font-bold text-foreground transition-colors group-hover:text-accent">
-                  {post.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted line-clamp-3">
-                  {post.description}
-                </p>
-                <div className="mt-auto flex items-center gap-3 pt-5 text-xs text-muted">
-                  <span>
-                    {new Date(post.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })}
+                {post.image && (
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-surface-hover">
+                    <Image
+                      src={post.image}
+                      alt={post.imageAlt ?? post.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                )}
+                <div className="flex flex-1 flex-col p-6 md:p-8">
+                  <span className="w-fit rounded-full bg-accent/15 px-2.5 py-0.5 text-xs font-medium text-accent">
+                    Featured
                   </span>
-                  <span className="text-border">|</span>
-                  <span>{post.readingTime}</span>
-                  <span className="text-border">|</span>
-                  <span>{post.author}</span>
+                  <h3 className="mt-4 text-2xl font-bold text-foreground transition-colors group-hover:text-accent">
+                    {post.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted line-clamp-3">
+                    {post.description}
+                  </p>
+                  <div className="mt-auto flex items-center gap-3 pt-5 text-xs text-muted">
+                    <span>
+                      {new Date(post.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </span>
+                    <span className="text-border">|</span>
+                    <span>{post.readingTime}</span>
+                    <span className="text-border">|</span>
+                    <span>{post.author}</span>
+                  </div>
                 </div>
               </Link>
             ))}
