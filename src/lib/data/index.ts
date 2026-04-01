@@ -6230,7 +6230,7 @@ export const toneRecipes: ToneRecipe[] = [
   {
     id: "seed-hetfield-master-of-puppets",
     song_slug: "master-of-puppets-metallica",
-    title: "Hetfield's Master of Puppets Thrash Rhythm Tone",
+    title: "Master of Puppets Rhythm Tone",
     slug: "hetfield-master-of-puppets-rhythm",
     description:
       "The definitive thrash metal rhythm guitar tone. James Hetfield's sound on Master of Puppets is built on an ESP Explorer with EMG pickups through a Mesa/Boogie Mark IIC+ — a combination that produces a tight, aggressive, scooped-mid tone with razor-sharp pick attack and crushing low end. The Mark IIC+ is the holy grail of metal amps: its lead channel provides high-gain saturation with incredible note definition even at extreme gain levels. Hetfield's relentless downpicking technique is the engine that drives this tone.",
@@ -9493,7 +9493,7 @@ export const toneRecipes: ToneRecipe[] = [
   {
     id: "seed-richards-start-me-up",
     song_slug: "start-me-up-rolling-stones",
-    title: "Keith Richards' Start Me Up Open-G Riff Tone",
+    title: "Start Me Up Open-G Riff Tone",
     slug: "richards-start-me-up-open-g",
     description:
       "Keith Richards' tone on Start Me Up is the sound of rock and roll rhythm guitar stripped to its essence. A Telecaster in open-G tuning (with the low E string removed, making it a 5-string guitar) through a cranked Fender Twin Reverb. The open tuning allows Richards to play full, ringing chords with a single finger barred across the fretboard, creating a big, open sound. The Twin Reverb's clean headroom preserves the jangly brightness of the Telecaster, while the slight natural breakup from playing hard gives it attitude.",
@@ -10301,7 +10301,7 @@ export const toneRecipes: ToneRecipe[] = [
   {
     id: "seed-page-stairway-to-heaven",
     song_slug: "stairway-to-heaven-led-zeppelin",
-    title: "Jimmy Page's Stairway to Heaven Clean-to-Build Tone",
+    title: "Stairway to Heaven Clean Build Tone",
     slug: "page-stairway-to-heaven-clean-build",
     description:
       "The arpeggiated intro to Stairway to Heaven uses a Telecaster through a small Supro amp for a warm, clean tone with subtle compression. As the song builds, the tone gradually shifts from clean fingerpicking to heavier strumming. The famous solo section uses a Les Paul through a cranked Marshall for a completely different character -- singing sustain with aggressive attack.",
@@ -10985,7 +10985,7 @@ export const toneRecipes: ToneRecipe[] = [
   {
     id: "seed-greenwood-creep",
     song_slug: "creep-radiohead",
-    title: "Jonny Greenwood's Creep Clean-to-Crunch Tone",
+    title: "Creep Clean-to-Crunch Tone",
     slug: "greenwood-creep-clean-to-crunch",
     description:
       "Creep's dynamic shift from delicate clean arpeggios to crushing distorted chords is one of the most dramatic in rock. Greenwood's Telecaster Plus runs through a Fender Eighty Five amp for the clean verses. Before each chorus, he smashes the strings with a Marshall Shredmaster engaged, creating that iconic crunching noise that signals the heavy section. The contrast between whisper-quiet cleans and massive distortion defines the song.",
@@ -11899,7 +11899,7 @@ export const toneRecipes: ToneRecipe[] = [
   {
     id: "seed-gary-clark-bright-lights",
     song_slug: "bright-lights-gary-clark-jr",
-    title: "Gary Clark Jr.'s Bright Lights Modern Blues Tone",
+    title: "Bright Lights Modern Blues Tone",
     slug: "gary-clark-bright-lights-modern-blues",
     description:
       "Gary Clark Jr.'s tone on Bright Lights is a modern take on classic blues guitar. An SG through a Fender Vibro-King produces a warm, fat clean tone that breaks up beautifully when he digs in. The tone has more midrange warmth than a typical Fender clean, thanks to the SG's humbuckers. Clark uses a Tube Screamer-style overdrive for solo boosts, pushing the amp into rich, singing sustain.",
@@ -12033,7 +12033,7 @@ export const toneRecipes: ToneRecipe[] = [
   {
     id: "seed-bonamassa-sloe-gin",
     song_slug: "sloe-gin-joe-bonamassa",
-    title: "Joe Bonamassa's Sloe Gin Blues-Rock Lead Tone",
+    title: "Sloe Gin Blues-Rock Lead Tone",
     slug: "bonamassa-sloe-gin-blues-rock-lead",
     description:
       "Sloe Gin features Bonamassa's signature blues-rock lead tone: a vintage Les Paul through a Marshall and Dumble blend that produces a thick, creamy sustain with singing upper harmonics. The tone is rich and saturated but never loses note definition. Bonamassa's precise vibrato and dynamic control bring each note to life with an expressiveness that bridges classic Clapton-era blues with modern production values.",
