@@ -29,6 +29,8 @@ export default function BrowseContent() {
   const { preferredPlatform } = usePlatformStore();
   const hasAppliedPreference = useRef(false);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [genreSearch, setGenreSearch] = useState("");
+  const [showAllGenres, setShowAllGenres] = useState(false);
 
   // Auto-apply preferred platform filter on first load
   useEffect(() => {
@@ -41,6 +43,33 @@ export default function BrowseContent() {
   }, []);
 
   const genres = useMemo(() => getAllGenres(), []);
+
+  // Count recipes per genre and sort by count descending
+  const genreCounts = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const recipe of toneRecipes) {
+      const song = songs.find((s) => s.slug === recipe.song_slug);
+      if (song) {
+        for (const genre of song.genres) {
+          counts.set(genre, (counts.get(genre) ?? 0) + 1);
+        }
+      }
+    }
+    return counts;
+  }, []);
+
+  const sortedFilteredGenres = useMemo(() => {
+    const sorted = [...genres].sort(
+      (a, b) => (genreCounts.get(b) ?? 0) - (genreCounts.get(a) ?? 0)
+    );
+    if (!genreSearch.trim()) return sorted;
+    const q = genreSearch.toLowerCase().trim();
+    return sorted.filter((g) => g.toLowerCase().includes(q));
+  }, [genres, genreCounts, genreSearch]);
+
+  const visibleGenres = showAllGenres
+    ? sortedFilteredGenres
+    : sortedFilteredGenres.slice(0, 8);
 
   const hasActiveFilters = genreFilter !== null || platformFilter !== null;
 
@@ -91,6 +120,16 @@ export default function BrowseContent() {
         <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">
           Genre
         </h3>
+        <input
+          type="text"
+          placeholder="Search genres…"
+          value={genreSearch}
+          onChange={(e) => {
+            setGenreSearch(e.target.value);
+            setShowAllGenres(true);
+          }}
+          className="mb-2 w-full rounded-lg border border-border bg-surface px-3 py-1.5 text-xs text-foreground placeholder:text-muted/60 outline-none transition-colors hover:border-accent/40 focus:border-accent"
+        />
         <div className="flex flex-wrap gap-1.5">
           <button
             onClick={() => setGenreFilter(null)}
@@ -102,7 +141,7 @@ export default function BrowseContent() {
           >
             All
           </button>
-          {genres.map((genre) => (
+          {visibleGenres.map((genre) => (
             <button
               key={genre}
               onClick={() => setGenreFilter(genre)}
@@ -112,10 +151,20 @@ export default function BrowseContent() {
                   : "border border-border text-muted hover:border-accent/60 hover:text-accent"
               }`}
             >
-              {genre}
+              {genre} ({genreCounts.get(genre) ?? 0})
             </button>
           ))}
         </div>
+        {!genreSearch.trim() && sortedFilteredGenres.length > 8 && (
+          <button
+            onClick={() => setShowAllGenres(!showAllGenres)}
+            className="mt-2 text-xs font-medium text-accent hover:underline"
+          >
+            {showAllGenres
+              ? "Show less"
+              : `Show all ${sortedFilteredGenres.length} genres`}
+          </button>
+        )}
       </div>
 
       {/* Platform */}

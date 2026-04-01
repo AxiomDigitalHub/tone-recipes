@@ -318,6 +318,16 @@ export default function UnifiedChainView({
       : "physical";
   const [activeTab, setActiveTab] = useState<"physical" | Platform>(initialTab);
   const [selectedNodeIndex, setSelectedNodeIndex] = useState<number | null>(null);
+  const [hasUserSwitchedTab, setHasUserSwitchedTab] = useState(false);
+
+  // Sync active tab when Zustand store hydrates from localStorage.
+  // Only auto-switch if the user hasn't manually changed tabs yet.
+  useEffect(() => {
+    if (hasUserSwitchedTab) return;
+    if (preferredPlatform && availablePlatforms.includes(preferredPlatform as Platform)) {
+      setActiveTab(preferredPlatform as Platform);
+    }
+  }, [preferredPlatform, hasUserSwitchedTab]); // eslint-disable-line react-hooks/exhaustive-deps
   const [isFullscreen, setIsFullscreen] = useState(false);
   const { user } = useAuth();
   const userRole = user?.role ?? "free";
@@ -361,6 +371,7 @@ export default function UnifiedChainView({
   function handleTabSwitch(tab: "physical" | Platform) {
     setActiveTab(tab);
     setSelectedNodeIndex(null);
+    setHasUserSwitchedTab(true);
   }
 
   // Selected node data for detail drawer

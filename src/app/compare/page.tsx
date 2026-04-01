@@ -104,6 +104,82 @@ function CompareContent() {
               ? "Pick two recipes above to start comparing."
               : "Select a second recipe to see the comparison."}
           </p>
+
+          {!slugA && !slugB && (
+            <div className="mt-10">
+              <h2 className="mb-1 text-lg font-semibold text-foreground">
+                Popular Comparisons
+              </h2>
+              <p className="mb-6 text-sm text-muted">
+                Not sure where to start? Try one of these curated matchups.
+              </p>
+              <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {[
+                  {
+                    title: "Clean vs Dirty Blues",
+                    a: "srv-pride-and-joy-rhythm",
+                    b: "gary-clark-bright-lights-modern-blues",
+                    nameA: "SRV — Pride and Joy",
+                    nameB: "Gary Clark Jr — Bright Lights",
+                  },
+                  {
+                    title: "British vs American Rock",
+                    a: "back-in-black-ac-dc",
+                    b: "master-of-puppets-metallica",
+                    nameA: "AC/DC — Back in Black",
+                    nameB: "Metallica — Master of Puppets",
+                  },
+                  {
+                    title: "Two Sides of Gilmour",
+                    a: "gilmour-comfortably-numb-solo",
+                    b: "gilmour-shine-on-sustain",
+                    nameA: "Comfortably Numb Solo",
+                    nameB: "Shine On Sustain",
+                  },
+                  {
+                    title: "Clean Strat Showdown",
+                    a: "mayer-gravity-clean-dynamic",
+                    b: "frusciante-under-the-bridge-clean",
+                    nameA: "John Mayer — Gravity",
+                    nameB: "Frusciante — Under the Bridge",
+                  },
+                  {
+                    title: "Classic Rock Riffs",
+                    a: "angus-thunderstruck-tapping-intro",
+                    b: "eruption-van-halen",
+                    nameA: "Angus Young — Thunderstruck",
+                    nameB: "Eddie Van Halen — Eruption",
+                  },
+                  {
+                    title: "Blues Legends",
+                    a: "layla-derek-and-the-dominos",
+                    b: "the-thrill-is-gone-bb-king",
+                    nameA: "Clapton — Layla",
+                    nameB: "BB King — Thrill Is Gone",
+                  },
+                ].map((comp) => (
+                  <Link
+                    key={comp.a}
+                    href={`/compare?a=${comp.a}&b=${comp.b}`}
+                    className="group rounded-lg border border-border bg-background/50 p-4 text-left transition-colors hover:border-accent/50 hover:bg-accent/5"
+                  >
+                    <p className="mb-2 text-sm font-semibold text-accent">
+                      {comp.title}
+                    </p>
+                    <p className="text-xs text-muted">
+                      {comp.nameA}
+                    </p>
+                    <p className="my-1 text-[10px] font-medium uppercase tracking-widest text-muted/60">
+                      vs
+                    </p>
+                    <p className="text-xs text-muted">
+                      {comp.nameB}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
