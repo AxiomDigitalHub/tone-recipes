@@ -236,9 +236,9 @@ export default function Home() {
             ].map((pain) => (
               <div
                 key={pain}
-                className="rounded-xl border border-border bg-surface p-5"
+                className="rounded-xl border border-border bg-surface p-6"
               >
-                <p className="text-sm text-muted">{pain}</p>
+                <p className="text-base font-medium text-foreground md:text-lg">{pain}</p>
               </div>
             ))}
           </div>
@@ -292,17 +292,23 @@ export default function Home() {
               {
                 title: "Less time tweaking",
                 desc: 'Exact settings for your specific platform. No more guessing what "medium gain" means on your amp model.',
+                icon: <Clock className="h-8 w-8 text-accent" />,
               },
               {
                 title: "Understand why it works",
                 desc: "We explain the reasoning behind every setting. You\u2019ll build better tones on your own over time.",
+                icon: <Zap className="h-8 w-8 text-accent" />,
               },
               {
                 title: "Works on your rig",
                 desc: "Physical board, Line 6, Neural, Boss \u2014 every recipe translates across all major platforms.",
+                icon: <Speaker className="h-8 w-8 text-accent" />,
               },
             ].map((pillar) => (
               <div key={pillar.title} className="text-center">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10">
+                  {pillar.icon}
+                </div>
                 <h3 className="text-lg font-semibold">{pillar.title}</h3>
                 <p className="mt-2 text-sm text-muted">{pillar.desc}</p>
               </div>
