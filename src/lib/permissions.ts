@@ -26,15 +26,16 @@ export const TIERS: Record<UserRole, TierConfig> = {
     price: null,
     features: [
       "Browse all tone recipes",
-      "View physical signal chains",
-      "View 1 platform translation per recipe",
+      "All platform translations (Helix, QC, TONEX, Fractal, Kemper, Katana)",
+      "Download recipe PDFs (with email)",
+      "10 free preset downloads (.hlx, .json, .tsl)",
       "Save up to 5 recipes",
       "Read blog & community forum",
       "Comment on recipes",
     ],
     limits: {
       savedRecipes: 5,
-      platformTranslations: false,
+      platformTranslations: true,
       downloadPresets: false,
       submitRecipes: false,
       recipeAnalytics: false,
@@ -48,8 +49,7 @@ export const TIERS: Record<UserRole, TierConfig> = {
     price: 9,
     features: [
       "Everything in Free",
-      "All platform translations (Helix, QC, TONEX, Fractal, Kemper, Katana)",
-      "Download presets (.hlx, .json, .tsl)",
+      "Unlimited preset downloads (.hlx, .json, .tsl)",
       "Unlimited saved recipes",
       "Ad-free experience",
       "Priority community support",
@@ -140,8 +140,8 @@ export function isAtLeast(role: UserRole, minimum: UserRole): boolean {
   return order.indexOf(role) >= order.indexOf(minimum);
 }
 
-/** Number of platform tabs a free user can see (physical + 1 platform) */
-export const FREE_PLATFORM_LIMIT = 1;
+/** @deprecated All platforms are now free — gating is on downloads only */
+export const FREE_PLATFORM_LIMIT = Infinity;
 
 /** Number of free preset downloads before requiring premium */
 export const FREE_DOWNLOAD_LIMIT = 10;
