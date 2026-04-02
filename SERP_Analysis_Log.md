@@ -373,3 +373,81 @@
 - **Featured snippet opportunity:** Yes, very high — "underrated helix amps" SERP currently returns only forums and a JHS product page; a structured editorial listicle would likely win the featured snippet with minimal competition
 - **Difficulty:** Low — "underrated helix amps" is essentially an uncontested editorial query; "best helix amp models" is also low-to-medium with only Komposition101 as a true editorial competitor
 
+
+---
+
+## SERP Analysis — 2026-04-02
+
+### Kemper Profiles vs. Helix Models: A Tone Comparison
+
+- **Target query:** "kemper vs helix tone," "kemper profiles vs helix"
+- **Top competitors:**
+  - joeysturgistones.com/blogs/learn/which-is-the-better-amp-modeler-kemper-vs-helix
+  - guitarchalk.com/line-6-helix-vs-kemper-profiler/
+  - producerhive.com/buyer-guides/amplifiers/kemper-profiler-vs-line-6-helix/
+  - guitarguitar.co.uk (Quad Cortex vs Helix vs Kemper guide)
+  - sweetwater.com/insync/top-amp-modelers-compared/ (roundup format)
+- **Content gaps found:** Most competitors focus on buying decisions (specs, price, ease of use) rather than granular tonal character analysis. Very few pages specifically address how each sounds under dynamic playing conditions (guitar volume rollback, stacking drives). "Kemper profiles vs helix models" as a direct comparison of the two technologies is almost entirely absent from editorial content — most pages conflate the units themselves with the underlying architecture. Follow-up post idea: "When Kemper Profiles Beat Helix Models (And When They Don't)"
+- **Featured snippet opportunity:** Yes — "kemper profiles vs helix" returns mostly forum threads and buying guides. A structured comparison table answering the tonal character question directly would likely win the snippet.
+- **Difficulty:** Medium — dominated by established gear publications (Sweetwater, Guitar World, Guitar Chalk), but none take the specific "profiles vs models as technology" angle we cover.
+
+---
+
+### ToneX Tone Models: How to Choose the Right One
+
+- **Target query:** "tonex best tone models," "tonex how to use"
+- **Top competitors:**
+  - ikmultimedia.com product pages (official docs, not editorial)
+  - sweetwater.com/sweetcare/articles/ik-multimedia-tonex-pedal-setup-guide/
+  - musictech.com/reviews/plug-ins/ik-multimedia-tonex-review/
+  - guitarworld.com/reviews/ik-multimedia-tonex-review
+  - guitar.com (Tonex One review)
+- **Content gaps found:** Nearly all coverage is either setup guides or unit reviews — almost no editorial content on how to evaluate and choose among the 20,000+ community tone models. The "how to find a good tone model" question (what to listen for, how to audition, how to avoid bad captures) is completely unaddressed editorially. Bedroom/studio-first framing is absent (all coverage assumes live or session context). Follow-up post idea: "How to Capture Your Own Amp with ToneX: A Step-by-Step Guide"
+- **Featured snippet opportunity:** Yes — "tonex best tone models" and "how to choose tonex models" return almost no editorial content. A structured guide with a decision table would likely win the snippet.
+- **Difficulty:** Low — the ToneX ecosystem is growing but editorial coverage is still thin. This is a genuine gap.
+
+---
+
+### Fix Your Fizzy High Gain in 2 Minutes
+
+- **Target query:** "high gain fizzy fix," "distortion sounds fizzy"
+- **Top competitors:**
+  - forum.fractalaudio.com (forum threads, not editorial)
+  - joeysturgistones.com/blogs/learn/pro-tips-for-fixing-awful-guitar-tone
+  - harmonycentral.com (forum discussion)
+  - gearspace.com (forum discussion)
+  - marshallforum.com (forum discussion)
+- **Content gaps found:** The SERP for "high gain fizzy fix" is almost entirely forum threads and community discussions — no structured editorial content with numbered steps and specific settings. The frequency-specific analysis (which band, which cut amount) is scattered across forum posts with no synthesis. The distinction between modeler fizz and pedal/amp fizz is never made editorially. Follow-up post idea: "Dialing In Drop-Tuned High Gain: A Frequency-By-Frequency Guide"
+- **Featured snippet opportunity:** Yes, very high — "high gain fizzy fix" returns zero editorial content above forums. A numbered list with specific settings would likely win the snippet with minimal competition.
+- **Difficulty:** Low — essentially zero editorial competition. This is a high-intent, low-competition query.
+
+---
+
+### Your Reverb Sounds Washed Out: The Decay and Mix Fix
+
+- **Target query:** "reverb too much," "reverb settings too washy"
+- **Top competitors:**
+  - worshiponline.com/is-your-guitar-tone-too-wet-how-to-dial-delay-and-reverb/
+  - masteringthemix.com/blogs/learn/how-to-solve-reverb-overload-issues (mixing-focused, not guitar-specific)
+  - ledgernote.com/columns/mixing-mastering/mixing-with-reverb/ (mixing-focused)
+  - musicguymixing.com/muddy-mix/ (mixing-focused)
+  - flypaper.soundfly.com/produce/7-reverb-mistakes/ (mixing-focused)
+- **Content gaps found:** Almost all "reverb too much" content is about mix production, not guitar player settings. The live guitar player angle (playing in a room with natural reverb, worship context, rehearsal) is almost entirely absent. The pre-delay explanation for live guitarists (why it matters for note clarity on a live stage) is not addressed editorially. Follow-up post idea: "How to Set Reverb for a Live Room vs. a Dead Room"
+- **Featured snippet opportunity:** Yes — the guitar-specific "reverb sounds washed out" query is almost entirely unanswered by editorial content. Most results address studio mixing. A guitar-focused answer would likely win the snippet.
+- **Difficulty:** Low to medium — some established mixing sites rank for these queries, but none address the guitar player's specific context.
+
+---
+
+### Tube Screamer vs. Klon vs. Blues Driver: Same Amp, Three Pedals
+
+- **Target query:** "tube screamer vs klon," "ts808 vs blues driver"
+- **Top competitors:**
+  - guitarstrive.com/overdrive-battlefield/ (direct competitor)
+  - prosoundhq.com/tube-screamer-vs-klon-overdrive-pedal-which-is-best/
+  - deathcloud.com/blogs/info/tube-screamer-vs-klon-style-overdrive-what-are-the-differences
+  - guitarworld.com/features/ibanez-tube-screamer-vs-boss-blues-driver (partial overlap)
+  - samgoffenguitar.com (TS vs Klon vs Nobels)
+- **Content gaps found:** Most competitors compare pedals in isolation or as buying guides ("which should I buy?") rather than on the same amp with the same settings. The "same amp, three pedals" isolation methodology is absent from all competitors. The clipping type analysis (soft vs. hard) is covered, but the frequency-specific midrange comparison (where exactly each pedal's EQ effect lives) is not. People Also Ask shows: "Which is better Klon or Tube Screamer?" "Does the Blues Driver sound like a Tube Screamer?" Follow-up post idea: "What Happens When You Stack These Three: TS + Klon Together Into a Marshall"
+- **Featured snippet opportunity:** Yes — "tube screamer vs klon vs blues driver" returns a mix of forum posts and editorial buying guides. A structured comparison table with the "same amp" methodology would likely win the snippet.
+- **Difficulty:** Medium — some established editorial competition (Guitar World, Guitar Strive), but none use the controlled-variable approach we've taken.
+

@@ -202,21 +202,21 @@ These fill the biggest gaps and create cluster anchors for future content.
 | # | Topic | Target Query | Writer |
 |---|---|---|---|
 | P3-10 | 10 Helix Amp Models You're Not Using (But Should Be) ✅ PUBLISHED | "best helix amp models," "underrated helix amps" | Sean Nakamura |
-| P3-11 | Kemper Profiles vs. Helix Models: A Tone Comparison | "kemper vs helix tone," "kemper profiles vs helix" | Sean Nakamura |
-| P3-12 | ToneX Tone Models: How to Choose the Right One | "tonex best tone models," "tonex how to use" | Dev Okonkwo |
+| P3-11 | Kemper Profiles vs. Helix Models: A Tone Comparison ✅ PUBLISHED | "kemper vs helix tone," "kemper profiles vs helix" | Sean Nakamura |
+| P3-12 | ToneX Tone Models: How to Choose the Right One ✅ PUBLISHED | "tonex best tone models," "tonex how to use" | Dev Okonkwo |
 
 ### Quick Fixes (Pillar 6) — 2 Posts
 
 | # | Topic | Target Query | Writer |
 |---|---|---|---|
-| P3-13 | Fix Your Fizzy High Gain in 2 Minutes | "high gain fizzy fix," "distortion sounds fizzy" | Viktor Kessler |
-| P3-14 | Your Reverb Sounds Washed Out: The Decay and Mix Fix | "reverb too much," "reverb settings too washy" | Nathan Cross |
+| P3-13 | Fix Your Fizzy High Gain in 2 Minutes ✅ PUBLISHED | "high gain fizzy fix," "distortion sounds fizzy" | Viktor Kessler |
+| P3-14 | Your Reverb Sounds Washed Out: The Decay and Mix Fix ✅ PUBLISHED | "reverb too much," "reverb settings too washy" | Nathan Cross |
 
 ### Gear Lab (Pillar 5) — 2 Posts
 
 | # | Topic | Target Query | Writer |
 |---|---|---|---|
-| P3-15 | Tube Screamer vs. Klon vs. Blues Driver: Same Amp, Three Pedals | "tube screamer vs klon," "ts808 vs blues driver" | Rick Dalton + Margot Thiessen (crossover) |
+| P3-15 | Tube Screamer vs. Klon vs. Blues Driver: Same Amp, Three Pedals ✅ PUBLISHED | "tube screamer vs klon," "ts808 vs blues driver" | Rick Dalton + Margot Thiessen (crossover) |
 | P3-16 | Does Cable Length Actually Affect Tone? We Measured It | "cable length tone guitar," "does guitar cable matter" | Viktor Kessler |
 
 ---
@@ -425,3 +425,13 @@ Based on the competitive analysis, avoid these formats:
 | 3 | Fender Deluxe Reverb vs. Fender ToneMaster: Do the Same Settings Sound the Same? | "tonemaster deluxe reverb settings," "fender tonemaster vs deluxe reverb tone" | Hank Presswood | 5 — Gear Lab | Deluxe Reverb SERP — the ToneMaster digital version appears in results but no article compares its settings behavior vs. the tube original; a side-by-side with the same knob positions and honest assessment of where they diverge is a clear editorial gap that Hank is uniquely positioned to write |
 | 4 | Why Your Compressor Is Killing Your Tone (and How to Fix It) | "compressor killing guitar tone," "too much compression guitar" | Carl Beckett | 6 — Quick Fixes | Compressor SERP — "sounds squashed," "losing pick attack," and "pumping compression" are recurring pain points in forum threads that rank alongside editorial results; no editorial piece addresses compressor troubleshooting directly; this pairs naturally with the compressor settings guide as a "what went wrong" companion |
 | 5 | Best Helix Cab and IR Pairings for Each Amp Model | "helix ir pairing guide," "best ir for helix amp models" | Sean Nakamura | 4 — Modeler Masterclass | Helix underrated amps SERP — amp + IR pairing is the single most-referenced follow-up question in community discussions but has zero editorial coverage; the Helix Help reference database ranks as a top result, signaling users are going to raw data because no guide exists; this completes the "amp selection → IR pairing" workflow in a single reference post |
+
+## SERP-Derived Topics — 2026-04-02
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | When Kemper Profiles Beat Helix Models (And When They Don't) | "kemper profiles vs helix models tone," "is kemper better than helix for tone" | Sean Nakamura | 4 — Modeler Masterclass | Kemper vs. Helix SERP — no editorial content addresses the specific conditions under which profiling beats component modeling; forums show consistent demand for this nuanced take; "when does each win?" is the unanswered question in all SERP results |
+| 2 | How to Capture Your Own Amp with ToneX: A Step-by-Step Guide | "how to capture amp with tonex," "tonex capture tutorial" | Dev Okonkwo | 4 — Modeler Masterclass | ToneX SERP — the capture workflow is covered only in manufacturer docs and setup guides, never in editorial step-by-step form; bedroom/home studio framing is absent from all current results; high search intent from ToneX buyers |
+| 3 | Dialing In Drop-Tuned High Gain: A Frequency-By-Frequency Guide | "drop tuning high gain tone," "djent tone eq settings," "7 string high gain settings" | Viktor Kessler | 3 — Signal Chain & Tone Theory | High-gain fizzy SERP — drop-tuned frequency management is a secondary topic in most fizz discussions but never the primary subject; "djent tone eq" and "7 string settings" queries are dominated by forum threads and YouTube; a structured frequency guide from Viktor would be definitive |
+| 4 | How to Set Reverb for a Live Room vs. a Dead Room | "reverb settings live room," "how much reverb live vs dead room" | Nathan Cross | 3 — Signal Chain & Tone Theory | Reverb washed-out SERP — almost all content treats reverb as a studio mixing problem; the live guitarist's specific challenge (stacking pedal reverb on top of room reverb) is unaddressed; Nathan's live service context makes this uniquely authentic |
+| 5 | What Happens When You Stack a TS and a Klon Together Into a Marshall | "tube screamer and klon stacked," "stacking overdrives into marshall" | Rick Dalton | 3 — Signal Chain & Tone Theory | TS vs. Klon SERP — People Also Ask shows "can you stack a Tube Screamer and Klon?" as a top question with zero editorial answers; Rick is the natural voice for this experiment with his Marshall Super Lead; cross-pillar content (Gear Lab methodology + Signal Chain theory) |
