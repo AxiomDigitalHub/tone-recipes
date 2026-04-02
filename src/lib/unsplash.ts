@@ -84,8 +84,8 @@ const CATEGORY_IMAGES: Record<string, string[]> = {
     "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
   ],
   "new-gear": [
-    "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=800&q=80",
-    "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
+    "https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?w=800&q=80",
+    "https://images.unsplash.com/photo-1614413970863-2b4b38b30d7c?w=800&q=80",
     "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80",
   ],
   industry: [
@@ -94,15 +94,15 @@ const CATEGORY_IMAGES: Record<string, string[]> = {
     "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80",
   ],
   tips: [
-    "https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=800&q=80",
+    "https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?w=800&q=80",
     "https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?w=800&q=80",
-    "https://images.unsplash.com/photo-1596003906949-67221c37965c?w=800&q=80",
+    "https://images.unsplash.com/photo-1650048555068-5aa4bed8e4c8?w=800&q=80",
   ],
 };
 
 const GENERIC_IMAGES = [
-  "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=800&q=80",
-  "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
+  "https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?w=800&q=80",
+  "https://images.unsplash.com/photo-1614413970863-2b4b38b30d7c?w=800&q=80",
   "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80",
 ];
 
