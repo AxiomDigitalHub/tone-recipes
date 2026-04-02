@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import LazySearchPalette from "@/components/search/LazySearchPalette";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AuthProvider } from "@/lib/auth/auth-context";
 import "./globals.css";
 
@@ -86,6 +87,7 @@ export default function RootLayout({
           <Footer />
         </AuthProvider>
         <Analytics />
+        <SpeedInsights />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-PZLWYT7VMP"
           strategy="lazyOnload"
