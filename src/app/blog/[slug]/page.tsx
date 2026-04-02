@@ -84,7 +84,7 @@ function extractHeadings(markdown: string): TocItem[] {
     const id = text
       .toLowerCase()
       .replace(/[^a-z0-9\s-]/g, "")
-      .replace(/\s+/g, "-");
+      .replace(/ /g, "-");
     items.push({ id, text, level });
   }
   return items;
@@ -343,6 +343,7 @@ export default async function BlogPostPage({
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 400px"
               priority
+              unoptimized
             />
           </div>
         )}
