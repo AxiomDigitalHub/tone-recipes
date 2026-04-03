@@ -183,30 +183,32 @@ export default async function RecipePage({ params }: RecipePageProps) {
         {song && <span className="text-foreground">{song.title}</span>}
       </nav>
 
-      {/* Title row: album art + title + actions */}
-      <div className="mb-3 flex items-center gap-3">
-        {song?.album_art_url && !song.spotify_track_id && (
-          <Image
-            src={song.album_art_url}
-            alt={`${song.album} album art`}
-            width={48}
-            height={48}
-            priority
-            className="hidden sm:block rounded-md border border-border shadow-sm"
-            sizes="48px"
-          />
-        )}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2">
-            <h1 className="text-xl font-bold md:text-2xl leading-tight">{recipe.title}</h1>
-            <VerificationBadge level={getVerificationLevel(recipe)} size="md" />
+      {/* Title + actions — stacks on mobile, row on desktop */}
+      <div className="mb-3">
+        <div className="flex items-start gap-3">
+          {song?.album_art_url && !song.spotify_track_id && (
+            <Image
+              src={song.album_art_url}
+              alt={`${song.album} album art`}
+              width={48}
+              height={48}
+              priority
+              className="hidden sm:block rounded-md border border-border shadow-sm mt-1"
+              sizes="48px"
+            />
+          )}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h1 className="text-xl font-bold md:text-2xl leading-tight">{recipe.title}</h1>
+              <VerificationBadge level={getVerificationLevel(recipe)} size="md" />
+            </div>
+            <p className="mt-0.5 text-sm text-muted">
+              {artist?.name && <span className="text-accent">{artist.name}</span>}
+              {song && <> &middot; {song.title} ({song.year})</>}
+            </p>
           </div>
-          <p className="mt-0.5 text-sm text-muted">
-            {artist?.name && <span className="text-accent">{artist.name}</span>}
-            {song && <> &middot; {song.title} ({song.year})</>}
-          </p>
         </div>
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="mt-3 flex flex-wrap items-center gap-2">
           <Link
             href={`/compare?a=${recipe.slug}`}
             className="rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-medium text-muted transition-colors hover:border-accent/40 hover:text-foreground"
@@ -215,8 +217,8 @@ export default async function RecipePage({ params }: RecipePageProps) {
           </Link>
           <FavoriteButton slug={recipe.slug} size="md" />
           <DownloadRecipePDF recipeSlug={recipe.slug} />
+          <DownloadCounter />
         </div>
-        <DownloadCounter className="mt-2" />
       </div>
 
       {/* Spotify Player */}
