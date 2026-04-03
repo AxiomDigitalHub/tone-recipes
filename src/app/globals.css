@@ -126,6 +126,22 @@ body {
 .prose-dark a:hover {
   color: var(--color-accent-hover);
 }
+/* Heading autolinks: keep heading styles, subtle link indicator on hover */
+.prose-dark h1 > a,
+.prose-dark h2 > a,
+.prose-dark h3 > a,
+.prose-dark h4 > a {
+  color: inherit;
+  text-decoration: none;
+}
+.prose-dark h1 > a:hover,
+.prose-dark h2 > a:hover,
+.prose-dark h3 > a:hover,
+.prose-dark h4 > a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 4px;
+}
 .prose-dark strong {
   color: var(--color-foreground);
   font-weight: 600;

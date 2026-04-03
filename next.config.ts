@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         destination: "/blog/jcm800-settings-guide",
         permanent: true,
       },
+      {
+        source: "/platforms/quad-cortex",
+        destination: "/platforms/quad_cortex",
+        permanent: true,
+      },
     ];
   },
   images: {

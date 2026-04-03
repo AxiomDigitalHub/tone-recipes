@@ -378,7 +378,10 @@ export default async function BlogPostPage({
               options={{
                 mdxOptions: {
                   remarkPlugins: [remarkGfm],
-                  rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+                  rehypePlugins: [
+                    rehypeSlug,
+                    [rehypeAutolinkHeadings, { behavior: "wrap" }],
+                  ],
                 },
               }}
             />

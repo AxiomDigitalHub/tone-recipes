@@ -565,7 +565,7 @@ export default function NewRecipePage() {
             className={inputCls + " min-h-[80px]"}
             value={form.sources}
             onChange={(e) => update("sources", e.target.value)}
-            placeholder={"https://www.guitarworld.com/...\nhttps://equipboard.com/..."}
+            placeholder={"https://equipboard.com/...\nhttps://www.gilmourish.com/..."}
           />
         </div>
       </div>

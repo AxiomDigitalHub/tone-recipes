@@ -2483,9 +2483,7 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["blues", "texas-blues", "overdrive", "clean-boost", "shuffle", "srv"],
     sources: [
-      "https://www.guitarworld.com/features/stevie-ray-vaughan-gear-rig",
       "https://equipboard.com/pros/stevie-ray-vaughan",
-      "https://www.premierguitar.com/artists/stevie-ray-vaughan-rig-rundown",
     ],
     platform_translations: {
       helix: {
@@ -2805,7 +2803,6 @@ export const toneRecipes: ToneRecipe[] = [
     sources: [
       "https://www.gilmourish.com/",
       "https://equipboard.com/pros/david-gilmour",
-      "https://www.guitarworld.com/features/david-gilmour-gear",
     ],
     platform_translations: {
       helix: {
@@ -3105,8 +3102,6 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["rock", "psychedelic", "fuzz", "wah", "hendrix", "blues-rock"],
     sources: [
       "https://equipboard.com/pros/jimi-hendrix",
-      "https://www.guitarworld.com/features/jimi-hendrix-gear-guide",
-      "https://www.premierguitar.com/artists/jimi-hendrix-tone",
     ],
     platform_translations: {
       helix: {
@@ -3404,8 +3399,6 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["grunge", "alternative", "distortion", "chorus", "cobain", "punk"],
     sources: [
       "https://equipboard.com/pros/kurt-cobain",
-      "https://www.guitarworld.com/features/kurt-cobain-gear-nirvana",
-      "https://www.premierguitar.com/artists/kurt-cobain-rig",
     ],
     platform_translations: {
       helix: {
@@ -3704,8 +3697,6 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["alternative", "clean", "chorus", "funk-rock", "frusciante", "rock"],
     sources: [
       "https://equipboard.com/pros/john-frusciante",
-      "https://www.guitarworld.com/features/john-frusciante-gear-guide",
-      "https://www.premierguitar.com/artists/john-frusciante-rig-rundown",
     ],
     platform_translations: {
       helix: {
@@ -3988,7 +3979,6 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["hard-rock", "rock", "lead", "marshall", "les-paul", "slash"],
     sources: [
       "https://equipboard.com/pros/slash",
-      "https://www.guitarworld.com/features/slash-gear-guide",
     ],
     platform_translations: {
       helix: {
@@ -4250,7 +4240,6 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["hard-rock", "rock", "tapping", "brown-sound", "evh", "van-halen"],
     sources: [
       "https://equipboard.com/pros/eddie-van-halen",
-      "https://www.guitarworld.com/features/eddie-van-halen-gear-tone",
     ],
     platform_translations: {
       helix: {
@@ -4543,7 +4532,6 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["rock", "delay", "atmospheric", "post-punk", "u2", "edge", "textural"],
     sources: [
       "https://equipboard.com/pros/the-edge",
-      "https://www.guitarworld.com/features/the-edge-gear-guide",
     ],
     platform_translations: {
       helix: {
@@ -4843,7 +4831,6 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["blues-rock", "pop-rock", "overdrive", "clean-boost", "mayer", "strat"],
     sources: [
       "https://equipboard.com/pros/john-mayer",
-      "https://www.guitarworld.com/features/john-mayer-gear-continuum",
     ],
     platform_translations: {
       helix: {
@@ -5106,7 +5093,6 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["blues-rock", "classic-rock", "lead", "cranked-amp", "clapton"],
     sources: [
       "https://equipboard.com/pros/eric-clapton",
-      "https://www.guitarworld.com/features/eric-clapton-layla-gear",
     ],
     platform_translations: {
       helix: {
@@ -5290,7 +5276,6 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["rock", "classic-rock", "clean", "fingerpicking", "knopfler", "strat"],
     sources: [
       "https://equipboard.com/pros/mark-knopfler",
-      "https://www.guitarworld.com/features/mark-knopfler-gear",
     ],
     platform_translations: {
       helix: {
@@ -5551,7 +5536,6 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["blues", "electric-blues", "clean", "warm", "bb-king", "vibrato"],
     sources: [
       "https://equipboard.com/pros/bb-king",
-      "https://www.guitarworld.com/features/bb-king-gear-lucille",
     ],
     platform_translations: {
       helix: {
@@ -5813,7 +5797,6 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["garage-rock", "alternative", "lo-fi", "octave", "jack-white", "riff"],
     sources: [
       "https://equipboard.com/pros/jack-white",
-      "https://www.guitarworld.com/features/jack-white-gear-guide",
     ],
     platform_translations: {
       helix: {
@@ -6049,7 +6032,6 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["alternative-metal", "rap-rock", "aggressive", "whammy", "morello", "drop-d"],
     sources: [
       "https://equipboard.com/pros/tom-morello",
-      "https://www.guitarworld.com/features/tom-morello-gear-rig",
     ],
     platform_translations: {
       helix: {
@@ -6309,7 +6291,6 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["thrash-metal", "metal", "rhythm", "high-gain", "hetfield", "metallica", "mesa"],
     sources: [
       "https://equipboard.com/pros/james-hetfield",
-      "https://www.guitarworld.com/features/james-hetfield-metallica-gear",
     ],
     platform_translations: {
       helix: {

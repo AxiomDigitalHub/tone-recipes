@@ -187,7 +187,10 @@ export default async function NewsArticlePage({
           options={{
             mdxOptions: {
               remarkPlugins: [remarkGfm],
-              rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+              rehypePlugins: [
+                rehypeSlug,
+                [rehypeAutolinkHeadings, { behavior: "wrap" }],
+              ],
             },
           }}
         />
