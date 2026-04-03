@@ -73,7 +73,7 @@ export default function Home() {
           </div>
 
           {/* Animated signal chain preview */}
-          <div className="mx-auto mt-16 flex max-w-3xl items-center justify-center gap-2 overflow-visible px-6 pb-8">
+          <div className="mx-auto mt-16 flex max-w-3xl items-center justify-center gap-2 overflow-x-auto px-6 pb-8 scrollbar-none">
             {[
               { icon: Guitar, label: "Guitar", color: "#f59e0b" },
               { icon: Zap, label: "Overdrive", color: "#22c55e" },

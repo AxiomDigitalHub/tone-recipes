@@ -298,7 +298,7 @@ export default async function PlatformDetailPage({
                 <h3 className="mb-3 text-lg font-semibold text-foreground">
                   {GEAR_TYPE_LABELS[type] ?? type}
                 </h3>
-                <div className="overflow-hidden rounded-xl border border-border">
+                <div className="overflow-x-auto rounded-xl border border-border">
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="border-b border-border bg-surface">
