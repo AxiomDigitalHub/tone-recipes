@@ -228,18 +228,18 @@ These fill the biggest gaps and create cluster anchors for future content.
 | # | Topic | Target Query | Writer |
 |---|---|---|---|
 | P4-01 | Tom Morello Rage Tone Recipe | "tom morello tone settings," "rage against machine guitar" | Jess Kowalski |
-| P4-02 | The Cure / Robert Smith Clean Chorus Tone | "the cure guitar tone," "robert smith chorus settings" | Dev Okonkwo |
+| P4-02 | The Cure / Robert Smith Clean Chorus Tone ✅ PUBLISHED | "the cure guitar tone," "robert smith chorus settings" | Dev Okonkwo |
 | P4-03 | BB King / Classic Blues Lead Tone | "bb king tone settings," "blues lead guitar tone" | Rick Dalton |
 | P4-04 | Misha Mansoor / Periphery Djent Tone | "periphery tone settings," "djent tone recipe" | Viktor Kessler |
-| P4-05 | Jack White Lo-Fi Garage Tone | "jack white tone settings," "lo-fi guitar tone" | Jess Kowalski |
+| P4-05 | Jack White Lo-Fi Garage Tone ✅ PUBLISHED | "jack white tone settings," "lo-fi guitar tone" | Jess Kowalski |
 
 ### Settings Guides (Pillar 2) — 3 Posts
 
 | # | Topic | Target Query | Writer |
 |---|---|---|---|
-| P4-06 | Vox AC30 Settings: From Jangle to Crunch | "vox ac30 settings," "ac30 best settings" | Nathan Cross |
-| P4-07 | How to Use Gain, Volume, and Master Controls Together | "amp gain vs volume," "master volume vs gain" | Hank Presswood |
-| P4-08 | Delay Pedal Settings: Slapback, Dotted Eighths, and Ambient | "delay settings guitar," "dotted eighth delay settings" | Nathan Cross |
+| P4-06 | Vox AC30 Settings: From Jangle to Crunch ✅ PUBLISHED | "vox ac30 settings," "ac30 best settings" | Nathan Cross |
+| P4-07 | How to Use Gain, Volume, and Master Controls Together ✅ PUBLISHED | "amp gain vs volume," "master volume vs gain" | Hank Presswood |
+| P4-08 | Delay Pedal Settings: Slapback, Dotted Eighths, and Ambient ✅ PUBLISHED | "delay settings guitar," "dotted eighth delay settings" | Nathan Cross |
 
 ### Signal Chain & Tone Theory (Pillar 3) — 2 Posts
 
@@ -435,3 +435,13 @@ Based on the competitive analysis, avoid these formats:
 | 3 | Dialing In Drop-Tuned High Gain: A Frequency-By-Frequency Guide | "drop tuning high gain tone," "djent tone eq settings," "7 string high gain settings" | Viktor Kessler | 3 — Signal Chain & Tone Theory | High-gain fizzy SERP — drop-tuned frequency management is a secondary topic in most fizz discussions but never the primary subject; "djent tone eq" and "7 string settings" queries are dominated by forum threads and YouTube; a structured frequency guide from Viktor would be definitive |
 | 4 | How to Set Reverb for a Live Room vs. a Dead Room | "reverb settings live room," "how much reverb live vs dead room" | Nathan Cross | 3 — Signal Chain & Tone Theory | Reverb washed-out SERP — almost all content treats reverb as a studio mixing problem; the live guitarist's specific challenge (stacking pedal reverb on top of room reverb) is unaddressed; Nathan's live service context makes this uniquely authentic |
 | 5 | What Happens When You Stack a TS and a Klon Together Into a Marshall | "tube screamer and klon stacked," "stacking overdrives into marshall" | Rick Dalton | 3 — Signal Chain & Tone Theory | TS vs. Klon SERP — People Also Ask shows "can you stack a Tube Screamer and Klon?" as a top question with zero editorial answers; Rick is the natural voice for this experiment with his Marshall Super Lead; cross-pillar content (Gear Lab methodology + Signal Chain theory) |
+
+## SERP-Derived Topics — 2026-04-04
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | Roland JC-120 Settings Guide: Getting The Cure Sound and Beyond | "roland jc-120 settings," "jazz chorus amp settings," "jc-120 guitar tone" | Dev Okonkwo | 2 — Settings Guides | Cure SERP — JC-120's built-in stereo chorus vs. external pedal is unaddressed by all competitors; the amp is heavily discussed in forums but has no editorial settings guide; Dev is the natural voice given his atmospheric/texture focus |
+| 2 | How to Play Guitar as a Two-Piece: Filling Sonic Space Like Jack White | "guitar as two piece band," "guitar duo tone tips," "how jack white plays without bass" | Jess Kowalski | 3 — Signal Chain & Tone Theory | Jack White SERP — the arrangement/frequency-space strategy behind duo guitar playing is absent from all tone guides; Jess's live sound background makes this uniquely authentic; crossover appeal to garage rock and indie |
+| 3 | What Does the Cut Knob Do on a Vox AC30? | "vox ac30 cut knob," "ac30 cut control explained" | Nathan Cross | 3 — Signal Chain & Tone Theory | AC30 SERP — "what does the cut knob do" appears as a PAA question with no clean editorial answer; a tight definitional post (500-800 words) targeting the snippet directly; the Treble Cut's counterintuitive behavior is consistently misunderstood |
+| 4 | What Is Power Tube Saturation? (And Why It Sounds Different from Preamp Distortion) | "power tube saturation," "preamp vs power amp distortion," "power amp breakup guitar" | Hank Presswood | 3 — Signal Chain & Tone Theory | Gain/volume/master SERP — power tube vs. preamp distortion interaction is covered poorly across all competitors; Hank's vintage amp depth makes this uniquely authentic; strong PAA signal ("does master volume affect tone?") |
+| 5 | How to Calculate Delay Time by BPM (With a Reference Table for Every Tempo) | "delay time calculator bpm," "delay ms calculator guitar," "how to calculate dotted eighth delay" | Nathan Cross | 3 — Signal Chain & Tone Theory | Delay SERP — the dotted-eighth formula (60,000 / BPM × 0.75) exists only as a PDF download or buried in paragraphs; a page built around an embedded BPM-to-ms table with the formula visible would likely capture position zero for multiple queries; low competition, high utility |

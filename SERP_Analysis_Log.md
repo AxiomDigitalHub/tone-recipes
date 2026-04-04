@@ -451,3 +451,80 @@
 - **Featured snippet opportunity:** Yes — "tube screamer vs klon vs blues driver" returns a mix of forum posts and editorial buying guides. A structured comparison table with the "same amp" methodology would likely win the snippet.
 - **Difficulty:** Medium — some established editorial competition (Guitar World, Guitar Strive), but none use the controlled-variable approach we've taken.
 
+
+---
+
+## SERP Analysis — 2026-04-04
+
+### The Cure / Robert Smith Clean Chorus Tone
+
+- **Target query:** "the cure guitar tone," "robert smith chorus settings," "the cure disintegration guitar tone"
+- **Top competitors:**
+  - [Guitar Chalk — The Cure Amp Settings](https://www.guitarchalk.com/the-cure-amp-settings/)
+  - [Gearnews — How to Sound Like Robert Smith](https://www.gearnews.com/how-to-sound-like-robert-smith-of-the-cure/)
+  - [MusicStrive — The Cure Guitar Tone](https://musicstrive.com/the-cure-guitar-tone/)
+  - [Riffhard — How to Sound Like Robert Smith on Guitar](https://www.riffhard.com/how-to-sound-like-robert-smith-on-guitar/)
+  - [Equipboard — Robert Smith](https://equipboard.com/pros/robert-smith)
+- **Content gaps found:** No competitor provides specific numeric chorus pedal settings (rate, depth, level values) — just qualitative descriptions. None compare JC-120 built-in chorus vs. dedicated pedal with specificity. The Disintegration-era darker tone (Peavey Ultra, mid-scooped) is only briefly mentioned. Era-by-era breakdown is absent — competitors treat the tone as monolithic. Follow-up: "Roland JC-120 tone guide" and "Era-by-era Robert Smith rig breakdown"
+- **Featured snippet opportunity:** Yes — "robert smith chorus settings" has no direct answer box; a structured settings table would likely capture it
+- **Difficulty:** Medium — Guitar Chalk and Gearnews are mid-authority specialist sites; Guitar.com is the highest-authority competitor but focuses on journalism rather than how-to
+
+---
+
+### Jack White Lo-Fi Garage Tone
+
+- **Target query:** "jack white tone settings," "lo-fi guitar tone," "white stripes guitar tone"
+- **Top competitors:**
+  - [Guitar Chalk — Jack White Amp Settings](https://www.guitarchalk.com/jack-white-amp-settings/)
+  - [MusicStrive — Jack White Guitar Tone](https://musicstrive.com/jack-white-guitar-tone/)
+  - [Guitar World — Secrets Behind Jack White's Guitar Tone on Seven Nation Army](https://www.guitarworld.com/features/the-secrets-behind-jack-whites-guitar-tone-on-the-white-stripes-seven-nation-army)
+  - [Riffhard — How to Get Jack White's Guitar Tone](https://www.riffhard.com/how-to-get-jack-whites-guitar-tone/)
+  - [Equipboard — Jack White](https://equipboard.com/pros/jack-white)
+- **Content gaps found:** No competitor connects the lo-fi aesthetic to deliberate artistic choice vs. limitation — they describe the gear without explaining why cheap gear sounds better in this context. Whammy octave-down bass setup is mentioned but never explained. Slide playing/open tuning setup absent from all tone guides. Album-by-album tone changes not mapped. Follow-up: "How to play guitar as a two-piece band: filling sonic space like Jack White" and "Best cheap/junk guitars for garage rock"
+- **Featured snippet opportunity:** Yes — "jack white tone settings" and "white stripes guitar tone" both lack a clean answer box; a settings table with brief opening would be strong snippet bait
+- **Difficulty:** Medium-high — Guitar World is a major publication targeting the Seven Nation Army angle; however their piece is journalism, not a practical settings guide
+
+---
+
+### Vox AC30 Settings Guide
+
+- **Target query:** "vox ac30 settings," "ac30 best settings," "vox ac30 sweet spots"
+- **Top competitors:**
+  - [Pro Sound HQ — Vox Amp Settings](https://prosoundhq.com/vox-amp-settings-and-controls-a-complete-guide/)
+  - [Moustache Audio — Best Vox Amp Settings](https://www.moustacheaudio.com/best-vox-amp-settings/)
+  - [Guitar Chalk — AC30 + Fender Strat Rig Settings](https://www.guitarchalk.com/vox-ac30-and-fender-stratocaster-rig-settings/)
+  - [Reverb — Tips for Getting the Most Out of Your AC30](https://reverb.com/news/tips-and-tricks-for-getting-the-most-out-of-your-vox-ac30)
+- **Content gaps found:** The Cut knob is consistently underexplained; most pages describe it as "cutting highs" without noting its counterintuitive behavior. Channel linking (Normal + Top Boost inputs together) discussed only in forums. Settings for specific artists (The Edge, Brian May) get forum discussion but no clean editorial treatment. AC30 vs. AC15 settings differences absent. Follow-up: "What does the Cut knob do on a Vox AC30?" and "How to use an AC30 at bedroom volume"
+- **Featured snippet opportunity:** Yes — "what does the cut knob do on a Vox AC30" has no clean editorial answer; a concise definition would likely win position zero
+- **Difficulty:** Medium — ProSoundHQ covers all Vox models, not AC30-specifically; Guitar Chalk has volume but thin individual posts
+
+---
+
+### Amp Gain vs. Volume vs. Master Controls
+
+- **Target query:** "amp gain vs volume," "master volume vs gain amp," "how to use master volume amp"
+- **Top competitors:**
+  - [Fender — Amp Basics: Gain vs. Volume](https://www.fender.com/articles/setup/amp-basics-gain-vs-volume)
+  - [Gear4music — Gain vs Volume](https://www.gear4music.com/blog/gain-vs-volume/)
+  - [The Guitar Pages — Volume, Gain, Master Volume](https://theguitarpages.com/volume-gain-master-volume-set-correctly-on-your-guitar-amp/)
+  - [Premier Guitar — Demystifying the Master Volume](https://www.premierguitar.com/gear/demystifying-the-master-volume)
+  - [Sweetwater — Master Volume](https://www.sweetwater.com/insync/master-volume/)
+- **Content gaps found:** Channel volume vs. master volume distinction is conflated on most pages. Single-channel amps without MV are not addressed. Power tube vs. preamp distortion interaction explained poorly across all competitors. Practical settings tables with specific knob positions absent except on The Guitar Pages. Follow-up: "What is power tube saturation vs preamp distortion?" and "How to get overdrive without being too loud"
+- **Featured snippet opportunity:** Yes — very high; "what is the difference between gain and master volume" is a textbook snippet query; Fender has brand authority but thin content; a comparison table would be competitive
+- **Difficulty:** Low to medium — Fender and Sweetwater have domain authority but thin individual pages on this topic
+
+---
+
+### Delay Pedal Settings: Slapback, Dotted Eighths, and Ambient
+
+- **Target query:** "delay settings guitar," "dotted eighth delay settings," "slapback delay settings guitar"
+- **Top competitors:**
+  - [BOSS — The Complete Guide to Delay Pedals](https://articles.boss.info/the-complete-guide-to-delay-pedals/)
+  - [Neural DSP — How to Use a Delay Pedal](https://neuraldsp.com/articles/how-to-use-a-delay-pedal)
+  - [JustinGuitar — Delay: Settings to Start Exploring](https://www.justinguitar.com/guitar-lessons/delay-settings-to-start-exploring-fx-304)
+  - [Guitar Chalk — Dotted Eighth Note Delay](https://www.guitarchalk.com/create-dotted-eighth-note-delay-pedal-guitar-how-to-explain/)
+  - [Teevr Music Lab — Dotted 8th Delay Complete Guide](https://teevrmusiclab.com/dotted-8th-delay-complete-guide-settings-playing-technique-patch/)
+- **Content gaps found:** BPM-to-ms conversion table for dotted eighth exists only as a PDF download (Teevr), not as in-page table — missed snippet. Delay placement (pre vs. post amp) not covered in slapback/dotted-eighth-specific articles. Genre-specific settings (slapback for rockabilly, dotted eighth for worship, ambient) not consolidated in one guide. The dotted-eighth formula (60,000 / BPM × 0.75) not shown as a scannable block anywhere. Follow-up: "How to calculate delay time by BPM" and "Delay before or after overdrive — which is better?"
+- **Featured snippet opportunity:** Yes — high for dotted eighth; "how to calculate dotted eighth delay time" has no clean in-page answer; formatting the formula visibly is near-certain snippet win
+- **Difficulty:** High for "delay settings guitar" (BOSS, Neural DSP dominant); medium for dotted eighth; low to medium for slapback
+
