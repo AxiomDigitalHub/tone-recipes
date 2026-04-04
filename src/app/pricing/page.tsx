@@ -22,8 +22,9 @@ const plans = [
     description: "Perfect for browsing and getting inspired.",
     features: [
       "Browse all tone recipes",
-      "View physical signal chains",
-      "1 platform translation per recipe",
+      "All platform translations (Helix, QC, TONEX, Fractal, Kemper, Katana)",
+      "Download recipe PDFs (with email)",
+      "10 free preset downloads (.hlx, .json, .tsl)",
       "Save up to 5 recipes",
       "Read blog & community forum",
       "Comment on recipes",
@@ -31,23 +32,24 @@ const plans = [
     cta: "Get Started",
     ctaHref: "/signup",
     highlight: false,
+    comingSoon: false,
   },
   {
     name: "Premium",
     price: "$9",
     period: "/month",
-    description: "For players who want every tone on their platform.",
+    description: "For players who want unlimited downloads.",
     features: [
       "Everything in Free",
-      "All platform translations",
-      "Download presets (.hlx, .json, .tsl)",
+      "Unlimited preset downloads (.hlx, .json, .tsl)",
       "Unlimited saved recipes",
       "Ad-free experience",
       "Priority community support",
     ],
-    cta: "Start Premium",
-    ctaHref: "/signup?plan=premium",
+    cta: "Coming Soon",
+    ctaHref: "#",
     highlight: true,
+    comingSoon: true,
   },
   {
     name: "Creator",
@@ -61,9 +63,10 @@ const plans = [
       "Creator badge on profile",
       "Early access to new features",
     ],
-    cta: "Start Creating",
-    ctaHref: "/signup?plan=creator",
+    cta: "Coming Soon",
+    ctaHref: "#",
     highlight: false,
+    comingSoon: true,
   },
 ];
 
@@ -75,8 +78,8 @@ export default function PricingPage() {
           Simple pricing for every player
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-lg text-muted">
-          Start free. Upgrade when you want all platform translations, preset
-          downloads, and creator tools.
+          Browse every recipe and platform for free. Upgrade for unlimited
+          preset downloads and creator tools.
         </p>
       </div>
 
@@ -118,16 +121,22 @@ export default function PricingPage() {
               ))}
             </ul>
 
-            <Link
-              href={plan.ctaHref}
-              className={`block rounded-lg py-3 text-center text-sm font-semibold transition-colors ${
-                plan.highlight
-                  ? "bg-accent text-background hover:bg-accent-hover"
-                  : "border border-border bg-surface text-foreground hover:border-accent/40 hover:bg-surface-hover"
-              }`}
-            >
-              {plan.cta}
-            </Link>
+            {plan.comingSoon ? (
+              <span className="block cursor-not-allowed rounded-lg border border-border bg-surface py-3 text-center text-sm font-semibold text-muted">
+                {plan.cta}
+              </span>
+            ) : (
+              <Link
+                href={plan.ctaHref}
+                className={`block rounded-lg py-3 text-center text-sm font-semibold transition-colors ${
+                  plan.highlight
+                    ? "bg-accent text-background hover:bg-accent-hover"
+                    : "border border-border bg-surface text-foreground hover:border-accent/40 hover:bg-surface-hover"
+                }`}
+              >
+                {plan.cta}
+              </Link>
+            )}
           </div>
         ))}
       </div>
@@ -147,12 +156,13 @@ export default function PricingPage() {
           </div>
           <div>
             <h3 className="font-semibold">
-              What platforms are included in Premium?
+              What platforms can I see on the Free plan?
             </h3>
             <p className="mt-1 text-sm text-muted">
               All of them — Line 6 Helix, Neural DSP Quad Cortex, IK Multimedia
-              TONEX, Fractal Audio, Kemper, and Boss Katana. Plus physical gear
-              signal chains on every recipe.
+              TONEX, Fractal Audio, Kemper, and Boss Katana. Every platform
+              translation is free to view. Premium unlocks unlimited preset
+              file downloads.
             </p>
           </div>
           <div>

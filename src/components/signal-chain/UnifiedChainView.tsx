@@ -175,7 +175,13 @@ function GuitarHeader({ specs, actions }: { specs: GuitarSpecs; actions?: React.
             <div>
               <p className="text-xs text-muted">Tuning</p>
               <p className="text-sm font-medium text-foreground">
-                {specs.tuning}
+                {specs.tuning
+                  .replace(/_/g, " ")
+                  .replace(/\beb\b/gi, "Eb")
+                  .replace(/\bdb\b/gi, "Db")
+                  .replace(/\bab\b/gi, "Ab")
+                  .replace(/\bbb\b/gi, "Bb")
+                  .replace(/\b\w/g, (c) => c.toUpperCase())}
               </p>
             </div>
             <div>

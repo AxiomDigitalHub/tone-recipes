@@ -72,6 +72,13 @@ export default function Home() {
             </Link>
           </div>
 
+          <p className="mt-4 text-sm text-muted">
+            New here?{" "}
+            <Link href="/blog/what-is-a-tone-recipe" className="text-accent hover:underline">
+              Learn what a tone recipe is
+            </Link>
+          </p>
+
           {/* Animated signal chain preview */}
           <div className="mx-auto mt-16 flex max-w-3xl items-center justify-center gap-2 overflow-x-auto px-6 pb-8 scrollbar-none">
             {[
@@ -120,7 +127,7 @@ export default function Home() {
             </div>
             <Link
               href="/browse"
-              className="hidden text-sm font-medium text-accent transition-colors hover:text-accent-hover sm:block"
+              className="hidden text-sm text-accent font-medium hover:underline transition-colors sm:block"
             >
               View all &rarr;
             </Link>

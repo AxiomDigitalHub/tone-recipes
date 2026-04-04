@@ -268,6 +268,12 @@ export default function BrowseContent() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 md:py-16">
+      <nav className="mb-4 flex items-center gap-2 text-sm text-muted">
+        <Link href="/" className="hover:text-foreground">Home</Link>
+        <span>/</span>
+        <span className="text-foreground">Browse</span>
+      </nav>
+
       {/* Header */}
       <div className="mb-6 flex items-end justify-between">
         <div>

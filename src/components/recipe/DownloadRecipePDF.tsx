@@ -110,6 +110,7 @@ export default function DownloadRecipePDF({ recipeSlug }: DownloadRecipePDFProps
       <button
         onClick={handleClick}
         disabled={loading}
+        title="Download a printable recipe card (PDF)"
         className="inline-flex items-center gap-2 rounded-lg border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent transition-colors hover:bg-accent/20 disabled:opacity-50"
       >
         {loading ? (

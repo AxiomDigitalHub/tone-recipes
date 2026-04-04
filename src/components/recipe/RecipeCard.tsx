@@ -50,8 +50,8 @@ export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
         {/* Top-right actions */}
         <div className="absolute top-3 right-3 flex items-center gap-1.5">
           {song?.genres?.[0] && (
-            <span className="rounded-full bg-black/50 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
-              {song.genres[0]}
+            <span className="rounded-full bg-black/50 px-2.5 py-0.5 text-[10px] font-semibold capitalize tracking-wider text-white backdrop-blur-sm">
+              {song.genres[0].replace(/-/g, " ")}
             </span>
           )}
           <FavoriteButton slug={recipe.slug} size="sm" />
