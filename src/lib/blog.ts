@@ -104,6 +104,8 @@ export const BLOG_CATEGORIES: Record<string, string> = {
   "tone-recipes": "Tone Recipes",
   "settings-guides": "Settings Guides",
   "quick-fixes": "Quick Fixes",
+  "modeler-masterclass": "Modeler Masterclass",
+  "gear-lab": "Gear Lab",
   gear: "Gear",
   effects: "Effects",
   workflow: "Workflow",

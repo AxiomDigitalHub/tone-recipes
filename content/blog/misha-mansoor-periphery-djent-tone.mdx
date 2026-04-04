@@ -1,0 +1,257 @@
+---
+title: "Misha Mansoor / Periphery Djent Tone Recipe"
+description: "Periphery's djent tone decoded: the Mesa Dual Rectifier gain structure, OD808 pre-tightener, EQ shaping for extended-range guitars, and how to build it on any modeler."
+date: "2026-04-03"
+author: "Viktor Kessler"
+author_slug: "viktor-kessler"
+category: "tone-recipes"
+tags: ["misha-mansoor", "periphery", "djent", "high-gain", "7-string", "metal", "tone-recipe"]
+readingTime: 14
+---
+
+> **Start Here:** Five structural elements define Misha Mansoor's djent tone. All five are required. Missing one produces a result that sounds like high-gain guitar instead of djent.
+> 1. **OD808 before the amp** — tightens the bass response, shapes the mids before the gain stage
+> 2. **High-pass filter below 80-100 Hz** — non-negotiable for extended-range guitars
+> 3. **Low-mid cut around 300-400 Hz** — removes the boxy mud that kills articulation
+> 4. **Presence boost at 1-2 kHz** — this is the "clank" in the palm mutes
+> 5. **High-frequency cut above 5-6 kHz** — the fizz lives here; cut it
+
+---
+
+## What Misha Mansoor Built
+
+Misha Mansoor did two things that matter for this discussion. First, he developed a specific high-gain tone on extended-range guitars that became the template for an entire genre. Second, he recorded it using Axe-Fx direct-to-DAW at a time when the conventional wisdom said album-quality guitar required a real amplifier in a real room. Both of those contributions are worth understanding.
+
+The djent tone is not simply high gain. Dozens of bands have played high gain on 7-strings and produced nothing that sounds like Periphery. The distinguishing characteristic is a precise frequency architecture that allows the low extended range to sound heavy without sounding muddy, and the palm mutes to have a sharp, percussive transient that sits in the mix like a drum hit.
+
+Getting there requires more discipline than most high-gain tones. Less is generally correct. Less gain, less low end, less high-frequency content. What remains, shaped precisely, is the djent tone.
+
+---
+
+## What Amp Does Misha Mansoor Use?
+
+The core platform for Misha's recorded tone across Periphery's catalog is the Mesa/Boogie Dual Rectifier in combination with a Neural DSP Axe-Fx (original and subsequent models) or similar high-quality modeler. For much of the band's most influential output, the "amp" was a software model of the Dual Rectifier running direct into a recording interface.
+
+This is worth stating plainly: the Periphery tone that defined djent was a modeled amp tone. If you're using a modeler to build this sound, you are using the same category of tool Misha used. There is no "I'd build the real thing but I only have a modeler" problem here. The modeler is the correct tool.
+
+On real iron, the Mesa/Boogie Dual Rectifier Modern channel (Tight or Bold voicing) is the correct platform. The voicing selector matters. The Tight voicing tightens the bass response in the power amp section and is the preferred setting for extended-range guitar work. Bold voicing adds power amp saturation that can get loose at high gain with low tunings.
+
+### Dual Rectifier Core Tone Settings
+
+| Control | Position | Notes |
+|---|---|---|
+| Gain | About 2 to 3 o'clock | High, but pick attack must still be audible |
+| Bass | About 9 o'clock | Cut significantly — do not negotiate on this |
+| Mid | About 11 o'clock to noon | Slightly scooped from center, but not as much as you think |
+| Treble | About 1 o'clock | Present and forward |
+| Presence | About 2 o'clock | The "clank" in palm mutes comes partly from here |
+| Master | As loud as the room/application allows | Power amp saturation contributes to character |
+| Channel voicing | Tight | Non-negotiable for 7-string and 8-string |
+
+These are starting points. The Dual Rectifier is a sensitive amp; a half-turn on the bass control produces a dramatically different result. Start with bass lower than feels comfortable. Then lower it further. That's correct.
+
+---
+
+## What Is the OD808 Doing Before a High-Gain Amp?
+
+The same thing it does before Hetfield's Mesa Boogie. The same thing it does in virtually every modern high-gain tone that is actually tight and articulate rather than simply loud. If you've read the [Metallica rhythm tone post](/blog/metallica-rhythm-tone-settings), this section covers the same mechanical principle applied to a different frequency challenge.
+
+The OD808 (Maxon OD808 or Ibanez TS-808, same fundamental circuit) placed before a high-gain amp does two things:
+
+1. **Boosts midrange content** before the signal reaches the amp's gain stages. The TS-style circuit has a characteristic midrange emphasis. When that mid-boosted signal hits a high-gain amp, the amp's gain stages saturate with more mid-frequency content in the signal. The result is a more focused, mid-forward character in the distorted output.
+
+2. **Tightens the bass response** by rolling off some low-frequency content before it hits the gain stage. Lower frequencies saturate more easily at high gain; reducing them before amplification produces a tighter, less saggy palm mute response.
+
+For djent on extended-range guitars, both effects are especially important. The lower tuning range of a 7-string or 8-string produces more low-frequency content than a standard 6-string. Without the OD808, that additional low-frequency content hits the Dual Rectifier's gain stages and produces mud. With the OD808, the pre-gain bass reduction keeps the low strings articulate under high gain.
+
+### OD808 Settings for Djent Tightening
+
+| Control | Position | Notes |
+|---|---|---|
+| Drive | About 7 to 8 o'clock | Near minimum. This is not adding distortion |
+| Level | About 2 to 3 o'clock | Boosting the amp input significantly |
+| Tone | Around noon | Starting point; adjust to taste |
+
+The drive control is critical here. Players who turn the drive up on the OD808 are adding a second distortion stage, which blurs the transient rather than tightening it. Drive near minimum, level elevated. The pedal's job is frequency shaping and gain staging, not adding saturation.
+
+The [gain staging guide for drop tunings](/blog/gain-staging-drop-tunings) covers the mechanics of why stacking a low-drive OD before a high-gain amp produces tighter results than running the amp alone at equivalent total gain.
+
+---
+
+## Why Does Djent Tone Require High-Pass Filtering?
+
+Because physics. Specifically, because extended-range guitars tuned down produce fundamental frequencies that a standard guitar amp EQ section was not designed to manage effectively.
+
+A standard 6-string in E standard has a low E fundamental at about 82 Hz. A 7-string with a low B has a fundamental around 62 Hz. An 8-string with a low F# goes down to about 46 Hz. These frequencies are in speaker territory, not guitar territory. Running high gain into those frequencies produces low-end saturation that obscures everything above it.
+
+The high-pass filter is the solution. Set it to roll off content below approximately 80 to 100 Hz and the low strings retain their fundamental character while the sub-frequencies that cause amp saturation and cabinet mud are removed. The result is that the guitar sounds heavier, not lighter. Counterintuitive but consistent: removing the frequencies you can't hear clearly makes the frequencies you can hear more present and impactful.
+
+This is not subtle. In an A/B comparison, the high-passed version sounds substantially tighter and heavier. The non-filtered version sounds boomier in isolation and disappears in a mix.
+
+### EQ Shaping for Djent Tone
+
+The full EQ architecture for Periphery-style djent tone has four components:
+
+| EQ Point | Action | Frequency | Reason |
+|---|---|---|---|
+| High-pass filter | Hard cut below | 80-100 Hz | Removes sub-frequency mud from low strings |
+| Low-mid cut | Slight to moderate dip | 300-400 Hz | Removes "boxiness" and low-mid congestion |
+| Presence boost | Moderate boost | 1-2 kHz | Adds the "clank" transient in palm mutes |
+| High-frequency cut | Moderate to significant | Above 5-6 kHz | Removes fizz from high-gain amp |
+
+The combination of these four adjustments produces a tone that sounds paradoxically scooped and not scooped at the same time. The scoop is in the low-mids (300-400 Hz), not the mids proper. The mids at 500 Hz to 1 kHz remain relatively intact. The presence peak at 1-2 kHz gives the tone its attack character.
+
+This is different from a "scooped metal EQ." A traditional V-shaped metal EQ cuts everything from about 400 Hz to 2.5 kHz and boosts bass and treble. That produces the bedroom sound that disappears in a mix. The djent EQ specifically targets the boxy low-mids while preserving the attack mids and cutting the highest-frequency fizz. The result sits in a mix with considerably more presence.
+
+For more on why high-gain tones develop fizz and how to systematically address it, the [fix fizzy high-gain guide](/blog/fix-fizzy-high-gain) covers the frequency analysis in detail.
+
+---
+
+## How Important Is Pick Technique for Djent Tone?
+
+More than the settings. Which is saying something, because the settings are specific.
+
+The characteristic "djent" sound in palm-muted passages comes from a sharp pick attack transient followed by immediate muted sustain. A hydraulic thump, not a fuzzy wash. That transient is partly the gain structure and partly physics: a sharp attack into a high-gain amp with a tight EQ profile produces a defined initial spike before the sustained distortion. If the pick attack is soft, the spike isn't there, and the result is compressed saturation without the percussive transient.
+
+Misha's picking technique and the djent genre more broadly favor:
+
+- **High pick angle** relative to the string, closer to perpendicular than parallel
+- **Firm pick grip** — not white-knuckle tense, but controlled and consistent
+- **Fast, precise downstrokes** for the core djent rhythmic pattern
+- **Controlled upstrokes** with deliberate muting technique
+- **Thick pick material** in the 1.5mm-3mm range (Misha has used Jazz III and similar high-stiffness picks)
+
+If you can hear the transient of each individual string attack in a dense low-string passage, the gain structure and pick technique are working together correctly. If the attacks blur together into sustained distortion with no percussive definition, the problem is likely too much gain, too much bass, or pick technique that isn't producing a sharp enough transient. Start with technique before adjusting settings.
+
+Gain is not a substitute for pick attack. If you can't hear the transient, you've already lost.
+
+---
+
+## The Guitars: Why Extended-Range Matters
+
+Periphery's catalog spans a variety of 7-string and 8-string guitars — Ibanez RG series, Aristides instruments, and more recently Strandberg headless guitars with Bare Knuckle pickups. The common thread is active or high-output passive pickups in the bridge position and extended range tuned below standard E.
+
+For tone replication, the relevant variables are:
+
+**Pickup character:** Misha uses pickups with a tight, focused low-end response. Bare Knuckle Aftermath and similar high-output passives, or DiMarzio D-Activator/Ionizer types. The pickup character in the bridge position determines how much low-frequency content reaches the OD808 and amp before any filtering. A pickup with a loose, loose bass response makes the high-pass filter and bass EQ cuts work harder. A tight, focused pickup makes the chain's work easier.
+
+**Scale length:** Longer scale lengths (26.5" on many Ibanez 7-strings, 27" and beyond on baritones and 8-strings) produce more tension at lower tunings. More tension produces a tighter, more defined fundamental. The physics of longer scale length is partially why djent tone sounds tight on the right guitar and floppy on a standard 25.5" scale in the same tuning.
+
+**Tuning:** Standard djent tunings range from drop A on a 7-string to drop F# or lower on 8-strings. The lower the tuning, the more critical the high-pass filter and bass management become. There is a direct relationship between tuning interval and required high-pass frequency: lower tunings require more aggressive filtering to maintain clarity.
+
+---
+
+## Can You Get Periphery's Tone on a Budget?
+
+Yes. This is, in fact, one of the defining contributions of Misha Mansoor to modern guitar production.
+
+Periphery's earliest well-known recordings were made with an Axe-Fx Standard running direct into an interface. No expensive amplifier, no recording studio, no room microphones. The entire signal path from guitar to recorded track was the guitar, the modeler, and whatever EQ and processing was applied in the DAW. The result defined a genre.
+
+The implications are direct: any modern modeler with a competent Dual Rectifier or Mesa Boogie model can get into this territory. The Quad Cortex, Helix, and Axe-Fx III are all capable platforms. A budget player can build a functional version of this tone on a Line 6 HX Stomp or similar compact modeler for a fraction of the cost of a real Dual Rectifier.
+
+### Cross-Platform Approach
+
+#### Quad Cortex
+
+The Quad Cortex contains Mesa/Boogie captures and models that provide an accurate starting point. The neural capture engine is well-suited to the high-gain character of a Dual Rectifier.
+
+- **Amp block:** Mesa Dual Rectifier model, Modern/Tight channel. Gain around 60-65%, Bass around 30%, Mid around 45%, Treble around 55%, Presence around 60%.
+- **OD808 block before amp:** Drive at minimum (about 5%), Level around 65-70%, Tone at about 50%.
+- **EQ block after amp:** High-pass at 90-100 Hz, dip of 3-4 dB around 350 Hz, boost of 2-3 dB around 1.5 kHz, shelf cut or parametric cut above 5.5-6 kHz.
+- **Noise gate:** Before the amp block, threshold set just above the guitar's open-string noise floor. A tight gate is important for djent rhythm work; silence between notes is part of the sound.
+
+For a detailed walkthrough of building a modeler tone from scratch with proper gain staging and EQ placement, the [modeler tone dialing guide](/blog/how-to-dial-in-modeler-tone) covers the process systematically.
+
+#### Helix / HX Stomp
+
+- **Amp block:** Placater Dirty (Friedman BE-100 model, captures similar rectifier-style character) or PV Panama (Peavey 5150, closer to the modern high-gain character). The Helix does not have a direct Dual Rectifier model but the Placater captures a similar gain architecture.
+- **Pre-amp block:** Minotaur (Klon-type) or Teemah (TS-type) with drive minimum, level elevated. The Teemah is the closer analog to the OD808 in terms of circuit character.
+- **EQ block:** Use a Parametric EQ with the same four-point shaping: high-pass, low-mid cut, presence boost, high-frequency cut.
+- **Cab/IR:** This is important. For the djent character, an IR (impulse response) of a Mesa/Boogie Rectifier 4x12 with Celestion V30 speakers will get closer than a stock Helix cab model. The IR captures the specific resonance of the cab that the modeled equivalent may soften.
+
+The [signal chain order guide](/blog/signal-chain-order-guide) covers where to place the OD808, noise gate, and EQ blocks relative to the amp block for correct gain staging in a modeler signal path.
+
+#### Axe-Fx III
+
+The Axe-Fx III has the most accurate Mesa/Boogie modeling available outside of a Kemper capture of the actual amp. The Recto Red Modern model is the correct starting point. The Axe-Fx's built-in parametric EQ block is detailed enough to implement the four-point djent EQ curve precisely.
+
+Starting amp block settings for the Recto Red Modern:
+
+| Control | Position | Notes |
+|---|---|---|
+| Gain | About 60-65% | High, controlled |
+| Bass | About 25-30% | Cut significantly |
+| Mid | About 40-45% | Slight dip from center |
+| Treble | About 55% | Forward |
+| Presence | About 60% | The clank frequency lives here |
+| Depth | About 35% | Low-end tightening in the power amp section |
+| Master | About 50-55% | Power amp behavior |
+
+Pair with a TS808 model before the amp (drive minimum, level elevated) and the Parametric EQ block after the cab block for the four-point EQ shaping.
+
+---
+
+## Budget Tier: No Modeler, Real Amp
+
+If you're working with a real amp that isn't a Dual Rectifier, the core principles still apply. The OD808 behavior works on any high-gain amp. The EQ shaping works in any EQ stage whether that's a graphic EQ pedal, the amp's own EQ controls, or an effects loop EQ.
+
+The Boss GE-7 (7-band graphic EQ) or MXR 10-Band EQ in the effects loop of a high-gain amp allows the same four-point EQ architecture on any platform with an effects loop. High-pass by cutting the lowest slider, dip the 320 Hz and 400 Hz sliders, boost around 1 kHz, and cut the highest frequency slider. The character won't be identical to a Dual Rectifier, but the frequency discipline will tighten virtually any high-gain tone.
+
+For players on a budget looking for the best modeler value available at lower price points, the [best modeler under $500 guide](/blog/best-modeler-under-500) covers the current options across price tiers.
+
+---
+
+## Universal Starting Point Settings Table
+
+One consolidated reference for building the djent tone from scratch:
+
+| Element | Setting | Notes |
+|---|---|---|
+| Guitar | 7-string or 8-string, bridge pickup | Active or high-output passive preferred |
+| OD808 (or equivalent) | Drive: ~7 o'clock, Level: ~2-3 o'clock, Tone: noon | Tighten and boost, do not add distortion |
+| Amp gain (Dual Rectifier or model) | About 2 to 3 o'clock / ~60-65% | High but controlled |
+| Amp bass | About 9 o'clock / ~25-30% | Lower than feels natural |
+| Amp mid | About 11 o'clock / ~40-45% | Slight dip, not a scoop |
+| Amp treble | About 1 o'clock / ~55% | Forward and present |
+| Amp presence | About 2 o'clock / ~60% | The clank lives here |
+| High-pass filter | 80-100 Hz | Non-negotiable |
+| Low-mid EQ | -3 to -4 dB around 350 Hz | Removes boxiness |
+| Presence EQ | +2 to +3 dB around 1.5 kHz | Adds palm mute attack |
+| High-frequency cut | -3 to -6 dB above 5.5-6 kHz | Removes fizz |
+| Noise gate | Threshold above noise floor, fast attack | Silence between notes is part of the sound |
+
+---
+
+## FAQ
+
+### What amp does Misha Mansoor actually use in the studio?
+
+The Mesa/Boogie Dual Rectifier is the foundational platform across Periphery's catalog, particularly the Modern channel in Tight voicing. Axe-Fx (original, II, and III) has been used for direct-recorded tracks on multiple albums, functioning as both a Dual Rectifier model and a complete signal processing solution. More recently, Neural DSP's Quad Cortex has been in the rig. The consistent thread is the Dual Rectifier sound source, whether real iron or high-quality model.
+
+### What pickups does Misha Mansoor use?
+
+Misha has used Bare Knuckle pickups extensively, including the Aftermath model in bridge position. The Aftermath is a high-output passive humbucker voiced for tight, focused attack. Earlier Periphery recordings used DiMarzio pickups including the Ionizer. Both are characterized by a controlled low-end response that works with the djent EQ chain rather than fighting it.
+
+### Why does my djent tone sound scooped and thin rather than heavy?
+
+Three likely causes. First, the bass cut is too aggressive relative to the rest of the chain, producing a thin rather than tight low end. Second, the presence boost at 1-2 kHz is missing, so the tone has no attack character. Third, the gain is too high, compressing the transient and leaving a sustained wall of distortion with no percussive definition. Back off the gain to where you can hear individual pick attacks, add the presence boost, and adjust the bass cut until the low strings are heavy but defined.
+
+### What tuning does Periphery use?
+
+Album-dependent. Common tunings include drop A on 7-string (strings: A-E-A-D-G-B-E), drop G# or G on 7-string, and various 8-string tunings reaching into F# territory. The specific tuning matters for the high-pass filter setting: lower tunings require the high-pass filter to be placed lower (around 60-80 Hz) to avoid cutting into the guitar's audible fundamental. Higher tunings (drop A and above) can support a higher high-pass filter setting (90-100 Hz).
+
+### Is the OD808 mandatory or can I use a different drive pedal?
+
+The OD808 or Tube Screamer circuit (Maxon OD808, Ibanez TS-808, Ibanez TS9 in the same basic family) is the conventional and well-documented choice. The circuit's specific midrange emphasis and bass roll-off character are the reason it works for this application. A Boss SD-1 or similar asymmetric clipping pedal will produce a similar result but with a slightly different midrange character. A hard-clipping distortion pedal (Boss DS-1, RAT, etc.) is not the correct tool for this job. The point is adding midrange density and tightening bass, not adding distortion. TS-family circuits do this; hard-clipping pedals do not.
+
+### How do I stop the low strings from sounding muddy?
+
+In order of most common cause: (1) the high-pass filter is not engaged or is set too low, (2) the amp bass is not cut enough, (3) the OD808 drive is too high, (4) the gain is too high. Address these in order. If the fundamental problem is the high-pass filter, no amount of EQ adjustment below that will solve it. The sub-frequencies below 80 Hz need to be removed before the gain stage or after it; removing them after the amp is better than nothing, but removing them before produces a tighter result because it prevents the amp's gain stages from saturating those frequencies in the first place.
+
+### Do I need an expensive guitar to get this tone?
+
+No. A mid-range Ibanez RGD or similar 7-string or 8-string guitar with competent bridge pickups and correct setup will get there. Scale length matters more than price tier. A properly set up 26.5" scale 7-string at $600 will produce better results in this application than a poorly set up $2,000 guitar with the wrong pickup choice. Action height, intonation, and pickup height all affect the transient character of the pick attack. Set the guitar up correctly first.
+
+---
+
+*Viktor Kessler is a mechanical engineer and guitarist in Austin, TX. He plays 7-string and 8-string guitars through an EVH 5150 III and Quad Cortex, always with an OD808 between the guitar and the amp.*
