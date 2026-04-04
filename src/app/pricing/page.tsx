@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Check } from "lucide-react";
+import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -123,7 +124,7 @@ export default function PricingPage() {
 
             {plan.comingSoon ? (
               <span className="block cursor-not-allowed rounded-lg border border-border bg-surface py-3 text-center text-sm font-semibold text-muted">
-                {plan.cta}
+                Coming Soon
               </span>
             ) : (
               <Link
@@ -139,6 +140,16 @@ export default function PricingPage() {
             )}
           </div>
         ))}
+      </div>
+
+      {/* Waitlist */}
+      <div className="mx-auto mt-16 max-w-xl">
+        <NewsletterSignup
+          headline="Get notified when Premium launches"
+          subtext="We'll email you once — when unlimited preset downloads go live. No spam."
+          buttonText="Notify me"
+          source="pricing-waitlist"
+        />
       </div>
 
       {/* FAQ */}

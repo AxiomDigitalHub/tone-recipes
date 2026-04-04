@@ -5,6 +5,7 @@ import { toneRecipes, songs, artists, getSongBySlug, getArtistBySlug } from "@/l
 import RecipeCard from "@/components/recipe/RecipeCard";
 import Badge from "@/components/ui/Badge";
 import PlatformOnboarding from "@/components/home/PlatformOnboarding";
+import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -328,6 +329,18 @@ export default function Home() {
       <section className="border-y border-border bg-surface/50 py-20">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <PlatformOnboarding />
+        </div>
+      </section>
+
+      {/* Newsletter signup */}
+      <section className="border-y border-border bg-surface/50 py-20">
+        <div className="mx-auto max-w-2xl px-4">
+          <NewsletterSignup
+            headline="Tone of the Week — free in your inbox"
+            subtext="Every Friday: one killer tone recipe, one blog deep dive, one quick tip you can use tonight. Join free."
+            buttonText="Send it to me"
+            source="homepage"
+          />
         </div>
       </section>
 

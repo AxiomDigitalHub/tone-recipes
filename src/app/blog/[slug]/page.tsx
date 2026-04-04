@@ -440,11 +440,6 @@ export default async function BlogPostPage({
             </div>
           )}
 
-          {/* Newsletter signup */}
-          <div className="mx-auto mt-12 max-w-3xl lg:mx-0">
-            <NewsletterSignup variant="inline" />
-          </div>
-
           {/* Back link */}
           <div className="mx-auto mt-8 max-w-3xl lg:mx-0">
             <Link
@@ -471,6 +466,17 @@ export default async function BlogPostPage({
       </div>
 
       {/* Related posts */}
+      {/* Newsletter CTA */}
+      <div className="mx-auto mt-12 max-w-3xl">
+        <NewsletterSignup
+          variant="banner"
+          headline="Tone of the Week"
+          subtext="One recipe, one deep dive, one quick tip — every Friday. Free."
+          buttonText="Subscribe"
+          source="blog-post"
+        />
+      </div>
+
       {related.length > 0 && (
         <section className="mx-auto mt-16 max-w-7xl border-t border-border pt-12">
           <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">
