@@ -178,6 +178,13 @@ export async function POST(
         downloadType: "pdf",
       });
 
+      // Send welcome email (non-blocking)
+      if (email) {
+        import("@/lib/email").then(({ sendWelcomeEmail }) => {
+          sendWelcomeEmail(email, recipe.title).catch(() => {});
+        });
+      }
+
       const filename = `${slug}-tone-recipe.pdf`;
       return new NextResponse(new Uint8Array(pdfBuffer), {
         headers: {
