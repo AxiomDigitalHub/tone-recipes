@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import LazySearchPalette from "@/components/search/LazySearchPalette";
+import SmoothScroll from "@/components/ui/SmoothScroll";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -17,6 +18,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["700"],
 });
 
 
@@ -87,7 +94,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col bg-background font-sans text-foreground antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} flex min-h-screen flex-col bg-background font-sans text-foreground antialiased`}
       >
         <AuthProvider>
           <Header />
@@ -95,6 +102,7 @@ export default function RootLayout({
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />
         </AuthProvider>
+        <SmoothScroll />
         <Analytics />
         <SpeedInsights />
         <Script

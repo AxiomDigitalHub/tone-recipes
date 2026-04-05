@@ -6,6 +6,7 @@ import RecipeCard from "@/components/recipe/RecipeCard";
 import Badge from "@/components/ui/Badge";
 import PlatformOnboarding from "@/components/home/PlatformOnboarding";
 import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -50,11 +51,12 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,_rgba(245,158,11,0.08),_transparent_60%)]" />
 
         <div className="mx-auto max-w-7xl px-4 pb-16 pt-24 text-center md:pt-32">
-          <h1 className="mx-auto mt-4 max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
-            Tone recipes from the songs{" "}
-            <span className="text-accent">you love</span>.
+          <h1 className="font-[family-name:var(--font-display)] mx-auto mt-4 max-w-4xl text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl xl:text-9xl" style={{ letterSpacing: "-0.03em", lineHeight: 1.05 }}>
+            Tone recipes from the songs
+            <br />
+            <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">you love.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted md:text-xl">
+          <p className="mx-auto mt-6 max-w-xl text-lg text-muted md:text-xl">
             Pick a song. Get exact settings for your Helix, Quad Cortex, TONEX, or physical rig. Stop tweaking. Start playing.
           </p>
 
@@ -115,6 +117,7 @@ export default function Home() {
       </section>
 
       {/* Featured Recipes — right after the fold */}
+      <ScrollReveal>
       <section id="featured" className="border-y border-border bg-surface/50 py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mb-10 flex items-end justify-between">
@@ -159,8 +162,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Problem section */}
+      <ScrollReveal>
       <section className="py-20">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-2xl font-bold md:text-3xl">
@@ -179,8 +184,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Popular Artists */}
+      <ScrollReveal>
       <section className="border-y border-border bg-surface/50 py-20">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-center text-2xl font-bold md:text-3xl">
@@ -228,8 +235,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Pain points */}
+      <ScrollReveal>
       <section className="py-16">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">
@@ -252,8 +261,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* How it works */}
+      <ScrollReveal>
       <section className="border-y border-border bg-surface/50 py-20">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-center text-2xl font-bold md:text-3xl">
@@ -265,20 +276,23 @@ export default function Home() {
                 step: "1",
                 title: "Find the song",
                 desc: "Search by artist, song, or genre. Every recipe is tied to a specific recording so you know exactly what you\u2019re aiming for.",
+                delay: 0,
               },
               {
                 step: "2",
                 title: "See the full signal chain",
                 desc: "Visual breakdown of every pedal, amp block, and routing decision. Not just what to set, but why it works.",
+                delay: 1,
               },
               {
                 step: "3",
                 title: "Switch to your gear and dial it in",
                 desc: "One tap to see exact settings for your platform. Helix, Quad Cortex, TONEX, Fractal, Kemper, or physical rig. Same tone, your gear.",
+                delay: 2,
               },
             ].map((item) => (
+              <ScrollReveal key={item.step} delay={item.delay}>
               <div
-                key={item.step}
                 className="flex flex-col items-center rounded-xl border border-border bg-surface p-8 text-center"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-lg font-bold text-background">
@@ -287,12 +301,15 @@ export default function Home() {
                 <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
                 <p className="mt-2 text-sm text-muted">{item.desc}</p>
               </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Benefit pillars */}
+      <ScrollReveal>
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid gap-8 md:grid-cols-3">
@@ -324,6 +341,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Set your platform — merged onboarding + platform showcase */}
       <section className="border-y border-border bg-surface/50 py-20">
@@ -333,6 +351,7 @@ export default function Home() {
       </section>
 
       {/* Newsletter signup */}
+      <ScrollReveal>
       <section className="border-y border-border bg-surface/50 py-20">
         <div className="mx-auto max-w-2xl px-4">
           <NewsletterSignup
@@ -343,6 +362,7 @@ export default function Home() {
           />
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Closing CTA */}
       <section className="py-20">
