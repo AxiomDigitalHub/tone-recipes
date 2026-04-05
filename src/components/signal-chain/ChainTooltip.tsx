@@ -9,8 +9,15 @@ interface ChainTooltipProps {
 export default function ChainTooltip({ tip }: ChainTooltipProps) {
   const [open, setOpen] = useState(false);
   const [position, setPosition] = useState<"above" | "below">("above");
+  const [isPulsing, setIsPulsing] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
+
+  // Stop pulse animation after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => setIsPulsing(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const close = useCallback(() => setOpen(false), []);
 
@@ -58,7 +65,7 @@ export default function ChainTooltip({ tip }: ChainTooltipProps) {
         onClick={() => setOpen(!open)}
         aria-label="Signal chain tip"
         aria-expanded={open}
-        className="flex h-[16px] w-[16px] items-center justify-center rounded-full border border-border bg-surface text-[10px] font-semibold leading-none text-muted transition-colors hover:border-accent/50 hover:text-accent"
+        className={`flex h-5 w-5 items-center justify-center rounded-full border border-accent/30 bg-surface text-[10px] font-semibold leading-none text-accent/50 transition-colors hover:border-accent/50 hover:text-accent hover:bg-accent/10${isPulsing ? " animate-pulse" : ""}`}
       >
         ?
       </button>

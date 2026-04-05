@@ -217,7 +217,7 @@ These fill the biggest gaps and create cluster anchors for future content.
 | # | Topic | Target Query | Writer |
 |---|---|---|---|
 | P3-15 | Tube Screamer vs. Klon vs. Blues Driver: Same Amp, Three Pedals ✅ PUBLISHED | "tube screamer vs klon," "ts808 vs blues driver" | Rick Dalton + Margot Thiessen (crossover) |
-| P3-16 | Does Cable Length Actually Affect Tone? We Measured It | "cable length tone guitar," "does guitar cable matter" | Viktor Kessler |
+| P3-16 | Does Cable Length Actually Affect Tone? We Measured It ✅ PUBLISHED | "cable length tone guitar," "does guitar cable matter" | Viktor Kessler |
 
 ---
 
@@ -227,10 +227,10 @@ These fill the biggest gaps and create cluster anchors for future content.
 
 | # | Topic | Target Query | Writer |
 |---|---|---|---|
-| P4-01 | Tom Morello Rage Tone Recipe | "tom morello tone settings," "rage against machine guitar" | Jess Kowalski |
+| P4-01 | Tom Morello Rage Tone Recipe ✅ PUBLISHED | "tom morello tone settings," "rage against machine guitar" | Jess Kowalski |
 | P4-02 | The Cure / Robert Smith Clean Chorus Tone ✅ PUBLISHED | "the cure guitar tone," "robert smith chorus settings" | Dev Okonkwo |
-| P4-03 | BB King / Classic Blues Lead Tone | "bb king tone settings," "blues lead guitar tone" | Rick Dalton |
-| P4-04 | Misha Mansoor / Periphery Djent Tone | "periphery tone settings," "djent tone recipe" | Viktor Kessler |
+| P4-03 | BB King / Classic Blues Lead Tone ✅ PUBLISHED | "bb king tone settings," "blues lead guitar tone" | Rick Dalton |
+| P4-04 | Misha Mansoor / Periphery Djent Tone ✅ PUBLISHED | "periphery tone settings," "djent tone recipe" | Viktor Kessler |
 | P4-05 | Jack White Lo-Fi Garage Tone ✅ PUBLISHED | "jack white tone settings," "lo-fi guitar tone" | Jess Kowalski |
 
 ### Settings Guides (Pillar 2) — 3 Posts
@@ -445,3 +445,13 @@ Based on the competitive analysis, avoid these formats:
 | 3 | What Does the Cut Knob Do on a Vox AC30? | "vox ac30 cut knob," "ac30 cut control explained" | Nathan Cross | 3 — Signal Chain & Tone Theory | AC30 SERP — "what does the cut knob do" appears as a PAA question with no clean editorial answer; a tight definitional post (500-800 words) targeting the snippet directly; the Treble Cut's counterintuitive behavior is consistently misunderstood |
 | 4 | What Is Power Tube Saturation? (And Why It Sounds Different from Preamp Distortion) | "power tube saturation," "preamp vs power amp distortion," "power amp breakup guitar" | Hank Presswood | 3 — Signal Chain & Tone Theory | Gain/volume/master SERP — power tube vs. preamp distortion interaction is covered poorly across all competitors; Hank's vintage amp depth makes this uniquely authentic; strong PAA signal ("does master volume affect tone?") |
 | 5 | How to Calculate Delay Time by BPM (With a Reference Table for Every Tempo) | "delay time calculator bpm," "delay ms calculator guitar," "how to calculate dotted eighth delay" | Nathan Cross | 3 — Signal Chain & Tone Theory | Delay SERP — the dotted-eighth formula (60,000 / BPM × 0.75) exists only as a PDF download or buried in paragraphs; a page built around an embedded BPM-to-ms table with the formula visible would likely capture position zero for multiple queries; low competition, high utility |
+
+## SERP-Derived Topics — 2026-04-03
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | Where to Put a Buffer in Your Signal Chain (And When You Actually Need One) | "buffer pedal placement," "where does buffer go in signal chain" | Sean Nakamura | 3 — Signal Chain & Tone Theory | Cable length SERP — buffer placement strategy is completely absent from all editorial results; manufacturer sites mention buffers without explaining chain placement; the Klon's buffer role and Boss's buffered bypass behavior make this a natural cluster post alongside existing buffer/bypass content |
+| 2 | Jimi Hendrix's Long Coiled Cable Was a Tone Choice, Not an Accident | "hendrix tone cable," "why did hendrix use coiled cable" | Rick Dalton | 3 — Signal Chain & Tone Theory | Cable length SERP — Hendrix's intentional use of extra-long coiled cables for high-frequency rolloff and pickup resonance shaping is widely referenced but never the primary subject of any editorial piece; Rick is the natural voice for a vintage-angle signal chain story |
+| 3 | Using a Wah Pedal as a Static EQ Filter (The Morello Technique) | "wah pedal as filter," "half cocked wah settings," "wah pedal static position tone" | Jess Kowalski | 3 — Signal Chain & Tone Theory | Tom Morello SERP — the wah-as-static-filter technique is the most-referenced unanswered question in RATM tone discussions; forums confirm high demand but no editorial guide explains it with specific frequency targets and application examples |
+| 4 | The Gibson Lab Series: The Amp BB King Used That Nobody Talks About | "gibson lab series amp," "bb king lab series amp tone" | Hank Presswood | 2 — Settings Guides | BB King SERP — the Lab Series L5 is absent from virtually all competitor content; almost every guide defaults to Fender Twin Reverb despite the Lab Series being BB's primary amp for his most celebrated recordings; Hank's circuit-knowledge angle makes this unique |
+| 5 | Recording Metal Direct: How Misha Mansoor Changed Home Studio Production | "recording guitar direct metal," "amp sim for metal recording bedroom studio" | Viktor Kessler | 4 — Modeler Masterclass | Djent SERP — the editorial gap for Misha-style direct recording workflow is the largest we have found; forum content owns the entire SERP; Viktor's studio-first methodology and modeler expertise make this a natural fit; cross-links with djent tone recipe, gain staging, and IR guide |

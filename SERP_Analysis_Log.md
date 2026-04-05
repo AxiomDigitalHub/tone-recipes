@@ -528,3 +528,94 @@
 - **Featured snippet opportunity:** Yes — high for dotted eighth; "how to calculate dotted eighth delay time" has no clean in-page answer; formatting the formula visibly is near-certain snippet win
 - **Difficulty:** High for "delay settings guitar" (BOSS, Neural DSP dominant); medium for dotted eighth; low to medium for slapback
 
+
+---
+
+## SERP Analysis — 2026-04-03
+
+### Does Cable Length Actually Affect Tone? We Measured It
+
+- **Target query:** "cable length tone guitar," "does guitar cable matter"
+- **Top competitors:**
+  - [GearAficionado — Does Guitar Cable Length Affect Your Tone?](https://gearaficionado.com/blog/does-guitar-cable-length-affect-your-tone/)
+  - [Guitar World — Do I Need a Different Cable for Studio, Live, and Practice?](https://www.guitarworld.com/features/do-i-need-a-different-cable-for-studio-live-and-practice)
+  - [Guitar World — How Much Difference Does Your Guitar Cable Actually Make?](https://www.guitarworld.com/features/how-much-difference-does-your-guitar-cable-actually-make)
+  - [LickLibrary — Do Cables Affect Your Guitar Tone?](https://www.licklibrary.com/news/do-cables-affect-your-guitar-tone)
+  - [Rattlesnake Cable Company — Perfect Guitar Cable Length?](https://www.rattlesnakecables.com/article/perfect-guitar-cable-length/)
+  - [Zero Cap Cable — The Effect of Cable Capacitance on Guitar Tone](https://zerocapcable.com/?page_id=209)
+  - [Shootout Guitar Cables — Length and Signal Loss](http://www.shootoutguitarcables.com/guitar-cables-explained/length-signal-loss.html)
+- **Content gaps found:** Manufacturer sites (Zero Cap, Rattlesnake) dominate with self-interested framing. No editorial piece covers the Hendrix intentional-long-cable-as-tone-tool angle. No one addresses the distinction between passive pickups (highly affected) vs. active pickups (almost unaffected). Buffer placement strategy in context of cable runs is absent from all editorial results. Practical decision tree (how long is too long, when to add a buffer) is missing. Follow-up: "Where to Put a Buffer in Your Signal Chain" and "Hendrix's Coiled Cable Was a Tone Choice, Not an Accident."
+- **Featured snippet opportunity:** Yes — "does guitar cable length affect tone?" is a direct-answer snippet query; Boss's 18-foot threshold is cited widely but no editorial page owns the clean answer with a decision table
+- **Difficulty:** Low to medium — manufacturer sites and forum threads dominate; Guitar World has two thin articles; a structured editorial guide with specific data would rank above both
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/guitar-cable](https://unsplash.com/s/photos/guitar-cable) — close-up of a coiled or straight instrument cable against a dark background
+
+---
+
+### Tom Morello Rage Against the Machine Tone Recipe
+
+- **Target query:** "tom morello tone settings," "rage against machine guitar"
+- **Top competitors:**
+  - [Guitar Gear Finder — Tom Morello Guitar Gear Rig](https://guitargearfinder.com/guides/tom-morello-guitar-gear-rig-rage-against-the-machine/)
+  - [MusicStrive — Tom Morello Amp Settings](https://musicstrive.com/tom-morello-amp-settings/)
+  - [Guitar Chalk — Tom Morello Amp Settings](https://www.guitarchalk.com/amp-settings-tom-morello/)
+  - [Guitar Chalk — Killing in the Name Tone Dissected](https://www.guitarchalk.com/amp-settings-killing-in-the-name-rage-against-the-machine/)
+  - [Roland Corp — Killing in the Name Guitar Tone Dissected](https://rolandcorp.com.au/blog/rage-against-the-machines-killing-in-the-name-guitar-tone-dissected)
+  - [Neural DSP — Tom Morello Pedalboard and Amp Settings](https://neuraldsp.com/articles/tom-morello-pedalboard-and-amp-settings)
+  - [Reverb.com — Potent Pairings: The Sound of Tom Morello](https://reverb.com/news/potent-pairings-the-sound-of-rage-against-the-machine)
+- **Content gaps found:** Guitar Chalk has two separate articles (general amp settings + Killing in the Name) but neither addresses the kill switch as a tone-shaping technique or the DOD FX40B parametric EQ role. Neural DSP's article is predictably plugin-focused. Wah-as-static-filter technique is mentioned in passing everywhere but never explained with settings. No competitor provides a cross-platform modeler section. The MXR Distortion+ used in some rigs is absent from most guides. Follow-up: "The Kill Switch Technique: Rhythm Without a Pick" and "Using a Wah Pedal as a Static EQ Filter."
+- **Featured snippet opportunity:** Yes — "what amp does Tom Morello use?" is a consistent PAA box entry; "what pedals does Tom Morello use?" also appears; both are directly answered in our post
+- **Difficulty:** Medium-high — Guitar Gear Finder and Guitar World have strong domain authority; our differentiation is the kill switch depth, DOD FX40B coverage, and modeler section
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/marshall-amplifier](https://unsplash.com/s/photos/marshall-amplifier) — JCM800-style Marshall stack; photo ID MfLGvcy9ooY is a clean black-and-white Marshall image that would suit the aesthetic
+
+---
+
+### The Cure / Robert Smith Tone Recipe
+
+- **Target query:** "the cure guitar tone," "robert smith chorus settings"
+- **Top competitors:**
+  - [MusicStrive — The Cure Amp Settings](https://musicstrive.com/the-cure-guitar-tone/)
+  - [Guitar Chalk — The Cure Amp Settings](https://www.guitarchalk.com/the-cure-amp-settings/)
+  - [Guitar Chalk — Just Like Heaven Tone Settings](https://www.guitarchalk.com/amp-settings-just-like-heaven-the-cure/)
+  - [GearNews — How to Sound Like Robert Smith of The Cure](https://www.gearnews.com/how-to-sound-like-robert-smith-of-the-cure/)
+  - [PedalPlayers — Robert Smith Pedalboard](https://pedalplayers.com/robert-smith-pedalboard/)
+  - [Mixdown Magazine — Gear Rundown: Robert Smith of The Cure](https://mixdownmag.com.au/features/rig-rundown-robert-smith-of-the-cure/)
+  - [Fractal Audio Forum — Just Like Heaven Tone](https://forum.fractalaudio.com/threads/just-like-heaven-cure-tone.129351/)
+- **Content gaps found:** Guitar Chalk covers "Just Like Heaven" but only that song — no era-spanning breakdown. Nobody addresses the Roland JC-120's solid-state character as an intentional aesthetic choice rather than a limitation. The flanger-first signal chain order (flanger before chorus before delay before reverb) is noted only in passing. No competitor explains why the JC-120's built-in chorus behaves differently from standalone chorus pedals. Modeler/plugin section completely absent. Follow-up: "Boss CE-2 vs. TC Electronic Chorus: Which Gets Closer to the Robert Smith Sound?" and "Using Your Amp's Built-In Chorus vs. a Standalone Pedal."
+- **Featured snippet opportunity:** Yes — "what chorus pedal does Robert Smith use?" is a direct PAA entry; our post answers it with specific settings; moderate confidence for snippet capture
+- **Difficulty:** Medium — Guitar Chalk and MusicStrive have reasonable domain authority but thin individual articles; the era-by-era approach and modeler section differentiate
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/guitar-pedals](https://unsplash.com/s/photos/guitar-pedals) — photo ID lEwyj4FiHHU (selective focus guitar pedals) suits the atmospheric/effects-heavy angle of the post
+
+---
+
+### BB King Classic Blues Lead Tone Recipe
+
+- **Target query:** "bb king tone settings," "blues lead guitar tone"
+- **Top competitors:**
+  - [Guitar World — BB King: The Thrill Is Gone Guitar Tone](https://www.guitarworld.com/features/bb-king-the-thrill-is-gone-guitar-tone)
+  - [Happy Bluesman — How to Sound Like BB King](https://happybluesman.com/sound-like-bb-king/)
+  - [SoundCy — Emulating BB King's Guitar Sound](https://soundcy.com/article/how-to-make-your-guitar-sound-like-bb-king)
+  - [Rigtone — BB King Amp Settings & Guitar Tone Guide](https://www.rigtone.com/artist/bb-king)
+  - [Guitar Player — How to Replicate the Magic of the Blues Greats](https://www.guitarplayer.com/gear/heres-how-to-replicate-the-magic-of-the-blues-greats)
+  - [Ploutone — Legendary Blues Tones](https://ploutone.com/blogs/hone-your-tone/the-secret-sauce-of-legendary-blues-tones-from-amp-settings-to-overdrive-pedals)
+- **Content gaps found:** Guitar World has the strongest piece but focuses narrowly on "The Thrill Is Gone." No competitor writes a structured, multi-song tone guide with settings tables. The Gibson Lab Series amp is almost entirely absent from coverage (most articles default to Fender Twin Reverb, which was an earlier period). The Varitone switch on the Lucille and its tonal effect is unexplained in all editorial results. The no-pedals angle — and what that means technically — is stated but never explored. Follow-up: "The Gibson Lab Series: The Amp BB King Used That Nobody Talks About" and "What Is a Varitone Switch and Why Did BB King Use It?"
+- **Featured snippet opportunity:** Yes — "what amp did BB King use?" appears as a PAA; "did BB King use pedals?" also shows frequently; both answered directly in our post
+- **Difficulty:** Medium — Guitar World has the highest authority piece but it is song-specific; the broader tone guide format gives us a differentiated angle
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/blues-guitar](https://unsplash.com/s/photos/blues-guitar) — a warm-toned image of a semi-hollow or archtop guitar fits the vintage blues aesthetic
+
+---
+
+### Misha Mansoor / Periphery Djent Tone Recipe
+
+- **Target query:** "periphery tone settings," "djent tone recipe"
+- **Top competitors:**
+  - [Guitar World — Misha Mansoor: The Djent Set](https://www.guitarworld.com/lessons/misha-mansoor-djent-set)
+  - [Guitar Messenger — Periphery: Misha Mansoor Masterclass Part 1](https://guitarmessenger.com/periphery-misha-mansoor-masterclass-part-1/)
+  - [Reverb.com — Misha Mansoor: The Ultimate Metal Pedalboard](https://reverb.com/news/misha-mansoor-of-periphery-outlines-the-ultimate-metal-pedalboard)
+  - [Fractal Audio Forum — Periphery Tone Thread](https://forum.fractalaudio.com/threads/periphery-tone.94923/)
+  - [Line6 CustomTone — Djent Periphery Misha Mansoor preset](https://line6.com/customtone/tone/873185)
+- **Content gaps found:** Fractal forum threads and Line6 preset pages dominate this SERP — editorial coverage is almost entirely absent. Guitar World's article is an interview, not a settings guide. No editorial piece walks through the EQ frequency strategy for extended-range guitars. The Precision Drive (Horizon Devices) as a modern replacement for the OD808 is not addressed in any editorial context. The Axe-Fx / modeler-first approach that Misha pioneered for bedroom recording is absent from all non-forum results. This is one of the thinnest editorial SERPs we have encountered — almost pure forum content. Follow-up: "The Precision Drive vs. OD808: Which Pre-Gain Tightener Works Better for Drop Tunings?" and "Recording Metal Direct: How Misha Mansoor Changed Home Studio Production."
+- **Featured snippet opportunity:** Yes — high confidence; "what amp does Misha Mansoor use?" and "what pedals does Periphery use?" show as PAA; the SERP has no strong featured snippet competitor; our structured post is well-positioned
+- **Difficulty:** Low — the editorial gap here is significant; forum content dominates and Google actively prefers editorial sources in tone-recipe SERPs based on patterns we have observed
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/electric-guitar](https://unsplash.com/s/photos/electric-guitar) — a dark, low-angle shot of a solid-body electric guitar suits the heavy metal tone of the post
+
+---

@@ -271,8 +271,21 @@ export default function SearchPalette() {
           {/* Results */}
           <div ref={resultsRef} id="search-results-listbox" role="listbox" aria-label="Search results" className="max-h-80 overflow-y-auto p-2">
             {query.trim() === "" && (
-              <div className="px-4 py-8 text-center text-sm text-muted">
-                Type to search recipes, artists, gear...
+              <div className="px-4 py-8 text-center">
+                <p className="text-sm text-muted">
+                  Try searching for an artist, song, or gear type:
+                </p>
+                <p className="mt-2 text-sm text-muted/70">
+                  <span className="text-foreground/60">SRV</span>
+                  {" · "}
+                  <span className="text-foreground/60">Helix</span>
+                  {" · "}
+                  <span className="text-foreground/60">Tube Screamer</span>
+                  {" · "}
+                  <span className="text-foreground/60">blues</span>
+                  {" · "}
+                  <span className="text-foreground/60">Comfortably Numb</span>
+                </p>
               </div>
             )}
 

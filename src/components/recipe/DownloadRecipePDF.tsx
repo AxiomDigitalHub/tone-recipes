@@ -19,6 +19,7 @@ export default function DownloadRecipePDF({ recipeSlug }: DownloadRecipePDFProps
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   const downloadPDF = useCallback(
     async (downloadEmail?: string) => {
@@ -65,6 +66,9 @@ export default function DownloadRecipePDF({ recipeSlug }: DownloadRecipePDFProps
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
+
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 3000);
 
         setSuccess(true);
         setTimeout(() => {
@@ -217,6 +221,12 @@ export default function DownloadRecipePDF({ recipeSlug }: DownloadRecipePDFProps
               </>
             )}
           </div>
+        </div>
+      )}
+      {/* Download confirmation toast */}
+      {showToast && (
+        <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-lg bg-emerald-500/90 px-5 py-3 text-sm font-medium text-white shadow-lg backdrop-blur-sm">
+          Recipe saved! Check your downloads.
         </div>
       )}
     </>

@@ -32,6 +32,7 @@ export default function PlatformPicker() {
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen(!open)}
+        title="Set your default modeler platform"
         className="flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium transition-colors hover:border-accent/40 hover:bg-surface-hover"
       >
         {activeMeta ? (
@@ -43,7 +44,7 @@ export default function PlatformPicker() {
             <span className="text-foreground">{activeMeta.label}</span>
           </>
         ) : (
-          <span className="text-muted">All Platforms</span>
+          <span className="text-muted">Your Modeler</span>
         )}
         <svg
           className={`ml-0.5 h-3 w-3 text-muted transition-transform ${open ? "rotate-180" : ""}`}
@@ -69,7 +70,7 @@ export default function PlatformPicker() {
                 : "text-muted"
             }`}
           >
-            All Platforms
+            Your Modeler
             <span className="text-[10px] text-muted">(no preference)</span>
           </button>
           <hr className="my-1 border-border" />
