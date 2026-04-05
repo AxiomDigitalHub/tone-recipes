@@ -80,7 +80,51 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   // ── Pitch ─────────────────────────────────────────────────────────────
   "Pitch Wham": "HD2_PitchWham",
 
+  // ── Additional Amps (used in recipe translations) ─────────────────────
+  "Soup Pro": "HD2_AmpSoupPro",
+  "WhoWatt 100": "HD2_AmpWhoWatt100",
+  "Tweed Blues Nrm": "HD2_AmpTweedBluesNrm",
+  "US DLX 64": "HD2_AmpUSDeluxe64",
+  "Essex A30 TB": "HD2_AmpEssexA30TB",
+  "Brit 2203": "HD2_AmpBrit2203",
+  "Cali 2C+ Lead": "HD2_AmpCali2CLead",
+  "Cali IV Lead": "HD2_AmpCaliIVLead",
+  "Cali Texas Ch2": "HD2_AmpCaliTexasCh2",
+  "Das Benzin Lead": "HD2_AmpDasBenzinLead",
+  "Ampeg SVT Nrm": "HD2_AmpAmpegSVTNrm",
+  "Deranged Master": "HD2_AmpDerangedMaster",
+  "Cartographer": "HD2_AmpCartographer",
+
+  // ── Additional Cabs ──────────────────────────────────────────────────
+  "1x12 Field Coil": "HD2_Cab1x12FieldCoil",
+  "1x15 Ampeg B-15": "HD2_Cab1x15AmpegB15",
+  "4x10 Tweed P10R": "HD2_Cab4x10TweedP10R",
+  "4x12 Greenback 25": "HD2_Cab4x12Greenback25",
+  "4x12 XXL V30": "HD2_Cab4x12XXLV30",
+
+  // ── Additional Drive/Comp ────────────────────────────────────────────
+  "Compulsive Drv": "HD2_DistCompulsiveDrive",
+  "Vermin Dist": "HD2_DistVermin",
+  "LA Studio Comp": "HD2_CompLAStudioComp",
+
+  // ── Additional Modulation ────────────────────────────────────────────
+  "PlastiChorus": "HD2_ChorusPlastiChorus",
+  "Chorus CE-1": "HD2_Chorus70sChorus",
+  "Searchlights": "HD2_TremSearchlights",
+
+  // ── Additional Delay ─────────────────────────────────────────────────
+  "Cosmos Echo": "HD2_DelayCosmosEcho",
+
+  // ── Additional Reverb ────────────────────────────────────────────────
+  "Glitz": "HD2_ReverbGlitz",
+  "Plate": "HD2_ReverbPlate",
+  "Spring": "HD2_ReverbSpring",
+
+  // ── Additional Wah ───────────────────────────────────────────────────
+  "Teardrop 310": "HD2_WahTeardrop310",
+
   // ── EQ ────────────────────────────────────────────────────────────────
+  "Parametric": "HD2_EQParametric",
   "Parametric EQ": "HD2_EQParametric",
   "Graphic EQ": "HD2_EQGraphic10Band",
 
