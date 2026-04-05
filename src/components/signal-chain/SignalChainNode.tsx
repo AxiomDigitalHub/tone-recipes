@@ -41,7 +41,7 @@ export default function SignalChainNode({
         </span>
       </button>
 
-      <p className="mt-2 max-w-[100px] text-center text-[11px] font-medium leading-tight text-foreground">
+      <p className="mt-2 max-w-[110px] text-center text-[11px] font-medium leading-tight text-foreground line-clamp-2">
         {node.gear_name}
       </p>
     </div>

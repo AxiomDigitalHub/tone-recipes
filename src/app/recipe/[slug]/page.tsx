@@ -176,7 +176,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
       {/* ----------------------------------------------------------------- */}
 
       {/* Breadcrumb */}
-      <nav className="mb-2 flex items-center gap-2 text-xs text-muted">
+      <nav className="mb-3 flex items-center gap-2 text-xs text-muted">
         <Link href="/browse" className="hover:text-foreground">Browse</Link>
         <span>/</span>
         {artist && (
@@ -213,7 +213,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
             </p>
           </div>
         </div>
-        <div className="mt-3 flex flex-wrap items-center gap-2">
+        <div className="mt-3 mb-4 flex flex-wrap items-center gap-2">
           <Link
             href={`/compare?a=${recipe.slug}`}
             className="rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-medium text-muted transition-colors hover:border-accent/40 hover:text-foreground"

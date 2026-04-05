@@ -316,7 +316,11 @@ export default function CommunitySubmissions({
           <span className="text-sm font-semibold text-foreground">
             Community Settings
           </span>
-          <span className="inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-accent/15 px-1.5 text-[11px] font-bold text-accent">
+          <span className={`inline-flex h-5 min-w-[20px] items-center justify-center rounded-full px-1.5 text-[11px] font-bold ${
+            !loading && submissions.length > 0
+              ? "bg-accent/15 text-accent"
+              : "bg-muted/20 text-muted"
+          }`}>
             {loading ? "-" : submissions.length}
           </span>
         </div>

@@ -59,7 +59,7 @@ function NodeDetailDrawer({
   if (!isOpen) return null;
 
   return (
-    <div className="border-t-2 bg-background/95" style={{ borderTopColor: color + "60" }}>
+    <div className="border-t-2 bg-background/95 shadow-lg border-accent/20" style={{ borderTopColor: color + "60" }}>
       {/* Header bar with colored accent */}
       <div className="flex items-center justify-between gap-4 px-5 py-4 md:px-8">
         <div className="flex items-center gap-4">
@@ -270,12 +270,12 @@ function PlatformBlockNode({
       </button>
 
       <p
-        className="mt-2 max-w-[110px] text-center text-[11px] font-semibold leading-tight"
+        className="mt-2 max-w-[110px] text-center text-[11px] font-semibold leading-tight line-clamp-2"
         style={{ color: platformColor }}
       >
         {block.block_name}
       </p>
-      <p className="max-w-[110px] text-center text-[10px] leading-tight text-muted">
+      <p className="max-w-[110px] text-center text-[10px] leading-tight text-muted line-clamp-2">
         ← {block.original_gear}
       </p>
     </div>
