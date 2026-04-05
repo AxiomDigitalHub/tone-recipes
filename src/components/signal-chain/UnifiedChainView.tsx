@@ -406,7 +406,7 @@ export default function UnifiedChainView({
         specs={guitarSpecs}
         actions={
           <div className="flex items-center gap-2">
-            {hasPresetDownload && (activeTab === "helix" || activeTab === "quad_cortex" || activeTab === "katana") && activeTranslation && (
+            {user && (activeTab === "helix" || activeTab === "quad_cortex" || activeTab === "katana") && activeTranslation && (
               <DownloadPatchButton
                 translation={activeTranslation}
                 presetName={presetName}
