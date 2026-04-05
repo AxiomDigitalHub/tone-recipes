@@ -25,6 +25,11 @@ import RecipeInteractions from "./RecipeInteractions";
 import DownloadRecipePDF from "@/components/recipe/DownloadRecipePDF";
 import DownloadCounter from "@/components/recipe/DownloadCounter";
 
+/** Pre-render all recipe pages at build time for fast TTFB */
+export function generateStaticParams() {
+  return toneRecipes.map((r) => ({ slug: r.slug }));
+}
+
 interface RecipePageProps {
   params: Promise<{ slug: string }>;
 }

@@ -14,6 +14,11 @@ import AffiliateDisclosure from "@/components/ui/AffiliateDisclosure";
 import { getAffiliateLinks } from "@/lib/affiliate";
 import { ExternalLink } from "lucide-react";
 
+/** Pre-render all gear pages at build time */
+export function generateStaticParams() {
+  return gearItems.map((g) => ({ slug: g.slug }));
+}
+
 interface GearPageProps {
   params: Promise<{ slug: string }>;
 }
