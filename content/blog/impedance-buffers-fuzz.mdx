@@ -1,0 +1,120 @@
+---
+title: "Impedance and Buffers: Why Your Fuzz Sounds Different When You Move It"
+description: "Why does moving a fuzz pedal ruin its sound? The answer is impedance — and understanding it changes how you build your pedalboard forever."
+date: "2026-04-04"
+author: "Margot Thiessen"
+author_slug: "margot-thiessen"
+category: "signal-chain"
+tags: ["impedance", "buffers", "fuzz", "signal-chain", "pedalboard", "true-bypass"]
+image: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=1200&q=80"
+readingTime: 10
+---
+
+> **Start Here:** Fuzz pedals are impedance-sensitive. Moving a fuzz to a different position in your chain — particularly after a buffered pedal — changes the sound the circuit sees, and changes what comes out. Here's what's actually happening and how to fix it.
+
+There's a specific frustration that belongs only to fuzz pedal owners: you find the sound, it's *that* sound, and then you move one thing on your board and it disappears. It sounds thin now, or compressed, or like a completely different pedal. Nothing else in your chain did anything like this.
+
+The cause isn't mysterious. It's impedance — specifically, the interaction between a fuzz circuit's input requirements and whatever source is driving it. Understanding this doesn't require an engineering degree, but it does require one careful read-through.
+
+---
+
+## What Does Impedance Have to Do With Fuzz?
+
+Every piece of gear in a signal chain has both an input impedance (how much it resists the signal coming in) and an output impedance (how much resistance the signal encounters leaving it). When these mismatches are small, the signal passes cleanly. When they're large, the circuit's behavior changes.
+
+A passive guitar pickup presents a high output impedance — typically somewhere between 6,000 and 15,000 ohms for single-coils, somewhat lower for humbuckers. Fuzz circuits — particularly germanium Fuzz Face-style designs — were engineered expecting that exact source. The high-impedance pickup signal interacts with the fuzz's input stage in a specific way: the circuit loads the pickup slightly, which affects the resonant peak of the pickup and, in turn, the character of the fuzz.
+
+A buffer changes this entirely. A buffer takes a high-impedance input and converts it to a low-impedance output — typically around 100 ohms. When that low-impedance signal hits the fuzz's input, the loading relationship the circuit was designed around disappears. The result is almost always the same: the fuzz sounds thinner, the upper frequencies are more pronounced, the compression feels different, and the cleanup response — that beautiful way a Fuzz Face cleans up when you roll back your guitar's volume — is largely gone.
+
+---
+
+## Why Do Some Fuzzes Care More Than Others?
+
+Not all fuzz designs are equally sensitive. The type of transistor in the circuit determines most of this.
+
+**Germanium fuzzes** are the most impedance-sensitive. The Fuzz Face (original Dallas Arbiter design), the Tone Bender MK1 and MK1.5, and their many descendants use germanium transistors that are inherently sensitive to the source impedance at their input. These pedals were designed in the 1960s when there were no buffers in the chain — the guitar went straight to the fuzz, full stop. They expect a high-impedance source and respond to that relationship.
+
+I expected the germanium sensitivity to be audible but subtle — a slight shift in feel, maybe a touch of brightness. What I found was startling. A-B testing a germanium Fuzz Face with a buffer immediately before it versus running directly from guitar, through the same amp at the same settings, was not a "you'd have to really listen" comparison. It was two completely different sounds. The buffered version had presence and aggression but lost the wooly, organic compression that makes the pedal worth using.
+
+**Silicon fuzzes** are less sensitive. Silicon transistors have a lower bias point and generally tolerate a wider range of source impedances without dramatic character shifts. A Big Muff — which uses silicon — will sound recognizably like itself whether it follows a buffered tuner or runs straight from the guitar. It's not immune to the effect, but the change is far less pronounced.
+
+**Op-amp fuzzes** (later Big Muff variants, certain boutique designs) are typically the least sensitive. The op-amp input stage handles a wide range of source impedances without the circuit behavior shifting substantially.
+
+---
+
+## What About a Wah Before a Fuzz?
+
+This is where it gets practical for most players.
+
+A wah pedal has its own relationship with impedance. Most wah circuits present a relatively high impedance when bypassed — but here's the problem: depending on how the wah's bypass is implemented, it may still affect the signal path when not engaged. And when a wah is active, it presents a lower output impedance than a passive guitar.
+
+The classic instruction — "put the wah before the fuzz" — creates exactly the problem described above when the wah is engaged. The fuzz is now seeing a low-impedance source. Many players notice that the wah-into-fuzz combination sounds different depending on whether the wah is swept through its range or held stationary.
+
+The workaround that works best, in my experience: **wah after fuzz**. This violates the conventional signal chain wisdom about wahs going early in the chain, but for germanium fuzzes it often produces a more consistent result. The fuzz sees the guitar directly; the wah processes the fuzz output. The wah's character changes slightly in this configuration — it's a touch more compressed, because it's shaping a clipped signal — but the fuzz behaves correctly.
+
+---
+
+## How to Build a Signal Chain That Works
+
+### Option 1: True Bypass Everything Before the Fuzz
+
+The cleanest solution for germanium fuzz users: ensure every pedal before the fuzz in the chain uses true mechanical bypass. When bypassed, a true bypass pedal passes the signal through a physical switch that removes the pedal's circuitry entirely from the path. The guitar's high-impedance signal reaches the fuzz intact.
+
+The limitation: true bypass chains don't maintain your tone over very long cable runs because the cable capacitance problem that buffers solve is still present. For boards with more than 15-20 feet of cable before the fuzz, you may still hear high-frequency rolloff.
+
+### Option 2: Buffer After the Fuzz
+
+A buffer placed after the fuzz — but before any other pedals — solves a different problem without creating the impedance mismatch. The guitar hits the fuzz at high impedance; the buffer then converts the fuzz's output to low impedance for the rest of the chain. This is the approach used on many professional boards: fuzz sits first (or very early), isolated from any buffered pedals that follow.
+
+### Option 3: Input Impedance Control
+
+A small number of fuzzes include an input impedance control that lets you dial in the source impedance the circuit expects. The Analogman Sun Face and several boutique Fuzz Face variants offer this. If your fuzz has an input-Z control, you can tune it to behave correctly even with a buffer earlier in the chain. This is the most flexible solution, though it requires a fuzz that offers it.
+
+### Signal Chain Template
+
+| Position | Pedal | Notes |
+|---|---|---|
+| 1st | Fuzz (germanium) | Directly from guitar, no buffer before |
+| 2nd | Wah (optional) | After fuzz if using germanium |
+| 3rd | Buffer (optional) | Converts fuzz output to low impedance |
+| 4th+ | Other drives, modulation | Can be buffered from here |
+| Last | Reverb, delay | Buffer present in most digital effects anyway |
+
+---
+
+## What About the Guitar Volume Knob?
+
+This is one of the less-discussed aspects of impedance sensitivity and one I find genuinely beautiful.
+
+When a germanium fuzz sees the guitar directly, rolling back the guitar's volume knob doesn't just make it quieter — it cleans up the fuzz. This works because the volume pot changes the effective output impedance of the pickup circuit. Lower volume = lower effective output impedance = less loading on the fuzz input = less saturation. Players like Hendrix and Keith Richards exploited this constantly, using the guitar's volume control as a real-time gain knob while the fuzz was on.
+
+When a buffer is inserted before the fuzz, this relationship breaks. The buffer maintains its low-impedance output regardless of where the guitar volume is set. The fuzz no longer "sees" the volume pot's change. Rolling back the guitar volume makes the signal quieter going into the buffer, and the buffer converts that quieter-but-still-low-impedance signal to the fuzz. The cleanup response disappears. You lose an expressive control that, once you've played through a properly wired chain, you'll miss constantly.
+
+---
+
+## The Wah-Before-or-After Question Resolved
+
+To summarize the wah placement question with a specific answer rather than the usual "it depends":
+
+- **Germanium fuzz + wah:** Put the wah after the fuzz. You lose some wah control over the fuzz's saturation, but you keep the fuzz behaving correctly. The tradeoff is almost always worth it.
+- **Silicon fuzz + wah:** Put the wah before the fuzz. The silicon circuit is tolerant enough that the buffer effect is minimal, and you get more expressive control with the conventional placement.
+- **Big Muff + wah:** Wah before is fine. The Big Muff's silicon circuit doesn't care much where the wah lives.
+
+---
+
+## Frequently Asked Questions
+
+**Why does my fuzz face sound thin and fizzy after my tuner pedal?**
+Almost certainly because your tuner pedal uses a buffer. When bypassed, a buffered tuner still presents a low-impedance output to whatever follows it. Move the fuzz before the tuner, or replace the tuner with a true bypass unit (TC Electronic Polytune has a true bypass option).
+
+**Is there a way to tell if a pedal uses a buffer?**
+Plug your guitar into the pedal, run the output to an amp, and compare with the pedal on versus off (bypassed, not true bypass). If the sound — particularly the high-frequency content and the pickup's resonant character — changes noticeably when the pedal is bypassed, it's using a buffer. A true bypass pedal should be essentially transparent when bypassed.
+
+**Do all germanium fuzzes react the same way?**
+No. The severity of the impedance sensitivity depends on the specific transistors used, their bias point, and how the input stage is configured. Some germanium designs are more tolerant than others. The original Dallas Arbiter Fuzz Face is among the most sensitive; some modern germanium designs include filtering or compensation circuits that reduce the sensitivity. If your fuzz includes an input-Z trimmer, that's the manufacturer acknowledging the issue and giving you a fix.
+
+**Does any of this apply to overdrive pedals?**
+Much less so. Overdrive circuits — Tube Screamers, Blues Drivers, most op-amp drives — have buffered input stages that are specifically designed to handle a range of source impedances. They don't share the germanium fuzz's reliance on the source-impedance relationship.
+
+**What's the simplest fix if I don't want to rewire my whole board?**
+Put the fuzz first in your chain. Before everything. Including the tuner. This is the most reliable solution and has no downsides for the fuzz's behavior. The only compromise is that you lose the ability to tune silently with the fuzz off — a minor inconvenience.

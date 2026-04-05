@@ -1,0 +1,127 @@
+---
+title: "EQ Pedal Placement: Before vs. After Dirt — What Actually Changes"
+description: "EQ before distortion shapes the clipping. EQ after distortion shapes the output. These are not interchangeable. Here's the data on what each placement does and when to use it."
+date: "2026-04-04"
+author: "Viktor Kessler"
+author_slug: "viktor-kessler"
+category: "signal-chain"
+tags: ["eq", "pedal-placement", "signal-chain", "distortion", "overdrive", "metal", "tone"]
+image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80"
+readingTime: 9
+---
+
+> **Start Here:** EQ before dirt controls what gets distorted. EQ after dirt controls what you hear after distortion. Same EQ settings, different positions — different results. The correct placement depends on what problem you're solving.
+
+EQ placement in a signal chain isn't a preference question. It's a signal processing question. The two positions do fundamentally different things, and treating them as interchangeable is how you end up with a muddy low-end you can't EQ out, or a midrange you boosted twice and didn't mean to.
+
+This post covers exactly what each placement does to the signal, genre-specific use cases where each excels, and the specific scenarios where using both — pre and post — is the right answer.
+
+---
+
+## What Does EQ Before Dirt Actually Do?
+
+When an EQ sits before a distortion or overdrive circuit, it shapes the frequency content that enters the clipping stage. This is the important part: **distortion doesn't treat all frequencies equally**. A clipping circuit saturates differently depending on what it's receiving.
+
+Specifically:
+
+1. **Bass frequencies clip first and hardest.** Low-end energy is high-amplitude. In a distortion circuit, that amplitude excess is the first thing to saturate. If you cut bass before the gain stage, you reduce the low-frequency saturation — the result is a tighter, more defined low end. This is why a high-pass filter (HPF) before a high-gain amp is not optional for extended-range guitars in a serious mix.
+
+2. **Mid boosts before a gain stage change the distortion character.** A Tube Screamer-into-Marshall-style OD isn't adding drive from the TS — it's pushing the amp's input with a shaped signal. The TS's midrange hump enters the amp's preamp and saturates those frequencies harder. The result: more compression, more midrange presence, less bass flub. This is what players mean when they say the TS "tightens" a high-gain amp.
+
+3. **Presence cuts before a gain stage affect fizz generation.** If your distortion produces excessive high-frequency hash, cutting the highs before the clipping stage reduces the high-frequency content that gets amplified and distorted. This is a cleaner fix than cutting the fizz post-distortion, because the fizz is generated from high-frequency content — remove the source, remove the problem.
+
+---
+
+## What Does EQ After Dirt Actually Do?
+
+Post-dirt EQ operates on the output of the clipping stage. The distortion has already happened. You're now shaping the final frequency response of the distorted signal.
+
+This is useful for:
+
+1. **Surgical removal of unpleasant frequencies.** There's a 2–3kHz harshness that appears in many high-gain setups — particularly with certain amp models. Post-EQ lets you cut it without affecting the distortion character. A narrow notch at the offending frequency removes the harshness while leaving everything else intact.
+
+2. **Presence adjustments.** Boosting the 1–1.5kHz range post-distortion adds note definition and cut without changing what's being distorted. This is different from the pre-distortion mid boost — you're not changing the clipping behavior, you're adding definition to the output.
+
+3. **The traditional scooped metal sound.** Cutting mids post-distortion creates the scooped EQ sound associated with '80s and '90s thrash and death metal. Note: this is the placement that removes your guitar from the mix. Scooped mids post-distortion means less midrange content reaching the speakers, which means less presence in a band context. This is a known tradeoff, not a mistake — but it's a tradeoff you should make consciously.
+
+---
+
+## Pre vs. Post: The Key Differences at a Glance
+
+| What You're Adjusting | Pre-Dirt Effect | Post-Dirt Effect |
+|---|---|---|
+| **Bass cut (HPF)** | Tighter, cleaner distortion; less low-end saturation | Removes bass from output but distortion already occurred |
+| **Mid boost** | More saturated midrange, Tube Screamer-style tightening | Adds output presence without changing distortion character |
+| **Mid cut** | Less midrange distortion, brighter clipping character | Traditional scooped sound; removes mix presence |
+| **Treble cut** | Less high-frequency content entering gain stage; reduces fizz at source | Softens the output; post-distortion brightness reduction |
+| **Treble boost** | More high-frequency saturation; can add clarity or increase harshness | Brightens the output without changing how it distorts |
+| **Presence cut at 2-3kHz** | Changes the clipping behavior in that frequency range | Surgical removal of post-distortion harshness |
+
+---
+
+## Genre-Specific Use Cases
+
+### Metal and High-Gain: Pre-EQ HPF Is Non-Negotiable
+
+For any extended-range guitar work in drop tunings — drop D, drop B, anything lower — a high-pass filter set between 80Hz and 100Hz before the gain stage is the most important EQ move you can make. Here's why:
+
+The fundamental frequencies of low strings in drop tunings are high-amplitude, low-frequency content. When that content hits a high-gain circuit, it saturates first and most aggressively, creating bass-frequency mush that no amount of post-EQ will resolve cleanly. You're not EQ-ing a clean signal; you're trying to EQ mud out of something that was distorted mud from the beginning.
+
+I tested this with an 8-string in drop E running into an EVH 5150 III without and then with a high-pass at 90Hz pre-amp. Without the HPF: low-string riffs were indistinct, the low end felt pillowy and undefined regardless of pick attack. With the HPF: the low-string transients were clear, palm mutes had definition, and the fundamental actually came through.
+
+The HPF doesn't make the guitar sound thin in a mix. It makes the distorted low end behave like a distorted low end rather than saturated low-frequency noise.
+
+**Settings starting point:**
+
+| EQ Control | Pre-Dirt Position | Notes |
+|---|---|---|
+| HPF frequency | 80–100 Hz | Higher for 8-string/drop tunings |
+| HPF slope | 12dB/oct minimum | Gentle slopes still let low-end mush through |
+| Low-mid cut (300–400 Hz) | -3 to -6 dB | Optional; reduces "boxy" character |
+| Pre-amp gain | Keep standard settings | The HPF does the tightening work |
+
+### Blues and Classic Rock: Post-EQ Presence Boost
+
+Blues and classic rock generally benefit from post-distortion presence work rather than pre-distortion shaping. The goal isn't to change the saturation character — it's to add note definition and cut after the overdrive has already produced its characteristic warmth and compression.
+
+A +3 to +4 dB boost in the 1–2kHz range post-overdrive adds the "cut" that makes a lead tone audible in a full band context without changing the overdrive's response. This position matters: boosting that frequency range before the overdrive would change how the midrange saturates. Post-overdrive, it's purely a presence addition.
+
+### Shoegaze and High-Gain-With-Texture: Both Positions
+
+Shoegaze presets and ambient high-gain sounds often benefit from EQ in both positions:
+
+- **Pre-dirt:** Slight high cut before the fuzz or heavy overdrive reduces the brightest harmonics entering the clipping stage, producing a slightly softer, more woolen distortion character.
+- **Post-dirt:** Low cut removes the low-frequency build that happens when multiple overdriven voices stack. This keeps the texture from becoming a low-frequency wash.
+
+This dual-EQ approach — pre-dirt to shape the clipping, post-dirt to clean the output — is standard in professional recording of heavy guitar tracks and increasingly common on live boards.
+
+---
+
+## When to Use Both: The Sandwich
+
+The most complete approach for high-gain or recording-critical applications:
+
+1. **Pre-EQ (HPF/bass cut):** Removes problematic low-frequency content before the gain stage. Prevents low-end saturation.
+2. **Gain stage(s):** Overdrive, distortion, amp.
+3. **Post-EQ (presence/cut):** Shapes the distorted output. Removes harsh frequencies, adds definition, positions the guitar in the mix.
+
+This is functionally what a good amp's EQ section does — the tone stack interacts with the preamp gain, which is pre-EQ behavior, while the presence/depth controls operate on the output stage, which is post-EQ behavior. Adding external EQ stages at each point just gives you more control over the same process.
+
+---
+
+## Frequently Asked Questions
+
+**Can I use a graphic EQ or only a parametric?**
+Both work, with different precision levels. A graphic EQ with fixed frequency bands is faster to set up but less precise — you're adjusting whatever frequencies happen to be at those fixed points. A parametric EQ lets you find the exact frequency that's causing a problem and address it directly. For surgical cuts (removing 2.3kHz harshness, for example), parametric is significantly more useful.
+
+**Does an always-on Tube Screamer with low drive act as pre-EQ?**
+Yes. A Tube Screamer running with the drive set low (around 8-9 o'clock) and the level elevated functions as a pre-amp boost with the TS's characteristic midrange hump added to the signal before the gain stage. This is identical in effect to using a parametric EQ to boost the 700–800Hz range pre-amp. The TS is less precise than a dedicated EQ but produces a well-characterized, musical result.
+
+**Should the EQ go in the effects loop?**
+An EQ in the effects loop sits after the amp's preamp stage — this is post-preamp-distortion but pre-power-amp. It's effectively a post-dirt position for the preamp's gain, which is appropriate for presence and output shaping. If you want pre-gain-stage EQ, the EQ needs to go in front of the amp's input, not in the loop.
+
+**Why does cutting mids post-distortion hurt my mix presence but boosting mids pre-distortion help it?**
+Because they're doing different things. Boosting mids pre-distortion changes what the amp saturates — it makes the midrange content clip harder, which produces more harmonic density and compression in the midrange. Cutting mids post-distortion removes midrange content from the final output. The first adds character to the midrange; the second removes it from what the speaker produces.
+
+**What's the right HPF frequency for a standard-tuned 6-string vs. extended range?**
+Standard 6-string: 80Hz is typically sufficient. The low E fundamental is around 82Hz, so an 80Hz HPF barely touches it while removing sub-bass content. For drop D (low D = 73Hz): use 65–70Hz. For 7-string in B or 8-string in drop E (low string fundamental around 40Hz): 80–100Hz HPF still works well because you're cutting sub-harmonic content, not the fundamental.

@@ -245,21 +245,21 @@ These fill the biggest gaps and create cluster anchors for future content.
 
 | # | Topic | Target Query | Writer |
 |---|---|---|---|
-| P4-09 | Impedance and Buffers: Why Your Fuzz Sounds Different When You Move It | "buffer before fuzz," "impedance fuzz guitar" | Margot Thiessen |
-| P4-10 | EQ Pedal Placement: Before vs. After Dirt | "eq pedal placement," "eq before or after distortion" | Viktor Kessler |
+| P4-09 | Impedance and Buffers: Why Your Fuzz Sounds Different When You Move It ✅ PUBLISHED | "buffer before fuzz," "impedance fuzz guitar" | Margot Thiessen |
+| P4-10 | EQ Pedal Placement: Before vs. After Dirt ✅ PUBLISHED | "eq pedal placement," "eq before or after distortion" | Viktor Kessler |
 
 ### Modeler Masterclass (Pillar 4) — 2 Posts
 
 | # | Topic | Target Query | Writer |
 |---|---|---|---|
-| P4-11 | IR Shootout: Stock Helix Cabs vs. Third-Party IRs | "helix stock ir vs third party," "best ir for helix" | Sean Nakamura |
-| P4-12 | Boss Katana Deep Dive: 7 Hidden Settings Most Players Miss | "boss katana hidden settings," "katana advanced tips" | Elena Ruiz |
+| P4-11 | IR Shootout: Stock Helix Cabs vs. Third-Party IRs ✅ PUBLISHED | "helix stock ir vs third party," "best ir for helix" | Sean Nakamura |
+| P4-12 | Boss Katana Deep Dive: 7 Hidden Settings Most Players Miss ✅ PUBLISHED | "boss katana hidden settings," "katana advanced tips" | Elena Ruiz |
 
 ### Quick Fixes (Pillar 6) — 2 Posts
 
 | # | Topic | Target Query | Writer |
 |---|---|---|---|
-| P4-13 | Your Modeler Preset Sounds Different at the Gig (and How to Fix It) | "modeler sounds different live," "helix sounds bad live" | Nathan Cross |
+| P4-13 | Your Modeler Preset Sounds Different at the Gig (and How to Fix It) ✅ PUBLISHED | "modeler sounds different live," "helix sounds bad live" | Nathan Cross |
 | P4-14 | How to Stop Pedal Hiss Without Killing Your Tone | "pedal noise floor," "guitar pedal hiss fix" | Carl Beckett |
 
 ### Gear Lab (Pillar 5) — 2 Posts
@@ -445,6 +445,16 @@ Based on the competitive analysis, avoid these formats:
 | 3 | What Does the Cut Knob Do on a Vox AC30? | "vox ac30 cut knob," "ac30 cut control explained" | Nathan Cross | 3 — Signal Chain & Tone Theory | AC30 SERP — "what does the cut knob do" appears as a PAA question with no clean editorial answer; a tight definitional post (500-800 words) targeting the snippet directly; the Treble Cut's counterintuitive behavior is consistently misunderstood |
 | 4 | What Is Power Tube Saturation? (And Why It Sounds Different from Preamp Distortion) | "power tube saturation," "preamp vs power amp distortion," "power amp breakup guitar" | Hank Presswood | 3 — Signal Chain & Tone Theory | Gain/volume/master SERP — power tube vs. preamp distortion interaction is covered poorly across all competitors; Hank's vintage amp depth makes this uniquely authentic; strong PAA signal ("does master volume affect tone?") |
 | 5 | How to Calculate Delay Time by BPM (With a Reference Table for Every Tempo) | "delay time calculator bpm," "delay ms calculator guitar," "how to calculate dotted eighth delay" | Nathan Cross | 3 — Signal Chain & Tone Theory | Delay SERP — the dotted-eighth formula (60,000 / BPM × 0.75) exists only as a PDF download or buried in paragraphs; a page built around an embedded BPM-to-ms table with the formula visible would likely capture position zero for multiple queries; low competition, high utility |
+
+## SERP-Derived Topics — 2026-04-04 (Batch 2)
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | How to Stop Pedal Hiss Without Killing Your Tone | "pedal noise floor," "guitar pedal hiss fix," "noise floor pedalboard" | Carl Beckett | 6 — Quick Fixes | IR/buffer SERP — pedal hiss troubleshooting is a high-intent query with consistent forum traffic; competitors give generic solutions (noise gate, power supply) but no guide distinguishes between hiss sources (buffer chain, gain pedals, digital switching noise) with targeted fixes; Carl's no-nonsense approach is the right voice |
+| 2 | How Much Does Pick Thickness Change Your Tone? We Tested It | "pick thickness tone guitar," "does pick gauge matter guitar," "thin vs thick pick tone" | Carl Beckett | 5 — Gear Lab | Gear Lab SERP — pick material and thickness affect attack, frequency content, and feel; no editorial piece has done a structured test across gauges; players underestimate this as a tone variable; the $0 upgrade story is SEO-friendly and shareable |
+| 3 | We A/B Tested 5 Overdrive Pedals: Here Are the Settings That Actually Worked | "best overdrive pedal comparison," "overdrive shootout settings," "tube screamer vs blues driver vs rat overdrive" | Rick Dalton + Jess Kowalski | 5 — Gear Lab | Tube Screamer vs. Klon SERP — "best overdrive" queries are dominated by listicles with no methodology; a structured A/B test with the same amp, same settings baseline, and honest assessments from two writers with opposing perspectives (Rick = analog authenticity, Jess = practical value) would fill a clear gap |
+| 4 | Hendrix Volume Knob Trick: How the Guitar Control IS the Effect | "hendrix volume knob technique," "guitar volume control fuzz cleanup," "roll back volume fuzz" | Margot Thiessen | 3 — Signal Chain & Tone Theory | Impedance/buffer SERP — the guitar volume-as-gain-control technique for fuzz cleanup is referenced constantly but never fully explained in one place; pairs naturally with impedance/buffer content; Margot's nuanced take on touch sensitivity makes this uniquely hers |
+| 5 | The Complete Guide to Guitar Wireless Systems: Does Tone Suffer? | "wireless guitar system tone," "does guitar wireless affect tone," "best wireless guitar system tone" | Viktor Kessler | 3 — Signal Chain & Tone Theory | Cable length SERP — wireless systems are the natural follow-on question after cable capacitance; latency, frequency response, and buffering differences between digital and analog wireless are widely misunderstood; Viktor's measured approach produces a genuinely useful technical guide |
 
 ## SERP-Derived Topics — 2026-04-03
 

@@ -1,0 +1,133 @@
+---
+title: "Your Modeler Preset Sounds Different at the Gig (and How to Fix It)"
+description: "If your Helix or Quad Cortex preset sounds perfect at home but wrong at the venue, it's not a mystery. These are the five causes and the specific fixes for each."
+date: "2026-04-04"
+author: "Nathan Cross"
+author_slug: "nathan-cross"
+category: "quick-fixes"
+tags: ["modeler", "helix", "quad-cortex", "live-tone", "preset", "quick-fix", "frfr"]
+image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&q=80"
+readingTime: 8
+---
+
+> **Start Here:** Five causes, five fixes. Your modeler preset that sounds perfect at home will predictably fail live in these specific ways — and each failure has a direct solution.
+> 1. **Volume mismatch** — your preset is too quiet or too loud relative to the house system
+> 2. **Fletcher-Munson effect** — your ears hear frequencies differently at high volume
+> 3. **Cab sim built for monitors, not PA** — the low end behaves differently through full-range speakers at volume
+> 4. **Presence and brightness stack up live** — what sounds open at home sounds harsh through a bright PA
+> 5. **No Global EQ compensation** — your room has acoustic problems your preset wasn't built to handle
+
+This is a solvable problem. Not a mysterious one.
+
+---
+
+## Why the Home and the Gig Sound Different
+
+Playing a preset through studio monitors at moderate volume and playing through a PA system with 300 people in the room are two different listening environments in nearly every physical way: volume level, room acoustics, speaker type, speaker placement, and how other instruments interact with your sound.
+
+Your ears also change. This is the Fletcher-Munson effect: human hearing perceives bass and treble as relatively quieter at low volumes. When you're building a preset at home and compensating for this — boosting the low end and adding brightness so it sounds full through your monitors — you're building a preset calibrated for quiet listening. Turn it up and those same boosts become too much. The low end is massive. The brightness is harsh.
+
+I spent a year thinking my tone was fine because it sounded exactly right in my living room. The first time I ran the same preset through the church PA at full level for a Sunday service, it was too bright and the low end was fighting the bass guitar in a way I hadn't heard at home. Nothing had changed in my chain. Everything had changed in the environment.
+
+The fixes below address each specific cause. Work through them in order if you're starting fresh, or jump to whichever cause matches what you're hearing.
+
+---
+
+## Fix 1: Volume Matching
+
+This is the most common source of problems and the first thing to check before blaming tone.
+
+**The problem:** Different amp model blocks in the Helix or Quad Cortex have different output levels. A preset built around a clean Fender-style amp model may be significantly quieter than one built around a high-gain British model, even with the same "Level" setting on the amp block. Switching patches live means volume jumps that aren't intentional.
+
+**The fix:** Use a consistent reference level. Set a test tone (a sustained open chord at your normal playing volume) and use the output meters in HX Edit or Cortex Cloud to check that each preset's output level is within 1-2dB of the others. Adjust the output block level (not the amp block level) to compensate. The amp block level changes the tone; the output block level is a transparent volume trim.
+
+For worship and live contexts specifically: I keep a consistent output level across all patches and let the FOH engineer handle overall mix level. This prevents the patches from fighting each other and keeps the soundperson confident in what they're receiving.
+
+---
+
+## Fix 2: Build a Separate Live Version of Your Preset
+
+Home presets and live presets can coexist in the same device. They don't need to be the same file.
+
+**The adjustments that almost always need to happen when moving a preset from home to live:**
+
+| Setting | Home Preset Tendency | Live Adjustment |
+|---|---|---|
+| Low end | Boosted to compensate for quiet volume | Cut 2-3dB below 100Hz |
+| High end / Presence | Bright to cut through monitors | High shelf cut at 8-10kHz, -2 to -4dB |
+| Midrange | Sometimes scooped (sounds fuller at home) | Restore some mid presence — the PA needs it to cut |
+| Master volume / Output | Whatever sounds right in the room | Calibrated to FOH reference level |
+| Reverb mix | Often higher at home (sounds more open) | Reduce 10-15% — the room will add natural reverb |
+
+The reverb reduction is worth emphasizing. A 30% reverb mix through headphones at home gives a sense of space. That same 30% through a PA in a room with acoustic reflections produces a wash. For worship and band contexts, I typically build my home versions at 25-30% reverb mix and my live versions at 15-20%.
+
+---
+
+## Fix 3: Use the Global EQ
+
+Both the Helix and Quad Cortex include a Global EQ that applies to the output without being part of any individual preset. This is specifically designed for compensating venue-to-venue acoustic differences.
+
+**How to use it:**
+- Build your live presets with the Global EQ set flat (all at 0).
+- At soundcheck, listen to how the tone sits in the room.
+- Adjust the Global EQ to compensate for room problems — a boxy low-mid buildup, an overly bright PA, a room that absorbs high end.
+- The Global EQ change applies across all patches simultaneously.
+
+This is the correct tool for venue-specific acoustic problems. It lets you keep your presets consistent while adapting the final output to the specific room.
+
+For touring, I know players who save venue-specific Global EQ settings as notes in their phone — "venue name: cut 300Hz by 3dB, high shelf -2dB at 10kHz." That's overkill for most players, but the principle is sound.
+
+---
+
+## Fix 4: Check the High Cut on Your Cab or IR Block
+
+Most cab simulation blocks — in both Helix and Quad Cortex — have a high-cut control that's separate from the amp's tone controls. The default high-cut setting is often around 8-10kHz. This is a good starting point for home monitoring.
+
+Through a live PA system with a bright high-frequency driver, that same high-cut setting can result in excessive top-end content — the PA doesn't roll off the highs the way a guitar speaker would in a real amp. Guitar speakers are naturally high-cut devices; they roll off significantly above 4-6kHz. A full-range PA driver extends to 16kHz or higher.
+
+**The fix:** Bring the high cut on your cab block down to 6-7kHz for live PA use. This better approximates the natural rolloff of a guitar speaker and reduces the chance of harshness through the high-frequency drivers in the PA. The tone may sound slightly darker through your monitors at soundcheck — that's intentional.
+
+Start at 7kHz and move lower if the harshness persists. For most live applications, anywhere from 5.5kHz to 8kHz is the practical range. What sounds right in the room matters more than a specific number.
+
+---
+
+## Fix 5: Check the Low Cut Too
+
+The same issue exists at the other end of the frequency spectrum. Guitar speakers don't extend into the deep bass — a 12-inch guitar speaker begins rolling off meaningfully below 80-100Hz. A full-range PA system can reproduce content down to 60Hz or lower, and that content can collide with the bass guitar and kick drum in ways that weren't audible through monitors at home.
+
+A high-pass filter (HPF) on the output or within the cab block, set between 80-100Hz, removes the content that a guitar speaker wouldn't have produced anyway. It keeps the guitar's frequency range where it belongs and prevents low-end accumulation in the PA mix.
+
+This is especially important in worship contexts and rock band settings where bass, kick drum, and guitar are all competing for low-end space. Clearing the bottom of the guitar's frequency range doesn't make the guitar sound thin — it makes the kick and bass more defined and gives the whole mix more clarity.
+
+---
+
+## The Soundcheck Protocol
+
+A structured soundcheck takes five minutes and prevents most of the problems above.
+
+1. **Play at performance volume** — not the quiet volume you'll use to check your IEM level. Your tone needs to be dialed in at the volume it will actually produce.
+2. **Listen from out front if possible** — walk to where the audience is during the break, have someone play a sustained chord, listen. If you can't do this, trust your ear monitors with a reference track running simultaneously.
+3. **Global EQ first** — address room problems with Global EQ before touching individual presets.
+4. **Check patch transitions** — play through the transitions you'll make during the set. Volume jumps between patches are the most common live tone problem that soundcheck reveals.
+5. **Check the reverb and delay** — what sounds spacious in headphones can sound muddy in a room. Dial back time-based effects if they're filling space they shouldn't.
+
+The goal is a sound that serves the moment. If the congregation is singing, if the band is locked in, if nobody is looking at the monitors in confusion — the tone is working. That's the metric.
+
+---
+
+## Frequently Asked Questions
+
+**My preset sounds great in IEMs but bad through the stage wedge. What's happening?**
+In-ear monitors are usually running directly from the mixing board's send, which may be post-EQ from the FOH engineer. A stage wedge runs differently. The problem is often the wedge's EQ or placement, not your preset. Ask the soundperson what's happening on their end before adjusting your preset.
+
+**How much should I expect my live tone to differ from my home tone?**
+If you've built separate live versions with the adjustments above, they should sound like the same tone at different volume levels — not like different presets. The character should be consistent; the calibration should be different. If they sound like completely different instruments, there's more adjustment needed.
+
+**Should I use the Helix's output EQ or a separate parametric EQ block for live adjustments?**
+Both work. The Global EQ is better for room-specific, night-to-night compensation because it applies globally without touching presets. A parametric EQ block within a preset gives you more precise control for a specific preset's needs. Use both if you need both.
+
+**Is there a reliable way to test my live tone before soundcheck?**
+Some players record a dry reference track and run their modeler through a full-range speaker at rehearsal volume, listening for the venue-like behavior. The Fletcher-Munson test — playing your preset at moderate volume, then cranking it and listening for harshness or excessive low end — is a useful quick check. If it changes dramatically in character between bedroom volume and loud, it needs adjustment.
+
+**What's the single most common mistake modeler players make at a gig?**
+Building presets at home through headphones or a small speaker, at a volume that requires frequency compensation, and then running those same presets at full PA volume. The compensation baked into the preset becomes a problem at high volume. Build presets at rehearsal volume whenever possible, or build separate live versions explicitly.
