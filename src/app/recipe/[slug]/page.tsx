@@ -227,22 +227,6 @@ export default async function RecipePage({ params }: RecipePageProps) {
         </div>
       </div>
 
-      {/* Spotify Player — collapsible to get signal chain in view faster */}
-      {song?.spotify_track_id && (
-        <details className="mb-4 group">
-          <summary className="flex cursor-pointer items-center gap-2 text-sm text-muted hover:text-foreground transition-colors">
-            <span className="text-accent">♫</span>
-            Listen on Spotify
-            <svg className="h-3 w-3 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </summary>
-          <div className="mt-2">
-            <SpotifyEmbed trackId={song.spotify_track_id} />
-          </div>
-        </details>
-      )}
-
       {/* ----------------------------------------------------------------- */}
       {/* Signal Chain — THE HERO */}
       {/* ----------------------------------------------------------------- */}
@@ -259,6 +243,13 @@ export default async function RecipePage({ params }: RecipePageProps) {
           recipeSlug={recipe.slug}
         />
       </section>
+
+      {/* Spotify Player — below the chain, always visible */}
+      {song?.spotify_track_id && (
+        <div className="mb-6">
+          <SpotifyEmbed trackId={song.spotify_track_id} />
+        </div>
+      )}
 
       {/* ----------------------------------------------------------------- */}
       {/* Details below the chain — collapsible, secondary */}
