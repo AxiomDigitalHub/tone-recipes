@@ -113,6 +113,15 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={async () => {
+                // Save current referrer so callback can return user to the right page
+                if (typeof window !== "undefined" && document.referrer) {
+                  try {
+                    const ref = new URL(document.referrer);
+                    if (ref.hostname === window.location.hostname) {
+                      sessionStorage.setItem("returnTo", ref.pathname);
+                    }
+                  } catch { /* ignore */ }
+                }
                 const result = await signInWithGoogle();
                 if (result.error) setError(result.error);
               }}
