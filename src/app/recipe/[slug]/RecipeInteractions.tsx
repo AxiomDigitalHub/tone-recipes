@@ -126,7 +126,6 @@ export default function RecipeInteractions({ recipeSlug }: RecipeInteractionsPro
 
       {/* Comments section */}
       <section>
-        <h2 className="mb-4 text-xl font-bold">Comments</h2>
         <CommentSection recipeSlug={recipeSlug} />
       </section>
     </div>
