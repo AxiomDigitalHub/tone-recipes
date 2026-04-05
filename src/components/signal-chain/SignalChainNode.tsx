@@ -23,7 +23,7 @@ export default function SignalChainNode({
         onClick={onSelect}
         aria-label={`${node.gear_name} – ${node.category}${node.subcategory ? ` / ${node.subcategory}` : ""} settings`}
         aria-pressed={!!isSelected}
-        className={`node-glow group flex h-20 w-20 cursor-pointer flex-col items-center justify-center rounded-xl border-2 bg-surface transition-all hover:bg-surface-hover hover:scale-105 ${
+        className={`node-glow group flex h-20 w-20 cursor-pointer flex-col items-center justify-center rounded-xl border-2 bg-surface transition-all duration-200 hover:bg-surface-hover hover:scale-105 hover:shadow-[0_0_12px_rgba(245,158,11,0.3)] hover:border-accent/60 ${
           isSelected ? "ring-2 ring-offset-2 ring-offset-background scale-105" : ""
         }`}
         style={{

@@ -24,6 +24,7 @@ import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
 import RecipeInteractions from "./RecipeInteractions";
 import DownloadRecipePDF from "@/components/recipe/DownloadRecipePDF";
 import DownloadCounter from "@/components/recipe/DownloadCounter";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 /** Pre-render all recipe pages at build time for fast TTFB */
 export function generateStaticParams() {
@@ -204,7 +205,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
           )}
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
-              <h1 className="text-xl font-bold md:text-2xl leading-tight">{recipe.title}</h1>
+              <h1 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl" style={{ letterSpacing: "-0.02em" }}>{recipe.title}</h1>
               <VerificationBadge level={getVerificationLevel(recipe)} size="md" />
             </div>
             <p className="mt-0.5 text-sm text-muted">
@@ -226,11 +227,20 @@ export default async function RecipePage({ params }: RecipePageProps) {
         </div>
       </div>
 
-      {/* Spotify Player */}
+      {/* Spotify Player — collapsible to get signal chain in view faster */}
       {song?.spotify_track_id && (
-        <div className="mb-4">
-          <SpotifyEmbed trackId={song.spotify_track_id} />
-        </div>
+        <details className="mb-4 group">
+          <summary className="flex cursor-pointer items-center gap-2 text-sm text-muted hover:text-foreground transition-colors">
+            <span className="text-accent">♫</span>
+            Listen on Spotify
+            <svg className="h-3 w-3 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </summary>
+          <div className="mt-2">
+            <SpotifyEmbed trackId={song.spotify_track_id} />
+          </div>
+        </details>
       )}
 
       {/* ----------------------------------------------------------------- */}
@@ -255,72 +265,76 @@ export default async function RecipePage({ params }: RecipePageProps) {
       {/* ----------------------------------------------------------------- */}
 
       {/* Description (collapsed by default — the chain tells the story) */}
-      <CollapsibleSection
-        id="description"
-        title="About This Tone"
-        defaultOpen={false}
-        badge={`${nodeCount} nodes`}
-      >
-        <div className="rounded-xl border border-border bg-surface p-5 md:p-6">
-          <ReadMore text={recipe.description} lines={4} />
-          <div className="mt-4 flex flex-wrap gap-1.5">
-            {recipe.tags.map((tag) => (
-              <Badge key={tag}>{tag}</Badge>
-            ))}
+      <ScrollReveal>
+        <CollapsibleSection
+          id="description"
+          title="About This Tone"
+          defaultOpen={false}
+          badge={`${nodeCount} nodes`}
+        >
+          <div className="rounded-xl border border-border bg-surface p-5 md:p-6">
+            <ReadMore text={recipe.description} lines={4} />
+            <div className="mt-4 flex flex-wrap gap-1.5">
+              {recipe.tags.map((tag) => (
+                <Badge key={tag}>{tag}</Badge>
+              ))}
+            </div>
           </div>
-        </div>
-      </CollapsibleSection>
+        </CollapsibleSection>
+      </ScrollReveal>
 
       {/* Original Gear */}
-      <CollapsibleSection
-        id="gear"
-        title="Original Gear (Recording)"
-        defaultOpen={true}
-      >
-        <div className="rounded-xl border border-border bg-surface p-6 md:p-8">
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div>
-              <p className="text-xs text-muted">Guitar</p>
-              <p className="text-sm font-medium">
-                <AffiliateGearLink name={recipe.original_gear.guitar} />
+      <ScrollReveal>
+        <CollapsibleSection
+          id="gear"
+          title="Original Gear (Recording)"
+          defaultOpen={true}
+        >
+          <div className="rounded-xl border border-border bg-surface p-6 md:p-8">
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div>
+                <p className="text-xs text-muted">Guitar</p>
+                <p className="text-sm font-medium">
+                  <AffiliateGearLink name={recipe.original_gear.guitar} />
+                </p>
+              </div>
+              <div>
+                <p className="text-xs text-muted">Amp</p>
+                <p className="text-sm font-medium">
+                  <AffiliateGearLink name={recipe.original_gear.amp} />
+                </p>
+              </div>
+              <div>
+                <p className="text-xs text-muted">Effects</p>
+                <ul className="text-sm font-medium">
+                  {recipe.original_gear.effects.map((fx) => (
+                    <li key={fx}>
+                      <AffiliateGearLink name={fx} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="text-xs text-muted">Cabinet</p>
+                <p className="text-sm font-medium">
+                  {recipe.original_gear.cabinet}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs text-muted">Microphone</p>
+                <p className="text-sm font-medium">
+                  {recipe.original_gear.microphone}
+                </p>
+              </div>
+            </div>
+            {recipe.original_gear.other_notes && (
+              <p className="mt-4 text-sm italic text-muted">
+                {recipe.original_gear.other_notes}
               </p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Amp</p>
-              <p className="text-sm font-medium">
-                <AffiliateGearLink name={recipe.original_gear.amp} />
-              </p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Effects</p>
-              <ul className="text-sm font-medium">
-                {recipe.original_gear.effects.map((fx) => (
-                  <li key={fx}>
-                    <AffiliateGearLink name={fx} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Cabinet</p>
-              <p className="text-sm font-medium">
-                {recipe.original_gear.cabinet}
-              </p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Microphone</p>
-              <p className="text-sm font-medium">
-                {recipe.original_gear.microphone}
-              </p>
-            </div>
+            )}
           </div>
-          {recipe.original_gear.other_notes && (
-            <p className="mt-4 text-sm italic text-muted">
-              {recipe.original_gear.other_notes}
-            </p>
-          )}
-        </div>
-      </CollapsibleSection>
+        </CollapsibleSection>
+      </ScrollReveal>
 
       {/* Learn the Song */}
       {hasLearn && (
@@ -384,12 +398,15 @@ export default async function RecipePage({ params }: RecipePageProps) {
       {/* ----------------------------------------------------------------- */}
       {/* Ratings & Comments */}
       {/* ----------------------------------------------------------------- */}
-      <RecipeInteractions recipeSlug={recipe.slug} />
+      <ScrollReveal>
+        <RecipeInteractions recipeSlug={recipe.slug} />
+      </ScrollReveal>
 
       {/* ----------------------------------------------------------------- */}
       {/* Related Recipes */}
       {/* ----------------------------------------------------------------- */}
       {relatedRecipes.length > 0 && (
+        <ScrollReveal>
         <section className="mt-16 pt-10 border-t border-border">
           <h2 className="mb-4 text-xl font-bold">Related Recipes</h2>
           <div className="relative">
@@ -409,6 +426,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
             <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-background to-transparent" />
           </div>
         </section>
+        </ScrollReveal>
       )}
     </div>
   );
