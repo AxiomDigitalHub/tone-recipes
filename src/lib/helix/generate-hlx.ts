@@ -7,7 +7,7 @@ import { resolveModelId, scaleParamValue, normalizeParamName } from "./model-map
 function getBlockType(category: string): number {
   const lower = category.toLowerCase();
   if (lower.includes("amp") || lower.includes("preamp")) return 1;
-  if (lower.includes("cab") || lower.includes("ir")) return 4;
+  if (lower.includes("cab") || lower.includes("ir")) return 2;
   if (
     lower.includes("delay") || lower.includes("reverb") ||
     lower.includes("mod") || lower.includes("chorus") ||
@@ -130,36 +130,9 @@ export function generateHelixPreset(
     };
 
     // Stomps (0) and delays/reverbs (7) get @stereo: false
-    // Amps (1) and cabs (4) do NOT get @stereo at all
+    // Amps (1) and cabs (2) do NOT get @stereo at all
     if (blockType === 0 || blockType === 7) entry["@stereo"] = false;
     if (blockType === 1) entry["@bypassvolume"] = 1;
-    if (blockType === 4) {
-      // Dual cab defaults — mic, distance, cuts, pan
-      entry["Mic"] = 5;
-      entry["Distance"] = 1;
-      entry["Position"] = 0.49;
-      entry["Angle"] = 0;
-      entry["LowCut"] = 19.9;
-      entry["HighCut"] = 16000;
-      entry["Level"] = 0;
-      entry["Pan"] = 0.5;
-      entry["Delay"] = 0;
-
-      // Dual cabs need a separate cab0 entry in the DSP
-      dsp0["cab0"] = {
-        "@model": modelId,
-        "@enabled": true,
-        Mic: 0,
-        Distance: 1,
-        Position: 0.19,
-        Angle: 0,
-        LowCut: 19.9,
-        HighCut: 16000,
-        Level: 0,
-        Pan: 0.38,
-        Delay: 0,
-      };
-    }
     if (blockType === 7) {
       entry["@trails"] = false;
     }
@@ -203,7 +176,7 @@ export function generateHelixPreset(
         application: "HX Edit",
         build_sha: "39f7f9a",
         modifieddate: Math.floor(Date.now() / 1000),
-        appversion: 58851328,
+        appversion: 58785792, // fw 3.129 — matches Helix LT 3.80
       },
       device: 2162692,
       tone: {
