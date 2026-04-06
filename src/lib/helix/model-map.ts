@@ -290,7 +290,24 @@ export function scaleParamValue(paramName: string, value: string | number): numb
  *
  * Helix uses PascalCase param names in the HLX JSON.
  */
+/** Known Helix param names that need exact casing */
+const PARAM_NAME_MAP: Record<string, string> = {
+  "biasx": "BiasX",
+  "chvol": "ChVol",
+  "ch vol": "ChVol",
+  "lowcut": "LowCut",
+  "highcut": "HighCut",
+  "predelay": "Predelay",
+  "pre delay": "Predelay",
+  "temposync1": "TempoSync1",
+  "syncselect1": "SyncSelect1",
+};
+
 export function normalizeParamName(name: string): string {
+  // Check exact match first
+  const lower = name.toLowerCase().trim();
+  if (PARAM_NAME_MAP[lower]) return PARAM_NAME_MAP[lower];
+
   // Remove special characters, capitalize first letter of each word
   return name
     .replace(/[^a-zA-Z0-9\s]/g, "")
