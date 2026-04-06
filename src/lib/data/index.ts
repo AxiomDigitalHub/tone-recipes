@@ -2842,6 +2842,15 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "WEM 4x12 Fane",
+            settings: { Mic: "57 Dynamic", Distance: 3.0 },
+            notes:
+              "No exact WEM/Fane match on Helix. The Greenback cab is the closest stock option. For more accuracy, load a third-party Hiwatt/WEM IR.",
+          },
+          {
+            position: 5,
             block_name: "Cosmos Echo",
             block_category: "Delay",
             original_gear: "Binson Echorec",
@@ -2850,22 +2859,13 @@ export const toneRecipes: ToneRecipe[] = [
               "Place this AFTER the amp+cab block. The Transistor Tape has a warm, slightly degraded repeat character similar to the Echorec.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Decay: 2.5, Mix: 25, "Pre Delay": 30 },
             notes:
               "Place after the delay. Adds the lush spaciousness essential to Gilmour's lead tone. Keep the mix moderate so it adds depth without washing out note definition.",
-          },
-          {
-            position: 6,
-            block_name: "4x12 Greenback 25",
-            block_category: "Cab",
-            original_gear: "WEM 4x12 Fane",
-            settings: { Mic: "57 Dynamic", Distance: 3.0 },
-            notes:
-              "No exact WEM/Fane match on Helix. The Greenback cab is the closest stock option. For more accuracy, load a third-party Hiwatt/WEM IR.",
           },
         ],
         notes:
@@ -2982,9 +2982,10 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "PI Fuzz", block_category: "Drive", original_gear: "Electro-Harmonix Big Muff Pi", settings: { Sustain: 7.0, Tone: 5.0, Level: 7.0 }, notes: "Big Muff fuzz for the iconic singing sustain." },
           { position: 2, block_name: "Hipower", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 5.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, MV: 7.0 }, notes: "Clean Hiwatt platform. The Big Muff provides all the gain." },
           { position: 3, block_name: "Digital Mono", block_category: "Delay", original_gear: "TC Electronic 2290", settings: { Time: 440, Feedback: 30, Mix: 30 }, notes: "Medium delay for depth and sustain." },
-          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Smooth Greenback cab for Gilmour's warm character." },
+          { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate reverb", settings: { Mix: 3.0, Decay: 4.5 }, notes: "Plate reverb adds the lush spaciousness essential to Gilmour's lead tone." },
+          { position: 5, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Smooth Greenback cab for Gilmour's warm character." },
         ],
-        notes: "Hipower with PI Fuzz for the Comfortably Numb sustain. Neck pickup on Strat. The delay adds depth without washing out the tone.",
+        notes: "Hipower with PI Fuzz for the Comfortably Numb sustain. Neck pickup on Strat. The delay and plate reverb add depth without washing out the tone.",
       },
     },
     is_editorial: true,
@@ -3283,12 +3284,12 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Cry Baby", block_category: "Wah", original_gear: "Vox Cry Baby Wah", settings: { Position: "Exp Pedal" }, notes: "Wah is essential for the Voodoo Child intro." },
+          { position: 1, block_name: "Cry Baby", block_category: "Wah", original_gear: "Dunlop Cry Baby Wah", settings: { Position: "Exp Pedal" }, notes: "Wah is essential for the Voodoo Child intro." },
           { position: 2, block_name: "Face Fuzz", block_category: "Drive", original_gear: "Dallas Arbiter Fuzz Face", settings: { Fuzz: 7.0, Volume: 7.0 }, notes: "Germanium Fuzz Face for thick, warm fuzz." },
-          { position: 3, block_name: "Vibrato Lux", block_category: "Amp", original_gear: "Fender Vibrolux", settings: { Drive: 6.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, MV: 7.0 }, notes: "Fender clean platform pushed by the Fuzz Face." },
-          { position: 4, block_name: "Vibe", block_category: "Modulation", original_gear: "Uni-Vibe", settings: { Speed: 4.0, Depth: 6.0, Mix: 50 }, notes: "Uni-Vibe for the swirling, psychedelic character." },
+          { position: 3, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 9.0, Bass: 5.0, Mid: 8.0, Treble: 7.0, Presence: 6.0, MV: 8.0 }, notes: "Fractal's Plexi model cranked to simulate dimed Marshall volume knobs. Keep the mids high for that cutting Hendrix character." },
+          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback cab for the classic Hendrix Marshall tone." },
         ],
-        notes: "Cry Baby into Face Fuzz into Vibrato Lux with Vibe. The wah work and fuzz are inseparable from this tone.",
+        notes: "Cry Baby into Face Fuzz into Plexi 100W High with Greenback cab. The wah work and fuzz are inseparable from this tone.",
       },
     },
     is_editorial: true,
@@ -3578,12 +3579,12 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "DS1 Distortion", block_category: "Drive", original_gear: "Boss DS-1", settings: { Dist: 8.0, Tone: 5.0, Level: 7.0 }, notes: "Helix's DS-1 model. Set up a footswitch to toggle this on for chorus sections and off for clean verses. The Deez One Vintage captures the bright, aggressive DS-1 character accurately." },
-          { position: 2, block_name: "Analog Mono", block_category: "Modulation", original_gear: "EHX Small Clone", settings: { Speed: 4.0, Depth: 7.0, Mix: 60 }, notes: "The PlastiChorus is Helix's Small Clone model. Leave this on for the entire song. The deep, wobbly character is essential to the Cobain sound." },
+          { position: 1, block_name: "DS1 Distortion", block_category: "Drive", original_gear: "Boss DS-1", settings: { Dist: 8.0, Tone: 5.0, Level: 7.0 }, notes: "Fractal's DS-1 model. Set up a footswitch to toggle this on for chorus sections and off for clean verses." },
+          { position: 2, block_name: "Analog Mono", block_category: "Modulation", original_gear: "EHX Small Clone", settings: { Speed: 4.0, Depth: 7.0, Mix: 60 }, notes: "Analog Mono chorus for the deep, wobbly Small Clone character. Leave this on for the entire song." },
           { position: 3, block_name: "USA MK IV", block_category: "Amp", original_gear: "Mesa/Boogie Studio .22", settings: { Drive: 6.0, Bass: 6.0, Mid: 3.0, Treble: 5.0, Presence: 5.0, MV: 7.0 }, notes: "USA MK IV approximates the Mesa .22 preamp. Keep the mids low for the grunge scoop." },
           { position: 4, block_name: "1x12 Deluxe", block_category: "Cab", original_gear: "Mesa 1x12", settings: { Mic: "57 Dynamic", Distance: 1.5 }, notes: "A 1x12 cab keeps the sound focused and punchy. The US Deluxe cab adds the right American-voiced character." },
         ],
-        notes: "Helix's DS-1 model. Set up a footswitch to toggle this on for chorus sections and off for clean verses. The Deez One Vintage captures the bright, aggressive DS-1 character accurately.",
+        notes: "DS1 Distortion toggled for verse/chorus dynamics, Analog Mono chorus always on, USA MK IV with scooped mids for the grunge character.",
       },
     },
     is_editorial: true,
@@ -3878,12 +3879,12 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Japan CE-2", block_category: "Modulation", original_gear: "Boss CE-1 Chorus Ensemble", settings: { Speed: 3.0, Depth: 6.0, Mix: 50 }, notes: "The 70s Chorus captures the warm analog character of vintage chorus pedals. Keep the speed low and depth moderate for a subtle shimmer rather than obvious modulation." },
-          { position: 2, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Major 200W", settings: { Drive: 2.5, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 5.0, }, notes: "Helix doesn't have a Marshall Major model. The Brit Plexi Brt set to very low gain approximates the clean Marshall tone. Keep Drive low for pristine cleans. The treble push is important for maintaining sparkle." },
+          { position: 1, block_name: "Japan CE-2", block_category: "Modulation", original_gear: "Boss CE-1 Chorus Ensemble", settings: { Speed: 3.0, Depth: 6.0, Mix: 50 }, notes: "Japan CE-2 captures the warm analog character of vintage chorus pedals. Keep the speed low and depth moderate for a subtle shimmer rather than obvious modulation." },
+          { position: 2, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Major 200W", settings: { Drive: 2.5, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 5.0, }, notes: "Fractal doesn't have a Marshall Major model. The Plexi 100W High set to very low gain approximates the clean Marshall tone. Keep Drive low for pristine cleans. The treble push is important for maintaining sparkle." },
           { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 3.0 }, notes: "Pull the mic distance back slightly for a warmer, more ambient capture that suits the clean tone. The Greenback cab adds warmth and body." },
           { position: 4, block_name: "London Plate", block_category: "Reverb", original_gear: "Room reverb (The Mansion)", settings: { Decay: 1.5, Mix: 20, "Pre Delay": 20 }, notes: "A room reverb recreates the natural ambience of The Mansion where BSSM was recorded. Keep the mix subtle for a breathing, spacious quality." },
         ],
-        notes: "The 70s Chorus captures the warm analog character of vintage chorus pedals. Keep the speed low and depth moderate for a subtle shimmer rather than obvious modulation.",
+        notes: "Japan CE-2 into Plexi 100W High at low gain for warm, shimmering cleans. London Plate reverb recreates The Mansion's natural ambience.",
       },
     },
     is_editorial: true,
@@ -3985,7 +3986,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Brit 2203",
+            block_name: "Brit 2204",
             block_category: "Amp",
             original_gear: "Marshall JCM800 2203",
             settings: {
@@ -4122,7 +4123,7 @@ export const toneRecipes: ToneRecipe[] = [
       fractal: {
         chain_blocks: [
           { position: 1, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800 2203", settings: { Drive: 7.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 7.0 }, notes: "JCM800 for Slash's aggressive, singing lead tone." },
-          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 with Celestion V30s", settings: { Mic: "57 Dynamic", Distance: 1.5 }, notes: "Greenback cab for the Slash midrange." },
+          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 with Celestion Greenbacks", settings: { Mic: "57 Dynamic", Distance: 1.5 }, notes: "Greenback cab for the Slash midrange." },
         ],
         notes: "Brit 800 cranked for the Sweet Child O' Mine riff and solo. Les Paul Standard with the Alnico II neck pickup.",
       },
@@ -4718,11 +4719,13 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Digital Stereo", block_category: "Delay", original_gear: "TC Electronic 2290 / Korg SDD-3000", settings: { Time: 340, Feedback: 30, Mix: 35 }, notes: "Dotted-eighth delay is essential. Multiple delay lines for the rhythmic pattern." },
-          { position: 2, block_name: "AC-30 TB", block_category: "Amp", original_gear: "Vox AC30", settings: { Drive: 5.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, MV: 6.0 }, notes: "AC30 provides the chiming, bright platform for the delay-driven sound." },
-          { position: 3, block_name: "2x12 AC30 Blue", block_category: "Cab", original_gear: "Vox 2x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Blue Alnico speakers for the classic Vox chime." },
+          { position: 1, block_name: "AC-30 TB", block_category: "Amp", original_gear: "Vox AC30", settings: { Drive: 5.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, MV: 6.0 }, notes: "AC30 provides the chiming, bright platform for the delay-driven sound." },
+          { position: 2, block_name: "2x12 AC30 Blue", block_category: "Cab", original_gear: "Vox 2x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Blue Alnico speakers for the classic Vox chime." },
+          { position: 3, block_name: "Digital Stereo", block_category: "Delay", original_gear: "Korg SDD-3000", settings: { Time: 340, Feedback: 30, Mix: 35 }, notes: "Dotted-eighth delay is the heart of The Edge's sound. Set time to match the song's BPM." },
+          { position: 4, block_name: "Mono Delay", block_category: "Delay", original_gear: "Electro-Harmonix Deluxe Memory Man", settings: { Time: 475, Feedback: 25, Mix: 20 }, notes: "Secondary quarter-note delay for depth and width. Stacked delays create a more complex, atmospheric texture." },
+          { position: 5, block_name: "Hall", block_category: "Reverb", original_gear: "Hall reverb", settings: { Decay: 2.5, Mix: 25, "Pre Delay": 40 }, notes: "Hall reverb after the delays adds the shimmering wash that completes The Edge's atmospheric sound." },
         ],
-        notes: "AC-30 TB with dotted-eighth Digital Stereo delay. The Edge's tone IS the delay. Set delay time to match the song's BPM.",
+        notes: "AC-30 TB into dotted-eighth Digital Stereo delay with secondary delay and Hall reverb. The Edge's tone IS the delay. Set delay time to match the song's BPM.",
       },
     },
     is_editorial: true,
@@ -5007,7 +5010,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Keeley Compressor Plus", settings: { Level: 6.0, Threshold: -18, Ratio: 3 }, notes: "Always-on transparent compression. Evens out dynamics and adds sustain without squashing the feel. Essential for Mayer's polished, consistent note response." },
           { position: 2, block_name: "T808 OD", block_category: "Drive", original_gear: "Ibanez TS808", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "Low drive, high level. Classic clean-boost Tube Screamer setup." },
-          { position: 3, block_name: "Two-Stone J35", block_category: "Amp", original_gear: "Two Rock Custom Reverb", settings: { Drive: 5.5, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, "MV": 5.5, }, notes: "The Derailed Ingrid is Helix's boutique Dumble-style amp model, which shares DNA with the Two Rock circuit. Set to edge of breakup for touch-responsive dynamics." },
+          { position: 3, block_name: "Two-Stone J35", block_category: "Amp", original_gear: "Two Rock Custom Reverb", settings: { Drive: 5.5, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, "MV": 5.5, }, notes: "Fractal's Two-Stone J35 is a boutique Dumble-style amp model, which shares DNA with the Two Rock circuit. Set to edge of breakup for touch-responsive dynamics." },
           { position: 4, block_name: "2x12 Mail C12Q", block_category: "Cab", original_gear: "Two Rock 2x12", settings: { Mic: "57 Dynamic", Distance: 2.5 }, notes: "A clean, full-range 2x12 cab. Pull the mic back slightly for warmth." },
         ],
         notes: "Always-on transparent compression. Evens out dynamics and adds sustain without squashing the feel. Essential for Mayer's polished, consistent note response.",
@@ -5177,10 +5180,10 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Fender Champ / Marshall", settings: { Drive: 8.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 7.0 }, notes: "Cranked amp for the Layla slide and riff tone. High gain for sustain and aggression." },
-          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Marshall cab for rock aggression." },
+          { position: 1, block_name: "5F1 Tweed", block_category: "Amp", original_gear: "Fender Champ", settings: { Drive: 10.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, MV: 8.0 }, notes: "Fractal's Fender Champ model dimed for the thick, compressed overdrive that defines the Layla tone." },
+          { position: 2, block_name: "1x12 Deluxe", block_category: "Cab", original_gear: "Fender Champ 1x8", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Small Fender cab for the focused, midrange-forward Champ character." },
         ],
-        notes: "Cranked Plexi for the aggressive Layla riff tone. Les Paul with the woman tone rolloff on the tone knob.",
+        notes: "5F1 Tweed cranked for the raw, urgent Layla tone. Strat bridge+middle position with the woman tone rolloff on the tone knob.",
       },
     },
     is_editorial: true,
@@ -5227,7 +5230,7 @@ export const toneRecipes: ToneRecipe[] = [
         position: 2,
         category: "preamp",
         subcategory: null,
-        gear_slug: "fender-vibroverb-blackface",
+        gear_slug: null,
         gear_name: "Fender Vibrolux Reverb",
         icon_type: "fender_combo",
         icon_color: "#ef4444",
@@ -5710,11 +5713,11 @@ export const toneRecipes: ToneRecipe[] = [
       fractal: {
         chain_blocks: [
           { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio LA-2A compressor", settings: { Level: 6.0, "Peak Reduction": 25 }, notes: "Light, transparent compression for smooth, consistent single-note lines. The LA-2A style comp adds warmth and sustain without squashing dynamics." },
-          { position: 2, block_name: "59 Bassguy", block_category: "Amp", original_gear: "Fender Bassman", settings: { Drive: 5.0, Bass: 6.0, Mid: 5.0, Treble: 5.0, Presence: 4.0, "MV": 6.0, }, notes: "The US Deluxe Normal is Helix's blackface Fender model. Set for warm, slightly driven tones. The Bassman is a similar Fender circuit. Keep the tone warm and avoid harsh highs." },
+          { position: 2, block_name: "59 Bassguy", block_category: "Amp", original_gear: "Fender Bassman", settings: { Drive: 5.0, Bass: 6.0, Mid: 5.0, Treble: 5.0, Presence: 4.0, "MV": 6.0, }, notes: "Fractal's 59 Bassguy is the Fender Bassman model. Set for warm, slightly driven tones. Keep the tone warm and avoid harsh highs." },
           { position: 3, block_name: "4x10 Tweed", block_category: "Cab", original_gear: "Fender Bassman 4x10", settings: { Mic: "57 Dynamic", Distance: 2.5 }, notes: "The 4x10 Tweed cab matches the Bassman's speaker configuration. Slightly pulled back mic for a warmer, smoother capture." },
           { position: 4, block_name: "Tube Spring", block_category: "Reverb", original_gear: "Spring reverb", settings: { Decay: 1.5, Mix: 20 }, notes: "Warm spring reverb adds depth and richness to the single-note blues lines." },
         ],
-        notes: "Light, transparent compression for smooth, consistent single-note lines. The LA-2A style comp adds warmth and sustain without squashing dynamics.",
+        notes: "Compressor into 59 Bassguy with Tube Spring reverb. Light, transparent compression for smooth, consistent single-note blues lines.",
       },
     },
     is_editorial: true,
@@ -6197,7 +6200,7 @@ export const toneRecipes: ToneRecipe[] = [
       fractal: {
         chain_blocks: [
           { position: 1, block_name: "Classic Whammy", block_category: "Pitch", original_gear: "DigiTech Whammy", settings: { Mode: "variable", Position: "Exp Pedal" }, notes: "Whammy pedal for Morello's signature pitch effects." },
-          { position: 2, block_name: "USA Lead", block_category: "Amp", original_gear: "Marshall JCM800 / Peavey", settings: { Drive: 8.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 6.0, MV: 7.0 }, notes: "High-gain amp for the aggressive riff tone. No direct Peavey model; USA Lead provides similar aggression." },
+          { position: 2, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800 2205", settings: { Drive: 8.0, Bass: 6.0, Mid: 7.0, Treble: 6.0, Presence: 5.0, MV: 7.0 }, notes: "Fractal's JCM800 model for the aggressive, tight riff tone. Push the drive hard and keep mids elevated for cut in the band mix." },
           { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Standard Marshall cab." },
         ],
         notes: "Classic Whammy + high-gain amp. Morello's toggle switch kill technique and creative Whammy use define this tone.",
@@ -6587,10 +6590,10 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959 (Plexi)", settings: { Drive: 7.5, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 7.0, }, notes: "The Brit Plexi Brt is Helix's Plexi model. Push the drive for natural breakup. No drive pedals needed." },
+          { position: 1, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959 (Plexi)", settings: { Drive: 7.5, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 7.0, }, notes: "Fractal's Plexi 100W High is the Marshall Plexi model. Push the drive for natural breakup. No drive pedals needed." },
           { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback for maximum bite and presence." },
         ],
-        notes: "The Brit Plexi Brt is Helix's Plexi model. Push the drive for natural breakup. No drive pedals needed.",
+        notes: "Plexi 100W High cranked for natural breakup. No drive pedals needed. SG bridge humbucker and dig in with your pick.",
       },
     },
     is_editorial: true,
@@ -7072,7 +7075,7 @@ export const toneRecipes: ToneRecipe[] = [
     title: "Jerry Garcia's Truckin' Clean Sparkle Tone",
     slug: "garcia-truckin-clean-sparkle",
     description:
-      "Jerry Garcia's tone on Truckin' is a sparkling, clean Stratocaster sound through a Fender Twin Reverb. This is about clarity and articulation, not distortion. Every note rings out with bell-like precision, and the Twin's massive clean headroom ensures the tone stays pristine even at volume. The touch of spring reverb adds depth without washing out the details. Garcia's tone is the opposite of most rock guitarists: clean, bright, and dynamically responsive to his fingerpicking and flatpicking technique.",
+      "Jerry Garcia's tone on Truckin' is a sparkling, clean Guild Starfire sound through a Fender Twin Reverb. This is about clarity and articulation, not distortion. Every note rings out with bell-like precision, and the Twin's massive clean headroom ensures the tone stays pristine even at volume. The touch of spring reverb adds depth without washing out the details. Garcia's tone is the opposite of most rock guitarists: clean, bright, and dynamically responsive to his fingerpicking and flatpicking technique.",
     tone_context: "full_song",
     guitar_specs: {
       body_type: "semi_hollow",
@@ -7250,12 +7253,12 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Twin Reverb spring reverb",
-            settings: { Level: 40 },
+            settings: { Level: 25 },
             notes: "Add spring reverb in the FX section for authentic Twin Reverb ambience.",
           },
         ],
         notes:
-          "The Katana's Clean channel is perfect for this. Low gain, pushed treble, and spring reverb. Use the middle pickup position on your Strat.",
+          "The Katana's Clean channel is perfect for this. Low gain, pushed treble, and spring reverb. Use the middle pickup position on your guitar.",
       },
       kemper: {
         chain_blocks: [
@@ -7292,12 +7295,12 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Double Verb", block_category: "Amp", original_gear: "Fender Twin Reverb", settings: { Drive: 3.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, "MV": 5.0, }, notes: "The US Double Nrm is Helix's Twin Reverb model. Keep drive very low for sparkling cleans." },
+          { position: 1, block_name: "Double Verb", block_category: "Amp", original_gear: "Fender Twin Reverb", settings: { Drive: 3.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, "MV": 5.0, }, notes: "Fractal's Double Verb is the Twin Reverb model. Keep drive very low for sparkling cleans." },
           { position: 2, block_name: "Tube Spring", block_category: "Reverb", original_gear: "Twin Reverb spring reverb", settings: { Decay: 2.0, Mix: 25 }, notes: "The Twin Reverb's lush spring reverb is essential to Garcia's clean tone. Add a spring reverb block for the authentic spacious atmosphere." },
           { position: 3, block_name: "Digital Mono", block_category: "Delay", original_gear: "Slapback / ambience", settings: { Time: "300ms", Feedback: 15, Mix: 20 }, notes: "A short delay adds additional spacious depth to the clean, reverb-drenched tone." },
           { position: 4, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Twin Reverb 2x12 Jensen", settings: { Mic: "57 Dynamic", Distance: 3.0 }, notes: "The 2x12 Jensen cab captures the Twin's wide, sparkling character." },
         ],
-        notes: "The US Double Nrm is Helix's Twin Reverb model. Keep drive very low for sparkling cleans.",
+        notes: "Double Verb at low drive for sparkling cleans. Tube Spring reverb and short Digital Mono delay for spacious depth.",
       },
     },
     is_editorial: true,
@@ -10390,10 +10393,10 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Super Verb", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Drive: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, "MV": 5.0 }, notes: "Low gain for warm cleans. The Soup Pro model captures the Supro's compressed clean character." },
+          { position: 1, block_name: "Super Verb", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Drive: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, "MV": 5.0 }, notes: "Low gain for warm cleans. The Super Verb captures the Supro's compressed clean character." },
           { position: 2, block_name: "1x12 Field Coil", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: "57 Dynamic", Distance: 3.0 }, notes: "Closest match to the Supro's warm, round speaker character." },
         ],
-        notes: "Low gain for warm cleans. The Soup Pro model captures the Supro's compressed clean character.",
+        notes: "Low gain for warm cleans. The Super Verb captures the Supro's compressed clean character.",
       },
     },
     is_editorial: true,
