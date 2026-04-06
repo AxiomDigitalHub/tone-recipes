@@ -78,11 +78,22 @@ function makeDspInfrastructure(isPath1: boolean) {
       "@model": "HD2_AppDSPFlowSplitY",
       "@position": 0,
       "@enabled": true,
+      "@no_snapshot_bypass": false,
+      BalanceA: 0.5,
+      BalanceB: 0.5,
+      bypass: false,
     },
     join: {
       "@model": "HD2_AppDSPFlowJoin",
       "@position": 8,
       "@enabled": true,
+      "@no_snapshot_bypass": false,
+      "A Level": 0,
+      "B Level": 0,
+      "A Pan": 0.5,
+      "B Pan": 0.5,
+      "B Polarity": false,
+      Level: 0,
     },
   };
 }
@@ -100,8 +111,8 @@ export function generateHelixPreset(
   // Start with DSP infrastructure
   const dsp0: Record<string, unknown> = makeDspInfrastructure(true);
 
-  // Snapshot block states
-  const snapshotDsp0: Record<string, boolean> = { split: true };
+  // Snapshot block states (only actual effect blocks, NOT split/join)
+  const snapshotDsp0: Record<string, boolean> = {};
 
   for (let i = 0; i < blocks.length; i++) {
     const block = blocks[i];
