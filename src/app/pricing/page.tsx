@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Check } from "lucide-react";
 import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
+import CheckoutButton from "@/components/checkout/CheckoutButton";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -47,10 +48,11 @@ const plans = [
       "Ad-free experience",
       "Priority community support",
     ],
-    cta: "Coming Soon",
+    cta: "Start Premium",
     ctaHref: "#",
     highlight: true,
-    comingSoon: true,
+    comingSoon: false,
+    stripePlan: "premium" as const,
   },
   {
     name: "Creator",
@@ -64,10 +66,11 @@ const plans = [
       "Creator badge on profile",
       "Early access to new features",
     ],
-    cta: "Coming Soon",
+    cta: "Start Creating",
     ctaHref: "#",
     highlight: false,
-    comingSoon: true,
+    comingSoon: false,
+    stripePlan: "creator" as const,
   },
 ];
 
@@ -122,10 +125,12 @@ export default function PricingPage() {
               ))}
             </ul>
 
-            {plan.comingSoon ? (
-              <span className="block cursor-not-allowed rounded-lg border border-border bg-surface py-3 text-center text-sm font-semibold text-muted">
-                Coming Soon
-              </span>
+            {plan.stripePlan ? (
+              <CheckoutButton
+                plan={plan.stripePlan}
+                label={plan.cta}
+                highlight={plan.highlight}
+              />
             ) : (
               <Link
                 href={plan.ctaHref}
@@ -140,16 +145,6 @@ export default function PricingPage() {
             )}
           </div>
         ))}
-      </div>
-
-      {/* Waitlist */}
-      <div className="mx-auto mt-16 max-w-xl">
-        <NewsletterSignup
-          headline="Get notified when Premium launches"
-          subtext="We'll email you once — when unlimited preset downloads go live. No spam."
-          buttonText="Notify me"
-          source="pricing-waitlist"
-        />
       </div>
 
       {/* FAQ */}

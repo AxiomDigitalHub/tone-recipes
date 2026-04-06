@@ -25,29 +25,17 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "Vibro Verb": "HD2_AmpUSDeluxeVib", // Vibro Verb mapped to closest Fender model
   "Laney Supergroup": "HD2_AmpBritJ45Brt", // Laney Supergroup approximation
 
-  // ── Cabs ──────────────────────────────────────────────────────────────
-  "4x12 Greenback25": "HD2_Cab4x12Greenback25",
-  "4x12 Green 25": "HD2_Cab4x12Green25",
-  "4x12 Green": "HD2_Cab4x12Green20",
-  "4x12 Cali V30": "HD2_Cab4x12CaliV30",
-  "4x12 V30": "HD2_Cab4x12V30",
-  "2x12 Blue Bell": "HD2_Cab2x12BlueBell",
-  "2x12 Double C12N": "HD2_Cab2x12DoubleC12N",
-  "2x12 Mail C12Q": "HD2_Cab2x12MailC12Q",
-  "2x12 US Deluxe": "HD2_Cab2x12USDeluxe",
-  "2x12 Two Rock": "HD2_Cab2x12TwoRock",
-  "2x12 Twin": "HD2_Cab2x12Twin",
-  "2x10 US Deluxe": "HD2_Cab2x10USDeluxe",
-  "2x10 Fender": "HD2_Cab2x10Fender",
-  "1x15 Ampeg": "HD2_Cab1x15Ampeg",
-  "1x15 Vibroverb": "HD2_Cab1x15Vibroverb",
-  "1x12 US Deluxe": "HD2_Cab1x12USDeluxe",
-  "1x12 Cali EXT": "HD2_Cab1x12CaliEXT",
-  "1x12 Mesa": "HD2_Cab1x12Mesa",
-  "1x8 Small Tweed": "HD2_Cab1x8SmallTweed",
-  "1x8 Champ": "HD2_Cab1x8Champ",
-  "4x10 Tweed": "HD2_Cab4x10Tweed",
-  "4x10 Bassman": "HD2_Cab4x10Bassman",
+  // ── Legacy Cabs (kept for backward compatibility with unmapped names) ──
+  "2x12 Mail C12Q": "HD2_CabMicIr_2x12MailC12QWithPan",
+  "2x12 US Deluxe": "HD2_CabMicIr_2x12USDeluxeWithPan",
+  "2x12 Two Rock": "HD2_CabMicIr_2x12TwoRockWithPan",
+  "2x10 US Deluxe": "HD2_CabMicIr_2x10USDeluxeWithPan",
+  "2x10 Fender": "HD2_CabMicIr_2x10FenderWithPan",
+  "1x15 Ampeg": "HD2_CabMicIr_1x15AmpegWithPan",
+  "1x8 Small Tweed": "HD2_CabMicIr_1x8SmallTweedWithPan",
+  "1x8 Champ": "HD2_CabMicIr_1x8ChampWithPan",
+  "4x10 Tweed": "HD2_CabMicIr_4x10TweedWithPan",
+  "4x10 Bassman": "HD2_CabMicIr_4x10BassmanWithPan",
 
   // ── Distortion / Drive ────────────────────────────────────────────────
   "Scream 808": "HD2_DistScream808",
