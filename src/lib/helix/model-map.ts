@@ -10,32 +10,32 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "US Double Nrm": "HD2_AmpUSDoubleNrm",
   "US Deluxe Vib": "HD2_AmpUSDeluxeVib",
   "US Deluxe Nrm": "HD2_AmpUSDeluxeNrm",
-  "US Small Tweed": "HD2_AmpUSSmallTweed",
+  "US Small Tweed": "HD2_AmpTweedBluesBrt",
   "Brit Plexi Brt": "HD2_AmpBritPlexiBrt",
   "Brit Plexi Nrm": "HD2_AmpBritPlexiNrm",
   "Brit 2204": "HD2_AmpBrit2204",
   "Brit J45 Nrm": "HD2_AmpBritJ45Nrm",
-  "Brit J-800": "HD2_AmpBritJ800",
+  "Brit J-800": "HD2_AmpBrit2204",
   "Essex A30": "HD2_AmpEssexA30",
   "Derailed Ingrid": "HD2_AmpDerailedIngrid",
   "Cali Rectifire": "HD2_AmpCaliRectifire",
   "Cali Texas Ch1": "HD2_AmpCaliTexasCh1",
   "PV Panama": "HD2_AmpPVPanama",
-  "Mesa .22": "HD2_AmpCaliMkIV",
+  "Mesa .22": "HD2_AmpCaliIVR1",
   "Vibro Verb": "HD2_AmpUSDeluxeVib", // Vibro Verb mapped to closest Fender model
   "Laney Supergroup": "HD2_AmpBritJ45Brt", // Laney Supergroup approximation
 
   // ── Legacy Cabs (kept for backward compatibility with unmapped names) ──
   "2x12 Mail C12Q": "HD2_CabMicIr_2x12MailC12QWithPan",
-  "2x12 US Deluxe": "HD2_CabMicIr_2x12USDeluxeWithPan",
-  "2x12 Two Rock": "HD2_CabMicIr_2x12TwoRockWithPan",
-  "2x10 US Deluxe": "HD2_CabMicIr_2x10USDeluxeWithPan",
-  "2x10 Fender": "HD2_CabMicIr_2x10FenderWithPan",
-  "1x15 Ampeg": "HD2_CabMicIr_1x15AmpegWithPan",
-  "1x8 Small Tweed": "HD2_CabMicIr_1x8SmallTweedWithPan",
-  "1x8 Champ": "HD2_CabMicIr_1x8ChampWithPan",
-  "4x10 Tweed": "HD2_CabMicIr_4x10TweedWithPan",
-  "4x10 Bassman": "HD2_CabMicIr_4x10BassmanWithPan",
+  "2x12 US Deluxe": "HD2_CabMicIr_2x12DoubleC12NWithPan",
+  "2x12 Two Rock": "HD2_CabMicIr_2x12SilverBellWithPan",
+  "2x10 US Deluxe": "HD2_CabMicIr_1x12USDeluxeWithPan",
+  "2x10 Fender": "HD2_CabMicIr_2x12DoubleC12NWithPan",
+  "1x15 Ampeg": "HD2_CabMicIr_2x15BruteWithPan",
+  "1x8 Small Tweed": "HD2_CabMicIr_1x10USPrincessWithPan",
+  "1x8 Champ": "HD2_CabMicIr_1x10USPrincessWithPan",
+  "4x10 Tweed": "HD2_CabMicIr_4x10TweedP10RWithPan",
+  "4x10 Bassman": "HD2_CabMicIr_4x10TweedP10RWithPan",
 
   // ── Distortion / Drive ────────────────────────────────────────────────
   "Scream 808": "HD2_DistScream808",
@@ -43,21 +43,21 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "Arbitrator Fuzz": "HD2_DistArbitratorFuzz",
   "Triangle Fuzz": "HD2_DistTriangleFuzz",
   "Deez One Vintage": "HD2_DistDeezOneVintage",
-  "Muff Fuzz": "HD2_DistMuffFuzz",
+  "Muff Fuzz": "HD2_DistRamsHead",
   "Kinky Boost": "HD2_DistKinkyBoost",
-  "Distortion+": "HD2_DistDistortionPlus",
-  "Deluxe Comp": "HD2_CompDeluxeComp",
+  "Distortion+": "HD2_DistStuporOD",
+  "Deluxe Comp": "HD2_CompressorDeluxeComp",
 
   // ── Modulation ────────────────────────────────────────────────────────
   "70s Chorus": "HD2_Chorus70sChorus",
   "Script Mod Phase": "HD2_PhaserScriptModPhase",
   "Elephant Man": "HD2_DelayElephantMan",
-  "Optical Trem": "HD2_TremOpticalTrem",
+  "Optical Trem": "HD2_TremoloOpticalTrem",
 
   // ── Delay ─────────────────────────────────────────────────────────────
-  "Simple Delay": "HD2_DelaySimple",
+  "Simple Delay": "HD2_DelaySimpleDelay",
   "Transistor Tape": "HD2_DelayTransistorTape",
-  "Digital Delay": "HD2_DelayDigital",
+  "Digital Delay": "HD2_DelayVintageDigitalV2",
 
   // ── Reverb ────────────────────────────────────────────────────────────
   "Plate Reverb": "HD2_ReverbPlate",
@@ -66,51 +66,51 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "Chrome": "HD2_WahChrome",
 
   // ── Pitch ─────────────────────────────────────────────────────────────
-  "Pitch Wham": "HD2_PitchWham",
+  "Pitch Wham": "HD2_PitchPitchWham",
 
   // ── Additional Amps (used in recipe translations) ─────────────────────
   "Soup Pro": "HD2_AmpSoupPro",
   "WhoWatt 100": "HD2_AmpWhoWatt100",
   "Tweed Blues Nrm": "HD2_AmpTweedBluesNrm",
-  "US DLX 64": "HD2_AmpUSDeluxe64",
-  "Essex A30 TB": "HD2_AmpEssexA30TB",
+  "US DLX 64": "HD2_AmpUSDeluxeVib",
+  "Essex A30 TB": "HD2_AmpA30FawnBrt",
   "Brit 2203": "HD2_AmpBrit2203",
-  "Cali 2C+ Lead": "HD2_AmpCali2CLead",
+  "Cali 2C+ Lead": "HD2_AmpCaliIVLead",
   "Cali IV Lead": "HD2_AmpCaliIVLead",
-  "Cali Texas Ch2": "HD2_AmpCaliTexasCh2",
-  "Das Benzin Lead": "HD2_AmpDasBenzinLead",
-  "Ampeg SVT Nrm": "HD2_AmpAmpegSVTNrm",
-  "Deranged Master": "HD2_AmpDerangedMaster",
+  "Cali Texas Ch2": "HD2_AmpCaliTexasCh1",
+  "Das Benzin Lead": "HD2_AmpDasBenzinMega",
+  "Ampeg SVT Nrm": "HD2_AmpSVBeastNrm",
+  "Deranged Master": "HD2_DistDerangedMaster",
   "Cartographer": "HD2_AmpCartographer",
 
   // ── Cabs (Dual/non-legacy format: HD2_CabMicIr_) ──────────────────────
-  "1x12 Field Coil": "HD2_CabMicIr_1x12FieldCoilWithPan",
+  "1x12 Field Coil": "HD2_CabMicIr_1x12USDeluxeWithPan",
   "1x12 US Deluxe": "HD2_CabMicIr_1x12USDeluxeWithPan",
   "1x12 Cali EXT": "HD2_CabMicIr_1x12CaliEXTWithPan",
-  "1x12 Mesa": "HD2_CabMicIr_1x12MesaWithPan",
-  "1x15 Ampeg B-15": "HD2_CabMicIr_1x15AmpegB15WithPan",
-  "1x15 Vibroverb": "HD2_CabMicIr_1x15VibroverbWithPan",
+  "1x12 Mesa": "HD2_CabMicIr_1x12CaliEXTWithPan",
+  "1x15 Ampeg B-15": "HD2_CabMicIr_2x15BruteWithPan",
+  "1x15 Vibroverb": "HD2_CabMicIr_2x12DoubleC12NWithPan",
   "2x12 Blue Bell": "HD2_CabMicIr_2x12BlueBellWithPan",
   "2x12 Double C12N": "HD2_CabMicIr_2x12DoubleC12NWithPan",
-  "2x12 Twin": "HD2_CabMicIr_2x12TwinWithPan",
+  "2x12 Twin": "HD2_CabMicIr_2x12DoubleC12NWithPan",
   "4x10 Tweed P10R": "HD2_CabMicIr_4x10TweedP10RWithPan",
   "4x12 Greenback 25": "HD2_CabMicIr_4x12Greenback25WithPan",
-  "4x12 XXL V30": "HD2_CabMicIr_4x12XXLV30WithPan",
+  "4x12 XXL V30": "HD2_CabMicIr_4x12UberV30WithPan",
   "4x12 Greenback25": "HD2_CabMicIr_4x12Greenback25WithPan",
-  "4x12 Green 25": "HD2_CabMicIr_4x12Green25WithPan",
-  "4x12 Green": "HD2_CabMicIr_4x12Green20WithPan",
+  "4x12 Green 25": "HD2_CabMicIr_4x12Greenback25WithPan",
+  "4x12 Green": "HD2_CabMicIr_4x12Greenback25WithPan",
   "4x12 Cali V30": "HD2_CabMicIr_4x12CaliV30WithPan",
-  "4x12 V30": "HD2_CabMicIr_4x12V30WithPan",
+  "4x12 V30": "HD2_CabMicIr_4x12CaliV30WithPan",
 
   // ── Additional Drive/Comp ────────────────────────────────────────────
   "Compulsive Drv": "HD2_DistCompulsiveDrive",
-  "Vermin Dist": "HD2_DistVermin",
-  "LA Studio Comp": "HD2_CompLAStudioComp",
+  "Vermin Dist": "HD2_DistVerminDist",
+  "LA Studio Comp": "HD2_CompressorLAStudioComp",
 
   // ── Additional Modulation ────────────────────────────────────────────
   "PlastiChorus": "HD2_ChorusPlastiChorus",
   "Chorus CE-1": "HD2_Chorus70sChorus",
-  "Searchlights": "HD2_TremSearchlights",
+  "Searchlights": "HD2_ReverbSearchlights",
 
   // ── Additional Delay ─────────────────────────────────────────────────
   "Cosmos Echo": "HD2_DelayCosmosEcho",
@@ -141,8 +141,8 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "Bassman": "HD2_AmpUSDeluxeNrm",
   "AC30 TB": "HD2_AmpEssexA30",
   "Two Rock": "HD2_AmpDerailedIngrid",
-  "Champ": "HD2_AmpUSSmallTweed",
-  "Silvertone": "HD2_AmpUSSmallTweed",
+  "Champ": "HD2_AmpTweedBluesBrt",
+  "Silvertone": "HD2_AmpTweedBluesBrt",
   "Hiwatt DR103": "HD2_AmpBritPlexiBrt",
   "Mesa Mark IIC+": "HD2_AmpCaliRectifire",
   "Mesa Mark I": "HD2_AmpCaliTexasCh1",
@@ -166,7 +166,7 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   // Quad Cortex / Fractal / Katana delay names
   "Tape Delay": "HD2_DelayTransistorTape",
   "Tape Echo": "HD2_DelayTransistorTape",
-  "Analog Delay": "HD2_DelaySimple",
+  "Analog Delay": "HD2_DelaySimpleDelay",
 
   // Quad Cortex / Fractal / Katana mod names
   "CE-1": "HD2_Chorus70sChorus",
@@ -176,14 +176,14 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "Phaser": "HD2_PhaserScriptModPhase",
 
   // Quad Cortex / Fractal / Katana tremolo names
-  "Tremolo": "HD2_TremOpticalTrem",
+  "Tremolo": "HD2_TremoloOpticalTrem",
 
   // Quad Cortex / Fractal / Katana reverb names
   "Spring Reverb": "HD2_ReverbSpring",
 
   // Quad Cortex / Fractal / Katana pitch names
-  "Whammy": "HD2_PitchWham",
-  "Pitch Shifter": "HD2_PitchWham",
+  "Whammy": "HD2_PitchPitchWham",
+  "Pitch Shifter": "HD2_PitchPitchWham",
 
 };
 
