@@ -54,7 +54,7 @@ export default function Home() {
           <h1 className="font-[family-name:var(--font-display)] mx-auto mt-4 max-w-4xl text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl xl:text-9xl" style={{ letterSpacing: "-0.03em", lineHeight: 1.05 }}>
             Tone recipes from the songs
             <br />
-            <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">you love.</span>
+            <span className="signal-underline bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">you love.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-muted md:text-xl">
             Pick a song. Get exact settings for your Helix, Quad Cortex, TONEX, or physical rig. Stop tweaking. Start playing.
