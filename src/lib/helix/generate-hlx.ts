@@ -161,10 +161,9 @@ export function generateHelixPreset(
       "@ledcolor": 0,
       "@custom_name": false,
     };
-    // Only first snapshot gets blocks/controllers
+    // Only first snapshot gets blocks
     if (isFirst && blocks.length > 0) {
       snap.blocks = { dsp0: snapshotDsp0 };
-      snap.controllers = {};
     }
     return snap;
   }

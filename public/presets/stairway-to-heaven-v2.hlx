@@ -4,7 +4,7 @@
       "name": "Stairway v2 Clean Build",
       "application": "HX Edit",
       "build_sha": "39f7f9a",
-      "modifieddate": 1775438884,
+      "modifieddate": 1775439809,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -138,8 +138,7 @@
             "block2": true,
             "block3": true
           }
-        },
-        "controllers": {}
+        }
       },
       "snapshot1": {
         "@name": "SNAPSHOT 2",
@@ -259,7 +258,7 @@
           "Bass": 0.5,
           "Mid": 0.6,
           "Treble": 0.65,
-          "ChVol": 0.55,
+          "Chvol": 0.55,
           "Presence": 0.5
         },
         "block2": {
