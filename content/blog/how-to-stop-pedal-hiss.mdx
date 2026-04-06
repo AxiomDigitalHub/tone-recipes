@@ -1,0 +1,146 @@
+---
+title: "How to Stop Pedal Hiss Without Killing Your Tone"
+description: "Pedal hiss has specific causes — and generic fixes like noise gates miss most of them. Here's how to diagnose and eliminate hiss at the source."
+date: "2026-04-05"
+author: "Carl Beckett"
+author_slug: "carl-beckett"
+category: "quick-fixes"
+tags: ["pedal hiss", "noise floor", "guitar noise", "pedalboard noise", "signal chain", "hiss fix", "guitar hum fix"]
+readingTime: 5
+image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80"
+image_alt: "Guitar pedalboard with overdrive and effects pedals connected with cables"
+---
+
+Hiss is not one problem. It's several different problems that all sound the same.
+
+A noise gate treats hiss as background noise to cut during pauses. That's useful sometimes. But if you're hearing hiss that's getting in the way — in recordings, in quiet passages, at home through headphones — you need to find where it's coming from before you reach for a gate.
+
+Most hiss has a source. Find the source, fix it. Here's how.
+
+---
+
+## Step 1: Bypass Everything and Listen
+
+Before you do anything else: plug your guitar directly into your amp with one cable. No pedals, no board.
+
+Hiss? That's your amp or your guitar. Check the amp's gain structure — master volume up, channel gain down is usually quieter than the reverse. If it's the guitar, it's probably single-coil pickups, which is a different conversation (see the [60-cycle hum guide](/blog/how-to-remove-60-cycle-hum)).
+
+No hiss? Good. The problem is in your pedal chain. Add pedals back in one at a time until the hiss shows up. Now you know which pedal to look at.
+
+---
+
+## What Kind of Hiss Is It?
+
+Not all hiss is equal. This matters for the fix.
+
+| Hiss Type | Description | Likely Cause |
+|---|---|---|
+| Constant broadband hiss | White noise, always present | Gain pedal with too much gain, or power supply issue |
+| Hiss that gets worse when you add gain | Scales with the gain knob | Cascading gain stages — too many drives stacked |
+| Digital switching noise | Thin, high-pitched, almost like a carrier tone | Low-quality or isolated digital pedal |
+| Hiss that increases when plugged in | Shows up the moment a pedal enters the chain | Bad cable, inadequate power supply current |
+| Hiss that changes near lights or equipment | Position-dependent | Power supply or grounding issue |
+
+---
+
+## Fix 1: Your Power Supply Isn't Good Enough for the Job
+
+This is the most common culprit on a pedalboard and the most overlooked.
+
+Digital pedals (modelers, delays with tap tempo, reverbs, noise gates themselves) draw significantly more current than analog pedals. If your 9V power supply output is rated for 100mA and the pedal needs 300mA, you'll get noise — even if the pedal technically turns on.
+
+Check the current rating printed on each pedal's label against the mA rating on the power supply output it's connected to. If the pedal needs more than the supply provides, it will hiss.
+
+The fix: use an isolated, high-current power supply with separate regulated outputs. One shared wall wart powering a chain of five pedals will introduce noise even when everything is technically "working."
+
+You don't need to spend $200 on a Strymon Zuma. The CIOKS DC7 and the Truetone 1 Spot Pro CS12 cover most boards without the boutique price. What you're paying for is regulated isolation between outputs — that's what kills cross-pedal interference.
+
+---
+
+## Fix 2: Too Much Gain Stacked
+
+Every gain stage adds noise along with gain. If you're running a buffer into a compressor into a boost into an overdrive, you've got four gain stages in the chain before the amp even does anything.
+
+Each one amplifies the noise from everything behind it.
+
+The honest fix is usually: less pedals. If you're using a boost pedal to push an overdrive to drive the amp's preamp, ask whether the overdrive at a higher gain setting accomplishes the same thing with fewer hiss sources in the chain.
+
+If you need the stacking, try this: **place a noise reduction pedal like the Boss NS-2 or ISP Decimator II between your drive pedals and the amp, not at the end of the chain.** This catches noise from the drive stack before it enters the amp's own gain stage, which would amplify it further.
+
+---
+
+## Fix 3: The Buffer Chain Problem
+
+True bypass sounds like a solution to tone coloration — and it often is. But a long chain of true bypass pedals has its own issue: every one that's switched off becomes a dead spot in the cable run, loading down the signal with cable capacitance.
+
+Some players compensate by adding a buffer at the beginning of the board. That's fine. The problem comes when the buffer itself is cheap — a low-quality buffer can introduce its own noise floor.
+
+If your board uses buffered bypass pedals (Boss, most TC Electronic), they're already acting as buffers. You don't need an additional one. Multiple buffers in series can create noise if they're not matched for impedance.
+
+Keep it simple: one good buffer at the start of a long true bypass chain if needed. Avoid buffer stacking.
+
+---
+
+## Fix 4: Bad or Marginal Cables
+
+A cable that's "working" can still be introducing noise.
+
+The test: flex the cable while it's plugged in and playing. If the hiss changes, spikes, or crackles as you bend it, the cable is failing. This is usually a cold solder joint at the connector or a breaking internal shield.
+
+[Replace it](/blog/does-cable-length-affect-tone). Cable quality is not a boutique concern — a decent cable from Evidence Audio, Mogami, or even Planet Waves is all you need. The important spec is shielding quality, which is what blocks radio frequency interference.
+
+---
+
+## Fix 5: Digital Pedal Interference
+
+Modern digital delay and reverb pedals have clocks running at high frequencies. Those clocks can inject interference into neighboring pedals, especially analog ones that are susceptible to radio frequency pickup.
+
+The fix is physical spacing or isolation:
+- Put digital pedals **after** gain pedals in the [signal chain](/blog/signal-chain-order-guide). The digital pedal's clock interference hitting a distortion circuit is far worse than hitting a delay.
+- Use isolated power supply outputs for digital pedals. Never share an output between a digital and an analog pedal.
+- Some players use ferrite beads on power cables. This sounds esoteric. For severe cases of digital clock noise, it actually works.
+
+---
+
+## When to Use a Noise Gate
+
+After you've addressed the above, if there's still residual noise: then a noise gate makes sense. But set it properly.
+
+A noise gate set too aggressively will chop off your note tails and kill reverb and delay decay. Set the threshold so it opens on pick attack and closes only in genuinely silent moments, not between notes.
+
+The ISP Decimator II is the standard for a reason. The Boss NS-2 works well and allows series routing through the loop for noise reduction on just the drive portion of your chain.
+
+A noise gate on a clean tone you've fixed at the source should barely engage. If it's working hard constantly, go back and address the source.
+
+---
+
+## The Diagnostic Sequence
+
+1. Guitar → amp only. Hiss? Fix the amp/guitar first.
+2. Add pedals one at a time. Which pedal introduces it?
+3. Check that pedal's power supply current rating.
+4. Check cables — flex test, replace any marginal ones.
+5. Look at gain staging — are you stacking more drives than you need?
+6. Isolate digital pedals on their own power outputs.
+7. Add a noise gate as a final trim, not a first resort.
+
+That's the order. Work through it and most boards get quiet.
+
+---
+
+## FAQ
+
+**Q: Will a noise gate fix my hiss?**
+A: It'll hide it during quiet moments. It won't eliminate the source. If the hiss is bad enough to bother you, address the cause first — otherwise you're fighting your gate settings instead of your tone.
+
+**Q: My pedal hisses even at low gain. What's wrong?**
+A: Check the power supply. A pedal running on inadequate current will introduce noise regardless of the gain setting. Also check for a cable issue — underpowered pedals and failing cables often produce noise that sounds like a gain problem.
+
+**Q: Is it worth buying an expensive power supply?**
+A: For a board of five or more pedals including any digital effects, yes. An isolated supply with individual regulated outputs solves a category of problems at once. The Truetone 1 Spot Pro CS12 handles most boards without the flagship price.
+
+**Q: Does a true bypass pedal add noise?**
+A: When switched off, a true bypass pedal is just wire — it adds nothing. When switched on, it depends on the quality of the circuit. A poorly designed true bypass drive pedal can absolutely add noise when engaged.
+
+**Q: Do I need ferrite beads on my power cables?**
+A: Probably not. Ferrite beads are useful in very specific interference scenarios, usually involving digital clock noise in sensitive adjacent circuits. Fix power supply isolation and cable quality first. If interference persists, then it's worth exploring.
