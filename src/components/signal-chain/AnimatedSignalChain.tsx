@@ -6,6 +6,8 @@ import { Zap, Volume2, Speaker, Mic, Clock, Waves, Guitar, type LucideIcon } fro
 interface AnimatedSignalChainProps {
   nodes: { name: string; category: string; color: string }[];
   guitarType?: "strat" | "tele" | "lp" | "sg" | "explorer" | "flying-v";
+  /** Hide the inline guitar node (when guitar details are shown separately above) */
+  hideGuitar?: boolean;
 }
 
 const categoryIcons: Record<string, LucideIcon> = {
@@ -73,7 +75,7 @@ function Connector({ active, showDot }: { active: boolean; showDot: boolean }) {
   );
 }
 
-export default function AnimatedSignalChain({ nodes, guitarType }: AnimatedSignalChainProps) {
+export default function AnimatedSignalChain({ nodes, guitarType, hideGuitar }: AnimatedSignalChainProps) {
   const [activeStep, setActiveStep] = useState(-1); // -1=not started, 0=guitar, 1..N=nodes
   const [isComplete, setIsComplete] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
@@ -109,9 +111,9 @@ export default function AnimatedSignalChain({ nodes, guitarType }: AnimatedSigna
   const guitarColor = "#f59e0b";
 
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-border bg-[#0b0f1a] p-5 sm:p-8">
+    <div className={hideGuitar ? "w-full" : "w-full overflow-hidden rounded-2xl border border-border bg-[#0b0f1a] p-5 sm:p-8"}>
       {/* Guitar type label */}
-      {guitarType && (
+      {guitarType && !hideGuitar && (
         <div className="mb-5 text-center text-[10px] font-semibold uppercase tracking-[3px] text-[#3a4a60]">
           {guitarType.replace("-", " ")} signal path
         </div>
@@ -119,8 +121,8 @@ export default function AnimatedSignalChain({ nodes, guitarType }: AnimatedSigna
 
       {/* Signal chain */}
       <div className="flex items-start justify-center">
-        {/* Guitar node */}
-        <div className="flex flex-col items-center">
+        {/* Guitar node — hidden when guitar details shown separately */}
+        {!hideGuitar && <><div className="flex flex-col items-center">
           <div
             className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl border-2 transition-all duration-500 sm:h-20 sm:w-20"
             style={{
@@ -148,6 +150,7 @@ export default function AnimatedSignalChain({ nodes, guitarType }: AnimatedSigna
 
         {/* Connector: guitar → first node */}
         <Connector active={activeStep >= 1} showDot={activeStep === 1 && !isComplete} />
+        </>}
 
         {/* Chain nodes with connectors */}
         {nodes.map((node, i) => {
