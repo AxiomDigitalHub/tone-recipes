@@ -17,6 +17,8 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "Brit J45 Nrm": "HD2_AmpBritJ45Nrm",
   "Brit J-800": "HD2_AmpBrit2204",
   "Essex A30": "HD2_AmpEssexA30",
+  "A30 Fawn Brt": "HD2_AmpA30FawnBrt",
+  "A30 Fawn Nrm": "HD2_AmpA30FawnNrm",
   "Derailed Ingrid": "HD2_AmpDerailedIngrid",
   "Cali Rectifire": "HD2_AmpCaliRectifire",
   "Cali Texas Ch1": "HD2_AmpCaliTexasCh1",

@@ -90,8 +90,8 @@ function makeDspInfrastructure(isPath1: boolean) {
       "@no_snapshot_bypass": false,
       "A Level": 0,
       "B Level": 0,
-      "A Pan": 0.5,
-      "B Pan": 0.5,
+      "A Pan": 0,
+      "B Pan": 1,
       "B Polarity": false,
       Level: 0,
     },
@@ -135,15 +135,30 @@ export function generateHelixPreset(
     if (blockType === 1) entry["@bypassvolume"] = 1;
     if (blockType === 4) {
       // Dual cab defaults — mic, distance, cuts, pan
-      entry["Mic"] = 0; // 0 = 57 Dynamic (SM57)
+      entry["Mic"] = 5;
       entry["Distance"] = 1;
-      entry["Position"] = 0.19;
+      entry["Position"] = 0.49;
       entry["Angle"] = 0;
       entry["LowCut"] = 19.9;
       entry["HighCut"] = 16000;
       entry["Level"] = 0;
       entry["Pan"] = 0.5;
       entry["Delay"] = 0;
+
+      // Dual cabs need a separate cab0 entry in the DSP
+      dsp0["cab0"] = {
+        "@model": modelId,
+        "@enabled": true,
+        Mic: 0,
+        Distance: 1,
+        Position: 0.19,
+        Angle: 0,
+        LowCut: 19.9,
+        HighCut: 16000,
+        Level: 0,
+        Pan: 0.38,
+        Delay: 0,
+      };
     }
     if (blockType === 7) {
       entry["@trails"] = false;
@@ -173,9 +188,10 @@ export function generateHelixPreset(
       "@ledcolor": 0,
       "@custom_name": false,
     };
-    // Only first snapshot gets blocks
+    // Only first snapshot gets blocks and controllers
     if (isFirst && blocks.length > 0) {
       snap.blocks = { dsp0: snapshotDsp0 };
+      snap.controllers = {};
     }
     return snap;
   }
