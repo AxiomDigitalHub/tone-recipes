@@ -95,12 +95,24 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "Deranged Master": "HD2_AmpDerangedMaster",
   "Cartographer": "HD2_AmpCartographer",
 
-  // ── Additional Cabs ──────────────────────────────────────────────────
-  "1x12 Field Coil": "HD2_Cab1x12FieldCoil",
-  "1x15 Ampeg B-15": "HD2_Cab1x15AmpegB15",
-  "4x10 Tweed P10R": "HD2_Cab4x10TweedP10R",
-  "4x12 Greenback 25": "HD2_Cab4x12Greenback25",
-  "4x12 XXL V30": "HD2_Cab4x12XXLV30",
+  // ── Cabs (Dual/non-legacy format: HD2_CabMicIr_) ──────────────────────
+  "1x12 Field Coil": "HD2_CabMicIr_1x12FieldCoilWithPan",
+  "1x12 US Deluxe": "HD2_CabMicIr_1x12USDeluxeWithPan",
+  "1x12 Cali EXT": "HD2_CabMicIr_1x12CaliEXTWithPan",
+  "1x12 Mesa": "HD2_CabMicIr_1x12MesaWithPan",
+  "1x15 Ampeg B-15": "HD2_CabMicIr_1x15AmpegB15WithPan",
+  "1x15 Vibroverb": "HD2_CabMicIr_1x15VibroverbWithPan",
+  "2x12 Blue Bell": "HD2_CabMicIr_2x12BlueBellWithPan",
+  "2x12 Double C12N": "HD2_CabMicIr_2x12DoubleC12NWithPan",
+  "2x12 Twin": "HD2_CabMicIr_2x12TwinWithPan",
+  "4x10 Tweed P10R": "HD2_CabMicIr_4x10TweedP10RWithPan",
+  "4x12 Greenback 25": "HD2_CabMicIr_4x12Greenback25WithPan",
+  "4x12 XXL V30": "HD2_CabMicIr_4x12XXLV30WithPan",
+  "4x12 Greenback25": "HD2_CabMicIr_4x12Greenback25WithPan",
+  "4x12 Green 25": "HD2_CabMicIr_4x12Green25WithPan",
+  "4x12 Green": "HD2_CabMicIr_4x12Green20WithPan",
+  "4x12 Cali V30": "HD2_CabMicIr_4x12CaliV30WithPan",
+  "4x12 V30": "HD2_CabMicIr_4x12V30WithPan",
 
   // ── Additional Drive/Comp ────────────────────────────────────────────
   "Compulsive Drv": "HD2_DistCompulsiveDrive",

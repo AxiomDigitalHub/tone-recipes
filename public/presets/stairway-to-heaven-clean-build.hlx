@@ -4,7 +4,7 @@
       "name": "Stairway Clean Build",
       "application": "HX Edit",
       "build_sha": "39f7f9a",
-      "modifieddate": 1775434605,
+      "modifieddate": 1775434791,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -248,7 +248,7 @@
           "ChVol": 0.5
         },
         "block1": {
-          "@model": "HD2_Cab1x12FieldCoil",
+          "@model": "HD2_CabMicIr_1x12FieldCoilWithPan",
           "@position": 1,
           "@enabled": true,
           "@path": 0,
@@ -256,7 +256,14 @@
           "@stereo": false,
           "@no_snapshot_bypass": false,
           "Mic": 0,
-          "Distance": 0.3
+          "Distance": 1,
+          "Position": 0.19,
+          "Angle": 0,
+          "LowCut": 19.9,
+          "HighCut": 16000,
+          "Level": 0,
+          "Pan": 0.5,
+          "Delay": 0
         }
       },
       "dsp1": {

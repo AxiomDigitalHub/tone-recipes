@@ -120,6 +120,18 @@ export function generateHelixPreset(
     };
 
     if (blockType === 1) entry["@bypassvolume"] = 1;
+    if (blockType === 4) {
+      // Dual cab defaults — mic, distance, cuts, pan
+      entry["Mic"] = 0; // 0 = 57 Dynamic (SM57)
+      entry["Distance"] = 1;
+      entry["Position"] = 0.19;
+      entry["Angle"] = 0;
+      entry["LowCut"] = 19.9;
+      entry["HighCut"] = 16000;
+      entry["Level"] = 0;
+      entry["Pan"] = 0.5;
+      entry["Delay"] = 0;
+    }
     if (blockType === 7) {
       entry["@trails"] = false;
       entry["@stereo"] = true;
