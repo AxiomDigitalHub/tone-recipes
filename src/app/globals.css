@@ -129,6 +129,17 @@ body {
 }
 
 /* Respect reduced motion preference */
+/* Connector dot traveling animation for AnimatedSignalChain */
+@keyframes connector-dot-travel {
+  0% { left: -5px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: calc(100% + 5px); opacity: 0; }
+}
+.animate-connector-dot {
+  animation: connector-dot-travel 0.5s ease-out forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .signal-line::after,
   .signal-line-vertical::after {

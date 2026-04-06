@@ -9,212 +9,196 @@ interface AnimatedSignalChainProps {
 }
 
 const categoryIcons: Record<string, LucideIcon> = {
-  overdrive: Zap,
-  distortion: Zap,
-  drive: Zap,
-  boost: Zap,
-  amp: Volume2,
-  preamp: Volume2,
-  cab: Speaker,
-  cabinet: Speaker,
-  mic: Mic,
-  microphone: Mic,
+  overdrive: Zap, distortion: Zap, drive: Zap, boost: Zap, compressor: Zap,
+  amp: Volume2, preamp: Volume2,
+  cab: Speaker, cabinet: Speaker,
+  mic: Mic, microphone: Mic,
   delay: Clock,
-  reverb: Waves,
-  modulation: Waves,
-  chorus: Waves,
-  tremolo: Waves,
-  phaser: Waves,
-  flanger: Waves,
+  reverb: Waves, modulation: Waves, chorus: Waves, tremolo: Waves, phaser: Waves, flanger: Waves,
+};
+
+const categoryLabels: Record<string, string> = {
+  overdrive: "Overdrive", distortion: "Distortion", drive: "Drive", boost: "Boost", compressor: "Comp",
+  amp: "Amp", preamp: "Preamp",
+  cab: "Cabinet", cabinet: "Cabinet",
+  mic: "Mic", microphone: "Mic",
+  delay: "Delay",
+  reverb: "Reverb", modulation: "Mod", chorus: "Chorus", tremolo: "Trem", phaser: "Phaser", flanger: "Flanger",
 };
 
 function getIcon(category: string): LucideIcon {
-  const key = category.toLowerCase();
-  return categoryIcons[key] ?? Zap;
+  return categoryIcons[category.toLowerCase()] ?? Zap;
 }
 
-export default function AnimatedSignalChain({
-  nodes,
-  guitarType,
-}: AnimatedSignalChainProps) {
-  // -1 = guitar phase, 0..N-1 = node phases
-  const [activeIndex, setActiveIndex] = useState(-2); // -2 = not started
-  const [dotProgress, setDotProgress] = useState(0);
+function getLabel(category: string): string {
+  return categoryLabels[category.toLowerCase()] ?? category;
+}
+
+/** Dashed connector with optional traveling dot */
+function Connector({ active, showDot }: { active: boolean; showDot: boolean }) {
+  return (
+    <div className="relative flex w-10 flex-shrink-0 items-center sm:w-14">
+      {/* Dashed line */}
+      <div
+        className="h-px w-full transition-colors duration-500"
+        style={{
+          backgroundImage: active
+            ? "repeating-linear-gradient(90deg, #3a4a60 0, #3a4a60 4px, transparent 4px, transparent 8px)"
+            : "repeating-linear-gradient(90deg, #1e2840 0, #1e2840 4px, transparent 4px, transparent 8px)",
+        }}
+      />
+      {/* Question mark circle */}
+      <div
+        className="absolute left-1/2 top-1/2 flex h-5 w-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border text-[9px] font-bold transition-all duration-500"
+        style={{
+          borderColor: active ? "#3a4a60" : "#1e2840",
+          color: active ? "#3a4a60" : "#1e2840",
+          backgroundColor: "#0b0f1a",
+        }}
+      >
+        ?
+      </div>
+      {/* Traveling dot */}
+      {showDot && (
+        <div
+          className="animate-connector-dot absolute top-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            width: 10, height: 10,
+            background: "radial-gradient(circle, #fff 0%, #a5f3fc 30%, #22d3ee 100%)",
+            boxShadow: "0 0 6px 3px rgba(34,211,238,0.8), 0 0 16px 6px rgba(34,211,238,0.3)",
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
+export default function AnimatedSignalChain({ nodes, guitarType }: AnimatedSignalChainProps) {
+  const [activeStep, setActiveStep] = useState(-1); // -1=not started, 0=guitar, 1..N=nodes
   const [isComplete, setIsComplete] = useState(false);
-  const [guitarLit, setGuitarLit] = useState(false);
-  const animFrameRef = useRef<number>(0);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-  const totalNodes = nodes.length;
-  // Total steps: guitar (index -1) + each node (0..N-1)
-  const totalSteps = totalNodes + 1; // +1 for guitar
-  const cycleDuration = 4000; // ms for the single pass
+  const totalSteps = nodes.length + 1; // guitar + nodes
 
-  const animate = useCallback(() => {
-    const startTime = performance.now();
+  const runAnimation = useCallback(() => {
+    let step = 0;
+    const stepDuration = 800; // ms per step
 
-    function tick(now: number) {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / cycleDuration, 1);
-
-      // Map progress to steps: step 0 = guitar, steps 1..N = nodes
-      const stepFloat = progress * totalSteps;
-      const currentStep = Math.min(Math.floor(stepFloat), totalSteps - 1);
-
-      // Step 0 = guitar, steps 1+ = chain nodes
-      if (currentStep === 0) {
-        setGuitarLit(true);
-        setActiveIndex(-1); // guitar phase, no chain node active yet
+    function advance() {
+      setActiveStep(step);
+      step++;
+      if (step <= totalSteps) {
+        timerRef.current = setTimeout(advance, stepDuration);
       } else {
-        setGuitarLit(true);
-        setActiveIndex(currentStep - 1); // 0-indexed chain node
-      }
-
-      // Dot progress: 0 = at guitar, 1 = past last node
-      // Offset so dot starts at guitar position and ends at last node
-      setDotProgress(progress);
-
-      if (progress >= 1) {
-        // Animation complete — light everything and stop
         setIsComplete(true);
-        setGuitarLit(true);
-        setActiveIndex(totalNodes - 1);
-        return; // stop the loop
       }
-
-      animFrameRef.current = requestAnimationFrame(tick);
     }
 
-    animFrameRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(animFrameRef.current);
-  }, [cycleDuration, totalNodes, totalSteps]);
+    // Start after a brief pause so user sees the unlit state
+    timerRef.current = setTimeout(advance, 600);
+
+    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
+  }, [totalSteps]);
 
   useEffect(() => {
-    const cleanup = animate();
+    const cleanup = runAnimation();
     return cleanup;
-  }, [animate]);
+  }, [runAnimation]);
 
-  // Guitar color
-  const guitarColor = "#f59e0b"; // amber
-
-  // Dot position: spans from the guitar box (start) to the last node (end)
-  // Guitar occupies the first "slot", nodes occupy the rest
-  // When complete, hide the dot
-  const dotLeft = isComplete ? -100 : (dotProgress * 100);
+  const guitarLit = activeStep >= 0;
+  const guitarColor = "#f59e0b";
 
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-border bg-[#0b0f1a] p-4 sm:p-6">
+    <div className="w-full overflow-hidden rounded-2xl border border-border bg-[#0b0f1a] p-5 sm:p-8">
       {/* Guitar type label */}
       {guitarType && (
-        <div className="mb-4 text-center text-xs font-medium uppercase tracking-wider text-muted">
+        <div className="mb-5 text-center text-[10px] font-semibold uppercase tracking-[3px] text-[#3a4a60]">
           {guitarType.replace("-", " ")} signal path
         </div>
       )}
 
-      {/* Node chain with guitar */}
-      <div className="relative flex items-center justify-between gap-1 sm:gap-2">
-        {/* Traveling dot — hidden when animation is complete */}
-        {!isComplete && (
+      {/* Signal chain */}
+      <div className="flex items-start justify-center">
+        {/* Guitar node */}
+        <div className="flex flex-col items-center">
           <div
-            className="pointer-events-none absolute top-1/2 z-10 h-3 w-3 -translate-y-1/2 rounded-full transition-none"
+            className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl border-2 transition-all duration-500 sm:h-20 sm:w-20"
             style={{
-              left: `${dotLeft}%`,
-              transform: "translate(-50%, -50%)",
-              background: "#22d3ee",
-              boxShadow:
-                "0 0 8px #22d3ee, 0 0 20px rgba(34, 211, 238, 0.5), 0 0 40px rgba(34, 211, 238, 0.2)",
-            }}
-          />
-        )}
-
-        {/* Connection line behind everything */}
-        <div className="pointer-events-none absolute inset-x-0 top-1/2 z-0 flex -translate-y-1/2 items-center px-6 sm:px-8">
-          <div className="h-px w-full bg-border" />
-        </div>
-
-        {/* Guitar box — first in the chain */}
-        <div className="relative z-[1] flex flex-1 flex-col items-center">
-          <div
-            className="flex h-12 w-12 items-center justify-center rounded-xl border-2 transition-all duration-300 sm:h-14 sm:w-14"
-            style={{
-              borderColor: guitarLit ? guitarColor : "rgba(42, 42, 62, 0.8)",
-              backgroundColor: (guitarLit && !isComplete && activeIndex === -1)
-                ? `${guitarColor}15`
-                : guitarLit
-                  ? `${guitarColor}08`
-                  : "rgba(26, 26, 46, 0.9)",
+              borderColor: guitarLit ? guitarColor : "#1e2840",
+              backgroundColor: guitarLit ? `${guitarColor}10` : "#0b0f1a",
               boxShadow: guitarLit
-                ? isComplete
-                  ? `0 0 8px ${guitarColor}30, 0 0 16px ${guitarColor}15`
-                  : activeIndex === -1
-                    ? `0 0 12px ${guitarColor}40, 0 0 24px ${guitarColor}20`
-                    : `0 0 8px ${guitarColor}30, 0 0 16px ${guitarColor}15`
+                ? `0 0 0 1px ${guitarColor}15, 0 8px 24px ${guitarColor}${isComplete ? "30" : activeStep === 0 ? "60" : "30"}`
                 : "none",
+              transform: activeStep === 0 && !isComplete ? "translateY(-6px)" : "none",
             }}
           >
             <Guitar
-              className="h-5 w-5 transition-colors duration-300 sm:h-6 sm:w-6"
-              style={{
-                color: guitarLit ? guitarColor : "rgba(176, 176, 186, 0.4)",
-              }}
+              className="h-7 w-7 transition-colors duration-500 sm:h-8 sm:w-8"
+              style={{ color: guitarLit ? guitarColor : "#2a3a55" }}
               strokeWidth={1.5}
             />
           </div>
-          <span
-            className="mt-2 text-[9px] font-medium uppercase tracking-wider transition-colors duration-300 sm:text-[10px]"
-            style={{
-              color: guitarLit ? guitarColor : "rgba(176, 176, 186, 0.4)",
-            }}
+          <div
+            className="mt-2.5 text-[9px] font-bold uppercase tracking-[2px] transition-colors duration-500"
+            style={{ color: guitarLit ? "#5a7090" : "#2a3a55" }}
           >
             Guitar
-          </span>
+          </div>
         </div>
 
-        {/* Chain nodes */}
+        {/* Connector: guitar → first node */}
+        <Connector active={activeStep >= 1} showDot={activeStep === 1 && !isComplete} />
+
+        {/* Chain nodes with connectors */}
         {nodes.map((node, i) => {
           const Icon = getIcon(node.category);
-          const isActive = isComplete || i <= activeIndex;
-          const isCurrentNode = !isComplete && i === activeIndex;
+          const stepIndex = i + 1; // step 0 = guitar, step 1+ = nodes
+          const isLit = isComplete || activeStep >= stepIndex;
+          const isCurrent = !isComplete && activeStep === stepIndex;
 
           return (
-            <div
-              key={`${node.name}-${i}`}
-              className="relative z-[1] flex flex-1 flex-col items-center"
-            >
-              {/* Node box */}
-              <div
-                className="flex h-12 w-12 items-center justify-center rounded-xl border-2 transition-all duration-300 sm:h-14 sm:w-14"
-                style={{
-                  borderColor: isActive ? node.color : "rgba(42, 42, 62, 0.8)",
-                  backgroundColor: isCurrentNode
-                    ? `${node.color}15`
-                    : isActive
-                      ? `${node.color}08`
-                      : "rgba(26, 26, 46, 0.9)",
-                  boxShadow: isCurrentNode
-                    ? `0 0 12px ${node.color}40, 0 0 24px ${node.color}20`
-                    : isActive
-                      ? `0 0 8px ${node.color}30, 0 0 16px ${node.color}15`
-                      : "none",
-                }}
-              >
-                <Icon
-                  className="h-5 w-5 transition-colors duration-300 sm:h-6 sm:w-6"
+            <div key={`${node.name}-${i}`} className="contents">
+              {/* Node */}
+              <div className="flex flex-col items-center">
+                <div
+                  className="flex h-[72px] w-[72px] flex-col items-center justify-center gap-1.5 rounded-2xl border-2 transition-all duration-500 sm:h-20 sm:w-20"
                   style={{
-                    color: isActive ? node.color : "rgba(176, 176, 186, 0.4)",
+                    borderColor: isLit ? node.color : "#1e2840",
+                    backgroundColor: isLit ? `${node.color}10` : "#0b0f1a",
+                    boxShadow: isLit
+                      ? `0 0 0 1px ${node.color}15, 0 8px 24px ${node.color}${isComplete ? "30" : isCurrent ? "60" : "30"}`
+                      : "none",
+                    transform: isCurrent ? "translateY(-6px)" : "none",
                   }}
-                  strokeWidth={1.5}
-                />
+                >
+                  <Icon
+                    className="h-6 w-6 transition-colors duration-500 sm:h-7 sm:w-7"
+                    style={{ color: isLit ? node.color : "#2a3a55" }}
+                    strokeWidth={1.5}
+                  />
+                  <div
+                    className="text-[8px] font-bold uppercase tracking-[1.5px] transition-colors duration-500"
+                    style={{ color: isLit ? `${node.color}90` : "#2a3a55" }}
+                  >
+                    {getLabel(node.category)}
+                  </div>
+                </div>
+                {/* Name label below */}
+                <div
+                  className="mt-2.5 max-w-[80px] text-center text-[10px] font-medium leading-tight transition-colors duration-500 sm:max-w-[100px] sm:text-[11px]"
+                  style={{ color: isLit ? "#7a8fa8" : "#253040" }}
+                >
+                  {node.name}
+                </div>
               </div>
 
-              {/* Node label */}
-              <span
-                className="mt-2 text-[9px] font-medium uppercase tracking-wider transition-colors duration-300 sm:text-[10px]"
-                style={{
-                  color: isActive ? node.color : "rgba(176, 176, 186, 0.4)",
-                }}
-              >
-                {node.name}
-              </span>
+              {/* Connector to next node (if not last) */}
+              {i < nodes.length - 1 && (
+                <Connector
+                  active={activeStep >= stepIndex + 1}
+                  showDot={activeStep === stepIndex + 1 && !isComplete}
+                />
+              )}
             </div>
           );
         })}
