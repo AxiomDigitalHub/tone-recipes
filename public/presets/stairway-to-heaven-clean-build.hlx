@@ -4,7 +4,7 @@
       "name": "Stairway Clean Build",
       "application": "HX Edit",
       "build_sha": "39f7f9a",
-      "modifieddate": 1775434791,
+      "modifieddate": 1775438884,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -248,7 +248,7 @@
           "ChVol": 0.5
         },
         "block1": {
-          "@model": "HD2_CabMicIr_1x12FieldCoilWithPan",
+          "@model": "HD2_CabMicIr_1x12USDeluxeWithPan",
           "@position": 1,
           "@enabled": true,
           "@path": 0,
