@@ -118,8 +118,9 @@ export function generateHelixPreset(
       "@no_snapshot_bypass": false,
     };
 
-    // Only stomps get @stereo: false. Amps don't get @stereo at all.
-    if (blockType === 0) entry["@stereo"] = false;
+    // Stomps (0) and delays/reverbs (7) get @stereo: false
+    // Amps (1) and cabs (4) do NOT get @stereo at all
+    if (blockType === 0 || blockType === 7) entry["@stereo"] = false;
     if (blockType === 1) entry["@bypassvolume"] = 1;
     if (blockType === 4) {
       // Dual cab defaults — mic, distance, cuts, pan
@@ -135,7 +136,6 @@ export function generateHelixPreset(
     }
     if (blockType === 7) {
       entry["@trails"] = false;
-      entry["@stereo"] = true;
     }
 
     for (const [key, value] of Object.entries(block.settings)) {
