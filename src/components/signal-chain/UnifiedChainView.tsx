@@ -401,34 +401,7 @@ export default function UnifiedChainView({
         ? "fixed inset-x-0 top-16 bottom-0 z-[60] flex flex-col bg-surface overflow-y-auto"
         : "rounded-xl border border-border bg-surface"
     }>
-      {/* Guitar header bar */}
-      <GuitarHeader
-        specs={guitarSpecs}
-        actions={
-          <div className="flex items-center gap-2">
-            {user && (activeTab === "helix" || activeTab === "quad_cortex" || activeTab === "katana") && activeTranslation && (
-              <DownloadPatchButton
-                translation={activeTranslation}
-                presetName={presetName}
-                platform={activeTab}
-              />
-            )}
-            <button
-              onClick={() => setIsFullscreen(!isFullscreen)}
-              aria-label={isFullscreen ? "Exit fullscreen" : "Fullscreen"}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-surface text-muted transition-colors hover:border-accent/40 hover:text-foreground"
-            >
-              {isFullscreen ? (
-                <Minimize2 className="h-4 w-4" />
-              ) : (
-                <Maximize2 className="h-4 w-4" />
-              )}
-            </button>
-          </div>
-        }
-      />
-
-      {/* Platform tabs */}
+      {/* Platform tabs — above guitar for unbroken signal flow */}
       <div role="tablist" aria-label="Signal chain platform" className="flex gap-2 overflow-x-auto border-b border-border p-2 scrollbar-hide">
         <button
           role="tab"
@@ -474,6 +447,33 @@ export default function UnifiedChainView({
           );
         })}
       </div>
+
+      {/* Guitar header bar */}
+      <GuitarHeader
+        specs={guitarSpecs}
+        actions={
+          <div className="flex items-center gap-2">
+            {user && (activeTab === "helix" || activeTab === "quad_cortex" || activeTab === "katana") && activeTranslation && (
+              <DownloadPatchButton
+                translation={activeTranslation}
+                presetName={presetName}
+                platform={activeTab}
+              />
+            )}
+            <button
+              onClick={() => setIsFullscreen(!isFullscreen)}
+              aria-label={isFullscreen ? "Exit fullscreen" : "Fullscreen"}
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-surface text-muted transition-colors hover:border-accent/40 hover:text-foreground"
+            >
+              {isFullscreen ? (
+                <Minimize2 className="h-4 w-4" />
+              ) : (
+                <Maximize2 className="h-4 w-4" />
+              )}
+            </button>
+          </div>
+        }
+      />
 
       {/* Chain area */}
       {activeTab === "physical" ? (
