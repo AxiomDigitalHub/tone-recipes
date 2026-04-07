@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Guitar, Zap, Orbit, Volume2, Clock, Speaker, Mic } from "lucide-react";
+import { Clock, Speaker, Zap } from "lucide-react";
 import { toneRecipes, songs, artists, getSongBySlug, getArtistBySlug } from "@/lib/data";
 import RecipeCard from "@/components/recipe/RecipeCard";
 import Badge from "@/components/ui/Badge";
 import PlatformOnboarding from "@/components/home/PlatformOnboarding";
 import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import HeroSignalChain from "@/components/home/HeroSignalChain";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -83,36 +84,7 @@ export default function Home() {
           </p>
 
           {/* Animated signal chain preview */}
-          <div className="mx-auto mt-16 flex max-w-3xl items-center justify-center gap-2 overflow-x-auto px-6 pb-8 scrollbar-none">
-            {[
-              { icon: Guitar, label: "Guitar", color: "#f59e0b" },
-              { icon: Zap, label: "Overdrive", color: "#22c55e" },
-              { icon: Orbit, label: "Chorus", color: "#8b5cf6" },
-              { icon: Volume2, label: "Preamp", color: "#ef4444" },
-              { icon: Clock, label: "Delay", color: "#3b82f6" },
-              { icon: Speaker, label: "Cabinet", color: "#a855f7" },
-              { icon: Mic, label: "Mic", color: "#6b7280" },
-            ].map((node, i) => (
-              <div key={node.label} className="flex shrink-0 items-center gap-2">
-                <div className="group flex flex-col items-center">
-                  <div
-                    className="node-glow flex h-11 w-11 items-center justify-center rounded-xl border-2 bg-surface transition-all hover:bg-surface-hover sm:h-14 sm:w-14 md:h-16 md:w-16"
-                    style={{ borderColor: node.color + "70" }}
-                  >
-                    <node.icon
-                      className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7"
-                      style={{ color: node.color }}
-                      strokeWidth={1.5}
-                    />
-                  </div>
-                  <span className="mt-1.5 text-[10px] font-medium uppercase text-muted">
-                    {node.label}
-                  </span>
-                </div>
-                {i < 6 && <div className="signal-line h-0.5 w-2 rounded-full sm:w-4 md:w-6" />}
-              </div>
-            ))}
-          </div>
+          <HeroSignalChain />
         </div>
       </section>
 
