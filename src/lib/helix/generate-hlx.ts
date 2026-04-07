@@ -134,7 +134,7 @@ export function generateHelixPreset(
     if (blockType === 0 || blockType === 7) entry["@stereo"] = false;
     if (blockType === 1) entry["@bypassvolume"] = 1;
     if (blockType === 7) {
-      entry["@trails"] = false;
+      entry["@trails"] = true;
     }
 
     for (const [key, value] of Object.entries(block.settings)) {
