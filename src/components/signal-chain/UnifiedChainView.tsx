@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import type {
   SignalChainNode as NodeType,
@@ -10,16 +10,67 @@ import type {
   Platform,
 } from "@/types/recipe";
 import { PLATFORMS } from "@/lib/constants";
-import { getChainIcon, getChainIconLabel } from "@/lib/chain-icons";
-import { Guitar, Maximize2, Minimize2, Lock } from "lucide-react";
-import SignalChainNode from "./SignalChainNode";
-import ChainTooltip from "./ChainTooltip";
+import { getChainIcon } from "@/lib/chain-icons";
+import { Guitar, Maximize2, Minimize2, Lock, Zap, Volume2, Speaker, Mic, Clock, Waves } from "lucide-react";
 import DownloadPatchButton from "./DownloadPatchButton";
 import CommunitySubmissions from "./CommunitySubmissions";
-import { getChainTip } from "@/lib/chain-tips";
 import { usePlatformStore } from "@/lib/stores/platform-store";
 import { useAuth } from "@/lib/auth/auth-context";
 import { canViewAllPlatforms, canDownloadPresets, FREE_PLATFORM_LIMIT } from "@/lib/permissions";
+
+/* ------------------------------------------------------------------ */
+/*  Pretext-style category → color mapping                             */
+/* ------------------------------------------------------------------ */
+
+function getPretextColor(category: string, subcategory?: string | null): string {
+  const cat = (category || "").toLowerCase();
+  const sub = (subcategory || "").toLowerCase();
+  // Check subcategory first
+  if (["overdrive", "drive", "boost", "compressor", "distortion", "fuzz", "gate", "limiter", "dynamics"].includes(sub)) return "#4ade80";
+  if (["delay", "echo"].includes(sub)) return "#60a5fa";
+  if (["reverb", "modulation", "chorus", "flanger", "phaser", "tremolo", "vibrato"].includes(sub)) return "#a78bfa";
+  // Check category
+  if (["overdrive", "drive", "boost", "compressor", "dynamics", "comp", "booster", "stomp", "distortion", "fuzz"].includes(cat)) return "#4ade80";
+  if (["effect", "fx", "pedal fx"].includes(cat)) return "#4ade80";
+  if (["amp", "preamp", "amp type", "tone model", "amp model", "power_amp"].includes(cat)) return "#f87171";
+  if (["cab", "cabinet", "ir"].includes(cat)) return "#f87171";
+  if (["mic", "microphone"].includes(cat)) return "#94a3b8";
+  if (["delay"].includes(cat)) return "#60a5fa";
+  if (["reverb", "modulation", "mod", "wet_effect"].includes(cat)) return "#a78bfa";
+  return "#f59e0b";
+}
+
+function getPretextIcon(category: string, subcategory?: string | null) {
+  const cat = (category || "").toLowerCase();
+  const sub = (subcategory || "").toLowerCase();
+  if (["overdrive", "drive", "boost", "compressor", "distortion", "fuzz", "dynamics", "gate", "limiter"].includes(sub)) return Zap;
+  if (["delay", "echo"].includes(sub)) return Clock;
+  if (["reverb", "modulation", "chorus", "flanger", "phaser", "tremolo", "vibrato"].includes(sub)) return Waves;
+  if (["overdrive", "drive", "boost", "compressor", "dynamics", "comp", "booster", "stomp", "distortion", "fuzz", "effect", "fx", "pedal fx"].includes(cat)) return Zap;
+  if (["amp", "preamp", "amp type", "tone model", "amp model", "power_amp"].includes(cat)) return Volume2;
+  if (["cab", "cabinet", "ir"].includes(cat)) return Speaker;
+  if (["mic", "microphone"].includes(cat)) return Mic;
+  if (["delay"].includes(cat)) return Clock;
+  if (["reverb", "modulation", "mod", "wet_effect"].includes(cat)) return Waves;
+  return Zap;
+}
+
+function getPretextLabel(category: string, subcategory?: string | null): string {
+  const sub = (subcategory || "").toLowerCase();
+  if (sub) return sub;
+  const cat = (category || "").toLowerCase();
+  const labels: Record<string, string> = {
+    guitar: "Guitar", effect: "Drive", preamp: "Amp", power_amp: "Power",
+    wet_effect: "FX", cabinet: "Cab", microphone: "Mic", amp: "Amp",
+    "amp type": "Amp", cab: "Cab", drive: "Drive", overdrive: "Drive",
+    stomp: "Stomp", booster: "Boost", dynamics: "Comp", delay: "Delay",
+    reverb: "Reverb", modulation: "Mod", mod: "Mod", fx: "FX",
+    "pedal fx": "FX", "tone model": "Amp", eq: "EQ", mic: "Mic",
+    compressor: "Comp", comp: "Comp", boost: "Boost", distortion: "Dist",
+    fuzz: "Fuzz", ir: "IR",
+  };
+  return labels[cat] || cat;
+}
 
 interface UnifiedChainViewProps {
   guitarSpecs: GuitarSpecs;
@@ -232,85 +283,8 @@ function GuitarHeader({ specs, actions }: { specs: GuitarSpecs; actions?: React.
 }
 
 /* ------------------------------------------------------------------ */
-/*  Platform block node (for non-physical tabs)                        */
-/* ------------------------------------------------------------------ */
-
-function PlatformBlockNode({
-  block,
-  platformColor,
-  isSelected,
-  onSelect,
-}: {
-  block: PlatformBlock;
-  platformColor: string;
-  isSelected?: boolean;
-  onSelect?: () => void;
-}) {
-  const Icon = getChainIcon(block.block_category);
-  const label = getChainIconLabel(block.block_category);
-
-  return (
-    <div className="flex flex-col items-center">
-      <button
-        onClick={onSelect}
-        aria-label={`${block.block_name} – ${block.block_category} settings`}
-        aria-pressed={!!isSelected}
-        className={`node-glow group flex h-20 w-20 cursor-pointer flex-col items-center justify-center rounded-xl border-2 bg-surface transition-all duration-200 hover:bg-surface-hover hover:scale-105 hover:shadow-[0_0_12px_rgba(245,158,11,0.3)] hover:border-accent/60 ${
-          isSelected ? "ring-2 ring-offset-2 ring-offset-background scale-105" : ""
-        }`}
-        style={{
-          borderColor: isSelected ? platformColor : platformColor + "80",
-        }}
-      >
-        <Icon
-          className="h-6 w-6"
-          style={{ color: platformColor }}
-          strokeWidth={1.5}
-        />
-        <span className="mt-1 text-[10px] font-medium uppercase text-muted">
-          {label}
-        </span>
-      </button>
-
-      <p
-        className="mt-2 max-w-[110px] text-center text-[11px] font-semibold leading-tight line-clamp-2"
-        style={{ color: platformColor }}
-      >
-        {block.block_name}
-      </p>
-      <p className="max-w-[110px] text-center text-[10px] leading-tight text-muted line-clamp-2">
-        ← {block.original_gear}
-      </p>
-    </div>
-  );
-}
-
-/* ------------------------------------------------------------------ */
 /*  Main unified chain view                                            */
 /* ------------------------------------------------------------------ */
-
-/* ------------------------------------------------------------------ */
-/*  Map platform block_category → chain-tip categories                  */
-/* ------------------------------------------------------------------ */
-
-function mapBlockCategory(blockCat: string): { category: string; subcategory?: string } {
-  const cat = blockCat.toLowerCase();
-  if (["amp", "amp type", "tone model", "amp model"].includes(cat)) return { category: "preamp" };
-  if (["cab", "cabinet", "ir"].includes(cat)) return { category: "cabinet" };
-  if (["mic", "microphone"].includes(cat)) return { category: "microphone" };
-  if (["delay"].includes(cat)) return { category: "wet_effect", subcategory: "delay" };
-  if (["reverb"].includes(cat)) return { category: "wet_effect", subcategory: "reverb" };
-  if (["chorus", "flanger", "phaser", "tremolo", "vibrato", "modulation"].includes(cat)) return { category: "wet_effect", subcategory: cat };
-  if (["drive", "overdrive"].includes(cat)) return { category: "effect", subcategory: "overdrive" };
-  if (["distortion", "stomp"].includes(cat)) return { category: "effect", subcategory: "distortion" };
-  if (["fuzz"].includes(cat)) return { category: "effect", subcategory: "fuzz" };
-  if (["booster", "boost"].includes(cat)) return { category: "effect", subcategory: "boost" };
-  if (["dynamics", "compressor", "comp"].includes(cat)) return { category: "effect", subcategory: "compressor" };
-  if (["wah", "filter"].includes(cat)) return { category: "effect", subcategory: "wah" };
-  if (["eq", "equalizer"].includes(cat)) return { category: "effect", subcategory: "eq" };
-  if (["fx", "effect"].includes(cat)) return { category: "effect" };
-  return { category: "effect" };
-}
 
 export default function UnifiedChainView({
   guitarSpecs,
@@ -355,11 +329,39 @@ export default function UnifiedChainView({
   }
 
 
-  // Physical chain: tip between guitar and first node
-  const firstNode = signalChain[0];
-  const guitarToFirstTip = firstNode
-    ? getChainTip("guitar", firstNode.category, null, firstNode.subcategory)
-    : null;
+  // Pretext-style animation state
+  const [animStep, setAnimStep] = useState(-1);
+  const [animComplete, setAnimComplete] = useState(false);
+
+  const nodeCount = activeTab === "physical"
+    ? signalChain.length
+    : (platformTranslations[activeTab as Platform]?.chain_blocks.length ?? 0);
+
+  useEffect(() => {
+    setAnimStep(-1);
+    setAnimComplete(false);
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setAnimComplete(true);
+      return;
+    }
+    let step = 0;
+    let timerId: ReturnType<typeof setInterval> | null = null;
+    const delay = setTimeout(() => {
+      timerId = setInterval(() => {
+        setAnimStep(step);
+        step++;
+        if (step > nodeCount) {
+          if (timerId) clearInterval(timerId);
+          setAnimComplete(true);
+        }
+      }, 500);
+    }, 300);
+    return () => {
+      clearTimeout(delay);
+      if (timerId) clearInterval(timerId);
+    };
+  }, [nodeCount, activeTab]); // reset animation on tab switch
 
   const activePlatformMeta = PLATFORMS.find((p) => p.id === activeTab);
   const activeTranslation =
@@ -475,102 +477,146 @@ export default function UnifiedChainView({
         }
       />
 
-      {/* Chain area */}
+      {/* Chain area — Pretext-style rendering */}
       {activeTab === "physical" ? (
         <div role="tabpanel" aria-label="Physical signal chain" className="w-full overflow-visible">
-          <div className="flex flex-col items-center gap-2 px-4 py-6 md:flex-row md:items-start md:justify-center">
-            {signalChain.map((node, i) => {
-              const nextNode = signalChain[i + 1];
-              const tip = nextNode
-                ? getChainTip(
-                    node.category,
-                    nextNode.category,
-                    node.subcategory,
-                    nextNode.subcategory
-                  )
-                : null;
+          <div style={{ padding: '32px 16px 0', overflowX: 'auto' }}>
+            {/* Nodes row */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: 'max-content', margin: '0 auto' }}>
+              {signalChain.map((node, i) => {
+                const isLit = animComplete || animStep >= i;
+                const nodeColor = getPretextColor(node.category, node.subcategory);
+                const Icon = getPretextIcon(node.category, node.subcategory);
+                const categoryLabel = getPretextLabel(node.category, node.subcategory);
+                const isSelected = selectedNodeIndex === i;
 
-              return (
-                <div
-                  key={node.position}
-                  className="flex flex-col items-center md:flex-row md:items-start"
-                >
-                  <SignalChainNode
-                    node={node}
-                    isSelected={selectedNodeIndex === i}
-                    onSelect={() =>
-                      setSelectedNodeIndex(
-                        selectedNodeIndex === i ? null : i
-                      )
-                    }
-                  />
-                  {i < signalChain.length - 1 && (
-                    <div className="flex flex-col items-center gap-1 md:mt-8 md:flex-row">
-                      <div className="signal-line h-3 w-0.5 rounded-full md:h-0.5 md:w-3" />
-                      {tip && <ChainTooltip tip={tip} />}
-                      <div className="signal-line h-3 w-0.5 rounded-full md:h-0.5 md:w-3" />
+                return (
+                  <React.Fragment key={node.position}>
+                    <div
+                      onClick={() => setSelectedNodeIndex(selectedNodeIndex === i ? null : i)}
+                      style={{
+                        width: 90, height: 90, borderRadius: 15,
+                        border: `1.5px solid ${isLit ? nodeColor : '#1e2840'}`,
+                        background: '#0b0f1a',
+                        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                        gap: 8, flexShrink: 0, cursor: 'pointer',
+                        transition: 'border-color 0.25s, box-shadow 0.25s, transform 0.3s',
+                        transform: isLit && !animComplete ? 'translateY(-8px)' : 'none',
+                        boxShadow: isSelected
+                          ? `0 0 0 2px ${nodeColor}40, 0 8px 30px ${nodeColor}66`
+                          : isLit
+                            ? `0 0 0 1px ${nodeColor}15, 0 8px 30px ${nodeColor}66`
+                            : 'none',
+                      }}
+                    >
+                      <Icon className="h-7 w-7" style={{ color: isLit ? nodeColor : '#2a3a55' }} strokeWidth={1.5} />
+                      <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: isLit ? nodeColor : '#2a3a55' }}>
+                        {categoryLabel}
+                      </div>
                     </div>
-                  )}
-                </div>
-              );
-            })}
+                    {i < signalChain.length - 1 && (
+                      <div style={{ display: 'flex', alignItems: 'center', width: 68, flexShrink: 0, position: 'relative', zIndex: 3 }}>
+                        <div style={{ flex: 1, height: 2, background: 'repeating-linear-gradient(90deg, #2a3a55 0, #2a3a55 4px, transparent 4px, transparent 8px)' }} />
+                        <div style={{ width: 22, height: 22, flexShrink: 0, borderRadius: '50%', border: '1.5px solid #2a3a55', background: '#0b0f1a', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, color: '#2a3a55', fontWeight: 700 }}>?</div>
+                        <div style={{ flex: 1, height: 2, background: 'repeating-linear-gradient(90deg, #2a3a55 0, #2a3a55 4px, transparent 4px, transparent 8px)' }} />
+                      </div>
+                    )}
+                  </React.Fragment>
+                );
+              })}
+            </div>
+            {/* Labels row */}
+            <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', marginTop: 14, minWidth: 'max-content', margin: '14px auto 0' }}>
+              {signalChain.map((node, i) => {
+                const isLit = animComplete || animStep >= i;
+                return (
+                  <React.Fragment key={node.position}>
+                    <div style={{ width: 90, flexShrink: 0, textAlign: 'center', fontSize: 11, fontWeight: 500, color: isLit ? '#7a8fa8' : '#3d5068', lineHeight: 1.45, whiteSpace: 'pre-line' }}>
+                      {node.gear_name}
+                    </div>
+                    {i < signalChain.length - 1 && <div style={{ width: 68, flexShrink: 0 }} />}
+                  </React.Fragment>
+                );
+              })}
+            </div>
+            {/* Tap hint */}
+            {selectedNodeIndex === null && (
+              <div style={{ textAlign: 'center', fontSize: 12, color: '#253040', marginTop: 22, paddingTop: 18, borderTop: '1px solid #1a2235' }}>
+                Tap any node to see settings &darr;
+              </div>
+            )}
+            <div style={{ height: 24 }} />
           </div>
-          {selectedNodeIndex === null && (
-            <p className="text-xs text-muted text-center py-2">Tap any node to see settings &#8595;</p>
-          )}
         </div>
       ) : activeTranslation ? (
         <div role="tabpanel" aria-label={`${activePlatformMeta?.label || activeTab} signal chain`} className="w-full overflow-visible">
-          <div className="flex flex-col items-center gap-2 px-4 py-6 md:flex-row md:items-start md:justify-center">
-            {activeTranslation.chain_blocks.map((block, i) => {
-              const nextBlock = activeTranslation.chain_blocks[i + 1];
-              const mapped = mapBlockCategory(block.block_category);
-              const nextMapped = nextBlock ? mapBlockCategory(nextBlock.block_category) : null;
-              const tip = nextMapped
-                ? getChainTip(mapped.category, nextMapped.category, mapped.subcategory, nextMapped.subcategory)
-                : null;
+          <div style={{ padding: '32px 16px 0', overflowX: 'auto' }}>
+            {/* Nodes row */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: 'max-content', margin: '0 auto' }}>
+              {activeTranslation.chain_blocks.map((block, i) => {
+                const isLit = animComplete || animStep >= i;
+                const nodeColor = getPretextColor(block.block_category);
+                const Icon = getPretextIcon(block.block_category);
+                const categoryLabel = getPretextLabel(block.block_category);
+                const isSelected = selectedNodeIndex === i;
 
-              return (
-                <div
-                  key={i}
-                  className="flex flex-col items-center md:flex-row md:items-start"
-                >
-                  <PlatformBlockNode
-                    block={block}
-                    platformColor={activePlatformMeta?.color || "#f59e0b"}
-                    isSelected={selectedNodeIndex === i}
-                    onSelect={() =>
-                      setSelectedNodeIndex(
-                        selectedNodeIndex === i ? null : i
-                      )
-                    }
-                  />
-                  {i < activeTranslation.chain_blocks.length - 1 && (
-                    <div className="flex flex-col items-center gap-1 md:mt-8 md:flex-row">
-                      <div
-                        className="h-3 w-0.5 rounded-full md:h-0.5 md:w-3"
-                        style={{
-                          backgroundColor:
-                            (activePlatformMeta?.color || "#f59e0b") + "60",
-                        }}
-                      />
-                      {tip && <ChainTooltip tip={tip} />}
-                      <div
-                        className="h-3 w-0.5 rounded-full md:h-0.5 md:w-3"
-                        style={{
-                          backgroundColor:
-                            (activePlatformMeta?.color || "#f59e0b") + "60",
-                        }}
-                      />
+                return (
+                  <React.Fragment key={i}>
+                    <div
+                      onClick={() => setSelectedNodeIndex(selectedNodeIndex === i ? null : i)}
+                      style={{
+                        width: 90, height: 90, borderRadius: 15,
+                        border: `1.5px solid ${isLit ? nodeColor : '#1e2840'}`,
+                        background: '#0b0f1a',
+                        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                        gap: 8, flexShrink: 0, cursor: 'pointer',
+                        transition: 'border-color 0.25s, box-shadow 0.25s, transform 0.3s',
+                        transform: isLit && !animComplete ? 'translateY(-8px)' : 'none',
+                        boxShadow: isSelected
+                          ? `0 0 0 2px ${nodeColor}40, 0 8px 30px ${nodeColor}66`
+                          : isLit
+                            ? `0 0 0 1px ${nodeColor}15, 0 8px 30px ${nodeColor}66`
+                            : 'none',
+                      }}
+                    >
+                      <Icon className="h-7 w-7" style={{ color: isLit ? nodeColor : '#2a3a55' }} strokeWidth={1.5} />
+                      <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: isLit ? nodeColor : '#2a3a55' }}>
+                        {categoryLabel}
+                      </div>
                     </div>
-                  )}
-                </div>
-              );
-            })}
+                    {i < activeTranslation.chain_blocks.length - 1 && (
+                      <div style={{ display: 'flex', alignItems: 'center', width: 68, flexShrink: 0, position: 'relative', zIndex: 3 }}>
+                        <div style={{ flex: 1, height: 2, background: 'repeating-linear-gradient(90deg, #2a3a55 0, #2a3a55 4px, transparent 4px, transparent 8px)' }} />
+                        <div style={{ width: 22, height: 22, flexShrink: 0, borderRadius: '50%', border: '1.5px solid #2a3a55', background: '#0b0f1a', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, color: '#2a3a55', fontWeight: 700 }}>?</div>
+                        <div style={{ flex: 1, height: 2, background: 'repeating-linear-gradient(90deg, #2a3a55 0, #2a3a55 4px, transparent 4px, transparent 8px)' }} />
+                      </div>
+                    )}
+                  </React.Fragment>
+                );
+              })}
+            </div>
+            {/* Labels row */}
+            <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', marginTop: 14, minWidth: 'max-content', margin: '14px auto 0' }}>
+              {activeTranslation.chain_blocks.map((block, i) => {
+                const isLit = animComplete || animStep >= i;
+                return (
+                  <React.Fragment key={i}>
+                    <div style={{ width: 90, flexShrink: 0, textAlign: 'center', fontSize: 11, fontWeight: 500, color: isLit ? '#7a8fa8' : '#3d5068', lineHeight: 1.45, whiteSpace: 'pre-line' }}>
+                      {block.block_name}
+                    </div>
+                    {i < activeTranslation.chain_blocks.length - 1 && <div style={{ width: 68, flexShrink: 0 }} />}
+                  </React.Fragment>
+                );
+              })}
+            </div>
+            {/* Tap hint */}
+            {selectedNodeIndex === null && (
+              <div style={{ textAlign: 'center', fontSize: 12, color: '#253040', marginTop: 22, paddingTop: 18, borderTop: '1px solid #1a2235' }}>
+                Tap any node to see settings &darr;
+              </div>
+            )}
+            <div style={{ height: 24 }} />
           </div>
-          {selectedNodeIndex === null && (
-            <p className="text-xs text-muted text-center py-2">Tap any node to see settings &#8595;</p>
-          )}
 
           {/* Platform notes (when no node selected) */}
           {activeTranslation.notes && selectedNodeIndex === null && (

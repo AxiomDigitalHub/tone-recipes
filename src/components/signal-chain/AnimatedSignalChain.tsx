@@ -78,7 +78,7 @@ function Connector({ active, showDot }: { active: boolean; showDot: boolean }) {
 export default function AnimatedSignalChain({ nodes, guitarType, hideGuitar }: AnimatedSignalChainProps) {
   const [activeStep, setActiveStep] = useState(-1); // -1=not started, 0=guitar, 1..N=nodes
   const [isComplete, setIsComplete] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const totalSteps = nodes.length + 1; // guitar + nodes
 

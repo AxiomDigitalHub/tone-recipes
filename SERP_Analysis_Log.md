@@ -619,3 +619,81 @@
 - **Recommended Unsplash image:** Search [unsplash.com/s/photos/electric-guitar](https://unsplash.com/s/photos/electric-guitar) — a dark, low-angle shot of a solid-body electric guitar suits the heavy metal tone of the post
 
 ---
+
+## SERP Analysis — 2026-04-06
+
+### Modeler EQ Guide: The 5-Band EQ Shape Every Patch Needs
+
+- **Target query:** "helix eq settings," "modeler eq guide," "eq for amp modeler patch"
+- **Top competitors:**
+  - [komposition101.com — The Helix EQ Cheat Sheet: Exact Settings for Every Situation](https://www.komposition101.com/blog/the-helix-eq-cheat-sheet-exact-settings-for-every-situation)
+  - [helixhelp.com — Global EQ tips and guides](https://helixhelp.com/tips-and-guides/universal/global-eq)
+  - [line6.com community — Helix EQ Settings for Guitar to Stand Out](https://line6.com/support/topic/45791-helix-eq-settings-for-guitar-to-stand-out/)
+  - [line6.com community — Rules of Thumb and Tips for Creating New Presets](https://line6.com/support/topic/26948-rules-of-thumb-and-tips-for-creating-new-presets/)
+  - [alexstrabala.com — Recommended Global Settings / FAQ](https://alexstrabala.com/recommended-global-settings)
+- **Content gaps found:** The Helix EQ "cheat sheet" on komposition101 covers frequency positions but doesn't explain *why* post-cab EQ is different from amp-level EQ or how monitoring environment affects the correction. The Line 6 community threads are helpful but unstructured and scattered. No editorial article explains the difference between the Output/Global EQ (for monitoring correction) and the in-patch EQ (for tonal shaping) — a distinction that matters practically. No competitor covers per-amp-model-family EQ correction tables. Follow-up opportunity: "Why Your Modeler Sounds Different Through Headphones vs. FRFR: The EQ Explanation."
+- **Featured snippet opportunity:** Yes — a "5-band EQ starting settings table" with frequency, gain, and Q values is precisely the format AI models extract. The "what EQ settings should I use on Helix?" PAA question is currently unanswered in editorial form. High probability for featured snippet given structured table format.
+- **Difficulty:** Low to medium — the editorial space is dominated by community forum threads and one blogpost. A structured editorial guide with per-amp-family tables is a clear differentiation.
+- **Recommended Unsplash image:** Search for studio equipment or amp modeler photography — the image used in the post works well for this topic.
+
+---
+
+### PRS Silver Sky vs. Fender Strat: Which Gets Closer to the Mayer Clean Tone?
+
+- **Target query:** "prs silver sky vs fender strat tone," "silver sky vs american professional strat"
+- **Top competitors:**
+  - [Guitar World — PRS SE Silver Sky vs Fender Player Stratocaster: which is better?](https://www.guitarworld.com/features/prs-se-silver-sky-vs-fender-player-stratocaster)
+  - [Guitar Chalk — PRS Silver Sky VS Fender Strat (direct comparison)](https://www.guitarchalk.com/fender-strat-vs-prs-silver-sky/)
+  - [Pro Sound HQ — PRS Silver Sky vs Fender Stratocaster: In-Depth Comparison](https://prosoundhq.com/prs-silver-sky-vs-fender-stratocaster-in-depth-comparison/)
+  - [Guitar Space — PRS Silver Sky vs Strat: Which is Better?](https://guitarspace.org/electric-guitars/prs-silver-sky-vs-strat/)
+  - [The Gear Check — PRS Silver Sky vs Fender Custom Shop Stratocaster](https://www.gearcheck.co.uk/reviews/silver-sky-vs-fender-custom)
+- **Content gaps found:** Most competitors compare SE Silver Sky (the budget version) vs. Fender Player Strat — neither of which is the relevant context for the John Mayer tone discussion. No editorial piece specifically evaluates position-by-position tone differences (neck, middle, bridge, in-between) for the Mayer clean tone. The 635JM pickup's harmonic bloom quality vs. the V-Mod II's more assertive upper-mid character is referenced in tone terms but never characterized precisely. The practical "which is better for live vs. studio" framing is absent. Follow-up: "How to Set Up a PRS Silver Sky for Maximum Clean Tone Response."
+- **Featured snippet opportunity:** Yes — "is the PRS Silver Sky worth it vs. a Fender Strat?" appears as PAA and is currently answered only generically. A decision table with context-specific recommendations has high snippet probability.
+- **Difficulty:** Medium — Guitar World and Guitar Chalk have strong authority. The differentiation is the Mayer-specific framing and the AmPro II vs. Silver Sky comparison (rather than SE vs. Player, which competitors have covered).
+
+---
+
+### Big Muff vs. Fuzz Face: Two Fuzzes, Two Completely Different Circuits
+
+- **Target query:** "big muff vs fuzz face," "fuzz face vs big muff which is better"
+- **Top competitors:**
+  - [Guitar World — Big Muff vs Fuzz Face: what's the difference?](https://www.guitarworld.com/features/big-muff-vs-fuzz-face)
+  - [DeathCloud — Fuzz Face vs Big Muff: Which Classic Fuzz Is Right for You?](https://deathcloud.com/blogs/info/fuzz-face-vs-big-muff)
+  - [PerformerLife — Fuzz Face vs. Big Muff (Pedal SHOOTOUT Covering All Features!)](https://performerlife.com/fuzz-face-vs-big-muff-pedal/)
+  - [OffsetGuitars forum — Does anyone actually prefer a Fuzz Face over a Big Muff?](https://offsetguitars.com/forums/viewtopic.php?t=116583)
+  - [TDPRI forum — Fuzz Face vs. Big Muff circuit explained](https://www.tdpri.com/threads/fuzz-face-vs-big-muff-circuit-explained.370634/)
+- **Content gaps found:** The Guitar World comparison is strong but doesn't include a structured guitar-volume-rollback comparison table. No editorial piece explains buffer sensitivity and its effect on the Fuzz Face's cleaning-up behavior — a critical practical point for anyone building a pedalboard with both fuzzes. The amp pairing differences (Fuzz Face → Marshall, Big Muff → Fender) are mentioned in forums but never presented as actionable guidance. The OffsetGuitars and TDPRI forums contain excellent information but in scattered, hard-to-parse form. Follow-up: "How to Use a Fuzz Face as an Overdrive: The Guitar Volume Technique."
+- **Featured snippet opportunity:** Yes — "what's the difference between Fuzz Face and Big Muff?" is a directly answerable PAA. A comparison table covering circuit type, dynamics, and genre applications is highly extractable.
+- **Difficulty:** Medium — Guitar World has high authority on this query. Differentiation is the circuit-level + guitar-volume-rollback comparison, buffer sensitivity discussion, and amp pairing guidance, which no competitor covers together in one editorial piece.
+
+---
+
+### Delay Types Compared: Analog vs. Digital vs. Tape (Live vs. Studio)
+
+- **Target query:** "analog delay vs digital delay," "tape delay vs digital delay guitar"
+- **Top competitors:**
+  - [BOSS Articles — Comparing Analog and Digital Delay Pedals](https://articles.boss.info/comparing-analog-and-digital-delay-pedals/)
+  - [Sweetwater InSync — What's the Difference between Analog and Digital Delay Pedals?](https://www.sweetwater.com/insync/q-whats-the-difference-between-analog-and-digital-delay-pedals/)
+  - [Laney — What Types of Delay Pedals Are There? Differences Explained](https://www.laney.co.uk/blog/what-types-of-delay-pedals-are-there-differences-explained/)
+  - [zZounds Music Blog — Analog vs. Digital Delay](https://blog.zzounds.com/2018/03/20/analog-vs-digital-delay/)
+  - [Pedaltown — Analog or digital delay pedal, what are the differences?](https://pedaltown.nl/en/analog-or-digital-delay-pedal-what-are-the-differences)
+- **Content gaps found:** BOSS and Sweetwater cover the basic technical differences, but no editorial piece addresses the *live vs. studio* decision framework specifically — which is the real question for most working players. The BOSS article is manufacturer-produced, which limits its credibility. The tape delay comparison is absent from all SERP results — it's covered only in dedicated tape delay articles, not in comparison pieces. The worship guitar context (dotted-eighth reliability, temperature consistency across a long service) is completely absent. A decision framework based on playing situation is missing entirely. Follow-up: "The Best Delay Pedals for Live Worship: Timeline, El Capistan, and Why the Distinction Matters."
+- **Featured snippet opportunity:** Yes — "what is the difference between analog and digital delay" is a recurring PAA that BOSS currently holds with a manufacturer-produced answer. An independent editorial source with a richer comparison format has a strong challenge opportunity.
+- **Difficulty:** Low to medium — Sweetwater and BOSS have authority, but BOSS's content is manufacturer-produced and Sweetwater's answer is brief. A structured editorial comparison with live/studio decision guidance is a clear differentiation.
+
+---
+
+### Germanium vs. Silicon Fuzz: What's the Actual Difference and When Does It Matter?
+
+- **Target query:** "germanium vs silicon fuzz," "fuzz face germanium vs silicon"
+- **Top competitors:**
+  - [Rock Stock Pedals — The Ultimate Guide To Fuzz Pedals: Silicon vs Germanium](https://rockstockpedals.com/blogs/blog/the-ultimate-guide-to-fuzz-pedals-silicon-vs-germanium)
+  - [Pedal Players — Silicon vs Germanium Fuzz: What Guitarists Should Know](https://pedalplayers.com/silicon-vs-germanium-fuzz/)
+  - [Pedal Pawn — Silicon vs Germanium Transistors (FUZZ Pedals Explained)](https://pedalpawn.com/blogs/news/silicon-vs-germanium-transistors-fuzz-pedals-explained)
+  - [Reverb — Germanium vs. Silicon](https://reverb.com/news/germanium-vs-silicon)
+  - [DeathCloud — Germanium vs Silicon Pedals: What Are the Differences?](https://deathcloud.com/blogs/info/germanium-vs-silicon-pedals-what-are-the-differences)
+- **Content gaps found:** Most competitors cover the warm/smooth vs. aggressive/bright comparison well, but none explain the practical transistor hFE selection process and why it matters for the final circuit. The temperature sensitivity issue is mentioned uniformly but never addressed with practical mitigation (bias pot, indoor vs. outdoor environments). The NOS transistor market — why some germanium fuzzes cost $250 and some cost $80 — is absent from all editorial results. Modern builder recommendations (Analogman, Jam Pedals, Fulltone) are not contextualized with component quality explanations. Follow-up: "How Germanium Fuzz Pedal Builders Select and Match Transistors" and "Why the Analogman Sunface Costs What It Does."
+- **Featured snippet opportunity:** Yes — "what is the difference between germanium and silicon fuzz?" is a direct PAA with no strong editorial snippet holder. The comparison table format has high extraction probability.
+- **Difficulty:** Low to medium — Rock Stock Pedals and Reverb have useful content, but neither addresses the NOS selection process or the practical temperature/environment guidance that differentiates this post.
+
+---
