@@ -1,0 +1,192 @@
+---
+title: "Modeler EQ Guide: The 5-Band EQ Shape Every Patch Needs"
+description: "How to use the 5-band EQ block on Helix, Quad Cortex, and other modelers to build patches that translate across monitoring systems and sit correctly in a mix."
+date: "2026-04-06"
+author: "Sean Nakamura"
+author_slug: "sean-nakamura"
+category: "modeler-masterclass"
+tags: ["helix", "quad-cortex", "eq", "modeler", "patch-building", "tone-shaping"]
+readingTime: 10
+image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1200&q=80"
+image_alt: "Guitar amp and effects unit in a recording studio"
+---
+
+> **Start Here:** Every modeler patch needs an EQ block — not because the amp models sound bad, but because the monitoring environment changes everything. This guide covers where to place the EQ, what each band actually does in a modeler context, and the starting shape that works as a foundation across Helix, Quad Cortex, and Fractal platforms. If you already know you need a 5-band EQ block and just want the starting settings, jump to [The Starting Shape](#the-starting-shape). If you're not sure why your patches sound right through studio monitors but wrong through a PA, start from the top.
+
+---
+
+## Why Modeler Patches Need an EQ Block
+
+A well-built amp model produces a signal that sounds correct in one specific monitoring context. The problem is that you're probably mixing it across several: studio monitors at home, headphones for late-night sessions, a PA system through FRFR speakers at rehearsal, a direct feed to the house at a gig. Each of these systems has different frequency response curves. Each will make the same unmodified patch sound slightly — or dramatically — different.
+
+A dedicated EQ block doesn't fix the monitoring problem. It gives you a reference correction that accounts for the most common differences. You're not overriding the amp model; you're adding a correction layer that makes the patch more consistent across environments.
+
+This is different from how a traditional pedalboard player thinks about EQ. On a pedal-based rig, the EQ shapes a signal going into a real amp with real physics — the power section and speaker are doing work on what you send them. On a modeler running direct, the EQ shapes the final output. Everything downstream is passive. That changes both the placement and the function.
+
+---
+
+## Where to Put the EQ Block
+
+In a modeler signal path, the EQ block belongs **after the cab/IR block** and **before any time-based effects** (reverb, delay). The reason: the cab IR already applies a frequency-shaping profile based on the mic position and cab model. Adding EQ before the IR means you're shaping a signal that will then be shaped again unpredictably by the IR. Adding it after means your EQ is working on the final, shaped output — and your changes are predictable.
+
+A typical block order looks like this:
+
+| Block | Position | Purpose |
+|---|---|---|
+| Input/gate | 1 | Noise floor management |
+| Amp model | 2 | Core tone — gain, EQ, dynamics |
+| Cab/IR | 3 | Speaker and mic simulation |
+| **5-Band EQ** | **4** | **Correction and shaping** |
+| Modulation | 5 | Chorus, phaser, flanger |
+| Delay | 6 | Time-based effects |
+| Reverb | 7 | Spatial effects |
+
+Some players put a second EQ block before the amp to shape what the amp model receives — this is a legitimate approach for tonal character changes, not monitoring correction. This guide is about the post-cab correction EQ.
+
+---
+
+## What Each Band Does in a Modeler Context
+
+Understanding the frequency regions helps you make intentional decisions instead of cutting randomly until something sounds better.
+
+### Low End: 80–120 Hz
+
+This is the fundamental range for bass strings on guitar — specifically the low E string's fundamentals and the physical thump below the guitar's actual pitch content. In isolation, boosting here sounds full and impressive. Through a PA, it creates low-end competition with the bass and kick drum and often makes the guitar sound muddy and undefined.
+
+**Default starting point:** Slight cut, -2 to -3 dB.
+
+This is the most counter-intuitive adjustment for players who dial in on studio monitors with a clear low-end. Through a live PA or headphone mix, it almost always improves clarity.
+
+### Low-Mids: 200–400 Hz
+
+The boxiness range. This is where most of the "cardboard" or "phone speaker" quality comes from on modeler patches that haven't been dialed in carefully. The amp model produces real energy here, and without speaker interaction, some of it becomes congested.
+
+**Default starting point:** Cut, -2 to -4 dB depending on amp model. High-gain patches need more cut here than clean patches.
+
+A specific callout: if your patch sounds great at low volume but gets muddy loud, this is almost certainly the range to address.
+
+### Mids: 600–1,000 Hz
+
+This is the presence range — where guitar lives in a mix and where it either cuts through or disappears. Tube Screamer users already know this intuitively: the TS808 famously boosts around 720 Hz, which is why it adds midrange presence without adding gain-character. On a modeler, keeping this range intact (or slightly boosted) is the difference between a patch that cuts through FRFR at a gig and one that gets buried.
+
+**Default starting point:** Flat or slight boost, +1 to +2 dB. Don't cut this unless you're deliberately going for a scooped metal tone, and even then, cut cautiously — the mid scoop works in isolation and falls apart in a band context.
+
+### Upper Mids: 2–4 kHz
+
+Pick attack, bite, and presence live here. This range determines how defined and articulate the patch sounds. Too much and it becomes harsh and fatiguing. Too little and the patch sounds soft and undefined.
+
+**Default starting point:** Flat. Adjust based on amp model character — bright models (Vox-style, tweed-style) may need a slight cut; dark models (some Mesa Boogie-style) may need a slight boost.
+
+### Highs: 6–10 kHz
+
+This is where digital fizz lives. Cab IR quality matters enormously here — a good IR will have already rolled off the excessive high-frequency content that raw amp models produce. If you're hearing fizz or harshness above 6 kHz, the first fix is a better IR or a different cab model, not an EQ cut. But if you've optimized the IR and there's still residual edge, a gentle cut here helps.
+
+**Default starting point:** Slight cut, -1 to -2 dB. Don't cut more than -3 dB here — you'll start losing air and the patch will sound like it has a blanket over it.
+
+---
+
+## The Starting Shape
+
+Here's the EQ shape that works as a foundation for most patches on most modelers. These are not final settings — they're a calibrated starting point. Adjust from here based on amp model, monitoring context, and genre.
+
+| Band | Frequency | Gain | Q/Width |
+|---|---|---|---|
+| Low | 100 Hz | -2 dB | Medium (0.7) |
+| Low-Mid | 300 Hz | -3 dB | Medium (0.7) |
+| Mid | 800 Hz | +1 dB | Wide (0.5) |
+| Upper-Mid | 3 kHz | Flat (0 dB) | Medium (0.7) |
+| High | 8 kHz | -1.5 dB | Medium (0.7) |
+
+This shape does three things: reduces the low-mid boxiness that affects all direct-amp signals, preserves the midrange presence that helps you cut through a mix, and gently rolls off the high-frequency harshness that some amp models produce.
+
+---
+
+## Adjustments by Amp Model Type
+
+The starting shape isn't universal. Different amp model families need different corrections.
+
+### Clean Fender-Style Models (Twin Reverb, Deluxe Reverb)
+
+These models already have a natural high-end brightness. The default starting shape may feel slightly harsh through certain monitoring setups.
+
+| Adjustment | Change from starting shape |
+|---|---|
+| Upper-Mid (3 kHz) | -1 dB |
+| High (8 kHz) | -2 dB |
+
+### Mid-Gain British Models (Plexi, JCM800-style)
+
+These models tend toward a natural mid-forward character. The starting shape often works well, with minor low-mid adjustment if the model feels congested.
+
+| Adjustment | Change from starting shape |
+|---|---|
+| Low-Mid (300 Hz) | -4 dB (extra cut) |
+| Mid (800 Hz) | +2 dB |
+
+### High-Gain Modern Models (Mesa Boogie, 5150-style)
+
+These have the most low-mid congestion and the most high-frequency fizz. They need the most significant EQ intervention.
+
+| Adjustment | Change from starting shape |
+|---|---|
+| Low (100 Hz) | -3 dB |
+| Low-Mid (300 Hz) | -5 dB |
+| High (8 kHz) | -3 dB |
+
+A note on this: if you're applying -5 dB at 300 Hz and -3 dB at 8 kHz and it still sounds congested, the issue is the cab IR, not the EQ. Swap to a tighter, more modern IR before reaching for more extreme EQ cuts.
+
+### Clean to Crunch Vox-Style Models
+
+These models have a natural upper-mid emphasis (the "jangle") that can become harsh on extended listening. The correction goes in the opposite direction from the Fender models for the low-end but aligns with them in the highs.
+
+| Adjustment | Change from starting shape |
+|---|---|
+| Low (100 Hz) | +1 dB (slight recovery — these models can feel thin) |
+| Upper-Mid (3 kHz) | -2 dB |
+
+---
+
+## Monitoring Calibration: The Real Purpose of the EQ Block
+
+Here's the thing most guides don't address directly: a post-cab EQ block is partly a monitoring calibration tool, not just a tone-shaping tool.
+
+I expected that a well-dialed patch on my Yamaha HS8 studio monitors would translate reasonably well to FRFR. What I found was that the 300 Hz range — the one I'd cut adequately on the monitors — was consistently too prominent through the FRFR at rehearsal volume. The monitors were flattening a real imbalance in the patch.
+
+The practical solution is to build patches through headphones first (which typically have a less flattering low-mid response than studio monitors), then verify through your most honest reference. For most players, headphones reveal low-mid congestion faster than monitors, which means the patches you build there will translate better across environments.
+
+---
+
+## Platform-Specific Notes
+
+### Helix (Line 6)
+
+Helix has a built-in 5-band EQ block that maps closely to the approach above. The Parametric EQ block gives you more control over Q width, which is useful for surgical low-mid cuts.
+
+One note: the Helix's Output block has a global EQ that some players use for monitoring correction. Don't use the Output EQ for patch-level corrections — it affects all patches simultaneously and makes individual patch adjustment impossible. Save the Output EQ for global monitoring correction (like adding a low-cut for headphone use), and use the in-patch EQ block for everything else.
+
+### Quad Cortex
+
+The Neural DSP Quad Cortex has a built-in EQ block with good parametric control. The internal routing also allows placing the EQ in the signal path precisely. The QC's amp models tend to run slightly brighter than their Helix equivalents — the 8 kHz starting cut may need to be -2 dB instead of -1.5 dB.
+
+### Fractal (FM3, FM9, Axe-Fx)
+
+Fractal units have very powerful 10-band graphic EQ and parametric EQ blocks. The amp model preamp and power amp EQ controls are also accessible and more granular than on other platforms. The approach above still applies, but Fractal users have more surgical options available — the starting shape above translates to their parametric EQ with the same frequency targets.
+
+---
+
+## Frequently Asked Questions
+
+**Should I use a graphic EQ or a parametric EQ block?**
+Parametric gives you control over the Q (width) of each adjustment, which is more precise for surgical cuts like the low-mid reduction. A graphic EQ is fine for broad shaping. If your modeler offers both, use parametric for the correction EQ after the cab.
+
+**Why does my patch sound great through headphones but harsh through the PA?**
+The PA is likely exposing high-frequency content that the headphones are rolling off naturally. Try an additional -1 to -2 dB cut at 6–8 kHz and check if the harshness resolves.
+
+**How much EQ is too much?**
+If you're applying more than ±5 dB on any single band, the issue is upstream — either the amp model selection, the cab IR, or the gain staging. EQ corrections of more than 5 dB are a sign that something else needs to change, not that the EQ knob needs more rotation.
+
+**Can I use the amp model's built-in bass, mid, treble controls instead of an EQ block?**
+Yes, and you should use those controls first — they're interactive with the amp's gain structure in ways that matter. The EQ block after the cab is a separate, additional correction. Both have roles.
+
+**Does this approach work for recording direct?**
+Yes, but the 100 Hz low cut might need to be reduced or removed in a recording context where a separate low-cut is applied at the mix stage. Discuss this with whoever's mixing if you're recording for someone else's project.
