@@ -200,84 +200,85 @@ function NodeDetailDrawer({
 }
 
 /* ------------------------------------------------------------------ */
-/*  Guitar header bar                                                  */
+/*  Guitar SVG mapping                                                 */
+/* ------------------------------------------------------------------ */
+
+function getGuitarSvg(modelName: string): string {
+  const name = modelName.toLowerCase();
+  if (name.includes("strat") || name.includes("stratocaster")) return "/images/guitars/Strat.svg";
+  if (name.includes("telecaster") || name.includes("tele") || name.includes("esquire")) {
+    if (name.includes("bigsby")) return "/images/guitars/Bigsby Tele.svg";
+    return "/images/guitars/Tele.svg";
+  }
+  if (name.includes("les paul") || name.includes("lp") || name.includes("goldtop") || name.includes("custom")) return "/images/guitars/LP.svg";
+  if (name.includes("sg") || name.includes("special")) return "/images/guitars/SG.svg";
+  if (name.includes("explorer")) return "/images/guitars/Explorere.svg";
+  if (name.includes("flying v") || name.includes("flying-v")) return "/images/guitars/Flying V.svg";
+  if (name.includes("335") || name.includes("semi") || name.includes("hollow") || name.includes("casino") || name.includes("gretsch")) return "/images/guitars/335.svg";
+  if (name.includes("warlock") || name.includes("bc rich") || name.includes("metal")) return "/images/guitars/Warlock.svg";
+  if (name.includes("dinky") || name.includes("jackson") || name.includes("soloist") || name.includes("ibanez") || name.includes("super strat")) return "/images/guitars/Dinky.svg";
+  // Default to Strat
+  return "/images/guitars/Strat.svg";
+}
+
+/* ------------------------------------------------------------------ */
+/*  Guitar header bar — Pretext style                                  */
 /* ------------------------------------------------------------------ */
 
 function GuitarHeader({ specs, actions }: { specs: GuitarSpecs; actions?: React.ReactNode }) {
-  return (
-    <div className="border-b border-border px-4 py-5 md:px-6">
-      <div className="flex items-start gap-3 sm:gap-5">
-        {/* Guitar icon — matches album art / artist thumbnail height */}
-        <div className="flex h-16 w-16 sm:h-[120px] sm:w-[120px] shrink-0 items-center justify-center rounded-xl border-2 border-accent/50 bg-surface">
-          <Guitar className="h-8 w-8 sm:h-12 sm:w-12 text-accent" strokeWidth={1.25} />
-        </div>
-        {/* Specs */}
-        <div className="flex flex-1 flex-col gap-3">
-          <div>
-            <p className="text-xs text-muted">Guitar</p>
-            <p className="text-lg font-semibold text-foreground">
-              {specs.model_name}
-            </p>
-          </div>
-          <div className="flex flex-col gap-y-1.5 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2">
-            <div>
-              <p className="text-xs text-muted">Pickups</p>
-              <p className="text-sm font-medium text-foreground">
-                {specs.pickup_config} ({specs.pickup_position})
-              </p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Tuning</p>
-              <p className="text-sm font-medium text-foreground">
-                {specs.tuning
-                  .replace(/_/g, " ")
-                  .replace(/\beb\b/gi, "Eb")
-                  .replace(/\bdb\b/gi, "Db")
-                  .replace(/\bab\b/gi, "Ab")
-                  .replace(/\bbb\b/gi, "Bb")
-                  .replace(/\b\w/g, (c) => c.toUpperCase())}
-              </p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Strings</p>
-              <p className="text-sm font-medium text-foreground">
-                {specs.string_gauge}
-              </p>
-            </div>
-            {specs.notable_mods && (
-              <div className="hidden sm:block">
-                <p className="text-xs text-muted">Mods</p>
-                <p className="text-sm font-medium text-foreground">
-                  {specs.notable_mods}
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-        {/* Actions slot (download button) */}
-        {actions && (
-          <div className="shrink-0 self-start mt-1">
-            {actions}
-          </div>
-        )}
-      </div>
+  const guitarSvg = getGuitarSvg(specs.model_name);
 
-      {/* Cable connector */}
-      <div className="ml-6 mt-2 flex items-center gap-1">
-        <div className="h-4 w-0.5 rounded-full bg-accent/40" />
-        <svg
-          className="h-4 w-4 text-accent/40"
-          viewBox="0 0 16 16"
-          fill="none"
-        >
-          <path
-            d="M8 0 L8 6 L12 10 L12 16"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-        </svg>
+  return (
+    <div className="flex items-start gap-4 border-b border-[#1a2235] px-5 py-5 sm:gap-5 md:px-6">
+      {/* Guitar SVG box */}
+      <div className="flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-xl border-2 border-accent bg-[#0b0f1a] sm:h-[90px] sm:w-[90px]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={guitarSvg}
+          alt={specs.model_name}
+          className="h-10 w-auto opacity-60 sm:h-12"
+          style={{ filter: "brightness(0.6) sepia(1) hue-rotate(10deg) saturate(3)" }}
+        />
       </div>
+      {/* Specs */}
+      <div className="flex-1">
+        <div className="text-[11px] font-medium uppercase tracking-wider text-[#5a7090]">Guitar</div>
+        <div className="mt-1 text-base font-bold text-[#f0eadf] sm:text-lg">{specs.model_name}</div>
+        <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 sm:gap-x-8">
+          <div>
+            <div className="text-[10px] font-semibold uppercase tracking-widest text-[#3a4a60]">Pickups</div>
+            <div className="mt-0.5 text-sm font-semibold text-[#c8d8e8]">{specs.pickup_config} ({specs.pickup_position})</div>
+          </div>
+          <div>
+            <div className="text-[10px] font-semibold uppercase tracking-widest text-[#3a4a60]">Tuning</div>
+            <div className="mt-0.5 text-sm font-semibold text-[#c8d8e8]">
+              {specs.tuning
+                .replace(/_/g, " ")
+                .replace(/\beb\b/gi, "Eb")
+                .replace(/\bdb\b/gi, "Db")
+                .replace(/\bab\b/gi, "Ab")
+                .replace(/\bbb\b/gi, "Bb")
+                .replace(/\b\w/g, (c) => c.toUpperCase())}
+            </div>
+          </div>
+          <div>
+            <div className="text-[10px] font-semibold uppercase tracking-widest text-[#3a4a60]">Strings</div>
+            <div className="mt-0.5 text-sm font-semibold text-[#c8d8e8]">{specs.string_gauge}</div>
+          </div>
+          {specs.notable_mods && (
+            <div className="hidden sm:block">
+              <div className="text-[10px] font-semibold uppercase tracking-widest text-[#3a4a60]">Mods</div>
+              <div className="mt-0.5 text-sm font-semibold text-[#c8d8e8]">{specs.notable_mods}</div>
+            </div>
+          )}
+        </div>
+      </div>
+      {/* Actions slot (download + fullscreen) */}
+      {actions && (
+        <div className="shrink-0 self-start">
+          {actions}
+        </div>
+      )}
     </div>
   );
 }
@@ -400,19 +401,19 @@ export default function UnifiedChainView({
   const chainContent = (
     <div className={
       isFullscreen
-        ? "fixed inset-x-0 top-16 bottom-0 z-[60] flex flex-col bg-surface overflow-y-auto"
-        : "rounded-xl border border-border bg-surface"
+        ? "fixed inset-x-0 top-16 bottom-0 z-[60] flex flex-col bg-[#161d2f] overflow-y-auto"
+        : "overflow-hidden rounded-2xl border border-border bg-[#161d2f]"
     }>
       {/* Platform tabs — above guitar for unbroken signal flow */}
-      <div role="tablist" aria-label="Signal chain platform" className="flex gap-2 overflow-x-auto border-b border-border p-2 scrollbar-hide">
+      <div role="tablist" aria-label="Signal chain platform" className="flex gap-2 overflow-x-auto border-b border-[#1a2235] bg-[#131829] px-4 py-3 scrollbar-hide">
         <button
           role="tab"
           aria-selected={activeTab === "physical"}
           onClick={() => handleTabSwitch("physical")}
-          className={`shrink-0 rounded-lg border px-4 py-2 text-sm font-medium transition-all ${
+          className={`shrink-0 rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${
             activeTab === "physical"
-              ? "border-accent/50 bg-accent/15 text-accent"
-              : "border-border text-muted hover:text-foreground hover:border-accent/30 hover:bg-surface-hover"
+              ? "border border-accent/50 bg-accent/10 text-accent"
+              : "border border-transparent text-[#4a5e78] hover:text-foreground"
           }`}
         >
           Physical
@@ -427,20 +428,20 @@ export default function UnifiedChainView({
               role="tab"
               aria-selected={isActive}
               onClick={() => locked ? window.open("/pricing", "_self") : handleTabSwitch(pid)}
-              className={`shrink-0 flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-all ${
+              className={`shrink-0 flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${
                 locked
-                  ? "border-border text-muted/50 cursor-not-allowed"
+                  ? "border border-transparent text-muted/50 cursor-not-allowed"
                   : isActive
                     ? "text-foreground"
-                    : "border-border text-muted hover:text-foreground hover:bg-surface-hover"
+                    : "border border-transparent text-[#4a5e78] hover:text-foreground"
               }`}
-              style={isActive && !locked ? { backgroundColor: meta?.color + "18", borderColor: meta?.color + "50" } : {}}
+              style={isActive && !locked ? { backgroundColor: meta?.color + "18", borderColor: meta?.color + "50", border: `1px solid ${meta?.color}50` } : {}}
             >
               {locked ? (
                 <Lock className="h-3 w-3 text-muted/50" />
               ) : (
                 <span
-                  className="h-2 w-2 rounded-full"
+                  className="h-1.5 w-1.5 rounded-full"
                   style={{ backgroundColor: meta?.color }}
                 />
               )}
