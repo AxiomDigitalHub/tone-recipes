@@ -103,10 +103,17 @@ function CategoryCard({ category }: { category: ForumCategory }) {
   );
 }
 
+function withTimeout<T>(promise: Promise<T>, ms: number, fallback: T): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<T>((resolve) => setTimeout(() => resolve(fallback), ms)),
+  ]);
+}
+
 export default async function ForumPage() {
   const [categories, recentThreads] = await Promise.all([
-    getForumCategories(),
-    getRecentThreads(5),
+    withTimeout(getForumCategories(), 8000, []),
+    withTimeout(getRecentThreads(5), 8000, []),
   ]);
 
   return (
