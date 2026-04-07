@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef, useCallback, useLayoutEffect } from "react";
 import Link from "next/link";
 import type {
   SignalChainNode as NodeType,
@@ -349,12 +349,14 @@ function ChainRenderer({
   animComplete,
   selectedNodeIndex,
   onNodeClick,
+  firstNodeRef,
 }: {
   nodes: { name: string; category: string; subcategory?: string | null; color: string; borderColor: string }[];
   animStep: number;
   animComplete: boolean;
   selectedNodeIndex: number | null;
   onNodeClick: (i: number) => void;
+  firstNodeRef?: React.RefObject<HTMLDivElement | null>;
 }) {
   return (
     <div style={{ padding: "36px 28px 32px" }}>
@@ -371,6 +373,7 @@ function ChainRenderer({
             <React.Fragment key={i}>
               {/* Node box */}
               <div
+                ref={i === 0 ? firstNodeRef : undefined}
                 onClick={() => onNodeClick(i)}
                 style={{
                   width: 90, height: 90, borderRadius: 15,
@@ -579,23 +582,213 @@ export default function UnifiedChainView({
     borderColor: getPretextBorder(b.block_category),
   })) ?? [];
 
-  return (
-    <div className={
-      isFullscreen
-        ? "fixed inset-x-0 top-16 bottom-0 z-[60] flex flex-col bg-[#161d2f] overflow-y-auto"
-        : "overflow-hidden rounded-2xl border border-[#1e2840] bg-[#161d2f]"
-    } style={{ position: "relative", overflow: "visible" }}>
+  // ── Cable SVG refs + measurement ──
+  const cardRef = useRef<HTMLDivElement>(null);
+  const guitarBoxRef = useRef<HTMLDivElement>(null);
+  const firstNodeRef = useRef<HTMLDivElement>(null);
+  const cablePathRef = useRef<SVGPathElement>(null);
+  const cableDotRef = useRef<SVGCircleElement>(null);
+  const cableSvgRef = useRef<SVGSVGElement>(null);
+  const bezierRef = useRef({ sx: 0, sy: 0, cp1x: 0, cp1y: 0, cp2x: 0, cp2y: 0, ex: 0, ey: 0 });
+  const [cablePath, setCablePath] = useState("");
+  const [cableSvgSize, setCableSvgSize] = useState({ w: 0, h: 0 });
+  const CABLE_OFFSET_X = 80; // how far cable extends left of card
 
-      {/* ── Guitar section (above tabs, matching v9 example) ── */}
+  // Cubic bezier helper
+  const cubicBezier = useCallback((t: number, p0: number, p1: number, p2: number, p3: number) => {
+    const m = 1 - t;
+    return m*m*m*p0 + 3*m*m*t*p1 + 3*m*t*t*p2 + t*t*t*p3;
+  }, []);
+
+  // Measure cable path from guitar box to first node
+  const measureCable = useCallback(() => {
+    const card = cardRef.current;
+    const gbox = guitarBoxRef.current;
+    const node0 = firstNodeRef.current;
+    if (!card || !gbox || !node0) return;
+    const cr = card.getBoundingClientRect();
+    const gr = gbox.getBoundingClientRect();
+    const nr = node0.getBoundingClientRect();
+    if (cr.width === 0 || nr.width === 0) return;
+
+    const sx = gr.left + gr.width / 2 - cr.left + CABLE_OFFSET_X;
+    const sy = gr.bottom - cr.top + 2;
+    const ex = nr.left - cr.left + CABLE_OFFSET_X;
+    const ey = nr.top + nr.height / 2 - cr.top;
+    const cp1x = sx;
+    const cp1y = sy + (ey - sy) * 0.55;
+    const cp2x = ex - 80;
+    const cp2y = ey;
+
+    setCablePath(`M ${sx} ${sy} C ${cp1x} ${cp1y} ${cp2x} ${cp2y} ${ex} ${ey}`);
+    setCableSvgSize({ w: cr.width + CABLE_OFFSET_X + 20, h: cr.height + 20 });
+    bezierRef.current = { sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey };
+  }, [CABLE_OFFSET_X]);
+
+  // Measure on mount + resize
+  useEffect(() => {
+    // Delay to let layout settle
+    const t = setTimeout(measureCable, 100);
+    window.addEventListener("resize", measureCable);
+    return () => { clearTimeout(t); window.removeEventListener("resize", measureCable); };
+  }, [measureCable, activeTab]);
+
+  // Re-measure when animation starts (nodes may shift)
+  useEffect(() => {
+    if (animStep >= 0) measureCable();
+  }, [animStep, measureCable]);
+
+  // Cable dot animation — runs once when guitar lights up
+  const cableDotAnimated = useRef(false);
+  useEffect(() => {
+    if (!guitarLit || cableDotAnimated.current) return;
+    cableDotAnimated.current = true;
+    const dot = cableDotRef.current!;
+    if (!dot) return;
+    const { sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey } = bezierRef.current;
+    if (sx === 0 && sy === 0) return;
+
+    const ms = 700;
+    const start = performance.now();
+    dot.setAttribute("opacity", "1");
+
+    function frame(now: number) {
+      const t = Math.min((now - start) / ms, 1);
+      const x = cubicBezier(t, sx, cp1x, cp2x, ex);
+      const y = cubicBezier(t, sy, cp1y, cp2y, ey);
+      dot.setAttribute("transform", `translate(${x},${y})`);
+      if (t < 1) requestAnimationFrame(frame);
+      else dot.setAttribute("opacity", "0");
+    }
+    requestAnimationFrame(frame);
+  }, [guitarLit, cubicBezier]);
+
+  // Reset cable dot on tab switch
+  useEffect(() => {
+    cableDotAnimated.current = false;
+  }, [activeTab]);
+
+  return (
+    <div
+      ref={cardRef}
+      className={
+        isFullscreen
+          ? "fixed inset-x-0 top-16 bottom-0 z-[60] flex flex-col bg-[#161d2f] overflow-y-auto"
+          : "rounded-2xl border border-[#1e2840] bg-[#161d2f]"
+      }
+      style={{ position: "relative", overflow: "visible" }}
+    >
+
+      {/* ── Cable SVG — extends left of card, connects guitar to first node ── */}
+      {cablePath && (
+        <svg
+          ref={cableSvgRef}
+          style={{
+            position: "absolute", top: 0, left: -CABLE_OFFSET_X,
+            pointerEvents: "none", overflow: "visible", zIndex: 1,
+          }}
+          width={cableSvgSize.w}
+          height={cableSvgSize.h}
+          fill="none"
+        >
+          <path
+            ref={cablePathRef}
+            d={cablePath}
+            stroke="#1e304a"
+            strokeWidth="2"
+            strokeDasharray="6 5"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <defs>
+            <radialGradient id="cable-grd">
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="35%" stopColor="#a5f3fc" />
+              <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
+            </radialGradient>
+            <filter id="cable-glow" x="-300%" y="-300%" width="700%" height="700%">
+              <feGaussianBlur stdDeviation="5" result="b" />
+              <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+            </filter>
+          </defs>
+          <circle
+            ref={cableDotRef}
+            r="6"
+            fill="url(#cable-grd)"
+            filter="url(#cable-glow)"
+            opacity="0"
+          />
+        </svg>
+      )}
+
+      {/* ── Platform tabs (ABOVE guitar) ── */}
+      <div
+        role="tablist"
+        aria-label="Signal chain platform"
+        style={{
+          borderBottom: "1px solid #1a2235",
+          padding: "14px 24px",
+          display: "flex", gap: 8, flexWrap: "wrap",
+          background: "#131829",
+          borderRadius: "18px 18px 0 0",
+          position: "relative", zIndex: 3,
+        }}
+      >
+        <button
+          role="tab"
+          aria-selected={activeTab === "physical"}
+          onClick={() => handleTabSwitch("physical")}
+          style={{
+            padding: "6px 15px", borderRadius: 20, fontSize: 12, fontWeight: 600,
+            border: activeTab === "physical" ? `1.5px solid ${AMBER}` : "1.5px solid transparent",
+            background: activeTab === "physical" ? `${AMBER}18` : "transparent",
+            color: activeTab === "physical" ? AMBER : "#4a5e78",
+            cursor: "pointer", display: "flex", alignItems: "center", gap: 6,
+            transition: "all 0.15s",
+          }}
+        >
+          Physical
+        </button>
+        {availablePlatforms.map((pid) => {
+          const meta = PLATFORMS.find((p) => p.id === pid);
+          const isActive = activeTab === pid;
+          const locked = isPlatformLocked(pid);
+          return (
+            <button
+              key={pid}
+              role="tab"
+              aria-selected={isActive}
+              onClick={() => locked ? window.open("/pricing", "_self") : handleTabSwitch(pid)}
+              style={{
+                padding: "6px 15px", borderRadius: 20, fontSize: 12, fontWeight: 600,
+                border: isActive ? `1.5px solid ${meta?.color}` : "1.5px solid transparent",
+                background: isActive ? `${meta?.color}18` : "transparent",
+                color: locked ? "#4a5e7850" : isActive ? meta?.color : "#4a5e78",
+                cursor: locked ? "not-allowed" : "pointer",
+                display: "flex", alignItems: "center", gap: 6,
+                transition: "all 0.15s",
+              }}
+            >
+              {locked ? (
+                <Lock style={{ width: 12, height: 12 }} />
+              ) : (
+                <div style={{ width: 7, height: 7, borderRadius: "50%", background: meta?.color }} />
+              )}
+              {meta?.label || pid}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* ── Guitar section (below tabs) ── */}
       <div style={{
         padding: "24px 24px 20px",
         display: "flex", gap: 20, alignItems: "flex-start",
-        borderRadius: "18px 18px 0 0",
         position: "relative", zIndex: 3,
       }}>
         {/* Guitar SVG box */}
         <div
-          id="guitar-box"
+          ref={guitarBoxRef}
           style={{
             width: 90, height: 90, flexShrink: 0,
             borderRadius: 13, border: `1.5px solid ${AMBER}`,
@@ -672,65 +865,6 @@ export default function UnifiedChainView({
         </div>
       </div>
 
-      {/* ── Platform tabs ── */}
-      <div
-        role="tablist"
-        aria-label="Signal chain platform"
-        style={{
-          borderTop: "1px solid #1a2235",
-          borderBottom: "1px solid #1a2235",
-          padding: "14px 24px",
-          display: "flex", gap: 8, flexWrap: "wrap",
-          background: "#131829",
-          position: "relative", zIndex: 3,
-        }}
-      >
-        <button
-          role="tab"
-          aria-selected={activeTab === "physical"}
-          onClick={() => handleTabSwitch("physical")}
-          style={{
-            padding: "6px 15px", borderRadius: 20, fontSize: 12, fontWeight: 600,
-            border: activeTab === "physical" ? `1.5px solid ${AMBER}` : "1.5px solid transparent",
-            background: activeTab === "physical" ? `${AMBER}18` : "transparent",
-            color: activeTab === "physical" ? AMBER : "#4a5e78",
-            cursor: "pointer", display: "flex", alignItems: "center", gap: 6,
-            transition: "all 0.15s",
-          }}
-        >
-          Physical
-        </button>
-        {availablePlatforms.map((pid) => {
-          const meta = PLATFORMS.find((p) => p.id === pid);
-          const isActive = activeTab === pid;
-          const locked = isPlatformLocked(pid);
-          return (
-            <button
-              key={pid}
-              role="tab"
-              aria-selected={isActive}
-              onClick={() => locked ? window.open("/pricing", "_self") : handleTabSwitch(pid)}
-              style={{
-                padding: "6px 15px", borderRadius: 20, fontSize: 12, fontWeight: 600,
-                border: isActive ? `1.5px solid ${meta?.color}` : "1.5px solid transparent",
-                background: isActive ? `${meta?.color}18` : "transparent",
-                color: locked ? "#4a5e7850" : isActive ? meta?.color : "#4a5e78",
-                cursor: locked ? "not-allowed" : "pointer",
-                display: "flex", alignItems: "center", gap: 6,
-                transition: "all 0.15s",
-              }}
-            >
-              {locked ? (
-                <Lock style={{ width: 12, height: 12 }} />
-              ) : (
-                <div style={{ width: 7, height: 7, borderRadius: "50%", background: meta?.color }} />
-              )}
-              {meta?.label || pid}
-            </button>
-          );
-        })}
-      </div>
-
       {/* ── Chain section ── */}
       {activeTab === "physical" ? (
         <ChainRenderer
@@ -739,6 +873,7 @@ export default function UnifiedChainView({
           animComplete={animComplete}
           selectedNodeIndex={selectedNodeIndex}
           onNodeClick={(i) => setSelectedNodeIndex(selectedNodeIndex === i ? null : i)}
+          firstNodeRef={firstNodeRef}
         />
       ) : activeTranslation ? (
         <>
@@ -748,6 +883,7 @@ export default function UnifiedChainView({
             animComplete={animComplete}
             selectedNodeIndex={selectedNodeIndex}
             onNodeClick={(i) => setSelectedNodeIndex(selectedNodeIndex === i ? null : i)}
+            firstNodeRef={firstNodeRef}
           />
           {activeTranslation.notes && selectedNodeIndex === null && (
             <div style={{ margin: "0 16px 16px", padding: 16, borderRadius: 8, background: "#0b0f1a" }}>
