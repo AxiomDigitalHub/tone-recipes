@@ -678,7 +678,7 @@ export default function UnifiedChainView({
           ? "fixed inset-x-0 top-16 bottom-0 z-[60] flex flex-col bg-[#161d2f] overflow-y-auto"
           : "rounded-2xl border border-[#1e2840] bg-[#161d2f]"
       }
-      style={{ position: "relative", overflow: "visible" }}
+      style={{ position: isFullscreen ? "fixed" : "relative", overflow: isFullscreen ? "auto" : "visible" }}
     >
 
       {/* ── Cable SVG — extends left of card, connects guitar to first node ── */}
