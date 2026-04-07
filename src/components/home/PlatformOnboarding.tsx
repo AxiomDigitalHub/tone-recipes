@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePlatformStore } from "@/lib/stores/platform-store";
-import { PLATFORMS } from "@/lib/constants";
+import { PLATFORMS, DISPLAYED_PLATFORM_IDS } from "@/lib/constants";
 
 const MANUFACTURER: Record<string, string> = {
   helix: "Line 6",
@@ -13,7 +13,7 @@ const MANUFACTURER: Record<string, string> = {
   katana: "Boss",
 };
 
-const MODELER_PLATFORMS = PLATFORMS.filter((p) => p.id !== "physical");
+const MODELER_PLATFORMS = PLATFORMS.filter((p) => p.id !== "physical" && DISPLAYED_PLATFORM_IDS.has(p.id));
 
 export default function PlatformOnboarding() {
   const { preferredPlatform, setPreferredPlatform } = usePlatformStore();

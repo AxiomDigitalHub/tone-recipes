@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { artists, songs, toneRecipes, getAllGenres } from "@/lib/data";
 import RecipeCard from "@/components/recipe/RecipeCard";
-import { PLATFORMS } from "@/lib/constants";
+import { PLATFORMS, DISPLAYED_PLATFORM_IDS } from "@/lib/constants";
 import { useBrowseStore } from "@/lib/stores/browse-store";
 import { usePlatformStore } from "@/lib/stores/platform-store";
 
@@ -173,7 +173,7 @@ export default function BrowseContent() {
           Platform
         </h3>
         <div className="flex flex-col gap-1.5">
-          {PLATFORMS.filter((p) => p.id !== "physical").map((platform) => {
+          {PLATFORMS.filter((p) => p.id !== "physical" && DISPLAYED_PLATFORM_IDS.has(p.id)).map((platform) => {
             const isActive = platformFilter === platform.id;
             return (
               <button

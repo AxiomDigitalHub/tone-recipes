@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { PLATFORMS } from "@/lib/constants";
+import { PLATFORMS, DISPLAYED_PLATFORM_IDS } from "@/lib/constants";
 import { usePlatformStore } from "@/lib/stores/platform-store";
 
-const selectablePlatforms = PLATFORMS.filter((p) => p.id !== "physical");
+const selectablePlatforms = PLATFORMS.filter((p) => p.id !== "physical" && DISPLAYED_PLATFORM_IDS.has(p.id));
 
 export default function PlatformPicker() {
   const { preferredPlatform, setPreferredPlatform } = usePlatformStore();

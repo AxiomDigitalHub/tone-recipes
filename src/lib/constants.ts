@@ -8,6 +8,13 @@ export const PLATFORMS = [
   { id: "katana", label: "Boss Katana", color: "#e11d48" },
 ] as const;
 
+/** Platform IDs shown in recipe UI (tabs, browse filters). All platform data remains in the database. */
+export const DISPLAYED_PLATFORM_IDS: ReadonlySet<string> = new Set([
+  "physical",
+  "helix",
+  "katana",
+]);
+
 export const GENRES = [
   "blues",
   "blues-rock",

@@ -9,7 +9,7 @@ import type {
   PlatformBlock,
   Platform,
 } from "@/types/recipe";
-import { PLATFORMS } from "@/lib/constants";
+import { PLATFORMS, DISPLAYED_PLATFORM_IDS } from "@/lib/constants";
 import { getChainIcon } from "@/lib/chain-icons";
 import { Guitar, Maximize2, Minimize2, Lock, Zap, Volume2, Speaker, Mic, Clock, Waves } from "lucide-react";
 import DownloadPatchButton from "./DownloadPatchButton";
@@ -466,7 +466,9 @@ export default function UnifiedChainView({
   presetName = "Tone Recipe",
   recipeSlug,
 }: UnifiedChainViewProps) {
-  const availablePlatforms = Object.keys(platformTranslations) as Platform[];
+  const availablePlatforms = (Object.keys(platformTranslations) as Platform[]).filter(
+    (pid) => DISPLAYED_PLATFORM_IDS.has(pid),
+  );
   const { preferredPlatform } = usePlatformStore();
   const initialTab: "physical" | Platform =
     preferredPlatform && availablePlatforms.includes(preferredPlatform as Platform)
