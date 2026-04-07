@@ -15,6 +15,8 @@ import { getForumCategories, getRecentThreads } from "@/lib/db/forum";
 import type { ForumCategory } from "@/types/community";
 import type { LucideIcon } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Community Forum",
   description:
