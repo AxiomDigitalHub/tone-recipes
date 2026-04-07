@@ -592,7 +592,7 @@ export default function UnifiedChainView({
   const bezierRef = useRef({ sx: 0, sy: 0, cp1x: 0, cp1y: 0, cp2x: 0, cp2y: 0, ex: 0, ey: 0 });
   const [cablePath, setCablePath] = useState("");
   const [cableSvgSize, setCableSvgSize] = useState({ w: 0, h: 0 });
-  const CABLE_OFFSET_X = 80; // how far cable extends left of card
+  const CABLE_OFFSET_X = 0; // no overhang needed for gentle diagonal
 
   // Cubic bezier helper
   const cubicBezier = useCallback((t: number, p0: number, p1: number, p2: number, p3: number) => {
@@ -611,13 +611,15 @@ export default function UnifiedChainView({
     const nr = node0.getBoundingClientRect();
     if (cr.width === 0 || nr.width === 0) return;
 
-    const sx = gr.left + gr.width / 2 - cr.left + CABLE_OFFSET_X;
+    const sx = gr.left + gr.width / 2 - cr.left;
     const sy = gr.bottom - cr.top + 2;
-    const ex = nr.left - cr.left + CABLE_OFFSET_X;
+    const ex = nr.left - cr.left;
     const ey = nr.top + nr.height / 2 - cr.top;
-    const cp1x = sx;
-    const cp1y = sy + (ey - sy) * 0.55;
-    const cp2x = ex - 80;
+
+    // Gentle 45° diagonal: cp1 eases down-right, cp2 eases into node horizontally
+    const cp1x = sx + (ex - sx) * 0.15;
+    const cp1y = sy + (ey - sy) * 0.6;
+    const cp2x = sx + (ex - sx) * 0.5;
     const cp2y = ey;
 
     setCablePath(`M ${sx} ${sy} C ${cp1x} ${cp1y} ${cp2x} ${cp2y} ${ex} ${ey}`);
@@ -684,7 +686,7 @@ export default function UnifiedChainView({
         <svg
           ref={cableSvgRef}
           style={{
-            position: "absolute", top: 0, left: -CABLE_OFFSET_X,
+            position: "absolute", top: 0, left: 0,
             pointerEvents: "none", overflow: "visible", zIndex: 1,
           }}
           width={cableSvgSize.w}
