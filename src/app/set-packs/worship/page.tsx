@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check, Download, Music, Zap, Clock, Waves } from "lucide-react";
+import { Download, Music, Zap, Clock, Waves } from "lucide-react";
+import SetlistMapper from "@/components/set-packs/SetlistMapper";
 
 export const metadata: Metadata = {
   title: "Worship Set Pack — Helix Preset with 8 Snapshots",
@@ -106,11 +107,18 @@ export default function WorshipSetPackPage() {
         ))}
       </div>
 
+      {/* Setlist Mapper */}
+      <h2 className="mb-2 mt-16 text-2xl font-bold">Setlist Mapper</h2>
+      <p className="mb-6 text-sm text-muted">
+        Which snapshot for which section of which song. Search your setlist below.
+      </p>
+      <SetlistMapper />
+
       {/* Download section */}
       <div className="mt-16 rounded-2xl border border-accent/30 bg-accent/5 p-8">
         <h2 className="text-xl font-bold">Download the Worship Set Pack</h2>
         <p className="mt-2 text-sm text-muted">
-          Includes the .hlx preset file and the Setlist Mapper (PDF with snapshot-per-song for 30 top worship songs).
+          One .hlx file with all 8 snapshots. Load it into HX Edit and you're Sunday-ready.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
           <a
@@ -119,14 +127,6 @@ export default function WorshipSetPackPage() {
           >
             <Download className="h-4 w-4" />
             Download .hlx Preset
-          </a>
-          <a
-            href="/set-packs/worship-setlist-mapper.md"
-            target="_blank"
-            className="inline-flex items-center gap-2 rounded-xl border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
-          >
-            <Waves className="h-4 w-4" />
-            View Setlist Mapper
           </a>
         </div>
         <p className="mt-4 text-xs text-muted">
