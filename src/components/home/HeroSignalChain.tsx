@@ -100,30 +100,38 @@ export default function HeroSignalChain() {
     const ex = gr.left + gr.width / 2 - wr.left;
     const ey = gr.top - wr.top;
 
-    // Right edge column: right side of the content area
+    // Right edge: right side of the content area
     const rightEdge = Math.min(wr.width - 40, yr.left + yr.width - wr.left + 200);
+    // Left edge: left of guitar node
+    const leftEdge = gr.left - wr.left - 40;
     // Mid Y: right under the CTA buttons
-    const midY = cr ? (cr.bottom - wr.top + 16) : (ey - 50);
+    const midY = cr ? (cr.bottom - wr.top + 16) : (ey - 80);
+    // Node Y: vertically centered on guitar node
+    const nodeY = gr.top + gr.height / 2 - wr.top;
     const bend = 28;
 
-    // Path: RIGHT from "love." → DOWN the right side → LEFT across → DOWN into guitar
+    // Path: RIGHT → DOWN → LEFT (under CTAs) → DOWN → RIGHT into guitar
     const pathD = [
       // 1. Start at right of "love."
       `M ${sx} ${sy}`,
       // 2. Horizontal RIGHT to the right edge
       `L ${rightEdge - bend} ${sy}`,
-      // 3. Bend: curve down-right
+      // 3. Bend: curve down
       `Q ${rightEdge} ${sy} ${rightEdge} ${sy + bend}`,
-      // 4. Vertical DOWN along right side
+      // 4. Vertical DOWN along right side to under CTAs
       `L ${rightEdge} ${midY - bend}`,
       // 5. Bend: curve left
       `Q ${rightEdge} ${midY} ${rightEdge - bend} ${midY}`,
-      // 6. Horizontal LEFT across to above guitar
-      `L ${ex + bend} ${midY}`,
+      // 6. Horizontal LEFT all the way past guitar to left edge
+      `L ${leftEdge + bend} ${midY}`,
       // 7. Bend: curve down
-      `Q ${ex} ${midY} ${ex} ${midY + bend}`,
-      // 8. Vertical DOWN into guitar node
-      `L ${ex} ${ey}`,
+      `Q ${leftEdge} ${midY} ${leftEdge} ${midY + bend}`,
+      // 8. Vertical DOWN to guitar node level
+      `L ${leftEdge} ${nodeY - bend}`,
+      // 9. Bend: curve right
+      `Q ${leftEdge} ${nodeY} ${leftEdge + bend} ${nodeY}`,
+      // 10. Horizontal RIGHT into guitar node
+      `L ${gr.left - wr.left} ${nodeY}`,
     ].join(" ");
 
     setCablePath(pathD);
@@ -131,10 +139,10 @@ export default function HeroSignalChain() {
 
     // For dot animation — approximate the multi-segment path as cubic bezier
     const cp1x = rightEdge;
-    const cp1y = sy + (ey - sy) * 0.35;
-    const cp2x = ex;
-    const cp2y = sy + (ey - sy) * 0.65;
-    bezierRef.current = { sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey };
+    const cp1y = sy + (nodeY - sy) * 0.3;
+    const cp2x = leftEdge;
+    const cp2y = sy + (nodeY - sy) * 0.7;
+    bezierRef.current = { sx, sy, cp1x, cp1y, cp2x, cp2y, ex: gr.left - wr.left, ey: nodeY };
   }, []);
 
   useEffect(() => {
