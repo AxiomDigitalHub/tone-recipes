@@ -89,37 +89,43 @@ export default function HeroSignalChain() {
     const gr = guitar.getBoundingClientRect();
     if (wr.width === 0) return;
 
-    // Start: bottom-center of "you" text
-    const sx = yr.left + yr.width * 0.35 - wr.left;
-    const sy = yr.bottom - wr.top + 4;
+    // Start: bottom-left of "you" text
+    const sx = yr.left + yr.width * 0.3 - wr.left;
+    const sy = yr.bottom - wr.top + 6;
 
     // End: top-center of guitar node
     const ex = gr.left + gr.width / 2 - wr.left;
     const ey = gr.top - wr.top;
 
-    // L-shape: straight down to guitar's Y, then 90° bend right to guitar
-    const cornerX = sx;
-    const cornerY = ey;
-    const bendRadius = Math.min(35, Math.abs(ey - sy) * 0.15, Math.abs(ex - sx) * 0.35);
+    // Route LEFT to the edge of the chain card, then DOWN, then RIGHT into guitar
+    // Left edge: align with the left side of the chain card (guitar node area)
+    const chainCardLeft = gr.left - wr.left - 40; // 40px left of guitar node
+    const bend = 30; // radius for both bends
 
-    const vertEndY = cornerY - bendRadius;
-    const horizStartX = cornerX + bendRadius;
-
+    // Path: start at "you" → go LEFT → bend down → go DOWN → bend right → go RIGHT into guitar
     const pathD = [
+      // Start at "you" bottom
       `M ${sx} ${sy}`,
-      `L ${sx} ${vertEndY}`,
-      `Q ${cornerX} ${cornerY} ${horizStartX} ${cornerY}`,
+      // Horizontal LEFT to the routing column
+      `L ${chainCardLeft + bend} ${sy}`,
+      // First bend: curve down-left
+      `Q ${chainCardLeft} ${sy} ${chainCardLeft} ${sy + bend}`,
+      // Vertical DOWN to guitar level
+      `L ${chainCardLeft} ${ey - bend}`,
+      // Second bend: curve right
+      `Q ${chainCardLeft} ${ey} ${chainCardLeft + bend} ${ey}`,
+      // Horizontal RIGHT into guitar node
       `L ${ex} ${ey}`,
     ].join(" ");
 
     setCablePath(pathD);
     setSvgSize({ w: wr.width, h: wr.height });
 
-    // For dot animation — approximate full path as cubic bezier
-    const cp1x = sx;
-    const cp1y = sy + (ey - sy) * 0.6;
-    const cp2x = sx + (ex - sx) * 0.3;
-    const cp2y = ey;
+    // For dot animation — approximate the multi-segment path
+    const cp1x = chainCardLeft;
+    const cp1y = sy + (ey - sy) * 0.3;
+    const cp2x = chainCardLeft;
+    const cp2y = sy + (ey - sy) * 0.7;
     bezierRef.current = { sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey };
   }, []);
 
