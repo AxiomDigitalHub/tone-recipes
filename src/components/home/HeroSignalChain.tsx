@@ -89,43 +89,48 @@ export default function HeroSignalChain() {
     const gr = guitar.getBoundingClientRect();
     if (wr.width === 0) return;
 
-    // Start: bottom-left of "you" text
-    const sx = yr.left + yr.width * 0.3 - wr.left;
+    // Start: bottom-right of "love." text (after the period)
+    const sx = yr.left + yr.width - wr.left + 10;
     const sy = yr.bottom - wr.top + 6;
 
     // End: top-center of guitar node
     const ex = gr.left + gr.width / 2 - wr.left;
     const ey = gr.top - wr.top;
 
-    // Route LEFT to the edge of the chain card, then DOWN, then RIGHT into guitar
-    // Left edge: align with the left side of the chain card (guitar node area)
-    const chainCardLeft = gr.left - wr.left - 40; // 40px left of guitar node
-    const bend = 30; // radius for both bends
+    // Right edge column: right side of the content area
+    const rightEdge = Math.min(wr.width - 40, yr.left + yr.width - wr.left + 200);
+    // Mid Y: where the cable kicks left (between buttons and chain card)
+    const midY = ey - 50;
+    const bend = 28;
 
-    // Path: start at "you" → go LEFT → bend down → go DOWN → bend right → go RIGHT into guitar
+    // Path: RIGHT from "love." → DOWN the right side → LEFT across → DOWN into guitar
     const pathD = [
-      // Start at "you" bottom
+      // 1. Start at right of "love."
       `M ${sx} ${sy}`,
-      // Horizontal LEFT to the routing column
-      `L ${chainCardLeft + bend} ${sy}`,
-      // First bend: curve down-left
-      `Q ${chainCardLeft} ${sy} ${chainCardLeft} ${sy + bend}`,
-      // Vertical DOWN to guitar level
-      `L ${chainCardLeft} ${ey - bend}`,
-      // Second bend: curve right
-      `Q ${chainCardLeft} ${ey} ${chainCardLeft + bend} ${ey}`,
-      // Horizontal RIGHT into guitar node
+      // 2. Horizontal RIGHT to the right edge
+      `L ${rightEdge - bend} ${sy}`,
+      // 3. Bend: curve down-right
+      `Q ${rightEdge} ${sy} ${rightEdge} ${sy + bend}`,
+      // 4. Vertical DOWN along right side
+      `L ${rightEdge} ${midY - bend}`,
+      // 5. Bend: curve left
+      `Q ${rightEdge} ${midY} ${rightEdge - bend} ${midY}`,
+      // 6. Horizontal LEFT across to above guitar
+      `L ${ex + bend} ${midY}`,
+      // 7. Bend: curve down
+      `Q ${ex} ${midY} ${ex} ${midY + bend}`,
+      // 8. Vertical DOWN into guitar node
       `L ${ex} ${ey}`,
     ].join(" ");
 
     setCablePath(pathD);
     setSvgSize({ w: wr.width, h: wr.height });
 
-    // For dot animation — approximate the multi-segment path
-    const cp1x = chainCardLeft;
-    const cp1y = sy + (ey - sy) * 0.3;
-    const cp2x = chainCardLeft;
-    const cp2y = sy + (ey - sy) * 0.7;
+    // For dot animation — approximate the multi-segment path as cubic bezier
+    const cp1x = rightEdge;
+    const cp1y = sy + (ey - sy) * 0.35;
+    const cp2x = ex;
+    const cp2y = sy + (ey - sy) * 0.65;
     bezierRef.current = { sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey };
   }, []);
 
@@ -238,8 +243,8 @@ export default function HeroSignalChain() {
       <h1 className="font-[family-name:var(--font-display)] mx-auto mt-4 max-w-4xl text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl xl:text-9xl" style={{ letterSpacing: "-0.03em", lineHeight: 1.05 }}>
         Tone recipes from the songs
         <br />
-        <span className="signal-underline bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
-          <span ref={youRef}>you</span> love.
+        <span ref={youRef} className="signal-underline bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+          you love.
         </span>
       </h1>
       <p className="mx-auto mt-6 max-w-xl text-lg text-muted md:text-xl">
