@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 
 /* ── Node data ── */
 const NODES = [
@@ -13,7 +13,7 @@ const NODES = [
   { label: "MIC", color: "#94a3b8", border: "#475569" },
 ];
 
-/* ── SVG icons per category (matching v9) ── */
+/* ── SVG icons per category ── */
 function NodeIcon({ label, color, size = 28 }: { label: string; color: string; size?: number }) {
   switch (label) {
     case "GUITAR":
@@ -23,73 +23,27 @@ function NodeIcon({ label, color, size = 28 }: { label: string; color: string; s
         </svg>
       );
     case "OVERDRIVE":
-      return (
-        <svg width={size} height={size} viewBox="0 0 30 30" fill="none">
-          <path d="M15 3L20 14H16.5L20 27L10 13H13.5Z" fill={color} />
-        </svg>
-      );
+      return (<svg width={size} height={size} viewBox="0 0 30 30" fill="none"><path d="M15 3L20 14H16.5L20 27L10 13H13.5Z" fill={color} /></svg>);
     case "CHORUS":
-      return (
-        <svg width={size} height={size} viewBox="0 0 30 30" fill="none">
-          <path d="M4 15Q8 7 12 15Q16 23 20 15Q24 7 28 15" stroke={color} strokeWidth="1.8" fill="none" strokeLinecap="round" />
-          <path d="M4 20Q8 12 12 20Q16 28 20 20Q24 12 28 20" stroke={color} strokeWidth="1.2" fill="none" strokeLinecap="round" opacity="0.5" />
-          <path d="M4 10Q8 2 12 10Q16 18 20 10Q24 2 28 10" stroke={color} strokeWidth="1.2" fill="none" strokeLinecap="round" opacity="0.5" />
-        </svg>
-      );
+      return (<svg width={size} height={size} viewBox="0 0 30 30" fill="none"><path d="M4 15Q8 7 12 15Q16 23 20 15Q24 7 28 15" stroke={color} strokeWidth="1.8" fill="none" strokeLinecap="round" /><path d="M4 20Q8 12 12 20Q16 28 20 20Q24 12 28 20" stroke={color} strokeWidth="1.2" fill="none" strokeLinecap="round" opacity="0.5" /><path d="M4 10Q8 2 12 10Q16 18 20 10Q24 2 28 10" stroke={color} strokeWidth="1.2" fill="none" strokeLinecap="round" opacity="0.5" /></svg>);
     case "PREAMP":
-      return (
-        <svg width={size} height={size} viewBox="0 0 30 30" fill="none">
-          <rect x="3" y="5" width="24" height="20" rx="3.5" stroke={color} strokeWidth="1.5" fill="none" />
-          <circle cx="15" cy="15" r="7" stroke={color} strokeWidth="1.4" fill="none" />
-          <circle cx="15" cy="15" r="3.5" fill={color} opacity="0.3" />
-          <path d="M8.5 15Q12 8 15 15Q18 22 21.5 15" stroke={color} strokeWidth="1.4" fill="none" strokeLinecap="round" />
-        </svg>
-      );
+      return (<svg width={size} height={size} viewBox="0 0 30 30" fill="none"><rect x="3" y="5" width="24" height="20" rx="3.5" stroke={color} strokeWidth="1.5" fill="none" /><circle cx="15" cy="15" r="7" stroke={color} strokeWidth="1.4" fill="none" /><circle cx="15" cy="15" r="3.5" fill={color} opacity="0.3" /><path d="M8.5 15Q12 8 15 15Q18 22 21.5 15" stroke={color} strokeWidth="1.4" fill="none" strokeLinecap="round" /></svg>);
     case "DELAY":
-      return (
-        <svg width={size} height={size} viewBox="0 0 30 30" fill="none">
-          <circle cx="15" cy="15" r="11" stroke={color} strokeWidth="1.5" fill="none" />
-          <line x1="15" y1="8" x2="15" y2="15" stroke={color} strokeWidth="2" strokeLinecap="round" />
-          <line x1="15" y1="15" x2="20" y2="18" stroke={color} strokeWidth="2" strokeLinecap="round" />
-          <circle cx="15" cy="15" r="1.5" fill={color} />
-        </svg>
-      );
+      return (<svg width={size} height={size} viewBox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="11" stroke={color} strokeWidth="1.5" fill="none" /><line x1="15" y1="8" x2="15" y2="15" stroke={color} strokeWidth="2" strokeLinecap="round" /><line x1="15" y1="15" x2="20" y2="18" stroke={color} strokeWidth="2" strokeLinecap="round" /><circle cx="15" cy="15" r="1.5" fill={color} /></svg>);
     case "CABINET":
-      return (
-        <svg width={size} height={size} viewBox="0 0 30 30" fill="none">
-          <rect x="3" y="3" width="24" height="24" rx="3.5" stroke={color} strokeWidth="1.5" fill="none" />
-          <circle cx="15" cy="15" r="9" stroke={color} strokeWidth="1.3" fill="none" />
-          <circle cx="15" cy="15" r="5.5" stroke={color} strokeWidth="1.1" fill="none" />
-          <circle cx="15" cy="15" r="1.8" fill={color} />
-          <line x1="15" y1="6" x2="15" y2="9" stroke={color} strokeWidth="1.2" />
-          <line x1="15" y1="21" x2="15" y2="24" stroke={color} strokeWidth="1.2" />
-          <line x1="6" y1="15" x2="9" y2="15" stroke={color} strokeWidth="1.2" />
-          <line x1="21" y1="15" x2="24" y2="15" stroke={color} strokeWidth="1.2" />
-        </svg>
-      );
+      return (<svg width={size} height={size} viewBox="0 0 30 30" fill="none"><rect x="3" y="3" width="24" height="24" rx="3.5" stroke={color} strokeWidth="1.5" fill="none" /><circle cx="15" cy="15" r="9" stroke={color} strokeWidth="1.3" fill="none" /><circle cx="15" cy="15" r="5.5" stroke={color} strokeWidth="1.1" fill="none" /><circle cx="15" cy="15" r="1.8" fill={color} /><line x1="15" y1="6" x2="15" y2="9" stroke={color} strokeWidth="1.2" /><line x1="15" y1="21" x2="15" y2="24" stroke={color} strokeWidth="1.2" /><line x1="6" y1="15" x2="9" y2="15" stroke={color} strokeWidth="1.2" /><line x1="21" y1="15" x2="24" y2="15" stroke={color} strokeWidth="1.2" /></svg>);
     case "MIC":
-      return (
-        <svg width={size} height={size} viewBox="0 0 30 30" fill="none">
-          <rect x="11.5" y="3" width="7" height="14" rx="3.5" stroke={color} strokeWidth="1.5" fill="none" />
-          <path d="M7 14Q7 23 15 23Q23 23 23 14" stroke={color} strokeWidth="1.5" fill="none" strokeLinecap="round" />
-          <line x1="15" y1="23" x2="15" y2="27" stroke={color} strokeWidth="2.2" strokeLinecap="round" />
-          <line x1="10" y1="27" x2="20" y2="27" stroke={color} strokeWidth="2.2" strokeLinecap="round" />
-          <line x1="11.5" y1="8" x2="18.5" y2="8" stroke={color} strokeWidth="1.1" />
-          <line x1="11.5" y1="11" x2="18.5" y2="11" stroke={color} strokeWidth="1.1" />
-          <line x1="11.5" y1="14" x2="18.5" y2="14" stroke={color} strokeWidth="1.1" />
-        </svg>
-      );
+      return (<svg width={size} height={size} viewBox="0 0 30 30" fill="none"><rect x="11.5" y="3" width="7" height="14" rx="3.5" stroke={color} strokeWidth="1.5" fill="none" /><path d="M7 14Q7 23 15 23Q23 23 23 14" stroke={color} strokeWidth="1.5" fill="none" strokeLinecap="round" /><line x1="15" y1="23" x2="15" y2="27" stroke={color} strokeWidth="2.2" strokeLinecap="round" /><line x1="10" y1="27" x2="20" y2="27" stroke={color} strokeWidth="2.2" strokeLinecap="round" /><line x1="11.5" y1="8" x2="18.5" y2="8" stroke={color} strokeWidth="1.1" /><line x1="11.5" y1="11" x2="18.5" y2="11" stroke={color} strokeWidth="1.1" /><line x1="11.5" y1="14" x2="18.5" y2="14" stroke={color} strokeWidth="1.1" /></svg>);
     default:
       return null;
   }
 }
 
-/* ── Connector with traveling dot ── */
-function Connector({ active, showDot }: { active: boolean; showDot: boolean }) {
+/* ── Simple dashed connector (no ? circles) ── */
+function Connector({ active }: { active: boolean }) {
   return (
     <div style={{
-      display: "flex", alignItems: "center", width: 48, flexShrink: 0,
-      position: "relative",
+      display: "flex", alignItems: "center", width: 36, flexShrink: 0,
     }}>
       <div style={{
         flex: 1, height: 2,
@@ -98,36 +52,14 @@ function Connector({ active, showDot }: { active: boolean; showDot: boolean }) {
           : "repeating-linear-gradient(90deg, #1e2840 0, #1e2840 4px, transparent 4px, transparent 8px)",
         transition: "background 0.5s",
       }} />
-      <div style={{
-        width: 18, height: 18, flexShrink: 0, borderRadius: "50%",
-        border: `1.5px solid ${active ? "#3a4a60" : "#1e2840"}`,
-        background: "#0b0f1a",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        fontSize: 8, color: active ? "#3a4a60" : "#1e2840", fontWeight: 700,
-        transition: "all 0.5s",
-      }}>?</div>
-      <div style={{
-        flex: 1, height: 2,
-        background: active
-          ? "repeating-linear-gradient(90deg, #3a4a60 0, #3a4a60 4px, transparent 4px, transparent 8px)"
-          : "repeating-linear-gradient(90deg, #1e2840 0, #1e2840 4px, transparent 4px, transparent 8px)",
-        transition: "background 0.5s",
-      }} />
-      {/* Traveling dot */}
-      {showDot && (
-        <div
-          className="animate-connector-dot"
-          style={{
-            position: "absolute", top: "50%", transform: "translateY(-50%)",
-            width: 10, height: 10, borderRadius: "50%",
-            background: "radial-gradient(circle, #fff 0%, #a5f3fc 30%, #22d3ee 100%)",
-            boxShadow: "0 0 6px 3px rgba(34,211,238,0.8), 0 0 16px 6px rgba(34,211,238,0.3)",
-            zIndex: 10,
-          }}
-        />
-      )}
     </div>
   );
+}
+
+/* ── Cubic bezier helper for dot animation ── */
+function cubicBezier(t: number, p0: number, p1: number, p2: number, p3: number) {
+  const m = 1 - t;
+  return m*m*m*p0 + 3*m*m*t*p1 + 3*m*t*t*p2 + t*t*t*p3;
 }
 
 export default function HeroSignalChain() {
@@ -135,8 +67,70 @@ export default function HeroSignalChain() {
   const [isComplete, setIsComplete] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
+  // Refs for cable measurement
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const youRef = useRef<HTMLSpanElement>(null);
+  const guitarRef = useRef<HTMLDivElement>(null);
+  const cableDotRef = useRef<SVGCircleElement>(null);
+  const [cablePath, setCablePath] = useState("");
+  const [svgSize, setSvgSize] = useState({ w: 0, h: 0 });
+  const bezierRef = useRef({ sx: 0, sy: 0, cp1x: 0, cp1y: 0, cp2x: 0, cp2y: 0, ex: 0, ey: 0 });
+  const dotAnimated = useRef(false);
+
+  // Measure cable from "you" text down to guitar node
+  const measureCable = useCallback(() => {
+    const wrap = wrapperRef.current;
+    const you = youRef.current;
+    const guitar = guitarRef.current;
+    if (!wrap || !you || !guitar) return;
+
+    const wr = wrap.getBoundingClientRect();
+    const yr = you.getBoundingClientRect();
+    const gr = guitar.getBoundingClientRect();
+    if (wr.width === 0) return;
+
+    // Start: bottom-center of "you" text
+    const sx = yr.left + yr.width * 0.35 - wr.left;
+    const sy = yr.bottom - wr.top + 4;
+
+    // End: top-center of guitar node
+    const ex = gr.left + gr.width / 2 - wr.left;
+    const ey = gr.top - wr.top;
+
+    // L-shape: straight down to guitar's Y, then 90° bend right to guitar
+    const cornerX = sx;
+    const cornerY = ey;
+    const bendRadius = Math.min(35, Math.abs(ey - sy) * 0.15, Math.abs(ex - sx) * 0.35);
+
+    const vertEndY = cornerY - bendRadius;
+    const horizStartX = cornerX + bendRadius;
+
+    const pathD = [
+      `M ${sx} ${sy}`,
+      `L ${sx} ${vertEndY}`,
+      `Q ${cornerX} ${cornerY} ${horizStartX} ${cornerY}`,
+      `L ${ex} ${ey}`,
+    ].join(" ");
+
+    setCablePath(pathD);
+    setSvgSize({ w: wr.width, h: wr.height });
+
+    // For dot animation — approximate full path as cubic bezier
+    const cp1x = sx;
+    const cp1y = sy + (ey - sy) * 0.6;
+    const cp2x = sx + (ex - sx) * 0.3;
+    const cp2y = ey;
+    bezierRef.current = { sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey };
+  }, []);
+
   useEffect(() => {
-    // Respect reduced motion
+    const t = setTimeout(measureCable, 200);
+    window.addEventListener("resize", measureCable);
+    return () => { clearTimeout(t); window.removeEventListener("resize", measureCable); };
+  }, [measureCable]);
+
+  // Node animation
+  useEffect(() => {
     if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setActiveStep(NODES.length);
       setIsComplete(true);
@@ -144,7 +138,7 @@ export default function HeroSignalChain() {
     }
 
     let step = 0;
-    const stepDuration = 600;
+    const stepDuration = 500;
 
     function advance() {
       setActiveStep(step);
@@ -156,57 +150,165 @@ export default function HeroSignalChain() {
       }
     }
 
-    timerRef.current = setTimeout(advance, 800);
+    // Start: cable dot travels first, then nodes light up
+    timerRef.current = setTimeout(advance, 1200);
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, []);
 
+  // Cable dot animation — fires once after mount
+  useEffect(() => {
+    if (dotAnimated.current) return;
+    const dot = cableDotRef.current!;
+    if (!dot || !cablePath) return;
+    dotAnimated.current = true;
+
+    const { sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey } = bezierRef.current;
+    if (sx === 0 && sy === 0) return;
+
+    const ms = 900;
+    const startTime = performance.now();
+    dot.setAttribute("opacity", "1");
+
+    function frame(now: number) {
+      const t = Math.min((now - startTime) / ms, 1);
+      const x = cubicBezier(t, sx, cp1x, cp2x, ex);
+      const y = cubicBezier(t, sy, cp1y, cp2y, ey);
+      dot.setAttribute("transform", `translate(${x},${y})`);
+      if (t < 1) requestAnimationFrame(frame);
+      else dot.setAttribute("opacity", "0");
+    }
+    requestAnimationFrame(frame);
+  }, [cablePath]);
+
+  // Re-measure after first node renders
+  useEffect(() => {
+    if (activeStep >= 0) measureCable();
+  }, [activeStep, measureCable]);
+
   return (
-    <div className="mx-auto mt-16 max-w-4xl overflow-hidden rounded-2xl border border-[#1e2840] bg-[#0b0f1a] px-4 py-8 sm:px-8">
-      {/* Nodes row */}
-      <div style={{
-        display: "flex", alignItems: "center", justifyContent: "center",
-        overflowX: "auto", minWidth: "max-content", margin: "0 auto",
-      }}>
-        {NODES.map((node, i) => {
-          const isLit = isComplete || activeStep >= i;
-          const isCurrent = !isComplete && activeStep === i;
+    <div ref={wrapperRef} style={{ position: "relative" }}>
+      {/* ── Cable SVG overlay ── */}
+      {cablePath && (
+        <svg
+          style={{
+            position: "absolute", top: 0, left: 0,
+            pointerEvents: "none", zIndex: 1,
+            overflow: "visible",
+          }}
+          width={svgSize.w}
+          height={svgSize.h}
+          fill="none"
+        >
+          <path
+            d={cablePath}
+            stroke="#1e304a"
+            strokeWidth="2"
+            strokeDasharray="6 5"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <defs>
+            <radialGradient id="hero-cable-grd">
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="35%" stopColor="#a5f3fc" />
+              <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
+            </radialGradient>
+            <filter id="hero-cable-glow" x="-300%" y="-300%" width="700%" height="700%">
+              <feGaussianBlur stdDeviation="4" result="b" />
+              <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+            </filter>
+          </defs>
+          <circle
+            ref={cableDotRef}
+            r="5"
+            fill="url(#hero-cable-grd)"
+            filter="url(#hero-cable-glow)"
+            opacity="0"
+          />
+        </svg>
+      )}
 
-          return (
-            <React.Fragment key={node.label}>
-              {/* Node box */}
-              <div style={{
-                width: 72, height: 72, borderRadius: 13,
-                border: `1.5px solid ${isLit ? node.border : "#1e2840"}`,
-                background: "#0b0f1a",
-                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                gap: 6, flexShrink: 0,
-                transition: "border-color 0.3s, box-shadow 0.3s, transform 0.3s",
-                transform: isCurrent ? "translateY(-6px)" : "none",
-                boxShadow: isLit
-                  ? `0 0 0 1px ${node.color}15, 0 6px 24px ${node.color}${isComplete ? "30" : isCurrent ? "60" : "30"}`
-                  : "none",
-              }}>
-                <NodeIcon label={node.label} color={isLit ? node.color : "#2a3a55"} size={26} />
-                <div style={{
-                  fontSize: 7, fontWeight: 700, letterSpacing: 1.5,
-                  textTransform: "uppercase",
-                  color: isLit ? node.color : "#2a3a55",
-                  transition: "color 0.3s",
-                }}>
-                  {node.label}
+      {/* ── "you love." text anchor — we expose a ref on "you" ── */}
+      <h1 className="font-[family-name:var(--font-display)] mx-auto mt-4 max-w-4xl text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl xl:text-9xl" style={{ letterSpacing: "-0.03em", lineHeight: 1.05 }}>
+        Tone recipes from the songs
+        <br />
+        <span className="signal-underline bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+          <span ref={youRef}>you</span> love.
+        </span>
+      </h1>
+      <p className="mx-auto mt-6 max-w-xl text-lg text-muted md:text-xl">
+        Pick a song. Get exact settings for your Helix, Quad Cortex, TONEX, or physical rig. Stop tweaking. Start playing.
+      </p>
+
+      <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ position: "relative", zIndex: 2 }}>
+        <a
+          href="/browse"
+          className="rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-background transition-colors hover:bg-accent-hover"
+        >
+          Browse Recipes
+        </a>
+        <a
+          href="/how-it-works"
+          className="rounded-xl border border-border px-8 py-3.5 text-base font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
+        >
+          See how it works
+        </a>
+      </div>
+
+      <p className="mt-4 text-sm text-muted" style={{ position: "relative", zIndex: 2 }}>
+        New here?{" "}
+        <a href="/blog/what-is-a-tone-recipe" className="text-accent hover:underline">
+          Learn what a tone recipe is
+        </a>
+      </p>
+
+      {/* ── Signal chain nodes ── */}
+      <div className="mx-auto mt-16 max-w-4xl rounded-2xl border border-[#1e2840] bg-[#0b0f1a] px-4 py-8 sm:px-8" style={{ position: "relative", zIndex: 2, overflowX: "auto", overflowY: "visible" }}>
+        <div style={{
+          display: "flex", alignItems: "center", justifyContent: "center",
+          minWidth: "max-content", margin: "0 auto",
+          padding: "12px 0",
+        }}>
+          {NODES.map((node, i) => {
+            const isLit = isComplete || activeStep >= i;
+            const isCurrent = !isComplete && activeStep === i;
+
+            return (
+              <React.Fragment key={node.label}>
+                <div
+                  ref={i === 0 ? guitarRef : undefined}
+                  style={{
+                    width: 72, height: 72, borderRadius: 13,
+                    border: `1.5px solid ${isLit ? node.border : "#1e2840"}`,
+                    background: "#0b0f1a",
+                    display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                    gap: 6, flexShrink: 0,
+                    transition: "border-color 0.3s, box-shadow 0.3s, transform 0.3s",
+                    transform: isCurrent ? "translateY(-6px)" : "none",
+                    boxShadow: isLit
+                      ? `0 0 0 1px ${node.color}15, 0 6px 24px ${node.color}${isCurrent ? "60" : "30"}`
+                      : "none",
+                  }}
+                >
+                  <NodeIcon label={node.label} color={isLit ? node.color : "#2a3a55"} size={26} />
+                  <div style={{
+                    fontSize: 7, fontWeight: 700, letterSpacing: 1.5,
+                    textTransform: "uppercase",
+                    color: isLit ? node.color : "#2a3a55",
+                    transition: "color 0.3s",
+                  }}>
+                    {node.label}
+                  </div>
                 </div>
-              </div>
 
-              {/* Connector */}
-              {i < NODES.length - 1 && (
-                <Connector
-                  active={activeStep >= i + 1}
-                  showDot={activeStep === i + 1 && !isComplete}
-                />
-              )}
-            </React.Fragment>
-          );
-        })}
+                {/* Simple dashed connector — no ? circles */}
+                {i < NODES.length - 1 && (
+                  <Connector active={isLit && (isComplete || activeStep >= i + 1)} />
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

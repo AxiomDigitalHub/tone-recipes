@@ -52,38 +52,7 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,_rgba(245,158,11,0.08),_transparent_60%)]" />
 
         <div className="mx-auto max-w-7xl px-4 pb-16 pt-24 text-center md:pt-32">
-          <h1 className="font-[family-name:var(--font-display)] mx-auto mt-4 max-w-4xl text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl xl:text-9xl" style={{ letterSpacing: "-0.03em", lineHeight: 1.05 }}>
-            Tone recipes from the songs
-            <br />
-            <span className="signal-underline bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">you love.</span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-muted md:text-xl">
-            Pick a song. Get exact settings for your Helix, Quad Cortex, TONEX, or physical rig. Stop tweaking. Start playing.
-          </p>
-
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/browse"
-              className="rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-background transition-colors hover:bg-accent-hover"
-            >
-              Browse Recipes
-            </Link>
-            <Link
-              href="/how-it-works"
-              className="rounded-xl border border-border px-8 py-3.5 text-base font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
-            >
-              See how it works
-            </Link>
-          </div>
-
-          <p className="mt-4 text-sm text-muted">
-            New here?{" "}
-            <Link href="/blog/what-is-a-tone-recipe" className="text-accent hover:underline">
-              Learn what a tone recipe is
-            </Link>
-          </p>
-
-          {/* Animated signal chain preview */}
+          {/* Hero content + animated signal chain with cable from "you" to nodes */}
           <HeroSignalChain />
         </div>
       </section>
