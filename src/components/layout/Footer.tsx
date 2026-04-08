@@ -76,11 +76,13 @@ export default function Footer() {
         <div className="mt-8 border-t border-border pt-6 space-y-3 text-[11px] leading-relaxed text-muted/60">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <span className="text-xs text-muted">&copy; {new Date().getFullYear()} Axiom Digital. All rights reserved.</span>
+            <Link href="/how-we-work" className="underline hover:text-muted">How We Work</Link>
             <Link href="/affiliate-disclosure" className="underline hover:text-muted">Affiliate Disclosure</Link>
             <Link href="/privacy" className="underline hover:text-muted">Privacy Policy</Link>
           </div>
           <p>
-            Some links on this site are affiliate links. Fader &amp; Knob may earn a commission on purchases at no extra cost to you.
+            Content on this site is researched and written with AI assistance and verified by humans on real hardware.
+            Some links are affiliate links — Fader &amp; Knob may earn a commission on purchases at no extra cost to you.
             We use{" "}
             <a href="https://clarity.microsoft.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted">
               Microsoft Clarity

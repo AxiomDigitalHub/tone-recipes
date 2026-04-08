@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Check } from "lucide-react";
-import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
 import CheckoutButton from "@/components/checkout/CheckoutButton";
 
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Choose the plan that fits your playing. Free for casual browsing, Premium for serious tone chasers, Creator for recipe publishers.",
+    "Choose the plan that fits your playing. Free for browsing, Tone Pass for downloads, Pro for set packs, Creator for publishing.",
   openGraph: {
     title: "Pricing | Fader & Knob",
     description:
-      "Tone recipe plans for every player. Browse free or unlock all platforms, presets, and creator tools.",
+      "Tone recipe plans for every player. Browse free or unlock presets, set packs, and creator tools.",
     type: "website",
   },
 };
@@ -21,55 +20,49 @@ const plans = [
     name: "Free",
     price: "$0",
     period: "forever",
-    description: "Perfect for browsing and getting inspired.",
+    description: "Browse recipes and get inspired.",
     features: [
-      "Browse all tone recipes",
-      "All platform translations (Helix, QC, TONEX, Fractal, Kemper, Katana)",
+      "Browse all 50+ tone recipes",
+      "Physical + Helix + Boss Katana signal chains",
       "Download recipe PDFs (with email)",
-      "10 free preset downloads (.hlx, .json, .tsl)",
+      "10 free preset downloads",
       "Save up to 5 recipes",
-      "Read blog & community forum",
-      "Comment on recipes",
+      "Community forum & comments",
     ],
     cta: "Get Started",
     ctaHref: "/signup",
     highlight: false,
-    comingSoon: false,
   },
   {
-    name: "Premium",
-    price: "$9",
+    name: "Tone Pass",
+    price: "$7",
     period: "/month",
-    description: "For players who want unlimited downloads.",
+    description: "Unlimited presets for gigging players.",
     features: [
       "Everything in Free",
-      "Unlimited preset downloads (.hlx, .json, .tsl)",
+      "Unlimited preset downloads (.hlx, .tsl)",
       "Unlimited saved recipes",
+      "New recipes every week",
       "Ad-free experience",
-      "Priority community support",
     ],
-    cta: "Start Premium",
-    ctaHref: "#",
-    highlight: true,
-    comingSoon: false,
+    cta: "Start Tone Pass",
+    highlight: false,
     stripePlan: "premium" as const,
   },
   {
-    name: "Creator",
-    price: "$15",
+    name: "Pro",
+    price: "$12",
     period: "/month",
-    description: "For tone chasers who want to share their recipes.",
+    description: "Set packs + priority access for serious players.",
     features: [
-      "Everything in Premium",
-      "Submit & publish tone recipes",
-      "Analytics on your recipes",
-      "Creator badge on profile",
-      "Early access to new features",
+      "Everything in Tone Pass",
+      "Genre Set Packs with Setlist Mapper",
+      "Priority access to new recipes",
+      "Request specific song tones",
+      "Pro badge on profile",
     ],
-    cta: "Start Creating",
-    ctaHref: "#",
-    highlight: false,
-    comingSoon: false,
+    cta: "Go Pro",
+    highlight: true,
     stripePlan: "creator" as const,
   },
 ];
@@ -82,12 +75,12 @@ export default function PricingPage() {
           Simple pricing for every player
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-lg text-muted">
-          Browse every recipe and platform for free. Upgrade for unlimited
-          preset downloads and creator tools.
+          Browse every recipe for free. Upgrade for unlimited presets, set packs,
+          and priority access to new tones.
         </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="mx-auto grid max-w-3xl gap-6 md:grid-cols-3">
         {plans.map((plan) => (
           <div
             key={plan.name}
@@ -99,7 +92,7 @@ export default function PricingPage() {
           >
             {plan.highlight && (
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-4 py-1 text-xs font-bold text-background">
-                Most Popular
+                Best Value
               </span>
             )}
 
@@ -133,18 +126,24 @@ export default function PricingPage() {
               />
             ) : (
               <Link
-                href={plan.ctaHref}
-                className={`block rounded-lg py-3 text-center text-sm font-semibold transition-colors ${
-                  plan.highlight
-                    ? "bg-accent text-background hover:bg-accent-hover"
-                    : "border border-border bg-surface text-foreground hover:border-accent/40 hover:bg-surface-hover"
-                }`}
+                href={plan.ctaHref ?? "/signup"}
+                className="block rounded-lg border border-border bg-surface py-3 text-center text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface-hover"
               >
                 {plan.cta}
               </Link>
             )}
           </div>
         ))}
+      </div>
+
+      {/* Set Pack callout */}
+      <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-accent/30 bg-accent/5 p-8 text-center">
+        <h3 className="text-lg font-bold">Genre Set Packs — Coming Soon</h3>
+        <p className="mt-2 text-sm text-muted">
+          One preset with 8 snapshots that covers your entire setlist. Worship, Classic Rock,
+          90s/Alternative, Blues, and more. Each pack includes a Setlist Mapper showing which
+          snapshot to use for every song. Available with Pro plan or as a one-time purchase ($12.99).
+        </p>
       </div>
 
       {/* FAQ */}
@@ -161,40 +160,33 @@ export default function PricingPage() {
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">
-              What platforms can I see on the Free plan?
-            </h3>
+            <h3 className="font-semibold">What platforms are supported?</h3>
             <p className="mt-1 text-sm text-muted">
-              All of them — Line 6 Helix, Neural DSP Quad Cortex, IK Multimedia
-              TONEX, Fractal Audio, Kemper, and Boss Katana. Every platform
-              translation is free to view. Premium unlocks unlimited preset
-              file downloads.
+              Every recipe includes settings for Line 6 Helix and Boss Katana.
+              More platforms coming soon. All platform translations are free to view.
             </p>
           </div>
           <div>
             <h3 className="font-semibold">What format are the preset downloads?</h3>
             <p className="mt-1 text-sm text-muted">
-              Helix presets are .hlx files, Quad Cortex are .json, and Boss
-              Katana are .tsl (Tone Studio Liveset). Load them directly into your
-              hardware or editor software.
+              Helix presets are .hlx files and Boss Katana are .tsl (Tone Studio
+              Liveset). Load them directly into HX Edit or Boss Tone Studio.
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">
-              Do I need Premium to use the forum?
-            </h3>
+            <h3 className="font-semibold">What are Set Packs?</h3>
             <p className="mt-1 text-sm text-muted">
-              No! The community forum, comments, and ratings are free for
-              everyone. Premium unlocks platform translations, preset downloads,
-              and unlimited saves.
+              A Set Pack is a single Helix preset with 8 snapshots designed to cover
+              an entire genre or setlist. It comes with a Setlist Mapper document that
+              tells you exactly which snapshot to use for each song. Perfect for gigging
+              musicians who want one preset for the whole night.
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">What does the Creator plan add?</h3>
+            <h3 className="font-semibold">Can I buy Set Packs without subscribing?</h3>
             <p className="mt-1 text-sm text-muted">
-              Creator lets you submit your own tone recipes for publication,
-              track views and ratings on your recipes, and gives you a Creator
-              badge. Great for YouTube creators and guitar teachers.
+              Yes! Set Packs will be available as one-time purchases ($12.99 each)
+              alongside the Pro subscription. Pro subscribers get all Set Packs included.
             </p>
           </div>
         </div>

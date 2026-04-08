@@ -64,14 +64,14 @@ export async function ensureProducts(): Promise<{
   // Create missing products
   if (!premiumPriceId) {
     const product = await stripe.products.create({
-      name: "Fader & Knob Premium",
+      name: "Fader & Knob Tone Pass",
       description:
         "Unlimited preset downloads, unlimited saved recipes, ad-free experience.",
       metadata: { fk_plan: "premium" },
     });
     const price = await stripe.prices.create({
       product: product.id,
-      unit_amount: 900, // $9.00
+      unit_amount: 700, // $7.00
       currency: "usd",
       recurring: { interval: "month" },
     });
@@ -80,14 +80,14 @@ export async function ensureProducts(): Promise<{
 
   if (!creatorPriceId) {
     const product = await stripe.products.create({
-      name: "Fader & Knob Creator",
+      name: "Fader & Knob Pro",
       description:
-        "Everything in Premium plus recipe submission, analytics, and creator badge.",
+        "Everything in Tone Pass plus Set Packs, priority access, and Pro badge.",
       metadata: { fk_plan: "creator" },
     });
     const price = await stripe.prices.create({
       product: product.id,
-      unit_amount: 1500, // $15.00
+      unit_amount: 1200, // $12.00
       currency: "usd",
       recurring: { interval: "month" },
     });

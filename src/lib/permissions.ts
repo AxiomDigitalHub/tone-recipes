@@ -25,13 +25,12 @@ export const TIERS: Record<UserRole, TierConfig> = {
     label: "Free",
     price: null,
     features: [
-      "Browse all tone recipes",
-      "All platform translations (Helix, QC, TONEX, Fractal, Kemper, Katana)",
+      "Browse all 50+ tone recipes",
+      "Physical + Helix + Boss Katana signal chains",
       "Download recipe PDFs (with email)",
-      "10 free preset downloads (.hlx, .json, .tsl)",
+      "10 free preset downloads (.hlx, .tsl)",
       "Save up to 5 recipes",
-      "Read blog & community forum",
-      "Comment on recipes",
+      "Community forum & comments",
     ],
     limits: {
       savedRecipes: 5,
@@ -45,14 +44,14 @@ export const TIERS: Record<UserRole, TierConfig> = {
     },
   },
   premium: {
-    label: "Premium",
-    price: 9,
+    label: "Tone Pass",
+    price: 7,
     features: [
       "Everything in Free",
-      "Unlimited preset downloads (.hlx, .json, .tsl)",
+      "Unlimited preset downloads (.hlx, .tsl)",
       "Unlimited saved recipes",
+      "New recipes every week",
       "Ad-free experience",
-      "Priority community support",
     ],
     limits: {
       savedRecipes: -1,
@@ -66,14 +65,14 @@ export const TIERS: Record<UserRole, TierConfig> = {
     },
   },
   creator: {
-    label: "Creator",
-    price: 15,
+    label: "Pro",
+    price: 12,
     features: [
-      "Everything in Premium",
-      "Submit & publish tone recipes",
-      "Analytics on your published recipes",
-      "Creator badge on profile",
-      "Early access to new features",
+      "Everything in Tone Pass",
+      "Genre Set Packs with Setlist Mapper",
+      "Priority access to new recipes",
+      "Request specific song tones",
+      "Pro badge on profile",
     ],
     limits: {
       savedRecipes: -1,
