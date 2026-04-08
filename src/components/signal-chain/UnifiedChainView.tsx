@@ -359,9 +359,9 @@ function ChainRenderer({
   firstNodeRef?: React.RefObject<HTMLDivElement | null>;
 }) {
   return (
-    <div style={{ padding: "36px 28px 32px" }}>
+    <div style={{ padding: "36px 28px 32px", overflowX: "auto", overflowY: "visible" }}>
       {/* Nodes row */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 0, overflowX: "auto", minWidth: "max-content", margin: "0 auto" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 0, minWidth: "max-content", margin: "0 auto", padding: "16px 0" }}>
         {nodes.map((node, i) => {
           const isLit = animComplete || animStep >= i;
           const isCurrent = !animComplete && animStep === i;
