@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 import {
   getRecipeBySlug,
   getSongBySlug,
@@ -114,6 +115,12 @@ export async function POST(
   req: NextRequest,
   { params }: { params: Promise<{ slug: string }> },
 ) {
+  // Rate limit: 30 downloads per minute per IP
+  const { limited } = rateLimit(`download:${getClientIp(req)}`, 30, 60_000);
+  if (limited) {
+    return NextResponse.json({ error: "Too many download requests. Please try again later." }, { status: 429 });
+  }
+
   try {
     const { slug } = await params;
     const body = await req.json();

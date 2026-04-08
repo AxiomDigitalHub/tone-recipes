@@ -1,7 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
+  // Rate limit: 10 invite redemptions per minute per IP
+  const { limited } = rateLimit(`invite:${getClientIp(req)}`, 10, 60_000);
+  if (limited) {
+    return NextResponse.json({ success: false, error: "Too many requests" }, { status: 429 });
+  }
+
   try {
     const { code } = await req.json();
 

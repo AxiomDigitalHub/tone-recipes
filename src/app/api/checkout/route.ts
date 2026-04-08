@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { stripe, ensureProducts } from "@/lib/stripe";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 /**
  * POST /api/checkout
@@ -8,6 +9,12 @@ import { stripe, ensureProducts } from "@/lib/stripe";
  * Requires authentication via Bearer token.
  */
 export async function POST(req: NextRequest) {
+  // Rate limit: 10 checkout attempts per minute per IP
+  const { limited } = rateLimit(`checkout:${getClientIp(req)}`, 10, 60_000);
+  if (limited) {
+    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+  }
+
   try {
     const body = await req.json();
     const { plan } = body as { plan: "premium" | "creator" };

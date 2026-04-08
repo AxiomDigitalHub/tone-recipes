@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 let _client: ReturnType<typeof createSupabaseClient> | null = null;
 
@@ -15,6 +16,12 @@ function getClient() {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: Request) {
+  // Rate limit: 5 signup attempts per minute per IP
+  const { limited } = rateLimit(`newsletter:${getClientIp(request)}`, 5, 60_000);
+  if (limited) {
+    return NextResponse.json({ error: "Too many requests. Please try again later." }, { status: 429 });
+  }
+
   try {
     const body = await request.json();
     const email: string | undefined = body?.email;
