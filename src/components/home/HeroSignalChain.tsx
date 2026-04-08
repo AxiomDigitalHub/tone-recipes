@@ -70,6 +70,7 @@ export default function HeroSignalChain() {
   // Refs for cable measurement
   const wrapperRef = useRef<HTMLDivElement>(null);
   const youRef = useRef<HTMLSpanElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
   const guitarRef = useRef<HTMLDivElement>(null);
   const cableDotRef = useRef<SVGCircleElement>(null);
   const [cablePath, setCablePath] = useState("");
@@ -81,11 +82,13 @@ export default function HeroSignalChain() {
   const measureCable = useCallback(() => {
     const wrap = wrapperRef.current;
     const you = youRef.current;
+    const cta = ctaRef.current;
     const guitar = guitarRef.current;
     if (!wrap || !you || !guitar) return;
 
     const wr = wrap.getBoundingClientRect();
     const yr = you.getBoundingClientRect();
+    const cr = cta ? cta.getBoundingClientRect() : null;
     const gr = guitar.getBoundingClientRect();
     if (wr.width === 0) return;
 
@@ -99,8 +102,8 @@ export default function HeroSignalChain() {
 
     // Right edge column: right side of the content area
     const rightEdge = Math.min(wr.width - 40, yr.left + yr.width - wr.left + 200);
-    // Mid Y: where the cable kicks left (between buttons and chain card)
-    const midY = ey - 50;
+    // Mid Y: right under the CTA buttons
+    const midY = cr ? (cr.bottom - wr.top + 16) : (ey - 50);
     const bend = 28;
 
     // Path: RIGHT from "love." → DOWN the right side → LEFT across → DOWN into guitar
@@ -251,7 +254,7 @@ export default function HeroSignalChain() {
         Pick a song. Get exact settings for your Helix, Quad Cortex, TONEX, or physical rig. Stop tweaking. Start playing.
       </p>
 
-      <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ position: "relative", zIndex: 2 }}>
+      <div ref={ctaRef} className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ position: "relative", zIndex: 2 }}>
         <a
           href="/browse"
           className="rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-background transition-colors hover:bg-accent-hover"
