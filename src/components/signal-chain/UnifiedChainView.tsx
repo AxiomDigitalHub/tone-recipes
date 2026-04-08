@@ -618,14 +618,31 @@ export default function UnifiedChainView({
     const ex = nr.left - cr.left;
     const ey = nr.top + nr.height / 2 - cr.top;
 
-    // Gentle 45° diagonal: cp1 eases down-right, cp2 eases into node horizontally
-    const cp1x = sx + (ex - sx) * 0.15;
-    const cp1y = sy + (ey - sy) * 0.6;
-    const cp2x = sx + (ex - sx) * 0.5;
-    const cp2y = ey;
+    // L-shape cable: straight down from guitar, soft 90° bend, then horizontal into first node
+    // Corner point: where the vertical meets the horizontal
+    const cornerX = sx;
+    const cornerY = ey;
+    const bendRadius = Math.min(40, Math.abs(ey - sy) * 0.4, Math.abs(ex - sx) * 0.4);
 
-    setCablePath(`M ${sx} ${sy} C ${cp1x} ${cp1y} ${cp2x} ${cp2y} ${ex} ${ey}`);
+    // Path: vertical line down, then a quadratic curve for the bend, then horizontal line to node
+    const vertEndY = cornerY - bendRadius;
+    const horizStartX = cornerX + bendRadius;
+
+    const pathD = [
+      `M ${sx} ${sy}`,                                    // Start at guitar bottom
+      `L ${sx} ${vertEndY}`,                               // Straight down
+      `Q ${cornerX} ${cornerY} ${horizStartX} ${cornerY}`, // Smooth 90° bend
+      `L ${ex} ${ey}`,                                     // Horizontal to first node
+    ].join(" ");
+
+    setCablePath(pathD);
     setCableSvgSize({ w: cr.width + CABLE_OFFSET_X + 20, h: cr.height + 20 });
+
+    // For dot animation, approximate as cubic bezier
+    const cp1x = sx;
+    const cp1y = cornerY - bendRadius * 0.3;
+    const cp2x = cornerX + bendRadius * 0.3;
+    const cp2y = ey;
     bezierRef.current = { sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey };
   }, [CABLE_OFFSET_X]);
 
