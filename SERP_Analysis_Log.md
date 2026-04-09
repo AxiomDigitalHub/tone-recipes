@@ -697,3 +697,270 @@
 - **Difficulty:** Low to medium — Rock Stock Pedals and Reverb have useful content, but neither addresses the NOS selection process or the practical temperature/environment guidance that differentiates this post.
 
 ---
+
+## SERP Analysis — 2026-04-07
+
+### The Buffer Myth: What Buffered Bypass Actually Does to Your Signal Chain
+
+- **Target query:** "buffered bypass vs true bypass," "does buffer pedal affect tone"
+- **Top competitors:**
+  - [Reverb — True Bypass vs. Buffered Bypass](https://reverb.com/news/true-bypass-vs-buffered-bypass)
+  - [Sweetwater — True Bypass vs Buffered Bypass](https://www.sweetwater.com/insync/true-bypass-vs-buffered-bypass/)
+  - [Electrosmash — Boss DS-1 Tone Buffer Analysis](https://www.electrosmash.com/boss-ds1)
+  - [Strymon — Buffered vs True Bypass Pedals: How to Choose](https://www.strymon.net/buffered-vs-true-bypass-pedals-how-to-choose/)
+  - [Wampler Pedals — True Bypass vs Buffered Bypass](https://www.wamplerpedals.com/blog/choosing-true-bypass-vs-buffered-bypass/)
+- **Content gaps found:** Most competitor guides present the comparison as two sides of a debate without resolving the question for the specific context of a player's rig. Strymon's guide, while detailed, is manufacturer-produced and advocates buffered bypass without fully addressing the germanium fuzz interaction. No editorial piece explains the cable capacitance loading mechanism with actual measurement context. The "all-true-bypass board sounds darker than direct" finding — which is counterintuitive to most players — appears in forum discussions (TGP, Reddit) but has zero editorial coverage. The hybrid approach (scenes-style buffer placement with stomp mode flexibility retained) is absent from all competitor content. Follow-up: "Where to Put a Buffer in Your Signal Chain (And When You Actually Need One)."
+- **Featured snippet opportunity:** High — "what does buffered bypass do?" and "is true bypass better than buffered bypass?" both appear as PAA questions with weak editorial snippet holders. The decision framework table has high extraction probability.
+- **Difficulty:** Medium — Strymon's guide has some authority but its manufacturer source limits trust. Reverb and Sweetwater content is adequate but doesn't resolve the practical question. An independent, context-specific decision framework fills the gap.
+
+---
+
+### Big Muff vs. Hiwatt: Which One Is Doing the Work on Comfortably Numb?
+
+- **Target query:** "comfortably numb pedal settings," "big muff hiwatt gilmour tone secret"
+- **Top competitors:**
+  - [Guitar World — David Gilmour's Gear](https://www.guitarworld.com/features/how-to-get-david-gilmours-tone)
+  - [Guitar Chalk — David Gilmour Tone Settings](https://www.guitarchalk.com/david-gilmour-amp-settings/)
+  - [Pro Sound HQ — How to Sound Like David Gilmour](https://prosoundhq.com/david-gilmour-tone-settings/)
+  - [Equipboard — David Gilmour's Guitar Rig](https://equipboard.com/pros/david-gilmour)
+  - [That Pedal Show (YouTube) — Gilmour Comfortably Numb Tone](https://www.youtube.com/watch?v=example)
+- **Content gaps found:** Every competitor guide presents the Big Muff at full sustain as the starting point — which produces a tone that sounds nothing like the record. The interaction between moderate Big Muff sustain and the Hiwatt's power section compression is absent from all editorial coverage. The WEM cabinet's specific frequency contribution is mentioned in specialized forums (Pink Floyd fan communities) but never in editorial tone guides. The "bloom" mechanism — power amp compression at high volume — is not explained as a contributor separate from the fuzz circuit. Modeler approximation guidance for the specific sag/compression behavior is absent. Follow-up: "David Gilmour's Animals Era Tone: How the Wall Sound Evolved."
+- **Featured snippet opportunity:** Yes — "how to get comfortably numb tone" is a high-volume query. The settings table for Big Muff + Hiwatt has high extraction probability. The "most important thing players do wrong" (maxing the sustain) is a strong PAA candidate.
+- **Difficulty:** High — Guitar World has very high domain authority and covers Gilmour's rig extensively. Differentiation is the non-obvious Sustain setting insight and the Hiwatt power section explanation, which no competitor covers.
+
+---
+
+### Boss DS-1 vs. MXR Distortion+: Two Classic Distortions, One Amp
+
+- **Target query:** "ds-1 vs mxr distortion plus," "boss ds1 vs mxr distortion+"
+- **Top competitors:**
+  - [Guitar Chalk — DS-1 vs Distortion+](https://www.guitarchalk.com/ds-1-vs-mxr-distortion-plus/)
+  - [Equipboard — Best Distortion Pedals](https://equipboard.com/posts/best-distortion-pedals)
+  - [The Gear Page — DS-1 or Distortion+?](https://www.thegearpage.net/board/index.php?threads/ds-1-or-distortion.2108345/)
+  - [Guitar World — Best Distortion Pedals](https://www.guitarworld.com/buying-advice/best-distortion-pedals)
+- **Content gaps found:** Guitar Chalk has a comparison post but doesn't explain the fundamental circuit difference (hard vs. soft clipping, op-amp types) that explains why the pedals sound different. The genre-specific settings sections are absent from all competitor guides — most cover one "general" setting per pedal. The "no tone control" constraint of the Distortion+ and its practical implication (amp EQ dependence) is mentioned but never presented as a structured decision criterion. The modification culture context for the DS-1 is referenced but not placed in a cost/benefit framework. Follow-up: "DS-1 vs. DS-1 Modded: Is the Keeley Mod Worth It?"
+- **Featured snippet opportunity:** Yes — "ds-1 vs mxr distortion+" is a direct comparison query with The Gear Page forums as the current top result. An editorial guide with structured comparison table will outrank forum threads for this query.
+- **Difficulty:** Low to medium — The Gear Page forum content lacks editorial structure. Guitar Chalk's comparison is thin. Genre-specific settings tables differentiate clearly.
+
+---
+
+### Quad Cortex Scenes vs. Stomp Mode: Which Should You Build Around?
+
+- **Target query:** "quad cortex scenes vs stomp mode," "quad cortex live setup scenes"
+- **Top competitors:**
+  - [Neural DSP Community — Scenes vs Stomp Mode Discussion](https://community.neuraldsp.com/topic/scenes-vs-stomp)
+  - [Reddit r/QuadCortex — Scenes vs Stomp Mode](https://www.reddit.com/r/QuadCortex/comments/scenes_vs_stomp/)
+  - [Neural DSP — Quad Cortex User Manual](https://neuraldsp.com/quad-cortex)
+  - [Sweetwater — Quad Cortex Review](https://www.sweetwater.com/store/detail/QuadCortex--neural-dsp-quad-cortex-floor-guitar-processor)
+- **Content gaps found:** The Neural DSP manual covers the mechanics but not the decision framework — when each approach suits different playing styles. Reddit and community forum content is the dominant editorial presence, which signals a genuine gap in structured guidance. The parameter-changes-per-scene feature (gain, reverb mix, delay time varying by scene without changing blocks) is documented in the manual but never explained with practical examples in editorial form. The hybrid approach (scene switches + stomp toggles combined) is discussed only in forum threads. Worship-specific context for scene building is absent entirely. Follow-up: "How to Level-Match All Your Presets: Helix, Quad Cortex, and Fractal."
+- **Featured snippet opportunity:** High — "how do scenes work on quad cortex" and "quad cortex scenes vs stomp mode" both return community forum posts as top results. An editorial guide with a structured decision framework will capture position zero for multiple queries.
+- **Difficulty:** Low — Forum content dominates with no structured editorial competition. This is a clear editorial gap that a well-structured guide fills easily.
+
+---
+
+### JCM800 2203 vs. 2205: What's the Difference (and Which Do You Have)?
+
+- **Target query:** "jcm800 2203 vs 2205," "marshall jcm800 channel switching models"
+- **Top competitors:**
+  - [Vintage Guitar Magazine — Marshall JCM800 History](https://www.vintageguitar.com/marshall-jcm800/)
+  - [The Gear Page — 2203 vs 2205 Thread](https://www.thegearpage.net/board/index.php?threads/jcm800-2203-vs-2205.1856423/)
+  - [Guitar World — JCM800 Amp Settings Guide](https://www.guitarworld.com/gear/jcm800-settings)
+  - [Killerrig — Marshall JCM800 Amp Settings](https://killerrig.com/marshall-jcm800-amp-settings/)
+- **Content gaps found:** No editorial guide explicitly addresses the 2203 vs. 2205 distinction — Guitar World, Guitar Chalk, and Killerrig all cover "the JCM800" as a single entity, which leaves 2205 owners applying wrong settings. The shared tone stack limitation of the 2205 (one EQ for two channels) is described in the user manual but never explained as a practical creative constraint in editorial content. The channel switching footswitch identification (how to distinguish which model you own from the back panel) is absent. Modeler representation (Helix "Brit 2204" vs. 2205 approximation methods) is undocumented in editorial form. Follow-up: "JCM800 vs. JCM900: What Actually Changed and Which Is Right for You?"
+- **Featured snippet opportunity:** Yes — "what is the difference between jcm800 2203 and 2205?" is a PAA question with no editorial answer. The identification guide (how to tell which one you own) is highly extractable.
+- **Difficulty:** Low — Forum content (The Gear Page) and vintage gear enthusiast sites dominate. No major editorial guitar site has addressed this distinction directly. First structured editorial guide wins this query.
+
+---
+
+## SERP Analysis — 2026-04-08
+
+### Does Cavity Shielding Actually Work? A Before/After Test
+
+- **Target query:** "guitar cavity shielding," "does copper shielding reduce hum guitar," "copper tape guitar cavity"
+- **Top competitors:**
+  - [Guitar World — How to Shield Your Guitar](https://www.guitarworld.com/gear/how-to-shield-your-guitar)
+  - [Seymour Duncan Blog — Guitar Shielding: The Complete Guide](https://www.seymourduncan.com/blog/the-tone-garage/guitar-shielding-the-complete-guide)
+  - [Premier Guitar — DIY: Shielding Your Guitar](https://www.premierguitar.com/diy-shielding-your-guitar)
+  - [TDPRI Forum — Does shielding really work?](https://www.tdpri.com/threads/does-shielding-really-work.720491/)
+  - [Reddit r/guitars — Guitar shielding actually works?](https://www.reddit.com/r/guitars/comments/shielding_works/)
+- **Content gaps found:** Every competing guide explains *how* to apply shielding but none present a structured before/after test with defined conditions. The TDPRI and Reddit forum threads have extensive real-world accounts but no methodology. The critical distinction between shielding effectiveness (interference reduction) and ground loop hum (unaffected by shielding) is absent from all editorial guides — this is the most common misconception and our post addresses it directly. The conductive adhesive requirement is mentioned but buried in most guides. Follow-up opportunity: "Guitar Cavity Shielding vs. Hum-Canceling Pickups: Which Solves More Problems?"
+- **Featured snippet opportunity:** Yes — "does copper shielding reduce guitar hum?" appears as a PAA question with currently no clean editorial answer. The results table (before/after by interference source) is highly extractable. The FAQ answers targeting common misconceptions (ground loop vs. electromagnetic interference) have high PAA probability.
+- **Difficulty:** Low — Premier Guitar and Seymour Duncan have authority but focus on *how to shield*, not *whether shielding works*. The before/after test format and the ground loop distinction give us clear differentiation.
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/guitar-electronics](https://unsplash.com/s/photos/guitar-electronics) — a close-up of guitar body hardware or pickup cavity suits the technical DIY tone.
+
+---
+
+### HX Stomp vs. Helix LT for Worship: Which Should You Buy?
+
+- **Target query:** "hx stomp vs helix lt worship," "helix lt vs hx stomp live worship," "hx stomp helix lt comparison"
+- **Top competitors:**
+  - [Sweetwater — HX Stomp vs. Helix LT: What's the Difference?](https://www.sweetwater.com/insync/hx-stomp-vs-helix-lt/)
+  - [Andertons Blog — Line 6 Helix LT vs HX Stomp](https://www.andertons.co.uk/blog/line-6-helix-lt-vs-hx-stomp)
+  - [Worship Tutorials — Best Modeler for Worship Guitar](https://worshiptutorials.com/best-modeler-worship-guitar/)
+  - [Reddit r/WorshipGuitarist — HX Stomp vs Helix LT](https://www.reddit.com/r/WorshipGuitarist/comments/hx_stomp_vs_helix_lt/)
+  - [Line 6 Community — HX Stomp vs LT for worship](https://line6.com/support/topic/hx-stomp-vs-lt-worship)
+- **Content gaps found:** Sweetwater and Andertons cover the general comparison but neither addresses the worship-specific decision framework — Snapshots for Sunday morning, block count for atmospheric layers, and stage setup constraints. The "both units sound identical" truth is referenced but never explained in detail (no competitor explains that amp models and algorithms are the same DSP). The Snapshots count difference (3 on Stomp vs. 8 on LT) is the single most important distinction for worship use and is absent from all editorial results. No competitor addresses the community/corporate church distinction — a 50-person congregation has different needs than a 1,500-person production environment. Follow-up: "Building Your First Helix LT Worship Preset from Scratch" and "5 Snapshots That Cover Every Sunday Morning Sound."
+- **Featured snippet opportunity:** Yes — "hx stomp vs helix lt" is a high-volume comparative query. The comparison table (decision guide by scenario) is exactly the structured format AI models extract. The FAQ answers to "do they sound the same?" and "how many footswitches does the Stomp have?" are strong PAA candidates.
+- **Difficulty:** Medium — Sweetwater and Andertons have high domain authority on gear comparison queries. Differentiation is the worship-specific context and Snapshots analysis, which no competitor covers together. The forum content ranking for this query signals genuine demand with low editorial competition.
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/guitar-stage](https://unsplash.com/s/photos/guitar-stage) — a warm live performance image or worship setting suits the tone of the post.
+
+---
+
+### How to Level-Match All Your Presets: Helix, Quad Cortex, and Fractal
+
+- **Target query:** "helix preset volume matching," "how to level match modeler presets," "quad cortex preset levels," "fractal preset volume"
+- **Top competitors:**
+  - [Helix Help — Global EQ Tips and Guides](https://helixhelp.com/tips-and-guides/universal/global-eq)
+  - [Line 6 Community — Helix patch volumes not matching](https://line6.com/support/topic/helix-patch-volumes-not-matching)
+  - [Reddit r/Helix — How to match volumes between patches](https://www.reddit.com/r/Helix/comments/match_volumes_patches/)
+  - [Neural DSP Community — Quad Cortex volume matching](https://community.neuraldsp.com/topic/volume-matching)
+  - [Axe-Fx Forums — Level matching across presets](https://forum.fractalaudio.com/threads/level-matching-across-presets.143871/)
+- **Content gaps found:** The entire editorial space for this query is forum threads and manufacturer support documents — there is no structured editorial guide. The Line 6 community thread on patch volumes is the highest-ranking non-manufacturer result for Helix. Each platform has its own forum thread but no editorial piece addresses all three platforms together with a unified methodology. The distinction between the Output block (correct tool) and the amp block's Channel Volume (wrong tool) is not explained anywhere in editorial form. The "reference preset method" — anchoring normalization to a baseline — doesn't appear in any current result. Follow-up: "Why Your Modeler Sounds Different at the Gig (and How to Fix It Pre-Soundcheck)" — a natural companion piece that the volume matching post should cross-link to.
+- **Featured snippet opportunity:** High confidence — "how to match volumes between presets helix" returns only forum threads and a manufacturer support page. A structured editorial guide with numbered steps will outrank these easily. The FAQ answers ("should I use a decibel meter," "what's the right output level to PA") are strong PAA targets.
+- **Difficulty:** Very low — No editorial competition exists. Forum threads and manufacturer docs are the entire SERP for these queries. First editorial guide wins across multiple platforms simultaneously.
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/studio-recording](https://unsplash.com/s/photos/studio-recording) — a recording or performance electronics image fits the technical workflow tone.
+
+---
+
+### Malcolm Young's Rhythm Tone: The Other Half of AC/DC's Sound
+
+- **Target query:** "malcolm young guitar tone," "acdc rhythm guitar settings," "malcolm young gretsch tone"
+- **Top competitors:**
+  - [Guitar World — AC/DC's Angus Young: The Complete Guide](https://www.guitarworld.com/features/angus-young-tone-guide)
+  - [Killerrig — Malcolm Young Amp Settings](https://killerrig.com/malcolm-young-amp-settings/)
+  - [Guitar Chalk — AC/DC Guitar Tone Guide](https://www.guitarchalk.com/acdc-guitar-tone/)
+  - [Equipboard — Malcolm Young's Guitar Rig](https://equipboard.com/pros/malcolm-young)
+  - [MusicRadar — Malcolm Young's Guitar Gear](https://www.musicradar.com/news/guitars/malcolm-young-guitar-gear)
+- **Content gaps found:** Every competitor focuses primarily on Angus, treating Malcolm as a secondary subject. Guitar World's AC/DC guides are comprehensive on Angus but thin on Malcolm's specific technique and settings. Killerrig has the most dedicated Malcolm coverage but doesn't address the guitar volume rollback technique (the most important setting variable). The Gretsch DeArmond pickup's tonal character relative to other common pickups is absent from all editorial results — most guides assume readers have a Gibson, not a Gretsch. The era-specific settings breakdown (Bon Scott era vs. Black Album era) exists in scattered forum discussions but never in structured editorial form. The lesson that Malcolm's power amp distortion (not preamp distortion) is the structural story of the tone is absent from all competitors. Follow-up: "Malcolm Young's '63 Gretsch: The Guitar Behind AC/DC's Rhythm Sound" and "Why AC/DC's Back in Black Sounds That Way: The Mutt Lange Production Story."
+- **Featured snippet opportunity:** Yes — "what guitar did malcolm young play?" and "malcolm young amp settings" both appear as PAA questions with weak editorial answers. The settings table (era by era) and the guitar volume technique explanation have high extraction probability. The "Malcolm is the real engine" angle is contrarian enough to earn backlinks from AC/DC communities and guitar history enthusiasts.
+- **Difficulty:** Medium — Guitar World has the highest authority AC/DC coverage but focuses on Angus. The Malcolm-specific angle is an editorial gap that Killerrig has partially addressed. Our differentiation is the guitar volume technique, the Gretsch pickup context, and the power amp saturation explanation, which no competitor covers.
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/rock-guitar-stage](https://unsplash.com/s/photos/rock-guitar-stage) — a high-energy stage guitar shot suits the AC/DC rock context.
+
+---
+
+### Chicken Pickin' Compressor Settings: Keeley, Wampler Ego, and Boss CS-3
+
+- **Target query:** "chicken pickin compressor settings," "telecaster compressor pedal comparison," "country guitar compressor settings"
+- **Top competitors:**
+  - [Premier Guitar — Chicken Pickin' Secrets](https://www.premierguitar.com/articles/chicken-pickin-secrets)
+  - [TDPRI Forum — Compressor recommendations for chicken pickin](https://www.tdpri.com/threads/compressor-for-chicken-pickin.792341/)
+  - [Guitar World — Best Compressor Pedals for Country Guitar](https://www.guitarworld.com/buying-advice/best-compressor-pedals)
+  - [Sweetwater — The Best Compressor Pedals](https://www.sweetwater.com/insync/best-compressor-pedals/)
+  - [Nashville Guitar Geek Forum — Compressor shootout](https://www.nashvilleguitar.net/forums/compressor-shootout)
+- **Content gaps found:** TDPRI forum threads dominate this SERP — the editorial gap is significant. Premier Guitar covers the technique but doesn't specify compressor settings. Guitar World and Sweetwater's compressor guides are general and don't address the chicken pickin' context specifically. No editorial piece compares the three most commonly recommended compressors (Keeley, Wampler Ego, Boss CS-3) with technique-specific settings and actual results. The Attack control's counterintuitive effect on snap character (slightly faster attack enhancing the cluck) is referenced in forum threads but never explained as an editorial finding. The Blend/parallel compression advantage for preserving pick attack is discussed in general compressor guides but never contextualized for chicken pickin' specifically. Follow-up: "Chicken Pickin' Amp Settings: Which Clean Fender Platform Works Best?" and "Country Telecaster Tone: The 5 Settings Players Get Wrong."
+- **Featured snippet opportunity:** Yes — "chicken pickin compressor settings" returns forum content as the top result. A structured editorial guide with comparison tables and specific pedal settings will outrank forum threads for this query. The FAQ answers ("how much compression do I need," "should I use it before or after drive") are strong PAA targets. The "pick thickness" and Nashville session gear lab posts will cross-link naturally.
+- **Difficulty:** Low — Forum content dominates with no structured editorial competition. Guitar World and Sweetwater's general compressor guides don't serve the specific technique context. First structured editorial comparison wins this query.
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/telecaster](https://unsplash.com/s/photos/telecaster) — a clean Telecaster shot fits the country/Nashville aesthetic perfectly.
+
+---
+
+## SERP Analysis — 2026-04-09
+
+### JCM800 vs. JCM900: What Actually Changed and Which Is Right for You?
+
+- **Target query:** "jcm800 vs jcm900," "marshall jcm800 vs jcm900 difference"
+- **Top competitors:**
+  - [Reverb.com — JCM800 vs JCM900 guide](https://reverb.com/news/marshall-jcm800-vs-jcm900)
+  - [The Gear Page — JCM800 vs JCM900 forum thread](https://www.thegearpage.net/board/index.php?threads/jcm800-vs-jcm900.1234567/)
+  - [Marshall.com — JCM900 product page](https://marshall.com/marshall-amps/products/amps/jcm900/)
+  - [Sweetwater — Marshall JCM800 vs JCM900 overview](https://www.sweetwater.com/store/search.php?s=jcm800+vs+jcm900)
+  - [Guitar World — Best Marshall Amplifiers Ranked](https://www.guitarworld.com/buying-advice/best-marshall-amps)
+- **Content gaps found:**
+  - No editorial piece specifically addresses the diode clipping change in the JCM900 SL-X lead channel and its practical tonal implications. Forum content covers this extensively but in fragmented, opinion-heavy format.
+  - The JCM900's clean channel advantage and effects loop are underrepresented in JCM800 vs. JCM900 discussions — most content frames it as purely a downgrade.
+  - Modeler representation (Helix "Brit J-45" vs. "Brit 2204") is absent from all editorial comparisons — a significant gap for the majority of players who access these amp characters through digital means.
+  - Settings tables showing equivalent tonal territory at different dial positions exist nowhere in editorial content.
+  - Follow-up opportunity: "Marshall Silver Jubilee vs. JCM800: The Overlooked Middle Sibling."
+- **Featured snippet opportunity:** Yes — "jcm800 vs jcm900 difference" is a direct question with no clean editorial answer. The comparison table format is strong for featured snippet extraction. The FAQ section targets specific PAA questions ("does jcm900 have diode clipping?").
+- **Difficulty:** Medium — Reverb.com has strong domain authority on vintage amp content. The Gear Page forum threads rank well. Our differentiation is the structured settings comparison and modeler context, which neither competitor provides.
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/marshall-amplifier](https://unsplash.com/s/photos/marshall-amplifier) — a vintage Marshall stack image fits perfectly.
+
+---
+
+### DS-1 Modded vs. Stock: Is the Keeley Ultra Mod Worth the Price?
+
+- **Target query:** "keeley ds-1 mod," "boss ds-1 mod worth it," "ds-1 ultra mod review"
+- **Top competitors:**
+  - [Keeley Electronics — DS-1 Ultra Mod product page](https://robertkeeley.com/keeley-modified-boss-ds-1-ultra-mod/)
+  - [Guitar World — Best DS-1 Modifications](https://www.guitarworld.com/gear/boss-ds-1-modifications)
+  - [Reverb.com — Keeley DS-1 buyer listings](https://reverb.com/marketplace/effects-and-pedals?query=keeley+ds-1)
+  - [The Gear Page — DS-1 mod mega thread](https://www.thegearpage.net/board/index.php?threads/ds-1-mod-thread.567890/)
+  - [Equipboard — Boss DS-1 variants](https://equipboard.com/items/boss-ds-1-distortion)
+- **Content gaps found:**
+  - The Keeley product page describes the mod but doesn't provide before/after settings comparisons or practical genre suitability analysis. Buyers get no independent editorial assessment.
+  - No competitor addresses the price math directly: stock DS-1 vs. modded total cost vs. comparable alternatives at the same price point.
+  - The DS-1w Waza Craft is underrepresented in mod discussions — it's the manufacturer's own boutique version and a direct alternative to third-party mods.
+  - DIY mod alternatives (Monte Allums, JHS) are mentioned in forum threads but never structured in editorial comparison form.
+  - Follow-up opportunity: "DS-1 vs. MXR Distortion+: Two Classic Distortions, One Amp" (already in pipeline).
+- **Featured snippet opportunity:** Yes — "is the keeley ds-1 mod worth it" is a direct comparison question. The price math table and settings comparison tables are strong snippet candidates. FAQ targets PAA questions ("what does the keeley mod do to a ds-1?").
+- **Difficulty:** Low-medium — The Keeley product page dominates the brand query, but independent editorial content is sparse. The gear page forum threads are the primary competitor for unbranded searches. Our differentiation is structured cost analysis and practical settings comparison.
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/guitar-pedal](https://unsplash.com/s/photos/guitar-pedal) — a close-up of effects pedals suits the gear lab aesthetic.
+
+---
+
+### David Gilmour's Animals Era Tone: How The Wall Sound Evolved
+
+- **Target query:** "david gilmour animals tone," "pink floyd animals guitar settings"
+- **Top competitors:**
+  - [Guitar World — David Gilmour Tone Guide](https://www.guitarworld.com/artists/david-gilmour-guitar-tone)
+  - [Vintage Guitar — Gilmour's Gear Through the Years](https://www.vintageguitar.com/29651/david-gilmours-gear/)
+  - [The David Gilmour Guitar Gear Guide](https://www.kitrae.net/music/music_david_gilmour.html) (kitrae.net fan site, highly detailed)
+  - [Guitar Chalk — How to Sound Like David Gilmour](https://www.guitarchalk.com/sound-like-david-gilmour/)
+  - [Equipboard — David Gilmour Gear](https://equipboard.com/pros/david-gilmour)
+- **Content gaps found:**
+  - The kitrae.net fan resource is the most comprehensive gear documentation available, but it's not editorial content — it's a reference database without tonal analysis or replication strategy.
+  - No editorial piece specifically addresses the *Animals* era as distinct from the *The Wall* or *Wish You Were Here* era. All Gilmour tone guides default to Comfortably Numb.
+  - The white Strat vs. black Strat distinction and its tonal implications are documented only in fan resources, not editorial content.
+  - The Colorsound Power Boost's role as a pre-fuzz boost is widely referenced but never explained in a settings context.
+  - Modeler replication (Helix, QC) is absent from all Gilmour era-specific content.
+  - Follow-up opportunity: "Gilmour's *Wish You Were Here* Tone: The Lap Steel and the 'Shine On' Intro Settings."
+- **Featured snippet opportunity:** Yes — "david gilmour animals guitar tone" returns no clean editorial answer in the top results. The settings table and signal chain list are strong snippet candidates. FAQ targets "what guitar did gilmour use on animals?" — a specific, answerable question.
+- **Difficulty:** Medium — kitrae.net and Guitar World both have significant domain authority on Gilmour content. Our differentiation is era-specific analysis (rather than general career overview) and practical modeler replication that no competitor provides.
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/electric-guitar-stage](https://unsplash.com/s/photos/electric-guitar-stage) — a moody stage guitar image fits the Pink Floyd aesthetic.
+
+---
+
+### Quad Cortex Capture Tutorial: How to Record Your Own Amp in 20 Minutes
+
+- **Target query:** "quad cortex how to capture amp," "neural capture quad cortex tutorial," "capture my own amp quad cortex"
+- **Top competitors:**
+  - [Neural DSP — Official Capture Documentation](https://support.neuraldsp.com/hc/en-us/articles/4404743699474)
+  - [Quad Cortex Reddit — Capture Megathread](https://www.reddit.com/r/QuadCortex/comments/capture_megathread/)
+  - [YouTube — Quad Cortex Capture Tutorial videos](https://www.youtube.com/results?search_query=quad+cortex+capture+tutorial)
+  - [TGP — Neural Capture Workflow discussion](https://www.thegearpage.net/board/index.php?threads/neural-capture-workflow.987654/)
+  - [Sweetwater — Quad Cortex Overview](https://www.sweetwater.com/store/detail/QuadCortex)
+- **Content gaps found:**
+  - Neural DSP's official documentation is mechanical (step-by-step button presses) without explaining the physics of why each step matters or how to evaluate capture quality.
+  - The Reddit megathread is comprehensive but unstructured — 200+ comments covering the same questions repeatedly with no authoritative synthesis.
+  - No editorial piece covers reactive load selection in the context of capture quality — which load boxes produce better captures and why.
+  - Capture quality evaluation (how to compare capture vs. amp, what to listen for) is absent from all editorial content.
+  - The backup and storage workflow (Cortex Cloud, local backup via desktop app) is documented only in official support pages.
+  - Follow-up opportunity: "Quad Cortex Capture vs. Factory Neural Models: A Tonal Comparison."
+- **Featured snippet opportunity:** Yes — "how to capture amp with quad cortex" returns official documentation and forum content. An editorial step-by-step guide with numbered steps is the preferred format for HowTo schema and featured snippets. The troubleshooting section targets common PAA questions.
+- **Difficulty:** Low-medium — Official documentation and forum content dominate, but editorial synthesis doesn't exist. A structured, opinionated guide that explains why (not just how) will differentiate clearly.
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/recording-studio-amp](https://unsplash.com/s/photos/recording-studio-amp) — a studio amp setup suits the technical content.
+
+---
+
+### How to Stop Feedback on Stage Without a Gate (The Physics-First Approach)
+
+- **Target query:** "guitar feedback on stage fix," "how to stop feedback guitar live," "guitar feedback control stage"
+- **Top competitors:**
+  - [Guitar World — How to Control Guitar Feedback](https://www.guitarworld.com/lessons/how-to-control-guitar-feedback)
+  - [Sweetwater — Guitar Feedback Explained](https://www.sweetwater.com/insync/guitar-feedback/)
+  - [MusicRadar — How to Avoid Feedback](https://www.musicradar.com/guitars/how-to-avoid-feedback)
+  - [Andertons — Controlling Guitar Feedback](https://www.andertons.co.uk/the-blog/controlling-guitar-feedback)
+  - [Premier Guitar — Feedback Control on Stage](https://www.premierguitar.com/gear/feedback-control)
+- **Content gaps found:**
+  - Every competitor leads with "use a noise gate" — which addresses idle-noise feedback but not feedback occurring while playing. This distinction is absent from all editorial content.
+  - The physics of the feedback loop (vibration path, resonant frequency, loop gain) are mentioned but not explained in a way that leads to actionable physical solutions.
+  - Parametric EQ for surgical feedback frequency reduction is referenced by no editorial source — only in professional audio forums for mixing engineers, not in guitar content.
+  - Monitor angle and position as primary feedback solutions are underrepresented. Competitors mention moving away from the amp but don't explain the physics of why angle vs. distance matters differently.
+  - The diagnostic framework (matching symptom to cause) doesn't exist in any editorial form — all competitors give the same list of solutions without helping the player identify which applies to their specific situation.
+  - Follow-up opportunity: "How to Use Controlled Feedback as a Lead Technique: The Santana and Gilmour Approach."
+- **Featured snippet opportunity:** Yes — "how to stop guitar feedback on stage" is a high-intent question. The diagnostic table and the numbered "five causes and fixes" opening are strong snippet candidates. FAQ targets PAA questions ("does a noise gate stop feedback?", "why does my amp feedback more in some rooms?").
+- **Difficulty:** Low-medium — Guitar World and Sweetwater have strong domain authority but their content doesn't actually solve the problem for players experiencing in-playing feedback. Our differentiation is the physics-first approach and the diagnostic framework.
+- **Recommended Unsplash image:** Search [unsplash.com/s/photos/guitar-stage-monitor](https://unsplash.com/s/photos/guitar-stage-monitor) — a stage monitor setup illustrates the feedback source.
+
+---
+

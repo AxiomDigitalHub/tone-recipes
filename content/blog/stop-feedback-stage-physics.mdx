@@ -1,0 +1,205 @@
+---
+title: "How to Stop Feedback on Stage Without a Gate (The Physics-First Approach)"
+description: "Stage feedback has physical causes that a noise gate can't fix. Here's the frequency and physics explanation for why feedback happens, and the specific techniques that address it at the source."
+date: "2026-04-09"
+author: "Viktor Kessler"
+author_slug: "viktor-kessler"
+category: "quick-fixes"
+tags: ["feedback", "stage-volume", "live-guitar", "troubleshooting", "quick-fix", "noise"]
+readingTime: 10
+image: "https://images.unsplash.com/photo-1516223725307-6f76b9ec8742?w=1200&q=80"
+image_alt: "Guitar on stage with monitor speakers and lights"
+---
+
+> **Start Here — The five feedback causes and their fixes:**
+> 1. **Monitor proximity to pickups** → move monitor or angle it away from guitar body
+> 2. **Amp behind you** → reposition to your side or use in-ears
+> 3. **Gain too high for room resonance frequency** → identify the resonant frequency, cut it 3–6 dB
+> 4. **Single-coil pickups at high gain** → use a noise-canceling pickup position or roll guitar volume back 10–15%
+> 5. **Sympathetic string resonance** → palm-mute unpicked strings or use a string dampener
+> The physics explanation is below the fixes. Read the fixes first.
+
+---
+
+## Why "Use a Gate" Is the Wrong First Answer
+
+The noise gate is the standard recommendation for feedback control. And it works — for a specific kind of feedback.
+
+A noise gate cuts the signal below a threshold. If your guitar is silent when you're not playing, the gate prevents idle-noise feedback from building. It's useful.
+
+But gates can't stop feedback that occurs while you're playing. A gate that's open (because your guitar is producing signal) can't distinguish between feedback and intended notes. And most of the feedback problems players encounter on stage happen while they're playing — not while they're standing still.
+
+The gate is a downstream treatment for a physical problem. The physical problem doesn't go away; you're just muting the signal during the gaps when the feedback would be audible. At high stage volumes or at high gain settings, the feedback can build fast enough to cause problems even within the gate's response time.
+
+Physical solutions address the cause. Here's what's actually happening.
+
+---
+
+## The Physics: Why Stage Feedback Happens
+
+Feedback is a loop. It requires three elements:
+
+1. **A pickup that responds to vibration** — your guitar's magnetic pickups respond to string motion and to vibrations in the guitar body and headstock
+2. **An amplified signal** — through your amp, monitors, or PA
+3. **A vibration path back to the pickup** — sound pressure from your speakers causes the guitar body and strings to vibrate sympathetically
+
+When the amplified signal causes the guitar to vibrate at a frequency that the pickups pick up, that signal gets re-amplified, which causes more vibration, which gets picked up again. The loop builds.
+
+The specific frequency at which this happens — your stage setup's feedback frequency — is determined by:
+
+- **Room resonance:** Every room has resonant frequencies where sound pressure builds up more than others
+- **Amp-to-guitar distance and angle:** How much of the amplified signal reaches the guitar body
+- **Guitar resonant frequencies:** Every guitar has frequencies where the body vibrates most easily (the "tap tones" on acoustic guitars; electric guitars have them too)
+- **Pickup response:** Which frequencies the pickups are most sensitive to
+- **Gain level:** Higher gain amplifies the feedback loop faster
+
+---
+
+## Fix 1: Monitor Position and Angle
+
+Stage monitors (wedges) are the most common feedback source for guitarists because they point directly at you — and by extension, directly at your guitar. A monitor aimed at your face puts significant sound pressure into your guitar body and across your strings.
+
+### What to do
+
+**Angle the monitor away from your guitar body.** If the monitor's high-frequency horn fires at your shins rather than your chest, you're putting less acoustically relevant energy into the guitar.
+
+**Increase the distance.** Every doubling of distance from a sound source reduces sound pressure by 6 dB. Moving the monitor 2 feet further cuts feedback drive by more than moving the amp's level down a small amount.
+
+**Position the monitor to your side rather than directly in front.** A monitor at a 90-degree angle to the guitar body couples less energy into the guitar's resonant modes.
+
+### When this fixes it
+
+Monitor-caused feedback typically has a specific character: it appears at consistent volume levels and pitch, often in the lower-midrange (200–500Hz) where guitar body resonance peaks tend to live. If feedback stops when you step away from the monitor, monitor proximity is your problem.
+
+---
+
+## Fix 2: Amp Position
+
+Most guitarists point their amp directly behind them. This maximizes the amount of amplified signal hitting the back of the guitar body — one of the worst positions for feedback control.
+
+### What to do
+
+**Move the amp to your side** — 90 degrees from your playing position, angled slightly toward the audience rather than pointing at your back.
+
+**Raise the amp.** Floor-level amp cabs are well-coupled to the stage floor's vibration. An amp stand raises the speaker to ear level (so you can hear it clearly) and reduces the amount of low-frequency energy transmitted through the stage structure into your guitar.
+
+**Use an isolation riser if the stage is hollow.** Hollow wooden stages act as resonators. A dense rubber or foam isolation riser under the amp cabinet reduces low-frequency transmission into the stage surface.
+
+### The in-ears alternative
+
+In-ear monitors eliminate the stage monitor as a feedback source entirely. If your feedback problems are chronic and you have the option to move to in-ears, the reduction in stage volume alone removes most of the feedback problem. In-ears are not an option for everyone, but for players doing consistent work in the same venue or touring with professional monitor systems, they're the most reliable solution.
+
+---
+
+## Fix 3: Identify and Cut the Resonant Frequency
+
+The most surgical fix is finding exactly which frequency is feeding back and reducing it in the signal chain. This requires a parametric EQ — either in your amp, a rack unit, or a DSP chain.
+
+### How to Find the Frequency
+
+1. Set up as you normally would on stage, at playing volume
+2. Let the feedback develop slightly — enough to identify the pitch
+3. Identify that pitch on a pitch reference: is it a note? Which note? What's its frequency?
+
+Reference:
+- E2 (lowest guitar string, standard) = 82 Hz
+- A2 = 110 Hz
+- D3 = 147 Hz
+- A3 = 220 Hz
+- E4 = 330 Hz
+- A4 = 440 Hz
+
+Most guitar feedback occurs between 80 Hz and 600 Hz for the primary resonant mode, with harmonic feedback at 1–3 octaves above.
+
+4. In a parametric EQ, set a narrow band (Q of 4–8) at the identified frequency
+5. Cut 3–6 dB
+
+A 4–6 dB cut at the specific resonant frequency often eliminates the feedback loop entirely without meaningfully affecting the overall tone — the cut is narrow enough that adjacent frequencies aren't affected.
+
+### EQ Placement
+
+This cut works best after the gain stage — in the effects loop or in a post-amp EQ. A cut before the gain stage reduces the signal going into the gain circuit; a cut after the gain stage reduces the signal going to the speaker without reducing the amp's input drive.
+
+On a Helix, Quad Cortex, or similar: add a parametric EQ block after the amp/cab block. Cut the feedback frequency there.
+
+On a real amp: a rack EQ in the effects loop, or a graphic EQ pedal in the effects loop.
+
+---
+
+## Fix 4: Pickup Position and Guitar Volume
+
+Single-coil pickups are more feedback-prone than humbuckers at equivalent gain settings. The coil geometry responds differently to ambient vibration — single coils are more sensitive to string motion in general, which is part of their character, but it also makes them more susceptible to feedback resonance.
+
+### Pickup Position Techniques
+
+**Position 2 or 4 (bridge/middle combination):** Hum-canceling positions on a standard 5-way Strat switch. These positions have some of the single coil's clarity with reduced feedback sensitivity. Not useful for lead tones that require neck pickup, but helpful for rhythm playing at high stage volumes.
+
+**Guitar volume at 85–90%:** Rolling the guitar volume back slightly reduces output and reduces the sensitivity of the magnetic field around the pickups. The effect on feedback threshold is more significant than the effect on overall volume because feedback is exponential — small signal reductions have a larger effect on the loop gain. Start at a 10–15% rollback and find where the feedback threshold improves without losing too much output level.
+
+**Face away from the amp for a moment.** The magnetic field around your pickups has directional sensitivity. Facing away from the monitor or amp reduces coupling. Not a permanent solution, but useful for understanding whether proximity and angle are the primary driver.
+
+---
+
+## Fix 5: String Muting for Sympathetic Resonance
+
+This one is about strings you're not picking, not the strings you're playing.
+
+When your amplified signal hits the guitar body, it excites all the strings — including the ones you're not fretting. An open G string will resonate sympathetically when the note G is amplified and returned to the guitar. This resonance shows up in the pickups as additional signal at that frequency, and if it's close to a resonant room frequency, it can contribute to feedback.
+
+### Palm Muting
+
+Develop the habit of palm-muting the strings you're not playing during sustained single-note passages. Your picking hand's side rests on the strings behind the bridge, preventing them from resonating sympathetically. This is a technique choice as much as a feedback strategy — many players already do this for clean playing, fewer do it consistently at high-gain stage volumes.
+
+### String Dampeners
+
+Dedicated products (Gruv Gear FretWrap, Shubb Capo used as a muter) clip to the nut or behind the nut and prevent open string resonance. These are common in studio recording contexts; they're less common on stage but fully legitimate. If sympathetic string resonance is your specific feedback driver, a dampener at the nut addresses it more reliably than technique alone.
+
+---
+
+## Diagnostic Framework: Finding Your Specific Cause
+
+Not all stage feedback has the same cause. Here's a quick diagnostic:
+
+| Symptom | Most Likely Cause |
+|---|---|
+| Feedback starts when you step toward monitor | Monitor proximity |
+| Feedback stops when you face away from amp | Amp angle/position |
+| Feedback always happens at same pitch | Room resonant frequency |
+| Feedback worse with high-gain amp settings | Gain too high for room |
+| Feedback on open strings during pauses | Sympathetic string resonance |
+| Feedback on single notes only | Pickup sensitivity + resonant frequency |
+| Feedback worse with single coils vs. humbucker | Pickup type — use hum-canceling position |
+
+Work through this list before reaching for any gate or EQ. Understanding the physical cause leads to a physical solution. The gate treats symptoms; physical positioning and signal management address causes.
+
+---
+
+## What to Do When Multiple Causes Combine
+
+On challenging stages — low ceilings, awkward monitor positioning, hollow stages — multiple causes compound. A modest gain level that's fine in most rooms can produce persistent feedback when room resonance, monitor proximity, and amp position combine poorly.
+
+The order of operations in these situations:
+
+1. **Physical positioning first.** Move the amp, angle the monitors. This costs nothing and often solves the problem.
+2. **Gain level second.** Drop the gain on the amp by a small amount. If the feedback disappears, the gain was marginal for the room's coupling characteristics.
+3. **EQ surgery third.** If physical and gain adjustments don't solve it, find and cut the resonant frequency.
+4. **Gate as a complement, not a solution.** Once physical and EQ solutions are in place, a gate can handle the residual noise floor. It's an appropriate last layer, not the first.
+
+---
+
+## Frequently Asked Questions
+
+**Does a noise gate stop feedback?**
+A noise gate stops signal below its threshold — useful for preventing feedback buildup while you're not playing. It cannot stop feedback that occurs while you're playing, because the gate is open during signal. Physical and EQ solutions address feedback that occurs during playing.
+
+**Why does my amp feedback more in some rooms than others?**
+Room resonance varies with dimensions, construction materials, and acoustic treatment. Parallel walls and low ceilings create resonant build-up at specific frequencies that vary by room. A gain level that's stable in one room may be near the feedback threshold in another.
+
+**Is feedback always bad?**
+No. Controlled feedback is a deliberate technique used by Hendrix, Gilmour, Santana, and many others. The goal is controllability: choose when feedback occurs and at what pitch, rather than having it occur randomly. The fixes above are about preventing uncontrolled feedback, not eliminating intentional use of the technique.
+
+**Does a humbucker eliminate feedback problems?**
+Humbuckers are less feedback-prone than single coils at equivalent gain settings because of their coil geometry and reduced sensitivity to ambient vibration. They don't eliminate feedback at high enough gain levels — nothing does — but they raise the threshold substantially.
+
+**How does a guitar's body material affect feedback?**
+Denser body materials (mahogany, ash) transmit and sustain vibration differently than lighter or semi-hollow designs. Semi-hollow and fully hollow guitars are significantly more feedback-prone at stage volumes. This is why archtops are generally kept at lower gain settings on stage. Solid body guitars have more resistance to acoustic feedback at high stage volumes because there's less air resonating inside the body.
