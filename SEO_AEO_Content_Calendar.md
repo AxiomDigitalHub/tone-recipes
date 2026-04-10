@@ -517,3 +517,51 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 | 3 | Country Telecaster Tone: The 5 Settings Players Get Wrong | "telecaster country tone settings," "country guitar amp settings," "chicken pickin telecaster settings" | Carl Beckett | 2 — Settings Guides | Chicken pickin' compressor SERP — natural follow-on from the chicken pickin' compressor post; the amp settings and pickup selection for Nashville country tone are consistently wrong in online guides (most recommend scooped mids when Nashville players are strongly mid-present); Carl's Telecaster experience and plain-spoken approach make this his clearest post yet |
 | 4 | Strymon BigSky vs. Walrus Audio Sloer: Two Reverbs, Two Philosophies | "strymon bigsky vs walrus sloer," "best reverb pedal ambient guitar," "bigsky alternative 2026" | Nathan Cross | 5 — Gear Lab | Reverb washed-out SERP — the BigSky is the dominant recommendation in every ambient/worship reverb discussion; the Sloer represents a newer design philosophy (always-on pad behavior, generative reverb tails) that competes for the same user; Nathan uses both in worship contexts; no editorial comparison exists; the "which philosophy fits your playing?" framing avoids pure product review territory |
 | 5 | Gilmour's *Wish You Were Here* Tone: Lap Steel, 12-String, and the "Shine On" Intro | "shine on you crazy diamond guitar tone," "wish you were here gilmour tone," "gilmour lap steel settings" | Margot Thiessen | 1 — Tone Recipes | Animals era SERP — the Animals post clusters naturally into a Gilmour era series; *Wish You Were Here* is the most emotionally resonant Pink Floyd album for many players and the "Shine On" intro is one of the most-searched guitar passages; the lap steel and 12-string components are absent from all competitor coverage; the slide and sustain technique involved is a distinct tonal approach from the Big Muff lead work |
+
+## SERP Analysis — 2026-04-10 (Posts Published Today)
+
+### Posts published: neo-shoegaze-tone, marshall-shredmaster-vs-rat-creep-tone, andy-timmons-budget-tone, khruangbin-hx-stomp-tone, bd2-vs-bd2w-waza-craft
+
+**neo shoegaze guitar tone settings:**
+- SERP dominated by TikTok videos and a single Guitar World DIIV interview; Sweetwater has a general shoegaze pedal guide but no editorial piece addresses classic vs. neo-shoegaze distinction with settings
+- ClefArc has generic shoegaze guides but no band-specific neo-shoegaze breakdown
+- Our post fills the only structured editorial gap for Title Fight / Nothing / DIIV settings comparison
+- PAA signal: "what pedals does Title Fight use?" "what is neo shoegaze?" — high intent, low editorial coverage
+- Gap noted: Nothing-specific post (Tired of Tomorrow era) has its own search volume and nothing editorial exists
+
+**marshall shredmaster alternative radiohead creep:**
+- Equipboard product page, forum threads (unofficial Warmoth, theFretBoard), and Guitar Tone Overload article dominate
+- No structured editorial comparison of Shredmaster vs. RAT vs. DS-1 with settings exists
+- Aion FX makes a licensed Solstice Shredmaster clone PCB ($35) — builders gap exists; Five Cats Pedals makes a Shredder clone
+- Our post is the only editorial piece with a decision-framework and settings comparison
+- PAA signal: "is the marshall shredmaster discontinued?" "what pedal does jonny greenwood use on creep?"
+
+**smooth lead guitar tone budget andy timmons:**
+- Guitar Chalk has an amp settings guide; Equipboard has gear list; HubPages has a general tone guide; Premier Guitar has a feature
+- No editorial piece addresses specifically budget substitutions with specific alternatives and used prices
+- Gap: Timmy vs. Tumnus comparison is referenced but never structured as a standalone editorial — natural follow-on
+- PAA signal: "what overdrive does andy timmons use?" "how to get a smooth lead tone?"
+
+**khruangbin tone hx stomp mark speer preset:**
+- Line 6 CustomTone library has a user-created preset (US Deluxe Vib, out-of-phase two-cab trick)
+- Fractal Audio forum has discussion; Guitar Chalk has amp settings; Thomann blog has gear overview
+- No editorial guide explains the preset building rationale, block-by-block reasoning, or translates to specific parameter values
+- Interesting: some CustomTone presets use inverted polarity on second cab path for out-of-phase character — topic gap
+- PAA signal: "how do i get the khruangbin guitar sound?" "what amp does mark speer use?"
+
+**bd-2 vs bd-2w blues driver waza craft:**
+- Sweetwater product/reviews page, Guitar.com review, TDPRI forum thread, Boss.info product page
+- Most coverage is product review or forum opinion — no structured settings-by-use-case editorial guide
+- Key confirmation: Custom mode "beefs up the low end and adds sustain" — confirms our characterization
+- TDPRI forum: Keeley BD-2 mod vs. Waza BD-2W is a frequently asked question — existing gap we addressed
+- PAA signal: "is the bd-2w worth it?" "what is the difference between bd-2 and bd-2w?"
+
+## SERP-Derived Topics — 2026-04-10
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | Nothing Band Guitar Tone: *Tired of Tomorrow* Heavy Shoegaze Settings | "nothing band guitar tone," "tired of tomorrow guitar settings," "nothing shoegaze settings" | Dev Okonkwo | 1 — Tone Recipes | Neo-shoegaze SERP — Nothing has distinct search volume separate from Title Fight and DIIV; their heavier, more distorted approach (tuned down, compressed, RAT-into-fuzz stacking) is entirely unaddressed by editorial content; Dev's neo-shoegaze post creates the natural cluster anchor for a band-specific follow-up |
+| 2 | Paul Cochrane Timmy vs. Wampler Tumnus: Low-Gain Transparency at Two Price Points | "timmy overdrive vs tumnus," "paul cochrane timmy alternative," "best low-gain overdrive comparison" | Margot Thiessen | 5 — Gear Lab | Andy Timmons budget SERP — the Timmy is the central character OD in Timmons' rig and the Tumnus is the most-recommended alternative; forum threads consistently ask "how close does the Tumnus get to the Timmy?" with no editorial answer; Margot's nuanced harmonic sensitivity makes her the right voice for a low-gain transparency comparison; cross-links with Andy Timmons budget post and klon centaur settings guide |
+| 3 | HX Stomp Polarity Trick: Why Two Cab Blocks Out of Phase Sound Fuller Than One | "hx stomp cab polarity trick," "helix out of phase cab trick," "hx stomp thicker tone" | Sean Nakamura | 4 — Modeler Masterclass | Khruangbin HX Stomp SERP — the inverted polarity technique (splitting to two cab paths, inverting one) appears in CustomTone presets and forum discussions but is never explained editorially; the physics of why inverted polarity adds perceived width and low-mid fullness is a legitimate tonal science story; Sean is the natural voice for a technical modeler technique guide |
+| 4 | Boss SD-1 vs. BD-2: Which Super Overdrive Wins on a Clean Amp? | "boss sd-1 vs bd-2," "super overdrive vs blues driver," "sd-1 vs bd-2 comparison" | Jess Kowalski | 5 — Gear Lab | BD-2 vs BD-2W SERP — the SD-1 appears as the most common "is this a substitute?" question in BD-2 discussions; no editorial guide directly compares these two budget Boss overdrives in a structured A/B format; the circuit difference (FET-based asymmetrical clipping on SD-1 vs. op-amp character on BD-2) produces meaningfully different tonal characters that Jess's practical-value approach suits |
+| 5 | Marshall Shredmaster Clone Options: Aion FX Solstice, Five Cats Shredder, and What's Actually Different | "marshall shredmaster clone," "shredmaster pcb diy," "shredmaster alternatives 2026" | Hank Presswood | 5 — Gear Lab | Shredmaster vs. RAT SERP — Aion FX makes a licensed Solstice Shredmaster PCB ($35 build-it-yourself); Five Cats Pedals in the UK makes a complete Shredder clone; no editorial guide addresses the DIY and boutique clone market for this discontinued pedal; Hank's circuit-knowledge angle and vintage gear depth make this uniquely his; clusters with the Shredmaster vs. RAT post and the Creep tone recipe |

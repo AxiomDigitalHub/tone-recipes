@@ -1,0 +1,151 @@
+---
+title: "Mark Speer Tone on an HX Stomp: Khruangbin Clean Funk for $299"
+description: "How to build Mark Speer's Khruangbin guitar tone on a Line 6 HX Stomp — specific block settings, amp model choices, spring reverb configuration, and a complete signal chain for $299."
+date: "2026-04-10"
+author: "Dev Okonkwo"
+author_slug: "dev-okonkwo"
+category: "modeler-masterclass"
+tags: ["khruangbin", "mark-speer", "hx-stomp", "modeler", "clean-tone", "spring-reverb", "signal-chain", "helix"]
+readingTime: 13
+image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1200&q=80"
+image_alt: "HX Stomp on a pedalboard next to a guitar in warm studio lighting"
+---
+
+> **Start Here:** What makes this worth building on an HX Stomp specifically:
+> 1. **The Khruangbin tone is remarkably few ingredients** — neck pickup, Fender-clean amp, spring reverb, light compression
+> 2. **HX Stomp's spring reverb is genuinely good** — the Particle Verb and '63 Spring models are the two blocks doing the most work here
+> 3. **Six blocks is enough** — compressor, amp, cab, chorus (light), spring reverb, delay; nothing wasted
+> 4. **It runs on headphones or studio monitors** — no speaker cab required; this is a complete signal chain
+> 5. **Total entry cost for this sound: HX Stomp + guitar** — no amp, no cab, no pedals, no rack
+
+---
+
+## The Complete HX Stomp Signal Chain
+
+Before getting into why each choice works, here's the full preset:
+
+| Block | Model | Key Settings |
+|---|---|---|
+| Compressor | Kinky Boost | Drive: 30%, Tone: 50%, Output: 55% |
+| Amp | Grammatico Nashville (Fender Deluxe Reverb model) | Gain: 3.5, Bass: 4.5, Mid: 6.5, Treble: 5.5, Master: 7.0, Sag: 3.5 |
+| Cab | 1x12 US Deluxe | Mic: 121 Ribbon, Room: 30%, Low Cut: 80Hz, High Cut: 7kHz |
+| Chorus | Vibe Rotary (minimum speed) | Speed: very slow, Depth: 20% |
+| Reverb | '63 Spring | Decay: 2.8s, Mix: 48%, Predelay: 12ms, Low Cut: 200Hz, High Cut: 5.5kHz |
+| Delay | Simple Delay | Time: 375ms, Feedback: 18%, Mix: 12% |
+
+Run into studio monitors or headphones at the output. Pickup on the guitar: neck, tone rolled back one to two notches from full.
+
+---
+
+## Why the HX Stomp Works for This Sound
+
+The Khruangbin guitar tone has a specific quality that's worth understanding before you build a preset: it sounds like it exists slightly behind the speaker rather than coming from it. Mark Speer's neck pickup through an open Fender-style amp through a lot of spring reverb creates a signal that's warm and spatial at the same time — present but not forward, detailed but not crisp.
+
+That quality depends on the spring reverb behavior more than any other single element. The splash, the mild nonlinearity, the way spring reverb smears the attack slightly without adding the smooth tail of a hall or plate — all of it contributes to the sound of the guitar appearing to exist in a physical space rather than being a guitar-into-pedals-into-speaker signal.
+
+The HX Stomp's '63 Spring model replicates the Fender reverb tank character well enough that the spatial quality translates. I expected the digital spring model to feel sanitized relative to a real tank — the particular analog artifacts of a spring reverb, the way the tank physically vibrates with the signal, are hard to replicate exactly. What I found was that the '63 Spring model, with the Low Cut and High Cut engaged to trim the frequency extremes, produces the right spatial character even if it doesn't sound identical to a Fender Reverb unit at close examination. In context — neck pickup, warm amp, slower playing — the distinction closes.
+
+---
+
+## The Amp Block: Grammatico Nashville
+
+The Grammatico Nashville model in HX Stomp is based on the Fender Deluxe Reverb — specifically the tweed-to-blackface transition era of that amp's character. It has more low-mid fullness than the Super Lead (Marshall) models and a sweet headroom that suits the Khruangbin neck-pickup approach.
+
+Key settings philosophy:
+
+**Gain: 3.5** — This is not enough gain for any audible breakup. The amp is functioning as a transparent, harmonically rich clean platform. Every note comes back exactly as it went in, plus the amp's natural frequency coloring. The Kinky Boost compressor in front adds a small amount of harmonic saturation before the amp block, which is where the minimal "warmth" in the tone actually comes from.
+
+**Mid: 6.5** — Higher than flat. The Khruangbin tone is mid-present — not scooped, not aggressively forward, but occupying the midrange frequency space that bass guitar generally avoids. This is what lets the guitar and bass coexist in Khruangbin's arrangements without fighting. Run the mid lower and the guitar becomes thinner; it sounds like it's receding from the mix rather than floating in its own space.
+
+**Master: 7.0** — The Master Volume on this model affects the power section character in Helix. At 7.0, the amp model is adding a small amount of power-section compression and sag that affects how the neck pickup's fuller signal responds under sustained notes. Sounds slightly more "pushed" than the same amp at Master 4 or 5, even at identical actual output levels.
+
+**Sag: 3.5** — The Sag parameter simulates the power supply compression that happens in older tube amps under load. At 3.5, it adds a slight dynamic softening to the low end — the bass frequencies compress slightly before the treble frequencies do, which is exactly what a Deluxe Reverb's power supply does naturally. Without it, the neck pickup's low-mid content can feel slightly stiff.
+
+---
+
+## The Cab Block
+
+The 1x12 US Deluxe cab model pairs with the Grammatico Nashville because they're designed around the same source amp. The mic choice — 121 Ribbon — adds a natural warmth and high-frequency softness that a dynamic mic (SM57) or condenser would not. The ribbon's frequency response rolls off gently above 10kHz, which is the right behavior for a neck pickup that's already running a little dark.
+
+Low Cut at 80Hz: Removes the low-end content below what the guitar's neck pickup is actually producing in a useful frequency range. The HX Stomp cab model will otherwise carry sub-bass frequency content that doesn't serve the tone and can cause problems running into studio monitors or headphones.
+
+High Cut at 7kHz: This is the setting I arrived at through more experimentation than expected. The default or flat position allows too much high-frequency extension for the Khruangbin context — it makes the neck pickup sound more present and defined than the source tone, which should feel slightly diffuse. Cutting at 7kHz brings the sound back into the frequency range where the spring reverb can blend smoothly with the dry signal.
+
+---
+
+## The Spring Reverb: Where the Tone Lives
+
+The '63 Spring model is the most important block in this preset. Everything else sets up the frequency environment and the character; the spring reverb is where the tone becomes recognizably Khruangbin-adjacent.
+
+**Decay: 2.8s** — Speer's use of spring reverb is not subtle. This is a long, present decay — not background ambience but foreground architecture. The reverb tail is part of the note as much as the attack is.
+
+**Mix: 48%** — Nearly equal wet and dry. At this level, the spring reverb becomes a compositional element rather than a spatial effect. You can hear both the dry guitar signal and the reverb clearly; neither is burying the other.
+
+**Predelay: 12ms** — Creates a small gap between the dry attack and the reverb onset. This is what keeps the note legible despite the high mix level — the pick attack has a brief moment of clarity before the reverb arrives. Without predelay, the high mix causes the reverb to wash out the attack and the guitar loses definition.
+
+**Low Cut: 200Hz and High Cut: 5.5kHz** — These trim the reverb tail's frequency content without touching the dry signal. The Low Cut prevents the reverb from building up mud in the low-mid range at long decay times. The High Cut keeps the spring's characteristic high-frequency splash from becoming harsh at the 48% mix level. Together they let the reverb be present and audible without occupying frequency space where it creates problems.
+
+---
+
+## The Chorus: Almost Invisible
+
+The Vibe Rotary at very low speed and 20% depth is barely audible as an effect. What it's doing: adding a subtle, slow pitch modulation that makes the neck pickup's sustained notes sound slightly more three-dimensional. It functions like a very restrained chorus — you notice when it's removed more than you notice it when it's present.
+
+Mark Speer has used various chorus and phaser effects across Khruangbin's work, but he tends to run them at levels that suggest texture rather than announce an effect. The Vibe Rotary at these settings achieves the same principle — it's doing something to the texture of the tone that's below the threshold of "I hear a chorus effect."
+
+If you have only six blocks available on the HX Stomp and need to drop something, the Vibe Rotary comes out first. The core tone survives without it.
+
+---
+
+## Guitar and Pickup Position
+
+The HX Stomp preset does its job only if the guitar is set up to send the right signal into it. On a Stratocaster or Stratocaster-style guitar: neck pickup, guitar tone knob rolled back to about 7 to 8 (out of 10). This is not the same as rolling back the guitar volume — the tone control affects the pickup's resonant frequency peak and the distribution of upper harmonics rather than simply darkening the sound.
+
+On a Telecaster: neck pickup, tone rolled back similarly. The Telecaster neck pickup is warmer and fuller than a Strat neck pickup, which means it'll push more low-mid content into the Grammatico Nashville block. Compensate by pulling the amp Mid back to 5.5 instead of 6.5, or by using the Low Cut on the cab block at 100Hz instead of 80Hz.
+
+On humbuckers: possible but less convincing. Neck humbucker tone rolled back will approximate the character but with more low-mid density than the Khruangbin sound. The preset still works as a clean funk tone — just with a different guitar character at its center.
+
+For more on how pickup position shapes the frequency content arriving at the amp — why the neck pickup's resonant peak matters and how tone knob rollback changes it — the [pickup position guide](/blog/pickup-position-guide) covers the mechanics in detail.
+
+---
+
+## Running the HX Stomp
+
+**Into studio monitors or headphones:** Use the XLR outputs. Set the output level at the HX Stomp's global controls to a position where the monitors aren't being pushed hard — the preset is designed for a moderate listening level, not for pushing the monitors into their own distortion character.
+
+**Into a PA or front-of-house:** Same XLR outputs, with gain structure set at soundcheck. The preset is pre-EQ'd to sit in a mix; it may need slight global EQ adjustment depending on the PA system's coloring.
+
+**Into a power amp and cab (no amp sim):** Disable the cab block and send the output directly to a power amp into a guitar cab. The tone will be brighter and more present than through studio monitors — compensate by pulling the amp Treble to 4.5 and the High Cut out of the cab block (since there's no cab block). The spring reverb's High Cut at 5.5kHz becomes more important, not less.
+
+**Into a real amp's effects return:** Same as power amp and cab — disable the cab block, compensate with amp EQ.
+
+For the full picture on FRFR vs. guitar cab approaches and how the HX Stomp's output behaves differently in each context, the [FRFR vs. guitar cab guide](/blog/frfr-vs-guitar-cab-for-modelers) covers the decision framework.
+
+---
+
+## Variations: Pushing the Tone Further
+
+**More vintage spring character:** Try the Particle Verb block instead of the '63 Spring, with the character pulled toward the particle/spring setting. Slightly more nonlinear, slightly more artifacts. Less precise, more organic.
+
+**Less reverb, more clarity:** Pull the Mix to 30 to 35% and increase the Predelay to 20ms. The tone becomes more legible but loses some of the atmospheric quality that makes it specifically Khruangbin-adjacent.
+
+**Adding a wah as static filter:** A wah block before the compressor, set at a static position around 30 to 40% up the sweep, adds the mid-forward vowel character that Tom Morello uses deliberately. Speer doesn't do this, but it produces an interesting variation on the clean funk approach.
+
+---
+
+## FAQ
+
+**Do I need the full Helix for this, or does the HX Stomp cover it?**
+The HX Stomp covers it. Six blocks is exactly what this preset uses — no expansion hardware required. The Helix or Helix LT give you more routing flexibility and footswitches, but the signal chain for this specific tone fits the HX Stomp's block limit.
+
+**Can I replicate this on a Quad Cortex?**
+Yes. Use the Fender Deluxe Reverb model, add a spring reverb block at similar decay and mix settings, a light compression block before the amp, and a chorus set low. The Quad Cortex's spring reverb options are capable enough for this application.
+
+**What if I don't have the Grammatico Nashville model? (HX Stomp firmware version)**
+The Deluxe Reverb (Soup Pro) model is in older firmware versions and is also Fender Deluxe Reverb based. Use that with similar settings — Gain at 3.5 to 4, Mid slightly above noon, Treble slightly below noon, Sag at 3.5. The character is close enough.
+
+**Is the neck pickup tone knob rollback essential?**
+Yes, for the Khruangbin character specifically. The tone knob rollback does something to the pickup's resonant peak that the cab block or amp EQ can't replicate — it changes where the guitar's natural frequency emphasis lives before the signal reaches any processing. Set the tone to full and then pull it back until the guitar sounds slightly warmer and more diffuse. That's the position.
+
+**What's the single most important setting in this preset?**
+The reverb Mix at 48%. Everything else is setup; the reverb level is the decision that moves the tone from "clean Fender sound with reverb" to "Khruangbin guitar tone." Keep it high.
