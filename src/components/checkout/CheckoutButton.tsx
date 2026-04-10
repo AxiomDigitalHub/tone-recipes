@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { useAuth } from "@/lib/auth/auth-context";
 
@@ -10,6 +10,8 @@ interface CheckoutButtonProps {
   highlight?: boolean;
   className?: string;
 }
+
+const PENDING_CHECKOUT_KEY = "fk_pending_checkout";
 
 export default function CheckoutButton({
   plan,
@@ -21,22 +23,11 @@ export default function CheckoutButton({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  async function handleClick() {
+  const startCheckout = useCallback(async () => {
     setError("");
-
-    // If not logged in, prompt sign-in first
-    if (!user) {
-      if (typeof window !== "undefined") {
-        sessionStorage.setItem("returnTo", "/pricing");
-      }
-      await signInWithGoogle();
-      return;
-    }
-
     setLoading(true);
 
     try {
-      // Get session token
       const { createBrowserClient } = await import("@/lib/db/client");
       const supabase = createBrowserClient();
       const {
@@ -61,6 +52,10 @@ export default function CheckoutButton({
       const data = await res.json();
 
       if (data.url) {
+        // Clear pending flag before redirecting to Stripe
+        if (typeof window !== "undefined") {
+          sessionStorage.removeItem(PENDING_CHECKOUT_KEY);
+        }
         window.location.href = data.url;
       } else {
         setError(data.error || "Something went wrong.");
@@ -70,6 +65,33 @@ export default function CheckoutButton({
       setError("Failed to start checkout.");
       setLoading(false);
     }
+  }, [plan]);
+
+  // Auto-continue checkout after returning from OAuth
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!user) return;
+    const pending = sessionStorage.getItem(PENDING_CHECKOUT_KEY);
+    if (pending === plan) {
+      sessionStorage.removeItem(PENDING_CHECKOUT_KEY);
+      startCheckout();
+    }
+  }, [user, plan, startCheckout]);
+
+  async function handleClick() {
+    setError("");
+
+    // If not logged in, set pending checkout flag and sign in
+    if (!user) {
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem(PENDING_CHECKOUT_KEY, plan);
+        sessionStorage.setItem("returnTo", "/pricing");
+      }
+      await signInWithGoogle();
+      return;
+    }
+
+    await startCheckout();
   }
 
   return (

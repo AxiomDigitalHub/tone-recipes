@@ -6,7 +6,8 @@ import { useAuth } from "@/lib/auth/auth-context";
 import { useFavoritesStore } from "@/lib/stores/favorites-store";
 import { isSupabaseConfigured } from "@/lib/db/client";
 import { getProfile, getUserGear } from "@/lib/db/profile";
-import { BookOpen, Guitar, Settings } from "lucide-react";
+import { BookOpen, Guitar, Settings, Sparkles } from "lucide-react";
+import { TIERS } from "@/lib/permissions";
 
 /* -------------------------------------------------------------------------- */
 /*  Dashboard overview                                                        */
@@ -80,8 +81,15 @@ export default function DashboardPage() {
 
   const savedCount = hydrated ? getFavorites().length : 0;
   const displayName = user?.displayName ?? user?.email?.split("@")[0] ?? "there";
+  const tierLabel = user ? TIERS[user.role]?.label ?? "Free" : "Free";
+  const isPaid = user?.role === "premium" || user?.role === "creator" || user?.role === "admin";
 
   const stats = [
+    {
+      label: "Plan",
+      value: tierLabel,
+      highlight: isPaid,
+    },
     {
       label: "Saved Recipes",
       value: String(savedCount),
@@ -126,21 +134,44 @@ export default function DashboardPage() {
       </p>
 
       {/* Stats grid */}
-      <div className="mt-8 grid gap-4 sm:grid-cols-3">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-xl border border-border bg-surface p-5"
+            className={`rounded-xl border p-5 ${
+              stat.highlight
+                ? "border-accent/50 bg-accent/5"
+                : "border-border bg-surface"
+            }`}
           >
             <p className="text-xs font-medium uppercase tracking-wider text-muted">
               {stat.label}
             </p>
-            <p className="mt-2 text-2xl font-bold text-foreground">
-              {stat.value}
-            </p>
+            <div className="mt-2 flex items-center gap-2">
+              <p className={`text-2xl font-bold ${stat.highlight ? "text-accent" : "text-foreground"}`}>
+                {stat.value}
+              </p>
+              {stat.highlight && <Sparkles className="h-4 w-4 text-accent" />}
+            </div>
           </div>
         ))}
       </div>
+
+      {/* Upgrade prompt for free users */}
+      {!isPaid && (
+        <div className="mt-6 flex items-center justify-between gap-4 rounded-xl border border-accent/30 bg-accent/5 p-5">
+          <div>
+            <p className="text-sm font-semibold text-foreground">Unlock unlimited preset downloads</p>
+            <p className="mt-1 text-xs text-muted">Tone Pass is $7/mo. Cancel anytime.</p>
+          </div>
+          <Link
+            href="/pricing"
+            className="shrink-0 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+          >
+            Upgrade
+          </Link>
+        </div>
+      )}
 
       {/* Quick actions */}
       <h2 className="mt-10 text-lg font-semibold text-foreground">

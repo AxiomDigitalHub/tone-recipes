@@ -40,10 +40,18 @@ export default function DashboardShell({
   const router = useRouter();
   const pathname = usePathname();
 
+  // Grace period before redirecting to /login.
+  // Prevents a brief loading-false + user-null race from bouncing users
+  // off the dashboard when they return from external redirects (Stripe, OAuth).
   useEffect(() => {
-    if (!loading && !user) {
-      router.replace("/login");
-    }
+    if (loading || user) return;
+    const timer = setTimeout(() => {
+      // Re-check inside the timer — if user arrived during the grace period, bail
+      if (!user) {
+        router.replace("/login");
+      }
+    }, 1500);
+    return () => clearTimeout(timer);
   }, [loading, user, router]);
 
   if (loading) {
