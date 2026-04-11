@@ -43,7 +43,7 @@ export default function HeroV3() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#05070e] to-transparent" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-[90vh] max-w-5xl flex-col items-center justify-center px-4 py-28 text-center md:py-36">
+      <div className="relative z-10 mx-auto flex min-h-[100vh] max-w-5xl flex-col items-center justify-center px-4 py-40 text-center md:py-56">
         <h1
           className="font-[family-name:var(--font-display)] max-w-4xl text-5xl font-bold tracking-tight md:text-7xl lg:text-[96px]"
           style={{ letterSpacing: "-0.035em", lineHeight: 1.02 }}
@@ -327,18 +327,20 @@ function ArcTile({
   x,
   y,
   label,
-  color,
   delay,
   reduceMotion,
 }: {
   x: number;
   y: number;
   label: NodeLabel;
+  /** Arc color kept for reference, but the tile uses the icon's own
+   * category color for border/glow now (the arc still shows in its
+   * own color underneath). */
   color: string;
   delay: number;
   reduceMotion: boolean;
 }) {
-  const SIZE = 92;
+  const SIZE = 76;
   const nodeColor = NODE_COLORS[label].border;
   return (
     <foreignObject
@@ -352,19 +354,19 @@ function ArcTile({
         style={{
           width: SIZE,
           height: SIZE,
-          borderRadius: 16,
-          border: `1.5px solid ${color}`,
+          borderRadius: 14,
+          border: `1.5px solid ${nodeColor}`,
           background: "#0b0f1a",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          boxShadow: `0 0 0 1px ${color}22, 0 0 44px ${color}55, 0 0 90px ${color}28, inset 0 0 24px ${color}18`,
+          boxShadow: `0 0 0 1px ${nodeColor}22, 0 0 44px ${nodeColor}55, 0 0 90px ${nodeColor}28, inset 0 0 24px ${nodeColor}18`,
           animation: reduceMotion
             ? "none"
             : `heroV3ArcTilePulse 6s ease-in-out ${delay}s infinite`,
         }}
       >
-        <NodeIcon label={label} color={nodeColor} size={46} />
+        <NodeIcon label={label} color={nodeColor} size={48} />
         <style jsx>{`
           @keyframes heroV3ArcTilePulse {
             0%, 100% {

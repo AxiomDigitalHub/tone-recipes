@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import NodeIcon, { type NodeLabel, NODE_COLORS } from "./NodeIcon";
 
 /**
@@ -41,11 +41,7 @@ export default function HeroV2() {
       {/* Ambient background — faint signal flow, decorative only */}
       <AmbientBackdrop reduceMotion={reduceMotion} />
 
-      <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-24 text-center md:pt-36">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-accent/80">
-          Fader &amp; Knob
-        </p>
-
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-4 py-40 text-center md:py-56">
         <h1
           className="font-[family-name:var(--font-display)] mx-auto max-w-4xl text-5xl font-bold tracking-tight md:text-7xl lg:text-[88px]"
           style={{ letterSpacing: "-0.03em", lineHeight: 1.03 }}
@@ -94,8 +90,8 @@ export default function HeroV2() {
  * authored as a single graph so the connectors always land on the
  * actual tile centers, avoiding drift between the two layers.
  *
- * Positions are chosen to leave the center ~40% horizontal band free
- * for the headline + CTA.
+ * The hero is now full-screen (min-h-screen), so there's room for the
+ * six tiles and a true 6-link chain around the headline.
  */
 const V2_TILES: {
   id: string;
@@ -105,40 +101,56 @@ const V2_TILES: {
   size: number;
   delay: number;
 }[] = [
-  { id: "guitar-l",  label: "GUITAR",      x: 10, y: 28, size: 104, delay: 0.0 },
-  { id: "comp-l",    label: "COMPRESSION", x: 17, y: 74, size: 96,  delay: 1.6 },
-  { id: "drive-r",   label: "OVERDRIVE",   x: 87, y: 20, size: 100, delay: 3.2 },
-  { id: "amp-r",     label: "PREAMP",      x: 92, y: 68, size: 108, delay: 0.8 },
-  { id: "mic-b",     label: "MIC",         x: 50, y: 92, size: 92,  delay: 2.4 },
-  { id: "cab-tr",    label: "CABINET",     x: 78, y: 88, size: 88,  delay: 4.4 },
+  { id: "guitar-l",  label: "GUITAR",      x: 8,  y: 24, size: 82, delay: 0.0 },
+  { id: "comp-l",    label: "COMPRESSION", x: 13, y: 72, size: 76, delay: 1.6 },
+  { id: "drive-r",   label: "OVERDRIVE",   x: 90, y: 18, size: 80, delay: 3.2 },
+  { id: "amp-r",     label: "PREAMP",      x: 94, y: 66, size: 86, delay: 0.8 },
+  { id: "mic-b",     label: "MIC",         x: 50, y: 90, size: 74, delay: 2.4 },
+  { id: "cab-tr",    label: "CABINET",     x: 80, y: 88, size: 72, delay: 4.4 },
 ];
 
-// Dotted connector trails: each connects two tile IDs. Order of
-// declaration = the flow direction the traveling dot animates in.
-const V2_TRAILS: [string, string][] = [
-  ["guitar-l", "comp-l"],
-  ["comp-l", "mic-b"],
-  ["mic-b", "cab-tr"],
-  ["cab-tr", "amp-r"],
-  ["amp-r", "drive-r"],
+// Ordered chain the signal "flows" through, used to:
+// 1. render dotted connector trails between adjacent tiles
+// 2. anchor the grid-to-chain dot animation along this poly-line
+const V2_CHAIN: string[] = [
+  "guitar-l",
+  "comp-l",
+  "mic-b",
+  "cab-tr",
+  "amp-r",
+  "drive-r",
 ];
 
 /**
  * AmbientBackdrop — the decorative backdrop layer.
  *
- * Three layers, back to front:
- *   1. Sparse random dot field (the "bit pattern" texture)
- *   2. Radial vignette pulling attention to the center
- *   3. SVG with dotted connector trails + DIV gear tiles on top
+ * Layers (back to front):
+ *   1. Static sparse dot grid — the "bit pattern" texture
+ *   2. Amber radial vignette centering attention
+ *   3. SVG layer with:
+ *      - Dotted connector trails between adjacent tiles (bolder now)
+ *      - GridDots: ~44 SVG circles that animate from their grid
+ *        position to a point along the chain path and back on a 12s
+ *        cycle — the "bit pattern transferring into the signal chain"
+ *        effect.
+ *   4. The gear tiles themselves (DIVs with strong glow).
  */
 function AmbientBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
-  // Build a fast lookup from tile id to position
   const tileById = Object.fromEntries(V2_TILES.map((t) => [t.id, t]));
+  const chainPoints = V2_CHAIN.map((id) => tileById[id]).filter(Boolean);
+
+  // Pre-compute the set of animated grid-dots. Each dot has a fixed
+  // "grid" origin and a "chain" target interpolated along the chain
+  // poly-line. Memoized so we don't recompute on every render.
+  const gridDots = useMemo(() => {
+    return buildGridToChainDots(chainPoints);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
-      {/* Layer 1 — sparse dot field. A single radial-gradient tile
-          repeated gives a precise, printed-circuit feel. */}
+      {/* Layer 1 — sparse dot grid background. A single radial-gradient
+          tile repeated gives a clean, printed-circuit feel. */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -155,31 +167,27 @@ function AmbientBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
       {/* Layer 2 — amber vignette */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_32%,_rgba(245,158,11,0.09),_transparent_55%)]" />
 
-      {/* Layer 3 — SVG trails connecting the floating tiles. Uses
-          viewBox 0..100 for x and y so it matches the tile percent
-          coordinates exactly (non-uniform preserveAspectRatio). */}
+      {/* Layer 3 — SVG: chain trails + animated grid dots */}
       <svg
         className="pointer-events-none absolute inset-0 h-full w-full"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
         fill="none"
       >
-        {V2_TRAILS.map(([fromId, toId], i) => {
-          const a = tileById[fromId];
-          const b = tileById[toId];
-          if (!a || !b) return null;
-
+        {/* Dotted connector trails — ordered along V2_CHAIN */}
+        {chainPoints.slice(0, -1).map((a, i) => {
+          const b = chainPoints[i + 1];
           return (
             <line
-              key={`${fromId}->${toId}`}
+              key={`trail-${a.id}->${b.id}`}
               x1={a.x}
               y1={a.y}
               x2={b.x}
               y2={b.y}
-              stroke="#c8dcff"
-              strokeOpacity="0.35"
-              strokeWidth="0.25"
-              strokeDasharray="0.4 1.2"
+              stroke="#9dc4ff"
+              strokeOpacity="0.55"
+              strokeWidth="1.6"
+              strokeDasharray="0.9 1.6"
               strokeLinecap="round"
               vectorEffect="non-scaling-stroke"
               style={{
@@ -190,9 +198,34 @@ function AmbientBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
             />
           );
         })}
+
+        {/* Animated grid dots — "bit pattern transferring into the chain" */}
+        {gridDots.map((dot, i) => (
+          <circle
+            key={`grid-dot-${i}`}
+            cx={0}
+            cy={0}
+            r="0.35"
+            fill="#9dc4ff"
+            vectorEffect="non-scaling-stroke"
+            style={
+              reduceMotion
+                ? {
+                    transform: `translate(${dot.gx}px, ${dot.gy}px)`,
+                  }
+                : ({
+                    ["--gx" as string]: `${dot.gx}px`,
+                    ["--gy" as string]: `${dot.gy}px`,
+                    ["--cx" as string]: `${dot.cx}px`,
+                    ["--cy" as string]: `${dot.cy}px`,
+                    animation: `heroV2DotFlow 12s ease-in-out ${dot.delay}s infinite`,
+                  } as React.CSSProperties)
+            }
+          />
+        ))}
       </svg>
 
-      {/* Gear tiles — large, floating, using real signal-chain glyphs */}
+      {/* Gear tiles — smaller than before (72-86px), strong glow */}
       <div className="pointer-events-none absolute inset-0">
         {V2_TILES.map((tile) => (
           <FloatingNodeTile
@@ -207,18 +240,87 @@ function AmbientBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
         ))}
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         @keyframes heroV2TrailFlow {
           from {
             stroke-dashoffset: 0;
           }
           to {
-            stroke-dashoffset: -16;
+            stroke-dashoffset: -20;
           }
+        }
+
+        /* Grid-to-chain dot animation: dots rest at grid, glide to the
+           chain line, hold, glide back. 12s loop. The opacity spikes
+           during the chain portion so the chain briefly "lights up"
+           as it forms. */
+        @keyframes heroV2DotFlow {
+          0%   { transform: translate(var(--gx), var(--gy)); opacity: 0.55; }
+          18%  { transform: translate(var(--gx), var(--gy)); opacity: 0.55; }
+          38%  { transform: translate(var(--cx), var(--cy)); opacity: 1;    }
+          62%  { transform: translate(var(--cx), var(--cy)); opacity: 1;    }
+          82%  { transform: translate(var(--gx), var(--gy)); opacity: 0.55; }
+          100% { transform: translate(var(--gx), var(--gy)); opacity: 0.55; }
         }
       `}</style>
     </>
   );
+}
+
+/**
+ * Build the set of dots that animate between their grid origin and
+ * the chain line. Returns an array of { gx, gy, cx, cy, delay }
+ * objects in SVG user units (0..100 on both axes).
+ */
+function buildGridToChainDots(
+  chain: { x: number; y: number }[]
+): { gx: number; gy: number; cx: number; cy: number; delay: number }[] {
+  if (chain.length < 2) return [];
+
+  // 1. Sample N evenly-spaced points along the multi-segment chain path.
+  //    These become the "chain targets" each dot animates to.
+  const N = 44;
+  const segments = [];
+  let totalLen = 0;
+  for (let i = 0; i < chain.length - 1; i++) {
+    const a = chain[i];
+    const b = chain[i + 1];
+    const len = Math.hypot(b.x - a.x, b.y - a.y);
+    segments.push({ a, b, len });
+    totalLen += len;
+  }
+
+  const targets: { x: number; y: number }[] = [];
+  for (let i = 0; i < N; i++) {
+    const t = (i + 0.5) / N; // avoid endpoints
+    let d = t * totalLen;
+    for (const seg of segments) {
+      if (d <= seg.len) {
+        const tt = d / seg.len;
+        targets.push({
+          x: seg.a.x + (seg.b.x - seg.a.x) * tt,
+          y: seg.a.y + (seg.b.y - seg.a.y) * tt,
+        });
+        break;
+      }
+      d -= seg.len;
+    }
+  }
+
+  // 2. For each target, pick a nearby grid origin. Grid is 6 user
+  //    units spacing (denser than the visual dot-grid background to
+  //    keep motion localised). Perturb randomly so the starting
+  //    positions don't align in a visible pattern.
+  const step = 6;
+  return targets.map((t, i) => {
+    // Offset from target by a pseudo-random vector on the grid
+    const ang = (i * 137.508 * Math.PI) / 180; // golden angle
+    const r = 10 + ((i * 31) % 14); // 10..24 units away
+    const gx = Math.round((t.x + Math.cos(ang) * r) / step) * step;
+    const gy = Math.round((t.y + Math.sin(ang) * r) / step) * step;
+    const delay = (i * 12) / N; // stagger across the full 12s cycle
+    return { gx, gy, cx: t.x, cy: t.y, delay };
+  });
 }
 
 /**
@@ -244,6 +346,15 @@ function FloatingNodeTile({
   reduceMotion: boolean;
 }) {
   const color = NODE_COLORS[label].border;
+  // Glow strength matches the v3 arc tiles: a tight inner ring + a
+  // medium glow + a broader soft halo. Color is tied to the icon so
+  // outer glow always matches inner icon.
+  const glow = [
+    `0 0 0 1px ${color}22`,
+    `0 0 ${size * 0.55}px ${color}55`,
+    `0 0 ${size * 1.1}px ${color}28`,
+    `inset 0 0 ${size * 0.3}px ${color}18`,
+  ].join(", ");
   return (
     <div
       style={{
@@ -253,31 +364,29 @@ function FloatingNodeTile({
         width: size,
         height: size,
         borderRadius: size * 0.18,
-        border: `1.5px solid ${color}66`,
-        background: "rgba(8, 12, 22, 0.88)",
-        backdropFilter: "blur(4px)",
+        border: `1.5px solid ${color}`,
+        background: "#0b0f1a",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        boxShadow: `0 0 ${size * 0.55}px ${color}30, 0 0 ${size * 1.1}px ${color}12, inset 0 0 ${size * 0.3}px ${color}10`,
-        opacity: 0.78,
+        boxShadow: glow,
         transform: "translate(-50%, -50%)",
         animation: reduceMotion
           ? "none"
           : `heroV2NodeFloat 12s ease-in-out ${delay}s infinite`,
       }}
     >
-      <NodeIcon label={label} color={color} size={Math.round(size * 0.5)} />
+      <NodeIcon label={label} color={color} size={Math.round(size * 0.62)} />
       <style jsx>{`
         @keyframes heroV2NodeFloat {
           0%,
           100% {
             transform: translate(-50%, -50%) scale(0.99);
-            opacity: 0.68;
+            filter: brightness(0.95);
           }
           50% {
-            transform: translate(-50%, calc(-50% - 12px)) scale(1.03);
-            opacity: 0.9;
+            transform: translate(-50%, calc(-50% - 10px)) scale(1.03);
+            filter: brightness(1.15);
           }
         }
       `}</style>
