@@ -47,15 +47,53 @@ print(data[mood]['prompt_template'])
 "
 }
 
-# List all mood keys (excluding _meta)
+# List all mood keys (excluding _meta and _composition_rules)
 list_moods() {
   MOODBOARDS_JSON="$MOODBOARDS_JSON" python3 -c "
 import json, os
 with open(os.environ['MOODBOARDS_JSON']) as f:
     data = json.load(f)
 for k in data:
-    if k != '_meta':
+    if not k.startswith('_'):
         print(k)
+"
+}
+
+# Pick a deterministic mood for a given author slug.
+# Uses the moodboard's authors array, picking the first mood that
+# lists the author. Falls back to nocturnal_studio.
+mood_for_author() {
+  local author_slug="$1"
+  FK_AUTHOR="$author_slug" python3 -c "
+import json, os, sys
+with open(os.environ['MOODBOARDS_JSON']) as f:
+    data = json.load(f)
+author = os.environ['FK_AUTHOR']
+for mood_key, mood in data.items():
+    if mood_key.startswith('_'):
+        continue
+    if author in (mood.get('authors') or []):
+        print(mood_key)
+        sys.exit(0)
+print('nocturnal_studio')
+"
+}
+
+# List all author -> mood mappings from the moodboards file
+list_authors() {
+  MOODBOARDS_JSON="$MOODBOARDS_JSON" python3 -c "
+import json, os
+with open(os.environ['MOODBOARDS_JSON']) as f:
+    data = json.load(f)
+rows = []
+for mood_key, mood in data.items():
+    if mood_key.startswith('_'):
+        continue
+    for a in (mood.get('authors') or []):
+        rows.append((a, mood_key, mood.get('label','')))
+rows.sort()
+for author, mood_key, label in rows:
+    print(f'{author:22} {mood_key:22} {label}')
 "
 }
 
@@ -89,17 +127,43 @@ print(json.dumps({
 }))
 ")
 
-  local resp
-  resp=$(curl -s -X POST "https://api.replicate.com/v1/models/$MODEL/predictions" \
-    -H "Authorization: Bearer $TOKEN" \
-    -H "Content-Type: application/json" \
-    -d "$payload")
+  local resp pid retry_after
+  local attempts=0
+  # Retry loop with backoff for 429 rate-limit responses.
+  # Replicate throttles heavily when account credit is low.
+  while [ "$attempts" -lt 8 ]; do
+    resp=$(curl -s -X POST "https://api.replicate.com/v1/models/$MODEL/predictions" \
+      -H "Authorization: Bearer $TOKEN" \
+      -H "Content-Type: application/json" \
+      -d "$payload")
 
-  local pid
-  pid=$(echo "$resp" | python3 -c "import sys,json; print(json.load(sys.stdin).get('id',''))" 2>/dev/null || true)
+    pid=$(echo "$resp" | python3 -c "import sys,json; print(json.load(sys.stdin).get('id',''))" 2>/dev/null || true)
+
+    if [ -n "$pid" ]; then
+      break
+    fi
+
+    # Parse retry_after from the Replicate throttle response
+    retry_after=$(echo "$resp" | python3 -c "
+import sys, json
+try:
+    d = json.load(sys.stdin)
+    print(int(d.get('retry_after') or 10))
+except Exception:
+    print(10)
+" 2>/dev/null)
+
+    if [ -z "$retry_after" ] || [ "$retry_after" -lt 5 ]; then
+      retry_after=10
+    fi
+
+    attempts=$((attempts + 1))
+    echo "  ...throttled, waiting ${retry_after}s (attempt $attempts/8)"
+    sleep "$retry_after"
+  done
 
   if [ -z "$pid" ]; then
-    echo "  ERROR: Failed to start prediction"
+    echo "  ERROR: Failed to start prediction after 8 retries"
     echo "  Response: $(echo "$resp" | head -c 300)"
     return 1
   fi
@@ -200,11 +264,34 @@ print(data[os.environ['FK_MOOD']]['label'])
     done
     ;;
 
+  author)
+    # Generate a single image using the mood assigned to a specific author
+    AUTHOR="${2:?Usage: $0 author <author_slug> <slug> '<subject>'}"
+    SLUG="${3:?Usage: $0 author <author_slug> <slug> '<subject>'}"
+    SUBJECT="${4:?Usage: $0 author <author_slug> <slug> '<subject>'}"
+
+    MOOD=$(mood_for_author "$AUTHOR")
+    OUTDIR="public/images/blog-moodboards/$MOOD"
+    mkdir -p "$OUTDIR"
+
+    echo "[$AUTHOR -> $MOOD] $SLUG"
+    template=$(get_template "$MOOD")
+    outfile="$OUTDIR/$SLUG.$OUTPUT_FORMAT"
+    generate_image "$outfile" "$template" "$SUBJECT"
+    ;;
+
+  authors-list)
+    echo "Author -> Moodboard assignments:"
+    list_authors
+    ;;
+
   *)
     echo "Usage:"
-    echo "  $0 sample [subject] [slug]          # Generate one image per moodboard"
-    echo "  $0 one <mood_key> <slug> <subject>  # Generate one image with a specific mood"
-    echo "  $0 list                             # List available moodboards"
+    echo "  $0 sample [subject] [slug]                     # Generate one image per moodboard"
+    echo "  $0 one <mood_key> <slug> <subject>             # Generate with a specific mood"
+    echo "  $0 author <author_slug> <slug> <subject>       # Generate with the mood assigned to an author"
+    echo "  $0 list                                        # List available moodboards"
+    echo "  $0 authors-list                                # Show author -> mood assignments"
     exit 1
     ;;
 esac
