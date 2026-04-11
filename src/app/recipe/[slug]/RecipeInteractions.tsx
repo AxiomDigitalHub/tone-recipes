@@ -5,6 +5,7 @@ import StarRating from "@/components/community/StarRating";
 import CommentSection from "@/components/community/CommentSection";
 import { getRatingStats, getUserRating, rateRecipe } from "@/lib/db/ratings";
 import { useAuth } from "@/lib/auth/auth-context";
+import { useRecentlyViewedStore } from "@/lib/stores/recently-viewed-store";
 import type { RatingStats } from "@/types/community";
 
 interface RecipeInteractionsProps {
@@ -13,6 +14,7 @@ interface RecipeInteractionsProps {
 
 export default function RecipeInteractions({ recipeSlug }: RecipeInteractionsProps) {
   const { user } = useAuth();
+  const recordView = useRecentlyViewedStore((s) => s.record);
   const [stats, setStats] = useState<RatingStats>({
     average: 0,
     count: 0,
@@ -20,6 +22,11 @@ export default function RecipeInteractions({ recipeSlug }: RecipeInteractionsPro
   });
   const [userRating, setUserRating] = useState<number | null>(null);
   const [ratingLoading, setRatingLoading] = useState(true);
+
+  // Record this recipe in the recently-viewed store (dashboard reads this)
+  useEffect(() => {
+    if (recipeSlug) recordView(recipeSlug);
+  }, [recipeSlug, recordView]);
 
   const loadRatings = useCallback(async () => {
     try {
