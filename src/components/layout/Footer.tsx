@@ -79,6 +79,8 @@ export default function Footer() {
             <Link href="/how-we-work" className="underline hover:text-muted">How We Work</Link>
             <Link href="/affiliate-disclosure" className="underline hover:text-muted">Affiliate Disclosure</Link>
             <Link href="/privacy" className="underline hover:text-muted">Privacy Policy</Link>
+            <Link href="/terms" className="underline hover:text-muted">Terms of Service</Link>
+            <Link href="/about" className="underline hover:text-muted">About</Link>
           </div>
           <p>
             Content on this site is researched and written with AI assistance and verified by humans on real hardware.
