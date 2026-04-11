@@ -7,18 +7,23 @@ import NodeIcon, { type NodeLabel, NODE_COLORS } from "./NodeIcon";
 /**
  * HeroV2 — clean version of the landing hero.
  *
- * What changed vs the v1 hero:
- * - No cable routing. The clever-but-confusing SVG that measured from
- *   "you love." down to the guitar node is gone.
- * - No gradient underline. "you love." used to have a rainbow bg-clip
- *   that read as visual noise, not emphasis. Replaced with a simple
- *   amber serif accent that reads as intentional.
- * - The signal chain is no longer jammed into the hero. It lives as its
- *   own full-width block below the fold so each element gets room to
- *   breathe.
- * - Ambient background: a very faint grid of dots + dashes evoking a
- *   signal flow at ~6% opacity behind the headline. Decorative,
- *   non-interactive, prefers-reduced-motion compliant.
+ * Second iteration: the decorative layer is now a sparse dot grid
+ * (Antigravity / Usenotra style) with large floating gear tiles and
+ * animated dotted connector trails running between them. The old
+ * vertical-stripe pattern was read as "odd" and is gone.
+ *
+ * What's here:
+ * - Sparse random dot field covering the hero, ~3px dots on a 32px
+ *   grid with ~18% density. Very subtle, reads as tech texture.
+ * - 6 larger (80-110px) gear tiles floating at distinct positions
+ *   around the hero: GUITAR, COMPRESSION, OVERDRIVE, PREAMP, MIC,
+ *   CABINET. Each has a slow vertical drift + scale pulse so the
+ *   hero feels alive but not busy.
+ * - 5 dotted SVG connector trails between adjacent tiles with
+ *   stroke-dashoffset animation producing a traveling-signal effect.
+ *   Reads as "signal flowing between gear blocks."
+ * - prefers-reduced-motion: no drift, no trail animation, static
+ *   snapshot renders cleanly.
  */
 export default function HeroV2() {
   const [reduceMotion, setReduceMotion] = useState(false);
@@ -84,54 +89,131 @@ export default function HeroV2() {
 }
 
 /**
- * AmbientBackdrop — decorative background layer.
+ * Positions for the floating tiles (percent-of-hero coordinates) and
+ * the dotted connector trails between them. Tiles and connectors are
+ * authored as a single graph so the connectors always land on the
+ * actual tile centers, avoiding drift between the two layers.
  *
- * Tiled SVG pattern of small dots, short dashes, and faint rings evoking
- * a signal flow diagram, rendered at 6% opacity behind the headline.
- * No animation unless prefers-reduced-motion is false, and even then it's
- * a 20-second slow drift.
+ * Positions are chosen to leave the center ~40% horizontal band free
+ * for the headline + CTA.
+ */
+const V2_TILES: {
+  id: string;
+  label: NodeLabel;
+  x: number; // percent 0..100
+  y: number; // percent 0..100
+  size: number;
+  delay: number;
+}[] = [
+  { id: "guitar-l",  label: "GUITAR",      x: 10, y: 28, size: 104, delay: 0.0 },
+  { id: "comp-l",    label: "COMPRESSION", x: 17, y: 74, size: 96,  delay: 1.6 },
+  { id: "drive-r",   label: "OVERDRIVE",   x: 87, y: 20, size: 100, delay: 3.2 },
+  { id: "amp-r",     label: "PREAMP",      x: 92, y: 68, size: 108, delay: 0.8 },
+  { id: "mic-b",     label: "MIC",         x: 50, y: 92, size: 92,  delay: 2.4 },
+  { id: "cab-tr",    label: "CABINET",     x: 78, y: 88, size: 88,  delay: 4.4 },
+];
+
+// Dotted connector trails: each connects two tile IDs. Order of
+// declaration = the flow direction the traveling dot animates in.
+const V2_TRAILS: [string, string][] = [
+  ["guitar-l", "comp-l"],
+  ["comp-l", "mic-b"],
+  ["mic-b", "cab-tr"],
+  ["cab-tr", "amp-r"],
+  ["amp-r", "drive-r"],
+];
+
+/**
+ * AmbientBackdrop — the decorative backdrop layer.
+ *
+ * Three layers, back to front:
+ *   1. Sparse random dot field (the "bit pattern" texture)
+ *   2. Radial vignette pulling attention to the center
+ *   3. SVG with dotted connector trails + DIV gear tiles on top
  */
 function AmbientBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
+  // Build a fast lookup from tile id to position
+  const tileById = Object.fromEntries(V2_TILES.map((t) => [t.id, t]));
+
   return (
     <>
-      {/* Radial vignette anchoring attention to the center */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,_rgba(245,158,11,0.07),_transparent_55%)]" />
-
-      {/* Tiled signal-flow pattern */}
+      {/* Layer 1 — sparse dot field. A single radial-gradient tile
+          repeated gives a precise, printed-circuit feel. */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.055]"
+        className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 20% 40%, rgba(245,158,11,0.9) 1.2px, transparent 1.3px)," +
-            "radial-gradient(circle at 80% 60%, rgba(34,211,238,0.85) 1.2px, transparent 1.3px)," +
-            "linear-gradient(90deg, rgba(250,250,250,0.35) 0, rgba(250,250,250,0.35) 14px, transparent 14px, transparent 28px)",
-          backgroundSize: "120px 120px, 120px 120px, 28px 2px",
-          backgroundPosition: "0 0, 60px 60px, 0 62px",
-          backgroundRepeat: "repeat",
-          animation: reduceMotion ? "none" : "heroV2Drift 20s linear infinite",
+            "radial-gradient(circle at 1px 1px, rgba(200, 220, 255, 0.22) 1px, transparent 1.5px)",
+          backgroundSize: "24px 24px",
+          maskImage:
+            "radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.2) 80%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.2) 80%)",
         }}
       />
 
-      {/* Floating node tiles — actual gear block glyphs, not generic dots.
-          Each represents a category the recipe system covers: compression,
-          guitar, drive, amp, mic. Muted enough to be background texture. */}
+      {/* Layer 2 — amber vignette */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_32%,_rgba(245,158,11,0.09),_transparent_55%)]" />
+
+      {/* Layer 3 — SVG trails connecting the floating tiles. Uses
+          viewBox 0..100 for x and y so it matches the tile percent
+          coordinates exactly (non-uniform preserveAspectRatio). */}
+      <svg
+        className="pointer-events-none absolute inset-0 h-full w-full"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        fill="none"
+      >
+        {V2_TRAILS.map(([fromId, toId], i) => {
+          const a = tileById[fromId];
+          const b = tileById[toId];
+          if (!a || !b) return null;
+
+          return (
+            <line
+              key={`${fromId}->${toId}`}
+              x1={a.x}
+              y1={a.y}
+              x2={b.x}
+              y2={b.y}
+              stroke="#c8dcff"
+              strokeOpacity="0.35"
+              strokeWidth="0.25"
+              strokeDasharray="0.4 1.2"
+              strokeLinecap="round"
+              vectorEffect="non-scaling-stroke"
+              style={{
+                animation: reduceMotion
+                  ? "none"
+                  : `heroV2TrailFlow 4s linear ${i * 0.6}s infinite`,
+              }}
+            />
+          );
+        })}
+      </svg>
+
+      {/* Gear tiles — large, floating, using real signal-chain glyphs */}
       <div className="pointer-events-none absolute inset-0">
-        <FloatingNodeTile label="GUITAR"      top="22%"  left="9%"  size={46} delay={0.0}  reduceMotion={reduceMotion} />
-        <FloatingNodeTile label="COMPRESSION" top="72%"  left="15%" size={42} delay={1.6}  reduceMotion={reduceMotion} />
-        <FloatingNodeTile label="OVERDRIVE"   top="16%"  left="84%" size={44} delay={3.2}  reduceMotion={reduceMotion} />
-        <FloatingNodeTile label="PREAMP"      top="68%"  left="88%" size={48} delay={0.8}  reduceMotion={reduceMotion} />
-        <FloatingNodeTile label="MIC"         top="82%"  left="48%" size={40} delay={2.4}  reduceMotion={reduceMotion} />
-        <FloatingNodeTile label="GUITAR"      top="85%"  left="74%" size={34} delay={4.0}  reduceMotion={reduceMotion} />
-        <FloatingNodeTile label="COMPRESSION" top="12%"  left="52%" size={32} delay={4.8}  reduceMotion={reduceMotion} />
+        {V2_TILES.map((tile) => (
+          <FloatingNodeTile
+            key={tile.id}
+            label={tile.label}
+            top={`${tile.y}%`}
+            left={`${tile.x}%`}
+            size={tile.size}
+            delay={tile.delay}
+            reduceMotion={reduceMotion}
+          />
+        ))}
       </div>
 
       <style jsx>{`
-        @keyframes heroV2Drift {
+        @keyframes heroV2TrailFlow {
           from {
-            background-position: 0 0, 60px 60px, 0 62px;
+            stroke-dashoffset: 0;
           }
           to {
-            background-position: 120px 0, 180px 60px, 28px 62px;
+            stroke-dashoffset: -16;
           }
         }
       `}</style>
@@ -140,10 +222,11 @@ function AmbientBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
 }
 
 /**
- * FloatingNodeTile — a small rounded-square tile containing a node glyph.
- * Used as ambient texture in the v2 hero background. Tiles pulse gently
- * and drift a few pixels on a long cycle so the hero feels alive without
- * being busy.
+ * FloatingNodeTile — a larger rounded-square tile containing a node
+ * glyph. Drifts gently vertically and pulses on a slow cycle so the
+ * hero feels alive without being busy. Size is much larger in v2-r2
+ * (80-110px) so the tiles read as real gear blocks instead of
+ * background ornaments.
  */
 function FloatingNodeTile({
   label,
@@ -169,32 +252,32 @@ function FloatingNodeTile({
         left,
         width: size,
         height: size,
-        borderRadius: size * 0.22,
-        border: `1px solid ${color}33`,
-        background: "rgba(11, 15, 26, 0.72)",
-        backdropFilter: "blur(2px)",
+        borderRadius: size * 0.18,
+        border: `1.5px solid ${color}66`,
+        background: "rgba(8, 12, 22, 0.88)",
+        backdropFilter: "blur(4px)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        boxShadow: `0 0 ${size * 0.6}px ${color}18, inset 0 0 ${size * 0.3}px ${color}08`,
-        opacity: 0.55,
+        boxShadow: `0 0 ${size * 0.55}px ${color}30, 0 0 ${size * 1.1}px ${color}12, inset 0 0 ${size * 0.3}px ${color}10`,
+        opacity: 0.78,
         transform: "translate(-50%, -50%)",
         animation: reduceMotion
           ? "none"
-          : `heroV2NodePulse 9s ease-in-out ${delay}s infinite`,
+          : `heroV2NodeFloat 12s ease-in-out ${delay}s infinite`,
       }}
     >
-      <NodeIcon label={label} color={color} size={Math.round(size * 0.62)} />
+      <NodeIcon label={label} color={color} size={Math.round(size * 0.5)} />
       <style jsx>{`
-        @keyframes heroV2NodePulse {
+        @keyframes heroV2NodeFloat {
           0%,
           100% {
-            opacity: 0.38;
-            transform: translate(-50%, -50%) scale(0.94);
+            transform: translate(-50%, -50%) scale(0.99);
+            opacity: 0.68;
           }
           50% {
-            opacity: 0.72;
-            transform: translate(-50%, calc(-50% - 6px)) scale(1.02);
+            transform: translate(-50%, calc(-50% - 12px)) scale(1.03);
+            opacity: 0.9;
           }
         }
       `}</style>

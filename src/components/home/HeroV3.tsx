@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import NodeIcon, { type NodeLabel, NODE_COLORS } from "./NodeIcon";
 
 /**
@@ -44,10 +44,6 @@ export default function HeroV3() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-[90vh] max-w-5xl flex-col items-center justify-center px-4 py-28 text-center md:py-36">
-        <p className="mb-7 text-xs font-semibold uppercase tracking-[0.24em] text-accent/80">
-          Fader &amp; Knob
-        </p>
-
         <h1
           className="font-[family-name:var(--font-display)] max-w-4xl text-5xl font-bold tracking-tight md:text-7xl lg:text-[96px]"
           style={{ letterSpacing: "-0.035em", lineHeight: 1.02 }}
@@ -98,15 +94,6 @@ export default function HeroV3() {
           </span>
         </p>
 
-        {/* Large wordmark anchor at the bottom of the hero */}
-        <div className="mt-24 w-full md:mt-32">
-          <div
-            className="font-[family-name:var(--font-display)] select-none bg-gradient-to-b from-white/90 via-white/40 to-transparent bg-clip-text text-center text-[18vw] font-bold leading-none tracking-tight text-transparent md:text-[14vw] lg:text-[180px]"
-            style={{ letterSpacing: "-0.04em" }}
-          >
-            Fader &amp; <span className="text-accent/70">Knob</span>
-          </div>
-        </div>
       </div>
 
       <style jsx>{`
@@ -120,36 +107,111 @@ export default function HeroV3() {
 }
 
 /**
- * OrbitalBackdrop — the decorative layer.
- *
- * Renders:
- * 1. Three curved SVG arcs in cyan/violet/magenta with animated
- *    stroke-dashoffset producing the illusion of light flowing along
- *    the path.
- * 2. A scatter of ~20 node tiles at percentage positions, each using a
- *    real signal-chain glyph (GUITAR, COMPRESSION, OVERDRIVE, PREAMP,
- *    DELAY, CABINET, MIC). Sizes and opacities vary to suggest depth.
- * 3. A radial vignette to focus the center for the headline.
+ * Arc path definitions. Each arc carries a color, a list of nodes that
+ * "ride" the path, and the SVG path d-string. Tiles are placed onto the
+ * path at runtime via getPointAtLength so they stay precisely aligned
+ * with the arc no matter the viewport.
+ */
+const ARC_CYAN    = "M -100 700 Q 400 100 900 380 T 1800 280";
+const ARC_VIOLET  = "M 1700 300 Q 1100 950 500 700 T -100 520";
+const ARC_MAGENTA = "M -100 420 Q 500 1100 1000 780 T 1800 900";
+
+type ArcConfig = {
+  d: string;
+  color: string;
+  nodes: NodeLabel[];
+  /** Each node is placed at this fraction of path length. Values in (0,1). */
+  positions: number[];
+  /** Where along the path the traveling light starts (for the stroke-dash). */
+  dashTotal: number;
+  dashVisible: number;
+  duration: number;
+};
+
+const ARCS: ArcConfig[] = [
+  {
+    d: ARC_CYAN,
+    color: "#22d3ee",
+    nodes: ["GUITAR", "COMPRESSION", "OVERDRIVE", "PREAMP", "MIC"],
+    positions: [0.12, 0.3, 0.5, 0.72, 0.9],
+    dashTotal: 1580,
+    dashVisible: 180,
+    duration: 6,
+  },
+  {
+    d: ARC_VIOLET,
+    color: "#a78bfa",
+    nodes: ["CABINET", "DELAY", "CHORUS", "GUITAR"],
+    positions: [0.14, 0.38, 0.62, 0.86],
+    dashTotal: 1820,
+    dashVisible: 220,
+    duration: 7.5,
+  },
+  {
+    d: ARC_MAGENTA,
+    color: "#f472b6",
+    nodes: ["PREAMP", "CABINET", "OVERDRIVE", "COMPRESSION"],
+    positions: [0.14, 0.36, 0.6, 0.86],
+    dashTotal: 1700,
+    dashVisible: 200,
+    duration: 5.5,
+  },
+];
+
+type TilePoint = {
+  x: number;
+  y: number;
+  label: NodeLabel;
+  color: string;
+  delay: number;
+};
+
+/**
+ * OrbitalBackdrop — decorative layer with:
+ * 1. Three curved arcs (cyan, violet, magenta) with animated
+ *    stroke-dashoffset producing traveling light pulses.
+ * 2. Solid glowing node tiles riding ON the arcs. Tile positions are
+ *    computed at mount via getPointAtLength so they land precisely on
+ *    each path. Tiles are rendered inside the SVG as <foreignObject>
+ *    so they scale with the paths exactly.
+ * 3. A radial vignette to focus attention on the headline.
  */
 function OrbitalBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
+  const cyanRef = useRef<SVGPathElement>(null);
+  const violetRef = useRef<SVGPathElement>(null);
+  const magentaRef = useRef<SVGPathElement>(null);
+  const [tiles, setTiles] = useState<TilePoint[]>([]);
+
+  useEffect(() => {
+    const refs = [cyanRef, violetRef, magentaRef];
+    const computed: TilePoint[] = [];
+    let delayIdx = 0;
+
+    ARCS.forEach((arc, ai) => {
+      const path = refs[ai].current;
+      if (!path) return;
+      const len = path.getTotalLength();
+      arc.nodes.forEach((label, ni) => {
+        const pt = path.getPointAtLength(len * arc.positions[ni]);
+        computed.push({
+          x: pt.x,
+          y: pt.y,
+          label,
+          color: arc.color,
+          delay: (delayIdx * 0.4) % 6,
+        });
+        delayIdx += 1;
+      });
+    });
+
+    setTiles(computed);
+  }, []);
+
   return (
     <>
       {/* Radial vignette anchoring attention on the headline */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,_rgba(245,158,11,0.10),_transparent_55%)]" />
 
-      {/* Scattered node tiles */}
-      <div className="pointer-events-none absolute inset-0">
-        {TILES.map((tile, i) => (
-          <FloatingTile
-            key={i}
-            {...tile}
-            reduceMotion={reduceMotion}
-            delay={(i * 0.4) % 6}
-          />
-        ))}
-      </div>
-
-      {/* Arc trails — the signal flow */}
       <svg
         className="pointer-events-none absolute inset-0 h-full w-full"
         viewBox="0 0 1600 1100"
@@ -157,7 +219,6 @@ function OrbitalBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
         fill="none"
       >
         <defs>
-          {/* Glow filter */}
           <filter id="heroV3Glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="6" result="blur" />
             <feMerge>
@@ -166,9 +227,6 @@ function OrbitalBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
             </feMerge>
           </filter>
 
-          {/* Each arc gets a linear gradient stroke that fades from clear
-              to color to clear, so it reads as a "trail" with a bright
-              middle instead of a solid line. */}
           <linearGradient id="heroV3ArcCyan" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#22d3ee" stopOpacity="0" />
             <stop offset="50%" stopColor="#22d3ee" stopOpacity="0.9" />
@@ -186,200 +244,140 @@ function OrbitalBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
           </linearGradient>
         </defs>
 
-        {/* Cyan arc — sweeps across the top half */}
+        {/* Static low-opacity full-length stroke for constant presence */}
+        <path d={ARC_CYAN}    stroke="#22d3ee" strokeOpacity="0.10" strokeWidth="1.5" strokeLinecap="round" />
+        <path d={ARC_VIOLET}  stroke="#a78bfa" strokeOpacity="0.10" strokeWidth="1.5" strokeLinecap="round" />
+        <path d={ARC_MAGENTA} stroke="#f472b6" strokeOpacity="0.10" strokeWidth="1.5" strokeLinecap="round" />
+
+        {/* Cyan arc — animated light pulse */}
         <path
-          d="M -100 700 Q 400 100 900 380 T 1800 280"
+          ref={cyanRef}
+          d={ARC_CYAN}
           stroke="url(#heroV3ArcCyan)"
           strokeWidth="3"
-          fill="none"
           filter="url(#heroV3Glow)"
           strokeLinecap="round"
-          strokeDasharray="180 1400"
+          strokeDasharray={`${ARCS[0].dashVisible} ${ARCS[0].dashTotal - ARCS[0].dashVisible}`}
           strokeDashoffset="0"
         >
           {!reduceMotion && (
-            <animate
-              attributeName="stroke-dashoffset"
-              from="0"
-              to="-1580"
-              dur="6s"
-              repeatCount="indefinite"
-            />
+            <animate attributeName="stroke-dashoffset" from="0" to={-ARCS[0].dashTotal} dur={`${ARCS[0].duration}s`} repeatCount="indefinite" />
           )}
         </path>
 
-        {/* Violet arc — broad arc across the middle */}
+        {/* Violet arc */}
         <path
-          d="M 1700 300 Q 1100 950 500 700 T -100 520"
+          ref={violetRef}
+          d={ARC_VIOLET}
           stroke="url(#heroV3ArcViolet)"
           strokeWidth="3"
-          fill="none"
           filter="url(#heroV3Glow)"
           strokeLinecap="round"
-          strokeDasharray="220 1600"
+          strokeDasharray={`${ARCS[1].dashVisible} ${ARCS[1].dashTotal - ARCS[1].dashVisible}`}
           strokeDashoffset="0"
         >
           {!reduceMotion && (
-            <animate
-              attributeName="stroke-dashoffset"
-              from="0"
-              to="-1820"
-              dur="7.5s"
-              repeatCount="indefinite"
-            />
+            <animate attributeName="stroke-dashoffset" from="0" to={-ARCS[1].dashTotal} dur={`${ARCS[1].duration}s`} repeatCount="indefinite" />
           )}
         </path>
 
-        {/* Magenta arc — sweeps across the bottom half */}
+        {/* Magenta arc */}
         <path
-          d="M -100 420 Q 500 1100 1000 780 T 1800 900"
+          ref={magentaRef}
+          d={ARC_MAGENTA}
           stroke="url(#heroV3ArcMagenta)"
           strokeWidth="3"
-          fill="none"
           filter="url(#heroV3Glow)"
           strokeLinecap="round"
-          strokeDasharray="200 1500"
+          strokeDasharray={`${ARCS[2].dashVisible} ${ARCS[2].dashTotal - ARCS[2].dashVisible}`}
           strokeDashoffset="0"
         >
           {!reduceMotion && (
-            <animate
-              attributeName="stroke-dashoffset"
-              from="0"
-              to="-1700"
-              dur="5.5s"
-              repeatCount="indefinite"
-            />
+            <animate attributeName="stroke-dashoffset" from="0" to={-ARCS[2].dashTotal} dur={`${ARCS[2].duration}s`} repeatCount="indefinite" />
           )}
         </path>
 
-        {/* Static low-opacity full-length strokes so the arcs have
-            presence even between the traveling light pulses */}
-        <path
-          d="M -100 700 Q 400 100 900 380 T 1800 280"
-          stroke="#22d3ee"
-          strokeOpacity="0.08"
-          strokeWidth="1.5"
-          fill="none"
-          strokeLinecap="round"
-        />
-        <path
-          d="M 1700 300 Q 1100 950 500 700 T -100 520"
-          stroke="#a78bfa"
-          strokeOpacity="0.08"
-          strokeWidth="1.5"
-          fill="none"
-          strokeLinecap="round"
-        />
-        <path
-          d="M -100 420 Q 500 1100 1000 780 T 1800 900"
-          stroke="#f472b6"
-          strokeOpacity="0.08"
-          strokeWidth="1.5"
-          fill="none"
-          strokeLinecap="round"
-        />
+        {/* Tiles riding the arcs. Rendered as foreignObject so HTML
+            styling + NodeIcon work, and scaled in SVG user units so they
+            stay aligned with the paths regardless of viewport. */}
+        {tiles.map((tile, i) => (
+          <ArcTile
+            key={i}
+            x={tile.x}
+            y={tile.y}
+            label={tile.label}
+            color={tile.color}
+            delay={tile.delay}
+            reduceMotion={reduceMotion}
+          />
+        ))}
       </svg>
     </>
   );
 }
 
 /**
- * FloatingTile — a small rounded-square node tile at an absolute
- * position in the orbital backdrop. Size and opacity encode depth:
- * larger + more opaque tiles are "closer", smaller + dimmer are
- * "further." A slow pulse keeps them alive without being busy.
+ * ArcTile — a solid glowing node tile placed at (x, y) in SVG user
+ * units. Size matches the signal-chain showcase tiles (~90 user units)
+ * so the whole page uses a consistent block vocabulary. Uses
+ * <foreignObject> to host the HTML NodeIcon inside the SVG coordinate
+ * system.
  */
-function FloatingTile({
-  label,
+function ArcTile({
   x,
   y,
-  size,
-  opacity,
-  reduceMotion,
+  label,
+  color,
   delay,
+  reduceMotion,
 }: {
+  x: number;
+  y: number;
   label: NodeLabel;
-  x: string;
-  y: string;
-  size: number;
-  opacity: number;
-  reduceMotion: boolean;
+  color: string;
   delay: number;
+  reduceMotion: boolean;
 }) {
-  const color = NODE_COLORS[label].border;
+  const SIZE = 92;
+  const nodeColor = NODE_COLORS[label].border;
   return (
-    <div
-      style={{
-        position: "absolute",
-        top: y,
-        left: x,
-        width: size,
-        height: size,
-        borderRadius: size * 0.22,
-        border: `1px solid ${color}40`,
-        background: "rgba(8, 11, 22, 0.82)",
-        backdropFilter: "blur(3px)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        boxShadow: `0 0 ${size * 0.8}px ${color}20, inset 0 0 ${size * 0.3}px ${color}10`,
-        opacity,
-        transform: "translate(-50%, -50%)",
-        animation: reduceMotion
-          ? "none"
-          : `heroV3TilePulse 8s ease-in-out ${delay}s infinite`,
-      }}
+    <foreignObject
+      x={x - SIZE / 2}
+      y={y - SIZE / 2}
+      width={SIZE}
+      height={SIZE}
+      style={{ overflow: "visible" }}
     >
-      <NodeIcon label={label} color={color} size={Math.round(size * 0.6)} />
-      <style jsx>{`
-        @keyframes heroV3TilePulse {
-          0%, 100% {
-            transform: translate(-50%, -50%) scale(0.96);
-            filter: brightness(0.85);
+      <div
+        style={{
+          width: SIZE,
+          height: SIZE,
+          borderRadius: 16,
+          border: `1.5px solid ${color}`,
+          background: "#0b0f1a",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          boxShadow: `0 0 0 1px ${color}22, 0 0 44px ${color}55, 0 0 90px ${color}28, inset 0 0 24px ${color}18`,
+          animation: reduceMotion
+            ? "none"
+            : `heroV3ArcTilePulse 6s ease-in-out ${delay}s infinite`,
+        }}
+      >
+        <NodeIcon label={label} color={nodeColor} size={46} />
+        <style jsx>{`
+          @keyframes heroV3ArcTilePulse {
+            0%, 100% {
+              filter: brightness(0.92);
+              transform: scale(1);
+            }
+            50% {
+              filter: brightness(1.18);
+              transform: scale(1.04);
+            }
           }
-          50% {
-            transform: translate(-50%, calc(-50% - 4px)) scale(1.02);
-            filter: brightness(1.15);
-          }
-        }
-      `}</style>
-    </div>
+        `}</style>
+      </div>
+    </foreignObject>
   );
 }
-
-// Tile positions carefully placed to imply orbital depth. Larger sizes
-// and higher opacity = closer to the camera. Smaller + dimmer = further.
-// Nothing in the central ~40% horizontal band (around the headline).
-const TILES: Array<{
-  label: NodeLabel;
-  x: string;
-  y: string;
-  size: number;
-  opacity: number;
-}> = [
-  // Left side — close tiles
-  { label: "GUITAR",      x: "7%",  y: "34%", size: 56, opacity: 0.78 },
-  { label: "COMPRESSION", x: "12%", y: "66%", size: 50, opacity: 0.72 },
-  { label: "PREAMP",      x: "17%", y: "22%", size: 42, opacity: 0.62 },
-  { label: "OVERDRIVE",   x: "4%",  y: "78%", size: 38, opacity: 0.55 },
-  { label: "DELAY",       x: "22%", y: "84%", size: 34, opacity: 0.5 },
-  { label: "MIC",         x: "24%", y: "50%", size: 36, opacity: 0.5 },
-
-  // Right side — close tiles
-  { label: "MIC",         x: "93%", y: "30%", size: 54, opacity: 0.76 },
-  { label: "CABINET",     x: "88%", y: "68%", size: 50, opacity: 0.7 },
-  { label: "CHORUS",      x: "82%", y: "20%", size: 40, opacity: 0.6 },
-  { label: "PREAMP",      x: "96%", y: "80%", size: 38, opacity: 0.55 },
-  { label: "OVERDRIVE",   x: "78%", y: "52%", size: 36, opacity: 0.5 },
-  { label: "GUITAR",      x: "76%", y: "86%", size: 34, opacity: 0.5 },
-
-  // Top edge — far tiles
-  { label: "COMPRESSION", x: "36%", y: "10%", size: 30, opacity: 0.4 },
-  { label: "DELAY",       x: "64%", y: "12%", size: 30, opacity: 0.4 },
-  { label: "CABINET",     x: "48%", y: "6%",  size: 26, opacity: 0.35 },
-
-  // Bottom edge — far tiles, framing the wordmark
-  { label: "CHORUS",      x: "38%", y: "88%", size: 30, opacity: 0.4 },
-  { label: "GUITAR",      x: "58%", y: "90%", size: 28, opacity: 0.38 },
-  { label: "COMPRESSION", x: "48%", y: "94%", size: 26, opacity: 0.32 },
-];
