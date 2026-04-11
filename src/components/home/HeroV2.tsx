@@ -52,7 +52,7 @@ export default function HeroV2() {
 
         <p className="mx-auto mt-7 max-w-xl text-lg text-muted md:text-xl">
           Pick a song. Get exact settings for your Helix, Quad Cortex, TONEX,
-          or physical rig. Stop tweaking. Start playing.
+          or physical rig.
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
@@ -93,6 +93,11 @@ export default function HeroV2() {
  * The hero is now full-screen (min-h-screen), so there's room for the
  * six tiles and a true 6-link chain around the headline.
  */
+// Tile positions for v2 — now arranged along a sine-wave path that
+// arcs over the top half of the hero and curls down the right side to
+// the mic at bottom. Positions are authored in chain order (signal
+// flow: guitar → comp → drive → preamp → cab → mic) so the curve is
+// both visually and semantically a "signal path."
 const V2_TILES: {
   id: string;
   label: NodeLabel;
@@ -101,25 +106,47 @@ const V2_TILES: {
   size: number;
   delay: number;
 }[] = [
-  { id: "guitar-l",  label: "GUITAR",      x: 8,  y: 24, size: 82, delay: 0.0 },
-  { id: "comp-l",    label: "COMPRESSION", x: 13, y: 72, size: 76, delay: 1.6 },
-  { id: "drive-r",   label: "OVERDRIVE",   x: 90, y: 18, size: 80, delay: 3.2 },
-  { id: "amp-r",     label: "PREAMP",      x: 94, y: 66, size: 86, delay: 0.8 },
-  { id: "mic-b",     label: "MIC",         x: 50, y: 90, size: 74, delay: 2.4 },
-  { id: "cab-tr",    label: "CABINET",     x: 80, y: 88, size: 72, delay: 4.4 },
+  { id: "guitar-l", label: "GUITAR",      x: 7,  y: 26, size: 66, delay: 0.0 },
+  { id: "comp-l",   label: "COMPRESSION", x: 24, y: 12, size: 60, delay: 1.6 },
+  { id: "drive-c",  label: "OVERDRIVE",   x: 44, y: 24, size: 64, delay: 3.2 },
+  { id: "amp-c",    label: "PREAMP",      x: 64, y: 10, size: 70, delay: 0.8 },
+  { id: "cab-r",    label: "CABINET",     x: 86, y: 30, size: 60, delay: 4.4 },
+  { id: "mic-br",   label: "MIC",         x: 92, y: 78, size: 58, delay: 2.4 },
 ];
 
-// Ordered chain the signal "flows" through, used to:
-// 1. render dotted connector trails between adjacent tiles
-// 2. anchor the grid-to-chain dot animation along this poly-line
-const V2_CHAIN: string[] = [
-  "guitar-l",
-  "comp-l",
-  "mic-b",
-  "cab-tr",
-  "amp-r",
-  "drive-r",
-];
+// Chain order matches V2_TILES declaration order, so the "chain poly-
+// line" passes through every tile in the order they appear.
+const V2_CHAIN: string[] = V2_TILES.map((t) => t.id);
+
+/**
+ * Build a smooth SVG path string that passes through the given points
+ * using a Catmull-Rom-to-cubic-bezier conversion. This is the "curved
+ * connector" that replaces the old straight-line chain trails.
+ *
+ * @param pts Points in the same coordinate space as the SVG viewBox
+ * @param tension 0..1, default 0.5. Higher = more curl into corners
+ */
+function smoothPath(
+  pts: { x: number; y: number }[],
+  tension = 0.5
+): string {
+  if (pts.length < 2) return "";
+  const d: string[] = [`M ${pts[0].x.toFixed(3)} ${pts[0].y.toFixed(3)}`];
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[i - 1] ?? pts[i];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const p3 = pts[i + 2] ?? pts[i + 1];
+    const c1x = p1.x + ((p2.x - p0.x) * tension) / 3;
+    const c1y = p1.y + ((p2.y - p0.y) * tension) / 3;
+    const c2x = p2.x - ((p3.x - p1.x) * tension) / 3;
+    const c2y = p2.y - ((p3.y - p1.y) * tension) / 3;
+    d.push(
+      `C ${c1x.toFixed(3)} ${c1y.toFixed(3)}, ${c2x.toFixed(3)} ${c2y.toFixed(3)}, ${p2.x.toFixed(3)} ${p2.y.toFixed(3)}`
+    );
+  }
+  return d.join(" ");
+}
 
 /**
  * AmbientBackdrop — the decorative backdrop layer.
@@ -149,23 +176,27 @@ function AmbientBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
 
   return (
     <>
-      {/* Layer 1 — sparse dot grid background. A single radial-gradient
-          tile repeated gives a clean, printed-circuit feel. */}
+      {/* Layer 1 — sparse dot grid background. Edge alpha bumped
+          from 0.2 -> 0.5 so the grid reads as a full field that
+          brightens toward the center, rather than fading away. */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 1px 1px, rgba(200, 220, 255, 0.22) 1px, transparent 1.5px)",
+            "radial-gradient(circle at 1px 1px, rgba(200, 220, 255, 0.24) 1px, transparent 1.5px)",
           backgroundSize: "24px 24px",
           maskImage:
-            "radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.2) 80%)",
+            "radial-gradient(ellipse at 50% 45%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 45%, rgba(0,0,0,0.5) 80%, rgba(0,0,0,0.45) 100%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.2) 80%)",
+            "radial-gradient(ellipse at 50% 45%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 45%, rgba(0,0,0,0.5) 80%, rgba(0,0,0,0.45) 100%)",
         }}
       />
 
       {/* Layer 2 — amber vignette */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_32%,_rgba(245,158,11,0.09),_transparent_55%)]" />
+
+      {/* Bottom fade into the SignalChainShowcase dark card */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] h-40 bg-gradient-to-t from-[#070a12] via-[#0a0a0f]/80 to-transparent" />
 
       {/* Layer 3 — SVG: chain trails + animated grid dots */}
       <svg
@@ -174,30 +205,24 @@ function AmbientBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
         preserveAspectRatio="none"
         fill="none"
       >
-        {/* Dotted connector trails — ordered along V2_CHAIN */}
-        {chainPoints.slice(0, -1).map((a, i) => {
-          const b = chainPoints[i + 1];
-          return (
-            <line
-              key={`trail-${a.id}->${b.id}`}
-              x1={a.x}
-              y1={a.y}
-              x2={b.x}
-              y2={b.y}
-              stroke="#9dc4ff"
-              strokeOpacity="0.55"
-              strokeWidth="1.6"
-              strokeDasharray="0.9 1.6"
-              strokeLinecap="round"
-              vectorEffect="non-scaling-stroke"
-              style={{
-                animation: reduceMotion
-                  ? "none"
-                  : `heroV2TrailFlow 4s linear ${i * 0.6}s infinite`,
-              }}
-            />
-          );
-        })}
+        {/* Curved sine-wave connector passing through every tile.
+            Replaces the old straight-line chain. Uses a Catmull-Rom
+            cubic bezier path so every tile sits exactly on the curve. */}
+        <path
+          d={smoothPath(chainPoints, 0.5)}
+          stroke="#9dc4ff"
+          strokeOpacity="0.65"
+          strokeWidth="1.8"
+          strokeDasharray="0.9 1.8"
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+          fill="none"
+          style={{
+            animation: reduceMotion
+              ? "none"
+              : "heroV2TrailFlow 5s linear infinite",
+          }}
+        />
 
         {/* Animated grid dots — "bit pattern transferring into the chain" */}
         {gridDots.map((dot, i) => (

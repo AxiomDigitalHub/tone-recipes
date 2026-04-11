@@ -37,10 +37,19 @@ export default function HeroV3() {
       {/* Orbital backdrop — tiles + arcs */}
       <OrbitalBackdrop reduceMotion={reduceMotion} />
 
-      {/* Top vignette (so the sticky header reads cleanly) and bottom
-          fade (so the wordmark at the bottom of the hero anchors cleanly) */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#05070e] to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#05070e] to-transparent" />
+      {/* Top vignette so the sticky header reads cleanly */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[3] h-32 bg-gradient-to-b from-[#05070e] to-transparent" />
+      {/* Bottom fade into the SignalChainShowcase dark card */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] h-52 bg-gradient-to-t from-[#070a12] via-[#05070e]/80 to-transparent" />
+      {/* Headline darkening halo — locally dims arcs and tiles that
+          would otherwise cross the hero text for legibility */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 z-[2] h-[620px] w-[900px] -translate-x-1/2 -translate-y-1/2"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(5,7,14,0.82) 0%, rgba(5,7,14,0.5) 45%, rgba(5,7,14,0) 75%)",
+        }}
+      />
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-[100vh] max-w-5xl flex-col items-center justify-center px-4 py-40 text-center md:py-56">
@@ -56,7 +65,7 @@ export default function HeroV3() {
 
         <p className="mx-auto mt-7 max-w-xl text-lg text-[#c8d2e2] md:text-xl">
           Pick a song. Get exact settings for your Helix, Quad Cortex, TONEX,
-          or physical rig. Stop tweaking. Start playing.
+          or physical rig.
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
@@ -112,9 +121,12 @@ export default function HeroV3() {
  * path at runtime via getPointAtLength so they stay precisely aligned
  * with the arc no matter the viewport.
  */
-const ARC_CYAN    = "M -100 700 Q 400 100 900 380 T 1800 280";
-const ARC_VIOLET  = "M 1700 300 Q 1100 950 500 700 T -100 520";
-const ARC_MAGENTA = "M -100 420 Q 500 1100 1000 780 T 1800 900";
+// Arc paths — trimmed at the starts so the first tile lands fully
+// inside the viewport, and the violet/magenta arcs no longer cluster
+// on the far left.
+const ARC_CYAN    = "M -40 680 Q 380 120 880 380 T 1680 300";
+const ARC_VIOLET  = "M 1640 320 Q 1080 930 480 700 T -20 560";
+const ARC_MAGENTA = "M -20 460 Q 500 1080 1000 780 T 1680 880";
 
 type ArcConfig = {
   d: string;
@@ -133,7 +145,11 @@ const ARCS: ArcConfig[] = [
     d: ARC_CYAN,
     color: "#22d3ee",
     nodes: ["GUITAR", "COMPRESSION", "OVERDRIVE", "PREAMP", "MIC"],
-    positions: [0.12, 0.3, 0.5, 0.72, 0.9],
+    // First position pushed from 0.12 -> 0.16 so guitar sits further
+    // along the arc (further from the left edge where violet/magenta
+    // also enter). Last position pulled back to 0.88 so MIC stays
+    // fully in-frame.
+    positions: [0.16, 0.32, 0.5, 0.7, 0.88],
     dashTotal: 1580,
     dashVisible: 180,
     duration: 6,
@@ -142,7 +158,10 @@ const ARCS: ArcConfig[] = [
     d: ARC_VIOLET,
     color: "#a78bfa",
     nodes: ["CABINET", "DELAY", "CHORUS", "GUITAR"],
-    positions: [0.14, 0.38, 0.62, 0.86],
+    // First position pulled back from 0.14 -> 0.10 so the first tile
+    // (CABINET) lands earlier along the arc, vertically separated
+    // from the cyan GUITAR tile.
+    positions: [0.1, 0.34, 0.58, 0.84],
     dashTotal: 1820,
     dashVisible: 220,
     duration: 7.5,
@@ -151,7 +170,9 @@ const ARCS: ArcConfig[] = [
     d: ARC_MAGENTA,
     color: "#f472b6",
     nodes: ["PREAMP", "CABINET", "OVERDRIVE", "COMPRESSION"],
-    positions: [0.14, 0.36, 0.6, 0.86],
+    // First position bumped 0.14 -> 0.2 so PREAMP sits deeper into
+    // the viewport, not overlapping the lower-left cluster.
+    positions: [0.2, 0.4, 0.6, 0.84],
     dashTotal: 1700,
     dashVisible: 200,
     duration: 5.5,
@@ -340,7 +361,7 @@ function ArcTile({
   delay: number;
   reduceMotion: boolean;
 }) {
-  const SIZE = 76;
+  const SIZE = 62;
   const nodeColor = NODE_COLORS[label].border;
   return (
     <foreignObject
@@ -354,19 +375,19 @@ function ArcTile({
         style={{
           width: SIZE,
           height: SIZE,
-          borderRadius: 14,
+          borderRadius: 12,
           border: `1.5px solid ${nodeColor}`,
           background: "#0b0f1a",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          boxShadow: `0 0 0 1px ${nodeColor}22, 0 0 44px ${nodeColor}55, 0 0 90px ${nodeColor}28, inset 0 0 24px ${nodeColor}18`,
+          boxShadow: `0 0 0 1px ${nodeColor}22, 0 0 36px ${nodeColor}55, 0 0 76px ${nodeColor}28, inset 0 0 20px ${nodeColor}18`,
           animation: reduceMotion
             ? "none"
             : `heroV3ArcTilePulse 6s ease-in-out ${delay}s infinite`,
         }}
       >
-        <NodeIcon label={label} color={nodeColor} size={48} />
+        <NodeIcon label={label} color={nodeColor} size={40} />
         <style jsx>{`
           @keyframes heroV3ArcTilePulse {
             0%, 100% {
