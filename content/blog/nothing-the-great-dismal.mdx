@@ -1,0 +1,153 @@
+---
+title: "The Great Dismal: How Nothing's Third Album Changed the Shoegaze Gain Structure"
+description: "Nothing's The Great Dismal guitar tone breakdown — Will Yip's hip-hop compression approach, the shift from Tired of Tomorrow's fuzz wall, and exact settings to get the album's dense, smacking heavy shoegaze sound."
+date: "2026-04-11"
+author: "Dev Okonkwo"
+author_slug: "dev-okonkwo"
+category: "tone-recipes"
+tags: ["nothing-band", "the-great-dismal", "shoegaze", "heavy-shoegaze", "will-yip", "production", "tone-recipe", "distortion", "compression", "neo-shoegaze"]
+readingTime: 12
+image: "/images/blog/shoegaze-wall-of-sound-recipe.jpg"
+image_alt: "Heavy electric guitar with fuzz pedals and reverb in a dim recording studio — The Great Dismal tone aesthetic"
+---
+
+> **Start Here:** *The Great Dismal* guitar tone in five parameters:
+> 1. **Less fuzz, more high-gain distortion** — compared to *Tired of Tomorrow*, the 2020 record uses a tighter, more defined distortion character; RAT territory, not Big Muff territory
+> 2. **Compression is structural, not corrective** — Will Yip's hip-hop production approach compresses the guitars so they hit with drum-like impact; this is a deliberate gain-staging choice
+> 3. **Mid-forward EQ, not mid-scooped** — the shoegaze instinct is to scoop mids; *The Great Dismal* keeps them; that's why the guitars smack instead of wash
+> 4. **Down-tuning still does the weight work** — Drop C or D standard; the low register is what creates density, not gain alone
+> 5. **Reverb is secondary** — shorter decay than classic shoegaze (1.5 to 2.5 seconds), lower mix (30 to 40%); the compressed direct signal does most of the work
+
+---
+
+## Quick Reference: *The Great Dismal* Starting Settings
+
+| Element | Setting | Notes |
+|---|---|---|
+| Guitar tuning | Drop C or D standard | Low register — the density is in pitch placement |
+| Distortion type | High-gain distortion (RAT/Sunn Model T direction) | Tighter definition than *Tired of Tomorrow* fuzz |
+| Distortion gain | High — about 3 o'clock | But not maxed; leaves headroom for compression |
+| Distortion tone/filter | Noon to 2 o'clock | Brighter than TotT; mids are present |
+| Compression (post-distortion) | Medium ratio (4:1 to 6:1), fast attack, medium release | The "smack" — compressor catches the transient and levels the sustain |
+| Amp character | Clean platform or light crunch | Distortion and compression do the shaping |
+| Reverb type | Plate | Smooth, not dripping |
+| Reverb decay | 1.5 to 2.5 seconds | Shorter than classic shoegaze |
+| Reverb mix | 30 to 40% wet | Present but not the primary texture |
+| Delay | 200 to 300ms, mix around 10% | Depth texture; optional |
+
+---
+
+## What Changed Between *Tired of Tomorrow* and *The Great Dismal*
+
+The two albums sound related but they are not the same record sonically, and the tonal difference is meaningful if you're trying to reproduce either one.
+
+*Tired of Tomorrow* (2016) has a fuzz-forward, wash-heavy approach. The gain character is Big Muff-adjacent — diffuse, harmonically rich, with note definition that blurs at the edges. The reverb runs long and wet. The production, while good, lets the guitars sit in a more traditional shoegaze frequency space where the wash is the point.
+
+*The Great Dismal* (2020) is sharper. Will Yip described his production goal as getting "rock records to smack like hip hop records," and that intent is audible in the guitar tracks. The distortion character is tighter — closer to a RAT or to the kind of compressed, dense high-gain you associate with metal-adjacent production. The guitars don't wash as much. They hit.
+
+The practical implication: if you build a *Tired of Tomorrow* rig and add more reverb, you don't get *The Great Dismal*. You get a wetter *Tired of Tomorrow*. The records require different approaches to gain structure.
+
+---
+
+## The Yip Compression Architecture
+
+Most guitar players think of compression as a dynamics-control tool — something you put before your overdrive to even out pick attack, or after everything to glue the signal together. Yip uses compression more like a hip-hop mix engineer uses it: as an intentional transient shaper that creates a specific feel rather than just a level correction.
+
+On *The Great Dismal*, the compressed guitar tracks have a specific quality that's easiest to describe in feel: the attack blooms, then sustains at a consistent level, then releases cleanly. It doesn't sound squashed. It sounds controlled. The guitar hits like a kick drum rather than floating like a reverb tail.
+
+To replicate this in a signal chain:
+
+**Distortion → Compressor → Reverb** is the working structure. The compressor comes after the distortion, not before. This is the opposite of the traditional "compressor first" setup, and it's the key to getting the character right. Running compression after a high-gain distortion pedal means you're compressing the saturated, harmonically rich signal — leveling the sustain and controlling the transient bloom rather than shaping the input to the distortion.
+
+Specific compressor settings that work:
+- **Ratio:** 4:1 to 6:1
+- **Attack:** Fast (under 10ms) — catches the initial distorted transient
+- **Release:** Medium (100 to 200ms) — lets the sustain breathe without pumping
+- **Threshold:** Set so gain reduction is 4 to 6dB on hard picking
+
+---
+
+## Building the Distortion Layer
+
+I expected to find Big Muff evidence when I started working through this record's tonal DNA. The Big Muff is the default shoegaze distortion — every guide points there, and Nothing's earlier work supports it. But *The Great Dismal* doesn't have that mid-scooped, harmonically diffuse quality that defines the Muff. The guitars are mid-present and punchy in a way a stock Big Muff doesn't produce.
+
+The RAT is closer. It has a characteristic that MXR and EHX circuits in this weight class generally don't: a high-pass filter (the Filter knob) that can be set to leave the upper-midrange intact rather than rolling it off. Set the Filter around noon to 2 o'clock on *The Great Dismal*-adjacent settings, and you get a distortion character where individual string definitions holds even at high gain — which is exactly what you hear on the record.
+
+The Sunn Model T (and its circuit descendants like the Magnatone Varsity or the Earthquaker Devices Acapulco Gold) is the other direction — massive, asymmetrically clipping, physically large-sounding distortion that matches the album's power. If you have access to a Model T equivalent, try it with the gain lower than you'd expect (around 40 to 50%) and the compression after it.
+
+**Practical settings for RAT-based approach:**
+
+| Control | Position | Notes |
+|---|---|---|
+| Distortion | About 3 o'clock | High — but not fully clockwise |
+| Filter | About noon | Keeps the mid-presence the record has |
+| Volume | About 2 o'clock | Match unity or slightly above |
+
+**For Helix (US Double Nrm model as clean platform + Vermin Dist block):**
+
+| Control | Position | Notes |
+|---|---|---|
+| Amp Gain | 3.0 to 4.0 | Clean foundation |
+| Distortion (Vermin Dist) | 7.0 to 8.0 | RAT-equivalent range |
+| Filter | 5.0 | Mid-present character |
+| Level | 7.0 | After compressor, adjust to taste |
+
+**For Quad Cortex (similar structure):**
+Use the Rat Distortion capture if available, or any high-gain distortion model with a tone/filter control that preserves upper-midrange. Same post-distortion compression architecture applies.
+
+---
+
+## Tuning and Low-End Structure
+
+*The Great Dismal* was recorded in multiple tunings. Tracks like "Say Less" and "Famine Asylum" use the mid-register crunch more than the sub-low drop tuning of *Tired of Tomorrow*, while others go deep. The key insight is that Yip manages the low end differently than most shoegaze producers — the bass and guitar are sonically separated rather than blurred together.
+
+This matters for how you approach the distortion EQ. If you're playing in drop C or lower, you may need to reduce bass in the distortion pedal itself (or add a high-pass filter before the drive) to prevent the low frequencies from becoming mush under heavy compression. The record's low end punches because the frequency content is managed, not because it's maxed.
+
+Approximate tuning reference:
+- **D standard / Drop C:** Most of the heavy material
+- **Standard with drop D:** Some of the more melodic tracks
+- **Baritone:** Occasional — not the primary instrument
+
+---
+
+## Signal Chain Summary
+
+The complete signal chain that gets you into *The Great Dismal* territory:
+
+**Guitar (D standard or Drop C) → High-gain distortion (RAT character, Filter at noon) → Compressor (post-distortion, 4:1 to 6:1, fast attack) → Plate reverb (1.5 to 2s decay, 30-35% mix) → [optional] Short delay (200ms, 10% mix)**
+
+The chain is deliberately shorter than what you'd use for classic shoegaze. The *Great Dismal* sound is dense and atmospheric but controlled. Every element has a defined purpose rather than contributing to an undifferentiated wash.
+
+For a pedalboard approach, three pedals cover it: a RAT (or clone), a compressor (Boss CP-1X, Empress Compressor, or similar), and a reverb (Strymon Flint spring/hall or BigSky plate mode). The fourth element — delay — is a texture layer, not a structural component. You can leave it out.
+
+---
+
+## Cross-Platform Notes
+
+**For modeler users (Helix/HX Stomp):**
+The Vermin Dist (RAT equivalent) into the Kinky Boost block as a compressor-adjacent tool, then plate reverb (Hall of Fame-style block). Set the amp model to a clean platform — US Double Nrm or Brit Plexi Normal at low gain. Let the distortion block do the work.
+
+**For Quad Cortex:**
+Use the Neural Capture of a high-gain amp at moderate gain, or the RAT Distortion effect model. Apply post-distortion compression via the Compressor block (fast attack, 4:1 ratio, medium release). Spring or plate reverb from the QC's built-in reverbs.
+
+**For a pedalboard without a modeler:**
+The RAT → compressor → plate reverb structure above works directly. Amp choice matters more than it does in the modeler context — you want a clean, neutral platform (Fender Twin, Blues Jr. at low gain, or any amp with a clean channel). The rig needs to amplify the pedal chain without adding its own character.
+
+---
+
+## FAQ
+
+**What distortion pedal does Nothing use on *The Great Dismal*?**
+Dominic Palermo's documented rig includes a ProCo RAT and has also incorporated Big Muff variants, but *The Great Dismal*'s recorded tone has a tighter, more mid-present character than a stock Big Muff produces. A RAT or high-gain distortion with a Filter/Tone control that preserves upper-midrange is the working approximation.
+
+**Why does *The Great Dismal* sound different from classic shoegaze if it's made by a shoegaze band?**
+Will Yip's production philosophy draws from hip-hop mix technique — specifically the idea that guitars should hit with the physical impact of a kick drum rather than floating in reverb space. This approach uses post-distortion compression and a more mid-forward EQ than traditional shoegaze production, which results in a different feel even when the source material (heavy guitars, reverb, atmospheric playing) is similar.
+
+**Can I get this tone without retuning?**
+You can approximate the tonal character in standard tuning, but the frequency weight that makes *The Great Dismal* dense is substantially produced by pitch placement in the low register. Playing drop-D minimum gets you noticeably closer. Standard tuning with heavy gain and compression will produce a more aggressive, midrange-forward character rather than the full-spectrum density of the record.
+
+**How is post-distortion compression different from pre-distortion compression?**
+Pre-distortion compression shapes what goes into the gain stage — evening out pick attack before saturation. Post-distortion compression shapes the saturated signal itself — catching the initial bloom, leveling the sustain, and controlling how the gain decays. The two produce distinctly different feels. *The Great Dismal* uses the post-distortion approach to make compressed guitars hit with transient snap rather than endless sustain.
+
+**What amp is doing the work on this record?**
+Will Yip is a studio engineer who works extensively with direct recording and amp simulation alongside traditional amps. The specific amp used on *The Great Dismal* isn't publicly documented in full, but the production approach (and Yip's use of heavy post-processing compression) suggests the amp is functioning as a clean or lightly-driven platform rather than contributing its own gain character. Building the tone from pedals into a clean amp approximates this more accurately than relying on amp overdrive.

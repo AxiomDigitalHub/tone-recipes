@@ -22,7 +22,10 @@ set -eu
 
 TOKEN="${REPLICATE_API_TOKEN:?Set REPLICATE_API_TOKEN env var}"
 MOODBOARDS_JSON="$(dirname "$0")/moodboards.json"
-MODEL="google/nano-banana-pro"
+# FK_MODEL picks the provider. Default: Flux 2 Pro (3x cheaper than Nano
+# Banana Pro at ~$0.055/img). Set FK_MODEL=google/nano-banana-pro to fall
+# back to Nano Banana (e.g. for editorial_white which trips Flux safety).
+MODEL="${FK_MODEL:-black-forest-labs/flux-2-pro}"
 RESOLUTION="${FK_RESOLUTION:-2K}"
 OUTPUT_FORMAT="${FK_FORMAT:-jpg}"
 
@@ -112,19 +115,30 @@ generate_image() {
   # Substitute the placeholder with the subject
   local full_prompt="${template//SUBJECT_PLACEHOLDER/$subject}"
 
-  # Build payload via python to avoid shell escaping hell
+  # Build payload via python. Schema differs per model:
+  # - google/nano-banana-pro: takes `resolution` as "2K"/"4K" string,
+  #   `allow_fallback_model` bool
+  # - black-forest-labs/flux-*: no resolution field, has safety_tolerance
   local payload
-  payload=$(FK_PROMPT="$full_prompt" FK_RES="$RESOLUTION" FK_FMT="$OUTPUT_FORMAT" python3 -c "
+  payload=$(FK_PROMPT="$full_prompt" FK_RES="$RESOLUTION" FK_FMT="$OUTPUT_FORMAT" FK_MODEL_NAME="$MODEL" python3 -c "
 import json, os
-print(json.dumps({
-    'input': {
+model = os.environ['FK_MODEL_NAME']
+if model.startswith('black-forest-labs/flux'):
+    inp = {
+        'prompt': os.environ['FK_PROMPT'],
+        'aspect_ratio': '16:9',
+        'output_format': os.environ['FK_FMT'],
+        'safety_tolerance': 2,
+    }
+else:
+    inp = {
         'prompt': os.environ['FK_PROMPT'],
         'aspect_ratio': '16:9',
         'resolution': os.environ['FK_RES'],
         'output_format': os.environ['FK_FMT'],
         'allow_fallback_model': True,
-    },
-}))
+    }
+print(json.dumps({'input': inp}))
 ")
 
   local resp pid retry_after
