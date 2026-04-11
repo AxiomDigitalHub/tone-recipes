@@ -205,15 +205,16 @@ function roundRect(
 }
 
 /**
- * Sample an icon into a list of target (x, y) positions by rendering
- * it to an offscreen canvas and scanning for lit pixels. Returns
- * normalized 0..1 coordinates relative to a rendered size.
+ * Sample an icon into exactly `count` normalised (x, y) target
+ * positions in the range -0.5..0.5. Renders the icon to an
+ * offscreen canvas, scans opaque pixels, then subsamples or wraps
+ * so every icon yields the same number of points (so the same
+ * dot list can morph between icons with no orphan dots).
  */
 function sampleIconTargets(
   icon: IconDef,
   rasterSize: number,
-  pixelStride: number,
-  maxPoints: number
+  count: number
 ): { x: number; y: number }[] {
   const off = document.createElement("canvas");
   off.width = rasterSize;
@@ -223,8 +224,8 @@ function sampleIconTargets(
   icon.render(ctx, rasterSize);
   const data = ctx.getImageData(0, 0, rasterSize, rasterSize).data;
   const points: { x: number; y: number }[] = [];
-  for (let y = 0; y < rasterSize; y += pixelStride) {
-    for (let x = 0; x < rasterSize; x += pixelStride) {
+  for (let y = 0; y < rasterSize; y++) {
+    for (let x = 0; x < rasterSize; x++) {
       const idx = (y * rasterSize + x) * 4;
       const a = data[idx + 3];
       if (a > 64) {
@@ -235,41 +236,39 @@ function sampleIconTargets(
       }
     }
   }
-  // Cap point count if we oversampled
-  if (points.length > maxPoints) {
-    const step = points.length / maxPoints;
-    const out: { x: number; y: number }[] = [];
-    for (let i = 0; i < maxPoints; i++) {
-      out.push(points[Math.floor(i * step)]);
-    }
-    return out;
+  if (points.length === 0) return new Array(count).fill({ x: 0, y: 0 });
+
+  // Resample to exactly `count` points. Even spacing through the
+  // source point list — if count > points.length we wrap.
+  const out: { x: number; y: number }[] = [];
+  for (let i = 0; i < count; i++) {
+    const ratio = i / count;
+    const srcIdx = Math.floor(ratio * points.length);
+    out.push(points[srcIdx % points.length]);
   }
-  return points;
+  return out;
 }
 
 type Dot = {
-  startX: number;
-  startY: number;
-  targetX: number;
-  targetY: number;
-  /** Which icon slot this dot belongs to (0..ICONS.length-1) */
-  slotIndex: number;
-  /** Center of the dot's icon slot in canvas coords */
-  slotCx: number;
-  slotCy: number;
+  /** Idle scatter position (cloud around the slot center) */
+  idleX: number;
+  idleY: number;
+  /** Array of target (x, y) pairs, one per icon in the cycle. */
+  iconTargets: { x: number; y: number }[];
   seed: number;
 };
+
+// Target total dot count. All dots animate together between the idle
+// cloud and the current icon in the cycle, so this is also the number
+// of points we sample per icon.
+const TOTAL_DOTS = 1000;
+// How long each icon phase lasts (ms). Phase = grid → icon → grid.
+const PHASE_MS = 3600;
 
 export default function HeroV4() {
   const sectionRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const dotsRef = useRef<Dot[] | null>(null);
-  // Mouse position in canvas coordinates. -Infinity = "no mouse present"
-  // (keep all icons in their idle state).
-  const mouseRef = useRef<{ x: number; y: number }>({
-    x: -Infinity,
-    y: -Infinity,
-  });
   const rafRef = useRef<number | undefined>(undefined);
   const [reduceMotion, setReduceMotion] = useState(false);
 
@@ -284,68 +283,49 @@ export default function HeroV4() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Compute layout slots for the 6 icons: two rows of three,
-    // centered above + below the headline.
-    function layoutIconSlots(width: number, height: number) {
-      const cols = 3;
-      const rows = 2;
-      const gapX = width / (cols + 1);
-      const gapY = height / (rows + 1);
-      const slots: { cx: number; cy: number }[] = [];
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-          slots.push({ cx: gapX * (c + 1), cy: gapY * (r + 1) });
-        }
-      }
-      // Swap middle-top and middle-bottom out of the headline area.
-      // We want the two middle column slots to be offset up/down so
-      // they don't collide with the text.
-      slots[1].cy = gapY * 0.55;
-      slots[4].cy = height - gapY * 0.55;
-      return slots;
-    }
-
-    // Build dot targets by sampling every icon and assigning each
-    // sampled point to an absolute canvas coordinate.
+    // Build dot targets for the serial cycle.
     //
-    // Rewrite (mouse-move iteration):
-    // - Total dot count cut ~6x. Fewer, larger dots feel more
-    //   intentional (Antigravity-style sparse grid).
-    // - Each dot remembers its icon slot so we can compute mouse
-    //   proximity per-slot in the render loop.
+    // Layout:
+    // - One slot, centered on the right ~65% of the canvas so the
+    //   left side is free for the hero text.
+    // - Icons sized way up (min(w,h) * 0.52).
+    //
+    // Each dot has a single idle position (cloud around the slot) and
+    // an array of targets — one per icon in the cycle. On each frame
+    // we interpolate from idle to the current phase's icon target.
     function buildDots(width: number, height: number): Dot[] {
-      const iconRenderSize = Math.min(width, height) * 0.24;
-      const slots = layoutIconSlots(width, height);
+      const iconRenderSize = Math.min(width, height) * 0.52;
+      const slotCx = width * 0.68;
+      const slotCy = height * 0.5;
+
+      // Sample each icon to exactly TOTAL_DOTS points so every dot has
+      // a target for every icon in the cycle. Converts normalised
+      // (-0.5..0.5) coords into absolute canvas coords using the
+      // slot center + iconRenderSize.
+      const perIcon: { x: number; y: number }[][] = ICONS.map((icon) => {
+        const pts = sampleIconTargets(icon, 200, TOTAL_DOTS);
+        return pts.map((p) => ({
+          x: slotCx + p.x * iconRenderSize,
+          y: slotCy + p.y * iconRenderSize,
+        }));
+      });
 
       const out: Dot[] = [];
-      ICONS.forEach((icon, slotIndex) => {
-        const slot = slots[slotIndex % slots.length];
-        // Much lower point budget per icon: 140 instead of 520.
-        const pts = sampleIconTargets(icon, 160, 6, 140);
-        pts.forEach((p, i) => {
-          const tx = slot.cx + p.x * iconRenderSize;
-          const ty = slot.cy + p.y * iconRenderSize;
-          // Idle scatter position: a gentle random offset around
-          // the slot center rather than a full-canvas scatter. This
-          // keeps the dots visually grouped even when no icon is
-          // formed, matching Antigravity's "cloud near the shape"
-          // resting state.
-          const angle = (i * 137.508 * Math.PI) / 180;
-          const radius = iconRenderSize * (0.55 + ((i * 13) % 50) / 100);
-          const sx = slot.cx + Math.cos(angle) * radius;
-          const sy = slot.cy + Math.sin(angle) * radius;
-          out.push({
-            startX: sx,
-            startY: sy,
-            targetX: tx,
-            targetY: ty,
-            slotIndex,
-            slotCx: slot.cx,
-            slotCy: slot.cy,
-            seed: out.length,
-          });
+      for (let i = 0; i < TOTAL_DOTS; i++) {
+        // Idle cloud: golden-angle spiral around the slot center,
+        // radius 60-140% of the icon render size so the grid-state
+        // cloud is wider than the formed icon.
+        const angle = (i * 137.508 * Math.PI) / 180;
+        const radius = iconRenderSize * (0.6 + ((i * 17) % 80) / 100);
+        const idleX = slotCx + Math.cos(angle) * radius;
+        const idleY = slotCy + Math.sin(angle) * radius;
+        out.push({
+          idleX,
+          idleY,
+          iconTargets: perIcon.map((arr) => arr[i]),
+          seed: i,
         });
-      });
+      }
       return out;
     }
 
@@ -364,27 +344,13 @@ export default function HeroV4() {
     resize();
     window.addEventListener("resize", resize);
 
-    function onMouseMove(e: MouseEvent) {
-      if (!canvas) return;
-      const rect = canvas.getBoundingClientRect();
-      mouseRef.current = {
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      };
-    }
-    function onMouseLeave() {
-      mouseRef.current = { x: -Infinity, y: -Infinity };
-    }
-    window.addEventListener("mousemove", onMouseMove, { passive: true });
-    window.addEventListener("mouseout", onMouseLeave);
-
     function easeInOutCubic(t: number) {
       return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     }
 
-    // Per-slot coalescence state, smoothed frame-to-frame so icons
-    // ease in/out instead of snapping. Index = icon slot index.
-    const slotCoalesce = new Array<number>(ICONS.length).fill(0);
+    // Start offset so the cycle begins partway into the first phase
+    // (mid-coalesce into the first icon) rather than at pure idle.
+    const startMs = performance.now() - PHASE_MS * 0.25;
 
     function render() {
       if (!canvas || !ctx) return;
@@ -395,47 +361,39 @@ export default function HeroV4() {
       const h = canvas.clientHeight;
       ctx.clearRect(0, 0, w, h);
 
-      // Compute target coalescence per icon slot from mouse proximity.
-      // Each slot has a ~180px "hover radius" — inside that, the icon
-      // is fully formed; outside it drifts back to scatter. Smooth
-      // current → target by 12% per frame for a gentle ease.
-      const HOVER_RADIUS = Math.min(w, h) * 0.18;
-      const mouse = mouseRef.current;
-      for (let i = 0; i < ICONS.length; i++) {
-        let target = 0;
-        if (dots.length > 0 && mouse.x > -Infinity) {
-          // First dot per slot carries the slot center; cheap lookup.
-          const firstInSlot = dots.find((d) => d.slotIndex === i);
-          if (firstInSlot) {
-            const dx = mouse.x - firstInSlot.slotCx;
-            const dy = mouse.y - firstInSlot.slotCy;
-            const dist = Math.hypot(dx, dy);
-            target = 1 - Math.min(1, dist / HOVER_RADIUS);
-          }
-        }
-        // For reduced motion, lock at half-formed
-        if (reduceMotion) target = 0.5;
-        slotCoalesce[i] += (target - slotCoalesce[i]) * 0.12;
-      }
+      // Serial cycle state:
+      // - One phase per icon (PHASE_MS each).
+      // - Within a phase, sin(progress*PI) makes dots travel idle →
+      //   icon → idle on a smooth curve so phase boundaries are
+      //   always in the idle cloud state. No snapping at transitions.
+      const elapsed = performance.now() - startMs;
+      const phaseIdx = Math.floor(elapsed / PHASE_MS) % ICONS.length;
+      const phaseProgress = (elapsed % PHASE_MS) / PHASE_MS; // 0..1
+      const rawCoalesce = reduceMotion
+        ? 0.55
+        : Math.sin(phaseProgress * Math.PI);
+      // Ease so the "peak" at 0.5 feels like it lingers.
+      const coalesce = easeInOutCubic(Math.max(0, Math.min(1, rawCoalesce)));
 
+      // Dot color warms with coalescence: idle dots navy, forming
+      // icons warm into amber.
+      const hue = 220 - coalesce * 190;
+      const sat = 55 + coalesce * 35;
+      const light = 20 + coalesce * 20;
+      const alpha = 0.55 + coalesce * 0.4;
+      ctx.fillStyle = `hsla(${hue}, ${sat}%, ${light}%, ${alpha})`;
+
+      const now = performance.now();
       for (let i = 0; i < dots.length; i++) {
         const d = dots[i];
-        const coalesce = easeInOutCubic(slotCoalesce[d.slotIndex]);
+        const target = d.iconTargets[phaseIdx];
+        if (!target) continue;
 
         // Per-dot jitter adds life even at rest
-        const now = performance.now();
         const jx = Math.sin(d.seed * 0.73 + now / 2400) * 3;
         const jy = Math.cos(d.seed * 0.91 + now / 2800) * 3;
-        const x = d.startX + (d.targetX - d.startX) * coalesce + jx * (1 - coalesce);
-        const y = d.startY + (d.targetY - d.startY) * coalesce + jy * (1 - coalesce);
-
-        // Color warms with coalescence: idle dots are cool navy,
-        // forming icons warm toward amber.
-        const hue = 220 - coalesce * 190;
-        const sat = 55 + coalesce * 35;
-        const light = 20 + coalesce * 20;
-        const alpha = 0.55 + coalesce * 0.4;
-        ctx.fillStyle = `hsla(${hue}, ${sat}%, ${light}%, ${alpha})`;
+        const x = d.idleX + (target.x - d.idleX) * coalesce + jx * (1 - coalesce);
+        const y = d.idleY + (target.y - d.idleY) * coalesce + jy * (1 - coalesce);
 
         // Larger dots per Antigravity reference — ~2.8px radius
         // (scales with DPR via the canvas transform).
@@ -450,8 +408,6 @@ export default function HeroV4() {
 
     return () => {
       window.removeEventListener("resize", resize);
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseout", onMouseLeave);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, [reduceMotion]);
@@ -475,51 +431,54 @@ export default function HeroV4() {
           a pure white bg otherwise */}
       <div className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_50%_40%,_rgba(245,158,11,0.05),_transparent_55%)]" />
 
-      {/* Content — centered in the viewport. No sticky behaviour
-          since the section is no longer taller than the viewport. */}
-      <div
-        className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center"
-      >
-        <h1
-          className="font-[family-name:var(--font-display)] max-w-4xl text-5xl font-bold tracking-tight text-[#0a0e1a] md:text-7xl lg:text-[96px]"
-          style={{ letterSpacing: "-0.035em", lineHeight: 1.02 }}
-        >
-          Tone recipes from the songs{" "}
-          <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 bg-clip-text italic text-transparent">
-            you love.
-          </span>
-        </h1>
-
-        <p className="mx-auto mt-7 max-w-xl text-lg text-[#475269] md:text-xl">
-          Pick a song. Get exact settings for your Helix, Quad Cortex, TONEX,
-          or physical rig.
-        </p>
-
-        <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
-          <Link
-            href="/browse"
-            className="w-full rounded-xl bg-[#0a0e1a] px-8 py-3.5 text-base font-semibold text-white shadow-[0_12px_40px_-8px_rgba(10,14,26,0.35)] transition-all hover:bg-[#1a1e2e] hover:shadow-[0_20px_60px_-10px_rgba(10,14,26,0.45)] sm:w-auto"
+      {/* Content — left-aligned, constrained to the left half of the
+          section so the canvas's dot→icon cycle can own the right
+          half. No center alignment. */}
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 md:px-12">
+        <div className="max-w-[54%] text-left md:max-w-[50%]">
+          <h1
+            className="font-[family-name:var(--font-display)] text-4xl font-bold tracking-tight text-[#0a0e1a] md:text-6xl lg:text-7xl"
+            style={{ letterSpacing: "-0.035em", lineHeight: 1.02 }}
           >
-            Browse Recipes
-          </Link>
-          <Link
-            href="#how-it-works"
-            className="w-full rounded-xl border border-[#0a0e1a]/15 bg-white/70 px-8 py-3.5 text-base font-semibold text-[#0a0e1a] backdrop-blur-sm transition-all hover:border-[#0a0e1a]/40 hover:bg-white sm:w-auto"
-          >
-            See how it works
-          </Link>
+            Tone recipes from
+            <br />
+            the songs{" "}
+            <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 bg-clip-text italic text-transparent">
+              you love.
+            </span>
+          </h1>
+
+          <p className="mt-7 max-w-xl text-lg text-[#475269] md:text-xl">
+            Pick a song. Get exact settings for your Helix, Quad Cortex,
+            TONEX, or physical rig.
+          </p>
+
+          <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
+            <Link
+              href="/browse"
+              className="rounded-xl bg-[#0a0e1a] px-8 py-3.5 text-base font-semibold text-white shadow-[0_12px_40px_-8px_rgba(10,14,26,0.35)] transition-all hover:bg-[#1a1e2e] hover:shadow-[0_20px_60px_-10px_rgba(10,14,26,0.45)]"
+            >
+              Browse Recipes
+            </Link>
+            <Link
+              href="#how-it-works"
+              className="rounded-xl border border-[#0a0e1a]/15 bg-white/70 px-8 py-3.5 text-base font-semibold text-[#0a0e1a] backdrop-blur-sm transition-all hover:border-[#0a0e1a]/40 hover:bg-white"
+            >
+              See how it works
+            </Link>
+          </div>
+
+          <p className="mt-10 flex items-center gap-2 text-sm text-[#6b7a92]">
+            <span
+              className="inline-block h-2 w-2 rounded-full bg-emerald-500"
+              style={{
+                boxShadow: "0 0 10px rgba(16, 185, 129, 0.7)",
+                animation: reduceMotion ? "none" : "heroV4NowPulse 2s ease-in-out infinite",
+              }}
+            />
+            <span>Watch the signal chain form</span>
+          </p>
         </div>
-
-        <p className="mt-10 flex items-center gap-2 text-sm text-[#6b7a92]">
-          <span
-            className="inline-block h-2 w-2 rounded-full bg-emerald-500"
-            style={{
-              boxShadow: "0 0 10px rgba(16, 185, 129, 0.7)",
-              animation: reduceMotion ? "none" : "heroV4NowPulse 2s ease-in-out infinite",
-            }}
-          />
-          <span>Move your mouse across the page to form the signal chain</span>
-        </p>
       </div>
 
       {/* Bottom fade so the transition into the dark SignalChainShowcase
