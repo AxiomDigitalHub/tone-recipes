@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { useAuth } from "@/lib/auth/auth-context";
+import { createBrowserClient } from "@/lib/db/client";
 
 interface CheckoutButtonProps {
   plan: "premium" | "creator";
@@ -28,7 +29,6 @@ export default function CheckoutButton({
     setLoading(true);
 
     try {
-      const { createBrowserClient } = await import("@/lib/db/client");
       const supabase = createBrowserClient();
       const {
         data: { session },
