@@ -43,7 +43,7 @@ const features = [
     icon: CheckCircle2,
     title: "Hardware-Tested",
     description:
-      "Presets go through review on a real Helix LT before publication. If something doesn't load or sound right, it gets flagged and fixed.",
+      "Presets go through review on real hardware before publication. If something doesn't load or sound right, it gets flagged and fixed.",
   },
   {
     icon: Users,
@@ -122,7 +122,7 @@ export default function AboutPage() {
         <div>
           <h3 className="font-bold text-foreground">Hardware testing is part of the process</h3>
           <p className="mt-1 text-muted">
-            Presets are reviewed in HX Edit on a real Helix LT before they go
+            Presets are reviewed in HX Edit on real hardware before they go
             live. Blocks are confirmed to load, parameter ranges are checked,
             and if something is wrong we fix it before it ships.
           </p>

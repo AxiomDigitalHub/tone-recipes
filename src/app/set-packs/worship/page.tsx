@@ -130,7 +130,7 @@ export default function WorshipSetPackPage() {
           </a>
         </div>
         <p className="mt-4 text-xs text-muted">
-          Compatible with Helix Floor, Helix LT, Helix Rack, and HX Stomp (firmware 3.80+).
+          Compatible with Line 6 Helix and HX Stomp hardware on recent firmware.
         </p>
       </div>
 

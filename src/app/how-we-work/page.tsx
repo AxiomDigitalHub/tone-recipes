@@ -84,7 +84,7 @@ export default function HowWeWorkPage() {
               <span className="mt-1 shrink-0 text-emerald-400">1.</span>
               <div>
                 <strong className="text-foreground">Test on real hardware.</strong>{" "}
-                Presets are loaded into HX Edit and tested on a real Helix LT as
+                Presets are loaded into HX Edit and tested on real hardware as
                 part of our review process. When a preset doesn&apos;t sound
                 right or fails to load correctly, it gets flagged and fixed
                 before it ships.
