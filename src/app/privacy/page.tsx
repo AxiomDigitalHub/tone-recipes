@@ -227,8 +227,8 @@ export default function PrivacyPolicyPage() {
           </h2>
           <p>
             Fader &amp; Knob uses AI to research tones, write blog posts, and
-            generate preset files. Every preset we publish is verified on real
-            hardware before release. We disclose this openly on our{" "}
+            generate preset files. Hardware testing is part of our review
+            process before release. We disclose this openly on our{" "}
             <Link
               href="/how-we-work"
               className="text-amber-400 underline hover:text-amber-300"

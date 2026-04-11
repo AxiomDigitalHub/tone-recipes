@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "How We Work",
   description:
-    "How Fader & Knob uses AI to research tones, generate presets, and write content — and how humans verify everything on real hardware.",
+    "How Fader & Knob uses AI to research tones, generate presets, and write content — and how humans verify work on real hardware.",
   openGraph: {
     title: "How We Work | Fader & Knob",
     description: "AI-powered tone research, human-verified on real hardware.",
@@ -84,9 +84,10 @@ export default function HowWeWorkPage() {
               <span className="mt-1 shrink-0 text-emerald-400">1.</span>
               <div>
                 <strong className="text-foreground">Test on real hardware.</strong>{" "}
-                Every Helix preset is loaded into HX Edit and tested on a real
-                Helix LT. If it doesn't sound right or load correctly, it
-                doesn't ship.
+                Presets are loaded into HX Edit and tested on a real Helix LT as
+                part of our review process. When a preset doesn&apos;t sound
+                right or fails to load correctly, it gets flagged and fixed
+                before it ships.
               </div>
             </li>
             <li className="flex gap-3">

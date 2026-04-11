@@ -83,7 +83,7 @@ export default function Footer() {
             <Link href="/about" className="underline hover:text-muted">About</Link>
           </div>
           <p>
-            Content on this site is researched and written with AI assistance and verified by humans on real hardware.
+            Content on this site is researched and written with AI assistance. Hardware testing is part of our review process.
             Some links are affiliate links — Fader &amp; Knob may earn a commission on purchases at no extra cost to you.
             We use{" "}
             <a href="https://clarity.microsoft.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted">

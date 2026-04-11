@@ -41,9 +41,9 @@ const features = [
   },
   {
     icon: CheckCircle2,
-    title: "Verified on Real Hardware",
+    title: "Hardware-Tested",
     description:
-      "Every preset is tested on a real Helix LT before it's published. If it doesn't load or doesn't sound right, it doesn't ship.",
+      "Presets go through review on a real Helix LT before publication. If something doesn't load or sound right, it gets flagged and fixed.",
   },
   {
     icon: Users,
@@ -120,11 +120,11 @@ export default function AboutPage() {
           </p>
         </div>
         <div>
-          <h3 className="font-bold text-foreground">Every preset is verified on real hardware</h3>
+          <h3 className="font-bold text-foreground">Hardware testing is part of the process</h3>
           <p className="mt-1 text-muted">
-            We test every Helix preset in HX Edit on a real Helix LT before
-            publishing. Every block is confirmed to load. Every parameter range
-            is checked. If something is wrong, it doesn&apos;t ship.
+            Presets are reviewed in HX Edit on a real Helix LT before they go
+            live. Blocks are confirmed to load, parameter ranges are checked,
+            and if something is wrong we fix it before it ships.
           </p>
         </div>
         <div>
