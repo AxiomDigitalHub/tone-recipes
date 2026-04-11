@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 /* ── Node data ── */
 const NODES = [
@@ -56,102 +56,20 @@ function Connector({ active }: { active: boolean }) {
   );
 }
 
-/* ── Cubic bezier helper for dot animation ── */
-function cubicBezier(t: number, p0: number, p1: number, p2: number, p3: number) {
-  const m = 1 - t;
-  return m*m*m*p0 + 3*m*m*t*p1 + 3*m*t*t*p2 + t*t*t*p3;
-}
-
 export default function HeroSignalChain() {
   const [activeStep, setActiveStep] = useState(-1);
   const [isComplete, setIsComplete] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
-  // Refs for cable measurement
+  // Refs kept only for the few elements still in the markup (wrapper
+  // for positioning, youRef/ctaRef because the JSX still references
+  // them, guitarRef is the first node in the chain).
   const wrapperRef = useRef<HTMLDivElement>(null);
   const youRef = useRef<HTMLSpanElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const guitarRef = useRef<HTMLDivElement>(null);
-  const cableDotRef = useRef<SVGCircleElement>(null);
-  const [cablePath, setCablePath] = useState("");
-  const [svgSize, setSvgSize] = useState({ w: 0, h: 0 });
-  const bezierRef = useRef({ sx: 0, sy: 0, cp1x: 0, cp1y: 0, cp2x: 0, cp2y: 0, ex: 0, ey: 0 });
-  const dotAnimated = useRef(false);
 
-  // Measure cable from "you" text down to guitar node
-  const measureCable = useCallback(() => {
-    const wrap = wrapperRef.current;
-    const you = youRef.current;
-    const cta = ctaRef.current;
-    const guitar = guitarRef.current;
-    if (!wrap || !you || !guitar) return;
-
-    const wr = wrap.getBoundingClientRect();
-    const yr = you.getBoundingClientRect();
-    const cr = cta ? cta.getBoundingClientRect() : null;
-    const gr = guitar.getBoundingClientRect();
-    if (wr.width === 0) return;
-
-    // Start: bottom-right of "love." text (after the period)
-    const sx = yr.left + yr.width - wr.left + 10;
-    const sy = yr.bottom - wr.top + 6;
-
-    // End: top-center of guitar node
-    const ex = gr.left + gr.width / 2 - wr.left;
-    const ey = gr.top - wr.top;
-
-    // Right edge: right side of the content area
-    const rightEdge = Math.min(wr.width - 40, yr.left + yr.width - wr.left + 200);
-    // Left edge: left of guitar node
-    const leftEdge = gr.left - wr.left - 40;
-    // Mid Y: right under the CTA buttons
-    const midY = cr ? (cr.bottom - wr.top + 16) : (ey - 80);
-    // Node Y: vertically centered on guitar node
-    const nodeY = gr.top + gr.height / 2 - wr.top;
-    const bend = 28;
-
-    // Path: RIGHT → DOWN → LEFT (under CTAs) → DOWN → RIGHT into guitar
-    const pathD = [
-      // 1. Start at right of "love."
-      `M ${sx} ${sy}`,
-      // 2. Horizontal RIGHT to the right edge
-      `L ${rightEdge - bend} ${sy}`,
-      // 3. Bend: curve down
-      `Q ${rightEdge} ${sy} ${rightEdge} ${sy + bend}`,
-      // 4. Vertical DOWN along right side to under CTAs
-      `L ${rightEdge} ${midY - bend}`,
-      // 5. Bend: curve left
-      `Q ${rightEdge} ${midY} ${rightEdge - bend} ${midY}`,
-      // 6. Horizontal LEFT all the way past guitar to left edge
-      `L ${leftEdge + bend} ${midY}`,
-      // 7. Bend: curve down
-      `Q ${leftEdge} ${midY} ${leftEdge} ${midY + bend}`,
-      // 8. Vertical DOWN to guitar node level
-      `L ${leftEdge} ${nodeY - bend}`,
-      // 9. Bend: curve right
-      `Q ${leftEdge} ${nodeY} ${leftEdge + bend} ${nodeY}`,
-      // 10. Horizontal RIGHT into guitar node
-      `L ${gr.left - wr.left} ${nodeY}`,
-    ].join(" ");
-
-    setCablePath(pathD);
-    setSvgSize({ w: wr.width, h: wr.height });
-
-    // For dot animation — approximate the multi-segment path as cubic bezier
-    const cp1x = rightEdge;
-    const cp1y = sy + (nodeY - sy) * 0.3;
-    const cp2x = leftEdge;
-    const cp2y = sy + (nodeY - sy) * 0.7;
-    bezierRef.current = { sx, sy, cp1x, cp1y, cp2x, cp2y, ex: gr.left - wr.left, ey: nodeY };
-  }, []);
-
-  useEffect(() => {
-    const t = setTimeout(measureCable, 200);
-    window.addEventListener("resize", measureCable);
-    return () => { clearTimeout(t); window.removeEventListener("resize", measureCable); };
-  }, [measureCable]);
-
-  // Node animation
+  // Node light-up animation: sequential reveal on mount
   useEffect(() => {
     if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setActiveStep(NODES.length);
@@ -172,95 +90,22 @@ export default function HeroSignalChain() {
       }
     }
 
-    // Start: cable dot travels first, then nodes light up
-    timerRef.current = setTimeout(advance, 1200);
+    timerRef.current = setTimeout(advance, 600);
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, []);
 
-  // Cable dot animation — fires once after mount
-  useEffect(() => {
-    if (dotAnimated.current) return;
-    const dot = cableDotRef.current!;
-    if (!dot || !cablePath) return;
-    dotAnimated.current = true;
-
-    const { sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey } = bezierRef.current;
-    if (sx === 0 && sy === 0) return;
-
-    const ms = 900;
-    const startTime = performance.now();
-    dot.setAttribute("opacity", "1");
-
-    function frame(now: number) {
-      const t = Math.min((now - startTime) / ms, 1);
-      const x = cubicBezier(t, sx, cp1x, cp2x, ex);
-      const y = cubicBezier(t, sy, cp1y, cp2y, ey);
-      dot.setAttribute("transform", `translate(${x},${y})`);
-      if (t < 1) requestAnimationFrame(frame);
-      else dot.setAttribute("opacity", "0");
-    }
-    requestAnimationFrame(frame);
-  }, [cablePath]);
-
-  // Re-measure after first node renders
-  useEffect(() => {
-    if (activeStep >= 0) measureCable();
-  }, [activeStep, measureCable]);
-
   return (
     <div ref={wrapperRef} style={{ position: "relative" }}>
-      {/* ── Cable SVG overlay ── */}
-      {cablePath && (
-        <svg
-          style={{
-            position: "absolute", top: 0, left: 0,
-            pointerEvents: "none", zIndex: 1,
-            overflow: "visible",
-          }}
-          width={svgSize.w}
-          height={svgSize.h}
-          fill="none"
-        >
-          <path
-            d={cablePath}
-            stroke="#1e304a"
-            strokeWidth="2"
-            strokeDasharray="6 5"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <defs>
-            <radialGradient id="hero-cable-grd">
-              <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="35%" stopColor="#a5f3fc" />
-              <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
-            </radialGradient>
-            <filter id="hero-cable-glow" x="-300%" y="-300%" width="700%" height="700%">
-              <feGaussianBlur stdDeviation="4" result="b" />
-              <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
-            </filter>
-          </defs>
-          <circle
-            ref={cableDotRef}
-            r="5"
-            fill="url(#hero-cable-grd)"
-            filter="url(#hero-cable-glow)"
-            opacity="0"
-          />
-        </svg>
-      )}
+      {/* Cable routing, gradient underline, and "Pick a song..." sub-copy
+          all removed. Signal chain now sits directly under the headline. */}
 
-      {/* ── "you love." text anchor — we expose a ref on "you" ── */}
       <h1 className="font-[family-name:var(--font-display)] mx-auto mt-4 max-w-4xl text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl xl:text-9xl" style={{ letterSpacing: "-0.03em", lineHeight: 1.05 }}>
         Tone recipes from the songs
         <br />
-        <span ref={youRef} className="signal-underline bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+        <span ref={youRef} className="text-accent italic">
           you love.
         </span>
       </h1>
-      <p className="mx-auto mt-6 max-w-xl text-lg text-muted md:text-xl">
-        Pick a song. Get exact settings for your Helix, Quad Cortex, TONEX, or physical rig. Stop tweaking. Start playing.
-      </p>
 
       <div ref={ctaRef} className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ position: "relative", zIndex: 2 }}>
         <a
@@ -277,15 +122,8 @@ export default function HeroSignalChain() {
         </a>
       </div>
 
-      <p className="mt-4 text-sm text-muted" style={{ position: "relative", zIndex: 2 }}>
-        New here?{" "}
-        <a href="/blog/what-is-a-tone-recipe" className="text-accent hover:underline">
-          Learn what a tone recipe is
-        </a>
-      </p>
-
-      {/* ── Signal chain nodes ── */}
-      <div className="mx-auto mt-16 max-w-4xl rounded-2xl border border-[#1e2840] bg-[#0b0f1a] px-4 py-8 sm:px-8" style={{ position: "relative", zIndex: 2, overflowX: "auto", overflowY: "visible" }}>
+      {/* Signal chain — pulled up, sits directly under the CTA now */}
+      <div className="mx-auto mt-12 max-w-4xl rounded-2xl border border-[#1e2840] bg-[#0b0f1a] px-4 py-8 sm:px-8" style={{ position: "relative", zIndex: 2, overflowX: "auto", overflowY: "visible" }}>
         <div style={{
           display: "flex", alignItems: "center", justifyContent: "center",
           minWidth: "max-content", margin: "0 auto",
