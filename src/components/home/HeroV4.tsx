@@ -258,18 +258,20 @@ function sampleIconTargets(
 }
 
 type Dot = {
-  /** Idle scatter position (cloud around the slot center) */
+  /** Grid position — where the dot lives at rest. */
   idleX: number;
   idleY: number;
-  /** Array of target (x, y) pairs, one per icon in the cycle. */
-  iconTargets: { x: number; y: number }[];
+  /**
+   * Icon targets for this dot. null = this dot is a static grid
+   * dot outside the icon's influence zone and never animates.
+   */
+  iconTargets: { x: number; y: number }[] | null;
   seed: number;
 };
 
-// Target total dot count. All dots animate together between the idle
-// grid and the current icon in the cycle, so this is also the number
-// of points we sample per icon.
-const TOTAL_DOTS = 506; // ~23 x 22 grid
+// Full-screen grid spacing. Smaller = denser. Adaptive to viewport
+// so a tall phone and a wide desktop both look balanced.
+const GRID_SPACING_FACTOR = 22; // min(w,h) / 22 = ~52px on desktop
 // How long each icon phase lasts (ms). Phase = grid → icon → grid.
 const PHASE_MS = 3600;
 
@@ -294,53 +296,79 @@ export default function HeroV4() {
     // Build dot targets for the serial cycle.
     //
     // Layout:
-    // - One slot, centered on the right ~68% of the canvas so the
-    //   left side is free for the hero text.
-    // - Icons sized way up (min(w,h) * 0.65).
+    // - Full-screen grid of dots at ~52px spacing.
+    // - One icon slot on the right ~68% of the canvas.
+    // - Dots inside the slot's "influence zone" (radius 0.6 ×
+    //   iconRenderSize) animate to the current icon's targets.
+    //   Dots outside stay at their grid positions always, forming
+    //   a quiet ambient lattice.
     //
-    // Each dot has a grid-aligned idle position and an array of
-    // icon targets (one per phase). On each frame we interpolate
-    // from the grid position to the current phase's icon target.
+    // With iconRenderSize = 0.65 × min(w,h) and spacing ≈ min(w,h)/22,
+    // there are ~200-280 active dots inside the zone (roughly half
+    // the prior density, per the user's "fewer dots in the icon"
+    // direction) and ~500-700 static grid dots everywhere else.
     function buildDots(width: number, height: number): Dot[] {
       const iconRenderSize = Math.min(width, height) * 0.65;
       const slotCx = width * 0.68;
       const slotCy = height * 0.5;
+      const influenceRadius = iconRenderSize * 0.6;
+      const spacing = Math.min(width, height) / GRID_SPACING_FACTOR;
 
-      // Sample each icon to exactly TOTAL_DOTS points.
+      // Lay out a full-screen grid. Offset so the grid is centered
+      // in the section (no awkward half-rows at the edges).
+      const cols = Math.ceil(width / spacing) + 1;
+      const rows = Math.ceil(height / spacing) + 1;
+      const xOffset = (width - (cols - 1) * spacing) / 2;
+      const yOffset = (height - (rows - 1) * spacing) / 2;
+
+      // Split grid positions into active (inside influence zone)
+      // and static (outside).
+      const activePositions: { x: number; y: number }[] = [];
+      const staticPositions: { x: number; y: number }[] = [];
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const x = xOffset + c * spacing;
+          const y = yOffset + r * spacing;
+          const dx = x - slotCx;
+          const dy = y - slotCy;
+          if (Math.hypot(dx, dy) <= influenceRadius) {
+            activePositions.push({ x, y });
+          } else {
+            staticPositions.push({ x, y });
+          }
+        }
+      }
+
+      // Sample each icon to exactly active.length points so every
+      // active dot gets a target for every icon in the cycle.
+      const activeCount = activePositions.length;
       const perIcon: { x: number; y: number }[][] = ICONS.map((icon) => {
-        const pts = sampleIconTargets(icon, 220, TOTAL_DOTS);
+        const pts = sampleIconTargets(icon, 220, activeCount);
         return pts.map((p) => ({
           x: slotCx + p.x * iconRenderSize,
           y: slotCy + p.y * iconRenderSize,
         }));
       });
 
-      // Grid idle layout. Uniform lattice of GRID_COLS × GRID_ROWS
-      // centered on the slot. Cell spacing 6% larger than a bare
-      // sqrt so the grid extends beyond the icon's bounding box —
-      // this way when an icon forms inside the grid, outer dots move
-      // in toward it from all sides.
-      const GRID_COLS = 23;
-      const GRID_ROWS = Math.ceil(TOTAL_DOTS / GRID_COLS);
-      const GRID_SIZE = iconRenderSize * 1.55;
-      const cellW = GRID_SIZE / GRID_COLS;
-      const cellH = GRID_SIZE / GRID_ROWS;
-      const gridLeft = slotCx - GRID_SIZE / 2 + cellW / 2;
-      const gridTop = slotCy - GRID_SIZE / 2 + cellH / 2;
-
       const out: Dot[] = [];
-      for (let i = 0; i < TOTAL_DOTS; i++) {
-        const col = i % GRID_COLS;
-        const row = Math.floor(i / GRID_COLS);
-        const idleX = gridLeft + col * cellW;
-        const idleY = gridTop + row * cellH;
+      // Active dots: have icon targets, participate in the cycle.
+      activePositions.forEach((p, i) => {
         out.push({
-          idleX,
-          idleY,
+          idleX: p.x,
+          idleY: p.y,
           iconTargets: perIcon.map((arr) => arr[i]),
-          seed: i,
+          seed: out.length,
         });
-      }
+      });
+      // Static dots: fill the rest of the full-screen grid.
+      staticPositions.forEach((p) => {
+        out.push({
+          idleX: p.x,
+          idleY: p.y,
+          iconTargets: null,
+          seed: out.length,
+        });
+      });
       return out;
     }
 
@@ -401,6 +429,18 @@ export default function HeroV4() {
       const now = performance.now();
       for (let i = 0; i < dots.length; i++) {
         const d = dots[i];
+        // Static grid dots: draw at their grid position with a tiny
+        // time-based drift so they don't look locked to a strict grid.
+        if (!d.iconTargets) {
+          const jx = Math.sin(d.seed * 0.73 + now / 2400) * 1.5;
+          const jy = Math.cos(d.seed * 0.91 + now / 2800) * 1.5;
+          ctx.beginPath();
+          ctx.arc(d.idleX + jx, d.idleY + jy, 2.8, 0, Math.PI * 2);
+          ctx.fill();
+          continue;
+        }
+
+        // Active dots: morph to the current phase's icon target.
         const target = d.iconTargets[phaseIdx];
         if (!target) continue;
 
