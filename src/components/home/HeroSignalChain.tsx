@@ -107,32 +107,20 @@ export default function HeroSignalChain() {
       {/* Cable routing, gradient underline, and "Pick a song..." sub-copy
           all removed. Signal chain now sits directly under the headline. */}
 
-      <h1 className="font-[family-name:var(--font-display)] mx-auto mt-4 max-w-4xl text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl xl:text-9xl" style={{ letterSpacing: "-0.03em", lineHeight: 1.05 }}>
-        Tone recipes from the songs
+      <h1
+        className="font-[family-name:var(--font-display)] mx-auto mt-4 max-w-5xl text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl"
+        style={{ letterSpacing: "-0.03em", lineHeight: 1.08 }}
+      >
+        Tone recipes from
         <br />
+        the songs{" "}
         <span ref={youRef} className="text-accent italic">
           you love.
         </span>
       </h1>
 
-      <div ref={ctaRef} className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ position: "relative", zIndex: 2 }}>
-        <a
-          href="/browse"
-          className="rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-background transition-colors hover:bg-accent-hover"
-        >
-          Browse Recipes
-        </a>
-        <a
-          href="/how-it-works"
-          className="rounded-xl border border-border px-8 py-3.5 text-base font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
-        >
-          See how it works
-        </a>
-      </div>
-
-      {/* Signal chain — unboxed: no border, no background, no radius.
-          The nodes float directly in the hero bg. */}
-      <div className="mx-auto mt-12 max-w-5xl px-4 py-6 sm:px-8" style={{ position: "relative", zIndex: 2, overflowX: "auto", overflowY: "visible" }}>
+      {/* Signal chain — directly under the headline */}
+      <div className="mx-auto mt-10 max-w-5xl px-4 py-4 sm:px-8" style={{ position: "relative", zIndex: 2, overflowX: "auto", overflowY: "visible" }}>
         <div style={{
           display: "flex", alignItems: "center", justifyContent: "center",
           minWidth: "max-content", margin: "0 auto",
@@ -178,6 +166,22 @@ export default function HeroSignalChain() {
             );
           })}
         </div>
+      </div>
+
+      {/* CTAs — now below the chain, per new layout */}
+      <div ref={ctaRef} className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ position: "relative", zIndex: 2 }}>
+        <a
+          href="/browse"
+          className="rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-background transition-colors hover:bg-accent-hover"
+        >
+          Browse Recipes
+        </a>
+        <a
+          href="/how-it-works"
+          className="rounded-xl border border-border px-8 py-3.5 text-base font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
+        >
+          See how it works
+        </a>
       </div>
     </div>
   );

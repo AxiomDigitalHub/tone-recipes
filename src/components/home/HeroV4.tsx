@@ -298,15 +298,15 @@ export default function HeroV4() {
     // Build dot targets by sampling every icon and assigning each
     // sampled point to an absolute canvas coordinate.
     function buildDots(width: number, height: number): Dot[] {
-      const iconRenderSize = Math.min(width, height) * 0.22;
+      // Rec #2(a) from the design critique: icons larger and more
+      // sample points. Total dot count ~doubles.
+      const iconRenderSize = Math.min(width, height) * 0.26;
       const slots = layoutIconSlots(width, height);
 
       const allTargets: { cx: number; cy: number; iconSize: number }[] = [];
       ICONS.forEach((icon, i) => {
         const slot = slots[i % slots.length];
-        // Higher density shapes (wider path coverage) get fewer per-icon
-        // samples to keep the total ~1500 across all icons.
-        const pts = sampleIconTargets(icon, 140, 3, 260);
+        const pts = sampleIconTargets(icon, 180, 3, 520);
         pts.forEach((p) => {
           allTargets.push({
             cx: slot.cx + p.x * iconRenderSize,
@@ -366,18 +366,25 @@ export default function HeroV4() {
       const h = canvas.clientHeight;
       ctx.clearRect(0, 0, w, h);
 
-      // Progress 0..1 drives how tightly the dots have converged.
-      // We ease at the edges so the midpoint is fully coalesced.
+      // Design-critique rec #2:
+      // (c) Start the dots at 25% coalesced instead of 0% so the
+      //     shapes are already suggested before the user scrolls.
+      // (d) Add a continuous 2.8s breathing oscillation on top of
+      //     the scroll progress so the dots are always moving,
+      //     even on static viewports.
       const p = reduceMotion ? 0.6 : progressRef.current;
-      const coalesce = easeInOutCubic(Math.min(1, p * 1.6));
+      const baseCoalesce = 0.25 + easeInOutCubic(Math.min(1, p * 1.6)) * 0.72;
+      const breathe = reduceMotion
+        ? 0
+        : Math.sin(performance.now() / 2800) * 0.04;
+      const coalesce = Math.max(0, Math.min(1, baseCoalesce + breathe));
 
-      // Light theme: dark dots on white. Dots warm from cool navy
-      // to amber as the shapes coalesce, so the page "lights up" as
-      // you scroll.
+      // Light theme: dark dots on white. Darker base so the dots are
+      // visible against the white page even at low coalescence.
       const hue = 220 - coalesce * 190; // navy → amber
-      const sat = 35 + coalesce * 50;
-      const light = 28 + coalesce * 18;
-      const alpha = 0.45 + coalesce * 0.5;
+      const sat = 60 + coalesce * 30;
+      const light = 18 + coalesce * 22;
+      const alpha = 0.65 + coalesce * 0.3;
       ctx.fillStyle = `hsla(${hue}, ${sat}%, ${light}%, ${alpha})`;
 
       for (let i = 0; i < dots.length; i++) {
@@ -434,7 +441,7 @@ export default function HeroV4() {
           style={{ letterSpacing: "-0.035em", lineHeight: 1.02 }}
         >
           Tone recipes from the songs{" "}
-          <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 bg-clip-text italic text-transparent">
+          <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 bg-clip-text italic text-transparent">
             you love.
           </span>
         </h1>

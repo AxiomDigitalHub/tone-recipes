@@ -176,23 +176,13 @@ function AmbientBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
 
   return (
     <>
-      {/* Layer 1 — sparse dot grid background. Edge alpha bumped
-          from 0.2 -> 0.5 so the grid reads as a full field that
-          brightens toward the center, rather than fading away. */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, rgba(200, 220, 255, 0.24) 1px, transparent 1.5px)",
-          backgroundSize: "24px 24px",
-          maskImage:
-            "radial-gradient(ellipse at 50% 45%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 45%, rgba(0,0,0,0.5) 80%, rgba(0,0,0,0.45) 100%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse at 50% 45%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 45%, rgba(0,0,0,0.5) 80%, rgba(0,0,0,0.45) 100%)",
-        }}
-      />
+      {/* Simplification (design-critique rec #3): static dot-grid
+          background removed. The bit-pattern presence now comes
+          entirely from the animated grid-to-chain dots below, which
+          start at perturbed positions and coalesce into the sine
+          wave. One less layer fighting for attention. */}
 
-      {/* Layer 2 — amber vignette */}
+      {/* Amber vignette to anchor the headline */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_32%,_rgba(245,158,11,0.09),_transparent_55%)]" />
 
       {/* Bottom fade into the SignalChainShowcase dark card */}

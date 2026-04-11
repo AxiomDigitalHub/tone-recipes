@@ -141,15 +141,16 @@ type ArcConfig = {
 };
 
 const ARCS: ArcConfig[] = [
+  // Design-critique rec #4: tile count reduced from 13 -> 9 (3 per
+  // arc). Each tile is now more meaningful and the composition
+  // breathes. Each arc carries one member of the "signal flow"
+  // trio: input (guitar/overdrive/preamp), middle (chorus/delay/
+  // cabinet), output (mic/comp/preamp).
   {
     d: ARC_CYAN,
     color: "#22d3ee",
-    nodes: ["GUITAR", "COMPRESSION", "OVERDRIVE", "PREAMP", "MIC"],
-    // First position pushed from 0.12 -> 0.16 so guitar sits further
-    // along the arc (further from the left edge where violet/magenta
-    // also enter). Last position pulled back to 0.88 so MIC stays
-    // fully in-frame.
-    positions: [0.16, 0.32, 0.5, 0.7, 0.88],
+    nodes: ["GUITAR", "OVERDRIVE", "MIC"],
+    positions: [0.18, 0.5, 0.88],
     dashTotal: 1580,
     dashVisible: 180,
     duration: 6,
@@ -157,11 +158,8 @@ const ARCS: ArcConfig[] = [
   {
     d: ARC_VIOLET,
     color: "#a78bfa",
-    nodes: ["CABINET", "DELAY", "CHORUS", "GUITAR"],
-    // First position pulled back from 0.14 -> 0.10 so the first tile
-    // (CABINET) lands earlier along the arc, vertically separated
-    // from the cyan GUITAR tile.
-    positions: [0.1, 0.34, 0.58, 0.84],
+    nodes: ["CABINET", "DELAY", "CHORUS"],
+    positions: [0.12, 0.44, 0.82],
     dashTotal: 1820,
     dashVisible: 220,
     duration: 7.5,
@@ -169,10 +167,8 @@ const ARCS: ArcConfig[] = [
   {
     d: ARC_MAGENTA,
     color: "#f472b6",
-    nodes: ["PREAMP", "CABINET", "OVERDRIVE", "COMPRESSION"],
-    // First position bumped 0.14 -> 0.2 so PREAMP sits deeper into
-    // the viewport, not overlapping the lower-left cluster.
-    positions: [0.2, 0.4, 0.6, 0.84],
+    nodes: ["PREAMP", "COMPRESSION", "CABINET"],
+    positions: [0.22, 0.5, 0.82],
     dashTotal: 1700,
     dashVisible: 200,
     duration: 5.5,
