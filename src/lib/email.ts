@@ -58,6 +58,74 @@ export async function sendWelcomeEmail(to: string, recipeName: string) {
 }
 
 /**
+ * Send a welcome email to a newly-subscribed newsletter user.
+ * Triggered from /api/newsletter after a successful insert.
+ * Non-blocking — if Resend fails, we still return success to the user
+ * because their subscription is already stored.
+ */
+export async function sendNewsletterWelcome(to: string) {
+  try {
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to,
+      replyTo: REPLY_TO,
+      subject: "Welcome to Fader & Knob",
+      html: `
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; color: #e5e5e5; background-color: #0b0f1a; padding: 32px;">
+          <div style="border-bottom: 2px solid #f59e0b; padding-bottom: 16px; margin-bottom: 24px;">
+            <h1 style="color: #f59e0b; font-size: 24px; margin: 0;">Fader &amp; Knob</h1>
+            <p style="color: #6e7a8a; font-size: 13px; margin: 4px 0 0;">Tone recipes from the songs you love</p>
+          </div>
+
+          <h2 style="color: #f0eadf; font-size: 22px; margin: 0 0 12px;">Welcome aboard.</h2>
+
+          <p style="line-height: 1.6; color: #a3b2c4; margin: 0 0 20px;">
+            You just joined a list of guitarists who'd rather play than tweak.
+            Every week we ship new tone recipes, signal chain breakdowns,
+            and downloadable presets for Line 6 Helix and Boss Katana.
+          </p>
+
+          <div style="background: #161d2f; border-left: 3px solid #f59e0b; border-radius: 6px; padding: 20px; margin: 24px 0;">
+            <h3 style="color: #f59e0b; margin: 0 0 8px; font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px;">Start here</h3>
+            <ul style="color: #c8d8e8; line-height: 1.8; padding-left: 20px; margin: 0;">
+              <li><a href="https://faderandknob.com/browse" style="color: #f59e0b; text-decoration: none;">Browse 50+ tone recipes</a> — filter by artist, song, or platform</li>
+              <li><a href="https://faderandknob.com/set-packs/worship" style="color: #f59e0b; text-decoration: none;">Worship Set Pack</a> — one preset, 8 snapshots, 30 songs mapped</li>
+              <li><a href="https://faderandknob.com/how-it-works" style="color: #f59e0b; text-decoration: none;">How it works</a> — from song to your rig in three steps</li>
+            </ul>
+          </div>
+
+          <p style="line-height: 1.6; color: #a3b2c4; margin: 0 0 12px;">
+            Got a song you want a recipe for? Just reply to this email —
+            we read every message and your request might become next week's
+            recipe.
+          </p>
+
+          <p style="line-height: 1.6; color: #a3b2c4; margin: 0 0 20px;">
+            — Daniel<br>
+            <span style="color: #6e7a8a; font-size: 13px;">Fader &amp; Knob</span>
+          </p>
+
+          <div style="border-top: 1px solid #1e2840; margin-top: 32px; padding-top: 16px; color: #6e7a8a; font-size: 12px; line-height: 1.6;">
+            <p style="margin: 0 0 6px;">
+              You're receiving this because you subscribed at
+              <a href="https://faderandknob.com" style="color: #6e7a8a;">faderandknob.com</a>.
+            </p>
+            <p style="margin: 0;">
+              Content researched and written with AI assistance.
+              Hardware testing is part of our review process.
+            </p>
+          </div>
+        </div>
+      `,
+    });
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to send newsletter welcome:", error);
+    return { success: false, error };
+  }
+}
+
+/**
  * Send the weekly "Tone of the Week" newsletter.
  */
 export async function sendToneOfTheWeek(opts: {

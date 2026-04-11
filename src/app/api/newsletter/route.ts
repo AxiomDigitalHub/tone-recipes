@@ -34,13 +34,15 @@ export async function POST(request: Request) {
     }
 
     const supabase = getClient();
+    const normalizedEmail = email.toLowerCase();
 
     const { error } = await supabase
       .from("newsletter_subscribers")
-      .insert({ email: email.toLowerCase(), source: "website" } as any);
+      .insert({ email: normalizedEmail, source: "website" } as any);
 
     if (error) {
-      // Unique constraint violation — already subscribed
+      // Unique constraint violation — already subscribed.
+      // Don't re-send the welcome email.
       if (error.code === "23505") {
         return NextResponse.json({ success: true });
       }
@@ -49,6 +51,17 @@ export async function POST(request: Request) {
         { error: "Unable to subscribe. Please try again later." },
         { status: 500 },
       );
+    }
+
+    // Fire-and-forget welcome email. If it fails we still succeed —
+    // the subscription is already saved and a missed welcome email
+    // shouldn't break the signup flow.
+    if (process.env.RESEND_API_KEY) {
+      import("@/lib/email").then(({ sendNewsletterWelcome }) => {
+        sendNewsletterWelcome(normalizedEmail).catch((err) => {
+          console.error("Newsletter welcome send failed:", err);
+        });
+      });
     }
 
     return NextResponse.json({ success: true });
