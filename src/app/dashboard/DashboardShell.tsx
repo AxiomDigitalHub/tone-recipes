@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/lib/auth/auth-context";
@@ -39,30 +39,40 @@ export default function DashboardShell({
   const { user, loading, signOut } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
+  const [justUpgraded, setJustUpgraded] = useState(false);
+
+  // Read ?upgraded=true from URL on client only (avoids Suspense prerender issue)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    setJustUpgraded(
+      new URLSearchParams(window.location.search).get("upgraded") === "true",
+    );
+  }, []);
 
   // Grace period before redirecting to /login.
   // Prevents a brief loading-false + user-null race from bouncing users
   // off the dashboard when they return from external redirects (Stripe, OAuth).
+  // Extended to 6 seconds when ?upgraded=true is present — the user just paid us
+  // and deserves to wait for auth hydration before we bounce them to /login.
   useEffect(() => {
     if (loading || user) return;
+    const graceMs = justUpgraded ? 6000 : 3000;
     const timer = setTimeout(() => {
-      // Re-check inside the timer — if user arrived during the grace period, bail
-      if (!user) {
-        router.replace("/login");
-      }
-    }, 1500);
+      router.replace("/login");
+    }, graceMs);
     return () => clearTimeout(timer);
-  }, [loading, user, router]);
+  }, [loading, user, router, justUpgraded]);
 
-  if (loading) {
+  if (loading || !user) {
     return (
-      <div className="flex min-h-[60vh] items-center justify-center">
-        <p className="text-muted">Loading...</p>
+      <div className="flex min-h-[60vh] flex-col items-center justify-center gap-3">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-accent border-t-transparent" />
+        <p className="text-sm text-muted">
+          {justUpgraded ? "Activating your account..." : "Loading..."}
+        </p>
       </div>
     );
   }
-
-  if (!user) return null;
 
   const initials = (user.displayName ?? user.email)
     .split(/[\s@]+/)

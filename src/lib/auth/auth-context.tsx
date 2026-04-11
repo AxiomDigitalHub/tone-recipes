@@ -73,35 +73,53 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // Real Supabase session
     const supabase = createBrowserClient();
 
-    async function buildUser(supabaseUser: { id: string; email?: string | null; user_metadata?: Record<string, unknown> }): Promise<AuthUser> {
-      const base: AuthUser = {
+    // Build a user object from raw Supabase user — synchronous, no DB call.
+    // Profile data is enriched asynchronously (see enrichProfile below).
+    function baseUser(supabaseUser: { id: string; email?: string | null; user_metadata?: Record<string, unknown> }): AuthUser {
+      return {
         id: supabaseUser.id,
         email: supabaseUser.email ?? "",
         displayName: supabaseUser.user_metadata?.display_name as string | undefined,
         avatarUrl: supabaseUser.user_metadata?.avatar_url as string | undefined,
         role: "free",
       };
-      // Fetch role + display_name from profile
+    }
+
+    // Enrich the user with profile data from the DB. Runs async — does not
+    // block the initial setUser call, so DashboardShell can unblock users
+    // immediately after auth hydration even if the profiles query is slow.
+    async function enrichProfile(supabaseUserId: string) {
       try {
-        const { data } = await supabase.from("profiles").select("role, display_name, avatar_url").eq("id", supabaseUser.id).single();
+        const { data } = await supabase
+          .from("profiles")
+          .select("role, display_name, avatar_url")
+          .eq("id", supabaseUserId)
+          .single();
         if (data) {
           const row = data as Record<string, unknown>;
-          base.role = (row.role as UserRole) || "free";
-          if (row.display_name) base.displayName = row.display_name as string;
-          if (row.avatar_url) base.avatarUrl = row.avatar_url as string;
+          setUser((prev) => {
+            if (!prev || prev.id !== supabaseUserId) return prev;
+            return {
+              ...prev,
+              role: (row.role as UserRole) || prev.role,
+              displayName: (row.display_name as string) || prev.displayName,
+              avatarUrl: (row.avatar_url as string) || prev.avatarUrl,
+            };
+          });
         }
       } catch {
-        // Profile fetch failed — default to free
+        // Profile fetch failed — keep default role
       }
-      return base;
     }
 
     // Timeout: if getSession takes too long, show login buttons anyway
-    const timeout = setTimeout(() => setLoading(false), 3000);
+    const timeout = setTimeout(() => setLoading(false), 5000);
 
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
       if (session?.user) {
-        setUser(await buildUser(session.user));
+        setUser(baseUser(session.user));
+        // Enrich profile async — do not block initial hydration
+        void enrichProfile(session.user.id);
       }
       setLoading(false);
       clearTimeout(timeout);
@@ -112,9 +130,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (_event, session) => {
+    } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session?.user) {
-        setUser(await buildUser(session.user));
+        setUser(baseUser(session.user));
+        void enrichProfile(session.user.id);
       } else {
         setUser(null);
       }
