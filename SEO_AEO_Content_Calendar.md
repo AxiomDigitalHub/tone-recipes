@@ -565,3 +565,51 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 | 3 | HX Stomp Polarity Trick: Why Two Cab Blocks Out of Phase Sound Fuller Than One | "hx stomp cab polarity trick," "helix out of phase cab trick," "hx stomp thicker tone" | Sean Nakamura | 4 — Modeler Masterclass | Khruangbin HX Stomp SERP — the inverted polarity technique (splitting to two cab paths, inverting one) appears in CustomTone presets and forum discussions but is never explained editorially; the physics of why inverted polarity adds perceived width and low-mid fullness is a legitimate tonal science story; Sean is the natural voice for a technical modeler technique guide |
 | 4 | Boss SD-1 vs. BD-2: Which Super Overdrive Wins on a Clean Amp? | "boss sd-1 vs bd-2," "super overdrive vs blues driver," "sd-1 vs bd-2 comparison" | Jess Kowalski | 5 — Gear Lab | BD-2 vs BD-2W SERP — the SD-1 appears as the most common "is this a substitute?" question in BD-2 discussions; no editorial guide directly compares these two budget Boss overdrives in a structured A/B format; the circuit difference (FET-based asymmetrical clipping on SD-1 vs. op-amp character on BD-2) produces meaningfully different tonal characters that Jess's practical-value approach suits |
 | 5 | Marshall Shredmaster Clone Options: Aion FX Solstice, Five Cats Shredder, and What's Actually Different | "marshall shredmaster clone," "shredmaster pcb diy," "shredmaster alternatives 2026" | Hank Presswood | 5 — Gear Lab | Shredmaster vs. RAT SERP — Aion FX makes a licensed Solstice Shredmaster PCB ($35 build-it-yourself); Five Cats Pedals in the UK makes a complete Shredder clone; no editorial guide addresses the DIY and boutique clone market for this discontinued pedal; Hank's circuit-knowledge angle and vintage gear depth make this uniquely his; clusters with the Shredmaster vs. RAT post and the Creep tone recipe |
+
+## SERP Analysis — 2026-04-10 (Posts Published Today)
+
+### Posts published: nothing-band-guitar-tone, timmy-vs-tumnus, hx-stomp-polarity-trick, boss-sd1-vs-bd2, marshall-shredmaster-clone
+
+**nothing band guitar tone tired of tomorrow:**
+- SERP dominated by Sweetwater generic shoegaze guides, Bandcamp artist page, and Wikipedia; nothing (band) specific editorial coverage of tone settings is absent
+- Confirmed gap: no editorial piece addresses Nothing's specific distortion approach (RAT/Big Muff dark, down-tuned, post-distortion compression) vs. the classic shoegaze approach
+- Will Yip production context (Studio 4, same engineer as Title Fight) is entirely absent from search results
+- PAA signal: "what pedals does nothing band use?" "how do you get a shoegaze guitar tone?" — high intent, zero editorial supply
+
+**paul cochrane timmy vs wampler tumnus overdrive:**
+- SERP includes Guitar World Timmy history piece, Equipboard gear pages, TDPRI forum threads, and individual manufacturer pages
+- Guitar Pedal X has a "4 of a kind" Timmy roundup but no direct Timmy vs. Tumnus head-to-head with settings
+- Key confirmation: Timmy's pre-gain Bass / post-gain Treble architecture is the defining differentiator vs. Klon-based designs
+- Forum threads confirm "how close does the Tumnus get to the Timmy?" is a frequently asked unanswered question
+- PAA signal: "is the wampler tumnus a klon clone?" "what is the difference between timmy and klon?"
+
+**hx stomp cab polarity trick out of phase:**
+- SERP shows Helix Help unofficial guide, Line 6 community forum threads, and Sweetwater creative uses article
+- Confirmed: technique exists in community knowledge (Helix Help mentions the Mixer Invert function) but no editorial step-by-step guide with practical parameters
+- Acoustic Guitar Forum has a thread on phase inversion IR use — confirms some awareness but entirely DIY/forum context
+- Khruangbin/out-of-phase connection is absent from all editorial results
+- PAA signal: "how do i make helix sound fuller?" "hx stomp cab block tips"
+
+**boss sd-1 vs bd-2 blues driver comparison:**
+- Boss's own article documents the circuit differences; TDPRI and Harmony Central forums dominate remaining results
+- Guitar Chalk has a roundup that touches both but doesn't do a direct head-to-head with settings
+- Ultimate Guitar forum thread from 2009 still ranking — confirms editorial gap has been open for over a decade
+- Key confirmation from BOSS article: SD-1 is TS-based; BD-2 is not — the circuit difference is the story
+- PAA signal: "is the boss sd-1 a tube screamer?" "which boss overdrive is best for blues?"
+
+**marshall shredmaster clone options 2026:**
+- Aion FX Solstice is on page 1 — confirms the DIY route is accessible and indexed
+- Five Cats Pedals Shredder also appears — UK boutique coverage is real
+- Reverb listings for original Shredmasters confirm $200 to $400 price range; confirms the price pressure that makes clones relevant
+- Truetone Jekyll & Hyde is mentioned in TDPRI thread but not covered editorially
+- PAA signal: "is there a marshall shredmaster reissue?" "what pedal sounds like a marshall shredmaster?"
+
+## SERP-Derived Topics — 2026-04-10 (Batch 2)
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | The Great Dismal: How Nothing's Third Album Changed the Shoegaze Gain Structure | "nothing the great dismal guitar tone," "nothing band shoegaze heavy" | Dev Okonkwo | 1 — Tone Recipes | Nothing SERP — *The Great Dismal* (2020) has distinct search volume from *Tired of Tomorrow* and a different production approach (heavier use of Will Yip's compression, more Sunn Model T-influenced low-end saturation); a dedicated post completes the Nothing discography coverage and clusters with both existing shoegaze posts |
+| 2 | How to Choose Between a Buffer and a True Bypass Looper (And When Each Actually Matters) | "buffer vs true bypass looper," "do i need a buffer," "true bypass looper vs buffer pedal" | Sean Nakamura | 3 — Signal Chain & Tone Theory | Buffer myth SERP + HX Stomp SERP — the buffered vs. true bypass decision is one of the most consistently misunderstood signal chain questions; most forum guidance conflates the buffer question with the true bypass question; an editorial decision framework that distinguishes the two scenarios (long cable runs, multiple true bypass pedals) is completely absent; Sean's technical authority makes this definitive |
+| 3 | Wampler Tumnus Deluxe vs. Klon KTR: Is the Circuit Still Worth the Price Gap? | "wampler tumnus deluxe vs klon ktr," "is the klon ktr worth it," "klon ktr alternative" | Margot Thiessen | 5 — Gear Lab | Timmy vs. Tumnus SERP — the Tumnus Deluxe comparison creates a natural next question: once you've added a second tone control, how does it compare to the original KTR? The KTR's price ($450 to $600 used) vs. the Tumnus Deluxe ($200 new) is a real buying question; Margot is the voice for nuanced character comparison between high-investment and mid-investment options |
+| 4 | The DIY Pedal Starter Guide: What You Actually Need to Build Your First Overdrive | "diy guitar pedal beginner," "how to build guitar pedal," "first diy pedal build" | Carl Beckett | 3 — Signal Chain & Tone Theory | Shredmaster clone SERP — the Aion FX Solstice is positioned as a first build in the Shredmaster post; the natural follow-on is a guide that covers what you actually need (iron wattage, solder type, enclosure sourcing) without the usual overcomplicated tool lists that drive beginners away; Carl's plain-spoken approach and respect for practical constraints make this his most useful potential post |
+| 5 | Boss SD-1 Mod Guide: Three Changes That Make the Super Overdrive Actually Good | "boss sd-1 mod," "super overdrive mod," "sd-1 mod circuit" | Jess Kowalski | 3 — Signal Chain & Tone Theory | SD-1 vs BD-2 SERP — the SD-1's modification culture is mentioned in the comparison post; a dedicated mod guide covers the three most impactful changes (input cap, clipping diodes, output cap) with specific component values and estimated improvement; Jess's hands-on approach and respect for budget gear makes this uniquely hers; clusters with the SD-1 vs BD-2 post and the DS-1 mod post |

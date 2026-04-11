@@ -1,0 +1,156 @@
+---
+title: "HX Stomp Polarity Trick: Why Two Cab Blocks Out of Phase Sound Fuller Than One"
+description: "The HX Stomp inverted polarity cab trick explained — how splitting to two parallel cab paths and inverting one creates a wider, denser tone than any single cab block can produce."
+date: "2026-04-10"
+author: "Sean Nakamura"
+author_slug: "sean-nakamura"
+category: "modeler-masterclass"
+tags: ["hx-stomp", "helix", "cab-block", "polarity-trick", "modeler-technique", "parallel-routing", "ir", "cab-sim"]
+readingTime: 10
+image: "https://images.unsplash.com/photo-1593078165899-c7d2ac0d6aea?w=1200&q=80"
+image_alt: "HX Stomp on a pedalboard with parallel signal routing visible on a laptop screen"
+---
+
+> **Start Here:** The core technique in four steps:
+> 1. **Split your signal after the amp block** into two parallel paths
+> 2. **Place a different cab block in each path** — different cab types, different mics, or same cab with different mic positions
+> 3. **Invert the polarity on Path B** using the Path B mixer's polarity parameter
+> 4. **Blend the two paths** — the inverted polarity cancels frequencies the two cabs share, which emphasizes their differences and produces a wider, more dimensional sound than either cab alone
+
+---
+
+## Quick Reference: Basic Signal Chain Structure
+
+```
+Guitar → Amp Block → [Split]
+                        ├── Path A: Cab Block (e.g., 4x12 Greenback, SM57 center)
+                        └── Path B: Cab Block (e.g., 2x12 Blue, ribbon off-axis) → Polarity Invert
+                     [Merge → Mixer: Path B polarity inverted]
+```
+
+**HX Stomp consideration:** The HX Stomp has 6 DSP blocks. This technique uses two of them for cabs plus the split/merge routing. Plan your chain so the amp, compressor, and effects fit within the remaining blocks. It's tight but workable.
+
+---
+
+## Why This Works: The Phase Cancellation Principle
+
+When two identical signals are combined with one inverted, they cancel completely — that's the basis of noise cancellation headphones and differential amplifier design. When two *similar but not identical* signals are combined with one inverted, something different happens: the components they share partially cancel, and the components unique to each signal become relatively louder.
+
+Two different cab blocks are similar but not identical. They share a lot — both are filtering and coloring a guitar signal, both produce the same fundamental note, both have the same approximate frequency range. But they differ in the specific frequency resonances of the cabinet, the microphone pickup pattern, and the placement of the mic on the cone.
+
+When you invert one path and blend them, the shared elements (the fundamental pitch, the common frequency content) partially cancel. What's left is a signal that emphasizes the *differences* between the cabs — the specific resonance of each cabinet, the tonal character that makes a Greenback-loaded 4x12 sound different from a ceramic-speaker 2x12. The result is a sound that contains more of each cab's distinctive character while the common elements recede.
+
+The practical effect: the tone sounds wider, more dimensional, and has a specific presence that's difficult to produce with a single cab block regardless of EQ or mic choice.
+
+---
+
+## Setting It Up in HX Edit
+
+### Step 1: Build the Amp Block
+
+Configure your amp model as normal. The cab polarity trick applies downstream of the amp — the amp settings don't need to change.
+
+### Step 2: Create a Parallel Path After the Amp
+
+In HX Edit, right-click after the amp block and select "Create Parallel Path." This inserts a Split and Merge block pair around the space you designate. The Split defaults to an AB split — equal signal to both paths.
+
+### Step 3: Add Cab Blocks to Each Path
+
+Add a different cab block to each path. The technique works best when the two cabs have meaningfully different characters:
+
+**Good pairing examples:**
+
+| Path A | Path B | Character |
+|---|---|---|
+| 4x12 Greenback, SM57 center | 2x12 Celestion Blue, Condenser close | British warmth vs. chime |
+| 1x12 US vintage, SM57 center | 4x12 V30, ribbon off-axis | Clean focus vs. dense V30 weight |
+| 412 Uber (metal cab), SM57 | 112 Cali (smaller cab, different speaker) | Tight modern vs. open vintage |
+
+**Pairs to avoid:** Two identical or nearly identical cabs with the same mic produce cancellation that removes the fundamental rather than enhancing the difference. You'll end up thin rather than wide.
+
+### Step 4: Invert Path B Polarity
+
+Select the Merge block. In the Path B channel parameters, find the Polarity control and switch it from Normal to Inverted. This is the key step.
+
+In HX Edit, the Merge block's Path B channel has a Phase (Polarity) parameter in the mixer settings. It's easy to miss — it's not labeled prominently in the default view. Look for it in the parameter list for the B channel of the merge.
+
+### Step 5: Set the Mix Level
+
+Start with both paths at equal level. Listen. The tone will likely sound thinner than you expected — the cancellation effect is strong.
+
+Now adjust the Path B level down from equal. The sweet spot for most cab pairings is Path B running 3 to 6dB quieter than Path A. At equal level, the cancellation removes too much of the shared fundamental. At lower Path B level, the cancellation effect is subtler — you get the dimensional character without losing the foundation.
+
+The mix level varies significantly between cab pairings. This is where experimentation matters. The principle is consistent; the optimal balance is specific to each cab pair.
+
+---
+
+## The Khruangbin Connection
+
+The inverted polarity cab technique appears in CustomTone presets built for Mark Speer's tone — the out-of-phase guitar character central to Khruangbin's sound involves the guitar's pickup wiring (Speer uses a modified pickup output for out-of-phase tones), but modeler builders approximate it using this cab polarity approach.
+
+It's not a perfect recreation of the pickup-level phase relationship, but splitting to two cab paths with inverted polarity on one produces a similar spatial quality — that slightly hollow, wide, airy character that makes Khruangbin's guitar sit differently in a mix than a conventionally wired single-coil chain. If you've been trying to get that sound, this is worth exploring as a starting point alongside the [Khruangbin HX Stomp preset](/blog/khruangbin-hx-stomp-tone) details.
+
+---
+
+## DSP Budget Management on HX Stomp
+
+The HX Stomp's 6-block limit means the polarity trick costs two blocks (the two cab blocks). Your total chain needs to fit the remaining four:
+
+**Workable configurations:**
+
+| Block 1 | Block 2 | Block 3 | Block 4 | Path A | Path B |
+|---|---|---|---|---|---|
+| Amp | — | — | Effects (reverb/delay) | Cab A | Cab B (inverted) |
+| Compressor | Amp | — | Effects | Cab A | Cab B (inverted) |
+| Drive | Amp | — | Effects | Cab A | Cab B (inverted) |
+
+The split/merge routing uses the routing infrastructure rather than DSP blocks on HX Stomp, so the parallel split itself doesn't count against your 6 blocks.
+
+**What doesn't fit:** A chain that needs compressor + drive + amp + two cabs + reverb + delay doesn't fit in 6 blocks. You'll need to either sacrifice the drive pedal block (run the amp higher and use the amp's gain), use the effects loop for an external reverb, or accept that one time-based block is more than enough for this approach.
+
+If you're running an HX Stomp as the centerpiece of a pedalboard with external pedals before and after, the constraint matters less. Use the external OD for drive, the external reverb for ambient treatment, and dedicate most of the HX Stomp's DSP to the amp + parallel cab arrangement.
+
+---
+
+## Troubleshooting: When It Sounds Thin
+
+The most common problem with the polarity trick is over-cancellation — too much of the fundamental is being removed. Usually one of three causes:
+
+**1. The cabs are too similar.** Two 4x12 cabs with the same speaker type and similar mic positions will cancel more than they differentiate. Switch to cabs with different speaker types or different enclosure sizes.
+
+**2. The Path B level is too high.** Drop Path B by 3 to 6dB from equal. The point of diminishing returns varies, but equal level is usually too much cancellation.
+
+**3. The mic positions are too similar.** The same microphone in the same position on two different cabs is less differentiated than a center SM57 on one cab and an off-axis ribbon on the other. Mic position is a significant variable in the technique's effectiveness.
+
+If the tone still lacks foundation after adjusting, add an EQ block after the Merge and boost the low-mid range (around 180 to 300Hz). The polarity cancellation tends to thin this region more than others.
+
+---
+
+## Beyond the Basic Trick: Expanding the Technique
+
+The polarity inversion on a parallel cab path is a specific application of a broader parallel routing principle. Once you understand why it works, some natural extensions:
+
+**IRs instead of stock cabs:** Third-party IRs can be loaded as cab blocks and work identically. A Celestion IR from one vendor and a Mesa IR from another produces more character differentiation than two stock Helix cabs, which often share modeling characteristics. The [Helix IR shootout](/blog/helix-ir-shootout) covers third-party IR character differences that are relevant for choosing good pairs.
+
+**Same cab, radically different mic positions:** A single 4x12 with an SM57 at center cap (bright, focused) and a ribbon 6 inches off-axis (darker, diffuse) creates enough difference to make the technique interesting even without different cab types.
+
+**Path level automation via expression pedal:** Assigning Path B level to an expression pedal lets you fade the polarity effect in and out. At heel (Path B silent), you hear Path A alone. At toe (Path B near equal with Path A), you hear the full polarity trick. Anywhere between gives you a continuously variable blend of conventional cab tone and the polarity-enhanced version.
+
+---
+
+## FAQ
+
+**Does this technique work on full Helix (Floor, LT, Rack)?**
+Yes, and with more flexibility — the full Helix's four-path architecture gives you more DSP and routing options. You can run the polarity trick as a sub-section of a larger chain without the 6-block constraint. The signal flow setup is identical.
+
+**Does polarity inversion cause phase problems with a PA system or other instruments?**
+No. The polarity inversion happens within the mixed signal path — the output of the merged paths is a combined signal where the cancellation has already occurred. What comes out of the HX Stomp's output is a single signal at normal polarity. The technique doesn't create phase issues for anything downstream.
+
+**Should I use this technique with IRs turned off (cab sim disabled)?**
+The technique requires cab blocks — either stock cabs or IRs. Without cab simulation, you're inverting polarity on two identical dry guitar signals, which produces full cancellation. Turn the cab blocks on.
+
+**Will this work with the same cab in both paths?**
+You can do it, but the result is mostly cancellation of common frequencies, which tends to produce a thin, hollow tone. The technique works because the two cabs are different. Two identical cabs will cancel more than they differentiate. If you want to experiment, try the same cab with different mic positions first — that's the minimum useful differentiation.
+
+**How is this different from using dual-cab mode (two cabs in a single block)?**
+On full Helix, dual-cab mode in a single block blends two cabs in phase — no polarity inversion. The result is an average of the two cabs' tones. The polarity trick emphasizes the *differences* between the cabs rather than blending them. Dual-cab mode is simpler and works well for standard cab blending; the polarity trick produces a specific character that dual-cab mode doesn't replicate.
