@@ -258,7 +258,9 @@ function sampleIconTargets(
 }
 
 type Dot = {
-  /** Grid position — where the dot lives at rest. */
+  /** Grid position — where the dot lives at rest. Already jittered
+   *  by ±20% of the grid spacing so the lattice doesn't read as a
+   *  perfect regular grid (reduces moire). */
   idleX: number;
   idleY: number;
   /**
@@ -266,19 +268,45 @@ type Dot = {
    * dot outside the icon's influence zone and never animates.
    */
   iconTargets: { x: number; y: number }[] | null;
+  /** Independent drift frequencies per dot — prevents the whole
+   *  grid from oscillating in phase (which would reinforce the
+   *  lattice pattern instead of softening it). */
+  driftFreqX: number;
+  driftFreqY: number;
   seed: number;
 };
 
 // Full-screen grid spacing. Smaller = denser. Adaptive to viewport
-// so a tall phone and a wide desktop both look balanced.
-const GRID_SPACING_FACTOR = 22; // min(w,h) / 22 = ~52px on desktop
+// so a tall phone and a wide desktop both look balanced. Larger
+// factor = fewer dots (user asked for "maybe less overall").
+const GRID_SPACING_FACTOR = 18; // min(w,h) / 18 ≈ 63px on desktop
 // How long each icon phase lasts (ms). Phase = grid → icon → grid.
 const PHASE_MS = 3600;
+// Dot radius. The regular lattice was causing moire at r=2.8; a
+// smaller radius combined with per-dot jitter breaks it up.
+const DOT_RADIUS = 2.2;
+// Mouse "gravity" pulls nearby grid dots toward the cursor with
+// a quadratic falloff. Radius is measured in multiples of the
+// grid spacing so it scales with the viewport.
+const GRAVITY_RADIUS_CELLS = 4.5;
+const GRAVITY_MAX_PULL_CELLS = 0.85;
 
 export default function HeroV4() {
   const sectionRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const dotsRef = useRef<Dot[] | null>(null);
+  // Mouse position in canvas-local coords. Used for the gravity
+  // effect on the static grid. -Infinity = "no mouse" (idle grid).
+  const mouseRef = useRef<{ x: number; y: number }>({
+    x: -Infinity,
+    y: -Infinity,
+  });
+  // Cached per-layout constants so the render loop can read them
+  // without recomputing gravity radii every frame.
+  const gravityRef = useRef<{ radius: number; maxPull: number }>({
+    radius: 0,
+    maxPull: 0,
+  });
   const rafRef = useRef<number | undefined>(undefined);
   const [reduceMotion, setReduceMotion] = useState(false);
 
@@ -321,17 +349,32 @@ export default function HeroV4() {
       const xOffset = (width - (cols - 1) * spacing) / 2;
       const yOffset = (height - (rows - 1) * spacing) / 2;
 
+      // Pseudo-random but deterministic per-cell jitter: each grid
+      // cell gets a stable offset of ±20% of spacing, breaking the
+      // perfect lattice.
+      const jitterAmp = spacing * 0.2;
+      function jitterFor(c: number, r: number) {
+        // Hash-ish: two different combinations per axis
+        const h1 = Math.sin(c * 12.9898 + r * 78.233) * 43758.5453;
+        const h2 = Math.sin(c * 39.3468 + r * 11.135) * 28841.7317;
+        return {
+          dx: ((h1 - Math.floor(h1)) * 2 - 1) * jitterAmp,
+          dy: ((h2 - Math.floor(h2)) * 2 - 1) * jitterAmp,
+        };
+      }
+
       // Split grid positions into active (inside influence zone)
       // and static (outside).
       const activePositions: { x: number; y: number }[] = [];
       const staticPositions: { x: number; y: number }[] = [];
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
-          const x = xOffset + c * spacing;
-          const y = yOffset + r * spacing;
-          const dx = x - slotCx;
-          const dy = y - slotCy;
-          if (Math.hypot(dx, dy) <= influenceRadius) {
+          const { dx: jdx, dy: jdy } = jitterFor(c, r);
+          const x = xOffset + c * spacing + jdx;
+          const y = yOffset + r * spacing + jdy;
+          const ddx = x - slotCx;
+          const ddy = y - slotCy;
+          if (Math.hypot(ddx, ddy) <= influenceRadius) {
             activePositions.push({ x, y });
           } else {
             staticPositions.push({ x, y });
@@ -350,6 +393,14 @@ export default function HeroV4() {
         }));
       });
 
+      // Per-dot drift frequencies. Each dot gets unique periods
+      // derived from its index so the whole grid doesn't pulse in
+      // phase. Range roughly 2400-6500ms, kept off any integer
+      // multiples that would align multiple dots.
+      function freqFor(i: number, base: number) {
+        return base + ((i * 173) % 97) * 42;
+      }
+
       const out: Dot[] = [];
       // Active dots: have icon targets, participate in the cycle.
       activePositions.forEach((p, i) => {
@@ -357,15 +408,19 @@ export default function HeroV4() {
           idleX: p.x,
           idleY: p.y,
           iconTargets: perIcon.map((arr) => arr[i]),
+          driftFreqX: freqFor(i, 2400),
+          driftFreqY: freqFor(i + 7, 2800),
           seed: out.length,
         });
       });
       // Static dots: fill the rest of the full-screen grid.
-      staticPositions.forEach((p) => {
+      staticPositions.forEach((p, i) => {
         out.push({
           idleX: p.x,
           idleY: p.y,
           iconTargets: null,
+          driftFreqX: freqFor(i + 31, 2400),
+          driftFreqY: freqFor(i + 53, 2800),
           seed: out.length,
         });
       });
@@ -382,10 +437,34 @@ export default function HeroV4() {
       canvas!.style.height = `${h}px`;
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
       dotsRef.current = buildDots(w, h);
+      // Update gravity constants: radius/pull are measured in grid
+      // spacing units so they scale with the viewport.
+      const spacing = Math.min(w, h) / GRID_SPACING_FACTOR;
+      gravityRef.current = {
+        radius: spacing * GRAVITY_RADIUS_CELLS,
+        maxPull: spacing * GRAVITY_MAX_PULL_CELLS,
+      };
     }
 
     resize();
     window.addEventListener("resize", resize);
+
+    function onMouseMove(e: MouseEvent) {
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
+    }
+    function onMouseOut(e: MouseEvent) {
+      // Only clear when the cursor leaves the window entirely.
+      if (!e.relatedTarget && !(e as unknown as { toElement?: unknown }).toElement) {
+        mouseRef.current = { x: -Infinity, y: -Infinity };
+      }
+    }
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    window.addEventListener("mouseout", onMouseOut);
 
     function easeInOutCubic(t: number) {
       return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -426,34 +505,64 @@ export default function HeroV4() {
       const alpha = 0.55 + coalesce * 0.4;
       ctx.fillStyle = `hsla(${hue}, ${sat}%, ${light}%, ${alpha})`;
 
+      // Mouse gravity: pull grid dots toward the cursor within a
+      // falloff radius. Applied equally to static and active-idle
+      // dots so the whole grid responds uniformly.
+      const mouse = mouseRef.current;
+      const { radius: gRadius, maxPull: gMaxPull } = gravityRef.current;
+      const hasMouse = mouse.x > -Infinity && gRadius > 0;
+
       const now = performance.now();
       for (let i = 0; i < dots.length; i++) {
         const d = dots[i];
-        // Static grid dots: draw at their grid position with a tiny
-        // time-based drift so they don't look locked to a strict grid.
+
+        // Per-dot independent time-based drift (each dot has its own
+        // freqX/freqY so they don't pulse in phase).
+        const jx = Math.sin(d.seed * 0.73 + now / d.driftFreqX) * 2.4;
+        const jy = Math.cos(d.seed * 0.91 + now / d.driftFreqY) * 2.4;
+
+        // Base position: grid for static, lerp to icon for active.
+        let baseX: number;
+        let baseY: number;
+        let jitterBlend: number;
         if (!d.iconTargets) {
-          const jx = Math.sin(d.seed * 0.73 + now / 2400) * 1.5;
-          const jy = Math.cos(d.seed * 0.91 + now / 2800) * 1.5;
-          ctx.beginPath();
-          ctx.arc(d.idleX + jx, d.idleY + jy, 2.8, 0, Math.PI * 2);
-          ctx.fill();
-          continue;
+          baseX = d.idleX;
+          baseY = d.idleY;
+          jitterBlend = 1;
+        } else {
+          const target = d.iconTargets[phaseIdx];
+          if (!target) continue;
+          baseX = d.idleX + (target.x - d.idleX) * coalesce;
+          baseY = d.idleY + (target.y - d.idleY) * coalesce;
+          // At peak coalescence, drift + gravity should be mostly
+          // suppressed so the icon reads cleanly.
+          jitterBlend = 1 - coalesce;
         }
 
-        // Active dots: morph to the current phase's icon target.
-        const target = d.iconTargets[phaseIdx];
-        if (!target) continue;
+        // Mouse gravity: attract the dot toward the cursor with a
+        // quadratic falloff. Scaled by jitterBlend so forming icons
+        // are not disturbed.
+        let gpx = 0;
+        let gpy = 0;
+        if (hasMouse) {
+          const mdx = mouse.x - d.idleX;
+          const mdy = mouse.y - d.idleY;
+          const mdist = Math.hypot(mdx, mdy);
+          if (mdist < gRadius && mdist > 0.01) {
+            const falloff = 1 - mdist / gRadius;
+            const pull = falloff * falloff * gMaxPull;
+            gpx = (mdx / mdist) * pull;
+            gpy = (mdy / mdist) * pull;
+          }
+        }
 
-        // Per-dot jitter adds life even at rest
-        const jx = Math.sin(d.seed * 0.73 + now / 2400) * 3;
-        const jy = Math.cos(d.seed * 0.91 + now / 2800) * 3;
-        const x = d.idleX + (target.x - d.idleX) * coalesce + jx * (1 - coalesce);
-        const y = d.idleY + (target.y - d.idleY) * coalesce + jy * (1 - coalesce);
+        const x = baseX + (jx + gpx) * jitterBlend;
+        const y = baseY + (jy + gpy) * jitterBlend;
 
-        // Larger dots per Antigravity reference — ~2.8px radius
-        // (scales with DPR via the canvas transform).
+        // Smaller dot radius — r=2.2. The prior 2.8 was visibly
+        // moire-prone on the regular lattice.
         ctx.beginPath();
-        ctx.arc(x, y, 2.8, 0, Math.PI * 2);
+        ctx.arc(x, y, DOT_RADIUS, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -463,6 +572,8 @@ export default function HeroV4() {
 
     return () => {
       window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseout", onMouseOut);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, [reduceMotion]);
