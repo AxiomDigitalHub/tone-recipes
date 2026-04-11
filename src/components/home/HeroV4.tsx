@@ -252,6 +252,11 @@ type Dot = {
   startY: number;
   targetX: number;
   targetY: number;
+  /** Which icon slot this dot belongs to (0..ICONS.length-1) */
+  slotIndex: number;
+  /** Center of the dot's icon slot in canvas coords */
+  slotCx: number;
+  slotCy: number;
   seed: number;
 };
 
@@ -259,7 +264,12 @@ export default function HeroV4() {
   const sectionRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const dotsRef = useRef<Dot[] | null>(null);
-  const progressRef = useRef<number>(0);
+  // Mouse position in canvas coordinates. -Infinity = "no mouse present"
+  // (keep all icons in their idle state).
+  const mouseRef = useRef<{ x: number; y: number }>({
+    x: -Infinity,
+    y: -Infinity,
+  });
   const rafRef = useRef<number | undefined>(undefined);
   const [reduceMotion, setReduceMotion] = useState(false);
 
@@ -297,33 +307,46 @@ export default function HeroV4() {
 
     // Build dot targets by sampling every icon and assigning each
     // sampled point to an absolute canvas coordinate.
+    //
+    // Rewrite (mouse-move iteration):
+    // - Total dot count cut ~6x. Fewer, larger dots feel more
+    //   intentional (Antigravity-style sparse grid).
+    // - Each dot remembers its icon slot so we can compute mouse
+    //   proximity per-slot in the render loop.
     function buildDots(width: number, height: number): Dot[] {
-      // Rec #2(a) from the design critique: icons larger and more
-      // sample points. Total dot count ~doubles.
-      const iconRenderSize = Math.min(width, height) * 0.26;
+      const iconRenderSize = Math.min(width, height) * 0.24;
       const slots = layoutIconSlots(width, height);
 
-      const allTargets: { cx: number; cy: number; iconSize: number }[] = [];
-      ICONS.forEach((icon, i) => {
-        const slot = slots[i % slots.length];
-        const pts = sampleIconTargets(icon, 180, 3, 520);
-        pts.forEach((p) => {
-          allTargets.push({
-            cx: slot.cx + p.x * iconRenderSize,
-            cy: slot.cy + p.y * iconRenderSize,
-            iconSize: iconRenderSize,
+      const out: Dot[] = [];
+      ICONS.forEach((icon, slotIndex) => {
+        const slot = slots[slotIndex % slots.length];
+        // Much lower point budget per icon: 140 instead of 520.
+        const pts = sampleIconTargets(icon, 160, 6, 140);
+        pts.forEach((p, i) => {
+          const tx = slot.cx + p.x * iconRenderSize;
+          const ty = slot.cy + p.y * iconRenderSize;
+          // Idle scatter position: a gentle random offset around
+          // the slot center rather than a full-canvas scatter. This
+          // keeps the dots visually grouped even when no icon is
+          // formed, matching Antigravity's "cloud near the shape"
+          // resting state.
+          const angle = (i * 137.508 * Math.PI) / 180;
+          const radius = iconRenderSize * (0.55 + ((i * 13) % 50) / 100);
+          const sx = slot.cx + Math.cos(angle) * radius;
+          const sy = slot.cy + Math.sin(angle) * radius;
+          out.push({
+            startX: sx,
+            startY: sy,
+            targetX: tx,
+            targetY: ty,
+            slotIndex,
+            slotCx: slot.cx,
+            slotCy: slot.cy,
+            seed: out.length,
           });
         });
       });
-
-      return allTargets.map((t, i) => ({
-        // Random scatter across the canvas as the start position
-        startX: Math.random() * width,
-        startY: Math.random() * height,
-        targetX: t.cx,
-        targetY: t.cy,
-        seed: i,
-      }));
+      return out;
     }
 
     function resize() {
@@ -341,21 +364,27 @@ export default function HeroV4() {
     resize();
     window.addEventListener("resize", resize);
 
-    function onScroll() {
-      if (!section) return;
-      const rect = section.getBoundingClientRect();
-      const h = rect.height;
-      // Progress is 0 when the section top is at viewport top,
-      // 1 when the section has fully scrolled past.
-      const raw = -rect.top / (h - window.innerHeight + h * 0.5);
-      progressRef.current = Math.max(0, Math.min(1, raw));
+    function onMouseMove(e: MouseEvent) {
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
     }
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    function onMouseLeave() {
+      mouseRef.current = { x: -Infinity, y: -Infinity };
+    }
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    window.addEventListener("mouseout", onMouseLeave);
 
     function easeInOutCubic(t: number) {
       return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     }
+
+    // Per-slot coalescence state, smoothed frame-to-frame so icons
+    // ease in/out instead of snapping. Index = icon slot index.
+    const slotCoalesce = new Array<number>(ICONS.length).fill(0);
 
     function render() {
       if (!canvas || !ctx) return;
@@ -366,37 +395,52 @@ export default function HeroV4() {
       const h = canvas.clientHeight;
       ctx.clearRect(0, 0, w, h);
 
-      // Design-critique rec #2:
-      // (c) Start the dots at 25% coalesced instead of 0% so the
-      //     shapes are already suggested before the user scrolls.
-      // (d) Add a continuous 2.8s breathing oscillation on top of
-      //     the scroll progress so the dots are always moving,
-      //     even on static viewports.
-      const p = reduceMotion ? 0.6 : progressRef.current;
-      const baseCoalesce = 0.25 + easeInOutCubic(Math.min(1, p * 1.6)) * 0.72;
-      const breathe = reduceMotion
-        ? 0
-        : Math.sin(performance.now() / 2800) * 0.04;
-      const coalesce = Math.max(0, Math.min(1, baseCoalesce + breathe));
-
-      // Light theme: dark dots on white. Darker base so the dots are
-      // visible against the white page even at low coalescence.
-      const hue = 220 - coalesce * 190; // navy → amber
-      const sat = 60 + coalesce * 30;
-      const light = 18 + coalesce * 22;
-      const alpha = 0.65 + coalesce * 0.3;
-      ctx.fillStyle = `hsla(${hue}, ${sat}%, ${light}%, ${alpha})`;
+      // Compute target coalescence per icon slot from mouse proximity.
+      // Each slot has a ~180px "hover radius" — inside that, the icon
+      // is fully formed; outside it drifts back to scatter. Smooth
+      // current → target by 12% per frame for a gentle ease.
+      const HOVER_RADIUS = Math.min(w, h) * 0.18;
+      const mouse = mouseRef.current;
+      for (let i = 0; i < ICONS.length; i++) {
+        let target = 0;
+        if (dots.length > 0 && mouse.x > -Infinity) {
+          // First dot per slot carries the slot center; cheap lookup.
+          const firstInSlot = dots.find((d) => d.slotIndex === i);
+          if (firstInSlot) {
+            const dx = mouse.x - firstInSlot.slotCx;
+            const dy = mouse.y - firstInSlot.slotCy;
+            const dist = Math.hypot(dx, dy);
+            target = 1 - Math.min(1, dist / HOVER_RADIUS);
+          }
+        }
+        // For reduced motion, lock at half-formed
+        if (reduceMotion) target = 0.5;
+        slotCoalesce[i] += (target - slotCoalesce[i]) * 0.12;
+      }
 
       for (let i = 0; i < dots.length; i++) {
         const d = dots[i];
-        // Per-dot jitter so the movement feels organic. Same seed
-        // across frames = deterministic.
-        const jx = Math.sin(d.seed * 0.73 + i) * 2;
-        const jy = Math.cos(d.seed * 0.91 + i) * 2;
+        const coalesce = easeInOutCubic(slotCoalesce[d.slotIndex]);
+
+        // Per-dot jitter adds life even at rest
+        const now = performance.now();
+        const jx = Math.sin(d.seed * 0.73 + now / 2400) * 3;
+        const jy = Math.cos(d.seed * 0.91 + now / 2800) * 3;
         const x = d.startX + (d.targetX - d.startX) * coalesce + jx * (1 - coalesce);
         const y = d.startY + (d.targetY - d.startY) * coalesce + jy * (1 - coalesce);
+
+        // Color warms with coalescence: idle dots are cool navy,
+        // forming icons warm toward amber.
+        const hue = 220 - coalesce * 190;
+        const sat = 55 + coalesce * 35;
+        const light = 20 + coalesce * 20;
+        const alpha = 0.55 + coalesce * 0.4;
+        ctx.fillStyle = `hsla(${hue}, ${sat}%, ${light}%, ${alpha})`;
+
+        // Larger dots per Antigravity reference — ~2.8px radius
+        // (scales with DPR via the canvas transform).
         ctx.beginPath();
-        ctx.arc(x, y, 1.3, 0, Math.PI * 2);
+        ctx.arc(x, y, 2.8, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -406,7 +450,8 @@ export default function HeroV4() {
 
     return () => {
       window.removeEventListener("resize", resize);
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseout", onMouseLeave);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, [reduceMotion]);
@@ -414,11 +459,10 @@ export default function HeroV4() {
   return (
     <section
       ref={sectionRef}
-      // NOTE: no overflow-hidden on this section — it breaks position:
-      // sticky on the inner content block. The canvas is absolutely
-      // positioned within the section so it's already clipped by layout.
+      // Mouse-move driven now, not scroll — section is a single
+      // viewport-height hero instead of a 180vh scroll-scrub range.
       className="relative bg-white"
-      style={{ minHeight: "180vh" }}
+      style={{ minHeight: "100vh" }}
     >
       {/* Canvas layer — dark dots on white, per Antigravity reference */}
       <canvas
@@ -431,10 +475,10 @@ export default function HeroV4() {
           a pure white bg otherwise */}
       <div className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_50%_40%,_rgba(245,158,11,0.05),_transparent_55%)]" />
 
-      {/* Content — sticks inside the first viewport so the remaining
-          section height below becomes scroll-scrub territory. */}
+      {/* Content — centered in the viewport. No sticky behaviour
+          since the section is no longer taller than the viewport. */}
       <div
-        className="sticky top-0 z-10 flex h-screen flex-col items-center justify-center px-4 text-center"
+        className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center"
       >
         <h1
           className="font-[family-name:var(--font-display)] max-w-4xl text-5xl font-bold tracking-tight text-[#0a0e1a] md:text-7xl lg:text-[96px]"
@@ -474,17 +518,8 @@ export default function HeroV4() {
               animation: reduceMotion ? "none" : "heroV4NowPulse 2s ease-in-out infinite",
             }}
           />
-          <span>Scroll to see the signal chain form</span>
+          <span>Move your mouse across the page to form the signal chain</span>
         </p>
-
-        <span
-          className="mt-12 text-xs uppercase tracking-[0.3em] text-[#8894ab]"
-          style={{
-            animation: reduceMotion ? "none" : "heroV4ScrollHint 2.2s ease-in-out infinite",
-          }}
-        >
-          Scroll ↓
-        </span>
       </div>
 
       {/* Bottom fade so the transition into the dark SignalChainShowcase
@@ -495,10 +530,6 @@ export default function HeroV4() {
         @keyframes heroV4NowPulse {
           0%, 100% { opacity: 0.7; }
           50% { opacity: 1; }
-        }
-        @keyframes heroV4ScrollHint {
-          0%, 100% { opacity: 0.5; transform: translateY(0); }
-          50% { opacity: 1; transform: translateY(4px); }
         }
       `}</style>
     </section>

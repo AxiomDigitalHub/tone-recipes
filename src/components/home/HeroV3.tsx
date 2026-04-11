@@ -121,10 +121,10 @@ export default function HeroV3() {
  * path at runtime via getPointAtLength so they stay precisely aligned
  * with the arc no matter the viewport.
  */
-// Arc paths — trimmed at the starts so the first tile lands fully
-// inside the viewport, and the violet/magenta arcs no longer cluster
-// on the far left.
-const ARC_CYAN    = "M -40 680 Q 380 120 880 380 T 1680 300";
+// Arc paths. Cyan endpoint eased up-left from the original 1680,300
+// (overshoot corrected — previous iteration went to 1420,220 which
+// was too far).
+const ARC_CYAN    = "M -40 680 Q 380 120 850 370 T 1560 270";
 const ARC_VIOLET  = "M 1640 320 Q 1080 930 480 700 T -20 560";
 const ARC_MAGENTA = "M -20 460 Q 500 1080 1000 780 T 1680 880";
 
@@ -150,7 +150,8 @@ const ARCS: ArcConfig[] = [
     d: ARC_CYAN,
     color: "#22d3ee",
     nodes: ["GUITAR", "OVERDRIVE", "MIC"],
-    positions: [0.18, 0.5, 0.88],
+    // MIC was 0.88 -> 0.76 (overshot) -> 0.82 (compromise).
+    positions: [0.18, 0.5, 0.82],
     dashTotal: 1580,
     dashVisible: 180,
     duration: 6,
@@ -159,7 +160,8 @@ const ARCS: ArcConfig[] = [
     d: ARC_VIOLET,
     color: "#a78bfa",
     nodes: ["CABINET", "DELAY", "CHORUS"],
-    positions: [0.12, 0.44, 0.82],
+    // DELAY was 0.44 -> 0.26 (overshot) -> 0.34 (compromise).
+    positions: [0.12, 0.34, 0.78],
     dashTotal: 1820,
     dashVisible: 220,
     duration: 7.5,
