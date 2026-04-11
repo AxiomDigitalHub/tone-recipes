@@ -1,6 +1,7 @@
 #!/bin/bash
-# Generate AI blog images using Replicate Flux 1.1 Pro
-# Simple bash script — generates images only, doesn't touch frontmatter
+# Generate AI blog images using Replicate Nano Banana Pro (Google Gemini 3 Pro Image)
+# Higher-fidelity successor to Flux 1.1 Pro, with stronger prompt adherence,
+# 2K/4K resolution, better text rendering, and real-world knowledge.
 #
 # Every image follows the Fader & Knob "gear porn" visual style:
 # - Cinematic music gear photography
@@ -13,18 +14,29 @@
 
 TOKEN="${REPLICATE_API_TOKEN:?Set REPLICATE_API_TOKEN env var}"
 OUTDIR="public/images/blog"
+MODEL="google/nano-banana-pro"
+RESOLUTION="2K"          # 1K, 2K, or 4K (4K is ~4x the cost)
+OUTPUT_FORMAT="jpg"      # jpg or png — jpg is smaller and fine for blog heroes
+FORCE_REGENERATE="${FORCE_REGENERATE:-false}"  # set to "true" to overwrite existing files
 mkdir -p "$OUTDIR"
 
 # ── Style preamble applied to every prompt ──────────────────────────────
-STYLE_PREAMBLE="cinematic music gear photography, dramatic side-lighting from soft-box key with deep shadows, warm amber highlights against cool charcoal and deep onyx background, shallow depth of field with creamy bokeh, low-angle hero shot, tactile textures of tolex amp covering and brushed aluminum and distressed wood grain, glowing neon cyan and orange LED indicators, anisotropic highlights on chrome switches and knurled knobs, vintage aesthetic meets modern tech, industrial minimalist music studio backdrop, moody premium nocturnal aspirational vibe, 8k resolution detail, photorealistic"
+STYLE_PREAMBLE="cinematic music gear photography, dramatic side-lighting from soft-box key with deep shadows, warm amber highlights against cool charcoal and deep onyx background, shallow depth of field with creamy bokeh, low-angle hero shot, tactile textures of tolex amp covering and brushed aluminum and distressed wood grain, glowing neon cyan and orange LED indicators, anisotropic highlights on chrome switches and knurled knobs, vintage aesthetic meets modern tech, industrial minimalist music studio backdrop, moody premium nocturnal aspirational vibe, ultra-sharp 8k detail, photorealistic editorial photography"
 
 generate() {
   local slug="$1"
   local subject="$2"
-  local outfile="$OUTDIR/$slug.webp"
+  local outfile="$OUTDIR/$slug.$OUTPUT_FORMAT"
 
-  if [ -f "$outfile" ]; then
+  if [ -f "$outfile" ] && [ "$FORCE_REGENERATE" != "true" ]; then
     echo "[skip] $slug"
+    return
+  fi
+
+  # Also skip if there's a .webp version already (left over from Flux runs)
+  # unless regeneration is forced
+  if [ -f "$OUTDIR/$slug.webp" ] && [ "$FORCE_REGENERATE" != "true" ]; then
+    echo "[skip] $slug (existing .webp)"
     return
   fi
 
@@ -33,11 +45,26 @@ generate() {
   # Combine style preamble with the subject description
   local full_prompt="$STYLE_PREAMBLE, $subject"
 
-  # Start prediction
-  local resp=$(curl -s -X POST "https://api.replicate.com/v1/predictions" \
+  # Build JSON payload safely via python3 — avoids shell escaping issues
+  # with commas, quotes, and long strings
+  local payload=$(FK_PROMPT="$full_prompt" FK_RES="$RESOLUTION" FK_FMT="$OUTPUT_FORMAT" python3 -c "
+import json, os
+print(json.dumps({
+    'input': {
+        'prompt': os.environ['FK_PROMPT'],
+        'aspect_ratio': '16:9',
+        'resolution': os.environ['FK_RES'],
+        'output_format': os.environ['FK_FMT'],
+        'allow_fallback_model': True,
+    },
+}))
+")
+
+  # Start prediction — Nano Banana Pro uses the model-specific endpoint
+  local resp=$(curl -s -X POST "https://api.replicate.com/v1/models/$MODEL/predictions" \
     -H "Authorization: Bearer $TOKEN" \
     -H "Content-Type: application/json" \
-    -d "{\"version\": \"black-forest-labs/flux-1.1-pro\", \"input\": {\"prompt\": \"$full_prompt\", \"aspect_ratio\": \"16:9\"}}")
+    -d "$payload")
 
   local pid=$(echo "$resp" | python3 -c "import sys,json; print(json.load(sys.stdin)['id'])" 2>/dev/null)
 
@@ -46,20 +73,37 @@ generate() {
     return
   fi
 
-  # Poll for completion
-  for i in $(seq 1 30); do
+  # Poll for completion — Nano Banana Pro at 2K typically takes 15-30 seconds,
+  # 4K can take 60+ seconds. Generous timeout to avoid premature failures.
+  for i in $(seq 1 60); do
     sleep 3
     local status=$(curl -s "https://api.replicate.com/v1/predictions/$pid" \
       -H "Authorization: Bearer $TOKEN")
     local state=$(echo "$status" | python3 -c "import sys,json; print(json.load(sys.stdin)['status'])" 2>/dev/null)
 
     if [ "$state" = "succeeded" ]; then
-      local url=$(echo "$status" | python3 -c "import sys,json; print(json.load(sys.stdin)['output'])" 2>/dev/null)
+      # Output can be a string URL or an array of URLs depending on the model
+      local url=$(echo "$status" | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+out = d.get('output')
+if isinstance(out, list):
+    print(out[0] if out else '')
+elif isinstance(out, str):
+    print(out)
+else:
+    print('')
+" 2>/dev/null)
+      if [ -z "$url" ]; then
+        echo "  ERROR: No output URL"
+        return
+      fi
       curl -s -o "$outfile" "$url"
       echo "  Saved: $outfile ($(du -h "$outfile" | cut -f1))"
       return
     elif [ "$state" = "failed" ]; then
-      echo "  ERROR: Prediction failed"
+      local err=$(echo "$status" | python3 -c "import sys,json; print(json.load(sys.stdin).get('error','unknown'))" 2>/dev/null)
+      echo "  ERROR: Prediction failed: $err"
       return
     fi
   done
