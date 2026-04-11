@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useAuth } from "@/lib/auth/auth-context";
 import { isSupabaseConfigured } from "@/lib/db/client";
 import { getProfile, updateProfile } from "@/lib/db/profile";
+import { TIERS } from "@/lib/permissions";
+import ManageBillingButton from "@/components/checkout/ManageBillingButton";
 
 /* -------------------------------------------------------------------------- */
 /*  Constants                                                                 */
@@ -59,6 +62,10 @@ export default function DashboardSettingsPage() {
   const [primaryPlatform, setPrimaryPlatform] = useState("");
   const [saved, setSaved] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const tierLabel = user ? TIERS[user.role]?.label ?? "Free" : "Free";
+  const isPaid = user?.role === "premium" || user?.role === "creator";
+  const tierPrice = user ? TIERS[user.role]?.price : null;
 
   useEffect(() => {
     let cancelled = false;
@@ -201,6 +208,48 @@ export default function DashboardSettingsPage() {
           )}
         </div>
       </form>
+
+      {/* Billing section */}
+      <div className="mt-12 max-w-lg border-t border-border pt-8">
+        <h2 className="text-lg font-semibold text-foreground">Billing</h2>
+        <p className="mt-1 text-sm text-muted">
+          Manage your subscription, payment method, and invoices.
+        </p>
+
+        <div className="mt-6 rounded-xl border border-border bg-surface p-5">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-wider text-muted">
+                Current Plan
+              </p>
+              <p className={`mt-1 text-xl font-bold ${isPaid ? "text-accent" : "text-foreground"}`}>
+                {tierLabel}
+              </p>
+              {tierPrice !== null && (
+                <p className="mt-0.5 text-xs text-muted">${tierPrice}/month</p>
+              )}
+            </div>
+            {isPaid ? (
+              <ManageBillingButton />
+            ) : (
+              <Link
+                href="/pricing"
+                className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+              >
+                Upgrade
+              </Link>
+            )}
+          </div>
+
+          {isPaid && (
+            <p className="mt-4 border-t border-border pt-4 text-xs leading-relaxed text-muted">
+              Click &quot;Manage Subscription&quot; to cancel, update your payment method,
+              change your plan, or download invoices. Cancellations take effect at
+              the end of your current billing period.
+            </p>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

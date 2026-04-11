@@ -18,6 +18,7 @@ export const stripe = {
   get products() { return getStripe().products; },
   get prices() { return getStripe().prices; },
   get webhooks() { return getStripe().webhooks; },
+  get billingPortal() { return getStripe().billingPortal; },
 };
 
 /**
