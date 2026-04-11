@@ -100,7 +100,19 @@ export default function Header() {
 
           {/* Auth: notification bell + avatar dropdown or sign-in links */}
           {!loading && user && <NotificationBell />}
-          {!loading && user ? (
+          {loading ? (
+            // Skeleton that reserves the same horizontal space as the
+            // real auth UI so there's no content shift when auth hydrates.
+            // Width matches "Log in" + "Sign up" button + gap at md+ screens.
+            <div
+              className="flex items-center gap-3"
+              aria-hidden="true"
+              aria-busy="true"
+            >
+              <div className="h-4 w-12 animate-pulse rounded bg-surface" />
+              <div className="h-9 w-[74px] animate-pulse rounded-lg bg-surface" />
+            </div>
+          ) : user ? (
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -161,7 +173,7 @@ export default function Header() {
                 </div>
               )}
             </div>
-          ) : !loading ? (
+          ) : (
             <>
               <Link
                 href="/login"
@@ -176,7 +188,7 @@ export default function Header() {
                 Sign up
               </Link>
             </>
-          ) : null}
+          )}
         </div>
 
         {/* Mobile search + hamburger */}
@@ -229,7 +241,12 @@ export default function Header() {
             </div>
             <hr className="border-border" />
 
-            {!loading && user ? (
+            {loading ? (
+              <div className="flex flex-col gap-2" aria-hidden="true" aria-busy="true">
+                <div className="h-4 w-16 animate-pulse rounded bg-surface" />
+                <div className="h-10 w-full animate-pulse rounded-lg bg-surface" />
+              </div>
+            ) : user ? (
               <>
                 <div className="flex items-center gap-3 py-1">
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-xs font-bold text-background">
@@ -260,7 +277,7 @@ export default function Header() {
                   Sign Out
                 </button>
               </>
-            ) : !loading ? (
+            ) : (
               <>
                 <Link href="/login" className="text-sm font-medium text-muted" onClick={() => setMobileOpen(false)}>
                   Log in
@@ -273,7 +290,7 @@ export default function Header() {
                   Sign up
                 </Link>
               </>
-            ) : null}
+            )}
           </nav>
         </div>
       )}
