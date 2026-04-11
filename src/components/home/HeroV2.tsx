@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import NodeIcon, { type NodeLabel, NODE_COLORS } from "./NodeIcon";
 
 /**
  * HeroV2 — clean version of the landing hero.
@@ -111,16 +112,18 @@ function AmbientBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
         }}
       />
 
-      {/* Large floating node markers — 5 glowing circles, absolutely positioned */}
-      {!reduceMotion && (
-        <div className="pointer-events-none absolute inset-0">
-          <FloatingNode top="18%" left="12%" color="#f59e0b" delay={0} />
-          <FloatingNode top="72%" left="22%" color="#4ade80" delay={2.4} />
-          <FloatingNode top="28%" left="82%" color="#60a5fa" delay={4.8} />
-          <FloatingNode top="68%" left="78%" color="#a78bfa" delay={1.2} />
-          <FloatingNode top="48%" left="50%" color="#22d3ee" delay={3.6} />
-        </div>
-      )}
+      {/* Floating node tiles — actual gear block glyphs, not generic dots.
+          Each represents a category the recipe system covers: compression,
+          guitar, drive, amp, mic. Muted enough to be background texture. */}
+      <div className="pointer-events-none absolute inset-0">
+        <FloatingNodeTile label="GUITAR"      top="22%"  left="9%"  size={46} delay={0.0}  reduceMotion={reduceMotion} />
+        <FloatingNodeTile label="COMPRESSION" top="72%"  left="15%" size={42} delay={1.6}  reduceMotion={reduceMotion} />
+        <FloatingNodeTile label="OVERDRIVE"   top="16%"  left="84%" size={44} delay={3.2}  reduceMotion={reduceMotion} />
+        <FloatingNodeTile label="PREAMP"      top="68%"  left="88%" size={48} delay={0.8}  reduceMotion={reduceMotion} />
+        <FloatingNodeTile label="MIC"         top="82%"  left="48%" size={40} delay={2.4}  reduceMotion={reduceMotion} />
+        <FloatingNodeTile label="GUITAR"      top="85%"  left="74%" size={34} delay={4.0}  reduceMotion={reduceMotion} />
+        <FloatingNodeTile label="COMPRESSION" top="12%"  left="52%" size={32} delay={4.8}  reduceMotion={reduceMotion} />
+      </div>
 
       <style jsx>{`
         @keyframes heroV2Drift {
@@ -136,42 +139,62 @@ function AmbientBackdrop({ reduceMotion }: { reduceMotion: boolean }) {
   );
 }
 
-function FloatingNode({
+/**
+ * FloatingNodeTile — a small rounded-square tile containing a node glyph.
+ * Used as ambient texture in the v2 hero background. Tiles pulse gently
+ * and drift a few pixels on a long cycle so the hero feels alive without
+ * being busy.
+ */
+function FloatingNodeTile({
+  label,
   top,
   left,
-  color,
+  size,
   delay,
+  reduceMotion,
 }: {
+  label: NodeLabel;
   top: string;
   left: string;
-  color: string;
+  size: number;
   delay: number;
+  reduceMotion: boolean;
 }) {
+  const color = NODE_COLORS[label].border;
   return (
     <div
       style={{
         position: "absolute",
         top,
         left,
-        width: 6,
-        height: 6,
-        borderRadius: "50%",
-        background: color,
-        boxShadow: `0 0 24px ${color}, 0 0 8px ${color}`,
-        opacity: 0.35,
-        animation: `heroV2Pulse 6s ease-in-out ${delay}s infinite`,
+        width: size,
+        height: size,
+        borderRadius: size * 0.22,
+        border: `1px solid ${color}33`,
+        background: "rgba(11, 15, 26, 0.72)",
+        backdropFilter: "blur(2px)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        boxShadow: `0 0 ${size * 0.6}px ${color}18, inset 0 0 ${size * 0.3}px ${color}08`,
+        opacity: 0.55,
+        transform: "translate(-50%, -50%)",
+        animation: reduceMotion
+          ? "none"
+          : `heroV2NodePulse 9s ease-in-out ${delay}s infinite`,
       }}
     >
+      <NodeIcon label={label} color={color} size={Math.round(size * 0.62)} />
       <style jsx>{`
-        @keyframes heroV2Pulse {
+        @keyframes heroV2NodePulse {
           0%,
           100% {
-            opacity: 0.15;
-            transform: scale(0.85);
+            opacity: 0.38;
+            transform: translate(-50%, -50%) scale(0.94);
           }
           50% {
-            opacity: 0.55;
-            transform: scale(1.15);
+            opacity: 0.72;
+            transform: translate(-50%, calc(-50% - 6px)) scale(1.02);
           }
         }
       `}</style>
