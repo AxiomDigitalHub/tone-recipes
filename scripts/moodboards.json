@@ -1,0 +1,302 @@
+{
+  "_meta": {
+    "name": "Fader & Knob Gear Photography Moodboards",
+    "description": "Eight distinct visual moods for blog hero imagery. Each moodboard includes a structured style_profile, a proven prompt template (used exactly as-is with SUBJECT_PLACEHOLDER), and a short rationale. Inspired by the author-persona pattern — each mood has a voice and is assigned to recipes where it fits.",
+    "usage": "Scripts pass the entire style_profile + prompt_template to Nano Banana Pro. The SUBJECT_PLACEHOLDER is replaced with a short subject description per image. Moodboards are assigned per recipe based on tags or rotated for variety."
+  },
+
+  "nocturnal_studio": {
+    "label": "Nocturnal Studio (Default)",
+    "description": "Moody, premium, 'gear porn' — dark cinematic with warm amber highlights. Works for almost any gear, default for artist tone recipes and pedal close-ups.",
+    "style_profile": {
+      "visual_identity": "Professional gear photography with a moody, cinematic aesthetic.",
+      "lighting": {
+        "type": "High-contrast, directional studio lighting",
+        "properties": [
+          "Soft-box key lighting from side angles",
+          "Deep shadows and high local contrast",
+          "Warm, amber-toned highlights against cool, dark backgrounds",
+          "Subtle rim lighting to define product edges"
+        ]
+      },
+      "composition": {
+        "angle": "Low-angle or eye-level hero shots",
+        "focus": "Shallow depth of field (bokeh) to isolate the subject",
+        "framing": "Dynamic diagonals and close-up detail orientations",
+        "environment": "Industrial or minimalist music studio settings"
+      },
+      "color_palette": {
+        "dominant_tones": ["Charcoal", "Deep Onyx", "Burnished Amber"],
+        "accent_colors": ["Neon Cyan/Blue LEDs", "Glowing Orange status lights", "Vintage Tweed/Sunburst yellows"],
+        "saturation": "Desaturated backgrounds with punchy, saturated light sources"
+      },
+      "texture_and_detail": [
+        "Tactile surfaces: Tolex amp covering, brushed aluminum, distressed wood grains",
+        "High-fidelity hardware details: Chrome switches, knurled knobs, woven cable jackets",
+        "Authentic road-worn elements: Relic'ed guitar finishes, dust on surfaces, vintage rugs"
+      ],
+      "vibe": "Moody, premium, nocturnal, aspirational, and 'Gear Porn' (high-end music equipment focus)."
+    },
+    "prompt_template": "A high-end, cinematic product photograph of professional music gear in a moody, nocturnal studio setting. The central subject is SUBJECT_PLACEHOLDER, dramatically lit by directional side-lighting (e.g., from a softbox), casting deep shadows and creating high local contrast. The lighting should produce warm, burnished amber highlights and perhaps subtle cool blue or cyan rim lighting to define edges. The background is dark and textured, featuring elements like charcoal industrial finishes, exposed concrete, or a vintage Oriental rug, with a shallow depth of field (bokeh) to keep focus sharp on the subject. Tactile details are paramount: the weave of amp grille cloth, the brushed metal texture of a pedal chassis, the grain of distressed wood, and the knurled edges of control knobs should be highly visible. Status LEDs or display screens on the gear should glow intensely, providing vibrant, saturated color accents (like glowing green or orange indicators) against the desaturated surroundings. The composition is a heroic low-angle or three-quarter view, focusing on the details and quality of the hardware. The overall vibe is premium, aspirational, and 'Gear Porn'.",
+    "best_for": ["pedal close-ups", "amp heads", "artist tone recipes", "high-end gear profiles"]
+  },
+
+  "golden_hour_workshop": {
+    "label": "Golden Hour Workshop",
+    "description": "Warm natural sunlight through windows, wood shavings, luthier workbench. Feels handmade and earned. For acoustic/boutique/blues content.",
+    "style_profile": {
+      "visual_identity": "Natural light lifestyle photography in a working luthier's shop.",
+      "lighting": {
+        "type": "Natural sunlight streaming through aged windows",
+        "properties": [
+          "Warm golden hour color temperature (3000-4000K)",
+          "Visible dust motes and light rays through the air",
+          "Soft bounced fill from whitewashed walls",
+          "Hard window-light edges creating dramatic cast shadows"
+        ]
+      },
+      "composition": {
+        "angle": "Eye-level candid workbench view",
+        "focus": "Medium depth of field — subject crisp, wood shavings and background softened",
+        "framing": "Working environment surrounds the subject, editorial rather than catalog",
+        "environment": "Cluttered luthier's workshop with hand tools, clamps, wood stock, and coffee mugs"
+      },
+      "color_palette": {
+        "dominant_tones": ["Warm oak brown", "Cream", "Faded denim", "Brass"],
+        "accent_colors": ["Cherry red", "Polished chrome", "Sunburst nitro yellow"],
+        "saturation": "Naturally warm, slightly film-emulated, muted but rich"
+      },
+      "texture_and_detail": [
+        "Raw sawdust and wood shavings on the bench",
+        "Aged leather tool rolls and canvas aprons",
+        "Brass hardware with honest patina",
+        "Hand-written notes and sharpie markings"
+      ],
+      "vibe": "Hand-built, earned, unrushed, craftsman pride."
+    },
+    "prompt_template": "A warm, natural-light photograph of professional music gear in a working luthier's workshop. The central subject is SUBJECT_PLACEHOLDER, lit primarily by golden hour sunlight streaming through an aged window. Visible dust motes and light rays drift through the air. The warm color temperature casts cream and oak-brown tones across the scene, with soft bounced fill from whitewashed walls and hard window-light edges creating dramatic cast shadows behind the subject. The workbench is cluttered with the honest signs of use: wood shavings, hand tools, brass clamps, a half-empty coffee mug, hand-written notes in sharpie. Brass hardware shows honest patina, leather tool rolls sit aged at the edge of frame. The composition is an eye-level candid workbench view — editorial, not catalog — with the subject crisp and the surrounding environment softened into warm bokeh. The vibe is hand-built, earned, unrushed, craftsman pride.",
+    "best_for": ["acoustic guitars", "boutique hand-wired gear", "vintage instruments", "blues tone content", "Americana / country recipes"]
+  },
+
+  "stage_haze": {
+    "label": "Stage Haze",
+    "description": "Concert venue lighting, fog machine haze, colored wash from above. For live rig content, worship, touring guitarist profiles.",
+    "style_profile": {
+      "visual_identity": "Concert stage photography with atmospheric haze and dramatic colored light.",
+      "lighting": {
+        "type": "Overhead theatrical wash + backlit haze",
+        "properties": [
+          "Volumetric fog catching colored light beams",
+          "Saturated magenta, cyan, and amber stage wash",
+          "Silhouetted backlighting with colored rim",
+          "Occasional lens flare from distant PAR cans"
+        ]
+      },
+      "composition": {
+        "angle": "Stage-floor low angle, or slight crouch to the side of the rig",
+        "focus": "Medium depth of field with haze softening background completely",
+        "framing": "Wide enough to show the rig in context of an empty or blurred stage",
+        "environment": "Empty concert stage, visible truss and monitor wedges, polished floor reflecting light"
+      },
+      "color_palette": {
+        "dominant_tones": ["Deep navy", "Stage black", "Magenta wash", "Cyan wash"],
+        "accent_colors": ["Hot pink", "Electric cyan", "Amber tungsten", "White spotlight"],
+        "saturation": "Highly saturated colored light against near-black environment"
+      },
+      "texture_and_detail": [
+        "Visible volumetric haze in every beam of light",
+        "Polished or matte stage floor catching a wet-looking reflection",
+        "Road cases and gaff-taped cables in the periphery",
+        "Velvet drape backdrops dissolving into shadow"
+      ],
+      "vibe": "Touring, professional, pre-show anticipation, arena-ready."
+    },
+    "prompt_template": "A concert stage photograph of professional music gear on an empty performance stage, moments before the house opens. The central subject is SUBJECT_PLACEHOLDER, lit by dramatic overhead theatrical wash and backlit through a haze of fog-machine mist. Volumetric beams of saturated colored light — magenta, cyan, and amber — slice through the scene, and a subtle lens flare catches a distant PAR can. The stage floor is polished and wet-looking with reflections of the colored beams. In the blurred background, truss, monitor wedges, road cases, and gaff-taped cables suggest a working touring environment. Velvet drape backdrops dissolve into near-black shadow. The composition is a low, crouched three-quarter angle framing the rig with stage context. The vibe is touring, professional, pre-show anticipation, arena-ready.",
+    "best_for": ["worship pedalboards", "touring rigs", "live performance content", "stadium/arena rock", "Set Pack hero images"]
+  },
+
+  "bedroom_producer": {
+    "label": "Bedroom Producer",
+    "description": "Intimate home studio with RGB LEDs, monitor glow, messy-but-curated desk. For beginner/practice content and modeler reviews.",
+    "style_profile": {
+      "visual_identity": "Intimate home studio lifestyle photography in a modern creator's room.",
+      "lighting": {
+        "type": "Mixed ambient RGB + computer monitor glow",
+        "properties": [
+          "Soft purple and teal RGB strip lighting on walls and shelves",
+          "Cool blue glow from a computer monitor out of frame",
+          "Faint tungsten lamp warmth from a small desk light",
+          "Low overall brightness, cozy rather than dramatic"
+        ]
+      },
+      "composition": {
+        "angle": "Eye level with the desk, slight down-tilt",
+        "focus": "Shallow depth isolating the gear from a softly blurred room",
+        "framing": "Includes desk edge, sliver of a monitor, a mug, casual context",
+        "environment": "Lofted bedroom or converted closet studio with acoustic panels, plants, vinyl records"
+      },
+      "color_palette": {
+        "dominant_tones": ["Matte black", "Warm cream", "Muted teal"],
+        "accent_colors": ["Purple RGB wash", "Cyan monitor glow", "Amber desk lamp"],
+        "saturation": "Soft and dreamy, not neon — feels lived-in"
+      },
+      "texture_and_detail": [
+        "Acoustic foam panels in the far background",
+        "A plant or two, hardcover books, enamel coffee mug",
+        "Cable management that's tidy but not obsessive",
+        "A beat-up notebook or a lyric sheet in the frame"
+      ],
+      "vibe": "Intimate, creative, approachable, 'this could be you tomorrow'."
+    },
+    "prompt_template": "An intimate home studio photograph of music gear on a modern creator's desk. The central subject is SUBJECT_PLACEHOLDER, lit softly by a mix of purple and teal RGB strip lighting from the wall behind and a cool blue glow from an out-of-frame computer monitor. A small tungsten desk lamp adds a warm amber kicker from the side. Overall brightness is low and cozy rather than dramatic. The desk holds supporting context: a coffee mug, a beat-up notebook, a plant, and cables managed tidily but not obsessively. Acoustic foam panels and a few vinyl records blur in the background. The composition is eye level with the desk, slight downward tilt, with shallow depth isolating the gear from the softly blurred room. The color palette is matte black, warm cream, and muted teal with purple and cyan accents. The vibe is intimate, creative, approachable — 'this could be you tomorrow'.",
+    "best_for": ["modeler reviews", "beginner content", "practice routines", "budget rig guides", "bedroom producers"]
+  },
+
+  "cathedral_ambient": {
+    "label": "Cathedral Ambient",
+    "description": "Quiet church interior with clerestory light, reverent atmosphere, soft blues and creams. For worship content specifically.",
+    "style_profile": {
+      "visual_identity": "Reverent photography inside a quiet modern church or intimate chapel.",
+      "lighting": {
+        "type": "Soft diffused clerestory light from above, no harsh direct sources",
+        "properties": [
+          "High-window daylight filtered through frosted or stained glass",
+          "Cool morning blue with occasional warm wood reflections",
+          "Long soft shadows falling in parallel across wood floors",
+          "No direct flash or fill — purely natural ambient"
+        ]
+      },
+      "composition": {
+        "angle": "Eye level or slight high-angle looking down at the rig",
+        "focus": "Even depth of field — the space is the story as much as the gear",
+        "framing": "Wide enough to include pew backs, wood grain floor, or a plant on a stand",
+        "environment": "Contemporary sanctuary or chapel with wood accents, fabric drape, subtle cross or stage plants"
+      },
+      "color_palette": {
+        "dominant_tones": ["Cream", "Oak", "Muted sky blue", "Warm white"],
+        "accent_colors": ["Deep forest green (plants)", "Matte black (gear)", "Rose gold (hardware)"],
+        "saturation": "Gentle, low-saturation, slightly overexposed in the highlights"
+      },
+      "texture_and_detail": [
+        "Natural wood grain floor",
+        "Textured fabric drapes and acoustic panels",
+        "Subtle framing elements: plants, a monitor wedge, a music stand",
+        "Honest wear on well-used gear"
+      ],
+      "vibe": "Reverent, quiet, prepared, Sunday morning before the doors open."
+    },
+    "prompt_template": "A reverent, quietly lit photograph of professional music gear placed on the stage of a contemporary church sanctuary, before a Sunday morning service. The central subject is SUBJECT_PLACEHOLDER, lit by soft diffused daylight falling from high clerestory windows. The light is cool morning blue with warm wood reflections, casting long soft parallel shadows across a natural wood grain floor. There are no direct flash sources — purely natural ambient. Around the gear sit subtle framing elements: the back of a wooden pew, a potted plant on a stand, a fabric drape or an acoustic panel. Honest wear shows on the well-used equipment. The color palette is cream, oak, muted sky blue, and warm white, with gentle low saturation and slightly lifted highlights. The composition is eye level with a slight high-angle look down at the rig, the space is the story as much as the gear itself. The vibe is reverent, quiet, prepared — Sunday morning before the doors open.",
+    "best_for": ["worship recipes", "Set Pack worship imagery", "ambient/pad guitar content", "church tech articles"]
+  },
+
+  "neon_noir": {
+    "label": "Neon Noir",
+    "description": "Cyberpunk-influenced — wet asphalt reflections, hot pink and electric blue neon signage. For modern high-gain, metal, and experimental content.",
+    "style_profile": {
+      "visual_identity": "Cyberpunk-leaning night photography with neon signage and rain-wet surfaces.",
+      "lighting": {
+        "type": "Multiple colored neon point sources with hard colored rim light",
+        "properties": [
+          "Hot pink and electric cyan neon fills",
+          "Reflections on wet asphalt or polished black floor",
+          "Hard rim lights carving the subject against darkness",
+          "Secondary amber tungsten source for balance"
+        ]
+      },
+      "composition": {
+        "angle": "Low-angle hero shot, dramatic perspective",
+        "focus": "Very shallow depth with strong bokeh from distant neon",
+        "framing": "Empty dark alley or warehouse vibe with the gear as centerpiece",
+        "environment": "Abandoned warehouse, alley, or reflective industrial space at night"
+      },
+      "color_palette": {
+        "dominant_tones": ["Pure black", "Deep magenta", "Electric cyan"],
+        "accent_colors": ["Hot pink", "Acid green", "Neon orange signage"],
+        "saturation": "Maximum saturation on light sources, near-black shadows"
+      },
+      "texture_and_detail": [
+        "Wet reflective surfaces",
+        "Visible condensation or steam",
+        "Graffiti in the blurred background",
+        "High-contrast chrome hardware catching multiple color sources"
+      ],
+      "vibe": "Aggressive, modern, cyberpunk, future-metal."
+    },
+    "prompt_template": "A cyberpunk-leaning night photograph of music gear in an abandoned industrial space lit only by neon signage. The central subject is SUBJECT_PLACEHOLDER, illuminated by multiple colored neon point sources — hot pink and electric cyan fills, with a secondary amber tungsten lamp for balance. Hard rim lights carve the subject against the darkness, and wet asphalt or polished black floor reflects the neon in streaks beneath the gear. Visible condensation or steam drifts through the frame. In the distant bokeh, blurred graffiti and neon signs create a backdrop of pure black shadow and maximum-saturation color. Chrome hardware on the subject catches multiple colored light sources simultaneously, creating anisotropic highlights. The composition is a dramatic low-angle hero shot with very shallow depth of field. The color palette is pure black, deep magenta, and electric cyan with hot pink and acid green accents. The vibe is aggressive, modern, cyberpunk, future-metal.",
+    "best_for": ["metal content", "high-gain pedals", "djent / modern progressive", "experimental rigs", "distortion guides"]
+  },
+
+  "editorial_white": {
+    "label": "Editorial White",
+    "description": "High-key, clean, magazine product shot. Wirecutter / Reverb / Sweetwater feel. For comparison reviews and gear roundups.",
+    "style_profile": {
+      "visual_identity": "Clean editorial product photography on a bright, uncluttered backdrop.",
+      "lighting": {
+        "type": "Diffused overhead soft boxes + bounce fill",
+        "properties": [
+          "Even, shadowless illumination",
+          "High-key exposure with clean white background",
+          "Subtle gradient fade from pure white to soft gray",
+          "No dramatic color casts"
+        ]
+      },
+      "composition": {
+        "angle": "Straight-on or slight three-quarter product shot",
+        "focus": "Deep depth of field — everything in focus",
+        "framing": "Centered, generous negative space, catalog-ready",
+        "environment": "Seamless paper sweep or bright white studio cyc"
+      },
+      "color_palette": {
+        "dominant_tones": ["Pure white", "Soft gray", "The natural color of the gear"],
+        "accent_colors": ["Whatever is intrinsic to the product"],
+        "saturation": "Natural, true-to-life, no stylized color grading"
+      },
+      "texture_and_detail": [
+        "Every logo and label perfectly legible",
+        "Fingerprint-free surfaces",
+        "Sharp edges, no motion blur",
+        "Subtle drop shadow grounding the subject"
+      ],
+      "vibe": "Editorial, trustworthy, comparison-ready, magazine spread."
+    },
+    "prompt_template": "A clean, bright editorial product photograph on a seamless white studio backdrop. The central subject is SUBJECT_PLACEHOLDER, lit evenly by diffused overhead soft boxes with bounce fill from below. The exposure is high-key, with a clean white background fading in a subtle gradient to soft gray near the edges. There are no dramatic color casts, no dramatic shadows — the product is the hero and everything else disappears. Every logo and label on the gear is perfectly legible, surfaces are fingerprint-free, and edges are razor-sharp. A subtle drop shadow grounds the subject. The composition is a straight-on or slight three-quarter product shot with deep depth of field — everything in focus — and generous negative space around the subject. The color palette is pure white and soft gray with only the natural color of the gear as an accent. The vibe is editorial, trustworthy, comparison-ready, magazine spread.",
+    "best_for": ["gear comparison articles", "'best of' roundup posts", "buying guides", "modeler vs modeler content", "affiliate-heavy content"]
+  },
+
+  "vintage_film": {
+    "label": "Vintage Film",
+    "description": "Kodachrome 64 / Ektar 100 color science, 70s-80s tonality, slight grain, muted saturation. For classic rock and vintage gear content.",
+    "style_profile": {
+      "visual_identity": "Shot-on-film photograph emulating late-70s Kodachrome color science.",
+      "lighting": {
+        "type": "Available light, mixed sources, softly photographed",
+        "properties": [
+          "Warm tungsten overheads in a basement rec room",
+          "Visible film grain and halation around bright sources",
+          "Soft shadows with lifted blacks (no true black)",
+          "Slightly flat contrast — film tonality, not digital"
+        ]
+      },
+      "composition": {
+        "angle": "Eye level or slightly high, relaxed snapshot framing",
+        "focus": "Medium depth, natural subject placement (not dead-center)",
+        "framing": "Messy edges, honest context, like a tour photographer shot it",
+        "environment": "Wood-paneled basement, green-shag rug, orange macrame wall art"
+      },
+      "color_palette": {
+        "dominant_tones": ["Warm burgundy", "Avocado green", "Harvest gold", "Chocolate brown"],
+        "accent_colors": ["Orange, rust, mustard yellow"],
+        "saturation": "Film-emulated — slightly undersaturated with rich shadows"
+      },
+      "texture_and_detail": [
+        "Visible 35mm film grain",
+        "Wood paneling with honest scuffs",
+        "Bead curtain or shag rug texture",
+        "Period-correct room clutter: a lava lamp, a cassette deck, a macrame plant hanger"
+      ],
+      "vibe": "Nostalgic, lived-in, warm, 'found in dad's basement'."
+    },
+    "prompt_template": "A shot-on-film photograph emulating late-1970s Kodachrome color science, showing music gear in a wood-paneled basement rec room. The central subject is SUBJECT_PLACEHOLDER, lit by warm tungsten overheads and available light. Visible 35mm film grain covers the frame, with halation around bright sources and lifted blacks (no true black) — the unmistakable tonality of film rather than digital. Soft shadows fall across wood paneling with honest scuffs. The room contains period-correct clutter: a lava lamp, a cassette deck, a macrame plant hanger, a green shag rug, orange macrame wall art. The composition is eye-level relaxed snapshot framing — natural subject placement, not dead-center, as if a tour photographer casually shot it. The color palette is warm burgundy, avocado green, harvest gold, and chocolate brown with orange, rust, and mustard yellow accents. Film-emulated undersaturation with rich shadows. The vibe is nostalgic, lived-in, warm, 'found in dad's basement'.",
+    "best_for": ["classic rock recipes", "vintage amp reviews", "70s/80s guitar content", "era-specific tone guides", "retro gear profiles"]
+  }
+}
