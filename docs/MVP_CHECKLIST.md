@@ -6,24 +6,32 @@ Nothing here is "nice to have." Everything is required to be operational.
 
 ---
 
-## 🔴 Blocker 1: Payment Flow Doesn't Actually Work Yet
+## ✅ Blocker 1: Payment Flow — DONE
 
-We wired up Stripe but never verified a dollar can flow through it.
+Full Stripe lifecycle verified end-to-end in test mode.
 
-- [ ] Run Supabase migration 015 (adds `stripe_customer_id` and `stripe_subscription_id` columns to profiles table). Without this, the webhook will fail when a customer completes checkout.
-- [ ] Verify `STRIPE_SECRET_KEY` in Vercel is set to a test key (`sk_test_...`)
-- [ ] Verify `STRIPE_WEBHOOK_SECRET` is set and matches the registered endpoint
-- [ ] Verify `SUPABASE_SERVICE_ROLE_KEY` is set in Vercel
-- [ ] Create a test account on faderandknob.com
-- [ ] Click "Start Tone Pass" on the pricing page
-- [ ] Complete checkout with Stripe test card `4242 4242 4242 4242`
-- [ ] Verify user role updates to `premium` in the database
-- [ ] Verify the user can download presets without hitting the 10-download limit
-- [ ] Trigger a subscription cancellation in Stripe dashboard
-- [ ] Verify the webhook downgrades the user to `free`
-- [ ] Only after all above pass: switch to live keys
+- [x] Run Supabase migration 015 (stripe columns added)
+- [x] `STRIPE_SECRET_KEY` set to `sk_test_...`
+- [x] `STRIPE_WEBHOOK_SECRET` set and verified
+- [x] `SUPABASE_SERVICE_ROLE_KEY` set in Vercel
+- [x] Test checkout with `4242 4242 4242 4242` — payment succeeds
+- [x] Webhook fires 200, user role updates to `premium` in database
+- [x] User can download unlimited presets after upgrade
+- [x] Cancellation in Stripe fires webhook, user downgrades to `free`
+- [x] Dashboard correctly shows "Tone Pass" for paid / "Free" + upgrade CTA for free
 
-**Time estimate:** 1-2 hours including debugging.
+**Fixes made along the way:**
+- Webhook was silently accepting unverified events (fixed: require `STRIPE_WEBHOOK_SECRET`)
+- Supabase project went into unhealthy state (restart fixed it)
+- CheckoutButton was creating duplicate Supabase clients via dynamic import (fixed: static import)
+- Auth race condition redirected users to /login after Stripe (fixed: decoupled profile fetch from setUser + extended grace period)
+- Post-OAuth checkout required double-clicking the button (fixed: pending checkout flag auto-continues)
+- Account tier now displayed on dashboard with highlighted Plan card
+
+**Still needed before switching to live keys:**
+- [ ] **Customer Portal integration** — users must be able to self-cancel. Legally required (FTC Click-to-Cancel rule, CA SB 313). ~30 min of work. Add a "Manage subscription" button on dashboard settings that creates a Stripe billing portal session and redirects.
+- [ ] Swap `sk_test_` → `sk_live_` in Vercel env vars
+- [ ] Create a matching live-mode webhook in Stripe Dashboard, update `STRIPE_WEBHOOK_SECRET`
 
 ---
 
