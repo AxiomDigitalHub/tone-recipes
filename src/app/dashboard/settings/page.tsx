@@ -57,15 +57,48 @@ function saveSettingsToStorage(settings: UserSettings) {
 /* -------------------------------------------------------------------------- */
 
 export default function DashboardSettingsPage() {
-  const { user } = useAuth();
+  const { user, refreshProfile } = useAuth();
   const [displayName, setDisplayName] = useState("");
   const [primaryPlatform, setPrimaryPlatform] = useState("");
   const [saved, setSaved] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [billingRefreshing, setBillingRefreshing] = useState(false);
 
   const tierLabel = user ? TIERS[user.role]?.label ?? "Free" : "Free";
   const isPaid = user?.role === "premium" || user?.role === "creator";
   const tierPrice = user ? TIERS[user.role]?.price : null;
+
+  // Detect ?billing_updated=true in the URL — user just came back from
+  // Stripe Customer Portal. Poll refreshProfile a few times (webhook can lag
+  // by a few seconds), then clean up the query param.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("billing_updated") !== "true") return;
+
+    let cancelled = false;
+    setBillingRefreshing(true);
+
+    (async () => {
+      // Poll up to 5 times with a 1s gap — webhook usually fires within 1-2s
+      for (let i = 0; i < 5; i++) {
+        if (cancelled) return;
+        await new Promise((r) => setTimeout(r, 1000));
+        await refreshProfile();
+      }
+      if (!cancelled) {
+        setBillingRefreshing(false);
+        // Remove the query param so a refresh doesn't loop
+        const url = new URL(window.location.href);
+        url.searchParams.delete("billing_updated");
+        window.history.replaceState({}, "", url.toString());
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [refreshProfile]);
 
   useEffect(() => {
     let cancelled = false;
@@ -222,11 +255,24 @@ export default function DashboardSettingsPage() {
               <p className="text-xs font-medium uppercase tracking-wider text-muted">
                 Current Plan
               </p>
-              <p className={`mt-1 text-xl font-bold ${isPaid ? "text-accent" : "text-foreground"}`}>
-                {tierLabel}
-              </p>
+              <div className="mt-1 flex items-center gap-2">
+                <p className={`text-xl font-bold ${isPaid ? "text-accent" : "text-foreground"}`}>
+                  {tierLabel}
+                </p>
+                {billingRefreshing && (
+                  <span
+                    className="h-3 w-3 animate-spin rounded-full border-2 border-accent border-t-transparent"
+                    aria-label="Refreshing subscription status"
+                  />
+                )}
+              </div>
               {tierPrice !== null && (
                 <p className="mt-0.5 text-xs text-muted">${tierPrice}/month</p>
+              )}
+              {billingRefreshing && (
+                <p className="mt-2 text-xs text-muted">
+                  Syncing latest subscription status...
+                </p>
               )}
             </div>
             {isPaid ? (

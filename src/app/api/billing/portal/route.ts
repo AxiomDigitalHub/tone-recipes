@@ -60,10 +60,13 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Create the billing portal session
+    // Create the billing portal session.
+    // return_url includes ?billing_updated=true so the settings page can
+    // detect the user's return and force a fresh profile fetch after any
+    // subscription changes made in the portal.
     const session = await stripe.billingPortal.sessions.create({
       customer: profile.stripe_customer_id as string,
-      return_url: `${req.nextUrl.origin}/dashboard/settings`,
+      return_url: `${req.nextUrl.origin}/dashboard/settings?billing_updated=true`,
     });
 
     return NextResponse.json({ url: session.url });

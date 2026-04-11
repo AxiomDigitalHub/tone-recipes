@@ -33,6 +33,8 @@ interface AuthContextValue {
   signUp: (email: string, password: string) => Promise<{ error?: string }>;
   signInWithGoogle: () => Promise<{ error?: string }>;
   signOut: () => Promise<void>;
+  /** Force a re-fetch of the current user's profile row (role, display name, avatar) */
+  refreshProfile: () => Promise<void>;
   /** Demo mode helper: create a fake local user so favorites work */
   signInDemo: (email: string) => void;
 }
@@ -49,11 +51,62 @@ const DEMO_USER_KEY = "tone-recipes-demo-user";
 /*  Provider                                                                  */
 /* -------------------------------------------------------------------------- */
 
+// Build a user object from raw Supabase user — synchronous, no DB call.
+function buildBaseUser(supabaseUser: {
+  id: string;
+  email?: string | null;
+  user_metadata?: Record<string, unknown>;
+}): AuthUser {
+  return {
+    id: supabaseUser.id,
+    email: supabaseUser.email ?? "",
+    displayName: supabaseUser.user_metadata?.display_name as string | undefined,
+    avatarUrl: supabaseUser.user_metadata?.avatar_url as string | undefined,
+    role: "free",
+  };
+}
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [loading, setLoading] = useState(true);
 
   const demoMode = !isSupabaseConfigured();
+
+  /* ---- Profile enrichment (callable externally via refreshProfile) ------- */
+
+  // Enrich the user with profile data from the DB. Merges with existing user
+  // state — does not block or replace the initial session hydration.
+  const enrichProfile = useCallback(async (supabaseUserId: string) => {
+    if (demoMode) return;
+    const supabase = createBrowserClient();
+    try {
+      const { data } = await supabase
+        .from("profiles")
+        .select("role, display_name, avatar_url")
+        .eq("id", supabaseUserId)
+        .single();
+      if (data) {
+        const row = data as Record<string, unknown>;
+        setUser((prev) => {
+          if (!prev || prev.id !== supabaseUserId) return prev;
+          return {
+            ...prev,
+            role: (row.role as UserRole) || prev.role,
+            displayName: (row.display_name as string) || prev.displayName,
+            avatarUrl: (row.avatar_url as string) || prev.avatarUrl,
+          };
+        });
+      }
+    } catch {
+      // Profile fetch failed — keep existing user state
+    }
+  }, [demoMode]);
+
+  // Public refresh helper: re-fetches the current user's profile row
+  const refreshProfile = useCallback(async () => {
+    if (!user?.id) return;
+    await enrichProfile(user.id);
+  }, [user?.id, enrichProfile]);
 
   /* ---- Bootstrap --------------------------------------------------------- */
 
@@ -73,51 +126,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // Real Supabase session
     const supabase = createBrowserClient();
 
-    // Build a user object from raw Supabase user — synchronous, no DB call.
-    // Profile data is enriched asynchronously (see enrichProfile below).
-    function baseUser(supabaseUser: { id: string; email?: string | null; user_metadata?: Record<string, unknown> }): AuthUser {
-      return {
-        id: supabaseUser.id,
-        email: supabaseUser.email ?? "",
-        displayName: supabaseUser.user_metadata?.display_name as string | undefined,
-        avatarUrl: supabaseUser.user_metadata?.avatar_url as string | undefined,
-        role: "free",
-      };
-    }
-
-    // Enrich the user with profile data from the DB. Runs async — does not
-    // block the initial setUser call, so DashboardShell can unblock users
-    // immediately after auth hydration even if the profiles query is slow.
-    async function enrichProfile(supabaseUserId: string) {
-      try {
-        const { data } = await supabase
-          .from("profiles")
-          .select("role, display_name, avatar_url")
-          .eq("id", supabaseUserId)
-          .single();
-        if (data) {
-          const row = data as Record<string, unknown>;
-          setUser((prev) => {
-            if (!prev || prev.id !== supabaseUserId) return prev;
-            return {
-              ...prev,
-              role: (row.role as UserRole) || prev.role,
-              displayName: (row.display_name as string) || prev.displayName,
-              avatarUrl: (row.avatar_url as string) || prev.avatarUrl,
-            };
-          });
-        }
-      } catch {
-        // Profile fetch failed — keep default role
-      }
-    }
-
     // Timeout: if getSession takes too long, show login buttons anyway
     const timeout = setTimeout(() => setLoading(false), 5000);
 
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session?.user) {
-        setUser(baseUser(session.user));
+        setUser(buildBaseUser(session.user));
         // Enrich profile async — do not block initial hydration
         void enrichProfile(session.user.id);
       }
@@ -132,7 +146,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session?.user) {
-        setUser(baseUser(session.user));
+        setUser(buildBaseUser(session.user));
         void enrichProfile(session.user.id);
       } else {
         setUser(null);
@@ -140,7 +154,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
 
     return () => subscription.unsubscribe();
-  }, [demoMode]);
+  }, [demoMode, enrichProfile]);
 
   /* ---- Auth actions ------------------------------------------------------ */
 
@@ -242,6 +256,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         signUp,
         signInWithGoogle,
         signOut,
+        refreshProfile,
         signInDemo,
       }}
     >
