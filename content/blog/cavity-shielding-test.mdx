@@ -1,0 +1,135 @@
+---
+title: "Does Cavity Shielding Actually Work? A Before/After Test"
+description: "Copper tape in the pickup cavity is the most-recommended fix for single-coil hum. Here's what actually happened when I tested it."
+date: "2026-04-08"
+author: "Carl Beckett"
+author_slug: "carl-beckett"
+category: "quick-fixes"
+tags: ["cavity shielding", "guitar hum", "single coil hum", "copper shielding", "guitar mods", "60 cycle hum", "telecaster mod"]
+readingTime: 5
+image: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=1200&q=80"
+image_alt: "Close-up of a guitar body with exposed pickup cavity"
+---
+
+Single-coil pickups hum. That's not a flaw. It's physics. The design that gives them their bright, glassy character also makes them act like little antennas for electromagnetic interference.
+
+The standard advice: line the pickup cavity with copper tape. Shield everything. Connect it to ground. Problem solved.
+
+I wanted to know if that was actually true. So I tested it.
+
+---
+
+## What Cavity Shielding Is (and What It's Supposed to Do)
+
+Your guitar's electronics sit in a routed cavity. Electrical interference — from lights, power transformers, computer monitors, dimmer switches — radiates in all directions. When it hits an unshielded pickup circuit, it induces a small current. That current comes out of your amp as hum.
+
+Shielding the cavity creates a Faraday cage around the circuit. A conductive surface connected to ground intercepts that interference before it reaches the signal path. The energy goes to ground instead of your speaker.
+
+That's the theory. The question is how much difference it makes in practice.
+
+---
+
+## The Setup
+
+I tested my 1997 Telecaster before and after shielding. Same guitar, same amp, same cables, same room, same position relative to the lights. Nothing changed except the copper.
+
+The test environment matters here. I'm in my workshop. Fluorescent lights overhead. A laptop two feet from the guitar. Not a recording studio — a real room with real interference sources.
+
+I ran three tests at each stage:
+
+| Test | What I Measured |
+|---|---|
+| Neck pickup, bridge position (hum-prone) | Baseline single-coil hum |
+| Neck pickup, facing the fluorescent light | Maximum interference pickup |
+| Middle position (both pickups, hum-canceling) | Reference baseline |
+
+The middle position acts as a control. Two single-coils wired out of phase cancel hum naturally. If shielding works, the neck-only and bridge-only positions should get closer to the middle position's noise floor.
+
+---
+
+## Before Shielding
+
+The middle position was quiet. Close to silent, actually.
+
+Neck-only pickup: audible 60Hz hum. Not ear-splitting, but present. Sitting still with hands off the strings, it was clearly there in a quiet room.
+
+Facing the fluorescent light directly: the hum roughly doubled in volume. Not usable if you're recording.
+
+The bridge pickup was similar to the neck but slightly louder. Single-coil bridge pickups in a Telecaster are notorious for this.
+
+---
+
+## The Shielding Process
+
+Copper tape with conductive adhesive. About $8 worth from an electronics supply shop. I lined the pickup cavity, the control cavity, and the back of the pickguard.
+
+Critical step: all the copper surfaces need to be electrically connected to each other and to the existing ground circuit. If the sections aren't making contact, you've added copper decoration, not a Faraday cage. I used a continuity tester to verify each piece was tied together before reassembling.
+
+Total time: about two hours. One hour of actual copper work, one hour of careful reassembly.
+
+---
+
+## After Shielding
+
+The middle position: same as before. Quiet. That's expected — it was already hum-canceling.
+
+Neck-only pickup: hum reduced. Not eliminated. Still audible in a completely quiet room at high amp volume, but noticeably softer. In a normal playing environment, I'd call it a non-issue at this level.
+
+Facing the fluorescent light: this is where the test got interesting. The hum reduction was most obvious here — facing the light directly, the noise was close to what the neck pickup had measured before without any light in the way.
+
+The shielding didn't eliminate hum. But it reduced it meaningfully, and it made the guitar dramatically less sensitive to proximity-based interference sources.
+
+---
+
+## What Shielding Actually Fixes
+
+| Hum Source | Before | After |
+|---|---|---|
+| Standard ambient interference (room noise) | Moderate | Low |
+| Proximity to fluorescent lights | High | Moderate |
+| Proximity to computer monitors | Moderate | Low |
+| Inherent single-coil design noise | Present | Present (reduced) |
+| True 60Hz ground loop | Unchanged | Unchanged |
+
+That last row is important. A ground loop — where current circulates between your guitar, pedals, and amp through multiple ground paths — produces hum that cavity shielding won't fix. If your hum appears or disappears when you plug and unplug pedals, shielding isn't the solution. See the [60-cycle hum guide](/blog/how-to-remove-60-cycle-hum) for that.
+
+Shielding is for electromagnetic interference from the environment. It does that job. It doesn't do other jobs.
+
+---
+
+## Is It Worth Doing?
+
+For recording: yes. The reduction in proximity sensitivity alone makes close-miked work easier. You spend less time repositioning to find quiet spots in the room.
+
+For live playing: probably. The noise floor improvement is real, even if it's incremental. If you're already happy with your hum levels, don't bother. If you're fighting interference from stage lighting, it helps.
+
+For a Stratocaster or Telecaster in a problematic room: yes. The $8 in copper tape is the cheapest tone improvement you can make to a single-coil guitar.
+
+For a guitar with a ground loop problem: do the shielding after you fix the ground loop. Trying to diagnose interference with a bad ground in the signal chain is like trying to fix a leaky faucet in a flooded kitchen.
+
+---
+
+## The Honest Verdict
+
+It works. Not magic. Not a complete solution. But it does what it's supposed to do, and it costs almost nothing.
+
+If you've been putting it off because it sounds complicated — it isn't. Two hours, $8 in copper tape, and a patience for careful work. The instructions are on YouTube and the results are real.
+
+---
+
+## FAQ
+
+**Q: Will cavity shielding completely eliminate single-coil hum?**
+A: No. It reduces electromagnetic interference pickup, but the fundamental design characteristic that makes single coils hum is inherent to the pickup. Hum-canceling (stacked) pickups are the only way to fully eliminate it while keeping single-coil character.
+
+**Q: Does it matter what kind of copper tape I use?**
+A: Yes — get tape with conductive adhesive, not just a conductive foil surface. The adhesive needs to make electrical contact between overlapping pieces. Non-conductive adhesive means you have to solder or use conductive paint at all the overlaps.
+
+**Q: Do I need to shield both the pickup cavity and the control cavity?**
+A: Both. The control cavity houses the volume pot, tone pot, and output jack — all potential entry points for interference. Shielding only the pickup cavity leaves the rest of the signal path exposed.
+
+**Q: My guitar already has a metal pickguard. Does that provide shielding?**
+A: Partially. A metal pickguard that's grounded gives some shielding benefit, but only from the top surface. Copper-lining the cavity provides shielding from all sides. Both together is better than either alone.
+
+**Q: How do I know if shielding is actually connected to ground?**
+A: Use a multimeter in continuity mode. Touch one probe to the copper and the other to the back of the volume pot (which is grounded). If it beeps, you're connected. If not, find the gap and bridge it.

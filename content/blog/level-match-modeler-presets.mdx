@@ -1,0 +1,138 @@
+---
+title: "How to Level-Match All Your Presets: Helix, Quad Cortex, and Fractal"
+description: "Volume jumps between presets are a solved problem. Here's the exact workflow for Helix, Quad Cortex, and Fractal Axe-Fx to get consistent output levels across your entire preset library."
+date: "2026-04-08"
+author: "Sean Nakamura"
+author_slug: "sean-nakamura"
+category: "quick-fixes"
+tags: ["preset level matching", "helix volume", "quad cortex volume", "modeler presets", "helix output block", "volume matching", "modeler workflow"]
+readingTime: 6
+image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&q=80"
+image_alt: "Guitar modeler processor on stage with lights in background"
+---
+
+Volume jumps between presets are one of the most common live performance problems with modelers — and one of the most solvable. The fix is different on each platform, but the principle is the same: you need a volume reference point that's independent of your tone-shaping chain.
+
+Here's how to do it on Helix, Quad Cortex, and Fractal Axe-Fx.
+
+---
+
+## Why Presets Have Different Volumes
+
+The short answer: every amp model, drive pedal, and effect combination produces a different output level. A clean Vox AC30 model at 5 is quieter than a high-gain Mesa Rectifier model at 5. A wet reverb-heavy preset sounds softer than a dry preset at the same measured output, because your ear perceives the diffuse signal differently.
+
+When you build presets in isolation — dialing in each one to sound good on its own — you calibrate each one to "sounds good" without calibrating them to each other. The result is a set of presets that each sound correct individually and chaos when you switch between them.
+
+The solution is a dedicated output trim at the end of each preset, set independently of the tone chain, that you use to normalize levels.
+
+---
+
+## The Reference Preset Method
+
+Before platform-specific steps, one universal approach: create a reference preset first.
+
+Pick your most-used clean patch as the reference. Set it to your target output level — whatever hits your PA or FRFR at the volume you want. Every other preset gets matched to this one by ear using a sine wave or pink noise reference, or more practically, by playing the same chord on both and adjusting until they match.
+
+Once the reference is set, you have a consistent anchor. Don't touch its output trim afterward.
+
+---
+
+## Helix: Output Block Level Control
+
+The cleanest method on Helix is the **Output block**.
+
+Every Helix preset has an Output block at the end of the signal chain. It defaults to 0dB. Use this as your per-preset trim:
+
+1. Open your loudest preset in HX Edit.
+2. Click the Output block.
+3. This is your loudest preset, so set its Output level as your reference — call this 0dB.
+4. Switch to each other preset.
+5. Play the same chord (root-5th power chord works well — consistent harmonic content).
+6. Adjust the Output block level on each preset until it matches the reference preset.
+7. A preset that's quiet by default might need +2 or +3dB at the Output. A high-gain patch that's loud by default might need −3 or −4dB.
+
+**Why the Output block, not the amp block's Channel Volume?** The Channel Volume changes how the amp model is being driven — it affects the tone and the feel, not just the level. The Output block is a clean trim that sits after all the tone processing. It's the right tool for normalization.
+
+**Global vs. per-preset:** The Helix also has a Global EQ and Global Settings output level, but these affect everything. Don't use them for normalization — they change your overall output to the PA, not individual preset levels.
+
+---
+
+## Quad Cortex: Scene Volume and Output Block
+
+The Quad Cortex has two places to normalize: the **Output block** within each preset, and **Scene Volume** if you're using Scenes.
+
+**For preset-level normalization:**
+
+1. Every preset on the Quad Cortex ends with an Output block. Tap it.
+2. The Output block has a Level parameter — this is your trim.
+3. Use the same method as Helix: set your loudest preset as reference at 0dB, then bring other presets up or down to match.
+4. The Neural DSP documentation calls this the "Output Level" — it's a clean gain stage after all processing.
+
+**For Scenes within a preset:**
+
+If you're using Scenes — and for live worship or live performance with multiple sounds in one preset, you should be — each scene can have its own volume level. In the Quad Cortex:
+
+1. Enter Scene mode.
+2. Assign the Output block Level to a Scene controller.
+3. Set the level per scene independently.
+
+This lets you store a verse volume, a chorus volume, and a bridge lead boost all within a single preset, with scene-level control that doesn't require you to reach for the expression pedal. The scene-to-scene transition is immediate and gapless.
+
+**Expected Cortex quirk:** When you first load a preset you've been editing level-by-level, the Output block trim is easy to accidentally reset if you're copying presets from the cloud or importing them from Neural DSP's preset library. Check the Output block level any time you import a preset — it may have been set for someone else's gain structure.
+
+---
+
+## Fractal Axe-Fx III and FM9: Output Mixer and Per-Preset Level
+
+Fractal's architecture is the most granular of the three platforms. The relevant tools:
+
+**Per-Preset Output Trim:**
+
+The Axe-Fx III has an **Out1 Level** control (and Out2 for a second output pair) in the I/O menu. This is per-preset and acts as a master trim before the output stage.
+
+1. Navigate to the I/O settings within each preset.
+2. Find Out1 Level.
+3. Use the same reference method — match each preset to your loudest clean reference.
+4. Typical values: clean patches may need +1 to +3dB, high-gain patches may need −2 to −4dB.
+
+**Output Mixer:**
+
+For more complex routing — if you're sending different signals to FOH and to a monitor amp — the Output Mixer lets you set independent levels per output. This is more advanced than preset-level normalization, but useful if you're splitting wet to FOH and dry to a real amp.
+
+**Scene Level on Axe-Fx:**
+
+Like the Quad Cortex, the Axe-Fx supports Scenes. You can control mixer level per scene using a modifier assigned to the scene controller. For lead boosts, this is the correct architecture: keep the amp model and drive settings the same between scenes, and raise the Output Mixer level for your lead scene by +3dB.
+
+---
+
+## A Practical Normalization Session
+
+Here's the workflow I use when building out a new preset library:
+
+1. **Set a reference first.** Open a clean patch you're happy with. This is your 0dB reference. Don't change it.
+2. **Work through presets in order of type:** all cleans first, then all leads, then all ambient/effects-heavy.
+3. **Use headphones for the comparison.** Your FRFR or monitors can color the perception. A flat headphone response gives you a more accurate A/B.
+4. **Play the same thing on each preset.** Same chord, same position on the neck, same picking force. Consistency in the test signal means consistency in the result.
+5. **Match perceived loudness, not peak meters.** A highly compressed lead tone and a clean tone can read the same on a peak meter but sound very different in loudness. Match what you hear, not what the meter says.
+6. **Document your trims in a spreadsheet or note.** If you rebuild a preset later, you'll know what trim value you set and why.
+
+One session of an hour or two normalizes an entire preset library. After that, maintenance is per-preset as you add new ones.
+
+---
+
+## FAQ
+
+**Q: Should I use a decibel meter app for this?**
+A: A meter helps as a starting reference, but ultimately you're matching perceived loudness, which isn't purely a dB measurement. Use it as a rough guide, then trust your ears for the final trim.
+
+**Q: My presets sound matched at home but different at the venue. Why?**
+A: The room and the monitoring setup change how loudness is perceived. A bright stage environment makes some frequencies feel louder. A dark room absorbs high-frequency content and makes treble-heavy patches seem quieter. For gigging, build your presets and normalize them in a similar acoustic environment to where you'll play, then do a quick check at soundcheck.
+
+**Q: Is there an automatic volume normalizer on these platforms?**
+A: Not natively. Fractal's Axe-Fx has a Global Block system that lets you share parameters across presets, but it doesn't auto-normalize. The manual trim method described here is the standard approach.
+
+**Q: Do I need to do this every time I download a preset from the cloud?**
+A: Yes. Cloud presets are built by other players with different gain structures and different output levels. Always check the Output block trim on any imported preset before using it in a performance context. It will almost certainly need adjustment.
+
+**Q: What's the right output level to the PA?**
+A: This depends on your FOH engineer's setup. A common target is −18 to −12 dBFS average for your clean tone, with headroom for peaks. Your FOH engineer will tell you if you're hitting the console too hot or too cold. The goal is to give them a consistent, manageable signal from preset to preset — that's your job. The overall level in the PA is theirs.

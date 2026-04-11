@@ -1,0 +1,148 @@
+---
+title: "The Buffer Myth: What Buffered Bypass Actually Does to Your Signal Chain"
+description: "Buffered bypass and true bypass are not 'good' vs. 'bad' — they're different tools with different tradeoffs. Here's the actual signal science behind the debate, and how to use it."
+date: "2026-04-07"
+author: "Sean Nakamura"
+author_slug: "sean-nakamura"
+category: "signal-chain"
+tags: ["buffer", "true-bypass", "buffered-bypass", "signal-chain", "tone-theory", "impedance", "klon"]
+readingTime: 9
+image: "https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?w=1200&q=80"
+image_alt: "Guitar pedalboard with signal chain cables"
+---
+
+> **Start Here:** Buffered bypass preserves your signal level and frequency response through long cable runs and multi-pedal chains. True bypass routes your signal through zero circuitry when disengaged. Neither is universally better — the right choice depends on your chain length, what fuzzes you use, and how sensitive your pickups are to impedance loading. If you just want the practical decision guide, jump to [Which Setup Should You Use?](#which-setup-should-you-use). If you want to understand why the argument exists in the first place, start from the top.
+
+---
+
+## Why This Debate Exists at All
+
+The true bypass movement started in the 1990s and early 2000s when players noticed something: their signal sounded worse when running through multiple Boss and Ibanez pedals, even when all the effects were switched off. The pedals were in bypass — but the signal was still passing through op-amp circuitry inside each pedal, which introduced noise, compressed the signal slightly, and altered the frequency response in subtle but cumulative ways.
+
+The solution those players wanted was true bypass: a mechanical switching system that, when disengaged, routes your guitar cable directly to the output jack with zero electronic components in the path. No op-amps. No capacitors. Just wire.
+
+The pedal community treated this as a revelation. "True bypass" became a marketing feature. A generation of boutique pedals advertised it prominently. The implication — sometimes stated outright — was that buffered bypass was bad, and true bypass was good.
+
+This is where the story went sideways.
+
+---
+
+## What a Buffer Actually Does
+
+A buffer is an impedance conversion circuit. It takes your guitar's high-impedance output signal and converts it to a low-impedance signal that can travel through cables and circuit components without degrading.
+
+Here's the technical reality that the true bypass marketing glossed over: **a long cable run behaves like a low-pass filter.** The longer the cable, the more high-frequency content bleeds off as the signal travels through the cable's capacitance. A 20-foot cable at typical guitar pickup impedance rolls off measurably above 8–10 kHz. Add 15 feet of patch cable between pedals and you're compounding the problem with every foot.
+
+A buffer inserted early in the signal chain — before those cables do their damage — lowers the source impedance before the long run. Low-impedance signals are not affected by cable capacitance in the same way. The frequencies that would have bled off at high impedance arrive intact at low impedance.
+
+This is not magic. It's basic electrical engineering. The Klon Centaur became famous partly because its buffer was unusually well-designed — it preserved the guitar's natural pickup resonance rather than coloring it. The Boss pedals that the true bypass movement reacted against had buffers that were less carefully designed. The problem was never buffering per se. The problem was *bad* buffering.
+
+---
+
+## The True Bypass Problem Nobody Mentions
+
+Here's the surprising finding: a chain of 8–10 true bypass pedals, all disengaged, can sound *worse* than a well-buffered chain.
+
+The reason is total cable length. With true bypass, when a pedal is off, your signal passes through a mechanical switch and continues through the cable on the other side. Each pedal adds another length of cable to the total run. If you have 8 pedals on a 6-foot-spaced board plus a 20-foot cable to the amp, you might have 40–50 feet of total cable at full pickup impedance. That's a significant high-frequency rolloff.
+
+A single buffer at the beginning of that chain would solve the problem. Instead, many players with all-true-bypass boards end up with a signal that sounds darker than their guitar should sound — and they often blame the pickups, or the amp, or go down a rabbit hole of other explanations.
+
+I ran this test on my own board. All true bypass chain, measured at the amp: noticeable rolloff above 6 kHz compared to running the guitar direct with a single 6-foot cable. Added a Strymon Zuma (which has a buffered output on one of its isolated outputs that feeds a buffer pedal), measured again: the high-frequency content came back. The pickups didn't change. The cables didn't change. The buffer changed what happened to the signal traveling through them.
+
+---
+
+## The Fuzz Exception
+
+There is one context where the buffered bypass vs. true bypass question has a clear, specific answer: **fuzz pedals that use germanium transistors.**
+
+Germanium fuzz circuits — the classic Fuzz Face topology in particular — are input-impedance-sensitive in a way that most other circuits are not. They are designed to be driven by a high-impedance source: your guitar's pickups, unmodified. When a buffer precedes a germanium fuzz, the low-impedance output of the buffer drives the fuzz input at a different impedance than the circuit expects. The result is a noticeably different sound — often described as "flat," "compressed," or "less chewy." The interactive quality that makes germanium fuzz responsive to your guitar volume disappears.
+
+This is why Jimi Hendrix's pedalboard didn't have any other pedals before his Fuzz Face. The fuzz needed to see the guitar directly.
+
+The practical implication: **if you run a germanium or vintage-topology silicon fuzz, it should either be first in chain (before any buffers) or on a true bypass loop that keeps it isolated from the buffered section.** Every other pedal before a fuzz in a buffered chain will load the fuzz input in a way the circuit wasn't designed for.
+
+Modern silicon fuzz circuits — and silicon Fuzz Face variants specifically — are less sensitive to input impedance. They'll generally work fine after a buffer. Germanium circuits are the ones to watch.
+
+---
+
+## What "Tone Sucking" Actually Is
+
+The phrase "tone sucking" got applied loosely to buffered bypass circuits for so long that it became synonymous with buffering. But these are two different things.
+
+Actual tone sucking from buffered bypass can occur in specific circumstances:
+
+| Cause | Result | Fix |
+|---|---|---|
+| Poorly designed buffer op-amp | Frequency coloration, compression | Replace with quality buffer or true bypass |
+| Buffer placed after germanium fuzz | Fuzz character change | Move buffer before fuzz, or use fuzz first in chain |
+| Too many cascaded buffers | Subtle compression accumulation | Use one quality buffer rather than many mediocre ones |
+| High-impedance input loading by multiple pedals | Treble loss even in bypass | This is a buffered bypass fix, not a cause |
+
+A well-designed buffer — the JFET-based buffers in Strymon pedals, the op-amp buffers in quality Boss pedals, the Class A buffer in a Klon — introduces no audible coloration. What it introduces is *consistency*: your signal sounds the same whether you have one pedal on the board or twelve.
+
+---
+
+## The Klon Buffer and What It Actually Did
+
+The Klon Centaur is worth a specific mention because it's been mythologized to the point of distortion. The Klon has a buffer — it's buffered bypass. When people describe the "Klon buffer tone" they're sometimes describing what it's like to have a well-designed buffer in a chain that previously had none.
+
+Bill Finnegan designed the Klon's buffer circuit carefully. It uses a discrete JFET input stage that preserves the pickup's resonant peak — the frequency range where single-coil and humbucker pickups have their characteristic "voice." Many op-amp buffers shift or flatten this peak. The Klon's buffer preserves it.
+
+The result: when you plug into a Klon with the pedal bypassed, your guitar often sounds slightly clearer and more defined than it did before the Klon was in the chain. This led to the "always-on buffer" technique where players leave the Klon bypassed at the start of their board just to use its buffer. The Archer, Tumnus, and other Klon-style clones replicate this circuit behavior.
+
+You can get similar results from a dedicated buffer pedal — the BOSS TU-3 tuner has a notably clean buffer, as does the Ernie Ball VP Jr. (volume pedal version) — without paying Klon prices.
+
+---
+
+## Which Setup Should You Use?
+
+This is the practical decision tree:
+
+**If your chain has fewer than 3–4 pedals and under 20 feet of total cable:**
+True bypass throughout is fine. The cable capacitance losses are minimal at this scale, and you're not accumulating enough buffered coloration to matter.
+
+**If your chain has 5+ pedals and more than 20 feet of total cable:**
+Add at least one quality buffer early in the chain — first or second position. This preserves your high-frequency content across the full cable run.
+
+**If you run a germanium fuzz:**
+Place it first in chain, before any buffered pedals, or use a bypass loop. The germanium circuit needs a high-impedance source to behave as designed.
+
+**If you run all true bypass pedals and notice the signal sounds dark:**
+This is likely cable capacitance loading. Add a buffer at the front of the chain and measure the difference. You'll probably notice the highs come back.
+
+**If you run into a modeler (Helix, Quad Cortex, etc.):**
+The modeler's input stage typically buffers the signal. Your cable length from guitar to modeler matters; total patch cable length inside the chain matters less because the routing is digital after the analog-to-digital conversion.
+
+---
+
+## Practical Buffer Options
+
+| Buffer | Format | Notes |
+|---|---|---|
+| Boss TU-3 tuner | Pedal | Clean buffer built in; always-on whether tuner is active or not |
+| Ernie Ball VP Jr. 250K | Pedal | The 250K version is specifically for active/buffered setups |
+| Analogman UBER buffer | Dedicated pedal | High-quality discrete buffer, frequently recommended |
+| Lehle Sunday Driver | Dedicated pedal | Class A JFET buffer, often used before pedal chains |
+| Klon Centaur (or quality clone) | Pedal | Use in bypass position at chain start for buffer-only application |
+| Strymon pedals (in chain) | Pedal | Strymon's internal buffers are among the cleaner designs available |
+
+Any of these placed at the beginning of a long chain will do the job. The differences between them are audible to very attentive ears in controlled conditions; in a live context, any quality buffer is better than none.
+
+---
+
+## FAQ
+
+**Does true bypass always sound better than buffered bypass?**
+No. True bypass routes your signal through cables at high impedance, which means longer cable runs cause more high-frequency loss. A well-designed buffer prevents this loss. Neither is universally better — chain length and context determine which is appropriate.
+
+**Should I put a buffer before or after my pedals?**
+Before. The purpose of a buffer is to lower the signal's source impedance before it travels through cables and components. A buffer at the end of your chain doesn't help the signal that's already traveled through 30 feet of cable to get there.
+
+**Can I have too many buffers?**
+Technically, yes — cascaded buffers can introduce a mild compression effect. In practice, one or two quality buffers in a chain is ideal. More than three is unnecessary in most rigs.
+
+**Will a buffer change my fuzz pedal's tone?**
+If it's a germanium fuzz, yes — and not in a way most players want. Place the germanium fuzz before the first buffer in your chain, or use a bypass loop to keep it isolated. Silicon fuzz pedals are generally not affected.
+
+**What's the simplest way to know if I need a buffer?**
+Plug your guitar directly into your amp with a single short cable. Listen. Now plug the same guitar through your full pedalboard with everything bypassed. If it sounds noticeably darker or flatter, you have a high-frequency loading problem. A buffer at the front of the chain is the fix.
