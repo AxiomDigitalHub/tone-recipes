@@ -42,7 +42,7 @@ const STARTER_PICKS = [
 export default function DashboardPage() {
   const { user } = useAuth();
   const favoritesHydrate = useFavoritesStore((s) => s.hydrate);
-  const getFavorites = useFavoritesStore((s) => s.getFavorites);
+  const favoritesSet = useFavoritesStore((s) => s.favorites);
   const recentHydrate = useRecentlyViewedStore((s) => s.hydrate);
   const recentSlugs = useRecentlyViewedStore((s) => s.slugs);
 
@@ -97,12 +97,12 @@ export default function DashboardPage() {
 
   /* ---- Derived data ----------------------------------------------------- */
 
-  const savedSlugs = hydrated ? getFavorites() : [];
   const savedRecipes = useMemo<ToneRecipe[]>(() => {
-    return savedSlugs
+    if (!hydrated) return [];
+    return [...favoritesSet]
       .map((slug) => getRecipeBySlug(slug))
       .filter((r): r is ToneRecipe => Boolean(r));
-  }, [savedSlugs]);
+  }, [favoritesSet, hydrated]);
 
   const recentRecipes = useMemo<ToneRecipe[]>(() => {
     return recentSlugs
@@ -251,7 +251,7 @@ export default function DashboardPage() {
                   href={step.href}
                   className={`flex items-center gap-3 rounded-lg border px-4 py-3 text-sm transition-colors ${
                     step.done
-                      ? "border-border bg-[#0b0f1a] text-muted line-through"
+                      ? "border-border/50 bg-[#0b0f1a]/60 text-muted"
                       : "border-border bg-[#0b0f1a] text-foreground hover:border-accent/40 hover:bg-surface"
                   }`}
                 >
