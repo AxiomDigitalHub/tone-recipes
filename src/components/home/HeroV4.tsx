@@ -129,24 +129,32 @@ const ICONS: IconDef[] = [
     },
   },
   {
-    label: "CABINET",
+    label: "DELAY",
     render: (ctx, size) => {
       ctx.save();
       ctx.translate(size / 2, size / 2);
       ctx.scale(size / 30, size / 30);
       ctx.translate(-15, -15);
       ctx.strokeStyle = "#fff";
-      ctx.lineWidth = 2;
-      roundRect(ctx, 3, 3, 24, 24, 3.5);
-      ctx.stroke();
+      ctx.lineWidth = 2.2;
+      ctx.lineCap = "round";
+      // Clock face
       ctx.beginPath();
-      ctx.arc(15, 15, 9, 0, Math.PI * 2);
+      ctx.arc(15, 15, 11, 0, Math.PI * 2);
       ctx.stroke();
+      // Minute hand (up)
       ctx.beginPath();
-      ctx.arc(15, 15, 5.5, 0, Math.PI * 2);
+      ctx.moveTo(15, 8);
+      ctx.lineTo(15, 15);
       ctx.stroke();
+      // Hour hand (down-right)
       ctx.beginPath();
-      ctx.arc(15, 15, 1.8, 0, Math.PI * 2);
+      ctx.moveTo(15, 15);
+      ctx.lineTo(20, 18);
+      ctx.stroke();
+      // Center dot
+      ctx.beginPath();
+      ctx.arc(15, 15, 1.6, 0, Math.PI * 2);
       ctx.fillStyle = "#fff";
       ctx.fill();
       ctx.restore();
@@ -259,9 +267,9 @@ type Dot = {
 };
 
 // Target total dot count. All dots animate together between the idle
-// cloud and the current icon in the cycle, so this is also the number
+// grid and the current icon in the cycle, so this is also the number
 // of points we sample per icon.
-const TOTAL_DOTS = 1000;
+const TOTAL_DOTS = 506; // ~23 x 22 grid
 // How long each icon phase lasts (ms). Phase = grid → icon → grid.
 const PHASE_MS = 3600;
 
@@ -286,39 +294,46 @@ export default function HeroV4() {
     // Build dot targets for the serial cycle.
     //
     // Layout:
-    // - One slot, centered on the right ~65% of the canvas so the
+    // - One slot, centered on the right ~68% of the canvas so the
     //   left side is free for the hero text.
-    // - Icons sized way up (min(w,h) * 0.52).
+    // - Icons sized way up (min(w,h) * 0.65).
     //
-    // Each dot has a single idle position (cloud around the slot) and
-    // an array of targets — one per icon in the cycle. On each frame
-    // we interpolate from idle to the current phase's icon target.
+    // Each dot has a grid-aligned idle position and an array of
+    // icon targets (one per phase). On each frame we interpolate
+    // from the grid position to the current phase's icon target.
     function buildDots(width: number, height: number): Dot[] {
-      const iconRenderSize = Math.min(width, height) * 0.52;
+      const iconRenderSize = Math.min(width, height) * 0.65;
       const slotCx = width * 0.68;
       const slotCy = height * 0.5;
 
-      // Sample each icon to exactly TOTAL_DOTS points so every dot has
-      // a target for every icon in the cycle. Converts normalised
-      // (-0.5..0.5) coords into absolute canvas coords using the
-      // slot center + iconRenderSize.
+      // Sample each icon to exactly TOTAL_DOTS points.
       const perIcon: { x: number; y: number }[][] = ICONS.map((icon) => {
-        const pts = sampleIconTargets(icon, 200, TOTAL_DOTS);
+        const pts = sampleIconTargets(icon, 220, TOTAL_DOTS);
         return pts.map((p) => ({
           x: slotCx + p.x * iconRenderSize,
           y: slotCy + p.y * iconRenderSize,
         }));
       });
 
+      // Grid idle layout. Uniform lattice of GRID_COLS × GRID_ROWS
+      // centered on the slot. Cell spacing 6% larger than a bare
+      // sqrt so the grid extends beyond the icon's bounding box —
+      // this way when an icon forms inside the grid, outer dots move
+      // in toward it from all sides.
+      const GRID_COLS = 23;
+      const GRID_ROWS = Math.ceil(TOTAL_DOTS / GRID_COLS);
+      const GRID_SIZE = iconRenderSize * 1.55;
+      const cellW = GRID_SIZE / GRID_COLS;
+      const cellH = GRID_SIZE / GRID_ROWS;
+      const gridLeft = slotCx - GRID_SIZE / 2 + cellW / 2;
+      const gridTop = slotCy - GRID_SIZE / 2 + cellH / 2;
+
       const out: Dot[] = [];
       for (let i = 0; i < TOTAL_DOTS; i++) {
-        // Idle cloud: golden-angle spiral around the slot center,
-        // radius 60-140% of the icon render size so the grid-state
-        // cloud is wider than the formed icon.
-        const angle = (i * 137.508 * Math.PI) / 180;
-        const radius = iconRenderSize * (0.6 + ((i * 17) % 80) / 100);
-        const idleX = slotCx + Math.cos(angle) * radius;
-        const idleY = slotCy + Math.sin(angle) * radius;
+        const col = i % GRID_COLS;
+        const row = Math.floor(i / GRID_COLS);
+        const idleX = gridLeft + col * cellW;
+        const idleY = gridTop + row * cellH;
         out.push({
           idleX,
           idleY,
