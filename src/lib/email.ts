@@ -1,9 +1,24 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy init: only create the Resend client when the API key exists.
+// Callers should check before calling email functions, but we also
+// guard inside each function.
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : (null as unknown as Resend); // cast so TS doesn't complain at call sites
 
 const FROM_EMAIL = "Fader & Knob <noreply@faderandknob.com>";
 const REPLY_TO = "hello@faderandknob.com";
+
+/** HTML-escape a string to prevent injection in email templates. */
+function esc(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
 /**
  * Send a welcome email when someone downloads their first PDF.
@@ -14,7 +29,7 @@ export async function sendWelcomeEmail(to: string, recipeName: string) {
       from: FROM_EMAIL,
       to,
       replyTo: REPLY_TO,
-      subject: `Your tone recipe is ready: ${recipeName}`,
+      subject: `Your tone recipe is ready: ${esc(recipeName)}`,
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; color: #e5e5e5; background-color: #1a1a1a; padding: 32px;">
           <div style="border-bottom: 2px solid #f59e0b; padding-bottom: 16px; margin-bottom: 24px;">
@@ -24,7 +39,7 @@ export async function sendWelcomeEmail(to: string, recipeName: string) {
           <h2 style="color: #ffffff; font-size: 20px;">Your recipe PDF is downloading</h2>
 
           <p style="line-height: 1.6; color: #a3a3a3;">
-            Thanks for downloading <strong style="color: #ffffff;">${recipeName}</strong>.
+            Thanks for downloading <strong style="color: #ffffff;">${esc(recipeName)}</strong>.
             Your PDF has the full signal chain, settings, and platform translations —
             print it out and tape it to your amp.
           </p>
@@ -152,7 +167,7 @@ export async function sendToneOfTheWeek(opts: {
           from: FROM_EMAIL,
           to: email,
           replyTo: REPLY_TO,
-          subject: `Tone of the Week: ${recipeName}`,
+          subject: `Tone of the Week: ${esc(recipeName)}`,
           html: `
             <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; color: #e5e5e5; background-color: #1a1a1a; padding: 32px;">
               <div style="border-bottom: 2px solid #f59e0b; padding-bottom: 16px; margin-bottom: 24px;">
@@ -160,8 +175,8 @@ export async function sendToneOfTheWeek(opts: {
                 <p style="color: #666; font-size: 14px; margin: 4px 0 0;">by Fader & Knob</p>
               </div>
 
-              <h2 style="color: #ffffff; font-size: 22px; margin-bottom: 8px;">${recipeName}</h2>
-              <p style="color: #a3a3a3; line-height: 1.6;">${recipeDescription}</p>
+              <h2 style="color: #ffffff; font-size: 22px; margin-bottom: 8px;">${esc(recipeName)}</h2>
+              <p style="color: #a3a3a3; line-height: 1.6;">${esc(recipeDescription)}</p>
               <a href="https://faderandknob.com/recipe/${recipeSlug}"
                  style="display: inline-block; background: #f59e0b; color: #1a1a1a; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; margin: 16px 0;">
                 Get this tone &rarr;
@@ -171,13 +186,13 @@ export async function sendToneOfTheWeek(opts: {
                 <h3 style="color: #f59e0b; margin-top: 0;">From the Blog</h3>
                 <a href="https://faderandknob.com/blog/${blogPostSlug}"
                    style="color: #ffffff; font-size: 16px; text-decoration: none;">
-                  ${blogPostTitle} &rarr;
+                  ${esc(blogPostTitle)} &rarr;
                 </a>
               </div>
 
               <div style="background: #262626; border-radius: 8px; padding: 20px; margin: 24px 0;">
                 <h3 style="color: #f59e0b; margin-top: 0;">Quick Tip</h3>
-                <p style="color: #a3a3a3; line-height: 1.6; margin-bottom: 0;">${quickTip}</p>
+                <p style="color: #a3a3a3; line-height: 1.6; margin-bottom: 0;">${esc(quickTip)}</p>
               </div>
 
               <div style="border-top: 1px solid #333; margin-top: 24px; padding-top: 16px; color: #666; font-size: 12px;">

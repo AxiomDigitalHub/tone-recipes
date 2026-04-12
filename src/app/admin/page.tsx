@@ -32,7 +32,6 @@ export default function AdminDashboard() {
   });
 
   useEffect(() => {
-    // For now, counts come from static data
     setCounts({
       artists: staticArtists.length,
       songs: staticSongs.length,

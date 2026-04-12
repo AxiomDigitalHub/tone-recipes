@@ -103,9 +103,12 @@ export default function DownloadRecipePDF({ recipeSlug }: DownloadRecipePDFProps
         setError("Please enter a valid email address.");
         return;
       }
-      downloadPDF(newsletterOptIn ? email : undefined);
+      // Always pass email for the download (API requires it). The
+      // newsletterOptIn flag controls newsletter subscription only,
+      // not whether the download works.
+      downloadPDF(email);
     },
-    [email, newsletterOptIn, downloadPDF],
+    [email, downloadPDF],
   );
 
   return (

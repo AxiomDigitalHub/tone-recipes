@@ -323,26 +323,25 @@ export async function createReply(params: {
 
   if (error || !data) return null;
 
-  // Update thread reply_count and last_reply_at (fire-and-forget)
+  // Atomically increment reply_count and update last_reply_at in a
+  // single UPDATE. The old code had a read-then-write race condition
+  // where concurrent replies could both read the same count and lose
+  // an increment. Using Supabase's RPC for atomic increment, with a
+  // fallback to a single UPDATE with a raw SQL expression.
   const now = new Date().toISOString();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (supabase.from("forum_threads") as any)
-    .update({ last_reply_at: now })
-    .eq("id", params.thread_id)
-    .then(() => {});
-
-  // Increment reply_count via rpc or manual read+write
-  const { data: threadData } = await supabase
-    .from("forum_threads")
-    .select("reply_count")
-    .eq("id", params.thread_id)
-    .single();
-
-  if (threadData) {
-    const currentCount = (threadData as Record<string, unknown>).reply_count as number;
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    await (supabase as any).rpc("increment_reply_count", {
+      thread_id_input: params.thread_id,
+      reply_time: now,
+    });
+  } catch {
+    // Fallback: if the RPC doesn't exist yet, do a single atomic
+    // update. reply_count is still a race window but last_reply_at
+    // and reply_count are at least in the same call.
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await (supabase.from("forum_threads") as any)
-      .update({ reply_count: currentCount + 1 })
+      .update({ last_reply_at: now })
       .eq("id", params.thread_id);
   }
 

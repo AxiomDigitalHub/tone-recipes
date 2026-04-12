@@ -4,6 +4,24 @@ import { stripe } from "@/lib/stripe";
 import type Stripe from "stripe";
 
 /**
+ * Fallback: look up a user's ID by their stripe_customer_id in the
+ * profiles table. Used when subscription.metadata.supabase_user_id
+ * is missing (e.g. subscription created from Stripe dashboard).
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function lookupUserByCustomerId(
+  supabase: any,
+  customerId: string
+): Promise<string | null> {
+  const { data } = await supabase
+    .from("profiles")
+    .select("id")
+    .eq("stripe_customer_id", customerId)
+    .single();
+  return (data as { id: string } | null)?.id ?? null;
+}
+
+/**
  * Supabase admin client (bypasses RLS) for role upgrades.
  * REQUIRES SUPABASE_SERVICE_ROLE_KEY in production.
  */
@@ -99,7 +117,8 @@ export async function POST(req: NextRequest) {
 
     case "customer.subscription.updated": {
       const subscription = event.data.object as Stripe.Subscription;
-      const userId = subscription.metadata?.supabase_user_id;
+      const userId = subscription.metadata?.supabase_user_id
+        ?? await lookupUserByCustomerId(supabase, subscription.customer as string);
 
       if (userId && subscription.cancel_at_period_end) {
         console.log(`User ${userId} subscription will cancel at period end`);
@@ -109,7 +128,8 @@ export async function POST(req: NextRequest) {
 
     case "customer.subscription.deleted": {
       const subscription = event.data.object as Stripe.Subscription;
-      const userId = subscription.metadata?.supabase_user_id;
+      const userId = subscription.metadata?.supabase_user_id
+        ?? await lookupUserByCustomerId(supabase, subscription.customer as string);
 
       if (userId) {
         const { error } = await supabase
@@ -122,6 +142,11 @@ export async function POST(req: NextRequest) {
           return NextResponse.json({ error: "Database error" }, { status: 500 });
         }
         console.log(`User ${userId} downgraded to free (subscription ended)`);
+      } else {
+        console.error(
+          "subscription.deleted: no userId in metadata and no profile with stripe_customer_id",
+          subscription.customer
+        );
       }
       break;
     }
