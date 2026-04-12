@@ -217,21 +217,20 @@ function sampleIconTargets(
 }
 
 type Dot = {
-  /** Grid position — where the dot lives at rest. Already jittered
-   *  by ±20% of the grid spacing so the lattice doesn't read as a
-   *  perfect regular grid (reduces moire). */
+  /** Scatter position — where the dot lives at rest. */
   idleX: number;
   idleY: number;
-  /**
-   * Icon targets for this dot. null = this dot is a static grid
-   * dot outside the icon's influence zone and never animates.
-   */
+  /** Icon targets. null = static dot, never animates. */
   iconTargets: { x: number; y: number }[] | null;
-  /** Independent drift frequencies per dot — prevents the whole
-   *  grid from oscillating in phase (which would reinforce the
-   *  lattice pattern instead of softening it). */
+  /** Independent drift frequencies per dot. */
   driftFreqX: number;
   driftFreqY: number;
+  /** Per-dot radius multiplier (0.6–1.0). Dots further from the
+   *  slot center are smaller, simulating depth of field. */
+  radiusMul: number;
+  /** Per-dot alpha multiplier (0.6–1.0). Simulates subtle lighting
+   *  variation so dots don't all have identical brightness. */
+  alphaMul: number;
   seed: number;
 };
 
@@ -311,48 +310,49 @@ export default function HeroV4() {
       const iconRenderSize = Math.min(width, height) * 0.65;
       const slotCx = width * 0.72;
       const slotCy = height * 0.5;
-      // Publish slot center for the rotation/render loop.
       slotCenterRef.current = { x: slotCx, y: slotCy };
       const influenceRadius = iconRenderSize * 0.6;
       const spacing = Math.min(width, height) / GRID_SPACING_FACTOR;
 
-      // Lay out a full-screen grid. Offset so the grid is centered
-      // in the section (no awkward half-rows at the edges).
-      const cols = Math.ceil(width / spacing) + 1;
-      const rows = Math.ceil(height / spacing) + 1;
-      const xOffset = (width - (cols - 1) * spacing) / 2;
-      const yOffset = (height - (rows - 1) * spacing) / 2;
-
-      // Pseudo-random but deterministic per-cell jitter: each grid
-      // cell gets a stable offset of ±20% of spacing, breaking the
-      // perfect lattice.
-      const jitterAmp = spacing * 0.2;
-      function jitterFor(c: number, r: number) {
-        // Hash-ish: two different combinations per axis
-        const h1 = Math.sin(c * 12.9898 + r * 78.233) * 43758.5453;
-        const h2 = Math.sin(c * 39.3468 + r * 11.135) * 28841.7317;
-        return {
-          dx: ((h1 - Math.floor(h1)) * 2 - 1) * jitterAmp,
-          dy: ((h2 - Math.floor(h2)) * 2 - 1) * jitterAmp,
-        };
+      // -----------------------------------------------------------
+      // Quasi-random scatter instead of a jittered grid.
+      //
+      // Uses a low-discrepancy Halton sequence (bases 2 and 3) to
+      // distribute dots across the section. The result looks random
+      // but avoids the clumps and voids that Math.random produces,
+      // AND avoids the visible lattice rows/columns of a grid.
+      // This is the #1 change that closes the gap with Antigravity.
+      // -----------------------------------------------------------
+      function halton(index: number, base: number): number {
+        let f = 1;
+        let r = 0;
+        let i = index;
+        while (i > 0) {
+          f /= base;
+          r += f * (i % base);
+          i = Math.floor(i / base);
+        }
+        return r;
       }
 
-      // Split grid positions into active (inside influence zone)
-      // and static (outside).
+      const targetCount = Math.round(
+        (width / spacing) * (height / spacing)
+      );
+
       const activePositions: { x: number; y: number }[] = [];
       const staticPositions: { x: number; y: number }[] = [];
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-          const { dx: jdx, dy: jdy } = jitterFor(c, r);
-          const x = xOffset + c * spacing + jdx;
-          const y = yOffset + r * spacing + jdy;
-          const ddx = x - slotCx;
-          const ddy = y - slotCy;
-          if (Math.hypot(ddx, ddy) <= influenceRadius) {
-            activePositions.push({ x, y });
-          } else {
-            staticPositions.push({ x, y });
-          }
+      for (let i = 0; i < targetCount; i++) {
+        // Halton(2, 3) gives a nice quasi-random distribution.
+        // Offset by a large prime so the first few points aren't
+        // predictably in the top-left corner.
+        const x = halton(i + 137, 2) * width;
+        const y = halton(i + 137, 3) * height;
+        const dx = x - slotCx;
+        const dy = y - slotCy;
+        if (Math.hypot(dx, dy) <= influenceRadius) {
+          activePositions.push({ x, y });
+        } else {
+          staticPositions.push({ x, y });
         }
       }
 
@@ -377,24 +377,44 @@ export default function HeroV4() {
 
       const out: Dot[] = [];
       // Active dots: have icon targets, participate in the cycle.
+      // Depth + lighting multipliers. Dots further from slot center
+      // are smaller (depth) and each dot gets a stable brightness
+      // jitter (lighting).
+      const maxDist = Math.hypot(width, height);
+      function depthAndLight(px: number, py: number, idx: number) {
+        const dist = Math.hypot(px - slotCx, py - slotCy);
+        // radiusMul: 1.0 at slot center, 0.55 at max distance
+        const radiusMul = 1.0 - (dist / maxDist) * 0.45;
+        // alphaMul: per-dot stable brightness 0.6–1.0 via hash
+        const h = Math.sin(idx * 127.1 + 311.7) * 43758.5453;
+        const alphaMul = 0.6 + (h - Math.floor(h)) * 0.4;
+        return { radiusMul, alphaMul };
+      }
+
       activePositions.forEach((p, i) => {
+        const { radiusMul, alphaMul } = depthAndLight(p.x, p.y, i);
         out.push({
           idleX: p.x,
           idleY: p.y,
           iconTargets: perIcon.map((arr) => arr[i]),
           driftFreqX: freqFor(i, 2400),
           driftFreqY: freqFor(i + 7, 2800),
+          radiusMul,
+          alphaMul,
           seed: out.length,
         });
       });
-      // Static dots: fill the rest of the full-screen grid.
+      // Static dots: fill the rest of the section.
       staticPositions.forEach((p, i) => {
+        const { radiusMul, alphaMul } = depthAndLight(p.x, p.y, i + 500);
         out.push({
           idleX: p.x,
           idleY: p.y,
           iconTargets: null,
           driftFreqX: freqFor(i + 31, 2400),
           driftFreqY: freqFor(i + 53, 2800),
+          radiusMul,
+          alphaMul,
           seed: out.length,
         });
       });
@@ -541,16 +561,19 @@ export default function HeroV4() {
         const x = baseX + (jx + gpx) * jitterBlend;
         const y = baseY + (jy + gpy) * jitterBlend;
 
-        // ALL dots tint to the current icon's category color — the
-        // entire grid shifts hue together, not just the active zone.
-        const r = Math.round(baseR + (ir - baseR) * coalesce);
-        const g = Math.round(baseG + (ig - baseG) * coalesce);
-        const b = Math.round(baseB + (ib - baseB) * coalesce);
-        const a = idleAlpha + (peakAlpha - idleAlpha) * coalesce;
-        ctx.fillStyle = `rgba(${r},${g},${b},${a})`;
+        // ALL dots tint to the current icon's category color.
+        // Per-dot alphaMul adds brightness variation (lighting sim).
+        const cr = Math.round(baseR + (ir - baseR) * coalesce);
+        const cg = Math.round(baseG + (ig - baseG) * coalesce);
+        const cb = Math.round(baseB + (ib - baseB) * coalesce);
+        const ca = (idleAlpha + (peakAlpha - idleAlpha) * coalesce) * d.alphaMul;
+        ctx.fillStyle = `rgba(${cr},${cg},${cb},${ca.toFixed(2)})`;
 
+        // Per-dot radius: base DOT_RADIUS scaled by radiusMul (depth)
+        // and growing slightly at peak coalescence (2.2 → 2.8 range).
+        const dotR = DOT_RADIUS * d.radiusMul * (1 + coalesce * 0.27);
         ctx.beginPath();
-        ctx.arc(x, y, DOT_RADIUS, 0, Math.PI * 2);
+        ctx.arc(x, y, dotR, 0, Math.PI * 2);
         ctx.fill();
       }
 
