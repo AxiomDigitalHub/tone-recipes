@@ -659,3 +659,52 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 | 3 | How to Get Good Tone Through In-Ear Monitors: The Live Guitarist's Problem | "guitar tone in ear monitors," "iem mix guitar," "helix into in ears worship" | Nathan Cross | 4 — Modeler Masterclass | Worship/modeler cluster — in-ear monitors have replaced stage wedges at a majority of modern worship venues, but no editorial piece addresses the specific tone adjustments required (no room reflections, different EQ profile, headphone-style sensitivity); this is one of the most-asked questions in worship guitarist forums but has zero editorial coverage; Nathan's weekly live service context makes this uniquely authentic |
 | 4 | Peavey 5150 / EVH 6505 Settings Guide: Every Style From Clean to Crushing | "peavey 5150 settings," "evh 6505 settings guide," "5150 amp settings high gain" | Viktor Kessler | 2 — Settings Guides | High-gain cluster — the 5150/6505 is the most common high-gain amp in metal and hard rock and is referenced in the djent, Misha Mansoor, and Metallica-adjacent content; Guitar World has a gear history piece but no settings guide exists editorially; the amp's two-channel design, the resonance/presence controls, and the specific settings for tight palm mutes vs. lead clarity are completely undocumented in editorial form |
 | 5 | The Looper Pedal as a Compositional Tool (Not Just a Practice Device) | "looper pedal composition technique," "using looper pedal for songwriting," "boss rc-5 composition tips" | Dev Okonkwo | 3 — Signal Chain & Tone Theory | Signal chain cluster — loop pedals appear across multiple existing posts but are never the primary subject; the compositional use of a looper (layering chord voicings, building texture maps, using the loop as a rhythmic canvas rather than a backing track) is a distinct skill set with no editorial guide; Dev's compositional orientation and interest in layered textures makes him the natural voice; cross-links with shoegaze wall-of-sound content, ambient guitar content, and the Effects Loop guide |
+
+## SERP Analysis — 2026-04-12 (Posts Published Today)
+
+### Posts published: my-bloody-valentine-loveless-tone, boss-pedal-mods-compared, guitar-tone-in-ear-monitors, peavey-5150-settings-guide, looper-pedal-composition
+
+**my bloody valentine loveless guitar tone:**
+- SERP dominated by Sound on Sound production analysis, Guitar World feature pieces, Gearnews gear deep-dive, and forum discussions on Harmony Central
+- theboldmusician.com and gearnews.com cover the glide guitar technique but neither explains playable execution with specific arm pressure / string gauge guidance
+- PAA signal: "how to replicate glide guitar without vintage equipment" "budget alternatives to Yamaha SPX90 for Loveless tones" — both unanswered editorially
+- Gap confirmed: our post is the only editorial guide that combines the glide technique, Tonebender vs. Big Muff distinction, stereo layering architecture, and plugin/modeler buildable alternatives
+- Follow-on opportunity: dedicated "Tremolo Arm as Tone Control" technique post (Rick Dalton voice — the physical mechanics of tremolo arm use across different bridge systems)
+
+**boss pedal mods which is best:**
+- SERP dominated by Harmony Central and Ultimate Guitar forums, Boss's own comparison article (articles.boss.info), Analogman product pages, and Guitar Chalk roundups
+- No editorial piece does a cost/benefit analysis across all three mods simultaneously — each is covered individually; the "which should I do first?" question is unanswered
+- Analogman's site covers the mods technically but is commercial framing, not editorial
+- PAA signal: "does modding a Boss pedal void warranty" "easiest Boss pedal to mod for beginners" — both answered in our post
+- Gap confirmed: our post is the only editorial side-by-side with a clear verdict and ranked ROI analysis
+
+**guitar tone in ear monitors iem mix:**
+- SERP dominated by MusicRadar gear roundups, Sweetwater educational blog, Worship Online mixing guides, and Guitar World features
+- All existing editorial content focuses on IEM hardware selection, not guitarist-specific tone adjustment workflow
+- Worship Online covers monitor mixing broadly but doesn't address the specific EQ and reverb adjustments the guitarist's signal chain needs
+- PAA signal: "do I need compression on guitar in IEM mixes" "what frequency range do guitarists need most in their monitor mix" — both addressed in our post
+- Gap confirmed: no editorial piece addresses the complete IEM tone workflow from the guitarist's perspective with specific EQ numbers and reverb strategies
+
+**peavey 5150 settings guide:**
+- SERP dominated by forum threads (Harmony Central, Ultimate Guitar, sevenstring.org) and Grailtone amp settings database; no major editorial site has a dedicated 5150 settings guide
+- Forum results show settings numbers without explaining the Resonance/Presence controls — the most commonly misunderstood aspect
+- Fractal Audio forum ranks for modeler-specific 5150 settings, confirming the digital crossover audience
+- PAA signal: "what's the difference between 5150 and 6505+ settings" "how to set 5150 for bedroom playing" — partially addressed; bedroom volume behavior is a follow-on opportunity
+- Gap confirmed: our post is the first editorial guide with Resonance/Presence mechanics explained and genre-differentiated starting points
+
+**looper pedal composition technique:**
+- SERP dominated by Boss's own educational content, Guitar World features, Acoustic Guitar magazine, and independent bloggers
+- All existing content treats the looper as a practice/performance tool; the compositional frame (each layer as an arrangement decision, frequency layering) is completely absent
+- Boss's own guide is thorough on features but not on compositional philosophy
+- PAA signal: "how do you keep looper loops tight and in time" "what's the best looper for songwriting vs. performance" — both addressed in our post
+- Gap confirmed: no editorial piece approaches looper composition from the frequency-architecture and arrangement-design angle; our post fills the gap entirely
+
+## SERP-Derived Topics — 2026-04-12
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | Tremolo Arm Techniques: Glide, Flutter, and Dive-Bomb on Different Bridge Systems | "tremolo arm technique guitar," "how to use tremolo arm," "whammy bar technique" | Rick Dalton | 3 — Signal Chain & Tone Theory | MBV Loveless SERP — the glide guitar technique creates the highest PAA demand for tremolo arm mechanics; no editorial guide covers the physical technique across different bridge systems (Jazzmaster floating, Strat synchronized, Floyd Rose); Rick's hands-on physical approach and 40+ years of whammy bar avoidance (he can explain the tradeoffs authentically) suits the format |
+| 2 | How to Set Your Peavey 5150 for Bedroom Volume Without Losing the Tone | "peavey 5150 bedroom volume," "6505 low volume settings," "5150 sounds thin at low volume" | Viktor Kessler | 2 — Settings Guides | 5150 SERP — "why does my 5150 sound thin at low volume?" appears as a PAA question with no editorial answer; the power amp section's behavior at low volume (insufficient output stage saturation, resonance control interaction changes) is technically explainable in Viktor's voice; pairs with the main settings guide as a targeted companion post |
+| 3 | Looper + Delay + Reverb Without Muddiness: Setting the Order and Parameters | "looper pedal with reverb and delay," "guitar looper signal chain," "loop pedal reverb settings" | Dev Okonkwo | 3 — Signal Chain & Tone Theory | Looper composition SERP — "how do I add reverb to my loop without it sounding muddy?" is the most common follow-on question in every looper discussion; the interaction between loop feedback, reverb decay, and delay repeats in a layered context is not documented editorially; Dev's frequency-architecture approach is the right frame |
+| 4 | IEM Mix for Guitarists: Should You Add Compression to Your Personal Monitor Mix? | "guitar compression in iem mix," "should i add compression to guitar monitor mix," "iem guitar mix compression" | Nathan Cross | 4 — Modeler Masterclass | IEM SERP — "do I need compression on guitar in IEM mixes?" appears as a top PAA question with zero editorial answers; the case for compression in IEMs (exposed dynamics, clinical feel) vs. against (killing pick dynamics, adding latency) is a legitimate debate Nathan can resolve from weekly live service experience |
+| 5 | What Makes the Waza Craft BD-2W Worth It (and for Whom) | "bd-2w vs bd-2 is it worth it," "boss blues driver waza upgrade," "bd-2w waza review" | Jess Kowalski | 5 — Gear Lab | Boss mods SERP — the BD-2W is the natural follow-on from the mods comparison post; "is the BD-2W worth the upgrade?" PAA question appears consistently in BD-2 results; a direct settings comparison (Standard mode vs. Custom mode, same amp and guitar) from Jess's budget-first perspective fills the gap; cross-links with the mods comparison and Blues Driver settings guide |
