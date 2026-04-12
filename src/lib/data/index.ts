@@ -2488,8 +2488,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -2497,7 +2498,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Scream 808",
             block_category: "Distortion",
             original_gear: "Ibanez TS808",
@@ -2505,7 +2506,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Found under Distortion > Overdrive. Keep the Drive low.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "US Deluxe Vib",
             block_category: "Amp",
             original_gear: "Fender Vibroverb",
@@ -2527,7 +2528,7 @@ export const toneRecipes: ToneRecipe[] = [
               "This is the closest Helix model to a blackface Vibroverb. Push the Drive to get that edge-of-breakup character.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "1x15 Ampeg B-15",
             block_category: "Cab",
             original_gear: "1x15 JBL D130F",
@@ -2821,8 +2822,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -2830,7 +2832,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Triangle Fuzz",
             block_category: "Distortion",
             original_gear: "Big Muff Pi",
@@ -2839,7 +2841,7 @@ export const toneRecipes: ToneRecipe[] = [
               "The Triangle Fuzz is Helix's Big Muff variant. Keep the Tone above noon.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "WhoWatt 100",
             block_category: "Amp",
             original_gear: "Hiwatt DR103",
@@ -2861,7 +2863,7 @@ export const toneRecipes: ToneRecipe[] = [
               "WhoWatt 100 is Helix's Hiwatt model. Set clean for a massive, full-range platform for the Big Muff. Alternatively, use the Cartographer (Benson Chimera) for more headroom.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "WEM 4x12 Fane",
@@ -2870,7 +2872,7 @@ export const toneRecipes: ToneRecipe[] = [
               "No exact WEM/Fane match on Helix. The Greenback cab is the closest stock option. For more accuracy, load a third-party Hiwatt/WEM IR.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "Cosmos Echo",
             block_category: "Delay",
             original_gear: "Binson Echorec",
@@ -2879,7 +2881,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Place this AFTER the amp+cab block. The Transistor Tape has a warm, slightly degraded repeat character similar to the Echorec.",
           },
           {
-            position: 6,
+            position: 7,
             block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio plate reverb",
@@ -3127,8 +3129,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -3136,7 +3139,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Teardrop 310",
             block_category: "Wah",
             original_gear: "Dunlop Cry Baby Wah",
@@ -3145,7 +3148,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Assign to an expression pedal for real-time control. The Teardrop 310 is Helix's Cry Baby model. Set the auto-engage to on so it activates when you move the pedal.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Arbitrator Fuzz",
             block_category: "Distortion",
             original_gear: "Dallas Arbiter Fuzz Face",
@@ -3154,7 +3157,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Found under Distortion > Fuzz. This is the Helix's Fuzz Face model. Responds well to guitar volume changes just like the original.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Brit Plexi Brt",
             block_category: "Amp",
             original_gear: "Marshall Super Lead 1959",
@@ -3176,7 +3179,7 @@ export const toneRecipes: ToneRecipe[] = [
               "The Brit Plexi Brt is Helix's Plexi model. Crank the Drive to simulate dimed volume knobs. Keep the mids high for that cutting Hendrix character.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
@@ -3438,8 +3441,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -3447,7 +3451,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Deez One Vintage",
             block_category: "Distortion",
             original_gear: "Boss DS-1",
@@ -3456,7 +3460,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Helix's DS-1 model. Set up a footswitch to toggle this on for chorus sections and off for clean verses. The Deez One Vintage captures the bright, aggressive DS-1 character accurately.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "PlastiChorus",
             block_category: "Modulation",
             original_gear: "EHX Small Clone",
@@ -3465,7 +3469,7 @@ export const toneRecipes: ToneRecipe[] = [
               "The PlastiChorus is Helix's Small Clone model. Leave this on for the entire song. The deep, wobbly character is essential to the Cobain sound.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Cali Texas Ch2",
             block_category: "Amp",
             original_gear: "Mesa/Boogie Studio .22",
@@ -3487,7 +3491,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Cali Texas Ch2 approximates the Mesa .22 preamp. Keep the mids low for that grunge scoop.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "1x12 US Deluxe",
             block_category: "Cab",
             original_gear: "Mesa 1x12",
@@ -3750,8 +3754,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -3759,7 +3764,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Chorus CE-1",
             block_category: "Modulation",
             original_gear: "Boss CE-1 Chorus Ensemble",
@@ -3768,7 +3773,7 @@ export const toneRecipes: ToneRecipe[] = [
               "The 70s Chorus captures the warm analog character of vintage chorus pedals. Keep the speed low and depth moderate for a subtle shimmer rather than obvious modulation.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Brit Plexi Brt",
             block_category: "Amp",
             original_gear: "Marshall Major 200W",
@@ -3790,7 +3795,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Helix doesn't have a Marshall Major model. The Brit Plexi Brt set to very low gain approximates the clean Marshall tone. Keep Drive low for pristine cleans. The treble push is important for maintaining sparkle.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
@@ -3799,7 +3804,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Pull the mic distance back slightly for a warmer, more ambient capture that suits the clean tone. The Greenback cab adds warmth and body.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "Glitz",
             block_category: "Reverb",
             original_gear: "Room reverb (The Mansion)",
@@ -4046,8 +4051,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -4055,7 +4061,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Brit 2204",
             block_category: "Amp",
             original_gear: "Marshall JCM800 2203",
@@ -4077,7 +4083,7 @@ export const toneRecipes: ToneRecipe[] = [
               "The Brit 2204 is Helix's JCM800 model. Push the Drive hard and keep mids high for that cutting Slash tone.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
@@ -4086,7 +4092,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Close-miked Greenback cab. On-axis for maximum presence and bite.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio room reverb",
@@ -4321,8 +4327,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -4330,7 +4337,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Script Mod Phase",
             block_category: "Modulation",
             original_gear: "MXR Phase 90",
@@ -4339,7 +4346,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Helix's Phase 90 model. Keep the speed low for subtle swirl. Toggle on/off as needed.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Brit Plexi Brt",
             block_category: "Amp",
             original_gear: "Marshall Super Lead 1959 (Variac)",
@@ -4361,7 +4368,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Crank the Drive to emulate the dimed Plexi. The key to the brown sound on Helix is increasing the Sag parameter — this simulates the variac's voltage reduction, adding compression and warmth. Set Sag to 8 or higher.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
@@ -4369,7 +4376,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Standard Greenback cab, close-miked.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio room reverb (Sunset Sound)",
@@ -4626,8 +4633,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -4635,7 +4643,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Essex A30 TB",
             block_category: "Amp",
             original_gear: "Vox AC30",
@@ -4657,7 +4665,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Helix's AC30 model. Keep it just on the edge of breakup for chimey sparkle with a touch of grit.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Elephant Man",
             block_category: "Delay",
             original_gear: "Korg SDD-3000 / Memory Man",
@@ -4666,7 +4674,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Set to dotted eighth note and sync to the song's tempo via tap tempo. This is the critical block. The Elephant Man adds modulation to the repeats for a warmer, more organic wash.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Simple Delay",
             block_category: "Delay",
             original_gear: "Secondary delay",
@@ -4675,7 +4683,7 @@ export const toneRecipes: ToneRecipe[] = [
               "A second delay adds depth. Place after the first delay in the chain for cascading repeats.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "Searchlights",
             block_category: "Reverb",
             original_gear: "Hall reverb",
@@ -4684,7 +4692,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Hall reverb after the delays adds the shimmering wash that completes The Edge's atmospheric sound. Pre-delay keeps it from muddying the rhythmic delay patterns.",
           },
           {
-            position: 6,
+            position: 7,
             block_name: "2x12 Blue Bell",
             block_category: "Cab",
             original_gear: "Vox 2x12 Celestion Blue",
@@ -4941,8 +4949,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -4950,7 +4959,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Scream 808",
             block_category: "Distortion",
             original_gear: "Ibanez TS808",
@@ -4958,7 +4967,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Low drive, high level. Classic clean-boost Tube Screamer setup.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Derailed Ingrid",
             block_category: "Amp",
             original_gear: "Two Rock Custom Reverb",
@@ -4980,7 +4989,7 @@ export const toneRecipes: ToneRecipe[] = [
               "The Derailed Ingrid is Helix's boutique Dumble-style amp model, which shares DNA with the Two Rock circuit. Set to edge of breakup for touch-responsive dynamics.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "2x12 Mail C12Q",
             block_category: "Cab",
             original_gear: "Two Rock 2x12",
@@ -5209,8 +5218,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -5218,7 +5228,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "US Small Tweed",
             block_category: "Amp",
             original_gear: "Fender Champ",
@@ -5239,7 +5249,7 @@ export const toneRecipes: ToneRecipe[] = [
               "The US Small Tweed is Helix's small Fender model. Crank the Drive to 10 to simulate the dimed Champ. The natural compression and overdrive at full gain is the whole tone.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "1x8 Small Tweed",
             block_category: "Cab",
             original_gear: "Fender Champ 1x8",
@@ -5406,8 +5416,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -5415,7 +5426,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "US Deluxe Vib",
             block_category: "Amp",
             original_gear: "Fender Vibrolux Reverb",
@@ -5437,7 +5448,7 @@ export const toneRecipes: ToneRecipe[] = [
               "A clean blackface Fender model. Keep the Drive low for pristine cleans. The Vibrolux and Vibroverb share similar circuits.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "1x12 US Deluxe",
             block_category: "Cab",
             original_gear: "Fender 2x10",
@@ -5446,7 +5457,7 @@ export const toneRecipes: ToneRecipe[] = [
               "A 2x10 cab for the tight, clear Fender character. Pull the mic back slightly for a warmer, more natural sound.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Built-in spring reverb",
@@ -5672,8 +5683,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -5681,7 +5693,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Tweed Blues Nrm",
             block_category: "Amp",
             original_gear: "Fender Bassman",
@@ -5703,7 +5715,7 @@ export const toneRecipes: ToneRecipe[] = [
               "The US Deluxe Normal is Helix's blackface Fender model. Set for warm, slightly driven tones. The Bassman is a similar Fender circuit. Keep the tone warm and avoid harsh highs.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "4x10 Tweed P10R",
             block_category: "Cab",
             original_gear: "Fender Bassman 4x10",
@@ -5712,7 +5724,7 @@ export const toneRecipes: ToneRecipe[] = [
               "The 4x10 Tweed cab matches the Bassman's speaker configuration. Slightly pulled back mic for a warmer, smoother capture.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Spring reverb",
@@ -5939,8 +5951,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -5948,7 +5961,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Pitch Wham",
             block_category: "Pitch/Synth",
             original_gear: "DigiTech Whammy",
@@ -5957,7 +5970,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Set the Pitch Wham to one octave down. Assign a footswitch to toggle it on/off. Engaged for the main riff, bypassed for normal guitar sections.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "US Small Tweed",
             block_category: "Amp",
             original_gear: "Silvertone 1485",
@@ -5978,7 +5991,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Helix doesn't have a Silvertone model. The US Small Tweed cranked hard gets close to the raw, lo-fi character. Push the Drive for gritty distortion.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "1x12 US Deluxe",
             block_category: "Cab",
             original_gear: "Silvertone 6x10",
@@ -6188,8 +6201,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -6197,7 +6211,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Teardrop 310",
             block_category: "Wah",
             original_gear: "Dunlop Cry Baby Wah",
@@ -6205,7 +6219,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Assign to an expression pedal. Use for solo sections.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Pitch Wham",
             block_category: "Pitch/Synth",
             original_gear: "DigiTech Whammy",
@@ -6214,7 +6228,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Assign to a second expression pedal or use a footswitch for preset positions. Used for pitch-shifted screams and effects.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Brit 2204",
             block_category: "Amp",
             original_gear: "Marshall JCM800 2205",
@@ -6236,7 +6250,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Helix's JCM800 model. Push the Drive for aggressive distortion. Keep the mids elevated for cut in a band mix.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12",
@@ -6461,8 +6475,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -6470,7 +6485,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Cali 2C+ Lead",
             block_category: "Amp",
             original_gear: "Mesa/Boogie Mark IIC+",
@@ -6492,7 +6507,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Cali Texas Ch2 models the Mesa Mark IV, closest to Mark IIC+. Keep bass and mids low, treble high for the classic V-curve.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "4x12 Cali V30",
             block_category: "Cab",
             original_gear: "Mesa 4x12 V30",
@@ -6665,8 +6680,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -6674,7 +6690,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Brit Plexi Brt",
             block_category: "Amp",
             original_gear: "Marshall Super Lead 1959 (Plexi)",
@@ -6696,7 +6712,7 @@ export const toneRecipes: ToneRecipe[] = [
               "The Brit Plexi Brt is Helix's Plexi model. Push the drive for natural breakup. No drive pedals needed.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
@@ -6892,8 +6908,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -6901,7 +6918,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Cali Texas Ch1",
             block_category: "Amp",
             original_gear: "Mesa/Boogie Mark I",
@@ -6923,7 +6940,7 @@ export const toneRecipes: ToneRecipe[] = [
               "The Cali Texas Ch1 captures the Mark I's warm, mid-heavy character. Push the mids to 8 for Santana's vocal lead quality.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "1x12 Cali EXT",
             block_category: "Cab",
             original_gear: "Mesa 1x12 Thiele",
@@ -6931,7 +6948,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "A 1x12 cab keeps the sound focused and tight.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio plate reverb",
@@ -7153,8 +7170,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -7162,7 +7180,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "WhoWatt 100",
             block_category: "Amp",
             original_gear: "Hiwatt DR103",
@@ -7184,7 +7202,7 @@ export const toneRecipes: ToneRecipe[] = [
               "WhoWatt 100 is Helix's Hiwatt model. Push it hard for the powerful, clear overdrive Townshend is known for.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "WEM 4x12 Fane",
@@ -7354,8 +7372,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -7363,7 +7382,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "US Double Nrm",
             block_category: "Amp",
             original_gear: "Fender Twin Reverb",
@@ -7385,7 +7404,7 @@ export const toneRecipes: ToneRecipe[] = [
               "The US Double Nrm is Helix's Twin Reverb model. Keep drive very low for sparkling cleans.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Twin Reverb spring reverb",
@@ -7393,7 +7412,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "The Twin Reverb's lush spring reverb is essential to Garcia's clean tone. Add a spring reverb block for the authentic spacious atmosphere.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Simple Delay",
             block_category: "Delay",
             original_gear: "Slapback / ambience",
@@ -7401,7 +7420,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "A short delay adds additional spacious depth to the clean, reverb-drenched tone.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "2x12 Double C12N",
             block_category: "Cab",
             original_gear: "Twin Reverb 2x12 Jensen",
@@ -7633,8 +7652,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -7642,7 +7662,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Chorus CE-1",
             block_category: "Modulation",
             original_gear: "Boss CE-1",
@@ -7650,7 +7670,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Always on. The shimmer is essential to the Lifeson tone.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Brit Plexi Brt",
             block_category: "Amp",
             original_gear: "Marshall Super Lead 1959",
@@ -7671,7 +7691,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Moderate drive so the chorus remains clear. Not fully cranked.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Simple Delay",
             block_category: "Delay",
             original_gear: "TC 2290",
@@ -7679,7 +7699,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Place after amp+cab for clean, defined repeats.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "Searchlights",
             block_category: "Reverb",
             original_gear: "Hall reverb (Le Studio)",
@@ -7687,7 +7707,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Hall reverb adds the spacious quality of the Moving Pictures production. Place after the delay.",
           },
           {
-            position: 6,
+            position: 7,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
@@ -7961,8 +7981,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -7970,7 +7991,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Deranged Master",
             block_category: "Distortion",
             original_gear: "Dallas Rangemaster",
@@ -7979,7 +8000,7 @@ export const toneRecipes: ToneRecipe[] = [
               "The Deranged Master adds the treble-heavy gain push that drives the AC30. Essential for the Brian May sound.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Essex A30 TB",
             block_category: "Amp",
             original_gear: "Vox AC30",
@@ -8000,7 +8021,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Helix's AC30 model. The treble booster before it creates the Brian May pushed-AC30 character.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Transistor Tape",
             block_category: "Delay",
             original_gear: "Echoplex",
@@ -8008,7 +8029,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Subtle tape delay for thickness and sustain.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "Plate",
             block_category: "Reverb",
             original_gear: "EMT plate reverb (Trident Studios)",
@@ -8016,7 +8037,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Lush plate reverb for the Queen studio sound. Adds depth and warmth to the multi-tracked guitar harmonies.",
           },
           {
-            position: 6,
+            position: 7,
             block_name: "2x12 Blue Bell",
             block_category: "Cab",
             original_gear: "AC30 2x12 Celestion Blue",
@@ -8256,8 +8277,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -8265,7 +8287,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Deranged Master",
             block_category: "Distortion",
             original_gear: "Dallas Rangemaster",
@@ -8273,7 +8295,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Treble booster to add brightness and push the amp into heavier overdrive.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Brit Plexi Brt",
             block_category: "Amp",
             original_gear: "Laney LA100BL",
@@ -8295,7 +8317,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Helix lacks a dedicated Laney model. The Brit Plexi pushed hard with boosted bass approximates the Laney's dark, heavy character.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "4x12 Celestion",
@@ -8516,8 +8538,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -8525,7 +8548,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Teardrop 310",
             block_category: "Wah",
             original_gear: "Cry Baby Wah",
@@ -8533,7 +8556,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Park the wah at ~70% for the nasal, vocal quality. No expression pedal needed for the parked setting.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Compulsive Drv",
             block_category: "Distortion",
             original_gear: "MXR Distortion+",
@@ -8541,7 +8564,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "The Compulsive Drive (OCD-based) is closer to the MXR Distortion+ character than the Minotaur.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Brit Plexi Brt",
             block_category: "Amp",
             original_gear: "Marshall Super Lead 1959",
@@ -8562,7 +8585,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Cranked Plexi for the foundation. Pushed mids for cut and aggression.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12",
@@ -8570,7 +8593,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Close-miked for maximum presence and tight low end.",
           },
           {
-            position: 6,
+            position: 7,
             block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio plate reverb",
@@ -8809,8 +8832,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -8818,7 +8842,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Scream 808",
             block_category: "Distortion",
             original_gear: "Ibanez TS808",
@@ -8826,7 +8850,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Still a clean boost like Pride and Joy, just slightly more drive for sustain. The Level is cranked to push the amp harder.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "US Deluxe Vib",
             block_category: "Amp",
             original_gear: "Fender Vibroverb",
@@ -8847,7 +8871,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Push the amp harder than the Pride and Joy setting for deeper overdrive and more sustain.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "1x15 Ampeg B-15",
             block_category: "Cab",
             original_gear: "1x15 JBL D130F",
@@ -9086,8 +9110,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -9095,7 +9120,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Teardrop 310",
             block_category: "Wah",
             original_gear: "Cry Baby Wah",
@@ -9103,7 +9128,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Assign to expression pedal for expressive filter sweeps.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Deez One Vintage",
             block_category: "Distortion",
             original_gear: "Boss DS-1",
@@ -9111,7 +9136,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Moderate distortion for smooth lead sustain.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Brit 2203",
             block_category: "Amp",
             original_gear: "Marshall JCM800 2203",
@@ -9132,7 +9157,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Brit 2204 is Helix's JCM800 model. Moderate drive. The DS-1 handles primary gain staging.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "Simple Delay",
             block_category: "Delay",
             original_gear: "Boss DD-2",
@@ -9140,7 +9165,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Place after amp+cab for clean, spacious repeats.",
           },
           {
-            position: 6,
+            position: 7,
             block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio plate reverb",
@@ -9148,7 +9173,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Plate reverb after delay for spacious instrumental rock production.",
           },
           {
-            position: 7,
+            position: 8,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12",
@@ -9408,8 +9433,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -9417,7 +9443,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Brit 2204",
             block_category: "Amp",
             original_gear: "Marshall JCM900",
@@ -9438,7 +9464,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Brit 2204 at moderate gain for jangly crunch. Push the treble for brightness.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
@@ -9446,7 +9472,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Greenback cab for warm British midrange.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Glitz",
             block_category: "Reverb",
             original_gear: "Room reverb (Rockfield Studio)",
@@ -9647,8 +9673,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -9656,7 +9683,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "US Double Nrm",
             block_category: "Amp",
             original_gear: "Fender Twin Reverb",
@@ -9677,7 +9704,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Clean Twin Reverb setting. No breakup; the tone stays clean for tremolo clarity.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Optical Trem",
             block_category: "Modulation",
             original_gear: "Fender Vibrato",
@@ -9685,7 +9712,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Deep, fast tremolo is the defining effect. Set depth high for the pulsating character.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "2x12 Double C12N",
             block_category: "Cab",
             original_gear: "Twin 2x12",
@@ -9873,8 +9900,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -9882,7 +9910,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "US Double Nrm",
             block_category: "Amp",
             original_gear: "Fender Twin Reverb",
@@ -9903,7 +9931,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Twin Reverb at moderate volume for clean with edge-of-breakup dynamics. Push the treble for Telecaster brightness.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "2x12 Double C12N",
             block_category: "Cab",
             original_gear: "Twin 2x12",
@@ -10090,8 +10118,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -10099,7 +10128,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Deranged Master",
             block_category: "Distortion",
             original_gear: "Dallas Rangemaster",
@@ -10107,7 +10136,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Treble booster to push the Plexi into searing overdrive.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Brit Plexi Brt",
             block_category: "Amp",
             original_gear: "Marshall Super Lead 1959",
@@ -10128,7 +10157,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Cranked Plexi with the Rangemaster boost for classic ZZ Top crunch.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
@@ -10136,7 +10165,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Close-miked for maximum bite and presence.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Studio spring reverb",
@@ -10369,8 +10398,9 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
           {
-            position: 1,
+            position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
@@ -10378,7 +10408,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Parametric",
             block_category: "EQ",
             original_gear: "MXR 6-Band EQ",
@@ -10386,7 +10416,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Create the V-curve scoop: boost lows and highs, cut mids heavily.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "PV Panama",
             block_category: "Amp",
             original_gear: "Randall Century 200",
@@ -10408,7 +10438,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Helix lacks a Randall model. The PV Panama provides aggressive high-gain with tight low end. Scoop the mids hard. Alternatively, the Line 6 Elektrik model can approximate the solid-state precision.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "4x12 Cali V30",
             block_category: "Cab",
             original_gear: "Randall 4x12 V30",
@@ -10609,9 +10639,10 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Brit Plexi Brt", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 8.0, Bass: 6.0, Mid: 8.0, Treble: 7.0, Presence: 7.0, "Ch Vol": 8.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Crank the drive for maximum Plexi saturation." },
-          { position: 3, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Close-miked Greenback for tight, punchy midrange." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Brit Plexi Brt", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 8.0, Bass: 6.0, Mid: 8.0, Treble: 7.0, Presence: 7.0, "Ch Vol": 8.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Crank the drive for maximum Plexi saturation." },
+          { position: 4, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Close-miked Greenback for tight, punchy midrange." },
         ],
         notes: "Use the neck pickup on a Les Paul for the main riff. Switch to bridge for solos. No drive pedals -- just crank the Plexi.",
       },
@@ -10732,9 +10763,10 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Soup Pro", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Drive: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, "Ch Vol": 5.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Low gain for warm cleans. The Soup Pro model captures the Supro's compressed clean character." },
-          { position: 3, block_name: "1x12 Field Coil", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Closest match to the Supro's warm, round speaker character." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Soup Pro", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Drive: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, "Ch Vol": 5.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Low gain for warm cleans. The Soup Pro model captures the Supro's compressed clean character." },
+          { position: 4, block_name: "1x12 Field Coil", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Closest match to the Supro's warm, round speaker character." },
         ],
         notes: "Set up a snapshot to switch to a cranked Brit Plexi for the solo section, using a Les Paul. The intro is all about dynamics and touch.",
       },
@@ -10867,11 +10899,12 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Triangle Fuzz", block_category: "Distortion", original_gear: "Big Muff Pi", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Ram's Head Big Muff for thick, singing fuzz." },
-          { position: 3, block_name: "WhoWatt 100", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 5.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Clean Hiwatt platform for the Big Muff." },
-          { position: 4, block_name: "Simple Delay", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 440, Feedback: 30, Mix: 35, TempoSync1: 0 }, notes: "Set delay to ~440ms for rhythmic repeats." },
-          { position: 5, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Greenback cab as a close approximation to WEM Fane speakers." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Triangle Fuzz", block_category: "Distortion", original_gear: "Big Muff Pi", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Ram's Head Big Muff for thick, singing fuzz." },
+          { position: 4, block_name: "WhoWatt 100", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 5.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Clean Hiwatt platform for the Big Muff." },
+          { position: 5, block_name: "Simple Delay", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 440, Feedback: 30, Mix: 35, TempoSync1: 0 }, notes: "Set delay to ~440ms for rhythmic repeats." },
+          { position: 6, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Greenback cab as a close approximation to WEM Fane speakers." },
         ],
         notes: "Neck pickup, slow vibrato, precise bends. The Big Muff into a clean Hiwatt is the Gilmour formula for aggressive lead tones.",
       },
@@ -11014,10 +11047,11 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Teardrop 310", block_category: "Wah", original_gear: "Dunlop Cry Baby", settings: { Position: 70 }, notes: "Cry Baby wah for intro filter effects." },
-          { position: 3, block_name: "Brit 2204", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Drive: 8.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 6.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "JCM800 pushed hard for aggressive saturation." },
-          { position: 4, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Close-miked for maximum attack." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Teardrop 310", block_category: "Wah", original_gear: "Dunlop Cry Baby", settings: { Position: 70 }, notes: "Cry Baby wah for intro filter effects." },
+          { position: 4, block_name: "Brit 2204", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Drive: 8.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 6.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "JCM800 pushed hard for aggressive saturation." },
+          { position: 5, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Close-miked for maximum attack." },
         ],
         notes: "Higher gain than the Sweet Child O' Mine preset. This is Slash at his most aggressive. Les Paul bridge pickup.",
       },
@@ -11150,10 +11184,11 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Script Mod Phase", block_category: "Modulation", original_gear: "MXR Phase 90", settings: { Rate: 3.0 }, notes: "Slow phaser for subtle tone thickening." },
-          { position: 3, block_name: "Brit Plexi Brt", block_category: "Amp", original_gear: "Marshall Super Lead (Variac'd)", settings: { Drive: 8.0, Bass: 5.0, Mid: 7.0, Treble: 8.0, Presence: 7.0, "Ch Vol": 7.5, Sag: 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Increase the Sag parameter to simulate the Variac'd voltage sag and compression." },
-          { position: 4, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Close-miked Greenback for tight attack." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Script Mod Phase", block_category: "Modulation", original_gear: "MXR Phase 90", settings: { Rate: 3.0 }, notes: "Slow phaser for subtle tone thickening." },
+          { position: 4, block_name: "Brit Plexi Brt", block_category: "Amp", original_gear: "Marshall Super Lead (Variac'd)", settings: { Drive: 8.0, Bass: 5.0, Mid: 7.0, Treble: 8.0, Presence: 7.0, "Ch Vol": 7.5, Sag: 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Increase the Sag parameter to simulate the Variac'd voltage sag and compression." },
+          { position: 5, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Close-miked Greenback for tight attack." },
         ],
         notes: "The Sag parameter is key to nailing the Variac'd brown sound. Set it high for that compressed, touch-sensitive response.",
       },
@@ -11286,10 +11321,11 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Minotaur", block_category: "Distortion", original_gear: "Klon Centaur", settings: { Drive: 1.0, Tone: 5.0, Level: 6.0 }, notes: "Klon-style transparent boost. Keep drive minimal." },
-          { position: 3, block_name: "Derailed Ingrid", block_category: "Amp", original_gear: "Two Rock Custom Reverb", settings: { Drive: 4.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, "Ch Vol": 6.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Clean Two Rock model. Very touch-sensitive and dynamic." },
-          { position: 4, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Two Rock 2x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Open, airy cab sim for clean tone." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Minotaur", block_category: "Distortion", original_gear: "Klon Centaur", settings: { Drive: 1.0, Tone: 5.0, Level: 6.0 }, notes: "Klon-style transparent boost. Keep drive minimal." },
+          { position: 4, block_name: "Derailed Ingrid", block_category: "Amp", original_gear: "Two Rock Custom Reverb", settings: { Drive: 4.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, "Ch Vol": 6.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Clean Two Rock model. Very touch-sensitive and dynamic." },
+          { position: 5, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Two Rock 2x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Open, airy cab sim for clean tone." },
         ],
         notes: "This preset is all about dynamics. Play lightly for crystalline cleans, dig in for natural breakup. Neck pickup on a Strat is essential.",
       },
@@ -11421,10 +11457,11 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Vermin Dist", block_category: "Distortion", original_gear: "Marshall Shredmaster", settings: { Gain: 9.0, Tone: 6.0, Level: 8.0 }, notes: "Helix has no Shredmaster model — Vermin Dist (ProCo RAT) is the closest match for the aggressive, scooped distortion. Bypass for clean verses." },
-          { position: 3, block_name: "US DLX 64", block_category: "Amp", original_gear: "Fender (clean)", settings: { Drive: 3.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, "Ch Vol": 6.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Clean Fender platform. All dirt comes from the Shredmaster." },
-          { position: 4, block_name: "1x12 US Deluxe", block_category: "Cab", original_gear: "Fender 1x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Standard Fender 1x12 cab." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Vermin Dist", block_category: "Distortion", original_gear: "Marshall Shredmaster", settings: { Gain: 9.0, Tone: 6.0, Level: 8.0 }, notes: "Helix has no Shredmaster model — Vermin Dist (ProCo RAT) is the closest match for the aggressive, scooped distortion. Bypass for clean verses." },
+          { position: 4, block_name: "US DLX 64", block_category: "Amp", original_gear: "Fender (clean)", settings: { Drive: 3.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, "Ch Vol": 6.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Clean Fender platform. All dirt comes from the Shredmaster." },
+          { position: 5, block_name: "1x12 US Deluxe", block_category: "Cab", original_gear: "Fender 1x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Standard Fender 1x12 cab." },
         ],
         notes: "Use a footswitch to toggle the Shredmaster for the clean/heavy dynamic. The contrast is the entire song.",
       },
@@ -11556,10 +11593,11 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Triangle Fuzz", block_category: "Distortion", original_gear: "Fuzz pedal", settings: { Sustain: 6.0, Tone: 4.0, Level: 6.0 }, notes: "Dark fuzz with tone rolled back." },
-          { position: 3, block_name: "Essex A30", block_category: "Amp", original_gear: "Vox AC30", settings: { Drive: 5.0, Bass: 6.0, Mid: 5.0, Treble: 4.0, "Ch Vol": 6.0, Cut: 3.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "AC30 with treble rolled back for a darker character." },
-          { position: 4, block_name: "2x12 Blue Bell", block_category: "Cab", original_gear: "Vox 2x12 Alnico Blue", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Alnico Blue cab for warm compression." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Triangle Fuzz", block_category: "Distortion", original_gear: "Fuzz pedal", settings: { Sustain: 6.0, Tone: 4.0, Level: 6.0 }, notes: "Dark fuzz with tone rolled back." },
+          { position: 4, block_name: "Essex A30", block_category: "Amp", original_gear: "Vox AC30", settings: { Drive: 5.0, Bass: 6.0, Mid: 5.0, Treble: 4.0, "Ch Vol": 6.0, Cut: 3.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "AC30 with treble rolled back for a darker character." },
+          { position: 5, block_name: "2x12 Blue Bell", block_category: "Cab", original_gear: "Vox 2x12 Alnico Blue", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Alnico Blue cab for warm compression." },
         ],
         notes: "Dark fuzz tone with reduced treble. Play the riff slowly with slight palm muting for the right feel.",
       },
@@ -11691,10 +11729,11 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5.0, Level: 8.0 }, notes: "Clean boost to tighten the Mesa's low end." },
-          { position: 3, block_name: "Cali IV Lead", block_category: "Amp", original_gear: "Mesa Mark IV", settings: { Drive: 7.0, Bass: 3.0, Mid: 3.0, Treble: 7.0, Presence: 6.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Scooped mids, tight bass. The classic Metallica Black Album rhythm tone." },
-          { position: 4, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "Mesa Rectifier 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "V30 cab for tight, focused metal tone." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0, "Volume Min": 0, "Volume Max": 1.0 }, notes: "Expression pedal for real-time volume swells and cleanup." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: 0, Ratio: 0, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.6, Level: 0 }, notes: "Light transparent compression — Threshold at 0 with low ratio keeps dynamics alive while evening out pick attacks." },
+          { position: 3, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer", settings: { Gain: 0.52, Tone: 5.0, Level: 8.0 }, notes: "Clean boost with slight grit to tighten the Mesa's low end. Gain at ~5 adds harmonic saturation without fizz." },
+          { position: 4, block_name: "Cali IV Lead", block_category: "Amp", original_gear: "Mesa Mark IV", settings: { "Lead Drive": 0.64, "Lead Gain": 0.75, Bass: 3.0, Mid: 3.0, Treble: 7.0, Presence: 6.0, "Ch Vol": 7.0, "80Hz": 0, "240Hz": -0.9, "750Hz": -2.9, "2200Hz": -1.3, "6600Hz": 0, Bias: 0.5, Master: 10, Ripple: 0.5, Sag: 0.5, BiasX: 0.5 }, notes: "Scooped mids with precise 5-band EQ cuts at 240Hz/750Hz/2200Hz for tight, percussive rhythm. Master at 10 for power-amp saturation." },
+          { position: 5, block_name: "4x12 Uber V30", block_category: "Cab", original_gear: "Mesa Rectifier 4x12", settings: { Mic: 10, Distance: 1, Position: 0.27, Angle: 0, LowCut: 19.9, HighCut: 12000, Level: 0 }, notes: "Uber (Rectifier) cab with 121 Ribbon mic off-center. Ribbon rolls off harsh fizz naturally so the 12kHz high-cut is gentle, not aggressive. Much more present than the old XXL/421/center-cone setup." },
         ],
         notes: "Tube Screamer as a clean boost into a scooped Mesa is the modern metal rhythm formula Metallica pioneered.",
       },
@@ -11826,9 +11865,10 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Brit 2204", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Drive: 7.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 7.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Moderate gain JCM800 for clear note definition in fast passages." },
-          { position: 3, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Close-miked for maximum presence." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Brit 2204", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Drive: 7.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 7.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Moderate gain JCM800 for clear note definition in fast passages." },
+          { position: 4, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Close-miked for maximum presence." },
         ],
         notes: "Keep the gain moderate for note clarity. Iron Maiden's tone relies on definition, not saturation.",
       },
@@ -11949,9 +11989,10 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4", settings: { Drive: 7.0, Bass: 6.0, Mid: 7.0, Treble: 5.0, Presence: 5.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Diezel model for thick, dark high-gain tone." },
-          { position: 3, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "Mesa/Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "V30 cab for tight, modern metal tone." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4", settings: { Drive: 7.0, Bass: 6.0, Mid: 7.0, Treble: 5.0, Presence: 5.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Diezel model for thick, dark high-gain tone." },
+          { position: 4, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "Mesa/Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "V30 cab for tight, modern metal tone." },
         ],
         notes: "Drop-D tuning, Les Paul bridge pickup. Keep it dark and heavy with mid focus. No effects needed.",
       },
@@ -12084,11 +12125,12 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Pitch Wham", block_category: "Pitch/Synth", original_gear: "DigiTech Whammy", settings: { Position: 10, Mode: "1 Oct Up" }, notes: "Whammy set to +1 octave, fully engaged." },
-          { position: 3, block_name: "Triangle Fuzz", block_category: "Distortion", original_gear: "Fuzz", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Heavy fuzz for the thick riff distortion." },
-          { position: 4, block_name: "Brit Plexi Brt", block_category: "Amp", original_gear: "Marshall", settings: { Drive: 7.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Cranked Marshall for compression on top of fuzz." },
-          { position: 5, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Standard Marshall cab." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Pitch Wham", block_category: "Pitch/Synth", original_gear: "DigiTech Whammy", settings: { Position: 10, Mode: "1 Oct Up" }, notes: "Whammy set to +1 octave, fully engaged." },
+          { position: 4, block_name: "Triangle Fuzz", block_category: "Distortion", original_gear: "Fuzz", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Heavy fuzz for the thick riff distortion." },
+          { position: 5, block_name: "Brit Plexi Brt", block_category: "Amp", original_gear: "Marshall", settings: { Drive: 7.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Cranked Marshall for compression on top of fuzz." },
+          { position: 6, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Standard Marshall cab." },
         ],
         notes: "Whammy octave-up into fuzz into cranked Marshall. The signature Muse riff formula.",
       },
@@ -12220,9 +12262,10 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "US Small Tweed", block_category: "Amp", original_gear: "Fender Champ", settings: { Drive: 8.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, "Ch Vol": 8.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Tiny Tweed amp model cranked for natural breakup. All the dirt comes from the amp." },
-          { position: 3, block_name: "1x8 Small Tweed", block_category: "Cab", original_gear: "Champ 1x8", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Small speaker cab for compressed, lo-fi character." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "US Small Tweed", block_category: "Amp", original_gear: "Fender Champ", settings: { Drive: 8.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, "Ch Vol": 8.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Tiny Tweed amp model cranked for natural breakup. All the dirt comes from the amp." },
+          { position: 4, block_name: "1x8 Small Tweed", block_category: "Cab", original_gear: "Champ 1x8", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Small speaker cab for compressed, lo-fi character." },
         ],
         notes: "Guitar straight into a cranked tiny amp. No effects. The Black Keys way.",
       },
@@ -12342,10 +12385,11 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Moderate overdrive for solo boost." },
-          { position: 3, block_name: "US Deluxe Vib", block_category: "Amp", original_gear: "Fender Vibro-King", settings: { Drive: 5.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, "Ch Vol": 6.5, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Warm Fender clean at edge of breakup." },
-          { position: 4, block_name: "4x10 Tweed P10R", block_category: "Cab", original_gear: "Fender 3x10", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Multi-speaker Fender cab for full tone." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Moderate overdrive for solo boost." },
+          { position: 4, block_name: "US Deluxe Vib", block_category: "Amp", original_gear: "Fender Vibro-King", settings: { Drive: 5.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, "Ch Vol": 6.5, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Warm Fender clean at edge of breakup." },
+          { position: 5, block_name: "4x10 Tweed P10R", block_category: "Cab", original_gear: "Fender 3x10", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Multi-speaker Fender cab for full tone." },
         ],
         notes: "SG neck pickup for warm humbucking tone. Toggle the TS for solo boost. Dynamics are everything.",
       },
@@ -12477,10 +12521,11 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "Light overdrive boost." },
-          { position: 3, block_name: "Cartographer", block_category: "Amp", original_gear: "Dumble ODS", settings: { Drive: 6.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Dumble-style amp for transparent, singing overdrive." },
-          { position: 4, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Marshall cab for midrange presence." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "Light overdrive boost." },
+          { position: 4, block_name: "Cartographer", block_category: "Amp", original_gear: "Dumble ODS", settings: { Drive: 6.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Dumble-style amp for transparent, singing overdrive." },
+          { position: 5, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Marshall cab for midrange presence." },
         ],
         notes: "Les Paul neck pickup for creamy sustain. Light TS boost into Dumble model for rich, harmonic lead tone.",
       },
@@ -12612,10 +12657,11 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Teardrop 310", block_category: "Wah", original_gear: "Cry Baby", settings: { Position: "Exp Pedal" }, notes: "Wah for the solo sections." },
-          { position: 3, block_name: "Cali 2C+ Lead", block_category: "Amp", original_gear: "Mesa Mark IIC+", settings: { Drive: 7.0, Bass: 4.0, Mid: 5.0, Treble: 6.0, Presence: 6.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Mark IIC+ lead channel for the solo. Use a snapshot to switch to clean settings for the intro." },
-          { position: 4, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "Mesa 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "V30 cab for tight metal tone." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Teardrop 310", block_category: "Wah", original_gear: "Cry Baby", settings: { Position: "Exp Pedal" }, notes: "Wah for the solo sections." },
+          { position: 4, block_name: "Cali 2C+ Lead", block_category: "Amp", original_gear: "Mesa Mark IIC+", settings: { Drive: 7.0, Bass: 4.0, Mid: 5.0, Treble: 6.0, Presence: 6.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Mark IIC+ lead channel for the solo. Use a snapshot to switch to clean settings for the intro." },
+          { position: 5, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "Mesa 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "V30 cab for tight metal tone." },
         ],
         notes: "Use snapshots: one for clean intro (low drive, no wah) and one for the wah solo (high drive, wah engaged).",
       },
@@ -12745,9 +12791,10 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Ampeg SVT Nrm", block_category: "Amp", original_gear: "Ampeg VT-40", settings: { Drive: 6.0, Bass: 7.0, Mid: 5.0, Treble: 4.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Ampeg/bass amp model for the massive low-end. Dark EQ with bass pushed high." },
-          { position: 3, block_name: "4x10 Tweed P10R", block_category: "Cab", original_gear: "Ampeg 4x10", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "4x10 cab for even low-end distribution." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Ampeg SVT Nrm", block_category: "Amp", original_gear: "Ampeg VT-40", settings: { Drive: 6.0, Bass: 7.0, Mid: 5.0, Treble: 4.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Ampeg/bass amp model for the massive low-end. Dark EQ with bass pushed high." },
+          { position: 4, block_name: "4x10 Tweed P10R", block_category: "Cab", original_gear: "Ampeg 4x10", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "4x10 cab for even low-end distribution." },
         ],
         notes: "C-standard tuning is mandatory. The bass amp model provides the huge, compressed low end that defines QOTSA. Sounds nothing like a guitar amp.",
       },
@@ -12866,10 +12913,11 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer TS808", settings: { Drive: 2.0, Tone: 6.0, Level: 8.0 }, notes: "Slightly more drive than Pride and Joy for extra sustain." },
-          { position: 3, block_name: "US Deluxe Vib", block_category: "Amp", original_gear: "Fender Vibroverb", settings: { Drive: 6.5, Bass: 5.0, Mid: 5.0, Treble: 5.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Warm Vibroverb tone with more reverb." },
-          { position: 4, block_name: "1x15 Ampeg B-15", block_category: "Cab", original_gear: "1x15 JBL", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Round 1x15 for fat tone." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer TS808", settings: { Drive: 2.0, Tone: 6.0, Level: 8.0 }, notes: "Slightly more drive than Pride and Joy for extra sustain." },
+          { position: 4, block_name: "US Deluxe Vib", block_category: "Amp", original_gear: "Fender Vibroverb", settings: { Drive: 6.5, Bass: 5.0, Mid: 5.0, Treble: 5.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Warm Vibroverb tone with more reverb." },
+          { position: 5, block_name: "1x15 Ampeg B-15", block_category: "Cab", original_gear: "1x15 JBL", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Round 1x15 for fat tone." },
         ],
         notes: "The Little Wing tone is warmer and more reverb-heavy than Pride and Joy. Neck pickup, Eb tuning, heavy strings.",
       },
@@ -13011,11 +13059,12 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Minotaur", block_category: "Distortion", original_gear: "Colorsound Powerboost", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Light overdrive for sustain. Keep it clean-ish." },
-          { position: 3, block_name: "WhoWatt 100", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 5.0, Bass: 5.0, Mid: 5.0, Treble: 5.0, Presence: 5.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Clean Hiwatt for the singing sustain platform." },
-          { position: 4, block_name: "Simple Delay", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 500, Feedback: 30, Mix: 30, TempoSync1: 0 }, notes: "Long delay for spacious sustain." },
-          { position: 5, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Smooth cab tone for the atmospheric feel." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Minotaur", block_category: "Distortion", original_gear: "Colorsound Powerboost", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Light overdrive for sustain. Keep it clean-ish." },
+          { position: 4, block_name: "WhoWatt 100", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 5.0, Bass: 5.0, Mid: 5.0, Treble: 5.0, Presence: 5.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Clean Hiwatt for the singing sustain platform." },
+          { position: 5, block_name: "Simple Delay", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 500, Feedback: 30, Mix: 30, TempoSync1: 0 }, notes: "Long delay for spacious sustain." },
+          { position: 6, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Smooth cab tone for the atmospheric feel." },
         ],
         notes: "Every note should sustain forever. Light overdrive, clean Hiwatt, long delay. Vibrato on every note.",
       },
@@ -13155,9 +13204,10 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 2, block_name: "Brit Plexi Brt", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 8.0, Bass: 4.0, Mid: 6.0, Treble: 8.0, Presence: 8.0, "Ch Vol": 7.5, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Cranked Plexi with bright, cutting EQ for tapping clarity." },
-          { position: 3, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Close-miked for maximum attack." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
+          { position: 3, block_name: "Brit Plexi Brt", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 8.0, Bass: 4.0, Mid: 6.0, Treble: 8.0, Presence: 8.0, "Ch Vol": 7.5, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Cranked Plexi with bright, cutting EQ for tapping clarity." },
+          { position: 4, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5 }, notes: "Close-miked for maximum attack." },
         ],
         notes: "Bright, aggressive Plexi tone. SG bridge pickup. The tapping pattern requires high presence for note clarity.",
       },
