@@ -1,0 +1,134 @@
+{
+  "schema": "L6Preset",
+  "version": 6,
+  "meta": {
+    "original": 0,
+    "pbn": 0,
+    "premium": 0
+  },
+  "data": {
+    "meta": {
+      "name": "Stairway to Heaven Clean Build T"
+    },
+    "tone": {
+      "global": {
+        "@topology0": 0,
+        "@topology1": 0,
+        "@cursor_dsp": 0,
+        "@cursor_path": 0,
+        "@cursor_position": 0,
+        "@tempo": 120,
+        "@current_snapshot": 0
+      },
+      "dsp0": {
+        "inputA": {
+          "@model": "HD2_AppDSPFlow1Input",
+          "@input": 1,
+          "@input_gate": false
+        },
+        "block0": {
+          "@model": "HD2_DistMinotaur",
+          "@path": 0,
+          "@position": 1,
+          "@enabled": true,
+          "Drive": {
+            "@value": 0.35
+          },
+          "Bass": {
+            "@value": 0.5
+          },
+          "Mid": {
+            "@value": 0.6
+          },
+          "Treble": {
+            "@value": 0.6
+          },
+          "ChVol": {
+            "@value": 0.5
+          }
+        },
+        "block1": {
+          "@model": "HD2_DistMinotaur",
+          "@path": 0,
+          "@position": 2,
+          "@enabled": true,
+          "Mic": {
+            "@value": 1
+          },
+          "Distance": {
+            "@value": 0.3
+          }
+        },
+        "outputA": {
+          "@model": "HD2_AppDSPFlowOutput",
+          "@output": 1,
+          "Level": {
+            "@value": 0.5
+          },
+          "Pan": {
+            "@value": 0.5
+          }
+        },
+        "block2": {
+          "@model": "HD2_VolPanVol",
+          "@position": 0,
+          "@enabled": true,
+          "@path": 0,
+          "@type": 0,
+          "@no_snapshot_bypass": false,
+          "@stereo": false,
+          "Pedal": 1.0,
+          "VolumeTaper": false
+        }
+      },
+      "dsp1": {
+        "inputA": {
+          "@model": "HD2_AppDSPFlow2Input",
+          "@input": 0
+        },
+        "outputA": {
+          "@model": "HD2_AppDSPFlowOutput",
+          "@output": 0,
+          "Level": {
+            "@value": 0.5
+          },
+          "Pan": {
+            "@value": 0.5
+          }
+        }
+      },
+      "snapshot0": {
+        "name": "Default",
+        "@ledcolor": 0,
+        "blocks": {
+          "block0": {
+            "@enabled": true
+          },
+          "block1": {
+            "@enabled": true
+          }
+        },
+        "controllers": {}
+      },
+      "snapshot1": {
+        "name": "EMPTY",
+        "@ledcolor": 0,
+        "blocks": {},
+        "controllers": {}
+      },
+      "snapshot2": {
+        "name": "EMPTY",
+        "@ledcolor": 0,
+        "blocks": {},
+        "controllers": {}
+      },
+      "snapshot3": {
+        "name": "EMPTY",
+        "@ledcolor": 0,
+        "blocks": {},
+        "controllers": {}
+      }
+    },
+    "device": 2162692
+  }
+}
