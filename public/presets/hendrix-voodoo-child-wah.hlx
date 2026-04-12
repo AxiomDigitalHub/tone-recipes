@@ -138,6 +138,13 @@
           },
           "block3": {
             "@enabled": true
+          },
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
           }
         },
         "controllers": {}
@@ -145,19 +152,43 @@
       "snapshot1": {
         "name": "EMPTY",
         "@ledcolor": 0,
-        "blocks": {},
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        },
         "controllers": {}
       },
       "snapshot2": {
         "name": "EMPTY",
         "@ledcolor": 0,
-        "blocks": {},
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        },
         "controllers": {}
       },
       "snapshot3": {
         "name": "EMPTY",
         "@ledcolor": 0,
-        "blocks": {},
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        },
         "controllers": {}
       }
     },

@@ -147,7 +147,16 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false
+        "@custom_name": false,
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        }
       },
       "snapshot2": {
         "@name": "SNAPSHOT 3",
@@ -155,7 +164,16 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false
+        "@custom_name": false,
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        }
       },
       "snapshot3": {
         "@name": "SNAPSHOT 4",
@@ -163,7 +181,16 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false
+        "@custom_name": false,
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        }
       },
       "snapshot4": {
         "@name": "SNAPSHOT 5",
@@ -171,7 +198,16 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false
+        "@custom_name": false,
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        }
       },
       "snapshot5": {
         "@name": "SNAPSHOT 6",
@@ -179,7 +215,16 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false
+        "@custom_name": false,
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        }
       },
       "snapshot6": {
         "@name": "SNAPSHOT 7",
@@ -187,7 +232,16 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false
+        "@custom_name": false,
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        }
       },
       "snapshot7": {
         "@name": "SNAPSHOT 8",
@@ -195,7 +249,16 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false
+        "@custom_name": false,
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        }
       },
       "dsp0": {
         "inputA": {

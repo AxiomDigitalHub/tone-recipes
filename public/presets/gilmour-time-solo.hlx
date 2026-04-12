@@ -148,7 +148,16 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false
+        "@custom_name": false,
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        }
       },
       "snapshot2": {
         "@name": "SNAPSHOT 3",
@@ -156,7 +165,16 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false
+        "@custom_name": false,
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        }
       },
       "snapshot3": {
         "@name": "SNAPSHOT 4",
@@ -164,7 +182,16 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false
+        "@custom_name": false,
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        }
       },
       "snapshot4": {
         "@name": "SNAPSHOT 5",
@@ -172,7 +199,16 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false
+        "@custom_name": false,
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        }
       },
       "snapshot5": {
         "@name": "SNAPSHOT 6",
@@ -180,7 +216,16 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false
+        "@custom_name": false,
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        }
       },
       "snapshot6": {
         "@name": "SNAPSHOT 7",
@@ -188,7 +233,16 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false
+        "@custom_name": false,
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        }
       },
       "snapshot7": {
         "@name": "SNAPSHOT 8",
@@ -196,7 +250,16 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false
+        "@custom_name": false,
+        "blocks": {
+          "dsp0": {
+            "block0": true,
+            "block1": true,
+            "block2": true,
+            "block3": true,
+            "block4": true
+          }
+        }
       },
       "dsp0": {
         "inputA": {
@@ -293,7 +356,8 @@
           "Level": 0,
           "Pan": 0.5,
           "Delay": 0,
-          "EarlyReflections": 0.6
+          "EarlyReflections": 0.6,
+          "@cab": "cab0"
         },
         "block4": {
           "@model": "HD2_VolPanVol",
@@ -305,6 +369,20 @@
           "@stereo": false,
           "Pedal": 1.0,
           "VolumeTaper": false
+        },
+        "cab0": {
+          "@model": "HD2_CabMicIr_4x12Greenback25WithPan",
+          "@enabled": true,
+          "Mic": 10,
+          "Distance": 1,
+          "Position": 0.3,
+          "Angle": 0,
+          "LowCut": 80,
+          "HighCut": 12000,
+          "EarlyReflections": 0.6,
+          "Level": 0,
+          "Pan": 0.5,
+          "Delay": 0
         }
       },
       "dsp1": {
