@@ -501,10 +501,11 @@ export default function HeroV4() {
       for (let i = 0; i < dots.length; i++) {
         const d = dots[i];
 
-        // Per-dot independent time-based drift (each dot has its own
-        // freqX/freqY so they don't pulse in phase).
-        const jx = Math.sin(d.seed * 0.73 + now / d.driftFreqX) * 2.4;
-        const jy = Math.cos(d.seed * 0.91 + now / d.driftFreqY) * 2.4;
+        // Per-dot independent time-based drift. Amplitude bumped to
+        // 4.5px so the grid visibly breathes — each dot has its own
+        // freqX/freqY so they don't pulse in phase.
+        const jx = Math.sin(d.seed * 0.73 + now / d.driftFreqX) * 4.5;
+        const jy = Math.cos(d.seed * 0.91 + now / d.driftFreqY) * 4.5;
 
         // Base position: grid for static, lerp to icon target for active.
         let baseX: number;
@@ -540,14 +541,12 @@ export default function HeroV4() {
         const x = baseX + (jx + gpx) * jitterBlend;
         const y = baseY + (jy + gpy) * jitterBlend;
 
-        // Per-dot color: blend from idle blue-grey to the icon's
-        // category color based on how formed this dot is.
-        // Static dots always stay at idle color. Active dots blend.
-        const dotCoalesce = d.iconTargets ? coalesce : 0;
-        const r = Math.round(baseR + (ir - baseR) * dotCoalesce);
-        const g = Math.round(baseG + (ig - baseG) * dotCoalesce);
-        const b = Math.round(baseB + (ib - baseB) * dotCoalesce);
-        const a = idleAlpha + (peakAlpha - idleAlpha) * dotCoalesce;
+        // ALL dots tint to the current icon's category color — the
+        // entire grid shifts hue together, not just the active zone.
+        const r = Math.round(baseR + (ir - baseR) * coalesce);
+        const g = Math.round(baseG + (ig - baseG) * coalesce);
+        const b = Math.round(baseB + (ib - baseB) * coalesce);
+        const a = idleAlpha + (peakAlpha - idleAlpha) * coalesce;
         ctx.fillStyle = `rgba(${r},${g},${b},${a})`;
 
         ctx.beginPath();
@@ -602,11 +601,6 @@ export default function HeroV4() {
             </span>
           </h1>
 
-          <p className="mt-7 max-w-xl text-lg text-[#c8d2e2] md:text-xl">
-            Pick a song. Get exact settings for your Helix, Quad Cortex,
-            TONEX, or physical rig.
-          </p>
-
           <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
             <Link
               href="/browse"
@@ -622,16 +616,6 @@ export default function HeroV4() {
             </Link>
           </div>
 
-          <p className="mt-10 flex items-center gap-2 text-sm text-[#8ea2bc]">
-            <span
-              className="inline-block h-2 w-2 rounded-full bg-emerald-400"
-              style={{
-                boxShadow: "0 0 10px rgba(52, 211, 153, 0.8)",
-                animation: reduceMotion ? "none" : "heroV4NowPulse 2s ease-in-out infinite",
-              }}
-            />
-            <span>Watch the signal chain form</span>
-          </p>
         </div>
       </div>
 
