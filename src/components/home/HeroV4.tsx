@@ -521,11 +521,16 @@ export default function HeroV4() {
       for (let i = 0; i < dots.length; i++) {
         const d = dots[i];
 
-        // Per-dot independent time-based drift. Amplitude bumped to
-        // 4.5px so the grid visibly breathes — each dot has its own
-        // freqX/freqY so they don't pulse in phase.
-        const jx = Math.sin(d.seed * 0.73 + now / d.driftFreqX) * 4.5;
-        const jy = Math.cos(d.seed * 0.91 + now / d.driftFreqY) * 4.5;
+        // Per-dot continuous drift. Two layers stacked:
+        // - A slow orbital drift (large radius, long period) so every
+        //   dot is always visibly moving, even at idle
+        // - A faster jitter (small radius, short period) for texture
+        const slowX = Math.sin(d.seed * 0.37 + now / (d.driftFreqX * 3.2)) * 8;
+        const slowY = Math.cos(d.seed * 0.51 + now / (d.driftFreqY * 3.2)) * 8;
+        const fastX = Math.sin(d.seed * 0.73 + now / d.driftFreqX) * 2.5;
+        const fastY = Math.cos(d.seed * 0.91 + now / d.driftFreqY) * 2.5;
+        const jx = slowX + fastX;
+        const jy = slowY + fastY;
 
         // Base position: grid for static, lerp to icon target for active.
         let baseX: number;
