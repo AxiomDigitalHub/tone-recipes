@@ -129,7 +129,7 @@ export default function SignalChainShowcase() {
         </p>
 
         <div
-          className="mx-auto mt-14 max-w-4xl overflow-x-auto rounded-2xl border border-[#1e2840] bg-[#0b0f1a] px-4 py-10 sm:px-8"
+          className="mx-auto mt-14 max-w-5xl overflow-x-auto px-4 py-6 sm:px-8"
           style={{ overflowY: "visible" }}
         >
           <div

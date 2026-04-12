@@ -249,6 +249,9 @@ const DOT_RADIUS = 2.2;
 // grid spacing so it scales with the viewport.
 const GRAVITY_RADIUS_CELLS = 4.5;
 const GRAVITY_MAX_PULL_CELLS = 0.85;
+// Full rotation period for the grid around the icon slot. "Slow"
+// per user direction — 90s ≈ 4°/second.
+const ROTATION_PERIOD_MS = 90_000;
 
 export default function HeroV4() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -266,6 +269,8 @@ export default function HeroV4() {
     radius: 0,
     maxPull: 0,
   });
+  // Slot center is the rotation pivot for the grid.
+  const slotCenterRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const rafRef = useRef<number | undefined>(undefined);
   const [reduceMotion, setReduceMotion] = useState(false);
 
@@ -296,8 +301,10 @@ export default function HeroV4() {
     // direction) and ~500-700 static grid dots everywhere else.
     function buildDots(width: number, height: number): Dot[] {
       const iconRenderSize = Math.min(width, height) * 0.65;
-      const slotCx = width * 0.68;
+      const slotCx = width * 0.72;
       const slotCy = height * 0.5;
+      // Publish slot center for the rotation/render loop.
+      slotCenterRef.current = { x: slotCx, y: slotCy };
       const influenceRadius = iconRenderSize * 0.6;
       const spacing = Math.min(width, height) / GRID_SPACING_FACTOR;
 
@@ -456,12 +463,13 @@ export default function HeroV4() {
       // Ease so the "peak" at 0.5 feels like it lingers.
       const coalesce = easeInOutCubic(Math.max(0, Math.min(1, rawCoalesce)));
 
-      // Dot color warms with coalescence: idle dots navy, forming
-      // icons warm into amber.
-      const hue = 220 - coalesce * 190;
-      const sat = 55 + coalesce * 35;
-      const light = 20 + coalesce * 20;
-      const alpha = 0.55 + coalesce * 0.4;
+      // Dot color warms with coalescence. On dark bg we run LIGHT
+      // on both axes — a soft blue-grey at idle that brightens into
+      // a warm amber at peak coalescence.
+      const hue = 220 - coalesce * 185;       // 220 → 35 (blue → amber)
+      const sat = 25 + coalesce * 70;          // 25  → 95
+      const light = 72 - coalesce * 2;         // 72  → 70 (high on both)
+      const alpha = 0.5 + coalesce * 0.48;     // 0.5 → 0.98
       ctx.fillStyle = `hsla(${hue}, ${sat}%, ${light}%, ${alpha})`;
 
       // Mouse gravity: pull grid dots toward the cursor within a
@@ -470,6 +478,18 @@ export default function HeroV4() {
       const mouse = mouseRef.current;
       const { radius: gRadius, maxPull: gMaxPull } = gravityRef.current;
       const hasMouse = mouse.x > -Infinity && gRadius > 0;
+
+      // Grid rotation around the icon slot. The whole grid — including
+      // icon targets — rotates together so forming shapes appear to
+      // rotate with their surrounding dots.
+      const rotAngle = reduceMotion
+        ? 0
+        : ((performance.now() % ROTATION_PERIOD_MS) / ROTATION_PERIOD_MS) *
+          Math.PI *
+          2;
+      const rCos = Math.cos(rotAngle);
+      const rSin = Math.sin(rotAngle);
+      const slot = slotCenterRef.current;
 
       const now = performance.now();
       for (let i = 0; i < dots.length; i++) {
@@ -480,32 +500,44 @@ export default function HeroV4() {
         const jx = Math.sin(d.seed * 0.73 + now / d.driftFreqX) * 2.4;
         const jy = Math.cos(d.seed * 0.91 + now / d.driftFreqY) * 2.4;
 
-        // Base position: grid for static, lerp to icon for active.
+        // Rotate the idle position around the slot center.
+        const ridx = d.idleX - slot.x;
+        const ridy = d.idleY - slot.y;
+        const rotIdleX = slot.x + ridx * rCos - ridy * rSin;
+        const rotIdleY = slot.y + ridx * rSin + ridy * rCos;
+
+        // Base position: rotated grid for static, lerp to rotated
+        // icon target for active.
         let baseX: number;
         let baseY: number;
         let jitterBlend: number;
         if (!d.iconTargets) {
-          baseX = d.idleX;
-          baseY = d.idleY;
+          baseX = rotIdleX;
+          baseY = rotIdleY;
           jitterBlend = 1;
         } else {
           const target = d.iconTargets[phaseIdx];
           if (!target) continue;
-          baseX = d.idleX + (target.x - d.idleX) * coalesce;
-          baseY = d.idleY + (target.y - d.idleY) * coalesce;
+          const rtx = target.x - slot.x;
+          const rty = target.y - slot.y;
+          const rotTargetX = slot.x + rtx * rCos - rty * rSin;
+          const rotTargetY = slot.y + rtx * rSin + rty * rCos;
+          baseX = rotIdleX + (rotTargetX - rotIdleX) * coalesce;
+          baseY = rotIdleY + (rotTargetY - rotIdleY) * coalesce;
           // At peak coalescence, drift + gravity should be mostly
           // suppressed so the icon reads cleanly.
           jitterBlend = 1 - coalesce;
         }
 
         // Mouse gravity: attract the dot toward the cursor with a
-        // quadratic falloff. Scaled by jitterBlend so forming icons
-        // are not disturbed.
+        // quadratic falloff. Computed against the dot's ROTATED idle
+        // position so the effect feels spatially correct. Scaled by
+        // jitterBlend so forming icons are not disturbed.
         let gpx = 0;
         let gpy = 0;
         if (hasMouse) {
-          const mdx = mouse.x - d.idleX;
-          const mdy = mouse.y - d.idleY;
+          const mdx = mouse.x - rotIdleX;
+          const mdy = mouse.y - rotIdleY;
           const mdist = Math.hypot(mdx, mdy);
           if (mdist < gRadius && mdist > 0.01) {
             const falloff = 1 - mdist / gRadius;
@@ -540,9 +572,9 @@ export default function HeroV4() {
   return (
     <section
       ref={sectionRef}
-      // Mouse-move driven now, not scroll — section is a single
-      // viewport-height hero instead of a 180vh scroll-scrub range.
-      className="relative bg-white"
+      // Dark theme: dots read as light amber/blue on a near-black
+      // background, matching the rest of the site's palette.
+      className="relative bg-[#0a0a0f]"
       style={{ minHeight: "100vh" }}
     >
       {/* Canvas layer — dark dots on white, per Antigravity reference */}
@@ -552,28 +584,27 @@ export default function HeroV4() {
         style={{ zIndex: 1 }}
       />
 
-      {/* Subtle radial warmth for the headline area — imperceptible on
-          a pure white bg otherwise */}
-      <div className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_50%_40%,_rgba(245,158,11,0.05),_transparent_55%)]" />
+      {/* Subtle amber radial warmth behind the headline area */}
+      <div className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_36%_50%,_rgba(245,158,11,0.08),_transparent_55%)]" />
 
-      {/* Content — left-aligned, constrained to the left half of the
-          section so the canvas's dot→icon cycle can own the right
-          half. No center alignment. */}
+      {/* Content — left-aligned, constrained to ~58% so the H1 fits
+          in exactly two lines at desktop widths. The canvas owns the
+          right ~42% where the cycling icon forms. */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 md:px-12">
-        <div className="max-w-[54%] text-left md:max-w-[50%]">
+        <div className="max-w-[60%] text-left">
           <h1
-            className="font-[family-name:var(--font-display)] text-4xl font-bold tracking-tight text-[#0a0e1a] md:text-6xl lg:text-7xl"
-            style={{ letterSpacing: "-0.035em", lineHeight: 1.02 }}
+            className="font-[family-name:var(--font-display)] text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl"
+            style={{ letterSpacing: "-0.035em", lineHeight: 1.05 }}
           >
             Tone recipes from
             <br />
             the songs{" "}
-            <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 bg-clip-text italic text-transparent">
+            <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-amber-500 bg-clip-text italic text-transparent">
               you love.
             </span>
           </h1>
 
-          <p className="mt-7 max-w-xl text-lg text-[#475269] md:text-xl">
+          <p className="mt-7 max-w-xl text-lg text-[#c8d2e2] md:text-xl">
             Pick a song. Get exact settings for your Helix, Quad Cortex,
             TONEX, or physical rig.
           </p>
@@ -581,23 +612,23 @@ export default function HeroV4() {
           <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
             <Link
               href="/browse"
-              className="rounded-xl bg-[#0a0e1a] px-8 py-3.5 text-base font-semibold text-white shadow-[0_12px_40px_-8px_rgba(10,14,26,0.35)] transition-all hover:bg-[#1a1e2e] hover:shadow-[0_20px_60px_-10px_rgba(10,14,26,0.45)]"
+              className="rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-background shadow-[0_12px_40px_-8px_rgba(245,158,11,0.45)] transition-all hover:bg-accent-hover hover:shadow-[0_20px_60px_-10px_rgba(245,158,11,0.6)]"
             >
               Browse Recipes
             </Link>
             <Link
               href="#how-it-works"
-              className="rounded-xl border border-[#0a0e1a]/15 bg-white/70 px-8 py-3.5 text-base font-semibold text-[#0a0e1a] backdrop-blur-sm transition-all hover:border-[#0a0e1a]/40 hover:bg-white"
+              className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-accent/40 hover:bg-white/10"
             >
               See how it works
             </Link>
           </div>
 
-          <p className="mt-10 flex items-center gap-2 text-sm text-[#6b7a92]">
+          <p className="mt-10 flex items-center gap-2 text-sm text-[#8ea2bc]">
             <span
-              className="inline-block h-2 w-2 rounded-full bg-emerald-500"
+              className="inline-block h-2 w-2 rounded-full bg-emerald-400"
               style={{
-                boxShadow: "0 0 10px rgba(16, 185, 129, 0.7)",
+                boxShadow: "0 0 10px rgba(52, 211, 153, 0.8)",
                 animation: reduceMotion ? "none" : "heroV4NowPulse 2s ease-in-out infinite",
               }}
             />
@@ -608,7 +639,8 @@ export default function HeroV4() {
 
       {/* Bottom fade so the transition into the dark SignalChainShowcase
           below doesn't cut off mid-shape */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] h-40 bg-gradient-to-b from-transparent via-white to-[#070a12]" />
+      {/* Bottom fade into the SignalChainShowcase section below */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] h-32 bg-gradient-to-b from-transparent to-[#070a12]" />
 
       <style jsx>{`
         @keyframes heroV4NowPulse {
