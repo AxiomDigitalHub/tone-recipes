@@ -21,7 +21,7 @@ export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
   return (
     <Link
       href={`/recipe/${recipe.slug}`}
-      className="card-hover group relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-all hover:border-accent/40 hover:bg-surface-hover hover:translate-y-[-2px]"
+      className="card-hover group relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-[border-color,background-color,box-shadow] duration-200 hover:border-accent/40 hover:bg-surface-hover hover:shadow-lg hover:shadow-black/20"
     >
       {/* Album art header */}
       {song?.album_art_url ? (
