@@ -32,229 +32,188 @@ import { useEffect, useRef, useState } from "react";
  * the rAF loop entirely.
  */
 
-// Gear icon path data, extracted from NodeIcon.tsx and normalised into
-// an icon-local 0..1 coordinate system so they can be placed anywhere
-// on the hero canvas.
+// Gear icon definitions as SVG path strings. Dots are sampled evenly
+// along the path outlines (getPointAtLength), not scanned from a
+// rasterised fill — this is the difference between Google
+// Antigravity's "dots tracing contour lines" and our previous
+// "dots scattered inside a blob". Each dot becomes a stop along
+// the outline, producing the clean line-drawing read.
 type IconDef = {
   label: string;
-  render: (ctx: CanvasRenderingContext2D, size: number) => void;
+  /** SVG path strings. getTotalLength is called per path and dots
+   *  are distributed proportionally across the combined length. */
+  paths: string[];
+  /** Optional rotation applied at sample time (degrees). */
+  rotate?: number;
 };
 
 const ICONS: IconDef[] = [
   {
     label: "GUITAR",
-    render: (ctx, size) => {
-      ctx.save();
-      ctx.translate(size / 2, size / 2);
-      ctx.rotate(Math.PI / 4);
-      ctx.scale(size / 233, size / 233);
-      // Guitar silhouette as a filled path (simplified from the NodeIcon SVG)
-      const path = new Path2D(
-        "M.37,204.6c3.14-18.41,13.73-26.05,10.83-38l-4.7-19.39c-2.57-10.61-.13-23.54,8.66-21.95.68,8.66,2.55,18.19,9.21,18.21,2.21,0,5.97-2.33,6.01-4.84l1.59-94.89-6.28-7.9c-.75-.94,1.64-2.89,3.14-3.45l-1.55-3.24c-.37-.78,2.8-1.59,3.74-1.8l-2.04-3.64c-.53-.94,2.5-1.92,4.27-2.2l-1.73-2.09c-.47-.57-.77-2.54-.05-2.74l3.91-1.08-2.78-2.72c-.54-.53.56-2.38,1.32-2.48l3.66-.48-2.69-2.5c-.45-.42-.62-2.13-.05-2.35l3.02-1.14c1.78-2.43,4.19-4.35,7.26-3.86s5.21,2.68,6.12,5.7c.86,2.84-1.56,6.1-4.43,7.96-1.59,5.21,5.48,12.35,3.93,22.34-5.13.41-8.84,3.51-8.76,8.56l1.59,106.88c2.22,2.67,6.34,3.9,9.79,3.25,5.97-1.13,5.58-9.95,9.75-15.32,9.4,3.94,7.69,16.1,3.13,26.32-6.96,15.61,5.91,22.54,8.45,40.71,1.63,11.63-4.91,21.48-16.65,24.29-13.58,3.25-28.78,2.99-42.16-1.03-11.48-3.46-17.45-13.67-15.5-25.14Z"
-      );
-      ctx.translate(-37, -116);
-      ctx.fillStyle = "#fff";
-      ctx.fill(path);
-      ctx.restore();
-    },
+    // Filled silhouette — getPointAtLength traces the border only,
+    // which is exactly what we want (outline of the guitar body).
+    paths: [
+      "M.37,204.6c3.14-18.41,13.73-26.05,10.83-38l-4.7-19.39c-2.57-10.61-.13-23.54,8.66-21.95.68,8.66,2.55,18.19,9.21,18.21,2.21,0,5.97-2.33,6.01-4.84l1.59-94.89-6.28-7.9c-.75-.94,1.64-2.89,3.14-3.45l-1.55-3.24c-.37-.78,2.8-1.59,3.74-1.8l-2.04-3.64c-.53-.94,2.5-1.92,4.27-2.2l-1.73-2.09c-.47-.57-.77-2.54-.05-2.74l3.91-1.08-2.78-2.72c-.54-.53.56-2.38,1.32-2.48l3.66-.48-2.69-2.5c-.45-.42-.62-2.13-.05-2.35l3.02-1.14c1.78-2.43,4.19-4.35,7.26-3.86s5.21,2.68,6.12,5.7c.86,2.84-1.56,6.1-4.43,7.96-1.59,5.21,5.48,12.35,3.93,22.34-5.13.41-8.84,3.51-8.76,8.56l1.59,106.88c2.22,2.67,6.34,3.9,9.79,3.25,5.97-1.13,5.58-9.95,9.75-15.32,9.4,3.94,7.69,16.1,3.13,26.32-6.96,15.61,5.91,22.54,8.45,40.71,1.63,11.63-4.91,21.48-16.65,24.29-13.58,3.25-28.78,2.99-42.16-1.03-11.48-3.46-17.45-13.67-15.5-25.14Z",
+    ],
+    rotate: 45,
   },
   {
     label: "OVERDRIVE",
-    render: (ctx, size) => {
-      ctx.save();
-      ctx.translate(size / 2, size / 2);
-      ctx.scale(size / 30, size / 30);
-      ctx.translate(-15, -15);
-      ctx.fillStyle = "#fff";
-      ctx.beginPath();
-      ctx.moveTo(15, 3);
-      ctx.lineTo(20, 14);
-      ctx.lineTo(16.5, 14);
-      ctx.lineTo(20, 27);
-      ctx.lineTo(10, 13);
-      ctx.lineTo(13.5, 13);
-      ctx.closePath();
-      ctx.fill();
-      ctx.restore();
-    },
+    paths: [
+      "M15 3 L20 14 L16.5 14 L20 27 L10 13 L13.5 13 Z",
+    ],
   },
   {
     label: "COMPRESSION",
-    render: (ctx, size) => {
-      ctx.save();
-      ctx.translate(size / 2, size / 2);
-      ctx.scale(size / 30, size / 30);
-      ctx.translate(-15, -15);
-      ctx.strokeStyle = "#fff";
-      ctx.lineWidth = 2.6;
-      ctx.lineCap = "round";
-      ctx.lineJoin = "round";
-      // Left converging arrow
-      ctx.beginPath();
-      ctx.moveTo(5, 9);
-      ctx.lineTo(11, 15);
-      ctx.lineTo(5, 21);
-      ctx.stroke();
-      // Right converging arrow
-      ctx.beginPath();
-      ctx.moveTo(25, 9);
-      ctx.lineTo(19, 15);
-      ctx.lineTo(25, 21);
-      ctx.stroke();
-      // Center divider
-      ctx.beginPath();
-      ctx.moveTo(13, 15);
-      ctx.lineTo(17, 15);
-      ctx.stroke();
-      ctx.restore();
-    },
+    paths: [
+      "M5 9 L11 15 L5 21",
+      "M25 9 L19 15 L25 21",
+      "M13 15 L17 15",
+    ],
   },
   {
     label: "PREAMP",
-    render: (ctx, size) => {
-      ctx.save();
-      ctx.translate(size / 2, size / 2);
-      ctx.scale(size / 30, size / 30);
-      ctx.translate(-15, -15);
-      ctx.strokeStyle = "#fff";
-      ctx.lineWidth = 2;
-      // outer rounded rect
-      roundRect(ctx, 3, 5, 24, 20, 3.5);
-      ctx.stroke();
-      // inner circle
-      ctx.beginPath();
-      ctx.arc(15, 15, 7, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.restore();
-    },
+    paths: [
+      // Rounded rect outline (box)
+      "M 6.5 5 L 23.5 5 Q 27 5 27 8.5 L 27 21.5 Q 27 25 23.5 25 L 6.5 25 Q 3 25 3 21.5 L 3 8.5 Q 3 5 6.5 5 Z",
+      // Inner circle
+      "M 22 15 A 7 7 0 0 1 8 15 A 7 7 0 0 1 22 15 Z",
+    ],
   },
   {
     label: "DELAY",
-    render: (ctx, size) => {
-      ctx.save();
-      ctx.translate(size / 2, size / 2);
-      ctx.scale(size / 30, size / 30);
-      ctx.translate(-15, -15);
-      ctx.strokeStyle = "#fff";
-      ctx.lineWidth = 2.2;
-      ctx.lineCap = "round";
+    paths: [
       // Clock face
-      ctx.beginPath();
-      ctx.arc(15, 15, 11, 0, Math.PI * 2);
-      ctx.stroke();
+      "M 26 15 A 11 11 0 0 1 4 15 A 11 11 0 0 1 26 15 Z",
       // Minute hand (up)
-      ctx.beginPath();
-      ctx.moveTo(15, 8);
-      ctx.lineTo(15, 15);
-      ctx.stroke();
+      "M 15 8 L 15 15",
       // Hour hand (down-right)
-      ctx.beginPath();
-      ctx.moveTo(15, 15);
-      ctx.lineTo(20, 18);
-      ctx.stroke();
-      // Center dot
-      ctx.beginPath();
-      ctx.arc(15, 15, 1.6, 0, Math.PI * 2);
-      ctx.fillStyle = "#fff";
-      ctx.fill();
-      ctx.restore();
-    },
+      "M 15 15 L 20 18",
+    ],
   },
   {
     label: "MIC",
-    render: (ctx, size) => {
-      ctx.save();
-      ctx.translate(size / 2, size / 2);
-      ctx.scale(size / 30, size / 30);
-      ctx.translate(-15, -15);
-      ctx.strokeStyle = "#fff";
-      ctx.lineWidth = 2;
-      ctx.lineCap = "round";
-      // Capsule
-      roundRect(ctx, 11.5, 3, 7, 14, 3.5);
-      ctx.stroke();
-      // Base arc
-      ctx.beginPath();
-      ctx.moveTo(7, 14);
-      ctx.quadraticCurveTo(7, 23, 15, 23);
-      ctx.quadraticCurveTo(23, 23, 23, 14);
-      ctx.stroke();
-      // Stem + foot
-      ctx.beginPath();
-      ctx.moveTo(15, 23);
-      ctx.lineTo(15, 27);
-      ctx.moveTo(10, 27);
-      ctx.lineTo(20, 27);
-      ctx.stroke();
-      ctx.restore();
-    },
+    paths: [
+      // Capsule (the w=7, rx=3.5 makes a pure capsule shape)
+      "M 15 3 Q 11.5 3 11.5 6.5 L 11.5 13.5 Q 11.5 17 15 17 Q 18.5 17 18.5 13.5 L 18.5 6.5 Q 18.5 3 15 3 Z",
+      // Base arc (stand cradle)
+      "M 7 14 Q 7 23 15 23 Q 23 23 23 14",
+      // Stem
+      "M 15 23 L 15 27",
+      // Foot
+      "M 10 27 L 20 27",
+    ],
   },
 ];
 
-function roundRect(
-  ctx: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  w: number,
-  h: number,
-  r: number
-) {
-  ctx.beginPath();
-  ctx.moveTo(x + r, y);
-  ctx.lineTo(x + w - r, y);
-  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-  ctx.lineTo(x + w, y + h - r);
-  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-  ctx.lineTo(x + r, y + h);
-  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-  ctx.lineTo(x, y + r);
-  ctx.quadraticCurveTo(x, y, x + r, y);
-  ctx.closePath();
-}
-
 /**
- * Sample an icon into exactly `count` normalised (x, y) target
- * positions in the range -0.5..0.5. Renders the icon to an
- * offscreen canvas, scans opaque pixels, then subsamples or wraps
- * so every icon yields the same number of points (so the same
- * dot list can morph between icons with no orphan dots).
+ * Sample an icon's outline into exactly `count` normalised (x, y)
+ * points in the range -0.5..0.5. Uses SVG getPointAtLength so dots
+ * are distributed evenly along the outline rather than inside the
+ * filled area. Matches Google Antigravity's contour-tracing dots.
+ *
+ * All outputs are auto-normalised to fit a 0.9 × 0.9 bounding box
+ * centered at (0,0), so simple and complex icons fill the same
+ * target region regardless of native SVG coordinates or rotation.
  */
 function sampleIconTargets(
   icon: IconDef,
-  rasterSize: number,
   count: number
 ): { x: number; y: number }[] {
-  const off = document.createElement("canvas");
-  off.width = rasterSize;
-  off.height = rasterSize;
-  const ctx = off.getContext("2d");
-  if (!ctx) return [];
-  icon.render(ctx, rasterSize);
-  const data = ctx.getImageData(0, 0, rasterSize, rasterSize).data;
-  const points: { x: number; y: number }[] = [];
-  for (let y = 0; y < rasterSize; y++) {
-    for (let x = 0; x < rasterSize; x++) {
-      const idx = (y * rasterSize + x) * 4;
-      const a = data[idx + 3];
-      if (a > 64) {
-        points.push({
-          x: x / rasterSize - 0.5,
-          y: y / rasterSize - 0.5,
-        });
+  if (typeof document === "undefined") {
+    return new Array(count).fill({ x: 0, y: 0 });
+  }
+
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNS, "svg");
+  // getTotalLength needs the element to be rendered, so we park the
+  // SVG off-screen with zero dimensions.
+  svg.setAttribute("width", "0");
+  svg.setAttribute("height", "0");
+  svg.style.position = "absolute";
+  svg.style.left = "-99999px";
+  svg.style.top = "0";
+  svg.style.visibility = "hidden";
+  document.body.appendChild(svg);
+
+  try {
+    const pathEls: SVGPathElement[] = icon.paths.map((d) => {
+      const p = document.createElementNS(svgNS, "path");
+      p.setAttribute("d", d);
+      svg.appendChild(p);
+      return p;
+    });
+
+    const lengths = pathEls.map((p) => p.getTotalLength());
+    const totalLen = lengths.reduce((a, b) => a + b, 0);
+    if (totalLen === 0) {
+      return new Array(count).fill({ x: 0, y: 0 });
+    }
+
+    // Distribute `count` points along the combined path length.
+    const raw: { x: number; y: number }[] = [];
+    for (let i = 0; i < count; i++) {
+      const t = (i + 0.5) / count;
+      let dist = t * totalLen;
+      for (let j = 0; j < pathEls.length; j++) {
+        if (dist <= lengths[j] || j === pathEls.length - 1) {
+          const pt = pathEls[j].getPointAtLength(Math.min(dist, lengths[j]));
+          raw.push({ x: pt.x, y: pt.y });
+          break;
+        }
+        dist -= lengths[j];
       }
     }
-  }
-  if (points.length === 0) return new Array(count).fill({ x: 0, y: 0 });
 
-  // Resample to exactly `count` points. Even spacing through the
-  // source point list — if count > points.length we wrap.
-  const out: { x: number; y: number }[] = [];
-  for (let i = 0; i < count; i++) {
-    const ratio = i / count;
-    const srcIdx = Math.floor(ratio * points.length);
-    out.push(points[srcIdx % points.length]);
+    // Apply rotation if specified
+    const rot = icon.rotate ? (icon.rotate * Math.PI) / 180 : 0;
+    if (rot !== 0) {
+      // Rotate around the centroid for a balanced look
+      let sumX = 0;
+      let sumY = 0;
+      for (const p of raw) {
+        sumX += p.x;
+        sumY += p.y;
+      }
+      const cx = sumX / raw.length;
+      const cy = sumY / raw.length;
+      const cos = Math.cos(rot);
+      const sin = Math.sin(rot);
+      for (const p of raw) {
+        const dx = p.x - cx;
+        const dy = p.y - cy;
+        p.x = cx + dx * cos - dy * sin;
+        p.y = cy + dx * sin + dy * cos;
+      }
+    }
+
+    // Auto-normalise: compute the bounding box of the sampled points
+    // and scale them to fit a 0.9 × 0.9 square centered at (0,0).
+    // Preserves aspect ratio.
+    let minX = Infinity;
+    let maxX = -Infinity;
+    let minY = Infinity;
+    let maxY = -Infinity;
+    for (const p of raw) {
+      if (p.x < minX) minX = p.x;
+      if (p.x > maxX) maxX = p.x;
+      if (p.y < minY) minY = p.y;
+      if (p.y > maxY) maxY = p.y;
+    }
+    const spanX = maxX - minX || 1;
+    const spanY = maxY - minY || 1;
+    const span = Math.max(spanX, spanY);
+    const cx = (minX + maxX) / 2;
+    const cy = (minY + maxY) / 2;
+    const scale = 0.9 / span;
+
+    return raw.map((p) => ({
+      x: (p.x - cx) * scale,
+      y: (p.y - cy) * scale,
+    }));
+  } finally {
+    svg.remove();
   }
-  return out;
 }
 
 type Dot = {
@@ -386,7 +345,7 @@ export default function HeroV4() {
       // active dot gets a target for every icon in the cycle.
       const activeCount = activePositions.length;
       const perIcon: { x: number; y: number }[][] = ICONS.map((icon) => {
-        const pts = sampleIconTargets(icon, 220, activeCount);
+        const pts = sampleIconTargets(icon, activeCount);
         return pts.map((p) => ({
           x: slotCx + p.x * iconRenderSize,
           y: slotCy + p.y * iconRenderSize,
