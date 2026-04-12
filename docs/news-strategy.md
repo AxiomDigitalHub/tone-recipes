@@ -1,8 +1,38 @@
 # Fader & Knob: News Feature Strategy
 
-**Date:** March 29, 2026
-**Status:** Proposal
-**Audience:** Guitar players who own digital modelers (Helix, Quad Cortex, TONEX, Kemper, Fractal, Boss Katana)
+**Date:** March 29, 2026 (updated April 12, 2026)
+**Status:** Active — daily-news-check task runs against this
+**Audience:** Guitar players who own digital modelers at ANY price point
+
+## April 2026 Update: Expanded Scope
+
+The news scope was expanded from 6 premium modeler brands to 13+
+brands across all price points, plus pedal and amp launches. Key
+additions:
+
+**Budget modeler brands added:**
+- Mooer (GE300, GE200, Preamp Live)
+- Valeton (GP-200, GP-100)
+- Hotone (Ampero II, Ampero Mini)
+- NUX (MG-30, MG-400)
+- Donner (Arena 2000)
+- Harley Benton (DNAfx GiT)
+- HeadRush (MX5, Pedalboard, Gigboard)
+
+**Pedal brands added for launch coverage:**
+JHS, Walrus Audio, Strymon, Boss, EHX, MXR, Wampler, Chase Bliss,
+Eventide, Source Audio, TC Electronic
+
+**Editorial rules:**
+- ALWAYS cover: firmware updates + new product launches (any price)
+- SOMETIMES cover: creator findings that affect gear (cover the
+  finding, not the video), price drops, industry events
+- NEVER cover: other creators' content as news, gear drama, anything
+  where F&K is just a middleman to someone else's traffic
+
+**Writer assignments by topic:** see daily-news-check scheduled task
+
+---
 
 ---
 
