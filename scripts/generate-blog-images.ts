@@ -1,132 +1,178 @@
 /**
- * Generate AI hero images for blog posts using Replicate (Flux 1.1 Pro).
+ * Generate AI hero images for blog posts using the moodboard system.
  *
- * Usage: npx tsx scripts/generate-blog-images.ts
+ * Usage: npx tsx scripts/generate-blog-images.ts [--dry-run] [--slug=some-post]
  *
- * Generates a unique image for each blog post that doesn't already have
- * a local image in public/images/blog/. Saves as WebP, updates frontmatter.
+ * How it works:
+ * 1. Scans content/blog/*.mdx for posts missing a local hero image
+ * 2. Reads `author_slug` from frontmatter → looks up the author's
+ *    assigned moodboard in moodboards.json
+ * 3. Fills the moodboard's prompt_template with a subject derived
+ *    from the post title (or from SUBJECT_OVERRIDES if one exists)
+ * 4. Calls Replicate (Flux 2 Pro by default, Nano Banana Pro for
+ *    editorial_white) to generate the image
+ * 5. Saves to public/images/blog/<slug>.jpg and updates frontmatter
+ *
+ * Cost: ~$0.055/image (Flux 2 Pro). A full run of 50 missing images
+ * costs ~$2.75. Budget accordingly.
+ *
+ * Environment:
+ *   REPLICATE_API_TOKEN — required
+ *   FK_MODEL — optional override (e.g. google/nano-banana-pro)
  */
 
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
+/* -------------------------------------------------------------------------- */
+/*  Config                                                                     */
+/* -------------------------------------------------------------------------- */
+
 const API_TOKEN = process.env.REPLICATE_API_TOKEN;
+const DEFAULT_MODEL = process.env.FK_MODEL ?? "black-forest-labs/flux-2-pro";
+const EDITORIAL_WHITE_MODEL = "google/nano-banana-pro"; // Flux trips safety on white bg
+
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 const IMAGE_DIR = path.join(process.cwd(), "public", "images", "blog");
+const MOODBOARDS_PATH = path.join(process.cwd(), "scripts", "moodboards.json");
 
 if (!API_TOKEN) {
-  console.error("REPLICATE_API_TOKEN not set");
+  console.error("❌ REPLICATE_API_TOKEN not set. Export it or add to .env.local");
   process.exit(1);
 }
 
-// Post-specific image prompts based on content
-const POST_PROMPTS: Record<string, string> = {
-  // Settings guides
-  "tube-screamer-settings-guide": "Close-up product photograph of a green Ibanez Tube Screamer overdrive pedal on a dark wooden surface, warm amber lighting, shallow depth of field, knobs visible",
-  "big-muff-settings-guide": "Close-up product photograph of a Big Muff Pi fuzz pedal with its distinctive enclosure, dramatic side lighting, dark background",
-  "boss-ds1-settings-guide": "Close-up of an orange Boss DS-1 distortion pedal on a pedalboard, patch cables connected, stage lighting",
-  "klon-centaur-settings-guide": "Close-up of a gold Klon Centaur overdrive pedal, pristine condition, studio product photography, warm lighting",
-  "rat-pedal-settings-guide": "Close-up of a ProCo RAT distortion pedal, gritty texture, dramatic low-key lighting, dark background",
-  "jcm800-settings-guide": "Marshall JCM800 amplifier head close-up showing the front panel controls and logo, warm tube glow visible, dark studio environment",
+/* -------------------------------------------------------------------------- */
+/*  Load moodboards + build author→mood map                                    */
+/* -------------------------------------------------------------------------- */
 
-  // Platform/modeler posts
-  "helix-vs-quad-cortex-vs-kemper": "Three guitar modeler units arranged on a dark surface, professional studio lighting, top-down angle, cables and footswitches visible",
-  "helix-vs-quad-cortex": "Two guitar multi-effects processors side by side on a pedalboard, stage lighting with blue and amber tones",
-  "best-helix-amp-models-blues": "Blues guitarist's hands on a Stratocaster neck with a multi-effects pedalboard glowing below, warm amber stage lighting",
-  "best-katana-settings-tube-amp": "Boss Katana guitar amplifier in a bedroom studio setting, guitar leaning against it, warm cozy lighting",
-  "quad-cortex-preset-from-scratch": "Touchscreen guitar modeler showing a signal chain layout, fingers about to tap, modern studio desk",
-  "quad-cortex-captures-vs-models": "Guitar modeler unit with touchscreen display next to a real tube amplifier, split lighting showing digital vs analog",
-  "best-modeler-under-500": "Collection of affordable guitar modelers and multi-effects pedals arranged on a wooden table, budget-friendly gear, bright studio lighting",
-  "line-6-helix-family-compared": "Multiple Line 6 Helix products arranged largest to smallest on a dark surface, product lineup photograph",
-  "best-frfr-speakers-for-modelers": "FRFR powered speaker on a stage next to a guitar modeler pedalboard, concert venue setting, dramatic stage lighting",
-  "frfr-vs-guitar-cab-for-modelers": "Split image concept: FRFR flat response speaker on one side and traditional guitar cabinet on the other, studio setting",
+interface Moodboard {
+  prompt_template: string;
+  authors: string[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
+}
 
-  // Signal chain / theory
-  "signal-chain-order-guide": "Guitar effects pedals arranged in a signal chain line on a pedalboard, cables connecting them in order, overhead angle, studio lighting",
-  "effects-loop-explained": "Back panel of a guitar amplifier showing effects loop send and return jacks with cables connected, close-up detail shot",
-  "4-wire-method-explained": "Guitar amplifier connected to a multi-effects processor with four cables running between them, studio setting, clear cable routing visible",
-  "beginner-signal-chains": "Simple guitar pedalboard with just three pedals (overdrive, delay, reverb) on a clean pedalboard, beginner-friendly setup, bright lighting",
-  "overdrive-vs-distortion-vs-fuzz": "Three guitar drive pedals side by side showing different gain types, from clean overdrive to heavy fuzz, moody lighting",
-  "impulse-response-ir-guide": "Guitar speaker cabinet with a microphone positioned in front of it, recording studio setting, professional mic placement",
-  "guitar-eq-guide": "Close-up of an equalizer section on a guitar amplifier or mixing console, frequency knobs and sliders visible, warm studio lighting",
+const moodboards: Record<string, Moodboard> = JSON.parse(
+  fs.readFileSync(MOODBOARDS_PATH, "utf-8")
+);
 
-  // Artist tones
-  "david-gilmour-pink-floyd-tone": "Vintage Fender Stratocaster in black with rosewood fretboard, next to effects pedals including a Big Muff and delay, atmospheric lighting",
-  "hendrix-fuzz-tone-recipe": "Vintage Stratocaster with a Fuzz Face pedal and wah pedal on a dark stage, psychedelic colored lighting",
-  "john-mayer-clean-tone-settings": "Clean Fender Stratocaster and a Fender amplifier in a warm studio setting, soft natural lighting, acoustic room treatment visible",
-  "metallica-rhythm-tone-settings": "Heavy metal guitar rig with a dark ESP/Gibson style guitar and high-gain amplifier stack, aggressive red and black lighting",
-  "srv-tone-on-helix": "Vintage Stratocaster with heavy string gauge, Texas blues vibe, worn frets, Tube Screamer pedal nearby, warm amber tones",
-  "the-edge-delay-settings": "Guitar pedalboard focused on multiple delay pedals with dotted eighth note settings, ethereal blue lighting, atmospheric",
-  "worship-guitar-tone-helix": "Worship guitarist's pedalboard with ambient effects (reverb, delay, shimmer), church stage setting, soft purple and white lighting",
-  "modern-worship-guitar-tone-helix": "Modern church stage with ambient guitar rig, haze and soft colored lighting, pedalboard with expression pedal",
-  "worship-pedalboard-guide": "Complete worship guitar pedalboard laid out with labeled sections (dynamics, drive, modulation, delay, reverb), clean organized setup",
-  "acdc-rhythm-tone-recipe": "Gibson SG guitar leaning against a Marshall amplifier stack, rock and roll stage setting, powerful lighting",
-  "radiohead-creep-tone-recipe": "Fender Telecaster with a distortion pedal on a minimalist pedalboard, moody alternative rock lighting",
-  "shoegaze-wall-of-sound-recipe": "Massive pedalboard covered in reverb and fuzz pedals, dreamy ethereal lighting with haze, shoegaze atmosphere",
+// Reverse map: author_slug → first moodboard key that lists them
+const AUTHOR_TO_MOOD: Record<string, string> = {};
+for (const [moodKey, mood] of Object.entries(moodboards)) {
+  if (moodKey.startsWith("_") || !mood.authors) continue;
+  for (const author of mood.authors) {
+    if (!AUTHOR_TO_MOOD[author]) AUTHOR_TO_MOOD[author] = moodKey;
+  }
+}
 
-  // Quick fixes / workflow
-  "fix-thin-modeler-tone": "Guitar modeler screen showing EQ settings being adjusted, close-up of the display with fingers tweaking parameters",
-  "why-modeler-tone-sounds-fizzy": "Close-up of high-frequency EQ knob being turned down on a guitar amplifier, warm vs harsh tone concept",
-  "how-to-dial-in-modeler-tone": "Guitarist sitting with a modeler and headphones, dialing in settings on the unit, focused bedroom studio setting",
-  "solo-patch-volume-drop-fix": "Guitar pedalboard with a volume boost pedal highlighted/glowing, live stage setting, spotlight effect",
-  "why-delay-sounds-muddy": "Delay pedal with wet and dry signal concept, clean vs muddy visualization, studio setting",
-  "how-to-remove-60-cycle-hum": "Electric guitar pickups close-up showing single coil vs humbucker, technical detail shot, studio lighting",
-  "gain-staging-drop-tunings": "Heavy gauge guitar strings on a down-tuned guitar, close-up of the bridge and thick strings, dark metal aesthetic",
+/* -------------------------------------------------------------------------- */
+/*  Subject overrides — short noun phrases for posts where the auto-derived    */
+/*  subject from the title wouldn't produce a good image.                      */
+/* -------------------------------------------------------------------------- */
 
-  // Gear guides
-  "complete-guide-guitar-amp-types": "Four different guitar amplifier types arranged together: tube combo, solid state head, modeling unit, and hybrid amp, studio showcase",
-  "pickup-position-guide": "Close-up of guitar pickup selector switch between neck and bridge positions, showing the pickups below, detailed macro shot",
-  "modeler-vs-tube-amp-shootout": "Guitar modeler facing off against a vintage tube amplifier, dramatic split lighting, versus comparison concept",
-  "what-is-a-tone-recipe": "Beautiful recipe card layout concept for guitar tone settings, like a cooking recipe but for guitar, clean design, warm lighting",
-  "500-dollar-gigging-rig": "Complete budget gigging guitar rig on a stage: affordable guitar, small modeler, cables, all under stage lights",
-  "500-rig-challenge-two-approaches": "Two different guitar rigs side by side showing different budget approaches, comparison setup on a stage",
-  "20-minute-practice-session": "Guitar practice setup at home: guitar on a stand, small amp, timer showing 20 minutes, cozy room lighting",
-
-  // New posts
-  "andy-timmons-lead-tone-recipe": "Gibson Les Paul with a clean tube amp setup, expressive lead guitar tone concept, warm vintage studio lighting",
-  "nashville-session-clean-tele-compressor": "Fender Telecaster in butterscotch blonde with a compressor pedal, Nashville recording studio setting, warm professional lighting",
+const SUBJECT_OVERRIDES: Record<string, string> = {
+  "tube-screamer-settings-guide": "a green Ibanez Tube Screamer overdrive pedal with its knobs visible",
+  "big-muff-settings-guide": "a Big Muff Pi fuzz pedal with its distinctive enclosure",
+  "boss-ds1-settings-guide": "an orange Boss DS-1 distortion pedal on a pedalboard with patch cables",
+  "klon-centaur-settings-guide": "a gold Klon Centaur overdrive pedal in pristine condition",
+  "rat-pedal-settings-guide": "a ProCo RAT distortion pedal with gritty texture",
+  "jcm800-settings-guide": "a Marshall JCM800 amplifier head showing the front panel controls and logo",
+  "helix-vs-quad-cortex-vs-kemper": "three guitar modeler units arranged on a dark surface",
+  "helix-vs-quad-cortex": "two guitar multi-effects processors side by side on a pedalboard",
+  "david-gilmour-pink-floyd-tone": "a vintage black Fender Stratocaster next to a Big Muff and delay pedal",
+  "hendrix-fuzz-tone-recipe": "a vintage Stratocaster with a Fuzz Face and wah pedal on a dark stage",
+  "john-mayer-clean-tone-settings": "a clean Fender Stratocaster and Fender amplifier in a warm studio",
+  "metallica-rhythm-tone-settings": "a dark ESP guitar and high-gain amplifier stack with aggressive lighting",
+  "srv-tone-on-helix": "a vintage Stratocaster with heavy string gauge and a Tube Screamer pedal",
+  "the-edge-delay-settings": "a guitar pedalboard with multiple delay pedals in ethereal blue lighting",
+  "worship-guitar-tone-helix": "a worship guitarist's pedalboard with ambient effects on a church stage",
+  "acdc-rhythm-tone-recipe": "a Gibson SG leaning against a Marshall amplifier stack",
+  "shoegaze-wall-of-sound-recipe": "a massive pedalboard covered in reverb and fuzz pedals with haze",
+  "signal-chain-order-guide": "guitar effects pedals arranged in a signal chain on a pedalboard",
+  "overdrive-vs-distortion-vs-fuzz": "three guitar drive pedals side by side showing different gain types",
+  "complete-guide-guitar-amp-types": "four different guitar amplifier types arranged together in a studio",
 };
 
-// Default prompt for posts not in the map
-const DEFAULT_PROMPT = "Professional photograph of a guitar pedalboard with various effects pedals in a recording studio, warm amber lighting, shallow depth of field, dark wood surface";
+/**
+ * Derive a subject string from the post title when no override exists.
+ * Strips common suffixes and prepends "a composition illustrating".
+ */
+function subjectFromTitle(title: string): string {
+  const cleaned = title
+    .replace(/\s*[-—:]\s*.+$/, "") // drop subtitle after dash/colon
+    .replace(/\s*\(.*?\)\s*/g, "") // drop parentheticals
+    .trim();
+  return `a composition illustrating "${cleaned}"`;
+}
 
-async function generateImage(prompt: string): Promise<string> {
-  const fullPrompt = `${prompt}, photorealistic, professional photography, 16:9 aspect ratio, high quality`;
+/* -------------------------------------------------------------------------- */
+/*  Replicate API helpers                                                      */
+/* -------------------------------------------------------------------------- */
 
-  // Start prediction
-  const res = await fetch("https://api.replicate.com/v1/predictions", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${API_TOKEN}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      version: "black-forest-labs/flux-1.1-pro",
-      input: { prompt: fullPrompt, aspect_ratio: "16:9" },
-    }),
-  });
+async function generateImage(
+  prompt: string,
+  model: string
+): Promise<string> {
+  // Build the payload — schema differs between Flux and Nano Banana
+  const input: Record<string, unknown> = model.startsWith("black-forest-labs/flux")
+    ? { prompt, aspect_ratio: "16:9", output_format: "jpg", safety_tolerance: 2 }
+    : { prompt, aspect_ratio: "16:9", resolution: "2K", output_format: "jpg", allow_fallback_model: true };
 
-  const prediction = await res.json();
-  const predictionId = prediction.id;
-  console.log(`  Started prediction ${predictionId}`);
+  // Start prediction with retry-on-throttle
+  let predictionId = "";
+  for (let attempt = 0; attempt < 8; attempt++) {
+    const res = await fetch(
+      `https://api.replicate.com/v1/models/${model}/predictions`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${API_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ input }),
+      }
+    );
+
+    const body = await res.json();
+
+    if (body.id) {
+      predictionId = body.id;
+      break;
+    }
+
+    // Throttled — wait and retry
+    const retryAfter = body.retry_after ?? 10;
+    console.log(`  ...throttled, waiting ${retryAfter}s (attempt ${attempt + 1}/8)`);
+    await new Promise((r) => setTimeout(r, retryAfter * 1000));
+  }
+
+  if (!predictionId) {
+    throw new Error("Failed to start prediction after 8 attempts");
+  }
+
+  console.log(`  Prediction ${predictionId} started`);
 
   // Poll for completion
   for (let i = 0; i < 60; i++) {
-    await new Promise((r) => setTimeout(r, 2000));
+    await new Promise((r) => setTimeout(r, 3000));
     const check = await fetch(
       `https://api.replicate.com/v1/predictions/${predictionId}`,
       { headers: { Authorization: `Bearer ${API_TOKEN}` } }
     );
     const status = await check.json();
+
     if (status.status === "succeeded") {
-      return status.output;
+      const output = status.output;
+      if (Array.isArray(output)) return output[0];
+      if (typeof output === "string") return output;
+      throw new Error("Unexpected output format");
     }
     if (status.status === "failed") {
       throw new Error(`Prediction failed: ${status.error}`);
     }
   }
-  throw new Error("Prediction timed out");
+  throw new Error("Prediction timed out after 3 minutes");
 }
 
 async function downloadImage(url: string, filepath: string): Promise<void> {
@@ -135,52 +181,98 @@ async function downloadImage(url: string, filepath: string): Promise<void> {
   fs.writeFileSync(filepath, buffer);
 }
 
-async function main() {
-  // Get all blog posts
-  const files = fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith(".mdx"));
+/* -------------------------------------------------------------------------- */
+/*  Main                                                                       */
+/* -------------------------------------------------------------------------- */
 
+async function main() {
+  const args = process.argv.slice(2);
+  const dryRun = args.includes("--dry-run");
+  const singleSlug = args.find((a) => a.startsWith("--slug="))?.split("=")[1];
+
+  // Ensure output directory exists
+  if (!fs.existsSync(IMAGE_DIR)) {
+    fs.mkdirSync(IMAGE_DIR, { recursive: true });
+  }
+
+  const files = fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith(".mdx"));
   console.log(`Found ${files.length} blog posts`);
 
   let generated = 0;
   let skipped = 0;
+  let errors = 0;
 
   for (const file of files) {
     const slug = file.replace(/\.mdx$/, "");
-    const imagePath = path.join(IMAGE_DIR, `${slug}.webp`);
 
-    // Skip if image already exists
-    if (fs.existsSync(imagePath)) {
-      console.log(`[skip] ${slug} — image exists`);
+    // Single-slug mode
+    if (singleSlug && slug !== singleSlug) continue;
+
+    // Skip if .jpg already exists
+    const imagePath = path.join(IMAGE_DIR, `${slug}.jpg`);
+    if (fs.existsSync(imagePath) && !singleSlug) {
       skipped++;
       continue;
     }
 
-    const prompt = POST_PROMPTS[slug] ?? DEFAULT_PROMPT;
+    // Read frontmatter
+    const mdxPath = path.join(BLOG_DIR, file);
+    const raw = fs.readFileSync(mdxPath, "utf-8");
+    const { data, content } = matter(raw);
+
+    // Look up moodboard from author_slug
+    const authorSlug: string = data.author_slug ?? "";
+    const moodKey = AUTHOR_TO_MOOD[authorSlug] ?? "nocturnal_studio";
+    const mood = moodboards[moodKey];
+
+    if (!mood?.prompt_template) {
+      console.warn(`  ⚠ No prompt_template for mood "${moodKey}" — skipping ${slug}`);
+      errors++;
+      continue;
+    }
+
+    // Build the subject
+    const subject = SUBJECT_OVERRIDES[slug] ?? subjectFromTitle(data.title ?? slug);
+
+    // Fill the template
+    const prompt = mood.prompt_template.replace(/SUBJECT_PLACEHOLDER/g, subject);
+
+    // Pick the model (editorial_white → Nano Banana, everything else → Flux 2 Pro)
+    const model = moodKey === "editorial_white" ? EDITORIAL_WHITE_MODEL : DEFAULT_MODEL;
+
     console.log(`[gen] ${slug}`);
-    console.log(`  Prompt: ${prompt.substring(0, 80)}...`);
+    console.log(`  Author: ${authorSlug || "(none)"} → mood: ${moodKey}`);
+    console.log(`  Model: ${model}`);
+    console.log(`  Subject: ${subject.substring(0, 60)}...`);
+
+    if (dryRun) {
+      console.log(`  [dry-run] Would generate image`);
+      generated++;
+      continue;
+    }
 
     try {
-      const imageUrl = await generateImage(prompt);
+      const imageUrl = await generateImage(prompt, model);
       await downloadImage(imageUrl, imagePath);
-      console.log(`  Saved: ${imagePath}`);
+      const size = (fs.statSync(imagePath).size / 1024).toFixed(0);
+      console.log(`  ✓ Saved: ${imagePath} (${size}KB)`);
 
-      // Update frontmatter
-      const mdxPath = path.join(BLOG_DIR, file);
-      const raw = fs.readFileSync(mdxPath, "utf-8");
-      const { data, content } = matter(raw);
-      data.image = `/images/blog/${slug}.webp`;
-      data.image_alt = prompt.split(",")[0]; // First clause as alt text
+      // Update frontmatter to point to local image
+      data.image = `/images/blog/${slug}.jpg`;
+      data.image_alt = subject.split(",")[0];
       const updated = matter.stringify(content, data);
       fs.writeFileSync(mdxPath, updated);
-      console.log(`  Updated frontmatter`);
 
       generated++;
     } catch (err) {
-      console.error(`  ERROR: ${err}`);
+      console.error(`  ✗ ERROR: ${err}`);
+      errors++;
     }
   }
 
-  console.log(`\nDone! Generated: ${generated}, Skipped: ${skipped}`);
+  console.log(`\n${"=".repeat(50)}`);
+  console.log(`Done! Generated: ${generated}, Skipped: ${skipped}, Errors: ${errors}`);
+  console.log(`Estimated cost: ~$${(generated * 0.055).toFixed(2)}`);
 }
 
 main().catch(console.error);
