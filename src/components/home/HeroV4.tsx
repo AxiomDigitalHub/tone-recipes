@@ -249,9 +249,17 @@ const DOT_RADIUS = 2.2;
 // grid spacing so it scales with the viewport.
 const GRAVITY_RADIUS_CELLS = 4.5;
 const GRAVITY_MAX_PULL_CELLS = 0.85;
-// Full rotation period for the grid around the icon slot. "Slow"
-// per user direction — 90s ≈ 4°/second.
-const ROTATION_PERIOD_MS = 90_000;
+// Per-icon colors matching NODE_COLORS from the shared NodeIcon
+// module. Each phase tints the coalescing dots in the icon's
+// category color instead of a uniform amber.
+const ICON_COLORS: string[] = [
+  "#d4a853", // GUITAR — gold
+  "#4ade80", // OVERDRIVE — green
+  "#f472b6", // COMPRESSION — fuschia/pink
+  "#f87171", // PREAMP — red
+  "#60a5fa", // DELAY — blue
+  "#94a3b8", // MIC — silver/grey
+];
 
 export default function HeroV4() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -269,7 +277,7 @@ export default function HeroV4() {
     radius: 0,
     maxPull: 0,
   });
-  // Slot center is the rotation pivot for the grid.
+  // Slot center for icon formation. Stored by buildDots on resize.
   const slotCenterRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const rafRef = useRef<number | undefined>(undefined);
   const [reduceMotion, setReduceMotion] = useState(false);
@@ -463,14 +471,15 @@ export default function HeroV4() {
       // Ease so the "peak" at 0.5 feels like it lingers.
       const coalesce = easeInOutCubic(Math.max(0, Math.min(1, rawCoalesce)));
 
-      // Dot color warms with coalescence. On dark bg we run LIGHT
-      // on both axes — a soft blue-grey at idle that brightens into
-      // a warm amber at peak coalescence.
-      const hue = 220 - coalesce * 185;       // 220 → 35 (blue → amber)
-      const sat = 25 + coalesce * 70;          // 25  → 95
-      const light = 72 - coalesce * 2;         // 72  → 70 (high on both)
-      const alpha = 0.5 + coalesce * 0.48;     // 0.5 → 0.98
-      ctx.fillStyle = `hsla(${hue}, ${sat}%, ${light}%, ${alpha})`;
+      // Dot color: idle dots are a neutral blue-grey. As coalescence
+      // increases, dots fade into the current icon's category color
+      // (gold for guitar, fuschia for compression, etc.).
+      // Idle base: rgb(160, 175, 200) ≈ desaturated blue-grey.
+      const baseR = 160;
+      const baseG = 175;
+      const baseB = 200;
+      const idleAlpha = 0.5;
+      const peakAlpha = 0.98;
 
       // Mouse gravity: pull grid dots toward the cursor within a
       // falloff radius. Applied equally to static and active-idle
@@ -479,17 +488,14 @@ export default function HeroV4() {
       const { radius: gRadius, maxPull: gMaxPull } = gravityRef.current;
       const hasMouse = mouse.x > -Infinity && gRadius > 0;
 
-      // Grid rotation around the icon slot. The whole grid — including
-      // icon targets — rotates together so forming shapes appear to
-      // rotate with their surrounding dots.
-      const rotAngle = reduceMotion
-        ? 0
-        : ((performance.now() % ROTATION_PERIOD_MS) / ROTATION_PERIOD_MS) *
-          Math.PI *
-          2;
-      const rCos = Math.cos(rotAngle);
-      const rSin = Math.sin(rotAngle);
-      const slot = slotCenterRef.current;
+      // Per-icon color. At idle (coalesce=0) dots are the neutral
+      // blue-grey. At peak (coalesce=1) they take on the icon's
+      // category color from ICON_COLORS. We parse the hex once per
+      // frame and interpolate.
+      const iconHex = ICON_COLORS[phaseIdx] ?? "#f59e0b";
+      const ir = parseInt(iconHex.slice(1, 3), 16);
+      const ig = parseInt(iconHex.slice(3, 5), 16);
+      const ib = parseInt(iconHex.slice(5, 7), 16);
 
       const now = performance.now();
       for (let i = 0; i < dots.length; i++) {
@@ -500,44 +506,28 @@ export default function HeroV4() {
         const jx = Math.sin(d.seed * 0.73 + now / d.driftFreqX) * 2.4;
         const jy = Math.cos(d.seed * 0.91 + now / d.driftFreqY) * 2.4;
 
-        // Rotate the idle position around the slot center.
-        const ridx = d.idleX - slot.x;
-        const ridy = d.idleY - slot.y;
-        const rotIdleX = slot.x + ridx * rCos - ridy * rSin;
-        const rotIdleY = slot.y + ridx * rSin + ridy * rCos;
-
-        // Base position: rotated grid for static, lerp to rotated
-        // icon target for active.
+        // Base position: grid for static, lerp to icon target for active.
         let baseX: number;
         let baseY: number;
         let jitterBlend: number;
         if (!d.iconTargets) {
-          baseX = rotIdleX;
-          baseY = rotIdleY;
+          baseX = d.idleX;
+          baseY = d.idleY;
           jitterBlend = 1;
         } else {
           const target = d.iconTargets[phaseIdx];
           if (!target) continue;
-          const rtx = target.x - slot.x;
-          const rty = target.y - slot.y;
-          const rotTargetX = slot.x + rtx * rCos - rty * rSin;
-          const rotTargetY = slot.y + rtx * rSin + rty * rCos;
-          baseX = rotIdleX + (rotTargetX - rotIdleX) * coalesce;
-          baseY = rotIdleY + (rotTargetY - rotIdleY) * coalesce;
-          // At peak coalescence, drift + gravity should be mostly
-          // suppressed so the icon reads cleanly.
+          baseX = d.idleX + (target.x - d.idleX) * coalesce;
+          baseY = d.idleY + (target.y - d.idleY) * coalesce;
           jitterBlend = 1 - coalesce;
         }
 
-        // Mouse gravity: attract the dot toward the cursor with a
-        // quadratic falloff. Computed against the dot's ROTATED idle
-        // position so the effect feels spatially correct. Scaled by
-        // jitterBlend so forming icons are not disturbed.
+        // Mouse gravity: attract toward cursor with quadratic falloff.
         let gpx = 0;
         let gpy = 0;
         if (hasMouse) {
-          const mdx = mouse.x - rotIdleX;
-          const mdy = mouse.y - rotIdleY;
+          const mdx = mouse.x - d.idleX;
+          const mdy = mouse.y - d.idleY;
           const mdist = Math.hypot(mdx, mdy);
           if (mdist < gRadius && mdist > 0.01) {
             const falloff = 1 - mdist / gRadius;
@@ -550,8 +540,16 @@ export default function HeroV4() {
         const x = baseX + (jx + gpx) * jitterBlend;
         const y = baseY + (jy + gpy) * jitterBlend;
 
-        // Smaller dot radius — r=2.2. The prior 2.8 was visibly
-        // moire-prone on the regular lattice.
+        // Per-dot color: blend from idle blue-grey to the icon's
+        // category color based on how formed this dot is.
+        // Static dots always stay at idle color. Active dots blend.
+        const dotCoalesce = d.iconTargets ? coalesce : 0;
+        const r = Math.round(baseR + (ir - baseR) * dotCoalesce);
+        const g = Math.round(baseG + (ig - baseG) * dotCoalesce);
+        const b = Math.round(baseB + (ib - baseB) * dotCoalesce);
+        const a = idleAlpha + (peakAlpha - idleAlpha) * dotCoalesce;
+        ctx.fillStyle = `rgba(${r},${g},${b},${a})`;
+
         ctx.beginPath();
         ctx.arc(x, y, DOT_RADIUS, 0, Math.PI * 2);
         ctx.fill();
