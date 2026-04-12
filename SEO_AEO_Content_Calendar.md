@@ -613,3 +613,49 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 | 3 | Wampler Tumnus Deluxe vs. Klon KTR: Is the Circuit Still Worth the Price Gap? | "wampler tumnus deluxe vs klon ktr," "is the klon ktr worth it," "klon ktr alternative" | Margot Thiessen | 5 — Gear Lab | Timmy vs. Tumnus SERP — the Tumnus Deluxe comparison creates a natural next question: once you've added a second tone control, how does it compare to the original KTR? The KTR's price ($450 to $600 used) vs. the Tumnus Deluxe ($200 new) is a real buying question; Margot is the voice for nuanced character comparison between high-investment and mid-investment options |
 | 4 | The DIY Pedal Starter Guide: What You Actually Need to Build Your First Overdrive | "diy guitar pedal beginner," "how to build guitar pedal," "first diy pedal build" | Carl Beckett | 3 — Signal Chain & Tone Theory | Shredmaster clone SERP — the Aion FX Solstice is positioned as a first build in the Shredmaster post; the natural follow-on is a guide that covers what you actually need (iron wattage, solder type, enclosure sourcing) without the usual overcomplicated tool lists that drive beginners away; Carl's plain-spoken approach and respect for practical constraints make this his most useful potential post |
 | 5 | Boss SD-1 Mod Guide: Three Changes That Make the Super Overdrive Actually Good | "boss sd-1 mod," "super overdrive mod," "sd-1 mod circuit" | Jess Kowalski | 3 — Signal Chain & Tone Theory | SD-1 vs BD-2 SERP — the SD-1's modification culture is mentioned in the comparison post; a dedicated mod guide covers the three most impactful changes (input cap, clipping diodes, output cap) with specific component values and estimated improvement; Jess's hands-on approach and respect for budget gear makes this uniquely hers; clusters with the SD-1 vs BD-2 post and the DS-1 mod post |
+
+## SERP Analysis — 2026-04-11 (Posts Published Today)
+
+### Posts published: nothing-the-great-dismal, buffer-vs-true-bypass-looper, tumnus-deluxe-vs-klon-ktr, diy-pedal-starter-guide, sd1-mod-guide
+
+**nothing the great dismal guitar tone:**
+- SERP dominated by Wikipedia, Bandcamp, RateYourMusic, CVLT Nation review, Sweetwater generic shoegaze guide
+- No editorial piece addresses *The Great Dismal*'s specific tone settings or Will Yip's hip-hop compression approach
+- Gap confirmed: The Nothing discography now has two posts (*Tired of Tomorrow* + *The Great Dismal*); MBV *Loveless* is the major cluster opportunity left
+- PAA signal: "what pedals does nothing band use?" "how do you make shoegaze guitar sound heavy?" — high intent, zero editorial supply
+
+**buffer vs true bypass looper:**
+- SERP includes Guitar Gear Finder, MusicRadar, Guitar World, BOSS articles, Gilmourish
+- All focus on true bypass vs. buffered bypass in general — none address the specific "buffer OR looper, which problem do I have?" decision framework
+- Gap confirmed: the practical decision tool is absent; forum guidance conflates both problems
+- PAA signal: "do i need a buffer pedal" "what does a true bypass looper do" — consistently high PAA volume
+
+**wampler tumnus deluxe vs klon ktr:**
+- MusicRadar comparison covers Tumnus vs. original Centaur but not the Deluxe vs. KTR
+- Guitar World "best Klon clones" roundup doesn't do a direct Deluxe vs. KTR comparison with specific settings
+- Wampler's own blog compares original Tumnus to Centaur — dated and not the Deluxe
+- Gap confirmed: no editorial piece compares Tumnus Deluxe (3-band EQ version) vs. KTR specifically
+- PAA signal: "is the wampler tumnus deluxe worth it" "klon ktr vs tumnus" — strong buying-intent signal
+
+**diy guitar pedal beginner build:**
+- Guitar Lobby, Guitar World, Guitar Gear Finder all have guides with comprehensive (overcomplicated) tool lists
+- Most recommend $100+ tool setups before accounting for the actual build
+- Aion FX Solstice and PedalPCB are mentioned but not positioned as "start here" builds
+- Gap confirmed: a plain-spoken, minimum-viable-tools approach without hobbyist overcomplification does not exist editorially
+- PAA signal: "what tools do i need to build a guitar pedal" "easiest guitar pedal to build" — high beginner intent
+
+**boss sd-1 mod guide:**
+- Keeley's own product page, DIY Stompboxes forum, FreeStompboxes forum, Guitar Pedal X cover this
+- All sources are either commercial (Keeley product page) or community forum — no editorial guide with specific component values
+- Gap confirmed: no editorial piece documents the three core mods (C3, diodes, C11) with exact component values and cost
+- PAA signal: "boss sd-1 mod worth it" "how to mod boss sd-1" — high intent from SD-1 owners
+
+## SERP-Derived Topics — 2026-04-11
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | My Bloody Valentine *Loveless* Tone: Kevin Shields' Wall of Sound Blueprint | "my bloody valentine loveless guitar tone," "kevin shields shoegaze pedalboard," "mbv wall of sound settings" | Dev Okonkwo | 1 — Tone Recipes | The Great Dismal SERP + Nothing SERP — *Loveless* is the single most-referenced shoegaze record in every competitor guide, yet no editorial piece documents Kevin Shields' actual circuit architecture (tremolo arm + stereo chorus + pitch-shifted layers) with buildable settings; Sweetwater's generic shoegaze guide dominates but lacks specifics; completing the shoegaze cluster anchor would drive backlinks from all shoegaze content clusters |
+| 2 | Boss Pedal Mods Compared: BD-2, DS-1, and SD-1 — Which Is the Most Worth Modding? | "boss pedal mods which is best," "ds-1 vs sd-1 mod comparison," "best boss pedal to mod" | Jess Kowalski | 5 — Gear Lab | SD-1 mod SERP + DS-1 Keeley mod SERP — now that we have individual mod guides for DS-1 and SD-1, a comparative hub post answering "which Boss pedal is the most worth modding for a player on a budget?" fills the natural cluster anchor role; Reverb and forum data confirm this is a recurring question with no editorial answer |
+| 3 | How to Get Good Tone Through In-Ear Monitors: The Live Guitarist's Problem | "guitar tone in ear monitors," "iem mix guitar," "helix into in ears worship" | Nathan Cross | 4 — Modeler Masterclass | Worship/modeler cluster — in-ear monitors have replaced stage wedges at a majority of modern worship venues, but no editorial piece addresses the specific tone adjustments required (no room reflections, different EQ profile, headphone-style sensitivity); this is one of the most-asked questions in worship guitarist forums but has zero editorial coverage; Nathan's weekly live service context makes this uniquely authentic |
+| 4 | Peavey 5150 / EVH 6505 Settings Guide: Every Style From Clean to Crushing | "peavey 5150 settings," "evh 6505 settings guide," "5150 amp settings high gain" | Viktor Kessler | 2 — Settings Guides | High-gain cluster — the 5150/6505 is the most common high-gain amp in metal and hard rock and is referenced in the djent, Misha Mansoor, and Metallica-adjacent content; Guitar World has a gear history piece but no settings guide exists editorially; the amp's two-channel design, the resonance/presence controls, and the specific settings for tight palm mutes vs. lead clarity are completely undocumented in editorial form |
+| 5 | The Looper Pedal as a Compositional Tool (Not Just a Practice Device) | "looper pedal composition technique," "using looper pedal for songwriting," "boss rc-5 composition tips" | Dev Okonkwo | 3 — Signal Chain & Tone Theory | Signal chain cluster — loop pedals appear across multiple existing posts but are never the primary subject; the compositional use of a looper (layering chord voicings, building texture maps, using the loop as a rhythmic canvas rather than a backing track) is a distinct skill set with no editorial guide; Dev's compositional orientation and interest in layered textures makes him the natural voice; cross-links with shoegaze wall-of-sound content, ambient guitar content, and the Effects Loop guide |
