@@ -14,7 +14,7 @@ import { isSupabaseConfigured, createBrowserClient } from "@/lib/db/client";
 /*  Types                                                                     */
 /* -------------------------------------------------------------------------- */
 
-export type UserRole = "free" | "premium" | "creator" | "admin";
+export type UserRole = "free" | "premium" | "creator" | "admin" | "super_admin";
 
 export interface AuthUser {
   id: string;

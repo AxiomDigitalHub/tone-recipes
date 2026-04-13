@@ -145,19 +145,19 @@ export default function AdminDashboard() {
             </h2>
             <div className="flex flex-wrap gap-3">
               <Link
-                href="/admin/recipes/new"
+                href="/dashboard/admin/recipes/new"
                 className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
               >
                 + New Recipe
               </Link>
               <Link
-                href="/admin/recipes"
+                href="/dashboard/admin/recipes"
                 className="rounded-lg border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-surface-hover"
               >
                 Manage Recipes
               </Link>
               <Link
-                href="/admin/moderation"
+                href="/dashboard/admin/moderation"
                 className="rounded-lg border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-surface-hover"
               >
                 Moderation Queue

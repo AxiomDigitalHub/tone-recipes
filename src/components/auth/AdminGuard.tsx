@@ -4,18 +4,17 @@ import { useAuth } from "@/lib/auth/auth-context";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
+const ADMIN_ROLES = new Set(["admin", "super_admin"]);
+
 /**
- * Wraps admin pages with a real role check. Redirects to /login if
- * not authenticated, and to / if authenticated but not admin.
- *
- * The middleware already blocks unauthenticated requests from loading
- * admin pages, but that's a cookie-existence check (necessary but not
- * sufficient). This component enforces the actual role === "admin"
- * requirement after the auth context has hydrated.
+ * Wraps admin pages with a real role check. Only super_admin and
+ * admin roles can access. Redirects to /login if not authenticated,
+ * and to /dashboard if authenticated but not an admin role.
  */
 export default function AdminGuard({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
   const router = useRouter();
+  const isAdmin = user && ADMIN_ROLES.has(user.role);
 
   useEffect(() => {
     if (loading) return;
@@ -23,8 +22,8 @@ export default function AdminGuard({ children }: { children: React.ReactNode }) 
       router.replace("/login");
       return;
     }
-    if (user.role !== "admin") {
-      router.replace("/");
+    if (!ADMIN_ROLES.has(user.role)) {
+      router.replace("/dashboard");
     }
   }, [user, loading, router]);
 
@@ -36,8 +35,8 @@ export default function AdminGuard({ children }: { children: React.ReactNode }) 
     );
   }
 
-  if (!user || user.role !== "admin") {
-    return null; // Will redirect via useEffect
+  if (!isAdmin) {
+    return null;
   }
 
   return <>{children}</>;

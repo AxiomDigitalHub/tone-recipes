@@ -37,11 +37,10 @@ export function middleware(request: NextRequest) {
   }
 
   // ---- Admin route protection ----
-  // Block /admin routes if no Supabase auth cookie exists.
-  // The admin page components also check client-side auth + role,
+  // Block /dashboard/admin routes if no auth cookie exists. The
+  // AdminGuard component does the real role check (super_admin/admin),
   // but this prevents unauthenticated users from even loading the page.
-  if (request.nextUrl.pathname.startsWith("/admin")) {
-    // Supabase stores auth in cookies with this prefix pattern
+  if (request.nextUrl.pathname.startsWith("/dashboard/admin")) {
     const hasAuthCookie = request.cookies.getAll().some(
       (c) => c.name.includes("auth-token") || c.name.includes("sb-")
     );

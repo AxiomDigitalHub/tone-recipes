@@ -12,6 +12,7 @@ import {
   LogOut,
   ChefHat,
   Bell,
+  Shield,
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
@@ -26,6 +27,9 @@ const NAV_ITEMS = [
   { href: "/dashboard/notifications", label: "Notifications", icon: Bell },
   { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ] as const;
+
+const ADMIN_NAV = { href: "/dashboard/admin", label: "Super Admin", icon: Shield };
+const ADMIN_ROLES = new Set(["admin", "super_admin"]);
 
 /* -------------------------------------------------------------------------- */
 /*  Shell                                                                     */
@@ -120,6 +124,21 @@ export default function DashboardShell({
                 </Link>
               );
             })}
+
+            {/* Super Admin link — only visible to admin/super_admin roles */}
+            {user && ADMIN_ROLES.has(user.role) && (
+              <Link
+                href={ADMIN_NAV.href}
+                className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  pathname.startsWith(ADMIN_NAV.href)
+                    ? "bg-red-500/15 text-red-400"
+                    : "text-red-400/60 hover:bg-surface-hover hover:text-red-400"
+                }`}
+              >
+                <ADMIN_NAV.icon className="h-4 w-4 shrink-0" />
+                {ADMIN_NAV.label}
+              </Link>
+            )}
           </nav>
 
           {/* Sign out */}

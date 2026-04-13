@@ -100,6 +100,21 @@ export const TIERS: Record<UserRole, TierConfig> = {
       comments: true,
     },
   },
+  super_admin: {
+    label: "Super Admin",
+    price: null,
+    features: ["Full access", "Moderation tools", "User management", "System configuration"],
+    limits: {
+      savedRecipes: -1,
+      platformTranslations: true,
+      downloadPresets: true,
+      submitRecipes: true,
+      recipeAnalytics: true,
+      adFree: true,
+      forumPost: true,
+      comments: true,
+    },
+  },
 };
 
 /* -------------------------------------------------------------------------- */
