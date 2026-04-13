@@ -1,0 +1,188 @@
+---
+title: 'Looper + Delay + Reverb Without Muddiness: Setting the Order and Parameters'
+description: >-
+  How to position your looper in the signal chain with delay and reverb, and the
+  specific parameter settings that keep layered loops clean instead of a wall of
+  indistinct noise.
+date: '2026-04-13'
+author: Dev Okonkwo
+author_slug: dev-okonkwo
+category: signal-chain
+tags:
+  - looper
+  - delay
+  - reverb
+  - signal-chain
+  - ambient
+  - layering
+  - bedroom-producer
+  - composition
+readingTime: 9 min
+image: /images/blog/looper-delay-reverb-signal-chain.jpg
+image_alt: a composition illustrating "Looper + Delay + Reverb Without Muddiness"
+---
+
+> **Start Here:** The reason your looper-plus-reverb setup sounds muddy is almost always one of three things: the looper is capturing the reverb tail rather than the dry signal, the reverb decay is longer than your loop length, or you have too much low-mid frequency content accumulating across layers. The solution isn't a better pedal — it's chain position and parameter discipline. Here's the exact setup.
+
+| Position | Device | Why |
+|---|---|---|
+| 1 | Guitar |  |
+| 2 | Drive / modulation |  |
+| 3 | Delay | Captured in loop with its repeats |
+| 4 | **Looper** | Records everything above; plays back dry-ish |
+| 5 | Reverb | Applied to the loop playback, not baked in |
+| 6 | Amp / interface |  |
+
+---
+
+## The Core Problem: What the Looper Is Actually Recording
+
+A looper records whatever signal hits its input. If your reverb is before the looper, the looper records the reverbed signal — every time the loop plays back, it plays the reverb that was baked in at recording time. As you add overdubs, each new layer adds more reverb on top of the previously reverbed signal. Four overdubs in and you're playing through a wall of tails.
+
+This is the mud problem. It's not about bad reverb settings. It's about what the looper captures.
+
+The fix is to position the reverb *after* the looper. The looper records a relatively dry (or moderately delayed) signal; the reverb then applies to the combined playback and live guitar simultaneously. Everyone — your loop and your current playing — lives in the same reverb space. It sounds cohesive and it doesn't accumulate.
+
+I spent weeks chasing this with Valhalla Supermassive before realizing it wasn't a plugin problem. It was a signal-flow problem. Moving the reverb after the looper in Ableton's routing fixed it in ten minutes. The principle is the same whether you're in a DAW or on a pedalboard.
+
+---
+
+## The Delay Question: Before or After the Looper?
+
+This is the genuinely interesting one because both positions work, but they do different things.
+
+### Delay Before Looper (My Default)
+
+When delay is before the looper, the looper captures the dry guitar note plus its delay repeats. This means when the loop plays back, the recorded repeats play back too — the delay is embedded in the loop.
+
+This is good for: rhythmic delay patterns (dotted eighths, quarter-note echoes) where the timing of the repeats is part of the phrase. The loop plays back the phrase with its rhythmic structure intact. Adding new layers on top doesn't interfere with the delay timing.
+
+The watch-out: if your delay has a long feedback setting and lots of repeats, those repeats accumulate in the loop and get louder on each playback. Keep Feedback at 20-35% when using delay-before-looper. Higher than that and your fifth loop playback is louder than your first.
+
+### Delay After Looper
+
+When delay is after the looper, the delay applies to the loop playback and your live playing simultaneously. The effect is that the entire loop sits in a shared delay space — sounds more unified but you lose the ability to have the delay timing embedded in specific layers.
+
+This is good for: ambient, texturally-focused work where you want all layers to feel like they're happening in the same physical space. If you're building pads and texture maps rather than rhythmic patterns, after-looper delay is cleaner.
+
+### The Hybrid Approach (What I Actually Do)
+
+In a DAW setup: delay return is sent to both the loop track and the output. Each layer records dry, but the delay is applied to the mix bus. On a pedalboard, you can approximate this with a stereo delay (one output to looper, one output to the mix) but it gets complicated.
+
+For most players: **delay before looper** is the simpler, more controllable choice. Just keep the feedback low.
+
+---
+
+## Reverb Parameters for Loop Work
+
+This is where the specific numbers matter, and the general advice ("use reverb tastefully") fails.
+
+### Decay Time
+
+Decay is the most critical parameter. If your loop length is 8 bars at 90 BPM, that's about 21 seconds. A reverb with a 6-second decay is still ringing when the loop restarts — the tail from the last cycle bleeds into the new cycle. Each restart sounds muddier than the last.
+
+**Rule: Keep reverb decay at less than 50% of your loop length for clean separation.**
+
+For an 8-bar loop at 90 BPM (21 seconds), keep decay under ~10 seconds. For a 4-bar loop at the same tempo, under ~5 seconds.
+
+This is the parameter I see players ignore most. They set a beautiful 12-second Valhalla shimmer, then build a 16-second loop and wonder why it sounds like soup by the third overdub.
+
+| Loop Length | Maximum Recommended Decay |
+|---|---|
+| 4 bars at 70 BPM | 8.5 seconds |
+| 4 bars at 90 BPM | 6.7 seconds |
+| 8 bars at 70 BPM | 17 seconds |
+| 8 bars at 90 BPM | 13 seconds |
+| 16 bars at 90 BPM | 26 seconds |
+
+### Mix (Wet/Dry)
+
+For loop work, keep reverb mix at 25-40% wet. Higher than that and you start obscuring the attack transients that give the loop its rhythmic structure — particularly important if you have any percussive elements or muted strums in the loop.
+
+Valhalla Supermassive at 30% mix with a 4-6 second decay on a Medium Hall is the starting point I return to constantly for loop-oriented work. It's present without blurring.
+
+### Pre-Delay
+
+Pre-delay is underused in this context. A 20-40ms pre-delay on the reverb creates a slight separation between the dry attack and the reverb bloom. This keeps the transients clean and audible while still giving the sustain a large space.
+
+Without pre-delay: the reverb starts on the pick attack, making everything sound like it's 15 feet away.
+
+With 25ms pre-delay: the pick attack is forward and clear, the reverb bloom follows, the space feels real.
+
+---
+
+## Low-Frequency Accumulation: The Invisible Mud Problem
+
+Here's what nobody talks about in loop guides: every time you add an overdub, the low-frequency content in the loop adds together. This is particularly bad with chord layers.
+
+A single chord voicing has, say, -12dB of low-mid content (250-500 Hz). After four overdubs of similar chord voicings, that low-mid content is now -6dB — significantly louder. After eight overdubs, it's potentially clipping. And low-mid buildup is exactly what makes a loop sound like mud.
+
+**Three tools to manage this:**
+
+1. **High-pass your overdubs.** If your guitar has a tone knob, roll it back for dense chord layers. It sounds counterintuitive — you lose warmth on a single layer — but it prevents accumulation. The fundamental warmth comes from the first (cleanest) layer; later layers fill out the texture without adding more low-mid energy.
+
+2. **Use an EQ before the looper.** A simple high-pass at 120-150 Hz on all but the lowest-register parts prevents the frequency buildup. This is especially important if you're layering open chord voicings with a lot of low-E and A string content.
+
+3. **Vary the register of each layer.** Instead of stacking four similar voicings, put your foundation chord in the lower register, your second layer in the middle register, your third layer higher. The frequency content spreads across the spectrum rather than piling in the same band.
+
+This is how the Khruangbin sound stays clean across multiple loop layers — Mark Speer's technique involves deliberate register separation. You're hearing three or four distinct frequency bands, not four versions of the same chord.
+
+---
+
+## Platform-Specific Notes
+
+### Pedalboard Setup
+
+The simplest three-pedal loop rig:
+
+```
+Guitar → Delay (Boss DD series, TC Flashback, or similar) 
+  → Looper (Boss RC-1, RC-5, or EHX 720)
+  → Reverb (Boss RV-6, Strymon Big Sky, Valhalla SuperMassive via modeler)
+  → Amp
+```
+
+Delay settings for this chain: keep Feedback at 25%, Time at a musical subdivision (quarter note or dotted eighth for rhythmic work), Mix at 20-30%.
+
+Reverb settings: Decay well under your loop length (see table above), Mix at 25-35%, Pre-delay at 20-30ms.
+
+### DAW / Plugin Setup (Ableton, Logic)
+
+In a DAW, you have more flexibility. Send architecture lets you apply reverb and delay globally rather than inline, which is actually more flexible than a pedal chain.
+
+My recommended routing in Ableton:
+- Guitar (dry) → Audio Track 1
+- Audio Track 1 → Send A (Delay, 20% wet) + Send B (Reverb, 15% wet)
+- Looper captures Audio Track 1 (dry or lightly delayed, depending on preference)
+- Looper output → Audio Track 2
+- Audio Track 2 → Same Send A and Send B buses
+
+Result: both live playing and loop playback sit in the same shared reverb and delay space. Loop layers don't accumulate their own reverb — they share the room.
+
+### Modeler (Helix, Quad Cortex)
+
+On a Helix or Quad Cortex, use parallel routing. Create a parallel path:
+- Path A: Guitar → Drive → Delay (with low Feedback) → Looper
+- Path B: Split from before the Looper, Looper output only → Reverb
+- Merge both paths before the output
+
+This is more complex to set up but gives you the clearest separation. The delay is embedded in the loop; the reverb is applied to the loop output and your live signal through a parallel path.
+
+---
+
+## FAQ
+
+**Why does my loop sound quieter after I engage the reverb?**
+The reverb is absorbing some of the transient energy and spreading it over time, which lowers the perceived peak level. Compensate by increasing the looper's output level, or by slightly boosting the dry signal in the reverb's wet/dry mix.
+
+**Can I put the looper in the effects loop of my amp?**
+Yes, and for live use this is often cleaner — the looper captures the preamp signal (including overdrive) but the power amp and speaker handle the actual reproduction, which keeps the loop playback responsive to the amp's character. However, you lose the ability to put reverb after the looper in the signal chain (since the effects loop is after the preamp). For ambient work, looper-in-front-of-amp with reverb last tends to sound better.
+
+**How do I keep my loop from drifting out of time?**
+Tempo drift in loops is almost always a recording timing issue, not a playback issue. Record your first layer with a metronome or click, even if you're not using one live. Once the first layer is locked in, subsequent layers will track naturally. Most modern loopers (RC-5, RC-10R) have built-in rhythm tracks that eliminate the drift problem entirely.
+
+**What's the maximum number of layers before it gets muddy?**
+This depends entirely on your frequency management. Four layers of open guitar chords in the same register will be muddy at layer two. Four layers of careful register separation and high-passed voicings can be clean at layer six or seven. The limiting factor is low-mid accumulation, not some maximum number of layers.
+
+**Should the delay's repeats continue after I stop a layer?**
+Yes, if delay is before the looper — the repeats are part of the phrase and play back with the loop. No, if delay is after the looper — in this case you'd want a mode where the delay trails off rather than cutting (most delays have a "bypass with tails" option). Abrupt delay cutoffs when you're working in a reverb-heavy ambient context break the continuity you're trying to build.

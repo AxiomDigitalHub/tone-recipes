@@ -708,3 +708,54 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 | 3 | Looper + Delay + Reverb Without Muddiness: Setting the Order and Parameters | "looper pedal with reverb and delay," "guitar looper signal chain," "loop pedal reverb settings" | Dev Okonkwo | 3 — Signal Chain & Tone Theory | Looper composition SERP — "how do I add reverb to my loop without it sounding muddy?" is the most common follow-on question in every looper discussion; the interaction between loop feedback, reverb decay, and delay repeats in a layered context is not documented editorially; Dev's frequency-architecture approach is the right frame |
 | 4 | IEM Mix for Guitarists: Should You Add Compression to Your Personal Monitor Mix? | "guitar compression in iem mix," "should i add compression to guitar monitor mix," "iem guitar mix compression" | Nathan Cross | 4 — Modeler Masterclass | IEM SERP — "do I need compression on guitar in IEM mixes?" appears as a top PAA question with zero editorial answers; the case for compression in IEMs (exposed dynamics, clinical feel) vs. against (killing pick dynamics, adding latency) is a legitimate debate Nathan can resolve from weekly live service experience |
 | 5 | What Makes the Waza Craft BD-2W Worth It (and for Whom) | "bd-2w vs bd-2 is it worth it," "boss blues driver waza upgrade," "bd-2w waza review" | Jess Kowalski | 5 — Gear Lab | Boss mods SERP — the BD-2W is the natural follow-on from the mods comparison post; "is the BD-2W worth the upgrade?" PAA question appears consistently in BD-2 results; a direct settings comparison (Standard mode vs. Custom mode, same amp and guitar) from Jess's budget-first perspective fills the gap; cross-links with the mods comparison and Blues Driver settings guide |
+
+## SERP Analysis — 2026-04-13 (Posts Published Today)
+
+### Posts published: tremolo-arm-techniques, peavey-5150-bedroom-volume, looper-delay-reverb-signal-chain, iem-mix-guitar-compression, bd2w-waza-craft-worth-it
+
+**tremolo arm technique guitar glide flutter dive bomb:**
+- SERP dominated by Wikipedia (Vibrato systems for guitar), Grokipedia dive bomb article, MusicRadar best trem systems roundup, VegaTrem brand site, and owningafender.com Strat setup guide
+- No editorial piece provides a technique-first guide (what your hands do) organized by bridge type — all existing content is either bridge hardware reviews or isolated technique explanations without cross-system context
+- MBV / Kevin Shields glide technique is referenced in Sound on Sound production guides but never as an actionable instruction with bridge-specific setup guidance
+- PAA signal: "how do I do a flutter on guitar?" "what is the tremolo arm for?" "can you dive bomb on a Strat?" — all answered in our post; none have clean editorial answers
+- Gap confirmed: our post is the only editorial guide that combines technique taxonomy, bridge comparison table, and practical setup parameters in one place
+
+**peavey 5150 bedroom volume sounds thin low volume:**
+- SERP dominated by Peavey official forum (viewtopic threads), sevenstring.org, JemSite forum, ampgarage.com — all forum content only
+- No editorial piece from any major guitar publication addresses the 5150's bedroom volume behavior
+- Forum advice is fragmented: "back off the preamp," "use an attenuator," "it just sounds bad quiet" — none explain the Resonance/Presence mechanics at low power levels
+- PAA signal: "why does my 5150 sound fizzy at low volume?" "5150 bedroom settings" "evh 6505 home use" — all high-intent queries with zero editorial coverage
+- Gap confirmed: our post is the first editorial guide with the power-section physics explained and specific Resonance/Presence adjustments for bedroom use
+
+**looper pedal reverb delay signal chain order muddiness:**
+- SERP includes BOSS articles (signal chain guide), Strymon blog, Wampler blog, ProSoundHQ, and Roland AU blog — all cover general signal chain order
+- All sources address the broad question of reverb vs. delay order but none specifically address the looper placement problem (reverb baked into the loop vs. applied after)
+- The low-frequency accumulation problem across loop layers is completely absent from all editorial sources
+- Wampler blog has a "reverb into delay vs. delay into reverb" piece from 2019 but doesn't address looper integration
+- PAA signal: "should looper go before or after reverb?" "why does my loop sound muddy?" "looper pedal placement" — our post addresses all three directly
+- Gap confirmed: the looper-specific chain problem (as distinct from the general reverb/delay order question) has no editorial coverage; our post is the first to address it with specific parameter guidance
+
+**guitar compression IEM monitor mix worship:**
+- SERP includes Worship Online (two blog posts on IEM mixing), ProSoundWeb, Allen & Heath community forum, TalkBass threads — none address the guitarist-specific question of whether to add compression to the personal mix
+- Worship Online content addresses IEM mixing broadly but explicitly recommends against desk compression on guitar — confirms our editorial position but provides no parameter guidance or nuanced situational analysis
+- Guitar World, Premier Guitar, and other major outlets are completely absent from this SERP — confirms the editorial gap
+- PAA signal: "do I need compression in my IEM mix?" "how to get a good guitar tone in IEMs?" "IEM mix for worship guitar" — all with no clean editorial answers
+- Gap confirmed: our post is the only editorial piece with the for/against framework, specific settings, and the balance/EQ diagnosis that's usually the actual problem
+
+**boss blues driver bd-2w waza craft worth it comparison:**
+- SERP includes TDPRI forum (Keeley vs. Waza thread), Equipboard gear page, guitar.com review, guitarpedaldemos.com review, Sweetwater customer reviews, High Point Music AU blog, and PedalPCB circuit analysis forum
+- Guitar.com has a review but it's a listicle review format with no structured settings comparison or use-case decision framework
+- The circuit difference (op-amp vs. discrete) is confirmed in the PedalPCB thread and guitar.com review but never explained in player-facing editorial language
+- TDPRI forum thread confirms "is the BD-2W worth upgrading to from the BD-2?" is a frequently asked question without a structured editorial answer
+- PAA signal: "is the bd-2w worth it?" "bd-2 vs bd-2w sound difference?" "boss blues driver waza custom mode explained" — all answered in our post
+- Gap confirmed: no editorial piece provides a use-case decision framework (primary dirt vs. secondary pedal) or specific settings comparisons in both Standard and Custom modes
+
+## SERP-Derived Topics — 2026-04-13
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | Floyd Rose Setup for Players Who Hate Setup: The Three Numbers That Matter | "floyd rose setup guide," "floyd rose tuning stability," "floyd rose beginner setup" | Rick Dalton | 3 — Signal Chain & Tone Theory | Tremolo arm SERP — Floyd Rose setup dominates the "can you dive bomb on a Strat?" PAA thread; every result is either manufacturer documentation or Reddit debates; no editorial guide positions the setup around the three key specs (spring count, knife-edge height, intonation pivot) that determine whether the system works reliably; Rick's practical, anti-fussiness voice is the right frame for a technique that most players overcomplicate |
+| 2 | Reactive vs. Resistive Attenuators: What the Difference Actually Sounds Like | "reactive attenuator vs resistive," "best power attenuator tube amp," "fryette power station vs two notes captor" | Viktor Kessler | 4 — Modeler Masterclass | 5150 bedroom volume SERP — the attenuator recommendation appeared in every forum thread; the distinction between reactive (Fryette Power Station, Two Notes Captor X) and resistive (simple pad-style) attenuators is mentioned in Sweetwater descriptions but never explained editorially in player terms; Viktor's ability to explain transfer function behavior in plain technical language makes this definitively his |
+| 3 | Stacking Reverbs: When Two Reverb Blocks Sound Better Than One | "stacking reverbs guitar," "two reverb pedals together," "reverb stacking technique" | Dev Okonkwo | 3 — Signal Chain & Tone Theory | Looper delay reverb SERP — stacking reverbs (room reverb into hall reverb, or pre-delay reverb into shimmer reverb) is referenced in the Looper post and the MBV Loveless post as an advanced technique; no editorial piece covers the specific parameter relationships (first reverb's decay matches second reverb's pre-delay) that make the technique work; Dev's frequency-architecture approach is the natural voice for a layered reverb technique guide |
+| 4 | Volume Swell Technique: Why Yours Sounds Wrong and How to Fix the Attack Timing | "guitar volume swell technique," "volume swell effect guitar," "volume swell timing fix" | Nathan Cross | 6 — Quick Fixes | IEM and worship SERP — volume swells are referenced in the IEM post and multiple worship posts; the specific timing problem (the swell starts too late or too early relative to the downbeat) is caused by pot taper, amp attack response, and picking technique interaction; Nathan's deep weekly experience with swells as a Sunday morning tool makes this uniquely his |
+| 5 | What BD-2 Clones Are Actually Worth It: Keeley, Analogman, and the DIY Options | "blues driver clone comparison," "bd-2 best mod," "best blues driver alternative" | Jess Kowalski | 5 — Gear Lab | BD-2W SERP — the Keeley mod appeared in the BD-2W comparison as an alternative; the broader clone/mod landscape (Keeley BD-2, Analogman BD-2, DIY builds from PedalPCB) has significant forum discussion but no structured editorial comparison; the "is the Keeley worth it vs. buying the Waza?" question is the natural follow-on buying question; Jess's practical-value methodology is the right voice
