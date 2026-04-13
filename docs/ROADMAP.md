@@ -1,6 +1,6 @@
 # Fader & Knob — Core Service Roadmap
 
-**Last updated:** April 9, 2026
+**Last updated:** April 13, 2026
 **Scope:** The core faderandknob.com service. *ToneTrace has its own roadmap at `TONETRACE_ROADMAP.md`.*
 
 ---
@@ -19,70 +19,128 @@ Everything else is growth strategy. These five things are the service.
 
 ---
 
-## MVP Definition — What Must Work for "Operational"
+## Current State (April 13, 2026)
 
-A customer can sign up, find a recipe, trust it, download a working preset, and pay us money. Every recipe loads. Every preset works. Every checkout completes.
+### What's Working ✅
 
-### ✅ Already Working
-- Recipe browse + search + detail pages (50 recipes)
-- Helix .hlx preset generation (tested on real Helix LT)
+**Core product:**
+- 50 tone recipes, all with 6 platform translations (Helix, QC, TONEX, Katana, Kemper, Fractal)
+- 116+ blog posts across 10 editorial voices with local hero images
+- 10 downloadable Helix .hlx presets (Volume Pedal, dual cab, proper HighCut/ER)
 - Boss Katana .tsl preset generation
-- Google OAuth + Supabase auth + user dashboard
-- Security hardening (webhook verification, rate limiting, admin auth, headers)
-- AI Transparency page + footer disclosure
-- Pricing page with new tier structure ($7/$12)
-- Worship Set Pack with Setlist Mapper
-- Signal chain visualization (animated nodes with cable)
-- 60+ blog posts across 5 editorial voices
+- Signal chain visualization (animated nodes)
+- Recipe browse + search + detail pages
 
-### 🔴 Blocking "Operational" (Must Fix This Week)
-- [ ] **Test Stripe checkout end-to-end with real test card** — we set the keys but haven't verified a dollar can flow through the system
-- [ ] **Run Supabase migration 015** — the `stripe_customer_id` and `stripe_subscription_id` columns don't exist on the profiles table yet, which means webhook writes will fail
-- [ ] **Regenerate Replicate API token and run blog image generation** — 54 blog posts have no hero images, making the site look unfinished
-- [ ] **Verify all 50 recipes actually load and display correctly** — spot-check after all the platform filter changes
+**Auth & payments:**
+- ✅ Google OAuth + Supabase auth + user dashboard
+- ✅ Stripe checkout (test mode verified, payment flows work)
+- ✅ Webhook handles subscription lifecycle (upgrade/downgrade)
+- ✅ `super_admin` role with protected `/dashboard/admin` route
+- ✅ Admin dashboard with live user metrics, content counts, recent sign-ups
 
-### 🟠 Critical Gaps to Trust (Week 2)
-- [ ] **Audio previews on recipe pages** — the single biggest trust gap. A guitarist can't tell if they want the preset without hearing it. Recording standard: same guitar, DI-only, 10-15 seconds. Host on Cloudflare R2 (free tier). MVP: just an audio element + play button. Start with the top 10 recipes.
-- [ ] **Email welcome sequence** — a customer who signs up should get confirmation + 5-day onboarding drip. Use Buttondown ($9/mo) or Resend (transactional).
-- [ ] **Error handling on download failures** — what happens if the preset generation throws? Right now it probably 500s.
+**Security (bug audit completed April 12):**
+- ✅ AdminGuard with role check (super_admin/admin only)
+- ✅ DownloadPatchButton auth-gated (premium/creator/admin)
+- ✅ Forum reply_count atomic increment via Supabase RPC
+- ✅ Stripe webhook userId fallback (lookup by stripe_customer_id)
+- ✅ Email templates HTML-escaped (XSS prevention)
+- ✅ PDF download works regardless of newsletter opt-in
+- ✅ Geo-blocking (OFAC sanctioned countries)
+- ✅ Rate limiting (in-memory, sufficient for current scale)
+
+**Content pipeline (fully automated):**
+- ✅ Daily content production task — 5 posts/day with writer personality (MBTI, enneagram, formativeBands)
+- ✅ Daily news check — 13 modeler brands + 11 pedal brands monitored
+- ✅ Moodboard-driven image generation — 9 visual styles, 10 authors mapped
+- ✅ `generate-blog-images.ts` rewritten for Flux 2 Pro + moodboard system
+- ✅ SEO/AEO content calendar with 48+ prioritized topics
+
+**Preset quality (fixed April 12):**
+- ✅ All 50 Helix recipe cabs: dual mic (57 Dynamic + 121 Ribbon), LowCut 80, HighCut 12000, 60% Early Reflections
+- ✅ Volume Pedal at position 1 on all 50 Helix chains
+- ✅ Enter Sandman reference preset verified on real Helix LT hardware
+- ✅ 10 .hlx preset files batch-processed and shipping
+
+**Landing page:**
+- ✅ v3 (orbital signal arcs) — locked, best iteration
+- ✅ v4 (Antigravity-style dot matrix) — serial icon cycling, path-sampled, dark theme, per-icon category colors, Halton scatter, mouse gravity
+- ✅ Homepage: clean hero (headline → chain → CTA), no cable routing
+
+**Writer system:**
+- ✅ 10 writers with full identity: birthYear, formativeBands, favoriteSongs, MBTI, enneagram
+- ✅ All writers assigned to moodboards (no orphans)
+- ✅ All 116+ blog posts have author_slug (no unattributed content)
+
+**Analytics:**
+- 109 GA users in first 15 days (21 from organic search)
+- 29 sign-ups (26.6% conversion — strong)
+- 52 pricing page views (buying intent)
+- Thunderstruck is #1 recipe by views
+
+### 🔴 Blocking "Operational"
+
+- [ ] **Switch Stripe to live keys** — test mode works, need to flip `sk_test_` → `sk_live_`
+- [ ] **Customer Portal (Click-to-Cancel)** — FTC requirement before accepting real payments
+- [ ] **Audio previews on top 10 recipes** — biggest trust gap. Can't tell if you want the preset without hearing it.
+
+### 🟠 Critical Gaps (Next 2 Weeks)
+
+- [ ] **Email welcome sequence** — 29 sign-ups with no follow-up. Resend is configured for transactional; need Cloudflare Email Routing for inbound.
+- [ ] **Retention fix** — 1.7% week-over-week retention on the March 29 cohort. Need the newsletter ("Tone of the Week") and audio previews to give people a reason to come back.
+- [ ] **Budget brand recipe support** — Valeton GP-200 presets are technically viable (PRSTDecoder exists, JSON round-trip proven). Harley Benton DNAfx GiT also viable (open-source editor). Zero competition in these markets.
 
 ### 🟡 Catalog Depth (Weeks 2-4)
-The core service is weak at 50 recipes. Each paying customer will exhaust the catalog in a single session. Target: **100 recipes** before heavy marketing.
 
-- [ ] 20 worship recipes (highest-value ICP per research — Planning Center integration deferred)
+50 recipes is thin. Target: **100 recipes** before marketing push.
+
+- [ ] 20 worship recipes (highest-value ICP)
 - [ ] 15 classic rock recipes
 - [ ] 10 blues recipes
 - [ ] 5 country recipes
 
-Every new recipe must include:
-- Verified signal chain
-- Helix translation (tested)
-- Katana translation (tested)
-- At minimum: text description of the tone
+### 🟢 Nice To Have (Parked)
 
-### 🟢 Nice To Have (Weeks 4-8)
-Things that make the service better but aren't required for "operational":
+- Landing page v3 → promote to `/` (currently at `/v3`, noindex)
+- Card stack for modelers (React Bits card-swap) — blocked on platform hero art
+- Signal chain as hero background element
 - Set Pack expansion (Classic Rock, 90s)
-- "Helix vs Quad Cortex" comparison page
-- Pillar page: "Complete Guide to Helix Tone"
-- Affiliate program setup (Sweetwater, zZounds, Plugin Boutique)
-- Newsletter "Sunday Setlist" concept
-- 10 additional blog posts per week via automation
+- Fractal Axe-FX preset support (blocked — requires hardware or partnership)
+- Valeton GP-200 preset generation (tooling exists, need effect code mapping with hardware)
+- Harley Benton DNAfx GiT presets (open-source editor available)
+- Planning Center integration for worship setlists
+
+---
+
+## Platform Preset Viability
+
+| Platform | Format | Status |
+|---|---|---|
+| **Line 6 Helix** | `.hlx` (JSON) | ✅ Shipping — 10 presets, proven on hardware |
+| **Boss Katana** | `.tsl` (XML) | ✅ Generator exists |
+| **Line 6 POD Go** | `.pgp` (JSON) | Likely — fork Helix generator |
+| **Boss GT-1000/GX-100** | `.tsl` (XML) | Likely — same Boss Tone Studio |
+| **Quad Cortex** | `.json` | Likely — generator stub exists |
+| **Valeton GP-200** | `.prst` | Maybe — PRSTDecoder works, need effect code map |
+| **Harley Benton DNAfx GiT** | `.bhb`/`.phb` | Maybe — open-source editor available |
+| **Fractal Axe-FX** | `.syx` (binary) | ❌ Blocked — proprietary, requires hardware |
+| **Kemper** | `.kipr` | ❌ Blocked — profiles are amp captures |
+| **TONEX** | Cloud | ❌ Blocked — AI captures, no file format |
 
 ---
 
 ## Post-MVP: Growth Engine
 
-Only start this once the MVP is verified operational — customer can sign up, pay, and get value.
+Only start once MVP is verified operational.
 
 ### Growth Loops
-1. **SEO content** — 5 blog posts/week, pillar pages, long-tail song/artist queries
-2. **Email list** — "Sunday Setlist" weekly email to worship guitarists
-3. **YouTube** — faceless "60-Second Tone Recipe" Shorts with animated signal chain
+1. **SEO content** — 5 blog posts/week (automated), pillar pages, long-tail queries
+2. **Email list** — "Tone of the Week" weekly email
+3. **YouTube** — faceless "60-Second Tone Recipe" Shorts
 4. **Community** — forum moderation, tone challenges, user preset uploads
-5. **Affiliate revenue** — add affiliate links to gear database
+5. **Affiliate revenue** — gear database links (Sweetwater, zZounds, Plugin Boutique)
+6. **Budget brand expansion** — Valeton/Harley Benton presets (zero competition)
 
-### Revenue Targets (Core Service Only — Does Not Include ToneTrace)
+### Revenue Targets
 | Timeframe | MRR Target | Drivers |
 |-----------|-----------|---------|
 | Month 3 | $200-500 | First paying subscribers + affiliates |
@@ -91,39 +149,17 @@ Only start this once the MVP is verified operational — customer can sign up, p
 
 ---
 
-## Core Service Principles
-
-1. **The database is the product.** Quality over quantity — but not too little quantity.
-2. **Every preset must work.** We test on real hardware before publishing.
-3. **The volunteer guitarist is our customer.** $500-700 budget, setlist Tuesday, play Sunday.
-4. **Recipe, not preset.** We teach the *why*, not just the *what*.
-5. **Human-verified, AI-powered.** Transparent about AI use, grounded in real testing.
-
----
-
 ## Research Library
 
-All strategic research in `docs/research/`. Roadmap decisions reference these docs.
-
-### Business Strategy (13 docs)
-Competitive teardown, SEO, monetization, blog images, set patches, AI transparency, worship market, audio preview system, email marketing, YouTube, affiliates, community, mobile.
-
-### Worship Guitar Deep Dive (7 docs)
-70s-90s history, 00s-20s history, 15 guitarist rigs, Lincoln Brewster, production notes, cultural history, lesser-known scenes.
-
-### Product Vision
-ToneTrace project brief (`ToneTrace_ProjectBrief.docx`)
+All strategic research in `docs/research/`. Key docs:
+- `IMAGE_API_ALTERNATIVES.md` — Flux 2 Pro + Google AI Studio + fal.ai cost stack
+- `EMAIL_INFRASTRUCTURE.md` — Resend (outbound) + Cloudflare Email Routing (inbound)
+- `CONTENT_PIPELINE_UPDATE.md` — moodboard system + image generation handoff
+- `NICE_TO_HAVE_IDEAS.md` — React Bits card-swap, signal-chain-as-background
+- `news-strategy.md` — 13 modeler brands + 11 pedal brands + editorial rules
+- `TONE_ENGINEERING_BIBLE.md` — preset quality standards
+- 7 worship guitar deep-dive docs (70s-90s, 00s-20s, rigs, Lincoln Brewster, etc.)
 
 ---
 
-## What This Roadmap Does NOT Include
-
-- **ToneTrace** — separate product, separate roadmap (`TONETRACE_ROADMAP.md`)
-- **Mobile app** — PWA can come later; not required for operational
-- **Multi-platform exports** (Fractal, QC, Kemper, TONEX) — Helix + Katana is enough for MVP
-- **Planning Center integration** — huge differentiator but not required for MVP
-- **Generative AI preset creation** — that's ToneTrace territory
-
----
-
-*This document is the source of truth for the core service. Update it as MVP items complete.*
+*This document is the source of truth for the core service. Updated April 13, 2026.*
