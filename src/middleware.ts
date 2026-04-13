@@ -36,18 +36,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(newUrl, 301);
   }
 
-  // ---- Admin route protection ----
-  // Block /dashboard/admin routes if no auth cookie exists. The
-  // AdminGuard component does the real role check (super_admin/admin),
-  // but this prevents unauthenticated users from even loading the page.
-  if (request.nextUrl.pathname.startsWith("/dashboard/admin")) {
-    const hasAuthCookie = request.cookies.getAll().some(
-      (c) => c.name.includes("auth-token") || c.name.includes("sb-")
-    );
-    if (!hasAuthCookie) {
-      return NextResponse.redirect(new URL("/login", request.url));
-    }
-  }
+  // Admin route protection is handled by DashboardShell (auth gate
+  // for all /dashboard/* routes) + AdminGuard (role check for
+  // super_admin/admin). No middleware check needed — the old one
+  // caused a redirect loop because it competed with the client-side
+  // auth hydration in DashboardShell.
 
   return NextResponse.next();
 }
