@@ -126,7 +126,7 @@ export default function RecipeRail({
   if (recipes.length === 0) return null;
 
   return (
-    <div>
+    <div className="min-w-0">
       {/* Header */}
       <div className="mb-3 flex items-end justify-between gap-4">
         <div>
