@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Play } from "lucide-react";
@@ -42,13 +43,14 @@ export default function ContinueHero({
   const song = getSongBySlug(recipe.song_slug);
   const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
   const albumArt = song?.album_art_url;
+  const [imgError, setImgError] = useState(false);
 
   return (
     <div className="overflow-hidden rounded-2xl border border-[#1e2840] bg-[#0b0f1a]">
       <div className="flex flex-col gap-0 sm:flex-row">
-        {/* Visual anchor: album art or gradient */}
+        {/* Visual anchor: album art with gradient fallback */}
         <div className="relative aspect-square w-full shrink-0 overflow-hidden sm:w-48 md:w-64">
-          {albumArt ? (
+          {albumArt && !imgError ? (
             <Image
               src={albumArt}
               alt={song?.title ?? recipe.title}
@@ -56,12 +58,17 @@ export default function ContinueHero({
               priority
               className="object-cover"
               sizes="(max-width: 640px) 100vw, 256px"
+              onError={() => setImgError(true)}
             />
           ) : (
             <div
-              className="h-full w-full"
+              className="flex h-full w-full items-center justify-center"
               style={{ background: gradientFromSlug(recipe.slug) }}
-            />
+            >
+              <span className="text-4xl font-bold text-white/20">
+                {(artist?.name ?? recipe.title)[0]}
+              </span>
+            </div>
           )}
           {/* Soft vignette into the card body */}
           <div className="absolute inset-y-0 right-0 hidden w-16 bg-gradient-to-r from-transparent to-[#0b0f1a] sm:block" />

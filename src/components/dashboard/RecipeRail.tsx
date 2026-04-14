@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, ChevronLeft } from "lucide-react";
@@ -46,15 +46,16 @@ function RecipeRailCard({ recipe }: { recipe: ToneRecipe }) {
   const song = getSongBySlug(recipe.song_slug);
   const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
   const albumArt = song?.album_art_url;
+  const [imgError, setImgError] = useState(false);
 
   return (
     <Link
       href={`/recipe/${recipe.slug}`}
       className="group relative flex w-[200px] shrink-0 flex-col overflow-hidden rounded-xl border border-[#1e2840] bg-[#0b0f1a] transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_8px_30px_rgba(245,158,11,0.15)]"
     >
-      {/* Visual anchor: album art if available, otherwise deterministic gradient */}
+      {/* Visual anchor: album art with gradient fallback on error */}
       <div className="relative aspect-square w-full overflow-hidden">
-        {albumArt ? (
+        {albumArt && !imgError ? (
           <Image
             src={albumArt}
             alt={song?.title ?? recipe.title}
@@ -62,12 +63,17 @@ function RecipeRailCard({ recipe }: { recipe: ToneRecipe }) {
             loading="lazy"
             className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="200px"
+            onError={() => setImgError(true)}
           />
         ) : (
           <div
-            className="h-full w-full"
+            className="flex h-full w-full items-center justify-center"
             style={{ background: gradientFromSlug(recipe.slug) }}
-          />
+          >
+            <span className="text-3xl font-bold text-white/30">
+              {(artist?.name ?? recipe.title)[0]}
+            </span>
+          </div>
         )}
         {/* Gradient overlay for legibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f1a] via-[#0b0f1a]/20 to-transparent" />

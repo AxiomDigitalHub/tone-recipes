@@ -89,15 +89,18 @@ export default function DashboardShell({
       {/* ---- Sidebar (desktop) ---- */}
       <aside className="hidden w-56 shrink-0 md:block">
         <div className="sticky top-24 flex flex-col gap-6">
-          {/* User info */}
+          {/* User info + tier badge */}
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-bold text-background">
               {initials}
             </div>
             <div className="min-w-0">
-              <p className="truncate text-sm font-semibold text-foreground">
-                {user.displayName ?? user.email.split("@")[0]}
-              </p>
+              <div className="flex items-center gap-2">
+                <p className="truncate text-sm font-semibold text-foreground">
+                  {user.displayName ?? user.email.split("@")[0]}
+                </p>
+                <TierBadge role={user.role} />
+              </div>
               <p className="truncate text-xs text-muted">{user.email}</p>
             </div>
           </div>
@@ -177,7 +180,25 @@ export default function DashboardShell({
       </nav>
 
       {/* ---- Content ---- */}
-      <div className="flex-1 px-4 py-8 md:px-0 md:py-0">{children}</div>
+      <div className="min-h-[70vh] flex-1 px-4 py-8 md:px-0 md:py-0">{children}</div>
     </div>
+  );
+}
+
+/* ── Tier badge ── */
+
+function TierBadge({ role }: { role: string }) {
+  const config: Record<string, { label: string; className: string }> = {
+    super_admin: { label: "Admin", className: "bg-red-500/20 text-red-400" },
+    admin: { label: "Admin", className: "bg-red-500/20 text-red-400" },
+    creator: { label: "Pro", className: "bg-purple-500/20 text-purple-400" },
+    premium: { label: "Pass", className: "bg-accent/20 text-accent" },
+    free: { label: "Free", className: "bg-surface text-muted" },
+  };
+  const c = config[role] ?? config.free;
+  return (
+    <span className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase ${c.className}`}>
+      {c.label}
+    </span>
   );
 }
