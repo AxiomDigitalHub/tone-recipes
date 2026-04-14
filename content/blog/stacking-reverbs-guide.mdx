@@ -1,0 +1,157 @@
+---
+title: 'Stacking Reverbs: When Two Reverb Blocks Sound Better Than One'
+description: >-
+  Two reverbs muddying each other is a signal-routing problem, not a concept
+  problem. Here are the specific parameter relationships that make stacked
+  reverbs sound like two separate spaces instead of one indistinct blur.
+date: '2026-04-14'
+author: Dev Okonkwo
+author_slug: dev-okonkwo
+category: signal-chain
+tags:
+  - reverb
+  - stacking-reverbs
+  - ambient
+  - signal-chain
+  - layering
+  - bedroom-producer
+  - valhalla
+  - shimmer
+readingTime: 7 min
+image: /images/blog/stacking-reverbs-guide.jpg
+image_alt: a composition illustrating "Stacking Reverbs"
+---
+
+Most stacked reverb rigs sound muddy. The fix isn't choosing better reverbs — it's understanding what frequency information you're feeding into the second reverb, because that's what determines whether the two instances sound like complementary spaces or a single indistinct blur.
+
+The key insight: mud in a stacked reverb setup almost always comes from low-mid frequency buildup, not from reverb tails overlapping. The overlapping tails are what you want. The low-mid mud is what you don't.
+
+| Stack Type | Reverb 1 | Reverb 2 | Character |
+|---|---|---|---|
+| Body + Shimmer | Room or plate, short decay | Shimmer (octave up), long decay | Grounded with atmospheric shimmer |
+| Near + Far | Room, 80–200ms | Hall, 2–4 sec | Realistic depth — sounds like a space |
+| Grain + Space | Grain reverb or spring | Modulated reverb | Organic, slightly unstable texture |
+| Tight + Bloom | Short pre-delay plate | Slow-attack hall | Dry attack that blooms into ambience |
+
+---
+
+## Why Stacked Reverbs Go Wrong
+
+When you run guitar into reverb A into reverb B, the second reverb is processing the output of the first reverb — which means it's receiving the guitar's original signal plus all of reverb A's reflections and tails. Those reflections contain the full frequency spectrum of the guitar, including the low-mid content (roughly 150–500 Hz) that makes individual notes sound thick.
+
+As reverb B processes that input, it smears the low-mid content across its decay time. Now you have reverb A's low-mid tail plus reverb B's low-mid tail occupying the same frequency range at the same time. Stack a few notes on top of that and the low-mid range becomes continuous and muddy. No note separation. Everything blurs into everything else.
+
+The solution is to remove that low-mid content before it hits reverb B. A high-pass filter on reverb A's output, set between 150–250 Hz, removes the problematic frequency range and leaves mostly the mid and high-frequency content for reverb B to work with. The result is two reverb spaces that each occupy their own frequency territory and don't compete.
+
+I figured this out after weeks of running Valhalla Supermassive in two instances in Ableton and wondering why it sounded washy instead of spacious. I tried different algorithms, different decay times, different mix ratios. None of it fixed the problem. Adding an EQ node at 200 Hz on the first reverb's return channel and rolling off everything below fixed it in thirty seconds. The two instances immediately sounded like separate physical spaces.
+
+---
+
+## The Parameter Relationships That Actually Matter
+
+### Rule 1: First Reverb's Mix Should Be Low — 20–25% Max
+
+The second reverb is processing the combined signal of your dry guitar plus reverb A's output. If reverb A's mix is at 50%, reverb B is receiving equal parts dry guitar and wet reverb A signal. It's processing a lot of pre-reverbed content.
+
+Keep reverb A at 20–25% mix. This means reverb B is processing 75–80% dry guitar signal and 20–25% reverbed signal. The second reverb works with mostly clean frequency information and creates its own space around it.
+
+### Rule 2: High-Pass the First Reverb's Return at 150–250 Hz
+
+This is the most important setting in the entire stack. Exactly where you set it depends on the guitar part:
+- Single-note lines: 150–180 Hz (you can afford to keep more low-end body)
+- Chord-based ambient parts: 200–250 Hz (chords generate more low-mid content; cut more aggressively)
+- Low-register playing below the 7th fret: 250–300 Hz
+
+The goal is to remove the frequency range where reverb tails accumulate into mud, while keeping enough of the mid-range that the first reverb still adds body to the note.
+
+### Rule 3: First Reverb's Decay Should Be Shorter Than Second Reverb's Pre-Delay
+
+Pre-delay is the time between the dry note attack and when the reverb begins. If reverb B has a pre-delay of 30ms, the tail of reverb A should mostly finish before reverb B starts. Otherwise the two tails overlap at their onsets, which creates a smearing effect at the moment you'd want clarity most — the attack.
+
+A simple ratio that works: keep reverb A's decay at roughly half the length of reverb B's pre-delay. Reverb B has 40ms pre-delay → keep reverb A's decay under 200ms.
+
+### Rule 4: Keep Second Reverb's Low-Cut Active Too
+
+Even after filtering reverb A's return, the dry guitar signal going into reverb B still has full-range frequency content. Running a high-pass filter on reverb B's input (or using its built-in low-cut if it has one) removes the guitar's low-mid content from reverb B's processing entirely. This is different from reverb A's filter — this one is filtering what reverb B processes, not what it outputs.
+
+Setting: 120–180 Hz, gentle slope (not brick wall). You want to remove the low-mid that accumulates, not to thin out the reverb entirely.
+
+---
+
+## Two Setups That Work
+
+### Setup 1: Room + Shimmer (Valhalla Supermassive)
+
+This is what I use for most of the ambient stuff I put on SoundCloud. Two instances of Supermassive in series.
+
+**Instance 1 — Room/Body:**
+- Algorithm: Gemini or Aquarius
+- Size: 0.3–0.4
+- Decay: 0.5–1 second
+- Mix: 22%
+- High-pass filter on return: 200 Hz, 12dB/octave slope
+
+**Instance 2 — Shimmer/Space:**
+- Algorithm: Orion or Perseus (or any shimmer/pitch-shift algorithm)
+- Size: 0.8–1.0
+- Decay: 4–8 seconds
+- Pitch shift: +1 octave, subtle (mix at 30–40% within the algorithm)
+- Mix: 18%
+
+**What it sounds like:** The first reverb adds a sense of the guitar being in a small-to-medium room — body, weight, slight early reflections. The second reverb adds a high-frequency halo that grows after the note. The combination is grounded but spacious. Single notes have physical presence and atmospheric shimmer simultaneously.
+
+I wouldn't have this setup without the MBV Loveless post we did recently — Kevin Shields' approach to layering pitch-shifted reverbs into a single unified texture was what made me want to understand the frequency-architecture reason it works.
+
+---
+
+### Setup 2: Near Room + Hall (on a pedalboard)
+
+For players running two hardware reverb pedals.
+
+**Pedal 1 (pre-looper or as insert):**
+- Type: Room or Spring
+- Decay: 300–600ms
+- Mix: 25%
+- Use the tone/damping control to reduce high frequencies on the output (if no explicit high-pass)
+
+**Pedal 2 (post-looper or last in chain):**
+- Type: Hall or Plate
+- Pre-delay: 30–50ms
+- Decay: 2–3 seconds
+- Mix: 20%
+
+**What it sounds like:** The spring or room pedal puts you in a physical space. The hall pedal extends the back of the sound into a larger imaginary room. Chord swells sound like they're happening in a cathedral, but single notes still have attack definition because the pre-delay on the hall pedal separates the reverb from the note's start.
+
+---
+
+## When One Reverb Is Enough
+
+Stacking reverbs adds complexity. There are three situations where it's worth the complexity:
+
+1. **You want simultaneous near and far spatial information.** One reverb can only be one size at a time. If you want the note to sound present AND expansive at the same moment, you need two.
+
+2. **You want shimmer without sacrificing note clarity.** Shimmer reverbs tend to eat transients because the pitch-shifted content arrives on top of the original note. Running a transparent room reverb first, then shimmer second, gives the note body before the shimmer arrives.
+
+3. **You're building layered ambient parts where each layer should have its own space.** When you're looping multiple guitar parts, one reverb treats the entire loop as a single source. Two reverbs — one baked into the loop, one applied after — gives you more dimensional control.
+
+If you're playing with a band in a live context and need clarity, one reverb is almost always better. The second reverb's gain overhead can muddy a live mix even when it sounds pristine at home.
+
+---
+
+## FAQ
+
+**Does stacking reverbs work on a pedalboard or only in a DAW?**
+
+It works on a pedalboard. The principle is the same — you need the first reverb's output to be filtered before hitting the second. On hardware, use the first reverb's tone/damping control or a dedicated EQ pedal between the two reverbs to accomplish the high-pass. Some reverb pedals (like the Strymon BigSky) have a built-in low-cut filter on the wet signal, which helps.
+
+**Is two reverb pedals better than one reverb pedal with two presets?**
+
+Two separate pedals with separate parameter controls is more flexible. A single pedal running two internal algorithms (if it supports that) can also work, but you lose the ability to independently filter the first reverb's output before it feeds the second. If the pedal has routing flexibility (like the BigSky or Empress Reverb), you may be able to work around this.
+
+**What's the best reverb algorithm for "first in the stack"?**
+
+Room, spring, or plate — all work. The goal of the first reverb is to add body and early reflections without generating a long, competing tail. Room is the most neutral. Spring adds a slight bounce character that can be musical. Plate adds a smoother density. Avoid shimmer, hall, and large reverb algorithms as the first in the stack — their long tails will feed too much complexity into the second reverb.
+
+**My stacked reverbs sound fine in headphones but muddy through speakers. Why?**
+
+Low-frequency buildup that headphones mask. Headphones have limited low-end extension and don't pressurize a room, so low-mid accumulation in the reverb tails doesn't register the same way. Through speakers, especially in a small room, that 150–300 Hz range becomes a standing wave problem. Tighten the high-pass on reverb A's return to 250–300 Hz and re-check through speakers.

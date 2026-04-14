@@ -759,3 +759,59 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 | 3 | Stacking Reverbs: When Two Reverb Blocks Sound Better Than One | "stacking reverbs guitar," "two reverb pedals together," "reverb stacking technique" | Dev Okonkwo | 3 — Signal Chain & Tone Theory | Looper delay reverb SERP — stacking reverbs (room reverb into hall reverb, or pre-delay reverb into shimmer reverb) is referenced in the Looper post and the MBV Loveless post as an advanced technique; no editorial piece covers the specific parameter relationships (first reverb's decay matches second reverb's pre-delay) that make the technique work; Dev's frequency-architecture approach is the natural voice for a layered reverb technique guide |
 | 4 | Volume Swell Technique: Why Yours Sounds Wrong and How to Fix the Attack Timing | "guitar volume swell technique," "volume swell effect guitar," "volume swell timing fix" | Nathan Cross | 6 — Quick Fixes | IEM and worship SERP — volume swells are referenced in the IEM post and multiple worship posts; the specific timing problem (the swell starts too late or too early relative to the downbeat) is caused by pot taper, amp attack response, and picking technique interaction; Nathan's deep weekly experience with swells as a Sunday morning tool makes this uniquely his |
 | 5 | What BD-2 Clones Are Actually Worth It: Keeley, Analogman, and the DIY Options | "blues driver clone comparison," "bd-2 best mod," "best blues driver alternative" | Jess Kowalski | 5 — Gear Lab | BD-2W SERP — the Keeley mod appeared in the BD-2W comparison as an alternative; the broader clone/mod landscape (Keeley BD-2, Analogman BD-2, DIY builds from PedalPCB) has significant forum discussion but no structured editorial comparison; the "is the Keeley worth it vs. buying the Waza?" question is the natural follow-on buying question; Jess's practical-value methodology is the right voice
+
+## SERP Analysis — 2026-04-14 (Posts Published Today)
+
+### Posts published: floyd-rose-setup-guide, reactive-vs-resistive-attenuators, stacking-reverbs-guide, volume-swell-technique, blues-driver-clones
+
+**floyd rose setup guide tuning stability:**
+- OnlyFrets.com has an editorial setup guide; FloydRose.com has a troubleshooting blog; forums (SevenString, Fractal Audio, Kramer Forum) dominate the rest
+- No major editorial publication frames the setup as "three numbers" — all existing guides are comprehensive walkthroughs rather than focused diagnostics
+- FloydRose.com troubleshooting guide ranks but only covers one problem at a time, not the full setup sequence
+- Gap confirmed: our post is the only editorial guide that positions knife-edge condition as the primary tuning stability factor; all competitors treat it as secondary to spring tension
+- PAA signal: "Why won't my Floyd Rose stay in tune?" "What are knife edges on a Floyd Rose?" "How do I set up a Floyd Rose for beginners?" — all high intent, limited editorial coverage
+- Follow-on opportunity: dedicated spring count vs. string gauge decision guide (2 springs vs. 3 springs for different gauges)
+
+**reactive attenuator vs resistive tube amp:**
+- Reverb buying guide, Premier Guitar (two articles), Guitar World, Equipboard dominate
+- Premier Guitar's two attenuator articles describe the distinction but neither provides specific dB threshold guidance for when reactive becomes worth the cost
+- Gearspace forum thread is a top result — confirms editorial gap at the detailed decision-framework level
+- Gap confirmed: our post is the first editorial guide with specific dB thresholds (0–6 = either works; 6–12 = reactive noticeably better; 12+ = reactive better but neither fully replicates cranked tone)
+- Note for follow-up: multiple sources confirm 15dB as a practical limit for attenuator usefulness regardless of type — a "when to consider a lower-wattage amp instead" post addresses this follow-on question
+- PAA signal: "Is a reactive attenuator worth the extra cost?" "What is the difference between reactive and resistive attenuators?" "Does the Fryette Power Station change your tone?"
+
+**stacking reverb pedals guitar muddy fix:**
+- JHS Pedals blog, Premier Guitar effects guides, TDPRI forum, OffsetGuitars forum dominate
+- JHS and Premier Guitar cover pedal stacking generally but neither isolates the specific low-mid buildup mechanism for reverb stacks
+- All forum advice defaults to "use different algorithms" without addressing the high-pass filter approach
+- Gap confirmed: no editorial piece explains the 150–250 Hz high-pass filter as the solution to stacked reverb mud; our post is the first
+- PAA signal: "How do I use two reverb pedals without it getting muddy?" "What reverb pedals sound good together?" "Can you stack two reverbs?" — all unanswered editorially
+- Follow-on opportunity: specific hardware reverb pairing guide (best two-pedal combinations for ambient guitar)
+
+**volume swell guitar technique timing:**
+- London Guitar Academy, Worship Artistry, Wikipedia, Blackstar, Guitar World rank at the top
+- Worship Artistry has a volume swell tips post but treats timing as a general "roll slower" fix without addressing pre-beat pick timing
+- TDPRI "volume pot taper revelation" thread ranks — confirms the pot taper issue has community awareness but no editorial coverage
+- Guitar World lesson focuses on technique but not setup (pot taper, pre-delay) factors
+- Gap confirmed: no editorial piece addresses all three root causes (timing offset, pot taper, reverb pre-delay) together; our post is the first complete treatment
+- PAA signal: "Why does my volume swell sound abrupt?" "What is the best volume pot for swells?" "How do you practice guitar volume swells?" — all answered in our post
+- Follow-on opportunity: volume pedal as always-on dynamics tool (beyond just swells)
+
+**boss bd-2 blues driver keeley analogman mod clone:**
+- Guitar Pedal X BD-2 "ology" article is the main competitor — comprehensive but doesn't give a decision framework
+- Harmony Central forum thread "BD-2 Mod: Keeley or Analog Man?" is a top result — high demand, no editorial answer
+- TDPRI "Mod or not, and Keeley vs Analogman differences" thread also ranks — same signal
+- Reverb listings for vintage Keeley-modded BD-2s confirm strong secondary market interest
+- SERP note: one source (Delicious Audio) states that Keeley no longer mods BD-2s due to SMD components in newer production runs — this should be verified before the post goes live; Keeley's "Super AT Mod" (2023) may use different sourcing
+- Gap confirmed: Guitar Pedal X covers the history and variants extensively but doesn't give a "should I or shouldn't I, and which one" verdict; our post fills that decision-framework gap
+- PAA signal: "Is the Keeley BD-2 mod worth it?" "What does the Analogman BD-2 Silver mod do?" "Is the BD-2W better than a modded BD-2?" — all answered in our post
+
+## SERP-Derived Topics — 2026-04-14
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | Floyd Rose: How Spring Count and String Gauge Interact (The 2-Spring vs. 3-Spring Decision) | "floyd rose spring count," "how many springs for floyd rose," "floyd rose 2 springs vs 3 springs" | Rick Dalton | 3 — Signal Chain & Tone Theory | Floyd Rose setup SERP — "can I use 2 springs on a Floyd Rose?" appears as a PAA question with no clean editorial answer; the spring count vs. string gauge interaction is mentioned in the setup guide but deserves its own focused post; Rick's tech-work background and anti-fuss philosophy make this his natural follow-up |
+| 2 | When an Attenuator Stops Working: The Case for a Lower-Wattage Amp | "tube amp attenuation limits," "is a smaller amp better than attenuating," "power scaling vs attenuator guitar" | Viktor Kessler | 3 — Signal Chain & Tone Theory | Attenuator SERP — multiple editorial sources explicitly identify 15dB as the practical ceiling for attenuator usefulness; no editorial piece addresses what to do when attenuation isn't enough — the specific case for a 5-watt or 15-watt amp as a better solution than a 50-watt amp heavily attenuated; Viktor's measured approach and 5150 context make this uniquely authentic |
+| 3 | Two Reverb Pedals That Sound Great Together: The Best Hardware Pairings | "best two reverb pedal combination," "reverb pedal pairing guide," "bigsky and room reverb together" | Dev Okonkwo | 5 — Gear Lab | Stacking reverbs SERP — forum threads consistently ask about specific combinations (BigSky + small room pedal, Strymon Flint + plate reverb) with no editorial roundup; the principles from the stacking guide translate directly into specific hardware recommendations; Dev is the natural voice for ambient pairing content |
+| 4 | The Volume Pedal as a Dynamics Control (Not Just for Swells) | "how to use volume pedal guitar," "volume pedal technique dynamics," "volume pedal always-on placement" | Nathan Cross | 3 — Signal Chain & Tone Theory | Volume swell SERP — Worship Artistry and Blackstar content frames volume pedals as swell tools exclusively; the "always-on at partial position" technique (running the volume pedal at 70–80% as a dynamic headroom reserve) is absent from all editorial coverage; Nathan uses this in live worship contexts every week and it's the most underrated use of the pedal |
+| 5 | Keeley Super AT Mod: What Andy Timmons' Signature BD-2 Changes and Who It's For | "keeley bd-2 super at mod," "andy timmons overdrive keeley," "keeley super at mod vs standard" | Margot Thiessen | 5 — Gear Lab | BD-2 clones SERP — the Keeley Super AT Mod (2023, designed with Andy Timmons) appeared in SERP results but has no dedicated editorial review; the Andy Timmons collaboration angle creates a natural connection to the existing Andy Timmons budget tone post; Margot's nuanced harmonic sensitivity and her position as the Timmons tone voice make this the right follow-up to our existing AT content |

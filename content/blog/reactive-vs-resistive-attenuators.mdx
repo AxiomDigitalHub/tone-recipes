@@ -1,0 +1,130 @@
+---
+title: 'Reactive vs. Resistive Attenuators: What the Difference Actually Sounds Like'
+description: >-
+  The choice between reactive and resistive power attenuators isn't about brand
+  preference — it's about what your amp's output stage is doing and what you
+  need from it at lower volumes.
+date: '2026-04-14'
+author: Viktor Kessler
+author_slug: viktor-kessler
+category: settings-guides
+tags:
+  - attenuator
+  - power-attenuator
+  - tube-amp
+  - bedroom-volume
+  - reactive-attenuator
+  - fryette
+  - two-notes
+  - output-stage
+readingTime: 9 min
+image: /images/blog/reactive-vs-resistive-attenuators.jpg
+image_alt: a composition illustrating "Reactive vs. Resistive Attenuators"
+---
+
+> **Start Here:** A resistive attenuator reduces volume by absorbing power in resistors. A reactive attenuator reduces volume while presenting an impedance curve that mimics a real speaker, so the amp's output stage behaves closer to how it does at full volume. The difference is audible above 6dB of attenuation and significant above 12dB. Below that threshold, either works.
+
+| Attenuation Level | Resistive | Reactive |
+|---|---|---|
+| 0–6 dB | Acceptable — minimal difference | Acceptable — same |
+| 6–12 dB | Noticeable tone loss above 6 kHz | Tone retention noticeably better |
+| 12–20 dB | Output stage saturation largely gone | Better, but saturation character still affected |
+| 20+ dB | Sounds like a modeler, not a tube amp | As above |
+
+---
+
+## What a Power Attenuator Is Actually Doing
+
+A tube amp's output transformer connects the power tubes to the speaker cabinet. The output transformer is designed to work with a specific impedance — typically 4, 8, or 16 ohms — and the speaker cabinet presents that impedance. When power is transferred correctly across that interface, the tubes saturate in a predictable way. That saturation is part of what a cranked tube amp sounds like.
+
+A power attenuator sits between the output transformer and the speaker. Its job is to absorb some of the power before it reaches the speaker, so the speaker and the room receive less volume. The output transformer still sees a load — the attenuator — but what that load looks like is where resistive and reactive attenuators diverge.
+
+**Resistive attenuators** present a flat impedance to the output transformer. The transformer sees 8 ohms whether the amp is at 1W or 100W, and that 8 ohms is purely resistive — no inductance, no reactance. This works for attenuation, but the flat impedance load doesn't interact with the output transformer the same way a speaker does. The amp's frequency response and power tube saturation behavior shift.
+
+**Reactive attenuators** use a combination of resistors, inductors, and capacitors to model the impedance curve of a real speaker cabinet. A real 8-ohm cabinet doesn't present exactly 8 ohms at every frequency — it presents higher impedance at the speaker's resonant frequency (typically 80-120 Hz) and generally higher impedance at high frequencies. A reactive attenuator approximates this curve so the output transformer "sees" a speaker-like load. The power tube behavior and output transformer saturation stay closer to full-volume behavior.
+
+---
+
+## Why This Matters for Sound
+
+The output stage of a tube amp isn't just an amplifier — it's an interactive system. The output transformer has a saturation character. The power tubes have a compression behavior at their operating point. Both of these are load-dependent.
+
+When a resistive attenuator flattens the impedance load, it shifts the operating point. The output transformer doesn't saturate the same way. The power tubes — which are contributing to the amp's character when you're playing at the volume where the amp opens up — are no longer receiving the right feedback from the load. The result is an amp that sounds increasingly thin and brittle the more you attenuate.
+
+This is why the generic advice about "cranking your amp into an attenuator" sometimes disappoints people. They crank their amp, expect the tone they hear at gig volume, and get something that sounds like a politely behaved version of their amp rather than the amp at full tilt.
+
+---
+
+## Measuring the Difference
+
+I run an EVH 5150 III 50-watt head through a Mesa Rectifier 2x12. I cannot crank it in my apartment. I tested three attenuators: a THD Hot Plate (resistive), a Two Notes Captor X (reactive), and a Fryette Power Station PS-2 (reactive with re-amplification).
+
+At 6dB of attenuation, all three sounded nearly identical. The differences were within my measurement uncertainty on the frequency response sweeps.
+
+At 12dB, the Hot Plate had lost some of the mid-range density that makes the 5150's rhythm tone feel like it's pushing air. The Captor X retained more of that density. The Power Station retained the most — but not for the same reason.
+
+This is where my expectation was wrong: I assumed the Fryette Power Station would introduce its own coloration because it re-amplifies the signal through its own power amp stage before the speaker. I expected to be able to hear the Fryette's character on top of the 5150's character. What I found at 12dB and above is that the Fryette's re-amplification stage is masking the tonal shift from attenuation more effectively than the Captor X does, even though the Captor X is theoretically "more transparent." At high attenuation, the Power Station substitutes its own output stage saturation, which reads as "amp saturation" to the ear even if it isn't the 5150's specific saturation. The Captor X at high attenuation just sounds thin. The Power Station doesn't.
+
+This is either a feature or a bug depending on what you want. If you need the 5150's specific character at 20dB of attenuation, nothing will give you that. If you need something that sounds like a cranked tube amp at apartment volume, the Power Station wins.
+
+---
+
+## Products and What They're Actually Good For
+
+### Fryette Power Station PS-2 ($625)
+
+Reactive load box with built-in re-amplification. The amp's output hits the reactive load, the signal is attenuated, then a separate 25W stereo power amp section re-amplifies it to the speaker.
+
+Best for: players who need significant attenuation (12dB+) and want to retain power-stage saturation feel. Also genuinely useful as a standalone power amp for preamps or modelers.
+
+Not ideal for: players who need the specific character of their amp's output stage at all attenuation levels. Above 12dB, you're hearing the Fryette's power stage as much as your amp's.
+
+### Two Notes Captor X ($399)
+
+Reactive load box, built-in cabinet simulation, and DI output. No re-amplification.
+
+Best for: players who want to run direct to a PA or interface with cabinet simulation handled in the box. The 6–12dB attenuation range is where it sounds best. Also works as a load box for modelers that need a real speaker load for impedance reasons.
+
+Not ideal for: significant attenuation above 12dB, or players who are running to a real speaker (the built-in cab sim becomes irrelevant then, and you're paying for features you won't use).
+
+### THD Hot Plate ($300–400, used market)
+
+Resistive with some frequency compensation built in. A simple design that's been around since the 80s.
+
+Best for: modest attenuation (3–6dB) in recording contexts where you want to get the amp into its output-stage saturation zone without waking the building. Within that range, the frequency compensation in the Hot Plate design is reasonable.
+
+Not ideal for: anything above 6dB attenuation, or players expecting to nail their amp's cranked character at bedroom volume. This is not what the Hot Plate is designed for. It's a recording tool, not a practice tool.
+
+---
+
+## The Honest Answer About 20dB+ Attenuation
+
+If you need to reduce your amp's volume by 20dB or more — which is the difference between a 50-watt amp at full volume in a rehearsal space and that same amp running at what you might charitably call "neighbor-safe" bedroom volume — no attenuator will preserve the feel and tone of the cranked amp.
+
+At that level of attenuation, the power stage saturation is largely gone regardless of whether the load is reactive. The dynamic response changes. The way the amp breathes when you dig in changes. The frequency response shifts. This is physics, not a product limitation — the attenuator manufacturers are not failing you, the laws of thermodynamics are.
+
+For players who genuinely need bedroom volume with cranked-amp feel, the better solution is either a lower-wattage amp with a master volume (a 5-watt amp at 3/4 volume is genuinely different from a 50-watt amp attenuated to 5 watts) or a modeler with a good power-amp model. I run a Quad Cortex with a Fortin NTS model for silent practice. It doesn't sound like my 5150 cranked. It sounds like a 5150 model at bedroom volume, which is a different thing and is fine for what it is.
+
+---
+
+## FAQ
+
+**Will a reactive attenuator make my amp sound like it does at full volume?**
+
+Not above 12dB of attenuation. It will sound closer to full volume than a resistive attenuator would at the same reduction, but "closer" and "the same" aren't equivalent. The reactive load preserves output transformer behavior better; it cannot fully preserve the room and speaker interaction that's part of a cranked amp's character.
+
+**Does the impedance rating of the attenuator need to match my amp?**
+
+Yes. If your amp has an 8-ohm output, use an 8-ohm attenuator. Running a mismatched impedance stresses the output transformer and changes the amp's behavior in unpredictable ways. Most attenuators have switchable impedance (4/8/16 ohm). Use the correct setting.
+
+**Can I use an attenuator with a solid-state amp?**
+
+Resistive attenuators will work with solid-state amps but there's no tonal benefit — solid-state amps don't have output-stage saturation to preserve. For solid-state amps, use the master volume control or a simple resistive volume pad.
+
+**What's the difference between a load box and an attenuator?**
+
+A load box absorbs all of the amp's power into a resistive load, with no signal going to a speaker. The signal is taken from the load box via a DI output (for recording direct). An attenuator reduces power to the speaker but still sends signal to the speaker — the speaker produces sound at lower volume. Some devices (like the Captor X) function as both, depending on how they're connected.
+
+**Is a reactive attenuator worth the price over a resistive one?**
+
+At 6dB and below: no. The difference isn't audible. At 6–12dB: yes, if you're using the attenuator to run your amp at rehearsal volume rather than full gigging volume. Above 12dB: the reactive attenuator is better, but the gap between "attenuated tube amp" and "cranked tube amp" is wide regardless. If budget is the primary concern and you're using it for moderate attenuation only, a used Hot Plate is a defensible choice.

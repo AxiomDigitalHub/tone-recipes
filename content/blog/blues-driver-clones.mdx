@@ -1,0 +1,140 @@
+---
+title: 'What BD-2 Clones Are Actually Worth It: Keeley, Analogman, and the DIY Options'
+description: >-
+  The Boss BD-2 Blues Driver is already a good pedal. The question is whether a
+  mod or a clone makes it better enough to justify the cost — and the answer
+  depends on how you're using it.
+date: '2026-04-14'
+author: Jess Kowalski
+author_slug: jess-kowalski
+category: gear-lab
+tags:
+  - blues-driver
+  - bd-2
+  - keeley
+  - analogman
+  - clones
+  - overdrive
+  - gear-lab
+  - comparison
+  - mods
+readingTime: 8 min
+image: /images/blog/blues-driver-clones.jpg
+image_alt: a composition illustrating "What BD"
+---
+
+> **Start Here:** The stock BD-2 has a harshness problem around 3kHz that becomes noticeable on bright amplifiers and single-coil pickups. Every mod or clone worth considering addresses this differently. Here's what each one does, what it costs, and who should bother.
+
+| Option | Cost | What It Changes | Best For |
+|---|---|---|---|
+| Stock BD-2 | $70 new | Nothing — baseline | Everyone before buying a mod |
+| Keeley BD-2 mod | $99 (mod service) | Buffer, clipping diodes, output cap | Cleaner high-end, tighter lows |
+| Analogman Silver mod | $99 (mod service) | Output section, clipping | More mid presence, less sheen |
+| Boss BD-2W Waza (Custom mode) | $120 new | Full redesign, discrete components | Off-the-shelf upgrade, warrantied |
+| PedalPCB Cascade Drive | ~$50 built | Improved-stock circuit | Budget DIY, soldering required |
+
+---
+
+## The BD-2's Actual Problem
+
+Before spending money on a mod, it's worth being specific about what the stock Blues Driver does wrong.
+
+The BD-2's overdrive character comes from a dual-differential op-amp configuration with soft-clipping diodes in the feedback loop. The original circuit has a resonance peak in the upper midrange around 3kHz that adds "edge" to the tone — good on warm, dark amplifiers where some cut helps the guitar poke through, not great on bright Fender-style amps where that peak turns into harshness. It also has a slightly soft low end that can sound undefined on bass-heavy pickups or thicker strings.
+
+The mods all address these issues. They differ in which problem they prioritize and how aggressive they are about fixing it.
+
+What the mods do NOT fix: the BD-2's fundamental circuit character. It's still an op-amp-based soft-clipping overdrive. If you don't like what the BD-2 does at its core — the harmonic content, the compression behavior, the way it responds to pick attack — a mod won't change your mind. A different overdrive pedal will.
+
+---
+
+## Keeley BD-2 Mod
+
+**What it actually changes:**
+
+Robert Keeley's BD-2 mod is three things: an input buffer upgrade (replacing a lower-quality op-amp input section with a cleaner FET-based stage), clipping diode changes (from matched silicon to asymmetrical silicon, which produces slightly different harmonic content on the positive and negative halves of the signal), and an output capacitor change (which opens up the top end by shifting the rolloff frequency higher).
+
+**What it sounds like:**
+
+The 3kHz harshness that bothers people on Fender amps moves up to around 5-6kHz after the Keeley mod. At 5-6kHz, "edge" reads as "air" rather than "harsh" — it's the difference between something cutting through a mix and something making you wince. The low end gets tighter because the output cap modification also tightens the low-frequency response slightly.
+
+I expected the Keeley mod to be a subtle refinement. It isn't subtle — you can hear the difference within the first phrase on a clean Fender amp, before you've even done an A/B comparison. It sounds like someone took a thin piece of abrasive material off the top of the signal.
+
+**The workflow:** You mail Keeley your own BD-2 and they mod it and return it. About two weeks. $99 plus shipping both ways. You end up with your original pedal, modded.
+
+**Who should do it:** Players running the BD-2 as a primary overdrive into a bright amp or with single-coil pickups. The Keeley mod is specifically well-matched to the Strat-into-Deluxe-Reverb-type setups where the stock BD-2 always felt a little sharp.
+
+---
+
+## Analogman BD-2 Mods (Silver and Gold)
+
+Analogman does two versions of their BD-2 mod: the Silver ($99) and the Gold ($119). The Silver mod focuses on the output section and clipping configuration. The Gold adds work on the input buffer similar to what Keeley does.
+
+**The Silver mod's character:**
+
+This is where my expectation was genuinely wrong. I expected the Analogman Silver to be the "subtle" mod — a gentle refinement that didn't change the fundamental character much. The Keeley I expected to be more dramatic. The reverse is true, at least on first listen.
+
+The Keeley mod's high-end extension is immediately obvious. You hear it in the first bar. The Analogman Silver doesn't change the top end much — what it changes is the mid-range presence. The guitar sits differently in a mix after the Silver mod in a way that takes a verse or two to understand. It's fuller in the 500-800Hz range and the clipping has a slightly more complex harmonic structure. The BD-2W Waza's Custom mode actually sits closer to the Silver mod in character than to the Keeley.
+
+**Who should do it:** Players using the BD-2 as a rhythm overdrive with humbuckers, or anyone running into darker amplifiers (JCM800, AC30) who wants more mid presence without the high-end extension. The Silver mod's character works well as a thickening drive.
+
+---
+
+## Boss BD-2W Waza Craft (Custom Mode)
+
+At $120 new, the BD-2W sits between a stock BD-2 ($70) and a modded BD-2 ($99 + your original $70). It's the off-the-shelf upgrade.
+
+Standard mode on the BD-2W is the original BD-2 circuit. Custom mode uses discrete transistors instead of op-amps. We covered this in more depth in our BD-2 vs. BD-2W comparison — the short version is that Custom mode produces a more dynamic, slightly more amp-like response where the overdrive character shifts more noticeably when you change your picking intensity.
+
+For the purposes of this piece: the BD-2W Custom mode is a reasonable substitute for a modded BD-2 at a competitive price. It doesn't do exactly what the Keeley mod does (the high-end extension is different, the low-end tightening is less pronounced), but it's a single purchase, it's new, it has a warranty, and you don't have to wait two weeks to get your pedal back.
+
+**Who should buy it:** Players who want a clear upgrade from the stock BD-2 and aren't interested in the mod workflow, or anyone who needs a warranty (touring, rental use).
+
+---
+
+## PedalPCB Cascade Drive (DIY)
+
+This is the option nobody in the modded-BD-2 conversation talks about because it requires soldering.
+
+PedalPCB makes a PCB called the Cascade Drive that's openly derived from the BD-2 circuit with several improvements built into the default design — some of the same tweaks that Keeley and Analogman apply as mods are standard on this board. The PCB is $25. The component kit (resistors, caps, diodes, hardware) runs $20-25 depending on what you source from where. An enclosure from Hammond or PedalPCB is $12-15.
+
+Total build cost: $50-60.
+
+What you get: a pedal with character somewhere between stock BD-2 and Keeley-modded, with more low-end warmth than the stock circuit and a cleaner top end. The Cascade's default diode configuration produces a slightly softer clipping character than either mod. It's the best value option by a significant margin if you're willing to spend a Saturday afternoon on it.
+
+The skill requirement is genuine beginner-level: through-hole components, a basic iron, 25 gauge solder. PedalPCB posts the BOM and build notes for free and their builds are documented well enough that a first-timer can complete them with two evenings of focused effort.
+
+**Who should build it:** Players who are curious about DIY and want a result that's functionally comparable to a modded BD-2 for under $60.
+
+---
+
+## The Real Variable: Your Signal Chain
+
+Before spending anything, consider this: the BD-2's 3kHz harshness is an amp interaction issue more than a pedal issue. Running a stock BD-2 into an HX Stomp with a British Tone amp model is a different situation than running it into a Fender Deluxe Reverb. The amp model's built-in EQ characteristics may do some of the taming work the mod would otherwise accomplish.
+
+I've run the stock BD-2 through my HX Stomp's Matchless Chieftain model and it sounds significantly better than running it directly into a clean Fender-style amp — the Chieftain model has a slightly darker top end that absorbs the BD-2's harshness without needing any modification. In that context, spending $99 on a mod is hard to justify.
+
+Conversely, if you're running a real amp and the pedal into PA via DI, the amp coloration is absent and the BD-2's character is fully exposed. That's when the Keeley mod earns its keep.
+
+---
+
+## FAQ
+
+**Can I send Boss a BD-2 for the Keeley mod, or do I need to buy from Keeley directly?**
+
+You send your existing pedal to Keeley directly — they are not affiliated with Boss and do not sell through Boss's distribution. The process: go to the Keeley Electronics website, look for the Mods page, and follow their current turnaround instructions. They mod pedals from a variety of manufacturers. The $99 price is for the mod service; you provide the pedal.
+
+**Is there a way to DIY the Keeley mod without buying the service?**
+
+Yes, but it requires reading electronics. The general modifications are documented in guitar pedal forums (DIYStompboxes is the main reference). You'll need to know how to read a schematic, identify components, and desolder/resolder in a live PCB. It's a harder DIY task than a PedalPCB build because you're modifying an existing production board, not assembling a kit.
+
+**Does the Analogman Silver mod void the Boss warranty?**
+
+Yes. Any third-party modification voids the manufacturer warranty. The stock BD-2 has a limited warranty period (five years in most markets); once modded, that's gone. Factor this into the cost-benefit if warranty matters to you.
+
+**Is the BD-2W Custom mode literally the same as the Keeley mod?**
+
+No. They're in the same direction tonally (cleaner, tighter) but they use different approaches. The BD-2W Custom replaces op-amps with discrete transistors throughout; the Keeley mod makes targeted changes to the op-amp circuit. The results are similar in some areas (cleaner low end) and different in others (high-end extension, clipping character). Neither is a copy of the other.
+
+**What's the easiest BD-2-adjacent pedal for someone who doesn't want to deal with any of this?**
+
+The JHS Moonshine V2 ($130) is a fully redesigned pedal with BD-2 DNA that addresses most of the stock issues from scratch. It's more expensive than a modded BD-2, but you're getting a finished product with cleaner construction than a pawn-shop-bought BD-2 sent off for a mod. If you want the character without the project, that's the simpler path.
