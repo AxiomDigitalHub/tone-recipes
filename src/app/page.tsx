@@ -305,21 +305,31 @@ export default function Home() {
       </section>
       </ScrollReveal>
 
-      {/* Closing CTA */}
+      {/* Closing CTA — conversion path primary, browse path secondary.
+          By this point the visitor has scrolled through problem → solution →
+          proof → benefits. The final ask should be "commit," not "browse more." */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <h2 className="text-2xl font-bold md:text-3xl">
             Your gear can do this. Let&apos;s prove it.
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-muted">
-            Browse tone recipes and dial in the sounds you actually want &mdash; in minutes, not hours.
+            Free account gets you 10 preset downloads, saved recipes, and
+            signal chains for 6 platforms. Cancel anytime — you&apos;ll never
+            need to.
           </p>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link
+              href="/signup"
+              className="inline-block w-full max-w-xs rounded-xl bg-accent px-10 py-4 text-base font-semibold text-background transition-colors hover:bg-accent-hover sm:w-auto"
+            >
+              Get Started Free
+            </Link>
             <Link
               href="/browse"
-              className="inline-block rounded-xl bg-accent px-10 py-4 text-base font-semibold text-background transition-colors hover:bg-accent-hover"
+              className="inline-block w-full max-w-xs rounded-xl border border-border px-10 py-4 text-base font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface sm:w-auto"
             >
-              Browse All Recipes
+              Browse recipes
             </Link>
           </div>
         </div>
