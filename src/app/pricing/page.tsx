@@ -23,9 +23,9 @@ const plans = [
     description: "Browse recipes and get inspired.",
     features: [
       "Browse all 50+ tone recipes",
-      "Physical + Helix + Boss Katana signal chains",
+      "Signal chains for 6 platforms: Helix, Quad Cortex, TONEX, Fractal, Kemper, Katana",
       "Download recipe PDFs (with email)",
-      "10 free preset downloads",
+      "10 free preset downloads (Helix & Katana)",
       "Save up to 5 recipes",
       "Community forum & comments",
     ],
@@ -162,8 +162,11 @@ export default function PricingPage() {
           <div>
             <h3 className="font-semibold">What platforms are supported?</h3>
             <p className="mt-1 text-sm text-muted">
-              Every recipe includes settings for Line 6 Helix and Boss Katana.
-              More platforms coming soon. All platform translations are free to view.
+              Every recipe includes viewable settings for six platforms — Helix,
+              Quad Cortex, TONEX, Fractal, Kemper, and Boss Katana — all free to
+              view. Downloadable preset files are available for Helix (.hlx) and
+              Boss Katana (.tsl) today, with more platforms rolling out as we
+              validate each on real hardware.
             </p>
           </div>
           <div>
