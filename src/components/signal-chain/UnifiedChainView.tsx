@@ -856,11 +856,16 @@ export default function UnifiedChainView({
           </div>
         </div>
 
-        {/* Actions: download + fullscreen */}
+        {/* Actions: download + fullscreen.
+            Downloads render for anon + free + paid users. Auth/limit gating
+            happens inside DownloadPatchButton — anon gets a signup modal,
+            free at limit gets an upgrade modal, paid downloads directly.
+            Platforms limited to Helix + Katana until QC/Fractal/Kemper
+            presets are validated on real hardware. */}
         <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
-          {user && (activeTab === "helix" || activeTab === "quad_cortex" || activeTab === "katana") && activeTranslation && (
+          {recipeSlug && (activeTab === "helix" || activeTab === "katana") && activeTranslation && (
             <DownloadPatchButton
-              translation={activeTranslation}
+              recipeSlug={recipeSlug}
               presetName={presetName}
               platform={activeTab}
             />

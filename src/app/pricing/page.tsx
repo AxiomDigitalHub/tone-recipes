@@ -46,7 +46,10 @@ const plans = [
       "Ad-free experience",
     ],
     cta: "Start Tone Pass",
-    highlight: false,
+    // Tone Pass is the "Best Value" tier: every feature is live today and
+    // it solves the core problem for ~80% of serious players. Pro holds
+    // the badge back until Set Packs actually ship (see roadmap).
+    highlight: true,
     stripePlan: "premium" as const,
   },
   {
@@ -62,7 +65,7 @@ const plans = [
       "Pro badge on profile",
     ],
     cta: "Go Pro",
-    highlight: true,
+    highlight: false,
     stripePlan: "creator" as const,
   },
 ];
