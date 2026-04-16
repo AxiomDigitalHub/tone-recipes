@@ -197,6 +197,21 @@ export default function PricingPage() {
           </div>
         </div>
       </div>
+
+      {/* Recovery link: visitor scrolled to the bottom without picking a plan.
+          Don't let them bounce to nowhere — send them back into the product
+          with a high-quality sample so they can re-evaluate with evidence. */}
+      <div className="mx-auto mt-20 max-w-2xl text-center">
+        <p className="text-sm text-muted">
+          Not ready to pick a plan?
+        </p>
+        <Link
+          href="/recipe/gilmour-comfortably-numb-solo"
+          className="mt-2 inline-block text-sm font-semibold text-accent hover:underline"
+        >
+          See a tone recipe first &rarr;
+        </Link>
+      </div>
     </div>
   );
 }
