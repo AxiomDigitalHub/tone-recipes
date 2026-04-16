@@ -85,9 +85,9 @@ export default function DashboardShell({
     .join("");
 
   return (
-    <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col md:flex-row md:gap-8 md:px-4 md:py-10">
+    <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 md:grid-cols-[14rem_minmax(0,1fr)] md:gap-8 md:px-4 md:py-10">
       {/* ---- Sidebar (desktop) ---- */}
-      <aside className="hidden w-56 shrink-0 md:block">
+      <aside className="hidden md:block">
         <div className="sticky top-24 flex flex-col gap-6">
           {/* User info + tier badge */}
           <div className="flex items-center gap-3">
@@ -180,7 +180,7 @@ export default function DashboardShell({
       </nav>
 
       {/* ---- Content ---- */}
-      <div className="min-h-[70vh] flex-1 px-4 py-8 md:px-0 md:py-0">{children}</div>
+      <div className="min-h-[70vh] px-4 py-8 md:px-0 md:py-0">{children}</div>
     </div>
   );
 }
