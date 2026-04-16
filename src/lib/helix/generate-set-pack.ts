@@ -10,15 +10,15 @@
  *   70s Chorus → Transistor Tape (1/4) → Digital Delay (dotted 1/8) →
  *   Plate Reverb → Glitz Reverb
  *
- * Snapshot layout:
- *   1. CLEAN        - Base clean, subtle reverb + quarter note delay
- *   2. DRIVE        - Light overdrive (Klon on), amp pushed slightly
- *   3. DRIVE+       - Medium drive (Klon + 808 stacked)
- *   4. LEAD         - Full drive, mid boost, solo delay
- *   5. CLEAN AMBI   - Clean + big ambient reverb + dotted eighth delay
- *   6. AMBI DRIVE   - Light drive + ambient effects
- *   7. ROCK         - Heavier crunch for rock-influenced worship songs
- *   8. SWELLS       - Volume swells with max reverb + shimmer + delay
+ * Snapshot layout (names match the Helix snapshot LCD — 8 chars max):
+ *   1. CLEAN    - Base clean, subtle reverb + quarter note delay
+ *   2. DRIVE    - Light overdrive (Klon on), amp pushed slightly
+ *   3. DRIVE+   - Medium drive (Klon + 808 stacked)
+ *   4. LEAD     - Full drive, mid boost, solo delay
+ *   5. CLN AMBI - Clean + big ambient reverb + dotted eighth delay
+ *   6. AMB DRV  - Light drive + full ambient effects
+ *   7. ROCK     - Heavier crunch for rock-influenced worship songs
+ *   8. SWELLS   - Volume swells with max reverb + shimmer + delay
  */
 
 /* ------------------------------------------------------------------ */

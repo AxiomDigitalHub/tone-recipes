@@ -56,10 +56,10 @@ const plans = [
     name: "Pro",
     price: "$12",
     period: "/month",
-    description: "Set packs + priority access for serious players.",
+    description: "Priority access + future Set Packs for serious players.",
     features: [
       "Everything in Tone Pass",
-      "Genre Set Packs with Setlist Mapper",
+      "All future Set Packs included (Classic Rock, 90s, Blues, Metal)",
       "Priority access to new recipes",
       "Request specific song tones",
       "Pro badge on profile",
@@ -141,12 +141,20 @@ export default function PricingPage() {
 
       {/* Set Pack callout */}
       <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-accent/30 bg-accent/5 p-8 text-center">
-        <h3 className="text-lg font-bold">Genre Set Packs — Coming Soon</h3>
+        <h3 className="text-lg font-bold">
+          Worship Set Pack &mdash; live now, free with sign-up
+        </h3>
         <p className="mt-2 text-sm text-muted">
-          One preset with 8 snapshots that covers your entire setlist. Worship, Classic Rock,
-          90s/Alternative, Blues, and more. Each pack includes a Setlist Mapper showing which
-          snapshot to use for every song. Available with Pro plan or as a one-time purchase ($12.99).
+          One Helix preset with 8 snapshots that covers your entire Sunday
+          setlist. Includes a Setlist Mapper for 30 top worship songs. Classic
+          Rock, 90s/Alternative, and Blues packs coming next.
         </p>
+        <Link
+          href="/set-packs/worship"
+          className="mt-4 inline-block text-sm font-semibold text-accent hover:underline"
+        >
+          See the Worship Set Pack &rarr;
+        </Link>
       </div>
 
       {/* FAQ */}

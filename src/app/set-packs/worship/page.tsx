@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Download, Music, Zap, Clock, Waves } from "lucide-react";
+import { Music, Zap, Clock } from "lucide-react";
 import SetlistMapper from "@/components/set-packs/SetlistMapper";
+import DownloadSetPackButton from "@/components/set-packs/DownloadSetPackButton";
 
 export const metadata: Metadata = {
   title: "Worship Set Pack — Helix Preset with 8 Snapshots",
@@ -118,19 +119,15 @@ export default function WorshipSetPackPage() {
       <div className="mt-16 rounded-2xl border border-accent/30 bg-accent/5 p-8">
         <h2 className="text-xl font-bold">Download the Worship Set Pack</h2>
         <p className="mt-2 text-sm text-muted">
-          One .hlx file with all 8 snapshots. Load it into HX Edit and you're Sunday-ready.
+          One .hlx file with all 8 snapshots. Load it into HX Edit and
+          you&apos;re Sunday-ready.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <a
-            href="/api/set-packs/worship"
-            className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
-          >
-            <Download className="h-4 w-4" />
-            Download .hlx Preset
-          </a>
+          <DownloadSetPackButton packSlug="worship" packName="Worship" />
         </div>
         <p className="mt-4 text-xs text-muted">
-          Compatible with Line 6 Helix and HX Stomp hardware on recent firmware.
+          Free while we&apos;re in launch mode. Compatible with Line 6 Helix
+          and HX Stomp on recent firmware.
         </p>
       </div>
 
