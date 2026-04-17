@@ -91,11 +91,14 @@ export async function GET(req: NextRequest) {
       // satisfy TypeScript while still getting the current-account behavior.
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const acct = await (s.accounts as any).retrieve();
+      // Account email is redacted — if the token is ever compromised, the
+      // email becomes useful for phishing. account_id + livemode are enough
+      // to confirm the Stripe handshake works and the right account is wired.
       report.stripe_handshake = {
         ok: true,
         account_id: acct.id,
         livemode: acct.charges_enabled ? "live-eligible" : "test-or-restricted",
-        email: acct.email,
+        email_set: Boolean(acct.email),
       };
     } catch (err) {
       report.stripe_handshake = {
