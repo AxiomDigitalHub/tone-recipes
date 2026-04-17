@@ -65,6 +65,12 @@ function polarPoint(cx: number, cy: number, r: number, deg: number) {
   return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
 }
 
+/** Safe number → fixed-decimal string. Returns "0" if the input is not a
+ *  finite number (guards against NaN/undefined crashing the SVG render). */
+function fx(n: number, decimals = 2): string {
+  return Number.isFinite(n) ? n.toFixed(decimals) : "0";
+}
+
 /** Build an SVG arc path from startDeg to endDeg (clockwise sweep, 12 o'clock = 0°). */
 function arcPath(
   cx: number,
@@ -76,12 +82,12 @@ function arcPath(
   const start = polarPoint(cx, cy, r, startDeg);
   const end = polarPoint(cx, cy, r, endDeg);
   const largeArc = endDeg - startDeg > 180 ? 1 : 0;
-  return `M ${start.x.toFixed(2)} ${start.y.toFixed(2)} A ${r} ${r} 0 ${largeArc} 1 ${end.x.toFixed(2)} ${end.y.toFixed(2)}`;
+  return `M ${fx(start.x)} ${fx(start.y)} A ${r} ${r} 0 ${largeArc} 1 ${fx(end.x)} ${fx(end.y)}`;
 }
 
 export default function Knob({
   name,
-  value,
+  value: rawValue,
   min = 0,
   max = 10,
   unit,
@@ -89,6 +95,11 @@ export default function Knob({
   display,
   color,
 }: KnobProps) {
+  // Defensive: MDX JSX can occasionally pass `undefined` during SSR if an
+  // authoring mistake swallows the attribute. Default to min so the knob
+  // renders at its lowest position instead of crashing the prerender.
+  const value =
+    typeof rawValue === "number" && Number.isFinite(rawValue) ? rawValue : min;
   const { outer, stroke, valueSize, labelSize } = SIZE_MAP[size];
   const pad = 4;
   const box = outer + pad * 2;

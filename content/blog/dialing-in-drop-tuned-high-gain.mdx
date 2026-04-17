@@ -125,30 +125,33 @@ Recommended starting height for the 7th string: 2.5–3mm from the bottom of the
 
 ## A Practical Starting Preset for Drop B
 
-Here's a working starting point for a 7-string guitar in drop B, running through a high-gain amp model (Fortin NTS, EVH 5150, or equivalent):
+Here's a working starting point for a 7-string guitar in drop B, running through a high-gain amp model (Fortin NTS, EVH 5150, or equivalent).
 
-**Pre-amp:**
-- High-pass filter: 80Hz, 12dB/octave
-- OD808 or equivalent: Gain at 0, Level at +4–6dB, Mid at 0
+**Pre-amp:** High-pass filter at 80Hz, 12dB/octave, before the OD808.
 
-**Amp block:**
-- Gain: 5.0
-- Bass: 4.5 (slightly below noon)
-- Mid: 5.5–6.0
-- Treble: 5.0
-- Presence: 4.5
+<SettingsGrid title="Pre-amp" subtitle="OD808 (Tube Screamer boost)">
+  <Knob name="Gain" value={0} />
+  <Knob name="Level" value={7} display="+4–6dB" />
+  <Knob name="Mid" value={0} />
+</SettingsGrid>
 
-**Cab block:**
-- 4x12 Celestion V30 IR (Ownhammer or Mesa official)
-- Mic: SM57, edge position, close distance
-- High-cut on IR: 6.5–7kHz at 3dB reduction
+<SettingsGrid title="Amp" subtitle="Fortin NTS / EVH 5150">
+  <Knob name="Gain" value={5} />
+  <Knob name="Bass" value={4.5} />
+  <Knob name="Mid" value={5.75} display="5.5–6.0" />
+  <Knob name="Treble" value={5} />
+  <Knob name="Presence" value={4.5} />
+</SettingsGrid>
 
-**Post-EQ:**
-- 100Hz: cut 2dB, Q = 2.0
-- 220Hz: cut 1.5dB, Q = 1.5
-- 5kHz: cut 2dB, Q = 1.5 (shelf)
+**Cab block:** 4x12 Celestion V30 IR (Ownhammer or Mesa official). Mic: SM57, edge position, close distance. High-cut on IR at 6.5–7kHz with 3dB reduction.
 
-This is a starting point. Adjust the 100Hz and 220Hz cuts by ear after playing palm mutes at your specific drop tuning — the resonant frequencies shift slightly depending on the specific guitar, pickup, and scale length.
+<SettingsGrid title="Post-EQ" subtitle="Parametric band cuts after the cab">
+  <Fader name="100Hz" value={-2} min={-12} max={12} unit="dB" />
+  <Fader name="220Hz" value={-1.5} min={-12} max={12} unit="dB" />
+  <Fader name="5kHz" value={-2} min={-12} max={12} unit="dB" />
+</SettingsGrid>
+
+100Hz and 220Hz cuts use a Q of 2.0 and 1.5 respectively. The 5kHz cut is a shelf. Adjust the 100Hz and 220Hz cuts by ear after playing palm mutes at your specific drop tuning — the resonant frequencies shift slightly depending on the specific guitar, pickup, and scale length.
 
 ---
 

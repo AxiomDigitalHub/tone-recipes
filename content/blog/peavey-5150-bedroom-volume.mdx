@@ -83,43 +83,43 @@ This trick doesn't give you full-power tone at whisper volumes — that requires
 
 The biggest problem at bedroom volume in drop tunings is that the low end gets loose. The low strings already have more energy; without the speaker load tightening the response, they turn into mush.
 
-```
-Pre Gain: 4
-Post: 7
-Low: 3
-Mid: 6
-High: 5
-Resonance: 2-3
-Presence: 7-8
-```
+<SettingsGrid title="Drop-tuned metal" subtitle="Peavey 5150 at bedroom volume">
+  <Knob name="Pre Gain" value={4} />
+  <Knob name="Post" value={7} />
+  <Knob name="Low" value={3} />
+  <Knob name="Mid" value={6} />
+  <Knob name="High" value={5} />
+  <Knob name="Resonance" value={2.5} display="2–3" />
+  <Knob name="Presence" value={7.5} display="7–8" />
+</SettingsGrid>
 
 Drop the Low further than you think is right. Trust the meter, not your gut. A lot of what sounds like "good low end" on a cranked 5150 is actually the power section and speaker tightening the signal. Without that, the Low control at 5 adds more than you want.
 
 ### Classic High-Gain Rock (Zakk Wylde, Van Halen)
 
-```
-Pre Gain: 5
-Post: 7
-Low: 4
-Mid: 5
-High: 6
-Resonance: 4
-Presence: 7
-```
+<SettingsGrid title="Classic high-gain rock" subtitle="Brown sound territory">
+  <Knob name="Pre Gain" value={5} />
+  <Knob name="Post" value={7} />
+  <Knob name="Low" value={4} />
+  <Knob name="Mid" value={5} />
+  <Knob name="High" value={6} />
+  <Knob name="Resonance" value={4} />
+  <Knob name="Presence" value={7} />
+</SettingsGrid>
 
 The Brown Sound you're chasing requires the power amp. There's a ceiling to how close you can get without volume. But this setting gets the EQ profile right, and the extra Mid at bedroom level compensates for the reduced perceived midrange from the underdriven power section.
 
 ### High-Gain Lead Lines
 
-```
-Pre Gain: 5-6
-Post: 6-7
-Low: 4
-Mid: 6-7
-High: 5
-Resonance: 4
-Presence: 6
-```
+<SettingsGrid title="High-gain lead" subtitle="Single-note articulation at low volume">
+  <Knob name="Pre Gain" value={5.5} display="5–6" />
+  <Knob name="Post" value={6.5} display="6–7" />
+  <Knob name="Low" value={4} />
+  <Knob name="Mid" value={6.5} display="6–7" />
+  <Knob name="High" value={5} />
+  <Knob name="Resonance" value={4} />
+  <Knob name="Presence" value={6} />
+</SettingsGrid>
 
 Leads need midrange to cut through even when you're playing alone. This setting pulls the Lead channel out of the scooped territory and adds enough upper-mid presence to make single notes articulate at low volume.
 

@@ -41,7 +41,7 @@ function clamp(n: number, min: number, max: number): number {
 
 export default function Fader({
   name,
-  value,
+  value: rawValue,
   min = 0,
   max = 10,
   unit,
@@ -49,6 +49,8 @@ export default function Fader({
   display,
   color,
 }: FaderProps) {
+  const value =
+    typeof rawValue === "number" && Number.isFinite(rawValue) ? rawValue : min;
   const { trackHeight, width, valueSize, labelSize } = SIZE_MAP[size];
   const trackWidth = 4;
   const capHeight = 14;

@@ -13,6 +13,7 @@ import { PLATFORMS, DISPLAYED_PLATFORM_IDS } from "@/lib/constants";
 import { getChainIcon } from "@/lib/chain-icons";
 import { Guitar, Maximize2, Minimize2, Lock, Zap, Volume2, Speaker, Mic, Clock, Waves } from "lucide-react";
 import DownloadPatchButton from "./DownloadPatchButton";
+import SettingDisplay from "@/components/settings/SettingDisplay";
 import CommunitySubmissions from "./CommunitySubmissions";
 import { usePlatformStore } from "@/lib/stores/platform-store";
 import { useAuth } from "@/lib/auth/auth-context";
@@ -308,19 +309,19 @@ function NodeDetailDrawer({
 
       <div className="px-5 pb-5 md:px-8">
         {settingEntries.length > 0 ? (
-          <div className="grid grid-cols-3 gap-2.5 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+          // Knob/fader panel: SettingDisplay routes each (key, value) to the
+          // right visual — rotary knob for amp controls, linear fader for dB
+          // thresholds + cut frequencies, plain numeric card for the long
+          // tail of simulator-specific parameters. Keeps the panel legible
+          // even when a block has 15+ settings.
+          <div className="flex flex-wrap items-start gap-3">
             {settingEntries.map(([key, value]) => (
-              <div
+              <SettingDisplay
                 key={key}
-                className="flex flex-col items-center rounded-xl border border-border bg-surface p-3"
-              >
-                <span className="text-xl font-mono font-bold" style={{ color }}>
-                  {value}
-                </span>
-                <span className="mt-0.5 text-[10px] font-medium uppercase tracking-wider text-muted">
-                  {key}
-                </span>
-              </div>
+                settingKey={key}
+                value={value as string | number}
+                color={color}
+              />
             ))}
           </div>
         ) : (
