@@ -260,14 +260,14 @@ These fill the biggest gaps and create cluster anchors for future content.
 | # | Topic | Target Query | Writer |
 |---|---|---|---|
 | P4-13 | Your Modeler Preset Sounds Different at the Gig (and How to Fix It) ✅ PUBLISHED | "modeler sounds different live," "helix sounds bad live" | Nathan Cross |
-| P4-14 | How to Stop Pedal Hiss Without Killing Your Tone | "pedal noise floor," "guitar pedal hiss fix" | Carl Beckett |
+| P4-14 | How to Stop Pedal Hiss Without Killing Your Tone ✅ PUBLISHED | "pedal noise floor," "guitar pedal hiss fix" | Carl Beckett |
 
 ### Gear Lab (Pillar 5) — 2 Posts
 
 | # | Topic | Target Query | Writer |
 |---|---|---|---|
-| P4-15 | How Much Does Pick Thickness Change Your Tone? | "pick thickness tone," "does pick gauge matter guitar" | Carl Beckett |
-| P4-16 | We A/B Tested 5 Overdrive Pedals: Here Are the Settings That Worked | "best overdrive pedal comparison," "overdrive shootout" | Rick Dalton + Jess Kowalski (crossover) |
+| P4-15 | How Much Does Pick Thickness Change Your Tone? ✅ PUBLISHED | "pick thickness tone," "does pick gauge matter guitar" | Carl Beckett |
+| P4-16 | We A/B Tested 5 Overdrive Pedals: Here Are the Settings That Worked ✅ PUBLISHED | "best overdrive pedal comparison," "overdrive shootout" | Rick Dalton + Jess Kowalski (crossover) |
 
 ---
 
@@ -815,3 +815,50 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 | 3 | Two Reverb Pedals That Sound Great Together: The Best Hardware Pairings | "best two reverb pedal combination," "reverb pedal pairing guide," "bigsky and room reverb together" | Dev Okonkwo | 5 — Gear Lab | Stacking reverbs SERP — forum threads consistently ask about specific combinations (BigSky + small room pedal, Strymon Flint + plate reverb) with no editorial roundup; the principles from the stacking guide translate directly into specific hardware recommendations; Dev is the natural voice for ambient pairing content |
 | 4 | The Volume Pedal as a Dynamics Control (Not Just for Swells) | "how to use volume pedal guitar," "volume pedal technique dynamics," "volume pedal always-on placement" | Nathan Cross | 3 — Signal Chain & Tone Theory | Volume swell SERP — Worship Artistry and Blackstar content frames volume pedals as swell tools exclusively; the "always-on at partial position" technique (running the volume pedal at 70–80% as a dynamic headroom reserve) is absent from all editorial coverage; Nathan uses this in live worship contexts every week and it's the most underrated use of the pedal |
 | 5 | Keeley Super AT Mod: What Andy Timmons' Signature BD-2 Changes and Who It's For | "keeley bd-2 super at mod," "andy timmons overdrive keeley," "keeley super at mod vs standard" | Margot Thiessen | 5 — Gear Lab | BD-2 clones SERP — the Keeley Super AT Mod (2023, designed with Andy Timmons) appeared in SERP results but has no dedicated editorial review; the Andy Timmons collaboration angle creates a natural connection to the existing Andy Timmons budget tone post; Margot's nuanced harmonic sensitivity and her position as the Timmons tone voice make this the right follow-up to our existing AT content |
+
+## SERP-Derived Topics — 2026-04-16
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | Why Your Tube Amp Sounds Different at Rehearsal Volume vs. Bedroom Volume (Power Tube Threshold, Explained) | "tube amp sounds better loud," "why does my amp sound thin quiet," "tube amp bedroom volume problems" | Hank Presswood | 3 — Signal Chain & Tone Theory | Power tube saturation SERP — a consistent PAA pattern across the Sweetwater, Guitar.com, and Andertons results: "Why does my tube amp sound thin at low volumes?" gets answered with "the power tubes aren't working" but no editorial piece explains the specific threshold at which power tubes begin contributing, or what this means practically for home players; direct follow-on from the power tube saturation post with a different search angle targeting the bedroom-guitarist frustration |
+| 2 | The Definitive Klon Centaur Settings Guide: What Each Knob Actually Does | "klon centaur settings," "klon gain knob explained," "klon treble knob what does it do" | Rick Dalton | 2 — Settings Guides | TS+Klon stacking SERP — the FAQ in the stacking post links to `/blog/klon-centaur-settings-guide` as a reference; the page doesn't exist yet; Sweetwater's Klon overview and TalkBass/GuitarWorld forum threads for "klon settings" produce no clean editorial result that walks through each knob's behavior in detail; Rick is the established voice for this topic via the stacking post and his direct no-nonsense approach |
+| 3 | Dotted Eighth Delay Without a Tap Tempo: A Reference Card for Live Use | "delay settings without tap tempo," "dotted eighth delay cheat sheet," "u2 delay trick without tap tempo" | Nathan Cross | 3 — Signal Chain & Tone Theory | Delay BPM SERP — a gap in practical advice for players using older delays (Boss DD-3, analog delays) without tap tempo; while our BPM calculator post exists, a focused "how to set this by ear live" with reference tricks (like the Edge's counting method) fills a different search intent; Nathan's live worship context gives him direct credibility for the "I need to do this during service without a tap tempo pedal" use case |
+| 4 | Helix Amp Model Cheat Sheet: Which Block Matches Which Real Amp | "helix amp model list what amp," "helix amp models real names," "line 6 helix amp names decoded" | Sean Nakamura | 4 — Modeler Masterclass | Helix cab IR pairings SERP — every major Helix editorial (Sweetwater, Line 6 forums, GearSpace threads) refers to amp models by their fictionalized names (Brit Plexi Nrm, Interstate Zed, WhoWatt 100) without clearly mapping them to the real-world amps; several PAA questions repeat this pattern: "What amp is the Helix Brit Plexi based on?" "What is the Helix Placater amp model?"; a concise cheat-sheet post with manufacturer → model → Helix name → recommended starting gain is extremely linkable and has high long-tail volume |
+| 5 | Why the Roland JC-120 Can't Be Fully Replicated in a Modeler (And What to Do About It) | "jc-120 modeler alternative," "helix jazz chorus model," "can you replicate jc-120 in helix" | Dev Okonkwo | 4 — Modeler Masterclass | JC-120 settings SERP — the settings guide post ends with an honest caveat about modeler limitations; the SERP for "jc-120 modeler" produces only forum opinions and no editorial deep-dive explaining *why* the BBD stereo interaction resists digital emulation; Dev's engineering curiosity and his existing first-person admission about headphone monitoring make this a natural follow-on that owns the "honest modeler limitation" space most editorial coverage avoids |
+
+**SERP analysis notes — 2026-04-16 batch:**
+
+**stacking ts808 klon into marshall:**
+- Gear forums dominate (GearPage, TGP) with thread opinions but no structured editorial content
+- Premier Guitar has a "Rig Rundown" reference to this technique but never explains the mechanism
+- Sweetwater's individual Klon and TS product pages don't address stacking behavior
+- Gap confirmed: no editorial source explains *why* the order matters (Klon → TS, not reversed) with circuit-level reasoning; our post is the only structured editorial piece on this exact combination
+- PAA signal: "Does a Klon work before or after a Tube Screamer?" "Should the boost go first in chain?" — confirmed high intent, no editorial answer ranking
+
+**roland jc-120 settings robert smith cure:**
+- Equipboard entries for Robert Smith gear are the top result — lists equipment, no dial-in settings
+- Guitar World "How to Sound Like Robert Smith" article exists but doesn't give specific JC-120 settings
+- Tone Doctor YouTube video on "Cure Guitar Tone" ranks for some variants — no companion text content
+- Gap confirmed: no written editorial source combines BBD circuit explanation + Smith-specific settings + modeler reality check in one place; our post is the first to do all three
+- PAA signal: "What chorus did Robert Smith use?" "Is the Roland Jazz Chorus a solid state amp?" "How do I get A Forest guitar tone?" — all now answered directly
+
+**vox ac30 cut knob:**
+- Vox's own product page buries the Cut explanation in a paragraph without a reference table
+- Several forum threads (The Gear Page, TDPRI) answer "what does the Cut knob do?" with varying accuracy — some incorrectly describe it as a mid-cut
+- YouTube "AC30 Explained" videos rank for the query but require watching; no text-first resource
+- Gap confirmed: no editorial source explains the Cut knob with a practical position-to-effect table and the "why it's backwards" circuit reasoning; common confusion about cut vs. tone control is untreated in editorial
+- PAA signal: "Why does the AC30 cut knob work backwards?" "What position should the Cut knob be on a Vox AC30?" "Does the Cut knob on a Vox affect bass?" — all answered directly in the FAQ
+
+**delay time bpm calculator:**
+- Multiple calculator tools rank (e.g., Giggity, HaasEffect calculator) — functional tools, zero editorial explanation
+- Boss's own "delay time calculator" app ranks — no explanation of why dotted eighth is the standard
+- The "Edge U2 delay trick" searches produce YouTube only — no written reference with the formula
+- Gap confirmed: calculators give numbers but no editorial source explains *why* dotted eighth works rhythmically (the interleaving principle), or gives practical feedback/mix starting points alongside the math
+- PAA signal: "How do you calculate delay time for dotted eighth?" "What ms delay for 120 BPM?" "What should feedback be set to on delay?" — all addressed
+
+**reverb live vs dead room:**
+- Sweetwater has a "reverb types explained" article that addresses algorithm selection but not room-matching
+- No editorial source gives specific parameter tables for dead/medium/live room contexts; most reverb guides treat reverb as a studio tool and ignore live sound application
+- In-ear monitor caveat (reverb calibrated to room, not to ears) is completely absent from all editorial reverb guides reviewed
+- Gap confirmed: the room-calibration approach and the pre-delay principle in live rooms are nowhere in editorial guitar content; this is a genuine first
+- PAA signal: "How do I set reverb for worship guitar?" "Why does my reverb sound too wet on stage?" "Should I use less reverb in a live room?" — all answered
