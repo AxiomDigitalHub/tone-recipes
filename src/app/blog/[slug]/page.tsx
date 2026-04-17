@@ -5,6 +5,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import { settingsMdxComponents } from "@/components/settings/mdx-components";
 import Image from "next/image";
 import {
   getPostBySlug,
@@ -375,6 +376,7 @@ export default async function BlogPostPage({
           <div className="prose-dark mx-auto max-w-3xl lg:mx-0">
             <MDXRemote
               source={post.content}
+              components={settingsMdxComponents}
               options={{
                 mdxOptions: {
                   remarkPlugins: [remarkGfm],
