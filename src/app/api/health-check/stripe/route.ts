@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import Stripe from "stripe";
 
 /**
- * GET /api/_health/stripe
+ * GET /api/health-check/stripe
  *
  * Diagnostic endpoint for verifying the Stripe + Supabase integration is
  * configured correctly. Reports:
@@ -17,7 +17,7 @@ import Stripe from "stripe";
  * env var, so it's not accidentally public. Set that env var in Vercel to
  * any long random string before using.
  *
- * Example: GET /api/_health/stripe?token=YOUR_SECRET
+ * Example: GET /api/health-check/stripe?token=YOUR_SECRET
  */
 
 function decodeJwtRole(jwt: string | undefined): string {
