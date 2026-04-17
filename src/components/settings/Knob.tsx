@@ -36,6 +36,12 @@ export interface KnobProps {
   display?: string;
   /** Optional color override for the pointer + value arc. Defaults to --accent. */
   color?: string;
+  /** Optional neutral/default value. When provided, a small marker tick is
+   *  drawn at that position on the knob body so the reader can see at a
+   *  glance whether the recipe pushes the control (e.g. "Gain at 7" reads
+   *  very differently when Gain's neutral is 0 vs 5). If omitted, no marker
+   *  is drawn. */
+  neutral?: number;
 }
 
 const SIZE_MAP = {
@@ -94,6 +100,7 @@ export default function Knob({
   size = "md",
   display,
   color,
+  neutral,
 }: KnobProps) {
   // Defensive: MDX JSX can occasionally pass `undefined` during SSR if an
   // authoring mistake swallows the attribute. Default to min so the knob
@@ -195,6 +202,28 @@ export default function Knob({
 
         {/* Inner body — the "cap" of the knob */}
         <circle cx={cx} cy={cy} r={rInner} fill={bodyFill} stroke="none" />
+
+        {/* Neutral marker — a small brighter tick on the outer ring at the
+            parameter's neutral position. Lets the reader see at a glance
+            whether the current value is above, at, or below the factory
+            default. Omitted when `neutral` prop isn't provided. */}
+        {typeof neutral === "number" && Number.isFinite(neutral) && (() => {
+          const neutralAngle = valueToAngle(neutral, min, max);
+          const outerP = polarPoint(cx, cy, r + 4, neutralAngle);
+          const innerP = polarPoint(cx, cy, r - 5, neutralAngle);
+          return (
+            <line
+              x1={outerP.x}
+              y1={outerP.y}
+              x2={innerP.x}
+              y2={innerP.y}
+              stroke="var(--color-foreground, #e2e8f0)"
+              strokeWidth={stroke + 0.5}
+              strokeLinecap="round"
+              opacity={0.55}
+            />
+          );
+        })()}
 
         {/* Value arc — sweeps from min to current value */}
         {showArc && (

@@ -27,6 +27,9 @@ export interface FaderProps {
   size?: "sm" | "md" | "lg";
   display?: string;
   color?: string;
+  /** Optional neutral/default value. Renders a small notch across the track
+   *  at that position. Same semantics as Knob's `neutral` prop. */
+  neutral?: number;
 }
 
 const SIZE_MAP = {
@@ -48,6 +51,7 @@ export default function Fader({
   size = "md",
   display,
   color,
+  neutral,
 }: FaderProps) {
   const value =
     typeof rawValue === "number" && Number.isFinite(rawValue) ? rawValue : min;
@@ -115,6 +119,28 @@ export default function Fader({
           rx={trackWidth / 2}
           fill={borderColor}
         />
+
+        {/* Neutral marker — horizontal notch across the track at the
+            parameter's neutral position. Only rendered when `neutral` is
+            provided. Same semantic as the Knob neutral marker. */}
+        {typeof neutral === "number" && Number.isFinite(neutral) && (() => {
+          const neutralPct =
+            max === min ? 0 : clamp((neutral - min) / (max - min), 0, 1);
+          const notchY = (1 - neutralPct) * (trackHeight - capHeight) + capHeight / 2;
+          const notchHalfWidth = (capWidth + 6) / 2;
+          return (
+            <line
+              x1={width / 2 - notchHalfWidth}
+              y1={notchY}
+              x2={width / 2 + notchHalfWidth}
+              y2={notchY}
+              stroke="var(--color-foreground, #e2e8f0)"
+              strokeWidth={1.5}
+              strokeLinecap="round"
+              opacity={0.45}
+            />
+          );
+        })()}
 
         {/* Track fill — from cap position to bottom */}
         <rect

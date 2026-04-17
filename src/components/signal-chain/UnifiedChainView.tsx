@@ -309,18 +309,23 @@ function NodeDetailDrawer({
 
       <div className="px-5 pb-5 md:px-8">
         {settingEntries.length > 0 ? (
-          // Knob/fader panel: SettingDisplay routes each (key, value) to the
-          // right visual — rotary knob for amp controls, linear fader for dB
-          // thresholds + cut frequencies, plain numeric card for the long
-          // tail of simulator-specific parameters. Keeps the panel legible
-          // even when a block has 15+ settings.
-          <div className="flex flex-wrap items-start gap-3">
+          // Knob/fader panel. Size "md" gives the knobs enough presence to
+          // read as a control surface, not a sparkline. Block category is
+          // threaded so params that mean different things in different
+          // blocks (e.g. "Level" on a Compressor vs a Booster) pick up the
+          // right registry override. Unknown params fall back to a plain
+          // numeric card.
+          <div className="flex flex-wrap items-start gap-5">
             {settingEntries.map(([key, value]) => (
               <SettingDisplay
                 key={key}
                 settingKey={key}
                 value={value as string | number}
                 color={color}
+                size="md"
+                blockCategory={
+                  node?.category || platformBlock?.block_category
+                }
               />
             ))}
           </div>

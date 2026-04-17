@@ -148,9 +148,47 @@ export default function KnobsPreviewPage() {
         </SettingsGrid>
       </section>
 
-      {/* ── 8. Color variants ── */}
+      {/* ── 8. Neutral markers ── */}
       <section className="mb-14">
-        <h2 className="mb-4 text-lg font-bold">8. Color variants</h2>
+        <h2 className="mb-4 text-lg font-bold">
+          8. Neutral markers (the registry tells you where flat lives)
+        </h2>
+        <p className="mb-4 text-sm text-muted">
+          The small white tick on the outer ring shows the parameter&apos;s
+          neutral value — where the control has no audible effect (EQ flat) or
+          sits at factory default. Gain is neutral at 0 (no drive). Bass / Mid
+          / Treble are neutral at 5 (flat EQ). A compressor Mix is neutral at
+          1 (fully wet). Knowing where neutral is changes how you read every
+          recipe — &ldquo;Gain at 5&rdquo; suddenly means &ldquo;halfway
+          pushed&rdquo; not &ldquo;pretty clean.&rdquo;
+        </p>
+        <SettingsGrid title="Flat EQ" subtitle="All neutrals lit">
+          <Knob name="Gain" value={0} neutral={0} />
+          <Knob name="Bass" value={5} neutral={5} />
+          <Knob name="Mid" value={5} neutral={5} />
+          <Knob name="Treble" value={5} neutral={5} />
+          <Knob name="Presence" value={5} neutral={5} />
+          <Knob name="Master" value={5} neutral={5} />
+        </SettingsGrid>
+        <SettingsGrid title="SRV Pride and Joy" subtitle="Deviations from neutral visible at a glance">
+          <Knob name="Gain" value={6} neutral={0} />
+          <Knob name="Bass" value={4} neutral={5} />
+          <Knob name="Mid" value={6} neutral={5} />
+          <Knob name="Treble" value={6} neutral={5} />
+          <Knob name="Presence" value={5} neutral={5} />
+          <Knob name="Master" value={7} neutral={5} />
+        </SettingsGrid>
+        <SettingsGrid title="Faders with neutral" subtitle="Threshold 0 = no compression">
+          <Fader name="Threshold" value={-24} min={-60} max={0} neutral={0} unit="dB" />
+          <Fader name="Low cut" value={100} min={20} max={500} neutral={20} unit="Hz" />
+          <Fader name="100Hz" value={-2} min={-12} max={12} neutral={0} unit="dB" />
+          <Fader name="5kHz" value={-2} min={-12} max={12} neutral={0} unit="dB" />
+        </SettingsGrid>
+      </section>
+
+      {/* ── 9. Color variants ── */}
+      <section className="mb-14">
+        <h2 className="mb-4 text-lg font-bold">9. Color variants</h2>
         <p className="mb-4 text-sm text-muted">
           Per-knob color override. Useful for grouping related controls
           (e.g., reverb knobs all green) or matching real pedal enclosures.
