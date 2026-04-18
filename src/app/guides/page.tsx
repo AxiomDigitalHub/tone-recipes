@@ -45,25 +45,25 @@ const PILLARS = [
     slug: "signal-chain-fundamentals",
     title: "Signal Chain Fundamentals",
     blurb: "Why the order of pedals matters. Gain staging, impedance, true bypass, buffered pedals, parallel routing.",
-    live: false,
+    live: true,
   },
   {
     slug: "worship-guitar",
     title: "Worship Guitar",
     blurb: "Sunday morning setup, live expression-pedal dynamics, in-ear mix for guitar, analog-plus-digital worship rigs.",
-    live: false,
+    live: true,
   },
   {
     slug: "bedroom-and-home-recording",
     title: "Bedroom & Home Recording",
     blurb: "Getting great tone in small spaces — headphone rigs, direct recording, quiet pedalboards, parent-player practice.",
-    live: false,
+    live: true,
   },
   {
     slug: "tone-troubleshooting",
     title: "Tone Troubleshooting",
     blurb: "Why your rig sounds wrong. Fixing muddy bass, fizzy highs, noise floor, ground loops, and tone-suck.",
-    live: false,
+    live: true,
   },
 ];
 
