@@ -1,0 +1,138 @@
+---
+title: 'Two Reverb Pedals That Sound Great Together: The Best Hardware Pairings'
+description: >-
+  Pairing two reverbs is a frequency architecture problem. The pairings that
+  work do so because they occupy different frequency ranges and have different
+  temporal behaviors. Here are five that do exactly that.
+date: '2026-04-17'
+author: Dev Okonkwo
+author_slug: dev-okonkwo
+category: gear-lab
+tags:
+  - reverb
+  - reverb-pedals
+  - stacking-reverbs
+  - ambient
+  - bigsky
+  - strymon
+  - valhalla
+  - gear-lab
+  - pairing
+  - bedroom-producer
+readingTime: 8 min
+image: /images/blog/reverb-pedal-pairings.jpg
+image_alt: a composition illustrating "Two Reverb Pedals That Sound Great Together"
+---
+
+Most "best reverb pairings" lists recommend things based on vibes — "these two sound good together." What they don't explain is *why*, and why matters because understanding the mechanism means you can evaluate any pairing, not just the five someone else tested.
+
+The mechanism is this: two reverbs create mud when they both process the same frequency range with similar temporal behavior. They create space when they each occupy distinct frequency territory and respond to note input at different times. The first reverb should add body to the signal without smearing the high-mid content that the second reverb needs to work with. The second reverb should build on what the first establishes, not compete with it.
+
+| Pairing | Cost | Character | Best For |
+|---|---|---|---|
+| Strymon BigSky + Boss RV-6 (Shimmer) | ~$480 | Realistic space + shimmer layer | Clean ambient, worship builds |
+| Walrus Audio Sloer + EQD Afterneath v3 | ~$480 | Generative wash + discrete reflections | Post-rock, neo-shoegaze |
+| Valhalla Supermassive + Valhalla Room | ~$50 plugin bundle | Shimmer + natural room | Bedroom production, lofi |
+| Chase Bliss CXM 1978 + TC HoF 2 | ~$620 | Dark plate + modern hall | Recording-first, studio sessions |
+| TC Hall of Fame Mini + MXR M300 | ~$135 | Plate + hall, no-frills | Budget ambient pedalboard |
+
+---
+
+## Why These Pairings Work
+
+Before getting to the hardware: the principles from [Stacking Reverbs: When Two Reverb Blocks Sound Better Than One](/blog/stacking-reverbs-guide) apply to all of these. Every pairing here follows the same two rules: the first reverb runs a low mix (20–25%) with a high-pass filter on its output at 150–250 Hz, and the first reverb's decay is shorter than the second reverb's pre-delay. If you're running hardware pedals, implement the high-pass either with an EQ pedal between the two reverbs or by using each reverb's built-in tone/low-cut control where available.
+
+---
+
+## Pairing 1: Strymon BigSky + Boss RV-6
+
+The BigSky is the reference ambient reverb for a reason — the algorithm quality in Hall, Room, and Bloom modes covers the "realistic physical space" part of the frequency spectrum with a lot of resolution. The problem is that when you push BigSky into shimmer territory, the shimmer overtones occupy the same upper-mid range as the original signal, and the result can feel crowded.
+
+Running BigSky in Hall or Room mode at 25–30% mix and a 1–2 second decay, then following it with the Boss RV-6 in Shimmer mode at 20% mix, divides the work: the BigSky handles the body of the reverb space (the realistic part, the early reflections and decay), and the RV-6 handles the octave-up shimmer layer. The RV-6 is processing the BigSky's output, which means the shimmer is being generated from an already-spatialized signal — it floats *above* the reverb rather than being baked into it.
+
+**Settings that work:**
+
+BigSky (Hall mode): Decay: 1.5 sec | Mix: 28% | Pre-delay: 15–20ms | Low Cut: 120 Hz (internal)
+
+RV-6 (Shimmer mode): Reverb level: about 9 o'clock | Tone: noon | Effect level: about 8 o'clock
+
+The shimmer from the RV-6 reads as a separate atmospheric layer, not as a muddy doubling of the hall reverb. I expected these two to fight — the BigSky's hall isn't exactly leaving open frequency real estate — but the shimmer's pitch shift to a different octave means it's literally not competing in the same frequency range. The shimmer lives above 1.5–2 kHz. The hall's body lives below it.
+
+---
+
+## Pairing 2: Walrus Audio Sloer + EQD Afterneath v3
+
+These two work for the opposite reason from the BigSky/RV-6 pairing: they have radically different *temporal* behaviors rather than different frequency characters.
+
+The Walrus Sloer is a slow-attack reverb — it doesn't respond immediately to a picked note. The swell takes a fraction of a second to bloom, which means the Sloer functions almost like a textural pad that builds beneath the dry signal rather than a conventional reverb that responds to each note. Its attack behavior filters out the transient entirely. Mix: 35–40%. Decay: long (6–8 seconds).
+
+The Afterneath v3 has the opposite character: extremely fast-responding discrete reflections that sound like the inside of a large irregular cave or tuned space. It responds immediately to the note's attack and creates defined reflections that feel physical rather than atmospheric.
+
+In series, the Afterneath captures the attack and creates its distinctive reflection pattern, then the Sloer builds a slow-rising wash beneath all of it. They don't compete because they're responding to different parts of the note's temporal envelope.
+
+**Settings:**
+
+Afterneath (before Sloer): Length: about 10 o'clock | Drag: about 9 o'clock | Reflect: about 11 o'clock | Mix: 20%
+
+Sloer: Attack: about 3 o'clock (slow) | Decay: about 3 o'clock (long) | Mix: 30–35%
+
+Run a gentle high-pass at 200 Hz between the two if you have an EQ pedal in the chain. Without it, the combination works but the low-mid accumulates in dense chordal passages.
+
+---
+
+## Pairing 3: Valhalla Supermassive + Valhalla Room (Plugin)
+
+For anyone who records at home: two Valhalla instances in series is the most cost-efficient ambient pairing available. Supermassive is free. Valhalla Room costs $50. Together they do what the hardware pairings above do at a fraction of the cost.
+
+The approach: Supermassive handles the shimmer and long-tail atmosphere. Room handles the body — realistic early reflections and a natural decay that sits underneath Supermassive's wash.
+
+In a DAW: run Room first (Mix: 22%, Decay: 0.8 sec, algorithm: Spirit), route Room's output into Supermassive (algorithm: Gemini or Perseus, Mix: 18%, Decay: 8 sec). Add a low-cut at 180 Hz on Room's return channel before it hits Supermassive's input.
+
+I spent a weekend running every Valhalla algorithm combination I could find trying to get two instances to stack cleanly without mud. The Spirit/Gemini combination was the first one that sounded like two distinct spaces rather than one indistinct wash. The high-pass at 180 Hz made the difference — without it, the combination sounds thick and unfocused. With it, Room adds definition and Supermassive adds atmosphere and they stay separate.
+
+---
+
+## Pairing 4: Chase Bliss CXM 1978 + TC Electronic Hall of Fame 2
+
+The CXM 1978 models the Lexicon 480L plate — which means short, dense, professional-sounding early reflections with a natural decay that sits under the signal rather than washing over it. The Lexicon character is clinical in a useful way: it adds presence without bloom.
+
+The TC Hall of Fame 2 with a custom TonePrint can be programmed to a large hall algorithm with a slow attack and a warm, rolling decay. Its job in this pairing is the long bloom that the CXM's plate character deliberately avoids.
+
+This pairing works best for single-note lines recorded at home studio levels — the kind of guitar texture that sits under vocals in indie or folk recordings. The CXM keeps the initial note definition, the Hall of Fame 2 adds the depth that makes it feel large.
+
+CXM 1978: Algorithm: Plate | Pre-delay: 12ms | Decay: 0.6 sec | Mix: 25%
+
+HoF 2: TonePrint: Custom hall (slow attack, warm high-cut) | Mix: 22%
+
+---
+
+## Pairing 5: TC Hall of Fame Mini + MXR M300 (Budget Pairing)
+
+Under $135 total. The Hall of Fame Mini in Plate mode at 20% mix → MXR M300 in the Hall setting at 28% mix. The MXR M300's built-in high-cut is the reason this works at all — it rolls off the frequency range that would otherwise build up between the two units.
+
+This isn't the most sophisticated pairing on the list. But it's the one that works on a tight budget, fits on a small board, and gets you genuinely usable two-reverb depth without fighting for shelf space.
+
+The M300 in particular is an underrated reverb that the boutique pedal community tends to ignore. Its hall algorithm has natural early reflections and a warm tail that pairs well with the HoF's slightly glassy plate character.
+
+---
+
+## FAQ
+
+**Do I need a high-pass filter between the two reverbs?**
+Not strictly required, but it helps. The high-pass filter at 150–250 Hz on the first reverb's output removes the low-mid content that causes mud when the second reverb processes it. If both reverbs have built-in tone/low-cut controls, you can approximate this internally. Without any filtering, dense chords can accumulate low-mid mud over sustained passages.
+
+**Does reverb order matter for these pairings?**
+Yes. The order listed in each pairing is intentional. Running them in reverse order changes the character significantly — typically for the worse. The "body" reverb should process the dry signal first; the "atmospheric" reverb should process the body reverb's output.
+
+**Can I use these pairings on a Helix or Quad Cortex?**
+Yes. The same principles apply to two reverb blocks in series in a modeler. The BigSky + RV-6 pairing, for example, can be approximated with a Hall block at 25% mix followed by a Shimmer reverb block at 20% mix with the first block's low-cut active.
+
+**What's the main thing to avoid when stacking reverbs?**
+Stacking two large hall reverbs with similar decay times. This produces the maximum mud because both reverbs are processing the same frequency range with the same temporal behavior. The combination produces a single diffuse wash with no definition.
+
+**How much of my guitar sound should the reverb occupy?**
+In most ambient and worship contexts, the combined wet signal from both reverbs should be 35–45% of what you hear. That means the two reverb mixes together (first + second) add up to around 40% wet. If you're adding more than that, the reverbs are becoming the instrument rather than the space around it.
+
+---
+
+*For the mechanics of why these pairings work: [Stacking Reverbs: When Two Reverb Blocks Sound Better Than One](/blog/stacking-reverbs-guide). For the looper integration question: [Looper + Delay + Reverb Without Muddiness](/blog/looper-delay-reverb-signal-chain).*

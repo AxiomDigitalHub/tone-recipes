@@ -862,3 +862,57 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 - In-ear monitor caveat (reverb calibrated to room, not to ears) is completely absent from all editorial reverb guides reviewed
 - Gap confirmed: the room-calibration approach and the pre-delay principle in live rooms are nowhere in editorial guitar content; this is a genuine first
 - PAA signal: "How do I set reverb for worship guitar?" "Why does my reverb sound too wet on stage?" "Should I use less reverb in a live room?" — all answered
+
+## SERP Analysis — 2026-04-17 (Posts Published Today)
+
+### Posts published: floyd-rose-spring-count, tube-amp-attenuator-limits-lower-wattage, reverb-pedal-pairings, volume-pedal-dynamics-control, keeley-super-at-mod
+
+**floyd rose spring count 2 springs vs 3 springs string gauge:**
+- SERP dominated by Rig-Talk, Gearspace, Seymour Duncan Forums, Ultimate Guitar, SevenString.org, and Guitar Gear Finder
+- FretboardFrenzy.com has a thin "How Many Tremolo Springs" post but no structured string-gauge-to-spring-count reference with tension data
+- Guitar Gear Finder's Floyd Rose guide covers the topic briefly but without the gauge → tension → spring count → claw mapping in tabular form
+- All forum advice is scattered and anecdotal; no editorial source synthesizes the variables into a decision table
+- Gap confirmed: our post is the only editorial guide with a complete string gauge → spring count → claw position reference table
+- PAA signal: "how many springs should my floyd rose have?" "floyd rose 2 springs vs 3 feel" "floyd rose spring tension for drop tuning" — all confirmed high-intent queries with no editorial answers
+
+**tube amp attenuator limits lower wattage alternative:**
+- Guitar World, Pedal Jungle, Reverb News, Mojotone all have general attenuator guides
+- Most editorial pieces address "attenuators are useful" without identifying specific dB thresholds at which they stop being useful
+- London Power's power scaling FAQ ranks — confirms demand for the alternative to attenuators discussion
+- Premier Guitar's two attenuator articles are the most thorough editorially but don't provide measured frequency response data at specific dB cuts
+- Gap confirmed: no editorial piece defines the specific 6/9/12/15 dB thresholds with measurement rationale; our post is the first with explicit frequency response context for each threshold
+- PAA signal: "at what point does an attenuator change the tone?" "is a lower wattage amp better than an attenuator?" "when does attenuating stop sounding good?" — no editorial answers
+
+**two reverb pedals that sound good together pairing:**
+- Boss articles, Equipboard (reverb+delay combos), Delicious Audio (multi-reverb units), Guitar Pedal X, Reverb News, MusicRadar dominate
+- Almost all content focuses on reverb+delay combos or multi-reverb single pedals (Source Audio Ventris) — not two separate hardware reverb pedals in series
+- Guitar Pedal X has "7 Great Compact Delay and Reverb Pedal Duos" but this is reverb+delay, not two reverbs
+- No editorial piece explains the frequency architecture principles for stacking two reverbs with specific hardware recommendations
+- Gap confirmed: our post addresses the specific "two reverb pedals in series" question with the mechanism explanation that all other sources lack
+- PAA signal: "best reverb pedals to run together?" "bigsky plus another reverb" "two reverbs how to avoid mud?" — no editorial coverage
+
+**volume pedal as dynamics control always on partial position:**
+- Traveling Guitarist, Gearank, Premier Guitar (Tone Tips), Sam Ash, TinkercityMusic all cover volume pedals
+- All coverage focuses on swell technique or placement in the signal chain — the "always-on at 75%" dynamics management approach is completely absent
+- Premier Guitar's Tone Tips piece is the most relevant but addresses volume pedal placement broadly without distinguishing the swell technique from continuous dynamics management
+- Tinkercity's piece is the closest editorial treatment but still frames the volume pedal primarily as a swell tool
+- Gap confirmed: no editorial source distinguishes dynamics control from swell technique as separate skills with separate setup requirements; pot taper guidance is absent from all results
+- PAA signal: "can you use a volume pedal for dynamics not just swells?" "volume pedal technique worship guitar" "where to put volume pedal in signal chain for best results" — all without editorial answers
+
+**keeley super AT mod bd-2 andy timmons:**
+- Guitar World (news announcement), Guitar Pedal X (product announcement), Perfect Circuit (product listing), Premier Guitar (sponsored), Keeley's own site all rank
+- All results are product announcements, sponsored content, or manufacturer pages — no independent editorial analysis exists
+- No source explains the AT mode vs. PHAT mode distinction in player terms or provides specific settings guidance
+- The circuit change (standard diodes + LED asymmetric clipping) is mentioned in Guitar World's announcement but not explained with harmonic implications
+- Gap confirmed: our post is the first independent editorial analysis of the Super AT's specific circuit changes, mode distinction, and who-it's-for decision framework
+- PAA signal: "what is the difference between keeley super at mod and regular bd-2?" "what does AT mode do on keeley super at?" "is the keeley super at mod worth it?" — no editorial answers
+
+## SERP-Derived Topics — 2026-04-17
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | Floyd Rose Spring Angle and Pattern: How Diagonal vs. Parallel Springs Change Feel and Return Speed | "floyd rose spring angle," "floyd rose diagonal springs," "how to angle floyd rose springs feel" | Rick Dalton | 3 — Signal Chain & Tone Theory | Floyd Rose spring count SERP — spring angle pattern is mentioned in SevenString and Seymour Duncan forum threads as affecting feel and return speed, but no editorial piece explains the mechanics or gives specific angle recommendations by playing style; the diagonal ("V" pattern) vs. parallel spring question is a natural follow-on from the spring count post |
+| 2 | Power Scaling vs. Attenuator: What Actually Sounds Better and Who Each Is For | "power scaling vs attenuator," "is power scaling better than attenuator," "london power scaling explained" | Viktor Kessler | 3 — Signal Chain & Tone Theory | Attenuator limits SERP — London Power's FAQ ranks as a top result confirming demand for the power scaling alternative; no editorial comparison of power scaling vs. reactive attenuator exists; the specific tradeoffs (power scaling requires amp modification and voids warranty; attenuator is external but has the dB ceiling) are nowhere addressed editorially |
+| 3 | Parallel Reverb Routing: Why Running Two Reverbs Side by Side Solves Problems That Series Can't | "parallel reverb guitar," "reverb in parallel setup guitar," "two reverb pedals parallel vs series" | Dev Okonkwo | 3 — Signal Chain & Tone Theory | Reverb pairings SERP — the Source Audio Ventris discussion surfaces the parallel routing option but no editorial guide explains the technique's specific advantages (avoiding first reverb's low-mid from entering second reverb, independent mix control, wider stereo spread); the parallel vs. series decision is the natural follow-on to the reverb pairings post |
+| 4 | Expression Pedal vs. Volume Pedal: When You Need Hardware Volume and When a TRS Pedal Does It Better | "expression pedal vs volume pedal guitar," "do i need hardware volume pedal with modeler," "hx stomp expression pedal as volume control" | Nathan Cross | 4 — Modeler Masterclass | Volume pedal SERP — the expression pedal question (assigning a TRS expression pedal to a volume block inside a Helix, HX Stomp, or Quad Cortex) is consistently asked in worship and modeler forums but has no editorial treatment; the practical decision between dedicated hardware volume pedal and software-controlled expression pedal has workflow implications Nathan's live service context makes uniquely authentic |
+| 5 | Why Your Overdrive Sounds Different With Humbuckers (and How to Fix It) | "overdrive pedal too hot with humbuckers," "overdrive sounds different humbuckers vs single coils," "how to dial in overdrive with humbuckers" | Margot Thiessen | 3 — Signal Chain & Tone Theory | Keeley Super AT SERP — the AT mode vs. PHAT mode switch raises the broader question of how overdrive pedals respond to different pickup output levels and impedance characteristics; this is a recurring question in gear forums when players switch from Strats to Les Pauls or vice versa; no editorial piece explains the pickup-to-pedal interaction with specific adjustment guidance; Margot's nuanced attention to how tone feels under the fingers makes this her natural subject |
