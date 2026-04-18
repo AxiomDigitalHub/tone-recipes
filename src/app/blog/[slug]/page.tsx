@@ -7,6 +7,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { settingsMdxComponents } from "@/components/settings/mdx-components";
 import { blogMdxComponents } from "@/components/mdx";
+import { extractFAQFromMarkdown } from "@/lib/blog/extract-faq";
 import Image from "next/image";
 import {
   getPostBySlug,
@@ -22,56 +23,18 @@ import TableOfContents, { MobileTableOfContents, type TocItem } from "@/componen
 
 /* ---------- FAQ extractor ---------- */
 
+/** Re-export the robust extractor from @/lib/blog/extract-faq wrapped in the
+ *  legacy shape the rest of this file expects. The shared utility handles
+ *  both bold-text (**Q?**) and H3-heading (### Q?) FAQ conventions used
+ *  across the post corpus, and strips inline Markdown from answers so the
+ *  FAQPage JSON-LD text is clean. */
 function extractFaqItems(
-  content: string
+  content: string,
 ): Array<{ question: string; answer: string }> {
-  // Find the FAQ section by looking for ## FAQ or ## Frequently Asked Questions
-  const faqSectionRegex =
-    /^##\s+(?:FAQ|Frequently Asked Questions)\s*$/im;
-  const faqMatch = faqSectionRegex.exec(content);
-  if (!faqMatch) return [];
-
-  // Get content after the FAQ heading, up to the next H2 or end of string
-  const afterFaq = content.slice(faqMatch.index + faqMatch[0].length);
-  const nextH2 = afterFaq.search(/^##\s+/m);
-  const faqContent = nextH2 !== -1 ? afterFaq.slice(0, nextH2) : afterFaq;
-
-  // Extract H3 headings as questions and the first paragraph after each as answers
-  const items: Array<{ question: string; answer: string }> = [];
-  const h3Regex = /^###\s+(.+)$/gm;
-  let h3Match;
-  const h3Positions: Array<{ question: string; index: number }> = [];
-
-  while ((h3Match = h3Regex.exec(faqContent)) !== null) {
-    h3Positions.push({
-      question: h3Match[1].replace(/\*\*/g, "").replace(/`/g, "").trim(),
-      index: h3Match.index + h3Match[0].length,
-    });
-  }
-
-  for (let i = 0; i < h3Positions.length; i++) {
-    const start = h3Positions[i].index;
-    const nextStart =
-      i + 1 < h3Positions.length
-        ? faqContent.lastIndexOf("###", h3Positions[i + 1].index)
-        : faqContent.length;
-    const sectionText = faqContent.slice(start, nextStart);
-
-    // Extract first non-empty paragraph
-    const paragraphs = sectionText
-      .split(/\n\n+/)
-      .map((p) => p.trim())
-      .filter((p) => p.length > 0 && !p.startsWith("#"));
-
-    if (paragraphs.length > 0) {
-      items.push({
-        question: h3Positions[i].question,
-        answer: paragraphs[0],
-      });
-    }
-  }
-
-  return items;
+  return extractFAQFromMarkdown(content).map((item) => ({
+    question: item.q,
+    answer: item.a,
+  }));
 }
 
 /* ---------- Heading extractor ---------- */
