@@ -357,6 +357,16 @@ Noon = straight up. Use o'clock notation for pedals with unmarked knobs.
 **Toggle/switch positions:**
 > Clipping mode: Symmetrical (switch position 1 of 3)
 
+### Publishing Velocity and Bylines
+
+Per the 2026-04 content-authority audit, real guitarist-writers don't publish 15 long-form posts in 10 days. To keep the site's pacing human-plausible:
+
+- **Cap: 3 posts per persona per 7 days.** Before assigning topics to writers, run `npx tsx scripts/persona-velocity.ts` to see who's at capacity.
+- **Overflow goes to "Fader & Knob Staff".** Use `author_slug: "fk-staff"` when all persona slots are full or when a topic doesn't fit any single writer's beat. The Staff voice is editorial-neutral — clean and precise, no persona quirks.
+- **Rotate across writers, don't front-load one.** Spread the 5 daily posts across 5 different authors when possible.
+
+The velocity cap isn't a detection-avoidance hack — it's a credibility move. A tone publication where every writer publishes exactly three high-quality posts per week reads as a staffed editorial operation. A publication where Dev Okonkwo publishes 15 posts in 10 days reads as a content farm.
+
 **Visual knob and fader components (preferred when documenting 3+ settings together):**
 
 When a post lists 3 or more knob positions for a single piece of gear, wrap them in a `<SettingsGrid>` with `<Knob>` children. This renders the settings as stylized pedal knobs — the brand visual language — instead of a plain bullet list. Readers scan the panel in one glance; it also photographs well for social.

@@ -259,8 +259,20 @@ const WRITERS: Writer[] = [
   },
 ];
 
+/** The "Fader & Knob Staff" editorial-neutral byline. Used for overflow
+ *  content when individual persona weekly caps are hit (per the 2026-04-17
+ *  content-authority strategy), or for posts that don't fit any persona's
+ *  specific expertise. Voice is clean and precise, no persona quirks. */
+const STAFF_WRITER: Writer = {
+  slug: "fk-staff",
+  name: "Fader & Knob Staff",
+  title: "Editorial",
+  bio: "Posts under this byline are written by the Fader & Knob editorial team rather than one of our signature voices. Clean, precise, no quirks. Used when a topic doesn't fit any single writer's beat — or when the team wants to sign something collectively.",
+};
+
 /** Look up a writer by slug. Falls back to a generic "Fader & Knob" author. */
 export function getWriter(slug: string): Writer {
+  if (slug === "fk-staff") return STAFF_WRITER;
   return (
     WRITERS.find((w) => w.slug === slug) ?? {
       slug: "fader-and-knob",
