@@ -39,7 +39,7 @@ const PILLARS = [
     slug: "modeler-mastery",
     title: "Modeler Mastery",
     blurb: "Helix, Quad Cortex, TONEX, Fractal, Kemper, Boss Katana — deep dives on each platform's model library and workflow.",
-    live: false,
+    live: true,
   },
   {
     slug: "signal-chain-fundamentals",
