@@ -33,7 +33,7 @@ const PILLARS = [
     slug: "amp-settings-and-tone",
     title: "Amp Settings & Tone",
     blurb: "Plexi, JCM800, AC30, Twin Reverb, 5150 — settings for each amp's signature voice and why they work.",
-    live: false,
+    live: true,
   },
   {
     slug: "modeler-mastery",
