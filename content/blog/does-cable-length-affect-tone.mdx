@@ -36,7 +36,12 @@ Yes. Unambiguously yes. But the magnitude of the change is what's worth measurin
 
 A guitar cable is not just a wire. Electrically, it behaves as a low-pass RC filter: a resistor-capacitor circuit that progressively attenuates high frequencies as capacitance increases. Cable capacitance is a fixed physical property, measured in picofarads per foot (pF/ft). Most standard instrument cables fall somewhere between 20 and 50 pF/ft depending on construction.
 
-A passive guitar pickup presents a high output impedance (typically 6k-15k ohms for single-coils, lower for humbuckers). When that high-impedance source drives a capacitive cable, the cable's capacitance interacts with the pickup's inductance to form a resonant peak followed by a rolloff. More capacitance shifts that resonant peak lower in frequency and steepens the rolloff above it.
+A passive guitar pickup is a high-impedance source. Its DC resistance is only one piece of the story — pickups are inductive coils, so their impedance rises with frequency. At audio frequencies the effective impedance is several times the DC resistance.
+
+- **Single-coils:** roughly 6–8 kΩ DC resistance (a Fender Strat sits in this range), with inductance around 2–3 H.
+- **Humbuckers:** roughly 7–16 kΩ DC resistance depending on output (a vintage PAF around 8 kΩ, modern high-output models up to 16 kΩ). Inductance runs 4–8 H — the two coils wired in series stack their inductance, so humbuckers are *more* inductive and present a *higher* impedance at audio frequencies than single-coils, not less.
+
+When that high-impedance source drives a capacitive cable, the cable's capacitance interacts with the pickup's inductance to form a resonant peak followed by a rolloff. More capacitance shifts that resonant peak lower in frequency and steepens the rolloff above it.
 
 The practical result: longer cables sound darker than shorter ones. Not dramatically darker. Measurably darker.
 

@@ -58,11 +58,20 @@ Here's the part that explains the perceptual difference.
 
 Vacuum tubes produce distortion through a specific mechanism: when the signal exceeds the tube's linear operating region, the tube clips — it can't amplify any higher, so the peaks of the sine wave get flattened. The shape of that clipping determines the harmonic content of the distortion.
 
-Triode preamp tubes (12AX7s, the most common preamp tube) tend toward **odd-order harmonic distortion** when clipping. Odd harmonics (3rd, 5th, 7th) add an edge and hardness to the tone. In small amounts this adds presence and cut. In large amounts it adds harshness. This is mathematically consistent with the observation that high-gain preamp distortion can sound aggressive or clinical.
+The most common shorthand you'll read online is "preamp distortion is odd-order, power tube distortion is even-order." That's a useful starting point, but the reality is circuit-topology dependent — and the topology differs between preamp and power sections in ways that matter.
 
-Power tubes — pentodes like EL34s and 6L6s — under their specific saturation conditions tend toward **even-order harmonic distortion**. Even harmonics (2nd, 4th, 6th) are musically related to the fundamental — the 2nd harmonic is an octave, the 4th is two octaves, and so on. Even-order saturation sounds warmer, rounder, and more musical. This is the "honey" quality people associate with a Plexi or a tweed Fender at volume.
+**Preamp stages** in guitar amps are almost always single-ended triode gain stages (one 12AX7 half-tube handling the signal without a mirror-image partner). When a single-ended stage is pushed into clipping, the waveform clips asymmetrically — the positive and negative half-cycles don't hit the rails the same way — which produces a broadband spectrum with significant odd-order content (3rd, 5th, 7th) and a harsher, more aggressive tonal signature. That's why high-gain preamp distortion sounds fuzzy, edgy, or clinical as it's pushed further.
 
-The practical implication: if you want that warm, fat breakup that sounds like it's coming from inside the amp — not like a pedal, not like processed gain, but like the amp itself is singing — you're hearing power tube saturation, and getting it through a small bedroom amp or through a modeler at low volume requires either a power attenuator, a lower-wattage amp, or a very good power-stage model.
+**Power stages** in most guitar amps — Marshall Plexi, JCM800, Bassman, Twin Reverb, Mesa, AC30 — are class AB *push-pull*. Two output tubes (or two pairs) work in opposition: one amplifies the positive half-cycle, the other the negative. A perfectly balanced push-pull stage *cancels* even-order harmonics by topology, leaving odd-order products behind. So "power tubes = even-order" is only accurate for *single-ended class A* amps (Fender Tweed Champ, Vox AC4, some old Princeton circuits). On a Plexi or a Bassman, the output stage is still dominantly odd-order when it saturates.
+
+So where does the famous "warm, musical, honey" character of a cranked Plexi actually come from? Not from tube harmonic even-order. It comes from a stack of effects the push-pull math doesn't cancel:
+
+- **Output-transformer saturation.** The transformer's magnetic core has its own clipping behavior — and transformer saturation does produce rich even-order content, especially at low frequencies.
+- **Sag and power-supply compression** (see next section). The tubes run on a moving voltage rail, which softens peaks and bloom-compresses notes in a way no pedal replicates.
+- **Crossover distortion** at the zero-crossing in class AB operation, which adds its own spectral signature.
+- **Speaker + cab interaction** — a guitar speaker's impedance curve fights back against the amp's output impedance, and that interaction shapes transient response and harmonic content in ways the amp alone can't.
+
+The practical implication: if you want that warm, fat breakup that sounds like it's coming from *inside the amp* — not like a pedal, not like processed gain, but like the whole amplifier is singing — you're hearing the combined effect of transformer saturation, sag, speaker interaction, and yes, some tube nonlinearity. Getting that through a small bedroom amp or through a modeler at low volume requires either a power attenuator (preserves most of it), a lower-wattage amp (same effects at more manageable volumes), or a very good power-stage model (approximates sag and transformer behavior specifically).
 
 ---
 
@@ -98,13 +107,14 @@ None of these replications are perfect. The best modeler power-stage emulations 
 
 ## Which Amps Are Famous for Power Tube Saturation?
 
-| Amp | Output tubes | Saturation character |
-|---|---|---|
-| Marshall 1959 Plexi | EL34s | Aggressive even-order, firm sag, mid-forward |
-| Fender Tweed Deluxe | 6V6s | Warm, saggy, compressed — the softest breakup |
-| Vox AC30 | EL84s | Glassy, compressed, unique bloom — early power stage breakup |
-| Fender Bassman (5F6-A) | 6L6s | Fat, round, less compressed than 6V6 tweed |
-| Matchless DC-30 | EL84s | AC30-derived, more refined, extended headroom |
+| Amp | Output tubes | Topology | Saturation character |
+|---|---|---|---|
+| Marshall 1959 Plexi | EL34s | Class AB push-pull | Aggressive, firm sag, mid-forward. Odd-order dominant from the tubes; transformer + sag adds the "warmth." |
+| Fender Tweed Deluxe | 6V6s | Class AB push-pull (cathode-biased) | Warm, saggy, compressed — the softest breakup. The cathode-bias sag is a big part of the character here. |
+| Vox AC30 | EL84s | Class A/AB push-pull (cathode-biased) | Glassy, compressed, unique bloom. Closer-to-class-A operation gives it a different harmonic signature than an EL34 Marshall. |
+| Fender Bassman (5F6-A) | 6L6s | Class AB push-pull | Fat, round, less compressed than 6V6 tweed. More headroom, more transformer work at volume. |
+| Matchless DC-30 | EL84s | Class A/AB push-pull (cathode-biased) | AC30-derived, more refined, extended headroom. |
+| Fender Tweed Champ | 6V6 (single tube) | **Single-ended class A** | The classic example of genuine even-order tube saturation. One tube, no push-pull cancellation — fat, round, harmonically rich. |
 
 Each output tube type has its own saturation character. EL84s in the AC30 break up earlier and with more compression than EL34s in a Marshall. 6V6s in a small Fender produce a sweeter, rounder saturation than the EL34s. These aren't marketing differences — they're consistent, measurable properties of the specific tube designs.
 
