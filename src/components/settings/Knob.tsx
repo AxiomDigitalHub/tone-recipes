@@ -4,13 +4,19 @@ import type { CSSProperties } from "react";
  * <Knob> — rotary control that visualizes a setting value as a physical pedal
  * knob. Intended for embedding in MDX blog posts and recipe pages.
  *
- * Visual language (locked 2026-04):
+ * Visual language (locked 2026-04, tightened 2026-04-17):
  *   - Sweep: 270° from 7 o'clock (min) to 5 o'clock (max), matching guitar
  *     amp knob convention. Straight-up pointer (12 o'clock) = middle value.
  *   - Body: dark fill with thin border ring and minor tick marks.
- *   - Value arc: accent-color stroke traces from 7 o'clock to current angle.
  *   - Pointer: accent-color line from center toward current angle.
- *   - Label: small-caps uppercase below. Value inside the knob face.
+ *   - Neutral marker: brighter tick on outer ring at the parameter's neutral
+ *     value (center-detent for bipolar params, factory default otherwise).
+ *   - Value: large number centered INSIDE the knob body. No sweep arc —
+ *     pointer position + tick marks already communicate amount.
+ *   - Bipolar formatting: values render with explicit sign (+/-) when the
+ *     range crosses zero, so a center-detent control like cab Level reads
+ *     as "+3 dB" or "-6 dB".
+ *   - Label: small-caps uppercase below.
  *
  * Accessibility:
  *   - role="meter" with aria-valuenow, aria-valuemin, aria-valuemax
@@ -117,14 +123,6 @@ export default function Knob({
 
   const angle = valueToAngle(value, min, max);
 
-  // Value arc — traces from 7 o'clock to the current pointer position.
-  // Angle convention for arc helper: 0° at 12 o'clock, clockwise positive.
-  // Our rotate() convention: 0° straight up. So startDeg = -135 maps directly.
-  const arcStartDeg = SWEEP_START_DEG; // -135 (7 o'clock)
-  const arcEndDeg = angle; // current pointer
-  // If the value is at the minimum, don't draw a zero-length arc.
-  const showArc = Math.abs(arcEndDeg - arcStartDeg) > 0.5;
-
   // Tick marks — 11 major ticks across the 270° sweep (0, 1, 2, …, 10 on an amp knob).
   const tickCount = 11;
   const ticks = Array.from({ length: tickCount }, (_, i) => {
@@ -132,7 +130,8 @@ export default function Knob({
     return tAngle;
   });
 
-  const printed = display ?? formatValue(value, min, max);
+  const isBipolar = min < 0 && max > 0;
+  const printed = display ?? formatValue(value, min, max, isBipolar);
   const ariaLabel = `${name}: ${printed}${unit ? ` ${unit}` : ""}`;
 
   // CSS var fallback; explicit `color` overrides.
@@ -225,58 +224,49 @@ export default function Knob({
           );
         })()}
 
-        {/* Value arc — sweeps from min to current value */}
-        {showArc && (
-          <path
-            d={arcPath(cx, cy, rInner - 3, arcStartDeg, arcEndDeg)}
-            fill="none"
-            stroke={accentColor}
-            strokeWidth={stroke + 1}
-            strokeLinecap="round"
-            opacity={0.85}
-          />
-        )}
-
-        {/* Pointer — rotates to angle. Drawn at 12 o'clock, then rotated. */}
+        {/* Pointer — rotates to angle. Drawn at 12 o'clock, then rotated.
+            Shortened to leave room for the value text at the center. */}
         <line
           x1={cx}
-          y1={cy - rInner + 6}
+          y1={cy - rInner + 4}
           x2={cx}
-          y2={cy - rInner + rInner * 0.35}
+          y2={cy - rInner + rInner * 0.45}
           stroke={accentColor}
           strokeWidth={stroke + 1.5}
           strokeLinecap="round"
           style={pointerStyle}
         />
 
-        {/* Center dot */}
-        <circle cx={cx} cy={cy} r={stroke + 0.5} fill={accentColor} />
+        {/* Value — rendered inside the knob body. SVG <text> scales cleanly
+            and stays centered at any size. The unit suffix is appended with
+            a smaller font so "0.06 s" reads as one token. */}
+        <text
+          x={cx}
+          y={cy}
+          textAnchor="middle"
+          dominantBaseline="central"
+          style={{
+            fontSize: valueSize,
+            fontWeight: 700,
+            fill: "var(--color-foreground, #e2e8f0)",
+            fontVariantNumeric: "tabular-nums",
+          }}
+        >
+          {printed}
+          {unit && (
+            <tspan
+              dx={3}
+              style={{
+                fontSize: valueSize * 0.5,
+                fontWeight: 500,
+                fill: mutedColor,
+              }}
+            >
+              {unit}
+            </tspan>
+          )}
+        </text>
       </svg>
-
-      {/* Value — rendered below (not inside) so it works at every size */}
-      <div
-        style={{
-          fontSize: valueSize,
-          fontWeight: 700,
-          color: "var(--color-foreground, #e2e8f0)",
-          fontVariantNumeric: "tabular-nums",
-          lineHeight: 1,
-        }}
-      >
-        {printed}
-        {unit && (
-          <span
-            style={{
-              fontSize: valueSize * 0.55,
-              fontWeight: 500,
-              color: mutedColor,
-              marginLeft: 2,
-            }}
-          >
-            {unit}
-          </span>
-        )}
-      </div>
 
       {/* Label */}
       <div
@@ -296,16 +286,31 @@ export default function Knob({
 }
 
 /** Format the numeric value for display.
- *  Keeps integers integer, shows one decimal for fractional values,
- *  and strips trailing zeros so "5.0" doesn't look pedantic on an amp knob. */
-function formatValue(value: number, min: number, max: number): string {
-  // If the range is [0, 1] (mix/level style), show two decimals
-  if (max <= 1 && min >= 0) {
-    return value.toFixed(2);
+ *  - Keeps integers integer, shows one decimal for fractional values.
+ *  - Strips trailing zeros so "5.0" doesn't look pedantic on an amp knob.
+ *  - For bipolar ranges (e.g. -12..+12 dB), prefixes a "+" on positive
+ *    values so a center-detent control reads unambiguously ("+3" not "3"). */
+function formatValue(
+  value: number,
+  min: number,
+  max: number,
+  bipolar: boolean,
+): string {
+  let text: string;
+  if (max <= 1 && min >= -1 && min !== 0) {
+    // Ratio-like small-range values, keep two decimals
+    text = value.toFixed(2);
+  } else if (max <= 1 && min >= 0) {
+    text = value.toFixed(2);
+  } else if (Number.isInteger(value)) {
+    text = value.toString();
+  } else {
+    text = value.toFixed(1).replace(/\.0$/, "");
   }
-  // For negative-range values like dB, keep one decimal if non-integer
-  if (Number.isInteger(value)) {
-    return value.toString();
+  // Bipolar formatting: prepend "+" on positives so the sign is explicit.
+  // Negatives already carry their "-" sign from toString/toFixed.
+  if (bipolar && value > 0 && !text.startsWith("+")) {
+    text = `+${text}`;
   }
-  return value.toFixed(1).replace(/\.0$/, "");
+  return text;
 }

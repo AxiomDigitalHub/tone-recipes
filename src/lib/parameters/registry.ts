@@ -174,16 +174,31 @@ export const PARAM_REGISTRY: Record<string, ParamMeta> = {
  *  more comfortably at a lower neutral. Where the meaning is truly distinct,
  *  carve out an override; otherwise leave it to the base entry. */
 export const BLOCK_OVERRIDES: Record<string, Record<string, Partial<ParamMeta>>> = {
+  // On an amp-model compressor like Helix "Deluxe Comp" the Level control is
+  // make-up gain — a bipolar dB trim centered at 0. The knob should show a
+  // center-detent marker and format the value as "+3 dB" / "-6 dB".
+  Compressor: {
+    Level: { min: -12, max: 12, neutral: 0, unit: "dB" },
+  },
+
+  // Cab block "Level" is the cab output trim — bipolar dB, defaults to 0.
+  // Helix range runs roughly -60 dB to +12 dB; widened to match.
+  Cab: {
+    Level: { min: -60, max: 12, neutral: 0, unit: "dB" },
+  },
+
+  // Booster / Distortion / Drive pedals: Level is a 0–10 unity-ish output
+  // gain. Neutral at 5 already matches the base, left explicit for clarity.
   Booster: {
-    // A booster's "Level" is a unity-ish output gain.
-    Level: { neutral: 5 },
+    Level: { min: 0, max: 10, neutral: 5 },
   },
   Distortion: {
-    Level: { neutral: 5 },
+    Level: { min: 0, max: 10, neutral: 5 },
   },
   Drive: {
-    Level: { neutral: 5 },
+    Level: { min: 0, max: 10, neutral: 5 },
   },
+
   Modulation: {
     // Modulation depth as 0–10 instead of 0–1 in some blocks.
     Depth: { max: 10, neutral: 0 },

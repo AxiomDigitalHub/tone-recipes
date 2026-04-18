@@ -64,7 +64,8 @@ export default function Fader({
   const pct = max === min ? 0 : clamp((value - min) / (max - min), 0, 1);
   const capY = (1 - pct) * (trackHeight - capHeight);
 
-  const printed = display ?? formatValue(value);
+  const isBipolar = min < 0 && max > 0;
+  const printed = display ?? formatValue(value, isBipolar);
   const ariaLabel = `${name}: ${printed}${unit ? ` ${unit}` : ""}`;
 
   const accentColor = color ?? "var(--color-accent, #f59e0b)";
@@ -142,18 +143,9 @@ export default function Fader({
           );
         })()}
 
-        {/* Track fill — from cap position to bottom */}
-        <rect
-          x={width / 2 - trackWidth / 2}
-          y={capY + capHeight / 2}
-          width={trackWidth}
-          height={trackHeight - capY - capHeight / 2}
-          rx={trackWidth / 2}
-          fill={accentColor}
-          opacity={0.7}
-        />
-
-        {/* Cap / handle — the moving part */}
+        {/* Cap / handle — the moving part. The handle position alone
+            communicates value; no track fill needed (matches the Knob
+            treatment where position is the only amount signal). */}
         <rect
           x={(width - capWidth) / 2}
           y={capY}
@@ -216,7 +208,15 @@ export default function Fader({
   );
 }
 
-function formatValue(value: number): string {
-  if (Number.isInteger(value)) return value.toString();
-  return value.toFixed(1).replace(/\.0$/, "");
+function formatValue(value: number, bipolar: boolean): string {
+  let text: string;
+  if (Number.isInteger(value)) {
+    text = value.toString();
+  } else {
+    text = value.toFixed(1).replace(/\.0$/, "");
+  }
+  if (bipolar && value > 0 && !text.startsWith("+")) {
+    text = `+${text}`;
+  }
+  return text;
 }
