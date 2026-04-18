@@ -1,0 +1,44 @@
+import type { ReactNode } from "react";
+import Link from "next/link";
+import "./preview.css";
+
+/**
+ * /preview/* — sandbox for auditioning new visual directions.
+ *
+ * Everything under this route uses the "editorial / hardware-catalog"
+ * aesthetic from the Claude Design prototype (2026-04-18). Scoped via the
+ * `fk-preview` class on the root element so the new stylesheet doesn't leak
+ * into production pages. When the direction is locked, the winning bits
+ * migrate to the main site in a single PR and /preview goes away.
+ *
+ * The pages here deliberately opt OUT of the main site's Header + Footer
+ * so the editorial chrome (masthead bar, brand, nav) can be tried in context.
+ */
+export const metadata = {
+  title: "Preview — Fader & Knob visual direction",
+  robots: { index: false, follow: false },
+};
+
+export default function PreviewLayout({ children }: { children: ReactNode }) {
+  return (
+    <div className="fk-preview">
+      {/* Preview banner — always visible so nobody confuses this with prod */}
+      <div className="preview-banner">
+        <div className="preview-banner-inner">
+          <span>
+            <strong>Preview.</strong> Auditioning a new visual direction. The
+            live site at{" "}
+            <Link href="/" className="preview-banner-link">
+              faderandknob.com
+            </Link>{" "}
+            is unchanged.
+          </span>
+          <Link href="/" className="preview-banner-exit">
+            Back to production →
+          </Link>
+        </div>
+      </div>
+      {children}
+    </div>
+  );
+}
