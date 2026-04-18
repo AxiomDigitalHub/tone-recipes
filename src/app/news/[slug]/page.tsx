@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { settingsMdxComponents } from "@/components/settings/mdx-components";
+import { blogMdxComponents } from "@/components/mdx";
 import {
   getNewsPostBySlug,
   getNewsSlugs,
@@ -185,7 +186,7 @@ export default async function NewsArticlePage({
       <div className="prose-dark mx-auto mt-10 max-w-3xl">
         <MDXRemote
           source={post.content}
-          components={settingsMdxComponents}
+          components={{ ...settingsMdxComponents, ...blogMdxComponents }}
           options={{
             mdxOptions: {
               remarkPlugins: [remarkGfm],

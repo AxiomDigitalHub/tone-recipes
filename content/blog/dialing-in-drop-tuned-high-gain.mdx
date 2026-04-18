@@ -151,20 +151,41 @@ Here's a working starting point for a 7-string guitar in drop B, running through
   <Fader name="5kHz" value={-2} min={-12} max={12} unit="dB" />
 </SettingsGrid>
 
+<EQCurve
+  title="Post-EQ shape — tight low end, cut fizz"
+  bands={[
+    { freq: 100, gain: -2 },
+    { freq: 220, gain: -1.5 },
+    { freq: 5000, gain: -2 },
+  ]}
+/>
+
 100Hz and 220Hz cuts use a Q of 2.0 and 1.5 respectively. The 5kHz cut is a shelf. Adjust the 100Hz and 220Hz cuts by ear after playing palm mutes at your specific drop tuning — the resonant frequencies shift slightly depending on the specific guitar, pickup, and scale length.
 
----
+<FAQ
+  questions={[
+    {
+      q: "Why do my palm mutes sound tight when I'm alone but loose in a mix?",
+      a: "The mix context exposes low-end issues that aren't obvious in isolation. Bass guitar occupies the same frequency range as your drop-tuned guitar's low strings. Without EQ correction, your guitar and bass will compete for the same frequency range and both will sound worse. Cut the guitar more aggressively at 100–200 Hz than you think you need to when recording. You'll get it back in the mix.",
+    },
+    {
+      q: "Do I need a different signal chain for each tuning?",
+      a: "Yes, if you regularly switch between tunings. A preset optimized for standard E will sound flabby in drop A and vice versa. Keep separate presets by tuning and label them clearly. The EQ corrections are tuning-specific.",
+    },
+    {
+      q: "Does a higher-output pickup fix the low-end buildup problem?",
+      a: "No. Higher output pickups often make it worse by driving the amp's gain stage harder with more low-frequency content. The solution is EQ, not pickup output.",
+    },
+    {
+      q: "My drop-tuned high-gain preset sounds great in headphones but muddy through a cab. Why?",
+      a: "Headphone monitoring reproduces the full frequency range with flat response. A guitar cabinet has resonant characteristics that boost certain frequencies — particularly the 80–120 Hz range for most guitar speakers. A preset calibrated on headphones will have more low-end buildup than expected through a physical cab. Apply additional low-frequency cuts when testing through a cab.",
+    },
+  ]}
+/>
 
-## FAQ
-
-**Why do my palm mutes sound tight when I'm alone but loose in a mix?**
-The mix context exposes low-end issues that aren't obvious in isolation. Bass guitar occupies the same frequency range as your drop-tuned guitar's low strings. Without EQ correction, your guitar and bass will compete for the same frequency range and both will sound worse. Cut the guitar more aggressively at 100–200Hz than you think you need to when recording. You'll get it back in the mix.
-
-**Do I need a different signal chain for each tuning?**
-Yes, if you regularly switch between tunings. A preset optimized for standard E will sound flabby in drop A and vice versa. Keep separate presets by tuning and label them clearly. The EQ corrections are tuning-specific.
-
-**Does a higher-output pickup fix the low-end buildup problem?**
-No. Higher output pickups often make it worse by driving the amp's gain stage harder with more low-frequency content. The solution is EQ, not pickup output.
-
-**My drop-tuned high-gain preset sounds great in headphones but muddy through a cab. Why?**
-Headphone monitoring reproduces the full frequency range with flat response. A guitar cabinet has resonant characteristics that boost certain frequencies — particularly the 80–120Hz range for most guitar speakers. A preset calibrated on headphones will have more low-end buildup than expected through a physical cab. Apply additional low-frequency cuts when testing through a cab.
+<SaveThisTone
+  title="Start your drop-B high-gain preset"
+  description="Open the library to the Helix Fortin NTS-style high-gain starters, or load any drop-tuned recipe and tweak the EQ curves above to match your rig."
+  href="/browse?tag=high-gain"
+  ctaLabel="Browse high-gain presets"
+/>

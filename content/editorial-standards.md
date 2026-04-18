@@ -373,14 +373,20 @@ When a post lists 3 or more knob positions for a single piece of gear, wrap them
 
 **Component cheat sheet:**
 
-- `<Knob name value [min=0] [max=10] [unit] [display] [size] [color] />` — rotary dial. Default 0–10 amp range. Use `display` when the value is a range (e.g., `value={5.75} display="5.5–6.0"`). Use `min`/`max` for mix (0–1), ratios, or anything non-amp.
-- `<Fader name value min max [unit] [display] [size] [color] />` — linear slider. Use for dB cuts, long frequency ranges, or anywhere the "slider" mental model beats a rotary knob.
+- `<Knob name value [min=0] [max=10] [unit] [display] [neutral] [size] [color] />` — rotary dial. Default 0–10 amp range. Use `display` when the value is a range (e.g., `value={5.75} display="5.5–6.0"`). Use `min`/`max` for mix (0–1), ratios, or anything non-amp. Use `neutral` to show a detent marker on center-detent knobs (e.g. `neutral={0}` for a ±12 dB bipolar cut).
+- `<Fader name value min max [unit] [display] [neutral] [size] [color] />` — linear slider. Use for dB cuts, long frequency ranges, or anywhere the "slider" mental model beats a rotary knob.
 - `<SettingsGrid [title] [subtitle] [gap]>...</SettingsGrid>` — chassis wrapper. The `title` (e.g., "Pre-amp") + `subtitle` (e.g., "Fortin NTS") renders as an accent-colored chassis stamp above the row.
+- `<EQCurve bands={[{freq, gain, [bandwidth]}...]} [title] [size] />` — frequency response curve. Use whenever you're discussing an EQ shape (cuts + boosts across bands). The curve communicates the tonal move instantly; readers don't need to mentally plot three numbers.
+- `<FAQ questions={[{q, a}...]} [title] />` — renders a visible FAQ section AND emits FAQPage JSON-LD for AEO (People Also Ask eligibility). Use this instead of plain `**Question**` / `Answer` bold-prose for any FAQ block. Every post with questions the reader might actually Google should use this.
+- `<SaveThisTone recipeSlug={...} />` — end-of-post CTA to the preset library. When `recipeSlug` matches a recipe in the catalog, pulls the title + artist + platforms automatically. Freeform fallback: `<SaveThisTone title="..." description="..." href="..." ctaLabel="..." />`. **Every tone-recipe blog post should end with one of these.** This is the product conversion path the 2026-04 Phase 4 audit called out as the single biggest editorial gap.
 
 **When to use which:**
 - Amp knobs (Gain, Bass, Mid, Treble, Presence) → `<Knob>` with default 0–10 range
 - Mix, Level, Drive ratios → `<Knob min={0} max={1}>`
 - Parametric EQ cuts, dB thresholds, long frequency sweeps → `<Fader>`
+- EQ shape discussion (multi-band boosts/cuts, tonal curves) → `<EQCurve>` alongside the band faders
+- Reader questions that could be Googled → `<FAQ>` (never plain `**Q**` prose if the questions are search-worthy)
+- End of any tone-recipe post → `<SaveThisTone>` CTA linking to the preset library or relevant recipe
 - Single setting inline in a sentence → plain text ("gain at 5")
 - Detailed settings table across many gear pieces → plain Markdown table
 - 3+ knobs on a single piece of gear → `<SettingsGrid>` with `<Knob>` children

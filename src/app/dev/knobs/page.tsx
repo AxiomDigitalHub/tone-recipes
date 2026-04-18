@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Knob from "@/components/settings/Knob";
 import Fader from "@/components/settings/Fader";
 import SettingsGrid from "@/components/settings/SettingsGrid";
+import EQCurve from "@/components/settings/EQCurve";
 
 export const metadata: Metadata = {
   title: "Knobs & Faders — Design Preview",
@@ -186,9 +187,67 @@ export default function KnobsPreviewPage() {
         </SettingsGrid>
       </section>
 
-      {/* ── 9. Color variants ── */}
+      {/* ── 9. EQ frequency response curves ── */}
       <section className="mb-14">
-        <h2 className="mb-4 text-lg font-bold">9. Color variants</h2>
+        <h2 className="mb-4 text-lg font-bold">
+          9. EQ frequency-response curves
+        </h2>
+        <p className="mb-4 text-sm text-muted">
+          When a block is an EQ, a curve tells the tonal story at a glance:
+          the mid scoop, the bass cut, the treble shelf. Knobs still render
+          below on the recipe page for exact values, but the curve is what
+          actually communicates &ldquo;what does this EQ do to my sound.&rdquo;
+        </p>
+
+        <div className="mb-6 flex flex-wrap gap-4">
+          <EQCurve
+            title="Mid scoop (classic metal)"
+            bands={[
+              { freq: 100, gain: 6 },
+              { freq: 800, gain: -8 },
+              { freq: 4000, gain: 6 },
+            ]}
+          />
+        </div>
+
+        <div className="mb-6 flex flex-wrap gap-4">
+          <EQCurve
+            title="High-pass + presence boost (tight djent)"
+            bands={[
+              { freq: 80, gain: -6 },
+              { freq: 200, gain: -3 },
+              { freq: 3000, gain: 4 },
+              { freq: 6000, gain: 2 },
+            ]}
+          />
+        </div>
+
+        <div className="mb-6 flex flex-wrap gap-4">
+          <EQCurve
+            title="Smile curve (SRV clean)"
+            bands={[
+              { freq: 100, gain: 4 },
+              { freq: 800, gain: -2 },
+              { freq: 5000, gain: 4 },
+            ]}
+          />
+        </div>
+
+        <div className="mb-6 flex flex-wrap gap-4">
+          <EQCurve
+            title="Flat (no EQ)"
+            bands={[
+              { freq: 100, gain: 0 },
+              { freq: 1000, gain: 0 },
+              { freq: 10000, gain: 0 },
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* ── 10. Color variants ── */}
+      <section className="mb-14">
+        <h2 className="mb-4 text-lg font-bold">10. Color variants</h2>
         <p className="mb-4 text-sm text-muted">
           Per-knob color override. Useful for grouping related controls
           (e.g., reverb knobs all green) or matching real pedal enclosures.

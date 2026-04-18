@@ -14,6 +14,7 @@ import { getChainIcon } from "@/lib/chain-icons";
 import { Guitar, Maximize2, Minimize2, Lock, Zap, Volume2, Speaker, Mic, Clock, Waves } from "lucide-react";
 import DownloadPatchButton from "./DownloadPatchButton";
 import SettingDisplay from "@/components/settings/SettingDisplay";
+import EQCurve, { extractEQBands } from "@/components/settings/EQCurve";
 import CommunitySubmissions from "./CommunitySubmissions";
 import { usePlatformStore } from "@/lib/stores/platform-store";
 import { useAuth } from "@/lib/auth/auth-context";
@@ -309,26 +310,44 @@ function NodeDetailDrawer({
 
       <div className="px-5 pb-5 md:px-8">
         {settingEntries.length > 0 ? (
-          // Knob/fader panel. Size "md" gives the knobs enough presence to
-          // read as a control surface, not a sparkline. Block category is
-          // threaded so params that mean different things in different
-          // blocks (e.g. "Level" on a Compressor vs a Booster) pick up the
-          // right registry override. Unknown params fall back to a plain
-          // numeric card.
-          <div className="flex flex-wrap items-start gap-5">
-            {settingEntries.map(([key, value]) => (
-              <SettingDisplay
-                key={key}
-                settingKey={key}
-                value={value as string | number}
-                color={color}
-                size="md"
-                blockCategory={
-                  node?.category || platformBlock?.block_category
-                }
-              />
-            ))}
-          </div>
+          <>
+            {/* EQ visualization. When the block has recognizable EQ-band
+                settings (Katana 5-band, graphic 3-band, or parametric
+                Low/Mid/High Freq pairs), render a frequency-response curve
+                above the knob panel. Knobs still render below so exact
+                values are legible. If the block isn't an EQ, extractEQBands
+                returns null and the curve is skipped. */}
+            {(() => {
+              const bands = extractEQBands(settings as Record<string, unknown>);
+              if (!bands || bands.length < 2) return null;
+              return (
+                <div className="mb-5">
+                  <EQCurve bands={bands} size="md" color={color} title="Frequency response" />
+                </div>
+              );
+            })()}
+
+            {/* Knob/fader panel. Size "md" gives the knobs enough presence to
+                read as a control surface, not a sparkline. Block category is
+                threaded so params that mean different things in different
+                blocks (e.g. "Level" on a Compressor vs a Booster) pick up the
+                right registry override. Unknown params fall back to a plain
+                numeric card. */}
+            <div className="flex flex-wrap items-start gap-5">
+              {settingEntries.map(([key, value]) => (
+                <SettingDisplay
+                  key={key}
+                  settingKey={key}
+                  value={value as string | number}
+                  color={color}
+                  size="md"
+                  blockCategory={
+                    node?.category || platformBlock?.block_category
+                  }
+                />
+              ))}
+            </div>
+          </>
         ) : (
           <p className="text-sm text-muted">No adjustable settings</p>
         )}
