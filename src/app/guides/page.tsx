@@ -27,7 +27,7 @@ const PILLARS = [
     slug: "pedal-settings-guides",
     title: "Pedal Settings Guides",
     blurb: "Klon, Tube Screamer, Big Muff, RAT, DS-1 — how to dial every canonical pedal, with clone comparisons.",
-    live: false,
+    live: true,
   },
   {
     slug: "amp-settings-and-tone",
