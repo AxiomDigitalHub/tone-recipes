@@ -52,11 +52,12 @@ The most common scenario: your guitar amp is plugged into one outlet, your pedal
 
 ## Cause 3: A Broken Ground Inside the Guitar
 
-If the hum disappears when you touch the strings, bridge, or any metal part of the guitar, your guitar's ground path is broken or compromised.
+**The touch test.** Plug in, turn the amp up until you hear noticeable hum, then touch the metal bridge or strings.
 
-When you touch metal parts of the guitar, your body becomes part of the ground path and shunts the hum to earth. This is called "touching the strings to fix the hum." It's common, and it means the guitar's internal ground wire is either disconnected, has a cold solder joint, or has been severed.
+- **Hum drops or disappears** → Your guitar's ground path is working. Your body, acting as an antenna picking up ambient 60 Hz, just got shunted to earth through the guitar's ground circuit. This is the normal, healthy result.
+- **Hum stays the same or gets louder** → The ground path inside the guitar is broken. With the bridge-ground wire disconnected, the strings are floating; touching them couples your body's 60 Hz interference *into* the pickup circuit instead of shunting it away. That's the diagnostic signature of a bad guitar ground.
 
-**The fix:** Open the guitar's control cavity. Look for a wire running from the bridge saddle or bridge post cavity to the electronics. This is the ground wire. Check that it's soldered at both ends. If it's disconnected, re-solder it. Cold solder joints (dull, crumbly, grey) can be re-flowed. This is a simple repair — ten minutes and a soldering iron.
+**The fix:** Open the guitar's control cavity. Look for a wire running from the bridge saddle or bridge post cavity to the back of a pot or the jack. This is the ground wire. Check that it's soldered at both ends. If it's disconnected, re-solder it. Cold solder joints (dull, crumbly, grey) should be re-flowed. This is a simple repair — ten minutes and a soldering iron.
 
 If you're not comfortable with a soldering iron, any guitar tech will fix this in about fifteen minutes.
 
@@ -98,7 +99,7 @@ If your power supply has both isolated and non-isolated outputs, put your digita
 
 Run through these in order:
 
-1. Touch the strings. **Hum stops?** → Broken ground inside the guitar. Fix the ground wire.
+1. Touch the strings. **Hum stays the same or gets louder?** → Broken ground inside the guitar. Fix the ground wire. (If the hum *drops*, the guitar's ground is working — that's the good result.)
 2. Unplug all pedals, run straight to amp. **Hum stops?** → Ground loop or noisy pedal. Add pedals back one at a time.
 3. Move to a different room. **Hum stops?** → Environmental interference. Find and fix the source.
 4. Rotate your body 90 degrees at a time. **Hum drops significantly?** → Single-coil pickup interference. Reorient, or investigate shielding.

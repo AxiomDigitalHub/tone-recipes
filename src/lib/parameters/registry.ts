@@ -82,14 +82,23 @@ export const PARAM_REGISTRY: Record<string, ParamMeta> = {
   Distortion: { kind: "knob", min: 0, max: 10, neutral: 0 },
   Boost: { kind: "knob", min: 0, max: 10, neutral: 0 },
 
-  /* ── Volume / level — neutral = 5 (unity-ish on a 0-10 scale) ── */
+  /* ── Volume / level ── */
   Volume: { kind: "knob", min: 0, max: 10, neutral: 5 },
-  Master: { kind: "knob", min: 0, max: 10, neutral: 5 },
-  "Ch Vol": { kind: "knob", min: 0, max: 10, neutral: 5, description: "Channel volume (Helix amp models)." },
-  MV: { kind: "knob", min: 0, max: 10, neutral: 5, description: "Master Volume." },
+  // Master volume — on modeled amps and most real master-volume amps, the
+  // classic move is to run Master at 10 and set loudness via Channel Volume.
+  // This lets the modeled power-amp stage contribute its character (sag,
+  // compression, power-tube color) rather than being attenuated out of the
+  // sound. Van Halen / SRV / most Marshall-style rigs follow this convention.
+  // Neutral = 10 reflects that starting point — recipes that push it lower
+  // now read as deliberate deviation from the default.
+  Master: { kind: "knob", min: 0, max: 10, neutral: 10, description: "Master volume. Typically kept high (10) so the power-amp stage contributes; loudness controlled via Channel Volume." },
+  MV: { kind: "knob", min: 0, max: 10, neutral: 10, description: "Master Volume. Typically kept high; loudness set via Channel Volume." },
+  // Channel Volume — the operative loudness control when Master sits high.
+  // Neutral at 5 (unity-ish).
+  "Ch Vol": { kind: "knob", min: 0, max: 10, neutral: 5, description: "Channel volume (Helix amp models). Controls post-preamp loudness." },
   Level: { kind: "knob", min: 0, max: 10, neutral: 5 },
   Output: { kind: "knob", min: 0, max: 10, neutral: 5 },
-  Post: { kind: "knob", min: 0, max: 10, neutral: 5, description: "Post gain / master (Peavey-style)." },
+  Post: { kind: "knob", min: 0, max: 10, neutral: 10, description: "Post gain / master (Peavey-style). Same convention as Master — kept high, Channel Volume sets loudness." },
 
   /* ── Amp tube internals (Helix 0–1 controls) — neutral = 0.5 (factory) ── */
   Sag: { kind: "knob", min: 0, max: 1, neutral: 0.5, description: "Power-section compression / sag under load." },
