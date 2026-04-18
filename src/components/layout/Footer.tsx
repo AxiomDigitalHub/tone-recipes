@@ -3,6 +3,7 @@ import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
 
 const productLinks = [
   { href: "/browse", label: "Browse Recipes" },
+  { href: "/guides", label: "Pillar Guides" },
   { href: "/platforms", label: "Platforms" },
   { href: "/gear", label: "Gear Database" },
   { href: "/compare", label: "Compare Tones" },
