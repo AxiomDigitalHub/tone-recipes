@@ -1,0 +1,118 @@
+---
+title: 'Power Scaling vs. Attenuator: What Actually Sounds Better and Who Each Is For'
+description: >-
+  Power scaling and attenuators both let you play a tube amp louder than your
+  room allows. They work differently, sound different, and have different costs
+  and tradeoffs. Here's how to choose.
+date: '2026-04-19'
+author: Fader & Knob Staff
+author_slug: fk-staff
+category: signal-chain
+tags:
+  - tube-amp
+  - attenuator
+  - power-scaling
+  - bedroom-volume
+  - tone-at-low-volume
+  - london-power
+  - fryette
+readingTime: 8 min
+image: /images/blog/power-scaling-vs-attenuator.jpg
+image_alt: a composition illustrating "Power Scaling vs. Attenuator"
+---
+
+The [attenuator limits post](/blog/tube-amp-attenuator-limits-lower-wattage) identified 15dB as the practical ceiling for attenuator usefulness — beyond that, neither reactive nor resistive designs preserve what makes a cranked tube amp sound like a cranked tube amp. Power scaling is the other approach, and it operates on a different principle entirely.
+
+This post explains what each system actually does, where the meaningful differences are, and how to decide which one makes sense for your situation.
+
+---
+
+## How They Work
+
+### Attenuators
+
+An attenuator sits between the amplifier's speaker output and the speaker cabinet. It absorbs power from the amp and either dissipates it as heat (resistive attenuator) or absorbs it through an inductor-capacitor network that mimics speaker behavior (reactive attenuator).
+
+The amp operates at full power. The attenuator reduces what reaches the speaker.
+
+The limitation: **the amp's power tubes are doing full work, but the signal reaching the speaker is reduced.** At 12dB of attenuation, roughly 1/16th of the amp's output power reaches the speaker. The power tubes are saturating exactly as they would at full volume — which is the good part — but the speaker receives a much smaller signal, and the room interaction, speaker cone excursion, and physical air movement that are part of a loud amp's character are absent.
+
+For detail on how reactive and resistive designs differ, see [reactive vs. resistive attenuators](/blog/reactive-vs-resistive-attenuators). The short version: reactive attenuators maintain a speaker-like impedance curve across frequency, which preserves more of the power stage's frequency-dependent behavior. Resistive attenuators present a flat resistive load, which can alter the power stage's response.
+
+### Power Scaling
+
+Power scaling, developed by Kevin O'Connor at London Power, modifies the amplifier's internal power supply voltage. Reducing the B+ voltage to the power stage reduces the power output directly, without changing the operating conditions of the tubes proportionally.
+
+The key distinction: **power scaling changes what the power tubes are doing, not what reaches the speaker.** At 50% power scale, the power tubes are operating at reduced voltage, which changes their saturation behavior. The speaker still receives the full output of the amp — there's no attenuation between amp and speaker.
+
+This produces a fundamentally different result. The speaker moves with the full energy of whatever the amp is producing. The room interaction is preserved. But the power tube saturation character changes because the tubes are no longer operating at their full designed voltage.
+
+---
+
+## How They Sound
+
+The honest comparison: **a well-implemented reactive attenuator at moderate reduction (6–9dB) sounds closer to a cranked amp than power scaling at the same apparent volume reduction**, because the power tubes are actually doing the same work they'd do at full volume.
+
+Power scaling sounds different — not worse, but different. With the B+ voltage reduced, the power tubes reach saturation at a lower threshold. The amp gets "hairy" sooner, with a slightly compressed, harmonically rich character that isn't the same as the power tubes saturating at full voltage. Players who want the character of a power-scaled amp sometimes prefer it to the full-volume version — it can be a more consistently musical distortion. Players who want the specific character of a cranked amp at bedroom volume will be disappointed.
+
+The crossover point: at reductions greater than 12dB, attenuators begin changing the amp's response in ways that start to resemble what power scaling does — the power tubes are doing full work, but the speaker's response and the room interaction are so reduced that the result sounds more processed. At that depth, the advantage of attenuation over power scaling narrows.
+
+---
+
+## What Each Requires
+
+| | Power Scaling | Reactive Attenuator | Resistive Attenuator |
+|---|---|---|---|
+| Installation | Internal amp modification | External, plug in | External, plug in |
+| Warranty impact | Voids most amp warranties | None | None |
+| Cost | $200–$600 (mod service or kit) | $250–$800 (Fryette, Two Notes) | $50–$200 (Palmer, simple pads) |
+| Tonal character at high reduction | Power tube character changes | Preserves power tube saturation | Alters power stage response |
+| Speaker interaction | Full speaker excursion preserved | Speaker receives attenuated signal | Speaker receives attenuated signal |
+| Reversibility | Difficult without rework | Disconnect and done | Disconnect and done |
+
+### Power Scaling: The Practical Obstacles
+
+Power scaling requires opening the amplifier and modifying internal components. London Power sells kits designed for specific amp platforms (Marshall, Fender, Vox), and there are technicians who specialize in the modification. But:
+
+- Most amp manufacturer warranties are voided by internal modification
+- Not all amplifier topologies accept power scaling cleanly; some require additional circuit changes to operate reliably at reduced voltage
+- The modification is not easily reversed if you decide it isn't what you wanted
+
+For a vintage or valuable amplifier, this is a significant consideration. For a budget amplifier that you bought specifically to modify for bedroom use, the calculus is different.
+
+### Attenuators: The Practical Ceiling
+
+An attenuator requires no modification and can be disconnected and sold. The tradeoff is the 15dB ceiling — at deeper reductions, the tonal character changes in ways that defeat the purpose. See [tube amp bedroom volume behavior](/blog/tube-amp-sounds-different-bedroom-volume) for why the power stage alone doesn't explain everything happening at high volume, and why bedroom use is inherently a compromise regardless of approach.
+
+---
+
+## Which to Choose
+
+**Choose a reactive attenuator if:**
+- You need bedroom-to-moderate-volume use (6–12dB reduction)
+- You want zero warranty risk and easy removal
+- You want to preserve the specific character of the amp's power tubes at saturation
+- You're not sure this approach will work for you and want a reversible experiment
+
+**Choose power scaling if:**
+- You want consistent playability across a very wide volume range
+- You like the compressed, harmonically rich character of power-scaled operation (it's a legitimate tone in its own right)
+- You own or are building an amp that you're comfortable modifying
+- You want full speaker excursion and room interaction at very low output levels
+
+**Consider a lower-wattage amp if:**
+- You need reductions greater than 15dB regularly
+- You're spending more on attenuation or modification than a second smaller amp would cost
+- The amp you're attenuating costs more than the character it adds at bedroom volume is worth
+
+The London Power website has the most thorough documentation of power scaling theory and compatibility charts for common amplifier platforms. The [reactive vs. resistive attenuators post](/blog/reactive-vs-resistive-attenuators) covers the hardware selection decision in more detail if you're going the attenuator route.
+
+---
+
+<FAQ questions={[
+  {q: "What is power scaling on a tube amp?", a: "Power scaling modifies the amplifier's internal B+ (plate) voltage, reducing the power output directly from the power supply rather than absorbing power after the output transformer. It was developed by Kevin O'Connor at London Power and allows a wide volume range while keeping the speaker fully energized."},
+  {q: "Is power scaling better than an attenuator?", a: "It depends on what 'better' means. At moderate volume reductions (6–9dB), a reactive attenuator preserves more of the cranked-amp character because the power tubes are doing full work. Power scaling changes the power tube operating conditions, producing a different but sometimes preferred tone. At very deep reductions (beyond 15dB), power scaling has an advantage because the speaker remains fully energized."},
+  {q: "Does power scaling void the amp warranty?", a: "Yes, in almost all cases. Power scaling requires opening the amp and modifying internal components. Most manufacturers void the warranty for any internal modification not performed at an authorized service center."},
+  {q: "What amps can be power scaled?", a: "London Power makes kits for most common amplifier platforms including Marshall, Fender, Vox, and Hiwatt designs. Not all topologies accept power scaling cleanly — some require additional circuit changes. Check London Power's compatibility documentation before purchasing a kit."},
+  {q: "Can I add power scaling myself?", a: "With electronics skills and careful work, yes. London Power's kits include documentation. Without electronics experience, it's a service job — a technician who specializes in amp modification can do it in 2–4 hours depending on the amp platform. The modification involves working with high-voltage circuits; it's not a beginner project."}
+]} />
