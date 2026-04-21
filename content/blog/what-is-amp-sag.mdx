@@ -1,0 +1,149 @@
+---
+title: What Is Amp Sag and Why Does It Make Guitar Feel Better?
+description: >-
+  Amp sag — the power supply's brief voltage droop under a hard attack — is the
+  most-cited tube amp behavior that nobody explains precisely. Here's what's
+  actually happening, why it changes how the guitar feels in your hands, and how
+  to dial in the Sag parameter on a modeler.
+date: '2026-04-20'
+author: Fader & Knob Staff
+author_slug: fk-staff
+category: signal-chain
+tags:
+  - amp-sag
+  - tube-amp
+  - power-tubes
+  - tone-theory
+  - modeler
+  - helix
+  - quad-cortex
+  - signal-chain
+readingTime: 9
+image: /images/blog/what-is-amp-sag.jpg
+image_alt: >-
+  a composition illustrating "What Is Amp Sag and Why Does It Make Guitar Feel
+  Better?"
+---
+
+> **What amp sag is:** A temporary voltage drop in your amp's power supply when the output tubes demand more current than the power transformer can instantly deliver — producing a brief reduction in output that rounds the attack and makes the amp feel like it's yielding to your pick rather than pushing back against it.
+
+The word "sag" appears in almost every conversation about tube amp feel. It explains why a cranked blackface Fender feels different from a tight solid-state, why an attenuated amp can lose something the cranked version has, and why modeler Sag parameters exist at all. The concept is real and measurable. The common description — "the amp breathes with the music" — is accurate but unhelpful if you're trying to understand what to set on your Helix.
+
+This is what's actually happening, and what to do with it.
+
+---
+
+## What Causes Sag: The Power Supply Physics
+
+A tube amp's output stage runs on high-voltage DC supplied by the power supply section. That supply has a limit on how much current it can deliver at any instant — a limit set by the power transformer's rating, the rectifier type, and the size of the filtering capacitors.
+
+When you hit a hard transient (a picked attack, a palm mute, a chord strum), the output tubes suddenly demand more current. If the power supply can't keep up instantly, the supply voltage drops — typically from the amp's rated B+ voltage down by 5V to 30V, depending on the design. This voltage drop reduces the output tubes' operating point for a fraction of a second.
+
+That reduction produces:
+- **A slightly softer initial attack** — the transient's leading edge is rounded rather than sharp
+- **A brief reduction in output level** on the note's peak
+- **A bloom effect** — as the supply voltage recovers, the note can actually open up slightly, producing the "sustain that swells" characteristic of vintage clean tones
+- **A perceived arc to the dynamics** rather than a flat, linear decay
+
+The power supply recovers in milliseconds. But during that window, the amp's character shifts — and that shift is what players mean when they say a tube amp has "feel," "give," or "response."
+
+---
+
+## How Sag Differs From Compression
+
+Compression (as a pedal or plugin effect) reduces signal level above a threshold by a set ratio. Sag is not threshold-based or adjustable in the same way. It's reactive — proportional to how hard and suddenly you hit the amp.
+
+| Characteristic | Compressor | Amp Sag |
+|---|---|---|
+| Trigger | Signal level exceeds threshold | Current demand exceeds supply capacity |
+| Response | Adjustable attack parameter | Determined by transformer and cap design |
+| Recovery | Adjustable release parameter | Determined by cap size and charge rate |
+| Control | Direct: threshold, ratio, attack, release | Indirect: amp design or modeler Sag parameter |
+| Signal position | Pre-amp input | Post-preamp output stage |
+| Effect on feel | Levels dynamics, may reduce pick sensitivity | Softens attacks, creates bloom, changes dynamic arc |
+
+The practical difference is where the effect lives in the signal chain. A compressor pedal operates on the signal before the amp processes it. Sag operates after the preamp stage has done its work. A compressed signal through a non-sagging amp feels different from an uncompressed signal through a sagging one — even if the measured output curves are similar. Players who use both compressor pedals and tube amps are layering two different kinds of dynamic shaping on top of each other, which is part of why the Nashville session clean tone sounds the way it does.
+
+---
+
+## Why Sag Changes Feel More Than Sound
+
+The reason sag comes up in feel discussions more than sound discussions is that its effect is most pronounced on dynamic response — how the amp behaves differently depending on how hard you play.
+
+**Hard attacks get softened.** When you dig in, the voltage drop rounds the leading edge of the transient. Aggressive playing feels more manageable — the pick attack registers, but the note doesn't spit back at you with full force.
+
+**Light passages feel more present.** Because the power supply doesn't sag when you play softly, quiet playing retains full voltage. The subjective dynamic range between soft and loud is wider than the actual volume difference would suggest.
+
+**Palm mutes develop a characteristic shape.** A brief sag on a mute's attack followed by quick recovery produces a bump that tighter amps don't generate. This is partly why the classic OD808-into-high-gain-amp technique works — the overdrive's output stage provides its own buffering before the power amp section, tightening the sag response and letting palm mutes punch through with more definition.
+
+**Held notes sustain differently.** A note played into a sagging amp has an arc: the initial attack is slightly rounded, the note then blooms as the supply recovers, and then it trails off normally. This is the "violin-like sustain" quality associated with cranked vintage Fenders and vintage Marshall Plexis. It's not just gain — it's the voltage arc.
+
+---
+
+## Which Amp Designs Have More or Less Sag
+
+Sag is not uniform across amp designs. Several variables determine how much the power supply droops.
+
+**Higher sag designs:**
+- Vintage Fender blackface/brownface amps — Deluxe Reverb, Twin Reverb, Super Reverb. Loose power supply filtering, tube rectifiers in some models, intentional headroom variation.
+- Early Marshall JTM45 and Bluesbreaker — transformer limitations produce significant sag. Part of what makes the JTM45 feel so different from the later JCM800.
+- Vox AC30 — cathode-biased EL84 output tubes produce a different sag character than fixed-bias designs. The top-boost channel's feel is substantially sag-driven.
+- Any amp with a tube rectifier — 5AR4, GZ34, 5Y3. These rectifiers have their own internal resistance that contributes to the supply droop. Mesa/Boogie's Dual Rectifier "Vintage" mode engages a tube rectifier to deliberately add sag.
+
+**Lower sag designs:**
+- High-power Marshall heads — 100-watt Super Lead, JCM800 2203/2204. Larger transformers with more current headroom. Less sag than the smaller designs, but not zero.
+- Mesa/Boogie Dual Rectifier on Raw/Bold (solid-state rectifier mode) — designed for tight, consistent output. This is why many metal players prefer the SS rectifier position.
+- High-headroom solid-state amps — Roland JC-120, Fender Tone Master series. Virtually no sag by design. The JC-120's clean character is partly the absence of sag combined with its BBD chorus system.
+- Modelers by default — zero sag until the parameter is engaged.
+
+---
+
+## Setting the Sag Parameter on a Modeler
+
+Most modern modelers include a Sag parameter in the amp model's advanced settings. The implementation varies by platform.
+
+### Helix and HX Stomp
+
+The Sag parameter appears in the amp block's Advanced panel. Range is 0.0 to 10.0.
+
+| Setting | Character | When to Use |
+|---|---|---|
+| 0.0 – 2.0 | Tight, modern, high-headroom. No compression on attacks. | Metal, djent, high-gain where pick articulation must punch through |
+| 2.0 – 4.0 | Subtle give on transients. Mostly tight. | Hard rock, classic rock, situations where you want some response without losing definition |
+| 4.0 – 6.0 | Noticeable sag. Attacks round, held notes bloom. Feels close to a vintage blackface Fender. | Blues, clean country, edge-of-breakup tones |
+| 6.0 – 8.0 | Heavy sag. Significant give on attacks, pronounced bloom on sustained notes. | Low-gain vintage clean tones, Hendrix-adjacent styles, atmospheric leads |
+| 8.0 – 10.0 | Maximum sag. The attack nearly disappears. | Ambient swell playing, specific vintage tape-fed tones |
+
+**Starting point test:** Load any clean amp model. Set Sag to 0.0. Play a hard clean chord and sustain it for 3–4 seconds. Note the attack profile. Then set Sag to 7.0 and play the identical chord at the same velocity. The difference in how the chord opens up in the first half-second is amp sag in direct comparison.
+
+### Quad Cortex (Neural DSP)
+
+The Quad Cortex's amp models include a Sag parameter under the Advanced amp controls, with similar behavior to the Helix implementation. Neural Captures do not have an adjustable Sag parameter — when you capture an amp, the sag behavior is baked into the capture at the specific volume and setting used during the capture session. If you want a low-sag capture of your amp, capture at a conservative volume with the power supply running at stable voltage.
+
+### Fractal Audio (Axe-Fx III, FM9, FM3)
+
+Fractal's implementation is more granular. The Sag parameter works alongside a Supply Impedance control that determines how much the virtual supply droops. At default settings, Fractal's models already apply sag behavior tuned to the reference amp design. The adjustable parameter moves above or below that reference point rather than starting from zero.
+
+---
+
+## The Practical Decision
+
+If you're building modeler presets:
+
+- For any clean or edge-of-breakup tone modeled on a vintage Fender, start Sag at 4.0–6.0 and adjust by feel.
+- For a Vox or AC30-style tone, start around 5.0 — these amps have pronounced sag as part of their character.
+- For a Marshall Plexi or JTM45 style, 4.0–6.0. The JCM800 models can go lower, around 2.0–3.5.
+- For any high-gain or metal preset, default to 0.0–1.5. Sag on high-gain tones blurs palm mute articulation and softens the pick attack in ways that work against tight rhythmic definition.
+- For acoustic-style clean tones where you want pristine transient response, stay at 0.0–2.0.
+
+Sag is not a "more is better" dial. It's a character dial. More sag doesn't mean better feel — it means different feel. The vintage Fender feel that sag produces isn't appropriate for every style. Knowing what it is lets you use it intentionally.
+
+---
+
+<FAQ questions={[
+  {q: "What is amp sag in simple terms?", a: "Sag is when your amp's power supply briefly drops voltage because the output tubes demanded more current than it could deliver instantly. The result is a soft, compressive feel on hard attacks — the amp gives way slightly rather than staying rigid. It recovers in milliseconds."},
+  {q: "Does amp sag affect clean tones or distorted tones more?", a: "Clean tones reveal sag most noticeably because the dynamic effect is audible without gain masking it. On distorted tones, the gain structure often obscures the subtle attack rounding that sag produces. That said, sag still affects feel on high-gain tones — it's just less audible and more tactile."},
+  {q: "What's the difference between amp sag and a compressor pedal?", a: "A compressor pedal operates on the input signal before the amp with controllable threshold, ratio, attack, and release parameters. Sag operates in the power output stage after the preamp, reacts to current demand rather than signal level, and can't be set with the same precision — only influenced through modeler parameters or amp design choices."},
+  {q: "Should I add sag on a modeler for metal tones?", a: "Generally no. Metal tones need tight low-end definition and clear palm-mute articulation. Sag softens attacks and adds compression that muddies pick definition at high gain. Keep Sag at 0.0–2.0 for metal, and consider 0.0 for djent or tight drop-tuning contexts."},
+  {q: "What amps naturally have the most sag?", a: "Vintage Fender blackface amps (Deluxe Reverb, Twin Reverb), Vox AC30, early Marshall JTM45, and any amp with a tube rectifier (GZ34, 5AR4, 5Y3). Mesa Dual Rectifier in Vintage (tube rectifier) mode produces pronounced sag compared to the Raw/Bold solid-state rectifier setting."}
+]} />

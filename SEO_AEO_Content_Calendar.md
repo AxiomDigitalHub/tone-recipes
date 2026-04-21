@@ -1002,3 +1002,55 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 | 3 | Variable Power Amps: Rivera TBR, Fryette Power Station Plus, and the Real-World Use Case | "variable power amp guitar," "fryette power station plus review," "rivera tbr-1 power amp" | Viktor Kessler | 3 — Signal Chain & Tone Theory | Power scaling vs. attenuator SERP — variable power amps appeared as an adjacent product category in several power-scaling threads; the Fryette Power Station Plus and Rivera TBR occupy a niche that neither the attenuator post nor the power scaling post addresses directly; no editorial piece compares the two with a structured use-case framework; Viktor's high-gain studio experience and preference for "correct tools not workarounds" suits the power amp format |
 | 4 | Floyd Rose Knife Edge Wear: How to Diagnose It and When to Replace | "floyd rose knife edge worn," "floyd rose tuning instability knife edge," "how to fix floyd rose not returning to pitch" | Carl Beckett | 6 — Quick Fixes & Maintenance | Floyd Rose spring angle SERP — knife edge wear appeared repeatedly in the forum discourse as the actual cause of return-to-pitch problems that players try to solve with spring angle changes; no editorial piece diagnoses knife edge wear specifically (stages of wear, test method, replacement vs. re-dressing); Carl's methodical maintenance voice and preference for diagnosis-before-replacement suits the format; strong internal link from the spring angle post |
 | 5 | Solid-State Amps Worth Owning in 2026: The Short List and Why Each Is on It | "best solid state guitar amp," "solid state amp that sounds like tubes," "solid state amp for recording" | Jess Kowalski | 5 — Gear Lab | JC-120 modeler SERP — the JC-120 post surfaces the broader question of which solid-state amps have genuine character worth owning; the SERP for "best solid state amp" is dominated by gear-list affiliate content with no editorial voice distinguishing circuit character; Jess's multi-genre recording perspective and lack of tube-amp-bias makes her the right voice to argue for Boss Katana, Quilter, and the JC-120 without tube-apologetics framing |
+
+## SERP Analysis — 2026-04-20 (Posts Published Today)
+
+### Posts published: what-is-amp-sag, helix-cab-models-decoded, compressor-ruining-country-tone, ts808-klon-rat-humbuckers, solid-state-amps-2026
+
+**what is amp sag guitar / tube amp sag explained:**
+- SERP dominated by Sweetwater "Understanding Amp Sag" article (surface level), several TGP and Gearspace forum threads, and manufacturer docs (Mesa/Boogie rectifier mode descriptions)
+- Sweetwater's article defines sag in a paragraph but doesn't distinguish it from compression or explain the power supply physics
+- No editorial source maps the concept to specific modeler parameter settings with a range table
+- Gap confirmed: our post is the only editorial source that (1) distinguishes sag from compression mechanically, (2) maps sag to specific amplifier design families with examples, and (3) provides a modeler parameter range table with use-case guidance
+- PAA signal: "What is amp sag on a modeler?" "Why do tube amps sag?" "What does the Sag parameter do on Helix?" "Is amp sag the same as compression?"
+- Follow-on opportunity: cathode bias vs. fixed bias — mentioned in the post as a sag-related variable; no clean editorial explainer exists; strong PAA volume
+
+**helix cab models real names / line 6 helix cabinet list:**
+- SERP dominated by helixhelp.com database, Line 6 firmware PDFs (not web-accessible), community wiki pages (unofficial), and individual forum posts
+- helixhelp.com is the most authoritative source but doesn't provide tone character notes, amp pairing logic, or a structured "start here" recommendation by tone goal
+- Gap confirmed: our post is the only web-accessible editorial resource that pairs every major Helix cab model with its real-world origin AND provides tone-goal-based starting recommendations
+- PAA signal: "What is the 2x12 Wishbook based on?" "What speaker does the Helix 4x12 Brit T75 have?" "Best Helix cab for blues?" "What is the 4x12 Hiway in Helix?"
+- Follow-on opportunity: Celestion speaker character comparison (G12T-75 vs. V30 vs. Greenback vs. Blue alnico) — referenced throughout our post; the speaker character distinction is the underlying reason for cab selection differences; no editorial comparison focused specifically on the Celestion lineup exists
+
+**compressor settings country guitar / too much compression telecaster:**
+- SERP dominated by Reverb News "Best Compressors for Country Guitar," Premier Guitar "Telecaster Setup" articles, TDPRI forum threads, and YouTube demos
+- All existing editorial content recommends a compressor without diagnosing the specific ways incorrect settings destroy country tone
+- The attack-too-fast problem is the most common diagnosis in forum threads, but no editorial piece has made it the primary subject with specific ms targets and pedal-specific guidance
+- Gap confirmed: our post is the only editorial resource framing compressor settings as a diagnostic problem with four specific failure modes and corresponding fixes
+- PAA signal: "What attack should I use for country guitar compression?" "Why does my Telecaster tone sound squashed?" "Where does compressor go in country guitar chain?" "What compressor do Nashville session players use?"
+- Follow-on opportunity: chicken-pickin technique foundations — the "how to set the gear" post creates demand for "how to play the pattern"; technique content for Telecaster country has no editorial coverage beyond YouTube
+
+**tube screamer with humbuckers / best overdrive for les paul:**
+- SERP dominated by MyLesPaul Forum threads, TheGearPage discussions, Andertons "Best Pedals for Les Paul" gear list, and Sweetwater product recommendation pages
+- All forum advice is subjective opinion with no circuit-level explanation of why specific pedals respond differently to humbucker input
+- Andertons article recommends pedals for Les Paul but doesn't explain the frequency stacking mechanism or provide specific adjustment protocols
+- Gap confirmed: our post is the first editorial resource that explains the pickup-to-pedal interaction mechanically for all three major circuits and provides specific adjustment protocols for each
+- PAA signal: "Why does my Tube Screamer sound muddy with humbuckers?" "Can you use a Klon with a Les Paul?" "What overdrive sounds good with PAF pickups?" "Is the RAT good for Les Paul?"
+- Follow-on opportunity: P-90 pickups and overdrive settings — P-90s occupy the middle ground between single-coil and humbucker and have their own specific overdrive interaction characteristics; the humbucker post creates a natural PAA cluster
+
+**best solid state guitar amp 2026 / solid state amp worth buying:**
+- SERP dominated by Guitar World "Best Solid State Amps" listicle, Sweetwater "Solid State vs Tube" article, MusicRadar roundup, GuitarGearFinder list — all affiliate-driven listicles
+- No top editorial result distinguishes between solid-state amp categories (linear SS, MOSFET, digital modeling) or argues for specific amps on the basis of what they specifically do better than alternatives
+- Gap confirmed: our post is the only editorial resource that argues for specific solid-state amps on the basis of unique capabilities rather than "best for the money" framing
+- PAA signal: "Is a solid state amp as good as tube amp?" "What solid state amp sounds like tubes?" "Is the Roland JC-120 worth it?" "What is the best Boss Katana setting?"
+- Follow-on opportunity: Quilter tone block and similar preamp/power solutions — the solid-state roundup raises the question of small-format ampless options; Quilter's Tone Block and Boss Waza Tube Amp Expander represent a different product category that serves similar use cases
+
+## SERP-Derived Topics — 2026-04-20
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | Cathode Bias vs. Fixed Bias: What It Means for Amp Feel (and Which Amps Use Which) | "cathode bias vs fixed bias amp," "what is fixed bias tube amp," "cathode bias tone feel" | Hank Presswood | 3 — Signal Chain & Tone Theory | Amp sag SERP — cathode bias is the most commonly referenced follow-on concept after sag; no editorial piece explains the practical feel difference between cathode and fixed bias designs for a playing audience; Hank's circuit depth and vintage amp authority make this authentically his; strong internal link from the amp sag post |
+| 2 | Celestion Speaker Showdown: G12T-75 vs. V30 vs. Greenback vs. Blue Alnico | "celestion g12t75 vs v30," "best celestion speaker for marshall," "celestion greenback vs v30 tone" | Margot Thiessen | 3 — Signal Chain & Tone Theory | Helix cab decoded SERP — the cab selection guide references these four speaker families repeatedly; no single editorial piece compares all four Celestion speaker types with consistent tone character notes and amp-pairing guidance; Margot's ear for nuance and her interest in how different tonal architectures feel to play through suits the comparison format; strong internal link from the cab decoded post |
+| 3 | Chicken Pickin' Foundations: The Five Muting Patterns You Need Before the Gear Matters | "chicken pickin guitar technique," "how to chicken pick guitar," "telecaster muting technique country" | Carl Beckett | 3 — Signal Chain & Tone Theory | Country compressor SERP — the compressor post addresses the gear side; PAA shows consistent volume for "how to chicken pick" with no structured editorial technique guide; all competitor results are YouTube videos; a text-based technique guide with specific hand position notes and pattern examples is absent from editorial coverage; Carl's Telecaster experience and respect for technique-over-gear suits the format |
+| 4 | P-90 Pickups and Overdrive: Why the Middle Pickup Acts Like Neither a Single-Coil Nor a Humbucker | "p90 pickup with overdrive," "p90 vs single coil overdrive," "best overdrive for p90 guitar" | Margot Thiessen | 3 — Signal Chain & Tone Theory | Humbucker overdrive SERP — the TS808/Klon/RAT humbucker post creates PAA demand for the P-90 equivalent; P-90 pickups have a specific output level and midrange character that interacts differently with overdrive circuits than either single-coils or humbuckers; Margot's experience with both a Jazzmaster (single-coil) and a Collings I-35 semi-hollow (humbucker) makes P-90 tone comparisons naturally hers |
+| 5 | Quilter Tone Block vs. Boss Waza Tube Amp Expander: Two Ways to Go Truly Ampless | "quilter tone block review," "boss waza tube amp expander vs quilter," "best ampless guitar solution 2026" | Jess Kowalski | 5 — Gear Lab | Solid-state amps SERP — the solid-state roundup surfaces interest in small-format ampless solutions; both the Quilter Tone Block (MOSFET preamp/power) and Boss Waza Tube Amp Expander represent a different product category from full combos; Jess's direct-to-PA rig and four-minute soundcheck philosophy makes her the natural voice for an ampless gear comparison; no editorial comparison of these two exists |
