@@ -1,0 +1,171 @@
+---
+title: >-
+  P-90 Pickups and Overdrive: Why the Middle Pickup Acts Like Neither a
+  Single-Coil Nor a Humbucker
+description: >-
+  P-90 pickups occupy an output level and tonal territory that overdrive pedals
+  weren't designed around. Here's how each major circuit type interacts with the
+  P-90's specific character — and the settings that work where the standard
+  advice doesn't.
+date: '2026-04-21'
+author: Fader & Knob Staff
+author_slug: fk-staff
+category: signal-chain
+tags:
+  - p90
+  - overdrive
+  - pickup
+  - tube-screamer
+  - klon
+  - rat
+  - signal-chain
+  - tone-theory
+readingTime: 10
+image: /images/blog/p90-pickups-overdrive.jpg
+image_alt: a composition illustrating "P"
+---
+
+> **The quick version:** P-90s have higher output than single-coils but a different midrange character than humbuckers. They push overdrive circuits harder than Strat players expect and in a frequency range that creates different congestion patterns than humbuckers do. The TS808 needs less drive and more Tone rollback than with single-coils. The Klon needs careful treble trimming. The RAT works surprisingly well with minimal adjustment, and a light touch on the filter is enough to refine it further.
+
+The P-90 is neither a single-coil nor a humbucker, and the gear content written for those two categories doesn't fully apply to it. Nearly every major overdrive pedal was designed with either a Stratocaster-type single-coil or a PAF-type humbucker in mind. P-90 players get advice from both camps and find it fits neither well.
+
+This post covers the three classic overdrive circuits — the Tube Screamer, the Klon, and the RAT — and what changes when a P-90 is the source.
+
+---
+
+## Understanding the P-90's Electrical Character
+
+To know why a P-90 behaves differently, it helps to understand where it sits in the pickup output spectrum.
+
+| Pickup Type | Typical DC Resistance | Typical Output Level | Midrange Peak |
+|---|---|---|---|
+| Strat single-coil | 5.5–6.5kΩ | Low | Moderate, frequency depends on winding |
+| P-90 | 7.5–9.5kΩ | Medium | Forward, present through upper mids |
+| PAF-spec humbucker | 7.5–8.5kΩ | Medium-high | Broader, lower-mid focused |
+| Vintage Output humbucker | 9–12kΩ | High | Compressed midrange |
+
+DC resistance is an imperfect proxy for output level, but directionally accurate. A standard P-90 reads higher resistance than a Strat single-coil, which means it hits the input stage of a pedal harder. However, it reads similarly to a PAF-spec humbucker in resistance while sounding very different — because the P-90's construction (wide, flat coil with a wide pole piece spacing) produces a different inductance and frequency response than a humbucker's stacked-coil design.
+
+The P-90's midrange character is its defining tonal attribute: a strong, present upper midrange that gives it the "bark" the pickup is known for. Somewhere in the 800Hz–2.5kHz range, P-90s have more energy than single-coils and more harmonic complexity in that region than humbuckers. This is what makes them sound "woody" on clean tones and "raw" on overdrive.
+
+That same upper-mid character is what creates overdrive interaction problems.
+
+---
+
+## Tube Screamer (TS808 / TS9) With a P-90
+
+### What Happens
+
+The Tube Screamer's internal circuit has a midrange emphasis centered around 720Hz — a mild boost in that region that's intentional and part of the pedal's character. A Strat-style single-coil's midrange interacts with this boost to add presence and cut without creating congestion. A PAF humbucker's lower-mid peak is below the TS's emphasis range, so the interaction is more about level than frequency stacking.
+
+A P-90's upper-mid energy lands much closer to the TS's own midrange emphasis. The result:
+- The 720Hz–2kHz region stacks — both the pickup and the pedal are pushing energy there
+- The tone becomes congested and nasal at medium drive settings
+- Rolling the guitar volume back doesn't fully resolve it, because the frequency character of the P-90 is still entering the pedal at the right output level to trigger the stacking
+
+**I expected the TS to work the same way as with a Strat, just pushed a little hotter. Instead, what I found was that the congestion problem appeared even with the Drive at 8 o'clock — far lower than I'd normally set it for a Strat. The level wasn't the issue. The frequency overlap was the issue.**
+
+### Settings That Work
+
+<SettingsGrid title="TS808" subtitle="P-90 Single Pickup">
+  <Knob name="Drive" value={1.5} display="8–9 o'clock" />
+  <Knob name="Tone" value={2} display="8–9 o'clock" />
+  <Knob name="Level" value={5.5} display="Unity or slight boost" />
+</SettingsGrid>
+
+The Tone rollback is the critical adjustment. Standard TS Tone advice ("noon is a good starting point") assumes a single-coil source. With a P-90, noon produces a congested, sizzly upper-mid region. Rolling Tone back to 8–9 o'clock reduces the combined peak without eliminating the TS's characteristic character.
+
+The TS works better in front of P-90s as a boost (drive very low, level elevated) than as a primary clipping device. Its midrange emphasis is redundant with the P-90's own character. Use it to push an amp's front end rather than to clip the signal itself.
+
+---
+
+## Klon Centaur / KTR With a P-90
+
+### What Happens
+
+The Klon's gain structure is interesting with a P-90. The Klon uses a charge pump to generate an elevated internal voltage rail, which gives it more headroom than a standard 9V circuit — meaning it clips the input signal less aggressively at comparable Drive settings. It blends a clean signal with a slightly clipped signal, producing an overdrive with more clarity than a TS at comparable gain settings.
+
+With a P-90, the Klon's input stage is driven harder than with a single-coil — similar to what happens with a humbucker. The difference from a humbucker context is that the P-90 brings its upper-mid energy forward into the blend, and the Klon's treble control is active in this region.
+
+The Klon's Treble knob is passive and cuts — turning it clockwise adds treble, counterclockwise cuts. With a P-90, the treble control needs to be set lower than with a single-coil to avoid building a too-bright, slightly harsh top end that competes with the pickup's own upper-mid emphasis.
+
+### Settings That Work
+
+<SettingsGrid title="Klon" subtitle="P-90 Single Pickup">
+  <Knob name="Gain" value={3} display="9 o'clock" />
+  <Knob name="Treble" value={2.5} display="8–9 o'clock" />
+  <Knob name="Output" value={6} display="Moderate boost" />
+</SettingsGrid>
+
+At these settings, the Klon works as a transparent-ish push that adds harmonic complexity without stacking too much upper-mid energy. The Treble rollback prevents the Klon from reinforcing the P-90's already-forward midrange character.
+
+The Klon is arguably better suited to P-90s than the TS is, because the Klon's clean-blend architecture means it's not solely relying on the clipped signal — the dry component keeps the P-90's original character present and mixed in. The net result is overdrive that sounds like the pickup, pushed.
+
+---
+
+## ProCo RAT With a P-90
+
+### What Happens
+
+The RAT is the most tolerant of the three circuits when the source is a P-90. Its internal circuit topology (op-amp clipping with a Ruetz mode LM308, or LM741 in vintage units) clips harder and faster than either the TS or Klon — meaning a wider range of input levels produce useful overdrive tones. The RAT doesn't have a pronounced frequency emphasis built into its clipping stage the way the TS does. Its tone control (the Filter knob) rolls off treble and is passive — it attenuates, it doesn't boost.
+
+With a P-90, the RAT clips the input signal more symmetrically than a TS, producing a different harmonic character (more even-order and odd-order content mixed, versus the TS's predominantly even-order). This isn't inherently better or worse — it's a different kind of distortion.
+
+The practical result: the RAT's clipping stage is less sensitive to the frequency character of the input than the TS's mid-emphasized clipping. The P-90's upper-mid emphasis doesn't create the same stacking problem. The Filter knob provides a useful tool for managing the P-90's natural upper-mid brightness in the RAT's clipping context.
+
+### Settings That Work
+
+<SettingsGrid title="ProCo RAT" subtitle="P-90 Single Pickup">
+  <Knob name="Distortion" value={4} display="10–11 o'clock" />
+  <Knob name="Filter" value={3} display="9–10 o'clock (slightly more closed)" />
+  <Knob name="Volume" value={5.5} display="Unity or slight boost" />
+</SettingsGrid>
+
+The Filter setting is the primary adjustment for P-90 use. Stock advice for the RAT often starts the Filter at noon (which is on the open/bright side). With a P-90, pulling the Filter toward 9–10 o'clock reduces the upper-mid energy that can become harsh when the P-90's own character combines with the RAT's clipping products in that frequency region.
+
+The RAT at these settings produces a clear, punchy overdrive that preserves the P-90's woody character while adding real harmonic content. This combination — P-90 into a RAT with Filter slightly closed — is a well-established tone in its own right, used in classic recordings by players on Les Paul Juniors and Melody Makers.
+
+---
+
+## Which Overdrive Works Best With a P-90?
+
+| Pedal | With a P-90 | Adjustment Difficulty | Verdict |
+|---|---|---|---|
+| TS808 | Midrange stacking creates congestion at moderate drive | Significant — must run low Drive and rolled Tone | Works best as a clean boost, not a primary clip |
+| Klon | Better — clean blend preserves P-90 character, Treble needs trimming | Moderate | Good choice; transparent character suits P-90 well |
+| RAT | Best native tolerance — Filter knob handles the upper mids easily | Minimal | The most adaptable of the three for P-90 use |
+
+A note on the Timmy: the [Paul Cochrane Timmy](/blog/timmy-vs-tumnus) is a particularly good match for P-90 pickups because of its pre-gain Bass and post-gain Treble controls, which allow independent management of the low-end input to the clipping stage and the treble content in the output. Setting Bass slightly lower reduces how hard the P-90 hits the clipping stage; setting Treble slightly lower manages the upper-mid buildup. More control variables mean a more precise result.
+
+---
+
+## On Humbuckers vs. P-90s: Not the Same Problem
+
+Players switching from humbuckers to P-90s sometimes apply the same overdrive adjustments they made for humbuckers. These are different problems.
+
+Humbucker overdrive issues are typically about **level** — the pickup is hitting the clipping stage too hard across a broad midrange. The fix is usually lowering the Drive control.
+
+P-90 overdrive issues are typically about **specific frequency interaction** — the pickup's upper-mid emphasis stacks with the pedal's own frequency response in a particular range. Lowering Drive helps but doesn't fully solve the stacking issue with circuits like the TS.
+
+For the full humbucker context, the [TS808 vs. Klon vs. RAT humbuckers comparison](/blog/ts808-klon-rat-humbuckers) covers that territory separately.
+
+---
+
+<FAQ questions={[
+  {
+    q: "Do P-90s need a noise gate more than humbuckers?",
+    a: "Yes. P-90s are single-coil designs that do not cancel hum the way humbuckers do. They are noise-generating, especially at higher gain settings or in environments with strong RF interference. A noise gate or noise suppressor (positioned after the overdrive in the chain) helps manage this. The specifics of what gate settings to use depend on the gain level — a light overdrive may not require gating at all."
+  },
+  {
+    q: "What's a good alternative to the TS808 for a P-90 that doesn't have the stacking problem?",
+    a: "The Wampler Euphoria, the Xotic BB Preamp, and the Timmy all have more adjustable frequency responses than the TS808, which makes them more adaptable to P-90 sources. The BB Preamp's Treble boost position makes the upper-mid issue worse; use its flat or Bass boost position. The Euphoria's Smooth mode produces less mid-emphasis. The Timmy is the most surgically controllable of the three."
+  },
+  {
+    q: "Why do vintage Les Paul Juniors sound so good with a RAT?",
+    a: "The single P-90 on a Les Paul Junior hits the RAT's input stage at the right level for the circuit to clip musically without congestion, and the maple-topped mahogany construction of the Junior gives it a naturally forward midrange that pairs with the RAT's relatively neutral clipping character. The combination is historically documented — this tone appears on numerous recordings from the early punk era onward."
+  },
+  {
+    q: "Can I use a P-90 through the same TS settings I use with my Strat?",
+    a: "You can, but the result will likely be too congested in the upper mids compared to the Strat tone you're used to. Start by pulling Drive down by 30–40% from your Strat position and pulling Tone back to 9–10 o'clock. That's a workable starting point. Then adjust from there based on what your ear tells you."
+  }
+]} />
