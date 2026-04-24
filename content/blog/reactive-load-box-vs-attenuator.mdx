@@ -1,0 +1,118 @@
+---
+title: >-
+  Reactive Load Box vs. Simple Resistive Attenuator: What the Circuit Difference
+  Actually Sounds Like
+description: >-
+  A resistive attenuator reduces your amp's output. A reactive load box
+  simulates a speaker. They're not the same thing, and which one you need
+  depends on how much you're reducing and what you're doing with the signal
+  afterward. Here's the decision framework.
+date: '2026-04-23'
+author: Nathan Cross
+author_slug: nathan-cross
+category: signal-chain
+tags:
+  - load-box
+  - attenuator
+  - reactive
+  - resistive
+  - tube-amp
+  - direct-recording
+  - home-studio
+readingTime: 8
+image: /images/blog/reactive-load-box-vs-attenuator.jpg
+image_alt: a composition illustrating "Reactive Load Box vs. Simple Resistive Attenuator"
+---
+
+> **The core distinction:** A resistive attenuator passes your amp's output through a resistive network that drops the power before it reaches the speaker. A reactive load box presents the amp with an impedance load that behaves like a speaker — varying with frequency — and usually includes a DI output and cab simulation for recording or going direct to PA. Both reduce volume. They accomplish it differently, and the difference matters above about 8–10dB of reduction.
+
+When our AC30 started to feel wrong at moderate attenuation, it took me longer than it should have to understand why. We'd been using a simple THD Hot Plate for a few years — great unit, easy to use, completely transparent at modest reductions. But somewhere around 8–10dB of cut, the amp's character started changing in ways I couldn't dial back out. The feel was there, the volume was right, but the power tubes were doing something different.
+
+Understanding what that something was is the reason this post exists.
+
+---
+
+## How Resistive Attenuation Works
+
+A resistive attenuator sits between the amp's speaker output and the actual speaker. It's essentially a power divider: a network of resistors that absorbs some of the amplifier's output power as heat, passing the remainder to the speaker.
+
+The resistive load is constant — the same impedance at all frequencies. For modest attenuation (3–6dB), this is fine. The amp's power tubes barely notice the difference. The speaker sees slightly less power. Everything sounds and feels correct.
+
+Problems start to emerge at higher attenuation levels for one important reason: **real speakers are not resistors**. A speaker's impedance varies significantly with frequency — rising sharply at the resonant frequency (around 90–100Hz for a 16-ohm cabinet), staying relatively flat through the midrange, and rising again in the upper frequencies. This impedance curve is part of how the amp's output transformer and power tubes behave. They're designed to work into that reactive, frequency-dependent load.
+
+When you substitute a purely resistive load for a reactive speaker load at high attenuation, you change what the power tubes "see." The output transformer operates into a different termination than it was designed for. The power tube's load line shifts. At 3–6dB of reduction, this is audible but tolerable. At 12dB+, the amp can start to sound and feel wrong — tighter, thinner, less dynamic.
+
+---
+
+## How a Reactive Load Box Works
+
+A reactive load box (Two Notes Captor/Captor X, Universal Audio OX, Fryette Power Station, Suhr Reactive Load) contains an impedance network designed to approximate a real speaker's reactive impedance curve. When you plug your amp's speaker output into a reactive load, the amp's power section sees something that behaves like a speaker — not identical, but close enough that the power tubes operate near their intended load line.
+
+The additional feature of most reactive load boxes: a DI output with cab simulation. Because the reactive load box is terminating the amp's full signal, it can tap that signal at line level and send it to an interface or PA mixer with a speaker cab IR applied. This is the "silent recording" workflow — amp cranked, power tubes saturated, no physical speaker in the room, signal goes direct to your interface.
+
+This is a genuinely different capability. A resistive attenuator passes signal through to a speaker; it doesn't have a DI output. A reactive load box doesn't require a speaker at all.
+
+---
+
+## The Practical Decision Framework
+
+**Are you reducing volume by 3–6dB to protect your ears and manage stage level?**
+
+Use a resistive attenuator. A quality unit (THD Hot Plate, Weber MiniMass, Palmer PDI-09) at this reduction level is effectively transparent. The amp behaves correctly. The speaker hears close to what it would hear without the attenuator. This is the right tool for modest reduction.
+
+At our church, the AC30 runs through a THD Hot Plate at about 4dB of reduction for Sunday morning services. No character change. The amp feels exactly like it does at full power. The congregation doesn't need a concert-level mix; this gets us to where we need to be without sacrificing what the AC30 does.
+
+**Are you reducing volume by 10dB+ and playing through a speaker?**
+
+A reactive load box becomes meaningfully better. The impedance simulation preserves the power tube behavior that the simple resistive load disrupts at deep cuts. The Fryette Power Station ($499) is the benchmark for this use case — it includes both a reactive load section and a re-amplification path so you can run the attenuated signal back into a separate power amp stage if needed.
+
+At 12dB+ reduction, even a reactive load box doesn't fully replicate the feel of a cranked amp. The power tubes are still operating at lower total output. But a reactive load preserves more of the character than a resistive pad does.
+
+**Are you recording your tube amp silently — no speaker in the room?**
+
+You need a reactive load box with a DI output. This is the Two Notes Captor X's primary use case — it terminates the amp's full output into a reactive load, provides a DI signal with cab simulation, and lets you drive the amp at any volume while recording at any level. The universal audio OX does the same thing with its own cab sim and IR loading.
+
+I use a Two Notes Captor for the occasional session where I want the real AC30 power stage on a recording without a microphone in the room. The result isn't identical to a close-mic'd AC30 through a proper 4x12, but the power tube compression is real and audible in ways that my Strymon Iridium (excellent as it is) doesn't fully replicate.
+
+---
+
+## Comparison at Specific Reduction Amounts
+
+| Attenuation | Resistive Attenuator | Reactive Load Box |
+|---|---|---|
+| 3–6 dB | Effectively transparent. Use it. | Works, but you're paying for capability you don't need. |
+| 6–10 dB | Noticeable character change in some amps — tighter, slightly thinner | Preserves amp character significantly better |
+| 10–15 dB | Character shifts noticeably for most amps | Better than resistive, but no reactive load is truly transparent here |
+| 15 dB+ | The amp is fighting the situation. Consider a lower-watt amp instead. | Same limitation — a lower-wattage amp or modeler is the more practical solution |
+
+The 15dB ceiling isn't a failure of technology. It's the reality that a 50-watt amp running at 1/32nd of its intended output is not doing what it was designed to do, regardless of how carefully you handle the termination.
+
+---
+
+## Products Worth Considering
+
+**Simple resistive, 3–8dB range:**
+- THD Hot Plate — the standard. Available in multiple impedances. Reliable, transparent at modest reduction.
+- Weber MiniMass — more affordable, similar performance for light use.
+- Palmer PDI-09 — includes a basic speaker simulator DI for recording; a middle-ground option.
+
+**Reactive load with DI, silent recording capable:**
+- Two Notes Captor / Captor X — solid choice, especially the X for its expanded cab library and stereo DI
+- Universal Audio OX — higher cost, excellent IR library, works best with UA interfaces for the plugin integration
+- Fryette Power Station — the unique option that can re-amplify through a separate power stage, useful for "two-amp in one box" workflows
+
+**The modeler as an alternative:**
+
+If you're primarily working at home and you're already cutting 15dB+ of attenuation to make a practice session work at 11 PM, the honest answer is that a modeler with a good power stage model is often a more practical solution than deeply attenuating a tube amp. The Strymon Iridium, Kemper Stage, and Quad Cortex all produce convincing power tube behavior without requiring a tube amp to be present. They're not the same experience as a cranked AC30 — but they're more consistent and more controllable at low levels than a heavily attenuated real amp.
+
+Using both is also valid. The tube amp at the gig, the modeler for late-night home practice. That's most of what I do.
+
+---
+
+<FAQ questions={[
+  {q: "What is the difference between a reactive load box and an attenuator?", a: "A resistive attenuator reduces output power through a fixed-resistance network before it reaches the speaker — it's simple, transparent at low reduction, but disrupts the amp's power tube behavior at deep cuts. A reactive load box simulates a speaker's frequency-dependent impedance curve, letting the power tubes operate closer to their intended load even without a physical speaker connected. Most reactive load boxes also include a DI output for silent recording."},
+  {q: "Do I need a reactive load box or a simple attenuator?", a: "For modest volume reduction (3–6dB), a quality resistive attenuator is effectively transparent and is the right tool. For deep cuts (10dB+) or silent recording, a reactive load box preserves the amp's power tube character significantly better than a resistive pad. If you want to record your tube amp silently with no speaker in the room, you specifically need a reactive load box with a DI output."},
+  {q: "What happens to tube amp tone with heavy attenuation?", a: "At deep attenuation, both resistive and reactive loads change how the power tubes operate. A purely resistive load causes the output transformer to see the wrong impedance termination, which shifts the power tubes off their intended load line — producing a tighter, thinner sound. A reactive load mitigates this but doesn't eliminate it. Beyond about 15dB of attenuation, the amp simply isn't running the way it was designed to, regardless of termination approach."},
+  {q: "Can I use an attenuator for silent recording?", a: "A simple resistive attenuator doesn't have a DI output — it passes signal through to a speaker. You'd need a microphone in front of the speaker to record. A reactive load box with a DI output is the tool for silent recording — it terminates the amp's output into the reactive load and provides a line-level DI signal with cab simulation that you route directly to your interface."},
+  {q: "At what point should I consider a lower-wattage amp instead of attenuation?", a: "Generally, if you're consistently cutting 15dB or more to reach a usable practice level, a lower-wattage amp will serve you better. A 5-watt or 15-watt tube amp running at its intended output level produces authentic power tube saturation naturally at much lower volume than a 50-watt amp deeply attenuated. The character is there without the attenuation compromise."}
+]} />

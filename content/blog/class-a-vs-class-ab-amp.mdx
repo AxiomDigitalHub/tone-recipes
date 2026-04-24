@@ -1,0 +1,136 @@
+---
+title: 'Class A vs. Class AB: The Amp Operating Point Question Every Player Gets Wrong'
+description: >-
+  Almost every amp marketed as "Class A" isn't — including the Vox AC30. Here's
+  what Class A and Class AB actually mean at the circuit level, which amps use
+  which topology, and why the distinction matters more for feel than you'd
+  expect.
+date: '2026-04-23'
+author: Hank Presswood
+author_slug: hank-presswood
+category: signal-chain
+tags:
+  - class-a
+  - class-ab
+  - tube-amp
+  - vox-ac30
+  - tone-theory
+  - cathode-bias
+  - fixed-bias
+readingTime: 8
+image: /images/blog/class-a-vs-class-ab-amp.jpg
+image_alt: a composition illustrating "Class A vs. Class AB"
+---
+
+> **The short answer:** Class A means an output tube conducts current for the full 360 degrees of the audio waveform — it never cuts off. Class AB means the tubes idle at a lower current and each side of the push-pull pair briefly cuts off during the opposing half of the waveform. The Vox AC30 is almost universally marketed as Class A. Under sustained load, it is not.
+
+I've been correcting this one for fifty years.
+
+Not because I enjoy correcting people — ask anyone who's worked a counter and they'll tell you corrections don't make sales. But after twenty-five years at Presswood Guitars, I can tell you that "I'm looking for a Class A amp" is one of the most reliably misunderstood things a customer says. They usually mean something true and real: they want a certain feel, a certain responsiveness, a certain kind of harmonic content. They've just grabbed the wrong vocabulary for it.
+
+Here's the vocabulary that's actually correct, and why it matters.
+
+---
+
+## What the Operating Point Actually Means
+
+A tube amplifier's output stage works by converting a small AC signal (the guitar waveform, amplified through the preamp) into a larger AC signal that drives the speaker. The output tubes do the heavy lifting of that conversion.
+
+Every tube has a **DC operating point** — a fixed voltage and current at which it sits when no signal is passing through it. This is set by the biasing circuit. The critical question is how far that operating point is from the tube's cutoff point (where it stops conducting entirely).
+
+**Class A:** The DC operating point is set high enough in the tube's operating range that even at the maximum negative swing of the AC waveform, the tube stays above cutoff. It conducts for the full 360 degrees of every cycle. Always on. Always working. High idle current. Significant heat.
+
+**Class AB:** The DC operating point is lower. At some point in the negative swing of the AC waveform, one tube in the push-pull pair crosses below cutoff and stops conducting briefly. The other tube picks up the slack. During the tiny window where one tube is cut off and the other hasn't fully taken over, there's a brief distortion artifact called **crossover distortion** — but in well-designed amplifiers at moderate levels, it's inaudible.
+
+**Class B** (almost never used in audio): The tubes idle right at cutoff. They only conduct for exactly half the waveform. Crossover distortion is severe. You don't see this in guitar amps intentionally.
+
+---
+
+## Why the AC30 Is Not Strictly Class A
+
+Vox has marketed the AC30 as "Class A" since the 1950s, and the claim has never been wrong enough to be scandalous — but it isn't technically accurate.
+
+The AC30's EL84 output tubes are cathode-biased, which is the core of the confusion. Cathode bias (sometimes called self-bias) sets the tube's operating point via a resistor and capacitor in the cathode circuit, and the resulting operating point is relatively high on the tube's transfer curve. Higher than a typical fixed-bias design. Closer to true Class A.
+
+At low signal levels and low volumes, the AC30 does run close to Class A operation. The EL84s are conducting for most of the waveform, and the crossover behavior is minimal.
+
+But under sustained load — playing a loud chord into a pushed AC30 — the output stage shifts into Class AB behavior. The tubes can't maintain full Class A conduction when they're delivering real power to the speaker. They start to clip the negative half of the waveform as the available current hits limits.
+
+The AC30 runs in something closer to true Class A at bedroom volumes. It doesn't at gig volumes. This is not a defect — it's physics.
+
+---
+
+## The Real Distinction That Players Are Hearing
+
+So why does the AC30 feel different from a Marshall JCM800, which is undeniably Class AB?
+
+The answer is **cathode bias vs. fixed bias**, not Class A vs. Class AB.
+
+| Characteristic | Cathode Bias ("Class A feel") | Fixed Bias (Class AB) |
+|---|---|---|
+| Bias method | Cathode resistor + cap — self-adjusting | Fixed voltage applied to the grid — requires manual biasing |
+| Idle current | Higher — tubes run hotter, closer to full conduction | Lower — tubes run cooler, more headroom before distortion |
+| Dynamic compression | Built-in automatic compression — high idle current means tubes clip more evenly | Less automatic compression — more headroom, harder transients |
+| Harmonic content | Tends toward even-order harmonics — smoother breakup | Tends toward odd-order harmonics — harder, more aggressive breakup |
+| Feel | Immediate, responsive, "gives" under hard playing | Stiffer, more headroom, cleaner before distortion |
+| Thermal stability | Self-adjusting — cathode resistor compensates for tube drift | Requires rebias when tubes are replaced |
+
+The AC30 feels responsive and immediate not because it's Class A — it's because cathode bias gives it a lower threshold for that automatic compression, and the EL84 tube's specific harmonic signature produces that particular complexity in the upper mids.
+
+A fixed-bias Marshall with EL34 tubes has more headroom, stays cleaner longer, and has a different harmonic flavor when it breaks up. Neither is objectively better. They're different tools for different jobs.
+
+---
+
+## Which Amps Are Actually Class A?
+
+Genuine Class A guitar amps exist, but they're the exception:
+
+**True or near-true Class A (cathode-biased, intended Class A operation):**
+- Matchless DC-30 and Matchless HC-30 — designed explicitly for low-power Class A operation
+- Dr. Z amplifiers — many models run genuine Class A EL84 output stages at conservative power ratings
+- Carr amplifiers — similar design philosophy, genuine Class A at rated power
+- Fender Champ (early circuit, small single-ended design) — a single 6V6 in Class A is genuinely Class A because single-ended amplifiers don't have a push-pull pair to cut off
+
+**Running in Class AB regardless of marketing:**
+- Vox AC30 (above moderate volumes)
+- Marshall JCM800 — explicitly designed as a Class AB amp; no ambiguity
+- Fender Deluxe Reverb — two 6V6 tubes in Class AB push-pull operation
+- Mesa/Boogie Dual Rectifier — Class AB
+
+The Fender Deluxe Reverb is an interesting case. I've had customers insist it sounds "Class A" based on how it feels. It doesn't operate that way. What they're responding to is the 6V6 tube's character at moderate volumes through that particular circuit — which is legitimate information about the amp, just not the right word for it.
+
+---
+
+## What This Means When You're Shopping
+
+When a manufacturer says "Class A," ask what they mean. The useful questions are:
+
+1. **Is it cathode-biased or fixed-biased?** Cathode bias produces the automatic compression and "give" most players associate with the Class A sound. It also means you don't have to rebias when you change tubes.
+
+2. **What are the output tubes?** EL84s (Vox), 6V6s (Fender), 6L6s (Mesa), EL34s (Marshall) all have different harmonic signatures that matter more than the Class A/AB distinction for practical tone.
+
+3. **What's the rated power?** A genuinely Class A amp running EL84s at 15 watts has very different headroom characteristics than one running at 30 watts. The power rating interacts with the biasing to determine how early the amp starts producing compression and harmonic saturation.
+
+I spent twenty-five years answering these questions for customers. The ones who asked them came home with the right amp. The ones who came in saying "I want something Class A like a Vox" sometimes left with exactly what they were looking for, and sometimes left with a cathode-biased amp that sounded nothing like a Vox. Which was fine — it was still the right amp. The vocabulary just didn't get them there predictably.
+
+---
+
+## The Practical Upshot for Modeler Players
+
+If you're dialing in a modeler preset that's supposed to sound like a Vox AC30 or another "Class A-feel" amp, the controls that matter most are:
+
+- **Sag:** Higher sag values simulate the power-supply compression that cathode-biased designs produce. Start around 5.0–6.5.
+- **Bias:** On platforms that expose it (Fractal, some HX Stomp advanced panels), higher bias approximates the cathode-biased compression behavior.
+- **Low headroom settings:** These amps clip earlier and more smoothly. Don't build a preset expecting the same headroom as a Marshall model.
+
+The tone you're chasing isn't "Class A operating point" — it's the EL84 harmonic character, the cathode-bias compression, and the circuit's particular breakup profile. Those are all capturable in a modeler. The topology label is just the engineering description of how the original got there.
+
+---
+
+<FAQ questions={[
+  {q: "Is the Vox AC30 really Class A?", a: "Not strictly, no. The AC30 runs close to Class A at low volumes, but its EL84 output tubes shift into Class AB behavior under sustained load at stage volume. The confusion comes from Vox's marketing and the fact that cathode bias (which the AC30 uses) produces a similar feel to true Class A operation — immediate, compressed, responsive. The cathode biasing is the relevant circuit fact; the Class A label is imprecise."},
+  {q: "What is the difference between cathode bias and fixed bias?", a: "Cathode bias uses a resistor and capacitor in the output tube's cathode circuit to set its operating point — it's self-adjusting and doesn't require manual rebiasing when you change tubes. Fixed bias applies a separate negative voltage to the tube's grid to set the operating point, requires rebiasing when tubes change, and generally produces more headroom and a different harmonic character. See our full breakdown in the companion post on cathode vs. fixed bias."},
+  {q: "Does Class A really sound better?", a: "No — it's a different character, not a better one. Class A (or cathode-biased designs that run close to it) produces automatic compression and earlier, smoother breakup. Class AB has more headroom and a harder edge when it clips. Which is better depends entirely on what you're playing. Blues and clean country often benefit from the Class A character; high-gain metal almost always benefits from the tight headroom of Class AB."},
+  {q: "What amps are actually true Class A?", a: "Single-ended amplifiers (one output tube, no push-pull pair) can run genuine Class A at low power — the original Fender Champ is an example. Among push-pull designs at guitar amp power levels, Matchless, Dr. Z, and Carr make genuine Class A designs at conservative wattage ratings. The Vox AC30, despite its marketing, is Class AB at normal playing volumes."},
+  {q: "How do I get that Class A feel without a cathode-biased amp?", a: "On a modeler, the Sag parameter is your primary tool — increase it to 5.0–7.0 to simulate the power supply compression associated with cathode-biased designs. Use EL84-based amp models (AC30, early Matchless models) rather than EL34 or 6L6 models. Reduce the headroom setting if the platform exposes it. You won't get identical results, but you can get the feel significantly closer than leaving Sag at zero."}
+]} />
