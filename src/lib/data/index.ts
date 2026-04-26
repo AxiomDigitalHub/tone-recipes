@@ -10962,14 +10962,139 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
-          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 3, block_name: "Triangle Fuzz", block_category: "Distortion", original_gear: "Big Muff Pi", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Ram's Head Big Muff for thick, singing fuzz." },
-          { position: 4, block_name: "WhoWatt 100", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 5.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, "Ch Vol": 7.0, Bias: 0.5, Master: 1, Ripple: 0.5, Sag: 0.5, Hum: 0.5, BiasX: 0.5 }, notes: "Clean Hiwatt platform for the Big Muff." },
-          { position: 5, block_name: "Simple Delay", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 440, Feedback: 30, Mix: 35, TempoSync1: 0 }, notes: "Set delay to ~440ms for rhythmic repeats." },
-          { position: 6, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: 5, Position: 0.49, Distance: 1, Angle: 0, Pan: 0.5, LowCut: 19.9, HighCut: 16000, Level: 0, Delay: 0 }, notes: "Greenback cab as a close approximation to WEM Fane speakers." },
+          {
+            position: 1,
+            block_name: "Volume Pedal",
+            block_category: "Volume/Pan",
+            original_gear: "Volume pedal",
+            settings: { Pedal: 1.0, VolumeTaper: false },
+            notes:
+              "Assigned to EXP 1. Linear taper. Time has long sustained notes — riding the volume pedal up after each bend lets the note bloom.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "MXR Dyna Comp (light)",
+            settings: { Threshold: -30, Ratio: 2, Knee: 6, Attack: 0.038, Release: 0.20, Mix: 0.5, Level: 3 },
+            notes:
+              "Lighter compression than Comfortably Numb (-30 / 2:1, half-wet Mix). Time's solo is about bite and dynamics, not endless sustain — the Muff already does the sustain work, the comp just smooths pick attack and adds a bit of front-end compression. +3 dB makeup keeps the Muff hitting the Hiwatt hard.",
+          },
+          {
+            position: 3,
+            block_name: "Triangle Fuzz",
+            block_category: "Distortion",
+            original_gear: "Electro-Harmonix Big Muff Pi (Ram's Head)",
+            enabled: true,
+            settings: { Sustain: 0.65, Level: 0.75, Tone: 0.65 },
+            notes:
+              "DEFAULT-ON drive. Time is the most AGGRESSIVE Gilmour Big Muff solo in his catalog — Sustain pushed to 0.65 (much higher than Comfortably Numb's 0.16) for the raw, snarling character. Tone=0.65 (above noon) keeps the bridge-pickup bite cutting through. Level=0.75 pushes the Hiwatt's front end into slight breakup.",
+          },
+          {
+            position: 4,
+            block_name: "Heir Apparent",
+            block_category: "Distortion",
+            original_gear: "Colorsound Power Boost",
+            enabled: false,
+            settings: { Gain: 0.55, Tone: 0.55, Level: 0.65, Presence: 0.50, Clipping: 0, GainMod: 1, Voltage: false },
+            notes:
+              "ALTERNATE drive (off by default). The Colorsound Power Boost was Gilmour's go-to overdrive in the early '70s, often stacked with the Muff for an even bigger sound or used alone for the verses. Stomp this on for verse rhythm work, or stack on top of the Muff for the absolute biggest version of the solo.",
+          },
+          {
+            position: 5,
+            block_name: "Scream 808",
+            block_category: "Distortion",
+            original_gear: "Ibanez TS808 (modern stand-in)",
+            enabled: false,
+            settings: { Gain: 0.30, Tone: 0.50, Level: 0.65 },
+            notes:
+              "ALTERNATE drive (off by default). A clean-boost stand-in for tighter rhythm sections — flatter than the Heir Apparent, just a transparent volume + harmonic lift before the amp.",
+          },
+          {
+            position: 6,
+            block_name: "WhoWatt 100",
+            block_category: "Amp",
+            original_gear: "Hiwatt DR103 Custom 100",
+            settings: {
+              Drive: 0.50,
+              Bass: 0.45,
+              Mid: 0.55,
+              Treble: 0.65,
+              Presence: 0.70,
+              ChVol: 0.70,
+              Master: 1.0,
+              Bias: 0.55,
+              Sag: 0.60,
+              Hum: 0.50,
+              Ripple: 0.50,
+              BiasX: 0.50,
+            },
+            notes:
+              "Slightly more Drive (0.50) and Presence (0.70) than the Comfortably Numb dial — Time wants more bite and edge, less smooth bloom. Master=1.0 with ChVol=0.70 keeps the power-amp character fully engaged. The Hiwatt still stays mostly clean; the Muff does the gain.",
+          },
+          {
+            position: 7,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "WEM 4x12 with Fane Crescendo",
+            settings: {
+              Mic: 5,
+              Position: 0.30,
+              Distance: 1,
+              Angle: 0,
+              Pan: 0.5,
+              LowCut: 19.9,
+              HighCut: 20100,
+              Level: 0,
+              Delay: 0,
+            },
+            notes:
+              "Ribbon mic (Mic=5) at Position=0.30 — slightly off-center vs. Comfortably Numb's 0.24, biased toward the cone edge for more bite. Full-range cuts (LowCut=19.9, HighCut=20100) so all the tonal shaping happens at the amp. (Dual-mic SM57+ribbon blend would be richer but requires the WithPan dual-cab generator support, queued separately.)",
+          },
+          {
+            position: 8,
+            block_name: "Transistor Tape",
+            block_category: "Delay",
+            original_gear: "Binson Echorec",
+            settings: {
+              Time: 0.440,
+              Feedback: 0.40,
+              Mix: 0.30,
+              WowFlutter: 0.45,
+              Headroom: 0.20,
+              Spread: 0.30,
+              Scale: 1,
+              SyncSelect1: 0,
+              TempoSync1: false,
+              Level: 0,
+            },
+            notes:
+              "Placed AFTER the cab so repeats stay clean. Time's solo uses a Binson Echorec character — free-time (NOT tempo-synced) at ~440ms with Feedback=0.40 for the multi-tap repeats that fill the song's spaces. Higher WowFlutter=0.45 emulates the Echorec's tape modulation; Headroom=0.20 adds a little tube saturation to the repeats. Cosmos Echo would be the more on-brand emulation but Transistor Tape's params are verified.",
+          },
+          {
+            position: 9,
+            block_name: "DynPlate",
+            block_category: "Reverb",
+            original_gear: "Studio plate (EMT 140)",
+            settings: {
+              Decay: 1.8,
+              PreDelay: 0.01,
+              Mix: 0.20,
+              LowCut: 150,
+              HighCut: 9000,
+              BassFreq: 100,
+              VarDelayAmpl: 0.5,
+              Damping: 4000,
+              MatrFreq: 0.30,
+              BassBoost: 0,
+              Level: 0,
+            },
+            notes:
+              "Tighter, slightly darker plate than Comfortably Numb (Decay 1.8s vs 2.0s, LowCut 150 Hz vs 100, HighCut 9000 vs 10000). Time is a faster, more rhythmic song — too much wet wash buries the staccato bend phrasing. Mix=0.20 keeps the dry note out front.",
+          },
         ],
-        notes: "Neck pickup, slow vibrato, precise bends. The Big Muff into a clean Hiwatt is the Gilmour formula for aggressive lead tones.",
+        notes:
+          "Time's solo is the most AGGRESSIVE Gilmour Big Muff tone in the catalog — same Strat → Muff → Hiwatt formula as Comfortably Numb but dialed harder for bite: Sustain pushed to 0.65 (vs. 0.16 on Comfortably Numb), more Presence on the amp, more aggressive delay feedback. Use the bridge pickup (or middle pickup) with tone rolled to ~6 to tame the glassy highs while keeping the bite. The Triangle Fuzz is on by default; stomp Heir Apparent for verses, Scream 808 as a clean tightener.",
       },
       quad_cortex: {
         chain_blocks: [
