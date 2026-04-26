@@ -49,6 +49,14 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "Kinky Boost": "HD2_DistKinkyBoost",
   "Distortion+": "HD2_DistStuporOD",
   "Deluxe Comp": "HD2_CompressorDeluxeComp",
+  "Heir Apparent": "HD2_DistHeirApparent",
+  "Tube Drive": "HD2_DistTubeDrive5Knob",
+  "Tube Drive 5-Knob": "HD2_DistTubeDrive5Knob",
+  "Industrial Fuzz": "HD2_DistIndustrialFuzz",
+
+  // ── Volume / Pan / Wah (utility) ──────────────────────────────────────
+  "Volume Pedal": "HD2_VolumePan_Volume",
+  "Pan Pedal": "HD2_VolumePan_Pan",
 
   // ── Modulation ────────────────────────────────────────────────────────
   "70s Chorus": "HD2_Chorus70sChorus",
@@ -98,11 +106,11 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "2x12 Double C12N": "HD2_Cab2x12DoubleC12N",
   "2x12 Twin": "HD2_Cab2x12DoubleC12N",
   "4x10 Tweed P10R": "HD2_Cab4x10TweedP10R",
-  "4x12 Greenback 25": "HD2_Cab4x12Greenback25",
-  "4x12 XXL V30": "HD2_Cab4x12UberV30",
-  "4x12 Greenback25": "HD2_Cab4x12Greenback25",
-  "4x12 Green 25": "HD2_Cab4x12Greenback25",
-  "4x12 Green": "HD2_Cab4x12Greenback25",
+  "4x12 Greenback 25": "HD2_CabMicIr_4x12Greenback25WithPan",
+  "4x12 XXL V30": "HD2_CabMicIr_4x12UberV30WithPan",
+  "4x12 Greenback25": "HD2_CabMicIr_4x12Greenback25WithPan",
+  "4x12 Green 25": "HD2_CabMicIr_4x12Greenback25WithPan",
+  "4x12 Green": "HD2_CabMicIr_4x12Greenback25WithPan",
   "4x12 Cali V30": "HD2_Cab4X12CaliV30",
   "4x12 V30": "HD2_Cab4X12CaliV30",
   "4x12 1960 T75": "HD2_Cab4x121960T75",
@@ -226,68 +234,90 @@ export function categoryToPrefix(category: string): string {
 }
 
 /**
- * Parameters that use a 0-10 integer scale in our data but need
- * to be normalized to 0.0-1.0 for the HLX format.
+ * Parameters whose values are stored in real units (Hz, dB, seconds,
+ * integer indices, ratio numbers) in the .hlx format and pass through
+ * VERBATIM. Lookup is case-insensitive on the trimmed input name.
+ *
+ * Verified against scripts/reference-preset-with-blocks.hlx, where
+ * e.g. `Threshold: -37.099`, `Knee: 6`, `Ratio: 3`, `LowCut: 19.899`,
+ * `HighCut: 16000`, `Mic: 2`, `Distance: 1`, `SyncSelect1: 6`.
  */
-const PARAM_MAX_VALUE: Record<string, number> = {
-  // Most knobs in our data are 0-10
-  default: 10,
-  // Some params are percentage-based (0-100)
-  mix: 100,
-  "wet/dry": 100,
-  // BPM-style params stay as-is (not scaled)
-  time: -1,
-  bpm: -1,
-  tempo: -1,
-};
+const RAW_UNIT_PARAMS = new Set([
+  // Frequency cuts (Hz)
+  "lowcut", "highcut",
+  // Compressor real-unit params
+  "ratio", "knee",
+  // Discrete mic indices (single-mic format only — MicA/MicB are deprecated)
+  "mic",
+  // Cab placement
+  "distance", "delay",
+  // Discrete model selectors
+  "headcaseselect", "syncselect", "syncselect1", "syncselect2",
+  "mode", "speaker", "type", "clipping",
+  // Tempo / BPM
+  "tempo", "bpm",
+]);
 
 /**
- * Scale a parameter value from our human-readable format to the
- * Helix 0.0-1.0 range used in .hlx files.
+ * Params that can be negative (signed dB). Pass through as-is.
+ */
+const SIGNED_DB_PARAMS = new Set([
+  "threshold", "level", "gain",
+]);
+
+/**
+ * Scale a parameter value to the format Helix expects in .hlx files.
  *
- * - Numeric values assumed to be on a 0-10 scale are divided by 10.
- * - String values like "7" are parsed first.
- * - Values that look like percentages (e.g. "50%") are divided by 100.
- * - Time/BPM values are passed through as-is (clamped to 0-1 if > 1).
+ * Rules, in order:
+ * 1. Real-unit params (Hz, ratios, integer indices) → pass through.
+ * 2. Signed-dB params → pass through (preserves negatives).
+ * 3. Booleans-as-strings → 0/1.
+ * 4. Percentage strings ("50%") → divided by 100.
+ * 5. Numbers already in [0, 1] → pass through.
+ * 6. Numbers in (1, 10] → assumed legacy 0–10 knob, divided by 10.
+ * 7. Anything else → clamped to [0, 1] (last-resort safety).
+ *
+ * The previous implementation aggressively divided every >1 value by
+ * 10 and matched any param containing "mix" against a /100 rule. Both
+ * destroyed pro-template recipes that already encode values correctly
+ * (Threshold=-36 dB became 0; LowCut=19.9 Hz became 1; Mix=0.74 became
+ * 0.0074). Both heuristics are removed.
  */
 export function scaleParamValue(paramName: string, value: string | number): number {
-  const lower = paramName.toLowerCase();
+  const lower = paramName.toLowerCase().trim();
 
-  // Parse string values
+  // Parse string inputs first
   let num: number;
   if (typeof value === "string") {
-    // Handle percentage strings
-    if (value.endsWith("%")) {
-      num = parseFloat(value) / 100;
-      return Math.max(0, Math.min(1, num));
+    const v = value.trim();
+    if (v.endsWith("%")) {
+      const n = parseFloat(v) / 100;
+      return Math.max(0, Math.min(1, n));
     }
-    // Handle "on"/"off" toggle strings
-    if (value.toLowerCase() === "on" || value.toLowerCase() === "true") return 1;
-    if (value.toLowerCase() === "off" || value.toLowerCase() === "false") return 0;
-    num = parseFloat(value);
-    if (isNaN(num)) return 0.5; // default for unparseable values
+    const lv = v.toLowerCase();
+    if (lv === "on" || lv === "true") return 1;
+    if (lv === "off" || lv === "false") return 0;
+    // Strip trailing unit suffix (ms, hz, db, s) for parsing
+    const stripped = v.replace(/\s*(ms|hz|db|s)$/i, "");
+    num = parseFloat(stripped);
+    if (isNaN(num)) return 0.5;
   } else {
     num = value;
   }
 
-  // Check for special param names that shouldn't be scaled
-  for (const key of Object.keys(PARAM_MAX_VALUE)) {
-    if (lower.includes(key) && PARAM_MAX_VALUE[key] === -1) {
-      // Time-based params: clamp to 0-1 if already in that range,
-      // otherwise assume it's milliseconds and normalize roughly
-      return Math.max(0, Math.min(1, num > 1 ? num / 2000 : num));
-    }
-    if (lower.includes(key) && PARAM_MAX_VALUE[key] !== 10) {
-      return Math.max(0, Math.min(1, num / PARAM_MAX_VALUE[key]));
-    }
-  }
+  // Real-unit and signed-dB params: pass through verbatim
+  if (RAW_UNIT_PARAMS.has(lower)) return num;
+  if (SIGNED_DB_PARAMS.has(lower)) return num;
 
-  // Default: assume 0-10 scale
-  if (num > 1) {
+  // Already in 0–1 range — pro template values land here
+  if (num >= 0 && num <= 1) return num;
+
+  // Legacy 0–10 knob value
+  if (num > 1 && num <= 10) {
     return Math.max(0, Math.min(1, num / 10));
   }
 
-  // Already in 0-1 range
+  // Out of any recognized range — clamp as last resort
   return Math.max(0, Math.min(1, num));
 }
 
@@ -303,20 +333,46 @@ const PARAM_NAME_MAP: Record<string, string> = {
   "chvol": "ChVol",
   "ch vol": "ChVol",
   "lowcut": "LowCut",
+  "low cut": "LowCut",
   "highcut": "HighCut",
+  "high cut": "HighCut",
   "predelay": "Predelay",
   "pre delay": "Predelay",
   "temposync1": "TempoSync1",
+  "temposync2": "TempoSync2",
   "syncselect1": "SyncSelect1",
+  "syncselect2": "SyncSelect2",
+  "headcaseselect": "HeadcaseSelect",
+  "earlyreflections": "EarlyReflections",
+  "pedalposition": "PedalPosition",
+  "pedal position": "PedalPosition",
+  "roomsize": "RoomSize",
+  "bassfreq": "BassFreq",
 };
 
+/**
+ * Normalize a parameter name for the .hlx output.
+ *
+ * Strategy:
+ * 1. Explicit alias map (case-insensitive lookup) wins.
+ * 2. If the input already has any uppercase letter past position 0,
+ *    trust the author's casing — strip non-alphanumerics and pass
+ *    through. This preserves PascalCase keys like `MicA`, `Position`,
+ *    `EarlyReflections` that the previous implementation flattened.
+ * 3. Otherwise (lowercase or space-separated), title-case each word.
+ */
 export function normalizeParamName(name: string): string {
-  // Check exact match first
-  const lower = name.toLowerCase().trim();
+  const trimmed = name.trim();
+  const lower = trimmed.toLowerCase();
   if (PARAM_NAME_MAP[lower]) return PARAM_NAME_MAP[lower];
 
-  // Remove special characters, capitalize first letter of each word
-  return name
+  // Author already supplied PascalCase / camelCase — preserve it.
+  if (/[A-Z]/.test(trimmed.slice(1))) {
+    return trimmed.replace(/[^a-zA-Z0-9]/g, "");
+  }
+
+  // Lowercase or space-separated — title-case each word.
+  return trimmed
     .replace(/[^a-zA-Z0-9\s]/g, "")
     .split(/\s+/)
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())

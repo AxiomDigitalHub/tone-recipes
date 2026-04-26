@@ -3,16 +3,24 @@ import { resolveModelId, scaleParamValue, normalizeParamName } from "./model-map
 
 /**
  * Map block_category to Helix @type integer.
+ *
+ * Verified against scripts/reference-preset-with-blocks.hlx:
+ * - amps use @type: 1
+ * - current-gen WithPan cabs use @type: 4 (legacy non-pan cabs were 2,
+ *   but the WithPan format is what HX Edit emits today)
+ * - delays / reverbs / modulation use @type: 7
+ * - stomps (comp, drive, fuzz, wah, volume) use @type: 0
  */
 function getBlockType(category: string): number {
   const lower = category.toLowerCase();
   if (lower.includes("amp") || lower.includes("preamp")) return 1;
-  if (lower.includes("cab") || lower.includes("ir")) return 2;
+  if (lower.includes("cab") || lower.includes("ir")) return 4;
   if (
     lower.includes("delay") || lower.includes("reverb") ||
     lower.includes("mod") || lower.includes("chorus") ||
     lower.includes("flang") || lower.includes("phas") || lower.includes("trem")
   ) return 7;
+  // Volume/Pan, compressor, distortion, wah, EQ — all stomp-class
   return 0;
 }
 
@@ -119,18 +127,23 @@ export function generateHelixPreset(
     const blockKey = `block${i}`;
     const modelId = resolveModelId(block.block_name);
     const blockType = getBlockType(block.block_category);
+    // A recipe block can opt out of being default-on by setting
+    // `enabled: false` (used for multi-drive stacks where alternate
+    // drives ride bypassed until the player stomps). Undefined ==
+    // enabled — backwards-compatible with every existing recipe.
+    const isEnabled = block.enabled !== false;
 
     const entry: Record<string, unknown> = {
       "@model": modelId,
       "@position": i,
-      "@enabled": true,
+      "@enabled": isEnabled,
       "@path": 0,
       "@type": blockType,
       "@no_snapshot_bypass": false,
     };
 
     // Stomps (0) and delays/reverbs (7) get @stereo: false
-    // Amps (1) and cabs (2) do NOT get @stereo at all
+    // Amps (1) and cabs (4) do NOT get @stereo at all
     if (blockType === 0 || blockType === 7) entry["@stereo"] = false;
     if (blockType === 1) entry["@bypassvolume"] = 1;
     if (blockType === 7) {
@@ -140,11 +153,20 @@ export function generateHelixPreset(
     for (const [key, value] of Object.entries(block.settings)) {
       const paramKey = normalizeParamName(key);
       const scaledValue = scaleParamValue(key, value);
-      entry[paramKey] = parseFloat(scaledValue.toFixed(6));
+      // Booleans (TempoSync1 etc) come through scaleParamValue as 0/1
+      // but should land in the .hlx as proper JSON booleans for
+      // params we know are boolean-typed.
+      if (paramKey === "TempoSync1" || paramKey === "TempoSync2") {
+        entry[paramKey] = scaledValue >= 0.5;
+      } else {
+        entry[paramKey] = parseFloat(scaledValue.toFixed(6));
+      }
     }
 
     dsp0[blockKey] = entry;
-    snapshotDsp0[blockKey] = true;
+    // Snapshot bypass map mirrors the block's enabled state so
+    // loading the preset doesn't silently re-engage a bypassed block.
+    snapshotDsp0[blockKey] = isEnabled;
   }
 
   // Cursor group = first block if any, empty string if none
@@ -172,7 +194,10 @@ export function generateHelixPreset(
   const hlx = {
     data: {
       meta: {
-        name: presetName.slice(0, 32),
+        // Helix display caps preset names at 32 chars. Trim AFTER the
+        // slice so we don't ship a name with a trailing space when the
+        // 32nd char of the input happens to be a word boundary.
+        name: presetName.slice(0, 32).trim(),
         application: "HX Edit",
         build_sha: "39f7f9a",
         modifieddate: Math.floor(Date.now() / 1000),

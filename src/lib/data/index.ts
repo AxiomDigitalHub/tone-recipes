@@ -2836,9 +2836,9 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "MXR Dyna Comp",
-            settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 },
+            settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.038, Release: 0.20, Mix: 0.74, Level: 0 },
             notes:
-              "The canonical 2:1 / -36 dB Deluxe Comp settings. Mix=0.74 keeps transient bite by parallel-blending dry signal — exactly what a Dyna Comp does on the front end of a Muff. Subtle sustain lift, not squash.",
+              "Canonical 2:1 / -36 dB Deluxe Comp settings. Attack=0.038 / Release=0.20 match the project's pro-quality template. Mix=0.74 parallel-blends dry signal — exactly what a Dyna Comp does on the front end of a Muff. Subtle sustain lift, not squash.",
           },
           {
             position: 3,
@@ -2898,20 +2898,18 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "Cab",
             original_gear: "WEM 4x12 with Fane Crescendo",
             settings: {
-              MicA: 5,
-              PositionA: 0.49,
-              MicB: 10,
-              PositionB: 0.30,
+              Mic: 5,
+              Position: 0.49,
               Distance: 1,
               Angle: 0,
               Pan: 0.5,
               LowCut: 19.9,
               HighCut: 16000,
-              EarlyReflections: 0.60,
               Level: 0,
+              Delay: 0,
             },
             notes:
-              "No stock WEM/Fane in Helix — Greenback 25 is the closest open-character 4x12. Dual mic blend: ribbon (MicA=5, near-center at 0.49) for body, condenser (MicB=10, off-axis at 0.30) for air. Full-range LowCut=19.9 / HighCut=16000 so all frequency-shaping happens at the master EQ, not the cab. For absolute authenticity, replace this block with a third-party WEM/Fane IR — many free ones on Helix-presets.com.",
+              "No stock WEM/Fane in Helix — Greenback 25 is the closest open-character 4x12. Single ribbon mic (Mic=5) at near-center (Position=0.49) — the Gilmour studio formula: warm body, no off-axis honk, no SM57 spike. LowCut=19.9 / HighCut=16000 keep the cab full-range so all frequency-shaping happens at the master EQ, not the cab. For absolute authenticity, replace this block with a third-party WEM/Fane Crescendo IR.",
           },
           {
             position: 8,
