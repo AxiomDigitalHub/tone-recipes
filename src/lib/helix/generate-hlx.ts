@@ -175,14 +175,38 @@ export function generateHelixPreset(
     .filter((x): x is { block: typeof blocks[0]; modelId: string } => x.modelId !== null);
   const skipped = blocks.filter((b) => resolveModelId(b.block_name) === null);
 
+  // Amp+cab combo (scaffolding — currently disabled by default).
+  // Factory corpus shows 34/256 presets use a single-DSP topology where
+  // the cab is emitted as a sibling `cab0` object referenced via @cab
+  // from the amp block, rather than as a separate chain block. That
+  // frees a chain position and is the dominant topology for 9-block
+  // chains.
+  //
+  // We're not enabling it by default because the verified-working user
+  // export uses split-DSP with the cab as a regular chain block on dsp1,
+  // and changing topology mid-stabilization risks new issues. To opt in
+  // for a specific recipe, set `useCabSibling: true` on the platform
+  // translation's `helix` block (not yet wired through the type system).
+  const useAmpCabCombo = false;
+  const ampIndex = renderable.findIndex(({ block }) => getBlockType(block.block_category) === 1);
+  const cabAfterAmp = useAmpCabCombo && ampIndex !== -1 && ampIndex + 1 < renderable.length
+    && getBlockType(renderable[ampIndex + 1].block.block_category) === 2;
+
+  let cabSibling: { block: typeof renderable[0]["block"]; modelId: string } | null = null;
+  let chainAfterCabPull = renderable;
+  if (cabAfterAmp) {
+    cabSibling = renderable[ampIndex + 1];
+    chainAfterCabPull = [
+      ...renderable.slice(0, ampIndex + 1),
+      ...renderable.slice(ampIndex + 2),
+    ];
+  }
+
   // Helix LT caps each DSP path at 8 positions (0-7); position 8 is the
   // join. Chains with >7 blocks must split across dsp0 and dsp1 at the
-  // amp boundary — pre-amp on dsp0, amp at the END of dsp0 (@position 7),
-  // cab + post-amp blocks on dsp1. This matches the routing convention
-  // used by hand-built HX Edit presets and is required for HX Edit to
-  // accept the chain on Helix LT firmware ≥ 3.82.
-  const ampIndex = renderable.findIndex(({ block }) => getBlockType(block.block_category) === 1);
-  const needsSplit = renderable.length > 7 && ampIndex !== -1;
+  // amp boundary.
+  const ampIndexInChain = chainAfterCabPull.findIndex(({ block }) => getBlockType(block.block_category) === 1);
+  const needsSplit = chainAfterCabPull.length > 7 && ampIndexInChain !== -1;
 
   // Slot blocks into dsp0 and dsp1
   const dsp0Slots: Array<{ block: typeof renderable[0]["block"]; modelId: string; position: number }> = [];
@@ -190,21 +214,21 @@ export function generateHelixPreset(
 
   if (needsSplit) {
     // Pre-amp + amp on dsp0; amp pinned to @position 7 (end of DSP)
-    for (let i = 0; i <= ampIndex; i++) {
-      const { block, modelId } = renderable[i];
-      const position = i === ampIndex ? 7 : i;
+    for (let i = 0; i <= ampIndexInChain; i++) {
+      const { block, modelId } = chainAfterCabPull[i];
+      const position = i === ampIndexInChain ? 7 : i;
       dsp0Slots.push({ block, modelId, position });
     }
     // Post-amp on dsp1, starting at @position 0
-    const postAmp = renderable.slice(ampIndex + 1);
+    const postAmp = chainAfterCabPull.slice(ampIndexInChain + 1);
     for (let i = 0; i < postAmp.length; i++) {
       const { block, modelId } = postAmp[i];
       dsp1Slots.push({ block, modelId, position: i });
     }
   } else {
     // Single-DSP linear chain — fits within 8 positions
-    for (let i = 0; i < renderable.length; i++) {
-      const { block, modelId } = renderable[i];
+    for (let i = 0; i < chainAfterCabPull.length; i++) {
+      const { block, modelId } = chainAfterCabPull[i];
       dsp0Slots.push({ block, modelId, position: i });
     }
   }
@@ -235,6 +259,34 @@ export function generateHelixPreset(
     (dsp0.outputA as Record<string, unknown>)["@output"] = 2; // route to dsp1
     (dsp1.inputA as Record<string, unknown>)["@input"] = 0; // receive from dsp0
     (dsp1.outputA as Record<string, unknown>)["@output"] = 1; // Multi out
+  }
+
+  // Attach the cab sibling (cab0) when we pulled a cab out of the chain
+  // for the amp+cab combo. The amp block on dsp0 needs an @cab reference
+  // pointing to the cab0 object on the same dsp.
+  if (cabSibling) {
+    // Find the amp block in dsp0 (it's the last @type: 1 entry)
+    const ampBlockKey = Object.keys(dsp0).find((k) => {
+      const b = dsp0[k] as Record<string, unknown>;
+      return b && b["@type"] === 1;
+    });
+    if (ampBlockKey) {
+      (dsp0[ampBlockKey] as Record<string, unknown>)["@cab"] = "cab0";
+    }
+    // Build the cab0 sibling — same buildBlockEntry shape as a chain
+    // cab block, but with @position taken from the amp's position
+    // (the cab logically occupies the slot right after the amp).
+    const ampPosition = ampBlockKey
+      ? ((dsp0[ampBlockKey] as Record<string, unknown>)["@position"] as number)
+      : 0;
+    const { entry: cabEntry } = buildBlockEntry(
+      cabSibling.block,
+      cabSibling.modelId,
+      ampPosition,
+    );
+    // Cab siblings use @type: 4 (with-pan format) per factory convention
+    cabEntry["@type"] = 4;
+    dsp0.cab0 = cabEntry;
   }
 
   // Cursor group = first block if any, empty string if none

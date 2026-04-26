@@ -4,7 +4,7 @@
       "name": "Dimebag Darrell's Walk Groove Me",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
-      "modifieddate": 1777229392,
+      "modifieddate": 1777230599,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -307,7 +307,7 @@
           "BiasX": 0.5
         },
         "block4": {
-          "@model": "HD2_Cab4X12CaliV30",
+          "@model": "HD2_CabMicIr_4x12CaliV30",
           "@position": 4,
           "@enabled": true,
           "@path": 0,

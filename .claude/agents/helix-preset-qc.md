@@ -30,10 +30,12 @@ If the path is ambiguous or missing, ASK before proceeding.
 
 ## Required Reading (in order, on first invocation)
 
-1. The standards file: `~/.claude/projects/-Users-daniellivengood-Documents-Claude/memory/feedback_helix_preset_quality.md`
-2. The ground-truth reference: `scripts/reference-preset-with-blocks.hlx`
-3. The block param formats — pull the first amp, cab, comp, dist, delay, reverb block out of the reference file and use those exact param shapes as your "this is what good looks like" template.
-4. The model map: `src/lib/helix/model-map.ts` — the canonical list of recognized block names → model IDs.
+1. **The master inventory: `data/helix-inventory.json`** — 443 entries fusing the Line 6 official model list with our 256-preset factory corpus. Every entry has: helixName (display name), modelId (HD2_/VIC_), realWorldGear (manufacturer + model), category, verified status, observed param shapes, and example factory filenames. THIS IS THE SOURCE OF TRUTH for "which model ID maps to which real-world gear, and what params does it accept." Cross-reference any block under audit against this file first.
+2. The corpus dataset: `data/helix-corpus/models.json` — raw param shapes per `@model` ID, with value ranges and sample files. Use when you need to know "in real factory presets, what are the typical values for this param."
+3. The corpus topology table: `data/helix-corpus/routing.json` — frequency-ranked routing patterns. Use to confirm a topology is canonical before flagging it as wrong.
+4. The standards file: `~/.claude/projects/-Users-daniellivengood-Documents-Claude/memory/feedback_helix_preset_quality.md`
+5. The ground-truth reference: `scripts/reference-preset-with-blocks.hlx`
+6. The model map: `src/lib/helix/model-map.ts` — currently auto-loaded from the inventory. Don't audit against the map directly; audit against the inventory.
 
 You can skip re-reading these on repeat invocations within the same session.
 
@@ -50,6 +52,9 @@ These are bugs that were found in real generated presets and should be remembere
 7. **`Decay` is context-dependent** — `HD2_ReverbPlate` uses 0–1 normalized; `VIC_DynPlate` uses raw seconds (e.g. 2.0s). Pass through unchanged works for both because 0–1 floats survive pass-through.
 8. **PascalCase preservation in `normalizeParamName`** — naive lowercasing flattens `MicA` → `Mica`, `EarlyReflections` → `Earlyreflections`. Always preserve author-supplied PascalCase casing.
 9. **DSP path 8-position cap on Helix LT** — each DSP can hold blocks at `@position 0` through `7` (8 positions). `@position: 8` is reserved for the `join` pseudo-block. A 9-block chain crammed onto a single `dsp0` looks structurally fine but causes HX Edit to silently strip ALL blocks during import — the preset shows up in the slot list with the right name but both signal paths render empty. Chains with > 7 effect blocks MUST split across `dsp0` and `dsp1` at the amp boundary: pre-amp + amp on `dsp0` (amp pinned to `@position 7`), cab + post-amp on `dsp1` starting at `@position 0`. Routing: `dsp0.outputA.@output = 2` (route to dsp1), `dsp1.inputA.@input = 0` (receive from dsp0), `dsp1.outputA.@output = 1` (Multi out). Snapshot bypass map must include BOTH `dsp0` and `dsp1` keys when blocks live on both. (Found 2026-04-26.)
+10. **Amp+cab combo via @cab reference (alternate single-DSP topology)** — 34/256 factory presets fit a 9-block chain on dsp0 alone by emitting the cab as a sibling `cab0` object on the same DSP, with the amp block adding `"@cab": "cab0"`. The cab block then doesn't occupy a chain @position. This is the dominant single-DSP topology for 9-block chains. The generator has scaffolding for this (`useAmpCabCombo` flag in `generate-hlx.ts`) but it's currently disabled because the user's verified-working files use split-DSP instead. (Observed 2026-04-26 from corpus harvest.)
+11. **Same-position parallel-path blocks via `@path: 0` / `@path: 1`** — multiple blocks can share a `@position` value in the same DSP when they live on different parallel paths within that DSP. The `@path` param distinguishes them: A path = `@path: 0`, B path = `@path: 1`. Some factory presets stack two amps in parallel this way at `@position 3`. Our generator currently emits everything on `@path: 0` (single path). When auditing a preset that has two blocks at the same `@position`, check `@path` before flagging it as a position collision. (Observed 2026-04-26.)
+12. **Inventory-driven model resolution** — `src/lib/helix/model-map.ts` now loads from `data/helix-inventory.json` at module-load time. There are 302 verified mappings. To add support for a new block: add it to the inventory (re-run `npx tsx scripts/build-helix-inventory.ts` after harvesting more factory presets) — do NOT add entries to `model-map.ts` directly. The legacy aliases at the top of model-map.ts are kept only for backwards compatibility with old recipe data. (Refactored 2026-04-26.)
 
 ---
 
@@ -110,31 +115,22 @@ NEVER guess model IDs. Every `@model` in the output must come from a verified gr
 
 A block whose `@model` is `HD2_DistMinotaur` AND whose recipe name is NOT "Minotaur" is a silent fallback that the user explicitly disallowed — it produces a loadable file with the wrong block in that position. Current behavior: the generator now skips unverified blocks entirely instead of falling back. If you see Minotaur as a fallback, flag it as critical and recommend either (a) capturing a real export with the desired block, or (b) substituting a verified alternative.
 
-#### Verified model IDs as of 2026-04-26
+#### Verified model IDs
 
-These are the IDs known to load. Anything outside this list needs verification:
+The canonical list of verified IDs lives in `data/helix-inventory.json` (332 verified entries from 256 factory presets + Line 6's official model list, totaling 443 entries). Read that file when you need to look up any model ID, real-world gear mapping, or param shape.
 
-| Block | Model ID | Verified from |
-|---|---|---|
-| Volume Pedal | `HD2_VolPanVol` | user export 2026-04-26 |
-| Deluxe Comp | `HD2_CompressorDeluxeComp` | reference preset |
-| Triangle Fuzz | `HD2_DistTriangleFuzz` | reference preset |
-| Heir Apparent | `HD2_DistHeirApparent` | user export 2026-04-26 |
-| Scream 808 (TS808) | `HD2_DistScream808` | original map |
-| Minotaur | `HD2_DistMinotaur` | reference preset |
-| Teemah | `HD2_DistTeemah` | reference preset |
-| WhoWatt 100 | `HD2_AmpWhoWatt100` | original map |
-| Fullerton Nrm | `HD2_AmpFullertonNrm` | reference preset |
-| 4x12 Greenback 25 (legacy) | `HD2_Cab4x12Greenback25` | original map |
-| 4x12 Greenback 25 (WithPan dual) | `HD2_CabMicIr_4x12Greenback25WithPan` | user export 2026-04-26 |
-| 1x12 Fullerton WithPan | `HD2_CabMicIr_1x12FullertonWithPan` | reference preset |
-| 2x12 JazzRivet WithPan | `HD2_CabMicIr_2x12JazzRivetWithPan` | reference preset |
-| Simple Delay | `HD2_DelaySimpleDelay` | reference preset |
-| Transistor Tape | `HD2_DelayTransistorTape` | original map (params verified 2026-04-26) |
-| Plate (older) | `HD2_ReverbPlate` | original map |
-| DynPlate (newer) | `VIC_DynPlate` | user export 2026-04-26 |
+Categories covered (counts as of 2026-04-26):
+- 104 guitar amps (Fender, Marshall, Vox, Mesa Boogie, Hiwatt, Bogner, Diezel, Soldano, EVH, Peavey, Revv, Friedman, Trainwreck, ÷13, Dr Z, Matchless, Orange, Sunn, Park, Roland, Supro, Gibson, Victoria, Grammatico, plus Line 6 originals)
+- 88 cabs (with both legacy `@type: 2` and current `@type: 4` WithPan variants)
+- 46 distortion / drive / fuzz pedals (Klon, TS808, Big Muff, Fuzz Face, RAT, OCD, DS-1, Boss SD-1, Memory Man, Carbon Copy, etc.)
+- 34 modulation effects (MXR Phase 90, EHX Small Stone, MXR 117 Flanger, Boss CE-1, Leslie 122/145, etc.)
+- 32 delay effects (Echoplex EP-3, RE-201 Space Echo, DM-2, TC 2290, Memory Man, etc.)
+- 31 reverb effects (Plate, Hall, Room, Spring + the newer VIC_ Dynamic series)
+- 18 bass amps (Ampeg SVT, Mesa Bass 400+, Aguilar, GK 800RB, Pearce, Fender Bassman)
+- 13 dynamics (LA-2A, Dyna Comp, Boss CS-2, etc.)
+- 12 EQ + 12 pitch/synth + 11 wah + 6 volume/pan + 5 filter + 4 looper
 
-NOT yet verified (do not include in generator output): Tube Drive 5-Knob, Industrial Fuzz, Cosmos Echo, most modulation blocks. The generator filters these out by design.
+NOT yet verified (will be skipped from generator output): Tube Drive 5-Knob, plus any newer firmware additions not yet in the corpus or official list. To add: capture a real factory `.hlx` containing the block, run `scripts/harvest-helix-factory.ts` and `scripts/build-helix-inventory.ts`.
 
 ---
 

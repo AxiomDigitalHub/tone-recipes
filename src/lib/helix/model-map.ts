@@ -1,11 +1,57 @@
+import inventoryData from "../../../data/helix-inventory.json";
+
 /**
- * Mapping from human-readable Helix block names (as used in our seed data)
- * to internal Helix model IDs (HD2_<Category><ModelName> format).
+ * Mapping from human-readable Helix block names (as used in recipe data
+ * and the official Line 6 model list) to internal Helix model IDs
+ * (HD2_<Category><ModelName> or VIC_* format) used in .hlx preset files.
  *
- * These IDs are used in .hlx preset files to identify specific amp models,
- * effects, cabs, etc.
+ * Single source of truth: data/helix-inventory.json — generated from
+ * the Line 6 official model list + the 256-preset factory corpus by
+ * scripts/build-helix-inventory.ts.
+ *
+ * To add a new block: capture a real factory preset that uses it,
+ * re-run the harvest + inventory builder, and the new entry appears
+ * here automatically. Do NOT add speculative IDs — HX Edit rejects
+ * unknown IDs at load and the whole preset becomes unloadable.
+ *
+ * The LEGACY_ALIASES block below provides shorthand names for older
+ * recipe data (e.g. "Brit J-800" → JCM 2204, "Plate" → legacy plate
+ * reverb) that pre-date the inventory.
  */
-export const HELIX_MODEL_MAP: Record<string, string> = {
+type InventoryEntry = {
+  helixName: string;
+  category: string;
+  modelId: string | null;
+  realWorldGear: string;
+  manufacturer: string;
+  verified: boolean;
+  corpusCount: number;
+};
+
+function buildInventoryMap(): Record<string, string> {
+  const map: Record<string, string> = {};
+  const data = inventoryData as { inventory: InventoryEntry[] };
+  for (const entry of data.inventory) {
+    if (!entry.modelId || !entry.helixName) continue;
+    // Skip auto-generated "(corpus-only)" entries — those are corpus
+    // models we couldn't match to an official Line 6 name. They're
+    // verified IDs but don't have user-friendly names yet.
+    if (entry.helixName.includes("(corpus-only)")) continue;
+    // Don't clobber a previous mapping with a less-frequent one
+    if (map[entry.helixName] && entry.corpusCount === 0) continue;
+    map[entry.helixName] = entry.modelId;
+  }
+  return map;
+}
+
+const INVENTORY_MAP = buildInventoryMap();
+
+/**
+ * Legacy / shorthand aliases. These supplement the inventory for
+ * recipe data that uses non-canonical names. Inventory entries take
+ * precedence — these are only used when a name isn't in the inventory.
+ */
+const LEGACY_ALIASES: Record<string, string> = {
   // ── Amps ──────────────────────────────────────────────────────────────
   "US Double Nrm": "HD2_AmpUSDoubleNrm",
   "US Deluxe Vib": "HD2_AmpUSDeluxeVib",
@@ -209,6 +255,16 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "Whammy": "HD2_PitchPitchWham",
   "Pitch Shifter": "HD2_PitchPitchWham",
 
+};
+
+/**
+ * The fully-merged map: inventory entries first, with legacy aliases
+ * filling in any gaps. Legacy aliases yield to inventory entries on
+ * key collision.
+ */
+export const HELIX_MODEL_MAP: Record<string, string> = {
+  ...LEGACY_ALIASES,
+  ...INVENTORY_MAP,
 };
 
 /**
