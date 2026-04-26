@@ -108,6 +108,8 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "4x10 Tweed P10R": "HD2_Cab4x10TweedP10R",
   "4x12 Greenback 25": "HD2_CabMicIr_4x12Greenback25WithPan",
   "4x12 XXL V30": "HD2_CabMicIr_4x12UberV30WithPan",
+  "4x12 Uber V30": "HD2_CabMicIr_4x12UberV30WithPan",
+  "4x12 Uber": "HD2_CabMicIr_4x12UberV30WithPan",
   "4x12 Greenback25": "HD2_CabMicIr_4x12Greenback25WithPan",
   "4x12 Green 25": "HD2_CabMicIr_4x12Greenback25WithPan",
   "4x12 Green": "HD2_CabMicIr_4x12Greenback25WithPan",
@@ -266,6 +268,20 @@ const SIGNED_DB_PARAMS = new Set([
 ]);
 
 /**
+ * Params that older recipes encode on a 0-100 percent scale (Feedback: 35
+ * meaning 35%, Mix: 30 meaning 30%, etc.). Pro-template recipes use 0-1
+ * floats here. The scaler below handles both: 0-1 inputs pass through,
+ * (1, 100] inputs are divided by 100, > 100 clamps.
+ *
+ * The previous implementation did the opposite of correct — it divided
+ * Mix by 100 even when the value was already 0.74, giving 0.0074. This
+ * set fires only when the input is clearly > 1.
+ */
+const PERCENT_SCALE_PARAMS = new Set([
+  "mix", "feedback", "wet", "wetdry", "wet/dry",
+]);
+
+/**
  * Scale a parameter value to the format Helix expects in .hlx files.
  *
  * Rules, in order:
@@ -312,7 +328,21 @@ export function scaleParamValue(paramName: string, value: string | number): numb
   // Already in 0–1 range — pro template values land here
   if (num >= 0 && num <= 1) return num;
 
-  // Legacy 0–10 knob value
+  // Time params encoded as raw ms (e.g. 440 meaning 440ms): legacy
+  // recipes used this format. Convert to the 0-1 normalized scale
+  // Helix uses internally (rough heuristic: 1.0 ≈ 1 second).
+  if (lower === "time" || lower === "delaytime" || lower === "predelay") {
+    if (num > 1 && num <= 4000) return Math.max(0, Math.min(1, num / 1000));
+    return Math.max(0, Math.min(1, num));
+  }
+
+  // Percent-scale params (Mix, Feedback) on legacy recipes
+  if (PERCENT_SCALE_PARAMS.has(lower)) {
+    if (num > 1 && num <= 100) return num / 100;
+    return Math.max(0, Math.min(1, num));
+  }
+
+  // Legacy 0–10 knob value (Drive: 7, Bass: 5, etc.)
   if (num > 1 && num <= 10) {
     return Math.max(0, Math.min(1, num / 10));
   }

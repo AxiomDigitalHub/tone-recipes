@@ -4,7 +4,7 @@
       "name": "John Mayer's Gravity Super-Clean",
       "application": "HX Edit",
       "build_sha": "39f7f9a",
-      "modifieddate": 1775447872,
+      "modifieddate": 1777221660,
       "appversion": 58785792
     },
     "device": 2162692,
@@ -147,16 +147,7 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false,
-        "blocks": {
-          "dsp0": {
-            "block0": true,
-            "block1": true,
-            "block2": true,
-            "block3": true,
-            "block4": true
-          }
-        }
+        "@custom_name": false
       },
       "snapshot2": {
         "@name": "SNAPSHOT 3",
@@ -164,16 +155,7 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false,
-        "blocks": {
-          "dsp0": {
-            "block0": true,
-            "block1": true,
-            "block2": true,
-            "block3": true,
-            "block4": true
-          }
-        }
+        "@custom_name": false
       },
       "snapshot3": {
         "@name": "SNAPSHOT 4",
@@ -181,16 +163,7 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false,
-        "blocks": {
-          "dsp0": {
-            "block0": true,
-            "block1": true,
-            "block2": true,
-            "block3": true,
-            "block4": true
-          }
-        }
+        "@custom_name": false
       },
       "snapshot4": {
         "@name": "SNAPSHOT 5",
@@ -198,16 +171,7 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false,
-        "blocks": {
-          "dsp0": {
-            "block0": true,
-            "block1": true,
-            "block2": true,
-            "block3": true,
-            "block4": true
-          }
-        }
+        "@custom_name": false
       },
       "snapshot5": {
         "@name": "SNAPSHOT 6",
@@ -215,16 +179,7 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false,
-        "blocks": {
-          "dsp0": {
-            "block0": true,
-            "block1": true,
-            "block2": true,
-            "block3": true,
-            "block4": true
-          }
-        }
+        "@custom_name": false
       },
       "snapshot6": {
         "@name": "SNAPSHOT 7",
@@ -232,16 +187,7 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false,
-        "blocks": {
-          "dsp0": {
-            "block0": true,
-            "block1": true,
-            "block2": true,
-            "block3": true,
-            "block4": true
-          }
-        }
+        "@custom_name": false
       },
       "snapshot7": {
         "@name": "SNAPSHOT 8",
@@ -249,16 +195,7 @@
         "@valid": false,
         "@pedalstate": 2,
         "@ledcolor": 0,
-        "@custom_name": false,
-        "blocks": {
-          "dsp0": {
-            "block0": true,
-            "block1": true,
-            "block2": true,
-            "block3": true,
-            "block4": true
-          }
-        }
+        "@custom_name": false
       },
       "dsp0": {
         "inputA": {
@@ -309,6 +246,16 @@
           "Level": 0
         },
         "block0": {
+          "@model": "HD2_VolumePan_Volume",
+          "@position": 0,
+          "@enabled": true,
+          "@path": 0,
+          "@type": 0,
+          "@no_snapshot_bypass": false,
+          "@stereo": false,
+          "PedalPosition": 1
+        },
+        "block1": {
           "@model": "HD2_CompressorDeluxeComp",
           "@position": 1,
           "@enabled": true,
@@ -316,15 +263,15 @@
           "@type": 0,
           "@no_snapshot_bypass": false,
           "@stereo": false,
-          "Threshold": 0,
-          "Ratio": 0.2,
-          "Knee": 0.6,
+          "Threshold": -36,
+          "Ratio": 2,
+          "Knee": 6,
           "Attack": 0.06,
           "Release": 0.91,
-          "Mix": 0.0074,
+          "Mix": 0.74,
           "Level": 0
         },
-        "block1": {
+        "block2": {
           "@model": "HD2_DistMinotaur",
           "@position": 2,
           "@enabled": true,
@@ -334,9 +281,9 @@
           "@stereo": false,
           "Drive": 1,
           "Tone": 0.5,
-          "Level": 0.6
+          "Level": 6
         },
-        "block2": {
+        "block3": {
           "@model": "HD2_AmpDerailedIngrid",
           "@position": 3,
           "@enabled": true,
@@ -357,33 +304,22 @@
           "Hum": 0.5,
           "BiasX": 0.5
         },
-        "block3": {
+        "block4": {
           "@model": "HD2_Cab2x12DoubleC12N",
           "@position": 4,
           "@enabled": true,
           "@path": 0,
-          "@type": 2,
+          "@type": 4,
           "@no_snapshot_bypass": false,
-          "Mic": 0,
+          "Mic": 5,
+          "Position": 0.49,
           "Distance": 1,
-          "Position": 0.35,
           "Angle": 0,
-          "LowCut": 80,
-          "HighCut": 12000,
-          "Level": 0,
           "Pan": 0.5,
-          "EarlyReflections": 0.6
-        },
-        "block4": {
-          "@model": "HD2_VolPanVol",
-          "@position": 0,
-          "@enabled": true,
-          "@path": 0,
-          "@type": 0,
-          "@no_snapshot_bypass": false,
-          "@stereo": false,
-          "Pedal": 1.0,
-          "VolumeTaper": false
+          "LowCut": 19.9,
+          "HighCut": 16000,
+          "Level": 0,
+          "Delay": 0
         }
       },
       "dsp1": {
