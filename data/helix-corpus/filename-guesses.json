@@ -1,0 +1,4386 @@
+{
+  "totalPresets": 256,
+  "presets": [
+    {
+      "filename": "$$$ For Nothin'.hlx",
+      "title": "$$$ For Nothin'",
+      "guess": "Money for Nothing — Dire Straits",
+      "evidence": [
+        "matched pattern: \\$\\$\\$.*nothin"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahWeeper",
+        "HD2_DistCompulsiveDrive",
+        "HD2_CompressorRedSqueeze",
+        "HD2_AmpBritJ45Brt",
+        "HD2_Cab4x12Greenback25",
+        "HD2_DelayDuckedDelay",
+        "HD2_ReverbRoom",
+        "HD2_Cab4x12Greenback20",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "'Merican Nights.hlx",
+      "title": "'Merican Nights",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorKinkyComp",
+        "HD2_DistDerangedMaster",
+        "HD2_AmpVoltageQueen",
+        "HD2_DelayCosmosEcho",
+        "HD2_ReverbGanymede",
+        "HD2_ReverbGlitz",
+        "HD2_Cab1x12USDeluxe",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "25? No, 6 to 4.hlx",
+      "title": "25? No, 6 to 4",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahWeeper",
+        "HD2_VolPanGain",
+        "HD2_AmpA30FawnNrm",
+        "HD2_Cab2x15Brute",
+        "HD2_Tremolo60sBiasTrem",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbRoom",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "2_3 Beards.hlx",
+      "title": "2_3 Beards",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistScream808",
+        "HD2_AmpBritPlexiJump",
+        "HD2_Cab4x121960T75",
+        "HD2_ReverbRoom",
+        "HD2_DelaySimpleDelay",
+        "HD2_FlangerHarmonicFlanger",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "4D Love of Steve.hlx",
+      "title": "4D Love of Steve",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahTeardrop310",
+        "HD2_PitchPitchWham",
+        "HD2_DistValveDriver",
+        "HD2_DistScream808",
+        "HD2_VolPanVol",
+        "HD2_AmpCaliRectifire",
+        "HD2_EQLowCutHighCut",
+        "HD2_Cab4X12CaliV30",
+        "HD2_CompressorLAStudioComp",
+        "HD2_AmpUSDoubleNrm",
+        "HD2_Chorus70sChorus",
+        "HD2_PhaserScriptModPhase",
+        "HD2_DelayTransistorTape",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbChamber",
+        "HD2_Looper",
+        "HD2_Cab2x12DoubleC12N"
+      ]
+    },
+    {
+      "filename": "A DEADLY RHYTHM.hlx",
+      "title": "A DEADLY RHYTHM",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_CompressorRedSqueeze",
+        "HD2_AmpCaliRectifire",
+        "HD2_Cab4X12CaliV30",
+        "HD2_EQSimple3Band",
+        "HD2_VolPanVol",
+        "HD2_DelayVintageDigitalV2",
+        "HD2_GateNoiseGate"
+      ]
+    },
+    {
+      "filename": "A Swell Time.hlx",
+      "title": "A Swell Time",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorAutoSwell",
+        "HD2_AmpDerailedIngrid",
+        "HD2_DelaySwellAdriatic",
+        "HD2_DelaySweepEcho",
+        "HD2_DistArbitratorFuzz",
+        "HD2_ReverbSearchlights",
+        "HD2_Cab4x12Greenback20",
+        "HD2_ReverbPlateaux",
+        "HD2_TremoloTremolo",
+        "HD2_CompressorLAStudioComp",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "A30 Fawn Nrm.hlx",
+      "title": "A30 Fawn Nrm",
+      "guess": "Vox AC30 (A30)",
+      "evidence": [
+        "amp-name match: A30|AC30|Vox"
+      ],
+      "blocks": [
+        "HD2_WahUKWah846",
+        "HD2_VolPanVol",
+        "HD2_DistMinotaur",
+        "HD2_AmpA30FawnNrm",
+        "HD2_Tremolo60sBiasTrem",
+        "HD2_CabMicIr_2x12BlueBellWithPan",
+        "VIC_ReverbDynRoom",
+        "HD2_CabMicIr_2x12BlueBellWithPan"
+      ]
+    },
+    {
+      "filename": "AUS Flood.hlx",
+      "title": "Flood",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: AUS"
+      ],
+      "blocks": [
+        "HD2_WahUKWah846",
+        "HD2_VolPanVol",
+        "HD2_DistScream808",
+        "HD2_AmpBritPlexiBrt",
+        "HD2_AmpTweedBluesBrt",
+        "HD2_Cab4x121960T75",
+        "HD2_Cab4x10TweedP10R",
+        "HD2_RotaryVibeRotary",
+        "HD2_ReverbHall"
+      ]
+    },
+    {
+      "filename": "After the Fact.hlx",
+      "title": "After the Fact",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_PitchSimplePitch",
+        "HD2_GateNoiseGate",
+        "HD2_EQLowCutHighCut",
+        "HD2_CompressorDeluxeComp",
+        "HD2_CompressorLAStudioComp",
+        "HD2_DistTeemah",
+        "HD2_AmpBritPlexiJump",
+        "HD2_VolPanVol",
+        "HD2_Looper",
+        "HD2_Cab4x12Greenback25",
+        "HD2_DelayBucketBrigade",
+        "HD2_ReverbGlitz"
+      ]
+    },
+    {
+      "filename": "Algal Bloom.hlx",
+      "title": "Algal Bloom",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_CompressorDeluxeComp",
+        "VIC_DelayPolySustain",
+        "HD2_AmpArchetypeClean",
+        "HD2_CabMicIr_4x12CaliV30",
+        "HD2_CabMicIr_4x12CaliV30",
+        "HD2_FlangerCourtesanFlange",
+        "VIC_ReverbDynBloom",
+        "VIC_ReverbDynBloom",
+        "VIC_DelayStutterEdit"
+      ]
+    },
+    {
+      "filename": "All the Hz.hlx",
+      "title": "All the Hz",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistStuporOD",
+        "HD2_AmpLine6Elmsley",
+        "HD2_CabMicIr_2x12BlueBell",
+        "HD2_DelayAdriaticDelay",
+        "VIC_ReverbRotating",
+        "HD2_EQLowCutHighCut",
+        "HD2_VolPanStereoImager",
+        "HD2_PitchDualPitch",
+        "HD2_AmpSVBeastNrm",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "Andy Warb Hall.hlx",
+      "title": "Andy Warb Hall",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorRedSqueeze",
+        "HD2_AmpWhoWatt100",
+        "HD2_ChorusPlastiChorus",
+        "HD2_DelayElephantMan",
+        "HD2_ReverbHall",
+        "HD2_Cab4x12WhoWatt100",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "Archetype Clean.hlx",
+      "title": "Archetype Clean",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahChrome",
+        "HD2_VolPanVol",
+        "HD2_AmpArchetypeClean",
+        "HD2_CabMicIr_2x12MandarinWithPan",
+        "HD2_ChorusTrinityChorus",
+        "HD2_DelayAdriaticDelay",
+        "VIC_ReverbRotating",
+        "HD2_CabMicIr_2x12MandarinWithPan"
+      ]
+    },
+    {
+      "filename": "Archetype Lead.hlx",
+      "title": "Archetype Lead",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahThroaty",
+        "HD2_DistHorizonDrive",
+        "HD2_AmpArchetypeLead",
+        "HD2_VolPanVol",
+        "HD2_CabMicIr_4x12CaliV30WithPan",
+        "HD2_DelaySimpleDelay",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_4x12CaliV30WithPan"
+      ]
+    },
+    {
+      "filename": "BAS_Agua 51.hlx",
+      "title": "Agua 51",
+      "guess": "Bass: Agua 51",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_PitchSimplePitch",
+        "HD2_DistClawthornDrive",
+        "HD2_AmpAgua51",
+        "HD2_CabMicIr_4x10GardenWithPan",
+        "HD2_Chorus",
+        "HD2_CabMicIr_2x15BruteWithPan"
+      ]
+    },
+    {
+      "filename": "BAS_Agua Sledge.hlx",
+      "title": "Agua Sledge",
+      "guess": "Bass: Agua Sledge",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_EQParametric",
+        "HD2_DistObsidian7000",
+        "HD2_AmpAguaSledge",
+        "HD2_CabMicIr_1x12Epicenter",
+        "HD2_CompressorDeluxeComp",
+        "HD2_DM4BassOctaver",
+        "VIC_PitchTwelveString",
+        "HD2_FilterAutoFilter"
+      ]
+    },
+    {
+      "filename": "BAS_Boots Bass.hlx",
+      "title": "Boots Bass",
+      "guess": "Bass: Boots Bass",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_Compressor3BandComp",
+        "HD2_PitchSimplePitch",
+        "HD2_FilterMutantFilter",
+        "HD2_AmpTucknGo",
+        "HD2_PhaserScriptModPhase",
+        "HD2_EQSimple3Band",
+        "HD2_Looper",
+        "HD2_Cab4x10Rhino",
+        "HD2_FM4VoiceBox"
+      ]
+    },
+    {
+      "filename": "BAS_Brit Bass.hlx",
+      "title": "Brit Bass",
+      "guess": "Bass: Brit Bass",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_Compressor3BandComp",
+        "HD2_DistClawthornDrive",
+        "HD2_AmpWhoWatt100",
+        "HD2_Cab4x10Rhino",
+        "HD2_Looper",
+        "HD2_Cab1x12Lead80",
+        "HD2_ChorusPlastiChorus",
+        "HD2_DelayTransistorTape"
+      ]
+    },
+    {
+      "filename": "BAS_Cali 400 Ch1.hlx",
+      "title": "Cali 400 Ch1",
+      "guess": "Bass: Cali 400 Ch1",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_DistClawthornDrive",
+        "HD2_AmpCali400Ch1",
+        "HD2_CabMicIr_2x15BruteWithPan",
+        "HD2_Chorus",
+        "HD2_CabMicIr_2x15BruteWithPan"
+      ]
+    },
+    {
+      "filename": "BAS_Cali Bass.hlx",
+      "title": "Cali Bass",
+      "guess": "Bass: Cali Bass",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistObsidian7000",
+        "HD2_AmpCaliBass",
+        "HD2_CabMicIr_2x15BruteWithPan",
+        "HD2_CompressorLAStudioComp",
+        "HD2_Chorus",
+        "HD2_CabMicIr_2x15BruteWithPan"
+      ]
+    },
+    {
+      "filename": "BAS_Cougar 800.hlx",
+      "title": "Cougar 800",
+      "guess": "Bass: Cougar 800",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_DistZeroAmpBassDI",
+        "HD2_AmpGCougar800",
+        "HD2_Cab4x10Rhino",
+        "HD2_ChorusPlastiChorus"
+      ]
+    },
+    {
+      "filename": "BAS_DangeRuss.hlx",
+      "title": "DangeRuss",
+      "guess": "Bass: DangeRuss",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistVerminDist",
+        "HD2_AmpTucknGo",
+        "HD2_Cab2x15Brute",
+        "HD2_Cab8x10SVBeast",
+        "HD2_GateNoiseGate",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "BAS_Del Sol 300.hlx",
+      "title": "Del Sol 300",
+      "guess": "Bass: Del Sol 300",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorDeluxeComp",
+        "HD2_DM4BassOctaver",
+        "HD2_DistObsidian7000",
+        "HD2_AmpDelSol300",
+        "HD2_Cab1x18DelSol",
+        "HD2_Cab1x12DelSol",
+        "HD2_DelaySimpleDelay"
+      ]
+    },
+    {
+      "filename": "BAS_FunkIfIKnow.hlx",
+      "title": "FunkIfIKnow",
+      "guess": "Bass: FunkIfIKnow",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorKinkyComp",
+        "HD2_DistKinkyBoost",
+        "HD2_DM4BassOctaver",
+        "HD2_FM4TronDown",
+        "HD2_AmpAgua51",
+        "HD2_EQLowCutHighCut",
+        "HD2_EQLowCutHighCut",
+        "HD2_Looper",
+        "HD2_Cab2x15Brute"
+      ]
+    },
+    {
+      "filename": "BAS_Hang Me Out.hlx",
+      "title": "Hang Me Out",
+      "guess": "Bass: Hang Me Out",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorDeluxeComp",
+        "HD2_AmpTucknGo",
+        "HD2_DelayTransistorTape",
+        "HD2_Reverb63Spring",
+        "HD2_Looper",
+        "HD2_Cab1x15TucknGo",
+        "HD2_CompressorDeluxeComp"
+      ]
+    },
+    {
+      "filename": "BAS_Hire Me!.hlx",
+      "title": "Hire Me!",
+      "guess": "Bass: Hire Me!",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_EQParametric",
+        "HD2_AmpAguaSledge",
+        "HD2_DistObsidian7000",
+        "HD2_CompressorDeluxeComp",
+        "HD2_EQSimple3Band",
+        "HD2_MM4UVibe",
+        "HD2_DM4BassOctaver",
+        "VIC_PitchTwelveString",
+        "HD2_FilterAutoFilter",
+        "HD2_CabMicIr_1x12Epicenter"
+      ]
+    },
+    {
+      "filename": "BAS_Incubass.hlx",
+      "title": "Incubass",
+      "guess": "Bass: Incubass",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_DistValveDriver",
+        "HD2_AmpGCougar800",
+        "HD2_Looper",
+        "HD2_Cab4x10Rhino",
+        "HD2_CompressorLAStudioComp",
+        "HD2_DistKinkyBoost"
+      ]
+    },
+    {
+      "filename": "BAS_Liberator.hlx",
+      "title": "Liberator",
+      "guess": "Bass: Liberator",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistObsidian7000",
+        "HD2_AmpSVBeastBrt",
+        "HD2_AmpGCougar800",
+        "HD2_Cab8x10SVBeast",
+        "HD2_Cab8x10SVBeast",
+        "HD2_Looper",
+        "HD2_VolPanVol",
+        "HD2_DM4BassOctaver",
+        "HD2_DistClawthornDrive",
+        "HD2_AmpSVBeastNrm",
+        "HD2_Compressor3BandComp",
+        "HD2_Cab8x10SVBeast"
+      ]
+    },
+    {
+      "filename": "BAS_ParallelFuzz.hlx",
+      "title": "ParallelFuzz",
+      "guess": "Bass: ParallelFuzz",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_DistKinkyBoost",
+        "HD2_DistClawthornDrive",
+        "HD2_AmpWoodyBlue",
+        "HD2_Cab1x18WoodyBlue",
+        "HD2_Cab8x10SVBeast",
+        "HD2_GateNoiseGate",
+        "HD2_Looper",
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_DistKinkyBoost"
+      ]
+    },
+    {
+      "filename": "BAS_Phat Rat.hlx",
+      "title": "Phat Rat",
+      "guess": "Bass: Phat Rat",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorDeluxeComp",
+        "HD2_PitchPitchWham",
+        "HD2_DistVerminDist",
+        "HD2_AmpSVBeastBrt",
+        "HD2_Looper",
+        "HD2_Cab8x10SVBeast"
+      ]
+    },
+    {
+      "filename": "BAS_Pony 1Up.hlx",
+      "title": "Pony 1Up",
+      "guess": "Bass: Pony 1Up",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_CompressorLAStudioComp",
+        "HD2_PitchSimplePitch",
+        "HD2_DistClawthornDrive",
+        "HD2_AmpAgua51",
+        "HD2_ReverbPlate",
+        "HD2_Looper",
+        "HD2_Cab2x15Brute"
+      ]
+    },
+    {
+      "filename": "BAS_SVT Nrm.hlx",
+      "title": "SVT Nrm",
+      "guess": "Bass: Ampeg SVT",
+      "evidence": [
+        "category prefix: BAS",
+        "amp-name match: SVT|SVB|Ampeg"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_FM4Growler",
+        "HD2_DM4BassOctaver",
+        "HD2_AmpSVBeastNrm",
+        "HD2_CabMicIr_8x10SVTAVWithPan",
+        "HD2_CabMicIr_8x10SVTAVWithPan"
+      ]
+    },
+    {
+      "filename": "BAS_SVT-4 Pro.hlx",
+      "title": "SVT-4 Pro",
+      "guess": "Bass: Ampeg SVT",
+      "evidence": [
+        "category prefix: BAS",
+        "amp-name match: SVT|SVB|Ampeg"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_DistAmpegScramblerOD",
+        "HD2_AmpSVT4Pro",
+        "HD2_CabMicIr_8x10SVTAVWithPan",
+        "HD2_Chorus",
+        "HD2_CabMicIr_8x10SVTAVWithPan"
+      ]
+    },
+    {
+      "filename": "BAS_Sydcar Synth.hlx",
+      "title": "Sydcar Synth",
+      "guess": "Bass: Sydcar Synth",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorDeluxeComp",
+        "HD2_DistClawthornDrive",
+        "HD2_AmpSVBeastNrm",
+        "HD2_Cab4x10Rhino",
+        "HD2_Looper",
+        "HD2_Synth3NoteGenerator",
+        "HD2_ReverbPlateaux"
+      ]
+    },
+    {
+      "filename": "BAS_US Dripman N.hlx",
+      "title": "US Dripman N",
+      "guess": "Bass: US Dripman N",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_ChorusAmpegLiquifier",
+        "HD2_AmpUSDripmanNorm",
+        "VIC_ReverbDynAmbience",
+        "HD2_CompressorLAStudioComp",
+        "HD2_CabMicIr_2x15USDripman"
+      ]
+    },
+    {
+      "filename": "BAS_WrkngMandrin.hlx",
+      "title": "WrkngMandrin",
+      "guess": "Bass: WrkngMandrin",
+      "evidence": [
+        "category prefix: BAS"
+      ],
+      "blocks": [
+        "HD2_DistRegalBassDI",
+        "HD2_EQParametric",
+        "HD2_Chorus70sChorus",
+        "HD2_AmpMandarinBass200",
+        "HD2_CompressorLAStudioComp",
+        "HD2_CabMicIr_6x10CaliPower"
+      ]
+    },
+    {
+      "filename": "BEL HAVEN, boi!.hlx",
+      "title": "HAVEN, boi!",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: BEL"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_EQParametric",
+        "HD2_DistMinotaur",
+        "HD2_Looper",
+        "HD2_AmpUSDoubleNrm",
+        "HD2_ChorusPlastiChorus",
+        "HD2_DelayTransistorTape",
+        "HD2_ReverbPlate",
+        "HD2_Cab2x12DoubleC12N"
+      ]
+    },
+    {
+      "filename": "BIG DUBB.hlx",
+      "title": "DUBB",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: BIG"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_AmpUSPrincess",
+        "HD2_Cab1x12PrincessBlue",
+        "HD2_Reverb63Spring",
+        "HD2_CompressorLAStudioComp",
+        "HD2_Cab1x12Lead80",
+        "HD2_VolPanVol",
+        "HD2_AmpSoupPro",
+        "HD2_Cab1x12BlueBell",
+        "HD2_DelayVintageDigitalV2",
+        "HD2_ReverbPlate",
+        "HD2_CompressorLAStudioComp",
+        "HD2_Cab1x12Lead80"
+      ]
+    },
+    {
+      "filename": "BIG VENUE DRIVE.hlx",
+      "title": "VENUE DRIVE",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: BIG"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_AmpPlacaterDirty",
+        "HD2_Cab2x12BlueBell",
+        "HD2_DelayMultiPass",
+        "HD2_ReverbPlateaux",
+        "HD2_CompressorLAStudioComp",
+        "HD2_Cab1x12Lead80"
+      ]
+    },
+    {
+      "filename": "BILLY KASTODON.hlx",
+      "title": "BILLY KASTODON",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_CompressorLAStudioComp",
+        "HD2_DistScream808",
+        "HD2_DelaySimpleDelay",
+        "HD2_FlangerGrayFlanger",
+        "HD2_AmpLine6Litigator",
+        "HD2_ReverbPlate",
+        "HD2_EQSimple3Band",
+        "HD2_AmpRevvGenRed",
+        "HD2_CompressorDeluxeComp",
+        "HD2_PitchTwinHarmony",
+        "HD2_Cab4x121960T75"
+      ]
+    },
+    {
+      "filename": "BMBLFOOT PRINCE.hlx",
+      "title": "BMBLFOOT PRINCE",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistHorizonDrive",
+        "HD2_PhaserScriptModPhase",
+        "HD2_AmpUSPrincess",
+        "HD2_DelayTransistorTape",
+        "HD2_ReverbSearchlights",
+        "HD2_EQGraphic10Band",
+        "HD2_Cab1x10PrincessCopperhead"
+      ]
+    },
+    {
+      "filename": "BUBBLE NEST.hlx",
+      "title": "BUBBLE NEST",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_AmpUSPrincess",
+        "HD2_Cab4x12Greenback25",
+        "Victoria_ShufflingDelay",
+        "HD2_DelaySweepEcho",
+        "HD2_ReverbGlitz",
+        "HD2_CompressorLAStudioComp",
+        "HD2_Cab1x12Lead80"
+      ]
+    },
+    {
+      "filename": "BULB AMBIENT.hlx",
+      "title": "AMBIENT",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: BULB"
+      ],
+      "blocks": [
+        "HD2_CompressorDeluxeComp",
+        "HD2_DelayAdriaticDelay",
+        "HD2_DistMinotaur",
+        "HD2_AmpPlacaterClean",
+        "HD2_Cab2x12SilverBell",
+        "HD2_DelayTransistorTape",
+        "HD2_ReverbSearchlights"
+      ]
+    },
+    {
+      "filename": "BULB CLEAN.hlx",
+      "title": "CLEAN",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: BULB"
+      ],
+      "blocks": [
+        "HD2_CompressorDeluxeComp",
+        "HD2_DelayAdriaticDelay",
+        "HD2_DistMinotaur",
+        "HD2_AmpPlacaterClean",
+        "HD2_Cab1x12MatchG25",
+        "HD2_DelayTransistorTape",
+        "HD2_ReverbGlitz"
+      ]
+    },
+    {
+      "filename": "BULB LEAD.hlx",
+      "title": "LEAD",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: BULB"
+      ],
+      "blocks": [
+        "HD2_DistHorizonDrive",
+        "HD2_AmpPVPanama",
+        "HD2_GateHorizonGate",
+        "HD2_Cab4x12UberT75",
+        "HD2_VolPanVol",
+        "HD2_DelayTransistorTape",
+        "HD2_Cab4x12XXLV30",
+        "HD2_ReverbGlitz"
+      ]
+    },
+    {
+      "filename": "BULB RHYTHM.hlx",
+      "title": "RHYTHM",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: BULB"
+      ],
+      "blocks": [
+        "HD2_CompressorDeluxeComp",
+        "HD2_PitchSimplePitch",
+        "HD2_DistHorizonDrive",
+        "HD2_GateHardGate",
+        "HD2_AmpRevvGenRed",
+        "HD2_Cab4x12UberT75",
+        "HD2_VolPanVol",
+        "HD2_Cab4x12XXLV30"
+      ]
+    },
+    {
+      "filename": "BUMBLE ACOUSTIC.hlx",
+      "title": "BUMBLE ACOUSTIC",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "L6SPB_12String",
+        "L6SPB_AcousGtrSim",
+        "HD2_PreampVintagePre",
+        "HD2_Chorus70sChorus",
+        "HD2_CompressorRochesterComp",
+        "HD2_DelayElephantMan",
+        "HD2_ReverbCave",
+        "HD2_EQGraphic10Band",
+        "HD2_VolPanStereoImager"
+      ]
+    },
+    {
+      "filename": "BackWahrds.hlx",
+      "title": "BackWahrds",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahChrome",
+        "HD2_WahChromeCustom",
+        "HD2_AmpBrit2204",
+        "HD2_AmpGermanMahadeva",
+        "HD2_EQLowCutHighCut",
+        "HD2_Looper",
+        "HD2_Cab4x121960T75",
+        "HD2_DelayModChorusEcho",
+        "HD2_ReverbPlate"
+      ]
+    },
+    {
+      "filename": "Barracudies.hlx",
+      "title": "Barracudies",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_GateNoiseGate",
+        "HD2_DistTopSecretOD",
+        "HD2_AmpMandarin80",
+        "HD2_FlangerGrayFlanger",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbSpring",
+        "HD2_Looper",
+        "HD2_Cab4x12MandarinEM"
+      ]
+    },
+    {
+      "filename": "Bentique.hlx",
+      "title": "Bentique",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorRedSqueeze",
+        "HD2_DistMinotaur",
+        "HD2_DelayAdriaticDelay",
+        "HD2_DistCompulsiveDrive",
+        "HD2_AmpInterstateZed",
+        "HD2_Looper",
+        "HD2_Cab2x12Interstate",
+        "HD2_DelayModChorusEcho",
+        "HD2_Reverb63Spring"
+      ]
+    },
+    {
+      "filename": "Big County.hlx",
+      "title": "Big County",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorAutoSwell",
+        "HD2_DM4TubeDrive",
+        "HD2_AmpVoltageQueen",
+        "HD2_DelayCosmosEcho",
+        "HD2_CabMicIr_1x12USDeluxe",
+        "HD2_DelayElephantMan",
+        "HD2_PitchSimplePitch",
+        "HD2_ReverbGlitz"
+      ]
+    },
+    {
+      "filename": "Big Monosynth.hlx",
+      "title": "Big Monosynth",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_SynthSubtractive",
+        "HD2_VolPanVol",
+        "HD2_AmpCaliRectifire",
+        "HD2_ReverbPlate",
+        "HD2_CabMicIr_4x12CaliV30"
+      ]
+    },
+    {
+      "filename": "Bill&Ted at CERN.hlx",
+      "title": "Bill&Ted at CERN",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_AmpArchetypeClean",
+        "HD2_TremoloTremolo",
+        "HD2_DelayMultiPass",
+        "HD2_DelayMultiPass",
+        "HD2_Looper",
+        "HD2_Cab4X12CaliV30",
+        "HD2_FilterAshevillePattrn",
+        "HD2_FilterAshevillePattrn",
+        "HD2_DelayMultiPass",
+        "HD2_DelayMultiPass",
+        "HD2_ReverbPlateaux",
+        "HD2_ReverbSearchlights",
+        "HD2_TremoloTremolo"
+      ]
+    },
+    {
+      "filename": "Bit Like Heaven.hlx",
+      "title": "Bit Like Heaven",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahFassel",
+        "HD2_GateNoiseGate",
+        "HD2_DistMinotaur",
+        "HD2_PhaserScriptModPhase",
+        "HD2_Chorus70sChorus",
+        "HD2_VibratoBubbleVibrato",
+        "HD2_DelaySimpleDelay",
+        "HD2_AmpJazzRivet120",
+        "HD2_ReverbRoom",
+        "HD2_Looper",
+        "HD2_Cab2x12JazzRivet"
+      ]
+    },
+    {
+      "filename": "Bitey Panner.hlx",
+      "title": "Bitey Panner",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_GateNoiseGate",
+        "HD2_CompressorRedSqueeze",
+        "HD2_DistTeemah",
+        "HD2_AmpMatchstickCh2",
+        "HD2_ReverbSearchlights",
+        "HD2_TremoloTremolo",
+        "HD2_Looper",
+        "HD2_Cab2x12SilverBell"
+      ]
+    },
+    {
+      "filename": "Blue Wind.hlx",
+      "title": "Blue Wind",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahWeeper",
+        "HD2_DistScream808",
+        "HD2_AmpBritPlexiBrt",
+        "HD2_Rotary145Rotary",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbPlate",
+        "HD2_Looper",
+        "HD2_Cab4x12Greenback25"
+      ]
+    },
+    {
+      "filename": "Breath Of Odin.hlx",
+      "title": "Breath Of Odin",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_GateHardGate",
+        "HD2_DistScream808",
+        "HD2_DistVerminDist",
+        "HD2_EQParametric",
+        "HD2_VolPanVol",
+        "HD2_AmpANGLMeteor",
+        "HD2_Looper",
+        "HD2_Cab4x12XXLV30"
+      ]
+    },
+    {
+      "filename": "Brit 2203.hlx",
+      "title": "Brit 2203",
+      "guess": "Marshall JCM 2203/2204",
+      "evidence": [
+        "amp-name match: Brit 2204|JCM800|2203"
+      ],
+      "blocks": [
+        "HD2_WahThroaty",
+        "HD2_VolPanVol",
+        "HD2_DistStuporOD",
+        "HD2_FlangerHarmonicFlanger",
+        "HD2_AmpBrit2203",
+        "HD2_CabMicIr_4x121960AT75WithPan",
+        "VIC_DynPlate",
+        "HD2_Looper",
+        "HD2_CabMicIr_4x121960AT75WithPan"
+      ]
+    },
+    {
+      "filename": "Brit Plexi Brt.hlx",
+      "title": "Brit Plexi Brt",
+      "guess": "Marshall Plexi/JTM",
+      "evidence": [
+        "amp-name match: Brit Plexi|JTM45|Marshall"
+      ],
+      "blocks": [
+        "HD2_WahUKWah846",
+        "HD2_VolPanVol",
+        "HD2_DistTeemah",
+        "HD2_PhaserScriptModPhase",
+        "HD2_AmpBritPlexiBrt",
+        "HD2_CabMicIr_4x12Greenback25WithPan",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_4x12Greenback25WithPan"
+      ]
+    },
+    {
+      "filename": "Buck Mild.hlx",
+      "title": "Buck Mild",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DM4FacialFuzz",
+        "HD2_DistKinkyBoost",
+        "HD2_DistTeemah",
+        "HD2_DistHeirApparent",
+        "HD2_DistKinkyBoost",
+        "HD2_PhaserUbiquitousVibe",
+        "HD2_TremoloHarmonic",
+        "HD2_DelayTransistorTape",
+        "HD2_AmpCaliTexasCh1",
+        "HD2_DelayReverseDelay",
+        "HD2_Cab1x12Lead80",
+        "HD2_ReverbDoubleTank",
+        "HD2_ReverbCave",
+        "HD2_Cab1x12Lead80"
+      ]
+    },
+    {
+      "filename": "But Does It Doom.hlx",
+      "title": "But Does It Doom",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_GateNoiseGate",
+        "HD2_DistCompulsiveDrive",
+        "HD2_AmpRevvGenRed",
+        "HD2_CabMicIr_4x12BlackbackH30WithPan",
+        "HD2_ReverbSearchlights",
+        "HD2_CabMicIr_4x12CaliV30WithPan",
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_PitchSimplePitch",
+        "HD2_DistClawthornDrive",
+        "HD2_AmpSVT4Pro",
+        "HD2_CabMicIr_8x10SVTAV"
+      ]
+    },
+    {
+      "filename": "Cali IV Rhythm 1.hlx",
+      "title": "Cali IV Rhythm 1",
+      "guess": "Mesa Mark IV (Cali IV)",
+      "evidence": [
+        "amp-name match: Cali IV"
+      ],
+      "blocks": [
+        "HD2_WahWeeper",
+        "HD2_VolPanVol",
+        "HD2_CompressorRedSqueeze",
+        "HD2_FlangerCourtesanFlange",
+        "HD2_AmpCaliIVR1",
+        "HD2_CabMicIr_1x12CaliEXTWithPan",
+        "HD2_DelaySimpleDelay",
+        "VIC_ReverbDynRoom",
+        "HD2_CabMicIr_1x12CaliEXTWithPan"
+      ]
+    },
+    {
+      "filename": "Cali Rectifire.hlx",
+      "title": "Cali Rectifire",
+      "guess": "Mesa Rectifier (Cali Rectifire)",
+      "evidence": [
+        "amp-name match: Cali Rectif|Rectifier"
+      ],
+      "blocks": [
+        "HD2_DistHorizonDrive",
+        "HD2_EQLowCutHighCut",
+        "HD2_AmpCaliRectifire",
+        "HD2_EQParametric",
+        "HD2_VolPanVol",
+        "HD2_CabMicIr_4x12CaliV30WithPan",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_4x12CaliV30WithPan"
+      ]
+    },
+    {
+      "filename": "Cali Texas Ch 1.hlx",
+      "title": "Cali Texas Ch 1",
+      "guess": "Mesa Mark series (Cali Texas)",
+      "evidence": [
+        "amp-name match: Cali Texas|Mark"
+      ],
+      "blocks": [
+        "HD2_WahWeeper",
+        "HD2_VolPanVol",
+        "HD2_DistHeirApparent",
+        "HD2_PhaserScriptModPhase",
+        "HD2_AmpCaliTexasCh1",
+        "HD2_CabMicIr_2x12MandarinWithPan",
+        "HD2_DelayBucketBrigade",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_2x12MandarinWithPan"
+      ]
+    },
+    {
+      "filename": "Cartographer.hlx",
+      "title": "Cartographer",
+      "guess": "Benson (Cartographer)",
+      "evidence": [
+        "amp-name match: Cartographer|Benson"
+      ],
+      "blocks": [
+        "HD2_WahUKWah846",
+        "HD2_VolPanVol",
+        "HD2_DistKWB",
+        "HD2_AmpCartographer",
+        "HD2_CabMicIr_4x12UberV30WithPan",
+        "HD2_PhaserUbiquitousVibe",
+        "HD2_DelayAdriaticDelay",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_4x12UberT75WithPan"
+      ]
+    },
+    {
+      "filename": "Chalice of M'eh.hlx",
+      "title": "Chalice of M'eh",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistMinotaur",
+        "HD2_AmpBritP75Nrm",
+        "HD2_VolPanVol",
+        "HD2_ReverbEcho",
+        "HD2_DelayModChorusEcho",
+        "HD2_Looper",
+        "HD2_Cab4x12Blackback30"
+      ]
+    },
+    {
+      "filename": "Cherry-coloured.hlx",
+      "title": "Cherry-coloured",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_PreampUSDoubleVib",
+        "HD2_PitchDualPitch",
+        "HD2_MM4Dimension",
+        "HD2_DelayVintageDigitalV2",
+        "HD2_ReverbGanymede",
+        "HD2_CompressorLAStudioComp",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "Chorus Crooner.hlx",
+      "title": "Chorus Crooner",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_CompressorRedSqueeze",
+        "HD2_DistMinotaur",
+        "HD2_AmpJazzRivet120",
+        "HD2_VolPanVol",
+        "HD2_ChorusPlastiChorus",
+        "HD2_Looper",
+        "HD2_Cab2x12JazzRivet"
+      ]
+    },
+    {
+      "filename": "Clarity Preset.hlx",
+      "title": "Clarity Preset",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_CompressorOptoComp",
+        "HD2_VolPanVol",
+        "HD2_DistPillars",
+        "HD2_AmpLine6Clarity",
+        "HD2_ChorusAmpegLiquifier",
+        "HD2_DelayVintageDigitalV2",
+        "VIC_ReverbRotating",
+        "HD2_CabMicIr_2x12JazzRivet"
+      ]
+    },
+    {
+      "filename": "Cliffs of Grover.hlx",
+      "title": "Cliffs of Grover",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahWeeper",
+        "HD2_DistScream808",
+        "HD2_DelayTransistorTape",
+        "HD2_DistValveDriver",
+        "HD2_AmpBritPlexiBrt",
+        "HD2_ReverbPlate",
+        "HD2_FlangerGrayFlanger",
+        "HD2_Cab4x12Greenback25",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "Country Chorus.hlx",
+      "title": "Country Chorus",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistMinotaur",
+        "HD2_AmpArchetypeClean",
+        "HD2_CompressorRedSqueeze",
+        "HD2_ChorusTrinityChorus",
+        "HD2_ReverbPlate",
+        "HD2_DelayBucketBrigade",
+        "HD2_Looper",
+        "HD2_Cab4X12CaliV30"
+      ]
+    },
+    {
+      "filename": "Cowboys from DFW.hlx",
+      "title": "Cowboys from DFW",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_PitchPitchWham",
+        "HD2_GateHardGate",
+        "HD2_WahWeeper",
+        "HD2_DistDeezOneVintage",
+        "HD2_AmpJazzRivet120",
+        "HD2_AmpLine6Elektrik",
+        "HD2_VolPanVol",
+        "HD2_CaliQ",
+        "HD2_FlangerGrayFlanger",
+        "HD2_CabMicIr_4x12UberT75WithPan",
+        "HD2_EQGraphic10Band",
+        "HD2_DelayDoubleDouble",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbChamber",
+        "HD2_CabMicIr_4x12UberT75WithPan"
+      ]
+    },
+    {
+      "filename": "DEVIN TOWNSEND.hlx",
+      "title": "DEVIN TOWNSEND",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahWeeper",
+        "HD2_PitchSimplePitch",
+        "Victoria_ShufflingDelay",
+        "HD2_DistScream808",
+        "HD2_Cab4X12CaliV30",
+        "HD2_AmpRevvGenRed",
+        "HD2_Cab4X12CaliV30",
+        "HD2_ReverbRoom",
+        "HD2_RingModulatorAMRingMod",
+        "HD2_DelaySimpleDelay",
+        "HD2_PitchSimplePitch",
+        "HD2_DelayAdriaticDelay",
+        "HD2_DL4PingPong",
+        "HD2_ReverbDoubleTank"
+      ]
+    },
+    {
+      "filename": "DI.hlx",
+      "title": "DI",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_PhaserScriptModPhase",
+        "HD2_PreampVintagePre",
+        "HD2_EQSimple3Band",
+        "HD2_ChorusTrinityChorus",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbPlate"
+      ]
+    },
+    {
+      "filename": "DJENT LA FUENTE.hlx",
+      "title": "DJENT LA FUENTE",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_EQGraphic10Band",
+        "HD2_DistMinotaur",
+        "HD2_GateNoiseGate",
+        "HD2_AmpLine6Badonk",
+        "HD2_Cab4x12XXLV30",
+        "HD2_VolPanVol",
+        "HD2_Cab1x12Lead80"
+      ]
+    },
+    {
+      "filename": "DUSTED.hlx",
+      "title": "DUSTED",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistKinkyBoost",
+        "HD2_AmpUSPrincess",
+        "HD2_Cab1x12PrincessBlue",
+        "HD2_ReverbPlateaux",
+        "Victoria_ShufflingDelay",
+        "HD2_CompressorLAStudioComp",
+        "HD2_Cab1x12Lead80"
+      ]
+    },
+    {
+      "filename": "Dark & Lush.hlx",
+      "title": "Dark & Lush",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahTeardrop310",
+        "HD2_CompressorRedSqueeze",
+        "HD2_AmpA30FawnBrt",
+        "HD2_DelayElephantMan",
+        "HD2_ReverbCave",
+        "HD2_Looper",
+        "HD2_Cab2x12BlueBell"
+      ]
+    },
+    {
+      "filename": "Das Benzin Mega.hlx",
+      "title": "Das Benzin Mega",
+      "guess": "Diezel (Das Benzin)",
+      "evidence": [
+        "amp-name match: Das Benzin|Diezel"
+      ],
+      "blocks": [
+        "HD2_WahTeardrop310",
+        "HD2_VolPanVol",
+        "HD2_DistMinotaur",
+        "HD2_AmpDasBenzinMega",
+        "HD2_CabMicIr_2x12MandarinWithPan",
+        "HD2_FlangerGrayFlanger",
+        "HD2_DelaySimpleDelay",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_2x12MandarinWithPan"
+      ]
+    },
+    {
+      "filename": "Dbl Match.hlx",
+      "title": "Dbl Match",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorKinkyComp",
+        "HD2_DistKinkyBoost",
+        "HD2_AmpMatchstickCh1",
+        "HD2_AmpMatchstickCh2",
+        "HD2_TremoloPattern",
+        "HD2_TremoloHarmonic",
+        "HD2_Cab1x12MatchG25",
+        "HD2_Cab1x12MatchH30",
+        "HD2_DelayPingPong",
+        "HD2_ReverbDoubleTank",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "Derailed Ingrid.hlx",
+      "title": "Derailed Ingrid",
+      "guess": "Two Rock (Derailed Ingrid)",
+      "evidence": [
+        "amp-name match: Derailed|Two[\\s-]?Rock"
+      ],
+      "blocks": [
+        "HD2_WahFassel",
+        "HD2_VolPanVol",
+        "HD2_DistDhyanaDrive",
+        "HD2_PhaserUbiquitousVibe",
+        "HD2_AmpDerailedIngrid",
+        "HD2_CabMicIr_4x12CaliV30WithPan",
+        "HD2_DelaySimpleDelay",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_4x12Greenback25WithPan"
+      ]
+    },
+    {
+      "filename": "Double Trackin'.hlx",
+      "title": "Double Trackin'",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistMinotaur",
+        "HD2_AmpTweedBluesBrt",
+        "HD2_Looper",
+        "HD2_Cab4x10TweedP10R",
+        "HD2_VolPanVol",
+        "HD2_DistScream808",
+        "HD2_AmpA30FawnBrt",
+        "HD2_DelaySimpleDelay",
+        "HD2_Cab2x12BlueBell"
+      ]
+    },
+    {
+      "filename": "Dramatic Scene.hlx",
+      "title": "Dramatic Scene",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_FilterMutantFilter",
+        "HD2_SynthSubtractive",
+        "HD2_AmpDividedDuo",
+        "HD2_DistMegaphone",
+        "HD2_RotaryVibeRotary",
+        "HD2_Looper",
+        "HD2_Cab1x12Celest12H",
+        "HD2_DelayBucketBrigade",
+        "HD2_CompressorDeluxeComp",
+        "HD2_EQLowCutHighCut"
+      ]
+    },
+    {
+      "filename": "Dream Off.hlx",
+      "title": "Dream Off",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_GateNoiseGate",
+        "HD2_DistScream808",
+        "HD2_AmpBritPlexiNrm",
+        "HD2_TremoloOpticalTrem",
+        "HD2_DelayTransistorTape",
+        "HD2_ReverbTile",
+        "HD2_Looper",
+        "HD2_Cab4x12Greenback25"
+      ]
+    },
+    {
+      "filename": "Dream Syrup.hlx",
+      "title": "Dream Syrup",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_AmpJazzRivet120",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbCave",
+        "HD2_Chorus70sChorus",
+        "HD2_Chorus70sChorus",
+        "HD2_Chorus70sChorus",
+        "HD2_Looper",
+        "HD2_Cab2x12JazzRivet",
+        "HD2_CompressorLAStudioComp",
+        "HD2_EQGraphic10Band"
+      ]
+    },
+    {
+      "filename": "Ducked Trails.hlx",
+      "title": "Ducked Trails",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_PitchPitchWham",
+        "HD2_DistVerminDist",
+        "HD2_CompressorLAStudioComp",
+        "HD2_AmpUSDeluxeNrm",
+        "HD2_DelayDuckedDelay",
+        "HD2_ReverbDucking",
+        "HD2_Looper",
+        "HD2_Cab1x12USDeluxe"
+      ]
+    },
+    {
+      "filename": "Dynamic Preset.hlx",
+      "title": "Dynamic Preset",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_GateHorizonGate",
+        "HD2_VolPanVol",
+        "HD2_DistDerangedMaster",
+        "HD2_AmpLine6Kinetic",
+        "HD2_DelayTransistorTape",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_4x12UberV30"
+      ]
+    },
+    {
+      "filename": "EMPTY GARBAGE.hlx",
+      "title": "EMPTY GARBAGE",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_CompressorRedSqueeze",
+        "HD2_PitchSimplePitch",
+        "HD2_DistTriangleFuzz",
+        "HD2_AmpMatchstickCh1",
+        "HD2_EQParametric",
+        "HD2_DelayPingPong",
+        "HD2_Cab2x12SilverBell"
+      ]
+    },
+    {
+      "filename": "Eat lt  .hlx",
+      "title": "Eat lt",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_PhaserScriptModPhase",
+        "HD2_DistScream808",
+        "HD2_AmpBritPlexiBrt",
+        "HD2_ReverbPlate",
+        "HD2_DelaySimpleDelay",
+        "HD2_Looper",
+        "HD2_Cab4X12CaliV30"
+      ]
+    },
+    {
+      "filename": "Essex A30.hlx",
+      "title": "Essex A30",
+      "guess": "Vox AC30 (A30)",
+      "evidence": [
+        "amp-name match: A30|AC30|Vox"
+      ],
+      "blocks": [
+        "HD2_WahUKWah846",
+        "HD2_VolPanVol",
+        "HD2_DistDerangedMaster",
+        "HD2_AmpEssexA30",
+        "HD2_Tremolo60sBiasTrem",
+        "HD2_CabMicIr_2x12SilverBellWithPan",
+        "VIC_ReverbDynRoom",
+        "HD2_CabMicIr_2x12SilverBellWithPan"
+      ]
+    },
+    {
+      "filename": "Ever Longer.hlx",
+      "title": "Ever Longer",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahFassel",
+        "HD2_DistCompulsiveDrive",
+        "HD2_VolPanVol",
+        "HD2_TremoloOpticalTrem",
+        "HD2_PhaserScriptModPhase",
+        "HD2_AmpCaliRectifire",
+        "HD2_Cab4X12CaliV30",
+        "HD2_DelayDuckedDelay",
+        "HD2_ReverbRoom",
+        "HD2_Looper",
+        "HD2_EQLowCutHighCut"
+      ]
+    },
+    {
+      "filename": "FAUX 7 STG CHUG.hlx",
+      "title": "7 STG CHUG",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: FAUX"
+      ],
+      "blocks": [
+        "L6SPB_PolyDowntune",
+        "HD2_DistHedgehogD9",
+        "HD2_AmpLine6Badonk",
+        "HD2_EQGraphic10Band",
+        "HD2_Cab4x12XXLV30"
+      ]
+    },
+    {
+      "filename": "FELIX DELUXE MOD.hlx",
+      "title": "FELIX DELUXE MOD",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_AmpUSDeluxeVib",
+        "HD2_DistTeemah",
+        "HD2_DistScream808",
+        "HD2_Chorus",
+        "HD2_EQGraphic10Band",
+        "HD2_FlangerHarmonicFlanger",
+        "HD2_VolPanVol",
+        "HD2_PhaserScriptModPhase",
+        "HD2_DelayPingPong",
+        "HD2_DelayModChorusEcho",
+        "HD2_ReverbRoom",
+        "HD2_ReverbPlate",
+        "HD2_Cab1x12USDeluxe",
+        "HD2_VolPanGain"
+      ]
+    },
+    {
+      "filename": "FELIX ENGL.hlx",
+      "title": "FELIX ENGL",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_AmpANGLMeteor",
+        "HD2_Cab4X12CaliV30",
+        "HD2_GateNoiseGate",
+        "HD2_ReverbPlate",
+        "HD2_DelaySimpleDelay",
+        "HD2_DelayPingPong",
+        "HD2_VolPanPan",
+        "HD2_ReverbHall",
+        "HD2_VolPanGain",
+        "HD2_VolPanVol"
+      ]
+    },
+    {
+      "filename": "FELIX JAZZ 120.hlx",
+      "title": "FELIX JAZZ 120",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_AmpJazzRivet120",
+        "HD2_MM4AnalogFlanger",
+        "HD2_ReverbRoom",
+        "HD2_Cab2x12JazzRivet"
+      ]
+    },
+    {
+      "filename": "FELIX MARK IV.hlx",
+      "title": "FELIX MARK IV",
+      "guess": "Mesa Mark series (Cali Texas)",
+      "evidence": [
+        "amp-name match: Cali Texas|Mark"
+      ],
+      "blocks": [
+        "HD2_AmpCaliRectifire",
+        "HD2_ReverbChamber",
+        "HD2_Cab4X12CaliV30"
+      ]
+    },
+    {
+      "filename": "Feedbacker.hlx",
+      "title": "Feedbacker",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "VIC_FeedbackSim",
+        "HD2_EQParametric",
+        "HD2_DistRamsHead",
+        "HD2_AmpPlacaterClean",
+        "HD2_CabMicIr_4x12Greenback30",
+        "HD2_CabMicIr_4x12Greenback30",
+        "HD2_DelayCrissCross",
+        "VIC_ReverbDynAmbience"
+      ]
+    },
+    {
+      "filename": "Flood In Texas.hlx",
+      "title": "Flood In Texas",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahUKWah846",
+        "HD2_DistScream808",
+        "HD2_AmpBritPlexiBrt",
+        "HD2_AmpUSDoubleNrm",
+        "HD2_Cab2x12DoubleC12N",
+        "HD2_Cab4x12Greenback25",
+        "HD2_RotaryVibeRotary",
+        "HD2_DelayTransistorTape",
+        "HD2_ReverbSpring",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "Funk Clean.hlx",
+      "title": "Funk Clean",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahChromeCustom",
+        "HD2_CompressorRedSqueeze",
+        "HD2_DistMinotaur",
+        "HD2_AmpUSDoubleVib",
+        "HD2_Cab2x12DoubleC12N",
+        "HD2_Reverb63Spring",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "Funk'n Roll.hlx",
+      "title": "Funk'n Roll",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistMinotaur",
+        "HD2_FilterMutantFilter",
+        "HD2_CompressorLAStudioComp",
+        "HD2_AmpEssexA30",
+        "HD2_DelaySweepEcho",
+        "HD2_Reverb63Spring",
+        "HD2_Looper",
+        "HD2_Cab2x12SilverBell"
+      ]
+    },
+    {
+      "filename": "G.O.A.T. Rodeo.hlx",
+      "title": "G.O.A.T. Rodeo",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_CompressorKinkyComp",
+        "HD2_AmpDerailedIngrid",
+        "HD2_Cab4X12CaliV30",
+        "HD2_EQSimple3Band",
+        "HD2_CompressorDeluxeComp",
+        "HD2_ReverbGanymede",
+        "HD2_Cab4X12CaliV30"
+      ]
+    },
+    {
+      "filename": "GARBAGE BASS.hlx",
+      "title": "GARBAGE BASS",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_PreampVintagePre",
+        "HD2_CompressorLAStudioComp",
+        "HD2_AmpTucknGo",
+        "HD2_CompressorLAStudioComp",
+        "HD2_EQParametric",
+        "HD2_EQParametric",
+        "HD2_Cab1x15TucknGo"
+      ]
+    },
+    {
+      "filename": "GLISTEN.hlx",
+      "title": "GLISTEN",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistKinkyBoost",
+        "HD2_AmpUSDeluxeVib",
+        "HD2_Cab2x12SilverBell",
+        "HD2_DelaySweepEcho",
+        "HD2_Cab1x12Lead80",
+        "HD2_VolPanVol",
+        "L6SPB_PolyChorus",
+        "HD2_DelayMultiPass",
+        "HD2_ReverbPlate",
+        "HD2_CompressorLAStudioComp"
+      ]
+    },
+    {
+      "filename": "GRACOXONBUM.hlx",
+      "title": "GRACOXONBUM",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahFassel",
+        "HD2_CompressorDeluxeComp",
+        "HD2_DistMinotaur",
+        "HD2_DistVerminDist",
+        "HD2_DistVerminDist",
+        "HD2_DistTycoctaviaFuzz",
+        "HD2_AmpBritTremBrt",
+        "HD2_Cab4x12Greenback25",
+        "HD2_PhaserScriptModPhase",
+        "HD2_FlangerGrayFlanger",
+        "HD2_DelayTransistorTape",
+        "HD2_ReverbRoom",
+        "HD2_ReverbPlate"
+      ]
+    },
+    {
+      "filename": "GRAMMATICO JNC.hlx",
+      "title": "GRAMMATICO JNC",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistScream808",
+        "HD2_CompressorDeluxeComp",
+        "HD2_AmpGSG100",
+        "HD2_DelaySimpleDelay",
+        "HD2_CabMicIr_1x12OpenCastWithPan",
+        "HD2_ReverbPlate",
+        "VIC_ReverbRotating",
+        "HD2_CabMicIr_1x12OpenCastWithPan"
+      ]
+    },
+    {
+      "filename": "GUILTY PLEASURES.hlx",
+      "title": "GUILTY PLEASURES",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistTycoctaviaFuzz",
+        "HD2_PhaserUbiquitousVibe",
+        "HD2_AmpPVPanama",
+        "HD2_Cab4X12CaliV30",
+        "HD2_DelayElephantMan",
+        "HD2_ReverbSpring"
+      ]
+    },
+    {
+      "filename": "Gimme +_-3 Steps.hlx",
+      "title": "Gimme +_-3 Steps",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahWeeper",
+        "HD2_DistScream808",
+        "HD2_PhaserUbiquitousVibe",
+        "HD2_AmpBritJ45Brt",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbRoom",
+        "HD2_Looper",
+        "HD2_Cab4x12Greenback25"
+      ]
+    },
+    {
+      "filename": "Glengarry Lead.hlx",
+      "title": "Glengarry Lead",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_GateNoiseGate",
+        "HD2_DistHedgehogD9",
+        "HD2_AmpInterstateZed",
+        "HD2_DelayElephantMan",
+        "HD2_ReverbHall",
+        "HD2_Looper",
+        "HD2_Cab2x12Interstate"
+      ]
+    },
+    {
+      "filename": "GlitchVerb.hlx",
+      "title": "GlitchVerb",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_AmpUSDoubleVib",
+        "HD2_CabMicIr_2x12DoubleC12N",
+        "HD2_ReverbSearchlights",
+        "Victoria_ShufflingDelay",
+        "HD2_ReverbGanymede"
+      ]
+    },
+    {
+      "filename": "Go Your Way.hlx",
+      "title": "Go Your Way",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_GateNoiseGate",
+        "HD2_CompressorDeluxeComp",
+        "HD2_AmpWhoWatt100",
+        "HD2_Tremolo60sBiasTrem",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbRoom",
+        "HD2_Looper",
+        "HD2_Cab4x12WhoWatt100"
+      ]
+    },
+    {
+      "filename": "Goin' Home.hlx",
+      "title": "Goin' Home",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_VolPanGain",
+        "HD2_AmpBritPlexiBrt",
+        "HD2_Chorus",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbHall",
+        "HD2_Looper",
+        "HD2_Cab4x12Greenback25"
+      ]
+    },
+    {
+      "filename": "Gorilla Clean.hlx",
+      "title": "Gorilla Clean",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_PhaserUbiquitousVibe",
+        "HD2_Tremolo60sBiasTrem",
+        "HD2_FlangerGrayFlanger",
+        "HD2_AmpUSDoubleNrm",
+        "HD2_Cab4x12Greenback25",
+        "HD2_DelayAdriaticDelay",
+        "HD2_ReverbOcto",
+        "HD2_DelayElephantMan",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "Grammatico GSG.hlx",
+      "title": "Grammatico GSG",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistHeirApparent",
+        "HD2_AmpGSG100",
+        "HD2_CabMicIr_1x12OpenCast",
+        "HD2_TremoloHarmonic",
+        "HD2_DelayAdriaticDelay",
+        "HD2_ReverbHxSpring"
+      ]
+    },
+    {
+      "filename": "GrammaticoLG Nrm.hlx",
+      "title": "GrammaticoLG Nrm",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahChrome",
+        "HD2_VolPanVol",
+        "HD2_CompressorKinkyComp",
+        "HD2_DistHeirApparent",
+        "HD2_DelayElephantMan",
+        "HD2_AmpGrammaticoNrm",
+        "HD2_CabMicIr_1x12GrammaticoWithPan",
+        "VIC_ReverbDynRoom",
+        "HD2_CabMicIr_1x12GrammaticoWithPan"
+      ]
+    },
+    {
+      "filename": "Grease Cats.hlx",
+      "title": "Grease Cats",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistScream808",
+        "HD2_CompressorDeluxeComp",
+        "HD2_AmpMandarin80",
+        "HD2_DelayTransistorTape",
+        "HD2_Reverb63Spring",
+        "HD2_Looper",
+        "HD2_Cab2x12DoubleC12N"
+      ]
+    },
+    {
+      "filename": "HOWE WILDEST.hlx",
+      "title": "WILDEST",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: HOWE"
+      ],
+      "blocks": [
+        "HD2_DistArbitratorFuzz",
+        "HD2_DistScream808",
+        "HD2_CompressorRedSqueeze",
+        "HD2_AmpUSDoubleNrm",
+        "HD2_ReverbRoom",
+        "HD2_EQSimple3Band",
+        "HD2_PitchSimplePitch",
+        "HD2_SynthSubtractive",
+        "HD2_PhaserUbiquitousVibe",
+        "HD2_VolPanVol",
+        "HD2_DelaySimpleDelay",
+        "HD2_DelaySimpleDelay",
+        "HD2_Cab1x12Celest12H",
+        "HD2_Cab1x12Celest12H"
+      ]
+    },
+    {
+      "filename": "Hairy Air.hlx",
+      "title": "Hairy Air",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistKWB",
+        "HD2_PitchDualPitch",
+        "HD2_AmpSVBeastBrt",
+        "HD2_Cab8x10SVBeast",
+        "HD2_AmpTweedBluesNrm",
+        "HD2_EQLowCutHighCut",
+        "HD2_ReverbCave",
+        "HD2_Looper",
+        "HD2_Cab4x10TweedP10R"
+      ]
+    },
+    {
+      "filename": "Hi Octane.hlx",
+      "title": "Hi Octane",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_GateNoiseGate",
+        "HD2_PitchSimplePitch",
+        "HD2_DistTeemah",
+        "HD2_AmpA30FawnBrt",
+        "HD2_CompressorDeluxeComp",
+        "HD2_Looper",
+        "HD2_Cab2x12BlueBell",
+        "HD2_ReverbSearchlights",
+        "HD2_DelayMultitap6",
+        "HD2_CompressorLAStudioComp"
+      ]
+    },
+    {
+      "filename": "ISS Flyby.hlx",
+      "title": "Flyby",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: ISS"
+      ],
+      "blocks": [
+        "HD2_CompressorRedSqueeze",
+        "HD2_DistMinotaur",
+        "HD2_AmpWhoWatt100",
+        "HD2_VolPanVol",
+        "HD2_Cab4x12WhoWatt100",
+        "HD2_DelaySimpleDelay",
+        "HD2_DelayAdriaticDelay",
+        "HD2_DelayTransistorTape",
+        "HD2_Chorus70sChorus",
+        "HD2_ChorusTrinityChorus",
+        "HD2_DelayPingPong",
+        "HD2_DelayModChorusEcho",
+        "HD2_ReverbPlate",
+        "HD2_ReverbCave"
+      ]
+    },
+    {
+      "filename": "In Your House.hlx",
+      "title": "In Your House",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_FlangerGrayFlanger",
+        "HD2_AmpJazzRivet120",
+        "HD2_Chorus70sChorus",
+        "HD2_ReverbSpring",
+        "HD2_Looper",
+        "HD2_Cab2x12JazzRivet"
+      ]
+    },
+    {
+      "filename": "InSTANtgH0St_24.hlx",
+      "title": "InSTANtgH0St_24",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_GateNoiseGate",
+        "HD2_DistDhyanaDrive",
+        "HD2_DistHorizonDrive",
+        "HD2_PitchPitchWham",
+        "HD2_Cab4X12CaliV30",
+        "HD2_PitchPitchWham",
+        "HD2_AmpRevvGenRed",
+        "HD2_Cab4x12Greenback25",
+        "L6SPB_PolyPitch",
+        "HD2_EQSimple3Band",
+        "HD2_VolPanVol",
+        "HD2_DelayElephantMan",
+        "HD2_ReverbPlateaux"
+      ]
+    },
+    {
+      "filename": "JEFF SCHROEDER 1.hlx",
+      "title": "SCHROEDER 1",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: JEFF"
+      ],
+      "blocks": [
+        "HD2_DistScream808",
+        "HD2_PhaserScriptModPhase",
+        "HD2_AmpJazzRivet120",
+        "HD2_AmpRevvGenRed",
+        "HD2_CompressorLAStudioComp",
+        "HD2_VolPanVol",
+        "HD2_Cab4X12CaliV30",
+        "HD2_Cab2x12JazzRivet",
+        "HD2_Chorus70sChorus",
+        "HD2_DelayVintageDigitalV2",
+        "HD2_ReverbGanymede",
+        "HD2_ReverbPlate"
+      ]
+    },
+    {
+      "filename": "JEFF SCHROEDER 2.hlx",
+      "title": "SCHROEDER 2",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: JEFF"
+      ],
+      "blocks": [
+        "HD2_DistScream808",
+        "HD2_FlangerGrayFlanger",
+        "HD2_DelayTransistorTape",
+        "HD2_AmpRevvGenRed",
+        "HD2_DelayPingPong",
+        "HD2_ReverbPlate",
+        "HD2_Cab4X12CaliV30"
+      ]
+    },
+    {
+      "filename": "JONBUTTON UZAPIK.hlx",
+      "title": "JONBUTTON UZAPIK",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_AmpSVBeastNrm",
+        "HD2_EQParametric",
+        "HD2_CompressorLAStudioComp",
+        "HD2_Cab8x10SVBeast",
+        "HD2_AmpBrit2204",
+        "HD2_Cab4x12Greenback25"
+      ]
+    },
+    {
+      "filename": "Jail Breaker.hlx",
+      "title": "Jail Breaker",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahTeardrop310",
+        "HD2_FlangerGrayFlanger",
+        "HD2_PhaserScriptModPhase",
+        "HD2_AmpBritPlexiBrt",
+        "HD2_PitchTwinHarmony",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbRoom",
+        "HD2_Cab4x12Greenback25",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "Jazz Rivet 120.hlx",
+      "title": "Jazz Rivet 120",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahUKWah846",
+        "HD2_VolPanVol",
+        "HD2_CompressorRedSqueeze",
+        "HD2_DelayBucketBrigade",
+        "HD2_AmpJazzRivet120",
+        "HD2_Chorus70sChorus",
+        "HD2_CabMicIr_2x12JazzRivetWithPan",
+        "VIC_DynPlate",
+        "HD2_CabMicIr_2x12JazzRivetWithPan"
+      ]
+    },
+    {
+      "filename": "Justice Fo Y'all.hlx",
+      "title": "Justice Fo Y'all",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahWeeper",
+        "HD2_DistScream808",
+        "HD2_AmpCaliIVLead",
+        "HD2_CaliQ",
+        "HD2_CabMicIr_4x12CaliV30WithPan",
+        "HD2_VolPanVol",
+        "HD2_VolPanVol",
+        "HD2_DelayDoubleDouble",
+        "HD2_CabMicIr_4x12UberV30WithPan",
+        "HD2_AmpJazzRivet120",
+        "HD2_Chorus",
+        "HD2_Cab4x121960T75",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbRoom",
+        "VIC_ReverbDynAmbience",
+        "HD2_ReverbChamber"
+      ]
+    },
+    {
+      "filename": "Knife Fight.hlx",
+      "title": "Knife Fight",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_PitchSimplePitch",
+        "HD2_DistBitcrusher",
+        "HD2_DistIndustrialFuzz",
+        "HD2_AmpCali400Ch2",
+        "HD2_EQGraphic10Band",
+        "HD2_VolPanVol",
+        "HD2_Looper",
+        "HD2_Cab8x10SVBeast",
+        "HD2_AmpBritP75Brt",
+        "HD2_AmpGermanMahadeva",
+        "HD2_VolPanVol",
+        "HD2_DelayModChorusEcho",
+        "HD2_Cab4x12Blackback30",
+        "HD2_Cab4x12UberV30"
+      ]
+    },
+    {
+      "filename": "LEWIE ALLEN BLUE.hlx",
+      "title": "LEWIE ALLEN BLUE",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_EQGraphic10Band",
+        "HD2_DistScream808",
+        "HD2_AmpDividedDuo",
+        "HD2_Cab4x12UberV30",
+        "HD2_PhaserScriptModPhase",
+        "HD2_DL4PingPong",
+        "HD2_ReverbChamber"
+      ]
+    },
+    {
+      "filename": "Line 6 Badonk.hlx",
+      "title": "Line 6 Badonk",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_EQLowCutHighCut",
+        "HD2_DistMinotaur",
+        "HD2_AmpLine6Badonk",
+        "HD2_EQParametric",
+        "HD2_VolPanVol",
+        "HD2_CabMicIr_4x12CaliV30WithPan",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_4x12CaliV30WithPan"
+      ]
+    },
+    {
+      "filename": "Line 6 Elmsley.hlx",
+      "title": "Line 6 Elmsley",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahConductor",
+        "HD2_VolPanVol",
+        "HD2_DistMinotaur",
+        "HD2_DelayAdriaticDelay",
+        "HD2_AmpLine6Elmsley",
+        "HD2_CabMicIr_4x12BlackbackH30WithPan",
+        "VIC_ReverbDynRoom",
+        "HD2_Looper",
+        "HD2_CabMicIr_4x12BlackbackH30WithPan"
+      ]
+    },
+    {
+      "filename": "Line 6 Litigator.hlx",
+      "title": "Line 6 Litigator",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahColorful",
+        "HD2_VolPanVol",
+        "HD2_CompressorKinkyComp",
+        "HD2_DistHeirApparent",
+        "HD2_AmpLine6Litigator",
+        "HD2_CabMicIr_1x12USDeluxeWithPan",
+        "HD2_DelayVintageDigitalV2",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_1x12USDeluxeWithPan"
+      ]
+    },
+    {
+      "filename": "Line 6 Ventoux.hlx",
+      "title": "Line 6 Ventoux",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahUKWah846",
+        "HD2_VolPanVol",
+        "HD2_DistDerangedMaster",
+        "HD2_AmpLine6Ventoux",
+        "HD2_CabMicIr_4x12MandarinWithPan",
+        "HD2_Tremolo60sBiasTrem",
+        "HD2_DelayTransistorTape",
+        "VIC_DynPlate",
+        "HD2_CabMicIr_4x12MandarinWithPan"
+      ]
+    },
+    {
+      "filename": "Lonely Hearts.hlx",
+      "title": "Lonely Hearts",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistDeezOneVintage",
+        "HD2_CompressorRedSqueeze",
+        "HD2_AmpBrit2204",
+        "HD2_Cab4x121960T75",
+        "HD2_EQGraphic10Band",
+        "HD2_PitchDualPitch",
+        "HD2_AmpJazzRivet120",
+        "HD2_Cab2x12JazzRivet",
+        "HD2_CompressorDeluxeComp",
+        "HD2_PitchSimplePitch",
+        "HD2_Chorus70sChorus",
+        "HD2_VolPanGain",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbHall"
+      ]
+    },
+    {
+      "filename": "Low E Sludge.hlx",
+      "title": "Low E Sludge",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanGain",
+        "HD2_CompressorKinkyComp",
+        "HD2_DistDeezOneMod",
+        "HD2_AmpMandarin80",
+        "HD2_Cab4X12CaliV30",
+        "HD2_Cab4x12XXLV30",
+        "HD2_PhaserUbiquitousVibe",
+        "HD2_ReverbChamber",
+        "HD2_Looper",
+        "HD2_VolPanGain",
+        "HD2_PitchSimplePitch",
+        "HD2_CompressorLAStudioComp",
+        "HD2_DistCompulsiveDrive",
+        "HD2_AmpSVBeastBrt",
+        "HD2_Cab8x10SVBeast"
+      ]
+    },
+    {
+      "filename": "MJA + PANCAKE.hlx",
+      "title": "+ PANCAKE",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: MJA"
+      ],
+      "blocks": [
+        "HD2_CompressorDeluxeComp",
+        "L6SPB_PolyWham",
+        "HD2_DistHorizonDrive",
+        "HD2_DistRamsHead",
+        "HD2_VolPanVol",
+        "HD2_DelayBucketBrigade",
+        "HD2_AmpPlacaterClean",
+        "HD2_ReverbGanymede",
+        "HD2_ReverbDoubleTank",
+        "HD2_TremoloOpticalTrem",
+        "HD2_Cab4x12Blackback30"
+      ]
+    },
+    {
+      "filename": "Mail Order Twin.hlx",
+      "title": "Mail Order Twin",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_PitchPitchWham",
+        "HD2_DistTriangleFuzz",
+        "HD2_AmpMailOrderTwin",
+        "HD2_ReverbHxSpring",
+        "HD2_TremoloOpticalTrem",
+        "HD2_CabMicIr_2x12MailC12QWithPan",
+        "HD2_CabMicIr_2x12MailC12QWithPan"
+      ]
+    },
+    {
+      "filename": "Mandarin Rocker.hlx",
+      "title": "Mandarin Rocker",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahWeeper",
+        "HD2_DistPillars",
+        "HD2_AmpMandarinRocker",
+        "HD2_VolPanVol",
+        "HD2_CabMicIr_4x12MandarinWithPan",
+        "HD2_DelaySimpleDelay",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_2x12MandarinWithPan"
+      ]
+    },
+    {
+      "filename": "Mandarine Gaze.hlx",
+      "title": "Mandarine Gaze",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistHedgehogD9",
+        "HD2_AmpMandarin80",
+        "HD2_VolPanVol",
+        "HD2_FlangerHarmonicFlanger",
+        "HD2_DelayDuckedDelay",
+        "HD2_DistTeemah",
+        "HD2_Looper",
+        "HD2_DelayModChorusEcho",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbPlate",
+        "HD2_ReverbOcto",
+        "HD2_Cab4x12MandarinEM",
+        "HD2_Cab2x12DoubleC12N"
+      ]
+    },
+    {
+      "filename": "Matchstick Ch1.hlx",
+      "title": "Matchstick Ch1",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahTeardrop310",
+        "HD2_VolPanVol",
+        "HD2_DistHeirApparent",
+        "HD2_EQParametric",
+        "HD2_DelayBucketBrigade",
+        "HD2_AmpMatchstickCh1",
+        "HD2_CabMicIr_2x12MatchG25WithPan",
+        "VIC_ReverbDynRoom",
+        "HD2_CabMicIr_2x12MatchH30WithPan"
+      ]
+    },
+    {
+      "filename": "Mayer'ish JS.hlx",
+      "title": "Mayer'ish JS",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_AmpUSDoubleNrm",
+        "HD2_Cab2x12Interstate",
+        "HD2_VolPanGain",
+        "HD2_VolPanGain",
+        "HD2_DelayTransistorTape",
+        "HD2_Reverb63Spring",
+        "HD2_EQParametric",
+        "HD2_CompressorLAStudioComp"
+      ]
+    },
+    {
+      "filename": "Mmmm Bat Heads.hlx",
+      "title": "Mmmm Bat Heads",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahFassel",
+        "HD2_AmpBrit2204",
+        "HD2_VolPanVol",
+        "HD2_Chorus",
+        "HD2_Cab4x12Greenback25",
+        "HD2_DelayPingPong",
+        "HD2_EQLowCutHighCut",
+        "HD2_ReverbChamber",
+        "HD2_Looper",
+        "HD2_Cab4x12Greenback20"
+      ]
+    },
+    {
+      "filename": "Mockabilly.hlx",
+      "title": "Mockabilly",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistMinotaur",
+        "HD2_DelayTransistorTape",
+        "HD2_AmpStoneAge185",
+        "HD2_EQLowCutHighCut",
+        "HD2_ReverbRoom",
+        "HD2_Cab1x12FieldCoil"
+      ]
+    },
+    {
+      "filename": "Moo)))n Jump.hlx",
+      "title": "Moo)))n Jump",
+      "guess": "Van Halen / EVH",
+      "evidence": [
+        "matched pattern: eruption|panama|jump|hot\\s*for\\s*teacher"
+      ],
+      "blocks": [
+        "HD2_DistVitalDist",
+        "HD2_WahChrome",
+        "HD2_AmpMoonJump",
+        "HD2_VolPanVol",
+        "HD2_CabMicIr_4x12MOONT75WithPan",
+        "HD2_DelaySimpleDelay",
+        "VIC_ReverbDynRoom",
+        "HD2_CabMicIr_4x12MOONT75WithPan"
+      ]
+    },
+    {
+      "filename": "NN BUBBLES.hlx",
+      "title": "BUBBLES",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: NN"
+      ],
+      "blocks": [
+        "HD2_CompressorDeluxeComp",
+        "HD2_FilterAutoFilter",
+        "HD2_PreampSVT4Pro",
+        "HD2_AmpSVT4Pro",
+        "HD2_Cab8x10SVBeast",
+        "Victoria_ShufflingDelay"
+      ]
+    },
+    {
+      "filename": "Nesbit.hlx",
+      "title": "Nesbit",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistStuporOD",
+        "HD2_PitchSimplePitch",
+        "HD2_PitchSimplePitch",
+        "HD2_TremoloTremolo",
+        "HD2_DelayPitch",
+        "HD2_DistBitcrusher",
+        "HD2_VolPanVol",
+        "HD2_Looper",
+        "HD2_AmpArchetypeClean",
+        "HD2_Cab4x12WhoWatt100"
+      ]
+    },
+    {
+      "filename": "New Preset(1).hlx",
+      "title": "New Preset(1)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(10).hlx",
+      "title": "New Preset(10)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(11).hlx",
+      "title": "New Preset(11)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(12).hlx",
+      "title": "New Preset(12)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(13).hlx",
+      "title": "New Preset(13)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(14).hlx",
+      "title": "New Preset(14)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(15).hlx",
+      "title": "New Preset(15)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(16).hlx",
+      "title": "New Preset(16)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(17).hlx",
+      "title": "New Preset(17)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(18).hlx",
+      "title": "New Preset(18)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(19).hlx",
+      "title": "New Preset(19)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(2).hlx",
+      "title": "New Preset(2)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(20).hlx",
+      "title": "New Preset(20)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(21).hlx",
+      "title": "New Preset(21)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(22).hlx",
+      "title": "New Preset(22)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(23).hlx",
+      "title": "New Preset(23)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(3).hlx",
+      "title": "New Preset(3)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(4).hlx",
+      "title": "New Preset(4)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(5).hlx",
+      "title": "New Preset(5)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(6).hlx",
+      "title": "New Preset(6)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(7).hlx",
+      "title": "New Preset(7)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(8).hlx",
+      "title": "New Preset(8)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset(9).hlx",
+      "title": "New Preset(9)",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "New Preset.hlx",
+      "title": "New Preset",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": []
+    },
+    {
+      "filename": "No Soup For You.hlx",
+      "title": "No Soup For You",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistMinotaur",
+        "HD2_VolPanVol",
+        "HD2_DelayTransistorTape",
+        "HD2_EQLowCutHighCut",
+        "HD2_AmpSoupPro",
+        "HD2_WahColorful",
+        "HD2_Looper",
+        "HD2_Cab1x6x9SoupProEllipse"
+      ]
+    },
+    {
+      "filename": "No_Thing.hlx",
+      "title": "No_Thing",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DelaySwellAdriatic",
+        "L6SPB_PolyChorus",
+        "HD2_DistMinotaur",
+        "HD2_DistPocketFuzz",
+        "HD2_AmpUSDeluxeVib",
+        "Victoria_ShufflingDelay",
+        "HD2_ReverbPlateaux",
+        "HD2_DelayDualDelay",
+        "HD2_Cab2x12DoubleC12N",
+        "HD2_Cab1x12Lead80"
+      ]
+    },
+    {
+      "filename": "None More Black.hlx",
+      "title": "None More Black",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahWeeper",
+        "HD2_DistScream808",
+        "HD2_AmpJazzRivet120",
+        "HD2_AmpCaliRectifire",
+        "HD2_Chorus70sChorus",
+        "HD2_EQParametric",
+        "HD2_Cab4X12CaliV30",
+        "HD2_Cab2x12JazzRivet",
+        "HD2_ReverbChamber",
+        "HD2_DelaySimpleDelay",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "ONLY GARBAGE.hlx",
+      "title": "GARBAGE",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: ONLY"
+      ],
+      "blocks": [
+        "HD2_PitchSimplePitch",
+        "HD2_DistTopSecretOD",
+        "HD2_DelayDuckedDelay",
+        "HD2_DistIndustrialFuzz",
+        "HD2_AmpDividedDuo",
+        "HD2_GateHardGate",
+        "HD2_Cab1x12Celest12H"
+      ]
+    },
+    {
+      "filename": "Oblivion Preset.hlx",
+      "title": "Oblivion Preset",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_GateHorizonGate",
+        "HD2_WahColorful",
+        "HD2_AmpLine6Oblivion",
+        "HD2_DelaySimpleDelay",
+        "VIC_ReverbRotating",
+        "HD2_CabMicIr_4x12CaliV30"
+      ]
+    },
+    {
+      "filename": "Oh No Stereo.hlx",
+      "title": "Oh No Stereo",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistMinotaur",
+        "HD2_CompressorRedSqueeze",
+        "HD2_AmpSoloLeadOD",
+        "HD2_VolPanVol",
+        "HD2_TremoloOpticalTrem",
+        "HD2_ReverbCave",
+        "HD2_Looper",
+        "HD2_Cab4x12SoloLeadEM"
+      ]
+    },
+    {
+      "filename": "Ointment.hlx",
+      "title": "Ointment",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistTopSecretOD",
+        "HD2_AmpUSDoubleNrm",
+        "HD2_FlangerGrayFlanger",
+        "HD2_DelayAdriaticDelay",
+        "HD2_Looper",
+        "HD2_Cab2x12DoubleC12N"
+      ]
+    },
+    {
+      "filename": "On the Road.hlx",
+      "title": "On the Road",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahWeeper",
+        "HD2_DistScream808",
+        "HD2_AmpUSDoubleNrm",
+        "HD2_Reverb63Spring",
+        "HD2_TremoloOpticalTrem",
+        "HD2_DelaySimpleDelay",
+        "HD2_Looper",
+        "HD2_Cab2x12DoubleC12N"
+      ]
+    },
+    {
+      "filename": "OveRTONeGHoSt 3.hlx",
+      "title": "OveRTONeGHoSt 3",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_GateNoiseGate",
+        "HD2_DistRamsHead",
+        "HD2_DistXenomorphFuzz",
+        "HD2_PitchPitchWham",
+        "HD2_Cab4X12CaliV30",
+        "HD2_PitchPitchWham",
+        "HD2_AmpRevvGenRed",
+        "HD2_Cab4x12Greenback25",
+        "L6SPB_PolyPitch",
+        "HD2_EQSimple3Band",
+        "HD2_DelayDuckedDelay",
+        "HD2_VolPanVol",
+        "Victoria_ShufflingDelay",
+        "HD2_ReverbPlateaux"
+      ]
+    },
+    {
+      "filename": "PETE THORN DUO.hlx",
+      "title": "THORN DUO",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: PETE"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistDhyanaDrive",
+        "HD2_AmpUSPrincess",
+        "HD2_AmpGrammaticoJump",
+        "HD2_Cab1x12Grammatico5E3",
+        "HD2_Cab1x10PrincessCopperhead",
+        "HD2_Reverb63Spring",
+        "HD2_DelayVintageDigitalV2",
+        "HD2_ReverbRoom"
+      ]
+    },
+    {
+      "filename": "PHILIP BYTONE.hlx",
+      "title": "PHILIP BYTONE",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "L6SPB_PolyPitch",
+        "HD2_DistTeemah",
+        "HD2_AmpAgua51",
+        "HD2_Cab8x10SVBeast",
+        "HD2_DistCompulsiveDrive",
+        "HD2_EQGraphic10Band",
+        "HD2_Chorus",
+        "HD2_DelayPingPong"
+      ]
+    },
+    {
+      "filename": "PV Panama.hlx",
+      "title": "Panama",
+      "guess": "Van Halen / EVH",
+      "evidence": [
+        "category prefix: PV",
+        "matched pattern: eruption|panama|jump|hot\\s*for\\s*teacher"
+      ],
+      "blocks": [
+        "HD2_DistScream808",
+        "HD2_AmpPVPanama",
+        "HD2_VolPanVol",
+        "HD2_CabMicIr_4x12CaliV30WithPan",
+        "HD2_EQParametric",
+        "HD2_DelayAdriaticDelay",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_4x12CaliV30WithPan"
+      ]
+    },
+    {
+      "filename": "PV Vitriol Lead.hlx",
+      "title": "Vitriol Lead",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: PV"
+      ],
+      "blocks": [
+        "HD2_WahWeeper",
+        "HD2_DistMinotaur",
+        "HD2_AmpPVVitriolLead",
+        "HD2_VolPanVol",
+        "HD2_CabMicIr_4x12CaliV30WithPan",
+        "HD2_EQParametric",
+        "HD2_DelaySimpleDelay",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_4x12CaliV30WithPan"
+      ]
+    },
+    {
+      "filename": "PaddingToNe.hlx",
+      "title": "PaddingToNe",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_CompressorDeluxeComp",
+        "HD2_DistToneSovereign",
+        "HD2_PhaserScriptModPhase",
+        "HD2_AmpBritP75Nrm",
+        "Victoria_ShufflingDelay",
+        "HD2_ReverbGanymede",
+        "HD2_VolPanVol",
+        "HD2_Cab4x12Blackback30",
+        "HD2_DistCompulsiveDrive",
+        "HD2_DistToneSovereign",
+        "HD2_VibratoBubbleVibrato",
+        "HD2_AmpJazzRivet120",
+        "HD2_ReverbSearchlights",
+        "HD2_DelayDuckedDelay",
+        "HD2_VolPanVol",
+        "HD2_Cab2x12JazzRivet"
+      ]
+    },
+    {
+      "filename": "Parallel Muffs.hlx",
+      "title": "Parallel Muffs",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_EQLowCutHighCut",
+        "HD2_RingModulatorPitchRingMod",
+        "HD2_DistRamsHead",
+        "HD2_DistBallisticFuzz",
+        "HD2_AmpBritJ45Nrm",
+        "HD2_FlangerCourtesanFlange",
+        "HD2_DelayMultiPass",
+        "HD2_CabMicIr_4x12Greenback25",
+        "HD2_CabMicIr_4x12Greenback25",
+        "HD2_ReverbDoubleTank"
+      ]
+    },
+    {
+      "filename": "Parallel Space.hlx",
+      "title": "Parallel Space",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_EQSimple3Band",
+        "HD2_AmpA30FawnNrm",
+        "HD2_Chorus",
+        "HD2_Reverb63Spring",
+        "HD2_EQLowCutHighCut",
+        "HD2_Looper",
+        "HD2_Cab2x12BlueBell"
+      ]
+    },
+    {
+      "filename": "Paranoia.hlx",
+      "title": "Paranoia",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_GateNoiseGate",
+        "HD2_DistTopSecretOD",
+        "HD2_FlangerGrayFlanger",
+        "HD2_AmpBritJ45Brt",
+        "HD2_DelayMultitap4",
+        "HD2_ReverbRoom",
+        "HD2_Looper",
+        "HD2_Cab4x12Greenback25"
+      ]
+    },
+    {
+      "filename": "PhD May.hlx",
+      "title": "PhD May",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_EQGraphic10Band",
+        "HD2_DistMinotaur",
+        "HD2_VolPanGain",
+        "HD2_AmpA30FawnBrt",
+        "HD2_Cab2x12BlueBell",
+        "HD2_EQLowCutHighCut",
+        "HD2_AmpA30FawnBrt",
+        "HD2_Chorus70sChorus",
+        "HD2_ReverbPlate",
+        "HD2_Looper",
+        "HD2_Cab2x12BlueBell"
+      ]
+    },
+    {
+      "filename": "Phase Dance.hlx",
+      "title": "Phase Dance",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DelaySimpleDelay",
+        "HD2_AmpJazzRivet120",
+        "HD2_DelayAdriaticDelay",
+        "HD2_DelayModChorusEcho",
+        "HD2_Cab2x12JazzRivet",
+        "HD2_AmpJazzRivet120",
+        "HD2_AmpJazzRivet120",
+        "HD2_Cab2x12JazzRivet",
+        "HD2_Cab2x12JazzRivet",
+        "HD2_ReverbPlate",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "Placater Dirty.hlx",
+      "title": "Placater Dirty",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahWeeper",
+        "HD2_VolPanVol",
+        "HD2_DistScream808",
+        "HD2_AmpPlacaterDirty",
+        "HD2_CabMicIr_4x12Greenback25WithPan",
+        "HD2_DelaySimpleDelay",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_4x12Greenback25WithPan"
+      ]
+    },
+    {
+      "filename": "Plush Garden.hlx",
+      "title": "Plush Garden",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahFassel",
+        "HD2_VolPanVol",
+        "HD2_VolPanVol",
+        "HD2_Chorus70sChorus",
+        "HD2_DistValveDriver",
+        "HD2_AmpEssexA30",
+        "HD2_Cab2x12BlueBell",
+        "HD2_Cab2x12BlueBell",
+        "HD2_AmpRevvGenRed",
+        "HD2_Cab4x12UberV30",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbRoom",
+        "HD2_Cab4x12UberV30"
+      ]
+    },
+    {
+      "filename": "Pull Me Under.hlx",
+      "title": "Pull Me Under",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahWeeper",
+        "HD2_CompressorDeluxeComp",
+        "HD2_DistScream808",
+        "HD2_AmpJazzRivet120",
+        "HD2_Chorus70sChorus",
+        "HD2_Cab2x12JazzRivet",
+        "HD2_AmpCaliRectifire",
+        "HD2_CaliQ",
+        "HD2_Cab4X12CaliV30",
+        "HD2_VolPanGain",
+        "HD2_DelaySimpleDelay",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbPlate",
+        "HD2_ReverbHall"
+      ]
+    },
+    {
+      "filename": "R U SERIOUS?.hlx",
+      "title": "R U SERIOUS?",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistRamsHead",
+        "Victoria_ShufflingDelay",
+        "L6SPB_InfSustain",
+        "Victoria_ShufflingDelay",
+        "HD2_AmpUSDeluxeNrm",
+        "HD2_Cab1x12USDeluxe"
+      ]
+    },
+    {
+      "filename": "RABEA AMBI LEAD.hlx",
+      "title": "RABEA AMBI LEAD",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistKinkyBoost",
+        "HD2_CompressorDeluxeComp",
+        "HD2_AmpUSDeluxeVib",
+        "HD2_Cab4x12UberV30",
+        "HD2_AmpUSDeluxeNrm",
+        "HD2_Cab4X12CaliV30",
+        "HD2_ReverbGlitz",
+        "HD2_ReverbPlateaux",
+        "HD2_DelayAdriaticDelay",
+        "HD2_DelayVintageDigitalV2"
+      ]
+    },
+    {
+      "filename": "RABEA AMBIENT.hlx",
+      "title": "RABEA AMBIENT",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_CompressorDeluxeComp",
+        "HD2_AmpUSDeluxeVib",
+        "HD2_Cab4x12UberV30",
+        "HD2_PhaserScriptModPhase",
+        "HD2_TremoloHarmonic",
+        "HD2_AmpUSDeluxeNrm",
+        "HD2_Cab4X12CaliV30",
+        "HD2_ReverbGlitz",
+        "HD2_ReverbPlateaux",
+        "HD2_DelayAdriaticDelay",
+        "HD2_DelayVintageDigitalV2"
+      ]
+    },
+    {
+      "filename": "RABEAAFRO CHUGGS.hlx",
+      "title": "RABEAAFRO CHUGGS",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistScream808",
+        "HD2_AmpLine6Badonk",
+        "HD2_Cab4x12UberV30",
+        "HD2_DistScream808",
+        "HD2_AmpLine62204Mod",
+        "HD2_Cab4X12CaliV30"
+      ]
+    },
+    {
+      "filename": "RABEAAFRO LEAD.hlx",
+      "title": "RABEAAFRO LEAD",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistScream808",
+        "HD2_AmpLine6Badonk",
+        "HD2_Cab4x12UberV30",
+        "HD2_AmpLine62204Mod",
+        "HD2_Cab4X12CaliV30",
+        "HD2_ReverbGlitz",
+        "HD2_ReverbPlateaux",
+        "HD2_DelayAdriaticDelay",
+        "HD2_DelayVintageDigitalV2"
+      ]
+    },
+    {
+      "filename": "RC REINCARNATION.hlx",
+      "title": "REINCARNATION",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: RC"
+      ],
+      "blocks": [
+        "HD2_CompressorDeluxeComp",
+        "HD2_DistMinotaur",
+        "HD2_AmpUSPrincess",
+        "HD2_Cab1x12PrincessBlue",
+        "HD2_DelayDualDelay",
+        "HD2_ReverbGlitz",
+        "HD2_EQGraphic10Band",
+        "HD2_VolPanStereoImager",
+        "HD2_Cab2x12BlueBell"
+      ]
+    },
+    {
+      "filename": "REUTER LEAD.hlx",
+      "title": "REUTER LEAD",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DelaySimpleDelay",
+        "HD2_DistDhyanaDrive",
+        "HD2_CompressorLAStudioComp",
+        "HD2_FilterMysterFilter",
+        "HD2_VolPanVol",
+        "HD2_WahConductor",
+        "HD2_AmpRevvGenRed",
+        "HD2_DelayAdriaticDelay",
+        "HD2_Cab4X12CaliV30"
+      ]
+    },
+    {
+      "filename": "RHETT'S ALLROUND.hlx",
+      "title": "RHETT'S ALLROUND",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistPocketFuzz",
+        "HD2_AmpMatchstickCh2",
+        "HD2_DelayElephantMan",
+        "HD2_DistTeemah",
+        "HD2_Cab1x12BlueBell",
+        "HD2_VolPanGain",
+        "HD2_DistKinkyBoost",
+        "HD2_TremoloOpticalTrem",
+        "HD2_DelaySimpleDelay",
+        "HD2_AmpA30FawnBrt",
+        "HD2_DelayElephantMan",
+        "HD2_Cab1x12MatchH30",
+        "HD2_VolPanGain",
+        "HD2_ReverbChamber",
+        "HD2_ReverbHall",
+        "HD2_EQGraphic10Band",
+        "HD2_EQGraphic10Band",
+        "HD2_CompressorLAStudioComp",
+        "HD2_CompressorLAStudioComp"
+      ]
+    },
+    {
+      "filename": "RICHEESE.hlx",
+      "title": "RICHEESE",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahChrome",
+        "HD2_AmpANGLMeteor",
+        "HD2_CaliQ",
+        "HD2_Cab4x12XXLV30",
+        "HD2_ChorusTrinityChorus",
+        "HD2_DelayVintageDigitalV2",
+        "HD2_ReverbChamber"
+      ]
+    },
+    {
+      "filename": "RIFFS AND BEARDS.hlx",
+      "title": "RIFFS AND BEARDS",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_PitchDualPitch",
+        "HD2_DistRamsHead",
+        "HD2_DistHorizonDrive",
+        "HD2_AmpLine6Elektrik",
+        "HD2_DelayTransistorTape",
+        "Victoria_ShufflingDelay",
+        "HD2_Cab4x12Blackback30",
+        "HD2_CaliQ",
+        "HD2_EQLowCutHighCut",
+        "HD2_CompressorLAStudioComp"
+      ]
+    },
+    {
+      "filename": "Revv Gen Purple.hlx",
+      "title": "Revv Gen Purple",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistHorizonDrive",
+        "HD2_AmpRevvGenPurple",
+        "HD2_EQParametric",
+        "HD2_CabMicIr_4x12CaliV30WithPan",
+        "HD2_DelaySimpleDelay",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_4x12CaliV30WithPan"
+      ]
+    },
+    {
+      "filename": "Revv Gen Red.hlx",
+      "title": "Revv Gen Red",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistHorizonDrive",
+        "HD2_AmpRevvGenRed",
+        "HD2_EQParametric",
+        "HD2_CabMicIr_4x12CaliV30WithPan",
+        "HD2_DelayVintageDigitalV2",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_4x12CaliV30WithPan"
+      ]
+    },
+    {
+      "filename": "Rhythm Sandman.hlx",
+      "title": "Rhythm Sandman",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahFassel",
+        "HD2_AmpUSDoubleNrm",
+        "HD2_Chorus70sChorus",
+        "HD2_ReverbChamber",
+        "HD2_Looper",
+        "HD2_Cab2x12DoubleC12N",
+        "HD2_VolPanVol",
+        "HD2_AmpLine6Epic",
+        "HD2_AmpCaliRectifire",
+        "HD2_ReverbRoom",
+        "HD2_Cab4x12SoloLeadEM",
+        "HD2_Cab4X12CaliV30"
+      ]
+    },
+    {
+      "filename": "Robben'ish JS.hlx",
+      "title": "Robben'ish JS",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_AmpLine6Litigator",
+        "HD2_Cab2x12Interstate",
+        "HD2_VolPanGain",
+        "HD2_VolPanGain",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbPlate",
+        "HD2_EQParametric",
+        "HD2_CompressorLAStudioComp"
+      ]
+    },
+    {
+      "filename": "Rock Gaze.hlx",
+      "title": "Rock Gaze",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistVerminDist",
+        "HD2_DistTriangleFuzz",
+        "HD2_FlangerGrayFlanger",
+        "HD2_DelayAdriaticDelay",
+        "HD2_ReverbPlate",
+        "HD2_Looper",
+        "HD2_VolPanPan",
+        "HD2_VolPanPan",
+        "HD2_AmpBrit2204",
+        "HD2_AmpEssexA30",
+        "HD2_Cab4x121960T75",
+        "HD2_Cab2x12SilverBell"
+      ]
+    },
+    {
+      "filename": "Rock My Yacht.hlx",
+      "title": "Rock My Yacht",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorRedSqueeze",
+        "HD2_DistTeemah",
+        "HD2_AmpLine6Litigator",
+        "HD2_AmpJazzRivet120",
+        "HD2_Chorus",
+        "HD2_ReverbHall",
+        "HD2_DelayPingPong",
+        "HD2_Cab2x12JazzRivet",
+        "HD2_Cab1x12USDeluxe",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "Rogue Vampires.hlx",
+      "title": "Rogue Vampires",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_EQParametric",
+        "HD2_WahThroaty",
+        "HD2_DistScream808",
+        "HD2_AmpBritP75Brt",
+        "HD2_GateNoiseGate",
+        "HD2_Looper",
+        "HD2_Cab4x12Blackback30",
+        "HD2_FlangerGrayFlanger",
+        "HD2_VolPanGain",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbSpring"
+      ]
+    },
+    {
+      "filename": "Roundabout.hlx",
+      "title": "Roundabout",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistTriangleFuzz",
+        "HD2_AmpUSDeluxeNrm",
+        "HD2_TremoloOpticalTrem",
+        "HD2_DelaySimpleDelay",
+        "HD2_Reverb63Spring",
+        "HD2_Looper",
+        "HD2_Cab2x12MailC12Q"
+      ]
+    },
+    {
+      "filename": "SCREAMS JNC.hlx",
+      "title": "SCREAMS JNC",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_CompressorRochesterComp",
+        "HD2_DistTopSecretOD",
+        "HD2_AmpGSG100",
+        "HD2_EQLowShelfHighShelf",
+        "HD2_CabMicIr_2x12SilverBellWithPan",
+        "HD2_DelayDualDelay",
+        "HD2_ReverbGlitz",
+        "HD2_CabMicIr_2x12MatchH30WithPan"
+      ]
+    },
+    {
+      "filename": "SFX_Dr. Strange.hlx",
+      "title": "Dr. Strange",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: SFX"
+      ],
+      "blocks": [
+        "HD2_DistObsidian7000",
+        "HD2_Cab4x10Rhino",
+        "HD2_Synth3NoteGenerator",
+        "HD2_PitchDualPitch",
+        "HD2_CompressorAutoSwell",
+        "HD2_ChorusPlastiChorus",
+        "HD2_VolPanVol",
+        "HD2_TremoloTremolo",
+        "HD2_WahTeardrop310",
+        "HD2_DelayPitch",
+        "HD2_ReverbPlateaux",
+        "HD2_DistBitcrusher",
+        "HD2_DelayMultiPass",
+        "HD2_DelayReverseDelay",
+        "HD2_ReverbParticle",
+        "HD2_Compressor3BandComp"
+      ]
+    },
+    {
+      "filename": "SFX_EXP Disturb.hlx",
+      "title": "EXP Disturb",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: SFX"
+      ],
+      "blocks": [
+        "HD2_CompressorDeluxeComp",
+        "HD2_AmpTweedBluesNrm",
+        "HD2_DelayPingPong",
+        "HD2_PitchPitchWham",
+        "HD2_Cab4x10TweedP10R",
+        "HD2_DelayPingPong"
+      ]
+    },
+    {
+      "filename": "SFX_Hokulani.hlx",
+      "title": "Hokulani",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: SFX"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistMinotaur",
+        "HD2_AmpEssexA15",
+        "HD2_DelayTransistorTape",
+        "HD2_DelayPingPong",
+        "HD2_RingModulatorAMRingMod",
+        "HD2_RingModulatorAMRingMod",
+        "HD2_Cab1x12BlueBell",
+        "HD2_ReverbSearchlights",
+        "HD2_ReverbPlateaux",
+        "HD2_FilterAshevillePattrn",
+        "HD2_FilterAshevillePattrn",
+        "HD2_EQLowCutHighCut",
+        "HD2_CompressorDeluxeComp"
+      ]
+    },
+    {
+      "filename": "SFX_Pulse Drone.hlx",
+      "title": "Pulse Drone",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: SFX"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorRedSqueeze",
+        "HD2_AmpMailOrderTwin",
+        "HD2_SynthSubtractive",
+        "HD2_EQLowCutHighCut",
+        "HD2_Cab2x12MailC12Q",
+        "HD2_DelaySweepEcho",
+        "HD2_RingModulatorAMRingMod",
+        "HD2_ReverbOcto"
+      ]
+    },
+    {
+      "filename": "SFX_Rezz Score.hlx",
+      "title": "Rezz Score",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: SFX"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_SynthSubtractive",
+        "HD2_CompressorDeluxeComp",
+        "HD2_DistTriangleFuzz",
+        "HD2_AmpBritPlexiJump",
+        "HD2_DistCompulsiveDrive",
+        "HD2_Cab4x12Greenback25",
+        "HD2_EQLowCutHighCut",
+        "HD2_TremoloOpticalTrem",
+        "HD2_DelaySweepEcho",
+        "HD2_ReverbCave"
+      ]
+    },
+    {
+      "filename": "SFX_Slot Machine.hlx",
+      "title": "Slot Machine",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: SFX"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistStuporOD",
+        "HD2_AmpArchetypeLead",
+        "HD2_ChorusTrinityChorus",
+        "HD2_DelayPitch",
+        "HD2_TremoloTremolo",
+        "HD2_Cab4X12CaliV30"
+      ]
+    },
+    {
+      "filename": "SFX_Trip City.hlx",
+      "title": "Trip City",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: SFX"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_AmpLine6Litigator",
+        "HD2_CompressorRedSqueeze",
+        "HD2_PhaserUbiquitousVibe",
+        "HD2_DelayPitch",
+        "HD2_EQLowCutHighCut",
+        "HD2_ReverbOcto",
+        "HD2_Cab1x12USDeluxe",
+        "HD2_PitchSimplePitch",
+        "HD2_PhaserUbiquitousVibe",
+        "HD2_DelayReverseDelay"
+      ]
+    },
+    {
+      "filename": "SFX_Ufology.hlx",
+      "title": "Ufology",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: SFX"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorDeluxeComp",
+        "HD2_RingModulatorAMRingMod",
+        "HD2_AmpTweedBluesBrt",
+        "HD2_DelayElephantMan",
+        "HD2_ReverbHall",
+        "HD2_Cab4x10TweedP10R"
+      ]
+    },
+    {
+      "filename": "SHEEHAN PEARCE.hlx",
+      "title": "SHEEHAN PEARCE",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_AmpBusyOneCh2",
+        "HD2_AmpBusyOneCh1",
+        "HD2_VolPanGain",
+        "HD2_VolPanGain",
+        "HD2_CompressorRochesterComp",
+        "HD2_GateNoiseGate",
+        "HD2_PitchSimplePitch",
+        "HD2_CompressorRochesterComp",
+        "HD2_EQLowCutHighCut",
+        "HD2_Cab8x10SVBeast",
+        "HD2_PreampBusyOneCh2",
+        "HD2_CompressorRochesterComp",
+        "HD2_PitchSimplePitch",
+        "HD2_VolPanGain",
+        "HD2_Cab8x10SVBeast"
+      ]
+    },
+    {
+      "filename": "SHEEHAN SVT4PRO.hlx",
+      "title": "SHEEHAN SVT4PRO",
+      "guess": "Ampeg SVT",
+      "evidence": [
+        "amp-name match: SVT|SVB|Ampeg"
+      ],
+      "blocks": [
+        "HD2_AmpSVT4Pro",
+        "HD2_VolPanGain",
+        "HD2_AmpSVT4Pro",
+        "HD2_DistScream808",
+        "HD2_VolPanGain",
+        "HD2_GateNoiseGate",
+        "HD2_CompressorRochesterComp",
+        "HD2_PitchSimplePitch",
+        "HD2_CompressorRochesterComp",
+        "HD2_EQLowCutHighCut",
+        "HD2_Cab8x10SVBeast",
+        "HD2_PreampSVT4Pro",
+        "HD2_CompressorRochesterComp",
+        "HD2_PitchSimplePitch",
+        "HD2_VolPanGain",
+        "HD2_Cab8x10SVBeast"
+      ]
+    },
+    {
+      "filename": "SHONN'S SHOTGUN.hlx",
+      "title": "SHONN'S SHOTGUN",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahChromeCustom",
+        "HD2_CompressorLAStudioComp",
+        "HD2_EQLowCutHighCut",
+        "HD2_DistTycoctaviaFuzz",
+        "HD2_DistScream808",
+        "HD2_AmpInterstateZed",
+        "HD2_Cab1x12BlueBell",
+        "HD2_Cab1x12Lead80",
+        "HD2_TremoloTremolo",
+        "HD2_PhaserScriptModPhase",
+        "HD2_MM4Dimension",
+        "HD2_DelayPingPong",
+        "HD2_DelayPitch",
+        "HD2_DelayDoubleDouble",
+        "HD2_ReverbChamber"
+      ]
+    },
+    {
+      "filename": "SPOTLIGHTS.hlx",
+      "title": "SPOTLIGHTS",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistTeemah",
+        "HD2_CaliQ",
+        "HD2_DistCompulsiveDrive",
+        "HD2_DistBallisticFuzz",
+        "HD2_DistWringerFuzz",
+        "HD2_EQSimple3Band",
+        "HD2_FM4SynthString",
+        "HD2_TremoloTremolo",
+        "HD2_DelayCosmosEcho",
+        "HD2_ReverbSearchlights",
+        "HD2_AmpWhoWatt100",
+        "HD2_Cab4x12WhoWatt100"
+      ]
+    },
+    {
+      "filename": "SUNRISE DRIVE.hlx",
+      "title": "SUNRISE DRIVE",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistHorizonDrive",
+        "HD2_AmpBritPlexiBrt",
+        "HD2_Cab4x12Greenback25",
+        "HD2_ReverbPlate",
+        "HD2_DelayTransistorTape",
+        "HD2_CompressorLAStudioComp",
+        "HD2_Cab1x12Lead80"
+      ]
+    },
+    {
+      "filename": "Senor Sandman.hlx",
+      "title": "Senor Sandman",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_VolPanGain",
+        "HD2_AmpEssexA30",
+        "HD2_Tremolo60sBiasTrem",
+        "HD2_DelayTransistorTape",
+        "HD2_ReverbRoom",
+        "HD2_Looper",
+        "HD2_Cab1x12FieldCoil"
+      ]
+    },
+    {
+      "filename": "Shields Starter .hlx",
+      "title": "Shields Starter",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "L6SPB_PolyWham",
+        "HD2_DelayVintageDigitalV2",
+        "HD2_ReverbNonLinear",
+        "HD2_TremoloTremolo",
+        "HD2_DistRamsHead",
+        "HD2_AmpPlacaterClean",
+        "HD2_CabMicIr_4x12Greenback30",
+        "HD2_CabMicIr_4x12Greenback30",
+        "VIC_ReverbDynAmbience"
+      ]
+    },
+    {
+      "filename": "Sky Explosions.hlx",
+      "title": "Sky Explosions",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_CompressorDeluxeComp",
+        "HD2_VolPanVol",
+        "HD2_DistScream808",
+        "HD2_AmpJazzRivet120",
+        "HD2_DelayElephantMan",
+        "HD2_ReverbCave",
+        "HD2_DelayTransistorTape",
+        "HD2_Looper",
+        "HD2_Cab2x12JazzRivet",
+        "HD2_ReverbOcto"
+      ]
+    },
+    {
+      "filename": "Slowish Ride.hlx",
+      "title": "Slowish Ride",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistScream808",
+        "HD2_FlangerGrayFlanger",
+        "HD2_AmpBritPlexiBrt",
+        "HD2_DelayBucketBrigade",
+        "HD2_ReverbRoom",
+        "HD2_Looper",
+        "HD2_Cab4x12Greenback25"
+      ]
+    },
+    {
+      "filename": "Smoke on the H2O.hlx",
+      "title": "Smoke on the H2O",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_GateNoiseGate",
+        "HD2_EQSimple3Band",
+        "HD2_DistArbitratorFuzz",
+        "HD2_PhaserScriptModPhase",
+        "HD2_DelayTransistorTape",
+        "HD2_AmpBritPlexiNrm",
+        "HD2_ReverbRoom",
+        "HD2_Cab4x12Greenback25",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "Smooth Autopan.hlx",
+      "title": "Smooth Autopan",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_GateHardGate",
+        "HD2_CompressorKinkyComp",
+        "HD2_DistScream808",
+        "HD2_Looper",
+        "HD2_AmpUSDoubleVib",
+        "HD2_Cab4x12Greenback25",
+        "HD2_VolPanVol",
+        "HD2_TremoloTremolo",
+        "HD2_DelayPingPong",
+        "HD2_ReverbHall",
+        "HD2_Cab2x12BlueBell"
+      ]
+    },
+    {
+      "filename": "Snapshot Hotshot.hlx",
+      "title": "Snapshot Hotshot",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistScream808",
+        "HD2_DelaySimpleDelay",
+        "HD2_VolPanVol",
+        "HD2_AmpBritPlexiNrm",
+        "HD2_AmpUSDoubleNrm",
+        "HD2_Cab2x12DoubleC12N",
+        "HD2_Cab4x12Greenback25",
+        "HD2_DelaySimpleDelay",
+        "HD2_TremoloTremolo",
+        "HD2_ReverbSpring",
+        "HD2_ReverbRoom",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "Spirit of Sky.hlx",
+      "title": "Spirit of Sky",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahFassel",
+        "HD2_DM4FacialFuzz",
+        "HD2_FlangerGrayFlanger",
+        "HD2_AmpBritPlexiJump",
+        "HD2_Cab4x12Greenback25",
+        "HD2_Reverb63Spring",
+        "HD2_Cab4x12Greenback20"
+      ]
+    },
+    {
+      "filename": "Star Talk.hlx",
+      "title": "Star Talk",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorDeluxeComp",
+        "HD2_FilterMysterFilter",
+        "HD2_DistScream808",
+        "HD2_DelayTransistorTape",
+        "HD2_AmpMailOrderTwin",
+        "HD2_ReverbRoom",
+        "HD2_Looper",
+        "HD2_Cab2x12MailC12Q"
+      ]
+    },
+    {
+      "filename": "Stereo Bloom.hlx",
+      "title": "Stereo Bloom",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_CompressorDeluxeComp",
+        "HD2_AmpArchetypeClean",
+        "HD2_CabMicIr_4x12CaliV30",
+        "HD2_CabMicIr_4x12CaliV30",
+        "VIC_ReverbDynBloom",
+        "VIC_ReverbDynBloom"
+      ]
+    },
+    {
+      "filename": "Stone Cold Loco.hlx",
+      "title": "Stone Cold Loco",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_WahWeeper",
+        "HD2_VolPanVol",
+        "HD2_DistDerangedMaster",
+        "HD2_PhaserScriptModPhase",
+        "HD2_AmpA30FawnNrm",
+        "HD2_Cab2x12BlueBell",
+        "HD2_Cab2x12BlueBell",
+        "HD2_DelayTransistorTape",
+        "HD2_DelayTransistorTape",
+        "HD2_DelayTransistorTape",
+        "HD2_ReverbChamber"
+      ]
+    },
+    {
+      "filename": "Stranger Synth.hlx",
+      "title": "Stranger Synth",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_VolPanGain",
+        "HD2_DistTopSecretOD",
+        "HD2_AmpMandarin80",
+        "HD2_CabMicIr_4x12Mandarin",
+        "HD2_VolPanVol",
+        "HD2_CompressorDeluxeComp",
+        "HD2_FM4SynthString",
+        "HD2_EQLowCutHighCut",
+        "HD2_RingModulatorAMRingMod",
+        "HD2_DelayAdriaticDelay",
+        "HD2_ReverbSearchlights"
+      ]
+    },
+    {
+      "filename": "Sultans.hlx",
+      "title": "Sultans",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_VolPanGain",
+        "HD2_AmpUSDoubleNrm",
+        "HD2_CompressorRedSqueeze",
+        "HD2_TremoloOpticalTrem",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbPlate",
+        "HD2_Looper",
+        "HD2_Cab2x12DoubleC12N"
+      ]
+    },
+    {
+      "filename": "Sunset Shimmer.hlx",
+      "title": "Sunset Shimmer",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DelayHarmonyDelay",
+        "HD2_DelayHarmonyDelay",
+        "HD2_AmpJazzRivet120",
+        "HD2_AmpJazzRivet120",
+        "HD2_Cab2x12JazzRivet",
+        "HD2_Cab2x12JazzRivet",
+        "HD2_RotaryVibeRotary",
+        "HD2_Rotary122Rotary",
+        "HD2_FilterMysterFilter",
+        "HD2_FilterMutantFilter",
+        "HD2_RingModulatorPitchRingMod",
+        "HD2_ReverbParticle",
+        "HD2_ReverbOcto",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "Sweet Dispozish.hlx",
+      "title": "Sweet Dispozish",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorKinkyComp",
+        "HD2_DistScream808",
+        "HD2_Chorus70sChorus",
+        "HD2_AmpA30FawnBrt",
+        "HD2_DelayPingPong",
+        "HD2_ReverbGlitz",
+        "HD2_Looper",
+        "HD2_Cab2x12BlueBell"
+      ]
+    },
+    {
+      "filename": "THE BLUE AGAVE.hlx",
+      "title": "BLUE AGAVE",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: THE"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistArbitratorFuzz",
+        "HD2_DistTycoctaviaFuzz",
+        "HD2_DistScream808",
+        "HD2_Reverb63Spring",
+        "HD2_AmpUSDeluxeNrm",
+        "HD2_DelayCosmosEcho",
+        "HD2_TremoloTremolo",
+        "HD2_Cab1x12USDeluxe"
+      ]
+    },
+    {
+      "filename": "THIS IS THE END.hlx",
+      "title": "IS THE END",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: THIS"
+      ],
+      "blocks": [
+        "HD2_CompressorLAStudioComp",
+        "L6SPB_AcousGtrSim",
+        "HD2_PreampUSDoubleNrm",
+        "HD2_EQParametric",
+        "HD2_ChorusTrinityChorus",
+        "HD2_DL4LowResDelay",
+        "HD2_ReverbHall",
+        "HD2_CompressorLAStudioComp",
+        "HD2_PitchDualPitch",
+        "HD2_DistTeemah",
+        "HD2_ReverbCave",
+        "HD2_DelayDualDelay",
+        "HD2_EQParametric",
+        "HD2_CompressorLAStudioComp"
+      ]
+    },
+    {
+      "filename": "Thundermullet.hlx",
+      "title": "Thundermullet",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistMinotaur",
+        "HD2_AmpBrit2204",
+        "HD2_Cab4x12Greenback25",
+        "HD2_VolPanGain",
+        "HD2_AmpGermanMahadeva",
+        "HD2_VolPanVol",
+        "HD2_Cab4x12Greenback25",
+        "HD2_DelayPingPong",
+        "HD2_VolPanVol",
+        "HD2_ReverbChamber",
+        "HD2_Looper"
+      ]
+    },
+    {
+      "filename": "TrevLukatherSolo.hlx",
+      "title": "TrevLukatherSolo",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "L6SPB_PolyWham",
+        "HD2_AmpLine6Badonk",
+        "HD2_GateNoiseGate",
+        "HD2_Cab4x12UberV30",
+        "HD2_CompressorLAStudioComp",
+        "HD2_DelayDuckedDelay",
+        "HD2_ReverbDoubleTank",
+        "HD2_Cab4x12UberV30"
+      ]
+    },
+    {
+      "filename": "Tweed Blues Brt.hlx",
+      "title": "Tweed Blues Brt",
+      "guess": "Fender Bassman/Tweed",
+      "evidence": [
+        "amp-name match: Tweed|Bassman"
+      ],
+      "blocks": [
+        "HD2_WahFassel",
+        "HD2_VolPanVol",
+        "HD2_DistDhyanaDrive",
+        "HD2_DelayElephantMan",
+        "HD2_AmpTweedBluesBrt",
+        "HD2_CabMicIr_4x10TweedP10RWithPan",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_4x10TweedP10RWithPan"
+      ]
+    },
+    {
+      "filename": "Twinning.hlx",
+      "title": "Twinning",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_DistKinkyBoost",
+        "HD2_AmpMailOrderTwin",
+        "HD2_VolPanVol",
+        "HD2_DelayTransistorTape",
+        "HD2_ReverbDoubleTank",
+        "HD2_Cab2x12MailC12Q",
+        "HD2_CompressorKinkyComp",
+        "HD2_DelayAdriaticDelay",
+        "HD2_AmpUSDeluxeNrm",
+        "HD2_VolPanVol",
+        "HD2_DelayAdriaticDelay",
+        "HD2_ReverbGanymede",
+        "HD2_Looper",
+        "HD2_Cab1x12USDeluxe"
+      ]
+    },
+    {
+      "filename": "US Deluxe Nrm.hlx",
+      "title": "Deluxe Nrm",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: US"
+      ],
+      "blocks": [
+        "HD2_WahWeeper",
+        "HD2_VolPanVol",
+        "HD2_DistKinkyBoost",
+        "HD2_DelayElephantMan",
+        "HD2_AmpUSDeluxeNrm",
+        "HD2_ReverbHxSpring",
+        "HD2_TremoloOpticalTrem",
+        "HD2_CabMicIr_1x12USDeluxeWithPan",
+        "HD2_CabMicIr_1x12USDeluxeWithPan"
+      ]
+    },
+    {
+      "filename": "US Double Nrm.hlx",
+      "title": "Double Nrm",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: US"
+      ],
+      "blocks": [
+        "HD2_WahWeeper",
+        "HD2_VolPanVol",
+        "HD2_CompressorRedSqueeze",
+        "HD2_DelayTransistorTape",
+        "HD2_AmpUSDoubleNrm",
+        "HD2_ReverbHxSpring",
+        "HD2_TremoloOpticalTrem",
+        "HD2_CabMicIr_2x12DoubleC12NWithPan",
+        "HD2_CabMicIr_2x12DoubleC12NWithPan"
+      ]
+    },
+    {
+      "filename": "US Dripman Norm.hlx",
+      "title": "Dripman Norm",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [
+        "category prefix: US"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistPrizeDrive",
+        "HD2_AmpUSDripmanNorm",
+        "HD2_CabMicIr_2x15USDripmanWithPan",
+        "HD2_DelayTransistorTape",
+        "VIC_ReverbDynAmbience",
+        "HD2_CompressorDeluxeComp",
+        "HD2_EQGraphic10Band",
+        "HD2_CabMicIr_2x15USDripmanWithPan"
+      ]
+    },
+    {
+      "filename": "US Princess.hlx",
+      "title": "Princess",
+      "guess": "Fender Champ/Princess",
+      "evidence": [
+        "category prefix: US",
+        "amp-name match: Princess|Champ"
+      ],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistScream808",
+        "HD2_CompressorKinkyComp",
+        "HD2_AmpUSPrincess",
+        "HD2_ReverbHxSpring",
+        "HD2_Tremolo60sBiasTrem",
+        "HD2_CabMicIr_1x10USPrincessWithPan",
+        "VIC_ReverbDynAmbience",
+        "HD2_CabMicIr_1x10USPrincessWithPan"
+      ]
+    },
+    {
+      "filename": "Unicorns Forever.hlx",
+      "title": "Unicorns Forever",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_CompressorLAStudioComp",
+        "HD2_AmpMatchstickCh1",
+        "HD2_ChorusTrinityChorus",
+        "HD2_DelayHarmonyDelay",
+        "HD2_DelaySweepEcho",
+        "HD2_Looper",
+        "HD2_Cab1x12MatchH30",
+        "HD2_DelayMultiPass",
+        "HD2_DelayCosmosEcho",
+        "HD2_ReverbOcto",
+        "HD2_ReverbPlateaux",
+        "HD2_EQLowCutHighCut",
+        "HD2_EQLowCutHighCut"
+      ]
+    },
+    {
+      "filename": "WATERS IN HELL.hlx",
+      "title": "WATERS IN HELL",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_GateNoiseGate",
+        "HD2_DistMinotaur",
+        "HD2_AmpPVPanama",
+        "HD2_Cab4x12UberV30",
+        "HD2_Cab4x12UberV30",
+        "HD2_EQParametric",
+        "HD2_EQParametric",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbSpring"
+      ]
+    },
+    {
+      "filename": "Watt, Now?.hlx",
+      "title": "Watt, Now?",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahThroaty",
+        "HD2_DistMinotaur",
+        "HD2_DistScream808",
+        "HD2_CompressorLAStudioComp",
+        "HD2_AmpWhoWatt100",
+        "HD2_DelayTransistorTape",
+        "HD2_Looper",
+        "HD2_Cab4x12WhoWatt100",
+        "HD2_ReverbRoom"
+      ]
+    },
+    {
+      "filename": "Wild Year.hlx",
+      "title": "Wild Year",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_EQParametric",
+        "HD2_CompressorLAStudioComp",
+        "HD2_AmpBritJ45Brt",
+        "HD2_CompressorRedSqueeze",
+        "HD2_Cab2x12Interstate",
+        "HD2_Looper",
+        "HD2_DelayTransistorTape",
+        "HD2_ReverbHall",
+        "HD2_EQSimple3Band"
+      ]
+    },
+    {
+      "filename": "X Ray.hlx",
+      "title": "X Ray",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_DistMinotaur",
+        "HD2_AmpA30FawnBrt",
+        "HD2_DelayElephantMan",
+        "HD2_ReverbHall",
+        "HD2_ReverbOcto",
+        "HD2_Cab2x12BlueBell",
+        "HD2_ReverbGlitz",
+        "HD2_CompressorLAStudioComp",
+        "HD2_TremoloOpticalTrem",
+        "HD2_ReverbGanymede"
+      ]
+    },
+    {
+      "filename": "You Shall Pass.hlx",
+      "title": "You Shall Pass",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_WahFassel",
+        "HD2_DistKinkyBoost",
+        "HD2_DistMinotaur",
+        "HD2_AmpMatchstickCh1",
+        "HD2_CabMicIr_4x12Greenback25WithPan",
+        "HD2_CabMicIr_4x12BlackbackH30WithPan",
+        "HD2_FM4TronDown",
+        "HD2_FM4TronUp",
+        "HD2_DelayMultiPass",
+        "HD2_DelayMultiPass",
+        "HD2_ReverbDoubleTank",
+        "HD2_ReverbPlateaux"
+      ]
+    },
+    {
+      "filename": "Ziggy Moondust.hlx",
+      "title": "Ziggy Moondust",
+      "guess": "(unknown — probably amp-name preset or original tone)",
+      "evidence": [],
+      "blocks": [
+        "HD2_VolPanVol",
+        "HD2_GateNoiseGate",
+        "HD2_WahFassel",
+        "HD2_AmpBritP75Brt",
+        "HD2_TremoloOpticalTrem",
+        "HD2_DelaySimpleDelay",
+        "HD2_ReverbRoom",
+        "HD2_Looper",
+        "HD2_Cab4x12Greenback20"
+      ]
+    }
+  ]
+}
