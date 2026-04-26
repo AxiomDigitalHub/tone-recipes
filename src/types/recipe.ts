@@ -41,6 +41,12 @@ export interface PlatformBlock {
   original_gear: string;
   settings: Record<string, string | number>;
   notes: string;
+  /**
+   * Whether the block is bypassed by default. Used for multi-drive
+   * stacks where 2-3 drive options live in the chain and the user
+   * stomps the one they want. Undefined = enabled (default behavior).
+   */
+  enabled?: boolean;
 }
 
 export interface PlatformTranslation {
