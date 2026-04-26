@@ -2,6 +2,15 @@ import type { PlatformTranslation } from "@/types/recipe";
 import { resolveModelId, scaleParamValue, normalizeParamName } from "./model-map";
 
 /**
+ * Param keys (post-normalization) that must be emitted as JSON booleans
+ * rather than 0/1 numbers. Verified against real Helix exports.
+ */
+const BOOLEAN_PARAMS = new Set([
+  "TempoSync1", "TempoSync2",
+  "Voltage", "VolumeTaper",
+]);
+
+/**
  * Map block_category to Helix @type integer.
  *
  * - amps use @type: 1
@@ -163,11 +172,17 @@ export function generateHelixPreset(
 
     for (const [key, value] of Object.entries(block.settings)) {
       const paramKey = normalizeParamName(key);
+      // Pass actual boolean values verbatim — Voltage, VolumeTaper,
+      // TempoSync* are stored as JSON booleans in real .hlx files.
+      // (Without this, scaleParamValue would coerce false → 0.)
+      if (typeof value === "boolean") {
+        entry[paramKey] = value;
+        continue;
+      }
       const scaledValue = scaleParamValue(key, value);
-      // Booleans (TempoSync1 etc) come through scaleParamValue as 0/1
-      // but should land in the .hlx as proper JSON booleans for
-      // params we know are boolean-typed.
-      if (paramKey === "TempoSync1" || paramKey === "TempoSync2") {
+      // Booleans coming through as 0/1 strings or numbers — coerce
+      // back when the param key is known to be boolean-typed.
+      if (BOOLEAN_PARAMS.has(paramKey)) {
         entry[paramKey] = scaledValue >= 0.5;
       } else {
         entry[paramKey] = parseFloat(scaledValue.toFixed(6));

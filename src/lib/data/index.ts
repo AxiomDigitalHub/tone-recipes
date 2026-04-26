@@ -2827,9 +2827,9 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Volume Pedal",
             block_category: "Volume/Pan",
             original_gear: "Volume pedal",
-            settings: { "Pedal Position": 1.0, Min: 0.0, Taper: 0.5 },
+            settings: { Pedal: 1.0, VolumeTaper: false },
             notes:
-              "Assigned to EXP 1. Gilmour rides the volume pedal constantly — heel-down for swells into the solo, full-up while sustaining. Linear taper.",
+              "Assigned to EXP 1. Gilmour rides the volume pedal constantly — heel-down for swells into the solo, full-up while sustaining. Linear taper (VolumeTaper=false).",
           },
           {
             position: 2,
@@ -2856,19 +2856,19 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "Distortion",
             original_gear: "Colorsound Power Boost",
             enabled: false,
-            settings: { Drive: 0.55, Bass: 0.50, Treble: 0.55, Level: 0.65 },
+            settings: { Gain: 0.55, Tone: 0.55, Level: 0.65, Presence: 0.50, Clipping: 0, GainMod: 1, Voltage: false },
             notes:
-              "ALTERNATE drive (off by default — stomp to swap). Gilmour also used a Colorsound Power Boost for the verses and for the Animals/Division Bell era. Less wooly than the Muff, more articulate — useful when the Muff is too thick for the song.",
+              "ALTERNATE drive (off by default — stomp to swap). Gilmour also used a Colorsound Power Boost for the verses and for the Animals/Division Bell era. Less wooly than the Muff, more articulate — useful when the Muff is too thick for the song. Clipping=0 / GainMod=1 / Voltage=false are the default Helix mode switches; toggle in HX Edit to taste.",
           },
           {
             position: 5,
-            block_name: "Tube Drive",
+            block_name: "Scream 808",
             block_category: "Distortion",
-            original_gear: "BK Butler Tube Driver",
+            original_gear: "Ibanez TS808 Tube Screamer",
             enabled: false,
-            settings: { Drive: 0.55, Low: 0.45, Mid: 0.55, High: 0.55, Level: 0.65 },
+            settings: { Gain: 0.45, Tone: 0.55, Level: 0.65 },
             notes:
-              "ALTERNATE drive (off by default). Gilmour switched to a Tube Driver from Pulse onwards for the Comfortably Numb live solo — more transparent than the Muff and lets the Strat's character through. Stack on top of the Muff for the absolute biggest version of the tone.",
+              "ALTERNATE drive (off by default). A TS808 in front of the Hiwatt acts as a transparent boost / tightener — useful for tighter rhythm sections of the song or as a clean lift before the solo's main Muff push. Replaces the Tube Driver block from earlier drafts because the TS808 model ID is verified and the Tube Driver isn't yet.",
           },
           {
             position: 6,

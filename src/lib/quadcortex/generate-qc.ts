@@ -5,7 +5,8 @@ import { resolveQCModel, categoryToQCType } from "./model-map";
  * Parse a setting value to a numeric value suitable for QC presets.
  * QC uses raw parameter values (0-10 for knobs, 0-100 for mix, etc.)
  */
-function parseParamValue(value: string | number): number {
+function parseParamValue(value: string | number | boolean): number {
+  if (typeof value === "boolean") return value ? 1 : 0;
   if (typeof value === "number") return value;
 
   if (value.endsWith("%")) {
@@ -24,7 +25,7 @@ function parseParamValue(value: string | number): number {
 function buildQCBlock(
   blockName: string,
   category: string,
-  settings: Record<string, string | number>,
+  settings: Record<string, string | number | boolean>,
   position: number,
   enabled: boolean,
 ): Record<string, unknown> {

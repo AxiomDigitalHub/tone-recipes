@@ -9,8 +9,10 @@ import {
 /**
  * Parse a setting value to a 0-100 integer range for TSL parameters.
  */
-function parseParamToTSL(key: string, value: string | number): number {
+function parseParamToTSL(key: string, value: string | number | boolean): number {
   const lower = key.toLowerCase();
+
+  if (typeof value === "boolean") return value ? 100 : 0;
 
   let num: number;
   if (typeof value === "string") {
@@ -61,7 +63,7 @@ function escapeXml(str: string): string {
 function buildEffectXml(
   slotName: string,
   blockName: string,
-  settings: Record<string, string | number>,
+  settings: Record<string, string | number | boolean>,
   enabled: boolean,
 ): string {
   const effect = resolveKatanaEffect(blockName);

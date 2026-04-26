@@ -1010,7 +1010,7 @@ export default function NewRecipePage() {
                     />
                     <input
                       className={inputCls + " w-32"}
-                      value={val}
+                      value={typeof val === "boolean" ? String(val) : val}
                       onChange={(e) => {
                         const v = e.target.value;
                         updateNodeSetting(

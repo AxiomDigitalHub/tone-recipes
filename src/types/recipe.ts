@@ -21,7 +21,7 @@ export interface SignalChainNode {
   icon_type: string;
   icon_color: string;
   is_in_effects_loop: boolean;
-  settings: Record<string, string | number>;
+  settings: Record<string, string | number | boolean>;
   notes: string;
 }
 
@@ -39,7 +39,7 @@ export interface PlatformBlock {
   block_name: string;
   block_category: string;
   original_gear: string;
-  settings: Record<string, string | number>;
+  settings: Record<string, string | number | boolean>;
   notes: string;
   /**
    * Whether the block is bypassed by default. Used for multi-drive

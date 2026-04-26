@@ -4,7 +4,7 @@
       "name": "Slash's Sweet Child O' Mine Lead",
       "application": "HX Edit",
       "build_sha": "39f7f9a",
-      "modifieddate": 1777223716,
+      "modifieddate": 1777224140,
       "appversion": 58785792
     },
     "device": 2162692,
@@ -135,7 +135,8 @@
             "block0": true,
             "block1": true,
             "block2": true,
-            "block3": true
+            "block3": true,
+            "block4": true
           }
         },
         "controllers": {}
@@ -245,8 +246,18 @@
           "Level": 0
         },
         "block0": {
-          "@model": "HD2_CompressorDeluxeComp",
+          "@model": "HD2_VolPanVol",
           "@position": 0,
+          "@enabled": true,
+          "@path": 0,
+          "@type": 0,
+          "@no_snapshot_bypass": false,
+          "@stereo": false,
+          "PedalPosition": 1
+        },
+        "block1": {
+          "@model": "HD2_CompressorDeluxeComp",
+          "@position": 1,
           "@enabled": true,
           "@path": 0,
           "@type": 0,
@@ -260,9 +271,9 @@
           "Mix": 0.74,
           "Level": 0
         },
-        "block1": {
+        "block2": {
           "@model": "HD2_AmpBrit2204",
-          "@position": 1,
+          "@position": 2,
           "@enabled": true,
           "@path": 0,
           "@type": 1,
@@ -281,9 +292,9 @@
           "Hum": 0.5,
           "BiasX": 0.5
         },
-        "block2": {
+        "block3": {
           "@model": "HD2_Cab4x12Greenback25",
-          "@position": 2,
+          "@position": 3,
           "@enabled": true,
           "@path": 0,
           "@type": 2,
@@ -298,9 +309,9 @@
           "Level": 0,
           "Delay": 0
         },
-        "block3": {
+        "block4": {
           "@model": "HD2_ReverbPlate",
-          "@position": 3,
+          "@position": 4,
           "@enabled": true,
           "@path": 0,
           "@type": 7,

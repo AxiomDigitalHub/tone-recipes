@@ -49,12 +49,13 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "Kinky Boost": "HD2_DistKinkyBoost",
   "Distortion+": "HD2_DistStuporOD",
   "Deluxe Comp": "HD2_CompressorDeluxeComp",
-  // NOTE: model IDs for Heir Apparent, Tube Drive, Industrial Fuzz, and
-  // Volume Pedal are not yet verified against ground-truth Helix files.
-  // Until they are, leave them out — fallback to HD2_DistMinotaur is a
-  // known-loadable substitution. Adding a wrong ID here breaks loading
-  // entirely (HX Edit rejects the preset). To re-enable: capture a real
-  // Helix preset that contains the block, copy the @model verbatim.
+  // ── Verified from real HX Edit exports ───────────────────────────────
+  // Captured from a user export 2026-04-26. Block-specific param shapes:
+  // - Volume Pedal: { Pedal: 0-1, VolumeTaper: boolean }
+  // - Heir Apparent: { Gain, Tone, Level, Presence, Clipping: int,
+  //   GainMod: int, Voltage: boolean }
+  "Volume Pedal": "HD2_VolPanVol",
+  "Heir Apparent": "HD2_DistHeirApparent",
 
   // ── Modulation ────────────────────────────────────────────────────────
   "70s Chorus": "HD2_Chorus70sChorus",
@@ -259,7 +260,7 @@ const RAW_UNIT_PARAMS = new Set([
   "distance", "delay",
   // Discrete model selectors
   "headcaseselect", "syncselect", "syncselect1", "syncselect2",
-  "mode", "speaker", "type", "clipping",
+  "mode", "speaker", "type", "clipping", "gainmod",
   // Tempo / BPM
   "tempo", "bpm",
 ]);
@@ -382,6 +383,13 @@ const PARAM_NAME_MAP: Record<string, string> = {
   "pedal position": "PedalPosition",
   "roomsize": "RoomSize",
   "bassfreq": "BassFreq",
+  // Volume Pedal + Heir Apparent params (verified 2026-04-26)
+  "pedal": "Pedal",
+  "volumetaper": "VolumeTaper",
+  "voltage": "Voltage",
+  "gainmod": "GainMod",
+  "clipping": "Clipping",
+  "presence": "Presence",
 };
 
 /**
