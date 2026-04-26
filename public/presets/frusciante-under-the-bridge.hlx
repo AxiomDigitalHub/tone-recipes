@@ -4,7 +4,7 @@
       "name": "Frusciante's Under the Bridge Cl",
       "application": "HX Edit",
       "build_sha": "39f7f9a",
-      "modifieddate": 1777224140,
+      "modifieddate": 1777225317,
       "appversion": 58785792
     },
     "device": 2162692,
@@ -332,9 +332,9 @@
           "@no_snapshot_bypass": false,
           "@stereo": false,
           "@trails": true,
-          "Decay": 0.15,
+          "Decay": 1.5,
           "Mix": 0.2,
-          "Predelay": 1,
+          "PreDelay": 1,
           "LowCut": 125,
           "HighCut": 6500
         }

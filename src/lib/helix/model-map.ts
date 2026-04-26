@@ -135,6 +135,14 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "Glitz": "HD2_ReverbGlitz",
   "Plate": "HD2_ReverbPlate",
   "Spring": "HD2_ReverbSpring",
+  // VIC_ namespace = newer-firmware reverb models. DynPlate is the
+  // current-gen Plate algorithm (verified from a 2026-04-26 export).
+  // Param shape: BassFreq (Hz), PreDelay (s), LowCut (Hz), VarDelayAmpl
+  // (0-1), Damping (Hz), MatrFreq (0-1), Mix (0-1), BassBoost (0-1),
+  // Level (dB), Decay (seconds — NOT 0-1 like HD2_ReverbPlate),
+  // HighCut (Hz).
+  "DynPlate": "VIC_DynPlate",
+  "Dynamic Plate": "VIC_DynPlate",
 
   // ── Additional Wah ───────────────────────────────────────────────────
   "Teardrop 310": "HD2_WahTeardrop310",
@@ -251,7 +259,7 @@ export function categoryToPrefix(category: string): string {
  */
 const RAW_UNIT_PARAMS = new Set([
   // Frequency cuts (Hz)
-  "lowcut", "highcut",
+  "lowcut", "highcut", "bassfreq", "damping",
   // Compressor real-unit params
   "ratio", "knee",
   // Discrete mic indices (single-mic format only — MicA/MicB are deprecated)
@@ -261,6 +269,10 @@ const RAW_UNIT_PARAMS = new Set([
   // Discrete model selectors
   "headcaseselect", "syncselect", "syncselect1", "syncselect2",
   "mode", "speaker", "type", "clipping", "gainmod",
+  // Reverb decay — context-dependent: HD2_ReverbPlate uses 0-1, the
+  // newer VIC_DynPlate uses seconds (e.g. 2.0). Pass-through handles
+  // both because 0-1 floats survive the pass-through unchanged.
+  "decay",
   // Tempo / BPM
   "tempo", "bpm",
 ]);
@@ -371,8 +383,8 @@ const PARAM_NAME_MAP: Record<string, string> = {
   "low cut": "LowCut",
   "highcut": "HighCut",
   "high cut": "HighCut",
-  "predelay": "Predelay",
-  "pre delay": "Predelay",
+  "predelay": "PreDelay",
+  "pre delay": "PreDelay",
   "temposync1": "TempoSync1",
   "temposync2": "TempoSync2",
   "syncselect1": "SyncSelect1",
