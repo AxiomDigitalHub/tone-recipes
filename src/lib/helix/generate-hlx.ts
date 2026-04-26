@@ -235,11 +235,15 @@ export function generateHelixPreset(
         // 32nd char of the input happens to be a word boundary.
         name: presetName.slice(0, 32).trim(),
         application: "HX Edit",
-        build_sha: "39f7f9a",
+        // build_sha + appversion captured from a real HX Edit export
+        // 2026-04-26. Older values caused HX Edit to refuse to open
+        // the preset on Helix LT — this is the firmware version the
+        // user's HX Edit is currently running.
+        build_sha: "7d01f5e",
         modifieddate: Math.floor(Date.now() / 1000),
-        appversion: 58785792, // fw 3.129 — matches Helix LT 3.80
+        appversion: 58851328,
       },
-      device: 2162692,
+      device: 2162692, // Helix LT
       tone: {
         variax: {
           "@model": "@variax",
@@ -288,6 +292,12 @@ export function generateHelixPreset(
         snapshot5: makeSnapshot("SNAPSHOT 6", 5),
         snapshot6: makeSnapshot("SNAPSHOT 7", 6),
         snapshot7: makeSnapshot("SNAPSHOT 8", 7),
+        // controller + footswitch are required top-level keys per a
+        // verified HX Edit export. Empty objects mean "no expression
+        // pedal or footswitch label assignments" — HX Edit accepts
+        // this and lets the user assign them after import.
+        controller: {},
+        footswitch: {},
         dsp0,
         dsp1: makeDspInfrastructure(false),
       },

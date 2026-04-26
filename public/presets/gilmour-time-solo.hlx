@@ -3,9 +3,9 @@
     "meta": {
       "name": "David Gilmour's Time Solo Lead T",
       "application": "HX Edit",
-      "build_sha": "39f7f9a",
-      "modifieddate": 1777226049,
-      "appversion": 58785792
+      "build_sha": "7d01f5e",
+      "modifieddate": 1777226634,
+      "appversion": 58851328
     },
     "device": 2162692,
     "tone": {
@@ -201,6 +201,8 @@
         "@ledcolor": 0,
         "@custom_name": false
       },
+      "controller": {},
+      "footswitch": {},
       "dsp0": {
         "inputA": {
           "@input": 1,
