@@ -268,11 +268,24 @@ export function generateHelixPreset(
       dsp0Slots.push({ block, modelId, position });
     }
 
-    // Everything after the boundary lives on dsp1 starting at @position 0
+    // dsp1 mirrors dsp0's left/right visual balance: the LAST two
+    // blocks pin to positions 6 and 7 (end of DSP), all other blocks
+    // fill from @position 0 forwards. With 3 blocks (the typical
+    // delay → reverb → final-EQ shape), this puts delay at @position 0,
+    // reverb at @position 6, EQ at @position 7 — matching the
+    // hand-built layout from the 2026-04-26 user export.
     const postBoundary = chainAfterCabPull.slice(splitBoundary + 1);
     for (let i = 0; i < postBoundary.length; i++) {
       const { block, modelId } = postBoundary[i];
-      dsp1Slots.push({ block, modelId, position: i });
+      let position: number;
+      if (i === postBoundary.length - 1) {
+        position = 7; // last block always at the very end
+      } else if (i === postBoundary.length - 2) {
+        position = 6; // second-to-last right before it
+      } else {
+        position = i; // earlier blocks fill from the front
+      }
+      dsp1Slots.push({ block, modelId, position });
     }
   } else {
     // Single-DSP linear chain — fits within 8 positions

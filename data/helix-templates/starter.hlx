@@ -4,7 +4,7 @@
       "name": "Helix Starter Template",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
-      "modifieddate": 1777236516,
+      "modifieddate": 1777238172,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -389,7 +389,7 @@
         },
         "block1": {
           "@model": "VIC_ReverbDynRoom",
-          "@position": 1,
+          "@position": 6,
           "@enabled": true,
           "@path": 0,
           "@type": 7,
@@ -411,7 +411,7 @@
         },
         "block2": {
           "@model": "HD2_EQSimpleTilt",
-          "@position": 2,
+          "@position": 7,
           "@enabled": true,
           "@path": 0,
           "@type": 0,

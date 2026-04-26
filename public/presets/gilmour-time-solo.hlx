@@ -4,7 +4,7 @@
       "name": "David Gilmour's Time Solo Lead T",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
-      "modifieddate": 1777236522,
+      "modifieddate": 1777238180,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -404,7 +404,7 @@
         },
         "block0": {
           "@model": "HD2_DelayTransistorTape",
-          "@position": 0,
+          "@position": 6,
           "@enabled": true,
           "@path": 0,
           "@type": 7,
@@ -424,7 +424,7 @@
         },
         "block1": {
           "@model": "VIC_DynPlate",
-          "@position": 1,
+          "@position": 7,
           "@enabled": true,
           "@path": 0,
           "@type": 7,
