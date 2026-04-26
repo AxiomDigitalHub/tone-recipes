@@ -6,19 +6,38 @@ import { getWriter } from "./writers";
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
+/** Optional Q&A pair, used for the article FAQ block + FAQPage schema. */
+export interface BlogFaq {
+  q: string;
+  a: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
   description: string;
-  date: string; // ISO date
+  date: string; // ISO date — first publish
+  updated?: string; // ISO date — last meaningful edit (optional)
   author: string; // display name (legacy field, kept for compatibility)
   authorSlug: string; // writer slug for looking up full writer profile
   category: string; // "signal-chain" | "platform-guide" | "artist-tone" | "gear" | "effects" | "workflow"
   tags: string[];
   readingTime: string; // "8 min read"
+  wordCount: number;
   featured?: boolean;
   image?: string; // hero image URL (Unsplash)
   imageAlt?: string; // alt text for hero image
+  /**
+   * AEO-friendly 3–5-bullet summary. Rendered as a boxed "Key takeaways"
+   * list above the body so answer engines have a pre-chunked summary to
+   * quote from. Optional — posts without this still render cleanly.
+   */
+  takeaways?: string[];
+  /**
+   * Q&A pairs rendered at the bottom of the post and emitted as
+   * FAQPage JSON-LD. Drives AI-overview citations.
+   */
+  faq?: BlogFaq[];
 }
 
 export interface BlogPostWithContent extends BlogPost {
@@ -58,14 +77,20 @@ export function getPostBySlug(slug: string): BlogPostWithContent | null {
     title: data.title ?? "",
     description: data.description ?? "",
     date: data.date ?? "",
+    updated: data.updated ?? undefined,
     author: authorName,
     authorSlug: authorSlug || "fader-and-knob",
     category: data.category ?? "",
     tags: data.tags ?? [],
     readingTime: stats.text,
+    wordCount: stats.words,
     featured: data.featured ?? false,
     image: data.image ?? undefined,
     imageAlt: data.image_alt ?? undefined,
+    takeaways: Array.isArray(data.takeaways) ? data.takeaways : undefined,
+    faq: Array.isArray(data.faq)
+      ? (data.faq as BlogFaq[]).filter((f) => f && f.q && f.a)
+      : undefined,
     content,
   };
 }
@@ -94,6 +119,37 @@ export function getAllPosts(): BlogPost[] {
   });
 
   return posts;
+}
+
+/**
+ * Permanent call-number map — every post gets a zero-padded 3-digit
+ * ordinal assigned by publish date (oldest = "001", newest = the total
+ * count). Stable across the site so a post always carries the same
+ * number on the index, in the ledger, and on its detail page.
+ *
+ * Memoised so repeated callers don't rescan the filesystem or resort.
+ * Next.js module scope is per-request during SSR, which is fine for
+ * our usage — this is a cheap computation either way.
+ */
+let _callNumberCache: Map<string, string> | null = null;
+export function getCallNumbers(): Map<string, string> {
+  if (_callNumberCache) return _callNumberCache;
+  const all = getAllPosts();
+  // getAllPosts() returns newest → oldest; reverse for chronological.
+  const chronological = [...all].sort(
+    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+  );
+  const map = new Map<string, string>();
+  chronological.forEach((p, i) => {
+    map.set(p.slug, String(i + 1).padStart(3, "0"));
+  });
+  _callNumberCache = map;
+  return map;
+}
+
+/** Convenience — returns "001" for a given slug, or "000" if not found. */
+export function getCallNumber(slug: string): string {
+  return getCallNumbers().get(slug) ?? "000";
 }
 
 /** All valid categories with display labels */

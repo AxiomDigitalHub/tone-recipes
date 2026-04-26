@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { toneRecipes, artists } from "@/lib/data";
 import "./preview.css";
 
 /**
@@ -20,6 +21,14 @@ export const metadata = {
 };
 
 export default function PreviewLayout({ children }: { children: ReactNode }) {
+  const recipeCount = toneRecipes.length;
+  const playerCount = artists.length;
+  const issue = new Date("2026-04-18");
+  const monthYear = issue.toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+  });
+
   return (
     <div className="fk-preview">
       {/* Preview banner — always visible so nobody confuses this with prod */}
@@ -38,6 +47,23 @@ export default function PreviewLayout({ children }: { children: ReactNode }) {
           </Link>
         </div>
       </div>
+
+      {/* Masthead bar — v2 editorial chrome */}
+      <div className="masthead-bar">
+        <div className="masthead-bar-inner">
+          <div>
+            <span className="tape-dot" />
+            Vol. 04 · Issue 14 · {monthYear.toUpperCase()}
+            <span className="sep">/</span>
+            {recipeCount.toLocaleString()} recipes
+            <span className="sep">/</span>
+            {playerCount} players
+            <span className="sep">/</span>7 platforms
+          </div>
+          <div>Made for the basement · The garage · The tour bus</div>
+        </div>
+      </div>
+
       {children}
     </div>
   );

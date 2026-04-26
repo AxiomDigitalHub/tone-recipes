@@ -7,10 +7,7 @@ import {
   getArtistBySlug,
 } from "@/lib/data";
 import { recipeToBlocks } from "../../_components/recipe-to-blocks";
-import {
-  PreviewSignalChain,
-  PreviewBlockDetail,
-} from "../../_components/PreviewBlocks";
+import { PreviewRecipeClient } from "../../_components/PreviewRecipeClient";
 import type { Metadata } from "next";
 
 /**
@@ -78,11 +75,6 @@ export default async function PreviewRecipePage({
   const activePlatform = PLATFORMS.find((p) => p.id === platform);
 
   const blocks = recipeToBlocks(recipe, platform);
-
-  // Only show "gear" blocks in the per-block settings grid — skip source + cab
-  const detailBlocks = blocks.filter(
-    (b) => b.variant === "pedal" || b.variant === "amp",
-  );
 
   const recipeIdx =
     toneRecipes.findIndex((r) => r.slug === recipe.slug) + 1;
@@ -175,16 +167,12 @@ export default async function PreviewRecipePage({
           </button>
         </div>
 
-        {/* Signal chain — the hero block */}
-        <div className="recipe-chain-wrap">
-          <div className="recipe-chain-header">
-            <span>
-              Signal path · input → output · {blocks.length} blocks
-            </span>
-            <span>Live values · {activePlatform?.name ?? platform}</span>
-          </div>
-          <PreviewSignalChain blocks={blocks} />
-        </div>
+        {/* Interactive schematic + sticky detail panel. Click a tile,
+            the detail swaps in place (no scroll). */}
+        <PreviewRecipeClient
+          blocks={blocks}
+          platformLabel={activePlatform?.name ?? platform}
+        />
 
         {/* Engineer's note — editorial voice block. Uses the recipe description
             as a proxy until we get real per-recipe engineer notes. */}
@@ -212,24 +200,6 @@ export default async function PreviewRecipePage({
               )}
             </div>
           </div>
-        )}
-
-        {/* Per-block settings — the "broken out" grid */}
-        {detailBlocks.length > 0 && (
-          <>
-            <div className="settings-section-head">
-              <span className="kicker">
-                Per-block settings · {activePlatform?.name ?? platform}
-              </span>
-              <h3 className="display">The numbers, broken out.</h3>
-            </div>
-
-            <div className="block-detail-grid">
-              {detailBlocks.map((b, i) => (
-                <PreviewBlockDetail key={`${b.name}-${i}`} block={b} />
-              ))}
-            </div>
-          </>
         )}
 
         {/* Related recipes */}

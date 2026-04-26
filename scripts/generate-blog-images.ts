@@ -1,7 +1,7 @@
 /**
  * Generate AI hero images for blog posts using the moodboard system.
  *
- * Usage: npx tsx scripts/generate-blog-images.ts [--dry-run] [--slug=some-post]
+ * Usage: npx tsx scripts/generate-blog-images.ts [--dry-run] [--slug=some-post] [--provider=replicate]
  *
  * How it works:
  * 1. Scans content/blog/*.mdx for posts missing a local hero image
@@ -10,37 +10,50 @@
  * 3. Fills the moodboard's prompt_template with a subject derived
  *    from the post title (or from SUBJECT_OVERRIDES if one exists)
  * 4. Calls Replicate (Flux 2 Pro by default, Nano Banana Pro for
- *    editorial_white) to generate the image
+ *    editorial_white) OR OpenAI (gpt-image-2) to generate the image
  * 5. Saves to public/images/blog/<slug>.jpg and updates frontmatter
  *
- * Cost: ~$0.055/image (Flux 2 Pro). A full run of 50 missing images
- * costs ~$2.75. Budget accordingly.
+ * Cost:
+ *   OpenAI gpt-image-2 (default): ~$0.04/image — logged per image after generation
+ *   Replicate Flux 2 Pro:         ~$0.055/image (use --provider=replicate)
  *
  * Environment:
- *   REPLICATE_API_TOKEN — required
- *   FK_MODEL — optional override (e.g. google/nano-banana-pro)
+ *   OPENAI_API_KEY      — required (default provider)
+ *   REPLICATE_API_TOKEN — required for --provider=replicate
+ *   FK_MODEL            — optional Replicate model override
  */
 
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
+// Load .env.local so the script works without pre-exporting vars in the shell
+const envPath = path.join(process.cwd(), ".env.local");
+if (fs.existsSync(envPath)) {
+  for (const line of fs.readFileSync(envPath, "utf-8").split("\n")) {
+    const match = line.match(/^([^#=\s][^=]*)=(.*)$/);
+    if (match) {
+      const [, key, value] = match;
+      if (!process.env[key]) process.env[key] = value.replace(/^["']|["']$/g, "");
+    }
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /*  Config                                                                     */
 /* -------------------------------------------------------------------------- */
 
 const API_TOKEN = process.env.REPLICATE_API_TOKEN;
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const DEFAULT_MODEL = process.env.FK_MODEL ?? "black-forest-labs/flux-2-pro";
-const EDITORIAL_WHITE_MODEL = "google/nano-banana-pro"; // Flux trips safety on white bg
+const OPENAI_IMAGE_MODEL = "gpt-image-2";
+const OPENAI_IMAGE_SIZE = "1536x1024"; // 16:9 landscape
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 const IMAGE_DIR = path.join(process.cwd(), "public", "images", "blog");
 const MOODBOARDS_PATH = path.join(process.cwd(), "scripts", "moodboards.json");
 
-if (!API_TOKEN) {
-  console.error("❌ REPLICATE_API_TOKEN not set. Export it or add to .env.local");
-  process.exit(1);
-}
+// Provider is validated at runtime in main() once we know which flag was passed
 
 /* -------------------------------------------------------------------------- */
 /*  Load moodboards + build author→mood map                                    */
@@ -92,6 +105,7 @@ const SUBJECT_OVERRIDES: Record<string, string> = {
   "signal-chain-order-guide": "guitar effects pedals arranged in a signal chain on a pedalboard",
   "overdrive-vs-distortion-vs-fuzz": "three guitar drive pedals side by side showing different gain types",
   "complete-guide-guitar-amp-types": "four different guitar amplifier types arranged together in a studio",
+  "solid-state-amps-2026": "a Roland JC-120 Jazz Chorus combo amplifier and Boss Katana combo, two solid-state amps side by side on a clean white surface",
 };
 
 /**
@@ -100,7 +114,7 @@ const SUBJECT_OVERRIDES: Record<string, string> = {
  */
 function subjectFromTitle(title: string): string {
   const cleaned = title
-    .replace(/\s*[-—:]\s*.+$/, "") // drop subtitle after dash/colon
+    .replace(/\s+[-—:]\s+.+$/, "") // drop subtitle after spaced dash/colon
     .replace(/\s*\(.*?\)\s*/g, "") // drop parentheticals
     .trim();
   return `a composition illustrating "${cleaned}"`;
@@ -182,6 +196,60 @@ async function downloadImage(url: string, filepath: string): Promise<void> {
 }
 
 /* -------------------------------------------------------------------------- */
+/*  OpenAI gpt-image-2 generator                                              */
+/* -------------------------------------------------------------------------- */
+
+interface OpenAIImageUsage {
+  input_tokens: number;
+  output_tokens: number;
+  total_tokens: number;
+}
+
+async function generateImageOpenAI(
+  prompt: string,
+  filepath: string
+): Promise<{ usage: OpenAIImageUsage }> {
+  const res = await fetch("https://api.openai.com/v1/images/generations", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${OPENAI_API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: OPENAI_IMAGE_MODEL,
+      prompt,
+      size: OPENAI_IMAGE_SIZE,
+      quality: "medium",
+      output_format: "jpeg",
+      n: 1,
+    }),
+  });
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ error: res.statusText }));
+    throw new Error(`OpenAI API error ${res.status}: ${JSON.stringify(err)}`);
+  }
+
+  const body = await res.json();
+  const b64 = body.data?.[0]?.b64_json;
+  if (!b64) throw new Error("No b64_json in OpenAI response");
+
+  fs.writeFileSync(filepath, Buffer.from(b64, "base64"));
+
+  const usage: OpenAIImageUsage = body.usage ?? {
+    input_tokens: 0,
+    output_tokens: 0,
+    total_tokens: 0,
+  };
+  return { usage };
+}
+
+function openAICost(usage: OpenAIImageUsage): number {
+  // $5/M text input tokens + $30/M image output tokens
+  return (usage.input_tokens * 5 + usage.output_tokens * 30) / 1_000_000;
+}
+
+/* -------------------------------------------------------------------------- */
 /*  Main                                                                       */
 /* -------------------------------------------------------------------------- */
 
@@ -189,6 +257,23 @@ async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes("--dry-run");
   const singleSlug = args.find((a) => a.startsWith("--slug="))?.split("=")[1];
+  const provider = (args.find((a) => a.startsWith("--provider="))?.split("=")[1] ?? "openai") as "replicate" | "openai";
+  const moodOverride = args.find((a) => a.startsWith("--mood="))?.split("=")[1];
+
+  // Validate credentials for chosen provider
+  if (provider === "openai") {
+    if (!OPENAI_API_KEY) {
+      console.error("❌ OPENAI_API_KEY not set. Add it to .env.local");
+      process.exit(1);
+    }
+    console.log(`Provider: OpenAI ${OPENAI_IMAGE_MODEL} (${OPENAI_IMAGE_SIZE}, medium quality)`);
+  } else {
+    if (!API_TOKEN) {
+      console.error("❌ REPLICATE_API_TOKEN not set. Add it to .env.local");
+      process.exit(1);
+    }
+    console.log(`Provider: Replicate (${DEFAULT_MODEL})`);
+  }
 
   // Ensure output directory exists
   if (!fs.existsSync(IMAGE_DIR)) {
@@ -201,6 +286,7 @@ async function main() {
   let generated = 0;
   let skipped = 0;
   let errors = 0;
+  let totalOpenAICost = 0;
 
   for (const file of files) {
     const slug = file.replace(/\.mdx$/, "");
@@ -220,9 +306,9 @@ async function main() {
     const raw = fs.readFileSync(mdxPath, "utf-8");
     const { data, content } = matter(raw);
 
-    // Look up moodboard from author_slug
+    // Look up moodboard from author_slug (--mood flag overrides)
     const authorSlug: string = data.author_slug ?? "";
-    const moodKey = AUTHOR_TO_MOOD[authorSlug] ?? "nocturnal_studio";
+    const moodKey = moodOverride ?? AUTHOR_TO_MOOD[authorSlug] ?? "nocturnal_studio";
     const mood = moodboards[moodKey];
 
     if (!mood?.prompt_template) {
@@ -237,12 +323,12 @@ async function main() {
     // Fill the template
     const prompt = mood.prompt_template.replace(/SUBJECT_PLACEHOLDER/g, subject);
 
-    // Pick the model (editorial_white → Nano Banana, everything else → Flux 2 Pro)
-    const model = moodKey === "editorial_white" ? EDITORIAL_WHITE_MODEL : DEFAULT_MODEL;
+    // Pick the Replicate model (only used when provider=replicate)
+    const model = DEFAULT_MODEL;
 
     console.log(`[gen] ${slug}`);
-    console.log(`  Author: ${authorSlug || "(none)"} → mood: ${moodKey}`);
-    console.log(`  Model: ${model}`);
+    console.log(`  Author: ${authorSlug || "(none)"} → mood: ${moodKey}${moodOverride ? " (override)" : ""}`);
+    if (provider === "replicate") console.log(`  Model: ${model}`);
     console.log(`  Subject: ${subject.substring(0, 60)}...`);
 
     if (dryRun) {
@@ -252,10 +338,19 @@ async function main() {
     }
 
     try {
-      const imageUrl = await generateImage(prompt, model);
-      await downloadImage(imageUrl, imagePath);
-      const size = (fs.statSync(imagePath).size / 1024).toFixed(0);
-      console.log(`  ✓ Saved: ${imagePath} (${size}KB)`);
+      if (provider === "openai") {
+        const { usage } = await generateImageOpenAI(prompt, imagePath);
+        const size = (fs.statSync(imagePath).size / 1024).toFixed(0);
+        const cost = openAICost(usage);
+        console.log(`  ✓ Saved: ${imagePath} (${size}KB)`);
+        console.log(`  Usage: ${usage.input_tokens} in / ${usage.output_tokens} out — $${cost.toFixed(4)}`);
+        totalOpenAICost += cost;
+      } else {
+        const imageUrl = await generateImage(prompt, model);
+        await downloadImage(imageUrl, imagePath);
+        const size = (fs.statSync(imagePath).size / 1024).toFixed(0);
+        console.log(`  ✓ Saved: ${imagePath} (${size}KB)`);
+      }
 
       // Update frontmatter to point to local image
       data.image = `/images/blog/${slug}.jpg`;
@@ -272,7 +367,11 @@ async function main() {
 
   console.log(`\n${"=".repeat(50)}`);
   console.log(`Done! Generated: ${generated}, Skipped: ${skipped}, Errors: ${errors}`);
-  console.log(`Estimated cost: ~$${(generated * 0.055).toFixed(2)}`);
+  if (provider === "openai") {
+    console.log(`Actual cost (OpenAI): $${totalOpenAICost.toFixed(4)}`);
+  } else {
+    console.log(`Estimated cost (Replicate): ~$${(generated * 0.055).toFixed(2)}`);
+  }
 }
 
 main().catch(console.error);

@@ -15,53 +15,43 @@ import type { ToneRecipe, PlatformTranslation, Platform } from "@/types/recipe";
 import type { PreviewBlockData } from "./PreviewBlocks";
 import { lookupParam } from "@/lib/parameters/registry";
 
-const PEDAL_COLOR_BY_GEAR: Record<string, PreviewBlockData["color"]> = {
-  "Ibanez TS808": "green",
-  "Ibanez Tube Screamer": "green",
-  "Electro-Harmonix Big Muff Pi": "black",
-  "Big Muff": "black",
-  "Dallas-Arbiter Fuzz Face": "red",
-  "Fuzz Face": "red",
-  "Boss DS-1": "orange",
-  "Boss BD-2": "blue",
-  "Blues Driver": "blue",
-  "Klon Centaur": "cream",
-  Klon: "cream",
-  "ProCo RAT": "black",
-  RAT: "black",
-  "MXR Digital Delay": "silver",
-  "Boss DD-3": "silver",
-  "Strymon Timeline": "silver",
-  "Electro-Harmonix Electric Mistress": "purple",
-  Tonebender: "cream",
-  "Dunlop Cry Baby": "black",
-  "Cry Baby": "black",
-};
+/** Helix-convention color map — effect TYPE drives the color, not the
+ *  individual gear. Every drive is yellow, every comp is teal, every
+ *  delay is green, etc. Matches how Line 6 HX Edit color-codes the
+ *  signal path in the hardware editor.
+ *
+ *  Loose keyword matching — categories arrive inconsistently from the
+ *  data (e.g. "Drive" vs "Overdrive" vs "Distortion"), so we normalize
+ *  and match against a stable set of category buckets. */
+const HELIX_CATEGORY_COLOR: Array<[RegExp, PreviewBlockData["color"]]> = [
+  [/amp|preamp|head/i, "red"],
+  [/cab(inet)?|mic|\bir\b|impulse/i, "magenta"],
+  [/comp(ressor)?|dynamic/i, "teal"],
+  [/wah|filter|auto\s*wah|envelope/i, "teal"],
+  [/\beq\b|graphic|parametric|tone\s*block/i, "orange"],
+  [/dist(ortion)?|overdriv|drive|fuzz|boost|booster|screamer|klon|rat|muff/i, "yellow"],
+  [/delay|echo/i, "green"],
+  [/reverb|hall|plate|spring|room|verb/i, "blue"],
+  [/mod(ulation)?|chorus|flang|phase|trem|vibe|rotary|leslie/i, "purple"],
+  [/pitch|octav|whammy|harmon|synth/i, "magenta"],
+  [/volume|expression|pan|gain\s*block|utility/i, "silver"],
+];
 
-const COLOR_BY_CATEGORY: Record<string, PreviewBlockData["color"]> = {
-  Drive: "green",
-  Distortion: "orange",
-  Fuzz: "red",
-  Booster: "cream",
-  Compressor: "silver",
-  Delay: "silver",
-  Reverb: "blue",
-  Modulation: "purple",
-  Wah: "black",
-  "Volume/Pan": "black",
-  Pitch: "purple",
-  EQ: "black",
-};
-
-function pickColor(name: string, category: string): PreviewBlockData["color"] {
-  // Exact gear match first, then category fallback.
-  if (name && PEDAL_COLOR_BY_GEAR[name]) return PEDAL_COLOR_BY_GEAR[name];
-  // Partial match on gear name (e.g. "Klon KTR" → Klon → cream)
-  const exact = Object.keys(PEDAL_COLOR_BY_GEAR).find((k) =>
-    name.toLowerCase().includes(k.toLowerCase()),
-  );
-  if (exact) return PEDAL_COLOR_BY_GEAR[exact];
-  return COLOR_BY_CATEGORY[category] ?? "black";
+function pickColor(
+  _name: string,
+  category: string,
+): PreviewBlockData["color"] {
+  const cat = category || "";
+  for (const [re, color] of HELIX_CATEGORY_COLOR) {
+    if (re.test(cat)) return color;
+  }
+  // Fall back to scanning the gear name as a last resort — handles
+  // "Ibanez Tube Screamer" in an untyped row.
+  const hay = _name || "";
+  for (const [re, color] of HELIX_CATEGORY_COLOR) {
+    if (re.test(hay)) return color;
+  }
+  return "black";
 }
 
 function variantFor(category: string): PreviewBlockData["variant"] {
@@ -147,17 +137,25 @@ function nodeToBlock(
 
   const controls: string[] = [];
   const values: Record<string, number> = {};
-  const ranges: Record<string, { min?: number; max?: number }> = {};
+  const ranges: Record<
+    string,
+    { min?: number; max?: number; neutral?: number; unit?: string }
+  > = {};
 
   for (const [key, raw] of Object.entries(settings)) {
     const n = parseNumber(raw);
     if (n === undefined) continue;
-    // Look up registry metadata for range (fallback to 0–10 amp range)
     const meta = lookupParam(key, node.category);
     if (meta?.kind === "text") continue;
     controls.push(key);
     values[key] = n;
-    if (meta) ranges[key] = { min: meta.min, max: meta.max };
+    if (meta)
+      ranges[key] = {
+        min: meta.min,
+        max: meta.max,
+        neutral: meta.neutral,
+        unit: meta.unit,
+      };
   }
 
   return {
@@ -169,6 +167,7 @@ function nodeToBlock(
     values,
     ranges,
     kind: variant === "source" ? "input src" : variant === "cab" ? "cabinet / mic" : undefined,
+    notes: node.notes || undefined,
   };
 }
 
@@ -181,7 +180,10 @@ function platformBlockToBlock(
 
   const controls: string[] = [];
   const values: Record<string, number> = {};
-  const ranges: Record<string, { min?: number; max?: number }> = {};
+  const ranges: Record<
+    string,
+    { min?: number; max?: number; neutral?: number; unit?: string }
+  > = {};
 
   for (const [key, raw] of Object.entries(settings)) {
     const n = parseNumber(raw);
@@ -190,7 +192,13 @@ function platformBlockToBlock(
     if (meta?.kind === "text") continue;
     controls.push(key);
     values[key] = n;
-    if (meta) ranges[key] = { min: meta.min, max: meta.max };
+    if (meta)
+      ranges[key] = {
+        min: meta.min,
+        max: meta.max,
+        neutral: meta.neutral,
+        unit: meta.unit,
+      };
   }
 
   return {
@@ -202,6 +210,7 @@ function platformBlockToBlock(
     values,
     ranges,
     kind: variant === "source" ? "input src" : variant === "cab" ? "cabinet / mic" : undefined,
+    notes: block.notes || undefined,
   };
 }
 
