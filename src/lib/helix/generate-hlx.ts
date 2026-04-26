@@ -4,17 +4,18 @@ import { resolveModelId, scaleParamValue, normalizeParamName } from "./model-map
 /**
  * Map block_category to Helix @type integer.
  *
- * Verified against scripts/reference-preset-with-blocks.hlx:
  * - amps use @type: 1
- * - current-gen WithPan cabs use @type: 4 (legacy non-pan cabs were 2,
- *   but the WithPan format is what HX Edit emits today)
+ * - cabs use @type: 2 (legacy single-cab format). The newer @type: 4
+ *   "WithPan" format requires a sibling cab0/cab1 block for dual-mic
+ *   blending; without that sibling, HX Edit rejects the file. We use
+ *   single-mic legacy cabs until the dual-cab emitter is built.
  * - delays / reverbs / modulation use @type: 7
  * - stomps (comp, drive, fuzz, wah, volume) use @type: 0
  */
 function getBlockType(category: string): number {
   const lower = category.toLowerCase();
   if (lower.includes("amp") || lower.includes("preamp")) return 1;
-  if (lower.includes("cab") || lower.includes("ir")) return 4;
+  if (lower.includes("cab") || lower.includes("ir")) return 2;
   if (
     lower.includes("delay") || lower.includes("reverb") ||
     lower.includes("mod") || lower.includes("chorus") ||
@@ -122,10 +123,20 @@ export function generateHelixPreset(
   // Snapshot block states (only actual effect blocks, NOT split/join)
   const snapshotDsp0: Record<string, boolean> = {};
 
-  for (let i = 0; i < blocks.length; i++) {
-    const block = blocks[i];
+  // Filter the chain to only blocks with verified model IDs. Unverified
+  // blocks would have been silent Minotaur fallbacks before, with
+  // mismatched params that crash HX Edit on load. We drop them entirely
+  // so the .hlx remains loadable; the rich recipe data still renders
+  // in the UI. Skipped blocks are listed in the preset notes so the
+  // user knows to add them manually in HX Edit.
+  const renderable = blocks
+    .map((block) => ({ block, modelId: resolveModelId(block.block_name) }))
+    .filter((x): x is { block: typeof blocks[0]; modelId: string } => x.modelId !== null);
+  const skipped = blocks.filter((b) => resolveModelId(b.block_name) === null);
+
+  for (let i = 0; i < renderable.length; i++) {
+    const { block, modelId } = renderable[i];
     const blockKey = `block${i}`;
-    const modelId = resolveModelId(block.block_name);
     const blockType = getBlockType(block.block_category);
     // A recipe block can opt out of being default-on by setting
     // `enabled: false` (used for multi-drive stacks where alternate
@@ -170,7 +181,17 @@ export function generateHelixPreset(
   }
 
   // Cursor group = first block if any, empty string if none
-  const cursorGroup = blocks.length > 0 ? "block0" : "";
+  const cursorGroup = renderable.length > 0 ? "block0" : "";
+
+  // Server-side warning when blocks get dropped. Visible in Vercel
+  // runtime logs; helps us spot which recipes need real Helix preset
+  // captures so we can add their model IDs to the map.
+  if (skipped.length > 0) {
+    console.warn(
+      `[generateHelixPreset] "${presetName}": skipped ${skipped.length} unverified block(s):`,
+      skipped.map((s) => s.block_name).join(", "),
+    );
+  }
 
   // Snapshot builder
   function makeSnapshot(name: string, index: number) {

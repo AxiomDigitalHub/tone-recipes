@@ -4,7 +4,7 @@
       "name": "Frusciante's Under the Bridge Cl",
       "application": "HX Edit",
       "build_sha": "39f7f9a",
-      "modifieddate": 1777221660,
+      "modifieddate": 1777223716,
       "appversion": 58785792
     },
     "device": 2162692,
@@ -136,8 +136,7 @@
             "block1": true,
             "block2": true,
             "block3": true,
-            "block4": true,
-            "block5": true
+            "block4": true
           }
         },
         "controllers": {}
@@ -247,18 +246,8 @@
           "Level": 0
         },
         "block0": {
-          "@model": "HD2_VolumePan_Volume",
-          "@position": 0,
-          "@enabled": true,
-          "@path": 0,
-          "@type": 0,
-          "@no_snapshot_bypass": false,
-          "@stereo": false,
-          "PedalPosition": 1
-        },
-        "block1": {
           "@model": "HD2_CompressorDeluxeComp",
-          "@position": 1,
+          "@position": 0,
           "@enabled": true,
           "@path": 0,
           "@type": 0,
@@ -272,9 +261,9 @@
           "Mix": 0.74,
           "Level": 0
         },
-        "block2": {
+        "block1": {
           "@model": "HD2_Chorus70sChorus",
-          "@position": 2,
+          "@position": 1,
           "@enabled": true,
           "@path": 0,
           "@type": 7,
@@ -285,9 +274,9 @@
           "Depth": 0.6,
           "Mix": 0.5
         },
-        "block3": {
+        "block2": {
           "@model": "HD2_AmpBritPlexiBrt",
-          "@position": 3,
+          "@position": 2,
           "@enabled": true,
           "@path": 0,
           "@type": 1,
@@ -306,12 +295,12 @@
           "Hum": 0.5,
           "BiasX": 0.5
         },
-        "block4": {
-          "@model": "HD2_CabMicIr_4x12Greenback25WithPan",
-          "@position": 4,
+        "block3": {
+          "@model": "HD2_Cab4x12Greenback25",
+          "@position": 3,
           "@enabled": true,
           "@path": 0,
-          "@type": 4,
+          "@type": 2,
           "@no_snapshot_bypass": false,
           "Mic": 5,
           "Position": 0.49,
@@ -323,9 +312,9 @@
           "Level": 0,
           "Delay": 0
         },
-        "block5": {
+        "block4": {
           "@model": "HD2_ReverbGlitz",
-          "@position": 5,
+          "@position": 4,
           "@enabled": true,
           "@path": 0,
           "@type": 7,

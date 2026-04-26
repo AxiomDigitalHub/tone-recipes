@@ -49,14 +49,12 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "Kinky Boost": "HD2_DistKinkyBoost",
   "Distortion+": "HD2_DistStuporOD",
   "Deluxe Comp": "HD2_CompressorDeluxeComp",
-  "Heir Apparent": "HD2_DistHeirApparent",
-  "Tube Drive": "HD2_DistTubeDrive5Knob",
-  "Tube Drive 5-Knob": "HD2_DistTubeDrive5Knob",
-  "Industrial Fuzz": "HD2_DistIndustrialFuzz",
-
-  // ── Volume / Pan / Wah (utility) ──────────────────────────────────────
-  "Volume Pedal": "HD2_VolumePan_Volume",
-  "Pan Pedal": "HD2_VolumePan_Pan",
+  // NOTE: model IDs for Heir Apparent, Tube Drive, Industrial Fuzz, and
+  // Volume Pedal are not yet verified against ground-truth Helix files.
+  // Until they are, leave them out — fallback to HD2_DistMinotaur is a
+  // known-loadable substitution. Adding a wrong ID here breaks loading
+  // entirely (HX Edit rejects the preset). To re-enable: capture a real
+  // Helix preset that contains the block, copy the @model verbatim.
 
   // ── Modulation ────────────────────────────────────────────────────────
   "70s Chorus": "HD2_Chorus70sChorus",
@@ -106,13 +104,13 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
   "2x12 Double C12N": "HD2_Cab2x12DoubleC12N",
   "2x12 Twin": "HD2_Cab2x12DoubleC12N",
   "4x10 Tweed P10R": "HD2_Cab4x10TweedP10R",
-  "4x12 Greenback 25": "HD2_CabMicIr_4x12Greenback25WithPan",
-  "4x12 XXL V30": "HD2_CabMicIr_4x12UberV30WithPan",
-  "4x12 Uber V30": "HD2_CabMicIr_4x12UberV30WithPan",
-  "4x12 Uber": "HD2_CabMicIr_4x12UberV30WithPan",
-  "4x12 Greenback25": "HD2_CabMicIr_4x12Greenback25WithPan",
-  "4x12 Green 25": "HD2_CabMicIr_4x12Greenback25WithPan",
-  "4x12 Green": "HD2_CabMicIr_4x12Greenback25WithPan",
+  "4x12 Greenback 25": "HD2_Cab4x12Greenback25",
+  "4x12 XXL V30": "HD2_Cab4x12UberV30",
+  "4x12 Uber V30": "HD2_Cab4x12UberV30",
+  "4x12 Uber": "HD2_Cab4x12UberV30",
+  "4x12 Greenback25": "HD2_Cab4x12Greenback25",
+  "4x12 Green 25": "HD2_Cab4x12Greenback25",
+  "4x12 Green": "HD2_Cab4x12Greenback25",
   "4x12 Cali V30": "HD2_Cab4X12CaliV30",
   "4x12 V30": "HD2_Cab4X12CaliV30",
   "4x12 1960 T75": "HD2_Cab4x121960T75",
@@ -204,15 +202,21 @@ export const HELIX_MODEL_MAP: Record<string, string> = {
 
 };
 
-/** Fallback model ID used when a block name isn't in the map. */
-export const FALLBACK_MODEL_ID = "HD2_DistMinotaur";
-
 /**
- * Resolve a block name to its Helix model ID.
- * Falls back to a generic model if the name is unmapped.
+ * Resolve a block name to its Helix model ID, or null if unverified.
+ *
+ * Rule: every model ID in HELIX_MODEL_MAP must come from a real Helix
+ * preset file (HX Edit export). Speculating model IDs based on naming
+ * patterns is not allowed — HX Edit rejects unknown IDs at load time
+ * and the entire preset becomes unloadable. If a block isn't in the
+ * map, the generator skips it (preserves loadability) rather than
+ * falling back to a wrong-model ID.
+ *
+ * To add support for a new block: capture a real Helix preset that
+ * uses it, copy the @model verbatim into HELIX_MODEL_MAP.
  */
-export function resolveModelId(blockName: string): string {
-  return HELIX_MODEL_MAP[blockName] ?? FALLBACK_MODEL_ID;
+export function resolveModelId(blockName: string): string | null {
+  return HELIX_MODEL_MAP[blockName] ?? null;
 }
 
 /**

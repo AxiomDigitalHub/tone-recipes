@@ -22,6 +22,7 @@
 import fs from "fs";
 import path from "path";
 import { generateHelixPreset } from "../src/lib/helix/generate-hlx";
+import { resolveModelId } from "../src/lib/helix/model-map";
 import { getRecipeBySlug, toneRecipes } from "../src/lib/data";
 
 const PRESETS_DIR = path.join(process.cwd(), "public", "presets");
@@ -35,10 +36,15 @@ interface QcFinding {
   severity: "critical" | "warn";
 }
 
-function qcCheck(hlxJson: string, recipeBlocks: { block_name: string }[]): QcFinding[] {
+function qcCheck(hlxJson: string, recipeBlocksRaw: { block_name: string }[]): QcFinding[] {
   const f: QcFinding[] = [];
   const data = JSON.parse(hlxJson);
   const dsp0 = data.data?.tone?.dsp0 ?? {};
+
+  // The generator drops blocks whose model IDs aren't in the verified
+  // map. Filter the recipe to the renderable subset so dsp0.block{i}
+  // aligns with recipeBlocks[i].
+  const recipeBlocks = recipeBlocksRaw.filter((b) => resolveModelId(b.block_name) !== null);
 
   for (let i = 0; i < recipeBlocks.length; i++) {
     const key = `block${i}`;
