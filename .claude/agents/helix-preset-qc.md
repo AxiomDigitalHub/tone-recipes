@@ -49,6 +49,7 @@ These are bugs that were found in real generated presets and should be remembere
 6. **`scaleParamValue` aggression destroys real-unit values** — Threshold (signed dB), LowCut/HighCut (Hz), Knee/Ratio (integers), HeadcaseSelect (discrete index), and Mix on pro-template recipes all need to pass through verbatim. The previous /10-and-clamp heuristic destroyed every Threshold/LowCut/HighCut/Mic value. (Found 2026-04-26.)
 7. **`Decay` is context-dependent** — `HD2_ReverbPlate` uses 0–1 normalized; `VIC_DynPlate` uses raw seconds (e.g. 2.0s). Pass through unchanged works for both because 0–1 floats survive pass-through.
 8. **PascalCase preservation in `normalizeParamName`** — naive lowercasing flattens `MicA` → `Mica`, `EarlyReflections` → `Earlyreflections`. Always preserve author-supplied PascalCase casing.
+9. **DSP path 8-position cap on Helix LT** — each DSP can hold blocks at `@position 0` through `7` (8 positions). `@position: 8` is reserved for the `join` pseudo-block. A 9-block chain crammed onto a single `dsp0` looks structurally fine but causes HX Edit to silently strip ALL blocks during import — the preset shows up in the slot list with the right name but both signal paths render empty. Chains with > 7 effect blocks MUST split across `dsp0` and `dsp1` at the amp boundary: pre-amp + amp on `dsp0` (amp pinned to `@position 7`), cab + post-amp on `dsp1` starting at `@position 0`. Routing: `dsp0.outputA.@output = 2` (route to dsp1), `dsp1.inputA.@input = 0` (receive from dsp0), `dsp1.outputA.@output = 1` (Multi out). Snapshot bypass map must include BOTH `dsp0` and `dsp1` keys when blocks live on both. (Found 2026-04-26.)
 
 ---
 
@@ -209,8 +210,22 @@ HX Edit ignores unknown param keys without complaint, so a recipe with the wrong
 - **P4 Booleans are JSON booleans** — `Voltage`, `VolumeTaper`, `TempoSync1`, `TempoSync2` must be `true`/`false`, not `0`/`1`. WARN if numeric (loadable but incorrect type).
 
 ### Snapshot integrity
-- **N1 Snapshot block list matches chain** — `snapshot0.blocks.dsp0` keys match `block0`..`block{n-1}`
+- **N1 Snapshot block list matches chain** — `snapshot0.blocks.dsp0` keys match `block0`..`block{n-1}` on dsp0; if blocks live on dsp1, `snapshot0.blocks.dsp1` is also present and matches.
 - **N2 Snapshot bypass mirrors block enabled** — for each `block{i}` in snapshot, value matches the block's `@enabled` (otherwise the snapshot will silently override the bypass on load)
+
+### DSP routing & 8-position cap (Helix LT)
+- **R1 Position 8 reserved** — no block on dsp0 or dsp1 may have `@position === 8`. That position is for the `join` pseudo-block. Symptom of violation: HX Edit imports the preset to a slot but renders empty signal paths. **FAIL hard.**
+- **R2 Position cap per DSP** — every block must satisfy `@position >= 0 && @position <= 7`. **FAIL** if any block exceeds 7.
+- **R3 Block count per DSP** — each `dsp` should contain at most 8 effect blocks. If a recipe has > 7 effect blocks, the chain MUST be split across dsp0 and dsp1.
+- **R4 Split-DSP routing values** — when chain is split across DSPs:
+  - `dsp0.outputA.@output === 2` (route to dsp1)
+  - `dsp1.inputA.@input === 0` (receive from dsp0)
+  - `dsp1.outputA.@output === 1` (Multi out)
+  - Amp pinned to `@position 7` on dsp0 (end of dsp0).
+  - **FAIL** if any of these are wrong on a multi-DSP preset.
+- **R5 Single-DSP routing** — if all blocks fit on dsp0:
+  - `dsp0.outputA.@output === 1` (Multi out)
+  - dsp1 is empty infrastructure (no block keys).
 
 ---
 

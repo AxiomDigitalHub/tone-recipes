@@ -120,83 +120,125 @@ function makeDspInfrastructure(isPath1: boolean) {
  * Generate a valid Helix .hlx preset file.
  * Reverse-engineered from real HX Edit v3.80 exports.
  */
+/**
+ * Build a single block entry from a recipe block + resolved model ID,
+ * honoring the @position the caller assigns. Returns the entry plus a
+ * boolean indicating whether the block is enabled by default.
+ */
+function buildBlockEntry(
+  block: PlatformTranslation["chain_blocks"][0],
+  modelId: string,
+  position: number,
+): { entry: Record<string, unknown>; isEnabled: boolean } {
+  const blockType = getBlockType(block.block_category);
+  const isEnabled = block.enabled !== false;
+
+  const entry: Record<string, unknown> = {
+    "@model": modelId,
+    "@position": position,
+    "@enabled": isEnabled,
+    "@path": 0,
+    "@type": blockType,
+    "@no_snapshot_bypass": false,
+  };
+
+  if (blockType === 0 || blockType === 7) entry["@stereo"] = false;
+  if (blockType === 1) entry["@bypassvolume"] = 1;
+  if (blockType === 7) entry["@trails"] = true;
+
+  for (const [key, value] of Object.entries(block.settings)) {
+    const paramKey = normalizeParamName(key);
+    if (typeof value === "boolean") {
+      entry[paramKey] = value;
+      continue;
+    }
+    const scaledValue = scaleParamValue(key, value);
+    if (BOOLEAN_PARAMS.has(paramKey)) {
+      entry[paramKey] = scaledValue >= 0.5;
+    } else {
+      entry[paramKey] = parseFloat(scaledValue.toFixed(6));
+    }
+  }
+
+  return { entry, isEnabled };
+}
+
 export function generateHelixPreset(
   translation: PlatformTranslation,
   presetName: string,
 ): string {
   const blocks = translation.chain_blocks;
 
-  // Start with DSP infrastructure
-  const dsp0: Record<string, unknown> = makeDspInfrastructure(true);
-
-  // Snapshot block states (only actual effect blocks, NOT split/join)
-  const snapshotDsp0: Record<string, boolean> = {};
-
-  // Filter the chain to only blocks with verified model IDs. Unverified
-  // blocks would have been silent Minotaur fallbacks before, with
-  // mismatched params that crash HX Edit on load. We drop them entirely
-  // so the .hlx remains loadable; the rich recipe data still renders
-  // in the UI. Skipped blocks are listed in the preset notes so the
-  // user knows to add them manually in HX Edit.
+  // Filter to verified model IDs only (no silent Minotaur fallbacks).
   const renderable = blocks
     .map((block) => ({ block, modelId: resolveModelId(block.block_name) }))
     .filter((x): x is { block: typeof blocks[0]; modelId: string } => x.modelId !== null);
   const skipped = blocks.filter((b) => resolveModelId(b.block_name) === null);
 
-  for (let i = 0; i < renderable.length; i++) {
-    const { block, modelId } = renderable[i];
-    const blockKey = `block${i}`;
-    const blockType = getBlockType(block.block_category);
-    // A recipe block can opt out of being default-on by setting
-    // `enabled: false` (used for multi-drive stacks where alternate
-    // drives ride bypassed until the player stomps). Undefined ==
-    // enabled — backwards-compatible with every existing recipe.
-    const isEnabled = block.enabled !== false;
+  // Helix LT caps each DSP path at 8 positions (0-7); position 8 is the
+  // join. Chains with >7 blocks must split across dsp0 and dsp1 at the
+  // amp boundary — pre-amp on dsp0, amp at the END of dsp0 (@position 7),
+  // cab + post-amp blocks on dsp1. This matches the routing convention
+  // used by hand-built HX Edit presets and is required for HX Edit to
+  // accept the chain on Helix LT firmware ≥ 3.82.
+  const ampIndex = renderable.findIndex(({ block }) => getBlockType(block.block_category) === 1);
+  const needsSplit = renderable.length > 7 && ampIndex !== -1;
 
-    const entry: Record<string, unknown> = {
-      "@model": modelId,
-      "@position": i,
-      "@enabled": isEnabled,
-      "@path": 0,
-      "@type": blockType,
-      "@no_snapshot_bypass": false,
-    };
+  // Slot blocks into dsp0 and dsp1
+  const dsp0Slots: Array<{ block: typeof renderable[0]["block"]; modelId: string; position: number }> = [];
+  const dsp1Slots: Array<{ block: typeof renderable[0]["block"]; modelId: string; position: number }> = [];
 
-    // Stomps (0) and delays/reverbs (7) get @stereo: false
-    // Amps (1) and cabs (4) do NOT get @stereo at all
-    if (blockType === 0 || blockType === 7) entry["@stereo"] = false;
-    if (blockType === 1) entry["@bypassvolume"] = 1;
-    if (blockType === 7) {
-      entry["@trails"] = true;
+  if (needsSplit) {
+    // Pre-amp + amp on dsp0; amp pinned to @position 7 (end of DSP)
+    for (let i = 0; i <= ampIndex; i++) {
+      const { block, modelId } = renderable[i];
+      const position = i === ampIndex ? 7 : i;
+      dsp0Slots.push({ block, modelId, position });
     }
-
-    for (const [key, value] of Object.entries(block.settings)) {
-      const paramKey = normalizeParamName(key);
-      // Pass actual boolean values verbatim — Voltage, VolumeTaper,
-      // TempoSync* are stored as JSON booleans in real .hlx files.
-      // (Without this, scaleParamValue would coerce false → 0.)
-      if (typeof value === "boolean") {
-        entry[paramKey] = value;
-        continue;
-      }
-      const scaledValue = scaleParamValue(key, value);
-      // Booleans coming through as 0/1 strings or numbers — coerce
-      // back when the param key is known to be boolean-typed.
-      if (BOOLEAN_PARAMS.has(paramKey)) {
-        entry[paramKey] = scaledValue >= 0.5;
-      } else {
-        entry[paramKey] = parseFloat(scaledValue.toFixed(6));
-      }
+    // Post-amp on dsp1, starting at @position 0
+    const postAmp = renderable.slice(ampIndex + 1);
+    for (let i = 0; i < postAmp.length; i++) {
+      const { block, modelId } = postAmp[i];
+      dsp1Slots.push({ block, modelId, position: i });
     }
+  } else {
+    // Single-DSP linear chain — fits within 8 positions
+    for (let i = 0; i < renderable.length; i++) {
+      const { block, modelId } = renderable[i];
+      dsp0Slots.push({ block, modelId, position: i });
+    }
+  }
 
-    dsp0[blockKey] = entry;
-    // Snapshot bypass map mirrors the block's enabled state so
-    // loading the preset doesn't silently re-engage a bypassed block.
-    snapshotDsp0[blockKey] = isEnabled;
+  // Build dsp0 + snapshot bypass map
+  const dsp0: Record<string, unknown> = makeDspInfrastructure(true);
+  const snapshotDsp0: Record<string, boolean> = {};
+  for (let i = 0; i < dsp0Slots.length; i++) {
+    const { block, modelId, position } = dsp0Slots[i];
+    const { entry, isEnabled } = buildBlockEntry(block, modelId, position);
+    dsp0[`block${i}`] = entry;
+    snapshotDsp0[`block${i}`] = isEnabled;
+  }
+
+  // Build dsp1
+  const dsp1: Record<string, unknown> = makeDspInfrastructure(false);
+  const snapshotDsp1: Record<string, boolean> = {};
+  for (let i = 0; i < dsp1Slots.length; i++) {
+    const { block, modelId, position } = dsp1Slots[i];
+    const { entry, isEnabled } = buildBlockEntry(block, modelId, position);
+    dsp1[`block${i}`] = entry;
+    snapshotDsp1[`block${i}`] = isEnabled;
+  }
+
+  // Re-route DSPs when the chain is split: dsp0 → dsp1 → Multi.
+  // Otherwise keep dsp0 → Multi (single-DSP topology).
+  if (needsSplit) {
+    (dsp0.outputA as Record<string, unknown>)["@output"] = 2; // route to dsp1
+    (dsp1.inputA as Record<string, unknown>)["@input"] = 0; // receive from dsp0
+    (dsp1.outputA as Record<string, unknown>)["@output"] = 1; // Multi out
   }
 
   // Cursor group = first block if any, empty string if none
-  const cursorGroup = renderable.length > 0 ? "block0" : "";
+  const cursorGroup = dsp0Slots.length > 0 ? "block0" : "";
 
   // Server-side warning when blocks get dropped. Visible in Vercel
   // runtime logs; helps us spot which recipes need real Helix preset
@@ -221,7 +263,12 @@ export function generateHelixPreset(
     };
     // Only first snapshot gets blocks and controllers
     if (isFirst && blocks.length > 0) {
-      snap.blocks = { dsp0: snapshotDsp0 };
+      // Snapshot bypass map needs entries for both DSP paths when the
+      // chain is split. Empty objects are fine when a path has no blocks.
+      const blocksMap: Record<string, Record<string, boolean>> = {};
+      if (Object.keys(snapshotDsp0).length > 0) blocksMap.dsp0 = snapshotDsp0;
+      if (Object.keys(snapshotDsp1).length > 0) blocksMap.dsp1 = snapshotDsp1;
+      snap.blocks = blocksMap;
       snap.controllers = {};
     }
     return snap;
@@ -299,7 +346,7 @@ export function generateHelixPreset(
         controller: {},
         footswitch: {},
         dsp0,
-        dsp1: makeDspInfrastructure(false),
+        dsp1,
       },
     },
     // Root-level meta (separate from data.meta)
