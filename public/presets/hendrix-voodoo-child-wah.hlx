@@ -4,7 +4,7 @@
       "name": "Hendrix's Voodoo Child Wah Tone",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
-      "modifieddate": 1777230599,
+      "modifieddate": 1777236522,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -323,15 +323,10 @@
           "@path": 0,
           "@type": 2,
           "@no_snapshot_bypass": false,
-          "Mic": 5,
-          "Position": 0.49,
           "Distance": 1,
-          "Angle": 0,
-          "Pan": 0.5,
           "LowCut": 19.9,
           "HighCut": 16000,
-          "Level": 0,
-          "Delay": 0
+          "Level": 0
         }
       },
       "dsp1": {

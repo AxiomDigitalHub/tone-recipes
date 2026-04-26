@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-04-26T19:06:22.420Z",
+  "generatedAt": "2026-04-26T20:45:11.613Z",
   "source": {
     "officialList": "https://line6.com/helix-models/ (transcribed 2026-04-26)",
     "corpus": "data/helix-corpus/models.json (256 factory presets harvested 2026-04-26)"
   },
   "stats": {
-    "totalEntries": 443,
-    "verifiedFromCorpus": 332,
-    "fromOfficialListOnly": 111,
+    "totalEntries": 439,
+    "verifiedFromCorpus": 334,
+    "fromOfficialListOnly": 105,
     "byCategory": {
       "volume_pan": 6,
       "looper": 4,
@@ -15,7 +15,7 @@
       "delay": 32,
       "distortion": 46,
       "eq": 12,
-      "reverb": 31,
+      "reverb": 27,
       "cab": 88,
       "pitch_synth": 12,
       "amp_guitar": 104,
@@ -856,79 +856,10 @@
       ]
     },
     {
-      "helixName": "Simple Pitch",
-      "category": "pitch_synth",
-      "modelId": "HD2_PitchSimplePitch",
-      "realWorldGear": "Line 6 Original",
-      "manufacturer": "",
-      "verified": true,
-      "corpusCount": 23,
-      "observedTypes": [
-        0
-      ],
-      "params": {
-        "Cents1": {
-          "type": "integer",
-          "min": -0.20000100135803223,
-          "max": 3,
-          "booleanLikely": false
-        },
-        "Time1": {
-          "type": "integer",
-          "min": 0,
-          "max": 0.019999980926513672,
-          "booleanLikely": false
-        },
-        "Mix": {
-          "type": "integer",
-          "min": 0.1499999761581421,
-          "max": 1,
-          "booleanLikely": false
-        },
-        "LevelVoice1": {
-          "type": "integer",
-          "min": 0.6000000238418579,
-          "max": 1,
-          "booleanLikely": false
-        },
-        "Interval1": {
-          "type": "integer",
-          "min": -12,
-          "max": 24,
-          "booleanLikely": false
-        },
-        "Level": {
-          "type": "integer",
-          "min": 0,
-          "max": 1.7999999523162842,
-          "booleanLikely": false
-        },
-        "PanDry": {
-          "type": "number",
-          "min": 0.5,
-          "max": 0.5,
-          "booleanLikely": false
-        },
-        "PanVoice1": {
-          "type": "number",
-          "min": 0.4500000476837158,
-          "max": 0.5,
-          "booleanLikely": false
-        }
-      },
-      "exampleFiles": [
-        "After the Fact.hlx",
-        "BAS_Agua 51.hlx",
-        "BAS_Boots Bass.hlx",
-        "BAS_Pony 1Up.hlx",
-        "BULB RHYTHM.hlx"
-      ]
-    },
-    {
-      "helixName": "Reverb Dyn Ambience (corpus-only)",
+      "helixName": "Dynamic Ambience",
       "category": "reverb",
       "modelId": "VIC_ReverbDynAmbience",
-      "realWorldGear": "(unknown — verify via Line 6 model list)",
+      "realWorldGear": "Line 6 Original",
       "manufacturer": "",
       "verified": true,
       "corpusCount": 23,
@@ -997,6 +928,75 @@
         "Brit Plexi Brt.hlx",
         "Cali Rectifire.hlx",
         "Cali Texas Ch 1.hlx"
+      ]
+    },
+    {
+      "helixName": "Simple Pitch",
+      "category": "pitch_synth",
+      "modelId": "HD2_PitchSimplePitch",
+      "realWorldGear": "Line 6 Original",
+      "manufacturer": "",
+      "verified": true,
+      "corpusCount": 23,
+      "observedTypes": [
+        0
+      ],
+      "params": {
+        "Cents1": {
+          "type": "integer",
+          "min": -0.20000100135803223,
+          "max": 3,
+          "booleanLikely": false
+        },
+        "Time1": {
+          "type": "integer",
+          "min": 0,
+          "max": 0.019999980926513672,
+          "booleanLikely": false
+        },
+        "Mix": {
+          "type": "integer",
+          "min": 0.1499999761581421,
+          "max": 1,
+          "booleanLikely": false
+        },
+        "LevelVoice1": {
+          "type": "integer",
+          "min": 0.6000000238418579,
+          "max": 1,
+          "booleanLikely": false
+        },
+        "Interval1": {
+          "type": "integer",
+          "min": -12,
+          "max": 24,
+          "booleanLikely": false
+        },
+        "Level": {
+          "type": "integer",
+          "min": 0,
+          "max": 1.7999999523162842,
+          "booleanLikely": false
+        },
+        "PanDry": {
+          "type": "number",
+          "min": 0.5,
+          "max": 0.5,
+          "booleanLikely": false
+        },
+        "PanVoice1": {
+          "type": "number",
+          "min": 0.4500000476837158,
+          "max": 0.5,
+          "booleanLikely": false
+        }
+      },
+      "exampleFiles": [
+        "After the Fact.hlx",
+        "BAS_Agua 51.hlx",
+        "BAS_Boots Bass.hlx",
+        "BAS_Pony 1Up.hlx",
+        "BULB RHYTHM.hlx"
       ]
     },
     {
@@ -5299,6 +5299,99 @@
       ]
     },
     {
+      "helixName": "Dynamic Room",
+      "category": "reverb",
+      "modelId": "VIC_ReverbDynRoom",
+      "realWorldGear": "Line 6 Original",
+      "manufacturer": "",
+      "verified": true,
+      "corpusCount": 7,
+      "observedTypes": [
+        7
+      ],
+      "params": {
+        "BassFreq": {
+          "type": "integer",
+          "min": 100,
+          "max": 100,
+          "booleanLikely": false
+        },
+        "Diffusion": {
+          "type": "number",
+          "min": 0.5,
+          "max": 0.690000057220459,
+          "booleanLikely": false
+        },
+        "ERLevel": {
+          "type": "number",
+          "min": 0.7999999523162842,
+          "max": 1.5999999046325684,
+          "booleanLikely": false
+        },
+        "MatrFreq": {
+          "type": "number",
+          "min": 0.33299994468688965,
+          "max": 0.33299994468688965,
+          "booleanLikely": false
+        },
+        "PreDelay": {
+          "type": "number",
+          "min": 0.009999990463256836,
+          "max": 0.009999990463256836,
+          "booleanLikely": false
+        },
+        "Damping": {
+          "type": "integer",
+          "min": 3720,
+          "max": 3720,
+          "booleanLikely": false
+        },
+        "Decay": {
+          "type": "number",
+          "min": 0.6000000238418579,
+          "max": 1.0999999046325684,
+          "booleanLikely": false
+        },
+        "LowCut": {
+          "type": "integer",
+          "min": 100,
+          "max": 279,
+          "booleanLikely": false
+        },
+        "Level": {
+          "type": "integer",
+          "min": 0,
+          "max": 0,
+          "booleanLikely": false
+        },
+        "Mix": {
+          "type": "number",
+          "min": 0.16999995708465576,
+          "max": 0.25,
+          "booleanLikely": false
+        },
+        "BassBoost": {
+          "type": "integer",
+          "min": -2.200000047683716,
+          "max": 0,
+          "booleanLikely": false
+        },
+        "HighCut": {
+          "type": "integer",
+          "min": 7400,
+          "max": 10000,
+          "booleanLikely": false
+        }
+      },
+      "exampleFiles": [
+        "A30 Fawn Nrm.hlx",
+        "Cali IV Rhythm 1.hlx",
+        "Essex A30.hlx",
+        "GrammaticoLG Nrm.hlx",
+        "Line 6 Elmsley.hlx"
+      ]
+    },
+    {
       "helixName": "Spring",
       "category": "reverb",
       "modelId": "HD2_ReverbSpring",
@@ -5579,99 +5672,6 @@
         "Hairy Air.hlx",
         "Lonely Hearts.hlx",
         "RIFFS AND BEARDS.hlx"
-      ]
-    },
-    {
-      "helixName": "Reverb Dyn Room (corpus-only)",
-      "category": "reverb",
-      "modelId": "VIC_ReverbDynRoom",
-      "realWorldGear": "(unknown — verify via Line 6 model list)",
-      "manufacturer": "",
-      "verified": true,
-      "corpusCount": 7,
-      "observedTypes": [
-        7
-      ],
-      "params": {
-        "BassFreq": {
-          "type": "integer",
-          "min": 100,
-          "max": 100,
-          "booleanLikely": false
-        },
-        "Diffusion": {
-          "type": "number",
-          "min": 0.5,
-          "max": 0.690000057220459,
-          "booleanLikely": false
-        },
-        "ERLevel": {
-          "type": "number",
-          "min": 0.7999999523162842,
-          "max": 1.5999999046325684,
-          "booleanLikely": false
-        },
-        "MatrFreq": {
-          "type": "number",
-          "min": 0.33299994468688965,
-          "max": 0.33299994468688965,
-          "booleanLikely": false
-        },
-        "PreDelay": {
-          "type": "number",
-          "min": 0.009999990463256836,
-          "max": 0.009999990463256836,
-          "booleanLikely": false
-        },
-        "Damping": {
-          "type": "integer",
-          "min": 3720,
-          "max": 3720,
-          "booleanLikely": false
-        },
-        "Decay": {
-          "type": "number",
-          "min": 0.6000000238418579,
-          "max": 1.0999999046325684,
-          "booleanLikely": false
-        },
-        "LowCut": {
-          "type": "integer",
-          "min": 100,
-          "max": 279,
-          "booleanLikely": false
-        },
-        "Level": {
-          "type": "integer",
-          "min": 0,
-          "max": 0,
-          "booleanLikely": false
-        },
-        "Mix": {
-          "type": "number",
-          "min": 0.16999995708465576,
-          "max": 0.25,
-          "booleanLikely": false
-        },
-        "BassBoost": {
-          "type": "integer",
-          "min": -2.200000047683716,
-          "max": 0,
-          "booleanLikely": false
-        },
-        "HighCut": {
-          "type": "integer",
-          "min": 7400,
-          "max": 10000,
-          "booleanLikely": false
-        }
-      },
-      "exampleFiles": [
-        "A30 Fawn Nrm.hlx",
-        "Cali IV Rhythm 1.hlx",
-        "Essex A30.hlx",
-        "GrammaticoLG Nrm.hlx",
-        "Line 6 Elmsley.hlx"
       ]
     },
     {
@@ -9848,6 +9848,90 @@
       ]
     },
     {
+      "helixName": "Dynamic Bloom",
+      "category": "reverb",
+      "modelId": "VIC_ReverbDynBloom",
+      "realWorldGear": "Line 6 Original",
+      "manufacturer": "",
+      "verified": true,
+      "corpusCount": 4,
+      "observedTypes": [
+        7
+      ],
+      "params": {
+        "BassFreq": {
+          "type": "integer",
+          "min": 100,
+          "max": 100,
+          "booleanLikely": false
+        },
+        "RiseTime": {
+          "type": "integer",
+          "min": 0,
+          "max": 2,
+          "booleanLikely": false
+        },
+        "LowCut": {
+          "type": "integer",
+          "min": 100,
+          "max": 250,
+          "booleanLikely": false
+        },
+        "Damping": {
+          "type": "integer",
+          "min": 3700,
+          "max": 5300,
+          "booleanLikely": false
+        },
+        "DuckingAmount": {
+          "type": "number",
+          "min": 0.3999999761581421,
+          "max": 0.5,
+          "booleanLikely": false
+        },
+        "MatrFreq": {
+          "type": "number",
+          "min": 0.20000004768371582,
+          "max": 0.20000004768371582,
+          "booleanLikely": false
+        },
+        "Mix": {
+          "type": "number",
+          "min": 0.3999999761581421,
+          "max": 0.5,
+          "booleanLikely": false
+        },
+        "BassBoost": {
+          "type": "integer",
+          "min": -1.399999976158142,
+          "max": 0,
+          "booleanLikely": false
+        },
+        "Level": {
+          "type": "integer",
+          "min": 0,
+          "max": 0,
+          "booleanLikely": false
+        },
+        "Decay": {
+          "type": "number",
+          "min": 3.8000001907348633,
+          "max": 4.199999809265137,
+          "booleanLikely": false
+        },
+        "HighCut": {
+          "type": "integer",
+          "min": 8000,
+          "max": 12000,
+          "booleanLikely": false
+        }
+      },
+      "exampleFiles": [
+        "Algal Bloom.hlx",
+        "Stereo Bloom.hlx"
+      ]
+    },
+    {
       "helixName": "Harmonic Flanger",
       "category": "modulation",
       "modelId": "HD2_FlangerHarmonicFlanger",
@@ -10387,90 +10471,6 @@
         "Brit 2203.hlx",
         "Rogue Vampires.hlx",
         "Watt, Now?.hlx"
-      ]
-    },
-    {
-      "helixName": "Reverb Dyn Bloom (corpus-only)",
-      "category": "reverb",
-      "modelId": "VIC_ReverbDynBloom",
-      "realWorldGear": "(unknown — verify via Line 6 model list)",
-      "manufacturer": "",
-      "verified": true,
-      "corpusCount": 4,
-      "observedTypes": [
-        7
-      ],
-      "params": {
-        "BassFreq": {
-          "type": "integer",
-          "min": 100,
-          "max": 100,
-          "booleanLikely": false
-        },
-        "RiseTime": {
-          "type": "integer",
-          "min": 0,
-          "max": 2,
-          "booleanLikely": false
-        },
-        "LowCut": {
-          "type": "integer",
-          "min": 100,
-          "max": 250,
-          "booleanLikely": false
-        },
-        "Damping": {
-          "type": "integer",
-          "min": 3700,
-          "max": 5300,
-          "booleanLikely": false
-        },
-        "DuckingAmount": {
-          "type": "number",
-          "min": 0.3999999761581421,
-          "max": 0.5,
-          "booleanLikely": false
-        },
-        "MatrFreq": {
-          "type": "number",
-          "min": 0.20000004768371582,
-          "max": 0.20000004768371582,
-          "booleanLikely": false
-        },
-        "Mix": {
-          "type": "number",
-          "min": 0.3999999761581421,
-          "max": 0.5,
-          "booleanLikely": false
-        },
-        "BassBoost": {
-          "type": "integer",
-          "min": -1.399999976158142,
-          "max": 0,
-          "booleanLikely": false
-        },
-        "Level": {
-          "type": "integer",
-          "min": 0,
-          "max": 0,
-          "booleanLikely": false
-        },
-        "Decay": {
-          "type": "number",
-          "min": 3.8000001907348633,
-          "max": 4.199999809265137,
-          "booleanLikely": false
-        },
-        "HighCut": {
-          "type": "integer",
-          "min": 8000,
-          "max": 12000,
-          "booleanLikely": false
-        }
-      },
-      "exampleFiles": [
-        "Algal Bloom.hlx",
-        "Stereo Bloom.hlx"
       ]
     },
     {
@@ -12127,6 +12127,91 @@
       ]
     },
     {
+      "helixName": "Dynamic Plate",
+      "category": "reverb",
+      "modelId": "VIC_DynPlate",
+      "realWorldGear": "Line 6 Original",
+      "manufacturer": "",
+      "verified": true,
+      "corpusCount": 3,
+      "observedTypes": [
+        7
+      ],
+      "params": {
+        "BassFreq": {
+          "type": "integer",
+          "min": 100,
+          "max": 100,
+          "booleanLikely": false
+        },
+        "PreDelay": {
+          "type": "number",
+          "min": 0.006999969482421875,
+          "max": 0.009999990463256836,
+          "booleanLikely": false
+        },
+        "LowCut": {
+          "type": "integer",
+          "min": 100,
+          "max": 202,
+          "booleanLikely": false
+        },
+        "VarDelayAmpl": {
+          "type": "number",
+          "min": 0.6000000238418579,
+          "max": 0.6000000238418579,
+          "booleanLikely": false
+        },
+        "Damping": {
+          "type": "integer",
+          "min": 3720,
+          "max": 5000,
+          "booleanLikely": false
+        },
+        "MatrFreq": {
+          "type": "number",
+          "min": 0.08000004291534424,
+          "max": 0.33000004291534424,
+          "booleanLikely": false
+        },
+        "Mix": {
+          "type": "number",
+          "min": 0.2200000286102295,
+          "max": 0.25,
+          "booleanLikely": false
+        },
+        "BassBoost": {
+          "type": "integer",
+          "min": 0,
+          "max": 0,
+          "booleanLikely": false
+        },
+        "Level": {
+          "type": "integer",
+          "min": 0,
+          "max": 0,
+          "booleanLikely": false
+        },
+        "Decay": {
+          "type": "number",
+          "min": 0.7999999523162842,
+          "max": 2.0999999046325684,
+          "booleanLikely": false
+        },
+        "HighCut": {
+          "type": "integer",
+          "min": 7000,
+          "max": 10000,
+          "booleanLikely": false
+        }
+      },
+      "exampleFiles": [
+        "Brit 2203.hlx",
+        "Jazz Rivet 120.hlx",
+        "Line 6 Ventoux.hlx"
+      ]
+    },
+    {
       "helixName": "Courtesan Flange",
       "category": "modulation",
       "modelId": "HD2_FlangerCourtesanFlange",
@@ -12934,91 +13019,6 @@
         "BUMBLE ACOUSTIC.hlx",
         "DI.hlx",
         "GARBAGE BASS.hlx"
-      ]
-    },
-    {
-      "helixName": "Dyn Plate (corpus-only)",
-      "category": "reverb",
-      "modelId": "VIC_DynPlate",
-      "realWorldGear": "(unknown — verify via Line 6 model list)",
-      "manufacturer": "",
-      "verified": true,
-      "corpusCount": 3,
-      "observedTypes": [
-        7
-      ],
-      "params": {
-        "BassFreq": {
-          "type": "integer",
-          "min": 100,
-          "max": 100,
-          "booleanLikely": false
-        },
-        "PreDelay": {
-          "type": "number",
-          "min": 0.006999969482421875,
-          "max": 0.009999990463256836,
-          "booleanLikely": false
-        },
-        "LowCut": {
-          "type": "integer",
-          "min": 100,
-          "max": 202,
-          "booleanLikely": false
-        },
-        "VarDelayAmpl": {
-          "type": "number",
-          "min": 0.6000000238418579,
-          "max": 0.6000000238418579,
-          "booleanLikely": false
-        },
-        "Damping": {
-          "type": "integer",
-          "min": 3720,
-          "max": 5000,
-          "booleanLikely": false
-        },
-        "MatrFreq": {
-          "type": "number",
-          "min": 0.08000004291534424,
-          "max": 0.33000004291534424,
-          "booleanLikely": false
-        },
-        "Mix": {
-          "type": "number",
-          "min": 0.2200000286102295,
-          "max": 0.25,
-          "booleanLikely": false
-        },
-        "BassBoost": {
-          "type": "integer",
-          "min": 0,
-          "max": 0,
-          "booleanLikely": false
-        },
-        "Level": {
-          "type": "integer",
-          "min": 0,
-          "max": 0,
-          "booleanLikely": false
-        },
-        "Decay": {
-          "type": "number",
-          "min": 0.7999999523162842,
-          "max": 2.0999999046325684,
-          "booleanLikely": false
-        },
-        "HighCut": {
-          "type": "integer",
-          "min": 7000,
-          "max": 10000,
-          "booleanLikely": false
-        }
-      },
-      "exampleFiles": [
-        "Brit 2203.hlx",
-        "Jazz Rivet 120.hlx",
-        "Line 6 Ventoux.hlx"
       ]
     },
     {
@@ -23843,6 +23843,49 @@
       ]
     },
     {
+      "helixName": "Tilt",
+      "category": "eq",
+      "modelId": "HD2_EQSimpleTilt",
+      "realWorldGear": "Line 6 Original",
+      "manufacturer": "",
+      "verified": true,
+      "corpusCount": 0,
+      "observedTypes": [],
+      "params": {
+        "Tilt": {
+          "type": "number",
+          "min": 0,
+          "max": 1,
+          "booleanLikely": false
+        },
+        "CenterFreq": {
+          "type": "integer",
+          "min": 20,
+          "max": 20100,
+          "booleanLikely": false
+        },
+        "Level": {
+          "type": "number",
+          "min": -12,
+          "max": 12,
+          "booleanLikely": false
+        }
+      },
+      "exampleFiles": []
+    },
+    {
+      "helixName": "Dynamic Hall",
+      "category": "reverb",
+      "modelId": "VIC_ReverbDynHall",
+      "realWorldGear": "Line 6 Original",
+      "manufacturer": "",
+      "verified": true,
+      "corpusCount": 0,
+      "observedTypes": [],
+      "params": {},
+      "exampleFiles": []
+    },
+    {
       "helixName": "1 Switch Looper",
       "category": "looper",
       "modelId": null,
@@ -24325,66 +24368,6 @@
     {
       "helixName": "Double Take",
       "category": "modulation",
-      "modelId": null,
-      "realWorldGear": "Line 6 Original",
-      "manufacturer": "",
-      "verified": false,
-      "corpusCount": 0,
-      "observedTypes": [],
-      "params": {},
-      "exampleFiles": []
-    },
-    {
-      "helixName": "Dynamic Ambience",
-      "category": "reverb",
-      "modelId": null,
-      "realWorldGear": "Line 6 Original",
-      "manufacturer": "",
-      "verified": false,
-      "corpusCount": 0,
-      "observedTypes": [],
-      "params": {},
-      "exampleFiles": []
-    },
-    {
-      "helixName": "Dynamic Bloom",
-      "category": "reverb",
-      "modelId": null,
-      "realWorldGear": "Line 6 Original",
-      "manufacturer": "",
-      "verified": false,
-      "corpusCount": 0,
-      "observedTypes": [],
-      "params": {},
-      "exampleFiles": []
-    },
-    {
-      "helixName": "Dynamic Hall",
-      "category": "reverb",
-      "modelId": null,
-      "realWorldGear": "Line 6 Original",
-      "manufacturer": "",
-      "verified": false,
-      "corpusCount": 0,
-      "observedTypes": [],
-      "params": {},
-      "exampleFiles": []
-    },
-    {
-      "helixName": "Dynamic Plate",
-      "category": "reverb",
-      "modelId": null,
-      "realWorldGear": "Line 6 Original",
-      "manufacturer": "",
-      "verified": false,
-      "corpusCount": 0,
-      "observedTypes": [],
-      "params": {},
-      "exampleFiles": []
-    },
-    {
-      "helixName": "Dynamic Room",
-      "category": "reverb",
       "modelId": null,
       "realWorldGear": "Line 6 Original",
       "manufacturer": "",
@@ -25033,18 +25016,6 @@
     {
       "helixName": "Thrifter Fuzz",
       "category": "distortion",
-      "modelId": null,
-      "realWorldGear": "Line 6 Original",
-      "manufacturer": "",
-      "verified": false,
-      "corpusCount": 0,
-      "observedTypes": [],
-      "params": {},
-      "exampleFiles": []
-    },
-    {
-      "helixName": "Tilt",
-      "category": "eq",
       "modelId": null,
       "realWorldGear": "Line 6 Original",
       "manufacturer": "",

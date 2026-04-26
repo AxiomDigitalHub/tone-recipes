@@ -314,8 +314,8 @@ export function categoryToPrefix(category: string): string {
  * `HighCut: 16000`, `Mic: 2`, `Distance: 1`, `SyncSelect1: 6`.
  */
 const RAW_UNIT_PARAMS = new Set([
-  // Frequency cuts (Hz)
-  "lowcut", "highcut", "bassfreq", "damping",
+  // Frequency cuts and center frequencies (Hz)
+  "lowcut", "highcut", "bassfreq", "damping", "centerfreq",
   // Compressor real-unit params
   "ratio", "knee",
   // Discrete mic indices (single-mic format only — MicA/MicB are deprecated)

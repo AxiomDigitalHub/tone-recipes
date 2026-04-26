@@ -11,6 +11,18 @@ const BOOLEAN_PARAMS = new Set([
 ]);
 
 /**
+ * Legacy single-mic cabs (@type: 2) only accept these 5 params.
+ * Mic / Position / Pan / Angle / Delay belong only to the WithPan
+ * dual-cab format (@type: 4 with sibling cab0). Emitting the WithPan
+ * params on a legacy cab is silently ignored by HX Edit but pollutes
+ * the file. Verified against the factory corpus + a 2026-04-26 user
+ * export.
+ */
+const LEGACY_CAB_PARAMS = new Set([
+  "LowCut", "HighCut", "Distance", "Level", "EarlyReflections",
+]);
+
+/**
  * Map block_category to Helix @type integer.
  *
  * - amps use @type: 1
@@ -146,8 +158,15 @@ function buildBlockEntry(
   if (blockType === 1) entry["@bypassvolume"] = 1;
   if (blockType === 7) entry["@trails"] = true;
 
+  // Legacy single-mic cabs (@type: 2) reject params that belong to
+  // the WithPan dual-cab format. Filter the recipe's settings down to
+  // the 5 valid keys before emitting; the others (Mic, Position, etc.)
+  // are silently dropped during import anyway and just clutter the file.
+  const isLegacyCab = blockType === 2;
+
   for (const [key, value] of Object.entries(block.settings)) {
     const paramKey = normalizeParamName(key);
+    if (isLegacyCab && !LEGACY_CAB_PARAMS.has(paramKey)) continue;
     if (typeof value === "boolean") {
       entry[paramKey] = value;
       continue;
@@ -203,26 +222,56 @@ export function generateHelixPreset(
   }
 
   // Helix LT caps each DSP path at 8 positions (0-7); position 8 is the
-  // join. Chains with >7 blocks must split across dsp0 and dsp1 at the
-  // amp boundary.
-  const ampIndexInChain = chainAfterCabPull.findIndex(({ block }) => getBlockType(block.block_category) === 1);
-  const needsSplit = chainAfterCabPull.length > 7 && ampIndexInChain !== -1;
+  // join. Chains with ≥ 8 blocks split across dsp0 and dsp1 by default.
+  //
+  // Split point: AFTER the cab (or after the amp if no cab is present).
+  // This keeps the "amp section" together on dsp0 (drives → amp → cab,
+  // ending at @position 7) and puts the "wet section" on dsp1 (delay →
+  // reverb → final EQ). Matches the verified-working topology from a
+  // 2026-04-26 user export.
+  //
+  // Splitting at 8 blocks (rather than > 8) leaves room on both DSPs
+  // for the user to add more blocks via HX Edit without restructuring.
+  const ampIdxAfter = chainAfterCabPull.findIndex(({ block }) => getBlockType(block.block_category) === 1);
+  const cabIdxAfter = chainAfterCabPull.findIndex(({ block }) => getBlockType(block.block_category) === 2 || getBlockType(block.block_category) === 4);
+  // Prefer cab boundary; fall back to amp boundary if no cab.
+  const splitBoundary = cabIdxAfter !== -1 ? cabIdxAfter : ampIdxAfter;
+  const needsSplit = chainAfterCabPull.length >= 8 && splitBoundary !== -1;
 
   // Slot blocks into dsp0 and dsp1
   const dsp0Slots: Array<{ block: typeof renderable[0]["block"]; modelId: string; position: number }> = [];
   const dsp1Slots: Array<{ block: typeof renderable[0]["block"]; modelId: string; position: number }> = [];
 
   if (needsSplit) {
-    // Pre-amp + amp on dsp0; amp pinned to @position 7 (end of DSP)
-    for (let i = 0; i <= ampIndexInChain; i++) {
-      const { block, modelId } = chainAfterCabPull[i];
-      const position = i === ampIndexInChain ? 7 : i;
+    // dsp0 contains everything up to and including the split boundary
+    // (cab if present, else amp). To match the visual balance of
+    // hand-built factory presets, the AMP+CAB pair is pinned to the
+    // END of dsp0 — cab at @position 7, amp at @position 6 (when both
+    // are present), with pre-amp blocks at positions 0..N-1 starting
+    // from the front. Empty positions in the middle are normal and
+    // give the user room to add wahs / filters / EQ between drives
+    // and amp without restructuring.
+    const dsp0Blocks = chainAfterCabPull.slice(0, splitBoundary + 1);
+    const hasCab = cabIdxAfter !== -1;
+    const ampIdxOnDsp0 = dsp0Blocks.findIndex(({ block }) => getBlockType(block.block_category) === 1);
+
+    for (let i = 0; i < dsp0Blocks.length; i++) {
+      const { block, modelId } = dsp0Blocks[i];
+      let position = i;
+      if (hasCab && i === splitBoundary) {
+        position = 7; // cab pinned to the very end
+      } else if (hasCab && i === ampIdxOnDsp0 && ampIdxOnDsp0 !== splitBoundary) {
+        position = 6; // amp right before the cab
+      } else if (!hasCab && i === splitBoundary) {
+        position = 7; // amp pinned to end when no cab
+      }
       dsp0Slots.push({ block, modelId, position });
     }
-    // Post-amp on dsp1, starting at @position 0
-    const postAmp = chainAfterCabPull.slice(ampIndexInChain + 1);
-    for (let i = 0; i < postAmp.length; i++) {
-      const { block, modelId } = postAmp[i];
+
+    // Everything after the boundary lives on dsp1 starting at @position 0
+    const postBoundary = chainAfterCabPull.slice(splitBoundary + 1);
+    for (let i = 0; i < postBoundary.length; i++) {
+      const { block, modelId } = postBoundary[i];
       dsp1Slots.push({ block, modelId, position: i });
     }
   } else {

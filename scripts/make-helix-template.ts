@@ -47,7 +47,22 @@ const emptyTranslation: PlatformTranslation = {
   notes: "Empty Helix template — load and add blocks in HX Edit.",
 };
 
-/** STARTER template — full verified-template signal chain at neutral settings. */
+/**
+ * STARTER template — verified blocks at neutral settings, structured to
+ * match the layout a real player would build on Helix LT:
+ *
+ *   dsp0:  Volume → Comp → Scream 808 (off) → Amp → Cab
+ *   dsp1:  Delay (off) → Dynamic Room → Tilt EQ
+ *
+ * The chain is 8 blocks total. The generator splits at the cab boundary,
+ * leaving 3 free positions on dsp0 (room for noise gate, more drives,
+ * a wah) and 5 free positions on dsp1 (room for modulation, additional
+ * delays/reverbs, a final volume).
+ *
+ * The final Tilt EQ is the global "make-it-brighter / make-it-darker"
+ * knob — handy when moving between rooms, headphones, or different
+ * monitoring rigs.
+ */
 const starterTranslation: PlatformTranslation = {
   chain_blocks: [
     {
@@ -96,10 +111,13 @@ const starterTranslation: PlatformTranslation = {
       block_category: "Cab",
       original_gear: "Fender Deluxe 1x12",
       settings: {
-        Mic: 5, Position: 0.49, Distance: 1, Angle: 0, Pan: 0.5,
-        LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0,
+        // Legacy @type: 2 cab — only 5 valid params. Mic / Position /
+        // Pan / Angle / Delay belong to the WithPan dual-cab format
+        // and are silently dropped by HX Edit on a legacy cab.
+        LowCut: 19.9, HighCut: 20100, Distance: 1, Level: 0,
+        EarlyReflections: 0,
       },
-      notes: "Single ribbon mic at near-center. Full-range cuts.",
+      notes: "Legacy single-mic cab. For richer dual-mic, swap to a WithPan model + cab0 sibling.",
     },
     {
       position: 6,
@@ -112,15 +130,30 @@ const starterTranslation: PlatformTranslation = {
     },
     {
       position: 7,
-      block_name: "Plate",
+      block_name: "Dynamic Room",
       block_category: "Reverb",
-      original_gear: "Studio plate",
-      settings: { Decay: 0.5, Predelay: 0.05, Mix: 0.20, LowCut: 100, HighCut: 8000 },
-      notes: "Subtle plate reverb. Mix=0.20 keeps the dry note in front.",
+      original_gear: "Studio room",
+      settings: {
+        Decay: 0.5, PreDelay: 0.01, Mix: 0.30,
+        LowCut: 100, HighCut: 10000,
+        BassFreq: 100, BassBoost: 0,
+        Diffusion: 0.5, ERLevel: 0.8,
+        MatrFreq: 0.333, Damping: 3720, Level: 0,
+      },
+      notes: "VIC_ReverbDynRoom — newer-firmware Dynamic Room with rich modulation. More adaptive than the legacy plate.",
+    },
+    {
+      position: 8,
+      block_name: "Tilt",
+      block_category: "EQ",
+      original_gear: "Tilt EQ (Line 6 original)",
+      settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+      notes:
+        "Global brightness/darkness knob at the END of the chain. Tilt < 0.5 = darker (cuts highs, boosts lows), Tilt > 0.5 = brighter. CenterFreq sets the pivot. Use this to adapt the preset to different rooms / monitors / headphones without retouching the amp EQ.",
     },
   ],
   notes:
-    "Starter template — verified blocks, neutral settings. Replace blocks one at a time in HX Edit to dial in your tone, or use this as the baseline for a tone-recipe rewrite.",
+    "Starter template — verified blocks, neutral settings, room to grow. Splits across both DSPs so you can add more blocks without restructuring. Tilt EQ at the end for global brightness/darkness adjustment.",
 };
 
 const translation = variant === "starter" ? starterTranslation : emptyTranslation;

@@ -439,6 +439,31 @@ interface InventoryEntry {
 }
 
 /**
+ * Manual overrides for cases where the auto-matcher can't bridge the
+ * Helix display name and the model ID — usually because of a prefix
+ * mismatch (VIC_ vs HD2_) or because the model isn't in the factory
+ * corpus but is verified to load. Each entry must be checked against
+ * a real HX Edit export before adding.
+ */
+const MANUAL_OVERRIDES: Record<string, { modelId: string; params?: Record<string, { type: string; min?: number; max?: number; booleanLikely: boolean }> }> = {
+  "Dynamic Plate": { modelId: "VIC_DynPlate" },
+  "Dynamic Room": { modelId: "VIC_ReverbDynRoom" },
+  "Dynamic Hall": { modelId: "VIC_ReverbDynHall" },
+  "Dynamic Ambience": { modelId: "VIC_ReverbDynAmbience" },
+  "Dynamic Bloom": { modelId: "VIC_ReverbDynBloom" },
+  // HD2_EQSimpleTilt — verified from user export 2026-04-26. Not in
+  // factory corpus, so we declare params explicitly.
+  "Tilt": {
+    modelId: "HD2_EQSimpleTilt",
+    params: {
+      Tilt: { type: "number", min: 0, max: 1, booleanLikely: false },
+      CenterFreq: { type: "integer", min: 20, max: 20100, booleanLikely: false },
+      Level: { type: "number", min: -12, max: 12, booleanLikely: false },
+    },
+  },
+};
+
+/**
  * Convert a Helix display name to its likely model ID by stripping
  * spaces and special chars and prepending the appropriate prefix.
  * Used for cross-referencing only — when the corpus has the actual
@@ -497,9 +522,11 @@ const matchedModelIds = new Set<string>();
 
 for (const [category, items] of Object.entries(OFFICIAL_LIST)) {
   for (const [helixName, realWorldGear, manufacturer] of items) {
-    const modelId = findCorpusModel(helixName, category, corpusModelIds);
+    // Manual overrides win over the auto-matcher
+    const override = MANUAL_OVERRIDES[helixName];
+    let modelId: string | null = override?.modelId ?? findCorpusModel(helixName, category, corpusModelIds);
     if (modelId) matchedModelIds.add(modelId);
-    const corpusEntry = modelId ? corpus.models[modelId] : undefined;
+    const corpusEntry = modelId && corpus.models[modelId] ? corpus.models[modelId] : undefined;
 
     const params: InventoryEntry["params"] = {};
     if (corpusEntry) {
@@ -515,13 +542,24 @@ for (const [category, items] of Object.entries(OFFICIAL_LIST)) {
       }
     }
 
+    // If the override declared explicit params, use those (since the
+    // model isn't in the corpus, we don't have observed values).
+    if (override?.params) {
+      for (const [pname, pinfo] of Object.entries(override.params)) {
+        params[pname] = pinfo;
+      }
+    }
+
     inventory.push({
       helixName,
       category,
       modelId,
       realWorldGear,
       manufacturer,
-      verified: !!corpusEntry,
+      // Verified if either the corpus has the model OR an explicit
+      // manual override is declared (which itself requires user-export
+      // verification before it gets added).
+      verified: !!corpusEntry || !!override,
       corpusCount: corpusEntry?.count ?? 0,
       observedTypes: corpusEntry?.blockTypes ?? [],
       params,
