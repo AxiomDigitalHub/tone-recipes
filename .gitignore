@@ -40,6 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# claude
-.claude/
+# claude — most of .claude/ is local (settings, skills, transcripts).
+# Agent definitions (.claude/agents/) live with the codebase so the
+# QC tooling and other shared agents are available to every contributor.
+.claude/*
+!.claude/agents/
+.claude/agents/*
+!.claude/agents/*.md
 .env*.local
