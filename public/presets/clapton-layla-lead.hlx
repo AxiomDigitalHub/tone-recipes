@@ -1,7 +1,7 @@
 {
   "data": {
     "meta": {
-      "name": "Brian May's Bohemian Rhapsody Gu",
+      "name": "Clapton's Layla Searing Lead Ton",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
       "modifieddate": 1777258313,
@@ -134,16 +134,14 @@
           "dsp0": {
             "block0": true,
             "block1": true,
-            "block2": true,
+            "block2": false,
             "block3": false,
-            "block4": false,
-            "block5": true
+            "block4": true
           },
           "dsp1": {
             "block0": true,
             "block1": true,
-            "block2": true,
-            "block3": true
+            "block2": true
           }
         },
         "controllers": {}
@@ -273,65 +271,55 @@
           "@type": 0,
           "@no_snapshot_bypass": false,
           "@stereo": false,
-          "Threshold": -34,
-          "Ratio": 3,
+          "Threshold": -32,
+          "Ratio": 2,
           "Knee": 6,
           "Attack": 0.038,
           "Release": 0.2,
-          "Mix": 0.55,
-          "Level": 4
+          "Mix": 0.5,
+          "Level": 0
         },
         "block2": {
-          "@model": "HD2_DistDerangedMaster",
+          "@model": "HD2_DistScream808",
           "@position": 2,
-          "@enabled": true,
+          "@enabled": false,
           "@path": 0,
           "@type": 0,
           "@no_snapshot_bypass": false,
           "@stereo": false,
-          "Boost": 0.85
+          "Gain": 0.2,
+          "Tone": 0.55,
+          "Level": 0.8
         },
         "block3": {
-          "@model": "HD2_DistKinkyBoost",
+          "@model": "HD2_DistMinotaur",
           "@position": 3,
           "@enabled": false,
           "@path": 0,
           "@type": 0,
           "@no_snapshot_bypass": false,
           "@stereo": false,
-          "Drive": 0.5,
-          "Bright": 0,
-          "Boost": 0.7
+          "Gain": 0.2,
+          "Tone": 0.55,
+          "Level": 0.7
         },
         "block4": {
-          "@model": "HD2_DistMinotaur",
-          "@position": 4,
-          "@enabled": false,
-          "@path": 0,
-          "@type": 0,
-          "@no_snapshot_bypass": false,
-          "@stereo": false,
-          "Gain": 0.3,
-          "Tone": 0.55,
-          "Level": 0.65
-        },
-        "block5": {
-          "@model": "HD2_AmpEssexA30",
+          "@model": "HD2_AmpTweedBluesBrt",
           "@position": 7,
           "@enabled": true,
           "@path": 0,
           "@type": 1,
           "@no_snapshot_bypass": false,
           "@bypassvolume": 1,
-          "Drive": 0.65,
-          "Bass": 0.4,
-          "Mid": 0.55,
-          "Treble": 0.65,
-          "Cut": 0.5,
-          "ChVol": 0.7,
+          "Drive": 0.95,
+          "Bass": 0.5,
+          "Mid": 0.6,
+          "Treble": 0.6,
+          "Presence": 0.5,
+          "ChVol": 0.85,
           "Master": 1,
           "Bias": 0.55,
-          "Sag": 0.65,
+          "Sag": 0.7,
           "Hum": 0.5,
           "Ripple": 0.5,
           "BiasX": 0.5
@@ -386,57 +374,18 @@
           "Level": 0
         },
         "block0": {
-          "@model": "HD2_CabMicIr_2x12BlueBellWithPan",
+          "@model": "HD2_Cab1x10PrincessCopperhead",
           "@position": 0,
           "@enabled": true,
           "@path": 0,
-          "@type": 4,
+          "@type": 2,
           "@no_snapshot_bypass": false,
-          "Mic": 0,
-          "Position": 0.3,
           "Distance": 1,
-          "Angle": 0,
-          "Pan": 0.5,
           "LowCut": 19.9,
           "HighCut": 20100,
-          "Level": 0,
-          "Delay": 0,
-          "@cab": "cab0"
-        },
-        "cab0": {
-          "@model": "HD2_CabMicIr_2x12BlueBellWithPan",
-          "@enabled": true,
-          "Mic": 5,
-          "Position": 0.3,
-          "Distance": 1,
-          "Angle": 0,
-          "Pan": 0.5,
-          "LowCut": 19.9,
-          "HighCut": 20100,
-          "Level": 0,
-          "Delay": 0
-        },
-        "block1": {
-          "@model": "HD2_DelayTransistorTape",
-          "@position": 1,
-          "@enabled": true,
-          "@path": 0,
-          "@type": 7,
-          "@no_snapshot_bypass": false,
-          "@stereo": false,
-          "@trails": true,
-          "Time": 0.35,
-          "Feedback": 0.25,
-          "Mix": 0.2,
-          "WowFlutter": 0.3,
-          "Headroom": 0.2,
-          "Spread": 0.3,
-          "Scale": 1,
-          "SyncSelect1": 0,
-          "TempoSync1": false,
           "Level": 0
         },
-        "block2": {
+        "block1": {
           "@model": "VIC_DynPlate",
           "@position": 6,
           "@enabled": true,
@@ -445,19 +394,19 @@
           "@no_snapshot_bypass": false,
           "@stereo": false,
           "@trails": true,
-          "Decay": 2.5,
-          "PreDelay": 0.03,
-          "Mix": 0.25,
-          "LowCut": 125,
-          "HighCut": 8500,
+          "Decay": 1.8,
+          "PreDelay": 0.04,
+          "Mix": 0.2,
+          "LowCut": 130,
+          "HighCut": 8000,
           "BassFreq": 100,
           "BassBoost": 0,
-          "VarDelayAmpl": 0.6,
+          "VarDelayAmpl": 0.55,
           "Damping": 4500,
           "MatrFreq": 0.33,
           "Level": 0
         },
-        "block3": {
+        "block2": {
           "@model": "HD2_EQSimpleTilt",
           "@position": 7,
           "@enabled": true,
