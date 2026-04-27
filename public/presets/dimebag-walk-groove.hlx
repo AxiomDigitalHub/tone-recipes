@@ -4,7 +4,7 @@
       "name": "Dimebag Darrell's Walk Groove Me",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
-      "modifieddate": 1777264769,
+      "modifieddate": 1777264990,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -410,17 +410,35 @@
           "Level": 0
         },
         "block0": {
-          "@model": "HD2_Cab4x121960T75",
+          "@model": "HD2_CabMicIr_4x12UberT75WithPan",
           "@position": 0,
           "@enabled": true,
           "@path": 0,
-          "@type": 2,
+          "@type": 4,
           "@no_snapshot_bypass": false,
+          "Mic": 0,
+          "Position": 0.3,
+          "Distance": 1,
+          "Angle": 0,
+          "Pan": 0.5,
           "LowCut": 19.9,
           "HighCut": 20100,
-          "Distance": 1,
           "Level": 0,
-          "EarlyReflections": 0
+          "Delay": 0,
+          "@cab": "cab0"
+        },
+        "cab0": {
+          "@model": "HD2_CabMicIr_4x12UberT75WithPan",
+          "@enabled": true,
+          "Mic": 5,
+          "Position": 0.3,
+          "Distance": 1,
+          "Angle": 0,
+          "Pan": 0.5,
+          "LowCut": 19.9,
+          "HighCut": 20100,
+          "Level": 0,
+          "Delay": 0
         },
         "block1": {
           "@model": "HD2_DelayTransistorTape",

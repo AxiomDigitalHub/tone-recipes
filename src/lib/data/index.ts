@@ -10826,17 +10826,18 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 8,
-            block_name: "4x12 1960 T75",
+            block_name: "4x12 Uber T75",
             block_category: "Cab",
             original_gear: "Randall 4x12 with Celestion G12T-75 speakers",
             settings: {
-              LowCut: 19.9, HighCut: 20100, Distance: 1, Level: 0, EarlyReflections: 0,
+              Mic: 0, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5,
+              LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0,
             },
             cabSibling: {
               Mic: 5, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5,
               LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0,
             },
-            notes: "Dual-mic blend — main cab close-miked (SM57 in legacy 5-param shape), R-121 ribbon at Position 0.30 via cabSibling. The 4x12 1960 T75 is the Marshall 1960 cab loaded with Celestion G12T-75s — the same speakers Dime had in his Randall 4x12. Vintage 30s would also work but the T75s match what Dime actually used in the Vulgar era.",
+            notes: "Bogner Uberkab loaded with Celestion G12T-75s — same speakers Dime had in his Randall 4x12, and the Uberkab's oversized construction matches the deep low-end punch of Dime's solid-state rig (Randall cabs were known for similar oversized depth). The Uber T75 has a verified WithPan variant in the inventory, so the generator auto-promotes to the dual-mic format. SM57 (Mic 0) close + R-121 ribbon (Mic 5) sibling, both at Position 0.30 for cone-edge bite + body.",
           },
           {
             position: 9,
