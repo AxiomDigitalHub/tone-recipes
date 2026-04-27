@@ -2898,6 +2898,17 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "Cab",
             original_gear: "WEM 4x12 with Fane Crescendo",
             settings: {
+              Mic: 0,
+              Position: 0.24,
+              Distance: 1,
+              Angle: 0,
+              Pan: 0.5,
+              LowCut: 19.9,
+              HighCut: 20100,
+              Level: 0,
+              Delay: 0,
+            },
+            cabSibling: {
               Mic: 5,
               Position: 0.24,
               Distance: 1,
@@ -2909,7 +2920,7 @@ export const toneRecipes: ToneRecipe[] = [
               Delay: 0,
             },
             notes:
-              "No stock WEM/Fane in Helix — Greenback 25 is the closest open-character 4x12. Ribbon mic (Mic=5) close to the center cone (Position=0.24) for body without dust-cap brittleness. LowCut=19.9 / HighCut=20100 keep the cab fully full-range so all frequency-shaping happens at the amp + master EQ, not the cab. (For richer authenticity, swap to a dual-mic SM57+Ribbon blend with a sibling cab0 block — currently the generator emits single-mic only.)",
+              "Dual-mic blend on a Greenback 25 (closest open-character 4x12 to the WEM/Fane). Generator promotes to HD2_CabMicIr_4x12Greenback25WithPan + cab0 sibling.\n\nMain cab: Mic=0 (SM57) at Position=0.24 (close to center cone) — bite, presence, the percussive attack of a Hiwatt under a Muff.\nSibling cab: Mic=5 (R-121 ribbon) at the same position — body, warmth, the rounded high end Gilmour's records have.\n\nLowCut=19.9 / HighCut=20100 keep both mics fully full-range; tonal shaping happens at the amp + master EQ, not the cab.",
           },
           {
             position: 8,

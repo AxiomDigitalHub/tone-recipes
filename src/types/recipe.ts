@@ -47,6 +47,22 @@ export interface PlatformBlock {
    * stomps the one they want. Undefined = enabled (default behavior).
    */
   enabled?: boolean;
+  /**
+   * For dual-mic cabs: an additional mic config that gets emitted as
+   * a sibling `cab0` object on the same DSP, with the cab block
+   * promoted to `@type: 4` using the WithPan model variant.
+   *
+   * Only valid on cab blocks. The recipe's `block_name` should resolve
+   * to a model ID with a known WithPan variant (e.g. "4x12 Greenback 25"
+   * → HD2_CabMicIr_4x12Greenback25WithPan). If no WithPan variant
+   * exists in the inventory, the sibling is dropped and a warning is
+   * logged — the file falls back to single-mic legacy format.
+   *
+   * Settings shape mirrors the WithPan cab params:
+   *   { Mic: int, Position: 0-1, Distance: int, Angle: 0|1, Pan: 0-1,
+   *     LowCut: Hz, HighCut: Hz, Level: dB, Delay: int }
+   */
+  cabSibling?: Record<string, string | number | boolean>;
 }
 
 export interface PlatformTranslation {

@@ -1,5 +1,5 @@
 import type { PlatformTranslation } from "@/types/recipe";
-import { resolveModelId, scaleParamValue, normalizeParamName } from "./model-map";
+import { resolveModelId, scaleParamValue, normalizeParamName, withPanVariant } from "./model-map";
 
 /**
  * Param keys (post-normalization) that must be emitted as JSON booleans
@@ -141,8 +141,12 @@ function buildBlockEntry(
   block: PlatformTranslation["chain_blocks"][0],
   modelId: string,
   position: number,
+  typeOverride?: number,
 ): { entry: Record<string, unknown>; isEnabled: boolean } {
-  const blockType = getBlockType(block.block_category);
+  // Caller can override the @type when promoting a legacy cab to its
+  // WithPan variant (cab2 → cab4). The override determines both the
+  // emitted @type AND which param-filter applies.
+  const blockType = typeOverride ?? getBlockType(block.block_category);
   const isEnabled = block.enabled !== false;
 
   const entry: Record<string, unknown> = {
@@ -295,24 +299,88 @@ export function generateHelixPreset(
     }
   }
 
-  // Build dsp0 + snapshot bypass map
+  /**
+   * Emit one DSP's blocks. If a cab block in the slot list has
+   * `cabSibling` set, promote it to the WithPan variant + emit a
+   * sibling `cab0` object on the same DSP. Used for dual-mic cab
+   * configurations matching the verified-working Helix LT layout.
+   */
+  function buildDsp(
+    dsp: Record<string, unknown>,
+    snapshot: Record<string, boolean>,
+    slots: typeof dsp0Slots,
+  ): { siblingEmitted: boolean } {
+    let siblingEmitted = false;
+    let blockIndex = 0;
+    for (const slot of slots) {
+      const { block, modelId, position } = slot;
+      const isCab = getBlockType(block.block_category) === 2;
+      const wantsSibling = isCab && block.cabSibling != null;
+
+      // For dual-mic, swap to the WithPan model variant (if available)
+      // and emit the in-chain cab as @type: 4 instead of legacy 2.
+      let useModelId = modelId;
+      let useType: number | null = null;
+      if (wantsSibling) {
+        const wpId = withPanVariant(modelId);
+        if (wpId) {
+          useModelId = wpId;
+          useType = 4;
+        } else {
+          console.warn(
+            `[generateHelixPreset] cabSibling requested for "${block.block_name}" but no WithPan variant in inventory — falling back to single-mic legacy.`,
+          );
+        }
+      }
+
+      const { entry, isEnabled } = buildBlockEntry(block, useModelId, position, useType ?? undefined);
+      dsp[`block${blockIndex}`] = entry;
+      snapshot[`block${blockIndex}`] = isEnabled;
+      blockIndex++;
+
+      // Emit the cab0 sibling on this DSP if requested + supported
+      if (wantsSibling && useType === 4) {
+        const siblingFakeBlock = {
+          ...block,
+          settings: block.cabSibling!,
+        };
+        // Sibling shares model + position with the in-chain cab
+        const { entry: siblingEntry } = buildBlockEntry(
+          siblingFakeBlock,
+          useModelId,
+          position,
+          4,
+        );
+        dsp.cab0 = siblingEntry;
+        siblingEmitted = true;
+      }
+    }
+    return { siblingEmitted };
+  }
+
+  // Build dsp0
   const dsp0: Record<string, unknown> = makeDspInfrastructure(true);
   const snapshotDsp0: Record<string, boolean> = {};
-  for (let i = 0; i < dsp0Slots.length; i++) {
-    const { block, modelId, position } = dsp0Slots[i];
-    const { entry, isEnabled } = buildBlockEntry(block, modelId, position);
-    dsp0[`block${i}`] = entry;
-    snapshotDsp0[`block${i}`] = isEnabled;
-  }
+  const dsp0Cab = buildDsp(dsp0, snapshotDsp0, dsp0Slots);
 
   // Build dsp1
   const dsp1: Record<string, unknown> = makeDspInfrastructure(false);
   const snapshotDsp1: Record<string, boolean> = {};
-  for (let i = 0; i < dsp1Slots.length; i++) {
-    const { block, modelId, position } = dsp1Slots[i];
-    const { entry, isEnabled } = buildBlockEntry(block, modelId, position);
-    dsp1[`block${i}`] = entry;
-    snapshotDsp1[`block${i}`] = isEnabled;
+  const dsp1Cab = buildDsp(dsp1, snapshotDsp1, dsp1Slots);
+
+  // If we emitted a dual-mic cab on either DSP, the AMP block
+  // (wherever it lives) needs `@cab: "cab0"` so HX Edit links the
+  // amp's output to the cab pair correctly. Verified from the
+  // 2026-04-26 user export.
+  const cabSiblingEmitted = dsp0Cab.siblingEmitted || dsp1Cab.siblingEmitted;
+  if (cabSiblingEmitted) {
+    const ampBlockKey = Object.keys(dsp0).find((k) => {
+      const b = dsp0[k] as Record<string, unknown>;
+      return b && b["@type"] === 1;
+    });
+    if (ampBlockKey) {
+      (dsp0[ampBlockKey] as Record<string, unknown>)["@cab"] = "cab0";
+    }
   }
 
   // Re-route DSPs when the chain is split: dsp0 → dsp1 → Multi.

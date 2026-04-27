@@ -285,6 +285,32 @@ export function resolveModelId(blockName: string): string | null {
 }
 
 /**
+ * Find the WithPan variant of a legacy cab model ID, if one exists in
+ * the corpus. Used by the generator's dual-mic emitter.
+ *
+ * Naming convention observed across the factory corpus:
+ *   HD2_Cab<X>            (legacy, single-mic, @type: 2)
+ *   HD2_CabMicIr_<X>WithPan  (current-gen, dual-mic-capable, @type: 4)
+ *
+ * E.g. HD2_Cab4x12Greenback25 → HD2_CabMicIr_4x12Greenback25WithPan
+ *
+ * Returns null if the input isn't a cab model ID or no WithPan variant
+ * is present in the verified inventory. Verified IDs only — never
+ * guesses.
+ */
+export function withPanVariant(legacyModelId: string): string | null {
+  if (!legacyModelId.startsWith("HD2_Cab") || legacyModelId.includes("CabMicIr_")) {
+    return null;
+  }
+  const suffix = legacyModelId.slice("HD2_Cab".length);
+  const candidate = `HD2_CabMicIr_${suffix}WithPan`;
+  // Only return if the candidate is in the inventory (verified loadable)
+  const data = inventoryData as { inventory: InventoryEntry[] };
+  const exists = data.inventory.some((e) => e.modelId === candidate);
+  return exists ? candidate : null;
+}
+
+/**
  * Determine a Helix block category prefix from a block_category string.
  * Used when constructing a best-guess model ID for unmapped blocks.
  */
