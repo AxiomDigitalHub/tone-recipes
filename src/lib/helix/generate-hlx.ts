@@ -228,66 +228,75 @@ export function generateHelixPreset(
   // Helix LT caps each DSP path at 8 positions (0-7); position 8 is the
   // join. Chains with ≥ 8 blocks split across dsp0 and dsp1 by default.
   //
-  // Split point: AFTER the cab (or after the amp if no cab is present).
-  // This keeps the "amp section" together on dsp0 (drives → amp → cab,
-  // ending at @position 7) and puts the "wet section" on dsp1 (delay →
-  // reverb → final EQ). Matches the verified-working topology from a
-  // 2026-04-26 user export.
+  // Split-point selection — three layouts, in order of priority:
   //
-  // Splitting at 8 blocks (rather than > 8) leaves room on both DSPs
-  // for the user to add more blocks via HX Edit without restructuring.
+  // 1. DUAL-MIC CAB (any cab block has cabSibling): split AFTER the AMP.
+  //    The amp goes to dsp0 @position 7. Cab + cab0 sibling go to dsp1
+  //    starting at @position 0. The amp's @cab: "cab0" reference points
+  //    cross-DSP to the cab0 on dsp1. Verified-working topology from a
+  //    2026-04-26 user export.
+  //
+  // 2. STANDARD AMP+CAB (no sibling): split AFTER the CAB. The amp+cab
+  //    pair stays together at the end of dsp0 (amp @6, cab @7). Wet
+  //    section (delay/reverb/EQ) goes to dsp1.
+  //
+  // 3. NO CAB IN CHAIN: split AFTER the AMP.
   const ampIdxAfter = chainAfterCabPull.findIndex(({ block }) => getBlockType(block.block_category) === 1);
   const cabIdxAfter = chainAfterCabPull.findIndex(({ block }) => getBlockType(block.block_category) === 2 || getBlockType(block.block_category) === 4);
-  // Prefer cab boundary; fall back to amp boundary if no cab.
-  const splitBoundary = cabIdxAfter !== -1 ? cabIdxAfter : ampIdxAfter;
-  const needsSplit = chainAfterCabPull.length >= 8 && splitBoundary !== -1;
+  const hasDualMicCab = chainAfterCabPull.some(({ block }) => block.cabSibling != null);
+
+  let splitBoundary: number;
+  if (hasDualMicCab) {
+    // Dual-mic forces split after the amp (cab moves to dsp1 with sibling)
+    splitBoundary = ampIdxAfter;
+  } else if (cabIdxAfter !== -1) {
+    splitBoundary = cabIdxAfter;
+  } else {
+    splitBoundary = ampIdxAfter;
+  }
+  const needsSplit = (hasDualMicCab || chainAfterCabPull.length >= 8) && splitBoundary !== -1;
 
   // Slot blocks into dsp0 and dsp1
   const dsp0Slots: Array<{ block: typeof renderable[0]["block"]; modelId: string; position: number }> = [];
   const dsp1Slots: Array<{ block: typeof renderable[0]["block"]; modelId: string; position: number }> = [];
 
   if (needsSplit) {
-    // dsp0 contains everything up to and including the split boundary
-    // (cab if present, else amp). To match the visual balance of
-    // hand-built factory presets, the AMP+CAB pair is pinned to the
-    // END of dsp0 — cab at @position 7, amp at @position 6 (when both
-    // are present), with pre-amp blocks at positions 0..N-1 starting
-    // from the front. Empty positions in the middle are normal and
-    // give the user room to add wahs / filters / EQ between drives
-    // and amp without restructuring.
     const dsp0Blocks = chainAfterCabPull.slice(0, splitBoundary + 1);
-    const hasCab = cabIdxAfter !== -1;
+    const hasCabOnDsp0 = !hasDualMicCab && cabIdxAfter !== -1;
     const ampIdxOnDsp0 = dsp0Blocks.findIndex(({ block }) => getBlockType(block.block_category) === 1);
 
     for (let i = 0; i < dsp0Blocks.length; i++) {
       const { block, modelId } = dsp0Blocks[i];
       let position = i;
-      if (hasCab && i === splitBoundary) {
+      if (hasCabOnDsp0 && i === splitBoundary) {
         position = 7; // cab pinned to the very end
-      } else if (hasCab && i === ampIdxOnDsp0 && ampIdxOnDsp0 !== splitBoundary) {
+      } else if (hasCabOnDsp0 && i === ampIdxOnDsp0 && ampIdxOnDsp0 !== splitBoundary) {
         position = 6; // amp right before the cab
-      } else if (!hasCab && i === splitBoundary) {
-        position = 7; // amp pinned to end when no cab
+      } else if (!hasCabOnDsp0 && i === splitBoundary) {
+        position = 7; // amp pinned to end (no cab on dsp0, OR dual-mic case)
       }
       dsp0Slots.push({ block, modelId, position });
     }
 
-    // dsp1 mirrors dsp0's left/right visual balance: the LAST two
-    // blocks pin to positions 6 and 7 (end of DSP), all other blocks
-    // fill from @position 0 forwards. With 3 blocks (the typical
-    // delay → reverb → final-EQ shape), this puts delay at @position 0,
-    // reverb at @position 6, EQ at @position 7 — matching the
-    // hand-built layout from the 2026-04-26 user export.
+    // dsp1 placement. For dual-mic: cab goes at @position 0 (start),
+    // sibling cab0 emits alongside it (same position), then post-amp
+    // blocks (delay, reverb, EQ) fill remaining positions with the
+    // last-two-pinned-to-6-and-7 pattern.
+    //
+    // For non-dual-mic split (cab on dsp0): dsp1 holds only post-amp
+    // blocks. Same last-two-pinned pattern.
     const postBoundary = chainAfterCabPull.slice(splitBoundary + 1);
     for (let i = 0; i < postBoundary.length; i++) {
       const { block, modelId } = postBoundary[i];
       let position: number;
-      if (i === postBoundary.length - 1) {
-        position = 7; // last block always at the very end
+      if (hasDualMicCab && i === 0 && (getBlockType(block.block_category) === 2 || getBlockType(block.block_category) === 4)) {
+        position = 0; // dual-mic cab pinned to start of dsp1
+      } else if (i === postBoundary.length - 1) {
+        position = 7;
       } else if (i === postBoundary.length - 2) {
-        position = 6; // second-to-last right before it
+        position = 6;
       } else {
-        position = i; // earlier blocks fill from the front
+        position = i;
       }
       dsp1Slots.push({ block, modelId, position });
     }
