@@ -1165,3 +1165,58 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 | 3 | Ground Loop Hum at the Amp: When the Pedalboard Is Fine But the Stage Isn't | "ground loop guitar amp hum," "lift ground guitar amp safe," "stage hum guitar pedalboard" | Nathan Cross | 6 — Quick Fixes & Troubleshooting | Pedalboard power supply SERP — the power supply post addresses pedalboard-internal causes; the next layer is ground loops between the board and the amp, and between the amp and the venue's electrical system; safety implications around lifting grounds make this a topic that needs an authoritative editorial voice; Nathan's church/touring context where the same rig sounds fine in one room and hums in another fits the post |
 | 4 | Boss Katana Mini vs Vox amPlug 4: The Sub-$100 Headphone Amp Decision | "boss katana mini review," "vox amplug 4 review," "best practice amp under 100" | Jess Kowalski | 5 — Gear Lab | Practice amp SERP — the Mustang Micro/Spark Mini/HX Stomp post covers the $100-$600 tier; the sub-$100 tier (Katana Mini, Vox amPlug 4, Joyo, others) has its own buying logic and search volume; Jess's budget-gear advocacy and "if it can't sound good with cheap gear, more gear won't save you" philosophy make her the natural voice for the entry-level comparison |
 | 5 | Acoustic Pickup + Microphone Blend Recording: The Two-Source Workflow That Actually Works | "blend acoustic pickup microphone," "two source acoustic recording," "best mic for acoustic with pickup" | Margot Thiessen | 2 — Settings Guides | Acoustic pickup EQ SERP — the EQ-fix post creates demand for the "next level up" workflow where you blend the pickup signal with a microphone for the best of both worlds; this is how professional acoustic recordings are done but the editorial walkthrough is missing; Margot's Berklee studio background and recording experience fits the methodical workflow format; strong cluster link from the EQ post |
+
+## SERP Analysis — 2026-04-27 (Posts Published Today)
+
+### Posts published: acoustic-pickup-microphone-blend, stereo-signal-chain-architecture, floyd-rose-knife-edge-wear, modeler-global-eq-guide, bbd-vs-pt2399-delay-chips
+
+**blend acoustic pickup microphone two-source recording workflow:**
+- SERP dominated by Sound on Sound "Combining Mics & Pickups" article, Acoustic Guitar Forum threads, and manufacturer pages (Fishman Matrix Infinity Mic Blend, LR Baggs HiFi Duet, Myers Pickups)
+- Sound on Sound is the closest editorial competitor and covers the time-alignment principle but stops short of giving specific EQ moves and panning rules; their treatment is studio-engineer focused, not guitarist-focused
+- All other ranking results are product pages for hybrid pickup systems (Anthem, HiFi Duet, Matrix Infinity Mic Blend) — the integrated solutions, not the separate-source workflow
+- Gap confirmed: our post is the only editorial guide that walks through separate-source recording with sample-level time alignment, EQ moves per source, and panning recommendations in one place
+- PAA signal: "How do you blend a pickup and mic for acoustic guitar?" "What is time alignment in recording?" "Best mic for acoustic guitar pickup blend?" — all answered directly
+- Follow-on opportunity: integrated hybrid pickup systems (Anthem, HiFi Duet, Matrix Infinity Mic Blend) deserve a dedicated comparison post — the all-in-one approach is genuinely different from separate-source recording
+
+**stereo guitar signal chain architecture mono vs stereo modeler:**
+- SERP dominated by Sweetwater "Studio-quality Modeler Patches" article, Neural DSP Quad Cortex routing forum threads, Mr. Black "Second to One" stereo pedal article, and Perfect Circuit "Building a Stereo Pedalboard"
+- Sweetwater article touches the principle but doesn't articulate the modulation-block-as-split-point rule with the directness that matches search intent
+- Mr. Black's article is excellent and identifies the same fundamental issue (most "stereo" pedals aren't really stereo) but doesn't extend to a complete signal chain architecture guide
+- Gap confirmed: our post is the only editorial source that explicitly names the split point at the modulation block and walks through the architecture for both Helix and Quad Cortex with mono fold-down testing
+- PAA signal: "Should I run my modeler in stereo?" "Where does stereo split in guitar chain?" "Does stereo guitar sound better than mono?" — all addressed
+- Follow-on opportunity: the parallel amp routing technique (two amps in parallel summed to mono) deserves its own post — different from the stereo split decision but related and equally undocumented editorially
+
+**floyd rose knife edge worn tuning instability:**
+- SERP dominated by SevenString.org and JemSite forum threads, Kramer Forum, Ultimate Guitar threads, FloydRose.com troubleshooting page, and one YouTube tutorial on edge sharpening
+- FloydRose.com troubleshooting page is the only manufacturer-published reference but doesn't structure wear into stages or provide audible diagnostic tests
+- All other results are forum debates with no consensus; "should you sharpen or replace?" is asked dozens of times across years with no single editorial answer ranking
+- Gap confirmed: our post is the only editorial source that pairs a five-stage wear taxonomy with both visual (loupe) and audible diagnostic tests, plus an honest verdict on re-dressing vs. replacement
+- PAA signal: "Why won't my Floyd Rose stay in tune?" "How do I tell if knife edges are worn?" "Is it worth sharpening Floyd Rose knife edges?" — all answered directly
+- Follow-on opportunity: knife edge replacement step-by-step (the actual replacement procedure with bridge swap walkthrough); ball-bearing alternatives (Floyd Upgrades, Stetsbar) as a different mechanical solution to the wear problem
+
+**helix global EQ settings setup studio live:**
+- SERP dominated by Helix Help "Global EQ" reference page, Line 6 community forum threads, Alex Strabala recommended global settings article, and Komposition101 "Helix EQ Cheat Sheet"
+- Helix Help is the most authoritative reference but is platform-specific (Helix only) and doesn't discuss the underlying conceptual model of room/monitor correction
+- Komposition101's cheat sheet provides specific settings but is presented as recipe-list rather than a framework for thinking about global EQ vs. per-preset EQ
+- Gap confirmed: our post is the only editorial source that frames global EQ as environmental correction across modeler platforms (Helix, QC, Fractal, TONEX) with three-context profiles (studio, headphones, live)
+- PAA signal: "What should global EQ be set to?" "How is global EQ different from preset EQ?" "Should I use global EQ or speaker EQ for room correction?" — all answered
+- Follow-on opportunity: Room EQ Wizard and measurement-microphone-driven global EQ setup — a step-up workflow for players who want data-driven correction rather than ear-based; meaningful technical depth available
+
+**bbd vs pt2399 analog delay chip difference:**
+- SERP dominated by Anasounds blog "Alternative to BBD delays," ElectroSmash technical analysis, Perfect Circuit "PT2399 Delay Chip" article, and PedalPCB Community Forum threads
+- Anasounds is the closest editorial competitor — covers the technical distinction but is short and doesn't include playing-context recommendations
+- ElectroSmash is the deepest technical resource but is engineer-facing, not guitarist-facing
+- Perfect Circuit covers the PT2399 history well but doesn't compare it directly to BBD with use-case verdicts
+- Gap confirmed: our post is the only editorial source that pairs the chip-level technical explanation with use-case-driven pedal recommendations across slap-back, dotted-eighth rhythm, ambient, and modulation contexts
+- PAA signal: "Is PT2399 analog or digital?" "What's the difference between BBD and PT2399 delay?" "Best PT2399 delay pedal?" — all answered
+- Follow-on opportunity: head-to-head Carbon Copy vs. DM-2W (both BBD-based but differently voiced); the V3205 Cool Audio reissue chip in current production pedals — the chip availability question deserves its own post
+
+## SERP-Derived Topics — 2026-04-27
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | LR Baggs Anthem vs. Fishman Matrix Infinity Mic Blend vs. K&K Pure Mini: Which Hybrid Acoustic Pickup System Is Right for You? | "lr baggs anthem vs fishman matrix infinity," "best acoustic guitar hybrid pickup," "soundhole pickup vs undersaddle pickup blend" | Margot Thiessen | 5 — Gear Lab | Acoustic pickup blend SERP — the integrated hybrid systems (Anthem, HiFi Duet, Matrix Infinity Mic Blend) dominated SERP results but no editorial source compares them directly with pickup-character verdicts; the integrated systems are a different solution than separate-source recording and deserve their own buying-decision guide; Margot's recording experience and her appreciation for nuance make this a natural follow-on to the blend recording workflow post |
+| 2 | Parallel Amp Routing in a Modeler: When Two Amps in Parallel Solve a Tone Problem One Amp Can't | "parallel amp routing modeler," "two amps in parallel guitar," "quad cortex parallel amp blend" | Sean Nakamura | 4 — Modeler Masterclass | Stereo signal chain SERP — the stereo architecture post explicitly defers parallel amp routing to a follow-on; the technique (two amp models summed to mono before modulation) is a real workflow used by Plini-style fusion players and Polyphia-adjacent prog guitarists, with zero editorial coverage; Sean's systematic routing approach and his Quad Cortex experience make this a natural cluster post following stereo signal chain architecture |
+| 3 | Floyd Rose Knife Edge Replacement: A Step-by-Step Walkthrough | "how to replace floyd rose knife edges," "replace floyd rose baseplate," "floyd rose bridge swap procedure" | Carl Beckett | 6 — Quick Fixes & Maintenance | Knife edge wear SERP — the diagnostic post covers when to replace; the actual replacement procedure (selecting a compatible baseplate, transferring saddles and intonation, balancing the bridge after install) is missing from all editorial coverage and is referenced only in scattered forum posts; Carl's methodical maintenance voice and respect for diagnosis-before-action suits the procedural format; strong internal link from the diagnostic post |
+| 4 | Setting Global EQ With Room Measurement: How to Use Room EQ Wizard for Modeler Correction | "room eq wizard guitar modeler," "how to measure room frequency response guitar," "calibrate global eq with measurement mic" | Dev Okonkwo | 4 — Modeler Masterclass | Global EQ SERP — the global EQ post recommends ear-based setup; Room EQ Wizard (free) and a measurement microphone enable data-driven setup that's significantly more accurate; no editorial source walks through the workflow specifically for guitarists rather than studio engineers; Dev's bedroom/studio framing and frequency-architecture orientation make this his natural territory; strong companion to the global EQ post |
+| 5 | MXR Carbon Copy vs. Boss DM-2W: Two BBD Delays, Two Different Tonal Choices | "carbon copy vs dm-2w," "mxr carbon copy vs boss waza craft delay," "best bbd analog delay pedal" | Hank Presswood | 5 — Gear Lab | BBD vs PT2399 SERP — the chip-level post identifies BBD as the right choice for slap-back and short ambient work; both the Carbon Copy and the DM-2W are BBD-based but voiced differently, and the head-to-head comparison is missing from all editorial sources despite high commercial interest; Hank's vintage-collector authority and storytelling approach suit the format; strong follow-on cluster from the BBD vs PT2399 post |

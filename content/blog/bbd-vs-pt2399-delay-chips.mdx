@@ -1,0 +1,168 @@
+---
+title: 'BBD vs. PT2399: What the Two Analog Delay Chips Actually Sound Like'
+description: >-
+  Most analog delay pedals fall into two camps based on which chip they use. The
+  bucket-brigade BBD has a darker, more compressed character with shorter
+  maximum delay times. The PT2399 is brighter, lower noise, and supports longer
+  delays — but it isn't strictly analog. Here is what each chip actually does
+  and why the choice matters more than 'analog' alone.
+date: '2026-04-27'
+author: Sean Nakamura
+author_slug: sean-nakamura
+category: signal-chain
+tags:
+  - bbd
+  - pt2399
+  - analog-delay
+  - delay-chip
+  - delay-pedal
+  - circuit-design
+  - bucket-brigade
+  - delay-architecture
+readingTime: 9
+image: /images/blog/bbd-vs-pt2399-delay-chips.jpg
+image_alt: >-
+  a Boss DM-2W analog delay pedal next to a Mooer Reecho delay pedal on a
+  desk under cool studio monitor glow, soft purple RGB rim lighting and
+  acoustic panels blurred behind
+---
+
+> **The short version:** The bucket-brigade device (BBD) is a true analog delay line — your signal stays in the analog domain the whole time, gets compressed and slightly distorted by the chip, and produces dark, organic repeats with a maximum useful delay time around 600 milliseconds. The PT2399 is a digital echo processor that internally converts to digital and back; the result has cleaner repeats, lower noise, and supports delay times over a second, but it loses some of the BBD's organic warmth. Use a BBD pedal for U2-style ambient repeats, slap-back, and any context where the delay should sit behind the dry signal. Use a PT2399 pedal for dotted-eighth rhythm work, longer delay times, and anything where repeat clarity matters. The choice isn't "analog vs. digital" — it's two different shaping characters with different tonal signatures.
+
+When the [JC-120 modeler limitations post](/blog/jc-120-modeler-limitations) ran a few weeks back, the comments section converged on the same follow-up question — what's the difference between the bucket-brigade chip in a Boss DM-2W and the PT2399 chip in basically every budget analog delay made in the last 15 years? Both get marketed as "analog." Both have a similar warm, slightly dark character compared to a Strymon Timeline or a Helix delay block. But they aren't the same thing, and the players who know the difference also know which one to reach for in which context.
+
+I've spent the last month building a comparison rig. Two pedals, both running the same signal source, both A/B'd through identical post-delay chains. The Boss DM-2W (Waza Craft, BBD-based) and the Mooer Reecho (PT2399-based, around $50 used). The recordings are illuminating in ways I didn't expect.
+
+Here's what each chip actually is, what it does to the signal, and how to choose.
+
+---
+
+## What's in the Box
+
+| Chip family | Architecture | Common pedals | Maximum delay time | Repeat character |
+|---|---|---|---|---|
+| MN3005 / MN3007 BBD | True analog delay line | Boss DM-2, DM-2W, MXR Carbon Copy, Way Huge Aqua-Puss | About 300–600 ms (longer requires extending the BBD network) | Dark, compressed, organic, slight distortion |
+| PT2399 | Digital echo processor (analog I/O, digital internals) | Mooer Reecho, Donner Yellow Fall, EHX Memory Boy, Belton brick | Up to about 1.5 seconds | Cleaner repeats, lower noise, brighter than BBD |
+| Higher-spec digital DSP | Full digital signal path | Boss DD-3, DD-200, Strymon Timeline, Helix | 2 seconds and beyond | Pristine, customizable, accurate |
+
+The marketing of pedals as "analog delay" is true for BBD-based units and a bit of a stretch for PT2399-based units. The PT2399 has analog input and output (so the dry signal stays clean) but converts the delayed signal to digital, processes it, and converts it back. From a player's perspective the result feels analog — soft, organic, slightly degraded — but from a circuit perspective it's a hybrid.
+
+This nuance matters when you're choosing between pedals that both list "analog delay" in their marketing. The behavior is meaningfully different.
+
+---
+
+## How a BBD Actually Works
+
+The bucket-brigade device gets its name from its operation: the audio signal moves through a series of capacitor stages like buckets being passed down a fire line. Each stage holds the voltage for a clock cycle, then passes it to the next stage. After 1024 or 2048 stages (depending on the chip), the signal emerges with a delay time set by the clock frequency.
+
+The whole process is analog. Voltage in, voltage out, no quantization. But the path isn't perfectly transparent — every BBD stage adds a small amount of noise and slight distortion, the high frequencies roll off as the signal moves through the chain (the BBD acts as a low-pass filter), and the maximum delay time is constrained by the clock speed and the number of stages.
+
+This is why BBD repeats sound the way they sound. The first repeat is darker than the dry signal because the BBD has rolled off some treble. The second repeat is darker still. By the fourth or fifth repeat, the signal has lost most of its high-frequency content and sits behind the dry signal in a warm, soft cushion. This isn't a deficiency — it's the character that defines analog delay. The decay sounds organic because the high-frequency loss is happening continuously, not in discrete digital steps.
+
+The trade-off is delay time. To get more than about 600 ms, you'd need to slow the clock or chain BBDs together, both of which increase noise. Most BBD pedals max out around 300 to 600 ms. This works for slap-back, ambient layers, and short rhythmic delays. It doesn't work for long ambient washes or dotted-eighth delays at slow tempos.
+
+---
+
+## How a PT2399 Actually Works
+
+The PT2399 is a single-chip echo processor built by Princeton Technology in the mid-1990s. The chip takes an analog signal in, samples it at about 44 kHz, stores it in internal RAM, and outputs the delayed signal through an analog stage. The maximum delay time depends on the clock frequency you set — at the chip's intended clock speed, you get up to about 350 ms; you can run the chip at a slower clock for longer delay times (up to about 1.5 seconds) at the cost of bandwidth and noise.
+
+Most pedal designers run the PT2399 with additional analog filtering and a couple of supporting chips to clean up the output. The result feels analog because the input/output stages are analog and the digital section is intentionally bandwidth-limited (the chip itself rolls off above 8 kHz or so). But the signal does pass through a digital domain.
+
+The audible character is different from a BBD in specific ways. The PT2399's repeats are cleaner — less of the high-frequency rolloff per repeat, lower added noise, more "transparent" in a clinical sense. The repeats have less of the BBD's organic compression, which means they tend to sit more in line with the dry signal rather than behind it. This is good for dotted-eighth rhythm work where you want the repeats to be audible and clean, less good for ambient work where you want the repeats to dissolve into atmosphere.
+
+The PT2399's longer maximum delay time also opens up uses that BBD can't cover. A 1-second delay for ambient work, a slow rhythmic delay at half tempo, multi-tap delays — all easier on a PT2399 than a BBD.
+
+---
+
+## The A/B Recording
+
+I did the test the way I do every comparison test. Same guitar (Strandberg Boden 7 with single-coil mode, neck pickup), same amp model (Quad Cortex JC-120 capture), same dry signal, both pedals A/B'd through the same monitoring chain.
+
+**Slap-back delay (180 ms, single repeat, mix at 30 percent):**
+The DM-2W produces a softer, slightly compressed slap that sits behind the dry signal in a way that immediately reads as "vintage." The Reecho produces a cleaner slap that's more present in the mix; it sounds modern, less compressed, more like a tape echo at lower wow rates. Both are usable but the BBD version sounds more like the slap-back of a 1956 RCA recording, and the PT2399 sounds more like a slap-back from a clean modern recording.
+
+**Dotted-eighth rhythm delay (375 ms, three to four repeats audible, mix at 40 percent):**
+This is where the choice becomes clearer. The DM-2W's repeats darken faster, which means the third and fourth repeats are mostly atmospheric rather than rhythmically present. The Reecho's repeats stay closer in tonal character to the dry signal, which keeps the dotted-eighth pattern audible across the full decay. For Edge-style rhythm work, the Reecho is the more useful tool. For atmospheric dotted-eighth work that fades into ambient texture, the DM-2W is the more useful tool.
+
+**Long ambient delay (700 ms, regenerating into self-oscillation territory, mix at 50 percent):**
+The DM-2W is at its maximum delay time and the noise floor is starting to be audible. The Reecho is at half its maximum and sounds clean. For ambient work above 500 ms, the PT2399 has the runway and the BBD doesn't. For ambient work under 400 ms, the BBD's high-frequency rolloff per repeat creates a more dissolving, atmospheric tail that the PT2399 doesn't quite match.
+
+The verdict isn't "one is better." It's "they're each better for different uses." Most players who own one of each have picked them for specific roles, not as redundant analog delays.
+
+---
+
+## The Modulation Question
+
+Most BBD and PT2399 pedals include a modulation switch or knob that adds slight pitch variation to the repeats — the "warble" that gives analog delay its tape-emulating character.
+
+On a BBD, the modulation is happening to the clock frequency. As the clock varies slightly, the delay time varies, which produces pitch modulation on the repeats. The effect is integrated with the chip's behavior in a way that feels natural — the warble on a DM-2 is intrinsic to the design rather than added on top.
+
+On a PT2399, the modulation is usually applied digitally — the chip's clock is varied or the output is run through a separate modulation stage. The effect can sound similar to BBD modulation but tends to be more uniform (less random) and can sound slightly more synthetic in side-by-side comparison.
+
+The Mooer Reecho's modulation is on the cleaner side. The Boss DM-2W's modulation has the characteristic BBD softness. If modulation character is important to your application — and it usually is for ambient work — the BBD's approach is more organic-sounding by a noticeable margin.
+
+For more on delay character generally, the [delay types comparison](/blog/delay-types-analog-digital-tape) post covers analog vs. digital vs. tape at a higher level. This post is the chip-level deep dive that informs the analog category specifically.
+
+---
+
+## Pedal Recommendations by Use Case
+
+**For slap-back, single short repeats, or vintage-flavored echo:**
+The Boss DM-2W (Waza Craft, $200 new). The BBD's character at short delay times is unmatched and the Waza Craft's Custom mode adds slightly more headroom and a darker repeat character. Used DM-2 originals are around $250 to $350 and sound essentially identical for working purposes.
+
+**For dotted-eighth rhythm work, U2-style architecture, longer ambient delays:**
+The Mooer Reecho ($50 to $80 new) is the budget option and is honestly excellent. The Walrus Audio ARP-87 ($199) is a more refined PT2399-based design with better analog filtering. The EHX Memory Boy ($170) sits between them with a more vintage-flavored tone shaping.
+
+**For both, with mode switching:**
+The MXR Carbon Copy ($150) is a true BBD design with a slightly brighter character than the DM-2 but the same fundamental BBD tone. The Carbon Copy Bright ($170) is a brighter variant for players who want BBD organic character without as much high-frequency rolloff. The Walrus Audio Slö is digital but specifically voiced to emulate BBD behavior.
+
+If you're committing to one pedal and you want the most useful single delay for general guitar work, the Walrus Audio ARP-87 covers more ground than either chip alone — long delay times for ambient, clean repeats for rhythm, and a tone shaping that sits between the BBD darkness and the modern digital clarity. It's the answer when you want one delay pedal and the choice between BBD and PT2399 is a coin-flip for your needs.
+
+---
+
+## The Surprised Finding
+
+I expected the BBD to be obviously the more "musical" choice and the PT2399 to be the budget compromise. The recordings showed me something else.
+
+The PT2399's cleaner repeats turn out to be the right answer for more applications than I expected. Anything where the delay needs to be audible as a rhythmic element — dotted-eighth work, long-form ambient work, anything above 500 ms — works better with the PT2399's clarity. The BBD's character is genuinely better for slap-back and short ambient work, but slap-back is one specific use and the rest of my delay applications turned out to want more clarity, not less.
+
+This reframed the analog delay decision for me. The BBD is a specialized tool, not a general-purpose tool. It's superb at the things it's designed for and limited outside that range. The PT2399 is the general-purpose budget analog-feeling delay, and most players who think they want "analog delay" actually want what the PT2399 delivers — a slightly soft, vintage-feeling delay with enough clarity for normal use.
+
+The "analog delay is better" framing falls apart at the chip level. Both chips have specific characters that are better for specific applications. The question isn't whether you want analog or digital — it's whether your delay application wants the BBD's compressed, darkening repeats (slap-back, vintage atmosphere) or the PT2399's cleaner repeats (rhythmic clarity, longer times). Choose the chip for the use case, not for the marketing label.
+
+<SettingsGrid title="Use Case Match" subtitle="BBD vs. PT2399">
+  <Knob name="Slap-back / vintage echo" value={9} display="BBD wins clearly" />
+  <Knob name="Dotted-eighth rhythm" value={7} display="PT2399 wins by a margin" />
+  <Knob name="Short ambient (<400 ms)" value={8} display="BBD wins on dissolve" />
+  <Knob name="Long ambient (>500 ms)" value={3} display="PT2399 wins by necessity" />
+  <Knob name="Modulation character" value={9} display="BBD wins on organic warble" />
+  <Knob name="Repeat clarity at length" value={3} display="PT2399 wins on signal-to-noise" />
+</SettingsGrid>
+
+For more delay context, the [delay types comparison](/blog/delay-types-analog-digital-tape) covers the broader category-level distinctions, the [why delay sounds muddy](/blog/why-delay-sounds-muddy) post addresses the EQ adjustments that fix the most common delay problems, and the [delay time BPM calculator](/blog/delay-time-bpm-calculator) covers the math for setting specific delay times by tempo.
+
+<FAQ questions={[
+  {
+    q: "Is a BBD pedal worth more than a PT2399 pedal?",
+    a: "Used market values reflect the sourcing realities — BBD chips (MN3005, MN3007) are out of production and getting harder to source, which has pushed prices for both vintage BBD pedals and current BBD-based designs higher. The DM-2W and Carbon Copy are $150 to $200 retail in part because the chips themselves are expensive. PT2399 chips remain in production and cost less than a dollar each, which is why PT2399 pedals start at $50. The price difference reflects component cost more than tonal superiority — both chips can produce great delay tones in well-designed pedals."
+  },
+  {
+    q: "Will the BBD chip eventually be unavailable for new production?",
+    a: "It's a real concern. Panasonic discontinued the MN3005 in the early 2000s, and current BBD pedals use either remaining stock or alternative chips like the V3205 (a Cool Audio reissue from Behringer that's chemically similar but not identical). The Boss DM-2W uses the V3205. The MXR Carbon Copy uses what MXR has stockpiled plus the V3205 in newer production. If you want a BBD-character pedal for the next 20 years, buy a current BBD-based pedal now rather than assuming you'll be able to buy one in five years."
+  },
+  {
+    q: "Can a digital delay sound like a BBD?",
+    a: "Modern modeling can come close. The Strymon DIG, the Helix Vintage Digital model, and the Walrus Audio Slö all attempt to model BBD behavior. They get the surface character (high-frequency rolloff per repeat, modulation warble, soft saturation) but they don't fully capture the way a real BBD chain compresses and degrades the signal in motion. For most playing situations the modeling is close enough; for purist applications the real chip is still meaningfully different."
+  },
+  {
+    q: "Why does the PT2399 sound 'analog' if it's digital internally?",
+    a: "Because the digital section is intentionally bandwidth-limited and the analog input/output stages add the warmth most players associate with analog gear. The chip's internal sample rate is around 44 kHz with limited bit depth, which means the high-frequency content is reduced and quantization artifacts are present but at a level that reads as 'character' rather than 'digital harshness.' Combined with the analog filtering most pedals add around the chip, the result feels organic and warm even though the signal path includes digital processing. The 'analog' label is about how it sounds, not strictly about the signal path."
+  },
+  {
+    q: "If I can only afford one delay pedal, which chip should I buy?",
+    a: "If your playing leans rhythmic (dotted-eighth, half-tempo delays, longer atmospheric work), buy a PT2399-based pedal — the Mooer Reecho or Walrus Audio ARP-87 are both excellent. If your playing leans toward slap-back, vintage character, and short ambient work, buy a BBD pedal — the MXR Carbon Copy is the value pick at $150. If you don't know your bias yet, buy the PT2399 first because it covers more applications and is significantly cheaper. Your second delay can be the BBD when you discover the specific use case where BBD character matters."
+  }
+]} />
+
+The "analog delay" category is two distinct chips doing two distinct things. The BBD is for slap-back, vintage atmosphere, and short ambient work where its compressed darkening character is the point. The PT2399 is for rhythm, longer times, and any context where the repeats need to stay audible. Pick the chip for the application, not the marketing copy. Either chip in the right context produces exactly the delay character that the application calls for. Either chip in the wrong context will leave you wondering why the analog delay everyone raves about doesn't work for what you're trying to do.
