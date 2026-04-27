@@ -26,7 +26,7 @@ export const TIERS: Record<UserRole, TierConfig> = {
     price: null,
     features: [
       "Browse all 50+ tone recipes",
-      "Physical + Helix + Boss Katana signal chains",
+      "Pedalboard + Helix + Boss Katana signal chains",
       "Download recipe PDFs (with email)",
       "10 free preset downloads (.hlx, .tsl)",
       "Save up to 5 recipes",

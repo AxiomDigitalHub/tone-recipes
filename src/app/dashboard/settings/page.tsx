@@ -22,7 +22,7 @@ const PLATFORM_OPTIONS = [
   { value: "fractal", label: "Fractal" },
   { value: "kemper", label: "Kemper" },
   { value: "katana", label: "Boss Katana" },
-  { value: "physical", label: "Physical" },
+  { value: "pedalboard", label: "Pedalboard" },
 ] as const;
 
 /* -------------------------------------------------------------------------- */

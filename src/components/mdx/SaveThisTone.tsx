@@ -144,7 +144,7 @@ function formatPlatform(slug: string): string {
     fractal: "Fractal",
     kemper: "Kemper",
     katana: "Katana",
-    physical: "Physical",
+    physical: "Pedalboard",
   };
   return LABELS[slug] ?? slug;
 }

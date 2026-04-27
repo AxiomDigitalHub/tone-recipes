@@ -1,5 +1,5 @@
 export const PLATFORMS = [
-  { id: "physical", label: "Physical", color: "#a1a1aa" },
+  { id: "pedalboard", label: "Pedalboard", color: "#a1a1aa" },
   { id: "helix", label: "Helix", color: "#cc0000" },
   { id: "quad_cortex", label: "Quad Cortex", color: "#00b4d8" },
   { id: "tonex", label: "TONEX", color: "#ff6b00" },
@@ -10,7 +10,7 @@ export const PLATFORMS = [
 
 /** Platform IDs shown in recipe UI (tabs, browse filters). All platform data remains in the database. */
 export const DISPLAYED_PLATFORM_IDS: ReadonlySet<string> = new Set([
-  "physical",
+  "pedalboard",
   "helix",
   "katana",
 ]);

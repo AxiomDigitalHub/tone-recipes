@@ -495,11 +495,11 @@ export default function UnifiedChainView({
     (pid) => DISPLAYED_PLATFORM_IDS.has(pid),
   );
   const { preferredPlatform } = usePlatformStore();
-  const initialTab: "physical" | Platform =
+  const initialTab: "pedalboard" | Platform =
     preferredPlatform && availablePlatforms.includes(preferredPlatform as Platform)
       ? (preferredPlatform as Platform)
-      : "physical";
-  const [activeTab, setActiveTab] = useState<"physical" | Platform>(initialTab);
+      : "pedalboard";
+  const [activeTab, setActiveTab] = useState<"pedalboard" | Platform>(initialTab);
   const [selectedNodeIndex, setSelectedNodeIndex] = useState<number | null>(null);
   const [hasUserSwitchedTab, setHasUserSwitchedTab] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -529,7 +529,7 @@ export default function UnifiedChainView({
   const [animStep, setAnimStep] = useState(-1);
   const [animComplete, setAnimComplete] = useState(false);
 
-  const nodeCount = activeTab === "physical"
+  const nodeCount = activeTab === "pedalboard"
     ? signalChain.length
     : (platformTranslations[activeTab as Platform]?.chain_blocks.length ?? 0);
 
@@ -565,7 +565,7 @@ export default function UnifiedChainView({
   }, [nodeCount, activeTab]);
 
   const activePlatformMeta = PLATFORMS.find((p) => p.id === activeTab);
-  const activeTranslation = activeTab !== "physical" ? platformTranslations[activeTab] : null;
+  const activeTranslation = activeTab !== "pedalboard" ? platformTranslations[activeTab] : null;
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -575,16 +575,16 @@ export default function UnifiedChainView({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isFullscreen]);
 
-  function handleTabSwitch(tab: "physical" | Platform) {
+  function handleTabSwitch(tab: "pedalboard" | Platform) {
     setActiveTab(tab);
     setSelectedNodeIndex(null);
     setHasUserSwitchedTab(true);
   }
 
   const selectedPhysicalNode =
-    activeTab === "physical" && selectedNodeIndex !== null ? signalChain[selectedNodeIndex] : undefined;
+    activeTab === "pedalboard" && selectedNodeIndex !== null ? signalChain[selectedNodeIndex] : undefined;
   const selectedPlatformBlock =
-    activeTab !== "physical" && selectedNodeIndex !== null && activeTranslation
+    activeTab !== "pedalboard" && selectedNodeIndex !== null && activeTranslation
       ? activeTranslation.chain_blocks[selectedNodeIndex] : undefined;
 
   // Guitar SVG
@@ -782,13 +782,13 @@ export default function UnifiedChainView({
       >
         <button
           role="tab"
-          aria-selected={activeTab === "physical"}
-          onClick={() => handleTabSwitch("physical")}
+          aria-selected={activeTab === "pedalboard"}
+          onClick={() => handleTabSwitch("pedalboard")}
           style={{
             padding: "6px 15px", borderRadius: 20, fontSize: 12, fontWeight: 600,
-            border: activeTab === "physical" ? `1.5px solid ${AMBER}` : "1.5px solid transparent",
-            background: activeTab === "physical" ? `${AMBER}18` : "transparent",
-            color: activeTab === "physical" ? AMBER : "#4a5e78",
+            border: activeTab === "pedalboard" ? `1.5px solid ${AMBER}` : "1.5px solid transparent",
+            background: activeTab === "pedalboard" ? `${AMBER}18` : "transparent",
+            color: activeTab === "pedalboard" ? AMBER : "#4a5e78",
             cursor: "pointer", display: "flex", alignItems: "center", gap: 6,
             transition: "all 0.15s",
           }}
@@ -917,7 +917,7 @@ export default function UnifiedChainView({
       </div>
 
       {/* ── Chain section ── */}
-      {activeTab === "physical" ? (
+      {activeTab === "pedalboard" ? (
         <ChainRenderer
           nodes={physicalNodes}
           animStep={animStep}
@@ -959,7 +959,7 @@ export default function UnifiedChainView({
 
       {/* Community submissions */}
       {recipeSlug && (
-        <CommunitySubmissions recipeSlug={recipeSlug} platform={activeTab === "physical" ? "physical" : activeTab} />
+        <CommunitySubmissions recipeSlug={recipeSlug} platform={activeTab === "pedalboard" ? "pedalboard" : activeTab} />
       )}
     </div>
   );

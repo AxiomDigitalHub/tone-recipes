@@ -38,14 +38,14 @@ export async function generateMetadata({
 }
 
 // Platforms shown in the switcher. Matches production platform list.
-const PLATFORMS: Array<{ id: "physical" | "helix" | "quad_cortex" | "tonex" | "fractal" | "kemper" | "katana"; short: string; name: string }> = [
+const PLATFORMS: Array<{ id: "pedalboard" | "helix" | "quad_cortex" | "tonex" | "fractal" | "kemper" | "katana"; short: string; name: string }> = [
   { id: "helix", short: "Helix", name: "Line 6 Helix" },
   { id: "quad_cortex", short: "QC", name: "Neural DSP Quad Cortex" },
   { id: "tonex", short: "TONEX", name: "IK TONEX" },
   { id: "fractal", short: "Fractal", name: "Fractal Axe-Fx" },
   { id: "kemper", short: "Kemper", name: "Kemper Profiler" },
   { id: "katana", short: "Katana", name: "Boss Katana" },
-  { id: "physical", short: "Physical", name: "Physical rig" },
+  { id: "pedalboard", short: "Pedalboard", name: "Pedalboard" },
 ];
 
 export default async function PreviewRecipePage({
@@ -65,13 +65,13 @@ export default async function PreviewRecipePage({
 
   // Platform selection: URL ?platform=helix wins. Otherwise first available.
   const validPlatforms = PLATFORMS.filter((p) =>
-    p.id === "physical" ? true : Boolean(recipe.platform_translations?.[p.id]),
+    p.id === "pedalboard" ? true : Boolean(recipe.platform_translations?.[p.id]),
   );
   const platform =
     (platformParam &&
       validPlatforms.find((p) => p.id === platformParam)?.id) ||
     validPlatforms[0]?.id ||
-    "physical";
+    "pedalboard";
   const activePlatform = PLATFORMS.find((p) => p.id === platform);
 
   const blocks = recipeToBlocks(recipe, platform);

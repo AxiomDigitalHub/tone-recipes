@@ -13,7 +13,7 @@ const MANUFACTURER: Record<string, string> = {
   katana: "Boss",
 };
 
-const MODELER_PLATFORMS = PLATFORMS.filter((p) => p.id !== "physical" && DISPLAYED_PLATFORM_IDS.has(p.id));
+const MODELER_PLATFORMS = PLATFORMS.filter((p) => p.id !== "pedalboard" && DISPLAYED_PLATFORM_IDS.has(p.id));
 
 export default function PlatformOnboarding() {
   const { preferredPlatform, setPreferredPlatform } = usePlatformStore();

@@ -1059,7 +1059,7 @@ export default function NewRecipePage() {
   function renderStep6() {
     const activePlatforms = Object.keys(form.platform_translations);
     const availablePlatforms = PLATFORMS.filter(
-      (p) => p.id !== "physical" && !activePlatforms.includes(p.id),
+      (p) => p.id !== "pedalboard" && !activePlatforms.includes(p.id),
     );
 
     return (

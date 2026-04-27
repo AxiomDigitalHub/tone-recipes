@@ -267,7 +267,7 @@ export default function Home() {
               },
               {
                 title: "Works on your rig",
-                desc: "Physical board, Line 6, Neural, Boss \u2014 every recipe translates across all major platforms.",
+                desc: "Pedalboard, Line 6, Neural, Boss \u2014 every recipe translates across all major platforms.",
                 icon: <Speaker className="h-8 w-8 text-accent" />,
               },
             ].map((pillar) => (

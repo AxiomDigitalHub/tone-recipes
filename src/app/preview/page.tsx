@@ -61,10 +61,10 @@ export default function PreviewIndex() {
   // Prefer Helix for the hero since it's the most-supported platform.
   const heroPlatform = featured?.platform_translations?.helix
     ? "helix"
-    : "physical";
+    : "pedalboard";
   const heroBlocks = featured ? recipeToBlocks(featured, heroPlatform) : [];
   const heroPlatformLabel =
-    heroPlatform === "helix" ? "Line 6 Helix" : "Physical rig";
+    heroPlatform === "helix" ? "Line 6 Helix" : "Pedalboard";
 
   return (
     <>

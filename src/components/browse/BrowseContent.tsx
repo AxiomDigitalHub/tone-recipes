@@ -173,7 +173,7 @@ export default function BrowseContent() {
           Platform
         </h3>
         <div className="flex flex-col gap-1.5">
-          {PLATFORMS.filter((p) => p.id !== "physical" && DISPLAYED_PLATFORM_IDS.has(p.id)).map((platform) => {
+          {PLATFORMS.filter((p) => p.id !== "pedalboard" && DISPLAYED_PLATFORM_IDS.has(p.id)).map((platform) => {
             const isActive = platformFilter === platform.id;
             return (
               <button

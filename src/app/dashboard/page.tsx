@@ -26,7 +26,7 @@ const PLATFORM_LABELS: Record<string, string> = {
   fractal: "Fractal",
   kemper: "Kemper",
   katana: "Boss Katana",
-  physical: "Physical",
+  physical: "Pedalboard",
 };
 
 /** Editorial picks for new users with no saves or history */

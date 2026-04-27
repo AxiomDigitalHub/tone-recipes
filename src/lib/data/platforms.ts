@@ -49,15 +49,15 @@ const PLATFORM_META: Record<string, { manufacturer: string; tagline: string }> =
 /** Get the full platform info (constants + meta) by slug/id. */
 export function getPlatformInfo(slug: string): PlatformMeta | undefined {
   const base = PLATFORMS.find((p) => p.id === slug);
-  if (!base || base.id === "physical") return undefined;
+  if (!base || base.id === "pedalboard") return undefined;
   const meta = PLATFORM_META[slug];
   if (!meta) return undefined;
   return { ...base, ...meta };
 }
 
-/** Return all modeler platforms (excludes "physical"). */
+/** Return all modeler platforms (excludes "pedalboard"). */
 export function getAllPlatforms(): PlatformMeta[] {
-  return PLATFORMS.filter((p) => p.id !== "physical")
+  return PLATFORMS.filter((p) => p.id !== "pedalboard")
     .map((p) => {
       const meta = PLATFORM_META[p.id];
       if (!meta) return null;

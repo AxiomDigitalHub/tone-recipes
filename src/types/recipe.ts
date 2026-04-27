@@ -70,7 +70,7 @@ export interface PlatformTranslation {
   notes: string;
 }
 
-export type Platform = "physical" | "helix" | "quad_cortex" | "tonex" | "fractal" | "kemper" | "katana";
+export type Platform = "pedalboard" | "helix" | "quad_cortex" | "tonex" | "fractal" | "kemper" | "katana";
 
 export interface ToneRecipe {
   id: string;

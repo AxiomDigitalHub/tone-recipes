@@ -79,7 +79,7 @@ function parseNumber(value: unknown): number | undefined {
  */
 export function recipeToBlocks(
   recipe: ToneRecipe,
-  platform: Platform | "physical",
+  platform: Platform | "pedalboard",
 ): PreviewBlockData[] {
   const blocks: PreviewBlockData[] = [];
 
@@ -103,7 +103,7 @@ export function recipeToBlocks(
   }
 
   // 2. Signal chain blocks
-  if (platform === "physical") {
+  if (platform === "pedalboard") {
     // Physical recipe: use the signal_chain directly
     for (const node of recipe.signal_chain ?? []) {
       blocks.push(nodeToBlock(node));

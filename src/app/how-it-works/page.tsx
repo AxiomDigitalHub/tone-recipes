@@ -167,7 +167,7 @@ export default function HowItWorksPage() {
           for your specific gear.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
-          {["Line 6 Helix", "Neural QC", "IK TONEX", "Fractal", "Kemper", "Boss Katana", "Physical Rig"].map(
+          {["Line 6 Helix", "Neural QC", "IK TONEX", "Fractal", "Kemper", "Boss Katana", "Pedalboard"].map(
             (name) => (
               <span
                 key={name}
