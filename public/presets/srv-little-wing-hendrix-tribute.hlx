@@ -1,7 +1,7 @@
 {
   "data": {
     "meta": {
-      "name": "Knopfler's Sultans of Swing Clea",
+      "name": "SRV's Little Wing Hendrix Tribut",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
       "modifieddate": 1777265415,
@@ -134,14 +134,9 @@
           "dsp0": {
             "block0": true,
             "block1": true,
-            "block2": false,
-            "block3": false,
+            "block2": true,
+            "block3": true,
             "block4": true
-          },
-          "dsp1": {
-            "block0": true,
-            "block1": true,
-            "block2": true
           }
         },
         "controllers": {}
@@ -221,7 +216,7 @@
         },
         "outputA": {
           "@model": "HD2_AppDSPFlowOutput",
-          "@output": 2,
+          "@output": 1,
           "pan": 0.5,
           "gain": 0
         },
@@ -260,66 +255,67 @@
           "@type": 0,
           "@no_snapshot_bypass": false,
           "@stereo": false,
-          "Pedal": 1,
-          "VolumeTaper": false
+          "PedalPosition": 1
         },
         "block1": {
-          "@model": "HD2_CompressorRedSqueeze",
+          "@model": "HD2_CompressorDeluxeComp",
           "@position": 1,
           "@enabled": true,
           "@path": 0,
           "@type": 0,
           "@no_snapshot_bypass": false,
           "@stereo": false,
-          "Sensitivity": 0.55,
-          "Output": 0.65,
-          "Mix": 0.75,
+          "Threshold": -36,
+          "Ratio": 2,
+          "Knee": 6,
+          "Attack": 0.06,
+          "Release": 0.91,
+          "Mix": 0.74,
           "Level": 0
         },
         "block2": {
           "@model": "HD2_DistScream808",
           "@position": 2,
-          "@enabled": false,
+          "@enabled": true,
           "@path": 0,
           "@type": 0,
           "@no_snapshot_bypass": false,
           "@stereo": false,
-          "Gain": 0.15,
-          "Tone": 0.5,
-          "Level": 0.7
+          "Drive": 0.2,
+          "Tone": 0.6,
+          "Level": 8
         },
         "block3": {
-          "@model": "HD2_DistMinotaur",
-          "@position": 3,
-          "@enabled": false,
-          "@path": 0,
-          "@type": 0,
-          "@no_snapshot_bypass": false,
-          "@stereo": false,
-          "Gain": 0.2,
-          "Tone": 0.55,
-          "Level": 0.7
-        },
-        "block4": {
           "@model": "HD2_AmpUSDeluxeVib",
-          "@position": 7,
+          "@position": 3,
           "@enabled": true,
           "@path": 0,
           "@type": 1,
           "@no_snapshot_bypass": false,
           "@bypassvolume": 1,
-          "Drive": 0.35,
+          "Drive": 0.65,
           "Bass": 0.5,
-          "Mid": 0.55,
-          "Treble": 0.6,
-          "Presence": 0.5,
-          "ChVol": 0.55,
+          "Mid": 0.5,
+          "Treble": 0.5,
+          "ChVol": 0.7,
+          "Bias": 0.5,
           "Master": 1,
-          "Bias": 0.55,
-          "Sag": 0.55,
-          "Hum": 0.5,
           "Ripple": 0.5,
+          "Sag": 0.5,
+          "Hum": 0.5,
           "BiasX": 0.5
+        },
+        "block4": {
+          "@model": "HD2_Cab2x15Brute",
+          "@position": 4,
+          "@enabled": true,
+          "@path": 0,
+          "@type": 2,
+          "@no_snapshot_bypass": false,
+          "Distance": 1,
+          "LowCut": 19.9,
+          "HighCut": 16000,
+          "Level": 0
         }
       },
       "dsp1": {
@@ -339,7 +335,7 @@
         },
         "outputA": {
           "@model": "HD2_AppDSPFlowOutput",
-          "@output": 1,
+          "@output": 0,
           "pan": 0.5,
           "gain": 0
         },
@@ -368,64 +364,6 @@
           "A Pan": 0,
           "B Pan": 1,
           "B Polarity": false,
-          "Level": 0
-        },
-        "block0": {
-          "@model": "HD2_CabMicIr_2x12DoubleC12NWithPan",
-          "@position": 0,
-          "@enabled": true,
-          "@path": 0,
-          "@type": 4,
-          "@no_snapshot_bypass": false,
-          "Mic": 0,
-          "Position": 0.3,
-          "Distance": 1,
-          "Angle": 0,
-          "Pan": 0.5,
-          "LowCut": 19.9,
-          "HighCut": 20100,
-          "Level": 0,
-          "Delay": 0,
-          "@cab": "cab0"
-        },
-        "cab0": {
-          "@model": "HD2_CabMicIr_2x12DoubleC12NWithPan",
-          "@enabled": true,
-          "Mic": 5,
-          "Position": 0.3,
-          "Distance": 1,
-          "Angle": 0,
-          "Pan": 0.5,
-          "LowCut": 19.9,
-          "HighCut": 20100,
-          "Level": 0,
-          "Delay": 0
-        },
-        "block1": {
-          "@model": "HD2_ReverbSpring",
-          "@position": 6,
-          "@enabled": true,
-          "@path": 0,
-          "@type": 7,
-          "@no_snapshot_bypass": false,
-          "@stereo": false,
-          "@trails": true,
-          "Decay": 0.5,
-          "PreDelay": 0.02,
-          "Mix": 0.18,
-          "LowCut": 200,
-          "HighCut": 6000
-        },
-        "block2": {
-          "@model": "HD2_EQSimpleTilt",
-          "@position": 7,
-          "@enabled": true,
-          "@path": 0,
-          "@type": 0,
-          "@no_snapshot_bypass": false,
-          "@stereo": false,
-          "Tilt": 0.5,
-          "CenterFreq": 1000,
           "Level": 0
         }
       }

@@ -1,10 +1,10 @@
 {
   "data": {
     "meta": {
-      "name": "The Edge's Shimmering Delay Tone",
+      "name": "Frusciante's Under the Bridge Cl",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
-      "modifieddate": 1777258313,
+      "modifieddate": 1777265415,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -137,8 +137,7 @@
             "block2": true,
             "block3": true,
             "block4": true,
-            "block5": true,
-            "block6": true
+            "block5": true
           }
         },
         "controllers": {}
@@ -276,19 +275,32 @@
           "Level": 0
         },
         "block2": {
-          "@model": "HD2_AmpA30FawnBrt",
+          "@model": "HD2_Chorus70sChorus",
           "@position": 2,
+          "@enabled": true,
+          "@path": 0,
+          "@type": 7,
+          "@no_snapshot_bypass": false,
+          "@stereo": false,
+          "@trails": true,
+          "Speed": 0.3,
+          "Depth": 0.6,
+          "Mix": 0.5
+        },
+        "block3": {
+          "@model": "HD2_AmpBritPlexiBrt",
+          "@position": 3,
           "@enabled": true,
           "@path": 0,
           "@type": 1,
           "@no_snapshot_bypass": false,
           "@bypassvolume": 1,
-          "Drive": 0.55,
+          "Drive": 0.3,
           "Bass": 0.4,
-          "Mid": 0.6,
+          "Mid": 0.5,
           "Treble": 0.7,
           "Presence": 0.6,
-          "ChVol": 0.6,
+          "ChVol": 0.5,
           "Bias": 0.5,
           "Master": 1,
           "Ripple": 0.5,
@@ -296,52 +308,9 @@
           "Hum": 0.5,
           "BiasX": 0.5
         },
-        "block3": {
-          "@model": "HD2_DelayElephantMan",
-          "@position": 3,
-          "@enabled": true,
-          "@path": 0,
-          "@type": 7,
-          "@no_snapshot_bypass": false,
-          "@stereo": false,
-          "@trails": true,
-          "Time": 0.5,
-          "Feedback": 0.4,
-          "Mix": 0.4,
-          "TempoSync1": false
-        },
         "block4": {
-          "@model": "HD2_DelaySimpleDelay",
+          "@model": "HD2_Cab4x12Greenback25",
           "@position": 4,
-          "@enabled": true,
-          "@path": 0,
-          "@type": 7,
-          "@no_snapshot_bypass": false,
-          "@stereo": false,
-          "@trails": true,
-          "Time": 1,
-          "Feedback": 0.25,
-          "Mix": 0.2,
-          "TempoSync1": false
-        },
-        "block5": {
-          "@model": "HD2_ReverbSearchlights",
-          "@position": 5,
-          "@enabled": true,
-          "@path": 0,
-          "@type": 7,
-          "@no_snapshot_bypass": false,
-          "@stereo": false,
-          "@trails": true,
-          "Decay": 2.5,
-          "Mix": 0.25,
-          "PreDelay": 1,
-          "LowCut": 125,
-          "HighCut": 6500
-        },
-        "block6": {
-          "@model": "HD2_Cab2x12BlueBell",
-          "@position": 6,
           "@enabled": true,
           "@path": 0,
           "@type": 2,
@@ -350,6 +319,21 @@
           "LowCut": 19.9,
           "HighCut": 16000,
           "Level": 0
+        },
+        "block5": {
+          "@model": "HD2_ReverbGlitz",
+          "@position": 5,
+          "@enabled": true,
+          "@path": 0,
+          "@type": 7,
+          "@no_snapshot_bypass": false,
+          "@stereo": false,
+          "@trails": true,
+          "Decay": 1.5,
+          "Mix": 0.2,
+          "PreDelay": 1,
+          "LowCut": 125,
+          "HighCut": 6500
         }
       },
       "dsp1": {

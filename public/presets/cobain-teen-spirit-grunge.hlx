@@ -4,7 +4,7 @@
       "name": "Cobain's Teen Spirit Grunge Tone",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
-      "modifieddate": 1777258313,
+      "modifieddate": 1777265415,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -135,8 +135,9 @@
             "block0": true,
             "block1": true,
             "block2": true,
-            "block3": true,
-            "block4": true
+            "block3": false,
+            "block4": true,
+            "block5": true
           },
           "dsp1": {
             "block0": true,
@@ -292,8 +293,20 @@
           "Level": 0.7
         },
         "block3": {
-          "@model": "HD2_ChorusPlastiChorus",
+          "@model": "HD2_DistIndustrialFuzz",
           "@position": 3,
+          "@enabled": false,
+          "@path": 0,
+          "@type": 0,
+          "@no_snapshot_bypass": false,
+          "@stereo": false,
+          "Sustain": 0.65,
+          "Tone": 0.5,
+          "Level": 0.7
+        },
+        "block4": {
+          "@model": "HD2_ChorusPlastiChorus",
+          "@position": 4,
           "@enabled": true,
           "@path": 0,
           "@type": 7,
@@ -305,7 +318,7 @@
           "Mix": 0.6,
           "Level": 0
         },
-        "block4": {
+        "block5": {
           "@model": "HD2_AmpCaliTexasCh1",
           "@position": 7,
           "@enabled": true,

@@ -4,7 +4,7 @@
       "name": "SRV's Pride and Joy Rhythm Tone",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
-      "modifieddate": 1777258313,
+      "modifieddate": 1777265415,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -141,7 +141,8 @@
           },
           "dsp1": {
             "block0": true,
-            "block1": true
+            "block1": true,
+            "block2": true
           }
         },
         "controllers": {}
@@ -417,6 +418,21 @@
           "Delay": 0
         },
         "block1": {
+          "@model": "HD2_ReverbSpring",
+          "@position": 6,
+          "@enabled": true,
+          "@path": 0,
+          "@type": 7,
+          "@no_snapshot_bypass": false,
+          "@stereo": false,
+          "@trails": true,
+          "Decay": 0.4,
+          "PreDelay": 0.02,
+          "Mix": 0.2,
+          "LowCut": 200,
+          "HighCut": 6000
+        },
+        "block2": {
           "@model": "HD2_EQSimpleTilt",
           "@position": 7,
           "@enabled": true,

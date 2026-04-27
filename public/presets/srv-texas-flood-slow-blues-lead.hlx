@@ -1,10 +1,10 @@
 {
   "data": {
     "meta": {
-      "name": "James Hetfield's Enter Sandman T",
+      "name": "SRV's Texas Flood Slow Blues Lea",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
-      "modifieddate": 1777258313,
+      "modifieddate": 1777265415,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -255,9 +255,7 @@
           "@type": 0,
           "@no_snapshot_bypass": false,
           "@stereo": false,
-          "PedalPosition": 1,
-          "Min": 0,
-          "Taper": 0.5
+          "PedalPosition": 1
         },
         "block1": {
           "@model": "HD2_CompressorDeluxeComp",
@@ -270,9 +268,9 @@
           "Threshold": -36,
           "Ratio": 2,
           "Knee": 6,
-          "Attack": 0.038,
-          "Release": 0.2,
-          "Mix": 0.6,
+          "Attack": 0.06,
+          "Release": 0.91,
+          "Mix": 0.74,
           "Level": 0
         },
         "block2": {
@@ -283,38 +281,33 @@
           "@type": 0,
           "@no_snapshot_bypass": false,
           "@stereo": false,
-          "Gain": 0.52,
+          "Drive": 0.2,
           "Tone": 0.5,
           "Level": 8
         },
         "block3": {
-          "@model": "HD2_AmpCaliIVLead",
+          "@model": "HD2_AmpUSDeluxeVib",
           "@position": 3,
           "@enabled": true,
           "@path": 0,
           "@type": 1,
           "@no_snapshot_bypass": false,
           "@bypassvolume": 1,
-          "LeadDrive": 0.64,
-          "LeadGain": 0.75,
-          "Bass": 0.3,
-          "Mid": 0.3,
-          "Treble": 0.7,
-          "Presence": 0.6,
-          "ChVol": 0.7,
-          "80Hz": 0,
-          "240Hz": 0,
-          "750Hz": 0,
-          "2200Hz": 0,
-          "6600Hz": 0,
+          "Drive": 0.8,
+          "Bass": 0.5,
+          "Mid": 0.5,
+          "Treble": 0.5,
+          "Presence": 0.5,
+          "ChVol": 0.8,
           "Bias": 0.5,
           "Master": 1,
           "Ripple": 0.5,
           "Sag": 0.5,
+          "Hum": 0.5,
           "BiasX": 0.5
         },
         "block4": {
-          "@model": "HD2_Cab4x12UberV30",
+          "@model": "HD2_Cab2x15Brute",
           "@position": 4,
           "@enabled": true,
           "@path": 0,

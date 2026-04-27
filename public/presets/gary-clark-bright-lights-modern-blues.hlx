@@ -1,10 +1,10 @@
 {
   "data": {
     "meta": {
-      "name": "John Mayer's Gravity Super-Clean",
+      "name": "Bright Lights Modern Blues Tone",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
-      "modifieddate": 1777258313,
+      "modifieddate": 1777265415,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -274,31 +274,30 @@
           "Level": 0
         },
         "block2": {
-          "@model": "HD2_DistMinotaur",
+          "@model": "HD2_DistScream808",
           "@position": 2,
           "@enabled": true,
           "@path": 0,
           "@type": 0,
           "@no_snapshot_bypass": false,
           "@stereo": false,
-          "Drive": 1,
+          "Drive": 0.4,
           "Tone": 0.5,
-          "Level": 6
+          "Level": 7
         },
         "block3": {
-          "@model": "HD2_AmpDerailedIngrid",
+          "@model": "HD2_AmpUSDeluxeVib",
           "@position": 3,
           "@enabled": true,
           "@path": 0,
           "@type": 1,
           "@no_snapshot_bypass": false,
           "@bypassvolume": 1,
-          "Drive": 0.4,
+          "Drive": 0.5,
           "Bass": 0.5,
-          "Mid": 0.5,
-          "Treble": 0.6,
-          "Presence": 0.5,
-          "ChVol": 0.6,
+          "Mid": 0.6,
+          "Treble": 0.5,
+          "ChVol": 0.65,
           "Bias": 0.5,
           "Master": 1,
           "Ripple": 0.5,
@@ -307,7 +306,7 @@
           "BiasX": 0.5
         },
         "block4": {
-          "@model": "HD2_Cab2x12DoubleC12N",
+          "@model": "HD2_Cab4x10TweedP10R",
           "@position": 4,
           "@enabled": true,
           "@path": 0,

@@ -1,10 +1,10 @@
 {
   "data": {
     "meta": {
-      "name": "Angus Young's Thunderstruck Tapp",
+      "name": "Townshend's Won't Get Fooled Aga",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
-      "modifieddate": 1777258313,
+      "modifieddate": 1777265415,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -273,18 +273,18 @@
           "Level": 0
         },
         "block2": {
-          "@model": "HD2_AmpBritPlexiBrt",
+          "@model": "HD2_AmpWhoWatt100",
           "@position": 2,
           "@enabled": true,
           "@path": 0,
           "@type": 1,
           "@no_snapshot_bypass": false,
           "@bypassvolume": 1,
-          "Drive": 0.8,
-          "Bass": 0.4,
-          "Mid": 0.6,
-          "Treble": 0.8,
-          "Presence": 0.8,
+          "Drive": 0.7,
+          "Bass": 0.5,
+          "Mid": 0.5,
+          "Treble": 0.7,
+          "Presence": 0.7,
           "ChVol": 0.75,
           "Bias": 0.5,
           "Master": 1,

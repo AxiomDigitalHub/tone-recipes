@@ -2560,7 +2560,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 8,
-            block_name: "Hot Springs",
+            block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Vibroverb spring reverb",
             settings: { Decay: 0.4, Predelay: 0.02, Mix: 0.20, LowCut: 200, HighCut: 6000 },
@@ -3579,7 +3579,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
-            block_name: "Dark Dove Fuzz",
+            block_name: "Industrial Fuzz",
             block_category: "Distortion",
             original_gear: "Russian Big Muff",
             enabled: false,
@@ -5723,7 +5723,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 7,
-            block_name: "Hot Springs",
+            block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Vibrolux Reverb spring tank",
             settings: { Decay: 0.5, Predelay: 0.02, Mix: 0.18, LowCut: 200, HighCut: 6000 },
@@ -10503,7 +10503,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 8,
-            block_name: "Hot Springs",
+            block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Studio spring reverb (Tres Hombres ambience)",
             settings: { Decay: 0.5, Predelay: 0.02, Mix: 0.20, LowCut: 200, HighCut: 6000 },
