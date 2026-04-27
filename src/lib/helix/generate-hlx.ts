@@ -347,20 +347,36 @@ export function generateHelixPreset(
       snapshot[`block${blockIndex}`] = isEnabled;
       blockIndex++;
 
-      // Emit the cab0 sibling on this DSP if requested + supported
+      // Emit the cab0 sibling on this DSP if requested + supported.
+      // Verified from factory corpus: cab0 has a MINIMAL shape — only
+      // @model + @enabled as @-prefixed metadata, no @position/@type/
+      // @path/@no_snapshot_bypass. The full param set goes alongside
+      // (Mic, Position, Pan, Angle, Delay, LowCut, HighCut, Level,
+      // Distance) for WithPan models. The in-chain cab block carries
+      // the @cab: "cab0" reference linking the pair.
       if (wantsSibling && useType === 4) {
-        const siblingFakeBlock = {
-          ...block,
-          settings: block.cabSibling!,
+        // Build a stripped-down sibling object.
+        const siblingEntry: Record<string, unknown> = {
+          "@model": useModelId,
+          "@enabled": true,
         };
-        // Sibling shares model + position with the in-chain cab
-        const { entry: siblingEntry } = buildBlockEntry(
-          siblingFakeBlock,
-          useModelId,
-          position,
-          4,
-        );
+        for (const [key, value] of Object.entries(block.cabSibling!)) {
+          const paramKey = normalizeParamName(key);
+          if (typeof value === "boolean") {
+            siblingEntry[paramKey] = value;
+            continue;
+          }
+          const scaledValue = scaleParamValue(key, value);
+          if (BOOLEAN_PARAMS.has(paramKey)) {
+            siblingEntry[paramKey] = scaledValue >= 0.5;
+          } else {
+            siblingEntry[paramKey] = parseFloat(scaledValue.toFixed(6));
+          }
+        }
         dsp.cab0 = siblingEntry;
+        // The in-chain cab block (just emitted at dsp[`block${blockIndex-1}`])
+        // gets the @cab reference pointing at the sibling.
+        (dsp[`block${blockIndex - 1}`] as Record<string, unknown>)["@cab"] = "cab0";
         siblingEmitted = true;
       }
     }
@@ -377,20 +393,11 @@ export function generateHelixPreset(
   const snapshotDsp1: Record<string, boolean> = {};
   const dsp1Cab = buildDsp(dsp1, snapshotDsp1, dsp1Slots);
 
-  // If we emitted a dual-mic cab on either DSP, the AMP block
-  // (wherever it lives) needs `@cab: "cab0"` so HX Edit links the
-  // amp's output to the cab pair correctly. Verified from the
-  // 2026-04-26 user export.
-  const cabSiblingEmitted = dsp0Cab.siblingEmitted || dsp1Cab.siblingEmitted;
-  if (cabSiblingEmitted) {
-    const ampBlockKey = Object.keys(dsp0).find((k) => {
-      const b = dsp0[k] as Record<string, unknown>;
-      return b && b["@type"] === 1;
-    });
-    if (ampBlockKey) {
-      (dsp0[ampBlockKey] as Record<string, unknown>)["@cab"] = "cab0";
-    }
-  }
+  // The @cab: "cab0" reference is now placed by buildDsp() on the
+  // in-chain cab block itself (Pattern B from the factory corpus —
+  // the dual-mic dual-cab pattern). No amp-side @cab needed for
+  // this topology.
+  void dsp0Cab; void dsp1Cab;
 
   // Re-route DSPs when the chain is split: dsp0 → dsp1 → Multi.
   // Otherwise keep dsp0 → Multi (single-DSP topology).
