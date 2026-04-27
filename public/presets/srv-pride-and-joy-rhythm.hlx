@@ -1,7 +1,7 @@
 {
   "data": {
     "meta": {
-      "name": "Frusciante's Under the Bridge Cl",
+      "name": "SRV's Pride and Joy Rhythm Tone",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
       "modifieddate": 1777252502,
@@ -135,9 +135,13 @@
             "block0": true,
             "block1": true,
             "block2": true,
-            "block3": true,
-            "block4": true,
+            "block3": false,
+            "block4": false,
             "block5": true
+          },
+          "dsp1": {
+            "block0": true,
+            "block1": true
           }
         },
         "controllers": {}
@@ -217,7 +221,7 @@
         },
         "outputA": {
           "@model": "HD2_AppDSPFlowOutput",
-          "@output": 1,
+          "@output": 2,
           "pan": 0.5,
           "gain": 0
         },
@@ -256,7 +260,8 @@
           "@type": 0,
           "@no_snapshot_bypass": false,
           "@stereo": false,
-          "PedalPosition": 1
+          "Pedal": 1,
+          "VolumeTaper": false
         },
         "block1": {
           "@model": "HD2_CompressorDeluxeComp",
@@ -266,74 +271,70 @@
           "@type": 0,
           "@no_snapshot_bypass": false,
           "@stereo": false,
-          "Threshold": -36,
+          "Threshold": -30,
           "Ratio": 2,
           "Knee": 6,
-          "Attack": 0.06,
-          "Release": 0.91,
-          "Mix": 0.74,
+          "Attack": 0.038,
+          "Release": 0.2,
+          "Mix": 0.4,
           "Level": 0
         },
         "block2": {
-          "@model": "HD2_Chorus70sChorus",
+          "@model": "HD2_DistScream808",
           "@position": 2,
           "@enabled": true,
           "@path": 0,
-          "@type": 7,
+          "@type": 0,
           "@no_snapshot_bypass": false,
           "@stereo": false,
-          "@trails": true,
-          "Speed": 0.3,
-          "Depth": 0.6,
-          "Mix": 0.5
+          "Gain": 0.1,
+          "Tone": 0.6,
+          "Level": 1
         },
         "block3": {
-          "@model": "HD2_AmpBritPlexiBrt",
+          "@model": "HD2_DistKinkyBoost",
           "@position": 3,
+          "@enabled": false,
+          "@path": 0,
+          "@type": 0,
+          "@no_snapshot_bypass": false,
+          "@stereo": false,
+          "Drive": 0.4,
+          "Bright": 0,
+          "Boost": 0.65
+        },
+        "block4": {
+          "@model": "HD2_DistMinotaur",
+          "@position": 4,
+          "@enabled": false,
+          "@path": 0,
+          "@type": 0,
+          "@no_snapshot_bypass": false,
+          "@stereo": false,
+          "Gain": 0.3,
+          "Tone": 0.5,
+          "Level": 0.65
+        },
+        "block5": {
+          "@model": "HD2_AmpUSDeluxeVib",
+          "@position": 7,
           "@enabled": true,
           "@path": 0,
           "@type": 1,
           "@no_snapshot_bypass": false,
           "@bypassvolume": 1,
-          "Drive": 0.3,
+          "Drive": 0.75,
           "Bass": 0.4,
-          "Mid": 0.5,
-          "Treble": 0.7,
-          "Presence": 0.6,
-          "ChVol": 0.5,
-          "Bias": 0.5,
+          "Mid": 0.55,
+          "Treble": 0.65,
+          "Presence": 0.55,
+          "ChVol": 0.8,
           "Master": 1,
-          "Ripple": 0.5,
-          "Sag": 0.5,
+          "Bias": 0.55,
+          "Sag": 0.65,
           "Hum": 0.5,
+          "Ripple": 0.5,
           "BiasX": 0.5
-        },
-        "block4": {
-          "@model": "HD2_Cab4x12Greenback25",
-          "@position": 4,
-          "@enabled": true,
-          "@path": 0,
-          "@type": 2,
-          "@no_snapshot_bypass": false,
-          "Distance": 1,
-          "LowCut": 19.9,
-          "HighCut": 16000,
-          "Level": 0
-        },
-        "block5": {
-          "@model": "HD2_ReverbGlitz",
-          "@position": 5,
-          "@enabled": true,
-          "@path": 0,
-          "@type": 7,
-          "@no_snapshot_bypass": false,
-          "@stereo": false,
-          "@trails": true,
-          "Decay": 1.5,
-          "Mix": 0.2,
-          "PreDelay": 1,
-          "LowCut": 125,
-          "HighCut": 6500
         }
       },
       "dsp1": {
@@ -353,7 +354,7 @@
         },
         "outputA": {
           "@model": "HD2_AppDSPFlowOutput",
-          "@output": 0,
+          "@output": 1,
           "pan": 0.5,
           "gain": 0
         },
@@ -382,6 +383,49 @@
           "A Pan": 0,
           "B Pan": 1,
           "B Polarity": false,
+          "Level": 0
+        },
+        "block0": {
+          "@model": "HD2_CabMicIr_4x10TweedP10RWithPan",
+          "@position": 0,
+          "@enabled": true,
+          "@path": 0,
+          "@type": 4,
+          "@no_snapshot_bypass": false,
+          "Mic": 0,
+          "Position": 0.3,
+          "Distance": 1,
+          "Angle": 0,
+          "Pan": 0.5,
+          "LowCut": 19.9,
+          "HighCut": 20100,
+          "Level": 0,
+          "Delay": 0,
+          "@cab": "cab0"
+        },
+        "cab0": {
+          "@model": "HD2_CabMicIr_4x10TweedP10RWithPan",
+          "@enabled": true,
+          "Mic": 5,
+          "Position": 0.3,
+          "Distance": 1,
+          "Angle": 0,
+          "Pan": 0.5,
+          "LowCut": 19.9,
+          "HighCut": 20100,
+          "Level": 0,
+          "Delay": 0
+        },
+        "block1": {
+          "@model": "HD2_EQSimpleTilt",
+          "@position": 7,
+          "@enabled": true,
+          "@path": 0,
+          "@type": 0,
+          "@no_snapshot_bypass": false,
+          "@stereo": false,
+          "Tilt": 0.5,
+          "CenterFreq": 1000,
           "Level": 0
         }
       }
