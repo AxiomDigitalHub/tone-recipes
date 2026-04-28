@@ -68,5 +68,8 @@ The recording date is sacrosanct; the gear must match.
 |---|---|---|---|
 | `dimebag-walk-groove-metal` | [dimebag-walk-groove-metal.md](dimebag-walk-groove-metal.md) | 2026-04-27 | Mostly Verified |
 | `gilmour-comfortably-numb-solo` | [gilmour-comfortably-numb-solo.md](gilmour-comfortably-numb-solo.md) | 2026-04-27 | Mostly Verified |
+| `hetfield-master-of-puppets-rhythm` | [hetfield-master-of-puppets-rhythm.md](hetfield-master-of-puppets-rhythm.md) | 2026-04-27 | Mostly Verified |
+| `iommi-iron-man-doom-riff` | [iommi-iron-man-doom-riff.md](iommi-iron-man-doom-riff.md) | 2026-04-27 | Mostly Verified |
+| `evh-eruption-brown-sound` | [evh-eruption-brown-sound.md](evh-eruption-brown-sound.md) | 2026-04-27 | Mostly Verified |
 
-48 more recipes pending. See `data/proposed-recipes.md` for the priority queue.
+45 more recipes pending. See `data/proposed-recipes.md` for the priority queue.
