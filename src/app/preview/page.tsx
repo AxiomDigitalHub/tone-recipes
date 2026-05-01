@@ -5,6 +5,7 @@ import {
   artists,
   getSongBySlug,
   getArtistBySlug,
+  getRecipeBySlug,
 } from "@/lib/data";
 import { recipeToBlocks } from "./_components/recipe-to-blocks";
 import { PreviewSignalChain } from "./_components/PreviewBlocks";
@@ -14,37 +15,15 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const SAMPLE_RECIPES = [
-  {
-    slug: "srv-pride-and-joy-rhythm",
-    song: "Pride and Joy",
-    artist: "Stevie Ray Vaughan",
-  },
-  {
-    slug: "gilmour-comfortably-numb-solo",
-    song: "Comfortably Numb (solo)",
-    artist: "David Gilmour",
-  },
-  {
-    slug: "hendrix-voodoo-child-wah",
-    song: "Voodoo Child (Slight Return)",
-    artist: "Jimi Hendrix",
-  },
-  {
-    slug: "evh-eruption-brown-sound",
-    song: "Eruption",
-    artist: "Eddie Van Halen",
-  },
-  {
-    slug: "hetfield-master-of-puppets-rhythm",
-    song: "Master of Puppets (rhythm)",
-    artist: "James Hetfield",
-  },
-  {
-    slug: "mayer-slow-dancing-burning-room",
-    song: "Slow Dancing in a Burning Room",
-    artist: "John Mayer",
-  },
+const SAMPLE_SLUGS = [
+  "srv-pride-and-joy-rhythm",
+  "gilmour-comfortably-numb-solo",
+  "hendrix-voodoo-child-wah",
+  "evh-eruption-brown-sound",
+  "hetfield-master-of-puppets-rhythm",
+  "mayer-slow-dancing-burning-room",
+  "page-whole-lotta-love-heavy-riff",
+  "angus-young-back-in-black-rhythm",
 ];
 
 export default function PreviewIndex() {
@@ -146,98 +125,114 @@ export default function PreviewIndex() {
         </div>
       </section>
 
-      {/* Audition picker — kept below the hero for navigation */}
-      <div className="container" style={{ padding: "40px 28px 80px" }}>
-        <div
-          className="eyebrow"
-          style={{ marginBottom: 12 }}
-        >
-          Visual direction audition · 2026-04-18
+      {/* §02 — How this works · three-step editorial feature */}
+      <section className="how container">
+        <div className="how-head">
+          <span className="how-mark">§02</span>
+          <h2 className="display">Three steps from
+            {" "}<em>that solo</em>{" "}to your rig.</h2>
+          <span className="section-rule" aria-hidden="true" />
+          <span className="section-meta">No tweaking required</span>
         </div>
-        <h2
-          className="display"
-          style={{
-            fontSize: 28,
-            margin: "0 0 12px",
-            fontWeight: 400,
-            letterSpacing: "-0.015em",
-          }}
-        >
-          Pick a recipe to audition
-        </h2>
-        <p
-          style={{
-            fontSize: 14,
-            lineHeight: 1.55,
-            color: "var(--ink-2)",
-            maxWidth: "62ch",
-            margin: "0 0 24px",
-          }}
-        >
-          Each of these loads the real recipe through the new visual
-          system. Switch platforms on the recipe page with{" "}
-          <code>?platform=helix</code> or <code>?platform=katana</code>.
-          The players listed are {playerCount} total; recipes total{" "}
-          {recipeCount.toLocaleString()}.
+        <ol className="how-steps">
+          <li className="how-step">
+            <span className="how-step-no">01</span>
+            <h3 className="how-step-title">We chase the tone.</h3>
+            <p className="how-step-body">
+              Listen, isolate, A/B against rigs we know. Our editors are
+              tone nerds who will spend a whole afternoon on a delay tail.
+            </p>
+            <span className="how-step-tag">Editorial</span>
+          </li>
+          <li className="how-step">
+            <span className="how-step-no">02</span>
+            <h3 className="how-step-title">We map the chain.</h3>
+            <p className="how-step-body">
+              Guitar, drive, amp, cab, mic, post. Every block. Every knob.
+              Every tap-tempo. Documented like a service manual.
+            </p>
+            <span className="how-step-tag">Schematic</span>
+          </li>
+          <li className="how-step">
+            <span className="how-step-no">03</span>
+            <h3 className="how-step-title">You get the numbers.</h3>
+            <p className="how-step-body">
+              Translated for your Helix, Quad Cortex, TONEX, Fractal,
+              Kemper, Katana — or your physical pedalboard. One click,
+              import, play.
+            </p>
+            <span className="how-step-tag">For your rig</span>
+          </li>
+        </ol>
+      </section>
+
+      {/* §03 — Audition picker · LP rack of real recipes */}
+      <section className="audition container">
+        <div className="audition-head">
+          <span className="how-mark">§03</span>
+          <h2 className="display">The opening shelf.</h2>
+          <span className="section-rule" aria-hidden="true" />
+          <span className="section-meta">
+            {recipeCount.toLocaleString()} recipes · {playerCount} players
+          </span>
+        </div>
+        <p className="audition-lede">
+          Eight tones to start. Click a sleeve to see the chain, the knobs,
+          and the numbers — translated for your rig.
         </p>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-            gap: 2,
-            background: "var(--ink)",
-            padding: 2,
-          }}
-        >
-          {SAMPLE_RECIPES.map((r, i) => (
-            <Link
-              key={r.slug}
-              href={`/preview/recipe/${r.slug}`}
-              style={{
-                background: "var(--paper)",
-                padding: "18px 16px 22px",
-                display: "flex",
-                flexDirection: "column",
-                gap: 4,
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 9.5,
-                  letterSpacing: "0.22em",
-                  color: "var(--ink-muted)",
-                  textTransform: "uppercase",
-                }}
+        <div className="audition-grid">
+          {SAMPLE_SLUGS.map((slug, i) => {
+            const r = getRecipeBySlug(slug);
+            if (!r) return null;
+            const rSong = getSongBySlug(r.song_slug);
+            const rArtist = rSong
+              ? getArtistBySlug(rSong.artist_slug)
+              : undefined;
+            const rIdx =
+              toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
+            const rBlocks = recipeToBlocks(r, "helix");
+            const tonecode = (rArtist?.name ?? "??")
+              .split(/\s+/)
+              .map((w) => w[0]?.toUpperCase() ?? "")
+              .join("")
+              .slice(0, 3);
+            return (
+              <Link
+                key={r.slug}
+                href={`/preview/recipe/${r.slug}`}
+                className="audition-card"
               >
-                No. {String(i + 1).padStart(3, "0")}
-              </span>
-              <span
-                className="cond"
-                style={{
-                  fontSize: 16,
-                  fontWeight: 600,
-                  letterSpacing: "0.04em",
-                  marginTop: 4,
-                }}
-              >
-                {r.song}
-              </span>
-              <span
-                style={{
-                  fontSize: 13,
-                  color: "var(--ink-muted)",
-                  fontFamily: "var(--font-mono)",
-                  letterSpacing: "0.06em",
-                }}
-              >
-                {r.artist}
-              </span>
-            </Link>
-          ))}
+                <div
+                  className={`audition-art lp-art lp-hue-${(rIdx % 6) + 1}`}
+                  aria-hidden="true"
+                >
+                  <span className="lp-record" />
+                  <span className="lp-tonecode">{tonecode}</span>
+                  <span className="lp-blocks">
+                    {rBlocks.length} blocks
+                  </span>
+                </div>
+                <div className="audition-meta">
+                  <span className="audition-no">
+                    No. {String(rIdx).padStart(3, "0")}
+                    {rSong?.year ? ` · ${rSong.year}` : ""}
+                  </span>
+                  <span className="audition-song">
+                    {rSong?.title ?? r.title}
+                  </span>
+                  <span className="audition-artist">
+                    {rArtist?.name ?? "Unknown"}
+                  </span>
+                  <span className="audition-cta">
+                    See the chain <span aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
-      </div>
+      </section>
     </>
   );
 }

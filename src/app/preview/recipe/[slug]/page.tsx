@@ -205,11 +205,24 @@ export default async function PreviewRecipePage({
         {/* Related recipes */}
         {related.length > 0 && (
           <div className="related">
-            <h3 className="display">More like this</h3>
+            <div className="related-head">
+              <h3 className="display">More like this</h3>
+              <span className="related-meta">
+                {related.length} of {toneRecipes.length} · curated
+              </span>
+            </div>
             <div className="feat-grid">
               {related.map((r, i) => {
                 const rSong = getSongBySlug(r.song_slug);
                 const rArtist = rSong ? getArtistBySlug(rSong.artist_slug) : undefined;
+                const rIdx =
+                  toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
+                const rBlocks = recipeToBlocks(r, "helix");
+                const tonecode = (rArtist?.name ?? "??")
+                  .split(/\s+/)
+                  .map((w) => w[0]?.toUpperCase() ?? "")
+                  .join("")
+                  .slice(0, 3);
                 return (
                   <div
                     key={r.slug}
@@ -221,9 +234,18 @@ export default async function PreviewRecipePage({
                       style={{ display: "block" }}
                     >
                       <div className="feat-card-num">
-                        No. {String(i + 1).padStart(3, "0")}
+                        No. {String(rIdx).padStart(3, "0")} · Side {(["A","B","C","D"][i % 4])}
                       </div>
-                      <div className="feat-card-art" />
+                      <div
+                        className={`feat-card-art lp-art lp-hue-${(rIdx % 6) + 1}`}
+                        aria-hidden="true"
+                      >
+                        <span className="lp-record" />
+                        <span className="lp-tonecode">{tonecode}</span>
+                        <span className="lp-blocks">
+                          {rBlocks.length} blocks
+                        </span>
+                      </div>
                       <div className="feat-card-song">
                         {rSong?.title ?? r.title}
                       </div>

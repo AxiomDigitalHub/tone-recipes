@@ -40,7 +40,9 @@ export function PreviewRecipeClient({
   const [selectedIndex, setSelectedIndex] = useState<number | null>(
     firstSelectable,
   );
-  const [isOpen, setIsOpen] = useState(false);
+  // The per-block grid IS the product — don't hide it behind a click.
+  // Toggle remains so users can collapse for a tighter overview.
+  const [isOpen, setIsOpen] = useState(true);
   // Only scroll on real user interaction — not the initial auto-selection.
   const userInteracted = useRef(false);
   const cardRefs = useRef<Record<number, HTMLDivElement | null>>({});
@@ -100,10 +102,8 @@ export function PreviewRecipeClient({
         </span>
         <h3 className="display">
           {isOpen
-            ? "The numbers, broken out."
-            : selectedBlock
-              ? `Tap to see all settings · starting with ${selectedBlock.name}`
-              : "Tap to see all settings."}
+            ? "Every knob, broken out."
+            : "Collapsed. Click to expand."}
         </h3>
         <span className="toggle-chevron" aria-hidden="true">
           {isOpen ? "×" : "+"}
