@@ -88,13 +88,17 @@ The recording date is sacrosanct; the gear must match.
 | `gibbons-la-grange-blues-crunch` | [gibbons-la-grange-blues-crunch.md](gibbons-la-grange-blues-crunch.md) | 2026-04-30 | Verified |
 | `knopfler-sultans-of-swing-clean` | [knopfler-sultans-of-swing-clean.md](knopfler-sultans-of-swing-clean.md) | 2026-04-30 | Verified |
 | `mayer-gravity-super-clean-dynamic` | [mayer-gravity-super-clean-dynamic.md](mayer-gravity-super-clean-dynamic.md) | 2026-04-30 | Verified |
+| `page-whole-lotta-love-heavy-riff` | [page-whole-lotta-love-heavy-riff.md](page-whole-lotta-love-heavy-riff.md) | 2026-05-01 | Verified |
+| `slash-welcome-to-jungle-aggressive-riff` | [slash-welcome-to-jungle-aggressive-riff.md](slash-welcome-to-jungle-aggressive-riff.md) | 2026-05-01 | Mostly Verified |
+| `srv-little-wing-hendrix-tribute` | [srv-little-wing-hendrix-tribute.md](srv-little-wing-hendrix-tribute.md) | 2026-05-01 | Verified |
 | `srv-pride-and-joy-rhythm` | [srv-pride-and-joy-rhythm.md](srv-pride-and-joy-rhythm.md) | 2026-04-30 | Verified |
+| `srv-texas-flood-slow-blues-lead` | [srv-texas-flood-slow-blues-lead.md](srv-texas-flood-slow-blues-lead.md) | 2026-05-01 | Verified |
 
-**22 of 50 recipes researched (44%).** 28 more pending. See `data/proposed-recipes.md` for the priority queue.
+**26 of 50 recipes researched (52%).** 24 more pending. See `data/proposed-recipes.md` for the priority queue.
 
 ## Patterns emerging across the corpus
 
-With 22 deep-dives done, common cross-recipe patterns:
+With 26 deep-dives done, common cross-recipe patterns:
 
 - **Era-correct pickups matter more than artist-name pickups.** Six of 22 recipes had pickup mismatches between the recipe's "current era" gear and the recording's actual era (Dimebag pre-Dimebucker, Slash on Kris Derrig replica, Gilmour pre-EMG, Cobain Mustang vs Jaguar, etc.).
 - **The pedalboard is often smaller than fans assume.** Brian May = 1 pedal (Rangemaster). Layla = 0 pedals. Sultans of Swing = 0–1 pedals (Dyna Comp debated). Gibbons = 1 pedal. Iconic tones often have minimal pedal chains; the "rig myth" is a tutorial-industry construct.

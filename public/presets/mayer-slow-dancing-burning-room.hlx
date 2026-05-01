@@ -4,7 +4,7 @@
       "name": "Mayer's Slow Dancing Blues-Rock",
       "application": "HX Edit",
       "build_sha": "7d01f5e",
-      "modifieddate": 1777384749,
+      "modifieddate": 1777643849,
       "appversion": 58851328
     },
     "device": 2162692,
@@ -135,7 +135,7 @@
             "block0": true,
             "block1": true,
             "block2": true,
-            "block3": false,
+            "block3": true,
             "block4": false,
             "block5": true
           },
@@ -282,7 +282,7 @@
           "Level": 4
         },
         "block2": {
-          "@model": "HD2_DistScream808",
+          "@model": "HD2_DistMinotaur",
           "@position": 2,
           "@enabled": true,
           "@path": 0,
@@ -290,18 +290,18 @@
           "@no_snapshot_bypass": false,
           "@stereo": false,
           "Gain": 0.3,
-          "Tone": 0.55,
-          "Level": 0.75
+          "Tone": 0.5,
+          "Level": 0.65
         },
         "block3": {
-          "@model": "HD2_DistMinotaur",
+          "@model": "HD2_DistScream808",
           "@position": 3,
-          "@enabled": false,
+          "@enabled": true,
           "@path": 0,
           "@type": 0,
           "@no_snapshot_bypass": false,
           "@stereo": false,
-          "Gain": 0.25,
+          "Gain": 0.2,
           "Tone": 0.55,
           "Level": 0.7
         },
