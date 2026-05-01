@@ -66,10 +66,21 @@ The recording date is sacrosanct; the gear must match.
 
 | Recipe | Research file | Date | Confidence |
 |---|---|---|---|
+| `brian-may-bohemian-rhapsody` | [brian-may-bohemian-rhapsody.md](brian-may-bohemian-rhapsody.md) | 2026-04-30 | Verified |
 | `dimebag-walk-groove-metal` | [dimebag-walk-groove-metal.md](dimebag-walk-groove-metal.md) | 2026-04-27 | Mostly Verified |
+| `evh-eruption-brown-sound` | [evh-eruption-brown-sound.md](evh-eruption-brown-sound.md) | 2026-04-27 | Mostly Verified |
+| `evh-panama-brown-sound` | [evh-panama-brown-sound.md](evh-panama-brown-sound.md) | 2026-04-30 | Verified |
 | `gilmour-comfortably-numb-solo` | [gilmour-comfortably-numb-solo.md](gilmour-comfortably-numb-solo.md) | 2026-04-27 | Mostly Verified |
+| `gilmour-shine-on-sustain` | [gilmour-shine-on-sustain.md](gilmour-shine-on-sustain.md) | 2026-04-30 | Mostly Verified |
+| `gilmour-time-solo-lead` | [gilmour-time-solo-lead.md](gilmour-time-solo-lead.md) | 2026-04-30 | Mostly Verified |
+| `hammett-fade-to-black-clean-wah-solo` | [hammett-fade-to-black-clean-wah-solo.md](hammett-fade-to-black-clean-wah-solo.md) | 2026-04-30 | Verified |
+| `hendrix-voodoo-child-wah` | [hendrix-voodoo-child-wah.md](hendrix-voodoo-child-wah.md) | 2026-04-30 | Verified |
+| `hetfield-enter-sandman-tight-rhythm` | [hetfield-enter-sandman-tight-rhythm.md](hetfield-enter-sandman-tight-rhythm.md) | 2026-04-30 | Verified |
 | `hetfield-master-of-puppets-rhythm` | [hetfield-master-of-puppets-rhythm.md](hetfield-master-of-puppets-rhythm.md) | 2026-04-27 | Mostly Verified |
 | `iommi-iron-man-doom-riff` | [iommi-iron-man-doom-riff.md](iommi-iron-man-doom-riff.md) | 2026-04-27 | Mostly Verified |
-| `evh-eruption-brown-sound` | [evh-eruption-brown-sound.md](evh-eruption-brown-sound.md) | 2026-04-27 | Mostly Verified |
+| `mayer-slow-dancing-burning-room` | [mayer-slow-dancing-burning-room.md](mayer-slow-dancing-burning-room.md) | 2026-04-30 | Verified |
+| `page-stairway-to-heaven-clean-build` | [page-stairway-to-heaven-clean-build.md](page-stairway-to-heaven-clean-build.md) | 2026-04-30 | Mostly Verified |
+| `slash-sweet-child-o-mine-lead` | [slash-sweet-child-o-mine-lead.md](slash-sweet-child-o-mine-lead.md) | 2026-04-30 | Mostly Verified |
+| `srv-pride-and-joy-rhythm` | [srv-pride-and-joy-rhythm.md](srv-pride-and-joy-rhythm.md) | 2026-04-30 | Verified |
 
-45 more recipes pending. See `data/proposed-recipes.md` for the priority queue.
+**16 of 50 recipes researched (32%).** 34 more pending. See `data/proposed-recipes.md` for the priority queue.

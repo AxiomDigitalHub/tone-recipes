@@ -10,7 +10,7 @@ import type {
 // Platform display labels (mirrors src/lib/constants.ts PLATFORMS)
 // ---------------------------------------------------------------------------
 const PLATFORM_LABELS: Record<string, string> = {
-  physical: "Pedalboard",
+  pedalboard: "Pedalboard",
   helix: "Helix",
   quad_cortex: "Quad Cortex",
   tonex: "TONEX",
