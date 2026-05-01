@@ -81,6 +81,23 @@ The recording date is sacrosanct; the gear must match.
 | `mayer-slow-dancing-burning-room` | [mayer-slow-dancing-burning-room.md](mayer-slow-dancing-burning-room.md) | 2026-04-30 | Verified |
 | `page-stairway-to-heaven-clean-build` | [page-stairway-to-heaven-clean-build.md](page-stairway-to-heaven-clean-build.md) | 2026-04-30 | Mostly Verified |
 | `slash-sweet-child-o-mine-lead` | [slash-sweet-child-o-mine-lead.md](slash-sweet-child-o-mine-lead.md) | 2026-04-30 | Mostly Verified |
+| `clapton-layla-lead` | [clapton-layla-lead.md](clapton-layla-lead.md) | 2026-04-30 | Verified |
+| `cobain-teen-spirit-grunge` | [cobain-teen-spirit-grunge.md](cobain-teen-spirit-grunge.md) | 2026-04-30 | Verified |
+| `edge-where-the-streets-have-no-name` | [edge-where-the-streets-have-no-name.md](edge-where-the-streets-have-no-name.md) | 2026-04-30 | Verified |
+| `frusciante-under-the-bridge-clean` | [frusciante-under-the-bridge-clean.md](frusciante-under-the-bridge-clean.md) | 2026-04-30 | Verified |
+| `gibbons-la-grange-blues-crunch` | [gibbons-la-grange-blues-crunch.md](gibbons-la-grange-blues-crunch.md) | 2026-04-30 | Verified |
+| `knopfler-sultans-of-swing-clean` | [knopfler-sultans-of-swing-clean.md](knopfler-sultans-of-swing-clean.md) | 2026-04-30 | Verified |
+| `mayer-gravity-super-clean-dynamic` | [mayer-gravity-super-clean-dynamic.md](mayer-gravity-super-clean-dynamic.md) | 2026-04-30 | Verified |
 | `srv-pride-and-joy-rhythm` | [srv-pride-and-joy-rhythm.md](srv-pride-and-joy-rhythm.md) | 2026-04-30 | Verified |
 
-**16 of 50 recipes researched (32%).** 34 more pending. See `data/proposed-recipes.md` for the priority queue.
+**22 of 50 recipes researched (44%).** 28 more pending. See `data/proposed-recipes.md` for the priority queue.
+
+## Patterns emerging across the corpus
+
+With 22 deep-dives done, common cross-recipe patterns:
+
+- **Era-correct pickups matter more than artist-name pickups.** Six of 22 recipes had pickup mismatches between the recipe's "current era" gear and the recording's actual era (Dimebag pre-Dimebucker, Slash on Kris Derrig replica, Gilmour pre-EMG, Cobain Mustang vs Jaguar, etc.).
+- **The pedalboard is often smaller than fans assume.** Brian May = 1 pedal (Rangemaster). Layla = 0 pedals. Sultans of Swing = 0–1 pedals (Dyna Comp debated). Gibbons = 1 pedal. Iconic tones often have minimal pedal chains; the "rig myth" is a tutorial-industry construct.
+- **Studio tracking is mono close + room mic.** Across 22 sessions, the dominant pattern is SM57 close + ribbon (M160 / R-121) close + condenser room mic at 6–8 feet. The "stereo multi-amp" sounds people associate with rock are usually mix-side processing.
+- **Producer matters as much as the artist.** Tom Dowd, Eddie Kramer, Bob Rock, Brian Eno + Daniel Lanois, Mike Clink, Andy Wallace, Brendan O'Brien — these names recur and shape the gear choices made.
+- **Dual-DSP topology is genuinely useful.** Many of the multi-amp setups (SRV, Edge, Hetfield, Brian May) need dsp0 + dsp1 to capture the parallel-amp character. Currently we ship single-amp-on-dsp0 versions and lose half the sound.
