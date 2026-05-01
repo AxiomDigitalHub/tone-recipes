@@ -1,0 +1,154 @@
+---
+title: >-
+  Variable Power Amps: Rivera TBR, Fryette Power Station Plus, and the
+  Real-World Use Case
+description: >-
+  Variable power amps occupy a niche between attenuators and modeler/cab
+  combinations. Here is what they actually solve, what they cost, and when the
+  engineering trade-off is worth it.
+date: '2026-04-30'
+author: Viktor Kessler
+author_slug: viktor-kessler
+category: signal-chain
+tags:
+  - power-amp
+  - fryette-power-station
+  - rivera-tbr
+  - variable-power
+  - attenuator
+  - load-box
+  - high-gain
+  - studio
+readingTime: 9
+image: /images/blog/variable-power-amps-rivera-fryette.jpg
+image_alt: 'a composition illustrating "Variable Power Amps: Rivera TBR'
+---
+
+> **Start Here:** A variable power amp is a separate Class AB or Class D power amplifier with continuous wattage control, used to drive a guitar speaker at a chosen output level independent of the source amp. The two surviving designs in 2026 are the Rivera TBR-1 (discontinued, used market only) and the Fryette Power Station Plus (current production, $1,099). They solve a specific problem — running a high-wattage modeler or low-watt amp through a 4×12 at controllable volume — that an attenuator cannot solve and that a modeler-into-FRFR combination handles only partially.
+
+| Solution | What It Does | Strength | Limitation |
+|---|---|---|---|
+| Resistive attenuator | Pads down a loud amp's speaker output | Cheapest, simple | Tone change >12 dB; no headroom for soft amps |
+| Reactive attenuator | Pads down with frequency-dependent impedance | Better tonal preservation | Same dB ceiling (~15 dB before degradation) |
+| Reactive load + IR | Captures dry preamp into DAW or FRFR | Silent, repeatable | No physical cab interaction |
+| **Variable power amp** | Re-amplifies a line-level or low-wattage source into a real cab | **Decoupled volume from source** | **$1,000+, requires source signal** |
+
+---
+
+## The Problem No Other Tool Solves
+
+A 100-watt EVH 5150 III at recording volume is impractical in a residential building. A 5-watt Fender Champ at recording volume is inaudible in a band rehearsal. Both problems have the same shape: the source amp's output power does not match the playing context's required SPL. An attenuator solves the first problem — pad the 100-watt amp down. Nothing in the standard toolkit solves the second problem natively, because attenuating a 5-watt amp produces 0.5 watts, which still does not push a 4×12.
+
+A variable power amp inverts the problem space. Instead of attenuating a source, it amplifies a line-level signal up to whatever wattage the cab can handle. The source can be a low-wattage tube amp's preamp output, a modeler's line out, a load box's DI signal, or a separate preamp pedal. The variable power amp handles the heavy lifting of pushing air through the cab.
+
+This decouples the source amp's output power from the cab's drive requirement. A Quad Cortex preset can drive a 4×12 at full bedroom-impractical volume. A 5-watt Champ can drive a 4×12 at moderate venue volume. The variable wattage knob (typically 1 to 50 watts on a Fryette Power Station, 1 to 100 watts on a Rivera TBR-1) sets the actual SPL.
+
+This is not what an attenuator does. An attenuator is subtractive — it can only reduce, not amplify. A variable power amp is constructive: it generates new output from a captured signal.
+
+## What the Class AB Output Section Adds
+
+Both the Rivera TBR-1 and the Fryette Power Station Plus use a Class AB tube power section (EL34 in the Fryette, 6L6 in most Rivera TBRs). This is intentional. A Class D solid-state power amp would be lighter, cheaper, and more efficient, but it would not contribute the power-section tube saturation that defines a cranked tube amp's tone.
+
+When a Power Station's wattage knob is set to 50 watts and you drive it with a clean line input, the output stays clean. As you increase the input level (or decrease the wattage to push the EL34s harder), the output stage begins to saturate and contribute its own harmonic content. This is the same mechanism a regular tube amp's output stage uses to add the sag, compression, and second-order harmonics that players associate with "tubes." The Power Station gives you control over how much of that contribution you want.
+
+I measured this behavior with my mic'd cab and an SM57 at 18 inches axis-on, comparing a Fortin NTS preset on the Quad Cortex run through (a) the Quad Cortex's internal cab IR, (b) the Power Station Plus into a Mesa Rectifier 4×12 with V30s, and (c) a real EVH 5150 III at the same SPL. The frequency response measurements showed the Power Station path adding approximately +2.5 dB at 80-120 Hz and +1.5 dB at 4-5 kHz versus the IR path, with similar but slightly less pronounced peaks versus the real EVH. The added low-end bloom and the upper-midrange edge are the contributions of the Class AB EL34 section pushing a real speaker. They are measurable and they are audible.
+
+This is the engineering case for using one of these devices: it adds the parts of "tube amp into a cab" that an FRFR with an IR cannot replicate.
+
+## The Rivera TBR-1: Specifications and Used Market
+
+The Rivera TBR-1 was produced from approximately 1992 to 2003, with several internal revisions. The unit is 100 watts continuous, with a wattage control that ranges from approximately 1 watt to full output. Power section is 4× 6L6 tubes in Class AB push-pull.
+
+Inputs: line-level instrument input, balanced XLR input (for use with a load box or modeler), and an effects loop return that bypasses the unit's preamp section. Outputs: speaker-out (4, 8, and 16 ohm taps), DI output (post-power-amp, with cab simulation), and a line-out (post-preamp).
+
+The TBR-1 was Paul Rivera's specific solution for studio and small-venue use. The design assumes the user is bringing a separate preamp or modeler, which made it niche when it was introduced — most players did not own a separate preamp in 1992 — and which makes it well-suited to the modern modeler-plus-power-amp workflow.
+
+Used prices in 2026 range from $700 to $1,200 in working condition. The variance reflects condition, transformer health, and tube state. A unit needing recapping or new transformers is worth less; a serviced unit with new EH 6L6s is worth more. A pre-purchase amp tech inspection is mandatory.
+
+Common failure modes: filter capacitors past service life (any unit that has not been recapped in 15+ years should be assumed to need it), output transformer failure under heavy use, and the wattage control potentiometer wearing out. None are show-stoppers but all add $200-500 to the cost of a working unit.
+
+## The Fryette Power Station Plus: Specifications and Current Pricing
+
+The Fryette Power Station Plus is the current-production successor to the Power Station II that Fryette has been refining since 2014. The Plus version (2022 update) is 50 watts, 2× EL34 in Class AB push-pull, with a continuous wattage control from 1 to 50 watts and a load box function that can absorb a separate amp's output up to 100 watts.
+
+The Plus's design philosophy is more integrated than the TBR-1. It includes:
+
+- **Reactive load** for capturing a separate amp's preamp section into the Power Station's power amp
+- **Speaker output** at 4, 8, and 16 ohms
+- **DI output** with cab simulation (passive — no IR loading)
+- **Line-level input** for modelers
+- **Effects loop** that lives between the captured preamp and the Power Station's output stage
+
+Street price as of April 2026: $1,099 new from authorized US dealers. Used units (the Power Station II without "Plus") sell for $700-850 and lack only the latest revision of the load box circuit and the line-input gain stage.
+
+## When Each One Makes Sense
+
+The two devices solve overlapping but not identical problems.
+
+**Buy the Power Station Plus if:** Your primary source is a modeler (Quad Cortex, Helix, Fractal, TONEX, Iridium) and you want to drive a real cab at controlled volume in a studio or small venue. The line input is purpose-built for this. You can plug the modeler's main output directly into the Power Station and drive a Mesa Rectifier 4×12, a Marshall 1960A, or any standard guitar cab at any wattage from 1 watt (apartment-friendly) to 50 watts (venue-friendly).
+
+**Buy the Power Station Plus if:** You own a tube amp you love but cannot run at the volume it sounds best at. The Power Station's load box absorbs the amp's speaker output, processes it through the variable power section, and outputs at your chosen wattage. This is the "cranked-amp-at-bedroom-volume" use case that most attenuators promise but few deliver above 12 dB of attenuation.
+
+**Buy the Rivera TBR-1 if:** You specifically want a 6L6-based variable power amp instead of an EL34-based one — the 6L6 character is rounder in the low midrange and softer in the upper treble — and you find a serviced unit at a fair price ($800-900). The 100-watt rating gives more headroom for clean playing into a cab than the Fryette's 50 watts.
+
+**Don't buy either if:** Your studio workflow is happy running modeler-to-monitors and your live workflow is happy running the modeler direct to FOH. The variable power amp solves a problem that exists only when you specifically want a guitar speaker contributing to the sound. If the IR-into-monitor sound is already what you want, you do not need this category of device and the $1,000+ would be better spent on better monitors, room treatment, or a different recording chain.
+
+## What I Use, and Why
+
+I own a Fryette Power Station Plus. I use it specifically when I am tracking direct guitar parts that need to interact with a real cab in the room — usually for drop-tuned rhythm work where the air movement of a 4×12 at 12-15 watts produces a low-end character that I cannot reproduce with the Quad Cortex into Yamaha HS8 monitors. The Quad Cortex sends Fortin NTS or 5150 captures into the Power Station's line input, and the Power Station drives a Mesa Rectifier 4×12 with V30s at whatever wattage the song needs.
+
+For lead and clean parts, I do not use it. The Quad Cortex into monitors is more than sufficient for those tones, and the recording workflow is faster. The Power Station earns its position in the chain only when the air movement matters — which is mostly the rhythm guitar context for drop-tuned high-gain work.
+
+I do not use the load box function with my EVH 5150 III. I tested it and the result is good, but the EVH is loud enough at low master settings to make this workflow unnecessary in my current room. If I lived somewhere with stricter noise constraints I would use it weekly.
+
+## The Modeler-into-FRFR Comparison
+
+The single most common question about variable power amps is whether they are worth the cost over a modeler-into-FRFR setup. The honest answer is that they solve different problems.
+
+A modeler-into-FRFR setup (a Quad Cortex into an Atomic CLR, a Headrush FRFR-112, or a pair of HS8 monitors) gives you:
+
+- Repeatability: every preset sounds the same every time
+- Convenience: one device, no tubes to maintain
+- Cab variety: hundreds of IRs, switchable per preset
+- Full silent recording: no microphone needed
+
+A variable power amp into a real cab gives you:
+
+- Physical air movement: the speaker pushes actual air, which contributes to feel under the fingers
+- Cab interaction: the actual speaker's response, not a captured snapshot of it
+- Tube power section coloration: harmonic content the IR path does not include
+- Stage volume that competes with drums: a Mesa 4×12 at 50 watts has presence that an FRFR cabinet does not match
+
+These are real differences. They are also $1,099 and 35 pounds of weight. A player who genuinely values the differences will get them. A player who could not articulate which side of the comparison matters more is probably better off with the modeler-into-FRFR path because the cost-to-benefit ratio is dramatically better.
+
+There is no objectively correct answer. The variable power amp category exists because some players need physical cab interaction and silent recording, and no other product solves both at once.
+
+## The Build-Your-Own Path
+
+For players with electronics experience, the Mojotone "British Style" Tube Power Amp kit ($450) and the Hammond AO-39 surplus power amp chassis ($150-300 used) are the two viable DIY paths to a similar device. Neither offers the wattage control of a commercial unit — both are fixed-output Class A or Class AB designs — but a variable resistor in the cathode bias circuit can approximate the variable wattage function.
+
+I have not built one of these. The cost savings versus a used Power Station II ($700-800) is small, the assembly time is significant, and the safety considerations of working with high-voltage tube circuits are real. If you do not already have tube amp electronics experience, the commercial unit is the right purchase.
+
+## FAQ
+
+**Can I use a variable power amp without a guitar cab — direct to FOH?**
+
+Yes, both the Power Station Plus and the Rivera TBR-1 have post-power-amp DI outputs that send a cab-simulated signal to the PA without needing a microphone. The DI sound captures the power amp's contribution to the tone. It does not capture cab/mic interaction the way an IR loading at the DAW would, so the result is a flatter, less "produced" sound that can be polished with EQ at the console.
+
+**Does running a Power Station Plus at 1 watt sound the same as a 1-watt amp?**
+
+Closer than you might expect, with caveats. A 1-watt amp's character comes from its output transformer, the specific power tubes (often 12AU7 or single EL84), and the cabinet it ships with. The Power Station at 1 watt gives you EL34 power-tube character at low SPL, which is a different sound than a 12AU7 at low SPL. Both are valid; neither replicates the other exactly.
+
+**Will a variable power amp damage my speakers?**
+
+No, provided the impedance match is correct (4 ohm, 8 ohm, 16 ohm) and you do not exceed the speaker's power handling. A Mesa V30-loaded 4×12 handles 240 watts continuous; a 50-watt Power Station cannot exceed that. The risk is impedance mismatch — running an 8-ohm speaker on the 4-ohm tap will damage the Power Station's output transformer over time, not the speaker.
+
+**Do I need to bias a Power Station Plus when I replace tubes?**
+
+The Fryette Power Station Plus is cathode biased on the EL34s, so it self-adjusts to most tube replacements within its operating tolerance. Matched pairs are still recommended for consistent tone, but you do not need to send it to a tech for biasing the way you would with a fixed-bias amp. The Rivera TBR-1 is fixed-biased and does require professional rebiasing on tube changes — budget $40-80 per service plus the cost of tubes.
+
+**What about Class D variable power amps like the Seymour Duncan PowerStage?**
+
+The PowerStage 200 ($550) is the closest direct competitor in the "drive a cab from a modeler" category at a much lower price. It uses Class D solid-state amplification, which means no tube power section coloration. If you want pure transparency from your modeler's preset to the speaker, the PowerStage is the better choice and it costs half as much. If you want the EL34 saturation contribution that a tube power section adds, the Power Station Plus is the right tool. Different problems, different solutions.
+
+<SaveThisTone title="See the high-gain rig" description="The Quad Cortex preset, Fortin NTS capture, and Power Station settings I use for tracking modern metal rhythm." href="/recipes/modern-metal-power-amp-rig" ctaLabel="Save the rig" />
