@@ -8,6 +8,7 @@ import {
 } from "@/lib/data";
 import { recipeToBlocks } from "../../_components/recipe-to-blocks";
 import { PreviewRecipeClient } from "../../_components/PreviewRecipeClient";
+import { LpArt, monogramFor } from "../../_components/LpArt";
 import type { Metadata } from "next";
 
 /**
@@ -97,16 +98,28 @@ export default async function PreviewRecipePage({
       <div className="recipe">
         {/* Breadcrumbs */}
         <div className="recipe-crumbs">
-          <Link href="/">Home</Link>
+          <Link href="/preview">Home</Link>
           <span className="sep">/</span>
-          <Link href="/browse">Archive</Link>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>
-            {artist?.name ?? "Unknown"} — {song?.title ?? recipe.title}
-          </span>
+          <Link href="/preview/browse">Archive</Link>
+          {artist && (
+            <>
+              <span className="sep">/</span>
+              <Link href={`/preview/artist/${artist.slug}`}>
+                {artist.name}
+              </Link>
+            </>
+          )}
+          {song && (
+            <>
+              <span className="sep">/</span>
+              <Link href={`/preview/song/${song.slug}`}>
+                {song.title}
+              </Link>
+            </>
+          )}
         </div>
 
-        {/* Title / credits / artwork */}
+        {/* Title / credits / artwork — song · artist · album · year order */}
         <div className="recipe-head">
           <div>
             <div className="recipe-issue">
@@ -125,14 +138,34 @@ export default async function PreviewRecipePage({
               {song?.title ?? recipe.title}
             </h1>
             <div className="recipe-credits">
-              <em>{artist?.name ?? "Unknown"}</em>
+              {artist ? (
+                <Link
+                  href={`/preview/artist/${artist.slug}`}
+                  className="song-artist-link"
+                >
+                  <em>{artist.name}</em>
+                </Link>
+              ) : (
+                <em>Unknown</em>
+              )}
               {song?.album && (
                 <>
                   <br />
-                  <span style={{ marginTop: 6, display: "inline-block" }}>
-                    {song.album}
-                    {song.year ? ` · ${song.year}` : ""}
-                  </span>
+                  {song ? (
+                    <Link
+                      href={`/preview/song/${song.slug}`}
+                      className="song-artist-link"
+                      style={{ marginTop: 6, display: "inline-block" }}
+                    >
+                      {song.album}
+                      {song.year ? ` · ${song.year}` : ""}
+                    </Link>
+                  ) : (
+                    <span style={{ marginTop: 6, display: "inline-block" }}>
+                      {song.album}
+                      {song.year ? ` · ${song.year}` : ""}
+                    </span>
+                  )}
                 </>
               )}
             </div>
@@ -140,11 +173,14 @@ export default async function PreviewRecipePage({
               <p className="recipe-summary">{recipe.description}</p>
             )}
           </div>
-          <div className="recipe-art">
-            <div className="art-label">
-              <span>LP · 33⅓</span>
-              <span>Side A · T.{String(recipeIdx).padStart(2, "0")}</span>
-            </div>
+          <div className="recipe-art recipe-art-lp">
+            <LpArt
+              cover={song?.album_art_url}
+              monogram={monogramFor(artist?.name)}
+              meta={song?.album ?? `Side A · T.${String(recipeIdx).padStart(2, "0")}`}
+              hue={recipeIdx}
+              alt={`${song?.album ?? song?.title ?? recipe.title} cover`}
+            />
           </div>
         </div>
 
@@ -218,11 +254,6 @@ export default async function PreviewRecipePage({
                 const rIdx =
                   toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
                 const rBlocks = recipeToBlocks(r, "helix");
-                const tonecode = (rArtist?.name ?? "??")
-                  .split(/\s+/)
-                  .map((w) => w[0]?.toUpperCase() ?? "")
-                  .join("")
-                  .slice(0, 3);
                 return (
                   <div
                     key={r.slug}
@@ -236,21 +267,21 @@ export default async function PreviewRecipePage({
                       <div className="feat-card-num">
                         No. {String(rIdx).padStart(3, "0")} · Side {(["A","B","C","D"][i % 4])}
                       </div>
-                      <div
-                        className={`feat-card-art lp-art lp-hue-${(rIdx % 6) + 1}`}
-                        aria-hidden="true"
-                      >
-                        <span className="lp-record" />
-                        <span className="lp-tonecode">{tonecode}</span>
-                        <span className="lp-blocks">
-                          {rBlocks.length} blocks
-                        </span>
+                      <div className="feat-card-art-wrap">
+                        <LpArt
+                          cover={rSong?.album_art_url}
+                          monogram={monogramFor(rArtist?.name)}
+                          meta={`${rBlocks.length} blocks`}
+                          hue={rIdx}
+                          shape="banner"
+                          alt={`${rSong?.album ?? rSong?.title ?? r.title} cover`}
+                        />
                       </div>
                       <div className="feat-card-song">
                         {rSong?.title ?? r.title}
                       </div>
                       <div className="feat-card-artist">
-                        {rArtist?.name ?? "Unknown"}
+                        <em>{rArtist?.name ?? "Unknown"}</em>
                         {rSong?.year ? ` · ${rSong.year}` : ""}
                       </div>
                     </Link>

@@ -9,6 +9,7 @@ import {
 } from "@/lib/data";
 import { recipeToBlocks } from "./_components/recipe-to-blocks";
 import { PreviewSignalChain } from "./_components/PreviewBlocks";
+import { LpArt, monogramFor } from "./_components/LpArt";
 
 export const metadata: Metadata = {
   title: "Preview — Fader & Knob visual direction",
@@ -192,26 +193,20 @@ export default function PreviewIndex() {
             const rIdx =
               toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
             const rBlocks = recipeToBlocks(r, "helix");
-            const tonecode = (rArtist?.name ?? "??")
-              .split(/\s+/)
-              .map((w) => w[0]?.toUpperCase() ?? "")
-              .join("")
-              .slice(0, 3);
             return (
               <Link
                 key={r.slug}
                 href={`/preview/recipe/${r.slug}`}
                 className="audition-card"
               >
-                <div
-                  className={`audition-art lp-art lp-hue-${(rIdx % 6) + 1}`}
-                  aria-hidden="true"
-                >
-                  <span className="lp-record" />
-                  <span className="lp-tonecode">{tonecode}</span>
-                  <span className="lp-blocks">
-                    {rBlocks.length} blocks
-                  </span>
+                <div className="audition-art">
+                  <LpArt
+                    cover={rSong?.album_art_url}
+                    monogram={monogramFor(rArtist?.name)}
+                    meta={`${rBlocks.length} blocks`}
+                    hue={rIdx}
+                    alt={`${rSong?.album ?? rSong?.title ?? r.title} cover`}
+                  />
                 </div>
                 <div className="audition-meta">
                   <span className="audition-no">

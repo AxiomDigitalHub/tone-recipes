@@ -64,6 +64,20 @@ export default function PreviewLayout({ children }: { children: ReactNode }) {
         </div>
       </div>
 
+      {/* Preview-only sub-nav. Lets the user navigate the v3 surfaces. */}
+      <nav className="preview-subnav">
+        <div className="preview-subnav-inner">
+          <Link href="/preview" className="preview-subnav-brand">
+            Fader &amp; Knob <span className="preview-subnav-mark">v3</span>
+          </Link>
+          <div className="preview-subnav-links">
+            <Link href="/preview/browse">Archive</Link>
+            <Link href="/preview/platforms">Platforms</Link>
+            <Link href="/preview/blog">Field Notes</Link>
+          </div>
+        </div>
+      </nav>
+
       {children}
     </div>
   );

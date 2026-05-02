@@ -3146,9 +3146,14 @@
 .fk-preview .audition-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--ink);
-  border: 1px solid var(--ink);
+  gap: 0;
+  background: transparent;
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+}
+.fk-preview .audition-grid > .audition-card {
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
 }
 @media (max-width: 1100px) {
   .fk-preview .audition-grid { grid-template-columns: repeat(3, 1fr); }
@@ -3308,6 +3313,38 @@
 .fk-preview .lp-hue-5 { --lp-label: #5a3a8a; --lp-spot: rgba(106,58,168,0.20); }
 .fk-preview .lp-hue-6 { --lp-label: #b86320; --lp-spot: rgba(184,99,32,0.20); }
 
+/* When a real album cover is provided, the cover becomes the LP body —
+   the generated label hue still shows around the edges and tints the
+   spotlight. The disc keeps spinning. The center spindle hole sits on top. */
+.fk-preview .lp-art .lp-cover-img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  object-fit: cover;
+  filter: contrast(1.05) saturate(0.95) brightness(0.92);
+}
+.fk-preview .lp-art.has-cover::before {
+  background:
+    radial-gradient(140% 140% at 70% 25%, var(--lp-spot, rgba(228,162,53,0.18)), transparent 60%);
+}
+.fk-preview .lp-art.has-cover .lp-record {
+  width: 70%;
+  background:
+    radial-gradient(circle at 50% 50%,
+      var(--lp-label, var(--tape)) 0%, var(--lp-label, var(--tape)) 14%,
+      transparent 14.5%, transparent 100%),
+    repeating-radial-gradient(circle at 50% 50%,
+      rgba(0,0,0,0.18) 0px, rgba(0,0,0,0.18) 1px,
+      transparent 1px, transparent 4px),
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,0.55), rgba(0,0,0,0.85) 100%);
+  border-color: rgba(0,0,0,0.4);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.05),
+    inset 0 0 80px rgba(0,0,0,0.7),
+    0 4px 16px rgba(0,0,0,0.4);
+}
+.fk-preview .lp-art-banner { aspect-ratio: 16 / 10; }
+
 /* ─── Related cards (recipe page) — head meta row ────────────────────── */
 .fk-preview .related-head {
   display: flex;
@@ -3380,4 +3417,425 @@
   .fk-preview .knob:hover .knob-indicator { animation: none; }
   .fk-preview .tape-dot { animation: none; }
   .fk-preview .hero-chain-kicker .rec-dot { animation: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v3 — site-wide pages (platforms, browse, song, artist).
+   Same paper / ink / amber / tape language. All scoped under .fk-preview.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── /preview/platforms — index ────────────────────────────────────────── */
+.fk-preview .platforms-index {
+  padding: 56px 0 96px;
+}
+.fk-preview .platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+}
+@media (max-width: 980px) { .fk-preview .platforms-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .fk-preview .platforms-grid { grid-template-columns: 1fr; } }
+
+.fk-preview .platform-card {
+  position: relative;
+  background: var(--paper);
+  padding: 28px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: background 200ms ease, transform 200ms ease;
+}
+.fk-preview .platform-card:hover {
+  background: var(--paper-2);
+  transform: translateY(-2px);
+}
+.fk-preview .platform-card-stripe {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--lp-label, var(--amber));
+}
+.fk-preview .platform-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-top: 6px;
+}
+.fk-preview .platform-card-mfr {
+  color: var(--lp-label, var(--ink));
+  font-weight: 600;
+}
+.fk-preview .platform-card-name {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 36px);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  margin: 4px 0 0;
+  font-weight: 400;
+}
+.fk-preview .platform-card-tagline {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  flex: 1;
+}
+.fk-preview .platform-card-cta {
+  font-family: var(--font-cond);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-muted);
+  padding: 6px 10px;
+  border: 1px solid var(--paper-line);
+  align-self: flex-start;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+.fk-preview .platform-card:hover .platform-card-cta {
+  color: var(--ink);
+  border-color: var(--ink);
+  background: var(--amber);
+}
+
+/* ── /preview/platforms/[slug] — detail ───────────────────────────────── */
+.fk-preview .platform-detail { padding: 30px 0 96px; }
+.fk-preview .platform-head {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 32px;
+  align-items: end;
+  padding-bottom: 28px;
+  margin-bottom: 36px;
+  border-bottom: 3px solid var(--ink);
+}
+.fk-preview .platform-tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(17px, 1.6vw, 21px);
+  line-height: 1.45;
+  color: var(--ink-muted);
+  max-width: 56ch;
+  margin: 16px 0 0;
+}
+.fk-preview .platform-stripe {
+  height: 100%;
+  min-height: 120px;
+  background: var(--lp-label, var(--amber));
+  border: 1px solid var(--ink);
+}
+@media (max-width: 720px) {
+  .fk-preview .platform-head { grid-template-columns: 1fr; }
+  .fk-preview .platform-stripe { min-height: 14px; }
+}
+.fk-preview .platform-section { margin-top: 56px; }
+.fk-preview .platform-see-all {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-cond);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  transition: background 120ms ease, color 120ms ease;
+}
+.fk-preview .platform-see-all:hover {
+  background: var(--amber);
+  color: var(--ink);
+}
+
+/* Other-platforms jumper rail */
+.fk-preview .platform-other { margin-top: 80px; }
+.fk-preview .platform-jumper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+}
+@media (max-width: 980px) { .fk-preview .platform-jumper { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px) { .fk-preview .platform-jumper { grid-template-columns: repeat(2, 1fr); } }
+.fk-preview .platform-jumper-item {
+  background: var(--paper);
+  padding: 18px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--ink);
+  position: relative;
+  transition: background 160ms ease;
+}
+.fk-preview .platform-jumper-item:hover { background: var(--paper-2); }
+.fk-preview .platform-jumper-stripe {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--lp-label, var(--amber));
+}
+.fk-preview .platform-jumper-mfr {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-top: 8px;
+}
+.fk-preview .platform-jumper-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+  line-height: 1;
+}
+.fk-preview .platform-jumper-count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--ink-muted);
+}
+
+/* ── /preview/browse ──────────────────────────────────────────────────── */
+.fk-preview .archive-page { padding: 30px 0 96px; }
+.fk-preview .archive-page-head {
+  padding-bottom: 28px;
+  margin-bottom: 56px;
+  border-bottom: 3px solid var(--ink);
+}
+.fk-preview .archive-decade { margin-bottom: 64px; }
+
+/* ── /preview/song/[slug] ─────────────────────────────────────────────── */
+.fk-preview .song-detail { padding: 30px 0 96px; }
+.fk-preview .song-head {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 56px;
+  align-items: end;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 3px solid var(--ink);
+}
+@media (max-width: 960px) {
+  .fk-preview .song-head { grid-template-columns: 1fr; gap: 28px; }
+}
+.fk-preview .song-cover {
+  max-width: 360px;
+  width: 100%;
+  margin-left: auto;
+}
+.fk-preview .song-artist-link {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid var(--paper-line);
+  transition: border-color 160ms ease, color 160ms ease;
+}
+.fk-preview .song-artist-link:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.fk-preview .song-listen-cta {
+  display: inline-block;
+  margin: 22px 12px 0 0;
+  padding: 9px 14px;
+  font-family: var(--font-cond);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--amber);
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  transition: background 120ms ease;
+}
+.fk-preview .song-listen-cta:hover { background: var(--amber-2); color: var(--paper); }
+.fk-preview .song-listen-cta-secondary {
+  background: transparent;
+  color: var(--ink);
+}
+.fk-preview .song-listen-cta-secondary:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ── /preview/artist/[slug] ──────────────────────────────────────────── */
+.fk-preview .artist-detail { padding: 30px 0 96px; }
+.fk-preview .artist-head {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 56px;
+  align-items: end;
+  padding-bottom: 28px;
+  margin-bottom: 36px;
+  border-bottom: 3px solid var(--ink);
+}
+@media (max-width: 960px) {
+  .fk-preview .artist-head { grid-template-columns: 1fr; gap: 28px; }
+}
+.fk-preview .artist-title {
+  font-size: clamp(48px, 7vw, 88px);
+  margin: 0 0 18px;
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+}
+.fk-preview .artist-bio {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(17px, 1.6vw, 20px);
+  line-height: 1.5;
+  color: var(--ink-muted);
+  margin: 0 0 18px;
+  max-width: 56ch;
+}
+.fk-preview .artist-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.fk-preview .artist-genre-chip {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  padding: 4px 10px;
+  border: 1px solid var(--paper-line);
+}
+.fk-preview .artist-portrait {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1;
+  margin-left: auto;
+  background: var(--ink);
+  overflow: hidden;
+  isolation: isolate;
+}
+.fk-preview .artist-portrait-img {
+  object-fit: cover;
+  filter: contrast(1.02) saturate(0.92) brightness(1.08);
+}
+.fk-preview .artist-portrait-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(72px, 10vw, 120px);
+  color: var(--paper);
+  opacity: 0.4;
+}
+.fk-preview .artist-portrait-label {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: rgba(10, 9, 8, 0.7);
+  padding: 8px 10px;
+  border: 1px solid rgba(237, 234, 228, 0.35);
+  z-index: 2;
+}
+
+/* ── feat-card-art-wrap (replaces feat-card-art empty div container) ─── */
+.fk-preview .feat-card-art-wrap { margin-bottom: 12px; }
+.fk-preview .feat-card .feat-card-art-wrap { aspect-ratio: 16 / 10; }
+
+/* ── Preview sub-nav (lets users navigate v3 surfaces) ─────────────────── */
+.fk-preview .preview-subnav {
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink);
+}
+.fk-preview .preview-subnav-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.fk-preview .preview-subnav-brand {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.fk-preview .preview-subnav-mark {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--amber);
+  padding: 2px 7px 1px;
+  position: relative;
+  top: -3px;
+}
+.fk-preview .preview-subnav-links {
+  display: flex;
+  gap: 28px;
+  font-family: var(--font-cond);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 13px;
+  font-weight: 600;
+}
+.fk-preview .preview-subnav-links a {
+  color: var(--ink);
+  opacity: 0.75;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: opacity 120ms ease, border-color 120ms ease;
+}
+.fk-preview .preview-subnav-links a:hover {
+  opacity: 1;
+  border-bottom-color: var(--ink);
+}
+@media (max-width: 600px) {
+  .fk-preview .preview-subnav-inner { padding: 12px 18px; gap: 14px; }
+  .fk-preview .preview-subnav-links { gap: 16px; font-size: 12px; }
+}
+
+/* Replace the dashed-LP placeholder on recipe head with the LpArt component */
+.fk-preview .recipe-art-lp {
+  background: transparent;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  max-width: 360px;
+  margin-left: auto;
+  aspect-ratio: 1;
+}
+.fk-preview .recipe-art-lp .lp-art {
+  width: 100%;
+  height: 100%;
 }
