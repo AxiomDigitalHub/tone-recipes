@@ -132,11 +132,10 @@ export default async function PreviewSongDetail({
         {recipes.length > 0 && (
           <section className="platform-section">
             <div className="how-head">
-              <span className="how-mark">§</span>
               <h2 className="display">
                 {recipes.length === 1
-                  ? "The tone."
-                  : "Tone variants on this song."}
+                  ? "The tone"
+                  : "Tone variants on this song"}
               </h2>
               <span className="section-rule" aria-hidden="true" />
               <span className="section-meta">

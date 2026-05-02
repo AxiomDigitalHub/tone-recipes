@@ -23,9 +23,8 @@ export default function PreviewPlatformsIndex() {
     <div className="container">
       <section className="platforms-index">
         <div className="how-head">
-          <span className="how-mark">§</span>
           <h2 className="display">
-            Built for the rig <em>you already own.</em>
+            Built for the rig <em>you already own</em>
           </h2>
           <span className="section-rule" aria-hidden="true" />
           <span className="section-meta">{platforms.length} modelers</span>

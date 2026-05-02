@@ -81,48 +81,42 @@ export default async function PreviewPlatformDetail({
 
         <section className="platform-section">
           <div className="how-head">
-            <span className="how-mark">§01</span>
-            <h2 className="display">Why {platform.label} players use Fader &amp; Knob.</h2>
+            <h2 className="display">Why {platform.label} players use Fader &amp; Knob</h2>
             <span className="section-rule" aria-hidden="true" />
-            <span className="section-meta">No guessing</span>
           </div>
           <ol className="how-steps">
             <li className="how-step">
               <span className="how-step-no">01</span>
-              <h3 className="how-step-title">Block names you can search.</h3>
+              <h3 className="how-step-title">Block names you can search</h3>
               <p className="how-step-body">
                 Every recipe lists the exact {platform.label} block names —
                 the same strings that show up in HX Edit, the editor, or your
                 unit&apos;s display. No guessing which model matches what.
               </p>
-              <span className="how-step-tag">Verified inventory</span>
             </li>
             <li className="how-step">
               <span className="how-step-no">02</span>
-              <h3 className="how-step-title">Parameters in your units.</h3>
+              <h3 className="how-step-title">Parameters in your units</h3>
               <p className="how-step-body">
                 Settings are translated to your platform&apos;s actual ranges —
                 not generic 0–10 marks. dB is dB. Hz is Hz. Time is ms.
               </p>
-              <span className="how-step-tag">Native ranges</span>
             </li>
             <li className="how-step">
               <span className="how-step-no">03</span>
-              <h3 className="how-step-title">Snapshots &amp; routing included.</h3>
+              <h3 className="how-step-title">Snapshots &amp; routing included</h3>
               <p className="how-step-body">
                 Where the original tone uses snapshot switching, parallel
                 routing, or a specific footswitch assignment, we say so. You
                 shouldn&apos;t have to reverse-engineer it.
               </p>
-              <span className="how-step-tag">Build instructions</span>
             </li>
           </ol>
         </section>
 
         <section className="platform-section">
           <div className="how-head">
-            <span className="how-mark">§02</span>
-            <h2 className="display">The {platform.label} archive.</h2>
+            <h2 className="display">The {platform.label} archive</h2>
             <span className="section-rule" aria-hidden="true" />
             <span className="section-meta">{recipes.length} translations</span>
           </div>
@@ -151,16 +145,18 @@ export default async function PreviewPlatformDetail({
                     />
                   </div>
                   <div className="audition-meta">
-                    <span className="audition-no">
-                      No. {String(rIdx).padStart(3, "0")}
-                      {rSong?.year ? ` · ${rSong.year}` : ""}
-                    </span>
                     <span className="audition-song">
                       {rSong?.title ?? r.title}
                     </span>
                     <span className="audition-artist">
                       <em>{rArtist?.name ?? "Unknown"}</em>
                     </span>
+                    {rSong?.album && (
+                      <span className="audition-album">
+                        {rSong.album}
+                        {rSong.year ? ` · ${rSong.year}` : ""}
+                      </span>
+                    )}
                     <span className="audition-cta">
                       Open patch <span aria-hidden="true">→</span>
                     </span>
@@ -182,10 +178,8 @@ export default async function PreviewPlatformDetail({
         {/* Other platforms — quiet jumper rail */}
         <section className="platform-section platform-other">
           <div className="how-head">
-            <span className="how-mark">¶</span>
-            <h2 className="display">Other modelers.</h2>
+            <h2 className="display">Other modelers</h2>
             <span className="section-rule" aria-hidden="true" />
-            <span className="section-meta">Switch your rig</span>
           </div>
           <div className="platform-jumper">
             {allPlatforms

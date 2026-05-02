@@ -103,9 +103,8 @@ export default async function PreviewArtistDetail({
         {recipes.length > 0 && (
           <section className="platform-section">
             <div className="how-head">
-              <span className="how-mark">§</span>
               <h2 className="display">
-                The {artist.name.split(" ").slice(-1)[0]} catalogue.
+                The {artist.name.split(" ").slice(-1)[0]} catalogue
               </h2>
               <span className="section-rule" aria-hidden="true" />
               <span className="section-meta">
@@ -134,16 +133,15 @@ export default async function PreviewArtistDetail({
                       />
                     </div>
                     <div className="audition-meta">
-                      <span className="audition-no">
-                        No. {String(rIdx).padStart(3, "0")}
-                        {rSong?.year ? ` · ${rSong.year}` : ""}
-                      </span>
                       <span className="audition-song">
                         {rSong?.title ?? r.title}
                       </span>
-                      <span className="audition-artist">
-                        {rSong?.album ?? "Unknown album"}
-                      </span>
+                      {rSong?.album && (
+                        <span className="audition-album">
+                          {rSong.album}
+                          {rSong.year ? ` · ${rSong.year}` : ""}
+                        </span>
+                      )}
                       <span className="audition-cta">
                         See the chain <span aria-hidden="true">→</span>
                       </span>
@@ -159,8 +157,7 @@ export default async function PreviewArtistDetail({
         {artistSongs.filter((s) => !recipes.some((r) => r.song_slug === s.slug)).length > 0 && (
           <section className="platform-section">
             <div className="how-head">
-              <span className="how-mark">¶</span>
-              <h2 className="display">Songs in the queue.</h2>
+              <h2 className="display">Songs in the queue</h2>
               <span className="section-rule" aria-hidden="true" />
               <span className="section-meta">awaiting translation</span>
             </div>

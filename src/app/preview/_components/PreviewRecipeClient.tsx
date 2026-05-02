@@ -102,8 +102,8 @@ export function PreviewRecipeClient({
         </span>
         <h3 className="display">
           {isOpen
-            ? "Every knob, broken out."
-            : "Collapsed. Click to expand."}
+            ? "Every knob, broken out"
+            : "Collapsed — click to expand"}
         </h3>
         <span className="toggle-chevron" aria-hidden="true">
           {isOpen ? "×" : "+"}

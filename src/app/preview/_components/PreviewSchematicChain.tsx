@@ -22,10 +22,14 @@ export function PreviewSchematicChain({
   blocks,
   selectedIndex,
   onSelect,
+  interactive = true,
 }: {
   blocks: PreviewBlockData[];
   selectedIndex: number | null;
-  onSelect: (i: number) => void;
+  onSelect?: (i: number) => void;
+  /** When false (e.g. on the home page hero), every tile renders as a
+   *  static anchor — no click target, no selected state. */
+  interactive?: boolean;
 }) {
   // Guitar profile card sits above the chain row. The chain row itself
   // only renders pedals / amps / cabs — the guitar's spec-sheet lives in
@@ -43,9 +47,10 @@ export function PreviewSchematicChain({
         {chainBlocks.map(({ b, i }, idx) => {
           // Pedals, amps, and cabs are selectable; source is a static anchor.
           const isSelectable =
-            b.variant === "pedal" ||
-            b.variant === "amp" ||
-            b.variant === "cab";
+            interactive &&
+            (b.variant === "pedal" ||
+              b.variant === "amp" ||
+              b.variant === "cab");
           const isSelected = selectedIndex === i;
           return (
             <div
@@ -64,7 +69,7 @@ export function PreviewSchematicChain({
                     className={`chain-node ${
                       b.color ? `node-color-${b.color}` : ""
                     } ${isSelected ? "is-selected" : ""}`}
-                    onClick={() => onSelect(i)}
+                    onClick={() => onSelect?.(i)}
                   >
                     <BlockIcon block={b} />
                     <span className="chain-node-kind">

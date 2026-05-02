@@ -2,13 +2,12 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import {
   toneRecipes,
-  artists,
   getSongBySlug,
   getArtistBySlug,
   getRecipeBySlug,
 } from "@/lib/data";
 import { recipeToBlocks } from "./_components/recipe-to-blocks";
-import { PreviewSignalChain } from "./_components/PreviewBlocks";
+import { PreviewSchematicChain } from "./_components/PreviewSchematicChain";
 import { LpArt, monogramFor } from "./_components/LpArt";
 
 export const metadata: Metadata = {
@@ -28,9 +27,6 @@ const SAMPLE_SLUGS = [
 ];
 
 export default function PreviewIndex() {
-  const recipeCount = toneRecipes.length;
-  const playerCount = artists.length;
-
   // Featured recipe for the hero chain. First entry is typically a
   // flagship tone; swap by reordering the data file or wiring a flag later.
   const featured = toneRecipes[0];
@@ -38,13 +34,10 @@ export default function PreviewIndex() {
   const featuredArtist = featuredSong
     ? getArtistBySlug(featuredSong.artist_slug)
     : undefined;
-  // Prefer Helix for the hero since it's the most-supported platform.
   const heroPlatform = featured?.platform_translations?.helix
     ? "helix"
     : "pedalboard";
   const heroBlocks = featured ? recipeToBlocks(featured, heroPlatform) : [];
-  const heroPlatformLabel =
-    heroPlatform === "helix" ? "Line 6 Helix" : "Pedalboard";
 
   return (
     <>
@@ -53,33 +46,23 @@ export default function PreviewIndex() {
         <div className="container">
           <div className="hero-headline-grid">
             <div>
-              <div className="hero-issue">
-                <span className="pill">Issue No. 014</span>
-                <span>Live archive</span>
-                <span>·</span>
-                <span>{recipeCount.toLocaleString()} recipes</span>
-                <span>·</span>
-                <span>{playerCount} players</span>
-              </div>
-              <h1 className="display">
-                Tone recipes from
-                <br />
-                <span className="amp">the songs you love.</span>
+              <h1 className="display hero-title">
+                Tone recipes from{" "}
+                <span className="amp">the songs you love</span>
               </h1>
             </div>
             <p className="hero-sub">
               <span className="lede-first">How this works</span>
-              We take an iconic recording and map the full signal chain —
-              the guitar, the drive, the amp, the cab, the effects — wired
-              in order. Then we translate every setting into the exact
-              numbers for <b>your</b> Helix, Quad Cortex, TONEX, Fractal,
-              Kemper, Katana, or physical rig.
+              We take an iconic recording, map the full signal chain, and
+              translate every setting into the exact numbers for{" "}
+              <b>your</b> Helix, Quad Cortex, TONEX, Fractal, Kemper,
+              Katana, or pedalboard.
             </p>
           </div>
 
-          {/* Featured hero chain */}
+          {/* Featured hero chain — schematic icon overview, not chassis */}
           {featured && heroBlocks.length > 0 && (
-            <div className="hero-chain">
+            <div className="hero-chain hero-chain-light">
               <div className="hero-chain-head">
                 <div>
                   <div className="hero-chain-kicker">
@@ -109,8 +92,6 @@ export default function PreviewIndex() {
                         <span>{featuredSong.year}</span>
                       </>
                     )}
-                    <span className="sep">·</span>
-                    <span>Built for {heroPlatformLabel}</span>
                   </div>
                 </div>
                 <Link
@@ -120,70 +101,61 @@ export default function PreviewIndex() {
                   Open full recipe <span aria-hidden="true">→</span>
                 </Link>
               </div>
-              <PreviewSignalChain blocks={heroBlocks} />
+              <PreviewSchematicChain
+                blocks={heroBlocks}
+                selectedIndex={null}
+                interactive={false}
+              />
             </div>
           )}
         </div>
       </section>
 
-      {/* §02 — How this works · three-step editorial feature */}
+      {/* How this works — three-step editorial feature */}
       <section className="how container">
         <div className="how-head">
-          <span className="how-mark">§02</span>
-          <h2 className="display">Three steps from
-            {" "}<em>that solo</em>{" "}to your rig.</h2>
+          <h2 className="display">
+            Three steps from your favorite song to your rig
+          </h2>
           <span className="section-rule" aria-hidden="true" />
-          <span className="section-meta">No tweaking required</span>
         </div>
         <ol className="how-steps">
           <li className="how-step">
             <span className="how-step-no">01</span>
-            <h3 className="how-step-title">We chase the tone.</h3>
+            <h3 className="how-step-title">We chase the tone</h3>
             <p className="how-step-body">
               Listen, isolate, A/B against rigs we know. Our editors are
               tone nerds who will spend a whole afternoon on a delay tail.
             </p>
-            <span className="how-step-tag">Editorial</span>
           </li>
           <li className="how-step">
             <span className="how-step-no">02</span>
-            <h3 className="how-step-title">We map the chain.</h3>
+            <h3 className="how-step-title">We map the chain</h3>
             <p className="how-step-body">
-              Guitar, drive, amp, cab, mic, post. Every block. Every knob.
-              Every tap-tempo. Documented like a service manual.
+              Every block. Every knob. Every tap-tempo. Documented like a
+              service manual.
             </p>
-            <span className="how-step-tag">Schematic</span>
           </li>
           <li className="how-step">
             <span className="how-step-no">03</span>
-            <h3 className="how-step-title">You get the numbers.</h3>
+            <h3 className="how-step-title">You get the numbers</h3>
             <p className="how-step-body">
               Translated for your Helix, Quad Cortex, TONEX, Fractal,
-              Kemper, Katana — or your physical pedalboard. One click,
-              import, play.
+              Kemper, Katana — or your pedalboard. One click, import, play.
             </p>
-            <span className="how-step-tag">For your rig</span>
           </li>
         </ol>
       </section>
 
-      {/* §03 — Audition picker · LP rack of real recipes */}
+      {/* Audition picker — LP rack of real recipes */}
       <section className="audition container">
         <div className="audition-head">
-          <span className="how-mark">§03</span>
-          <h2 className="display">The opening shelf.</h2>
+          <h2 className="display">The opening shelf</h2>
           <span className="section-rule" aria-hidden="true" />
-          <span className="section-meta">
-            {recipeCount.toLocaleString()} recipes · {playerCount} players
-          </span>
         </div>
-        <p className="audition-lede">
-          Eight tones to start. Click a sleeve to see the chain, the knobs,
-          and the numbers — translated for your rig.
-        </p>
 
         <div className="audition-grid">
-          {SAMPLE_SLUGS.map((slug, i) => {
+          {SAMPLE_SLUGS.map((slug) => {
             const r = getRecipeBySlug(slug);
             if (!r) return null;
             const rSong = getSongBySlug(r.song_slug);
@@ -209,16 +181,18 @@ export default function PreviewIndex() {
                   />
                 </div>
                 <div className="audition-meta">
-                  <span className="audition-no">
-                    No. {String(rIdx).padStart(3, "0")}
-                    {rSong?.year ? ` · ${rSong.year}` : ""}
-                  </span>
                   <span className="audition-song">
                     {rSong?.title ?? r.title}
                   </span>
                   <span className="audition-artist">
-                    {rArtist?.name ?? "Unknown"}
+                    <em>{rArtist?.name ?? "Unknown"}</em>
                   </span>
+                  {rSong?.album && (
+                    <span className="audition-album">
+                      {rSong.album}
+                      {rSong.year ? ` · ${rSong.year}` : ""}
+                    </span>
+                  )}
                   <span className="audition-cta">
                     See the chain <span aria-hidden="true">→</span>
                   </span>
@@ -226,6 +200,42 @@ export default function PreviewIndex() {
               </Link>
             );
           })}
+        </div>
+      </section>
+
+      {/* Newsletter signup — one piece carried over from production */}
+      <section className="newsletter container">
+        <div className="newsletter-grid">
+          <div>
+            <span className="newsletter-kicker">The Friday Send</span>
+            <h2 className="display newsletter-title">
+              One free tone recipe, every Friday
+            </h2>
+            <p className="newsletter-body">
+              One recipe, one quick tip, one short read. No spam. Unsubscribe
+              anytime.
+            </p>
+          </div>
+          <form
+            className="newsletter-form"
+            action="/api/newsletter"
+            method="post"
+          >
+            <label htmlFor="newsletter-email" className="newsletter-label">
+              Email
+            </label>
+            <input
+              id="newsletter-email"
+              type="email"
+              name="email"
+              required
+              placeholder="your@email.com"
+              className="newsletter-input"
+            />
+            <button type="submit" className="newsletter-submit">
+              Subscribe
+            </button>
+          </form>
         </div>
       </section>
     </>

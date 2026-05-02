@@ -21,8 +21,6 @@ export const metadata = {
 };
 
 export default function PreviewLayout({ children }: { children: ReactNode }) {
-  const recipeCount = toneRecipes.length;
-  const playerCount = artists.length;
   const issue = new Date("2026-04-18");
   const monthYear = issue.toLocaleDateString("en-US", {
     month: "short",
@@ -53,14 +51,9 @@ export default function PreviewLayout({ children }: { children: ReactNode }) {
         <div className="masthead-bar-inner">
           <div>
             <span className="tape-dot" />
-            Vol. 04 · Issue 14 · {monthYear.toUpperCase()}
-            <span className="sep">/</span>
-            {recipeCount.toLocaleString()} recipes
-            <span className="sep">/</span>
-            {playerCount} players
-            <span className="sep">/</span>7 platforms
+            Vol. 04 · Issue 14 · {monthYear.toUpperCase()} · Live Archive
           </div>
-          <div>Made for the basement · The garage · The tour bus</div>
+          <div>Stop tweaking. Start playing.</div>
         </div>
       </div>
 
@@ -68,7 +61,7 @@ export default function PreviewLayout({ children }: { children: ReactNode }) {
       <nav className="preview-subnav">
         <div className="preview-subnav-inner">
           <Link href="/preview" className="preview-subnav-brand">
-            Fader &amp; Knob <span className="preview-subnav-mark">v3</span>
+            Fader &amp; Knob
           </Link>
           <div className="preview-subnav-links">
             <Link href="/preview/browse">Archive</Link>

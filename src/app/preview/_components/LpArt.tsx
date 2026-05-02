@@ -3,8 +3,11 @@ import Image from "next/image";
 interface LpArtProps {
   /** Album cover URL — when present, becomes the LP body. */
   cover?: string | null;
-  /** Artist initials in display serif (e.g. "SRV"). */
-  monogram: string;
+  /** Artist initials in display serif (e.g. "SRV"). Hidden by default on
+   *  cards because it covered the album cover; opt in with showMonogram. */
+  monogram?: string;
+  /** Set true to render the italic monogram top-left over the cover. */
+  showMonogram?: boolean;
   /** "10 BLOCKS" / "Side A" / etc. — small mono chip at bottom-right. */
   meta?: string | null;
   /** Hue index 1–6 for fallback label color. */
@@ -17,6 +20,7 @@ interface LpArtProps {
 export function LpArt({
   cover,
   monogram,
+  showMonogram = false,
   meta,
   hue,
   shape = "square",
@@ -43,7 +47,9 @@ export function LpArt({
         />
       )}
       <span className="lp-record" />
-      <span className="lp-tonecode">{monogram}</span>
+      {showMonogram && monogram && (
+        <span className="lp-tonecode">{monogram}</span>
+      )}
       {meta && <span className="lp-blocks">{meta}</span>}
     </div>
   );

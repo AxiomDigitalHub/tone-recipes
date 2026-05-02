@@ -45,7 +45,7 @@ export default function PreviewBrowse() {
             <span>{artists.length} players</span>
           </div>
           <h1 className="archive-title">
-            Every tone we&apos;ve mapped, by <em>era.</em>
+            Every tone we&apos;ve mapped, by <em>era</em>
           </h1>
           <p className="archive-lede">
             Browse the full library — from the Strats and Plexis of the late
@@ -59,8 +59,7 @@ export default function PreviewBrowse() {
           return (
             <div key={decade} className="archive-decade">
               <div className="how-head">
-                <span className="how-mark">¶</span>
-                <h2 className="display">The {decade}s.</h2>
+                <h2 className="display">The {decade}s</h2>
                 <span className="section-rule" aria-hidden="true" />
                 <span className="section-meta">{list.length} files</span>
               </div>
@@ -89,16 +88,18 @@ export default function PreviewBrowse() {
                         />
                       </div>
                       <div className="audition-meta">
-                        <span className="audition-no">
-                          No. {String(rIdx).padStart(3, "0")}
-                          {rSong?.year ? ` · ${rSong.year}` : ""}
-                        </span>
                         <span className="audition-song">
                           {rSong?.title ?? r.title}
                         </span>
                         <span className="audition-artist">
                           <em>{rArtist?.name ?? "Unknown"}</em>
                         </span>
+                        {rSong?.album && (
+                          <span className="audition-album">
+                            {rSong.album}
+                            {rSong.year ? ` · ${rSong.year}` : ""}
+                          </span>
+                        )}
                         <span className="audition-cta">
                           See the chain <span aria-hidden="true">→</span>
                         </span>
