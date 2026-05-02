@@ -151,21 +151,14 @@ export default async function PreviewRecipePage({
               {song?.album && (
                 <>
                   <br />
-                  {song ? (
-                    <Link
-                      href={`/preview/song/${song.slug}`}
-                      className="song-artist-link"
-                      style={{ marginTop: 6, display: "inline-block" }}
-                    >
-                      {song.album}
-                      {song.year ? ` · ${song.year}` : ""}
-                    </Link>
-                  ) : (
-                    <span style={{ marginTop: 6, display: "inline-block" }}>
-                      {song.album}
-                      {song.year ? ` · ${song.year}` : ""}
-                    </span>
-                  )}
+                  <Link
+                    href={`/preview/song/${song.slug}`}
+                    className="song-artist-link"
+                    style={{ marginTop: 6, display: "inline-block" }}
+                  >
+                    {song.album}
+                    {song.year ? ` · ${song.year}` : ""}
+                  </Link>
                 </>
               )}
             </div>

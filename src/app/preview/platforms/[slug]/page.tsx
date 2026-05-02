@@ -11,6 +11,7 @@ import {
   getSongBySlug,
   getArtistBySlug,
 } from "@/lib/data";
+import type { Platform } from "@/types/recipe";
 import { recipeToBlocks } from "../../_components/recipe-to-blocks";
 import { LpArt, monogramFor } from "../../_components/LpArt";
 
@@ -133,7 +134,7 @@ export default async function PreviewPlatformDetail({
                 : undefined;
               const rIdx =
                 toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
-              const rBlocks = recipeToBlocks(r, slug);
+              const rBlocks = recipeToBlocks(r, slug as Platform);
               return (
                 <Link
                   key={r.slug}
