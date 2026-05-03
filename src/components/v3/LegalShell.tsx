@@ -18,7 +18,7 @@ export function LegalShell({
     <div className="container">
       <section className="legal-page">
         <div className="recipe-crumbs">
-          <Link href="/preview">Home</Link>
+          <Link href="/">Home</Link>
           <span className="sep">/</span>
           <span style={{ color: "var(--ink)" }}>{title}</span>
         </div>

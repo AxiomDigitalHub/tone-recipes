@@ -24,7 +24,7 @@ export function FieldNotesRail({
       <div className="how-head">
         <h2 className="display">{title}</h2>
         <span className="section-rule" aria-hidden="true" />
-        <Link href="/preview/blog" className="section-meta fnr-see-all">
+        <Link href="/blog" className="section-meta fnr-see-all">
           All field notes →
         </Link>
       </div>
@@ -35,7 +35,7 @@ export function FieldNotesRail({
           return (
             <Link
               key={p.slug}
-              href={`/preview/blog/${p.slug}`}
+              href={`/blog/${p.slug}`}
               className="fnr-card"
             >
               <div className="fnr-card-meta">

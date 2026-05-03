@@ -148,9 +148,6 @@ export default async function PreviewArtistDetail({
                 The {artist.name.split(" ").slice(-1)[0]} catalogue
               </h2>
               <span className="section-rule" aria-hidden="true" />
-              <span className="section-meta">
-                {recipes.length} recipe{recipes.length === 1 ? "" : "s"}
-              </span>
             </div>
             <div className="audition-grid">
               {recipes.map((r) => {

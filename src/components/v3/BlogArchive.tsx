@@ -140,7 +140,7 @@ export function BlogArchive({
           {flatRows.map((p) => (
             <Link
               key={p.slug}
-              href={`/preview/blog/${p.slug}`}
+              href={`/blog/${p.slug}`}
               className="ledger-row"
             >
               <span className="ledger-dept">{p.categoryLabel}</span>

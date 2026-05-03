@@ -173,9 +173,6 @@ export default async function PreviewSongDetail({
                   : "Tone variants on this song"}
               </h2>
               <span className="section-rule" aria-hidden="true" />
-              <span className="section-meta">
-                {recipes.length} translation{recipes.length === 1 ? "" : "s"}
-              </span>
             </div>
             <div className="audition-grid">
               {recipes.map((r) => {

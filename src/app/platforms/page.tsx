@@ -34,7 +34,6 @@ export default function PreviewPlatformsIndex() {
             Built for the rig <em>you already own</em>
           </h2>
           <span className="section-rule" aria-hidden="true" />
-          <span className="section-meta">{platforms.length} modelers</span>
         </div>
         <p className="audition-lede">
           Every recipe is translated into the exact block names and parameter

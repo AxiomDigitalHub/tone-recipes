@@ -90,7 +90,6 @@ export default function AboutPage() {
           <div className="how-head">
             <h2 className="display">The bench</h2>
             <span className="section-rule" aria-hidden="true" />
-            <span className="section-meta">{writers.length} writers</span>
           </div>
           <div className="about-team-grid">
             {writers.map((w) => (

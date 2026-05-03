@@ -112,9 +112,6 @@ export default async function GearDetailPage({
             <div className="how-head">
               <h2 className="display">Recipes using this gear</h2>
               <span className="section-rule" aria-hidden="true" />
-              <span className="section-meta">
-                {usedIn.length} recipe{usedIn.length === 1 ? "" : "s"}
-              </span>
             </div>
             <div className="audition-grid">
               {usedIn.slice(0, 12).map((r) => {

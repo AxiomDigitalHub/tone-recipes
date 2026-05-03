@@ -302,7 +302,6 @@ export default async function PreviewPlatformDetail({
           <div className="how-head">
             <h2 className="display">The {platform.label} archive</h2>
             <span className="section-rule" aria-hidden="true" />
-            <span className="section-meta">{recipes.length} translations</span>
           </div>
           <div className="audition-grid">
             {recipes.slice(0, 12).map((r) => {

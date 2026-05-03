@@ -326,15 +326,10 @@ export default async function PreviewBlogPost({
         {post.faq && post.faq.length > 0 && (
           <section className="post-faq" aria-labelledby="faq-head">
             <div className="section-head">
-              <span className="section-mark">?</span>
               <h2 id="faq-head" className="section-title">
                 Frequently asked
               </h2>
               <span className="section-rule" aria-hidden="true" />
-              <span className="section-meta">
-                {post.faq.length}{" "}
-                {post.faq.length === 1 ? "question" : "questions"}
-              </span>
             </div>
             <dl className="post-faq-list">
               {post.faq.map((f, i) => (
