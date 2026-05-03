@@ -1,9 +1,9 @@
 # /preview v3 Redesign — Handoff Document
 
 **Last updated:** 2026-05-02 by Claude Opus 4.7 (1M context)
-**Branch:** `preview-redesign-v3` (latest commit: `a278ca1`)
+**Branch:** `preview-redesign-v3` (latest commit: `77d85a2`)
 **Live preview:** `https://tone-recipes-git-preview-fa282a-daniellivengood-2046s-projects.vercel.app`
-**Status:** Design is locked-in directionally. Several pages still missing. Not yet ready for cutover to production routes.
+**Status:** Design is locked-in directionally. v3.8 feature-parity sprint complete — most production pages now have v3 versions. Cutover blockers narrowed to JSON-LD/SEO + 301s + URL strategy.
 
 ---
 
@@ -95,6 +95,14 @@ Driver: Daniel wants the site to feel "like the best damn guitar tone website th
 | `/preview/artist/[slug]` | `artist/[slug]/page.tsx` | Editorial profile, portrait, bio, genre chips, catalogue grid, queue list, Field Notes rail |
 | `/preview/blog` | `blog/page.tsx` | "Field Notes" h1 only (no kicker/lede), one hero feature + 3 sidebar items, Departments rail, Archive ledger by quarter, Colophon |
 | `/preview/blog/[slug]` | `blog/[slug]/page.tsx` | Magazine-cover hero, AEO Key Takeaways, sticky LEFT TOC + 80ch prose body (full-container width), tone-block remap, FAQ |
+| `/preview/how-it-works` | `how-it-works/page.tsx` | Editorial methodology — 3 steps + 4 promise cards + closing CTA |
+| `/preview/pricing` | `pricing/page.tsx` | 3-tier (Free / Tone Pass / Pro). Highlight card ink-filled with amber checks. FAQ. |
+| `/preview/about` | `about/page.tsx` | Mission lede + 4 stat tiles + 4 principle cards + writers grid (`getAllWriters()`) |
+| `/preview/compare` | `compare/page.tsx` | URL-driven `?a=&b=&platform=`. Two columns, picker when empty, schematic chain when filled. Platform switcher applies to both columns. |
+| `/preview/gear/[slug]` | `gear/[slug]/page.tsx` | Modeler-equivalents table + recipes-using-this-gear grid + Field Notes rail. **TODO**: chain blocks on recipe page should link here. |
+| `/preview/login` | `(auth)/login/page.tsx` | Form posts to `/api/auth/login`. Cropmark card. |
+| `/preview/signup` | `(auth)/signup/page.tsx` | Same chrome as login. Posts to `/api/auth/signup`. |
+| `/preview/privacy` `/terms` `/affiliate-disclosure` | `{path}/page.tsx` | Three legal pages on a shared `<LegalShell>` component. Placeholder copy with "preview" caveat box. |
 
 ### Layout
 
@@ -112,32 +120,28 @@ The production header + footer ALSO render because `/preview/*` inherits the roo
 
 Before promoting `/preview/*` → `/`, we need:
 
-1. **Wire the EXPORT PRESET button** on the recipe head. Right now it's just a `<button>` with no handler. Production downloads `.hlx` from `/presets/{recipe.slug}.hlx`. Replace with `<a href="/presets/{recipe.slug}.hlx" download>`.
-2. **Login / auth state in the v3 sub-nav.** Currently no Login / Sign up / Saved / Dashboard / avatar. Either keep prod header (simple — but breaks editorial chrome on promoted routes) OR add login affordances to v3 sub-nav (more work).
+1. ~~**Wire the EXPORT PRESET button**~~ ✅ Done in v3.8.
+2. ~~**Login / auth state in the v3 sub-nav.**~~ ✅ Login + Sign up affordances added in v3.8 (links to `/preview/login` + `/preview/signup`). Logged-in state (avatar / Saved / Dashboard) still TODO once auth state is wired.
 3. **SEO / JSON-LD parity.** Every preview page has `noindex`. Production pages have full Recipe / WebPage / Article / FAQPage / BreadcrumbList JSON-LD. Port these and flip `robots: { index: true, follow: true }` on the v3 versions.
 4. **301 redirects** from `/preview/*` → `/*` (set in `next.config.ts`).
 5. **URL strategy decision** — swap-in-place (rename `/preview/recipe` → `/recipe`, delete old) vs side-by-side (keep `/preview` for QA).
+6. **Logged-in chrome.** When a user is signed in, the v3 sub-nav should swap "Log in / Sign up" for an avatar + dropdown (Saved / Dashboard / Log out). Needs to read auth state — production probably uses a context or middleware. Audit before wiring.
 
 ---
 
 ## Pages production has, v3 doesn't
 
-These pages exist in production with the dark v1 theme. If we cut over the v3 routes, users hit these and the styling breaks mid-session. Either port them to v3 OR accept the visual whiplash on the long-tail.
+After v3.8 the gap narrowed sharply. Remaining production-only routes:
 
-| Route | What it does |
-|---|---|
-| `/compare` | Pick 2 recipes side-by-side. 598-line page in production. |
-| `/saved` | User's saved recipes library. |
-| `/request` | Request a tone form. |
-| `/gear/[slug]` | Gear database — pedal/amp/cab pages. |
-| `/pricing` | 3-tier pricing (Free / Tone Pass $7 / Pro $12) — see `src/app/pricing/page.tsx` for the data |
-| `/news` | Industry news feed. |
-| `/community` | Community hub. |
-| `/dashboard` | Logged-in user dashboard. |
-| `/how-it-works` | Editorial methodology explainer. |
-| `/about` | About + team. |
-| `/privacy`, `/terms`, `/affiliate-disclosure` | Legal. |
-| `/(auth)/login`, `/(auth)/signup` | Auth flows. |
+| Route | What it does | Notes |
+|---|---|---|
+| `/saved` | User's saved recipes library | Needs auth state wiring first |
+| `/request` | Request a tone form | Easy port, ~30 min |
+| `/news` | Industry news feed | Similar to /blog — port the same chrome |
+| `/community` | Community hub | Open question — keep on production for now? |
+| `/dashboard` | Logged-in user dashboard | Needs auth state wiring first |
+
+**Built in v3.8:** `/compare`, `/gear/[slug]`, `/pricing`, `/how-it-works`, `/about`, `/privacy`, `/terms`, `/affiliate-disclosure`, `/login`, `/signup`.
 
 ---
 
@@ -239,6 +243,7 @@ These pages exist in production with the dark v1 theme. If we cut over the v3 ro
 | v3.5 | 7f2fcd0 | Hero breathing + real multi-filter Browse + blog TOC on left + tone block CSS-var remap |
 | v3.6 | f34e715 + a1163c6 + ec3d8a6 | Hero spacing fix (specificity collision), Browse left sidebar, "Browse Tones" rename, Field Notes head trim |
 | v3.7 | a278ca1 | Field Notes cross-linking — `findRelatedPosts` + `FieldNotesRail` on recipe / platform / artist |
+| v3.8 | 77d85a2 | Feature parity sprint — `/how-it-works`, `/pricing`, `/about`, `/compare`, `/gear/[slug]`, `/login`, `/signup`, `/privacy`, `/terms`, `/affiliate-disclosure`, sub-nav auth affordance, EXPORT PRESET wired to `/presets/{slug}.{hlx,tsl}` |
 
 ---
 
