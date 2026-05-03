@@ -10,6 +10,7 @@ import {
 } from "@/lib/data";
 import { recipeToBlocks } from "../../_components/recipe-to-blocks";
 import { LpArt, monogramFor } from "../../_components/LpArt";
+import { songJsonLdSet } from "@/lib/seo/preview-jsonld";
 
 export function generateStaticParams() {
   return songs.map((s) => ({ slug: s.slug }));
@@ -22,10 +23,32 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const s = getSongBySlug(slug);
+  if (!s) {
+    return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
+  }
+  const artist = getArtistBySlug(s.artist_slug);
+  const title = `${s.title}${artist ? ` by ${artist.name}` : ""} — Tone Recipes`;
+  const description = `Tone recipes for "${s.title}"${artist ? ` by ${artist.name}` : ""}. Signal chains across Helix, Quad Cortex, TONEX, Fractal, Kemper, and pedalboard.`;
   return {
-    title: s
-      ? `Preview · ${s.title} — Fader & Knob`
-      : "Preview — Fader & Knob",
+    title,
+    description,
+    keywords: [s.title, artist?.name, ...(s.genres ?? []), "tone recipe", "guitar tone"].filter(
+      Boolean,
+    ) as string[],
+    openGraph: {
+      title,
+      description,
+      type: "music.song",
+      ...(s.album_art_url
+        ? { images: [{ url: s.album_art_url, alt: `${s.album} album art` }] }
+        : {}),
+    },
+    twitter: {
+      card: s.album_art_url ? "summary_large_image" : "summary",
+      title,
+      description,
+      ...(s.album_art_url ? { images: [s.album_art_url] } : {}),
+    },
     robots: { index: false, follow: false },
   };
 }
@@ -49,8 +72,18 @@ export default async function PreviewSongDetail({
   }
   const songIdx = songs.findIndex((s) => s.slug === slug) + 1;
 
+  const { musicRecording, breadcrumb } = songJsonLdSet(song, artist);
+
   return (
     <div className="container">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(musicRecording) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="song-detail">
         <div className="recipe-crumbs">
           <Link href="/preview">Home</Link>

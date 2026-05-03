@@ -28,6 +28,80 @@ const nextConfig: NextConfig = {
         destination: "/platforms/quad_cortex",
         permanent: true,
       },
+      // ───────────────────────────────────────────────────────────────────
+      // v3 redesign cutover — uncomment these when /preview/* renames to /*.
+      // Strategy: swap-in-place. Each /preview/<route> source is added once
+      // the matching /<route> file lands the v3 chrome. Until then, leaving
+      // these commented avoids a redirect loop (the /preview/* page would
+      // redirect to itself before the rename is real).
+      //
+      // Status note: `/preview/recipe`, `/preview/song`, `/preview/artist`,
+      // `/preview/platforms`, `/preview/browse`, `/preview/blog`, `/preview/about`,
+      // `/preview/pricing`, `/preview/how-it-works`, `/preview/compare`, and
+      // `/preview/gear/[slug]` are v3.9-ready (JSON-LD + metadata in place,
+      // noindex still on).
+      //
+      // {
+      //   source: "/preview/recipe/:slug",
+      //   destination: "/recipe/:slug",
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/preview/song/:slug",
+      //   destination: "/song/:slug",
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/preview/artist/:slug",
+      //   destination: "/artist/:slug",
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/preview/platforms/:slug",
+      //   destination: "/platforms/:slug",
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/preview/browse",
+      //   destination: "/browse",
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/preview/blog",
+      //   destination: "/blog",
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/preview/blog/:slug",
+      //   destination: "/blog/:slug",
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/preview/about",
+      //   destination: "/about",
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/preview/pricing",
+      //   destination: "/pricing",
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/preview/how-it-works",
+      //   destination: "/how-it-works",
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/preview/compare",
+      //   destination: "/compare",
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/preview/gear/:slug",
+      //   destination: "/gear/:slug",
+      //   permanent: true,
+      // },
+      // ───────────────────────────────────────────────────────────────────
     ];
   },
   images: {

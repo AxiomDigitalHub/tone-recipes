@@ -14,6 +14,7 @@ import { recipeToBlocks } from "../../_components/recipe-to-blocks";
 import { LpArt, monogramFor } from "../../_components/LpArt";
 import { FieldNotesRail } from "../../_components/FieldNotesRail";
 import { findRelatedPosts } from "../../_components/findRelatedPosts";
+import { artistJsonLdSet } from "@/lib/seo/preview-jsonld";
 
 export function generateStaticParams() {
   return artists.map((a) => ({ slug: a.slug }));
@@ -26,8 +27,27 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const a = getArtistBySlug(slug);
+  if (!a) {
+    return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
+  }
+  const title = `${a.name} Tone Recipes - Fader & Knob`;
+  const description = (a.bio ?? "").slice(0, 160);
   return {
-    title: a ? `Preview · ${a.name} — Fader & Knob` : "Preview — Fader & Knob",
+    title,
+    description,
+    keywords: [a.name, ...(a.genres ?? []), "tone recipe", "guitar tone"],
+    openGraph: {
+      title,
+      description,
+      type: "profile",
+      ...(a.image_url ? { images: [{ url: a.image_url, alt: a.name }] } : {}),
+    },
+    twitter: {
+      card: a.image_url ? "summary_large_image" : "summary",
+      title,
+      description,
+      ...(a.image_url ? { images: [a.image_url] } : {}),
+    },
     robots: { index: false, follow: false },
   };
 }
@@ -61,8 +81,18 @@ export default async function PreviewArtistDetail({
     limit: 3,
   });
 
+  const { musicGroup, breadcrumb } = artistJsonLdSet(artist);
+
   return (
     <div className="container">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(musicGroup) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="artist-detail">
         <div className="recipe-crumbs">
           <Link href="/preview">Home</Link>

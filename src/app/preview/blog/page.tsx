@@ -16,7 +16,14 @@ import type { Metadata } from "next";
  */
 
 export const metadata: Metadata = {
-  title: "Preview · Field Notes — Fader & Knob",
+  title: "Field Notes — Fader & Knob",
+  description:
+    "Long-form writing on tone, gear, and the songs you love. Pedalboard architecture, modeler block deep-dives, vintage gear histories, signal chain forensics.",
+  openGraph: {
+    title: "Field Notes — Fader & Knob",
+    description: "Long-form writing on tone, gear, and the songs you love.",
+    type: "website",
+  },
   robots: { index: false, follow: false },
 };
 

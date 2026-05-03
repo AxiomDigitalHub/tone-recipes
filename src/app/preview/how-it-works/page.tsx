@@ -2,7 +2,14 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Preview · How it works — Fader & Knob",
+  title: "How Fader & Knob works — verified tone recipes, every modeler",
+  description:
+    "We chase the original gear, map the signal chain, and translate it to every major modeler. Helix, Quad Cortex, TONEX, Fractal, Kemper, pedalboard. The numbers are the product.",
+  openGraph: {
+    title: "How Fader & Knob works",
+    description: "Verified tone recipes — chase, map, translate. Every modeler.",
+    type: "website",
+  },
   robots: { index: false, follow: false },
 };
 

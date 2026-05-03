@@ -41,10 +41,28 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
+  if (!post) {
+    return { title: "Preview — Field Notes", robots: { index: false, follow: false } };
+  }
   return {
-    title: post
-      ? `Preview · ${post.title} — Field Notes`
-      : "Preview — Field Notes",
+    title: post.title,
+    description: post.description,
+    keywords: post.tags,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author],
+      tags: post.tags,
+      ...(post.image ? { images: [{ url: post.image, alt: post.imageAlt ?? post.title }] } : {}),
+    },
+    twitter: {
+      card: post.image ? "summary_large_image" : "summary",
+      title: post.title,
+      description: post.description,
+      ...(post.image ? { images: [post.image] } : {}),
+    },
     robots: { index: false, follow: false },
   };
 }
@@ -127,6 +145,35 @@ export default async function PreviewBlogPost({
       }
     : null;
 
+  // BreadcrumbList — Browse > Field Notes > {category} > {post}
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Field Notes", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 2, name: catLabel },
+      { "@type": "ListItem", position: 3, name: post.title },
+    ],
+  };
+
+  // HowTo schema for tone-recipes and settings-guides — H2s become steps.
+  const isHowTo = post.category === "tone-recipes" || post.category === "settings-guides";
+  const howToLd = isHowTo
+    ? {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        name: post.title,
+        description: post.description,
+        step: tocEntries
+          .filter((e) => e.level === 2)
+          .map((e, i) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            name: e.text,
+          })),
+      }
+    : null;
+
   return (
     <div className="container">
       {/* Article JSON-LD — Article schema always; FAQPage only when FAQs exist. */}
@@ -142,6 +189,20 @@ export default async function PreviewBlogPost({
           type="application/ld+json"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      )}
+      <Script
+        id="breadcrumb-ld"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      {howToLd && (
+        <Script
+          id="howto-ld"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }}
         />
       )}
 

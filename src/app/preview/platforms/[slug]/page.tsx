@@ -28,10 +28,23 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const p = getPlatformInfo(slug);
+  if (!p) {
+    return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
+  }
+  const recipeCount = getRecipesForPlatform(slug as Platform).length;
+  const title = `${p.label}${p.manufacturer ? ` (${p.manufacturer})` : ""} Tone Recipes — Fader & Knob`;
+  const description = `${recipeCount} verified tone recipes for the ${p.label}. Signal chains, block settings, and presets ready to import.`;
   return {
-    title: p
-      ? `Preview · ${p.label} — Fader & Knob`
-      : "Preview — Fader & Knob",
+    title,
+    description,
+    keywords: [p.label, p.manufacturer, "tone recipe", "patch", "preset", "guitar tone"].filter(
+      Boolean,
+    ) as string[],
+    openGraph: {
+      title,
+      description,
+      type: "website",
+    },
     robots: { index: false, follow: false },
   };
 }

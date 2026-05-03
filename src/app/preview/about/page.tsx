@@ -5,7 +5,14 @@ import { getAllWriters } from "@/lib/writers";
 import { toneRecipes, artists } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Preview · About — Fader & Knob",
+  title: "About — Fader & Knob",
+  description:
+    "We chase the original signal chain, map every block, and write it down so you don't have to guess. Built by guitarists for guitarists.",
+  openGraph: {
+    title: "About Fader & Knob",
+    description: "Verified tone recipes by guitarists, for guitarists.",
+    type: "website",
+  },
   robots: { index: false, follow: false },
 };
 

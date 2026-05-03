@@ -11,7 +11,15 @@ import { PreviewSchematicChain } from "./_components/PreviewSchematicChain";
 import { LpArt, monogramFor } from "./_components/LpArt";
 
 export const metadata: Metadata = {
-  title: "Preview — Fader & Knob visual direction",
+  title: "Fader & Knob — Tone recipes for modeler players",
+  description:
+    "Verified signal chains for the songs you love, ported across Helix, Quad Cortex, TONEX, Fractal, Kemper, and pedalboard. Stop tweaking. Start playing.",
+  openGraph: {
+    title: "Fader & Knob — Tone recipes for modeler players",
+    description:
+      "Verified signal chains for the songs you love, ported across every modeler.",
+    type: "website",
+  },
   robots: { index: false, follow: false },
 };
 

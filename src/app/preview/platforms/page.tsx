@@ -3,7 +3,14 @@ import type { Metadata } from "next";
 import { getAllPlatforms, getRecipesForPlatform } from "@/lib/data/platforms";
 
 export const metadata: Metadata = {
-  title: "Preview · Platforms — Fader & Knob",
+  title: "Platforms — Fader & Knob",
+  description:
+    "Every recipe ports to Helix, Quad Cortex, TONEX, Fractal Axe-Fx, Kemper, Boss Katana, and pedalboard. Pick your modeler.",
+  openGraph: {
+    title: "Platforms — Fader & Knob",
+    description: "Recipes for every major modeler. Helix, Quad Cortex, TONEX, Fractal, Kemper, Katana.",
+    type: "website",
+  },
   robots: { index: false, follow: false },
 };
 

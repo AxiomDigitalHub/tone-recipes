@@ -67,6 +67,8 @@ export default function PreviewLayout({ children }: { children: ReactNode }) {
             <Link href="/preview/browse">Archive</Link>
             <Link href="/preview/platforms">Platforms</Link>
             <Link href="/preview/blog">Field Notes</Link>
+            <Link href="/preview/news">News</Link>
+            <Link href="/preview/request">Request</Link>
             <Link href="/preview/pricing">Pricing</Link>
           </div>
           <div className="preview-subnav-auth">

@@ -24,10 +24,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const g = getGearBySlug(slug);
+  if (!g) {
+    return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
+  }
+  const title = `${g.name} — Recipes & modeler equivalents | Fader & Knob`;
+  const description = `${g.name} on Fader & Knob: which recipes use it, how to model it on Helix, Quad Cortex, TONEX, Fractal, and Kemper.`;
   return {
-    title: g
-      ? `Preview · ${g.name} — Fader & Knob`
-      : "Preview — Fader & Knob",
+    title,
+    description,
+    keywords: [g.name, g.type, g.manufacturer, "tone recipe", "modeler equivalent", "guitar gear"].filter(
+      Boolean,
+    ) as string[],
+    openGraph: { title, description, type: "website" },
     robots: { index: false, follow: false },
   };
 }

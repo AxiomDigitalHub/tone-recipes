@@ -11,7 +11,14 @@ import { getAllPlatforms } from "@/lib/data/platforms";
 import type { Platform } from "@/types/recipe";
 
 export const metadata: Metadata = {
-  title: "Preview · Browse — Fader & Knob",
+  title: "Browse Tones — Fader & Knob",
+  description:
+    "The full archive of verified tone recipes. Filter by era, platform, or genre. Sort by newest, song A–Z, artist A–Z, or block count.",
+  openGraph: {
+    title: "Browse Tones — Fader & Knob",
+    description: "Every recipe in the archive, filterable by era, platform, and genre.",
+    type: "website",
+  },
   robots: { index: false, follow: false },
 };
 

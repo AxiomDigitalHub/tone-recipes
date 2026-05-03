@@ -1,9 +1,9 @@
 # /preview v3 Redesign — Handoff Document
 
-**Last updated:** 2026-05-02 by Claude Opus 4.7 (1M context)
-**Branch:** `preview-redesign-v3` (latest commit: `77d85a2`)
+**Last updated:** 2026-05-03 by Claude Opus 4.7 (1M context)
+**Branch:** `preview-redesign-v3`
 **Live preview:** `https://tone-recipes-git-preview-fa282a-daniellivengood-2046s-projects.vercel.app`
-**Status:** Design is locked-in directionally. v3.8 feature-parity sprint complete — most production pages now have v3 versions. Cutover blockers narrowed to JSON-LD/SEO + 301s + URL strategy.
+**Status:** Design is locked-in directionally. v3.9 SEO + last-page-gap sprint complete — JSON-LD now matches production, every v3 route has real metadata, /news and /request ported, 301 redirects staged in `next.config.ts`. Cutover is now a one-decision flip (URL strategy) plus uncommenting the redirects.
 
 ---
 
@@ -121,27 +121,27 @@ The production header + footer ALSO render because `/preview/*` inherits the roo
 Before promoting `/preview/*` → `/`, we need:
 
 1. ~~**Wire the EXPORT PRESET button**~~ ✅ Done in v3.8.
-2. ~~**Login / auth state in the v3 sub-nav.**~~ ✅ Login + Sign up affordances added in v3.8 (links to `/preview/login` + `/preview/signup`). Logged-in state (avatar / Saved / Dashboard) still TODO once auth state is wired.
-3. **SEO / JSON-LD parity.** Every preview page has `noindex`. Production pages have full Recipe / WebPage / Article / FAQPage / BreadcrumbList JSON-LD. Port these and flip `robots: { index: true, follow: true }` on the v3 versions.
-4. **301 redirects** from `/preview/*` → `/*` (set in `next.config.ts`).
-5. **URL strategy decision** — swap-in-place (rename `/preview/recipe` → `/recipe`, delete old) vs side-by-side (keep `/preview` for QA).
+2. ~~**Login / auth state in the v3 sub-nav.**~~ ✅ Login + Sign up affordances added in v3.8. Logged-in state still TODO (depends on auth-context wiring).
+3. ~~**SEO / JSON-LD parity.**~~ ✅ Done in v3.9. Every detail route now emits the same JSON-LD shapes production does (HowTo + MusicRecording + BreadcrumbList for recipes; Article + BreadcrumbList + conditional HowTo + conditional FAQPage for blog posts; MusicGroup + BreadcrumbList for artists; MusicRecording + BreadcrumbList for songs; NewsArticle + BreadcrumbList for news; CollectionPage for /news index). Helpers in `src/lib/seo/preview-jsonld.ts`. **Still on `noindex`** — flip `robots: { index: true, follow: true }` per route at cutover.
+4. ~~**301 redirects** from `/preview/*` → `/*` (set in `next.config.ts`).~~ ✅ Staged commented-out in v3.9. Uncomment the block at cutover; do not flip them before the URL rename or the page redirects to itself.
+5. **URL strategy decision** — swap-in-place (rename `/preview/recipe` → `/recipe`, delete old) vs side-by-side (keep `/preview` for QA). **This is now the only true blocker.**
 6. **Logged-in chrome.** When a user is signed in, the v3 sub-nav should swap "Log in / Sign up" for an avatar + dropdown (Saved / Dashboard / Log out). Needs to read auth state — production probably uses a context or middleware. Audit before wiring.
 
 ---
 
 ## Pages production has, v3 doesn't
 
-After v3.8 the gap narrowed sharply. Remaining production-only routes:
+After v3.9 only auth-gated and open-question routes remain:
 
 | Route | What it does | Notes |
 |---|---|---|
 | `/saved` | User's saved recipes library | Needs auth state wiring first |
-| `/request` | Request a tone form | Easy port, ~30 min |
-| `/news` | Industry news feed | Similar to /blog — port the same chrome |
 | `/community` | Community hub | Open question — keep on production for now? |
 | `/dashboard` | Logged-in user dashboard | Needs auth state wiring first |
 
 **Built in v3.8:** `/compare`, `/gear/[slug]`, `/pricing`, `/how-it-works`, `/about`, `/privacy`, `/terms`, `/affiliate-disclosure`, `/login`, `/signup`.
+
+**Built in v3.9:** `/request` (and `RequestClient.tsx` split for client/server boundary), `/news` index + `/news/[slug]` detail. Sub-nav now exposes News + Request.
 
 ---
 
@@ -244,6 +244,7 @@ After v3.8 the gap narrowed sharply. Remaining production-only routes:
 | v3.6 | f34e715 + a1163c6 + ec3d8a6 | Hero spacing fix (specificity collision), Browse left sidebar, "Browse Tones" rename, Field Notes head trim |
 | v3.7 | a278ca1 | Field Notes cross-linking — `findRelatedPosts` + `FieldNotesRail` on recipe / platform / artist |
 | v3.8 | 77d85a2 | Feature parity sprint — `/how-it-works`, `/pricing`, `/about`, `/compare`, `/gear/[slug]`, `/login`, `/signup`, `/privacy`, `/terms`, `/affiliate-disclosure`, sub-nav auth affordance, EXPORT PRESET wired to `/presets/{slug}.{hlx,tsl}` |
+| v3.9 | (this round) | SEO + last-page-gap. `src/lib/seo/preview-jsonld.ts` helpers + JSON-LD on every detail route; real `<Metadata>` titles/descriptions/OpenGraph across all v3 routes (still `noindex`); 301 redirects staged commented in `next.config.ts`; `/preview/request` (split into `page.tsx` + `RequestClient.tsx`) and `/preview/news` (+ `/news/[slug]`) ported from production with paper/ink chrome. Sub-nav adds News + Request. Also: `scripts/validate-mdx.mts` MDX preflight + `f9dcf4c` MDX-prerender hotfix (escape `<` in PowerStage table). |
 
 ---
 

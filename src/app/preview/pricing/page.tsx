@@ -2,7 +2,14 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Preview · Pricing — Fader & Knob",
+  title: "Pricing — Fader & Knob",
+  description:
+    "Free tier with the full archive. Tone Pass unlocks every preset download. Pro adds gear lookups and bulk export.",
+  openGraph: {
+    title: "Pricing — Fader & Knob",
+    description: "Free, Tone Pass, and Pro. Pick what fits.",
+    type: "website",
+  },
   robots: { index: false, follow: false },
 };
 

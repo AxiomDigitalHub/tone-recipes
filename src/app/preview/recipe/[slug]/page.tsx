@@ -12,6 +12,7 @@ import { LpArt, monogramFor } from "../../_components/LpArt";
 import { FieldNotesRail } from "../../_components/FieldNotesRail";
 import { findRelatedPosts } from "../../_components/findRelatedPosts";
 import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
+import { recipeJsonLdSet } from "@/lib/seo/preview-jsonld";
 import type { Metadata } from "next";
 
 /**
@@ -33,10 +34,38 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const recipe = getRecipeBySlug(slug);
+  if (!recipe) {
+    return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
+  }
+  const song = getSongBySlug(recipe.song_slug);
+  const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
+  const title = `${recipe.title} - ${artist?.name || ""}`;
+  const description = recipe.description.slice(0, 160);
   return {
-    title: recipe
-      ? `Preview · ${recipe.title} — Fader & Knob`
-      : "Preview — Fader & Knob",
+    title,
+    description,
+    keywords: [
+      artist?.name,
+      song?.title,
+      "tone recipe",
+      "signal chain",
+      "guitar tone",
+      ...(recipe.tags ?? []),
+    ].filter(Boolean) as string[],
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      ...(song?.album_art_url
+        ? { images: [{ url: song.album_art_url, alt: `${song.album} album art` }] }
+        : {}),
+    },
+    twitter: {
+      card: song?.album_art_url ? "summary_large_image" : "summary",
+      title,
+      description,
+      ...(song?.album_art_url ? { images: [song.album_art_url] } : {}),
+    },
     robots: { index: false, follow: false },
   };
 }
@@ -113,8 +142,24 @@ export default async function PreviewRecipePage({
     limit: 3,
   });
 
+  const { howTo, musicRecording, breadcrumb } = recipeJsonLdSet(recipe, song, artist);
+
   return (
     <div className="container">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howTo) }}
+      />
+      {musicRecording && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(musicRecording) }}
+        />
+      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="recipe">
         {/* Breadcrumbs */}
         <div className="recipe-crumbs">
