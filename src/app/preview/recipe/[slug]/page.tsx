@@ -9,6 +9,7 @@ import {
 import { recipeToBlocks } from "../../_components/recipe-to-blocks";
 import { PreviewRecipeClient } from "../../_components/PreviewRecipeClient";
 import { LpArt, monogramFor } from "../../_components/LpArt";
+import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
 import type { Metadata } from "next";
 
 /**
@@ -187,6 +188,14 @@ export default async function PreviewRecipePage({
                     Tab on Songsterr <span aria-hidden="true">↗</span>
                   </a>
                 )}
+              </div>
+            )}
+            {song?.spotify_track_id && (
+              <div className="recipe-spotify">
+                <SpotifyEmbed
+                  trackId={song.spotify_track_id}
+                  size="compact"
+                />
               </div>
             )}
           </div>

@@ -2545,15 +2545,16 @@
   line-height: 1.6;
 }
 
-/* ═══ Reading frame — prose + sticky ToC rail ══════════════════════════ */
+/* ═══ Reading frame — sticky ToC on the LEFT, prose on the right.
+   The combined block fills the full container width so it visually
+   matches the heading hero / cover above it. ═══════════════════════ */
 .fk-preview .post-reading {
   display: grid;
-  grid-template-columns: minmax(0, 66ch) 240px;
-  gap: 56px;
-  justify-content: center;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 64px;
   align-items: start;
-  margin: 0 auto 48px;
-  max-width: 1040px;
+  margin: 0 0 48px;
+  max-width: none;
 }
 /* Collapse to a single column under 1080px; the ToC becomes an
    inline accordion above the prose. */
@@ -2561,8 +2562,12 @@
   .fk-preview .post-reading {
     grid-template-columns: minmax(0, 1fr);
     gap: 20px;
-    max-width: 66ch;
   }
+}
+/* Cap the prose itself so super-wide viewports don't blow out the
+   line-length, but keep the column visually full-width. */
+.fk-preview .post-reading .post-body {
+  max-width: 80ch;
 }
 
 /* ═══ Table of Contents ════════════════════════════════════════════════ */
@@ -3833,6 +3838,12 @@
   margin-left: auto;
   aspect-ratio: 1;
 }
+/* Suppress the legacy .recipe-art vinyl decorations (red center dot,
+   grooved disc) — the embedded LpArt brings its own album cover. */
+.fk-preview .recipe-art-lp::before,
+.fk-preview .recipe-art-lp::after {
+  display: none;
+}
 .fk-preview .recipe-art-lp .lp-art {
   width: 100%;
   height: 100%;
@@ -4012,16 +4023,17 @@
 
 /* Hero — make the opening salvo feel ~half the screen, with CTAs */
 .fk-preview .hero {
-  padding: 64px 0 56px;
+  padding: 96px 0 84px;
 }
 .fk-preview .hero-title {
-  margin-bottom: 28px;
+  margin-bottom: 56px;
 }
 .fk-preview .hero-cta-row {
   display: flex;
   gap: 14px;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 8px;
 }
 .fk-preview .hero-cta {
   font-family: var(--font-cond);
@@ -4311,4 +4323,157 @@
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 22px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v3.5 — fourth feedback round
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Blog tone-block override
+   The <Knob>, <Fader>, <SettingsGrid>, <EQCurve> components ship with
+   dark-theme CSS vars (`--color-surface`, `--color-foreground`, etc.).
+   Inside the v3 blog body we remap them to the editorial paper / ink /
+   amber palette so the embedded knobs match the rest of the system. */
+.fk-preview .post-body {
+  --color-surface: var(--paper-2);
+  --color-foreground: var(--ink);
+  --color-border: var(--ink);
+  --color-muted: var(--ink-muted);
+  --color-accent: var(--amber);
+}
+
+/* ── Recipe head: Spotify embed (small, sits under the Listen/Tab CTAs) */
+.fk-preview .recipe-spotify {
+  margin-top: 14px;
+  max-width: 460px;
+  border-radius: 0;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+.fk-preview .recipe-spotify iframe {
+  display: block;
+  border-radius: 0 !important;
+  border: 0 !important;
+}
+
+/* ── Browse: filter rails ──────────────────────────────────────────────── */
+.fk-preview .browse-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px 0 28px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--paper-line);
+  margin-bottom: 32px;
+}
+.fk-preview .browse-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.fk-preview .browse-filter-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-right: 8px;
+  min-width: 78px;
+}
+.fk-preview .browse-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 5px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 120ms ease, color 120ms ease;
+}
+.fk-preview .browse-filter-pill:hover {
+  background: var(--paper-2);
+}
+.fk-preview .browse-filter-pill.is-active {
+  background: var(--ink);
+  color: var(--paper);
+}
+.fk-preview .browse-filter-pill-count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  padding: 2px 6px 1px;
+  border: 1px solid var(--paper-line);
+  color: var(--ink-muted);
+}
+.fk-preview .browse-filter-pill.is-active .browse-filter-pill-count {
+  color: var(--paper);
+  border-color: rgba(237, 234, 228, 0.45);
+}
+.fk-preview .browse-filter-row-controls {
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--paper-line);
+}
+.fk-preview .browse-filter-clear {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tape);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--tape);
+  padding-bottom: 2px;
+}
+.fk-preview .browse-filter-clear:hover { color: var(--tape-2); border-color: var(--tape-2); }
+.fk-preview .browse-sort {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.fk-preview .browse-sort-link {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-decoration: none;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+.fk-preview .browse-sort-link:hover { color: var(--ink); }
+.fk-preview .browse-sort-link.is-active {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.fk-preview .browse-result-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 14px;
+}
+.fk-preview .browse-empty {
+  padding: 64px 24px;
+  text-align: center;
+  border: 1px dashed var(--ink);
+  background: var(--paper-2);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
 }

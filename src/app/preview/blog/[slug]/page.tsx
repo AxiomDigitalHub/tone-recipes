@@ -238,6 +238,7 @@ export default async function PreviewBlogPost({
             ToC collapses to an inline accordion below the dek on narrow
             viewports (handled in CSS). */}
         <div className="post-reading">
+          {tocEntries.length > 0 && <ToC entries={tocEntries} />}
           <div className="post-body">
             <MDXRemote
               source={post.content}
@@ -256,7 +257,6 @@ export default async function PreviewBlogPost({
               }}
             />
           </div>
-          {tocEntries.length > 0 && <ToC entries={tocEntries} />}
         </div>
 
         {/* FAQ — rendered as real <h3> Q / <p> A pairs so the prose is
