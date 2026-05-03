@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import {
   songs,
@@ -40,6 +40,13 @@ export default async function PreviewSongDetail({
   if (!song) notFound();
   const artist = getArtistBySlug(song.artist_slug);
   const recipes = getRecipesBySongSlug(slug);
+
+  // When a song has exactly one recipe, the song page is just a one-link
+  // detour. Send the user straight to the recipe — the Listen/Tab CTAs
+  // and album art now live on the recipe head, so nothing is lost.
+  if (recipes.length === 1) {
+    redirect(`/preview/recipe/${recipes[0].slug}`);
+  }
   const songIdx = songs.findIndex((s) => s.slug === slug) + 1;
 
   return (
@@ -64,13 +71,10 @@ export default async function PreviewSongDetail({
         <header className="recipe-head song-head">
           <div>
             <div className="recipe-issue">
-              <span className="pill">
-                Song No. {String(songIdx).padStart(3, "0")}
-              </span>
               {song.year && <span>{song.year}</span>}
               {song.genres?.[0] && (
                 <>
-                  <span>·</span>
+                  {song.year && <span>·</span>}
                   <span>{song.genres[0]}</span>
                 </>
               )}

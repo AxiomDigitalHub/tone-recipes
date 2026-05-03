@@ -52,12 +52,22 @@ export default function PreviewBrowse() {
             sixties to the offset-and-Stomp pedalboards of last week. Each
             sleeve opens onto the chain, the knobs, and the numbers.
           </p>
+          <nav className="archive-decade-pills" aria-label="Jump to era">
+            {sortedDecades.map((d) => (
+              <a key={d} href={`#decade-${d}`} className="archive-decade-pill">
+                The {d}s
+                <span className="archive-decade-pill-count">
+                  {decadeBuckets.get(d)!.length}
+                </span>
+              </a>
+            ))}
+          </nav>
         </header>
 
         {sortedDecades.map((decade) => {
           const list = decadeBuckets.get(decade)!;
           return (
-            <div key={decade} className="archive-decade">
+            <div key={decade} className="archive-decade" id={`decade-${decade}`}>
               <div className="how-head">
                 <h2 className="display">The {decade}s</h2>
                 <span className="section-rule" aria-hidden="true" />

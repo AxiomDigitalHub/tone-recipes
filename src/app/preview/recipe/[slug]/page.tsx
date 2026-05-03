@@ -165,6 +165,30 @@ export default async function PreviewRecipePage({
             {recipe.description && (
               <p className="recipe-summary">{recipe.description}</p>
             )}
+            {(song?.external_video_url || song?.external_tab_url) && (
+              <div className="recipe-listen-row">
+                {song?.external_video_url && (
+                  <a
+                    href={song.external_video_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="song-listen-cta"
+                  >
+                    Listen on YouTube <span aria-hidden="true">↗</span>
+                  </a>
+                )}
+                {song?.external_tab_url && (
+                  <a
+                    href={song.external_tab_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="song-listen-cta song-listen-cta-secondary"
+                  >
+                    Tab on Songsterr <span aria-hidden="true">↗</span>
+                  </a>
+                )}
+              </div>
+            )}
           </div>
           <div className="recipe-art recipe-art-lp">
             <LpArt

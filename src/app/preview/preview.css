@@ -4129,3 +4129,186 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v3.4 — third feedback round (platform educational, archive pills,
+   song/recipe consolidation)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Platform photo (replaces the colored stripe) ──────────────────────── */
+.fk-preview .platform-photo {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+  width: 100%;
+  max-width: 380px;
+  margin-left: auto;
+}
+.fk-preview .platform-photo-frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--paper-2);
+  border: 1px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.fk-preview .platform-photo-frame::before,
+.fk-preview .platform-photo-frame::after {
+  content: "";
+  position: absolute;
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--ink);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.fk-preview .platform-photo-frame::before {
+  top: 6px; left: 6px;
+  border-right: 0; border-bottom: 0;
+}
+.fk-preview .platform-photo-frame::after {
+  bottom: 6px; right: 6px;
+  border-left: 0; border-top: 0;
+}
+.fk-preview .platform-photo-pending {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--ink);
+  opacity: 0.45;
+  letter-spacing: -0.015em;
+}
+.fk-preview .platform-photo-caption {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+/* ── "About the X family" section ──────────────────────────────────────── */
+.fk-preview .platform-family-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 56px;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .fk-preview .platform-family-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+.fk-preview .platform-family-intro {
+  grid-column: 1 / -1;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.5;
+  color: var(--ink-muted);
+  margin: 0 0 12px;
+  max-width: 64ch;
+}
+.fk-preview .platform-family-subhead {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--paper-line);
+}
+.fk-preview .platform-family-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fk-preview .platform-family-list li {
+  display: grid;
+  grid-template-columns: minmax(140px, 200px) 1fr;
+  gap: 16px;
+  align-items: baseline;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+.fk-preview .platform-family-name {
+  font-family: var(--font-cond);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.fk-preview .platform-family-note {
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.fk-preview .platform-family-list-conventions li {
+  display: list-item;
+  list-style: none;
+  position: relative;
+  padding-left: 22px;
+  color: var(--ink-2);
+}
+.fk-preview .platform-family-list-conventions li::before {
+  content: "▸";
+  position: absolute;
+  left: 4px; top: 0;
+  color: var(--amber);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ── Archive: decade jumper pills ──────────────────────────────────────── */
+.fk-preview .archive-decade-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+.fk-preview .archive-decade-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 120ms ease, color 120ms ease;
+}
+.fk-preview .archive-decade-pill:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.fk-preview .archive-decade-pill-count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  padding: 2px 6px;
+  border: 1px solid var(--paper-line);
+  color: var(--ink-muted);
+}
+.fk-preview .archive-decade-pill:hover .archive-decade-pill-count {
+  color: var(--paper);
+  border-color: rgba(237, 234, 228, 0.45);
+}
+.fk-preview .archive-decade { scroll-margin-top: 24px; }
+
+/* ── Recipe head: Listen / Tab CTA row ─────────────────────────────────── */
+.fk-preview .recipe-listen-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
