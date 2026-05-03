@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Preview · Sign up — Fader & Knob",
+  title: "Sign up — Fader & Knob",
   robots: { index: false, follow: false },
 };
 

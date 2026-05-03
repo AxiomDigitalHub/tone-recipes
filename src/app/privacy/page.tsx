@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LegalShell } from "@/components/v3/LegalShell";
 
 export const metadata: Metadata = {
-  title: "Preview · Privacy Policy — Fader & Knob",
+  title: "Privacy Policy — Fader & Knob",
   robots: { index: false, follow: false },
 };
 
