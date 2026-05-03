@@ -72,13 +72,15 @@ export default function DashboardShell({ children }: { children: ReactNode }) {
           </div>
           <div className="dashboard-identity-text">
             <div className="dashboard-identity-meta">
-              <span className={`dashboard-tier dashboard-tier-${tier.label.toLowerCase().replace(/\s+/g, "-")}`}>
-                {tier.label}
-              </span>
+              {user && (
+                <span className={`dashboard-tier dashboard-tier-${tier.label.toLowerCase().replace(/\s+/g, "-")}`}>
+                  {tier.label}
+                </span>
+              )}
               {loading && <span className="dashboard-identity-status">Loading…</span>}
               {!loading && !user && (
                 <span className="dashboard-identity-status">
-                  Not signed in — design preview mode
+                  Sign in to sync your saves and gear
                 </span>
               )}
             </div>

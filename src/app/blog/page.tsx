@@ -156,6 +156,7 @@ export default function PreviewBlogIndex() {
                   src={hero.image}
                   alt={hero.imageAlt ?? hero.title}
                   fill
+                  priority
                   unoptimized
                   sizes="(max-width: 960px) 100vw, 66vw"
                   className="archive-hero-img"

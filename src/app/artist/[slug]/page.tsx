@@ -126,6 +126,7 @@ export default async function PreviewArtistDetail({
                 src={artist.image_url}
                 alt={artist.name}
                 fill
+                priority
                 sizes="(max-width: 720px) 100vw, 360px"
                 className="artist-portrait-img"
               />
