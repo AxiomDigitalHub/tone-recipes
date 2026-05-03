@@ -131,24 +131,9 @@ export default function PreviewBlogIndex() {
           <span style={{ color: "var(--ink)" }}>Field Notes</span>
         </div>
 
-        {/* Archive masthead */}
-        <div className="archive-masthead">
-          <div className="archive-kicker">
-            <span>Field Notes · Vol. IV</span>
-            <span>·</span>
-            <span>{all.length} filed</span>
-            <span>·</span>
-            <span>Updated weekly</span>
-          </div>
-          <h1 className="archive-title display">
-            Tone, disassembled &amp; <em>annotated</em>.
-          </h1>
-          <p className="archive-lede">
-            Long-form field notes from the signal chain — deep dives,
-            platform shootouts, pedal autopsies, and the edge cases that
-            actually matter. The current issue is at the top; the back
-            catalogue runs below.
-          </p>
+        {/* Page head — just the title, then straight into the content */}
+        <div className="archive-masthead archive-masthead-tight">
+          <h1 className="archive-title display">Field Notes</h1>
         </div>
 
         {/* 2-up editorial layout: one hero feature, three sidebar items */}
