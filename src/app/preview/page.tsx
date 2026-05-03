@@ -50,6 +50,14 @@ export default function PreviewIndex() {
                 Tone recipes from{" "}
                 <span className="amp">the songs you love</span>
               </h1>
+              <div className="hero-cta-row">
+                <Link href="/preview/browse" className="hero-cta hero-cta-primary">
+                  Browse recipes
+                </Link>
+                <Link href="/preview#how-it-works" className="hero-cta hero-cta-secondary">
+                  How it works <span aria-hidden="true">↓</span>
+                </Link>
+              </div>
             </div>
             <p className="hero-sub">
               <span className="lede-first">How this works</span>
@@ -112,7 +120,7 @@ export default function PreviewIndex() {
       </section>
 
       {/* How this works — three-step editorial feature */}
-      <section className="how container">
+      <section className="how container" id="how-it-works">
         <div className="how-head">
           <h2 className="display">
             Three steps from your favorite song to your rig
@@ -121,7 +129,7 @@ export default function PreviewIndex() {
         </div>
         <ol className="how-steps">
           <li className="how-step">
-            <span className="how-step-no">01</span>
+            <span className="how-step-no" aria-hidden="true">1</span>
             <h3 className="how-step-title">We chase the tone</h3>
             <p className="how-step-body">
               Listen, isolate, A/B against rigs we know. Our editors are
@@ -129,7 +137,7 @@ export default function PreviewIndex() {
             </p>
           </li>
           <li className="how-step">
-            <span className="how-step-no">02</span>
+            <span className="how-step-no" aria-hidden="true">2</span>
             <h3 className="how-step-title">We map the chain</h3>
             <p className="how-step-body">
               Every block. Every knob. Every tap-tempo. Documented like a
@@ -137,7 +145,7 @@ export default function PreviewIndex() {
             </p>
           </li>
           <li className="how-step">
-            <span className="how-step-no">03</span>
+            <span className="how-step-no" aria-hidden="true">3</span>
             <h3 className="how-step-title">You get the numbers</h3>
             <p className="how-step-body">
               Translated for your Helix, Quad Cortex, TONEX, Fractal,
@@ -205,15 +213,15 @@ export default function PreviewIndex() {
 
       {/* Newsletter signup — one piece carried over from production */}
       <section className="newsletter container">
-        <div className="newsletter-grid">
-          <div>
+        <div className="newsletter-row">
+          <div className="newsletter-text">
             <span className="newsletter-kicker">The Friday Send</span>
             <h2 className="display newsletter-title">
               One free tone recipe, every Friday
             </h2>
             <p className="newsletter-body">
-              One recipe, one quick tip, one short read. No spam. Unsubscribe
-              anytime.
+              One recipe, one quick tip, one short read · no spam ·
+              unsubscribe anytime.
             </p>
           </div>
           <form
@@ -221,7 +229,7 @@ export default function PreviewIndex() {
             action="/api/newsletter"
             method="post"
           >
-            <label htmlFor="newsletter-email" className="newsletter-label">
+            <label htmlFor="newsletter-email" className="newsletter-label sr-only">
               Email
             </label>
             <input

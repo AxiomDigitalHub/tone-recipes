@@ -8,6 +8,9 @@ interface LpArtProps {
   monogram?: string;
   /** Set true to render the italic monogram top-left over the cover. */
   showMonogram?: boolean;
+  /** Set true to render the spinning LP-disc overlay. Off by default —
+   *  the album cover stands alone on cards. */
+  showRecord?: boolean;
   /** "10 BLOCKS" / "Side A" / etc. — small mono chip at bottom-right. */
   meta?: string | null;
   /** Hue index 1–6 for fallback label color. */
@@ -21,6 +24,7 @@ export function LpArt({
   cover,
   monogram,
   showMonogram = false,
+  showRecord = false,
   meta,
   hue,
   shape = "square",
@@ -31,6 +35,7 @@ export function LpArt({
     `lp-hue-${((hue - 1) % 6) + 1}`,
     shape === "banner" ? "lp-art-banner" : "",
     cover ? "has-cover" : "",
+    showRecord ? "" : "no-record",
   ]
     .filter(Boolean)
     .join(" ");
@@ -46,7 +51,7 @@ export function LpArt({
           className="lp-cover-img"
         />
       )}
-      <span className="lp-record" />
+      {showRecord && <span className="lp-record" />}
       {showMonogram && monogram && (
         <span className="lp-tonecode">{monogram}</span>
       )}
