@@ -1561,8 +1561,8 @@
   grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
   gap: 48px;
   align-items: end;
-  margin-bottom: 36px;
-  padding-bottom: 28px;
+  margin-bottom: 80px;
+  padding-bottom: 56px;
   border-bottom: 1px solid var(--ink);
 }
 @media (max-width: 960px) {
@@ -4026,7 +4026,7 @@
   padding: 96px 0 84px;
 }
 .fk-preview .hero-title {
-  margin-bottom: 56px;
+  margin-bottom: 96px;
 }
 .fk-preview .hero-cta-row {
   display: flex;
@@ -4476,4 +4476,148 @@
   flex-direction: column;
   gap: 16px;
   align-items: center;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v3.6 — fifth feedback round (browse sidebar, hero spacing)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Browse: trimmed head — keep margin-bottom but no kicker/lede */
+.fk-preview .browse-page-head {
+  padding-bottom: 24px;
+  margin-bottom: 28px;
+  border-bottom: 3px solid var(--ink);
+}
+.fk-preview .browse-page-head .archive-title {
+  margin-bottom: 0;
+}
+
+/* Browse: two-column layout — sidebar on the left, results on the right */
+.fk-preview .browse-layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+  margin-bottom: 64px;
+}
+@media (max-width: 980px) {
+  .fk-preview .browse-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.fk-preview .browse-sidebar {
+  position: sticky;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  align-self: start;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding-right: 4px;
+}
+@media (max-width: 980px) {
+  .fk-preview .browse-sidebar {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+.fk-preview .browse-sidebar-clear {
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--paper-line);
+}
+.fk-preview .browse-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.fk-preview .browse-filter-group .browse-filter-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 6px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--paper-line);
+  font-weight: 400;
+}
+.fk-preview .browse-filter-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.fk-preview .browse-filter-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 6px 0 6px 12px;
+  border-left: 2px solid transparent;
+  text-decoration: none;
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 1.35;
+  transition: color 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+.fk-preview .browse-filter-link:hover {
+  color: var(--ink);
+  background: var(--paper-2);
+}
+.fk-preview .browse-filter-link.is-active {
+  color: var(--ink);
+  border-left-color: var(--amber);
+  background: var(--paper-2);
+  font-weight: 600;
+}
+.fk-preview .browse-filter-count {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+.fk-preview .browse-filter-link.is-active .browse-filter-count {
+  color: var(--ink);
+}
+
+/* Browse: results column */
+.fk-preview .browse-results {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.fk-preview .browse-results-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--paper-line);
+  flex-wrap: wrap;
+}
+.fk-preview .browse-results-head .browse-result-meta {
+  margin-bottom: 0;
+}
+.fk-preview .browse-sort-label {
+  margin-right: 6px;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+/* Results grid — narrower column means 3 wide max instead of 4 */
+.fk-preview .browse-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 1180px) {
+  .fk-preview .browse-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .fk-preview .browse-grid { grid-template-columns: 1fr; }
 }

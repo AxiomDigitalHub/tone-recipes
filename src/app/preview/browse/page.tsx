@@ -2,10 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import {
   toneRecipes,
-  artists,
   getSongBySlug,
   getArtistBySlug,
-  getAllGenres,
 } from "@/lib/data";
 import { recipeToBlocks } from "../_components/recipe-to-blocks";
 import { LpArt, monogramFor } from "../_components/LpArt";
@@ -162,183 +160,189 @@ export default async function PreviewBrowse({
           <span style={{ color: "var(--ink)" }}>Browse</span>
         </div>
 
-        <header className="archive-page-head">
-          <div className="archive-kicker">
-            <span>Browse</span>
-            <span>·</span>
-            <span>{totalRecipes.toLocaleString()} recipes</span>
-            <span>·</span>
-            <span>{artists.length} players</span>
-          </div>
-          <h1 className="archive-title">
-            Find a tone, your way
-          </h1>
-          <p className="archive-lede">
-            Filter by era, platform, genre, or artist. Each sleeve opens onto
-            the chain, the knobs, and the numbers.
-          </p>
+        <header className="archive-page-head browse-page-head">
+          <h1 className="archive-title">Browse Tones</h1>
         </header>
 
-        {/* Filter rails — server-rendered, URL-driven */}
-        <div className="browse-filters">
-          <div className="browse-filter-row">
-            <span className="browse-filter-label">Era</span>
-            <Link
-              href={buildHref({ era: undefined })}
-              className={`browse-filter-pill ${!era ? "is-active" : ""}`}
-            >
-              All
-            </Link>
-            {DECADES.map((d) => {
-              const count = decadeCounts.get(d) ?? 0;
-              if (count === 0) return null;
-              return (
-                <Link
-                  key={d}
-                  href={buildHref({ era: String(d) })}
-                  className={`browse-filter-pill ${era === String(d) ? "is-active" : ""}`}
-                >
-                  {d}s
-                  <span className="browse-filter-pill-count">{count}</span>
-                </Link>
-              );
-            })}
-          </div>
-
-          <div className="browse-filter-row">
-            <span className="browse-filter-label">Platform</span>
-            <Link
-              href={buildHref({ platform: undefined })}
-              className={`browse-filter-pill ${!platformFilter ? "is-active" : ""}`}
-            >
-              All
-            </Link>
-            {allPlatforms.map((p) => {
-              const count = platformCounts.get(p.id) ?? 0;
-              return (
-                <Link
-                  key={p.id}
-                  href={buildHref({ platform: p.id })}
-                  className={`browse-filter-pill ${platformFilter === p.id ? "is-active" : ""}`}
-                >
-                  {p.label}
-                  <span className="browse-filter-pill-count">{count}</span>
-                </Link>
-              );
-            })}
-          </div>
-
-          <div className="browse-filter-row">
-            <span className="browse-filter-label">Genre</span>
-            <Link
-              href={buildHref({ genre: undefined })}
-              className={`browse-filter-pill ${!genreFilter ? "is-active" : ""}`}
-            >
-              All
-            </Link>
-            {topGenres.map((g) => (
-              <Link
-                key={g}
-                href={buildHref({ genre: g })}
-                className={`browse-filter-pill ${genreFilter === g ? "is-active" : ""}`}
-              >
-                {g.replace(/-/g, " ")}
-                <span className="browse-filter-pill-count">
-                  {genreCounts.get(g) ?? 0}
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          <div className="browse-filter-row browse-filter-row-controls">
-            <div>
-              {hasFilters && (
+        {/* Two-column layout: filter sidebar on the left, results on the right.
+            Sidebar is sticky so it stays in view as the grid scrolls. */}
+        <div className="browse-layout">
+          <aside className="browse-sidebar" aria-label="Filters">
+            {hasFilters && (
+              <div className="browse-sidebar-clear">
                 <Link href="/preview/browse" className="browse-filter-clear">
                   Clear filters ✕
                 </Link>
-              )}
-            </div>
-            <div className="browse-sort">
-              <span className="browse-filter-label">Sort</span>
-              {SORT_OPTIONS.map((s) => (
-                <Link
-                  key={s.key}
-                  href={buildHref({ sort: s.key === "newest" ? undefined : s.key })}
-                  className={`browse-sort-link ${sort === s.key ? "is-active" : ""}`}
-                >
-                  {s.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
+              </div>
+            )}
 
-        <div className="browse-result-meta">
-          {sorted.length === totalRecipes ? (
-            <span>
-              Showing all {totalRecipes.toLocaleString()} recipes
-            </span>
-          ) : (
-            <span>
-              {sorted.length} of {totalRecipes.toLocaleString()} recipes
-            </span>
-          )}
-        </div>
+            <div className="browse-filter-group">
+              <h3 className="browse-filter-label">Era</h3>
+              <ul className="browse-filter-list">
+                <li>
+                  <Link
+                    href={buildHref({ era: undefined })}
+                    className={`browse-filter-link ${!era ? "is-active" : ""}`}
+                  >
+                    <span>All eras</span>
+                    <span className="browse-filter-count">{totalRecipes}</span>
+                  </Link>
+                </li>
+                {DECADES.map((d) => {
+                  const count = decadeCounts.get(d) ?? 0;
+                  if (count === 0) return null;
+                  return (
+                    <li key={d}>
+                      <Link
+                        href={buildHref({ era: String(d) })}
+                        className={`browse-filter-link ${era === String(d) ? "is-active" : ""}`}
+                      >
+                        <span>The {d}s</span>
+                        <span className="browse-filter-count">{count}</span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
 
-        {sorted.length === 0 ? (
-          <div className="browse-empty">
-            <p>No recipes match these filters.</p>
-            <Link href="/preview/browse" className="browse-filter-clear">
-              Clear filters and start over →
-            </Link>
-          </div>
-        ) : (
-          <div className="audition-grid">
-            {sorted.map((r) => {
-              const rSong = getSongBySlug(r.song_slug);
-              const rArtist = rSong
-                ? getArtistBySlug(rSong.artist_slug)
-                : undefined;
-              const rIdx =
-                toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
-              const rBlocks = recipeToBlocks(r, "helix");
-              return (
-                <Link
-                  key={r.slug}
-                  href={`/preview/recipe/${r.slug}`}
-                  className="audition-card"
-                >
-                  <div className="audition-art">
-                    <LpArt
-                      cover={rSong?.album_art_url}
-                      monogram={monogramFor(rArtist?.name)}
-                      meta={`${rBlocks.length} blocks`}
-                      hue={rIdx}
-                      alt={`${rSong?.album ?? rSong?.title ?? r.title} cover`}
-                    />
-                  </div>
-                  <div className="audition-meta">
-                    <span className="audition-song">
-                      {rSong?.title ?? r.title}
-                    </span>
-                    <span className="audition-artist">
-                      <em>{rArtist?.name ?? "Unknown"}</em>
-                    </span>
-                    {rSong?.album && (
-                      <span className="audition-album">
-                        {rSong.album}
-                        {rSong.year ? ` · ${rSong.year}` : ""}
+            <div className="browse-filter-group">
+              <h3 className="browse-filter-label">Platform</h3>
+              <ul className="browse-filter-list">
+                <li>
+                  <Link
+                    href={buildHref({ platform: undefined })}
+                    className={`browse-filter-link ${!platformFilter ? "is-active" : ""}`}
+                  >
+                    <span>All platforms</span>
+                    <span className="browse-filter-count">{totalRecipes}</span>
+                  </Link>
+                </li>
+                {allPlatforms.map((p) => {
+                  const count = platformCounts.get(p.id) ?? 0;
+                  return (
+                    <li key={p.id}>
+                      <Link
+                        href={buildHref({ platform: p.id })}
+                        className={`browse-filter-link ${platformFilter === p.id ? "is-active" : ""}`}
+                      >
+                        <span>{p.label}</span>
+                        <span className="browse-filter-count">{count}</span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            <div className="browse-filter-group">
+              <h3 className="browse-filter-label">Genre</h3>
+              <ul className="browse-filter-list">
+                <li>
+                  <Link
+                    href={buildHref({ genre: undefined })}
+                    className={`browse-filter-link ${!genreFilter ? "is-active" : ""}`}
+                  >
+                    <span>All genres</span>
+                    <span className="browse-filter-count">{totalRecipes}</span>
+                  </Link>
+                </li>
+                {topGenres.map((g) => (
+                  <li key={g}>
+                    <Link
+                      href={buildHref({ genre: g })}
+                      className={`browse-filter-link ${genreFilter === g ? "is-active" : ""}`}
+                    >
+                      <span style={{ textTransform: "capitalize" }}>
+                        {g.replace(/-/g, " ")}
                       </span>
-                    )}
-                    <span className="audition-cta">
-                      See the chain <span aria-hidden="true">→</span>
-                    </span>
-                  </div>
+                      <span className="browse-filter-count">
+                        {genreCounts.get(g) ?? 0}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+
+          <div className="browse-results">
+            <div className="browse-results-head">
+              <div className="browse-result-meta">
+                {sorted.length === totalRecipes
+                  ? `Showing all ${totalRecipes.toLocaleString()} recipes`
+                  : `${sorted.length} of ${totalRecipes.toLocaleString()} recipes`}
+              </div>
+              <div className="browse-sort">
+                <span className="browse-filter-label browse-sort-label">Sort</span>
+                {SORT_OPTIONS.map((s) => (
+                  <Link
+                    key={s.key}
+                    href={buildHref({ sort: s.key === "newest" ? undefined : s.key })}
+                    className={`browse-sort-link ${sort === s.key ? "is-active" : ""}`}
+                  >
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {sorted.length === 0 ? (
+              <div className="browse-empty">
+                <p>No recipes match these filters.</p>
+                <Link href="/preview/browse" className="browse-filter-clear">
+                  Clear filters and start over →
                 </Link>
-              );
-            })}
+              </div>
+            ) : (
+              <div className="audition-grid browse-grid">
+                {sorted.map((r) => {
+                  const rSong = getSongBySlug(r.song_slug);
+                  const rArtist = rSong
+                    ? getArtistBySlug(rSong.artist_slug)
+                    : undefined;
+                  const rIdx =
+                    toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
+                  const rBlocks = recipeToBlocks(r, "helix");
+                  return (
+                    <Link
+                      key={r.slug}
+                      href={`/preview/recipe/${r.slug}`}
+                      className="audition-card"
+                    >
+                      <div className="audition-art">
+                        <LpArt
+                          cover={rSong?.album_art_url}
+                          monogram={monogramFor(rArtist?.name)}
+                          meta={`${rBlocks.length} blocks`}
+                          hue={rIdx}
+                          alt={`${rSong?.album ?? rSong?.title ?? r.title} cover`}
+                        />
+                      </div>
+                      <div className="audition-meta">
+                        <span className="audition-song">
+                          {rSong?.title ?? r.title}
+                        </span>
+                        <span className="audition-artist">
+                          <em>{rArtist?.name ?? "Unknown"}</em>
+                        </span>
+                        {rSong?.album && (
+                          <span className="audition-album">
+                            {rSong.album}
+                            {rSong.year ? ` · ${rSong.year}` : ""}
+                          </span>
+                        )}
+                        <span className="audition-cta">
+                          See the chain <span aria-hidden="true">→</span>
+                        </span>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </section>
     </div>
   );
