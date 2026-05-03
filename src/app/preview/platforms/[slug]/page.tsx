@@ -200,27 +200,34 @@ export default async function PreviewPlatformDetail({
           <span style={{ color: "var(--ink)" }}>{platform.label}</span>
         </div>
 
-        <header className={`platform-head lp-hue-${hue}`}>
+        <header
+          className={`platform-head lp-hue-${hue}${
+            family?.photoUrl ? "" : " platform-head-solo"
+          }`}
+        >
           <div>
             <div className="recipe-issue">
               <span className="pill">{platform.manufacturer}</span>
-              <span>{recipes.length} recipes translated</span>
             </div>
             <h1 className="recipe-title display">{platform.label}</h1>
             <p className="platform-tagline">{platform.tagline}</p>
           </div>
-          <figure className="platform-photo" aria-label={family?.photoCaption ?? `${platform.label} family photo`}>
-            <div className="platform-photo-frame">
-              {/* TODO: drop in actual product photography. For now, a
-                  framed placeholder reads as intended composition. */}
-              <span className="platform-photo-pending">{platform.label}</span>
-            </div>
-            {family?.photoCaption && (
-              <figcaption className="platform-photo-caption">
-                {family.photoCaption}
-              </figcaption>
-            )}
-          </figure>
+          {family?.photoUrl && (
+            <figure
+              className="platform-photo"
+              aria-label={family.photoCaption ?? `${platform.label} family photo`}
+            >
+              <div className="platform-photo-frame">
+                {/* TODO: drop in actual product photography here. */}
+                <span className="platform-photo-pending">{platform.label}</span>
+              </div>
+              {family.photoCaption && (
+                <figcaption className="platform-photo-caption">
+                  {family.photoCaption}
+                </figcaption>
+              )}
+            </figure>
+          )}
         </header>
 
         {family && (

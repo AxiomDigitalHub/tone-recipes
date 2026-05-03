@@ -126,6 +126,10 @@ Before promoting `/preview/*` → `/`, we need:
 4. ~~**301 redirects** from `/preview/*` → `/*` (set in `next.config.ts`).~~ ✅ Staged commented-out in v3.9. Uncomment the block at cutover; do not flip them before the URL rename or the page redirects to itself.
 5. **URL strategy decision** — swap-in-place (rename `/preview/recipe` → `/recipe`, delete old) vs side-by-side (keep `/preview` for QA). **This is now the only true blocker.**
 6. **Logged-in chrome.** When a user is signed in, the v3 sub-nav should swap "Log in / Sign up" for an avatar + dropdown (Saved / Dashboard / Log out). Needs to read auth state — production probably uses a context or middleware. Audit before wiring.
+7. **OAuth reinstall checklist** (Daniel flagged 2026-05-03). The site uses Supabase Auth with one OAuth provider (Google) and a static callback path at `/auth/callback`. Same-domain swap-in-place cutover does NOT change the callback URL, so no reinstall is strictly required — but verify these three places before flipping:
+   - **Supabase → Authentication → URL Configuration**: confirm the Site URL is `https://faderandknob.com` and the additional Redirect URLs list is clean (remove any Vercel-preview deploy URLs that crept in during testing).
+   - **Google Cloud Console → APIs & Services → Credentials → OAuth 2.0 Client**: authorized redirect URIs must include `https://<your-supabase-project>.supabase.co/auth/v1/callback` (the Supabase-side callback) — Google sends users there first, then Supabase redirects to your app's `/auth/callback`. No app-path change needed at cutover.
+   - **`signInWithOAuth` call** in `src/lib/auth/auth-context.tsx:229`: uses `${window.location.origin}/auth/callback`, so it auto-resolves to whichever host the user is on. No code change needed.
 
 ---
 

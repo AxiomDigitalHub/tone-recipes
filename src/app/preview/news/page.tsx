@@ -68,8 +68,6 @@ export default async function PreviewNewsPage({
         <header className="news-head">
           <div className="recipe-issue">
             <span className="pill">Modeler desk</span>
-            <span>·</span>
-            <span>{posts.length} stories filed</span>
           </div>
           <h1 className="display news-title">Modeler News</h1>
           <p className="news-dek">

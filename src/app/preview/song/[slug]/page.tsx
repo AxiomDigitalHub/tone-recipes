@@ -111,8 +111,6 @@ export default async function PreviewSongDetail({
                   <span>{song.genres[0]}</span>
                 </>
               )}
-              <span>·</span>
-              <span>{recipes.length} tone variant{recipes.length === 1 ? "" : "s"}</span>
             </div>
             <h1 className="recipe-title display">{song.title}</h1>
             <div className="recipe-credits">

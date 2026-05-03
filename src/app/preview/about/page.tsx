@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { getAllWriters } from "@/lib/writers";
-import { toneRecipes, artists } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About — Fader & Knob",
@@ -44,27 +43,6 @@ export default function AboutPage() {
             Just the numbers.
           </p>
         </div>
-
-        <section className="about-stats">
-          <div className="about-stat">
-            <span className="about-stat-num">
-              {toneRecipes.length.toLocaleString()}
-            </span>
-            <span className="about-stat-label">Recipes documented</span>
-          </div>
-          <div className="about-stat">
-            <span className="about-stat-num">{artists.length}</span>
-            <span className="about-stat-label">Players studied</span>
-          </div>
-          <div className="about-stat">
-            <span className="about-stat-num">7</span>
-            <span className="about-stat-label">Platforms supported</span>
-          </div>
-          <div className="about-stat">
-            <span className="about-stat-num">{writers.length}</span>
-            <span className="about-stat-label">Writers on the bench</span>
-          </div>
-        </section>
 
         <section className="about-principles">
           <div className="how-head">

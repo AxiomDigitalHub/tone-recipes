@@ -109,10 +109,6 @@ export default async function PreviewArtistDetail({
                 Player No. {String(artistIdx).padStart(3, "0")}
               </span>
               {artist.genres?.[0] && <span>{artist.genres[0]}</span>}
-              <span>·</span>
-              <span>{artistSongs.length} songs</span>
-              <span>·</span>
-              <span>{recipes.length} recipes</span>
             </div>
             <h1 className="artist-title display">{artist.name}</h1>
             <p className="artist-bio">{artist.bio}</p>
