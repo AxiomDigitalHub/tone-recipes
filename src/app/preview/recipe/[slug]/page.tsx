@@ -243,9 +243,29 @@ export default async function PreviewRecipePage({
               </Link>
             ))}
           </div>
-          <button type="button" className="export">
-            Export preset ↓
-          </button>
+          {platform === "helix" && (
+            <a
+              href={`/presets/${recipe.slug}.hlx`}
+              download
+              className="export"
+            >
+              Download .hlx ↓
+            </a>
+          )}
+          {platform === "katana" && (
+            <a
+              href={`/presets/${recipe.slug}.tsl`}
+              download
+              className="export"
+            >
+              Download .tsl ↓
+            </a>
+          )}
+          {platform !== "helix" && platform !== "katana" && (
+            <span className="export export-disabled" aria-disabled="true">
+              Preset coming soon
+            </span>
+          )}
         </div>
 
         {/* Interactive schematic + sticky detail panel. Click a tile,
