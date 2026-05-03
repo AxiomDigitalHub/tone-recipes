@@ -1597,6 +1597,12 @@
   letter-spacing: -0.025em;
   margin: 0;
 }
+/* The .hero-title override (further down in the file) controls the
+   gap between the title and the CTAs. Bump specificity so the
+   `margin: 0` above doesn't out-rank a single-class selector. */
+.fk-preview .hero h1.hero-title {
+  margin-bottom: 96px;
+}
 .fk-preview .hero h1 .amp {
   font-style: italic;
   color: var(--ink-muted);
