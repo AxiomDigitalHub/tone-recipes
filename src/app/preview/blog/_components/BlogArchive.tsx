@@ -40,12 +40,9 @@ export interface Department {
 export function BlogArchive({
   departments,
   groups,
-  formatDate,
 }: {
   departments: Department[];
   groups: ArchiveGroup[];
-  /** Server-formatted date string per slug, to avoid hydration drift. */
-  formatDate: Record<string, string>;
 }) {
   const [active, setActive] = useState<string | null>(null);
 
@@ -70,123 +67,89 @@ export function BlogArchive({
     ? departments.find((d) => d.slug === active) ?? null
     : null;
 
+  // Flatten grouped posts to a single newest-first stream — no volume
+  // breaks. The user wanted the dense ledger to read straight through
+  // rather than fragmenting into "Vol. IV · Q2 2026" segments.
+  const flatRows = useMemo(
+    () => visibleGroups.flatMap((g) => g.posts),
+    [visibleGroups],
+  );
+
   return (
-    <>
-      {/* ═══ Departments rail ═══ */}
-      <section className="dept-section" aria-labelledby="dept-head">
-        <div className="section-head">
-          <span className="section-mark">§</span>
-          <h2 id="dept-head" className="section-title">
-            Departments
-          </h2>
-          <span className="section-rule" aria-hidden="true" />
-          <span className="section-meta">
-            {departments.length} columns
-          </span>
-        </div>
-
-        <div className="dept-rail" role="tablist" aria-label="Filter by department">
-          <button
-            type="button"
-            role="tab"
-            aria-selected={active === null}
-            className={`dept-chip dept-chip-all ${
-              active === null ? "is-active" : ""
-            }`}
-            onClick={() => setActive(null)}
-          >
-            <span className="dept-chip-mark">★</span>
-            <span className="dept-chip-label">All</span>
-            <span className="dept-chip-count">
-              {departments.reduce((a, d) => a + d.count, 0)}
-            </span>
-          </button>
-
-          {departments.map((d) => (
+    <div className="blog-overview-grid">
+      {/* ═══ Departments — left sidebar ═══ */}
+      <aside className="dept-sidebar" aria-label="Filter by department">
+        <h2 className="dept-sidebar-title display">Departments</h2>
+        <ul className="dept-list" role="tablist">
+          <li>
             <button
-              key={d.slug}
               type="button"
               role="tab"
-              aria-selected={active === d.slug}
-              className={`dept-chip ${
-                active === d.slug ? "is-active" : ""
+              aria-selected={active === null}
+              className={`dept-link dept-link-all ${
+                active === null ? "is-active" : ""
               }`}
-              onClick={() =>
-                setActive((cur) => (cur === d.slug ? null : d.slug))
-              }
+              onClick={() => setActive(null)}
             >
-              <span className="dept-chip-mark">§</span>
-              <span className="dept-chip-label">{d.label}</span>
-              <span className="dept-chip-count">{d.count}</span>
+              <span className="dept-link-label">All</span>
+              <span className="dept-link-count">
+                {departments.reduce((a, d) => a + d.count, 0)}
+              </span>
             </button>
+          </li>
+          {departments.map((d) => (
+            <li key={d.slug}>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={active === d.slug}
+                className={`dept-link ${
+                  active === d.slug ? "is-active" : ""
+                }`}
+                onClick={() =>
+                  setActive((cur) => (cur === d.slug ? null : d.slug))
+                }
+              >
+                <span className="dept-link-label">{d.label}</span>
+                <span className="dept-link-count">{d.count}</span>
+              </button>
+            </li>
           ))}
-        </div>
-      </section>
+        </ul>
+      </aside>
 
       {/* ═══ Ledger ═══ */}
       <section className="ledger-section" aria-labelledby="ledger-head">
-        <div className="section-head">
-          <span className="section-mark">¶</span>
-          <h2 id="ledger-head" className="section-title">
-            The Archive
-          </h2>
-          <span className="section-rule" aria-hidden="true" />
-          <span className="section-meta">
-            {activeDept
-              ? `${totalVisible} filings · § ${activeDept.label}`
-              : `${totalVisible} filings · Vol. I — IV`}
-          </span>
-        </div>
+        <h2 id="ledger-head" className="ledger-section-title display">
+          {activeDept ? activeDept.label : "The Archive"}
+        </h2>
 
-        <div className="ledger">
+        <div className="ledger ledger-3col">
           <div className="ledger-header" aria-hidden="true">
-            <span className="ledger-no">No.</span>
-            <span className="ledger-date">Filed</span>
             <span className="ledger-dept">Dept.</span>
             <span className="ledger-title">Title</span>
             <span className="ledger-by">By</span>
           </div>
 
-          {visibleGroups.length === 0 && (
+          {flatRows.length === 0 && (
             <div className="ledger-empty">
               No filings under this department yet.
             </div>
           )}
 
-          {visibleGroups.map((g) => (
-            <div key={g.key} className="ledger-group">
-              <div className="ledger-volume-break">
-                <span className="ledger-volume-mark" aria-hidden="true">
-                  ❦
-                </span>
-                <span className="ledger-volume-label">{g.label}</span>
-                <span
-                  className="ledger-volume-rule"
-                  aria-hidden="true"
-                />
-                <span className="ledger-volume-count">
-                  {g.posts.length} filings
-                </span>
-              </div>
-              {g.posts.map((p) => (
-                <Link
-                  key={p.slug}
-                  href={`/preview/blog/${p.slug}`}
-                  className="ledger-row"
-                >
-                  <span className="ledger-no">No. {p.callNo}</span>
-                  <span className="ledger-date">
-                    {formatDate[p.slug] ?? ""}
-                  </span>
-                  <span className="ledger-dept">{p.categoryLabel}</span>
-                  <span className="ledger-title">{p.title}</span>
-                  <span className="ledger-by">{p.author}</span>
-                </Link>
-              ))}
-            </div>
+          {flatRows.map((p) => (
+            <Link
+              key={p.slug}
+              href={`/preview/blog/${p.slug}`}
+              className="ledger-row"
+            >
+              <span className="ledger-dept">{p.categoryLabel}</span>
+              <span className="ledger-title">{p.title}</span>
+              <span className="ledger-by">{p.author}</span>
+            </Link>
           ))}
         </div>
       </section>
-    </>
+    </div>
   );
 }

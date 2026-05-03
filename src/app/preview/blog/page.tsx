@@ -80,15 +80,15 @@ export default function PreviewBlogIndex() {
   const archive = all.filter((p) => !featuredSet.has(p.slug));
 
   // Group the archive by quarter for the ledger, shaped for the
-  // BlogArchive client component (pre-formatted rows + a date map).
+  // BlogArchive client component. We keep the grouping in the data
+  // shape so the client can still filter, but the rendered ledger no
+  // longer breaks on volume — it reads as one newest-first stream.
   const groupsMap = new Map<
     string,
     { key: string; label: string; sort: number; posts: ArchiveGroup["posts"] }
   >();
-  const archiveDates: Record<string, string> = {};
   for (const p of archive) {
     const q = quarterOf(p.date);
-    archiveDates[p.slug] = formatDate(p.date);
     const row = {
       slug: p.slug,
       title: p.title,
@@ -214,21 +214,16 @@ export default function PreviewBlogIndex() {
           </div>
         </div>
 
-        {/* Departments filter + backlog ledger (client-rendered so the
-            chips can filter rows in place without a page nav). */}
-        <BlogArchive
-          departments={departments}
-          groups={groups}
-          formatDate={archiveDates}
-        />
+        {/* Departments filter (left sidebar) + backlog ledger
+            (client-rendered so the dept chips can filter rows in
+            place without a page nav). */}
+        <BlogArchive departments={departments} groups={groups} />
 
         {/* Masthead colophon — who writes this thing */}
         <section className="colophon-section" aria-labelledby="colophon-head">
           <div className="section-head">
-            <span className="section-mark">¤</span>
             <h2 id="colophon-head" className="section-title">Masthead</h2>
             <span className="section-rule" aria-hidden="true" />
-            <span className="section-meta">{writers.length} writers on staff</span>
           </div>
           <div className="colophon-grid">
             {writers.map((w) => (
