@@ -9,7 +9,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AuthProvider } from "@/lib/auth/auth-context";
 import "./globals.css";
-import "./preview/preview.css";
+import "./v3.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
