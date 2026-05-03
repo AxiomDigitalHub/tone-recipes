@@ -1,337 +1,257 @@
 import Link from "next/link";
-import Image from "next/image";
-import { Clock, Speaker, Zap } from "lucide-react";
-import { toneRecipes, songs, artists, getSongBySlug, getArtistBySlug } from "@/lib/data";
-import RecipeCard from "@/components/recipe/RecipeCard";
-import Badge from "@/components/ui/Badge";
-import PlatformOnboarding from "@/components/home/PlatformOnboarding";
-import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
-import ScrollReveal from "@/components/ui/ScrollReveal";
-import HeroSignalChain from "@/components/home/HeroSignalChain";
 import type { Metadata } from "next";
+import {
+  toneRecipes,
+  getSongBySlug,
+  getArtistBySlug,
+  getRecipeBySlug,
+} from "@/lib/data";
+import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
+import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
+import { LpArt, monogramFor } from "@/components/v3/LpArt";
 
 export const metadata: Metadata = {
-  title: {
-    absolute: "Fader & Knob — Guitar Tone Recipes for Every Platform",
-  },
+  title: "Fader & Knob — Tone recipes for modeler players",
   description:
-    "Get exact guitar tone settings for any song. Signal chains for Helix, Quad Cortex, TONEX, and physical rigs — stop tweaking, start playing.",
+    "Verified signal chains for the songs you love, ported across Helix, Quad Cortex, TONEX, Fractal, Kemper, and pedalboard. Stop tweaking. Start playing.",
   openGraph: {
-    title: "Fader & Knob — Guitar Tone Recipes for Every Platform",
+    title: "Fader & Knob — Tone recipes for modeler players",
     description:
-      "Get exact guitar tone settings for any song. Signal chains for Helix, Quad Cortex, TONEX, and physical rigs.",
+      "Verified signal chains for the songs you love, ported across every modeler.",
     type: "website",
   },
+  robots: { index: false, follow: false },
 };
 
-export default function Home() {
-  const featuredRecipes = toneRecipes.slice(0, 6);
+const SAMPLE_SLUGS = [
+  "srv-pride-and-joy-rhythm",
+  "gilmour-comfortably-numb-solo",
+  "hendrix-voodoo-child-wah",
+  "evh-eruption-brown-sound",
+  "hetfield-master-of-puppets-rhythm",
+  "mayer-slow-dancing-burning-room",
+  "page-whole-lotta-love-heavy-riff",
+  "angus-young-back-in-black-rhythm",
+];
 
-  const webSiteJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Fader & Knob",
-    "url": "https://faderandknob.com",
-    "description": "Tone recipes from the songs you love. Get exact settings for your Helix, Quad Cortex, TONEX, or physical rig.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://faderandknob.com/browse?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
-  };
+export default function PreviewIndex() {
+  // Featured recipe for the hero chain. First entry is typically a
+  // flagship tone; swap by reordering the data file or wiring a flag later.
+  const featured = toneRecipes[0];
+  const featuredSong = featured ? getSongBySlug(featured.song_slug) : undefined;
+  const featuredArtist = featuredSong
+    ? getArtistBySlug(featuredSong.artist_slug)
+    : undefined;
+  const heroPlatform = featured?.platform_translations?.helix
+    ? "helix"
+    : "pedalboard";
+  const heroBlocks = featured ? recipeToBlocks(featured, heroPlatform) : [];
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
-      />
-      {/* Hero */}
-      <section className="relative overflow-visible">
-        {/* Subtle background grid */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,_rgba(245,158,11,0.08),_transparent_60%)]" />
-
-        <div className="mx-auto max-w-7xl px-4 pb-16 pt-24 text-center md:pt-32">
-          {/* Hero content + animated signal chain with cable from "you" to nodes */}
-          <HeroSignalChain />
-        </div>
-      </section>
-
-      {/* Featured Recipes — right after the fold */}
-      <ScrollReveal>
-      <section id="featured" className="border-y border-border bg-surface/50 py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="mb-10 flex items-end justify-between">
+      {/* Hero — production tagline + live signal-chain showcase */}
+      <section className="hero">
+        <div className="container">
+          <div className="hero-headline-grid">
             <div>
-              <h2 className="text-2xl font-bold md:text-3xl">
-                Featured Recipes
-              </h2>
-              <p className="mt-2 text-muted">
-                Iconic tones, broken down step by step.
-              </p>
+              <h1 className="display hero-title">
+                Tone recipes from{" "}
+                <span className="amp">the songs you love</span>
+              </h1>
+              <div className="hero-cta-row">
+                <Link href="/browse" className="hero-cta hero-cta-primary">
+                  Browse recipes
+                </Link>
+                <Link href="/#how-it-works" className="hero-cta hero-cta-secondary">
+                  How it works <span aria-hidden="true">↓</span>
+                </Link>
+              </div>
             </div>
-            <Link
-              href="/browse"
-              className="hidden text-sm text-accent font-medium hover:underline transition-colors sm:block"
-            >
-              View all &rarr;
-            </Link>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredRecipes.map((recipe) => {
-              const song = getSongBySlug(recipe.song_slug);
-              const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
-              return (
-                <RecipeCard
-                  key={recipe.slug}
-                  recipe={recipe}
-                  song={song}
-                  artist={artist}
-                />
-              );
-            })}
-          </div>
-
-          <div className="mt-8 text-center sm:hidden">
-            <Link
-              href="/browse"
-              className="text-sm font-medium text-accent transition-colors hover:text-accent-hover"
-            >
-              View all recipes &rarr;
-            </Link>
-          </div>
-        </div>
-      </section>
-      </ScrollReveal>
-
-      {/* Problem section */}
-      <ScrollReveal>
-      <section className="py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center">
-          <h2 className="text-2xl font-bold md:text-3xl">
-            You&apos;ve been chasing that sound for a while now.
-          </h2>
-          <div className="mx-auto mt-6 max-w-2xl space-y-4 text-lg text-muted">
-            <p>
-              You&apos;ve watched the tutorials. You&apos;ve dug through the forums. You got close, but something&apos;s still off and you can&apos;t name exactly why.
-            </p>
-            <p>
-              It&apos;s not your ears. It&apos;s probably not even your gear. Nobody&apos;s ever given you a clear map from that recording to your specific rig.
-            </p>
-            <p className="font-semibold text-foreground">
-              That&apos;s what Fader &amp; Knob is for.
+            <p className="hero-sub">
+              <span className="lede-first">How this works</span>
+              We take an iconic recording, map the full signal chain, and
+              translate every setting into the exact numbers for{" "}
+              <b>your</b> Helix, Quad Cortex, TONEX, Fractal, Kemper,
+              Katana, or pedalboard.
             </p>
           </div>
-        </div>
-      </section>
-      </ScrollReveal>
 
-      {/* Popular Artists */}
-      <ScrollReveal>
-      <section className="border-y border-border bg-surface/50 py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-center text-2xl font-bold md:text-3xl">
-            Popular Artists
-          </h2>
-          <p className="mx-auto mt-2 max-w-xl text-center text-muted">
-            Explore tone recipes from the guitarists who shaped the sound of modern music.
-          </p>
-
-          <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {artists.slice(0, 10).map((artist) => (
-              <Link
-                key={artist.slug}
-                href={`/artist/${artist.slug}`}
-                className="group flex flex-col items-center rounded-xl border border-border bg-surface p-3 sm:p-5 text-center transition-all hover:border-accent/40 hover:bg-surface-hover"
-              >
-                <div className="relative h-20 w-20 overflow-hidden rounded-full border-2 border-border transition-colors group-hover:border-accent/50">
-                  {artist.image_url ? (
-                    <Image
-                      src={artist.image_url}
-                      alt={artist.name}
-                      fill
-                      loading="lazy"
-                      className="object-cover"
-                      sizes="80px"
-                    />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-accent/10 text-xl font-bold text-accent">
-                      {artist.name.charAt(0)}
-                    </div>
-                  )}
+          {/* Featured hero chain — schematic icon overview, not chassis */}
+          {featured && heroBlocks.length > 0 && (
+            <div className="hero-chain hero-chain-light">
+              <div className="hero-chain-head">
+                <div>
+                  <div className="hero-chain-kicker">
+                    <span className="rec">
+                      <span className="rec-dot" />
+                      Featured recipe
+                    </span>
+                    <span className="sep">·</span>
+                    <span>Signal path</span>
+                    <span className="sep">·</span>
+                    <span>{heroBlocks.length} blocks</span>
+                  </div>
+                  <div className="hero-chain-title">
+                    {featuredSong?.title ?? featured.title}
+                  </div>
+                  <div className="hero-chain-meta">
+                    <em>{featuredArtist?.name ?? "Unknown"}</em>
+                    {featuredSong?.album && (
+                      <>
+                        <span className="sep">—</span>
+                        <span>{featuredSong.album}</span>
+                      </>
+                    )}
+                    {featuredSong?.year && (
+                      <>
+                        <span className="sep">·</span>
+                        <span>{featuredSong.year}</span>
+                      </>
+                    )}
+                  </div>
                 </div>
-                <h3 className="mt-3 text-sm font-semibold text-foreground group-hover:text-accent transition-colors">
-                  {artist.name}
-                </h3>
-                <div className="mt-2 flex flex-wrap justify-center gap-1">
-                  {artist.genres.slice(0, 2).map((genre) => (
-                    <Badge key={genre} variant="outline" className="text-[10px]">
-                      {genre}
-                    </Badge>
-                  ))}
+                <Link
+                  href={`/recipe/${featured.slug}?platform=${heroPlatform}`}
+                  className="hero-chain-cta"
+                >
+                  Open full recipe <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+              <PreviewSchematicChain
+                blocks={heroBlocks}
+                selectedIndex={null}
+                interactive={false}
+              />
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* How this works — three-step editorial feature */}
+      <section className="how container" id="how-it-works">
+        <div className="how-head">
+          <h2 className="display">
+            Three steps from your favorite song to your rig
+          </h2>
+          <span className="section-rule" aria-hidden="true" />
+        </div>
+        <ol className="how-steps">
+          <li className="how-step">
+            <span className="how-step-no" aria-hidden="true">1</span>
+            <h3 className="how-step-title">We chase the tone</h3>
+            <p className="how-step-body">
+              Listen, isolate, A/B against rigs we know. Our editors are
+              tone nerds who will spend a whole afternoon on a delay tail.
+            </p>
+          </li>
+          <li className="how-step">
+            <span className="how-step-no" aria-hidden="true">2</span>
+            <h3 className="how-step-title">We map the chain</h3>
+            <p className="how-step-body">
+              Every block. Every knob. Every tap-tempo. Documented like a
+              service manual.
+            </p>
+          </li>
+          <li className="how-step">
+            <span className="how-step-no" aria-hidden="true">3</span>
+            <h3 className="how-step-title">You get the numbers</h3>
+            <p className="how-step-body">
+              Translated for your Helix, Quad Cortex, TONEX, Fractal,
+              Kemper, Katana — or your pedalboard. One click, import, play.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      {/* Audition picker — LP rack of real recipes */}
+      <section className="audition container">
+        <div className="audition-head">
+          <h2 className="display">The opening shelf</h2>
+          <span className="section-rule" aria-hidden="true" />
+        </div>
+
+        <div className="audition-grid">
+          {SAMPLE_SLUGS.map((slug) => {
+            const r = getRecipeBySlug(slug);
+            if (!r) return null;
+            const rSong = getSongBySlug(r.song_slug);
+            const rArtist = rSong
+              ? getArtistBySlug(rSong.artist_slug)
+              : undefined;
+            const rIdx =
+              toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
+            const rBlocks = recipeToBlocks(r, "helix");
+            return (
+              <Link
+                key={r.slug}
+                href={`/recipe/${r.slug}`}
+                className="audition-card"
+              >
+                <div className="audition-art">
+                  <LpArt
+                    cover={rSong?.album_art_url}
+                    monogram={monogramFor(rArtist?.name)}
+                    meta={`${rBlocks.length} blocks`}
+                    hue={rIdx}
+                    alt={`${rSong?.album ?? rSong?.title ?? r.title} cover`}
+                  />
+                </div>
+                <div className="audition-meta">
+                  <span className="audition-song">
+                    {rSong?.title ?? r.title}
+                  </span>
+                  <span className="audition-artist">
+                    <em>{rArtist?.name ?? "Unknown"}</em>
+                  </span>
+                  {rSong?.album && (
+                    <span className="audition-album">
+                      {rSong.album}
+                      {rSong.year ? ` · ${rSong.year}` : ""}
+                    </span>
+                  )}
+                  <span className="audition-cta">
+                    See the chain <span aria-hidden="true">→</span>
+                  </span>
                 </div>
               </Link>
-            ))}
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Newsletter signup — one piece carried over from production */}
+      <section className="newsletter container">
+        <div className="newsletter-row">
+          <div className="newsletter-text">
+            <span className="newsletter-kicker">The Friday Send</span>
+            <h2 className="display newsletter-title">
+              One free tone recipe, every Friday
+            </h2>
+            <p className="newsletter-body">
+              One recipe, one quick tip, one short read · no spam ·
+              unsubscribe anytime.
+            </p>
           </div>
-        </div>
-      </section>
-      </ScrollReveal>
-
-      {/* Pain points */}
-      <ScrollReveal>
-      <section className="py-16">
-        <div className="mx-auto max-w-4xl px-4">
-          <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">
-            Sound familiar?
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              "You watched 5 YouTube videos and got 5 different answers.",
-              "The best forum post you found was from 2012 \u2014 and it\u2019s for a different modeler.",
-              "You got close, but something\u2019s still off and you can\u2019t figure out what.",
-              "You spent an hour tweaking when you should have been playing.",
-            ].map((pain) => (
-              <div
-                key={pain}
-                className="rounded-xl border border-border bg-surface p-6"
-              >
-                <p className="text-base font-medium text-foreground md:text-lg">{pain}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      </ScrollReveal>
-
-      {/* How it works */}
-      <ScrollReveal>
-      <section className="border-y border-border bg-surface/50 py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-center text-2xl font-bold md:text-3xl">
-            Three steps to any tone.
-          </h2>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {[
-              {
-                step: "1",
-                title: "Find the song",
-                desc: "Search by artist, song, or genre. Every recipe is tied to a specific recording so you know exactly what you\u2019re aiming for.",
-                delay: 0,
-              },
-              {
-                step: "2",
-                title: "See the full signal chain",
-                desc: "Visual breakdown of every pedal, amp block, and routing decision. Not just what to set, but why it works.",
-                delay: 1,
-              },
-              {
-                step: "3",
-                title: "Switch to your gear and dial it in",
-                desc: "One tap to see exact settings for your platform. Helix, Quad Cortex, TONEX, Fractal, Kemper, or physical rig. Same tone, your gear.",
-                delay: 2,
-              },
-            ].map((item) => (
-              <ScrollReveal key={item.step} delay={item.delay}>
-              <div
-                className="flex flex-col items-center rounded-xl border border-border bg-surface p-8 text-center"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-lg font-bold text-background">
-                  {item.step}
-                </div>
-                <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm text-muted">{item.desc}</p>
-              </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </ScrollReveal>
-
-      {/* Benefit pillars */}
-      <ScrollReveal>
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="grid gap-8 md:grid-cols-3">
-            {[
-              {
-                title: "Less time tweaking",
-                desc: 'Exact settings for your specific platform. No more guessing what "medium gain" means on your amp model.',
-                icon: <Clock className="h-8 w-8 text-accent" />,
-              },
-              {
-                title: "Understand why it works",
-                desc: "We explain the reasoning behind every setting. You\u2019ll build better tones on your own over time.",
-                icon: <Zap className="h-8 w-8 text-accent" />,
-              },
-              {
-                title: "Works on your rig",
-                desc: "Pedalboard, Line 6, Neural, Boss \u2014 every recipe translates across all major platforms.",
-                icon: <Speaker className="h-8 w-8 text-accent" />,
-              },
-            ].map((pillar) => (
-              <div key={pillar.title} className="text-center">
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10">
-                  {pillar.icon}
-                </div>
-                <h3 className="text-lg font-semibold">{pillar.title}</h3>
-                <p className="mt-2 text-sm text-muted">{pillar.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      </ScrollReveal>
-
-      {/* Set your platform — merged onboarding + platform showcase */}
-      <section className="border-y border-border bg-surface/50 py-20">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <PlatformOnboarding />
-        </div>
-      </section>
-
-      {/* Newsletter signup */}
-      <ScrollReveal>
-      <section className="border-y border-border bg-surface/50 py-20">
-        <div className="mx-auto max-w-2xl px-4">
-          <NewsletterSignup
-            headline="Tone of the Week — free in your inbox"
-            subtext="Every Friday: one killer tone recipe, one blog deep dive, one quick tip you can use tonight. Join free."
-            buttonText="Send it to me"
-            source="homepage"
-          />
-        </div>
-      </section>
-      </ScrollReveal>
-
-      {/* Closing CTA — conversion path primary, browse path secondary.
-          By this point the visitor has scrolled through problem → solution →
-          proof → benefits. The final ask should be "commit," not "browse more." */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <h2 className="text-2xl font-bold md:text-3xl">
-            Your gear can do this. Let&apos;s prove it.
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-muted">
-            Free account gets you 10 preset downloads, saved recipes, and
-            signal chains for 6 platforms. Cancel anytime — you&apos;ll never
-            need to.
-          </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
-              href="/signup"
-              className="inline-block w-full max-w-xs rounded-xl bg-accent px-10 py-4 text-base font-semibold text-background transition-colors hover:bg-accent-hover sm:w-auto"
-            >
-              Get Started Free
-            </Link>
-            <Link
-              href="/browse"
-              className="inline-block w-full max-w-xs rounded-xl border border-border px-10 py-4 text-base font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface sm:w-auto"
-            >
-              Browse recipes
-            </Link>
-          </div>
+          <form
+            className="newsletter-form"
+            action="/api/newsletter"
+            method="post"
+          >
+            <label htmlFor="newsletter-email" className="newsletter-label sr-only">
+              Email
+            </label>
+            <input
+              id="newsletter-email"
+              type="email"
+              name="email"
+              required
+              placeholder="your@email.com"
+              className="newsletter-input"
+            />
+            <button type="submit" className="newsletter-submit">
+              Subscribe
+            </button>
+          </form>
         </div>
       </section>
     </>

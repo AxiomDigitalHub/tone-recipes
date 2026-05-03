@@ -12,10 +12,10 @@ import {
   getArtistBySlug,
 } from "@/lib/data";
 import type { Platform } from "@/types/recipe";
-import { recipeToBlocks } from "../../_components/recipe-to-blocks";
-import { LpArt, monogramFor } from "../../_components/LpArt";
-import { FieldNotesRail } from "../../_components/FieldNotesRail";
-import { findRelatedPosts } from "../../_components/findRelatedPosts";
+import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
+import { LpArt, monogramFor } from "@/components/v3/LpArt";
+import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
+import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
 
 export function generateStaticParams() {
   return getAllPlatforms().map((p) => ({ slug: p.id }));

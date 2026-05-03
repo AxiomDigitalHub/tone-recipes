@@ -6,11 +6,11 @@ import {
   getSongBySlug,
   getArtistBySlug,
 } from "@/lib/data";
-import { recipeToBlocks } from "../../_components/recipe-to-blocks";
-import { PreviewRecipeClient } from "../../_components/PreviewRecipeClient";
-import { LpArt, monogramFor } from "../../_components/LpArt";
-import { FieldNotesRail } from "../../_components/FieldNotesRail";
-import { findRelatedPosts } from "../../_components/findRelatedPosts";
+import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
+import { PreviewRecipeClient } from "@/components/v3/PreviewRecipeClient";
+import { LpArt, monogramFor } from "@/components/v3/LpArt";
+import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
+import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
 import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
 import { recipeJsonLdSet } from "@/lib/seo/preview-jsonld";
 import type { Metadata } from "next";

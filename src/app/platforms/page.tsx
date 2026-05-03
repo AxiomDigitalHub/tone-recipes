@@ -1,96 +1,73 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import {
-  getAllPlatforms,
-  getRecipesForPlatform,
-} from "@/lib/data/platforms";
+import { getAllPlatforms, getRecipesForPlatform } from "@/lib/data/platforms";
 
 export const metadata: Metadata = {
-  title: "Modeler Platforms",
+  title: "Platforms — Fader & Knob",
   description:
-    "Find tone recipes translated for your specific modeler. Helix, Quad Cortex, TONEX, Kemper, Fractal Axe-FX, and Boss Katana — every recipe mapped to your gear.",
+    "Every recipe ports to Helix, Quad Cortex, TONEX, Fractal Axe-Fx, Kemper, Boss Katana, and pedalboard. Pick your modeler.",
   openGraph: {
-    title: "Modeler Platforms | Fader & Knob",
-    description:
-      "Tone recipes translated for every major guitar modeler platform.",
+    title: "Platforms — Fader & Knob",
+    description: "Recipes for every major modeler. Helix, Quad Cortex, TONEX, Fractal, Kemper, Katana.",
     type: "website",
   },
-  keywords: [
-    "guitar modeler",
-    "Helix",
-    "Quad Cortex",
-    "TONEX",
-    "Kemper",
-    "Fractal",
-    "Axe-FX",
-    "Boss Katana",
-    "amp modeler",
-    "tone recipes",
-  ],
+  robots: { index: false, follow: false },
 };
 
-export default function PlatformsPage() {
+const HUE_BY_PLATFORM: Record<string, number> = {
+  helix: 1,
+  quad_cortex: 4,
+  tonex: 6,
+  fractal: 3,
+  kemper: 5,
+  katana: 2,
+};
+
+export default function PreviewPlatformsIndex() {
   const platforms = getAllPlatforms();
 
   return (
-    <main className="mx-auto max-w-7xl px-4 py-12">
-      {/* Header */}
-      <div className="mb-12 text-center">
-        <h1 className="text-4xl font-bold text-foreground">
-          Modeler Platforms
-        </h1>
-        <p className="mt-3 text-lg text-muted">
-          Every recipe on Fader &amp; Knob is translated for the platforms
-          below. Pick yours and see exactly what to dial in.
+    <div className="container">
+      <section className="platforms-index">
+        <div className="how-head">
+          <h2 className="display">
+            Built for the rig <em>you already own</em>
+          </h2>
+          <span className="section-rule" aria-hidden="true" />
+          <span className="section-meta">{platforms.length} modelers</span>
+        </div>
+        <p className="audition-lede">
+          Every recipe is translated into the exact block names and parameter
+          values your modeler expects. Pick your unit and start playing.
         </p>
-      </div>
 
-      {/* Platform cards */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {platforms.map((platform) => {
-          const recipeCount = getRecipesForPlatform(platform.id).length;
-          return (
-            <Link
-              key={platform.id}
-              href={`/platforms/${platform.id}`}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-6 transition-all hover:border-transparent hover:shadow-lg"
-            >
-              {/* Color accent bar */}
-              <div
-                className="absolute inset-x-0 top-0 h-1 transition-all group-hover:h-1.5"
-                style={{ backgroundColor: platform.color }}
-              />
-
-              <div className="mt-2">
-                <p
-                  className="text-xs font-semibold uppercase tracking-wider"
-                  style={{ color: platform.color }}
-                >
-                  {platform.manufacturer}
-                </p>
-                <h2 className="mt-1 text-2xl font-bold text-foreground">
-                  {platform.label}
-                </h2>
-                <p className="mt-2 text-sm text-muted leading-relaxed">
-                  {platform.tagline}
-                </p>
-              </div>
-
-              <div className="mt-6 flex items-center justify-between">
-                <span className="text-sm font-medium text-muted">
-                  {recipeCount} {recipeCount === 1 ? "recipe" : "recipes"}
+        <div className="platforms-grid">
+          {platforms.map((p, i) => {
+            const recipes = getRecipesForPlatform(p.id);
+            const hue = HUE_BY_PLATFORM[p.id] ?? ((i % 6) + 1);
+            return (
+              <Link
+                key={p.id}
+                href={`/platforms/${p.id}`}
+                className={`platform-card lp-hue-${hue}`}
+              >
+                <span className="platform-card-stripe" aria-hidden="true" />
+                <div className="platform-card-meta">
+                  <span className="platform-card-mfr">{p.manufacturer}</span>
+                  <span className="platform-card-count">
+                    {recipes.length} recipes
+                  </span>
+                </div>
+                <h3 className="platform-card-name">{p.label}</h3>
+                <p className="platform-card-tagline">{p.tagline}</p>
+                <span className="platform-card-cta">
+                  Open the manual <span aria-hidden="true">→</span>
                 </span>
-                <span
-                  className="text-sm font-semibold transition-colors"
-                  style={{ color: platform.color }}
-                >
-                  Explore &rarr;
-                </span>
-              </div>
-            </Link>
-          );
-        })}
-      </div>
-    </main>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+    </div>
   );
 }

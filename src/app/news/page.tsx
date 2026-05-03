@@ -4,22 +4,24 @@ import Image from "next/image";
 import {
   getAllNewsPosts,
   NEWS_CATEGORIES,
-  NEWS_CATEGORY_COLORS,
   type NewsCategory,
 } from "@/lib/news";
 import { getNewsImageSync } from "@/lib/unsplash";
 
 export const metadata: Metadata = {
-  title: "Modeler News",
+  title: "Modeler News — Fader & Knob",
   description:
-    "The latest firmware updates, gear announcements, industry news, and tips for guitar modeler players.",
+    "Firmware updates, gear announcements, industry trends, and practical tips for guitar modeler players.",
   openGraph: {
-    title: "Modeler News | Fader & Knob",
+    title: "Modeler News — Fader & Knob",
     description:
-      "Firmware updates, gear announcements, and tips for guitar modeler players.",
+      "Firmware updates, gear announcements, and tips for modeler players.",
     type: "website",
   },
+  robots: { index: false, follow: false },
 };
+
+const SITE_URL = "https://faderandknob.com";
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", {
@@ -29,7 +31,7 @@ function formatDate(iso: string) {
   });
 }
 
-export default async function NewsPage({
+export default async function PreviewNewsPage({
   searchParams,
 }: {
   searchParams: Promise<{ category?: string }>;
@@ -40,159 +42,118 @@ export default async function NewsPage({
     ? allPosts.filter((p) => p.category === category)
     : allPosts;
 
-  const jsonLd = {
+  const collectionLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Modeler News | Fader & Knob",
+    name: "Modeler News — Fader & Knob",
     description:
-      "The latest firmware updates, gear announcements, industry news, and tips for guitar modeler players.",
-    url: "https://faderandknob.com/news",
+      "Firmware updates, gear announcements, industry trends, and practical tips for guitar modeler players.",
+    url: `${SITE_URL}/news`,
     publisher: { "@type": "Organization", name: "Fader & Knob" },
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+    <div className="container">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }}
       />
-
-      {/* Hero */}
-      <section className="text-center">
-        <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-          Modeler News
-        </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-muted">
-          Firmware updates, gear announcements, industry trends, and practical
-          tips for guitar modeler players.
-        </p>
-      </section>
-
-      {/* Category filter tabs */}
-      <div className="mt-10 flex gap-2 overflow-x-auto pb-2 scrollbar-none">
-        <Link
-          href="/news"
-          className={`shrink-0 rounded-full border px-4 py-1.5 text-sm font-medium transition-colors ${
-            !category
-              ? "border-accent bg-accent/10 text-accent"
-              : "border-border text-muted hover:border-accent/40 hover:text-accent"
-          }`}
-        >
-          All
-        </Link>
-        {(
-          Object.entries(NEWS_CATEGORIES) as [NewsCategory, string][]
-        ).map(([key, label]) => (
-          <Link
-            key={key}
-            href={`/news?category=${key}`}
-            className={`shrink-0 rounded-full border px-4 py-1.5 text-sm font-medium transition-colors ${
-              category === key
-                ? "border-accent bg-accent/10 text-accent"
-                : "border-border text-muted hover:border-accent/40 hover:text-accent"
-            }`}
-          >
-            {label}
-          </Link>
-        ))}
-      </div>
-
-      {/* Active filter label */}
-      {category &&
-        NEWS_CATEGORIES[category as NewsCategory] && (
-          <div className="mt-6 flex items-center gap-2">
-            <h2 className="text-lg font-semibold">
-              {NEWS_CATEGORIES[category as NewsCategory]}
-            </h2>
-            <span className="text-sm text-muted">
-              ({posts.length} {posts.length === 1 ? "article" : "articles"})
-            </span>
-          </div>
-        )}
-
-      {/* News grid */}
-      {posts.length > 0 && (
-        <section className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => {
-            const catColor =
-              NEWS_CATEGORY_COLORS[post.category] ??
-              "bg-accent/15 text-accent";
-            const catLabel =
-              NEWS_CATEGORIES[post.category as NewsCategory] ??
-              post.category;
-
-            return (
-              <Link
-                key={post.slug}
-                href={`/news/${post.slug}`}
-                className="group flex flex-col rounded-xl border border-border bg-surface transition-all hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
-              >
-                {/* Cover image */}
-                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-t-xl bg-surface-hover">
-                  <Image
-                    src={getNewsImageSync(post.slug, post.category, post.image_url || undefined)}
-                    alt={post.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface/60 to-transparent" />
-                </div>
-
-                {/* Card body */}
-                <div className="flex flex-1 flex-col p-5">
-                  <div className="flex items-center gap-2">
-                    <span
-                      className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${catColor}`}
-                    >
-                      {catLabel}
-                    </span>
-                    <span className="text-xs text-muted">
-                      {formatDate(post.date)}
-                    </span>
-                  </div>
-
-                  <h3 className="mt-3 text-lg font-bold leading-snug text-foreground transition-colors group-hover:text-accent">
-                    {post.title}
-                  </h3>
-
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted line-clamp-3">
-                    {post.excerpt}
-                  </p>
-
-                  <div className="mt-4 flex items-center justify-between text-xs text-muted">
-                    <span>{post.readingTime}</span>
-                    {post.source_url &&
-                      !post.source_url.includes("faderandknob") && (
-                        <span className="truncate">
-                          via{" "}
-                          {new URL(post.source_url).hostname.replace(
-                            "www.",
-                            ""
-                          )}
-                        </span>
-                      )}
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
-        </section>
-      )}
-
-      {/* Empty state */}
-      {posts.length === 0 && (
-        <div className="mt-12 rounded-xl border border-dashed border-border p-16 text-center">
-          <p className="text-lg font-semibold text-muted">
-            No news articles found
-          </p>
-          <p className="mt-2 text-sm text-muted">
-            {category
-              ? "Try selecting a different category."
-              : "News articles coming soon."}
-          </p>
+      <div className="news-page">
+        <div className="recipe-crumbs">
+          <Link href="/">Home</Link>
+          <span className="sep">/</span>
+          <span style={{ color: "var(--ink)" }}>News</span>
         </div>
-      )}
+
+        <header className="news-head">
+          <div className="recipe-issue">
+            <span className="pill">Modeler desk</span>
+          </div>
+          <h1 className="display news-title">Modeler News</h1>
+          <p className="news-dek">
+            Firmware updates, gear announcements, industry trends, and the
+            practical bits that change how a modeler player actually works.
+          </p>
+        </header>
+
+        <nav className="news-categories" aria-label="Filter by category">
+          <Link
+            href="/news"
+            className={`news-cat ${!category ? "is-active" : ""}`}
+          >
+            All
+          </Link>
+          {(Object.entries(NEWS_CATEGORIES) as [NewsCategory, string][]).map(
+            ([key, label]) => (
+              <Link
+                key={key}
+                href={`/news?category=${key}`}
+                className={`news-cat ${category === key ? "is-active" : ""}`}
+              >
+                {label}
+              </Link>
+            ),
+          )}
+        </nav>
+
+        {posts.length === 0 ? (
+          <div className="request-empty">
+            <p className="display request-empty-title">No stories filed yet</p>
+            <p className="request-empty-sub">
+              {category
+                ? "Try a different category."
+                : "Check back soon."}
+            </p>
+          </div>
+        ) : (
+          <section className="news-grid">
+            {posts.map((post) => {
+              const catLabel =
+                NEWS_CATEGORIES[post.category as NewsCategory] ?? post.category;
+              const sourceHost =
+                post.source_url && !post.source_url.includes("faderandknob")
+                  ? new URL(post.source_url).hostname.replace(/^www\./, "")
+                  : null;
+              return (
+                <Link
+                  key={post.slug}
+                  href={`/news/${post.slug}`}
+                  className="news-card"
+                >
+                  <div className="news-card-image">
+                    <Image
+                      src={getNewsImageSync(
+                        post.slug,
+                        post.category,
+                        post.image_url || undefined,
+                      )}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+                  <div className="news-card-body">
+                    <div className="news-card-meta">
+                      <span>{catLabel}</span>
+                      <span> · </span>
+                      <span>{formatDate(post.date)}</span>
+                      {sourceHost && (
+                        <>
+                          <span> · </span>
+                          <span>via {sourceHost}</span>
+                        </>
+                      )}
+                    </div>
+                    <h2 className="news-card-title">{post.title}</h2>
+                    <p className="news-card-dek">{post.excerpt}</p>
+                  </div>
+                </Link>
+              );
+            })}
+          </section>
+        )}
+      </div>
     </div>
   );
 }

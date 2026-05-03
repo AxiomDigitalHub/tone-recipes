@@ -6,9 +6,9 @@ import {
   getSongBySlug,
   getArtistBySlug,
 } from "@/lib/data";
-import { recipeToBlocks } from "../_components/recipe-to-blocks";
-import { LpArt, monogramFor } from "../_components/LpArt";
-import { PreviewSchematicChain } from "../_components/PreviewSchematicChain";
+import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
+import { LpArt, monogramFor } from "@/components/v3/LpArt";
+import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
 import type { Platform } from "@/types/recipe";
 
 export const metadata: Metadata = {

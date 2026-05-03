@@ -1,67 +1,38 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import { settingsMdxComponents } from "@/components/settings/mdx-components";
 import { blogMdxComponents } from "@/components/mdx";
-import { extractFAQFromMarkdown } from "@/lib/blog/extract-faq";
-import Image from "next/image";
+import { settingsMdxComponents } from "@/components/settings/mdx-components";
 import {
+  getAllPosts,
   getPostBySlug,
   getPostSlugs,
-  getAllPosts,
+  getCallNumber,
   BLOG_CATEGORIES,
 } from "@/lib/blog";
-import { getDefinitionsForPost } from "@/lib/definitions";
 import { getWriter } from "@/lib/writers";
-import BlogCard from "@/components/blog/BlogCard";
-import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
-import TableOfContents, { MobileTableOfContents, type TocItem } from "@/components/blog/TableOfContents";
+import { extractToc } from "@/lib/toc";
+import { ToC } from "@/components/v3/ToC";
+import type { Metadata } from "next";
 
-/* ---------- FAQ extractor ---------- */
-
-/** Re-export the robust extractor from @/lib/blog/extract-faq wrapped in the
- *  legacy shape the rest of this file expects. The shared utility handles
- *  both bold-text (**Q?**) and H3-heading (### Q?) FAQ conventions used
- *  across the post corpus, and strips inline Markdown from answers so the
- *  FAQPage JSON-LD text is clean. */
-function extractFaqItems(
-  content: string,
-): Array<{ question: string; answer: string }> {
-  return extractFAQFromMarkdown(content).map((item) => ({
-    question: item.q,
-    answer: item.a,
-  }));
-}
-
-/* ---------- Heading extractor ---------- */
-
-function extractHeadings(markdown: string): TocItem[] {
-  const headingRegex = /^(#{2,3})\s+(.+)$/gm;
-  const items: TocItem[] = [];
-  let match;
-  while ((match = headingRegex.exec(markdown)) !== null) {
-    const level = match[1].length;
-    const text = match[2].replace(/\*\*/g, "").replace(/`/g, "").trim();
-    const id = text
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, "")
-      .replace(/ /g, "-");
-    items.push({ id, text, level });
-  }
-  return items;
-}
-
-/* ---------- Static generation ---------- */
+/**
+ * /blog/[slug] — editorial post detail, audition route.
+ *
+ * Magazine-style feature layout: cover image with overlaid masthead,
+ * a Key Takeaways block that answer engines can quote directly, the
+ * MDX body rendered in a reading column with a sticky ToC in the
+ * right rail, an FAQ section at the bottom, a writer bio card, and
+ * Article + FAQPage JSON-LD in the document head for rich results.
+ */
 
 export function generateStaticParams() {
   return getPostSlugs().map((slug) => ({ slug }));
 }
-
-/* ---------- Metadata ---------- */
 
 export async function generateMetadata({
   params,
@@ -70,30 +41,34 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  if (!post) return { title: "Post Not Found" };
-
+  if (!post) {
+    return { title: "Preview — Field Notes", robots: { index: false, follow: false } };
+  }
   return {
     title: post.title,
     description: post.description,
+    keywords: post.tags,
     openGraph: {
-      title: `${post.title} | Fader & Knob`,
+      title: post.title,
       description: post.description,
       type: "article",
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
+      ...(post.image ? { images: [{ url: post.image, alt: post.imageAlt ?? post.title }] } : {}),
     },
     twitter: {
-      card: "summary_large_image",
+      card: post.image ? "summary_large_image" : "summary",
       title: post.title,
       description: post.description,
+      ...(post.image ? { images: [post.image] } : {}),
     },
+    robots: { index: false, follow: false },
   };
 }
 
-/* ---------- Date formatter ---------- */
-
-function formatDate(iso: string) {
+function formatDate(iso: string): string {
+  if (!iso) return "";
   return new Date(iso).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -101,23 +76,9 @@ function formatDate(iso: string) {
   });
 }
 
-/* ---------- Category badge colour map ---------- */
+const SITE_URL = "https://faderandknob.com";
 
-const categoryColors: Record<string, string> = {
-  "signal-chain": "bg-blue-500/15 text-blue-400",
-  "platform-guide": "bg-purple-500/15 text-purple-400",
-  "artist-tone": "bg-amber-500/15 text-amber-400",
-  "tone-recipes": "bg-orange-500/15 text-orange-400",
-  "settings-guides": "bg-teal-500/15 text-teal-400",
-  "quick-fixes": "bg-rose-500/15 text-rose-400",
-  gear: "bg-emerald-500/15 text-emerald-400",
-  effects: "bg-pink-500/15 text-pink-400",
-  workflow: "bg-cyan-500/15 text-cyan-400",
-};
-
-/* ---------- Page ---------- */
-
-export default async function BlogPostPage({
+export default async function PreviewBlogPost({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -127,220 +88,221 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const catLabel = BLOG_CATEGORIES[post.category] ?? post.category;
-  const catColor =
-    categoryColors[post.category] ?? "bg-accent/15 text-accent";
-
-  const headings = extractHeadings(post.content);
-  const definitions = getDefinitionsForPost(post.tags, post.category);
+  const callNo = getCallNumber(post.slug);
   const writer = getWriter(post.authorSlug);
+  const tocEntries = extractToc(post.content);
 
-  // Related posts: same category, excluding this post, limit 3
+  // Related: same category, excluding this post, up to 3
   const related = getAllPosts()
     .filter((p) => p.category === post.category && p.slug !== post.slug)
     .slice(0, 3);
 
-  /* ---------- Structured data (JSON-LD) ---------- */
-
-  const articleJsonLd = {
+  // JSON-LD — Article schema gives answer engines a clean, structured
+  // summary of the post. Published + modified dates, author with URL,
+  // hero image, category as articleSection, word count. The keywords
+  // field uses tags.
+  const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.description,
     datePublished: post.date,
+    dateModified: post.updated ?? post.date,
+    image: post.image ? `${SITE_URL}${post.image}` : undefined,
     author: {
       "@type": "Person",
-      name: post.author,
+      name: writer.name,
+      url: `${SITE_URL}/writers/${writer.slug}`,
     },
     publisher: {
       "@type": "Organization",
       name: "Fader & Knob",
-      url: "https://faderandknob.com",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/logo.png`,
+      },
     },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://faderandknob.com/blog/${slug}`,
-    },
+    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+    articleSection: catLabel,
+    keywords: post.tags.join(", "),
+    wordCount: post.wordCount,
   };
 
-  // HowTo schema for tone-recipes and settings-guides
-  const isHowTo =
-    post.category === "tone-recipes" || post.category === "settings-guides";
-  const howToJsonLd = isHowTo
+  // Only emit FAQPage schema when the post actually has Q&A pairs.
+  const faqLd = post.faq && post.faq.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: post.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: f.a,
+          },
+        })),
+      }
+    : null;
+
+  // BreadcrumbList — Browse > Field Notes > {category} > {post}
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Field Notes", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 2, name: catLabel },
+      { "@type": "ListItem", position: 3, name: post.title },
+    ],
+  };
+
+  // HowTo schema for tone-recipes and settings-guides — H2s become steps.
+  const isHowTo = post.category === "tone-recipes" || post.category === "settings-guides";
+  const howToLd = isHowTo
     ? {
         "@context": "https://schema.org",
         "@type": "HowTo",
         name: post.title,
         description: post.description,
-        step: headings
-          .filter((h) => h.level === 2)
-          .map((h, i) => ({
+        step: tocEntries
+          .filter((e) => e.level === 2)
+          .map((e, i) => ({
             "@type": "HowToStep",
-            name: h.text,
             position: i + 1,
+            name: e.text,
           })),
       }
     : null;
 
-  // FAQ schema when post contains an FAQ section
-  const faqItems = extractFaqItems(post.content);
-  const faqJsonLd =
-    faqItems.length > 0
-      ? {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: faqItems.map((item) => ({
-            "@type": "Question",
-            name: item.question,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: item.answer,
-            },
-          })),
-        }
-      : null;
-
   return (
-    <article className="mx-auto max-w-7xl px-4 py-16 md:py-20">
-      <script
+    <div className="container">
+      {/* Article JSON-LD — Article schema always; FAQPage only when FAQs exist. */}
+      <Script
+        id="article-ld"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
       />
-      {howToJsonLd && (
-        <script
+      {faqLd && (
+        <Script
+          id="faq-ld"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
         />
       )}
-      {faqJsonLd && (
-        <script
+      <Script
+        id="breadcrumb-ld"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      {howToLd && (
+        <Script
+          id="howto-ld"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }}
         />
       )}
-      {/* Breadcrumb */}
-      <nav
-        aria-label="Breadcrumb"
-        className="mb-8 flex items-center gap-2 text-sm text-muted"
-      >
-        <Link href="/blog" className="transition-colors hover:text-foreground">
-          Blog
-        </Link>
-        <span>/</span>
-        <Link
-          href={`/blog?category=${post.category}`}
-          className="transition-colors hover:text-foreground"
-        >
-          {catLabel}
-        </Link>
-        <span>/</span>
-        <span className="truncate text-foreground">{post.title}</span>
-      </nav>
 
-      {/* Post header — split layout: text left, image right */}
-      <header className={post.image ? "grid gap-8 lg:grid-cols-[1fr_400px] lg:items-start" : ""}>
-        <div>
-          <span
-            className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${catColor}`}
-          >
-            {catLabel}
-          </span>
+      <article className="recipe">
+        {/* Breadcrumbs */}
+        <div className="recipe-crumbs">
+          <Link href="/">Home</Link>
+          <span className="sep">/</span>
+          <Link href="/blog">Field Notes</Link>
+          <span className="sep">/</span>
+          <span style={{ color: "var(--ink)" }}>{catLabel}</span>
+        </div>
 
-          <h1 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-            {post.title}
-          </h1>
+        {/* Hero cover — title, masthead, dek, byline all overlaid on the
+            feature image. Reads like a magazine cover / LP jacket. */}
+        <div className={`post-cover ${post.image ? "has-image" : "no-image"}`}>
+          {post.image && (
+            <>
+              <Image
+                src={post.image}
+                alt={post.imageAlt ?? post.title}
+                fill
+                priority
+                unoptimized
+                sizes="(max-width: 960px) 100vw, 960px"
+                className="post-cover-img"
+              />
+              <div className="post-cover-scrim" aria-hidden="true" />
+            </>
+          )}
 
-          <p className="mt-4 text-lg text-muted">{post.description}</p>
-
-          <div className="mt-6 flex items-center gap-4">
-            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-border">
-              {writer.image ? (
-                <Image
-                  src={writer.image}
-                  alt={writer.name}
-                  fill
-                  className="object-cover"
-                  sizes="48px"
-                />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center bg-accent/10 text-sm font-bold text-accent">
-                  {writer.name.charAt(0)}
-                </div>
+          <div className="post-cover-inner">
+            {/* Masthead strip — pinned to the top */}
+            <div className="post-cover-masthead">
+              <span className="pill">No. {callNo}</span>
+              <span>{catLabel}</span>
+              <span>·</span>
+              <span>{formatDate(post.date)}</span>
+              <span>·</span>
+              <span>{post.readingTime}</span>
+              {post.updated && (
+                <>
+                  <span>·</span>
+                  <span>Updated {formatDate(post.updated)}</span>
+                </>
               )}
             </div>
-            <div>
-              <p className="text-sm font-semibold text-foreground">
-                {writer.name}
-                {writer.title && (
-                  <span className="ml-2 font-normal text-muted">
-                    {writer.title}
-                  </span>
-                )}
-              </p>
-              <div className="flex items-center gap-3 text-xs text-muted">
-                <time dateTime={post.date}>{formatDate(post.date)}</time>
-                <span className="text-border">|</span>
-                <span>{post.readingTime}</span>
+
+            {/* Title + dek — bottom-anchored */}
+            <div className="post-cover-headline">
+              <h1 className="post-title display">{post.title}</h1>
+              <p className="post-dek">{post.description}</p>
+              <div className="post-cover-byline">
+                <div>
+                  <span className="label">Filed by</span>
+                  <em>{post.author}</em>
+                </div>
+                <div>
+                  <span className="label">Tagged</span>
+                  <span>{post.tags.slice(0, 4).join(" · ")}</span>
+                </div>
+                <div className="side-mark">
+                  <span>Side A</span>
+                  <span>File {callNo}</span>
+                </div>
               </div>
             </div>
           </div>
+        </div>
 
-          {post.tags.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted"
-                >
-                  {tag}
-                </span>
-              ))}
+        {/* Key Takeaways — boxed, bulleted summary for quick scanning
+            and for AI answer engines to quote directly. Only rendered
+            if the post frontmatter supplies them. */}
+        {post.takeaways && post.takeaways.length > 0 && (
+          <aside className="post-takeaways" aria-label="Key takeaways">
+            <div className="post-takeaways-head">
+              <span className="post-takeaways-mark" aria-hidden="true">
+                ⤷
+              </span>
+              <span className="post-takeaways-label">Key takeaways</span>
+              <span className="post-takeaways-meta">
+                {post.readingTime} · {post.wordCount.toLocaleString()} words
+              </span>
             </div>
-          )}
-        </div>
-
-        {/* Hero image — right column on desktop, below header on mobile */}
-        {post.image && (
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-surface-hover lg:aspect-square">
-            <Image
-              src={post.image}
-              alt={post.imageAlt ?? post.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 400px"
-              priority
-              unoptimized
-            />
-          </div>
-        )}
-
-        <hr className="mt-4 border-border lg:col-span-full" />
-      </header>
-
-      {/* Mobile TOC (collapsible, shown below header on small screens) */}
-      {headings.length >= 3 && (
-        <div className="mt-8">
-          <MobileTableOfContents items={headings} />
-        </div>
-      )}
-
-      {/* Two-column layout: sticky TOC left, content right */}
-      <div className="mt-8 lg:mt-10 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10 xl:grid-cols-[260px_1fr]">
-        {/* Desktop sticky TOC sidebar */}
-        {headings.length >= 3 && (
-          <aside className="hidden lg:block">
-            <TableOfContents items={headings} />
+            <ul className="post-takeaways-list">
+              {post.takeaways.map((t) => (
+                <li key={t}>{t}</li>
+              ))}
+            </ul>
           </aside>
         )}
-        {/* If no headings, skip the sidebar column */}
-        {headings.length < 3 && <div className="hidden lg:block" />}
 
-        {/* Main content column */}
-        <div>
-          {/* MDX prose content */}
-          <div className="prose-dark mx-auto max-w-3xl lg:mx-0">
+        {/* Reading frame — sticky ToC in the right rail, prose on the left.
+            ToC collapses to an inline accordion below the dek on narrow
+            viewports (handled in CSS). */}
+        <div className="post-reading">
+          {tocEntries.length > 0 && <ToC entries={tocEntries} />}
+          <div className="post-body">
             <MDXRemote
               source={post.content}
-              components={{ ...settingsMdxComponents, ...blogMdxComponents }}
               options={{
                 mdxOptions: {
                   remarkPlugins: [remarkGfm],
@@ -350,111 +312,116 @@ export default async function BlogPostPage({
                   ],
                 },
               }}
+              components={{
+                ...blogMdxComponents,
+                ...settingsMdxComponents,
+              }}
             />
           </div>
-
-          {/* Definitions / Glossary */}
-          {definitions.length > 0 && (
-            <section className="mx-auto mt-16 max-w-3xl lg:mx-0">
-              <div className="rounded-xl border border-border bg-surface p-6 md:p-8">
-                <h2 className="mb-4 text-lg font-bold">Key Terms</h2>
-                <dl className="space-y-4">
-                  {definitions.map((def) => (
-                    <div key={def.term}>
-                      <dt className="text-sm font-semibold text-accent">
-                        {def.term}
-                      </dt>
-                      <dd className="mt-1 text-sm leading-relaxed text-muted">
-                        {def.definition}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </section>
-          )}
-
-          {/* Writer bio card */}
-          {writer.slug !== "fader-and-knob" && (
-            <div className="mx-auto mt-16 max-w-3xl lg:mx-0">
-              <div className="flex items-start gap-4 rounded-xl border border-border bg-surface p-5 md:p-6">
-                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-border">
-                  {writer.image ? (
-                    <Image
-                      src={writer.image}
-                      alt={writer.name}
-                      fill
-                      className="object-cover"
-                      sizes="64px"
-                    />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-accent/10 text-lg font-bold text-accent">
-                      {writer.name.charAt(0)}
-                    </div>
-                  )}
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">{writer.name}</p>
-                  {writer.title && (
-                    <p className="text-sm text-accent">{writer.title}</p>
-                  )}
-                  <p className="mt-1 text-sm leading-relaxed text-muted">
-                    {writer.bio}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Back link */}
-          <div className="mx-auto mt-8 max-w-3xl lg:mx-0">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent-hover"
-            >
-              <svg
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-              Back to Blog
-            </Link>
-          </div>
         </div>
-      </div>
 
-      {/* Related posts */}
-      {/* Newsletter CTA */}
-      <div className="mx-auto mt-12 max-w-3xl">
-        <NewsletterSignup
-          variant="banner"
-          headline="Tone of the Week"
-          subtext="One recipe, one deep dive, one quick tip — every Friday. Free."
-          buttonText="Subscribe"
-          source="blog-post"
-        />
-      </div>
+        {/* FAQ — rendered as real <h3> Q / <p> A pairs so the prose is
+            indexable and so the FAQPage JSON-LD above has a visible
+            on-page counterpart. */}
+        {post.faq && post.faq.length > 0 && (
+          <section className="post-faq" aria-labelledby="faq-head">
+            <div className="section-head">
+              <span className="section-mark">?</span>
+              <h2 id="faq-head" className="section-title">
+                Frequently asked
+              </h2>
+              <span className="section-rule" aria-hidden="true" />
+              <span className="section-meta">
+                {post.faq.length}{" "}
+                {post.faq.length === 1 ? "question" : "questions"}
+              </span>
+            </div>
+            <dl className="post-faq-list">
+              {post.faq.map((f, i) => (
+                <div key={f.q} className="post-faq-item">
+                  <dt className="post-faq-q">
+                    <span className="post-faq-num" aria-hidden="true">
+                      Q{String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span>{f.q}</span>
+                  </dt>
+                  <dd className="post-faq-a">{f.a}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        )}
 
-      {related.length > 0 && (
-        <section className="mx-auto mt-16 max-w-7xl border-t border-border pt-12">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">
-            Related Posts
-          </h2>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {related.map((p) => (
-              <BlogCard key={p.slug} post={p} />
-            ))}
+        {/* About the writer — E-E-A-T signal + humanises the byline */}
+        <section className="post-author" aria-labelledby="author-head">
+          <div className="section-head">
+            <span className="section-mark">¤</span>
+            <h2 id="author-head" className="section-title">
+              About the writer
+            </h2>
+            <span className="section-rule" aria-hidden="true" />
+            <span className="section-meta">Field correspondent</span>
+          </div>
+          <div className="post-author-card">
+            {writer.image && (
+              <div className="post-author-img">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={writer.image} alt={writer.name} />
+              </div>
+            )}
+            <div className="post-author-body">
+              <div className="post-author-name">{writer.name}</div>
+              {writer.title && (
+                <div className="post-author-title">{writer.title}</div>
+              )}
+              <p className="post-author-bio">{writer.bio}</p>
+            </div>
           </div>
         </section>
-      )}
-    </article>
+
+        {/* End-of-file mark */}
+        <div className="post-endmark" aria-hidden="true">
+          ▪ ▪ ▪
+        </div>
+
+        {/* Related filings */}
+        {related.length > 0 && (
+          <div className="related">
+            <h3 className="display">Also filed under {catLabel}</h3>
+            <div className="feat-grid">
+              {related.map((r) => (
+                <div key={r.slug} style={{ gridColumn: "span 4" }}>
+                  <Link
+                    href={`/blog/${r.slug}`}
+                    className="feat-card"
+                    style={{ display: "block" }}
+                  >
+                    <div className="feat-card-num">
+                      No. {getCallNumber(r.slug)}
+                    </div>
+                    <div className="feat-card-art">
+                      {r.image && (
+                        <Image
+                          src={r.image}
+                          alt={r.imageAlt ?? r.title}
+                          fill
+                          unoptimized
+                          sizes="(max-width: 960px) 33vw, 300px"
+                          style={{ objectFit: "cover" }}
+                        />
+                      )}
+                    </div>
+                    <div className="feat-card-song">{r.title}</div>
+                    <div className="feat-card-artist">
+                      {r.author} · {formatDate(r.date)}
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </article>
+    </div>
   );
 }

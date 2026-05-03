@@ -1,261 +1,242 @@
-import { notFound } from "next/navigation";
-import {
-  getArtistBySlug,
-  getSongsByArtistSlug,
-  getRecipesBySongSlug,
-  artists,
-} from "@/lib/data";
-import { getBlogPostsForArtist } from "@/lib/data/platforms";
-import { ARTIST_INTROS } from "@/lib/data/artist-intros";
-import Image from "next/image";
-import Badge from "@/components/ui/Badge";
 import Link from "next/link";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import {
+  artists,
+  toneRecipes,
+  songs,
+  getArtistBySlug,
+  getSongBySlug,
+  getSongsByArtistSlug,
+} from "@/lib/data";
+import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
+import { LpArt, monogramFor } from "@/components/v3/LpArt";
+import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
+import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
+import { artistJsonLdSet } from "@/lib/seo/preview-jsonld";
 
 export function generateStaticParams() {
   return artists.map((a) => ({ slug: a.slug }));
 }
 
-interface ArtistPageProps {
+export async function generateMetadata({
+  params,
+}: {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateMetadata({ params }: ArtistPageProps) {
+}): Promise<Metadata> {
   const { slug } = await params;
-  const artist = getArtistBySlug(slug);
-  if (!artist) return { title: "Artist Not Found" };
-  const title = `${artist.name} Tone Recipes`;
-  const description = `Guitar tone recipes for ${artist.name} songs. Signal chains, settings, and platform translations.`;
-
+  const a = getArtistBySlug(slug);
+  if (!a) {
+    return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
+  }
+  const title = `${a.name} Tone Recipes - Fader & Knob`;
+  const description = (a.bio ?? "").slice(0, 160);
   return {
     title,
     description,
-    keywords: [artist.name, "tone recipes", "guitar tone", "signal chain", ...artist.genres],
+    keywords: [a.name, ...(a.genres ?? []), "tone recipe", "guitar tone"],
     openGraph: {
       title,
       description,
       type: "profile",
-      ...(artist.image_url ? { images: [{ url: artist.image_url, alt: artist.name }] } : {}),
+      ...(a.image_url ? { images: [{ url: a.image_url, alt: a.name }] } : {}),
     },
     twitter: {
-      card: artist.image_url ? "summary_large_image" : "summary",
+      card: a.image_url ? "summary_large_image" : "summary",
       title,
       description,
+      ...(a.image_url ? { images: [a.image_url] } : {}),
     },
+    robots: { index: false, follow: false },
   };
 }
 
-export default async function ArtistPage({ params }: ArtistPageProps) {
+export default async function PreviewArtistDetail({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const artist = getArtistBySlug(slug);
   if (!artist) notFound();
 
   const artistSongs = getSongsByArtistSlug(slug);
-  const introParas = ARTIST_INTROS[slug] ?? [];
-  const blogPosts = getBlogPostsForArtist(slug);
+  const recipes = toneRecipes.filter((r) => {
+    const s = getSongBySlug(r.song_slug);
+    return s?.artist_slug === slug;
+  });
+  const artistIdx = artists.findIndex((a) => a.slug === slug) + 1;
 
-  // Aggregate signature gear from all recipes
-  const allRecipes = artistSongs.flatMap((s) => getRecipesBySongSlug(s.slug));
-  const guitars = new Set<string>();
-  const amps = new Set<string>();
-  const effects = new Set<string>();
-  for (const recipe of allRecipes) {
-    if (recipe.original_gear) {
-      if (recipe.original_gear.guitar) guitars.add(recipe.original_gear.guitar);
-      if (recipe.original_gear.amp) amps.add(recipe.original_gear.amp);
-      if (recipe.original_gear.effects) {
-        for (const e of recipe.original_gear.effects) effects.add(e);
-      }
-    }
-  }
-  const hasGear = guitars.size > 0 || amps.size > 0 || effects.size > 0;
-
-  const musicGroupJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "MusicGroup",
-    "name": artist.name,
-    "description": artist.bio,
-    "genre": artist.genres,
-    ...(artist.image_url ? { "image": artist.image_url } : {}),
-  };
-
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Browse", "item": "https://faderandknob.com/browse" },
-      { "@type": "ListItem", "position": 2, "name": artist.name },
+  // Field Notes that mention this artist or their songs
+  const artistPosts = findRelatedPosts({
+    keywords: [
+      artist.name,
+      // Last name is usually how a writer references them mid-paragraph
+      artist.name.split(" ").slice(-1)[0],
+      ...artistSongs.map((s) => s.title),
     ],
-  };
+    tags: [artist.slug, ...(artist.genres ?? [])],
+    categories: ["artist-tone"],
+    limit: 3,
+  });
+
+  const { musicGroup, breadcrumb } = artistJsonLdSet(artist);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+    <div className="container">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(musicGroupJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(musicGroup) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      {/* Breadcrumb */}
-      <nav className="mb-8 flex items-center gap-2 text-sm text-muted">
-        <Link href="/browse" className="hover:text-foreground">Browse</Link>
-        <span>/</span>
-        <span className="text-foreground">{artist.name}</span>
-      </nav>
-
-      {/* Artist header */}
-      <div className="mb-14 flex items-start gap-6">
-        {artist.image_url && (
-          <div className="hidden sm:block shrink-0">
-            <Image
-              src={artist.image_url}
-              alt={artist.name}
-              width={140}
-              height={140}
-              priority
-              className="rounded-xl border border-border shadow-lg object-cover"
-              sizes="140px"
-            />
-          </div>
-        )}
-        <div>
-          <h1 className="text-3xl font-bold md:text-4xl">{artist.name}</h1>
-          <p className="mt-3 max-w-2xl leading-relaxed text-muted">{artist.bio}</p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {artist.genres.map((g) => (
-              <Badge key={g}>{g}</Badge>
-            ))}
-          </div>
+      <div className="artist-detail">
+        <div className="recipe-crumbs">
+          <Link href="/">Home</Link>
+          <span className="sep">/</span>
+          <Link href="/browse">Archive</Link>
+          <span className="sep">/</span>
+          <span style={{ color: "var(--ink)" }}>{artist.name}</span>
         </div>
-      </div>
 
-      {/* Tone & Gear prose intro */}
-      {introParas.length > 0 && (
-        <section className="mb-14 max-w-3xl">
-          <h2 className="mb-4 text-xl font-bold">Tone &amp; Gear</h2>
-          <div className="space-y-4 text-base leading-relaxed text-muted">
-            {introParas.map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Signature Gear */}
-      {hasGear && (
-        <section className="mb-14">
-          <h2 className="mb-4 text-xl font-bold">Signature Gear</h2>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {guitars.size > 0 && (
-              <div className="rounded-lg border border-border bg-surface p-4">
-                <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">
-                  Guitars
-                </h3>
-                <ul className="space-y-1 text-sm text-muted">
-                  {Array.from(guitars).map((g) => (
-                    <li key={g}>{g}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {amps.size > 0 && (
-              <div className="rounded-lg border border-border bg-surface p-4">
-                <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">
-                  Amps
-                </h3>
-                <ul className="space-y-1 text-sm text-muted">
-                  {Array.from(amps).map((a) => (
-                    <li key={a}>{a}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {effects.size > 0 && (
-              <div className="rounded-lg border border-border bg-surface p-4">
-                <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">
-                  Effects
-                </h3>
-                <ul className="space-y-1 text-sm text-muted">
-                  {Array.from(effects).map((e) => (
-                    <li key={e}>{e}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        </section>
-      )}
-
-      {/* Songs & Recipes */}
-      <h2 className="mb-6 text-xl font-bold">Songs &amp; Tone Recipes</h2>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {artistSongs.map((song) => {
-          const songRecipes = getRecipesBySongSlug(song.slug);
-          const recipe = songRecipes[0];
-
-          if (recipe) {
-            return (
-              <Link
-                key={song.slug}
-                href={`/recipe/${recipe.slug}`}
-                className="group rounded-lg border border-border bg-surface p-4 transition-colors hover:border-accent/40"
-              >
-                <p className="font-medium">{song.title}</p>
-                <p className="text-sm text-muted">
-                  {song.album} ({song.year})
-                </p>
-                <p className="mt-2 text-sm font-medium text-accent opacity-0 transition-opacity group-hover:opacity-100">
-                  View recipe &rarr;
-                </p>
-              </Link>
-            );
-          }
-
-          return (
-            <div
-              key={song.slug}
-              className="rounded-lg border border-border bg-surface p-4"
-            >
-              <p className="font-medium">{song.title}</p>
-              <p className="text-sm text-muted">
-                {song.album} ({song.year})
-              </p>
-              <p className="mt-2 text-xs text-muted">Recipe coming soon</p>
+        <header className="artist-head">
+          <div className="artist-head-text">
+            <div className="recipe-issue">
+              <span className="pill">
+                Player No. {String(artistIdx).padStart(3, "0")}
+              </span>
+              {artist.genres?.[0] && <span>{artist.genres[0]}</span>}
             </div>
-          );
-        })}
-      </div>
-
-      {artistSongs.length === 0 && (
-        <div className="rounded-xl border border-dashed border-border p-8 text-center">
-          <p className="text-muted">Tone recipes for {artist.name} coming soon.</p>
-        </div>
-      )}
-
-      {/* Related Blog Posts */}
-      {blogPosts.length > 0 && (
-        <section className="mt-14">
-          <h2 className="mb-4 text-xl font-bold">Related Articles</h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {blogPosts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="group rounded-lg border border-border bg-surface p-4 transition-all hover:border-accent/40"
-              >
-                <p className="text-xs text-muted">{post.date}</p>
-                <h3 className="mt-1 text-sm font-semibold text-foreground transition-colors group-hover:text-accent">
-                  {post.title}
-                </h3>
-                <p className="mt-1 line-clamp-2 text-xs text-muted">
-                  {post.description}
-                </p>
-              </Link>
-            ))}
+            <h1 className="artist-title display">{artist.name}</h1>
+            <p className="artist-bio">{artist.bio}</p>
+            <div className="artist-genres">
+              {artist.genres?.map((g) => (
+                <span key={g} className="artist-genre-chip">
+                  {g.replace(/-/g, " ")}
+                </span>
+              ))}
+            </div>
           </div>
-        </section>
-      )}
+          <div className="artist-portrait">
+            {artist.image_url ? (
+              <Image
+                src={artist.image_url}
+                alt={artist.name}
+                fill
+                sizes="(max-width: 720px) 100vw, 360px"
+                className="artist-portrait-img"
+              />
+            ) : (
+              <div className="artist-portrait-fallback" aria-hidden="true">
+                {monogramFor(artist.name)}
+              </div>
+            )}
+            <div className="artist-portrait-label">
+              <span>{artist.name.split(" ").slice(-1)[0]}</span>
+              <span>FILE {String(artistIdx).padStart(3, "0")}</span>
+            </div>
+          </div>
+        </header>
+
+        {recipes.length > 0 && (
+          <section className="platform-section">
+            <div className="how-head">
+              <h2 className="display">
+                The {artist.name.split(" ").slice(-1)[0]} catalogue
+              </h2>
+              <span className="section-rule" aria-hidden="true" />
+              <span className="section-meta">
+                {recipes.length} recipe{recipes.length === 1 ? "" : "s"}
+              </span>
+            </div>
+            <div className="audition-grid">
+              {recipes.map((r) => {
+                const rSong = getSongBySlug(r.song_slug);
+                const rIdx =
+                  toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
+                const rBlocks = recipeToBlocks(r, "helix");
+                return (
+                  <Link
+                    key={r.slug}
+                    href={`/recipe/${r.slug}`}
+                    className="audition-card"
+                  >
+                    <div className="audition-art">
+                      <LpArt
+                        cover={rSong?.album_art_url}
+                        monogram={monogramFor(artist.name)}
+                        meta={`${rBlocks.length} blocks`}
+                        hue={rIdx}
+                        alt={`${rSong?.album ?? rSong?.title ?? r.title} cover`}
+                      />
+                    </div>
+                    <div className="audition-meta">
+                      <span className="audition-song">
+                        {rSong?.title ?? r.title}
+                      </span>
+                      {rSong?.album && (
+                        <span className="audition-album">
+                          {rSong.album}
+                          {rSong.year ? ` · ${rSong.year}` : ""}
+                        </span>
+                      )}
+                      <span className="audition-cta">
+                        See the chain <span aria-hidden="true">→</span>
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        {/* Field Notes that mention this artist */}
+        <FieldNotesRail
+          title={`Field notes on ${artist.name.split(" ").slice(-1)[0]}`}
+          posts={artistPosts}
+        />
+
+        {/* Songs without recipes — flagged */}
+        {artistSongs.filter((s) => !recipes.some((r) => r.song_slug === s.slug)).length > 0 && (
+          <section className="platform-section">
+            <div className="how-head">
+              <h2 className="display">Songs in the queue</h2>
+              <span className="section-rule" aria-hidden="true" />
+              <span className="section-meta">awaiting translation</span>
+            </div>
+            <div className="archive-side">
+              {artistSongs
+                .filter((s) => !recipes.some((r) => r.song_slug === s.slug))
+                .map((s) => {
+                  const sIdx = songs.findIndex((x) => x.slug === s.slug) + 1;
+                  return (
+                    <Link
+                      key={s.slug}
+                      href={`/song/${s.slug}`}
+                      className="archive-item"
+                    >
+                      <div className="archive-item-num">
+                        No.<br />
+                        {String(sIdx).padStart(3, "0")}
+                      </div>
+                      <div>
+                        <div className="archive-item-title">{s.title}</div>
+                        <div className="archive-byline">
+                          <em>{s.album}</em>
+                          {s.year ? ` · ${s.year}` : ""}
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+            </div>
+          </section>
+        )}
+      </div>
     </div>
   );
 }

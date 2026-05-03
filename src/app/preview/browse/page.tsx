@@ -5,8 +5,8 @@ import {
   getSongBySlug,
   getArtistBySlug,
 } from "@/lib/data";
-import { recipeToBlocks } from "../_components/recipe-to-blocks";
-import { LpArt, monogramFor } from "../_components/LpArt";
+import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
+import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { getAllPlatforms } from "@/lib/data/platforms";
 import type { Platform } from "@/types/recipe";
 

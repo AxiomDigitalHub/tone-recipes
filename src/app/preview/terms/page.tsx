@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LegalShell } from "../_components/LegalShell";
+import { LegalShell } from "@/components/v3/LegalShell";
 
 export const metadata: Metadata = {
   title: "Preview · Terms of Service — Fader & Knob",

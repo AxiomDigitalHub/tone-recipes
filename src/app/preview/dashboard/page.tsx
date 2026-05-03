@@ -7,7 +7,7 @@ import { useFavoritesStore } from "@/lib/stores/favorites-store";
 import { useRecentlyViewedStore } from "@/lib/stores/recently-viewed-store";
 import { getRecipeBySlug, getSongBySlug, getArtistBySlug } from "@/lib/data";
 import type { ToneRecipe } from "@/types/recipe";
-import { LpArt, monogramFor } from "../_components/LpArt";
+import { LpArt, monogramFor } from "@/components/v3/LpArt";
 
 const STARTER_PICKS = [
   "srv-pride-and-joy-rhythm",

@@ -68,7 +68,7 @@ export default async function PreviewSongDetail({
   // detour. Send the user straight to the recipe — the Listen/Tab CTAs
   // and album art now live on the recipe head, so nothing is lost.
   if (recipes.length === 1) {
-    redirect(`/preview/recipe/${recipes[0].slug}`);
+    redirect(`/recipe/${recipes[0].slug}`);
   }
   const songIdx = songs.findIndex((s) => s.slug === slug) + 1;
 
@@ -86,13 +86,13 @@ export default async function PreviewSongDetail({
       />
       <div className="song-detail">
         <div className="recipe-crumbs">
-          <Link href="/preview">Home</Link>
+          <Link href="/">Home</Link>
           <span className="sep">/</span>
-          <Link href="/preview/browse">Archive</Link>
+          <Link href="/browse">Archive</Link>
           {artist && (
             <>
               <span className="sep">/</span>
-              <Link href={`/preview/artist/${artist.slug}`}>
+              <Link href={`/artist/${artist.slug}`}>
                 {artist.name}
               </Link>
             </>
@@ -116,7 +116,7 @@ export default async function PreviewSongDetail({
             <div className="recipe-credits">
               {artist && (
                 <Link
-                  href={`/preview/artist/${artist.slug}`}
+                  href={`/artist/${artist.slug}`}
                   className="song-artist-link"
                 >
                   <em>{artist.name}</em>
@@ -185,7 +185,7 @@ export default async function PreviewSongDetail({
                 return (
                   <Link
                     key={r.slug}
-                    href={`/preview/recipe/${r.slug}`}
+                    href={`/recipe/${r.slug}`}
                     className="audition-card"
                   >
                     <div className="audition-art">

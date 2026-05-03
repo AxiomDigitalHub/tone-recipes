@@ -6,9 +6,9 @@ import {
   getArtistBySlug,
   getRecipeBySlug,
 } from "@/lib/data";
-import { recipeToBlocks } from "./_components/recipe-to-blocks";
-import { PreviewSchematicChain } from "./_components/PreviewSchematicChain";
-import { LpArt, monogramFor } from "./_components/LpArt";
+import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
+import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
+import { LpArt, monogramFor } from "@/components/v3/LpArt";
 
 export const metadata: Metadata = {
   title: "Fader & Knob — Tone recipes for modeler players",

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getAllPosts, getCallNumber, BLOG_CATEGORIES } from "@/lib/blog";
 import { getAllWriters } from "@/lib/writers";
-import { BlogArchive, type ArchiveGroup } from "./_components/BlogArchive";
+import { BlogArchive, type ArchiveGroup } from "@/components/v3/BlogArchive";
 import type { Metadata } from "next";
 
 /**

@@ -6,7 +6,7 @@ import { useAuth } from "@/lib/auth/auth-context";
 import { useFavoritesStore } from "@/lib/stores/favorites-store";
 import { getRecipeBySlug, getSongBySlug, getArtistBySlug } from "@/lib/data";
 import type { ToneRecipe } from "@/types/recipe";
-import { LpArt, monogramFor } from "../../_components/LpArt";
+import { LpArt, monogramFor } from "@/components/v3/LpArt";
 
 export default function PreviewDashboardSaved() {
   const { user } = useAuth();

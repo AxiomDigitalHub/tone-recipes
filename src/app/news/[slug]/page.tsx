@@ -13,18 +13,15 @@ import {
   getNewsSlugs,
   getAllNewsPosts,
   NEWS_CATEGORIES,
-  NEWS_CATEGORY_COLORS,
   type NewsCategory,
 } from "@/lib/news";
-import { getNewsImageSync, getNewsImageCredit } from "@/lib/unsplash";
+import { getNewsImageSync } from "@/lib/unsplash";
 
-/* ---------- Static generation ---------- */
+const SITE_URL = "https://faderandknob.com";
 
 export function generateStaticParams() {
   return getNewsSlugs().map((slug) => ({ slug }));
 }
-
-/* ---------- Metadata ---------- */
 
 export async function generateMetadata({
   params,
@@ -33,26 +30,22 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getNewsPostBySlug(slug);
-  if (!post) return { title: "Article Not Found" };
-
+  if (!post) {
+    return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
+  }
   return {
     title: post.title,
     description: post.excerpt,
     openGraph: {
-      title: `${post.title} | Fader & Knob`,
+      title: `${post.title} — Fader & Knob`,
       description: post.excerpt,
       type: "article",
       publishedTime: post.date,
     },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
-    },
+    twitter: { card: "summary_large_image", title: post.title, description: post.excerpt },
+    robots: { index: false, follow: false },
   };
 }
-
-/* ---------- Date formatter ---------- */
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", {
@@ -62,9 +55,7 @@ function formatDate(iso: string) {
   });
 }
 
-/* ---------- Page ---------- */
-
-export default async function NewsArticlePage({
+export default async function PreviewNewsArticle({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -73,219 +64,163 @@ export default async function NewsArticlePage({
   const post = getNewsPostBySlug(slug);
   if (!post) notFound();
 
-  const catLabel =
-    NEWS_CATEGORIES[post.category as NewsCategory] ?? post.category;
-  const catColor =
-    NEWS_CATEGORY_COLORS[post.category] ?? "bg-accent/15 text-accent";
-
-  // Related news: same category, excluding this post, limit 3
+  const catLabel = NEWS_CATEGORIES[post.category as NewsCategory] ?? post.category;
   const related = getAllNewsPosts()
     .filter((p) => p.category === post.category && p.slug !== post.slug)
     .slice(0, 3);
 
-  /* ---------- Structured data (JSON-LD) ---------- */
+  const sourceHost =
+    post.source_url && !post.source_url.includes("faderandknob")
+      ? new URL(post.source_url).hostname.replace(/^www\./, "")
+      : null;
 
-  const articleJsonLd = {
+  const articleLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    publisher: {
-      "@type": "Organization",
-      name: "Fader & Knob",
-      url: "https://faderandknob.com",
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://faderandknob.com/news/${slug}`,
-    },
+    publisher: { "@type": "Organization", name: "Fader & Knob", url: SITE_URL },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/news/${slug}` },
+  };
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "News", item: `${SITE_URL}/news` },
+      { "@type": "ListItem", position: 2, name: catLabel },
+      { "@type": "ListItem", position: 3, name: post.title },
+    ],
   };
 
   return (
-    <article className="mx-auto max-w-4xl px-4 py-16 md:py-20">
+    <div className="container">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
-      {/* Breadcrumb */}
-      <nav
-        aria-label="Breadcrumb"
-        className="mb-8 flex items-center gap-2 text-sm text-muted"
-      >
-        <Link
-          href="/news"
-          className="transition-colors hover:text-foreground"
-        >
-          News
-        </Link>
-        <span>/</span>
-        <Link
-          href={`/news?category=${post.category}`}
-          className="transition-colors hover:text-foreground"
-        >
-          {catLabel}
-        </Link>
-        <span>/</span>
-        <span className="truncate text-foreground">{post.title}</span>
-      </nav>
-
-      {/* Post header */}
-      <header>
-        <span
-          className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${catColor}`}
-        >
-          {catLabel}
-        </span>
-
-        <h1 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-          {post.title}
-        </h1>
-
-        <p className="mt-4 text-lg text-muted">{post.excerpt}</p>
-
-        <div className="mt-6 flex items-center gap-3 text-sm text-muted">
-          <time dateTime={post.date}>{formatDate(post.date)}</time>
-          <span className="text-border">|</span>
-          <span>{post.readingTime}</span>
-          {post.source_url &&
-            !post.source_url.includes("faderandknob") && (
-              <>
-                <span className="text-border">|</span>
-                <a
-                  href={post.source_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent transition-colors hover:text-accent-hover"
-                >
-                  Source
-                </a>
-              </>
-            )}
+      <article className="recipe">
+        <div className="recipe-crumbs">
+          <Link href="/">Home</Link>
+          <span className="sep">/</span>
+          <Link href="/news">News</Link>
+          <span className="sep">/</span>
+          <Link href={`/news?category=${post.category}`}>{catLabel}</Link>
+          <span className="sep">/</span>
+          <span style={{ color: "var(--ink)" }}>{post.title}</span>
         </div>
 
-        {/* Hero image */}
-        <div className="mt-8 relative aspect-[2/1] w-full overflow-hidden rounded-xl bg-surface-hover">
+        <div className={`post-cover ${post.image_url ? "has-image" : "no-image"}`}>
           <Image
             src={getNewsImageSync(post.slug, post.category, post.image_url || undefined)}
             alt={post.title}
             fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 800px"
             priority
+            unoptimized
+            sizes="(max-width: 960px) 100vw, 960px"
+            className="post-cover-img"
+          />
+          <div className="post-cover-scrim" aria-hidden="true" />
+
+          <div className="post-cover-inner">
+            <div className="post-cover-masthead">
+              <span className="pill">{catLabel}</span>
+              <span>{formatDate(post.date)}</span>
+              {post.readingTime && (
+                <>
+                  <span>·</span>
+                  <span>{post.readingTime}</span>
+                </>
+              )}
+              {sourceHost && (
+                <>
+                  <span>·</span>
+                  <span>via {sourceHost}</span>
+                </>
+              )}
+            </div>
+
+            <div className="post-cover-headline">
+              <h1 className="post-title display">{post.title}</h1>
+              <p className="post-dek">{post.excerpt}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="post-body">
+          <MDXRemote
+            source={post.content}
+            components={{ ...settingsMdxComponents, ...blogMdxComponents }}
+            options={{
+              mdxOptions: {
+                remarkPlugins: [remarkGfm],
+                rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: "wrap" }]],
+              },
+            }}
           />
         </div>
-        {(() => {
-          const credit = getNewsImageCredit(post.slug, post.category, post.image_url || undefined);
-          return credit ? <p className="mt-2 text-[10px] text-muted/40 text-right">{credit}</p> : null;
-        })()}
-      </header>
 
-      {/* MDX prose content */}
-      <div className="prose-dark mx-auto mt-10 max-w-3xl">
-        <MDXRemote
-          source={post.content}
-          components={{ ...settingsMdxComponents, ...blogMdxComponents }}
-          options={{
-            mdxOptions: {
-              remarkPlugins: [remarkGfm],
-              rehypePlugins: [
-                rehypeSlug,
-                [rehypeAutolinkHeadings, { behavior: "wrap" }],
-              ],
-            },
-          }}
-        />
-      </div>
-
-      {/* Source attribution */}
-      {post.source_url && !post.source_url.includes("faderandknob") && (
-        <div className="mx-auto mt-12 max-w-3xl">
-          <div className="rounded-xl border border-border bg-surface p-5">
-            <p className="text-sm text-muted">
+        {sourceHost && post.source_url && (
+          <aside className="post-source">
+            <p>
               Originally reported by{" "}
-              <a
-                href={post.source_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-accent transition-colors hover:text-accent-hover"
-              >
-                {new URL(post.source_url).hostname.replace("www.", "")}
+              <a href={post.source_url} target="_blank" rel="noopener noreferrer">
+                {sourceHost}
               </a>
             </p>
-          </div>
-        </div>
-      )}
+          </aside>
+        )}
 
-      {/* Back link */}
-      <div className="mx-auto mt-8 max-w-3xl">
-        <Link
-          href="/news"
-          className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent-hover"
-        >
-          <svg
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          Back to News
-        </Link>
-      </div>
-
-      {/* Related news */}
-      {related.length > 0 && (
-        <section className="mt-16 border-t border-border pt-12">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">
-            Related News
-          </h2>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {related.map((p) => {
-              const relCatColor =
-                NEWS_CATEGORY_COLORS[p.category] ??
-                "bg-accent/15 text-accent";
-              const relCatLabel =
-                NEWS_CATEGORIES[p.category as NewsCategory] ??
-                p.category;
-
-              return (
-                <Link
-                  key={p.slug}
-                  href={`/news/${p.slug}`}
-                  className="group flex flex-col rounded-xl border border-border bg-surface p-5 transition-all hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
-                >
-                  <span
-                    className={`w-fit rounded-full px-2.5 py-0.5 text-xs font-medium ${relCatColor}`}
-                  >
-                    {relCatLabel}
-                  </span>
-                  <h3 className="mt-3 text-base font-bold text-foreground transition-colors group-hover:text-accent">
-                    {p.title}
-                  </h3>
-                  <p className="mt-2 flex-1 text-sm text-muted line-clamp-2">
-                    {p.excerpt}
-                  </p>
-                  <span className="mt-3 text-xs text-muted">
-                    {new Date(p.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })}
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-      )}
-    </article>
+        {related.length > 0 && (
+          <section className="news-related">
+            <header className="how-head">
+              <span className="section-rule" />
+              <h2 className="display">Related</h2>
+              <Link href="/news" className="section-meta">
+                All news →
+              </Link>
+            </header>
+            <div className="news-grid">
+              {related.map((p) => {
+                const relLabel =
+                  NEWS_CATEGORIES[p.category as NewsCategory] ?? p.category;
+                return (
+                  <Link key={p.slug} href={`/news/${p.slug}`} className="news-card">
+                    <div className="news-card-image">
+                      <Image
+                        src={getNewsImageSync(
+                          p.slug,
+                          p.category,
+                          p.image_url || undefined,
+                        )}
+                        alt={p.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 33vw"
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                    <div className="news-card-body">
+                      <div className="news-card-meta">
+                        <span>{relLabel}</span>
+                        <span> · </span>
+                        <span>{formatDate(p.date)}</span>
+                      </div>
+                      <h3 className="news-card-title">{p.title}</h3>
+                      <p className="news-card-dek">{p.excerpt}</p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        )}
+      </article>
+    </div>
   );
 }

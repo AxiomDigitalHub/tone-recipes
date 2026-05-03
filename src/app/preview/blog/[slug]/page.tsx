@@ -17,7 +17,7 @@ import {
 } from "@/lib/blog";
 import { getWriter } from "@/lib/writers";
 import { extractToc } from "@/lib/toc";
-import { ToC } from "../_components/ToC";
+import { ToC } from "@/components/v3/ToC";
 import type { Metadata } from "next";
 
 /**
