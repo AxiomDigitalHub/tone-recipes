@@ -12,6 +12,8 @@ import {
 } from "@/lib/data";
 import { recipeToBlocks } from "../../_components/recipe-to-blocks";
 import { LpArt, monogramFor } from "../../_components/LpArt";
+import { FieldNotesRail } from "../../_components/FieldNotesRail";
+import { findRelatedPosts } from "../../_components/findRelatedPosts";
 
 export function generateStaticParams() {
   return artists.map((a) => ({ slug: a.slug }));
@@ -45,6 +47,19 @@ export default async function PreviewArtistDetail({
     return s?.artist_slug === slug;
   });
   const artistIdx = artists.findIndex((a) => a.slug === slug) + 1;
+
+  // Field Notes that mention this artist or their songs
+  const artistPosts = findRelatedPosts({
+    keywords: [
+      artist.name,
+      // Last name is usually how a writer references them mid-paragraph
+      artist.name.split(" ").slice(-1)[0],
+      ...artistSongs.map((s) => s.title),
+    ],
+    tags: [artist.slug, ...(artist.genres ?? [])],
+    categories: ["artist-tone"],
+    limit: 3,
+  });
 
   return (
     <div className="container">
@@ -152,6 +167,12 @@ export default async function PreviewArtistDetail({
             </div>
           </section>
         )}
+
+        {/* Field Notes that mention this artist */}
+        <FieldNotesRail
+          title={`Field notes on ${artist.name.split(" ").slice(-1)[0]}`}
+          posts={artistPosts}
+        />
 
         {/* Songs without recipes — flagged */}
         {artistSongs.filter((s) => !recipes.some((r) => r.song_slug === s.slug)).length > 0 && (

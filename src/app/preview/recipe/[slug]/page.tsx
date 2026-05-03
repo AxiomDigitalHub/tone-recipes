@@ -9,6 +9,8 @@ import {
 import { recipeToBlocks } from "../../_components/recipe-to-blocks";
 import { PreviewRecipeClient } from "../../_components/PreviewRecipeClient";
 import { LpArt, monogramFor } from "../../_components/LpArt";
+import { FieldNotesRail } from "../../_components/FieldNotesRail";
+import { findRelatedPosts } from "../../_components/findRelatedPosts";
 import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
 import type { Metadata } from "next";
 
@@ -93,6 +95,23 @@ export default async function PreviewRecipePage({
       return firstTag ? r.tags?.includes(firstTag) : false;
     })
     .slice(0, 3);
+
+  // Related Field Notes — match against the recipe's tags + the gear
+  // names in its signal chain + the artist + the song title. Posts get
+  // ranked, top 3 shown.
+  const gearKeywords = (recipe.signal_chain ?? [])
+    .map((b) => b.gear_name)
+    .filter((s): s is string => Boolean(s))
+    .slice(0, 8);
+  const relatedPosts = findRelatedPosts({
+    keywords: [
+      ...(artist?.name ? [artist.name] : []),
+      ...(song?.title ? [song.title] : []),
+      ...gearKeywords,
+    ],
+    tags: recipe.tags ?? [],
+    limit: 3,
+  });
 
   return (
     <div className="container">
@@ -263,6 +282,13 @@ export default async function PreviewRecipePage({
             </div>
           </div>
         )}
+
+        {/* Related Field Notes — pulls from the blog when there's a
+            keyword/tag overlap (gear, artist, song). */}
+        <FieldNotesRail
+          title="Field notes for this tone"
+          posts={relatedPosts}
+        />
 
         {/* Related recipes */}
         {related.length > 0 && (

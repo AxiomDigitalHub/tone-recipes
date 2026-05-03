@@ -14,6 +14,8 @@ import {
 import type { Platform } from "@/types/recipe";
 import { recipeToBlocks } from "../../_components/recipe-to-blocks";
 import { LpArt, monogramFor } from "../../_components/LpArt";
+import { FieldNotesRail } from "../../_components/FieldNotesRail";
+import { findRelatedPosts } from "../../_components/findRelatedPosts";
 
 export function generateStaticParams() {
   return getAllPlatforms().map((p) => ({ slug: p.id }));
@@ -162,6 +164,14 @@ export default async function PreviewPlatformDetail({
   if (!platform) notFound();
 
   const recipes = getRecipesForPlatform(slug);
+  // Field Notes that talk about this platform — match by label,
+  // manufacturer, and the slug itself.
+  const platformPosts = findRelatedPosts({
+    keywords: [platform.label, platform.manufacturer, slug.replace(/_/g, " ")],
+    tags: [slug, platform.label.toLowerCase()],
+    categories: ["platform-guide"],
+    limit: 3,
+  });
   const hue = HUE_BY_PLATFORM[slug] ?? 1;
   const allPlatforms = getAllPlatforms();
   const family = PLATFORM_FAMILY[slug];
@@ -328,6 +338,12 @@ export default async function PreviewPlatformDetail({
             </Link>
           )}
         </section>
+
+        {/* Field Notes that talk about this platform */}
+        <FieldNotesRail
+          title={`Field notes for ${platform.label} players`}
+          posts={platformPosts}
+        />
 
         {/* Other platforms — quiet jumper rail */}
         <section className="platform-section platform-other">
