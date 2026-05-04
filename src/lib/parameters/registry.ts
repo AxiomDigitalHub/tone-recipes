@@ -94,8 +94,10 @@ export const PARAM_REGISTRY: Record<string, ParamMeta> = {
   Master: { kind: "knob", min: 0, max: 10, neutral: 10, description: "Master volume. Typically kept high (10) so the power-amp stage contributes; loudness controlled via Channel Volume." },
   MV: { kind: "knob", min: 0, max: 10, neutral: 10, description: "Master Volume. Typically kept high; loudness set via Channel Volume." },
   // Channel Volume — the operative loudness control when Master sits high.
-  // Neutral at 5 (unity-ish).
+  // Neutral at 5 (unity-ish). Alias variants because recipe data uses
+  // both "Ch Vol" (with space) and "ChVol" (camelCase).
   "Ch Vol": { kind: "knob", min: 0, max: 10, neutral: 5, description: "Channel volume (Helix amp models). Controls post-preamp loudness." },
+  ChVol: { kind: "knob", min: 0, max: 10, neutral: 5, description: "Channel volume (Helix amp models). Controls post-preamp loudness." },
   Level: { kind: "knob", min: 0, max: 10, neutral: 5 },
   Output: { kind: "knob", min: 0, max: 10, neutral: 5 },
   Post: { kind: "knob", min: 0, max: 10, neutral: 10, description: "Post gain / master (Peavey-style). Same convention as Master — kept high, Channel Volume sets loudness." },
@@ -129,12 +131,17 @@ export const PARAM_REGISTRY: Record<string, ParamMeta> = {
   /* ── Reverb ── */
   Decay: { kind: "knob", min: 0, max: 10, neutral: 3, unit: "s", description: "Reverb tail length." },
   "Pre Delay": { kind: "fader", min: 0, max: 500, neutral: 20, unit: "ms" },
+  Predelay: { kind: "fader", min: 0, max: 500, neutral: 20, unit: "ms" },
+  PreDelay: { kind: "fader", min: 0, max: 500, neutral: 20, unit: "ms" },
   EarlyReflections: { kind: "knob", min: 0, max: 1, neutral: 0.5 },
   Reverb: { kind: "knob", min: 0, max: 10, neutral: 2 },
 
   /* ── EQ blocks / cab filters — frequency sweeps ── */
   LowCut: { kind: "fader", min: 20, max: 500, neutral: 20, unit: "Hz", description: "High-pass filter. 20 = off." },
   HighCut: { kind: "fader", min: 2000, max: 20000, neutral: 20000, unit: "Hz", description: "Low-pass filter. 20000 = off." },
+  /* Helix Tilt EQ — single-knob bidirectional EQ. 0.5 = flat. */
+  Tilt: { kind: "knob", min: 0, max: 1, neutral: 0.5, description: "Bidirectional EQ. 0.5 = flat; <0.5 darker, >0.5 brighter." },
+  CenterFreq: { kind: "fader", min: 100, max: 10000, neutral: 1000, unit: "Hz", description: "Tilt EQ pivot frequency." },
   "Low Freq": { kind: "fader", min: 20, max: 500, neutral: 100, unit: "Hz" },
   "Mid Freq": { kind: "fader", min: 200, max: 5000, neutral: 800, unit: "Hz" },
   "High Freq": { kind: "fader", min: 2000, max: 20000, neutral: 8000, unit: "Hz" },
@@ -151,6 +158,15 @@ export const PARAM_REGISTRY: Record<string, ParamMeta> = {
   Rate: { kind: "knob", min: 0, max: 10, neutral: 3, unit: "Hz" },
   Speed: { kind: "knob", min: 0, max: 10, neutral: 3, unit: "Hz" },
   Intensity: { kind: "knob", min: 0, max: 10, neutral: 0 },
+
+  /* ── Volume / expression pedal positions ── */
+  Pedal: { kind: "fader", min: 0, max: 1, neutral: 1, description: "Volume pedal heel-to-toe position. 1 = full open." },
+
+  /* ── Pedal-specific extras ── */
+  Bottom: { kind: "knob", min: 0, max: 10, neutral: 5, description: "Low-end body control on Boss-style boosters (Blues Drive, etc.)." },
+
+  /* ── Katana / Boss effect-level conventions ── */
+  EffectLevel: { kind: "knob", min: 0, max: 10, neutral: 5, description: "Wet effect level (Boss Katana convention)." },
 
   /* ── Cab / mic — mostly text/choice params ── */
   Distance: { kind: "text", min: 0, max: 0, neutral: 0, description: "Mic distance from the cab." },

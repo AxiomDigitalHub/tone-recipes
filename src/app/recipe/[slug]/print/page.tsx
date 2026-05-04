@@ -14,8 +14,10 @@ import {
   type PreviewBlockData,
 } from "@/components/v3/PreviewBlocks";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
+import { getCanonicalParams } from "@/lib/parameters/canonical";
+import { lookupParam } from "@/lib/parameters/registry";
 import type { Metadata } from "next";
-import type { Platform } from "@/types/recipe";
+import type { Platform, PlatformTranslation } from "@/types/recipe";
 
 /**
  * /recipe/[slug]/print — print-optimized version of the recipe.
@@ -78,6 +80,36 @@ const PLATFORM_ORDER: Platform[] = [
   "fractal",
   "tonex",
 ];
+
+/**
+ * Enrich a platform translation's blocks so every canonical
+ * parameter for the (platform, block_category) pair renders — even
+ * when the recipe data didn't set one. Missing params get filled with
+ * the registry neutral so the printed PDF always shows e.g. LowCut /
+ * HighCut / Resonance on a Cab block, even if the recipe predates
+ * those fields. (Daniel's note 2026-05-04: "we need to make sure
+ * those are all called out, even if they're at OFF or default.")
+ */
+function enrichTranslation(
+  translation: PlatformTranslation,
+  platform: Platform,
+): PlatformTranslation {
+  return {
+    ...translation,
+    chain_blocks: translation.chain_blocks.map((block) => {
+      const canonical = getCanonicalParams(platform, block.block_category);
+      if (canonical.length === 0) return block;
+      const settings = { ...block.settings };
+      for (const name of canonical) {
+        if (name in settings) continue;
+        const meta = lookupParam(name, block.block_category);
+        if (!meta) continue;
+        settings[name] = meta.neutral;
+      }
+      return { ...block, settings };
+    }),
+  };
+}
 
 /** Print-friendly chain row — same component family as the site's
  *  PreviewSignalChain but on paper bg (no `.on-dark` class) and with
@@ -200,11 +232,22 @@ export default async function RecipePrintPage({
 
       {/* ── One page per platform translation ───────────────────────── */}
       {availablePlatforms
-        .filter((p) => p !== "pedalboard")
+        .filter((p): p is Exclude<Platform, "pedalboard"> => p !== "pedalboard")
         .map((platform) => {
           const translation = recipe.platform_translations[platform];
           if (!translation) return null;
-          const blocks = recipeToBlocks(recipe, platform);
+          // Enrich the translation so every canonical parameter for each
+          // block's category renders, even at neutral defaults. Then the
+          // chain-block detail cards always show the full param set.
+          const enriched = enrichTranslation(translation, platform);
+          const enrichedRecipe = {
+            ...recipe,
+            platform_translations: {
+              ...recipe.platform_translations,
+              [platform]: enriched,
+            },
+          };
+          const blocks = recipeToBlocks(enrichedRecipe, platform);
 
           return (
             <section
@@ -227,12 +270,9 @@ export default async function RecipePrintPage({
                 )}
               </header>
 
-              {/* The pedal chain — same component as the site */}
-              <div className="print-platform-chain">
-                <PrintChain blocks={blocks} />
-              </div>
-
-              {/* Block-by-block details */}
+              {/* Block-by-block details — every canonical param is
+                  shown, even when the recipe data didn't set it
+                  (filled with the registry neutral). */}
               <div className="print-platform-details">
                 {blocks
                   .filter((b) => b.variant !== "source")
