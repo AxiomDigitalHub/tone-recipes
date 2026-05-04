@@ -1862,22 +1862,23 @@
   color: var(--ink);
 }
 
-/* Sidebar column — stacked items. Each item flex-grows so the three
-   cards fill the height of the hero on the left, no empty void below. */
+/* Sidebar column — stacked items. No more "This issue" black-bar
+   header, no ink frame. Cards have a 160px square thumbnail on the
+   left and a hairline divider between rows. flex-grow stretches each
+   card so the three rows still match the hero's height. */
 .fk-preview .archive-side {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  background: var(--ink);
-  padding: 2px;
   align-self: stretch;
   min-height: 100%;
+  border: 1px solid var(--paper-line);
+  background: var(--paper);
 }
 .fk-preview .archive-item {
   display: grid;
-  grid-template-columns: 48px 1fr 96px;
-  gap: 14px;
-  padding: 14px 14px 16px;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 18px;
+  padding: 16px 18px;
   background: var(--paper);
   color: var(--ink);
   text-decoration: none;
@@ -1885,13 +1886,15 @@
   flex: 1 1 0;
   min-height: 0;
   align-items: center;
+  border-bottom: 1px solid var(--paper-line);
 }
+.fk-preview .archive-item:last-child { border-bottom: 0; }
 .fk-preview .archive-item:hover {
   background: var(--paper-2);
 }
 .fk-preview .archive-item-art {
   position: relative;
-  width: 96px;
+  width: 160px;
   aspect-ratio: 1;
   background: var(--paper-2);
   overflow: hidden;
@@ -1901,12 +1904,20 @@
   object-fit: cover;
   filter: contrast(1.04) saturate(0.94);
 }
-@media (max-width: 720px) {
+@media (max-width: 840px) {
   .fk-preview .archive-item {
-    grid-template-columns: 1fr 84px;
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 14px;
+    padding: 14px;
   }
-  .fk-preview .archive-item-num { display: none; }
-  .fk-preview .archive-item-art { width: 84px; }
+  .fk-preview .archive-item-art { width: 120px; }
+}
+@media (max-width: 560px) {
+  .fk-preview .archive-item {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 12px;
+  }
+  .fk-preview .archive-item-art { width: 100px; }
 }
 .fk-preview .archive-item-num {
   font-family: var(--font-mono);
