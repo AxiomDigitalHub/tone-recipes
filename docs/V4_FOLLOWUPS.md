@@ -214,7 +214,59 @@ Estimate: 30–45 min per page. Admin recipes/new is the heaviest at
 
 ---
 
-### 2. Recipe-card PDF — visual redesign + bug fixes
+### 1. PDF redesign Phase 2 — wire the API to drive /print via Puppeteer
+
+**Phase 1 shipped (session 3):** `/recipe/[slug]/print` route renders
+a print-formatted recipe using the actual website components
+(PreviewPedal, PreviewAmpBlock, PreviewSourceBlock,
+PreviewBlockDetail) on Fraunces + paper chrome. One platform per
+page via `page-break-after: always`. To save as PDF: open URL → ⌘P
+→ "Save as PDF". Legacy jsPDF generator left in place; the existing
+download endpoint still uses it.
+
+**Phase 2 — swap the API endpoint to use Puppeteer driving the print
+route**, so the email-gate flow keeps working with the new design.
+Two reasons not to skip this:
+- The `/api/recipes/[slug]/download` POST endpoint is what the
+  in-page "Settings PDF" button hits, and it does email-gate + rate-
+  limit logic via `canDownload`. Browser-print bypasses that, which
+  removes the marketing/conversion hook.
+- `dev/pdf/[slug]` and external integrations expect a PDF blob, not
+  a print-dialog handoff.
+
+**Approach:**
+1. Add deps: `puppeteer-core`, `@sparticuz/chromium`. Standard
+   Vercel-friendly combo for headless PDF generation.
+2. Replace `generateRecipePDF` in
+   `src/lib/pdf/generate-recipe-pdf.ts` with a function that:
+   - Spawns Chromium via `@sparticuz/chromium`
+   - Navigates to the in-process URL `${origin}/recipe/[slug]/print`
+   - Runs `page.pdf({ format: "letter", margin: { top: "0.4in", ... }, printBackground: true })`
+   - Returns the buffer
+3. The download route stays — same API, same email gate, same rate
+   limiting, just a different generator under the hood.
+4. Once Phase 2 ships, retire the old jsPDF code path entirely.
+5. Delete the "Reload legacy jsPDF" button in `dev/pdf/[slug]`.
+
+**Vercel notes:**
+- `@sparticuz/chromium` ships a Linux-compatible Chrome binary at a
+  size Vercel functions can handle.
+- Lambda timeout: bump to 60s if needed. PDF generation is usually
+  3-10s.
+- Local dev: use the full `puppeteer` package via env-aware import
+  (`if (process.env.VERCEL) { use puppeteer-core } else { use puppeteer }`).
+
+Estimate: 2-3 hours including local + Vercel deploy testing.
+
+---
+
+### 2. Recipe-card PDF — visual redesign + bug fixes (LEGACY — partially superseded by item 1)
+
+**Note:** the "redesign the visuals" portion of this item is
+**superseded by the print route** (item 1, Phase 1). The remaining
+relevant scope is just the rendering bug list — fix those if you
+ever revive the jsPDF path for any reason; otherwise the print
+route makes them moot.
 
 **State:** PDF generator at `src/lib/pdf/generate-recipe-pdf.ts`
 (jsPDF). Renders dynamically via `/api/recipes/[slug]/download`. The
