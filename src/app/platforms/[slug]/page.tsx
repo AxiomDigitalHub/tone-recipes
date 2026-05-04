@@ -72,6 +72,22 @@ const PLATFORM_FAMILY: Record<
     intro: string;
     models: { name: string; note: string }[];
     conventions: string[];
+    /**
+     * Numbered steps for getting a recipe preset onto the unit. Drafted
+     * for Helix + Katana first; other platforms add as we ship preset
+     * formats for them.
+     */
+    preset_load?: string[];
+    /**
+     * 2–3 paragraph editorial on how Fader & Knob builds patches for
+     * this platform — era-correct gear, real ranges, hardware testing.
+     */
+    methodology?: string[];
+    /**
+     * Short gotchas / "things to watch for" bullets. Practical issues
+     * that bite players who skip the recipe notes.
+     */
+    gotchas?: string[];
   }
 > = {
   helix: {
@@ -91,6 +107,24 @@ const PLATFORM_FAMILY: Record<
       "Volume Pedal as block 1 so you can ride dynamics from the expression pedal",
       "Multi-drive recipes ship with the alternate drive blocks bypassed; stomp them in for variants",
       "Cab + Mic always uses WithPan when the dual-mic blend is part of the original tone",
+    ],
+    preset_load: [
+      "Download the .hlx file from the recipe's platform switcher (the one labelled HELIX).",
+      "Connect your Helix to the computer via USB. The unit doesn't need to be in any special mode.",
+      "Open HX Edit (free from Line 6). Your unit shows up in the device picker at the top of the window.",
+      "File → Open Preset (or ⌘O / Ctrl+O) and pick the .hlx file. The preset loads into the current edit buffer.",
+      "Drag the preset from the edit buffer to a setlist slot — for example, Setlist 1 → 01A. That's the permanent home.",
+      "HX Edit auto-syncs the slot to the unit. Confirm by stepping to the slot on the Helix itself; the title should match the recipe.",
+    ],
+    methodology: [
+      "Era-correct models. Every Helix recipe targets the actual amp, cab, and pedals on the original session, mapped to the closest HX models. We don't substitute models that just sound similar — if the song was a Tweed Bassman, we use Tweed Blues / Tweed Brt, not a generic clean.",
+      "Real ranges. Amp gain sits in dB-equivalent territory, not on an abstract 0–10 scale. Delay times are real ms values. EQ frequency points are real Hz. Where the model exposes a Bias knob, we set it the way a tech would, not the way a knob graphic suggests.",
+      "Hardware-tested. Every patch is loaded onto a Helix Floor or LT and A/B'd against the reference recording before it ships. Mic + cab choices are picked by ear against the original master, with the dual-mic balance documented (e.g. 57 + 121 on a 4x12 G12M, 70/30 toward the 57).",
+    ],
+    gotchas: [
+      ".hlx vs. .hlb — recipes ship .hlx (single preset) so importing won't overwrite your other patches. .hlb files are full setlist backups; we never publish those.",
+      "Helix Stadium parity. Stadium runs the new Agoura engine; legacy patches load fine but cabs read slightly different. Recipes built for Stadium are flagged in the recipe note.",
+      "Snapshot recall mode. If a recipe uses snapshots for clean → drive → solo, set the unit's snapshot recall to Discrete (Global Settings → Footswitches). Recall mode set to Recall will smooth the parameter changes and you'll lose the envelope step between snapshots.",
     ],
   },
   quad_cortex: {
@@ -163,6 +197,24 @@ const PLATFORM_FAMILY: Record<
       "Recipes target the closest of Acoustic, Clean, Crunch, Lead, Brown",
       "TSL preset can be loaded slot-by-slot or via Boss Tone Studio",
       "Effect chain uses BOOSTER → MOD → FX → DLY → REV per Boss convention",
+    ],
+    preset_load: [
+      "Download the .tsl file from the recipe's platform switcher (look for KATANA).",
+      "Connect the Katana to the computer via USB and turn the amp on.",
+      "Open Boss Tone Studio (free from BOSS). The editor connects to the Katana automatically once the unit is detected.",
+      "Click the LIBRARIAN tab. Hit the menu (•••) and pick Import — choose the .tsl file you just downloaded.",
+      "Drag the imported patch from the librarian panel onto a CH (channel) memory slot — CH1 / CH2 / CH3 / CH4 (and the variations on Gen 3 / MkII).",
+      "Press WRITE on the amp itself, or Send to Pedal in BTS. The unit stores the patch in that slot.",
+    ],
+    methodology: [
+      "Amp character mapped by gain structure. Each Katana recipe picks the closest of Acoustic, Clean, Crunch, Lead, or Brown — the one that matches the gain shape of the original, not just the genre. AC30-style breakup → Crunch; JCM800 saturation → Brown. The recipe note explains the call so you can change it if your guitar's pickups push the picture differently.",
+      "Effects budget aware. Katana gives you eight effect slots across BOOSTER, MOD/FX, and DLY/REV. Recipes are designed to fit. When the original tone really needs a ninth thing, the gotcha note tells you what to swap (typically the BOOSTER, since most recipes don't lean on it heavily).",
+      "Hardware-tested on the live unit. Every Katana recipe is dialed on a Katana 100 Gen 3, with both the speaker output and headphone-out checked separately — Boss applies a different speaker emulation EQ to the headphone path, so a tone that sits right through a 12\" can read very different on cans.",
+    ],
+    gotchas: [
+      "Channel slots vs. variations. MkII has four memory channels; Gen 3 has two variations per channel for eight patches total. Recipes ship one .tsl per channel — moving a Gen 3 .tsl onto MkII drops the second variation.",
+      "Booster placement. The BOOSTER slot sits before the amp by default. Recipes that need a clean boost after the amp sim use the FX slot (FX2 → Treble Booster). The recipe note flags this when it matters.",
+      "Cabinet resonance. The global Cab Resonance setting changes how the reverb decay reads. Recipes assume Vintage. If the tone reads dryer or thinner than it should, check GLOBAL → Cab Resonance and reset to Vintage.",
     ],
   },
 };
@@ -323,6 +375,57 @@ export default async function PreviewPlatformDetail({
                 </ul>
               </div>
             </div>
+          </section>
+        )}
+
+        {family?.preset_load && family.preset_load.length > 0 && (
+          <section className="platform-section">
+            <div className="how-head">
+              <h2 className="display">
+                Loading a {platform.label} recipe
+              </h2>
+              <span className="section-rule" aria-hidden="true" />
+            </div>
+            <ol className="platform-loading-steps">
+              {family.preset_load.map((step, i) => (
+                <li key={i} className="platform-loading-step">
+                  <span className="platform-loading-step-no" aria-hidden="true">
+                    {i + 1}
+                  </span>
+                  <p className="platform-loading-step-body">{step}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        {family?.methodology && family.methodology.length > 0 && (
+          <section className="platform-section">
+            <div className="how-head">
+              <h2 className="display">How we build {platform.label} patches</h2>
+              <span className="section-rule" aria-hidden="true" />
+            </div>
+            <div className="platform-methodology">
+              {family.methodology.map((p, i) => (
+                <p key={i} className="platform-methodology-p">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {family?.gotchas && family.gotchas.length > 0 && (
+          <section className="platform-section">
+            <div className="how-head">
+              <h2 className="display">Things to watch for</h2>
+              <span className="section-rule" aria-hidden="true" />
+            </div>
+            <ul className="platform-family-list platform-family-list-conventions platform-gotchas">
+              {family.gotchas.map((g) => (
+                <li key={g}>{g}</li>
+              ))}
+            </ul>
           </section>
         )}
 
