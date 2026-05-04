@@ -1,20 +1,31 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/auth/auth-context";
 
 /**
  * v3 sub-nav — editorial chrome under the masthead bar.
  *
- * Public links live in the middle. The auth slot on the right is
- * state-aware:
- *   - Loading or anonymous → "Log in" / "Sign up" buttons.
- *   - Signed in → initials avatar that links to /dashboard,
- *     plus a Sign out text link.
+ * Desktop: brand · 6 nav links · auth slot, all in one row.
+ * Mobile (≤720px): brand · auth slot · hamburger. Tap the hamburger
+ * to open a slide-down drawer with the 6 nav links stacked. The
+ * drawer closes automatically on route change and on Escape.
  *
- * Avatar initials come from displayName (first + last initials)
- * or the email local part as a fallback.
+ * Auth slot is state-aware:
+ *   - Loading or anonymous → "Log in" / "Sign up" buttons.
+ *   - Signed in → initials avatar (links to /dashboard) + Sign out.
  */
+
+const NAV_LINKS = [
+  { href: "/browse", label: "Archive" },
+  { href: "/platforms", label: "Platforms" },
+  { href: "/blog", label: "Field Notes" },
+  { href: "/news", label: "News" },
+  { href: "/request", label: "Request" },
+  { href: "/pricing", label: "Pricing" },
+];
 
 function initialsFor(name: string | null | undefined, email: string | null | undefined): string {
   const source = (name ?? email ?? "").trim();
@@ -28,22 +39,43 @@ function initialsFor(name: string | null | undefined, email: string | null | und
 
 export default function SiteSubnav() {
   const { user, loading, signOut } = useAuth();
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
   const initials = user ? initialsFor(user.displayName, user.email) : "";
 
+  // Close drawer on route change.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  // Close drawer on Escape; lock body scroll while open.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
   return (
-    <nav className="preview-subnav">
+    <nav className={`preview-subnav ${open ? "is-open" : ""}`}>
       <div className="preview-subnav-inner">
         <Link href="/" className="preview-subnav-brand">
           Fader &amp; Knob
         </Link>
 
         <div className="preview-subnav-links">
-          <Link href="/browse">Archive</Link>
-          <Link href="/platforms">Platforms</Link>
-          <Link href="/blog">Field Notes</Link>
-          <Link href="/news">News</Link>
-          <Link href="/request">Request</Link>
-          <Link href="/pricing">Pricing</Link>
+          {NAV_LINKS.map((l) => (
+            <Link key={l.href} href={l.href}>
+              {l.label}
+            </Link>
+          ))}
         </div>
 
         <div className="preview-subnav-auth">
@@ -81,6 +113,89 @@ export default function SiteSubnav() {
             </>
           )}
         </div>
+
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="preview-subnav-burger"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="preview-subnav-drawer"
+        >
+          <span className="preview-subnav-burger-bar" />
+          <span className="preview-subnav-burger-bar" />
+          <span className="preview-subnav-burger-bar" />
+        </button>
+      </div>
+
+      {/* Mobile drawer — stacked nav links. Hidden on desktop via CSS. */}
+      <div
+        id="preview-subnav-drawer"
+        className="preview-subnav-drawer"
+        aria-hidden={!open}
+      >
+        <ul className="preview-subnav-drawer-list">
+          {NAV_LINKS.map((l) => (
+            <li key={l.href}>
+              <Link
+                href={l.href}
+                className="preview-subnav-drawer-link"
+                onClick={() => setOpen(false)}
+              >
+                {l.label}
+              </Link>
+            </li>
+          ))}
+          {!user && !loading && (
+            <>
+              <li className="preview-subnav-drawer-sep" aria-hidden />
+              <li>
+                <Link
+                  href="/login"
+                  className="preview-subnav-drawer-link"
+                  onClick={() => setOpen(false)}
+                >
+                  Log in
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/signup"
+                  className="preview-subnav-drawer-link preview-subnav-drawer-link-cta"
+                  onClick={() => setOpen(false)}
+                >
+                  Sign up
+                </Link>
+              </li>
+            </>
+          )}
+          {user && (
+            <>
+              <li className="preview-subnav-drawer-sep" aria-hidden />
+              <li>
+                <Link
+                  href="/dashboard"
+                  className="preview-subnav-drawer-link"
+                  onClick={() => setOpen(false)}
+                >
+                  Dashboard
+                </Link>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpen(false);
+                    signOut();
+                  }}
+                  className="preview-subnav-drawer-link preview-subnav-drawer-signout"
+                >
+                  Sign out
+                </button>
+              </li>
+            </>
+          )}
+        </ul>
       </div>
     </nav>
   );

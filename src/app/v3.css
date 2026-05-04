@@ -6716,3 +6716,137 @@
   .fk-preview .ledger-row,
   .fk-preview .ledger-header { padding: 14px 8px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v4.7 — Mobile hamburger menu. Replaces the horizontal-scroll sub-nav
+   links on phone with a 3-line toggle that opens a stacked drawer.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Hide hamburger by default — desktop uses the inline link list. */
+.fk-preview .preview-subnav-burger {
+  display: none;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--ink);
+  cursor: pointer;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: background 120ms ease;
+}
+.fk-preview .preview-subnav-burger:hover { background: var(--paper-2); }
+.fk-preview .preview-subnav-burger-bar {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 180ms ease, opacity 120ms ease;
+  transform-origin: center;
+}
+/* Open state: bars morph into an X */
+.fk-preview .preview-subnav.is-open .preview-subnav-burger-bar:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.fk-preview .preview-subnav.is-open .preview-subnav-burger-bar:nth-child(2) {
+  opacity: 0;
+}
+.fk-preview .preview-subnav.is-open .preview-subnav-burger-bar:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* Drawer is hidden by default; only renders on phone breakpoints. */
+.fk-preview .preview-subnav-drawer { display: none; }
+
+@media (max-width: 720px) {
+  /* On phone: hide the inline links + auth slot (drawer takes over),
+     show the hamburger. Brand stays. */
+  .fk-preview .preview-subnav-inner {
+    grid-template-columns: 1fr auto auto;
+    grid-auto-rows: auto;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+  }
+  .fk-preview .preview-subnav-links { display: none; }
+
+  /* Keep auth slot visible only when signed-in (avatar is the
+     primary "I'm logged in" affordance and shouldn't hide). When
+     anonymous, the Log in / Sign up move into the drawer. */
+  .fk-preview .preview-subnav-auth { gap: 8px; }
+  .fk-preview .preview-subnav-auth .preview-subnav-login,
+  .fk-preview .preview-subnav-auth .preview-subnav-signup {
+    display: none;
+  }
+
+  .fk-preview .preview-subnav-burger { display: inline-flex; }
+
+  /* Drawer panel — slides down from under the sub-nav. */
+  .fk-preview .preview-subnav-drawer {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--paper);
+    border-bottom: 1px solid var(--ink);
+    box-shadow: 0 12px 28px rgba(10, 9, 8, 0.12);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 240ms ease, padding 200ms ease;
+    z-index: 40;
+  }
+  .fk-preview .preview-subnav { position: relative; }
+  .fk-preview .preview-subnav.is-open .preview-subnav-drawer {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 8px 0 16px;
+  }
+
+  .fk-preview .preview-subnav-drawer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .fk-preview .preview-subnav-drawer-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 16px 20px;
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 22px;
+    color: var(--ink);
+    text-decoration: none;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 1px solid var(--paper-line);
+    transition: background 120ms ease;
+  }
+  .fk-preview .preview-subnav-drawer-link:hover,
+  .fk-preview .preview-subnav-drawer-link:active {
+    background: var(--paper-2);
+  }
+  .fk-preview .preview-subnav-drawer-link-cta {
+    background: var(--amber);
+    border-bottom-color: var(--ink);
+  }
+  .fk-preview .preview-subnav-drawer-link-cta:hover {
+    background: var(--amber-2, var(--amber));
+  }
+  .fk-preview .preview-subnav-drawer-signout {
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+  .fk-preview .preview-subnav-drawer-sep {
+    height: 1px;
+    background: var(--ink);
+    margin: 8px 20px;
+    list-style: none;
+  }
+}
