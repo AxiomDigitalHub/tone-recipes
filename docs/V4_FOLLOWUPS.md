@@ -232,10 +232,24 @@ least #1 + #2.
   earlier rounds. Plus the legacy production `DownloadRecipePDF.tsx`
   has no live render path now that the recipe page uses
   `RecipePdfButton`; can be deleted in a cleanup commit.
-- **Count-flexing on recipe detail** — `src/app/recipe/[slug]/page.tsx:368`
-  has `<span className="related-meta">{related.length} of {toneRecipes.length} · curated</span>`.
-  Per memory rule (no count-flexing), strip the count and leave just
-  "Curated" or drop the meta line entirely.
+- **Space Grotesk loads but never renders.** `src/app/layout.tsx:24`
+  imports `Space_Grotesk` from next/font with `variable: "--font-display"`,
+  but `src/app/v3.css:32` overrides `--font-display` to
+  `Georgia, 'Times New Roman', serif` on `.fk-preview`. Result: the
+  webfont downloads on every page load and is never used inside the
+  v3 wrapper (i.e., everywhere). Two valid resolutions — Daniel
+  picks:
+  1. **Keep Georgia, drop the import.** Remove the Space_Grotesk
+     import + className from layout.tsx. Saves ~30KB woff2 per page.
+     Default if you like the Georgia editorial feel.
+  2. **Adopt Space Grotesk.** Remove the `--font-display: Georgia`
+     line from `.fk-preview` so the next/font variable wins. Shifts
+     every display-font headline on the v3 site (recipe-title,
+     archive-title, page-title, etc.) — a real visual change. Not a
+     bad change, but should be reviewed visually first.
+  3. **Swap to a different webfont** (Playfair Display, EB Garamond,
+     Fraunces) — closer to the editorial direction Georgia points at,
+     but with proper italic + display weight curated for screen.
 
 
 ---
