@@ -6794,27 +6794,61 @@
 
   .fk-preview .preview-subnav-burger { display: inline-flex; }
 
-  /* Drawer panel — slides down from under the sub-nav. */
+  /* Drawer panel — full-screen fixed overlay with its own internal
+     close button. Avoids any stacking-context surprises by sitting
+     at z-index: 9000 over everything else. */
   .fk-preview .preview-subnav-drawer {
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
     background: var(--paper);
-    border-bottom: 1px solid var(--ink);
-    box-shadow: 0 12px 28px rgba(10, 9, 8, 0.12);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 240ms ease, padding 200ms ease;
-    z-index: 40;
-  }
-  .fk-preview .preview-subnav { position: relative; }
-  .fk-preview .preview-subnav.is-open .preview-subnav-drawer {
-    max-height: 80vh;
+    z-index: 9000;
     overflow-y: auto;
-    padding: 8px 0 16px;
+    -webkit-overflow-scrolling: touch;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 180ms ease, visibility 0s linear 180ms;
   }
+  .fk-preview .preview-subnav.is-open .preview-subnav-drawer {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 180ms ease;
+  }
+
+  /* Drawer header — brand + close X, mirrors the sub-nav row but
+     anchored INSIDE the drawer so it's always tappable when open. */
+  .fk-preview .preview-subnav-drawer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--ink);
+    background: var(--paper);
+    flex-shrink: 0;
+  }
+  .fk-preview .preview-subnav-drawer-brand {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 22px;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .fk-preview .preview-subnav-drawer-close {
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 1;
+    padding: 0;
+  }
+  .fk-preview .preview-subnav-drawer-close:hover { background: var(--paper-2); }
 
   .fk-preview .preview-subnav-drawer-list {
     list-style: none;

@@ -128,12 +128,31 @@ export default function SiteSubnav() {
         </button>
       </div>
 
-      {/* Mobile drawer — stacked nav links. Hidden on desktop via CSS. */}
+      {/* Mobile drawer — full-screen fixed overlay. Hidden on desktop via CSS. */}
       <div
         id="preview-subnav-drawer"
         className="preview-subnav-drawer"
         aria-hidden={!open}
+        role="dialog"
+        aria-modal="true"
       >
+        <div className="preview-subnav-drawer-head">
+          <Link
+            href="/"
+            className="preview-subnav-drawer-brand"
+            onClick={() => setOpen(false)}
+          >
+            Fader &amp; Knob
+          </Link>
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            className="preview-subnav-drawer-close"
+            aria-label="Close menu"
+          >
+            ✕
+          </button>
+        </div>
         <ul className="preview-subnav-drawer-list">
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
