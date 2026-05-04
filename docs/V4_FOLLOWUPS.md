@@ -100,38 +100,118 @@ Estimate: 30–45 min per page. Admin recipes/new is the heaviest at
 
 ---
 
-### 2. Settings PDF — visual redesign of the generated PDF
+### 2. Recipe-card PDF — visual redesign + bug fixes
 
-**State:** PDF generator exists at
-`src/lib/pdf/generate-recipe-pdf.ts` (uses jsPDF). It produces the
-PDF dynamically from recipe data via the
-`/api/recipes/[slug]/download` endpoint. The `RecipePdfButton`
-component now wires the v3 site to it.
+**State:** PDF generator at `src/lib/pdf/generate-recipe-pdf.ts`
+(jsPDF). Renders dynamically via `/api/recipes/[slug]/download`. The
+`RecipePdfButton` component on the recipe page now wires the v3 site
+to it. Critique done in chat 2026-05-04 against
+`turner-do-i-wanna-know-fuzzy-riff-tone-recipe.pdf`.
 
-**Open scope:** the PDF itself still uses production colors — amber
-`#f59e0b`, dark `#1a1a1a`, light gray `#e5e7eb`. To match the v3 paper
-aesthetic the layout would change to:
-- Paper-cream bg (`#f3efe8` or close).
-- Ink (`#0a0908`) for body, hairline rules between sections.
-- Display serif (Times-style) for the recipe title; mono for the
-  block grid; italic dek for the engineer's note.
-- Cropmarks at the four corners and a hairline column rule, mirroring
-  `.recipe-head` / `.platform-switcher`.
+**Issues:**
+- Production amber `#f59e0b` + dark `#1a1a1a` + light-gray rounded
+  panels. Reads as "marketing PDF," not editorial recipe card.
+- Helvetica throughout — no display serif anywhere.
+- **Rendering bugs (not just style):** category labels collide with
+  block names — "Vox AC30**preamp**", "Vox 2x12 (Alnico Blue)**et**"
+  (the "**cabinet**" gets cut), "Search ToneNET**pedal**", "Kemper
+  Fuzz**: Slot A. Kemper for AC30!**" wrapping. Likely the category
+  is drawn at the same baseline as the name without measuring text
+  width before placing.
+- Three amber genre pills (INDIE ROCK / ALTERNATIVE / GARAGE ROCK)
+  read as marketing tags.
+- Six identical amber-bar translation headers create table-fatigue.
+- Settings line uses `|` separators; v3 uses ` · ` everywhere.
 
-**Approach when picked up:**
-1. Read `generate-recipe-pdf.ts` — understand the existing builder
-   helpers (`drawWrappedText`, `ensureSpace`, etc.).
-2. Replace the color palette constants at the top.
-3. Swap `helvetica` for a serif (jsPDF ships Times by default, no
-   font embedding needed) for the title and engineer's note.
-4. Test by hitting `/api/recipes/srv-pride-and-joy-rhythm/download`
-   in a browser while signed in.
+**Ordered change list (each is its own commit):**
 
-Estimate: 2–3 hours. Pure layout work, no new wiring.
+1. **Color constants** at lines 25-31 → v3 tokens (paper, paper-2,
+   paper-line, ink, ink-muted, ink-faint, amber-as-accent only).
+2. **Page bg** = paper fill drawn first thing in `addPage`.
+3. **Title + section heads** switch to `times` (jsPDF built-in).
+   Title at ~32pt with -0.025em letter-spacing equivalent.
+4. **Fix the signal-chain text-collision bug** — measure name width
+   with `getTextWidth` before drawing the sibling category label,
+   or move category onto its own line. Same root cause across the
+   Helix / QC / TONEX / Katana / Kemper / Fractal sections.
+5. **Replace the amber masthead band** with v3 recipe-issue line
+   (italic mono "No. 042 · 2013 · Indie rock · 5 blocks") + display-
+   serif title + italic credits. Wordmark moves to footer.
+6. **Three amber genre pills → one mono-caps metadata line.**
+7. **Section heads** → display-serif h2 + hairline ink rule extending
+   right. Drop the amber square markers.
+8. **Translation headers** — same hairline treatment as #7. Drops
+   the six identical amber bars.
+9. **Tables** → hairline-rule ledger rows on paper. No alternating
+   fills, no rounded corners, no outer panel.
+10. **Translation column headers** — paper bg, mono caps, ink rule
+    above and below. Replace amber-fill / white-text headers.
+11. **Amber numbered squares on signal-chain steps** → italic Times
+    numerals (memory: never mono `01/02/03` chips).
+12. **Settings-line separator** `|` → ` · ` (U+00B7).
+13. **Description prose** rendered in Times italic at 13.5pt
+    `INK_MUTED` — matches the engineer's-note voice on the site.
+14. **Footer colophon**: mono caps wordmark + URL + issue at the
+    foot, not the head, with a hairline rule above.
+15. **Optional polish:** cropmarks at the four corners (~10 lines of
+    jsPDF).
+
+The bug fix in (4) and the color swap in (1) are the highest leverage
+— each is small, each kills a category of pain. (3), (7), (10) ship
+the new identity; the rest is rhythm cleanup.
+
+Estimate: 2–3 hours. Pure layout work, no new wiring. Test against
+`/api/recipes/srv-pride-and-joy-rhythm/download` (or any recipe with a
+full chain).
 
 ---
 
-### 3. Smaller TODOs
+### 3. Recipe browse affordance from interior pages
+
+**Daniel's note:** "when I'm on an interior page, how do I browse the
+recipes?"
+
+**Audit:** the only path from any interior page (recipe / song / artist
+/ platform detail / blog post / news) back to "browse all recipes" is
+the **Archive** link in the global sub-nav (`SiteSubnav.tsx`,
+`NAV_LINKS`). Two problems with that:
+
+1. **Label doesn't match intent.** "Archive" reads as "back catalogue
+   / old stuff," not "browse the recipes." Users looking for "browse"
+   or "recipes" don't recognize it.
+2. **No in-page affordance.** Recipe detail has a 3-card "More like
+   this" rail (`src/app/recipe/[slug]/page.tsx:367-417`) and a Field
+   Notes rail, but no "Browse all recipes →" CTA. Song / artist /
+   platform pages only show recipes scoped to that entity. Blog posts
+   have no link to the recipe catalogue at all.
+
+**Proposed fixes (any subset works — start with #1, it's 5 min):**
+
+1. **Rename `Archive` → `Browse` (or `Recipes`)** in
+   `src/components/layout/SiteSubnav.tsx:22`. "Recipes" is most
+   literal; "Browse" matches the route. Daniel picks. The site uses
+   "Archive" elsewhere as branding (Field Notes archive, etc.) so
+   maybe keep "Archive" as a sub-page concept but the top-nav label
+   should say what it is.
+2. **Add a "Browse all recipes →" CTA at the bottom of the recipe
+   detail**, beneath the More-like-this rail. Same treatment as
+   `dashboard-section-all` (mono caps, hairline-bordered, right-
+   aligned).
+3. **Recipe detail prev/next navigation.** Small chevron + song title
+   pair at the bottom: `← Previous: Hendrix — Voodoo Child` /
+   `Next: SRV — Pride and Joy →`. Cycles through the catalog (or by
+   the active artist's other recipes). Adds context without forcing a
+   trip back to /browse.
+4. **On song / artist / platform pages**, add a "Back to all recipes"
+   secondary chip near the top, beside the breadcrumbs. Cheap, makes
+   the path obvious.
+
+Estimate: #1 = 5 min, #2 = 15 min, #3 = 30 min, #4 = 15 min. Do at
+least #1 + #2.
+
+---
+
+### 4. Smaller TODOs
 
 - **5 orphan daily-content posts** still missing hero images
   (`balanced-power-guitar-rigs-furman-equitech`,
@@ -152,6 +232,11 @@ Estimate: 2–3 hours. Pure layout work, no new wiring.
   earlier rounds. Plus the legacy production `DownloadRecipePDF.tsx`
   has no live render path now that the recipe page uses
   `RecipePdfButton`; can be deleted in a cleanup commit.
+- **Count-flexing on recipe detail** — `src/app/recipe/[slug]/page.tsx:368`
+  has `<span className="related-meta">{related.length} of {toneRecipes.length} · curated</span>`.
+  Per memory rule (no count-flexing), strip the count and leave just
+  "Curated" or drop the meta line entirely.
+
 
 ---
 
