@@ -56,11 +56,11 @@ function timeAgo(dateStr: string): string {
 
 function NotificationSkeleton() {
   return (
-    <div className="flex items-start gap-3 rounded-lg border border-border bg-surface p-4">
-      <div className="h-9 w-9 shrink-0 animate-pulse rounded-full bg-border" />
-      <div className="flex-1 space-y-2">
-        <div className="h-4 w-3/4 animate-pulse rounded bg-border" />
-        <div className="h-3 w-1/2 animate-pulse rounded bg-border" />
+    <div className="dashboard-notif-row dashboard-notif-row-skeleton">
+      <span className="dashboard-notif-icon" aria-hidden />
+      <div className="dashboard-notif-skel-lines">
+        <span />
+        <span />
       </div>
     </div>
   );
@@ -147,8 +147,9 @@ export default function NotificationsPage() {
 
   if (authLoading || !user) {
     return (
-      <div className="flex min-h-[40vh] items-center justify-center">
-        <p className="text-muted">Loading...</p>
+      <div>
+        <h1 className="page-title page-title-sm">Notifications</h1>
+        <p className="dashboard-inner-dek">Loading…</p>
       </div>
     );
   }
@@ -158,11 +159,11 @@ export default function NotificationsPage() {
   return (
     <div>
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="dashboard-notif-head">
         <div>
           <h1 className="page-title page-title-sm">Notifications</h1>
           {unreadCount > 0 && (
-            <p className="mt-1 text-sm text-muted">
+            <p className="dashboard-inner-dek">
               {unreadCount} unread notification{unreadCount !== 1 ? "s" : ""}
             </p>
           )}
@@ -171,37 +172,37 @@ export default function NotificationsPage() {
           <button
             onClick={handleMarkAllRead}
             disabled={markingAll}
-            className="flex items-center gap-2 rounded-lg border border-border bg-surface px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-surface-hover disabled:opacity-50"
+            className="hero-cta hero-cta-secondary"
           >
             <CheckCheck className="h-4 w-4" />
-            {markingAll ? "Marking..." : "Mark all as read"}
+            {markingAll ? "Marking…" : "Mark all as read"}
           </button>
         )}
       </div>
 
       {/* Content */}
-      <div className="mt-6 space-y-2">
+      <div className="dashboard-notif-list">
         {loading ? (
           Array.from({ length: 5 }).map((_, i) => (
             <NotificationSkeleton key={i} />
           ))
         ) : error ? (
-          <div className="rounded-lg border border-border bg-surface p-6 text-center">
-            <p className="text-sm text-red-400">{error}</p>
+          <div className="dashboard-notif-empty">
+            <p className="dashboard-notif-empty-title">{error}</p>
             <button
               onClick={fetchNotifications}
-              className="mt-3 text-sm font-medium text-accent hover:underline"
+              className="dashboard-notif-retry"
             >
               Try again
             </button>
           </div>
         ) : notifications.length === 0 ? (
-          <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-surface py-16">
-            <Bell className="mb-4 h-10 w-10 text-muted" />
-            <p className="text-lg font-semibold text-foreground">
-              You&apos;re all caught up!
+          <div className="dashboard-notif-empty">
+            <Bell className="dashboard-notif-empty-icon" aria-hidden />
+            <p className="dashboard-notif-empty-title">
+              You&apos;re all caught up.
             </p>
-            <p className="mt-1 text-sm text-muted">
+            <p className="dashboard-notif-empty-dek">
               No notifications to show right now.
             </p>
           </div>
@@ -212,52 +213,32 @@ export default function NotificationsPage() {
               <button
                 key={notification.id}
                 onClick={() => handleClick(notification)}
-                className={`flex w-full items-start gap-3 rounded-lg border p-4 text-left transition-colors ${
-                  notification.is_read
-                    ? "border-border bg-surface hover:bg-surface-hover"
-                    : "border-accent/20 bg-accent/5 hover:bg-accent/10"
-                }`}
+                className={`dashboard-notif-row ${notification.is_read ? "is-read" : "is-unread"}`}
               >
-                {/* Icon */}
-                <div
-                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${
-                    notification.is_read
-                      ? "bg-border text-muted"
-                      : "bg-accent/15 text-accent"
-                  }`}
-                >
+                <span className="dashboard-notif-icon" aria-hidden>
                   <Icon className="h-4 w-4" />
-                </div>
-
-                {/* Body */}
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-start justify-between gap-2">
-                    <p
-                      className={`text-sm font-medium ${
-                        notification.is_read
-                          ? "text-foreground"
-                          : "text-foreground"
-                      }`}
-                    >
+                </span>
+                <div className="dashboard-notif-body">
+                  <div className="dashboard-notif-row-top">
+                    <p className="dashboard-notif-title">
                       {notification.title}
                     </p>
-                    <div className="flex shrink-0 items-center gap-2">
-                      <span className="text-xs text-muted">
-                        {timeAgo(notification.created_at)}
-                      </span>
+                    <div className="dashboard-notif-meta">
+                      <span>{timeAgo(notification.created_at)}</span>
                       {!notification.is_read && (
-                        <span className="h-2 w-2 rounded-full bg-accent" />
+                        <span
+                          className="dashboard-notif-dot"
+                          aria-label="Unread"
+                        />
                       )}
                     </div>
                   </div>
                   {notification.body && (
-                    <p className="mt-0.5 line-clamp-2 text-sm text-muted">
-                      {notification.body}
-                    </p>
+                    <p className="dashboard-notif-text">{notification.body}</p>
                   )}
                   {notification.actor?.display_name && (
-                    <p className="mt-1 text-xs text-muted">
-                      by {notification.actor.display_name}
+                    <p className="dashboard-notif-actor">
+                      <em>by {notification.actor.display_name}</em>
                     </p>
                   )}
                 </div>
