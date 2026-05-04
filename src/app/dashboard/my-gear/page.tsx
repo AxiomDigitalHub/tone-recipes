@@ -177,7 +177,7 @@ export default function MyGearPage() {
   if (!hydrated) {
     return (
       <div>
-        <h1 className="text-2xl font-bold">My Gear</h1>
+        <h1 className="page-title page-title-sm">My Gear</h1>
         <p className="mt-2 text-muted">Loading...</p>
       </div>
     );
@@ -185,7 +185,7 @@ export default function MyGearPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold">My Gear</h1>
+      <h1 className="page-title page-title-sm">My Gear</h1>
       <p className="mt-2 text-muted">
         Manage your guitars, pedals, amps, and modelers.
       </p>

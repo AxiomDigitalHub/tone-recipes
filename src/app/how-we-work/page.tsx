@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function HowWeWorkPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 md:py-24">
-      <h1 className="text-3xl font-bold md:text-5xl">How We Work</h1>
+      <h1 className="page-title page-title-md">How We Work</h1>
       <p className="mt-4 text-lg text-muted">
         Human-verified, AI-powered.
       </p>

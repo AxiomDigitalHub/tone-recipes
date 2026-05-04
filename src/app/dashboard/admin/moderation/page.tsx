@@ -408,7 +408,7 @@ export default function ModerationPage() {
     return (
       <div className="mx-auto flex max-w-md flex-col items-center justify-center py-20 text-center">
         <ShieldOff className="mb-4 h-12 w-12 text-muted" />
-        <h1 className="text-2xl font-bold text-foreground">Access Denied</h1>
+        <h1 className="page-title page-title-sm">Access Denied</h1>
         <p className="mt-2 text-sm text-muted">
           You do not have moderator permissions to access this page.
         </p>
@@ -439,9 +439,7 @@ export default function ModerationPage() {
       <div className="flex items-center gap-3">
         <Shield className="h-7 w-7 text-accent" />
         <div>
-          <h1 className="text-2xl font-bold text-foreground">
-            Moderation Dashboard
-          </h1>
+          <h1 className="page-title page-title-sm">Moderation Dashboard</h1>
           <p className="text-sm text-muted">
             Review reports and user-submitted content.
           </p>

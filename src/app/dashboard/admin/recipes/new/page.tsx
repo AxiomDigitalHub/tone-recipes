@@ -1289,7 +1289,7 @@ export default function NewRecipePage() {
         </Link>
       </div>
 
-      <h1 className="mb-2 text-3xl font-bold text-foreground">New Recipe</h1>
+      <h1 className="page-title page-title-sm mb-2">New Recipe</h1>
       <p className="mb-6 text-sm text-muted">
         Fill out each step, then copy the JSON or save to localStorage.
       </p>

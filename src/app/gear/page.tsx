@@ -123,7 +123,7 @@ export default function GearBrowsePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Header */}
       <div className="mb-12">
-        <h1 className="text-3xl font-bold md:text-4xl">Gear Database</h1>
+        <h1 className="page-title page-title-md">Gear Database</h1>
         <p className="mt-2 max-w-2xl text-muted">
           Every pedal, amp, cab, and mic referenced in our tone recipes — with modeler equivalents across all major platforms.
         </p>

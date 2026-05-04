@@ -160,7 +160,7 @@ export default function NotificationsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Notifications</h1>
+          <h1 className="page-title page-title-sm">Notifications</h1>
           {unreadCount > 0 && (
             <p className="mt-1 text-sm text-muted">
               {unreadCount} unread notification{unreadCount !== 1 ? "s" : ""}

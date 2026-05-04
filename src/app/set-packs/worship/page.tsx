@@ -50,9 +50,7 @@ export default function WorshipSetPackPage() {
         <span>Worship</span>
       </div>
 
-      <h1 className="text-3xl font-bold md:text-5xl">
-        Worship Set Pack
-      </h1>
+      <h1 className="page-title page-title-md">Worship Set Pack</h1>
       <p className="mt-4 text-lg text-muted">
         One preset. 8 snapshots. Your entire Sunday morning covered.
       </p>

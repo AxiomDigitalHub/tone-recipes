@@ -284,9 +284,7 @@ export default function NewRecipePage() {
 
   return (
     <div className="mx-auto max-w-3xl">
-      <h1 className="text-2xl font-bold text-foreground">
-        Submit a Tone Recipe
-      </h1>
+      <h1 className="page-title page-title-sm">Submit a Tone Recipe</h1>
       <p className="mt-1 text-sm text-muted">
         Share your tone recipe with the community. It will be reviewed by a
         moderator before going live.

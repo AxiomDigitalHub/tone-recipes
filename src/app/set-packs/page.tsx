@@ -41,7 +41,7 @@ const packs = [
 export default function SetPacksPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 md:py-24">
-      <h1 className="text-3xl font-bold md:text-5xl">Set Packs</h1>
+      <h1 className="page-title page-title-md">Set Packs</h1>
       <p className="mt-4 max-w-xl text-lg text-muted">
         One preset with 8 snapshots that covers your entire gig. Each pack includes a Setlist Mapper
         showing which snapshot to use for every song.

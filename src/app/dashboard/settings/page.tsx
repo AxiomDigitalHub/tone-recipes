@@ -149,7 +149,7 @@ export default function DashboardSettingsPage() {
   if (loading) {
     return (
       <div>
-        <h1 className="text-2xl font-bold text-foreground">Settings</h1>
+        <h1 className="page-title page-title-sm">Settings</h1>
         <p className="mt-1 text-sm text-muted">Loading...</p>
       </div>
     );
@@ -157,7 +157,7 @@ export default function DashboardSettingsPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-foreground">Settings</h1>
+      <h1 className="page-title page-title-sm">Settings</h1>
       <p className="mt-1 text-sm text-muted">
         Manage your profile and preferences.
       </p>

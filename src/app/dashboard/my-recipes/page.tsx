@@ -160,7 +160,7 @@ export default function MyRecipesPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">My Recipes</h1>
+          <h1 className="page-title page-title-sm">My Recipes</h1>
           <p className="mt-1 text-sm text-muted">
             Recipes you&apos;ve submitted to the community.
           </p>
