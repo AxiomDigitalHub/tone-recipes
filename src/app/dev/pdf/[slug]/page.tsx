@@ -110,13 +110,20 @@ export default function DevPdfPreviewPage({
           <Link href={`/recipe/${slug}`} className="dev-pdf-btn-secondary">
             ← Open recipe
           </Link>
+          <Link
+            href={`/recipe/${slug}/print`}
+            target="_blank"
+            className="dev-pdf-btn-secondary"
+          >
+            New design (print route) ↗
+          </Link>
           <button
             type="button"
             onClick={fetchPdf}
             disabled={loading}
             className="dev-pdf-btn-primary"
           >
-            {loading ? "Building…" : "Reload PDF"}
+            {loading ? "Building…" : "Reload legacy jsPDF"}
           </button>
         </div>
       </header>

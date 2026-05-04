@@ -7943,6 +7943,301 @@
   color: var(--paper);
 }
 
+/* ═══ Print route — /recipe/[slug]/print ═════════════════════════════════
+   The PDF is rendered as a real web page so the design stays in lock-
+   step with the site (Fraunces, paper, hairline rules, pedal blocks).
+   To save as PDF: open the URL → ⌘P / Ctrl+P → Destination "Save as
+   PDF". Each platform sits on its own page via page-break-before.
+   ─────────────────────────────────────────────────────────────────── */
+
+/* Hide the global chrome whenever a print-mode page is on screen so the
+   on-screen preview matches what comes off the printer. */
+.fk-preview:has(.print-mode) .masthead-bar,
+.fk-preview:has(.print-mode) .preview-subnav,
+.fk-preview:has(.print-mode) footer {
+  display: none !important;
+}
+
+.print-mode {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-display);
+}
+
+.print-mode .print-doc {
+  max-width: 8.5in;
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.print-mode .print-page {
+  background: var(--paper);
+  padding: 40px 48px 56px;
+  margin: 0 auto 32px;
+  width: 8.5in;
+  min-height: 11in;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  page-break-after: always;
+  break-after: page;
+  /* On-screen rule between pages — disappears in print. */
+  border: 1px solid var(--paper-line);
+}
+
+/* ── Cover page ───────────────────────────────────────────────────── */
+.print-mode .print-masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 10px;
+  margin-bottom: 32px;
+  flex-shrink: 0;
+}
+.print-mode .print-cover-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 64ch;
+}
+.print-mode .print-cover-title {
+  font-size: clamp(48px, 7vw, 72px);
+  margin: 8px 0 8px;
+}
+.print-mode .print-cover-credits {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.print-mode .print-cover-dek {
+  font-size: 14.5px;
+  line-height: 1.55;
+  max-width: 64ch;
+}
+.print-mode .print-cover-art {
+  margin-top: 24px;
+  width: 220px;
+  align-self: flex-end;
+}
+.print-mode .print-cover-foot {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 32px;
+  padding-top: 14px;
+  border-top: 1px solid var(--paper-line);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.print-mode .print-cover-foot-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--paper-line);
+}
+.print-mode .print-cover-chain {
+  margin-top: 18px;
+}
+
+/* ── Per-platform page ───────────────────────────────────────────── */
+.print-mode .print-page-head {
+  border-bottom: 1px solid var(--paper-line);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+.print-mode .print-page-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 8px;
+}
+.print-mode .print-page-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 56px);
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-weight: 400;
+}
+.print-mode .print-page-dek {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  max-width: 64ch;
+  margin: 0;
+}
+.print-mode .print-platform-chain {
+  margin: 14px 0 28px;
+  padding: 18px 16px;
+  border: 1px solid var(--paper-line);
+  background: var(--paper-2);
+  overflow-x: auto;
+}
+.print-mode .print-platform-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.print-mode .print-block-card {
+  /* PreviewBlockDetail brings its own internal styling — wrap it in a
+     paper-friendly card frame so it doesn't read as a floating tile. */
+  border: 1px solid var(--paper-line);
+  background: var(--paper);
+  break-inside: avoid;
+}
+.print-mode .print-page-foot {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--paper-line);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Paper-friendly chain row — same components as the site's
+   PreviewSignalChain but on a paper surround instead of `.on-dark`.
+   Wires + cells reuse the existing `.chain-wire` etc. styles where
+   possible; the wrapper just neutralizes any dark-bg assumptions. */
+.print-mode .print-chain-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  flex-wrap: wrap;
+  row-gap: 24px;
+}
+.print-mode .print-chain-cell {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.print-mode .print-chain-block {
+  flex-shrink: 0;
+}
+.print-mode .print-chain-wire {
+  width: 24px;
+  height: 2px;
+  background: var(--ink);
+  opacity: 0.4;
+  align-self: center;
+}
+/* The pedal/amp/cab/source blocks render with the site's existing
+   classes, which were tuned for the dark recipe-detail surface. Pull
+   them onto paper for the print route by overriding bg + ink colors
+   only on .print-mode descendants. */
+.print-mode .pedal,
+.print-mode .ampblock,
+.print-mode .source-block,
+.print-mode .preview-block {
+  color: var(--ink);
+}
+
+/* ── Sources page ────────────────────────────────────────────────── */
+.print-mode .print-sources-list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+}
+.print-mode .print-sources-row {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--paper-line);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink);
+  break-inside: avoid;
+}
+.print-mode .print-sources-host {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.print-mode .print-sources-url {
+  word-break: break-all;
+  color: var(--ink-muted);
+}
+
+/* ── Print media — actual paper output ──────────────────────────── */
+@media print {
+  @page {
+    size: letter;
+    margin: 0.4in;
+  }
+
+  html,
+  body,
+  .fk-preview,
+  .print-mode,
+  .print-doc {
+    background: var(--paper) !important;
+    color: var(--ink) !important;
+  }
+
+  /* Hide everything that isn't the print route. */
+  body > *:not(.fk-preview),
+  .fk-preview > *:not(:has(.print-mode)),
+  .masthead-bar,
+  .preview-subnav,
+  footer,
+  .recipe-foot-browse,
+  .recipe-dl-chip,
+  .pdf-gate,
+  .field-notes-rail,
+  .related {
+    display: none !important;
+  }
+
+  .print-mode .print-doc {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .print-mode .print-page {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  /* Last page doesn't need a trailing blank page. */
+  .print-mode .print-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  /* Avoid splitting blocks across pages. */
+  .print-mode .print-block-card,
+  .print-mode .print-platform-chain,
+  .print-mode .print-page-head,
+  .print-mode .recipe-issue,
+  .print-mode .print-cover-foot {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
 /* Recipe sources — citation links for signal-chain claims. The block
    itself uses inline styles (set in the page); this just paints the
    anchor so it doesn't fall back to default browser link blue. */
