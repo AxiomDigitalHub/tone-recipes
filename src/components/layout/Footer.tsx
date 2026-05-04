@@ -1,96 +1,137 @@
-import Link from "next/link";
-import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
+"use client";
 
-const productLinks = [
-  { href: "/browse", label: "Browse Recipes" },
-  { href: "/guides", label: "Pillar Guides" },
+import Link from "next/link";
+import { useState } from "react";
+
+const exploreLinks = [
+  { href: "/browse", label: "Browse Tones" },
   { href: "/platforms", label: "Platforms" },
-  { href: "/gear", label: "Gear Database" },
-  { href: "/compare", label: "Compare Tones" },
+  { href: "/gear", label: "Gear" },
+  { href: "/compare", label: "Compare" },
   { href: "/news", label: "News" },
-  { href: "/blog", label: "Blog" },
+  { href: "/blog", label: "Field Notes" },
   { href: "/request", label: "Request a Tone" },
-  { href: "/how-it-works", label: "How It Works" },
+  { href: "/how-it-works", label: "How it Works" },
 ];
+
+const communityLinks = [
+  { href: "/community/forum", label: "Forum" },
+  { href: "/community", label: "Community Hub" },
+  { href: "/feed.xml", label: "RSS Feed" },
+  { href: "/llms.txt", label: "llms.txt" },
+];
+
+function NewsletterInline() {
+  const [email, setEmail] = useState("");
+  const [state, setState] = useState<"idle" | "loading" | "ok" | "err">("idle");
+  const [err, setErr] = useState<string>("");
+
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email || state === "loading") return;
+    setState("loading");
+    setErr("");
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "footer" }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Something went wrong");
+      }
+      setState("ok");
+      setEmail("");
+    } catch (e) {
+      setState("err");
+      setErr(e instanceof Error ? e.message : "Something went wrong");
+    }
+  }
+
+  if (state === "ok") {
+    return (
+      <p className="fk-footer-news-ok">
+        <span aria-hidden>✦</span> You&apos;re on the list. Friday delivery.
+      </p>
+    );
+  }
+
+  return (
+    <form className="fk-footer-news-form" onSubmit={onSubmit}>
+      <input
+        type="email"
+        required
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="you@example.com"
+        className="fk-footer-news-input"
+        aria-label="Email for newsletter"
+      />
+      <button
+        type="submit"
+        disabled={state === "loading"}
+        className="fk-footer-news-submit"
+      >
+        {state === "loading" ? "…" : "Subscribe"}
+      </button>
+      {state === "err" && <p className="fk-footer-news-err">{err}</p>}
+    </form>
+  );
+}
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-surface">
-      <div className="mx-auto max-w-7xl px-4 py-16">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-          {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
-            <span className="text-sm font-bold text-accent" style={{ letterSpacing: "-0.02em" }}>Fader &amp; Knob</span>
-            <p className="mt-1 text-sm text-muted">Stop tweaking. Start playing.</p>
+    <footer className="fk-footer">
+      <div className="fk-footer-inner">
+        <div className="fk-footer-grid">
+          <div className="fk-footer-brand">
+            <span className="fk-footer-mark display">Fader &amp; Knob</span>
+            <p className="fk-footer-tagline">Stop tweaking. Start playing.</p>
           </div>
 
-          {/* Product links */}
-          <nav className="flex flex-col gap-2">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted">Explore</p>
-            {productLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted transition-colors hover:text-foreground"
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav className="fk-footer-col" aria-label="Explore">
+            <h3 className="fk-footer-colhead">Explore</h3>
+            <ul>
+              {exploreLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
           </nav>
 
-          {/* Community + Resources */}
-          <nav className="flex flex-col gap-2">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted">Community</p>
-            <Link
-              href="/community/forum"
-              className="text-sm text-muted transition-colors hover:text-foreground"
-            >
-              Forum
-            </Link>
-            <Link
-              href="/community"
-              className="text-sm text-muted transition-colors hover:text-foreground"
-            >
-              Community Hub
-            </Link>
-            <Link
-              href="/feed.xml"
-              className="text-sm text-muted transition-colors hover:text-foreground"
-            >
-              RSS Feed
-            </Link>
-            <Link
-              href="/llms.txt"
-              className="text-sm text-muted transition-colors hover:text-foreground"
-            >
-              llms.txt
-            </Link>
+          <nav className="fk-footer-col" aria-label="Community">
+            <h3 className="fk-footer-colhead">Community</h3>
+            <ul>
+              {communityLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
           </nav>
 
-          {/* Newsletter */}
-          <div className="col-span-2 md:col-span-1">
-            <NewsletterSignup variant="footer" />
+          <div className="fk-footer-col fk-footer-news">
+            <h3 className="fk-footer-colhead">The Friday send</h3>
+            <p className="fk-footer-news-dek">
+              One recipe, one field note, one quick fix. Every Friday.
+            </p>
+            <NewsletterInline />
           </div>
         </div>
 
-        {/* Bottom bar — copyright, legal links, disclosures all together */}
-        <div className="mt-8 border-t border-border pt-6 space-y-3 text-[11px] leading-relaxed text-muted/60">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <span className="text-xs text-muted">&copy; {new Date().getFullYear()} Axiom Digital. All rights reserved.</span>
-            <Link href="/how-we-work" className="underline hover:text-muted">How We Work</Link>
-            <Link href="/affiliate-disclosure" className="underline hover:text-muted">Affiliate Disclosure</Link>
-            <Link href="/privacy" className="underline hover:text-muted">Privacy Policy</Link>
-            <Link href="/terms" className="underline hover:text-muted">Terms of Service</Link>
-            <Link href="/about" className="underline hover:text-muted">About</Link>
+        <div className="fk-footer-bottom">
+          <div className="fk-footer-legal">
+            <span>© {new Date().getFullYear()} Axiom Digital.</span>
+            <Link href="/about">About</Link>
+            <Link href="/affiliate-disclosure">Affiliate Disclosure</Link>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
           </div>
-          <p>
-            Content on this site is researched and written with AI assistance. Hardware testing is part of our review process.
+          <p className="fk-footer-disclaimer">
+            Researched and written with AI assistance; hardware testing is part of our review process.
             Some links are affiliate links — Fader &amp; Knob may earn a commission on purchases at no extra cost to you.
-            We use{" "}
-            <a href="https://clarity.microsoft.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted">
-              Microsoft Clarity
-            </a>
-            , Google Analytics, and Contentsquare to understand how visitors use this site. By using our site, you agree that we and these providers can collect and use this data.
           </p>
         </div>
       </div>

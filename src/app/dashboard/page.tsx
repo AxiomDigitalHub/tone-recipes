@@ -7,17 +7,11 @@ import { useFavoritesStore } from "@/lib/stores/favorites-store";
 import { useRecentlyViewedStore } from "@/lib/stores/recently-viewed-store";
 import { isSupabaseConfigured } from "@/lib/db/client";
 import { getProfile, getUserGear } from "@/lib/db/profile";
-import { toneRecipes, getRecipeBySlug, getSongBySlug } from "@/lib/data";
+import { toneRecipes, getRecipeBySlug, getSongBySlug, getArtistBySlug } from "@/lib/data";
 import type { ToneRecipe, Platform } from "@/types/recipe";
-import { BookOpen, Guitar, Settings, Sparkles, CircleCheckBig, Circle } from "lucide-react";
 import { TIERS } from "@/lib/permissions";
 import { classifyTonePersonality, getTimeGreeting } from "@/lib/tone-personality";
-import ContinueHero from "@/components/dashboard/ContinueHero";
-import RecipeRail from "@/components/dashboard/RecipeRail";
-
-/* -------------------------------------------------------------------------- */
-/*  Dashboard overview                                                        */
-/* -------------------------------------------------------------------------- */
+import { LpArt, monogramFor } from "@/components/v3/LpArt";
 
 const PLATFORM_LABELS: Record<string, string> = {
   helix: "Helix",
@@ -29,17 +23,39 @@ const PLATFORM_LABELS: Record<string, string> = {
   physical: "Pedalboard",
 };
 
-/** Editorial picks for new users with no saves or history */
 const STARTER_PICKS = [
   "srv-pride-and-joy-rhythm",
   "gilmour-comfortably-numb-solo",
   "hendrix-voodoo-child-wah",
-  "edge-where-streets-have-no-name",
-  "mayer-slow-dancing-clean",
-  "slash-sweet-child-lead",
+  "evh-eruption-brown-sound",
+  "hetfield-master-of-puppets-rhythm",
+  "mayer-slow-dancing-burning-room",
 ];
 
-export default function DashboardPage() {
+function RecipeCard({ recipe, hue }: { recipe: ToneRecipe; hue: number }) {
+  const song = getSongBySlug(recipe.song_slug);
+  const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
+  return (
+    <Link href={`/recipe/${recipe.slug}`} className="dashboard-card">
+      <LpArt
+        cover={song?.album_art_url}
+        monogram={monogramFor(song?.title ?? recipe.title)}
+        hue={hue}
+        shape="square"
+      />
+      <div className="dashboard-card-body">
+        <div className="dashboard-card-title">{song?.title ?? recipe.title}</div>
+        {artist && (
+          <div className="dashboard-card-artist">
+            <em>{artist.name}</em>
+          </div>
+        )}
+      </div>
+    </Link>
+  );
+}
+
+export default function DashboardOverview() {
   const { user } = useAuth();
   const favoritesHydrate = useFavoritesStore((s) => s.hydrate);
   const favoritesSet = useFavoritesStore((s) => s.favorites);
@@ -51,13 +67,12 @@ export default function DashboardPage() {
   const [gearCount, setGearCount] = useState(0);
 
   useEffect(() => {
-    favoritesHydrate();
+    favoritesHydrate(user?.id);
     recentHydrate();
     setHydrated(true);
 
     let cancelled = false;
-
-    async function load() {
+    (async () => {
       if (isSupabaseConfigured() && user?.id) {
         const [profile, gear] = await Promise.all([
           getProfile(user.id),
@@ -87,15 +102,11 @@ export default function DashboardPage() {
           /* empty */
         }
       }
-    }
-
-    load();
+    })();
     return () => {
       cancelled = true;
     };
   }, [favoritesHydrate, recentHydrate, user]);
-
-  /* ---- Derived data ----------------------------------------------------- */
 
   const savedRecipes = useMemo<ToneRecipe[]>(() => {
     if (!hydrated) return [];
@@ -104,56 +115,58 @@ export default function DashboardPage() {
       .filter((r): r is ToneRecipe => Boolean(r));
   }, [favoritesSet, hydrated]);
 
-  const recentRecipes = useMemo<ToneRecipe[]>(() => {
-    return recentSlugs
-      .map((slug) => getRecipeBySlug(slug))
-      .filter((r): r is ToneRecipe => Boolean(r));
-  }, [recentSlugs]);
+  const recentRecipes = useMemo<ToneRecipe[]>(
+    () =>
+      recentSlugs
+        .map((slug) => getRecipeBySlug(slug))
+        .filter((r): r is ToneRecipe => Boolean(r)),
+    [recentSlugs],
+  );
 
-  // "Continue where you left off" — most recently viewed or fall back to a popular recipe
   const heroRecipe = useMemo<ToneRecipe | null>(() => {
-    if (recentRecipes.length > 0) return recentRecipes[0];
-    if (savedRecipes.length > 0) return savedRecipes[0];
-    // Fallback to first starter pick for new users
+    if (recentRecipes[0]) return recentRecipes[0];
+    if (savedRecipes[0]) return savedRecipes[0];
     for (const slug of STARTER_PICKS) {
       const r = getRecipeBySlug(slug);
       if (r) return r;
     }
-    // Ultimate fallback — just grab the first recipe
     return toneRecipes[0] ?? null;
   }, [recentRecipes, savedRecipes]);
 
-  // "Matches your rig" — filter recipes by the user's primary platform
   const rigMatchRecipes = useMemo<ToneRecipe[]>(() => {
     if (!primaryPlatform) return [];
     const platform = primaryPlatform as Platform;
-    // Recipes that have a translation for the user's platform
     return toneRecipes
       .filter((r) => r.platform_translations?.[platform])
       .slice(0, 12);
   }, [primaryPlatform]);
 
-  // Starter picks for new users with empty everything
-  const starterPicks = useMemo<ToneRecipe[]>(() => {
-    return STARTER_PICKS.map((slug) => getRecipeBySlug(slug)).filter(
-      (r): r is ToneRecipe => Boolean(r),
-    );
-  }, []);
+  const starterPicks = useMemo<ToneRecipe[]>(
+    () =>
+      STARTER_PICKS.map((s) => getRecipeBySlug(s)).filter(
+        (r): r is ToneRecipe => Boolean(r),
+      ),
+    [],
+  );
 
-  // Derived tone personality from saved recipes
   const personality = useMemo(
     () => classifyTonePersonality(savedRecipes),
     [savedRecipes],
   );
 
-  /* ---- UI values -------------------------------------------------------- */
+  const heroSong = heroRecipe ? getSongBySlug(heroRecipe.song_slug) : undefined;
+  const heroArtist = heroSong ? getArtistBySlug(heroSong.artist_slug) : undefined;
 
-  const displayName = user?.displayName ?? user?.email?.split("@")[0] ?? "there";
+  const displayName =
+    user?.displayName ?? user?.email?.split("@")[0] ?? "there";
   const greeting = `${hydrated ? getTimeGreeting() : "Welcome back"}, ${displayName}`;
   const tierLabel = user ? TIERS[user.role]?.label ?? "Free" : "Free";
-  const isPaid = user?.role === "premium" || user?.role === "creator" || user?.role === "admin";
+  const isPaid =
+    user?.role === "premium" ||
+    user?.role === "creator" ||
+    user?.role === "admin" ||
+    user?.role === "super_admin";
 
-  // Activation checklist for new users
   const activationSteps = [
     {
       id: "platform",
@@ -174,10 +187,9 @@ export default function DashboardPage() {
       href: "/browse",
     },
   ];
-  const activationComplete = activationSteps.every((s) => s.done);
-  const showActivation = hydrated && !activationComplete;
+  const activationDone = activationSteps.filter((s) => s.done).length;
+  const showActivation = hydrated && activationDone < activationSteps.length;
 
-  // Stats strip (demoted from giant cards to a compact row)
   const stats = [
     { label: "Plan", value: tierLabel, highlight: isPaid },
     { label: "Saved", value: String(savedRecipes.length) },
@@ -190,81 +202,110 @@ export default function DashboardPage() {
     },
   ];
 
-  /* ---- Render ----------------------------------------------------------- */
-
   return (
-    <div className="space-y-10">
-      {/* ── Greeting + hero ────────────────────────────────────────────── */}
-      <section className="space-y-4">
-        <div>
-          <h1 className="text-2xl font-bold text-foreground md:text-3xl">
-            {greeting}
-          </h1>
-          {savedRecipes.length >= 3 ? (
-            <p className="mt-1 text-sm text-muted">
-              You&apos;re a{" "}
-              <span className="font-semibold text-accent">
-                {personality.label}
-              </span>
-              {" — "}
-              {personality.description}
-            </p>
-          ) : (
-            <p className="mt-1 text-sm text-muted">
-              Tone recipes from the songs you love.
-            </p>
-          )}
-        </div>
-
-        {heroRecipe && (
-          <ContinueHero
-            recipe={heroRecipe}
-            eyebrow={recentRecipes.length > 0 ? "CONTINUE" : "START HERE"}
-          />
+    <>
+      {/* Greeting */}
+      <header className="dashboard-greeting">
+        <h2 className="display dashboard-greeting-title">{greeting}</h2>
+        {savedRecipes.length >= 3 ? (
+          <p className="dashboard-greeting-dek">
+            You&apos;re a{" "}
+            <span className="dashboard-personality">{personality.label}</span>
+            {" — "}
+            {personality.description}
+          </p>
+        ) : (
+          <p className="dashboard-greeting-dek">
+            Tone recipes from the songs you love.
+          </p>
         )}
-      </section>
+      </header>
 
-      {/* ── Activation checklist (new users only) ──────────────────────── */}
-      {showActivation && (
-        <section className="rounded-2xl border border-accent/30 bg-accent/5 p-6">
-          <div className="mb-4 flex items-center justify-between gap-4">
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-accent/80">
-                GET STARTED
+      {/* Continue hero */}
+      {heroRecipe && (
+        <section className="dashboard-hero">
+          <div className="dashboard-hero-art">
+            <LpArt
+              cover={heroSong?.album_art_url}
+              monogram={monogramFor(heroSong?.title ?? heroRecipe.title)}
+              hue={1}
+              shape="square"
+            />
+          </div>
+          <div className="dashboard-hero-body">
+            <div className="recipe-issue">
+              <span className="pill">
+                {recentRecipes[0]
+                  ? "Continue where you left off"
+                  : savedRecipes[0]
+                    ? "From your saves"
+                    : "Editor's pick"}
+              </span>
+              {heroSong?.year && <span>·</span>}
+              {heroSong?.year && <span>{heroSong.year}</span>}
+            </div>
+            <h2 className="display dashboard-hero-title">
+              {heroSong?.title ?? heroRecipe.title}
+            </h2>
+            {heroArtist && (
+              <p className="dashboard-hero-artist">
+                <em>{heroArtist.name}</em>
+                {heroSong?.album && (
+                  <>
+                    {" — "}
+                    <span>{heroSong.album}</span>
+                  </>
+                )}
               </p>
-              <h2 className="mt-1 text-lg font-bold text-foreground">
+            )}
+            {heroRecipe.description && (
+              <p className="dashboard-hero-dek">{heroRecipe.description}</p>
+            )}
+            <div className="dashboard-hero-cta-row">
+              <Link
+                href={`/recipe/${heroRecipe.slug}`}
+                className="hero-cta hero-cta-primary"
+              >
+                Open recipe
+              </Link>
+              <Link href="/browse" className="dashboard-hero-cta-secondary">
+                Browse more →
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Activation checklist */}
+      {showActivation && (
+        <section className="dashboard-activation">
+          <header className="dashboard-activation-head">
+            <div>
+              <span className="dashboard-eyebrow">Get started</span>
+              <h2 className="display dashboard-activation-title">
                 Activate your dashboard
               </h2>
-              <p className="mt-0.5 text-xs text-muted">
+              <p className="dashboard-activation-dek">
                 Three quick steps to make Fader &amp; Knob feel like yours.
               </p>
             </div>
-            <p className="shrink-0 text-xs font-semibold text-muted">
-              {activationSteps.filter((s) => s.done).length}/{activationSteps.length}
-            </p>
-          </div>
-
-          <ul className="space-y-2">
+            <span className="dashboard-activation-progress">
+              {activationDone}/{activationSteps.length}
+            </span>
+          </header>
+          <ul className="dashboard-activation-list">
             {activationSteps.map((step) => (
               <li key={step.id}>
                 <Link
                   href={step.href}
-                  className={`flex items-center gap-3 rounded-lg border px-4 py-3 text-sm transition-colors ${
-                    step.done
-                      ? "border-border/50 bg-[#0b0f1a]/60 text-muted"
-                      : "border-border bg-[#0b0f1a] text-foreground hover:border-accent/40 hover:bg-surface"
-                  }`}
+                  className={`dashboard-activation-step ${step.done ? "is-done" : ""}`}
                 >
-                  {step.done ? (
-                    <CircleCheckBig className="h-4 w-4 shrink-0 text-accent" />
-                  ) : (
-                    <Circle className="h-4 w-4 shrink-0 text-muted" />
-                  )}
-                  <span className="flex-1 font-medium">{step.label}</span>
+                  <span className="dashboard-activation-mark" aria-hidden>
+                    {step.done ? "●" : "○"}
+                  </span>
+                  <span className="dashboard-activation-label">{step.label}</span>
                   {!step.done && (
-                    <span className="text-xs font-semibold text-accent">
-                      Start →
-                    </span>
+                    <span className="dashboard-activation-cta">Start →</span>
                   )}
                 </Link>
               </li>
@@ -273,125 +314,168 @@ export default function DashboardPage() {
         </section>
       )}
 
-      {/* ── Your saved recipes rail ────────────────────────────────────── */}
+      {/* Saved rail */}
       {savedRecipes.length > 0 ? (
-        <RecipeRail
-          eyebrow="YOUR LIBRARY"
-          title="Saved recipes"
-          subtitle="The tones you&apos;ve bookmarked for later"
-          recipes={savedRecipes.slice(0, 12)}
-          viewAllHref="/dashboard/saved"
-        />
+        <section className="dashboard-section">
+          <header className="dashboard-section-head">
+            <div>
+              <span className="dashboard-eyebrow">Your library</span>
+              <h2 className="display">Saved recipes</h2>
+            </div>
+            <Link href="/dashboard/saved" className="dashboard-section-all">
+              See all →
+            </Link>
+          </header>
+          <div className="dashboard-rail">
+            {savedRecipes.slice(0, 6).map((r, i) => (
+              <RecipeCard key={r.slug} recipe={r} hue={(i % 6) + 1} />
+            ))}
+          </div>
+        </section>
       ) : hydrated && !showActivation ? (
-        <RecipeRail
-          eyebrow="YOUR LIBRARY"
-          title="Saved recipes"
-          recipes={[]}
-          emptyMessage="Save a recipe to see it here. Hit the heart icon on any recipe to bookmark it."
-        />
+        <section className="dashboard-section">
+          <header className="dashboard-section-head">
+            <div>
+              <span className="dashboard-eyebrow">Your library</span>
+              <h2 className="display">Saved recipes</h2>
+            </div>
+          </header>
+          <div className="dashboard-empty">
+            <p>You haven&apos;t saved any recipes yet.</p>
+            <p className="dashboard-empty-hint">
+              Tap the heart on any recipe to keep it here.
+            </p>
+          </div>
+        </section>
       ) : null}
 
-      {/* ── Matches your rig rail ──────────────────────────────────────── */}
+      {/* Matches your rig */}
       {primaryPlatform && rigMatchRecipes.length > 0 && (
-        <RecipeRail
-          eyebrow="PERSONALIZED"
-          title={`Matches your ${PLATFORM_LABELS[primaryPlatform] ?? primaryPlatform}`}
-          subtitle="Recipes with translations ready for your rig"
-          recipes={rigMatchRecipes}
-          viewAllHref={`/platforms/${primaryPlatform}`}
-        />
-      )}
-
-      {/* ── Recently viewed rail (only if more than 1 recent) ─────────── */}
-      {recentRecipes.length > 1 && (
-        <RecipeRail
-          eyebrow="JUMP BACK IN"
-          title="Recently viewed"
-          recipes={recentRecipes.slice(1, 13)}
-        />
-      )}
-
-      {/* ── Starter picks for new users with no library yet ────────────── */}
-      {hydrated && savedRecipes.length === 0 && recentRecipes.length === 0 && (
-        <RecipeRail
-          eyebrow="EDITORS' PICKS"
-          title="Start with these"
-          subtitle="Iconic tones to bookmark and build from"
-          recipes={starterPicks}
-          viewAllHref="/browse"
-        />
-      )}
-
-      {/* ── Stats strip (demoted from giant cards) ─────────────────────── */}
-      <section>
-        <div className="mb-3">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-muted/70">
-            YOUR ACCOUNT
-          </p>
-        </div>
-        <div className="grid gap-3 rounded-xl border border-[#1e2840] bg-[#0b0f1a] p-4 sm:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label} className="flex flex-col gap-0.5">
-              <p className="text-[10px] font-medium uppercase tracking-wider text-muted">
-                {stat.label}
+        <section className="dashboard-section">
+          <header className="dashboard-section-head">
+            <div>
+              <span className="dashboard-eyebrow">Personalized</span>
+              <h2 className="display">
+                Matches your{" "}
+                {PLATFORM_LABELS[primaryPlatform] ?? primaryPlatform}
+              </h2>
+              <p className="dashboard-section-dek">
+                Recipes with translations ready for your rig.
               </p>
-              <div className="flex items-center gap-1.5">
-                <p
-                  className={`text-sm font-bold ${
-                    stat.highlight ? "text-accent" : "text-foreground"
-                  }`}
-                >
-                  {stat.value}
-                </p>
-                {stat.highlight && <Sparkles className="h-3 w-3 text-accent" />}
-              </div>
+            </div>
+            <Link
+              href={`/platforms/${primaryPlatform}`}
+              className="dashboard-section-all"
+            >
+              See all →
+            </Link>
+          </header>
+          <div className="dashboard-rail">
+            {rigMatchRecipes.slice(0, 6).map((r, i) => (
+              <RecipeCard key={r.slug} recipe={r} hue={((i + 3) % 6) + 1} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Recently viewed */}
+      {recentRecipes.length > 1 && (
+        <section className="dashboard-section">
+          <header className="dashboard-section-head">
+            <div>
+              <span className="dashboard-eyebrow">Jump back in</span>
+              <h2 className="display">Recently viewed</h2>
+            </div>
+          </header>
+          <div className="dashboard-rail">
+            {recentRecipes.slice(1, 7).map((r, i) => (
+              <RecipeCard key={r.slug} recipe={r} hue={((i + 2) % 6) + 1} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Starter picks for empty users */}
+      {hydrated && savedRecipes.length === 0 && recentRecipes.length === 0 && (
+        <section className="dashboard-section">
+          <header className="dashboard-section-head">
+            <div>
+              <span className="dashboard-eyebrow">Editors&apos; picks</span>
+              <h2 className="display">Start with these</h2>
+              <p className="dashboard-section-dek">
+                Iconic tones to bookmark and build from.
+              </p>
+            </div>
+            <Link href="/browse" className="dashboard-section-all">
+              Browse all →
+            </Link>
+          </header>
+          <div className="dashboard-rail">
+            {starterPicks.map((r, i) => (
+              <RecipeCard key={r.slug} recipe={r} hue={(i % 6) + 1} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Account stats strip */}
+      <section className="dashboard-section dashboard-stats-section">
+        <header className="dashboard-section-head">
+          <div>
+            <span className="dashboard-eyebrow">Your account</span>
+          </div>
+        </header>
+        <div className="dashboard-stats">
+          {stats.map((stat) => (
+            <div key={stat.label} className="dashboard-stat">
+              <span className="dashboard-stat-label">{stat.label}</span>
+              <span
+                className={`dashboard-stat-value ${stat.highlight ? "is-paid" : ""}`}
+              >
+                {stat.value}
+              </span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── Upgrade CTA for free users ─────────────────────────────────── */}
+      {/* Upgrade banner — free tier only */}
       {!isPaid && hydrated && (
-        <section className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-accent/30 bg-accent/5 p-5">
+        <section className="dashboard-upgrade">
           <div>
-            <p className="text-sm font-semibold text-foreground">
+            <h3 className="display dashboard-upgrade-title">
               Unlock unlimited preset downloads
-            </p>
-            <p className="mt-1 text-xs text-muted">
+            </h3>
+            <p className="dashboard-upgrade-dek">
               Tone Pass is $7/mo. Cancel anytime.
             </p>
           </div>
-          <Link
-            href="/pricing"
-            className="shrink-0 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
-          >
+          <Link href="/pricing" className="hero-cta hero-cta-primary">
             Upgrade
           </Link>
         </section>
       )}
 
-      {/* ── Quick actions footer ───────────────────────────────────────── */}
-      <section>
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted">
-          Quick actions
-        </h2>
-        <div className="grid gap-3 sm:grid-cols-3">
+      {/* Quick actions */}
+      <section className="dashboard-section">
+        <header className="dashboard-section-head">
+          <div>
+            <span className="dashboard-eyebrow">Quick actions</span>
+          </div>
+        </header>
+        <div className="dashboard-quick-actions">
           {[
-            { label: "Browse recipes", href: "/browse", icon: BookOpen },
-            { label: "My gear", href: "/dashboard/my-gear", icon: Guitar },
-            { label: "Settings", href: "/dashboard/settings", icon: Settings },
-          ].map(({ label, href, icon: Icon }) => (
-            <Link
-              key={href}
-              href={href}
-              className="flex items-center gap-3 rounded-xl border border-[#1e2840] bg-[#0b0f1a] p-4 text-sm font-medium text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
-            >
-              <Icon className="h-5 w-5 text-accent" />
-              {label}
+            { label: "Browse recipes", href: "/browse" },
+            { label: "My gear", href: "/dashboard/my-gear" },
+            { label: "Settings", href: "/dashboard/settings" },
+          ].map(({ label, href }) => (
+            <Link key={href} href={href} className="dashboard-quick-action">
+              <span>{label}</span>
+              <span aria-hidden>→</span>
             </Link>
           ))}
         </div>
       </section>
-    </div>
+    </>
   );
 }

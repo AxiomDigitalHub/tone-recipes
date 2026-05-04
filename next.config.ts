@@ -28,6 +28,18 @@ const nextConfig: NextConfig = {
         destination: "/platforms/quad_cortex",
         permanent: true,
       },
+      // v4 cutover — old /preview/* deep links 301 to canonical /<route>.
+      // Catch-all rewrite via :path* picks up every nested URL.
+      {
+        source: "/preview/:path*",
+        destination: "/:path*",
+        permanent: true,
+      },
+      {
+        source: "/preview",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
   images: {

@@ -1,204 +1,147 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/auth/auth-context";
-import {
-  LayoutDashboard,
-  Heart,
-  Guitar,
-  Settings,
-  LogOut,
-  ChefHat,
-  Bell,
-  Shield,
-} from "lucide-react";
+import { TIERS } from "@/lib/permissions";
+import type { UserRole } from "@/lib/auth/auth-context";
+import type { ReactNode } from "react";
 
-/* -------------------------------------------------------------------------- */
-/*  Nav items                                                                 */
-/* -------------------------------------------------------------------------- */
+/**
+ * v3 dashboard shell — editorial chrome for the logged-in surface.
+ *
+ * Sidebar: 7 nav items mirroring the production /dashboard tree.
+ * Top bar: identity tile (initials + name + tier pill) plus a
+ * sign-out trigger via auth-context. When no user is signed in,
+ * the shell shows a "Sign in to personalize" prompt rather than
+ * crashing — handy for design preview without real auth state.
+ *
+ * The visual language matches /blog (left sticky sidebar,
+ * paper/ink contrast, mono-cap labels, amber active-state border).
+ */
 
 const NAV_ITEMS = [
-  { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
-  { href: "/dashboard/saved", label: "Saved Recipes", icon: Heart },
-  { href: "/dashboard/my-gear", label: "My Gear", icon: Guitar },
-  { href: "/dashboard/my-recipes", label: "My Recipes", icon: ChefHat },
-  { href: "/dashboard/notifications", label: "Notifications", icon: Bell },
-  { href: "/dashboard/settings", label: "Settings", icon: Settings },
+  { href: "/dashboard", label: "Overview" },
+  { href: "/dashboard/saved", label: "Saved" },
+  { href: "/dashboard/my-gear", label: "My gear" },
+  { href: "/dashboard/my-recipes", label: "My recipes" },
+  { href: "/dashboard/notifications", label: "Notifications" },
+  { href: "/dashboard/settings", label: "Settings" },
 ] as const;
 
-const ADMIN_NAV = { href: "/dashboard/admin", label: "Super Admin", icon: Shield };
 const ADMIN_ROLES = new Set(["admin", "super_admin"]);
 
-/* -------------------------------------------------------------------------- */
-/*  Shell                                                                     */
-/* -------------------------------------------------------------------------- */
-
-export default function DashboardShell({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const { user, loading, signOut } = useAuth();
-  const router = useRouter();
-  const pathname = usePathname();
-  const [justUpgraded, setJustUpgraded] = useState(false);
-
-  // Read ?upgraded=true from URL on client only (avoids Suspense prerender issue)
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    setJustUpgraded(
-      new URLSearchParams(window.location.search).get("upgraded") === "true",
-    );
-  }, []);
-
-  // Grace period before redirecting to /login.
-  // Prevents a brief loading-false + user-null race from bouncing users
-  // off the dashboard when they return from external redirects (Stripe, OAuth).
-  // Extended to 6 seconds when ?upgraded=true is present — the user just paid us
-  // and deserves to wait for auth hydration before we bounce them to /login.
-  useEffect(() => {
-    if (loading || user) return;
-    const graceMs = justUpgraded ? 6000 : 3000;
-    const timer = setTimeout(() => {
-      router.replace("/login");
-    }, graceMs);
-    return () => clearTimeout(timer);
-  }, [loading, user, router, justUpgraded]);
-
-  if (loading || !user) {
-    return (
-      <div className="flex min-h-[60vh] flex-col items-center justify-center gap-3">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-accent border-t-transparent" />
-        <p className="text-sm text-muted">
-          {justUpgraded ? "Activating your account..." : "Loading..."}
-        </p>
-      </div>
-    );
+function initialsFrom(name: string | null | undefined, email: string | null | undefined): string {
+  const source = (name ?? email ?? "").trim();
+  if (!source) return "FK";
+  const parts = source.split(/\s+/);
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
   }
-
-  const initials = (user.displayName ?? user.email)
-    .split(/[\s@]+/)
-    .slice(0, 2)
-    .map((s) => s[0]?.toUpperCase() ?? "")
-    .join("");
-
-  return (
-    <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 md:grid-cols-[14rem_minmax(0,1fr)] md:gap-8 md:px-4 md:py-10">
-      {/* ---- Sidebar (desktop) ---- */}
-      <aside className="hidden md:block">
-        <div className="sticky top-24 flex flex-col gap-6">
-          {/* User info + tier badge */}
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-bold text-background">
-              {initials}
-            </div>
-            <div className="min-w-0">
-              <div className="flex items-center gap-2">
-                <p className="truncate text-sm font-semibold text-foreground">
-                  {user.displayName ?? user.email.split("@")[0]}
-                </p>
-                <TierBadge role={user.role} />
-              </div>
-              <p className="truncate text-xs text-muted">{user.email}</p>
-            </div>
-          </div>
-
-          {/* Links */}
-          <nav className="flex flex-col gap-1">
-            {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
-              const active =
-                href === "/dashboard"
-                  ? pathname === "/dashboard"
-                  : pathname.startsWith(href);
-              return (
-                <Link
-                  key={href}
-                  href={href}
-                  className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                    active
-                      ? "bg-accent/15 text-accent"
-                      : "text-muted hover:bg-surface-hover hover:text-foreground"
-                  }`}
-                >
-                  <Icon className="h-4 w-4 shrink-0" />
-                  {label}
-                </Link>
-              );
-            })}
-
-            {/* Super Admin link — only visible to admin/super_admin roles */}
-            {user && ADMIN_ROLES.has(user.role) && (
-              <Link
-                href={ADMIN_NAV.href}
-                className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                  pathname.startsWith(ADMIN_NAV.href)
-                    ? "bg-red-500/15 text-red-400"
-                    : "text-red-400/60 hover:bg-surface-hover hover:text-red-400"
-                }`}
-              >
-                <ADMIN_NAV.icon className="h-4 w-4 shrink-0" />
-                {ADMIN_NAV.label}
-              </Link>
-            )}
-          </nav>
-
-          {/* Sign out */}
-          <button
-            onClick={() => signOut()}
-            className="mt-2 flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-surface-hover hover:text-foreground"
-          >
-            <LogOut className="h-4 w-4 shrink-0" />
-            Sign Out
-          </button>
-        </div>
-      </aside>
-
-      {/* ---- Mobile tabs ---- */}
-      <nav className="flex border-b border-border md:hidden">
-        {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
-          const active =
-            href === "/dashboard"
-              ? pathname === "/dashboard"
-              : pathname.startsWith(href);
-          return (
-            <Link
-              key={href}
-              href={href}
-              className={`flex flex-1 flex-col items-center gap-1 px-2 py-3 text-[11px] font-medium transition-colors ${
-                active
-                  ? "border-b-2 border-accent text-accent"
-                  : "text-muted hover:text-foreground"
-              }`}
-            >
-              <Icon className="h-4 w-4" />
-              {label}
-            </Link>
-          );
-        })}
-      </nav>
-
-      {/* ---- Content ---- */}
-      <div className="min-h-[70vh] px-4 py-8 md:px-0 md:py-0">{children}</div>
-    </div>
-  );
+  return source.slice(0, 2).toUpperCase();
 }
 
-/* ── Tier badge ── */
+function tierLabelFor(role: UserRole | null | undefined): { label: string; isPaid: boolean } {
+  const r = role ?? "free";
+  const label = TIERS[r]?.label ?? "Free";
+  const isPaid = r !== "free";
+  return { label, isPaid };
+}
 
-function TierBadge({ role }: { role: string }) {
-  const config: Record<string, { label: string; className: string }> = {
-    super_admin: { label: "Admin", className: "bg-red-500/20 text-red-400" },
-    admin: { label: "Admin", className: "bg-red-500/20 text-red-400" },
-    creator: { label: "Pro", className: "bg-purple-500/20 text-purple-400" },
-    premium: { label: "Pass", className: "bg-accent/20 text-accent" },
-    free: { label: "Free", className: "bg-surface text-muted" },
-  };
-  const c = config[role] ?? config.free;
+export default function DashboardShell({ children }: { children: ReactNode }) {
+  const { user, loading, signOut } = useAuth();
+  const pathname = usePathname();
+
+  const displayName = user?.displayName ?? user?.email ?? null;
+  const tier = tierLabelFor(user?.role);
+  const isAdmin = user?.role && ADMIN_ROLES.has(user.role);
+  const initials = initialsFrom(user?.displayName, user?.email);
+
   return (
-    <span className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase ${c.className}`}>
-      {c.label}
-    </span>
+    <div className="container">
+      <div className="dashboard-page">
+        <div className="recipe-crumbs">
+          <Link href="/">Home</Link>
+          <span className="sep">/</span>
+          <span style={{ color: "var(--ink)" }}>Dashboard</span>
+        </div>
+
+        <header className="dashboard-identity">
+          <div className="dashboard-avatar" aria-hidden>
+            {initials}
+          </div>
+          <div className="dashboard-identity-text">
+            <div className="dashboard-identity-meta">
+              {user && (
+                <span className={`dashboard-tier dashboard-tier-${tier.label.toLowerCase().replace(/\s+/g, "-")}`}>
+                  {tier.label}
+                </span>
+              )}
+              {loading && <span className="dashboard-identity-status">Loading…</span>}
+              {!loading && !user && (
+                <span className="dashboard-identity-status">
+                  Sign in to sync your saves and gear
+                </span>
+              )}
+            </div>
+            <h1 className="display dashboard-name">
+              {displayName ? `Welcome back, ${displayName.split(/[@\s]/)[0]}` : "Your dashboard"}
+            </h1>
+          </div>
+          {user && (
+            <button
+              type="button"
+              onClick={() => signOut()}
+              className="dashboard-signout"
+              title="Sign out"
+            >
+              Sign out
+            </button>
+          )}
+          {!user && !loading && (
+            <Link href="/login" className="hero-cta hero-cta-primary dashboard-signin">
+              Sign in
+            </Link>
+          )}
+        </header>
+
+        <div className="dashboard-grid">
+          <aside className="dashboard-sidebar" aria-label="Account navigation">
+            <ul className="dept-list">
+              {NAV_ITEMS.map((item) => {
+                const active =
+                  item.href === "/dashboard"
+                    ? pathname === item.href
+                    : pathname.startsWith(item.href);
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className={`dept-link dashboard-nav-link ${active ? "is-active" : ""}`}
+                    >
+                      <span className="dept-link-label">{item.label}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+              {isAdmin && (
+                <li>
+                  <Link
+                    href="/dashboard/admin"
+                    className={`dept-link dashboard-nav-link dashboard-nav-admin ${
+                      pathname.startsWith("/dashboard/admin") ? "is-active" : ""
+                    }`}
+                  >
+                    <span className="dept-link-label">Super admin</span>
+                  </Link>
+                </li>
+              )}
+            </ul>
+          </aside>
+
+          <section className="dashboard-content">{children}</section>
+        </div>
+      </div>
+    </div>
   );
 }

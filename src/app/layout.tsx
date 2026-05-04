@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
-import Header from "@/components/layout/Header";
+import Link from "next/link";
 import Footer from "@/components/layout/Footer";
 import LazySearchPalette from "@/components/search/LazySearchPalette";
 import SmoothScroll from "@/components/ui/SmoothScroll";
@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AuthProvider } from "@/lib/auth/auth-context";
 import "./globals.css";
+import "./v3.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -97,10 +98,45 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} flex min-h-screen flex-col bg-background font-sans text-foreground antialiased`}
       >
         <AuthProvider>
-          <Header />
-          <LazySearchPalette />
-          <main id="main-content" className="flex-1">{children}</main>
-          <Footer />
+          <div className="fk-preview flex min-h-screen flex-col flex-1">
+            <div className="masthead-bar">
+              <div className="masthead-bar-inner">
+                <div>
+                  <span className="tape-dot" />
+                  Vol. 04 · Issue 14 · APR 2026
+                </div>
+                <div>Stop tweaking. Start playing.</div>
+              </div>
+            </div>
+
+            <nav className="preview-subnav">
+              <div className="preview-subnav-inner">
+                <Link href="/" className="preview-subnav-brand">
+                  Fader &amp; Knob
+                </Link>
+                <div className="preview-subnav-links">
+                  <Link href="/browse">Archive</Link>
+                  <Link href="/platforms">Platforms</Link>
+                  <Link href="/blog">Field Notes</Link>
+                  <Link href="/news">News</Link>
+                  <Link href="/request">Request</Link>
+                  <Link href="/pricing">Pricing</Link>
+                </div>
+                <div className="preview-subnav-auth">
+                  <Link href="/login" className="preview-subnav-login">
+                    Log in
+                  </Link>
+                  <Link href="/signup" className="preview-subnav-signup">
+                    Sign up
+                  </Link>
+                </div>
+              </div>
+            </nav>
+
+            <LazySearchPalette />
+            <main id="main-content" className="flex-1">{children}</main>
+            <Footer />
+          </div>
         </AuthProvider>
         <SmoothScroll />
         <Analytics />
