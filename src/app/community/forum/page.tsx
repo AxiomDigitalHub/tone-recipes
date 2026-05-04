@@ -62,41 +62,37 @@ function CategoryCard({ category }: { category: ForumCategory }) {
   return (
     <Link
       href={`/community/forum/${category.slug}`}
-      className="group flex flex-col rounded-xl border border-border bg-surface p-5 transition-all hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
+      className="forum-cat-card"
     >
-      <div className="flex items-start gap-4">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent/10">
+      <div className="forum-cat-card-head">
+        <span className="forum-cat-icon" aria-hidden>
           <CategoryIcon slug={category.slug} />
-        </div>
-        <div className="min-w-0 flex-1">
-          <h3 className="font-semibold text-foreground transition-colors group-hover:text-accent">
-            {category.name}
-          </h3>
+        </span>
+        <div className="forum-cat-card-body">
+          <h3 className="display forum-cat-title">{category.name}</h3>
           {category.description && (
-            <p className="mt-1 text-sm leading-relaxed text-muted line-clamp-2">
-              {category.description}
-            </p>
+            <p className="forum-cat-dek">{category.description}</p>
           )}
         </div>
       </div>
-
-      <div className="mt-4 flex items-center justify-between border-t border-border pt-3 text-xs text-muted">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-2.5 py-0.5 font-medium text-accent">
-          <MessageSquare className="h-3 w-3" aria-hidden="true" />
+      <div className="forum-cat-foot">
+        <span className="forum-cat-count">
+          <MessageSquare className="h-3 w-3" aria-hidden />
           {category.thread_count ?? 0} thread
           {(category.thread_count ?? 0) !== 1 ? "s" : ""}
         </span>
-
         {category.latest_thread ? (
-          <span className="flex items-center gap-1.5 truncate pl-3">
-            <Clock className="h-3 w-3 shrink-0" aria-hidden="true" />
-            <span className="truncate">{category.latest_thread.title}</span>
-            <span className="shrink-0 text-muted/60">
+          <span className="forum-cat-latest">
+            <Clock className="h-3 w-3" aria-hidden />
+            <span className="forum-cat-latest-title">
+              {category.latest_thread.title}
+            </span>
+            <span className="forum-cat-latest-when">
               {timeAgo(category.latest_thread.created_at)}
             </span>
           </span>
         ) : (
-          <span className="text-muted/60">No threads yet</span>
+          <span className="forum-cat-latest-empty">No threads yet</span>
         )}
       </div>
     </Link>
@@ -117,106 +113,112 @@ export default async function ForumPage() {
   ]);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
-      {/* Header */}
-      <section className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-            Community Forum
-          </h1>
-          <p className="mt-3 max-w-2xl text-lg text-muted">
-            Discuss tone recipes, share your rig, get help dialing in sounds,
-            and connect with fellow guitar players.
-          </p>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
-            Browse categories below to find conversations about your platform, ask for help matching a specific tone, or share tips you have picked up along the way. Every thread is searchable, so the advice here builds into a lasting resource for the community.
-          </p>
-        </div>
-        <Link
-          href="/community/forum/new"
-          className="inline-flex h-10 shrink-0 items-center gap-2 rounded-lg bg-accent px-4 text-sm font-medium text-background transition-colors hover:bg-accent/90"
-        >
-          <Plus className="h-4 w-4" aria-hidden="true" />
-          New Thread
-        </Link>
-      </section>
-
-      <div className="mt-12 grid gap-10 lg:grid-cols-3">
-        {/* Category grid */}
-        <div className="lg:col-span-2">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">
-            Categories
-          </h2>
-
-          {categories.length > 0 ? (
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              {categories.map((category) => (
-                <CategoryCard key={category.id} category={category} />
-              ))}
-            </div>
-          ) : (
-            <div className="mt-4 rounded-xl border border-dashed border-border p-12 text-center">
-              <MessageSquare className="mx-auto h-10 w-10 text-muted/40" />
-              <p className="mt-3 font-semibold text-muted">
-                Forum categories coming soon
-              </p>
-              <p className="mt-1 text-sm text-muted/70">
-                Check back shortly -- the community forum is being set up.
-              </p>
-            </div>
-          )}
+    <div className="container">
+      <div className="recipe">
+        <div className="recipe-crumbs">
+          <Link href="/">Home</Link>
+          <span className="sep">/</span>
+          <Link href="/community">Community</Link>
+          <span className="sep">/</span>
+          <span style={{ color: "var(--ink)" }}>Forum</span>
         </div>
 
-        {/* Recent Activity sidebar */}
-        <aside>
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">
-            Recent Activity
-          </h2>
+        <header className="forum-head">
+          <div>
+            <div className="recipe-issue">
+              <span className="pill">Forum</span>
+            </div>
+            <h1 className="recipe-title display">Community forum</h1>
+            <p className="recipe-summary">
+              Discuss tone recipes, share your rig, get help dialing in
+              sounds, and connect with other players. Every thread is
+              searchable, so the advice here builds into a lasting
+              resource.
+            </p>
+          </div>
+          <Link
+            href="/community/forum/new"
+            className="hero-cta hero-cta-primary forum-new-btn"
+          >
+            <Plus className="h-4 w-4" aria-hidden />
+            New thread
+          </Link>
+        </header>
 
-          {recentThreads.length > 0 ? (
-            <ul className="mt-4 space-y-3" role="list">
-              {recentThreads.map((thread) => (
-                <li key={thread.id}>
-                  <Link
-                    href={`/community/forum/thread/${thread.slug}`}
-                    className="group block rounded-lg border border-border bg-surface p-4 transition-all hover:border-accent/40"
-                  >
-                    <p className="text-sm font-medium text-foreground transition-colors group-hover:text-accent line-clamp-2">
-                      {thread.title}
-                    </p>
-                    <div className="mt-2 flex items-center gap-2 text-xs text-muted">
-                      {thread.category && (
-                        <>
-                          <span className="rounded bg-accent/10 px-1.5 py-0.5 text-accent">
+        <div className="forum-grid">
+          <section className="forum-cats-col">
+            <div className="how-head">
+              <h2 className="display">Categories</h2>
+              <span className="section-rule" aria-hidden="true" />
+            </div>
+            {categories.length > 0 ? (
+              <div className="forum-cats">
+                {categories.map((category) => (
+                  <CategoryCard key={category.id} category={category} />
+                ))}
+              </div>
+            ) : (
+              <div className="dashboard-notif-empty">
+                <MessageSquare
+                  className="dashboard-notif-empty-icon"
+                  aria-hidden
+                />
+                <p className="dashboard-notif-empty-title">
+                  Forum categories coming soon
+                </p>
+                <p className="dashboard-notif-empty-dek">
+                  Check back shortly — the community forum is being set up.
+                </p>
+              </div>
+            )}
+          </section>
+
+          <aside className="forum-recent-col">
+            <div className="how-head">
+              <h2 className="display">Recent activity</h2>
+              <span className="section-rule" aria-hidden="true" />
+            </div>
+            {recentThreads.length > 0 ? (
+              <ul className="forum-recent-list" role="list">
+                {recentThreads.map((thread) => (
+                  <li key={thread.id} className="forum-recent-row">
+                    <Link
+                      href={`/community/forum/thread/${thread.slug}`}
+                      className="forum-recent-link"
+                    >
+                      <p className="forum-recent-title">{thread.title}</p>
+                      <div className="forum-recent-meta">
+                        {thread.category && (
+                          <span className="forum-recent-cat">
                             {thread.category.name}
                           </span>
-                          <span className="text-border">|</span>
-                        </>
-                      )}
-                      <span>{thread.author?.display_name ?? "Anonymous"}</span>
-                      <span className="text-border">|</span>
-                      <span>{timeAgo(thread.created_at)}</span>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="mt-4 text-sm text-muted/60">
-              No recent activity yet.
-            </p>
-          )}
-
-          {recentThreads.length > 0 && (
-            <Link
-              href="/community/forum/general"
-              className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline"
-            >
-              View all threads
-              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-            </Link>
-          )}
-        </aside>
+                        )}
+                        <span>
+                          <em>{thread.author?.display_name ?? "Anonymous"}</em>
+                        </span>
+                        <span>·</span>
+                        <span>{timeAgo(thread.created_at)}</span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="forum-recent-empty">
+                <em>No recent activity yet.</em>
+              </p>
+            )}
+            {recentThreads.length > 0 && (
+              <Link
+                href="/community/forum/general"
+                className="forum-recent-all"
+              >
+                View all threads
+                <ArrowRight className="h-3 w-3" aria-hidden />
+              </Link>
+            )}
+          </aside>
+        </div>
       </div>
     </div>
   );

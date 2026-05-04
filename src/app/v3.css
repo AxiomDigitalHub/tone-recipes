@@ -7395,6 +7395,517 @@
   max-width: 70ch;
 }
 
+/* ═══ Dashboard /my-gear — paper form + grouped ledger ════════════════════ */
+.fk-preview .dashboard-gear-form-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+@media (max-width: 720px) {
+  .fk-preview .dashboard-gear-form-grid { grid-template-columns: 1fr; }
+}
+.fk-preview .dashboard-gear-form-notes { grid-column: 1 / -1; }
+
+.fk-preview .dashboard-gear-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--paper-line);
+}
+.fk-preview .dashboard-gear-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--paper-line);
+  align-items: center;
+}
+.fk-preview .dashboard-gear-row-body { min-width: 0; }
+.fk-preview .dashboard-gear-row-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.fk-preview .dashboard-gear-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--ink);
+}
+.fk-preview .dashboard-gear-type {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  border: 1px solid var(--paper-line);
+  padding: 3px 7px;
+}
+.fk-preview .dashboard-gear-notes {
+  margin: 4px 0 0;
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+.fk-preview .dashboard-gear-remove {
+  background: transparent;
+  border: 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  cursor: pointer;
+  padding: 6px 10px;
+  border: 1px solid transparent;
+  transition: color 140ms ease, border-color 140ms ease;
+}
+.fk-preview .dashboard-gear-remove:hover {
+  color: var(--ink);
+  border-color: var(--paper-line);
+}
+
+/* ═══ Dashboard /my-recipes — paper tabs + ledger rows ═══════════════════ */
+.fk-preview .dashboard-myrx-tabs {
+  display: flex;
+  gap: 0;
+  margin: 22px 0 12px;
+  border: 1px solid var(--paper-line);
+  background: var(--paper);
+  flex-wrap: wrap;
+}
+.fk-preview .dashboard-myrx-tab {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--paper-line);
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 140ms ease, color 140ms ease;
+}
+.fk-preview .dashboard-myrx-tab:last-child { border-right: 0; }
+.fk-preview .dashboard-myrx-tab:hover {
+  color: var(--ink);
+  background: var(--paper-2);
+}
+.fk-preview .dashboard-myrx-tab.is-active {
+  color: var(--ink);
+  background: var(--amber);
+  font-weight: 600;
+}
+.fk-preview .dashboard-myrx-tab-count {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  opacity: 0.7;
+}
+.fk-preview .dashboard-myrx-tab.is-active .dashboard-myrx-tab-count {
+  opacity: 1;
+}
+
+.fk-preview .dashboard-myrx-list {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--paper-line);
+}
+.fk-preview .dashboard-myrx-row {
+  padding: 18px 4px;
+  border-bottom: 1px solid var(--paper-line);
+}
+.fk-preview .dashboard-myrx-row-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.fk-preview .dashboard-myrx-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--ink);
+}
+.fk-preview .dashboard-myrx-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border: 1px solid var(--ink);
+  flex-shrink: 0;
+}
+.fk-preview .dashboard-myrx-status-pending {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+.fk-preview .dashboard-myrx-status-approved {
+  background: var(--amber);
+  color: var(--ink);
+}
+.fk-preview .dashboard-myrx-status-rejected {
+  background: var(--paper);
+  color: var(--ink-muted);
+  border-color: var(--paper-line);
+}
+.fk-preview .dashboard-myrx-status-flagged {
+  background: var(--paper);
+  color: var(--ink);
+  border-style: dashed;
+}
+.fk-preview .dashboard-myrx-dek {
+  margin: 8px 0 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.fk-preview .dashboard-myrx-tags {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.fk-preview .dashboard-myrx-tag {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  border: 1px solid var(--paper-line);
+  padding: 3px 7px;
+}
+.fk-preview .dashboard-myrx-foot {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.fk-preview .dashboard-myrx-modnote {
+  text-transform: none;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+.fk-preview .dashboard-myrx-empty-cta {
+  margin-top: 16px;
+  display: inline-flex;
+}
+.fk-preview .dashboard-myrx-row-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.fk-preview .dashboard-myrx-skel-line {
+  display: block;
+  height: 12px;
+  background: var(--paper-line);
+}
+.fk-preview .dashboard-myrx-skel-50 { width: 50%; }
+.fk-preview .dashboard-myrx-skel-100 { width: 100%; }
+.fk-preview .dashboard-myrx-skel-75 { width: 75%; }
+
+/* ═══ /community — three-card paper hub ═══════════════════════════════════ */
+.fk-preview .community-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  margin: 24px 0 32px;
+}
+@media (max-width: 880px) {
+  .fk-preview .community-grid { grid-template-columns: 1fr; }
+}
+.fk-preview .community-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 22px;
+  padding: 32px 28px 36px;
+  outline: 1px solid var(--ink);
+  outline-offset: -1px;
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background 200ms ease;
+}
+.fk-preview .community-card:hover { background: var(--paper-2); }
+.fk-preview .community-card-no {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(56px, 6vw, 84px);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  align-self: start;
+}
+.fk-preview .community-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.fk-preview .community-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0;
+}
+.fk-preview .community-card-dek {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  margin: 0;
+  max-width: 32ch;
+}
+.fk-preview .community-card-cta {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+/* ═══ /community/forum — paper category cards + recent activity ══════════ */
+.fk-preview .forum-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.fk-preview .forum-new-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-top: 10px;
+}
+.fk-preview .forum-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 40px;
+}
+@media (max-width: 880px) {
+  .fk-preview .forum-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+.fk-preview .forum-cats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border: 1px solid var(--paper-line);
+  background: var(--paper);
+}
+@media (max-width: 720px) {
+  .fk-preview .forum-cats { grid-template-columns: 1fr; }
+}
+.fk-preview .forum-cat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 20px;
+  outline: 1px solid var(--paper-line);
+  outline-offset: -1px;
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background 160ms ease;
+}
+.fk-preview .forum-cat-card:hover { background: var(--paper-2); }
+.fk-preview .forum-cat-card-head {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+.fk-preview .forum-cat-icon {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--paper-line);
+  background: var(--paper-2);
+  color: var(--ink);
+}
+.fk-preview .forum-cat-card-body { min-width: 0; }
+.fk-preview .forum-cat-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+.fk-preview .forum-cat-dek {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.fk-preview .forum-cat-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--paper-line);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  flex-wrap: wrap;
+}
+.fk-preview .forum-cat-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink);
+}
+.fk-preview .forum-cat-latest {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+.fk-preview .forum-cat-latest-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 22ch;
+}
+.fk-preview .forum-cat-latest-when {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.fk-preview .forum-cat-latest-empty {
+  text-transform: none;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink-faint);
+  letter-spacing: 0;
+}
+
+.fk-preview .forum-recent-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--paper-line);
+}
+.fk-preview .forum-recent-row {
+  border-bottom: 1px solid var(--paper-line);
+}
+.fk-preview .forum-recent-link {
+  display: block;
+  padding: 14px 4px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background 140ms ease;
+}
+.fk-preview .forum-recent-link:hover { background: var(--paper-2); }
+.fk-preview .forum-recent-title {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  line-height: 1.35;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.fk-preview .forum-recent-meta {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.fk-preview .forum-recent-cat {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--amber);
+  color: var(--ink);
+  padding: 2px 6px;
+}
+.fk-preview .forum-recent-empty {
+  margin: 12px 0 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink-faint);
+  font-size: 13px;
+}
+.fk-preview .forum-recent-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--paper-line);
+  transition: border-color 140ms ease;
+}
+.fk-preview .forum-recent-all:hover { border-color: var(--ink); }
+
 /* Recipe foot — back-to-catalogue affordance so interior pages don't
    dead-end at the More-like-this rail. */
 .fk-preview .recipe-foot-browse {
@@ -7419,4 +7930,20 @@
 .fk-preview .recipe-foot-browse-link:hover {
   background: var(--ink);
   color: var(--paper);
+}
+
+/* Recipe sources — citation links for signal-chain claims. The block
+   itself uses inline styles (set in the page); this just paints the
+   anchor so it doesn't fall back to default browser link blue. */
+.fk-preview .recipe-source-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--paper-line);
+  padding-bottom: 1px;
+  transition: border-color 140ms ease;
+}
+.fk-preview .recipe-source-link:hover {
+  border-bottom-color: var(--ink);
 }

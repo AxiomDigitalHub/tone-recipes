@@ -22,28 +22,12 @@ const TABS: { label: string; value: UserRecipeStatus | "all" }[] = [
 
 const STATUS_CONFIG: Record<
   UserRecipeStatus,
-  { label: string; className: string; icon: typeof Clock }
+  { label: string; tone: "pending" | "approved" | "rejected" | "flagged"; icon: typeof Clock }
 > = {
-  pending: {
-    label: "Pending",
-    className: "bg-yellow-500/15 text-yellow-400",
-    icon: Clock,
-  },
-  approved: {
-    label: "Approved",
-    className: "bg-green-500/15 text-green-400",
-    icon: CheckCircle,
-  },
-  rejected: {
-    label: "Rejected",
-    className: "bg-red-500/15 text-red-400",
-    icon: XCircle,
-  },
-  flagged: {
-    label: "Flagged",
-    className: "bg-orange-500/15 text-orange-400",
-    icon: Flag,
-  },
+  pending: { label: "Pending", tone: "pending", icon: Clock },
+  approved: { label: "Approved", tone: "approved", icon: CheckCircle },
+  rejected: { label: "Rejected", tone: "rejected", icon: XCircle },
+  flagged: { label: "Flagged", tone: "flagged", icon: Flag },
 };
 
 function formatDate(dateStr: string): string {
@@ -75,11 +59,10 @@ function getClient() {
 
 function RecipeSkeleton() {
   return (
-    <div className="rounded-xl border border-border bg-surface p-5">
-      <div className="h-5 w-1/2 animate-pulse rounded bg-border" />
-      <div className="mt-3 h-3 w-full animate-pulse rounded bg-border" />
-      <div className="mt-2 h-3 w-3/4 animate-pulse rounded bg-border" />
-      <div className="mt-4 h-3 w-1/4 animate-pulse rounded bg-border" />
+    <div className="dashboard-myrx-row dashboard-myrx-row-skeleton">
+      <span className="dashboard-myrx-skel-line dashboard-myrx-skel-50" />
+      <span className="dashboard-myrx-skel-line dashboard-myrx-skel-100" />
+      <span className="dashboard-myrx-skel-line dashboard-myrx-skel-75" />
     </div>
   );
 }
@@ -149,8 +132,9 @@ export default function MyRecipesPage() {
 
   if (authLoading || !user) {
     return (
-      <div className="flex min-h-[40vh] items-center justify-center">
-        <p className="text-muted">Loading...</p>
+      <div>
+        <h1 className="page-title page-title-sm">My Recipes</h1>
+        <p className="dashboard-inner-dek">Loading…</p>
       </div>
     );
   }
@@ -158,77 +142,78 @@ export default function MyRecipesPage() {
   return (
     <div>
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="dashboard-notif-head">
         <div>
           <h1 className="page-title page-title-sm">My Recipes</h1>
-          <p className="mt-1 text-sm text-muted">
+          <p className="dashboard-inner-dek">
             Recipes you&apos;ve submitted to the community.
           </p>
         </div>
         <Link
           href="/dashboard/my-recipes/new"
-          className="flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+          className="hero-cta hero-cta-primary"
         >
           <Plus className="h-4 w-4" />
-          Submit New Recipe
+          Submit a recipe
         </Link>
       </div>
 
-      {/* Tabs */}
-      <div className="mt-6 flex gap-1 rounded-lg border border-border bg-surface p-1">
-        {TABS.map((tab) => (
-          <button
-            key={tab.value}
-            onClick={() => setActiveTab(tab.value)}
-            className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-              activeTab === tab.value
-                ? "bg-accent/15 text-accent"
-                : "text-muted hover:text-foreground"
-            }`}
-          >
-            {tab.label}
-            {tab.value !== "all" && (
-              <span className="ml-1.5 text-xs opacity-60">
-                {recipes.filter((r) =>
-                  tab.value === "all" ? true : r.status === tab.value,
-                ).length}
-              </span>
-            )}
-          </button>
-        ))}
+      {/* Status filter — paper tabs, no rounded fills */}
+      <div className="dashboard-myrx-tabs">
+        {TABS.map((tab) => {
+          const count =
+            tab.value === "all"
+              ? recipes.length
+              : recipes.filter((r) => r.status === tab.value).length;
+          return (
+            <button
+              key={tab.value}
+              type="button"
+              onClick={() => setActiveTab(tab.value)}
+              className={`dashboard-myrx-tab ${activeTab === tab.value ? "is-active" : ""}`}
+            >
+              {tab.label}
+              <span className="dashboard-myrx-tab-count">{count}</span>
+            </button>
+          );
+        })}
       </div>
 
       {/* Content */}
-      <div className="mt-6 space-y-3">
+      <div className="dashboard-myrx-list">
         {loading ? (
           Array.from({ length: 3 }).map((_, i) => <RecipeSkeleton key={i} />)
         ) : error ? (
-          <div className="rounded-lg border border-border bg-surface p-6 text-center">
-            <p className="text-sm text-red-400">{error}</p>
+          <div className="dashboard-notif-empty">
+            <p className="dashboard-notif-empty-title">{error}</p>
             <button
+              type="button"
               onClick={fetchRecipes}
-              className="mt-3 text-sm font-medium text-accent hover:underline"
+              className="dashboard-notif-retry"
             >
               Try again
             </button>
           </div>
         ) : filtered.length === 0 ? (
-          <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-surface py-16">
-            <BookOpen className="mb-4 h-10 w-10 text-muted" />
-            <p className="text-lg font-semibold text-foreground">
+          <div className="dashboard-notif-empty">
+            <BookOpen
+              className="dashboard-notif-empty-icon"
+              aria-hidden
+            />
+            <p className="dashboard-notif-empty-title">
               {activeTab === "all"
-                ? "You haven't submitted any recipes yet"
+                ? "Nothing submitted yet"
                 : `No ${activeTab} recipes`}
             </p>
-            <p className="mt-1 text-sm text-muted">
+            <p className="dashboard-notif-empty-dek">
               Share your tone recipes with the community.
             </p>
             <Link
               href="/dashboard/my-recipes/new"
-              className="mt-4 flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+              className="hero-cta hero-cta-primary dashboard-myrx-empty-cta"
             >
               <Plus className="h-4 w-4" />
-              Submit a Recipe
+              Submit a recipe
             </Link>
           </div>
         ) : (
@@ -236,53 +221,37 @@ export default function MyRecipesPage() {
             const status = STATUS_CONFIG[recipe.status];
             const StatusIcon = status.icon;
             return (
-              <div
-                key={recipe.id}
-                className="rounded-xl border border-border bg-surface p-5 transition-colors hover:border-accent/20"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="min-w-0 flex-1">
-                    <h3 className="text-base font-semibold text-foreground">
-                      {recipe.title}
-                    </h3>
-                    {recipe.description && (
-                      <p className="mt-1 line-clamp-2 text-sm text-muted">
-                        {recipe.description}
-                      </p>
-                    )}
-                  </div>
+              <article key={recipe.id} className="dashboard-myrx-row">
+                <div className="dashboard-myrx-row-head">
+                  <h3 className="dashboard-myrx-title">{recipe.title}</h3>
                   <span
-                    className={`flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${status.className}`}
+                    className={`dashboard-myrx-status dashboard-myrx-status-${status.tone}`}
                   >
-                    <StatusIcon className="h-3 w-3" />
+                    <StatusIcon className="h-3 w-3" aria-hidden />
                     {status.label}
                   </span>
                 </div>
-
-                {/* Tags */}
+                {recipe.description && (
+                  <p className="dashboard-myrx-dek">{recipe.description}</p>
+                )}
                 {recipe.tags && recipe.tags.length > 0 && (
-                  <div className="mt-3 flex flex-wrap gap-1.5">
+                  <div className="dashboard-myrx-tags">
                     {recipe.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-md bg-border/50 px-2 py-0.5 text-xs text-muted"
-                      >
+                      <span key={tag} className="dashboard-myrx-tag">
                         {tag}
                       </span>
                     ))}
                   </div>
                 )}
-
-                {/* Footer */}
-                <div className="mt-3 flex items-center gap-3 text-xs text-muted">
+                <div className="dashboard-myrx-foot">
                   <span>Submitted {formatDate(recipe.created_at)}</span>
                   {recipe.moderator_notes && (
-                    <span className="text-yellow-400">
-                      Moderator note: {recipe.moderator_notes}
+                    <span className="dashboard-myrx-modnote">
+                      <em>Moderator: {recipe.moderator_notes}</em>
                     </span>
                   )}
                 </div>
-              </div>
+              </article>
             );
           })
         )}
