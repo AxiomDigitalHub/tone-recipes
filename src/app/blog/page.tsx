@@ -27,12 +27,11 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const FEATURED_SLUGS = [
-  "signal-chain-order-guide",
-  "helix-vs-quad-cortex-vs-kemper",
-  "overdrive-vs-distortion-vs-fuzz",
-  "tube-screamer-settings-guide",
-];
+/**
+ * Featured = most recent 5 posts (1 hero + 4 sidebar). Auto-rotates as
+ * the daily-content task ships new posts — no editorial maintenance.
+ */
+const FEATURED_COUNT = 5;
 
 /** Roman numerals for volume labels (max needed for our lifetime is ~X). */
 const ROMAN = ["0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
@@ -66,17 +65,15 @@ function quarterOf(iso: string) {
 
 export default function PreviewBlogIndex() {
   const all = getAllPosts(); // already sorted newest → oldest
-  const bySlug = new Map(all.map((p) => [p.slug, p]));
 
-  // Current issue picks
-  const picks = FEATURED_SLUGS.map((s) => bySlug.get(s)).filter(
-    (p): p is NonNullable<typeof p> => Boolean(p),
-  );
+  // Current issue = the most recent FEATURED_COUNT posts. Auto-rotates
+  // as the daily-content task ships new posts.
+  const picks = all.slice(0, FEATURED_COUNT);
   if (picks.length === 0) return null;
   const [hero, ...rest] = picks;
 
   // Archive = everything not featured this issue
-  const featuredSet = new Set(FEATURED_SLUGS);
+  const featuredSet = new Set(picks.map((p) => p.slug));
   const archive = all.filter((p) => !featuredSet.has(p.slug));
 
   // Group the archive by quarter for the ledger, shaped for the
