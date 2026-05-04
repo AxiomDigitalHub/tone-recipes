@@ -184,10 +184,13 @@ export default function PreviewBlogIndex() {
             </div>
           </Link>
 
-          {/* Sidebar column — the other three, stacked */}
+          {/* Sidebar column — the other three, stacked. Each card carries
+              its own image so the column matches the hero's height and
+              reads as a real "this issue" line-up rather than a text
+              list with empty space below. */}
           <div className="archive-side">
             <div className="archive-side-head">This issue</div>
-            {rest.map((post) => (
+            {rest.map((post, i) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
@@ -209,6 +212,19 @@ export default function PreviewBlogIndex() {
                     <em>By {post.author}</em>
                     <span> · {formatDate(post.date)}</span>
                   </div>
+                </div>
+                <div className="archive-item-art">
+                  {post.image && (
+                    <Image
+                      src={post.image}
+                      alt={post.imageAlt ?? post.title}
+                      fill
+                      priority={i === 0}
+                      unoptimized
+                      sizes="120px"
+                      className="archive-item-img"
+                    />
+                  )}
                 </div>
               </Link>
             ))}

@@ -1889,26 +1889,51 @@
   color: var(--ink);
 }
 
-/* Sidebar column — stacked items */
+/* Sidebar column — stacked items. Each item flex-grows so the three
+   cards fill the height of the hero on the left, no empty void below. */
 .fk-preview .archive-side {
   display: flex;
   flex-direction: column;
   gap: 2px;
   background: var(--ink);
   padding: 2px;
+  align-self: stretch;
+  min-height: 100%;
 }
 .fk-preview .archive-item {
   display: grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: 48px 1fr 96px;
   gap: 14px;
-  padding: 18px 16px 20px;
+  padding: 14px 14px 16px;
   background: var(--paper);
   color: var(--ink);
   text-decoration: none;
   transition: background 160ms ease;
+  flex: 1 1 0;
+  min-height: 0;
+  align-items: center;
 }
 .fk-preview .archive-item:hover {
   background: var(--paper-2);
+}
+.fk-preview .archive-item-art {
+  position: relative;
+  width: 96px;
+  aspect-ratio: 1;
+  background: var(--paper-2);
+  overflow: hidden;
+  border: 1px solid var(--paper-line);
+}
+.fk-preview .archive-item-img {
+  object-fit: cover;
+  filter: contrast(1.04) saturate(0.94);
+}
+@media (max-width: 720px) {
+  .fk-preview .archive-item {
+    grid-template-columns: 1fr 84px;
+  }
+  .fk-preview .archive-item-num { display: none; }
+  .fk-preview .archive-item-art { width: 84px; }
 }
 .fk-preview .archive-item-num {
   font-family: var(--font-mono);
