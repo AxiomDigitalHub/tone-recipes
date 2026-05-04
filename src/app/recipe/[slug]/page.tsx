@@ -12,7 +12,7 @@ import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
 import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
 import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
-import { recipeJsonLdSet } from "@/lib/seo/preview-jsonld";
+import { recipeJsonLdSet } from "@/lib/seo/jsonld";
 import type { Metadata } from "next";
 
 /**

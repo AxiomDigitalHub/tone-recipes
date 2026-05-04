@@ -10,7 +10,7 @@ import {
 } from "@/lib/data";
 import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
-import { songJsonLdSet } from "@/lib/seo/preview-jsonld";
+import { songJsonLdSet } from "@/lib/seo/jsonld";
 
 export function generateStaticParams() {
   return songs.map((s) => ({ slug: s.slug }));

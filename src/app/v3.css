@@ -58,33 +58,6 @@
   padding: 0;
 }
 
-/* ── Preview banner (not in the original design) ───────────────────────── */
-.fk-preview .preview-banner {
-  background: var(--tape);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  padding: 8px 0;
-  text-transform: uppercase;
-}
-.fk-preview .preview-banner-inner {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 0 28px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.fk-preview .preview-banner-link,
-.fk-preview .preview-banner-exit {
-  text-decoration: underline;
-  color: #fff;
-}
-.fk-preview .preview-banner strong { font-weight: 700; letter-spacing: 0.14em; }
-
 /* ── Type utilities ─────────────────────────────────────────────────────── */
 .fk-preview .display {
   font-family: var(--font-display);

@@ -1,8 +1,9 @@
 # v3 → v4 Redesign — Handoff Document
 
 **Last updated:** 2026-05-03 by Claude Opus 4.7 (1M context)
-**Branch:** `preview-redesign-v3` → merging to `main` after the v4.0 cutover deploy is verified.
-**Status:** **Cutover is live.** Swap-in-place complete: every `/preview/<route>` is now at the canonical `/<route>`, `/preview/*` is gone, root layout wraps the whole site in `.fk-preview`, and a wildcard 301 from `/preview/:path*` → `/:path*` catches any old deep links. v3 components live at `src/components/v3/`, the v3 stylesheet is `src/app/v3.css`. Production plumbing intact — Footer, search palette, AuthProvider, analytics scripts, dark-class for the few remaining tailwind components.
+**Branch:** `main` — the cutover is shipped to production.
+**Merge commit:** `6fb045d` (merged `preview-redesign-v3` → `main`).
+**Status:** **Cutover is live on faderandknob.com.** Swap-in-place complete: every `/preview/<route>` is now at the canonical `/<route>`, `/preview/*` is gone, root layout wraps the whole site in `.fk-preview`, and a wildcard 301 from `/preview/:path*` → `/:path*` catches any old deep links. v3 components live at `src/components/v3/`, the v3 stylesheet is `src/app/v3.css`, JSON-LD helpers at `src/lib/seo/jsonld.ts`. Production plumbing intact — Footer (now v3-skinned), search palette, AuthProvider, analytics scripts, `dark` class on `<html>` for the remaining tailwind components.
 
 **Three follow-ups before this is fully done:**
 

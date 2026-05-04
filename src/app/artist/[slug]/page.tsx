@@ -14,7 +14,7 @@ import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
 import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
-import { artistJsonLdSet } from "@/lib/seo/preview-jsonld";
+import { artistJsonLdSet } from "@/lib/seo/jsonld";
 
 export function generateStaticParams() {
   return artists.map((a) => ({ slug: a.slug }));
