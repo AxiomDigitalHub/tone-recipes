@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
+import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import SiteSubnav from "@/components/layout/SiteSubnav";
 import LazySearchPalette from "@/components/search/LazySearchPalette";
@@ -21,10 +21,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const spaceGrotesk = Space_Grotesk({
+// Fraunces — variable display serif for headlines + italic credits.
+// Picked for its proper italic and screen-tuned optical sizing across
+// the wide range of display sizes the site uses (recipe-title, post-
+// title, page-title, archive-eyebrow et al.). Self-hosted via
+// next/font so we don't pay a roundtrip to Google.
+const fraunces = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["700"],
+  style: ["normal", "italic"],
 });
 
 
@@ -95,7 +100,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} flex min-h-screen flex-col bg-background font-sans text-foreground antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} flex min-h-screen flex-col bg-background font-sans text-foreground antialiased`}
       >
         <AuthProvider>
           <div className="fk-preview flex min-h-screen flex-col flex-1">

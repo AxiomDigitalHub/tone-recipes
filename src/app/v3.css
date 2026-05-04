@@ -25,11 +25,12 @@
   --amber-2:      #B37A1D;
   --spec-green:   #5F7A4C;
 
-  /* Fonts — editorial magazine meets industrial spec sheet.
-     Using system-available fallbacks first; swap for custom webfonts when
-     the direction locks. Google Fonts Playfair/Inter already available
-     via next/font in the production setup, this just picks them up. */
-  --font-display: Georgia, 'Times New Roman', serif;
+  /* Fonts — editorial magazine meets industrial spec sheet. The
+     display family (--font-display) is set by next/font in
+     src/app/layout.tsx — Fraunces, a variable display serif with
+     proper italics and screen-tuned optical sizing. We don't redeclare
+     it here so the next/font variable wins. The remaining tokens stay
+     on system stacks for now. */
   --font-body:    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-cond:    'Oswald', 'Bebas Neue', 'Impact', ui-sans-serif, sans-serif;
   --font-mono:    ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
