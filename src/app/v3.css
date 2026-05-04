@@ -7399,3 +7399,29 @@
 .fk-preview .platform-gotchas {
   max-width: 70ch;
 }
+
+/* Recipe foot — back-to-catalogue affordance so interior pages don't
+   dead-end at the More-like-this rail. */
+.fk-preview .recipe-foot-browse {
+  margin: 32px 0 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--paper-line);
+  display: flex;
+  justify-content: flex-end;
+}
+.fk-preview .recipe-foot-browse-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 10px 16px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  transition: background 140ms ease, color 140ms ease;
+}
+.fk-preview .recipe-foot-browse-link:hover {
+  background: var(--ink);
+  color: var(--paper);
+}

@@ -366,9 +366,7 @@ export default async function PreviewRecipePage({
           <div className="related">
             <div className="related-head">
               <h3 className="display">More like this</h3>
-              <span className="related-meta">
-                {related.length} of {toneRecipes.length} · curated
-              </span>
+              <span className="related-meta">Curated</span>
             </div>
             <div className="feat-grid">
               {related.map((r, i) => {
@@ -414,6 +412,14 @@ export default async function PreviewRecipePage({
             </div>
           </div>
         )}
+
+        {/* Catch-all browse affordance — without this, the only path
+            back to the catalogue is the global sub-nav. */}
+        <div className="recipe-foot-browse">
+          <Link href="/browse" className="recipe-foot-browse-link">
+            Browse all recipes →
+          </Link>
+        </div>
       </div>
     </div>
   );
