@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
-import Link from "next/link";
 import Footer from "@/components/layout/Footer";
+import SiteSubnav from "@/components/layout/SiteSubnav";
 import LazySearchPalette from "@/components/search/LazySearchPalette";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 import Script from "next/script";
@@ -109,29 +109,7 @@ export default function RootLayout({
               </div>
             </div>
 
-            <nav className="preview-subnav">
-              <div className="preview-subnav-inner">
-                <Link href="/" className="preview-subnav-brand">
-                  Fader &amp; Knob
-                </Link>
-                <div className="preview-subnav-links">
-                  <Link href="/browse">Archive</Link>
-                  <Link href="/platforms">Platforms</Link>
-                  <Link href="/blog">Field Notes</Link>
-                  <Link href="/news">News</Link>
-                  <Link href="/request">Request</Link>
-                  <Link href="/pricing">Pricing</Link>
-                </div>
-                <div className="preview-subnav-auth">
-                  <Link href="/login" className="preview-subnav-login">
-                    Log in
-                  </Link>
-                  <Link href="/signup" className="preview-subnav-signup">
-                    Sign up
-                  </Link>
-                </div>
-              </div>
-            </nav>
+            <SiteSubnav />
 
             <LazySearchPalette />
             <main id="main-content" className="flex-1">{children}</main>
