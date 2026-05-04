@@ -134,10 +134,20 @@ export default function PreviewBlogIndex() {
           <span style={{ color: "var(--ink)" }}>Field Notes</span>
         </div>
 
-        {/* Page head — just the title, then straight into the content */}
-        <div className="archive-masthead archive-masthead-tight">
-          <h1 className="archive-title display">Field Notes</h1>
-        </div>
+        {/* Page head — same recipe-issue + title + summary pattern as
+            every other entity-detail page on the site, so the top of
+            every interior page reads as the same publication. */}
+        <header className="archive-masthead archive-masthead-tight">
+          <div className="recipe-issue">
+            <span className="pill">Field Notes</span>
+          </div>
+          <h1 className="recipe-title display">Field Notes</h1>
+          <p className="recipe-summary">
+            Long-form writing on tone, gear, and the songs you love.
+            Pedalboard architecture, modeler block deep-dives, vintage gear
+            histories, signal-chain forensics.
+          </p>
+        </header>
 
         {/* 2-up editorial layout: one hero feature, three sidebar items */}
         <div className="archive-grid">

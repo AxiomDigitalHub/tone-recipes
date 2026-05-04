@@ -28,15 +28,17 @@ body {
 
 /* ---- Branded selection color ---- */
 ::selection {
-  background: #f59e0b;
-  color: #0a0a0f;
+  background: #e4a235;
+  color: #0a0908;
 }
 
-/* ---- Custom focus states ---- */
+/* ---- Custom focus states ----
+   v3 token (--amber #e4a235), square corners, tight offset. The old
+   production rule used #f59e0b + border-radius:4px, which read as a
+   rounded-pill outline against v3's hairline aesthetic. */
 :focus-visible {
-  outline: 2px solid #f59e0b;
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline: 2px solid #e4a235;
+  outline-offset: 1px;
 }
 
 /* ---- Custom easing curves ---- */

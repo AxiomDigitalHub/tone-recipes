@@ -93,14 +93,16 @@ export default function PricingPage() {
           <span style={{ color: "var(--ink)" }}>Pricing</span>
         </div>
 
-        <header className="archive-page-head browse-page-head">
-          <h1 className="archive-title">Pricing</h1>
+        <header className="archive-masthead archive-masthead-tight">
+          <div className="recipe-issue">
+            <span className="pill">Pricing</span>
+          </div>
+          <h1 className="recipe-title display">Pricing</h1>
+          <p className="recipe-summary">
+            Browse every recipe for free. Upgrade when you want unlimited
+            downloads, set packs, and priority on new tones.
+          </p>
         </header>
-
-        <p className="pricing-lede">
-          Browse every recipe for free. Upgrade when you want unlimited
-          downloads, set packs, and priority on new tones.
-        </p>
 
         <div className="pricing-grid">
           {PLANS.map((p) => (

@@ -199,14 +199,12 @@ export default function RequestClient() {
           <span style={{ color: "var(--ink)" }}>Request a tone</span>
         </div>
 
-        <header className="request-head">
+        <header className="archive-masthead archive-masthead-tight">
           <div className="recipe-issue">
             <span className="pill">Open queue</span>
-            <span>·</span>
-            <span>Submit · upvote · build</span>
           </div>
-          <h1 className="display request-title">Request a tone</h1>
-          <p className="request-dek">
+          <h1 className="recipe-title display">Request a tone</h1>
+          <p className="recipe-summary">
             Can&apos;t find the tone you&apos;re looking for? File a request, watch
             the community upvote it, and we&apos;ll cut a verified recipe.
           </p>

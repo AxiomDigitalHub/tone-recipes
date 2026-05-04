@@ -3856,6 +3856,12 @@
   opacity: 1;
   border-bottom-color: var(--ink);
 }
+.fk-preview .preview-subnav-links a.is-active,
+.fk-preview .preview-subnav-links a[aria-current="page"] {
+  opacity: 1;
+  border-bottom-color: var(--ink);
+  font-weight: 700;
+}
 @media (max-width: 600px) {
   .fk-preview .preview-subnav-inner { padding: 12px 18px; gap: 14px; }
   .fk-preview .preview-subnav-links { gap: 16px; font-size: 12px; }
@@ -6872,6 +6878,11 @@
   .fk-preview .preview-subnav-drawer-link:hover,
   .fk-preview .preview-subnav-drawer-link:active {
     background: var(--paper-2);
+  }
+  .fk-preview .preview-subnav-drawer-link.is-active {
+    background: var(--paper-2);
+    font-weight: 700;
+    border-left: 3px solid var(--ink);
   }
   .fk-preview .preview-subnav-drawer-link-cta {
     background: var(--amber);

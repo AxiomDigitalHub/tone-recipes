@@ -27,6 +27,41 @@ const NAV_LINKS = [
   { href: "/pricing", label: "Pricing" },
 ];
 
+/**
+ * Whether `pathname` should highlight `linkHref` as the active page.
+ * `/recipe/<slug>` highlights "Recipes" (since /browse is the catalog
+ * landing). `/blog/<slug>` highlights "Field Notes". Everywhere else
+ * is exact-match on the prefix.
+ */
+function isNavActive(pathname: string, linkHref: string): boolean {
+  if (linkHref === "/browse") {
+    return (
+      pathname === "/browse" ||
+      pathname.startsWith("/browse/") ||
+      pathname.startsWith("/recipe/") ||
+      pathname.startsWith("/song/") ||
+      pathname.startsWith("/artist/") ||
+      pathname.startsWith("/gear/")
+    );
+  }
+  if (linkHref === "/blog") {
+    return pathname === "/blog" || pathname.startsWith("/blog/");
+  }
+  if (linkHref === "/news") {
+    return pathname === "/news" || pathname.startsWith("/news/");
+  }
+  if (linkHref === "/platforms") {
+    return pathname === "/platforms" || pathname.startsWith("/platforms/");
+  }
+  if (linkHref === "/request") {
+    return pathname === "/request" || pathname.startsWith("/request/");
+  }
+  if (linkHref === "/pricing") {
+    return pathname === "/pricing";
+  }
+  return pathname === linkHref;
+}
+
 function initialsFor(name: string | null | undefined, email: string | null | undefined): string {
   const source = (name ?? email ?? "").trim();
   if (!source) return "FK";
@@ -71,11 +106,19 @@ export default function SiteSubnav() {
         </Link>
 
         <div className="preview-subnav-links">
-          {NAV_LINKS.map((l) => (
-            <Link key={l.href} href={l.href}>
-              {l.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((l) => {
+            const active = isNavActive(pathname, l.href);
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                className={active ? "is-active" : undefined}
+                aria-current={active ? "page" : undefined}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
         </div>
 
         <div className="preview-subnav-auth">
@@ -154,17 +197,21 @@ export default function SiteSubnav() {
           </button>
         </div>
         <ul className="preview-subnav-drawer-list">
-          {NAV_LINKS.map((l) => (
-            <li key={l.href}>
-              <Link
-                href={l.href}
-                className="preview-subnav-drawer-link"
-                onClick={() => setOpen(false)}
-              >
-                {l.label}
-              </Link>
-            </li>
-          ))}
+          {NAV_LINKS.map((l) => {
+            const active = isNavActive(pathname, l.href);
+            return (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className={`preview-subnav-drawer-link${active ? " is-active" : ""}`}
+                  aria-current={active ? "page" : undefined}
+                  onClick={() => setOpen(false)}
+                >
+                  {l.label}
+                </Link>
+              </li>
+            );
+          })}
           {!user && !loading && (
             <>
               <li className="preview-subnav-drawer-sep" aria-hidden />

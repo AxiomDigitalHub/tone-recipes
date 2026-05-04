@@ -28,16 +28,24 @@ export default function PreviewPlatformsIndex() {
   return (
     <div className="container">
       <section className="platforms-index">
-        <div className="how-head">
-          <h2 className="display">
-            Built for the rig <em>you already own</em>
-          </h2>
-          <span className="section-rule" aria-hidden="true" />
+        <div className="recipe-crumbs">
+          <Link href="/">Home</Link>
+          <span className="sep">/</span>
+          <span style={{ color: "var(--ink)" }}>Platforms</span>
         </div>
-        <p className="audition-lede">
-          Every recipe is translated into the exact block names and parameter
-          values your modeler expects. Pick your unit and start playing.
-        </p>
+
+        <header className="archive-masthead archive-masthead-tight">
+          <div className="recipe-issue">
+            <span className="pill">Platforms</span>
+          </div>
+          <h1 className="recipe-title display">
+            Built for the rig <em>you already own</em>
+          </h1>
+          <p className="recipe-summary">
+            Every recipe is translated into the exact block names and parameter
+            values your modeler expects. Pick your unit and start playing.
+          </p>
+        </header>
 
         <div className="platforms-grid">
           {platforms.map((p, i) => {
