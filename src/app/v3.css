@@ -3723,12 +3723,9 @@
 @media (max-width: 960px) {
   .fk-preview .artist-head { grid-template-columns: 1fr; gap: 28px; }
 }
-.fk-preview .artist-title {
-  font-size: clamp(48px, 7vw, 88px);
-  margin: 0 0 18px;
-  letter-spacing: -0.025em;
-  line-height: 0.92;
-}
+/* .artist-title removed — unified to .recipe-title for header
+   consistency across entity detail pages. The artist h1 now uses
+   the same class as recipe / song / gear / platforms / news. */
 .fk-preview .artist-bio {
   font-family: var(--font-display);
   font-style: italic;
@@ -5738,11 +5735,9 @@
 
 .fk-preview .news-page { padding: 24px 0 56px; }
 .fk-preview .news-head { margin: 8px 0 32px; max-width: 720px; }
-.fk-preview .news-title {
-  font-size: clamp(40px, 6vw, 72px);
-  line-height: 1.05;
-  margin: 8px 0 12px;
-}
+/* .news-title removed — unified to .recipe-title for header
+   consistency. The /news index h1 now uses the same class as every
+   other entity detail page. */
 .fk-preview .news-dek {
   font-style: italic;
   color: var(--ink-2);

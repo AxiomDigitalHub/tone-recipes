@@ -110,7 +110,7 @@ export default async function PreviewArtistDetail({
               </span>
               {artist.genres?.[0] && <span>{artist.genres[0]}</span>}
             </div>
-            <h1 className="artist-title display">{artist.name}</h1>
+            <h1 className="recipe-title display">{artist.name}</h1>
             <p className="artist-bio">{artist.bio}</p>
             <div className="artist-genres">
               {artist.genres?.map((g) => (

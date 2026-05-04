@@ -69,7 +69,7 @@ export default async function PreviewNewsPage({
           <div className="recipe-issue">
             <span className="pill">Modeler desk</span>
           </div>
-          <h1 className="display news-title">Modeler News</h1>
+          <h1 className="recipe-title display">Modeler News</h1>
           <p className="news-dek">
             Firmware updates, gear announcements, industry trends, and the
             practical bits that change how a modeler player actually works.
