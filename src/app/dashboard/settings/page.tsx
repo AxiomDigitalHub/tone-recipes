@@ -150,7 +150,7 @@ export default function DashboardSettingsPage() {
     return (
       <div>
         <h1 className="page-title page-title-sm">Settings</h1>
-        <p className="mt-1 text-sm text-muted">Loading...</p>
+        <p className="dashboard-inner-dek">Loading…</p>
       </div>
     );
   }
@@ -158,120 +158,119 @@ export default function DashboardSettingsPage() {
   return (
     <div>
       <h1 className="page-title page-title-sm">Settings</h1>
-      <p className="mt-1 text-sm text-muted">
+      <p className="dashboard-inner-dek">
         Manage your profile and preferences.
       </p>
 
-      <form onSubmit={handleSave} className="mt-8 max-w-lg space-y-6">
-        {/* Display name */}
-        <div>
-          <label
-            htmlFor="displayName"
-            className="block text-sm font-medium text-foreground"
-          >
-            Display Name
-          </label>
-          <input
-            id="displayName"
-            type="text"
-            value={displayName}
-            onChange={(e) => setDisplayName(e.target.value)}
-            className="mt-1.5 w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
-            placeholder="Your name"
-          />
-        </div>
+      {/* Profile */}
+      <section className="dashboard-section">
+        <header className="dashboard-section-head">
+          <div>
+            <span className="dashboard-eyebrow">Profile</span>
+            <h2 className="display">Who you are</h2>
+          </div>
+        </header>
+        <form onSubmit={handleSave} className="auth-form dashboard-inner-form">
+          <div className="auth-field">
+            <label htmlFor="displayName" className="auth-label">
+              Display name
+            </label>
+            <input
+              id="displayName"
+              type="text"
+              value={displayName}
+              onChange={(e) => setDisplayName(e.target.value)}
+              className="auth-input"
+              placeholder="Your name"
+            />
+          </div>
 
-        {/* Email (read-only) */}
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-foreground"
-          >
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            value={user?.email ?? ""}
-            readOnly
-            className="mt-1.5 w-full rounded-lg border border-border bg-surface/50 px-3 py-2 text-sm text-muted cursor-not-allowed"
-          />
-          <p className="mt-1 text-xs text-muted">
-            Email cannot be changed here.
-          </p>
-        </div>
+          <div className="auth-field">
+            <label htmlFor="email" className="auth-label">
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              value={user?.email ?? ""}
+              readOnly
+              className="auth-input"
+              style={{ opacity: 0.6, cursor: "not-allowed" }}
+            />
+            <p className="auth-hint">Email can&apos;t be changed here.</p>
+          </div>
 
-        {/* Primary platform */}
-        <div>
-          <label
-            htmlFor="primaryPlatform"
-            className="block text-sm font-medium text-foreground"
-          >
-            Primary Platform
-          </label>
-          <select
-            id="primaryPlatform"
-            value={primaryPlatform}
-            onChange={(e) => setPrimaryPlatform(e.target.value)}
-            className="mt-1.5 w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
-          >
-            {PLATFORM_OPTIONS.map((opt) => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label}
-              </option>
-            ))}
-          </select>
-          <p className="mt-1 text-xs text-muted">
-            We will default to showing translations for this platform.
-          </p>
-        </div>
+          <div className="auth-field">
+            <label htmlFor="primaryPlatform" className="auth-label">
+              Primary platform
+            </label>
+            <select
+              id="primaryPlatform"
+              value={primaryPlatform}
+              onChange={(e) => setPrimaryPlatform(e.target.value)}
+              className="auth-input"
+            >
+              {PLATFORM_OPTIONS.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+            <p className="auth-hint">
+              We&apos;ll default to translations for this platform.
+            </p>
+          </div>
 
-        {/* Save button */}
-        <div className="flex items-center gap-3">
-          <button
-            type="submit"
-            className="rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
-          >
-            Save Changes
-          </button>
-          {saved && (
-            <span className="text-sm font-medium text-green-400">
-              Settings saved
-            </span>
-          )}
-        </div>
-      </form>
+          <div className="dashboard-inner-form-actions">
+            <button
+              type="submit"
+              className="hero-cta hero-cta-primary auth-submit"
+            >
+              Save changes
+            </button>
+            {saved && (
+              <span className="dashboard-inner-form-saved">Settings saved</span>
+            )}
+          </div>
+        </form>
+      </section>
 
-      {/* Billing section */}
-      <div className="mt-12 max-w-lg border-t border-border pt-8">
-        <h2 className="text-lg font-semibold text-foreground">Billing</h2>
-        <p className="mt-1 text-sm text-muted">
-          Manage your subscription, payment method, and invoices.
-        </p>
-
-        <div className="mt-6 rounded-xl border border-border bg-surface p-5">
-          <div className="flex items-start justify-between gap-4">
+      {/* Billing */}
+      <section className="dashboard-section">
+        <header className="dashboard-section-head">
+          <div>
+            <span className="dashboard-eyebrow">Billing</span>
+            <h2 className="display">Plan &amp; payment</h2>
+            <p className="dashboard-section-dek">
+              Manage your subscription, payment method, and invoices.
+            </p>
+          </div>
+        </header>
+        <div className="dashboard-paper-card">
+          <div className="dashboard-paper-card-row">
             <div>
-              <p className="text-xs font-medium uppercase tracking-wider text-muted">
-                Current Plan
-              </p>
-              <div className="mt-1 flex items-center gap-2">
-                <p className={`text-xl font-bold ${isPaid ? "text-accent" : "text-foreground"}`}>
+              <span className="dashboard-eyebrow">Current plan</span>
+              <div className="dashboard-paper-plan">
+                <span
+                  className={`dashboard-paper-plan-name ${isPaid ? "is-paid" : ""}`}
+                >
                   {tierLabel}
-                </p>
+                </span>
                 {billingRefreshing && (
                   <span
-                    className="h-3 w-3 animate-spin rounded-full border-2 border-accent border-t-transparent"
+                    className="dashboard-paper-spinner"
                     aria-label="Refreshing subscription status"
                   />
                 )}
               </div>
               {tierPrice !== null && (
-                <p className="mt-0.5 text-xs text-muted">${tierPrice}/month</p>
+                <p className="dashboard-paper-plan-price">
+                  ${tierPrice}/month
+                </p>
               )}
               {billingRefreshing && (
-                <p className="mt-2 text-xs text-muted">
-                  Syncing latest subscription status...
+                <p className="dashboard-paper-plan-note">
+                  Syncing latest subscription status…
                 </p>
               )}
             </div>
@@ -280,22 +279,22 @@ export default function DashboardSettingsPage() {
             ) : (
               <Link
                 href="/pricing"
-                className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+                className="hero-cta hero-cta-primary"
               >
                 Upgrade
               </Link>
             )}
           </div>
-
           {isPaid && (
-            <p className="mt-4 border-t border-border pt-4 text-xs leading-relaxed text-muted">
-              Click &quot;Manage Subscription&quot; to cancel, update your payment method,
-              change your plan, or download invoices. Cancellations take effect at
-              the end of your current billing period.
+            <p className="dashboard-paper-card-foot">
+              Click &quot;Manage Subscription&quot; to cancel, update your
+              payment method, change your plan, or download invoices.
+              Cancellations take effect at the end of your current billing
+              period.
             </p>
           )}
         </div>
-      </div>
+      </section>
     </div>
   );
 }

@@ -57,7 +57,7 @@ export default function ManageBillingButton({
       <button
         onClick={handleClick}
         disabled={loading}
-        className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface-hover disabled:opacity-50"
+        className="hero-cta hero-cta-secondary"
       >
         {loading ? (
           <Loader2 className="h-4 w-4 animate-spin" />
@@ -66,9 +66,7 @@ export default function ManageBillingButton({
         )}
         Manage Subscription
       </button>
-      {error && (
-        <p className="mt-2 text-xs text-red-400">{error}</p>
-      )}
+      {error && <p className="dashboard-paper-plan-note">{error}</p>}
     </div>
   );
 }
