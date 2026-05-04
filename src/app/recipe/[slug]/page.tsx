@@ -11,6 +11,8 @@ import { PreviewRecipeClient } from "@/components/v3/PreviewRecipeClient";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
 import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
+import RecipePdfButton from "@/components/v3/RecipePdfButton";
+import RecipeDownloadChip from "@/components/v3/RecipeDownloadChip";
 import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
 import { recipeJsonLdSet } from "@/lib/seo/jsonld";
 import type { Metadata } from "next";
@@ -275,7 +277,7 @@ export default async function PreviewRecipePage({
         </div>
 
         {/* Platform switcher */}
-        <div className="platform-switcher">
+        <div id="recipe-platform-switcher" className="platform-switcher">
           <span className="label">Settings for</span>
           <div className="tabs">
             {validPlatforms.map((p) => (
@@ -288,30 +290,34 @@ export default async function PreviewRecipePage({
               </Link>
             ))}
           </div>
-          {platform === "helix" && (
-            <a
-              href={`/presets/${recipe.slug}.hlx`}
-              download
-              className="export"
-            >
-              Download .hlx ↓
-            </a>
-          )}
-          {platform === "katana" && (
-            <a
-              href={`/presets/${recipe.slug}.tsl`}
-              download
-              className="export"
-            >
-              Download .tsl ↓
-            </a>
-          )}
-          {platform !== "helix" && platform !== "katana" && (
-            <span className="export export-disabled" aria-disabled="true">
-              Preset coming soon
-            </span>
-          )}
+          <div className="platform-switcher-exports">
+            {platform === "helix" && (
+              <a
+                href={`/presets/${recipe.slug}.hlx`}
+                download
+                className="export"
+              >
+                Download .hlx ↓
+              </a>
+            )}
+            {platform === "katana" && (
+              <a
+                href={`/presets/${recipe.slug}.tsl`}
+                download
+                className="export"
+              >
+                Download .tsl ↓
+              </a>
+            )}
+            {platform !== "helix" && platform !== "katana" && (
+              <span className="export export-disabled" aria-disabled="true">
+                Preset coming soon
+              </span>
+            )}
+            <RecipePdfButton slug={recipe.slug} />
+          </div>
         </div>
+        <RecipeDownloadChip slug={recipe.slug} platform={platform} />
 
         {/* Interactive schematic + sticky detail panel. Click a tile,
             the detail swaps in place (no scroll). */}
