@@ -1,15 +1,69 @@
 # v4 follow-ups — handoff for the next agent
 
-**Last updated:** 2026-05-04 by Claude Opus 4.7 (1M context, session 2)
+**Last updated:** 2026-05-04 by Claude Opus 4.7 (1M context, session 3)
 **Branch:** `main` — cutover live on faderandknob.com
-**Current commit:** `git log --oneline main` — latest is the platform
-preset-loading content commit.
+**Current commit:** see `git log --oneline main`.
 
-This doc captures the open work after the second post-cutover session.
-Daniel's three open questions from session 1 were answered (most-recent-5
-blog auto-rotate; floating sticky download chip; PDF generator already
-exists in `src/lib/pdf/generate-recipe-pdf.ts`), so the work below is
-the leftover queue plus newly surfaced items.
+---
+
+## Already shipped (session 3 — 2026-05-04)
+
+- **Recipe quality system.** Three artifacts that solve the "where
+  does the standard live and how do I check it" gap:
+  - `docs/RECIPE_STANDARD.md` — single source of truth. Slug-tagged,
+    severity-tagged rules with "why" lines.
+  - `scripts/audit-recipes.ts` — programmatic grader. Run
+    `npx tsx scripts/audit-recipes.ts`.
+  - `docs/RECIPE_AUDIT_REPORT.md` — first run results: **5 clean,
+    9 warn-only, 36 with errors out of 50.** Top offenders: 34/50
+    have thin QC/Katana/Kemper/Fractal stubs (<3 blocks), 35/50 have
+    no source URLs, 22/50 have Helix chains under the 6-block bar.
+  - User-memory pin: `~/.claude/projects/.../memory/project_recipe_quality_system.md`
+    so future sessions find this immediately.
+- **Dev PDF preview** at `/dev/pdf/[slug]` — calls the same
+  `/api/recipes/[slug]/download` endpoint as the recipe page but
+  inlines the PDF in an iframe with a Reload button. Cuts PDF
+  iteration loop from "click → download → open → close → click"
+  to one button press. noindex.
+- **Display font: Fraunces.** Replaced the never-rendering Space
+  Grotesk + Georgia override. Real italic. Variable display serif
+  designed for screens. Visible across every display headline on
+  the site.
+- **Header consistency: entity-detail h1s unified to .recipe-title.**
+  /artist/[slug] and /news (index) had bespoke `.artist-title` /
+  `.news-title` classes with subtly different sizes. Both removed,
+  both pages now use `.recipe-title display` like everything else.
+- **Page-top consistency (4 pages).** /pricing, /platforms (index),
+  /blog (Field Notes), /request — all four had different head
+  structures (different containers, missing display class on h1,
+  bracketed-list eyebrows, missing breadcrumbs, etc.). Converged on
+  the `.archive-masthead .archive-masthead-tight` pattern with
+  `recipe-issue` eyebrow + `recipe-title display` + `recipe-summary`
+  italic dek. /platforms also got a semantic fix: h2 → h1 + added
+  breadcrumbs.
+- **Nav active state.** The "amber rounded outline" Daniel was seeing
+  was the global `:focus-visible` rule using the wrong amber
+  (#f59e0b production, not #e4a235 v3) + border-radius:4px. Updated
+  to v3 token, square corners. Then added explicit aria-current +
+  `.is-active` styling: full-opacity ink underline + bold weight,
+  driven by `usePathname` so `/recipe/<slug>` correctly highlights
+  "Recipes" etc. Mobile drawer gets an ink left-border on the
+  active row.
+- **/dashboard/my-gear, /dashboard/my-recipes, /community,
+  /community/forum re-skinned** — all four were still rendering
+  production-tailwind chrome inside the v3 paper sidebar shell.
+  Now use auth-form / dashboard-paper-card / dashboard-notif-row
+  / forum-cat-card / community-card primitives (paper, hairline
+  rules, mono caps, italic display dek, no rounded corners, no
+  random palette).
+- **Browse-from-interior fix.** Subnav "Archive" → "Recipes." New
+  `.recipe-foot-browse` "Browse all recipes →" CTA at the bottom of
+  recipe detail. Plus stripped the count-flexing meta on the
+  More-like-this rail.
+- **Audit cleanup.** § glyph dropped from blog post ToC. Count-flexing
+  eyebrows on /platforms (index + slug) and /guides/artist-tone-recipes
+  stripped. Unused `.page-title-lg` removed. Dead `DownloadRecipePDF.tsx`
+  deleted (orphaned after RecipePdfButton replaced it).
 
 ---
 
@@ -47,6 +101,66 @@ the leftover queue plus newly surfaced items.
 ---
 
 ## Open work (in roughly the order I'd tackle it)
+
+### 0. Recipe rewrite — apply the spec to the catalogue
+
+**This is the biggest open item.** The audit system is in place, the
+manifest exists; the work is rewriting the 36 recipes that fail.
+
+**Read first:** `docs/RECIPE_STANDARD.md` (the spec) +
+`docs/RECIPE_AUDIT_REPORT.md` (the manifest). Re-run
+`npx tsx scripts/audit-recipes.ts` whenever the data changes.
+
+**Recommended order — tackle by rule slug, not by recipe, for
+momentum:**
+
+1. **`tone-context-valid` (9 errors).** The audit added "riff" and
+   "intro_riff" as canonical values, so this set may now be 0 —
+   re-run before starting. Anything left is a free-form value to
+   normalize.
+2. **`translations-each-has-blocks` (34 errors).** The big one.
+   Recipes have stub translations — single-block QC, single-block
+   Katana, etc. — that need to be expanded to ≥3 blocks. Drives,
+   amp, cab at minimum. The Helix translation is the reference;
+   port the gear choices to each platform's actual block names.
+   Reference `docs/TONE_ENGINEERING_BIBLE.md` for the model name
+   tables. TONEX is exempt by rule (single ToneNET reference is
+   the design).
+3. **`description-substantive` (1 error).** The Dimebag Walk
+   description is 767 chars; trim to ≤600 by moving long-form
+   context into per-block notes.
+4. **`translations-required-platforms` (2 errors).** Two recipes
+   are missing required helix/qc/katana translations. Find them
+   in the audit report; build the missing platform translation.
+5. **`sources-min` (35 warns).** 35 of 50 recipes have no source
+   URLs. Add at least one source per recipe — equipboard.com,
+   premier-guitar.com, an artist interview, a published rig
+   rundown.
+6. **`helix-block-count` (22 warns).** 22 Helix chains are under
+   the 6-block bar (typically missing the comp, EQ, or reverb
+   utility blocks). Add per the Worship Tutorials standard
+   documented in the bible.
+7. **`helix-comp-present` (4 warns).** Helix chains without a
+   Compressor block in pos 1 or 2. Add `Deluxe Comp` per the
+   bible spec.
+8. **`helix-reverb-cuts` (3 warns).** Reverb blocks without
+   `LowCut` (80-300 Hz) and `HighCut` (5-9 kHz). Update the
+   settings.
+
+**Discipline:**
+- After each batch of fixes, run the audit. The report is the
+  canonical "are we done?" check.
+- Update `docs/RECIPE_STANDARD.md` if the work surfaces a rule that
+  needs refining. Don't ship a rule change without updating the
+  audit script in the same commit.
+- Reasonable batch size: 5-10 recipes at a time, then run audit.
+- Each rewrite is data-only (`src/lib/data/index.ts`); no UI changes.
+
+Estimate: 8-15 hours total depending on how thorough the QC/Katana/
+Kemper/Fractal stub-expansion is. Worth its own dedicated session(s).
+
+---
+
 
 ### 1. Dashboard inner pages — re-skin in v3 chrome (continued)
 
