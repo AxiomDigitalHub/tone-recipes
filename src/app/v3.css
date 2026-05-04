@@ -6899,10 +6899,10 @@
 /* ═══ Shared page title — single typographic primitive ════════════════════
    One class for h1s across the site so legacy production-tailwind
    headings (text-2xl font-bold etc.) stop feeling like a different
-   site. Three sizes: lg=hero, md=section landing, sm=dashboard inner
-   and forms. Existing bespoke title classes (recipe-title, archive-
-   title, post-title, hero-title) are unchanged — those already use
-   the display family and read correctly on their pages.
+   site. Two sizes: md=section landing pages, sm=dashboard inner and
+   forms. Existing bespoke title classes (recipe-title, archive-title,
+   post-title, hero-title) handle their own pages and aren't covered
+   here. A larger -lg can be added if a non-bespoke hero ever needs it.
    ─────────────────────────────────────────────────────────────────── */
 .fk-preview .page-title {
   font-family: var(--font-display);
@@ -6912,7 +6912,6 @@
   color: var(--ink);
   margin: 0 0 12px;
 }
-.fk-preview .page-title-lg { font-size: clamp(48px, 7vw, 104px); }
 .fk-preview .page-title-md { font-size: clamp(36px, 5vw, 72px); }
 .fk-preview .page-title-sm {
   font-size: clamp(24px, 3vw, 36px);

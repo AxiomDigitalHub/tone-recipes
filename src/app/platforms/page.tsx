@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllPlatforms, getRecipesForPlatform } from "@/lib/data/platforms";
+import { getAllPlatforms } from "@/lib/data/platforms";
 
 export const metadata: Metadata = {
   title: "Platforms — Fader & Knob",
@@ -42,7 +42,6 @@ export default function PreviewPlatformsIndex() {
 
         <div className="platforms-grid">
           {platforms.map((p, i) => {
-            const recipes = getRecipesForPlatform(p.id);
             const hue = HUE_BY_PLATFORM[p.id] ?? ((i % 6) + 1);
             return (
               <Link
@@ -53,9 +52,6 @@ export default function PreviewPlatformsIndex() {
                 <span className="platform-card-stripe" aria-hidden="true" />
                 <div className="platform-card-meta">
                   <span className="platform-card-mfr">{p.manufacturer}</span>
-                  <span className="platform-card-count">
-                    {recipes.length} recipes
-                  </span>
                 </div>
                 <h3 className="platform-card-name">{p.label}</h3>
                 <p className="platform-card-tagline">{p.tagline}</p>

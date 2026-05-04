@@ -186,7 +186,7 @@ export default function ArtistToneRecipesPillarPage() {
         {/* ── Hero ─────────────────────────────────────────────────────── */}
         <header className="mb-12 md:mb-16">
           <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-accent">
-            Pillar guide · {toneRecipes.length} recipes · {grouped.length} artists
+            Pillar guide
           </p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
             Artist Tone Recipes

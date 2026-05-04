@@ -519,7 +519,7 @@ export default async function PreviewPlatformDetail({
               href={`/browse?platform=${slug}`}
               className="platform-see-all"
             >
-              See all {recipes.length} {platform.label} recipes →
+              See all {platform.label} recipes →
             </Link>
           )}
         </section>
