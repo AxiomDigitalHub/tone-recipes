@@ -36,7 +36,6 @@ export async function generateMetadata({
       Boolean,
     ) as string[],
     openGraph: { title, description, type: "website" },
-    robots: { index: false, follow: false },
   };
 }
 

@@ -11,7 +11,6 @@ export const metadata: Metadata = {
     description: "Recipes for every major modeler. Helix, Quad Cortex, TONEX, Fractal, Kemper, Katana.",
     type: "website",
   },
-  robots: { index: false, follow: false },
 };
 
 const HUE_BY_PLATFORM: Record<string, number> = {

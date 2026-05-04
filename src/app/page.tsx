@@ -20,7 +20,6 @@ export const metadata: Metadata = {
       "Verified signal chains for the songs you love, ported across every modeler.",
     type: "website",
   },
-  robots: { index: false, follow: false },
 };
 
 const SAMPLE_SLUGS = [

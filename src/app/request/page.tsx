@@ -11,7 +11,6 @@ export const metadata: Metadata = {
       "Submit a song, watch it climb the queue, get a verified recipe.",
     type: "website",
   },
-  robots: { index: false, follow: false },
 };
 
 export default function PreviewRequestPage() {

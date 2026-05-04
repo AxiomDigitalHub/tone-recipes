@@ -45,7 +45,6 @@ export async function generateMetadata({
       description,
       type: "website",
     },
-    robots: { index: false, follow: false },
   };
 }
 

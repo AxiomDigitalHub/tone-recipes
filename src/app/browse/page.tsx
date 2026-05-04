@@ -19,7 +19,6 @@ export const metadata: Metadata = {
     description: "Every recipe in the archive, filterable by era, platform, and genre.",
     type: "website",
   },
-  robots: { index: false, follow: false },
 };
 
 type SortKey = "newest" | "oldest" | "song-az" | "artist-az" | "blocks-desc";

@@ -63,7 +63,6 @@ export async function generateMetadata({
       description: post.description,
       ...(post.image ? { images: [post.image] } : {}),
     },
-    robots: { index: false, follow: false },
   };
 }
 

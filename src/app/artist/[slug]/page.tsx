@@ -48,7 +48,6 @@ export async function generateMetadata({
       description,
       ...(a.image_url ? { images: [a.image_url] } : {}),
     },
-    robots: { index: false, follow: false },
   };
 }
 

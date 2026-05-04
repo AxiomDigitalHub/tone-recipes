@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     description: "Free, Tone Pass, and Pro. Pick what fits.",
     type: "website",
   },
-  robots: { index: false, follow: false },
 };
 
 const PLANS = [

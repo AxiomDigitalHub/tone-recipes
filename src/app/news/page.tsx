@@ -18,7 +18,6 @@ export const metadata: Metadata = {
       "Firmware updates, gear announcements, and tips for modeler players.",
     type: "website",
   },
-  robots: { index: false, follow: false },
 };
 
 const SITE_URL = "https://faderandknob.com";

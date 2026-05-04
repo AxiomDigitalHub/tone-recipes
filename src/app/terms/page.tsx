@@ -3,7 +3,6 @@ import { LegalShell } from "@/components/v3/LegalShell";
 
 export const metadata: Metadata = {
   title: "Terms of Service — Fader & Knob",
-  robots: { index: false, follow: false },
 };
 
 export default function TermsPage() {

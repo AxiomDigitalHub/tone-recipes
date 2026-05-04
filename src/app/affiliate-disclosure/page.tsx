@@ -3,7 +3,6 @@ import { LegalShell } from "@/components/v3/LegalShell";
 
 export const metadata: Metadata = {
   title: "Affiliate Disclosure — Fader & Knob",
-  robots: { index: false, follow: false },
 };
 
 export default function AffiliatePage() {

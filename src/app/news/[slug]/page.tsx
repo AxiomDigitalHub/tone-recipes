@@ -43,7 +43,6 @@ export async function generateMetadata({
       publishedTime: post.date,
     },
     twitter: { card: "summary_large_image", title: post.title, description: post.excerpt },
-    robots: { index: false, follow: false },
   };
 }
 

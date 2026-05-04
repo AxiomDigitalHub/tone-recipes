@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     description: "Verified tone recipes — chase, map, translate. Every modeler.",
     type: "website",
   },
-  robots: { index: false, follow: false },
 };
 
 const STEPS = [

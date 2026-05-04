@@ -49,7 +49,6 @@ export async function generateMetadata({
       description,
       ...(s.album_art_url ? { images: [s.album_art_url] } : {}),
     },
-    robots: { index: false, follow: false },
   };
 }
 

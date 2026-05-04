@@ -68,7 +68,6 @@ export async function generateMetadata({
       description,
       ...(song?.album_art_url ? { images: [song.album_art_url] } : {}),
     },
-    robots: { index: false, follow: false },
   };
 }
 
@@ -309,11 +308,6 @@ export default async function PreviewRecipePage({
                 Download .tsl ↓
               </a>
             )}
-            {platform !== "helix" && platform !== "katana" && (
-              <span className="export export-disabled" aria-disabled="true">
-                Preset coming soon
-              </span>
-            )}
             <RecipePdfButton slug={recipe.slug} />
           </div>
         </div>
@@ -351,6 +345,63 @@ export default async function PreviewRecipePage({
                 <div className="eng-note-sig">— {artist.name}</div>
               )}
             </div>
+          </div>
+        )}
+
+        {/* Sources — primary citations backing the signal-chain claims. */}
+        {recipe.sources && recipe.sources.length > 0 && (
+          <div
+            className="recipe-sources"
+            style={{
+              marginTop: 32,
+              paddingTop: 16,
+              borderTop: "1px solid var(--rule, rgba(0,0,0,0.08))",
+            }}
+          >
+            <div
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: 9.5,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "var(--ink-faint)",
+                marginBottom: 8,
+              }}
+            >
+              Sources · Verified by
+            </div>
+            <ul
+              style={{
+                listStyle: "none",
+                padding: 0,
+                margin: 0,
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "8px 16px",
+                fontSize: 13,
+              }}
+            >
+              {recipe.sources.map((url) => {
+                let label = url;
+                try {
+                  label = new URL(url).hostname.replace(/^www\./, "");
+                } catch {
+                  // Not a parseable URL — render the raw string.
+                }
+                return (
+                  <li key={url}>
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className="recipe-source-link"
+                    >
+                      {label} <span aria-hidden="true">↗</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         )}
 

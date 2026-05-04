@@ -12,7 +12,6 @@ export const metadata: Metadata = {
     description: "Verified tone recipes by guitarists, for guitarists.",
     type: "website",
   },
-  robots: { index: false, follow: false },
 };
 
 export default function AboutPage() {

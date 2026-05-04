@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     description: "Two signal chains, side-by-side, on every modeler.",
     type: "website",
   },
-  robots: { index: false, follow: false },
 };
 
 const PLATFORMS: { id: Platform; label: string }[] = [

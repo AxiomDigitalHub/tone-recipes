@@ -24,7 +24,6 @@ export const metadata: Metadata = {
     description: "Long-form writing on tone, gear, and the songs you love.",
     type: "website",
   },
-  robots: { index: false, follow: false },
 };
 
 /**
