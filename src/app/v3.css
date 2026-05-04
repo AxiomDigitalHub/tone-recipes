@@ -6601,3 +6601,118 @@
   font-size: 16px;
 }
 .fk-preview .dashboard-quick-action:hover span:last-child { color: var(--ink); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v4.6 — Mobile pass. Tightens the desktop-leaning vertical rhythm and
+   typography so phone viewports don't spend half their height on chrome.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Phone (≤560px) — tightens hero, masthead, sub-nav, recipe head, dashboard */
+@media (max-width: 560px) {
+  /* Title leans smaller so 2-line layouts fit without wrapping mid-word */
+  .fk-preview .hero h1 {
+    font-size: clamp(40px, 11vw, 56px);
+  }
+  /* The big mb:96 between the title and the CTA row eats half the
+     iPhone viewport. Pull it back. */
+  .fk-preview .hero h1.hero-title {
+    margin-bottom: 32px;
+  }
+  .fk-preview .hero {
+    padding-top: 28px;
+    padding-bottom: 32px;
+  }
+  .fk-preview .hero-headline-grid {
+    margin-bottom: 36px;
+    padding-bottom: 28px;
+  }
+  /* Hero CTA row — vertical layout, full-width primary, clearer tap area */
+  .fk-preview .hero-cta-row { flex-direction: column; align-items: stretch; }
+  .fk-preview .hero-cta-primary { text-align: center; padding: 14px 18px; }
+  .fk-preview .hero-cta-secondary { text-align: center; padding: 10px 4px; }
+
+  /* Masthead — smaller letters so the dateline fits in one line */
+  .fk-preview .masthead-bar { font-size: 9.5px; padding: 6px 0; }
+  .fk-preview .masthead-bar-inner { padding: 0 18px; gap: 10px; }
+  .fk-preview .masthead-bar .sep { margin: 0 6px; }
+
+  /* Sub-nav — drop secondary links to a horizontal scroll row so the
+     6-item wrap doesn't take 3 lines on a phone. */
+  .fk-preview .preview-subnav-inner { padding: 12px 18px; }
+  .fk-preview .preview-subnav-links {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    gap: 14px;
+  }
+  .fk-preview .preview-subnav-links::-webkit-scrollbar { display: none; }
+  .fk-preview .preview-subnav-links a {
+    flex-shrink: 0;
+    font-size: 11px;
+  }
+
+  /* Recipe head — title gets a smaller clamp on phone, art card capped */
+  .fk-preview .recipe-title {
+    font-size: clamp(36px, 9.5vw, 56px) !important;
+    line-height: 1.02;
+  }
+  .fk-preview .recipe-art { max-width: 280px; margin-left: 0; }
+  .fk-preview .recipe-head { gap: 18px; padding-bottom: 20px; margin-bottom: 22px; }
+
+  /* Dashboard hero — drop the LP from 240px to 200px and let it sit above */
+  .fk-preview .dashboard-hero { gap: 20px; }
+  .fk-preview .dashboard-hero-art { max-width: 200px; }
+  .fk-preview .dashboard-hero-title { font-size: clamp(24px, 7vw, 36px); }
+  .fk-preview .dashboard-greeting-title { font-size: clamp(24px, 7vw, 32px); }
+
+  /* Activation panel + upgrade banner — smaller padding on phone */
+  .fk-preview .dashboard-activation,
+  .fk-preview .dashboard-upgrade { padding: 18px 18px 16px; }
+  .fk-preview .dashboard-activation-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .fk-preview .dashboard-activation-progress { align-self: flex-start; }
+
+  /* Auth card — keep cropmark frame but pull padding tighter */
+  .fk-preview .auth-card { padding: 24px 20px; }
+  .fk-preview .auth-title { font-size: 28px; }
+
+  /* Section heads — drop bottom border weight, tighter rhythm */
+  .fk-preview .dashboard-section { margin-bottom: 32px; }
+  .fk-preview .dashboard-section-head h2 { font-size: 20px; }
+
+  /* Hero featured-chain — already scrolls horizontally, just reduce node
+     size so 4–5 are visible at once. */
+  .fk-preview .hero-chain .chain-node-wrap { width: 96px; gap: 8px; }
+  .fk-preview .hero-chain .chain-node { width: 74px; height: 74px; }
+  .fk-preview .hero-chain .chain-node svg,
+  .fk-preview .hero-chain .chain-node img { width: 28px; height: 28px; }
+  .fk-preview .hero-chain { padding: 18px 16px 12px; }
+
+  /* Footer — already has its own breakpoint; bump padding tighter */
+  .fk-preview .fk-footer-inner { padding: 36px 18px 20px; }
+  .fk-preview .fk-footer-mark { font-size: 22px; }
+}
+
+/* Very narrow (≤380px) — last-mile fits on the smallest still-sold iPhones */
+@media (max-width: 380px) {
+  .fk-preview .container { padding: 0 14px; }
+  .fk-preview .hero h1 { font-size: 36px; }
+  .fk-preview .recipe-title { font-size: 32px !important; }
+  .fk-preview .preview-subnav-inner { padding: 10px 14px; gap: 10px; }
+}
+
+/* Ensure interactive elements meet WCAG 2.5.5 (44×44px tap target).
+   We're conservative here: the chain-node tiles are 80×80 by default
+   so they pass; the chip buttons (.dept-link, .request-sort-btn,
+   .news-cat) need a small bump to clear 44px on phone. */
+@media (max-width: 720px) {
+  .fk-preview .dept-link { padding: 12px 14px; min-height: 44px; }
+  .fk-preview .request-sort-btn { padding: 10px 12px; min-height: 44px; }
+  .fk-preview .news-cat { padding: 10px 14px; min-height: 44px; display: inline-flex; align-items: center; }
+  .fk-preview .ledger-row,
+  .fk-preview .ledger-header { padding: 14px 8px; }
+}
