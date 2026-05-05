@@ -2611,9 +2611,18 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "If not available as a stock cab, load a third-party Vibroverb IR.",
           },
+          {
+            position: 4,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Vibroverb spring tank",
+            settings: { Decay: 4.0, Predelay: 20, Mix: 0.20, Level: 0 },
+            notes:
+              "The Vibroverb has an onboard spring tank — SRV tracked Pride and Joy with a touch of it. Mix at 0.20 keeps it present without washing the attack. Short decay matches the small studio tank, not a hall.",
+          },
         ],
         notes:
-          "The Quad Cortex excels at this type of tone. Its captures of real Vibroverbs are available on Cortex Cloud and will be more accurate than the stock amp model.",
+          "The Quad Cortex excels at this type of tone. Its captures of real Vibroverbs are available on Cortex Cloud and will be more accurate than the stock amp model. Spring reverb mirrors the Vibroverb's onboard tank — modest mix, present but never washy.",
       },
       tonex: {
         chain_blocks: [
@@ -2666,9 +2675,18 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "T-Scream is the Katana's Tube Screamer emulation (modeled on the TS9). Drive at 1 — this is the SRV trick, almost no distortion from the pedal itself. Level at 10 slams the front of the amp into breakup. Tone 6 adds the mid-hump that defines the TS character.",
           },
+          {
+            position: 3,
+            block_name: "Spring",
+            block_category: "Reverb",
+            original_gear: "Vibroverb spring tank",
+            settings: { Time: 4, PreDelay: 20, Tone: 5, EffectLevel: 4 },
+            notes:
+              "Spring reverb in the REV slot mirrors the Vibroverb's onboard tank. Effect Level at 4 keeps it subtle — present but not washy. Short Time matches the small studio reverb on the Texas Flood recording.",
+          },
         ],
         notes:
-          "Cranked-clean Vibroverb approach: Clean amp character with the alt (Variation 2) channel for the pushed-clean voicing, Gain 9 / Volume 4 / Bass rolled back, T-Scream booster in front as a clean-boost-with-mid-hump. The amp does the work, the booster pushes it over. Won't perfectly replicate the Vibroverb's 1x15 JBL D130F speaker character, but the cranked Clean (Variation 2) gets close to that warm breakup.",
+          "Cranked-clean Vibroverb approach: Clean amp character with the alt (Variation 2) channel for the pushed-clean voicing, Gain 9 / Volume 4 / Bass rolled back, T-Scream booster in front as a clean-boost-with-mid-hump. The amp does the work, the booster pushes it over. Spring reverb mirrors the Vibroverb's onboard tank. Won't perfectly replicate the Vibroverb's 1x15 JBL D130F speaker character, but the cranked Clean (Variation 2) gets close to that warm breakup.",
       },
       kemper: {
         chain_blocks: [
@@ -2690,17 +2708,27 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "Search Rig Exchange for blackface Vibroverb profiles. MBritt and Tone Junkie both offer excellent Vibroverb packs. Set the Gain to edge-of-breakup. With Liquid Profiling, select the Fender tone stack for authentic EQ behavior.",
           },
+          {
+            position: 3,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Vibroverb spring tank",
+            settings: { Decay: 0.4, Predelay: 20, Mix: 0.20 },
+            notes:
+              "REV slot. Spring reverb mirrors the Vibroverb's onboard tank. Mix 0.20 — subtle, present, never washy. Match the studio amount on the Texas Flood recording rather than a live-stage soak.",
+          },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. For the most authentic SRV tone, search Rig Exchange for a Vibroverb profile captured through a 1x15 JBL D130F speaker. The Green Scream into a pushed Vibroverb profile is one of the most popular combinations on the Kemper.",
+          "Kemper profiles include the cab, so no separate cab block is needed. For the most authentic SRV tone, search Rig Exchange for a Vibroverb profile captured through a 1x15 JBL D130F speaker. The Green Scream into a pushed Vibroverb profile is one of the most popular combinations on the Kemper. Spring reverb in the REV slot finishes the tone with the same onboard-tank character SRV had on the recording.",
       },
       fractal: {
         chain_blocks: [
           { position: 1, block_name: "T808 OD", block_category: "Drive", original_gear: "Ibanez TS808", settings: { Drive: 1.0, Tone: 6.0, Level: 10.0 }, notes: "Drive at minimum for clean boost. Level maxed to push the amp." },
           { position: 2, block_name: "Vibrato Verb", block_category: "Amp", original_gear: "Fender Vibroverb", settings: { Drive: 7.0, Bass: 4.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, MV: 7.5 }, notes: "Closest model to a blackface Vibroverb. Push the Drive for edge-of-breakup." },
           { position: 3, block_name: "1x15 Deluxe", block_category: "Cab", original_gear: "1x15 JBL D130F", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Round 1x15 cab for the full low-end SRV character." },
+          { position: 4, block_name: "Spring 63", block_category: "Reverb", original_gear: "Vibroverb spring tank", settings: { Mix: 0.20, Decay: 0.4, Predelay: 20 }, notes: "Spring 63 (or any short-tank spring model) mirrors the Vibroverb's onboard reverb. Subtle mix — the amp's tank wasn't a soaked live-stage reverb on the studio cut." },
         ],
-        notes: "Vibrato Verb with T808 OD clean boost. Eb tuning and heavy .013 strings are essential to the SRV sound.",
+        notes: "Vibrato Verb with T808 OD clean boost. Eb tuning and heavy .013 strings are essential to the SRV sound. Spring reverb finishes the chain with the same onboard-tank character as the original recording.",
       },
     },
     is_editorial: true,

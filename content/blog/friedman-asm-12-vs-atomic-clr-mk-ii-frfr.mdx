@@ -1,0 +1,169 @@
+---
+title: 'Friedman ASM-12 vs. Atomic CLR Mk II: Powered FRFR With Character vs. Flat'
+description: >-
+  Two powered FRFR cabs, two opposite design philosophies. The ASM-12 is voiced
+  like a guitar cab. The CLR Mk II is voiced like a studio monitor. The
+  double-counting problem decides which one belongs in your rig.
+date: '2026-05-04'
+author: Dev Okonkwo
+author_slug: dev-okonkwo
+category: modeler-masterclass
+tags:
+  - frfr
+  - friedman-asm-12
+  - atomic-clr
+  - modeler
+  - powered-cab
+  - quad-cortex
+  - helix
+readingTime: 9
+image: /images/blog/friedman-asm-12-vs-atomic-clr-mk-ii-frfr.jpg
+image_alt: >-
+  a composition illustrating "Friedman ASM-12 vs. Atomic CLR Mk II FRFR cabs"
+---
+
+> **Quick read:** Two powered full-range flat-response cabs that solve the same problem from opposite directions. The Friedman ASM-12 ($1,499 street) is voiced like a guitar cab — a 12-inch coaxial driver in a sealed enclosure with a Class D amp tuned to roll off above 5 kHz, so a clean modeler signal sounds like it's coming through a 12-inch speaker by default. The Atomic CLR Mk II ($1,200 street) is voiced like a studio monitor — a 12-inch coaxial driver with a more linear frequency response, no high-end roll-off, and a flatter cab response curve. Buy the ASM-12 if you want the modeler's preset to sound like a 12-inch cab without dialing in a cab IR yourself, you play live and want a cab feel that matches an amp on stage, or your modeler presets are built without IRs. Buy the CLR Mk II if your modeler presets already include a cab IR you've dialed in, you record more than you gig, you want the FRFR to be transparent so the IR does the voicing, or you might use the FRFR for non-guitar duty (keys, vocals, monitoring). The big trap is double-counting — running a fully cab-IR'd preset through the ASM-12 stacks two cab voicings, which is usually a mid-honky mess. If you go ASM-12, kill the cab IR in your preset.
+
+| Spec | Friedman ASM-12 | Atomic CLR Mk II |
+|---|---|---|
+| Street price (May 2026) | $1,499 | $1,200 |
+| Driver | 12" coaxial (12" woofer + 1.4" compression driver) | 12" coaxial (12" woofer + 1.5" compression driver) |
+| Power amp | 500W Class D (peak) | 500W bi-amped Class D (350W LF + 150W HF) |
+| Frequency response (-3 dB) | 60 Hz – 18 kHz | 50 Hz – 20 kHz |
+| Voicing | Guitar-cab tilt (rolloff above 5 kHz) | Linear / studio monitor flat |
+| Weight | 38 lbs | 39 lbs |
+| Cabinet type | Sealed back | Vented bass-reflex port |
+| Inputs | 2 × XLR/TRS combo | 2 × XLR/TRS combo |
+| Internal DSP | None | 6-band parametric EQ + HPF/LPF |
+| Stereo link | Yes (link two cabs) | Yes (mode switch) |
+
+I've spent the last two years running my Quad Cortex through a pair of Yamaha HS8 studio monitors at home, and over that same period I've borrowed both an ASM-12 and a CLR Mk II from friends in Atlanta who gig regularly. The two cabs solve the same problem — getting a modeler signal into the air at gig volume — and they take diametrically opposite approaches to it. After enough A/B time with both, I think the decision is almost entirely about whether your preset already includes a cab IR you've spent time tuning. That single question determines which cab is right for you, and most of the rest of the comparison is downstream of it.
+
+## The Double-Counting Problem
+
+This is the single most important concept in choosing a powered FRFR for a modeler rig, and the one that's most often left out of reviews. Bear with me — once you see it, you can't unsee it.
+
+A modeler preset typically has a chain that looks like: amp model → cab IR → effects → output. The cab IR is a measured frequency response of a real speaker cabinet recorded with a real microphone — it's the speaker-and-mic part of the chain rendered as a digital convolution filter. When you play the preset through headphones or studio monitors, the cab IR is doing all the work of making the signal sound like it came from a guitar cab.
+
+A powered FRFR cab is, in theory, a flat-response speaker that adds nothing to the signal — it just amplifies what the modeler outputs. If the modeler's preset already has a cab IR baked in, and the FRFR is truly flat, the result sounds like the cab IR through a flat amplification system. This is what the CLR Mk II is designed for.
+
+The ASM-12 isn't flat. It's voiced like a guitar cab — high end rolls off above 5 kHz, low-mid emphasis around 200 Hz, the slight cone-cry character a 12-inch speaker has at high SPL. If you run a cab-IR'd preset through the ASM-12, you get the cab IR's voicing on top of the ASM-12's voicing — two cab curves stacked. The result is usually an over-mid'd, honky tone with too much 1 kHz and not enough top end. Some players like this; most don't, especially if they spent time picking the IR.
+
+The fix on the ASM-12 is to bypass the cab IR in your modeler preset (most modelers have a "cab off" or "amp only" output mode for this). Now you're sending the bare amp model into the ASM-12, and the ASM-12 is providing the cab voicing the way a real guitar cab would for a real amp. This is what the ASM-12 was designed for.
+
+I expected this difference to be subtle the first time I A/B'd. What I found was that it wasn't subtle at all — it was the difference between a preset that sounded great and a preset that sounded like it was being played through a tin can. Once I killed the cab IR in the preset I was running through the ASM-12, the cab opened up and started sounding like a real amp on stage. Through the CLR with the cab IR engaged, the same preset sounded like the studio recording of that same amp. Both are valid sounds. Neither is the wrong answer. But you have to know which cab you're feeding and adjust the preset accordingly.
+
+## The Friedman ASM-12 — Voiced Like a Cab
+
+The ASM-12 is built around the assumption that you want it to feel like a Friedman 1×12 guitar cab loaded with a Celestion Creamback. The 12-inch coaxial driver has a 1.4-inch compression driver mounted in the center of the woofer (handling the high frequencies above the woofer's roll-off point), but the crossover is voiced so the high end doesn't extend the way it would in a studio monitor — there's a gentle but deliberate roll-off above 5 kHz that mimics what a Celestion 12-inch does at the same frequency.
+
+The sealed-back cabinet is the other part of the guitar-cab character. Sealed cabs have tighter, more controlled low-mids than vented cabs at the cost of some low-end extension. The ASM-12's stated -3 dB point is 60 Hz — adequate for guitar, not deep enough for a full-range stereo bus. It's voiced for a guitar to sit in the 80 Hz to 5 kHz range and feel present without competing for the low octave a bass would occupy.
+
+In a live setting, the ASM-12 acts the way a real guitar cab acts: it throws sound forward, fills a stage with the same kind of dispersion pattern a sealed 1×12 has, and feels like an amp the player is standing next to. For modeler players who came from real amps and miss the physical feedback of a 12-inch cone moving air, the ASM-12 is the closer experience. Friedman themselves use the ASM-12 as the demo cab when they're showing off the JJ Junior amp at NAMM, which tells you what they think of its voicing.
+
+The downside is what I already covered — if you're running cab IRs in your presets, the ASM-12 stacks its voicing on top of theirs. Some modeler players solve this by running two preset banks: a "live" bank with the cab IRs killed for ASM-12 use, and a "recording" bank with the cab IRs engaged for direct-to-interface use. Switching between them takes a footswitch press. Workable, but it's a workflow you'd want to know about before you bought the cab.
+
+## The Atomic CLR Mk II — Voiced Like a Monitor
+
+The CLR Mk II takes the opposite approach. The 12-inch coaxial driver has a 1.5-inch compression driver, but the crossover is set so the system is as linear as possible across the audible range — no deliberate high-end roll-off, no low-mid emphasis. The stated frequency response is 50 Hz to 20 kHz, which is full-range studio-monitor territory. The cabinet is bass-reflex (ported), which gives more low-end extension than the ASM-12's sealed design at the cost of some low-end transient definition.
+
+The internal DSP includes a 6-band parametric EQ and a high-pass / low-pass filter, which lets you voice the CLR to taste — if you want it to act more like a guitar cab, you can roll the high end off in the EQ. If you want it flatter still, you can leave it stock. The flexibility is the design philosophy.
+
+For a player who runs cab IRs in their presets, the CLR is doing the right job. It's reproducing the IR faithfully. The IR is the cab voicing; the CLR is just the air-mover. This is how studio monitors work — they're flat, they reproduce what's sent to them, and the voicing comes from upstream of the speaker. If you've spent time picking IRs, comparing them, and dialing the EQ on the IR to taste, the CLR honors that work.
+
+The CLR is also the better choice for any player who might use the cab for something other than guitar. Vocals through a CLR sound natural. Synths through a CLR sound full-range. Stereo program material through a pair of CLRs sounds like big studio monitors at a coffee shop. The ASM-12, voiced for guitar, doesn't do non-guitar duty as well — vocals through it sound a bit boxy because the high end is rolled off where vocal sibilance lives.
+
+## The Live Feel Difference
+
+The thing that doesn't show up in a frequency response chart is the way each cab feels on a stage at gig volume. I've now stood next to both during sound checks at small venues in Atlanta — the ASM-12 at a 75-cap room with no FOH support, the CLR Mk II at a 200-cap room with FOH backline.
+
+The ASM-12 feels like an amp. The cone movement at high SPL is mechanical and loud and you can feel the air pressure if you stand directly in front of it. The dispersion is similar to a 1×12 sealed cab — a relatively tight beam that throws forward and falls off at the sides. For a player who's used to standing in front of a real amp, this feels right. The audience hears something close to what the player hears, scaled by distance.
+
+The CLR Mk II feels like a PA wedge. The dispersion is wider (the coaxial driver was designed for a more uniform off-axis response), and the sound at gig volume has the characteristic of a powered speaker rather than a guitar amp — punchy, even, but missing the cab thump in the upper-bass range. For a player who's used to in-ear monitors or studio playback, this also feels right. The audience hears what's at the FOH; the player hears the same thing at stage volume.
+
+Neither is "better." They're solving the same problem from different angles. The ASM-12 maintains the amp-on-stage paradigm. The CLR Mk II treats the modeler signal as a finished mix and reproduces it accurately.
+
+## The Settings That Show Each Cab's Character
+
+Here's a Quad Cortex preset I built specifically to demonstrate the difference. Same amp model (Plexi 1959 Super Lead), same overdrive pedal in front (Tube Screamer-style mid-hump boost), same EQ shape on the amp, same ambience block at the end. The only thing I change between the two cabs is the cab block in the preset.
+
+For the ASM-12 (cab IR off, amp model only):
+
+<SettingsGrid title="Quad Cortex preset for ASM-12" subtitle="Cab IR bypassed — let the ASM-12 do the cab voicing">
+  <Knob name="Amp Drive" value={5.5} />
+  <Knob name="Bass" value={5.5} />
+  <Knob name="Mid" value={6} />
+  <Knob name="Treble" value={5} />
+  <Knob name="Presence" value={5} />
+  <Knob name="Master" value={6} />
+</SettingsGrid>
+
+For the CLR Mk II (cab IR engaged — Celestion G12M Greenback IR, SM57 mic position, 4 inches off-axis at the cone edge):
+
+<SettingsGrid title="Quad Cortex preset for CLR Mk II" subtitle="Same amp; cab IR doing the voicing">
+  <Knob name="Amp Drive" value={5.5} />
+  <Knob name="Bass" value={5.5} />
+  <Knob name="Mid" value={5.5} />
+  <Knob name="Treble" value={5} />
+  <Knob name="Presence" value={4.5} />
+  <Knob name="Master" value={6} />
+</SettingsGrid>
+
+The Mid and Presence are pulled back slightly on the CLR preset because the IR is providing the upper-mid emphasis the ASM-12 builds in. The amp drive and bass are identical because they're upstream of the cab decision.
+
+If I ran the CLR preset (cab IR engaged) through the ASM-12 without changing anything, the result would have too much 1 kHz mids and a slightly hooded high end — the IR's mid push and the ASM-12's mid push compounding. The fix would be either to kill the cab IR (which makes the preset wrong for the CLR) or to do a heavy parametric cut around 800 Hz to 1.2 kHz to compensate. Easier just to maintain two presets.
+
+For more on getting modeler tones to translate well across different speaker situations, our [why your modeler sounds different at the gig guide](/blog/modeler-preset-sounds-different-gig) covers the related problem of in-ears vs. amps vs. FRFR — same kind of speaker-coupling translation gap.
+
+## When the ASM-12 Is the Right Buy
+
+You should buy the ASM-12 if any of these are true:
+
+1. **You play live and want the cab to feel like an amp on stage.** The sealed-back coupling and the guitar-tilt voicing give the player the physical and tonal feedback of a real cab. For players who care about that — and most who came from tube amps do — the ASM-12 is the closer experience.
+2. **Your modeler presets are built amp-only without cab IRs.** If you're running a Helix or QC with the cab block bypassed (or if you're using a Strymon Iridium or Atomic AmpliFire with no cab block), the ASM-12 provides the cab voicing the preset is missing. This is the simplest configuration.
+3. **You don't want to think about IRs.** Some players want to plug their modeler in and have it sound like a guitar cab without choosing an IR, mic'ing it virtually, and tuning the EQ. The ASM-12 absorbs that decision into the cab itself.
+4. **You only ever use the cab for guitar.** The ASM-12's voicing is wrong for non-guitar applications. If guitar is the only use case, that's not a downside.
+
+## When the CLR Mk II Is the Right Buy
+
+You should buy the CLR Mk II if any of these are true:
+
+1. **You've already invested time in dialing in cab IRs.** If you have a favorite IR you've tuned to taste — a Celestion Greenback IR with a specific mic position, or an Ownhammer or York Audio purchase — the CLR honors that work by being transparent. The ASM-12 colors it.
+2. **You record more than you gig.** Studio monitors are flat for a reason — they show you what the recording will sound like elsewhere. A flat FRFR like the CLR does the same job for monitoring during recording. The ASM-12's voicing is wrong for studio reference duty.
+3. **You might use the cab for non-guitar work.** If you also play keys, run vocals, or use the cab for mixing music for fun, the CLR's flat response is the right choice. The ASM-12 won't do those jobs as well.
+4. **You want EQ control on the cab itself.** The CLR's onboard 6-band parametric and HPF/LPF let you voice the cab to the room without modifying every preset. For players who play different rooms regularly, the cab-side EQ is a meaningful feature.
+
+## The Honest Trade
+
+I run my Quad Cortex through Yamaha HS8 studio monitors at home, which is functionally the same approach as the CLR — flat reproduction, cab voicing in the preset via IR. If I were buying a powered FRFR for live use, I'd buy the CLR Mk II. The IRs I've spent two years dialing in would translate directly. I'd add a single preset variant for "stage use" that bumps the low-mid EQ slightly to compensate for the room dispersion difference between studio monitors and a single FRFR throwing into a venue.
+
+If I were a player who came from a real Marshall stack and wanted the modeler to feel like an amp on stage, I'd buy the ASM-12 and rebuild my preset library cab-bypassed. The amp-feel-on-stage advantage is real for that player, and it's worth the workflow change.
+
+The wrong move is buying the cab that doesn't match your preset philosophy. If you have cab IRs in every preset and you buy the ASM-12, you'll spend a weekend trying to figure out why it sounds boxy and then either rebuild every preset or sell the cab. If you don't have cab IRs in any preset and you buy the CLR, the cab will sound dry and lifeless until you add IRs to your presets — also a weekend of work. Pick the cab that matches what your presets already are, not what you wish they were.
+
+For the broader power amp question — when to use a Class D solid-state power amp vs. a tube power amp with your modeler — our [Class D vs. tube power amp comparison](/blog/powerstage-200-vs-fryette-power-station) covers the related decision for the head + cab path that the FRFR question doesn't address.
+
+<FAQ questions={[
+  {
+    q: "Can I use a regular PA wedge instead of a dedicated FRFR cab?",
+    a: "Yes, with caveats. A QSC K12.2 or a JBL EON612 will reproduce a modeler signal usefully — both are reasonably flat in the guitar's frequency range. The dedicated FRFR cabs (ASM-12, CLR) have advantages in dispersion pattern (wider sweet spot for the player's ear), build quality (tighter cabinets, less resonance at high SPL), and in the ASM-12's case voicing. But for a player on a budget or just starting out, a $500-700 PA wedge gets you 80% of the way for half the money."
+  },
+  {
+    q: "Should I run two FRFR cabs in stereo?",
+    a: "Only if your modeler presets use stereo effects (stereo delay, stereo reverb, ping-pong) and your venue can support a stereo image (most can't — stage spread on a small stage is too narrow for stereo to translate). For most live use, mono with one FRFR is the right answer. For studio use, stereo is the standard. Both the ASM-12 and the CLR support stereo linking via the XLR output to a second cab."
+  },
+  {
+    q: "Why is the ASM-12 so much more expensive than the CLR?",
+    a: "Honestly, brand premium and the perception of 'guitar-voiced' tuning being worth more. The driver, the cabinet, and the power amp in both products are roughly comparable. The Friedman name and the deliberate guitar voicing carry a $300 markup. The CLR Mk II is the better value at the spec level. The ASM-12 earns its price for players who specifically want the guitar-cab feel and don't want to do the work of bypassing IRs."
+  },
+  {
+    q: "Will an FRFR sound as good as a real tube amp through a real cab?",
+    a: "It depends on the modeler, the IR (or the FRFR voicing), and the listener's biases. For most players in most rooms, a well-dialed Quad Cortex or Helix through a CLR Mk II at gig volume is genuinely indistinguishable from the real tube amp it's modeling — especially at the sound engineer's mic position. The differences show up in the player's ear (the physical feedback of a tube power section into a real cab moves air differently than a Class D into an FRFR) and in the room (a 4×12 spreads sound differently than a single 12-inch FRFR). For studio recording, the modeler+FRFR (or modeler+monitors) approach is now standard at major studios. For live, the FRFR is the de facto choice for any player who's stopped touring with a tube amp."
+  },
+  {
+    q: "Does the FRFR sound different at low volume vs. gig volume?",
+    a: "Both cabs do — every speaker does, because of how human hearing perceives bass at low SPL (the Fletcher-Munson effect). Both feel a little thin at bedroom volume and fill out as you turn them up. The ASM-12's sealed cabinet design is slightly more SPL-stable than the CLR's vented design — the bass response on the ASM-12 stays similar from rehearsal to gig volume, while the CLR's vented port becomes more prominent at high SPL. This is a tradeoff, not a verdict — both are designed primarily for stage volume and both compromise slightly at bedroom levels."
+  }
+]} />
+
+<SaveThisTone title="Try cab IRs before you commit to a powered cab" description="Our preset library includes Quad Cortex and Helix presets in both flavors — cab-IR'd presets that pair with a flat FRFR like the CLR, and amp-only presets that pair with a guitar-voiced cab like the ASM-12. Hear the same amp model both ways before you buy the cab." href="/recipes/frfr-vs-amp-only-preset-bundle" ctaLabel="Get the FRFR preset comparison bundle" />

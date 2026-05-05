@@ -6,7 +6,13 @@ import {
   getArtistBySlug,
 } from "@/lib/data";
 import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
-import { PreviewBlockDetail } from "@/components/v3/PreviewBlocks";
+import {
+  PreviewBlockDetail,
+  isFaderBlock,
+  faderValue,
+  helixCategory,
+  type PreviewBlockData,
+} from "@/components/v3/PreviewBlocks";
 import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { getCanonicalParams } from "@/lib/parameters/canonical";
@@ -77,6 +83,37 @@ const PLATFORM_ORDER: Platform[] = [
   "fractal",
   "tonex",
 ];
+
+/**
+ * Compact horizontal fader row for volume-pedal-style blocks. The
+ * full PreviewBlockDetail renders these as a tall vertical ramp,
+ * which eats huge vertical space on the printed page for a control
+ * that's typically just at 100%. (Daniel 2026-05-05: "vol pedal can
+ * go horizontal to save space.") A single row — name + horizontal
+ * bar + percentage — fits in ~32px instead of ~140px.
+ */
+function PrintFaderRow({ block }: { block: PreviewBlockData }) {
+  const value = faderValue(block);
+  const control = block.controls[0] ?? "Position";
+  return (
+    <div className="print-fader-row">
+      <div className="print-fader-row-text">
+        <span className="print-fader-row-name">{block.name}</span>
+        <span className="print-fader-row-kind">{helixCategory(block)}</span>
+      </div>
+      <div className="print-fader-row-bar" aria-hidden="true">
+        <span
+          className="print-fader-row-fill"
+          style={{ width: `${value}%` }}
+        />
+      </div>
+      <div className="print-fader-row-meta">
+        <span>{control}</span>
+        <span className="print-fader-row-value">{value}%</span>
+      </div>
+    </div>
+  );
+}
 
 /**
  * Enrich a platform translation's blocks so every canonical
@@ -259,13 +296,23 @@ export default async function RecipePrintPage({
 
               {/* Block-by-block details — every canonical param is
                   shown, even when the recipe data didn't set it
-                  (filled with the registry neutral). */}
+                  (filled with the registry neutral). Volume-pedal /
+                  expression-style blocks render as a single
+                  horizontal row instead of the tall vertical fader
+                  to save page real estate. */}
               <div className="print-platform-details">
                 {blocks
                   .filter((b) => b.variant !== "source")
                   .map((b, i) => (
-                    <div key={`${b.name}-${i}`} className="print-block-card">
-                      <PreviewBlockDetail block={b} isSelected={false} />
+                    <div
+                      key={`${b.name}-${i}`}
+                      className={`print-block-card${isFaderBlock(b) ? " print-block-card-fader" : ""}`}
+                    >
+                      {isFaderBlock(b) ? (
+                        <PrintFaderRow block={b} />
+                      ) : (
+                        <PreviewBlockDetail block={b} isSelected={false} />
+                      )}
                     </div>
                   ))}
               </div>

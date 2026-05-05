@@ -1,0 +1,165 @@
+---
+title: 'Hum X vs. Radial Twin-Iso vs. EBTECH ELQ: Three Cheap Ground-Loop Fixes'
+description: >-
+  Three sub-$300 isolators, three different problems they actually solve.
+  The Hum X is a power-line tool. The Twin-Iso is a signal-line tool. The
+  EBTECH ELQ does both. Diagnose first, then buy.
+date: '2026-05-04'
+author: Rick Dalton
+author_slug: rick-dalton
+category: quick-fix
+tags:
+  - ground-loop
+  - hum
+  - hum-x
+  - radial-twin-iso
+  - ebtech-elq
+  - troubleshooting
+  - amp-noise
+readingTime: 8
+image: /images/blog/hum-x-vs-radial-twin-iso-vs-ebtech-elq.jpg
+image_alt: >-
+  a composition illustrating "Hum X vs. Radial Twin-Iso vs. EBTECH ELQ"
+---
+
+> **Quick read:** Three different boxes, three different jobs. The Ebtech Hum X ($90 street) is an AC power-line ground lift that breaks ground loops on the wall side — use it when the hum starts the moment your amp is plugged in and gets worse when you connect a second piece of equipment to a different outlet. The Radial Twin-Iso ($240 street) is a passive transformer-isolated stereo line-level box that breaks ground loops between two pieces of audio gear connected by a cable — use it when you have a buzz that only shows up when your modeler is plugged into a mixer or your amp is connected to a recording interface. The EBTECH ELQ ($170 street) does both jobs in one box — power-line ground lift and balanced/unbalanced signal isolation. Buy the Hum X if you only have a power-side problem, the Twin-Iso if you only have a signal-side problem, the ELQ if you have both or you don't know yet which one you have. Most home players who think they need balanced power for $1,800 actually need a $90 Hum X.
+
+| Product | Street price | Fixes power-line ground loops | Fixes signal-line ground loops | Use case |
+|---|---|---|---|---|
+| Ebtech Hum X | $90 | Yes | No | Hum from the wall outlet — single device |
+| Radial Twin-Iso | $240 | No | Yes (stereo, line level) | Hum between two audio devices via cable |
+| EBTECH ELQ | $170 | Yes | Yes (mono, line level) | Both problems in one box |
+| Furman P-2400 IT | $1,800 | Yes (and more) | No | Touring rigs with persistent stage hum |
+
+I've owned a Hum X since about 2009 and an Ebtech ELQ since about 2014. The Twin-Iso lives in a friend's recording rig and I've borrowed it half a dozen times. After enough years of dealing with hum on stages from Detroit dive bars to Nashville sessions, I can tell you the most common mistake players make is not picking the wrong box — it's reaching for any box at all before they've figured out which problem they actually have.
+
+This guide is the diagnostic flow first, the product comparison second. If you don't know which kind of ground loop you have, the right box is wasted money.
+
+## What Is a Ground Loop, Briefly
+
+Skip this if you already know. A ground loop is what happens when two pieces of equipment that are connected to each other (by an audio cable, by a power cable, or by both) end up grounded through more than one path. The two ground paths are at slightly different electrical potentials — usually because they're plugged into different outlets, or different circuits, or have different cable lengths to the building's main ground point — and that potential difference becomes a current flowing in a loop, which gets picked up by your amp's audio circuit as 60-cycle hum.
+
+There are two main places this happens:
+
+1. **Power-line side.** Two pieces of equipment plugged into different outlets create the loop through the building's wiring. The hum shows up when you connect them with an audio cable.
+2. **Signal-line side.** Two pieces of equipment with different ground references connected by an unbalanced (TS) audio cable create a loop through the cable shield. Common with computer-recording rigs where the interface, the amp, and the modeler all have different chassis grounds.
+
+Either kind sounds like 60-cycle hum (or 120-cycle in some cases — you can identify which by the pitch). Both kinds get diagnosed by isolating one side of the loop. The right box for the job depends on which side you're isolating.
+
+## The Diagnostic Flow
+
+Before you buy any of these three boxes, do this in five minutes:
+
+1. **Unplug everything from the rig except your amp and your guitar.** If the hum is gone, it's a multi-equipment ground loop. If the hum is still there, it's something else (single-coil pickup hum, dimmer-switch noise, RF interference from a nearby light, or a bad tube). The boxes in this guide don't fix any of those.
+2. **If the hum was gone with one amp, plug your other equipment back in one piece at a time.** When the hum returns, the last thing you plugged in is part of the loop.
+3. **Move that last piece of equipment to the same outlet your amp is on (use a power strip if needed).** If the hum disappears, you have a power-line ground loop. The Hum X (or the ELQ on power-only mode) fixes it.
+4. **If the hum is still there after both pieces of equipment are on the same outlet, lift the audio cable's ground and re-test.** A simple way: use a transformer DI box between the two pieces of equipment, or a Twin-Iso, or the ELQ on signal-only mode. If the hum disappears with the cable's ground lifted, you have a signal-line ground loop. The Twin-Iso (or the ELQ on signal mode) is the fix.
+5. **If both tests show hum, you have both kinds of loop.** The ELQ is the right tool.
+
+This whole diagnostic takes longer to read than it does to do. Five minutes with a power strip and a DI box and you'll know which problem you have before you spend $90.
+
+## The Ebtech Hum X — The Cheapest Fix
+
+The Hum X is a small in-line box that sits between the wall outlet and the power cord of one piece of your equipment. Inside it is a network of capacitors and inductors that lift the AC ground (the third pin on the plug) in a way that breaks the ground loop without disconnecting the safety ground entirely. The safety ground stays in place for fault protection — it just doesn't carry the 60-cycle leakage current that creates the loop.
+
+For the most common bedroom and small-stage hum problem — the player who's plugging an amp into one outlet and a power supply or a mixer into another outlet on the same circuit and getting a buzz the moment everything is on — the Hum X usually solves it. I've put one between an amp and the wall in maybe 30 different rooms over the years and it has worked in 25 of them.
+
+When it doesn't work: when the hum is signal-line, not power-line. The Hum X has no audio path through it — it's only a power tool. If your hum is coming through the audio cable from a piece of equipment that's grounded differently than your amp, the Hum X has no leverage on it.
+
+The other place the Hum X falls short is on really persistent multi-circuit hum, the kind you get on stages where the lighting circuit and the audio circuit are on different breakers and the building wiring has long ground runs. For that you might need balanced power (Furman P-2400 IT, Equi=Tech) — but I'd try the Hum X first and the balanced power second, because the Hum X is $90 and the balanced power is $1,800. Our [balanced power for guitar rigs guide](/blog/balanced-power-guitar-rigs-furman-equitech) covers when balanced power is actually worth it.
+
+## The Radial Twin-Iso — The Signal-Line Tool
+
+The Twin-Iso is a passive box with two channels of transformer-isolated 1/4" line-level inputs and outputs. The transformers (Jensen JT-11P-1, the same transformers Radial uses in their high-end studio products) galvanically isolate the input from the output — there is no electrical connection between the two sides except through the transformer's magnetic coupling. Any ground loop on the cable shield is broken at the transformer.
+
+This is the tool for the player who's plugging a Helix or a Quad Cortex into a recording interface or a PA mixer and getting a buzz that wasn't there when the modeler was running through a guitar amp. The classic symptom: the modeler sounds clean through headphones, clean through your amp, and humming when you plug it into the mixer. The cable from the modeler to the mixer is creating the loop. Twin-Iso between them, hum gone.
+
+Two channels means it works on a stereo signal — two cables from a stereo modeler output to a stereo mixer input. For a mono rig, you only need one channel; the Twin-Iso is overkill in that case and a single-channel transformer DI (Radial JDI, Countryman Type 85) at half the price does the same job.
+
+When it doesn't work: when the hum is power-line, not signal-line. If the rig is humming because two pieces of equipment are on different outlets, the Twin-Iso between them won't fix the underlying loop on the power side — though it will quiet the audible hum because the transformer breaks the signal-side return path. That's a Band-Aid, not a fix. Better to find the power-side cause and address it with a Hum X.
+
+## The EBTECH ELQ — The Two-in-One Box
+
+The ELQ (the name stands for nothing meaningful — Ebtech just calls it the ELQ) is a single-channel 1/4" in/out box with both an AC ground lift and an audio-signal ground lift. The audio side uses a transformer (smaller and cheaper than the Twin-Iso's Jensens, but still an isolation transformer). The power side uses an Ebtech Hum-X-style filter network. You can engage either lift independently or both at once, depending on what your problem is.
+
+For the player who doesn't know which kind of loop they have, or who has both, the ELQ is the right buy. It's $170 — less than buying both a Hum X ($90) and a Twin-Iso ($240) separately, with the tradeoff that you only get one signal channel. For mono rigs (a single guitar amp, a single mono modeler-to-mixer feed) that's all you need. For stereo rigs you'd want two ELQs or one Twin-Iso plus one Hum X.
+
+The ELQ's signal transformer isn't as transparent as the Jensens in the Twin-Iso. At line level into a clean signal path, you can hear a slight high-end roll-off above 12 kHz and a slight low-end softening below 50 Hz — the kind of thing that doesn't matter for a guitar signal (most of which lives between 80 Hz and 6 kHz) but might matter for a full-range keyboard signal or a stereo bus feed. For a guitar rig, the difference is inaudible.
+
+When it doesn't work: when the problem isn't a ground loop at all. The ELQ doesn't fix single-coil pickup hum, dimmer-switch noise, or RF interference. None of these three boxes do. If your hum is from the rig itself (single coils next to a computer monitor, fluorescent ballast on the same circuit, light dimmer in the room), the fix is moving the offender, not buying an isolation box.
+
+## When Each One Is the Right Buy
+
+You should buy the **Hum X** if all of these are true:
+
+1. The hum starts when you connect a second piece of equipment plugged into a different outlet.
+2. Moving everything to one power strip on one outlet eliminates the hum.
+3. You don't have a recording rig where the modeler is sending audio to an interface at line level.
+4. You only have a hum problem at one specific venue or one specific setup, and you've ruled out building-wiring issues.
+
+You should buy the **Twin-Iso** if all of these are true:
+
+1. The hum only shows up when you connect your modeler or amp to a mixer, recording interface, or PA over an audio cable.
+2. Lifting the cable's ground (with a temporary DI or by breaking the shield) eliminates the hum.
+3. You're running a stereo signal that needs two channels of isolation.
+4. You're recording or running through a mixer where signal transparency matters.
+
+You should buy the **EBTECH ELQ** if all of these are true:
+
+1. You don't know which kind of loop you have, or you have both.
+2. You're running a mono rig (single channel of signal isolation is enough).
+3. You want one box that solves the most likely problems instead of buying two.
+4. You're price-sensitive and the savings of $160 over buying both alternatives matters.
+
+## The Settings — There Aren't Any
+
+None of these boxes have controls beyond on/off switches for their respective lifts. Plug them in, engage the lift, listen for the hum to disappear. If the hum doesn't disappear, you've diagnosed the wrong problem and you need to go back to step 1 of the diagnostic flow.
+
+The one configuration choice on the ELQ: when you engage both the AC lift and the audio lift simultaneously, the audio path adds a small amount of distortion above 50 Hz (the transformer's low-frequency response is the trade for the small chassis size). For most guitar rigs, this is inaudible. For full-range bus signals it isn't. Engage only the lift you need; don't blanket-engage both.
+
+## What About Just Cutting the Ground Pin Off Your Amp Cord
+
+Don't do this. I know players who do, and I'm not going to pretend it doesn't work — it does, because it's a permanent ground lift via the simplest possible method. But it removes the safety ground from your amp, which means a fault that would have tripped your breaker can now travel through your guitar strings and into you. People have died from this. The Hum X exists specifically because cutting the ground pin is dangerous — it lifts the ground for the loop without lifting the safety ground for the fault protection.
+
+If you've cut the ground pin off an amp cord, replace the cord. The cost is $15 and you can do it with a screwdriver in 10 minutes. The Hum X handles the loop without making the rig a hazard.
+
+## When None of These Are Enough
+
+If you've worked through the diagnostic, bought the right box, and still have hum, you're probably in one of three situations:
+
+1. **Building-wiring problem.** Old houses with knob-and-tube wiring or improperly bonded grounds can create persistent ground potential differences that no in-line box can fix. The fix is a licensed electrician, not a guitar gear purchase.
+2. **Stage-power problem.** Touring rigs hitting bad stage power at venue after venue benefit from balanced power (Furman P-2400 IT, Equi=Tech ET2R). The cost-benefit only makes sense at the touring level — for home use, the cheap fixes here are almost always enough.
+3. **Equipment fault.** A guitar with a broken ground wire to the bridge, an amp with a failing transformer, a power supply with a leaky filter cap — these create hum that no isolation box will fix because the source is inside the equipment. If your hum is on a single guitar or a single amp regardless of which room or rig it's in, the fault is in that piece of equipment.
+
+For the persistent-hum-on-tour case, our [ground loop hum amp stage troubleshooting guide](/blog/ground-loop-hum-amp-stage) walks through the venue-side diagnostic that's usually the next step.
+
+## The Honest Hierarchy
+
+Here's the order I'd buy these in if I were starting from scratch and didn't know what problem I had: Hum X first, because it's $90 and it solves the most common case. ELQ second, because for $80 more you get the signal-side fix as well. Twin-Iso third, only if you specifically have a stereo signal-line problem and no power-side issue.
+
+Most home players who think they need balanced power, a power conditioner, or some exotic isolation box can solve their hum with a Hum X and a five-minute diagnostic. The Hum X has been on my pedalboard power supply's wall feed for 17 years. It's quiet and cheap and it does its one job. That's what most players actually need — they just don't know it yet because the gear store has more incentive to sell them a $400 Furman than a $90 Ebtech.
+
+<FAQ questions={[
+  {
+    q: "Will the Hum X fix hum from single-coil pickups?",
+    a: "No. Single-coil pickup hum is electromagnetic interference picked up by the pickup coils themselves — it has nothing to do with a ground loop. The fixes for single-coil hum are: position the guitar away from the source (computer monitors, fluorescent lights, dimmers), shield the guitar's cavity, or switch to humbucking pickups. None of the boxes in this guide will help."
+  },
+  {
+    q: "Can I use a Hum X on every piece of equipment in my rig?",
+    a: "You can, but you don't need to. The ground loop is broken by lifting one ground in the loop, not all of them. One Hum X on the amp (or the equipment that's most isolated from the rest of the rig) is usually enough. Putting one on every device is overkill and slightly increases the chassis-leakage hazard."
+  },
+  {
+    q: "Why does my modeler hum into my interface but not into headphones?",
+    a: "Headphones are floating — there's no electrical path back to the rest of the rig. When you plug into an interface, the interface is grounded through your computer's power supply, your modeler is grounded through its own power supply, and the audio cable shield closes the loop between the two grounds. The Twin-Iso or the ELQ on signal mode breaks the loop at the cable. Lifting the modeler's ground at the wall (Hum X) sometimes helps too if the loop is power-side."
+  },
+  {
+    q: "Does the EBTECH ELQ color the tone?",
+    a: "At guitar-signal levels, no audibly. The transformer adds a slight roll-off above 12 kHz and below 50 Hz, but a guitar signal doesn't have meaningful content in those ranges. For full-range stereo music, you'd notice. For a mono guitar feed at line level, you won't. I've A/B'd the ELQ in and out of a recording chain a hundred times and never been able to pick it in a blind test on guitar."
+  },
+  {
+    q: "What about the older Ebtech Hum Eliminator (the HE-2)?",
+    a: "The HE-2 is the audio-signal-only version of the ELQ — two channels of transformer isolation, no power-side ground lift. It's been replaced by the ELQ as the current product. If you find an HE-2 used for cheap (they were $130 new), it's a perfectly good signal-side ground-loop fix. The Twin-Iso is a higher-quality version of the same idea with better transformers. The ELQ is the modern do-everything version. They're all solving the same signal-side problem with different transformer choices."
+  }
+]} />
+
+<SaveThisTone title="Diagnose hum before you spend the money" description="Our preset library is the wrong place to fix hum, but our troubleshooting series covers what to do before you buy anything. The 60-cycle hum diagnostic, the ground loop on stage walkthrough, and the noise gate setup guide together solve most cases without a single new box on the floor." href="/blog/how-to-remove-60-cycle-hum-without-noise-gate" ctaLabel="Read the full hum diagnostic series" />
