@@ -3032,6 +3032,73 @@ export const toneRecipes: ToneRecipe[] = [
         notes:
           "Pro-template build: single default-on solo drive (Triangle Fuzz) with two alternate drives bypassed; full-range cab with ribbon+condenser blend at near-center positions; plate reverb with surgical low/high cuts. Three things that make this preset behave like the record: (1) delay sits AFTER the cab so the repeats are clean and never get re-distorted, (2) Hiwatt drive is genuinely low (0.45) — let the Muff make the gain, not the amp, (3) reverb mix stays under 0.25 — Gilmour's tone reads 'big' because of the pre-fader plate in the studio mix, not because the player drowned it on stage. For the absolute closest match, swap the Greenback 4x12 cab block for a third-party WEM/Fane Crescendo IR.",
       },
+      quad_cortex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Dynamics",
+            original_gear: "MXR Dyna Comp",
+            settings: { Threshold: -18, Ratio: 3, Attack: 5, Release: 200, Mix: 100, Level: 7 },
+            notes:
+              "Heavier than the canonical 2:1 / parallel template — pushes the Fuzz Pi into a rounder, more vocal sustain that's exactly the Comfortably Numb feel. The QC's Studio Comp stays transparent enough that the dry note clarity holds.",
+          },
+          {
+            position: 2,
+            block_name: "Fuzz Pi",
+            block_category: "Drive",
+            original_gear: "Electro-Harmonix Big Muff Pi (Ram's Head)",
+            settings: { Sustain: 1.5, Tone: 5.5, Level: 8.0 },
+            notes:
+              "DEFAULT-ON drive — this is THE solo tone. The QC's Fuzz Pi models the '69 Triangle / Ram's Head Big Muff. Counterintuitively LOW Sustain (1.5) — the heavy compressor in front does the sustain work, so the fuzz is dialed back to keep the note articulate instead of mushy. Tone above noon to keep the Muff scoop from going boxy. Level=8.0 pushes the Hiwatt's front end hard.",
+          },
+          {
+            position: 3,
+            block_name: "Hiwatt DR103",
+            block_category: "Amp",
+            original_gear: "Hiwatt DR103 Custom 100",
+            settings: {
+              Drive: 4.5,
+              Bass: 4.0,
+              Mid: 5.5,
+              Treble: 6.5,
+              Presence: 6.5,
+              Master: 7.0,
+            },
+            notes:
+              "Hiwatts stay clean — that's their job here. Drive=4.5 gives a massive, full-range platform for the Muff. Push Master to ~7 for the slightly compressed feel of a cranked Hiwatt at studio volume; the QC's Hiwatt model captures the open, hi-fi character well.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 Greenback",
+            block_category: "Cab",
+            original_gear: "WEM 4x12 with Fane Crescendo",
+            settings: { Mic: "SM57 + R-121 blend", Position: "near center", Distance: 1 },
+            notes:
+              "Closest stock cab to the open-character WEM/Fane. For the absolute closest match, load a third-party WEM/Fane Crescendo IR via Capture Lab. Dual-mic blend (dynamic + ribbon) for body and bite.",
+          },
+          {
+            position: 5,
+            block_name: "Tape Echo",
+            block_category: "Delay",
+            original_gear: "Binson Echorec / MXR Digital Delay",
+            settings: { Time: 440, Feedback: 25, Mix: 28, "Tape Wear": 35 },
+            notes:
+              "Placed AFTER the cab so repeats stay clean — critical to the Comfortably Numb space. Time=440ms (~dotted eighth at song tempo) for the iconic musical placement. Tape Wear adds the Echorec's warmth and slight pitch wobble in a single combined param.",
+          },
+          {
+            position: 6,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate (EMT 140)",
+            settings: { Decay: 2.0, "Pre Delay": 10, Mix: 25, "Low Cut": 100, "High Cut": 10000 },
+            notes:
+              "Lush studio plate. Decay=2.0s for the long sustain tail. Mix=25 keeps the dry note in front of the wet bloom. High Cut at 10kHz tames brittle ring; Low Cut at 100Hz prevents mud.",
+          },
+        ],
+        notes:
+          "Single default-on solo drive (Fuzz Pi) into a clean Hiwatt. Three things that make this preset behave like the record: (1) delay sits AFTER the cab so the repeats stay clean and never get re-distorted, (2) Hiwatt drive is genuinely low — let the Muff make the gain, not the amp, (3) reverb mix stays under 0.25 — Gilmour's tone reads 'big' because of the pre-fader plate in the studio mix, not because the player drowned it on stage. For an even closer match, search Cortex Cloud for Hiwatt DR103 captures.",
+      },
       tonex: {
         chain_blocks: [
           { position: 1, block_name: "Search ToneNET for 'Hiwatt DR103' or 'David Gilmour'", block_category: "Tone Model", original_gear: "Hiwatt DR103 Custom 100", settings: {}, notes: "Search ToneNET for a Hiwatt DR103 Tone Model capture. The Hiwatt's massive headroom and full-range character provide the clean platform for the Big Muff fuzz. Gilmour-specific captures may include the full signal chain." },
@@ -5584,6 +5651,45 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Search ToneNET for 'Fender Champ' or 'Champ cranked'", block_category: "Tone Model", original_gear: "Fender Champ", settings: {}, notes: "Search ToneNET for a cranked Fender Champ Tone Model capture. The Champ at full volume produces a thick, compressed overdrive with a focused midrange. Look for captures labeled 'cranked' or 'full volume' for the Layla character." },
         ],
         notes: "TONEX uses AI-captured Tone Models and excels at capturing small amps at full volume. Search ToneNET for cranked Fender Champ captures. No effects needed — Strat bridge+middle position straight into the amp. The raw urgency of the performance and Clapton's 'woman tone' (tone knob rolled back) are as important as the gear.",
+      },
+      katana: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Crunch",
+            block_category: "Amp Type",
+            original_gear: "Fender Champ (cranked)",
+            settings: {
+              Gain: 8,
+              Bass: 5,
+              Middle: 6,
+              Treble: 6,
+              Volume: 7,
+            },
+            notes:
+              "The Katana doesn't model a Champ specifically, but Crunch with high gain captures the cranked-small-amp character — thick, compressed, midrange-forward. Mid bumped to 6 for the tweed honk. Don't go to Brown or Lead — those are too modern and high-gain for the Layla feel.",
+          },
+          {
+            position: 2,
+            block_name: "Blues Drive (Booster)",
+            block_category: "Booster",
+            original_gear: "None on the original — boost option for FRFR rigs",
+            settings: { Drive: 3, Tone: 5, Level: 6 },
+            notes:
+              "OPTIONAL booster (off by default). The original Layla had no pedals — but if your Katana is going through a clean cab or FRFR system that doesn't push back like a real cranked amp, a Blues Drive boost recreates the dimed-amp aggression. Toggle on via Boss Tone Studio.",
+          },
+          {
+            position: 3,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate (Criteria Studios EMT)",
+            settings: { Time: 4, "Pre Delay": 30, Level: 25, "Low Cut": "Flat", "High Cut": "5kHz" },
+            notes:
+              "Subtle Plate reverb via Boss Tone Studio. Layla was tracked at Criteria Studios with a hint of plate — keep Level at 25 so the dimed-Crunch bite stays forward. High Cut at 5kHz keeps the tail from getting brittle.",
+          },
+        ],
+        notes:
+          "A deceptively simple patch. The entire tone IS the cranked Crunch channel — Drives are off by default because the original Layla had no pedals. Bridge+middle Strat position for the biting attack; tone knob rolled back for the slower 'woman tone' passages. Channel Volume controls level once the amp character is set.",
       },
       kemper: {
         chain_blocks: [
