@@ -7975,10 +7975,14 @@
   padding: 40px 48px 56px;
   margin: 0 auto 32px;
   width: 8.5in;
-  min-height: 11in;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  /* page-break-after lets each section start on a fresh printed page;
+     no min-height so content can flow to multiple printed pages
+     within a section if it overflows (e.g. a Helix translation with
+     9 dense block cards). break-inside: avoid on individual cards
+     keeps a single block from being split mid-knob. */
   page-break-after: always;
   break-after: page;
   /* On-screen rule between pages — disappears in print. */
@@ -8119,18 +8123,66 @@
   background: var(--paper-2);
   overflow-x: auto;
 }
+/* Single-column, full-width cards. Each block card spans the whole
+   page width so its knobs spread horizontally (~6-7 per row) instead
+   of cramping into a 2-col grid. Each card stays intact across page
+   breaks via `break-inside: avoid`; sections that need more than one
+   printed page just flow naturally. */
 .print-mode .print-platform-details {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin-bottom: 28px;
 }
 .print-mode .print-block-card {
-  /* PreviewBlockDetail brings its own internal styling — wrap it in a
-     paper-friendly card frame so it doesn't read as a floating tile. */
   border: 1px solid var(--paper-line);
   background: var(--paper);
   break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* In-print compactness for the PreviewBlockDetail internals. The card
+   ships at recipe-page sizing (52px knobs, full padding) — tightened
+   here so the Helix amp's 12 internals + the Helix cab's 9 params
+   don't push every block onto its own printed page. */
+.print-mode .print-block-card .block-detail {
+  padding: 14px 18px;
+}
+.print-mode .print-block-card .block-detail-head {
+  margin-bottom: 10px;
+}
+.print-mode .print-block-card .block-detail-head .name {
+  font-size: 16px;
+  letter-spacing: -0.005em;
+}
+.print-mode .print-block-card .block-detail-head .sub {
+  font-size: 11px;
+}
+.print-mode .print-block-card .block-detail-head .kind {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+}
+.print-mode .print-block-card .block-settings {
+  /* Wider layout — 6+ knobs per row instead of 3-4 in the cramped
+     2-col print grid. Letting auto-fill do the work means amps with
+     12 internals lay out as 2 rows instead of 4. */
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 10px 12px;
+}
+.print-mode .print-block-card .block-hfaders {
+  gap: 6px;
+}
+/* Tighten knob labels under each control so the row pitch is shorter. */
+.print-mode .print-block-card .knob-label,
+.print-mode .print-block-card .preview-knob-label,
+.print-mode .print-block-card .h-fader-label {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+}
+.print-mode .print-block-card .knob-value,
+.print-mode .print-block-card .preview-knob-value,
+.print-mode .print-block-card .h-fader-value {
+  font-size: 10px;
 }
 .print-mode .print-page-foot {
   margin-top: auto;
