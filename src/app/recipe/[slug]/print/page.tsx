@@ -6,13 +6,8 @@ import {
   getArtistBySlug,
 } from "@/lib/data";
 import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
-import {
-  PreviewPedal,
-  PreviewAmpBlock,
-  PreviewSourceBlock,
-  PreviewBlockDetail,
-  type PreviewBlockData,
-} from "@/components/v3/PreviewBlocks";
+import { PreviewBlockDetail } from "@/components/v3/PreviewBlocks";
+import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { getCanonicalParams } from "@/lib/parameters/canonical";
 import { lookupParam } from "@/lib/parameters/registry";
@@ -22,10 +17,12 @@ import type { Platform, PlatformTranslation } from "@/types/recipe";
 /**
  * /recipe/[slug]/print — print-optimized version of the recipe.
  *
- * One platform per page. Renders the same pedal chain components the
- * site uses (PreviewPedal / PreviewAmpBlock / PreviewSourceBlock /
- * PreviewBlockDetail) so the PDF *is* the website. To save as PDF:
- * open the URL, hit ⌘P / Ctrl+P, set destination to "Save as PDF".
+ * Cover page is the love letter to the guitar + pedalboard:
+ * GuitarProfile + chain row via the same PreviewSchematicChain the
+ * recipe page renders when "Pedalboard" is the active platform. Then
+ * one page per platform translation, each rendering the per-block
+ * settings via PreviewBlockDetail. To save as PDF: open the URL, hit
+ * ⌘P / Ctrl+P, set destination to "Save as PDF".
  *
  * The /api/recipes/[slug]/download endpoint can later be upgraded to
  * drive this route through Puppeteer for email-gated downloads —
@@ -111,30 +108,6 @@ function enrichTranslation(
   };
 }
 
-/** Print-friendly chain row — same component family as the site's
- *  PreviewSignalChain but on paper bg (no `.on-dark` class) and with
- *  every block expanded inline. */
-function PrintChain({ blocks }: { blocks: PreviewBlockData[] }) {
-  return (
-    <div className="print-chain-row">
-      {blocks.map((b, i) => {
-        const el = (() => {
-          if (b.variant === "source" || b.variant === "cab")
-            return <PreviewSourceBlock block={b} />;
-          if (b.variant === "amp") return <PreviewAmpBlock block={b} />;
-          return <PreviewPedal block={b} />;
-        })();
-        return (
-          <div key={`${b.name}-${i}`} className="print-chain-cell">
-            {i > 0 && <div className="print-chain-wire" aria-hidden="true" />}
-            <div className="print-chain-block">{el}</div>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
 export default async function RecipePrintPage({
   params,
 }: {
@@ -158,75 +131,89 @@ export default async function RecipePrintPage({
 
   return (
     <div className="print-doc">
-      {/* ── Cover page ─────────────────────────────────────────────── */}
+      {/* ── Cover page — love letter for the guitar + the pedalboard ──
+          Top: masthead. Then a compact title/credits/dek block on the
+          left with a small square of LP art on the right. The hero is
+          the GuitarProfile card + the schematic signal chain — same
+          components the recipe page renders when "Pedalboard" is the
+          active platform, so the print is a faithful echo of the live
+          editorial spread. */}
       <section className="print-page print-cover">
         <header className="print-masthead">
           <span>Fader &amp; Knob</span>
           <span>faderandknob.com</span>
         </header>
 
-        <div className="print-cover-body">
-          <div className="recipe-issue">
-            <span className="pill">
-              No. {String(recipeIdx).padStart(3, "0")}
-            </span>
-            {song?.year && <span>·</span>}
-            {song?.year && <span>{song.year}</span>}
-            {artist?.genres?.[0] && (
-              <>
-                <span>·</span>
-                <span>{artist.genres[0]}</span>
-              </>
-            )}
-            {recipe.signal_chain && (
-              <>
-                <span>·</span>
-                <span>{recipe.signal_chain.length} blocks</span>
-              </>
-            )}
+        <div className="print-cover-top">
+          <div className="print-cover-text">
+            <div className="recipe-issue">
+              <span className="pill">
+                No. {String(recipeIdx).padStart(3, "0")}
+              </span>
+              {song?.year && <span>·</span>}
+              {song?.year && <span>{song.year}</span>}
+              {artist?.genres?.[0] && (
+                <>
+                  <span>·</span>
+                  <span>{artist.genres[0]}</span>
+                </>
+              )}
+              {recipe.signal_chain && (
+                <>
+                  <span>·</span>
+                  <span>{recipe.signal_chain.length} blocks</span>
+                </>
+              )}
+            </div>
+
+            <h1 className="recipe-title display print-cover-title">
+              {song?.title ?? recipe.title}
+            </h1>
+
+            <div className="recipe-credits print-cover-credits">
+              {artist && <em>{artist.name}</em>}
+              {song?.album && (
+                <>
+                  <br />
+                  <span>
+                    {song.album}
+                    {song.year ? ` · ${song.year}` : ""}
+                  </span>
+                </>
+              )}
+            </div>
+
+            <p className="recipe-summary print-cover-dek">
+              {recipe.description}
+            </p>
           </div>
 
-          <h1 className="recipe-title display print-cover-title">
-            {song?.title ?? recipe.title}
-          </h1>
-
-          <div className="recipe-credits print-cover-credits">
-            {artist && <em>{artist.name}</em>}
-            {song?.album && (
-              <>
-                <br />
-                <span>
-                  {song.album}
-                  {song.year ? ` · ${song.year}` : ""}
-                </span>
-              </>
-            )}
+          <div className="print-cover-art">
+            <LpArt
+              cover={song?.album_art_url}
+              monogram={monogramFor(song?.title ?? recipe.title)}
+              hue={recipeIdx}
+              shape="square"
+              alt={`${song?.album ?? song?.title ?? recipe.title} cover`}
+            />
           </div>
-
-          <p className="recipe-summary print-cover-dek">
-            {recipe.description}
-          </p>
         </div>
 
-        <div className="print-cover-art">
-          <LpArt
-            cover={song?.album_art_url}
-            monogram={monogramFor(song?.title ?? recipe.title)}
-            hue={recipeIdx}
-            shape="square"
-            alt={`${song?.album ?? song?.title ?? recipe.title} cover`}
+        {/* Hero: guitar profile card + signal chain — the same view the
+            recipe page renders when "Pedalboard" is the active platform. */}
+        <div className="print-cover-hero">
+          <div className="print-cover-hero-eyebrow">
+            <span>Signal path</span>
+            <span aria-hidden="true">·</span>
+            <span>Input → output</span>
+            <span aria-hidden="true">·</span>
+            <span>{recipe.signal_chain.length} blocks</span>
+          </div>
+          <PreviewSchematicChain
+            blocks={recipeToBlocks(recipe, "pedalboard")}
+            selectedIndex={null}
+            interactive={false}
           />
-        </div>
-
-        <footer className="print-cover-foot">
-          <span>The original signal chain</span>
-          <span className="print-cover-foot-rule" aria-hidden="true" />
-          <span>{recipe.signal_chain.length} blocks</span>
-        </footer>
-
-        {/* Original signal chain at the foot of the cover */}
-        <div className="print-cover-chain">
-          <PrintChain blocks={recipeToBlocks(recipe, "pedalboard")} />
         </div>
       </section>
 
