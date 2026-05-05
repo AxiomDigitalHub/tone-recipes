@@ -37,7 +37,6 @@ const HELIX_CANONICAL: Record<string, string[]> = {
     "Mid",
     "Treble",
     "Presence",
-    "Cut",
     "ChVol",
     "Master",
     "Bias",
@@ -45,6 +44,10 @@ const HELIX_CANONICAL: Record<string, string[]> = {
     "Sag",
     "Hum",
     "Ripple",
+    // "Cut" intentionally not canonical — it's a Vox-family control,
+    // not present on Fender / Marshall / Mesa / Hiwatt models. Vox
+    // recipes will include Cut in their settings explicitly; we don't
+    // auto-fill it onto every amp.
   ],
   Cab: [
     "Mic",

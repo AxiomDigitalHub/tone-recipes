@@ -311,7 +311,7 @@ export function helixCategory(block: PreviewBlockData): string {
 /** Controls that read as "frequency sweep" or "send amount" — render as
  *  a horizontal fader instead of a rotary knob. Matches Helix's cab block
  *  parameters plus common reverb/delay names. */
-function isHFaderControl(name: string): boolean {
+export function isHFaderControl(name: string): boolean {
   const n = name.toLowerCase().replace(/[-_]/g, " ");
   return (
     /low\s*cut|lo\s*cut|hi(gh)?\s*cut|early\s*ref(lections)?|\ber(\b|\s|$)/.test(

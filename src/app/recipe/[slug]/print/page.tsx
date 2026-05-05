@@ -8,11 +8,15 @@ import {
 import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
 import {
   PreviewBlockDetail,
+  PreviewHFader,
   isFaderBlock,
+  isHFaderControl,
   faderValue,
   helixCategory,
   type PreviewBlockData,
 } from "@/components/v3/PreviewBlocks";
+import PreviewKnob from "@/components/v3/PreviewKnob";
+import { BlockIcon } from "@/components/v3/BlockIcon";
 import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { getCanonicalParams } from "@/lib/parameters/canonical";
@@ -111,6 +115,108 @@ function PrintFaderRow({ block }: { block: PreviewBlockData }) {
         <span>{control}</span>
         <span className="print-fader-row-value">{value}%</span>
       </div>
+    </div>
+  );
+}
+
+/** Power-section / tube internals on a Helix amp model. Set once at
+ *  factory neutral, rarely touched — separated from the per-recipe
+ *  tone controls (Drive / Bass / Mid / Treble / Presence / Volume)
+ *  so the spec sheet reads the way a tech would write it. */
+const AMP_INTERNAL_PARAMS = new Set([
+  "Bias",
+  "BiasX",
+  "Sag",
+  "Hum",
+  "Ripple",
+  "MasterCut",
+]);
+
+/**
+ * Print-specific detail card for amp blocks. Same head as
+ * PreviewBlockDetail, but the knob grid is split into two labeled
+ * groups — "Tone & gain" (front-of-amp tone-stack + volume stage)
+ * and "Tube internals" (Bias / BiasX / Sag / Hum / Ripple) — so the
+ * editorial logic stays visible. Daniel 2026-05-05: "the amp's 13
+ * knobs are mashed into one undifferentiated grid."
+ */
+function PrintAmpDetail({ block }: { block: PreviewBlockData }) {
+  const visible = block.controls.filter(
+    (c) => block.values[c] !== undefined,
+  );
+  const hfaders = visible.filter(isHFaderControl);
+  const knobs = visible.filter((c) => !isHFaderControl(c));
+  const internals = knobs.filter((c) => AMP_INTERNAL_PARAMS.has(c));
+  const tone = knobs.filter((c) => !AMP_INTERNAL_PARAMS.has(c));
+
+  const renderKnob = (c: string) => {
+    const range = block.ranges?.[c];
+    return (
+      <PreviewKnob
+        key={c}
+        label={c}
+        value={block.values[c] ?? 5}
+        min={range?.min}
+        max={range?.max ?? 10}
+        neutral={range?.neutral}
+        unit={range?.unit}
+        size={52}
+        interactive={false}
+      />
+    );
+  };
+
+  const className = [
+    "block-detail",
+    block.color ? `node-color-${block.color}` : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return (
+    <div className={className}>
+      <div className="block-detail-head">
+        <div className="head-icon" aria-hidden="true">
+          <BlockIcon block={block} size={22} />
+        </div>
+        <div className="head-title">
+          <div className="name">{block.name}</div>
+          {block.sub && <div className="sub">{block.sub}</div>}
+        </div>
+        <span className="kind">{helixCategory(block)}</span>
+      </div>
+
+      {hfaders.length > 0 && (
+        <div className="block-hfaders">
+          {hfaders.map((c) => {
+            const range = block.ranges?.[c];
+            return (
+              <PreviewHFader
+                key={c}
+                label={c}
+                value={block.values[c] ?? 0}
+                min={range?.min ?? 0}
+                max={range?.max ?? 100}
+                unit={range?.unit}
+              />
+            );
+          })}
+        </div>
+      )}
+
+      {tone.length > 0 && (
+        <div className="print-amp-group">
+          <div className="print-amp-group-head">Tone &amp; gain</div>
+          <div className="block-settings">{tone.map(renderKnob)}</div>
+        </div>
+      )}
+
+      {internals.length > 0 && (
+        <div className="print-amp-group">
+          <div className="print-amp-group-head">Tube internals</div>
+          <div className="block-settings">{internals.map(renderKnob)}</div>
+        </div>
+      )}
     </div>
   );
 }
@@ -303,18 +409,24 @@ export default async function RecipePrintPage({
               <div className="print-platform-details">
                 {blocks
                   .filter((b) => b.variant !== "source")
-                  .map((b, i) => (
-                    <div
-                      key={`${b.name}-${i}`}
-                      className={`print-block-card${isFaderBlock(b) ? " print-block-card-fader" : ""}`}
-                    >
-                      {isFaderBlock(b) ? (
-                        <PrintFaderRow block={b} />
-                      ) : (
-                        <PreviewBlockDetail block={b} isSelected={false} />
-                      )}
-                    </div>
-                  ))}
+                  .map((b, i) => {
+                    const isFader = isFaderBlock(b);
+                    const isAmp = b.variant === "amp";
+                    return (
+                      <div
+                        key={`${b.name}-${i}`}
+                        className={`print-block-card${isFader ? " print-block-card-fader" : ""}${isAmp ? " print-block-card-amp" : ""}`}
+                      >
+                        {isFader ? (
+                          <PrintFaderRow block={b} />
+                        ) : isAmp ? (
+                          <PrintAmpDetail block={b} />
+                        ) : (
+                          <PreviewBlockDetail block={b} isSelected={false} />
+                        )}
+                      </div>
+                    );
+                  })}
               </div>
 
               <footer className="print-page-foot">

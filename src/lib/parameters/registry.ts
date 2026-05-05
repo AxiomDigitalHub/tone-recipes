@@ -137,8 +137,8 @@ export const PARAM_REGISTRY: Record<string, ParamMeta> = {
   Reverb: { kind: "knob", min: 0, max: 10, neutral: 2 },
 
   /* ── EQ blocks / cab filters — frequency sweeps ── */
-  LowCut: { kind: "fader", min: 20, max: 500, neutral: 20, unit: "Hz", description: "High-pass filter. 20 = off." },
-  HighCut: { kind: "fader", min: 2000, max: 20000, neutral: 20000, unit: "Hz", description: "Low-pass filter. 20000 = off." },
+  LowCut: { kind: "fader", min: 19.9, max: 500, neutral: 19.9, unit: "Hz", description: "High-pass filter. 19.9 Hz = off (Helix's lowest setting — effectively below audible)." },
+  HighCut: { kind: "fader", min: 2000, max: 20100, neutral: 20100, unit: "Hz", description: "Low-pass filter. 20100 Hz = off (Helix's highest setting — above audible)." },
   /* Helix Tilt EQ — single-knob bidirectional EQ. 0.5 = flat. */
   Tilt: { kind: "knob", min: 0, max: 1, neutral: 0.5, description: "Bidirectional EQ. 0.5 = flat; <0.5 darker, >0.5 brighter." },
   CenterFreq: { kind: "fader", min: 100, max: 10000, neutral: 1000, unit: "Hz", description: "Tilt EQ pivot frequency." },

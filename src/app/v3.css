@@ -8165,8 +8165,10 @@
 .print-mode .print-block-card .block-settings {
   /* Wider layout — 6+ knobs per row instead of 3-4 in the cramped
      2-col print grid. Letting auto-fill do the work means amps with
-     12 internals lay out as 2 rows instead of 4. */
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+     12 internals lay out as 2 rows instead of 4. Min 96px so labels
+     like "PRESENCE" / "RESONANCE" / "FEEDBACK" don't truncate at the
+     mono-cap rendering size. */
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
   gap: 10px 12px;
 }
 .print-mode .print-block-card .block-hfaders {
@@ -8183,6 +8185,29 @@
 .print-mode .print-block-card .preview-knob-value,
 .print-mode .print-block-card .h-fader-value {
   font-size: 10px;
+}
+
+/* Amp blocks split front-of-amp tone controls from tube internals.
+   Each group is a mono-cap eyebrow + a knob grid, separated by a
+   hairline so a tech reads "tone & gain" before "tube internals"
+   instead of one mashed wall of 13 knobs. */
+.print-mode .print-block-card-amp .print-amp-group {
+  margin-top: 14px;
+}
+.print-mode .print-block-card-amp .print-amp-group:first-of-type {
+  margin-top: 0;
+}
+.print-mode .print-block-card-amp .print-amp-group + .print-amp-group {
+  border-top: 1px solid var(--paper-line);
+  padding-top: 14px;
+}
+.print-mode .print-block-card-amp .print-amp-group-head {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 10px;
 }
 
 /* Volume-pedal / expression block — single-row horizontal layout in
