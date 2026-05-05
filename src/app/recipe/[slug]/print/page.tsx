@@ -13,7 +13,6 @@ import {
 import {
   isFaderBlock,
   isHFaderControl,
-  faderValue,
   helixCategory,
   type PreviewBlockData,
 } from "@/components/v3/preview-helpers";
@@ -91,32 +90,45 @@ const PLATFORM_ORDER: Platform[] = [
 ];
 
 /**
- * Compact horizontal fader row for volume-pedal-style blocks. The
- * full PreviewBlockDetail renders these as a tall vertical ramp,
- * which eats huge vertical space on the printed page for a control
- * that's typically just at 100%. (Daniel 2026-05-05: "vol pedal can
- * go horizontal to save space.") A single row — name + horizontal
- * bar + percentage — fits in ~32px instead of ~140px.
+ * Compact card for volume-pedal-style blocks. Replaces the tall
+ * vertical PreviewFader ramp with the same PreviewHFader the cab
+ * block uses for Low/High Cut — proper fader handle, not a thin
+ * progress bar. (Daniel 2026-05-05: "vol pedal horizontal is
+ * missing the fader. see low cut / high cut components.") Same
+ * head as PreviewBlockDetail, hfader as the body.
  */
 function PrintFaderRow({ block }: { block: PreviewBlockData }) {
-  const value = faderValue(block);
-  const control = block.controls[0] ?? "Position";
+  const control = block.controls[0] ?? "Pedal";
+  const range = block.ranges?.[control];
+  const rawValue = block.values[control];
+  const value = rawValue ?? range?.max ?? 1;
+
+  const className = [
+    "block-detail",
+    block.color ? `node-color-${block.color}` : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <div className="print-fader-row">
-      <div className="print-fader-row-text">
-        <span className="print-fader-row-name">{block.name}</span>
-        <span className="print-fader-row-kind">{helixCategory(block)}</span>
+    <div className={className}>
+      <div className="block-detail-head">
+        <div className="head-icon" aria-hidden="true">
+          <BlockIcon block={block} size={22} />
+        </div>
+        <div className="head-title">
+          <div className="name">{block.name}</div>
+          {block.sub && <div className="sub">{block.sub}</div>}
+        </div>
+        <span className="kind">{helixCategory(block)}</span>
       </div>
-      <div className="print-fader-row-bar" aria-hidden="true">
-        <span
-          className="print-fader-row-fill"
-          style={{ width: `${value}%` }}
-        />
-      </div>
-      <div className="print-fader-row-meta">
-        <span>{control}</span>
-        <span className="print-fader-row-value">{value}%</span>
-      </div>
+      <PreviewHFader
+        label={control}
+        value={value}
+        min={range?.min ?? 0}
+        max={range?.max ?? 1}
+        unit={range?.unit}
+      />
     </div>
   );
 }

@@ -13,6 +13,7 @@ import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
 import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
 import RecipePdfButton from "@/components/v3/RecipePdfButton";
 import RecipeDownloadChip from "@/components/v3/RecipeDownloadChip";
+import RecipeCompatibility from "@/components/recipe/RecipeCompatibility";
 import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
 import { recipeJsonLdSet } from "@/lib/seo/jsonld";
 import type { Metadata } from "next";
@@ -312,6 +313,18 @@ export default async function PreviewRecipePage({
           </div>
         </div>
         <RecipeDownloadChip slug={recipe.slug} platform={platform} />
+
+        {/* My Rig compatibility — reads viewer's user_gear (Supabase or
+            localStorage) and reports how many signal-chain blocks match.
+            Renders nothing while loading; shows a "Set up My Rig" prompt
+            when empty. */}
+        <RecipeCompatibility
+          signalChain={(recipe.signal_chain ?? []).map((b) => ({
+            gear_name: b.gear_name ?? "",
+            gear_slug: b.gear_slug ?? null,
+            category: b.category ?? "",
+          }))}
+        />
 
         {/* Interactive schematic + sticky detail panel. Click a tile,
             the detail swaps in place (no scroll). */}

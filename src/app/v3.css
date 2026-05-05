@@ -8142,14 +8142,24 @@
 }
 
 /* In-print compactness for the PreviewBlockDetail internals. The card
-   ships at recipe-page sizing (52px knobs, full padding) — tightened
-   here so the Helix amp's 12 internals + the Helix cab's 9 params
-   don't push every block onto its own printed page. */
+   ships at recipe-page sizing (52px knobs, full padding: 20px 18px 44px)
+   — the recipe page reserves a 44px bottom band for hover/click affordance.
+   Print doesn't need that. Use a consistent 18px/22px frame so the last
+   row of knobs (or a single hfader) gets breathing room without burning
+   page real estate on the live-card hover gutter.
+   Also: ensure the .block-detail's children (head, hfaders, knob grid,
+   amp groups) don't carry their own bottom margins that would compound
+   on top of the card padding — the last child should sit at the 22px
+   gutter, not 22px + a bonus margin. */
 .print-mode .print-block-card .block-detail {
-  padding: 14px 18px;
+  padding: 18px 18px 22px;
 }
 .print-mode .print-block-card .block-detail-head {
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+}
+.print-mode .print-block-card .block-detail > *:last-child,
+.print-mode .print-block-card-amp .print-amp-group:last-child > *:last-child {
+  margin-bottom: 0;
 }
 .print-mode .print-block-card .block-detail-head .name {
   font-size: 16px;
@@ -8210,67 +8220,21 @@
   margin-bottom: 10px;
 }
 
-/* Volume-pedal / expression block — single-row horizontal layout in
-   place of the tall vertical PreviewFader. Same data, ~32px tall
-   instead of ~140px. */
-.print-mode .print-block-card-fader {
-  padding: 0;
+/* Volume-pedal / expression block + cab cuts — bigger fader handle
+   in print mode. The recipe-page hfader is tuned for an interactive
+   surface at desktop scale (18px track / 18px cap); on paper at
+   reading distance it reads tiny. Bump to a 28px track and 24px cap
+   so the slider-style fader has presence on the printed page. */
+.print-mode .print-block-card .hfader-track {
+  height: 28px;
 }
-.print-mode .print-fader-row {
-  display: grid;
-  grid-template-columns: minmax(140px, 1fr) minmax(0, 3fr) minmax(120px, auto);
-  align-items: center;
-  gap: 16px;
-  padding: 10px 18px;
-  font-family: var(--font-display);
+.print-mode .print-block-card .hfader-rail,
+.print-mode .print-block-card .hfader-fill {
+  height: 3px;
 }
-.print-mode .print-fader-row-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-}
-.print-mode .print-fader-row-name {
-  font-size: 14px;
-  color: var(--ink);
-  line-height: 1.15;
-}
-.print-mode .print-fader-row-kind {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-}
-.print-mode .print-fader-row-bar {
-  position: relative;
-  height: 6px;
-  background: var(--paper-2);
-  border: 1px solid var(--paper-line);
-  overflow: hidden;
-}
-.print-mode .print-fader-row-fill {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  background: var(--ink);
-}
-.print-mode .print-fader-row-meta {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  white-space: nowrap;
-}
-.print-mode .print-fader-row-value {
-  color: var(--ink);
-  font-weight: 600;
+.print-mode .print-block-card .hfader-cap {
+  width: 24px;
+  height: 24px;
 }
 .print-mode .print-page-foot {
   margin-top: auto;
