@@ -8177,9 +8177,16 @@
      2-col print grid. Letting auto-fill do the work means amps with
      12 internals lay out as 2 rows instead of 4. Min 96px so labels
      like "PRESENCE" / "RESONANCE" / "FEEDBACK" don't truncate at the
-     mono-cap rendering size. */
+     mono-cap rendering size.
+     row-gap MUST be ≥36px because .knob-label and .knob-value are
+     absolutely positioned below the knob's bounding box (+8px and
+     +22px respectively) — anything tighter and the next row's knob
+     crashes into the previous row's label. Matches the live recipe
+     page's 40px row-gap, just with column-gap dropped to 12 to fit
+     more knobs per row. */
   grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
-  gap: 10px 12px;
+  row-gap: 36px;
+  column-gap: 12px;
 }
 .print-mode .print-block-card .block-hfaders {
   gap: 6px;
