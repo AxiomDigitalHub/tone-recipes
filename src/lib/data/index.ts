@@ -2643,32 +2643,32 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Crunch",
+            block_name: "Clean (Variation 2)",
             block_category: "Amp Type",
-            original_gear: "Fender Vibroverb",
+            original_gear: "Fender Vibroverb (1964 Blackface)",
             settings: {
-              Gain: 6,
-              Bass: 4,
+              Gain: 9,
+              Bass: 3,
               Middle: 6,
               Treble: 6,
               Presence: 5,
-              Volume: 7,
+              Volume: 4,
             },
             notes:
-              "The Katana's Crunch channel at moderate gain approximates a pushed blackface Fender. It won't perfectly replicate the Vibroverb's 1x15 speaker character, but the Crunch channel gets close to that warm breakup.",
+              "Clean character with the alt (Variation 2) channel engaged — this is the Katana's pushed-clean voicing, the closest match to a cranked blackface Fender on the edge of breakup. Gain at 9 cranks the preamp; Volume around 4 keeps the master in check so the front end stays where SRV runs it. Bass rolled back to 3 to avoid mud against the heavy Eb-tuned strings. The TS-style boost in front pushes it the rest of the way over.",
           },
           {
             position: 2,
-            block_name: "Blues Drive",
+            block_name: "T-Scream",
             block_category: "Booster",
             original_gear: "Ibanez TS808",
             settings: { Level: 10, Tone: 6, Drive: 1 },
             notes:
-              "Set the Booster to Blues Drive in Boss Tone Studio. Acts as the Tube Screamer mid-boost — drive at minimum, level maxed to slam the amp's front end.",
+              "T-Scream is the Katana's Tube Screamer emulation (modeled on the TS9). Drive at 1 — this is the SRV trick, almost no distortion from the pedal itself. Level at 10 slams the front of the amp into breakup. Tone 6 adds the mid-hump that defines the TS character.",
           },
         ],
         notes:
-          "The Katana's Crunch channel at moderate gain approximates a pushed blackface Fender. The Blues Drive in the Booster slot acts as the Tube Screamer mid-boost. Set the Booster to Blues Drive in Boss Tone Studio. The Katana won't perfectly replicate the Vibroverb's 1x15 speaker character, but the Crunch channel gets close to that warm breakup.",
+          "Cranked-clean Vibroverb approach: Clean amp character with the alt (Variation 2) channel for the pushed-clean voicing, Gain 9 / Volume 4 / Bass rolled back, T-Scream booster in front as a clean-boost-with-mid-hump. The amp does the work, the booster pushes it over. Won't perfectly replicate the Vibroverb's 1x15 JBL D130F speaker character, but the cranked Clean (Variation 2) gets close to that warm breakup.",
       },
       kemper: {
         chain_blocks: [
@@ -5298,16 +5298,16 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "Blues Drive",
+            block_name: "T-Scream",
             block_category: "Booster",
             original_gear: "Ibanez TS808",
             settings: { Level: 7, Tone: 5, Drive: 3 },
             notes:
-              "Blues Drive in the Booster slot acts as the Tube Screamer clean boost. Low drive, high level. Note: The Katana has one Booster slot, so you may need to choose between the compressor and Blues Drive, or use an external compressor pedal.",
+              "T-Scream is the Katana's Tube Screamer emulation. Low drive, high level — the TS character comes from the mid-hump and the way it slams the amp's front end, not from the pedal's own gain. The Katana has one Booster slot, so you may need to choose between the compressor and T-Scream, or use an external compressor pedal.",
           },
         ],
         notes:
-          "The Katana's Crunch channel with Blues Drive clean boost gets a convincing Mayer-style tone. For the always-on compression, use an external compressor pedal before the Katana, or select the Compressor as the Booster type in Tone Studio.",
+          "The Katana's Crunch channel with the T-Scream booster gets a convincing Mayer-style tone. For the always-on compression, use an external compressor pedal before the Katana, or select Compressor as the Booster type in Tone Studio (giving up the T-Scream slot).",
       },
       kemper: {
         chain_blocks: [
@@ -9316,11 +9316,11 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Blues Drive",
+            block_name: "T-Scream",
             block_category: "Booster",
             original_gear: "Ibanez TS808",
             settings: { Level: 8, Tone: 5, Drive: 2 },
-            notes: "Blues Drive still used as a clean boost. Level pushed high to drive the amp harder for slow blues sustain.",
+            notes: "T-Scream (Katana's Tube Screamer emulation) used as a clean boost with mid-hump. Level pushed high to drive the amp harder for slow blues sustain; Drive low so the breakup comes from the amp.",
           },
         ],
         notes:
@@ -12721,7 +12721,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Blues Drive", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5, Level: 8 }, notes: "Clean boost to tighten the amp's low end." },
+          { position: 1, block_name: "T-Scream", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5, Level: 8 }, notes: "T-Scream (Katana's Tube Screamer emulation) as a clean boost to tighten the amp's low end. Drive at 0 — the boost is the slam, not the pedal's own gain." },
           { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Mesa Mark IV", settings: { Gain: 8, Bass: 3, Middle: 3, Treble: 7, Presence: 6, Volume: 6 }, notes: "Lead channel with scooped mids for tight metal rhythm." },
         ],
         notes: "Lead channel with deep mid scoop and a clean boost. Aggressive downpicking is essential.",
@@ -13464,7 +13464,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Blues Drive", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 4, Tone: 5, Level: 7 }, notes: "Overdrive for solo boost sections." },
+          { position: 1, block_name: "T-Scream", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 4, Tone: 5, Level: 7 }, notes: "T-Scream (Katana's Tube Screamer emulation). Drive at 4 for a touch of grit and the TS mid-hump on solo boost sections." },
           { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Fender Vibro-King", settings: { Gain: 5, Bass: 5, Middle: 6, Treble: 5, Presence: 5, Volume: 6 }, notes: "Crunch channel at moderate gain for warm, edge-of-breakup tone." },
         ],
         notes: "Warm Crunch channel with an overdrive for lead boost. SG neck pickup for modern blues warmth.",
@@ -13600,7 +13600,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Blues Drive", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 3, Tone: 5, Level: 7 }, notes: "Light overdrive for sustain boost." },
+          { position: 1, block_name: "T-Scream", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 3, Tone: 5, Level: 7 }, notes: "T-Scream (Katana's Tube Screamer emulation). Light drive for sustain boost — most of the harmonic complexity comes from the amp being pushed." },
           { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Dumble ODS", settings: { Gain: 6, Bass: 5, Middle: 6, Treble: 6, Presence: 5, Volume: 7 }, notes: "Lead channel with moderate gain for singing lead tone." },
         ],
         notes: "The Katana's Lead channel with a light overdrive approximates the Dumble's touch-sensitive character. Les Paul neck pickup.",
@@ -13993,7 +13993,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Blues Drive", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 2, Tone: 6, Level: 8 }, notes: "Light overdrive boost for chord melody sustain." },
+          { position: 1, block_name: "T-Scream", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 2, Tone: 6, Level: 8 }, notes: "T-Scream (Katana's Tube Screamer emulation). Low drive, level pushed high — chord melody sustain comes from the amp being slammed by the boost." },
           { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Fender Vibroverb", settings: { Gain: 6, Bass: 5, Middle: 5, Treble: 5, Presence: 5, Volume: 7 }, notes: "Warm Crunch channel with reverb for the dreamy Little Wing quality." },
         ],
         notes: "Crunch channel with light overdrive. Add reverb for the spacious, dreamlike character. Eb tuning and heavy strings are essential.",
