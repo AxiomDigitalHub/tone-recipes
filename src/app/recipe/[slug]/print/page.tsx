@@ -9,12 +9,14 @@ import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
 import {
   PreviewBlockDetail,
   PreviewHFader,
+} from "@/components/v3/PreviewBlocks";
+import {
   isFaderBlock,
   isHFaderControl,
   faderValue,
   helixCategory,
   type PreviewBlockData,
-} from "@/components/v3/PreviewBlocks";
+} from "@/components/v3/preview-helpers";
 import PreviewKnob from "@/components/v3/PreviewKnob";
 import { BlockIcon } from "@/components/v3/BlockIcon";
 import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
