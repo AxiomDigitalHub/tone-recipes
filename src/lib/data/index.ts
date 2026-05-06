@@ -13424,7 +13424,7 @@ export const toneRecipes: ToneRecipe[] = [
         icon_color: "#ef4444",
         is_in_effects_loop: false,
         settings: { Volume: 10 },
-        notes: "A small tube amp cranked to maximum. The natural breakup of a pushed small amp is the entire tone. No pedals, no effects -- just raw amp distortion.",
+        notes: "A small tube amp cranked to maximum. The natural breakup of a pushed small amp is the entire tone. No pedals, no effects — just raw amp distortion.",
       },
       {
         position: 2,
@@ -13438,6 +13438,18 @@ export const toneRecipes: ToneRecipe[] = [
         settings: {},
         notes: "The small speaker contributes to the compressed, lo-fi character. The speaker is working hard and adding its own distortion.",
       },
+      {
+        position: 3,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, slightly off-axis" },
+        notes: "Standard SM57 placement on the small speaker — close to the cone, slightly off-axis to tame the high end. Captures the cranked-Champ growl without going harsh.",
+      },
     ],
     original_gear: {
       guitar: "Gibson Les Paul Junior, bridge P-90",
@@ -13448,7 +13460,9 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "Auerbach's tone philosophy is minimal and raw. Guitar straight into a cranked amp. The imperfections ARE the tone.",
     },
     tags: ["blues-rock", "garage-rock", "raw", "lo-fi", "black-keys", "p90", "cranked-amp"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/dan-auerbach",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -13461,9 +13475,11 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Search Cortex Cloud for 'Fender Champ' capture", block_category: "Amp", original_gear: "Fender Champ", settings: { Gain: 10.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, Master: 8.0 }, notes: "Cranked small amp for raw overdrive." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light)", settings: { Threshold: -36, Ratio: 2, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Light parallel compression — Mix 0.74 keeps the dry attack of the P-90's bite. Optional. Bypass for the absolute rawest take." },
+          { position: 2, block_name: "Search Cortex Cloud for 'Fender Champ' capture", block_category: "Amp", original_gear: "Fender Champ", settings: { Gain: 10.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, Master: 8.0 }, notes: "Cranked small amp capture. Capture-driven authenticity beats the QC's stock small-amp model for this lo-fi character. Look for captures of Champs, Silvertones, or Valcos at their loudest." },
+          { position: 3, block_name: "1x8 Tweed", block_category: "Cab", original_gear: "Champ 1x8", settings: { Mic: "SM57", Distance: "1 inch", LowCut: 80, HighCut: 12000 }, notes: "Small-cone cab paired with the capture. SM57 close to the cone, slight HighCut at 12k to tame the small-speaker fizz." },
         ],
-        notes: "Guitar direct into a maxed small amp capture. Raw and simple.",
+        notes: "Guitar direct into a maxed small-amp capture. Light comp in front (optional) for studio versions; raw and simple is the whole point.",
       },
       tonex: {
         chain_blocks: [
@@ -13473,31 +13489,52 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Crunch", block_category: "Amp Type", original_gear: "Small tube amp", settings: { Gain: 9, Bass: 5, Middle: 6, Treble: 5, Presence: 5, Volume: 7 }, notes: "Crunch channel pushed hard for natural amp breakup." },
+          { position: 1, block_name: "Blues Drive (Booster)", block_category: "Booster", original_gear: "None on the original — boost option for FRFR rigs", settings: { Drive: 2, Tone: 5, Level: 6 }, notes: "OPTIONAL booster, off by default. The original Lonely Boy has no pedals — but if your Katana is going through an FRFR cab that doesn't push back like a real cranked combo, a low-drive Blues Drive recreates the dimed-amp aggression. Toggle on via Boss Tone Studio." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Small tube amp", settings: { Gain: 9, Bass: 5, Middle: 6, Treble: 5, Presence: 5, Volume: 7 }, notes: "Crunch channel pushed hard for natural amp breakup. Gain at 9 cranks the preamp; Volume 7 keeps the master in check. The amp does all the work." },
+          { position: 3, block_name: "Spring", block_category: "Reverb", original_gear: "Tracking room ambience", settings: { Time: 3, PreDelay: 15, Tone: 5, EffectLevel: 3 }, notes: "Subtle spring reverb in the REV slot — small studio amp ambience, not a wash. Effect Level 3 keeps the rawness intact." },
         ],
-        notes: "Crunch channel cranked. Guitar with a P-90 or hot single-coil straight in. No effects. Keep it raw.",
+        notes: "Crunch channel cranked, P-90 straight in. Booster optional for FRFR rigs (off by default — the original is pedal-free). Touch of spring for the tracking-room ambience.",
       },
       fractal: {
         chain_blocks: [
           { position: 1, block_name: "5F1 Tweed", block_category: "Amp", original_gear: "Fender Champ", settings: { Drive: 10.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, "MV": 8.0 }, notes: "Tiny Tweed amp model cranked for natural breakup. All the dirt comes from the amp." },
-          { position: 2, block_name: "1x8 Tweed", block_category: "Cab", original_gear: "Champ 1x8", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Small speaker cab for compressed, lo-fi character." },
+          { position: 2, block_name: "1x8 Tweed", block_category: "Cab", original_gear: "Champ 1x8", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Small speaker cab for compressed, lo-fi character. SM57 close to the cone." },
+          { position: 3, block_name: "Spring 63", block_category: "Reverb", original_gear: "Tracking room ambience", settings: { Mix: 0.18, Decay: 0.3, Predelay: 15 }, notes: "Spring 63 reverb at low mix mirrors the tracking-room ambience on the original recording — present but not washy." },
         ],
-        notes: "Tiny Tweed amp model cranked for natural breakup. All the dirt comes from the amp.",
+        notes: "Tiny Tweed amp model cranked for natural breakup. All the dirt comes from the amp; spring reverb adds the tracking-room glue.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Green Scream",
+            block_category: "Stomp",
+            original_gear: "None on the original — optional clean boost",
+            settings: { Drive: 1.0, Tone: 5.0, Volume: 6.0 },
+            notes:
+              "Slot A. OPTIONAL clean boost (off by default) for FRFR / studio-monitor rigs that don't push back like a real cranked combo. The original Lonely Boy has no pedals — leave bypassed for the absolute rawest take.",
+          },
+          {
+            position: 2,
             block_name: "Search Rig Exchange for 'Champ'",
             block_category: "Profile",
             original_gear: "Fender Champ / small tube amp",
-            settings: { Gain: 10.0 },
+            settings: { Gain: 10.0, Bass: 5.0, Middle: 6.0, Treble: 5.0 },
             notes:
-              "Search Rig Exchange for cranked Fender Champ or similar small tube amp profiles. The entire tone comes from a tiny amp pushed to maximum. No pedals, no effects -- just raw amp distortion.",
+              "Search Rig Exchange for cranked Fender Champ or similar small tube amp profiles. The entire tone comes from a tiny amp pushed to maximum. With Liquid Profiling, select the Fender tone stack. The MBritt Champ pack is excellent for this.",
+          },
+          {
+            position: 3,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Tracking room ambience",
+            settings: { Decay: 0.3, Predelay: 15, Mix: 0.18 },
+            notes:
+              "REV slot. Subtle spring reverb mirrors the tracking-room ambience on the recording. Mix 0.18 — present but never washy.",
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. Guitar straight into a cranked small amp profile. Les Paul Junior with a P-90 for the raw, fat garage-rock tone. Keep it simple -- the Black Keys way.",
+          "Kemper profiles include the cab, so no separate cab block is needed. Cranked small-amp profile with a touch of spring reverb. Booster optional for FRFR rigs. Les Paul Junior with a P-90 for the raw, fat garage-rock tone. Keep it simple — the Black Keys way.",
       },
     },
     is_editorial: true,
