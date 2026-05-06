@@ -12953,7 +12953,9 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "Hetfield's aggressive downpicking technique is crucial. Every note is picked precisely and aggressively for maximum percussive impact.",
     },
     tags: ["metal", "thrash", "rhythm", "tight", "metallica", "scooped", "mesa"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/james-hetfield",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -12989,10 +12991,12 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Green 808", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5.0, Level: 8.0 }, notes: "Clean boost for bass tightening." },
-          { position: 2, block_name: "CA MkIV Lead", block_category: "Amp", original_gear: "Mesa Mark IV", settings: { Gain: 7.0, Bass: 3.0, Mid: 3.0, Treble: 7.0, Presence: 6.0, Master: 6.0 }, notes: "Scooped mids, tight low end." },
+          { position: 1, block_name: "Noise Gate", block_category: "Stomp", original_gear: "Studio noise gate", settings: { Threshold: -45, Release: 50 }, notes: "Aggressive gate at the front — Hetfield's stage rig had heavy gating to keep the chugs surgical between palm-muted blasts. Threshold -45 silences pickup hum without choking sustain on the held notes." },
+          { position: 2, block_name: "Green 808", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5.0, Level: 8.0 }, notes: "Clean boost for bass tightening — drive at 0, level slamming the Mesa's input. Same Hetfield trick as the Helix recipe: the boost is the slam, not the pedal's gain." },
+          { position: 3, block_name: "CA MkIV Lead", block_category: "Amp", original_gear: "Mesa Mark IV", settings: { Gain: 7.0, Bass: 3.0, Mid: 3.0, Treble: 7.0, Presence: 6.0, Master: 6.0 }, notes: "Scooped mids, tight low end. Bass + Mid both at 3 give the V-curve that defines Black Album rhythm." },
+          { position: 4, block_name: "4x12 Brit T75", block_category: "Cab", original_gear: "Marshall 1960B with G12T-75 (Bob Rock's Black Album cab)", settings: { Mic: "SM57", Distance: "1 inch", LowCut: 80, HighCut: 12000 }, notes: "G12T-75 4x12 cab — the verified Black Album cab spec. SM57 close to the cone for tight, percussive bite. HighCut at 12k tames fizz without losing pick attack." },
         ],
-        notes: "The QC's Mesa Mark IV model with scooped mids and a TS boost delivers an authentic Black Album tone.",
+        notes: "Aggressive noise gate → TS boost → scooped Mesa Mark IV → G12T-75 cab. The QC delivers an authentic Black Album rhythm formula. Hetfield's all-downstroke picking is half the tone.",
       },
       tonex: {
         chain_blocks: [
@@ -13002,24 +13006,34 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "T-Scream", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5, Level: 8 }, notes: "T-Scream (Katana's Tube Screamer emulation) as a clean boost to tighten the amp's low end. Drive at 0 — the boost is the slam, not the pedal's own gain." },
-          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Mesa Mark IV", settings: { Gain: 8, Bass: 3, Middle: 3, Treble: 7, Presence: 6, Volume: 6 }, notes: "Lead channel with scooped mids for tight metal rhythm." },
+          { position: 1, block_name: "Noise Gate", block_category: "Booster", original_gear: "Studio noise gate", settings: { Threshold: 7, Release: 5 }, notes: "Booster slot set to Noise Gate in Boss Tone Studio — essential at Hetfield's gain levels. Tightens the chugs between palm-muted blasts without choking sustained notes." },
+          { position: 2, block_name: "T-Scream", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5, Level: 8 }, notes: "T-Scream (Katana's Tube Screamer emulation) as a clean boost to tighten the amp's low end. Drive at 0 — the boost is the slam, not the pedal's own gain. NOTE: Katana has only one Booster slot — choose between this and the Noise Gate, or run an external gate before the Katana." },
+          { position: 3, block_name: "Lead", block_category: "Amp Type", original_gear: "Mesa Mark IV", settings: { Gain: 8, Bass: 3, Middle: 3, Treble: 7, Presence: 6, Volume: 6 }, notes: "Lead channel with scooped mids for tight metal rhythm. Bass + Middle both at 3 give the V-curve scoop that defines Black Album rhythm." },
         ],
-        notes: "Lead channel with deep mid scoop and a clean boost. Aggressive downpicking is essential.",
+        notes: "Lead channel with deep mid scoop, TS boost, and aggressive gating. Katana has one Booster slot — for the most authentic Hetfield rig, use an external noise gate before the Katana so both the gate AND T-Scream are in play. Aggressive downpicking is essential.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Noise Gate",
+            block_category: "Stomp",
+            original_gear: "Studio noise gate",
+            settings: { Threshold: -45, Release: 50 },
+            notes:
+              "Slot A. Aggressive gate at the front — Hetfield's stage rig had heavy gating to keep the chugs surgical. Threshold -45 silences pickup hum without choking sustain on held notes.",
+          },
+          {
+            position: 2,
             block_name: "Green Scream",
             block_category: "Stomp",
             original_gear: "Ibanez Tube Screamer",
             settings: { Drive: 0, Tone: 5.0, Volume: 8.0 },
             notes:
-              "Slot A. Green Scream as a clean boost to tighten the Mesa's low end. Drive at zero -- purely for the mid-hump and bass tightening that is essential for modern metal rhythm.",
+              "Slot B. Green Scream as a clean boost to tighten the Mesa's low end. Drive at zero — purely for the mid-hump and bass tightening that's essential for modern metal rhythm.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Search Rig Exchange for 'Mesa Mark'",
             block_category: "Profile",
             original_gear: "Mesa/Boogie Mark IV",
@@ -13029,7 +13043,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. Tube Screamer clean boost into a scooped Mesa is the modern metal rhythm formula that Metallica pioneered. Aggressive downpicking is essential for the percussive attack.",
+          "Kemper profiles include the cab, so no separate cab block is needed. Aggressive gate → TS boost → scooped Mesa profile is the canonical Black Album rhythm chain. Aggressive downpicking is essential for the percussive attack.",
       },
       fractal: {
         chain_blocks: [
