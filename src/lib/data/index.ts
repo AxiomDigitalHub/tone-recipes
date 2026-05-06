@@ -7120,7 +7120,9 @@ export const toneRecipes: ToneRecipe[] = [
         "AC/DC's tone secret is no effects at all. The guitar plugs directly into the amp. The massive sound comes from double-tracked rhythm guitars (Angus and Malcolm) and producer Mutt Lange's layering techniques.",
     },
     tags: ["hard-rock", "rhythm", "no-effects", "classic-rock", "ac-dc"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/angus-young",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -7182,19 +7184,27 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 6.0,
               Master: 7.0,
             },
-            notes: "Push the gain for natural Plexi breakup. No stomp pedals needed.",
+            notes: "Push the gain for natural Plexi breakup. No stomp pedals needed — Angus' tone is amp + cab, that's it.",
           },
           {
             position: 2,
             block_name: "4x12 Green 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
-            settings: { Mic: "SM57", Distance: "1 inch" },
-            notes: "Close-miked for full presence.",
+            settings: { Mic: "SM57", Distance: "1 inch", LowCut: 80, HighCut: 16000 },
+            notes: "Close-miked for full presence. SM57 right on the cone — the tight, biting capture that defines the Back in Black guitar sound.",
+          },
+          {
+            position: 3,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Compass Point Studios plate",
+            settings: { Decay: 1.4, Predelay: 30, Mix: 0.15, Level: 0 },
+            notes: "Subtle plate reverb — Back in Black was tracked at Compass Point with a real plate on the rhythm tracks. Mix 0.15 keeps the dryness Mutt Lange wanted while admitting a hint of room.",
           },
         ],
         notes:
-          "Search Cortex Cloud for AC/DC or Plexi captures for even more authenticity. The simplicity of this signal chain makes it an ideal candidate for amp captures.",
+          "Search Cortex Cloud for AC/DC or Plexi captures for even more authenticity. The simplicity of this signal chain makes it an ideal candidate for amp captures. Subtle plate reverb finishes the chain with the studio glue.",
       },
       tonex: {
         chain_blocks: [
@@ -7206,6 +7216,15 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Treble Booster (off)",
+            block_category: "Booster",
+            original_gear: "None on the original — boost option for FRFR rigs",
+            settings: { Drive: 2, Tone: 6, Level: 6 },
+            notes:
+              "OPTIONAL booster, off by default. The original AC/DC tone has no pedals. If your Katana is going through an FRFR cab that doesn't push back like a real cranked combo, a low-drive Treble Booster reintroduces the upper-harmonic snap. Leave bypassed for the canonical AC/DC sound.",
+          },
+          {
+            position: 2,
             block_name: "Brown",
             block_category: "Amp Type",
             original_gear: "Marshall Super Lead 1959 (Plexi)",
@@ -7218,16 +7237,34 @@ export const toneRecipes: ToneRecipe[] = [
               Volume: 7,
             },
             notes:
-              "The Brown channel gives the Marshall-voiced crunch needed for AC/DC. Moderate gain for a crunchy, not saturated, tone. No booster needed.",
+              "The Brown channel gives the Marshall-voiced crunch needed for AC/DC. Moderate gain for a crunchy, not saturated, tone. No booster needed (toggle the slot 1 booster only for FRFR rigs).",
+          },
+          {
+            position: 3,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Compass Point Studios plate",
+            settings: { Time: 3, PreDelay: 30, Tone: 6, EffectLevel: 3 },
+            notes:
+              "Subtle Plate reverb in the REV slot — Back in Black was tracked with a real plate on the rhythm guitars. Effect Level 3 keeps Mutt Lange's dry-and-tight aesthetic while admitting a hint of room.",
           },
         ],
         notes:
-          "Keep it simple. Brown channel, moderate gain, bridge humbucker, and play hard. That is the AC/DC recipe. No effects needed.",
+          "Keep it simple. Brown channel, moderate gain, bridge humbucker, and play hard. That is the AC/DC recipe. Booster optional for FRFR rigs (off by default); Plate reverb finishes with the Compass Point studio glue.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Treble Booster (off)",
+            block_category: "Stomp",
+            original_gear: "None on the original — optional FRFR booster",
+            settings: { Boost: 4.0 },
+            notes:
+              "Slot A. OPTIONAL — off by default. The original AC/DC tone has no pedals. If your Kemper is going through an FRFR cab without the pushback of a real cranked combo, a Treble Booster reintroduces the upper-harmonic snap. Leave bypassed for the canonical sound.",
+          },
+          {
+            position: 2,
             block_name: "Search Rig Exchange for 'Plexi'",
             block_category: "Profile",
             original_gear: "Marshall Super Lead 1959 (Plexi)",
@@ -7235,16 +7272,26 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "Search Rig Exchange for cranked Plexi profiles. Look for profiles at edge-of-breakup to moderate crunch gain levels. With Liquid Profiling, select the Marshall Plexi tone stack. No drive pedals needed.",
           },
+          {
+            position: 3,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Compass Point Studios plate",
+            settings: { Decay: 1.4, Predelay: 30, Mix: 0.15 },
+            notes:
+              "REV slot. Subtle plate reverb mirrors the real plate on the Back in Black rhythm tracks. Mix 0.15 keeps Mutt Lange's dry-and-tight production aesthetic.",
+          },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. AC/DC's tone secret is no effects at all. Guitar straight into a cranked Plexi. The Kemper is perfect for this because a profile of a real cranked Plexi captures exactly the right amount of grit and dynamics. Use a bridge humbucker and play hard.",
+          "Kemper profiles include the cab, so no separate cab block is needed. AC/DC's tone secret is no effects at all — guitar straight into a cranked Plexi. Booster optional for FRFR rigs (off by default); subtle plate reverb at the end. Use a bridge humbucker and play hard.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959 (Plexi)", settings: { Drive: 7.5, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 7.0, }, notes: "Fractal's Plexi 100W High is the Marshall Plexi model. Push the drive for natural breakup. No drive pedals needed." },
+          { position: 1, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959 (Plexi)", settings: { Drive: 7.5, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 7.0 }, notes: "Fractal's Plexi 100W High is the Marshall Plexi model. Push the drive for natural breakup. No drive pedals needed." },
           { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback for maximum bite and presence." },
+          { position: 3, block_name: "Plate", block_category: "Reverb", original_gear: "Compass Point Studios plate", settings: { Mix: 0.15, Decay: 1.4, Predelay: 30 }, notes: "Subtle plate reverb mirrors the real plate on the Back in Black rhythm tracks at Compass Point. Mix 0.15 — Mutt Lange's dry-and-tight production aesthetic." },
         ],
-        notes: "Plexi 100W High cranked for natural breakup. No drive pedals needed. SG bridge humbucker and dig in with your pick.",
+        notes: "Plexi 100W High cranked for natural breakup. No drive pedals needed. Plate reverb at the end mirrors the studio glue on the original recording.",
       },
     },
     is_editorial: true,
