@@ -2657,11 +2657,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Fender Vibroverb (1964 Blackface)",
             settings: {
               Gain: 9,
+              Volume: 4,
               Bass: 3,
               Middle: 6,
               Treble: 6,
               Presence: 5,
-              Volume: 4,
             },
             notes:
               "Clean character with the alt (Variation 2) channel engaged — this is the Katana's pushed-clean voicing, the closest match to a cranked blackface Fender on the edge of breakup. Gain at 9 cranks the preamp; Volume around 4 keeps the master in check so the front end stays where SRV runs it. Bass rolled back to 3 to avoid mud against the heavy Eb-tuned strings. The TS-style boost in front pushes it the rest of the way over.",
@@ -3114,11 +3114,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Hiwatt DR103",
             settings: {
               Gain: 4,
+              Volume: 6,
               Bass: 4,
               Middle: 5,
               Treble: 6,
               Presence: 6,
-              Volume: 6,
             },
             notes:
               "The Katana's Lead channel provides more headroom than Crunch, similar to how the Hiwatt stays clean. Keep gain relatively low so the Muff does the heavy lifting.",
@@ -3461,11 +3461,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Marshall Super Lead 1959",
             settings: {
               Gain: 8,
+              Volume: 7,
               Bass: 5,
               Middle: 8,
               Treble: 7,
               Presence: 6,
-              Volume: 7,
             },
             notes:
               "The Katana's Brown channel is its Marshall-voiced high-gain mode. Crank the gain for cranked Plexi character. Push the mids high for that cutting Hendrix tone.",
@@ -3805,11 +3805,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Mesa/Boogie Studio .22",
             settings: {
               Gain: 7,
+              Volume: 7,
               Bass: 6,
               Middle: 3,
               Treble: 5,
               Presence: 5,
-              Volume: 7,
             },
             notes:
               "Scoop the mids on the Lead channel for the grunge character. The Lead channel provides the aggressive gain needed for the chorus sections.",
@@ -4120,11 +4120,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Marshall Major 200W",
             settings: {
               Gain: 3,
+              Volume: 5,
               Bass: 4,
               Middle: 5,
               Treble: 7,
               Presence: 6,
-              Volume: 5,
             },
             notes:
               "The Katana's Clean channel excels at this. It has plenty of headroom for pristine cleans. Push the treble for sparkle on the neck pickup.",
@@ -4397,11 +4397,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Marshall JCM800 2203",
             settings: {
               Gain: 8,
+              Volume: 6,
               Bass: 5,
               Middle: 8,
               Treble: 7,
               Presence: 6,
-              Volume: 6,
             },
             notes:
               "The Brown channel on the Katana is its Marshall-voiced mode. Push the gain high and keep mids elevated for the Slash character.",
@@ -4705,11 +4705,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Marshall Super Lead 1959 (Variac)",
             settings: {
               Gain: 8,
+              Volume: 7,
               Bass: 5,
               Middle: 7,
               Treble: 7,
               Presence: 5,
-              Volume: 7,
             },
             notes:
               "The Katana's Brown channel is literally named after EVH's brown sound. This is one of the tones it was designed to replicate. Push the gain high.",
@@ -5022,11 +5022,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Vox AC30",
             settings: {
               Gain: 5,
+              Volume: 6,
               Bass: 4,
               Middle: 6,
               Treble: 7,
               Presence: 6,
-              Volume: 6,
             },
             notes:
               "The Katana's Crunch channel approximates the AC30's chimey breakup. Keep the gain moderate for clean-to-edge-of-breakup tones.",
@@ -5373,11 +5373,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Two Rock Custom Reverb",
             settings: {
               Gain: 5,
+              Volume: 6,
               Bass: 5,
               Middle: 5,
               Treble: 6,
               Presence: 5,
-              Volume: 6,
             },
             notes:
               "The Crunch channel at moderate gain approximates the Two Rock's warm breakup. Keep the gain lower than you might think — Mayer's tone is cleaner than it sounds.",
@@ -5661,10 +5661,10 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Fender Champ (cranked)",
             settings: {
               Gain: 8,
+              Volume: 7,
               Bass: 5,
               Middle: 6,
               Treble: 6,
-              Volume: 7,
             },
             notes:
               "The Katana doesn't model a Champ specifically, but Crunch with high gain captures the cranked-small-amp character — thick, compressed, midrange-forward. Mid bumped to 6 for the tweed honk. Don't go to Brown or Lead — those are too modern and high-gain for the Layla feel.",
@@ -5943,11 +5943,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Fender Vibrolux Reverb",
             settings: {
               Gain: 3,
+              Volume: 5,
               Bass: 5,
               Middle: 5,
               Treble: 6,
               Presence: 5,
-              Volume: 5,
             },
             notes:
               "The Katana's Clean channel is perfect for this. Set it crystal clean with moderate treble for sparkle.",
@@ -6219,11 +6219,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Fender Bassman",
             settings: {
               Gain: 4,
+              Volume: 6,
               Bass: 6,
               Middle: 5,
               Treble: 5,
               Presence: 4,
-              Volume: 6,
             },
             notes:
               "The Katana's Clean channel with warm EQ settings approximates the Bassman's clean tone. Keep the gain low and the bass slightly elevated for warmth.",
@@ -6470,11 +6470,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Silvertone 1485",
             settings: {
               Gain: 8,
+              Volume: 7,
               Bass: 6,
               Middle: 5,
               Treble: 6,
               Presence: 5,
-              Volume: 7,
             },
             notes:
               "The Crunch channel cranked hard approximates the raw Silvertone character. Push the gain for lo-fi grit.",
@@ -6745,11 +6745,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Marshall JCM800 2205",
             settings: {
               Gain: 8,
+              Volume: 6,
               Bass: 6,
               Middle: 7,
               Treble: 6,
               Presence: 5,
-              Volume: 6,
             },
             notes: "Brown channel cranked for aggressive Marshall distortion.",
           },
@@ -7008,11 +7008,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Mesa/Boogie Mark IIC+",
             settings: {
               Gain: 8,
+              Volume: 7,
               Bass: 3,
               Middle: 3,
               Treble: 7,
               Presence: 5,
-              Volume: 7,
             },
             notes:
               "The Katana's Lead channel provides the high-gain saturation needed for thrash metal. Scoop the mids and push the treble for the V-curve EQ shape.",
@@ -7230,11 +7230,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Marshall Super Lead 1959 (Plexi)",
             settings: {
               Gain: 6,
+              Volume: 7,
               Bass: 4,
               Middle: 5,
               Treble: 7,
               Presence: 6,
-              Volume: 7,
             },
             notes:
               "The Brown channel gives the Marshall-voiced crunch needed for AC/DC. Moderate gain for a crunchy, not saturated, tone. No booster needed (toggle the slot 1 booster only for FRFR rigs).",
@@ -7510,11 +7510,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Mesa/Boogie Mark I",
             settings: {
               Gain: 7,
+              Volume: 7,
               Bass: 4,
               Middle: 8,
               Treble: 5,
               Presence: 5,
-              Volume: 7,
             },
             notes:
               "Lead channel with boosted mids for the smooth Santana sustain. The Katana's Lead channel provides enough gain for singing sustain without needing a booster.",
@@ -7748,11 +7748,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Hiwatt DR103",
             settings: {
               Gain: 6,
+              Volume: 8,
               Bass: 5,
               Middle: 5,
               Treble: 7,
               Presence: 7,
-              Volume: 8,
             },
             notes:
               "Brown channel at moderate gain for a powerful, clear crunch. The Hiwatt's clean power is approximated by keeping the gain lower than you might expect while pushing the volume.",
@@ -7974,11 +7974,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Fender Twin Reverb",
             settings: {
               Gain: 3,
+              Volume: 5,
               Bass: 4,
               Middle: 6,
               Treble: 7,
               Presence: 6,
-              Volume: 5,
             },
             notes:
               "The Katana's Clean channel has excellent headroom for sparkling Fender-style cleans. Add the built-in reverb for depth.",
@@ -8277,11 +8277,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Marshall Super Lead 1959",
             settings: {
               Gain: 5,
+              Volume: 6,
               Bass: 5,
               Middle: 6,
               Treble: 7,
               Presence: 6,
-              Volume: 6,
             },
             notes: "Moderate gain on the Brown channel for crunchy but clear Marshall tones.",
           },
@@ -8638,11 +8638,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Vox AC30",
             settings: {
               Gain: 6,
+              Volume: 7,
               Bass: 4,
               Middle: 5,
               Treble: 6,
               Presence: 6,
-              Volume: 7,
             },
             notes:
               "The Crunch channel approximates the AC30's pushed overdrive character. The Katana's Crunch mode has a similar British chime.",
@@ -8932,11 +8932,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Laney LA100BL",
             settings: {
               Gain: 8,
+              Volume: 7,
               Bass: 6,
               Middle: 5,
               Treble: 6,
               Presence: 5,
-              Volume: 7,
             },
             notes:
               "The Brown channel cranked approximates the Laney's heavy British overdrive. Push the bass for doom weight.",
@@ -9225,11 +9225,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Marshall Super Lead 1959",
             settings: {
               Gain: 7,
+              Volume: 7,
               Bass: 5,
               Middle: 7,
               Treble: 7,
               Presence: 7,
-              Volume: 7,
             },
             notes: "Brown channel cranked for Marshall-style aggression.",
           },
@@ -9487,11 +9487,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Fender Vibroverb",
             settings: {
               Gain: 7,
+              Volume: 8,
               Bass: 5,
               Middle: 5,
               Treble: 5,
               Presence: 5,
-              Volume: 8,
             },
             notes: "Crunch channel pushed hard for the saturated blues lead tone.",
           },
@@ -9813,11 +9813,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Marshall JCM800 2203",
             settings: {
               Gain: 6,
+              Volume: 7,
               Bass: 5,
               Middle: 7,
               Treble: 6,
               Presence: 6,
-              Volume: 7,
             },
             notes: "Brown channel at moderate gain for the JCM800 foundation.",
           },
@@ -10088,11 +10088,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Marshall JCM900",
             settings: {
               Gain: 4,
+              Volume: 5,
               Bass: 4,
               Middle: 6,
               Treble: 7,
               Presence: 6,
-              Volume: 5,
             },
             notes: "Crunch channel at low gain for the jangly Britpop sound. Push the treble for brightness.",
           },
@@ -10328,11 +10328,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Fender Twin Reverb",
             settings: {
               Gain: 3,
+              Volume: 5,
               Bass: 4,
               Middle: 5,
               Treble: 7,
               Presence: 6,
-              Volume: 5,
             },
             notes: "Clean channel for pristine foundation.",
           },
@@ -10577,11 +10577,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Fender Twin Reverb",
             settings: {
               Gain: 4,
+              Volume: 6,
               Bass: 4,
               Middle: 5,
               Treble: 7,
               Presence: 6,
-              Volume: 6,
             },
             notes: "Clean channel with pushed treble for Telecaster jangle. Slight breakup when you dig in. Bass pulled back to 4 so the open-G low strings stay tight.",
           },
@@ -10885,11 +10885,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Marshall Super Lead 1959",
             settings: {
               Gain: 7,
+              Volume: 7,
               Bass: 5,
               Middle: 7,
               Treble: 6,
               Presence: 6,
-              Volume: 7,
             },
             notes: "Brown channel cranked for Plexi-style crunch.",
           },
@@ -11230,11 +11230,11 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Randall RG100ES (solid-state)",
             settings: {
               Gain: 9,
+              Volume: 7,
               Bass: 7,
               Middle: 2,
               Treble: 7,
               Presence: 6,
-              Volume: 7,
             },
             notes:
               "The Lead channel cranked with heavily scooped mids approximates the tight, transient-preserving Randall solid-state tone. Push the gain high for groove metal saturation. Mids at 2 — the V-curve scoop is non-negotiable.",

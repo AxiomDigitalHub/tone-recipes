@@ -83,24 +83,29 @@ const QC_CANONICAL: Record<string, string[]> = {
   Stomp: ["Drive", "Tone", "Level"],
 };
 
-/** Canonical Boss Katana parameters per block category. */
+/** Canonical Boss Katana parameters per block category. Order mirrors
+ *  the physical Katana front panel left-to-right: AMP TYPE selector,
+ *  then GAIN → VOLUME → BASS → MIDDLE → TREBLE → (PRESENCE on Gen 3) →
+ *  MASTER. Presence is on Gen 3 only — bring it back when the recipe
+ *  data sets it; the enrichment will surface it at neutral if missing. */
 const KATANA_CANONICAL: Record<string, string[]> = {
   "Amp Type": [
     "Gain",
+    "Volume",
     "Bass",
     "Middle",
     "Treble",
     "Presence",
-    "Volume",
     "Master",
   ],
   Amp: [
     "Gain",
+    "Volume",
     "Bass",
     "Middle",
     "Treble",
     "Presence",
-    "Volume",
+    "Master",
   ],
   Booster: ["Drive", "Bottom", "Tone", "Level"],
   Mod: ["Rate", "Depth", "Level"],
