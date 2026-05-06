@@ -340,13 +340,26 @@
 }
 
 /* ── Knobs (the star of the show) ───────────────────────────────────────── */
+/* The knob's bounding box now includes label + value. Previously the
+   label/value were absolutely positioned BELOW the knob's box, which
+   forced every parent grid (.block-settings, .pedal-knobs, .amp-knobs)
+   to manually compensate via row-gap or padding-bottom — a leaky
+   abstraction. Now: .knob is a flex column whose children stack and
+   the bounding box reflects real content. The .knob-rotor is the
+   fixed-size square that .knob-dial / .knob-ticks overlay against. */
 .fk-preview .knob {
   --size: 56px;
   --value: 0.5;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.fk-preview .knob-rotor {
   width: var(--size);
   height: var(--size);
   position: relative;
-  display: inline-block;
+  flex-shrink: 0;
 }
 /* Knob body — matches Claude Design v2: dark chassis, amber indicator. */
 .fk-preview .knob-dial {
@@ -385,9 +398,7 @@
 /* Silkscreen-style label — condensed, wide-tracked, thin.
    Mimics the paint-filled engraving on real pedal enclosures. */
 .fk-preview .knob-label {
-  position: absolute;
-  top: calc(100% + 8px); left: 50%;
-  transform: translateX(-50%);
+  margin-top: 8px;
   white-space: nowrap;
   font-family: var(--font-cond);
   font-size: 10px;
@@ -397,9 +408,7 @@
   color: var(--ink-muted);
 }
 .fk-preview .knob-value {
-  position: absolute;
-  top: calc(100% + 22px); left: 50%;
-  transform: translateX(-50%);
+  margin-top: 4px;
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
@@ -495,7 +504,7 @@
 }
 .fk-preview .pedal-knobs {
   display: flex; gap: 16px; justify-content: space-around;
-  padding: 14px 0 26px;
+  padding: 14px 0 8px;
   flex-wrap: wrap;
 }
 .fk-preview .pedal-footswitch {
@@ -582,7 +591,7 @@
 }
 .fk-preview .amp-knobs {
   display: flex; gap: 18px; flex-wrap: wrap;
-  padding: 18px 0 26px;
+  padding: 18px 0 8px;
 }
 
 /* ── Signal chain lane (horizontal scroll) ──────────────────────────────── */
@@ -803,7 +812,10 @@
 .fk-preview .block-settings {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 40px;
+  /* row-gap was 40px to compensate for .knob-label/.knob-value being
+     absolutely positioned outside the .knob's bounding box. .knob is
+     now self-contained, so 12px is enough breathing room between rows. */
+  row-gap: 12px;
   column-gap: 16px;
   padding-top: 20px;
   justify-items: center;
@@ -8177,15 +8189,10 @@
      2-col print grid. Letting auto-fill do the work means amps with
      12 internals lay out as 2 rows instead of 4. Min 96px so labels
      like "PRESENCE" / "RESONANCE" / "FEEDBACK" don't truncate at the
-     mono-cap rendering size.
-     row-gap MUST be ≥36px because .knob-label and .knob-value are
-     absolutely positioned below the knob's bounding box (+8px and
-     +22px respectively) — anything tighter and the next row's knob
-     crashes into the previous row's label. Matches the live recipe
-     page's 40px row-gap, just with column-gap dropped to 12 to fit
-     more knobs per row. */
+     mono-cap rendering size. .knob is now self-contained, so 12px
+     row-gap is enough breathing room. */
   grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
-  row-gap: 36px;
+  row-gap: 12px;
   column-gap: 12px;
 }
 .print-mode .print-block-card .block-hfaders {

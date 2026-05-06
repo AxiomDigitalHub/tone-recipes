@@ -173,6 +173,7 @@ export default function PreviewKnob({
       aria-valuemin={min}
       aria-valuemax={max}
     >
+      <div className="knob-rotor">
       <div className="knob-ticks">
         <svg viewBox="0 0 100 100" aria-hidden="true">
           {ticks.map((t) => (
@@ -202,6 +203,7 @@ export default function PreviewKnob({
       </div>
       <div className="knob-dial">
         <div className="knob-indicator" />
+      </div>
       </div>
       {label && <div className="knob-label">{label}</div>}
       <div className="knob-value">
