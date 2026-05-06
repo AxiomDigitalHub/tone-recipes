@@ -5,15 +5,15 @@ import Link from "next/link";
 import { useAuth } from "@/lib/auth/auth-context";
 import { isSupabaseConfigured } from "@/lib/db/client";
 import { getUserGear } from "@/lib/db/profile";
+import { matchesUserGear } from "@/lib/gear-match";
 
 /**
  * Recipe-page compatibility check.
  *
  * Reads the viewer's My Rig (Supabase user_gear when signed-in, localStorage
  * fallback for anon — same store key as /dashboard/my-gear) and reports
- * "X/N blocks match your rig" against the recipe's signal_chain. Matches
- * by normalized-token overlap on gear_name; user_gear doesn't reliably
- * carry gear_id today, so name fuzzy match is the only join available.
+ * "X/N blocks match your rig" against the recipe's signal_chain. Match
+ * helpers live in @/lib/gear-match (shared with BrowseRigFilter).
  */
 
 interface SignalChainBlock {
@@ -43,46 +43,6 @@ function loadFromStorage(): LocalGear[] {
   } catch {
     return [];
   }
-}
-
-function normalize(s: string): string {
-  return s
-    .toLowerCase()
-    .replace(/[^a-z0-9 ]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-const STOPWORDS = new Set([
-  "the", "and", "for", "with", "guitar", "pedal", "amp", "cab", "cabinet",
-  "channel", "model", "style", "edition", "version", "vintage",
-]);
-
-function tokens(s: string): Set<string> {
-  return new Set(
-    normalize(s)
-      .split(" ")
-      .filter((t) => t.length >= 3 && !STOPWORDS.has(t)),
-  );
-}
-
-function matchesUserGear(
-  blockName: string,
-  userGearNames: string[],
-): string | null {
-  const blockTokens = tokens(blockName);
-  if (blockTokens.size === 0) return null;
-  for (const u of userGearNames) {
-    const uTokens = tokens(u);
-    if (uTokens.size === 0) continue;
-    let overlap = 0;
-    for (const t of uTokens) if (blockTokens.has(t)) overlap++;
-    // Short names (1-2 meaningful tokens) match on a single token; longer
-    // ones need 2 to avoid false positives like "amp" matching everything.
-    const minOverlap = blockTokens.size <= 2 || uTokens.size <= 2 ? 1 : 2;
-    if (overlap >= minOverlap) return u;
-  }
-  return null;
 }
 
 export default function RecipeCompatibility({ signalChain }: Props) {

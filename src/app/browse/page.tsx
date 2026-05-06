@@ -9,6 +9,8 @@ import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { getAllPlatforms } from "@/lib/data/platforms";
 import type { Platform } from "@/types/recipe";
+import { buildRigTokens } from "@/lib/gear-match";
+import BrowseRigFilter from "@/components/browse/BrowseRigFilter";
 
 export const metadata: Metadata = {
   title: "Browse Tones — Fader & Knob",
@@ -182,6 +184,8 @@ export default async function PreviewBrowse({
               </div>
             )}
 
+            <BrowseRigFilter />
+
             <div className="browse-filter-group">
               <h3 className="browse-filter-label">Era</h3>
               <ul className="browse-filter-list">
@@ -310,11 +314,13 @@ export default async function PreviewBrowse({
                   const rIdx =
                     toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
                   const rBlocks = recipeToBlocks(r, "helix");
+                  const rigTokens = buildRigTokens(r.signal_chain);
                   return (
                     <Link
                       key={r.slug}
                       href={`/recipe/${r.slug}`}
                       className="audition-card"
+                      data-rig-tokens={rigTokens}
                     >
                       <div className="audition-art">
                         <LpArt

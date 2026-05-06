@@ -14,6 +14,7 @@ import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
 import RecipePdfButton from "@/components/v3/RecipePdfButton";
 import RecipeDownloadChip from "@/components/v3/RecipeDownloadChip";
 import RecipeCompatibility from "@/components/recipe/RecipeCompatibility";
+import RecipeInteractions from "./RecipeInteractions";
 import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
 import { recipeJsonLdSet } from "@/lib/seo/jsonld";
 import type { Metadata } from "next";
@@ -417,6 +418,10 @@ export default async function PreviewRecipePage({
             </ul>
           </div>
         )}
+
+        {/* Ratings + comments — recipe_ratings + comments tables.
+            Auth-gated post; anon users see read-only with sign-in CTA. */}
+        <RecipeInteractions recipeSlug={recipe.slug} />
 
         {/* Related Field Notes — pulls from the blog when there's a
             keyword/tag overlap (gear, artist, song). */}
