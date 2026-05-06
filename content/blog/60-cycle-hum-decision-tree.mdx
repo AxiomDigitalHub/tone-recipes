@@ -1,0 +1,176 @@
+---
+title: 'The 60-Cycle Hum Decision Tree: A One-Page Diagnostic'
+description: >-
+  Hum is a frequency-spectrum problem. 60 Hz is power; 120 Hz is rectifier; 720
+  Hz buzz is dimmer interference. Here's a decision tree that maps the symptom
+  to the right $30-$300 fix without buying a balanced power supply you don't
+  need.
+date: '2026-05-05'
+author: Dev Okonkwo
+author_slug: dev-okonkwo
+category: quick-fixes
+tags:
+  - hum
+  - ground-loop
+  - troubleshooting
+  - noise-floor
+  - bedroom-rig
+  - direct-recording
+readingTime: 8
+image: /images/blog/60-cycle-hum-decision-tree.jpg
+image_alt: >-
+  a composition illustrating a 60-cycle hum diagnostic with cables, a Hum X
+  isolator, and an audio interface on a bedroom-producer desk
+---
+
+> **Quick read:** Hum has a fundamental frequency, and that frequency tells you which fix to buy. Pure 60 Hz is a magnetic field induced into your single-coil pickups — humbucker mode or repositioning fixes it for free. 120 Hz with a slight buzz on top is a power-line ground loop — a $30 Ebtech Hum X solves it. 60 Hz that gets louder when you touch the strings is a missing chassis ground — check the third pin on your power cord. Buzzy 720 Hz that wasn't there yesterday is a new dimmer switch in the room — unplug it. The expensive boxes (Furman P-2400 IT, Equi=Tech ET2R, Radial Twin-Iso) only solve a narrow set of problems and most home players don't have those problems. The diagnostic flow below identifies which box you actually need before you spend $400 on the wrong one.
+
+## Step 1: Listen to the Hum and Identify the Frequency
+
+Pick up your guitar, plug into your rig at normal playing volume, and hold a sustain note. Then mute the strings completely and listen to what's left.
+
+The pitch of the hum tells you almost everything.
+
+| What You Hear | Fundamental Frequency | What It Is |
+|---|---|---|
+| A low, smooth hum (close to a low B on the guitar) | 60 Hz | Magnetic induction into pickups OR floating ground |
+| A buzzier, slightly higher hum (close to a low B above the first) | 120 Hz | Rectified DC ripple OR ground loop |
+| A buzzy, high-pitched warble | 180-720 Hz | Dimmer switch, fluorescent ballast, or LED driver |
+| Hum that gets quieter when you touch the strings | 60 Hz | Pickup induction — your body is shielding |
+| Hum that gets LOUDER when you touch the strings | 60 Hz | Missing chassis ground on the amp |
+| White-noise hiss with no fundamental pitch | Broadband | Gain staging, not a hum problem |
+
+If you can't identify the pitch by ear, record 5 seconds of the hum into your DAW and look at the frequency spectrum. The fundamental peak will be at one of these specific frequencies. There is no ambiguity in the data.
+
+## Step 2: Use the Decision Tree
+
+The fix depends entirely on what frequency the hum is at. Don't skip steps.
+
+### If You Hear 60 Hz That Goes Away When You Touch the Strings
+
+This is **magnetic induction** into your pickups. Your single-coil pickups are picking up the 60 Hz field from your computer monitor, your wall transformer, your interface, or the building wiring in the wall behind you.
+
+**Fix in this order:**
+
+1. **Rotate the guitar 90 degrees and listen.** Single-coil pickups are directional — the hum changes amplitude as you point the pickup in different directions. Find the orientation where the hum is quietest. That is now your tracking position.
+2. **Move 6 feet from your monitor and interface.** The induction field falls off with the cube of distance, so 6 feet away from the screen is roughly 1/200th the field strength of being right next to it. This is free.
+3. **Switch to the middle pickup position on a Strat (positions 2 or 4).** These are hum-canceling because the two coils are wound in opposite polarity. The bridge and neck pickups alone are not.
+4. **If you have humbuckers, the hum should already be near-zero.** If it's not, your humbuckers are either mismatched or improperly grounded. Check the wiring.
+5. **Last resort:** Replace single-coils with stacked humbuckers (Suhr Silent Single Coil, Fender Vintage Noiseless, Kinman Avn). The voicing is different from true single-coils but the hum is gone.
+
+**Don't buy:** A power conditioner, a Hum X, or any expensive box. Pickup induction is a guitar-side problem and no power-side product solves it.
+
+### If You Hear 60 Hz That Gets LOUDER When You Touch the Strings
+
+This is **floating ground** — your amp or your guitar's bridge is not connected to mains earth. Touching the strings makes you the antenna, and the hum increases because you're now a direct path to ground that doesn't exist on the chassis.
+
+**Fix in this order:**
+
+1. **Check the third pin on the amp's power cord.** If it's a two-prong plug or you have a ground-lift switch on the back, that's the entire problem. Plug into a three-prong outlet with the ground intact, switch off any ground lift, and the hum disappears.
+2. **Test in another outlet.** If your apartment outlet has a broken ground (not uncommon in older buildings), the third pin is connected to nothing. Plug the rig into a known-good outlet and listen.
+3. **Verify the guitar's bridge ground is intact.** A bridge ground wire runs from a cavity inside the body to the bridge claw or trem block. If this wire has broken, the strings are floating and you become the antenna. A multimeter check from the bridge to the output jack sleeve confirms the connection.
+
+**Don't buy:** A power conditioner. The fix is to restore ground continuity, not to filter the power.
+
+### If You Hear 120 Hz That's Always There Regardless of Touching Strings
+
+This is **a power-line ground loop**. Two devices in your rig are connected to mains earth at different potentials, and the difference between them is leaking 120 Hz (the rectified mains frequency) into the audio signal path.
+
+**Fix in this order:**
+
+1. **Identify the loop.** Unplug everything except the amp. Listen — if the 120 Hz is gone, the loop was between two devices. Add devices back one at a time until the hum returns. The last device you added is one end of the loop.
+2. **Buy a $30 Ebtech Hum X.** Plug the offending device's power cord into the Hum X, plug the Hum X into the wall. The Hum X breaks the ground loop without disconnecting safety ground. This is the right fix for 95% of home recording ground loops.
+3. **For a signal-line ground loop** (where the loop is in the audio cable rather than the power cable), use a Radial Twin-Iso or any transformer-isolated DI on the audio path between the two devices. This is less common but happens with multi-amp rigs and stereo modeler setups.
+4. **Don't lift the safety ground at the wall.** Cheater plugs work but they violate the safety code and create a real shock hazard. The Hum X is $30 and does the same thing safely.
+
+**Don't buy:** A balanced power supply (Furman P-2400 IT, Equi=Tech ET2R) for a single ground loop. Balanced power addresses a different problem and is overkill for the loop fix.
+
+### If You Hear Buzzy High-Pitched Warble (180 Hz and Above)
+
+This is **switching noise from a dimmer, an LED driver, or a fluorescent ballast** in the room or on the same circuit. The fundamental will be 180 Hz (third harmonic of 60), 360 Hz, or higher, with a harsh buzzy character that's distinct from the smooth hum of true 60 Hz.
+
+**Fix in this order:**
+
+1. **Unplug every dimmer switch in the room.** Most modern LED dimmers use phase-cut PWM that injects high-frequency harmonics into the power line. Even a dimmer two rooms away on the same circuit can cause it. Unplug or set to full-bright.
+2. **Turn off LED bulbs.** Cheap LED bulbs have terrible power-supply filtering and dump switching noise into the line. Try with all LEDs off.
+3. **Move to a different circuit.** Plug your rig into an outlet on a different breaker if possible. Bedroom outlets often share a circuit with overhead lighting; kitchen and bath outlets are usually on dedicated circuits and have less interference.
+4. **If you can't fix the source, buy a Furman SS-6B or PL-8C.** These are low-cost line conditioners with EMI filtering — they don't fix true ground loops but they do filter the high-frequency switching noise that LED drivers produce.
+
+**Don't buy:** Balanced power for dimmer noise. Most balanced power supplies don't filter switching noise effectively because the noise is common-mode and the balanced supply is differential.
+
+### If You Hear Broadband Hiss With No Fundamental Pitch
+
+This isn't hum — it's **noise floor**. Your gain structure is the problem.
+
+**Fix in this order:**
+
+1. **Lower your input gain stages and raise your output stages.** A high-gain modeler preset with input gain at 90% and master at 30% is a noisy preset. Try input at 30% and master at 90% — same SPL, much less noise.
+2. **Add a noise gate at the front of the chain.** A Fortin Zuul+ or any modeler's built-in noise gate, set with a fast attack and a threshold just above the noise floor.
+3. **Check your interface's input gain.** Audio interfaces have their own input stages, and over-driving them adds hiss. Set the interface gain so that the loudest peak hits -12 dBFS, not 0.
+
+**Don't buy:** Any hum-fixing product. Hiss is not hum.
+
+## When to Actually Buy the Expensive Boxes
+
+The expensive products in this category only solve narrow problems. If you've gone through the decision tree above and your hum is gone, you don't need any of these.
+
+**Furman P-2400 IT (~$2,000):** Balanced power isolation transformer. Buy this if you're a touring guitarist with a complex stereo rig, a hybrid tube/digital setup, and recurring ground loops at venues with bad electrical infrastructure. Don't buy it for a home rig. It is overkill and the cheaper fixes solve the home use case.
+
+**Equi=Tech ET2R (~$1,800):** Same category as the Furman, slightly different topology. Same use case. Same "don't buy this for home" advice.
+
+**Radial Twin-Iso (~$240):** Two-channel transformer-isolated DI. Buy this if you have a stereo signal-line ground loop between two devices that share a power source — typically a stereo modeler going into a stereo interface. The Hum X doesn't fix signal-line loops; the Twin-Iso does.
+
+**Ebtech ELQ ($120):** Two-channel hum eliminator with EQ that lets you tune out specific frequencies. Buy this if you have stereo signal-line hum AND you need the EQ to dial out a specific frequency from a problem source (vintage pickup, transformer DI with a known resonance).
+
+**Furman SS-6B (~$60):** Six-outlet power strip with EMI filter and surge protection. Buy this for the EMI filtering when dimmer/LED noise is in your room. It's the cheapest entry point into the line-conditioning category.
+
+## What I Run on My Own Bedroom Rig
+
+For context: I record into a Focusrite Scarlett 4i4 from a Squier Strat with single-coils and a Player Jazzmaster, all into Ableton with Neural DSP plugins. No amp in the room.
+
+The hum I had to fix when I set up: 60 Hz pickup induction from being too close to my monitor. Fix: I moved my desk so the monitor is 4 feet from the guitar position, and I track on the middle Strat position when I want zero hum. Free.
+
+The hum I never had: 120 Hz ground loops. Everything in my rig is on the same power strip, which is a sneaky way to avoid loops because all the devices are at the same ground potential by definition. The loop only forms when devices are on different circuits or different outlets.
+
+The hum I have to fight when I track at 1 AM: dimmer noise from a smart-bulb LED in my desk lamp. Fix: I turn the lamp off when I'm tracking and use the screen glow.
+
+Total spent on hum-fixing products: $0. The diagnostic flow is the work; the products only solve the problems that the diagnostic flow actually identifies.
+
+For a deeper look at the cheap-fix tier and the products in the sub-$300 category, our [Hum X vs. Twin-Iso vs. ELQ comparison](/blog/hum-x-vs-radial-twin-iso-vs-ebtech-elq) walks through the three products head-to-head with use cases for each. For the touring-rig tier, our [balanced power guide](/blog/balanced-power-guitar-rigs-furman-equitech) covers when balanced power is the right call and when it's overspending.
+
+## The Single Best Tool for Diagnosing Hum
+
+A spectrum analyzer in your DAW. Voxengo SPAN is free and runs in any DAW. Drop it on the master bus, record 5 seconds of the hum, and look at the spectrum. The peak frequencies tell you exactly what kind of noise you have.
+
+60 Hz with no harmonics = pickup induction.
+60 Hz with strong odd harmonics (180, 300, 420 Hz) = chassis ground problem.
+120 Hz with strong even harmonics = ground loop.
+180 Hz and 360 Hz = dimmer or LED switching noise.
+Broadband flat noise = gain staging.
+
+The decision tree above is a faster shortcut, but if you ever can't identify the hum by ear, the spectrum analyzer is the truth. It removes the guesswork from a problem that most players solve by buying boxes until something works.
+
+<FAQ questions={[
+  {
+    q: "I bought a Hum X and the hum is still there. What did I get wrong?",
+    a: "Most likely the hum wasn't a power-line ground loop in the first place. The Hum X only fixes 120 Hz ground loops between devices on AC mains. If your hum is 60 Hz pickup induction, dimmer noise, or broadband hiss, the Hum X does nothing. Run the decision tree again from step 1 and identify what frequency the hum actually is — the box that fixes it depends on the answer."
+  },
+  {
+    q: "Is balanced power worth it for a home recording rig?",
+    a: "Almost never. Balanced power addresses a specific problem (common-mode noise on the AC mains) that mostly affects touring rigs in venues with shared electrical infrastructure. A home rig that has a clean ground loop fixed with a $30 Hum X has solved 95% of the same problem at 1% of the cost. If you're considering a $2,000 balanced power supply for a home setup, run the decision tree first — there's almost certainly a cheaper fix."
+  },
+  {
+    q: "Why does my modeler hum when I plug it into my interface?",
+    a: "Usually a 120 Hz ground loop between the modeler's power supply and the interface's USB ground. The fix depends on the loop type: if both devices share the same power strip and outlet, the loop is in the signal cable — use a Radial Twin-Iso or a transformer DI on the cable between them. If they're on different outlets, plug the modeler into a Hum X. The signal-cable loop is the more common case for compact rigs."
+  },
+  {
+    q: "My hum is louder during the day and quieter at night. What's that about?",
+    a: "Building electrical load. During the day, more equipment is running on the building's circuits, which loads the transformer differently and changes the noise floor. The fix is the same as for any 120 Hz ground loop — Hum X on the offending device. The day/night variation just confirms the noise is power-line related rather than pickup-induction or RF interference."
+  },
+  {
+    q: "Will a noise gate fix hum or just hide it?",
+    a: "A noise gate hides hum during silence between notes but doesn't address the source. If the hum is loud enough to be audible while you're playing — between notes, during quiet passages, on sustained notes — the gate won't help. Fix the hum at the source first using the decision tree, then add a gate only if you need to clean up the residual noise floor for high-gain playing."
+  }
+]} />
+
+<SaveThisTone title="Quiet bedroom-rig presets" description="Our preset library includes Helix, Quad Cortex, and Neural DSP plugin presets dialed for low-noise direct recording — proper gain staging, no input over-drive, and noise gates set just above the typical bedroom noise floor." href="/recipes/bedroom-rig-low-noise-presets" ctaLabel="Get the low-noise preset bundle" />

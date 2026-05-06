@@ -10391,6 +10391,18 @@ export const toneRecipes: ToneRecipe[] = [
         settings: {},
         notes: "The Twin's built-in 2x12 speakers provide wide, full clean tone.",
       },
+      {
+        position: 3,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, slightly off-axis" },
+        notes: "SM57 close to the cone, off-axis to keep the Telecaster's bridge bite from going harsh. Standard rock-rhythm placement on a Twin.",
+      },
     ],
     original_gear: {
       guitar: "Fender Telecaster ('Micawber'), open-G tuning, 5 strings, bridge pickup",
@@ -10402,7 +10414,9 @@ export const toneRecipes: ToneRecipe[] = [
         "The open-G tuning is the secret to Richards' huge, ringing chord voicings. With only 5 strings and an open tuning, simple barre shapes produce full, resonant chords. Richards' rhythmic timing and feel are as important as any gear choice.",
     },
     tags: ["rock", "classic-rock", "rhythm", "open-tuning", "rolling-stones"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/keith-richards",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -10452,6 +10466,14 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compressor (light)",
+            settings: { Threshold: -28, Ratio: 2, Attack: 0.06, Release: 0.5, Mix: 0.6, Level: 0 },
+            notes: "Light parallel compression evens out the strummed-rhythm dynamics so the open-G chords sit consistent in the mix. Mix 0.6 keeps the Telecaster's pick attack intact.",
+          },
+          {
+            position: 2,
             block_name: "US DLX 64",
             block_category: "Amp",
             original_gear: "Fender Twin Reverb",
@@ -10463,19 +10485,27 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 6.0,
               Master: 6.0,
             },
-            notes: "Clean with edge-of-breakup dynamics.",
+            notes: "Clean with edge-of-breakup dynamics. Treble pushed for the Telecaster's bridge-pickup jangle; Bass pulled back to 4 so the open-G low strings don't go boomy.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "2x12 Twin",
             block_category: "Cab",
             original_gear: "Twin 2x12",
-            settings: { Mic: "SM57", Distance: "2 inches" },
-            notes: "Twin cab for wide, full tone.",
+            settings: { Mic: "SM57", Distance: "2 inches", LowCut: 80, HighCut: 14000 },
+            notes: "Twin cab for wide, full tone. SM57 close to the cone — captures the bite without going harsh.",
+          },
+          {
+            position: 4,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb onboard tank",
+            settings: { Decay: 2.0, Predelay: 20, Mix: 0.18, Level: 0 },
+            notes: "The Twin Reverb's onboard tank — Richards had it set subtle on the recording. Mix 0.18 mirrors the studio amount; never washy.",
           },
         ],
         notes:
-          "Open-G tuning is essential. The gear is secondary to the tuning and Richards' rhythmic feel.",
+          "Open-G tuning is essential. The gear is secondary to the tuning and Richards' rhythmic feel. Light comp + spring reverb finish the chain with the studio glue.",
       },
       tonex: {
         chain_blocks: [
@@ -10487,6 +10517,14 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Booster",
+            original_gear: "Studio compressor (light)",
+            settings: { Sustain: 4, Attack: 6, Level: 6 },
+            notes: "Booster slot set to Compressor in Boss Tone Studio. Light squash so the open-G strums sit even — Sustain 4 is gentle. Optional; bypass if you want maximum dynamics.",
+          },
+          {
+            position: 2,
             block_name: "Clean",
             block_category: "Amp Type",
             original_gear: "Fender Twin Reverb",
@@ -10498,16 +10536,32 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 6,
               Volume: 6,
             },
-            notes: "Clean channel with pushed treble for Telecaster jangle. Slight breakup when you dig in.",
+            notes: "Clean channel with pushed treble for Telecaster jangle. Slight breakup when you dig in. Bass pulled back to 4 so the open-G low strings stay tight.",
+          },
+          {
+            position: 3,
+            block_name: "Spring",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb onboard tank",
+            settings: { Time: 4, PreDelay: 20, Tone: 5, EffectLevel: 3 },
+            notes: "Spring reverb in the REV slot mirrors the Twin Reverb's onboard tank. Effect Level 3 keeps it subtle — Richards' studio amount, not a live-stage soak.",
           },
         ],
         notes:
-          "The Katana's Clean channel at moderate volume nails the Richards rhythm sound. Open-G tuning and a Telecaster are more important than amp settings.",
+          "The Katana's Clean channel at moderate volume nails the Richards rhythm sound. Compressor in the Booster slot for studio-tight dynamics; spring reverb mirrors the Twin's onboard tank. Open-G tuning and a Telecaster are more important than amp settings.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Studio Compressor",
+            block_category: "Stomp",
+            original_gear: "Studio compressor (light)",
+            settings: { Threshold: -28, Ratio: 2, Attack: 0.06, Release: 0.5, Mix: 0.6 },
+            notes: "Slot A. Light parallel compression evens out strummed-rhythm dynamics. Mix 0.6 keeps the Telecaster's bridge-bite intact. Optional — bypass for maximum dynamic feel.",
+          },
+          {
+            position: 2,
             block_name: "Search Rig Exchange for 'Twin Reverb'",
             block_category: "Profile",
             original_gear: "Fender Twin Reverb",
@@ -10518,18 +10572,28 @@ export const toneRecipes: ToneRecipe[] = [
               Treble: 7.0,
             },
             notes:
-              "Search Rig Exchange for clean Twin Reverb profiles with edge-of-breakup settings. With Liquid Profiling, select the Fender Twin tone stack.",
+              "Search Rig Exchange for clean Twin Reverb profiles with edge-of-breakup settings. With Liquid Profiling, select the Fender Twin tone stack. Treble pushed for the Telecaster's jangle; Bass pulled back so the open-G low strings stay tight.",
+          },
+          {
+            position: 3,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb onboard tank",
+            settings: { Decay: 2.0, Predelay: 20, Mix: 0.18 },
+            notes:
+              "REV slot. Subtle spring at Mix 0.18 mirrors the Twin's onboard tank — Richards' studio amount on the original recording.",
           },
         ],
         notes:
-          "Kemper profiles include the cab. The key to this tone is open-G tuning, not the gear. Tune to D-G-D-G-B-D and remove the low E string for authentic Richards riffing.",
+          "Kemper profiles include the cab. Light comp in front, clean Twin profile, subtle spring at the end. The key to this tone is open-G tuning, not the gear. Tune to D-G-D-G-B-D and remove the low E string for authentic Richards riffing.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Double Verb", block_category: "Amp", original_gear: "Fender Twin Reverb", settings: { Drive: 4.0, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 6.0, }, notes: "Twin Reverb at moderate volume for clean with edge-of-breakup dynamics. Push the treble for Telecaster brightness." },
-          { position: 2, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Twin 2x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "The Twin's 2x12 cab for full, wide clean tone." },
+          { position: 1, block_name: "Double Verb", block_category: "Amp", original_gear: "Fender Twin Reverb", settings: { Drive: 4.0, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 6.0 }, notes: "Twin Reverb at moderate volume for clean with edge-of-breakup dynamics. Push the treble for Telecaster brightness; Bass pulled back so the open-G low strings stay tight." },
+          { position: 2, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Twin 2x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "The Twin's 2x12 cab for full, wide clean tone. SM57 close to the cone." },
+          { position: 3, block_name: "Spring 63", block_category: "Reverb", original_gear: "Twin Reverb onboard tank", settings: { Mix: 0.18, Decay: 0.4, Predelay: 20 }, notes: "Spring 63 reverb at Mix 0.18 mirrors the Twin's onboard tank. Subtle — Richards' studio amount, not a live-stage soak." },
         ],
-        notes: "Twin Reverb at moderate volume for clean with edge-of-breakup dynamics. Push the treble for Telecaster brightness.",
+        notes: "Twin Reverb at moderate volume for clean with edge-of-breakup dynamics. Spring reverb at the end mirrors the Twin's onboard tank.",
       },
     },
     is_editorial: true,
@@ -10854,7 +10918,7 @@ export const toneRecipes: ToneRecipe[] = [
     title: "Dimebag Darrell's Walk Groove Metal Tone",
     slug: "dimebag-walk-groove-metal",
     description:
-      "Dimebag Darrell's tone on Walk is one of the tightest, most aggressive rhythm sounds in metal history — and the rig is unconventional. The album was recorded at Pantego Sound Studio in 1991 with producer Terry Date. Dime's Dean ML 'Dean From Hell' (with a Bill Lawrence L-500XL bridge pickup, NOT the later Seymour Duncan Dimebucker) ran into a SOLID-STATE Randall RG100ES through a Randall 4x12 with Celestion G12T-75 speakers. The solid-state Randall is the secret weapon: where a tube amp compresses transients, the Randall delivers every pick attack with surgical precision. Half the tone is the amp; the other half is the MXR Six-Band Graphic EQ in front of it — boosted lows and highs with the mids scooped flat — creating the V-curve that defines groove metal.",
+      "One of the tightest, most aggressive rhythm sounds in metal history. The rig is unconventional: a Dean ML 'Dean From Hell' into a SOLID-STATE Randall RG100ES through a Randall 4x12 with Celestion G12T-75s. The solid-state Randall is the secret weapon — where a tube amp compresses transients, the Randall delivers every pick attack with surgical precision. Half the tone is the amp; the other half is the MXR Six-Band Graphic EQ in front of it, scooping the mids flat to create the V-curve that defines groove metal.",
     tone_context: "full_song",
     guitar_specs: {
       body_type: "solid",
@@ -10942,7 +11006,9 @@ export const toneRecipes: ToneRecipe[] = [
         "The solid-state Randall is the secret weapon. Tube amps compress transients; the RG100ES delivers every pick stroke with full attack. The MXR 6-Band EQ in front sculpts the V-curve before the amp's distortion stage. Dime's right hand, pinch harmonics, and Floyd Rose work are inseparable from the gear.",
     },
     tags: ["groove-metal", "metal", "high-gain", "scooped", "pantera", "dimebag"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/dimebag-darrell",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -11103,9 +11169,18 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Noise Gate",
+            block_category: "Booster",
+            original_gear: "MXR Smart Gate / studio noise gate",
+            settings: { Threshold: 6, Release: 5 },
+            notes:
+              "Booster slot set to Noise Gate in Boss Tone Studio. Essential at the gain levels Dime ran — silences hum and pickup chatter between palm-muted chugs without choking the sustain. Threshold 6 is moderately aggressive; bump higher if your guitar has noisy pickups.",
+          },
+          {
+            position: 2,
             block_name: "Lead",
             block_category: "Amp Type",
-            original_gear: "Randall Century 200",
+            original_gear: "Randall RG100ES (solid-state)",
             settings: {
               Gain: 9,
               Bass: 7,
@@ -11115,19 +11190,19 @@ export const toneRecipes: ToneRecipe[] = [
               Volume: 7,
             },
             notes:
-              "The Lead channel cranked with heavily scooped mids approximates the tight Randall tone. Push the gain high for groove metal saturation.",
+              "The Lead channel cranked with heavily scooped mids approximates the tight, transient-preserving Randall solid-state tone. Push the gain high for groove metal saturation. Mids at 2 — the V-curve scoop is non-negotiable.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Graphic EQ",
             block_category: "FX",
             original_gear: "MXR 6-Band EQ",
             settings: { "Low": "+6dB", "Mid": "-8dB", "High": "+6dB" },
-            notes: "Use the Katana's parametric or graphic EQ in Boss Tone Studio for the V-curve scoop.",
+            notes: "Use the Katana's parametric or graphic EQ in Boss Tone Studio for the V-curve scoop. Stack with the amp's mid-scoop for the most aggressive Dime-style frequency shape.",
           },
         ],
         notes:
-          "Tune to D standard. The Katana's Lead channel with extreme mid-scoop and cranked gain delivers a convincing Dimebag tone. Use the graphic EQ in Tone Studio for precise frequency shaping.",
+          "Tune to D standard tuned 1/4-step flat. The Katana's Lead channel with cranked gain + double mid-scoop (amp + GEQ) delivers a convincing Dimebag tone. Noise gate in front is essential — Dime's stage rig had aggressive gating to keep the chugs surgical.",
       },
       kemper: {
         chain_blocks: [
