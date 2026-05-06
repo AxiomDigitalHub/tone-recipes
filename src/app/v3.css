@@ -6970,20 +6970,22 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--ink);
+  background: var(--tape-2);
   color: var(--paper);
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   padding: 12px 18px;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--tape-2);
   text-decoration: none;
   box-shadow: 0 6px 18px rgba(10, 9, 8, 0.18);
-  transition: transform 140ms ease;
+  transition: transform 140ms ease, background-color 140ms ease;
 }
 .fk-preview .recipe-dl-chip-btn:hover {
   transform: translateY(-1px);
+  background: var(--tape);
+  border-color: var(--tape);
 }
 @media (max-width: 720px) {
   .fk-preview .recipe-dl-chip {
@@ -6996,6 +6998,98 @@
     justify-content: center;
     padding: 14px 18px;
   }
+}
+
+/* ═══ Recipe feedback (ratings + comments) ═══════════════════════════════
+   RecipeInteractions ships with Tailwind utility classes targeting the
+   global dark theme (.bg-surface, .text-foreground, .bg-accent…). When
+   nested in the cream/paper recipe page those utilities read as a dark
+   island. Translate them to v3 paper tokens scoped to the wrapper.
+   ─────────────────────────────────────────────────────────────────── */
+.fk-preview .recipe-feedback {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--paper-line);
+}
+.fk-preview .recipe-feedback h2 {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 26px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+}
+.fk-preview .recipe-feedback h3 {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+.fk-preview .recipe-feedback .bg-surface {
+  background: var(--paper-2);
+}
+.fk-preview .recipe-feedback .bg-surface-hover,
+.fk-preview .recipe-feedback .hover\:bg-surface-hover:hover {
+  background: var(--paper-2);
+}
+.fk-preview .recipe-feedback .border-border {
+  border-color: var(--paper-line);
+}
+.fk-preview .recipe-feedback .text-foreground,
+.fk-preview .recipe-feedback .hover\:text-foreground:hover {
+  color: var(--ink);
+}
+.fk-preview .recipe-feedback .text-muted,
+.fk-preview .recipe-feedback .placeholder\:text-muted::placeholder {
+  color: var(--ink-muted);
+}
+/* Big rating number — keep it warm, but use the v3 amber, not Tailwind */
+.fk-preview .recipe-feedback .text-accent {
+  color: var(--amber-2);
+}
+.fk-preview .recipe-feedback a.text-accent:hover {
+  color: var(--ink);
+}
+/* Submit button: ink on paper, paper text — high contrast CTA */
+.fk-preview .recipe-feedback button.bg-accent,
+.fk-preview .recipe-feedback button[class*="bg-accent"] {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 0;
+}
+.fk-preview .recipe-feedback button.bg-accent:hover,
+.fk-preview .recipe-feedback button[class*="bg-accent"]:hover {
+  background: var(--ink-2);
+}
+.fk-preview .recipe-feedback .text-background {
+  color: var(--paper);
+}
+/* Distribution-bar track + fill */
+.fk-preview .recipe-feedback .bg-border {
+  background: var(--paper-line);
+}
+.fk-preview .recipe-feedback .h-full.bg-accent {
+  background: var(--amber-2);
+}
+/* Comment textarea: paper bg, ink text, hairline border */
+.fk-preview .recipe-feedback textarea {
+  background: var(--paper);
+  border-color: var(--paper-line);
+  color: var(--ink);
+}
+.fk-preview .recipe-feedback textarea::placeholder {
+  color: var(--ink-faint);
+}
+.fk-preview .recipe-feedback textarea:focus,
+.fk-preview .recipe-feedback textarea.focus\:border-accent:focus {
+  border-color: var(--ink);
+  outline: none;
+  box-shadow: 0 0 0 1px var(--ink);
+}
+/* Sign-in / empty-state callouts inside the comments block */
+.fk-preview .recipe-feedback .rounded-lg {
+  border-radius: 0;
 }
 
 /* PDF email-gate modal */

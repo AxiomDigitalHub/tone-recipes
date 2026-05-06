@@ -59,7 +59,7 @@ export default function RecipeInteractions({ recipeSlug }: RecipeInteractionsPro
   };
 
   return (
-    <div className="mt-12 space-y-10">
+    <div className="recipe-feedback mt-12 space-y-10">
       {/* Rating section */}
       <section>
         <h2 className="mb-4 text-xl font-bold">Rate This Tone</h2>
