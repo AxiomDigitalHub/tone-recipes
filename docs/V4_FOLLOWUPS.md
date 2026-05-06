@@ -104,8 +104,26 @@
 
 ### 0. Recipe rewrite — apply the spec to the catalogue
 
-**This is the biggest open item.** The audit system is in place, the
-manifest exists; the work is rewriting the 36 recipes that fail.
+**Batch 1 shipped (2026-05-06).** Six recipes moved from with-errors
+to warn-only / clean: Auerbach Lonely Boy, Page Stairway to Heaven,
+Richards Start Me Up, Dimebag Walk, Angus Back in Black, Hetfield
+Enter Sandman. Audit progressed from 6 clean / 10 warn-only / 34
+with-errors → 6 clean / 16 warn-only / 28 with-errors.
+
+**Templates established for future batches.** The fix pattern is the
+same across most thin-chain failures:
+- Add Studio Comp / Compressor at the front (parallel, Mix ~0.6) for
+  studio-context dynamics
+- Add a default-OFF booster on Katana / Kemper for FRFR rigs (the
+  original gear had no pedals)
+- Add a subtle reverb at the end (Spring or Plate at Mix 0.15-0.20)
+  mirroring the room/tank on the original recording
+- For high-gain metal: replace the comp/booster with a Noise Gate
+  (essential for clean chugs)
+- Add a source URL (equipboard.com is the standard pattern)
+
+**Still 28 recipes with errors.** The audit script is the manifest:
+`npx tsx scripts/audit-recipes.ts` shows the per-recipe failure list.
 
 **Read first:** `docs/RECIPE_STANDARD.md` (the spec) +
 `docs/RECIPE_AUDIT_REPORT.md` (the manifest). Re-run
