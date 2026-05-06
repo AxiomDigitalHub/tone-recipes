@@ -11399,8 +11399,8 @@ export const toneRecipes: ToneRecipe[] = [
     title: "Stairway to Heaven Clean Build Tone",
     slug: "page-stairway-to-heaven-clean-build",
     description:
-      "The arpeggiated intro to Stairway to Heaven uses a Telecaster through a small Supro amp for a warm, clean tone with subtle compression. As the song builds, the tone gradually shifts from clean fingerpicking to heavier strumming. The famous solo section uses a Les Paul through a cranked Marshall for a completely different character -- singing sustain with aggressive attack.",
-    tone_context: "intro_clean",
+      "The arpeggiated intro to Stairway to Heaven uses a Telecaster through a small Supro amp for a warm, clean tone with subtle compression. As the song builds, the tone gradually shifts from clean fingerpicking to heavier strumming. The famous solo section uses a Les Paul through a cranked Marshall for a completely different character — singing sustain with aggressive attack.",
+    tone_context: "intro",
     guitar_specs: {
       body_type: "solid",
       model_name: "Fender Telecaster (1959)",
@@ -11459,7 +11459,9 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "The intro was recorded on the Telecaster through the Supro. The solo was a Les Paul through a Marshall. Two completely different tones in one song.",
     },
     tags: ["classic-rock", "clean", "arpeggios", "dynamic", "led-zeppelin", "build"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/jimmy-page",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -11472,8 +11474,10 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Search Cortex Cloud for 'Supro' capture", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Gain: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, Master: 5.0 }, notes: "Low-gain Supro for warm, compressed cleans." },
-          { position: 2, block_name: "1x15 US", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: "SM57", Distance: "3 inches" }, notes: "Warm, round cab for the clean arpeggio sections." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light)", settings: { Threshold: -32, Ratio: 2, Attack: 0.06, Release: 0.91, Mix: 0.6, Level: 0 }, notes: "Light parallel compression evens the fingerpicked arpeggios — Mix 0.6 keeps the dynamics that make the build work. Bypass and let the amp's natural compression carry it if your touch is doing the work." },
+          { position: 2, block_name: "Search Cortex Cloud for 'Supro' capture", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Gain: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, Master: 5.0 }, notes: "Low-gain Supro for warm, compressed cleans. Captures of real Supros on Cortex Cloud nail the squashy character better than the stock model." },
+          { position: 3, block_name: "1x15 US", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: "SM57", Distance: "3 inches", LowCut: 80, HighCut: 14000 }, notes: "Warm, round cab for the clean arpeggio sections. SM57 a few inches off the cone — captures the Supro without going harsh." },
+          { position: 4, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Tracking-room ambience", settings: { Decay: 2.0, Predelay: 25, Mix: 0.18, Level: 0 }, notes: "Subtle spring at Mix 0.18 for the tracking-room glue on the original recording. Present, never washy — the build is about touch dynamics, not reverb depth." },
         ],
         notes: "Use scenes to transition from clean Supro to a cranked Marshall for the solo. The song is a masterclass in dynamic tone building.",
       },
@@ -11485,14 +11489,25 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Crunch", block_category: "Amp Type", original_gear: "Supro Thunderbolt", settings: { Gain: 2, Bass: 5, Middle: 6, Treble: 6, Presence: 5, Volume: 5 }, notes: "Crunch channel at very low gain for warm cleans that break up when you dig in." },
+          { position: 1, block_name: "Compressor", block_category: "Booster", original_gear: "Studio compressor (light)", settings: { Sustain: 4, Attack: 6, Level: 6 }, notes: "Booster slot set to Compressor in Boss Tone Studio. Light squash so the fingerpicked arpeggios sit even — Sustain 4 is gentle, not pumpy. Optional; bypass for the rawest touch." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Supro Thunderbolt", settings: { Gain: 2, Bass: 5, Middle: 6, Treble: 6, Presence: 5, Volume: 5 }, notes: "Crunch channel at very low gain for warm cleans that break up when you dig in. Dynamics-driven — same gain setting carries you from the clean intro into the building strums." },
+          { position: 3, block_name: "Spring", block_category: "Reverb", original_gear: "Tracking-room ambience", settings: { Time: 4, PreDelay: 25, Tone: 5, EffectLevel: 3 }, notes: "Subtle spring in the REV slot — 1970s studio ambience, not a wash. Effect Level 3 keeps the build's dynamics intact." },
         ],
-        notes: "The Katana's Crunch channel at low gain approximates the Supro's warm, slightly compressed clean tone. Roll back gain for the intro, push it for the build.",
+        notes: "The Katana's Crunch channel at low gain approximates the Supro's warm, slightly compressed clean tone. Roll your guitar volume back for the intro, dig in for the build. Compressor optional in the Booster slot; spring reverb finishes the chain.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Studio Compressor",
+            block_category: "Stomp",
+            original_gear: "Studio compressor (light)",
+            settings: { Threshold: -32, Ratio: 2, Attack: 0.06, Release: 0.5, Mix: 0.6 },
+            notes:
+              "Slot A. Light compression evens out the fingerpicked arpeggios. Mix 0.6 keeps the dry attack of the Telecaster's neck pickup. Optional — bypass and let the touch carry it.",
+          },
+          {
+            position: 2,
             block_name: "Search Rig Exchange for 'Supro'",
             block_category: "Profile",
             original_gear: "Supro Thunderbolt S6420",
@@ -11500,16 +11515,26 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "Search Rig Exchange for Supro Thunderbolt profiles at low gain. The Supro's warm, slightly compressed cleans are perfect for the intro arpeggios. With Liquid Profiling, the Supro tone stack provides authentic EQ behavior.",
           },
+          {
+            position: 3,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Tracking-room ambience",
+            settings: { Decay: 2.0, Predelay: 25, Mix: 0.18 },
+            notes:
+              "REV slot. Subtle spring at Mix 0.18 mirrors the Headley Grange tracking-room ambience. Present but not washy — the song's dynamics need to breathe.",
+          },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. This is a pure clean-amp tone with no effects. For the famous solo section, set up a second rig slot with a cranked Plexi profile and switch to a Les Paul. The song is a masterclass in dynamic tone building.",
+          "Kemper profiles include the cab, so no separate cab block is needed. Light comp in front, cranked-Supro profile, subtle spring at the end. For the famous solo section, set up a second rig slot with a cranked Plexi profile and switch to a Les Paul. The song is a masterclass in dynamic tone building.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Super Verb", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Drive: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, "MV": 5.0 }, notes: "Low gain for warm cleans. The Super Verb captures the Supro's compressed clean character." },
-          { position: 2, block_name: "1x12 Field Coil", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: "57 Dynamic", Distance: 3.0 }, notes: "Closest match to the Supro's warm, round speaker character." },
+          { position: 1, block_name: "Super Verb", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Drive: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, "MV": 5.0 }, notes: "Low gain for warm cleans. The Super Verb captures the Supro's compressed clean character. Touch-sensitive at this gain — same setting carries you from intro to build." },
+          { position: 2, block_name: "1x12 Field Coil", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: "57 Dynamic", Distance: 3.0 }, notes: "Closest match to the Supro's warm, round speaker character. SM57 a few inches off the cone for the natural mid-bump." },
+          { position: 3, block_name: "Spring 63", block_category: "Reverb", original_gear: "Tracking-room ambience", settings: { Mix: 0.18, Decay: 0.4, Predelay: 25 }, notes: "Spring 63 reverb at low mix mirrors the Headley Grange tracking-room ambience on the original recording. Present but never washy." },
         ],
-        notes: "Low gain for warm cleans. The Super Verb captures the Supro's compressed clean character.",
+        notes: "Low gain for warm cleans, subtle spring for room glue. The Super Verb model captures the Supro's compressed clean character; the build is all dynamics and touch.",
       },
     },
     is_editorial: true,
