@@ -414,6 +414,25 @@ export default async function RecipePrintPage({
                 )}
               </header>
 
+              {/* Signal-chain TOC — icon nodes + block names beneath.
+                  Sits above the per-block detail cards as a visual
+                  table-of-contents so readers see the chain flow
+                  before scrolling into the knob breakdown. Different
+                  role than the cards (chain shape vs. settings) — not
+                  a duplicate. */}
+              <div className="print-platform-chain">
+                <div className="print-platform-chain-eyebrow">
+                  <span>Signal path</span>
+                  <span aria-hidden="true">·</span>
+                  <span>{PLATFORM_LABELS[platform]} blocks</span>
+                </div>
+                <PreviewSchematicChain
+                  blocks={blocks}
+                  selectedIndex={null}
+                  interactive={false}
+                />
+              </div>
+
               {/* Block-by-block details — every canonical param is
                   shown, even when the recipe data didn't set it
                   (filled with the registry neutral). Volume-pedal /

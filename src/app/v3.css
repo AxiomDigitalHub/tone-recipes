@@ -8135,6 +8135,43 @@
   background: var(--paper-2);
   overflow-x: auto;
 }
+/* Signal-chain TOC at the top of each platform page — icon nodes +
+   block names beneath. Visual table-of-contents above the per-block
+   detail cards. Sits in a paper-2 strip with hairline rules so it
+   reads as the "flow overview," not as another card. */
+.print-mode .print-platform-chain {
+  margin-bottom: 24px;
+  padding: 18px 16px 14px;
+  background: var(--paper-2);
+  border-top: 1px solid var(--paper-line);
+  border-bottom: 1px solid var(--paper-line);
+}
+.print-mode .print-platform-chain-eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 12px;
+}
+/* PreviewSchematicChain ships paper-friendly out of the box. Just let
+   the chain row wrap if the platform has many blocks and avoid the
+   guitar-profile card at the top — the cover already has it, and the
+   per-platform TOC only needs to show the chain row itself. */
+.print-mode .print-platform-chain .chain-board {
+  background: transparent;
+}
+.print-mode .print-platform-chain .chain-guitar {
+  display: none;
+}
+.print-mode .print-platform-chain .chain-row {
+  flex-wrap: wrap;
+  row-gap: 18px;
+}
+
 /* Single-column, full-width cards. Each block card spans the whole
    page width so its knobs spread horizontally (~6-7 per row) instead
    of cramping into a 2-col grid. Each card stays intact across page
