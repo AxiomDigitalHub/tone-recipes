@@ -21,7 +21,13 @@ import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { toneRecipes } from "../src/lib/data";
-import type { ToneRecipe, PlatformTranslation } from "../src/types/recipe";
+import { getCanonicalParams } from "../src/lib/parameters/canonical";
+import type {
+  ToneRecipe,
+  PlatformTranslation,
+  PlatformBlock,
+  Platform,
+} from "../src/types/recipe";
 
 type Severity = "error" | "warn" | "info";
 
@@ -71,6 +77,117 @@ const REQUIRED_ORIGINAL_GEAR_FIELDS: (keyof ToneRecipe["original_gear"])[] = [
 ];
 
 const HELIX_AMP_INTERNALS = ["Bias", "BiasX", "Sag", "Hum", "Ripple"];
+
+/**
+ * Utility-block categories that should mirror across modeller platforms.
+ * If Helix has one of these, the other supported translations should
+ * too — otherwise the recipe ships an uneven set of presets where one
+ * platform has reverb baked in and another doesn't.
+ *
+ * The exemption matrix below records the platform × category pairs
+ * where mirroring is wrong-by-design (e.g. Kemper bakes the cab into
+ * the captured profile, so a separate Cab block on Kemper would be
+ * incorrect).
+ */
+const UTILITY_MIRROR_CATEGORIES = [
+  "Compressor",
+  "Reverb",
+  "Delay",
+  "EQ",
+  "Cab",
+] as const;
+
+type UtilityCategory = (typeof UTILITY_MIRROR_CATEGORIES)[number];
+
+const MIRROR_PLATFORMS: Platform[] = [
+  "quad_cortex",
+  "katana",
+  "fractal",
+  "kemper",
+];
+
+// Pairs that are exempt from mirror checks (correct by design).
+const MIRROR_EXEMPTIONS: Record<Platform, Set<UtilityCategory>> = {
+  pedalboard: new Set(),
+  helix: new Set(),
+  quad_cortex: new Set(),
+  // Katana Gen 1/2 has no separate compressor block (built into amp
+  // section); EQ lives in the Pedal FX slot and isn't always called
+  // out as its own block; cab voicing is baked into the Amp Type.
+  katana: new Set(["Compressor", "EQ", "Cab"]),
+  fractal: new Set(),
+  // Kemper's captured Profile bakes cab + amp + post-EQ together — see
+  // rule G3 (`kemper-cab-not-separate`).
+  kemper: new Set(["Cab", "EQ"]),
+  tonex: new Set(["Compressor", "Reverb", "Delay", "EQ", "Cab"]),
+};
+
+// Categories that always indicate a drive/boost block.
+const DRIVE_CATEGORIES = new Set(["Distortion", "Booster", "Drive"]);
+
+// Pattern for identifying drive-flavored blocks inside generic-slot
+// categories like Kemper "Stomp" (which also hosts comp/wah/EQ).
+const DRIVE_NAME_RE =
+  /\b(drive|boost|screamer|tube|distort|fuzz|klon|rat|ds-?\d|ts-?\d|overdrive|od-?\d|metal|muff)\b/i;
+
+function isDriveBlock(b: PlatformBlock): boolean {
+  if (DRIVE_CATEGORIES.has(b.block_category)) return true;
+  if (b.block_category === "Stomp" && DRIVE_NAME_RE.test(b.block_name ?? ""))
+    return true;
+  return false;
+}
+
+function blocksByCategory(
+  blocks: PlatformBlock[] | undefined,
+  category: string,
+): PlatformBlock[] {
+  if (!blocks) return [];
+  const target = category.toLowerCase();
+  return blocks.filter((b) => b.block_category?.toLowerCase() === target);
+}
+
+/**
+ * Kemper convention: every stomp-slot block uses `block_category: "Stomp"`
+ * — comp, drive, EQ, gate, pitch all live there, with the type encoded
+ * in the block name. For mirror checks we need to look INSIDE the Stomp
+ * category to find comp/reverb/delay/EQ.
+ *
+ * (Reverb and Delay on Kemper actually have their own dedicated slots
+ * with categories "Reverb"/"Delay", so the Stomp-by-name lookup is
+ * really only needed for Compressor and EQ.)
+ */
+const KEMPER_STOMP_NAME_PATTERNS: Record<string, RegExp> = {
+  Compressor: /\b(compressor|comp|squash|squeeze|optical)\b/i,
+  EQ: /\b(eq|graphic|parametric|tilt|studio eq)\b/i,
+};
+
+function platformHasCategory(
+  platform: Platform,
+  translation: PlatformTranslation,
+  category: string,
+): boolean {
+  if (blocksByCategory(translation.chain_blocks, category).length > 0) {
+    return true;
+  }
+  // Kemper stomp-slot semantic lookup
+  if (platform === "kemper") {
+    const namePattern = KEMPER_STOMP_NAME_PATTERNS[category];
+    if (namePattern) {
+      return blocksByCategory(translation.chain_blocks, "Stomp").some((b) =>
+        namePattern.test(b.block_name ?? ""),
+      );
+    }
+  }
+  return false;
+}
+
+function platformExists(
+  r: ToneRecipe,
+  platform: Platform,
+): PlatformTranslation | undefined {
+  return r.platform_translations[platform];
+}
+
 const HELIX_CAB_FULL_PARAMS = [
   "Mic",
   "Position",
@@ -306,6 +423,105 @@ const RULES: Rule[] = [
     },
   },
 
+  // ── E (cont). Cross-platform consistency rules ──────────────────────
+  {
+    slug: "translations-canonical-knob-order",
+    severity: "warn",
+    description:
+      "Block settings appear in canonical knob order (matches the device's physical front panel)",
+    check: (r) => {
+      const offenders: string[] = [];
+      for (const [platform, t] of Object.entries(r.platform_translations)) {
+        const tt = t as PlatformTranslation | undefined;
+        for (const block of tt?.chain_blocks ?? []) {
+          const canonical = getCanonicalParams(
+            platform as Platform,
+            block.block_category,
+          );
+          if (canonical.length === 0) continue;
+          const settingKeys = Object.keys(block.settings ?? {});
+          // Filter both sides to canonical-only keys, preserving each
+          // side's own order. If the relative order of canonical keys
+          // in `settings` doesn't match canonical, flag it.
+          const inCanonical = new Set(canonical);
+          const settingsCanonicalOrder = settingKeys.filter((k) =>
+            inCanonical.has(k),
+          );
+          const canonicalPresent = canonical.filter((c) =>
+            settingKeys.includes(c),
+          );
+          if (
+            settingsCanonicalOrder.join("|") !== canonicalPresent.join("|")
+          ) {
+            offenders.push(
+              `${platform} pos ${block.position} (${block.block_category}): got [${settingsCanonicalOrder.join(", ")}], expected [${canonicalPresent.join(", ")}]`,
+            );
+          }
+        }
+      }
+      return offenders.length ? offenders.join("; ") : null;
+    },
+  },
+  {
+    slug: "translations-utility-mirror",
+    severity: "warn",
+    description:
+      "Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions)",
+    check: (r) => {
+      const helix = r.platform_translations.helix;
+      if (!helix) return null; // mirror is anchored on Helix
+      const offenders: string[] = [];
+      for (const category of UTILITY_MIRROR_CATEGORIES) {
+        const helixHas = blocksByCategory(helix.chain_blocks, category).length > 0;
+        if (!helixHas) continue;
+        for (const platform of MIRROR_PLATFORMS) {
+          const t = platformExists(r, platform);
+          if (!t) continue; // only check platforms the recipe defines
+          if (MIRROR_EXEMPTIONS[platform].has(category)) continue;
+          if (!platformHasCategory(platform, t, category)) {
+            offenders.push(`${platform} missing ${category}`);
+          }
+        }
+      }
+      return offenders.length ? offenders.join("; ") : null;
+    },
+  },
+  {
+    slug: "katana-kemper-multidrive-default-off",
+    severity: "info",
+    description:
+      "When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor",
+    check: (r) => {
+      const helix = r.platform_translations.helix;
+      if (!helix) return null;
+      const helixDriveCount = helix.chain_blocks.filter(isDriveBlock).length;
+      if (helixDriveCount < 2) return null;
+
+      const offenders: string[] = [];
+      const katana = r.platform_translations.katana;
+      if (katana) {
+        for (const b of katana.chain_blocks) {
+          if (isDriveBlock(b) && b.enabled !== false) {
+            offenders.push(
+              `katana ${b.block_category} pos ${b.position} default-on`,
+            );
+          }
+        }
+      }
+      const kemper = r.platform_translations.kemper;
+      if (kemper) {
+        for (const b of kemper.chain_blocks) {
+          if (isDriveBlock(b) && b.enabled !== false) {
+            offenders.push(
+              `kemper ${b.block_category} pos ${b.position} default-on`,
+            );
+          }
+        }
+      }
+      return offenders.length ? offenders.join("; ") : null;
+    },
+  },
+
   // ── F. Helix-specific quality rules ─────────────────────────────────
   {
     slug: "helix-block-count",
@@ -321,16 +537,22 @@ const RULES: Rule[] = [
   {
     slug: "helix-comp-present",
     severity: "warn",
-    description: "Helix chain includes a Compressor block in pos 1 or 2",
+    description:
+      "Helix chain includes a Compressor block before the Amp (after volume pedal / noise gate is OK)",
     check: (r) => {
       const helix = r.platform_translations.helix;
       if (!helix) return null;
-      const compIdx = helix.chain_blocks.findIndex(
+      const comp = helix.chain_blocks.find(
         (b) => b.block_category?.toLowerCase() === "compressor",
       );
-      if (compIdx < 0) return "no Compressor block";
-      const pos = helix.chain_blocks[compIdx].position;
-      if (pos > 2) return `Compressor at position ${pos} (expected 1 or 2)`;
+      if (!comp) return "no Compressor block";
+      const amp = helix.chain_blocks.find(
+        (b) => b.block_category?.toLowerCase() === "amp",
+      );
+      if (!amp) return null; // amp-presence is checked elsewhere
+      if (comp.position >= amp.position) {
+        return `Compressor at position ${comp.position}, after Amp at ${amp.position}`;
+      }
       return null;
     },
   },

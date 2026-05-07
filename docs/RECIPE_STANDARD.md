@@ -6,9 +6,9 @@
 > standard evolves, this file moves first — every commit that changes
 > the bar updates this doc.
 
-**Last revised:** 2026-05-04
+**Last revised:** 2026-05-06
 **Recipe count at last revision:** 50
-**Audit command:** `npx tsx scripts/audit-recipes.mts`
+**Audit command:** `npx tsx scripts/audit-recipes.ts`
 
 ---
 
@@ -205,6 +205,41 @@ explaining the platform's flavor of the tone.
 ### E4 · `translations-block-notes` · warn
 Every block in every translation has a non-empty `notes` field.
 
+### E5 · `translations-canonical-knob-order` · warn
+For every block in every translation, the keys present in `settings`
+appear in canonical knob order — i.e. the same left-to-right order as
+the device's physical front panel (Helix amp UI, Katana amp panel,
+QC stomp tile, etc.). Canonical orders live in
+[`src/lib/parameters/canonical.ts`](../src/lib/parameters/canonical.ts);
+non-canonical keys can interleave freely. Only the relative order of
+canonical keys is checked.
+
+**Why:** the rendered preset card surfaces knob order to the reader —
+if the recipe data has Volume in slot 6 instead of slot 2, the page
+shows a Katana panel with knobs in the wrong place and players who
+follow the recipe end up dialing the wrong knob. This rule catches
+the kind of bug that's invisible in JSON review but obvious on the
+rendered card. Caught in the 2026-05-06 Katana fix where 30/50
+recipes had drifted to non-canonical orders.
+
+### E6 · `translations-utility-mirror` · warn
+If the Helix translation has a utility block (Compressor, Reverb,
+Delay, EQ, Cab), the same category should appear in every other
+modeller translation the recipe defines — with these design-correct
+exemptions:
+
+| Platform | Exempt categories | Why |
+| --- | --- | --- |
+| `katana` | Compressor, EQ, Cab | Comp is built into the amp section on Gen 1/2; EQ lives in the Pedal FX slot and isn't always called out as a discrete block; cab voicing is baked into the Amp Type. |
+| `kemper` | Cab, EQ | The captured Profile bakes amp + cab + post-EQ together (see G3). |
+| `tonex` | all five | Capture-driven by design (Bible § 8) — TONEX presets are a single ToneNET search, not a built chain. |
+
+**Why:** every recipe in batch 1 had the same shape — Helix shipped a
+reverb, a compressor, a delay; QC and Kemper translations didn't.
+Readers who downloaded the QC preset got a meaningfully thinner
+chain than readers who downloaded Helix. The rule turns "we noticed
+this on review" into "the audit blocks it before merge."
+
 ---
 
 ## F. Helix translation — quality rules (the gold standard)
@@ -224,11 +259,16 @@ the chain is missing standard utility blocks (no comp, no global EQ,
 no reverb).
 
 ### F2 · `helix-comp-present` · warn
-A Compressor block (typically `Deluxe Comp`) is present, in position 1
-or 2.
+A Compressor block (typically `Deluxe Comp`) is present, and it sits
+**before the Amp block** in the chain. A Volume Pedal or Noise Gate
+ahead of it is fine — those clean up the input signal before
+compression.
 
 **Why:** professional patches always have a compressor — it tames
-dynamic spikes before the amp and keeps the response even.
+dynamic spikes before the amp and keeps the response even. The rule
+used to require pos 1 or 2, but high-gain rigs correctly run Noise
+Gate at pos 1-2 and Comp at pos 3 — that's not a bug. The real
+constraint is "comp before amp."
 
 ### F3 · `helix-amp-internals` · warn
 The amp block's `settings` object includes the internal-tube parameters:
@@ -297,6 +337,21 @@ since TONEX is capture-driven, not model-driven.
 Fractal translations use real Axe-Fx / FM9 model names from the
 Cygnus / 2.0 amp library.
 
+### G6 · `katana-kemper-multidrive-default-off` · info
+When the Helix translation ships a multi-drive stack (≥2 blocks in
+the Distortion / Booster / Drive families, or a Kemper-style Stomp
+slot loaded with a drive-flavored model), the corresponding Katana
+Booster block and Kemper Stomp drive blocks ship with `enabled: false`
+so the player can A/B between flavors instead of getting a
+preset-stack of overlapping drives by default.
+
+**Why:** F6 already enforces the alternates-default-off pattern on
+Helix. The same logic applies on Katana and Kemper, where a single
+booster slot doubles as the "you pick" alternate. Without this rule,
+recipes silently ship hot Katana presets with a Tube Screamer always
+on top of an already-cranked Brown amp — the opposite of what the
+Helix translation does.
+
 ---
 
 ## H. Voice + content rules
@@ -337,3 +392,43 @@ edge of breakup" is a recipe. The why is what the user pays for.
 If a rule keeps generating "warn" output that nobody plans to fix,
 either downgrade it to `info` or upgrade it to `error` — but don't
 let warnings accumulate. They become noise and get ignored.
+
+---
+
+## Appendix · Patterns surfaced during batch-1 rewrites (2026-05-06)
+
+These are observations we noticed across the first 50 recipes that
+aren't yet codified as rules. Each one is a candidate for promotion to
+a `warn` rule once the pattern is sharp enough to encode without false
+positives.
+
+### Default-OFF boosters on FRFR rigs
+On Katana (and Kemper, when the Stomp slot hosts a drive model), the
+booster is a *flavor* rather than a baked-in amp character. Recipes
+should default these blocks to `enabled: false` unless the original
+gear actually had the booster always-on (e.g. SRV's TS9, Mark
+Knopfler's MK4 — those ride at gain stage 1, not as A/B options).
+**Status:** codified for the multi-drive case (G6). Open question:
+should single-booster recipes also default off? Probably yes, but
+needs a separate review.
+
+### Subtle reverbs on tracking-room recipes
+When the original recording was tracked in a treated room with close
+mics (most studio rock — Beatles, Dire Straits, Aja-era Steely Dan),
+the recipe's reverb should be small / short / quiet (Mix < 0.20,
+Decay < 0.40 s, Predelay < 30 ms) — *or omitted entirely* if the
+record's ambience came from the tracking room itself, not a plate.
+Big halls and long plates belong on stadium-rock and shoegaze
+recipes, not jazz-club records. **Status:** judgment call per recipe;
+not yet a rule because the threshold depends on production style.
+
+### Noise gates on high-gain recipes
+Any recipe whose amp Drive ≥ 8 (on a 0-10 scale) or whose tags
+include `metal` / `high-gain` / `djent` / `thrash` should include a
+noise-gate block before the amp. Without one, the rendered preset
+self-oscillates the moment the player isn't fretting. The current 50
+recipes don't all have this — Metallica / Pantera / Slipknot recipes
+should be retrofitted before batch-2 rewrites.
+**Status:** ready to codify as a `warn` rule next pass; left out of
+this commit because the tag taxonomy needs a quick audit first
+(some recipes are tagged `rock` not `high-gain` despite ≥ 8 drive).
