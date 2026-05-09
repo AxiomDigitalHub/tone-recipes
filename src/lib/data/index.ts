@@ -5915,6 +5915,7 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["rock", "classic-rock", "clean", "fingerpicking", "knopfler", "strat"],
     sources: [
       "https://equipboard.com/pros/mark-knopfler",
+      "https://www.guitar.com/news/gear-news/mark-knopfler-rig-rundown-dire-straits",
     ],
     platform_translations: {
       helix: {
@@ -6021,10 +6022,10 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 1,
             block_name: "LA Compressor",
-            block_category: "Dynamics",
+            block_category: "Compressor",
             original_gear: "MXR Dyna Comp / studio comp",
-            settings: { Level: 6.0, Ratio: 3 },
-            notes: "Light compression for consistent fingerpicked dynamics.",
+            settings: { Threshold: -28, Ratio: 3, Attack: 8, Release: 200, Mix: 75, Level: 6.0 },
+            notes: "Light compression for consistent fingerpicked dynamics. Mix=75% keeps the natural attack of the bare fingers audible — heavy comp would kill the dynamic.",
           },
           {
             position: 2,
@@ -6048,9 +6049,25 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Mic: "SM57", Distance: "2.5 inches" },
             notes: "Clear, articulate cab for the clean fingerpicked sound.",
           },
+          {
+            position: 4,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Vibrolux Reverb spring tank",
+            settings: { Decay: 2.0, Predelay: 20, Mix: 18, Level: 0 },
+            notes: "Subtle spring reverb to match the Vibrolux's onboard tank — present but not washing out the fingerstyle articulation.",
+          },
+          {
+            position: 5,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment at the end. Bump above 5 if your FRFR rig is dark.",
+          },
         ],
         notes:
-          "The simplest patch possible. The QC's clean amp models shine here. The technique is everything — use your fingers, not a pick, and play on the neck pickup for the authentic Knopfler sound.",
+          "Light comp into clean Vibrolux into a 2x10 + spring reverb. The QC's clean amp models shine here. The technique is everything — fingers not a pick, neck pickup, dynamic right hand.",
       },
       tonex: {
         chain_blocks: [
@@ -6062,6 +6079,15 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Booster",
+            original_gear: "MXR Dyna Comp",
+            settings: { Drive: 0, Bottom: 5, Tone: 5, Level: 6 },
+            notes:
+              "Booster slot used as a compressor stand-in (Katana Gen 1/2 doesn't have a discrete comp). DEFAULT-ON — fingerpicking dynamics need evening out.",
+          },
+          {
+            position: 2,
             block_name: "Clean",
             block_category: "Amp Type",
             original_gear: "Fender Vibrolux Reverb",
@@ -6074,20 +6100,29 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 5,
             },
             notes:
-              "The Katana's Clean channel is perfect for this. Set it crystal clean with moderate treble for sparkle.",
+              "Crystal clean with moderate treble for sparkle. Volume kept low — the tone is dynamic, not loud.",
+          },
+          {
+            position: 3,
+            block_name: "Spring",
+            block_category: "Reverb",
+            original_gear: "Vibrolux Reverb spring tank",
+            settings: { Time: 4, PreDelay: 20, Tone: 5, EffectLevel: 25 },
+            notes:
+              "Subtle spring reverb to match the Vibrolux's onboard tank — present but not washing out the fingerpicked articulation.",
           },
         ],
         notes:
-          "This is the easiest tone to set up on the Katana — just the Clean channel, no effects needed. The entire tone comes from playing with your fingers on the neck pickup. The Katana's Clean channel excels at this type of pristine, dynamic clean sound.",
+          "Compressor booster + Clean channel + spring reverb. The Katana's Clean channel excels at this pristine, dynamic clean sound. Fingerpicking technique is everything.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
             block_name: "Compressor",
-            block_category: "Stomp",
+            block_category: "Compressor",
             original_gear: "MXR Dyna Comp",
-            settings: { Intensity: 4.0, Volume: 0.0 },
+            settings: { Intensity: 4.0, Attack: 0.04, Volume: 0.0 },
             notes:
               "Slot A. Light compression to even out fingerpicked dynamics. Keep it transparent and subtle.",
           },
@@ -6103,22 +6138,25 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 3,
             block_name: "Spring Reverb",
-            block_category: "Effect",
+            block_category: "Reverb",
             original_gear: "Built-in spring reverb",
-            settings: { Decay: 2.0, Mix: 15 },
+            settings: { Decay: 2.0, Predelay: 20, Mix: 18 },
             notes:
               "REV slot. Subtle spring reverb for depth. The Kemper's Spring Reverb includes a Dripstone parameter for authentic spring character.",
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. This is a minimalist clean tone that depends entirely on fingerpicking technique. Use your fingers instead of a pick and play on the neck pickup. The Kemper's transparent clean profiles excel at this type of articulate, dynamic tone.",
+          "Kemper profiles include the cab, so no separate cab block is needed. Compressor → clean Vibrolux profile → spring reverb. Fingers not a pick, neck pickup.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Vibrato Lux", block_category: "Amp", original_gear: "Fender Vibrolux", settings: { Drive: 4.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, MV: 6.0 }, notes: "Clean Fender for Knopfler's fingerstyle clarity." },
-          { position: 2, block_name: "1x12 Deluxe", block_category: "Cab", original_gear: "Fender 2x10", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Small Fender cab for the intimate, clean tone." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "MXR Dyna Comp / studio comp", settings: { Threshold: -28, Ratio: 3, Attack: 8, Release: 200, Mix: 0.75, Level: 0 }, notes: "Light compression for consistent fingerpicked dynamics. Parallel-blend keeps the bare-finger attack present." },
+          { position: 2, block_name: "Vibrato Lux", block_category: "Amp", original_gear: "Fender Vibrolux", settings: { Drive: 4.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, MV: 6.0 }, notes: "Clean Fender for Knopfler's fingerstyle clarity." },
+          { position: 3, block_name: "1x12 Deluxe", block_category: "Cab", original_gear: "Fender 2x10", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 8500, Level: 0 }, notes: "Small Fender cab for the intimate, clean tone." },
+          { position: 4, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Vibrolux spring tank", settings: { Mix: 0.18, Decay: 2.0, Predelay: 20 }, notes: "Subtle spring reverb to match the Vibrolux's onboard tank." },
+          { position: 5, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Clean Vibrato Lux for the Sultans fingerstyle tone. Strat bridge/middle position. Fingerpicking technique is essential.",
+        notes: "Studio comp → clean Vibrato Lux → 1x12 Deluxe → spring reverb → tilt EQ. Strat neck pickup. Fingerpicking technique is essential.",
       },
     },
     is_editorial: true,
@@ -7107,6 +7145,22 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Noise Gate",
+            block_category: "Dynamics",
+            original_gear: "Studio noise gate (FRFR essential)",
+            settings: { Threshold: -52, Decay: 0.3, Level: 0 },
+            notes: "DEFAULT-ON. High-gain modeling needs a gate to keep the rests silent — Hetfield's tight palm muting depends on absolute silence between strikes.",
+          },
+          {
+            position: 2,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Light studio compression",
+            settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 40, Level: 0 },
+            notes: "Light parallel comp. Hetfield's tone is amp + technique; heavy comp would kill the down-picking dynamic.",
+          },
+          {
+            position: 3,
             block_name: "CA MkCC+",
             block_category: "Amp",
             original_gear: "Mesa/Boogie Mark IIC+",
@@ -7122,16 +7176,24 @@ export const toneRecipes: ToneRecipe[] = [
               "If a Mark IIC+ model is available, it is one of the QC's strongest metal amp models. Scooped mids, high treble, moderate gain for the classic thrash V-curve.",
           },
           {
-            position: 2,
+            position: 4,
             block_name: "4x12 V30",
             block_category: "Cab",
             original_gear: "Mesa 4x12 V30",
-            settings: { Mic: "SM57", Distance: "1 inch" },
-            notes: "Mesa 4x12 with V30 speakers for tight metal tone.",
+            settings: { Mic: "SM57", Distance: "1 inch", Position: 0.30, LowCut: 90, HighCut: 8500, Level: 0 },
+            notes: "Mesa 4x12 with V30 speakers for tight metal tone. Slightly off-cone for less ice-pick on FRFR.",
+          },
+          {
+            position: 5,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment. Mark series + scooped mids can sound harsh on FRFR; pull below 5 to round it off.",
           },
         ],
         notes:
-          "The QC excels at high-gain metal tones. Search Cortex Cloud for 'Mark IIC+' or 'Metallica' captures.",
+          "Gate → light comp → MkCC+ → V30 4x12 → tilt EQ. The QC excels at high-gain metal tones. Search Cortex Cloud for 'Mark IIC+' or 'Metallica' captures.",
       },
       tonex: {
         chain_blocks: [
@@ -7143,6 +7205,14 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Noise Gate",
+            block_category: "FX",
+            original_gear: "Studio noise gate (FRFR essential)",
+            settings: { Threshold: 50, Release: 30, Level: 0 },
+            notes: "DEFAULT-ON. High-gain Lead channel needs a gate to silence the rests. Hetfield's palm muting depends on dead silence between strikes.",
+          },
+          {
+            position: 2,
             block_name: "Lead",
             block_category: "Amp Type",
             original_gear: "Mesa/Boogie Mark IIC+",
@@ -7155,33 +7225,60 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 5,
             },
             notes:
-              "The Katana's Lead channel provides the high-gain saturation needed for thrash metal. Scoop the mids and push the treble for the V-curve EQ shape.",
+              "Lead channel for the high-gain saturation. Scooped mids (Bass=3, Mid=3, Treble=7) for the classic thrash V-curve.",
+          },
+          {
+            position: 3,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate (light)",
+            settings: { Time: 3, PreDelay: 20, Tone: 4, EffectLevel: 8 },
+            notes: "Tiny plate (Level=8) for ambience without smearing the riff. Master of Puppets rhythms are dry-ish — this is just the room.",
           },
         ],
         notes:
-          "The Katana's Lead channel scooped gets a convincing thrash metal tone. Use all downstrokes, tight palm muting, and a bridge humbucker for the authentic Hetfield attack. This setup handles the Master of Puppets riffs surprisingly well.",
+          "Gate → Lead amp scooped → tiny plate. Use all downstrokes, tight palm muting, and a bridge humbucker for the authentic Hetfield attack.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Noise Gate",
+            block_category: "Compressor",
+            original_gear: "Studio noise gate (FRFR essential)",
+            settings: { Threshold: 5.0, Volume: 0.0 },
+            notes: "Slot A — using Compressor slot for Kemper's built-in Noise Gate (Kemper routes the gate at input). Cuts the noise floor for tight palm muting.",
+          },
+          {
+            position: 2,
             block_name: "Search Rig Exchange for 'Mesa Mark IIC+'",
             block_category: "Profile",
             original_gear: "Mesa/Boogie Mark IIC+",
             settings: { Gain: 7.0, Bass: 3.0, Middle: 3.0, Treble: 7.0, Presence: 5.0 },
             notes:
-              "Search Rig Exchange for Mesa Mark IIC+ profiles. The Mark IIC+ is one of the most profiled amps on the Kemper due to its legendary metal status. Scoop the mids and push the treble for the classic V-curve EQ. With Liquid Profiling, select the Mesa Mark tone stack.",
+              "Search Rig Exchange for Mesa Mark IIC+ profiles — one of the most profiled amps on Kemper. With Liquid Profiling, select the Mesa Mark tone stack.",
+          },
+          {
+            position: 3,
+            block_name: "Studio EQ",
+            block_category: "EQ",
+            original_gear: "Post-amp parametric EQ",
+            settings: { LowCut: 90, HighCut: 8500, Mid: -2, MidFreq: 800 },
+            notes: "EQ slot. Slight 800 Hz cut to deepen the V-curve scoop further; HighCut at 8.5kHz tames any digital fizz.",
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. Hetfield's tone is guitar straight into the amp with no pedals. The Kemper excels here because profiles of real Mark IIC+ amps capture the exact gain structure and note definition that makes this amp legendary for thrash metal. Use all downstrokes and tight palm muting for the authentic Hetfield attack.",
+          "Kemper profiles include the cab. Gate → Mark IIC+ profile → post-EQ. Hetfield's tone is guitar straight into the amp with no drive pedals. Use all downstrokes and tight palm muting for the authentic attack.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "USA MK IIC+", block_category: "Amp", original_gear: "Mesa/Boogie Mark IIC+", settings: { Drive: 7.5, Bass: 3.0, Mid: 3.0, Treble: 7.0, Presence: 5.0, MV: 6.0 }, notes: "USA MK IIC+ for the Mark series V-curve. Keep bass and mids low, treble high for tight metal rhythm." },
-          { position: 2, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa 4x12 V30", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "V30 cab for tight, modern metal low end. Close-miked for maximum aggression." },
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -52, Decay: 0.3, Level: 0 }, notes: "DEFAULT-ON. High-gain modeling needs a gate to keep the rests silent." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 0.4, Level: 0 }, notes: "Light parallel comp. Heavy comp would kill the down-picking dynamic." },
+          { position: 3, block_name: "USA MK IIC+", block_category: "Amp", original_gear: "Mesa/Boogie Mark IIC+", settings: { Drive: 7.5, Bass: 3.0, Mid: 3.0, Treble: 7.0, Presence: 5.0, MV: 6.0 }, notes: "USA MK IIC+ for the Mark series V-curve. Keep bass and mids low, treble high for tight metal rhythm." },
+          { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa 4x12 V30", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 90, HighCut: 8500, Level: 0 }, notes: "V30 cab close-miked for maximum aggression. HighCut tames fizz." },
+          { position: 5, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment — pulled slightly below 0.5 to round off the scoop's harshness on FRFR." },
         ],
-        notes: "USA MK IIC+ with scooped mids for the Master of Puppets rhythm tone. All downstrokes and tight palm muting.",
+        notes: "Gate → comp → MK IIC+ → V30 → tilt EQ. USA MK IIC+ with scooped mids for the Master of Puppets rhythm tone. All downstrokes and tight palm muting.",
       },
     },
     is_editorial: true,
@@ -9575,7 +9672,10 @@ export const toneRecipes: ToneRecipe[] = [
         "Texas Flood is about dynamics and emotion. SRV plays with incredible touch sensitivity, from whisper-quiet passages to full-volume string bending. The neck pickup and heavy strings give each bent note a vocal quality.",
     },
     tags: ["blues", "texas-blues", "slow-blues", "lead", "srv", "sustain"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/stevie-ray-vaughan",
+      "https://www.premierguitar.com/artists/stevie-ray-vaughan-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -9623,16 +9723,40 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "Cab",
             original_gear: "1x15 JBL D130F",
             settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5, Delay: 0 },
-            notes: "1x15 cab for the round, full bass response.",
+            notes: "1x15 cab for the round, full bass response — JBL D130F has tighter low end than a Jensen.",
+          },
+          {
+            position: 6,
+            block_name: "Spring",
+            block_category: "Reverb",
+            original_gear: "Vibroverb spring tank (cranked)",
+            settings: { Mix: 0.28, Decay: 0.6, Predelay: 0.02, LowCut: 200, HighCut: 6500 },
+            notes: "Spring reverb cranked to match the Vibroverb's onboard tank at the higher Reverb=4 setting. Mix=0.28 — wet enough for the slow blues atmosphere without losing definition on bends.",
+          },
+          {
+            position: 7,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment. Pulled slightly below 0.5 — the cranked Vibroverb is naturally bright; pull more if your FRFR is harsh.",
           },
         ],
         notes:
-          "Use the neck pickup and play with dynamics. Wide, slow vibrato is essential. Add a Spring Reverb block for the atmospheric feel of the slow blues.",
+          "Volume Pedal → Deluxe Comp → Scream 808 → US Deluxe Vib → 1x15 cab → Spring → Tilt. Use the neck pickup and play with dynamics. Wide, slow vibrato is essential — let each bent note breathe.",
       },
       quad_cortex: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Threshold: -36, Ratio: 2, Attack: 60, Release: 900, Mix: 74, Level: 0 },
+            notes: "Transparent compression for even dynamics across SRV's huge dynamic range. Mix=74% keeps the natural attack of the heavy strings.",
+          },
+          {
+            position: 2,
             block_name: "Green 808",
             block_category: "Drive",
             original_gear: "Ibanez TS808",
@@ -9640,7 +9764,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Clean boost with slightly more drive than Pride and Joy for slow blues sustain. Level pushed high to slam the amp.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "US Vibro",
             block_category: "Amp",
             original_gear: "Fender Vibroverb",
@@ -9654,16 +9778,32 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Pushed harder for deeper overdrive on the slow blues leads.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "1x15 US",
             block_category: "Cab",
             original_gear: "1x15 JBL D130F",
-            settings: { Mic: "SM57", Distance: "2 inches" },
-            notes: "1x15 for full, round bass response.",
+            settings: { Mic: "SM57", Distance: "2 inches", Position: 0.49, LowCut: 80, HighCut: 7500, Level: 0 },
+            notes: "1x15 for full, round bass response. HighCut at 7.5kHz tames the Vibroverb's natural brightness.",
+          },
+          {
+            position: 5,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Vibroverb spring tank (cranked)",
+            settings: { Decay: 0.6, Predelay: 20, Mix: 28, Level: 0 },
+            notes: "Spring reverb cranked to match the Vibroverb's onboard tank.",
+          },
+          {
+            position: 6,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 4.5, CenterFreq: 1000, Level: 0 },
+            notes: "Slight darken — cranked Vibroverb is naturally bright on FRFR. Pull lower if your monitoring is harsh.",
           },
         ],
         notes:
-          "Neck pickup, wide vibrato, and let each note breathe. The QC's Vibroverb model pushed hard excels at this type of emotional blues lead tone.",
+          "Comp → Green 808 → US Vibro → 1x15 → spring reverb → tilt EQ. Neck pickup, wide vibrato, and let each note breathe. The QC's Vibroverb model pushed hard excels at this emotional blues lead.",
       },
       tonex: {
         chain_blocks: [
@@ -9676,9 +9816,17 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "T-Scream",
+            block_category: "Booster",
+            original_gear: "Ibanez TS808",
+            settings: { Drive: 2, Bottom: 5, Tone: 5, Level: 8 },
+            notes: "DEFAULT-ON. T-Scream (Katana's Tube Screamer emulation) used as a clean boost with mid-hump. Level=8 pushes the amp harder for slow blues sustain; Drive low so the breakup comes from the amp. SRV's TS808 was always-on at this gain stage.",
+          },
+          {
+            position: 2,
             block_name: "Crunch",
             block_category: "Amp Type",
-            original_gear: "Fender Vibroverb",
+            original_gear: "Fender Vibroverb (1964 Blackface)",
             settings: {
               Gain: 7,
               Volume: 8,
@@ -9687,32 +9835,41 @@ export const toneRecipes: ToneRecipe[] = [
               Treble: 5,
               Presence: 5,
             },
-            notes: "Crunch channel pushed hard for the saturated blues lead tone.",
+            notes: "Crunch channel pushed hard for the saturated blues lead. Closer to a Vibroverb's natural breakup than Brown is.",
           },
           {
-            position: 2,
-            block_name: "T-Scream",
-            block_category: "Booster",
-            original_gear: "Ibanez TS808",
-            settings: { Drive: 2, Tone: 5, Level: 8 },
-            notes: "T-Scream (Katana's Tube Screamer emulation) used as a clean boost with mid-hump. Level pushed high to drive the amp harder for slow blues sustain; Drive low so the breakup comes from the amp.",
+            position: 3,
+            block_name: "Spring",
+            block_category: "Reverb",
+            original_gear: "Vibroverb spring tank (cranked)",
+            settings: { Time: 6, PreDelay: 20, Tone: 5, EffectLevel: 30 },
+            notes: "Spring reverb cranked to match the Vibroverb's onboard tank at Reverb=4. Adds the slow-blues atmosphere.",
           },
         ],
         notes:
-          "Use the neck pickup and add reverb in the FX section. Play with wide vibrato and let each note sing.",
+          "TS808 (on) → Crunch amp → spring reverb. Use the neck pickup and play with wide, slow vibrato. Let each bent note breathe.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
-            block_name: "Green Scream",
-            block_category: "Stomp",
-            original_gear: "Ibanez TS808",
-            settings: { Drive: 2.0, Tone: 5.0, Volume: 8.0 },
-            notes: "Slot A. Clean boost with slightly more drive for slow blues sustain. Volume pushed high to slam the amp profile.",
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 4.0, Attack: 0.06, Volume: 0.0 },
+            notes: "Slot A. Light, transparent compression for SRV's huge dynamic range — keeps quiet passages audible without squashing bend attack.",
           },
           {
             position: 2,
+            block_name: "Green Scream",
+            block_category: "Stomp",
+            enabled: true,
+            original_gear: "Ibanez TS808",
+            settings: { Drive: 2.0, Tone: 5.0, Volume: 8.0 },
+            notes: "Slot B. DEFAULT-ON — SRV's TS808 was always-on at this gain stage. Clean boost with slightly more drive for slow blues sustain; Volume=8 slams the amp profile.",
+          },
+          {
+            position: 3,
             block_name: "Search Rig Exchange for 'Vibroverb'",
             block_category: "Profile",
             original_gear: "Fender Vibroverb (1964 Blackface)",
@@ -9720,23 +9877,26 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Search Rig Exchange for cranked Vibroverb profiles. Push the Gain harder for deeper overdrive and singing sustain. With Liquid Profiling, select the Fender tone stack.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Spring Reverb",
-            block_category: "Effect",
-            original_gear: "Built-in spring reverb",
-            settings: { Decay: 2.0, Mix: 25 },
-            notes: "REV slot. More reverb adds atmosphere for the slow, spacious blues feel.",
+            block_category: "Reverb",
+            original_gear: "Built-in spring reverb (cranked)",
+            settings: { Decay: 0.6, Predelay: 20, Mix: 28 },
+            notes: "REV slot. Spring reverb cranked for atmosphere on the slow, spacious blues feel.",
           },
         ],
-        notes: "Kemper profiles include the cab. Use the neck pickup and play with wide, slow vibrato. The Green Scream pushing a cranked Vibroverb profile with spring reverb captures the emotional Texas Flood slow blues lead tone.",
+        notes: "Kemper profiles include the cab. Comp → Green Scream (on) → Vibroverb profile → spring reverb. Neck pickup, wide vibrato, let each bent note breathe.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "T808 OD", block_category: "Drive", original_gear: "Ibanez TS808", settings: { Drive: 2.0, Tone: 5.0, Level: 8.0 }, notes: "Still a clean boost like Pride and Joy, just slightly more drive for sustain. The Level is cranked to push the amp harder." },
-          { position: 2, block_name: "Vibrato Verb", block_category: "Amp", original_gear: "Fender Vibroverb", settings: { Drive: 8.0, Bass: 5.0, Mid: 5.0, Treble: 5.0, Presence: 5.0, "MV": 8.0, }, notes: "Push the amp harder than the Pride and Joy setting for deeper overdrive and more sustain." },
-          { position: 3, block_name: "1x15 Deluxe", block_category: "Cab", original_gear: "1x15 JBL D130F", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "1x15 cab for the round, full bass response." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Attack: 60, Release: 900, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics across SRV's huge dynamic range." },
+          { position: 2, block_name: "T808 OD", block_category: "Drive", original_gear: "Ibanez TS808", settings: { Drive: 2.0, Tone: 5.0, Level: 8.0 }, notes: "DEFAULT-ON. Clean boost with slightly more drive than Pride and Joy for sustain. Level is cranked to push the amp harder." },
+          { position: 3, block_name: "Vibrato Verb", block_category: "Amp", original_gear: "Fender Vibroverb", settings: { Drive: 8.0, Bass: 5.0, Mid: 5.0, Treble: 5.0, Presence: 5.0, MV: 8.0 }, notes: "Push the amp harder than the Pride and Joy setting for deeper overdrive and more sustain." },
+          { position: 4, block_name: "1x15 Deluxe", block_category: "Cab", original_gear: "1x15 JBL D130F", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 7500, Level: 0 }, notes: "1x15 cab for the round, full bass response." },
+          { position: 5, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Vibroverb spring tank (cranked)", settings: { Mix: 0.28, Decay: 0.6, Predelay: 20 }, notes: "Spring reverb cranked to match the Vibroverb's onboard tank at the higher Reverb=4 setting." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slight darken — cranked Vibroverb is naturally bright on FRFR." },
         ],
-        notes: "Still a clean boost like Pride and Joy, just slightly more drive for sustain. The Level is cranked to push the amp harder.",
+        notes: "Comp → T808 (on) → Vibrato Verb → 1x15 → spring reverb → tilt EQ. Push the amp harder than the Pride and Joy setting for deeper overdrive. Wide vibrato is essential.",
       },
     },
     is_editorial: true,
@@ -11591,7 +11751,10 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "Page also layered guitar parts in the studio and used a Sola Sound Tone Bender on some overdubs.",
     },
     tags: ["hard-rock", "classic-rock", "heavy", "riff", "led-zeppelin", "plexi"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/jimmy-page",
+      "https://www.soundonsound.com/techniques/classic-tracks-led-zeppelin-whole-lotta-love",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -11719,10 +11882,15 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Brit Plexi 100 Bright", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Gain: 9.0, Bass: 6.0, Mid: 8.0, Treble: 7.0, Presence: 7.0, Master: 8.0 }, notes: "Full gain for cranked Plexi saturation." },
-          { position: 2, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "SM57", Distance: "1 inch" }, notes: "Greenback cab close-miked." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light parallel)", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 50, Level: 3.0 }, notes: "Light parallel comp. Page's tone is mostly raw amp + guitar volume — heavy comp would kill the dynamic Les Paul-into-Plexi push." },
+          { position: 2, block_name: "Treble Boost", block_category: "Drive", enabled: false, original_gear: "Sola Sound Tone Bender / Rangemaster", settings: { Drive: 4.0, Tone: 7.0, Level: 7.0 }, notes: "ALTERNATE drive (off by default). Page sometimes used a treble booster into the Plexi for solos. Stomp on for solo sections." },
+          { position: 3, block_name: "Brit Plexi 100 Bright", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Gain: 9.0, Bass: 6.0, Mid: 8.0, Treble: 7.0, Presence: 7.0, Master: 8.0 }, notes: "Full gain for cranked Plexi saturation." },
+          { position: 4, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.30, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Greenback cab close-miked. Slightly off-cone (Position 0.30) for the Olympic Studios M160-ribbon-character at distance — a touch more body, less ice-pick." },
+          { position: 5, block_name: "Tape Delay", block_category: "Delay", enabled: false, original_gear: "Echoplex EP-3 (slapback)", settings: { Time: 130, Feedback: 10, Mix: 18 }, notes: "Slapback delay (130ms, single repeat) for solo sections. OFF by default — the main riff is dry." },
+          { position: 6, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate (Olympic Studios EMT 140)", settings: { Decay: 1.8, Predelay: 30, Mix: 22, Level: 0 }, notes: "Medium-decay plate matching the Olympic Studios sound. Present but doesn't wash out the riff's percussive attack." },
+          { position: 7, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment. Plexi + Greenback can be midrange-heavy on FRFR; bump slightly above 5 for headphone monitoring." },
         ],
-        notes: "Les Paul neck pickup for the riff, bridge for solos. All the drive comes from the amp.",
+        notes: "Comp → treble boost (off) → cranked Plexi → 4x12 Greenback → slapback (off) → plate reverb → tilt EQ. Les Paul neck pickup for the riff, bridge for solos. All the drive comes from the amp.",
       },
       tonex: {
         chain_blocks: [
@@ -11732,31 +11900,73 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall Super Lead 1959", settings: { Gain: 9, Volume: 7, Bass: 6, Middle: 8, Treble: 7, Presence: 7 }, notes: "Brown channel cranked for heavy Plexi-style saturation." },
+          { position: 1, block_name: "Treble Booster", block_category: "Booster", enabled: false, original_gear: "Sola Sound Tone Bender / Rangemaster", settings: { Drive: 4, Bottom: 4, Tone: 7, Level: 7 }, notes: "ALTERNATE boost (off by default). Stomp on for solo sections — Page used a treble booster into the Plexi when he wanted extra cut." },
+          { position: 2, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall Super Lead 1959", settings: { Gain: 9, Volume: 7, Bass: 6, Middle: 8, Treble: 7, Presence: 7 }, notes: "Brown channel cranked for heavy Plexi-style saturation. Mid=8 for the iconic Plexi midrange honk." },
+          { position: 3, block_name: "Tape Echo", block_category: "Delay", enabled: false, original_gear: "Echoplex EP-3 (slapback)", settings: { Time: 130, Feedback: 10, EffectLevel: 18 }, notes: "Slapback delay for solos. OFF by default — main riff is dry." },
+          { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (Olympic Studios EMT 140)", settings: { Time: 4, PreDelay: 30, Tone: 5, EffectLevel: 22 }, notes: "Medium plate to match the Olympic Studios studio space — present but doesn't drown the percussive riff." },
         ],
-        notes: "The Katana's Brown channel at high gain delivers a convincing Led Zeppelin tone. Use a Les Paul on the neck pickup.",
+        notes: "Treble Boost (off) → Brown amp cranked → slapback (off) → plate reverb. The Katana's Brown channel at high gain delivers a convincing Led Zeppelin tone. Les Paul neck pickup for the riff.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor (light parallel)",
+            settings: { Intensity: 3.0, Attack: 0.04, Volume: 3.0 },
+            notes: "Slot A. Light parallel comp — preserves the Les Paul-into-Plexi dynamic. Heavy comp would kill the Page bite.",
+          },
+          {
+            position: 2,
+            block_name: "Treble Booster",
+            block_category: "Stomp",
+            enabled: false,
+            original_gear: "Sola Sound Tone Bender / Rangemaster",
+            settings: { Drive: 4.0, Tone: 7.0, Volume: 7.0 },
+            notes: "Slot B. ALTERNATE drive (default-off). Page's treble-booster trick for solo sections.",
+          },
+          {
+            position: 3,
             block_name: "Search Rig Exchange for 'Plexi'",
             block_category: "Profile",
             original_gear: "Marshall Super Lead 1959",
             settings: { Gain: 9.0, Bass: 6.0, Middle: 8.0, Treble: 7.0, Presence: 7.0 },
             notes:
-              "Search Rig Exchange for cranked Plexi profiles. The entire drive comes from the amp -- no pedals needed. With Liquid Profiling, select the Marshall tone stack for authentic Plexi EQ response.",
+              "Search Rig Exchange for cranked Plexi profiles captured through Greenback cabs. The drive comes from the amp. With Liquid Profiling, select the Marshall tone stack for authentic Plexi EQ response.",
+          },
+          {
+            position: 4,
+            block_name: "Tape Delay",
+            block_category: "Delay",
+            enabled: false,
+            original_gear: "Echoplex EP-3 (slapback)",
+            settings: { Time: 130, Feedback: 10, Mix: 18 },
+            notes: "DLY slot. Slapback delay for solos. OFF by default.",
+          },
+          {
+            position: 5,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate (Olympic Studios EMT 140)",
+            settings: { Decay: 1.8, Predelay: 30, Mix: 22 },
+            notes: "REV slot. Medium plate matching the Olympic Studios sound.",
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. This is a pure cranked-amp tone with no effects. Search for Plexi profiles captured through Greenback cabs. Use the neck pickup on a Les Paul for the main riff and switch to bridge for solos.",
+          "Kemper profiles include the cab. Light comp → treble booster (off) → cranked Plexi profile → slapback (off) → plate reverb. Use the neck pickup for the main riff, bridge for solos.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 9.0, Bass: 6.0, Mid: 8.0, Treble: 7.0, Presence: 7.0, "MV": 8.0 }, notes: "Crank the drive for maximum Plexi saturation." },
-          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback for tight, punchy midrange." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light parallel)", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 0.5, Level: 3 }, notes: "Light parallel comp — preserves the Les Paul-into-Plexi dynamic." },
+          { position: 2, block_name: "FAS Treble Boost", block_category: "Drive", enabled: false, original_gear: "Sola Sound Tone Bender / Rangemaster", settings: { Drive: 4.0, Tone: 7.0, Level: 7.0 }, notes: "ALTERNATE drive (off by default). Page's treble-boost trick for solo sections." },
+          { position: 3, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 9.0, Bass: 6.0, Mid: 8.0, Treble: 7.0, Presence: 7.0, MV: 8.0 }, notes: "Crank the drive for maximum Plexi saturation. Mid=8 for the iconic Plexi midrange honk." },
+          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Close-miked Greenback for tight, punchy midrange. Slightly off-cone if you want more body." },
+          { position: 5, block_name: "Tape Delay", block_category: "Delay", enabled: false, original_gear: "Echoplex EP-3 (slapback)", settings: { Time: 130, Feedback: 10, Mix: 0.18 }, notes: "Slapback for solos. OFF by default." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (Olympic Studios EMT 140)", settings: { Mix: 0.22, Decay: 1.8, Predelay: 30 }, notes: "Medium plate matching the Olympic Studios sound." },
+          { position: 7, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Crank the drive for maximum Plexi saturation.",
+        notes: "Comp → treble boost (off) → cranked Plexi → Greenback → slapback (off) → plate → tilt EQ. Crank the drive for maximum Plexi saturation. Les Paul neck for riff, bridge for solos.",
       },
     },
     is_editorial: true,
@@ -14720,7 +14930,7 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "gilmour-shine-on-sustain",
     description:
       "The four-note opening motif of Shine On You Crazy Diamond is one of the most recognizable guitar phrases ever played. Gilmour's Stratocaster through a Hiwatt with a compressor and delay produces a tone of infinite sustain and crystalline clarity. The notes ring out with an almost vocal quality, each one sustaining until the next is played. The tone relies on precise gain staging: enough sustain to carry each note but not so much distortion that clarity is lost.",
-    tone_context: "intro_clean",
+    tone_context: "intro",
     guitar_specs: {
       body_type: "solid",
       model_name: "Fender Stratocaster (Black Strat)",
@@ -14791,7 +15001,10 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "The four-note motif (G-Bb-F-Eb) should ring out with maximum sustain. Gilmour's vibrato on each note is essential to the emotional impact.",
     },
     tags: ["progressive-rock", "sustain", "delay", "pink-floyd", "clean-lead", "atmospheric"],
-    sources: [],
+    sources: [
+      "https://www.gilmourish.com/?page_id=11",
+      "https://www.premierguitar.com/artists/david-gilmour-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -14927,11 +15140,15 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Myth Drive", block_category: "Drive", original_gear: "Colorsound Powerboost", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Light sustain-enhancing overdrive." },
-          { position: 2, block_name: "Search Cortex Cloud for 'Hiwatt DR103' capture", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Gain: 5.0, Bass: 5.0, Mid: 5.0, Treble: 5.0, Presence: 5.0, Master: 6.0 }, notes: "Clean Hiwatt platform." },
-          { position: 3, block_name: "Digital Delay", block_category: "Delay", original_gear: "Echorec", settings: { Time: 500, Feedback: 30, Mix: 30 }, notes: "Spacious delay for sustain." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (parallel)", settings: { Threshold: -32, Ratio: 3, Attack: 38, Release: 200, Mix: 60, Level: 5.0 }, notes: "Parallel comp carries each note of the motif into the next without squashing the front-edge attack." },
+          { position: 2, block_name: "Myth Drive", block_category: "Drive", original_gear: "Colorsound Powerboost", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "DEFAULT-ON. Light overdrive that pushes the Hiwatt into bloom — the secret to the singing four-note motif." },
+          { position: 3, block_name: "Search Cortex Cloud for 'Hiwatt DR103' capture", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Gain: 5.0, Bass: 5.0, Mid: 5.0, Treble: 5.0, Presence: 5.0, Master: 6.0 }, notes: "Clean Hiwatt platform — gain comes from the Powerboost, not the amp." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "WEM 4x12 with Fane speakers", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.30, LowCut: 80, HighCut: 8000, Level: 0 }, notes: "Slightly off-cone for upper-midrange clarity without brittleness — Fanes are smoother than Greenbacks but this is the closest QC IR." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 500, Feedback: 45, Mix: 32 }, notes: "Long free-time delay (500ms) for the spacious motif. Feedback ~45% gives ~5 audible repeats." },
+          { position: 6, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate (EMT 140)", settings: { Decay: 3.0, Predelay: 50, Mix: 30, Level: 0 }, notes: "3-second plate. Shine On's intro space is HUGE — the reverb tail is part of the composition." },
+          { position: 7, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment for FRFR/headphone monitoring." },
         ],
-        notes: "The Shine On tone is about patience, sustain, and vibrato. Four notes that last forever.",
+        notes: "Studio comp → Myth Drive → Hiwatt → 4x12 → digital delay → plate reverb → tilt EQ. The Shine On tone is about patience, sustain, and vibrato. Four notes that last forever.",
       },
       tonex: {
         chain_blocks: [
@@ -14941,33 +15158,46 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Blues Drive", block_category: "Booster", original_gear: "Colorsound Powerboost", settings: { Drive: 4, Tone: 5, Level: 7 }, notes: "Light overdrive for sustain." },
-          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Hiwatt DR103", settings: { Gain: 4, Volume: 7, Bass: 5, Middle: 5, Treble: 5, Presence: 5 }, notes: "Clean-ish Lead channel for sustaining platform." },
-          { position: 3, block_name: "Digital", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 500, Feedback: 30, Level: 30 }, notes: "Long delay for spacious atmosphere." },
+          { position: 1, block_name: "Blues Drive", block_category: "Booster", enabled: false, original_gear: "Colorsound Powerboost", settings: { Drive: 4, Bottom: 5, Tone: 5, Level: 7 }, notes: "ALTERNATE drive (off by default). Helix runs Heir Apparent default-on, but on Katana the Booster slot is best left off so the player A/Bs against the amp's own breakup before stacking." },
+          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Hiwatt DR103", settings: { Gain: 4, Volume: 7, Bass: 5, Middle: 5, Treble: 5, Presence: 5, Master: 6 }, notes: "Clean-ish Lead channel for the sustaining platform. The Katana's Lead voicing is closer to Hiwatt headroom than Brown is." },
+          { position: 3, block_name: "Digital", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 500, Feedback: 30, EffectLevel: 30 }, notes: "Long free-time delay (500ms) for spacious atmosphere — the four-note motif breathes over slow repeats." },
+          { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (EMT 140)", settings: { Time: 5, PreDelay: 50, Tone: 5, EffectLevel: 30 }, notes: "Long plate reverb for the cathedral-sized space the intro lives in. Time=5 is roughly 3-second decay on Katana." },
         ],
-        notes: "Light overdrive, clean amp, long delay. The Katana can achieve a convincing Gilmour sustain tone with patience and vibrato.",
+        notes: "Drive off, Lead amp, long delay, plate reverb. The Katana can nail the Shine On sustain tone with patience and vibrato — the Powerboost stays off so the amp does the lifting.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "FAS Boost", block_category: "Drive", original_gear: "Colorsound Powerboost", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Light overdrive for sustain without harsh distortion." },
-          { position: 2, block_name: "Hipower", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 5.0, Bass: 5.0, Mid: 5.0, Treble: 5.0, Presence: 5.0, MV: 7.0 }, notes: "Clean Hiwatt platform for singing sustain." },
-          { position: 3, block_name: "Tape Mono", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 500, Feedback: 30, Mix: 30 }, notes: "Long tape-style delay for spacious atmosphere." },
-          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: "57 Dynamic", Distance: 2.5 }, notes: "Smooth cab for atmospheric character." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (parallel)", settings: { Threshold: -32, Ratio: 3, Attack: 38, Release: 200, Mix: 0.6, Level: 5 }, notes: "Parallel comp for sustain that doesn't squash the volume-swell attack." },
+          { position: 2, block_name: "FAS Boost", block_category: "Drive", original_gear: "Colorsound Powerboost", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "DEFAULT-ON. Light overdrive for sustain without harsh distortion." },
+          { position: 3, block_name: "Hipower", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 5.0, Bass: 5.0, Mid: 5.0, Treble: 5.0, Presence: 5.0, MV: 7.0 }, notes: "Clean Hiwatt platform for singing sustain." },
+          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "WEM 4x12 with Fane speakers", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 80, HighCut: 8500, Level: 0 }, notes: "Smooth cab for atmospheric character. Closest Fractal IR to a Fane-loaded WEM." },
+          { position: 5, block_name: "Tape Mono", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 500, Feedback: 45, Mix: 0.32 }, notes: "Long tape-style delay for the spacious four-note motif." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (EMT 140)", settings: { Mix: 0.30, Decay: 3.0, Predelay: 50 }, notes: "Long plate reverb — the intro lives in a cathedral-sized space." },
+          { position: 7, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Hipower model with light FAS Boost for sustain. Tape delay for the spacious four-note motif. Vibrato on every note is essential.",
+        notes: "Comp → FAS Boost → Hipower → 4x12 → tape delay → plate → tilt EQ. Hipower model with light FAS Boost for sustain. Vibrato on every note is essential.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
-            block_name: "Kemper Drive",
-            block_category: "Stomp",
-            original_gear: "Colorsound Powerboost",
-            settings: { Drive: 4.0, Tone: 5.0, Volume: 7.0 },
-            notes: "Slot A. Light overdrive for sustain without harsh distortion.",
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor (parallel)",
+            settings: { Intensity: 5.0, Attack: 0.04, Volume: 5.0 },
+            notes: "Slot A. Parallel-style compression that carries each note of the motif without squashing the attack.",
           },
           {
             position: 2,
+            block_name: "Kemper Drive",
+            block_category: "Stomp",
+            enabled: true,
+            original_gear: "Colorsound Powerboost",
+            settings: { Drive: 4.0, Tone: 5.0, Volume: 7.0 },
+            notes: "Slot B. DEFAULT-ON — the Powerboost is what makes the four-note motif sing. Light Drive (4) just adds harmonic saturation; Volume=7 pushes the profile's front end into bloom.",
+          },
+          {
+            position: 3,
             block_name: "Search Rig Exchange for 'Hiwatt'",
             block_category: "Profile",
             original_gear: "Hiwatt DR103 Custom 100",
@@ -14975,15 +15205,23 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Clean Hiwatt profile. With Liquid Profiling, select the Hiwatt tone stack.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Single Delay",
-            block_category: "Effect",
+            block_category: "Delay",
             original_gear: "Binson Echorec",
-            settings: { Time: 500, Feedback: 30, Mix: 30 },
-            notes: "DLY slot. Long delay for spacious sustain.",
+            settings: { Time: 500, Feedback: 45, Mix: 32 },
+            notes: "DLY slot. Long delay for spacious sustain — ~5 audible repeats that tail off into the reverb.",
+          },
+          {
+            position: 5,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate (EMT 140)",
+            settings: { Decay: 3.0, Predelay: 50, Mix: 30 },
+            notes: "REV slot. Long plate for the cathedral-sized intro space.",
           },
         ],
-        notes: "Kemper profiles include the cab. Light drive into clean Hiwatt with long delay. Vibrato on every note is essential.",
+        notes: "Kemper profiles include the cab. Comp → Powerboost (on) → clean Hiwatt → long delay → plate reverb. Vibrato on every note is essential.",
       },
     },
     is_editorial: true,
