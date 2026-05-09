@@ -3417,6 +3417,14 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 50, Level: 0 },
+            notes: "Light parallel comp evens out aggressive picking dynamics.",
+          },
+          {
+            position: 2,
             block_name: "Crying Wah",
             block_category: "Wah",
             original_gear: "Dunlop Cry Baby Wah",
@@ -3425,16 +3433,16 @@ export const toneRecipes: ToneRecipe[] = [
               "Assign to the QC's built-in expression pedal. The stock wah model works well for this tone.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Facial Fuzz",
             block_category: "Drive",
             original_gear: "Dallas Arbiter Fuzz Face",
             settings: { Fuzz: 7.0, Volume: 8.0 },
             notes:
-              "Under Stomp > Drive. The QC's Fuzz Face model captures the germanium character well. Responds to guitar volume dynamics.",
+              "QC's Fuzz Face model — germanium character. Responds to guitar volume dynamics.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Brit Plexi 100 Bright",
             block_category: "Amp",
             original_gear: "Marshall Super Lead 1959",
@@ -3447,20 +3455,28 @@ export const toneRecipes: ToneRecipe[] = [
               Master: 8.0,
             },
             notes:
-              "The QC's Plexi model. Push the gain high to emulate cranked Plexi behavior. Community captures of real Plexis on Cortex Cloud can add extra authenticity.",
+              "QC's Plexi model. Push the gain high to emulate cranked Plexi behavior.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "4x12 Green 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
-            settings: { Mic: "SM57", Distance: "1 inch" },
+            settings: { Mic: "SM57", Distance: "1 inch", Position: 0.30, LowCut: 80, HighCut: 9000, Level: 0 },
             notes:
-              "Close-miked Greenback cab. On-axis for brightness and cut.",
+              "Close-miked Greenback cab.",
+          },
+          {
+            position: 6,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment for FRFR systems.",
           },
         ],
         notes:
-          "The Quad Cortex handles fuzz pedals particularly well. For even more authenticity, search Cortex Cloud for captures of real Plexi amps paired with Fuzz Faces. Use the built-in expression pedal for wah control.",
+          "Comp → wah → Fuzz Face → Plexi → Greenback → tilt EQ. Use the built-in expression pedal for wah.",
       },
       tonex: {
         chain_blocks: [
@@ -3512,43 +3528,53 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            notes: "Slot A. Light comp evens out aggressive picking dynamics.",
+          },
+          {
+            position: 2,
             block_name: "Wah Wah",
             block_category: "Stomp",
             original_gear: "Dunlop Cry Baby Wah",
             settings: { Position: "Expression Pedal" },
             notes:
-              "Slot A. Assign to an expression pedal for real-time control. Kemper's Wah Wah effect works well for the Cry Baby sound. Enable Touch Wah for auto-engage when the pedal moves.",
+              "Slot B. Assign to an expression pedal — Kemper's Wah Wah for the Cry Baby sound.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Kemper Fuzz",
             block_category: "Stomp",
             original_gear: "Dallas Arbiter Fuzz Face",
             settings: { Fuzz: 7.0, Volume: 8.0 },
             notes:
-              "Slot B. The Kemper Fuzz (OS 8.1+) covers Fuzz Face territory with both germanium and silicon voicings. Select the germanium variant for authentic Hendrix response to guitar volume changes.",
+              "Slot C. Kemper Fuzz (OS 8.1+) — germanium variant for authentic Hendrix response to guitar volume changes.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Search Rig Exchange for 'Plexi'",
             block_category: "Profile",
             original_gear: "Marshall Super Lead 1959",
             settings: { Gain: 9.0, Bass: 5.0, Middle: 8.0, Treble: 7.0, Presence: 6.0 },
             notes:
-              "Search Rig Exchange for Marshall Plexi or Super Lead profiles. Look for cranked profiles with high gain. With Liquid Profiling, select the Marshall Plexi tone stack for authentic EQ behavior. MBritt and Top Jimi both offer excellent Plexi packs.",
+              "Search Rig Exchange for Marshall Plexi or Super Lead profiles. With Liquid Profiling, select the Marshall Plexi tone stack.",
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. The Kemper Fuzz responds dynamically to guitar volume changes, which is essential for authentic Hendrix playing. For the best results, place the Wah before the Fuzz in the chain. The Kemper excels at this tone because profiles of real cranked Plexis capture the exact saturation and dynamics of the original amps.",
+          "Kemper profiles include the cab. Comp → wah → Fuzz Face → cranked Plexi profile. Wah before fuzz for best results.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Cry Baby", block_category: "Wah", original_gear: "Dunlop Cry Baby Wah", settings: { Position: "Exp Pedal" }, notes: "Wah is essential for the Voodoo Child intro." },
-          { position: 2, block_name: "Face Fuzz", block_category: "Drive", original_gear: "Dallas Arbiter Fuzz Face", settings: { Fuzz: 7.0, Volume: 7.0 }, notes: "Germanium Fuzz Face for thick, warm fuzz." },
-          { position: 3, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 9.0, Bass: 5.0, Mid: 8.0, Treble: 7.0, Presence: 6.0, MV: 8.0 }, notes: "Fractal's Plexi model cranked to simulate dimed Marshall volume knobs. Keep the mids high for that cutting Hendrix character." },
-          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback cab for the classic Hendrix Marshall tone." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 0.5, Level: 0 }, notes: "Light parallel comp for aggressive picking consistency." },
+          { position: 2, block_name: "Cry Baby", block_category: "Wah", original_gear: "Dunlop Cry Baby Wah", settings: { Position: "Exp Pedal" }, notes: "Wah is essential for the Voodoo Child intro." },
+          { position: 3, block_name: "Face Fuzz", block_category: "Drive", original_gear: "Dallas Arbiter Fuzz Face", settings: { Fuzz: 7.0, Volume: 7.0 }, notes: "Germanium Fuzz Face for thick, warm fuzz." },
+          { position: 4, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 9.0, Bass: 5.0, Mid: 8.0, Treble: 7.0, Presence: 6.0, MV: 8.0 }, notes: "Fractal's Plexi model cranked to simulate dimed Marshall volume knobs." },
+          { position: 5, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Close-miked Greenback cab." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Cry Baby into Face Fuzz into Plexi 100W High with Greenback cab. The wah work and fuzz are inseparable from this tone.",
+        notes: "Comp → wah → Fuzz Face → Plexi → Greenback → tilt EQ. Wah work and fuzz are inseparable from this tone.",
       },
     },
     is_editorial: true,
@@ -4099,6 +4125,14 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compressor (light)",
+            settings: { Threshold: -36, Ratio: 2, Attack: 60, Release: 900, Mix: 70, Level: 0 },
+            notes: "Light parallel comp evens out the fingerpicked dynamics — Frusciante's light touch needs gentle help.",
+          },
+          {
+            position: 2,
             block_name: "CE-1",
             block_category: "Modulation",
             original_gear: "Boss CE-1 Chorus Ensemble",
@@ -4107,7 +4141,7 @@ export const toneRecipes: ToneRecipe[] = [
               "The QC's CE-1 model if available, or use a generic analog chorus. Subtle settings for warm shimmer.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Search Cortex Cloud for 'Marshall Major' capture",
             block_category: "Amp",
             original_gear: "Marshall Major 200W",
@@ -4123,7 +4157,7 @@ export const toneRecipes: ToneRecipe[] = [
               "If a Marshall Major model is not available, use a Plexi model set very clean. The key is low gain with pushed treble for sparkle. Search Cortex Cloud for clean Marshall captures.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "4x12 Green",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
@@ -4132,7 +4166,7 @@ export const toneRecipes: ToneRecipe[] = [
               "Slightly pulled back mic for a warmer clean capture.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Room",
             block_category: "Reverb",
             original_gear: "Room reverb (The Mansion)",
@@ -4142,7 +4176,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "A minimalist patch with clean amp tone, subtle chorus, and room reverb for The Mansion's natural ambience. The QC's high-fidelity amp modeling shines on clean tones like this.",
+          "Comp → CE-1 → Marshall capture → Greenback → room reverb. Frusciante's light fingerpicking technique on the Strat neck pickup is the key.",
       },
       tonex: {
         chain_blocks: [
@@ -4194,43 +4228,53 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor (light)",
+            settings: { Intensity: 4.0, Attack: 0.06, Volume: 0.0 },
+            notes: "Slot A. Light comp for fingerpicked dynamics consistency.",
+          },
+          {
+            position: 2,
             block_name: "Vintage Chorus",
             block_category: "Stomp",
             original_gear: "Boss CE-1 Chorus Ensemble",
             settings: { Rate: 3.0, Depth: 6.0 },
             notes:
-              "Slot A. Kemper's Vintage Chorus emulates the bucket-brigade chorus of the 1970s CE-1 era. Keep rate slow and depth moderate for warm, subtle shimmer.",
+              "Slot B. Kemper's Vintage Chorus emulates the bucket-brigade chorus of the 1970s CE-1 era.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Search Rig Exchange for 'Marshall Clean'",
             block_category: "Profile",
             original_gear: "Marshall Major 200W",
             settings: { Gain: 2.5, Bass: 4.0, Middle: 5.0, Treble: 7.0, Presence: 6.0 },
             notes:
-              "Search Rig Exchange for clean Marshall profiles. The Marshall Major is rare, so look for any clean Plexi or JTM45 profile with high headroom. Keep Gain low for pristine cleans. With Liquid Profiling, select a Marshall tone stack.",
+              "Search Rig Exchange for clean Marshall profiles. With Liquid Profiling, select a Marshall tone stack.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Natural Reverb",
-            block_category: "Effect",
+            block_category: "Reverb",
             original_gear: "Room reverb (The Mansion)",
-            settings: { Decay: 1.5, Mix: 20 },
+            settings: { Decay: 1.5, Predelay: 20, Mix: 20 },
             notes:
-              "REV slot. Natural Reverb emulates a realistic room. Set subtle to recreate The Mansion's natural ambience where BSSM was recorded.",
+              "REV slot. Natural Reverb subtle to recreate The Mansion's natural ambience.",
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. This is a minimalist clean tone that relies on a quality clean Marshall profile with subtle chorus and room reverb. The Kemper excels at clean tones because profiles capture the exact character of the original amp at its clean settings.",
+          "Kemper profiles include the cab. Comp → chorus → clean Marshall profile → natural reverb.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Japan CE-2", block_category: "Modulation", original_gear: "Boss CE-1 Chorus Ensemble", settings: { Speed: 3.0, Depth: 6.0, Mix: 50 }, notes: "Japan CE-2 captures the warm analog character of vintage chorus pedals. Keep the speed low and depth moderate for a subtle shimmer rather than obvious modulation." },
-          { position: 2, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Major 200W", settings: { Drive: 2.5, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 5.0, }, notes: "Fractal doesn't have a Marshall Major model. The Plexi 100W High set to very low gain approximates the clean Marshall tone. Keep Drive low for pristine cleans. The treble push is important for maintaining sparkle." },
-          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 3.0 }, notes: "Pull the mic distance back slightly for a warmer, more ambient capture that suits the clean tone. The Greenback cab adds warmth and body." },
-          { position: 4, block_name: "London Plate", block_category: "Reverb", original_gear: "Room reverb (The Mansion)", settings: { Mix: 20, Decay: 1.5, "Pre Delay": 20 }, notes: "A room reverb recreates the natural ambience of The Mansion where BSSM was recorded. Keep the mix subtle for a breathing, spacious quality." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light)", settings: { Threshold: -36, Ratio: 2, Attack: 60, Release: 900, Mix: 0.7, Level: 0 }, notes: "Light parallel comp for fingerpicked dynamics." },
+          { position: 2, block_name: "Japan CE-2", block_category: "Modulation", original_gear: "Boss CE-1 Chorus Ensemble", settings: { Speed: 3.0, Depth: 6.0, Mix: 0.5 }, notes: "Japan CE-2 captures the warm analog character of vintage chorus pedals." },
+          { position: 3, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Major 200W", settings: { Drive: 2.5, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, MV: 5.0 }, notes: "Plexi 100W High at low gain approximates clean Marshall Major. Treble push for sparkle." },
+          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 3.0, LowCut: 80, HighCut: 9500, Level: 0 }, notes: "Greenback cab pulled back for warm clean capture." },
+          { position: 5, block_name: "London Plate", block_category: "Reverb", original_gear: "Room reverb (The Mansion)", settings: { Mix: 0.20, Decay: 1.5, Predelay: 20 }, notes: "Room/plate hybrid for The Mansion's natural ambience." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Japan CE-2 into Plexi 100W High at low gain for warm, shimmering cleans. London Plate reverb recreates The Mansion's natural ambience.",
+        notes: "Comp → CE-2 → Plexi → Greenback → London Plate → tilt EQ. Strat neck pickup, fingerpicked.",
       },
     },
     is_editorial: true,
@@ -9380,7 +9424,10 @@ export const toneRecipes: ToneRecipe[] = [
         "Iommi's extremely light strings are as important as the amp settings. The lighter string tension creates a unique, slightly buzzy attack that is central to the Sabbath sound.",
     },
     tags: ["metal", "doom-metal", "hard-rock", "detuned", "black-sabbath", "heavy"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/tony-iommi",
+      "https://www.premierguitar.com/artists/tony-iommi-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -11261,14 +11308,14 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { Pedal: 1.0, VolumeTaper: false }, notes: "Assigned to EXP 1." },
           {
             position: 2,
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 },
-            notes: "Transparent compression for even dynamics. Adjust Threshold to taste.",
+            settings: { Threshold: -28, Ratio: 2, Knee: 6, Attack: 0.038, Release: 0.20, Mix: 0.6, Level: 0 },
+            notes: "Light parallel comp evens out strummed-rhythm dynamics so the open-G chords sit consistent in the mix.",
           },
           {
             position: 3,
@@ -11276,18 +11323,18 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "Amp",
             original_gear: "Fender Twin Reverb",
             settings: {
-              Drive: 4.0,
-              Bass: 4.0,
-              Mid: 5.0,
-              Treble: 7.0,
-              Presence: 6.0,
-              Master: 1,
-              Bias: 0.5,
-              BiasX: 0.5,
-              Sag: 0.5,
-              Hum: 0.5,
-              Ripple: 0.5,
-              "Ch Vol": 6.0,
+              Drive: 0.40,
+              Bass: 0.40,
+              Mid: 0.50,
+              Treble: 0.70,
+              Presence: 0.60,
+              ChVol: 0.60,
+              Master: 1.0,
+              Bias: 0.55,
+              BiasX: 0.50,
+              Sag: 0.55,
+              Hum: 0.50,
+              Ripple: 0.50,
             },
             notes: "Twin Reverb at moderate volume for clean with edge-of-breakup dynamics. Push the treble for Telecaster brightness.",
           },
@@ -11296,12 +11343,29 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "2x12 Double C12N",
             block_category: "Cab",
             original_gear: "Twin 2x12",
-            settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5, Delay: 0 },
-            notes: "The Twin's 2x12 cab for full, wide clean tone.",
+            settings: { Mic: 0, Distance: 1, Position: 0.30, Angle: 0, LowCut: 19.9, HighCut: 20100, Level: 0, Pan: 0.5, Delay: 0 },
+            cabSibling: { Mic: 5, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5, LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0 },
+            notes: "Dual-mic Twin 2x12 — slightly off-cone for Telecaster jangle without ice-pick.",
+          },
+          {
+            position: 5,
+            block_name: "Spring",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb onboard tank",
+            settings: { Mix: 0.18, Decay: 0.6, Predelay: 0.02, LowCut: 200, HighCut: 6500 },
+            notes: "Subtle spring matching the Twin's onboard tank — Richards' studio amount.",
+          },
+          {
+            position: 6,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment for FRFR systems.",
           },
         ],
         notes:
-          "The key to this tone is the open-G tuning, not the gear. Tune to D-G-D-G-B-D and remove the low E string for authentic Richards riffing.",
+          "Volume → comp → Twin → 2x12 → spring → tilt EQ. Tune to D-G-D-G-B-D and remove the low E string for authentic Richards riffing.",
       },
       quad_cortex: {
         chain_blocks: [
@@ -11344,9 +11408,17 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Decay: 2.0, Predelay: 20, Mix: 0.18, Level: 0 },
             notes: "The Twin Reverb's onboard tank — Richards had it set subtle on the recording. Mix 0.18 mirrors the studio amount; never washy.",
           },
+          {
+            position: 5,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment at chain end.",
+          },
         ],
         notes:
-          "Open-G tuning is essential. The gear is secondary to the tuning and Richards' rhythmic feel. Light comp + spring reverb finish the chain with the studio glue.",
+          "Comp → Twin → 2x12 → spring → tilt EQ. Open-G tuning is essential.",
       },
       tonex: {
         chain_blocks: [
@@ -11430,11 +11502,13 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Double Verb", block_category: "Amp", original_gear: "Fender Twin Reverb", settings: { Drive: 4.0, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 6.0 }, notes: "Twin Reverb at moderate volume for clean with edge-of-breakup dynamics. Push the treble for Telecaster brightness; Bass pulled back so the open-G low strings stay tight." },
-          { position: 2, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Twin 2x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "The Twin's 2x12 cab for full, wide clean tone. SM57 close to the cone." },
-          { position: 3, block_name: "Spring 63", block_category: "Reverb", original_gear: "Twin Reverb onboard tank", settings: { Mix: 0.18, Decay: 0.4, Predelay: 20 }, notes: "Spring 63 reverb at Mix 0.18 mirrors the Twin's onboard tank. Subtle — Richards' studio amount, not a live-stage soak." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light)", settings: { Threshold: -28, Ratio: 2, Attack: 38, Release: 200, Mix: 0.6, Level: 0 }, notes: "Light parallel comp for strummed-rhythm consistency." },
+          { position: 2, block_name: "Double Verb", block_category: "Amp", original_gear: "Fender Twin Reverb", settings: { Drive: 4.0, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, MV: 6.0 }, notes: "Twin Reverb at moderate volume for clean with edge-of-breakup dynamics." },
+          { position: 3, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Twin 2x12", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 9500, Level: 0 }, notes: "Twin 2x12 cab for full, wide clean tone." },
+          { position: 4, block_name: "Spring 63", block_category: "Reverb", original_gear: "Twin Reverb onboard tank", settings: { Mix: 0.18, Decay: 0.6, Predelay: 20 }, notes: "Spring matching the Twin's onboard tank." },
+          { position: 5, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Twin Reverb at moderate volume for clean with edge-of-breakup dynamics. Spring reverb at the end mirrors the Twin's onboard tank.",
+        notes: "Comp → Twin → 2x12 → spring → tilt EQ. Open-G tuning is the secret.",
       },
     },
     is_editorial: true,
@@ -12519,12 +12593,14 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
-          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 3, block_name: "Soup Pro", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Drive: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, Master: 1, Bias: 0.5, BiasX: 0.5, Sag: 0.5, Hum: 0.5, Ripple: 0.5, "Ch Vol": 5.0 }, notes: "Low gain for warm cleans. The Soup Pro model captures the Supro's compressed clean character." },
-          { position: 4, block_name: "1x12 Field Coil", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5, Delay: 0 }, notes: "Closest match to the Supro's warm, round speaker character." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { Pedal: 1.0, VolumeTaper: false }, notes: "Assigned to EXP 1." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -32, Ratio: 2, Knee: 6, Attack: 0.038, Release: 0.20, Mix: 0.6, Level: 0 }, notes: "Light parallel comp evens out the fingerpicked arpeggios. Mix 0.6 keeps the dynamics that make the build work." },
+          { position: 3, block_name: "Soup Pro", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Drive: 0.35, Bass: 0.50, Mid: 0.60, Treble: 0.60, Presence: 0.50, ChVol: 0.50, Master: 1.0, Bias: 0.55, BiasX: 0.50, Sag: 0.55, Hum: 0.50, Ripple: 0.50 }, notes: "Low gain for warm cleans. The Soup Pro model captures the Supro's compressed clean character." },
+          { position: 4, block_name: "1x12 Field Coil", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: 0, Distance: 1, Position: 0.30, Angle: 0, LowCut: 19.9, HighCut: 20100, Level: 0, Pan: 0.5, Delay: 0 }, cabSibling: { Mic: 5, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5, LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0 }, notes: "Dual-mic field-coil cab — closest match to the Supro's warm, round 1x15 speaker." },
+          { position: 5, block_name: "Spring", block_category: "Reverb", original_gear: "Tracking-room ambience (Headley Grange)", settings: { Mix: 0.18, Decay: 1.0, Predelay: 0.025, LowCut: 200, HighCut: 6500 }, notes: "Subtle spring matching the tracking-room ambience. Present but not washy — dynamics carry the build." },
+          { position: 6, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment for FRFR systems." },
         ],
-        notes: "Set up a snapshot to switch to a cranked Brit Plexi for the solo section, using a Les Paul. The intro is all about dynamics and touch.",
+        notes: "Volume → comp → Soup Pro → 1x12 → spring → tilt EQ. Use snapshots to switch to a cranked Brit Plexi for the solo with a Les Paul.",
       },
       quad_cortex: {
         chain_blocks: [
@@ -12532,8 +12608,9 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "Search Cortex Cloud for 'Supro' capture", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Gain: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, Master: 5.0 }, notes: "Low-gain Supro for warm, compressed cleans. Captures of real Supros on Cortex Cloud nail the squashy character better than the stock model." },
           { position: 3, block_name: "1x15 US", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: "SM57", Distance: "3 inches", LowCut: 80, HighCut: 14000 }, notes: "Warm, round cab for the clean arpeggio sections. SM57 a few inches off the cone — captures the Supro without going harsh." },
           { position: 4, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Tracking-room ambience", settings: { Decay: 2.0, Predelay: 25, Mix: 0.18, Level: 0 }, notes: "Subtle spring at Mix 0.18 for the tracking-room glue on the original recording. Present, never washy — the build is about touch dynamics, not reverb depth." },
+          { position: 5, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Use scenes to transition from clean Supro to a cranked Marshall for the solo. The song is a masterclass in dynamic tone building.",
+        notes: "Comp → Supro → 1x15 → spring → tilt EQ. Use scenes to transition from clean Supro to cranked Marshall for the solo.",
       },
       tonex: {
         chain_blocks: [
@@ -12584,11 +12661,13 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Super Verb", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Drive: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, "MV": 5.0 }, notes: "Low gain for warm cleans. The Super Verb captures the Supro's compressed clean character. Touch-sensitive at this gain — same setting carries you from intro to build." },
-          { position: 2, block_name: "1x12 Field Coil", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: "57 Dynamic", Distance: 3.0 }, notes: "Closest match to the Supro's warm, round speaker character. SM57 a few inches off the cone for the natural mid-bump." },
-          { position: 3, block_name: "Spring 63", block_category: "Reverb", original_gear: "Tracking-room ambience", settings: { Mix: 0.18, Decay: 0.4, Predelay: 25 }, notes: "Spring 63 reverb at low mix mirrors the Headley Grange tracking-room ambience on the original recording. Present but never washy." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light)", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 0.6, Level: 0 }, notes: "Light parallel comp for the fingerpicked arpeggios. Bypass and let touch carry it for max dynamics." },
+          { position: 2, block_name: "Super Verb", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Drive: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, MV: 5.0 }, notes: "Low gain for warm cleans. The Super Verb captures the Supro's compressed clean character." },
+          { position: 3, block_name: "1x12 Field Coil", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: "57 Dynamic", Distance: 3.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Closest match to the Supro's warm, round speaker character." },
+          { position: 4, block_name: "Spring 63", block_category: "Reverb", original_gear: "Tracking-room ambience (Headley Grange)", settings: { Mix: 0.18, Decay: 1.0, Predelay: 25 }, notes: "Subtle spring at low mix mirrors the Headley Grange tracking-room ambience." },
+          { position: 5, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Low gain for warm cleans, subtle spring for room glue. The Super Verb model captures the Supro's compressed clean character; the build is all dynamics and touch.",
+        notes: "Comp → Super Verb → 1x12 → spring → tilt EQ. Touch-sensitive at this gain — same setting carries from intro to build.",
       },
     },
     is_editorial: true,
