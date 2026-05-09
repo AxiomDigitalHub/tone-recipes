@@ -8367,7 +8367,10 @@ export const toneRecipes: ToneRecipe[] = [
         "Garcia's clean tone is about touch and dynamics. He used a flatpick and fingerpicking interchangeably, and the clean amp responds to every nuance of his attack.",
     },
     tags: ["clean", "sparkle", "jam-band", "psychedelic", "grateful-dead"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/jerry-garcia",
+      "https://www.premierguitar.com/artists/jerry-garcia-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -8434,6 +8437,14 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Threshold: -36, Ratio: 2, Attack: 38, Release: 200, Mix: 70, Level: 0 },
+            notes: "Light parallel comp for clean fingerpicked dynamics.",
+          },
+          {
+            position: 2,
             block_name: "US DLX 64",
             block_category: "Amp",
             original_gear: "Fender Twin Reverb",
@@ -8448,24 +8459,40 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Low gain for pristine cleans. The QC's Twin model excels at clean tones.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "2x12 Twin",
             block_category: "Cab",
             original_gear: "Twin 2x12 Jensen",
-            settings: { Mic: "SM57", Distance: "3 inches" },
+            settings: { Mic: "SM57", Distance: "3 inches", Position: 0.30, LowCut: 80, HighCut: 9500, Level: 0 },
             notes: "Pulled-back mic for warm, spacious cleans.",
           },
           {
-            position: 3,
+            position: 4,
+            block_name: "Digital Delay",
+            block_category: "Delay",
+            original_gear: "Slapback / ambience",
+            settings: { Time: 300, Feedback: 15, Mix: 20 },
+            notes: "Short delay for additional spacious depth.",
+          },
+          {
+            position: 5,
             block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Twin Reverb spring reverb",
-            settings: { Decay: 2.0, Mix: 25 },
-            notes: "Spring reverb for the authentic Twin Reverb atmosphere. Essential for Garcia's spacious clean tone.",
+            settings: { Decay: 2.0, Predelay: 20, Mix: 25, Level: 0 },
+            notes: "Spring reverb for the authentic Twin Reverb atmosphere — essential for Garcia's spacious clean.",
+          },
+          {
+            position: 6,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment for FRFR.",
           },
         ],
         notes:
-          "Spring reverb is essential for the authentic Garcia/Twin Reverb atmosphere. The QC's clean amp models are among its strongest features.",
+          "Comp → Twin → 2x12 → digital delay → spring → tilt EQ. Spring reverb is essential for the authentic Garcia atmosphere.",
       },
       tonex: {
         chain_blocks: [
@@ -8489,59 +8516,77 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 6,
             },
             notes:
-              "The Katana's Clean channel has excellent headroom for sparkling Fender-style cleans. Add the built-in reverb for depth.",
+              "Clean channel with low gain and pushed treble for sparkling Fender cleans.",
           },
           {
             position: 2,
+            block_name: "Digital",
+            block_category: "Delay",
+            original_gear: "Slapback / ambience",
+            settings: { Time: 300, Feedback: 15, EffectLevel: 20 },
+            notes: "Short delay for additional spacious depth.",
+          },
+          {
+            position: 3,
             block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Twin Reverb spring reverb",
-            settings: { Level: 25 },
-            notes: "Add spring reverb in the FX section for authentic Twin Reverb ambience.",
+            settings: { Time: 5, PreDelay: 20, Tone: 6, EffectLevel: 25 },
+            notes: "Authentic Twin Reverb spring ambience — essential for Garcia's clean.",
           },
         ],
         notes:
-          "The Katana's Clean channel is perfect for this. Low gain, pushed treble, and spring reverb. Use the middle pickup position on your guitar.",
+          "Clean amp + delay + spring. Use the middle pickup position on your guitar.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 4.0, Attack: 0.04, Volume: 0.0 },
+            notes: "Slot A. Light comp for clean fingerpicked dynamics.",
+          },
+          {
+            position: 2,
             block_name: "Search Rig Exchange for 'Twin Reverb'",
             block_category: "Profile",
             original_gear: "Fender Twin Reverb",
             settings: { Gain: 3.0, Bass: 4.0, Middle: 6.0, Treble: 7.0, Presence: 6.0 },
             notes:
-              "Search Rig Exchange for clean Fender Twin Reverb profiles. Keep the Gain very low for sparkling cleans. With Liquid Profiling, select the Fender Twin tone stack.",
-          },
-          {
-            position: 2,
-            block_name: "Spring Reverb",
-            block_category: "Effect",
-            original_gear: "Twin Reverb spring reverb",
-            settings: { Decay: 2.0, Mix: 25 },
-            notes:
-              "REV slot. The Twin Reverb's lush spring reverb is essential to Garcia's clean tone. The Kemper's Spring Reverb with Dripstone parameter adds authentic vintage character.",
+              "Search Rig Exchange for clean Fender Twin Reverb profiles. With Liquid Profiling, select the Fender Twin tone stack.",
           },
           {
             position: 3,
             block_name: "Single Delay",
-            block_category: "Effect",
+            block_category: "Delay",
             original_gear: "Slapback / ambience",
-            settings: { "Delay Time": "300ms", Feedback: 15, Mix: 20 },
+            settings: { Time: 300, Feedback: 15, Mix: 20 },
             notes:
-              "DLY slot. A short delay adds spacious depth to the clean, reverb-drenched tone.",
+              "DLY slot. Short delay for spacious depth.",
+          },
+          {
+            position: 4,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb spring reverb",
+            settings: { Decay: 2.0, Predelay: 20, Mix: 25 },
+            notes:
+              "REV slot. The Twin's lush spring reverb is essential to Garcia's clean tone.",
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. Garcia's tone is about sparkling cleans with lush spring reverb. The Kemper's Twin Reverb profiles capture the wide, glassy character of the original amp. Use the middle pickup position for Garcia's balanced, slightly quacky tone.",
+          "Kemper profiles include the cab. Comp → Twin profile → delay → spring. Use the middle pickup position for Garcia's balanced, slightly-quacky tone.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Double Verb", block_category: "Amp", original_gear: "Fender Twin Reverb", settings: { Drive: 3.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, "MV": 5.0, }, notes: "Fractal's Double Verb is the Twin Reverb model. Keep drive very low for sparkling cleans." },
-          { position: 2, block_name: "Tube Spring", block_category: "Reverb", original_gear: "Twin Reverb spring reverb", settings: { Mix: 25, Decay: 2.0 }, notes: "The Twin Reverb's lush spring reverb is essential to Garcia's clean tone. Add a spring reverb block for the authentic spacious atmosphere." },
-          { position: 3, block_name: "Digital Mono", block_category: "Delay", original_gear: "Slapback / ambience", settings: { Time: "300ms", Feedback: 15, Mix: 20 }, notes: "A short delay adds additional spacious depth to the clean, reverb-drenched tone." },
-          { position: 4, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Twin Reverb 2x12 Jensen", settings: { Mic: "57 Dynamic", Distance: 3.0 }, notes: "The 2x12 Jensen cab captures the Twin's wide, sparkling character." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Attack: 38, Release: 200, Mix: 0.7, Level: 0 }, notes: "Light parallel comp for clean fingerpicked dynamics." },
+          { position: 2, block_name: "Double Verb", block_category: "Amp", original_gear: "Fender Twin Reverb", settings: { Drive: 3.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 5.0 }, notes: "Fractal's Double Verb is the Twin Reverb model. Keep drive very low for sparkling cleans." },
+          { position: 3, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Twin Reverb 2x12 Jensen", settings: { Mic: "57 Dynamic", Distance: 3.0, LowCut: 80, HighCut: 9500, Level: 0 }, notes: "The 2x12 Jensen cab captures the Twin's wide, sparkling character." },
+          { position: 4, block_name: "Digital Mono", block_category: "Delay", original_gear: "Slapback / ambience", settings: { Time: 300, Feedback: 15, Mix: 0.20 }, notes: "Short delay for additional spacious depth." },
+          { position: 5, block_name: "Tube Spring", block_category: "Reverb", original_gear: "Twin Reverb spring reverb", settings: { Mix: 0.25, Decay: 2.0, Predelay: 20 }, notes: "Authentic Twin spring reverb — essential for Garcia's clean atmosphere." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
         notes: "Double Verb at low drive for sparkling cleans. Tube Spring reverb and short Digital Mono delay for spacious depth.",
       },
@@ -11480,7 +11525,10 @@ export const toneRecipes: ToneRecipe[] = [
         "Gibbons' extremely light strings and heavy pick attack create a unique snappy, aggressive tone. His pinch harmonic technique is a defining element of the ZZ Top sound.",
     },
     tags: ["blues-rock", "hard-rock", "southern-rock", "treble-booster", "zz-top"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/billy-gibbons",
+      "https://www.premierguitar.com/artists/billy-gibbons-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -11594,14 +11642,23 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Rage Booster",
-            block_category: "Drive",
-            original_gear: "Dallas Rangemaster",
-            settings: { Boost: 8.0 },
-            notes: "Treble booster to drive the Plexi.",
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 50, Level: 2 },
+            notes: "Light parallel comp — preserves the pinch-harmonic snap.",
           },
           {
             position: 2,
+            block_name: "Rage Booster",
+            block_category: "Drive",
+            enabled: true,
+            original_gear: "Dallas Rangemaster (always-on)",
+            settings: { Boost: 8.0 },
+            notes: "DEFAULT-ON. Treble booster to drive the Plexi — the searing ZZ Top harmonic emphasis.",
+          },
+          {
+            position: 3,
             block_name: "Brit Plexi 100 Bright",
             block_category: "Amp",
             original_gear: "Marshall Super Lead 1959",
@@ -11616,24 +11673,32 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Cranked Plexi for the ZZ Top crunch.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "4x12 Green 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
-            settings: { Mic: "SM57", Distance: "1 inch" },
-            notes: "Greenback for classic blues-rock tone.",
+            settings: { Mic: "SM57", Distance: "1 inch", Position: 0.30, LowCut: 80, HighCut: 9000, Level: 0 },
+            notes: "Greenback close-miked for classic blues-rock tone with cone-edge bite for pinch harmonics.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "Spring",
             block_category: "Reverb",
             original_gear: "Studio spring reverb",
-            settings: { Decay: 1.5, Mix: 18 },
-            notes: "Subtle spring reverb for Tres Hombres studio ambience.",
+            settings: { Decay: 0.5, Predelay: 20, Mix: 20, Level: 0 },
+            notes: "Subtle spring matching the Tres Hombres studio ambience.",
+          },
+          {
+            position: 6,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment at chain end.",
           },
         ],
         notes:
-          "Rangemaster into Plexi with spring reverb. Search Cortex Cloud for ZZ Top captures for extra authenticity.",
+          "Comp → Rangemaster (on) → Plexi → Greenback → spring → tilt EQ. Practice pinch harmonics for authentic ZZ Top snarl.",
       },
       tonex: {
         chain_blocks: [
@@ -11682,41 +11747,54 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Treble Booster",
-            block_category: "Stomp",
-            original_gear: "Dallas Rangemaster",
-            settings: { Boost: 8.0 },
-            notes:
-              "Slot A. Kemper's Treble Booster nails the Rangemaster's upper-harmonic push. Crank the Boost to slam the front end of the Plexi profile for that searing ZZ Top snarl.",
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 3.0, Attack: 0.04, Volume: 2.0 },
+            notes: "Slot A. Light comp — preserves pinch-harmonic snap.",
           },
           {
             position: 2,
+            block_name: "Treble Booster",
+            block_category: "Stomp",
+            enabled: true,
+            original_gear: "Dallas Rangemaster (always-on)",
+            settings: { Drive: 5.0, Tone: 8.0, Volume: 8.0 },
+            notes:
+              "Slot B. DEFAULT-ON. Kemper's Treble Booster nails the Rangemaster's upper-harmonic push. Crank to slam the front end of the Plexi profile for the searing ZZ Top snarl.",
+          },
+          {
+            position: 3,
             block_name: "Search Rig Exchange for 'Plexi'",
             block_category: "Profile",
             original_gear: "Marshall Super Lead 1959",
             settings: { Gain: 7.5, Bass: 5.0, Middle: 7.0, Treble: 6.0, Presence: 6.0 },
             notes:
-              "Search Rig Exchange for cranked Plexi profiles. MBritt and TopJimi offer excellent Marshall packs. With Liquid Profiling, select the Marshall tone stack for authentic Plexi EQ behavior.",
+              "Search Rig Exchange for cranked Plexi profiles. MBritt and TopJimi offer excellent Marshall packs. With Liquid Profiling, select the Marshall tone stack.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Spring Reverb",
-            block_category: "Effect",
+            block_category: "Reverb",
             original_gear: "Studio spring reverb",
-            settings: { Decay: 1.5, Mix: 18 },
+            settings: { Decay: 0.5, Predelay: 20, Mix: 20 },
             notes:
-              "REV slot. Subtle spring reverb for the warm Tres Hombres studio ambience without washing out the aggressive attack.",
+              "REV slot. Subtle spring matching the Tres Hombres studio ambience.",
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. The Treble Booster into a cranked Plexi profile is a killer Gibbons combination. Search for Plexi profiles captured through Greenback cabs for the classic British midrange character. Practice pinch harmonics for the authentic ZZ Top squeal.",
+          "Kemper profiles include the cab. Comp → Rangemaster (on) → Plexi profile → spring. Practice pinch harmonics for the authentic ZZ Top squeal.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "59 Bassguy", block_category: "Amp", original_gear: "Fender Bassman / Marshall", settings: { Drive: 7.0, Bass: 6.0, Mid: 5.0, Treble: 6.0, MV: 7.0 }, notes: "Cranked Bassman for the ZZ Top shuffle tone." },
-          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall / Fender 4x10", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Standard cab for the Texas boogie." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 0.5, Level: 2 }, notes: "Light parallel comp for pinch-harmonic snap preservation." },
+          { position: 2, block_name: "FAS Treble Boost", block_category: "Drive", enabled: true, original_gear: "Dallas Rangemaster (always-on)", settings: { Drive: 5.0, Tone: 8.0, Level: 8.0 }, notes: "DEFAULT-ON. Treble booster to drive the Plexi — Gibbons' searing harmonic emphasis." },
+          { position: 3, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959", settings: { Drive: 7.5, Bass: 5.0, Mid: 7.0, Treble: 6.0, Presence: 6.0, MV: 7.0 }, notes: "Cranked Plexi — the ZZ Top crunch. Mid 7 for Plexi midrange honk." },
+          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Greenback cab close-miked for cone-edge harmonic emphasis." },
+          { position: 5, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Studio spring reverb", settings: { Mix: 0.20, Decay: 0.5, Predelay: 20 }, notes: "Subtle spring matching the Tres Hombres studio ambience." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "59 Bassguy cranked for La Grange. Les Paul with hot pickups. The shuffle rhythm is the heart of ZZ Top.",
+        notes: "Comp → Rangemaster (on) → cranked Plexi → Greenback → spring → tilt EQ. Pearly Gates Les Paul, bridge pickup, pinch harmonics.",
       },
     },
     is_editorial: true,
@@ -13725,24 +13803,33 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "The key to Creep is the dynamic contrast. The verses are delicate and clean. The Shredmaster is stomped on violently before each chorus for the dramatic shift.",
     },
     tags: ["alternative", "dynamic", "clean-to-heavy", "radiohead", "distortion", "contrast"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/jonny-greenwood",
+      "https://www.premierguitar.com/artists/jonny-greenwood-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
-          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 3, block_name: "Vermin Dist", block_category: "Distortion", original_gear: "Marshall Shredmaster", settings: { Gain: 9.0, Tone: 6.0, Level: 8.0 }, notes: "Helix has no Shredmaster model — Vermin Dist (ProCo RAT) is the closest match for the aggressive, scooped distortion. Bypass for clean verses." },
-          { position: 4, block_name: "US DLX 64", block_category: "Amp", original_gear: "Fender (clean)", settings: { Drive: 3.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, Master: 1, Bias: 0.5, BiasX: 0.5, Sag: 0.5, Hum: 0.5, Ripple: 0.5, "Ch Vol": 6.0 }, notes: "Clean Fender platform. All dirt comes from the Shredmaster." },
-          { position: 5, block_name: "1x12 US Deluxe", block_category: "Cab", original_gear: "Fender 1x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5, Delay: 0 }, notes: "Standard Fender 1x12 cab." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { Pedal: 1.0, VolumeTaper: false }, notes: "Assigned to EXP 1." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Knee: 6, Attack: 0.038, Release: 0.20, Mix: 0.5, Level: 0 }, notes: "Light parallel comp for the delicate clean arpeggios." },
+          { position: 3, block_name: "Vermin Dist", block_category: "Distortion", enabled: false, original_gear: "Marshall Shredmaster", settings: { Gain: 0.90, Tone: 0.60, Level: 0.80 }, notes: "OFF for verses, STOMP ON for choruses. Helix has no Shredmaster model — Vermin Dist (ProCo RAT) is the closest match for the aggressive, scooped distortion." },
+          { position: 4, block_name: "US DLX 64", block_category: "Amp", original_gear: "Fender Eighty Five", settings: { Drive: 0.30, Bass: 0.50, Mid: 0.50, Treble: 0.60, Presence: 0.50, ChVol: 0.60, Master: 1.0, Bias: 0.55, BiasX: 0.50, Sag: 0.55, Hum: 0.50, Ripple: 0.50 }, notes: "Clean Fender platform. All dirt comes from the Shredmaster." },
+          { position: 5, block_name: "1x12 US Deluxe", block_category: "Cab", original_gear: "Fender Eighty Five 1x12", settings: { Mic: 0, Distance: 1, Position: 0.30, Angle: 0, LowCut: 19.9, HighCut: 20100, Level: 0, Pan: 0.5, Delay: 0 }, cabSibling: { Mic: 5, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5, LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0 }, notes: "Dual-mic 1x12 — SM57 + ribbon for the verse cleans, holds up under the chorus distortion blast." },
+          { position: 6, block_name: "Spring", block_category: "Reverb", original_gear: "Studio room/spring", settings: { Mix: 0.18, Decay: 1.0, Predelay: 0.02, LowCut: 200, HighCut: 6500 }, notes: "Subtle spring reverb adds dimension to the clean arpeggios; survives the chorus distortion without smearing." },
+          { position: 7, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Use a footswitch to toggle the Shredmaster for the clean/heavy dynamic. The contrast is the entire song.",
+        notes: "Volume → comp → Shredmaster (off) → clean Fender → 1x12 → spring → tilt EQ. Toggle the Shredmaster for the clean/heavy dynamic — the contrast is the entire song.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Search Cortex Cloud for 'Marshall Shredmaster' capture", block_category: "Drive", original_gear: "Marshall Shredmaster", settings: { Gain: 9.0, Bass: 5.0, Treble: 6.0, Level: 8.0 }, notes: "Heavy distortion toggled for choruses." },
-          { position: 2, block_name: "US DLX 64", block_category: "Amp", original_gear: "Fender (clean)", settings: { Gain: 3.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Master: 6.0 }, notes: "Clean amp platform." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 50, Level: 0 }, notes: "Light parallel comp for clean arpeggio articulation." },
+          { position: 2, block_name: "Search Cortex Cloud for 'Marshall Shredmaster' capture", block_category: "Drive", enabled: false, original_gear: "Marshall Shredmaster", settings: { Gain: 9.0, Bass: 5.0, Treble: 6.0, Level: 8.0 }, notes: "OFF for verses. Heavy distortion toggled on for choruses." },
+          { position: 3, block_name: "US DLX 64", block_category: "Amp", original_gear: "Fender Eighty Five (clean)", settings: { Gain: 3.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, Master: 6.0 }, notes: "Clean amp platform — all dirt comes from the Shredmaster." },
+          { position: 4, block_name: "1x12 Fender", block_category: "Cab", original_gear: "Fender Eighty Five 1x12", settings: { Mic: "SM57", Distance: "2 inches", Position: 0.30, LowCut: 80, HighCut: 8500, Level: 0 }, notes: "Standard Fender 1x12 cab." },
+          { position: 5, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Studio room/spring", settings: { Decay: 1.0, Predelay: 20, Mix: 18, Level: 0 }, notes: "Subtle spring for verse arpeggios." },
+          { position: 6, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Toggle the Shredmaster on/off for the verse/chorus dynamic. Telecaster for authentic tone.",
+        notes: "Comp → Shredmaster (off) → clean Fender → 1x12 → spring → tilt EQ. Toggle for verse/chorus dynamic.",
       },
       tonex: {
         chain_blocks: [
@@ -13752,42 +13839,63 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "HM-2", block_category: "Booster", original_gear: "Marshall Shredmaster", settings: { Tone: 6, Level: 8, Gain: 9 }, notes: "HM-2 booster at high gain as a Shredmaster substitute. Bypass for verses." },
-          { position: 2, block_name: "Clean", block_category: "Amp Type", original_gear: "Fender (clean)", settings: { Gain: 3, Volume: 6, Bass: 5, Middle: 5, Treble: 6, Presence: 5 }, notes: "Clean channel as the platform. Toggle booster for the heavy chorus sections." },
+          { position: 1, block_name: "HM-2", block_category: "Booster", enabled: false, original_gear: "Marshall Shredmaster", settings: { Drive: 9, Bottom: 5, Tone: 6, Level: 8 }, notes: "OFF for verses, STOMP ON for choruses. HM-2 booster at high gain as a Shredmaster substitute." },
+          { position: 2, block_name: "Clean", block_category: "Amp Type", original_gear: "Fender Eighty Five", settings: { Gain: 3, Volume: 6, Bass: 5, Middle: 5, Treble: 6, Presence: 5 }, notes: "Clean channel as the platform — toggle booster for chorus." },
+          { position: 3, block_name: "Spring", block_category: "Reverb", original_gear: "Studio room/spring", settings: { Time: 3, PreDelay: 20, Tone: 5, EffectLevel: 18 }, notes: "Subtle spring for verse arpeggios." },
         ],
-        notes: "Clean channel with a heavy distortion booster toggled for the chorus. The dynamic shift is everything.",
+        notes: "Shredmaster booster (off) → Clean amp → spring. Toggle for verse/chorus dynamic.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
-            block_name: "Kemper Drive",
-            block_category: "Stomp",
-            original_gear: "Marshall Shredmaster",
-            settings: { Gain: 9.0, Tone: 6.0, Volume: 8.0 },
-            notes:
-              "Slot A. Kemper Drive at high gain as a Shredmaster substitute. Bypass for the clean verses, stomp on for the crushing chorus sections. The contrast between clean and heavy is the entire song.",
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            notes: "Slot A. Light comp for clean arpeggio articulation.",
           },
           {
             position: 2,
+            block_name: "Kemper Drive",
+            block_category: "Stomp",
+            enabled: false,
+            original_gear: "Marshall Shredmaster",
+            settings: { Drive: 9.0, Tone: 6.0, Volume: 8.0 },
+            notes:
+              "Slot B. OFF for verses, STOMP ON for choruses. Kemper Drive at high gain as a Shredmaster substitute.",
+          },
+          {
+            position: 3,
             block_name: "Search Rig Exchange for 'Fender Clean'",
             block_category: "Profile",
             original_gear: "Fender Eighty Five",
             settings: { Gain: 3.0, Bass: 5.0, Middle: 5.0, Treble: 6.0 },
             notes:
-              "Search Rig Exchange for clean Fender profiles. The amp stays clean -- all distortion comes from the Shredmaster substitute. Any Fender Deluxe or Twin profile at low gain works.",
+              "Search Rig Exchange for clean Fender profiles. The amp stays clean — all distortion comes from the Shredmaster substitute.",
+          },
+          {
+            position: 4,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio room/spring",
+            settings: { Decay: 1.0, Predelay: 20, Mix: 18 },
+            notes: "REV slot. Subtle spring for verse arpeggios.",
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. The key to Creep is the dynamic contrast. Toggle the Kemper Drive stomp on and off for the verse/chorus shift. Telecaster for authentic tone.",
+          "Kemper profiles include the cab. Comp → Shredmaster (off) → clean Fender profile → spring. Toggle for verse/chorus dynamic.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Rat Distortion", block_category: "Drive", original_gear: "Marshall Shredmaster", settings: { Gain: 9.0, Tone: 6.0, Level: 8.0 }, notes: "No Shredmaster model. Rat Distortion provides similar aggressive, scooped distortion. Bypass for clean verses." },
-          { position: 2, block_name: "Deluxe Verb", block_category: "Amp", original_gear: "Fender (clean)", settings: { Drive: 3.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, MV: 6.0 }, notes: "Clean Fender platform. All dirt comes from the Shredmaster pedal." },
-          { position: 3, block_name: "1x12 Deluxe", block_category: "Cab", original_gear: "Fender 1x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Standard Fender 1x12 cab." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 0.5, Level: 0 }, notes: "Light parallel comp for clean arpeggio articulation." },
+          { position: 2, block_name: "Rat Distortion", block_category: "Drive", enabled: false, original_gear: "Marshall Shredmaster", settings: { Gain: 9.0, Tone: 6.0, Level: 8.0 }, notes: "OFF for verses, STOMP ON for choruses. Rat Distortion approximates the aggressive scooped Shredmaster character." },
+          { position: 3, block_name: "Deluxe Verb", block_category: "Amp", original_gear: "Fender Eighty Five (clean)", settings: { Drive: 3.0, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, MV: 6.0 }, notes: "Clean Fender platform. All dirt comes from the Rat substitute." },
+          { position: 4, block_name: "1x12 Deluxe", block_category: "Cab", original_gear: "Fender 1x12", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 8500, Level: 0 }, notes: "Standard Fender 1x12 cab." },
+          { position: 5, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Studio room/spring", settings: { Mix: 0.18, Decay: 1.0, Predelay: 20 }, notes: "Subtle spring for verse arpeggios." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Rat Distortion into clean Deluxe Verb for Radiohead's Creep. No Shredmaster model; Rat approximates the aggressive scooped character. Bypass distortion for clean verses.",
+        notes: "Comp → Rat (off) → clean Deluxe Verb → 1x12 → spring → tilt EQ. Telecaster for authentic tone. Toggle for verse/chorus.",
       },
     },
     is_editorial: true,
@@ -14205,23 +14313,33 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "Murray's legato phrasing and the twin-guitar harmony with Adrian Smith are the defining elements. The galloping triplet rhythm requires precise alternate picking.",
     },
     tags: ["metal", "nwobhm", "galloping", "iron-maiden", "harmonies", "jcm800"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/dave-murray",
+      "https://www.premierguitar.com/artists/iron-maiden-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
-          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 3, block_name: "Brit 2204", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Drive: 7.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 7.0, Master: 1, Bias: 0.5, BiasX: 0.5, Sag: 0.5, Hum: 0.5, Ripple: 0.5, "Ch Vol": 7.0 }, notes: "Moderate gain JCM800 for clear note definition in fast passages." },
-          { position: 4, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5, Delay: 0 }, notes: "Close-miked for maximum presence." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { Pedal: 1.0, VolumeTaper: false }, notes: "Assigned to EXP 1." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Knee: 6, Attack: 0.038, Release: 0.20, Mix: 0.5, Level: 0 }, notes: "Light parallel comp for galloping triplet consistency." },
+          { position: 3, block_name: "Scream 808", block_category: "Distortion", enabled: false, original_gear: "Tube Screamer (lead boost)", settings: { Drive: 0.20, Tone: 0.55, Level: 0.75 }, notes: "ALTERNATE drive (off by default). Stomp on for the harmonized lead solos — adds mid-hump for note articulation." },
+          { position: 4, block_name: "Brit 2204", block_category: "Amp", original_gear: "Marshall JCM800 2203", settings: { Drive: 0.70, Bass: 0.50, Mid: 0.70, Treble: 0.70, Presence: 0.70, ChVol: 0.70, Master: 1.0, Bias: 0.55, BiasX: 0.50, Sag: 0.55, Hum: 0.50, Ripple: 0.50 }, notes: "Moderate gain JCM800 for clear note definition in the fast galloping passages. Maiden's tone is about definition, not saturation." },
+          { position: 5, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 0, Distance: 1, Position: 0.30, Angle: 0, LowCut: 19.9, HighCut: 20100, Level: 0, Pan: 0.5, Delay: 0 }, cabSibling: { Mic: 5, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5, LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0 }, notes: "Dual-mic Greenback for the British metal midrange." },
+          { position: 6, block_name: "Dynamic Plate", block_category: "Reverb", original_gear: "Studio plate", settings: { Mix: 0.18, Decay: 1.4, LowCut: 130, HighCut: 8000, Level: 0, PreDelay: 0.03, BassFreq: 100, BassBoost: 0, VarDelayAmpl: 0.5, Damping: 4500, MatrFreq: 0.33 }, notes: "Tight plate for studio dimension on the harmonized leads." },
+          { position: 7, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment for FRFR systems." },
         ],
-        notes: "Keep the gain moderate for note clarity. Iron Maiden's tone relies on definition, not saturation.",
+        notes: "Volume → comp → TS (off) → JCM800 → Greenback → plate → tilt EQ. Maiden's tone relies on definition, not saturation.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Brit 2203", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Gain: 7.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 7.0, Master: 6.0 }, notes: "Moderate gain for galloping clarity." },
-          { position: 2, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "SM57", Distance: "1 inch" }, notes: "Standard Marshall cab." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 50, Level: 0 }, notes: "Light parallel comp for galloping triplet consistency." },
+          { position: 2, block_name: "Green 808", block_category: "Drive", enabled: false, original_gear: "Tube Screamer (lead boost)", settings: { Drive: 2.0, Tone: 5.5, Level: 7.5 }, notes: "OFF by default. Stomp on for harmonized lead solos." },
+          { position: 3, block_name: "Brit 2203", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Gain: 7.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 7.0, Master: 6.0 }, notes: "Moderate gain for galloping clarity." },
+          { position: 4, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.30, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Greenback close-miked for British metal midrange." },
+          { position: 5, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate", settings: { Decay: 1.4, Predelay: 30, Mix: 18, Level: 0 }, notes: "Tight plate for studio dimension on lead harmonies." },
+          { position: 6, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment for FRFR." },
         ],
-        notes: "The QC's JCM800 with moderate gain is perfect for the Maiden sound. Keep it tight and defined.",
+        notes: "Comp → TS (off) → JCM800 → Greenback → plate → tilt EQ. Keep it tight and defined.",
       },
       tonex: {
         chain_blocks: [
@@ -14231,31 +14349,53 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall JCM800", settings: { Gain: 7, Volume: 6, Bass: 5, Middle: 7, Treble: 7, Presence: 7 }, notes: "Brown channel at moderate gain for NWOBHM crunch." },
+          { position: 1, block_name: "T-Scream", block_category: "Booster", enabled: false, original_gear: "Tube Screamer (lead boost)", settings: { Drive: 2, Bottom: 5, Tone: 5, Level: 8 }, notes: "OFF by default. Stomp on for harmonized lead solos." },
+          { position: 2, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall JCM800", settings: { Gain: 7, Volume: 6, Bass: 5, Middle: 7, Treble: 7, Presence: 7 }, notes: "Brown channel at moderate gain for NWOBHM crunch — clarity over saturation." },
+          { position: 3, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate", settings: { Time: 4, PreDelay: 30, Tone: 5, EffectLevel: 18 }, notes: "Tight plate for studio dimension on harmonized leads." },
         ],
-        notes: "Katana's Brown channel at moderate gain. Focus on pick attack and clarity for the galloping patterns.",
+        notes: "TS (off) → Brown amp → plate. Pick attack and clarity for the galloping patterns.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            notes: "Slot A. Light comp for galloping triplet consistency.",
+          },
+          {
+            position: 2,
             block_name: "Search Rig Exchange for 'JCM800'",
             block_category: "Profile",
             original_gear: "Marshall JCM800 2203",
             settings: { Gain: 7.0, Bass: 5.0, Middle: 7.0, Treble: 7.0, Presence: 7.0 },
             notes:
-              "Search Rig Exchange for JCM800 profiles at moderate gain. Keep gain moderate for note clarity -- Iron Maiden's tone relies on definition, not saturation. With Liquid Profiling, select the Marshall tone stack.",
+              "Search Rig Exchange for JCM800 profiles at moderate gain. Maiden's tone relies on definition, not saturation.",
+          },
+          {
+            position: 3,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate",
+            settings: { Decay: 1.4, Predelay: 30, Mix: 18 },
+            notes: "REV slot. Tight plate for studio dimension.",
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. No effects needed -- just a JCM800 at moderate gain. The galloping triplet rhythm requires precise alternate picking and clear note definition.",
+          "Kemper profiles include the cab. Comp → JCM800 profile → plate. Galloping triplet rhythm requires precise alternate picking.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Drive: 7.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 7.0, "MV": 7.0 }, notes: "Moderate gain JCM800 for clear note definition in fast passages." },
-          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked for maximum presence." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 0.5, Level: 0 }, notes: "Light parallel comp for galloping triplet consistency." },
+          { position: 2, block_name: "T808 OD", block_category: "Drive", enabled: false, original_gear: "Tube Screamer (lead boost)", settings: { Drive: 2.0, Tone: 5.5, Level: 7.5 }, notes: "OFF by default. Stomp for harmonized lead solos." },
+          { position: 3, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Drive: 7.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 7.0, MV: 7.0 }, notes: "Moderate gain JCM800 for clear note definition." },
+          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Close-miked for maximum presence." },
+          { position: 5, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate", settings: { Mix: 0.18, Decay: 1.4, Predelay: 30 }, notes: "Tight plate for studio dimension." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Moderate gain JCM800 for clear note definition in fast passages.",
+        notes: "Comp → TS (off) → JCM800 → Greenback → plate → tilt EQ. Strat with Hot Rails, bridge pickup. Galloping clarity.",
       },
     },
     is_editorial: true,
@@ -14329,23 +14469,31 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "Jones' tone is remarkably simple in terms of effects. The heaviness comes from the guitar, tuning, amp gain, and his deliberate, heavy picking style.",
     },
     tags: ["progressive-metal", "alternative-metal", "dark", "heavy", "tool", "drop-d", "riff"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/adam-jones",
+      "https://www.premierguitar.com/artists/adam-jones-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
-          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 3, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4", settings: { Drive: 7.0, Bass: 6.0, Mid: 7.0, Treble: 5.0, Presence: 5.0, Master: 1, Bias: 0.5, BiasX: 0.5, Sag: 0.5, Hum: 0.5, Ripple: 0.5, "Ch Vol": 7.0 }, notes: "Diezel model for thick, dark high-gain tone." },
-          { position: 4, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "Mesa/Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5, Delay: 0 }, notes: "V30 cab for tight, modern metal tone." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { Pedal: 1.0, VolumeTaper: false }, notes: "Assigned to EXP 1." },
+          { position: 2, block_name: "Noise Gate", block_category: "Dynamics", enabled: true, original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -52, Decay: 0.3, Level: 0 }, notes: "DEFAULT-ON. High-gain Diezel needs a gate to silence the rests in Tool's odd-time passages." },
+          { position: 3, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -32, Ratio: 2, Knee: 6, Attack: 0.038, Release: 0.20, Mix: 0.4, Level: 0 }, notes: "Light parallel comp. Heavy comp would kill Adam Jones' deliberate, percussive picking dynamic." },
+          { position: 4, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4 (Channel 3)", settings: { Drive: 0.70, Bass: 0.60, Mid: 0.70, Treble: 0.50, Presence: 0.50, ChVol: 0.70, Master: 1.0, Bias: 0.55, BiasX: 0.50, Sag: 0.55, Hum: 0.50, Ripple: 0.50 }, notes: "Diezel model for thick, dark high-gain tone with mid focus." },
+          { position: 5, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "Mesa/Marshall 4x12 V30/Greenback blend", settings: { Mic: 0, Distance: 1, Position: 0.30, Angle: 0, LowCut: 19.9, HighCut: 20100, Level: 0, Pan: 0.5, Delay: 0 }, cabSibling: { Mic: 5, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5, LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0 }, notes: "Dual-mic V30 — SM57 + ribbon at slightly off-cone Position 0.30. Closest match to Jones' Mesa+Marshall blend." },
+          { position: 6, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slight darken to maintain Jones' dark tonal character on FRFR." },
         ],
-        notes: "Drop-D tuning, Les Paul bridge pickup. Keep it dark and heavy with mid focus. No effects needed.",
+        notes: "Volume → gate → comp → Diezel → V30 → tilt EQ. Drop-D tuning, Les Paul bridge pickup. Dark and heavy with mid focus.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "D-Cell H4 Lead", block_category: "Amp", original_gear: "Diezel VH4", settings: { Gain: 7.0, Bass: 6.0, Mid: 7.0, Treble: 5.0, Presence: 5.0, Master: 6.0 }, notes: "VH4 for thick, articulate high-gain." },
-          { position: 2, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa 4x12", settings: { Mic: "SM57", Distance: "1.5 inches" }, notes: "V30 cab for tight bottom end." },
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", enabled: true, original_gear: "Studio noise gate", settings: { Threshold: -52, Decay: 0.3, Level: 0 }, notes: "DEFAULT-ON. Silence rests in Tool's odd-time passages." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 40, Level: 0 }, notes: "Light parallel comp — preserves the deliberate picking dynamic." },
+          { position: 3, block_name: "D-Cell H4 Lead", block_category: "Amp", original_gear: "Diezel VH4 (Channel 3)", settings: { Gain: 7.0, Bass: 6.0, Mid: 7.0, Treble: 5.0, Presence: 5.0, Master: 6.0 }, notes: "VH4 for thick, articulate high-gain with mid focus." },
+          { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa 4x12 V30", settings: { Mic: "SM57", Distance: "1.5 inches", Position: 0.30, LowCut: 90, HighCut: 8500, Level: 0 }, notes: "V30 cab for tight bottom end." },
+          { position: 5, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 4.5, CenterFreq: 1000, Level: 0 }, notes: "Slight darken — keep the dark Jones character on FRFR." },
         ],
-        notes: "The QC's Diezel VH4 capture is excellent for Adam Jones' tone. Drop-D, Les Paul, and heavy picking.",
+        notes: "Gate → comp → VH4 → V30 → tilt EQ. Drop-D, Les Paul, heavy picking.",
       },
       tonex: {
         chain_blocks: [
@@ -14355,31 +14503,52 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Lead", block_category: "Amp Type", original_gear: "Diezel VH4", settings: { Gain: 8, Volume: 6, Bass: 6, Middle: 7, Treble: 5, Presence: 5 }, notes: "Lead channel with dark EQ for heavy, mid-focused tone." },
+          { position: 1, block_name: "Noise Gate", block_category: "FX", enabled: true, original_gear: "Studio noise gate", settings: { Threshold: 50, Release: 30, Level: 0 }, notes: "DEFAULT-ON. High-gain Lead needs a gate for Tool's odd-time silences." },
+          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Diezel VH4 (Channel 3)", settings: { Gain: 8, Volume: 6, Bass: 6, Middle: 7, Treble: 5, Presence: 5 }, notes: "Lead channel with dark EQ for heavy, mid-focused tone." },
+          { position: 3, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (small/dark)", settings: { Time: 3, PreDelay: 20, Tone: 4, EffectLevel: 12 }, notes: "Small dark plate. Adds tiny dimension without smearing the riff articulation." },
         ],
-        notes: "Katana's Lead channel with reduced treble and pushed mids. Drop-D tuning and a Les Paul are essential for the Tool sound.",
+        notes: "Gate → Lead amp scooped dark → small plate. Drop-D tuning, Les Paul bridge pickup.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Noise Gate",
+            block_category: "Compressor",
+            original_gear: "Studio noise gate",
+            settings: { Threshold: 5.0, Volume: 0.0 },
+            notes: "Slot A. Kemper input gate for tight palm muting on the drop-D riffs.",
+          },
+          {
+            position: 2,
             block_name: "Search Rig Exchange for 'Diezel VH4'",
             block_category: "Profile",
             original_gear: "Diezel VH4 (Channel 3)",
             settings: { Gain: 7.0, Bass: 6.0, Middle: 7.0, Treble: 5.0, Presence: 5.0 },
             notes:
-              "Search Rig Exchange for Diezel VH4 Channel 3 profiles. The VH4's thick, mid-heavy distortion retains clarity for complex time signature changes. Roll treble back for a darker tone. With Liquid Profiling, select the Diezel tone stack.",
+              "Search Rig Exchange for Diezel VH4 Channel 3 profiles. Thick, mid-heavy distortion that retains clarity for complex time signatures.",
+          },
+          {
+            position: 3,
+            block_name: "Studio EQ",
+            block_category: "EQ",
+            original_gear: "Post-amp parametric EQ",
+            settings: { LowCut: 80, HighCut: 8500, Mid: 1, MidFreq: 800 },
+            notes: "EQ slot. Slight 800 Hz nudge to deepen Jones' mid focus; HighCut at 8.5kHz tames any digital fizz.",
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. No effects -- just a Diezel VH4 profile in drop-D tuning. The heaviness comes from the guitar, tuning, and deliberate picking style. Les Paul bridge pickup.",
+          "Kemper profiles include the cab. Gate → Diezel VH4 profile → post-EQ. Drop-D, Les Paul bridge pickup.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4", settings: { Drive: 7.0, Bass: 6.0, Mid: 7.0, Treble: 5.0, Presence: 5.0, "MV": 7.0 }, notes: "Diezel model for thick, dark high-gain tone." },
-          { position: 2, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa/Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.5 }, notes: "V30 cab for tight, modern metal tone." },
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", enabled: true, original_gear: "Studio noise gate", settings: { Threshold: -52, Decay: 0.3, Level: 0 }, notes: "DEFAULT-ON. Silence rests in odd-time passages." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 0.4, Level: 0 }, notes: "Light parallel comp — preserves picking dynamic." },
+          { position: 3, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4", settings: { Drive: 7.0, Bass: 6.0, Mid: 7.0, Treble: 5.0, Presence: 5.0, MV: 7.0 }, notes: "Diezel model for thick, dark high-gain tone." },
+          { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa/Marshall 4x12 V30", settings: { Mic: "57 Dynamic", Distance: 1.5, LowCut: 90, HighCut: 8500, Level: 0 }, notes: "V30 cab for tight, modern metal tone." },
+          { position: 5, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slight darken at chain end." },
         ],
-        notes: "Diezel model for thick, dark high-gain tone.",
+        notes: "Gate → comp → VH4 → V30 → tilt EQ. Drop-D, Les Paul.",
       },
     },
     is_editorial: true,
@@ -14872,24 +15041,33 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "Clark's aggressive playing dynamics and use of the volume knob are key. He rides the amp's edge of breakup with his picking attack.",
     },
     tags: ["blues", "modern-blues", "gary-clark-jr", "sg", "fender", "dynamic"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/gary-clark-jr",
+      "https://www.premierguitar.com/artists/gary-clark-jr-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
-          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 3, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Moderate overdrive for solo boost." },
-          { position: 4, block_name: "US Deluxe Vib", block_category: "Amp", original_gear: "Fender Vibro-King", settings: { Drive: 5.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, Master: 1, Bias: 0.5, BiasX: 0.5, Sag: 0.5, Hum: 0.5, Ripple: 0.5, "Ch Vol": 6.5 }, notes: "Warm Fender clean at edge of breakup." },
-          { position: 5, block_name: "4x10 Tweed P10R", block_category: "Cab", original_gear: "Fender 3x10", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5, Delay: 0 }, notes: "Multi-speaker Fender cab for full tone." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { Pedal: 1.0, VolumeTaper: false }, notes: "Assigned to EXP 1." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Knee: 6, Attack: 0.038, Release: 0.20, Mix: 0.5, Level: 0 }, notes: "Light parallel comp for dynamic consistency." },
+          { position: 3, block_name: "Scream 808", block_category: "Distortion", enabled: false, original_gear: "Ibanez Tube Screamer (solo boost)", settings: { Drive: 0.40, Tone: 0.55, Level: 0.70 }, notes: "ALTERNATE drive (off by default). Stomp on for solo boost — adds mid-hump and sustain." },
+          { position: 4, block_name: "US Deluxe Vib", block_category: "Amp", original_gear: "Fender Vibro-King", settings: { Drive: 0.55, Bass: 0.50, Mid: 0.60, Treble: 0.55, Presence: 0.50, ChVol: 0.65, Master: 1.0, Bias: 0.55, BiasX: 0.50, Sag: 0.55, Hum: 0.50, Ripple: 0.50 }, notes: "Warm Fender at edge of breakup. Mid 0.60 for the SG humbucker pairing." },
+          { position: 5, block_name: "4x10 Tweed P10R", block_category: "Cab", original_gear: "Fender Vibro-King 3x10", settings: { Mic: 0, Distance: 1, Position: 0.30, Angle: 0, LowCut: 19.9, HighCut: 20100, Level: 0, Pan: 0.5, Delay: 0 }, cabSibling: { Mic: 5, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5, LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0 }, notes: "Dual-mic multi-10 cab. Closest match to a 3x10 Vibro-King." },
+          { position: 6, block_name: "Spring", block_category: "Reverb", original_gear: "Vibro-King spring tank", settings: { Mix: 0.22, Decay: 0.8, Predelay: 0.02, LowCut: 200, HighCut: 6500 }, notes: "Spring reverb matching the Vibro-King's onboard tank." },
+          { position: 7, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment for FRFR systems." },
         ],
-        notes: "SG neck pickup for warm humbucking tone. Toggle the TS for solo boost. Dynamics are everything.",
+        notes: "Volume → comp → TS (off) → Vibro-King → 3x10 → spring → tilt EQ. SG neck pickup, dynamics are everything.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Green 808", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Solo boost overdrive." },
-          { position: 2, block_name: "Vibro-King", block_category: "Amp", original_gear: "Fender Vibro-King", settings: { Gain: 5.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, Master: 6.5 }, notes: "Warm, touch-sensitive Fender." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 50, Level: 0 }, notes: "Light parallel comp for dynamic consistency." },
+          { position: 2, block_name: "Green 808", block_category: "Drive", enabled: false, original_gear: "Tube Screamer (solo boost)", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "OFF by default. Solo boost overdrive — stomp for leads." },
+          { position: 3, block_name: "Vibro-King", block_category: "Amp", original_gear: "Fender Vibro-King", settings: { Gain: 5.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, Master: 6.5 }, notes: "Warm, touch-sensitive Fender at edge of breakup." },
+          { position: 4, block_name: "3x10 Vibro", block_category: "Cab", original_gear: "Fender Vibro-King 3x10", settings: { Mic: "SM57", Distance: "2 inches", Position: 0.30, LowCut: 80, HighCut: 8500, Level: 0 }, notes: "Multi-10 cab for the wide, full Vibro-King tone." },
+          { position: 5, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Vibro-King spring tank", settings: { Decay: 0.8, Predelay: 20, Mix: 22, Level: 0 }, notes: "Spring matching the onboard tank." },
+          { position: 6, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment for FRFR." },
         ],
-        notes: "Modern blues: SG into Vibro-King with a TS for solo boost. Play dynamically.",
+        notes: "Comp → TS (off) → Vibro-King → 3x10 → spring → tilt EQ. Modern blues: dynamics + volume knob work.",
       },
       tonex: {
         chain_blocks: [
@@ -14899,32 +15077,45 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "T-Scream", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 4, Tone: 5, Level: 7 }, notes: "T-Scream (Katana's Tube Screamer emulation). Drive at 4 for a touch of grit and the TS mid-hump on solo boost sections." },
+          { position: 1, block_name: "T-Scream", block_category: "Booster", enabled: false, original_gear: "Tube Screamer (solo boost)", settings: { Drive: 4, Bottom: 5, Tone: 5, Level: 7 }, notes: "OFF by default. Drive at 4 for the TS mid-hump on solo boost sections." },
           { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Fender Vibro-King", settings: { Gain: 5, Volume: 6, Bass: 5, Middle: 6, Treble: 5, Presence: 5 }, notes: "Crunch channel at moderate gain for warm, edge-of-breakup tone." },
+          { position: 3, block_name: "Spring", block_category: "Reverb", original_gear: "Vibro-King spring tank", settings: { Time: 4, PreDelay: 20, Tone: 5, EffectLevel: 22 }, notes: "Spring reverb matching the onboard tank." },
         ],
-        notes: "Warm Crunch channel with an overdrive for lead boost. SG neck pickup for modern blues warmth.",
+        notes: "TS (off) → Crunch amp → spring. Warm modern-blues with toggle-on solo boost.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "T808 OD", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "Moderate overdrive for solo boost." },
-          { position: 2, block_name: "Vibra-King", block_category: "Amp", original_gear: "Fender Vibro-King", settings: { Drive: 5.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, MV: 6.5 }, notes: "Warm Fender clean at edge of breakup with extra midrange." },
-          { position: 3, block_name: "4x10 Tweed", block_category: "Cab", original_gear: "Fender 3x10", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Multi-speaker Fender cab for full tone." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 0.5, Level: 0 }, notes: "Light parallel comp for dynamic consistency." },
+          { position: 2, block_name: "T808 OD", block_category: "Drive", enabled: false, original_gear: "Tube Screamer (solo boost)", settings: { Drive: 4.0, Tone: 5.0, Level: 7.0 }, notes: "OFF by default. Stomp for solo boost." },
+          { position: 3, block_name: "Vibra-King", block_category: "Amp", original_gear: "Fender Vibro-King", settings: { Drive: 5.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, Presence: 5.0, MV: 6.5 }, notes: "Warm Fender at edge of breakup with extra midrange." },
+          { position: 4, block_name: "4x10 Tweed", block_category: "Cab", original_gear: "Fender Vibro-King 3x10", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 8500, Level: 0 }, notes: "Multi-speaker Fender cab for full tone." },
+          { position: 5, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Vibro-King spring tank", settings: { Mix: 0.22, Decay: 0.8, Predelay: 20 }, notes: "Spring matching the onboard tank." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Vibra-King model with T808 for solo boost. SG neck pickup for warm, modern blues. Dynamics are everything.",
+        notes: "Comp → TS (off) → Vibra-King → 3x10 → spring → tilt EQ. SG neck pickup. Dynamics are everything.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
-            block_name: "Green Scream",
-            block_category: "Stomp",
-            original_gear: "Ibanez Tube Screamer",
-            settings: { Drive: 4.0, Tone: 5.0, Volume: 7.0 },
-            notes:
-              "Slot A. Green Scream at moderate drive for solo boost. Adds mid-hump and sustain for leads.",
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            notes: "Slot A. Light comp for dynamic consistency.",
           },
           {
             position: 2,
+            block_name: "Green Scream",
+            block_category: "Stomp",
+            enabled: false,
+            original_gear: "Ibanez Tube Screamer (solo boost)",
+            settings: { Drive: 4.0, Tone: 5.0, Volume: 7.0 },
+            notes:
+              "Slot B. OFF by default. Stomp for solo boost — adds mid-hump and sustain.",
+          },
+          {
+            position: 3,
             block_name: "Search Rig Exchange for 'Vibro-King'",
             block_category: "Profile",
             original_gear: "Fender Vibro-King",
@@ -14932,9 +15123,17 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "Search Rig Exchange for Vibro-King profiles. With Liquid Profiling, select the Fender tone stack.",
           },
+          {
+            position: 4,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Vibro-King spring tank",
+            settings: { Decay: 0.8, Predelay: 20, Mix: 22 },
+            notes: "REV slot. Spring matching the onboard tank.",
+          },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. SG neck pickup, toggle the Green Scream for solo boost.",
+          "Kemper profiles include the cab. Comp → TS (off) → Vibro-King profile → spring. SG neck pickup; toggle the Green Scream for solo boost.",
       },
     },
     is_editorial: true,
@@ -15008,24 +15207,35 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "Bonamassa often blends a Dumble and a Marshall for a tone that has the Dumble's transparency with the Marshall's midrange aggression.",
     },
     tags: ["blues-rock", "blues", "lead", "sustain", "bonamassa", "dumble", "les-paul"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/joe-bonamassa",
+      "https://www.premierguitar.com/artists/joe-bonamassa-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
-          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 3, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "Light overdrive boost." },
-          { position: 4, block_name: "Cartographer", block_category: "Amp", original_gear: "Dumble ODS", settings: { Drive: 6.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, Master: 1, Bias: 0.5, BiasX: 0.5, Sag: 0.5, Hum: 0.5, Ripple: 0.5, "Ch Vol": 7.0 }, notes: "Dumble-style amp for transparent, singing overdrive." },
-          { position: 5, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5, Delay: 0 }, notes: "Marshall cab for midrange presence." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { Pedal: 1.0, VolumeTaper: false }, notes: "Assigned to EXP 1." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Knee: 6, Attack: 0.038, Release: 0.20, Mix: 0.5, Level: 2 }, notes: "Light parallel comp for sustain articulation." },
+          { position: 3, block_name: "Scream 808", block_category: "Distortion", enabled: true, original_gear: "Ibanez TS808 (always-on boost)", settings: { Drive: 0.30, Tone: 0.55, Level: 0.70 }, notes: "DEFAULT-ON. Bonamassa's always-on TS boost — pushes the Dumble into singing saturation." },
+          { position: 4, block_name: "Cartographer", block_category: "Amp", original_gear: "Dumble Overdrive Special", settings: { Drive: 0.60, Bass: 0.50, Mid: 0.60, Treble: 0.60, Presence: 0.55, ChVol: 0.70, Master: 1.0, Bias: 0.55, BiasX: 0.50, Sag: 0.55, Hum: 0.50, Ripple: 0.50 }, notes: "Cartographer is Helix's Dumble-style boutique amp. Transparent, singing overdrive." },
+          { position: 5, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: 0, Distance: 1, Position: 0.30, Angle: 0, LowCut: 19.9, HighCut: 20100, Level: 0, Pan: 0.5, Delay: 0 }, cabSibling: { Mic: 5, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5, LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0 }, notes: "Dual-mic Greenback — Bonamassa runs a Marshall cab paired with the Dumble for the British midrange." },
+          { position: 6, block_name: "Transistor Tape", block_category: "Delay", original_gear: "Analog delay (subtle)", settings: { Time: 0.25, Feedback: 0.20, Mix: 0.15, WowFlutter: 0.30, Headroom: 0.20, Spread: 0.30, Scale: 1, SyncSelect1: 0, TempoSync1: false, Level: 0 }, notes: "Subtle analog delay for sustain extension. Very low Mix — almost subliminal." },
+          { position: 7, block_name: "Dynamic Plate", block_category: "Reverb", original_gear: "Studio plate", settings: { Mix: 0.20, Decay: 1.8, LowCut: 130, HighCut: 8500, Level: 0, PreDelay: 0.04, BassFreq: 100, BassBoost: 0, VarDelayAmpl: 0.55, Damping: 4500, MatrFreq: 0.33 }, notes: "Medium-decay plate for studio dimension on the singing leads." },
+          { position: 8, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Les Paul neck pickup for creamy sustain. Light TS boost into Dumble model for rich, harmonic lead tone.",
+        notes: "Volume → comp → TS808 (on) → Dumble (Cartographer) → Greenback → analog delay → plate → tilt EQ. Les Paul neck pickup for creamy sustain.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Green 808", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "Light boost for sustain." },
-          { position: 2, block_name: "Dumbbell ODS", block_category: "Amp", original_gear: "Dumble ODS", settings: { Gain: 6.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, Master: 7.0 }, notes: "Dumble for transparent, touch-sensitive overdrive." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 50, Level: 2 }, notes: "Light parallel comp for sustain articulation." },
+          { position: 2, block_name: "Green 808", block_category: "Drive", enabled: true, original_gear: "Ibanez TS808 (always-on)", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "DEFAULT-ON. Bonamassa's always-on TS boost." },
+          { position: 3, block_name: "Dumbbell ODS", block_category: "Amp", original_gear: "Dumble Overdrive Special", settings: { Gain: 6.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, Master: 7.0 }, notes: "Dumble for transparent, touch-sensitive overdrive." },
+          { position: 4, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.30, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Marshall cab paired with the Dumble for British midrange." },
+          { position: 5, block_name: "Analog Delay", block_category: "Delay", original_gear: "Analog delay", settings: { Time: 250, Feedback: 20, Mix: 15 }, notes: "Subtle analog delay for sustain extension." },
+          { position: 6, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate", settings: { Decay: 1.8, Predelay: 40, Mix: 20, Level: 0 }, notes: "Medium plate for studio dimension." },
+          { position: 7, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "A Dumble capture with a light TS boost is the Bonamassa formula. Les Paul neck pickup, heavy strings.",
+        notes: "Comp → TS (on) → Dumble → Greenback → analog delay → plate → tilt EQ. A Dumble capture with always-on TS boost is the Bonamassa formula.",
       },
       tonex: {
         chain_blocks: [
@@ -15035,32 +15245,47 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "T-Scream", block_category: "Booster", original_gear: "Tube Screamer", settings: { Drive: 3, Tone: 5, Level: 7 }, notes: "T-Scream (Katana's Tube Screamer emulation). Light drive for sustain boost — most of the harmonic complexity comes from the amp being pushed." },
-          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Dumble ODS", settings: { Gain: 6, Volume: 7, Bass: 5, Middle: 6, Treble: 6, Presence: 5 }, notes: "Lead channel with moderate gain for singing lead tone." },
+          { position: 1, block_name: "T-Scream", block_category: "Booster", enabled: true, original_gear: "Ibanez TS808 (always-on)", settings: { Drive: 3, Bottom: 5, Tone: 5, Level: 7 }, notes: "DEFAULT-ON. T-Scream as Bonamassa's always-on boost — pushes the Lead amp into singing saturation." },
+          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Dumble ODS approximation", settings: { Gain: 6, Volume: 7, Bass: 5, Middle: 6, Treble: 6, Presence: 5 }, notes: "Lead channel with moderate gain — the Katana's closest match to the Dumble's touch sensitivity." },
+          { position: 3, block_name: "Analog Delay", block_category: "Delay", original_gear: "Analog delay", settings: { Time: 250, Feedback: 20, EffectLevel: 15 }, notes: "Subtle analog delay for sustain extension on lead lines." },
+          { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate", settings: { Time: 5, PreDelay: 30, Tone: 5, EffectLevel: 22 }, notes: "Medium plate for studio dimension on the singing leads." },
         ],
-        notes: "The Katana's Lead channel with a light overdrive approximates the Dumble's touch-sensitive character. Les Paul neck pickup.",
+        notes: "TS (on) → Lead amp → analog delay → plate. Les Paul neck pickup for creamy sustain.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "T808 OD", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "Light overdrive boost for sustain." },
-          { position: 2, block_name: "ODS-100 HRM", block_category: "Amp", original_gear: "Dumble ODS", settings: { Drive: 6.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, MV: 7.0 }, notes: "Dumble model for transparent, singing overdrive." },
-          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Marshall cab for midrange presence." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 0.5, Level: 2 }, notes: "Light parallel comp for sustain articulation." },
+          { position: 2, block_name: "T808 OD", block_category: "Drive", enabled: true, original_gear: "Ibanez TS808 (always-on)", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "DEFAULT-ON. Bonamassa's always-on TS boost." },
+          { position: 3, block_name: "ODS-100 HRM", block_category: "Amp", original_gear: "Dumble Overdrive Special", settings: { Drive: 6.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, MV: 7.0 }, notes: "Fractal's Dumble model — transparent, singing overdrive." },
+          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Marshall cab for midrange presence." },
+          { position: 5, block_name: "Analog Mono", block_category: "Delay", original_gear: "Analog delay", settings: { Time: 250, Feedback: 20, Mix: 0.15 }, notes: "Subtle analog delay for sustain extension." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate", settings: { Mix: 0.20, Decay: 1.8, Predelay: 40 }, notes: "Medium plate for studio dimension." },
+          { position: 7, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "ODS-100 HRM with light T808 boost for the Bonamassa formula. Les Paul neck pickup for creamy sustain.",
+        notes: "Comp → TS (on) → Dumble → Greenback → analog delay → plate → tilt EQ. Les Paul neck pickup.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
-            block_name: "Green Scream",
-            block_category: "Stomp",
-            original_gear: "Tube Screamer",
-            settings: { Drive: 3.0, Tone: 5.0, Volume: 7.0 },
-            notes:
-              "Slot A. Light overdrive to push the Dumble profile into further saturation. Adds mid-hump for sustain.",
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 4.0, Attack: 0.04, Volume: 2.0 },
+            notes: "Slot A. Light comp for sustain articulation.",
           },
           {
             position: 2,
+            block_name: "Green Scream",
+            block_category: "Stomp",
+            enabled: true,
+            original_gear: "Ibanez TS808 (always-on)",
+            settings: { Drive: 3.0, Tone: 5.0, Volume: 7.0 },
+            notes:
+              "Slot B. DEFAULT-ON. Bonamassa's always-on TS boost — pushes the Dumble profile into singing saturation.",
+          },
+          {
+            position: 3,
             block_name: "Search Rig Exchange for 'Dumble'",
             block_category: "Profile",
             original_gear: "Dumble Overdrive Special",
@@ -15068,9 +15293,25 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "Search Rig Exchange for Dumble ODS profiles. The Dumble's transparent, touch-sensitive overdrive with rich harmonics is the Bonamassa core. With Liquid Profiling, select the Dumble tone stack.",
           },
+          {
+            position: 4,
+            block_name: "Analog Delay",
+            block_category: "Delay",
+            original_gear: "Analog delay",
+            settings: { Time: 250, Feedback: 20, Mix: 15 },
+            notes: "DLY slot. Subtle analog delay for sustain extension.",
+          },
+          {
+            position: 5,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate",
+            settings: { Decay: 1.8, Predelay: 40, Mix: 20 },
+            notes: "REV slot. Medium plate for studio dimension.",
+          },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. Light Green Scream into a Dumble profile is the Bonamassa formula. Les Paul neck pickup, heavy strings, precise vibrato.",
+          "Kemper profiles include the cab. Comp → TS (on) → Dumble profile → analog delay → plate. Les Paul neck pickup, heavy strings, precise vibrato.",
       },
     },
     is_editorial: true,
