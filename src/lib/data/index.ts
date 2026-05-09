@@ -8087,7 +8087,10 @@ export const toneRecipes: ToneRecipe[] = [
         "Townshend's aggressive windmill strumming technique is as important as the gear. He attacks the strings with full-arm swings, producing a percussive, explosive attack that defines the Who's sound.",
     },
     tags: ["rock", "classic-rock", "power-chords", "rhythm", "the-who"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/pete-townshend",
+      "https://www.premierguitar.com/artists/pete-townshend-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -8126,21 +8129,46 @@ export const toneRecipes: ToneRecipe[] = [
             position: 4,
             block_name: "4x12 Greenback 25",
             block_category: "Cab",
-            original_gear: "WEM 4x12 Fane",
-            settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5, Delay: 0 },
-            notes: "No WEM cab on Helix. Greenback is the closest stock option.",
+            original_gear: "WEM 4x12 with Fane Crescendo speakers",
+            settings: { Mic: 0, Distance: 1, Position: 0.30, Angle: 0, LowCut: 19.9, HighCut: 20100, Level: 0, Pan: 0.5, Delay: 0 },
+            cabSibling: { Mic: 5, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5, LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0 },
+            notes: "Dual-mic Greenback (closest stock match to a Fane-loaded WEM). SM57 + ribbon at Position 0.30 for the open, hi-fi WEM character.",
+          },
+          {
+            position: 5,
+            block_name: "Dynamic Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate (Olympic / Glyn Johns)",
+            settings: { Mix: 0.18, Decay: 1.5, LowCut: 130, HighCut: 8000, Level: 0, PreDelay: 0.03, BassFreq: 100, BassBoost: 0, VarDelayAmpl: 0.55, Damping: 4500, MatrFreq: 0.33 },
+            notes: "Subtle plate matching the Olympic Studios live-band capture — adds room dimension without softening the windmill attack.",
+          },
+          {
+            position: 6,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment for FRFR systems.",
           },
         ],
         notes:
-          "Use the bridge humbucker and strum aggressively with full arm windmill motions for the authentic Townshend attack.",
+          "Volume → comp → WhoWatt 100 → dual-mic Greenback → plate → tilt EQ. Bridge humbucker, full-arm windmill strumming.",
       },
       quad_cortex: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 50, Level: 2 },
+            notes: "Light parallel comp — windmill strumming has huge dynamic peaks; comp evens them out without crushing the attack.",
+          },
+          {
+            position: 2,
             block_name: "Search Cortex Cloud for 'Hiwatt DR103' capture",
             block_category: "Amp",
-            original_gear: "Hiwatt DR103",
+            original_gear: "Hiwatt DR103 (cranked)",
             settings: {
               Gain: 7.0,
               Bass: 5.0,
@@ -8152,16 +8180,32 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "The QC's Hiwatt model captures the clean power and clarity well.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "4x12 Green 25",
             block_category: "Cab",
-            original_gear: "WEM 4x12 Fane",
-            settings: { Mic: "SM57", Distance: "2 inches" },
-            notes: "Load a WEM/Fane IR for better accuracy if available.",
+            original_gear: "WEM 4x12 with Fane Crescendo",
+            settings: { Mic: "SM57", Distance: "2 inches", Position: 0.30, LowCut: 80, HighCut: 9000, Level: 0 },
+            notes: "Load a WEM/Fane IR for better accuracy if available; Greenback close-miked is the closest stock option.",
+          },
+          {
+            position: 4,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate",
+            settings: { Decay: 1.5, Predelay: 30, Mix: 18, Level: 0 },
+            notes: "Subtle plate to match the Olympic Studios live-band capture.",
+          },
+          {
+            position: 5,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment for FRFR.",
           },
         ],
         notes:
-          "The QC handles the Hiwatt's clean power well. Search Cortex Cloud for Hiwatt captures for extra authenticity.",
+          "Comp → Hiwatt capture → WEM/Greenback → plate → tilt EQ. Bridge humbucker, windmill strumming.",
       },
       tonex: {
         chain_blocks: [
@@ -8173,6 +8217,14 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Booster",
+            original_gear: "Studio compressor",
+            settings: { Drive: 0, Bottom: 5, Tone: 5, Level: 5 },
+            notes: "Booster slot used as a comp stand-in. Tames the windmill peaks without crushing the attack.",
+          },
+          {
+            position: 2,
             block_name: "Brown",
             block_category: "Amp Type",
             original_gear: "Hiwatt DR103",
@@ -8187,31 +8239,57 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "Brown channel at moderate gain for a powerful, clear crunch. The Hiwatt's clean power is approximated by keeping the gain lower than you might expect while pushing the volume.",
           },
+          {
+            position: 3,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate",
+            settings: { Time: 4, PreDelay: 30, Tone: 5, EffectLevel: 18 },
+            notes: "Subtle plate to match the Olympic Studios capture.",
+          },
         ],
-        notes:
-          "The Katana's Brown channel provides the British-voiced crunch needed. Keep gain moderate for Hiwatt-style clarity. Strum hard with the bridge humbucker.",
+        notes: "Comp booster + Brown amp + plate. Bridge humbucker; strum hard with full-arm windmills.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 3.0, Attack: 0.04, Volume: 2.0 },
+            notes: "Slot A. Light comp tames the windmill dynamic peaks.",
+          },
+          {
+            position: 2,
             block_name: "Search Rig Exchange for 'Hiwatt'",
             block_category: "Profile",
-            original_gear: "Hiwatt DR103",
+            original_gear: "Hiwatt DR103 (cranked)",
             settings: { Gain: 7.0, Bass: 5.0, Middle: 5.0, Treble: 7.0, Presence: 7.0 },
             notes:
-              "Search Rig Exchange for cranked Hiwatt DR103 profiles. The Hiwatt's clean power and clarity are well captured by Kemper profiles. With Liquid Profiling, select the Hiwatt tone stack. Push it hard for the powerful, ringing Townshend crunch.",
+              "Search Rig Exchange for cranked Hiwatt DR103 profiles. With Liquid Profiling, select the Hiwatt tone stack.",
+          },
+          {
+            position: 3,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate",
+            settings: { Decay: 1.5, Predelay: 30, Mix: 18 },
+            notes: "REV slot. Subtle plate matching the Olympic Studios live-band capture.",
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. Townshend's tone is guitar straight into a cranked Hiwatt with no effects. The Kemper captures the Hiwatt's unique combination of power, clarity, and musical overdrive. Use the bridge humbucker and strum aggressively.",
+          "Kemper profiles include the cab. Comp → cranked Hiwatt profile → plate. Bridge humbucker, windmill attack.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Hipower", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 7.0, Bass: 5.0, Mid: 5.0, Treble: 7.0, Presence: 7.0, MV: 7.5 }, notes: "Hipower model pushed hard for Townshend's powerful, clear overdrive." },
-          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "WEM 4x12 Fane", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "No WEM cab available. Greenback 4x12 is the closest option." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 0.5, Level: 2 }, notes: "Light parallel comp tames the windmill peaks." },
+          { position: 2, block_name: "Hipower", block_category: "Amp", original_gear: "Hiwatt DR103 (cranked)", settings: { Drive: 7.0, Bass: 5.0, Mid: 5.0, Treble: 7.0, Presence: 7.0, MV: 7.5 }, notes: "Hipower model pushed hard for Townshend's powerful, clear overdrive." },
+          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "WEM 4x12 with Fane Crescendo", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "No WEM cab available — Greenback 4x12 is the closest option." },
+          { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate", settings: { Mix: 0.18, Decay: 1.5, Predelay: 30 }, notes: "Subtle plate to match the Olympic Studios capture." },
+          { position: 5, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Cranked Hipower for Townshend's windmill power chords. SG Special straight in, no effects needed.",
+        notes: "Comp → cranked Hipower → WEM/Greenback → plate → tilt EQ. SG Special, bridge humbucker, windmill strumming.",
       },
     },
     is_editorial: true,
@@ -10529,7 +10607,10 @@ export const toneRecipes: ToneRecipe[] = [
         "Wonderwall's massive sound comes from layering multiple guitar tracks: acoustic guitars, electric rhythm parts, and overdubbed lead fills. The individual electric tone is relatively simple.",
     },
     tags: ["britpop", "alternative", "jangly", "rhythm", "oasis"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/noel-gallagher",
+      "https://www.premierguitar.com/artists/noel-gallagher-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -10576,17 +10657,33 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Glitz",
             block_category: "Reverb",
             original_gear: "Room reverb (Rockfield Studio)",
-            settings: { Mix: 20, Decay: 1.5, LowCut: 125, HighCut: 6500 },
+            settings: { Mix: 0.20, Decay: 1.5, Predelay: 0.02, LowCut: 125, HighCut: 6500 },
             notes: "Room reverb glues the jangly chords together with warm studio ambience.",
+          },
+          {
+            position: 6,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment. Bump above 0.5 if your monitoring is dark — Wonderwall lives in the upper midrange.",
           },
         ],
         notes:
-          "Clean-crunch tone with room reverb for the Britpop wall of sound. Use a capo on the 2nd fret and layer multiple takes.",
+          "Volume → comp → JCM900 crunch → Greenback → Glitz → tilt EQ. Capo 2nd fret. Layer multiple takes for the Britpop wall.",
       },
       quad_cortex: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Threshold: -36, Ratio: 2, Attack: 38, Release: 200, Mix: 70, Level: 0 },
+            notes: "Light parallel comp evens out strummed-chord dynamics — important for layered Britpop rhythm.",
+          },
+          {
+            position: 2,
             block_name: "Brit 900 Lead",
             block_category: "Amp",
             original_gear: "Marshall JCM900",
@@ -10598,27 +10695,35 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 6.0,
               Master: 5.0,
             },
-            notes: "Moderate gain for jangly crunch.",
-          },
-          {
-            position: 2,
-            block_name: "4x12 Green 25",
-            block_category: "Cab",
-            original_gear: "Marshall 4x12 Greenback",
-            settings: { Mic: "SM57", Distance: "2 inches" },
-            notes: "Greenback for warm Britpop tone.",
+            notes: "Moderate gain for jangly crunch — keep gain low so chord voicings stay distinct.",
           },
           {
             position: 3,
+            block_name: "4x12 Green 25",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 Greenback",
+            settings: { Mic: "SM57", Distance: "2 inches", Position: 0.30, LowCut: 80, HighCut: 9000, Level: 0 },
+            notes: "Greenback for warm Britpop tone. Slightly off-cone for jangle without ice-pick.",
+          },
+          {
+            position: 4,
             block_name: "Room",
             block_category: "Reverb",
             original_gear: "Room reverb (Rockfield Studio)",
-            settings: { Decay: 1.5, Mix: 20 },
-            notes: "Room reverb for the Britpop wall of sound cohesion.",
+            settings: { Decay: 1.5, Predelay: 20, Mix: 20, Level: 0 },
+            notes: "Room reverb for the Britpop wall-of-sound cohesion.",
+          },
+          {
+            position: 5,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment for FRFR.",
           },
         ],
         notes:
-          "JCM900 at low gain with room reverb for jangly Britpop crunch.",
+          "Comp → JCM900 crunch → Greenback → Room → Tilt. Capo 2nd fret. Layer multiple takes.",
       },
       tonex: {
         chain_blocks: [
@@ -10641,24 +10746,39 @@ export const toneRecipes: ToneRecipe[] = [
               Treble: 7,
               Presence: 6,
             },
-            notes: "Crunch channel at low gain for the jangly Britpop sound. Push the treble for brightness.",
+            notes: "Crunch channel at low gain for jangly Britpop. Push the treble for brightness.",
           },
           {
             position: 2,
-            block_name: "Spring",
+            block_name: "Compressor",
+            block_category: "Booster",
+            original_gear: "Studio compressor",
+            settings: { Drive: 0, Bottom: 5, Tone: 6, Level: 5 },
+            notes: "Booster slot used as a comp stand-in. Evens out strummed chord dynamics for layered rhythm work.",
+          },
+          {
+            position: 3,
+            block_name: "Plate",
             block_category: "Reverb",
-            original_gear: "Room reverb",
-            settings: { Level: 20 },
-            notes: "Add reverb via Boss Tone Studio for the warm Britpop studio ambience.",
+            original_gear: "Room reverb (Rockfield Studio)",
+            settings: { Time: 4, PreDelay: 20, Tone: 5, EffectLevel: 22 },
+            notes: "Plate to glue the jangly chords with warm studio ambience.",
           },
         ],
-        notes:
-          "Crunch channel at low gain with reverb for the jangly Britpop tone. Use a capo on the 2nd fret.",
+        notes: "Crunch amp + comp booster + plate. Use a capo on the 2nd fret.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 4.0, Attack: 0.04, Volume: 0.0 },
+            notes: "Slot A. Light comp to even out strummed chord dynamics — important for layered Britpop rhythm.",
+          },
+          {
+            position: 2,
             block_name: "Search Rig Exchange for 'JCM900' or 'Marshall Crunch'",
             block_category: "Profile",
             original_gear: "Marshall JCM900",
@@ -10670,28 +10790,30 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 6.0,
             },
             notes:
-              "Search Rig Exchange for JCM900 or moderate-crunch Marshall profiles. Keep gain low for jangly chord clarity. With Liquid Profiling, select the Marshall tone stack.",
+              "Search Rig Exchange for JCM900 or moderate-crunch Marshall profiles. Keep gain low for chord clarity. With Liquid Profiling, select the Marshall tone stack.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Natural Reverb",
-            block_category: "Effect",
+            block_category: "Reverb",
             original_gear: "Room reverb (Rockfield Studio)",
-            settings: { Decay: 1.5, Mix: 20 },
+            settings: { Decay: 1.5, Predelay: 20, Mix: 20 },
             notes:
               "REV slot. Room reverb glues the jangly chords together with warm studio ambience.",
           },
         ],
         notes:
-          "Kemper profiles include the cab. Simple setup: Marshall crunch profile with room reverb. Use a capo on the 2nd fret and layer multiple takes for the Britpop wall of sound.",
+          "Kemper profiles include the cab. Comp → JCM900 profile → room reverb. Capo 2nd fret, layer multiple takes.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM900", settings: { Drive: 4.5, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, "MV": 5.0, }, notes: "Brit 2204 at moderate gain for jangly crunch. Push the treble for brightness." },
-          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Greenback cab for warm British midrange." },
-          { position: 3, block_name: "London Plate", block_category: "Reverb", original_gear: "Room reverb (Rockfield Studio)", settings: { Mix: 20, Decay: 1.5 }, notes: "Room reverb glues the jangly chords together with warm studio ambience." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Attack: 38, Release: 200, Mix: 0.7, Level: 0 }, notes: "Light parallel comp for strummed-chord consistency." },
+          { position: 2, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM900", settings: { Drive: 4.5, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 5.0 }, notes: "Moderate gain for jangly crunch." },
+          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Greenback cab for warm British midrange." },
+          { position: 4, block_name: "London Plate", block_category: "Reverb", original_gear: "Room reverb (Rockfield Studio)", settings: { Mix: 0.20, Decay: 1.5, Predelay: 20 }, notes: "Room/plate hybrid to glue the jangly chords." },
+          { position: 5, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Brit 2204 at moderate gain for jangly crunch. Push the treble for brightness.",
+        notes: "Comp → Brit crunch → Greenback → London Plate → tilt EQ. Capo 2nd fret.",
       },
     },
     is_editorial: true,
@@ -10769,7 +10891,10 @@ export const toneRecipes: ToneRecipe[] = [
         "The recording technique is as important as the gear. Marr ran his guitar through four amps simultaneously, each with tremolo at a different speed, creating a complex, swirling stereo effect. For home reproduction, a single amp with deep tremolo captures the essence.",
     },
     tags: ["indie-rock", "alternative", "tremolo", "jangly", "the-smiths", "post-punk"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/johnny-marr",
+      "https://www.premierguitar.com/artists/johnny-marr-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -10815,18 +10940,43 @@ export const toneRecipes: ToneRecipe[] = [
             position: 5,
             block_name: "2x12 Double C12N",
             block_category: "Cab",
-            original_gear: "Twin 2x12",
-            settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5, Delay: 0 },
-            notes: "Twin 2x12 cab for clean, full-range foundation.",
+            original_gear: "Twin Reverb built-in 2x12",
+            settings: { Mic: 0, Distance: 1, Position: 0.30, Angle: 0, LowCut: 19.9, HighCut: 20100, Level: 0, Pan: 0.5, Delay: 0 },
+            cabSibling: { Mic: 5, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5, LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0 },
+            notes: "Dual-mic Twin 2x12. Slightly off-cone for the Rickenbacker's chimey upper-mid presence.",
+          },
+          {
+            position: 6,
+            block_name: "Spring",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb spring tank",
+            settings: { Mix: 0.20, Decay: 0.6, Predelay: 0.02, LowCut: 200, HighCut: 6500 },
+            notes: "Spring reverb for the Twin's onboard tank character — subtle but present, just enough to add depth without competing with the tremolo wobble.",
+          },
+          {
+            position: 7,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment for FRFR systems.",
           },
         ],
         notes:
-          "For a more authentic reproduction, use two parallel paths with tremolo blocks at different speeds panned left and right. This recreates Marr's four-amp technique in stereo.",
+          "Volume → comp → clean Twin → deep tremolo → 2x12 → spring → tilt EQ. For full authenticity, use two parallel paths with tremolo at different speeds panned L/R — recreates Marr's four-amp technique.",
       },
       quad_cortex: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Threshold: -36, Ratio: 2, Attack: 38, Release: 200, Mix: 70, Level: 0 },
+            notes: "Light parallel comp evens out the Rickenbacker's percussive jangle without crushing the tremolo modulation.",
+          },
+          {
+            position: 2,
             block_name: "US DLX 64",
             block_category: "Amp",
             original_gear: "Fender Twin Reverb",
@@ -10841,7 +10991,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Clean foundation for the tremolo effect.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Tremolo",
             block_category: "Modulation",
             original_gear: "Fender Vibrato",
@@ -10849,16 +10999,32 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Deep, fast tremolo. This is the entire point of the tone.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "2x12 Twin",
             block_category: "Cab",
-            original_gear: "Twin 2x12",
-            settings: { Mic: "SM57", Distance: "2 inches" },
-            notes: "Clean cab for the tremolo effect.",
+            original_gear: "Twin Reverb 2x12",
+            settings: { Mic: "SM57", Distance: "2 inches", Position: 0.30, LowCut: 80, HighCut: 9000, Level: 0 },
+            notes: "Clean cab for the tremolo effect. Slightly off-cone for Rickenbacker chime.",
+          },
+          {
+            position: 5,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb spring tank",
+            settings: { Decay: 0.6, Predelay: 20, Mix: 20, Level: 0 },
+            notes: "Subtle spring matching the Twin's onboard tank.",
+          },
+          {
+            position: 6,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment for FRFR.",
           },
         ],
         notes:
-          "Use the QC's parallel routing to run two paths with different tremolo speeds for the full Marr multi-amp effect.",
+          "Comp → clean Twin → tremolo → 2x12 → spring → tilt EQ. Use the QC's parallel routing to run two paths with different tremolo speeds for the full Marr multi-amp effect.",
       },
       tonex: {
         chain_blocks: [
@@ -10870,6 +11036,14 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Booster",
+            original_gear: "Studio compressor",
+            settings: { Drive: 0, Bottom: 5, Tone: 6, Level: 5 },
+            notes: "Booster slot used as a comp stand-in. Evens out the Rickenbacker's percussive attack so the tremolo modulates a consistent signal.",
+          },
+          {
+            position: 2,
             block_name: "Clean",
             block_category: "Amp Type",
             original_gear: "Fender Twin Reverb",
@@ -10884,21 +11058,37 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Clean channel for pristine foundation.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Tremolo",
             block_category: "Mod",
             original_gear: "Fender Vibrato",
-            settings: { Rate: 6, Depth: 80 },
+            settings: { Rate: 6, Depth: 80, Level: 7 },
             notes: "Deep tremolo is the signature effect. Set depth high.",
+          },
+          {
+            position: 4,
+            block_name: "Spring",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb spring tank",
+            settings: { Time: 3, PreDelay: 20, Tone: 6, EffectLevel: 22 },
+            notes: "Subtle spring reverb matching the Twin's onboard tank.",
           },
         ],
         notes:
-          "Clean channel with deep tremolo captures the essence of How Soon Is Now. Use a bright guitar with single-coils or toaster pickups if possible.",
+          "Comp booster + Clean amp + deep tremolo + spring. Use a bright guitar with single-coils or toaster pickups if possible.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 4.0, Attack: 0.04, Volume: 0.0 },
+            notes: "Slot A. Light comp evens out the percussive Rickenbacker jangle.",
+          },
+          {
+            position: 2,
             block_name: "Search Rig Exchange for 'Twin Reverb'",
             block_category: "Profile",
             original_gear: "Fender Twin Reverb",
@@ -10907,30 +11097,42 @@ export const toneRecipes: ToneRecipe[] = [
               Bass: 4.0,
               Middle: 5.0,
               Treble: 7.0,
+              Presence: 6.0,
             },
             notes:
               "Search Rig Exchange for clean Fender Twin Reverb profiles. Keep the Gain very low for pristine cleans.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Tremolo",
             block_category: "Stomp",
             original_gear: "Fender Vibrato",
             settings: { Speed: 6.0, Depth: 8.0 },
             notes:
-              "Slot A or MOD slot. Kemper's Tremolo effect (OS 12.0+) with deep, fast settings. This is the defining feature of the tone.",
+              "MOD slot. Kemper's Tremolo effect (OS 12.0+) with deep, fast settings. This is the defining feature of the tone.",
+          },
+          {
+            position: 4,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb spring tank",
+            settings: { Decay: 0.6, Predelay: 20, Mix: 20 },
+            notes: "REV slot. Subtle spring matching the Twin's onboard tank.",
           },
         ],
         notes:
-          "Kemper profiles include the cab. The key is a clean profile with deep tremolo. For the full Marr multi-amp effect, use the Kemper's stereo capabilities with different tremolo speeds in left and right channels.",
+          "Kemper profiles include the cab. Comp → clean Twin profile → deep tremolo → spring. For Marr multi-amp effect, use Kemper's stereo capabilities with different tremolo speeds L/R.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Double Verb", block_category: "Amp", original_gear: "Fender Twin Reverb", settings: { Drive: 3.0, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, "MV": 5.0, }, notes: "Clean Twin Reverb setting. No breakup; the tone stays clean for tremolo clarity." },
-          { position: 2, block_name: "Supremo Trem", block_category: "Modulation", original_gear: "Fender Vibrato", settings: { Speed: 6.0, Depth: 8.0 }, notes: "Deep, fast tremolo is the defining effect. Set depth high for the pulsating character." },
-          { position: 3, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Twin 2x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Twin 2x12 cab for clean, full-range foundation." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Attack: 38, Release: 200, Mix: 0.7, Level: 0 }, notes: "Light parallel comp for percussive jangle consistency." },
+          { position: 2, block_name: "Double Verb", block_category: "Amp", original_gear: "Fender Twin Reverb", settings: { Drive: 3.0, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, MV: 5.0 }, notes: "Clean Twin Reverb. No breakup; the tone stays clean for tremolo clarity." },
+          { position: 3, block_name: "Supremo Trem", block_category: "Modulation", original_gear: "Fender Vibrato", settings: { Speed: 6.0, Depth: 8.0 }, notes: "Deep, fast tremolo — the defining effect." },
+          { position: 4, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Twin Reverb 2x12", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Twin 2x12 cab for clean, full-range foundation." },
+          { position: 5, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Twin Reverb spring tank", settings: { Mix: 0.20, Decay: 0.6, Predelay: 20 }, notes: "Subtle spring matching the Twin's onboard tank." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Clean Twin Reverb setting. No breakup; the tone stays clean for tremolo clarity.",
+        notes: "Comp → clean Twin → deep tremolo → 2x12 → spring → tilt EQ. Use stereo paths with different tremolo speeds for full Marr multi-amp effect.",
       },
     },
     is_editorial: true,
@@ -13659,24 +13861,33 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "The riff should feel dark, heavy, and hypnotic. Slightly muted picking for percussive attack.",
     },
     tags: ["indie-rock", "alternative", "fuzz", "riff", "arctic-monkeys", "dark"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/alex-turner",
+      "https://www.premierguitar.com/artists/alex-turner-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
-          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 3, block_name: "Triangle Fuzz", block_category: "Distortion", original_gear: "Fuzz pedal", settings: { Sustain: 6.0, Tone: 4.0, Level: 6.0 }, notes: "Dark fuzz with tone rolled back." },
-          { position: 4, block_name: "Essex A30", block_category: "Amp", original_gear: "Vox AC30", settings: { Drive: 5.0, Bass: 6.0, Mid: 5.0, Treble: 4.0, Master: 1, Bias: 0.5, BiasX: 0.5, Sag: 0.5, Hum: 0.5, Ripple: 0.5, "Ch Vol": 6.0, Cut: 3.0 }, notes: "AC30 with treble rolled back for a darker character." },
-          { position: 5, block_name: "2x12 Blue Bell", block_category: "Cab", original_gear: "Vox 2x12 Alnico Blue", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5, Delay: 0 }, notes: "Alnico Blue cab for warm compression." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { Pedal: 1.0, VolumeTaper: false }, notes: "Assigned to EXP 1." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Knee: 6, Attack: 0.038, Release: 0.20, Mix: 0.5, Level: 2 }, notes: "Light parallel comp evens out the percussive, slightly-muted picking." },
+          { position: 3, block_name: "Triangle Fuzz", block_category: "Distortion", original_gear: "Fuzz pedal (Big Muff-style)", settings: { Tone: 0.40, Level: 0.60, Sustain: 0.60 }, notes: "Dark fuzz with tone rolled back. Moderate sustain — controlled and moody, not full-blast." },
+          { position: 4, block_name: "Essex A30", block_category: "Amp", original_gear: "Vox AC30", settings: { Drive: 0.50, Bass: 0.60, Mid: 0.50, Treble: 0.40, Presence: 0.40, ChVol: 0.60, Master: 1.0, Bias: 0.55, BiasX: 0.50, Sag: 0.55, Hum: 0.50, Ripple: 0.50, Cut: 0.30 }, notes: "AC30 with treble rolled back for a darker character. Cut at 0.30 helps tame harshness above the fuzz." },
+          { position: 5, block_name: "2x12 Blue Bell", block_category: "Cab", original_gear: "Vox 2x12 Alnico Blue", settings: { Mic: 0, Distance: 1, Position: 0.30, Angle: 0, LowCut: 19.9, HighCut: 20100, Level: 0, Pan: 0.5, Delay: 0 }, cabSibling: { Mic: 5, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5, LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0 }, notes: "Dual-mic Alnico Blue cab — warm compression for the dark groove." },
+          { position: 6, block_name: "Dynamic Plate", block_category: "Reverb", original_gear: "Studio plate (Hawaii sessions, big)", settings: { Mix: 0.30, Decay: 2.5, LowCut: 200, HighCut: 7000, Level: 0, PreDelay: 0.04, BassFreq: 100, BassBoost: 0, VarDelayAmpl: 0.55, Damping: 4500, MatrFreq: 0.33 }, notes: "BIG plate — Do I Wanna Know? lives in a cavernous reverb space. Decay 2.5s captures the hypnotic, dreamy quality." },
+          { position: 7, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slight darken at chain end — keeps the dark, murky AM character." },
         ],
-        notes: "Dark fuzz tone with reduced treble. Play the riff slowly with slight palm muting for the right feel.",
+        notes: "Volume → comp → fuzz → dark AC30 → Alnico Blue → big plate → tilt EQ. Slow, deliberate, slightly-muted picking.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Fuzz Pi", block_category: "Drive", original_gear: "Fuzz pedal", settings: { Sustain: 6.0, Tone: 4.0, Level: 6.0 }, notes: "Moderate fuzz, tone rolled dark." },
-          { position: 2, block_name: "UK 30 TopBoost", block_category: "Amp", original_gear: "Vox AC30", settings: { Gain: 5.0, Bass: 6.0, Mid: 5.0, Treble: 4.0, Master: 5.0 }, notes: "Dark Vox tone with reduced treble." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 50, Level: 2 }, notes: "Light parallel comp for the percussive picking." },
+          { position: 2, block_name: "Fuzz Pi", block_category: "Drive", original_gear: "Fuzz pedal", settings: { Sustain: 6.0, Tone: 4.0, Level: 6.0 }, notes: "Moderate fuzz, tone rolled dark." },
+          { position: 3, block_name: "UK 30 TopBoost", block_category: "Amp", original_gear: "Vox AC30", settings: { Gain: 5.0, Bass: 6.0, Mid: 5.0, Treble: 4.0, Master: 5.0 }, notes: "Dark Vox tone with reduced treble." },
+          { position: 4, block_name: "2x12 Vox Blue", block_category: "Cab", original_gear: "Vox 2x12 Alnico Blue", settings: { Mic: "SM57", Distance: "2 inches", Position: 0.30, LowCut: 80, HighCut: 8000, Level: 0 }, notes: "Alnico Blue cab for warm compression." },
+          { position: 5, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate (big)", settings: { Decay: 2.5, Predelay: 40, Mix: 30, Level: 0 }, notes: "BIG plate — Do I Wanna Know? lives in a cavernous reverb space." },
+          { position: 6, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 4.5, CenterFreq: 1000, Level: 0 }, notes: "Slight darken — keep the dark AM character on FRFR." },
         ],
-        notes: "Keep it dark and murky. The AM sound is about restraint and groove, not brightness.",
+        notes: "Comp → fuzz → dark AC30 → Alnico Blue → big plate → tilt EQ. Restraint and groove, not brightness.",
       },
       tonex: {
         chain_blocks: [
@@ -13686,24 +13897,33 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Muff Fuzz", block_category: "Booster", original_gear: "Fuzz pedal", settings: { Sustain: 6, Tone: 4, Level: 6 }, notes: "Moderate fuzz with dark tone setting." },
+          { position: 1, block_name: "Muff Fuzz", block_category: "Booster", original_gear: "Fuzz pedal (Big Muff-style)", settings: { Drive: 6, Bottom: 5, Tone: 4, Level: 6 }, notes: "Moderate fuzz with dark tone setting." },
           { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Vox AC30", settings: { Gain: 5, Volume: 6, Bass: 6, Middle: 5, Treble: 4, Presence: 4 }, notes: "Crunch channel with treble rolled back for dark Vox-style tone." },
+          { position: 3, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (big)", settings: { Time: 8, PreDelay: 40, Tone: 4, EffectLevel: 35 }, notes: "BIG plate — captures the cavernous reverb space the riff lives in." },
         ],
-        notes: "Dark, moody fuzz tone. Slight palm muting and deliberate, slow picking for the signature AM groove.",
+        notes: "Fuzz → Crunch amp → big plate. Dark, moody tone with slight palm muting and deliberate slow picking.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
-            block_name: "Kemper Fuzz",
-            block_category: "Stomp",
-            original_gear: "Fuzz pedal",
-            settings: { Sustain: 6.0, Tone: 4.0, Volume: 6.0 },
-            notes:
-              "Slot A. Kemper Fuzz with the Tone rolled back for a dark, murky character. Moderate sustain -- controlled and moody, not full-blast.",
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 3.0, Attack: 0.04, Volume: 2.0 },
+            notes: "Slot A. Light comp for the percussive slow picking.",
           },
           {
             position: 2,
+            block_name: "Kemper Fuzz",
+            block_category: "Stomp",
+            original_gear: "Fuzz pedal (Big Muff-style)",
+            settings: { Sustain: 6.0, Tone: 4.0, Volume: 6.0 },
+            notes:
+              "Slot B. Kemper Fuzz with the Tone rolled back for a dark, murky character. Moderate sustain — controlled and moody.",
+          },
+          {
+            position: 3,
             block_name: "Search Rig Exchange for 'AC30'",
             block_category: "Profile",
             original_gear: "Vox AC30",
@@ -13711,17 +13931,28 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "Search Rig Exchange for AC30 profiles with treble rolled back for a darker tone than typical Vox chime. With Liquid Profiling, select the Vox tone stack.",
           },
+          {
+            position: 4,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate (big)",
+            settings: { Decay: 2.5, Predelay: 40, Mix: 30 },
+            notes: "REV slot. BIG plate for the cavernous AM reverb space.",
+          },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. Keep it dark and murky. Slight palm muting and deliberate, slow picking for the signature Arctic Monkeys groove.",
+          "Kemper profiles include the cab. Comp → fuzz → dark AC30 profile → big plate. Keep it dark and murky.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "PI Fuzz", block_category: "Drive", original_gear: "Fuzz pedal", settings: { Sustain: 6.0, Tone: 4.0, Level: 6.0 }, notes: "Dark fuzz with tone rolled back." },
-          { position: 2, block_name: "Essex A30", block_category: "Amp", original_gear: "Vox AC30", settings: { Drive: 5.0, Bass: 6.0, Mid: 5.0, Treble: 4.0, "MV": 6.0, Cut: 3.0 }, notes: "AC30 with treble rolled back for a darker character." },
-          { position: 3, block_name: "2x12 AC30 Blue", block_category: "Cab", original_gear: "Vox 2x12 Alnico Blue", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Alnico Blue cab for warm compression." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 0.5, Level: 2 }, notes: "Light parallel comp for the percussive picking." },
+          { position: 2, block_name: "PI Fuzz", block_category: "Drive", original_gear: "Fuzz pedal (Big Muff-style)", settings: { Sustain: 6.0, Tone: 4.0, Level: 6.0 }, notes: "Dark fuzz with tone rolled back." },
+          { position: 3, block_name: "Essex A30", block_category: "Amp", original_gear: "Vox AC30", settings: { Drive: 5.0, Bass: 6.0, Mid: 5.0, Treble: 4.0, Presence: 4.0, MV: 6.0, Cut: 3.0 }, notes: "AC30 with treble rolled back for a darker character." },
+          { position: 4, block_name: "2x12 AC30 Blue", block_category: "Cab", original_gear: "Vox 2x12 Alnico Blue", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 8000, Level: 0 }, notes: "Alnico Blue cab for warm compression." },
+          { position: 5, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (big)", settings: { Mix: 0.30, Decay: 2.5, Predelay: 40 }, notes: "BIG plate for the cavernous AM space." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slight darken at chain end." },
         ],
-        notes: "Dark fuzz with tone rolled back.",
+        notes: "Comp → fuzz → dark AC30 → Alnico Blue → big plate → tilt EQ. Dark and restrained.",
       },
     },
     is_editorial: true,
@@ -15077,23 +15308,31 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "Homme's use of C-standard tuning through a bass amp is unconventional but essential to the QOTSA sound. The massive low end and compressed midrange cannot be replicated with a standard guitar amp.",
     },
     tags: ["desert-rock", "alternative", "detuned", "heavy", "qotsa", "bass-amp", "stoner-rock"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/josh-homme",
+      "https://www.premierguitar.com/artists/josh-homme-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
-          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Transparent compression for even dynamics. Adjust Threshold to taste." },
-          { position: 3, block_name: "Ampeg SVT Nrm", block_category: "Amp", original_gear: "Ampeg VT-40", settings: { Drive: 6.0, Bass: 7.0, Mid: 5.0, Treble: 4.0, Master: 1, Bias: 0.5, BiasX: 0.5, Sag: 0.5, Hum: 0.5, Ripple: 0.5, "Ch Vol": 7.0 }, notes: "Ampeg/bass amp model for the massive low-end. Dark EQ with bass pushed high." },
-          { position: 4, block_name: "4x10 Tweed P10R", block_category: "Cab", original_gear: "Ampeg 4x10", settings: { Mic: 5, Distance: 1, Position: 0.49, Angle: 0, LowCut: 19.9, HighCut: 16000, Level: 0, Pan: 0.5, Delay: 0 }, notes: "4x10 cab for even low-end distribution." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { Pedal: 1.0, VolumeTaper: false }, notes: "Assigned to EXP 1." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Knee: 6, Attack: 0.038, Release: 0.20, Mix: 0.5, Level: 2 }, notes: "Light parallel comp tames the percussive C-standard chord attack without crushing the bass-amp wallop." },
+          { position: 3, block_name: "Ampeg SVT Nrm", block_category: "Amp", original_gear: "Ampeg VT-40 (guitar through bass amp)", settings: { Drive: 0.60, Bass: 0.70, Mid: 0.50, Treble: 0.40, Presence: 0.40, ChVol: 0.70, Master: 1.0, Bias: 0.55, BiasX: 0.50, Sag: 0.55, Hum: 0.50, Ripple: 0.50 }, notes: "Bass-amp model for the massive low-end. Dark EQ with Bass pushed high — Treble cut to tame the highs from the C-standard fundamental." },
+          { position: 4, block_name: "4x10 Tweed P10R", block_category: "Cab", original_gear: "Ampeg 4x10", settings: { Mic: 0, Distance: 1, Position: 0.30, Angle: 0, LowCut: 19.9, HighCut: 20100, Level: 0, Pan: 0.5, Delay: 0 }, cabSibling: { Mic: 5, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5, LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0 }, notes: "Dual-mic 4x10 — SM57 + ribbon at slightly off-cone Position 0.30. Gives the bass cab some upper-mid bite without losing the woolly low end." },
+          { position: 5, block_name: "Dynamic Plate", block_category: "Reverb", original_gear: "Studio plate (small)", settings: { Mix: 0.15, Decay: 1.0, LowCut: 200, HighCut: 6000, Level: 0, PreDelay: 0.02, BassFreq: 100, BassBoost: 0, VarDelayAmpl: 0.4, Damping: 5000, MatrFreq: 0.33 }, notes: "Tight, dark plate (HighCut 6kHz) — adds a hint of room but stays out of the bass-amp's massive low end." },
+          { position: 6, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slight darken to keep the dark, woolly QOTSA character on FRFR systems." },
         ],
-        notes: "C-standard tuning is mandatory. The bass amp model provides the huge, compressed low end that defines QOTSA. Sounds nothing like a guitar amp.",
+        notes: "Volume → comp → SVT bass-amp model → 4x10 → tight plate → tilt EQ. C-standard tuning is mandatory. Sounds nothing like a guitar amp.",
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Search Cortex Cloud for 'Ampeg VT-40' capture", block_category: "Amp", original_gear: "Ampeg VT-40", settings: { Gain: 6.0, Bass: 7.0, Mid: 5.0, Treble: 4.0, Master: 7.0 }, notes: "Bass amp for massive low end." },
-          { position: 2, block_name: "4x10 US", block_category: "Cab", original_gear: "Ampeg 4x10", settings: { Mic: "SM57", Distance: "3 inches" }, notes: "Bass cab for clean low-end reproduction." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 50, Level: 2 }, notes: "Light parallel comp for the percussive C-standard chord attack." },
+          { position: 2, block_name: "Search Cortex Cloud for 'Ampeg VT-40' capture", block_category: "Amp", original_gear: "Ampeg VT-40 (guitar through bass amp)", settings: { Gain: 6.0, Bass: 7.0, Mid: 5.0, Treble: 4.0, Master: 7.0 }, notes: "Bass amp for the massive QOTSA low end. Bass capture is mandatory — guitar amps won't replicate this." },
+          { position: 3, block_name: "4x10 US", block_category: "Cab", original_gear: "Ampeg 4x10", settings: { Mic: "SM57", Distance: "3 inches", Position: 0.30, LowCut: 60, HighCut: 6000, Level: 0 }, notes: "Bass cab for clean low-end reproduction. HighCut at 6kHz keeps it dark." },
+          { position: 4, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate (small)", settings: { Decay: 1.0, Predelay: 20, Mix: 15, Level: 0 }, notes: "Tight plate adds a hint of room without softening the woolly low end." },
+          { position: 5, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 4.5, CenterFreq: 1000, Level: 0 }, notes: "Slight darken — keeps the QOTSA character on FRFR." },
         ],
-        notes: "C-standard tuning through a bass amp. The QOTSA desert rock formula.",
+        notes: "Comp → bass-amp capture → 4x10 → plate → tilt EQ. C-standard tuning required.",
       },
       tonex: {
         chain_blocks: [
@@ -15103,29 +15342,50 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Brown", block_category: "Amp Type", original_gear: "Ampeg VT-40", settings: { Gain: 6, Volume: 7, Bass: 8, Middle: 5, Treble: 3, Presence: 3 }, notes: "Brown channel with extreme bass boost and treble cut to approximate the bass amp's dark, heavy character." },
+          { position: 1, block_name: "Compressor", block_category: "Booster", original_gear: "Studio compressor", settings: { Drive: 0, Bottom: 5, Tone: 4, Level: 5 }, notes: "Booster slot used as a comp stand-in. Tames percussive C-standard chord attack." },
+          { position: 2, block_name: "Brown", block_category: "Amp Type", original_gear: "Ampeg VT-40 (bass amp approximation)", settings: { Gain: 6, Volume: 7, Bass: 8, Middle: 5, Treble: 3, Presence: 3 }, notes: "Brown channel with extreme bass boost and treble cut to approximate the bass amp's dark, heavy character." },
+          { position: 3, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (small/dark)", settings: { Time: 3, PreDelay: 20, Tone: 3, EffectLevel: 15 }, notes: "Tight, dark plate. Stays out of the bass-amp's low end." },
         ],
-        notes: "C-standard tuning with maximum bass and minimum treble. The Katana can not fully replicate a bass amp, but extreme EQ settings get in the ballpark.",
+        notes: "Comp booster + Brown amp scooped dark + tight plate. C-standard mandatory. The Katana can't fully replicate a bass amp, but these settings get close.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "USA Bass 400", block_category: "Amp", original_gear: "Ampeg VT-40", settings: { Drive: 6.0, Bass: 7.0, Mid: 5.0, Treble: 4.0, MV: 7.0 }, notes: "No Ampeg VT-40 model; Mesa bass amp is closest for massive low-end. Dark EQ with bass pushed high." },
-          { position: 2, block_name: "4x10 Tweed", block_category: "Cab", original_gear: "Ampeg 4x10", settings: { Mic: "57 Dynamic", Distance: 3.0 }, notes: "4x10 cab for even low-end distribution." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 0.5, Level: 2 }, notes: "Light parallel comp for percussive C-standard attack." },
+          { position: 2, block_name: "USA Bass 400", block_category: "Amp", original_gear: "Ampeg VT-40 (bass amp approximation)", settings: { Drive: 6.0, Bass: 7.0, Mid: 5.0, Treble: 4.0, Presence: 4.0, MV: 7.0 }, notes: "No direct Ampeg VT-40 model; Mesa bass amp is closest for the massive low end." },
+          { position: 3, block_name: "4x10 Tweed", block_category: "Cab", original_gear: "Ampeg 4x10", settings: { Mic: "57 Dynamic", Distance: 3.0, LowCut: 60, HighCut: 6000, Level: 0 }, notes: "4x10 cab for even low-end distribution. HighCut at 6kHz keeps it dark." },
+          { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (small/dark)", settings: { Mix: 0.15, Decay: 1.0, Predelay: 20 }, notes: "Tight, dark plate." },
+          { position: 5, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slight darken at chain end." },
         ],
-        notes: "C-standard tuning is mandatory. Bass amp model for the huge QOTSA wall of sound. No direct Ampeg model; USA Bass 400 approximates the massive low end.",
+        notes: "Comp → bass-amp model → 4x10 → plate → tilt EQ. C-standard mandatory. Bass amp for the QOTSA wall.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 3.0, Attack: 0.04, Volume: 2.0 },
+            notes: "Slot A. Light comp for percussive C-standard attack.",
+          },
+          {
+            position: 2,
             block_name: "Search Rig Exchange for 'Ampeg'",
             block_category: "Profile",
-            original_gear: "Ampeg VT-40",
+            original_gear: "Ampeg VT-40 (bass amp)",
             settings: { Gain: 7.0, Bass: 7.0, Middle: 5.0, Treble: 4.0 },
             notes: "Search for Ampeg bass amp profiles. Massive low-end headroom and compressed midrange for the QOTSA wall of sound.",
           },
+          {
+            position: 3,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate (small/dark)",
+            settings: { Decay: 1.0, Predelay: 20, Mix: 15 },
+            notes: "REV slot. Tight, dark plate.",
+          },
         ],
-        notes: "Kemper profiles include the cab. C-standard tuning is mandatory. A bass amp profile provides the enormous low end that defines QOTSA.",
+        notes: "Kemper profiles include the cab. Comp → bass-amp profile → tight plate. C-standard mandatory.",
       },
     },
     is_editorial: true,
