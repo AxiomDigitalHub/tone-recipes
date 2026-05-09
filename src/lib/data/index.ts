@@ -4326,6 +4326,7 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["hard-rock", "rock", "lead", "marshall", "les-paul", "slash"],
     sources: [
       "https://equipboard.com/pros/slash",
+      "https://www.premierguitar.com/artists/slash-rig-rundown",
     ],
     platform_translations: {
       helix: {
@@ -4375,18 +4376,34 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio room reverb",
-            settings: { Mix: 15, Decay: 1.2, LowCut: 125, HighCut: 6500 },
+            settings: { Mix: 0.15, Decay: 1.2, Predelay: 0.02, LowCut: 125, HighCut: 6500 },
             notes:
               "Subtle studio reverb adds dimension and depth. Keep the mix low to maintain the in-your-face directness of the Appetite tone.",
           },
+          {
+            position: 6,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment at chain end. Pull above 0.5 if your FRFR rig is dark; below if the JCM800's Mid=8 is too honky.",
+          },
         ],
         notes:
-          "A simple patch with amp, cab, and subtle studio reverb for depth. Use the neck pickup on a Les Paul or humbucker guitar for the warmest, most Slash-like result.",
+          "Volume Pedal → Deluxe Comp → Brit 2204 → Greenback → Plate → Tilt. Use the neck pickup on a Les Paul (or any humbucker guitar) for the warmest, most Slash-like result.",
       },
       quad_cortex: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Threshold: -36, Ratio: 2, Attack: 60, Release: 900, Mix: 74, Level: 0 },
+            notes: "Transparent parallel compression. Slash plays with huge dynamic swing — the comp evens it out without crushing pick attack.",
+          },
+          {
+            position: 2,
             block_name: "Brit 2203",
             block_category: "Amp",
             original_gear: "Marshall JCM800 2203",
@@ -4402,24 +4419,32 @@ export const toneRecipes: ToneRecipe[] = [
               "The QC's JCM800 model. Community captures of real JCM800s on Cortex Cloud are excellent for this tone.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "4x12 Green 25",
             block_category: "Cab",
             original_gear: "Marshall 4x12 Greenback",
-            settings: { Mic: "SM57", Distance: "1 inch" },
-            notes: "Close-miked Greenback for the classic Marshall tone.",
+            settings: { Mic: "SM57", Distance: "1 inch", Position: 0.49, LowCut: 80, HighCut: 8500, Level: 0 },
+            notes: "Close-miked Greenback for the classic Marshall tone. On-axis at the cone for maximum bite.",
           },
           {
-            position: 3,
+            position: 4,
             block_name: "Room",
             block_category: "Reverb",
             original_gear: "Studio room reverb",
-            settings: { Decay: 1.2, Mix: 15 },
+            settings: { Decay: 1.2, Predelay: 20, Mix: 15, Level: 0 },
             notes: "Subtle room reverb for studio dimension. Keep the mix low.",
+          },
+          {
+            position: 5,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment for FRFR/headphone monitoring.",
           },
         ],
         notes:
-          "Search Cortex Cloud for 'Slash' or 'AFD' captures. Add subtle room reverb for studio depth.",
+          "Comp → Brit 2203 → Greenback → Room → Tilt. Search Cortex Cloud for 'Slash' or 'AFD' captures. Subtle reverb for studio depth.",
       },
       tonex: {
         chain_blocks: [
@@ -4447,20 +4472,37 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 2,
-            block_name: "Spring",
+            block_name: "Tube Screamer",
+            block_category: "Booster",
+            enabled: false,
+            original_gear: "Optional boost (Slash later used a Cry Baby + ProCo Rat live)",
+            settings: { Drive: 2, Bottom: 5, Tone: 6, Level: 7 },
+            notes: "ALTERNATE boost (off by default). Stomp on for the legato runs in the solo where you want extra bloom. The Appetite recording was straight-into-amp; this is for live/practice flexibility.",
+          },
+          {
+            position: 3,
+            block_name: "Plate",
             block_category: "Reverb",
             original_gear: "Studio room reverb",
-            settings: { Level: 15 },
-            notes: "Add subtle reverb via Boss Tone Studio for studio depth and dimension.",
+            settings: { Time: 4, PreDelay: 20, Tone: 5, EffectLevel: 15 },
+            notes: "Subtle plate to match the Rumbo Recorders studio dimension. Keep low — the Appetite tone is in-your-face.",
           },
         ],
         notes:
-          "The Katana's Brown channel gets surprisingly close to the JCM800 tone. Add subtle reverb for studio dimension. Use a humbucker guitar on the neck pickup.",
+          "Brown amp + optional boost (off) + subtle plate. The Katana's Brown channel gets surprisingly close to the JCM800 tone. Use a humbucker guitar on the neck pickup.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 4.0, Attack: 0.06, Volume: 0.0 },
+            notes: "Slot A. Light parallel compression to even out Slash's dynamic swing without crushing the pick attack.",
+          },
+          {
+            position: 2,
             block_name: "Search Rig Exchange for 'JCM800'",
             block_category: "Profile",
             original_gear: "Marshall JCM800 2203",
@@ -4469,24 +4511,27 @@ export const toneRecipes: ToneRecipe[] = [
               "Search Rig Exchange for JCM800 profiles cranked to high gain. MBritt and Top Jimi both offer excellent JCM800 packs. With Liquid Profiling, select the Marshall JCM800 tone stack. Push the mids high for that cutting Slash character.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "Natural Reverb",
-            block_category: "Effect",
+            block_category: "Reverb",
             original_gear: "Studio room reverb",
-            settings: { Decay: 1.2, Mix: 15 },
+            settings: { Decay: 1.2, Predelay: 20, Mix: 15 },
             notes:
               "REV slot. Subtle room reverb for studio dimension. Keep the mix very low to maintain the in-your-face directness of the Appetite tone.",
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. Slash's tone is famously simple: guitar straight into a cranked Marshall. The Kemper is ideal for this because a profile of a real cranked JCM800 through a Greenback 4x12 captures the exact saturation and speaker interaction. No pedals needed.",
+          "Kemper profiles include the cab. Comp → JCM800 profile → natural reverb. No pedals — the Kemper is ideal for this because a profile of a real cranked JCM800 through a Greenback 4x12 captures the exact saturation and speaker interaction.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800 2203", settings: { Drive: 7.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 7.0 }, notes: "JCM800 for Slash's aggressive, singing lead tone." },
-          { position: 2, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 with Celestion Greenbacks", settings: { Mic: "57 Dynamic", Distance: 1.5 }, notes: "Greenback cab for the Slash midrange." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Attack: 60, Release: 900, Mix: 0.74, Level: 0 }, notes: "Transparent parallel compression for Slash's dynamic swing." },
+          { position: 2, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800 2203", settings: { Drive: 7.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 7.0 }, notes: "JCM800 for Slash's aggressive, singing lead tone." },
+          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 with Celestion Greenbacks", settings: { Mic: "57 Dynamic", Distance: 1.5, LowCut: 80, HighCut: 8500, Level: 0 }, notes: "Greenback cab for the Slash midrange. HighCut tames any digital ice-pick." },
+          { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Studio room reverb", settings: { Mix: 0.15, Decay: 1.2, Predelay: 20 }, notes: "Subtle studio plate for dimension. Keep low." },
+          { position: 5, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Brit 800 cranked for the Sweet Child O' Mine riff and solo. Les Paul Standard with the Alnico II neck pickup.",
+        notes: "Comp → Brit 800 → Greenback → plate → tilt EQ. Brit 800 cranked for the Sweet Child O' Mine riff and solo. Les Paul Standard with the Alnico II neck pickup.",
       },
     },
     is_editorial: true,
@@ -5612,6 +5657,7 @@ export const toneRecipes: ToneRecipe[] = [
     tags: ["blues-rock", "classic-rock", "lead", "cranked-amp", "clapton"],
     sources: [
       "https://equipboard.com/pros/eric-clapton",
+      "https://www.premierguitar.com/artists/eric-clapton-rig-rundown",
     ],
     platform_translations: {
       helix: {
@@ -5729,9 +5775,17 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compressor (Criteria Studios)",
+            settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 50, Level: 0 },
+            notes: "Light parallel comp. Layla's tone is all amp — the Champ does the compressing on its own when cranked.",
+          },
+          {
+            position: 2,
             block_name: "Search Cortex Cloud for 'Fender Champ' capture",
             block_category: "Amp",
-            original_gear: "Fender Champ",
+            original_gear: "Fender Champ (dimed)",
             settings: {
               Gain: 10.0,
               Bass: 5.0,
@@ -5743,16 +5797,32 @@ export const toneRecipes: ToneRecipe[] = [
               "If a Champ model is available, crank it. Otherwise, search Cortex Cloud for cranked Champ captures — there are many excellent ones. The key is maximum gain for that thick, compressed overdrive.",
           },
           {
-            position: 2,
+            position: 3,
             block_name: "1x8 Champ",
             block_category: "Cab",
             original_gear: "Fender Champ 1x8",
-            settings: { Mic: "SM57", Distance: "1 inch" },
-            notes: "Small speaker cab for the focused Champ character.",
+            settings: { Mic: "SM57", Distance: "1 inch", Position: 0.30, LowCut: 100, HighCut: 7500, Level: 0 },
+            notes: "Small speaker cab for the focused Champ character. LowCut at 100 Hz reflects the 1x8's natural low-end rolloff.",
+          },
+          {
+            position: 4,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate (Criteria Studios EMT)",
+            settings: { Decay: 1.8, Predelay: 40, Mix: 20, Level: 0 },
+            notes: "Subtle plate matching the Criteria Studios sound. Present but lets the dimed-Champ bite stay forward.",
+          },
+          {
+            position: 5,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 4.5, CenterFreq: 1000, Level: 0 },
+            notes: "Slight darken — Champs are mid-forward, and FRFR rigs can make small-amp captures bright.",
           },
         ],
         notes:
-          "Community captures of cranked Fender Champs on Cortex Cloud are excellent for this tone. The QC's neural captures of real small amps at full volume are among its greatest strengths.",
+          "Comp → Champ capture → 1x8 cab → plate → tilt EQ. Community captures of cranked Fender Champs on Cortex Cloud are excellent for this tone. The QC's neural captures of small amps at full volume are among its greatest strengths.",
       },
       tonex: {
         chain_blocks: [
@@ -5803,23 +5873,42 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor (Criteria Studios)",
+            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            notes: "Slot A. Light comp — Layla's compression mostly comes from the Champ being dimed. Don't overdo it.",
+          },
+          {
+            position: 2,
             block_name: "Search Rig Exchange for 'Fender Champ'",
             block_category: "Profile",
-            original_gear: "Fender Champ",
+            original_gear: "Fender Champ (dimed)",
             settings: { Gain: 10.0, Bass: 5.0, Middle: 6.0, Treble: 6.0 },
             notes:
-              "Search Rig Exchange for cranked Fender Champ profiles. The key is maximum gain for thick, compressed overdrive. With Liquid Profiling, select the Fender Champ tone stack. Profiles of small amps at full tilt are one of Kemper's greatest strengths.",
+              "Search Rig Exchange for cranked Fender Champ profiles. Maximum gain for thick, compressed overdrive. With Liquid Profiling, select the Fender Champ tone stack. Profiles of small amps at full tilt are one of Kemper's greatest strengths.",
+          },
+          {
+            position: 3,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate (Criteria Studios EMT)",
+            settings: { Decay: 1.8, Predelay: 40, Mix: 20 },
+            notes: "REV slot. Subtle plate to match the Criteria Studios room. Keep low — the dimed Champ bite is the star.",
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. This is a beautifully simple tone: guitar straight into a dimed Champ. The Kemper captures the exact compression and saturation of a real cranked small amp. For Clapton's 'woman tone' on slower passages, use the Kemper's built-in EQ or roll back the guitar's tone knob.",
+          "Kemper profiles include the cab. Comp → dimed Champ profile → plate. Beautifully simple tone: guitar straight into a small amp at full tilt. For 'woman tone' on slower passages, roll back the guitar's tone knob.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "5F1 Tweed", block_category: "Amp", original_gear: "Fender Champ", settings: { Drive: 10.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, MV: 8.0 }, notes: "Fractal's Fender Champ model dimed for the thick, compressed overdrive that defines the Layla tone." },
-          { position: 2, block_name: "1x12 Deluxe", block_category: "Cab", original_gear: "Fender Champ 1x8", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Small Fender cab for the focused, midrange-forward Champ character." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (Criteria Studios)", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 0.5, Level: 0 }, notes: "Light parallel comp. The Champ does most of the compressing itself when dimed." },
+          { position: 2, block_name: "5F1 Tweed", block_category: "Amp", original_gear: "Fender Champ (dimed)", settings: { Drive: 10.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, MV: 8.0 }, notes: "Fractal's Fender Champ model dimed for the thick, compressed overdrive that defines the Layla tone." },
+          { position: 3, block_name: "1x12 Deluxe", block_category: "Cab", original_gear: "Fender Champ 1x8", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 100, HighCut: 7500, Level: 0 }, notes: "Small Fender cab for the focused, midrange-forward Champ character." },
+          { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (Criteria Studios EMT)", settings: { Mix: 0.20, Decay: 1.8, Predelay: 40 }, notes: "Subtle plate matching the Criteria Studios sound." },
+          { position: 5, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slight darken — Champs are mid-forward; FRFR rigs can make small-amp models sound bright." },
         ],
-        notes: "5F1 Tweed cranked for the raw, urgent Layla tone. Strat bridge+middle position with the woman tone rolloff on the tone knob.",
+        notes: "Comp → 5F1 Tweed dimed → 1x8 cab → plate → tilt EQ. Strat bridge+middle position with the woman-tone rolloff on the tone knob for slower passages.",
       },
     },
     is_editorial: true,
@@ -6851,22 +6940,32 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
-            block_name: "Crying Wah",
-            block_category: "Wah",
-            original_gear: "Dunlop Cry Baby Wah",
-            settings: { Position: "Expression Pedal" },
-            notes: "Use the QC's built-in expression pedal for wah control.",
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Threshold: -34, Ratio: 3, Attack: 38, Release: 200, Mix: 50, Level: 2.0 },
+            notes: "Moderate parallel comp to even out aggressive picking. Mix=50% keeps the front-edge palm-mute attack articulate.",
           },
           {
             position: 2,
-            block_name: "Wham",
-            block_category: "Pitch",
-            original_gear: "DigiTech Whammy",
-            settings: { Mode: "2 Oct Up" },
-            notes: "Assign to expression pedal or stomp mode for pitch effects.",
+            block_name: "Crying Wah",
+            block_category: "Wah",
+            enabled: false,
+            original_gear: "Dunlop Cry Baby Wah",
+            settings: { Position: 70 },
+            notes: "OFF by default. Assign to expression pedal — Morello rocks it rhythmically during solos.",
           },
           {
             position: 3,
+            block_name: "Wham",
+            block_category: "Pitch",
+            enabled: false,
+            original_gear: "DigiTech Whammy",
+            settings: { Mode: "2 Oct Up" },
+            notes: "OFF by default. Stomp on for the iconic pitch screams in the solo.",
+          },
+          {
+            position: 4,
             block_name: "Brit 2203",
             block_category: "Amp",
             original_gear: "Marshall JCM800 2205",
@@ -6881,16 +6980,24 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Cranked JCM800 for aggressive rhythm tone. Push the gain hard.",
           },
           {
-            position: 4,
+            position: 5,
             block_name: "4x12 Green 25",
             block_category: "Cab",
-            original_gear: "Marshall 4x12",
-            settings: { Mic: "SM57", Distance: "1 inch" },
-            notes: "Close-miked for tight, aggressive tone.",
+            original_gear: "Marshall 4x12 Greenback",
+            settings: { Mic: "SM57", Distance: "1 inch", Position: 0.49, LowCut: 90, HighCut: 8500, Level: 0 },
+            notes: "Close-miked for tight, aggressive tone. HighCut tames any digital fizz.",
+          },
+          {
+            position: 6,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness adjustment for FRFR/headphone monitoring.",
           },
         ],
         notes:
-          "The QC handles pitch shifting and wah simultaneously well. For the killswitch effect, use a volume block assigned to a stomp switch. Morello's playing technique is the most important element.",
+          "Comp → wah (off) → whammy (off) → cranked JCM800 → Greenback → tilt EQ. The QC handles pitch + wah simultaneously well. For the killswitch effect, use a volume block on a stomp switch.",
       },
       tonex: {
         chain_blocks: [
@@ -6902,6 +7009,15 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           {
             position: 1,
+            block_name: "Pedal Wah",
+            block_category: "Pedal FX",
+            enabled: false,
+            original_gear: "Dunlop Cry Baby Wah",
+            settings: { Position: "GA-FC Expression" },
+            notes: "OFF by default. Requires GA-FC foot controller for expression pedal wah control. Morello rocks it rhythmically during solos.",
+          },
+          {
+            position: 2,
             block_name: "Brown",
             block_category: "Amp Type",
             original_gear: "Marshall JCM800 2205",
@@ -6916,39 +7032,50 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Brown channel cranked for aggressive Marshall distortion.",
           },
           {
-            position: 2,
-            block_name: "Pedal Wah",
-            block_category: "Pedal FX",
-            original_gear: "Dunlop Cry Baby Wah",
-            settings: { Position: "GA-FC Expression" },
-            notes: "Requires GA-FC foot controller for expression pedal wah control.",
+            position: 3,
+            block_name: "Pitch Shifter",
+            block_category: "FX",
+            enabled: false,
+            original_gear: "DigiTech Whammy (external recommended)",
+            settings: { Voice: 1, Pitch: "+24", Level: 100 },
+            notes: "OFF by default. The Katana's built-in pitch shifter is limited compared to a DigiTech Whammy — for accurate Morello pitch sweeps use an external Whammy pedal in front of the amp.",
           },
         ],
         notes:
-          "The Katana can handle the core rhythm tone well with the Brown channel, but the Whammy pitch effects require an external DigiTech Whammy pedal — the Katana's built-in pitch shifting is limited for this style. The wah requires the GA-FC foot controller.",
+          "Wah (off) → Brown amp cranked → pitch shifter (off). The Katana handles the core rhythm well; Whammy pitch effects benefit from an external DigiTech Whammy. The wah requires the GA-FC foot controller.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
-            block_name: "Wah Wah",
-            block_category: "Stomp",
-            original_gear: "Dunlop Cry Baby Wah",
-            settings: { Position: "Expression Pedal" },
-            notes:
-              "Slot A. Assign to an expression pedal. Morello uses the wah as a tone-shaping filter, parking it at specific positions or rocking it rhythmically.",
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 4.0, Attack: 0.04, Volume: 2.0 },
+            notes: "Slot A. Moderate compression to even out aggressive picking on the Drop D palm mutes.",
           },
           {
             position: 2,
-            block_name: "Pedal Pitch",
+            block_name: "Wah Wah",
             block_category: "Stomp",
-            original_gear: "DigiTech Whammy",
-            settings: { "Pitch Range": "+24 semitones" },
+            enabled: false,
+            original_gear: "Dunlop Cry Baby Wah",
+            settings: { Position: "Expression Pedal" },
             notes:
-              "Slot B. Kemper's Pedal Pitch effect on an expression pedal replicates the Whammy's pitch sweep. Set range to 2 octaves up for the signature Morello pitch screams.",
+              "Slot B. OFF by default. Assign to an expression pedal — Morello rocks it rhythmically during solos.",
           },
           {
             position: 3,
+            block_name: "Pedal Pitch",
+            block_category: "Stomp",
+            enabled: false,
+            original_gear: "DigiTech Whammy",
+            settings: { "Pitch Range": 24, Mix: 100 },
+            notes:
+              "Slot C. OFF by default. Kemper's Pedal Pitch on an expression pedal replicates the Whammy's pitch sweep. Range +24 semitones (2 octaves up) for the signature pitch screams.",
+          },
+          {
+            position: 4,
             block_name: "Search Rig Exchange for 'JCM800'",
             block_category: "Profile",
             original_gear: "Marshall JCM800 2205",
@@ -6958,15 +7085,18 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. The creative sound effects (killswitch stutters, toggle scratching) require technique, not gear. For a killswitch, use the Kemper's stomp switches to toggle volume on/off. Morello's playing technique is the heart of his style.",
+          "Kemper profiles include the cab. Comp → wah (off) → pitch (off) → JCM800 profile. Killswitch stutters require technique — use the Kemper's stomp switches to toggle volume.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Classic Whammy", block_category: "Pitch", original_gear: "DigiTech Whammy", settings: { Mode: "variable", Position: "Exp Pedal" }, notes: "Whammy pedal for Morello's signature pitch effects." },
-          { position: 2, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800 2205", settings: { Drive: 8.0, Bass: 6.0, Mid: 7.0, Treble: 6.0, Presence: 5.0, MV: 7.0 }, notes: "Fractal's JCM800 model for the aggressive, tight riff tone. Push the drive hard and keep mids elevated for cut in the band mix." },
-          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Standard Marshall cab." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 3, Attack: 38, Release: 200, Mix: 0.5, Level: 2 }, notes: "Moderate parallel comp for the aggressive picking on Drop D palm mutes." },
+          { position: 2, block_name: "Cry Baby", block_category: "Wah", enabled: false, original_gear: "Dunlop Cry Baby Wah", settings: { Position: "Exp Pedal" }, notes: "OFF by default. Assign to expression pedal for solo wah work." },
+          { position: 3, block_name: "Classic Whammy", block_category: "Pitch", enabled: false, original_gear: "DigiTech Whammy", settings: { Mode: "variable", Position: "Exp Pedal" }, notes: "OFF by default. Whammy pedal for Morello's signature pitch effects on the solo." },
+          { position: 4, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800 2205", settings: { Drive: 8.0, Bass: 6.0, Mid: 7.0, Treble: 6.0, Presence: 5.0, MV: 7.0 }, notes: "Fractal's JCM800 model for the aggressive, tight riff tone. Push the drive hard and keep mids elevated for cut." },
+          { position: 5, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 90, HighCut: 8500, Level: 0 }, notes: "Standard Marshall cab close-miked. HighCut tames digital fizz." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Classic Whammy + high-gain amp. Morello's toggle switch kill technique and creative Whammy use define this tone.",
+        notes: "Comp → wah (off) → Whammy (off) → JCM800 → Greenback → tilt EQ. Morello's toggle switch killswitch technique and creative Whammy use define this tone.",
       },
     },
     is_editorial: true,
@@ -12474,7 +12604,10 @@ export const toneRecipes: ToneRecipe[] = [
       microphone: "Shure SM57",
     },
     tags: ["hard-rock", "aggressive", "riff", "wah", "guns-n-roses", "jcm800"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/slash",
+      "https://www.premierguitar.com/artists/slash-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -12599,11 +12732,16 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Crying Wah", block_category: "Wah", original_gear: "Dunlop Cry Baby", settings: { Position: 70 }, notes: "Cry Baby for intro and solo accents." },
-          { position: 2, block_name: "Brit 2203", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Gain: 8.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 6.0, Master: 7.0 }, notes: "Cranked JCM800 for aggressive riff tone." },
-          { position: 3, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "SM57", Distance: "1 inch" }, notes: "Standard Marshall cab miking." },
+          { position: 1, block_name: "Crying Wah", block_category: "Wah", enabled: false, original_gear: "Dunlop Cry Baby", settings: { Position: 70 }, notes: "OFF by default. Cry Baby for the intro filter harmonics and solo accents — assign to expression pedal." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 3, Attack: 38, Release: 200, Mix: 50, Level: 3.0 }, notes: "Moderate parallel compression to even out the aggressive picking attack." },
+          { position: 3, block_name: "Green 808", block_category: "Drive", enabled: false, original_gear: "Ibanez TS808", settings: { Drive: 2.0, Tone: 5.5, Level: 8.5 }, notes: "ALTERNATE drive (off by default). Stomp on for the solo — TS in front of an already-cooking JCM800 tightens the low end." },
+          { position: 4, block_name: "Brit 2203", block_category: "Amp", original_gear: "Marshall JCM800 2203", settings: { Gain: 8.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 6.0, Master: 7.0 }, notes: "Cranked JCM800 for aggressive riff tone." },
+          { position: 5, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.30, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Slightly off-cone for cone-edge midrange that Slash's tone lives in." },
+          { position: 6, block_name: "Slap Delay", block_category: "Delay", enabled: false, original_gear: "Slapback delay (subtle)", settings: { Time: 80, Feedback: 15, Mix: 18 }, notes: "Slapback for solos. OFF by default — album rhythm tone is dry." },
+          { position: 7, block_name: "Plate Reverb", block_category: "Reverb", enabled: false, original_gear: "Studio plate", settings: { Decay: 1.5, Predelay: 20, Mix: 18, Level: 0 }, notes: "Tight plate for solos. OFF by default." },
+          { position: 8, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment for FRFR/headphone monitoring." },
         ],
-        notes: "More gain than Sweet Child. Bridge pickup on a Les Paul for maximum aggression.",
+        notes: "Wah (off) → comp → TS boost (off) → cranked JCM800 → Greenback → slapback (off) → plate (off) → tilt EQ. More gain than Sweet Child. Bridge pickup on a Les Paul for maximum aggression.",
       },
       tonex: {
         chain_blocks: [
@@ -12613,10 +12751,13 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Pedal Wah", block_category: "Pedal FX", original_gear: "Dunlop Cry Baby", settings: { Position: 70 }, notes: "Use the expression pedal for wah control." },
-          { position: 2, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall JCM800", settings: { Gain: 8, Volume: 7, Bass: 5, Middle: 7, Treble: 7, Presence: 6 }, notes: "Brown channel cranked for aggressive Marshall saturation." },
+          { position: 1, block_name: "Pedal Wah", block_category: "Pedal FX", enabled: false, original_gear: "Dunlop Cry Baby", settings: { Position: 70 }, notes: "OFF by default. Use the expression pedal for wah control on intro and solo accents." },
+          { position: 2, block_name: "T-Scream", block_category: "Booster", enabled: false, original_gear: "Ibanez TS808 boost", settings: { Drive: 2, Bottom: 5, Tone: 6, Level: 8 }, notes: "ALTERNATE boost (off by default). Stomp on for the solo — TS in front of an already-cooking JCM800 tightens the low end." },
+          { position: 3, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall JCM800 2203", settings: { Gain: 8, Volume: 7, Bass: 5, Middle: 7, Treble: 7, Presence: 6 }, notes: "Brown channel cranked for aggressive Marshall saturation. Higher gain than Sweet Child." },
+          { position: 4, block_name: "Slap", block_category: "Delay", enabled: false, original_gear: "Slapback delay (subtle)", settings: { Time: 80, Feedback: 10, EffectLevel: 18 }, notes: "Slapback for solos. OFF by default — album rhythm is dry." },
+          { position: 5, block_name: "Plate", block_category: "Reverb", enabled: false, original_gear: "Studio plate", settings: { Time: 4, PreDelay: 20, Tone: 5, EffectLevel: 18 }, notes: "Tight plate for solos. OFF by default." },
         ],
-        notes: "Katana's Brown channel at high gain with a wah pedal. Les Paul bridge pickup for maximum cut and aggression.",
+        notes: "Wah (off) → TS boost (off) → Brown amp → slapback (off) → plate (off). Katana's Brown channel at high gain with a wah pedal. Les Paul bridge pickup for maximum cut and aggression.",
       },
       kemper: {
         chain_blocks: [
@@ -12624,13 +12765,22 @@ export const toneRecipes: ToneRecipe[] = [
             position: 1,
             block_name: "Wah Wah",
             block_category: "Stomp",
+            enabled: false,
             original_gear: "Dunlop Cry Baby",
             settings: { Position: 70 },
             notes:
-              "Slot A. Kemper's Wah Wah for the filtered intro harmonics and solo accents. Assign to an expression pedal for real-time control.",
+              "Slot A. OFF by default. Kemper's Wah Wah for the filtered intro harmonics and solo accents — assign to an expression pedal.",
           },
           {
             position: 2,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 4.0, Attack: 0.04, Volume: 3.0 },
+            notes: "Slot B. Moderate compression to even out aggressive picking attack.",
+          },
+          {
+            position: 3,
             block_name: "Search Rig Exchange for 'JCM800'",
             block_category: "Profile",
             original_gear: "Marshall JCM800 2203",
@@ -12638,17 +12788,40 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "Search Rig Exchange for high-gain JCM800 profiles. Push the gain higher than Sweet Child O' Mine for the more aggressive Welcome to the Jungle saturation. With Liquid Profiling, select the Marshall tone stack.",
           },
+          {
+            position: 4,
+            block_name: "Slapback Delay",
+            block_category: "Delay",
+            enabled: false,
+            original_gear: "Slapback delay (subtle)",
+            settings: { Time: 80, Feedback: 15, Mix: 18 },
+            notes: "DLY slot. Slapback for solos. OFF by default.",
+          },
+          {
+            position: 5,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            enabled: false,
+            original_gear: "Studio plate",
+            settings: { Decay: 1.5, Predelay: 20, Mix: 18 },
+            notes: "REV slot. Tight plate for solos. OFF by default.",
+          },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. This is Slash at his most aggressive. Higher gain than the Sweet Child preset. Les Paul bridge pickup for maximum cut.",
+          "Kemper profiles include the cab. Wah (off) → comp → JCM800 profile → slapback (off) → plate (off). Higher gain than the Sweet Child preset. Les Paul bridge pickup.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Cry Baby", block_category: "Wah", original_gear: "Dunlop Cry Baby", settings: { Position: 70 }, notes: "Cry Baby wah for intro filter effects." },
-          { position: 2, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800", settings: { Drive: 8.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 6.0, "MV": 7.0 }, notes: "JCM800 pushed hard for aggressive saturation." },
-          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked for maximum attack." },
+          { position: 1, block_name: "Cry Baby", block_category: "Wah", enabled: false, original_gear: "Dunlop Cry Baby", settings: { Position: 70 }, notes: "OFF by default. Cry Baby wah for intro filter effects and solo accents." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 3, Attack: 38, Release: 200, Mix: 0.5, Level: 3 }, notes: "Moderate parallel comp for the aggressive picking attack." },
+          { position: 3, block_name: "T808 OD", block_category: "Drive", enabled: false, original_gear: "Ibanez TS808 boost", settings: { Drive: 2.0, Tone: 5.5, Level: 8.5 }, notes: "ALTERNATE drive (off by default). TS boost into JCM800 for solos." },
+          { position: 4, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800 2203", settings: { Drive: 8.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 6.0, MV: 7.0 }, notes: "JCM800 pushed hard for aggressive saturation." },
+          { position: 5, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Close-miked for maximum attack." },
+          { position: 6, block_name: "Slap Mono", block_category: "Delay", enabled: false, original_gear: "Slapback delay (subtle)", settings: { Time: 80, Feedback: 15, Mix: 0.18 }, notes: "Slapback for solos. OFF by default." },
+          { position: 7, block_name: "Plate", block_category: "Reverb", enabled: false, original_gear: "Studio plate", settings: { Mix: 0.18, Decay: 1.5, Predelay: 20 }, notes: "Tight plate for solos. OFF by default." },
+          { position: 8, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Cry Baby wah for intro filter effects.",
+        notes: "Wah (off) → comp → TS (off) → cranked JCM800 → Greenback → slapback (off) → plate (off) → tilt EQ. Cry Baby wah for intro filter; bridge pickup for maximum aggression.",
       },
     },
     is_editorial: true,
@@ -12722,7 +12895,10 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "The Variac reduces voltage to the amp, creating the compressed, warm brown sound. Eddie also used an Echoplex for slight delay and preamp boost.",
     },
     tags: ["hard-rock", "brown-sound", "van-halen", "phaser", "plexi", "classic"],
-    sources: [],
+    sources: [
+      "https://www.premierguitar.com/artists/eddie-van-halen-rig-rundown",
+      "https://equipboard.com/pros/eddie-van-halen",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -12841,11 +13017,15 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "MX Phase 95", block_category: "Mod", original_gear: "MXR Phase 90", settings: { Rate: 3.0 }, notes: "Subtle phaser for tonal thickening." },
-          { position: 2, block_name: "Brit Plexi 100 Bright", block_category: "Amp", original_gear: "Marshall Super Lead (Variac'd)", settings: { Gain: 8.5, Bass: 5.0, Mid: 7.0, Treble: 8.0, Presence: 7.0, Master: 7.5 }, notes: "Full gain Plexi. Adjust sag/compression settings to simulate the Variac." },
-          { position: 3, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "SM57", Distance: "1 inch" }, notes: "Standard Marshall cab." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 50, Level: 2.0 }, notes: "Light parallel comp. EVH's tone is mostly raw amp + variac sag — heavy comp would mask the touch-sensitivity that's central to the Brown Sound." },
+          { position: 2, block_name: "MX Phase 95", block_category: "Mod", enabled: false, original_gear: "MXR Phase 90 (script logo)", settings: { Rate: 3.0 }, notes: "OFF for Panama (Phase 90 is the Eruption / Atomic Punk effect, not Panama). Stomp on for solo passages where you want the iconic phaser sweep." },
+          { position: 3, block_name: "Brit Plexi 100 Bright", block_category: "Amp", original_gear: "Marshall Super Lead 1959 (Variac'd to ~89V)", settings: { Gain: 8.5, Bass: 5.0, Mid: 7.0, Treble: 8.0, Presence: 7.0, Master: 7.5 }, notes: "Full gain Plexi. The Variac'd character on QC: push Sag/compression high in the amp's advanced settings to simulate the reduced-voltage compression." },
+          { position: 4, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "Marshall 4x12 with Greenback / G12-65", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.30, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Slightly off-cone for cone-edge bite + body. 1984-era cabs were Greenback or G12-65." },
+          { position: 5, block_name: "Tape Echo", block_category: "Delay", enabled: true, original_gear: "Maestro Echoplex EP-3 (always-on slapback)", settings: { Time: 120, Feedback: 10, Mix: 15 }, notes: "DEFAULT-ON Echoplex slapback. EVH ran the EP-3 always-on — the EP-3's preamp adds a subtle harmonic boost that's part of the Brown Sound." },
+          { position: 6, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate (5150 home studio)", settings: { Decay: 1.5, Predelay: 20, Mix: 18, Level: 0 }, notes: "Subtle plate. *1984* was tracked at Eddie's home studio — moderate plate ambience." },
+          { position: 7, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 4.5, CenterFreq: 1000, Level: 0 }, notes: "Slight darken — the variac'd Plexi can sound bright on FRFR." },
         ],
-        notes: "Push amp compression settings high to approximate the Variac'd power section behavior.",
+        notes: "Comp → Phase 90 (off) → variac'd Plexi → Greenback → EP-3 slapback (on) → plate → tilt EQ. Push amp Sag/compression to approximate the Variac'd power section behavior.",
       },
       tonex: {
         chain_blocks: [
@@ -12855,24 +13035,35 @@ export const toneRecipes: ToneRecipe[] = [
       },
       katana: {
         chain_blocks: [
-          { position: 1, block_name: "Phaser 90E", block_category: "Mod", original_gear: "MXR Phase 90", settings: { Rate: 3, Depth: 5 }, notes: "Subtle Phaser 90E for the brown sound thickening." },
-          { position: 2, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall Super Lead", settings: { Gain: 8, Volume: 7, Bass: 5, Middle: 7, Treble: 8, Presence: 7 }, notes: "Brown channel at high gain for the Van Halen brown sound." },
+          { position: 1, block_name: "Phaser 90E", block_category: "Mod", enabled: false, original_gear: "MXR Phase 90 (script logo)", settings: { Rate: 3, Depth: 5, Level: 5 }, notes: "OFF for Panama (Phase 90 is the Eruption effect). Stomp on for solo passages where you want the phaser sweep." },
+          { position: 2, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall Super Lead 1959 (Variac'd)", settings: { Gain: 8, Volume: 7, Bass: 5, Middle: 7, Treble: 8, Presence: 7 }, notes: "Brown channel at high gain — the Katana's Brown channel is literally named after the Van Halen brown sound." },
+          { position: 3, block_name: "Tape Echo", block_category: "Delay", enabled: true, original_gear: "Maestro Echoplex EP-3 (always-on slapback)", settings: { Time: 120, Feedback: 10, EffectLevel: 15 }, notes: "DEFAULT-ON. EVH ran the EP-3 always-on for the slapback + preamp boost — part of the Brown Sound." },
+          { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (5150 home studio)", settings: { Time: 4, PreDelay: 20, Tone: 5, EffectLevel: 18 }, notes: "Subtle plate to match the home-studio mix ambience on *1984*." },
         ],
-        notes: "The Katana's Brown channel is named after the Van Halen brown sound. Add a slow phaser for authenticity.",
+        notes: "Phaser (off) → Brown amp → EP-3 slapback (on) → plate. The Brown channel is the Van Halen brown sound. EP-3 always-on is the secret sauce.",
       },
       kemper: {
         chain_blocks: [
           {
             position: 1,
-            block_name: "Phaser",
-            block_category: "Stomp",
-            original_gear: "MXR Phase 90",
-            settings: { Rate: 3.0 },
-            notes:
-              "Slot A. Kemper's Phaser at a slow rate adds the subtle thickening that is part of the brown sound. This is not an obvious phaser effect -- just a gentle swirl that adds dimension.",
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compressor",
+            settings: { Intensity: 3.0, Attack: 0.04, Volume: 2.0 },
+            notes: "Slot A. Light comp — heavy comp would mask the touch-sensitivity central to the Brown Sound.",
           },
           {
             position: 2,
+            block_name: "Phaser",
+            block_category: "Stomp",
+            enabled: false,
+            original_gear: "MXR Phase 90 (script logo)",
+            settings: { Rate: 3.0, Depth: 7.0 },
+            notes:
+              "Slot B. OFF for Panama (Phase 90 is the Eruption effect). Stomp on for solo passages where you want the phaser sweep.",
+          },
+          {
+            position: 3,
             block_name: "Search Rig Exchange for 'Plexi'",
             block_category: "Profile",
             original_gear: "Marshall Super Lead 1959 (Variac'd)",
@@ -12880,17 +13071,38 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "Search Rig Exchange for cranked Plexi or EVH-style profiles. Many profilers have captured Variac'd Plexis specifically for the brown sound. With Liquid Profiling, select the Marshall tone stack.",
           },
+          {
+            position: 4,
+            block_name: "Tape Delay",
+            block_category: "Delay",
+            enabled: true,
+            original_gear: "Maestro Echoplex EP-3 (always-on slapback)",
+            settings: { Time: 120, Feedback: 10, Mix: 15 },
+            notes: "DLY slot. DEFAULT-ON. EVH ran the EP-3 always-on for the slapback + EP-3 preamp boost.",
+          },
+          {
+            position: 5,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate (5150 home studio)",
+            settings: { Decay: 1.5, Predelay: 20, Mix: 18 },
+            notes: "REV slot. Subtle plate matching the *1984* home-studio mix.",
+          },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. The key to the brown sound is the Variac'd compression and warmth. Search for profiles specifically labeled 'brown sound' or 'Variac'd Plexi' on Rig Exchange.",
+          "Kemper profiles include the cab. Comp → Phase 90 (off) → Plexi profile → EP-3 slapback (on) → plate. Search Rig Exchange for 'brown sound' or 'Variac'd Plexi'.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Script", block_category: "Modulation", original_gear: "MXR Phase 90", settings: { Rate: 3.0 }, notes: "Slow phaser for subtle tone thickening." },
-          { position: 2, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead (Variac'd)", settings: { Drive: 8.5, Bass: 5.0, Mid: 7.0, Treble: 8.0, Presence: 7.0, "MV": 7.5, Sag: 7.0 }, notes: "Increase the Sag parameter to simulate the Variac'd voltage sag and compression." },
-          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Close-miked Greenback for tight attack." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 0.5, Level: 2 }, notes: "Light parallel comp — preserves the touch-sensitivity central to the Brown Sound." },
+          { position: 2, block_name: "Script", block_category: "Modulation", enabled: false, original_gear: "MXR Phase 90 (script logo)", settings: { Rate: 3.0, Depth: 0.7, Mix: 1.0 }, notes: "OFF for Panama. Slow phaser for solos where you want the iconic sweep." },
+          { position: 3, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead 1959 (Variac'd)", settings: { Drive: 8.5, Bass: 5.0, Mid: 7.0, Treble: 8.0, Presence: 7.0, MV: 7.5 }, notes: "Increase Sag in advanced amp settings to simulate the Variac'd voltage sag and compression. Sag=7 captures the softer EL34 response." },
+          { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Close-miked Greenback for tight attack." },
+          { position: 5, block_name: "Tape Mono", block_category: "Delay", enabled: true, original_gear: "Maestro Echoplex EP-3 (always-on slapback)", settings: { Time: 120, Feedback: 10, Mix: 0.15 }, notes: "DEFAULT-ON Echoplex slapback. EVH ran the EP-3 always-on — part of the Brown Sound." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (5150 home studio)", settings: { Mix: 0.18, Decay: 1.5, Predelay: 20 }, notes: "Subtle plate matching the home-studio ambience on *1984*." },
+          { position: 7, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slight darken — the variac'd Plexi can sound bright on FRFR." },
         ],
-        notes: "Slow phaser for subtle tone thickening.",
+        notes: "Comp → Phase 90 (off) → variac'd Plexi → Greenback → EP-3 slapback (on) → plate → tilt EQ. Slow phaser is for solos; Brown Sound itself is amp + EP-3.",
       },
     },
     is_editorial: true,
