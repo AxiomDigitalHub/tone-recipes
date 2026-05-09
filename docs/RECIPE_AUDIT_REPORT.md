@@ -18,24 +18,13 @@
 | --- | --- | --- | --- |
 | `katana-kemper-multidrive-default-off` | info | 12 / 50 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 | `translations-utility-mirror` | warn | 12 / 50 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `sources-min` | warn | 7 / 50 | At least one source URL |
-| `helix-reverb-cuts` | warn | 2 / 50 | Helix reverb has LowCut (80-300 Hz) + HighCut (5-9 kHz) |
 | `helix-block-count` | warn | 2 / 50 | Helix translation has ≥6 blocks |
+| `helix-reverb-cuts` | warn | 1 / 50 | Helix reverb has LowCut (80-300 Hz) + HighCut (5-9 kHz) |
 | `helix-comp-present` | warn | 1 / 50 | Helix chain includes a Compressor block before the Amp (after volume pedal / noise gate is OK) |
-| `helix-amp-internals` | warn | 1 / 50 | Helix amp block has Bias/BiasX/Sag/Hum/Ripple internals |
 
 ---
 
 ## Per-recipe results
-
-### `santana-smooth-lead` — ⚠ 3 warns
-
-*Santana's Smooth Lead Tone*
-
-**Warnings:**
-- `sources-min` — no sources cited
-- `translations-utility-mirror` — kemper missing Reverb
-- `helix-block-count` — 5 blocks, recommend ≥6
 
 ### `bb-king-thrill-is-gone` — ⚠ 2 warns
 
@@ -45,22 +34,6 @@
 - `translations-utility-mirror` — kemper missing Reverb
 - `helix-block-count` — 5 blocks, recommend ≥6
 
-### `bellamy-plug-in-baby-fuzz-whammy` — ⚠ 2 warns
-
-*Matt Bellamy's Plug In Baby Fuzz Whammy Tone*
-
-**Warnings:**
-- `sources-min` — no sources cited
-- `translations-utility-mirror` — quad_cortex missing Reverb; katana missing Reverb; fractal missing Reverb; kemper missing Reverb; quad_cortex missing EQ; fractal missing EQ; quad_cortex missing Cab
-
-### `brian-may-bohemian-rhapsody` — ⚠ 2 warns
-
-*Brian May's Bohemian Rhapsody Guitar Tone*
-
-**Warnings:**
-- `sources-min` — no sources cited
-- `translations-utility-mirror` — kemper missing Reverb; katana missing Delay; kemper missing Delay; quad_cortex missing EQ; fractal missing EQ; quad_cortex missing Cab
-
 ### `dimebag-walk-groove-metal` — ⚠ 2 warns
 
 *Dimebag Darrell's Walk Groove Metal Tone*
@@ -68,38 +41,6 @@
 **Warnings:**
 - `translations-utility-mirror` — quad_cortex missing Delay; katana missing Delay; fractal missing Delay; kemper missing Delay
 - `helix-comp-present` — no Compressor block
-
-### `gilmour-comfortably-numb-solo` — ⚠ 2 warns
-
-*Gilmour's Comfortably Numb Solo Tone*
-
-**Warnings:**
-- `translations-utility-mirror` — kemper missing Reverb; kemper missing Delay
-- `helix-reverb-cuts` — HighCut=10000 (expected 5000-9000 Hz)
-
-### `gilmour-time-solo-lead` — ⚠ 2 warns
-
-*David Gilmour's Time Solo Lead Tone*
-
-**Warnings:**
-- `sources-min` — no sources cited
-- `translations-utility-mirror` — quad_cortex missing Reverb; katana missing Reverb; fractal missing Reverb; kemper missing Reverb; kemper missing Delay; quad_cortex missing Cab
-
-### `hetfield-enter-sandman-tight-rhythm` — ⚠ 2 warns
-
-*James Hetfield's Enter Sandman Tight Rhythm Tone*
-
-**Warnings:**
-- `translations-utility-mirror` — quad_cortex missing EQ; fractal missing EQ
-- `helix-amp-internals` — amp internals missing: Hum
-
-### `lifeson-tom-sawyer-chorus` — ⚠ 2 warns
-
-*Alex Lifeson's Tom Sawyer Chorus-Driven Tone*
-
-**Warnings:**
-- `sources-min` — no sources cited
-- `translations-utility-mirror` — kemper missing Reverb; kemper missing Delay
 
 ### `mayer-slow-dancing-burning-room` — ⚠ 2 warns
 
@@ -109,20 +50,68 @@
 - `translations-utility-mirror` — quad_cortex missing Reverb; katana missing Reverb; fractal missing Reverb; kemper missing Reverb; quad_cortex missing Delay; katana missing Delay; fractal missing Delay; kemper missing Delay; quad_cortex missing EQ; fractal missing EQ
 - `helix-reverb-cuts` — HighCut=9500 (expected 5000-9000 Hz)
 
-### `rhoads-crazy-train-lead` — ⚠ 2 warns
+### `santana-smooth-lead` — ⚠ 2 warns
+
+*Santana's Smooth Lead Tone*
+
+**Warnings:**
+- `translations-utility-mirror` — kemper missing Reverb
+- `helix-block-count` — 5 blocks, recommend ≥6
+
+### `bellamy-plug-in-baby-fuzz-whammy` — ⚠ 1 warn
+
+*Matt Bellamy's Plug In Baby Fuzz Whammy Tone*
+
+**Warnings:**
+- `translations-utility-mirror` — quad_cortex missing Reverb; katana missing Reverb; fractal missing Reverb; kemper missing Reverb; quad_cortex missing EQ; fractal missing EQ; quad_cortex missing Cab
+
+### `brian-may-bohemian-rhapsody` — ⚠ 1 warn
+
+*Brian May's Bohemian Rhapsody Guitar Tone*
+
+**Warnings:**
+- `translations-utility-mirror` — kemper missing Reverb; katana missing Delay; kemper missing Delay; quad_cortex missing EQ; fractal missing EQ; quad_cortex missing Cab
+
+### `gilmour-comfortably-numb-solo` — ⚠ 1 warn
+
+*Gilmour's Comfortably Numb Solo Tone*
+
+**Warnings:**
+- `translations-utility-mirror` — kemper missing Reverb; kemper missing Delay
+
+### `gilmour-time-solo-lead` — ⚠ 1 warn
+
+*David Gilmour's Time Solo Lead Tone*
+
+**Warnings:**
+- `translations-utility-mirror` — quad_cortex missing Reverb; katana missing Reverb; fractal missing Reverb; kemper missing Reverb; kemper missing Delay; quad_cortex missing Cab
+
+### `hetfield-enter-sandman-tight-rhythm` — ⚠ 1 warn
+
+*James Hetfield's Enter Sandman Tight Rhythm Tone*
+
+**Warnings:**
+- `translations-utility-mirror` — quad_cortex missing EQ; fractal missing EQ
+
+### `lifeson-tom-sawyer-chorus` — ⚠ 1 warn
+
+*Alex Lifeson's Tom Sawyer Chorus-Driven Tone*
+
+**Warnings:**
+- `translations-utility-mirror` — kemper missing Reverb; kemper missing Delay
+
+### `rhoads-crazy-train-lead` — ⚠ 1 warn
 
 *Randy Rhoads' Crazy Train Lead Tone*
 
 **Warnings:**
-- `sources-min` — no sources cited
 - `translations-utility-mirror` — kemper missing Reverb
 
-### `satriani-surfing-with-the-alien-lead` — ⚠ 2 warns
+### `satriani-surfing-with-the-alien-lead` — ⚠ 1 warn
 
 *Satriani's Surfing with the Alien Lead Tone*
 
 **Warnings:**
-- `sources-min` — no sources cited
 - `translations-utility-mirror` — kemper missing Reverb; kemper missing Delay
 
 ### `angus-thunderstruck-tapping-intro` — ✓ clean

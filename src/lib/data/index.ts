@@ -3051,7 +3051,7 @@ export const toneRecipes: ToneRecipe[] = [
               Mix: 0.25,
               Decay: 2.0,
               LowCut: 100,
-              HighCut: 10000,
+              HighCut: 8500,
               Level: 0,
               PreDelay: 0.01,
               BassFreq: 100,
@@ -3061,7 +3061,7 @@ export const toneRecipes: ToneRecipe[] = [
               BassBoost: 0,
             },
             notes:
-              "Newer-firmware Plate algorithm (VIC_DynPlate) — richer modulation than the older HD2_ReverbPlate. Decay is in seconds here (2.0s = lush studio-plate sustain), not the 0-1 normalized scale of the older block. Damping at 3720 Hz tames brittle high-end ring; HighCut at 10000 keeps the tail rounded. Mix=0.25 keeps the dry note in front of the wet bloom.",
+              "Newer-firmware Plate algorithm (VIC_DynPlate) — richer modulation than the older HD2_ReverbPlate. Decay is in seconds here (2.0s = lush studio-plate sustain), not the 0-1 normalized scale of the older block. Damping at 3720 Hz tames brittle high-end ring; HighCut at 8500 keeps the tail rounded. Mix=0.25 keeps the dry note in front of the wet bloom.",
           },
         ],
         notes:
@@ -8014,7 +8014,10 @@ export const toneRecipes: ToneRecipe[] = [
         "Santana's tone is remarkably simple: guitar straight into amp. The sustain and singing quality come from the amp's natural compression when pushed, the neck humbucker's warmth, and Santana's vibrato technique.",
     },
     tags: ["latin-rock", "lead", "sustain", "midrange", "santana", "rock"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/carlos-santana",
+      "https://www.premierguitar.com/artists/carlos-santana-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -8882,7 +8885,10 @@ export const toneRecipes: ToneRecipe[] = [
         "Lifeson's Moving Pictures tone is about layering effects to create a wide, textured sound that supports the complex arrangements without overpowering the other instruments.",
     },
     tags: ["progressive-rock", "chorus", "delay", "hard-rock", "rush"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/alex-lifeson",
+      "https://www.premierguitar.com/artists/alex-lifeson-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -9221,7 +9227,10 @@ export const toneRecipes: ToneRecipe[] = [
         "The multi-tracked guitar harmonies are a huge part of the Bohemian Rhapsody sound. May recorded multiple guitar parts in harmony, creating an orchestral effect. Each part uses the same basic tone described here.",
     },
     tags: ["classic-rock", "rock", "treble-booster", "queen", "multi-tracked"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/brian-may",
+      "https://www.premierguitar.com/artists/brian-may-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -9907,7 +9916,10 @@ export const toneRecipes: ToneRecipe[] = [
         "Rhoads' classically-trained precision and vibrato technique are as important as the gear. His controlled, deliberate approach to playing elevated metal guitar to a new level of musicianship.",
     },
     tags: ["metal", "hard-rock", "distortion", "wah", "randy-rhoads", "ozzy"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/randy-rhoads",
+      "https://www.premierguitar.com/artists/randy-rhoads-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -10552,7 +10564,10 @@ export const toneRecipes: ToneRecipe[] = [
         "Satriani's legato technique and whammy bar work are essential to the Surfing with the Alien sound. The tone supports his fluid playing style with smooth sustain and clear note articulation.",
     },
     tags: ["instrumental-rock", "lead", "wah", "delay", "satriani", "hard-rock"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/joe-satriani",
+      "https://www.premierguitar.com/artists/joe-satriani-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -12949,7 +12964,10 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "Gilmour's bending technique and vibrato are essential to this tone. The notes should sing and sustain indefinitely.",
     },
     tags: ["progressive-rock", "solo", "fuzz", "delay", "pink-floyd", "sustain"],
-    sources: [],
+    sources: [
+      "https://www.gilmourish.com/?page_id=11",
+      "https://www.premierguitar.com/artists/david-gilmour-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
@@ -14428,7 +14446,7 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { PedalPosition: 1.0, Min: 0, Taper: 0.5 }, notes: "Expression pedal for real-time volume swells and cleanup." },
           { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -36, Ratio: 2, Knee: 6, Attack: 0.038, Release: 0.20, Mix: 0.6, Level: 0 }, notes: "Light transparent compression — canonical -36/2:1 settings to even out Hetfield's aggressive picking dynamics without squashing the attack." },
           { position: 3, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer", settings: { Gain: 0.52, Tone: 5.0, Level: 8.0 }, notes: "Clean boost with slight grit to tighten the Mesa's low end. Gain at ~5 adds harmonic saturation without fizz." },
-          { position: 4, block_name: "Cali IV Lead", block_category: "Amp", original_gear: "Mesa Mark IV", settings: { Bass: 3.0, Mid: 3.0, Treble: 7.0, Presence: 6.0, Master: 10, Bias: 0.5, BiasX: 0.5, Sag: 0.5, Ripple: 0.5, "Lead Drive": 0.64, "Lead Gain": 0.75, "Ch Vol": 7.0, "80Hz": 0, "240Hz": -0.9, "750Hz": -2.9, "2200Hz": -1.3, "6600Hz": 0 }, notes: "Scooped mids with precise 5-band EQ cuts at 240Hz/750Hz/2200Hz for tight, percussive rhythm. Master at 10 for power-amp saturation." },
+          { position: 4, block_name: "Cali IV Lead", block_category: "Amp", original_gear: "Mesa Mark IV", settings: { Bass: 3.0, Mid: 3.0, Treble: 7.0, Presence: 6.0, Master: 10, Bias: 0.5, BiasX: 0.5, Sag: 0.5, Hum: 0.5, Ripple: 0.5, "Lead Drive": 0.64, "Lead Gain": 0.75, "Ch Vol": 7.0, "80Hz": 0, "240Hz": -0.9, "750Hz": -2.9, "2200Hz": -1.3, "6600Hz": 0 }, notes: "Scooped mids with precise 5-band EQ cuts at 240Hz/750Hz/2200Hz for tight, percussive rhythm. Master at 10 for power-amp saturation." },
           {
             position: 5,
             block_name: "4x12 Uber T75",
@@ -14929,7 +14947,10 @@ export const toneRecipes: ToneRecipe[] = [
       other_notes: "The combination of Whammy octave-up and heavy fuzz creates a unique, almost synth-like guitar tone that is Bellamy's signature.",
     },
     tags: ["alternative", "fuzz", "whammy", "muse", "octave", "progressive", "riff"],
-    sources: [],
+    sources: [
+      "https://equipboard.com/pros/matt-bellamy",
+      "https://www.premierguitar.com/artists/matt-bellamy-rig-rundown",
+    ],
     platform_translations: {
       helix: {
         chain_blocks: [
