@@ -6,89 +6,92 @@ import { rateLimit, getClientIp } from "@/lib/rate-limit";
 /**
  * GET /api/set-packs/worship
  *
- * Downloads the Worship Set Pack .hlx file.
+ * Downloads the Worship Set Pack .hlx file. As of 2026-05-10 this
+ * requires:
+ *   - A valid Bearer auth token (signed-in user), and
+ *   - A row in `set_pack_purchases` for (user_id, pack_slug='worship')
+ *     that is not refunded.
  *
- * Gating model (as of 2026-04 launch):
- *   - Free-with-signup: any authenticated user can download.
- *   - Stripe is not yet wired for one-time Set Pack purchases, so the
- *     pack is effectively free while it builds email list + demand
- *     signal.
- *   - Rate-limited by IP to curb scraping.
- *   - Every successful download is logged to `recipe_downloads` so we
- *     can count installs per pack and gauge conversion of
- *     browse → signup → download.
+ * Anyone hitting the unowned path gets a 402 with redirect to the pack
+ * page, where they can complete checkout. Downloads are logged to
+ * `recipe_downloads` for analytics + ToneTrace targeting.
  *
- * When Stripe one-time purchases are ready, upgrade this route to
- * check a `set_pack_purchases` or similar entitlement table before
- * returning the file.
+ * The preset content is generated at request time from the canonical
+ * pack definition in `@/lib/helix/generate-set-pack` — there is no
+ * file on disk.
  */
 
-const PACK_SLUG = "set-pack-worship";
+const PACK_SLUG_DB = "worship";
+const PACK_SLUG_DOWNLOAD = "set-pack-worship";
 
-async function getUserFromRequest(req: NextRequest) {
-  const authHeader = req.headers.get("authorization");
-  if (!authHeader?.startsWith("Bearer ")) return null;
-
-  const token = authHeader.replace("Bearer ", "");
-  const supabase = createClient(
+function getAnonClient(authHeader: string | null) {
+  return createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { global: { headers: { Authorization: `Bearer ${token}` } } },
+    { global: { headers: { Authorization: authHeader ?? "" } } },
   );
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return null;
-
-  return { id: user.id, email: user.email ?? "" };
 }
 
-async function logDownload(userId: string, email: string) {
-  const supabase = createClient(
+function getAdminClient() {
+  return createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false, autoRefreshToken: false } },
   );
-  await supabase.from("recipe_downloads").insert({
-    user_id: userId,
-    email,
-    recipe_slug: PACK_SLUG,
-    download_type: "preset",
-    platform: "helix",
-  } as never);
 }
 
 export async function GET(req: NextRequest) {
-  // Rate limit: 10 pack downloads per minute per IP (same as single-recipe
-  // route). Trivial cost on the server side but deters zip-bomb clients.
   const { limited } = rateLimit(`setpack:${getClientIp(req)}`, 10, 60_000);
   if (limited) {
-    return NextResponse.json(
-      { error: "Too many requests" },
-      { status: 429 },
-    );
+    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
   }
 
-  // Require an authenticated user. Unauthenticated callers get a 401
-  // with a pointer to the signup page; the /set-packs/worship front end
-  // intercepts the click before the request is made, so users shouldn't
-  // hit this path in practice — this is just the safety net.
-  const user = await getUserFromRequest(req);
-  if (!user) {
+  const authHeader = req.headers.get("authorization");
+  if (!authHeader?.startsWith("Bearer ")) {
     return NextResponse.json(
-      { error: "You must be signed in to download the Worship Set Pack." },
+      { error: "Sign in to download.", redirect: "/login" },
       { status: 401 },
+    );
+  }
+  const supabase = getAnonClient(authHeader);
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) {
+    return NextResponse.json({ error: "Invalid session." }, { status: 401 });
+  }
+
+  // Ownership check.
+  const admin = getAdminClient();
+  const { data: purchase } = await admin
+    .from("set_pack_purchases")
+    .select("id, refunded_at")
+    .eq("user_id", user.id)
+    .eq("pack_slug", PACK_SLUG_DB)
+    .maybeSingle();
+  const owned =
+    Boolean(purchase) &&
+    !(purchase as { refunded_at?: string | null } | null)?.refunded_at;
+  if (!owned) {
+    return NextResponse.json(
+      {
+        error: "You don't own the Worship Set Pack yet.",
+        redirect: `/set-packs/${PACK_SLUG_DB}`,
+      },
+      { status: 402 },
     );
   }
 
   const hlxContent = generateWorshipSetPack("FK Worship");
   const filename = "FK-Worship.hlx";
 
-  // Log the download — fire-and-forget, but await so the response isn't
-  // sent until the write succeeds. On a 15-day-old product the latency
-  // cost is worth the data accuracy.
-  try {
-    await logDownload(user.id, user.email);
-  } catch {
-    // Don't fail the download if logging fails.
-  }
+  await admin.from("recipe_downloads").insert({
+    user_id: user.id,
+    email: user.email ?? "",
+    recipe_slug: PACK_SLUG_DOWNLOAD,
+    download_type: "preset",
+    platform: "helix",
+  } as never);
 
   return new NextResponse(hlxContent, {
     headers: {

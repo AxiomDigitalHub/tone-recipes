@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Music, Zap, Clock } from "lucide-react";
 import SetlistMapper from "@/components/set-packs/SetlistMapper";
-import DownloadSetPackButton from "@/components/set-packs/DownloadSetPackButton";
+import SetPackAccess from "@/components/set-packs/SetPackAccess";
 
 export const metadata: Metadata = {
   title: "Worship Set Pack — Helix Preset with 8 Snapshots",
@@ -113,19 +113,26 @@ export default function WorshipSetPackPage() {
       </p>
       <SetlistMapper />
 
-      {/* Download section */}
+      {/* Buy / download section */}
       <div className="mt-16 rounded-2xl border border-accent/30 bg-accent/5 p-8">
-        <h2 className="text-xl font-bold">Download the Worship Set Pack</h2>
+        <h2 className="text-xl font-bold">Get the Worship Set Pack</h2>
         <p className="mt-2 text-sm text-muted">
-          One .hlx file with all 8 snapshots. Load it into HX Edit and
-          you&apos;re Sunday-ready.
+          One .hlx file with all 8 snapshots, plus the Setlist Mapper. Load
+          it into HX Edit and you&apos;re Sunday-ready. One-time $19, yours to
+          keep — no subscription.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <DownloadSetPackButton packSlug="worship" packName="Worship" />
+          <SetPackAccess
+            packSlug="worship"
+            packName="Worship"
+            priceDisplay="$19"
+            format="hlx"
+          />
         </div>
         <p className="mt-4 text-xs text-muted">
-          Free while we&apos;re in launch mode. Compatible with Line 6 Helix
-          and HX Stomp on recent firmware.
+          Compatible with Line 6 Helix and HX Stomp on recent firmware.
+          30-day refund if it doesn&apos;t work for your rig — just email
+          hello@faderandknob.com.
         </p>
       </div>
 

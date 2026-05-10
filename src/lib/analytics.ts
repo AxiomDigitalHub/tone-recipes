@@ -19,6 +19,8 @@ export type EventName =
   | "recipe_download_click"
   | "set_pack_notify_submit"
   | "set_pack_purchase_click"
+  | "set_pack_purchase_complete"
+  | "set_pack_download_click"
   | "newsletter_submit"
   | "signup_start"
   | "checkout_start"

@@ -125,15 +125,70 @@ export async function POST(req: NextRequest) {
         | "premium"
         | "creator"
         | undefined;
+      const setPackSlug = session.metadata?.fk_set_pack;
 
       console.log(
         "[stripe-webhook] checkout.session.completed parsed:",
         "session_id=", session.id,
+        "mode=", session.mode,
         "customer=", session.customer,
         "subscription=", session.subscription,
         "metadata_userId=", userId ?? "MISSING",
-        "metadata_plan=", plan ?? "MISSING",
+        "metadata_plan=", plan ?? "—",
+        "metadata_set_pack=", setPackSlug ?? "—",
       );
+
+      // Branch A: one-time Set Pack purchase. Insert ownership row and
+      // log the event. Subscription plans are no longer sold but the
+      // existing branch is kept for any in-flight subscription events.
+      if (session.mode === "payment" && setPackSlug && userId) {
+        const amount = session.amount_total ?? 0;
+        const currency = session.currency ?? "usd";
+
+        const purchaseInsert = await supabase
+          .from("set_pack_purchases")
+          .upsert(
+            {
+              user_id: userId,
+              pack_slug: setPackSlug,
+              stripe_session_id: session.id,
+              stripe_payment_intent_id: session.payment_intent as string | null,
+              amount_paid_cents: amount,
+              currency,
+            } as never,
+            { onConflict: "user_id,pack_slug" },
+          );
+
+        if (purchaseInsert.error) {
+          console.error(
+            "[stripe-webhook] set_pack_purchases upsert error:",
+            purchaseInsert.error,
+          );
+          return NextResponse.json(
+            { error: "Database error" },
+            { status: 500 },
+          );
+        }
+        console.log(
+          "[stripe-webhook] SUCCESS: set pack granted",
+          "userId=", userId,
+          "pack=", setPackSlug,
+        );
+
+        // Server-side conversion event.
+        await supabase.from("events").insert({
+          name: "set_pack_purchase_complete",
+          user_id: userId,
+          params: {
+            pack_slug: setPackSlug,
+            amount_cents: amount,
+            currency,
+            stripe_session_id: session.id,
+            livemode: event.livemode,
+          },
+        } as never);
+        break;
+      }
 
       if (!userId || !plan) {
         console.error(
