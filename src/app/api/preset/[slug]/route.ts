@@ -2,20 +2,18 @@ import { NextResponse } from "next/server";
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import fs from "node:fs";
 import path from "node:path";
-import { FREE_DOWNLOAD_LIMIT } from "@/lib/permissions";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 /**
  * GET /api/preset/[slug]?format=hlx
  *
- * Auth-gated preset download. Replaces the old static `/presets/<slug>.hlx`
- * route — files now live outside `public/` so they can't be hot-linked.
+ * Auth-gated preset download. Files live outside `public/` so they
+ * can't be hot-linked.
  *
- * Flow:
- *   - anon          → 401 with { error, redirect: "/login" }
- *   - free, < quota → counts against recipe_downloads (max 10), streams file
- *   - free, ≥ quota → 402 with { error, upgrade: "/pricing" }
- *   - premium/creator/admin → unlimited, still logged for analytics
+ * As of 2026-05-10 the catalog is free — sign-in required, no quota.
+ * Sign-in exists to capture an email for ToneTrace targeting and to
+ * rate-limit abuse. Every download is logged to `recipe_downloads`
+ * for analytics.
  */
 
 const PRESETS_DIR = path.join(process.cwd(), "presets");
@@ -85,47 +83,11 @@ export async function GET(
     );
   }
 
-  // Quota check — only free users have a cap.
+  // The recipe catalog is free as of 2026-05-10. Any signed-in user
+  // can download any preset, unlimited. We still require sign-in so we
+  // (a) have an email for ToneTrace launch and (b) can rate-limit abuse
+  // and analyze which presets get traction. No quota check.
   const admin = getAdminClient();
-  const { data: profileRow } = await admin
-    .from("profiles")
-    .select("role")
-    .eq("id", user.id)
-    .single();
-  const role = ((profileRow as { role?: string } | null)?.role ?? "free") as
-    | "free"
-    | "premium"
-    | "creator"
-    | "admin"
-    | "super_admin";
-
-  if (role === "free") {
-    const { count, error: countError } = await admin
-      .from("recipe_downloads")
-      .select("id", { count: "exact", head: true })
-      .eq("user_id", user.id)
-      .eq("download_type", "preset");
-
-    if (countError) {
-      console.error("[preset] count error:", countError);
-      return NextResponse.json(
-        { error: "Couldn't check quota. Try again." },
-        { status: 500 },
-      );
-    }
-
-    if ((count ?? 0) >= FREE_DOWNLOAD_LIMIT) {
-      return NextResponse.json(
-        {
-          error: `You've used all ${FREE_DOWNLOAD_LIMIT} free preset downloads.`,
-          upgrade: "/pricing?from=preset-quota",
-          used: count,
-          limit: FREE_DOWNLOAD_LIMIT,
-        },
-        { status: 402 },
-      );
-    }
-  }
 
   // Resolve the file. The slug is constrained to safe chars to defend
   // against ../escape attempts; we also confirm the resolved path stays
@@ -150,7 +112,7 @@ export async function GET(
     );
   }
 
-  // Log the download (always — even paid users, for analytics).
+  // Log the download for analytics + future ToneTrace targeting.
   await admin.from("recipe_downloads").insert({
     user_id: user.id,
     email: user.email,
@@ -159,18 +121,6 @@ export async function GET(
     platform: format === "hlx" ? "helix" : "katana",
   } as never);
 
-  // Compute new remaining count (if free) so the UI can render a toast
-  // like "Downloaded — 3 of 10 free this month left."
-  let remaining: number | null = null;
-  if (role === "free") {
-    const { count: after } = await admin
-      .from("recipe_downloads")
-      .select("id", { count: "exact", head: true })
-      .eq("user_id", user.id)
-      .eq("download_type", "preset");
-    remaining = Math.max(0, FREE_DOWNLOAD_LIMIT - (after ?? 0));
-  }
-
   return new NextResponse(file as unknown as ArrayBuffer, {
     status: 200,
     headers: {
@@ -178,7 +128,6 @@ export async function GET(
       "Content-Disposition": `attachment; filename="${filename}"`,
       "Content-Length": String(file.byteLength),
       "Cache-Control": "no-store",
-      "X-Preset-Remaining": remaining === null ? "unlimited" : String(remaining),
     },
   });
 }

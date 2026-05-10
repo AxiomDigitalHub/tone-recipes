@@ -22,20 +22,19 @@ export interface TierConfig {
 
 export const TIERS: Record<UserRole, TierConfig> = {
   free: {
-    label: "Free",
+    label: "Free Account",
     price: null,
     features: [
-      "Browse all 50+ tone recipes",
-      "Pedalboard + Helix + Boss Katana signal chains",
-      "Download recipe PDFs (with email)",
-      "10 free preset downloads (.hlx, .tsl)",
-      "Save up to 5 recipes",
+      "Browse all tone recipes",
+      "Unlimited preset downloads (.hlx, .tsl)",
+      "Unlimited saved recipes",
+      "Recipe PDFs",
       "Community forum & comments",
     ],
     limits: {
-      savedRecipes: 5,
+      savedRecipes: -1,
       platformTranslations: true,
-      downloadPresets: false,
+      downloadPresets: true,
       submitRecipes: false,
       recipeAnalytics: false,
       adFree: false,
@@ -43,15 +42,18 @@ export const TIERS: Record<UserRole, TierConfig> = {
       comments: true,
     },
   },
+  // `premium` and `creator` are retired subscription tiers from the
+  // pre-2026-05 pricing model. Existing rows in the profiles table may
+  // still have these values; we treat both as "free + Set Pack ownership"
+  // going forward. No new subscriptions are sold. Set Pack access is
+  // gated on the `set_pack_purchases` table, not on the role column.
   premium: {
-    label: "Tone Pass",
-    price: 7,
+    label: "Free Account",
+    price: null,
     features: [
-      "Everything in Free",
+      "Browse all tone recipes",
       "Unlimited preset downloads (.hlx, .tsl)",
       "Unlimited saved recipes",
-      "New recipes every week",
-      "Ad-free experience",
     ],
     limits: {
       savedRecipes: -1,
@@ -65,14 +67,12 @@ export const TIERS: Record<UserRole, TierConfig> = {
     },
   },
   creator: {
-    label: "Pro",
-    price: 12,
+    label: "Free Account",
+    price: null,
     features: [
-      "Everything in Tone Pass",
-      "Genre Set Packs with Setlist Mapper",
-      "Priority access to new recipes",
-      "Request specific song tones",
-      "Pro badge on profile",
+      "Browse all tone recipes",
+      "Unlimited preset downloads (.hlx, .tsl)",
+      "Unlimited saved recipes",
     ],
     limits: {
       savedRecipes: -1,
@@ -157,8 +157,13 @@ export function isAtLeast(role: UserRole, minimum: UserRole): boolean {
 /** @deprecated All platforms are now free — gating is on downloads only */
 export const FREE_PLATFORM_LIMIT = Infinity;
 
-/** Number of free preset downloads before requiring premium */
-export const FREE_DOWNLOAD_LIMIT = 10;
+/**
+ * @deprecated Quota retired 2026-05-10 — preset downloads are now unlimited
+ * for any signed-in user. The constant is kept so existing call sites
+ * (downloads.ts canDownload, /api/recipes/[slug]/download legacy route)
+ * still compile; effective value is Infinity.
+ */
+export const FREE_DOWNLOAD_LIMIT = Infinity;
 
 export function getDownloadLimit(role: UserRole): number {
   return role === "free" ? FREE_DOWNLOAD_LIMIT : Infinity;

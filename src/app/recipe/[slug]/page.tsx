@@ -14,7 +14,6 @@ import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
 import RecipePdfButton from "@/components/v3/RecipePdfButton";
 import RecipeDownloadChip from "@/components/v3/RecipeDownloadChip";
 import PresetDownloadButton from "@/components/recipe/PresetDownloadButton";
-import RecipeUpgradePrompt from "@/components/recipe/RecipeUpgradePrompt";
 import RecipeCompatibility from "@/components/recipe/RecipeCompatibility";
 import RecipeInteractions from "./RecipeInteractions";
 import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
@@ -313,7 +312,6 @@ export default async function PreviewRecipePage({
             <RecipePdfButton slug={recipe.slug} />
           </div>
         </div>
-        <RecipeUpgradePrompt recipeSlug={recipe.slug} />
         <RecipeDownloadChip slug={recipe.slug} platform={platform} />
 
         {/* My Rig compatibility — reads viewer's user_gear (Supabase or

@@ -25,18 +25,15 @@ const FORMAT_LABEL: Record<"hlx" | "tsl", string> = {
 };
 
 /**
- * Auth-gated preset download. Replaces the old static-anchor pattern.
+ * Auth-gated preset download.
  *
  * Behaviour by user state:
  *   - anonymous → sign-in toast + redirect to /login?return=/recipe/<slug>
- *   - free, under quota → POSTs with bearer token, saves blob, success toast
- *     ("Saved — 7 of 10 free downloads left this month")
- *   - free, hit quota → upgrade toast with link to /pricing
- *   - paid → unlimited, plain success toast
+ *   - signed in → fetch with bearer token, save blob, success toast
  *
- * Fires `recipe_download_click` analytics on every press (before the auth
- * branch), so funnel-level "intent to download" is captured even when the
- * download is gated.
+ * As of 2026-05-10 there is no quota — the catalog is free. Sign-in
+ * remains for analytics and abuse rate-limiting. Fires
+ * `recipe_download_click` on every press for funnel visibility.
  */
 export default function PresetDownloadButton({
   recipeSlug,
@@ -86,36 +83,15 @@ export default function PresetDownloadButton({
         },
       );
 
-      if (res.status === 402) {
-        const data = (await res.json().catch(() => ({}))) as {
-          error?: string;
-          upgrade?: string;
-        };
-        toast.error(data.error ?? "Free download quota reached.", {
-          href: data.upgrade ?? "/pricing",
-          label: "Upgrade",
-        });
-        return;
-      }
-
       if (!res.ok) {
         const data = (await res.json().catch(() => ({}))) as { error?: string };
         toast.error(data.error ?? "Couldn't download. Try again.");
         return;
       }
 
-      const remainingHdr = res.headers.get("X-Preset-Remaining");
       const blob = await res.blob();
       saveBlob(blob, `${recipeSlug}.${format}`);
-
-      const friendlyName = `${recipeSlug}.${format}`;
-      if (remainingHdr && remainingHdr !== "unlimited") {
-        toast.success(
-          `Downloaded ${friendlyName} — ${remainingHdr} of 10 free downloads left.`,
-        );
-      } else {
-        toast.success(`Downloaded ${friendlyName}.`);
-      }
+      toast.success(`Downloaded ${recipeSlug}.${format}.`);
     } catch (err) {
       console.error("preset download failed:", err);
       toast.error("Couldn't download. Try again.");
