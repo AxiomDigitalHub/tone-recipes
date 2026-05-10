@@ -46,7 +46,7 @@ export default function SetPackInterestForm({
 
   if (status === "success") {
     return (
-      <p className="mt-4 inline-flex items-center gap-1.5 text-xs text-emerald-400">
+      <p className="mt-4 inline-flex items-center gap-1.5 text-xs text-[var(--ink-muted)]">
         <Check className="h-3.5 w-3.5" />
         We&apos;ll email you when {packName} ships.
       </p>
@@ -66,12 +66,12 @@ export default function SetPackInterestForm({
           onChange={(e) => setEmail(e.target.value)}
           placeholder="your@email.com"
           required
-          className="min-w-0 flex-1 rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground placeholder:text-muted/70 focus:border-accent focus:outline-none"
+          className="min-w-0 flex-1 rounded-lg border border-[var(--ink)]/20 bg-[var(--paper)] px-3 py-2 text-xs text-[var(--ink)] placeholder:text-[var(--ink-faint)] focus:border-[var(--amber)] focus:outline-none"
         />
         <button
           type="submit"
           disabled={status === "loading"}
-          className="shrink-0 rounded-lg border border-border bg-surface px-3 py-2 text-xs font-semibold text-foreground transition-colors hover:border-accent/40 disabled:opacity-50"
+          className="shrink-0 rounded-lg border border-[var(--ink)]/20 bg-[var(--paper)] px-3 py-2 text-xs font-semibold text-[var(--ink)] transition-colors hover:border-[var(--amber)]/60 disabled:opacity-50"
         >
           {status === "loading" ? (
             <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -80,7 +80,7 @@ export default function SetPackInterestForm({
           )}
         </button>
       </div>
-      {errorMsg && <p className="text-xs text-red-400">{errorMsg}</p>}
+      {errorMsg && <p className="text-xs text-red-600">{errorMsg}</p>}
     </form>
   );
 }
