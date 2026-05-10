@@ -192,6 +192,27 @@ export async function POST(req: NextRequest) {
         "userId=", userId,
         "plan=", plan,
       );
+
+      // Server-side conversion event so the funnel dashboard can
+      // pair `checkout_complete` with the client-side `checkout_start`
+      // without depending on the user reaching `/dashboard?upgraded=true`
+      // (Stripe's redirect can be skipped or blocked).
+      const eventInsert = await supabase.from("events").insert({
+        name: "checkout_complete",
+        user_id: userId,
+        params: {
+          plan,
+          stripe_session_id: session.id,
+          stripe_customer_id: session.customer as string,
+          livemode: event.livemode,
+        },
+      } as any);
+      if (eventInsert.error) {
+        console.error(
+          "[stripe-webhook] events insert failed:",
+          eventInsert.error,
+        );
+      }
       break;
     }
 

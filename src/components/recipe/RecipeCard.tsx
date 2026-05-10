@@ -6,6 +6,7 @@ import FavoriteButton from "@/components/ui/FavoriteButton";
 import VerificationBadge from "@/components/ui/VerificationBadge";
 import { getChainIcon } from "@/lib/chain-icons";
 import { getVerificationLevel } from "@/lib/verification";
+import { track } from "@/lib/analytics";
 import type { ToneRecipe, Artist, Song } from "@/types/recipe";
 
 interface RecipeCardProps {
@@ -21,6 +22,12 @@ export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
   return (
     <Link
       href={`/recipe/${recipe.slug}`}
+      onClick={() =>
+        track("browse_card_click", {
+          recipe_slug: recipe.slug,
+          song_slug: recipe.song_slug,
+        })
+      }
       className="card-hover group relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-[border-color,background-color,box-shadow] duration-200 hover:border-accent/40 hover:bg-surface-hover hover:shadow-lg hover:shadow-black/20"
     >
       {/* Album art header */}

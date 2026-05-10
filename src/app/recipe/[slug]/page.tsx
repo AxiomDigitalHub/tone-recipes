@@ -13,6 +13,8 @@ import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
 import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
 import RecipePdfButton from "@/components/v3/RecipePdfButton";
 import RecipeDownloadChip from "@/components/v3/RecipeDownloadChip";
+import TrackedDownloadAnchor from "@/components/analytics/TrackedDownloadAnchor";
+import RecipeUpgradePrompt from "@/components/recipe/RecipeUpgradePrompt";
 import RecipeCompatibility from "@/components/recipe/RecipeCompatibility";
 import RecipeInteractions from "./RecipeInteractions";
 import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
@@ -293,26 +295,33 @@ export default async function PreviewRecipePage({
           </div>
           <div className="platform-switcher-exports">
             {platform === "helix" && (
-              <a
+              <TrackedDownloadAnchor
                 href={`/presets/${recipe.slug}.hlx`}
                 download
                 className="export"
+                recipeSlug={recipe.slug}
+                format="hlx"
+                source="platform_switcher"
               >
                 Download .hlx ↓
-              </a>
+              </TrackedDownloadAnchor>
             )}
             {platform === "katana" && (
-              <a
+              <TrackedDownloadAnchor
                 href={`/presets/${recipe.slug}.tsl`}
                 download
                 className="export"
+                recipeSlug={recipe.slug}
+                format="tsl"
+                source="platform_switcher"
               >
                 Download .tsl ↓
-              </a>
+              </TrackedDownloadAnchor>
             )}
             <RecipePdfButton slug={recipe.slug} />
           </div>
         </div>
+        <RecipeUpgradePrompt recipeSlug={recipe.slug} />
         <RecipeDownloadChip slug={recipe.slug} platform={platform} />
 
         {/* My Rig compatibility — reads viewer's user_gear (Supabase or

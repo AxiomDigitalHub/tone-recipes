@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useFavoritesStore } from "@/lib/stores/favorites-store";
+import { track } from "@/lib/analytics";
 
 interface FavoriteButtonProps {
   slug: string;
@@ -30,7 +31,11 @@ export default function FavoriteButton({
     e.preventDefault();
     e.stopPropagation();
     setAnimating(true);
+    const wasFavorited = favorited;
     toggleFavorite(slug);
+    if (!wasFavorited) {
+      track("recipe_save_click", { recipe_slug: slug, size });
+    }
     setTimeout(() => setAnimating(false), 300);
   };
 

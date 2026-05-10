@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { useAuth } from "@/lib/auth/auth-context";
 import { createBrowserClient } from "@/lib/db/client";
+import { track } from "@/lib/analytics";
 
 interface CheckoutButtonProps {
   plan: "premium" | "creator";
@@ -27,6 +28,7 @@ export default function CheckoutButton({
   const startCheckout = useCallback(async () => {
     setError("");
     setLoading(true);
+    track("checkout_start", { plan });
 
     try {
       const supabase = createBrowserClient();

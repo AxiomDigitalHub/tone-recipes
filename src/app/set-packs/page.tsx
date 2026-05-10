@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SetPackInterestForm from "@/components/set-packs/SetPackInterestForm";
 
 export const metadata: Metadata = {
   title: "Set Packs — Genre Presets for Your Whole Setlist",
@@ -54,7 +55,7 @@ export default function SetPacksPage() {
             className={`rounded-2xl border p-6 transition-all ${
               pack.status === "available"
                 ? "border-accent/40 bg-accent/5 hover:border-accent"
-                : "border-border bg-surface opacity-60"
+                : "border-border bg-surface"
             }`}
           >
             <div className="flex items-start justify-between">
@@ -75,7 +76,7 @@ export default function SetPacksPage() {
                 View Set Pack
               </Link>
             ) : (
-              <p className="mt-4 text-xs text-muted">Notify me when available</p>
+              <SetPackInterestForm packSlug={pack.slug} packName={pack.name} />
             )}
           </div>
         ))}

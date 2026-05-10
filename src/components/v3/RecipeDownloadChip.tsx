@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { track } from "@/lib/analytics";
 
 interface Props {
   slug: string;
@@ -49,7 +50,18 @@ export default function RecipeDownloadChip({ slug, platform }: Props) {
       className={`recipe-dl-chip ${visible ? "is-visible" : ""}`}
       aria-hidden={!visible}
     >
-      <a href={presetHref} download className="recipe-dl-chip-btn">
+      <a
+        href={presetHref}
+        download
+        className="recipe-dl-chip-btn"
+        onClick={() =>
+          track("recipe_download_click", {
+            recipe_slug: slug,
+            format: platform === "helix" ? "hlx" : "tsl",
+            source: "floating_chip",
+          })
+        }
+      >
         {presetLabel} ↓
       </a>
     </div>

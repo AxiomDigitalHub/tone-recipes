@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { Bookmark, Download, ArrowRight } from "lucide-react";
 import { getRecipeBySlug, getSongBySlug, getArtistBySlug } from "@/lib/data";
+import TrackedLink from "@/components/analytics/TrackedLink";
 
 /**
  * <SaveThisTone> — end-of-post CTA that converts editorial traffic into
@@ -115,20 +115,34 @@ export default function SaveThisTone({
           )}
 
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link
+            <TrackedLink
               href={finalHref}
+              event="save_this_tone_click"
+              eventParams={{
+                recipe_slug: recipeSlug ?? "freeform",
+                target: finalHref,
+                source: "blog",
+                cta: "primary",
+              }}
               className="inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
             >
               <Download className="h-4 w-4" />
               {finalCtaLabel}
-            </Link>
-            <Link
+            </TrackedLink>
+            <TrackedLink
               href="/browse"
+              event="save_this_tone_click"
+              eventParams={{
+                recipe_slug: recipeSlug ?? "freeform",
+                target: "/browse",
+                source: "blog",
+                cta: "secondary",
+              }}
               className="inline-flex items-center gap-1.5 rounded-lg border border-border px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
             >
               Browse all recipes
               <ArrowRight className="h-4 w-4" />
-            </Link>
+            </TrackedLink>
           </div>
         </div>
       </div>

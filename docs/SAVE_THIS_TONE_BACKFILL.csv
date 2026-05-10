@@ -1,0 +1,160 @@
+slug,kind,target,reason
+10-helix-amp-models-underrated,freeform,/browse?platform=helix,platform tag 'helix'
+20-minute-practice-session,freeform,/browse,fallback (no matching tag)
+4-wire-method-explained,freeform,/browse?platform=helix,platform tag 'helix'
+500-dollar-gigging-rig,freeform,/browse?platform=katana,platform tag 'boss-katana'
+500-rig-challenge-two-approaches,freeform,/browse?platform=helix,platform tag 'hx-stomp'
+6v6-vs-6l6-vs-el34-power-tubes,freeform,/browse,fallback (no matching tag)
+acoustic-pickup-microphone-blend,freeform,/browse,fallback (no matching tag)
+acoustic-pickup-tone-fix,freeform,/browse,fallback (no matching tag)
+amp-gain-volume-master-controls,freeform,/browse,fallback (no matching tag)
+bbd-vs-pt2399-delay-chips,freeform,/browse,fallback (no matching tag)
+bd2-vs-bd2w-waza-craft,freeform,/browse?tag=blues,tone tag 'blues'
+bd2w-waza-craft-worth-it,freeform,/browse,fallback (no matching tag)
+beginner-signal-chains,freeform,/browse,fallback (no matching tag)
+behringer-pedal-clone-roundup,freeform,/browse,fallback (no matching tag)
+best-frfr-speakers-for-modelers,freeform,/browse?platform=helix,platform tag 'helix'
+best-helix-amp-models-blues,freeform,/browse?platform=helix,platform tag 'helix'
+best-katana-settings-tube-amp,freeform,/browse?platform=katana,platform tag 'boss-katana'
+best-modeler-under-500,freeform,/browse?platform=helix,platform tag 'hx-stomp'
+big-muff-settings-guide,freeform,/browse?artist=david-gilmour,artist tag 'david-gilmour' → 3 recipes
+big-muff-vs-fuzz-face,freeform,/browse?tag=fuzz,tone tag 'big-muff'
+blues-driver-bd2-settings-guide,freeform,/browse?tag=blues,tone tag 'blues'
+blues-driver-clones,freeform,/browse,fallback (no matching tag)
+boss-ds1-settings-guide,freeform,/browse?tag=high-gain,tone tag 'metal'
+boss-katana-hidden-settings,freeform,/browse?platform=katana,platform tag 'boss-katana'
+boss-pedal-mods-compared,freeform,/browse,fallback (no matching tag)
+boss-sd1-vs-bd2,freeform,/browse,fallback (no matching tag)
+buffer-myth-buffered-bypass,freeform,/browse,fallback (no matching tag)
+buffer-vs-true-bypass-looper,freeform,/browse,fallback (no matching tag)
+carbon-copy-vs-dm-2w,freeform,/browse,fallback (no matching tag)
+cathode-bias-vs-fixed-bias,freeform,/browse,fallback (no matching tag)
+cavity-shielding-test,freeform,/browse,fallback (no matching tag)
+celestion-g12t-75-1960a,freeform,/browse?tag=high-gain,tone tag 'high-gain'
+celestion-speaker-showdown,freeform,/browse,fallback (no matching tag)
+chicken-pickin-compressor-settings,freeform,/browse,fallback (no matching tag)
+chicken-pickin-foundations,freeform,/browse,fallback (no matching tag)
+class-a-vs-class-ab-amp,freeform,/browse,fallback (no matching tag)
+complete-guide-guitar-amp-types,freeform,/browse,fallback (no matching tag)
+compressor-pedal-settings-guide,freeform,/browse?tag=clean,tone tag 'country'
+compressor-ruining-country-tone,freeform,/browse,fallback (no matching tag)
+country-telecaster-tone-settings,freeform,/browse,fallback (no matching tag)
+delay-pedal-settings-guide,recipe,/recipe/edge-where-the-streets-have-no-name,artist tag 'the-edge' → single recipe
+delay-time-bpm-calculator,freeform,/browse,fallback (no matching tag)
+delay-types-analog-digital-tape,freeform,/browse,fallback (no matching tag)
+diy-pedal-starter-guide,freeform,/browse,fallback (no matching tag)
+dotted-eighth-delay-no-tap-tempo,freeform,/browse?tag=clean,tone tag 'worship'
+ds1-keeley-ultra-mod,freeform,/browse,fallback (no matching tag)
+ds1-vs-mxr-distortion-plus,freeform,/browse,fallback (no matching tag)
+effects-loop-explained,freeform,/browse,fallback (no matching tag)
+el84-tube-character-ac30-boutique,freeform,/browse,fallback (no matching tag)
+eq-pedal-placement,freeform,/browse?tag=high-gain,tone tag 'metal'
+expression-pedal-vs-volume-pedal,freeform,/browse?platform=helix,platform tag 'helix'
+fender-deluxe-reverb-settings,freeform,/browse,fallback (no matching tag)
+fix-fizzy-high-gain,freeform,/browse?tag=high-gain,tone tag 'high-gain'
+fixed-bias-rebiasing-guide,freeform,/browse,fallback (no matching tag)
+floyd-rose-knife-edge-replacement,freeform,/browse,fallback (no matching tag)
+floyd-rose-knife-edge-wear,freeform,/browse,fallback (no matching tag)
+floyd-rose-locking-nut-maintenance,freeform,/browse,fallback (no matching tag)
+floyd-rose-setup-guide,freeform,/browse,fallback (no matching tag)
+floyd-rose-spring-angle,freeform,/browse,fallback (no matching tag)
+floyd-rose-spring-count,freeform,/browse,fallback (no matching tag)
+frfr-vs-guitar-cab-for-modelers,freeform,/browse?platform=helix,platform tag 'helix'
+gain-staging-drop-tunings,freeform,/browse?tag=high-gain,tone tag 'metal'
+germanium-vs-silicon-fuzz,freeform,/browse?tag=fuzz,tone tag 'fuzz'
+guitar-eq-guide,freeform,/browse,fallback (no matching tag)
+helix-amp-model-cheat-sheet,freeform,/browse?platform=helix,platform tag 'helix'
+helix-cab-ir-pairings,freeform,/browse?platform=helix,platform tag 'helix'
+helix-cab-models-decoded,freeform,/browse?platform=helix,platform tag 'helix'
+helix-ir-shootout,freeform,/browse?platform=helix,platform tag 'helix'
+helix-vs-quad-cortex-vs-kemper,freeform,/browse?platform=helix,platform tag 'helix'
+helix-vs-quad-cortex,freeform,/browse?platform=helix,platform tag 'helix'
+how-to-remove-60-cycle-hum,freeform,/browse,fallback (no matching tag)
+how-to-start-hybrid-picking,freeform,/browse?genre=indie,genre tag 'indie'
+how-to-stop-pedal-hiss,freeform,/browse,fallback (no matching tag)
+hx-stomp-polarity-trick,freeform,/browse?platform=helix,platform tag 'hx-stomp'
+hx-stomp-vs-helix-lt-worship,freeform,/browse,fallback (no matching tag)
+hybrid-acoustic-pickup-comparison,freeform,/browse,fallback (no matching tag)
+hybrid-picking-exercises-four-moves,freeform,/browse,fallback (no matching tag)
+hybrid-picking-rock-blues,recipe,/recipe/knopfler-sultans-of-swing-clean,artist tag 'mark-knopfler' → single recipe
+iem-mix-guitar-compression,freeform,/browse?platform=helix,platform tag 'helix'
+impedance-buffers-fuzz,freeform,/browse?tag=fuzz,tone tag 'fuzz'
+impulse-response-ir-guide,freeform,/browse?platform=helix,platform tag 'helix'
+jc-120-modeler-limitations,freeform,/browse?platform=helix,platform tag 'helix'
+jcm800-2203-vs-2205,freeform,/browse?genre=classic-rock,genre tag 'classic-rock'
+jcm800-settings-guide,freeform,/browse?platform=helix,platform tag 'helix'
+jcm800-vs-jcm900,freeform,/browse?tag=high-gain,tone tag 'metal'
+katana-mini-vs-vox-amplug-4-budget-headphone,freeform,/browse,fallback (no matching tag)
+keeley-super-at-mod,freeform,/browse,fallback (no matching tag)
+kemper-profiles-vs-helix-models,freeform,/browse?platform=kemper,platform tag 'kemper'
+klon-centaur-settings-guide,freeform,/browse,fallback (no matching tag)
+level-match-modeler-presets,freeform,/browse,fallback (no matching tag)
+line-6-helix-family-compared,freeform,/browse?platform=helix,platform tag 'helix'
+looper-delay-reverb-signal-chain,freeform,/browse?tag=clean,tone tag 'ambient'
+looper-pedal-composition,freeform,/browse,fallback (no matching tag)
+marshall-shredmaster-clone,freeform,/browse,fallback (no matching tag)
+mesa-rectifier-v30-replacement,freeform,/browse?tag=high-gain,tone tag 'high-gain'
+modeler-eq-guide,freeform,/browse?platform=helix,platform tag 'helix'
+modeler-global-eq-guide,freeform,/browse?platform=helix,platform tag 'helix'
+modeler-preset-sounds-different-live,freeform,/browse?platform=helix,platform tag 'helix'
+modeler-vs-tube-amp-shootout,freeform,/browse?platform=quad_cortex,platform tag 'quad-cortex'
+overdrive-pedal-ab-test,freeform,/browse,fallback (no matching tag)
+overdrive-vs-distortion-vs-fuzz,freeform,/browse?tag=fuzz,tone tag 'fuzz'
+overdrive-with-humbuckers-settings,freeform,/browse,fallback (no matching tag)
+p90-pickups-overdrive,freeform,/browse,fallback (no matching tag)
+parallel-amp-routing-modeler,freeform,/browse?platform=helix,platform tag 'helix'
+parallel-reverb-routing,freeform,/browse?tag=clean,tone tag 'ambient'
+peavey-5150-bedroom-volume,freeform,/browse?tag=high-gain,tone tag 'high-gain'
+peavey-5150-settings-guide,freeform,/browse,fallback (no matching tag)
+pedalboard-power-supply-isolation,freeform,/browse?tag=clean,tone tag 'worship'
+pickup-position-guide,freeform,/browse,fallback (no matching tag)
+power-conditioner-furman-vs-eta-vs-hum-x,freeform,/browse,fallback (no matching tag)
+power-scaling-vs-attenuator,freeform,/browse,fallback (no matching tag)
+power-tube-saturation-explained,freeform,/browse,fallback (no matching tag)
+powerstage-200-vs-fryette-power-station,freeform,/browse?platform=quad_cortex,platform tag 'quad-cortex'
+practice-amps-mustang-spark-hx-stomp,freeform,/browse?platform=helix,platform tag 'hx-stomp'
+quad-cortex-capture-tutorial,freeform,/browse?platform=quad_cortex,platform tag 'quad-cortex'
+quad-cortex-captures-vs-models,freeform,/browse?platform=quad_cortex,platform tag 'quad-cortex'
+quad-cortex-preset-from-scratch,freeform,/browse,fallback (no matching tag)
+quad-cortex-scenes-vs-stomp-mode,freeform,/browse?platform=quad_cortex,platform tag 'quad-cortex'
+quilter-tone-block-vs-boss-waza-expander,freeform,/browse,fallback (no matching tag)
+rat-pedal-settings-guide,freeform,/browse?tag=blues,tone tag 'blues'
+rat-vs-tube-screamer-vs-big-muff,freeform,/browse,fallback (no matching tag)
+reactive-load-box-vs-attenuator,freeform,/browse,fallback (no matching tag)
+reactive-vs-resistive-attenuators,freeform,/browse,fallback (no matching tag)
+reverb-live-room-vs-dead-room,freeform,/browse?tag=clean,tone tag 'ambient'
+reverb-pedal-pairings,freeform,/browse?tag=clean,tone tag 'ambient'
+reverb-sounds-washed-out-fix,freeform,/browse,fallback (no matching tag)
+reverb-types-guide,freeform,/browse?tag=clean,tone tag 'ambient'
+rew-modeler-global-eq,freeform,/browse?platform=helix,platform tag 'helix'
+roland-jc-120-settings-guide,freeform,/browse?tag=fuzz,tone tag 'shoegaze'
+sd1-mod-guide,freeform,/browse,fallback (no matching tag)
+signal-chain-order-guide,freeform,/browse,fallback (no matching tag)
+silent-recording-two-notes-captor-workflow,freeform,/browse,fallback (no matching tag)
+single-pickup-guitar-logic,freeform,/browse,fallback (no matching tag)
+solid-state-amps-2026,freeform,/browse?platform=katana,platform tag 'boss-katana'
+solo-patch-volume-drop-fix,freeform,/browse?platform=helix,platform tag 'helix'
+stacking-reverbs-guide,freeform,/browse?tag=clean,tone tag 'ambient'
+stacking-ts-and-klon-into-marshall,freeform,/browse?genre=classic-rock,genre tag 'classic-rock'
+stereo-signal-chain-architecture,freeform,/browse?platform=quad_cortex,platform tag 'quad-cortex'
+stop-feedback-stage-physics,freeform,/browse,fallback (no matching tag)
+the-edge-delay-settings,recipe,/recipe/edge-where-the-streets-have-no-name,artist tag 'the-edge' → single recipe
+timmy-vs-tumnus,freeform,/browse,fallback (no matching tag)
+tremolo-arm-techniques,freeform,/browse,fallback (no matching tag)
+ts808-klon-rat-humbuckers,freeform,/browse,fallback (no matching tag)
+tube-amp-attenuator-limits-lower-wattage,freeform,/browse,fallback (no matching tag)
+tube-amp-sounds-different-bedroom-volume,freeform,/browse,fallback (no matching tag)
+tube-screamer-before-high-gain-amp,freeform,/browse,fallback (no matching tag)
+tube-screamer-settings-guide,freeform,/browse,fallback (no matching tag)
+tube-screamer-vs-klon-vs-blues-driver,freeform,/browse,fallback (no matching tag)
+tumnus-deluxe-vs-klon-ktr,freeform,/browse,fallback (no matching tag)
+two-notes-captor-silent-recording,freeform,/browse,fallback (no matching tag)
+v30-fatigue-modern-metal,freeform,/browse?tag=high-gain,tone tag 'djent'
+v30-still-right-medium-gain-rock,freeform,/browse?genre=classic-rock,genre tag 'classic-rock'
+volume-pedal-dynamics-control,freeform,/browse,fallback (no matching tag)
+volume-swell-technique,freeform,/browse?tag=clean,tone tag 'worship'
+vox-ac30-cut-knob-explained,freeform,/browse,fallback (no matching tag)
+vox-ac30-settings-guide,freeform,/browse?tag=clean,tone tag 'worship'
+what-is-amp-sag,freeform,/browse?platform=helix,platform tag 'helix'
+why-delay-sounds-muddy,freeform,/browse,fallback (no matching tag)
+worship-pedalboard-guide,freeform,/browse?tag=clean,tone tag 'worship'

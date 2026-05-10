@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Mail, Check, Loader2 } from "lucide-react";
+import { track } from "@/lib/analytics";
 
 interface NewsletterSignupProps {
   variant?: "card" | "banner" | "footer";
@@ -45,6 +46,7 @@ export default function NewsletterSignup({
 
       setStatus("success");
       setEmail("");
+      track("newsletter_submit", { source, variant });
     } catch (err) {
       setStatus("error");
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong");
