@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import { unsubscribeUrl } from "@/lib/unsubscribe-token";
 
 // Lazy init: only create the Resend client when the API key exists.
 // Callers should check before calling email functions, but we also
@@ -9,6 +10,32 @@ const resend = process.env.RESEND_API_KEY
 
 const FROM_EMAIL = "Fader & Knob <noreply@faderandknob.com>";
 const REPLY_TO = "hello@faderandknob.com";
+
+/**
+ * RFC 8058 one-click unsubscribe headers. Gmail and Apple Mail show a
+ * native "Unsubscribe" UI when these are present and call POST on the URL.
+ * Adding these (a) keeps deliverability healthy as the list grows and
+ * (b) satisfies CAN-SPAM/CASL requirements for bulk commercial mail.
+ */
+function unsubscribeHeaders(to: string): {
+  "List-Unsubscribe": string;
+  "List-Unsubscribe-Post": string;
+} {
+  const url = unsubscribeUrl(to);
+  return {
+    "List-Unsubscribe": `<${url}>, <mailto:hello@faderandknob.com?subject=unsubscribe>`,
+    "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+  };
+}
+
+/** Inline unsubscribe footer fragment for any newsletter HTML template. */
+function unsubscribeFooter(to: string, palette: "dark" | "navy" = "dark"): string {
+  const url = unsubscribeUrl(to);
+  const dim = palette === "navy" ? "#6e7a8a" : "#666";
+  return `<p style="margin: 6px 0 0;">
+    <a href="${url}" style="color: ${dim};">Unsubscribe</a> from these emails.
+  </p>`;
+}
 
 /** HTML-escape a string to prevent injection in email templates. */
 function esc(s: string): string {
@@ -84,6 +111,7 @@ export async function sendNewsletterWelcome(to: string) {
       from: FROM_EMAIL,
       to,
       replyTo: REPLY_TO,
+      headers: unsubscribeHeaders(to),
       subject: "Welcome to Fader & Knob",
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; color: #e5e5e5; background-color: #0b0f1a; padding: 32px;">
@@ -125,10 +153,11 @@ export async function sendNewsletterWelcome(to: string) {
               You're receiving this because you subscribed at
               <a href="https://faderandknob.com" style="color: #6e7a8a;">faderandknob.com</a>.
             </p>
-            <p style="margin: 0;">
+            <p style="margin: 0 0 6px;">
               Content researched and written with AI assistance.
               Hardware testing is part of our review process.
             </p>
+            ${unsubscribeFooter(to, "navy")}
           </div>
         </div>
       `,
@@ -167,6 +196,7 @@ export async function sendToneOfTheWeek(opts: {
           from: FROM_EMAIL,
           to: email,
           replyTo: REPLY_TO,
+          headers: unsubscribeHeaders(email),
           subject: `Tone of the Week: ${esc(recipeName)}`,
           html: `
             <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; color: #e5e5e5; background-color: #1a1a1a; padding: 32px;">
@@ -196,8 +226,9 @@ export async function sendToneOfTheWeek(opts: {
               </div>
 
               <div style="border-top: 1px solid #333; margin-top: 24px; padding-top: 16px; color: #666; font-size: 12px;">
-                <p>You're receiving this because you subscribed to Fader & Knob updates.</p>
-                <p><a href="https://faderandknob.com" style="color: #666;">faderandknob.com</a></p>
+                <p style="margin: 0 0 6px;">You're receiving this because you subscribed to Fader & Knob updates.</p>
+                <p style="margin: 0 0 6px;"><a href="https://faderandknob.com" style="color: #666;">faderandknob.com</a></p>
+                ${unsubscribeFooter(email, "dark")}
               </div>
             </div>
           `,
