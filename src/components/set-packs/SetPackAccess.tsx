@@ -169,12 +169,26 @@ export default function SetPackAccess({
     }
   }, [busy, packSlug, format, router]);
 
+  // v3 editorial styling — raw paper/ink/amber CSS vars so this works
+  // outside `.fk-preview .post-body` (which is most of the site).
+  const PRIMARY_BUTTON: React.CSSProperties = {
+    background: "var(--amber, #E4A235)",
+    color: "var(--ink, #0A0908)",
+    border: "1px solid var(--ink, #0A0908)",
+  };
+  const DISABLED_BUTTON: React.CSSProperties = {
+    background: "var(--paper-2, #E2DED6)",
+    color: "var(--ink-muted, #5F5A52)",
+    border: "1px solid rgba(10,9,8,0.15)",
+  };
+
   if (state.kind === "loading") {
     return (
       <button
         type="button"
         disabled
-        className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-6 py-3 text-sm font-semibold text-muted"
+        className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold"
+        style={DISABLED_BUTTON}
       >
         <Loader2 className="h-4 w-4 animate-spin" /> Loading…
       </button>
@@ -189,7 +203,8 @@ export default function SetPackAccess({
           track("set_pack_purchase_click", { pack_slug: packSlug, anon: true });
           router.push(`/login?return=/set-packs/${packSlug}`);
         }}
-        className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+        className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
+        style={PRIMARY_BUTTON}
       >
         Sign in to buy — {priceDisplay}
       </button>
@@ -202,7 +217,8 @@ export default function SetPackAccess({
         type="button"
         onClick={handleBuy}
         disabled={busy}
-        className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-accent-hover disabled:opacity-60"
+        className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90 disabled:opacity-60"
+        style={PRIMARY_BUTTON}
       >
         {busy ? (
           <Loader2 className="h-4 w-4 animate-spin" />
@@ -219,7 +235,8 @@ export default function SetPackAccess({
       type="button"
       onClick={handleDownload}
       disabled={busy}
-      className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-accent-hover disabled:opacity-60"
+      className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90 disabled:opacity-60"
+      style={PRIMARY_BUTTON}
     >
       {busy ? (
         <Loader2 className="h-4 w-4 animate-spin" />

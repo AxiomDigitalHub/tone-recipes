@@ -44,79 +44,146 @@ export default function WorshipSetPackPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 md:py-24">
       {/* Header */}
-      <div className="mb-4 flex items-center gap-2 text-sm text-muted">
-        <Link href="/set-packs" className="hover:text-accent">Set Packs</Link>
+      <div
+        className="mb-4 flex items-center gap-2 text-sm"
+        style={{ color: "var(--ink-muted)" }}
+      >
+        <Link href="/set-packs" style={{ color: "var(--amber-2)" }}>
+          Set Packs
+        </Link>
         <span>/</span>
         <span>Worship</span>
       </div>
 
-      <h1 className="page-title page-title-md">Worship Set Pack</h1>
-      <p className="mt-4 text-lg text-muted">
+      <h1
+        className="display text-4xl md:text-5xl"
+        style={{ color: "var(--ink)", lineHeight: 1.1 }}
+      >
+        Worship Set Pack
+      </h1>
+      <p
+        className="mt-4 text-lg"
+        style={{ color: "var(--ink-muted)" }}
+      >
         One preset. 8 snapshots. Your entire Sunday morning covered.
       </p>
 
       {/* Key selling points */}
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
-        <div className="rounded-xl border border-border bg-surface p-5">
-          <Music className="mb-2 h-5 w-5 text-accent" />
-          <h3 className="text-sm font-bold">30 Songs Mapped</h3>
-          <p className="mt-1 text-xs text-muted">Know exactly which snapshot for every section of every song.</p>
-        </div>
-        <div className="rounded-xl border border-border bg-surface p-5">
-          <Zap className="mb-2 h-5 w-5 text-accent" />
-          <h3 className="text-sm font-bold">Gapless Switching</h3>
-          <p className="mt-1 text-xs text-muted">Snapshots switch instantly. Trails enabled on all delays and reverbs.</p>
-        </div>
-        <div className="rounded-xl border border-border bg-surface p-5">
-          <Clock className="mb-2 h-5 w-5 text-accent" />
-          <h3 className="text-sm font-bold">Sunday Ready</h3>
-          <p className="mt-1 text-xs text-muted">Load it, check the mapper, play. No tweaking required.</p>
-        </div>
+        {[
+          { icon: Music, title: "30 Songs Mapped", desc: "Know exactly which snapshot for every section of every song." },
+          { icon: Zap, title: "Gapless Switching", desc: "Snapshots switch instantly. Trails enabled on all delays and reverbs." },
+          { icon: Clock, title: "Sunday Ready", desc: "Load it, check the mapper, play. No tweaking required." },
+        ].map(({ icon: Icon, title, desc }) => (
+          <div
+            key={title}
+            className="rounded-xl p-5"
+            style={{
+              background: "var(--paper-2)",
+              border: "1px solid rgba(10,9,8,0.12)",
+            }}
+          >
+            <Icon className="mb-2 h-5 w-5" style={{ color: "var(--amber-2)" }} />
+            <h3 className="text-sm font-bold" style={{ color: "var(--ink)" }}>
+              {title}
+            </h3>
+            <p className="mt-1 text-xs" style={{ color: "var(--ink-muted)" }}>
+              {desc}
+            </p>
+          </div>
+        ))}
       </div>
 
       {/* Snapshot grid */}
-      <h2 className="mb-6 mt-16 text-2xl font-bold">8 Snapshots</h2>
+      <h2
+        className="mb-6 mt-16 text-2xl font-bold"
+        style={{ color: "var(--ink)" }}
+      >
+        8 Snapshots
+      </h2>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {snapshots.map((snap) => (
           <div
             key={snap.name}
-            className="rounded-xl border border-border bg-surface p-4"
-            style={{ borderLeftColor: snap.color, borderLeftWidth: 3 }}
+            className="rounded-xl p-4"
+            style={{
+              background: "var(--paper-2)",
+              border: "1px solid rgba(10,9,8,0.12)",
+              borderLeft: `3px solid ${snap.color}`,
+            }}
           >
-            <h3 className="text-sm font-bold" style={{ color: snap.color }}>{snap.name}</h3>
-            <p className="mt-1 text-xs text-muted">{snap.desc}</p>
-            <p className="mt-2 text-[10px] uppercase tracking-wider text-muted/60">{snap.use}</p>
+            <h3 className="text-sm font-bold" style={{ color: snap.color }}>
+              {snap.name}
+            </h3>
+            <p className="mt-1 text-xs" style={{ color: "var(--ink-muted)" }}>
+              {snap.desc}
+            </p>
+            <p
+              className="mt-2 text-[10px] uppercase tracking-wider"
+              style={{ color: "var(--ink-faint)" }}
+            >
+              {snap.use}
+            </p>
           </div>
         ))}
       </div>
 
       {/* Signal chain */}
-      <h2 className="mb-6 mt-16 text-2xl font-bold">Signal Chain</h2>
-      <div className="flex flex-wrap gap-2">
+      <h2
+        className="mb-6 mt-16 text-2xl font-bold"
+        style={{ color: "var(--ink)" }}
+      >
+        Signal Chain
+      </h2>
+      <div className="flex flex-wrap items-center gap-2">
         {chainBlocks.map((block, i) => (
           <div key={block.name} className="flex items-center gap-2">
-            <div className="rounded-lg border border-border bg-[#0b0f1a] px-3 py-2">
-              <p className="text-xs font-bold text-foreground">{block.name}</p>
-              <p className="text-[10px] text-muted">{block.cat}</p>
+            <div
+              className="rounded-lg px-3 py-2"
+              style={{
+                background: "var(--paper-2)",
+                border: "1px solid var(--ink)",
+              }}
+            >
+              <p className="text-xs font-bold" style={{ color: "var(--ink)" }}>
+                {block.name}
+              </p>
+              <p className="text-[10px]" style={{ color: "var(--ink-muted)" }}>
+                {block.cat}
+              </p>
             </div>
             {i < chainBlocks.length - 1 && (
-              <span className="text-muted/30">→</span>
+              <span style={{ color: "var(--ink-faint)" }}>→</span>
             )}
           </div>
         ))}
       </div>
 
       {/* Setlist Mapper */}
-      <h2 className="mb-2 mt-16 text-2xl font-bold">Setlist Mapper</h2>
-      <p className="mb-6 text-sm text-muted">
-        Which snapshot for which section of which song. Search your setlist below.
+      <h2
+        className="mb-2 mt-16 text-2xl font-bold"
+        style={{ color: "var(--ink)" }}
+      >
+        Setlist Mapper
+      </h2>
+      <p className="mb-6 text-sm" style={{ color: "var(--ink-muted)" }}>
+        Which snapshot for which section of which song. Search your setlist
+        below.
       </p>
       <SetlistMapper />
 
       {/* Buy / download section */}
-      <div className="mt-16 rounded-2xl border border-accent/30 bg-accent/5 p-8">
-        <h2 className="text-xl font-bold">Get the Worship Set Pack</h2>
-        <p className="mt-2 text-sm text-muted">
+      <div
+        className="mt-16 rounded-2xl p-8"
+        style={{
+          background: "rgba(228, 162, 53, 0.08)",
+          border: "1px solid rgba(228, 162, 53, 0.4)",
+        }}
+      >
+        <h2 className="text-xl font-bold" style={{ color: "var(--ink)" }}>
+          Get the Worship Set Pack
+        </h2>
+        <p className="mt-2 text-sm" style={{ color: "var(--ink-muted)" }}>
           One .hlx file with all 8 snapshots, plus the Setlist Mapper. Load
           it into HX Edit and you&apos;re Sunday-ready. One-time $19, yours to
           keep — no subscription.
@@ -129,7 +196,7 @@ export default function WorshipSetPackPage() {
             format="hlx"
           />
         </div>
-        <p className="mt-4 text-xs text-muted">
+        <p className="mt-4 text-xs" style={{ color: "var(--ink-muted)" }}>
           Compatible with Line 6 Helix and HX Stomp on recent firmware.
           30-day refund if it doesn&apos;t work for your rig — just email
           hello@faderandknob.com.
@@ -137,28 +204,30 @@ export default function WorshipSetPackPage() {
       </div>
 
       {/* Quick start */}
-      <h2 className="mb-6 mt-16 text-2xl font-bold">Quick Start</h2>
-      <ol className="space-y-3 text-sm text-muted">
-        <li className="flex gap-3">
-          <span className="shrink-0 font-bold text-accent">1.</span>
-          Load <code className="rounded bg-surface px-1.5 py-0.5 text-foreground">FK-Worship.hlx</code> into HX Edit
-        </li>
-        <li className="flex gap-3">
-          <span className="shrink-0 font-bold text-accent">2.</span>
-          Set your Helix to Snapshot mode (or Snap/Stomp hybrid)
-        </li>
-        <li className="flex gap-3">
-          <span className="shrink-0 font-bold text-accent">3.</span>
-          Look up your setlist in the Setlist Mapper above
-        </li>
-        <li className="flex gap-3">
-          <span className="shrink-0 font-bold text-accent">4.</span>
-          Start on the Verse snapshot for each song — switch as you go
-        </li>
-        <li className="flex gap-3">
-          <span className="shrink-0 font-bold text-accent">5.</span>
-          Use your guitar volume knob to clean up any snapshot further
-        </li>
+      <h2
+        className="mb-6 mt-16 text-2xl font-bold"
+        style={{ color: "var(--ink)" }}
+      >
+        Quick Start
+      </h2>
+      <ol className="space-y-3 text-sm" style={{ color: "var(--ink-muted)" }}>
+        {[
+          ["1.", <>Load <code style={{ background: "var(--paper-2)", border: "1px solid rgba(10,9,8,0.12)", color: "var(--ink)", padding: "2px 6px", borderRadius: 4 }}>FK-Worship.hlx</code> into HX Edit</>],
+          ["2.", "Set your Helix to Snapshot mode (or Snap/Stomp hybrid)"],
+          ["3.", "Look up your setlist in the Setlist Mapper above"],
+          ["4.", "Start on the Verse snapshot for each song — switch as you go"],
+          ["5.", "Use your guitar volume knob to clean up any snapshot further"],
+        ].map(([n, text], i) => (
+          <li key={i} className="flex gap-3">
+            <span
+              className="shrink-0 font-bold"
+              style={{ color: "var(--amber-2)" }}
+            >
+              {n}
+            </span>
+            <span>{text}</span>
+          </li>
+        ))}
       </ol>
     </div>
   );
