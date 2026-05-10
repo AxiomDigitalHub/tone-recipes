@@ -5,13 +5,16 @@ import Stripe from "stripe";
 /**
  * GET /api/health-check/stripe
  *
- * Diagnostic endpoint for verifying the Stripe + Supabase integration is
- * configured correctly. Reports:
- *   - Which env vars are present (never the values)
- *   - Whether the Stripe secret key is a live or test key
- *   - The `role` claim on the Supabase service key (to catch anon-key swaps)
- *   - Whether a Stripe handshake succeeds
- *   - Whether a Supabase admin query succeeds
+ * Diagnostic endpoint for verifying the Stripe + Supabase + newsletter
+ * integration is configured correctly. Reports:
+ *   - Stripe secret key format (sk_live_ vs sk_test_) and webhook secret
+ *   - Supabase key formats — both legacy JWT and new sb_publishable_/
+ *     sb_secret_ formats are recognized
+ *   - RESEND_API_KEY presence (outbound newsletter / welcome email)
+ *   - NEWSLETTER_UNSUBSCRIBE_SECRET presence + length sanity check —
+ *     without it, /api/unsubscribe throws on every click
+ *   - Live Stripe handshake (account_id + livemode + email_set)
+ *   - Live Supabase admin query (profiles_count proves service role works)
  *
  * Protected by a `token` query parameter matched against HEALTH_CHECK_TOKEN
  * env var, so it's not accidentally public. Set that env var in Vercel to
@@ -20,15 +23,26 @@ import Stripe from "stripe";
  * Example: GET /api/health-check/stripe?token=YOUR_SECRET
  */
 
-function decodeJwtRole(jwt: string | undefined): string {
-  if (!jwt) return "absent";
-  const parts = jwt.split(".");
-  if (parts.length !== 3) return "not_a_jwt";
+/**
+ * Describe a Supabase API key without leaking its value. Supabase ships
+ * two key formats in 2025+:
+ *   - Legacy JWT format (`eyJhbGc...`) — decode the `role` claim
+ *   - New opaque format (`sb_publishable_...` / `sb_secret_...`) — just
+ *     report the prefix; these aren't JWTs and won't decode
+ * Mixed environments are common during the migration window; both work.
+ */
+function describeSupabaseKey(key: string | undefined): string {
+  if (!key) return "absent";
+  if (key.startsWith("sb_publishable_")) return "sb_publishable_... (new anon format)";
+  if (key.startsWith("sb_secret_")) return "sb_secret_... (new secret format)";
+  const parts = key.split(".");
+  if (parts.length !== 3) return "unknown_format";
   try {
     const payload = JSON.parse(
       Buffer.from(parts[1], "base64url").toString("utf-8"),
     );
-    return payload.role ?? "no_role_claim";
+    const role = payload.role ?? "no_role_claim";
+    return `${role} (JWT)`;
   } catch {
     return "decode_error";
   }
@@ -69,6 +83,8 @@ export async function GET(req: NextRequest) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const unsubscribeSecret = process.env.NEWSLETTER_UNSUBSCRIBE_SECRET;
+  const resendKey = process.env.RESEND_API_KEY;
 
   const report: Record<string, unknown> = {
     env: {
@@ -77,8 +93,14 @@ export async function GET(req: NextRequest) {
       NEXT_PUBLIC_SUPABASE_URL: supabaseUrl
         ? new URL(supabaseUrl).host
         : "absent",
-      SUPABASE_SERVICE_ROLE_KEY_role: decodeJwtRole(supabaseServiceKey),
-      NEXT_PUBLIC_SUPABASE_ANON_KEY_role: decodeJwtRole(supabaseAnonKey),
+      SUPABASE_SERVICE_ROLE_KEY: describeSupabaseKey(supabaseServiceKey),
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: describeSupabaseKey(supabaseAnonKey),
+      RESEND_API_KEY: resendKey ? "set" : "absent",
+      NEWSLETTER_UNSUBSCRIBE_SECRET: unsubscribeSecret
+        ? unsubscribeSecret.length >= 32
+          ? "set (>=32 chars)"
+          : "set (TOO SHORT — use 32+ chars)"
+        : "absent (newsletter unsubscribe will throw)",
     },
   };
 
