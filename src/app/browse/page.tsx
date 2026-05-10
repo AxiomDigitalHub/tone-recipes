@@ -10,6 +10,7 @@ import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { getAllPlatforms } from "@/lib/data/platforms";
 import type { Platform } from "@/types/recipe";
 import { buildRigTokens } from "@/lib/gear-match";
+import { getBandName } from "@/lib/song-band";
 import BrowseRigFilter from "@/components/browse/BrowseRigFilter";
 
 export const metadata: Metadata = {
@@ -315,6 +316,7 @@ export default async function PreviewBrowse({
                     toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
                   const rBlocks = recipeToBlocks(r, "helix");
                   const rigTokens = buildRigTokens(r.signal_chain);
+                  const rBand = rSong ? getBandName(rSong, rArtist) : null;
                   return (
                     <Link
                       key={r.slug}
@@ -336,7 +338,15 @@ export default async function PreviewBrowse({
                           {rSong?.title ?? r.title}
                         </span>
                         <span className="audition-artist">
-                          <em>{rArtist?.name ?? "Unknown"}</em>
+                          {rBand ? (
+                            <>
+                              {rBand}
+                              <span className="audition-artist-sep" aria-hidden="true"> / </span>
+                              <em>{rArtist?.name ?? "Unknown"}</em>
+                            </>
+                          ) : (
+                            <em>{rArtist?.name ?? "Unknown"}</em>
+                          )}
                         </span>
                         {rSong?.album && (
                           <span className="audition-album">

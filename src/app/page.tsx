@@ -7,6 +7,7 @@ import {
   getRecipeBySlug,
 } from "@/lib/data";
 import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
+import { getBandName } from "@/lib/song-band";
 import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 
@@ -180,6 +181,7 @@ export default function PreviewIndex() {
             const rIdx =
               toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
             const rBlocks = recipeToBlocks(r, "helix");
+            const rBand = rSong ? getBandName(rSong, rArtist) : null;
             return (
               <Link
                 key={r.slug}
@@ -200,7 +202,15 @@ export default function PreviewIndex() {
                     {rSong?.title ?? r.title}
                   </span>
                   <span className="audition-artist">
-                    <em>{rArtist?.name ?? "Unknown"}</em>
+                    {rBand ? (
+                      <>
+                        {rBand}
+                        <span className="audition-artist-sep" aria-hidden="true"> / </span>
+                        <em>{rArtist?.name ?? "Unknown"}</em>
+                      </>
+                    ) : (
+                      <em>{rArtist?.name ?? "Unknown"}</em>
+                    )}
                   </span>
                   {rSong?.album && (
                     <span className="audition-album">
@@ -215,6 +225,12 @@ export default function PreviewIndex() {
               </Link>
             );
           })}
+        </div>
+
+        <div className="audition-foot">
+          <Link href="/browse" className="audition-foot-cta">
+            Browse all recipes <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
 
