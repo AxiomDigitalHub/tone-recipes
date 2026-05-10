@@ -15,7 +15,6 @@ import { Guitar, Maximize2, Minimize2, Lock, Zap, Volume2, Speaker, Mic, Clock, 
 import DownloadPatchButton from "./DownloadPatchButton";
 import SettingDisplay from "@/components/settings/SettingDisplay";
 import EQCurve, { extractEQBands } from "@/components/settings/EQCurve";
-import CommunitySubmissions from "./CommunitySubmissions";
 import { usePlatformStore } from "@/lib/stores/platform-store";
 import { useAuth } from "@/lib/auth/auth-context";
 import { canViewAllPlatforms, canDownloadPresets, FREE_PLATFORM_LIMIT } from "@/lib/permissions";
@@ -245,6 +244,21 @@ function NodeDetailDrawer({
   onClose: () => void;
 }) {
   const isOpen = !!(node || platformBlock);
+  const drawerRef = useRef<HTMLDivElement>(null);
+
+  // When the drawer opens, scroll it into view. Without this the click
+  // looks like a dead click — the drawer expands 500px tall below the
+  // chain row, which on most viewports lands offscreen. Accounts for 24%
+  // dead-click rate per Clarity audit 2026-05-10.
+  useEffect(() => {
+    if (!isOpen) return;
+    const el = drawerRef.current;
+    if (!el) return;
+    // Delay one frame so the expand transition starts; then scroll.
+    requestAnimationFrame(() => {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  }, [isOpen, node?.gear_name, platformBlock?.block_name]);
   const color = platformColor || node?.icon_color || "#f59e0b";
   const name = node?.gear_name || platformBlock?.block_name || "";
   const settings = node?.settings || platformBlock?.settings || {};
@@ -258,6 +272,7 @@ function NodeDetailDrawer({
 
   return (
     <div
+      ref={drawerRef}
       className={`border-t-2 bg-background/95 shadow-lg border-accent/20 overflow-hidden transition-all duration-300 ${
         isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
       }`}
@@ -956,11 +971,6 @@ export default function UnifiedChainView({
         platformColor={activePlatformMeta?.color}
         onClose={() => setSelectedNodeIndex(null)}
       />
-
-      {/* Community submissions */}
-      {recipeSlug && (
-        <CommunitySubmissions recipeSlug={recipeSlug} platform={activeTab === "pedalboard" ? "pedalboard" : activeTab} />
-      )}
     </div>
   );
 }
