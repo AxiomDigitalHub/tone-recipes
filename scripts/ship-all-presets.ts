@@ -1,6 +1,6 @@
 /**
  * Generate .hlx files for every recipe in the data file that has a
- * Helix platform translation, and ship them all to public/presets/.
+ * Helix platform translation, and ship them all to presets/.
  *
  * Usage:
  *   npx tsx scripts/ship-all-presets.ts             # full sweep
@@ -9,7 +9,7 @@
  * The script walks `toneRecipes` from src/lib/data/index.ts, filters
  * to recipes with a `platform_translations.helix` block, runs each
  * through `generateHelixPreset`, and writes the output to
- * `public/presets/<recipe-slug>.hlx`.
+ * `presets/<recipe-slug>.hlx`.
  *
  * Failures (skipped blocks, no helix translation, etc.) are logged
  * but don't abort the run. The summary at the end lists every preset
@@ -21,7 +21,7 @@ import { generateHelixPreset } from "../src/lib/helix/generate-hlx";
 import { toneRecipes } from "../src/lib/data";
 
 const DRY_RUN = process.argv.includes("--dry-run");
-const PRESETS_DIR = path.join(process.cwd(), "public", "presets");
+const PRESETS_DIR = path.join(process.cwd(), "presets");
 fs.mkdirSync(PRESETS_DIR, { recursive: true });
 
 const written: string[] = [];

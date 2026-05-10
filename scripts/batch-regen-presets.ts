@@ -1,5 +1,5 @@
 /**
- * Batch-regenerate every .hlx in public/presets/ from the current
+ * Batch-regenerate every .hlx in presets/ from the current
  * recipe data, run a deterministic QC pass against the output, and
  * print a summary.
  *
@@ -25,7 +25,7 @@ import { generateHelixPreset } from "../src/lib/helix/generate-hlx";
 import { resolveModelId } from "../src/lib/helix/model-map";
 import { getRecipeBySlug, toneRecipes } from "../src/lib/data";
 
-const PRESETS_DIR = path.join(process.cwd(), "public", "presets");
+const PRESETS_DIR = path.join(process.cwd(), "presets");
 const DRY_RUN = process.argv.includes("--dry-run");
 
 interface QcFinding {
@@ -146,7 +146,7 @@ function resolveSlug(filename: string): string | null {
 }
 
 const hlxFiles = fs.readdirSync(PRESETS_DIR).filter((f) => f.endsWith(".hlx"));
-console.log(`\nFound ${hlxFiles.length} .hlx files in public/presets/\n`);
+console.log(`\nFound ${hlxFiles.length} .hlx files in presets/\n`);
 
 let regenerated = 0;
 let skipped = 0;

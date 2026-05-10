@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { track } from "@/lib/analytics";
+import PresetDownloadButton from "@/components/recipe/PresetDownloadButton";
 
 interface Props {
   slug: string;
@@ -13,8 +13,7 @@ interface Props {
  * Floating "Download" chip that appears once the user scrolls past the
  * platform-switcher row, so the preset is always one click away on
  * long recipe pages. Fixed bottom-right on desktop, full-width pinned
- * bottom on mobile. Shows the .hlx / .tsl link for the active
- * platform; for unsupported platforms we hide the chip entirely.
+ * bottom on mobile. Hidden for platforms without a downloadable preset.
  *
  * Uses an IntersectionObserver on `#recipe-platform-switcher` so the
  * chip only shows when the in-page button is offscreen.
@@ -33,37 +32,22 @@ export default function RecipeDownloadChip({ slug, platform }: Props) {
     return () => obs.disconnect();
   }, []);
 
-  let presetHref: string | null = null;
-  let presetLabel: string | null = null;
-  if (platform === "helix") {
-    presetHref = `/presets/${slug}.hlx`;
-    presetLabel = "Download .hlx";
-  } else if (platform === "katana") {
-    presetHref = `/presets/${slug}.tsl`;
-    presetLabel = "Download .tsl";
-  }
-
-  if (!presetHref) return null;
+  const format: "hlx" | "tsl" | null =
+    platform === "helix" ? "hlx" : platform === "katana" ? "tsl" : null;
+  if (!format) return null;
 
   return (
     <div
       className={`recipe-dl-chip ${visible ? "is-visible" : ""}`}
       aria-hidden={!visible}
     >
-      <a
-        href={presetHref}
-        download
+      <PresetDownloadButton
+        recipeSlug={slug}
+        format={format}
+        source="floating_chip"
         className="recipe-dl-chip-btn"
-        onClick={() =>
-          track("recipe_download_click", {
-            recipe_slug: slug,
-            format: platform === "helix" ? "hlx" : "tsl",
-            source: "floating_chip",
-          })
-        }
-      >
-        {presetLabel} ↓
-      </a>
+        label={`Download .${format} ↓`}
+      />
     </div>
   );
 }

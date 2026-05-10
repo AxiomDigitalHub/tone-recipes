@@ -4,6 +4,7 @@ import Footer from "@/components/layout/Footer";
 import SiteSubnav from "@/components/layout/SiteSubnav";
 import LazySearchPalette from "@/components/search/LazySearchPalette";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import Toaster from "@/components/ui/Toaster";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -120,6 +121,7 @@ export default function RootLayout({
             <main id="main-content" className="flex-1">{children}</main>
             <Footer />
           </div>
+          <Toaster />
         </AuthProvider>
         <SmoothScroll />
         <Analytics />

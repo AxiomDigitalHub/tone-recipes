@@ -13,7 +13,7 @@ import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
 import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
 import RecipePdfButton from "@/components/v3/RecipePdfButton";
 import RecipeDownloadChip from "@/components/v3/RecipeDownloadChip";
-import TrackedDownloadAnchor from "@/components/analytics/TrackedDownloadAnchor";
+import PresetDownloadButton from "@/components/recipe/PresetDownloadButton";
 import RecipeUpgradePrompt from "@/components/recipe/RecipeUpgradePrompt";
 import RecipeCompatibility from "@/components/recipe/RecipeCompatibility";
 import RecipeInteractions from "./RecipeInteractions";
@@ -295,28 +295,20 @@ export default async function PreviewRecipePage({
           </div>
           <div className="platform-switcher-exports">
             {platform === "helix" && (
-              <TrackedDownloadAnchor
-                href={`/presets/${recipe.slug}.hlx`}
-                download
-                className="export"
+              <PresetDownloadButton
                 recipeSlug={recipe.slug}
                 format="hlx"
                 source="platform_switcher"
-              >
-                Download .hlx ↓
-              </TrackedDownloadAnchor>
+                className="export"
+              />
             )}
             {platform === "katana" && (
-              <TrackedDownloadAnchor
-                href={`/presets/${recipe.slug}.tsl`}
-                download
-                className="export"
+              <PresetDownloadButton
                 recipeSlug={recipe.slug}
                 format="tsl"
                 source="platform_switcher"
-              >
-                Download .tsl ↓
-              </TrackedDownloadAnchor>
+                className="export"
+              />
             )}
             <RecipePdfButton slug={recipe.slug} />
           </div>
