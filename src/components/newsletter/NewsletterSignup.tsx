@@ -66,11 +66,11 @@ export default function NewsletterSignup({
 
   if (variant === "banner") {
     return (
-      <div className={`rounded-xl border border-accent/20 bg-accent/5 p-6 sm:p-8 ${className}`}>
+      <div className={`rounded-xl border border-[var(--amber)]/20 bg-[var(--amber)]/5 p-6 sm:p-8 ${className}`}>
         <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
           <div className="flex-1">
-            <h3 className="text-lg font-bold text-foreground">{headline}</h3>
-            <p className="mt-1 text-sm text-muted">{subtext}</p>
+            <h3 className="text-lg font-bold text-[var(--ink)]">{headline}</h3>
+            <p className="mt-1 text-sm text-[var(--ink-muted)]">{subtext}</p>
           </div>
           <form onSubmit={handleSubmit} className="flex w-full gap-2 sm:w-auto">
             <input
@@ -79,12 +79,12 @@ export default function NewsletterSignup({
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your@email.com"
               required
-              className="w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none sm:w-64"
+              className="w-full rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] px-4 py-2.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber)] focus:outline-none sm:w-64"
             />
             <button
               type="submit"
               disabled={status === "loading"}
-              className="shrink-0 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-background hover:bg-accent-hover disabled:opacity-50"
+              className="shrink-0 rounded-lg bg-[var(--amber)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)] hover:bg-[var(--amber-2)] disabled:opacity-50"
             >
               {status === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : buttonText}
             </button>
@@ -98,8 +98,8 @@ export default function NewsletterSignup({
   if (variant === "footer") {
     return (
       <div className={className}>
-        <h4 className="text-sm font-semibold text-foreground">{headline}</h4>
-        <p className="mt-1 text-xs text-muted">{subtext}</p>
+        <h4 className="text-sm font-semibold text-[var(--ink)]">{headline}</h4>
+        <p className="mt-1 text-xs text-[var(--ink-muted)]">{subtext}</p>
         <form onSubmit={handleSubmit} className="mt-3 flex gap-2">
           <input
             type="email"
@@ -107,12 +107,12 @@ export default function NewsletterSignup({
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email.com"
             required
-            className="flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none"
+            className="flex-1 rounded-lg border border-[var(--ink)]/15 bg-[var(--paper)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber)] focus:outline-none"
           />
           <button
             type="submit"
             disabled={status === "loading"}
-            className="shrink-0 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background hover:bg-accent-hover disabled:opacity-50"
+            className="shrink-0 rounded-lg bg-[var(--amber)] px-4 py-2 text-sm font-semibold text-[var(--ink)] hover:bg-[var(--amber-2)] disabled:opacity-50"
           >
             {status === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : buttonText}
           </button>
@@ -124,12 +124,12 @@ export default function NewsletterSignup({
 
   // Default: card variant
   return (
-    <div className={`rounded-2xl border border-border bg-surface p-8 text-center sm:p-10 ${className}`}>
-      <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-accent/10">
-        <Mail className="h-6 w-6 text-accent" />
+    <div className={`rounded-2xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-8 text-center sm:p-10 ${className}`}>
+      <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[var(--amber)]/10">
+        <Mail className="h-6 w-6 text-[var(--amber-2)]" />
       </div>
-      <h3 className="mt-4 text-xl font-bold text-foreground">{headline}</h3>
-      <p className="mx-auto mt-2 max-w-md text-sm text-muted">{subtext}</p>
+      <h3 className="mt-4 text-xl font-bold text-[var(--ink)]">{headline}</h3>
+      <p className="mx-auto mt-2 max-w-md text-sm text-[var(--ink-muted)]">{subtext}</p>
       <form onSubmit={handleSubmit} className="mx-auto mt-6 flex max-w-sm flex-col gap-3 sm:flex-row">
         <input
           type="email"
@@ -137,12 +137,12 @@ export default function NewsletterSignup({
           onChange={(e) => setEmail(e.target.value)}
           placeholder="your@email.com"
           required
-          className="flex-1 rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+          className="flex-1 rounded-lg border border-[var(--ink)]/15 bg-[var(--paper)] px-4 py-3 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber)] focus:outline-none focus:ring-1 focus:ring-[var(--amber)]"
         />
         <button
           type="submit"
           disabled={status === "loading"}
-          className="shrink-0 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-accent-hover disabled:opacity-50"
+          className="shrink-0 rounded-lg bg-[var(--amber)] px-6 py-3 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] disabled:opacity-50"
         >
           {status === "loading" ? <Loader2 className="mx-auto h-4 w-4 animate-spin" /> : buttonText}
         </button>

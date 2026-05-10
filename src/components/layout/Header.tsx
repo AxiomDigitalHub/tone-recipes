@@ -52,12 +52,12 @@ export default function Header() {
     : "";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-20 focus:z-[60] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-background">Skip to content</a>
+    <header className="sticky top-0 z-50 border-b border-[var(--ink)]/15 bg-[var(--paper)]/80 backdrop-blur-md">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-20 focus:z-[60] focus:rounded-lg focus:bg-[var(--amber)] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[var(--ink)]">Skip to content</a>
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-accent" style={{ letterSpacing: "-0.02em" }}>Fader &amp; Knob</span>
+          <span className="text-xl font-bold text-[var(--amber-2)]" style={{ letterSpacing: "-0.02em" }}>Fader &amp; Knob</span>
         </Link>
 
         {/* Desktop nav */}
@@ -66,7 +66,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted transition-colors hover:text-foreground"
+              className="text-sm font-medium text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
             >
               {link.label}
             </Link>
@@ -78,7 +78,7 @@ export default function Header() {
           <PlatformPicker />
           <button
             onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
-            className="flex items-center gap-2 rounded-lg border border-border bg-surface px-3 py-1.5 text-sm text-muted transition-colors hover:text-foreground"
+            className="flex items-center gap-2 rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] px-3 py-1.5 text-sm text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
           >
             <svg
               className="h-4 w-4"
@@ -94,7 +94,7 @@ export default function Header() {
               />
             </svg>
             <span>Search</span>
-            <kbd className="rounded border border-border bg-background px-1.5 py-0.5 text-xs">
+            <kbd className="rounded border border-[var(--ink)]/15 bg-[var(--paper)] px-1.5 py-0.5 text-xs">
               &#8984;K
             </kbd>
           </button>
@@ -110,64 +110,64 @@ export default function Header() {
               aria-hidden="true"
               aria-busy="true"
             >
-              <div className="h-4 w-12 animate-pulse rounded bg-surface" />
-              <div className="h-9 w-[74px] animate-pulse rounded-lg bg-surface" />
+              <div className="h-4 w-12 animate-pulse rounded bg-[var(--paper-2)]" />
+              <div className="h-9 w-[74px] animate-pulse rounded-lg bg-[var(--paper-2)]" />
             </div>
           ) : user ? (
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-xs font-bold text-background transition-opacity hover:opacity-90"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--amber)] text-xs font-bold text-[var(--ink)] transition-opacity hover:opacity-90"
                 aria-label="User menu"
               >
                 {initials}
               </button>
 
               {dropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 rounded-lg border border-border bg-surface py-1 shadow-xl">
-                  <p className="truncate px-4 py-2 text-xs text-muted">
+                <div className="absolute right-0 mt-2 w-48 rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] py-1 shadow-xl">
+                  <p className="truncate px-4 py-2 text-xs text-[var(--ink-muted)]">
                     {user.email}
                   </p>
-                  <hr className="border-border" />
+                  <hr className="border-[var(--ink)]/15" />
                   <Link
                     href="/dashboard"
                     onClick={() => setDropdownOpen(false)}
-                    className="block px-4 py-2 text-sm text-foreground transition-colors hover:bg-surface-hover"
+                    className="block px-4 py-2 text-sm text-[var(--ink)] transition-colors hover:bg-[var(--paper)]"
                   >
                     Dashboard
                   </Link>
                   <Link
                     href="/dashboard/saved"
                     onClick={() => setDropdownOpen(false)}
-                    className="block px-4 py-2 text-sm text-foreground transition-colors hover:bg-surface-hover"
+                    className="block px-4 py-2 text-sm text-[var(--ink)] transition-colors hover:bg-[var(--paper)]"
                   >
                     Saved Recipes
                   </Link>
                   <Link
                     href="/dashboard/my-gear"
                     onClick={() => setDropdownOpen(false)}
-                    className="block px-4 py-2 text-sm text-foreground transition-colors hover:bg-surface-hover"
+                    className="block px-4 py-2 text-sm text-[var(--ink)] transition-colors hover:bg-[var(--paper)]"
                   >
                     My Gear
                   </Link>
                   <Link
                     href="/dashboard/my-recipes"
                     onClick={() => setDropdownOpen(false)}
-                    className="block px-4 py-2 text-sm text-foreground transition-colors hover:bg-surface-hover"
+                    className="block px-4 py-2 text-sm text-[var(--ink)] transition-colors hover:bg-[var(--paper)]"
                   >
                     My Recipes
                   </Link>
                   <Link
                     href="/dashboard/notifications"
                     onClick={() => setDropdownOpen(false)}
-                    className="block px-4 py-2 text-sm text-foreground transition-colors hover:bg-surface-hover"
+                    className="block px-4 py-2 text-sm text-[var(--ink)] transition-colors hover:bg-[var(--paper)]"
                   >
                     Notifications
                   </Link>
-                  <hr className="border-border" />
+                  <hr className="border-[var(--ink)]/15" />
                   <button
                     onClick={handleSignOut}
-                    className="w-full px-4 py-2 text-left text-sm text-muted transition-colors hover:bg-surface-hover hover:text-foreground"
+                    className="w-full px-4 py-2 text-left text-sm text-[var(--ink-muted)] transition-colors hover:bg-[var(--paper)] hover:text-[var(--ink)]"
                   >
                     Sign Out
                   </button>
@@ -178,13 +178,13 @@ export default function Header() {
             <>
               <Link
                 href="/login"
-                className="text-sm font-medium text-muted transition-colors hover:text-foreground"
+                className="text-sm font-medium text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
               >
                 Log in
               </Link>
               <Link
                 href="/signup"
-                className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+                className="rounded-lg bg-[var(--amber)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
               >
                 Sign up
               </Link>
@@ -197,7 +197,7 @@ export default function Header() {
           <button
             onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
             aria-label="Search"
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-muted transition-colors hover:text-foreground active:bg-surface-hover"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)] active:bg-[var(--paper)]"
           >
             <Search className="h-5 w-5" />
           </button>
@@ -207,7 +207,7 @@ export default function Header() {
             aria-expanded={mobileOpen}
           >
           <svg
-            className="h-6 w-6 text-foreground"
+            className="h-6 w-6 text-[var(--ink)]"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -224,68 +224,68 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-border bg-background px-4 pb-4 md:hidden">
+        <div className="border-t border-[var(--ink)]/15 bg-[var(--paper)] px-4 pb-4 md:hidden">
           <nav aria-label="Mobile navigation" className="flex flex-col gap-3 pt-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-muted transition-colors hover:text-foreground"
+                className="text-sm font-medium text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
             <div className="flex items-center gap-2">
-              <span className="text-xs text-muted">My Platform:</span>
+              <span className="text-xs text-[var(--ink-muted)]">My Platform:</span>
               <PlatformPicker />
             </div>
-            <hr className="border-border" />
+            <hr className="border-[var(--ink)]/15" />
 
             {loading ? (
               <div className="flex flex-col gap-2" aria-hidden="true" aria-busy="true">
-                <div className="h-4 w-16 animate-pulse rounded bg-surface" />
-                <div className="h-10 w-full animate-pulse rounded-lg bg-surface" />
+                <div className="h-4 w-16 animate-pulse rounded bg-[var(--paper-2)]" />
+                <div className="h-10 w-full animate-pulse rounded-lg bg-[var(--paper-2)]" />
               </div>
             ) : user ? (
               <>
                 <div className="flex items-center gap-3 py-1">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-xs font-bold text-background">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--amber)] text-xs font-bold text-[var(--ink)]">
                     {initials}
                   </div>
-                  <span className="truncate text-sm text-muted">
+                  <span className="truncate text-sm text-[var(--ink-muted)]">
                     {user.email}
                   </span>
                 </div>
                 <Link
                   href="/dashboard"
-                  className="text-sm font-medium text-muted"
+                  className="text-sm font-medium text-[var(--ink-muted)]"
                   onClick={() => setMobileOpen(false)}
                 >
                   Dashboard
                 </Link>
                 <Link
                   href="/dashboard/saved"
-                  className="text-sm font-medium text-muted"
+                  className="text-sm font-medium text-[var(--ink-muted)]"
                   onClick={() => setMobileOpen(false)}
                 >
                   Saved Recipes
                 </Link>
                 <button
                   onClick={handleSignOut}
-                  className="text-left text-sm font-medium text-muted"
+                  className="text-left text-sm font-medium text-[var(--ink-muted)]"
                 >
                   Sign Out
                 </button>
               </>
             ) : (
               <>
-                <Link href="/login" className="text-sm font-medium text-muted" onClick={() => setMobileOpen(false)}>
+                <Link href="/login" className="text-sm font-medium text-[var(--ink-muted)]" onClick={() => setMobileOpen(false)}>
                   Log in
                 </Link>
                 <Link
                   href="/signup"
-                  className="rounded-lg bg-accent px-4 py-2 text-center text-sm font-semibold text-background"
+                  className="rounded-lg bg-[var(--amber)] px-4 py-2 text-center text-sm font-semibold text-[var(--ink)]"
                   onClick={() => setMobileOpen(false)}
                 >
                   Sign up

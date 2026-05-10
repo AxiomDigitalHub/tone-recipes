@@ -156,13 +156,13 @@ export default function SignupPromptModal({
       />
 
       {/* Modal panel */}
-      <div className="relative w-full max-w-sm rounded-2xl border border-border bg-surface p-6 shadow-2xl">
+      <div className="relative w-full max-w-sm rounded-2xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-6 shadow-2xl">
         {/* Close button */}
         <button
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-3 top-3 rounded-lg p-1.5 text-muted transition-colors hover:bg-surface-hover hover:text-foreground"
+          className="absolute right-3 top-3 rounded-lg p-1.5 text-[var(--ink-muted)] transition-colors hover:bg-[var(--paper)] hover:text-[var(--ink)]"
         >
           <X className="h-4 w-4" />
         </button>
@@ -171,12 +171,12 @@ export default function SignupPromptModal({
         <div className="mb-4">
           <h2
             id="signup-prompt-title"
-            className="text-lg font-bold text-foreground"
+            className="text-lg font-bold text-[var(--ink)]"
           >
             Create a free account
           </h2>
           {reason && (
-            <p className="mt-1 text-sm text-muted">{reason}</p>
+            <p className="mt-1 text-sm text-[var(--ink-muted)]">{reason}</p>
           )}
         </div>
 
@@ -188,8 +188,8 @@ export default function SignupPromptModal({
             "Takes about 20 seconds",
           ].map((bullet) => (
             <li key={bullet} className="flex items-start gap-2">
-              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" />
-              <span className="text-foreground">{bullet}</span>
+              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--amber-2)]" />
+              <span className="text-[var(--ink)]">{bullet}</span>
             </li>
           ))}
         </ul>
@@ -206,7 +206,7 @@ export default function SignupPromptModal({
           <button
             type="button"
             onClick={handleGoogle}
-            className="flex w-full items-center justify-center gap-2 rounded-lg border border-border bg-[#0b0f1a] py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface-hover"
+            className="flex w-full items-center justify-center gap-2 rounded-lg border border-[var(--ink)]/15 bg-[#0b0f1a] py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper)]"
           >
             <svg className="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -234,16 +234,16 @@ export default function SignupPromptModal({
         {!isDemoMode && !showEmailForm && (
           <>
             <div className="my-3 flex items-center gap-3">
-              <div className="h-px flex-1 bg-border" />
-              <span className="text-[10px] uppercase tracking-wider text-muted">
+              <div className="h-px flex-1 bg-[var(--ink)]/15" />
+              <span className="text-[10px] uppercase tracking-wider text-[var(--ink-muted)]">
                 or
               </span>
-              <div className="h-px flex-1 bg-border" />
+              <div className="h-px flex-1 bg-[var(--ink)]/15" />
             </div>
             <button
               type="button"
               onClick={() => setShowEmailForm(true)}
-              className="flex w-full items-center justify-center gap-2 rounded-lg py-2 text-xs font-medium text-muted transition-colors hover:text-foreground"
+              className="flex w-full items-center justify-center gap-2 rounded-lg py-2 text-xs font-medium text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
             >
               <Mail className="h-3.5 w-3.5" />
               Use email instead
@@ -258,11 +258,11 @@ export default function SignupPromptModal({
           >
             {!isDemoMode && (
               <div className="flex items-center gap-3">
-                <div className="h-px flex-1 bg-border" />
-                <span className="text-[10px] uppercase tracking-wider text-muted">
+                <div className="h-px flex-1 bg-[var(--ink)]/15" />
+                <span className="text-[10px] uppercase tracking-wider text-[var(--ink-muted)]">
                   or with email
                 </span>
-                <div className="h-px flex-1 bg-border" />
+                <div className="h-px flex-1 bg-[var(--ink)]/15" />
               </div>
             )}
 
@@ -273,7 +273,7 @@ export default function SignupPromptModal({
               placeholder="you@email.com"
               autoComplete="email"
               autoFocus
-              className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent"
+              className="w-full rounded-lg border border-[var(--ink)]/15 bg-[var(--paper)] px-3 py-2 text-sm text-[var(--ink)] outline-none focus:border-[var(--amber)]"
             />
 
             {!isDemoMode && (
@@ -285,12 +285,12 @@ export default function SignupPromptModal({
                   placeholder={`Password (${MIN_PASSWORD_LENGTH}+ characters)`}
                   autoComplete="new-password"
                   minLength={MIN_PASSWORD_LENGTH}
-                  className="w-full rounded-lg border border-border bg-background px-3 py-2 pr-14 text-sm text-foreground outline-none focus:border-accent"
+                  className="w-full rounded-lg border border-[var(--ink)]/15 bg-[var(--paper)] px-3 py-2 pr-14 text-sm text-[var(--ink)] outline-none focus:border-[var(--amber)]"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((s) => !s)}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-muted hover:text-accent"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-[var(--ink-muted)] hover:text-[var(--amber-2)]"
                 >
                   {showPassword ? "Hide" : "Show"}
                 </button>
@@ -300,16 +300,16 @@ export default function SignupPromptModal({
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-lg bg-accent py-2.5 text-sm font-semibold text-background transition-colors hover:bg-accent-hover disabled:opacity-50"
+              className="w-full rounded-lg bg-[var(--amber)] py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] disabled:opacity-50"
             >
               {loading ? "Creating account..." : "Create account"}
             </button>
           </form>
         )}
 
-        <p className="mt-4 text-center text-[11px] text-muted">
+        <p className="mt-4 text-center text-[11px] text-[var(--ink-muted)]">
           Already have an account?{" "}
-          <Link href="/login" className="text-accent hover:underline">
+          <Link href="/login" className="text-[var(--amber-2)] hover:underline">
             Log in
           </Link>
         </p>

@@ -63,11 +63,11 @@ export default function RecipeInteractions({ recipeSlug }: RecipeInteractionsPro
       {/* Rating section */}
       <section>
         <h2 className="mb-4 text-xl font-bold">Rate This Tone</h2>
-        <div className="rounded-xl border border-border bg-surface p-6">
+        <div className="rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-6">
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start sm:gap-8">
             {/* Overall rating display */}
             <div className="text-center">
-              <p className="text-4xl font-bold text-accent">
+              <p className="text-4xl font-bold text-[var(--amber-2)]">
                 {ratingLoading ? "..." : stats.average.toFixed(1)}
               </p>
               <StarRating
@@ -82,7 +82,7 @@ export default function RecipeInteractions({ recipeSlug }: RecipeInteractionsPro
             <div className="flex-1">
               {user ? (
                 <div>
-                  <p className="mb-2 text-sm text-muted">
+                  <p className="mb-2 text-sm text-[var(--ink-muted)]">
                     {userRating ? "Your rating:" : "Rate this recipe:"}
                   </p>
                   <StarRating
@@ -93,8 +93,8 @@ export default function RecipeInteractions({ recipeSlug }: RecipeInteractionsPro
                   />
                 </div>
               ) : (
-                <p className="text-sm text-muted">
-                  <a href="/login" className="text-accent hover:underline">
+                <p className="text-sm text-[var(--ink-muted)]">
+                  <a href="/login" className="text-[var(--amber-2)] hover:underline">
                     Sign in
                   </a>{" "}
                   to rate this recipe.
@@ -112,14 +112,14 @@ export default function RecipeInteractions({ recipeSlug }: RecipeInteractionsPro
                       : 0;
                   return (
                     <div key={star} className="flex items-center gap-2 text-xs">
-                      <span className="w-3 text-muted">{star}</span>
-                      <div className="h-2 flex-1 overflow-hidden rounded-full bg-border">
+                      <span className="w-3 text-[var(--ink-muted)]">{star}</span>
+                      <div className="h-2 flex-1 overflow-hidden rounded-full bg-[var(--ink)]/15">
                         <div
-                          className="h-full rounded-full bg-accent transition-all"
+                          className="h-full rounded-full bg-[var(--amber)] transition-all"
                           style={{ width: `${pct}%` }}
                         />
                       </div>
-                      <span className="w-6 text-right text-muted">
+                      <span className="w-6 text-right text-[var(--ink-muted)]">
                         {stats.distribution[star]}
                       </span>
                     </div>

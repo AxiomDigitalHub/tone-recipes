@@ -229,17 +229,17 @@ export default function SearchPalette() {
     <div className="fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-label="Search" onKeyDown={handleKeyDown}>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-background/80 backdrop-blur-sm"
+        className="fixed inset-0 bg-[var(--paper)]/80 backdrop-blur-sm"
         onClick={closeModal}
       />
 
       {/* Modal */}
       <div className="fixed inset-0 flex items-start justify-center pt-[15vh]">
-        <div className="relative w-full max-w-lg rounded-xl border border-border bg-surface shadow-2xl">
+        <div className="relative w-full max-w-lg rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] shadow-2xl">
           {/* Search input */}
-          <div className="flex items-center border-b border-border px-4">
+          <div className="flex items-center border-b border-[var(--ink)]/15 px-4">
             <svg
-              className="h-5 w-5 shrink-0 text-muted"
+              className="h-5 w-5 shrink-0 text-[var(--ink-muted)]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -261,9 +261,9 @@ export default function SearchPalette() {
               aria-autocomplete="list"
               aria-controls="search-results-listbox"
               aria-activedescendant={flatResults[activeIndex] ? `search-result-${activeIndex}` : undefined}
-              className="w-full bg-transparent p-4 text-lg text-foreground placeholder:text-muted outline-none"
+              className="w-full bg-transparent p-4 text-lg text-[var(--ink)] placeholder:text-[var(--ink-muted)] outline-none"
             />
-            <kbd className="shrink-0 rounded border border-border px-1.5 py-0.5 text-xs text-muted">
+            <kbd className="shrink-0 rounded border border-[var(--ink)]/15 px-1.5 py-0.5 text-xs text-[var(--ink-muted)]">
               Esc
             </kbd>
           </div>
@@ -272,25 +272,25 @@ export default function SearchPalette() {
           <div ref={resultsRef} id="search-results-listbox" role="listbox" aria-label="Search results" className="max-h-80 overflow-y-auto p-2">
             {query.trim() === "" && (
               <div className="px-4 py-8 text-center">
-                <p className="text-sm text-muted">
+                <p className="text-sm text-[var(--ink-muted)]">
                   Try searching for an artist, song, or gear type:
                 </p>
-                <p className="mt-2 text-sm text-muted/70">
-                  <span className="text-foreground/60">SRV</span>
+                <p className="mt-2 text-sm text-[var(--ink-faint)]">
+                  <span className="text-[var(--ink)]/60">SRV</span>
                   {" · "}
-                  <span className="text-foreground/60">Helix</span>
+                  <span className="text-[var(--ink)]/60">Helix</span>
                   {" · "}
-                  <span className="text-foreground/60">Tube Screamer</span>
+                  <span className="text-[var(--ink)]/60">Tube Screamer</span>
                   {" · "}
-                  <span className="text-foreground/60">blues</span>
+                  <span className="text-[var(--ink)]/60">blues</span>
                   {" · "}
-                  <span className="text-foreground/60">Comfortably Numb</span>
+                  <span className="text-[var(--ink)]/60">Comfortably Numb</span>
                 </p>
               </div>
             )}
 
             {query.trim() !== "" && flatResults.length === 0 && (
-              <div className="px-4 py-8 text-center text-sm text-muted">
+              <div className="px-4 py-8 text-center text-sm text-[var(--ink-muted)]">
                 No results for &lsquo;{query}&rsquo;
               </div>
             )}
@@ -299,7 +299,7 @@ export default function SearchPalette() {
               const startIndex = flatIndex;
               const section = (
                 <div key={type}>
-                  <div className="px-3 pb-1 pt-3 text-xs font-semibold uppercase tracking-wider text-muted">
+                  <div className="px-3 pb-1 pt-3 text-xs font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
                     {sectionLabels[type]}
                   </div>
                   {items.map((item, i) => {
@@ -316,23 +316,23 @@ export default function SearchPalette() {
                         data-active={isActive}
                         className={`flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors ${
                           isActive
-                            ? "border-l-2 border-accent bg-surface-hover"
-                            : "border-l-2 border-transparent hover:bg-surface-hover"
+                            ? "border-l-2 border-[var(--amber)] bg-[var(--paper)]"
+                            : "border-l-2 border-transparent hover:bg-[var(--paper)]"
                         }`}
                       >
-                        <span className="shrink-0 text-muted">
+                        <span className="shrink-0 text-[var(--ink-muted)]">
                           {sectionIcons[item.type]}
                         </span>
                         <div className="min-w-0 flex-1">
-                          <div className="truncate text-sm font-medium text-foreground">
+                          <div className="truncate text-sm font-medium text-[var(--ink)]">
                             {item.label}
                           </div>
-                          <div className="truncate text-xs text-muted">
+                          <div className="truncate text-xs text-[var(--ink-muted)]">
                             {item.description}
                           </div>
                         </div>
                         {isActive && (
-                          <kbd className="shrink-0 rounded border border-border px-1.5 py-0.5 text-[10px] text-muted">
+                          <kbd className="shrink-0 rounded border border-[var(--ink)]/15 px-1.5 py-0.5 text-[10px] text-[var(--ink-muted)]">
                             Enter
                           </kbd>
                         )}
@@ -348,25 +348,25 @@ export default function SearchPalette() {
 
           {/* Footer hint */}
           {flatResults.length > 0 && (
-            <div className="border-t border-border px-4 py-2 text-center text-xs text-muted">
+            <div className="border-t border-[var(--ink)]/15 px-4 py-2 text-center text-xs text-[var(--ink-muted)]">
               <span className="inline-flex items-center gap-2">
                 <span>
-                  <kbd className="rounded border border-border px-1 py-0.5 text-[10px]">
+                  <kbd className="rounded border border-[var(--ink)]/15 px-1 py-0.5 text-[10px]">
                     &uarr;
                   </kbd>
-                  <kbd className="ml-0.5 rounded border border-border px-1 py-0.5 text-[10px]">
+                  <kbd className="ml-0.5 rounded border border-[var(--ink)]/15 px-1 py-0.5 text-[10px]">
                     &darr;
                   </kbd>{" "}
                   to navigate
                 </span>
                 <span>
-                  <kbd className="rounded border border-border px-1 py-0.5 text-[10px]">
+                  <kbd className="rounded border border-[var(--ink)]/15 px-1 py-0.5 text-[10px]">
                     Enter
                   </kbd>{" "}
                   to select
                 </span>
                 <span>
-                  <kbd className="rounded border border-border px-1 py-0.5 text-[10px]">
+                  <kbd className="rounded border border-[var(--ink)]/15 px-1 py-0.5 text-[10px]">
                     Esc
                   </kbd>{" "}
                   to close

@@ -81,14 +81,14 @@ function CommentSkeleton() {
     <div className="animate-pulse space-y-4">
       {[1, 2, 3].map((i) => (
         <div key={i} className="flex gap-3">
-          <div className="h-8 w-8 rounded-full bg-surface" />
+          <div className="h-8 w-8 rounded-full bg-[var(--paper-2)]" />
           <div className="flex-1 space-y-2">
-            <div className="h-3 w-24 rounded bg-surface" />
-            <div className="h-4 w-full rounded bg-surface" />
-            <div className="h-4 w-3/4 rounded bg-surface" />
+            <div className="h-3 w-24 rounded bg-[var(--paper-2)]" />
+            <div className="h-4 w-full rounded bg-[var(--paper-2)]" />
+            <div className="h-4 w-3/4 rounded bg-[var(--paper-2)]" />
             <div className="flex gap-4">
-              <div className="h-3 w-12 rounded bg-surface" />
-              <div className="h-3 w-12 rounded bg-surface" />
+              <div className="h-3 w-12 rounded bg-[var(--paper-2)]" />
+              <div className="h-3 w-12 rounded bg-[var(--paper-2)]" />
             </div>
           </div>
         </div>
@@ -144,13 +144,13 @@ function CommentForm({
         onChange={(e) => setBody(e.target.value)}
         placeholder={placeholder ?? "Add a comment..."}
         rows={3}
-        className="w-full resize-y rounded-lg border border-border bg-surface px-3 py-2 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+        className="w-full resize-y rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber)] focus:outline-none focus:ring-1 focus:ring-[var(--amber)]"
       />
       <div className="flex items-center gap-2">
         <button
           type="submit"
           disabled={!body.trim() || submitting}
-          className="rounded-lg bg-accent px-4 py-1.5 text-sm font-medium text-background transition-colors hover:bg-accent-hover disabled:opacity-50 disabled:cursor-not-allowed"
+          className="rounded-lg bg-[var(--amber)] px-4 py-1.5 text-sm font-medium text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {submitting ? (
             <Loader2 className="h-4 w-4 animate-spin" />
@@ -162,7 +162,7 @@ function CommentForm({
           <button
             type="button"
             onClick={onCancel}
-            className="rounded-lg px-4 py-1.5 text-sm text-muted hover:text-foreground transition-colors"
+            className="rounded-lg px-4 py-1.5 text-sm text-[var(--ink-muted)] hover:text-[var(--ink)] transition-colors"
           >
             Cancel
           </button>
@@ -267,7 +267,7 @@ function CommentItem({
     return (
       <div className={indentClass}>
         <div className="py-2">
-          <p className="text-sm italic text-muted">[deleted]</p>
+          <p className="text-sm italic text-[var(--ink-muted)]">[deleted]</p>
         </div>
         {comment.replies.map((reply) => (
           <CommentItem
@@ -285,20 +285,20 @@ function CommentItem({
   return (
     <div className={indentClass}>
       <div
-        className={`py-3 ${depth > 0 ? "border-l-2 border-border pl-4" : ""}`}
+        className={`py-3 ${depth > 0 ? "border-l-2 border-[var(--ink)]/15 pl-4" : ""}`}
       >
         {/* Header */}
         <div className="flex items-center gap-2 mb-1">
-          <span className="text-sm font-medium text-foreground">
+          <span className="text-sm font-medium text-[var(--ink)]">
             {comment.author?.display_name ?? comment.author?.username ?? "Anonymous"}
           </span>
-          <span className="text-xs text-muted">
+          <span className="text-xs text-[var(--ink-muted)]">
             {timeAgo(comment.created_at)}
           </span>
         </div>
 
         {/* Body */}
-        <p className="text-sm text-foreground whitespace-pre-wrap mb-2">
+        <p className="text-sm text-[var(--ink)] whitespace-pre-wrap mb-2">
           {comment.body}
         </p>
 
@@ -310,8 +310,8 @@ function CommentItem({
             disabled={!user || voting}
             className={`inline-flex items-center gap-1 text-xs transition-colors ${
               userVote === "up"
-                ? "text-accent"
-                : "text-muted hover:text-foreground"
+                ? "text-[var(--amber-2)]"
+                : "text-[var(--ink-muted)] hover:text-[var(--ink)]"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
             aria-label="Upvote"
           >
@@ -326,7 +326,7 @@ function CommentItem({
             className={`inline-flex items-center gap-1 text-xs transition-colors ${
               userVote === "down"
                 ? "text-red-400"
-                : "text-muted hover:text-foreground"
+                : "text-[var(--ink-muted)] hover:text-[var(--ink)]"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
             aria-label="Downvote"
           >
@@ -338,7 +338,7 @@ function CommentItem({
             <button
               type="button"
               onClick={() => setReplyOpen((v) => !v)}
-              className="inline-flex items-center gap-1 text-xs text-muted hover:text-foreground transition-colors"
+              className="inline-flex items-center gap-1 text-xs text-[var(--ink-muted)] hover:text-[var(--ink)] transition-colors"
             >
               <MessageSquare className="h-3.5 w-3.5" />
               Reply
@@ -419,14 +419,14 @@ export default function CommentSection({ recipeSlug }: CommentSectionProps) {
 
   return (
     <section className="space-y-6">
-      <h3 className="text-lg font-semibold text-foreground">Comments</h3>
+      <h3 className="text-lg font-semibold text-[var(--ink)]">Comments</h3>
 
       {/* Top-level form */}
       {user ? (
         <CommentForm onSubmit={handleTopLevelSubmit} />
       ) : (
-        <div className="rounded-lg border border-border bg-surface px-4 py-3 text-sm text-muted">
-          <a href="/login" className="text-accent hover:underline">
+        <div className="rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] px-4 py-3 text-sm text-[var(--ink-muted)]">
+          <a href="/login" className="text-[var(--amber-2)] hover:underline">
             Sign in
           </a>{" "}
           to leave a comment.
@@ -439,7 +439,7 @@ export default function CommentSection({ recipeSlug }: CommentSectionProps) {
       ) : error ? (
         <p className="text-sm text-red-400">{error}</p>
       ) : tree.length === 0 ? (
-        <p className="text-sm text-muted py-4">
+        <p className="text-sm text-[var(--ink-muted)] py-4">
           No comments yet — be the first!
         </p>
       ) : (
