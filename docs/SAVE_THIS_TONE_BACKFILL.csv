@@ -17,7 +17,7 @@ best-frfr-speakers-for-modelers,freeform,/browse?platform=helix,platform tag 'he
 best-helix-amp-models-blues,freeform,/browse?platform=helix,platform tag 'helix'
 best-katana-settings-tube-amp,freeform,/browse?platform=katana,platform tag 'boss-katana'
 best-modeler-under-500,freeform,/browse?platform=helix,platform tag 'hx-stomp'
-big-muff-settings-guide,freeform,/browse?artist=david-gilmour,artist tag 'david-gilmour' → 3 recipes
+big-muff-settings-guide,recipe,/recipe/gilmour-comfortably-numb-solo,artist tag 'david-gilmour' → gilmour-comfortably-numb-solo
 big-muff-vs-fuzz-face,freeform,/browse?tag=fuzz,tone tag 'big-muff'
 blues-driver-bd2-settings-guide,freeform,/browse?tag=blues,tone tag 'blues'
 blues-driver-clones,freeform,/browse,fallback (no matching tag)
@@ -39,7 +39,7 @@ complete-guide-guitar-amp-types,freeform,/browse,fallback (no matching tag)
 compressor-pedal-settings-guide,freeform,/browse?tag=clean,tone tag 'country'
 compressor-ruining-country-tone,freeform,/browse,fallback (no matching tag)
 country-telecaster-tone-settings,freeform,/browse,fallback (no matching tag)
-delay-pedal-settings-guide,recipe,/recipe/edge-where-the-streets-have-no-name,artist tag 'the-edge' → single recipe
+delay-pedal-settings-guide,recipe,/recipe/edge-where-the-streets-have-no-name,artist tag 'the-edge' → edge-where-the-streets-have-no-name
 delay-time-bpm-calculator,freeform,/browse,fallback (no matching tag)
 delay-types-analog-digital-tape,freeform,/browse,fallback (no matching tag)
 diy-pedal-starter-guide,freeform,/browse,fallback (no matching tag)
@@ -76,7 +76,7 @@ hx-stomp-polarity-trick,freeform,/browse?platform=helix,platform tag 'hx-stomp'
 hx-stomp-vs-helix-lt-worship,freeform,/browse,fallback (no matching tag)
 hybrid-acoustic-pickup-comparison,freeform,/browse,fallback (no matching tag)
 hybrid-picking-exercises-four-moves,freeform,/browse,fallback (no matching tag)
-hybrid-picking-rock-blues,recipe,/recipe/knopfler-sultans-of-swing-clean,artist tag 'mark-knopfler' → single recipe
+hybrid-picking-rock-blues,recipe,/recipe/knopfler-sultans-of-swing-clean,artist tag 'mark-knopfler' → knopfler-sultans-of-swing-clean
 iem-mix-guitar-compression,freeform,/browse?platform=helix,platform tag 'helix'
 impedance-buffers-fuzz,freeform,/browse?tag=fuzz,tone tag 'fuzz'
 impulse-response-ir-guide,freeform,/browse?platform=helix,platform tag 'helix'
@@ -138,7 +138,7 @@ stacking-reverbs-guide,freeform,/browse?tag=clean,tone tag 'ambient'
 stacking-ts-and-klon-into-marshall,freeform,/browse?genre=classic-rock,genre tag 'classic-rock'
 stereo-signal-chain-architecture,freeform,/browse?platform=quad_cortex,platform tag 'quad-cortex'
 stop-feedback-stage-physics,freeform,/browse,fallback (no matching tag)
-the-edge-delay-settings,recipe,/recipe/edge-where-the-streets-have-no-name,artist tag 'the-edge' → single recipe
+the-edge-delay-settings,recipe,/recipe/edge-where-the-streets-have-no-name,artist tag 'the-edge' → edge-where-the-streets-have-no-name
 timmy-vs-tumnus,freeform,/browse,fallback (no matching tag)
 tremolo-arm-techniques,freeform,/browse,fallback (no matching tag)
 ts808-klon-rat-humbuckers,freeform,/browse,fallback (no matching tag)

@@ -1,44 +1,28 @@
-import { Bookmark, Download, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getRecipeBySlug, getSongBySlug, getArtistBySlug } from "@/lib/data";
 import TrackedLink from "@/components/analytics/TrackedLink";
 
 /**
- * <SaveThisTone> — end-of-post CTA that converts editorial traffic into
- * preset-library traffic. Built for the 2026-04-17 content-strategy sprint:
- * the Phase 4 audit found that only 1 of 12 audited tone-recipe posts
- * linked to /browse, and zero ended with "save this preset" language.
+ * <SaveThisTone> — end-of-post CTA. Two variants:
  *
- * Drop this at the end of any tone-recipe blog post. Two variants:
- *
- *   1. Recipe-linked: pass `recipeSlug` — the CTA links to the live recipe
- *      page and pulls the recipe's title + artist for the heading. Preferred
- *      for posts that discuss a specific recipe in the library.
+ *   1. Recipe-linked: pass `recipeSlug` — the CTA links to the recipe page
+ *      and pulls song/artist for the heading.
  *
  *        <SaveThisTone recipeSlug="srv-pride-and-joy-rhythm" />
  *
- *   2. Freeform: pass `title` + `description` + `href` manually. Use when
- *      the post references a tone the library doesn't have a recipe for
- *      yet, or for thematic roundups that link to /browse.
+ *   2. Freeform: pass `title` + `description` + `href` manually. Use for
+ *      thematic links to /browse filters.
  *
- *        <SaveThisTone
- *          title="Start your own high-gain preset"
- *          description="Open the Fortin NTS model in the Helix, load the Drop-B starter, and tune it to your rig."
- *          href="/browse?platform=helix&tag=high-gain"
- *        />
+ * Styled with raw v3 paper/ink/amber CSS vars so it renders correctly
+ * inside `.fk-preview .post-body` (the editorial blog body) and would
+ * still degrade gracefully outside it.
  */
 
 export interface SaveThisToneProps {
-  /** When provided, pulls the recipe's live data (title, artist, platforms). */
   recipeSlug?: string;
-  /** Override or freeform: title shown in the card. */
   title?: string;
-  /** Override or freeform: description/subhead. */
   description?: string;
-  /** Override or freeform: primary CTA link. Defaults to /recipe/[slug] when
-   *  `recipeSlug` is given, or /browse otherwise. */
   href?: string;
-  /** Primary CTA label. Default "Open the recipe" for recipe-linked,
-   *  "Browse presets" for freeform. */
   ctaLabel?: string;
 }
 
@@ -49,7 +33,6 @@ export default function SaveThisTone({
   href,
   ctaLabel,
 }: SaveThisToneProps) {
-  // Recipe-linked path: enrich the card with data from the recipe file.
   let resolvedTitle = title;
   let resolvedDescription = description;
   let resolvedHref = href;
@@ -64,89 +47,109 @@ export default function SaveThisTone({
 
       resolvedTitle =
         title ??
-        (artist && song
-          ? `${song.title} — ${artist.name}`
-          : recipe.title);
+        (artist && song ? `${song.title} — ${artist.name}` : recipe.title);
       resolvedDescription =
         description ??
-        "Signal chain, exact settings, and Helix + Katana presets — saved in your library for the next time you pick up the guitar.";
+        "The full chain, exact settings, and a preset you can load.";
       resolvedHref = href ?? `/recipe/${recipe.slug}`;
       resolvedCtaLabel = ctaLabel ?? "Open the recipe";
       platforms = Object.keys(recipe.platform_translations ?? {});
     }
   }
 
-  // Fallback for freeform / unresolvable recipe
-  const finalTitle = resolvedTitle ?? "Save this tone";
+  const finalTitle = resolvedTitle ?? "Pick a tone to chase";
   const finalDescription =
     resolvedDescription ??
-    "Get the full preset and signal chain — saved to your library, ready whenever you pick up the guitar.";
+    "Every recipe in the catalog has the chain, exact settings, and a preset you can load.";
   const finalHref = resolvedHref ?? "/browse";
-  const finalCtaLabel = resolvedCtaLabel ?? "Browse presets";
+  const finalCtaLabel = resolvedCtaLabel ?? "Browse the catalog";
 
   return (
-    <section className="mx-auto my-14 max-w-3xl rounded-2xl border border-accent/30 bg-accent/5 p-6 md:p-8">
-      <div className="flex items-start gap-3">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent">
-          <Bookmark className="h-5 w-5" />
-        </div>
-        <div className="flex-1">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-accent/80">
-            Save this tone
-          </p>
-          <h2 className="mt-1 text-lg font-bold text-foreground md:text-xl">
-            {finalTitle}
-          </h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted">
-            {finalDescription}
-          </p>
+    <aside
+      className="my-12"
+      style={{
+        borderTop: "3px solid var(--ink, #0A0908)",
+        borderBottom: "1px solid var(--paper-line, rgba(10,9,8,0.12))",
+        paddingTop: "20px",
+        paddingBottom: "24px",
+      }}
+    >
+      <p
+        className="text-[10px] font-bold uppercase tracking-[0.2em]"
+        style={{ color: "var(--amber-2, #B37A1D)" }}
+      >
+        Save this tone
+      </p>
+      <h2
+        className="display mt-2 text-2xl md:text-3xl"
+        style={{ color: "var(--ink, #0A0908)", lineHeight: 1.15 }}
+      >
+        {finalTitle}
+      </h2>
+      <p
+        className="mt-2 max-w-2xl text-base leading-relaxed"
+        style={{ color: "var(--ink-muted, #5F5A52)" }}
+      >
+        {finalDescription}
+      </p>
 
-          {platforms.length > 0 && (
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {platforms.map((p) => (
-                <span
-                  key={p}
-                  className="rounded-full border border-border px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-muted"
-                >
-                  {formatPlatform(p)}
-                </span>
-              ))}
-            </div>
-          )}
-
-          <div className="mt-5 flex flex-wrap gap-3">
-            <TrackedLink
-              href={finalHref}
-              event="save_this_tone_click"
-              eventParams={{
-                recipe_slug: recipeSlug ?? "freeform",
-                target: finalHref,
-                source: "blog",
-                cta: "primary",
+      {platforms.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {platforms.map((p) => (
+            <span
+              key={p}
+              className="px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.15em]"
+              style={{
+                border: "1px solid var(--ink, #0A0908)",
+                color: "var(--ink, #0A0908)",
               }}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
             >
-              <Download className="h-4 w-4" />
-              {finalCtaLabel}
-            </TrackedLink>
-            <TrackedLink
-              href="/browse"
-              event="save_this_tone_click"
-              eventParams={{
-                recipe_slug: recipeSlug ?? "freeform",
-                target: "/browse",
-                source: "blog",
-                cta: "secondary",
-              }}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-border px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
-            >
-              Browse all recipes
-              <ArrowRight className="h-4 w-4" />
-            </TrackedLink>
-          </div>
+              {formatPlatform(p)}
+            </span>
+          ))}
         </div>
+      )}
+
+      <div className="mt-5 flex flex-wrap gap-3">
+        <TrackedLink
+          href={finalHref}
+          event="save_this_tone_click"
+          eventParams={{
+            recipe_slug: recipeSlug ?? "freeform",
+            target: finalHref,
+            source: "blog",
+            cta: "primary",
+          }}
+          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold no-underline transition-colors"
+          style={{
+            background: "var(--amber, #E4A235)",
+            color: "var(--ink, #0A0908)",
+            border: "1px solid var(--ink, #0A0908)",
+          }}
+        >
+          {finalCtaLabel}
+          <ArrowRight className="h-4 w-4" />
+        </TrackedLink>
+        <TrackedLink
+          href="/browse"
+          event="save_this_tone_click"
+          eventParams={{
+            recipe_slug: recipeSlug ?? "freeform",
+            target: "/browse",
+            source: "blog",
+            cta: "secondary",
+          }}
+          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold no-underline transition-colors"
+          style={{
+            background: "transparent",
+            color: "var(--ink, #0A0908)",
+            border: "1px solid var(--ink, #0A0908)",
+          }}
+        >
+          Browse the catalog
+        </TrackedLink>
       </div>
-    </section>
+    </aside>
   );
 }
 

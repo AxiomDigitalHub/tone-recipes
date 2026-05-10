@@ -346,33 +346,6 @@ export default async function PreviewBlogPost({
           </section>
         )}
 
-        {/* About the writer — E-E-A-T signal + humanises the byline */}
-        <section className="post-author" aria-labelledby="author-head">
-          <div className="section-head">
-            <span className="section-mark">¤</span>
-            <h2 id="author-head" className="section-title">
-              About the writer
-            </h2>
-            <span className="section-rule" aria-hidden="true" />
-            <span className="section-meta">Field correspondent</span>
-          </div>
-          <div className="post-author-card">
-            {writer.image && (
-              <div className="post-author-img">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={writer.image} alt={writer.name} />
-              </div>
-            )}
-            <div className="post-author-body">
-              <div className="post-author-name">{writer.name}</div>
-              {writer.title && (
-                <div className="post-author-title">{writer.title}</div>
-              )}
-              <p className="post-author-bio">{writer.bio}</p>
-            </div>
-          </div>
-        </section>
-
         {/* End-of-file mark */}
         <div className="post-endmark" aria-hidden="true">
           ▪ ▪ ▪
