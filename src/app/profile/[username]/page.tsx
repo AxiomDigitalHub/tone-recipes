@@ -93,10 +93,10 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
           <img
             src={profile.avatar_url}
             alt={profile.display_name}
-            className="h-24 w-24 rounded-full border-2 border-border object-cover"
+            className="h-24 w-24 rounded-full border-2 border-[var(--ink)]/15 object-cover"
           />
         ) : (
-          <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-border bg-surface text-3xl font-bold text-accent">
+          <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-[var(--ink)]/15 bg-[var(--paper-2)] text-3xl font-bold text-[var(--amber-2)]">
             {profile.display_name.charAt(0).toUpperCase()}
           </div>
         )}
@@ -104,7 +104,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
         <div className="flex flex-1 flex-col items-center text-center sm:items-start sm:text-left">
           {/* Name row */}
           <div className="flex flex-wrap items-center gap-3">
-            <h1 className="text-2xl font-bold text-foreground">
+            <h1 className="text-2xl font-bold text-[var(--ink)]">
               {profile.display_name}
             </h1>
             {platform && (
@@ -120,10 +120,10 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
             )}
           </div>
 
-          <p className="mt-0.5 text-sm text-muted">@{profile.username}</p>
+          <p className="mt-0.5 text-sm text-[var(--ink-muted)]">@{profile.username}</p>
 
           {profile.bio && (
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-[var(--ink-muted)]">
               {profile.bio}
             </p>
           )}
@@ -131,25 +131,25 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
           {/* Stats row */}
           <div className="mt-4 flex flex-wrap items-center gap-6 text-sm">
             <div className="flex flex-col items-center sm:items-start">
-              <span className="font-semibold text-foreground">
+              <span className="font-semibold text-[var(--ink)]">
                 {profile.follower_count}
               </span>
-              <span className="text-xs text-muted">Followers</span>
+              <span className="text-xs text-[var(--ink-muted)]">Followers</span>
             </div>
             <div className="flex flex-col items-center sm:items-start">
-              <span className="font-semibold text-foreground">
+              <span className="font-semibold text-[var(--ink)]">
                 {profile.following_count}
               </span>
-              <span className="text-xs text-muted">Following</span>
+              <span className="text-xs text-[var(--ink-muted)]">Following</span>
             </div>
             <div className="flex flex-col items-center sm:items-start">
-              <span className="font-semibold text-foreground">
+              <span className="font-semibold text-[var(--ink)]">
                 {profile.recipe_count}
               </span>
-              <span className="text-xs text-muted">Recipes</span>
+              <span className="text-xs text-[var(--ink-muted)]">Recipes</span>
             </div>
             <div className="flex flex-col items-center sm:items-start">
-              <span className="text-xs text-muted">Joined {joinDate}</span>
+              <span className="text-xs text-[var(--ink-muted)]">Joined {joinDate}</span>
             </div>
           </div>
         </div>

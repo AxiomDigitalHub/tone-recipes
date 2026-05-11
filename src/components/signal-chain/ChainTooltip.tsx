@@ -65,7 +65,7 @@ export default function ChainTooltip({ tip }: ChainTooltipProps) {
         onClick={() => setOpen(!open)}
         aria-label="Signal chain tip"
         aria-expanded={open}
-        className={`flex h-5 w-5 items-center justify-center rounded-full border border-accent/30 bg-surface text-[10px] font-semibold leading-none text-accent/50 transition-colors hover:border-accent/50 hover:text-accent hover:bg-accent/10${isPulsing ? " animate-pulse" : ""}`}
+        className={`flex h-5 w-5 items-center justify-center rounded-full border border-[var(--amber)]/30 bg-[var(--paper-2)] text-[10px] font-semibold leading-none text-[var(--amber-2)]/50 transition-colors hover:border-[var(--amber)]/50 hover:text-[var(--amber-2)] hover:bg-[var(--amber)]/10${isPulsing ? " animate-pulse" : ""}`}
       >
         ?
       </button>
@@ -75,7 +75,7 @@ export default function ChainTooltip({ tip }: ChainTooltipProps) {
         <div
           ref={popoverRef}
           role="tooltip"
-          className={`absolute z-50 w-64 rounded-lg border border-border bg-surface p-3 shadow-xl ${
+          className={`absolute z-50 w-64 rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] p-3 shadow-xl ${
             position === "above"
               ? "bottom-full mb-2"
               : "top-full mt-2"
@@ -85,7 +85,7 @@ export default function ChainTooltip({ tip }: ChainTooltipProps) {
         >
           {/* Arrow */}
           <div
-            className={`absolute left-1/2 -translate-x-1/2 h-2 w-2 rotate-45 border-border bg-surface ${
+            className={`absolute left-1/2 -translate-x-1/2 h-2 w-2 rotate-45 border-[var(--ink)]/15 bg-[var(--paper-2)] ${
               position === "above"
                 ? "bottom-[-5px] border-b border-r"
                 : "top-[-5px] border-l border-t"
@@ -94,13 +94,13 @@ export default function ChainTooltip({ tip }: ChainTooltipProps) {
 
           {/* Content */}
           <div className="flex items-start gap-2">
-            <p className="flex-1 text-xs leading-relaxed text-muted">
+            <p className="flex-1 text-xs leading-relaxed text-[var(--ink-muted)]">
               {tip}
             </p>
             <button
               onClick={close}
               aria-label="Close tip"
-              className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded text-muted transition-colors hover:text-foreground"
+              className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
             >
               <svg
                 width="10"

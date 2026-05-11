@@ -45,16 +45,16 @@ function ReplyCard({
   onReport: (replyId: string) => void;
 }) {
   return (
-    <div className="flex gap-4 rounded-lg border border-border bg-surface p-4">
+    <div className="flex gap-4 rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] p-4">
       {/* Author avatar */}
-      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent/10 text-xs font-bold text-accent">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--amber)]/10 text-xs font-bold text-[var(--amber-2)]">
         {reply.author?.display_name?.charAt(0).toUpperCase() ?? "?"}
       </div>
 
       <div className="min-w-0 flex-1">
         {/* Reply meta */}
-        <div className="flex items-center gap-2 text-xs text-muted">
-          <span className="font-medium text-foreground">
+        <div className="flex items-center gap-2 text-xs text-[var(--ink-muted)]">
+          <span className="font-medium text-[var(--ink)]">
             {reply.author?.display_name ?? "Anonymous"}
           </span>
           <span className="text-border">|</span>
@@ -67,7 +67,7 @@ function ReplyCard({
         </div>
 
         {/* Body */}
-        <div className="mt-2 text-sm leading-relaxed text-foreground/90">
+        <div className="mt-2 text-sm leading-relaxed text-[var(--ink)]/90">
           {reply.body.split("\n").map((paragraph, i) =>
             paragraph.trim() ? (
               <p key={i} className="mb-2 last:mb-0">
@@ -81,7 +81,7 @@ function ReplyCard({
         <div className="mt-3 flex items-center gap-3">
           <button
             onClick={() => onVote(reply.id)}
-            className="inline-flex items-center gap-1 rounded px-2 py-1 text-xs text-muted transition-colors hover:bg-accent/10 hover:text-accent"
+            className="inline-flex items-center gap-1 rounded px-2 py-1 text-xs text-[var(--ink-muted)] transition-colors hover:bg-[var(--amber)]/10 hover:text-[var(--amber-2)]"
             aria-label={`Upvote reply, ${reply.upvotes} upvotes`}
           >
             <ThumbsUp className="h-3.5 w-3.5" aria-hidden="true" />
@@ -89,7 +89,7 @@ function ReplyCard({
           </button>
           <button
             onClick={() => onReport(reply.id)}
-            className="inline-flex items-center gap-1 rounded px-2 py-1 text-xs text-muted transition-colors hover:bg-red-500/10 hover:text-red-400"
+            className="inline-flex items-center gap-1 rounded px-2 py-1 text-xs text-[var(--ink-muted)] transition-colors hover:bg-red-500/10 hover:text-red-400"
             aria-label="Report reply"
           >
             <Flag className="h-3.5 w-3.5" aria-hidden="true" />
@@ -202,7 +202,7 @@ export default function ThreadClient({
   return (
     <section className="mt-10" aria-label="Replies">
       {/* Replies heading */}
-      <h2 className="text-lg font-semibold text-foreground">
+      <h2 className="text-lg font-semibold text-[var(--ink)]">
         Replies ({replies.length})
       </h2>
 
@@ -219,7 +219,7 @@ export default function ThreadClient({
           ))}
         </div>
       ) : (
-        <p className="mt-4 text-sm text-muted">
+        <p className="mt-4 text-sm text-[var(--ink-muted)]">
           No replies yet. Be the first to respond!
         </p>
       )}
@@ -227,7 +227,7 @@ export default function ThreadClient({
       {/* Reply form or locked notice */}
       <div className="mt-8">
         {isLocked ? (
-          <div className="flex items-center gap-2 rounded-lg border border-border bg-surface p-4 text-sm text-muted">
+          <div className="flex items-center gap-2 rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] p-4 text-sm text-[var(--ink-muted)]">
             <Lock className="h-4 w-4 shrink-0" aria-hidden="true" />
             This thread is locked. New replies are not allowed.
           </div>
@@ -245,7 +245,7 @@ export default function ThreadClient({
               placeholder="Write your reply..."
               required
               minLength={1}
-              className="w-full resize-y rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted/50 focus:border-accent/50 focus:outline-none focus:ring-1 focus:ring-accent/50"
+              className="w-full resize-y rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] px-4 py-3 text-sm text-[var(--ink)] placeholder:text-[var(--ink-faint)] focus:border-[var(--amber)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--amber)]/50"
             />
             {error && (
               <p className="mt-2 text-sm text-red-400" role="alert">
@@ -256,7 +256,7 @@ export default function ThreadClient({
               <button
                 type="submit"
                 disabled={isPending || !replyBody.trim()}
-                className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-50"
+                className="inline-flex items-center gap-2 rounded-lg bg-[var(--amber)] px-4 py-2 text-sm font-medium text-[var(--ink)] transition-colors hover:bg-[var(--amber)]/90 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {isPending ? (
                   <Loader2
@@ -271,10 +271,10 @@ export default function ThreadClient({
             </div>
           </form>
         ) : (
-          <div className="rounded-lg border border-border bg-surface p-4 text-center text-sm text-muted">
+          <div className="rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] p-4 text-center text-sm text-[var(--ink-muted)]">
             <a
               href="/login"
-              className="font-medium text-accent hover:underline"
+              className="font-medium text-[var(--amber-2)] hover:underline"
             >
               Sign in
             </a>{" "}

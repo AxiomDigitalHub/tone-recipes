@@ -23,13 +23,13 @@ function formatDate(iso: string) {
 }
 
 export default function BlogCard({ post }: { post: BlogPost }) {
-  const colors = categoryColors[post.category] ?? "bg-accent/15 text-accent";
+  const colors = categoryColors[post.category] ?? "bg-[var(--amber)]/15 text-[var(--amber-2)]";
   const label = BLOG_CATEGORIES[post.category] ?? post.category;
 
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex flex-col rounded-xl border border-border bg-surface p-5 transition-all hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
+      className="group flex flex-col rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-5 transition-all hover:border-[var(--amber)]/40 hover:shadow-lg hover:shadow-accent/5"
     >
       {/* Category badge */}
       <span
@@ -39,17 +39,17 @@ export default function BlogCard({ post }: { post: BlogPost }) {
       </span>
 
       {/* Title */}
-      <h3 className="mt-3 text-lg font-semibold text-foreground transition-colors group-hover:text-accent line-clamp-2">
+      <h3 className="mt-3 text-lg font-semibold text-[var(--ink)] transition-colors group-hover:text-[var(--amber-2)] line-clamp-2">
         {post.title}
       </h3>
 
       {/* Description */}
-      <p className="mt-2 text-sm leading-relaxed text-muted line-clamp-2">
+      <p className="mt-2 text-sm leading-relaxed text-[var(--ink-muted)] line-clamp-2">
         {post.description}
       </p>
 
       {/* Footer */}
-      <div className="mt-auto flex items-center gap-3 pt-4 text-xs text-muted">
+      <div className="mt-auto flex items-center gap-3 pt-4 text-xs text-[var(--ink-muted)]">
         <span>{formatDate(post.date)}</span>
         <span className="text-border">|</span>
         <span>{post.readingTime}</span>

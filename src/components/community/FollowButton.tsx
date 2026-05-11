@@ -49,7 +49,7 @@ export default function FollowButton({
     return (
       <Link
         href="/login"
-        className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-accent/40 hover:text-foreground"
+        className="inline-flex items-center gap-2 rounded-lg border border-[var(--ink)]/15 px-4 py-2 text-sm font-medium text-[var(--ink-muted)] transition-colors hover:border-[var(--amber)]/40 hover:text-[var(--ink)]"
       >
         <UserPlus className="h-4 w-4" />
         Follow
@@ -69,8 +69,8 @@ export default function FollowButton({
         isFollowing
           ? showUnfollow
             ? "border-red-500/40 bg-red-500/10 text-red-400 hover:bg-red-500/20"
-            : "border-accent/40 bg-accent/10 text-accent"
-          : "border-border text-muted hover:border-accent/40 hover:text-foreground"
+            : "border-[var(--amber)]/40 bg-[var(--amber)]/10 text-[var(--amber-2)]"
+          : "border-[var(--ink)]/15 text-[var(--ink-muted)] hover:border-[var(--amber)]/40 hover:text-[var(--ink)]"
       }`}
       aria-label={isFollowing ? "Unfollow" : "Follow"}
     >

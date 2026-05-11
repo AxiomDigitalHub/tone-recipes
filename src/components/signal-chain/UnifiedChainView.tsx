@@ -273,7 +273,7 @@ function NodeDetailDrawer({
   return (
     <div
       ref={drawerRef}
-      className={`border-t-2 bg-background/95 shadow-lg border-accent/20 overflow-hidden transition-all duration-300 ${
+      className={`border-t-2 bg-[var(--paper)]/95 shadow-lg border-[var(--amber)]/20 overflow-hidden transition-all duration-300 ${
         isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
       }`}
       style={{ borderTopColor: color + "60", transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
@@ -287,16 +287,16 @@ function NodeDetailDrawer({
             <Icon className="h-6 w-6" style={{ color }} strokeWidth={1.5} />
           </div>
           <div>
-            <p className="text-base font-bold text-foreground">{name}</p>
+            <p className="text-base font-bold text-[var(--ink)]">{name}</p>
             {node && (
-              <p className="text-[11px] uppercase tracking-wider text-muted">
+              <p className="text-[11px] uppercase tracking-wider text-[var(--ink-muted)]">
                 {node.category}
                 {node.subcategory ? ` / ${node.subcategory}` : ""}
                 {node.is_in_effects_loop ? " · FX Loop" : ""}
               </p>
             )}
             {platformBlock && (
-              <p className="text-[11px] text-muted">
+              <p className="text-[11px] text-[var(--ink-muted)]">
                 ← {platformBlock.original_gear}
               </p>
             )}
@@ -306,7 +306,7 @@ function NodeDetailDrawer({
           {node?.gear_slug && (
             <Link
               href={`/gear/${node.gear_slug}`}
-              className="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-accent transition-colors hover:border-accent/40"
+              className="rounded-lg border border-[var(--ink)]/15 px-3 py-1.5 text-xs font-medium text-[var(--amber-2)] transition-colors hover:border-[var(--amber)]/40"
             >
               Gear details →
             </Link>
@@ -314,7 +314,7 @@ function NodeDetailDrawer({
           <button
             onClick={onClose}
             aria-label="Close"
-            className="flex h-8 w-8 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface hover:text-foreground"
+            className="flex h-8 w-8 items-center justify-center rounded-full text-[var(--ink-muted)] transition-colors hover:bg-[var(--paper-2)] hover:text-[var(--ink)]"
           >
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -364,12 +364,12 @@ function NodeDetailDrawer({
             </div>
           </>
         ) : (
-          <p className="text-sm text-muted">No adjustable settings</p>
+          <p className="text-sm text-[var(--ink-muted)]">No adjustable settings</p>
         )}
         {notes && (
-          <div className="mt-3 rounded-lg bg-surface/50 px-4 py-3">
-            <p className="text-xs leading-relaxed text-muted">
-              <span className="font-semibold text-accent">Note: </span>
+          <div className="mt-3 rounded-lg bg-[var(--paper-2)]/50 px-4 py-3">
+            <p className="text-xs leading-relaxed text-[var(--ink-muted)]">
+              <span className="font-semibold text-[var(--amber-2)]">Note: </span>
               {notes}
             </p>
           </div>

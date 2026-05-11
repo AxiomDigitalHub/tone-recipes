@@ -117,7 +117,7 @@ export default function BrowseContent() {
     <div className="flex flex-col gap-6">
       {/* Genre */}
       <div>
-        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">
+        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
           Genre
         </h3>
         <input
@@ -128,15 +128,15 @@ export default function BrowseContent() {
             setGenreSearch(e.target.value);
             setShowAllGenres(true);
           }}
-          className="mb-2 w-full rounded-lg border border-border bg-surface px-3 py-1.5 text-xs text-foreground placeholder:text-muted/60 outline-none transition-colors hover:border-accent/40 focus:border-accent"
+          className="mb-2 w-full rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] px-3 py-1.5 text-xs text-[var(--ink)] placeholder:text-[var(--ink-faint)] outline-none transition-colors hover:border-[var(--amber)]/40 focus:border-[var(--amber)]"
         />
         <div className="flex flex-wrap gap-1.5">
           <button
             onClick={() => setGenreFilter(null)}
             className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
               genreFilter === null
-                ? "bg-accent text-background"
-                : "border border-border text-muted hover:border-accent/60 hover:text-accent"
+                ? "bg-[var(--amber)] text-[var(--ink)]"
+                : "border border-[var(--ink)]/15 text-[var(--ink-muted)] hover:border-[var(--amber)]/60 hover:text-[var(--amber-2)]"
             }`}
           >
             All
@@ -147,8 +147,8 @@ export default function BrowseContent() {
               onClick={() => setGenreFilter(genre)}
               className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                 genreFilter === genre
-                  ? "bg-accent text-background"
-                  : "border border-border text-muted hover:border-accent/60 hover:text-accent"
+                  ? "bg-[var(--amber)] text-[var(--ink)]"
+                  : "border border-[var(--ink)]/15 text-[var(--ink-muted)] hover:border-[var(--amber)]/60 hover:text-[var(--amber-2)]"
               }`}
             >
               {genre} ({genreCounts.get(genre) ?? 0})
@@ -158,7 +158,7 @@ export default function BrowseContent() {
         {!genreSearch.trim() && sortedFilteredGenres.length > 8 && (
           <button
             onClick={() => setShowAllGenres(!showAllGenres)}
-            className="mt-2 text-xs font-medium text-accent hover:underline"
+            className="mt-2 text-xs font-medium text-[var(--amber-2)] hover:underline"
           >
             {showAllGenres
               ? "Show less"
@@ -169,7 +169,7 @@ export default function BrowseContent() {
 
       {/* Platform */}
       <div>
-        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">
+        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
           Platform
         </h3>
         <div className="flex flex-col gap-1.5">
@@ -183,8 +183,8 @@ export default function BrowseContent() {
                 }
                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all text-left ${
                   isActive
-                    ? "bg-surface-hover"
-                    : "hover:bg-surface-hover"
+                    ? "bg-[var(--paper)]"
+                    : "hover:bg-[var(--paper)]"
                 }`}
                 style={{
                   color: isActive ? platform.color : undefined,
@@ -203,7 +203,7 @@ export default function BrowseContent() {
 
       {/* Sort */}
       <div>
-        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">
+        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
           Sort by
         </h3>
         <select
@@ -211,7 +211,7 @@ export default function BrowseContent() {
           onChange={(e) =>
             setSortBy(e.target.value as "popular" | "newest" | "artist-az")
           }
-          className="w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none transition-colors hover:border-accent/40 focus:border-accent"
+          className="w-full rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] px-3 py-2 text-sm text-[var(--ink)] outline-none transition-colors hover:border-[var(--amber)]/40 focus:border-[var(--amber)]"
         >
           {SORT_OPTIONS.map((opt) => (
             <option key={opt.value} value={opt.value}>
@@ -223,7 +223,7 @@ export default function BrowseContent() {
 
       {/* Artists */}
       <div>
-        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">
+        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
           By Artist
         </h3>
         <div className="flex flex-col gap-1">
@@ -231,7 +231,7 @@ export default function BrowseContent() {
             <Link
               key={artist.slug}
               href={`/artist/${artist.slug}`}
-              className="group flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-muted transition-colors hover:bg-surface-hover hover:text-foreground"
+              className="group flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-[var(--ink-muted)] transition-colors hover:bg-[var(--paper)] hover:text-[var(--ink)]"
             >
               {artist.image_url ? (
                 <Image
@@ -244,7 +244,7 @@ export default function BrowseContent() {
                   sizes="22px"
                 />
               ) : (
-                <span className="flex h-[22px] w-[22px] items-center justify-center rounded-full bg-accent/20 text-[10px] font-bold text-accent">
+                <span className="flex h-[22px] w-[22px] items-center justify-center rounded-full bg-[var(--amber)]/20 text-[10px] font-bold text-[var(--amber-2)]">
                   {artist.name.charAt(0)}
                 </span>
               )}
@@ -258,7 +258,7 @@ export default function BrowseContent() {
       {hasActiveFilters && (
         <button
           onClick={clearFilters}
-          className="rounded-lg border border-border px-3 py-2 text-xs font-medium text-muted transition-colors hover:border-accent/60 hover:text-accent"
+          className="rounded-lg border border-[var(--ink)]/15 px-3 py-2 text-xs font-medium text-[var(--ink-muted)] transition-colors hover:border-[var(--amber)]/60 hover:text-[var(--amber-2)]"
         >
           Clear all filters
         </button>
@@ -268,22 +268,22 @@ export default function BrowseContent() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 md:py-16">
-      <nav className="mb-4 flex items-center gap-2 text-sm text-muted">
-        <Link href="/" className="hover:text-foreground">Home</Link>
+      <nav className="mb-4 flex items-center gap-2 text-sm text-[var(--ink-muted)]">
+        <Link href="/" className="hover:text-[var(--ink)]">Home</Link>
         <span>/</span>
-        <span className="text-foreground">Browse</span>
+        <span className="text-[var(--ink)]">Browse</span>
       </nav>
 
       {/* Header */}
       <div className="mb-6 flex items-end justify-between">
         <div>
           <h1 className="text-2xl font-bold md:text-3xl">Find your tone.</h1>
-          <p className="mt-1 text-xs text-muted">
+          <p className="mt-1 text-xs text-[var(--ink-muted)]">
             {filteredRecipes.length} of {toneRecipes.length} recipes
             {hasActiveFilters && (
               <button
                 onClick={clearFilters}
-                className="ml-2 text-accent hover:underline"
+                className="ml-2 text-[var(--amber-2)] hover:underline"
               >
                 Clear filters
               </button>
@@ -294,14 +294,14 @@ export default function BrowseContent() {
         {/* Mobile filter toggle */}
         <button
           onClick={() => setMobileFiltersOpen(!mobileFiltersOpen)}
-          className="flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-muted transition-colors hover:border-accent/40 lg:hidden"
+          className="flex items-center gap-2 rounded-lg border border-[var(--ink)]/15 px-3 py-2 text-sm font-medium text-[var(--ink-muted)] transition-colors hover:border-[var(--amber)]/40 lg:hidden"
         >
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
           </svg>
           Filters
           {hasActiveFilters && (
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-background">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--amber)] text-[10px] font-bold text-[var(--ink)]">
               {(genreFilter ? 1 : 0) + (platformFilter ? 1 : 0)}
             </span>
           )}
@@ -310,7 +310,7 @@ export default function BrowseContent() {
 
       {/* Mobile filter drawer */}
       {mobileFiltersOpen && (
-        <div className="mb-6 rounded-xl border border-border bg-surface p-4 lg:hidden">
+        <div className="mb-6 rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-4 lg:hidden">
           {filterPanel}
         </div>
       )}
@@ -339,16 +339,16 @@ export default function BrowseContent() {
 
           {/* Empty state */}
           {filteredRecipes.length === 0 && hasActiveFilters && (
-            <div className="mt-12 rounded-xl border border-dashed border-border p-8 text-center">
-              <p className="text-lg font-semibold text-muted">
+            <div className="mt-12 rounded-xl border border-dashed border-[var(--ink)]/15 p-8 text-center">
+              <p className="text-lg font-semibold text-[var(--ink-muted)]">
                 No recipes match your filters
               </p>
-              <p className="mt-2 text-sm text-muted">
+              <p className="mt-2 text-sm text-[var(--ink-muted)]">
                 Try adjusting your genre or platform filters.
               </p>
               <button
                 onClick={clearFilters}
-                className="mt-4 rounded-full bg-accent px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-accent-hover"
+                className="mt-4 rounded-full bg-[var(--amber)] px-4 py-2 text-sm font-medium text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
               >
                 Clear filters
               </button>

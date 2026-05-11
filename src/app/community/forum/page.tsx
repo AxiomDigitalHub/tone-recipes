@@ -55,7 +55,7 @@ function timeAgo(dateStr: string): string {
 
 function CategoryIcon({ slug }: { slug: string }) {
   const Icon = CATEGORY_ICONS[slug] ?? MessageSquare;
-  return <Icon className="h-6 w-6 text-accent" aria-hidden="true" />;
+  return <Icon className="h-6 w-6 text-[var(--amber-2)]" aria-hidden="true" />;
 }
 
 function CategoryCard({ category }: { category: ForumCategory }) {

@@ -80,10 +80,10 @@ function ThreadRow({ thread }: { thread: ForumThread }) {
   return (
     <Link
       href={`/community/forum/thread/${thread.slug}`}
-      className="group flex items-center gap-4 rounded-lg border border-border bg-surface px-4 py-3.5 transition-all hover:border-accent/40 hover:shadow-md hover:shadow-accent/5"
+      className="group flex items-center gap-4 rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] px-4 py-3.5 transition-all hover:border-[var(--amber)]/40 hover:shadow-md hover:shadow-accent/5"
     >
       {/* Avatar */}
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--amber)]/10 text-sm font-bold text-[var(--amber-2)]">
         {thread.author?.display_name?.charAt(0).toUpperCase() ?? "?"}
       </div>
 
@@ -92,21 +92,21 @@ function ThreadRow({ thread }: { thread: ForumThread }) {
         <div className="flex items-center gap-2">
           {thread.is_pinned && (
             <Pin
-              className="h-3.5 w-3.5 shrink-0 text-accent"
+              className="h-3.5 w-3.5 shrink-0 text-[var(--amber-2)]"
               aria-label="Pinned"
             />
           )}
           {thread.is_locked && (
             <Lock
-              className="h-3.5 w-3.5 shrink-0 text-muted"
+              className="h-3.5 w-3.5 shrink-0 text-[var(--ink-muted)]"
               aria-label="Locked"
             />
           )}
-          <h3 className="truncate font-medium text-foreground transition-colors group-hover:text-accent">
+          <h3 className="truncate font-medium text-[var(--ink)] transition-colors group-hover:text-[var(--amber-2)]">
             {thread.title}
           </h3>
         </div>
-        <div className="mt-1 flex items-center gap-2 text-xs text-muted">
+        <div className="mt-1 flex items-center gap-2 text-xs text-[var(--ink-muted)]">
           <span>{thread.author?.display_name ?? "Anonymous"}</span>
           <span className="text-border">|</span>
           <span>{timeAgo(thread.created_at)}</span>
@@ -114,7 +114,7 @@ function ThreadRow({ thread }: { thread: ForumThread }) {
       </div>
 
       {/* Stats */}
-      <div className="hidden shrink-0 items-center gap-5 text-xs text-muted sm:flex">
+      <div className="hidden shrink-0 items-center gap-5 text-xs text-[var(--ink-muted)] sm:flex">
         <span
           className="flex items-center gap-1"
           title={`${thread.reply_count} replies`}
@@ -167,12 +167,12 @@ export default async function CategoryPage({
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 md:py-20">
       {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" className="text-sm text-muted">
+      <nav aria-label="Breadcrumb" className="text-sm text-[var(--ink-muted)]">
         <ol className="flex items-center gap-1.5">
           <li>
             <Link
               href="/community/forum"
-              className="transition-colors hover:text-accent"
+              className="transition-colors hover:text-[var(--amber-2)]"
             >
               Forum
             </Link>
@@ -180,7 +180,7 @@ export default async function CategoryPage({
           <li aria-hidden="true" className="text-border">
             /
           </li>
-          <li className="font-medium text-foreground">{category.name}</li>
+          <li className="font-medium text-[var(--ink)]">{category.name}</li>
         </ol>
       </nav>
 
@@ -191,12 +191,12 @@ export default async function CategoryPage({
             {category.name}
           </h1>
           {category.description && (
-            <p className="mt-2 text-muted">{category.description}</p>
+            <p className="mt-2 text-[var(--ink-muted)]">{category.description}</p>
           )}
         </div>
         <Link
           href={`/community/forum/new?category=${categorySlug}`}
-          className="inline-flex h-10 shrink-0 items-center gap-2 rounded-lg bg-accent px-4 text-sm font-medium text-background transition-colors hover:bg-accent/90"
+          className="inline-flex h-10 shrink-0 items-center gap-2 rounded-lg bg-[var(--amber)] px-4 text-sm font-medium text-[var(--ink)] transition-colors hover:bg-[var(--amber)]/90"
         >
           <Plus className="h-4 w-4" aria-hidden="true" />
           New Thread
@@ -210,14 +210,14 @@ export default async function CategoryPage({
             <ThreadRow key={thread.id} thread={thread} />
           ))
         ) : (
-          <div className="rounded-xl border border-dashed border-border p-16 text-center">
-            <MessageSquare className="mx-auto h-10 w-10 text-muted/40" />
-            <p className="mt-3 text-lg font-semibold text-muted">
+          <div className="rounded-xl border border-dashed border-[var(--ink)]/15 p-16 text-center">
+            <MessageSquare className="mx-auto h-10 w-10 text-[var(--ink-faint)]" />
+            <p className="mt-3 text-lg font-semibold text-[var(--ink-muted)]">
               No threads yet -- start the conversation!
             </p>
             <Link
               href={`/community/forum/new?category=${categorySlug}`}
-              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-accent/90"
+              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[var(--amber)] px-4 py-2 text-sm font-medium text-[var(--ink)] transition-colors hover:bg-[var(--amber)]/90"
             >
               <Plus className="h-4 w-4" aria-hidden="true" />
               Create the first thread
@@ -235,32 +235,32 @@ export default async function CategoryPage({
           {currentPage > 1 ? (
             <Link
               href={`/community/forum/${categorySlug}?page=${currentPage - 1}`}
-              className="inline-flex h-9 items-center gap-1 rounded-lg border border-border px-3 text-sm text-muted transition-colors hover:border-accent/40 hover:text-accent"
+              className="inline-flex h-9 items-center gap-1 rounded-lg border border-[var(--ink)]/15 px-3 text-sm text-[var(--ink-muted)] transition-colors hover:border-[var(--amber)]/40 hover:text-[var(--amber-2)]"
             >
               <ChevronLeft className="h-4 w-4" aria-hidden="true" />
               Previous
             </Link>
           ) : (
-            <span className="inline-flex h-9 cursor-not-allowed items-center gap-1 rounded-lg border border-border px-3 text-sm text-muted/40">
+            <span className="inline-flex h-9 cursor-not-allowed items-center gap-1 rounded-lg border border-[var(--ink)]/15 px-3 text-sm text-[var(--ink-faint)]">
               <ChevronLeft className="h-4 w-4" aria-hidden="true" />
               Previous
             </span>
           )}
 
-          <span className="px-3 text-sm text-muted">
+          <span className="px-3 text-sm text-[var(--ink-muted)]">
             Page {currentPage} of {totalPages}
           </span>
 
           {currentPage < totalPages ? (
             <Link
               href={`/community/forum/${categorySlug}?page=${currentPage + 1}`}
-              className="inline-flex h-9 items-center gap-1 rounded-lg border border-border px-3 text-sm text-muted transition-colors hover:border-accent/40 hover:text-accent"
+              className="inline-flex h-9 items-center gap-1 rounded-lg border border-[var(--ink)]/15 px-3 text-sm text-[var(--ink-muted)] transition-colors hover:border-[var(--amber)]/40 hover:text-[var(--amber-2)]"
             >
               Next
               <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           ) : (
-            <span className="inline-flex h-9 cursor-not-allowed items-center gap-1 rounded-lg border border-border px-3 text-sm text-muted/40">
+            <span className="inline-flex h-9 cursor-not-allowed items-center gap-1 rounded-lg border border-[var(--ink)]/15 px-3 text-sm text-[var(--ink-faint)]">
               Next
               <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </span>

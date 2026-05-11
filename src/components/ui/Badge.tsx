@@ -6,9 +6,9 @@ interface BadgeProps {
 
 export default function Badge({ children, variant = "default", className = "" }: BadgeProps) {
   const variants = {
-    default: "bg-surface text-muted",
-    accent: "bg-accent/10 text-accent",
-    outline: "border border-border text-muted",
+    default: "bg-[var(--paper-2)] text-[var(--ink-muted)]",
+    accent: "bg-[var(--amber)]/10 text-[var(--amber-2)]",
+    outline: "border border-[var(--ink)]/15 text-[var(--ink-muted)]",
   };
 
   return (

@@ -168,8 +168,8 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
             disabled={followLoading}
             className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
               following
-                ? "border border-border bg-surface text-muted hover:border-red-500/40 hover:text-red-400"
-                : "bg-accent text-white hover:bg-accent/90"
+                ? "border border-[var(--ink)]/15 bg-[var(--paper-2)] text-[var(--ink-muted)] hover:border-red-500/40 hover:text-red-400"
+                : "bg-[var(--amber)] text-white hover:bg-[var(--amber)]/90"
             }`}
           >
             {followLoading ? (
@@ -185,15 +185,15 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
       )}
 
       {/* ---- Tab bar ---- */}
-      <nav className="flex gap-1 border-b border-border">
+      <nav className="flex gap-1 border-b border-[var(--ink)]/15">
         {tabs.map(({ key, label, icon: Icon }) => (
           <button
             key={key}
             onClick={() => setActiveTab(key)}
             className={`inline-flex items-center gap-1.5 border-b-2 px-4 py-2.5 text-sm font-medium transition-colors ${
               activeTab === key
-                ? "border-accent text-accent"
-                : "border-transparent text-muted hover:text-foreground"
+                ? "border-[var(--amber)] text-[var(--amber-2)]"
+                : "border-transparent text-[var(--ink-muted)] hover:text-[var(--ink)]"
             }`}
           >
             <Icon className="h-4 w-4" />
@@ -206,7 +206,7 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
       <div className="mt-6 min-h-[200px]">
         {tabLoading ? (
           <div className="flex items-center justify-center py-16">
-            <Loader2 className="h-6 w-6 animate-spin text-muted" />
+            <Loader2 className="h-6 w-6 animate-spin text-[var(--ink-muted)]" />
           </div>
         ) : (
           <>
@@ -221,13 +221,13 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
                       <Link
                         key={recipe.id}
                         href={`/recipe/${recipe.slug}`}
-                        className="group rounded-xl border border-border bg-surface p-5 transition-all hover:border-accent/40 hover:bg-surface-hover"
+                        className="group rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-5 transition-all hover:border-[var(--amber)]/40 hover:bg-[var(--paper)]"
                       >
-                        <h3 className="text-base font-semibold text-foreground group-hover:text-accent transition-colors">
+                        <h3 className="text-base font-semibold text-[var(--ink)] group-hover:text-[var(--amber-2)] transition-colors">
                           {recipe.title}
                         </h3>
                         {recipe.description && (
-                          <p className="mt-1 line-clamp-2 text-sm text-muted">
+                          <p className="mt-1 line-clamp-2 text-sm text-[var(--ink-muted)]">
                             {recipe.description}
                           </p>
                         )}
@@ -238,7 +238,7 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
                             </Badge>
                           ))}
                         </div>
-                        <p className="mt-3 text-xs text-muted">
+                        <p className="mt-3 text-xs text-[var(--ink-muted)]">
                           {new Date(recipe.created_at).toLocaleDateString(
                             "en-US",
                             {
@@ -265,15 +265,15 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
                     {comments.map((comment) => (
                       <li
                         key={comment.id}
-                        className="rounded-xl border border-border bg-surface p-4"
+                        className="rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-4"
                       >
-                        <p className="text-sm text-foreground line-clamp-3">
+                        <p className="text-sm text-[var(--ink)] line-clamp-3">
                           {comment.body}
                         </p>
-                        <div className="mt-2 flex items-center gap-2 text-xs text-muted">
+                        <div className="mt-2 flex items-center gap-2 text-xs text-[var(--ink-muted)]">
                           <Link
                             href={`/recipe/${comment.recipe_slug}`}
-                            className="text-accent hover:underline"
+                            className="text-[var(--amber-2)] hover:underline"
                           >
                             View recipe
                           </Link>
@@ -306,10 +306,10 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
                     {gear.map((item) => (
                       <div
                         key={item.id}
-                        className="rounded-xl border border-border bg-surface p-4"
+                        className="rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-4"
                       >
                         <div className="flex items-start justify-between gap-2">
-                          <h3 className="text-sm font-semibold text-foreground">
+                          <h3 className="text-sm font-semibold text-[var(--ink)]">
                             {item.gear_name}
                           </h3>
                           <Badge variant={gearTypeVariant(item.gear_type)}>
@@ -317,7 +317,7 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
                           </Badge>
                         </div>
                         {item.notes && (
-                          <p className="mt-2 text-xs leading-relaxed text-muted">
+                          <p className="mt-2 text-xs leading-relaxed text-[var(--ink-muted)]">
                             {item.notes}
                           </p>
                         )}
@@ -341,7 +341,7 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
 function EmptyState({ message }: { message: string }) {
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center">
-      <p className="text-sm text-muted">{message}</p>
+      <p className="text-sm text-[var(--ink-muted)]">{message}</p>
     </div>
   );
 }

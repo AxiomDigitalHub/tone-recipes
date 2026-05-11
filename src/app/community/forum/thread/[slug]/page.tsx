@@ -84,12 +84,12 @@ export default async function ThreadPage({ params }: PageProps) {
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 md:py-20">
       {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" className="text-sm text-muted">
+      <nav aria-label="Breadcrumb" className="text-sm text-[var(--ink-muted)]">
         <ol className="flex items-center gap-1.5">
           <li>
             <Link
               href="/community/forum"
-              className="transition-colors hover:text-accent"
+              className="transition-colors hover:text-[var(--amber-2)]"
             >
               Forum
             </Link>
@@ -102,7 +102,7 @@ export default async function ThreadPage({ params }: PageProps) {
               <li>
                 <Link
                   href={`/community/forum/${category.slug}`}
-                  className="transition-colors hover:text-accent"
+                  className="transition-colors hover:text-[var(--amber-2)]"
                 >
                   {category.name}
                 </Link>
@@ -112,7 +112,7 @@ export default async function ThreadPage({ params }: PageProps) {
               </li>
             </>
           )}
-          <li className="truncate font-medium text-foreground">
+          <li className="truncate font-medium text-[var(--ink)]">
             {thread.title}
           </li>
         </ol>
@@ -124,13 +124,13 @@ export default async function ThreadPage({ params }: PageProps) {
           {thread.title}
         </h1>
 
-        <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-muted">
+        <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-[var(--ink-muted)]">
           {/* Author */}
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 text-xs font-bold text-accent">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--amber)]/10 text-xs font-bold text-[var(--amber-2)]">
               {thread.author?.display_name?.charAt(0).toUpperCase() ?? "?"}
             </div>
-            <span className="font-medium text-foreground">
+            <span className="font-medium text-[var(--ink)]">
               {thread.author?.display_name ?? "Anonymous"}
             </span>
           </div>
@@ -165,8 +165,8 @@ export default async function ThreadPage({ params }: PageProps) {
       </header>
 
       {/* Thread body */}
-      <article className="mt-8 rounded-xl border border-border bg-surface p-6">
-        <div className="prose-invert max-w-none text-sm leading-relaxed text-foreground/90">
+      <article className="mt-8 rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-6">
+        <div className="prose-invert max-w-none text-sm leading-relaxed text-[var(--ink)]/90">
           {thread.body.split("\n").map((paragraph, i) =>
             paragraph.trim() ? (
               <p key={i} className="mb-3 last:mb-0">

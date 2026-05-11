@@ -114,7 +114,7 @@ export default function HeroSignalChain() {
         Tone recipes from
         <br />
         the songs{" "}
-        <span ref={youRef} className="text-accent italic">
+        <span ref={youRef} className="text-[var(--amber-2)] italic">
           you love.
         </span>
       </h1>
@@ -172,13 +172,13 @@ export default function HeroSignalChain() {
       <div ref={ctaRef} className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ position: "relative", zIndex: 2 }}>
         <a
           href="/browse"
-          className="rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-background transition-colors hover:bg-accent-hover"
+          className="rounded-xl bg-[var(--amber)] px-8 py-3.5 text-base font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
         >
           Browse Recipes
         </a>
         <a
           href="/how-it-works"
-          className="rounded-xl border border-border px-8 py-3.5 text-base font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
+          className="rounded-xl border border-[var(--ink)]/15 px-8 py-3.5 text-base font-semibold text-[var(--ink)] transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
         >
           See how it works
         </a>

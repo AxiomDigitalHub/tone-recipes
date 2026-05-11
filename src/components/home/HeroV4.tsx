@@ -632,13 +632,13 @@ export default function HeroV4() {
           <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
             <Link
               href="/browse"
-              className="rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-background shadow-[0_12px_40px_-8px_rgba(245,158,11,0.45)] transition-all hover:bg-accent-hover hover:shadow-[0_20px_60px_-10px_rgba(245,158,11,0.6)]"
+              className="rounded-xl bg-[var(--amber)] px-8 py-3.5 text-base font-semibold text-[var(--ink)] shadow-[0_12px_40px_-8px_rgba(245,158,11,0.45)] transition-all hover:bg-[var(--amber-2)] hover:shadow-[0_20px_60px_-10px_rgba(245,158,11,0.6)]"
             >
               Browse Recipes
             </Link>
             <Link
               href="#how-it-works"
-              className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-accent/40 hover:bg-white/10"
+              className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-[var(--amber)]/40 hover:bg-white/10"
             >
               See how it works
             </Link>

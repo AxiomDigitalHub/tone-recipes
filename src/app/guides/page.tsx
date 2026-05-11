@@ -71,13 +71,13 @@ export default function GuidesIndexPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 md:py-16">
       <header className="mb-12">
-        <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-accent">
+        <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-[var(--amber-2)]">
           Pillar guides
         </p>
         <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
           Tone, gear, and signal chain — broken down to first principles
         </h1>
-        <p className="mt-5 max-w-2xl text-lg text-muted md:text-xl">
+        <p className="mt-5 max-w-2xl text-lg text-[var(--ink-muted)] md:text-xl">
           Each pillar is the canonical reference for its topic — a curated
           collection of our deepest posts, organized into a single teaching
           arc. Start with any pillar and work outward through the linked
@@ -91,28 +91,28 @@ export default function GuidesIndexPage() {
             <Link
               key={p.slug}
               href={`/guides/${p.slug}`}
-              className="group relative flex flex-col rounded-2xl border border-border bg-surface p-6 transition-all hover:border-accent/40 hover:bg-surface-hover"
+              className="group relative flex flex-col rounded-2xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-6 transition-all hover:border-[var(--amber)]/40 hover:bg-[var(--paper)]"
             >
-              <h2 className="text-lg font-bold text-foreground transition-colors group-hover:text-accent">
+              <h2 className="text-lg font-bold text-[var(--ink)] transition-colors group-hover:text-[var(--amber-2)]">
                 {p.title}
               </h2>
-              <p className="mt-2 text-sm text-muted">{p.blurb}</p>
-              <span className="mt-4 text-xs font-semibold text-accent">
+              <p className="mt-2 text-sm text-[var(--ink-muted)]">{p.blurb}</p>
+              <span className="mt-4 text-xs font-semibold text-[var(--amber-2)]">
                 Open the guide →
               </span>
             </Link>
           ) : (
             <div
               key={p.slug}
-              className="flex flex-col rounded-2xl border border-border/50 bg-surface/40 p-6 opacity-60"
+              className="flex flex-col rounded-2xl border border-[var(--ink)]/15/50 bg-[var(--paper-2)]/40 p-6 opacity-60"
             >
               <div className="flex items-center justify-between">
-                <h2 className="text-lg font-bold text-foreground">{p.title}</h2>
-                <span className="rounded-full border border-border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-muted">
+                <h2 className="text-lg font-bold text-[var(--ink)]">{p.title}</h2>
+                <span className="rounded-full border border-[var(--ink)]/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
                   Coming soon
                 </span>
               </div>
-              <p className="mt-2 text-sm text-muted">{p.blurb}</p>
+              <p className="mt-2 text-sm text-[var(--ink-muted)]">{p.blurb}</p>
             </div>
           ),
         )}

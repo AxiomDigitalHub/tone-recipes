@@ -45,20 +45,20 @@ export default function PlatformOnboarding() {
         <h2 className="text-2xl font-bold md:text-3xl">
           What do you play?
         </h2>
-        <p className="mx-auto mt-3 max-w-xl text-muted">
+        <p className="mx-auto mt-3 max-w-xl text-[var(--ink-muted)]">
           Set your platform and every recipe will show your settings first.
         </p>
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {MODELER_PLATFORMS.map((platform) => (
             <div
               key={platform.id}
-              className="flex flex-col items-center rounded-xl border border-border bg-surface px-4 py-5 transition-all"
+              className="flex flex-col items-center rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] px-4 py-5 transition-all"
               style={{ borderTopColor: platform.color, borderTopWidth: "3px" }}
             >
-              <span className="text-[11px] font-medium uppercase tracking-wide text-muted">
+              <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--ink-muted)]">
                 {MANUFACTURER[platform.id]}
               </span>
-              <span className="mt-1 text-sm font-semibold text-foreground">
+              <span className="mt-1 text-sm font-semibold text-[var(--ink)]">
                 {platform.label}
               </span>
             </div>
@@ -75,12 +75,12 @@ export default function PlatformOnboarding() {
         <h2 className="text-2xl font-bold md:text-3xl">
           What do you play?
         </h2>
-        <div className="mt-6 inline-flex items-center gap-2 rounded-xl border border-border bg-surface px-6 py-4">
+        <div className="mt-6 inline-flex items-center gap-2 rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] px-6 py-4">
           <span
             className="h-3 w-3 rounded-full"
             style={{ backgroundColor: selectedMeta?.color }}
           />
-          <p className="text-sm font-medium text-foreground">
+          <p className="text-sm font-medium text-[var(--ink)]">
             Recipes show{" "}
             <span style={{ color: selectedMeta?.color }}>
               {selectedMeta?.label ?? preferredPlatform}
@@ -89,7 +89,7 @@ export default function PlatformOnboarding() {
           </p>
           <button
             onClick={handleReset}
-            className="ml-1 text-sm font-medium text-accent transition-colors hover:text-accent-hover"
+            className="ml-1 text-sm font-medium text-[var(--amber-2)] transition-colors hover:text-[var(--amber-2)]-hover"
           >
             Change
           </button>
@@ -105,12 +105,12 @@ export default function PlatformOnboarding() {
         <h2 className="text-2xl font-bold md:text-3xl">
           What do you play?
         </h2>
-        <div className="mt-6 inline-flex items-center gap-2 rounded-xl border border-border bg-surface px-6 py-4">
+        <div className="mt-6 inline-flex items-center gap-2 rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] px-6 py-4">
           <span
             className="h-3 w-3 rounded-full"
             style={{ backgroundColor: selectedMeta.color }}
           />
-          <p className="text-sm font-medium text-foreground">
+          <p className="text-sm font-medium text-[var(--ink)]">
             Got it! Recipes will show{" "}
             <span style={{ color: selectedMeta.color }}>
               {selectedMeta.label}
@@ -119,7 +119,7 @@ export default function PlatformOnboarding() {
           </p>
           <button
             onClick={handleReset}
-            className="ml-1 text-sm font-medium text-accent transition-colors hover:text-accent-hover"
+            className="ml-1 text-sm font-medium text-[var(--amber-2)] transition-colors hover:text-[var(--amber-2)]-hover"
           >
             Change
           </button>
@@ -134,7 +134,7 @@ export default function PlatformOnboarding() {
       <h2 className="text-2xl font-bold md:text-3xl">
         What do you play?
       </h2>
-      <p className="mx-auto mt-3 max-w-xl text-muted">
+      <p className="mx-auto mt-3 max-w-xl text-[var(--ink-muted)]">
         Set your platform and every recipe will show your settings first.
       </p>
       <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
@@ -142,13 +142,13 @@ export default function PlatformOnboarding() {
           <button
             key={platform.id}
             onClick={() => handleSelect(platform.id)}
-            className="flex flex-col items-center rounded-xl border border-border bg-surface px-4 py-5 transition-all hover:border-accent/40 hover:bg-surface-hover hover:shadow-lg"
+            className="flex flex-col items-center rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] px-4 py-5 transition-all hover:border-[var(--amber)]/40 hover:bg-[var(--paper)] hover:shadow-lg"
             style={{ borderTopColor: platform.color, borderTopWidth: "3px" }}
           >
-            <span className="text-[11px] font-medium uppercase tracking-wide text-muted">
+            <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--ink-muted)]">
               {MANUFACTURER[platform.id]}
             </span>
-            <span className="mt-1 text-sm font-semibold text-foreground">
+            <span className="mt-1 text-sm font-semibold text-[var(--ink)]">
               {platform.label}
             </span>
           </button>

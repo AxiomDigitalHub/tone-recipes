@@ -116,7 +116,7 @@ export default function ReportButton({
         type="button"
         onClick={handleToggle}
         disabled={!user}
-        className={`${buttonPadding} rounded-lg text-muted transition-colors hover:text-red-400 hover:bg-surface-hover disabled:opacity-50 disabled:cursor-not-allowed`}
+        className={`${buttonPadding} rounded-lg text-[var(--ink-muted)] transition-colors hover:text-red-400 hover:bg-[var(--paper)] disabled:opacity-50 disabled:cursor-not-allowed`}
         aria-label="Report content"
         title={user ? "Report" : "Sign in to report"}
       >
@@ -129,16 +129,16 @@ export default function ReportButton({
 
       {/* Dropdown panel */}
       {open && (
-        <div className="absolute right-0 top-full z-50 mt-1 w-72 rounded-xl border border-border bg-surface shadow-lg shadow-black/40">
+        <div className="absolute right-0 top-full z-50 mt-1 w-72 rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] shadow-lg shadow-black/40">
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
-            <span className="text-sm font-medium text-foreground">
+          <div className="flex items-center justify-between border-b border-[var(--ink)]/15 px-4 py-2.5">
+            <span className="text-sm font-medium text-[var(--ink)]">
               Report content
             </span>
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="text-muted hover:text-foreground transition-colors"
+              className="text-[var(--ink-muted)] hover:text-[var(--ink)] transition-colors"
               aria-label="Close"
             >
               <X className="h-4 w-4" />
@@ -148,7 +148,7 @@ export default function ReportButton({
           <div className="p-4 space-y-3">
             {/* Reason selection */}
             <fieldset>
-              <legend className="text-xs font-medium text-muted mb-2">
+              <legend className="text-xs font-medium text-[var(--ink-muted)] mb-2">
                 Reason
               </legend>
               <div className="space-y-1.5">
@@ -157,8 +157,8 @@ export default function ReportButton({
                     key={r.value}
                     className={`flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm cursor-pointer transition-colors ${
                       reason === r.value
-                        ? "bg-accent/10 text-accent border border-accent/30"
-                        : "text-foreground hover:bg-surface-hover border border-transparent"
+                        ? "bg-[var(--amber)]/10 text-[var(--amber-2)] border border-[var(--amber)]/30"
+                        : "text-[var(--ink)] hover:bg-[var(--paper)] border border-transparent"
                     }`}
                   >
                     <input
@@ -179,10 +179,10 @@ export default function ReportButton({
             <div>
               <label
                 htmlFor="report-details"
-                className="text-xs font-medium text-muted mb-1 block"
+                className="text-xs font-medium text-[var(--ink-muted)] mb-1 block"
               >
                 Details{" "}
-                <span className="font-normal text-muted/60">(optional)</span>
+                <span className="font-normal text-[var(--ink-faint)]">(optional)</span>
               </label>
               <textarea
                 id="report-details"
@@ -190,7 +190,7 @@ export default function ReportButton({
                 onChange={(e) => setDetails(e.target.value)}
                 placeholder="Provide additional context..."
                 rows={2}
-                className="w-full resize-none rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                className="w-full resize-none rounded-lg border border-[var(--ink)]/15 bg-[var(--paper)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber)] focus:outline-none focus:ring-1 focus:ring-[var(--amber)]"
               />
             </div>
 

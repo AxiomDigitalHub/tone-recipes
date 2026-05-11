@@ -111,7 +111,7 @@ export default function AnimatedSignalChain({ nodes, guitarType, hideGuitar }: A
   const guitarColor = "#f59e0b";
 
   return (
-    <div className={hideGuitar ? "w-full" : "w-full overflow-hidden rounded-2xl border border-border bg-[#0b0f1a] p-5 sm:p-8"}>
+    <div className={hideGuitar ? "w-full" : "w-full overflow-hidden rounded-2xl border border-[var(--ink)]/15 bg-[#0b0f1a] p-5 sm:p-8"}>
       {/* Guitar type label */}
       {guitarType && !hideGuitar && (
         <div className="mb-5 text-center text-[10px] font-semibold uppercase tracking-[3px] text-[#3a4a60]">

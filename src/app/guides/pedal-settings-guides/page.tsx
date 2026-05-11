@@ -193,25 +193,25 @@ function Section({
   return (
     <section className="mb-12">
       <h2 className="mb-2 text-2xl font-bold md:text-3xl">{title}</h2>
-      <p className="mb-6 max-w-2xl text-sm text-muted md:text-base">{blurb}</p>
+      <p className="mb-6 max-w-2xl text-sm text-[var(--ink-muted)] md:text-base">{blurb}</p>
       <div className="grid gap-3 sm:grid-cols-2">
         {guides.map((g) => (
           <Link
             key={g.href}
             href={g.href}
-            className="group flex flex-col rounded-xl border border-border bg-surface/40 p-5 transition-all hover:border-accent/40 hover:bg-surface"
+            className="group flex flex-col rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/40 p-5 transition-all hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
           >
             <div className="flex items-center justify-between gap-3">
-              <h3 className="text-sm font-bold text-foreground transition-colors group-hover:text-accent">
+              <h3 className="text-sm font-bold text-[var(--ink)] transition-colors group-hover:text-[var(--amber-2)]">
                 {g.title}
               </h3>
               {g.tag && (
-                <span className="shrink-0 rounded-full border border-border px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-muted">
+                <span className="shrink-0 rounded-full border border-[var(--ink)]/15 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
                   {g.tag}
                 </span>
               )}
             </div>
-            <p className="mt-2 text-xs leading-relaxed text-muted">{g.blurb}</p>
+            <p className="mt-2 text-xs leading-relaxed text-[var(--ink-muted)]">{g.blurb}</p>
           </Link>
         ))}
       </div>
@@ -244,13 +244,13 @@ export default function PedalSettingsGuidesPillarPage() {
 
       <article className="mx-auto max-w-5xl px-4 py-12 md:py-16">
         <header className="mb-12 md:mb-16">
-          <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-accent">
+          <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-[var(--amber-2)]">
             Pillar guide · {allGuides.length} guides
           </p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
             Pedal Settings Guides
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-muted md:text-xl">
+          <p className="mt-5 max-w-2xl text-lg text-[var(--ink-muted)] md:text-xl">
             Every canonical pedal, broken down to exactly what each knob does
             and where to set it. No &ldquo;start at noon and taste.&rdquo; Specific
             settings for specific outcomes, with the reasoning.
@@ -261,7 +261,7 @@ export default function PedalSettingsGuidesPillarPage() {
           <h2 className="mb-3 text-2xl font-bold">
             How to read a pedal settings guide
           </h2>
-          <p className="text-base leading-relaxed text-foreground/85">
+          <p className="text-base leading-relaxed text-[var(--ink)]/85">
             Every pedal guide on Fader & Knob follows the same structure:
             what the pedal actually does to your signal (circuit-level),
             what each knob controls, starting settings for three or four use
@@ -270,7 +270,7 @@ export default function PedalSettingsGuidesPillarPage() {
             guides are opinionated but specific — &ldquo;Drive at about 1
             o&apos;clock&rdquo; not &ldquo;medium drive.&rdquo;
           </p>
-          <p className="mt-3 text-base leading-relaxed text-foreground/85">
+          <p className="mt-3 text-base leading-relaxed text-[var(--ink)]/85">
             If you&apos;re new to the pedal, start with the &ldquo;always-on&rdquo;
             setting and play unplugged-level volume for a minute. Your ears
             calibrate fast. Then move to the use case closest to what you
@@ -310,28 +310,28 @@ export default function PedalSettingsGuidesPillarPage() {
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/guides/artist-tone-recipes"
-              className="block rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
-              <h3 className="text-sm font-bold text-foreground">Artist Tone Recipes</h3>
-              <p className="mt-2 text-xs text-muted">
+              <h3 className="text-sm font-bold text-[var(--ink)]">Artist Tone Recipes</h3>
+              <p className="mt-2 text-xs text-[var(--ink-muted)]">
                 Use any pedal guide here to reproduce a specific artist&apos;s tone.
               </p>
             </Link>
             <Link
               href="/platforms"
-              className="block rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
-              <h3 className="text-sm font-bold text-foreground">Modeler deep dives</h3>
-              <p className="mt-2 text-xs text-muted">
+              <h3 className="text-sm font-bold text-[var(--ink)]">Modeler deep dives</h3>
+              <p className="mt-2 text-xs text-[var(--ink-muted)]">
                 Every pedal in the guides has a modeler equivalent. Cross-reference them here.
               </p>
             </Link>
             <Link
               href="/how-it-works"
-              className="block rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
-              <h3 className="text-sm font-bold text-foreground">Signal chain fundamentals</h3>
-              <p className="mt-2 text-xs text-muted">
+              <h3 className="text-sm font-bold text-[var(--ink)]">Signal chain fundamentals</h3>
+              <p className="mt-2 text-xs text-[var(--ink-muted)]">
                 Why pedal order matters. Gain staging, buffered vs true bypass, parallel routing.
               </p>
             </Link>
@@ -339,27 +339,27 @@ export default function PedalSettingsGuidesPillarPage() {
         </section>
 
         {/* Closing CTA */}
-        <section className="rounded-2xl border border-accent/30 bg-accent/5 p-6 md:p-8">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-accent/80">
+        <section className="rounded-2xl border border-[var(--amber)]/30 bg-[var(--amber)]/5 p-6 md:p-8">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--amber-2)]/80">
             Save this pillar
           </p>
-          <h2 className="mt-1 text-xl font-bold text-foreground md:text-2xl">
+          <h2 className="mt-1 text-xl font-bold text-[var(--ink)] md:text-2xl">
             One new pedal guide per week, free
           </h2>
-          <p className="mt-2 max-w-xl text-sm text-muted md:text-base">
+          <p className="mt-2 max-w-xl text-sm text-[var(--ink-muted)] md:text-base">
             Tone of the Week goes out every Friday with one new pedal or tone
             guide, one recipe to dial in, and one quick tip. Join free.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
               href="/browse"
-              className="inline-flex items-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+              className="inline-flex items-center rounded-lg bg-[var(--amber)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
             >
               Browse all recipes
             </Link>
             <Link
               href="/guides"
-              className="inline-flex items-center rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
+              className="inline-flex items-center rounded-lg border border-[var(--ink)]/15 px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
               See other pillar guides
             </Link>

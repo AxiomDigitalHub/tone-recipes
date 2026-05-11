@@ -103,7 +103,7 @@ export default function SignalChainShowcase() {
     <section
       ref={containerRef}
       id="how-it-works"
-      className="relative border-y border-border bg-[#070a12] py-24"
+      className="relative border-y border-[var(--ink)]/15 bg-[#070a12] py-24"
     >
       {/* Decorative grid */}
       <div
@@ -117,13 +117,13 @@ export default function SignalChainShowcase() {
       />
 
       <div className="relative mx-auto max-w-5xl px-4 text-center">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent/80">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--amber-2)]/80">
           The method
         </p>
         <h2 className="text-3xl font-bold md:text-4xl">
           Every recipe is a signal chain.
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-lg text-muted">
+        <p className="mx-auto mt-4 max-w-xl text-lg text-[var(--ink-muted)]">
           Not a pile of knob positions. Every pedal, every amp block, every
           routing decision — mapped end-to-end from the guitar to the mic.
         </p>
@@ -216,12 +216,12 @@ export default function SignalChainShowcase() {
           ].map((item) => (
             <div
               key={item.title}
-              className="rounded-xl border border-border/70 bg-surface/60 p-6 backdrop-blur-sm"
+              className="rounded-xl border border-[var(--ink)]/15/70 bg-[var(--paper-2)]/60 p-6 backdrop-blur-sm"
             >
-              <h3 className="text-base font-semibold text-foreground">
+              <h3 className="text-base font-semibold text-[var(--ink)]">
                 {item.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
+              <p className="mt-2 text-sm leading-relaxed text-[var(--ink-muted)]">
                 {item.desc}
               </p>
             </div>

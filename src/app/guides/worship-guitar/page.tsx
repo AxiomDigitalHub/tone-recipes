@@ -75,23 +75,23 @@ function Section({
   return (
     <section className="mb-12">
       <h2 className="mb-2 text-2xl font-bold md:text-3xl">{title}</h2>
-      <p className="mb-6 max-w-2xl text-sm text-muted md:text-base">{blurb}</p>
+      <p className="mb-6 max-w-2xl text-sm text-[var(--ink-muted)] md:text-base">{blurb}</p>
       <div className="grid gap-3 sm:grid-cols-2">
         {guides.map((g) => (
           <Link
             key={g.href}
             href={g.href}
-            className="group flex flex-col rounded-xl border border-border bg-surface/40 p-5 transition-all hover:border-accent/40 hover:bg-surface"
+            className="group flex flex-col rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/40 p-5 transition-all hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
           >
             <div className="flex items-center justify-between gap-3">
-              <h3 className="text-sm font-bold text-foreground transition-colors group-hover:text-accent">
+              <h3 className="text-sm font-bold text-[var(--ink)] transition-colors group-hover:text-[var(--amber-2)]">
                 {g.title}
               </h3>
-              <span className="shrink-0 rounded-full border border-border px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-muted">
+              <span className="shrink-0 rounded-full border border-[var(--ink)]/15 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
                 {g.tag}
               </span>
             </div>
-            <p className="mt-2 text-xs leading-relaxed text-muted">{g.blurb}</p>
+            <p className="mt-2 text-xs leading-relaxed text-[var(--ink-muted)]">{g.blurb}</p>
           </Link>
         ))}
       </div>
@@ -124,13 +124,13 @@ export default function WorshipPillarPage() {
 
       <article className="mx-auto max-w-5xl px-4 py-12 md:py-16">
         <header className="mb-12 md:mb-16">
-          <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-accent">
+          <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-[var(--amber-2)]">
             Pillar guide · {allGuides.length} guides · Growing weekly
           </p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
             Worship Guitar
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-muted md:text-xl">
+          <p className="mt-5 max-w-2xl text-lg text-[var(--ink-muted)] md:text-xl">
             The Sunday morning rig — present without being prominent, dynamic
             without being distracting, big without being loud. The worship
             tone formula decoded, with live-workflow details most guides
@@ -140,7 +140,7 @@ export default function WorshipPillarPage() {
 
         <section className="mb-12 max-w-3xl prose-dark">
           <h2 className="mb-3 text-2xl font-bold">The worship tone formula</h2>
-          <p className="text-base leading-relaxed text-foreground/85">
+          <p className="text-base leading-relaxed text-[var(--ink)]/85">
             Modern worship guitar sounds like it does because a handful of
             elements show up across almost every church and record. A Vox
             AC30 or AC30-adjacent amp model. A transparent boost — Klon,
@@ -149,14 +149,14 @@ export default function WorshipPillarPage() {
             handle 90% of what you hear from Elevation, Hillsong, Bethel,
             Passion, and most A/B-tier worship songs.
           </p>
-          <p className="mt-3 text-base leading-relaxed text-foreground/85">
+          <p className="mt-3 text-base leading-relaxed text-[var(--ink)]/85">
             What separates a great worship guitarist isn&apos;t the pedals.
             It&apos;s the knob positions (the Klon at 7 o&apos;clock, not
             noon; the Muff Sustain at 30%, not maxed), the structural use of
             delay (rhythmic, not decorative), and the live-mix awareness
             that keeps the guitar present without fighting the band.
           </p>
-          <p className="mt-3 text-base leading-relaxed text-foreground/85">
+          <p className="mt-3 text-base leading-relaxed text-[var(--ink)]/85">
             Nathan Cross — who writes most of our worship content — is a
             working worship guitarist in mid-sized churches. The guides here
             reflect a Sunday morning reality, not a bedroom studio.
@@ -175,18 +175,18 @@ export default function WorshipPillarPage() {
           guides={LIVE_RIG}
         />
 
-        <section className="mb-14 rounded-2xl border border-border bg-surface/40 p-6 md:p-8">
+        <section className="mb-14 rounded-2xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/40 p-6 md:p-8">
           <h2 className="mb-3 text-xl font-bold md:text-2xl">
             Worship Set Pack — live now
           </h2>
-          <p className="mb-4 max-w-2xl text-sm text-muted md:text-base">
+          <p className="mb-4 max-w-2xl text-sm text-[var(--ink-muted)] md:text-base">
             One Helix preset, 8 snapshots, 30 top worship songs mapped to
             snapshots. Clean, Drive, Drive+, Lead, Clean Ambient, Ambient
             Drive, Rock, Swells. Free with sign-up.
           </p>
           <Link
             href="/set-packs/worship"
-            className="inline-flex items-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+            className="inline-flex items-center rounded-lg bg-[var(--amber)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
           >
             Open the Worship Set Pack
           </Link>
@@ -197,55 +197,55 @@ export default function WorshipPillarPage() {
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/guides/pedal-settings-guides"
-              className="block rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
-              <h3 className="text-sm font-bold text-foreground">Pedal settings guides</h3>
-              <p className="mt-2 text-xs text-muted">
+              <h3 className="text-sm font-bold text-[var(--ink)]">Pedal settings guides</h3>
+              <p className="mt-2 text-xs text-[var(--ink-muted)]">
                 Klon, delay, reverb — the settings guides for every pedal in the worship stack.
               </p>
             </Link>
             <Link
               href="/guides/amp-settings-and-tone"
-              className="block rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
-              <h3 className="text-sm font-bold text-foreground">Amp settings & tone</h3>
-              <p className="mt-2 text-xs text-muted">
+              <h3 className="text-sm font-bold text-[var(--ink)]">Amp settings & tone</h3>
+              <p className="mt-2 text-xs text-[var(--ink-muted)]">
                 The AC30 breakdown and its modeler equivalents. The amp that makes worship guitar sound like worship guitar.
               </p>
             </Link>
             <Link
               href="/guides/modeler-mastery"
-              className="block rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
-              <h3 className="text-sm font-bold text-foreground">Modeler mastery</h3>
-              <p className="mt-2 text-xs text-muted">
+              <h3 className="text-sm font-bold text-[var(--ink)]">Modeler mastery</h3>
+              <p className="mt-2 text-xs text-[var(--ink-muted)]">
                 Most worship rigs are Helix- or HX Stomp-based. The modeler pillar covers them all.
               </p>
             </Link>
           </div>
         </section>
 
-        <section className="rounded-2xl border border-accent/30 bg-accent/5 p-6 md:p-8">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-accent/80">
+        <section className="rounded-2xl border border-[var(--amber)]/30 bg-[var(--amber)]/5 p-6 md:p-8">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--amber-2)]/80">
             Save this pillar
           </p>
-          <h2 className="mt-1 text-xl font-bold text-foreground md:text-2xl">
+          <h2 className="mt-1 text-xl font-bold text-[var(--ink)] md:text-2xl">
             Sunday Setlist delivered to your inbox
           </h2>
-          <p className="mt-2 max-w-xl text-sm text-muted md:text-base">
+          <p className="mt-2 max-w-xl text-sm text-[var(--ink-muted)] md:text-base">
             Every Friday: worship tone of the week, a deep-dive blog post,
             and a quick tip you can use at Sunday&apos;s rehearsal. Free.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
               href="/set-packs/worship"
-              className="inline-flex items-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+              className="inline-flex items-center rounded-lg bg-[var(--amber)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
             >
               Download Worship Set Pack
             </Link>
             <Link
               href="/guides"
-              className="inline-flex items-center rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
+              className="inline-flex items-center rounded-lg border border-[var(--ink)]/15 px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
               See other pillar guides
             </Link>

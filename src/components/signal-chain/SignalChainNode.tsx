@@ -23,7 +23,7 @@ export default function SignalChainNode({
         onClick={onSelect}
         aria-label={`${node.gear_name} – ${node.category}${node.subcategory ? ` / ${node.subcategory}` : ""} settings`}
         aria-pressed={!!isSelected}
-        className={`node-glow group flex h-20 w-20 cursor-pointer flex-col items-center justify-center rounded-xl border-2 bg-surface transition-all duration-200 hover:bg-surface-hover hover:scale-105 hover:shadow-[0_0_12px_rgba(245,158,11,0.3)] hover:border-accent/60 ${
+        className={`node-glow group flex h-20 w-20 cursor-pointer flex-col items-center justify-center rounded-xl border-2 bg-[var(--paper-2)] transition-all duration-200 hover:bg-[var(--paper)] hover:scale-105 hover:shadow-[0_0_12px_rgba(245,158,11,0.3)] hover:border-[var(--amber)]/60 ${
           isSelected ? "ring-2 ring-offset-2 ring-offset-background scale-105" : ""
         }`}
         style={{
@@ -36,12 +36,12 @@ export default function SignalChainNode({
           style={{ color: node.icon_color }}
           strokeWidth={1.5}
         />
-        <span className="mt-1 text-[10px] font-medium uppercase text-muted">
+        <span className="mt-1 text-[10px] font-medium uppercase text-[var(--ink-muted)]">
           {label}
         </span>
       </button>
 
-      <p className="mt-2 max-w-[110px] text-center text-[11px] font-medium leading-tight text-foreground line-clamp-2">
+      <p className="mt-2 max-w-[110px] text-center text-[11px] font-medium leading-tight text-[var(--ink)] line-clamp-2">
         {node.gear_name}
       </p>
     </div>

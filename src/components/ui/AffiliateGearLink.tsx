@@ -44,13 +44,13 @@ export default function AffiliateGearLink({
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-0.5 rounded border border-border bg-surface px-1.5 py-0.5 text-[10px] font-medium text-muted transition-colors hover:border-accent/40 hover:text-accent"
+        className="inline-flex items-center gap-0.5 rounded border border-[var(--ink)]/15 bg-[var(--paper-2)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--ink-muted)] transition-colors hover:border-[var(--amber)]/40 hover:text-[var(--amber-2)]"
         aria-label={`Buy ${name}`}
       >
         Buy
       </button>
       {open && (
-        <div className="absolute left-0 top-full z-50 mt-1 min-w-[160px] rounded-lg border border-border bg-surface p-1 shadow-lg">
+        <div className="absolute left-0 top-full z-50 mt-1 min-w-[160px] rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] p-1 shadow-lg">
           {partners.map(
             (p) =>
               p.url && (
@@ -59,11 +59,11 @@ export default function AffiliateGearLink({
                   href={p.url}
                   target="_blank"
                   rel="nofollow sponsored"
-                  className="flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-foreground transition-colors hover:bg-background"
+                  className="flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-[var(--ink)] transition-colors hover:bg-[var(--paper)]"
                   onClick={() => setOpen(false)}
                 >
                   {p.label}
-                  <ExternalLink className="ml-auto h-3 w-3 text-muted" />
+                  <ExternalLink className="ml-auto h-3 w-3 text-[var(--ink-muted)]" />
                 </a>
               )
           )}

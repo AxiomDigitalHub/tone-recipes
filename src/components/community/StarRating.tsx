@@ -108,7 +108,7 @@ export default function StarRating({
       </div>
 
       {(showAverage || showCount) && (
-        <span className={`${textSize} text-muted ml-1`}>
+        <span className={`${textSize} text-[var(--ink-muted)] ml-1`}>
           {showAverage && showCount
             ? `(${rating.toFixed(1)} / ${count.toLocaleString()} rating${count !== 1 ? "s" : ""})`
             : showAverage
@@ -161,7 +161,7 @@ function StarIcon({
     return (
       <Star
         size={size}
-        className="text-muted"
+        className="text-[var(--ink-muted)]"
         strokeWidth={1.5}
       />
     );
@@ -190,7 +190,7 @@ function StarIcon({
         strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="text-muted"
+        className="text-[var(--ink-muted)]"
       />
     </svg>
   );

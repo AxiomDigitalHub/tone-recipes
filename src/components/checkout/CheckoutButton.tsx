@@ -103,8 +103,8 @@ export default function CheckoutButton({
         disabled={loading}
         className={`block w-full rounded-lg py-3 text-center text-sm font-semibold transition-colors ${
           highlight
-            ? "bg-accent text-background hover:bg-accent-hover"
-            : "border border-border bg-surface text-foreground hover:border-accent/40 hover:bg-surface-hover"
+            ? "bg-[var(--amber)] text-[var(--ink)] hover:bg-[var(--amber-2)]"
+            : "border border-[var(--ink)]/15 bg-[var(--paper-2)] text-[var(--ink)] hover:border-[var(--amber)]/40 hover:bg-[var(--paper)]"
         } disabled:opacity-50`}
       >
         {loading ? (

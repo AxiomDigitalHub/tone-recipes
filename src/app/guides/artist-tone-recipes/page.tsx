@@ -185,13 +185,13 @@ export default function ArtistToneRecipesPillarPage() {
       <article className="mx-auto max-w-5xl px-4 py-12 md:py-16">
         {/* ── Hero ─────────────────────────────────────────────────────── */}
         <header className="mb-12 md:mb-16">
-          <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-accent">
+          <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-[var(--amber-2)]">
             Pillar guide
           </p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
             Artist Tone Recipes
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-muted md:text-xl">
+          <p className="mt-5 max-w-2xl text-lg text-[var(--ink-muted)] md:text-xl">
             Every iconic guitar tone can be broken down into gear, signal
             chain, and knob positions. This is our library of the ones that
             defined a genre — reproduced on whatever rig you own.
@@ -201,14 +201,14 @@ export default function ArtistToneRecipesPillarPage() {
         {/* ── What a tone recipe is ────────────────────────────────────── */}
         <section className="mb-12 max-w-3xl prose-dark">
           <h2 className="mb-3 text-2xl font-bold">What is a tone recipe?</h2>
-          <p className="text-base leading-relaxed text-foreground/85">
+          <p className="text-base leading-relaxed text-[var(--ink)]/85">
             A tone recipe is the complete answer to &ldquo;how do I get this
             sound on my rig.&rdquo; Not a vibes-based list of gear. An exact
             signal chain, with every block&apos;s settings, the guitar the
             artist was using (pickup, tuning, strings), and a plain-English
             explanation of why each piece matters.
           </p>
-          <p className="mt-3 text-base leading-relaxed text-foreground/85">
+          <p className="mt-3 text-base leading-relaxed text-[var(--ink)]/85">
             Every recipe on the site is translated for every major platform —
             Line 6 Helix, Neural DSP Quad Cortex, IK TONEX, Fractal, Kemper,
             and Boss Katana — so you can dial it in whatever rig you own. For
@@ -229,8 +229,8 @@ export default function ArtistToneRecipesPillarPage() {
               if (eraRecipes.length === 0) return null;
               return (
                 <div key={era.title}>
-                  <h3 className="text-xl font-bold text-foreground">{era.title}</h3>
-                  <p className="mt-1 max-w-2xl text-sm text-muted md:text-base">
+                  <h3 className="text-xl font-bold text-[var(--ink)]">{era.title}</h3>
+                  <p className="mt-1 max-w-2xl text-sm text-[var(--ink-muted)] md:text-base">
                     {era.blurb}
                   </p>
                   <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -258,7 +258,7 @@ export default function ArtistToneRecipesPillarPage() {
         {/* ── Every artist (alphabetical) ─────────────────────────────── */}
         <section className="mb-14">
           <h2 className="mb-6 text-2xl font-bold md:text-3xl">Every artist</h2>
-          <p className="mb-6 max-w-2xl text-sm text-muted md:text-base">
+          <p className="mb-6 max-w-2xl text-sm text-[var(--ink-muted)] md:text-base">
             The full list, alphabetical. Click any artist for their recipes,
             gear profile, and tone analysis.
           </p>
@@ -269,10 +269,10 @@ export default function ArtistToneRecipesPillarPage() {
                 <Link
                   key={g.artistSlug}
                   href={`/artist/${g.artistSlug}`}
-                  className="flex items-center justify-between rounded px-1 py-1 text-foreground transition-colors hover:text-accent"
+                  className="flex items-center justify-between rounded px-1 py-1 text-[var(--ink)] transition-colors hover:text-[var(--amber-2)]"
                 >
                   <span>{g.artistName}</span>
-                  <span className="text-xs text-muted">{g.recipes.length}</span>
+                  <span className="text-xs text-[var(--ink-muted)]">{g.recipes.length}</span>
                 </Link>
               ))}
           </div>
@@ -281,7 +281,7 @@ export default function ArtistToneRecipesPillarPage() {
         {/* ── How to use these recipes ─────────────────────────────────── */}
         <section className="mb-14 max-w-3xl prose-dark">
           <h2 className="mb-3 text-2xl font-bold">How to use a recipe</h2>
-          <ol className="space-y-3 text-base leading-relaxed text-foreground/85">
+          <ol className="space-y-3 text-base leading-relaxed text-[var(--ink)]/85">
             <li>
               <strong>Find the tone you want.</strong> Search by song, artist,
               or genre. Every recipe names the song and the specific
@@ -357,24 +357,24 @@ export default function ArtistToneRecipesPillarPage() {
               <Link
                 key={g.href + g.title}
                 href={g.href}
-                className="block rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+                className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
               >
-                <h3 className="text-sm font-bold text-foreground">{g.title}</h3>
-                <p className="mt-2 text-xs text-muted">{g.desc}</p>
+                <h3 className="text-sm font-bold text-[var(--ink)]">{g.title}</h3>
+                <p className="mt-2 text-xs text-[var(--ink-muted)]">{g.desc}</p>
               </Link>
             ))}
           </div>
         </section>
 
         {/* ── Closing CTA ──────────────────────────────────────────────── */}
-        <section className="rounded-2xl border border-accent/30 bg-accent/5 p-6 md:p-8">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-accent/80">
+        <section className="rounded-2xl border border-[var(--amber)]/30 bg-[var(--amber)]/5 p-6 md:p-8">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--amber-2)]/80">
             Save this pillar
           </p>
-          <h2 className="mt-1 text-xl font-bold text-foreground md:text-2xl">
+          <h2 className="mt-1 text-xl font-bold text-[var(--ink)] md:text-2xl">
             Get a new tone recipe every Friday
           </h2>
-          <p className="mt-2 max-w-xl text-sm text-muted md:text-base">
+          <p className="mt-2 max-w-xl text-sm text-[var(--ink-muted)] md:text-base">
             Sunday setlists, one-off inspiration, or just the next tone you
             want to dial in. Join Tone of the Week — free, one email on
             Friday, one killer recipe, one blog deep-dive, one quick tip you
@@ -383,13 +383,13 @@ export default function ArtistToneRecipesPillarPage() {
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
               href="/browse"
-              className="inline-flex items-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+              className="inline-flex items-center rounded-lg bg-[var(--amber)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
             >
               Browse all recipes
             </Link>
             <Link
               href="/pricing"
-              className="inline-flex items-center rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
+              className="inline-flex items-center rounded-lg border border-[var(--ink)]/15 px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
               See Tone Pass
             </Link>

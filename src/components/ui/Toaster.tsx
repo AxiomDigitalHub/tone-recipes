@@ -22,9 +22,9 @@ const TONE_STYLE: Record<
   },
   info: {
     icon: Info,
-    border: "border-accent/40",
-    bg: "bg-accent/10",
-    iconColor: "text-accent",
+    border: "border-[var(--amber)]/40",
+    bg: "bg-[var(--amber)]/10",
+    iconColor: "text-[var(--amber-2)]",
   },
 };
 
@@ -45,16 +45,16 @@ export default function Toaster() {
           <div
             key={t.id}
             role="status"
-            className={`pointer-events-auto flex w-full max-w-sm items-start gap-3 rounded-xl border ${s.border} ${s.bg} bg-background/95 px-4 py-3 shadow-xl backdrop-blur-sm`}
+            className={`pointer-events-auto flex w-full max-w-sm items-start gap-3 rounded-xl border ${s.border} ${s.bg} bg-[var(--paper)]/95 px-4 py-3 shadow-xl backdrop-blur-sm`}
             style={{ animation: "fk-toast-in 200ms ease-out" }}
           >
             <Icon className={`mt-0.5 h-4 w-4 shrink-0 ${s.iconColor}`} />
-            <div className="flex-1 text-sm leading-snug text-foreground">
+            <div className="flex-1 text-sm leading-snug text-[var(--ink)]">
               {t.message}
               {t.action && (
                 <Link
                   href={t.action.href}
-                  className="ml-2 inline-block font-semibold text-accent underline-offset-2 hover:underline"
+                  className="ml-2 inline-block font-semibold text-[var(--amber-2)] underline-offset-2 hover:underline"
                 >
                   {t.action.label}
                 </Link>
@@ -64,7 +64,7 @@ export default function Toaster() {
               type="button"
               onClick={() => dismiss(t.id)}
               aria-label="Dismiss"
-              className="-mr-1 -mt-1 rounded p-1 text-muted transition-colors hover:bg-surface hover:text-foreground"
+              className="-mr-1 -mt-1 rounded p-1 text-[var(--ink-muted)] transition-colors hover:bg-[var(--paper-2)] hover:text-[var(--ink)]"
             >
               <X className="h-3.5 w-3.5" />
             </button>

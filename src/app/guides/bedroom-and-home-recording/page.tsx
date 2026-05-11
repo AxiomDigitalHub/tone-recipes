@@ -113,23 +113,23 @@ function Section({
   return (
     <section className="mb-12">
       <h2 className="mb-2 text-2xl font-bold md:text-3xl">{title}</h2>
-      <p className="mb-6 max-w-2xl text-sm text-muted md:text-base">{blurb}</p>
+      <p className="mb-6 max-w-2xl text-sm text-[var(--ink-muted)] md:text-base">{blurb}</p>
       <div className="grid gap-3 sm:grid-cols-2">
         {guides.map((g) => (
           <Link
             key={g.href}
             href={g.href}
-            className="group flex flex-col rounded-xl border border-border bg-surface/40 p-5 transition-all hover:border-accent/40 hover:bg-surface"
+            className="group flex flex-col rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/40 p-5 transition-all hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
           >
             <div className="flex items-center justify-between gap-3">
-              <h3 className="text-sm font-bold text-foreground transition-colors group-hover:text-accent">
+              <h3 className="text-sm font-bold text-[var(--ink)] transition-colors group-hover:text-[var(--amber-2)]">
                 {g.title}
               </h3>
-              <span className="shrink-0 rounded-full border border-border px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-muted">
+              <span className="shrink-0 rounded-full border border-[var(--ink)]/15 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
                 {g.tag}
               </span>
             </div>
-            <p className="mt-2 text-xs leading-relaxed text-muted">{g.blurb}</p>
+            <p className="mt-2 text-xs leading-relaxed text-[var(--ink-muted)]">{g.blurb}</p>
           </Link>
         ))}
       </div>
@@ -162,13 +162,13 @@ export default function BedroomPillarPage() {
 
       <article className="mx-auto max-w-5xl px-4 py-12 md:py-16">
         <header className="mb-12 md:mb-16">
-          <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-accent">
+          <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-[var(--amber-2)]">
             Pillar guide · {allGuides.length} guides · Growing weekly
           </p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
             Bedroom & Home Recording
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-muted md:text-xl">
+          <p className="mt-5 max-w-2xl text-lg text-[var(--ink-muted)] md:text-xl">
             Great guitar tone in small spaces, short sessions, and quiet
             rooms. The constraint-based rig — headphone amps, direct
             recording, couch-sized practice — built to work for the player
@@ -180,7 +180,7 @@ export default function BedroomPillarPage() {
           <h2 className="mb-3 text-2xl font-bold">
             Constraints aren&apos;t the enemy of tone
           </h2>
-          <p className="text-base leading-relaxed text-foreground/85">
+          <p className="text-base leading-relaxed text-[var(--ink)]/85">
             Most guitar content assumes you have two hours, a dedicated
             music room, and the volume freedom to crank an amp. If you
             don&apos;t — and most players don&apos;t — the standard advice
@@ -188,7 +188,7 @@ export default function BedroomPillarPage() {
             the same reason a Marshall Plexi at bedroom volume sounds bad:
             those amps need air to move before they sound like themselves.
           </p>
-          <p className="mt-3 text-base leading-relaxed text-foreground/85">
+          <p className="mt-3 text-base leading-relaxed text-[var(--ink)]/85">
             The answer isn&apos;t to buy a worse amp. It&apos;s to use
             gear that was designed for the constraints you actually have.
             Modelers through headphones. Low-wattage tube amps with
@@ -196,7 +196,7 @@ export default function BedroomPillarPage() {
             bedroom-volume rig is a different species from the gig rig —
             and when you commit to that, your tone gets better, not worse.
           </p>
-          <p className="mt-3 text-base leading-relaxed text-foreground/85">
+          <p className="mt-3 text-base leading-relaxed text-[var(--ink)]/85">
             Elena Ruiz and Dev Okonkwo, the two writers with the most
             experience in this territory, own this pillar editorially.
             Elena is the parent-player voice; Dev is the bedroom-producer
@@ -228,54 +228,54 @@ export default function BedroomPillarPage() {
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/guides/modeler-mastery"
-              className="block rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
-              <h3 className="text-sm font-bold text-foreground">Modeler mastery</h3>
-              <p className="mt-2 text-xs text-muted">
+              <h3 className="text-sm font-bold text-[var(--ink)]">Modeler mastery</h3>
+              <p className="mt-2 text-xs text-[var(--ink-muted)]">
                 The modeler is the key to every bedroom rig. Platform comparisons, workflow guides, IR choice.
               </p>
             </Link>
             <Link
               href="/guides/tone-troubleshooting"
-              className="block rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
-              <h3 className="text-sm font-bold text-foreground">Tone troubleshooting</h3>
-              <p className="mt-2 text-xs text-muted">
+              <h3 className="text-sm font-bold text-[var(--ink)]">Tone troubleshooting</h3>
+              <p className="mt-2 text-xs text-[var(--ink-muted)]">
                 Most bedroom-tone complaints — fizzy highs, thin sound, no air — have known fixes.
               </p>
             </Link>
             <Link
               href="/guides/pedal-settings-guides"
-              className="block rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
-              <h3 className="text-sm font-bold text-foreground">Pedal settings guides</h3>
-              <p className="mt-2 text-xs text-muted">
+              <h3 className="text-sm font-bold text-[var(--ink)]">Pedal settings guides</h3>
+              <p className="mt-2 text-xs text-[var(--ink-muted)]">
                 Pedals translate fine at bedroom volume. Here&apos;s how to set them to get gig tone at whisper volume.
               </p>
             </Link>
           </div>
         </section>
 
-        <section className="rounded-2xl border border-accent/30 bg-accent/5 p-6 md:p-8">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-accent/80">
+        <section className="rounded-2xl border border-[var(--amber)]/30 bg-[var(--amber)]/5 p-6 md:p-8">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--amber-2)]/80">
             Save this pillar
           </p>
-          <h2 className="mt-1 text-xl font-bold text-foreground md:text-2xl">
+          <h2 className="mt-1 text-xl font-bold text-[var(--ink)] md:text-2xl">
             Made for 20 minutes on a Tuesday
           </h2>
-          <p className="mt-2 max-w-xl text-sm text-muted md:text-base">
+          <p className="mt-2 max-w-xl text-sm text-[var(--ink-muted)] md:text-base">
             Tone of the Week — one email Friday, one new recipe, one bedroom-friendly tip. Free.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
               href="/browse"
-              className="inline-flex items-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+              className="inline-flex items-center rounded-lg bg-[var(--amber)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
             >
               Browse all recipes
             </Link>
             <Link
               href="/guides"
-              className="inline-flex items-center rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
+              className="inline-flex items-center rounded-lg border border-[var(--ink)]/15 px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
               See other pillar guides
             </Link>

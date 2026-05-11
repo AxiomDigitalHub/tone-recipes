@@ -47,10 +47,10 @@ export default function HeroV2() {
           style={{ letterSpacing: "-0.03em", lineHeight: 1.03 }}
         >
           Tone recipes from the songs{" "}
-          <span className="text-accent italic">you love.</span>
+          <span className="text-[var(--amber-2)] italic">you love.</span>
         </h1>
 
-        <p className="mx-auto mt-7 max-w-xl text-lg text-muted md:text-xl">
+        <p className="mx-auto mt-7 max-w-xl text-lg text-[var(--ink-muted)] md:text-xl">
           Pick a song. Get exact settings for your Helix, Quad Cortex, TONEX,
           or physical rig.
         </p>
@@ -58,23 +58,23 @@ export default function HeroV2() {
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <Link
             href="/browse"
-            className="w-full rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-background shadow-lg shadow-amber-900/20 transition-all hover:bg-accent-hover hover:shadow-amber-900/40 sm:w-auto"
+            className="w-full rounded-xl bg-[var(--amber)] px-8 py-3.5 text-base font-semibold text-[var(--ink)] shadow-lg shadow-amber-900/20 transition-all hover:bg-[var(--amber-2)] hover:shadow-amber-900/40 sm:w-auto"
           >
             Browse Recipes
           </Link>
           <Link
             href="#how-it-works"
-            className="w-full rounded-xl border border-border bg-surface/40 px-8 py-3.5 text-base font-semibold text-foreground backdrop-blur-sm transition-all hover:border-accent/40 hover:bg-surface sm:w-auto"
+            className="w-full rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/40 px-8 py-3.5 text-base font-semibold text-[var(--ink)] backdrop-blur-sm transition-all hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)] sm:w-auto"
           >
             See how it works
           </Link>
         </div>
 
-        <p className="mt-5 text-sm text-muted">
+        <p className="mt-5 text-sm text-[var(--ink-muted)]">
           New here?{" "}
           <Link
             href="/blog/what-is-a-tone-recipe"
-            className="text-accent underline-offset-4 hover:underline"
+            className="text-[var(--amber-2)] underline-offset-4 hover:underline"
           >
             Learn what a tone recipe is
           </Link>

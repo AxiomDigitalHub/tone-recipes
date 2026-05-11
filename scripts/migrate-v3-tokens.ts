@@ -60,6 +60,29 @@ const RULES: Rule[] = [
   { from: /\btext-muted\/(\d+)\b/g, to: "text-[var(--ink-faint)]" },
   { from: /\bbg-surface\/(\d+)\b/g, to: "bg-[var(--paper-2)]/$1" },
 
+  // gradient direction tokens (from-, via-, to-)
+  { from: /\bfrom-accent\/(\d+)\b/g, to: "from-[var(--amber)]/$1" },
+  { from: /\bvia-accent\/(\d+)\b/g, to: "via-[var(--amber)]/$1" },
+  { from: /\bto-accent\/(\d+)\b/g, to: "to-[var(--amber)]/$1" },
+  { from: /\bfrom-accent\b/g, to: "from-[var(--amber)]" },
+  { from: /\bvia-accent\b/g, to: "via-[var(--amber)]" },
+  { from: /\bto-accent\b/g, to: "to-[var(--amber)]" },
+  // For surface gradients (typically album-art-overlay scrims), use ink
+  // — those gradients want a dark fade for white-text legibility, which
+  // var(--ink) preserves correctly.
+  { from: /\bfrom-surface\/(\d+)\b/g, to: "from-[var(--ink)]/$1" },
+  { from: /\bvia-surface\/(\d+)\b/g, to: "via-[var(--ink)]/$1" },
+  { from: /\bto-surface\/(\d+)\b/g, to: "to-[var(--ink)]/$1" },
+  { from: /\bfrom-surface\b/g, to: "from-[var(--ink)]" },
+  { from: /\bvia-surface\b/g, to: "via-[var(--ink)]" },
+  { from: /\bto-surface\b/g, to: "to-[var(--ink)]" },
+  // Primary token — globally a dark navy. Used mostly as image-load
+  // placeholders, which should still feel "dark behind the image" so
+  // we map to ink (which is also dark) rather than paper.
+  { from: /\bbg-primary\/(\d+)\b/g, to: "bg-[var(--ink)]/$1" },
+  { from: /\bbg-primary-light\b/g, to: "bg-[var(--ink)]/20" },
+  { from: /\bbg-primary\b/g, to: "bg-[var(--ink)]" },
+
   // base tokens
   { from: /\bbg-accent\b/g, to: "bg-[var(--amber)]" },
   { from: /\btext-accent\b/g, to: "text-[var(--amber-2)]" },

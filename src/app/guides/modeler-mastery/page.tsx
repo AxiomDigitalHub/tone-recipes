@@ -208,23 +208,23 @@ function Section({
   return (
     <section className="mb-12">
       <h2 className="mb-2 text-2xl font-bold md:text-3xl">{title}</h2>
-      <p className="mb-6 max-w-2xl text-sm text-muted md:text-base">{blurb}</p>
+      <p className="mb-6 max-w-2xl text-sm text-[var(--ink-muted)] md:text-base">{blurb}</p>
       <div className="grid gap-3 sm:grid-cols-2">
         {guides.map((g) => (
           <Link
             key={g.href}
             href={g.href}
-            className="group flex flex-col rounded-xl border border-border bg-surface/40 p-5 transition-all hover:border-accent/40 hover:bg-surface"
+            className="group flex flex-col rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/40 p-5 transition-all hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
           >
             <div className="flex items-center justify-between gap-3">
-              <h3 className="text-sm font-bold text-foreground transition-colors group-hover:text-accent">
+              <h3 className="text-sm font-bold text-[var(--ink)] transition-colors group-hover:text-[var(--amber-2)]">
                 {g.title}
               </h3>
-              <span className="shrink-0 rounded-full border border-border px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-muted">
+              <span className="shrink-0 rounded-full border border-[var(--ink)]/15 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
                 {g.tag}
               </span>
             </div>
-            <p className="mt-2 text-xs leading-relaxed text-muted">{g.blurb}</p>
+            <p className="mt-2 text-xs leading-relaxed text-[var(--ink-muted)]">{g.blurb}</p>
           </Link>
         ))}
       </div>
@@ -257,13 +257,13 @@ export default function ModelerMasteryPillarPage() {
 
       <article className="mx-auto max-w-5xl px-4 py-12 md:py-16">
         <header className="mb-12 md:mb-16">
-          <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-accent">
+          <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-[var(--amber-2)]">
             Pillar guide · {allGuides.length} guides
           </p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
             Modeler Mastery
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-muted md:text-xl">
+          <p className="mt-5 max-w-2xl text-lg text-[var(--ink-muted)] md:text-xl">
             Helix, Quad Cortex, TONEX, Fractal, Kemper, and Boss Katana.
             Which to buy, how to build presets that actually sound like the
             target, and how to make a modeler work in rooms, stages, and
@@ -275,21 +275,21 @@ export default function ModelerMasteryPillarPage() {
           <h2 className="mb-3 text-2xl font-bold">
             Modelers in 2026 — where each platform lives
           </h2>
-          <p className="text-base leading-relaxed text-foreground/85">
+          <p className="text-base leading-relaxed text-[var(--ink)]/85">
             The modeler market has consolidated around three philosophies.
-            <strong className="text-foreground">
+            <strong className="text-[var(--ink)]">
               {" "}
               Algorithmic modeling
             </strong>{" "}
             (Helix, Fractal, IK AmpliTube) simulates the circuit topology of a
             reference amp; you get a model of a type.{" "}
-            <strong className="text-foreground">Capture-based</strong> platforms
+            <strong className="text-[var(--ink)]">Capture-based</strong> platforms
             (Kemper, Quad Cortex, TONEX) record the impulse response of a
             specific amp in a specific room; you get a snapshot of one amp.{" "}
-            <strong className="text-foreground">Hybrid</strong> (Quad Cortex)
+            <strong className="text-[var(--ink)]">Hybrid</strong> (Quad Cortex)
             combines both — use a capture or use the algorithmic model.
           </p>
-          <p className="mt-3 text-base leading-relaxed text-foreground/85">
+          <p className="mt-3 text-base leading-relaxed text-[var(--ink)]/85">
             The right choice depends less on raw sound quality (all the top
             platforms are past &ldquo;indistinguishable in a mix&rdquo;
             territory) and more on workflow. Do you want to dial amps like an
@@ -328,55 +328,55 @@ export default function ModelerMasteryPillarPage() {
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/guides/artist-tone-recipes"
-              className="block rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
-              <h3 className="text-sm font-bold text-foreground">Artist tone recipes</h3>
-              <p className="mt-2 text-xs text-muted">
+              <h3 className="text-sm font-bold text-[var(--ink)]">Artist tone recipes</h3>
+              <p className="mt-2 text-xs text-[var(--ink-muted)]">
                 Every recipe on the site includes the specific Helix / QC / TONEX / Fractal / Kemper / Katana translation for that tone.
               </p>
             </Link>
             <Link
               href="/guides/amp-settings-and-tone"
-              className="block rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
-              <h3 className="text-sm font-bold text-foreground">Amp settings & tone</h3>
-              <p className="mt-2 text-xs text-muted">
+              <h3 className="text-sm font-bold text-[var(--ink)]">Amp settings & tone</h3>
+              <p className="mt-2 text-xs text-[var(--ink-muted)]">
                 The amps that the modelers are modeling. Understanding the source makes the model choices obvious.
               </p>
             </Link>
             <Link
               href="/platforms"
-              className="block rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
-              <h3 className="text-sm font-bold text-foreground">Platform pages</h3>
-              <p className="mt-2 text-xs text-muted">
+              <h3 className="text-sm font-bold text-[var(--ink)]">Platform pages</h3>
+              <p className="mt-2 text-xs text-[var(--ink-muted)]">
                 Platform-specific landing pages with the full recipe-to-amp-model mappings.
               </p>
             </Link>
           </div>
         </section>
 
-        <section className="rounded-2xl border border-accent/30 bg-accent/5 p-6 md:p-8">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-accent/80">
+        <section className="rounded-2xl border border-[var(--amber)]/30 bg-[var(--amber)]/5 p-6 md:p-8">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--amber-2)]/80">
             Save this pillar
           </p>
-          <h2 className="mt-1 text-xl font-bold text-foreground md:text-2xl">
+          <h2 className="mt-1 text-xl font-bold text-[var(--ink)] md:text-2xl">
             New modeler guide every week
           </h2>
-          <p className="mt-2 max-w-xl text-sm text-muted md:text-base">
+          <p className="mt-2 max-w-xl text-sm text-[var(--ink-muted)] md:text-base">
             Tone of the Week — free, every Friday. Helix, Quad Cortex, TONEX,
             Kemper — one new tutorial, one recipe, one tip.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
               href="/browse"
-              className="inline-flex items-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+              className="inline-flex items-center rounded-lg bg-[var(--amber)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
             >
               Browse all recipes
             </Link>
             <Link
               href="/guides"
-              className="inline-flex items-center rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:bg-surface"
+              className="inline-flex items-center rounded-lg border border-[var(--ink)]/15 px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
             >
               See other pillar guides
             </Link>

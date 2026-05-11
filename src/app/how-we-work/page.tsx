@@ -16,11 +16,11 @@ export default function HowWeWorkPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 md:py-24">
       <h1 className="page-title page-title-md">How We Work</h1>
-      <p className="mt-4 text-lg text-muted">
+      <p className="mt-4 text-lg text-[var(--ink-muted)]">
         Human-verified, AI-powered.
       </p>
 
-      <div className="mt-12 space-y-12 text-[15px] leading-relaxed text-foreground/90">
+      <div className="mt-12 space-y-12 text-[15px] leading-relaxed text-[var(--ink)]/90">
         {/* Intro */}
         <section>
           <p>
@@ -33,21 +33,21 @@ export default function HowWeWorkPage() {
 
         {/* What AI Does */}
         <section>
-          <h2 className="mb-4 text-xl font-bold text-foreground">What AI Does</h2>
+          <h2 className="mb-4 text-xl font-bold text-[var(--ink)]">What AI Does</h2>
           <ul className="space-y-4">
             <li className="flex gap-3">
-              <span className="mt-1 shrink-0 text-accent">1.</span>
+              <span className="mt-1 shrink-0 text-[var(--amber-2)]">1.</span>
               <div>
-                <strong className="text-foreground">Researches tone settings.</strong>{" "}
+                <strong className="text-[var(--ink)]">Researches tone settings.</strong>{" "}
                 AI analyzes interviews, gear demos, studio session notes, and
                 equipment lists to determine what amp, pedals, and settings an
                 artist used on a specific recording.
               </div>
             </li>
             <li className="flex gap-3">
-              <span className="mt-1 shrink-0 text-accent">2.</span>
+              <span className="mt-1 shrink-0 text-[var(--amber-2)]">2.</span>
               <div>
-                <strong className="text-foreground">Generates preset files.</strong>{" "}
+                <strong className="text-[var(--ink)]">Generates preset files.</strong>{" "}
                 Our Helix .hlx presets are generated programmatically using a
                 model map verified against 300+ real presets. Every model ID,
                 parameter name, and value range has been cross-referenced with
@@ -55,9 +55,9 @@ export default function HowWeWorkPage() {
               </div>
             </li>
             <li className="flex gap-3">
-              <span className="mt-1 shrink-0 text-accent">3.</span>
+              <span className="mt-1 shrink-0 text-[var(--amber-2)]">3.</span>
               <div>
-                <strong className="text-foreground">Writes blog content.</strong>{" "}
+                <strong className="text-[var(--ink)]">Writes blog content.</strong>{" "}
                 Our blog posts are written by AI editorial voices — each with a
                 distinct perspective and area of expertise. They are not real
                 people. They are AI writers with consistent styles tuned to
@@ -65,9 +65,9 @@ export default function HowWeWorkPage() {
               </div>
             </li>
             <li className="flex gap-3">
-              <span className="mt-1 shrink-0 text-accent">4.</span>
+              <span className="mt-1 shrink-0 text-[var(--amber-2)]">4.</span>
               <div>
-                <strong className="text-foreground">Translates across platforms.</strong>{" "}
+                <strong className="text-[var(--ink)]">Translates across platforms.</strong>{" "}
                 When we create a recipe for one modeler, AI maps the signal chain
                 to equivalent blocks on other platforms — matching amp models,
                 effect types, and parameter ranges.
@@ -78,12 +78,12 @@ export default function HowWeWorkPage() {
 
         {/* What Humans Do */}
         <section>
-          <h2 className="mb-4 text-xl font-bold text-foreground">What Humans Do</h2>
+          <h2 className="mb-4 text-xl font-bold text-[var(--ink)]">What Humans Do</h2>
           <ul className="space-y-4">
             <li className="flex gap-3">
               <span className="mt-1 shrink-0 text-emerald-400">1.</span>
               <div>
-                <strong className="text-foreground">Test on real hardware.</strong>{" "}
+                <strong className="text-[var(--ink)]">Test on real hardware.</strong>{" "}
                 Presets are loaded into HX Edit and tested on real hardware as
                 part of our review process. When a preset doesn&apos;t sound
                 right or fails to load correctly, it gets flagged and fixed
@@ -93,7 +93,7 @@ export default function HowWeWorkPage() {
             <li className="flex gap-3">
               <span className="mt-1 shrink-0 text-emerald-400">2.</span>
               <div>
-                <strong className="text-foreground">Curate and direct.</strong>{" "}
+                <strong className="text-[var(--ink)]">Curate and direct.</strong>{" "}
                 A human decides which songs to cover, which tones matter, and
                 what quality bar to hit. AI executes; humans set the standard.
               </div>
@@ -101,7 +101,7 @@ export default function HowWeWorkPage() {
             <li className="flex gap-3">
               <span className="mt-1 shrink-0 text-emerald-400">3.</span>
               <div>
-                <strong className="text-foreground">Verify accuracy.</strong>{" "}
+                <strong className="text-[var(--ink)]">Verify accuracy.</strong>{" "}
                 Tone research is checked against known gear lists, live footage,
                 and studio documentation. If the AI gets it wrong, we fix it.
               </div>
@@ -111,7 +111,7 @@ export default function HowWeWorkPage() {
 
         {/* Why This Approach */}
         <section>
-          <h2 className="mb-4 text-xl font-bold text-foreground">Why This Approach</h2>
+          <h2 className="mb-4 text-xl font-bold text-[var(--ink)]">Why This Approach</h2>
           <p>
             Building 50 tone recipes across multiple platforms with detailed
             signal chains, settings, and downloadable presets would take a
@@ -128,7 +128,7 @@ export default function HowWeWorkPage() {
 
         {/* About the Blog Writers */}
         <section>
-          <h2 className="mb-4 text-xl font-bold text-foreground">About Our Writers</h2>
+          <h2 className="mb-4 text-xl font-bold text-[var(--ink)]">About Our Writers</h2>
           <p>
             Our blog posts are written by AI editorial voices — not real people.
             Each voice has a consistent style and area of focus (gear reviews,
@@ -139,15 +139,15 @@ export default function HowWeWorkPage() {
           <p className="mt-4">
             Every post is reviewed for accuracy before publication. If you spot
             something wrong,{" "}
-            <Link href="/community/forum" className="text-accent hover:underline">
+            <Link href="/community/forum" className="text-[var(--amber-2)] hover:underline">
               let us know in the forum
             </Link>.
           </p>
         </section>
 
         {/* The Bottom Line */}
-        <section className="rounded-2xl border border-border bg-surface p-8">
-          <h2 className="mb-3 text-xl font-bold text-foreground">The Bottom Line</h2>
+        <section className="rounded-2xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-8">
+          <h2 className="mb-3 text-xl font-bold text-[var(--ink)]">The Bottom Line</h2>
           <p>
             AI researches. AI writes. AI generates presets. Humans test on real
             gear, set the direction, and make sure everything actually sounds

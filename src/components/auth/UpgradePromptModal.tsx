@@ -62,28 +62,28 @@ export default function UpgradePromptModal({
         className="absolute inset-0 bg-black/70 backdrop-blur-sm"
       />
 
-      <div className="relative w-full max-w-sm rounded-2xl border border-border bg-surface p-6 shadow-2xl">
+      <div className="relative w-full max-w-sm rounded-2xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-6 shadow-2xl">
         <button
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-3 top-3 rounded-lg p-1.5 text-muted transition-colors hover:bg-surface-hover hover:text-foreground"
+          className="absolute right-3 top-3 rounded-lg p-1.5 text-[var(--ink-muted)] transition-colors hover:bg-[var(--paper)] hover:text-[var(--ink)]"
         >
           <X className="h-4 w-4" />
         </button>
 
         <div className="mb-4">
-          <span className="inline-flex items-center rounded-full bg-accent/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent">
+          <span className="inline-flex items-center rounded-full bg-[var(--amber)]/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[var(--amber-2)]">
             Tone Pass
           </span>
           <h2
             id="upgrade-prompt-title"
-            className="mt-3 text-lg font-bold text-foreground"
+            className="mt-3 text-lg font-bold text-[var(--ink)]"
           >
             Unlock unlimited downloads
           </h2>
           {reason && (
-            <p className="mt-1 text-sm text-muted">{reason}</p>
+            <p className="mt-1 text-sm text-[var(--ink-muted)]">{reason}</p>
           )}
         </div>
 
@@ -95,20 +95,20 @@ export default function UpgradePromptModal({
             "Ad-free, cancel anytime",
           ].map((bullet) => (
             <li key={bullet} className="flex items-start gap-2">
-              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" />
-              <span className="text-foreground">{bullet}</span>
+              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--amber-2)]" />
+              <span className="text-[var(--ink)]">{bullet}</span>
             </li>
           ))}
         </ul>
 
         <div className="mb-2 flex items-baseline gap-1">
-          <span className="text-3xl font-bold text-foreground">$7</span>
-          <span className="text-sm text-muted">/month</span>
+          <span className="text-3xl font-bold text-[var(--ink)]">$7</span>
+          <span className="text-sm text-[var(--ink-muted)]">/month</span>
         </div>
 
         <Link
           href="/pricing"
-          className="block w-full rounded-lg bg-accent py-2.5 text-center text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+          className="block w-full rounded-lg bg-[var(--amber)] py-2.5 text-center text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
         >
           See Tone Pass
         </Link>
@@ -116,7 +116,7 @@ export default function UpgradePromptModal({
         <button
           type="button"
           onClick={onClose}
-          className="mt-2 block w-full rounded-lg py-2 text-center text-xs font-medium text-muted transition-colors hover:text-foreground"
+          className="mt-2 block w-full rounded-lg py-2 text-center text-xs font-medium text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
         >
           Maybe later
         </button>

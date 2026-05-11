@@ -58,7 +58,7 @@ export default function DownloadCounter({ className }: DownloadCounterProps) {
   if (user.role !== "free") {
     return (
       <span
-        className={`inline-flex items-center rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent ${className ?? ""}`}
+        className={`inline-flex items-center rounded-full bg-[var(--amber)]/10 px-2.5 py-0.5 text-xs font-medium text-[var(--amber-2)] ${className ?? ""}`}
       >
         Unlimited downloads
       </span>
@@ -74,7 +74,7 @@ export default function DownloadCounter({ className }: DownloadCounterProps) {
     <span
       className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium ${
         remaining > 3
-          ? "border-border text-muted"
+          ? "border-[var(--ink)]/15 text-[var(--ink-muted)]"
           : remaining > 0
             ? "border-amber-500/30 text-amber-400"
             : "border-red-500/30 text-red-400"

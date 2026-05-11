@@ -33,7 +33,7 @@ export default function PlatformPicker() {
       <button
         onClick={() => setOpen(!open)}
         title="Set your default modeler platform"
-        className="flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium transition-colors hover:border-accent/40 hover:bg-surface-hover"
+        className="flex items-center gap-1.5 rounded-full border border-[var(--ink)]/15 bg-[var(--paper-2)] px-3 py-1 text-xs font-medium transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper)]"
       >
         {activeMeta ? (
           <>
@@ -41,13 +41,13 @@ export default function PlatformPicker() {
               className="h-2 w-2 rounded-full"
               style={{ backgroundColor: activeMeta.color }}
             />
-            <span className="text-foreground">{activeMeta.label}</span>
+            <span className="text-[var(--ink)]">{activeMeta.label}</span>
           </>
         ) : (
-          <span className="text-muted">Your Modeler</span>
+          <span className="text-[var(--ink-muted)]">Your Modeler</span>
         )}
         <svg
-          className={`ml-0.5 h-3 w-3 text-muted transition-transform ${open ? "rotate-180" : ""}`}
+          className={`ml-0.5 h-3 w-3 text-[var(--ink-muted)] transition-transform ${open ? "rotate-180" : ""}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -58,22 +58,22 @@ export default function PlatformPicker() {
       </button>
 
       {open && (
-        <div className="absolute right-0 z-50 mt-2 w-52 rounded-lg border border-border bg-surface py-1 shadow-xl">
+        <div className="absolute right-0 z-50 mt-2 w-52 rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] py-1 shadow-xl">
           <button
             onClick={() => {
               setPreferredPlatform(null);
               setOpen(false);
             }}
-            className={`flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition-colors hover:bg-surface-hover ${
+            className={`flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition-colors hover:bg-[var(--paper)] ${
               preferredPlatform === null
-                ? "text-accent font-medium"
-                : "text-muted"
+                ? "text-[var(--amber-2)] font-medium"
+                : "text-[var(--ink-muted)]"
             }`}
           >
             Your Modeler
-            <span className="text-[10px] text-muted">(no preference)</span>
+            <span className="text-[10px] text-[var(--ink-muted)]">(no preference)</span>
           </button>
-          <hr className="my-1 border-border" />
+          <hr className="my-1 border-[var(--ink)]/15" />
           {selectablePlatforms.map((platform) => {
             const isSelected = preferredPlatform === platform.id;
             return (
@@ -83,8 +83,8 @@ export default function PlatformPicker() {
                   setPreferredPlatform(platform.id);
                   setOpen(false);
                 }}
-                className={`flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition-colors hover:bg-surface-hover ${
-                  isSelected ? "font-medium text-foreground" : "text-muted"
+                className={`flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition-colors hover:bg-[var(--paper)] ${
+                  isSelected ? "font-medium text-[var(--ink)]" : "text-[var(--ink-muted)]"
                 }`}
               >
                 <span
@@ -94,7 +94,7 @@ export default function PlatformPicker() {
                 {platform.label}
                 {isSelected && (
                   <svg
-                    className="ml-auto h-4 w-4 text-accent"
+                    className="ml-auto h-4 w-4 text-[var(--amber-2)]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

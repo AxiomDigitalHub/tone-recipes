@@ -77,49 +77,49 @@ export default function InvitePage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background px-4">
+    <div className="min-h-screen flex items-center justify-center bg-[var(--paper)] px-4">
       <div className="max-w-md w-full text-center space-y-6">
         {/* Logo */}
         <Link href="/" className="inline-block">
           <h1
-            className="text-2xl font-bold text-foreground"
+            className="text-2xl font-bold text-[var(--ink)]"
             style={{ letterSpacing: "-0.02em" }}
           >
             Fader & Knob
           </h1>
         </Link>
 
-        <div className="bg-surface border border-border rounded-xl p-8 space-y-5">
+        <div className="bg-[var(--paper-2)] border border-[var(--ink)]/15 rounded-xl p-8 space-y-5">
           {/* Pre-auth: show sign-in prompt */}
           {!user && !authLoading && (
             <>
               <div className="space-y-2">
-                <h2 className="text-xl font-semibold text-foreground">
+                <h2 className="text-xl font-semibold text-[var(--ink)]">
                   You&apos;re Invited
                 </h2>
-                <p className="text-muted text-sm">
+                <p className="text-[var(--ink-muted)] text-sm">
                   Someone shared a Creator access code with you. Sign in to
                   activate your free account.
                 </p>
               </div>
 
-              <div className="bg-accent/10 border border-accent/20 rounded-lg px-4 py-3">
-                <p className="text-xs text-muted uppercase tracking-wide mb-1">
+              <div className="bg-[var(--amber)]/10 border border-[var(--amber)]/20 rounded-lg px-4 py-3">
+                <p className="text-xs text-[var(--ink-muted)] uppercase tracking-wide mb-1">
                   Invite Code
                 </p>
-                <p className="font-mono text-lg text-accent font-semibold">
+                <p className="font-mono text-lg text-[var(--amber-2)] font-semibold">
                   {decodeURIComponent(code)}
                 </p>
               </div>
 
               <div className="space-y-3">
-                <p className="text-xs text-muted">
+                <p className="text-xs text-[var(--ink-muted)]">
                   Creator accounts include all platform translations, preset
                   downloads, recipe submission, and more.
                 </p>
                 <button
                   onClick={() => signInWithGoogle()}
-                  className="w-full px-4 py-3 bg-foreground text-background rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                  className="w-full px-4 py-3 bg-foreground text-[var(--ink)] rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24">
                     <path
@@ -148,16 +148,16 @@ export default function InvitePage() {
           {/* Loading auth */}
           {authLoading && (
             <div className="py-8 space-y-3">
-              <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin mx-auto" />
-              <p className="text-muted text-sm">Checking your account...</p>
+              <div className="w-8 h-8 border-2 border-[var(--amber)] border-t-transparent rounded-full animate-spin mx-auto" />
+              <p className="text-[var(--ink-muted)] text-sm">Checking your account...</p>
             </div>
           )}
 
           {/* Redeeming */}
           {status === "redeeming" && (
             <div className="py-8 space-y-3">
-              <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin mx-auto" />
-              <p className="text-muted text-sm">Activating your invite...</p>
+              <div className="w-8 h-8 border-2 border-[var(--amber)] border-t-transparent rounded-full animate-spin mx-auto" />
+              <p className="text-[var(--ink-muted)] text-sm">Activating your invite...</p>
             </div>
           )}
 
@@ -179,12 +179,12 @@ export default function InvitePage() {
                   />
                 </svg>
               </div>
-              <h2 className="text-xl font-semibold text-foreground">
+              <h2 className="text-xl font-semibold text-[var(--ink)]">
                 Welcome to{" "}
                 {grantedRole === "creator" ? "Creator" : "Premium"}!
               </h2>
-              <p className="text-muted text-sm">{message}</p>
-              <p className="text-xs text-muted/60">
+              <p className="text-[var(--ink-muted)] text-sm">{message}</p>
+              <p className="text-xs text-[var(--ink-faint)]">
                 Redirecting to your dashboard...
               </p>
             </div>
@@ -193,9 +193,9 @@ export default function InvitePage() {
           {/* Already has access */}
           {status === "already" && (
             <div className="py-4 space-y-4">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto">
+              <div className="w-16 h-16 bg-[var(--amber)]/10 rounded-full flex items-center justify-center mx-auto">
                 <svg
-                  className="w-8 h-8 text-accent"
+                  className="w-8 h-8 text-[var(--amber-2)]"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -208,12 +208,12 @@ export default function InvitePage() {
                   />
                 </svg>
               </div>
-              <h2 className="text-xl font-semibold text-foreground">
+              <h2 className="text-xl font-semibold text-[var(--ink)]">
                 {message}
               </h2>
               <Link
                 href="/dashboard"
-                className="inline-block px-6 py-2 bg-accent text-background rounded-lg font-medium hover:opacity-90 transition-opacity"
+                className="inline-block px-6 py-2 bg-[var(--amber)] text-[var(--ink)] rounded-lg font-medium hover:opacity-90 transition-opacity"
               >
                 Go to Dashboard
               </Link>
@@ -238,16 +238,16 @@ export default function InvitePage() {
                   />
                 </svg>
               </div>
-              <h2 className="text-xl font-semibold text-foreground">
+              <h2 className="text-xl font-semibold text-[var(--ink)]">
                 Hmm, that didn&apos;t work
               </h2>
-              <p className="text-muted text-sm">{message}</p>
+              <p className="text-[var(--ink-muted)] text-sm">{message}</p>
               <button
                 onClick={() => {
                   setStatus("idle");
                   setMessage("");
                 }}
-                className="inline-block px-6 py-2 bg-surface border border-border rounded-lg font-medium text-foreground hover:bg-border/30 transition-colors"
+                className="inline-block px-6 py-2 bg-[var(--paper-2)] border border-[var(--ink)]/15 rounded-lg font-medium text-[var(--ink)] hover:bg-[var(--ink)]/15/30 transition-colors"
               >
                 Try Again
               </button>
@@ -255,7 +255,7 @@ export default function InvitePage() {
           )}
         </div>
 
-        <p className="text-xs text-muted/40">
+        <p className="text-xs text-[var(--ink-faint)]">
           Invite codes grant free access and never expire.
         </p>
       </div>

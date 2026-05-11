@@ -71,13 +71,13 @@ export default function HeroV3() {
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
           <Link
             href="/browse"
-            className="w-full rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-background shadow-[0_12px_40px_-8px_rgba(245,158,11,0.45)] transition-all hover:bg-accent-hover hover:shadow-[0_20px_60px_-10px_rgba(245,158,11,0.6)] sm:w-auto"
+            className="w-full rounded-xl bg-[var(--amber)] px-8 py-3.5 text-base font-semibold text-[var(--ink)] shadow-[0_12px_40px_-8px_rgba(245,158,11,0.45)] transition-all hover:bg-[var(--amber-2)] hover:shadow-[0_20px_60px_-10px_rgba(245,158,11,0.6)] sm:w-auto"
           >
             Browse Recipes
           </Link>
           <Link
             href="#how-it-works"
-            className="w-full rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 text-base font-semibold text-foreground backdrop-blur-sm transition-all hover:border-accent/40 hover:bg-white/10 sm:w-auto"
+            className="w-full rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 text-base font-semibold text-[var(--ink)] backdrop-blur-sm transition-all hover:border-[var(--amber)]/40 hover:bg-white/10 sm:w-auto"
           >
             See how it works
           </Link>
@@ -96,7 +96,7 @@ export default function HeroV3() {
             Now playing:{" "}
             <Link
               href="/blog/what-is-a-tone-recipe"
-              className="text-accent underline-offset-4 hover:underline"
+              className="text-[var(--amber-2)] underline-offset-4 hover:underline"
             >
               Learn what a tone recipe is
             </Link>

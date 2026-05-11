@@ -62,7 +62,7 @@ export default function NotificationBell() {
     <button
       type="button"
       onClick={handleClick}
-      className="relative inline-flex items-center justify-center rounded-lg p-2 text-muted transition-colors hover:text-foreground hover:bg-surface-hover"
+      className="relative inline-flex items-center justify-center rounded-lg p-2 text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)] hover:bg-[var(--paper)]"
       aria-label={
         count > 0
           ? `${count} unread notification${count !== 1 ? "s" : ""}`

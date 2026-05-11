@@ -16,7 +16,7 @@ export default function NewThreadPage() {
     <Suspense
       fallback={
         <div className="flex min-h-[50vh] items-center justify-center">
-          <Loader2 className="h-6 w-6 animate-spin text-accent" />
+          <Loader2 className="h-6 w-6 animate-spin text-[var(--amber-2)]" />
         </div>
       }
     >
@@ -112,7 +112,7 @@ function NewThreadContent() {
   if (authLoading) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
-        <Loader2 className="h-6 w-6 animate-spin text-accent" />
+        <Loader2 className="h-6 w-6 animate-spin text-[var(--amber-2)]" />
       </div>
     );
   }
@@ -124,12 +124,12 @@ function NewThreadContent() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 md:py-20">
       {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" className="text-sm text-muted">
+      <nav aria-label="Breadcrumb" className="text-sm text-[var(--ink-muted)]">
         <ol className="flex items-center gap-1.5">
           <li>
             <Link
               href="/community/forum"
-              className="transition-colors hover:text-accent"
+              className="transition-colors hover:text-[var(--amber-2)]"
             >
               Forum
             </Link>
@@ -137,14 +137,14 @@ function NewThreadContent() {
           <li aria-hidden="true" className="text-border">
             /
           </li>
-          <li className="font-medium text-foreground">New Thread</li>
+          <li className="font-medium text-[var(--ink)]">New Thread</li>
         </ol>
       </nav>
 
       <h1 className="mt-6 text-3xl font-bold tracking-tight md:text-4xl">
         New Thread
       </h1>
-      <p className="mt-2 text-muted">
+      <p className="mt-2 text-[var(--ink-muted)]">
         Start a new discussion in the community forum.
       </p>
 
@@ -153,7 +153,7 @@ function NewThreadContent() {
         <div>
           <label
             htmlFor="category"
-            className="block text-sm font-medium text-foreground"
+            className="block text-sm font-medium text-[var(--ink)]"
           >
             Category
           </label>
@@ -164,7 +164,7 @@ function NewThreadContent() {
             onChange={(e) => setCategoryId(e.target.value)}
             required
             disabled={loadingCategories}
-            className="mt-1.5 w-full rounded-lg border border-border bg-surface px-3 py-2.5 text-sm text-foreground focus:border-accent/50 focus:outline-none focus:ring-1 focus:ring-accent/50 disabled:opacity-50"
+            className="mt-1.5 w-full rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] px-3 py-2.5 text-sm text-[var(--ink)] focus:border-[var(--amber)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--amber)]/50 disabled:opacity-50"
           >
             <option value="">
               {loadingCategories ? "Loading categories..." : "Select a category"}
@@ -181,7 +181,7 @@ function NewThreadContent() {
         <div>
           <label
             htmlFor="title"
-            className="block text-sm font-medium text-foreground"
+            className="block text-sm font-medium text-[var(--ink)]"
           >
             Title
           </label>
@@ -195,9 +195,9 @@ function NewThreadContent() {
             minLength={TITLE_MIN}
             maxLength={TITLE_MAX}
             placeholder="Give your thread a descriptive title"
-            className="mt-1.5 w-full rounded-lg border border-border bg-surface px-3 py-2.5 text-sm text-foreground placeholder:text-muted/50 focus:border-accent/50 focus:outline-none focus:ring-1 focus:ring-accent/50"
+            className="mt-1.5 w-full rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] px-3 py-2.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-faint)] focus:border-[var(--amber)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--amber)]/50"
           />
-          <p className="mt-1 text-xs text-muted">
+          <p className="mt-1 text-xs text-[var(--ink-muted)]">
             {title.trim().length}/{TITLE_MAX} characters
           </p>
         </div>
@@ -206,7 +206,7 @@ function NewThreadContent() {
         <div>
           <label
             htmlFor="body"
-            className="block text-sm font-medium text-foreground"
+            className="block text-sm font-medium text-[var(--ink)]"
           >
             Body
           </label>
@@ -218,7 +218,7 @@ function NewThreadContent() {
             onChange={(e) => setBody(e.target.value)}
             required
             placeholder="Describe your topic, question, or what you want to share..."
-            className="mt-1.5 w-full resize-y rounded-lg border border-border bg-surface px-3 py-2.5 text-sm text-foreground placeholder:text-muted/50 focus:border-accent/50 focus:outline-none focus:ring-1 focus:ring-accent/50"
+            className="mt-1.5 w-full resize-y rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] px-3 py-2.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-faint)] focus:border-[var(--amber)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--amber)]/50"
           />
         </div>
 
@@ -233,14 +233,14 @@ function NewThreadContent() {
         <div className="flex items-center justify-between">
           <Link
             href="/community/forum"
-            className="text-sm text-muted transition-colors hover:text-accent"
+            className="text-sm text-[var(--ink-muted)] transition-colors hover:text-[var(--amber-2)]"
           >
             Cancel
           </Link>
           <button
             type="submit"
             disabled={!isValid || submitting}
-            className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-lg bg-[var(--amber)] px-5 py-2.5 text-sm font-medium text-[var(--ink)] transition-colors hover:bg-[var(--amber)]/90 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {submitting ? (
               <Loader2

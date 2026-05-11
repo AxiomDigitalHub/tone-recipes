@@ -17,15 +17,15 @@ export function MobileTableOfContents({ items }: { items: TocItem[] }) {
   return (
     <nav
       aria-label="Table of contents"
-      className="mb-10 rounded-xl border border-border bg-surface lg:hidden"
+      className="mb-10 rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] lg:hidden"
     >
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-semibold text-foreground"
+        className="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-semibold text-[var(--ink)]"
       >
         <span>In this article</span>
         <svg
-          className={`h-4 w-4 text-muted transition-transform ${open ? "rotate-180" : ""}`}
+          className={`h-4 w-4 text-[var(--ink-muted)] transition-transform ${open ? "rotate-180" : ""}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -42,10 +42,10 @@ export function MobileTableOfContents({ items }: { items: TocItem[] }) {
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
-                  className={`block text-sm transition-colors hover:text-accent ${
+                  className={`block text-sm transition-colors hover:text-[var(--amber-2)] ${
                     item.level === 2
-                      ? "font-medium text-foreground/80"
-                      : "pl-4 text-muted"
+                      ? "font-medium text-[var(--ink)]/80"
+                      : "pl-4 text-[var(--ink-muted)]"
                   }`}
                 >
                   {item.text}
@@ -68,18 +68,18 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
       aria-label="Table of contents"
       className="sticky top-24 hidden lg:block"
     >
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
         In this article
       </p>
-      <ol className="space-y-1.5 border-l border-border pl-4">
+      <ol className="space-y-1.5 border-l border-[var(--ink)]/15 pl-4">
         {items.map((item) => (
           <li key={item.id}>
             <a
               href={`#${item.id}`}
-              className={`block text-sm transition-colors hover:text-accent ${
+              className={`block text-sm transition-colors hover:text-[var(--amber-2)] ${
                 item.level === 2
-                  ? "font-medium text-foreground/80"
-                  : "pl-3 text-muted"
+                  ? "font-medium text-[var(--ink)]/80"
+                  : "pl-3 text-[var(--ink-muted)]"
               }`}
             >
               {item.text}

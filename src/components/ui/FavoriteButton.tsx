@@ -52,8 +52,8 @@ export default function FavoriteButton({
       aria-label={favorited ? "Remove from saved" : "Save recipe"}
       className={`flex items-center justify-center border transition-all ${
         favorited
-          ? "border-accent/40 bg-accent/10 text-accent"
-          : "border-border bg-surface text-muted hover:text-accent hover:border-accent/40"
+          ? "border-[var(--amber)]/40 bg-[var(--amber)]/10 text-[var(--amber-2)]"
+          : "border-[var(--ink)]/15 bg-[var(--paper-2)] text-[var(--ink-muted)] hover:text-[var(--amber-2)] hover:border-[var(--amber)]/40"
       } ${buttonSize} ${animating ? "scale-125" : "scale-100"} ${className}`}
       style={{ transition: "transform 0.2s ease, color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease" }}
     >
