@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { Music, Zap, Clock } from "lucide-react";
 import SetlistMapper from "@/components/set-packs/SetlistMapper";
 import SetPackAccess from "@/components/set-packs/SetPackAccess";
@@ -189,12 +190,33 @@ export default function WorshipSetPackPage() {
           keep — no subscription.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <SetPackAccess
-            packSlug="worship"
-            packName="Worship"
-            priceDisplay="$19"
-            format="hlx"
-          />
+          {/* Wrapped in Suspense because SetPackAccess reads
+              `useSearchParams()` (for the ?purchased=true success-return
+              flag). Without the boundary the whole page bails out of
+              static rendering and the build fails. */}
+          <Suspense
+            fallback={
+              <button
+                type="button"
+                disabled
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold"
+                style={{
+                  background: "var(--paper-2)",
+                  color: "var(--ink-muted)",
+                  border: "1px solid rgba(10,9,8,0.15)",
+                }}
+              >
+                Loading…
+              </button>
+            }
+          >
+            <SetPackAccess
+              packSlug="worship"
+              packName="Worship"
+              priceDisplay="$19"
+              format="hlx"
+            />
+          </Suspense>
         </div>
         <p className="mt-4 text-xs" style={{ color: "var(--ink-muted)" }}>
           Compatible with Line 6 Helix and HX Stomp on recent firmware.

@@ -40,17 +40,24 @@ export function findRelatedPosts(opts: {
   for (const post of getAllPosts()) {
     let score = 0;
 
-    if (wantCats.has(post.category.toLowerCase())) score += 5;
+    // Defensive coercion — some posts have been edited by editorial
+    // agents that produced non-string entries (numbers, nulls) in
+    // `tags`/`category`. Without these guards, `tag.toLowerCase()` etc.
+    // crashes the prerender with "e.toLowerCase is not a function".
+    const cat = typeof post.category === "string" ? post.category : "";
+    if (wantCats.has(cat.toLowerCase())) score += 5;
 
-    for (const tag of post.tags) {
-      const t = tag.toLowerCase();
+    const tags = Array.isArray(post.tags) ? post.tags : [];
+    for (const rawTag of tags) {
+      const t = String(rawTag ?? "").toLowerCase();
+      if (!t) continue;
       if (wantTags.has(t)) score += 3;
       for (const k of kw) {
         if (t.includes(k) || k.includes(t)) score += 1;
       }
     }
 
-    const hay = `${post.title} ${post.description}`.toLowerCase();
+    const hay = `${post.title ?? ""} ${post.description ?? ""}`.toLowerCase();
     for (const k of kw) {
       if (hay.includes(k)) score += 2;
     }

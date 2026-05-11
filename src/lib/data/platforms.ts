@@ -102,10 +102,16 @@ export function getBlogPostsForArtist(artistSlug: string): BlogPost[] {
     terms.push(parts[parts.length - 1]); // last name
   }
 
+  // Same defensive coercion as `getBlogPostsForPlatform` below.
+  const safeTerms = terms.map(String).filter(Boolean);
+
   const posts = getAllPosts();
   return posts.filter((post) => {
-    const haystack = `${post.title} ${post.tags.join(" ")} ${post.description ?? ""}`.toLowerCase();
-    return terms.some((t) => haystack.includes(t.toLowerCase()));
+    const tagStr = Array.isArray(post.tags)
+      ? post.tags.map(String).join(" ")
+      : "";
+    const haystack = `${post.title ?? ""} ${tagStr} ${post.description ?? ""}`.toLowerCase();
+    return safeTerms.some((t) => haystack.includes(t.toLowerCase()));
   });
 }
 
@@ -126,10 +132,19 @@ export function getBlogPostsForPlatform(platformId: string): BlogPost[] {
   };
   if (aliases[platformId]) terms.push(...aliases[platformId]);
 
+  // Defensive string coercion: a recent batch of editorial edits left
+  // some posts with non-string entries in `tags` (numbers, nulls), which
+  // crashed the prerender with "e.toLowerCase is not a function" at
+  // build time. Coerce everything to a string before lowercasing.
+  const safeTerms = terms.map(String).filter(Boolean);
+
   const posts = getAllPosts();
   return posts.filter((post) => {
-    const haystack = `${post.title} ${post.tags.join(" ")}`.toLowerCase();
-    return terms.some((t) => haystack.includes(t.toLowerCase()));
+    const tagStr = Array.isArray(post.tags)
+      ? post.tags.map(String).join(" ")
+      : "";
+    const haystack = `${post.title ?? ""} ${tagStr}`.toLowerCase();
+    return safeTerms.some((t) => haystack.includes(t.toLowerCase()));
   });
 }
 
