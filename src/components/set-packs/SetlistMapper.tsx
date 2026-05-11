@@ -130,7 +130,7 @@ export default function SetlistMapper() {
         <Search
           style={{
             position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)",
-            width: 16, height: 16, color: "#4a5e78",
+            width: 16, height: 16, color: "var(--ink-muted)",
           }}
         />
         <input
@@ -140,8 +140,8 @@ export default function SetlistMapper() {
           onChange={(e) => setQuery(e.target.value)}
           style={{
             width: "100%", padding: "10px 12px 10px 36px",
-            borderRadius: 10, border: "1.5px solid #1e2840",
-            background: "#0d1220", color: "#c8d8e8",
+            borderRadius: 10, border: "1.5px solid rgba(10,9,8,0.12)",
+            background: "var(--paper-2)", color: "var(--ink)",
             fontSize: 13, outline: "none",
           }}
         />
@@ -150,19 +150,19 @@ export default function SetlistMapper() {
       {/* Table */}
       <div
         style={{
-          borderRadius: 14, border: "1.5px solid #1e2840",
-          background: "#0b0f1a", overflow: "hidden",
+          borderRadius: 14, border: "1.5px solid rgba(10,9,8,0.12)",
+          background: "var(--paper-2)", overflow: "hidden",
         }}
       >
         <div style={{ overflowX: "auto" }}>
           <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 640 }}>
             <thead>
-              <tr style={{ borderBottom: "1.5px solid #1e2840" }}>
+              <tr style={{ borderBottom: "1.5px solid rgba(10,9,8,0.12)" }}>
                 <th style={{
                   textAlign: "left", padding: "12px 16px",
                   fontSize: 10, fontWeight: 700, letterSpacing: 1.5,
-                  textTransform: "uppercase", color: "#3a4a60",
-                  position: "sticky", left: 0, background: "#0b0f1a", zIndex: 2,
+                  textTransform: "uppercase", color: "var(--ink-faint)",
+                  position: "sticky", left: 0, background: "var(--paper-2)", zIndex: 2,
                   minWidth: 180,
                 }}>
                   Song
@@ -173,7 +173,7 @@ export default function SetlistMapper() {
                     style={{
                       textAlign: "center", padding: "12px 8px",
                       fontSize: 10, fontWeight: 700, letterSpacing: 1.5,
-                      textTransform: "uppercase", color: "#3a4a60",
+                      textTransform: "uppercase", color: "var(--ink-faint)",
                     }}
                   >
                     {sectionLabels[sec]}
@@ -186,20 +186,20 @@ export default function SetlistMapper() {
                 <tr
                   key={row.song}
                   style={{
-                    borderBottom: i < filtered.length - 1 ? "1px solid #141c2e" : "none",
+                    borderBottom: i < filtered.length - 1 ? "1px solid rgba(10,9,8,0.08)" : "none",
                     transition: "background 0.15s",
                   }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#111827"; }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--paper)"; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                 >
                   <td style={{
                     padding: "10px 16px",
-                    position: "sticky", left: 0, background: "#0b0f1a", zIndex: 1,
+                    position: "sticky", left: 0, background: "var(--paper-2)", zIndex: 1,
                   }}>
-                    <div style={{ fontSize: 13, fontWeight: 600, color: "#e2e8f0", lineHeight: 1.3 }}>
+                    <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)", lineHeight: 1.3 }}>
                       {row.song}
                     </div>
-                    <div style={{ fontSize: 11, color: "#4a5e78", marginTop: 1 }}>
+                    <div style={{ fontSize: 11, color: "var(--ink-muted)", marginTop: 1 }}>
                       {row.artist}
                     </div>
                   </td>
@@ -212,7 +212,7 @@ export default function SetlistMapper() {
               ))}
               {filtered.length === 0 && (
                 <tr>
-                  <td colSpan={6} style={{ padding: 32, textAlign: "center", color: "#3a4a60", fontSize: 13 }}>
+                  <td colSpan={6} style={{ padding: 32, textAlign: "center", color: "var(--ink-faint)", fontSize: 13 }}>
                     No songs match &ldquo;{query}&rdquo;
                   </td>
                 </tr>
@@ -223,7 +223,7 @@ export default function SetlistMapper() {
       </div>
 
       {/* Count */}
-      <div style={{ marginTop: 12, fontSize: 11, color: "#3a4a60", textAlign: "right" }}>
+      <div style={{ marginTop: 12, fontSize: 11, color: "var(--ink-faint)", textAlign: "right" }}>
         {filtered.length} of {SONGS.length} songs
       </div>
     </div>
