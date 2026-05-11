@@ -75,9 +75,70 @@ type Failure = {
   column?: number;
 };
 
+/**
+ * Frontmatter type checks. Catches the class of bug where a tag like
+ * `2555` (Marshall model number) parses as a YAML integer, then later
+ * code does `tag.toLowerCase()` and crashes the prerender — happened
+ * 2026-05-11 on `marshall-sj20h-vs-sv20h-jubilee-vs-jcm800.mdx`.
+ * Only checks fields that are read by downstream code that calls
+ * string methods. Anything more would be over-fitting.
+ */
+function checkFrontmatter(data: Record<string, unknown>): string[] {
+  const errors: string[] = [];
+
+  const stringField = (name: string, required = true) => {
+    const v = data[name];
+    if (v === undefined || v === null || v === "") {
+      if (required) errors.push(`${name}: missing or empty`);
+      return;
+    }
+    if (typeof v !== "string") {
+      errors.push(`${name}: expected string, got ${typeof v} (${JSON.stringify(v)})`);
+    }
+  };
+
+  stringField("title");
+  stringField("description");
+  stringField("author");
+  stringField("author_slug");
+  stringField("category");
+
+  // tags must be a string[]; YAML readily parses bare numbers as ints
+  // (the 2026-05-11 breakage) and bare booleans as bools, both of which
+  // crash .toLowerCase() downstream. Wrap such values in quotes in the
+  // source: `- "2555"` instead of `- 2555`.
+  const tags = data.tags;
+  if (tags !== undefined && tags !== null) {
+    if (!Array.isArray(tags)) {
+      errors.push(`tags: expected array, got ${typeof tags}`);
+    } else {
+      for (let i = 0; i < tags.length; i++) {
+        if (typeof tags[i] !== "string") {
+          errors.push(
+            `tags[${i}]: expected string, got ${typeof tags[i]} (${JSON.stringify(tags[i])}) — quote it in YAML, e.g. "- \\"${tags[i]}\\""`,
+          );
+        }
+      }
+    }
+  }
+
+  return errors;
+}
+
 async function validate(file: string): Promise<Failure | null> {
   const raw = fs.readFileSync(file, "utf-8");
-  const { content } = matter(raw); // strip frontmatter; next-mdx-remote does the same
+  const { content, data } = matter(raw);
+
+  // 1. Frontmatter type checks (cheap, catches non-MDX bugs).
+  const fmErrors = checkFrontmatter(data);
+  if (fmErrors.length > 0) {
+    return {
+      file,
+      message: `frontmatter:\n      ${fmErrors.join("\n      ")}`,
+    };
+  }
+
+  // 2. MDX compile (catches JSX parser failures).
   try {
     await compile(content, { format: "mdx" });
     return null;
@@ -121,7 +182,8 @@ async function main() {
     "Common fixes:\n" +
       "  `<` before a digit/space  → `&lt;` or backslash-escape `\\<`\n" +
       "  unterminated string in JSX expression → use prime ″ for inches, escape \\\"\n" +
-      "  stray `{` in prose → `\\{` or wrap in backticks\n"
+      "  stray `{` in prose → `\\{` or wrap in backticks\n" +
+      "  numeric tag like `- 2555` → quote it: `- \"2555\"`\n",
   );
   process.exit(1);
 }
