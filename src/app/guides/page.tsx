@@ -4,10 +4,10 @@ import Link from "next/link";
 /**
  * /guides — Pillar-hub index.
  *
- * Eight pillars identified by the 2026-04 content-authority audit. One hub
- * page per pillar, rolled out one per session. This index exists from day 1
- * so the hubs that ARE live have a canonical home; pillars not yet built
- * are shown as "coming soon" so the visitor knows what to expect.
+ * Editorial v3 rewrite (2026-05-12). Reads like the table-of-contents
+ * spine of a magazine: archive masthead, mono-uppercase kicker, serif
+ * display title, then a single column of hairline-divided pillar rows
+ * — not a card grid.
  */
 
 export const metadata: Metadata = {
@@ -16,107 +16,176 @@ export const metadata: Metadata = {
     "Pillar guides from Fader & Knob: artist tone recipes, pedal settings, amp settings, modeler mastery, signal chain theory, worship guitar, bedroom tone, and tone troubleshooting.",
 };
 
-const PILLARS = [
+interface Pillar {
+  slug: string;
+  number: string; // "I", "II", … — gives each pillar a stable issue-number identity
+  title: string;
+  blurb: string;
+  meta: string; // small right-side label, e.g. "Modeler · Helix · QC"
+}
+
+const PILLARS: Pillar[] = [
   {
     slug: "artist-tone-recipes",
+    number: "I",
     title: "Artist Tone Recipes",
-    blurb: "Reproduce Gilmour, Page, SRV, Hetfield, Van Halen, and more — with exact signal chains and cross-platform presets.",
-    live: true,
+    blurb:
+      "Reproduce Gilmour, Page, SRV, Hetfield, Van Halen, and more — with exact signal chains and cross-platform presets.",
+    meta: "Gilmour · SRV · Hetfield",
   },
   {
     slug: "pedal-settings-guides",
+    number: "II",
     title: "Pedal Settings Guides",
-    blurb: "Klon, Tube Screamer, Big Muff, RAT, DS-1 — how to dial every canonical pedal, with clone comparisons.",
-    live: true,
+    blurb:
+      "Klon, Tube Screamer, Big Muff, RAT, DS-1 — how to dial every canonical pedal, with clone comparisons.",
+    meta: "Klon · TS · Muff · RAT",
   },
   {
     slug: "amp-settings-and-tone",
+    number: "III",
     title: "Amp Settings & Tone",
-    blurb: "Plexi, JCM800, AC30, Twin Reverb, 5150 — settings for each amp's signature voice and why they work.",
-    live: true,
+    blurb:
+      "Plexi, JCM800, AC30, Twin Reverb, 5150 — settings for each amp's signature voice and why they work.",
+    meta: "Plexi · AC30 · 5150",
   },
   {
     slug: "modeler-mastery",
+    number: "IV",
     title: "Modeler Mastery",
-    blurb: "Helix, Quad Cortex, TONEX, Fractal, Kemper, Boss Katana — deep dives on each platform's model library and workflow.",
-    live: true,
+    blurb:
+      "Helix, Quad Cortex, TONEX, Fractal, Kemper, Boss Katana — deep dives on each platform's model library and workflow.",
+    meta: "Helix · QC · TONEX · Fractal",
   },
   {
     slug: "signal-chain-fundamentals",
+    number: "V",
     title: "Signal Chain Fundamentals",
-    blurb: "Why the order of pedals matters. Gain staging, impedance, true bypass, buffered pedals, parallel routing.",
-    live: true,
+    blurb:
+      "Why the order of pedals matters. Gain staging, impedance, true bypass, buffered pedals, parallel routing.",
+    meta: "Theory · routing · gain",
   },
   {
     slug: "worship-guitar",
+    number: "VI",
     title: "Worship Guitar",
-    blurb: "Sunday morning setup, live expression-pedal dynamics, in-ear mix for guitar, analog-plus-digital worship rigs.",
-    live: true,
+    blurb:
+      "Sunday morning setup, live expression-pedal dynamics, in-ear mix for guitar, analog-plus-digital worship rigs.",
+    meta: "AC30 · Klon · shimmer",
   },
   {
     slug: "bedroom-and-home-recording",
+    number: "VII",
     title: "Bedroom & Home Recording",
-    blurb: "Getting great tone in small spaces — headphone rigs, direct recording, quiet pedalboards, parent-player practice.",
-    live: true,
+    blurb:
+      "Getting great tone in small spaces — headphone rigs, direct recording, quiet pedalboards, parent-player practice.",
+    meta: "Headphones · DI · quiet",
   },
   {
     slug: "tone-troubleshooting",
+    number: "VIII",
     title: "Tone Troubleshooting",
-    blurb: "Why your rig sounds wrong. Fixing muddy bass, fizzy highs, noise floor, ground loops, and tone-suck.",
-    live: true,
+    blurb:
+      "Why your rig sounds wrong. Fixing muddy bass, fizzy highs, noise floor, ground loops, and tone-suck.",
+    meta: "Diagnostics · fixes",
   },
 ];
 
 export default function GuidesIndexPage() {
   return (
-    <div className="mx-auto max-w-5xl px-4 py-12 md:py-16">
-      <header className="mb-12">
-        <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-[var(--amber-2)]">
-          Pillar guides
-        </p>
-        <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-          Tone, gear, and signal chain — broken down to first principles
+    <article className="container mx-auto max-w-3xl px-4 py-12 md:py-16">
+      <div className="recipe-crumbs">
+        <Link href="/">Home</Link>
+        <span className="sep">/</span>
+        <span style={{ color: "var(--ink)" }}>Guides</span>
+      </div>
+
+      <header className="archive-masthead">
+        <div className="archive-kicker">
+          <span>The Pillars</span>
+          <span style={{ opacity: 0.4 }}>·</span>
+          <span>Eight Departments</span>
+        </div>
+        <h1 className="archive-title">
+          The reference shelf for guitar tone.
         </h1>
-        <p className="mt-5 max-w-2xl text-lg text-[var(--ink-muted)] md:text-xl">
-          Each pillar is the canonical reference for its topic — a curated
-          collection of our deepest posts, organized into a single teaching
-          arc. Start with any pillar and work outward through the linked
-          posts.
+        <p className="archive-lede">
+          Eight pillar guides. Each one a canonical reference for its topic —
+          a curated collection of our deepest posts, organized into a single
+          teaching arc.
         </p>
       </header>
 
-      <div className="grid gap-6 sm:grid-cols-2">
-        {PILLARS.map((p) =>
-          p.live ? (
-            <Link
-              key={p.slug}
-              href={`/guides/${p.slug}`}
-              className="group relative flex flex-col rounded-2xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-6 transition-all hover:border-[var(--amber)]/40 hover:bg-[var(--paper)]"
-            >
-              <h2 className="text-lg font-bold text-[var(--ink)] transition-colors group-hover:text-[var(--amber-2)]">
-                {p.title}
-              </h2>
-              <p className="mt-2 text-sm text-[var(--ink-muted)]">{p.blurb}</p>
-              <span className="mt-4 text-xs font-semibold text-[var(--amber-2)]">
-                Open the guide →
-              </span>
-            </Link>
-          ) : (
-            <div
-              key={p.slug}
-              className="flex flex-col rounded-2xl border border-[var(--ink)]/15/50 bg-[var(--paper-2)]/40 p-6 opacity-60"
-            >
-              <div className="flex items-center justify-between">
-                <h2 className="text-lg font-bold text-[var(--ink)]">{p.title}</h2>
-                <span className="rounded-full border border-[var(--ink)]/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
-                  Coming soon
+      <ul
+        className="mt-12 border-b"
+        style={{ borderColor: "rgba(10,9,8,0.18)" }}
+      >
+        {PILLARS.map((p) => (
+          <li
+            key={p.slug}
+            className="border-t group"
+            style={{ borderColor: "rgba(10,9,8,0.18)" }}
+          >
+            <Link href={`/guides/${p.slug}`} className="block py-7 md:py-8">
+              <div className="flex items-baseline gap-5 md:gap-7">
+                <span
+                  className="shrink-0 text-2xl md:text-3xl"
+                  style={{
+                    color: "var(--ink)",
+                    fontFamily: "var(--font-display)",
+                    opacity: 0.55,
+                    letterSpacing: "0.05em",
+                    minWidth: "2.5ch",
+                  }}
+                  aria-hidden="true"
+                >
+                  {p.number}
                 </span>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-baseline justify-between gap-4 flex-wrap">
+                    <h2
+                      className="display text-2xl group-hover:underline md:text-3xl"
+                      style={{
+                        color: "var(--ink)",
+                        letterSpacing: "-0.015em",
+                        lineHeight: 1.05,
+                        textDecorationThickness: "1px",
+                        textUnderlineOffset: "4px",
+                      }}
+                    >
+                      {p.title}
+                    </h2>
+                    <span
+                      className="text-[10px] font-bold uppercase tracking-[0.18em] whitespace-nowrap"
+                      style={{
+                        color: "var(--ink-muted)",
+                        fontFamily: "var(--font-mono)",
+                      }}
+                    >
+                      {p.meta}
+                    </span>
+                  </div>
+                  <p
+                    className="mt-3 max-w-[58ch] text-base leading-relaxed"
+                    style={{ color: "var(--ink-muted)" }}
+                  >
+                    {p.blurb}
+                  </p>
+                </div>
               </div>
-              <p className="mt-2 text-sm text-[var(--ink-muted)]">{p.blurb}</p>
-            </div>
-          ),
-        )}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      {/* End-of-file mark */}
+      <div
+        className="mt-16 text-center text-[10px] tracking-[0.4em]"
+        style={{ color: "var(--ink-faint)" }}
+        aria-hidden="true"
+      >
+        ▪ ▪ ▪
       </div>
-    </div>
+    </article>
   );
 }

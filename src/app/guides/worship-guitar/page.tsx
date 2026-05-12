@@ -4,9 +4,10 @@ import Link from "next/link";
 /**
  * Pillar hub #6: Worship Guitar.
  *
- * Whitespace pillar per the content-authority research. Worship Tutorials is
- * the direct competitor but is modeler-centric; Fader & Knob's lane here is
- * analog + modeler + live workflow, not just preset sales.
+ * Editorial v3 rewrite (2026-05-11) — moved away from the rounded-card SaaS
+ * layout to hairline rules, serif display titles, mono eyebrows, and ink-on-
+ * paper guide-list rows. Reads like the table-of-contents spine of a
+ * magazine, not a dashboard.
  */
 
 export const metadata: Metadata = {
@@ -63,38 +64,77 @@ const LIVE_RIG: GuideEntry[] = [
   },
 ];
 
-function Section({
-  title,
-  blurb,
-  guides,
-}: {
-  title: string;
-  blurb: string;
-  guides: GuideEntry[];
-}) {
+/**
+ * Editorial guide-list row: hairline-divided, ink-typography, tag on the
+ * right. Mirrors the rhythm of a newspaper department index — no cards,
+ * no rounded corners, no hover-tinted backgrounds.
+ */
+function GuideRow({ entry }: { entry: GuideEntry }) {
   return (
-    <section className="mb-12">
-      <h2 className="mb-2 text-2xl font-bold md:text-3xl">{title}</h2>
-      <p className="mb-6 max-w-2xl text-sm text-[var(--ink-muted)] md:text-base">{blurb}</p>
-      <div className="grid gap-3 sm:grid-cols-2">
-        {guides.map((g) => (
-          <Link
-            key={g.href}
-            href={g.href}
-            className="group flex flex-col rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/40 p-5 transition-all hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
+    <li
+      className="border-t group"
+      style={{ borderColor: "rgba(10,9,8,0.18)" }}
+    >
+      <Link href={entry.href} className="block py-6">
+        <div className="flex items-baseline justify-between gap-6">
+          <h3
+            className="display text-xl md:text-2xl group-hover:underline"
+            style={{
+              color: "var(--ink)",
+              letterSpacing: "-0.01em",
+              textDecorationThickness: "1px",
+              textUnderlineOffset: "4px",
+            }}
           >
-            <div className="flex items-center justify-between gap-3">
-              <h3 className="text-sm font-bold text-[var(--ink)] transition-colors group-hover:text-[var(--amber-2)]">
-                {g.title}
-              </h3>
-              <span className="shrink-0 rounded-full border border-[var(--ink)]/15 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
-                {g.tag}
-              </span>
-            </div>
-            <p className="mt-2 text-xs leading-relaxed text-[var(--ink-muted)]">{g.blurb}</p>
-          </Link>
-        ))}
+            {entry.title}
+          </h3>
+          <span
+            className="shrink-0 text-[10px] font-bold uppercase tracking-[0.18em]"
+            style={{
+              border: "1px solid var(--ink)",
+              padding: "3px 8px 2px",
+              color: "var(--ink)",
+              fontFamily: "var(--font-mono)",
+            }}
+          >
+            {entry.tag}
+          </span>
+        </div>
+        <p
+          className="mt-2 max-w-[58ch] text-sm leading-relaxed md:text-base"
+          style={{ color: "var(--ink-muted)" }}
+        >
+          {entry.blurb}
+        </p>
+      </Link>
+    </li>
+  );
+}
+
+interface SectionProps {
+  mark: string;
+  title: string;
+  meta: string;
+  entries: GuideEntry[];
+}
+
+function GuideSection({ mark, title, meta, entries }: SectionProps) {
+  return (
+    <section className="mt-16 md:mt-20">
+      <div className="section-head">
+        <span className="section-mark">{mark}</span>
+        <h2 className="section-title">{title}</h2>
+        <span className="section-rule" aria-hidden="true" />
+        <span className="section-meta">{meta}</span>
       </div>
+      <ul
+        className="border-b"
+        style={{ borderColor: "rgba(10,9,8,0.18)" }}
+      >
+        {entries.map((entry) => (
+          <GuideRow key={entry.href} entry={entry} />
+        ))}
+      </ul>
     </section>
   );
 }
@@ -122,135 +162,194 @@ export default function WorshipPillarPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article className="mx-auto max-w-5xl px-4 py-12 md:py-16">
-        <header className="mb-12 md:mb-16">
-          <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-[var(--amber-2)]">
-            Pillar guide · {allGuides.length} guides · Growing weekly
-          </p>
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-            Worship Guitar
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg text-[var(--ink-muted)] md:text-xl">
+      <article className="container mx-auto max-w-3xl px-4 py-12 md:py-16">
+        <div className="recipe-crumbs">
+          <Link href="/guides">Guides</Link>
+          <span className="sep">/</span>
+          <span style={{ color: "var(--ink)" }}>Worship</span>
+        </div>
+
+        <header className="archive-masthead">
+          <div className="archive-kicker">
+            <span>Pillar Guide</span>
+            <span style={{ opacity: 0.4 }}>·</span>
+            <span>Volume 06</span>
+          </div>
+          <h1 className="archive-title">Worship Guitar</h1>
+          <p className="archive-lede">
             The Sunday morning rig — present without being prominent, dynamic
-            without being distracting, big without being loud. The worship
-            tone formula decoded, with live-workflow details most guides
-            skip.
+            without being distracting, big without being loud.
           </p>
         </header>
 
-        <section className="mb-12 max-w-3xl prose-dark">
-          <h2 className="mb-3 text-2xl font-bold">The worship tone formula</h2>
-          <p className="text-base leading-relaxed text-[var(--ink)]/85">
+        {/* The formula — editorial intro, no card */}
+        <section className="mt-10">
+          <p
+            className="text-base leading-relaxed md:text-lg"
+            style={{ color: "var(--ink)" }}
+          >
             Modern worship guitar sounds like it does because a handful of
-            elements show up across almost every church and record. A Vox
-            AC30 or AC30-adjacent amp model. A transparent boost — Klon,
-            Tumnus, or similar. A dotted-eighth-note delay, tempo-locked.
-            Plate reverb. A shimmer effect for pads. Those five elements
-            handle 90% of what you hear from Elevation, Hillsong, Bethel,
-            Passion, and most A/B-tier worship songs.
+            elements show up across almost every church and record. A Vox AC30
+            or AC30-adjacent amp model. A transparent boost — Klon, Tumnus, or
+            similar. A dotted-eighth-note delay, tempo-locked. Plate reverb. A
+            shimmer effect for pads. Those five elements handle 90% of what you
+            hear from Elevation, Hillsong, Bethel, Passion, and most A/B-tier
+            worship songs.
           </p>
-          <p className="mt-3 text-base leading-relaxed text-[var(--ink)]/85">
+          <p
+            className="mt-4 text-base leading-relaxed md:text-lg"
+            style={{ color: "var(--ink)" }}
+          >
             What separates a great worship guitarist isn&apos;t the pedals.
-            It&apos;s the knob positions (the Klon at 7 o&apos;clock, not
-            noon; the Muff Sustain at 30%, not maxed), the structural use of
-            delay (rhythmic, not decorative), and the live-mix awareness
-            that keeps the guitar present without fighting the band.
+            It&apos;s the knob positions (the Klon at 7 o&apos;clock, not noon;
+            the Muff Sustain at 30%, not maxed), the structural use of delay
+            (rhythmic, not decorative), and the live-mix awareness that keeps
+            the guitar present without fighting the band.
           </p>
-          <p className="mt-3 text-base leading-relaxed text-[var(--ink)]/85">
+          <p
+            className="mt-4 text-sm italic md:text-base"
+            style={{
+              color: "var(--ink-muted)",
+              fontFamily: "var(--font-display)",
+            }}
+          >
             Nathan Cross — who writes most of our worship content — is a
             working worship guitarist in mid-sized churches. The guides here
             reflect a Sunday morning reality, not a bedroom studio.
           </p>
         </section>
 
-        <Section
+        <GuideSection
+          mark="¤"
           title="Tone foundations"
-          blurb="The core worship tone — amp, OD, delay, reverb — built on Helix and translatable to any modeler or analog rig."
-          guides={TONE_FOUNDATIONS}
+          meta="Amp · OD · delay · reverb"
+          entries={TONE_FOUNDATIONS}
         />
 
-        <Section
-          title="Live rig and workflow"
-          blurb="What makes the worship rig different from a general-purpose pedalboard — pedalboard organization, modeler choice, and in-ear mixing for guitar."
-          guides={LIVE_RIG}
+        <GuideSection
+          mark="§"
+          title="Live rig & workflow"
+          meta="Pedalboard · modeler · in-ears"
+          entries={LIVE_RIG}
         />
 
-        <section className="mb-14 rounded-2xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/40 p-6 md:p-8">
-          <h2 className="mb-3 text-xl font-bold md:text-2xl">
-            Worship Set Pack — live now
-          </h2>
-          <p className="mb-4 max-w-2xl text-sm text-[var(--ink-muted)] md:text-base">
-            One Helix preset, 8 snapshots, 30 top worship songs mapped to
-            snapshots. Clean, Drive, Drive+, Lead, Clean Ambient, Ambient
-            Drive, Rock, Swells. Free with sign-up.
-          </p>
-          <Link
-            href="/set-packs/worship"
-            className="inline-flex items-center rounded-lg bg-[var(--amber)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
+        {/* The Worship Set Pack — single editorial aside, not a duplicated CTA */}
+        <aside
+          className="mt-20"
+          style={{
+            borderTop: "3px solid var(--ink)",
+            borderBottom: "1px solid rgba(10,9,8,0.12)",
+            paddingTop: "22px",
+            paddingBottom: "26px",
+          }}
+        >
+          <p
+            className="text-[10px] font-bold uppercase tracking-[0.22em]"
+            style={{
+              color: "var(--amber-2)",
+              fontFamily: "var(--font-mono)",
+            }}
           >
-            Open the Worship Set Pack
-          </Link>
-        </section>
-
-        <section className="mb-14">
-          <h2 className="mb-6 text-2xl font-bold md:text-3xl">Related guides</h2>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            <Link
-              href="/guides/pedal-settings-guides"
-              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
-            >
-              <h3 className="text-sm font-bold text-[var(--ink)]">Pedal settings guides</h3>
-              <p className="mt-2 text-xs text-[var(--ink-muted)]">
-                Klon, delay, reverb — the settings guides for every pedal in the worship stack.
-              </p>
-            </Link>
-            <Link
-              href="/guides/amp-settings-and-tone"
-              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
-            >
-              <h3 className="text-sm font-bold text-[var(--ink)]">Amp settings & tone</h3>
-              <p className="mt-2 text-xs text-[var(--ink-muted)]">
-                The AC30 breakdown and its modeler equivalents. The amp that makes worship guitar sound like worship guitar.
-              </p>
-            </Link>
-            <Link
-              href="/guides/modeler-mastery"
-              className="block rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)]/50 p-5 transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
-            >
-              <h3 className="text-sm font-bold text-[var(--ink)]">Modeler mastery</h3>
-              <p className="mt-2 text-xs text-[var(--ink-muted)]">
-                Most worship rigs are Helix- or HX Stomp-based. The modeler pillar covers them all.
-              </p>
-            </Link>
-          </div>
-        </section>
-
-        <section className="rounded-2xl border border-[var(--amber)]/30 bg-[var(--amber)]/5 p-6 md:p-8">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--amber-2)]/80">
-            Save this pillar
+            From the catalog
           </p>
-          <h2 className="mt-1 text-xl font-bold text-[var(--ink)] md:text-2xl">
-            Sunday Setlist delivered to your inbox
+          <h2
+            className="display mt-2 text-3xl md:text-4xl"
+            style={{ color: "var(--ink)", letterSpacing: "-0.015em" }}
+          >
+            The Worship Set Pack
           </h2>
-          <p className="mt-2 max-w-xl text-sm text-[var(--ink-muted)] md:text-base">
-            Every Friday: worship tone of the week, a deep-dive blog post,
-            and a quick tip you can use at Sunday&apos;s rehearsal. Free.
+          <p
+            className="mt-3 max-w-[56ch] text-base leading-relaxed"
+            style={{ color: "var(--ink-muted)" }}
+          >
+            One Helix preset, 8 snapshots, 30 worship songs mapped to
+            snapshots. AC30 + Klon + delays + shimmer, dialed and ready. One-
+            time $19, yours to keep.
           </p>
-          <div className="mt-5 flex flex-wrap gap-3">
+          <div className="mt-6">
             <Link
               href="/set-packs/worship"
-              className="inline-flex items-center rounded-lg bg-[var(--amber)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
+              className="inline-flex items-center px-5 py-2.5 text-sm font-semibold no-underline transition-opacity hover:opacity-90"
+              style={{
+                background: "var(--amber)",
+                color: "var(--ink)",
+                border: "1px solid var(--ink)",
+                letterSpacing: "0.02em",
+              }}
             >
-              Download Worship Set Pack
-            </Link>
-            <Link
-              href="/guides"
-              className="inline-flex items-center rounded-lg border border-[var(--ink)]/15 px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper-2)]"
-            >
-              See other pillar guides
+              See the Set Pack →
             </Link>
           </div>
+        </aside>
+
+        {/* Related pillars — editorial three-up, hairline-divided */}
+        <section className="mt-20">
+          <div className="section-head">
+            <span className="section-mark">▪</span>
+            <h2 className="section-title">Adjacent pillars</h2>
+            <span className="section-rule" aria-hidden="true" />
+          </div>
+          <ul
+            className="border-b"
+            style={{ borderColor: "rgba(10,9,8,0.18)" }}
+          >
+            {[
+              {
+                href: "/guides/pedal-settings-guides",
+                title: "Pedal settings guides",
+                blurb:
+                  "Klon, delay, reverb — the settings guides for every pedal in the worship stack.",
+              },
+              {
+                href: "/guides/amp-settings-and-tone",
+                title: "Amp settings & tone",
+                blurb:
+                  "The AC30 breakdown and its modeler equivalents. The amp that makes worship guitar sound like worship guitar.",
+              },
+              {
+                href: "/guides/modeler-mastery",
+                title: "Modeler mastery",
+                blurb:
+                  "Most worship rigs are Helix- or HX Stomp-based. The modeler pillar covers them all.",
+              },
+            ].map((p) => (
+              <li
+                key={p.href}
+                className="border-t group"
+                style={{ borderColor: "rgba(10,9,8,0.18)" }}
+              >
+                <Link href={p.href} className="block py-5">
+                  <h3
+                    className="display text-lg group-hover:underline md:text-xl"
+                    style={{
+                      color: "var(--ink)",
+                      letterSpacing: "-0.01em",
+                      textDecorationThickness: "1px",
+                      textUnderlineOffset: "4px",
+                    }}
+                  >
+                    {p.title}
+                  </h3>
+                  <p
+                    className="mt-1 text-sm leading-relaxed"
+                    style={{ color: "var(--ink-muted)" }}
+                  >
+                    {p.blurb}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
+
+        {/* End-of-file mark, matches the blog */}
+        <div
+          className="mt-16 text-center text-[10px] tracking-[0.4em]"
+          style={{ color: "var(--ink-faint)" }}
+          aria-hidden="true"
+        >
+          ▪ ▪ ▪
+        </div>
       </article>
     </>
   );

@@ -1,15 +1,42 @@
 /**
- * One-shot migration: convert leaky dark-theme Tailwind tokens to v3
- * editorial paper/ink/amber CSS-var arbitrary classes.
+ * Color-hygiene codemod. Rewrites leaky dark-theme Tailwind tokens
+ * to v3 paper/ink/amber CSS-var arbitrary classes.
+ *
+ * ⚠️ This is NOT a design migration.
+ *
+ * It swaps colors so a dark navy card on cream becomes a paper-toned
+ * card on cream. It does not:
+ *   - replace rounded-2xl SaaS cards with editorial hairline rules
+ *   - replace generic text-2xl with the serif `.display` masthead font
+ *   - introduce eyebrows, section marks (¤ § ▪), or section meta labels
+ *   - narrow content columns to editorial width (~720px)
+ *   - replace card-grid layouts with newspaper-style hairline-divided rows
+ *
+ * Pages run through this codemod end up "correctly colored" but still
+ * look like generic Tailwind dashboards in cream paint — they don't
+ * carry the editorial v3 spirit. For surfaces that need to feel like
+ * the v3 site (guides, gear, profile, the home heroes, anything that
+ * reads as "branded"), do a hand rewrite using:
+ *   - .archive-masthead / .archive-kicker / .archive-title / .archive-lede
+ *   - .section-head + .section-mark + .section-title + .section-rule
+ *     + .section-meta
+ *   - .recipe-crumbs for breadcrumbs
+ *   - .recipe-issue + .pill for editorial pill chips
+ *   - `.display` class on h1/h2 for the Fraunces serif
+ *   - hairline-divided <ul> guide lists, not card grids
+ *   - square or ink-bordered buttons, not rounded-lg bg-amber CTAs
+ *
+ * Reference rewrites: /set-packs/worship/page.tsx, /set-packs/page.tsx,
+ * SaveThisTone.tsx, /guides/worship-guitar/page.tsx. Mirror those.
+ *
+ * Usage of THIS codemod:
+ *   npx tsx scripts/migrate-v3-tokens.ts <file1> [file2 ...]
+ *   npx tsx scripts/migrate-v3-tokens.ts --dry-run <files...>   # preview
  *
  * Run on individual files only — the codebase has a few legitimate
  * dark-theme contexts (dashboard pages, version preview pages) that
  * should NOT be migrated. Run audit-v3-tokens.ts first to see the
  * priority list.
- *
- * Usage:
- *   npx tsx scripts/migrate-v3-tokens.ts <file1> [file2 ...]
- *   npx tsx scripts/migrate-v3-tokens.ts --dry-run <files...>   # preview
  *
  * Replacements (longest-first ordering so e.g. bg-accent-hover is
  * matched before bg-accent):
@@ -31,6 +58,9 @@
  * Won't touch: imports, file paths, comments containing the literal
  * token, or string literals — Tailwind classes only appear inside
  * className attributes, and these regexes use word boundaries (\b).
+ *
+ * Also won't touch: inline `style={{...}}` hex colors. Those need
+ * manual rewrites (the SetlistMapper case from 2026-05-11).
  */
 
 import fs from "node:fs";
