@@ -25,7 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/how-it-works`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.5 },
     { url: `${baseUrl}/request`, lastModified: launchDate, changeFrequency: "daily", priority: 0.7 },
     { url: `${baseUrl}/community`, lastModified: launchDate, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${baseUrl}/community/forum`, lastModified: launchDate, changeFrequency: "daily", priority: 0.7 },
     { url: `${baseUrl}/platforms`, lastModified: latestBlogDate, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/pricing`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.6 },
     // Pillar hubs — topical authority anchors. Indexed at high priority since

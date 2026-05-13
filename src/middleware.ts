@@ -36,6 +36,15 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(newUrl, 301);
   }
 
+  // ---- /community/forum/* → /blog (forum retired 2026-05-12) ----
+  // The forum saw no meaningful engagement after months live (per the
+  // 2026-05 product audit). 301 preserves inbound link juice; we
+  // surface the editorial blog instead, which is where the actual
+  // discussion energy is.
+  if (request.nextUrl.pathname.startsWith("/community/forum")) {
+    return NextResponse.redirect(new URL("/blog", request.url), 301);
+  }
+
   // Admin route protection is handled by DashboardShell (auth gate
   // for all /dashboard/* routes) + AdminGuard (role check for
   // super_admin/admin). No middleware check needed — the old one

@@ -15,7 +15,7 @@ const exploreLinks = [
 ];
 
 const communityLinks = [
-  { href: "/community/forum", label: "Forum" },
+  { href: "/blog", label: "Field Notes" },
   { href: "/community", label: "Community Hub" },
   { href: "/feed.xml", label: "RSS Feed" },
   { href: "/llms.txt", label: "llms.txt" },

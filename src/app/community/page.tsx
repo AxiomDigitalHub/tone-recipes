@@ -15,17 +15,17 @@ export const metadata: Metadata = {
 
 const sections = [
   {
-    eyebrow: "Talk",
-    title: "Discussion forum",
+    eyebrow: "Read",
+    title: "Field Notes",
     description:
-      "Talk gear, tone, technique, and everything in between with fellow players.",
-    href: "/community/forum",
+      "Editorial blog with tone recipes, gear guides, signal-chain theory, and weekly new posts.",
+    href: "/blog",
   },
   {
-    eyebrow: "Read",
+    eyebrow: "Browse",
     title: "Tone recipes",
     description:
-      "Browse community-submitted tone recipes or share your own dial-in for any song.",
+      "The full catalog. Signal chains, exact settings, presets for Helix and Katana.",
     href: "/browse",
   },
   {

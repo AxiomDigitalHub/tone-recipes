@@ -138,10 +138,14 @@ export default function HowWeWorkPage() {
           </p>
           <p className="mt-4">
             Every post is reviewed for accuracy before publication. If you spot
-            something wrong,{" "}
-            <Link href="/community/forum" className="text-[var(--amber-2)] hover:underline">
-              let us know in the forum
-            </Link>.
+            something wrong, email{" "}
+            <a
+              href="mailto:hello@faderandknob.com"
+              className="text-[var(--amber-2)] hover:underline"
+            >
+              hello@faderandknob.com
+            </a>{" "}
+            and we&apos;ll fix it.
           </p>
         </section>
 
