@@ -2,7 +2,7 @@
 title: 'Global EQ on Your Modeler: The One Setting You''re Probably Skipping'
 description: >-
   Per-preset EQ fixes the tone on one patch. Global EQ corrects every preset at
-  once, and it solves the actual problem most modeler users have — the room or
+  once, and it solves the actual problem most modeler users have: the room or
   monitor coloring all your tones in the same way. Here is how to use it for
   studio, headphone, and live contexts.
 date: '2026-04-27'
@@ -26,9 +26,9 @@ image_alt: >-
   background, headphones nearby
 ---
 
-> **The short version:** Global EQ is a single EQ stage that sits at the very end of your modeler's signal chain, after every preset. It corrects the consistent coloration your monitoring environment imposes on every tone — too much low end from a monitor, too much treble from in-ears, a cabinet-too-mid bump from FRFR — without forcing you to fix the same problem on every preset. Use a low-frequency cut or boost (60–150 Hz) for room compensation, a low-mid adjustment (200–400 Hz) for monitor or headphone correction, and a high-frequency tilt (above 4 kHz) for in-ear or modeler-direct contexts. Most modelers store separate global EQ presets for studio, live, and headphone use. The setting takes ten minutes to find. It saves you from re-EQing every preset for the rest of your modeler ownership.
+> **The short version:** Global EQ is a single EQ stage that sits at the very end of your modeler's signal chain, after every preset. It corrects the consistent coloration your monitoring environment imposes on every tone (too much low end from a monitor, too much treble from in-ears, a cabinet-too-mid bump from FRFR) without forcing you to fix the same problem on every preset. Use a low-frequency cut or boost (60–150 Hz) for room compensation, a low-mid adjustment (200–400 Hz) for monitor or headphone correction, and a high-frequency tilt (above 4 kHz) for in-ear or modeler-direct contexts. Most modelers store separate global EQ presets for studio, live, and headphone use. The setting takes ten minutes to find. It saves you from re-EQing every preset for the rest of your modeler ownership.
 
-I have an HX Stomp in my bedroom. The Stomp lives on my desk, runs into a Focusrite Scarlett 4i4, and outputs to a pair of Yamaha HS8 monitors. Everything in my room — the foam panels, the bookshelf in the corner, my desk surface, the angle the monitors face — colors what I hear in a specific way. The room has a low-mid bump around 250 Hz. The monitors have a slight rolloff above 10 kHz that's flatter than my older speakers but still present.
+I have an HX Stomp in my bedroom. The Stomp lives on my desk, runs into a Focusrite Scarlett 4i4, and outputs to a pair of Yamaha HS8 monitors. Everything in my room (the foam panels, the bookshelf in the corner, my desk surface, the angle the monitors face) colors what I hear in a specific way. The room has a low-mid bump around 250 Hz. The monitors have a slight rolloff above 10 kHz that's flatter than my older speakers but still present.
 
 For a long time I thought I was a bad preset designer. Every time I built a new tone it sounded a little muddy in the low mids, a little less bright than I wanted. I'd EQ each preset to compensate, and a week later I'd notice the same correction on the next preset, and I'd EQ that one too. I was making the same fix to every patch I built because the room and the monitors were doing the same thing to every patch.
 
@@ -48,7 +48,7 @@ Global EQ is a single EQ stage that lives at the absolute end of your modeler's 
 | Quad Cortex | Settings → Global EQ | 5 bands (high pass, low shelf, two parametric, high shelf) |
 | Fractal Axe-FX III / FM3 / FM9 | I/O Menu → Output Global EQ | 8 bands per output, parametric |
 | TONEX | TONEX Pedal: Global EQ | 3 bands (low/mid/high shelf) |
-| Boss Katana / Cube modelers | None — these are amp simulators, not preset modelers; per-preset EQ only | N/A |
+| Boss Katana / Cube modelers | None (these are amp simulators, not preset modelers; per-preset EQ only) | N/A |
 
 The function is consistent across platforms even when the implementation varies. One EQ, applied to everything, after the preset has already finished its work.
 
@@ -56,9 +56,9 @@ The function is consistent across platforms even when the implementation varies.
 
 ## What It's For (and What It Isn't)
 
-Global EQ is for environmental correction — fixing the systematic coloration that every preset experiences because of where you're listening. It is not for making one preset sound different from another. That's per-preset EQ work and it should stay in the preset.
+Global EQ is for environmental correction: fixing the systematic coloration that every preset experiences because of where you're listening. It is not for making one preset sound different from another. That's per-preset EQ work and it should stay in the preset.
 
-The way to think about it: every preset you build is heard through the same room, the same monitors (or headphones, or PA system), the same destination. If those colorations are consistent — the room always has the same 250 Hz bump, the monitors always have the same 12 kHz rolloff — they affect every preset identically. Fixing that coloration once at the global stage is more efficient than fixing it on every preset individually.
+The way to think about it: every preset you build is heard through the same room, the same monitors (or headphones, or PA system), the same destination. If those colorations are consistent (the room always has the same 250 Hz bump, the monitors always have the same 12 kHz rolloff), they affect every preset identically. Fixing that coloration once at the global stage is more efficient than fixing it on every preset individually.
 
 Global EQ is also reversible. If you switch from monitors to headphones, you switch the global EQ profile. The presets stay the same. The correction matches the new monitoring context.
 
@@ -81,21 +81,21 @@ Most modeler users need a different global EQ for each of three monitoring conte
 
 For monitoring through nearfield studio speakers in an untreated or lightly treated room. The most common adjustments:
 
-- High-pass filter (low cut) at 50 Hz, 12 dB/octave slope — removes subsonic content that doesn't help any guitar tone and can muddy low-end punch
-- Low-shelf cut of 1.5 to 3 dB at 100 Hz — compensates for desk reflections and small-room low-end buildup
-- Parametric cut of 1.5 to 2.5 dB at 250–400 Hz, moderate Q — the universal "small room low-mid bump" frequency
-- High shelf flat or +0.5 dB above 6 kHz — most studio monitors are accurate enough to need no high-frequency adjustment
+- High-pass filter (low cut) at 50 Hz, 12 dB/octave slope. Removes subsonic content that doesn't help any guitar tone and can muddy low-end punch.
+- Low-shelf cut of 1.5 to 3 dB at 100 Hz. Compensates for desk reflections and small-room low-end buildup.
+- Parametric cut of 1.5 to 2.5 dB at 250-400 Hz, moderate Q. This is the universal "small room low-mid bump" frequency.
+- High shelf flat or +0.5 dB above 6 kHz. Most studio monitors are accurate enough to need no high-frequency adjustment.
 
 Settings will vary based on your specific room. If you have access to a measurement microphone and software like Room EQ Wizard (free), running a frequency sweep tells you exactly where your room peaks and dips. Without measurement, the values above are a starting point that's roughly correct for most home studios.
 
 ### Headphone Profile
 
-For monitoring through closed-back or open-back headphones. Headphones produce a different problem than monitors — there's no room, but the headphone's own frequency response curve is the coloration:
+For monitoring through closed-back or open-back headphones. Headphones produce a different problem than monitors; there's no room, but the headphone's own frequency response curve is the coloration:
 
 - High-pass filter at 30 Hz (most headphones don't reproduce sub-bass usefully anyway)
-- Low-shelf flat or -1 dB at 80 Hz — most headphones are slightly bass-heavy by design
-- Parametric cut at the headphone's specific peak — for Sony MDR-7506 the cut is at 8 kHz (-2 to -3 dB); for Sennheiser HD 280 Pro the cut is at 5 kHz; for Audio-Technica M50x the boost is at 50 Hz that you'll want to roll back
-- High-shelf cut of 1 to 2 dB above 10 kHz — most closed-back headphones get fatiguing in the air range during long sessions
+- Low-shelf flat or -1 dB at 80 Hz. Most headphones are slightly bass-heavy by design.
+- Parametric cut at the headphone's specific peak. For Sony MDR-7506 the cut is at 8 kHz (-2 to -3 dB); for Sennheiser HD 280 Pro the cut is at 5 kHz; for Audio-Technica M50x the boost is at 50 Hz that you'll want to roll back.
+- High-shelf cut of 1 to 2 dB above 10 kHz. Most closed-back headphones get fatiguing in the air range during long sessions.
 
 Headphone manufacturers publish frequency response charts. If you know yours, target the peaks and dips with parametric cuts that flatten the response. The goal is a neutral monitoring experience where what you hear in the headphones is what gets exported to the file.
 
@@ -103,11 +103,11 @@ Headphone manufacturers publish frequency response charts. If you know yours, ta
 
 For monitoring through an FRFR speaker (or in-ears with a stage monitor mix). This profile usually needs the most adjustment because the live context introduces room acoustics, stage volume, and PA interaction:
 
-- High-pass at 80 Hz, 12 dB/octave — protects your low end from stage rumble and room boom
-- Low-shelf cut of 2 to 4 dB at 100–150 Hz — most FRFR speakers in live rooms have boosted low end
-- Parametric cut of 2 to 4 dB at 250 Hz — venue room buildup
-- Parametric cut of 1 to 2 dB at 4 kHz — most modeler tones get harsh in the live cabinet rage when the FRFR is at gig volume
-- High-shelf cut of 1 dB above 8 kHz — protects against stage haze and PA system character
+- High-pass at 80 Hz, 12 dB/octave. Protects your low end from stage rumble and room boom.
+- Low-shelf cut of 2 to 4 dB at 100-150 Hz. Most FRFR speakers in live rooms have boosted low end.
+- Parametric cut of 2 to 4 dB at 250 Hz. Addresses venue room buildup.
+- Parametric cut of 1 to 2 dB at 4 kHz. Most modeler tones get harsh in the live cabinet rage when the FRFR is at gig volume.
+- High-shelf cut of 1 dB above 8 kHz. Protects against stage haze and PA system character.
 
 The live profile is the most situational. A small room is different from a large room. An indoor stage is different from an outdoor festival. Most touring modeler players keep two or three live profiles for different venue types and switch between them at soundcheck.
 
@@ -119,9 +119,9 @@ The simplest workflow uses your ears, a familiar reference recording, and your m
 
 1. **Open your global EQ and set everything flat.** All bands at 0 dB, all filters off. This is your baseline.
 
-2. **Play a familiar reference recording through your monitoring setup.** A finished-mix track you know well — preferably one with guitar in it. Listen for what's wrong with the playback. Too much low end? Hollow midrange? Brittle highs? Note what you hear.
+2. **Play a familiar reference recording through your monitoring setup.** A finished-mix track you know well, preferably one with guitar in it. Listen for what's wrong with the playback. Too much low end? Hollow midrange? Brittle highs? Note what you hear.
 
-3. **Switch to your most-used modeler preset and play.** Listen for the same problems. They should be similar to what you heard on the reference recording — if both the recording and your preset have too much 250 Hz, the room is doing it, not the preset.
+3. **Switch to your most-used modeler preset and play.** Listen for the same problems. They should be similar to what you heard on the reference recording. If both the recording and your preset have too much 250 Hz, the room is doing it, not the preset.
 
 4. **Make global EQ adjustments to fix what's consistent across both the recording and the preset.** Cut where there's buildup, gently boost where there's loss, never aggressively. Adjustments should be 1 to 4 dB; anything more is the room doing something extreme that needs acoustic treatment, not EQ correction.
 
@@ -137,7 +137,7 @@ The reference recording is the key part of this workflow. It tells you what the 
 
 This sounds esoteric but it's real. I have one global EQ profile for daytime and a slightly different one for after 11 PM. The reason is monitoring volume.
 
-At normal monitoring volumes (around 80 dB SPL at the listening position), the human ear hears bass and treble fairly accurately. At quiet monitoring volumes (50 to 60 dB SPL, which is what I use after my roommate goes to sleep), the ear's frequency sensitivity changes — the Fletcher-Munson curve — and bass and treble both seem reduced. To compensate, my late-night global EQ has +1.5 dB at 80 Hz and +1 dB at 12 kHz. This isn't an objective fix; it's a perceptual one. At quiet volumes the boost makes the tone sound balanced. At normal volumes it sounds bass-heavy.
+At normal monitoring volumes (around 80 dB SPL at the listening position), the human ear hears bass and treble fairly accurately. At quiet monitoring volumes (50 to 60 dB SPL, which is what I use after my roommate goes to sleep), the ear's frequency sensitivity changes (the Fletcher-Munson curve), and bass and treble both seem reduced. To compensate, my late-night global EQ has +1.5 dB at 80 Hz and +1 dB at 12 kHz. This isn't an objective fix; it's a perceptual one. At quiet volumes the boost makes the tone sound balanced. At normal volumes it sounds bass-heavy.
 
 Most modelers can store multiple global EQ profiles. Use one for normal listening and one for quiet listening. The difference is small but it makes quiet practice sessions sound right.
 
@@ -159,9 +159,9 @@ There are situations where global EQ does more harm than good:
 
 ---
 
-## The Surprised Finding
+## How Global EQ Changed My Preset Design Process
 
-I expected global EQ to be a small efficiency improvement — a way to avoid repeating the same EQ moves on every preset. What I found is that global EQ changed how I designed presets going forward.
+I expected global EQ to be a small efficiency improvement, a way to avoid repeating the same EQ moves on every preset. What I found is that global EQ changed how I designed presets going forward.
 
 When I'm building a new preset and I've already corrected the room with global EQ, I stop reaching for the EQ block as the first fix when something doesn't sound right. Without the global correction, every "this sounds muddy" moment used to lead me to add a low-mid cut to the preset. With the global correction handling the room buildup, the preset's low-mid balance is closer to what the amp model is actually trying to do, and "this sounds muddy" becomes a real preset-design question (wrong amp model, wrong cab, wrong gain structure) rather than a room-compensation question disguised as a preset issue.
 
@@ -189,19 +189,19 @@ For more practical EQ context, the [modeler EQ guide](/blog/modeler-eq-guide) co
   },
   {
     q: "How is global EQ different from a parametric EQ block in the preset chain?",
-    a: "Functionally they're the same EQ math. Architecturally they're different — a parametric block in the preset only affects that one preset; the global EQ affects every preset. Use the global EQ for environmental correction (room, monitors, headphones). Use a parametric EQ block in a specific preset for that preset's tone shaping. The two layers solve different problems and shouldn't overlap."
+    a: "Functionally they're the same EQ math. Architecturally they're different: a parametric block in the preset only affects that one preset; the global EQ affects every preset. Use the global EQ for environmental correction (room, monitors, headphones). Use a parametric EQ block in a specific preset for that preset's tone shaping. The two layers solve different problems and shouldn't overlap."
   },
   {
     q: "Can I use global EQ to fix an entire library of presets I built before knowing about it?",
-    a: "Yes — this is one of the most common reasons players adopt global EQ. If your library has a consistent low-mid muddiness, a 2 dB cut at 300 Hz on the global EQ improves every preset at once without requiring you to edit them individually. The presets themselves stay the same, which preserves their portability if you ever export them or load them on another modeler."
+    a: "Yes. This is one of the most common reasons players adopt global EQ. If your library has a consistent low-mid muddiness, a 2 dB cut at 300 Hz on the global EQ improves every preset at once without requiring you to edit them individually. The presets themselves stay the same, which preserves their portability if you ever export them or load them on another modeler."
   },
   {
     q: "Does TONEX have a global EQ?",
-    a: "The TONEX hardware pedal has a 3-band global EQ (low/mid/high shelf). The TONEX desktop plugin uses your DAW's mixer for global correction rather than including a built-in global EQ. For TONEX desktop users, place a parametric EQ on the master bus of your DAW project to handle the same function — adjust the EQ for the room, save it as a default chain, and every TONEX session gets the correction automatically."
+    a: "The TONEX hardware pedal has a 3-band global EQ (low/mid/high shelf). The TONEX desktop plugin uses your DAW's mixer for global correction rather than including a built-in global EQ. For TONEX desktop users, place a parametric EQ on the master bus of your DAW project to handle the same function: adjust the EQ for the room, save it as a default chain, and every TONEX session gets the correction automatically."
   }
 ]} />
 
-Spend ten minutes finding your global EQ. The reference recording test will tell you what your room and monitors are doing. The fix is small adjustments — 1 to 4 dB cuts and gentle shelves — applied once at the output stage. Every preset you've ever built and every preset you'll build going forward gets the benefit. This is the cheapest tonal upgrade in your modeler and the one that pays back across years of use.
+Spend ten minutes finding your global EQ. The reference recording test will tell you what your room and monitors are doing. The fix is small adjustments (1 to 4 dB cuts and gentle shelves) applied once at the output stage. Every preset you've ever built and every preset you'll build going forward gets the benefit. This is the cheapest tonal upgrade in your modeler and the one that pays back across years of use.
 
 <SaveThisTone
   title="Every recipe ships a Helix preset"

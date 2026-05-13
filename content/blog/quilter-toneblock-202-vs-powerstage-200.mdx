@@ -24,7 +24,7 @@ image_alt: >-
   PowerStage 200: Tube-Stage Emulation vs. Pure Transparent"
 ---
 
-> **Quick read:** The PowerStage 200 ($600 street) and the Quilter ToneBlock 202 ($580 street) sit at opposite ends of the Class D modeler-power-amp category. The PowerStage is engineered to be a transparent linear amplifier — frequency response within ±0.5 dB from 80 Hz to 8 kHz, THD below 0.05% at full output, no character of its own. The ToneBlock 202 has Quilter's "Articulated Class D" topology, which deliberately introduces a soft compression curve and a controlled high-frequency rolloff above 6 kHz — the Quilter's own term for emulating the response of a tube power section. The measurements I took on both units are below. The verdict, with my reasoning: if your modeler captures the full amp including the power section (which every modern modeler does by default), buy the PowerStage — adding the Quilter's tube emulation on top is double-counting and audibly compresses the captured power-amp response. If you're running an unpowered preamp pedal (like a Friedman BE-OD or a Bogner Burnley) into the Quilter, the ToneBlock 202's tube emulation is what completes the signal chain. The choice is not a matter of taste. It's a matter of what's already in your signal path and whether you want to reproduce a power section twice.
+> **Quick read:** The PowerStage 200 ($600 street) and the Quilter ToneBlock 202 ($580 street) sit at opposite ends of the Class D modeler-power-amp category. The PowerStage is engineered to be a transparent linear amplifier: frequency response within ±0.5 dB from 80 Hz to 8 kHz, THD below 0.05% at full output, no character of its own. The ToneBlock 202 has Quilter's "Articulated Class D" topology, which deliberately introduces a soft compression curve and a controlled high-frequency rolloff above 6 kHz (the Quilter's own term for emulating the response of a tube power section). The measurements I took on both units are below. The verdict, with my reasoning: if your modeler captures the full amp including the power section (which every modern modeler does by default), buy the PowerStage. Adding the Quilter's tube emulation on top is double-counting and audibly compresses the captured power-amp response. If you're running an unpowered preamp pedal (like a Friedman BE-OD or a Bogner Burnley) into the Quilter, the ToneBlock 202's tube emulation is what completes the signal chain. The choice is not a matter of taste. It's a matter of what's already in your signal path and whether you want to reproduce a power section twice.
 
 | Spec | PowerStage 200 | ToneBlock 202 |
 |---|---|---|
@@ -39,33 +39,33 @@ image_alt: >-
 
 I measured both of these units in my home studio with a calibrated Behringer ECM8000 measurement mic, a 200 W resistive load box (Suhr Reactive Load IR), and Room EQ Wizard for the frequency-response plots. The measurement protocol was: 1 kHz sine wave at –3 dBFS from a Quad Cortex output, run into each power amp at 75% output level, into the load, with the mic'd output of the load fed back through a Focusrite Scarlett 4i4 into REW. Then a logarithmic sine sweep from 20 Hz to 20 kHz at the same level for the response plots. The numbers above are what I measured at room temperature with both units fully warmed up after 30 minutes of program material at low level.
 
-The marketing material on these two amps describes them in language that obscures the actual difference. The PowerStage calls itself "transparent." The ToneBlock 202 calls itself "tube-like." Both descriptions are accurate, but they don't tell you what the amps actually do — and which one you should buy is determined by what you do, not by which adjective sounds more appealing.
+The marketing material on these two amps describes them in language that obscures the actual difference. The PowerStage calls itself "transparent." The ToneBlock 202 calls itself "tube-like." Both descriptions are accurate, but they don't tell you what the amps actually do, and which one you should buy is determined by what you do, not by which adjective sounds more appealing.
 
 ## The PowerStage 200's Job
 
 Seymour Duncan's design brief for the PowerStage was straightforward: build a power amp that adds nothing to the signal. Class D topology, an LM3886-style driver stage, an over-engineered output filter, a damping factor over 250 (which means the amp clamps the speaker's back-EMF tightly enough that the cab's resonance is the only mechanical compression in the system), and a frequency response that's flat to within ±0.5 dB across the audible guitar range.
 
-The numbers bear this out. My measurement showed the PowerStage's frequency response at –0.3 dB at 80 Hz, +0.2 dB at 1 kHz, and –0.4 dB at 8 kHz — well within the manufacturer's spec. Total harmonic distortion at 75% output was 0.04% at 1 kHz, which is inaudible by a factor of ten (the human ear can resolve THD around 0.5% on guitar transients).
+The numbers bear this out. My measurement showed the PowerStage's frequency response at –0.3 dB at 80 Hz, +0.2 dB at 1 kHz, and –0.4 dB at 8 kHz, well within the manufacturer's spec. Total harmonic distortion at 75% output was 0.04% at 1 kHz, which is inaudible by a factor of ten (the human ear can resolve THD around 0.5% on guitar transients).
 
 What this means for the rig: a captured Mesa Rectifier through the PowerStage sounds exactly like the captured Mesa Rectifier through studio monitors, except louder and into a real cab. The cab does the cab-coupling work. The amp does the amplification work. There is no third character introduced by the power section.
 
-This is the right tool for any signal chain where the modeler is already doing the power-amp simulation. Quad Cortex captures, Helix Cab Block IRs, Fractal full amp models, AmpliTube/Neural DSP plugins running into a load — all of these include the power-amp response in the model itself. Adding a tube-voiced power amp on top adds power-amp character a second time, which is what produces the audible compression and rolloff that makes "modeler through tube power amp" rigs sound smaller and softer than the same model through studio monitors.
+This is the right tool for any signal chain where the modeler is already doing the power-amp simulation. Quad Cortex captures, Helix Cab Block IRs, Fractal full amp models, AmpliTube/Neural DSP plugins running into a load; all of these include the power-amp response in the model itself. Adding a tube-voiced power amp on top adds power-amp character a second time, which is what produces the audible compression and rolloff that makes "modeler through tube power amp" rigs sound smaller and softer than the same model through studio monitors.
 
 ## The ToneBlock 202's Job
 
 Quilter's design brief is the opposite of Seymour Duncan's. Pat Quilter has been making solid-state amps that sound like tube amps for 50 years, and the ToneBlock 202 is the latest iteration of that philosophy in Class D form. The "Articulated" topology introduces a deliberate soft-compression curve at the output stage and a controlled high-frequency rolloff that approximates the response of a 6L6 power section running near its design limit.
 
-My measurement on the ToneBlock 202 showed –0.5 dB at 80 Hz, +0.1 dB at 1 kHz, –1.2 dB at 6 kHz, and –3.0 dB at 8 kHz. The 8 kHz rolloff is the deliberate part — that's the high-frequency dampening that mimics the way a tube power amp loses top end as it approaches saturation. THD at 75% output was 0.6% at 1 kHz, which is roughly an order of magnitude higher than the PowerStage and is mostly second-order harmonic content. The damping factor is around 80, which is high enough to control most cab resonances but loose enough to let the speaker breathe in a way the PowerStage doesn't.
+My measurement on the ToneBlock 202 showed –0.5 dB at 80 Hz, +0.1 dB at 1 kHz, –1.2 dB at 6 kHz, and –3.0 dB at 8 kHz. The 8 kHz rolloff is the deliberate part: that's the high-frequency dampening that mimics the way a tube power amp loses top end as it approaches saturation. THD at 75% output was 0.6% at 1 kHz, which is roughly an order of magnitude higher than the PowerStage and is mostly second-order harmonic content. The damping factor is around 80, which is high enough to control most cab resonances but loose enough to let the speaker breathe in a way the PowerStage doesn't.
 
-What this means: the ToneBlock 202 sounds like what's between the preamp and the cab in a tube amp — the phase inverter, the power tubes, the output transformer. If you put a preamp pedal into the front (a Friedman BE-OD, a Bogner Burnley, a Catalinbread Dirty Little Secret, even a Tube Screamer in front of an EHX Soul Food set as a clean preamp), the ToneBlock 202 supplies the missing power-section character and the cab supplies the speaker character.
+What this means: the ToneBlock 202 sounds like what's between the preamp and the cab in a tube amp: the phase inverter, the power tubes, the output transformer. If you put a preamp pedal into the front (a Friedman BE-OD, a Bogner Burnley, a Catalinbread Dirty Little Secret, even a Tube Screamer in front of an EHX Soul Food set as a clean preamp), the ToneBlock 202 supplies the missing power-section character and the cab supplies the speaker character.
 
-This is the right tool for any preamp-only signal chain. Sansamp pedals, Tech 21 Character Series, the front end of an old Gallien-Krueger 250ML used as a preamp out — anywhere the signal lacks a power-amp simulation upstream, the ToneBlock 202 fills the gap.
+This is the right tool for any preamp-only signal chain. Sansamp pedals, Tech 21 Character Series, the front end of an old Gallien-Krueger 250ML used as a preamp out. Anywhere the signal lacks a power-amp simulation upstream, the ToneBlock 202 fills the gap.
 
 ## The Double-Counting Problem
 
 This is the most important part of the comparison and the reason I'm writing it. Most players run modelers that already simulate the full amp including the power section. Putting that signal into the ToneBlock 202 is a measurable problem, not a theoretical one.
 
-Here's what happens. The Quad Cortex's Mesa Rectifier model includes the power-tube response — the soft compression at peak, the high-frequency rolloff, the second-order distortion that gives the model its character. That signal is the output of a complete amp simulation. When that signal goes into the ToneBlock 202, the Quilter applies its own tube-emulation curve on top: another layer of soft compression, another high-frequency rolloff above 6 kHz, another set of second-order harmonics.
+Here's what happens. The Quad Cortex's Mesa Rectifier model includes the power-tube response (the soft compression at peak, the high-frequency rolloff, the second-order distortion that gives the model its character). That signal is the output of a complete amp simulation. When that signal goes into the ToneBlock 202, the Quilter applies its own tube-emulation curve on top: another layer of soft compression, another high-frequency rolloff above 6 kHz, another set of second-order harmonics.
 
 The result is what I measured: at the same playback level, the ToneBlock-fed signal had –2.1 dB at 8 kHz versus the PowerStage-fed signal, and the dynamic compression on transient palm-muted notes was 1.4 dB greater. That's not subtle. It's the difference between "the cab is breathing" and "the cab is mushy." The 8 kHz rolloff is the difference between a cab that has air in the high mids and one that sounds like it's being played in a closet.
 
@@ -73,9 +73,9 @@ If you've ever heard players say "modelers don't sound right through real cabs,"
 
 ## The Frequency Response Plots
 
-The chart below summarizes the difference in tonal balance at the speaker between the two amps with the same input signal — a captured Mesa Rectifier model from a Quad Cortex at moderate output level.
+The chart below summarizes the difference in tonal balance at the speaker between the two amps with the same input signal: a captured Mesa Rectifier model from a Quad Cortex at moderate output level.
 
-<EQCurve title="PowerStage 200 vs. ToneBlock 202 — measured response into 8 Ω load" bands={[
+<EQCurve title="PowerStage 200 vs. ToneBlock 202: measured response into 8 Ω load" bands={[
   { freq: 80, gain: 0 },
   { freq: 250, gain: 0.1 },
   { freq: 1000, gain: 0 },
@@ -87,7 +87,7 @@ The chart below summarizes the difference in tonal balance at the speaker betwee
 
 That curve is the ToneBlock minus the PowerStage at the same input, in dB. The two amps are within 0.5 dB of each other below 3 kHz. The Quilter's deliberate high-frequency rolloff starts to bite at 6 kHz, and by 12 kHz the ToneBlock is more than 4 dB down on the PowerStage.
 
-For palm-muted high-gain rhythm playing — where the energy is concentrated in the 100-400 Hz range and the pick attack lives in the 4-7 kHz range — that 4 kHz–8 kHz dip is exactly where the pick definition lives. The ToneBlock 202 softens the pick attack in a way that's pleasant on a clean Fender model and detrimental on a tight Mesa Rectifier capture.
+For palm-muted high-gain rhythm playing (where the energy is concentrated in the 100-400 Hz range and the pick attack lives in the 4-7 kHz range), that 4 kHz–8 kHz dip is exactly where the pick definition lives. The ToneBlock 202 softens the pick attack in a way that's pleasant on a clean Fender model and detrimental on a tight Mesa Rectifier capture.
 
 ## The Settings That Demonstrate the Difference
 
@@ -117,15 +117,15 @@ If you have access to both amps, run this test before you commit to one. The set
   <Knob name="Master" value={6} />
 </SettingsGrid>
 
-Played through the same 4×12 cab at the same SPL, with all EQ controls at center (which on the ToneBlock 202 means the Articulated voicing is fully active — there's no "off" switch for it), the difference is audible to anyone with two ears. The PowerStage delivers the captured Recto. The ToneBlock 202 delivers the captured Recto with a Quilter character on top. If that character is what you want, the ToneBlock is the right amp. If you wanted the captured Recto, the PowerStage is the right amp.
+Played through the same 4×12 cab at the same SPL, with all EQ controls at center (which on the ToneBlock 202 means the Articulated voicing is fully active; there's no "off" switch for it), the difference is audible to anyone with two ears. The PowerStage delivers the captured Recto. The ToneBlock 202 delivers the captured Recto with a Quilter character on top. If that character is what you want, the ToneBlock is the right amp. If you wanted the captured Recto, the PowerStage is the right amp.
 
-I expected the difference between these two amps to be subtle when I started measuring. What I found, after two evenings of listening and another evening of measurement, was that the difference is not subtle on captured high-gain models — it's a 2-3 dB high-frequency cut and a measurable transient compression. On a clean Fender model, the same Quilter curve sounds pleasant. On a tight Mesa or Engl model, it sounds lossy. The conclusion isn't "one is better"; the conclusion is that the two amps are designed for different signal chains.
+I expected the difference between these two amps to be subtle when I started measuring. What I found, after two evenings of listening and another evening of measurement, was that the difference is not subtle on captured high-gain models; it's a 2-3 dB high-frequency cut and a measurable transient compression. On a clean Fender model, the same Quilter curve sounds pleasant. On a tight Mesa or Engl model, it sounds lossy. The conclusion isn't "one is better"; the conclusion is that the two amps are designed for different signal chains.
 
 ## When the ToneBlock 202 Is the Right Choice
 
 You should buy the ToneBlock 202 if your signal chain matches one of these:
 
-1. **You run preamp pedals into a cab.** Friedman BE-OD, Bogner Burnley, Catalinbread Dirty Little Secret, Sansamp Classic, AMT pedals, Joyo American Sound — any pedal that emulates a preamp without the power section. The Quilter completes the chain.
+1. **You run preamp pedals into a cab.** Friedman BE-OD, Bogner Burnley, Catalinbread Dirty Little Secret, Sansamp Classic, AMT pedals, Joyo American Sound. Any pedal that emulates a preamp without the power section. The Quilter completes the chain.
 2. **You like the Quilter sound and you're aware you're applying it on top of a captured signal.** The ToneBlock 202 voicing is consistent and pleasant. If you've A/B'd it against a transparent amp and prefer the Quilter colored signal, that's a legitimate aesthetic choice. Just understand what you're choosing.
 3. **You're running an older modeler whose power-amp simulation is not very good.** Some early Helix presets, some legacy Kemper profiles, and almost all rack-format preamps from the '90s either lack power-amp simulation or model it poorly. The ToneBlock 202 can be the right corrective.
 
@@ -135,19 +135,19 @@ You should buy the PowerStage 200 if your signal chain matches one of these:
 
 1. **You run a modern modeler with full amp models.** Quad Cortex, Helix LT/Floor/Stomp, Fractal FM3/FM9/Axe-Fx III, Kemper with full profile mode. The model already has the power-amp character; you don't want it added a second time.
 2. **You record and gig with the same rig and want consistency.** The PowerStage's transparency means the signal at your studio monitors and the signal at your cab on stage are tonally identical. The ToneBlock 202 introduces a stage-only character that doesn't exist in your recording.
-3. **You change amp models often.** If your set list has three different amp models — a Fender for clean, a Marshall for rhythm, a Mesa for lead — the PowerStage delivers all three faithfully. The ToneBlock 202 adds the same character to all of them, which homogenizes the tonal palette.
+3. **You change amp models often.** If your set list has three different amp models (a Fender for clean, a Marshall for rhythm, a Mesa for lead), the PowerStage delivers all three faithfully. The ToneBlock 202 adds the same character to all of them, which homogenizes the tonal palette.
 
 ## What About the Bigger Brothers
 
-Both amps have larger siblings worth knowing about. The PowerStage 700 ($900) is the same architecture in a 700 W package — the right move if you're driving a 4×12 at festival volume and you've outgrown the 200 W output. The Quilter ToneBlock 200 (without the "2") is the previous-generation single-channel version and is still in the catalog at $480, but the 202 is worth the upcharge for the dual-input feature.
+Both amps have larger siblings worth knowing about. The PowerStage 700 ($900) is the same architecture in a 700 W package. It's the right move if you're driving a 4×12 at festival volume and you've outgrown the 200 W output. The Quilter ToneBlock 200 (without the "2") is the previous-generation single-channel version and is still in the catalog at $480, but the 202 is worth the upcharge for the dual-input feature.
 
 For the broader category context, our [PowerStage 200 vs. Fryette Power Station head-to-head](/blog/powerstage-200-vs-fryette-power-station) covers the Class D vs. tube power amp choice in more detail, with a different set of measurements showing what a real tube power section does that the Quilter approximates. If you're cross-shopping power amps generally, those two posts together cover the three positions in the category: pure transparent (PowerStage), Class D with tube emulation (Quilter), and real tube power section (Fryette).
 
 ## So Which One Should You Buy
 
-If your modeler captures the full amp — and almost every modern modeler does — buy the PowerStage 200. The transparent topology delivers what the modeler outputs without applying a second power-section curve, which is the audibly correct answer for any rig built around full amp captures.
+If your modeler captures the full amp (and almost every modern modeler does), buy the PowerStage 200. The transparent topology delivers what the modeler outputs without applying a second power-section curve, which is the audibly correct answer for any rig built around full amp captures.
 
-If your signal chain is preamp-only — pedalboard preamps, Sansamp-style DIs, anything without power-amp simulation — buy the ToneBlock 202. The tube-emulation voicing supplies the power-section character that's missing from the signal, and the cab does the rest.
+If your signal chain is preamp-only (pedalboard preamps, Sansamp-style DIs, anything without power-amp simulation), buy the ToneBlock 202. The tube-emulation voicing supplies the power-section character that's missing from the signal, and the cab does the rest.
 
 The choice isn't subjective. It's determined by where the power-amp simulation lives in your signal chain. Two power-amp simulations stacked is a measurable problem. One power-amp simulation in the right place is the correct answer. Look at your signal chain, count the power-amp models in it, and pick the amp that gives you exactly one.
 
@@ -156,14 +156,14 @@ If your palm mute doesn't feel like a hydraulic press through your current setup
 <FAQ questions={[
   {
     q: "Does the ToneBlock 202 have a way to bypass the tube emulation?",
-    a: "No. The Articulated voicing is built into the output stage and runs whenever the amp is on. The Voicing knob on the front shifts the curve but doesn't disable it. If you want a transparent amp, the PowerStage is the unit to buy — there is no flat mode on the Quilter."
+    a: "No. The Articulated voicing is built into the output stage and runs whenever the amp is on. The Voicing knob on the front shifts the curve but doesn't disable it. If you want a transparent amp, the PowerStage is the unit to buy. There is no flat mode on the Quilter."
   },
   {
     q: "Can I use both at once for a wet/dry rig?",
     a: "Yes, and this is one of the best use cases for owning both. Run a transparent dry signal through the PowerStage to a primary cab and a colored wet signal (delays, reverbs, modulation) through the ToneBlock 202 to a secondary cab. The Quilter's compression and high-frequency rolloff actually flatter the wet signal's dynamic range in a way the PowerStage's transparency doesn't."
   },
   {
-    q: "What about the Atomic Amplifire or the Friedman ASM-12 — do those compete?",
+    q: "What about the Atomic Amplifire or the Friedman ASM-12? Do those compete?",
     a: "Different category. The Amplifire and ASM-12 are FRFR powered cabs, not power amp blocks; they include the speaker. The PowerStage and ToneBlock 202 are power amps that drive a separate cab. If you already own a guitar cab and you want to use it, you need a power amp; if you don't have a cab and you want a single self-contained playback solution, an FRFR cab is the simpler choice."
   },
   {
@@ -172,8 +172,8 @@ If your palm mute doesn't feel like a hydraulic press through your current setup
   },
   {
     q: "Will the difference be audible at gig volume?",
-    a: "Yes — actually more audible than at low volume. The Quilter's tube-emulation curve is dynamic; it engages more strongly at higher output. At bedroom volume, both amps sound similar. At gig volume, the Quilter's compression and high-frequency rolloff are at their most pronounced, and that's exactly when a transparent amp like the PowerStage shows its advantage on captured high-gain models."
+    a: "Yes, actually more audible than at low volume. The Quilter's tube-emulation curve is dynamic; it engages more strongly at higher output. At bedroom volume, both amps sound similar. At gig volume, the Quilter's compression and high-frequency rolloff are at their most pronounced, and that's exactly when a transparent amp like the PowerStage shows its advantage on captured high-gain models."
   }
 ]} />
 
-<SaveThisTone title="Measure your own rig before you buy a power amp" description="Our preset library has a printable signal-chain audit worksheet — five checks that identify whether your modeler has full power-amp simulation, partial simulation, or none, and which power amp matches each case. Run the audit first, then buy." href="/recipes/power-amp-signal-chain-audit" ctaLabel="Get the signal chain audit" />
+<SaveThisTone title="Measure your own rig before you buy a power amp" description="Our preset library has a printable signal-chain audit worksheet: five checks that identify whether your modeler has full power-amp simulation, partial simulation, or none, and which power amp matches each case. Run the audit first, then buy." href="/recipes/power-amp-signal-chain-audit" ctaLabel="Get the signal chain audit" />

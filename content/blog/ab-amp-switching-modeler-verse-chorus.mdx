@@ -39,13 +39,13 @@ image_alt: >-
 
 ## Why A/B Switching Is Not the Same as Parallel Routing
 
-The two architectures are often confused because they both involve two amps in one preset. The difference matters because the use cases are different.
+This is one of the most useful modeler tricks that most players set up wrong. The two architectures are often confused because they both involve two amps in one preset. The difference matters because the use cases are different.
 
 A parallel rig runs both amps at the same time. The signal splits at the input, hits both amps simultaneously, and the two amp outputs sum at the mixer block. This is what the [parallel amp routing post](/blog/parallel-amp-routing-modeler) covers in detail — it is the architecture you use when you want a single tone that combines two amp characters, like a clean Fender for low-end body and a dirty Marshall for midrange grit.
 
 A/B switching runs one amp at a time. The signal hits the first amp during the verse, the player steps on the footswitch, and the signal now hits the second amp for the chorus. Only one amp is producing sound at any given moment. This is the architecture you use when you want a clean tone for the verse and a dirty tone for the chorus, and you want them to be distinctly different rather than blended.
 
-The verse-chorus use case is the most common reason to set up A/B switching. Worship players use it for clean ambient verses transitioning to driven choruses. Modern rock players use it for dynamic clean verses transitioning to wall-of-sound choruses. Indie players use it for verse-chorus tonal contrast that a single channel-switching amp cannot produce. The constant is: one amp for one section, the other amp for the other section, with a single footswitch press between them.
+The verse-chorus transition is the most common reason to set up A/B switching. Clean verse, driven chorus, one footswitch, no volume jump. Worship players, modern rock players, and indie players all use this architecture for the same reason: tonal contrast that a single channel-switching amp can't produce.
 
 The other reason to set up A/B switching: songs where two tones need to alternate without a volume jump. A parallel rig can do this but requires careful EQ matching to prevent the tones from sounding muddy when summed. A/B switching avoids the summing problem entirely because only one amp is running at a time.
 
@@ -88,7 +88,7 @@ Volume balance works the same way on the QC. The dirty amp's Master Volume shoul
 
 ## The Volume Match Problem
 
-The single most common failure mode of A/B amp switching is a volume jump on the transition. The verse plays at one volume, the chorus jumps up by 4-6 dB, and the dynamic intent of the song is destroyed because the chorus is now too loud relative to the rest of the band.
+The single most common failure mode of A/B amp switching is a volume jump on the transition. The verse plays at one volume, the chorus jumps up by 4-6 dB, and the dynamic intent of the song is destroyed because the chorus is now too loud relative to the rest of the band. The second most common mistake is using parallel routing when you meant A/B; if both amps are running simultaneously, you get a blended tone instead of a clean switch, and the volume interaction between the two amp blocks becomes unpredictable.
 
 The reason this happens: distortion compresses peaks. A clean amp at the same channel volume as a distorted amp will have higher peak levels but lower RMS. The clean amp's peaks hit the output limiter or the converter ceiling at a lower channel volume setting; the distorted amp's RMS-heavy signal sounds louder at the same peak level. If you balance the two amps by peak level, the dirty amp will be perceived as louder.
 

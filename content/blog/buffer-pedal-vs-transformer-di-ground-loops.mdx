@@ -3,7 +3,7 @@ title: >-
   Buffer Pedal vs. Transformer DI for Signal-Line Ground Loops: When the $40 Box
   Beats the $250 Box
 description: >-
-  A buffer pedal and a transformer DI both fix signal-line ground loop hum — but
+  A buffer pedal and a transformer DI both fix signal-line ground loop hum, but
   they work on different problems. Here's how to diagnose which one your rig
   actually needs before you buy.
 date: '2026-05-09'
@@ -25,9 +25,9 @@ image_alt: >-
   Ground Loops: When the $40 Box Beats the $250 Box"
 ---
 
-> **Quick read:** A buffer pedal ($40-150) fixes signal-line ground loops by re-referencing your guitar signal to the pedalboard's ground rail before it leaves the board — useful when the hum comes from impedance mismatch, long cable runs, or a too-busy true-bypass signal chain. A transformer DI ($150-300) fixes signal-line ground loops by galvanically isolating two grounds — useful when the hum comes from connecting two separately-grounded systems (modeler → audio interface, pedalboard → mixer with phantom power, amp → recording chain). They look similar in a parts catalog but they solve fundamentally different problems. Diagnose first: if the hum appears when you plug your modeler into your interface, you need a transformer DI. If the hum appears as a low-level buzz at the end of a long pedal chain, you need a buffer. Buying the wrong one wastes the money and doesn't fix the problem.
+> **Quick read:** A buffer pedal ($40-150) fixes signal-line ground loops by re-referencing your guitar signal to the pedalboard's ground rail before it leaves the board. This is useful when the hum comes from impedance mismatch, long cable runs, or a too-busy true-bypass signal chain. A transformer DI ($150-300) fixes signal-line ground loops by galvanically isolating two grounds. This is useful when the hum comes from connecting two separately-grounded systems (modeler → audio interface, pedalboard → mixer with phantom power, amp → recording chain). They look similar in a parts catalog but they solve fundamentally different problems. Diagnose first: if the hum appears when you plug your modeler into your interface, you need a transformer DI. If the hum appears as a low-level buzz at the end of a long pedal chain, you need a buffer. Buying the wrong one wastes the money and doesn't fix the problem.
 
-The 2026 ground-loop tier sits roughly like this: at the top, $1,500-2,500 balanced power supplies (Furman P-2400 IT, Equi=Tech ET2R) for full rig isolation. In the middle, $200-400 ground-loop isolators (Hum X, Radial Twin-Iso, EBTECH ELQ) for power-line problems. At the bottom, $40-300 buffer pedals and transformer DIs for signal-line problems. Most of our existing coverage focuses on the middle and top tiers — the [Hum X / Twin-Iso / ELQ comparison](/blog/hum-x-vs-radial-twin-iso-vs-ebtech-elq) and the [balanced-power head-to-head](/blog/balanced-power-guitar-rigs-furman-equitech) cover the power-line side honestly. This post is the missing piece on the bottom tier: when do you need a buffer, when do you need a transformer DI, and when does your problem actually live somewhere else entirely.
+The 2026 ground-loop tier sits roughly like this: at the top, $1,500-2,500 balanced power supplies (Furman P-2400 IT, Equi=Tech ET2R) for full rig isolation. In the middle, $200-400 ground-loop isolators (Hum X, Radial Twin-Iso, EBTECH ELQ) for power-line problems. At the bottom, $40-300 buffer pedals and transformer DIs for signal-line problems. Most of our existing coverage focuses on the middle and top tiers. The [Hum X / Twin-Iso / ELQ comparison](/blog/hum-x-vs-radial-twin-iso-vs-ebtech-elq) and the [balanced-power head-to-head](/blog/balanced-power-guitar-rigs-furman-equitech) cover the power-line side honestly. This post is the missing piece on the bottom tier: when do you need a buffer, when do you need a transformer DI, and when does your problem actually live somewhere else entirely.
 
 The quick test: if your hum gets quieter when you unplug your modeler from your interface (or your pedalboard from your mixer), you have a signal-line ground loop. If your hum stays at the same level whether anything is plugged in, you have a power-line problem and should be looking at the middle tier instead.
 
@@ -54,7 +54,7 @@ A buffer fixes:
 - Hum from impedance loss over long cable runs (usually 18 feet or more between guitar and amp)
 - Hum from putting too many true-bypass pedals in a row (each true-bypass pedal adds capacitance and signal degradation)
 - Hum from interaction between two passive pedals (a vintage Fuzz Face into a wah, for instance)
-- Hum that gets louder when you touch the strings on a poorly-grounded guitar (sometimes — this can also be a guitar wiring problem)
+- Hum that gets louder when you touch the strings on a poorly-grounded guitar (sometimes; this can also be a guitar wiring problem)
 
 A buffer does NOT fix:
 - Hum from connecting two separately-powered systems (modeler → interface → computer)
@@ -62,15 +62,15 @@ A buffer does NOT fix:
 - Hum from a faulty cable
 - Hum from a single coil pickup (that's electromagnetic interference, not a ground loop)
 
-For a board with 5+ pedals, especially if any of them are true-bypass and there are long cable runs, a buffer is good practice regardless of whether you have a hum problem yet — it just makes the signal cleaner and the high end more consistent. The Boss FS-1 ($40) is the cheapest reliable option; the JHS Little Black Buffer ($90) is the next tier; the Strymon OB.1 ($150) adds a clean boost on top of the buffer for a small premium. All three do the same fundamental job.
+For a board with 5+ pedals, especially if any of them are true-bypass and there are long cable runs, a buffer is good practice regardless of whether you have a hum problem yet; it just makes the signal cleaner and the high end more consistent. The Boss FS-1 ($40) is the cheapest reliable option; the JHS Little Black Buffer ($90) is the next tier; the Strymon OB.1 ($150) adds a clean boost on top of the buffer for a small premium. All three do the same fundamental job.
 
 ## What a Transformer DI Actually Does
 
-A transformer is a passive component made of two coils of wire wrapped around a magnetic core. Signal entering one coil induces a magnetic field in the core, which induces a signal in the other coil. The two coils are not electrically connected — only magnetically coupled. That means the input ground and the output ground are completely separate (galvanically isolated), and any voltage difference between the two grounds doesn't affect the signal.
+A transformer is a passive component made of two coils of wire wrapped around a magnetic core. Signal entering one coil induces a magnetic field in the core, which induces a signal in the other coil. The two coils are not electrically connected; they are only magnetically coupled. That means the input ground and the output ground are completely separate (galvanically isolated), and any voltage difference between the two grounds doesn't affect the signal.
 
-That isolation is the entire point of a transformer DI. When you connect two separately-powered systems (modeler powered by its own wall wart, audio interface powered by USB and its own wall wart, both grounded through their power cords), the small voltage difference between the two grounds creates a current loop through the signal cable. That current loop generates 60-cycle hum at the input of the second system. A transformer DI breaks the current loop by removing the electrical connection between the two grounds — the signal still passes (magnetically), but the hum-causing current can't.
+That isolation is the entire point of a transformer DI. When you connect two separately-powered systems (modeler powered by its own wall wart, audio interface powered by USB and its own wall wart, both grounded through their power cords), the small voltage difference between the two grounds creates a current loop through the signal cable. That current loop generates 60-cycle hum at the input of the second system. A transformer DI breaks the current loop by removing the electrical connection between the two grounds. The signal still passes (magnetically), but the hum-causing current can't.
 
-The Radial JDI ($230) is the gold standard. It uses a Jensen JT-DB-EPC transformer with very low distortion and flat frequency response from 20 Hz to 20 kHz. The Countryman Type 85 ($229, active version) is the studio standard for vocal and guitar DI use. The Whirlwind IMP 2 ($75) is the budget standard — not as flat as the Radial or Countryman, but functionally equivalent for most uses. Cheaper transformers (the $40 Hosa-style behringer-style boxes) work but introduce more noticeable high-end roll-off and low-end hum from the transformer itself.
+The Radial JDI ($230) is the gold standard. It uses a Jensen JT-DB-EPC transformer with very low distortion and flat frequency response from 20 Hz to 20 kHz. The Countryman Type 85 ($229, active version) is the studio standard for vocal and guitar DI use. The Whirlwind IMP 2 ($75) is the budget standard; it's not as flat as the Radial or Countryman, but functionally equivalent for most uses. Cheaper transformers (the $40 Hosa-style behringer-style boxes) work but introduce more noticeable high-end roll-off and low-end hum from the transformer itself.
 
 A transformer DI fixes:
 - Hum when connecting your modeler/pedalboard to an audio interface
@@ -88,7 +88,7 @@ A transformer DI does NOT fix:
 Before you buy either box, run this five-minute diagnostic. It will tell you which problem you actually have.
 
 **Step 1: Establish a hum baseline.**
-Plug just your guitar into your amp (or your modeler into your monitors), no other gear connected. If there's hum, it's not a ground loop — it's either a power-line problem (try a different outlet on a different circuit), a guitar-wiring problem (try a different guitar), or interference from a nearby device (turn off the dimmer switches, the LED Christmas lights, the cheap LED bulbs). Solve this before adding any pedals or systems.
+Plug just your guitar into your amp (or your modeler into your monitors), no other gear connected. If there's hum, it's not a ground loop. It's either a power-line problem (try a different outlet on a different circuit), a guitar-wiring problem (try a different guitar), or interference from a nearby device (turn off the dimmer switches, the LED Christmas lights, the cheap LED bulbs). Solve this before adding any pedals or systems.
 
 **Step 2: Add the pedalboard.**
 Plug your full pedalboard between guitar and amp, all pedals bypassed. Power the pedalboard from its normal supply. If hum appears that wasn't there in step 1, the pedalboard is the source. Causes:
@@ -99,12 +99,12 @@ Plug your full pedalboard between guitar and amp, all pedals bypassed. Power the
 If you've ruled out the power supply and isolated the long-cable-run case, a buffer pedal at the input of the board (and sometimes a second buffer at the output) usually solves it. The Boss FS-1 at the input is the most common single-pedal solution.
 
 **Step 3: Add the second system.**
-Plug the pedalboard output into the second system — the audio interface, the FOH mixer, the recording amp's input. If hum appears here that wasn't there in step 2, you have a ground loop between the two systems. This is what a transformer DI fixes. The Radial JDI between the pedalboard and the second system breaks the loop.
+Plug the pedalboard output into the second system (the audio interface, the FOH mixer, the recording amp's input). If hum appears here that wasn't there in step 2, you have a ground loop between the two systems. This is what a transformer DI fixes. The Radial JDI between the pedalboard and the second system breaks the loop.
 
-If hum appears in step 3 but a transformer DI doesn't fix it, the loop is somewhere else — usually in the power chain (try plugging both systems into the same outlet, or use a power-line ground-loop isolator like the Hum X). Our [Hum X / Twin-Iso / ELQ comparison](/blog/hum-x-vs-radial-twin-iso-vs-ebtech-elq) covers the power-line side.
+If hum appears in step 3 but a transformer DI doesn't fix it, the loop is somewhere else, usually in the power chain (try plugging both systems into the same outlet, or use a power-line ground-loop isolator like the Hum X). Our [Hum X / Twin-Iso / ELQ comparison](/blog/hum-x-vs-radial-twin-iso-vs-ebtech-elq) covers the power-line side.
 
 **Step 4: Confirm the fix.**
-Whichever box you bought, connect it in the position the diagnostic indicated, and re-run the test. If the hum drops, you've found it. If the hum doesn't change, you bought the wrong box — return it and run the diagnostic again with fresh eyes.
+Whichever box you bought, connect it in the position the diagnostic indicated, and re-run the test. If the hum drops, you've found it. If the hum doesn't change, you bought the wrong box. Return it and run the diagnostic again with fresh eyes.
 
 The most common diagnostic mistake I see is skipping step 1. A player has a noisy rig, assumes it's a ground loop, buys a transformer DI, and discovers the hum was actually a single-coil pickup near a computer monitor. The transformer DI doesn't fix that, the player concludes the DI is bad, and the cycle repeats. Always start with the simplest case and add complexity one step at a time.
 
@@ -118,7 +118,7 @@ A common 2026 setup that benefits from both: pedalboard with 8 pedals → output
 
 ## What I Surprised Myself By Finding
 
-I expected a buffer pedal to do nothing for a system-bridging ground loop. That's the conventional wisdom and it's mostly correct. What I didn't expect was that some buffer pedals (specifically the JHS Little Black Buffer and the Strymon OB.1) include enough output isolation that they reduce — but don't eliminate — small-magnitude system-bridging ground loops. The reduction is partial; the loop is still there, just quieter. So in some borderline cases, a buffer pedal can mask a system-bridging problem enough that the player thinks they've fixed it, only to have it re-appear when they change cables or add a second pedalboard.
+I expected a buffer pedal to do nothing for a system-bridging ground loop. That's the conventional wisdom and it's mostly correct. What I didn't expect was that some buffer pedals (specifically the JHS Little Black Buffer and the Strymon OB.1) include enough output isolation that they reduce (but don't eliminate) small-magnitude system-bridging ground loops. The reduction is partial; the loop is still there, just quieter. So in some borderline cases, a buffer pedal can mask a system-bridging problem enough that the player thinks they've fixed it, only to have it re-appear when they change cables or add a second pedalboard.
 
 The right answer is to use the right tool for the job. A buffer for signal-line problems, a transformer DI for system-bridging problems. If you have both kinds of problems, use both kinds of tools.
 
@@ -127,7 +127,7 @@ The right answer is to use the right tool for the job. A buffer for signal-line 
 For a player who only has a pedalboard (no system-bridging connection):
 - **Cheapest fix:** Boss FS-1 ($40) at the input of the board. Solves 80% of pedalboard hum problems.
 - **Mid-tier:** JHS Little Black Buffer ($90). Slightly better noise floor, slightly cleaner top end.
-- **Premium:** Strymon OB.1 ($150). Buffer plus a clean boost — useful if you also wanted a clean boost.
+- **Premium:** Strymon OB.1 ($150). Buffer plus a clean boost; useful if you also wanted a clean boost.
 
 For a player who needs to connect a pedalboard or modeler to an interface, mixer, or PA:
 - **Cheapest fix:** Whirlwind IMP 2 ($75). Passive transformer, mono. Fixes the loop, slight high-end roll-off (audible in critical listening, fine for live use).
@@ -138,7 +138,7 @@ For a player with both problems:
 - **Budget combo:** Boss FS-1 at the board input + Whirlwind IMP 2 between board and interface. Total: $115.
 - **Premium combo:** Strymon OB.1 inside the board + Radial JDI between board and interface. Total: $380.
 
-The premium options are real upgrades for studio recording, where the noise floor and high-end response actually matter. For live use, the budget combo is functionally equivalent — the audience won't hear the difference between a $75 and $230 transformer DI, and the band's mix will mask whatever subtle high-end roll-off the cheaper box adds.
+The premium options are real upgrades for studio recording, where the noise floor and high-end response actually matter. For live use, the budget combo is functionally equivalent; the audience won't hear the difference between a $75 and $230 transformer DI, and the band's mix will mask whatever subtle high-end roll-off the cheaper box adds.
 
 ## What This Doesn't Replace
 
@@ -146,20 +146,20 @@ I want to be clear about what these boxes don't do, because the marketing someti
 
 A buffer doesn't replace good cable hygiene. If your cables are old, frayed, or unshielded, no buffer will fix the hum they introduce.
 
-A transformer DI doesn't replace a balanced power supply. If your hum is from dirty power on a shared circuit (computer power supplies, dimmer switches, refrigerator compressors on the same circuit as your amp), the transformer DI won't help — you need to clean up the power side. Our [balanced power post](/blog/balanced-power-guitar-rigs-furman-equitech) covers that case.
+A transformer DI doesn't replace a balanced power supply. If your hum is from dirty power on a shared circuit (computer power supplies, dimmer switches, refrigerator compressors on the same circuit as your amp), the transformer DI won't help. You need to clean up the power side. Our [balanced power post](/blog/balanced-power-guitar-rigs-furman-equitech) covers that case.
 
 Neither box replaces an isolated power supply for the pedalboard itself. If your pedals are sharing power through a daisy chain and getting hum from supply interaction, you need an isolated supply (Cioks DC7, Strymon Zuma, Voodoo Lab Pedal Power 2 Plus). The buffer and the transformer DI fix signal-line problems; they don't fix supply-line problems.
 
-The full hierarchy of ground-loop fixes, ranked by cost and impact, is in our [60-cycle hum decision tree](/blog/60-cycle-hum-decision-tree) — start there if you're not sure which tier of problem you're trying to solve.
+The full hierarchy of ground-loop fixes, ranked by cost and impact, is in our [60-cycle hum decision tree](/blog/60-cycle-hum-decision-tree). Start there if you're not sure which tier of problem you're trying to solve.
 
 <FAQ questions={[
   {
     q: "Will a buffer pedal change my tone?",
-    a: "A well-designed buffer is essentially transparent — the Strymon OB.1, Boss FS-1, and JHS Little Black Buffer all measure flat from 20 Hz to 20 kHz with distortion below -100 dB. A poorly-designed buffer (some vintage-style and some no-name budget options) introduces a slight high-end roll-off above 8 kHz that some players hear as 'smoothing.' If you're using a modern buffer from a reputable manufacturer, tone change isn't the issue. If you're using a cheap or old buffer, A/B with and without and trust your ears."
+    a: "A well-designed buffer is essentially transparent. The Strymon OB.1, Boss FS-1, and JHS Little Black Buffer all measure flat from 20 Hz to 20 kHz with distortion below -100 dB. A poorly-designed buffer (some vintage-style and some no-name budget options) introduces a slight high-end roll-off above 8 kHz that some players hear as 'smoothing.' If you're using a modern buffer from a reputable manufacturer, tone change isn't the issue. If you're using a cheap or old buffer, A/B with and without and trust your ears."
   },
   {
     q: "Can I use my amp's effects loop send as a 'buffer' instead of buying a buffer pedal?",
-    a: "Some amps have a buffered send that effectively acts as a buffer for the signal at that point in the chain — this is most useful for placing modulation/delay/reverb in the loop, where the signal benefits from the buffer's low impedance. But the loop send doesn't fix problems at the front of the board (long guitar cable, true-bypass pedals stacked at the input). A dedicated buffer pedal at the input of the board solves that earlier in the chain. Using both is fine and common."
+    a: "Some amps have a buffered send that effectively acts as a buffer for the signal at that point in the chain. This is most useful for placing modulation/delay/reverb in the loop, where the signal benefits from the buffer's low impedance. But the loop send doesn't fix problems at the front of the board (long guitar cable, true-bypass pedals stacked at the input). A dedicated buffer pedal at the input of the board solves that earlier in the chain. Using both is fine and common."
   },
   {
     q: "Does a transformer DI work for stereo signals?",
@@ -167,12 +167,12 @@ The full hierarchy of ground-loop fixes, ranked by cost and impact, is in our [6
   },
   {
     q: "Why does my amp hum more when I plug into a recording interface than when I just play through it normally?",
-    a: "Because plugging into the interface creates a ground loop between the amp's ground (through its power cord and the wall outlet) and the interface's ground (through its power supply, which may be on a different outlet or grounded through the computer's USB connection). The current that flows through this loop generates 60-cycle hum that wasn't there when the amp was just playing through its own speaker. A transformer DI between the amp's DI output and the interface input breaks the loop. Specific case: if you're recording the amp's mic'd output (with an SM57 going into the interface), the hum is between the amp's circuit and the mic preamp's circuit through the building ground — same fix, transformer DI on the mic line if needed."
+    a: "Because plugging into the interface creates a ground loop between the amp's ground (through its power cord and the wall outlet) and the interface's ground (through its power supply, which may be on a different outlet or grounded through the computer's USB connection). The current that flows through this loop generates 60-cycle hum that wasn't there when the amp was just playing through its own speaker. A transformer DI between the amp's DI output and the interface input breaks the loop. Specific case: if you're recording the amp's mic'd output (with an SM57 going into the interface), the hum is between the amp's circuit and the mic preamp's circuit through the building ground. Same fix, transformer DI on the mic line if needed."
   },
   {
     q: "What's the difference between a transformer DI and an isolation transformer like the Radial Twin-Iso?",
-    a: "Same component, different application. A transformer DI is designed for a guitar-level signal (high impedance input, balanced or unbalanced output) and lives between an instrument and a mixer or interface. An isolation transformer like the Twin-Iso is designed for a line-level signal (impedance-matched 600-ohm input/output) and lives between two pieces of audio equipment. They both galvanically isolate two grounds; they're optimized for different signal levels. Don't put a guitar through a Twin-Iso unless the manual says you can — the impedance mismatch will lose top end and low end. Don't put a line-level signal through a guitar DI — same problem in reverse."
+    a: "Same component, different application. A transformer DI is designed for a guitar-level signal (high impedance input, balanced or unbalanced output) and lives between an instrument and a mixer or interface. An isolation transformer like the Twin-Iso is designed for a line-level signal (impedance-matched 600-ohm input/output) and lives between two pieces of audio equipment. They both galvanically isolate two grounds; they're optimized for different signal levels. Don't put a guitar through a Twin-Iso unless the manual says you can; the impedance mismatch will lose top end and low end. Don't put a line-level signal through a guitar DI; same problem in reverse."
   }
 ]} />
 
-<SaveThisTone title="Ground-loop diagnostic checklist" description="A printable five-step diagnostic for identifying which kind of ground-loop your rig has — power-line, signal-line buffer-fixable, or signal-line transformer-fixable. Includes the right tool for each case and a budget-vs-premium recommendation in each tier." href="/recipes/ground-loop-diagnostic-checklist" ctaLabel="Get the diagnostic checklist" />
+<SaveThisTone title="Ground-loop diagnostic checklist" description="A printable five-step diagnostic for identifying which kind of ground-loop your rig has: power-line, signal-line buffer-fixable, or signal-line transformer-fixable. Includes the right tool for each case and a budget-vs-premium recommendation in each tier." href="/recipes/ground-loop-diagnostic-checklist" ctaLabel="Get the diagnostic checklist" />

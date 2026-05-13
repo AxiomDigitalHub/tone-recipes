@@ -3,7 +3,7 @@ title: >-
   Why Your Pedalboard Power Supply Hums (and How to Fix It Without Buying a
   Bigger One)
 description: >-
-  Most pedalboard power supply problems aren't a power problem — they're an
+  Most pedalboard power supply problems aren't a power problem. They're an
   isolation problem, a current problem, or a daisy chain problem. Here is how to
   diagnose what's actually causing the hum or the dropout, and what to do before
   spending $300 on a bigger supply.
@@ -27,7 +27,7 @@ image_alt: >-
   warm stage haze with colored ambient lighting
 ---
 
-> **The diagnosis order:** When a powered-up pedalboard hums, dropouts, or distorts unexpectedly, the cause is almost always one of four things in this order — daisy-chained pedals (most common), insufficient current capacity on a specific output, ground loops between digital and analog pedals on the same isolated output, or a single failing pedal pulling extra current. Buying a larger power supply only solves the second of these. The other three need different fixes.
+> **The diagnosis order:** When a powered-up pedalboard hums, dropouts, or distorts unexpectedly, the cause is almost always one of four things in this order: daisy-chained pedals (most common), insufficient current capacity on a specific output, ground loops between digital and analog pedals on the same isolated output, or a single failing pedal pulling extra current. Buying a larger power supply only solves the second of these. The other three need different fixes.
 
 The pattern I see most often when a worship guitarist's rig stops working right is the same: they bought a power supply two years ago that worked fine, they added two pedals last month, and now something is humming, dropping out during the bridge of the third song, or producing a high-frequency whine when the delay kicks in. Their first instinct is to assume the power supply is undersized and they need a bigger one. Sometimes that's true. Most of the time, it's not.
 
@@ -39,9 +39,9 @@ After spending eight years as the worship leader at a church with a rotating set
 
 Power supplies for pedalboards come in two main categories: **daisy-chain** (one transformer, multiple outputs sharing the same ground) and **isolated** (each output has its own transformer winding and its own ground reference).
 
-Daisy-chain supplies — the original Boss PSA, the cheap Amazon multi-output cables — connect every pedal's ground to every other pedal's ground at the power supply itself. This creates a ground loop that can introduce hum, especially when the pedals have different internal grounding schemes. Most analog drives and overdrives are happy on a daisy chain. Most digital pedals (delays, reverbs, modulation with DSP) are not.
+Daisy-chain supplies (the original Boss PSA, the cheap Amazon multi-output cables) connect every pedal's ground to every other pedal's ground at the power supply itself. This creates a ground loop that can introduce hum, especially when the pedals have different internal grounding schemes. Most analog drives and overdrives are happy on a daisy chain. Most digital pedals (delays, reverbs, modulation with DSP) are not.
 
-Isolated supplies — Strymon Zuma, Voodoo Lab Pedal Power, MXR ISO-Brick, Truetone CS series, Cioks DC series — give each pedal its own electrically separate output. The grounds don't talk to each other. This eliminates the ground loop hum that daisy chains create when mixing analog and digital pedals.
+Isolated supplies (Strymon Zuma, Voodoo Lab Pedal Power, MXR ISO-Brick, Truetone CS series, Cioks DC series) give each pedal its own electrically separate output. The grounds don't talk to each other. This eliminates the ground loop hum that daisy chains create when mixing analog and digital pedals.
 
 Most pedalboards in 2026 have an isolated supply. Most of them are still using it incorrectly.
 
@@ -63,15 +63,15 @@ Each isolated output has a current rating (e.g., 100mA, 250mA, 500mA). Each peda
 
 **Symptoms:** Pedal works at lower volumes but distorts at higher inputs. Pedal turns on but the LEDs are dim. Pedal cuts out intermittently.
 
-**Fix:** Move the high-current pedal to a higher-rated output. Strymon's BigSky and Timeline draw close to 300mA each — they need a 500mA isolated output, not a 100mA one. Most digital reverbs and delays from 2018 onward draw 200–400mA. Check the pedal's spec sheet, then check your supply's per-output ratings.
+**Fix:** Move the high-current pedal to a higher-rated output. Strymon's BigSky and Timeline draw close to 300mA each. They need a 500mA isolated output, not a 100mA one. Most digital reverbs and delays from 2018 onward draw 200–400mA. Check the pedal's spec sheet, then check your supply's per-output ratings.
 
 ### 3. Ground loop between analog and digital pedals
 
-Even with isolated outputs, you can sometimes get a hum when mixing certain analog overdrives with digital reverbs. This isn't a power supply failure — it's an interaction between the pedals' input/output buffer designs and how they reference ground through the patch cables.
+Even with isolated outputs, you can sometimes get a hum when mixing certain analog overdrives with digital reverbs. This isn't a power supply failure; it's an interaction between the pedals' input/output buffer designs and how they reference ground through the patch cables.
 
 **Symptoms:** Hum when both pedals are engaged. Hum disappears when either pedal is bypassed. The hum is often higher-pitched than a standard 60Hz hum.
 
-**Fix:** Try a different signal chain order. Sometimes moving a digital reverb before an analog drive (instead of after) reduces the loop. If the hum persists, a humbuster cable (Voodoo Lab makes them) or a reversed-polarity power cable on the offending pedal can break the loop. This is one of the rare cases where a "bigger" power supply doesn't help — the issue is between the pedals, not at the supply.
+**Fix:** Try a different signal chain order. Sometimes moving a digital reverb before an analog drive (instead of after) reduces the loop. If the hum persists, a humbuster cable (Voodoo Lab makes them) or a reversed-polarity power cable on the offending pedal can break the loop. This is one of the rare cases where a "bigger" power supply doesn't help. The issue is between the pedals, not at the supply.
 
 ### 4. A single failing pedal
 
@@ -89,7 +89,7 @@ Before deciding the power supply is undersized, run this 5-minute test:
 
 1. **Disconnect every patch cable.** Power on each pedal individually. Listen for hum at the amp. Most pedals will have some level of self-noise; that's normal. Note any pedal that hums significantly louder than the others.
 
-2. **Check the supply's outputs against the pedal current draws.** Sum up the current each pedal needs. Compare to your supply's total available current. If the total is over 80% of the supply's capacity, you are undersized — but most boards are not.
+2. **Check the supply's outputs against the pedal current draws.** Sum up the current each pedal needs. Compare to your supply's total available current. If the total is over 80% of the supply's capacity, you are undersized, but most boards are not.
 
 3. **Per-output check.** For isolated supplies, verify that no single output is being asked to power more current than it's rated for. Strymon and similar high-draw pedals need their own dedicated isolated 500mA output.
 
@@ -123,7 +123,7 @@ When you do need to upgrade, prioritize **isolated output count** over **total c
 
 ## My Worship Pedalboard Power Supply
 
-For reference, my church board runs a Cioks DC10. It has 10 isolated outputs (eight at 9V/660mA, two switchable to 12V or 18V), enough current for everything I use, and crucially, every digital pedal I run gets its own isolated output. I have a Strymon Timeline, a Strymon BigSky, a JHS Morning Glory, a Walrus Audio Ages, a Boss ES-8 switching system, an MXR Dyna Comp, and a tuner. That's 7 pedals, each on their own output. The remaining 3 outputs are for occasional additions — a fuzz, a tremolo, an octaver — that rotate based on the song set.
+For reference, my church board runs a Cioks DC10. It has 10 isolated outputs (eight at 9V/660mA, two switchable to 12V or 18V), enough current for everything I use, and crucially, every digital pedal I run gets its own isolated output. I have a Strymon Timeline, a Strymon BigSky, a JHS Morning Glory, a Walrus Audio Ages, a Boss ES-8 switching system, an MXR Dyna Comp, and a tuner. That's 7 pedals, each on their own output. The remaining 3 outputs are for occasional additions (a fuzz, a tremolo, an octaver) that rotate based on the song set.
 
 I considered the smaller Cioks DC7 and the Strymon Zuma when I bought it. The DC10 was more expensive and bigger than I strictly needed at the time, but I planned for two future pedals and didn't want to be back at the same store in 18 months. Three years in, I'm using 9 of the 10 outputs.
 
@@ -132,7 +132,7 @@ The lesson: when you do upgrade, buy slightly more isolated outputs than your cu
 <FAQ questions={[
   {
     q: "Is daisy-chaining always bad?",
-    a: "No. Daisy-chaining works fine for similar pedals — for example, three analog overdrives can usually share a single 9V output without issue. The problems start when you mix analog and digital pedals on the same daisy chain, when you exceed the output's current rating, or when the daisy-chained pedals have grounding sensitivity. Used carefully on the right pedals, daisy chains save outputs for the pedals that need isolation."
+    a: "No. Daisy-chaining works fine for similar pedals. For example, three analog overdrives can usually share a single 9V output without issue. The problems start when you mix analog and digital pedals on the same daisy chain, when you exceed the output's current rating, or when the daisy-chained pedals have grounding sensitivity. Used carefully on the right pedals, daisy chains save outputs for the pedals that need isolation."
   },
   {
     q: "Why does my Strymon pedal sometimes drop out during long delays?",
@@ -140,7 +140,7 @@ The lesson: when you do upgrade, buy slightly more isolated outputs than your cu
   },
   {
     q: "Can a bad power cable cause hum?",
-    a: "Yes. Cheap or worn power cables can introduce noise that looks like a power supply problem. If you've eliminated other causes, swap the suspected cable for a known-good one. Voodoo Lab and Truetone make reliable replacement cables. Damaged or mismatched cables (e.g., reversed polarity, wrong tip size) can also damage pedals — always verify polarity before plugging in."
+    a: "Yes. Cheap or worn power cables can introduce noise that looks like a power supply problem. If you've eliminated other causes, swap the suspected cable for a known-good one. Voodoo Lab and Truetone make reliable replacement cables. Damaged or mismatched cables (e.g., reversed polarity, wrong tip size) can also damage pedals, so always verify polarity before plugging in."
   },
   {
     q: "Do I need a power supply at all if I'm just using two pedals?",
@@ -148,7 +148,7 @@ The lesson: when you do upgrade, buy slightly more isolated outputs than your cu
   },
   {
     q: "What about the 18V option some pedals support?",
-    a: "Some overdrive and dirt pedals (e.g., the JHS Morning Glory, the Klon Centaur, the Wampler Ego Compressor) sound different at 18V — typically more headroom and a slightly different harmonic character. If your supply has switchable 18V outputs (like the Cioks DC10's special outputs or the Strymon Zuma's expansion), you can experiment. Most pedals don't need 18V, and many don't accept it — check the specs before plugging in."
+    a: "Some overdrive and dirt pedals (e.g., the JHS Morning Glory, the Klon Centaur, the Wampler Ego Compressor) sound different at 18V (typically more headroom and a slightly different harmonic character). If your supply has switchable 18V outputs (like the Cioks DC10's special outputs or the Strymon Zuma's expansion), you can experiment. Most pedals don't need 18V, and many don't accept it, so check the specs before plugging in."
   }
 ]} />
 

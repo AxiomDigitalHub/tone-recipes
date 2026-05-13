@@ -27,6 +27,8 @@ image_alt: >-
 
 ## Step 1: Listen to the Hum and Identify the Frequency
 
+The first time I tracked guitar in my bedroom, I spent an hour chasing a low hum before I realized my monitor was the problem. Could have diagnosed it in two minutes with the method below.
+
 Pick up your guitar, plug into your rig at normal playing volume, and hold a sustain note. Then mute the strings completely and listen to what's left.
 
 The pitch of the hum tells you almost everything.
@@ -40,7 +42,7 @@ The pitch of the hum tells you almost everything.
 | Hum that gets LOUDER when you touch the strings | 60 Hz | Missing chassis ground on the amp |
 | White-noise hiss with no fundamental pitch | Broadband | Gain staging, not a hum problem |
 
-If you can't identify the pitch by ear, record 5 seconds of the hum into your DAW and look at the frequency spectrum. The fundamental peak will be at one of these specific frequencies. There is no ambiguity in the data.
+If you can't identify the pitch by ear, record 5 seconds of the hum into your DAW and look at the frequency spectrum. The fundamental peak will be at one of these specific frequencies. The spectrum analyzer doesn't lie.
 
 ## Step 2: Use the Decision Tree
 
@@ -48,7 +50,7 @@ The fix depends entirely on what frequency the hum is at. Don't skip steps.
 
 ### If You Hear 60 Hz That Goes Away When You Touch the Strings
 
-This is **magnetic induction** into your pickups. Your single-coil pickups are picking up the 60 Hz field from your computer monitor, your wall transformer, your interface, or the building wiring in the wall behind you.
+This is **magnetic induction** into your pickups. Your single-coil pickups are picking up the 60 Hz field from your monitor, your audio interface, your wall transformer, or the building wiring behind your desk.
 
 **Fix in this order:**
 
@@ -93,20 +95,20 @@ This is **switching noise from a dimmer, an LED driver, or a fluorescent ballast
 
 1. **Unplug every dimmer switch in the room.** Most modern LED dimmers use phase-cut PWM that injects high-frequency harmonics into the power line. Even a dimmer two rooms away on the same circuit can cause it. Unplug or set to full-bright.
 2. **Turn off LED bulbs.** Cheap LED bulbs have terrible power-supply filtering and dump switching noise into the line. Try with all LEDs off.
-3. **Move to a different circuit.** Plug your rig into an outlet on a different breaker if possible. Bedroom outlets often share a circuit with overhead lighting; kitchen and bath outlets are usually on dedicated circuits and have less interference.
+3. **Move to a different circuit.** Plug your rig into an outlet on a different breaker if possible. Bedroom outlets (where most of us are recording) often share a circuit with overhead lighting; kitchen and bath outlets are usually on dedicated circuits and have less interference.
 4. **If you can't fix the source, buy a Furman SS-6B or PL-8C.** These are low-cost line conditioners with EMI filtering — they don't fix true ground loops but they do filter the high-frequency switching noise that LED drivers produce.
 
 **Don't buy:** Balanced power for dimmer noise. Most balanced power supplies don't filter switching noise effectively because the noise is common-mode and the balanced supply is differential.
 
 ### If You Hear Broadband Hiss With No Fundamental Pitch
 
-This isn't hum — it's **noise floor**. Your gain structure is the problem.
+This isn't hum; it's **noise floor**. Your gain structure is the problem.
 
 **Fix in this order:**
 
-1. **Lower your input gain stages and raise your output stages.** A high-gain modeler preset with input gain at 90% and master at 30% is a noisy preset. Try input at 30% and master at 90% — same SPL, much less noise.
-2. **Add a noise gate at the front of the chain.** A Fortin Zuul+ or any modeler's built-in noise gate, set with a fast attack and a threshold just above the noise floor.
-3. **Check your interface's input gain.** Audio interfaces have their own input stages, and over-driving them adds hiss. Set the interface gain so that the loudest peak hits -12 dBFS, not 0.
+1. **Lower your input gain stages and raise your output stages.** A high-gain plugin preset with input gain at 90% and master at 30% is a noisy preset. Try input at 30% and master at 90%. Same level in your DAW, much less noise.
+2. **Add a noise gate at the front of the chain.** A Fortin Zuul+ or any plugin's built-in noise gate, set with a fast attack and a threshold just above the noise floor.
+3. **Check your interface's input gain.** Your Scarlett (or whatever interface you're running) has its own input stage, and over-driving it adds hiss. Set the interface gain so that the loudest peak hits -12 dBFS, not 0.
 
 **Don't buy:** Any hum-fixing product. Hiss is not hum.
 
@@ -140,7 +142,7 @@ For a deeper look at the cheap-fix tier and the products in the sub-$300 categor
 
 ## The Single Best Tool for Diagnosing Hum
 
-A spectrum analyzer in your DAW. Voxengo SPAN is free and runs in any DAW. Drop it on the master bus, record 5 seconds of the hum, and look at the spectrum. The peak frequencies tell you exactly what kind of noise you have.
+A spectrum analyzer in your DAW. Voxengo SPAN is free and runs in any DAW (I keep it on a utility track in my Ableton template). Drop it on the master bus, record 5 seconds of the hum, and look at the spectrum. The peak frequencies tell you exactly what kind of noise you have.
 
 60 Hz with no harmonics = pickup induction.
 60 Hz with strong odd harmonics (180, 300, 420 Hz) = chassis ground problem.
@@ -148,7 +150,7 @@ A spectrum analyzer in your DAW. Voxengo SPAN is free and runs in any DAW. Drop 
 180 Hz and 360 Hz = dimmer or LED switching noise.
 Broadband flat noise = gain staging.
 
-The decision tree above is a faster shortcut, but if you ever can't identify the hum by ear, the spectrum analyzer is the truth. It removes the guesswork from a problem that most players solve by buying boxes until something works.
+The decision tree above is a faster shortcut, but if you ever can't identify the hum by ear, the spectrum analyzer is the truth. Way better than the alternative, which is buying boxes until something works.
 
 <FAQ questions={[
   {

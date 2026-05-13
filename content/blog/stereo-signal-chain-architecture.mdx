@@ -28,9 +28,9 @@ image_alt: >-
 
 > **The short version:** Run dirt mono. Split to stereo at the modulation block (chorus, phaser, flanger if you use one, or just before the delay). Keep delay and reverb stereo to the output. Route as: guitar → preamp/dirt (mono) → split → modulation L/R → delay L/R → reverb L/R → output L/R. The common mistake is splitting at the amp model, which sends two slightly different dirt signals through the modulation and creates phase issues. The amp is mono. The space is stereo. The split point is the moment time-based effects start contributing to the picture.
 
-I built my first Quad Cortex preset in stereo because I assumed stereo was just better. Two cab models panned hard, two amp models slightly different — wide, thick, professional. It sounded terrible in mono fold-down (any time the listener was on a phone, in a kitchen with one speaker, or on YouTube without headphones) and it sounded weirdly phasey on stereo monitoring. The wider it got the worse it sounded.
+I built my first Quad Cortex preset in stereo because I assumed stereo was just better. Two cab models panned hard, two amp models slightly different (wide, thick, professional). It sounded terrible in mono fold-down (any time the listener was on a phone, in a kitchen with one speaker, or on YouTube without headphones) and it sounded weirdly phasey on stereo monitoring. The wider it got the worse it sounded.
 
-The fix wasn't more stereo. The fix was understanding that "stereo" describes a relationship, not a setting. A stereo signal isn't two copies of a signal panned hard. A stereo signal is two related-but-distinct signals that share a source. The relationship is what gives a stereo image its sense of space. Two identical signals panned hard sound mono with phase artifacts. Two unrelated signals panned hard sound like two instruments. The sweet spot — where a single guitar sounds wide, three-dimensional, and present without losing center focus — is a specific architecture, not a feature you turn on.
+The fix wasn't more stereo. The fix was understanding that "stereo" describes a relationship, not a setting. A stereo signal isn't two copies of a signal panned hard. A stereo signal is two related-but-distinct signals that share a source. The relationship is what gives a stereo image its sense of space. Two identical signals panned hard sound mono with phase artifacts. Two unrelated signals panned hard sound like two instruments. The sweet spot (where a single guitar sounds wide, three-dimensional, and present without losing center focus) is a specific architecture, not a feature you turn on.
 
 This is the architecture.
 
@@ -45,7 +45,7 @@ This is the architecture.
 | Compressor | Mono | Linked stereo compression is fine; identical mono compression on a single source is the same thing |
 | Amp model | Mono | The amplifier is a single device with one output. Two amp models in parallel is a different effect (parallel amp routing), not stereo |
 | EQ (utility) | Mono | Same reasoning as compression |
-| Modulation (chorus, flanger, phaser, tremolo) | Stereo split point | The effect's whole job is to create relational difference between two channels — this is where stereo is born |
+| Modulation (chorus, flanger, phaser, tremolo) | Stereo split point | The effect's whole job is to create relational difference between two channels; this is where stereo is born |
 | Delay | Stereo | Different delay times left and right create the spatial picture |
 | Reverb | Stereo | Reverb is fundamentally a stereo phenomenon; mono reverb is a degraded reverb |
 | Output to interface or front-of-house | Stereo | Once it's stereo, keep it stereo to the destination |
@@ -58,7 +58,7 @@ The split point is the modulation block. Everything before is mono. Everything a
 
 Most beginner stereo presets put the split before the amp model: guitar → split → amp L → amp R → cab L → cab R → effects → out. The reasoning sounds correct (two amps for width) but the result is wrong, and here is why.
 
-Two amp models running in parallel produce two distinct distortion characters. Distortion is non-linear, which means small differences in input level, EQ, or model variation get amplified into large differences in output. When you sum two distorted signals (which the listener's ear effectively does when listening on speakers), you get phase cancellation in the high mids — the exact frequency band where pick attack lives — and a tone that feels small even though it's playing through two amplifiers.
+Two amp models running in parallel produce two distinct distortion characters. Distortion is non-linear, which means small differences in input level, EQ, or model variation get amplified into large differences in output. When you sum two distorted signals (which the listener's ear effectively does when listening on speakers), you get phase cancellation in the high mids (the exact frequency band where pick attack lives) and a tone that feels small even though it's playing through two amplifiers.
 
 You can hear this without any tools. Build a preset with one amp model. Build a preset with two identical amp models in parallel, panned hard. A/B them in mono. The single-amp version sounds bigger. The double-amp version sounds slightly smeared. This is comb filtering caused by the two amp paths producing minutely different signals that interfere when summed.
 
@@ -72,11 +72,11 @@ The rule: put the amp before the split. Run one amp model into the modulation bl
 
 A chorus, a phaser, a flanger, or a stereo tremolo all do the same architectural thing: they take a mono input and produce two related output signals that differ in some way (pitch modulation, phase modulation, amplitude modulation). The two output signals are close enough to read as a single source but different enough to create a sense of space when panned.
 
-This is exactly what stereo is supposed to do. The modulation block is doing the work that "stereo" describes — generating a related-but-distinct pair of signals from one source.
+This is exactly what stereo is supposed to do. The modulation block is doing the work that "stereo" describes: generating a related-but-distinct pair of signals from one source.
 
 If you don't use modulation in your tone, the stereo split moves to the delay block. A ping-pong delay or a stereo delay with different times left and right serves the same function: it generates a related-but-distinct pair of signals from one input. The stereo image is born at the first effect that creates a left-right relationship from a single signal.
 
-Reverb extends and deepens the stereo image but does not create it. A mono signal into a stereo reverb produces a stereo reverb tail with a mono dry signal — usable but flat. The stereo image has more depth when modulation or delay creates the L/R relationship before the reverb arrives.
+Reverb extends and deepens the stereo image but does not create it. A mono signal into a stereo reverb produces a stereo reverb tail with a mono dry signal (usable but flat). The stereo image has more depth when modulation or delay creates the L/R relationship before the reverb arrives.
 
 For a complete stereo workflow with two reverbs in parallel, the [parallel reverb routing](/blog/parallel-reverb-routing) post covers that specific architecture in detail. The principles in this post inform the parallel reverb decision: you want the reverbs receiving an already-stereo signal so each one is treating an L/R pair coherently.
 
@@ -89,10 +89,10 @@ The Helix's signal flow editor makes the split point explicit. Build the preset 
 1. Block 1 (mono path): Drive or compressor (if using)
 2. Block 2 (mono path): Amp model (mono input, mono output)
 3. Block 3 (mono path): Cab model or IR (mono input, mono output)
-4. Block 4: Y-split (or use the path split control) — this is where the signal becomes stereo
-5. Block 5 (stereo): Modulation (chorus, etc.) — input mode set to stereo
-6. Block 6 (stereo): Delay — input mode set to stereo
-7. Block 7 (stereo): Reverb — input mode set to stereo
+4. Block 4: Y-split (or use the path split control); this is where the signal becomes stereo
+5. Block 5 (stereo): Modulation (chorus, etc.); input mode set to stereo
+6. Block 6 (stereo): Delay; input mode set to stereo
+7. Block 7 (stereo): Reverb; input mode set to stereo
 8. Output: Stereo to L/R outputs
 
 The amp and cab are mono blocks in path 1. The split happens after the cab. The modulation onward is stereo. This is the correct architecture for the Helix and it produces a clean mono-summed signal with a coherent stereo image.
@@ -106,13 +106,13 @@ If you don't have a modulation block, the split happens at the delay. The princi
 The Quad Cortex makes routing visible on the touchscreen, which makes this even clearer. Build the grid like this:
 
 1. Row 1: Compressor (mono) → Amp (mono) → Cab (mono)
-2. Splitter at the end of Row 1 — set to L/R split
+2. Splitter at the end of Row 1, set to L/R split
 3. Row 2A (top): Modulation L → Delay L → Reverb L → Output L
 4. Row 2B (bottom): Modulation R → Delay R → Reverb R → Output R
 
-In practice you'd actually use stereo blocks rather than two parallel mono blocks — the Quad Cortex's modulation, delay, and reverb blocks have stereo I/O when placed after a splitter. But the architecture is the same: mono before the split, stereo after.
+In practice you'd actually use stereo blocks rather than two parallel mono blocks; the Quad Cortex's modulation, delay, and reverb blocks have stereo I/O when placed after a splitter. But the architecture is the same: mono before the split, stereo after.
 
-The QC also supports a parallel amp configuration where two amp models run in parallel and are summed back to mono before the modulation. This is different from stereo amp routing — you're using two amps for tonal blend (one tight high-gain, one wider clean, for example) and then treating the sum as your mono source. This is a valid technique that some Plini-style fusion players use, and the [Quad Cortex preset from scratch](/blog/quad-cortex-preset-from-scratch) post covers the parallel amp blending workflow.
+The QC also supports a parallel amp configuration where two amp models run in parallel and are summed back to mono before the modulation. This is different from stereo amp routing. You're using two amps for tonal blend (one tight high-gain, one wider clean, for example) and then treating the sum as your mono source. This is a valid technique that some Plini-style fusion players use, and the [Quad Cortex preset from scratch](/blog/quad-cortex-preset-from-scratch) post covers the parallel amp blending workflow.
 
 ---
 
@@ -122,7 +122,7 @@ Some boutique pedals (Empress Echosystem, certain Strymon multi-effect units) in
 
 Even when a pedal sells "true stereo" drive (two distinct gain stages), the architecture I'm describing still applies: those two gain stages are doing modulation work, not amplification work. They create a stereo image; they aren't "two amps in parallel." The semantic distinction matters for how you treat the signal in the rest of your chain.
 
-If you have one of these pedals and you're using its stereo output, the rest of your chain should already be stereo — the split happened inside the pedal. Don't add another splitter downstream. The signal is already in stereo and adding a second splitter creates redundant routing.
+If you have one of these pedals and you're using its stereo output, the rest of your chain should already be stereo. The split happened inside the pedal. Don't add another splitter downstream. The signal is already in stereo and adding a second splitter creates redundant routing.
 
 ---
 
@@ -134,7 +134,7 @@ Every stereo preset I build gets tested in mono before I declare it finished. Th
 2. Sum the L/R output to mono (most DAWs have a mono fold-down button; on hardware monitors there's usually a mono switch).
 3. Listen for: phase issues (hollow midrange), level drop (signal getting quieter when summed), or smearing (transients losing definition).
 
-A correctly architected stereo preset survives mono fold-down with no significant change. The level stays the same. The transients stay sharp. The midrange doesn't develop a hollow character. This is because the architecture has only one mono signal until the modulation block — when summed back to mono, the modulation contribution mostly cancels back to the original mono signal, and you hear roughly the same tone as the un-stereo version.
+A correctly architected stereo preset survives mono fold-down with no significant change. The level stays the same. The transients stay sharp. The midrange doesn't develop a hollow character. This is because the architecture has only one mono signal until the modulation block. When summed back to mono, the modulation contribution mostly cancels back to the original mono signal, and you hear roughly the same tone as the un-stereo version.
 
 A poorly architected stereo preset (split before the amp, dual cab routing) loses 3 to 6 dB on mono fold-down. The signal gets smaller, the high mids hollow out, the transients smear. This is comb filtering from the parallel amp paths, and you cannot fix it in mastering. You can only fix it in the architecture.
 
@@ -142,11 +142,11 @@ This test is the single most useful tool for evaluating whether your stereo work
 
 ---
 
-## The Surprised Finding
+## How Much Wider Stereo Actually Gets You
 
 I expected stereo presets to feel meaningfully bigger than mono presets in stereo monitoring. They do, but the difference is smaller than I expected once the architecture is correct, and the trade-off is significant.
 
-A correctly architected stereo preset (mono dirt, stereo time effects) sounds maybe 15 to 20 percent wider than the same tone in mono. The improvement is real but it's not transformative. What I didn't expect was how much better the correctly stereo'd preset sounds in mono fold-down compared to the incorrectly stereo'd one — the correct architecture is essentially identical to the mono version when summed, while the incorrect architecture produces a noticeably degraded mono signal.
+A correctly architected stereo preset (mono dirt, stereo time effects) sounds maybe 15 to 20 percent wider than the same tone in mono. The improvement is real but it's not transformative. What I didn't expect was how much better the correctly stereo'd preset sounds in mono fold-down compared to the incorrectly stereo'd one. The correct architecture is essentially identical to the mono version when summed, while the incorrect architecture produces a noticeably degraded mono signal.
 
 This reframes the entire stereo question. The point of stereo isn't to make the preset wider in stereo monitoring; that benefit is real but small. The point is to add a coherent spatial dimension that doesn't damage the tone when the listener isn't on stereo. The stereo chain is the mono chain plus a spatial layer. If the stereo chain damages the mono chain, the architecture is wrong regardless of how it sounds in headphones.
 
@@ -170,10 +170,10 @@ For more on the routing decisions that interact with this architecture, the [par
   },
   {
     q: "Can I use two amps in stereo if they're very different?",
-    a: "Yes — this is the parallel amp blending technique and it's a valid approach for some fusion and ambient styles. The key is that you're using the two amps for tonal blend, not for stereo width. You should still sum the parallel amps back to mono before the modulation block, and let the modulation/delay/reverb generate the stereo image. The two-amp parallel blend produces a tonal character that's different from a single amp; it doesn't produce stereo width."
+    a: "Yes. This is the parallel amp blending technique and it's a valid approach for some fusion and ambient styles. The key is that you're using the two amps for tonal blend, not for stereo width. You should still sum the parallel amps back to mono before the modulation block, and let the modulation/delay/reverb generate the stereo image. The two-amp parallel blend produces a tonal character that's different from a single amp; it doesn't produce stereo width."
   },
   {
-    q: "What about the Helix's parallel paths — should I be using both?",
+    q: "What about the Helix's parallel paths: should I be using both?",
     a: "Helix's parallel paths (1A and 1B, 2A and 2B) are useful for mixing two distinct tones (clean blend with dirt, for example), but they don't produce stereo width when used for parallel amp models with the same character. Use parallel paths when you want two tonally distinct sources to blend; use a single path with a stereo split at the modulation block when you want a coherent stereo image from one tone."
   },
   {
