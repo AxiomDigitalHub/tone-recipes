@@ -216,21 +216,31 @@ export function BlockIcon({
       // recipe shows an LP, etc. Rendered as <img> at full height with
       // auto width (SVGs are tall/narrow, ~75×233 viewBox).
       const file = guitarAssetFor(block.name);
-      return (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={`/images/guitars/${encodeURI(file)}`}
-          alt=""
-          aria-hidden="true"
-          style={{
-            height: size,
-            width: "auto",
-            display: "block",
-            transform: "rotate(45deg)",
-            transformOrigin: "center",
-          }}
-        />
-      );
+      {
+        // Silhouette SVG viewBox is ~75×233 (tall/narrow). Pass explicit
+        // width/height so the browser reserves layout before the file
+        // loads — Lighthouse flags unsized images as CLS risk.
+        const w = Math.round(size * (75 / 233));
+        return (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={`/images/guitars/${encodeURI(file)}`}
+            alt=""
+            aria-hidden="true"
+            width={w}
+            height={size}
+            loading="lazy"
+            decoding="async"
+            style={{
+              height: size,
+              width: "auto",
+              display: "block",
+              transform: "rotate(45deg)",
+              transformOrigin: "center",
+            }}
+          />
+        );
+      }
     }
     case "generic":
     default:

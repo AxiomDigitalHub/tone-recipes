@@ -17,9 +17,13 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+// Geist Mono isn't used on the homepage / hero — disable preload so it
+// doesn't compete for bandwidth with Fraunces (the LCP font on the H1).
+// Pages that actually use the mono variable will still lazy-load it.
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  preload: false,
 });
 
 // Fraunces — variable display serif for headlines + italic credits.
