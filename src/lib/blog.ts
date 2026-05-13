@@ -3,40 +3,46 @@ import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
 import { getWriter } from "./writers";
+import { BlogFrontmatterSchema, type BlogFaq } from "./blog.schema";
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
-/** Optional Q&A pair, used for the article FAQ block + FAQPage schema. */
-export interface BlogFaq {
-  q: string;
-  a: string;
-}
+// Re-export the FAQ type so existing call sites keep working.
+export type { BlogFaq };
 
+/**
+ * The runtime BlogPost shape. Derived in spirit from `BlogFrontmatterSchema`
+ * in `./blog.schema.ts` (which is the authoritative contract — see that file).
+ *
+ * The schema validates raw frontmatter; this type adds:
+ *   - `slug` (derived from filename)
+ *   - `author` (display name, resolved from author_slug → writer profile)
+ *   - `authorSlug` (camelCase alias for author_slug)
+ *   - `imageAlt` (camelCase alias for image_alt)
+ *   - `readingTime` / `wordCount` (computed from MDX body length)
+ *
+ * Schema fields NOT in this type yet: `image_width`, `image_height` — those
+ * are validated but not consumed by render code today. Wire them through
+ * when we upgrade Article schema to ImageObject.
+ */
 export interface BlogPost {
   slug: string;
   title: string;
   description: string;
   date: string; // ISO date — first publish
   updated?: string; // ISO date — last meaningful edit (optional)
-  author: string; // display name (legacy field, kept for compatibility)
-  authorSlug: string; // writer slug for looking up full writer profile
-  category: string; // "signal-chain" | "platform-guide" | "artist-tone" | "gear" | "effects" | "workflow"
+  author: string; // display name, resolved via author_slug → writers.ts
+  authorSlug: string; // canonical writer slug (validated against AUTHOR_SLUGS)
+  category: string; // validated against BLOG_CATEGORY_SLUGS
   tags: string[];
   readingTime: string; // "8 min read"
   wordCount: number;
   featured?: boolean;
-  image?: string; // hero image URL (Unsplash)
-  imageAlt?: string; // alt text for hero image
-  /**
-   * AEO-friendly 3–5-bullet summary. Rendered as a boxed "Key takeaways"
-   * list above the body so answer engines have a pre-chunked summary to
-   * quote from. Optional — posts without this still render cleanly.
-   */
+  image?: string;
+  imageAlt?: string;
+  /** 3-5 takeaway bullets — drives the "Key Takeaways" callout for AEO. */
   takeaways?: string[];
-  /**
-   * Q&A pairs rendered at the bottom of the post and emitted as
-   * FAQPage JSON-LD. Drives AI-overview citations.
-   */
+  /** 3-6 Q&A pairs — drives the on-page FAQ AND FAQPage JSON-LD. */
   faq?: BlogFaq[];
 }
 
@@ -66,6 +72,20 @@ export function getPostBySlug(slug: string): BlogPostWithContent | null {
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
   const stats = readingTime(content);
+
+  // In dev, surface schema violations to the terminal so the author sees
+  // them without having to run the preflight script separately. In prod,
+  // we trust that preflight ran on the build — degrading-but-rendering is
+  // better than 500ing a post over a too-long description string.
+  if (process.env.NODE_ENV === "development") {
+    const result = BlogFrontmatterSchema.safeParse(data);
+    if (!result.success) {
+      const issues = result.error.issues
+        .map((i) => `  ${i.path.join(".") || "(root)"}: ${i.message}`)
+        .join("\n");
+      console.warn(`[blog.schema] ${slug}.mdx fails Zod contract:\n${issues}`);
+    }
+  }
 
   // Support both author_slug (new) and author (legacy) frontmatter
   const authorSlug: string = data.author_slug ?? "";

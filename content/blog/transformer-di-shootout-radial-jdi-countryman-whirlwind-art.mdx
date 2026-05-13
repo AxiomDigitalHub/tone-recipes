@@ -23,6 +23,23 @@ image: /images/blog/transformer-di-shootout-radial-jdi-countryman-whirlwind-art.
 image_alt: >-
   a composition illustrating "Transformer DI Shootout: Radial JDI vs. Countryman
   Type 85 vs. Whirlwind IMP 2 vs. ART CleanBox Pro"
+takeaways:
+  - All four boxes solved the ground loop in our test rig — the differences are in noise floor, top-end clarity, and build quality.
+  - The Radial JDI ($229) is the studio standard — flattest frequency response (±0.5 dB) and lowest noise floor (-118 dB).
+  - The Whirlwind IMP 2 ($69) is the budget pick that punches above its price — slightly darker top end but quiet and reliable.
+  - The Countryman Type 85 ($219) is technically active (needs phantom) but is the live-FOH standard, especially for passive pickups like acoustic piezos.
+  - The ART CleanBox Pro ($59) is honest about being a budget tool — audible noise floor at gig volume but solves the ground-loop problem.
+faq:
+  - q: "Do I need a transformer DI if I'm running an active modeler?"
+    a: "Sometimes. An active modeler with a balanced XLR output (Helix, Quad Cortex) doesn't strictly need a DI for level conversion — the XLR output is already mic-level and balanced. But a transformer DI breaks the ground loop between the modeler's interface and the FOH console, which is the most common reason guitarists need one. If you're running an unbalanced 1/4-inch output to FOH and getting hum, a DI fixes it. If balanced XLR is going direct and you have no hum, you don't need a DI."
+  - q: "Why is the Countryman Type 85 here if it's active and the rest are passive?"
+    a: "Because players actually cross-shop these. The Type 85 is the live-FOH standard the way the JDI is the studio standard, and the comparison most buyers want is 'which one for live?' The active topology gives the Type 85 a higher input impedance (10 megohm) that's better for passive pickups — the technical reason it's the FOH standard for acoustic guitar with passive piezos. The passive boxes are better for active modeler outputs because they don't need phantom and have more headroom."
+  - q: "Will the Whirlwind IMP 2 sound noticeably different from the JDI on my modeler signal?"
+    a: "On most modeler signals, no — you won't hear it. The IMP 2's slightly darker top end is masked by the cab IR's own top-end rolloff. On a clean modeler signal with no cab IR (running into a real cab through a power amp), you can hear a small softening of the very highest frequencies through the IMP 2 vs. the JDI. It's subtle. For a typical FOH application where the modeler signal includes a cab IR, the boxes are essentially indistinguishable in mix."
+  - q: "Can I run a guitar directly into a transformer DI without a buffer or modeler?"
+    a: "You can, but the JDI and Whirlwind have input impedances (140 kohm and 100 kohm respectively) that are lower than a typical guitar amp's 1 megohm input. This loads down passive single-coil pickups slightly and reduces the high-frequency content. The Countryman Type 85's 10 megohm input impedance avoids this — which is why it's the FOH standard for acoustic guitar with passive piezos. A buffer pedal or modeler in front of a passive DI also fixes the loading."
+  - q: "Does it matter which side of the stage the DI sits on for ground-loop fixes?"
+    a: "Yes, slightly. The DI breaks the ground at its location in the chain. If the ground loop is between your pedalboard's power supply and the FOH console, putting the DI right after your pedalboard fixes it. If the ground loop is between your guitar and the modeler, the DI needs to sit before the modeler. The standard placement (last in the chain, before the cable run to FOH) catches the most common sources and is the right default."
 ---
 
 > **Quick read:** All four passive transformer DIs work. The Radial JDI ($229) is the studio standard for a reason: Jensen JT-DB-EPC transformer, dead-quiet noise floor, the flattest frequency response in the test (within 0.5 dB from 30 Hz to 18 kHz). The Countryman Type 85 ($219) is technically active, not passive, but I'm including it because it's the live standard at almost every venue I've worked, and players cross-shop these against the JDI constantly. The Whirlwind IMP 2 ($69) is the budget pick that punches above its price: a US-made transformer, slightly darker top end than the JDI but quiet and reliable. The ART CleanBox Pro ($59) is honest about what it is: a serviceable DI for a kid's first pedalboard, with audible transformer coloration and a noise floor 6 dB above the others. All four solved a ground loop in our test rig. The differences show up in noise floor, top-end clarity, and how much you trust the box at 11 PM on a Saturday night when the venue's electrical isn't your friend.
@@ -154,28 +171,5 @@ Buy the ART CleanBox Pro if:
 If you can't decide: get the Whirlwind IMP 2. It's the box I most often recommend, the price is reasonable, the build is solid, and the sound quality is much closer to the JDI than the $160 price difference suggests. The JDI is genuinely better (flatter response, lower noise floor, more headroom) but the Whirlwind is good enough that most players won't hear the difference, and the money saved can go toward a better cable, a better stand, or another month of music lessons.
 
 For more on the buffer-vs-DI decision (the question of whether you need a DI at all, or whether a buffer would solve your problem), our [buffer pedal vs. transformer DI piece](/blog/buffer-pedal-vs-transformer-di-ground-loops) walks through the diagnostic flow that tells you which tool fits your specific ground-loop symptom. For the tier above transformer DIs, our [balanced power post](/blog/balanced-power-guitar-rigs-furman-equitech) covers when balanced power is worth the upcharge over a passive DI.
-
-<FAQ questions={[
-  {
-    q: "Do I need a transformer DI if I'm running an active modeler?",
-    a: "Sometimes. An active modeler with a balanced XLR output (like the Helix or the Quad Cortex) doesn't strictly need a DI for level conversion; the XLR output is already mic-level and balanced. But a transformer DI breaks the ground loop between the modeler's interface and the FOH console, which is the most common reason guitarists need one. If you're running an unbalanced ¼″ output to FOH and getting hum, a DI fixes it. If you're running balanced XLR direct to FOH and not getting hum, you don't need a DI. If you're getting hum despite the balanced XLR, you have a different ground-loop problem and a DI may or may not fix it depending on the source."
-  },
-  {
-    q: "Why is the Countryman Type 85 here if it's active and the rest are passive?",
-    a: "Because players actually cross-shop these. The Type 85 is the live-FOH standard the way the JDI is the studio standard, and the comparison most buyers want is 'which one for live?' The active topology gives the Type 85 a higher input impedance that's better for passive pickups, which is the technical reason it's the FOH standard for acoustic guitar. The passive boxes (JDI, IMP 2, CleanBox) are better for active outputs like modelers because they don't need phantom and they have more headroom. The active vs. passive distinction is the whole story of why the Type 85 is here."
-  },
-  {
-    q: "Will the Whirlwind IMP 2 sound noticeably different from the JDI on my modeler signal?",
-    a: "On most modeler signals, no; you won't hear it. The IMP 2's slightly darker top end is masked by the cab IR's own top-end rolloff. On a clean modeler signal with no cab IR (running into a real cab through a power amp), you can hear a small softening of the very highest frequencies through the IMP 2 vs. the JDI. It's subtle. For a typical FOH application where the modeler signal includes a cab IR, the boxes are essentially indistinguishable in mix."
-  },
-  {
-    q: "Can I run a guitar directly into a transformer DI without a buffer or modeler?",
-    a: "You can, but the JDI and Whirlwind have an input impedance (140 kohm and 100 kohm respectively) that's lower than a typical guitar amp's 1 megohm input. This loads down passive single-coil pickups slightly and reduces the high-frequency content of the signal. The Countryman Type 85's 10 megohm input impedance avoids this issue, which is why it's the FOH standard for acoustic guitar with passive piezos. If you absolutely need to run a passive guitar directly into a passive transformer DI, expect a slight loss of high-end clarity. A buffer pedal or a modeler in front of the DI fixes this."
-  },
-  {
-    q: "Does it matter which side of the stage the DI sits on for ground-loop fixes?",
-    a: "Yes, slightly. The DI breaks the ground at its location in the chain. If the ground loop is between your pedalboard's power supply and the FOH console, putting the DI right after your pedalboard fixes it. If the ground loop is between your guitar and the modeler (less common), the DI needs to sit before the modeler. In practice, the standard placement (last in the chain, just before the cable run to FOH) catches the most common ground-loop sources and is the right default. If you have a stubborn loop that doesn't go away with the DI in the standard position, try moving the DI earlier in the chain to isolate where the loop is actually originating."
-  }
-]} />
 
 <SaveThisTone title="Stage rig ground-loop diagnostic" description="A 4-step diagnostic flow that catches the most common stage ground-loop sources before you buy a DI. Includes the order to test in (DI ground lift first, then circuit isolation, then transformer DI), the symptoms each step rules out, and a decision tree for which DI to buy if the diagnostic identifies one as the right fix." href="/recipes/stage-ground-loop-diagnostic" ctaLabel="Get the stage ground-loop diagnostic" />

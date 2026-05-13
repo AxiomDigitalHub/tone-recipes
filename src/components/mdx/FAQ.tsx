@@ -1,32 +1,44 @@
 import React from "react";
 
 /**
- * <FAQ> — renders an FAQ block with accordion-style rendering AND emits
- * FAQPage JSON-LD structured data for Answer Engine Optimization (AEO).
+ * <FAQ> — renders an FAQ block AND emits FAQPage JSON-LD.
  *
- * Why this exists: per the Phase 4 content audit (2026-04-17), 7 of 12
- * audited posts had FAQ blocks in the rendered prose, but zero posts emitted
- * FAQPage JSON-LD. That means the FAQ content was invisible to Google's
- * "People also ask" and to AI answer engines. This component closes the gap:
- * one tag in MDX, both the human-readable output and the structured data.
+ * ⚠️ PREFER FRONTMATTER `faq:` FOR NEW POSTS (added 2026-05-10).
  *
- * Usage in MDX:
+ * The page route at `src/app/blog/[slug]/page.tsx` reads `faq:` from
+ * frontmatter, renders the on-page FAQ block, AND emits FAQPage JSON-LD.
+ * That's the single-source-of-truth path. The Zod schema in
+ * `src/lib/blog.schema.ts` validates the contract.
+ *
+ * The MDX preflight (`scripts/validate-mdx.mts`) treats the combination of
+ * `faq:` frontmatter AND `<FAQ>` body as a warning — it would emit FAQPage
+ * JSON-LD twice. Pick one.
+ *
+ * This component remains for:
+ *   - The 90+ historical posts that already use it (no need to migrate
+ *     all of them in one commit).
+ *   - Edge cases where the FAQ answer needs JSX (links, code blocks,
+ *     embedded images) that frontmatter strings can't express.
+ *
+ * For everything else: put the FAQ in frontmatter. It's queryable, it's
+ * lintable, and it doesn't require body-level escaping for inch marks
+ * or `<` characters.
+ *
+ * Why this component existed: per the Phase 4 content audit (2026-04-17),
+ * 7 of 12 audited posts had FAQ blocks in the rendered prose but zero
+ * posts emitted FAQPage JSON-LD. This component closed that gap before
+ * the frontmatter pathway was wired up.
+ *
+ * Legacy usage in MDX (still supported):
  *
  *   <FAQ
  *     questions={[
  *       {
  *         q: "Does humbucker size matter for tone?",
  *         a: "No. The magnet, coil winding, and output impedance dominate."
- *       },
- *       {
- *         q: "Can I hardwire the 5-way switch?",
- *         a: "Yes. Solder a fixed jumper between the lugs you want combined."
  *       }
  *     ]}
  *   />
- *
- * The `a` answer field supports basic Markdown-style line breaks (\n\n).
- * For richer content, use JSX children instead (see advanced usage below).
  */
 
 export interface FAQItem {
