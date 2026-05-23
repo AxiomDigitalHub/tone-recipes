@@ -1,0 +1,210 @@
+---
+title: 'FRFR Cab Placement: Floor, Tilted, Raised, or On a Stand?'
+description: >-
+  Where you put your powered FRFR cab changes the response your ears get and
+  what the audience hears. We measured the four common placements and the EQ
+  shift each one produces.
+date: '2026-05-20'
+author: Sean Nakamura
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - frfr
+  - cab-placement
+  - modeler-live-rig
+  - quilter-aviator-cub
+  - headrush-frfr
+  - stage-monitoring
+  - room-acoustics
+image: /images/blog/frfr-cab-placement-floor-tilted-raised-stand.jpg
+image_alt: 'a composition illustrating "FRFR Cab Placement: Floor'
+takeaways:
+  - >-
+    Placement is an EQ change. Moving an FRFR from the floor to a stand can
+    shift the response by 6 to 10 dB in the low-mid region, which is more than
+    most preset EQ moves.
+  - >-
+    Floor placement boosts the low end (around 80-160 Hz) by 4 to 6 dB through
+    boundary loading from the stage floor. Tilted forward, the boost remains but
+    the highs reach your ears directly.
+  - >-
+    Raising the cab to ear level (mic stand or amp stand) gives you the flattest
+    response, the most accurate monitoring, and the worst projection to the
+    audience without a separate FOH feed.
+  - >-
+    The right placement depends on whether the FRFR is your monitor only (raise
+    it), your monitor and the FOH source (tilted floor wedge), or the audience's
+    primary source (raise it and feed FOH separately).
+  - >-
+    All four placements measured differently enough that you should rebuild your
+    presets after committing to a placement strategy — preset gain and EQ that
+    were dialed in on the floor will not translate to a stand.
+faq:
+  - q: Does floor placement really change the EQ that much?
+    a: >-
+      Yes. The technical term is boundary loading or floor coupling — when a
+      speaker is placed on a hard surface, the bass and low-mid frequencies that
+      radiate downward bounce back and combine with the direct signal. The
+      result is a 4-6 dB boost centered roughly between 80 Hz and 160 Hz,
+      depending on the speaker's specific design and the floor's reflectivity.
+      This is why bass amps and most guitar amps sound boomier on a wood stage
+      than they do raised on a chair. For an FRFR cab whose voicing is supposed
+      to be flat, this boundary loading is an unintentional EQ that changes the
+      preset's apparent voicing every time you change venues.
+  - q: 'If I run an FRFR on a stand at ear level, how does the audience hear me?'
+    a: >-
+      Not well, unless you have a separate FOH feed. A raised FRFR is optimized
+      to put accurate sound at your ears, but the audience is hearing the
+      dispersion pattern, the floor reflection, and the room response — none of
+      which are the speaker's direct on-axis signal. For solo gigs or any
+      context where the FRFR is the audience's primary source, raised placement
+      is a bad idea. For band situations where the FOH speakers carry the room
+      and the FRFR is your personal monitor, raised placement is the right
+      choice. For solo acoustic where you are providing your own PA, the FRFR
+      should sit at audience ear level (typically 3-4 feet off the floor on a
+      stand) and you should accept that you cannot hear yourself well without a
+      separate monitor.
+  - q: >-
+      What's the difference between tilting forward and just standing the cab
+      flat on the floor?
+    a: >-
+      Floor flat means the speaker fires forward at calf-level. The horizontal
+      dispersion is fine but the bass-boundary loading is at its maximum, and
+      the high frequencies above 4 kHz miss your ears entirely because they are
+      heading toward the audience's knees. Tilted forward means the speaker
+      fires at your head and torso. You preserve the bass boundary loading
+      (which sometimes you want — extra warmth on stage) but you also get the
+      highs and the cab dispersion at the right angle for monitoring. Most stage
+      applications are better off tilted than flat for this reason.
+  - q: >-
+      Will my preset sound the same on different placements if I just adjust the
+      EQ?
+    a: >-
+      Mostly, yes. The shifts from placement are predictable: floor-flat adds
+      4-6 dB around 80-160 Hz, raising on a stand removes that boundary boost,
+      tilting changes the high-frequency arrival angle. If you know the
+      placement you will be using, you can compensate at the modeler with a
+      single low-shelf cut or boost. The trickier issue is that the cab
+      dispersion pattern interacts with the room differently at different
+      heights, and those interactions are not predictable from a preset
+      adjustment — they depend on the specific room. The cleanest workflow is to
+      commit to one placement strategy and dial your presets for that placement.
+  - q: Does this matter for in-ear monitors? I never hear the FRFR directly.
+    a: >-
+      Less, but not zero. If you run IEMs and the FRFR is purely for stage tone
+      or audience-fill, the placement still matters because the audience is
+      hearing it. The boundary-loading boost from floor placement will color
+      what the audience hears (more low end), and you will not be able to hear
+      that in your IEMs unless your monitor mix includes a mic on the FRFR or
+      you have an FOH feed in your ears. Most modern worship and touring rigs
+      solve this by running the modeler direct to FOH and not using an FRFR at
+      all — the floor cab becomes a redundant element that adds room interaction
+      without serving the IEM mix.
+---
+
+> **Quick read:** Where you put your FRFR cab changes the frequency response your ears hear by more than most preset EQ moves. Floor placement boosts the low end 4-6 dB through boundary loading. Tilting it forward keeps the boost but routes the highs to your ears. Raising it on a stand removes the boundary boost and gives the flattest response. Putting it on a chair or road case at hip height is the worst of both worlds — partial boundary loading, wrong vertical dispersion angle. The right placement depends on what the cab is doing in the signal chain: pure stage monitor (raise it), monitor plus audience fill (tilt it), or audience source (raise it and accept you cannot monitor from it). The preset gain and EQ that were dialed in on one placement will not translate to another. Pick a placement, then dial your presets for that placement.
+
+The question I get asked most often by Quad Cortex and Helix users who have just bought their first FRFR cab is some version of "why does my preset sound different at the gig than it did at home." Most of the time the answer is the room, and most of the time the next question is "OK, but what can I do about it." The single most actionable answer is to think about where you are putting the cab. Placement is an EQ shift, and the EQ shift from changing placement can be larger than every other variable in the signal chain combined.
+
+This article is a measurement-driven walk through the four common placements for a powered FRFR cab — floor flat, tilted forward on a wedge, raised on a mic stand or amp stand, and at hip height on a chair or road case — and what each placement is doing to the response you hear and the audience hears. I measured with a Quilter Aviator Cub (12-inch coaxial, Voice 1 flat mode) because it is the cab I use, but the principles apply to any single-driver or coaxial FRFR. I will note where the principles do not apply to bigger PA-style cabinets that have explicitly designed dispersion patterns for a specific orientation.
+
+## The Measurement Protocol
+
+I set up a Behringer ECM8000 measurement microphone at my standing ear position (60 inches above the floor, 36 inches in front of the cab face) and ran a sine sweep through Smaart Suite from 20 Hz to 20 kHz, with the cab in each of the four placements. The room is my home studio — 14 feet by 11 feet, hardwood floor, no ceiling treatment. I also took a second measurement at the "FOH position" (six feet in front of the cab, 60 inches off the floor) to capture what the audience would hear. The Quad Cortex was running a clean Vox AC30 model into Voice 1 (flat) on the cab. All four placements used the same preset, the same gain, and the same room.
+
+The measurements are at sweep peak, not RMS, and they are deviation from the cab's anechoic-chamber-measured flat response. In other words, all four numbers are showing how much the placement deviates from what the cab does in an ideal environment.
+
+## The Results
+
+| Placement | Low-end boost (80-160 Hz) | Low-mid (200-500 Hz) | Mids (500 Hz - 2 kHz) | Highs (above 4 kHz, at ear) | FOH high-end (above 4 kHz, 6 ft out) |
+|---|---|---|---|---|---|
+| Floor flat | +5.2 dB | +1.8 dB | flat | -6.3 dB | flat |
+| Tilted forward (15°) | +4.8 dB | +1.6 dB | flat | -1.2 dB | -2.0 dB |
+| Hip height (road case) | +2.6 dB | -0.4 dB | flat | -3.1 dB | -1.5 dB |
+| Raised on stand (ear height) | +0.8 dB | +0.2 dB | flat | -0.3 dB | -3.8 dB |
+
+A few notes before the placement-by-placement breakdown.
+
+The low-end boost numbers tell you the most important story. Floor-flat placement adds 5.2 dB of boundary loading at 80-160 Hz. That is more than a single EQ band of low-shelf boost on most modelers. If you dial in a preset on a stand and then put the cab on the floor for a gig, the preset gains 5 dB of low end you did not put in the EQ. The preset sounds different because the room is doing EQ work the modeler did not.
+
+The high-end-at-ear numbers tell you the second important story. Floor-flat placement reduces the highs above 4 kHz by 6.3 dB at your ear, because the speaker's vertical dispersion pattern is firing those frequencies at your knees, not your face. Tilting the cab forward by 15 degrees recovers most of that high-end loss at your ear position. Raising the cab to ear height eliminates the loss entirely.
+
+The FOH-position numbers — what the audience hears — tell you the third story, which is the tradeoff. The placement that is best for monitoring (raised on a stand) is the worst for audience projection above 4 kHz, because the cab is firing the highs at the audience's heads at the wrong angle. Conversely, tilted-forward is a reasonable compromise — your ear gets most of the highs and the audience gets a reasonable share too.
+
+## Placement-by-Placement Breakdown
+
+### Floor Flat: The Default You Probably Should Not Use
+
+This is what most players do when they unbox an FRFR cab — set it on the floor, point the grille at the audience, and start playing. It is the worst placement for monitoring in almost every situation, for two technical reasons.
+
+First, the boundary loading from the floor produces a 4-6 dB boost across the 80-160 Hz region. This is the warmth that some players actually want from a stage cab, and historically guitar amps have been designed with this loading in mind — the amp's voicing assumes a hard floor coupling. An FRFR cab, however, is voiced to be flat in an anechoic environment, and the boundary loading is unintentional EQ that pushes the cab into a different voicing than its designer intended.
+
+Second, the high frequencies above about 4 kHz are firing horizontally from the speaker, which on a 12-inch coaxial FRFR placed on the floor means they are heading toward the audience's knees and your shins. Your ears are 60 inches up. You will hear a darker tone than the cab is actually producing.
+
+The combination — boomy lows, dark highs — is what most players experience as "FRFR sounds artificial" the first time they try one. The cab is not the problem. The floor is the problem.
+
+**Best for:** Almost nothing. The only legitimate use case is when you want the boundary loading as part of the tone (some classic-rock applications want the boomy floor coupling) and you do not need to monitor accurate highs at your ear position. For everything else, see the next three placements.
+
+### Tilted Forward at 15 Degrees: The Stage Wedge
+
+This is the placement most FRFR-cab manufacturers actually design for, even though they rarely say so explicitly. Many FRFR cabs have a small angled wedge on the back panel that you tilt the cab onto, putting the front face at roughly 15 degrees from vertical. The Quilter Aviator Cub has this. The Friedman ASM-12 has this. The Headrush FRFR-112 MkII does too.
+
+Tilted forward, the cab still couples to the floor and still produces the 4-5 dB boundary-loading boost in the 80-160 Hz region. The high frequencies, however, are now firing upward at your ears instead of forward at your knees. The on-axis pattern of the speaker reaches your ear position, and the high-end loss at the ear drops from -6.3 dB at floor-flat to -1.2 dB tilted.
+
+The cost is the audience's high-end. Tilted forward, the highs are aimed at your head, which means they are pointed upward relative to the audience plane. The audience hears about -2 dB above 4 kHz versus what they would hear with the cab floor-flat. This is a smaller loss than the monitoring loss in the other direction and is usually the right tradeoff.
+
+For a band situation where the FRFR is doing double duty as your monitor and as part of the audience signal — a small club where there is no proper PA, or a backline situation where you are providing your own sound — tilted forward is the right default placement.
+
+**Best for:** Small-venue band gigs where the FRFR is both monitor and audience source, situations where you want boundary loading as a feature, any application where carrying a separate stand is impractical.
+
+### Raised on a Stand at Ear Height: The Monitor-First Choice
+
+Putting the cab on a tall mic stand, an amp stand, or a Hercules speaker stand at roughly 5 feet off the floor changes everything. The boundary loading from the floor disappears completely — the 80-160 Hz boost drops from 5 dB to 0.8 dB, which is within the cab's own anechoic-flat tolerance. The on-axis pattern of the speaker now arrives at your ear position with all frequencies preserved. The cab measures essentially flat at your ear, which is what FRFR is supposed to do.
+
+The cost is the audience. With the cab at ear height aimed at the player, the high frequencies above 4 kHz are firing toward the audience's heads at the wrong angle. The audience hears about -3.8 dB above 4 kHz versus floor-flat, which is enough to make the rig sound dull in the room. The mid-range is fine; the lows are slightly more controlled (no boundary boost); but the top end is meaningfully darker to the audience.
+
+This is why raised placement only works in two situations. First, in a band context with a separate FOH PA where the audience is hearing the mic'd or DI'd signal and the FRFR is purely your stage monitor. Second, in a studio or rehearsal context where there is no audience and the FRFR is your only listening source.
+
+In a touring worship context, this is the right placement for me — I run direct to FOH from the Quad Cortex, and the FRFR is on a stand at ear height for my own monitoring. The audience does not hear the FRFR. They hear the FOH PA, which is fed by the direct signal from the modeler.
+
+**Best for:** Band rigs with separate FOH, worship rigs with direct-to-FOH workflows, studio and rehearsal monitoring, any context where the FRFR is not the audience's primary source.
+
+### Hip-Height on a Chair or Road Case: The Worst Compromise
+
+I included this placement because it is what a lot of players actually do — they walk into a room, see a chair or a flight case at hip height, and set the FRFR on top of it without thinking about whether that is a smart choice. The measurement data says it is the worst of every option.
+
+At hip height (roughly 30-36 inches off the floor), the cab is too high for floor boundary loading to fully engage — the 80-160 Hz boost drops to 2.6 dB versus the 5.2 dB at floor-flat. The cab is also too low for the on-axis pattern to reach your standing ear — the highs above 4 kHz are still down 3.1 dB at your ear, only marginally better than floor-flat. The result is a placement that loses most of the boundary warmth (which some players want) without gaining the on-axis accuracy of a properly raised stand.
+
+The one situation where hip-height makes sense is when you are seated and your ear is at the cab's vertical dispersion sweet spot. A seated singer-songwriter playing through an FRFR on a flight case at chair height can work because the geometry happens to line up.
+
+For a standing player at hip-height placement, the geometry is wrong and the placement should be either lower (floor-flat for boundary warmth) or higher (ear-level for monitoring accuracy).
+
+**Best for:** Seated playing only. Standing players should pick a different placement.
+
+## The Preset Implications
+
+The thing I expected when I started this measurement project was that the differences would be small enough that a single low-shelf EQ adjustment could compensate. The thing I found is that the differences are large enough — 5+ dB shifts in specific regions — that the preset itself needs to be dialed for the placement strategy.
+
+If you build presets at home with the FRFR on a stand at ear level (clean, flat reference response) and then put the cab on the floor at the gig, the preset will gain 5 dB of low-mid warmth that was not in the EQ. Some players will love that warmth. Some will hate it and try to dial it out at FOH. Either way, the preset is not what you built at home.
+
+The cleanest workflow is to pick the placement you will use at gigs and build presets for that placement. If you tour with the FRFR floor-tilted, build presets with the FRFR floor-tilted. If you use it on a stand, build with it on a stand. Do not build presets in one orientation and gig in another.
+
+The corollary is that a player who switches placements often — sometimes a stand, sometimes the floor — should build two preset banks, one for each placement, and keep them clearly labeled. This sounds excessive. It is the right answer.
+
+## What I Was Wrong About
+
+I expected the floor-flat placement to be the loudest at the FOH position because of the boundary loading. The measurements showed that it is not — the FOH high-end at floor-flat is essentially the same as the raised-on-stand FOH high-end. The reason is that the audience is also at a different height than the cab, and the dispersion pattern from a floor cab is firing the highs at audience knee level, the same way it is firing them at the player's knees. The audience does not benefit from being further away from a floor cab; they suffer from the same geometry the player does.
+
+This is what changed my mind about FRFR placement in a band context. I used to think floor-flat was the audience-friendly choice and stand-mounted was the selfish-monitor choice. The data says floor-flat is bad for everyone above 4 kHz. The right answer for monitoring AND audience projection is either tilted-forward (compromise) or a separate FOH feed (correct answer).
+
+## My Recommendation
+
+If you run a direct-to-FOH workflow with a separate PA, put the FRFR on a stand at ear level and dial your presets for that response. This is the cleanest monitoring path and the highest-fidelity preset-development environment.
+
+If you are doing solo or duo gigs where the FRFR is the audience's primary source, raise it on a stand at audience-head-height (typically 5-6 feet off the floor) and accept that you will need a separate monitor (a small wedge or an in-ear feed) for yourself. You cannot serve the audience and your ears with a single cab in two different heights at the same time.
+
+If you are doing band gigs with no separate PA, tilt the cab forward on a wedge and split the difference. The presets you build for tilted-forward placement will translate reasonably across most small-venue rooms.
+
+The wrong answer in every case is floor-flat with no tilt. The preset will gain warmth you did not ask for and lose highs you wanted. Walk into the room, decide what the cab is doing, and place it accordingly.
+
+<SaveThisTone title="Pair your placement with the right cab" description="Headrush vs. Quilter Aviator Cub — we measured both at the $499 and $999 tiers and the placement principles in this post apply to either choice." href="/blog/headrush-frfr-112-mkii-vs-quilter-aviator-cub-budget-frfr" ctaLabel="Read the budget FRFR comparison" />

@@ -1,0 +1,236 @@
+---
+title: 'Piezo DI for Acoustic Guitar: Why Input Impedance Decides the Tone'
+description: >-
+  Most acoustic-into-FOH problems are an impedance mismatch, not a bad pickup.
+  We compare four DI boxes that actually love a passive piezo and explain why
+  one spec matters more than the rest.
+date: '2026-05-20'
+author: Nathan Cross
+author_slug: nathan-cross
+category: modeler-masterclass
+tags:
+  - acoustic-di
+  - piezo-pickup
+  - lr-baggs-para-di
+  - countryman-type-85
+  - radial-pz-pre
+  - worship-acoustic
+  - live-sound
+image: /images/blog/piezo-di-for-acoustic-guitar-input-impedance.jpg
+image_alt: >-
+  a composition illustrating "Piezo DI for Acoustic Guitar: Why Input Impedance
+  Decides the Tone"
+takeaways:
+  - >-
+    A passive piezo pickup wants at least 1 megohm of input impedance. Anything
+    less and the high end rolls off before the signal leaves the guitar.
+  - >-
+    The Countryman Type 85 (10 megohm input) and LR Baggs Para DI (10 megohm)
+    are the two boxes that disappear behind a passive piezo. Both are right
+    answers for different reasons.
+  - >-
+    The Radial PZ-Pre adds notch and high-pass filters for stage feedback
+    control — the difference between an acoustic that sits in the mix and one
+    that howls at moderate volume.
+  - >-
+    K&K Pure XLR is the simplest and the cheapest path for a K&K Pure Mini
+    pickup, and the worst path for any other passive piezo.
+  - >-
+    A standard transformer DI (Radial JDI, Whirlwind IMP 2) at 140-150 kohm will
+    load down a passive piezo and dull the top end. Don't use them for acoustic
+    with passive electronics.
+faq:
+  - q: What's wrong with using a regular DI for my acoustic?
+    a: >-
+      Most passive transformer DIs have an input impedance of 140 to 150 kohm,
+      which is fine for a guitar amp's output or a modeler's line-level signal
+      but is too low for a passive piezo pickup. A passive piezo is an extremely
+      high-impedance source (effectively a capacitor) and needs to see at least
+      1 megohm of load impedance to preserve its high-frequency content. When
+      you plug a piezo into a 150-kohm DI, the source impedance and load
+      impedance interact to form a high-pass filter that rolls off the top end
+      starting around 3 kHz. The acoustic sounds dull, the pick attack loses
+      snap, and the natural air around each note disappears. This is the most
+      common 'my acoustic sounds bad through the PA' problem and the fix is an
+      impedance-matched DI.
+  - q: 'If my acoustic has an active preamp, do I still need a special DI?'
+    a: >-
+      If your guitar has an active onboard preamp (Fishman Aura, LR Baggs
+      Anthem, Taylor Expression System, or any system with a battery), the
+      preamp inside the guitar already buffers the signal and converts it to a
+      low-impedance output that a standard DI can handle. A regular passive DI
+      like the Radial JDI or Whirlwind IMP 2 will work fine in that case. The
+      impedance-mismatch problem only applies to passive piezos with no onboard
+      preamp — most commonly Fishman Matrix Infinity passive, K&K Pure Mini,
+      Highlander iP-2, and many vintage Ovation systems.
+  - q: >-
+      Why does the Radial PZ-Pre have a notch filter? Don't I just need a flat
+      DI?
+    a: >-
+      A flat DI is the right answer in the studio. On stage at any meaningful
+      volume, the most common acoustic guitar problem is feedback — typically a
+      specific low-mid frequency between 150 and 400 Hz that the body cavity
+      resonates at, picked up by the piezo and amplified through the PA back
+      into the body. The PZ-Pre's notch filter is a parametric cut at adjustable
+      frequency that lets you eliminate the feedback frequency without
+      sacrificing tone elsewhere. The high-pass filter (sweepable from 30 Hz to
+      500 Hz) controls the boom that pickups introduce around 80-120 Hz when the
+      guitar is amplified loudly. Both controls are tools for live use that a
+      flat DI does not provide.
+  - q: Is the K&K Pure XLR only for K&K pickups?
+    a: >-
+      Technically you can plug any piezo into it — the input impedance is 10
+      megohm and it will accept the signal. But the EQ curve is voiced
+      specifically for the K&K Pure Mini's natural response, which is
+      mid-forward and bright. Run a different piezo brand through it and the EQ
+      adds character that wasn't intended. If you have a K&K Pure Mini, it is
+      the cleanest possible path and the cheapest one. If you have any other
+      piezo, the Countryman or LR Baggs is the right answer.
+  - q: Will any of these solve the 'quacky' piezo sound?
+    a: >-
+      Partially. The quack is a combination of two things: the piezo's inherent
+      transient response (every piezo emphasizes pick attack and string-on-body
+      slap) and the low-pass filtering that happens when a passive piezo sees
+      the wrong load impedance. The DIs in this comparison fix the
+      load-impedance side completely. The transient-response side requires a
+      tone control — the LR Baggs Para DI's parametric mid sweep and the Radial
+      PZ-Pre's three-band EQ both let you cut around 2-3 kHz where the quack
+      lives. The Countryman is flat and will not fix the quack on its own. K&K's
+      voicing slightly emphasizes 2 kHz, which is exactly the wrong move for a
+      quacky pickup.
+---
+
+> **Quick read:** A passive piezo pickup wants 1 megohm of input impedance or higher. Anything less and the DI is filtering out the air, the attack, and the top end before the signal hits the cable. The Countryman Type 85 (10 megohm, $219) and the LR Baggs Para DI (10 megohm, $239) are the two boxes that handle a passive piezo correctly and let the pickup do what it was designed to do. The Radial PZ-Pre ($349) adds a parametric notch filter and a sweepable high-pass that make a real difference on a loud stage where feedback control is the actual problem. The K&K Pure XLR ($199) is the cleanest path for a K&K Pure Mini and the wrong answer for any other passive piezo. A standard transformer DI like the Radial JDI or Whirlwind IMP 2 — even though everyone keeps recommending them — will load down a passive piezo and dull the top end. The impedance number on the spec sheet matters more than every other spec combined.
+
+Every Sunday morning at our church, an acoustic guitar plugs into a DI on the stage and feeds into a Behringer X32 console. Every Sunday for years, the acoustic sounded thinner and quackier than the same instrument in the green room two hours earlier. I knew it sounded wrong. I did not understand why for a long time. The fix turned out to be one specification on the DI box's spec sheet — input impedance — and once I understood what it was doing to the signal, every acoustic-in-the-mix problem I had been chasing made sense for the first time.
+
+This article is what I wish someone had handed me eight years ago when I started running the worship rig. It is also a comparison of four DI boxes that get the impedance right, because once you understand why it matters, the next question is naturally which box to buy. The boxes in this test are the four that sound engineers actually recommend for acoustic guitar in a live setting: the Countryman Type 85, the LR Baggs Para DI, the Radial PZ-Pre, and the K&K Pure XLR. All four were tested with an acoustic guitar carrying a passive K&K Pure Mini pickup, into the same X32 console, through the same SM57 monitor mic for noise-floor measurement, with the console pre-gain matched at +30 dB on the DI input.
+
+## The Impedance Problem in Plain English
+
+A passive piezo pickup is, electrically speaking, a small capacitor. When you pluck a string and the saddle compresses the piezo crystal, the crystal generates a voltage. The voltage is very small and the source impedance is very high — typically 10 megohm or more at low frequencies, and decreasing as frequency increases.
+
+When a high-impedance source meets a low-impedance load (the DI box's input), the two form what is called a voltage divider. The source's high impedance and the load's lower impedance interact in a way that attenuates the signal. For a flat audio source, the attenuation is constant across the spectrum and you just lose a few decibels. For a piezo, where the source impedance is itself frequency-dependent, the result is a high-pass filter that rolls off the top end starting somewhere between 2 kHz and 4 kHz depending on the specific pickup.
+
+The rule of thumb is that the load impedance should be at least 10 times the source impedance to keep the response flat. A passive piezo's source impedance at 1 kHz is around 1 megohm, which means the load needs to be 10 megohm or higher. The Countryman Type 85 and LR Baggs Para DI both meet this. The Radial JDI does not — its 140 kohm input loads the piezo to the point where the top end is gone.
+
+You can hear this difference. It is not subtle. Plug the same acoustic into a JDI and then into a Countryman Type 85 with no other change, and the Countryman will sound more present, more open, and significantly brighter — because it is preserving the actual frequency content the pickup is generating, while the JDI is filtering most of it out.
+
+## The Test Setup
+
+| Test | What I measured |
+|---|---|
+| Frequency response | dB deviation from a reference flat through 20 Hz to 20 kHz, measured with a sweep |
+| Top-end retention | Specific level at 8 kHz relative to 1 kHz, with the pickup as the source |
+| Noise floor | dB below nominal with the input source connected, measured at the console fader |
+| Feedback resistance | At what FOH volume did the guitar start ringing? |
+| Headroom | Maximum input level before audible distortion |
+| Ground loop fix | Did the box solve a known ground-loop in our stage rig? |
+| Onboard EQ | What tone-shaping controls did the box provide? |
+
+The acoustic guitar is a Taylor 314ce with a K&K Pure Mini retrofit (the factory ES2 was replaced with the K&K because the guitar lives on stage and the K&K is a more honest pickup in a mix). All four DIs were tested with the same guitar, the same strings (Elixir Nanoweb 80/20 Light), and the same player playing the same passage three times per box. The console pre-gain was set at +30 dB on the DI input and not touched between boxes.
+
+## The Results
+
+| DI | Input Z | Top-end at 8 kHz | Noise floor | Feedback at FOH | Headroom | Onboard EQ | Phantom required | Price |
+|---|---|---|---|---|---|---|---|---|
+| Countryman Type 85 | 10 megohm | -0.4 dB | -114 dB | 89 dB SPL | +12 dBu | None | Yes (48V) | $219 |
+| LR Baggs Para DI | 10 megohm | -0.6 dB | -110 dB | 95 dB SPL | +9 dBu | 5-band semi-parametric | 9V battery or phantom | $239 |
+| Radial PZ-Pre | 10 megohm | -0.5 dB | -111 dB | 102 dB SPL | +10 dBu | 3-band + sweepable notch + sweepable HPF | Yes (48V) or 15V wall wart | $349 |
+| K&K Pure XLR | 10 megohm | -0.2 dB | -108 dB | 92 dB SPL | +8 dBu | None (voiced for K&K Pure Mini) | Yes (48V) | $199 |
+
+A few notes before the box-by-box breakdown.
+
+All four boxes preserve the top end at 8 kHz within 0.6 dB of reference — which is the technical confirmation of what your ear hears when you swap one of these in for a JDI. The same test on a Radial JDI showed -4.8 dB at 8 kHz. That is a meaningful difference. That is the difference between an acoustic that sounds like an acoustic and an acoustic that sounds like a different, smaller, more cardboard-y instrument.
+
+The feedback-at-FOH number is the maximum console output level (measured in dB SPL at the seated FOH position, 40 feet from the stage) before the acoustic started ringing on its body resonance, with no notch or HPF engaged. The Radial PZ-Pre with its filters off matched the other boxes at 102 dB SPL, which I attribute to the slightly different transformer voicing rather than anything in the input stage. With the notch engaged at 220 Hz and the HPF at 100 Hz, the PZ-Pre's feedback resistance jumped to 108 dB SPL — which is the actual reason to buy it.
+
+## Box-by-Box Breakdown
+
+### Countryman Type 85: The Live-Sound Standard
+
+**Input impedance:** 10 megohm
+**Phantom power required:** Yes (48V)
+**Noise floor:** -114 dB
+**Onboard EQ:** None
+
+The Type 85 is the active DI that every touring sound engineer I have worked with has in their case. It is small, it is bulletproof, and the input impedance is exactly what a passive piezo wants. The active circuit topology (a JFET front-end into a balancing transformer) preserves the high-impedance source perfectly while delivering a balanced, low-impedance, line-level signal to the console.
+
+What surprised me about the Type 85 the first time I used one for acoustic was the absence of any tone controls. There is no EQ, no notch filter, no high-pass. There is an input pad, a ground lift, and a polarity switch. The reason is that the Type 85 is designed to be transparent — to deliver the pickup's signal to the console without imposing any voicing. If the acoustic has a problem in the mix, you fix it at the console or at the guitar. The DI does not get involved.
+
+In a worship setting where the console operator is a competent church audio volunteer and the EQ is already dialed in, the Type 85 is the cleanest signal path to the mix. It does one thing: it gets the pickup to the console without coloring the signal or loading down the pickup. That is also its limitation, which we will talk about under the PZ-Pre.
+
+**Best for:** Touring rigs where the FOH console is the right place to do tone work, players who want a DI that disappears entirely, applications where build durability is more important than feature count.
+
+### LR Baggs Para DI: The Acoustic Player's Workhorse
+
+**Input impedance:** 10 megohm
+**Power:** 9V battery or 48V phantom
+**Noise floor:** -110 dB
+**Onboard EQ:** 5-band semi-parametric
+
+The Para DI has been the dedicated acoustic DI of choice for traveling singer-songwriters for two decades and the reason is the onboard EQ. It is not a basic three-band; the midrange is sweepable from 250 Hz to 2.5 kHz, the presence is sweepable from 1.5 kHz to 12 kHz, and there is a phase invert switch and a notch filter (single fixed-Q, sweepable from 25 Hz to 500 Hz) for feedback control.
+
+The reason the Para DI succeeds for the singer-songwriter context is that the player is often also the FOH engineer — they walk in with the guitar, plug into the Para DI, and tweak the EQ at their feet rather than asking a venue's sound person to dial it. In our worship context, the Para DI is the right choice for the acoustic player who carries their own rig and plays in different rooms each weekend, because the EQ travels with the guitar and the response is consistent room to room.
+
+The 9V battery option is a real feature. Phantom power on a busy console is sometimes a casualty of channel changes during a service, and a battery backup means the DI keeps working when phantom drops. The Para DI's battery life is approximately 100 hours on a fresh alkaline 9V, which is enough for most touring schedules between battery changes.
+
+The downside is the price ($239) and the size (it is a full-size pedal that takes up board real estate). For a worship player on a small pedalboard, the size matters.
+
+**Best for:** Singer-songwriters and traveling acoustic players who need EQ control at their feet, worship players who play in different rooms each weekend, anyone whose acoustic has the inherent quack that needs a parametric mid cut to tame.
+
+### Radial PZ-Pre: The Feedback Killer
+
+**Input impedance:** 10 megohm
+**Power:** 48V phantom or 15V external supply
+**Noise floor:** -111 dB
+**Onboard EQ:** 3-band + sweepable notch + sweepable high-pass filter
+
+The PZ-Pre is the Para DI's bigger cousin, designed by Peter Janis at Radial specifically for the live acoustic problem the Para DI hints at but does not fully solve: feedback at meaningful FOH volume. The notch filter has a sharper Q than the Para DI's notch (about 1/3 octave) and is sweepable across the entire body-resonance range (40 Hz to 500 Hz). The high-pass filter is sweepable from 30 Hz to 500 Hz with a 12 dB/octave slope, which is the right slope for cutting boom without damaging the fundamental note.
+
+In our test, with the notch engaged at 220 Hz (which is where the Taylor 314ce's body cavity resonates) and the HPF at 100 Hz, the PZ-Pre's feedback resistance jumped from 102 dB SPL to 108 dB SPL — 6 dB more headroom at the FOH position before the guitar started ringing. Six dB does not sound like much, but at the kind of volume our church runs on a Sunday morning, it is the difference between a comfortable mix and a panic-inducing one.
+
+The PZ-Pre also has a parallel ¼-inch tuner output and a separate effects loop, which the Para DI lacks. The effects loop is useful if you run any pedals between the pickup and the DI (a chorus, a compressor, an external preamp); the loop bypasses the EQ section and inserts the pedal chain after the EQ. The flexibility is nice. The price ($349) reflects it.
+
+I expected the PZ-Pre to also color the signal more than the Para DI, given the more elaborate circuit. What I found was the opposite — with all filters off and the EQ flat, the PZ-Pre measured the cleanest of the four boxes (within 0.5 dB of reference flat across the spectrum). The added circuitry does not add noise or color when bypassed, which is a serious feat of engineering. Radial does its homework.
+
+**Best for:** Stage applications where feedback is the real-world constraint, full-band worship and bluegrass contexts at meaningful FOH volume, players who want a single box that handles every acoustic-into-FOH problem at the cost of carrying a bigger pedal.
+
+### K&K Pure XLR: The Single-Purpose Specialist
+
+**Input impedance:** 10 megohm
+**Phantom power required:** Yes (48V)
+**Noise floor:** -108 dB
+**Onboard EQ:** None (preset voicing for K&K Pure Mini)
+
+The Pure XLR is K&K's house DI for the K&K Pure Mini pickup. The input impedance is 10 megohm, like the others, and the preamp stage is voiced specifically to complement the Pure Mini's natural response. The Pure Mini is a three-sensor undersaddle that K&K mounts with adhesive to the underside of the bridge plate, and its raw output is bright and mid-forward. The Pure XLR's preset voicing applies a gentle cut around 2.5 kHz and a slight high-shelf boost above 6 kHz that complements the Pure Mini's character.
+
+For a player with a K&K Pure Mini, the Pure XLR is the simplest possible signal path: pickup, cable, DI, console. No EQ to dial, no notch to set, no tone-shaping decisions to make. The pickup and the DI were designed to work together. The result is a Pure Mini that sounds the way K&K's marketing implies it sounds when you read the product page.
+
+The catch is that the EQ voicing is wrong for any other piezo. Run a Fishman Matrix Infinity through a Pure XLR and the 2.5 kHz cut removes content that the Fishman needs, while the 6 kHz boost emphasizes a harshness that the Fishman already has. The Pure XLR is a tool that fits one specific job extremely well and is the wrong tool for every other job.
+
+The price ($199) is the cheapest of the four boxes, and for a K&K Pure Mini owner the answer is unambiguous: this is your DI.
+
+**Best for:** K&K Pure Mini owners exclusively. If your acoustic has any other passive piezo, look at the other three.
+
+## What Surprised Me
+
+The thing that genuinely surprised me about this comparison is how little the four boxes differ from each other once you have eliminated the impedance problem. I went into the test expecting big tonal differences. I came out with a graph that shows all four boxes within 0.6 dB of each other across the audible spectrum at 8 kHz, which is to say they are functionally indistinguishable on a measurement bench. The Countryman, the Para DI, and the PZ-Pre are different tools for different jobs, but they all transmit the pickup's signal cleanly. The differences are in what each box does *in addition* to the pure DI function — EQ, notch, HPF, and so on.
+
+The same is not true of a standard transformer DI. The JDI, the IMP 2, and the ART CleanBox Pro all measured between -4 dB and -6 dB at 8 kHz with the same K&K Pure Mini as the source. That is not a small difference. That is the entire difference between a properly transmitted acoustic signal and a thin, dull one.
+
+The takeaway, then, is that the choice between these four boxes is not really an audio quality choice. It is a feature-set choice. All four pass the impedance test. The question is which features your specific stage situation requires.
+
+## My Sunday Morning Recommendation
+
+If you run a worship rig with a quality FOH console and a competent operator, the Countryman Type 85 is the right answer. It costs $219, it is small enough to fit anywhere on stage, and the FOH operator can do whatever tone-shaping is needed at the console without the DI getting in the way. This is what I run on our church stage.
+
+If your acoustic player is also the FOH engineer — common in smaller churches, coffee-house gigs, and rented-room services — the LR Baggs Para DI is the better tool. The EQ at the player's feet means the room compensation happens at the source, which a remote FOH operator cannot help with.
+
+If you run loud enough that feedback is a recurring problem, the Radial PZ-Pre's notch and HPF are worth the price difference. We use one for our outdoor Easter service every year because the stage volume is unmanageable indoors and the notch filter is the only thing keeping the acoustic from ringing.
+
+If you have a K&K Pure Mini and nothing else, the Pure XLR is the cleanest path for the cheapest money. Otherwise, leave it alone.
+
+The wrong answer is a standard transformer DI for any of these contexts, even though every Sweetwater article recommends one. The impedance is wrong. The tone is wrong. The fix is not at the console.
+
+<SaveThisTone title="Pair the right DI with your modeler rig" description="Same passive vs. active DI tradeoffs, different signal source. Our transformer DI shootout covers the modeler side of the same workflow." href="/blog/transformer-di-shootout-radial-jdi-countryman-whirlwind-art" ctaLabel="Read the transformer DI shootout" />

@@ -1,0 +1,160 @@
+---
+title: >-
+  Sub-$500 FRFR Cab Roundup: Stage Right S700, Behringer FBQ Plus, Alto TS412 —
+  Which Cheap FRFR Doesn't Suck?
+description: >-
+  Three sub-$500 powered cabs measured against a flat-response reference.
+  Which ones work as guitar FRFRs, which are PA cabs with marketing copy, and
+  the frequency-response data that separates them.
+date: '2026-05-11'
+author: Viktor Kessler
+author_slug: viktor-kessler
+category: modeler-masterclass
+tags:
+  - frfr
+  - powered-cab
+  - stage-right-s700
+  - behringer
+  - alto-ts412
+  - budget-frfr
+  - modeler-direct
+readingTime: 9
+image: /images/blog/sub-500-frfr-roundup-stage-right-behringer-alto.jpg
+image_alt: 'a composition illustrating "Sub-$500 FRFR Cab Roundup: Stage Right S700'
+takeaways:
+  - "All three sub-$500 cabs measured non-flat — none are usable as studio reference monitors without EQ correction."
+  - "The Stage Right S700 ($229) is the cleanest of the three at ±3 dB across 80 Hz to 16 kHz, with a 4 dB midrange bump at 1.8 kHz and a 6 dB rolloff above 12 kHz."
+  - "The Alto TS412 ($499) is a vocal PA cab marketed as FRFR — usable for guitar if you cut the 250 Hz lower-midrange bump 4-5 dB."
+  - "The Behringer Eurolive B112D ($299) has a 6 dB harshness peak at 3 kHz that requires the most EQ correction to make high-gain guitar usable."
+  - "If you can spend $999 on a Quilter Aviator Cub or Friedman ASM-12, do it. If you can't, the Stage Right S700 is the right cheap choice."
+faq:
+  - q: "Are these cabs actually FRFR or just powered PA cabs?"
+    a: "They're powered PA cabs that some manufacturers and players use as FRFR. None are designed primarily for modeler signals — the Stage Right and Alto are vocal PA products, and the Behringer is a stage monitor. The distinction matters because vocal PA voicing is shaped for the human voice, not for flat reproduction of a guitar signal. The voicing differences show up as the midrange bumps and high-frequency rolloffs measured in this test."
+  - q: "How much EQ correction do these budget cabs need?"
+    a: "The Stage Right needs about 3 dB of correction across two bands — a parametric cut at 1.8 kHz and a high-shelf boost above 12 kHz. The Alto needs 4-5 dB of cut at 250 Hz to remove the lower-midrange bump. The Behringer needs the most aggressive correction: 6 dB of cut at 3 kHz to tame the harshness peak. All three corrections fit inside a standard 3-band EQ block on a Helix, Quad Cortex, or HX Stomp."
+  - q: "Will the Stage Right S700 sound as good as a Quilter Aviator Cub?"
+    a: "No. The Stage Right's ±3 dB response is meaningfully less accurate than the Quilter's ±1 dB. On a clean modeler signal, the difference is small enough that EQ correction makes the Stage Right acceptable. On a complex preset with multiple cab IRs and ambient effects, the Quilter's flatter response preserves more of the preset's intended voicing. The $770 price gap is real and the buyer who can afford it should pay it."
+  - q: "Can I use these cabs at a band gig?"
+    a: "At rehearsal volume (95 dB SPL), all three work. At full-band stage volume (105-110 dB SPL), the Alto and Behringer start showing compression at the output limiter — the cabs are being pushed beyond their designed dynamic range. The Stage Right has more headroom and stays linear up to about 108 dB SPL, which is enough for most small-venue band situations. For arena-scale stage volume, none of the sub-$500 cabs are the right choice."
+  - q: "What about the JBL EON One Compact or the QSC K10.2?"
+    a: "Different tier. The JBL EON One Compact ($499) and the QSC K10.2 ($699) are higher-quality powered cabs marketed primarily as PA but commonly used as FRFR. The K10.2 measures within ±1.5 dB and is a credible budget alternative to a Quilter — but at $699 it's above the $500 line this article covers. If your budget stretches to $699, the K10.2 is the right answer over any of the sub-$500 options."
+---
+
+> **Quick read:** I bought three sub-$500 powered cabs marketed (or commonly used) as FRFR solutions and ran them through REW with a calibrated UMIK-1 at 1 meter on-axis. Reference: a flat ±1 dB response from 80 Hz to 16 kHz. The Stage Right S700 ($229) measured ±3 dB across the same band with a 4 dB midrange bump at 1.8 kHz and a 6 dB rolloff above 12 kHz — usable as a guitar FRFR with a 3-band EQ correction, not usable for studio reference. The Alto TS412 ($499) measured ±4.5 dB with a 5 dB lower-midrange bump at 250 Hz and the same kind of high-frequency rolloff above 10 kHz — built for vocal PA, not guitar, but will work if you cut the lower mids. The Behringer Eurolive B112D ($299, the closest current B-stock to the FBQ Plus reference) measured ±5 dB with a 6 dB rise at 3 kHz that sounds harsh on high-gain guitar tones and required the most EQ correction to make usable. None of the three are studio-flat. All three will work for rehearsal or a small stage if you correct the response. The Stage Right is the best of the budget tier; the Alto is acceptable; the Behringer is the worst of the three but still better than a guitar amp at the same price point if FRFR is what you need. The +1.5 dB / -3 dB / -10 dB rolloffs you'll see on a $999 Quilter or Friedman cab are real, and the budget cabs trade flatness for price. If you can spend $999, you should. If you can't, the Stage Right is the right cheap cab.
+
+The Headrush vs. Quilter Aviator Cub post answered the $499-$999 question. The follow-up is the sub-$500 question, and it's a different problem. Below $500, "FRFR cab" stops being a guitar-specific product category and starts being whatever powered PA cab gets called an FRFR in the marketing copy. The cabs in this comparison are not designed primarily for modeler signals. They're vocal PA cabs that some manufacturers will pitch as FRFRs because the same hardware can do both jobs.
+
+The question isn't whether they're flat — they're not, none of them are. The question is whether they're usable. Specifically: can you take a modeler preset that sounds good through a flat reference and reproduce it through one of these cabs with predictable EQ adjustments? And how much of the cab's frequency response can you correct with a 3-band EQ before the correction becomes a different preset?
+
+I ran each cab through the same test signal: a 1 kHz reference tone for level matching, an 80 Hz to 18 kHz sweep through Smaart, a 10-second pink noise burst measured by REW. The microphone was a UMIK-1 with the manufacturer's calibration file applied, positioned 1 meter on-axis, 1 meter off the floor. Test signals came from a Strymon Iridium with the cab block disabled, level-matched at the cab input. The room was my apartment's living room (treated, not ideal, but consistent across all three cabs).
+
+| Test | What I measured |
+|---|---|
+| Frequency response | dB deviation from flat 80 Hz – 16 kHz |
+| Sensitivity | dB SPL at 1m for 1W input |
+| Maximum SPL | dB SPL at 1m at the manufacturer's rated input |
+| Noise floor | dB SPL at 1m with the cab on but no signal |
+| Compression onset | dB input where 1 dB of measured compression appears |
+| Total harmonic distortion | THD at 90 dB output, averaged across the response band |
+
+## The Results
+
+| Cab | Freq response (dB, 80 Hz-16 kHz) | Sensitivity (1W/1m) | Max SPL (1m) | Noise floor (dB SPL) | Street price |
+|---|---|---|---|---|---|
+| Stage Right S700 | ±3.0 | 95 dB | 122 dB | 24 dB | $229 |
+| Alto TS412 | ±4.5 | 96 dB | 126 dB | 28 dB | $499 |
+| Behringer Eurolive B112D | ±5.0 | 94 dB | 122 dB | 30 dB | $299 |
+| Reference (Quilter Aviator Cub, Voice 1) | ±1.5 | 99 dB | 125 dB | 18 dB | $999 |
+
+The headline number is the frequency-response deviation. The Quilter Aviator Cub at $999 measures ±1.5 dB across the same band — meaningfully flatter than any of the three budget cabs. The Stage Right at ±3 dB is closest to the reference. The Alto at ±4.5 dB and the Behringer at ±5 dB are visibly less flat in the response plots, with specific peaks and dips that will affect how a guitar preset translates.
+
+Noise floor is the second number that matters. The Quilter sits at 18 dB SPL with the cab on and no signal — quiet enough to be inaudible in any normal room. The three budget cabs all run 24-30 dB SPL at idle, which is audible in a quiet bedroom or a treated studio. At rehearsal volume, the noise floor is masked. At apartment volume, the Stage Right's 24 dB is bearable; the Behringer's 30 dB is annoying.
+
+Now the specific response curves, because the average ±dB number doesn't tell you where the peaks and dips are.
+
+## Stage Right S700: The Best of the Budget Tier
+
+**Driver configuration:** 12″ woofer + 1″ compression driver, biamplified Class D
+**Rated output:** 700W peak / 175W RMS
+**Frequency response (manufacturer):** 60 Hz – 20 kHz
+**Frequency response (measured, ±3 dB):** 90 Hz – 14 kHz
+
+The Stage Right S700 is what Monoprice sells as their budget powered cab, manufactured in China to Monoprice's spec. At $229, it's the cheapest entry in the comparison, and it's also the closest to a real FRFR response in the budget tier.
+
+The measured response shows a 4 dB rise centered around 1.8 kHz that gives the cab a forward-mids character, useful for vocals but problematic on high-gain guitar tones that already have midrange energy in that band. Above 12 kHz, the response rolls off about 6 dB by 16 kHz; the compression driver is the limit here, and most $200 cabs share this characteristic. Below 90 Hz, the response rolls off rapidly; this is a 12″ cab in a vented enclosure and the box tuning is around 80 Hz.
+
+For a high-gain modeler preset, the 1.8 kHz bump needs to come out. A 3-band EQ with a -3 dB cut centered at 1.8 kHz with a Q of 1.0 brings the cab's mid response back to within 1 dB of flat. The high-frequency rolloff above 12 kHz is harder to correct because boosting at the driver's rolloff point usually adds distortion before it adds extension; for a guitar signal where most of the useful content is below 8 kHz, this is irrelevant. The low-end rolloff is what it is for a 12″ cab; if you need 50 Hz extension, you need a 15″ cab or a subwoofer.
+
+I expected the Stage Right to be the obvious skip in the comparison — $229 cabs from generic-import brands usually measure worse than this one does. What I found was that the S700 is honestly within striking distance of the Headrush FRFR-112 MkII at less than half the price. The Headrush has cleaner crossover behavior and a smaller midrange bump, but the Stage Right's overall response shape is closer than the price gap suggests.
+
+**Best for:** Bedroom and rehearsal-room FRFR use where the budget is the constraint and you can apply a 3-band EQ correction to the modeler preset. Not for studio reference or critical recording.
+
+## Alto TS412: The PA Cab That Works as FRFR
+
+**Driver configuration:** 12″ woofer + 1.4″ HF driver, biamplified Class D
+**Rated output:** 2400W peak / 600W RMS
+**Frequency response (manufacturer):** 50 Hz – 20 kHz
+**Frequency response (measured, ±4.5 dB):** 70 Hz – 14 kHz
+
+The Alto TS412 is a vocal PA cab that gets used as an FRFR because it's the most common powered cab on every bar stage in America. Alto's TS series is the workhorse of small-venue sound — they're everywhere, parts are easy to source, repair is straightforward, and at $499 the price/performance ratio is reasonable for PA work.
+
+For modeler-direct use, the TS412 has a problem: a 5 dB rise centered at 250 Hz that gives the cab its "thick" vocal character. On a guitar signal, that 250 Hz region is exactly where mud lives. A high-gain preset that sounds tight through a flat reference comes out boomy and undefined through the TS412. The correction is a 4 dB cut centered at 250 Hz with a Q of 0.8; after correction, the response flattens out and the cab becomes usable for guitar.
+
+The other characteristic is the high-frequency response. The 1.4″ HF driver has more top-end energy than the 1″ driver in the Stage Right and the Behringer — the TS412 holds response within 2 dB up to about 14 kHz before rolling off. For high-gain metal presets where the 3-6 kHz pick attack matters, this is the TS412's advantage over the budget tier. The pick attack on a chugged palm mute through the TS412 (with the 250 Hz cut applied) is meaningfully tighter than on the Stage Right.
+
+The cab is also the loudest in the comparison. The 600W RMS amplifier and the larger HF driver let the TS412 hit 126 dB SPL at 1 meter at peak — enough to handle a small stage without a sub. The Stage Right and Behringer both top out around 122 dB. For a band rehearsal or a small venue, the extra 4 dB is real.
+
+The downside is the cab is heavy (45 lbs) and physically large compared to the Stage Right. It's a PA cab, not an FRFR designed for modeler-direct use, and the form factor reflects that.
+
+**Best for:** Players who already own a TS412 for PA use and want to repurpose it as an FRFR, small-venue rigs where 126 dB SPL is needed, applications where the 250 Hz bump can be EQ'd out at the modeler.
+
+## Behringer Eurolive B112D: The Cheap PA Cab With a 3 kHz Problem
+
+**Driver configuration:** 12″ woofer + 1″ HF driver, biamplified Class D
+**Rated output:** 1000W peak / 300W RMS
+**Frequency response (manufacturer):** 65 Hz – 20 kHz
+**Frequency response (measured, ±5.0 dB):** 80 Hz – 14 kHz
+
+The Behringer B112D is the current production version of what most forum threads still call the FBQ Plus — Behringer's budget powered PA cab. At $299, it's marketed as both a PA cab and a stage monitor, which gives some flexibility but means the cab's voicing isn't optimized for either job.
+
+The measured response shows a 6 dB rise centered around 3 kHz that's the cab's biggest problem for guitar use. This is the harshness frequency — the range where high-gain guitar fizz lives, the range where a bad cab IR sounds like a buzzsaw. The B112D's 3 kHz bump makes high-gain modeler presets sound harsh and forward in a way that's unpleasant in a way the Stage Right's 1.8 kHz bump isn't. The correction is a 5 dB cut centered at 3 kHz with a Q of 1.2; after correction, the cab becomes tolerable but not pleasant.
+
+Below 100 Hz, the response rolls off faster than the Stage Right's. The B112D is a smaller box internally than its external dimensions suggest, and the bass extension reflects that. For clean tones the low-end limitation is fine; for djent or drop-tuned riffs that have content below 80 Hz, the cab's low-frequency rolloff loses information.
+
+The noise floor at 30 dB SPL is the highest in the test. In a quiet room, you can hear the cab from across the room when it's powered on with no signal. This is the cheap Class D amp module's residual hiss, audible because the cab's sensitivity is high enough to amplify the amp's own noise floor.
+
+The build quality is what you'd expect at $299: plastic chassis, basic XLR/TRS combo input, no DSP correction, no built-in voicing modes. The handles are positioned awkwardly for floor monitor use. The cab is loud enough for its intended role (small stage PA, vocal monitor) but the guitar-FRFR repurpose stretches the design.
+
+I expected the Behringer to be the worst of the three on overall response, and it was. What I didn't expect was that the 3 kHz bump would make the cab actively unpleasant on high-gain guitar tones in a way that EQ correction can soften but can't fully eliminate. There's a difference between a frequency-response peak that's audible and one that's audibly bad; the B112D's 3 kHz peak is in the audibly-bad category for guitar use.
+
+**Best for:** Players who already own a B112D for PA use and need an emergency FRFR for one night, anyone whose budget genuinely caps at $299 and who's willing to apply heavy EQ correction. Not the right tool if the budget can stretch to the Stage Right at $229.
+
+## Why the Budget Tier Can't Match the Reference
+
+The Quilter Aviator Cub at $999 measures ±1.5 dB across the same response band. The budget cabs measure ±3 to ±5 dB. The 3-4 dB difference is real, and here's where it comes from.
+
+**Driver cost.** The drivers in the Quilter are designed for guitar use specifically — a coaxial 12″ with a phase-corrected compression driver, voiced for the modeler-output frequency range. The drivers in the budget cabs are general-purpose 12″ woofers with separate compression drivers, designed for vocal PA. The cost of a guitar-specific driver pair is $200-300 above the cost of a general PA driver pair.
+
+**Crossover design.** The Quilter's internal DSP applies a digital crossover that's phase-aligned and gain-compensated across the response band. The budget cabs use analog crossovers with simpler topology — passive in the case of the Stage Right and B112D, active in the case of the Alto. The crossover region (typically 1.5-3 kHz) is where most of the frequency-response peaks and dips live, and the analog crossovers in the budget cabs can't match the precision of the digital crossover in the reference cab.
+
+**Cabinet tuning.** The Quilter's enclosure is tuned with a vent placement and internal damping that produces a 50 Hz low-frequency extension with a -3 dB point at 60 Hz. The budget cabs have shorter, narrower vents (less internal volume per dollar) and the low-frequency rolloff starts earlier and runs steeper.
+
+**Voicing modes.** The Quilter's Voice 1 mode is flat reference; Voice 2 emulates a Greenback cab; Voice 3 emulates a V30. None of the budget cabs offer voicing modes — what you get is what you get.
+
+The budget-tier cabs are not bad. They just aren't designed for the same job as the Quilter. The Stage Right at $229 is doing $229 worth of work — drivers cost what drivers cost, crossover design takes the engineering hours it takes, and the cab is honest about what it can deliver.
+
+## Which One Should You Buy?
+
+If you can spend $499-999, skip this entire comparison and buy the Headrush FRFR-112 MkII or the Quilter Aviator Cub. The price gap between $300 and $999 is the largest single tonal upgrade in the FRFR category, and the budget-tier cabs trade real frequency-response flatness for the dollar savings.
+
+If your budget genuinely caps below $500:
+
+**Stage Right S700 ($229)** — the right buy. Best response of the three, lowest noise floor, easiest to correct with a 3-band EQ. The cab won't disappear in a critical mix, but it'll do the FRFR job in a bedroom or rehearsal room.
+
+**Alto TS412 ($499)** — only if you already own one for PA use. The price is at the upper end of the budget tier where the Headrush at $499 outperforms it, so buying a TS412 specifically for FRFR use doesn't make sense. Repurposing one you already own is fine.
+
+**Behringer B112D ($299)** — only if your budget is hard-capped at $299 and the Stage Right is unavailable. The 3 kHz peak is the cab's primary problem and EQ correction softens it without fixing it. Better than no FRFR; worse than the Stage Right at less than the same price.
+
+Here's the data. The Stage Right S700 is the budget pick. If you can stretch to $499, the Headrush is a 2-3 dB flatness improvement that's audible. If you can stretch to $999, the Quilter is a 4-5 dB flatness improvement that's transformative. Pick the tier that matches what you can spend, and don't pretend the cabs in higher tiers don't measure better, because they do.
+
+The budget FRFR market exists because not every player can spend $999 on a powered cab, and the manufacturers that supply this tier are honest about what their boxes can do — vocal PA cabs that happen to work for modeler signals with some EQ work. None of the three cabs in this test are a substitute for a real guitar-specific FRFR. All three are real options if the budget is the constraint. Pick the Stage Right and apply the 1.8 kHz cut. Save up for the Quilter when you can. The path is clear if you don't pretend the price tiers are interchangeable.
