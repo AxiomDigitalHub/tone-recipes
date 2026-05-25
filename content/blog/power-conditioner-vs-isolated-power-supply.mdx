@@ -1,0 +1,282 @@
+---
+title: 'Power Conditioner vs. Isolated Power Supply: Which Fixes What'
+description: >-
+  Conditioners solve AC-line problems. Isolated supplies solve pedal-power
+  problems. They do not overlap. When you need both, when you need one, and the
+  $400 mistake most touring rigs make.
+date: '2026-05-22'
+author: Nathan Cross
+author_slug: nathan-cross
+category: quick-fixes
+tags:
+  - power-conditioner
+  - isolated-power-supply
+  - truetone-cs7
+  - furman
+  - pedalboard-power
+  - stage-hum
+  - touring-rig
+image: /images/blog/power-conditioner-vs-isolated-power-supply.jpg
+image_alt: >-
+  a composition illustrating "Power Conditioner vs. Isolated Power Supply: Which
+  Fixes What"
+takeaways:
+  - >-
+    A power conditioner solves problems on the AC line — surges, ground loops,
+    voltage swings, RF interference. An isolated power supply solves problems in
+    the 9V DC chain feeding your pedals — pedal-to-pedal noise coupling, digital
+    pedal interference, hum from a daisy chain.
+  - >-
+    The two devices do not solve overlapping problems. Owning a Furman P-1800
+    does nothing for daisy-chain noise on your pedalboard. Owning a Truetone CS7
+    does nothing for the 60 Hz hum coming from a venue's bad outlet.
+  - >-
+    Most touring guitarists need both. Bedroom and home-studio players typically
+    need only the isolated supply — the AC at home is consistent enough that the
+    conditioner is overkill.
+  - >-
+    The $400 mistake is buying a mid-tier power conditioner (Furman M-8x2, PL-
+    Plus C) expecting it to fix stage hum. Those units do surge protection and
+    light RF filtering but do not break ground loops. The Ebtech Hum X at $100
+    or the Furman P-1800 PF at $1,300 are the actual hum solutions.
+  - >-
+    Order of operations: diagnose the noise first, then buy. A daisy-chain hum
+    sounds like a steady 60 Hz buzz that gets worse with more pedals on. A
+    ground-loop hum sounds like a 60 Hz buzz that goes away when you unplug your
+    amp from the AC line. The two problems live on different sides of the rig.
+faq:
+  - q: Do I need both a power conditioner and an isolated supply?
+    a: >-
+      Most touring rigs need both, because both problems show up in different
+      venues. The conditioner handles AC-side problems (ground loops between the
+      rig and the PA, voltage swings from a brownout-prone venue, RF from
+      lighting dimmers) while the isolated supply handles DC-side problems
+      (digital delay clock noise bleeding into an analog overdrive, daisy- chain
+      hum across multiple pedals). For a bedroom or home-studio player with a
+      small board, the isolated supply alone is usually enough. The AC at home
+      does not have the failure modes that justify a conditioner.
+  - q: What's the cheapest credible setup that solves both problems?
+    a: >-
+      An Ebtech Hum X ($100) for ground loops at the AC side, plus a Truetone
+      CS7 ($229) for isolated 9V at the pedal side. Total $329 for both
+      problems. The Hum X does not give you surge protection or voltage
+      regulation — for that you would step up to a Furman M-8x2 at $200 in
+      parallel with the Hum X, which is what most touring guitarists do under
+      $500 total. The Truetone CS7 handles seven pedals at 9V or 18V isolated,
+      which covers most pedalboards. Bigger boards step up to the Voodoo Lab
+      Pedal Power MONDO ($349) for 12 outputs.
+  - q: Will an isolated power supply fix venue hum?
+    a: >-
+      No. The isolated power supply isolates the 9V outputs going to your pedals
+      from each other — it solves the noise that happens when multiple pedals
+      share a power rail. It does nothing about the AC ground loop between your
+      amp's outlet and the PA's outlet. That hum is on the AC side of the chain,
+      before the power supply, and only an AC-side device (Ebtech Hum X or an
+      isolation transformer) can break the loop.
+  - q: Will a power conditioner fix pedalboard noise?
+    a: >-
+      Not the noise that comes from a daisy chain. A daisy chain shares one 9V
+      output across multiple pedals, and the digital pedals on the chain inject
+      clock noise that the analog pedals downstream amplify. The fix is to
+      switch from a daisy chain to an isolated supply (Truetone CS7, Voodoo Lab
+      Pedal Power, Strymon Ojai). The conditioner upstream of the power supply
+      does nothing about this noise because it is happening after the AC-to-DC
+      conversion.
+  - q: When is the conditioner the wrong purchase?
+    a: >-
+      When you do not have an AC-side problem and you assume it will fix
+      whatever pedalboard noise you do have. The Furman M-8x2 is the most common
+      wrong purchase — it is great surge protection and a tidy rack- mount power
+      distribution point, but it does not break ground loops and it does not
+      solve pedalboard noise. Most touring guitarists who buy the M-8x2
+      expecting it to fix venue hum needed the Ebtech Hum X for $100 instead, or
+      needed an isolated supply for their pedalboard.
+  - q: What about voltage regulation — do I need that?
+    a: >-
+      Only if you tour through venues with bad AC. Bad AC is voltage that sags
+      below 110V when the lighting console comes on, or spikes above 130V when
+      the AC compressor cycles off. Tube amps in particular do not handle
+      voltage swings well — sustained low voltage shortens tube life and changes
+      the amp's voicing. Voltage regulation is built into the higher-tier
+      conditioners (Furman P-1800 PF, P-2400 IT). A bedroom player or
+      home-studio player almost never needs it. A touring guitarist working
+      churches, theaters, and clubs with mixed AC quality benefits
+      significantly.
+---
+
+> **Quick read:** A power conditioner lives on the AC line — between the wall outlet and the rest of your gear. An isolated power supply lives on the 9V DC line — between the wall transformer and your pedals. The two devices solve different problems, and owning one does not address the other's job. Ground loops between the rig and the PA, surges, and venue voltage swings are conditioner problems. Pedal-to-pedal noise coupling, daisy-chain hum, and digital pedals injecting noise into analog pedals are isolated-supply problems. Most touring rigs need both. Most home-studio rigs need only the isolated supply. The single most common buying mistake is purchasing a Furman M-8x2 expecting it to fix stage hum — the M-8x2 is great surge protection but does not break ground loops. For ground loops, the Ebtech Hum X at $100 or the Furman P-1800 PF at $1,300 are the actual solutions.
+
+Two pieces of gear get conflated constantly in rig discussions. A power conditioner sits in the rack, takes 120V AC in, and provides cleaner 120V AC out across multiple outlets. An isolated power supply sits on the pedalboard, takes 120V AC in, and provides 9V DC out across multiple jacks, each electrically isolated from the others. They look like they should do the same thing because they both have "power" in the name and they both have multiple outputs. They do not do the same thing. They do not solve overlapping problems. Buying one and assuming it covers the other's territory is the most expensive mistake in stage rig setup.
+
+The $1,000 upgrade-path post called out the Truetone CS7 isolated supply at step two of the pedalboard upgrade order, but did not address the separate question of whether a player who has the isolated supply also needs a conditioner. The short answer depends on where you play. The longer answer is the rest of this article, with diagnostic procedures for figuring out which problem you actually have and which device to buy first.
+
+## What Each Device Actually Does
+
+Two devices, two distinct jobs.
+
+| Device | Where it sits | What it solves | What it does NOT solve |
+|---|---|---|---|
+| Power conditioner | Between wall outlet and rack/rig (AC side) | Ground loops, surges, voltage swings, RF interference | Pedal-to-pedal noise, daisy-chain hum, digital clock bleed |
+| Isolated power supply | Between wall outlet and pedalboard (DC side) | Pedal-to-pedal noise, digital pedals injecting noise into analog, daisy-chain hum | Ground loops at the venue, surges, voltage swings |
+
+The clean test: which side of the AC-to-DC conversion is the noise happening on? If the noise is in the 120V AC supply before it reaches your gear, the conditioner is the right tool. If the noise is in the 9V DC supply between the wall transformer and your pedals, the isolated supply is the right tool. Both can be true at once and both devices can be needed at once, but each device solves only its own side.
+
+## Diagnosing Where the Noise Lives
+
+The single most useful skill in this category is figuring out which side of the rig the noise is coming from. The procedure takes ten minutes and uses no special equipment.
+
+The diagnostic flow:
+
+1. Unplug everything from the rig except the guitar and the amp.
+2. Plug the amp into the wall directly, not through the conditioner or any power strip. Listen.
+3. If there is hum at this stage, the problem is AC-side — either the venue outlet is bad or there is a ground loop between the amp and another piece of gear sharing the room's ground. Note the hum level.
+4. Plug the pedalboard back in. Connect the guitar through the board to the amp. Power up the pedalboard with whatever supply you currently use.
+5. If the hum changed (got worse or got noticeably scratchier), the problem is DC-side — the pedalboard's power chain is the new contributor.
+6. Bypass each pedal one at a time, listening for which pedal contributes the most to the noise. Digital delays, modulation pedals with digital clocks, and reverb units are the usual culprits. Stop on the first pedal whose bypass cuts the noise noticeably.
+
+If step 3 hummed, you have an AC-side problem and the conditioner conversation is the relevant one. If step 5 introduced the hum, you have a DC-side problem and the isolated supply conversation is the relevant one. Both can show up in the same rig, which is the case most touring guitarists deal with.
+
+## What the Conditioner Does NOT Help With
+
+The most common confusion in this category is the assumption that a power conditioner fixes pedalboard noise. It does not. The noise on a pedalboard comes from one of two places:
+
+- **Within the pedalboard.** A daisy chain shares one 9V output across multiple pedals. Digital pedals on the chain inject clock noise into the shared power rail, and analog overdrives downstream of those digital pedals amplify the noise. The fix is to switch from a daisy chain to an isolated supply. The conditioner upstream is unrelated to this problem.
+- **From the venue's AC.** The conditioner handles this one, but only if the venue's AC is the actual problem. Most pedalboard hum in a bedroom or home studio is not venue AC — it is daisy-chain noise.
+
+A player who buys a Furman M-8x2 to fix their bedroom pedalboard hum is buying the wrong tool. The M-8x2 does not change how the pedalboard's 9V supply behaves. The hum stays the same after the M-8x2 is installed.
+
+## What the Isolated Supply Does NOT Help With
+
+The matching confusion the other way. An isolated power supply does not fix ground loops between the rig and the venue PA, because the loop is on the AC side of the rig, before the isolated supply even sees the signal. The loop happens between the amp's outlet ground and the PA's outlet ground. The pedalboard's 9V chain is downstream of that loop and cannot affect it.
+
+A player who buys a Voodoo Lab Pedal Power MONDO expecting it to fix venue hum at a specific church is buying the wrong tool. The Pedal Power gives them clean isolated 9V to their pedals, which is great, but the venue hum is happening on the amp's AC line and the pedalboard cannot reach it.
+
+## The Mid-Tier Trap
+
+The single most common buying mistake in this category is the mid-tier conditioner purchase. The Furman M-8x2 at $200 and the Furman PL-Plus C at $400 are excellent products, but they do not do what most buyers think they do.
+
+| Furman model | What it does | What it does NOT do |
+|---|---|---|
+| M-8x2 ($200) | Surge protection, basic EMI/RFI filtering, breaker | Break ground loops, regulate voltage |
+| PL-Plus C ($400) | Surge protection, better RFI filtering, voltage meter | Break ground loops, regulate voltage |
+| P-1800 PF ($1,300) | All of the above plus isolation transformer and voltage regulation | Almost nothing — this is the touring tier |
+
+Both the M-8x2 and the PL-Plus C are protection-only devices. They block surges, they filter some RF, they distribute power tidily across a rack. They do not break ground loops. Stage hum from a ground loop between the rig and the PA goes through the M-8x2 unchanged.
+
+The fix for ground loops is either:
+
+- **Inline ground lift on the signal side.** An Ebtech Hum X at $100 does this. Plug your amp into the Hum X, plug the Hum X into the wall. The hum from a single-device ground loop disappears.
+- **Isolation transformer on the AC side.** A Furman P-1800 PF at $1,300 has a built-in isolation transformer that breaks loops at the power input. The P-2400 IT at $2,000 is the higher-current version. Both are touring-grade.
+
+The case where a touring guitarist buys an M-8x2 expecting it to fix stage hum is the case where they should have bought a Hum X for $100. The $200 they spent on the M-8x2 was for surge protection they may not need at the priority level they assumed.
+
+## When the Isolated Supply Comes First
+
+For most home-studio and bedroom rigs, the isolated supply is the first purchase and the conditioner is unnecessary. The reasoning:
+
+- The AC in a residential outlet is consistent enough that a conditioner does not improve the rig's behavior in a way the player can hear.
+- The pedalboard's noise problem (if there is one) is almost always daisy-chain noise, which the isolated supply directly addresses.
+- A residential outlet does not have the lighting-dimmer RF interference or the brownout-prone power that justifies a conditioner.
+
+The Truetone CS7 at $229 covers seven pedals at 9V or 18V, fully isolated. The Voodoo Lab Pedal Power 3 at $269 covers eight pedals. The Strymon Ojai at $169 covers five pedals. Any of these solves the daisy-chain problem and is worth installing on a board that currently runs a single 9V wall wart through a daisy cable.
+
+The home player who reads about touring rigs and thinks "I should get a Furman first" is buying the wrong end of the chain for their context. The Furman is for the venue problem. The isolated supply is for the pedalboard problem. The home rig has the pedalboard problem and not the venue problem.
+
+## When You Need Both
+
+The case for both devices is the touring rig that goes through multiple venues per week.
+
+The conditioner handles the venue-specific problems:
+
+- Ground loops that show up at one room and not another
+- Voltage sags when the venue's HVAC kicks in mid-set
+- Voltage spikes from a generator-powered outdoor stage
+- RF interference from a lighting board running dimmers
+
+The isolated supply handles the pedalboard-specific problems:
+
+- Digital delay clock noise bleeding into the analog overdrive
+- Hum that gets worse as you turn on more pedals
+- The Strymon Timeline sharing a 9V rail with the Tube Screamer and the resulting noise floor
+
+Both problems exist in a touring rig because both contexts are unstable. The conditioner does its job before the pedalboard does its job; the isolated supply does its job before the pedals do their job. They run in series, each solving their own layer.
+
+The typical touring setup at the budget tier:
+
+- Ebtech Hum X ($100) for ground loops on amp AC
+- Furman M-8x2 ($200) for surge protection and rack power distribution (does not fix ground loops; the Hum X handles that)
+- Truetone CS7 ($229) for pedalboard 9V isolation
+- Total: $529 across three devices, each addressing a different failure mode
+
+The typical touring setup at the professional tier:
+
+- Furman P-1800 PF ($1,300) for ground loops, surge, voltage regulation, and full rack power distribution
+- Voodoo Lab Pedal Power MONDO ($349) for pedalboard 9V isolation across 12 outputs
+- Total: $1,649 across two devices, with the P-1800 PF doing the work of the M-8x2 plus the Hum X plus voltage regulation
+
+The professional tier is not strictly better — it is more capable in extreme venues. The budget tier handles 95% of churches, theaters, and small-club gigs. The professional tier handles outdoor stages, generator power, and the worst of venue AC.
+
+## The Specific Conditioners Worth Looking At
+
+Three conditioners are worth considering for a touring rig. Two are not.
+
+| Conditioner | Price | Verdict |
+|---|---|---|
+| Ebtech Hum X | $100 | Right for single-device ground loop fixing. The cheapest meaningful purchase. |
+| Furman M-8x2 | $200 | Surge protection and rack tidiness only. Wrong for ground loops. |
+| Furman PL-Plus C | $400 | Slight upgrade on the M-8x2. Same fundamental limitation. |
+| Furman P-1800 PF | $1,300 | The touring-grade answer. Isolation transformer, voltage regulation, surge, RF filtering. |
+| Furman P-2400 IT | $2,000 | The P-1800 PF with higher current rating for larger rigs. |
+
+The M-8x2 and PL-Plus C remain in the table because they are not bad products — they are the right answer for the rig that needs surge protection and a tidy rack power distribution, and that is happy to use an Ebtech Hum X separately for any ground loop issues. The mistake is when one of these is purchased as a ground loop solution.
+
+## The Specific Isolated Supplies Worth Looking At
+
+Three supplies cover the meaningful pedalboard sizes.
+
+| Supply | Outputs | Price | Best for |
+|---|---|---|---|
+| Strymon Ojai | 5 | $169 | Small board (4-5 pedals), one mid-current Strymon-class pedal |
+| Truetone CS7 | 7 (mixed 9V/18V) | $229 | Medium board with mostly 9V pedals plus 1-2 18V drives |
+| Voodoo Lab Pedal Power 3 | 8 | $269 | Medium-large board, the long-running standard |
+| Voodoo Lab Pedal Power MONDO | 12 | $349 | Large touring board with high pedal count |
+| Strymon Zuma | 9 | $329 | Large board with 2-3 high-current Strymon-class pedals |
+
+The choice between these is mostly count, with the secondary question of whether you have high-current pedals (Strymon Timeline, BigSky, Big Sky MK II) that need 300+ mA per output. The Strymon supplies are tuned for Strymon's higher-current pedals; the Voodoo Lab supplies are the generalist standard. The Truetone is the budget pick at the 7-output tier.
+
+All three brands make supplies with fully isolated outputs — the relevant specification is "isolated outputs" not "filtered outputs." Some cheaper supplies (Donner, Mosky, generic Amazon) advertise as "isolated" while having only filtered shared outputs. The actual measurement is whether each output has its own independent power transformer winding. Donner and Mosky use shared windings with light filtering, which does not solve the daisy-chain noise problem fully. The brands above use real isolated windings.
+
+## The Voltage Regulation Question
+
+The fourth function — voltage regulation — is the one that distinguishes the $1,300 Furman P-1800 PF from the $200 Furman M-8x2 as much as the isolation transformer does. Voltage regulation maintains the output at a consistent 120V regardless of the input voltage, within a working range of about 97V to 141V on the P-1800 PF.
+
+This matters in two specific contexts:
+
+- **Tube amps in venues with brownout-prone power.** When the input voltage drops to 105V, a tube amp's plate voltage drops with it, the tubes run colder, and the amp loses output and clarity. Sustained low voltage also shortens tube life. The P-1800 PF brings the output back to 120V even when the input is 105V.
+- **Touring outdoor stages with generator power.** Generators produce voltage that varies more than wall power — typically ±10% as the engine load changes. Voltage regulation smooths this out.
+
+For the home or studio player, neither context applies. Wall power in a residential setting is consistent within ±2% and tube amps see no benefit from regulation.
+
+For the touring player working churches and theaters, voltage regulation is genuine value. A worship leader who has noticed their Vox AC30 sounding "tired" during high-load services (lighting, video screens, AC running) is hearing the venue's voltage sag. The P-1800 PF fixes that. The M-8x2 does not.
+
+## What Surprised Me About This Category
+
+The number of touring guitarists who own a Furman M-8x2 or a PL-Plus C is much higher than the number of touring guitarists who have a real ground loop solution. The M-8x2 looks the part — it lives in a rack, it has lights, it has eight outlets — and it does what surge protection should do. But it does not break ground loops, and the rig that bought it as a ground loop solution still has the original hum problem unsolved.
+
+What changed my own setup was finally diagnosing the noise instead of buying based on category. The M-8x2 in my rack was doing its surge protection job fine. The Ebtech Hum X plugged into one of the M-8x2's outlets was doing the ground loop job. The two devices were each handling a separate problem. Before I added the Hum X, the M-8x2 alone had been failing to solve the venue hum I had assumed it would solve, and I had been angry at the M-8x2 for the wrong reason for years.
+
+The order of operations matters: diagnose first, then buy. A Furman that is genuinely doing its surge-and-distribution job is a great product. A Furman that is being asked to fix a problem it was never designed to fix is a $200 unhelpful purchase.
+
+## The Decision Tree
+
+For the player trying to figure out what to buy first:
+
+1. **Are you playing the same venue every week or do you play out at all?** If the answer is "I play at home through headphones or studio monitors," skip the conditioner. Buy the isolated supply if you have daisy-chain noise; otherwise buy neither.
+2. **Do you have stage hum at the venues you play?** If yes, diagnose it with the procedure above. If the hum is AC-side, start with the Ebtech Hum X. If the hum is DC-side, start with an isolated supply.
+3. **Do you have a multi-pedal board with at least one digital pedal sharing a daisy chain?** If yes, the isolated supply is the priority regardless of stage hum. The daisy-chain noise is the foreground problem and the isolated supply fixes it directly.
+4. **Are you touring multiple venues per week with mixed AC quality?** If yes, the P-1800 PF earns its $1,300 over time. The isolation transformer plus voltage regulation plus surge plus RF filtering in one device is the right consolidation.
+5. **Are you sitting on a Furman M-8x2 wondering why venue hum is still there?** Buy the Ebtech Hum X separately. The M-8x2 is doing its surge job; the Hum X does the ground loop job. They run in series — Hum X into M-8x2 into rig — and the combination is what most touring rigs actually need.
+
+The two devices are not in competition. They live on different sides of the rig and solve different problems. Owning one and being puzzled why the other's problem is unsolved is the most common mistake in this whole category, and the fix is to recognize that each device handles its own layer and to buy accordingly.
+
+<SaveThisTone title="Read the power-conditioner deep dive for the AC-side breakdown" description="The conditioner side of this article is a summary. The full breakdown of Furman vs. ETA vs. Ebtech Hum X is in the dedicated conditioner piece — read that next if AC-side problems are your primary concern." href="/blog/power-conditioner-furman-vs-eta-vs-hum-x" ctaLabel="Read the full conditioner breakdown" />

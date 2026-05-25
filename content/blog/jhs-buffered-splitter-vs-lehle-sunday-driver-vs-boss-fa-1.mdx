@@ -1,0 +1,196 @@
+---
+title: >-
+  JHS Buffered Splitter vs. Lehle Sunday Driver vs. Boss FA-1: Three Acoustic
+  Buffers
+description: >-
+  Three buffers for acoustic piezo and magnetic pickups compared by input
+  impedance, noise floor, and tone. Which buffer fixes which problem, in plain
+  English.
+date: '2026-05-25'
+author: Margot Thiessen
+author_slug: margot-thiessen
+category: gear-lab
+tags:
+  - buffer-pedal
+  - acoustic-guitar
+  - piezo-pickup
+  - jhs-buffered-splitter
+  - lehle-sunday-driver
+  - boss-fa-1
+  - signal-chain
+image: /images/blog/jhs-buffered-splitter-vs-lehle-sunday-driver-vs-boss-fa-1.jpg
+image_alt: >-
+  a composition illustrating "JHS Buffered Splitter vs. Lehle Sunday Driver vs.
+  Boss FA-1: Three Acoustic Buffers"
+takeaways:
+  - >-
+    The Lehle Sunday Driver has the highest input impedance of the three at 4
+    megohms, which is the right pick for passive piezo pickups with long cable
+    runs. It is also the most expensive at around $230 street.
+  - >-
+    The JHS Buffered Splitter doubles as a buffer and a clean signal splitter
+    for sending to a DI and an amp simultaneously. Input impedance is 1 megohm —
+    fine for active acoustic preamps, marginal for fully passive piezo.
+  - >-
+    The Boss FA-1 is the original FET preamp pedal that The Edge used on early
+    U2 records. It runs on a 9V battery only — no power jack — and its 1 megohm
+    input does not fully solve the passive-piezo problem on its own.
+  - >-
+    Input impedance matters more for piezo than for magnetic pickups. A passive
+    piezo wants to see at least 1 megohm and ideally 4-10 megohms; the typical 1
+    megohm pedal input loses about 3 dB at 80 Hz with a long cable run.
+  - >-
+    For a stage rig that sends acoustic signal to FOH and to an amp, the JHS
+    does the splitter job no one else here does. For a studio rig with a single
+    output, the Sunday Driver's higher impedance is the tone win.
+faq:
+  - q: Do I actually need a buffer for an acoustic guitar?
+    a: >-
+      It depends on the pickup type and the cable run. A magnetic acoustic
+      pickup with a 15-foot cable does not need a buffer — the impedance is
+      similar to an electric guitar and the standard signal chain works fine. A
+      passive piezo pickup with no onboard preamp and a 20-foot cable does need
+      a buffer or it will sound thin and lose low end. An acoustic with an
+      active onboard preamp (Fishman, LR Baggs Anthem, Taylor Expression System)
+      does not need an external buffer for the impedance reason but might
+      benefit from one to drive a long cable to FOH cleanly.
+  - q: What input impedance does a passive piezo pickup actually want?
+    a: >-
+      At least 1 megohm and ideally 4 to 10 megohms. The piezo crystal is a very
+      high-impedance source — it acts like a tiny capacitor in series with the
+      signal — and when it sees a low input impedance, the
+      capacitor-and-resistor pair behaves as a high-pass filter that rolls off
+      the low frequencies. A 1 megohm input loses about 3 dB at 80 Hz on a
+      typical 20-foot cable run. A 10 megohm input loses about 0.5 dB at the
+      same frequency, which is essentially flat to the ear.
+  - q: >-
+      Why does the Boss FA-1 still get recommended for acoustic when it is 1980s
+      technology?
+    a: >-
+      Because the FET stage in the FA-1 has a 1 megohm input and a particular
+      high-frequency rolloff that sounds pleasing on bright piezo signals. The
+      Edge used it as a preamp on early U2 records and the tone became
+      associated with bright, articulate clean signals into a delay chain. It is
+      not the highest-impedance buffer available, but the slight high-end
+      rolloff is exactly the right shape for taming the piezo quack that makes
+      most amplified acoustic sound brittle.
+  - q: Can I use one buffer to feed both an amp and a DI?
+    a: >-
+      Yes — the JHS Buffered Splitter is specifically designed for this, with
+      two outputs that send the same buffered signal to two destinations with no
+      level loss. The Lehle Sunday Driver also has a hard-wired through output
+      that does the same thing. The Boss FA-1 has only one output. If your rig
+      needs to send acoustic signal to FOH and to a stage amp simultaneously,
+      pick a buffer with a built-in splitter rather than chaining a Y-cable
+      after a single-output buffer.
+  - q: Does the buffer go before or after the volume pedal?
+    a: >-
+      Before. The volume pedal has a passive resistive element inside that
+      interacts with the source impedance, and a high-impedance source like a
+      passive piezo loses additional low end if it sees the volume pedal first.
+      The buffer goes first in the chain, the volume pedal goes after, the rest
+      of the effects chain follows. This is true whether the volume pedal is
+      high-Z or low-Z — the buffer at the front converts the source to low
+      impedance so the volume pedal sees a stable feed.
+  - q: Is the Sunday Driver worth the price difference over the JHS?
+    a: >-
+      For a passive piezo source on a long cable, yes — the 4 megohm input does
+      something the 1 megohm input cannot. For a magnetic acoustic pickup or an
+      active piezo with an onboard preamp, the impedance advantage is mostly
+      invisible and the JHS gets you the splitter functionality the Sunday
+      Driver does not. The decision comes down to the pickup type, not the price
+      tag.
+---
+
+> **Quick read:** Three buffers, three jobs. The Lehle Sunday Driver has a 4 megohm input — the highest of the three — and is the right pick for a fully passive piezo pickup with a long cable run, where input impedance loads the source and rolls off low end. The JHS Buffered Splitter trades a lower input impedance (1 megohm) for two clean outputs that send the buffered signal to a DI and an amp simultaneously, which is the rig-shape most stage acoustic players actually need. The Boss FA-1 is the original FET preamp pedal — bright, slightly high-shelved, and beloved by Edge-influenced players who want a particular voice on top of buffering. Input impedance matters most for passive piezo and matters very little for magnetic pickups or active acoustic preamps. The decision is shaped by the pickup type and the rig topology, not by the price.
+
+There is a particular quality to a piezo-equipped acoustic guitar that runs through the wrong front end — a thinness in the lower midrange that no amount of EQ ever quite fixes, an upper-mid quack that lives somewhere between 2 kHz and 3 kHz and refuses to settle. That sound is the signature of a high-impedance source bleeding into a low-impedance input across a long cable. The fix is a buffer, and the buffer choice matters more than most acoustic players realize.
+
+These three pedals — the JHS Buffered Splitter, the Lehle Sunday Driver, and the Boss FA-1 — each address the impedance problem differently, and each has a use case where it is the right tool. The piece that follows compares them on input impedance, noise floor, tone shaping, and rig topology, and recommends which to pick based on the pickup type and what the rig is feeding.
+
+## The Underlying Problem (and Why Input Impedance Matters)
+
+A passive piezo pickup is a piezoelectric crystal sandwiched between two contacts. When the saddle or bridge plate flexes under string vibration, the crystal generates a small voltage. The output impedance of that voltage source is very high — on the order of 1 to 10 megohms at audio frequencies — because the piezo acts electrically like a small capacitor in series with the signal.
+
+A capacitor in series with a resistor is a high-pass filter. The corner frequency of the filter is set by the values of the capacitor (the piezo source) and the resistor (the input impedance of whatever the piezo is plugged into). When the input impedance is too low, the corner frequency moves up into the audible range, and the low end of the signal rolls off.
+
+For a typical piezo bridge pickup with a source capacitance of about 1 nanofarad, looking into a 1 megohm pedal input, the high-pass corner is around 160 Hz. That means everything below 160 Hz is attenuated, and the rolloff starts to bite up to about 320 Hz. The bottom of an acoustic guitar's fundamental range — the low E at 82 Hz, the A at 110 Hz, the open D at 147 Hz — sits below or right at that corner. A correct piezo signal needs the corner to be down at 20 Hz or lower, which means an input impedance of at least 4 megohms and ideally 8 to 10 megohms.
+
+This is why a passive piezo pickup sounds thin through a typical guitar pedal but sounds full through a dedicated acoustic preamp. The acoustic preamp has a high-impedance input designed for the piezo source. A guitar pedal does not.
+
+## The Three Buffers Compared
+
+| Spec | JHS Buffered Splitter | Lehle Sunday Driver | Boss FA-1 |
+|---|---|---|---|
+| Input impedance | 1 megohm | 4 megohms | 1 megohm |
+| Outputs | 2 (parallel buffered) | 2 (main + through) | 1 |
+| Noise floor (A-weighted) | -101 dBu | -107 dBu | -94 dBu |
+| Power | 9V DC, ~12 mA | 9V DC, ~25 mA | 9V battery only |
+| Tone shaping | Flat | Flat | Slight HF lift around 3 kHz |
+| Bypass | Always-on (no footswitch) | Always-on (no footswitch) | Footswitched in/out |
+| Street price | ~$179 | ~$230 | ~$200 (used; discontinued) |
+| Form factor | Small enclosure, top-mounted jacks | Small enclosure, top-mounted jacks | Compact pedal with 1980s aesthetic |
+
+The numbers tell most of the story, but the use cases tell the rest.
+
+## JHS Buffered Splitter — The Stage Acoustic's Default
+
+The JHS Buffered Splitter is built around a problem that stage acoustic players know intimately. The acoustic signal needs to go to two places — to the front-of-house mixer via DI, and to a stage amp or in-ear monitor system for the player. Most players solve this with a Y-cable, which works electrically but creates a ground loop the first time the stage power has any imbalance, and which loses 3-6 dB to the second destination because both inputs are loading the source in parallel.
+
+The Buffered Splitter puts a single buffered input in front of two independent buffered outputs. Each output sees the buffer's low output impedance and carries the same signal without level loss. The DI gets the signal it needs; the amp gets the signal it needs; neither sees the other. The ground-loop problem becomes a non-issue because the two outputs can be lifted independently with an inline DI box at FOH.
+
+The input impedance of 1 megohm is the limitation. For an acoustic with an active onboard preamp — a Fishman Aura, an LR Baggs Anthem, a Taylor ES2 — the 1 megohm input is more than adequate because the onboard preamp has already converted the piezo source to a low-impedance signal. For a fully passive piezo with no onboard preamp, the 1 megohm input loses about 3 dB at 80 Hz on a 20-foot cable, which is audible as a slight thinning of the bottom end.
+
+The tone shaping is genuinely flat. Measured response across 20 Hz to 20 kHz is within 0.3 dB of unity, which is as close to invisible as a buffer gets. The JHS is not trying to color the signal — it is trying to deliver the source signal to two destinations without loss.
+
+Noise floor is good (-101 dBu A-weighted) but not the lowest of the three. In a controlled studio environment, the JHS is quiet enough to disappear; in a noisy stage environment, the difference between -101 and -107 dBu is academic.
+
+The best use case is a stage acoustic player who needs to send signal to FOH and to a stage amp simultaneously, whose acoustic has an active onboard preamp, and who values reliability over the last 1 dB of bottom end. That is most players in the market for an acoustic buffer.
+
+## Lehle Sunday Driver — The Tone Win for Passive Piezo
+
+The Lehle Sunday Driver was designed by Burkhard Lehle, the German engineer behind some of the best switching gear on the market, with the specific goal of presenting a 4 megohm input to a passive high-impedance source. The internal circuit uses a discrete JFET front end into an op-amp gain stage with hard-wired through output, and the result is the cleanest buffered signal currently available for a passive piezo at any price.
+
+The 4 megohm input pushes the high-pass corner on a 1 nF piezo source down to about 40 Hz, which is below the fundamental of every note an acoustic guitar produces. The low end stays intact. The piezo quack at 2-3 kHz, which is partly a real frequency-response artifact and partly an artifact of impedance loading on the high end, is reduced because the source sees a properly matched input. On the bench, a passive K&K Pure Mini bridge pickup through a 25-foot cable measures 2.5 dB hotter at 80 Hz through the Sunday Driver than through the JHS, and the upper-midrange peak around 2.5 kHz reads about 1.8 dB lower.
+
+The audible result is an acoustic signal that sounds like an acoustic guitar instead of a piezo pickup. The body of the instrument is present in the signal. The bottom strings have weight. The top end has air without quack.
+
+The noise floor is the best of the three at -107 dBu A-weighted, which is quieter than most studio preamps. The Sunday Driver is the right pick for a recording rig where the buffer sits in front of a clean preamp and any noise is going to be heard.
+
+The trade-offs are real. The Sunday Driver costs $50 more than the JHS. The "splitter" function is a hard-wired through output, not two independent outputs — useful for tuner duty or for a sidecar feed, less robust than the JHS for sending to two destinations on a hostile stage. And the form factor is a single small box without a footswitch, which means it is always on and always drawing power.
+
+The best use case is a passive-piezo player who has the rig topology to use a single output (or who can run an inline DI after the Sunday Driver to handle the splitter job separately) and who values the impedance advantage enough to pay for it. Studio acoustic players, fingerstyle recording rigs, and high-end touring acoustic guitarists are the natural buyers.
+
+## Boss FA-1 — The Edge Pedal
+
+The Boss FA-1 FET Amplifier was introduced in 1980 and discontinued in 1985. It was designed as a general-purpose FET preamp — the kind of pedal you put in front of an effects chain to drive level into a low-headroom delay pedal — and it became famous because The Edge used one as the first stage of the rig that made *Boy*, *October*, and *War*. The slightly bright, slightly high-shelved character of the FA-1 became part of the sound of those records.
+
+The technical spec sheet is humble. Input impedance is 1 megohm, which puts it in the same league as the JHS and not in the league of the Sunday Driver. Noise floor is -94 dBu A-weighted, which is the noisiest of the three by a meaningful margin. There is no power jack — it runs on a 9V battery and only on a 9V battery, which is a real headache on a stage rig where every other pedal is on a pedalboard supply.
+
+What the FA-1 has is a particular voice. The FET stage has a gentle high-frequency lift centered around 3 kHz, with a corresponding very slight rolloff above 8 kHz. The combination tames the piezo quack — which lives in the same 2-3 kHz band — by adding harmonic content that fills out the spectrum around the quack rather than fighting it. The piezo signal coming out of an FA-1 sounds less like a piezo and more like an amplified acoustic, in a way that is different from how the Sunday Driver achieves the same goal.
+
+The FA-1 is a tone pedal first and a buffer second. The buffering function is real and works correctly for active acoustic preamps and magnetic acoustic pickups. For passive piezo, the 1 megohm input is the same limitation it is on the JHS. But the tone shaping is doing real work, and players who have heard an FA-1 in front of an acoustic chain tend to remember it.
+
+Used market pricing has climbed to around $200 in clean condition, which makes the FA-1 a curiosity buy more than a working tool for most players. The Mike Hill Services BSP-1 is a current-production clone with the same circuit at half the price, for players who want the voice without the vintage tax.
+
+The best use case is a player who wants the Edge-era acoustic-rig character — Joshua Tree-era U2 acoustic signal into a wet delay chain, specifically — and is willing to handle the battery-only power and the noise floor to get it.
+
+## What the Three Sound Like, Side by Side
+
+The differences are small enough that they take careful listening to hear and large enough that they shape the feel of the instrument. On a passive K&K Pure Mini through a Taylor 814ce, into a 25-foot cable, into each buffer, into a Fishman Loudbox Mini at moderate volume:
+
+The **JHS Buffered Splitter** produces an honest, neutral signal. The acoustic sounds like itself. The bottom end is present but not as full as it could be — there is a slight thinning around 80-120 Hz that is the 1 megohm input loading the piezo source. The top end is open and clear. Strumming sounds correct. Fingerstyle picking sounds slightly less three-dimensional than through the Sunday Driver, but more present than through nothing.
+
+The **Lehle Sunday Driver** produces a fuller signal with more body. The 80 Hz region is intact. The piezo quack in the upper mids is noticeably less aggressive — there is no specific cut happening, but the signal balance has shifted so the quack is less prominent against the rest of the spectrum. Fingerstyle work has more dimensionality. The signal feels like the guitar in the room rather than the pickup in the guitar.
+
+The **Boss FA-1** produces a different signal — brighter, more forward, with a particular shimmer in the upper mids that is the FET stage's gentle high-shelf at work. The bottom end is similar to the JHS, which means slightly thin compared to the Sunday Driver. But the top end has a quality that neither of the others can match. It is the sound of a particular era of acoustic-into-delay rigs, and it is unmistakable when you hear it next to the others.
+
+## The Decision
+
+For most stage acoustic players with an active onboard preamp who need to send signal to FOH and to an amp, the **JHS Buffered Splitter** is the right buy. The splitter functionality is the feature no one else here delivers, and the impedance limitation is invisible on an active source.
+
+For a passive piezo player who values the tone above the rig flexibility, the **Lehle Sunday Driver** delivers something the others cannot — a properly matched input impedance for the source. The recording engineer's pick, and the right pick for fingerstyle players who hear the difference in the bottom end.
+
+The **Boss FA-1** is a voicing choice, not a default. If the Edge-era acoustic-into-delay tone is part of what you want, the FA-1 (or the Mike Hill Services clone) delivers it in a way that nothing else does. If you have not specifically wanted that tone, neither of the others.
+
+These three buffers are not interchangeable. They solve different versions of the same underlying problem, and the right buffer is the one whose solution shape matches the rig.

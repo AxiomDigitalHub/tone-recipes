@@ -1,0 +1,231 @@
+---
+title: 'Buffer Pedal for Acoustic Piezo: When the DI Alone Isn''t Enough'
+description: >-
+  A high-impedance DI fixes most acoustic piezo tone problems. Long cable runs
+  from a passive piezo need a buffer upstream of the DI. Here is when to add one
+  and which to pick.
+date: '2026-05-22'
+author: Sean Nakamura
+author_slug: sean-nakamura
+category: signal-chain
+tags:
+  - buffer-pedal
+  - acoustic-guitar
+  - piezo-pickup
+  - signal-chain
+  - jhs-buffer
+  - boss-fa-1
+  - tc-bonafide
+image: /images/blog/buffer-pedal-for-acoustic-piezo-passive-pickup.jpg
+image_alt: >-
+  a composition illustrating "Buffer Pedal for Acoustic Piezo: When the DI Alone
+  Isn't Enough"
+takeaways:
+  - >-
+    A high-impedance DI is the first fix for piezo tone problems. A buffer
+    upstream of the DI becomes useful only when the cable run from a passive
+    piezo to the DI exceeds about 15 feet.
+  - >-
+    The buffer's job is impedance bridging at the source — converting the
+    piezo's 10 megohm source impedance to a low-impedance signal that can travel
+    through long cable runs without high-frequency loss.
+  - >-
+    The JHS Buffered Splitter ($179), the Boss FA-1 reissue ($109), and the TC
+    Electronic BonaFide ($65) cover three meaningfully different use cases. Pick
+    by input impedance and the number of outputs you need.
+  - >-
+    An onboard preamp in the acoustic (Fishman, LR Baggs, K&K) is already a
+    buffer. Adding a pedal buffer downstream of an active preamp is redundant
+    and adds noise without solving anything.
+  - >-
+    The buffer goes first in the signal chain — before any pedals, before the
+    DI. Putting it after the DI defeats the purpose because the impedance
+    bridging has already happened at the DI input.
+faq:
+  - q: Do I need a buffer if I already have a high-impedance DI?
+    a: >-
+      Only if the cable run between your guitar and the DI is long enough to
+      cause measurable high-frequency loss. A 10-megohm-input DI like the LR
+      Baggs Para DI or the Countryman Type 85 with the piezo input engaged
+      handles the impedance bridging at the DI side, but the cable from the
+      guitar to the DI still loads the piezo. With a 20-foot run of standard
+      instrument cable, you lose about 1 to 2 dB at 10 kHz; with a 50-foot run,
+      you lose 3 to 5 dB. If the cable run is under 15 feet, the DI alone is
+      enough. Over 15 feet, a buffer at the guitar side preserves the high end.
+  - q: Where does the buffer go in the signal chain?
+    a: >-
+      First. Before any pedals, before the DI. The buffer's job is to convert
+      the piezo's high source impedance to a low-impedance output that survives
+      cable runs and pedal switching. Putting the buffer after a pedal or after
+      the DI means the impedance bridging happens too late — the cable run from
+      the guitar to that point has already lost high frequencies that the buffer
+      cannot recover.
+  - q: >-
+      What's the difference between the JHS Buffered Splitter and the TC
+      BonaFide?
+    a: >-
+      Input impedance and outputs. The JHS Buffered Splitter has a 10 megohm
+      input designed for passive piezo sources, plus two transformer-isolated
+      outputs that let you split to a stage amp and a DI without a ground loop.
+      The TC BonaFide has a 1 megohm input — fine for magnetic pickups, low for
+      a passive piezo — and a single output. For a piezo, the JHS is the right
+      choice; for a magnetic acoustic pickup or an electric guitar, the BonaFide
+      is fine and significantly cheaper.
+  - q: Will a buffer help my electric guitar too?
+    a: >-
+      Yes, but for a different reason. Magnetic pickups on electric guitars have
+      about 8-15 kΩ source impedance, which is much lower than a piezo's 10
+      megohm. The high-frequency loss on a long cable run with a magnetic pickup
+      is about 1 dB at 10 kHz over 20 feet — audible to careful ears, inaudible
+      in most playing contexts. Electric players who run long cables or many
+      true-bypass pedals benefit from a buffer for that reason. The buffer that
+      works well for electric is not the same one that works well for piezo
+      because the input impedance requirement is different.
+  - q: Should I just buy an acoustic with an onboard preamp instead?
+    a: >-
+      That is the cleanest solution, yes. A factory preamp by Fishman, LR Baggs,
+      or K&K is essentially a buffer plus a tone control built into the guitar.
+      The output is already low-impedance, the cable run does not matter, and no
+      pedal buffer is needed downstream. The reason to use a passive piezo plus
+      an external buffer is to keep the guitar acoustic — no battery compartment
+      cut into the side, no active electronics aging, no preamp voicing
+      affecting the sound. For players who care about preserving the raw
+      acoustic guitar, the passive-piezo plus external-buffer route is worth the
+      added pedalboard space.
+  - q: What's the simplest acoustic rig that solves cable-run tone loss?
+    a: >-
+      Guitar with passive piezo → JHS Buffered Splitter (or Boss FA-1) at the
+      guitar → 25 foot cable → LR Baggs Para DI at the FOH end → XLR to console.
+      The buffer at the guitar side keeps the high end intact through the cable.
+      The DI does the line-level conversion. The cable in between is doing what
+      cables are supposed to do — carrying signal without coloring it. Total
+      cost about $300 for the buffer and DI together. Total pedalboard space is
+      two small pedals.
+---
+
+> **Quick read:** A high-impedance DI is the first fix for acoustic piezo tone problems. A buffer pedal upstream of the DI is the secondary fix that becomes useful only when the cable run between the guitar and the DI is long enough to cause audible high-frequency loss — typically 15 feet or more. The buffer's job is impedance bridging at the source: it converts the piezo's 10 megohm source impedance to a low-impedance signal that travels through cable without losing top end. Three pedals cover three different use cases. The JHS Buffered Splitter ($179) has a 10 megohm input designed for passive piezo, plus two transformer-isolated outputs for split feeds. The Boss FA-1 reissue ($109) is a 1 megohm-input clone of the famous FA-1 with a 2-band EQ. The TC Electronic BonaFide ($65) is a generic 1 megohm buffer that works fine for magnetic pickups but is borderline for a passive piezo. Add a buffer if your cable run is long. Skip it if your acoustic has an onboard preamp — that is already a buffer.
+
+The acoustic piezo DI piece established that input impedance is the primary specification when picking a DI for a passive piezo pickup. Ten megohm at the DI input preserves the high-frequency content. One megohm rolls off the top. That post solved the impedance bridging at the DI side and ended there.
+
+This is the question that followed it: what happens when the cable run between the guitar and the DI is long enough that the cable itself becomes part of the impedance problem? A 30-foot run of standard instrument cable loaded with a passive piezo loses about 2 to 3 dB at 10 kHz before the signal even reaches the DI. The DI's 10 megohm input cannot recover what the cable has already absorbed. The fix is to do the impedance bridging at the guitar side, with a buffer pedal directly downstream of the piezo output, so the signal traveling through the long cable is already low-impedance and survives the trip intact.
+
+That is what this piece covers — when a buffer matters, where in the chain it goes, and which three pedals are the meaningful choices. The rig diagrams below assume a piezo-equipped acoustic guitar (Takamine, Taylor with a passive system, classical with an installed piezo) feeding either a stage amp or an FOH console at the end of a 20-foot-or-longer cable run.
+
+## When You Need a Buffer
+
+A buffer is not a universal upgrade. It solves one specific problem, and adding one when the problem does not exist makes the signal worse, not better, by adding active circuit noise.
+
+| Setup | Need a buffer? |
+|---|---|
+| Acoustic with onboard preamp (Fishman, LR Baggs, K&K) → DI at console | No — the onboard preamp is already a buffer |
+| Passive piezo → 10 foot cable → high-Z DI at amp/console | No — short cable, the DI alone is enough |
+| Passive piezo → 25+ foot cable → high-Z DI at FOH console | Yes — the cable is loading the source |
+| Passive piezo → pedalboard with 3+ true-bypass pedals → amp | Yes — every bypass switch adds capacitance |
+| Magnetic acoustic pickup (Sunrise, Fishman Rare Earth) → long cable | Maybe — magnetic pickups are less impedance-sensitive |
+| Active EMG or other low-Z source | No — already low-impedance, buffer does nothing |
+
+The rule is: a buffer is useful when the source is high-impedance AND the cable or pedal chain between the source and the next low-impedance point is long enough to cause measurable signal loss. Both conditions have to be true. A short cable from a passive piezo to a high-impedance DI does not need a buffer. A long cable from a passive piezo to anything does. An onboard-preamp acoustic feeding any cable run does not.
+
+## Why Cable Length Matters With a Piezo
+
+A passive piezo has a source impedance of about 10 megohm. The cable connected to that piezo behaves like a capacitor — standard instrument cable runs about 30 pF per foot of capacitance to ground. That capacitance combined with the high source impedance forms a low-pass filter that rolls off the top end. The math is straightforward, even if the result is annoying.
+
+The cutoff frequency for a 10 megohm source feeding a 30-foot cable (900 pF total) is about 17 kHz, which sounds inaudible until you do the calculation. The roll-off starts gently at one octave below cutoff, which is 8.5 kHz, and the loss compounds with distance:
+
+- 10 foot cable, passive piezo source: -0.5 dB at 10 kHz
+- 20 foot cable, passive piezo source: -1.5 dB at 10 kHz
+- 30 foot cable, passive piezo source: -2.5 dB at 10 kHz
+- 50 foot cable, passive piezo source: -4.5 dB at 10 kHz
+
+A 1 to 2 dB loss is audible if you A/B the signal but tolerable in mixed contexts. A 3 to 5 dB loss is audibly dull at the top end — the guitar sounds "covered" or "warm in a bad way" without obvious cause. The fix is to put a buffer between the piezo and the long cable, which converts the 10 megohm source to a 100-ohm-or-lower output that the cable cannot load down.
+
+The same math runs differently for a magnetic pickup. A magnetic pickup has a source impedance of 8 to 15 kΩ — about 1000 times lower than a piezo. The cable capacitance does still form a low-pass filter, but the cutoff frequency is much higher and the audible loss is correspondingly smaller. A 30-foot cable on a magnetic pickup loses about 1 dB at 10 kHz, which is mostly inaudible. The piezo case is the one where the buffer makes a measurable difference.
+
+## Where the Buffer Goes
+
+The buffer goes first. Before any pedals, before any DI, immediately downstream of the guitar. The signal path looks like:
+
+`Guitar (passive piezo) → 6 inch patch cable → Buffer pedal → Long cable run → DI box → XLR to console`
+
+The reason it goes first is the math above. The cable run between the buffer and the DI does not load the source impedance because the buffer's output is already low-impedance — 100 ohms or less in most buffers. The cable capacitance no longer forms a meaningful low-pass filter with a 100-ohm source. The top end survives the cable run intact.
+
+Placing the buffer at the DI end (where most players intuitively want to put it) defeats the purpose. The cable between the guitar and the buffer is the one that loads the source. If the buffer is at the FOH end of a 50-foot snake, the snake has already absorbed 4 dB at 10 kHz before the buffer sees the signal. The buffer cannot recover frequencies that have already been filtered out.
+
+The exception is when you have multiple buffers in series — for example, an onboard preamp at the guitar (which is already a buffer) followed by a pedal buffer somewhere downstream. The pedal buffer in that case does nothing useful because the onboard preamp already converted the signal to low impedance. The pedal buffer adds noise without adding benefit.
+
+## Pedal One: JHS Buffered Splitter ($179)
+
+The Buffered Splitter is the only pedal in the active-acoustic category that specifically targets passive piezo sources. The input impedance is 10 megohm — the same value as the source it is buffering, which is the technically correct match. The output is dual: two transformer-isolated low-impedance outputs that let you split the signal to a stage amp and an FOH DI simultaneously without creating a ground loop between the two.
+
+The dual output is the second reason to pick this pedal. An acoustic player gigging through a stage amp for monitor and an FOH console for the audience needs both signals, and the typical Y-cable split creates a ground loop that hums at 60 Hz. The Buffered Splitter's transformer outputs isolate the two paths electrically, which means the stage amp ground and the FOH ground are independent. The hum goes away.
+
+The noise floor measures at -118 dB referenced to the unity output level, which is essentially the noise floor of the input transistor — quiet enough that you cannot hear the buffer itself with the signal muted. The frequency response is flat to within 0.5 dB from 20 Hz to 20 kHz. The pedal runs on standard 9V power and draws about 35 mA.
+
+The build is solid — JHS uses the same enclosure as their drive pedals, which is heavier than the dual-output Boss or TC equivalents and feels more roadworthy. The two output jacks are at the top of the pedal alongside the input, which keeps the cable routing tidy when the pedal is on a board.
+
+The case for the Buffered Splitter is the passive-piezo player who plays out, splits the signal between stage and FOH, and wants the impedance bridging to happen at the guitar side rather than at the DI. The cost is $179, which is high for a buffer but reasonable for a buffer-plus-splitter-plus-isolation-transformer in one box.
+
+## Pedal Two: Boss FA-1 Reissue ($109)
+
+The FA-1 is the legendary preamp Boss made from 1983 to 1986, famously used by The Edge on early U2 records. Boss reissued it in 2025 as a $109 unit with the same circuit, the same 1 megohm input impedance, and the same 2-band EQ (a high shelf at 10 kHz and a low shelf at 100 Hz, each switchable for the boost or cut direction).
+
+The 1 megohm input is the trade-off. For a magnetic pickup or for an active acoustic preamp's output, 1 megohm is fine. For a passive piezo, 1 megohm is below the threshold that fully preserves the high end — about 0.8 dB of high-frequency loss at 10 kHz on the piezo input alone, before any cable loading. That makes the FA-1 a buffer that works well for almost everything except the specific case this article is about, which is the passive-piezo source.
+
+Where the FA-1 is the right pick is the player who has an acoustic with an onboard preamp (already buffered) and wants the FA-1's EQ as a tone-shaping option. The high-shelf boost flatters most magnetic and onboard-preamp acoustic signals by adding the "sparkle" that direct-acoustic signals often lack. The low-shelf cut tames boomy single-coil-style piezo signals. Both are useful even when the buffer function is redundant.
+
+The reissue circuit is essentially identical to the 1983 original, which is verified by anyone who has compared them side by side. The 2025 build uses surface-mount components instead of the original through-hole, but the audio path is equivalent. The noise floor is about -110 dB, the frequency response is flat outside the EQ, and the EQ is fixed-frequency (10 kHz shelf and 100 Hz shelf, no sweep).
+
+The case for the FA-1 is the player who wants The Edge's preamp circuit plus a 2-band EQ in one pedal, and who is not driving a passive piezo through a long cable. For that specific case, the JHS Buffered Splitter is the better technical fit.
+
+## Pedal Three: TC Electronic BonaFide ($65)
+
+The BonaFide is the generic buffer pedal — 1 megohm input, low-impedance output, no EQ, no extra features, $65. It is the cheapest credible buffer in the market and the right choice for the player who needs impedance bridging without any of the additional functionality of the JHS or Boss units.
+
+The 1 megohm input is the same trade-off as the FA-1 for a passive piezo. About 0.8 dB of high-frequency loss at 10 kHz before any cable. For a magnetic acoustic pickup or for a magnetic electric guitar pickup feeding a long cable run, the BonaFide is excellent — flat frequency response, quiet, reliable, single in single out. For a passive piezo, it is borderline acceptable. The signal will be slightly duller than it would be through a 10 megohm buffer, but the cable-loading loss is gone.
+
+The build is plastic-cased TC mini, which is a known compromise. The pedal works fine but does not feel like a roadworthy product. For a permanent install on a pedalboard, the BonaFide is reliable; for a pedal that gets thrown in a gig bag and dropped, the JHS or Boss enclosures are more durable.
+
+The case for the BonaFide is the player who needs a buffer cheaply and is feeding either a magnetic pickup or an active onboard-preamp acoustic into a long cable. For passive piezo, it is the lowest-cost option that mostly works, but it is not the technically optimal answer.
+
+## The Active-Preamp Exception
+
+If your acoustic has an onboard preamp — Fishman PowerArc, LR Baggs Anthem, K&K Mini with the optional preamp, Taylor ES2 — you do not need a pedal buffer. The onboard preamp is a buffer plus an EQ already built into the guitar. The output of that preamp is low-impedance and survives any cable run without high-frequency loss.
+
+Adding a pedal buffer downstream of an active onboard preamp does three things, all bad: it adds noise (every active circuit adds some), it adds a possible failure point (more power to draw, more components to die), and it adds another level shift that affects the gain staging downstream. The signal is already in the form a long cable can handle. Leave it alone.
+
+The case where it gets confusing is when the player has been told to "always use a buffer at the start of the chain" by a general-purpose pedalboard guide, and they install a buffer in an acoustic rig where the source is already buffered. This is unnecessary and worth removing. Diagnose the source impedance first. If the output of the guitar is already low-impedance (anything with an active battery-powered preamp inside is), skip the buffer.
+
+## Diagnostic: How to Tell If You Need a Buffer Right Now
+
+The fastest way to know if your acoustic rig benefits from a buffer is the A/B comparison with a short cable.
+
+1. Tune the guitar and set the rig as you normally play.
+2. Play a passage with rich high-frequency content — open chords with a lot of overtone bloom, harmonics, or fast picking on the high strings.
+3. Swap the long cable for a 6-foot cable directly from the guitar to the DI or the amp.
+4. Play the same passage.
+
+If the short cable sounds noticeably brighter or more "open" at the top, your long cable is loading the source. A buffer at the guitar end will recover most of that brightness over the original cable length. If the two cables sound identical, the cable run is not the limit and you do not need a buffer.
+
+Most players who do this test on a 20-to-30-foot run with a passive piezo hear an obvious difference. Most players who do this test on a magnetic-pickup electric or an active-preamp acoustic do not. The diagnostic answers the question without any spec-sheet math.
+
+## What I Got Wrong the First Time
+
+When I started running an acoustic-guitar piezo rig with a long cable years ago, I bought a 1 megohm buffer because it was the cheap option and the marketing copy said "ultra-clean buffered output." It worked, in the sense that the cable run no longer noticeably dulled the signal, but I assumed all my high-end roll-off was now solved. It was not. The 1 megohm input was loading the piezo at the buffer's own input, recovering about 60 percent of the loss the cable had been causing.
+
+The switch to a 10 megohm input — the JHS Buffered Splitter, in my case — picked up another 1 dB at 10 kHz that the 1 megohm buffer was eating. That difference is audible on a strummed acoustic chord, especially with new strings. The piezo signal sounded substantially less "covered" than I had thought it could be.
+
+The lesson I keep going back to is: match the input impedance of the first low-impedance stage to the source. A piezo wants to see 10 megohm. A magnetic pickup wants to see 1 megohm. Anything lower on either source rolls off the top, and the loss is real even if it is small. The buffer is doing impedance bridging; the impedance match has to be right or the bridging is incomplete.
+
+## The Decision Tree
+
+Three questions decide which buffer (if any) belongs in your rig:
+
+1. **Is your source low-impedance already?** If your acoustic has an onboard preamp, the answer is yes. Skip the buffer entirely.
+2. **Is the cable run between the guitar and the next low-impedance point under 15 feet?** If yes, skip the buffer. The DI or amp input handles the impedance bridging without help.
+3. **Do you need to split the signal to two destinations (stage amp and FOH)?** If yes, the JHS Buffered Splitter is the right pick. If no, the question is whether you have a passive piezo (JHS Buffered Splitter for the 10 megohm input, or Boss FA-1 for the EQ option) or a magnetic pickup (TC BonaFide for $65 is enough).
+
+Most acoustic rigs that need a buffer at all need the JHS Buffered Splitter, because most acoustic rigs with passive piezos also need to split between stage amp and FOH. The cost is high but it solves both problems with one pedal and one power draw. The Boss FA-1 is the second pick for the player who wants the EQ and does not need the splitter. The TC BonaFide is the budget option that works well for magnetic-pickup acoustics and is borderline acceptable for piezo.
+
+The DI alone is the right answer for short-cable-run rigs, and the buffer becomes useful only when the cable run is doing measurable damage to the signal. Diagnose first. Then buy.
+
+<SaveThisTone title="Read the acoustic piezo DI piece for the other half of the signal chain" description="The DI is the first half of the acoustic piezo solution. The buffer is the second half when cable runs get long. Read the input-impedance breakdown that started this discussion." href="/blog/piezo-di-for-acoustic-guitar-input-impedance" ctaLabel="Read the DI input-impedance breakdown" />
