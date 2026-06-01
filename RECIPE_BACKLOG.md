@@ -47,11 +47,11 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 
 | # | Song | Band | Guitarist | Album (Year) | Gear sketch | Status |
 |--:|------|------|-----------|--------------|-------------|--------|
-| 1 | Hotel California (final solo) | Eagles | Don Felder + Joe Walsh | Hotel California (1976) | Felder: 1959 LP through Fender Tweed Twin. Walsh: LP through Music Man HD-130. Echoplex on Walsh, MXR Phase 90 considered but not used on the track. | queued |
-| 2 | Free Bird (outro solo) | Lynyrd Skynyrd | Allen Collins + Gary Rossington | (Pronounced 'Lĕh-'nérd 'Skin-'nérd) (1973) | Collins: '57 Strat through Peavey Mace. Rossington: '59 LP through Marshall Super Lead. No effects on the original track. | queued |
-| 3 | Smoke on the Water (riff) | Deep Purple | Ritchie Blackmore | Machine Head (1972) | White '74 Strat (scalloped, post-recording) into Marshall Major 200W via AIWA reel-to-reel as preamp. The riff used parallel fourths/fifths, not power chords. | queued |
-| 4 | Sunshine of Your Love (riff) | Cream | Eric Clapton | Disraeli Gears (1967) | "Fool" SG painted by The Fool. Marshall JTM45 head + 4x12. Wah pedal not used on this track. The "woman tone" — guitar tone rolled off, neck pickup. | queued |
-| 5 | Money for Nothing (riff) | Dire Straits | Mark Knopfler | Brothers in Arms (1985) | Mid-position Strat (NS-style) into Laney Klipp through Sennheiser MD441 condensed and SM57. Wah pedal half-cocked. Knopfler used his fingers (no pick) — that's half the tone. | queued |
+| 1 | Hotel California (final solo) | Eagles | Don Felder + Joe Walsh | Hotel California (1976) | Felder: 1959 LP through Fender Tweed Twin. Walsh: LP through Music Man HD-130. Echoplex on Walsh, MXR Phase 90 considered but not used on the track. | done |
+| 2 | Free Bird (outro solo) | Lynyrd Skynyrd | Allen Collins + Gary Rossington | (Pronounced 'Lĕh-'nérd 'Skin-'nérd) (1973) | Collins: '57 Strat through Peavey Mace. Rossington: '59 LP through Marshall Super Lead. No effects on the original track. | done |
+| 3 | Smoke on the Water (riff) | Deep Purple | Ritchie Blackmore | Machine Head (1972) | White '74 Strat (scalloped, post-recording) into Marshall Major 200W via AIWA reel-to-reel as preamp. The riff used parallel fourths/fifths, not power chords. | done |
+| 4 | Sunshine of Your Love (riff) | Cream | Eric Clapton | Disraeli Gears (1967) | "Fool" SG painted by The Fool. Marshall JTM45 head + 4x12. Wah pedal not used on this track. The "woman tone" — guitar tone rolled off, neck pickup. | done |
+| 5 | Money for Nothing (riff) | Dire Straits | Mark Knopfler | Brothers in Arms (1985) | Mid-position Strat (NS-style) into Laney Klipp through Sennheiser MD441 condensed and SM57. Wah pedal half-cocked. Knopfler used his fingers (no pick) — that's half the tone. | done |
 | 6 | Sweet Home Alabama (intro) | Lynyrd Skynyrd | Gary Rossington | Second Helping (1974) | '59 LP through Peavey Mace. The intro arpeggio is open-position D / C / G with chord pattern 1-2-3. | queued |
 | 7 | Black Dog (riff) | Led Zeppelin | Jimmy Page | Led Zeppelin IV (1971) | LP into Marshall direct-injected via mic preamp on the console (Andy Johns trick). The recorded signal is line-level not amp'd; the amp tone heard is preamp distortion. | queued |
 | 8 | Money (solo) | Pink Floyd | David Gilmour | The Dark Side of the Moon (1973) | Black Strat → Big Muff Pi (Triangle) → Hiwatt DR103 → WEM 4x12. Binson Echorec on the dotted-eighth. | queued |
@@ -117,6 +117,11 @@ successful run.)
 
 | Date | Slug | Backlog # |
 |------|------|-----------|
+| 2026-06-01 | felder-hotel-california-solo | 1 |
+| 2026-06-01 | collins-free-bird-outro-solo | 2 |
+| 2026-06-01 | blackmore-smoke-on-the-water-riff | 3 |
+| 2026-06-01 | clapton-sunshine-of-your-love-woman-tone | 4 |
+| 2026-06-01 | knopfler-money-for-nothing-intro | 5 |
 
 ---
 
