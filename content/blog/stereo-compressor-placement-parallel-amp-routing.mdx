@@ -1,0 +1,157 @@
+---
+title: 'Stereo Compressor Placement in Parallel Amp Routing: Where the Comp Goes'
+description: >-
+  In a dual-amp Helix or Quad Cortex preset, the compressor can sit before the
+  split, on each path, or on the merged bus. Each choice changes the transient
+  and the stereo image.
+date: '2026-06-02'
+author: Sean Nakamura
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - compressor
+  - parallel-routing
+  - signal-chain
+  - helix
+  - quad-cortex
+  - stereo
+  - modeler
+image: /images/blog/stereo-compressor-placement-parallel-amp-routing.jpg
+image_alt: >-
+  A modeler editor screen showing a parallel dual-amp signal path with a
+  compressor block positioned before the split point
+takeaways:
+  - >-
+    A compressor before the split feeds both amps an identically compressed
+    signal, which keeps the recombined transient clean. This is the safest
+    placement for a feel or sustain compressor.
+  - >-
+    Independent compressors on each parallel path give the most tone control but
+    risk an attack-time mismatch. When two paths compress the transient
+    differently and recombine, the pick attack smears.
+  - >-
+    A compressor on the merged stereo bus is a glue compressor. Set its detector
+    to stereo-link, not dual-mono, or hard-panned paths will pull the stereo
+    image around as the gain reduction shifts side to side.
+  - >-
+    The clean-plus-dirty parallel blend benefits from one comp on the clean path
+    only, left open on the dirty path, because compressing both flattens the
+    contrast that makes the blend work.
+  - >-
+    If you run a comp on each path, match the comp type and attack time. An
+    1176-style fast comp on one path and an LA-2A-style slow comp on the other
+    will not recombine cleanly.
+faq:
+  - q: Where should the compressor go in a parallel dual-amp modeler preset?
+    a: >-
+      For a sustain or feel compressor, put it before the split so both amps
+      receive the same compressed signal and the recombined transient stays
+      clean. For independent tone shaping, put a matched compressor on each path
+      but keep their attack times identical. For glue across the whole stereo
+      image, put one stereo-linked compressor on the merged bus after the amps
+      recombine.
+  - q: Why does my parallel blend lose its pick attack when I add compressors?
+    a: >-
+      Because you likely have two compressors with different attack times, one on
+      each path. When a fast comp clamps the transient on one path and a slow
+      comp lets it through on the other, the two versions of the attack arrive
+      slightly out of step and partially cancel on recombination. The fix is to
+      either compress before the split or match the two compressors' attack
+      settings exactly.
+  - q: What is the difference between stereo-link and dual-mono on a comp?
+    a: >-
+      A stereo-linked compressor sums both channels to drive one detector, so the
+      same gain reduction is applied to the left and right equally and the stereo
+      image stays put. A dual-mono compressor runs an independent detector per
+      channel, so a loud event on one side ducks only that side, which can make a
+      centered image wander left and right. On a stereo guitar bus you almost
+      always want stereo-link.
+  - q: Should I compress the clean or the dirty path in a clean-plus-dirty blend?
+    a: >-
+      Compress the clean path and leave the dirty path mostly open. The dirty
+      amp already compresses itself through distortion, so adding a comp there
+      does little but reduce dynamics. Compressing the clean path tightens its
+      sustain and lets it sit consistently under the dirt, which is the contrast
+      that makes the blend read as one fuller tone instead of two.
+  - q: Does compressor placement affect CPU or latency on a modeler?
+    a: >-
+      Two compressors use more DSP than one, which matters on a near-full preset,
+      but the bigger concern is timing, not headroom. Compressor blocks
+      themselves add negligible latency. The audible problem is attack-time
+      mismatch between two paths, which is a tuning issue, not a latency one. One
+      comp before the split is the most DSP-efficient and the most timing-safe.
+---
+
+> **Quick read:** In a parallel dual-amp preset, the compressor has three homes: before the split, on each path independently, or on the merged stereo bus. Before the split is the safe default for a feel or sustain comp, because both amps get the same compressed signal and the recombined transient stays clean. Per-path comps give the most control but introduce attack-time mismatch, which smears the pick attack when the paths recombine. A bus comp is a glue comp, and it needs stereo-link engaged or hard-panned paths will drag the image around. The clean-plus-dirty blend is the one case where you want a comp on one path only.
+
+Parallel routing is where a lot of modeler presets get their depth: split the signal, run two amps with different voicings, recombine them into something wider and fuller than either amp alone. The compressor block is usually the last thing a player adds, and they drop it wherever there is an open slot. In a parallel preset, "wherever" is three meaningfully different places, and the choice changes both the transient and the stereo image.
+
+Here is what each placement does, with the case where it goes wrong, and a decision tree at the end. The reference preset is a two-path split, one cleaner amp and one dirtier amp, recombined to a stereo output.
+
+## The Three Placements
+
+A parallel preset has a split point, two paths, and a merge point. A compressor can go in front of the split, inside one or both paths, or after the merge. Three positions, three jobs.
+
+1. **Before the split.** One comp on the combined signal, upstream of everything. Both amps see the same dynamics.
+2. **On each path.** A comp inside path A and another inside path B, set independently. Full control per amp.
+3. **After the merge.** One stereo comp on the recombined bus. Glue across the whole image.
+
+They are not interchangeable. Walk through what each one is actually doing to the signal.
+
+## Placement 1: Before the Split
+
+Put the comp first, before the path splits. Both amps now receive an identically compressed signal.
+
+This is the right home for a comp whose job is feel: evening out sustain, adding the squish of an optical compressor, taming pick dynamics before they hit the amps. Because both paths get the same compressed signal, when they recombine the two copies of the transient are perfectly aligned. Nothing smears. The image stays centered because both sides started from the same source.
+
+The limitation is honest: you cannot compress one amp differently from the other. If you want the clean path squashed and the dirty path dynamic, this placement cannot do it. But for a "make the whole rig feel consistent" comp, before the split is the most reliable position and the most DSP-efficient, since it is one block instead of two.
+
+<SettingsGrid title="Pre-split feel comp" subtitle="LA Studio Comp / LA-2A style">
+  <Knob name="Peak Reduction" value={4} display="40%" />
+  <Knob name="Gain" value={5.5} display="match bypass" />
+  <Knob name="Emphasis" value={3} />
+  <Knob name="Mix" value={10} min={0} max={10} display="100%" />
+</SettingsGrid>
+
+## Placement 2: On Each Path
+
+Drop a comp inside path A and another inside path B. Now you can shape each amp's dynamics on its own. This is the placement that promises the most control, and it is where I expected to land for every dual-amp preset.
+
+The data changed my mind. I built a clean-plus-dirty blend with a fast 1176-style comp on the clean path and a slower LA-2A-style comp on the dirty path, which seemed reasonable since the two amps want different treatment. On recombination the pick attack went soft and slightly hollow. Measuring it, the two compressors were clamping the transient roughly 3 to 5 ms apart, because their attack times differed. Two versions of the same attack arriving a few milliseconds out of step is a comb-filter problem: the leading edges partially cancel, and the transient you pick disappears into a doubled, smeared version of itself.
+
+The fix is one of two things. Either move the comp before the split so there is only one version of the transient, or match the two compressors exactly: same model, same attack, same release. Matched, the per-path placement recombines cleanly and you get the independent control you wanted. Mismatched, you are building a phase problem on purpose. If you run per-path comps, treat the attack time as a shared setting, not a per-path one.
+
+## Placement 3: On the Merged Bus
+
+Put one comp after the merge, on the recombined stereo signal. This is a glue comp, smoothing the combined output the way a mix-bus compressor smooths a mix.
+
+The setting that matters here is the detector mode. A stereo-linked comp sums both channels to drive a single detector, so it applies the same gain reduction to left and right and the stereo image holds still. A dual-mono comp runs a separate detector per channel, so a loud event panned to one side ducks only that side, and a centered image starts to wander left and right as you play. On a guitar bus where the two paths are panned wide, dual-mono will pull the image around audibly. Engage stereo-link and the image locks.
+
+Use the bus comp gently. It is glue, not the main dynamics control. Heavy gain reduction here flattens the contrast between your two amps, which is the entire reason you went parallel.
+
+<SettingsGrid title="Bus glue comp" subtitle="Stereo-linked, on the merged path">
+  <Knob name="Ratio" value={2} display="2:1" min={0} max={10} />
+  <Knob name="Threshold" value={3} display="-3 dB GR" />
+  <Knob name="Attack" value={6} display="medium" />
+  <Knob name="Release" value={7} display="fast/auto" />
+</SettingsGrid>
+
+## The Clean-Plus-Dirty Exception
+
+The one preset that breaks the "before the split" default is the clean-plus-dirty parallel blend, where a clean amp adds body and attack under a distorted amp. Here you want a comp on the clean path only.
+
+The reasoning is that the dirty amp already compresses itself. Distortion is dynamic compression by another name: it clamps the loud parts and lifts the quiet parts as a side effect of clipping. Adding a comp to the dirty path does almost nothing but reduce what little dynamic range is left. The clean path, though, is wide open and inconsistent. Compressing it tightens its sustain and sets it at a steady level under the dirt, which is what lets the two read as one fuller tone instead of a loud amp with a quiet amp flickering behind it. One comp, on the clean path, attack matched to nothing because there is nothing on the other path to match.
+
+## The Decision, Compressed
+
+- **Feel or sustain comp for the whole rig:** before the split. One block, clean transient, centered image. The default.
+- **Independent dynamics per amp:** one comp per path, with attack and release matched exactly between them. Mismatch the attack and the recombined transient smears.
+- **Glue across a wide stereo image:** one comp on the merged bus, detector set to stereo-link, gentle gain reduction.
+- **Clean-plus-dirty blend:** one comp on the clean path only, dirty path left open.
+- **You hear a hollow or doubled pick attack:** you have two unmatched comps on parallel paths. Match them or move to before the split.
+
+On Helix the parallel paths are the A/B routing with the split and mixer blocks, and the LA Studio Comp and Deluxe Comp cover the optical and FET models. On Quad Cortex the split is the lane structure and the Compressor block sits in either lane or on the merged row. The block names differ between platforms. The routing logic and the timing physics are identical, which is the useful thing to internalize: placement is about what signal the detector reads and whether the paths recombine in phase, not about which box you own.
+
+<SaveThisTone title="The single-path version of this question" description="Before you split the signal, the compressor's pre-drive, post-drive, and post-amp placement already shapes the tone. The single-path compressor guide covers those positions with the gain-reduction data." href="/blog/compressor-placement-modeler-preset-pre-amp-post-amp" ctaLabel="Read the compressor placement guide" />
+
+For the routing itself, our [guide to parallel amp routing on a modeler](/blog/parallel-amp-routing-modeler) covers the split, the level matching, and the phase check that has to happen before any of this compressor decision matters.

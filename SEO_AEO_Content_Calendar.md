@@ -1804,3 +1804,64 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 | 3 | Noise Gate Placement in a Modeler Preset: Before the Drive, After the Drive, or in Both Positions | "noise gate placement helix," "where to put noise gate signal chain," "quad cortex gate before or after distortion" | Viktor Kessler | 3 — Signal Chain & Tone Theory | Compressor placement SERP — the compressor post deliberately did not cover noise gates; the gate placement question is a separate signal-chain decision with different stakes (high-gain hum reduction vs picking artifact suppression); the Helix Hard Gate / Soft Gate distinction and the Quad Cortex Noise Gate block both have multiple placement options that interact with the compressor placement; Viktor's metal/high-gain rigor makes the gate placement his natural follow-on topic |
 | 4 | How to Measure Wall Voltage Safely Without an Electrician's License: The Kill-A-Watt Workflow | "how to measure wall voltage," "kill-a-watt for tube amp," "venue outlet voltage check" | Rick Dalton | 6 — Quick Fixes | Low voltage SERP — the wall voltage post recommends the Kill-A-Watt but does not walk through the measurement procedure or what to look for at a venue; touring guitarists need the practical safe-measurement protocol (which outlet to plug into, what current draw to watch for, what the readings actually mean); existing electrician-side guides assume training that touring guitarists do not have; Rick's "I keep one in my gig bag" framing positions him as the natural voice |
 | 5 | Valhalla Supermassive vs. Strymon BlueSky for IR Reverb Tail: The Free Plugin vs. the $300 Pedal | "valhalla supermassive review," "free reverb plugin vs strymon bluesky," "best reverb after cab ir" | Dev Okonkwo | 4 — Modeler Masterclass | Cab IR vs real cab SERP — the IR post recommends adding a short reverb after the IR to close the room-reflection gap; the specific reverb choice matters; Valhalla Supermassive is free and is the default bedroom-producer pick; the Strymon BlueSky is the hardware equivalent in most pedalboard rigs; the comparison is a natural cluster anchor and lets Dev cover the plugin-vs-pedal decision the bedroom rig actually faces
+
+---
+
+### Posts published: brass-graphite-nut-materials-vs-black-tusq-xl, tc-bonafide-vs-jhs-mini-ab-vs-mooer-micro-buffer-acoustic, noise-gate-placement-modeler-preset, how-to-measure-wall-voltage-kill-a-watt-workflow, valhalla-supermassive-vs-strymon-bluesky-ir-reverb-tail
+
+*(Note: the five 2026-05-25 SERP-derived topics above were drafted on 2026-05-29 but were left uncommitted on disk. They were validated and committed alongside the 2026-06-02 run.)*
+
+### Posts published: nut-files-stewmac-vs-hosco-slot-cutting, wire-buffered-splitter-amp-foh-tuner-three-output, stereo-compressor-placement-parallel-amp-routing, tube-amp-100v-international-touring-japan-uk, ir-plus-reverb-bedroom-recording-room-gap
+
+## SERP Analysis — 2026-06-02
+
+### Topic 1: nut-files-stewmac-vs-hosco-slot-cutting (Carl Beckett)
+
+- **Target queries:** "stewmac vs hosco nut files," "best nut files," "hosco nut files vs stewmac," "nut file set first time"
+- **Top 5 ranking:** TDPRI (Telecaster forum) "Which Nut Files (leaning towards Hosco)," Strat-Talk "Hosco nut files = StewMac files for half the price," My Les Paul forum "Best Nut Files - Hosco or StewMac?," The Gear Page "Nut files: Hosco vs StewMac," Haze Guitars blog "Nut File Tough Love"
+- Gap confirmed: the entire top 5 is forum threads plus one luthier blog (Haze Guitars). No editorial source frames the thesis that the **slot geometry** (width over string, rounded bottom, back-angle, witness point) matters more than the brand choice; the forum consensus is "Hosco is the same file for half the price" with a minority reporting a V vs U slot-shape difference. Our post leads with the slot, treats the brand as secondary, and corrects the common assumption that the pricier file is automatically better.
+- **Factual correction applied during this run:** initial draft inverted the pricing (had StewMac cheaper); SERP confirms Hosco is the ~half-price option and StewMac is the US standard with an edge on the narrowest files. Draft was corrected before commit.
+- PAA signal: "Do I need gauged nut files?" "How wide should a nut slot be?" "Why does my string ping when tuning?" "Can you cut a nut slot too deep?"
+- Follow-on opportunity: nut slot **geometry** as its own post (back-angle, bottom radius, first-fret clearance by gauge); also a StewMac vs Hosco **file-set buying tier** guide (which gauges to actually buy for a standard set).
+
+### Topic 2: wire-buffered-splitter-amp-foh-tuner-three-output (Nathan Cross)
+
+- **Target queries:** "buffered splitter three outputs," "guitar to amp and FOH and tuner," "split guitar signal amp and DI no hum"
+- **Top 5 ranking:** Axess Electronics BS23/BS2 product pages, AMZ (muzique.com) JFET splitter DIY page, Gearspace "3 out guitar splitter?" thread, Fortin SPLIFF product page, JHS Buffered Splitter (Amazon + JHS product page)
+- Gap confirmed: results are product pages and DIY/forum threads. No editorial walkthrough of the three-output **topology** (buffer first, parallel tuner tap, isolated FOH leg) paired with the ground-lift rule (lift the FOH leg, keep the amp leg grounded for safety). The transformer-isolated output with a phase switch (Fortin Spliff, Lehle, Radial) is described on spec sheets but never explained as the fix for the second-path-to-ground hum.
+- PAA signal: "Why do I get hum running to an amp and the board?" "Active or transformer-isolated splitter?" "Where does the tuner go in a split rig?" "Lift ground on amp or FOH side?"
+- Follow-on opportunity: transformer-isolated vs active buffered splitter head-to-head (Fortin Spliff vs Lehle P-Split III vs Radial); also a phase-switch explainer for dual-amp stage rigs.
+
+### Topic 3: stereo-compressor-placement-parallel-amp-routing (Sean Nakamura)
+
+- **Target queries:** "compressor placement parallel amp helix," "stereo compressor quad cortex," "where to put compressor dual amp preset"
+- **Top 5 ranking:** Neural DSP forum "Compressor Placement," Quad Cortex user manual (routing), Line 6 community 4CM stereo thread, Worship Tutorials "Stereo Amps Pack," Helix Help "Tip: Parallel Compression"
+- Gap confirmed: parallel-compression-as-an-effect is well covered (Helix Help), but "specific guidance on optimal compressor placement within stereo/parallel routing appears limited." No source covers the three placements (before split / per-path / merged bus), the attack-time-mismatch smear when two unmatched comps recombine, or the stereo-link vs dual-mono detector decision on a hard-panned guitar bus. Our post owns all three.
+- PAA signal: "Compressor before or after the amp split?" "Why does my parallel blend lose pick attack?" "Stereo-link vs dual-mono compressor?" "Compress clean or dirty path?"
+- Follow-on opportunity: phase/cancellation diagnosis in dual-amp presets (the prerequisite check our post points to); also a stereo-link detector deep-dive for the full stereo chain.
+
+### Topic 4: tube-amp-100v-international-touring-japan-uk (Hank Presswood)
+
+- **Target queries:** "tube amp 100v japan," "120v amp on 100v," "touring amp voltage UK Europe," "amp voltage selector"
+- **Top 5 ranking:** Tapeheads.net (hi-fi receiver threads), Gearspace "Japanese 100v tube amp at 120v," Audiogon Accuphase thread, Marshall Amp Forum "100v running in 110v," Tessan "Japan/US voltage guide"
+- Gap confirmed: the ranking is dominated by hi-fi/receiver voltage threads and a generic travel-adapter blog. No guitar-amp-specific editorial source maps the **feel** change (earlier, spongier breakup on 100V; gift to cranked rock, curse to clean headroom) or the hard rule that 230V will destroy a 120V amp without a converter/selector. SERP confirms "120v amp into 100v usually makes the amp distort more and change its character" — matches the post.
+- PAA signal: "Can I use my American amp in Japan?" "What happens at 230V?" "Does voltage change tube amp tone?" "What size step-down converter for an amp?"
+- Follow-on opportunity: step-down vs step-up converter sizing (VA rating for amp draw, not speaker wattage); also the 50Hz vs 60Hz footnote and Japan's east/west grid split as a standalone quick-fix.
+
+### Topic 5: ir-plus-reverb-bedroom-recording-room-gap (Dev Okonkwo)
+
+- **Target queries:** "cab IR room reverb early reflections," "direct guitar sounds flat mix," "amp in the room IR reverb," "short reverb after cab sim"
+- **Top 5 ranking:** Fractal forum "Cab Sim vs Room Reverb," Fractal "Amp-in-the-room IRs," The Gear Page "Adding Early Reflections to IRs in Helix," Gearspace "Cab IR + Room Reverb," Source Audio Ventris early-reflections blog
+- Gap confirmed: the technique (reverb block after the cab IR, keep early reflections, drop the tail) is documented on forums but there is no editorial recipe with concrete starting settings (predelay ~0-10 ms, decay 80-150 ms, 5-15% mix, high-cut the return) or the counterintuitive framing that a short room verb makes the guitar sound **closer and more solid**, not further away. SERP strongly confirms the technique and the "close-miked IRs sound very immediate" problem statement.
+- PAA signal: "Why does my IR sound flat?" "What are early reflections?" "Best reverb to simulate room mics?" "Predelay vs early reflections?"
+- Follow-on opportunity: early reflections vs reverb tail explainer (how to split a reverb into room vs space); also a room-IR-blended-with-cab-IR convolution recipe.
+
+## SERP-Derived Topics — 2026-06-02
+
+| # | Topic | Target Query | Writer | Pillar | Source |
+|---|---|---|---|---|---|
+| 1 | Nut Slot Geometry 101: Back-Angle, Bottom Radius, and the Witness Point | "nut slot angle," "how deep should a nut slot be," "nut slot bottom shape," "first fret clearance nut" | Carl Beckett | 6 — Quick Fixes | Nut files SERP — the file post argues the slot matters more than the material but only sketches the geometry; the full method (back-angle toward the tuners, bottom radius matched to the string, depth set by first-fret clearance per gauge, the front edge as the witness point) deserves its own diagrammed post; PAA is thick with slot-depth and slot-angle questions; Carl's methodical maintenance voice and woodworker framing fit |
+| 2 | Phase Cancellation in Dual-Amp Modeler Presets: Find It Before You Compress | "parallel amp sounds thin helix," "phase invert dual amp preset," "quad cortex parallel amp phase," "why does my dual amp lose low end" | Sean Nakamura | 4 — Modeler Masterclass | Stereo comp SERP — the compressor post names a phase check as the prerequisite but does not teach it; two amps with different latency or polarity partially cancel on merge and gut the low end; the mono-sum test, the polarity flip, and per-path time alignment are unaddressed editorially; Sean's measurement-first voice owns this |
+| 3 | Transformer-Isolated vs Active Buffered Splitters: When the Ground Loop Forces the Upgrade | "transformer isolated splitter vs buffered," "fortin spliff vs lehle p-split," "do I need an isolated splitter," "radial vs jhs buffered splitter" | Nathan Cross | 5 — Gear Lab | Three-output splitter SERP — the wiring post recommends moving to a transformer when a ground lift does not fully clear hum; the head-to-head (Fortin Spliff vs Lehle P-Split III vs Radial vs JHS active) with the phase-switch explanation is missing editorially; product pages only; Nathan's live/FOH context is the natural fit |
+| 4 | Sizing a Voltage Converter for a Touring Tube Amp: VA Rating, Not Speaker Watts | "what size step-down converter for amp," "VA rating tube amp," "voltage converter for guitar amp touring," "step up vs step down amp" | Hank Presswood | 6 — Quick Fixes | 100V touring SERP — the voltage post says size the converter for twice the amp's draw but does not walk the math; players confuse speaker wattage with mains draw and undersize the converter; the VA calculation, the 2x headroom rule, and step-up vs step-down direction (Japan vs UK) are a clean standalone quick-fix; Hank's gear-history voice carries it |
+| 5 | Early Reflections vs Reverb Tail: How to Split a Reverb Into Room and Space | "what are early reflections reverb," "early reflections vs tail guitar," "predelay vs early reflections," "room reverb vs hall guitar" | Dev Okonkwo | 4 — Modeler Masterclass | IR-plus-reverb SERP — the bedroom recipe uses only the early-reflection portion of a reverb; the deeper explainer (what early reflections are, how predelay relates, how to dial a verb to room-only vs space-only, and why ER density reads as size) is a natural cluster anchor; Dev's frequency-space/atmosphere framing fits |

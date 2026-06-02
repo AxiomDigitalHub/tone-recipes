@@ -1,0 +1,150 @@
+---
+title: 'TC BonaFide vs. Mooer Micro Buffer vs. JHS Mini A/B for Acoustic'
+description: >-
+  Two budget buffers and a passive switcher tested on a passive-piezo acoustic
+  over a long cable. Which $50 box actually saves your top end, and which one
+  isn't a buffer at all.
+date: '2026-05-29'
+author: Jess Kowalski
+author_slug: jess-kowalski
+category: gear-lab
+tags:
+  - buffer-pedal
+  - acoustic-guitar
+  - tc-electronic
+  - mooer
+  - jhs
+  - piezo-pickup
+  - budget-gear
+image: /images/blog/tc-bonafide-vs-jhs-mini-ab-vs-mooer-micro-buffer-acoustic.jpg
+image_alt: >-
+  TC Electronic BonaFide, Mooer Micro Buffer, and JHS Mini A/B pedals lined up on
+  a small acoustic gig pedalboard
+takeaways:
+  - >-
+    A passive piezo acoustic loses high end over a long cable because the pickup
+    has very high output impedance. A buffer up front fixes it. That is the
+    whole reason any of these boxes exist.
+  - >-
+    The TC Electronic BonaFide (about $50) is the most genuinely transparent of
+    the three. On a passive piezo over 25 feet of cable it brought back the top
+    end without adding any voice of its own.
+  - >-
+    The Mooer Micro Buffer (about $45) also works, but it nudged the high end up
+    a hair, almost like a half-step of presence boost. On a quacky piezo that is
+    a feature, not a bug.
+  - >-
+    The JHS Mini A/B is not a buffer. It is a passive switcher. It will not save
+    your top end because there is no active circuit inside to do the saving.
+    People buy it expecting a buffer and get nothing.
+  - >-
+    If your acoustic has an onboard preamp with a battery, you probably do not
+    need any of these. The preamp already buffers the signal. This is a
+    passive-pickup problem.
+faq:
+  - q: Do I need a buffer for my acoustic guitar?
+    a: >-
+      Only if you have a passive piezo pickup and you run a long cable. Passive
+      piezos have extremely high output impedance, so the signal loses high end
+      fast over cable length, and you get a thin, quacky sound through the PA. A
+      buffer up front fixes it. If your acoustic has an onboard preamp with a
+      battery, that preamp is already buffering the signal and you do not need an
+      extra pedal.
+  - q: Is the JHS Mini A/B a buffer?
+    a: >-
+      No. The JHS Mini A/B is a passive A/B switcher for routing one signal to
+      two destinations. It has no active circuit, so it cannot drive a long
+      cable or restore lost top end. If you bought one expecting it to fix a thin
+      acoustic tone, it will not, because there is nothing inside it to do that
+      job. You want an actual buffer like the TC BonaFide or the Mooer Micro
+      Buffer instead.
+  - q: TC BonaFide or Mooer Micro Buffer for acoustic?
+    a: >-
+      Both work. The BonaFide is the more genuinely transparent of the two, so
+      pick it if you want your acoustic to sound exactly like itself but louder
+      in the highs. The Mooer nudges the top end up slightly, which on a quacky
+      piezo can actually sound better than dead-flat. They are within five
+      dollars of each other, so it comes down to whether you want flat or a touch
+      of sparkle.
+  - q: Where in the chain does an acoustic buffer go?
+    a: >-
+      First. The whole point is to buffer the signal before the cable run does
+      any damage, so the buffer goes as close to the guitar as possible, ideally
+      right at the start of your board or even a short patch cable from the
+      guitar. Putting a buffer at the end of a long cable run is too late. The
+      high end is already gone by then.
+  - q: Will a buffer fix feedback on my acoustic?
+    a: >-
+      No, and do not expect it to. A buffer fixes high-end loss from cable
+      capacitance. Feedback is a different problem caused by the body resonating
+      with the amplified sound, and you fix that with a notch filter, a feedback
+      buster soundhole cover, or a DI with a phase switch. A buffer does nothing
+      for feedback either way.
+---
+
+> **Quick read:** If your passive-piezo acoustic sounds thin and quacky through the PA, it is probably the cable, not the pickup. Passive piezos have brutally high output impedance, so they dump their high end into a long cable. A buffer up front fixes it for about $50. The TC Electronic BonaFide is the most genuinely transparent of the three boxes here and the safe pick. The Mooer Micro Buffer works too and adds a touch of top-end sparkle that flatters a quacky piezo. The JHS Mini A/B is NOT a buffer (it is a passive switcher) and will do nothing for your tone. And if your acoustic has an onboard preamp with a battery, you can skip all of this, because the preamp is already buffering for you.
+
+I do live sound three nights a week, and the same thing happens almost every acoustic night. Singer-songwriter plugs a nice acoustic into a 25-foot cable, walks to the mic, strums, and sounds like a kazoo in a cardboard box. They blame the PA. It is almost never the PA. It is the cable eating their top end before the signal ever reaches me.
+
+The fix is a buffer, and you do not need a fancy one. So I grabbed the three budget boxes people actually ask about (the TC Electronic BonaFide, the Mooer Micro Buffer, and the JHS Mini A/B) and ran them on a passive-piezo dreadnought through 25 feet of cable into the board. One of them isn't even a buffer. We'll get to that.
+
+## Why a Passive Piezo Needs a Buffer in the First Place
+
+Quick physics, no homework. A passive piezo pickup (the under-saddle strip with no battery and no preamp) puts out a signal with very high output impedance. High output impedance plus the capacitance of a long guitar cable equals a low-pass filter you did not ask for. The longer the cable, the more high end disappears. That is the thin, honky, quacky sound.
+
+A buffer is a tiny active circuit that takes the high-impedance signal from the pickup and re-sends it at low impedance, which the cable can carry without losing the top. Put the buffer right at the guitar, before the long cable, and the cable has nothing left to ruin. (Buffer = a unity-gain circuit that lowers output impedance. It does not make you louder. It just stops the cable from stealing your highs.)
+
+Here is the catch that decides everything: input impedance. A buffer for a passive piezo needs a high input impedance, ideally 1 megohm or more, or the buffer itself loads down the pickup and you have not fixed anything. That number is the spec that matters and the one nobody on the product page makes easy to find.
+
+## The Test
+
+Same guitar (a passive under-saddle dreadnought, no battery), same 25-foot cable, same board, same channel on the desk. I matched levels by ear at the mic and then A/B'd each box against bypass.
+
+| Box | Street price | Actual buffer? | Input impedance | What it did to the piezo |
+|---|---|---|---|---|
+| TC Electronic BonaFide | ~$50 | Yes | High (1 MΩ class) | Brought the top back, added nothing of its own |
+| Mooer Micro Buffer | ~$45 | Yes | High (1 MΩ class) | Brought the top back, plus a hair of presence lift |
+| JHS Mini A/B | ~$45 | No (passive switch) | N/A | Nothing. It can't. There's no circuit. |
+
+## TC Electronic BonaFide — The Honest One
+
+The BonaFide is the one I'd hand to the singer-songwriter without a second thought. Flip it on and the acoustic comes back to sounding like the acoustic, just with the top end the cable had been eating. Open strings got their shimmer back, the pick attack tightened up, and the boxy honk in the low mids backed off because it was never really the guitar, it was the missing highs making the mids look big.
+
+The word people use for buffers is "transparent," which is useless on its own, so here is what I mean: with my eyes closed I could not tell you the BonaFide was in the chain except that the guitar suddenly sounded right. It does not have a voice. It has the absence of a voice, which is exactly the job.
+
+Honestly, that's the whole review. It costs fifty bucks, it fixes the problem, it doesn't add a problem. Good enough is great.
+
+## Mooer Micro Buffer — The Slightly Flattering One
+
+The Mooer does the same core job and I expected it to be a carbon copy. It wasn't, and that was the surprise. It nudged the top end up a touch past flat, almost like dialing in a half-step of presence. On a magnetic pickup that might be too much. On a quacky under-saddle piezo, which already lives in a slightly nasal place, the little lift actually pushed the tone toward "shiny" instead of "honky," and I liked it better than dead-flat.
+
+So it's not the more accurate buffer. It's the more flattering one for this specific source. The string detail came forward, like someone wiped the dust off the high E. If your piezo is the cheap quacky kind (and most factory under-saddle pickups are), the Mooer's slight color is a feature. If you want clinical accuracy, the BonaFide is your box.
+
+Five dollars apart. Pick by whether you want flat or a little sparkle.
+
+## JHS Mini A/B — This Is Not a Buffer
+
+Plot twist that isn't a twist if you read the box: the JHS Mini A/B is a passive A/B switcher. It routes one input to one of two outputs. That's a real, useful thing (switching between two amps, two tuners, whatever) but it is NOT a buffer. There is no active circuit inside. There is nothing to lower your output impedance, nothing to drive the cable, nothing to bring your top end back.
+
+I put it in the chain anyway because people genuinely buy it thinking it'll fix their tone. It did exactly what a passive switch does, which is nothing audible. The acoustic was just as thin and quacky as bypass, because a passive box can't add what a passive box doesn't have.
+
+I'm not roasting the pedal. It's fine at its actual job. I'm roasting the assumption. If a box doesn't say "buffer" and doesn't need power to do something to your signal, it is not going to save your top end. NOBODY's passive switcher is secretly a buffer.
+
+<SaveThisTone title="Spend more? Here's the premium buffer tier" description="If you outgrow the budget boxes, the next tier up compares the JHS Buffered Splitter, Lehle Sunday Driver, and Boss FA-1 with measured input impedance. Same problem, more money, more outputs." href="/blog/jhs-buffered-splitter-vs-lehle-sunday-driver-vs-boss-fa-1" ctaLabel="Read the premium buffer shootout" />
+
+## The Part Where You Might Not Need Any of This
+
+Before you spend a dime: does your acoustic have a battery? If there's a 9-volt in there feeding an onboard preamp (most Fishman, LR Baggs Anthem, and B-Band systems), that preamp is already a buffer. It re-sends the signal at low impedance before it ever hits the cable. Adding a buffer pedal in front of an already-buffered output does basically nothing. Save your money.
+
+This is purely a passive-pickup problem. Passive under-saddle, passive soundhole magnetic, anything with no battery and a high-impedance output. That's who needs a buffer. Everyone else can keep scrolling.
+
+And if you want one box that buffers AND splits to your amp and the FOH and your tuner, that's a high-Z DI's job, not a buffer's. Different tool, more money, covered elsewhere.
+
+## What to Actually Buy
+
+- **Passive piezo, want it to sound like itself but with the highs back:** TC Electronic BonaFide. The transparent one. Set it and forget it.
+- **Passive piezo, the pickup is quacky and you want a little sparkle:** Mooer Micro Buffer. The slight presence lift flatters a cheap under-saddle.
+- **You need to switch between two outputs:** JHS Mini A/B. Just know it is not fixing your tone, it is routing your signal.
+- **Your acoustic has a battery and a preamp:** none of these. You're already buffered.
+
+The singer-songwriter from night one? I lent her the BonaFide between sets. She strummed once through it, looked at the monitor, and asked where to buy one. Fifty dollars to stop sounding like a kazoo. That's the best money an acoustic player with a passive pickup can spend, and it's the cheapest thing on the board.

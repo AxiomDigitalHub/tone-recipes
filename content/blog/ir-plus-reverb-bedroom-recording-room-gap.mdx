@@ -1,0 +1,132 @@
+---
+title: 'IR Plus a Short Reverb: The Bedroom Recipe That Closes the Room Gap'
+description: >-
+  A cab IR captures the speaker and mic but almost none of the room, which is
+  why a direct guitar sounds flat in a mix. A short room reverb after the IR
+  puts the early reflections back.
+date: '2026-06-02'
+author: Dev Okonkwo
+author_slug: dev-okonkwo
+category: modeler-masterclass
+tags:
+  - cab-ir
+  - reverb
+  - bedroom-recording
+  - mixing
+  - valhalla-supermassive
+  - early-reflections
+image: /images/blog/ir-plus-reverb-bedroom-recording-room-gap.jpg
+image_alt: >-
+  A bedroom recording setup with a DAW showing a cab IR loader feeding a short
+  room reverb plugin on a guitar track
+takeaways:
+  - >-
+    A cab IR captures the speaker and the microphone but almost none of the
+    room, so a direct guitar tone is essentially anechoic. That missing room is
+    why it can sound flat and pasted-on in a mix.
+  - >-
+    A very short room reverb after the IR re-adds the early reflections a real
+    cab makes against a real floor and wall, which is what gives a recorded
+    guitar its sense of depth and body.
+  - >-
+    Keep the mix low, around 5 to 15 percent wet, with a short decay near 80 to
+    150 ms. At that level it does not sound like reverb. It sounds like the
+    guitar was recorded in a room.
+  - >-
+    EQ the reverb. High-cut around 6 to 8 kHz so the reflections do not add
+    fizz, and low-cut around 200 Hz so they do not muddy the low end. Reflections
+    that are darker than the dry signal read as a real space.
+  - >-
+    Use a room or early-reflection algorithm, not a hall. Valhalla Supermassive
+    can do it at its smallest sizes, but a dedicated room reverb or your DAW's
+    stock room is more honest for this specific job.
+faq:
+  - q: Why does my guitar sound flat or 2D when I record through a cab IR?
+    a: >-
+      Because a cab IR captures the speaker and microphone but almost none of
+      the room around them. A real cab in a real room throws sound at the floor
+      and walls, and those early reflections arrive a few milliseconds after the
+      direct sound, which is most of what gives a recorded guitar its depth. The
+      IR is essentially anechoic, so the guitar sits on the surface of the mix
+      with nothing behind it. A short room reverb after the IR puts that depth
+      back.
+  - q: What reverb settings close the room-reflection gap on a direct guitar?
+    a: >-
+      A short room algorithm, predelay near 0 to 10 ms, decay around 80 to 150
+      ms, and mix low at 5 to 15 percent wet. High-cut the reverb around 6 to 8
+      kHz and low-cut around 200 Hz so the reflections sit darker than the dry
+      signal. Place it after the cab IR. At those settings it does not sound like
+      an effect. It sounds like the guitar was tracked in a room.
+  - q: How much reverb is too much for this trick?
+    a: >-
+      Past about 20 percent wet the illusion breaks and it starts to sound like
+      obvious reverb instead of a room. The goal is to fool the ear into hearing
+      a recording space, not to hear a reverb tail. If you can clearly identify
+      a tail when you solo the track, you have gone too far. Pull the mix down
+      until the guitar simply sounds more solid and present.
+  - q: Can I use Valhalla Supermassive for this, and it is free?
+    a: >-
+      Yes, Supermassive is free and it can do this at its smallest sizes and
+      shortest delays, though it is built for big ambient washes, so you are
+      using a small corner of it. A dedicated room reverb, like ValhallaRoom or
+      the stock room reverb in your DAW, is more honest for early reflections
+      because it models a small space directly. For a free starting point,
+      Supermassive at minimum size or your DAW's stock room both work.
+  - q: Should the room reverb be mono or stereo?
+    a: >-
+      For a centered rhythm guitar, keep it mono or narrow so it adds depth
+      without smearing the image. For an ambient or lead part where width is the
+      point, a true-stereo room opens it up. The rule follows the part: if the
+      guitar lives in the center of the mix, a narrow room keeps it there while
+      still adding body.
+---
+
+> **Quick read:** A cab IR captures the speaker and the mic but almost none of the room, so a direct guitar tone is basically anechoic, and that is why it can sit flat and pasted-on in a mix. The fix is a very short room reverb after the IR, set low: predelay near zero, decay around 80 to 150 ms, mix at 5 to 15 percent wet, with the reverb darkened by a high-cut around 6 to 8 kHz. At that level it does not sound like reverb. It sounds like the guitar was recorded in a room. Use a room algorithm, not a hall, and keep it mono for a centered rhythm part.
+
+There is a particular kind of flat that a direct-recorded guitar gets. You dial in a great amp sim, load a cab IR everyone swears by, and the tone sounds right in solo... and then it goes into the mix and sits on top of everything like a sticker. No depth. No air behind it. It is technically a good tone and it refuses to belong in the song.
+
+The reason is in the IR, and once you understand what an IR leaves out, the fix takes about thirty seconds and costs nothing. This is about that fix: a short reverb after the cab IR that puts the room back into a sound that never had one.
+
+## What a Cab IR Actually Captures
+
+A cab IR is a snapshot of a speaker and a microphone. Someone put a mic in front of a cab, sent a sweep through it, and captured how the speaker, the mic, and the few inches of air between them colored the sound. That is most of an electric guitar tone, and it is why IRs work so well.
+
+But notice what is missing. A real cab in a real room does not just throw sound straight into a mic. It throws sound at the floor, the walls, the ceiling, and those reflections come back and arrive at your ears a few milliseconds after the direct sound. That tiny gap — direct sound, then a wash of early reflections five to twenty milliseconds behind it — is most of what your brain reads as size and depth and "this is in a place." A close-mic IR captures almost none of it. It is essentially an anechoic capture. Dead air around a perfect speaker.
+
+So the direct tone is missing maybe five percent of what a mic'd cab gives you, and that five percent is the part that tells the listener the guitar exists in space. No wonder it sits on the surface. There is no room under it to sink into.
+
+## The Recipe: A Short Room, Set Low
+
+The fix is to synthesize the room the IR left out. Not a big reverb. A small, short one that mimics early reflections, placed after the cab IR so it colors the finished cab sound the way a real room would.
+
+Use a room algorithm, not a hall or a plate. You want the dense, fast cluster of early reflections a small space makes, not a long, ringing tail. Set the predelay short, near zero to ten milliseconds, because real early reflections arrive almost immediately. Keep the decay short, somewhere around 80 to 150 milliseconds — long enough to suggest a room, short enough that it never reads as a tail. And keep the mix low. This is the whole trick. Five to fifteen percent wet.
+
+<SettingsGrid title="Short room verb" subtitle="after the cab IR">
+  <Knob name="Mix" value={0.08} min={0} max={1} display="8% wet" />
+  <Knob name="Decay" value={1} min={0} max={10} display="~100 ms" />
+  <Knob name="Predelay" value={0.5} min={0} max={10} display="0–10 ms" />
+  <Knob name="High Cut" value={7} min={0} max={10} display="6–8 kHz" />
+  <Knob name="Low Cut" value={2} min={0} max={10} display="~200 Hz" />
+</SettingsGrid>
+
+Then EQ the reverb itself, because untreated it adds fizz and mud. High-cut the reverb return around six to eight kHz so the reflections come back darker than the dry signal — real reflections lose their top end bouncing off soft surfaces, and a reverb that is brighter than the source always sounds fake. Low-cut around two hundred hertz so the reflections do not pile up in the low end and turn the guitar to soup. Darker and thinner than the dry signal. That is what a room sounds like.
+
+## Why 8 Percent Sounds Like a Room, Not a Reverb
+
+Here is the part that surprised me. I went into this expecting reverb to push the guitar back and away, to make it sound further off, the way reverb usually does. At eight percent wet with a hundred-millisecond decay, that is not what happened at all. The guitar did not move back. It got closer. More solid. Like it gained a body it did not have before, like it went from a cutout to a thing with weight.
+
+The reflections were not registering as reverb. They were registering as a room. The ear heard the dense little cluster of early reflections and concluded "this was recorded somewhere," and a guitar recorded somewhere reads as more real and more present than a guitar recorded nowhere. The tail was too short and too quiet to identify as an effect. It just thickened the sound.
+
+And the moment I pushed the mix up past twenty percent, the spell broke. The reflections got loud enough and long enough that the ear stopped hearing a room and started hearing a reverb, and the guitar slid backward into obvious effect territory. The line between "recorded in a room" and "drenched in reverb" is mostly a mix-level decision, and it sits lower than you would think. When in doubt, pull it down until you are not sure it is on, then leave it there. That uncertainty is the sound of it working.
+
+## The Free Way and the Modeler Way
+
+You do not need to buy anything. Valhalla Supermassive is free, and at its smallest sizes and shortest delay times it can do this, though it is really built for huge ambient washes — you are borrowing a tiny corner of a plugin designed for the opposite job. The stock room reverb in your DAW works just as well for this and is arguably more honest, since a room algorithm models a small space directly. A dedicated room reverb is the cleanest tool, but the point is you almost certainly already own something that does this.
+
+If you live entirely inside a modeler and never touch a DAW, the same recipe works there. Add a Room reverb block after your cab block, set the mix low, the decay short, and high-cut the return. Helix and Quad Cortex both have room algorithms that do exactly this. The block lives after the cab for the same reason the plugin lives after the IR: you are adding the room to the finished cab sound, the way the air sat around a real speaker.
+
+Keep it mono for a centered rhythm part so it adds depth without smearing the image across the stereo field, and open it up to a true-stereo room only when width is actually the point, like an ambient figure that is supposed to float. The reverb should follow the part. A guitar that lives in the center of the mix wants a narrow room that keeps it there while still giving it something to stand in.
+
+That five percent the IR leaves out is small, but it is the difference between a guitar that sits in the mix and one that sits on top of it. For the deeper story on why a real cab and an IR diverge in a small room, our [cab IR versus real cab guide](/blog/cab-irs-vs-real-cab-bedroom-room-treatment) takes the gap apart measurement by measurement.
+
+<SaveThisTone title="Pick the reverb that does this best" description="The free Valhalla Supermassive and the Strymon BlueSky take opposite routes to the same short room tail. The comparison covers which one closes the IR room gap more convincingly and where the free option falls short." href="/blog/valhalla-supermassive-vs-strymon-bluesky-ir-reverb-tail" ctaLabel="Read the reverb comparison" />

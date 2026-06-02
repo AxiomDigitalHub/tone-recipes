@@ -1,0 +1,134 @@
+---
+title: 'Wiring a Three-Output Rig: Buffered Splitter to Amp, FOH, and Tuner'
+description: >-
+  How to send one guitar to a stage amp, the front-of-house DI, and a tuner at
+  once without level loss or ground-loop hum — the buffered-splitter topology
+  and where to lift the ground.
+date: '2026-06-02'
+author: Nathan Cross
+author_slug: nathan-cross
+category: signal-chain
+tags:
+  - buffered-splitter
+  - signal-chain
+  - ground-loop
+  - worship
+  - front-of-house
+  - di-box
+  - tuner
+image: /images/blog/wire-buffered-splitter-amp-foh-tuner-three-output.jpg
+image_alt: >-
+  A buffered splitter pedal on a worship pedalboard feeding three cables to an
+  amp, a DI box, and a tuner
+takeaways:
+  - >-
+    A passive Y-cable split loses high end and level because the cable
+    capacitance of three runs loads down a high-impedance guitar signal. A
+    buffer at the front fixes this by driving all three outputs from a low
+    output impedance.
+  - >-
+    Ground-loop hum in an amp-plus-FOH rig comes from the second path to earth,
+    not from the splitter. Lift the ground on the front-of-house leg and leave
+    the amp leg grounded for safety.
+  - >-
+    The tuner should sit on an always-on buffered output so muting it for a
+    string change does not interrupt the amp and FOH feeds during the set.
+  - >-
+    A transformer-isolated splitter handles the ground loop at the box. An
+    active buffer with no transformer is cheaper and works fine until two
+    separate mains circuits introduce hum, at which point you need the
+    transformer.
+  - >-
+    A modeler going direct does not need this rig, but if you run a modeler into
+    both an amp and the board, the same three-output logic and the same
+    ground-lift rule apply.
+faq:
+  - q: Why do I get hum when I run to both an amp and the front-of-house board?
+    a: >-
+      Because the signal now has two paths to earth ground: through the amp's
+      power cord and through the front-of-house console's power cord. When those
+      two grounds sit at slightly different potentials, current flows through the
+      audio cable shield and you hear it as a steady 60-cycle hum. Lifting the
+      ground on the front-of-house leg breaks the loop while keeping the amp
+      grounded for safety.
+  - q: Should I use an active buffered splitter or a transformer-isolated one?
+    a: >-
+      Start with an active buffered splitter if your amp and the board share the
+      same circuit or you have never had hum. It is cheaper and adds no insertion
+      loss. Move to a transformer-isolated splitter the moment you get hum that a
+      ground lift on the DI does not fully solve, which is common in older
+      buildings where the stage and the booth are on different breakers.
+  - q: Where does the tuner go in a three-output rig?
+    a: >-
+      On its own always-on output, tapped off the buffer in parallel with the
+      amp and FOH feeds, not in line with them. That way the tuner reads your
+      pitch constantly and muting or unplugging it for a quick fix never
+      interrupts the signal going to the amp or the house. Many buffered tuners,
+      like the Boss TU-3, also have a buffered output you can use as the splitter
+      itself in a simple rig.
+  - q: Do I lift the ground on the amp side or the front-of-house side?
+    a: >-
+      The front-of-house side. The amp's ground is your shock-safety connection
+      and must stay intact. The DI or the FOH leg of the splitter is where you
+      engage the ground lift, because the console already has its own grounded
+      power supply. Lifting the leg that does not provide your safety ground is
+      the rule.
+  - q: Can I just use a Y-cable to split to three places?
+    a: >-
+      You can, and it will make sound, but you will lose high end and volume and
+      probably pick up hum. A passive split puts three cable runs in parallel on
+      a high-impedance signal, which dulls the tone, and it offers no isolation
+      against ground loops. A buffered or transformer-isolated splitter is the
+      difference between a rig that works at one church and a rig that works at
+      every room you walk into.
+---
+
+> **Quick read:** Sending one guitar to a stage amp, the front-of-house DI, and a tuner at the same time is a three-output problem, and the failure modes are level loss and hum. A buffer at the front drives all three cables without dulling the tone. The tuner goes on an always-on parallel tap so muting it never cuts the set. The hum is a ground loop between the amp's power cord and the console's power cord; you break it by lifting the ground on the front-of-house leg and leaving the amp grounded for safety. An active buffered splitter is the affordable start. A transformer-isolated splitter is the fix when two mains circuits fight each other.
+
+Most guitarists who play to a room eventually need their signal in three places at once. The amp on stage gives them feel and the sound they monitor by. The front-of-house feed carries them to the congregation through the main speakers. The tuner sits between songs and keeps them honest. The trouble is that splitting one guitar three ways is where level loss and hum live, and a Y-cable from the hardware store solves none of it.
+
+This is about the topology that does work, where the hum actually comes from, and what to buy at three budgets. The reference rig is an electric into a stage amp plus a DI to the board, with a tuner always reading, but the logic holds for an acoustic with a pickup just the same.
+
+## Why a Passive Split Falls Apart
+
+A guitar pickup is a high-impedance source. It does not have the muscle to drive a long cable, let alone three at once. Each cable adds capacitance, and capacitance on a high-impedance signal rolls off the high end. One cable you might not notice. Three cables in parallel off a passive Y and the top end goes dull, the level sags, and the guitar sounds like a blanket got thrown over it.
+
+A buffer fixes the root cause. It takes that weak, high-impedance signal and re-presents it at a low output impedance, which can drive several cables with no loss. Once the signal is buffered, splitting it three ways costs you nothing in tone. This is the whole reason the front of a three-output rig is a buffer and not a passive box.
+
+## The Topology, Input to Output
+
+Read it left to right, the way the signal travels.
+
+Guitar into the buffer first. The buffer is the heart of the rig, and everything downstream feeds off its low-impedance output. From there the signal splits into three parallel taps:
+
+- **Amp out.** A standard instrument cable to your stage amp. This is the leg you keep grounded.
+- **Front-of-house out.** Through a DI box to the console's mic input. This is the leg you isolate and lift.
+- **Tuner out.** An always-on parallel tap to the tuner, so the tuner reads pitch without sitting in the signal path to the amp and house.
+
+The order matters. The tuner is parallel, not in line, so that pulling it or muting it for a quick string change never interrupts the two feeds carrying you to the room. If your only goal is amp plus tuner, a buffered tuner like the Boss TU-3 can be the buffer and the split in one box. Add the front-of-house feed and you want a real splitter.
+
+## Where the Hum Comes From
+
+Here is the part that surprises people. I spent an evening at a church convinced the splitter was the source of a hum, swapping cables and boxes, and the splitter was innocent the whole time. The hum was the front-of-house connection.
+
+When you run to an amp and to the board, your signal now has two separate paths to earth ground. One through the amp's three-prong power cord. One through the console's power cord, off in the booth on a different circuit. Those two ground points almost never sit at exactly the same electrical potential, and the difference pushes a small current through the shield of your audio cable. You hear it as a steady 60-cycle hum that sits under everything like an idling engine you cannot turn off.
+
+The fix is to break one of the two paths. You lift the ground on the front-of-house leg, at the DI box or on the isolated output of the splitter. You leave the amp leg grounded, because that ground is your shock protection and you do not touch it. Lift the leg that is not keeping you safe, keep the leg that is. That one move kills most stage hum, and the reason it works is that you have left the signal exactly one path to ground instead of two.
+
+If the ground lift on the DI does not fully clear it, you have reached the limit of an active buffer and it is time for a transformer. A transformer in the front-of-house leg passes the audio across a magnetic gap with no electrical connection between the two sides, which breaks the loop physically rather than by switch. That is the most reliable cure, and it is why touring rigs lean on transformer-isolated splitters.
+
+## The Gear, Three Tiers
+
+**Entry — active buffered splitter.** A JHS Buffered Splitter or a Boss line selector takes your buffered signal and gives you the parallel outputs you need. No transformer, so no isolation, but if your stage and booth share a clean circuit you may never need it. Pair it with a DI that has a ground-lift switch and you have the rig for well under a couple hundred dollars.
+
+**Working — transformer-isolated splitter.** A Lehle P-Split III or a Radial splitter gives you one buffered or direct output for the amp and one transformer-isolated, ground-lifted output for the board, in one box built for exactly this. This is the rig that walks into a room it has never played and works the first time. For a guitarist who plays a different stage every week, this tier is worth the money.
+
+**Touring — multi-output junction box.** A Radial JX44 or similar gives you isolated outputs for amp, house, a second amp, and a tuner tap, with switching, all grounded and lifted correctly from the factory. More than most need, exactly right for a rig that has to be bulletproof under a tech's hands.
+
+<SaveThisTone title="Compare the buffers that anchor this rig" description="The front buffer is the part that has to add nothing of its own. The buffered-splitter comparison measures input impedance and noise floor across the common options so you can pick the one that drives three cables cleanest." href="/blog/jhs-buffered-splitter-vs-lehle-sunday-driver-vs-boss-fa-1" ctaLabel="Read the buffer comparison" />
+
+## A Note for the Modeler Player
+
+If you run a modeler straight to the board over XLR or USB, you do not need any of this. The modeler's output is already low impedance and balanced, and it solves the split internally. But plenty of players run a modeler into a stage amp for feel and into the board for the house at the same time, and the moment they do, they are back in a two-path-to-ground situation. The same rule applies. Isolate and lift the front-of-house leg, keep the amp leg grounded, and the hum goes away.
+
+The point of the whole rig is that the room never hears the wiring. They hear the song. When the signal gets where it needs to go at full strength with no hum riding under it, you stop thinking about your rig and start serving the moment, which is the only reason any of this is worth getting right. For the deeper dive on why a transformer beats a buffer when the grounds fight, our [guide to buffers versus transformer DIs for ground loops](/blog/buffer-pedal-vs-transformer-di-ground-loops) takes it apart, and the [stage-hum troubleshooting walkthrough](/blog/ground-loop-hum-amp-stage) covers the rest of the room's gremlins.

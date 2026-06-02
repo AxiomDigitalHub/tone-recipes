@@ -1,0 +1,154 @@
+---
+title: 'Noise Gate Placement in a Modeler Preset: Before, After, or Both'
+description: >-
+  Where to put the noise gate in a Helix or Quad Cortex high-gain preset.
+  Keying off the raw guitar versus gating after the amp, with the timing data
+  on why each placement chatters or smears.
+date: '2026-05-29'
+author: Viktor Kessler
+author_slug: viktor-kessler
+category: signal-chain
+tags:
+  - noise-gate
+  - signal-chain
+  - high-gain
+  - helix
+  - quad-cortex
+  - metal-tone
+  - modeler
+image: /images/blog/noise-gate-placement-modeler-preset.jpg
+image_alt: >-
+  A Helix noise gate block highlighted in a high-gain preset signal chain on a
+  modeler editor screen
+takeaways:
+  - >-
+    A gate placed first, keyed off the raw guitar, tracks palm mutes the
+    fastest because the clean signal has the clearest transients. This is the
+    default placement for tight, chugging high-gain.
+  - >-
+    A gate placed after the drive but before the amp is easier to set a
+    threshold on because the signal is hotter, but it holds open longer on
+    decaying notes and smears the silence between chugs.
+  - >-
+    A gate after the amp removes the most total noise, including amp hiss, but
+    it must sit before any reverb or delay. Gate a reverb tail and you chop the
+    tail into a stutter.
+  - >-
+    Two gates is a legitimate strategy for very high gain. A gentle gate at the
+    input tames pickup noise, a tighter gate after the amp kills hiss. Each one
+    does less work, so each one chatters less.
+  - >-
+    Attack and hold matter more than threshold. Set the threshold just above the
+    noise floor, set attack near zero for metal, and use hold to stop the gate
+    from chattering on the decay.
+faq:
+  - q: Where should I put the noise gate in a Helix or Quad Cortex preset?
+    a: >-
+      For tight high-gain, put the gate first in the chain so it keys off the
+      raw guitar signal, which has the clearest note-on and note-off
+      transients. This tracks palm mutes the fastest. If you still have amp hiss
+      with the gate open, add a second gate after the amp block but before any
+      reverb or delay. Never put a gate after a time-based effect, because it
+      will chop the tails.
+  - q: Should the noise gate go before or after the distortion?
+    a: >-
+      Before, in most metal presets. A gate before the drive keys off the clean
+      signal, which has a wider dynamic range and sharper transients than the
+      compressed, distorted signal. That makes the gate open and close in time
+      with your picking. A gate after the drive sees a hotter, more compressed
+      signal, so the threshold is easier to set but the gate holds open longer
+      and the silence between palm mutes gets less precise.
+  - q: Why does my noise gate chatter or stutter?
+    a: >-
+      Chatter happens when the signal hovers right at the threshold, so the gate
+      opens and closes rapidly as a note decays through that level. Three fixes,
+      in order: raise the hold time so the gate stays open through the decay,
+      lower the threshold so quiet decays do not trip it, or move the gate
+      earlier in the chain so it keys off a cleaner signal with a more
+      definitive note-off. Increasing hold time solves it most of the time.
+  - q: Is a gate after the amp better than a gate before it?
+    a: >-
+      It removes more total noise because it catches amp and cab hiss that a
+      front gate cannot see. But it tracks your playing worse, because the
+      post-amp signal is heavily compressed and its transients are smeared. The
+      best result for very high gain is usually both, a front gate for tracking
+      and a post-amp gate for hiss, each set gently so neither does all the work.
+  - q: What threshold should I set on a metal noise gate?
+    a: >-
+      Set it just above your noise floor and no higher. Mute the strings, watch
+      or listen to where the hum and hiss sit, and put the threshold a few dB
+      above that. Setting it too high chokes the sustain of real notes and makes
+      the gate slam shut on quiet passages. The goal is to remove noise during
+      silence, not to truncate notes you actually want to hear.
+---
+
+> **Quick read:** In a high-gain modeler preset, the noise gate placement that tracks palm mutes the tightest is first in the chain, keyed off the raw guitar signal, because the clean signal has the sharpest note-on and note-off transients. A gate placed after the drive is easier to set a threshold on but holds open longer and smears the gaps between chugs. A gate placed after the amp removes the most total noise including hiss, but it must go before any reverb or delay or it chops the tails into a stutter. For very high gain, two gentle gates beat one aggressive one: a front gate for tracking, a post-amp gate for hiss. Attack and hold time matter more than the threshold knob most players obsess over.
+
+The noise gate is the one block in a high-gain preset that players bolt on last and place wherever there is an empty slot. That is the wrong order of operations. Gate placement changes how the gate tracks your picking, how much noise it removes, and whether the silence between palm mutes sounds vacuum-sealed or stuttered. The block does the same thing wherever you put it. What changes is the signal it is looking at.
+
+This is about where the gate goes in a Helix or Quad Cortex preset, what each placement does to the timing, and why "both positions" is a real answer and not a cop-out. The reference rig for the measurements below is a 7-string into a high-gain amp model in drop A.
+
+## What the Gate Is Actually Reading
+
+A noise gate is a switch with a threshold. Above the threshold the signal passes. Below it, the gate closes and the signal is attenuated. The detail that decides placement is this: the gate keys off whatever signal is at its input. Move the gate, and you change what it is reading, even though what it is removing may live somewhere else entirely.
+
+This is the part that trips people up. The **noise** you want gone (single-coil hum, high-gain hiss, the fizz a drive pedal adds) is generated at specific points in the chain. The **trigger** the gate uses to decide open or closed is the signal at the gate's input. Those two things are not always in the same place, and the art of gate placement is lining them up.
+
+## Placement 1: Gate First, Keyed Off the Raw Guitar
+
+Put the gate at the head of the chain, right after the input. It now keys off the clean, dry guitar signal.
+
+The clean signal has the widest dynamic range in the entire preset. A picked note slams up from silence and decays back to silence with unmistakable edges. The gate reads those edges and opens and closes in tight lockstep with your right hand. For palm-muted chugging in a low tuning, this is the tightest-tracking placement available. Every chug gets a clean cutoff and the space between chugs is genuinely silent.
+
+I expected the post-amp placement to win on tightness, because that is where the most noise lives and gating at the source of the noise seems logical. The data said otherwise. A front gate closed roughly 30 to 40 ms faster on a decaying drop-A chug than the same gate placed after the amp, because the post-amp signal is compressed into a smear with no sharp note-off for the gate to lock onto. The clean signal told the truth about when the note ended. The distorted signal lied about it.
+
+The limitation is honest: a front gate cannot remove hiss that the amp model generates downstream while the gate is open. When you are playing, the gate is open and the amp hiss is masked by the note. When you stop, the front gate closes the input, the amp has nothing to amplify, and it goes quiet. So in practice the front gate handles most metal rhythm work by itself. The exception is sustained single notes and chords where the gate is open and the amp hiss sits under a quiet passage. That is where you need placement 3.
+
+**Settings for a front gate, metal rhythm:**
+- Threshold: a few dB above the muted-string noise floor, typically around -55 to -45 dB depending on pickups
+- Attack: as fast as the block allows, near 0 ms, so the chug transient is not softened
+- Hold: 20 to 60 ms to ride through the natural decay without chatter
+- Decay/Release: 50 to 150 ms, longer for sustained styles, shorter for staccato chugging
+
+## Placement 2: Gate After the Drive, Before the Amp
+
+Drop the gate in after your boost or overdrive and before the amp block. The Tube Screamer-style boost most metal players run is now in front of the gate, so the gate keys off a hotter, more compressed signal.
+
+The advantage is purely ergonomic. The signal hitting the gate is louder and more consistent, so finding a threshold that clears the noise without choking notes is easier. The threshold knob feels less twitchy.
+
+The cost is timing. The boosted signal is already compressed, which means the note-off transient is rounded over. The gate now holds open longer through a decaying note (measured around 25 ms longer hold on the same chug versus the front placement) because the compressed decay sits above threshold for longer. The result is silence between chugs that is slightly less crisp. Not broken. Just looser. For mid-gain or sustaining lead work this looseness is fine and arguably more musical. For tight rhythm it is a small step down from placement 1.
+
+## Placement 3: Gate After the Amp, Before Time Effects
+
+Put the gate after the amp and cab, but in front of any reverb or delay. Now the gate sees the full noise floor, including amp hiss and cab IR coloration.
+
+This removes the most total noise of any single placement. If you have a preset that hisses with the gate open during a held chord, this is the placement that kills it, because it is reading and gating the hiss directly.
+
+Two rules, both non-negotiable:
+1. The gate goes **before** reverb and delay. Always. If you gate after a reverb, the gate chops the decaying tail the instant the dry note drops below threshold, and a smooth reverb tail turns into a stuttering gargle. The tail is supposed to ring out after you mute. A gate sees it as noise and murders it.
+2. This placement tracks your picking worse than the front gate, because the post-amp signal is a compressed smear. Used alone on tight rhythm, it lags.
+
+So placement 3 alone is rarely the right answer. It is the second half of the right answer.
+
+## Placement 4: Both, the Way Pro Presets Are Actually Built
+
+The high-gain presets that sound tight and dead-silent are usually running two gates, not one. The logic is load-sharing.
+
+- **Front gate, set gently.** Keyed off the clean signal for fast, accurate tracking. Threshold low, just clearing pickup hum. It does the timing work.
+- **Post-amp gate, set gently.** Before the time effects. Threshold just clearing the amp hiss. It does the hiss work.
+
+Because each gate only has to do half the job, each one can run a lower threshold and a longer hold, which means neither one chatters or chokes notes. One aggressive gate trying to do everything has to run a high threshold, and a high threshold is what truncates the sustain of notes you wanted to keep. Two gentle gates beat one aggressive gate the same way two stages of mild compression beat one stage of brutal compression. This is the same principle as keying a hardware ISP Decimator from the guitar while the audio runs through the amp loop, just done entirely inside the preset.
+
+On Helix, use the standard **Noise Gate** for the front position and the **Hard Gate** (with its separate open and close thresholds) for the post-amp position where you want a more decisive shut. On Quad Cortex, the **Noise Gate** block works in either slot; place two instances and set both gently. The block names differ. The signal logic is identical.
+
+<SaveThisTone title="Pair the gate with the right compressor placement" description="Gate placement and compressor placement interact in the same chain. The compressor placement guide covers pre-drive, post-drive, and post-amp positions with the gain-reduction data." href="/blog/compressor-placement-modeler-preset-pre-amp-post-amp" ctaLabel="Read the compressor placement guide" />
+
+## The Decision, Compressed
+
+- **Tight metal rhythm, drop tuning, palm mutes:** gate first, keyed off the raw guitar. Fastest tracking. This is the default.
+- **The preset still hisses on held chords with the gate open:** add a second gate after the amp, before the reverb and delay.
+- **Mid-gain or sustaining lead, threshold feels twitchy:** gate after the drive. Easier to set, slightly looser, fine for the style.
+- **Very high gain, you want studio silence:** two gates, both gentle, front and post-amp. Let each do half.
+- **Your gate chatters:** raise the hold time first, lower the threshold second, move it earlier third.
+
+The threshold knob is the one everyone reaches for and the one that matters least once it is set just above the noise floor. Attack near zero, hold long enough to ride the decay, and the right placement reading the right signal. Get the placement correct and the gate becomes invisible, which is the entire point of a gate. You should never hear it work. You should only notice the silence it leaves behind.
