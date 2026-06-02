@@ -307,6 +307,27 @@ export const artists: Artist[] = [
     genres: ["hard-rock", "classic-rock", "metal"],
     image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/09/70/d0/0970d0fa-a46d-049b-125c-d131171fce1c/603497877393.jpg/600x600bb.jpg",
   },
+  {
+    name: "Ed King",
+    slug: "ed-king",
+    bio: "Lynyrd Skynyrd guitarist and bassist who wrote and played the signature Stratocaster lick — and the spoken 'one, two, three' count-off — that opens Sweet Home Alabama. A former member of Strawberry Alarm Clock, King brought a single-coil voice to a band otherwise built on Les Pauls, and his weak-but-cranked Strat tone on Second Helping is one of Southern rock's most-recognized sounds.",
+    genres: ["southern-rock", "classic-rock", "rock"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c2/d6/41/c2d64132-6a94-38ea-3309-3326f4680169/14UMGIM00873.rgb.jpg/600x600bb.jpg",
+  },
+  {
+    name: "Tom Scholz",
+    slug: "tom-scholz",
+    bio: "Boston's founder, an MIT-trained engineer who built his own rig from scratch in a Watertown, Massachusetts basement. His heavily-layered, ultra-sustained Les Paul tone — a 1968 Goldtop into a power-soaked 100W Marshall plus homemade compression — defined arena rock and later spawned the Rockman. More Than a Feeling is the blueprint.",
+    genres: ["classic-rock", "arena-rock", "rock"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/e3/08/9a/e3089ac9-a820-5ee9-64be-39500ad8a5e2/886444824972.jpg/600x600bb.jpg",
+  },
+  {
+    name: "Kerry Livgren",
+    slug: "kerry-livgren",
+    bio: "Kansas's principal songwriter and guitarist, who paired progressive-rock ambition with a no-frills rig: a guitar straight into a 100-watt Marshall, no pedals. He wrote Carry On Wayward Son and Dust in the Wind, fusing classical motifs with hard-rock riffing on Leftoverture and Point of Know Return.",
+    genres: ["progressive-rock", "classic-rock", "rock"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music/56/5b/88/mzi.hpnqhyuu.jpg/600x600bb.jpg",
+  },
 ];
 
 export const songs: Song[] = [
@@ -1085,6 +1106,66 @@ export const songs: Song[] = [
     external_tab_url: "https://www.songsterr.com/a/wsa/dire-straits-money-for-nothing-tab-s71",
     external_video_url: "https://www.youtube.com/results?search_query=money+for+nothing+riff+guitar+lesson",
     spotify_track_id: "1XOIFCSqkDIzhqDDpHm5Bf",
+  },
+  {
+    artist_slug: "ed-king",
+    title: "Sweet Home Alabama",
+    slug: "sweet-home-alabama-lynyrd-skynyrd",
+    album: "Second Helping",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c2/d6/41/c2d64132-6a94-38ea-3309-3326f4680169/14UMGIM00873.rgb.jpg/600x600bb.jpg",
+    year: 1974,
+    genres: ["southern-rock", "classic-rock"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/bestMatchForQueryString?s=sweet+home+alabama",
+    external_video_url: "https://www.youtube.com/results?search_query=sweet+home+alabama+intro+guitar+lesson",
+  },
+  {
+    artist_slug: "jimmy-page",
+    title: "Black Dog",
+    slug: "black-dog-led-zeppelin",
+    album: "Led Zeppelin IV",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/47/31/8e/47318e93-c0fa-35d1-8b84-809691955124/603497926121.jpg/600x600bb.jpg",
+    year: 1971,
+    genres: ["hard-rock", "classic-rock"],
+    difficulty: "advanced",
+    external_tab_url: "https://www.songsterr.com/a/wa/bestMatchForQueryString?s=black+dog+led+zeppelin",
+    external_video_url: "https://www.youtube.com/results?search_query=black+dog+led+zeppelin+riff+guitar+lesson",
+  },
+  {
+    artist_slug: "david-gilmour",
+    title: "Money",
+    slug: "money-pink-floyd",
+    album: "The Dark Side of the Moon",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/3e/76/b0/3e76b0e3-762b-2286-a019-8afb19cee541/886445635829.jpg/600x600bb.jpg",
+    year: 1973,
+    genres: ["progressive-rock", "classic-rock"],
+    difficulty: "advanced",
+    external_tab_url: "https://www.songsterr.com/a/wa/bestMatchForQueryString?s=money+pink+floyd",
+    external_video_url: "https://www.youtube.com/results?search_query=money+pink+floyd+solo+guitar+lesson",
+  },
+  {
+    artist_slug: "tom-scholz",
+    title: "More Than a Feeling",
+    slug: "more-than-a-feeling-boston",
+    album: "Boston",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/e3/08/9a/e3089ac9-a820-5ee9-64be-39500ad8a5e2/886444824972.jpg/600x600bb.jpg",
+    year: 1976,
+    genres: ["classic-rock", "arena-rock"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/bestMatchForQueryString?s=more+than+a+feeling",
+    external_video_url: "https://www.youtube.com/results?search_query=more+than+a+feeling+riff+guitar+lesson",
+  },
+  {
+    artist_slug: "kerry-livgren",
+    title: "Carry On Wayward Son",
+    slug: "carry-on-wayward-son-kansas",
+    album: "Leftoverture",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music/56/5b/88/mzi.hpnqhyuu.jpg/600x600bb.jpg",
+    year: 1976,
+    genres: ["progressive-rock", "classic-rock"],
+    difficulty: "advanced",
+    external_tab_url: "https://www.songsterr.com/a/wa/bestMatchForQueryString?s=carry+on+wayward+son",
+    external_video_url: "https://www.youtube.com/results?search_query=carry+on+wayward+son+riff+guitar+lesson",
   },
 ];
 
@@ -18345,6 +18426,1962 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 5, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "AIR Studios Montserrat plate", settings: { Mix: 0.15, Decay: 1.5, Predelay: 25 }, notes: "Small AIR plate — the record is dry, just glue." },
         ],
         notes: "Comp → parked wah → Brit Pre → 2x12 off-axis → plate mirrors the Helix chain. The wah is parked half-cocked — DON'T sweep it. The off-axis mic placement is the irreproducible part; the dark IR gets close.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  {
+    id: "seed-edking-sweet-home-alabama",
+    song_slug: "sweet-home-alabama-lynyrd-skynyrd",
+    title: "Ed King's Sweet Home Alabama Intro Tone",
+    slug: "edking-sweet-home-alabama-intro",
+    description:
+      "Sweet Home Alabama's instantly-recognizable intro lick — and the spoken 'one, two, three' count-off — was played by Ed King, not Gary Rossington, on a Fender Stratocaster with notably weak single-coils. Tracked at Studio One in Doraville, Georgia (1974), it ran into a cranked amp captured by a single padded Neumann U87 placed close to the cabinet, with no pedals — just a touch of reverb. The cleanness is the secret: King turned the amp all the way up for sustain, but the feeble pickups couldn't push it into breakup, so the lick stays glassy even at full volume.",
+    tone_context: "intro_riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Fender Stratocaster (1972, per Ed King)",
+      pickup_config: "SSS",
+      pickup_position:
+        "neck/middle (positions 4-5, inferred from the warm tone — King did not document the selector position)",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge:
+        ".010-.046 (typical 1970s set; King never documented the exact gauge)",
+      notable_mods:
+        "King described the Strat's single-coils as 'really bad' — weak, low-output pickups. That's the whole trick of the recorded tone: the amp is cranked all the way up for sustain, but the feeble pickups can't drive it into breakup, so the lick stays clean and glassy even at full volume.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name:
+          "Cranked amp — 50W Marshall (per Ed King) or Fender Twin (per engineer Rodney Mills)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Volume: 10, Treble: 7, Middle: 6, Bass: 5 },
+        notes:
+          "Documented conflict worth keeping honest: King recalls a 50-watt Marshall turned all the way up; engineer Rodney Mills recalls a Fender Twin near wide open on the left of the control room. Both describe a cranked amp pushed for sustain — set Volume near max, because the clean tone comes from the weak pickups failing to break the amp up, not from a low setting.",
+      },
+      {
+        position: 2,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "The cranked amp's own cab (Marshall 4x12 or Fender Twin 2x12)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Whichever amp it was, its stock speakers are part of the sound — a tight, slightly scooped cab voicing that lets the glassy single-coils ring. A bright open-back 2x12 (Twin) or a 4x12 (Marshall) both read correctly; the close mic is what defines the captured tone.",
+      },
+      {
+        position: 3,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Neumann U87 (single, padded, close)",
+        icon_type: "condenser_mic",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: {
+          Position:
+            "close to the cabinet, mic padded down — engineer Rodney Mills: 'just one mic'",
+        },
+        notes:
+          "Mills padded the U87 down and placed it close to the cone because the lick wasn't tracked at an extreme level. One mic, close — that's why the intro reads so immediate and dry, with none of the room blur a distant mic would add.",
+      },
+      {
+        position: 4,
+        category: "wet_effect",
+        subcategory: "reverb",
+        gear_slug: null,
+        gear_name: "A touch of short studio reverb",
+        icon_type: "reverb",
+        icon_color: "#60a5fa",
+        is_in_effects_loop: false,
+        settings: { Mix: "very low — King: 'maybe a little reverb'" },
+        notes:
+          "King's only effect was 'maybe a little reverb.' Keep it short and quiet so the lick stays upfront — a small plate or spring, not a hall. The exact unit isn't documented, so treat this as character, not a spec.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Fender Stratocaster (1972 per Ed King) with three weak, low-output single-coils — the cleanness of the recorded lick comes from these 'really bad' pickups, played in standard tuning.",
+      effects: [
+        "None — King: 'I didn't use any effects, just maybe a little reverb.' No drive, modulation, or boost pedals.",
+      ],
+      amp: "Documented conflict: Ed King recalls a 50-watt Marshall turned all the way up; engineer Rodney Mills recalls a Fender Twin near wide open. Both describe a cranked amp — the tone stays clean because of the weak pickups, not a clean setting.",
+      cabinet:
+        "The cranked amp's own cab (a Marshall 4x12 or the Fender Twin's 2x12), close-mic'd.",
+      microphone:
+        "A single Neumann U87, padded down and placed close to the cabinet (engineer Rodney Mills: 'just one mic').",
+      other_notes:
+        "Ed King played the intro lick AND the solo, plus the spoken 'one, two, three' count-off — settled by Sound on Sound's Classic Tracks feature and King's own interviews; Rossington and Collins overdubbed the rhythm guitars. Recorded at Studio One, Doraville GA (1974); produced by Al Kooper, engineered by Rodney Mills. Pickup position, the Strat's exact year, string gauge, and the reverb unit are not documented — treat those as best inference.",
+    },
+    tags: ["southern-rock", "classic-rock", "strat", "clean", "ed-king"],
+    sources: [
+      "https://www.soundonsound.com/techniques/classic-tracks-lynyrd-skynyrd-sweet-home-alabama",
+      "https://guitar-muse.com/lynyrd-skynyrds-ed-king-sweet-home-alabama-8150",
+      "https://www.vintageguitar.com/30849/ed-king-former-skynyrd-guitarist-creator-of-sweet-home-alabama-riff-dies-at-58/",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Vol/Pan",
+            block_category: "Volume/Pan",
+            original_gear: "Volume control",
+            settings: { Pedal: 1.0 },
+            notes:
+              "Assign to EXP 1 so you can ride the lick's dynamics by hand — King's clean tone lives or dies on pick attack, so a swell pedal lets you taper the front of phrases like he did with his fingers.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Natural amp + studio compression",
+            settings: {
+              Threshold: -30,
+              Ratio: 2,
+              Knee: 6,
+              Attack: 0.06,
+              Release: 0.5,
+              Mix: 0.5,
+              Level: 0,
+            },
+            notes:
+              "Gentle parallel comp to even out the glassy single-coil attack — set it light because the recorded tone is dynamic, not squashed. Mix at 0.5 keeps the pick transient alive so the lick still snaps.",
+          },
+          {
+            position: 3,
+            block_name: "Scream 808",
+            block_category: "Distortion",
+            original_gear: "No pedal on the original (alt boost)",
+            enabled: false,
+            settings: { Drive: 0.15, Gain: 0.15, Tone: 0.5, Level: 0.7 },
+            notes:
+              "DEFAULT-OFF. King used no pedals at all — the gain is the cranked amp. This is here only because an FRFR rig may not push the amp model as hard as a real cranked head; engage it for a hair more sustain.",
+          },
+          {
+            position: 4,
+            block_name: "Brit Plexi Brt",
+            block_category: "Amp",
+            original_gear: "Cranked 50W Marshall (per King) / Fender Twin (per engineer)",
+            settings: {
+              Drive: 0.55,
+              Bass: 0.5,
+              Mid: 0.6,
+              Treble: 0.65,
+              Presence: 0.55,
+              ChVol: 0.7,
+              Master: 1.0,
+              Bias: 0.5,
+              BiasX: 0.5,
+              Sag: 0.55,
+              Hum: 0.5,
+              Ripple: 0.5,
+            },
+            notes:
+              "Brit Plexi for King's 'Marshall turned all the way up' account; for the Fender Twin reading, swap to US Double Nrm and drop Drive to ~0.4. Master at 1.0 for power-amp sag, but Drive only 0.55 — the weak Strat pickups keep it on the clean side of breakup, which is the whole point.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Cranked amp's cab, close-mic'd",
+            settings: {
+              Mic: 4,
+              Distance: 1.0,
+              Position: 0.5,
+              Angle: 0,
+              LowCut: 90,
+              HighCut: 9000,
+              Resonance: 0.4,
+              Level: 0,
+              Pan: 0.5,
+              Delay: 0,
+            },
+            notes:
+              "Mic 4 (a 414-style condenser standing in for the U87), close and near-centre to mirror Mills' single padded close mic. HighCut at 9k keeps the single-coil sparkle without fizz; LowCut at 90 trims cab boom so the glassy mids carry the lick.",
+          },
+          {
+            position: 6,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "A touch of short studio reverb",
+            settings: {
+              Mix: 0.14,
+              Decay: 0.6,
+              Predelay: 0.02,
+              LowCut: 200,
+              HighCut: 8000,
+              Level: 0,
+            },
+            notes:
+              "Small, short plate — King's 'maybe a little reverb.' Cuts at 200 Hz and 8 kHz keep the tail from muddying the dry, upfront character of the intro.",
+          },
+        ],
+        notes:
+          "Strat → cranked British combo → single close mic, the way King tracked it. The trick isn't the gain — it's keeping Drive modest so the weak-pickup cleanness survives even with the Master maxed. Swap Brit Plexi for US Double Nrm if you favour the engineer's Fender Twin account.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Natural amp + studio compression",
+            settings: { Threshold: -30, Ratio: 2, Attack: 0.06, Release: 0.5, Mix: 0.5, Level: 0 },
+            notes:
+              "Light parallel comp mirroring the Helix Deluxe Comp — evens the single-coil attack without flattening the pick dynamics that make the lick speak.",
+          },
+          {
+            position: 2,
+            block_name: "1959 SLP",
+            block_category: "Amp",
+            original_gear: "Cranked 50W Marshall / Fender Twin",
+            settings: { Gain: 5.5, Bass: 5.0, Mid: 6.0, Treble: 6.5, Presence: 5.5, Master: 7.0, Sag: 5.5 },
+            notes:
+              "1959 SLP for King's cranked-Marshall account. Gain only 5.5 — the master is high for sag, but the weak pickups keep it clean. For the Fender Twin reading, load the Twin Reverb model and drop Gain to ~4.",
+          },
+          {
+            position: 3,
+            block_name: "4x12 Greenback",
+            block_category: "Cab",
+            original_gear: "Cranked amp's cab, close-mic'd",
+            settings: { Mic: "Condenser 414", Distance: 1.0, Position: 0.5, LowCut: 90, HighCut: 9000, Level: 0 },
+            notes:
+              "Single close condenser standing in for the padded U87 — near-centre placement keeps the lick bright and immediate the way one close mic on the cone does.",
+          },
+          {
+            position: 4,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "A touch of short studio reverb",
+            settings: { Decay: 0.6, Predelay: 20, Mix: 14, Level: 0 },
+            notes:
+              "Short plate — King's only effect. Keep it quiet so the dry, upfront intro stays forward in the mix.",
+          },
+        ],
+        notes:
+          "Comp → 1959 SLP → close-mic'd 4x12 → short plate mirrors the Helix chain. Search Cortex Cloud for cranked-Plexi or Twin captures; keep the gain low and the master high so the weak-pickup cleanness survives.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Marshall Super Lead clean' or 'Fender Twin edge of breakup'",
+            block_category: "Tone Model",
+            original_gear: "Cranked 50W Marshall / Fender Twin",
+            settings: {},
+            notes:
+              "Pick a capture of a cranked-but-clean British head (King's account) or a near-wide-open Fender Twin (the engineer's). The defining quality is a cranked amp that stays clean — choose a low-gain edge-of-breakup capture, not a saturated one, then let your guitar volume and pick attack do the rest.",
+          },
+        ],
+        notes:
+          "TONEX is capture-driven. The Sweet Home Alabama intro is essentially a clean Strat into a loud amp, so the Tone Model does almost everything — search ToneNET for a clean cranked Plexi or a pushed Fender Twin and add a short reverb downstream. No pedals.",
+      },
+      katana: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Booster",
+            block_category: "Booster",
+            original_gear: "No pedal on the original (alt boost)",
+            enabled: false,
+            settings: { Drive: 1, Bottom: 5, Tone: 5, Level: 6 },
+            notes:
+              "DEFAULT-OFF — King used no pedals. Only nudge it on as a clean boost if your FRFR rig won't push the amp enough; the gain is supposed to come from the cranked amp, not a pedal.",
+          },
+          {
+            position: 2,
+            block_name: "Crunch",
+            block_category: "Amp Type",
+            original_gear: "Cranked 50W Marshall / Fender Twin",
+            settings: {
+              Gain: 4,
+              Volume: 7,
+              Bass: 5,
+              Middle: 6,
+              Treble: 6,
+              Presence: 5,
+              Master: 7,
+            },
+            notes:
+              "Crunch character set with LOW Gain (4) — the recorded tone is edge-of-clean, not crunchy. The Crunch type gives the cranked-amp midrange bloom while the low gain preserves the glassy single-coil cleanness. Master high for power-amp feel.",
+          },
+          {
+            position: 3,
+            block_name: "Reverb",
+            block_category: "Reverb",
+            original_gear: "A touch of short studio reverb",
+            settings: { Time: 1.0, PreDelay: 20, Tone: 5, EffectLevel: 14 },
+            notes:
+              "Short, quiet reverb mirroring King's 'maybe a little reverb' — kept low so the intro stays dry and upfront.",
+          },
+        ],
+        notes:
+          "Crunch amp type with low gain is the move — the tone is a cranked-but-clean amp, not a dirty one. Booster default-OFF because King played straight in. Set the Pedal FX/EQ to taste; the cleanness is in the pickups and the low gain.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Stomp",
+            original_gear: "Natural amp + studio compression",
+            settings: { Sustain: 3.0, Tone: 5.0, Volume: 5.0 },
+            notes:
+              "Slot A. Light comp to even the single-coil attack — set low so the lick keeps its pick dynamics rather than getting squashed flat.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Marshall Plexi clean' or 'Fender Twin'",
+            block_category: "Profile",
+            original_gear: "Cranked 50W Marshall / Fender Twin",
+            settings: { Gain: 4.0, Bass: 5.0, Middle: 6.0, Treble: 6.5, Presence: 5.5 },
+            notes:
+              "Search Rig Exchange for a clean, cranked Plexi profile (King's account) or a pushed Fender Twin (the engineer's). Keep Gain low — the captured profile should be edge-of-breakup, and the weak-pickup cleanness rides on top.",
+          },
+          {
+            position: 3,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "A touch of short studio reverb",
+            settings: { Decay: 0.6, Predelay: 20, Mix: 0.14 },
+            notes:
+              "REV slot. Short plate, low mix — King's only effect, kept subtle so the dry intro stays upfront.",
+          },
+        ],
+        notes:
+          "Profile bakes in the cab (rule G3). Comp → clean cranked Plexi/Twin profile → short plate. Search Rig Exchange for low-gain cranked profiles — the cleanness is from the weak pickups, so don't chase a high-gain capture.",
+      },
+      fractal: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Natural amp + studio compression",
+            settings: { Threshold: -30, Ratio: 2, Attack: 0.06, Release: 0.5, Mix: 0.5, Level: 0 },
+            notes:
+              "Light parallel comp mirroring the Helix Deluxe Comp — evens the glassy attack without flattening the dynamics.",
+          },
+          {
+            position: 2,
+            block_name: "Plexi 100W High",
+            block_category: "Amp",
+            original_gear: "Cranked 50W Marshall / Fender Twin",
+            settings: { Drive: 4.5, Bass: 5.0, Mid: 6.0, Treble: 6.5, Presence: 5.5, MV: 7.0, Cut: 4.0 },
+            notes:
+              "Fractal's Plexi 100W High set with low Drive and high Master Volume — cranked power-amp feel, clean preamp. For the engineer's Fender Twin account, load Double Verb and drop Drive to ~3.",
+          },
+          {
+            position: 3,
+            block_name: "4x12 Greenback",
+            block_category: "Cab",
+            original_gear: "Cranked amp's cab, close-mic'd",
+            settings: { Mic: "Condenser 414", Distance: 1.0, LowCut: 90, HighCut: 9000, Level: 0 },
+            notes:
+              "Single close condenser standing in for the padded U87 — near-centre, close, for the immediate dry character of one mic on the cone.",
+          },
+          {
+            position: 4,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "A touch of short studio reverb",
+            settings: { Mix: 0.14, Decay: 0.6, Predelay: 20 },
+            notes:
+              "Short plate — King's only effect, kept quiet so the intro stays forward.",
+          },
+        ],
+        notes:
+          "Comp → Plexi 100W High (low drive, high master) → close-mic'd 4x12 → short plate mirrors the Helix chain. Swap to Double Verb for the Fender Twin reading. The cleanness is low gain + weak pickups, not a clean channel.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  {
+    id: "seed-page-black-dog",
+    song_slug: "black-dog-led-zeppelin",
+    title: "Jimmy Page's Black Dog Riff Tone",
+    slug: "page-black-dog-riff",
+    description:
+      "Black Dog's snarling, compressed riff was recorded with no guitar amp at all. At Island/Basing Street Studios in London (December 1970), Jimmy Page ran his 1959 Les Paul through a direct box into a mic channel of the Helios console and overdrove the console's mic preamp to make the distortion — then fed it through two UREI 1176 compressors in series, the first cranked as a saturation stage and the second doing the compression. Engineer Andy Johns triple-tracked it (left, right, centre). The tone that sounds like a synthesizer is a preamp pushed past its limit, not a speaker.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Les Paul Standard 'Number One' (1959)",
+      pickup_config: "HH",
+      pickup_position:
+        "bridge (inferred from the aggressive midrange — Page did not document the selector for this track)",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge:
+        "undocumented — Page did not specify a gauge for these sessions; a standard light set is assumed",
+      notable_mods:
+        "Number One is the 1959 'Burst Page bought from Joe Walsh in 1969; its neck pickup was later rewound. For Black Dog the guitar barely matters compared with the signal path — the character is the overdriven console mic preamp and the cascaded 1176s, not the pickup voicing.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "di",
+        gear_slug: null,
+        gear_name: "Direct box (DI) into the console mic channel",
+        icon_type: "di_box",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Mode: "instrument → mic channel" },
+        notes:
+          "The guitar never sees an amp. A DI takes it straight into a mic channel of the mixing board — Page: 'We put my Les Paul through a direct box, and from there into a mic channel.' This is the foundation of the whole tone.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Helios console mic preamp (overdriven)",
+        icon_type: "console",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Gain: "overdriven — 'used the mic amp of the mixing board to get distortion'" },
+        notes:
+          "The distortion IS the console. Page overdrove the Helios desk's mic preamp until it clipped — that buzzy, compressed, almost-synthetic snarl is preamp clipping, which is why it sounds nothing like a mic'd Marshall. Push the input until it breaks up.",
+      },
+      {
+        position: 3,
+        category: "effect",
+        subcategory: "compressor",
+        gear_slug: null,
+        gear_name: "UREI 1176 #1 (saturation stage)",
+        icon_type: "compressor",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Input: "cranked", Mode: "gain/saturation, compression minimal" },
+        notes:
+          "Per Universal Audio's teardown, the first 1176 was driven hard as a gain/saturation stage rather than for compression — it adds harmonic grit ahead of the second unit. This is half of the 'two 1176s in series' trick.",
+      },
+      {
+        position: 4,
+        category: "effect",
+        subcategory: "compressor",
+        gear_slug: null,
+        gear_name: "UREI 1176 #2 (the compressor)",
+        icon_type: "compressor",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Ratio: "high", Attack: "fast", Release: "fast" },
+        notes:
+          "The second 1176 does the actual compression — fast and aggressive, which squashes the preamp distortion into that tight, even, sustaining riff tone. The pair in series is what makes Black Dog sit so forward and controlled.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1959 Gibson Les Paul Standard 'Number One' (from Joe Walsh, 1969), played in standard tuning. For this riff the guitar is secondary to the signal path.",
+      effects: [
+        "Direct box (DI) into the console mic channel",
+        "Two UREI/Universal Audio 1176 compressors in series — the first cranked as a saturation/gain stage, the second doing the compression",
+      ],
+      amp: "None — no guitar amplifier was used. The distortion is the overdriven mic preamp ('mic amp') of the Helios mixing console. Page: 'We used the mic amp of the mixing board to get distortion.'",
+      cabinet:
+        "None — the guitar went direct to tape via the console; no speaker cabinet was mic'd.",
+      microphone:
+        "None — the signal was direct-injected. The 'mic amp' refers to the console's mic-preamp channel, overdriven for distortion, not an actual microphone.",
+      other_notes:
+        "Tracked at Island/Basing Street Studios, London (Helios console) on 5 December 1970; engineer Andy Johns, who triple-tracked the riff (one left, one right, one centre, each played live). The two-1176-in-series detail is from Universal Audio's technical breakdown; 'all-buttons mode' is popular shorthand but UA describes it as 'first unit as a gain stage, second as the compressor.' Bridge pickup and string gauge are inferred; standard tuning is universal but not spelled out in a primary source. Sunset Sound's role on Led Zeppelin IV was mixing, not tracking this guitar.",
+    },
+    tags: ["hard-rock", "classic-rock", "les-paul", "studio-trick", "page"],
+    sources: [
+      "https://www.guitarplayer.com/music/jimmy-page-on-led-zeppelins-black-dog",
+      "https://www.uaudio.com/blogs/ua/learn-jimmy-pages-secret-distortion-trick",
+      "https://guitar.com/features/artist-rigs/the-gear-used-by-jimmy-page-on-led-zeppelin-iv/",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Noise Gate",
+            block_category: "Gate",
+            original_gear: "Studio noise floor control",
+            settings: { Threshold: -62, Decay: 0.2 },
+            notes:
+              "A gate ahead of everything cleans up the noise floor that heavy compression on a high-output signal raises. Set it light so it doesn't choke the riff's sustain.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "UREI 1176 #1 (saturation stage)",
+            settings: {
+              Threshold: -22,
+              Ratio: 8,
+              Knee: 3,
+              Attack: 0.02,
+              Release: 0.15,
+              Mix: 1.0,
+              Level: 3,
+            },
+            notes:
+              "The Deluxe Comp IS Helix's 1176 model. This first instance is the saturation stage — high ratio, fast attack, input pushed (Level +3) to add grit, exactly like Page's cranked first 1176.",
+          },
+          {
+            position: 3,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "UREI 1176 #2 (the compressor)",
+            settings: {
+              Threshold: -18,
+              Ratio: 12,
+              Knee: 2,
+              Attack: 0.02,
+              Release: 0.1,
+              Mix: 1.0,
+              Level: 0,
+            },
+            notes:
+              "Second 1176 in series — the actual compressor. Fast and aggressive (Ratio 12) to squash the preamp distortion into the tight, even, sustaining Black Dog riff. Two 1176s in series is the signature.",
+          },
+          {
+            position: 4,
+            block_name: "Stupor OD",
+            block_category: "Distortion",
+            original_gear: "Console-preamp grit (alt flavour)",
+            enabled: false,
+            settings: { Drive: 0.4, Gain: 0.4, Tone: 0.6, Level: 0.6 },
+            notes:
+              "DEFAULT-OFF alternate. If the amp model below doesn't capture enough of the buzzy preamp-clip character, this MXR-Dist+-style drive adds the transistor-ish grit a clipped console mic-pre has. Page used no pedal — this is a modelling aid.",
+          },
+          {
+            position: 5,
+            block_name: "Brit Plexi Brt",
+            block_category: "Amp",
+            original_gear: "Overdriven Helios console mic preamp (no amp used)",
+            settings: {
+              Drive: 0.55,
+              Bass: 0.45,
+              Mid: 0.7,
+              Treble: 0.6,
+              Presence: 0.6,
+              ChVol: 0.6,
+              Master: 0.7,
+              Bias: 0.5,
+              BiasX: 0.5,
+              Sag: 0.4,
+              Hum: 0.5,
+              Ripple: 0.5,
+            },
+            notes:
+              "Page used NO amp — the distortion was the overdriven console mic preamp. Helix has no console-preamp model, so the Brit Plexi's preamp clipping is the closest reproducible British-flavoured grit. Mid pushed to 0.7 for the snarl; keep Sag low because a console preamp doesn't sag like a power amp.",
+          },
+          {
+            position: 6,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "FRFR usability (no cab was used on the record)",
+            settings: {
+              Mic: 4,
+              Distance: 2.0,
+              Position: 0.45,
+              Angle: 0,
+              LowCut: 110,
+              HighCut: 7500,
+              Resonance: 0.3,
+              Level: 0,
+              Pan: 0.5,
+              Delay: 0,
+            },
+            notes:
+              "There was no speaker on the original — but an FRFR rig needs a cab to be listenable, so this stands in. HighCut at 7.5k tames the harsh preamp fizz; LowCut at 110 keeps it tight. Bypass it if you're going truly direct to mimic the ampless signal path.",
+          },
+        ],
+        notes:
+          "The Black Dog trick reproduced: NO amp on the record — distortion came from overdriving the Helios console mic preamp, then two 1176s in series (saturation + compression). Both Deluxe Comps model the 1176s; the Brit Plexi stands in for the console-preamp clip. For authenticity, try bypassing the cab and going direct.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "UREI 1176 #1 (saturation stage)",
+            settings: { Threshold: -22, Ratio: 8, Attack: 0.02, Release: 0.15, Mix: 1.0, Level: 3 },
+            notes:
+              "First 1176 as a saturation stage — high ratio, fast attack, pushed level for grit. QC's comp models the 1176 well; this is the front half of the series pair.",
+          },
+          {
+            position: 2,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "UREI 1176 #2 (the compressor)",
+            settings: { Threshold: -18, Ratio: 12, Attack: 0.02, Release: 0.1, Mix: 1.0, Level: 0 },
+            notes:
+              "Second 1176 in series, doing the actual compression — fast and aggressive to tighten the preamp distortion into the even, sustaining riff.",
+          },
+          {
+            position: 3,
+            block_name: "1959 SLP",
+            block_category: "Amp",
+            original_gear: "Overdriven Helios console mic preamp (no amp used)",
+            settings: { Gain: 5.5, Bass: 4.5, Mid: 7.0, Treble: 6.0, Presence: 6.0, Master: 6.0, Sag: 4.0 },
+            notes:
+              "No amp was used; the 1959 SLP's preamp clip is the closest stand-in for the overdriven console mic-pre. Mids pushed for the snarl, Sag low because a console preamp doesn't behave like a power amp.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 Greenback",
+            block_category: "Cab",
+            original_gear: "FRFR usability (no cab on the record)",
+            settings: { Mic: "Condenser 414", Distance: 2.0, Position: 0.45, LowCut: 110, HighCut: 7500, Level: 0 },
+            notes:
+              "Stand-in cab for FRFR listenability — HighCut 7.5k tames preamp fizz. Bypass for the truly-direct ampless signal path.",
+          },
+        ],
+        notes:
+          "Two Studio Comps in series mirror the two 1176s (saturation + compression) — the heart of Black Dog. The 1959 SLP stands in for the overdriven console mic preamp; no amp or cab was used on the record, so bypass the cab for authenticity.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'console preamp distortion' or 'cranked Plexi Les Paul'",
+            block_category: "Tone Model",
+            original_gear: "Overdriven Helios console mic preamp + 2x 1176",
+            settings: {},
+            notes:
+              "There's no amp to capture — the tone is an overdriven console mic preamp. Search ToneNET for console-preamp or mic-pre-overdrive captures; failing that, a cranked-Plexi capture gets the British grit. Then add two compressor blocks in series downstream (one as saturation, one as the compressor) to recreate the 1176 pair — that compression is most of the sound.",
+          },
+        ],
+        notes:
+          "TONEX is capture-driven. Black Dog has no amp, so look for console-preamp or mic-pre overdrive Tone Models (or a cranked Plexi as a fallback), then chain two compressors after it for the twin-1176 squash. The compression, not the 'amp,' is the signature.",
+      },
+      katana: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Booster",
+            block_category: "Booster",
+            original_gear: "Console-preamp grit (alt flavour)",
+            enabled: false,
+            settings: { Drive: 3, Bottom: 4, Tone: 6, Level: 6 },
+            notes:
+              "DEFAULT-OFF. Page used no pedal — but if the Brown amp doesn't get the buzzy preamp-clip character, nudge this on for extra transistor-ish grit. It stands in for the overdriven console mic preamp.",
+          },
+          {
+            position: 2,
+            block_name: "Brown",
+            block_category: "Amp Type",
+            original_gear: "Overdriven Helios console mic preamp (no amp used)",
+            settings: {
+              Gain: 6,
+              Volume: 6,
+              Bass: 4,
+              Middle: 7,
+              Treble: 6,
+              Presence: 6,
+              Master: 6,
+            },
+            notes:
+              "No amp existed on the record; Brown's aggressive midrange is the closest Katana voicing to the clipped console mic-pre. Middle pushed to 7 for the snarl. The Katana's built-in compressor helps emulate the 1176 squash that defines this tone.",
+          },
+          {
+            position: 3,
+            block_name: "Reverb",
+            block_category: "Reverb",
+            original_gear: "Dry riff (minimal ambience)",
+            settings: { Time: 0.8, PreDelay: 10, Tone: 5, EffectLevel: 8 },
+            notes:
+              "The riff is bone-dry on the record — keep this barely audible, just FRFR glue. Kill it entirely for the authentic dead-dry, in-your-face Black Dog character.",
+          },
+        ],
+        notes:
+          "Brown amp type stands in for the overdriven console preamp (no amp was used). Lean on the Katana's built-in compression to mimic the twin-1176 squash, which is the real signature. Booster default-OFF; reverb near-zero because the riff is dry.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Stomp",
+            original_gear: "UREI 1176 #1 (saturation stage)",
+            settings: { Sustain: 7.0, Tone: 5.0, Volume: 6.0 },
+            notes:
+              "Slot A. High sustain to act as the saturating first 1176 — adds grit and grabs the signal ahead of the profile.",
+          },
+          {
+            position: 2,
+            block_name: "Compressor",
+            block_category: "Stomp",
+            original_gear: "UREI 1176 #2 (the compressor)",
+            settings: { Sustain: 8.0, Tone: 5.0, Volume: 5.0 },
+            notes:
+              "Slot B. The second 1176 in series — aggressive squash that tightens the preamp distortion into the even, sustaining riff. Two comps in series is the Black Dog trick.",
+          },
+          {
+            position: 3,
+            block_name: "Search Rig Exchange for 'cranked Plexi' or 'console preamp'",
+            block_category: "Profile",
+            original_gear: "Overdriven Helios console mic preamp (no amp used)",
+            settings: { Gain: 5.5, Bass: 4.5, Middle: 7.0, Treble: 6.0, Presence: 6.0 },
+            notes:
+              "No amp was used; search Rig Exchange for a console-preamp or cranked-Plexi profile. Push the mids for the snarl. The profile bakes in any cab — appropriate here, since the real signal was direct anyway.",
+          },
+        ],
+        notes:
+          "Two Compressor stomps in series mirror the twin 1176s — the core of the tone. The profile stands in for the overdriven console mic preamp (rule G3: profile includes the cab). No real cab was used, so a direct-flavoured profile is ideal.",
+      },
+      fractal: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "UREI 1176 #1 (saturation stage)",
+            settings: { Threshold: -22, Ratio: 8, Attack: 0.02, Release: 0.15, Mix: 1.0, Level: 3 },
+            notes:
+              "Fractal's 1176-style comp as the saturating first stage — pushed input for grit ahead of the second comp.",
+          },
+          {
+            position: 2,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "UREI 1176 #2 (the compressor)",
+            settings: { Threshold: -18, Ratio: 12, Attack: 0.02, Release: 0.1, Mix: 1.0, Level: 0 },
+            notes:
+              "Second 1176 in series doing the actual compression — fast, aggressive, tightening the preamp distortion. The series pair is the Black Dog signature.",
+          },
+          {
+            position: 3,
+            block_name: "Plexi 100W High",
+            block_category: "Amp",
+            original_gear: "Overdriven Helios console mic preamp (no amp used)",
+            settings: { Drive: 5.5, Bass: 4.5, Mid: 7.0, Treble: 6.0, Presence: 6.0, MV: 6.0, Cut: 3.0 },
+            notes:
+              "No amp on the record; the Plexi 100W High preamp clip is the closest stand-in for the clipped console mic-pre. Mids pushed for snarl.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 Greenback",
+            block_category: "Cab",
+            original_gear: "FRFR usability (no cab on the record)",
+            settings: { Mic: "Condenser 414", Distance: 2.0, LowCut: 110, HighCut: 7500, Level: 0 },
+            notes:
+              "Stand-in cab for FRFR — HighCut 7.5k tames preamp fizz. Bypass for the authentic ampless/direct path.",
+          },
+        ],
+        notes:
+          "Two Studio Comps in series mirror the twin 1176s; Plexi 100W High stands in for the overdriven console preamp. No amp or cab was used on the record — bypass the cab for the true direct signal path. The compression is the signature.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  {
+    id: "seed-gilmour-money",
+    song_slug: "money-pink-floyd",
+    title: "David Gilmour's Money Solo Tone",
+    slug: "gilmour-money-solo",
+    description:
+      "David Gilmour's Money solo is really three solos. The clean, double-tracked opening and the spacious middle run on the Black Strat's bridge pickup through a Dallas Arbiter Fuzz Face and a Binson Echorec for the repeats; the more aggressive third section brings in his humbucker-loaded Bill Lewis Custom. It was tracked at Abbey Road (1973) with Alan Parsons into a Hiwatt DR103 and/or Fender Twin. The 'recorded direct' story is a myth — it was amp-and-mic. Per Bjorn Riis/gilmourish.com, the overdrive method isn't fully logged, so the Fuzz Face attribution is a reconstruction.",
+    tone_context: "solo",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Fender 'Black Strat' (1969) — Bill Lewis Custom on the third section",
+      pickup_config: "SSS",
+      pickup_position:
+        "bridge (Black Strat) for solos 1-2; the humbucker-equipped Bill Lewis Custom handles the more aggressive section",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge:
+        ".010-.048 (Gilmour's long-standing GHS preference; the exact 1973 gauge isn't logged)",
+      notable_mods:
+        "The Black Strat is a 1969 black-bodied Strat with a 1963 rosewood neck and stock single-coils — Gilmour favours the bridge pickup for solos. The Bill Lewis Custom is a 24-fret guitar with humbuckers, brought in for the thicker, more aggressive third solo section.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "fuzz",
+        gear_slug: null,
+        gear_name: "Dallas Arbiter Fuzz Face",
+        icon_type: "fuzz",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Fuzz: "100%", Volume: "70%" },
+        notes:
+          "Per gilmourish.com the overdriven solo sections run on a Fuzz Face with fuzz at 100% and volume around 70% — that's what gives the lead its singing, slightly compressed sustain. Big Muff is NOT this tone (that's the later Comfortably Numb era), so keep it off this rig.",
+      },
+      {
+        position: 2,
+        category: "wet_effect",
+        subcategory: "delay",
+        gear_slug: null,
+        gear_name: "Binson Echorec",
+        icon_type: "delay",
+        icon_color: "#60a5fa",
+        is_in_effects_loop: false,
+        settings: { Repeats: "low", Swell: "moderate — used for manual/automatic double-tracking" },
+        notes:
+          "The Echorec's multi-head tape/disc echo is what gives the solo its spacious, doubled quality — Gilmour used it for both manual double-tracking (solo 1) and ADT-style thickening (solo 3). Keep the repeats subtle; it's a thickener, not a dotted-eighth feature.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Hiwatt DR103 100W (and/or Fender Twin Reverb)",
+        icon_type: "hiwatt_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Volume: 6, Treble: 6, Middle: 6, Bass: 5, Presence: 6 },
+        notes:
+          "Gilmour's Hiwatt DR103 (Mullard EL34s) is a clean, powerful, headroom-rich platform — it stays clean and lets the Fuzz Face do the dirty work. The Fender Twin appears on the album too; either reads correctly. The amp's job is loud and clean, not crunchy.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "WEM 4x12 (with a rotating Leslie/Maestro cab mixed low)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Hiwatt into WEM 4x12s (Fane speakers) — brighter and tighter than Greenbacks. A rotating cab was mixed low underneath for subtle movement, part of why the solo shimmers slightly without an obvious modulation effect.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Neumann U87 (~1-1.5 ft from the cab)",
+        icon_type: "condenser_mic",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "~1 to 1.5 feet back from the cab" },
+        notes:
+          "A U87 pulled back a foot or so captures the Hiwatt's bloom and a little air rather than just cone bark — that distance is part of the solo's open, three-dimensional quality. Gilmour monitored from the control room with the amp out in the studio.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Fender 'Black Strat' (1969, bridge single-coil) on the clean and middle solo sections; the humbucker-loaded Bill Lewis Custom on the aggressive third section. Standard tuning.",
+      effects: [
+        "Dallas Arbiter Fuzz Face — fuzz 100%, volume ~70% (the overdriven solo sections)",
+        "Binson Echorec — multi-head tape/disc echo used for double-tracking and the spacious repeats",
+      ],
+      amp: "Hiwatt DR103 100W (Mullard EL34s) and/or silverface Fender Twin Reverb — run loud and clean so the Fuzz Face supplies the dirt.",
+      cabinet:
+        "WEM 4x12 cabs (Fane speakers), with a rotating Leslie/Maestro cab mixed low for subtle movement.",
+      microphone:
+        "Neumann U87 (possibly U67) placed roughly 1-1.5 ft from the cab; Gilmour monitored from the control room.",
+      other_notes:
+        "Recorded at Abbey Road, 1973, engineer Alan Parsons. Per Bjorn Riis/gilmourish.com, the album's overdrive recording isn't fully documented, so the Fuzz Face attribution is an expert reconstruction, not a studio log. The widely-repeated 'recorded direct/DI' story for the gritty section is unsupported and excluded. Big Muff was not used on Money. String gauge, tuning, and the exact reverb are not logged — treat as inference.",
+    },
+    tags: ["progressive-rock", "classic-rock", "strat", "fuzz", "gilmour"],
+    sources: [
+      "https://www.gilmourish.com/?page_id=46",
+      "https://www.gilmourish.com/?page_id=16",
+      "https://guitar.com/features/artist-rigs/gear-used-by-david-gilmour-pink-floyd-dark-side-of-the-moon/",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio/natural compression",
+            settings: {
+              Threshold: -28,
+              Ratio: 3,
+              Knee: 6,
+              Attack: 0.08,
+              Release: 0.6,
+              Mix: 0.6,
+              Level: 0,
+            },
+            notes:
+              "Light comp to give the Strat lead the even, singing sustain Gilmour's tone has — set moderate so the fuzz dynamics still breathe. Sits before the fuzz so it tightens the input, not the distortion.",
+          },
+          {
+            position: 2,
+            block_name: "Arbitrator Fuzz",
+            block_category: "Distortion",
+            original_gear: "Dallas Arbiter Fuzz Face",
+            settings: { Drive: 0.85, Gain: 0.85, Tone: 0.55, Level: 0.7 },
+            notes:
+              "DEFAULT-ON — this is the solo tone. Fuzz high (Drive 0.85) like Gilmour's 100% fuzz / 70% volume setting, giving the lead its thick, singing sustain. Roll your guitar volume back for the cleaner opening section.",
+          },
+          {
+            position: 3,
+            block_name: "Kinky Boost",
+            block_category: "Distortion",
+            original_gear: "Colorsound Power Boost (rhythm sections, alt)",
+            enabled: false,
+            settings: { Drive: 0.25, Gain: 0.25, Tone: 0.55, Level: 0.8 },
+            notes:
+              "DEFAULT-OFF alternate. Gilmour used a Colorsound Power Boost for rhythm parts on the track, not the solo — this clean-boost stand-in is here for the rhythm voicing or to push the amp harder. Don't stack it on the fuzz by default.",
+          },
+          {
+            position: 4,
+            block_name: "WhoWatt 100",
+            block_category: "Amp",
+            original_gear: "Hiwatt DR103 100W",
+            settings: {
+              Drive: 0.4,
+              Bass: 0.5,
+              Mid: 0.6,
+              Treble: 0.6,
+              Presence: 0.6,
+              ChVol: 0.6,
+              Master: 0.85,
+              Bias: 0.5,
+              BiasX: 0.5,
+              Sag: 0.5,
+              Hum: 0.5,
+              Ripple: 0.5,
+            },
+            notes:
+              "WhoWatt 100 is Helix's Hiwatt DR103. Keep Drive low (0.4) — the Hiwatt stays clean and loud so the Fuzz Face supplies all the dirt. That clean-platform-plus-fuzz structure is the heart of the Money lead.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "WEM 4x12 (Fane speakers)",
+            settings: {
+              Mic: 5,
+              Distance: 6.0,
+              Position: 0.5,
+              Angle: 0,
+              LowCut: 90,
+              HighCut: 8500,
+              Resonance: 0.4,
+              Level: 0,
+              Pan: 0.5,
+              Delay: 0,
+            },
+            notes:
+              "Stand-in for the WEM 4x12 — Distance pulled back to 6 to mirror the U87 placed ~1 ft off the cab, which gives the solo its open, blooming air rather than close-mic bark. HighCut 8.5k keeps the fuzz from getting fizzy.",
+          },
+          {
+            position: 6,
+            block_name: "Transistor Tape",
+            block_category: "Delay",
+            original_gear: "Binson Echorec",
+            settings: { Time: 0.31, Feedback: 0.25, Mix: 0.22, LowCut: 200, HighCut: 6000, Level: 0 },
+            notes:
+              "Stands in for the Binson Echorec's multi-head echo. Short time and low feedback — it's a thickener/double-tracker, not a rhythmic dotted-eighth. The cuts keep the repeats from cluttering the lead.",
+          },
+          {
+            position: 7,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Abbey Road ambience",
+            settings: { Mix: 0.16, Decay: 1.2, Predelay: 0.02, LowCut: 200, HighCut: 7000, Level: 0 },
+            notes:
+              "Small plate for studio glue — the spaciousness is mostly the Echorec, not reverb, so keep the mix low. Cuts at 200 Hz / 7 kHz keep the tail clean under the fuzz.",
+          },
+        ],
+        notes:
+          "Three-solo structure: clean/early sections on a Strat-bridge-into-fuzz, aggressive section thicker (think humbucker). The key is a LOUD CLEAN Hiwatt (WhoWatt 100, low drive) with the Arbitrator Fuzz doing the dirt, plus the Echorec (Transistor Tape) for the spacious double-tracked feel. Roll guitar volume back for the clean opening.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio/natural compression",
+            settings: { Threshold: -28, Ratio: 3, Attack: 0.08, Release: 0.6, Mix: 0.6, Level: 0 },
+            notes:
+              "Light comp for even, singing lead sustain — moderate so the fuzz dynamics breathe.",
+          },
+          {
+            position: 2,
+            block_name: "Fuzz Face",
+            block_category: "Drive",
+            original_gear: "Dallas Arbiter Fuzz Face",
+            settings: { Drive: 0.85, Tone: 0.55, Level: 0.7 },
+            notes:
+              "DEFAULT-ON solo tone — fuzz high like Gilmour's 100%/70% setting. Roll guitar volume back for the clean opening section.",
+          },
+          {
+            position: 3,
+            block_name: "Hiwatt 100",
+            block_category: "Amp",
+            original_gear: "Hiwatt DR103 100W",
+            settings: { Gain: 4.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 6.0, Master: 8.0, Sag: 5.0 },
+            notes:
+              "Hiwatt model kept clean and loud (low gain, high master) so the Fuzz Face supplies the dirt — the clean-platform-plus-fuzz structure is the Money lead.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 WEM",
+            block_category: "Cab",
+            original_gear: "WEM 4x12 (Fane speakers)",
+            settings: { Mic: "Condenser 87", Distance: 6.0, Position: 0.5, LowCut: 90, HighCut: 8500, Level: 0 },
+            notes:
+              "Mic pulled back ~1 ft to mirror the U87 distance that gives the solo its open bloom. HighCut 8.5k controls fuzz fizz.",
+          },
+          {
+            position: 5,
+            block_name: "Binson Echo",
+            block_category: "Delay",
+            original_gear: "Binson Echorec",
+            settings: { Time: 0.31, Feedback: 0.25, Mix: 0.22, Level: 0 },
+            notes:
+              "Echorec-style multi-head echo for the doubled, spacious feel — short and subtle, a thickener not a rhythmic delay.",
+          },
+          {
+            position: 6,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Abbey Road ambience",
+            settings: { Decay: 1.2, Predelay: 20, Mix: 0.16, Level: 0 },
+            notes:
+              "Small plate glue — the space is mostly the Echorec, so keep the reverb low.",
+          },
+        ],
+        notes:
+          "Comp → Fuzz Face → clean loud Hiwatt → distant-mic'd 4x12 → Echorec → small plate mirrors the Helix chain. The amp stays clean; the fuzz is the dirt. Search Cortex Cloud for Hiwatt captures and Echorec-style delays.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Hiwatt DR103' or 'Hiwatt clean' captures",
+            block_category: "Tone Model",
+            original_gear: "Hiwatt DR103 100W (kept clean)",
+            settings: {},
+            notes:
+              "Search ToneNET for a clean Hiwatt DR103 capture — the amp is loud and clean by design. The Fuzz Face is NOT in the capture: add it as a front-end fuzz (TONEX pedal fuzz block or an external Fuzz Face), set high like Gilmour's 100% fuzz. Then add a Binson-style/multi-head delay downstream for the spacious double-tracked feel.",
+          },
+        ],
+        notes:
+          "TONEX captures the clean Hiwatt; the tone's character is the fuzz-into-clean-amp structure plus the Echorec. Search ToneNET for a clean Hiwatt, put a Fuzz Face in front, and add a multi-head delay after. Big Muff is the wrong pedal for Money.",
+      },
+      katana: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Fuzz",
+            block_category: "Booster",
+            original_gear: "Dallas Arbiter Fuzz Face",
+            enabled: true,
+            settings: { Drive: 9, Bottom: 6, Tone: 5, Level: 7 },
+            notes:
+              "DEFAULT-ON — the Booster slot loaded with a Fuzz voicing IS the Money solo dirt. Drive high like Gilmour's 100% fuzz. Roll guitar volume back for the cleaner opening section.",
+          },
+          {
+            position: 2,
+            block_name: "Clean",
+            block_category: "Amp Type",
+            original_gear: "Hiwatt DR103 100W (kept clean)",
+            settings: {
+              Gain: 3,
+              Volume: 7,
+              Bass: 5,
+              Middle: 6,
+              Treble: 6,
+              Presence: 6,
+              Master: 7,
+            },
+            notes:
+              "Clean amp type with low gain and high volume — the Hiwatt was a loud, clean platform that let the fuzz do the work. A Crunch or Brown type would muddy what should stay clean under the fuzz.",
+          },
+          {
+            position: 3,
+            block_name: "Delay",
+            block_category: "Delay",
+            original_gear: "Binson Echorec",
+            settings: { Time: 310, Feedback: 25, EffectLevel: 22 },
+            notes:
+              "Echorec-style echo for the spacious doubled feel — short and subtle, a thickener. Use the Reverb slot too if you want a touch of Abbey Road air.",
+          },
+          {
+            position: 4,
+            block_name: "Reverb",
+            block_category: "Reverb",
+            original_gear: "Abbey Road ambience",
+            settings: { Time: 1.2, PreDelay: 20, Tone: 5, EffectLevel: 16 },
+            notes:
+              "Small plate glue — most of the space is the delay, so keep this low.",
+          },
+        ],
+        notes:
+          "Clean amp type (loud, low gain) with a Fuzz in the Booster slot is the structure — the Hiwatt stayed clean and the Fuzz Face did the dirt. Delay (Echorec) for the doubled space, a touch of reverb for air. Roll guitar volume back for the clean opening.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Stomp",
+            original_gear: "Studio/natural compression",
+            settings: { Sustain: 4.0, Tone: 5.0, Volume: 5.0 },
+            notes:
+              "Slot A. Light comp for even, singing lead sustain — moderate so the fuzz dynamics breathe.",
+          },
+          {
+            position: 2,
+            block_name: "Fuzz Face",
+            block_category: "Stomp",
+            original_gear: "Dallas Arbiter Fuzz Face",
+            enabled: true,
+            settings: { Drive: 8.5, Tone: 5.5, Volume: 7.0 },
+            notes:
+              "Slot B, DEFAULT-ON — the solo dirt. Fuzz high like Gilmour's 100% setting. Roll guitar volume back for the clean opening.",
+          },
+          {
+            position: 3,
+            block_name: "Search Rig Exchange for 'Hiwatt DR103' or 'Hiwatt clean'",
+            block_category: "Profile",
+            original_gear: "Hiwatt DR103 100W (kept clean)",
+            settings: { Gain: 3.0, Bass: 5.0, Middle: 6.0, Treble: 6.0, Presence: 6.0 },
+            notes:
+              "Search Rig Exchange for a clean Hiwatt profile — loud and clean by design so the fuzz supplies the dirt. The profile bakes in the cab (rule G3).",
+          },
+          {
+            position: 4,
+            block_name: "Binson Delay",
+            block_category: "Delay",
+            original_gear: "Binson Echorec",
+            settings: { Time: 0.31, Feedback: 0.25, Mix: 0.22 },
+            notes:
+              "Echorec-style multi-head echo for the doubled, spacious feel — short and subtle.",
+          },
+          {
+            position: 5,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Abbey Road ambience",
+            settings: { Decay: 1.2, Predelay: 20, Mix: 0.16 },
+            notes:
+              "Small plate glue — keep low, the space is mostly the delay.",
+          },
+        ],
+        notes:
+          "Comp → Fuzz Face → clean Hiwatt profile → Echorec delay → small plate. The profile includes the cab (G3). Keep the profile clean and loud; the Fuzz Face is the dirt. Search Rig Exchange for clean Hiwatt captures.",
+      },
+      fractal: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio/natural compression",
+            settings: { Threshold: -28, Ratio: 3, Attack: 0.08, Release: 0.6, Mix: 0.6, Level: 0 },
+            notes:
+              "Light comp for even lead sustain — moderate so the fuzz breathes.",
+          },
+          {
+            position: 2,
+            block_name: "Fuzz Face",
+            block_category: "Drive",
+            original_gear: "Dallas Arbiter Fuzz Face",
+            settings: { Drive: 0.85, Tone: 0.55, Level: 0.7 },
+            notes:
+              "DEFAULT-ON solo dirt — fuzz high like Gilmour's 100%/70%. Roll guitar volume back for the clean opening.",
+          },
+          {
+            position: 3,
+            block_name: "Hipower 100",
+            block_category: "Amp",
+            original_gear: "Hiwatt DR103 100W (kept clean)",
+            settings: { Drive: 4.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 6.0, MV: 8.0, Cut: 4.0 },
+            notes:
+              "Fractal's Hipower 100 is the Hiwatt DR103 — kept clean (low drive, high master) so the Fuzz Face does the dirt. The clean-platform-plus-fuzz structure is the Money lead.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 WEM",
+            block_category: "Cab",
+            original_gear: "WEM 4x12 (Fane speakers)",
+            settings: { Mic: "Condenser 87", Distance: 6.0, LowCut: 90, HighCut: 8500, Level: 0 },
+            notes:
+              "Mic pulled back ~1 ft to mirror the U87 distance for the open bloom. HighCut 8.5k controls fuzz fizz.",
+          },
+          {
+            position: 5,
+            block_name: "Binson Echo",
+            block_category: "Delay",
+            original_gear: "Binson Echorec",
+            settings: { Time: 0.31, Feedback: 0.25, Mix: 0.22 },
+            notes:
+              "Echorec-style multi-head echo for the spacious doubled feel — short and subtle, a thickener.",
+          },
+          {
+            position: 6,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Abbey Road ambience",
+            settings: { Mix: 0.16, Decay: 1.2, Predelay: 20 },
+            notes:
+              "Small plate glue — keep low, the space is mostly the Echorec.",
+          },
+        ],
+        notes:
+          "Comp → Fuzz Face → clean Hipower 100 (Hiwatt) → distant-mic'd 4x12 → Echorec → small plate mirrors the Helix chain. The amp stays clean; the fuzz is the dirt. Big Muff is the wrong pedal for Money.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  {
+    id: "seed-scholz-more-than-a-feeling",
+    song_slug: "more-than-a-feeling-boston",
+    title: "Tom Scholz's More Than a Feeling Riff Tone",
+    slug: "scholz-more-than-a-feeling-riff",
+    description:
+      "Tom Scholz built More Than a Feeling's wall of guitar in his Watertown basement on gear he made himself. A 1968 Les Paul Goldtop with P-90s ran into a 100W Marshall (widely cited as a 1959 Super Lead Plexi) cranked into one of his homemade prototype Power Soak attenuators, plus a homemade compressor/sustainer and outboard EQ. The Rockman is a red herring — it didn't exist until 1982; the 1976 record is power-soaked Marshall plus DIY compression, heavily multi-tracked. The result is ultra-sustained, glassy, and impossibly layered.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Les Paul Goldtop (1968, P-90s — 1976 spec)",
+      pickup_config: "P90",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge: ".008-.044 (Scholz's own quote: .008 .011 .015 .024 .034 .044)",
+      notable_mods:
+        "On the 1976 record the Goldtop still had its P-90s — Scholz only later swapped the bridge for a DiMarzio Super Distortion (because the P-90s buzzed under stage lighting), stripped the finish, and added Schaller tuners. The very light .008 top string is part of the singing, sustaining lead voice.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "compressor",
+        gear_slug: null,
+        gear_name: "Scholz homemade compressor/sustainer (prototype)",
+        icon_type: "compressor",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Sustain: "high — one-off DIY unit, the Rockman precursor" },
+        notes:
+          "The defining ingredient. Scholz built his own compressor/sustainer — the heavy, even sustain that makes the riff sing for days is this unit plus the power-soaked cranked Marshall, not a stomp pedal you can buy. It's why the tone is so smooth and endless.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "100W Marshall (cited as a 1959 Super Lead Plexi) + homemade Power Soak",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Volume: 9, Treble: 7, Middle: 6, Bass: 5, Presence: 6 },
+        notes:
+          "Scholz cranked a 100W Marshall ('Mars') wide open for power-tube saturation, then tamed it to basement volume with one of his homemade prototype Power Soak attenuators. Cranked-then-attenuated is the secret to the saturated-but-controlled tone — the model number is press-attributed, so treat '1959 Super Lead' as the strong consensus, not a verbatim quote.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12 (close-mic'd)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "A Marshall 4x12 carried the cranked Plexi. An Ampeg V4 was also part of Scholz's rig. The lushness on the record is mostly extensive multi-tracking plus his outboard EQ, not the cab itself — but the 4x12's focus is what lets the layered parts stack without turning to mud.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Close mic on the 4x12 (exact model undocumented)",
+        icon_type: "dynamic_mic",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close to the cone — basement-studio sessions, mic not logged" },
+        notes:
+          "Scholz tracked in his own basement studio, so the mic isn't documented. A close mic on the cone fits the tight, focused, multi-trackable tone — the magic is in the homemade compression and the layering, not an exotic mic.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1968 Gibson Les Paul Goldtop with P-90s (the 1976 spec; the bridge was later swapped to a DiMarzio Super Distortion for live use). .008-.044 strings, standard tuning. A ~$100 Yamaha 12-string acoustic plays the intro bed.",
+      effects: [
+        "Scholz's homemade compressor/sustainer (one-off prototype — the Rockman precursor; the heavy sustain that defines the tone)",
+        "Homemade outboard EQ racks",
+        "Cigar-box chorus prototype (on some doubled layers)",
+      ],
+      amp: "100W Marshall (widely cited as a 1959 Super Lead Plexi, 'Mars') cranked into one of Scholz's homemade prototype Power Soak attenuators; an Ampeg V4 was also part of the rig.",
+      cabinet: "Marshall 4x12, close-mic'd.",
+      microphone:
+        "Close mic on the 4x12 — exact model undocumented (basement-studio sessions).",
+      other_notes:
+        "Recorded in Scholz's basement home studio in Watertown MA (Capitol Studios was used largely as a front for the official sessions). Critical correction: the Rockman did NOT exist in 1976 — Scholz's Power Soak shipped late 1980 and the Rockman in 1982 — so the compression is the homemade compressor/sustainer plus the power-soaked Marshall, not a Rockman. Heavily multi-tracked; the lush ambience is layering + outboard EQ. Reverb unit undocumented. The Marshall model number is press-attributed, not Scholz's verbatim words.",
+    },
+    tags: ["classic-rock", "arena-rock", "les-paul", "p90", "scholz"],
+    sources: [
+      "https://www.thirdstage.ca/boston/articles/interviews/512-more-than-a-feeling-talking-les-pauls-with-bostons-tom-scholz",
+      "https://www.musicradar.com/news/boston-more-than-a-feeling-tom-scholz-guitar",
+      "https://www.guitarworld.com/news/more-feeling-gibsons-tom-scholz-replica-les-paul-looks-sounds-and-feels",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Scholz homemade compressor/sustainer",
+            settings: {
+              Threshold: -34,
+              Ratio: 4,
+              Knee: 4,
+              Attack: 0.05,
+              Release: 0.7,
+              Mix: 0.9,
+              Level: 2,
+            },
+            notes:
+              "Heavy, mostly-wet comp to recreate Scholz's homemade sustainer — this is the single most important block. High Mix and a slow release give the endless, even sustain that makes the riff sing. Sits before the amp so it slams the front end.",
+          },
+          {
+            position: 2,
+            block_name: "Kinky Boost",
+            block_category: "Distortion",
+            original_gear: "Extra push (alt — Scholz used no boost pedal)",
+            enabled: false,
+            settings: { Drive: 0.2, Gain: 0.2, Tone: 0.6, Level: 0.8 },
+            notes:
+              "DEFAULT-OFF. Scholz's gain came from the cranked-then-soaked Marshall, not a boost. Engage this only if your FRFR rig needs more saturation to match a real power-soaked Plexi.",
+          },
+          {
+            position: 3,
+            block_name: "Brit Plexi Brt",
+            block_category: "Amp",
+            original_gear: "100W Marshall Super Lead (power-soaked)",
+            settings: {
+              Drive: 0.72,
+              Bass: 0.5,
+              Mid: 0.6,
+              Treble: 0.65,
+              Presence: 0.6,
+              ChVol: 0.5,
+              Master: 1.0,
+              Bias: 0.5,
+              BiasX: 0.5,
+              Sag: 0.6,
+              Hum: 0.5,
+              Ripple: 0.5,
+            },
+            notes:
+              "Brit Plexi for the 100W Super Lead. Drive 0.72 and Master maxed recreate a cranked Plexi tamed by a Power Soak — saturated power-tube character, not preamp gain. The Sag at 0.6 adds the squishy bloom of a hard-driven power section.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12",
+            settings: {
+              Mic: 4,
+              Distance: 1.5,
+              Position: 0.45,
+              Angle: 0,
+              LowCut: 95,
+              HighCut: 8500,
+              Resonance: 0.4,
+              Level: 0,
+              Pan: 0.5,
+              Delay: 0,
+            },
+            notes:
+              "Greenback 4x12 close-mic'd for the focused, stackable tone Scholz layered. HighCut 8.5k smooths the P-90 top end so multi-tracked parts don't pile up harsh; LowCut 95 keeps the layers tight.",
+          },
+          {
+            position: 5,
+            block_name: "70s Chorus",
+            block_category: "Modulation",
+            original_gear: "Scholz cigar-box chorus prototype (doubled layers)",
+            enabled: false,
+            settings: { Rate: 0.25, Depth: 0.3, Mix: 0.3, Level: 0 },
+            notes:
+              "DEFAULT-OFF. Scholz ran a homemade cigar-box chorus on some layers — engage it lightly on a doubled track to widen the wall of guitar, but keep it off the core riff so it stays focused.",
+          },
+          {
+            position: 6,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio ambience (multi-tracking + EQ)",
+            settings: { Mix: 0.18, Decay: 1.4, Predelay: 0.025, LowCut: 200, HighCut: 7000, Level: 0 },
+            notes:
+              "A medium plate for the lush, big-room feel — though most of the album's size is multi-tracking, not reverb. Cuts at 200 Hz / 7 kHz keep the tail from clouding the stacked guitars.",
+          },
+        ],
+        notes:
+          "The recipe is the homemade SUSTAINER (heavy Deluxe Comp) into a cranked-then-power-soaked Plexi (Brit Plexi, Drive ~0.72, Master maxed). Close-mic'd 4x12, smooth top end, and a default-off cigar-box chorus for doubled layers. Track it 4+ times hard-panned for the real wall of guitar. Boost default-OFF.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Scholz homemade compressor/sustainer",
+            settings: { Threshold: -34, Ratio: 4, Attack: 0.05, Release: 0.7, Mix: 0.9, Level: 2 },
+            notes:
+              "Heavy, mostly-wet comp recreating Scholz's homemade sustainer — the most important block, giving the endless even sustain.",
+          },
+          {
+            position: 2,
+            block_name: "1959 SLP",
+            block_category: "Amp",
+            original_gear: "100W Marshall Super Lead (power-soaked)",
+            settings: { Gain: 7.0, Bass: 5.0, Mid: 6.0, Treble: 6.5, Presence: 6.0, Master: 9.0, Sag: 6.0 },
+            notes:
+              "1959 SLP cranked (high gain, maxed master) to emulate a power-soaked Plexi — saturated power-tube character. Sag up for the squishy bloom of a hard-driven power section.",
+          },
+          {
+            position: 3,
+            block_name: "4x12 Greenback",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12",
+            settings: { Mic: "Dynamic 57", Distance: 1.5, Position: 0.45, LowCut: 95, HighCut: 8500, Level: 0 },
+            notes:
+              "Close-mic'd Greenback 4x12 for the focused, stackable tone — HighCut 8.5k smooths the P-90 top so layers don't get harsh.",
+          },
+          {
+            position: 4,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio ambience (multi-tracking + EQ)",
+            settings: { Decay: 1.4, Predelay: 25, Mix: 0.18, Level: 0 },
+            notes:
+              "Medium plate for the lush feel — most of the size is layering, so keep it moderate.",
+          },
+        ],
+        notes:
+          "Heavy sustainer comp → cranked 1959 SLP (power-soaked) → close-mic'd 4x12 → medium plate mirrors the Helix chain. Track it multiple times hard-panned for the wall of guitar. Search Cortex Cloud for power-soaked Plexi captures.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Marshall Super Lead Plexi cranked' or 'power soak Plexi'",
+            block_category: "Tone Model",
+            original_gear: "100W Marshall Super Lead (power-soaked)",
+            settings: {},
+            notes:
+              "Search ToneNET for a cranked 1959 Super Lead Plexi capture (ideally one made through a power soak / attenuator for that saturated-but-controlled character). The homemade sustainer is NOT in the capture — add a heavy compressor/sustainer in front, set for long even sustain. Then multi-track for the wall of guitar.",
+          },
+        ],
+        notes:
+          "TONEX captures the cranked power-soaked Plexi; the signature sustain comes from a heavy compressor/sustainer in front (Scholz's homemade unit) plus aggressive multi-tracking. Search ToneNET for cranked/attenuated Plexi captures and add front-end compression.",
+      },
+      katana: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Booster",
+            block_category: "Booster",
+            original_gear: "Extra push (alt — Scholz used no boost pedal)",
+            enabled: false,
+            settings: { Drive: 2, Bottom: 5, Tone: 6, Level: 7 },
+            notes:
+              "DEFAULT-OFF. The gain is the cranked-then-soaked Marshall, not a pedal. Engage only if you need more saturation than the amp model provides.",
+          },
+          {
+            position: 2,
+            block_name: "Brown",
+            block_category: "Amp Type",
+            original_gear: "100W Marshall Super Lead (power-soaked)",
+            settings: {
+              Gain: 7,
+              Volume: 6,
+              Bass: 5,
+              Middle: 6,
+              Treble: 6,
+              Presence: 6,
+              Master: 7,
+            },
+            notes:
+              "Brown character for the cranked Plexi's saturated power-tube voicing. Lean on the Katana's built-in compression to approximate Scholz's homemade sustainer — that endless sustain is half the tone. Multi-track for the wall.",
+          },
+          {
+            position: 3,
+            block_name: "Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio ambience (multi-tracking + EQ)",
+            settings: { Time: 1.4, PreDelay: 25, Tone: 5, EffectLevel: 18 },
+            notes:
+              "Medium plate for the lush feel — but most of the album's size is multi-tracking, so don't overdo it.",
+          },
+        ],
+        notes:
+          "Brown amp type for the cranked, power-soaked Plexi. The Katana's onboard compression stands in for Scholz's homemade sustainer — push it for the endless sustain. Booster default-OFF; the gain is the amp. Multi-track hard-panned for the wall of guitar.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Stomp",
+            original_gear: "Scholz homemade compressor/sustainer",
+            settings: { Sustain: 7.0, Tone: 5.0, Volume: 5.0 },
+            notes:
+              "Slot A. High sustain to recreate Scholz's homemade sustainer — the most important ingredient for the endless, even sustain.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Marshall Super Lead Plexi' or 'power soak Plexi'",
+            block_category: "Profile",
+            original_gear: "100W Marshall Super Lead (power-soaked)",
+            settings: { Gain: 7.0, Bass: 5.0, Middle: 6.0, Treble: 6.5, Presence: 6.0 },
+            notes:
+              "Search Rig Exchange for a cranked Super Lead profile, ideally one made through an attenuator for the saturated-but-controlled character. The profile bakes in the cab (rule G3).",
+          },
+          {
+            position: 3,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio ambience (multi-tracking + EQ)",
+            settings: { Decay: 1.4, Predelay: 25, Mix: 0.18 },
+            notes:
+              "REV slot. Medium plate for the lush feel — keep moderate, most of the size is layering.",
+          },
+        ],
+        notes:
+          "Sustainer comp → cranked/power-soaked Super Lead profile → medium plate. The profile includes the cab (G3). The homemade sustainer is the signature — push the comp. Multi-track hard-panned for the wall of guitar.",
+      },
+      fractal: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Scholz homemade compressor/sustainer",
+            settings: { Threshold: -34, Ratio: 4, Attack: 0.05, Release: 0.7, Mix: 0.9, Level: 2 },
+            notes:
+              "Heavy, mostly-wet comp recreating Scholz's homemade sustainer — the most important block for the endless sustain.",
+          },
+          {
+            position: 2,
+            block_name: "Plexi 100W High",
+            block_category: "Amp",
+            original_gear: "100W Marshall Super Lead (power-soaked)",
+            settings: { Drive: 7.0, Bass: 5.0, Mid: 6.0, Treble: 6.5, Presence: 6.0, MV: 9.0, Cut: 4.0 },
+            notes:
+              "Plexi 100W High cranked (high drive, maxed master) to emulate a power-soaked Super Lead — saturated power-tube character, not preamp gain.",
+          },
+          {
+            position: 3,
+            block_name: "4x12 Greenback",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12",
+            settings: { Mic: "Dynamic 57", Distance: 1.5, LowCut: 95, HighCut: 8500, Level: 0 },
+            notes:
+              "Close-mic'd Greenback 4x12 for the focused, stackable tone — HighCut 8.5k smooths the P-90 top so layers don't get harsh.",
+          },
+          {
+            position: 4,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio ambience (multi-tracking + EQ)",
+            settings: { Mix: 0.18, Decay: 1.4, Predelay: 25 },
+            notes:
+              "Medium plate for the lush feel — keep moderate, most of the size is layering.",
+          },
+        ],
+        notes:
+          "Sustainer comp → cranked Plexi 100W High (power-soaked) → close-mic'd 4x12 → medium plate mirrors the Helix chain. Track it multiple times hard-panned for the wall of guitar.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  {
+    id: "seed-livgren-carry-on-wayward-son",
+    song_slug: "carry-on-wayward-son-kansas",
+    title: "Kerry Livgren's Carry On Wayward Son Riff Tone",
+    slug: "livgren-carry-on-wayward-son-riff",
+    description:
+      "Kerry Livgren's rig on Carry On Wayward Son was disarmingly simple: a guitar straight into a 100-watt Marshall head and one slant cabinet, no pedals, 'no modification of any kind.' Recorded at Studio in the Country in Bogalusa, Louisiana (1976) and produced by Jeff Glixman, the dirty rhythm tone is all cranked-amp grind. Livgren's own main guitar in the Kansas years was a Gibson ES-335, though the exact guitar on this track isn't confirmed and Rich Williams' Les Paul doubled the rhythm. Standard tuning, an Am-pentatonic riff played straight in.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "semi_hollow",
+      model_name: "Gibson ES-335 (Livgren's stated Kansas-years main — track guitar unconfirmed)",
+      pickup_config: "HH",
+      pickup_position:
+        "bridge (inferred from the cutting rhythm tone — not documented for this track)",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge:
+        "undocumented — Livgren did not specify a gauge; a standard set is assumed",
+      notable_mods:
+        "Livgren named the ES-335 as his guitar 'all throughout the Kansas years,' but the exact guitar on this specific track isn't confirmed — period footage shows him on an SG, a Les Paul and a Strat too. Rich Williams' Les Paul doubled the rhythm. Treat the guitar choice as best-evidence, not a logged fact.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "100-watt Marshall head (cited as a Super Lead Plexi)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Volume: 8, Treble: 7, Middle: 6, Bass: 5, Presence: 6 },
+        notes:
+          "Livgren's own words: 'one 100-watt Marshall head and one slant cabinet... I went straight into the amp, no pedals.' The dirty rhythm grind is all cranked-amp power-tube breakup — push the volume so the amp itself supplies the dirt. He said '100-watt Marshall head,' not a model number, so '1959 Super Lead' is consensus, not a quote.",
+      },
+      {
+        position: 2,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall slant 4x12",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "One slant Marshall 4x12 (Livgren: 'one slant cabinet'). The angled top row gives the rhythm tone its bite — a single cab keeps the riff tight and focused rather than spread out.",
+      },
+      {
+        position: 3,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Close mic on the 4x12 (exact model undocumented)",
+        icon_type: "dynamic_mic",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close to the cone — mic not logged for the electric" },
+        notes:
+          "The studio mic'ing for the electric isn't documented (the U87/C414 references that float around are for Livgren's acoustic). A close dynamic on the cone fits the tight, cutting rhythm tone heard on the record.",
+      },
+      {
+        position: 4,
+        category: "wet_effect",
+        subcategory: "reverb",
+        gear_slug: null,
+        gear_name: "Studio plate/chamber (inferred)",
+        icon_type: "reverb",
+        icon_color: "#60a5fa",
+        is_in_effects_loop: false,
+        settings: { Mix: "moderate — era-typical, not documented" },
+        notes:
+          "Not a pedal — Livgren played straight in. Any reverb is the studio's own plate or chamber, which isn't documented for this track, so this is inference based on the era. Keep it moderate; the riff is fairly dry and forward.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Gibson ES-335 — Livgren's stated main guitar 'all throughout the Kansas years' (the exact guitar on this track isn't confirmed; footage shows SG/Les Paul/Strat too). Rich Williams' Les Paul doubled the rhythm. Standard tuning.",
+      effects: [
+        "None — Livgren: 'I went straight into the amp, no pedals and no modification of any kind.'",
+      ],
+      amp: "A 100-watt Marshall head (Livgren's own words; widely taken to be a 1959 Super Lead/Plexi, though he only said '100-watt Marshall head'), cranked for power-tube breakup.",
+      cabinet: "One Marshall slant 4x12 (Livgren: 'one slant cabinet').",
+      microphone:
+        "Close mic on the 4x12 — exact model undocumented for the electric guitar.",
+      other_notes:
+        "Recorded at Studio in the Country, Bogalusa LA (Dec 1975-Aug 1976); produced by Jeff Glixman. Carry On Wayward Son was written solely by Livgren; the lead/guitar work is generally credited to Livgren and Rich Williams together. Standard tuning, Am-pentatonic-based riff. The Marshall model number, pickup position, string gauge, mic, and reverb are not documented — treat as best inference. The one well-sourced certainty is the philosophy: 100W Marshall, one slant cab, no pedals, straight in.",
+    },
+    tags: ["progressive-rock", "classic-rock", "marshall", "es-335", "livgren"],
+    sources: [
+      "https://guitarinternational.com/2010/12/24/kerry-livgren-talks-kansas-guitars-and-proto-kaw/",
+      "https://en.wikipedia.org/wiki/Leftoverture",
+      "https://www.lespaulforum.com/index.php?threads/kansas-1976-kerry-livgren-on-the-sg.172515/",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Vol/Pan",
+            block_category: "Volume/Pan",
+            original_gear: "Volume control",
+            settings: { Pedal: 1.0 },
+            notes:
+              "Assign to EXP 1 so you can clean up the cranked-amp grind by rolling back — Livgren had no pedals, so guitar-and-pedal volume is the only way to vary the dirt mid-part.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Natural amp + studio compression",
+            settings: {
+              Threshold: -30,
+              Ratio: 2,
+              Knee: 6,
+              Attack: 0.06,
+              Release: 0.5,
+              Mix: 0.5,
+              Level: 0,
+            },
+            notes:
+              "Light comp to steady the riff's attack — kept gentle because the original is dynamic cranked-amp tone, not a compressed one. Before the amp so it tightens the input.",
+          },
+          {
+            position: 3,
+            block_name: "Scream 808",
+            block_category: "Distortion",
+            original_gear: "No pedal on the original (alt boost)",
+            enabled: false,
+            settings: { Drive: 0.15, Gain: 0.15, Tone: 0.55, Level: 0.75 },
+            notes:
+              "DEFAULT-OFF. Livgren used no pedals — the dirt is the cranked Marshall. Engage as a light boost only if your FRFR rig won't push the amp model into enough breakup.",
+          },
+          {
+            position: 4,
+            block_name: "Brit Plexi Brt",
+            block_category: "Amp",
+            original_gear: "100W Marshall Super Lead (cranked)",
+            settings: {
+              Drive: 0.68,
+              Bass: 0.5,
+              Mid: 0.6,
+              Treble: 0.65,
+              Presence: 0.6,
+              ChVol: 0.55,
+              Master: 1.0,
+              Bias: 0.5,
+              BiasX: 0.5,
+              Sag: 0.55,
+              Hum: 0.5,
+              Ripple: 0.5,
+            },
+            notes:
+              "Brit Plexi for the 100W Super Lead. Drive 0.68 with Master maxed is a cranked Plexi on the edge of full breakup — power-tube grind, the way Livgren got his dirt straight in with no pedal. Mids forward for the riff's cut.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Marshall slant 4x12",
+            settings: {
+              Mic: 4,
+              Distance: 1.5,
+              Position: 0.45,
+              Angle: 0,
+              LowCut: 95,
+              HighCut: 8500,
+              Resonance: 0.4,
+              Level: 0,
+              Pan: 0.5,
+              Delay: 0,
+            },
+            notes:
+              "Greenback 4x12 standing in for the Marshall slant cab — close mic, slightly off-centre for bite without harshness. HighCut 8.5k tames fizz; LowCut 95 keeps the cranked-Plexi riff tight.",
+          },
+          {
+            position: 6,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate/chamber (inferred)",
+            settings: { Mix: 0.15, Decay: 1.1, Predelay: 0.02, LowCut: 200, HighCut: 7000, Level: 0 },
+            notes:
+              "A modest plate for studio glue — inferred, since the riff is fairly dry and forward on the record. Cuts at 200 Hz / 7 kHz keep the tail clean under the grind.",
+          },
+        ],
+        notes:
+          "Dead simple by design: cranked Brit Plexi (Drive ~0.68, Master maxed) into a 4x12, no pedals — the dirt is all power-tube grind, the way Livgren tracked it straight in. Comp and a modest plate are studio glue; the alt boost stays OFF. Mids forward for the riff's cut.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Natural amp + studio compression",
+            settings: { Threshold: -30, Ratio: 2, Attack: 0.06, Release: 0.5, Mix: 0.5, Level: 0 },
+            notes:
+              "Light comp to steady the riff attack — gentle, since the original is dynamic cranked-amp tone.",
+          },
+          {
+            position: 2,
+            block_name: "1959 SLP",
+            block_category: "Amp",
+            original_gear: "100W Marshall Super Lead (cranked)",
+            settings: { Gain: 6.5, Bass: 5.0, Mid: 6.0, Treble: 6.5, Presence: 6.0, Master: 9.0, Sag: 5.5 },
+            notes:
+              "1959 SLP cranked (maxed master) for power-tube grind — Livgren's dirt came straight from the amp, no pedal. Mids forward for the riff's cut.",
+          },
+          {
+            position: 3,
+            block_name: "4x12 Greenback",
+            block_category: "Cab",
+            original_gear: "Marshall slant 4x12",
+            settings: { Mic: "Dynamic 57", Distance: 1.5, Position: 0.45, LowCut: 95, HighCut: 8500, Level: 0 },
+            notes:
+              "Close-mic'd Greenback 4x12 standing in for the slant cab — off-centre for bite, HighCut 8.5k to tame fizz.",
+          },
+          {
+            position: 4,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate/chamber (inferred)",
+            settings: { Decay: 1.1, Predelay: 20, Mix: 0.15, Level: 0 },
+            notes:
+              "Modest plate glue — inferred, the riff is fairly dry on the record.",
+          },
+        ],
+        notes:
+          "Comp → cranked 1959 SLP → close-mic'd 4x12 → modest plate mirrors the Helix chain. The dirt is power-tube grind, no pedal. Search Cortex Cloud for cranked Plexi / Super Lead captures.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Marshall Super Lead Plexi cranked' or '100W Plexi'",
+            block_category: "Tone Model",
+            original_gear: "100W Marshall Super Lead (cranked)",
+            settings: {},
+            notes:
+              "Search ToneNET for a cranked 100W Super Lead Plexi capture — Livgren's dirt was all cranked-amp grind, straight in, no pedal. Pick a capture that's already at the edge of breakup so guitar volume sets the gain. No drive pedal needed.",
+          },
+        ],
+        notes:
+          "TONEX is capture-driven and this rig is just guitar-into-cranked-Marshall, so the Tone Model does almost everything. Search ToneNET for a cranked Super Lead Plexi capture and add a modest reverb downstream. No pedals — that's the whole point.",
+      },
+      katana: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Booster",
+            block_category: "Booster",
+            original_gear: "No pedal on the original (alt boost)",
+            enabled: false,
+            settings: { Drive: 1, Bottom: 5, Tone: 5, Level: 6 },
+            notes:
+              "DEFAULT-OFF — Livgren played straight in. Use only as a light clean boost if your FRFR rig needs more push into the amp.",
+          },
+          {
+            position: 2,
+            block_name: "Brown",
+            block_category: "Amp Type",
+            original_gear: "100W Marshall Super Lead (cranked)",
+            settings: {
+              Gain: 6,
+              Volume: 6,
+              Bass: 5,
+              Middle: 6,
+              Treble: 6,
+              Presence: 6,
+              Master: 7,
+            },
+            notes:
+              "Brown character for the cranked Super Lead's power-tube grind. Mids forward for the riff's cut. The dirt is the amp itself — no booster needed.",
+          },
+          {
+            position: 3,
+            block_name: "Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate/chamber (inferred)",
+            settings: { Time: 1.1, PreDelay: 20, Tone: 5, EffectLevel: 15 },
+            notes:
+              "Modest plate glue — inferred, the riff is fairly dry on the record.",
+          },
+        ],
+        notes:
+          "Brown amp type for the cranked Super Lead grind — Livgren got his dirt straight from the amp, so the Booster stays OFF. Mids forward for the riff's cut, a touch of reverb for glue.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Stomp",
+            original_gear: "Natural amp + studio compression",
+            settings: { Sustain: 3.0, Tone: 5.0, Volume: 5.0 },
+            notes:
+              "Slot A. Light comp to steady the riff attack — gentle, since the original is dynamic cranked-amp tone.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Marshall Super Lead Plexi' or '100W Plexi cranked'",
+            block_category: "Profile",
+            original_gear: "100W Marshall Super Lead (cranked)",
+            settings: { Gain: 6.5, Bass: 5.0, Middle: 6.0, Treble: 6.5, Presence: 6.0 },
+            notes:
+              "Search Rig Exchange for a cranked 100W Super Lead profile — power-tube grind, straight in. The profile bakes in the cab (rule G3).",
+          },
+          {
+            position: 3,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate/chamber (inferred)",
+            settings: { Decay: 1.1, Predelay: 20, Mix: 0.15 },
+            notes:
+              "REV slot. Modest plate glue — inferred, the riff is fairly dry on the record.",
+          },
+        ],
+        notes:
+          "Comp → cranked Super Lead profile → modest plate. The profile includes the cab (G3). The dirt is power-tube grind, no pedal — search Rig Exchange for cranked Plexi captures.",
+      },
+      fractal: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Natural amp + studio compression",
+            settings: { Threshold: -30, Ratio: 2, Attack: 0.06, Release: 0.5, Mix: 0.5, Level: 0 },
+            notes:
+              "Light comp to steady the riff attack — gentle, since the original is dynamic cranked-amp tone.",
+          },
+          {
+            position: 2,
+            block_name: "Plexi 100W High",
+            block_category: "Amp",
+            original_gear: "100W Marshall Super Lead (cranked)",
+            settings: { Drive: 6.5, Bass: 5.0, Mid: 6.0, Treble: 6.5, Presence: 6.0, MV: 9.0, Cut: 4.0 },
+            notes:
+              "Plexi 100W High cranked (maxed master) for power-tube grind — Livgren's dirt came straight from the amp. Mids forward for the riff's cut.",
+          },
+          {
+            position: 3,
+            block_name: "4x12 Greenback",
+            block_category: "Cab",
+            original_gear: "Marshall slant 4x12",
+            settings: { Mic: "Dynamic 57", Distance: 1.5, LowCut: 95, HighCut: 8500, Level: 0 },
+            notes:
+              "Close-mic'd Greenback 4x12 standing in for the slant cab — HighCut 8.5k to tame fizz.",
+          },
+          {
+            position: 4,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate/chamber (inferred)",
+            settings: { Mix: 0.15, Decay: 1.1, Predelay: 20 },
+            notes:
+              "Modest plate glue — inferred, the riff is fairly dry on the record.",
+          },
+        ],
+        notes:
+          "Comp → cranked Plexi 100W High → close-mic'd 4x12 → modest plate mirrors the Helix chain. The dirt is power-tube grind, no pedal.",
       },
     },
     is_editorial: true,

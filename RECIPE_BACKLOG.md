@@ -52,12 +52,12 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 3 | Smoke on the Water (riff) | Deep Purple | Ritchie Blackmore | Machine Head (1972) | White '74 Strat (scalloped, post-recording) into Marshall Major 200W via AIWA reel-to-reel as preamp. The riff used parallel fourths/fifths, not power chords. | done |
 | 4 | Sunshine of Your Love (riff) | Cream | Eric Clapton | Disraeli Gears (1967) | "Fool" SG painted by The Fool. Marshall JTM45 head + 4x12. Wah pedal not used on this track. The "woman tone" — guitar tone rolled off, neck pickup. | done |
 | 5 | Money for Nothing (riff) | Dire Straits | Mark Knopfler | Brothers in Arms (1985) | Mid-position Strat (NS-style) into Laney Klipp through Sennheiser MD441 condensed and SM57. Wah pedal half-cocked. Knopfler used his fingers (no pick) — that's half the tone. | done |
-| 6 | Sweet Home Alabama (intro) | Lynyrd Skynyrd | Gary Rossington | Second Helping (1974) | '59 LP through Peavey Mace. The intro arpeggio is open-position D / C / G with chord pattern 1-2-3. | queued |
-| 7 | Black Dog (riff) | Led Zeppelin | Jimmy Page | Led Zeppelin IV (1971) | LP into Marshall direct-injected via mic preamp on the console (Andy Johns trick). The recorded signal is line-level not amp'd; the amp tone heard is preamp distortion. | queued |
-| 8 | Money (solo) | Pink Floyd | David Gilmour | The Dark Side of the Moon (1973) | Black Strat → Big Muff Pi (Triangle) → Hiwatt DR103 → WEM 4x12. Binson Echorec on the dotted-eighth. | queued |
-| 9 | Don't Stop Believin' (solo) | Journey | Neal Schon | Escape (1981) | LP Custom or '59 LP into Mesa/Boogie Mark IIB. Schon used flanger and chorus on the lead. | queued |
-| 10 | More Than a Feeling (riff) | Boston | Tom Scholz | Boston (1976) | Scholz custom-built rig (the Rockman precursor). LP into a 100W power amp + Scholz's homemade preamp. Highly compressed, multi-tracked. | queued |
-| 11 | Carry On Wayward Son (intro vocals + riff) | Kansas | Kerry Livgren | Leftoverture (1976) | LP through Marshall + Mesa/Boogie Mark I (blended). The riff is the iconic vocal harmony first, then guitar. | queued |
+| 6 | Sweet Home Alabama (intro) | Lynyrd Skynyrd | Ed King (not Rossington) | Second Helping (1974) | Intro lick + count-off is Ed King on a '72 Strat (weak single-coils), cranked amp (Marshall per King / Twin per engineer), single padded U87, no pedals. Attribution corrected from Rossington per Sound on Sound + King interviews. | done |
+| 7 | Black Dog (riff) | Led Zeppelin | Jimmy Page | Led Zeppelin IV (1971) | LP into Marshall direct-injected via mic preamp on the console (Andy Johns trick). The recorded signal is line-level not amp'd; the amp tone heard is preamp distortion. | done |
+| 8 | Money (solo) | Pink Floyd | David Gilmour | The Dark Side of the Moon (1973) | Black Strat → Big Muff Pi (Triangle) → Hiwatt DR103 → WEM 4x12. Binson Echorec on the dotted-eighth. | done |
+| 9 | Don't Stop Believin' (solo) | Journey | Neal Schon | Escape (1981) | LP Custom or '59 LP into Mesa/Boogie Mark IIB. Schon used flanger and chorus on the lead. | needs-research |
+| 10 | More Than a Feeling (riff) | Boston | Tom Scholz | Boston (1976) | Scholz custom-built rig (the Rockman precursor). LP into a 100W power amp + Scholz's homemade preamp. Highly compressed, multi-tracked. | done |
+| 11 | Carry On Wayward Son (intro vocals + riff) | Kansas | Kerry Livgren | Leftoverture (1976) | LP through Marshall + Mesa/Boogie Mark I (blended). The riff is the iconic vocal harmony first, then guitar. | done |
 | 12 | Black (build to outro) | Pearl Jam | Mike McCready | Ten (1991) | Strat through Mesa/Boogie Studio .22 — the same era/circuit as Cobain's Nevermind setup, different player. The outro solo uses delay and reverb for the "ah-yah" call-and-response. | queued |
 | 13 | Even Flow (intro riff) | Pearl Jam | Mike McCready | Ten (1991) | Same Strat-into-Mesa rig as Black, more midrange grit. McCready's stutter-bend technique is half the recipe. | queued |
 | 14 | The Pretender (riff) | Foo Fighters | Dave Grohl + Chris Shiflett | Echoes, Silence, Patience & Grace (2007) | Grohl: Trini Lopez signature into Mesa Boogie Dual Rectifier. Shiflett: '72 Tele Deluxe into Marshall JCM800. Two-amp blend on the rhythm. | queued |
@@ -122,6 +122,24 @@ successful run.)
 | 2026-06-01 | blackmore-smoke-on-the-water-riff | 3 |
 | 2026-06-01 | clapton-sunshine-of-your-love-woman-tone | 4 |
 | 2026-06-01 | knopfler-money-for-nothing-intro | 5 |
+| 2026-06-02 | edking-sweet-home-alabama-intro | 6 |
+| 2026-06-02 | page-black-dog-riff | 7 |
+| 2026-06-02 | gilmour-money-solo | 8 |
+| 2026-06-02 | scholz-more-than-a-feeling-riff | 10 |
+| 2026-06-02 | livgren-carry-on-wayward-son-riff | 11 |
+
+### needs-research
+
+- **#9 Don't Stop Believin' (Neal Schon, Escape 1981)** — skipped 2026-06-02.
+  The guitar (black 1977 Gibson Les Paul) and studio (Fantasy Studios,
+  Berkeley; Elson/Stone production) are well-documented, but the **amp is
+  genuinely unsourced** — no primary source quotes Schon or the producers
+  naming the Escape studio amp. Candidates conflict wildly (Peavey Mace vs.
+  a Marshall vs. a Mesa/Boogie Mark), and they're different enough voicings
+  that guessing one would fail the no-approximation bar. Mic placement and
+  the specific chorus/delay/reverb units are also undocumented. Re-queue
+  only if a primary source (Schon interview / producer account) on the
+  Escape amp surfaces. Built #11 in its place this run.
 
 ---
 
