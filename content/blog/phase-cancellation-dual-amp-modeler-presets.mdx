@@ -1,0 +1,156 @@
+---
+title: 'Phase Cancellation in Dual-Amp Modeler Presets: Find It Before You Compress'
+description: >-
+  Two amp paths that partially cancel gut your low end before any compressor can
+  help. The mono-sum test, the polarity flip, and the time alignment that find
+  and kill the cancellation.
+date: '2026-06-02'
+author: Sean Nakamura
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - phase
+  - dual-amp
+  - parallel-routing
+  - helix
+  - quad-cortex
+  - modeler
+  - signal-chain
+image: /images/blog/phase-cancellation-dual-amp-modeler-presets.jpg
+image_alt: >-
+  A modeler editor screen showing two parallel amp blocks merging into one
+  output, with a polarity-invert block highlighted on the lower path
+takeaways:
+  - >-
+    A dual-amp preset that sounds thin in the low end is usually canceling, not
+    EQ-deficient. Boosting bass on a canceling signal just raises the noise floor
+    around the notch.
+  - >-
+    The mono-sum test exposes it instantly. Pan both paths center, sum to mono,
+    and listen for the low end collapsing. Stereo hides phase problems that mono
+    and most PA systems reveal.
+  - >-
+    There are only two causes: a polarity flip (one path inverted) or a time
+    offset (one path delayed relative to the other). Polarity is a one-click fix.
+    Time offset needs a small delay on the early path.
+  - >-
+    A time offset of even 0.3 ms puts a cancellation notch near 1.7 kHz, right in
+    the guitar's presence range. The notch frequency equals 1 divided by twice
+    the delay, so smaller offsets push the notch higher and wider.
+  - >-
+    Run the phase check before you place a compressor. A compressor on a
+    canceling bus chases a moving target, and merged comb filtering is invisible
+    until you sum to mono in the room.
+faq:
+  - q: Why does my dual-amp or parallel preset sound thin?
+    a: >-
+      Because the two paths are partially canceling when they merge. Any time one
+      path is polarity-inverted relative to the other, or arrives a fraction of a
+      millisecond late, the two signals subtract instead of add. The low end goes
+      first because long wavelengths cancel across the widest range of small time
+      offsets. It reads as thin, hollow, or flangey, and no amount of EQ fully
+      restores it.
+  - q: How do I check for phase cancellation on a Helix or Quad Cortex?
+    a: >-
+      Sum the preset to mono and listen. Set both parallel paths to center pan,
+      collapse the output to mono if your interface or the modeler allows it, and
+      A/B against either path soloed. If the full mix sounds thinner than one
+      path alone, you have cancellation. Then flip the polarity on one path and
+      listen again. Keep whichever version sums fuller.
+  - q: Should I use the polarity or phase invert block?
+    a: >-
+      Use it whenever flipping it makes the mono sum sound fuller, and leave it
+      off when it does not. It is a diagnostic, not a setting you apply by
+      default. On Helix it is the Gain block's polarity option or a dedicated
+      utility; on Quad Cortex it is the phase switch on the relevant block.
+      Inverting one path corrects a 180-degree polarity flip but does nothing for
+      a time offset, which needs a delay instead.
+  - q: What causes a time offset between two amp paths?
+    a: >-
+      Unequal block counts and unequal processing latency. If one path has a
+      drive, an EQ, and a cab while the other has only an amp and a cab, the
+      busier path can arrive a fraction of a millisecond later. Different cab IRs
+      also have different impulse start times. The fix is a short delay on the
+      earlier path, nudged in tenths of a millisecond until the mono sum is
+      fullest.
+  - q: Do I need to worry about phase if I only play in stereo?
+    a: >-
+      Yes. Stereo spreads the two paths to opposite sides and masks the
+      cancellation, but the moment anything sums them, the problem returns. Mono
+      PA fills, phone speakers, a single studio monitor, a mix bus, and most
+      live-sound front-of-house setups all collapse your stereo guitar to mono.
+      A preset that only holds together in stereo is a preset that falls apart
+      everywhere it matters.
+---
+
+> **Quick read:** When a dual-amp or parallel preset sounds thin, the usual reflex is to reach for an EQ or a compressor. Both are the wrong tool if the two paths are canceling. The fix order is: sum to mono, confirm each path sounds full on its own, flip the polarity on one path and keep whichever sums fuller, then if it is still hollow, nudge a small delay onto the earlier path in tenths of a millisecond. A 0.3 ms offset alone parks a cancellation notch near 1.7 kHz. Find and kill the cancellation first. Then, and only then, place your compressor.
+
+Two amps blended together should sound bigger than one. When the blend sounds smaller — thinner, hollower, with the low end scooped out for no reason you can find on an EQ — the two paths are fighting each other. They are partially canceling on the way to the output, and the result is a signal that has less energy than either amp had alone.
+
+This is the failure mode that every "why does my parallel preset sound weak" thread eventually lands on, usually after someone has already wasted an hour on the EQ. Let me walk you through what is actually happening and the exact order to fix it.
+
+## What Cancellation Is Doing to Your Signal
+
+When you split a guitar signal into two amp paths and merge them back together, the two copies add together sample by sample. If the copies are aligned, they reinforce — more level, more body. If one copy is flipped upside down relative to the other, they subtract, and where they line up perfectly they cancel to silence.
+
+There are exactly two ways the copies get misaligned:
+
+1. **Polarity.** One path is inverted — its waveform is flipped top to bottom. An amp model, a cab IR, or a utility block somewhere in that path turned the signal upside down. When it merges with the upright path, the two subtract across the whole spectrum. This is the dramatic one. A full polarity flip on two near-identical paths can cancel almost everything.
+
+2. **Time offset.** One path arrives slightly later than the other. Not inverted, just late. This happens because the two paths have different processing latency — a busier path with more blocks takes longer than a sparse one, and two different cab IRs have different impulse start times. A delayed copy added to an on-time copy produces comb filtering: a series of cancellation notches stacked up the frequency range.
+
+The reason the low end always seems to suffer first is worth understanding, because it tells you which problem you have. A polarity flip cancels everything roughly equally and sounds hollow and weak across the board. A time offset cancels at specific frequencies set by the delay amount, and the first notch sits at a frequency you can calculate.
+
+## The Math That Tells You Where the Notch Is
+
+For a pure time offset, the first cancellation notch lands at a frequency equal to 1 divided by twice the delay. That single relationship explains why tiny offsets are so destructive in the guitar range.
+
+| Path offset | First cancellation notch | What it guts |
+|---|---|---|
+| 0.1 ms | 5 kHz | Presence and air |
+| 0.3 ms | 1.67 kHz | Pick attack and bite |
+| 0.5 ms | 1 kHz | Body and honk |
+| 1.0 ms | 500 Hz | Low mids and warmth |
+
+Notice the direction: the *smaller* the offset, the *higher and wider* the first notch. A sub-millisecond offset you would assume is inaudible is actually carving a hole right out of the most important part of the guitar's range. This is why "it's only 0.3 ms, who cares" is wrong.
+
+## Find It: The Mono-Sum Test
+
+Stereo is a liar. When your two paths are panned hard left and right, they never actually meet, so the cancellation never shows up. Then the preset hits a mono PA fill, a phone speaker, or a front-of-house engineer's mono sum, and the low end vanishes in front of an audience.
+
+So you test in mono, on purpose, before you trust the preset.
+
+1. Set both parallel paths to center pan.
+2. Sum the output to mono. Most interfaces have a mono button; if not, a mono utility on the merged path works.
+3. Solo path A. Listen. It should sound full.
+4. Solo path B. Listen. It should sound full too.
+5. Un-solo. Listen to the sum. If the sum is thinner than either path alone, you have cancellation.
+
+If both paths sound great soloed but weak together, the problem is not the amps. It is the merge.
+
+## Fix It: Polarity First, Then Time
+
+Polarity is the cheap check, so do it first.
+
+Insert a polarity invert on one path — on Helix this is the Gain block's polarity option or a dedicated utility, on the Quad Cortex it is the phase switch on the block. Flip it. Listen to the mono sum. If the low end snaps back and the signal suddenly has body, you found it. Keep the flip. If it gets worse or does nothing, flip it back and move on. Polarity is binary; there is no in-between to dial.
+
+If polarity does not fix it, you have a time offset, and this is where I expected the answer to almost always be polarity and found out I was wrong. I had a dual-amp preset with matched, correct polarity that still sounded scooped in mono. Both paths were upright. The issue was that one path had a drive block and a parametric EQ and the other had neither, and the busier path was arriving roughly 0.3 ms late. That offset alone was carving a notch near 1.7 kHz — exactly where the pick attack lives, which is why it sounded dull rather than hollow. The EQ could not fill the notch because the notch moved with the note.
+
+The fix for a time offset is a small delay on the *earlier* path to bring it into line with the later one.
+
+1. Add a delay block to the path that arrives first (usually the sparser path).
+2. Set it to a few tenths of a millisecond — start at 0.2 ms.
+3. Listen to the mono sum and adjust in 0.1 ms steps.
+4. The fullest, most present sum is the aligned point. You will hear the body and the attack lock in together.
+
+On platforms with a sample-accurate time-align utility, use it instead of guessing — but the ear-and-nudge method gets you there on any modeler. The target is always the same: maximum level and body in the mono sum.
+
+<SaveThisTone title="Now place the compressor correctly" description="Phase alignment is the prerequisite for compressing a parallel bus. The stereo compressor placement guide covers before-split, per-path, and merged-bus compression, with the attack-mismatch data on why two unmatched comps smear the recombine." href="/blog/stereo-compressor-placement-parallel-amp-routing" ctaLabel="Read the stereo compressor placement guide" />
+
+## Why This Has to Happen Before You Compress
+
+A compressor reacts to level. A canceling bus has a level that swings around as different frequencies drop in and out of the notch, depending on what you play. Put a compressor on that and its gain reduction chases a target that is moving for the wrong reason. You will spend an afternoon fighting a compressor that feels twitchy and inconsistent, when the real problem was upstream the whole time.
+
+Get the two paths summing fully first. Confirm it in mono. Then the bus has a stable, predictable level, and the compressor has something honest to grab. The order matters more than any single setting.
+
+For the routing itself, the [parallel amp routing walkthrough](/blog/parallel-amp-routing-modeler) covers how to build the split cleanly, and the [noise gate placement guide](/blog/noise-gate-placement-modeler-preset) covers the other block whose position in a dual-path chain quietly decides whether the preset works.

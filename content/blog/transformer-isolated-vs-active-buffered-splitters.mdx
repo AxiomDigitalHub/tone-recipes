@@ -1,0 +1,135 @@
+---
+title: 'Transformer-Isolated vs Active Buffered Splitters: When the Ground Loop Forces the Upgrade'
+description: >-
+  An active buffered splitter with a ground lift clears most stage hum. Here is
+  when only a transformer breaks the loop — and what the phase switch is
+  actually for.
+date: '2026-06-02'
+author: Nathan Cross
+author_slug: nathan-cross
+category: gear-lab
+tags:
+  - splitter
+  - ground-loop
+  - di
+  - live-sound
+  - buffer
+  - worship
+  - foh
+image: /images/blog/transformer-isolated-vs-active-buffered-splitters.jpg
+image_alt: >-
+  A transformer-isolated guitar splitter and an active buffered splitter side by
+  side on a pedalboard, with cables running to an amp and a stage box
+takeaways:
+  - >-
+    An active buffered splitter drives two clean outputs but shares a ground
+    between them, so it can still hum when the amp and FOH sit on different
+    electrical circuits.
+  - >-
+    A transformer-isolated output breaks the ground connection between the two
+    paths. That galvanic isolation is the only thing that reliably kills a true
+    ground loop a lift switch cannot clear.
+  - >-
+    Try the cheap fix first. A buffered splitter with a ground-lift switch
+    clears most stage hum. Reach for the transformer when the lift gets you part
+    way but not all the way to silent.
+  - >-
+    The phase switch flips the polarity of the isolated leg. You need it when
+    front-of-house blends your DI with a mic on the amp, because an inverted
+    transformer can partially cancel the two against each other.
+  - >-
+    Buffered splitters keep your tone consistent over long cable runs. Passive
+    transformer splitters trade a touch of that drive for true isolation, so
+    many players run a buffer into a transformer and get both.
+faq:
+  - q: Do I need a transformer-isolated splitter or is a buffered one enough?
+    a: >-
+      Start with a buffered splitter and its ground-lift switch. In a typical
+      room where the amp and the stage box trace back to the same power, a lift
+      clears the hum. You need a transformer only when the amp and front-of-house
+      are on different circuits, because that voltage difference creates a true
+      ground loop that a lift alone will not silence. The transformer physically
+      breaks the loop.
+  - q: What does the ground lift on a splitter actually do?
+    a: >-
+      It disconnects the ground on the second output so the signal no longer has
+      two separate paths back to earth. A ground loop is exactly that second
+      path, so lifting it often stops the hum on the spot. The limit is that a
+      lift only helps when the loop runs through the audio cable. If the loop is
+      formed by the wall power itself, lifting the audio ground does not break
+      it, and you need transformer isolation instead.
+  - q: What is the phase switch for on a splitter or DI?
+    a: >-
+      It inverts the polarity of one output, usually the isolated one. A
+      transformer can flip the signal 180 degrees, and that matters the moment
+      front-of-house blends your direct signal with a microphone on your amp. If
+      the two are out of polarity they fight each other and the guitar loses low
+      end in the house mix. Flipping the phase switch puts them back in agreement.
+  - q: Will a transformer hurt my tone?
+    a: >-
+      A good transformer barely colors the signal, but a passive transformer
+      splitter does not drive a long cable the way a buffer does, so a very long
+      run to the stage box can lose some high end and feel. The common solution
+      is to put an active buffer first and feed the transformer from it. You get
+      the buffer's consistent drive and the transformer's isolation in the same
+      signal path.
+  - q: Where does the tuner go in a split rig?
+    a: >-
+      Tap it off the buffered side, never the isolated FOH leg. A muted tuner
+      output keeps your tuning silent to the house while you still see the
+      readout on stage. The amp leg and the tuner share the buffered output; the
+      isolated transformer leg carries only the signal headed to front-of-house.
+---
+
+> **Quick read:** Splitting your guitar to an amp and to front-of-house gives the signal two paths back to ground, and that loop is where stage hum is born. An active buffered splitter with a ground-lift switch clears most of it and keeps your tone consistent over long cable runs. But when the amp and FOH sit on different electrical circuits, the loop runs through the wall power, and only a transformer-isolated output physically breaks it. The phase switch exists for the blended house mix: it flips the isolated leg so your DI and a mic on the amp stop canceling each other. Buffer first, transformer second, and you get both.
+
+Run your guitar to your amp and to the front-of-house system at the same time, and you have just built a circuit with two paths back to ground. That loop is the source of the hum that shows up the moment you plug into the snake. The question of which splitter you need is really a question about how bad that loop is in the room you are standing in.
+
+Most weeks, a buffered splitter handles it. Some rooms make you earn it.
+
+## What Each Type Actually Does
+
+An **active buffered splitter** takes your signal, buffers it to a low impedance, and drives two outputs. The buffer is the point — it pushes a strong, consistent signal down both cables, so a long run to the stage box does not roll off your top end or soften your attack. The JHS Buffered Splitter and the Fortin Spliff both live here. They are clean, they are quiet, and they keep your tone the same whether the cable to FOH is six feet or sixty. What they do not do is isolate. Both outputs share a common ground. If the room creates a voltage difference between your amp's ground and the mixer's ground, that difference flows through your audio cable as hum, and a buffer cannot stop it.
+
+A **transformer-isolated splitter** sends one output through a transformer. The signal crosses the transformer magnetically, with no electrical connection from one side to the other. That break is the whole trick. It severs the ground loop physically, so even when the amp and the mixer are on entirely different power, the loop has nowhere to flow. The Lehle P-Split III and the Radial BigShot ABY are the common ones, and both give you a ground lift and, on the Radial, a polarity switch.
+
+The honest trade-off: a passive transformer splitter does not drive a long cable like a buffer does. So the best of both worlds is a buffer feeding a transformer, which is exactly how a lot of pro pedalboards are wired.
+
+## The Decision: Cheap Fix First
+
+Here is the order I work in, every time, because it saves money and bench time.
+
+1. **Buffered splitter, ground lift up.** Plug in. If it is silent, you are done. This is most rooms.
+2. **Buffered splitter, ground lift down.** Still humming? Throw the lift. Lifting the ground on the FOH output removes the second path back to earth, and the loop usually collapses. This clears the large majority of stage hum.
+3. **Transformer isolation.** If the lift takes you from a loud hum to a quiet hum but not to silence, the loop is running through the wall power, not just the audio cable. No lift can break that. Now you need the transformer.
+
+I used to assume a buffered splitter with a ground lift would solve every room, because it solved every room I had played for two years. Then we did a midweek service in a rented hall where the stage power and the booth power came off different panels at opposite ends of the building. Lift up, loud hum. Lift down, quieter hum, still there, still in the house. Nothing on the buffered box touched it. A transformer-isolated output dropped it to dead silence the instant I patched it in. The voltage difference between those two panels was the loop, and only galvanic isolation could break a loop that lived in the building's wiring rather than my cable.
+
+That room is why a transformer box lives in the gig bag now, even though it sits unused most weekends.
+
+## The Comparison
+
+Street prices as of June 2026.
+
+| Splitter | Type | Ground lift | Phase switch | Buffered | Approx price |
+|---|---|---|---|---|---|
+| JHS Buffered Splitter | Active, buffered | Yes | No | Yes | $99 |
+| Fortin Spliff | Active, buffered | Yes | No | Yes | $199 |
+| Lehle P-Split III | Passive, transformer-isolated | Yes | No | No | $155 |
+| Radial BigShot ABY | Passive, transformer-isolated | Yes | Yes (180°) | No | $140 |
+
+The pattern: the active boxes give you drive and consistency, the passive transformer boxes give you isolation, and the Radial is the one that adds the polarity switch you will eventually want if FOH mics your amp.
+
+## What the Phase Switch Is For
+
+This is the control people ignore until it bites them. A transformer can invert your signal — flip it 180 degrees in polarity. On its own, that does nothing you can hear. Your guitar sounds the same upside down.
+
+It matters the moment front-of-house blends two versions of you. Picture the engineer putting a microphone on your amp and also taking your isolated DI. Now your guitar reaches the house mix twice, and if the transformer flipped the DI's polarity, the two copies are fighting. Where the mic pushes, the DI pulls. The low end thins out and the guitar sounds hollow in the house, even though it sounds full on stage. You cannot hear the problem from where you are standing, which is what makes it so frustrating to diagnose.
+
+The phase switch flips the isolated leg back into agreement with the mic. One click, the two copies reinforce instead of cancel, and the guitar fills back in. If your DI ever sounds great on stage and thin in the recording or the house, ask the engineer to flip your phase before you touch anything else.
+
+## How It Fits the Rest of the Rig
+
+The splitter is one decision inside the larger question of how you get a clean signal to three places at once. If you are running amp, FOH, and a muted tuner, the [three-output splitter wiring walkthrough](/blog/wire-buffered-splitter-amp-foh-tuner-three-output) covers the topology — buffer first, tuner tapped off the buffered side, the isolated leg reserved for the house. If the hum persists even after isolation, the [stage ground-loop guide](/blog/ground-loop-hum-amp-stage) covers the wall-power side of the problem.
+
+The goal is never the gear for its own sake. The goal is that you plug in, the room is silent, and the congregation hears the song instead of a sixty-cycle hum sitting under it. Buy for the worst room you play, not the easy one, and the easy ones take care of themselves.
