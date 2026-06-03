@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-02
-**Recipes:** 60
-**Clean (no errors, no warns):** 44
+**Date:** 2026-06-03
+**Recipes:** 65
+**Clean (no errors, no warns):** 49
 **Warn-only:** 16
 **With errors:** 0
 
@@ -16,12 +16,12 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `translations-utility-mirror` | warn | 15 / 60 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `katana-kemper-multidrive-default-off` | info | 13 / 60 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `helix-block-count` | warn | 2 / 60 | Helix translation has ≥6 blocks |
-| `helix-reverb-cuts` | warn | 1 / 60 | Helix reverb has LowCut (80-300 Hz) + HighCut (5-9 kHz) |
-| `helix-comp-present` | warn | 1 / 60 | Helix chain includes a Compressor block before the Amp (after volume pedal / noise gate is OK) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 60 | Signal chain includes a cabinet or microphone block |
+| `translations-utility-mirror` | warn | 15 / 65 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `katana-kemper-multidrive-default-off` | info | 13 / 65 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `helix-block-count` | warn | 2 / 65 | Helix translation has ≥6 blocks |
+| `helix-reverb-cuts` | warn | 1 / 65 | Helix reverb has LowCut (80-300 Hz) + HighCut (5-9 kHz) |
+| `helix-comp-present` | warn | 1 / 65 | Helix chain includes a Compressor block before the Amp (after volume pedal / noise gate is OK) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 65 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -215,6 +215,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `frusciante-snow-hey-oh-intro` — ✓ clean
+
+*Frusciante's Snow (Hey Oh) Cascading Clean Arpeggio*
+
+Passes every rule.
+
 ### `frusciante-under-the-bridge-clean` — ✓ clean
 
 *Frusciante's Under the Bridge Clean Tone*
@@ -260,6 +266,12 @@ Passes every rule.
 ### `greenwood-creep-clean-to-crunch` — ✓ clean
 
 *Creep Clean-to-Crunch Tone*
+
+Passes every rule.
+
+### `grohl-the-pretender-riff` — ✓ clean
+
+*Grohl's The Pretender Wall of Distortion*
 
 Passes every rule.
 
@@ -323,9 +335,27 @@ Passes every rule.
 
 Passes every rule.
 
+### `marr-this-charming-man-jangle` — ✓ clean
+
+*Marr's This Charming Man Jangle*
+
+Passes every rule.
+
 ### `mayer-gravity-super-clean-dynamic` — ✓ clean
 
 *John Mayer's Gravity Super-Clean Dynamic Tone*
+
+Passes every rule.
+
+### `mccready-black-solo` — ✓ clean
+
+*McCready's Black Clean-to-Soaring Solo Tone*
+
+Passes every rule.
+
+### `mccready-even-flow-solo` — ✓ clean
+
+*McCready's Even Flow Wah-Drenched Solo*
 
 Passes every rule.
 

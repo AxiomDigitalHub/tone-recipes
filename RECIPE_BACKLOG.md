@@ -58,12 +58,12 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 9 | Don't Stop Believin' (solo) | Journey | Neal Schon | Escape (1981) | LP Custom or '59 LP into Mesa/Boogie Mark IIB. Schon used flanger and chorus on the lead. | needs-research |
 | 10 | More Than a Feeling (riff) | Boston | Tom Scholz | Boston (1976) | Scholz custom-built rig (the Rockman precursor). LP into a 100W power amp + Scholz's homemade preamp. Highly compressed, multi-tracked. | done |
 | 11 | Carry On Wayward Son (intro vocals + riff) | Kansas | Kerry Livgren | Leftoverture (1976) | LP through Marshall + Mesa/Boogie Mark I (blended). The riff is the iconic vocal harmony first, then guitar. | done |
-| 12 | Black (build to outro) | Pearl Jam | Mike McCready | Ten (1991) | Strat through Mesa/Boogie Studio .22 — the same era/circuit as Cobain's Nevermind setup, different player. The outro solo uses delay and reverb for the "ah-yah" call-and-response. | queued |
-| 13 | Even Flow (intro riff) | Pearl Jam | Mike McCready | Ten (1991) | Same Strat-into-Mesa rig as Black, more midrange grit. McCready's stutter-bend technique is half the recipe. | queued |
-| 14 | The Pretender (riff) | Foo Fighters | Dave Grohl + Chris Shiflett | Echoes, Silence, Patience & Grace (2007) | Grohl: Trini Lopez signature into Mesa Boogie Dual Rectifier. Shiflett: '72 Tele Deluxe into Marshall JCM800. Two-amp blend on the rhythm. | queued |
-| 15 | Snow (Hey Oh) (intro arpeggio) | Red Hot Chili Peppers | John Frusciante | Stadium Arcadium (2006) | '62 Strat → Boss CE-1 chorus → Marshall Major. Different from Under the Bridge — same era player, post-rehab return tone. | queued |
-| 16 | Dani California (verse + solo) | Red Hot Chili Peppers | John Frusciante | Stadium Arcadium (2006) | '62 Strat → Big Muff Pi (verses) + Octave Fuzz (solo) → Marshall Major. The solo was inspired by Hendrix and tracks accordingly. | queued |
-| 17 | This Charming Man (jangle) | The Smiths | Johnny Marr | The Smiths (1984) | Rickenbacker 330 into Roland JC-120 with Boss CE-1 chorus. Multi-tracked rhythms (~15 layers per Marr's recollection). Capo on 2nd fret. | queued |
+| 12 | Black (build to outro) | Pearl Jam | Mike McCready | Ten (1991) | CORRECTED: not Mesa Studio .22 (that was Cobain's). McCready: black '62 Japanese-reissue Strat → Fender Bassman (clean verses) + Marshall JCM800 4x12 25W Greenbacks (solo), TS-9, Cry Baby. He confirmed "you can hear that [Bassman] on Black." | done |
+| 13 | Even Flow (intro riff) | Pearl Jam | Mike McCready | Ten (1991) | Same Ten rig as Black, more midrange grit + Cry Baby wah on the solo. JCM800-driven, bridge pickup. | done |
+| 14 | The Pretender (riff) | Foo Fighters | Dave Grohl + Chris Shiflett | Echoes, Silence, Patience & Grace (2007) | Built on the documented core: Grohl's Gibson Trini Lopez → Mesa Dual Rectifier (Modern) → V30 4x12, NS-2 gate. Shiflett's Tele Deluxe is the documented second guitar; his exact ESPG amp isn't pinned to the track, so the recipe centers on Grohl's rig. | done |
+| 15 | Snow (Hey Oh) (intro arpeggio) | Red Hot Chili Peppers | John Frusciante | Stadium Arcadium (2006) | '62 Strat clean → Marshall Major (200W) + Boss CE-1 chorus. POG noted for the outro octave swell. | done |
+| 16 | Dani California (verse + solo) | Red Hot Chili Peppers | John Frusciante | Stadium Arcadium (2006) | '62 Strat → Big Muff Pi (verses) + Octave Fuzz (solo) → Marshall Major. The solo was inspired by Hendrix and tracks accordingly. | needs-research |
+| 17 | This Charming Man (jangle) | The Smiths | Johnny Marr | The Smiths (1984) | Rickenbacker 330 double-tracked with producer John Porter's '54 Tele → Roland JC-120 + Fender Twin Reverb blend, JC onboard chorus. ~15 layers. Capo 2nd fret. | done |
 | 18 | There Is a Light That Never Goes Out (verse) | The Smiths | Johnny Marr | The Queen Is Dead (1986) | Same Rickenbacker + JC-120 + chorus rig as This Charming Man. Different chord voicings (E-major-friendly position). | queued |
 | 19 | One (intro clean → outro thrash) | Metallica | James Hetfield + Kirk Hammett | …And Justice for All (1988) | Hetfield: ESP Explorer with EMG 81/60 → Mesa Mark IIC+. Hammett: ESP KH → Mesa Mark IIC+ with wah on the solo. Distinct from Master of Puppets — first track with the EMG/ESP combo. | queued |
 | 20 | Battery (intro classical → thrash) | Metallica | James Hetfield + Kirk Hammett | Master of Puppets (1986) | Hetfield: ESP Explorer or Jackson King V → Mesa Mark IIC+ → Marshall power amp. Same era and rig as Master of Puppets — different riff voicing. The classical intro uses an acoustic. | queued |
@@ -127,8 +127,28 @@ successful run.)
 | 2026-06-02 | gilmour-money-solo | 8 |
 | 2026-06-02 | scholz-more-than-a-feeling-riff | 10 |
 | 2026-06-02 | livgren-carry-on-wayward-son-riff | 11 |
+| 2026-06-03 | mccready-black-solo | 12 |
+| 2026-06-03 | mccready-even-flow-solo | 13 |
+| 2026-06-03 | grohl-the-pretender-riff | 14 |
+| 2026-06-03 | frusciante-snow-hey-oh-intro | 15 |
+| 2026-06-03 | marr-this-charming-man-jangle | 17 |
 
 ### needs-research
+
+- **#16 Dani California (John Frusciante, Stadium Arcadium 2006)** — skipped
+  2026-06-03. The backlog sketch (Big Muff Pi verses + Octave Fuzz solo →
+  Marshall Major) is **contradicted by the documentation.** Per Ground
+  Guitar's Stadium Arcadium tone breakdown, the verses were a *clean* 1954
+  Strat split in stereo through a **Doepfer A100 modular synth** controlling
+  a low-pass filter, with harmony guitars run through a **Moog MF-105 MuRF**;
+  the solo was "primarily clean," later processed with a **Delta Labs
+  Effectron II delay** — and the source explicitly notes **no traditional
+  fuzz** (no Big Muff) was used. That signal path is exotic, studio-bound,
+  and not reproducible as a trustworthy player-facing rig recipe, and it
+  doesn't match the queued premise. Re-queue only if a simpler, well-sourced
+  account of a guitar-rig (amp + pedal) version of the tone surfaces, or
+  re-scope the entry to "studio chain — modular synth + MuRF." Built #17
+  (This Charming Man) in its place this run.
 
 - **#9 Don't Stop Believin' (Neal Schon, Escape 1981)** — skipped 2026-06-02.
   The guitar (black 1977 Gibson Les Paul) and studio (Fantasy Studios,
