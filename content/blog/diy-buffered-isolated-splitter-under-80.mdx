@@ -1,0 +1,141 @@
+---
+title: 'The DIY Buffered-and-Isolated Splitter: A Three-Output Rig for Under $80'
+description: >-
+  The pro splitter topology is a buffer into a transformer-isolated output. Here
+  is how to build exactly that for under $80 — parts list, the phase switch, and
+  why the cheap transformer holds up.
+date: '2026-06-03'
+author: Jess Kowalski
+author_slug: jess-kowalski
+category: gear-lab
+tags:
+  - diy
+  - splitter
+  - buffer
+  - ground-loop
+  - budget
+  - pedalboard
+image: /images/blog/diy-buffered-isolated-splitter-under-80.jpg
+image_width: 1536
+image_height: 1024
+image_alt: >-
+  An open DIY pedal enclosure on a workbench showing a buffer circuit board, a
+  small audio transformer, three output jacks, and a phase-switch toggle
+takeaways:
+  - >-
+    The pro splitter topology — a buffer feeding a transformer-isolated output —
+    is buildable for under $80 in parts. You are paying boutique prices for a
+    circuit that costs almost nothing to assemble.
+  - >-
+    The buffer drives all three outputs without your tone collapsing from the
+    load; the transformer on the front-of-house leg breaks the ground loop that
+    a buffer alone can't touch.
+  - >-
+    A DPDT phase switch on the isolated output is non-negotiable. Transformers
+    can flip polarity, and without the switch you get a thin, canceling blend
+    when the DI and a mic'd amp hit the same console.
+  - >-
+    Wire the order as input → buffer → three taps, with the transformer only on
+    the FOH/DI leg. The amp and tuner outputs stay buffered-but-direct so they
+    keep full low end.
+  - >-
+    A budget transformer like a Triad or Xicon line-matching unit holds its low
+    end far better than the price suggests — the bass rolloff is real but small,
+    and a buffer in front minimizes it.
+faq:
+  - q: Why put a buffer and a transformer in the same box?
+    a: >-
+      They solve different problems. The buffer lowers the output impedance so
+      one guitar signal can drive three cables without losing high end or
+      level. The transformer galvanically isolates one output so there is no
+      shared ground path between your amp and the front-of-house system, which
+      is what kills the hum a buffer alone leaves behind. Together they give you
+      a strong, quiet three-way split.
+  - q: Do I really need the phase switch?
+    a: >-
+      Yes, if any chance exists that your isolated DI and a mic'd amp end up on
+      the same mixing console. An audio transformer can present its output
+      polarity-inverted, and when an inverted DI blends with an upright mic
+      signal the two partially cancel and the guitar goes thin. A DPDT switch
+      lets the engineer flip it and recover the full sound in one move.
+  - q: Will a cheap transformer ruin my tone?
+    a: >-
+      Not meaningfully. A budget line-matching transformer rolls off a little
+      low end and adds a trace of harmonic coloration when pushed hard, but with
+      a buffer driving it the rolloff is small and sits below where guitar
+      fundamentals live. The isolated leg usually feeds a DI into a console
+      anyway, where that tiny difference disappears in the mix.
+  - q: What outputs should each leg drive?
+    a: >-
+      Wire three taps off the buffer. Keep the amp output and the tuner output
+      buffered but direct so they carry full bandwidth, and put the transformer
+      only on the leg going to front-of-house or a recording interface. That way
+      your stage amp gets the untouched signal and only the long, ground-loop-
+      prone run gets isolated.
+  - q: Is this legal to build if I'm not an electronics person?
+    a: >-
+      It is one of the friendlier first builds. A pre-made buffer PCB kit, a
+      transformer, three jacks, a toggle, and an enclosure is a few solder
+      joints and no high voltage anywhere — everything runs on a standard 9V
+      pedal supply. If you can solder a buffer kit, you can build this.
+---
+
+> **Quick read:** The splitter you actually want — buffer into a transformer-isolated output, with a phase switch — costs over $250 from the boutique brands and under $80 in parts. Wire it input → buffer → three taps. Keep the amp and tuner legs buffered-but-direct for full bandwidth, put the transformer only on the front-of-house leg to break the ground loop, and add a DPDT phase switch on that isolated output so an engineer can flip polarity when your DI meets a mic'd amp at the console. The cheap transformer holds up better than its price suggests, especially with a buffer driving it.
+
+If you read our [transformer-isolated vs. buffered splitter breakdown](/blog/transformer-isolated-vs-active-buffered-splitters), you already know the punchline: the best topology is a buffer feeding a transformer-isolated output, not one or the other. The boutique brands know it too, which is why their three-output isolated splitters cost what a decent used pedal costs. Honestly, that markup is the part that bugs me. The circuit inside is a buffer, a transformer, and a switch. You can build exactly that for the price of a nice dinner.
+
+This is the build. Parts, wiring order, the one component people skip, and where the budget version actually costs you something (small) versus where it doesn't (most of it).
+
+## What Each Part Is Doing
+
+A three-way split has one job that sounds easy and one that doesn't. The easy-sounding job is sending your signal three places at once — to your amp, to your tuner, and to front-of-house. The catch is that splitting one passive guitar output across three cables loads it down, and your high end and level sag.
+
+That is the buffer's job. It takes the high-impedance guitar signal and re-presents it at low impedance, strong enough to drive three cables without anyone hearing the difference. A buffer fixes the *signal* problem.
+
+It does nothing for the *ground* problem. The moment your amp and the front-of-house system share an electrical ground through your signal cables, you have a loop, and a loop hums. A buffer passes that hum through happily.
+
+The transformer fixes the ground problem by removing the shared ground entirely. It passes audio across a magnetic gap with no electrical connection between input and output, so there is no second ground path and no loop. That is why the pro move is both: buffer for the signal, transformer for the ground.
+
+## The Parts List
+
+Street prices as of June 2026, give or take, sourced from the usual DIY pedal suppliers:
+
+| Part | What to get | Rough cost |
+|---|---|---|
+| Buffer PCB kit | A standard JFET or op-amp buffer kit (PedalPCB, Aion, or similar) | $12–18 |
+| Audio transformer | Triad TY-141P or a Xicon 42TM018 line-matching transformer | $12–16 |
+| Enclosure | 1590B or 1590BB aluminum box | $8–12 |
+| Output jacks | Three mono 1/4 in jacks | $6 |
+| Input jack | One mono 1/4 in jack (also switches power) | $2 |
+| DPDT toggle | For the phase switch on the isolated leg | $3 |
+| DC jack + wiring | Standard 9V center-negative jack, hookup wire, solder | $6 |
+
+That lands comfortably under $80 with parts left over, and most of that is the enclosure and jacks — the actual circuit is maybe $30. Compare that to the boutique three-output isolated units and the math is, frankly, insulting to anyone who has held a soldering iron.
+
+## Wiring Order: Buffer First, Transformer on One Leg Only
+
+The layout decides whether this works, so get the order right.
+
+1. **Input → buffer.** The guitar hits the buffer first. Everything downstream sees the buffered, low-impedance signal.
+2. **Buffer → three taps.** Split the buffer's output to three points. This is just a wired junction — the buffer is strong enough to feed all three.
+3. **Tap 1 → amp output (direct).** Buffered, full bandwidth, straight to your stage amp.
+4. **Tap 2 → tuner output (direct).** Same. Your tuner gets a clean buffered feed and never loads your signal.
+5. **Tap 3 → transformer → phase switch → FOH/DI output.** Only this leg gets isolated, because only this leg is the long, ground-loop-prone run to the house system or an interface.
+
+The reason you isolate only the front-of-house leg is that the transformer is the one component with a tonal cost, however small. Your amp and tuner don't need isolation — they share the stage ground with you already — so they stay buffered-but-direct and keep every bit of low end. The house gets the isolated, hum-free feed.
+
+## The Phase Switch Is Not Optional
+
+Here is the part DIY builds skip, and then the builder spends a confused night wondering why the front-of-house mix sounds thin. NOBODY tell me they remembered the phase switch the first time, because I didn't.
+
+An audio transformer can present its output polarity-inverted depending on how it is wound and wired. On its own, in isolation, that is fine — nobody hears absolute polarity. It becomes a problem the instant your isolated DI signal blends with another mic of the same source at the console. A mic'd amp and an inverted DI of the same guitar, summed together, partially cancel. The guitar goes thin and hollow in the house, and no EQ fixes it because it is a [phase cancellation](/blog/phase-cancellation-dual-amp-modeler-presets) problem, not a tone problem.
+
+The DPDT toggle on the isolated output flips that polarity. One switch, and the engineer can match the DI to the mic in two seconds. Wire it in. It costs three dollars and saves a soundcheck.
+
+## Where the Budget Version Actually Costs You (Spoiler: Barely)
+
+I went in expecting the cheap transformer to be the weak link — a noticeable bass rolloff, a dull, papery top end, the usual budget-component tax. I A/B'd the Triad against a far pricier line transformer through the same buffer. The difference was there, but it was small: a gentle low-end softening that measured below where guitar fundamentals actually sit, and a hair of harmonic thickening when I hit it hard, which on a DI feed reads as character, not damage. With the buffer driving it, the rolloff shrank further, because the transformer was seeing a strong low-impedance source instead of a weak guitar pickup.
+
+In a mix, fed into a console as a DI, that difference vanishes. You are not building a mastering-grade line transformer. You are building a hum-free split for a stage, and for that the budget part is genuinely good enough — good enough that the boutique premium buys you a nicer enclosure and a logo more than it buys you tone.
+
+Build it, gig it, and put the $170 you saved toward strings, gas money, or literally anything else. If your hum problem turns out to be upstream of the splitter entirely, the [ground-loop hum decision tree](/blog/ground-loop-hum-amp-stage) walks the rest of the chain before you go cutting grounds.

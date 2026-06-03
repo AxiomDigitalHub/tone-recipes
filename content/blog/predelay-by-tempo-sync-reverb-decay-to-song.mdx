@@ -1,0 +1,141 @@
+---
+title: 'Predelay by Tempo: How to Sync Reverb Predelay and Decay to the Song'
+description: >-
+  Sync reverb predelay to the song's tempo and the reverb breathes with the
+  groove instead of smearing it. The BPM math, a starting chart, and how to set
+  decay so the tail clears.
+date: '2026-06-03'
+author: Nathan Cross
+author_slug: nathan-cross
+category: modeler-masterclass
+tags:
+  - reverb
+  - predelay
+  - tempo
+  - worship
+  - ambient
+  - signal-chain
+image: /images/blog/predelay-by-tempo-sync-reverb-decay-to-song.jpg
+image_width: 1536
+image_height: 1024
+image_alt: >-
+  A reverb pedal and a tempo display on a darkened stage, with a predelay
+  parameter highlighted and a BPM value shown alongside
+takeaways:
+  - >-
+    Predelay is the silent gap between your note and the start of its reverb. Set
+    it to a rhythmic subdivision of the song's tempo and the reverb enters in
+    time with the groove instead of smearing across it.
+  - >-
+    The math is one line: milliseconds per beat equals 60000 divided by BPM. A
+    sixteenth-note predelay is that number divided by four, an eighth-note
+    predelay divided by two.
+  - >-
+    Tempo-synced predelay keeps the dry note forward and intelligible. The
+    congregation hears the chord land cleanly, then the space opens behind it —
+    you get size without losing the front of the note.
+  - >-
+    Decay should clear before the next chord change, not ring through it. Aim the
+    tail to fade across roughly one bar for slow songs and a half bar for faster
+    ones, so the reverb resets instead of piling up into mud.
+  - >-
+    The counterintuitive part: more reverb pushes a guitar farther back, not
+    just bigger. Syncing predelay lets you sit a part deep in the mix while it
+    still arrives on the beat.
+faq:
+  - q: How do I calculate reverb predelay from tempo?
+    a: >-
+      Find the milliseconds per beat by dividing 60000 by the song's BPM. That
+      is a quarter-note. For a sixteenth-note predelay divide that figure by
+      four; for an eighth-note divide by two. At 75 BPM a beat is 800 ms, so a
+      sixteenth-note predelay is 200 ms and an eighth-note is 400 ms. Pick the
+      subdivision that lets the dry note speak before the reverb enters.
+  - q: What predelay should I use for worship guitar?
+    a: >-
+      For slow, atmospheric songs a longer predelay around an eighth-note keeps
+      the chord forward while a long tail blooms behind it. For mid-tempo songs
+      a sixteenth-note predelay keeps the part tight and present. The rule is to
+      sync it to the tempo rather than picking a fixed number, so the reverb
+      enters in rhythm no matter the song.
+  - q: How long should the reverb decay be?
+    a: >-
+      Long enough to create space, short enough to clear before the next chord.
+      A practical target is one bar of decay on slow songs and about half a bar
+      on faster ones. If the tail is still ringing when the chord changes, the
+      old reverb collides with the new one and the mix turns to mush — shorten
+      the decay until each chord gets a clean space of its own.
+  - q: Does predelay make the guitar sound bigger or farther away?
+    a: >-
+      Both, and they are different. A short predelay glues the reverb to the note
+      and the guitar sits farther back in the mix. A longer predelay separates
+      the dry note from its reverb, keeping the note forward and intelligible
+      while the space opens behind it. That separation is how you get a huge
+      reverb without burying the part.
+  - q: Do I need a tap-tempo reverb to do this?
+    a: >-
+      No. You only need to know the song's BPM and your pedal's predelay and
+      decay values. Calculate the predelay once, set it, and set the decay to
+      clear by the next chord. Tap tempo helps if the song's tempo drifts live,
+      but for a set with known tempos you can dial fixed values per song ahead
+      of time.
+---
+
+> **Quick read:** Predelay is the gap of silence between your note and the moment its reverb starts. Set it by the song's tempo — milliseconds per beat is 60000 divided by BPM, then divide by four for a sixteenth-note or by two for an eighth — and the reverb enters in rhythm instead of washing across the beat. Keep the dry note forward by using a longer predelay, and set the decay to clear before the next chord (about one bar for slow songs, half a bar for faster). The reverb resets each chord instead of piling into mud.
+
+Most guitarists set reverb predelay exactly once. They turn it until the wash sounds nice on a held chord, then they never touch it again, and the same number rides every song in the set. It works, sort of. But predelay isn't a tone control you set and forget — it's a rhythmic control, and the moment you tie it to the song's tempo, the reverb stops fighting the groove and starts moving with it.
+
+This builds on the [early reflections vs. reverb tail](/blog/early-reflections-vs-reverb-tail-room-vs-space) breakdown, which treats predelay as a size-and-distance control. It is that. It's also a timing control, and that second job is the one almost nobody uses.
+
+## What Predelay Actually Is
+
+Predelay is the silence between the dry note and the first sound of its reverb. Hit a chord with 200 ms of predelay and you hear the chord, then a fifth of a second later the room opens up behind it. With zero predelay, the reverb starts the instant the note does, glued to it.
+
+That gap does two things at once. It controls how far forward the dry note sits — a longer gap keeps the note clean and intelligible before the wash arrives. And it sets a rhythm, because that gap is a length of time, and time in music is measured in the tempo of the song. A predelay is a tiny delay, and like any delay, it can be in time or out of time with the beat.
+
+When it's out of time, the reverb enters at a random moment relative to the groove and smears across the next note. When it's in time — locked to a subdivision of the tempo — the reverb enters on a rhythmic grid, and the whole part breathes with the song.
+
+## The Math Is One Line
+
+Everything starts from the length of one beat:
+
+**Milliseconds per beat = 60000 ÷ BPM**
+
+That gives you a quarter-note. Divide it down for the subdivision you want:
+
+- Eighth-note predelay = (60000 ÷ BPM) ÷ 2
+- Sixteenth-note predelay = (60000 ÷ BPM) ÷ 4
+
+That's it. One division to get the beat, one more to get the subdivision. Here's the chart worked out for the tempos most worship and ambient songs actually live at:
+
+| Song tempo | One beat (quarter) | Eighth-note predelay | Sixteenth-note predelay |
+|---|---|---|---|
+| 68 BPM (slow ballad) | 882 ms | 441 ms | 221 ms |
+| 75 BPM (mid ballad) | 800 ms | 400 ms | 200 ms |
+| 92 BPM (build) | 652 ms | 326 ms | 163 ms |
+| 120 BPM (up-tempo) | 500 ms | 250 ms | 125 ms |
+| 140 BPM (driving) | 429 ms | 214 ms | 107 ms |
+
+Pick the subdivision by how much you want the dry note to speak first. The eighth-note values keep a clear, deliberate gap — the chord lands, a breath passes, then the space opens. The sixteenth-note values are tighter and keep the part more present and forward. Slow, prayerful songs tend to want the longer gap; mid-tempo songs that need to stay intelligible want the shorter one.
+
+## What This Does for the Part
+
+I used to set predelay short on everything, assuming a longer gap would just push the guitar further away and make it disappear. I had it backwards. On a slow song at 75 BPM, moving the predelay out to the 400 ms eighth-note didn't bury the part — it pulled the dry note *forward*. The chord arrived clean and present, the congregation could hear it land, and then the long tail bloomed behind it in time with the song. The reverb got bigger and the note got clearer at the same time, which I didn't think was possible until I heard it.
+
+That separation is the whole trick. A short predelay glues the wash to the note and the guitar sinks back. A tempo-synced longer predelay keeps the note up front and lets the space live behind it, on the beat. You get the size without paying for it in clarity.
+
+## Set the Decay to Clear Before the Next Chord
+
+Predelay sets when the reverb enters. Decay sets how long it stays, and the failure mode here is letting it stay too long. If the tail from one chord is still ringing when the next chord arrives, the two reverbs stack, and a few chords later the mix is mush — every change blurred into the last one.
+
+So time the decay to the song the same way you timed the predelay. A practical target:
+
+- **Slow songs:** decay clears across about one bar. The space is generous but each chord still gets its own room before the next one fills it.
+- **Faster songs:** decay clears across about half a bar. Tighter, so the tail resets between changes and the part stays defined.
+
+The room needs to breathe, and a reverb that never clears is a room holding its breath. If your chord changes are turning to soup, shorten the decay before you blame the song. The tail should fade out roughly as the next chord lands, so each change opens a fresh space instead of crowding into the old one.
+
+## Putting It Together
+
+Per song: find the BPM, divide 60000 by it for the beat, pick an eighth- or sixteenth-note predelay off the chart, and set the decay to clear by the next chord. You don't need a tap-tempo reverb for this — known tempos let you dial fixed values per song ahead of time, whether you're on a Strymon BigSky, an H90, a Helix or Quad Cortex block, or Valhalla in the DAW. The numbers are the numbers regardless of the box.
+
+This pairs naturally with tempo-synced delay. If you're already running a [dotted-eighth delay](/blog/the-edge-delay-settings) locked to the song, syncing the reverb predelay to the same tempo means your delay and your reverb are both moving on the same grid — the ambience stops being a static wash and becomes part of the rhythm section. For the delay-time math itself, the [BPM delay calculator](/blog/delay-time-bpm-calculator) uses the exact same 60000-over-BPM starting point. Sync them both to the tempo, and the space around your guitar starts keeping time with the song instead of blurring it.
