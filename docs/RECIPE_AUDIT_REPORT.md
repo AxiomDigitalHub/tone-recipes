@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-03
-**Recipes:** 65
-**Clean (no errors, no warns):** 49
+**Date:** 2026-06-06
+**Recipes:** 70
+**Clean (no errors, no warns):** 54
 **Warn-only:** 16
 **With errors:** 0
 
@@ -16,12 +16,12 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `translations-utility-mirror` | warn | 15 / 65 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `katana-kemper-multidrive-default-off` | info | 13 / 65 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `helix-block-count` | warn | 2 / 65 | Helix translation has ≥6 blocks |
-| `helix-reverb-cuts` | warn | 1 / 65 | Helix reverb has LowCut (80-300 Hz) + HighCut (5-9 kHz) |
-| `helix-comp-present` | warn | 1 / 65 | Helix chain includes a Compressor block before the Amp (after volume pedal / noise gate is OK) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 65 | Signal chain includes a cabinet or microphone block |
+| `translations-utility-mirror` | warn | 15 / 70 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `katana-kemper-multidrive-default-off` | info | 13 / 70 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `helix-block-count` | warn | 2 / 70 | Helix translation has ≥6 blocks |
+| `helix-reverb-cuts` | warn | 1 / 70 | Helix reverb has LowCut (80-300 Hz) + HighCut (5-9 kHz) |
+| `helix-comp-present` | warn | 1 / 70 | Helix chain includes a Compressor block before the Amp (after volume pedal / noise gate is OK) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 70 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -263,6 +263,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `gorham-boys-are-back-twin-lead` — ✓ clean
+
+*Thin Lizzy's The Boys Are Back in Town Twin-Lead Tone*
+
+Passes every rule.
+
 ### `greenwood-creep-clean-to-crunch` — ✓ clean
 
 *Creep Clean-to-Crunch Tone*
@@ -335,6 +341,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `marr-there-is-a-light-jangle` — ✓ clean
+
+*Marr's There Is a Light That Never Goes Out Jangle*
+
+Passes every rule.
+
 ### `marr-this-charming-man-jangle` — ✓ clean
 
 *Marr's This Charming Man Jangle*
@@ -359,9 +371,27 @@ Passes every rule.
 
 Passes every rule.
 
+### `metallica-battery-acoustic-to-thrash` — ✓ clean
+
+*Metallica's Battery Acoustic-to-Thrash Tone*
+
+Passes every rule.
+
+### `metallica-one-clean-to-thrash` — ✓ clean
+
+*Metallica's One Clean-to-Thrash Tone*
+
+Passes every rule.
+
 ### `morello-killing-in-the-name` — ✓ clean
 
 *Morello's Killing in the Name Aggressive Tone*
+
+Passes every rule.
+
+### `murray-run-to-the-hills-gallop` — ✓ clean
+
+*Iron Maiden's Run to the Hills Galloping Twin-Guitar Tone*
 
 Passes every rule.
 

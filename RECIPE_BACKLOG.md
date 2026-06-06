@@ -64,11 +64,11 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 15 | Snow (Hey Oh) (intro arpeggio) | Red Hot Chili Peppers | John Frusciante | Stadium Arcadium (2006) | '62 Strat clean → Marshall Major (200W) + Boss CE-1 chorus. POG noted for the outro octave swell. | done |
 | 16 | Dani California (verse + solo) | Red Hot Chili Peppers | John Frusciante | Stadium Arcadium (2006) | '62 Strat → Big Muff Pi (verses) + Octave Fuzz (solo) → Marshall Major. The solo was inspired by Hendrix and tracks accordingly. | needs-research |
 | 17 | This Charming Man (jangle) | The Smiths | Johnny Marr | The Smiths (1984) | Rickenbacker 330 double-tracked with producer John Porter's '54 Tele → Roland JC-120 + Fender Twin Reverb blend, JC onboard chorus. ~15 layers. Capo 2nd fret. | done |
-| 18 | There Is a Light That Never Goes Out (verse) | The Smiths | Johnny Marr | The Queen Is Dead (1986) | Same Rickenbacker + JC-120 + chorus rig as This Charming Man. Different chord voicings (E-major-friendly position). | queued |
-| 19 | One (intro clean → outro thrash) | Metallica | James Hetfield + Kirk Hammett | …And Justice for All (1988) | Hetfield: ESP Explorer with EMG 81/60 → Mesa Mark IIC+. Hammett: ESP KH → Mesa Mark IIC+ with wah on the solo. Distinct from Master of Puppets — first track with the EMG/ESP combo. | queued |
-| 20 | Battery (intro classical → thrash) | Metallica | James Hetfield + Kirk Hammett | Master of Puppets (1986) | Hetfield: ESP Explorer or Jackson King V → Mesa Mark IIC+ → Marshall power amp. Same era and rig as Master of Puppets — different riff voicing. The classical intro uses an acoustic. | queued |
-| 21 | The Boys Are Back in Town (twin lead) | Thin Lizzy | Scott Gorham + Brian Robertson | Jailbreak (1976) | Gorham: '59 LP into Marshall Super Lead. Robertson: '74 LP into Marshall. Twin harmonized lead in thirds — both guitars are essential. | queued |
-| 22 | Run to the Hills (galloping verse) | Iron Maiden | Dave Murray + Adrian Smith | The Number of the Beast (1982) | Both: Strats with hot-rodded pickups → Marshall JCM800. Galloping triplet rhythm requires precise alternate picking. | queued |
+| 18 | There Is a Light That Never Goes Out (verse) | The Smiths | Johnny Marr | The Queen Is Dead (1986) | Same Rickenbacker + JC-120 + chorus rig as This Charming Man. Different chord voicings (E-major-friendly position). | done |
+| 19 | One (intro clean → outro thrash) | Metallica | James Hetfield + Kirk Hammett | …And Justice for All (1988) | Hetfield: ESP Explorer with EMG 81/60 → Mesa Mark IIC+. Hammett: ESP KH → Mesa Mark IIC+ with wah on the solo. Distinct from Master of Puppets — first track with the EMG/ESP combo. | done |
+| 20 | Battery (intro classical → thrash) | Metallica | James Hetfield + Kirk Hammett | Master of Puppets (1986) | Hetfield: ESP Explorer or Jackson King V → Mesa Mark IIC+ → Marshall power amp. Same era and rig as Master of Puppets — different riff voicing. The classical intro uses an acoustic. | done |
+| 21 | The Boys Are Back in Town (twin lead) | Thin Lizzy | Scott Gorham + Brian Robertson | Jailbreak (1976) | Gorham: '59 LP into Marshall Super Lead. Robertson: '74 LP into Marshall. Twin harmonized lead in thirds — both guitars are essential. | done |
+| 22 | Run to the Hills (galloping verse) | Iron Maiden | Dave Murray + Adrian Smith | The Number of the Beast (1982) | Both: Strats with hot-rodded pickups → Marshall JCM800. Galloping triplet rhythm requires precise alternate picking. | done |
 | 23 | Painkiller (riff) | Judas Priest | Glenn Tipton + K.K. Downing | Painkiller (1990) | Tipton: Hamer Phantom GT into Marshall JMP-1 + Marshall power amp. Downing: same era. Drop-D not used; standard tuning, blistering tempo. | queued |
 | 24 | Holy Diver (intro riff + solo) | Dio | Vivian Campbell | Holy Diver (1983) | Campbell: Strat (later Charvel) into Marshall JCM800. The intro has subtle wah engaged at a fixed position. | queued |
 | 25 | Cemetery Gates (clean intro → solo) | Pantera | Dimebag Darrell | Cowboys From Hell (1990) | Dean ML "Dean From Hell" → Randall RG100ES (solid-state, no tubes). MXR 6-band EQ in front. Different from Walk — earlier album, more clean dynamics. | queued |
@@ -132,6 +132,11 @@ successful run.)
 | 2026-06-03 | grohl-the-pretender-riff | 14 |
 | 2026-06-03 | frusciante-snow-hey-oh-intro | 15 |
 | 2026-06-03 | marr-this-charming-man-jangle | 17 |
+| 2026-06-05 | marr-there-is-a-light-jangle | 18 |
+| 2026-06-05 | metallica-one-clean-to-thrash | 19 |
+| 2026-06-05 | metallica-battery-acoustic-to-thrash | 20 |
+| 2026-06-05 | gorham-boys-are-back-twin-lead | 21 |
+| 2026-06-05 | murray-run-to-the-hills-gallop | 22 |
 
 ### needs-research
 
