@@ -1,0 +1,139 @@
+---
+title: "V/Hz: Running a 60Hz Vintage Amp at 83% Voltage to Survive 50Hz Mains"
+description: >-
+  Step a 120V amp down to 100V on European 50Hz mains and the transformer runs
+  cooler, not weaker. The volts-per-hertz math, why under-volting is the safe
+  direction, and what it costs you in headroom.
+date: '2026-06-06'
+author: Viktor Kessler
+author_slug: viktor-kessler
+category: quick-fixes
+tags:
+  - tube-amp
+  - touring
+  - voltage
+  - transformer
+  - mains-frequency
+  - vintage-amps
+image: /images/blog/vhz-undervolt-60hz-amp-50hz-mains.jpg
+image_width: 1536
+image_height: 1024
+image_alt: >-
+  A tube amplifier chassis on a bench with a multimeter reading mains voltage and
+  a step-down voltage converter connected to it
+takeaways:
+  - >-
+    Transformer flux density is proportional to voltage divided by frequency, so a
+    120V/60Hz amp run at 120V on 50Hz mains sees flux density rise about 20% — into
+    saturation territory.
+  - >-
+    To hold flux density constant on 50Hz, drop the voltage to the same ratio: 120V
+    times 50/60 equals 100V, which is 83% of nominal.
+  - >-
+    Under-volting is the safe direction — it just reduces headroom and adds sag,
+    while over-fluxing the core makes magnetizing current spike, the transformer
+    overheat, and insulation age fast.
+  - >-
+    100V at 50Hz is, not coincidentally, almost exactly the Japanese mains spec, so
+    a 60Hz amp is already proven to tolerate that operating point.
+  - >-
+    The cost of running at 83% is a browner, softer, earlier-breakup tone with less
+    clean headroom — often desirable, rarely a problem, and far cheaper than a
+    re-wound transformer.
+faq:
+  - q: What is the volts-per-hertz rule for a tube amp transformer?
+    a: >-
+      Transformer core flux density is proportional to applied voltage divided by
+      frequency (V/Hz). A power transformer is designed for a specific V/Hz ratio —
+      120V at 60Hz, for example. Keep that ratio constant and the core stays in its
+      safe operating range; raise it and the core saturates.
+  - q: Why does 50Hz mains stress a 60Hz amp?
+    a: >-
+      At the same voltage, lowering the frequency from 60Hz to 50Hz raises the V/Hz
+      ratio by 60/50, or about 20%. That pushes the transformer core toward
+      saturation, where magnetizing current climbs steeply and the core heats up.
+      The frequency, not just the voltage, is doing the damage.
+  - q: What voltage should I run a 120V amp at on 50Hz mains?
+    a: >-
+      About 100V. Multiply nominal voltage by the frequency ratio: 120V times 50/60
+      equals 100V, which holds the transformer's flux density at its 60Hz design
+      value. That's 83% of nominal — the amp will sag and lose some headroom, but
+      the transformer runs at its intended flux.
+  - q: Is under-volting a tube amp safe?
+    a: >-
+      For the transformer, yes — it lowers flux density and runs the core cooler.
+      The trade is less B+ voltage, so less clean headroom and earlier, softer
+      breakup, plus slightly under-heated tubes if you go far below nominal. It is
+      the safe direction. Over-voltage and over-flux are what destroy transformers.
+  - q: Does a voltage converter fix the 50Hz frequency problem?
+    a: >-
+      A converter changes voltage, not frequency — it can't turn 50Hz into 60Hz
+      without being a true frequency converter, which is rare and expensive. But by
+      stepping the voltage down to about 100V it corrects the V/Hz ratio, which is
+      the part that actually stresses the transformer. That's the practical fix.
+---
+
+> **Quick read:** A 120V/60Hz tube amp plugged into European 230V/50Hz mains — stepped down to 120V the usual way — runs its power transformer about 20% over its design flux density, because flux density follows volts *per hertz* and you just dropped the hertz. The fix is counterintuitive: step down to 100V, not 120V. That holds the flux density where the transformer wants it. Under-volting is the safe direction. You lose a little headroom and gain some sag. The transformer keeps living.
+
+Here is the claim, stated plainly: if you tour a 60Hz amp in a 50Hz country and step the wall voltage down to your normal 120V, you are running the power transformer harder than it was ever designed to run. Not because of the voltage. Because of the **frequency**. And the fix is to feed it *less* voltage than feels correct.
+
+This sounds wrong until you do the math. So let's do the math.
+
+## The Physics: Flux Density Follows V/Hz
+
+A power transformer's core carries a magnetic flux density — call it **B**. The peak value of B is set by the applied voltage divided by the frequency:
+
+**B ∝ V / f**
+
+That's the whole thing. Voltage on top, frequency on the bottom. A transformer wound for 120V at 60Hz is designed so that, at that exact ratio, B sits comfortably below the core's saturation point — the level where the iron stops accepting more flux and the magnetizing current goes vertical.
+
+Now drop the frequency to 50Hz and hold the voltage at 120V. The denominator shrank. B climbs by the inverse of the frequency ratio:
+
+**60 / 50 = 1.20**
+
+A **20% increase in flux density**, with zero change in voltage. On a transformer that was already running with a modest safety margin, 20% is enough to push the core into saturation on every cycle. Here's what saturation costs you, measured:
+
+- **Magnetizing current rises steeply** — not 20%, but several times over, because past the knee of the saturation curve a small flux increase demands a large current increase.
+- **The core runs hotter.** That excess magnetizing current is dissipated as heat in the iron and the primary winding.
+- **Over a long set, insulation ages.** Heat is the enemy of transformer varnish and wire insulation. A vintage transformer that's already 50 years into its life does not need a thermal load it was never specified for.
+
+This is why an old amp can hum louder and run hot in Europe even when the voltage reads correct on a meter. The meter is measuring volts. The transformer is suffering from volts-per-*hertz*. The deeper heat-and-saturation story lives in our [50Hz vs 60Hz breakdown](/blog/50hz-vs-60hz-mains-frequency-vintage-amps); this post is about the number you actually dial.
+
+## The Fix: Hold the Ratio, Drop the Voltage
+
+If B follows V/Hz, and you can't easily change the Hz, then change the V. Bring the voltage down by the same ratio the frequency dropped, and B returns to its design value:
+
+**V_target = 120V × (50 / 60) = 100V**
+
+Feed the 60Hz amp **100 volts on 50Hz mains** and its transformer sees exactly the flux density it was wound for. That's **83% of nominal**.
+
+| Mains | Naive setup (step to 120V) | V/Hz-correct setup |
+|---|---|---|
+| US — 120V / 60Hz | 120V, B = design | 120V, B = design |
+| EU — 230V / 50Hz | 120V → **B = 1.20× design (saturating)** | **100V → B = design (safe)** |
+
+And here's the detail I didn't expect when I first ran the numbers: **100V at 50Hz is essentially the Japanese mains spec.** A 120V/60Hz amp run in Japan sees roughly this same V/Hz operating point and has done so, reliably, for decades. The "weird under-volted setting" isn't experimental. It's an operating condition these amps have already survived by the thousands. That coincidence was the thing that convinced me the math wasn't just clean on paper — the field data already exists, it's just labeled "Japan."
+
+## Under-Volting Is the Safe Direction
+
+The instinct is that under-volting a tube amp is risky — that you're starving it. Measure what actually happens and the risk is on the other side.
+
+Drop to 100V and:
+
+- **B+ drops**, so the plates swing less, so you get **less clean headroom and earlier breakup.** The amp sags. It gets softer, browner, more compressed on hard transients — which, for a vintage circuit, is frequently the *sound people chase*, not a defect.
+- **Heater voltage drops** proportionally. At 83% you're at roughly 5.2V on a 6.3V heater. That's on the low side but not a tube-killer for the length of a tour; tubes tolerate under-heating far better than over-heating.
+- **Flux density returns to spec.** The transformer runs cool. Nothing saturates. Nothing cooks.
+
+Compare that to the failure mode you're avoiding. Over-voltage and over-flux raise plate dissipation, raise transformer temperature, and stress 50-year-old insulation until something arcs. **Undervoltage costs you headroom. Overvoltage costs you the amp.** Those are not symmetric risks, and the V/Hz math tells you which way to err: down.
+
+## What To Actually Buy and Set
+
+The tool is a step-down transformer or voltage converter sized for the amp's surge draw — a tube amp pulls hard at switch-on, so you want roughly twice the amp's rated wattage in VA. The [converter-sizing guide](/blog/sizing-voltage-converter-touring-tube-amp-va-rating) has the VA math; this is the target voltage to aim that converter at.
+
+- **If your converter has a 100V tap** (many Japanese-market and pro touring units do), use it directly on 50Hz mains. That's the V/Hz-correct point.
+- **If it only does 120V,** you're back to the over-flux condition. A small bucking transformer or a variac to trim 120V down to ~100V on 50Hz solves it. Set it once, meter it, leave it.
+- **Modeler users:** none of this applies to you. A digital amp has a switching power supply that doesn't care about mains frequency, and no output transformer to saturate. This is purely a tube-amp-with-an-iron-power-transformer problem. That's the one genuine win the modeler crowd gets to hold over us on tour.
+
+Meter the output of your converter before you plug the amp in. You want to see roughly 100V on the secondary when you're on 50Hz. If you see 120V, you haven't fixed the frequency problem — you've only fixed the voltage one, and the frequency was the part doing the damage. The direction map of which countries need stepping which way is in the [touring voltage map](/blog/touring-guitarist-voltage-map-step-up-step-down); the V/Hz correction is the refinement you layer on top once you know you're landing on 50Hz.
+
+One number to remember when the math blurs: **100 volts.** That's where a 120-volt amp wants to sit when the wall is running at 50 hertz.

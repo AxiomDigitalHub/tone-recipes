@@ -1,0 +1,130 @@
+---
+title: "Wet/Dry/Wet With One Modeler and One Real Amp: The Hybrid Stereo Rig"
+description: >-
+  You don't need three amps for a wet/dry/wet rig. A real amp for the dry center,
+  a modeler for the stereo wet sides — the routing, the level matching, and the
+  one ground-loop trap to dodge.
+date: '2026-06-06'
+author: Jess Kowalski
+author_slug: jess-kowalski
+category: modeler-masterclass
+tags:
+  - wet-dry-wet
+  - stereo
+  - modeler
+  - routing
+  - hx-stomp
+  - quad-cortex
+image: /images/blog/wet-dry-wet-hybrid-modeler-and-real-amp.jpg
+image_width: 1536
+image_height: 1024
+image_alt: >-
+  A guitar combo amp flanked by two powered speakers on stands, a small modeler
+  on the floor in front, cables running between them on a stage
+takeaways:
+  - >-
+    A hybrid wet/dry/wet rig uses one real amp for the dry center and a modeler
+    feeding two powered speakers for the stereo wet sides — far cheaper than three
+    matched amps.
+  - >-
+    Split the guitar before the modeler: one leg goes dry into the real amp, the
+    other goes into the modeler running time effects only, out to the wet pair.
+  - >-
+    Latency is a non-issue here because the modeler only handles delay and reverb
+    — a few milliseconds of delay before a 400 ms echo is inaudible, and the dry
+    amp carries all the attack and feel.
+  - >-
+    Match the wet speakers' level by ear to the dry amp; the dry center should
+    dominate and the wet sides should widen it, not bury it.
+  - >-
+    The whole rig has one ground-loop risk — the real amp and the powered
+    speakers sharing power; lift the ground on the wet side, not the amp, to kill
+    the hum.
+faq:
+  - q: What is a wet/dry/wet rig?
+    a: >-
+      A stereo setup where a dry amp sits in the center carrying your core tone
+      with no time effects, flanked by two "wet" speakers on the sides carrying
+      the delay and reverb in stereo. The dry center keeps the attack and punch
+      tight while the wet sides create width and space around it.
+  - q: Can I build a wet/dry/wet rig with a modeler instead of three amps?
+    a: >-
+      Yes, and it's the cheapest way in. Use one real amp for the dry center and
+      a modeler — an HX Stomp, a Quad Cortex, anything stereo — feeding two
+      powered speakers for the wet sides. You skip buying two extra matched amps
+      and two extra cabs, and you get programmable effects on the wet side.
+  - q: Does the modeler add latency in a hybrid wet/dry/wet rig?
+    a: >-
+      Effectively no. The modeler only processes the wet (delay and reverb)
+      signal, so its few milliseconds of conversion latency disappear underneath
+      echoes that are hundreds of milliseconds long. The dry amp is fully analog
+      and has zero latency, so your pick attack and feel are untouched.
+  - q: Should the wet sides have an amp model or just effects?
+    a: >-
+      Either works. The simplest version runs effects only on a clean split, so
+      the wet sides are reverb and delay on a relatively dry signal. For a more
+      blended sound, put an amp and cab model on the wet sides matched to your
+      real dry amp, then the effects after it. Start with effects-only — it's
+      easier to balance.
+  - q: Why does my wet/dry/wet rig hum?
+    a: >-
+      Almost always a ground loop from the real amp and the powered speakers
+      being plugged into the same power and joined by signal cables. Lift the
+      ground on the wet side (the modeler's output or the powered speakers, via a
+      ground-lift adapter or a transformer-isolated output) and leave the amp
+      grounded. One isolation point usually kills it.
+---
+
+> **Quick read:** Wet/dry/wet sounds expensive — three amps, three cabs, a stereo nightmare. It isn't, if you cheat. Keep one real amp as the dry center. Split your guitar, send one leg dry to that amp, send the other into a modeler running *only* delay and reverb, and feed its stereo output to two powered speakers on stands. The real amp does attack and feel. The modeler does width and space. Latency doesn't matter because the modeler's only handling echoes. The one thing that'll bite you is hum, and the fix is a single ground lift on the wet side.
+
+You've probably seen a wet/dry/wet rig and assumed it was a rich-person problem. Three amps. Three cabs. A snake of cable and a backline tech to babysit it. The dry amp in the middle for punch, two wet amps on the sides drowning in stereo delay. Gorgeous, and absurd for anyone loading their own gear into a Honda.
+
+Here's the thing nobody tells you: you already own most of it. A combo amp and a modeler with stereo outputs is 80% of a wet/dry/wet rig. You're not buying two more amps. You're buying two powered speakers and three patch cables, and you're done.
+
+## What Wet/Dry/Wet Actually Buys You
+
+The point of the rig is keeping your *dry* tone and your *wet* tone on separate speakers. When delay and reverb live on the same amp as your core sound, the echoes smear into the attack — the more wet you add, the mushier the front of every note gets. Split them, and the dry center stays tight and punchy (real amp, zero effects) while the wet sides bloom around it. You get the spaciousness of a soaked stereo delay without the cost of a single bit of pick clarity. It's the same logic as keeping your dry and wet paths isolated in a [budget three-output splitter build](/blog/wet-dry-wet-budget-three-isolated-output-splitter) — this is the powered-speaker version of that idea.
+
+The dry amp is non-negotiable for feel. That's the part a modeler can't fake here, and the part you don't ask it to.
+
+## The Routing (It's Simpler Than It Looks)
+
+The whole rig is one split and two paths.
+
+1. **Guitar → a split.** A buffered splitter, an ABY box, or just the modeler's own dry-through if it has one. One output goes dry to the amp. The other goes into the modeler's input.
+2. **Dry path → real amp.** Straight in, like always. Drive pedals in front are fine — this is your sound. No delay, no reverb on this path. Mono, center.
+3. **Wet path → modeler → two powered speakers.** The modeler runs *time effects only* — delay, reverb, modulation. Its left and right outputs go to two powered speakers (FRFR cabs, PA tops, whatever you've got) on stands, one on each side.
+
+That's it. The amp is your dry. The two speakers are your wet. Stand between them and the stereo image wraps around your head.
+
+On an **HX Stomp**: send the split into the input, leave the amp/cab blocks off (or use a low-level amp model if you want the wet to blend with the dry tone), load your delay and reverb, and run the L/R outputs to the two speakers. On a **Quad Cortex**: same idea with more room — you can even take the dry split off the QC's outputs and skip the external splitter entirely, since it has the I/O to send a dry leg and a wet stereo pair at once. The signal-chain thinking behind splitting one guitar into parallel destinations is laid out in [stereo signal chain architecture](/blog/stereo-signal-chain-architecture) if you want the deeper version.
+
+## The Latency Question (Spoiler: Who Cares)
+
+This is where people get scared off, and it's the part that turns out not to matter at all.
+
+Yes, the modeler adds a few milliseconds of conversion latency. On a normal modeler-as-amp rig, some players obsess over that. Here? The modeler is only making *echoes*. A delay that repeats at 400 milliseconds does not care that it started 3 milliseconds late. A reverb tail that lasts two seconds does not care either. The latency vanishes underneath the effect's own time.
+
+And the dry amp — the part where latency WOULD matter, the attack, the feel, the thing under your pick — is fully analog. Zero conversion. Honestly, this is the elegant part of the whole hybrid: you put the modeler exactly where its one weakness can't be heard, and you keep the real amp exactly where its strength lives.
+
+I went in braced for a timing problem. I A/B'd the dry amp alone against the full rig, listening for any slap or doubling on the attack. There wasn't one. The wet just *appeared* around the note, on time, because "on time" for a 400 ms delay has a window you could drive a truck through. The thing I thought would be the catch turned out to be a non-event.
+
+## Level Matching: Dry Wins
+
+The balance is the part that makes or breaks it, and the rule is simple: **the dry center should dominate.**
+
+Set your dry amp to gig volume first. Then bring the wet speakers up by ear until the stereo image opens — until single notes feel like they're hanging in a room instead of coming out of one box — but stop before the wet is as loud as the dry. If the wet sides are even with the center, you've made a soup. If they're a touch under, you've made a rig that sounds enormous and still cuts. Think of the wet as the air in the room, not a second guitar.
+
+A useful test: walk ten feet in front of the rig, where the audience is. From out there, you should hear one big guitar, not three speakers. If you can pick out the side speakers as separate sources, turn them down.
+
+## The One Trap: Ground Loop Hum
+
+Plug a real amp and two powered speakers into the same stage power, connect them all with signal cables, and there's a real chance you build a ground loop — that steady 60-cycle hum that gets worse the more you turn up. It's not a flaw in any one piece. It's the loop.
+
+The fix is to break the loop at *one* point, on the *wet* side. Lift the ground on the modeler's output to the powered speakers — a transformer-isolated output if your modeler has one, or a ground-lift adapter on the speaker end — and leave the real amp grounded for safety. One isolation point, on the side that isn't the amp, usually kills it dead. Don't go lifting grounds on everything; that's how you end up with a quiet rig and a shock hazard. One point, wet side, done.
+
+## Is This Worth It For You?
+
+Be honest about the room. If you play small clubs and run direct most nights, this is a lot of speakers to carry for a stereo effect the front-of-house mic might collapse to mono anyway. The hybrid W/D/W earns its keep when you've got stage space, a real amp you love, and parts that live on big ambient delay — post-rock, worship, shoegaze, ambient lead work.
+
+But if that's you, you don't need a backline budget to get there. One amp you already own, one modeler you already own, two powered speakers, and a careful ground lift. That's the whole list — and the rig it builds sounds like three times the gear.

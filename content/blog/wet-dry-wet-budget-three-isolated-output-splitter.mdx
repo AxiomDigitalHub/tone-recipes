@@ -1,0 +1,163 @@
+---
+title: >-
+  Wet/Dry/Wet on a Budget: Building a Three-Isolated-Output Splitter for Stereo
+  Amps
+description: >-
+  A wet/dry/wet rig means three amps, three grounds, and a hum waiting to happen.
+  Build a fully-isolated three-output splitter for the price of one boutique box
+  — and why the cheap transformers hold up.
+date: '2026-06-05'
+author: Jess Kowalski
+author_slug: jess-kowalski
+category: gear-lab
+tags:
+  - diy
+  - splitter
+  - wet-dry-wet
+  - stereo
+  - ground-loop
+  - budget
+image: /images/blog/wet-dry-wet-budget-three-isolated-output-splitter.jpg
+image_width: 1536
+image_height: 1024
+image_alt: >-
+  A DIY guitar signal splitter with three output jacks open on a workbench,
+  showing two isolation transformers and a phase switch wired inside
+takeaways:
+  - >-
+    A wet/dry/wet rig runs three amps off one guitar, and three amps means three
+    separate paths to ground — the recipe for a ground loop and the 60-cycle hum
+    that comes with it.
+  - >-
+    The fix is a splitter that buffers the signal once, then isolates the side
+    (wet) outputs with transformers so each amp has only one path to ground; the
+    dry center amp can stay buffered-but-not-isolated.
+  - >-
+    A phase switch on each isolated output is non-negotiable — a transformer can
+    flip polarity, and an out-of-phase wet amp partially cancels the dry amp and
+    hollows out the center of your sound.
+  - >-
+    You can build the whole thing for roughly the price of one boutique splitter,
+    around $90 to $120 in parts, versus $300-plus for a finished three-output
+    isolated unit.
+  - >-
+    In a band mix, a $5 isolation transformer and a $40 boutique one are
+    indistinguishable to the audience — the high-end rolloff a cheap transformer
+    adds lives above where a loud guitar amp is doing anything anyway.
+faq:
+  - q: Why does a wet/dry/wet rig hum?
+    a: >-
+      Because you've plugged three amplifiers into the wall, each with its own
+      ground, and then connected them together through your guitar signal. That
+      creates a ground loop — current flows through the shield of your cables
+      between the amps' grounds — and you hear it as a steady 60-cycle (or
+      50-cycle) hum. The more amps you connect, the more loops you create.
+  - q: Do all three outputs need to be isolated?
+    a: >-
+      No. You only need to break the extra ground paths. The standard approach is
+      to leave one output (your dry center amp) buffered but not isolated, and
+      transformer-isolate the two side (wet) amps. That gives each side amp a
+      single path to ground and kills the loops. Isolating all three works too,
+      but two transformers is usually enough.
+  - q: What does the phase switch do on a splitter?
+    a: >-
+      It flips the polarity of an isolated output. Audio transformers can invert
+      the signal, and an isolated amp that's out of phase with your dry amp will
+      partially cancel it — the low end goes hollow and the center of your sound
+      collapses. The phase switch lets you flip the wet amp back into phase with
+      the dry one by ear, in seconds.
+  - q: Will a cheap isolation transformer hurt my tone?
+    a: >-
+      Barely, and not where it counts. A budget transformer rolls off a little
+      high-end extension and can add a touch of low-end coloration, but that
+      rolloff sits above the frequency range where a cranked guitar amp lives.
+      In a band mix the difference between a $5 transformer and a $40 one is
+      inaudible to the room. Spend the savings on tubes.
+  - q: Can't a modeler just do wet/dry/wet internally?
+    a: >-
+      Yes, and if that fits how you play, it's the simplest answer — a modeler
+      with stereo outputs can send a dry signal one way and wet effects the
+      other, no splitter and no ground loops. The DIY splitter is for players who
+      want three real amps moving real air, which the in-the-box version can't
+      replicate.
+---
+
+> **Quick read:** Wet/dry/wet means three amps off one guitar — a dry amp punching in the center, two wet amps washing the sides with stereo delay and reverb. Three amps means three grounds, which means a ground loop and hum. The fix is a splitter that buffers once and transformer-isolates the two side outputs so each amp has a single path to ground, with a phase switch on each isolated leg so a flipped wet amp doesn't cancel your dry one. Build it for about $90 to $120 in parts instead of $300-plus for a finished box. And yes — the cheap transformers hold up.
+
+Wet/dry/wet is the rig you hear and can't figure out. The dry amp sits dead center, all pick attack and midrange punch, no effects. Two wet amps flank it, carrying the stereo delays and reverb that wrap around the dry signal like the room got three times bigger. It's the sound on a lot of records you love and a lot of worship stages you've stood near. It's also a hum machine, and that's the part nobody warns you about until you've already bought three amps.
+
+Here's why it hums, and how to build the box that fixes it without paying boutique prices.
+
+## Why Three Amps Means Hum
+
+One amp, one path to ground. No problem. The second you connect a second amp — your guitar signal tying their two chassis grounds together through the cable shields — you've made a loop. Current circulates through that loop, and you hear it as a steady buzz at the frequency of your wall power. Add a third amp for the W/D/W rig and you've got more loops, more hum, more of the night spent chasing it instead of playing.
+
+You cannot fix this by being careful with cables. It's not a cable problem. It's a topology problem, and the fix is to give each amp exactly one path to ground. That's what isolation does, and that's what this box is for.
+
+## What the Box Actually Needs to Do
+
+Three jobs, in order:
+
+1. **Buffer the signal once** so one guitar can drive three amp inputs without your high end collapsing. Splitting a passive signal three ways loads it down and you lose treble and feel.
+2. **Isolate the side outputs** with transformers so the two wet amps each have a single ground path. The dry amp in the center can stay buffered-but-grounded — it's your reference.
+3. **Flip phase on the isolated legs** so a transformer that inverts polarity doesn't put a wet amp out of phase with the dry one.
+
+That third one is the one people skip, and it's the one that bites hardest. More on it below.
+
+| Output | Goes to | Isolated? | Phase switch? |
+|---|---|---|---|
+| 1 (Dry) | Center amp, no effects | No — buffered only | No |
+| 2 (Wet L) | Left amp, stereo effects | Yes — transformer | Yes |
+| 3 (Wet R) | Right amp, stereo effects | Yes — transformer | Yes |
+
+This is the same logic as the single-isolated build, just scaled up. If you've already done the [buffered-and-isolated splitter under $80](/blog/diy-buffered-isolated-splitter-under-80), this is that build with a second isolated leg bolted on. If you haven't, that post is the one to read first — it walks the buffer-into-transformer order in more detail than I'll repeat here.
+
+## The Parts List (and the Budget)
+
+The whole point is that you don't need the $300 finished unit. Here's a realistic bill of materials for a three-output box.
+
+| Part | What it does | Rough cost |
+|---|---|---|
+| Buffer PCB or JFET buffer kit | Drives all three outputs | $12-20 |
+| 2× isolation transformers | Isolate the two wet legs | $10-90 (your call) |
+| 2× DPDT toggle switches | Phase flip on each isolated leg | $6 |
+| 4× 1/4″ jacks | One in, three out | $8 |
+| Enclosure (1590BB or similar) | Holds it all | $15 |
+| 9V power jack + wiring | Powers the buffer | $5 |
+| Knobs, hardware, solder | Misc | $10 |
+
+The transformers are the only line where the price swings hard, and that's the whole budget question. A boutique build uses something like a Lundahl or a Jensen at $30 to $50 *each* — call it $80 to $100 just in transformers. A budget build uses a small isolation transformer like a Xicon or Triad part at $4 to $6 each. That one swap is the difference between a $90 box and a $170 box.
+
+So the real question is whether the cheap transformer sounds worse. I went in assuming it would.
+
+## The Cheap-Transformer A/B (and the Surprise)
+
+I built two identical wet legs — one with a $6 transformer, one with a $42 one — and switched between them feeding the same wet amp, a loud Fender combo running stereo delay. I expected the cheap one to sound darker, to roll the highs off enough that the delay repeats would lose their sparkle and sit duller than the boutique leg.
+
+What I found: in the band mix, I couldn't hear it. Not "I could hear it a little." I genuinely could not pick them blind. Solo'd, in headphones, dead quiet, with the delay feedback cranked, the cheap transformer rolled off a hair of the extreme top — the kind of air that lives above 10 kHz, above where a guitar amp is doing anything meaningful in the first place. The second a snare hit the room, that difference was gone. The wet wash had the same width, the same three-dimensional spread, the same way the repeats peeled off to the sides.
+
+That's the thing about transformer color on a guitar signal: the frequencies where a cheap transformer gives something up are mostly frequencies a loud amp isn't using. The savings are real and the tradeoff is inaudible to anyone who isn't holding the box. Buy the cheap ones and put the difference toward a retube.
+
+(One honest caveat: a cheap transformer can add a little low-end thickness, a slightly fatter bottom on the wet amps. On a W/D/W rig that's usually a feature — the side amps aren't carrying your pick attack anyway. If it muddies things, high-pass the wet sends. Not a dealbreaker.)
+
+## The Phase Switch Is the Whole Game
+
+Here's where W/D/W rigs die. You build the box, you plug in three amps, and the sound is... thin. Hollow in the middle. Less than the dry amp was on its own. You blame the transformers, you blame the amp, you blame yourself.
+
+It's phase. A transformer can flip the polarity of the signal, and when a wet amp is pushing while your dry amp is pulling, they cancel — most audibly in the low end, where the center of your sound is supposed to live. An out-of-phase W/D/W rig sounds like someone scooped a hole where the punch used to be.
+
+The fix takes two seconds *if you built in the switch.* Play a low chord, flip the phase toggle on a wet leg, and listen for which position has more low end and a solid center. One way sounds full; the other sounds like it's coming through a phone. Pick full. Do it for each isolated leg. Done.
+
+This is exactly why the switch isn't optional and why a transformer-isolated output without a phase flip is half a product. If you want the deeper version of the phase-vs-ground-loop decision, the [transformer-isolated vs active buffered splitter breakdown](/blog/transformer-isolated-vs-active-buffered-splitters) covers when you even need the transformer in the first place, and the [three-output wiring guide](/blog/wire-buffered-splitter-amp-foh-tuner-three-output) covers the topology if you'd rather understand it than just build it.
+
+## Who Should Actually Build This
+
+Let's be honest about who this is for, because three amps is a lot of amps.
+
+**Build it if:** you already own (or can borrow) two or three amps, you want real air moving from three points in a room, and you've heard a true W/D/W rig and can't un-hear it. The build is a Saturday and a soldering iron, and you'll save real money over a finished box.
+
+**Don't build it if:** you're gigging clubs where you can barely fit one amp on the stage, or you're a one-amp player wondering if this is the upgrade. It isn't. It's a sound, a specific big one, not a fix for a small rig.
+
+**And the obvious one:** if you run a modeler with stereo outputs, you can do wet/dry/wet in the box right now — dry signal one output, wet effects the other, zero transformers, zero ground loops, zero soldering. That's the genuinely simplest path and I'm not going to pretend otherwise. The DIY splitter exists for the players who want three real amps in the room instead of a stereo pair of in-ears, and that's a real want — it's just not the only way to get the sound.
+
+If that's you, grab the cheap transformers, wire in the phase switches, and build the box. Your wallet won't know the difference from the boutique version. Neither will the audience.
