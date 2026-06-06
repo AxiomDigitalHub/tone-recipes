@@ -69,11 +69,11 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 20 | Battery (intro classical → thrash) | Metallica | James Hetfield + Kirk Hammett | Master of Puppets (1986) | Hetfield: ESP Explorer or Jackson King V → Mesa Mark IIC+ → Marshall power amp. Same era and rig as Master of Puppets — different riff voicing. The classical intro uses an acoustic. | done |
 | 21 | The Boys Are Back in Town (twin lead) | Thin Lizzy | Scott Gorham + Brian Robertson | Jailbreak (1976) | Gorham: '59 LP into Marshall Super Lead. Robertson: '74 LP into Marshall. Twin harmonized lead in thirds — both guitars are essential. | done |
 | 22 | Run to the Hills (galloping verse) | Iron Maiden | Dave Murray + Adrian Smith | The Number of the Beast (1982) | Both: Strats with hot-rodded pickups → Marshall JCM800. Galloping triplet rhythm requires precise alternate picking. | done |
-| 23 | Painkiller (riff) | Judas Priest | Glenn Tipton + K.K. Downing | Painkiller (1990) | Tipton: Hamer Phantom GT into Marshall JMP-1 + Marshall power amp. Downing: same era. Drop-D not used; standard tuning, blistering tempo. | queued |
-| 24 | Holy Diver (intro riff + solo) | Dio | Vivian Campbell | Holy Diver (1983) | Campbell: Strat (later Charvel) into Marshall JCM800. The intro has subtle wah engaged at a fixed position. | queued |
-| 25 | Cemetery Gates (clean intro → solo) | Pantera | Dimebag Darrell | Cowboys From Hell (1990) | Dean ML "Dean From Hell" → Randall RG100ES (solid-state, no tubes). MXR 6-band EQ in front. Different from Walk — earlier album, more clean dynamics. | queued |
-| 26 | Crossroads (live solo) | Cream | Eric Clapton | Wheels of Fire (1968) | "Fool" SG into Marshall 100W stack. Live recording, Winterland '68. The solo is improvised but follows blues-form chord changes. | queued |
-| 27 | The Sky Is Crying (slow blues) | Stevie Ray Vaughan | Stevie Ray Vaughan | The Sky Is Crying (1991, posthumous) | Number One Strat → TS808 → Vibroverb. Slower and more emotive than Pride and Joy or Texas Flood — closer to BB King territory. | queued |
+| 23 | Painkiller (riff) | Judas Priest | Glenn Tipton + K.K. Downing | Painkiller (1990) | Tipton: Hamer Phantom GT into Marshall JMP-1 + Marshall power amp. Downing: same era. Drop-D not used; standard tuning, blistering tempo. | done |
+| 24 | Holy Diver (intro riff + solo) | Dio | Vivian Campbell | Holy Diver (1983) | Campbell: Strat (later Charvel) into Marshall JCM800. The intro has subtle wah engaged at a fixed position. | done |
+| 25 | Cemetery Gates (clean intro → solo) | Pantera | Dimebag Darrell | Cowboys From Hell (1990) | Dean ML "Dean From Hell" → Randall RG100ES (solid-state, no tubes). MXR 6-band EQ in front. Different from Walk — earlier album, more clean dynamics. | done |
+| 26 | Crossroads (live solo) | Cream | Eric Clapton | Wheels of Fire (1968) | "Fool" SG into Marshall 100W stack. Live recording, Winterland '68. The solo is improvised but follows blues-form chord changes. | done |
+| 27 | The Sky Is Crying (slow blues) | Stevie Ray Vaughan | Stevie Ray Vaughan | The Sky Is Crying (1991, posthumous) | Number One Strat → TS808 → Vibroverb. Slower and more emotive than Pride and Joy or Texas Flood — closer to BB King territory. | done |
 | 28 | Born Under a Bad Sign (lead) | Albert King | Albert King | Born Under a Bad Sign (1967) | Flying V (left-handed but strung right-handed and flipped — strings reversed) → Acoustic 270. King's bending technique was inverted from most players. | queued |
 | 29 | Crazy (intro slide) | Aerosmith | Joe Perry | Get a Grip (1993) | LP into Marshall JCM800 + Bogner Fish preamp. The intro slide guitar uses bottleneck on a Strat. | queued |
 | 30 | Walk This Way (riff) | Aerosmith | Joe Perry | Toys in the Attic (1975) | LP into Marshall Super Lead. Talkbox not on this track (that's "Sweet Emotion"). The riff is straight-ahead funk-rock through a cranked amp. | queued |
@@ -137,6 +137,26 @@ successful run.)
 | 2026-06-05 | metallica-battery-acoustic-to-thrash | 20 |
 | 2026-06-05 | gorham-boys-are-back-twin-lead | 21 |
 | 2026-06-05 | murray-run-to-the-hills-gallop | 22 |
+| 2026-06-06 | tipton-painkiller-speed-metal | 23 |
+| 2026-06-06 | campbell-holy-diver-les-paul-marshall | 24 |
+| 2026-06-06 | dimebag-cemetery-gates-clean-to-crushing | 25 |
+| 2026-06-06 | clapton-crossroads-live-solo | 26 |
+| 2026-06-06 | srv-the-sky-is-crying-slow-blues | 27 |
+
+### Corrections applied this run (2026-06-06)
+
+- **#23 Painkiller** — the backlog sketch's "Marshall JMP-1" is anachronistic
+  (the JMP-1 rackmount preamp launched in 1992, *after* Painkiller's 1990
+  recording). Built on the well-cited consensus instead: hot-humbucker Hamer
+  solidbodies into a cranked **Marshall JCM800-era** head, recorded by Chris
+  Tsangarides at Miraval Studios, France. Attributed to Glenn Tipton (the
+  title-track solo); K.K. Downing credited in the notes.
+- **#24 Holy Diver** — the sketch's "Strat (later Charvel)" is wrong for the
+  record. Per Vintage Guitar + Equipboard + Campbell interviews, Holy Diver
+  was cut on a **wine-red Gibson Les Paul Deluxe** (refinished matte black,
+  DiMarzio X2N bridge) boosted by a **Boss SD-1** into a stock cranked
+  **JCM800** at Sound City Studios. The Charvels came later, on the Last in
+  Line tour.
 
 ### needs-research
 

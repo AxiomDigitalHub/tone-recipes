@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
 **Date:** 2026-06-06
-**Recipes:** 70
-**Clean (no errors, no warns):** 54
+**Recipes:** 75
+**Clean (no errors, no warns):** 59
 **Warn-only:** 16
 **With errors:** 0
 
@@ -16,12 +16,12 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `translations-utility-mirror` | warn | 15 / 70 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `katana-kemper-multidrive-default-off` | info | 13 / 70 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `helix-block-count` | warn | 2 / 70 | Helix translation has ≥6 blocks |
-| `helix-reverb-cuts` | warn | 1 / 70 | Helix reverb has LowCut (80-300 Hz) + HighCut (5-9 kHz) |
-| `helix-comp-present` | warn | 1 / 70 | Helix chain includes a Compressor block before the Amp (after volume pedal / noise gate is OK) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 70 | Signal chain includes a cabinet or microphone block |
+| `translations-utility-mirror` | warn | 15 / 75 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `katana-kemper-multidrive-default-off` | info | 13 / 75 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `helix-block-count` | warn | 2 / 75 | Helix translation has ≥6 blocks |
+| `helix-reverb-cuts` | warn | 1 / 75 | Helix reverb has LowCut (80-300 Hz) + HighCut (5-9 kHz) |
+| `helix-comp-present` | warn | 1 / 75 | Helix chain includes a Compressor block before the Amp (after volume pedal / noise gate is OK) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 75 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -167,6 +167,18 @@ Passes every rule.
 
 Passes every rule.
 
+### `campbell-holy-diver-les-paul-marshall` — ✓ clean
+
+*Dio's Holy Diver Les Paul-into-Marshall Tone*
+
+Passes every rule.
+
+### `clapton-crossroads-live-solo` — ✓ clean
+
+*Cream's Crossroads Live Blues-Rock Solo Tone*
+
+Passes every rule.
+
 ### `clapton-layla-lead` — ✓ clean
 
 *Clapton's Layla Searing Lead Tone*
@@ -188,6 +200,12 @@ Passes every rule.
 ### `collins-free-bird-outro-solo` — ✓ clean
 
 *Collins' Free Bird Outro Solo Tone*
+
+Passes every rule.
+
+### `dimebag-cemetery-gates-clean-to-crushing` — ✓ clean
+
+*Pantera's Cemetery Gates Clean-to-Crushing Tone*
 
 Passes every rule.
 
@@ -452,6 +470,18 @@ Passes every rule.
 ### `srv-texas-flood-slow-blues-lead` — ✓ clean
 
 *SRV's Texas Flood Slow Blues Lead Tone*
+
+Passes every rule.
+
+### `srv-the-sky-is-crying-slow-blues` — ✓ clean
+
+*Stevie Ray Vaughan's The Sky Is Crying Slow-Blues Tone*
+
+Passes every rule.
+
+### `tipton-painkiller-speed-metal` — ✓ clean
+
+*Judas Priest's Painkiller Speed-Metal Tone*
 
 Passes every rule.
 
