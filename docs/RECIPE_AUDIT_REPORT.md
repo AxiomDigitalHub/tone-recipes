@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
 **Date:** 2026-06-07
-**Recipes:** 75
-**Clean (no errors, no warns):** 67
+**Recipes:** 80
+**Clean (no errors, no warns):** 72
 **Warn-only:** 8
 **With errors:** 0
 
@@ -16,9 +16,9 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 13 / 75 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 7 / 75 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 75 | Signal chain includes a cabinet or microphone block |
+| `katana-kemper-multidrive-default-off` | info | 13 / 80 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 7 / 80 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 80 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -296,6 +296,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `keuning-mr-brightside-riff` — ✓ clean
+
+*Dave Keuning's Mr. Brightside Ringing Riff*
+
+Passes every rule.
+
 ### `knopfler-sultans-of-swing-clean` — ✓ clean
 
 *Knopfler's Sultans of Swing Clean Fingerpicked Tone*
@@ -398,6 +404,18 @@ Passes every rule.
 
 Passes every rule.
 
+### `perry-sweet-emotion-talk-box` — ✓ clean
+
+*Joe Perry's Sweet Emotion Talk-Box Intro*
+
+Passes every rule.
+
+### `perry-walk-this-way-riff` — ✓ clean
+
+*Joe Perry's Walk This Way Funk-Rock Riff*
+
+Passes every rule.
+
 ### `rhoads-crazy-train-lead` — ✓ clean
 
 *Randy Rhoads' Crazy Train Lead Tone*
@@ -425,6 +443,12 @@ Passes every rule.
 ### `scholz-more-than-a-feeling-riff` — ✓ clean
 
 *Tom Scholz's More Than a Feeling Riff Tone*
+
+Passes every rule.
+
+### `slash-november-rain-solo` — ✓ clean
+
+*Slash's November Rain Outro Solo Tone*
 
 Passes every rule.
 
@@ -461,6 +485,12 @@ Passes every rule.
 ### `srv-the-sky-is-crying-slow-blues` — ✓ clean
 
 *Stevie Ray Vaughan's The Sky Is Crying Slow-Blues Tone*
+
+Passes every rule.
+
+### `thayil-black-hole-sun-rotary-verse` — ✓ clean
+
+*Black Hole Sun's Watery Rotary Verse Tone*
 
 Passes every rule.
 

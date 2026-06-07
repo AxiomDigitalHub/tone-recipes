@@ -74,13 +74,13 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 25 | Cemetery Gates (clean intro → solo) | Pantera | Dimebag Darrell | Cowboys From Hell (1990) | Dean ML "Dean From Hell" → Randall RG100ES (solid-state, no tubes). MXR 6-band EQ in front. Different from Walk — earlier album, more clean dynamics. | done |
 | 26 | Crossroads (live solo) | Cream | Eric Clapton | Wheels of Fire (1968) | "Fool" SG into Marshall 100W stack. Live recording, Winterland '68. The solo is improvised but follows blues-form chord changes. | done |
 | 27 | The Sky Is Crying (slow blues) | Stevie Ray Vaughan | Stevie Ray Vaughan | The Sky Is Crying (1991, posthumous) | Number One Strat → TS808 → Vibroverb. Slower and more emotive than Pride and Joy or Texas Flood — closer to BB King territory. | done |
-| 28 | Born Under a Bad Sign (lead) | Albert King | Albert King | Born Under a Bad Sign (1967) | Flying V (left-handed but strung right-handed and flipped — strings reversed) → Acoustic 270. King's bending technique was inverted from most players. | queued |
-| 29 | Crazy (intro slide) | Aerosmith | Joe Perry | Get a Grip (1993) | LP into Marshall JCM800 + Bogner Fish preamp. The intro slide guitar uses bottleneck on a Strat. | queued |
-| 30 | Walk This Way (riff) | Aerosmith | Joe Perry | Toys in the Attic (1975) | LP into Marshall Super Lead. Talkbox not on this track (that's "Sweet Emotion"). The riff is straight-ahead funk-rock through a cranked amp. | queued |
-| 31 | Sweet Emotion (intro) | Aerosmith | Joe Perry | Toys in the Attic (1975) | LP through Marshall Super Lead with Heil Talk Box on the intro vocal-tone effect. The "talking" effect is a tube into a vocoder-like resonance through the talkbox. | queued |
-| 32 | November Rain (solo) | Guns N' Roses | Slash | Use Your Illusion I (1991) | '59 LP replica → Marshall JCM800 + studio MXR M-117 Flanger. The famous outdoor solo is double-tracked with a Crybaby wah on subtle filter sweeps. | queued |
-| 33 | Mr. Brightside (riff) | The Killers | Dave Keuning | Hot Fuss (2004) | Tele into Vox AC30 with Boss DD-3 delay set to dotted eighth. Similar to The Edge's approach but tighter rhythmic gating. | queued |
-| 34 | Black Hole Sun (verse) | Soundgarden | Kim Thayil | Superunknown (1994) | Strat-style guitar into Mesa Boogie + Leslie rotary speaker simulation (or actual Leslie). Drop-D tuning, capo position varies. | queued |
+| 28 | Born Under a Bad Sign (lead) | Albert King | Albert King | Born Under a Bad Sign (1967) | Flying V (left-handed but strung right-handed and flipped — strings reversed) → Acoustic 270. King's bending technique was inverted from most players. | needs-research |
+| 29 | Crazy (intro slide) | Aerosmith | Joe Perry | Get a Grip (1993) | LP into Marshall JCM800 + Bogner Fish preamp. The intro slide guitar uses bottleneck on a Strat. | needs-research |
+| 30 | Walk This Way (riff) | Aerosmith | Joe Perry | Toys in the Attic (1975) | LP into Marshall Super Lead. Talkbox not on this track (that's "Sweet Emotion"). The riff is straight-ahead funk-rock through a cranked amp. | done |
+| 31 | Sweet Emotion (intro) | Aerosmith | Joe Perry | Toys in the Attic (1975) | LP through Marshall Super Lead with Heil Talk Box on the intro vocal-tone effect. The "talking" effect is a tube into a vocoder-like resonance through the talkbox. | done |
+| 32 | November Rain (solo) | Guns N' Roses | Slash | Use Your Illusion I (1991) | '59 LP replica → Marshall JCM800 + studio MXR M-117 Flanger. The famous outdoor solo is double-tracked with a Crybaby wah on subtle filter sweeps. | done |
+| 33 | Mr. Brightside (riff) | The Killers | Dave Keuning | Hot Fuss (2004) | Tele into Vox AC30 with Boss DD-3 delay set to dotted eighth. Similar to The Edge's approach but tighter rhythmic gating. | done |
+| 34 | Black Hole Sun (verse) | Soundgarden | Kim Thayil | Superunknown (1994) | Strat-style guitar into Mesa Boogie + Leslie rotary speaker simulation (or actual Leslie). Drop-D tuning, capo position varies. | done |
 | 35 | Alive (verse riff + solo) | Pearl Jam | Mike McCready | Ten (1991) | Strat → Mesa/Boogie Studio .22. The famous solo is a Free Bird-influenced extended outro that McCready improvised in the studio. | queued |
 | 36 | Yellow Ledbetter (intro) | Pearl Jam | Mike McCready | (B-side, 1992) | Strat through clean Marshall + light overdrive. Hendrix-influenced phrasing, "Little Wing"-adjacent voicings. | queued |
 | 37 | Cherub Rock (riff) | Smashing Pumpkins | Billy Corgan | Siamese Dream (1993) | "Big Muff Pi" through Marshall stack — the canonical "Siamese Dream" tone, multi-tracked 6+ rhythm tracks per song. | queued |
@@ -142,8 +142,41 @@ successful run.)
 | 2026-06-06 | dimebag-cemetery-gates-clean-to-crushing | 25 |
 | 2026-06-06 | clapton-crossroads-live-solo | 26 |
 | 2026-06-06 | srv-the-sky-is-crying-slow-blues | 27 |
+| 2026-06-07 | perry-walk-this-way-riff | 30 |
+| 2026-06-07 | perry-sweet-emotion-talk-box | 31 |
+| 2026-06-07 | slash-november-rain-solo | 32 |
+| 2026-06-07 | keuning-mr-brightside-riff | 33 |
+| 2026-06-07 | thayil-black-hole-sun-rotary-verse | 34 |
 
-### Corrections applied this run (2026-06-06)
+### Corrections applied this run (2026-06-07)
+
+- **#33 Mr. Brightside** — the backlog sketch ("Tele into Vox AC30 with Boss
+  DD-3 dotted eighth") is a **myth that contradicts the primary source.** Per
+  Dave Keuning's own GuitarPlayer account, ~90% of Hot Fuss — including this
+  riff — was **a 1970s Ibanez Destroyer straight into a Fender Hot Rod
+  DeVille**, standard tuning, edge-of-breakup. There is **no documented delay
+  on the recording**; the cascading, Edge-adjacent feel is the moving Dadd9
+  voicing with the open high E ringing. The Telecaster, AC30, dotted-eighth
+  delay, and Eb-standard claims are all unsourced tone-blog folklore. The
+  recipe ships the documented rig and debunks the myth in its notes.
+- **#34 Black Hole Sun** — attribution corrected. The watery **verse rotary
+  part was tracked by Chris Cornell**, not Kim Thayil — per producer Michael
+  Beinhorn (via Guitar World), Cornell cut most of Superunknown's rhythm and
+  Thayil played lead. The verse tone is a 1989 **Gretsch Duo Jet through a real
+  Leslie Model 16 (Fender Vibratone) driven by a Marshall JMP**, fast rotor —
+  not a chorus pedal or Univibe. The off-pitch shimmer is a **tape speed-up
+  (~75 cents sharp of drop D)**, not an alternate tuning. Attributed to Thayil
+  (Soundgarden's guitarist, matching the queue) with Cornell's role flagged
+  throughout. Mic/room reverb undocumented; not asserted.
+- **#30 Walk This Way** — the amp is genuinely disputed in the sources: Joe
+  Perry (first-person) recalls a 1950s 50W Fender Twin; Guitar World's
+  track-by-track analysis says an Ampeg V-2 (mid selector at 800 Hz). Both
+  agree the riff growl IS the midrange push, so the recipe centers on the
+  bass-low / mid-forward voicing and flags both amps rather than picking one.
+  The riff is amp-only (Maestro fuzz appears only on the outro); 3-mic capture
+  (Sony C37 + SM57 + MD421 → 1176 → Pultec) per engineer Jay Messina.
+
+### Corrections applied earlier (2026-06-06)
 
 - **#23 Painkiller** — the backlog sketch's "Marshall JMP-1" is anachronistic
   (the JMP-1 rackmount preamp launched in 1992, *after* Painkiller's 1990
@@ -159,6 +192,32 @@ successful run.)
   Line tour.
 
 ### needs-research
+
+- **#28 Born Under a Bad Sign (Albert King, 1967)** — skipped 2026-06-07.
+  The guitar half is magazine-grade (Gibson Flying V, played as a flipped
+  right-handed instrument with the strings in factory order so the low E sits
+  at the bottom; Erlewine-documented light gauges; an unusual down-tuning that
+  the sources themselves conflict on). But the **amp is genuinely undocumented
+  for the 1966–67 Stax sessions** — and the Acoustic 270 in the backlog sketch
+  is **anachronistic** (Acoustic Control Corp. was founded in 1967; the 270
+  shipped ~1970, and those were his later live amps, not the record). No
+  primary source names the Stax studio amp, cab, or mic for this track, and the
+  candidates (a borrowed Fender, a small tweed) are speculation. The amp/cab/mic
+  half fails the no-approximation bar. Re-queue only if a primary source on the
+  1967 studio amp surfaces, or re-scope to a guitar/technique-only entry. Built
+  #33 (Mr. Brightside) in its place this run.
+
+- **#29 Crazy (Joe Perry, Get a Grip 1993)** — skipped 2026-06-07. There is
+  **no song-specific gear documented** for this track — no interview, rig
+  rundown, or liner note ties named gear to "Crazy." The backlog sketch's two
+  headline details both failed verification: the **Bogner Fish preamp has no
+  documented Joe Perry connection** (its known users are Megadeth/Slayer/
+  Anthrax members, Vernon Reid, Jerry Cantrell), and the **Strat slide-intro
+  guitar is unsourced** (slide tuning also unknown). Perry himself describes the
+  Get a Grip sessions as ~75 amps and countless guitars pieced together per
+  break — i.e. no single per-song rig. Re-queue only if a primary source on the
+  "Crazy" rig (or its slide intro) surfaces. Built #34 (Black Hole Sun) in its
+  place this run.
 
 - **#16 Dani California (John Frusciante, Stadium Arcadium 2006)** — skipped
   2026-06-03. The backlog sketch (Big Muff Pi verses + Octave Fuzz solo →
