@@ -3604,7 +3604,7 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 4,
             block_name: "Single Delay",
-            block_category: "Effect",
+            block_category: "Delay",
             original_gear: "Binson Echorec",
             settings: { "Delay Time": "440ms", Feedback: 35, Mix: 30 },
             notes:
@@ -3613,7 +3613,7 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 5,
             block_name: "Plate Reverb",
-            block_category: "Effect",
+            block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Decay: 2.5, Mix: 25, "Pre Delay": 30 },
             notes:
@@ -5953,7 +5953,7 @@ export const toneRecipes: ToneRecipe[] = [
               Mix: 0.22,
               Decay: 2.0,
               LowCut: 120,
-              HighCut: 9500,
+              HighCut: 9000,
               Level: 0,
               PreDelay: 0.04,
               BassFreq: 100,
@@ -5962,7 +5962,7 @@ export const toneRecipes: ToneRecipe[] = [
               Damping: 4000,
               MatrFreq: 0.33,
             },
-            notes: "Medium-decay plate (2.0s). HighCut=9500 keeps the reverb bright but not glassy — important for lead clarity through the dense album mix.",
+            notes: "Medium-decay plate (2.0s). HighCut=9000 keeps the reverb bright but not glassy — important for lead clarity through the dense album mix.",
           },
           {
             position: 10,
@@ -6018,6 +6018,30 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Mic: "SM57", Distance: "2.5 inches" },
             notes: "Load a Two Rock IR if available for the most authentic result.",
           },
+          {
+            position: 6,
+            block_name: "Tape Delay",
+            block_category: "Delay",
+            original_gear: "Studio analog delay",
+            settings: { Time: "380ms", Feedback: 30, Mix: 20 },
+            notes: "Subtle warm analog delay, low feedback — almost subliminal under the lead lines. Mix kept well below the dry signal.",
+          },
+          {
+            position: 7,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate",
+            settings: { Decay: 2.0, Mix: 22, LowCut: 120, HighCut: 9000 },
+            notes: "Medium-decay plate for depth and lead clarity through a dense mix.",
+          },
+          {
+            position: 8,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes: "Global tilt/brightness adjustment. Mayer's tone is mid-forward — pull below center to darken, above to brighten.",
+          },
         ],
         notes:
           "The LA Compressor before the TS808 provides the always-on transparent compression Mayer uses. The QC excels at this style of touch-sensitive, dynamic tone.",
@@ -6064,6 +6088,22 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "T-Scream is the Katana's Tube Screamer emulation. Low drive, high level — the TS character comes from the mid-hump and the way it slams the amp's front end, not from the pedal's own gain. The Katana has one Booster slot, so you may need to choose between the compressor and T-Scream, or use an external compressor pedal.",
           },
+          {
+            position: 4,
+            block_name: "Analog Delay",
+            block_category: "Delay",
+            original_gear: "Studio analog delay",
+            settings: { Time: "380ms", Feedback: 30, "E.Level": 20 },
+            notes: "Delay section set to a subtle warm analog delay, low feedback — sits well below the dry signal.",
+          },
+          {
+            position: 5,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate",
+            settings: { Time: "2.0s", "E.Level": 22 },
+            notes: "Reverb section set to a medium-decay plate for depth and lead clarity.",
+          },
         ],
         notes:
           "The Katana's Crunch channel with the T-Scream booster gets a convincing Mayer-style tone. For the always-on compression, use an external compressor pedal before the Katana, or select Compressor as the Booster type in Tone Studio (giving up the T-Scream slot).",
@@ -6097,6 +6137,22 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "Search Rig Exchange for Two Rock or Dumble-style profiles. Set to edge of breakup for touch-responsive dynamics. With Liquid Profiling, select a Fender-family tone stack. MBritt and Tone Junkie offer boutique amp packs.",
           },
+          {
+            position: 4,
+            block_name: "Single Delay",
+            block_category: "Delay",
+            original_gear: "Studio analog delay",
+            settings: { "Delay Time": "380ms", Feedback: 30, Mix: 20 },
+            notes: "DLY slot. Subtle warm analog delay, low feedback — almost subliminal under the lead lines.",
+          },
+          {
+            position: 5,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate",
+            settings: { Decay: 2.0, Mix: 22 },
+            notes: "REV slot. Medium-decay plate for depth and lead clarity.",
+          },
         ],
         notes:
           "Kemper profiles include the cab, so no separate cab block is needed. The Compressor into Green Scream into a Two Rock profile is an excellent Kemper setup for Mayer's touch-sensitive blues-rock tone. The Kemper's dynamic response to pick attack is ideal for this style.",
@@ -6107,6 +6163,9 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "T808 OD", block_category: "Drive", original_gear: "Ibanez TS808", settings: { Drive: 3.0, Tone: 5.0, Level: 7.0 }, notes: "Low drive, high level. Classic clean-boost Tube Screamer setup." },
           { position: 3, block_name: "Two-Stone J35", block_category: "Amp", original_gear: "Two Rock Custom Reverb", settings: { Drive: 5.5, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 5.0, "MV": 5.5, }, notes: "Fractal's Two-Stone J35 is a boutique Dumble-style amp model, which shares DNA with the Two Rock circuit. Set to edge of breakup for touch-responsive dynamics." },
           { position: 4, block_name: "2x12 Mail C12Q", block_category: "Cab", original_gear: "Two Rock 2x12", settings: { Mic: "57 Dynamic", Distance: 2.5 }, notes: "A clean, full-range 2x12 cab. Pull the mic back slightly for warmth." },
+          { position: 5, block_name: "Tape Delay", block_category: "Delay", original_gear: "Studio analog delay", settings: { Time: "380ms", Feedback: 30, Mix: 20 }, notes: "Subtle warm analog delay, low feedback — sits well below the dry signal." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate", settings: { Mix: 22, Decay: 2.0, LowCut: 120, HighCut: 9000 }, notes: "Medium-decay plate for depth and lead clarity through a dense mix." },
+          { position: 7, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global tilt/brightness adjustment. Mayer's tone is mid-forward — adjust to taste." },
         ],
         notes: "Always-on transparent compression. Evens out dynamics and adds sustain without squashing the feel. Essential for Mayer's polished, consistent note response.",
       },
@@ -6940,9 +6999,17 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Mix: 20, Decay: 1.5, LowCut: 125, HighCut: 6500 },
             notes: "Warm spring reverb adds depth and richness to the single-note blues lines.",
           },
+          {
+            position: 6,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global voicing)",
+            settings: { Tilt: 0.5, CenterFreq: 900, Level: 0 },
+            notes: "Global voicing for the warm ES-355 tone. Nudge Tilt above center to help single notes cut; below to tame harsh highs on a bright rig.",
+          },
         ],
         notes:
-          "Light compression before the amp evens out dynamics for consistent, singing blues lines. Spring reverb adds depth. Focus on vibrato and bending.",
+          "Light compression before the amp evens out dynamics for consistent, singing blues lines. Spring reverb adds depth, a gentle tilt EQ sets the global voicing. Focus on vibrato and bending.",
       },
       quad_cortex: {
         chain_blocks: [
@@ -6985,6 +7052,14 @@ export const toneRecipes: ToneRecipe[] = [
             original_gear: "Spring reverb",
             settings: { Decay: 1.5, Mix: 20 },
             notes: "Warm spring reverb for depth and richness.",
+          },
+          {
+            position: 6,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global voicing)",
+            settings: { Tilt: 0.5, CenterFreq: 900, Level: 0 },
+            notes: "Global voicing for the warm ES-355 tone. Nudge above center to help single notes cut; below to tame harsh highs.",
           },
         ],
         notes:
@@ -7057,7 +7132,7 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 3,
             block_name: "Spring Reverb",
-            block_category: "Effect",
+            block_category: "Reverb",
             original_gear: "Spring reverb",
             settings: { Decay: 1.5, Mix: 20 },
             notes:
@@ -7073,8 +7148,9 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "59 Bassguy", block_category: "Amp", original_gear: "Fender Bassman", settings: { Drive: 5.0, Bass: 6.0, Mid: 5.0, Treble: 5.0, Presence: 4.0, "MV": 6.0, }, notes: "Fractal's 59 Bassguy is the Fender Bassman model. Set for warm, slightly driven tones. Keep the tone warm and avoid harsh highs." },
           { position: 3, block_name: "4x10 Tweed", block_category: "Cab", original_gear: "Fender Bassman 4x10", settings: { Mic: "57 Dynamic", Distance: 2.5 }, notes: "The 4x10 Tweed cab matches the Bassman's speaker configuration. Slightly pulled back mic for a warmer, smoother capture." },
           { position: 4, block_name: "Tube Spring", block_category: "Reverb", original_gear: "Spring reverb", settings: { Mix: 20, Decay: 1.5 }, notes: "Warm spring reverb adds depth and richness to the single-note blues lines." },
+          { position: 5, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global voicing)", settings: { Tilt: 0.5, CenterFreq: 900, Level: 0 }, notes: "Global voicing for the warm ES-355 tone. Nudge above center to help single notes cut; below to tame harsh highs." },
         ],
-        notes: "Compressor into 59 Bassguy with Tube Spring reverb. Light, transparent compression for smooth, consistent single-note blues lines.",
+        notes: "Compressor into 59 Bassguy with Tube Spring reverb and a gentle tilt EQ for global voicing. Light, transparent compression for smooth, consistent single-note blues lines.",
       },
     },
     is_editorial: true,
@@ -8450,9 +8526,17 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Mix: 20, Decay: 2.0, LowCut: 125, HighCut: 6500 },
             notes: "Plate reverb adds lush depth to the sustained lead tone, matching the Supernatural album production.",
           },
+          {
+            position: 6,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global voicing)",
+            settings: { Tilt: 0.55, CenterFreq: 900, Level: 0 },
+            notes: "Global tilt nudged toward the mids for Santana's horn-like vocal midrange. Push CenterFreq toward 1k and Tilt above center to emphasize the singing quality.",
+          },
         ],
         notes:
-          "Compressor before the amp for added sustain, plate reverb for depth. Use the neck pickup and play with strong vibrato.",
+          "Compressor before the amp for added sustain, plate reverb for depth, a mid-tilted EQ for the vocal midrange. Use the neck pickup and play with strong vibrato.",
       },
       quad_cortex: {
         chain_blocks: [
@@ -8496,9 +8580,17 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Decay: 2.0, Mix: 20 },
             notes: "Lush plate reverb for Supernatural album production depth.",
           },
+          {
+            position: 6,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global voicing)",
+            settings: { Tilt: 0.55, CenterFreq: 900, Level: 0 },
+            notes: "Global tilt nudged toward the mids for Santana's horn-like vocal midrange.",
+          },
         ],
         notes:
-          "Compressor for sustain, plate reverb for depth. The QC's Mesa models excel at this smooth, mid-heavy lead tone.",
+          "Compressor for sustain, plate reverb for depth, a mid-tilted EQ for the vocal midrange. The QC's Mesa models excel at this smooth, mid-heavy lead tone.",
       },
       tonex: {
         chain_blocks: [
@@ -8567,7 +8659,7 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 3,
             block_name: "Plate Reverb",
-            block_category: "Effect",
+            block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Decay: 2.0, Mix: 20 },
             notes:
@@ -8583,8 +8675,9 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "USA MK IV", block_category: "Amp", original_gear: "Mesa/Boogie Mark I", settings: { Drive: 7.0, Bass: 4.0, Mid: 8.0, Treble: 5.0, Presence: 5.0, MV: 7.0 }, notes: "USA MK IV for the Mark I warm, mid-heavy character. Push the mids to 8 for Santana's vocal lead quality." },
           { position: 3, block_name: "1x12 Recto V30", block_category: "Cab", original_gear: "Mesa 1x12 Thiele", settings: { Mic: "57 Dynamic", Distance: 1.5 }, notes: "1x12 Mesa cab for focused, tight tone." },
           { position: 4, block_name: "London Plate", block_category: "Reverb", original_gear: "Studio plate reverb", settings: { Mix: 20, Decay: 2.0 }, notes: "Plate reverb for lush depth on the sustained lead tone." },
+          { position: 5, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global voicing)", settings: { Tilt: 0.55, CenterFreq: 900, Level: 0 }, notes: "Global tilt nudged toward the mids for Santana's horn-like vocal midrange." },
         ],
-        notes: "USA MK IV with boosted mids and compression for Santana's singing sustain. PRS or SG neck pickup.",
+        notes: "USA MK IV with boosted mids and compression for Santana's singing sustain, a mid-tilted EQ for the vocal midrange. PRS or SG neck pickup.",
       },
     },
     is_editorial: true,
@@ -9476,7 +9569,7 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 4,
             block_name: "Single Delay",
-            block_category: "Effect",
+            block_category: "Delay",
             original_gear: "TC Electronic 2290",
             settings: { "Delay Time": "350ms", Feedback: 25, Mix: 25 },
             notes:
@@ -9485,7 +9578,7 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 5,
             block_name: "Hall Reverb",
-            block_category: "Effect",
+            block_category: "Reverb",
             original_gear: "Hall reverb (Le Studio)",
             settings: { Decay: 2.0, Mix: 20 },
             notes:
@@ -9875,7 +9968,7 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 4,
             block_name: "Single Delay",
-            block_category: "Effect",
+            block_category: "Delay",
             original_gear: "Echoplex",
             settings: { "Delay Time": "350ms", Feedback: 25, Mix: 25 },
             notes:
@@ -9884,7 +9977,7 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 5,
             block_name: "Plate Reverb",
-            block_category: "Effect",
+            block_category: "Reverb",
             original_gear: "EMT plate reverb (Trident Studios)",
             settings: { Decay: 2.5, Mix: 25, "Pre Delay": 30 },
             notes:
@@ -10508,7 +10601,7 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 5,
             block_name: "Plate Reverb",
-            block_category: "Effect",
+            block_category: "Reverb",
             original_gear: "Studio plate reverb (Ridge Farm Studio)",
             settings: { Decay: 1.8, Mix: 20 },
             notes:
@@ -11176,7 +11269,7 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 4,
             block_name: "Single Delay",
-            block_category: "Effect",
+            block_category: "Delay",
             original_gear: "Boss DD-2",
             settings: { "Delay Time": "400ms", Feedback: 30, Mix: 30 },
             notes: "DLY slot. Spacious delay for depth on lead lines.",
@@ -11184,7 +11277,7 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 5,
             block_name: "Plate Reverb",
-            block_category: "Effect",
+            block_category: "Reverb",
             original_gear: "Studio plate reverb",
             settings: { Decay: 2.0, Mix: 20 },
             notes:
@@ -12719,6 +12812,15 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Mic: "SM57", Distance: "1 inch" },
             notes: "V30 cab for tight metal tone.",
           },
+          {
+            position: 5,
+            block_name: "Slapback",
+            block_category: "Delay",
+            original_gear: "Slapback delay (solo accent)",
+            enabled: false,
+            settings: { Time: "80ms", Feedback: 10, Mix: 18 },
+            notes: "Short slapback for solo sections. OFF by default — Vulgar Display of Power was tracked dry.",
+          },
         ],
         notes:
           "Search Cortex Cloud for Dimebag or Randall captures. The solid-state Randall tone is highly sought after on the platform.",
@@ -12764,6 +12866,15 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { "Low": "+6dB", "Mid": "-8dB", "High": "+6dB" },
             notes: "Use the Katana's parametric or graphic EQ in Boss Tone Studio for the V-curve scoop. Stack with the amp's mid-scoop for the most aggressive Dime-style frequency shape.",
           },
+          {
+            position: 4,
+            block_name: "Analog Delay",
+            block_category: "Delay",
+            original_gear: "Slapback delay (solo accent)",
+            enabled: false,
+            settings: { Time: "80ms", Feedback: 10, "E.Level": 18 },
+            notes: "Delay section set to a short slapback for solo sections. OFF by default — the Walk riff was tracked dry.",
+          },
         ],
         notes:
           "Tune to D standard tuned 1/4-step flat. The Katana's Lead channel with cranked gain + double mid-scoop (amp + GEQ) delivers a convincing Dimebag tone. Noise gate in front is essential — Dime's stage rig had aggressive gating to keep the chugs surgical.",
@@ -12805,6 +12916,15 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "Search Rig Exchange for Randall Century or Dimebag profiles. Several community profiles capture the solid-state Randall's uniquely tight, unforgiving response. If no good match, try a high-gain Mesa profile with scooped mids.",
           },
+          {
+            position: 5,
+            block_name: "Single Delay",
+            block_category: "Delay",
+            original_gear: "Slapback delay (solo accent)",
+            enabled: false,
+            settings: { "Delay Time": "80ms", Feedback: 10, Mix: 18 },
+            notes: "DLY slot. Short slapback for solo sections. OFF by default — the Walk riff was tracked dry.",
+          },
         ],
         notes:
           "Kemper profiles include the cab, so no separate cab block is needed. Tune to D standard. The V-curve EQ scoop before the amp is critical. Search for Randall Century 200 profiles on Rig Exchange -- the solid-state Randall tone is highly sought after. Use the bridge humbucker with maximum output for groove metal aggression.",
@@ -12815,6 +12935,7 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "Graphic EQ", block_category: "EQ", original_gear: "MXR 6-Band EQ", settings: { "Low Freq": "+6dB", "Mid Freq": "-8dB", "High Freq": "+6dB" }, notes: "V-curve scoop: boost lows and highs, cut mids heavily for the Dimebag tone." },
           { position: 3, block_name: "PVH 6160 Block", block_category: "Amp", original_gear: "Randall Century 200", settings: { Drive: 8.0, Bass: 7.0, Mid: 3.0, Treble: 7.0, Presence: 6.0, MV: 7.0 }, notes: "No Randall model available. PVH 6160 Block provides tight, aggressive high-gain. Scoop the mids hard." },
           { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Randall 4x12 V30", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "V30 cab for tight, modern metal low end." },
+          { position: 5, block_name: "Tape Delay", block_category: "Delay", original_gear: "Slapback delay (solo accent)", enabled: false, settings: { Time: "80ms", Feedback: 10, Mix: 18 }, notes: "Short slapback for solo sections. OFF by default — Walk was tracked dry." },
         ],
         notes: "D-standard tuning. PVH 6160 with V-curve EQ scoop for the Dimebag groove metal tone. No direct Randall solid-state model available.",
       },
@@ -13541,7 +13662,7 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 4,
             block_name: "Single Delay",
-            block_category: "Effect",
+            block_category: "Delay",
             original_gear: "Binson Echorec",
             settings: { Time: 440, Feedback: 30, Mix: 35 },
             notes:

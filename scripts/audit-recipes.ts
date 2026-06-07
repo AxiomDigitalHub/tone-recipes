@@ -122,6 +122,16 @@ const MIRROR_EXEMPTIONS: Record<Platform, Set<UtilityCategory>> = {
   tonex: new Set(["Compressor", "Reverb", "Delay", "EQ", "Cab"]),
 };
 
+// Recipes where a pre-amp compressor on Helix is wrong-by-design and the
+// `helix-comp-present` rule should not fire. High-gain metal tones get
+// their attack-tightening from a drive/boost block (Tube Screamer-style)
+// plus a noise gate and the amp's own saturation — a compressor in front
+// of the amp would smear the percussive pick attack the style depends on.
+// See RECIPE_STANDARD.md → "Compressor exemptions".
+const HELIX_COMP_EXEMPT_SLUGS = new Set<string>([
+  "dimebag-walk-groove-metal",
+]);
+
 // Categories that always indicate a drive/boost block.
 const DRIVE_CATEGORIES = new Set(["Distortion", "Booster", "Drive"]);
 
@@ -540,6 +550,7 @@ const RULES: Rule[] = [
     description:
       "Helix chain includes a Compressor block before the Amp (after volume pedal / noise gate is OK)",
     check: (r) => {
+      if (HELIX_COMP_EXEMPT_SLUGS.has(r.slug)) return null;
       const helix = r.platform_translations.helix;
       if (!helix) return null;
       const comp = helix.chain_blocks.find(

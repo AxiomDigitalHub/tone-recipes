@@ -270,6 +270,17 @@ used to require pos 1 or 2, but high-gain rigs correctly run Noise
 Gate at pos 1-2 and Comp at pos 3 — that's not a bug. The real
 constraint is "comp before amp."
 
+**Compressor exemptions:** a small set of high-gain metal recipes run
+*no* compressor by design and are listed in `HELIX_COMP_EXEMPT_SLUGS`
+in `audit-recipes.ts`. In those tones the attack-tightening comes from
+a drive/boost block (Tube Screamer-style), a noise gate, and the amp's
+own saturation; a compressor in front of the amp would smear the
+percussive pick attack the genre depends on. Add a slug here only when
+the source rig genuinely had no comp — never to silence the warn on a
+clean/blues/classic-rock tone. Current exemptions:
+`dimebag-walk-groove-metal` (Vulgar-era Randall rig: gate + Scream 808
++ solid-state saturation, no comp).
+
 ### F3 · `helix-amp-internals` · warn
 The amp block's `settings` object includes the internal-tube parameters:
 `Bias`, `BiasX`, `Sag`, `Hum`, `Ripple` — in addition to the standard
@@ -421,6 +432,21 @@ record's ambience came from the tracking room itself, not a plate.
 Big halls and long plates belong on stadium-rock and shoegaze
 recipes, not jazz-club records. **Status:** judgment call per recipe;
 not yet a rule because the threshold depends on production style.
+
+### Kemper REV/DLY slots use `Reverb` / `Delay`, not `Effect` (2026-06-07)
+The Kemper has dedicated REV and DLY slots; a reverb or delay block in
+those slots must carry `block_category: "Reverb"` or `"Delay"` — *not*
+the generic `"Effect"`. The `translations-utility-mirror` check matches
+on category, so a Kemper plate reverb mislabeled `"Effect"` reads as
+"kemper missing Reverb" even though the block is right there. This was
+the single most common cause of mirror warns in the weekly audits — the
+2026-06-07 run alone re-tagged 11 Kemper blocks across 6 recipes
+(santana, bb-king, satriani, gilmour ×2, lifeson, brian-may, rhoads).
+The block_name (`Plate Reverb`, `Single Delay`, `Hall Reverb`) and the
+note (`REV slot.` / `DLY slot.`) already signal intent; only the
+category was wrong. **Status:** mechanical, unambiguous, and safe to
+bulk-fix — a good candidate for a dedicated fixer script
+(`fix-kemper-fx-category.ts`) so it stops recurring as new recipes land.
 
 ### Noise gates on high-gain recipes
 Any recipe whose amp Drive ≥ 8 (on a 0-10 scale) or whose tags
