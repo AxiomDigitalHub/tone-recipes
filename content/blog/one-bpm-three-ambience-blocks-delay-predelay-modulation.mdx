@@ -1,0 +1,145 @@
+---
+title: "One BPM, Three Ambience Blocks: Delay, Predelay, and Modulation on a Single Grid"
+description: >-
+  Lock delay time, reverb predelay, and modulation rate to the same tempo and the
+  whole ambient bed moves as one. The note-division math, a worked example, and
+  how to set it on Helix and Quad Cortex.
+date: '2026-06-07'
+author: Fader & Knob Staff
+author_slug: fk-staff
+category: modeler-masterclass
+tags:
+  - ambient
+  - delay
+  - reverb
+  - modulation
+  - tempo-sync
+  - modeler
+image: /images/blog/one-bpm-three-ambience-blocks-delay-predelay-modulation.jpg
+image_width: 1536
+image_height: 1024
+image_alt: >-
+  A modeler screen showing a delay, reverb, and modulation block with tempo-sync
+  note values, beside a metronome display, on a home studio desk
+takeaways:
+  - >-
+    Three ambience parameters can ride one tempo: delay time, reverb predelay,
+    and modulation rate. When all three derive from the same BPM, the ambient bed
+    pulses as a single organism instead of three effects fighting the groove.
+  - >-
+    Time-based values come from one formula — milliseconds equal 60000 divided by
+    BPM, times the note division. Modulation is a rate, not a time, so it uses
+    BPM over 60 divided by the beats per LFO cycle to get hertz.
+  - >-
+    Delay wants an audible division (dotted-eighth or quarter). Predelay wants a
+    small one (a 32nd note) so the reverb sits just behind the note. Modulation
+    wants a slow one (one cycle per bar or two) so it breathes rather than
+    wobbles.
+  - >-
+    The counterintuitive part: syncing modulation faster makes it more obvious,
+    not tighter. A slow per-bar LFO disappears into the song; a per-beat LFO
+    announces itself.
+  - >-
+    On Helix and Quad Cortex you can set delay and (on most blocks) modulation to
+    note values directly. For predelay, which is usually a millisecond field,
+    compute the 32nd-note value from the formula and type it in.
+faq:
+  - q: How do I sync modulation to tempo on guitar?
+    a: >-
+      Modulation rate is a frequency, so convert tempo to hertz: take BPM divided
+      by 60 to get beats per second, then divide by how many beats you want per
+      LFO cycle. One cycle per bar in 4/4 at 84 BPM is 84/60 divided by 4, which
+      is about 0.35Hz. Many modeler modulation blocks also accept tempo-synced
+      note values directly, in which case you just pick the note division.
+  - q: What note value should reverb predelay be?
+    a: >-
+      A small one — a 32nd note works well. Predelay is the gap between the dry
+      note and the start of the reverb, so you want it short enough to feel like
+      part of the note rather than a separate echo. At most tempos a 32nd note
+      lands in the 60 to 120 millisecond range, which is a natural predelay that
+      still locks to the grid.
+  - q: How do I calculate delay time from BPM?
+    a: >-
+      Use milliseconds equals 60000 divided by BPM, times the note division. A
+      quarter note is 1, an eighth is 0.5, a dotted-eighth is 0.75, a 16th is
+      0.25, and a 32nd is 0.125. At 120 BPM a dotted-eighth delay is 60000/120
+      times 0.75, which is 375 milliseconds.
+  - q: Why lock all three ambience effects to one tempo?
+    a: >-
+      Because when delay, predelay, and modulation all derive from the same BPM,
+      their motion is mathematically related instead of random. The repeats, the
+      reverb's entry, and the LFO sweep all share a common pulse, so the ambient
+      bed reads as one coherent space moving with the song rather than three
+      independent effects drifting against each other.
+  - q: Can I sync modulation to tempo on Helix and Quad Cortex?
+    a: >-
+      Yes on both for most modulation blocks — you can set the rate to a
+      tempo-synced note value rather than a fixed hertz figure. Delay blocks sync
+      the same way. The one parameter that's usually a plain millisecond field is
+      reverb predelay, so for that you compute the note value in milliseconds and
+      enter it manually.
+---
+
+> **Quick read:** Three ambience parameters can share one tempo: delay time, reverb predelay, and modulation rate. Time-based values use milliseconds = 60000 ÷ BPM × note division; modulation uses BPM ÷ 60 ÷ beats-per-cycle for hertz. Give delay an audible division (dotted-eighth), predelay a tiny one (a 32nd note), and modulation a slow one (one cycle per bar). The surprise is that slower modulation sync sounds tighter, not looser. On Helix and Quad Cortex, delay and modulation take note values directly; predelay is usually a millisecond field, so compute and type it.
+
+Two earlier pieces locked single ambience parameters to tempo: [the one-tempo-grid delay](/blog/one-tempo-grid-predelay-dotted-eighth-delay) put the delay on a dotted-eighth, and [subtracting predelay from decay](/blog/subtract-predelay-from-decay-reverb-tail) tuned the reverb tail to clear before the next chord. This is the version with a third block on the same grid: modulation. When the delay's repeats, the reverb's entry, and the modulation's sweep all come off one BPM, the ambient bed stops being three separate effects and starts moving like one connected space.
+
+## Two Formulas, Three Blocks
+
+Everything here comes from two conversions. The first covers anything measured in time — delay, predelay:
+
+**Milliseconds = (60000 ÷ BPM) × note division**
+
+where a quarter note is 1, a dotted-eighth is 0.75, an eighth is 0.5, a 16th is 0.25, and a 32nd is 0.125.
+
+Modulation is the odd one out, because it's a *rate*, not a time. An LFO is described in hertz — cycles per second — so it gets its own conversion:
+
+**Rate (Hz) = (BPM ÷ 60) ÷ beats per LFO cycle**
+
+One cycle per bar of 4/4 means four beats per cycle. One cycle per two bars means eight. The bigger the number of beats per cycle, the slower and more glacial the sweep.
+
+That's the whole toolkit. Three blocks, two formulas, one tempo feeding all of them.
+
+## What Division Each Block Wants
+
+Syncing isn't the same as picking the same note value for everything. Each block has a job, and the right division follows the job.
+
+- **Delay — an audible division.** This is the one the listener consciously hears as rhythm. A dotted-eighth gives the off-grid pull that built U2's [delay sound](/blog/the-edge-delay-settings); a straight quarter gives a steady call-and-response. You *want* this one to be obvious.
+- **Predelay — the smallest division.** Predelay is the gap before the reverb starts. Too long and it becomes a second echo; too short and the reverb smears into the pick attack. A 32nd note keeps the reverb sitting just *behind* the note, locked to the grid but felt as part of the note rather than separate from it.
+- **Modulation — a slow division.** This is the bed underneath. One LFO cycle per bar, or per two bars, makes the chorus or tremolo *breathe* with the song. It should be felt, not counted.
+
+## A Worked Example at 84 BPM
+
+Take a ballad at 84 BPM. Run every value through the two formulas and you get a complete, internally locked ambient rig:
+
+| Block | Division | Formula | Value |
+|---|---|---|---|
+| Delay | Dotted-eighth | (60000 ÷ 84) × 0.75 | 536 ms |
+| Reverb predelay | 32nd note | (60000 ÷ 84) × 0.125 | 89 ms |
+| Modulation rate | One cycle / bar | (84 ÷ 60) ÷ 4 | 0.35 Hz |
+
+Set the delay to 536 ms (or just choose "dotted-eighth" if the block syncs by note value), type 89 ms into the predelay field, and set the modulation to 0.35 Hz or to a per-bar note value. The reverb's decay you set by ear so the tail clears before the next chord change — that's the subtract-from-decay move from the companion post, and it's the one value here that's tuned to the arrangement rather than the grid.
+
+For the chart-extraction crowd, here's the same three blocks at 120 BPM:
+
+| Block | Division | Value at 120 BPM |
+|---|---|---|
+| Delay | Dotted-eighth | 375 ms |
+| Reverb predelay | 32nd note | 63 ms |
+| Modulation rate | One cycle / bar | 0.50 Hz |
+
+## The Part That Runs Against Instinct
+
+The natural assumption is that to make modulation feel *locked*, you sync it fast — one cycle per beat, so the sweep audibly pulses with the song. In practice that does the opposite. A per-beat LFO at 84 BPM runs at 1.4 Hz, fast enough that the ear hears it as a distinct wobble sitting on top of the part, competing with the delay's rhythm for attention. Two rhythmic things, both demanding to be counted.
+
+Slow it to one cycle per bar — 0.35 Hz — and the modulation drops below the threshold where you track it as rhythm. It becomes motion in the background, a slow tide under the notes. It's locked to the same grid, so it never drifts, but because it's slow it reads as the *room breathing* rather than a second metronome. The tighter-sounding setting is the slower one. That's the finding that surprises people who sync modulation for the first time: faster is louder, slower is tighter.
+
+## Setting It on Helix and Quad Cortex
+
+Both platforms make two of the three blocks easy and leave one for the calculator.
+
+- **Delay:** Set the time parameter to a tempo-synced note value (dotted-eighth) on either platform. With the global tempo set, the delay tracks any BPM automatically.
+- **Modulation:** Most modulation blocks on both Helix and Quad Cortex let you set the rate to a tempo-synced note value rather than a fixed hertz figure. Pick the per-bar (or per-two-bar) value and it locks to tempo. If a particular block only offers hertz, run the second formula and type the number in.
+- **Predelay:** This is the manual one. Reverb predelay is almost always a plain millisecond field on both platforms, so compute the 32nd-note value (89 ms at 84 BPM, 63 ms at 120) and enter it directly.
+
+Set the global tempo once, derive the three values, and the entire ambient bed moves as a single organism — repeats, reverb, and sweep all pulsing off one number instead of three effects quietly disagreeing about where the beat is.

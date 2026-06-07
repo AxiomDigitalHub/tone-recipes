@@ -1,0 +1,127 @@
+---
+title: "The Bucking Transformer: Trimming 120V to 100V for a Touring Amp Abroad"
+description: >-
+  A 60Hz amp on 50Hz mains runs hot. The fix is to drop the voltage about 20
+  volts so the volts-per-hertz stays in line. A small bucking transformer does it
+  for cheap — here's how to wire and meter one.
+date: '2026-06-07'
+author: Rick Dalton
+author_slug: rick-dalton
+category: quick-fixes
+tags:
+  - tube-amp
+  - touring
+  - voltage
+  - bucking-transformer
+  - vintage
+  - maintenance
+image: /images/blog/bucking-transformer-120v-to-100v-touring-amp.jpg
+image_width: 1536
+image_height: 1024
+image_alt: >-
+  A small bucking transformer wired into a power cord next to a multimeter
+  reading 100 volts, on a workbench beside a vintage tube amp head
+takeaways:
+  - >-
+    A 120V amp built for 60Hz runs its power transformer hotter on 50Hz mains
+    because the magnetic flux climbs about 20 percent. The cure is to drop the
+    voltage by about the same amount, landing near 100V, so volts-per-hertz stays
+    where the amp was designed to live.
+  - >-
+    A bucking transformer is a small step-down transformer wired so its secondary
+    subtracts from the line. A 120V-to-20V transformer in buck configuration
+    turns a 120V feed into roughly 100V — cheap, small, and set-and-forget.
+  - >-
+    Phasing is the whole game. Wired one way it bucks (subtracts) to 100V; wired
+    backwards it boosts (adds) to 140V and cooks the amp. You confirm with a
+    meter before the amp ever gets plugged in.
+  - >-
+    Size the transformer to the amp's real wall current, not its speaker wattage.
+    The secondary carries the full load current, so a 50-watt head needs a
+    transformer rated for a few amps with headroom for the turn-on surge.
+  - >-
+    A variac does the same job and is adjustable, but it's big, heavy, and
+    expensive. For one fixed voltage drop on the road, a small fixed bucking
+    transformer is the smarter tool.
+faq:
+  - q: What is a bucking transformer for a guitar amp?
+    a: >-
+      It's a small step-down transformer wired so its secondary winding is in
+      series with the AC line and subtracts its voltage from it. A 120V-to-20V
+      transformer wired to buck turns a 120V wall feed into about 100V. Guitarists
+      use it to drop a 60Hz amp's voltage when running on 50Hz mains, so the
+      power transformer doesn't run hot.
+  - q: Why drop a 120V amp to 100V on 50Hz mains?
+    a: >-
+      Because magnetic flux in the power transformer is set by volts divided by
+      frequency. Drop the frequency from 60Hz to 50Hz and the flux climbs about
+      20 percent at the same voltage, which runs the transformer hotter and closer
+      to saturation. Dropping the voltage about 17 percent — from 120V to roughly
+      100V — brings the volts-per-hertz back to the design value and the heat back
+      down.
+  - q: How do I wire a bucking transformer correctly?
+    a: >-
+      You put the transformer's secondary in series with the hot line and check
+      the phase with a meter. Wired one way the secondary subtracts (buck) and the
+      output reads about 100V; wired the other way it adds (boost) and reads about
+      140V. Always meter the output before connecting your amp — if it reads high,
+      swap the two secondary leads to flip the phase.
+  - q: Is a bucking transformer better than a variac?
+    a: >-
+      For a fixed voltage drop on the road, yes. A variac is adjustable and
+      useful on the bench, but it's heavy, bulky, and expensive. A small fixed
+      bucking transformer does one job — drop the line by a set amount — in a box
+      you can throw in a gig bag. Use a variac at home, a bucking transformer on
+      tour.
+  - q: How big does the bucking transformer need to be?
+    a: >-
+      Size it to the amp's actual current draw from the wall, with headroom for
+      the turn-on surge. The buck transformer's secondary carries the full load
+      current of the amp, so a 50-watt tube head that pulls a couple of amps from
+      the wall needs a transformer rated comfortably above that. Undersize it and
+      it sags and overheats.
+---
+
+> **Quick read:** A 60Hz amp run on 50Hz mains heats its power transformer because magnetic flux climbs about 20 percent. Drop the voltage roughly the same amount — 120V down to about 100V — and the volts-per-hertz is back where the amp was built to live. A small bucking transformer does it cheap: wire a 120V-to-20V transformer's secondary in series with the line so it subtracts, meter the output to confirm 100V (not 140V), and size it to the amp's real wall current. A variac does the same thing but it's big and expensive. For one fixed drop on the road, the bucking transformer wins.
+
+You already know the urgent voltage problem. Plug a 120V amp into 230V and it dies before the first note. That's the [voltage map](/blog/touring-guitarist-voltage-map-step-up-step-down), and you sort it with a step-down converter. This is the *slow* problem — the one that doesn't kill the amp at load-in, but cooks it over a long set abroad. And the fix runs the opposite direction from what your gut says.
+
+## The Problem Isn't Voltage. It's Volts Per Hertz.
+
+A power transformer doesn't care about volts alone. It cares about volts divided by frequency. That ratio sets the magnetic flux in the core, and the amp was wound for one number: 120 volts at 60 hertz.
+
+Take that same amp to Europe or the UK. After your step-down converter you've got a clean 120V again — voltage looks perfect. But the wall is 50Hz now, not 60. Same volts, fewer hertz. The flux climbs about 20 percent. The core runs closer to saturation, the transformer runs hot, and on a two-hour festival set an old transformer doesn't enjoy that. The [frequency side of touring](/blog/50hz-vs-60hz-mains-frequency-vintage-amps) is the whole reason this matters.
+
+Here's the move that feels wrong: you *lower* the voltage to fix it. Bring the volts down by the same fraction the hertz dropped — about 17 percent — and the ratio comes back into line. 120 times 50 over 60 is 100. So you feed the amp 100V on 50Hz, and the transformer thinks it's home. The [undervolting logic](/blog/vhz-undervolt-60hz-amp-50hz-mains) is the same math from the amp's side.
+
+The first time I did it I expected a weaker, browner amp — undervolting usually means sag and early breakup. What I got on the bench was an amp that ran *cooler to the touch* after an hour and sounded essentially like itself. The plate voltage drops a little, sure, but the headroom loss at 100V-on-50Hz is far smaller than the same 100V would cost on 60Hz, because the lower frequency is doing half the work. It's not a tone compromise. It's the amp staying in its lane.
+
+## What a Bucking Transformer Is
+
+A bucking transformer is nothing exotic. It's a small step-down transformer — say 120V primary, 20V secondary — wired so the secondary sits in series with the AC line and *subtracts* its voltage from it. Line comes in at 120, the secondary takes away 20, the amp sees 100.
+
+Wire that same transformer the other way and the secondary *adds* — 120 plus 20 is 140. Same part, opposite result. That's a boost transformer, and 140V into a 120V amp is a bad afternoon. The only difference between the good outcome and the bad one is which way the secondary is phased. Which is why you never trust the wiring — you trust the meter.
+
+| Config | Secondary does | Output from 120V | Use |
+|---|---|---|---|
+| Buck | Subtracts | ~100V | What you want on 50Hz |
+| Boost | Adds | ~140V | Wrong way — flip the leads |
+
+## Wiring and Metering It
+
+The job is four connections and one measurement. The principle: the secondary goes in series with the hot conductor; the primary still gets the full line so the transformer has something to work against.
+
+1. Feed the transformer's primary from the wall line (after your step-down, so it's seeing a clean 120V).
+2. Put the secondary in series with the hot leg going to the amp's outlet.
+3. Before anything plugs in, meter the output across hot and neutral.
+4. Read it. About 100V means you're bucking — done. About 140V means it's boosting — kill the power, swap the two secondary leads, and meter again.
+
+That's the whole thing. Set it once, confirm with the meter, label the box BUCK so you never wire it backwards in a dark room at the next venue. Your ears don't lie, but on this one your meter goes first.
+
+A word on the part itself: the secondary carries the amp's *full* load current, not just the little 20V worth. The upside of that is leverage — because the secondary only handles a fifth of the line voltage, a small transformer does the work of a big one. A 20V secondary rated for 200VA passes about 10 amps, which is the same load a 1000VA full step-down would carry. You buy a little transformer and it behaves like a big one, which is the whole reason this trick is cheap. So size it to what the amp actually pulls from the wall — same rule as a [voltage converter](/blog/sizing-voltage-converter-touring-tube-amp-va-rating) — with headroom for the turn-on surge. A 50-watt head that draws a couple of amps from the wall wants a transformer rated well past that. Undersize it and the secondary sags and heats, and you've added a second hot transformer to fix the first one. Buy the bigger part.
+
+## Why Not Just Use a Variac
+
+A variac does the same job and lets you dial any voltage you want. On the bench it's the right tool. On tour it isn't — it's heavy, it's bulky, it's expensive, and it's one more knob to get wrong at 11 p.m. You don't need *adjustable*. You need one fixed drop, every show, that you set once and forget. That's a small bucking transformer in a labeled box.
+
+Three knobs on the amp, one bucking transformer in the bag, a meter to check it. Get the volts-per-hertz right and a 60-year-old amp will play a 50Hz country for two hours and come home cool.
