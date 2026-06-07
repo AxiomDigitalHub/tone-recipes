@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
 **Date:** 2026-06-07
-**Recipes:** 80
-**Clean (no errors, no warns):** 72
+**Recipes:** 85
+**Clean (no errors, no warns):** 77
 **Warn-only:** 8
 **With errors:** 0
 
@@ -16,9 +16,9 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 13 / 80 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 7 / 80 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 80 | Signal chain includes a cabinet or microphone block |
+| `katana-kemper-multidrive-default-off` | info | 13 / 85 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 7 / 85 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 85 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -143,6 +143,18 @@ Passes every rule.
 ### `collins-free-bird-outro-solo` — ✓ clean
 
 *Collins' Free Bird Outro Solo Tone*
+
+Passes every rule.
+
+### `corgan-bullet-butterfly-fender-blender` — ✓ clean
+
+*Corgan's Bullet With Butterfly Wings Fender Blender Chorus*
+
+Passes every rule.
+
+### `corgan-cherub-rock-big-muff` — ✓ clean
+
+*Corgan's Cherub Rock Wall of Fuzz*
 
 Passes every rule.
 
@@ -350,6 +362,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `mccready-alive-solo` — ✓ clean
+
+*McCready's Alive Soaring Outro Solo*
+
+Passes every rule.
+
 ### `mccready-black-solo` — ✓ clean
 
 *McCready's Black Clean-to-Soaring Solo Tone*
@@ -359,6 +377,12 @@ Passes every rule.
 ### `mccready-even-flow-solo` — ✓ clean
 
 *McCready's Even Flow Wah-Drenched Solo*
+
+Passes every rule.
+
+### `mccready-yellow-ledbetter-clean` — ✓ clean
+
+*McCready's Yellow Ledbetter Clean Tone*
 
 Passes every rule.
 
@@ -509,5 +533,11 @@ Passes every rule.
 ### `turner-do-i-wanna-know-fuzzy-riff` — ✓ clean
 
 *Alex Turner's Do I Wanna Know? Fuzzy Riff Tone*
+
+Passes every rule.
+
+### `walsh-life-in-the-fast-lane-riff` — ✓ clean
+
+*Walsh's Life in the Fast Lane Riff Tone*
 
 Passes every rule.

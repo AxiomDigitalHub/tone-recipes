@@ -81,15 +81,15 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 32 | November Rain (solo) | Guns N' Roses | Slash | Use Your Illusion I (1991) | '59 LP replica → Marshall JCM800 + studio MXR M-117 Flanger. The famous outdoor solo is double-tracked with a Crybaby wah on subtle filter sweeps. | done |
 | 33 | Mr. Brightside (riff) | The Killers | Dave Keuning | Hot Fuss (2004) | Tele into Vox AC30 with Boss DD-3 delay set to dotted eighth. Similar to The Edge's approach but tighter rhythmic gating. | done |
 | 34 | Black Hole Sun (verse) | Soundgarden | Kim Thayil | Superunknown (1994) | Strat-style guitar into Mesa Boogie + Leslie rotary speaker simulation (or actual Leslie). Drop-D tuning, capo position varies. | done |
-| 35 | Alive (verse riff + solo) | Pearl Jam | Mike McCready | Ten (1991) | Strat → Mesa/Boogie Studio .22. The famous solo is a Free Bird-influenced extended outro that McCready improvised in the studio. | queued |
-| 36 | Yellow Ledbetter (intro) | Pearl Jam | Mike McCready | (B-side, 1992) | Strat through clean Marshall + light overdrive. Hendrix-influenced phrasing, "Little Wing"-adjacent voicings. | queued |
-| 37 | Cherub Rock (riff) | Smashing Pumpkins | Billy Corgan | Siamese Dream (1993) | "Big Muff Pi" through Marshall stack — the canonical "Siamese Dream" tone, multi-tracked 6+ rhythm tracks per song. | queued |
-| 38 | 1979 (chiming arpeggio) | Smashing Pumpkins | Billy Corgan | Mellon Collie and the Infinite Sadness (1995) | Yamaha SG into clean amp with chorus and delay. Sampled rhythm loop underneath — guitar is overlay, not driver. | queued |
-| 39 | Bullet With Butterfly Wings (verse) | Smashing Pumpkins | Billy Corgan | Mellon Collie (1995) | Same Big Muff + Marshall stack rig as Cherub Rock, with cleaner verse passages and fuzz-bombs on the chorus. | queued |
-| 40 | Sex on Fire (verse arpeggio) | Kings of Leon | Caleb Followill | Only by the Night (2008) | Tele into Vox AC30. The arpeggio uses delay set to dotted eighth, simpler than U2 but in the same lineage. | queued |
+| 35 | Alive (verse riff + solo) | Pearl Jam | Mike McCready | Ten (1991) | Strat → Mesa/Boogie Studio .22. The famous solo is a Free Bird-influenced extended outro that McCready improvised in the studio. | done |
+| 36 | Yellow Ledbetter (intro) | Pearl Jam | Mike McCready | (B-side, 1992) | Strat through clean Marshall + light overdrive. Hendrix-influenced phrasing, "Little Wing"-adjacent voicings. | done |
+| 37 | Cherub Rock (riff) | Smashing Pumpkins | Billy Corgan | Siamese Dream (1993) | "Big Muff Pi" through Marshall stack — the canonical "Siamese Dream" tone, multi-tracked 6+ rhythm tracks per song. | done |
+| 38 | 1979 (chiming arpeggio) | Smashing Pumpkins | Billy Corgan | Mellon Collie and the Infinite Sadness (1995) | Yamaha SG into clean amp with chorus and delay. Sampled rhythm loop underneath — guitar is overlay, not driver. | needs-research |
+| 39 | Bullet With Butterfly Wings (verse) | Smashing Pumpkins | Billy Corgan | Mellon Collie (1995) | Same Big Muff + Marshall stack rig as Cherub Rock, with cleaner verse passages and fuzz-bombs on the chorus. | done |
+| 40 | Sex on Fire (verse arpeggio) | Kings of Leon | Caleb Followill | Only by the Night (2008) | Tele into Vox AC30. The arpeggio uses delay set to dotted eighth, simpler than U2 but in the same lineage. | needs-research |
 | 41 | Use Somebody (verse riff) | Kings of Leon | Caleb Followill | Only by the Night (2008) | Same Tele + AC30 + delay rig. Cleaner than Sex on Fire, with reverb pushed for atmosphere. | queued |
 | 42 | Take It Easy (intro) | Eagles | Glenn Frey + Bernie Leadon | Eagles (1972) | Acoustic-driven track. Frey: Martin D-28. Leadon: '59 Tele on the lead lines through clean amp. | queued |
-| 43 | Life in the Fast Lane (riff) | Eagles | Joe Walsh | Hotel California (1976) | Walsh's LP through Music Man HD-130 + Maestro Echoplex. The riff is hammer-on/pull-off pattern across the second and third strings. | queued |
+| 43 | Life in the Fast Lane (riff) | Eagles | Joe Walsh | Hotel California (1976) | Walsh's LP through Music Man HD-130 + Maestro Echoplex. The riff is hammer-on/pull-off pattern across the second and third strings. | done |
 | 44 | Reptilia (riff) | The Strokes | Nick Valensi + Albert Hammond Jr | Room on Fire (2003) | Two Strats panned hard L/R into clean amps with edge-of-breakup. The riff reads as one guitar but is two interlocking parts. | queued |
 | 45 | Last Nite (riff) | The Strokes | Nick Valensi + Albert Hammond Jr | Is This It (2001) | Same two-Strat / two-amp setup. The opening riff is hammered out on a Strat through a Crate VC30 (the cheap amp that defined their sound). | queued |
 | 46 | Folsom Prison Blues (boom-chicka) | Johnny Cash's band | Luther Perkins | (1956 single) | Tele through Fender Twin or Princeton, played in the "boom-chicka" pattern with the bass strings palm-muted. Capo position varies. | queued |
@@ -147,6 +147,50 @@ successful run.)
 | 2026-06-07 | slash-november-rain-solo | 32 |
 | 2026-06-07 | keuning-mr-brightside-riff | 33 |
 | 2026-06-07 | thayil-black-hole-sun-rotary-verse | 34 |
+| 2026-06-07 | mccready-alive-solo | 35 |
+| 2026-06-07 | mccready-yellow-ledbetter-clean | 36 |
+| 2026-06-07 | corgan-cherub-rock-big-muff | 37 |
+| 2026-06-07 | corgan-bullet-butterfly-fender-blender | 39 |
+| 2026-06-07 | walsh-life-in-the-fast-lane-riff | 43 |
+
+### Corrections applied this run (2026-06-07, batch 2)
+
+- **#35 Alive** — the backlog sketch's "Strat → Mesa/Boogie Studio .22" is the
+  same myth corrected on #12 Black: the Studio .22 was Cobain's, not
+  McCready's. Per Premier Guitar (McCready's own account), the recorded Alive
+  solo is the black **1962 Japanese-reissue Strat → Ibanez TS-9 → cranked
+  Marshall JCM800 → 4x12 (25W Greenbacks)**, with a **Cry Baby** in the solo
+  and a **Uni-Vibe on the one-take outro** (overdubbed at Tim Palmer's mix in
+  England). Also flagged: the "Alive = 1959 Les Paul" belief is a LIVE fact —
+  McCready didn't acquire that guitar until 1998, so it can't be on the 1991
+  record. Recipe ships the Strat and debunks both in its notes.
+- **#36 Yellow Ledbetter** — guitar corrected. Not the black '62 used on the
+  rest of Ten: per McCready (Vintage Guitar), Yellow Ledbetter is a **Fender
+  '57 reissue Strat with a maple neck**. The amp is **genuinely undocumented**
+  for this track — built on a clean **Fender Bassman** voice (his documented
+  Ten clean amp) and labeled "inferred" throughout. Pedal-free, big studio
+  plate; the tone is technique + reverb.
+- **#37 Cherub Rock** — well-documented and shipped as-is. The dirt is
+  specifically the **late-'70s op-amp Big Muff** (Helix "Industrial Fuzz"),
+  into the **low-gain input** of a cranked, KT88-loaded **JCM800 2203** run as
+  a loud near-clean power stage (preamp low, master high). Eb standard;
+  quad-tracked wall. Pickup (DiMarzio vs Lace) and speaker model flagged
+  uncertain.
+- **#39 Bullet With Butterfly Wings** — the headline correction: the loud
+  chorus is a **Fender Blender** (octave fuzz), **not** the Siamese Dream Big
+  Muff. Corgan names the pedal and the song together in his Dec-1995 Guitar
+  World interview. Built on the Mellon Collie rig (JCM800 2203/KT88 → Mesa
+  Strategy 500 at half power → Marshall 4x12). Clean verse path is inferred
+  (fuzz bypassed); exact Bullet-take guitar not documented (era number-one '57
+  reissue Strat used). Eb standard.
+- **#43 Life in the Fast Lane** — amp corrected. The catalog's Walsh chain
+  (Les Paul → Music Man HD-130 + Echoplex) is the **Hotel California outro**,
+  NOT this track. Per the official Line 6 song tone template + Vintage Guitar,
+  Walsh cut the Fast Lane riff on a **1950s Strat → cranked tweed Fender
+  Deluxe (5E3)**, with **Felder's '59 Les Paul doubling the riff an octave up**
+  through the same amp. No talk box (that's Rocky Mountain Way), no confirmed
+  Echoplex; amp-only. Strat-vs-Tele and Deluxe-vs-Champ flagged as the
+  documented uncertainties.
 
 ### Corrections applied this run (2026-06-07)
 
@@ -192,6 +236,34 @@ successful run.)
   Line tour.
 
 ### needs-research
+
+- **#38 1979 (Billy Corgan, Mellon Collie 1995)** — skipped 2026-06-07. The
+  *production* of 1979 is exceptionally well-documented (Corgan, Flood,
+  Moulder, Chamberlin) — but the **specific clean guitar rig is not**. No
+  credible source names the guitar, amp, or modulation chain for 1979's
+  chiming part; it began as an acoustic/vocal demo and was rebuilt around a
+  loop processed through a **Kurzweil K2600**. Every "1979 guitar tone" gear
+  list online (Yamaha SG, Marshall + chorus, "Eventide instant flanger") is an
+  unsourced tone-match *suggestion*, not documentation. Building a guitar-rig
+  recipe would mean guessing the guitar, amp, and chorus — exactly what the
+  no-approximation bar forbids. Re-queue only if a primary source names the
+  1979 guitar/amp/effects, or re-scope to a "studio production — loop +
+  Kurzweil" entry. Built #43 (Life in the Fast Lane) in its place this run.
+
+- **#40 Sex on Fire (Kings of Leon, Only by the Night 2008)** — skipped
+  2026-06-07. The **amp is genuinely undocumented**, same failure mode as #9.
+  Per the primary Sound on Sound interview, engineer Jacquire King ran a
+  rotating "mix and match" of **5-6 amps, two at a time** per guitar part and
+  names **no model**; the Vox AC30 in the backlog sketch is an unsourced
+  tone-guide suggestion (debunked). The riff delay is also not pinned to a
+  named pedal/setting. What IS documented: the guitar (**Gibson ES-325**), the
+  dual-amp SM57+U67 Blackbird tracking, and an **Eventide DSP4000** "synth-like
+  reverb" — not enough to name an amp model for six platform translations
+  without guessing. **Attribution correction for the re-queue:** the signature
+  high riff was **written and recorded by Caleb Followill** (on his ES-325,
+  playing high-neck while recovering from shoulder surgery) — not Matthew, and
+  not in Caleb's usual rhythm role. Re-queue only if a primary source names the
+  Sex on Fire amp.
 
 - **#28 Born Under a Bad Sign (Albert King, 1967)** — skipped 2026-06-07.
   The guitar half is magazine-grade (Gibson Flying V, played as a flipped
