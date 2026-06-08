@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-07
-**Recipes:** 85
-**Clean (no errors, no warns):** 77
+**Date:** 2026-06-08
+**Recipes:** 90
+**Clean (no errors, no warns):** 82
 **Warn-only:** 8
 **With errors:** 0
 
@@ -16,9 +16,9 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 13 / 85 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 7 / 85 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 85 | Signal chain includes a cabinet or microphone block |
+| `katana-kemper-multidrive-default-off` | info | 15 / 90 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 7 / 90 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 90 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -194,6 +194,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `followill-use-somebody-octave-lead` — ✓ clean
+
+*Followill's Use Somebody Octave Lead Tone*
+
+Passes every rule.
+
 ### `frusciante-snow-hey-oh-intro` — ✓ clean
 
 *Frusciante's Snow (Hey Oh) Cascading Clean Arpeggio*
@@ -272,6 +278,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `hammond-last-nite-riff` — ✓ clean
+
+*Hammond's Last Nite Riff Tone*
+
+Passes every rule.
+
 ### `hendrix-voodoo-child-wah` — ✓ clean
 
 *Hendrix's Voodoo Child Wah Tone*
@@ -317,6 +329,12 @@ Passes every rule.
 ### `knopfler-sultans-of-swing-clean` — ✓ clean
 
 *Knopfler's Sultans of Swing Clean Fingerpicked Tone*
+
+Passes every rule.
+
+### `leadon-take-it-easy-tele-lead` — ✓ clean
+
+*Leadon's Take It Easy Telecaster Lead Tone*
 
 Passes every rule.
 
@@ -428,6 +446,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `perkins-folsom-prison-blues-boom-chicka` — ✓ clean
+
+*Perkins's Folsom Prison Blues Boom-Chicka Tone*
+
+Passes every rule.
+
 ### `perry-sweet-emotion-talk-box` — ✓ clean
 
 *Joe Perry's Sweet Emotion Talk-Box Intro*
@@ -533,6 +557,12 @@ Passes every rule.
 ### `turner-do-i-wanna-know-fuzzy-riff` — ✓ clean
 
 *Alex Turner's Do I Wanna Know? Fuzzy Riff Tone*
+
+Passes every rule.
+
+### `valensi-reptilia-lead-riff` — ✓ clean
+
+*Valensi's Reptilia Lead Riff Tone*
 
 Passes every rule.
 

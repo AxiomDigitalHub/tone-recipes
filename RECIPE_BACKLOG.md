@@ -87,12 +87,12 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 38 | 1979 (chiming arpeggio) | Smashing Pumpkins | Billy Corgan | Mellon Collie and the Infinite Sadness (1995) | Yamaha SG into clean amp with chorus and delay. Sampled rhythm loop underneath — guitar is overlay, not driver. | needs-research |
 | 39 | Bullet With Butterfly Wings (verse) | Smashing Pumpkins | Billy Corgan | Mellon Collie (1995) | Same Big Muff + Marshall stack rig as Cherub Rock, with cleaner verse passages and fuzz-bombs on the chorus. | done |
 | 40 | Sex on Fire (verse arpeggio) | Kings of Leon | Caleb Followill | Only by the Night (2008) | Tele into Vox AC30. The arpeggio uses delay set to dotted eighth, simpler than U2 but in the same lineage. | needs-research |
-| 41 | Use Somebody (verse riff) | Kings of Leon | Caleb Followill | Only by the Night (2008) | Same Tele + AC30 + delay rig. Cleaner than Sex on Fire, with reverb pushed for atmosphere. | queued |
-| 42 | Take It Easy (intro) | Eagles | Glenn Frey + Bernie Leadon | Eagles (1972) | Acoustic-driven track. Frey: Martin D-28. Leadon: '59 Tele on the lead lines through clean amp. | queued |
+| 41 | Use Somebody (verse riff) | Kings of Leon | Caleb Followill | Only by the Night (2008) | Same Tele + AC30 + delay rig. Cleaner than Sex on Fire, with reverb pushed for atmosphere. | done |
+| 42 | Take It Easy (intro) | Eagles | Glenn Frey + Bernie Leadon | Eagles (1972) | Acoustic-driven track. Frey: Martin D-28. Leadon: '59 Tele on the lead lines through clean amp. | done |
 | 43 | Life in the Fast Lane (riff) | Eagles | Joe Walsh | Hotel California (1976) | Walsh's LP through Music Man HD-130 + Maestro Echoplex. The riff is hammer-on/pull-off pattern across the second and third strings. | done |
-| 44 | Reptilia (riff) | The Strokes | Nick Valensi + Albert Hammond Jr | Room on Fire (2003) | Two Strats panned hard L/R into clean amps with edge-of-breakup. The riff reads as one guitar but is two interlocking parts. | queued |
-| 45 | Last Nite (riff) | The Strokes | Nick Valensi + Albert Hammond Jr | Is This It (2001) | Same two-Strat / two-amp setup. The opening riff is hammered out on a Strat through a Crate VC30 (the cheap amp that defined their sound). | queued |
-| 46 | Folsom Prison Blues (boom-chicka) | Johnny Cash's band | Luther Perkins | (1956 single) | Tele through Fender Twin or Princeton, played in the "boom-chicka" pattern with the bass strings palm-muted. Capo position varies. | queued |
+| 44 | Reptilia (riff) | The Strokes | Nick Valensi + Albert Hammond Jr | Room on Fire (2003) | Two Strats panned hard L/R into clean amps with edge-of-breakup. The riff reads as one guitar but is two interlocking parts. | done |
+| 45 | Last Nite (riff) | The Strokes | Nick Valensi + Albert Hammond Jr | Is This It (2001) | Same two-Strat / two-amp setup. The opening riff is hammered out on a Strat through a Crate VC30 (the cheap amp that defined their sound). | done |
+| 46 | Folsom Prison Blues (boom-chicka) | Johnny Cash's band | Luther Perkins | (1956 single) | Tele through Fender Twin or Princeton, played in the "boom-chicka" pattern with the bass strings palm-muted. Capo position varies. | done |
 | 47 | The Devil Went Down to Georgia (guitar break) | Charlie Daniels Band | Charlie Daniels (fiddle lead) + Tom Crain (guitar) | Million Mile Reflections (1979) | Crain: Strat through Music Man amp. The fiddle is the lead but the guitar break in the middle is iconic. | queued |
 | 48 | Sharp Dressed Man (riff) | ZZ Top | Billy Gibbons | Eliminator (1983) | Pearly Gates LP through cranked Marshall, with Eliminator-era processing (synth pads underneath). Different from La Grange — late-'80s "MTV ZZ Top." | queued |
 | 49 | Cult of Personality (riff) | Living Colour | Vernon Reid | Vivid (1988) | LP-style guitar (eventually a Hamer signature) through Marshall + ADA MP-1 preamp. The riff is fast pull-offs across the high strings. | queued |
@@ -152,6 +152,45 @@ successful run.)
 | 2026-06-07 | corgan-cherub-rock-big-muff | 37 |
 | 2026-06-07 | corgan-bullet-butterfly-fender-blender | 39 |
 | 2026-06-07 | walsh-life-in-the-fast-lane-riff | 43 |
+| 2026-06-08 | followill-use-somebody-octave-lead | 41 |
+| 2026-06-08 | leadon-take-it-easy-tele-lead | 42 |
+| 2026-06-08 | valensi-reptilia-lead-riff | 44 |
+| 2026-06-08 | hammond-last-nite-riff | 45 |
+| 2026-06-08 | perkins-folsom-prison-blues-boom-chicka | 46 |
+
+### Corrections applied this run (2026-06-08)
+
+- **#41 Use Somebody** — the backlog sketch credits "Caleb Followill / Tele +
+  AC30." Research (Sound on Sound's Jacquire King interview, official song
+  credits) shows the iconic delayed octave hook is **Matthew Followill (lead)**,
+  not Caleb (rhythm + vocal), and King confirmed the **Matchless** combo was the
+  amp on this track (a Vox AC-15 was the documented second amp). Guitar is a
+  semi-hollow Epiphone (Sheraton, era-documented). Recipe centers on Matthew's
+  DL4-delay + lush Eventide-style reverb tone.
+- **#42 Take It Easy** — built on **Bernie Leadon's** B-Bender Telecaster lead
+  (not Frey's acoustic). Key corrected to **G major, no capo** (sketch implied
+  otherwise). Amp is a clean Fender (Deluxe Reverb / Tweed Deluxe, era-inferred);
+  Olympic Studios, Glyn Johns. Avoided two common errors: the '53 maple-neck Tele
+  (post-1974) and Frey's Takamine (1976+) — neither belongs to this 1972 track.
+- **#44 Reptilia** — **Nick Valensi** lead on an Epiphone Riviera (P-94
+  single-coils), not "two Strats." Documented chain (Gordon Raphael): Visual
+  Sound Jekyll & Hyde → **Fender Hot Rod DeVille**, MD 421 → API no EQ. Not high
+  gain — edge-of-breakup. Hard L/R two-guitar panning foregrounded.
+- **#45 Last Nite** — **CORRECTED the Crate VC30 myth.** No primary source
+  supports it; producer Gordon Raphael documents **Fender DeVille** amps. Recipe
+  centers on **Albert Hammond Jr's** white '70s-reissue Strat, with the Crate
+  story explicitly flagged as unverified lore and corrected.
+- **#46 Folsom Prison Blues** — built on the **1955 Sun studio** version:
+  **Luther Perkins's early-'50s Fender Esquire** (single bridge pickup, dead
+  vol/tone pots) — not a Telecaster — flatwounds, palm-muted boom-chicka, into a
+  small **Silvertone 1300** (per Marshall Grant; NOT a Fender on this cut) with
+  **Sam Phillips's Sun tape slapback**. Album art anchored to the studio LP
+  *With His Hot and Blue Guitar*, not the live At Folsom Prison cover.
+
+**Album-art note:** all 5 new covers were visually verified via the Read tool
+(the album-art audit can't auto-match because it searches iTunes by guitarist
+name while these tracks are credited to bands — same false-negative as the
+existing Walsh / Keuning / Thayil / Corgan band-member recipes).
 
 ### Corrections applied this run (2026-06-07, batch 2)
 
