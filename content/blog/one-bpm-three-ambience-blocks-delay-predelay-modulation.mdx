@@ -1,9 +1,11 @@
 ---
-title: "One BPM, Three Ambience Blocks: Delay, Predelay, and Modulation on a Single Grid"
+title: >-
+  One BPM, Three Ambience Blocks: Delay, Predelay, and Modulation on a Single
+  Grid
 description: >-
-  Lock delay time, reverb predelay, and modulation rate to the same tempo and the
-  whole ambient bed moves as one. The note-division math, a worked example, and
-  how to set it on Helix and Quad Cortex.
+  Lock delay time, reverb predelay, and modulation rate to the same tempo and
+  the whole ambient bed moves as one. The note-division math, a worked example,
+  and how to set it on Helix and Quad Cortex.
 date: '2026-06-07'
 author: Fader & Knob Staff
 author_slug: fk-staff
@@ -24,12 +26,13 @@ image_alt: >-
 takeaways:
   - >-
     Three ambience parameters can ride one tempo: delay time, reverb predelay,
-    and modulation rate. When all three derive from the same BPM, the ambient bed
-    pulses as a single organism instead of three effects fighting the groove.
+    and modulation rate. When all three derive from the same BPM, the ambient
+    bed pulses as a single organism instead of three effects fighting the
+    groove.
   - >-
-    Time-based values come from one formula — milliseconds equal 60000 divided by
-    BPM, times the note division. Modulation is a rate, not a time, so it uses
-    BPM over 60 divided by the beats per LFO cycle to get hertz.
+    Time-based values come from one formula — milliseconds equal 60000 divided
+    by BPM, times the note division. Modulation is a rate, not a time, so it
+    uses BPM over 60 divided by the beats per LFO cycle to get hertz.
   - >-
     Delay wants an audible division (dotted-eighth or quarter). Predelay wants a
     small one (a 32nd note) so the reverb sits just behind the note. Modulation
@@ -40,17 +43,18 @@ takeaways:
     not tighter. A slow per-bar LFO disappears into the song; a per-beat LFO
     announces itself.
   - >-
-    On Helix and Quad Cortex you can set delay and (on most blocks) modulation to
-    note values directly. For predelay, which is usually a millisecond field,
+    On Helix and Quad Cortex you can set delay and (on most blocks) modulation
+    to note values directly. For predelay, which is usually a millisecond field,
     compute the 32nd-note value from the formula and type it in.
 faq:
   - q: How do I sync modulation to tempo on guitar?
     a: >-
-      Modulation rate is a frequency, so convert tempo to hertz: take BPM divided
-      by 60 to get beats per second, then divide by how many beats you want per
-      LFO cycle. One cycle per bar in 4/4 at 84 BPM is 84/60 divided by 4, which
-      is about 0.35Hz. Many modeler modulation blocks also accept tempo-synced
-      note values directly, in which case you just pick the note division.
+      Modulation rate is a frequency, so convert tempo to hertz: take BPM
+      divided by 60 to get beats per second, then divide by how many beats you
+      want per LFO cycle. One cycle per bar in 4/4 at 84 BPM is 84/60 divided by
+      4, which is about 0.35Hz. Many modeler modulation blocks also accept
+      tempo-synced note values directly, in which case you just pick the note
+      division.
   - q: What note value should reverb predelay be?
     a: >-
       A small one — a 32nd note works well. Predelay is the gap between the dry
@@ -74,10 +78,10 @@ faq:
   - q: Can I sync modulation to tempo on Helix and Quad Cortex?
     a: >-
       Yes on both for most modulation blocks — you can set the rate to a
-      tempo-synced note value rather than a fixed hertz figure. Delay blocks sync
-      the same way. The one parameter that's usually a plain millisecond field is
-      reverb predelay, so for that you compute the note value in milliseconds and
-      enter it manually.
+      tempo-synced note value rather than a fixed hertz figure. Delay blocks
+      sync the same way. The one parameter that's usually a plain millisecond
+      field is reverb predelay, so for that you compute the note value in
+      milliseconds and enter it manually.
 ---
 
 > **Quick read:** Three ambience parameters can share one tempo: delay time, reverb predelay, and modulation rate. Time-based values use milliseconds = 60000 ÷ BPM × note division; modulation uses BPM ÷ 60 ÷ beats-per-cycle for hertz. Give delay an audible division (dotted-eighth), predelay a tiny one (a 32nd note), and modulation a slow one (one cycle per bar). The surprise is that slower modulation sync sounds tighter, not looser. On Helix and Quad Cortex, delay and modulation take note values directly; predelay is usually a millisecond field, so compute and type it.

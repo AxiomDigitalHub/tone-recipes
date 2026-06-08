@@ -1,0 +1,120 @@
+---
+title: 'Reverb Before or After Delay? The Chain-Order Question, Answered'
+description: >-
+  Should reverb go before or after delay in your signal chain? The default
+  order, why it works, when to flip it for ambient and shoegaze tones, and how
+  to route both on a modeler.
+date: '2026-06-08'
+author: Fader & Knob Staff
+author_slug: fk-staff
+category: signal-chain
+tags:
+  - signal-chain
+  - reverb
+  - delay
+  - effects-order
+  - ambient
+  - pedalboard
+readingTime: 7
+image: /images/blog/reverb-before-or-after-delay-chain-order.jpg
+image_alt: >-
+  A pedalboard close-up showing a delay pedal and a reverb pedal connected in
+  series with a patch cable between them
+takeaways:
+  - >-
+    The default order is delay first, reverb last. Each delay repeat then
+    carries its own reverb tail, which is how natural acoustic space behaves and
+    why the standard chain sounds clean and predictable.
+  - >-
+    Flip to reverb-into-delay when you want the ambient wash itself to echo. The
+    delay samples the reverb's blurred output and repeats it, producing the
+    smeared, oceanic texture used in shoegaze and ambient guitar.
+  - >-
+    Order only matters in series. If your reverb and delay run in parallel — two
+    separate sends mixed back together — neither feeds the other and the
+    before/after question disappears.
+  - >-
+    On a modeler the order is just block sequence; drag the blocks to A/B both
+    arrangements in seconds, which is the fastest way to hear the difference for
+    your own playing.
+  - >-
+    Putting reverb before delay raises the noise and wash floor fast. Keep the
+    reverb mix lower than you would at the end of the chain or the repeats turn
+    to mud.
+faq:
+  - q: Should reverb go before or after delay?
+    a: >-
+      For most players, delay first and reverb last. That way each delay repeat
+      gets its own reverb tail, which mimics how echoes behave in a real room
+      and keeps the sound articulate. Put reverb before delay only when you
+      specifically want the reverb wash itself to be echoed and smeared, as in
+      ambient and shoegaze textures.
+  - q: What happens if you put reverb before delay?
+    a: >-
+      The delay samples the reverb's output, so it repeats the reverb tail
+      rather than the dry note. Each echo is already blurred and diffuse, and
+      the repeats pile reverb on reverb. The result is a thicker, washier, less
+      defined sound — desirable for ambient pads, muddy if you push the mix too
+      far.
+  - q: Does effects order matter if reverb and delay are in the loop?
+    a: >-
+      In a series effects loop, yes — whichever pedal comes first feeds the
+      other, same as on the board. In a parallel or stereo loop where each
+      effect has its own independent path back to the mix, order between them
+      stops mattering because neither processes the other's output.
+  - q: Where do delay and reverb go relative to distortion?
+    a: >-
+      Both go after distortion and overdrive, typically at the very end of the
+      chain or in the amp's effects loop. Running delay or reverb into the front
+      of a distortion pedal makes the repeats and tails distort along with the
+      dry note, which usually sounds chaotic. Time-based effects last is the
+      reliable default.
+---
+
+Among the questions guitarists ask about signal chain order, the delay-versus-reverb sequence is one of the few where there's a genuine default — and a small set of well-defined reasons to break it. This post gives the standard answer first, explains why it works, and then maps the exceptions so you can decide which arrangement serves the sound you're after.
+
+## Should Reverb Go Before or After Delay?
+
+**The default: delay first, reverb last.** Put the delay earlier in the chain and the reverb at the very end, and each delay repeat gets wrapped in its own reverb tail. That's how echoes behave in a real acoustic space — a sound bounces off a far wall (the delay) and each of those bounces decays into the ambience of the room (the reverb). The chain mirrors physics, which is why it sounds natural and stays articulate even with both effects pushed.
+
+| Order | Character | Best for |
+|---|---|---|
+| Delay → Reverb (default) | Clean, defined repeats, each with its own tail | Lead lines, rhythm, most tones |
+| Reverb → Delay | Washed, smeared, the ambience itself echoes | Ambient, shoegaze, pads |
+| Parallel (both at once) | Independent, no interaction | Stereo rigs, wet/dry/wet |
+
+## Why the Default Works
+
+When the delay comes first, the reverb processes the dry note *and* every repeat equally. A note plays, the delay throws three echoes behind it, and the reverb gives all four events — the original plus three repeats — the same decay into the same space. Everything sits in one coherent room. The repeats stay distinct because the reverb is applied after they've already been spaced out in time.
+
+The audible signature of this order is separation: you can count the repeats, and each one trails off cleanly rather than blurring into the next. It's the sound of a slap-back behind a country lead, or a rhythmic dotted-eighth delay under an arpeggio where you still hear every note.
+
+## When to Flip It: Reverb Into Delay
+
+Now reverse them. With reverb first, the delay no longer samples the dry note — it samples the reverb's *output*, which is already a diffuse, blurred wash. Each echo repeats that wash, and the repeats pile reverb on top of reverb. The result is thick, oceanic, and deliberately indistinct: the ambient guitarist's secret handshake.
+
+This is the texture under a lot of shoegaze and ambient guitar — the sound of a chord that seems to keep expanding instead of decaying, where you can't tell where one repeat ends and the next begins. The effect is less "echo in a room" and more "the room itself is echoing." If you've heard a guitar that sounds like weather, this ordering is usually part of it.
+
+One practical warning. Reverb-into-delay builds up wash and noise *fast*, because you're feeding an already-saturated signal into a multiplier. Keep the reverb's mix lower than you would at the end of the chain — start around 20 to 25 percent — and use a shorter or more controlled delay so the repeats don't avalanche. Pushed too far, the gorgeous wash collapses into an undifferentiated mush with no pitch left in it.
+
+## The Exception Nobody Mentions: Parallel Routing
+
+Here's where the whole question can dissolve. Everything above assumes the two effects are in *series* — one feeding the other down a single wire. But if your reverb and delay run in **parallel**, each gets a copy of the dry signal on its own path, and the two are mixed back together at the end without ever touching each other.
+
+In a parallel arrangement, asking whether reverb is "before" or "after" delay has no answer, because neither processes the other's output. You hear a clean delay *and* a clean reverb layered over the dry note, each unmuddied by the other. This is how wet/dry/wet rigs and many stereo setups work, and it's the cleanest-sounding option of all — at the cost of more routing complexity. If you've ever wondered why a big touring ambient rig sounds enormous yet still defined, parallel routing is a large part of the answer. Our [signal chain order guide](/blog/signal-chain-order-guide) covers where these time-based blocks sit relative to drive and modulation.
+
+## Doing It on a Modeler
+
+On a Helix, Quad Cortex, or any modeler, "chain order" is just the sequence of blocks on the grid — which makes this the easiest place on earth to test both arrangements. Drop a delay and a reverb block in series, play a phrase, then drag the reverb in front of the delay and play the same phrase. The difference is obvious within a bar, and you've spent ten seconds instead of repatching a board.
+
+A few modeler-specific notes:
+
+- **Use the blocks' Mix controls, not their levels, to balance wash.** In the reverb-into-delay arrangement especially, lower the reverb's Mix to keep the repeats from saturating.
+- **Watch your stereo field.** Many modeler delays and reverbs are stereo; in series, the first effect's stereo image feeds the second, which can collapse or widen the field depending on the algorithms.
+- **For parallel, use a split.** Route a parallel path (split the signal, reverb on one lane, delay on the other, mix back) to get the no-interaction sound described above.
+
+If you also run a looper, the order question gets one more wrinkle — the [looper, delay, and reverb placement guide](/blog/looper-delay-reverb-signal-chain) walks through whether you loop the dry signal or the wet one.
+
+## The Short Version
+
+Start with delay first and reverb last. It's the default for a reason: it sounds like a real space and it stays clean. Flip to reverb-into-delay only when you specifically want the ambience to smear and echo — and when you do, pull the reverb mix back so the wash doesn't swallow the note. And if you have the routing for it, parallel sidesteps the whole question. The order isn't a rule to obey; it's a tool, and now you know which sound each setting hands you.

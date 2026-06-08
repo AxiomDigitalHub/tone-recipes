@@ -2155,3 +2155,58 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 | 3 | Humdinger vs Buzzkill vs DIY: Isolation-Transformer Boxes for Multi-Amp Hum, Compared | "gigrig humdinger vs goodwood buzzkill," "best ground loop isolator guitar," "isolation transformer box wet dry wet," "hum eliminator pedal" | Jess Kowalski | 5 — Gear Lab | The ground-loop SERP ranks product pages (Humdinger, Buzzkill, DISO Plus, Morley Humno) with no head-to-head; the decision-tree post deferred "which box to buy"; Jess's budget-vs-boutique comparison voice (and the DIY transformer option) carries the shootout |
 | 4 | Filter-Cap Ripple Abroad: Why a 60Hz Amp Hums at 100Hz on European Power | "amp hum on 50hz mains," "filter cap ripple 100hz amp," "vintage amp hums in europe," "recap amp for 50hz touring" | Hank Presswood | 6 — Quick Fixes | The V/Hz and bucking-transformer posts cover heat and voltage but skip the *ripple-frequency shift* — full-wave rectifier ripple drops from 120Hz to 100Hz on 50Hz mains, so an old amp's filter caps that were quiet at home start humming abroad; the added-capacitance / recap fix is unwritten guitar-side, and Hank's vintage-amp history pairs the symptom with the cause |
 | 5 | The Tempo-Sync Cheat Sheet: Delay, Predelay, and LFO Values from 60 to 140 BPM | "bpm to delay time chart," "tempo to hz lfo chart," "dotted eighth delay by bpm," "reverb predelay bpm chart" | Dev Okonkwo | 4 — Modeler Masterclass | The ambience SERP is wall-to-wall calculators and VST plugins but offers no static, guitarist-facing lookup table; the three-block post gives the formulas, this gives the grid — quarter/eighth/dotted-eighth/16th/32nd ms plus per-beat and per-bar Hz for every common tempo; a large extractable table is a strong AEO surface, and Dev's atmosphere obsession owns the ambient framing |
+
+---
+
+## Daily Run — 2026-06-08 (5 posts + SERP analysis + 5 new topics)
+
+**Velocity note:** Persona velocity audit showed 9 of 10 personas at the 3/week cap and `fk-staff` already over (4). Only `margot-thiessen` had a slot. Per the overflow rule, 1 post → Margot, the remaining 4 → `fk-staff` editorial-neutral byline. This is a high-volume week (30 posts/7 days before this run); flagging for the next planning pass — consider a quieter day to let the roster reset under the cap.
+
+**Bonus:** Flux 2 Pro hero-image generation is working again (default `openai/gpt-image-1`-via-Replicate is still throttled — use `--model=black-forest-labs/flux-2-pro`). This run also backfilled 34 previously image-less posts (39 images total, ~$2.15). The multi-day image backlog is cleared.
+
+### Posts published this run
+
+| # | Slug | Title | Writer | Pillar |
+|---|---|---|---|---|
+| 1 | clean-headroom-fender-amp-chords-dont-break-up | Clean Headroom: How to Set a Fender-Style Amp So Your Chords Don't Break Up | Margot Thiessen | 2 — Settings Guides |
+| 2 | reverb-before-or-after-delay-chain-order | Reverb Before or After Delay? The Chain-Order Question, Answered | fk-staff | 3 — Signal Chain |
+| 3 | noise-gate-threshold-decay-settings-high-gain | Noise Gate Settings for High Gain: Threshold and Decay Without Choking Sustain | fk-staff | 2 — Settings Guides |
+| 4 | open-back-vs-closed-back-cab-tone | Open-Back vs. Closed-Back Cabs: How the Cabinet Changes Your Tone | fk-staff | 5 — Gear Lab |
+| 5 | speaker-break-in-tone-change | Do Guitar Speakers Need to Break In? What Actually Changes | fk-staff | 5 — Gear Lab |
+
+### SERP Analysis (2026-06-08)
+
+**1. Clean headroom / chords break up too early**
+- *Target:* "clean headroom amp settings," "amp breaking up too early," "edge of breakup settings"
+- *Top results:* Gearspace + Strat-Talk + TDPRI forum threads, MusicStreet "what is headroom" blog, Equipboard audio-headroom explainer. SERP is forum-thread heavy with one or two generic blog explainers — no structured settings guide.
+- *Gap we fill:* Forums establish the *concept* but give no reproducible settings. Our post leads with the counterintuitive "bass breaks up first" finding, a headroom-extension table, and modeler routing (Drive vs Master vs Sag) — none of which the ranking pages cover. The single-note-vs-chord headroom point (raised in the SERP) is addressed directly.
+
+**2. Reverb before or after delay**
+- *Target:* "reverb before or after delay," "delay reverb pedal order"
+- *Top results:* Pro Sound HQ, Wampler blog, Reverb.com "Signal Chain 101," Guvna Guitars, Gearank. Well-served by content sites; consensus answer (delay→reverb) is everywhere.
+- *Gap we fill:* The ranking pages all give the default and stop. Our differentiators: (a) the *parallel routing* case that dissolves the question entirely — nobody in the top 7 covers it; (b) explicit modeler block-drag A/B workflow; (c) the reverb-into-delay mix-floor warning with a concrete starting percentage. Competitive but winnable on depth + the parallel angle.
+
+**3. Noise gate threshold/decay for metal**
+- *Target:* "noise gate settings metal," "noise gate threshold decay high gain"
+- *Top results:* Nail The Mix, Ultimate Metal forum, Fractal Audio forum + wiki, ProSoundWeb, Andertons guide. Strong technical pages (Fractal wiki especially) but mixing-desk/Fractal-specific.
+- *Gap we fill:* Our post is platform-agnostic and procedure-first (the "raise threshold until hiss dies" method), separates attack/hold/decay roles clearly, and frames the gate as a *symptom fix* downstream of gain staging — a framing the gear-focused results miss. The chatter-diagnosis section maps to a real PAA ("why does my noise gate stutter").
+
+**4. Open-back vs closed-back cab tone**
+- *Target:* "open back vs closed back cab," "guitar cabinet tone difference"
+- *Top results:* Laney, Guitar World, Tone Mob, Celestion, Fender, Equipboard, Carvin. Saturated with brand/editorial explainers — high competition.
+- *Gap we fill:* Most ranking pages give the front/back projection summary. Our edge: the "open-back sounds bigger *to the player*" perceptual surprise (resolves a recurring forum confusion), the beam/dispersion + mic-placement angle, and the modeler-IR translation. Harder SERP; the perceptual-correction hook is the differentiator for AI-overview extraction.
+
+**5. Do guitar speakers need to break in**
+- *Target:* "do guitar speakers need to break in," "speaker break in tone"
+- *Top results:* Celestion, Sweetwater, Reverb, Guitar Speaker Guide, Premier Guitar, plus TDPRI/Tone Rooms/Gretsch forums. Manufacturer + retailer explainers dominate; most assert break-in makes speakers "warmer/smoother."
+- *Gap we fill:* The ranking pages lean on vague "warmer" language and the "20-40 hours" figure. Our post is more rigorous — names the surround/spider mechanism, states the effect is a *refinement not a transformation*, corrects the timeline ("most of it in the first few hours, volume not calendar time"), and includes the safety warning against one-burst break-in. Honest, measured framing differentiates from the marketing-flavored consensus.
+
+### 5 New Topic Ideas (from SERP gaps + PAA)
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO notes |
+|---|---|---|---|---|---|---|
+| 1 | master-volume-vs-non-master-amp-breakup | Master Volume vs. Non-Master-Volume Amps: Where Your Breakup Actually Comes From | "master volume vs non master amp," "what does master volume do," "preamp vs power amp distortion" | Hank Presswood | 5 — Gear Lab | Surfaced by the clean-headroom SERP (master-volume control as the headroom lever). Lead with a preamp-vs-power-amp distortion table, direct-answer "what does the master volume do," and a per-amp-type breakdown. Hank's vintage-circuit authority. |
+| 2 | reverb-effects-loop-vs-front-of-amp | Does Reverb Belong in the Effects Loop or Out Front? | "reverb effects loop or front," "delay in effects loop," "time based effects amp loop" | Sean Nakamura | 3 — Signal Chain | Natural follow-on to the reverb/delay-order post; PAA "where do time-based effects go on a dirty amp." Table of front vs loop by amp gain level. Sean's signal-flow precision. |
+| 3 | noise-gate-vs-noise-suppressor | Noise Gate vs. Noise Suppressor: Which Do You Actually Need? | "noise gate vs noise suppressor," "difference noise gate suppressor," "ISP decimator vs noise gate" | Viktor Kessler | 6 — Quick Fixes | Top PAA from the noise-gate SERP (PedalPlayers ranks for exactly this). Direct-answer definition table, when each fixes hum vs hiss vs single-coil buzz. Viktor's gate authority. |
+| 4 | convert-open-back-combo-to-closed-back | Can You Convert an Open-Back Combo to Closed-Back? Trade-offs and How | "convert open back to closed back," "close the back of a combo amp," "open back combo closed back panel" | Carl Beckett | 5 — Gear Lab | PAA gap off the cab post — nobody ranks a clear how/should-you. Cover the tonal trade-off, the heat/ventilation caveat, and a reversible DIY approach. Carl's principled, minimalist DIY voice. |
+| 5 | speaker-power-handling-watts-cab | Speaker Power Handling: How Many Watts Your Cab Really Needs | "speaker power handling guitar," "how many watts speaker for amp," "amp watts vs speaker watts" | fk-staff | 6 — Quick Fixes | Adjacent to the break-in post; common buyer-confusion PAA. Direct-answer "should the speaker be rated higher than the amp," headroom-vs-breakup table, the cone-cry tradeoff at low ratings. Editorial-neutral. |

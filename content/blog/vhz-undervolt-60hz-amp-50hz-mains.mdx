@@ -1,5 +1,5 @@
 ---
-title: "V/Hz: Running a 60Hz Vintage Amp at 83% Voltage to Survive 50Hz Mains"
+title: 'V/Hz: Running a 60Hz Vintage Amp at 83% Voltage to Survive 50Hz Mains'
 description: >-
   Step a 120V amp down to 100V on European 50Hz mains and the transformer runs
   cooler, not weaker. The volts-per-hertz math, why under-volting is the safe
@@ -19,58 +19,60 @@ image: /images/blog/vhz-undervolt-60hz-amp-50hz-mains.jpg
 image_width: 1536
 image_height: 1024
 image_alt: >-
-  A tube amplifier chassis on a bench with a multimeter reading mains voltage and
-  a step-down voltage converter connected to it
+  A tube amplifier chassis on a bench with a multimeter reading mains voltage
+  and a step-down voltage converter connected to it
 takeaways:
   - >-
-    Transformer flux density is proportional to voltage divided by frequency, so a
-    120V/60Hz amp run at 120V on 50Hz mains sees flux density rise about 20% — into
-    saturation territory.
+    Transformer flux density is proportional to voltage divided by frequency, so
+    a 120V/60Hz amp run at 120V on 50Hz mains sees flux density rise about 20% —
+    into saturation territory.
   - >-
-    To hold flux density constant on 50Hz, drop the voltage to the same ratio: 120V
-    times 50/60 equals 100V, which is 83% of nominal.
+    To hold flux density constant on 50Hz, drop the voltage to the same ratio:
+    120V times 50/60 equals 100V, which is 83% of nominal.
   - >-
     Under-volting is the safe direction — it just reduces headroom and adds sag,
     while over-fluxing the core makes magnetizing current spike, the transformer
     overheat, and insulation age fast.
   - >-
-    100V at 50Hz is, not coincidentally, almost exactly the Japanese mains spec, so
-    a 60Hz amp is already proven to tolerate that operating point.
+    100V at 50Hz is, not coincidentally, almost exactly the Japanese mains spec,
+    so a 60Hz amp is already proven to tolerate that operating point.
   - >-
-    The cost of running at 83% is a browner, softer, earlier-breakup tone with less
-    clean headroom — often desirable, rarely a problem, and far cheaper than a
-    re-wound transformer.
+    The cost of running at 83% is a browner, softer, earlier-breakup tone with
+    less clean headroom — often desirable, rarely a problem, and far cheaper
+    than a re-wound transformer.
 faq:
   - q: What is the volts-per-hertz rule for a tube amp transformer?
     a: >-
-      Transformer core flux density is proportional to applied voltage divided by
-      frequency (V/Hz). A power transformer is designed for a specific V/Hz ratio —
-      120V at 60Hz, for example. Keep that ratio constant and the core stays in its
-      safe operating range; raise it and the core saturates.
+      Transformer core flux density is proportional to applied voltage divided
+      by frequency (V/Hz). A power transformer is designed for a specific V/Hz
+      ratio — 120V at 60Hz, for example. Keep that ratio constant and the core
+      stays in its safe operating range; raise it and the core saturates.
   - q: Why does 50Hz mains stress a 60Hz amp?
     a: >-
-      At the same voltage, lowering the frequency from 60Hz to 50Hz raises the V/Hz
-      ratio by 60/50, or about 20%. That pushes the transformer core toward
-      saturation, where magnetizing current climbs steeply and the core heats up.
-      The frequency, not just the voltage, is doing the damage.
+      At the same voltage, lowering the frequency from 60Hz to 50Hz raises the
+      V/Hz ratio by 60/50, or about 20%. That pushes the transformer core toward
+      saturation, where magnetizing current climbs steeply and the core heats
+      up. The frequency, not just the voltage, is doing the damage.
   - q: What voltage should I run a 120V amp at on 50Hz mains?
     a: >-
-      About 100V. Multiply nominal voltage by the frequency ratio: 120V times 50/60
-      equals 100V, which holds the transformer's flux density at its 60Hz design
-      value. That's 83% of nominal — the amp will sag and lose some headroom, but
-      the transformer runs at its intended flux.
+      About 100V. Multiply nominal voltage by the frequency ratio: 120V times
+      50/60 equals 100V, which holds the transformer's flux density at its 60Hz
+      design value. That's 83% of nominal — the amp will sag and lose some
+      headroom, but the transformer runs at its intended flux.
   - q: Is under-volting a tube amp safe?
     a: >-
-      For the transformer, yes — it lowers flux density and runs the core cooler.
-      The trade is less B+ voltage, so less clean headroom and earlier, softer
-      breakup, plus slightly under-heated tubes if you go far below nominal. It is
-      the safe direction. Over-voltage and over-flux are what destroy transformers.
+      For the transformer, yes — it lowers flux density and runs the core
+      cooler. The trade is less B+ voltage, so less clean headroom and earlier,
+      softer breakup, plus slightly under-heated tubes if you go far below
+      nominal. It is the safe direction. Over-voltage and over-flux are what
+      destroy transformers.
   - q: Does a voltage converter fix the 50Hz frequency problem?
     a: >-
       A converter changes voltage, not frequency — it can't turn 50Hz into 60Hz
-      without being a true frequency converter, which is rare and expensive. But by
-      stepping the voltage down to about 100V it corrects the V/Hz ratio, which is
-      the part that actually stresses the transformer. That's the practical fix.
+      without being a true frequency converter, which is rare and expensive. But
+      by stepping the voltage down to about 100V it corrects the V/Hz ratio,
+      which is the part that actually stresses the transformer. That's the
+      practical fix.
 ---
 
 > **Quick read:** A 120V/60Hz tube amp plugged into European 230V/50Hz mains — stepped down to 120V the usual way — runs its power transformer about 20% over its design flux density, because flux density follows volts *per hertz* and you just dropped the hertz. The fix is counterintuitive: step down to 100V, not 120V. That holds the flux density where the transformer wants it. Under-volting is the safe direction. You lose a little headroom and gain some sag. The transformer keeps living.

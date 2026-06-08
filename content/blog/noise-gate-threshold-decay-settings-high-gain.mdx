@@ -1,0 +1,143 @@
+---
+title: 'Noise Gate Settings for High Gain: Threshold and Decay Without Choking Sustain'
+description: >-
+  How to set a noise gate's threshold, attack, hold, and decay for tight
+  high-gain tone — killing hiss and squeal between palm mutes without cutting
+  off your sustain or chopping note tails.
+date: '2026-06-08'
+author: Fader & Knob Staff
+author_slug: fk-staff
+category: settings-guides
+tags:
+  - noise-gate
+  - high-gain
+  - metal-tone
+  - settings-guide
+  - palm-muting
+  - gain-staging
+readingTime: 8
+image: /images/blog/noise-gate-threshold-decay-settings-high-gain.jpg
+image_alt: >-
+  A noise gate pedal on a dark pedalboard with its threshold and decay knobs in
+  focus, set for high-gain metal rhythm
+takeaways:
+  - >-
+    Set the threshold just above the noise floor — the quietest level that still
+    silences the hiss when you stop playing. Too high and it clips the quiet end
+    of your sustain; too low and noise leaks through.
+  - >-
+    Attack should be near zero (fast) for metal so the gate opens instantly on a
+    palm mute. Slow attack softens the pick transient and makes chugs feel late.
+  - >-
+    Decay and hold control how the gate closes. A fast decay gives a tight,
+    staccato cutoff for djent; a slower decay lets ringing notes breathe instead
+    of being chopped.
+  - >-
+    Gate chatter — a stuttering open/close on decaying notes — is almost always
+    a threshold set too close to the signal, not a broken gate. Raise the
+    threshold slightly or lengthen the hold to stop it.
+  - >-
+    A gate is a symptom fix. If you need an aggressive gate to be usable, you
+    are probably running more gain than the part needs; backing the gain off 10
+    to 15 percent lets the gate work gently.
+faq:
+  - q: How do I set the threshold on a noise gate?
+    a: >-
+      Turn the gain up to your playing level and stop playing so the amp hisses.
+      Raise the threshold from its lowest setting until the moment the hiss goes
+      silent, then stop. The threshold should sit just above the noise floor and
+      just below the quietest part of your sustaining notes. Set it higher and
+      it cuts off your sustain early; set it lower and noise leaks through.
+  - q: Why does my noise gate cut off my sustain?
+    a: >-
+      The threshold is set too high. As a held note decays, its level drops;
+      when it falls below the threshold the gate closes and silences it. Lower
+      the threshold so the gate stays open longer, and lengthen the decay or
+      hold time so it releases gradually instead of slamming shut. If the note
+      still dies early, the gain may be too low for the note to sustain in the
+      first place.
+  - q: What causes noise gate chatter?
+    a: >-
+      Chatter is the gate rapidly opening and closing on a note that is hovering
+      right at the threshold — you hear a stutter or flutter as it dies away.
+      The fix is to raise the threshold slightly so the decaying note closes the
+      gate cleanly, or to increase the hold time so the gate stays open through
+      the brief dips in level. Chatter is a setting problem, not a hardware
+      fault.
+  - q: Should I use a fast or slow attack on a metal noise gate?
+    a: >-
+      Fast — attack near zero. For palm-muted metal rhythm you want the gate to
+      open the instant you hit the string so the pick transient comes through
+      sharp and on time. A slow attack rounds off the front of each note and
+      makes tight chugging feel sluggish and late. Reserve slow attack settings
+      for swells or volume-fade effects, not chugging.
+---
+
+A noise gate has a narrow job and a lot of ways to do it badly. Set it well and a high-gain rhythm tone goes dead silent between palm mutes while every note rings out exactly as long as you played it. Set it poorly and it either chatters on your decays, chokes off your sustain, or lets a wall of hiss through anyway. The difference is four controls — threshold, attack, hold, and decay — and knowing what each one is actually listening for.
+
+## What Each Gate Control Does
+
+A noise gate is a volume-controlled switch. It watches your signal level and opens (passes sound) when the signal is loud enough, then closes (mutes) when the signal drops below a set point. The four parameters define *when* and *how fast* it opens and closes.
+
+| Control | What it sets | High-gain starting point |
+|---|---|---|
+| Threshold | The level the signal must cross for the gate to open | Just above the noise floor |
+| Attack | How fast the gate opens once threshold is crossed | Near zero (fast) |
+| Hold | How long it stays open after the signal dips | Short–medium |
+| Decay / Release | How fast it closes once it starts to shut | Genre-dependent |
+
+## Setting the Threshold (the One That Matters Most)
+
+Threshold is where 80 percent of gate problems live. The procedure:
+
+1. Set your gain to playing level and dime the amp the way you'd actually run it.
+2. Stop playing. Let it hiss, squeal, and hum at idle.
+3. Raise the threshold from its lowest position until the exact moment the noise drops to silence. Stop there.
+
+That point — the quietest setting that still kills the idle noise — is correct. The threshold now sits just above the noise floor and, ideally, just below the tail of your sustaining notes. Set it any higher to be "safe" and you start eating the quiet end of your sustain; every held note dies a beat early. Set it lower and noise leaks back in.
+
+### The Counterintuitive Part
+
+Here's what trips people up. The instinct, when a gate isn't silencing enough noise, is to crank the threshold higher. That usually makes things *worse* — now the gate is choking sustain and may start chattering on decays, and the underlying noise (which is often more gain than the part needs) is still there. The real fix for "too much noise" is more often upstream: less gain, or a gate placed earlier in the chain keying off the cleaner guitar signal. Our [noise gate placement guide](/blog/noise-gate-placement-modeler-preset) covers exactly where in the chain the gate should sit, which matters as much as how it's set.
+
+## Attack: Keep It Fast
+
+For palm-muted metal, attack belongs near zero. You want the gate fully open by the time the pick hits the string, so the transient — the sharp click of pick on string that gives a chug its definition — comes through intact and on time. A slow attack rounds off that transient and makes tight rhythm feel late and rubbery, like the gate is reacting a half-beat behind you. Save slow attack settings for volume-swell effects where you *want* the front of the note softened.
+
+## Hold and Decay: Tightness vs. Breathing Room
+
+Hold and decay govern the back half of the gate's cycle — what happens as a note dies.
+
+- **Hold** keeps the gate open for a set time after the signal dips below threshold. A little hold prevents the gate from slamming shut during the brief level dips inside a sustaining note (which is what causes chatter).
+- **Decay** (sometimes called Release) sets how fast the gate closes once it does start to shut. Fast decay gives a tight, staccato cutoff. Slow decay lets the note fade naturally.
+
+This is where genre decides the setting:
+
+<SettingsGrid title="Gate" subtitle="High-gain rhythm starting point">
+  <Knob name="Threshold" value={4} display="just above floor" min={0} max={10} />
+  <Knob name="Attack" value={0.5} display="fast" min={0} max={10} />
+  <Knob name="Hold" value={3} min={0} max={10} />
+  <Knob name="Decay" value={4} display="3–5" min={0} max={10} />
+</SettingsGrid>
+
+For **djent and modern metal**, where the silence between chugs is part of the rhythm, run a faster decay (lower number) so the gate snaps shut cleanly and the gaps are dead-silent. For **classic metal and hard rock**, where ringing power chords and sustained leads matter, lengthen the decay so notes fade out smoothly instead of being guillotined. The wrong call here is audible: a fast decay on a sustained lead chops the tail into an abrupt stop that sounds like a dropped cable, while a slow decay on a chug-heavy riff leaves a smear of noise filling the gaps you wanted empty.
+
+## Fixing Gate Chatter
+
+Chatter — that stuttering flutter as a note dies — is the most common complaint, and it's never a broken gate. It happens when a decaying note hovers right at the threshold: the gate opens, the note dips, the gate closes, the note pulses back up, the gate opens again, all several times a second. Two fixes, in order:
+
+1. **Raise the threshold a hair** so the decaying note crosses below it decisively and the gate closes once, cleanly.
+2. **Increase the hold time** so the gate rides through the small level dips without re-triggering.
+
+If neither fully solves it, the note simply isn't sustaining above the noise floor — which points back at gain staging.
+
+## The Honest Conclusion
+
+A noise gate is a symptom fix, not a tone source. If you find yourself needing an aggressive gate with a high threshold and a razor-fast decay just to make a patch usable, the patch has too much gain for the part. Backing the gain off 10 to 15 percent — which usually *tightens* a high-gain rhythm tone anyway, since excess gain mostly adds mush and noise rather than aggression — lets the gate do its job gently, with the threshold low and the decay relaxed. The cleanest high-gain rigs run the least intrusive gates. Set the gain right first, then set the gate to clean up what's left. The [gain staging guide for drop tunings](/blog/gain-staging-drop-tunings) is the companion piece on getting the gain itself dialed.
+
+<SaveThisTone
+  title="Find a tight high-gain tone"
+  description="The catalog's metal and high-gain recipes include the full chain, gate settings, and presets for Helix and Katana."
+  href="/browse"
+  ctaLabel="Browse the catalog"
+/>

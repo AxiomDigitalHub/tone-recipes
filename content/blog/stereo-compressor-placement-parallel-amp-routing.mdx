@@ -52,20 +52,20 @@ faq:
       recombine.
   - q: Why does my parallel blend lose its pick attack when I add compressors?
     a: >-
-      Because you likely have two compressors with different attack times, one on
-      each path. When a fast comp clamps the transient on one path and a slow
+      Because you likely have two compressors with different attack times, one
+      on each path. When a fast comp clamps the transient on one path and a slow
       comp lets it through on the other, the two versions of the attack arrive
       slightly out of step and partially cancel on recombination. The fix is to
       either compress before the split or match the two compressors' attack
       settings exactly.
   - q: What is the difference between stereo-link and dual-mono on a comp?
     a: >-
-      A stereo-linked compressor sums both channels to drive one detector, so the
-      same gain reduction is applied to the left and right equally and the stereo
-      image stays put. A dual-mono compressor runs an independent detector per
-      channel, so a loud event on one side ducks only that side, which can make a
-      centered image wander left and right. On a stereo guitar bus you almost
-      always want stereo-link.
+      A stereo-linked compressor sums both channels to drive one detector, so
+      the same gain reduction is applied to the left and right equally and the
+      stereo image stays put. A dual-mono compressor runs an independent
+      detector per channel, so a loud event on one side ducks only that side,
+      which can make a centered image wander left and right. On a stereo guitar
+      bus you almost always want stereo-link.
   - q: Should I compress the clean or the dirty path in a clean-plus-dirty blend?
     a: >-
       Compress the clean path and leave the dirty path mostly open. The dirty
@@ -75,11 +75,12 @@ faq:
       that makes the blend read as one fuller tone instead of two.
   - q: Does compressor placement affect CPU or latency on a modeler?
     a: >-
-      Two compressors use more DSP than one, which matters on a near-full preset,
-      but the bigger concern is timing, not headroom. Compressor blocks
+      Two compressors use more DSP than one, which matters on a near-full
+      preset, but the bigger concern is timing, not headroom. Compressor blocks
       themselves add negligible latency. The audible problem is attack-time
-      mismatch between two paths, which is a tuning issue, not a latency one. One
-      comp before the split is the most DSP-efficient and the most timing-safe.
+      mismatch between two paths, which is a tuning issue, not a latency one.
+      One comp before the split is the most DSP-efficient and the most
+      timing-safe.
 ---
 
 > **Quick read:** In a parallel dual-amp preset, the compressor has three homes: before the split, on each path independently, or on the merged stereo bus. Before the split is the safe default for a feel or sustain comp, because both amps get the same compressed signal and the recombined transient stays clean. Per-path comps give the most control but introduce attack-time mismatch, which smears the pick attack when the paths recombine. A bus comp is a glue comp, and it needs stereo-link engaged or hard-panned paths will drag the image around. The clean-plus-dirty blend is the one case where you want a comp on one path only.

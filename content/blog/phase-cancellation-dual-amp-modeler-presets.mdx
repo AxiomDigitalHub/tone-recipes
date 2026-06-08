@@ -23,20 +23,20 @@ image_alt: >-
 takeaways:
   - >-
     A dual-amp preset that sounds thin in the low end is usually canceling, not
-    EQ-deficient. Boosting bass on a canceling signal just raises the noise floor
-    around the notch.
+    EQ-deficient. Boosting bass on a canceling signal just raises the noise
+    floor around the notch.
   - >-
     The mono-sum test exposes it instantly. Pan both paths center, sum to mono,
     and listen for the low end collapsing. Stereo hides phase problems that mono
     and most PA systems reveal.
   - >-
     There are only two causes: a polarity flip (one path inverted) or a time
-    offset (one path delayed relative to the other). Polarity is a one-click fix.
-    Time offset needs a small delay on the early path.
+    offset (one path delayed relative to the other). Polarity is a one-click
+    fix. Time offset needs a small delay on the early path.
   - >-
-    A time offset of even 0.3 ms puts a cancellation notch near 1.7 kHz, right in
-    the guitar's presence range. The notch frequency equals 1 divided by twice
-    the delay, so smaller offsets push the notch higher and wider.
+    A time offset of even 0.3 ms puts a cancellation notch near 1.7 kHz, right
+    in the guitar's presence range. The notch frequency equals 1 divided by
+    twice the delay, so smaller offsets push the notch higher and wider.
   - >-
     Run the phase check before you place a compressor. A compressor on a
     canceling bus chases a moving target, and merged comb filtering is invisible
@@ -44,34 +44,34 @@ takeaways:
 faq:
   - q: Why does my dual-amp or parallel preset sound thin?
     a: >-
-      Because the two paths are partially canceling when they merge. Any time one
-      path is polarity-inverted relative to the other, or arrives a fraction of a
-      millisecond late, the two signals subtract instead of add. The low end goes
-      first because long wavelengths cancel across the widest range of small time
-      offsets. It reads as thin, hollow, or flangey, and no amount of EQ fully
-      restores it.
+      Because the two paths are partially canceling when they merge. Any time
+      one path is polarity-inverted relative to the other, or arrives a fraction
+      of a millisecond late, the two signals subtract instead of add. The low
+      end goes first because long wavelengths cancel across the widest range of
+      small time offsets. It reads as thin, hollow, or flangey, and no amount of
+      EQ fully restores it.
   - q: How do I check for phase cancellation on a Helix or Quad Cortex?
     a: >-
       Sum the preset to mono and listen. Set both parallel paths to center pan,
-      collapse the output to mono if your interface or the modeler allows it, and
-      A/B against either path soloed. If the full mix sounds thinner than one
-      path alone, you have cancellation. Then flip the polarity on one path and
-      listen again. Keep whichever version sums fuller.
+      collapse the output to mono if your interface or the modeler allows it,
+      and A/B against either path soloed. If the full mix sounds thinner than
+      one path alone, you have cancellation. Then flip the polarity on one path
+      and listen again. Keep whichever version sums fuller.
   - q: Should I use the polarity or phase invert block?
     a: >-
       Use it whenever flipping it makes the mono sum sound fuller, and leave it
       off when it does not. It is a diagnostic, not a setting you apply by
       default. On Helix it is the Gain block's polarity option or a dedicated
       utility; on Quad Cortex it is the phase switch on the relevant block.
-      Inverting one path corrects a 180-degree polarity flip but does nothing for
-      a time offset, which needs a delay instead.
+      Inverting one path corrects a 180-degree polarity flip but does nothing
+      for a time offset, which needs a delay instead.
   - q: What causes a time offset between two amp paths?
     a: >-
       Unequal block counts and unequal processing latency. If one path has a
       drive, an EQ, and a cab while the other has only an amp and a cab, the
-      busier path can arrive a fraction of a millisecond later. Different cab IRs
-      also have different impulse start times. The fix is a short delay on the
-      earlier path, nudged in tenths of a millisecond until the mono sum is
+      busier path can arrive a fraction of a millisecond later. Different cab
+      IRs also have different impulse start times. The fix is a short delay on
+      the earlier path, nudged in tenths of a millisecond until the mono sum is
       fullest.
   - q: Do I need to worry about phase if I only play in stereo?
     a: >-
