@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-08
-**Recipes:** 90
-**Clean (no errors, no warns):** 82
+**Date:** 2026-06-09
+**Recipes:** 95
+**Clean (no errors, no warns):** 87
 **Warn-only:** 8
 **With errors:** 0
 
@@ -16,9 +16,9 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 15 / 90 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 7 / 90 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 90 | Signal chain includes a cabinet or microphone block |
+| `katana-kemper-multidrive-default-off` | info | 15 / 95 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 7 / 95 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 95 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -158,6 +158,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `deleo-plush-les-paul` — ✓ clean
+
+*Stone Temple Pilots' Plush Tone*
+
+Passes every rule.
+
 ### `dimebag-cemetery-gates-clean-to-crushing` — ✓ clean
 
 *Pantera's Cemetery Gates Clean-to-Crushing Tone*
@@ -233,6 +239,12 @@ Passes every rule.
 ### `gibbons-la-grange-blues-crunch` — ✓ clean
 
 *Billy Gibbons' La Grange Texas Blues Crunch*
+
+Passes every rule.
+
+### `gibbons-sharp-dressed-man-eliminator` — ✓ clean
+
+*ZZ Top's Sharp Dressed Man Eliminator Tone*
 
 Passes every rule.
 
@@ -350,6 +362,18 @@ Passes every rule.
 
 Passes every rule.
 
+### `malakian-chop-suey-clean-to-crushing` — ✓ clean
+
+*System of a Down's Chop Suey! Clean-to-Crushing Tone*
+
+Passes every rule.
+
+### `malakian-toxicity-drop-c-riff` — ✓ clean
+
+*System of a Down's Toxicity Drop-C Tone*
+
+Passes every rule.
+
 ### `marr-how-soon-is-now-tremolo` — ✓ clean
 
 *Johnny Marr's How Soon Is Now? Tremolo Tone*
@@ -461,6 +485,12 @@ Passes every rule.
 ### `perry-walk-this-way-riff` — ✓ clean
 
 *Joe Perry's Walk This Way Funk-Rock Riff*
+
+Passes every rule.
+
+### `reid-cult-of-personality-riff` — ✓ clean
+
+*Vernon Reid's Cult of Personality Tone*
 
 Passes every rule.
 

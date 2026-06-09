@@ -93,12 +93,12 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 44 | Reptilia (riff) | The Strokes | Nick Valensi + Albert Hammond Jr | Room on Fire (2003) | Two Strats panned hard L/R into clean amps with edge-of-breakup. The riff reads as one guitar but is two interlocking parts. | done |
 | 45 | Last Nite (riff) | The Strokes | Nick Valensi + Albert Hammond Jr | Is This It (2001) | Same two-Strat / two-amp setup. The opening riff is hammered out on a Strat through a Crate VC30 (the cheap amp that defined their sound). | done |
 | 46 | Folsom Prison Blues (boom-chicka) | Johnny Cash's band | Luther Perkins | (1956 single) | Tele through Fender Twin or Princeton, played in the "boom-chicka" pattern with the bass strings palm-muted. Capo position varies. | done |
-| 47 | The Devil Went Down to Georgia (guitar break) | Charlie Daniels Band | Charlie Daniels (fiddle lead) + Tom Crain (guitar) | Million Mile Reflections (1979) | Crain: Strat through Music Man amp. The fiddle is the lead but the guitar break in the middle is iconic. | queued |
-| 48 | Sharp Dressed Man (riff) | ZZ Top | Billy Gibbons | Eliminator (1983) | Pearly Gates LP through cranked Marshall, with Eliminator-era processing (synth pads underneath). Different from La Grange — late-'80s "MTV ZZ Top." | queued |
-| 49 | Cult of Personality (riff) | Living Colour | Vernon Reid | Vivid (1988) | LP-style guitar (eventually a Hamer signature) through Marshall + ADA MP-1 preamp. The riff is fast pull-offs across the high strings. | queued |
-| 50 | Toxicity (riff) | System of a Down | Daron Malakian | Toxicity (2001) | Ibanez Iceman → Mesa/Boogie Dual Rectifier. Drop-C tuning. The riff is alternating muted and open chord stabs. | queued |
-| 51 | Chop Suey (intro arpeggio + chorus) | System of a Down | Daron Malakian | Toxicity (2001) | Same Iceman + Recto rig. The intro arpeggio is clean; the chorus drops to drop-C with full distortion. | queued |
-| 52 | Plush (riff) | Stone Temple Pilots | Dean DeLeo | Core (1992) | LP into Mesa/Boogie Mark IIB. The riff uses dropped-D tuning and is built on parallel fifths. | queued |
+| 47 | The Devil Went Down to Georgia (guitar break) | Charlie Daniels Band | Charlie Daniels (fiddle lead) + Tom Crain (guitar) | Million Mile Reflections (1979) | Crain: Strat through Music Man amp. The fiddle is the lead but the guitar break in the middle is iconic. | needs-research |
+| 48 | Sharp Dressed Man (riff) | ZZ Top | Billy Gibbons | Eliminator (1983) | Pearly Gates LP through cranked Marshall, with Eliminator-era processing (synth pads underneath). Different from La Grange — late-'80s "MTV ZZ Top." | done |
+| 49 | Cult of Personality (riff) | Living Colour | Vernon Reid | Vivid (1988) | LP-style guitar (eventually a Hamer signature) through Marshall + ADA MP-1 preamp. The riff is fast pull-offs across the high strings. | done |
+| 50 | Toxicity (riff) | System of a Down | Daron Malakian | Toxicity (2001) | Ibanez Iceman → Mesa/Boogie Dual Rectifier. Drop-C tuning. The riff is alternating muted and open chord stabs. | done |
+| 51 | Chop Suey (intro arpeggio + chorus) | System of a Down | Daron Malakian | Toxicity (2001) | Same Iceman + Recto rig. The intro arpeggio is clean; the chorus drops to drop-C with full distortion. | done |
+| 52 | Plush (riff) | Stone Temple Pilots | Dean DeLeo | Core (1992) | LP into Mesa/Boogie Mark IIB. The riff uses dropped-D tuning and is built on parallel fifths. | done |
 | 53 | Interstate Love Song (intro) | Stone Temple Pilots | Dean DeLeo | Purple (1994) | LP into Vox AC30 for the cleaner verse, switched to Mesa for the chorus. The intro picking pattern is distinctive — open-D-style voicings. | queued |
 | 54 | Don't Fear the Reaper (riff) | Blue Öyster Cult | Donald "Buck Dharma" Roeser | Agents of Fortune (1976) | Gibson SG through Music Man amp. The clean riff uses chorus and reverb for the atmospheric quality; the solo flips to overdrive. | queued |
 | 55 | Highway to Hell (riff) | AC/DC | Angus Young | Highway to Hell (1979) | SG → cranked Marshall Plexi. Same setup as Back in Black era. Mutt Lange production added studio polish. | queued |
@@ -157,6 +157,66 @@ successful run.)
 | 2026-06-08 | valensi-reptilia-lead-riff | 44 |
 | 2026-06-08 | hammond-last-nite-riff | 45 |
 | 2026-06-08 | perkins-folsom-prison-blues-boom-chicka | 46 |
+| 2026-06-09 | gibbons-sharp-dressed-man-eliminator | 48 |
+| 2026-06-09 | reid-cult-of-personality-riff | 49 |
+| 2026-06-09 | malakian-toxicity-drop-c-riff | 50 |
+| 2026-06-09 | malakian-chop-suey-clean-to-crushing | 51 |
+| 2026-06-09 | deleo-plush-les-paul | 52 |
+
+### Corrections applied this run (2026-06-09)
+
+- **#48 Sharp Dressed Man** — the backlog sketch's "Pearly Gates LP through
+  cranked Marshall, Eliminator-era processing/synth pads" is **myth on every
+  count.** Per engineer Terry Manning (Tape Op interview #58 + his verbatim
+  messageboard post), the recorded rig was a **custom Dean solidbody with a
+  single DiMarzio Super Distortion humbucker → a small 'Legend' 50W hybrid
+  combo (tube preamp, solid-state power, one 12" Celestion) → AKG C414 B-ULS
+  (~4-5" off-axis) → SpectraSonics pre → UA 176 limiter → tape.** Manning is
+  emphatic: **NO Rockman, NO Marshall, no guitar pedals.** The Pearly Gates
+  '59 LP is Gibbons' signature instrument but was NOT the Eliminator guitar.
+  Recipe ships the Dean/Legend/176 chain; the Legend has no modeler model, so
+  a cranked tweed Bassman stands in (noted as an approximation). String
+  gauge/tuning for the sessions are undocumented (standard E assumed).
+- **#49 Cult of Personality** — headline correction: the **A/DA MP-1 preamp
+  in the sketch belongs to Time's Up (1990), NOT Vivid.** Per Reid's 1989
+  Music Technology interview, the Vivid distortion was a **Pro-Co RAT into
+  Marshalls blended with a Dean Markley DR150** (a Fender Showman added to the
+  blend for the solo), and the guitar was his multi-colored **ESP Mirage with
+  EMG 81 + two EMG SA pickups** (H-S-S) and a Floyd Rose — not a Les Paul or a
+  Hamer (Hamer came later). Recorded at Skyline, NY by Ed Stasium with a
+  multi-corner room-mic ambience (not outboard reverb). Standard E.
+- **#50 Toxicity** — resolved the Marshall-vs-Mesa dispute: it's **both, at
+  once.** Engineer Dave Schiffman (Mix Online): "the Mesa gave us the teeth,
+  and the Marshall gave us the body" — a **Mesa Rectifier blended with a
+  Marshall Plexi-type**, no overdrive pedals, each cab mic'd **SM57 + SM87
+  into paired 1176s.** Guitar = **Ibanez Iceman IC300** (the DMM1 signature is
+  2004, post-album; the Friedman Marshall and SG are Mezmerize-era). **Drop C
+  (C-G-C-F-A-D).** Recorded dry at Cello Studios, Rubin/Malakian production,
+  Andy Wallace mix. Mids kept IN (not the live scoop) so the riff reads.
+- **#51 Chop Suey!** — same Toxicity rig (Iceman, drop C, Mesa+Marshall blend,
+  no pedals). The clean-intro-to-crushing-chorus dynamic is **playing
+  technique** — guitar volume rolled back + light pick attack on the neck
+  pickup for the intro, dig in on the bridge for the chorus — not a clean
+  channel or a distortion pedal. Built as a single-patch, volume-knob-dynamics
+  recipe. Drop C confirmed across tab sources.
+- **#52 Plush** — built in place of the skipped #47. Two sketch corrections:
+  tuning is **standard E** (the low drone is the open D string, not drop D),
+  and there is **no Mesa/Boogie Mark IIB** (unsourced). Per MusicRadar +
+  Guitar World, DeLeo's documented Core rig was a **1978 sunburst Gibson Les
+  Paul Standard → Demeter TGP-3 tube preamp → VHT Classic stereo power amp →
+  two Marshall 4x12s**, at **Rumbo Recorders** with **Brendan O'Brien.** The
+  **Rocktron Intelliverb** is the one effect documented specifically for Plush
+  (recipe pushes the reverb up to reflect that). The exact track guitar and
+  mic model are undocumented (album-default '78 LP used).
+
+**Album-art note:** Eliminator (ZZ Top), Toxicity (SOAD) auto-matched iTunes;
+Vivid (Living Colour) and Core (STP) are band-credited tracks that the
+album-art audit can't auto-match (it searches iTunes by guitarist name) — both
+covers were **visually verified via the Read tool** at 600x600 before shipping.
+
+**Queue note:** the queue is down to **14 queued entries** (#47 re-flagged
+needs-research, #48-52 done) — **below the 30-entry refill threshold.** The
+weekly audit task should top it up.
 
 ### Corrections applied this run (2026-06-08)
 
@@ -275,6 +335,21 @@ existing Walsh / Keuning / Thayil / Corgan band-member recipes).
   Line tour.
 
 ### needs-research
+
+- **#47 The Devil Went Down to Georgia (Tom Crain, Million Mile Reflections
+  1979)** — skipped 2026-06-09. The famous lead is the **fiddle** (Charlie
+  Daniels); the track's guitar break is **Tom Crain**, but his per-track rig is
+  **not documented to magazine standard.** The official band history confirms
+  only the studio (Woodland Sound, Nashville; mixed at Westlake; engineer Paul
+  Grupp) and the **fiddle**-solo production (seven layered fiddle parts) — zero
+  guitar-gear detail. No credible source documents Crain's guitar OR amp for
+  this recording; the sketch's "Strat through a Music Man amp" is an unverified
+  hypothesis, not documentation. Equipboard/Vintage Guitar/forums were blocked
+  or carried no per-track Crain gear. Building it would mean guessing both the
+  guitar and the amp — exactly what the no-approximation bar forbids, and the
+  payoff is low since the hook is the fiddle. Re-queue only if a primary source
+  on Crain's 1979 studio rig surfaces, or re-scope to a fiddle-tone entry.
+  Built **#52 (Plush)** in its place this run.
 
 - **#38 1979 (Billy Corgan, Mellon Collie 1995)** — skipped 2026-06-07. The
   *production* of 1979 is exceptionally well-documented (Corgan, Flood,
