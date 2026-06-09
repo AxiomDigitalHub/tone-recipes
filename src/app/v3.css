@@ -8604,3 +8604,152 @@
 .fk-preview .recipe-source-link:hover {
   border-bottom-color: var(--ink);
 }
+
+/* ═══ <GearPick> — editor's-pick affiliate block ═══════════════════════
+   Visually a sibling of .post-takeaways: paper card, amber accent rail,
+   mono kicker, display-serif name. Lives inline in MDX bodies (gear
+   roundup posts) and on recipe pages where we recommend specific gear.
+   Buttons are real affiliate links; commission depends on
+   AMAZON_ASSOCIATES_TAG etc. being set in env. */
+.fk-preview .gear-pick {
+  margin: 32px 0;
+  padding: 22px 26px 20px;
+  background: var(--paper-2, #f5f1e8);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-left-width: 4px;
+  border-left-color: var(--amber, #c98a2b);
+}
+.fk-preview .gear-pick-head {
+  margin-bottom: 14px;
+}
+.fk-preview .gear-pick-kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.fk-preview .gear-pick-mark {
+  color: var(--amber, #c98a2b);
+  font-size: 13px;
+  letter-spacing: 0;
+  transform: translateY(1px);
+}
+.fk-preview .gear-pick-kicker .sep { color: var(--ink-muted); }
+.fk-preview .gear-pick-price {
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+.fk-preview .gear-pick-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0 0 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+.fk-preview .gear-pick-mfr {
+  font-style: italic;
+  color: var(--ink-muted);
+  font-size: 18px;
+}
+.fk-preview .gear-pick-verdict {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-2, var(--ink-muted));
+  margin: 4px 0 0;
+}
+.fk-preview .gear-pick-body {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ink-2, var(--ink));
+  margin: 0 0 14px;
+}
+.fk-preview .gear-pick-body > :last-child { margin-bottom: 0; }
+.fk-preview .gear-pick-pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 28px;
+  padding: 14px 0;
+  margin: 0 0 6px;
+  border-top: 1px solid var(--paper-line);
+  border-bottom: 1px solid var(--paper-line);
+}
+.fk-preview .gear-pick-pros-cons ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.fk-preview .gear-pick-pros-cons li { margin-bottom: 4px; }
+.fk-preview .gear-pick-pc-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.fk-preview .gear-pick-pc-pros { color: var(--amber-2, var(--amber)); }
+.fk-preview .gear-pick-pc-cons { color: var(--ink-muted); }
+.fk-preview .gear-pick-cta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.fk-preview .gear-pick-cta-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-right: 4px;
+}
+.fk-preview .gear-pick-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 14px;
+  background: var(--ink);
+  color: var(--paper, #f5f1e8);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  transition: background 140ms ease, color 140ms ease;
+}
+.fk-preview .gear-pick-cta:hover {
+  background: var(--amber, #c98a2b);
+  color: var(--ink);
+  border-color: var(--amber, #c98a2b);
+}
+.fk-preview .gear-pick-disclosure {
+  margin: 12px 0 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--ink-muted);
+  text-transform: none;
+}
+
+/* Narrow viewports — collapse pros/cons to a single column,
+   stack CTA buttons full-width for thumb reach. */
+@media (max-width: 640px) {
+  .fk-preview .gear-pick-title { font-size: 22px; }
+  .fk-preview .gear-pick-pros-cons { grid-template-columns: 1fr; }
+  .fk-preview .gear-pick-cta-row { flex-direction: column; align-items: stretch; }
+  .fk-preview .gear-pick-cta-label { margin: 0 0 4px; }
+  .fk-preview .gear-pick-cta { justify-content: space-between; }
+}
