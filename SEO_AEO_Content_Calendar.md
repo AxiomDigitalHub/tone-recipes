@@ -2210,3 +2210,58 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 | 3 | noise-gate-vs-noise-suppressor | Noise Gate vs. Noise Suppressor: Which Do You Actually Need? | "noise gate vs noise suppressor," "difference noise gate suppressor," "ISP decimator vs noise gate" | Viktor Kessler | 6 — Quick Fixes | Top PAA from the noise-gate SERP (PedalPlayers ranks for exactly this). Direct-answer definition table, when each fixes hum vs hiss vs single-coil buzz. Viktor's gate authority. |
 | 4 | convert-open-back-combo-to-closed-back | Can You Convert an Open-Back Combo to Closed-Back? Trade-offs and How | "convert open back to closed back," "close the back of a combo amp," "open back combo closed back panel" | Carl Beckett | 5 — Gear Lab | PAA gap off the cab post — nobody ranks a clear how/should-you. Cover the tonal trade-off, the heat/ventilation caveat, and a reversible DIY approach. Carl's principled, minimalist DIY voice. |
 | 5 | speaker-power-handling-watts-cab | Speaker Power Handling: How Many Watts Your Cab Really Needs | "speaker power handling guitar," "how many watts speaker for amp," "amp watts vs speaker watts" | fk-staff | 6 — Quick Fixes | Adjacent to the break-in post; common buyer-confusion PAA. Direct-answer "should the speaker be rated higher than the amp," headroom-vs-breakup table, the cone-cry tradeoff at low ratings. Editorial-neutral. |
+
+---
+
+## Daily Run — 2026-06-09 (5 posts + SERP analysis + 5 new topics)
+
+**Velocity note:** The persona velocity audit showed **every one of the 10 personas at the 3/week cap** (35 posts in 7 days), and `fk-staff` already at 8. With no single-persona slot available, the overflow rule sends all 5 posts to the `fk-staff` editorial-neutral byline — which is the correct call: the per-persona cap exists to keep any one *named human* from looking machine-paced, and the Staff byline doesn't carry that individual-author E-E-A-T risk. **This is the second high-volume week in a row.** Strong recommendation for the next planning pass: take a quiet day (publish 0–2 posts) so the roster resets under the cap and the named writers regain capacity — otherwise the site keeps leaning on `fk-staff` and the persona roster goes stale.
+
+**Image pipeline:** Flux 2 Pro working (`--model=black-forest-labs/flux-2-pro`; default gpt-image-1-via-Replicate still throttled). 5 heroes generated, ~$0.28. `fk-staff` has no moodboard assignment, so the image script falls back to `nocturnal_studio` for all five — consistent with the 2026-06-08 staff posts.
+
+### Posts published this run
+
+| # | Slug | Title | Writer | Pillar |
+|---|---|---|---|---|
+| 1 | master-volume-vs-non-master-amp-breakup | Master Volume vs. Non-Master-Volume Amps: Where Your Breakup Actually Comes From | fk-staff (intended: Hank Presswood) | 5 — Gear Lab |
+| 2 | reverb-effects-loop-vs-front-of-amp | Does Reverb Belong in the Effects Loop or Out Front? | fk-staff (intended: Sean Nakamura) | 3 — Signal Chain |
+| 3 | noise-gate-vs-noise-suppressor | Noise Gate vs. Noise Suppressor: Which Do You Actually Need? | fk-staff (intended: Viktor Kessler) | 6 — Quick Fixes |
+| 4 | convert-open-back-combo-to-closed-back | Can You Convert an Open-Back Combo to Closed-Back? Trade-offs and How | fk-staff (intended: Carl Beckett) | 5 — Gear Lab |
+| 5 | speaker-power-handling-watts-cab | Speaker Power Handling: How Many Watts Your Cab Really Needs | fk-staff | 6 — Quick Fixes |
+
+### SERP Analysis (2026-06-09)
+
+**1. Master volume vs. non-master breakup**
+- *Target:* "master volume vs non master amp," "what does master volume do," "preamp vs power amp distortion"
+- *Top results:* Seymour Duncan ("Cage Match: Non-Master vs. Master Volume Amps"), Premier Guitar ("Demystifying the Master Volume" + "What Is Gain"), TDPRI + TGP forum threads, Carl's Custom Amps ("Master Volumes and their Uses"), TheGuitarPages.
+- *Gap we fill:* The ranking pages explain the *circuit* difference well (Premier Guitar, Seymour Duncan) but bury the one-line takeaway players actually need: **the gain knob makes the dirt, the master sets how loud the dirt is.** Our post leads with that, adds a clean by-amp-type table, and — uniquely — maps preamp/power-amp distortion to the modeler's Drive/Master/Sag parameters so the abstraction becomes concrete. Confirmed against SERP: master-volume amps "compress more and sound tighter," non-master power-tube breakup is "round, squishy, touch-sensitive," and master circuits sacrifice dynamic range/headroom — all consistent with the post.
+
+**2. Reverb in the effects loop vs. front**
+- *Target:* "reverb effects loop or front," "delay in effects loop," "time based effects amp loop"
+- *Top results:* Andertons, Sweetwater InSync ("Reverb: Before the Amp or in the Loop?"), Blackstar ("FX Loop vs. Pedals in Front"), Strat-Talk thread, PedalPlayers (two pages), Stringjoy, Pro Sound HQ.
+- *Gap we fill:* Competitive keyword — Sweetwater and PedalPlayers cover it directly, and consensus (time-based in the loop) is everywhere. Our differentiators: (a) the explicit **"distortion is the only variable"** framing with the clean-amp A/B that tells readers to stop worrying when clean; (b) the line-level/series-vs-parallel loop caveat with a check-before-you-commit list; (c) the modeler block-drag translation. Confirmed: SERP agrees reverb into a distorted preamp "gets distorted along with the signal → muddy," and that a light reverb out front can be a deliberate psych/ambient choice (we note clean-amp parity rather than overclaiming).
+
+**3. Noise gate vs. noise suppressor**
+- *Target:* "noise gate vs noise suppressor," "difference noise gate suppressor," "ISP decimator vs noise gate"
+- *Top results:* Ultimate Guitar ("Noise Gate vs Noise Suppressor — Differences"), BOSS Articles ("Complete Guide to Noise Gate and Suppressor Pedals"), PedalPlayers, Gear Aficionado, Student of Guitar, Guitar Goblin, Jemsite + Quora threads.
+- *Gap we fill / nuance corrected:* The popular articles draw a clean line — **gate = hard clamp, suppressor = gradual downward expansion preserving decay.** That's a useful teaching distinction but it's *not* a reliable rule: a noise gate **is** technically a downward expander, and the Boss NS-2 (a "Suppressor") can hard-mute. Our post takes the more honest stance — the **names are largely marketing; the real differences are features** (send/return loop, adaptive threshold, hard-vs-gradual) — while still teaching the hard/gradual axis. Our strongest unique surface is the **"a gate doesn't remove hum, it only mutes the gaps"** correction (the single biggest buyer misunderstanding), which none of the top results lead with.
+
+**4. Convert open-back combo to closed-back**
+- *Target:* "convert open back to closed back," "close the back of a combo amp," "open back combo closed back panel"
+- *Top results:* Ultimate Guitar forum, Seymour Duncan forum (two threads), Orange Amps forum (PPC212OB), Guitar World + Carl's Custom Amps + Fender + Roland open-vs-closed explainers.
+- *Gap we fill:* The ranking is **forum threads + generic open-vs-closed explainers** — no single authoritative how/should-you. Every load-bearing claim checks out against the SERP: tube combos are open-backed for **cooling** ("bad idea… tubes need air"), the reversible build is **5/8″ / 18 mm plywood screwed to existing holes**, and — crucially — "closed cabs are tuned to reinforce frequencies, so slapping plywood on may not get the sound you want." That last point is exactly our **"small sealed box sounds boxy"** surprise. We own the consolidated trade-off + heat caveat + reversible method + the modeler-IR zero-risk alternative.
+
+**5. Speaker power handling**
+- *Target:* "speaker power handling guitar," "how many watts speaker for amp," "amp watts vs speaker watts"
+- *Top results:* Premier Guitar ("Speaker Geeks: The Lowdown on Power Handling"), Amplified Parts, Guitar Tricks (watts/ohms/wiring), Sweetwater InSync, AmpQ, CMUSE calculator, TDPRI + TalkBass threads.
+- *Gap we fill / important nuance:* The generic results import the **PA-world rule** ("use ~2× amp power; *under-powering* damages speakers via clipping") which is true for full-range PA but misleading for guitar. Our post stays in the **guitar context**: rate the speaker ≥ the amp, 1.5–2× for clean headroom, and treat a *closely-rated/under-rated* speaker as the deliberate route to **cone breakup** (Greenback example). Our surprise — **"more watts isn't better; it just stays stiff and clean when you wanted it to give"** — is the guitar-specific insight the calculators and PA-flavored explainers miss. Confirmed: speaker rated ≥ amp = trouble-free; multi-speaker cab rating sums (matched) / 2× the lowest (mixed); impedance is a separate spec to match independently.
+
+### 5 New Topic Ideas (from SERP gaps + PAA)
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO notes |
+|---|---|---|---|---|---|---|
+| 1 | preamp-vs-power-amp-distortion-how-to-hear | Preamp vs. Power-Amp Distortion: How to Tell Which You're Actually Hearing | "preamp vs power amp distortion," "power tube distortion vs preamp," "how to tell power amp breakup" | Hank Presswood | 5 — Gear Lab | Direct follow-on to the master-volume post (Premier Guitar/Seymour Duncan rank for the circuit but not the *how-to-hear-it* test). Lead with a side-by-side table (compression, dynamics, volume-dependence, feel), then a 3-step listening test (roll guitar volume; does the dirt clean up?). Hank's vintage-circuit authority. |
+| 2 | series-vs-parallel-effects-loop | Series vs. Parallel Effects Loop: Which One Your Amp Has, and Why Your Pedals Care | "series vs parallel effects loop," "parallel fx loop mix knob," "why does my reverb sound weak in the loop" | Sean Nakamura | 3 — Signal Chain | The reverb-loop post deferred the series/parallel distinction; PAA is thick with "why is my delay quiet in the loop" (answer: parallel loop mix). Table of series vs parallel by symptom, how to identify which you have, and the double-mix-knob trap. Sean's signal-flow precision. |
+| 3 | where-to-put-noise-gate-4-cable-method | Where to Put a Noise Gate: Inline vs. the Send/Return (4-Cable) Method | "where to put noise gate," "noise gate 4 cable method," "noise gate send return loop," "noise gate before or after distortion" | Viktor Kessler | 6 — Quick Fixes | The gate-vs-suppressor post named the send/return loop as the key feature but didn't show the wiring; top PAA. Diagram the inline vs. X-loop routing, why the loop tracks clean dynamics, and modeler input-gate placement. Viktor's gate authority. |
+| 4 | cabinet-volume-and-tone-why-size-matters | Cabinet Volume and Tone: Why a Small Sealed Box Sounds Boxy and a 4x12 Sounds Huge | "does cabinet size affect tone," "why does a 4x12 sound bigger," "small sealed cab boxy," "speaker cabinet internal volume tone" | Carl Beckett | 5 — Gear Lab | The convert-combo post's "boxy" surprise deserves its own piece — the SERP confirmed "closed cabs are tuned to reinforce frequencies." Explain enclosure volume → resonant frequency in plain terms, why bigger = lower/tighter, and the practical sizing takeaway. Carl's principled, measured voice. |
+| 5 | mixing-speakers-different-wattage-cab | Can You Mix Speakers of Different Wattage (or Type) in One Cab? | "mixing speakers different wattage," "can i mix speakers in a cab," "mismatched speakers 2x12," "x-pattern speaker mixing" | Jess Kowalski | 6 — Quick Fixes | The power-handling SERP surfaced the mixed-rating rule (cab = 2× the lowest-rated speaker) and PAA repeats "can I mix speakers." Cover the wattage math, the impedance constraint, the tonal X-pattern trick (e.g. Greenback + V30), and when it's a problem. Jess's budget/comparison voice. |

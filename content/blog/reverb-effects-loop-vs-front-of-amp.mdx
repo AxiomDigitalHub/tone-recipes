@@ -1,0 +1,129 @@
+---
+title: Does Reverb Belong in the Effects Loop or Out Front?
+description: >-
+  Reverb in front of a dirty amp turns to mush; reverb in the effects loop stays
+  clean. Here's the rule by amp gain level, why it works, and how it maps to a
+  modeler.
+date: '2026-06-09'
+author: Fader & Knob Staff
+author_slug: fk-staff
+category: signal-chain
+tags:
+  - effects-loop
+  - reverb
+  - signal-chain
+  - delay
+  - amp-distortion
+  - time-based-effects
+readingTime: 8
+image: /images/blog/reverb-effects-loop-vs-front-of-amp.jpg
+image_alt: >-
+  A reverb pedal connected to the effects loop send and return jacks on the back
+  of a tube amp, with a second cable running to the front input
+takeaways:
+  - >-
+    On a clean amp, reverb in front and reverb in the loop sound nearly
+    identical — distortion is the only thing that makes the placement audible.
+  - >-
+    On a dirty amp, reverb in front gets fed through the distorting preamp,
+    which smears the tails into mush. The effects loop sits after the preamp, so
+    the reverb lands on top of the distorted tone instead of being distorted
+    itself.
+  - >-
+    The rule by gain level: clean amp, front is fine; edge-of-breakup, lean
+    toward the loop; high gain, use the loop almost always.
+  - >-
+    Effects loops run hotter than the front input. A pedal reverb built for the
+    front of an amp can clip or sound thin in a line-level loop — check whether
+    your loop and pedal are instrument or line level.
+  - >-
+    On a modeler there's no loop hardware — you just drag the reverb block after
+    the amp block. "Loop vs. front" becomes "after the amp block vs. before it."
+faq:
+  - q: Should reverb go in the effects loop or the front of the amp?
+    a: >-
+      If your amp is clean, it barely matters — put the reverb wherever is
+      convenient. If your amp is distorting, put reverb in the effects loop. The
+      loop sits after the distorting preamp, so the reverb tails stay clear
+      instead of being run through the distortion, which smears them into mush.
+  - q: Why does my reverb sound muddy on a high-gain amp?
+    a: >-
+      Because it's in front of the amp. When reverb goes into the input, the
+      amp's preamp distorts the reverb tails along with your dry signal, turning
+      the wash into an indistinct mush that builds up and clutters the low end.
+      Moving the reverb to the effects loop, after the preamp distortion, fixes
+      it — the tails sit cleanly on top of the distorted tone.
+  - q: Does it matter where reverb goes on a clean amp?
+    a: >-
+      Almost not at all. With no distortion in the signal path to smear the
+      tails, reverb in front of the amp and reverb in the loop sound nearly
+      identical. The placement only becomes audible once the amp is breaking up.
+      This is why vintage Fender amps put spring reverb in the preamp and still
+      sound clean and clear — those amps don't distort.
+  - q: Can I put a reverb pedal in the effects loop?
+    a: >-
+      Yes, and you should if the amp is dirty — but mind the levels. Many
+      effects loops run at line level, which is hotter than the instrument-level
+      signal a pedal expects up front. A pedal built for the front of the amp
+      can clip or sound thin in a line-level loop. Check whether your amp's loop
+      has a level switch, and whether your pedal can handle line level.
+  - q: Where do time-based effects go on a modeler?
+    a: >-
+      After the amp and cab blocks. On a modeler there's no physical effects
+      loop — the equivalent of "in the loop" is simply placing the reverb and
+      delay blocks after the amp block in the signal chain. Place them before
+      the amp block and you get the same smeared, distorted-reverb effect as
+      running them into the front of a dirty amp.
+---
+
+You've probably been told that reverb and delay belong "in the loop." It's good advice, but stated as a rule it hides the actual reason — and the reason is the whole story. There's exactly one variable that decides whether reverb placement matters at all, and once you understand it you'll never have to memorize the rule again. Here's where reverb belongs, why, and how to translate the answer to a modeler.
+
+## The Short Answer
+
+| Amp State | Reverb in Front | Reverb in Loop | Verdict |
+|---|---|---|---|
+| Clean | Clear, fine | Clear, fine | Either — barely a difference |
+| Edge of breakup | Slightly hazy tails | Cleaner tails | Lean loop |
+| High gain | Muddy, washy mess | Clean, defined | Loop, almost always |
+
+**The only thing that makes reverb placement audible is distortion.** No distortion, no difference. The more the amp distorts, the more the placement matters.
+
+## Why Distortion Is the Whole Story
+
+Reverb is a wash of decaying reflections layered under your note. The question is whether that wash gets fed *through* the amp's distortion or sits *on top of* it.
+
+Put reverb in **front of the amp** and it hits the input first, so the preamp distorts the reverb tails right along with your dry signal. On a clean amp that's harmless — there's no distortion to smear anything. But on a dirty amp, distortion is a compressor and a harmonic generator: it grabs the long, low-level reverb tails, squashes them up to the same loudness as your note, and adds harmonics to them. The result is an indistinct mush that piles up in the low mids and clutters everything. The more gain, the worse it gets.
+
+Put reverb in the **effects loop** and it lands after the preamp, between the distortion and the power amp. Now the distortion happens to your dry tone *first*, and the reverb is added cleanly on top. The tails stay defined. They decay the way they're supposed to instead of being held up at full volume by the distortion's compression.
+
+### The Surprise: On a Clean Amp, It's a Non-Issue
+
+It's worth A/B-ing this once so you stop worrying about it. Set a clean amp, play a chord with reverb in front, then move the reverb to the loop and play the same chord. They sound essentially the same. The placement debate that gets so much airtime online is entirely a *distortion* debate in disguise. This is also why vintage Fender amps put their spring reverb right in the preamp circuit and nobody complains — those amps are clean, so there's nothing to smear. The day you add real gain is the day placement starts to matter.
+
+## The Rule, Restated
+
+- **Clean amp:** front of the amp is fine. Use a pedal reverb wherever it's convenient on your board.
+- **Edge of breakup / classic crunch:** either works, but the loop gives you slightly cleaner tails. If your crunch tone sounds a touch hazy, try the loop.
+- **High gain:** loop, essentially always. This is non-negotiable for metal and modern rock — reverb (and delay) in front of a high-gain preamp is the classic "why is my ambient wash a swamp" mistake.
+
+This is the same logic behind the [reverb-before-or-after-delay question](/blog/reverb-before-or-after-delay-chain-order): time-based effects want to come *last*, after everything that shapes the core tone, so they decorate the sound rather than getting chewed up by it. For the bigger picture of why order matters at all, the [signal chain order guide](/blog/signal-chain-order-guide) lays out the full chain.
+
+## The Catch: Effects Loops Aren't Free
+
+Moving reverb to the loop solves the distortion problem but introduces a level problem. Many effects loops run at **line level**, which is considerably hotter than the **instrument level** a pedal sees at the front of the amp. A reverb pedal designed for the front can do one of two ugly things in a line-level loop: clip on the way in (harsh, distorted reverb) or, if there's an impedance mismatch, sound thin and weak.
+
+Before you commit:
+
+- Check whether your amp's loop has an **instrument/line level switch** — many do. Set it to match your pedal.
+- Check whether your pedal can handle line level. Pedals with an internal level trim or a "loop-friendly" design are happiest here.
+- Know whether your loop is **series or parallel**. A series loop puts 100% of the signal through the pedal; a parallel loop blends the effected signal back with the dry, and you set the wet amount with a mix knob on the amp. Parallel loops can dilute a reverb's mix control, so you end up setting wetness in two places. The [effects loop explainer](/blog/effects-loop-explained) covers the series-vs-parallel distinction in full.
+
+## On a Modeler
+
+A modeler makes the whole thing literal and removes the level headaches entirely. There's no physical loop — the signal chain is just a row of blocks you drag into order. "In the loop" simply means **placing the reverb block after the amp and cab blocks**. "In front" means placing it before the amp block.
+
+So the experiment that takes cables and re-patching on a real rig takes two seconds on a modeler: drag the reverb block to the left of the amp, play a high-gain riff, hear the mush; drag it to the right of the cab, hear it clean up. It's the single clearest way to *hear* what the effects loop is doing, and once you've heard it on a modeler you'll understand exactly what the loop jacks on the back of your amp are for.
+
+## Making the Call
+
+If you play clean, stop worrying about it — put reverb wherever your board layout likes. If you play with real gain, get your reverb (and delay) into the loop, mind the level switch, and your tails will clean up immediately. And if you want to actually understand the rule instead of memorizing it, load up a modeler, drag the reverb block across the amp block a few times, and listen. The mush you hear in front and the clarity you hear behind is the entire reason the effects loop exists.

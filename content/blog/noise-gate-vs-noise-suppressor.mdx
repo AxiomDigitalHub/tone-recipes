@@ -1,0 +1,139 @@
+---
+title: 'Noise Gate vs. Noise Suppressor: Which Do You Actually Need?'
+description: >-
+  "Gate" and "suppressor" are mostly the same thing with different marketing.
+  Here's what actually separates them, what they fix, and the one kind of noise
+  neither one removes.
+date: '2026-06-09'
+author: Fader & Knob Staff
+author_slug: fk-staff
+category: quick-fixes
+tags:
+  - noise-gate
+  - noise-suppressor
+  - high-gain
+  - hum
+  - single-coil
+  - troubleshooting
+readingTime: 8
+image: /images/blog/noise-gate-vs-noise-suppressor.jpg
+image_alt: >-
+  A noise gate pedal and a noise suppressor pedal side by side on a pedalboard
+  showing their threshold and decay controls
+takeaways:
+  - >-
+    "Noise gate" and "noise suppressor" describe the same core function — muting
+    the signal below a threshold. The terms are largely interchangeable
+    marketing, not two different technologies.
+  - >-
+    What actually distinguishes units: a send/return loop to isolate the noisy
+    gear, adaptive threshold tracking that follows your input, and hard-gate vs.
+    gradual downward-expansion behavior. Compare those, not the name on the box.
+  - >-
+    A gate only acts when you're not playing. It silences the gaps between notes
+    — it does nothing about hum or hiss while you're holding a note.
+  - >-
+    A gate does not remove 60-cycle single-coil hum. To actually reduce that you
+    need shielding, a hum-cancelling pickup, or power conditioning — the gate
+    only mutes it in the silences.
+  - >-
+    Use a gate/suppressor for the hiss of a high-gain rig in the gaps. Use one
+    with a send/return loop to gate the noise from a specific dirty pedal or amp
+    section rather than the whole chain.
+faq:
+  - q: What is the difference between a noise gate and a noise suppressor?
+    a: >-
+      Functionally, very little — both attenuate the signal when it drops below
+      a set threshold, silencing noise in the gaps between notes. "Noise
+      suppressor" is largely a brand term (Boss NS-2, NS-1X) for what is
+      essentially a noise gate. The meaningful differences between units are
+      features — a send/return loop, adaptive threshold tracking, hard vs.
+      gradual gating — not the word printed on the enclosure.
+  - q: Does a noise gate remove hum?
+    a: >-
+      No. A noise gate only mutes the signal when you stop playing, so it
+      silences hum in the gaps but does nothing about hum while you're holding a
+      note — the hum rides along under everything you play. To actually reduce
+      60-cycle hum you need to shield the guitar, switch to hum-cancelling
+      pickups, fix a ground issue, or clean up your power. The gate just hides
+      the noise in the silences.
+  - q: Do I need a noise gate for single-coil hum?
+    a: >-
+      A gate won't solve single-coil hum — the hum is loudest exactly when
+      you're playing, which is when the gate is open. It can clean up the buzz
+      in the gaps, but the real fixes are shielding the control cavity, using a
+      humbucker or stacked hum-cancelling single-coil, moving away from light
+      dimmers and monitors, and addressing grounding. Reach for a gate only for
+      the residual noise in the silences.
+  - q: What does the send/return loop on a noise suppressor do?
+    a: >-
+      It lets the unit listen to your clean guitar signal to decide when to
+      gate, while gating the noise from a specific noisy section — typically
+      your high-gain pedals or amp. You run your guitar into the suppressor's
+      input and its detector, send the noisy gear through the loop, and the gate
+      tracks your real playing dynamics instead of the already-noisy signal.
+      This is the Boss NS-2 "X" connection and it gates far more cleanly than a
+      simple inline gate.
+  - q: Where should a noise gate go in the signal chain?
+    a: >-
+      Put a simple inline gate after your gain pedals (and high-gain amp preamp,
+      via the effects loop) so it acts on the noise those stages generate. If
+      the unit has a send/return loop, wire the noisy gear into the loop and
+      your guitar into the front, so the detector reads your clean signal. On a
+      modeler, the gate block usually goes right at the input, or just after the
+      amp block for high-gain hiss.
+---
+
+The pedal wall has a "Noise Gate" and a "Noise Suppressor" sitting next to each other, and the obvious question is which one you need. The honest answer is that the names are mostly marketing — but there *are* real differences between units, and there's one kind of noise that neither category removes no matter what it says on the box. Here's how to tell them apart and pick the right tool for the noise you actually have.
+
+## The Short Answer
+
+| | Noise Gate | Noise Suppressor |
+|---|---|---|
+| Core function | Mute signal below a threshold | Mute signal below a threshold |
+| The truth | Same thing, different name | Same thing, different name |
+| What varies | Send/return loop, threshold tracking, hard vs. soft gating |
+| Fixes | Hiss/noise **in the gaps** | Hiss/noise **in the gaps** |
+| Does NOT fix | Hum/hiss while you play | Hum/hiss while you play |
+
+**A "suppressor" is a gate with a marketing department.** Don't choose on the name. Choose on the features and on what kind of noise you're fighting.
+
+## They're the Same Thing
+
+Both a noise gate and a noise suppressor do one job: when the signal level falls below a **threshold** you set, the unit turns the volume down (or all the way off). When you play, the signal rises above the threshold, the gate opens, and you hear your guitar. When you stop, it falls below, the gate closes, and the noise floor is silenced. That's it. That's the whole mechanism, and it's identical whether the box says "gate" or "suppressor."
+
+Boss popularized "Noise Suppressor" with the NS-2 and later the NS-1X; ISP calls its units "Decimator." These are all noise gates. The category names diverged for branding, not because the underlying function changed.
+
+## What Actually Differs Between Units
+
+Since the name tells you nothing, here's what to actually compare:
+
+- **Send/return loop.** The single most useful feature. A unit with a loop (like the Boss NS-2's X-connection) lets the detector listen to your *clean* guitar signal while it gates the noise from a specific dirty section — your high-gain pedals or amp preamp routed through the loop. Because the gate is triggered by your real playing dynamics rather than an already-noisy signal, it opens and closes far more naturally. A simple inline gate, by contrast, has to make its decision from the noisy signal itself.
+- **Adaptive threshold tracking.** Better units (the ISP Decimator is the reference here) follow your input level and adjust the threshold continuously, so the gate stays out of the way as your dynamics change instead of chopping off quiet notes.
+- **Hard gate vs. downward expansion.** A hard gate slams shut — fast and tight, great for staccato metal chugs, but it can sound abrupt. Downward expansion turns the level down gradually below the threshold, which is gentler on long decaying notes. Some units let you choose.
+- **Decay/release speed.** How fast the gate closes. Too fast and sustained notes get cut off (the dreaded stutter); too slow and noise leaks through between chugs. This is the parameter you'll spend the most time dialing — our [noise gate threshold and decay guide](/blog/noise-gate-threshold-decay-settings-high-gain) walks through setting it for high gain without choking sustain.
+
+## The Surprise: It Doesn't Remove Hum
+
+Here's the expectation that trips up almost everyone. You buy a gate to "get rid of the hum," patch it in, hold a chord — and the hum is still there. That's not a defective pedal. That's the gate working exactly as designed.
+
+A gate only acts **when you're not playing.** While you're holding a note, the gate is *open* — it has to be, or you wouldn't hear your guitar — and any hum or hiss present rides along underneath everything you play. The gate silences the gaps between notes beautifully. It does nothing about noise during the notes. So if your problem is 60-cycle single-coil hum that's loudest exactly when you're playing, a gate is the wrong tool. It hides the symptom in the silences and leaves the disease untouched.
+
+## Matching the Tool to the Noise
+
+| Your Noise | Real Fix | Does a Gate Help? |
+|---|---|---|
+| High-gain hiss in the gaps | Noise gate/suppressor | Yes — this is its job |
+| Hum while you hold a note | Shielding, hum-cancelling pickups, grounding | No — gate only mutes the gaps |
+| Single-coil 60-cycle buzz | Shield the cavity, stacked/humbucker pickups, move from dimmers/monitors | Marginal — gaps only |
+| Hum from one noisy pedal | Gate with send/return loop around that pedal | Yes — isolates the source |
+
+The throughline: a gate is a **symptom fix for the silences**, and it's most powerful when paired with a send/return loop so it can target a specific noisy section. It's a downstream patch, not a cure. The cure for hum is upstream — shielding, pickups, grounding, clean power. The cure for excessive hiss is often [gain staging](/blog/gain-staging-drop-tunings): if you're generating more hiss than you can gate, you may simply be running more gain than the tone needs.
+
+## On a Modeler
+
+Modelers include a noise-gate block — usually right at the input to catch the guitar's own noise floor, or just after the amp block to tame high-gain hiss. The same rules apply: it acts in the gaps, not during notes, and it won't remove hum you can hear while playing. The advantage is that a modeler's input gate can sit *before* the modeled distortion, so it's reading your cleanest signal — effectively the send/return-loop benefit, built in. Set the threshold just high enough to kill the hiss in the gaps and no higher, or you'll chop the tails off your sustained notes.
+
+## Making the Call
+
+Stop shopping by the word on the box. If you need to clean up high-gain hiss in the gaps, any gate or suppressor will do it — but get one with a **send/return loop** if you want it to gate cleanly without strangling your dynamics, and that's where a Boss NS-2-style unit or an ISP Decimator earns its place. If your actual problem is hum you can hear while you play, save your money: no gate will fix it. Shield the guitar, look at your pickups, and check your grounding first. The gate comes last, for the silences.
