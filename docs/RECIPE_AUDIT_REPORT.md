@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-09
-**Recipes:** 95
-**Clean (no errors, no warns):** 87
+**Date:** 2026-06-10
+**Recipes:** 100
+**Clean (no errors, no warns):** 92
 **Warn-only:** 8
 **With errors:** 0
 
@@ -16,9 +16,9 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 15 / 95 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 7 / 95 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 95 | Signal chain includes a cabinet or microphone block |
+| `katana-kemper-multidrive-default-off` | info | 15 / 100 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 7 / 100 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 100 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -80,9 +80,21 @@
 **Warnings:**
 - `signal-chain-has-cab-or-mic` — no cabinet or microphone in signal_chain
 
+### `angus-highway-to-hell-riff` — ✓ clean
+
+*Angus Young's Highway to Hell Riff Tone*
+
+Passes every rule.
+
 ### `angus-thunderstruck-tapping-intro` — ✓ clean
 
 *Angus Young's Thunderstruck Tapping Intro Tone*
+
+Passes every rule.
+
+### `angus-whole-lotta-rosie-riff` — ✓ clean
+
+*Angus Young's Whole Lotta Rosie Riff Tone*
 
 Passes every rule.
 
@@ -158,9 +170,21 @@ Passes every rule.
 
 Passes every rule.
 
+### `deleo-interstate-love-song-clean-intro` — ✓ clean
+
+*Dean DeLeo's Interstate Love Song Clean Intro Tone*
+
+Passes every rule.
+
 ### `deleo-plush-les-paul` — ✓ clean
 
 *Stone Temple Pilots' Plush Tone*
+
+Passes every rule.
+
+### `dharma-dont-fear-the-reaper-clean-riff` — ✓ clean
+
+*Buck Dharma's Don't Fear the Reaper Clean Riff Tone*
 
 Passes every rule.
 
@@ -443,6 +467,12 @@ Passes every rule.
 ### `morello-killing-in-the-name` — ✓ clean
 
 *Morello's Killing in the Name Aggressive Tone*
+
+Passes every rule.
+
+### `murray-number-of-the-beast-twin-riff` — ✓ clean
+
+*Iron Maiden's The Number of the Beast Twin-Guitar Riff Tone*
 
 Passes every rule.
 

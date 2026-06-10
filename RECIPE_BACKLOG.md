@@ -99,11 +99,11 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 50 | Toxicity (riff) | System of a Down | Daron Malakian | Toxicity (2001) | Ibanez Iceman → Mesa/Boogie Dual Rectifier. Drop-C tuning. The riff is alternating muted and open chord stabs. | done |
 | 51 | Chop Suey (intro arpeggio + chorus) | System of a Down | Daron Malakian | Toxicity (2001) | Same Iceman + Recto rig. The intro arpeggio is clean; the chorus drops to drop-C with full distortion. | done |
 | 52 | Plush (riff) | Stone Temple Pilots | Dean DeLeo | Core (1992) | LP into Mesa/Boogie Mark IIB. The riff uses dropped-D tuning and is built on parallel fifths. | done |
-| 53 | Interstate Love Song (intro) | Stone Temple Pilots | Dean DeLeo | Purple (1994) | LP into Vox AC30 for the cleaner verse, switched to Mesa for the chorus. The intro picking pattern is distinctive — open-D-style voicings. | queued |
-| 54 | Don't Fear the Reaper (riff) | Blue Öyster Cult | Donald "Buck Dharma" Roeser | Agents of Fortune (1976) | Gibson SG through Music Man amp. The clean riff uses chorus and reverb for the atmospheric quality; the solo flips to overdrive. | queued |
-| 55 | Highway to Hell (riff) | AC/DC | Angus Young | Highway to Hell (1979) | SG → cranked Marshall Plexi. Same setup as Back in Black era. Mutt Lange production added studio polish. | queued |
-| 56 | Whole Lotta Rosie (riff) | AC/DC | Angus Young | Let There Be Rock (1977) | Same SG → Marshall rig as Back in Black. Earlier production, less polish, more raw aggression. | queued |
-| 57 | The Number of the Beast (chorus riff) | Iron Maiden | Dave Murray + Adrian Smith | The Number of the Beast (1982) | Twin Strats → twin Marshall JCM800s. The harmonized chorus riff is in fourths. Same production era as Run to the Hills. | queued |
+| 53 | Interstate Love Song (intro) | Stone Temple Pilots | Dean DeLeo | Purple (1994) | Telecaster (neck) into clean Vox AC30 with an S.I.B. VariDrive on the intro; '57 LP TV Special for the chorus. Southern Tracks, Brendan O'Brien. Eb tuning. | done |
+| 54 | Don't Fear the Reaper (riff) | Blue Öyster Cult | Donald "Buck Dharma" Roeser | Agents of Fortune (1976) | CORRECTED: riff cut on co-producer's Gibson ES-175 hollowbody (not the SG) into a clean Music Man 410-65. Shimmer is EMT plate + 15ips tape delay, NOT a chorus. SG only for the solo. Record Plant NYC. | done |
+| 55 | Highway to Hell (riff) | AC/DC | Angus Young | Highway to Hell (1979) | 1968 SG → cranked Marshall 1959 Super Lead Plexi, G12-65 cab. Schaffer-Vega wireless preamp boost. Roundhouse, Mutt Lange polish. No pedals. | done |
+| 56 | Whole Lotta Rosie (riff) | AC/DC | Angus Young | Let There Be Rock (1977) | Late-'60s SG → cranked Marshall JMP Super Lead, G12M Greenbacks. Rawer/midrange-forward, Plexi Normal channel. Albert Studios Sydney, Vanda & Young, near-live. | done |
+| 57 | The Number of the Beast (chorus riff) | Iron Maiden | Dave Murray + Adrian Smith | The Number of the Beast (1982) | Murray's Strat (DiMarzio Super Distortion) + Smith's Ibanez Destroyer → cranked Marshall (model disputed: Super Lead vs early JCM800), MXR Distortion+ boost, Greenbacks. Martin Birch, Battery Studios. | done |
 | 58 | Aces High (intro riff) | Iron Maiden | Dave Murray + Adrian Smith | Powerslave (1984) | Same twin-Strat / twin-Marshall rig. Faster tempo than Run to the Hills, harmonized fifths underneath. | queued |
 | 59 | Pretty Woman (riff) | Roy Orbison | Roy Orbison + Billy Sanford | (1964 single) | Acoustic-driven hit, but Sanford's electric riff is iconic — through a Fender Twin, played on a Tele. | queued |
 | 60 | Johnny B. Goode (riff) | Chuck Berry | Chuck Berry | After School Session (1958) | ES-350T (later ES-355) through Fender Twin. The double-stop intro is the foundation of all rock guitar lead phrasing. | queued |
@@ -1102,6 +1102,11 @@ successful run.)
 | 2026-06-09 | malakian-toxicity-drop-c-riff | 50 |
 | 2026-06-09 | malakian-chop-suey-clean-to-crushing | 51 |
 | 2026-06-09 | deleo-plush-les-paul | 52 |
+| 2026-06-10 | deleo-interstate-love-song-clean-intro | 53 |
+| 2026-06-10 | dharma-dont-fear-the-reaper-clean-riff | 54 |
+| 2026-06-10 | angus-highway-to-hell-riff | 55 |
+| 2026-06-10 | angus-whole-lotta-rosie-riff | 56 |
+| 2026-06-10 | murray-number-of-the-beast-twin-riff | 57 |
 
 ### Corrections applied this run (2026-06-09)
 
