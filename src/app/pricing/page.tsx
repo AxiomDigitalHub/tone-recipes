@@ -2,6 +2,68 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import PassPricingCard from "@/components/pricing/PassPricingCard";
 
+/**
+ * JSON-LD: Product + multi-Offer for the Pass subscription, and
+ * Product + Offer for the Worship Set Pack.
+ *
+ * Pass is two billing cadences (annual $39 / monthly $4.99) modeled as
+ * two `Offer` entries inside `offers[]` — Google reads either depending
+ * on user query intent. Both link back to /pricing as the
+ * point-of-sale; checkout itself happens via the embedded
+ * CheckoutButton, which Google doesn't need to know about for the
+ * Product card.
+ *
+ * Closes the last commercial-surface gap from
+ * audits/schema-audit-2026-05-12.md (the Pass tier shipped after the
+ * audit was written).
+ */
+const PRICING_JSON_LD = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Fader & Knob Pass",
+    description:
+      "Unlimited preset downloads, members-only deep-dive content, early access to new recipes, Members Discord, 30% off every Set Pack, and the Tone Adapter when it ships.",
+    category: "Subscription",
+    brand: { "@type": "Brand", name: "Fader & Knob" },
+    url: "https://faderandknob.com/pricing",
+    offers: [
+      {
+        "@type": "Offer",
+        name: "Pass — annual",
+        priceCurrency: "USD",
+        price: "39.00",
+        availability: "https://schema.org/InStock",
+        url: "https://faderandknob.com/pricing",
+        seller: { "@type": "Organization", name: "Fader & Knob" },
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: "39.00",
+          priceCurrency: "USD",
+          billingDuration: "P1Y",
+          unitCode: "ANN",
+        },
+      },
+      {
+        "@type": "Offer",
+        name: "Pass — monthly",
+        priceCurrency: "USD",
+        price: "4.99",
+        availability: "https://schema.org/InStock",
+        url: "https://faderandknob.com/pricing",
+        seller: { "@type": "Organization", name: "Fader & Knob" },
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: "4.99",
+          priceCurrency: "USD",
+          billingDuration: "P1M",
+          unitCode: "MON",
+        },
+      },
+    ],
+  },
+];
+
 export const metadata: Metadata = {
   title: "Pricing — Fader & Knob",
   description:
@@ -92,6 +154,14 @@ const FAQ = [
 export default function PricingPage() {
   return (
     <div className="container">
+      {PRICING_JSON_LD.map((ld, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
+        />
+      ))}
       <section className="pricing-page">
         <div className="recipe-crumbs">
           <Link href="/">Home</Link>
