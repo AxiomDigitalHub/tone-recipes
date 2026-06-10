@@ -75,10 +75,12 @@ async function getUserFromRequest(req: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return null;
 
-  // Get role from profile
+  // Get role + grandfather flag from profile. legacy_unlimited is set
+  // for every account that existed before the 2026-06-09 Pass relaunch
+  // (migration 019) and bypasses the free-tier monthly quota.
   const { data: profile } = await supabase
     .from("profiles")
-    .select("role")
+    .select("role, legacy_unlimited")
     .eq("id", user.id)
     .single();
 
@@ -86,6 +88,9 @@ async function getUserFromRequest(req: NextRequest) {
     id: user.id,
     email: user.email ?? "",
     role: (profile?.role as string) || "free",
+    legacyUnlimited: Boolean(
+      (profile as { legacy_unlimited?: boolean } | null)?.legacy_unlimited,
+    ),
     token,
   };
 }
@@ -219,15 +224,24 @@ export async function POST(
         );
       }
 
-      // Check download limit for free users
-      const { allowed, remaining } = await canDownload(user.id, user.role);
+      // Quota gate. Pass subscribers and grandfathered accounts are
+      // unlimited; free accounts get 5 preset downloads per calendar
+      // month. The 402 status signals "payment required" to the client,
+      // which maps to an upgrade prompt rather than a generic error.
+      const { allowed, remaining } = await canDownload(
+        user.id,
+        user.role,
+        user.legacyUnlimited,
+      );
       if (!allowed) {
         return NextResponse.json(
           {
-            error: "You've used all your free downloads. Upgrade to Premium for unlimited downloads.",
+            error:
+              "You've used your 5 free preset downloads this month. Upgrade to Pass for unlimited downloads.",
             remaining: 0,
+            upgrade_url: "/pricing",
           },
-          { status: 403 },
+          { status: 402 },
         );
       }
 

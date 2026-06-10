@@ -14,7 +14,13 @@ import { isSupabaseConfigured, createBrowserClient } from "@/lib/db/client";
 /*  Types                                                                     */
 /* -------------------------------------------------------------------------- */
 
-export type UserRole = "free" | "premium" | "creator" | "admin" | "super_admin";
+export type UserRole =
+  | "free"
+  | "pass" // 2026-06-09 relaunch — $39/yr subscription, unlimited downloads
+  | "premium" // legacy 2026-04 — see permissions.ts (aliased to free + grandfather)
+  | "creator" // legacy 2026-04 — see permissions.ts (aliased to free + grandfather)
+  | "admin"
+  | "super_admin";
 
 export interface AuthUser {
   id: string;
@@ -22,6 +28,13 @@ export interface AuthUser {
   displayName?: string;
   avatarUrl?: string;
   role: UserRole;
+  /**
+   * Grandfather flag for accounts created before the Pass relaunch
+   * (2026-06-09). True = unlimited preset downloads forever, regardless
+   * of `role`. False (new accounts) = subject to the free quota of 5
+   * preset downloads per calendar month. See migration 019.
+   */
+  legacyUnlimited?: boolean;
 }
 
 interface AuthContextValue {
@@ -82,7 +95,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const { data } = await supabase
         .from("profiles")
-        .select("role, display_name, avatar_url")
+        .select("role, display_name, avatar_url, legacy_unlimited")
         .eq("id", supabaseUserId)
         .single();
       if (data) {
@@ -94,6 +107,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             role: (row.role as UserRole) || prev.role,
             displayName: (row.display_name as string) || prev.displayName,
             avatarUrl: (row.avatar_url as string) || prev.avatarUrl,
+            legacyUnlimited: Boolean(row.legacy_unlimited),
           };
         });
       }

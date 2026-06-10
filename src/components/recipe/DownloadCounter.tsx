@@ -9,16 +9,29 @@ interface DownloadCounterProps {
   className?: string;
 }
 
+/**
+ * Tiny pill that tells a user how many preset downloads they have left
+ * this month, or "Unlimited downloads" if they're on Pass / grandfathered
+ * / staff.
+ *
+ * The count is per calendar month (UTC), matching the server-side enforcement
+ * in src/lib/downloads.ts. Mismatch between these two would let a user see
+ * "2/5 free downloads" while the server denies them, which is the kind of
+ * thing that produces angry tickets — so keep both in sync if the quota
+ * window ever changes.
+ */
 export default function DownloadCounter({ className }: DownloadCounterProps) {
   const { user } = useAuth();
   const [count, setCount] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (!user) return;
+  // Grandfathered accounts (created before the 2026-06-09 Pass relaunch)
+  // and Pass subscribers / staff are all unlimited.
+  const isUnlimited =
+    Boolean(user?.legacyUnlimited) || (user != null && user.role !== "free");
 
-    // Premium / creator / admin — unlimited
-    if (user.role !== "free") {
+  useEffect(() => {
+    if (!user || isUnlimited) {
       setCount(null);
       return;
     }
@@ -29,11 +42,19 @@ export default function DownloadCounter({ className }: DownloadCounterProps) {
       setLoading(true);
       try {
         const supabase = createBrowserClient();
+        // First of the current month in UTC. Matches the server-side
+        // quota window in src/lib/downloads.ts → getDownloadCount().
+        const now = new Date();
+        const monthStart = new Date(
+          Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1),
+        ).toISOString();
+
         const { count: total, error } = await supabase
           .from("recipe_downloads")
           .select("*", { count: "exact", head: true })
           .eq("user_id", user!.id)
-          .eq("download_type", "preset");
+          .eq("download_type", "preset")
+          .gte("created_at", monthStart);
 
         if (!cancelled && !error) {
           setCount(total ?? 0);
@@ -49,13 +70,13 @@ export default function DownloadCounter({ className }: DownloadCounterProps) {
     return () => {
       cancelled = true;
     };
-  }, [user]);
+  }, [user, isUnlimited]);
 
   // Don't render for unauthenticated users
   if (!user) return null;
 
-  // Premium / creator / admin
-  if (user.role !== "free") {
+  // Pass / grandfathered / staff
+  if (isUnlimited) {
     return (
       <span
         className={`inline-flex items-center rounded-full bg-[var(--amber)]/10 px-2.5 py-0.5 text-xs font-medium text-[var(--amber-2)] ${className ?? ""}`}
@@ -80,7 +101,7 @@ export default function DownloadCounter({ className }: DownloadCounterProps) {
             : "border-red-500/30 text-red-400"
       } ${className ?? ""}`}
     >
-      {remaining}/{FREE_DOWNLOAD_LIMIT} free downloads
+      {remaining}/{FREE_DOWNLOAD_LIMIT} free downloads this month
     </span>
   );
 }
