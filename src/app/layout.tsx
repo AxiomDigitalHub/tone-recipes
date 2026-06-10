@@ -103,6 +103,50 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://i.scdn.co" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
+
+        {/* Site-wide JSON-LD — Organization + WebSite + SearchAction.
+            Applies to every route so the schema audit's coverage gap on
+            home / index pages is closed in one place. The SearchAction
+            target uses /browse?q= which is where the browse page reads
+            its search-term filter from (see src/app/browse/page.tsx). */}
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://faderandknob.com#org",
+                  name: "Fader & Knob",
+                  url: "https://faderandknob.com",
+                  // NOTE: logo field intentionally omitted — no /logo.png
+                  // raster asset exists today. Add a real 600×60 PNG and
+                  // restore the `logo` field once it ships.
+                  description:
+                    "Tone recipes from the songs you love. Signal chains, exact settings, and downloadable presets for Helix, Quad Cortex, TONEX, Fractal, Kemper, and Boss Katana.",
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://faderandknob.com#website",
+                  url: "https://faderandknob.com",
+                  name: "Fader & Knob",
+                  publisher: { "@id": "https://faderandknob.com#org" },
+                  potentialAction: {
+                    "@type": "SearchAction",
+                    target: {
+                      "@type": "EntryPoint",
+                      urlTemplate:
+                        "https://faderandknob.com/browse?q={search_term_string}",
+                    },
+                    "query-input": "required name=search_term_string",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} flex min-h-screen flex-col bg-background font-sans text-foreground antialiased`}

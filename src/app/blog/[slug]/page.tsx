@@ -111,16 +111,19 @@ export default async function PreviewBlogPost({
     author: {
       "@type": "Person",
       name: writer.name,
-      url: `${SITE_URL}/writers/${writer.slug}`,
+      // NOTE: `url` intentionally omitted as of 2026-05-12 — the
+      // `/writers/[slug]` route doesn't exist, so emitting a URL
+      // pointed at a 404 was actively bad for E-E-A-T signals.
+      // Restore once /writers/[slug] profile pages ship.
     },
     publisher: {
       "@type": "Organization",
       name: "Fader & Knob",
       url: SITE_URL,
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/logo.png`,
-      },
+      // NOTE: `logo` was emitting `${SITE_URL}/logo.png` which doesn't
+      // exist (broken since launch). Removed 2026-05-12 to stop shipping
+      // a 404 reference on 241 blog posts. Restore when a real
+      // 600×60 PNG logo ships in public/.
     },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
     articleSection: catLabel,

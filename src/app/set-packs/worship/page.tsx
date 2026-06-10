@@ -41,9 +41,55 @@ const chainBlocks = [
   { name: "Glitz Reverb", cat: "Shimmer" },
 ];
 
+/**
+ * Product + Offer JSON-LD. Lists the public $19 price (the Pass 30%
+ * discount is a member benefit, not a public list price, so it doesn't
+ * belong in the schema). Adding this makes the page eligible for the
+ * SERP shopping/product rich result — the single highest-CTR rich
+ * result format for paid content.
+ */
+const PRODUCT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Worship Set Pack",
+  description:
+    "One Line 6 Helix preset with 8 snapshots covering clean ambient through rock crunch, plus a 30-song Setlist Mapper. AC30 + Klon + delays + shimmer reverb, dialed and ready for Sunday morning.",
+  category: "Music software / preset pack",
+  brand: { "@type": "Brand", name: "Fader & Knob" },
+  url: "https://faderandknob.com/set-packs/worship",
+  // Reuse the existing worship-guitar editorial image as the product
+  // image until a dedicated 1200×630 product hero ships.
+  image: "https://faderandknob.com/images/blog/worship-guitar-tone-helix.jpg",
+  offers: {
+    "@type": "Offer",
+    price: "19.00",
+    priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+    url: "https://faderandknob.com/set-packs/worship",
+    seller: { "@type": "Organization", name: "Fader & Knob" },
+    // Refund window matches the on-page copy ("30-day refund if it
+    // doesn't work for your rig").
+    hasMerchantReturnPolicy: {
+      "@type": "MerchantReturnPolicy",
+      applicableCountry: "US",
+      returnPolicyCategory:
+        "https://schema.org/MerchantReturnFiniteReturnWindow",
+      merchantReturnDays: 30,
+      returnMethod: "https://schema.org/ReturnByMail",
+      returnFees: "https://schema.org/FreeReturn",
+    },
+  },
+};
+
 export default function WorshipSetPackPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 md:py-24">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(PRODUCT_JSON_LD) }}
+      />
+
       {/* Header */}
       <div
         className="mb-4 flex items-center gap-2 text-sm"
