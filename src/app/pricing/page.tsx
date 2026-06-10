@@ -1,87 +1,93 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import PassPricingCard from "@/components/pricing/PassPricingCard";
 
 export const metadata: Metadata = {
   title: "Pricing — Fader & Knob",
   description:
-    "The whole recipe catalog is free. Set Packs are one-time purchases — buy what you need, keep it forever.",
+    "Free to browse, $39/yr for unlimited preset downloads. Set Packs are one-time purchases — buy what you need, keep it forever.",
   openGraph: {
     title: "Pricing — Fader & Knob",
     description:
-      "Every recipe is free. Set Packs are one-time purchases. No subscriptions.",
+      "Free to browse. Pass for unlimited downloads. Set Packs you keep forever.",
     type: "website",
   },
 };
 
-interface PlanCard {
-  name: string;
-  price: string;
-  period: string;
-  blurb: string;
-  features: string[];
-  cta: string;
-  href: string;
-  highlight: boolean;
-}
+/* -------------------------------------------------------------------------- */
+/*  Free tier card — server-rendered (no state)                                */
+/* -------------------------------------------------------------------------- */
 
-const PLANS: PlanCard[] = [
-  {
-    name: "Free Account",
-    price: "$0",
-    period: "forever",
-    blurb: "The whole recipe catalog. No quota, no upsell.",
-    features: [
-      "Every tone recipe in the archive",
-      "Unlimited preset downloads (.hlx, .tsl)",
-      "Unlimited saved recipes",
-      "Recipe PDFs",
-      "New recipes every week",
-      "Community forum & comments",
-    ],
-    cta: "Sign up free",
-    href: "/signup",
-    highlight: true,
-  },
-  {
-    name: "Worship Set Pack",
-    price: "$19",
-    period: "one-time",
-    blurb:
-      "One Helix preset, 8 snapshots, 30 worship songs mapped. Yours to keep.",
-    features: [
-      "FK-Worship.hlx preset",
-      "8 snapshots covering clean → rock crunch",
-      "30-song Setlist Mapper",
-      "Lifetime updates as we refine the pack",
-    ],
-    cta: "Buy Worship Set Pack",
-    href: "/set-packs/worship",
-    highlight: false,
-  },
+const FREE_FEATURES = [
+  "Browse every tone recipe",
+  "5 preset downloads / month (.hlx, .tsl)",
+  "Unlimited saved recipes",
+  "Recipe PDFs",
+  "Community forum & comments",
 ];
+
+/* -------------------------------------------------------------------------- */
+/*  Set Pack card — one-time purchase, unchanged from prior model              */
+/* -------------------------------------------------------------------------- */
+
+const SET_PACK = {
+  name: "Worship Set Pack",
+  price: "$19",
+  period: "one-time",
+  blurb:
+    "One Helix preset. 8 snapshots. 30 worship songs mapped to snapshots. Yours to keep.",
+  features: [
+    "FK-Worship.hlx preset",
+    "8 snapshots — clean → rock crunch",
+    "30-song Setlist Mapper",
+    "Lifetime updates as the pack refines",
+  ],
+  cta: "Buy Worship Set Pack",
+  href: "/set-packs/worship",
+};
+
+/* -------------------------------------------------------------------------- */
+/*  FAQ                                                                        */
+/* -------------------------------------------------------------------------- */
 
 const FAQ = [
   {
-    q: "Is the recipe library really free?",
-    a: "Yes. Every recipe on the site — signal chain, exact settings, downloadable .hlx and .tsl presets — is free with a sign-up. No quota, no upsell. We ask for your email so we can tell you when new recipes ship.",
+    q: "What's the difference between Free and Pass?",
+    a: "Free gives you the entire recipe catalog plus 5 preset downloads per month. Pass removes the download quota and adds early access to new recipes (1 week before public), members-only deep-dive content, a Members Discord, 30% off every Set Pack forever, and the Tone Adapter when it ships. Free is generous on purpose — Pass is for people who use the site every week.",
   },
   {
-    q: "Why one-time Set Pack pricing instead of a subscription?",
-    a: "A subscription only makes sense for things you use weekly. The recipe library is a reference — most people grab the 5 or 10 presets they care about and move on. Charging monthly for that is bad value. Set Packs are different: one preset, eight snapshots, 30+ songs mapped to those snapshots. That's a one-time solution to your gig, so we sell it that way.",
+    q: "Why a subscription this time? Didn't you retire Tone Pass and Pro?",
+    a: "The old tiers ($7 and $12/mo) gave away the same features as free. They had nothing to upgrade for. Pass is a single tier with real ongoing value: unlimited downloads, new content, community. At $39/year that's $3.25/month — below the friction threshold most guitarists are willing to pay for a tool they use weekly.",
+  },
+  {
+    q: "Is there a free trial?",
+    a: "The free tier IS the trial. 5 downloads per month, every feature visible, no card required. Try us for a month — if you're hitting the quota and want more, upgrade. If you're not hitting it, you didn't need Pass anyway.",
+  },
+  {
+    q: "Can I cancel anytime?",
+    a: "Yes — from your dashboard, no email required, no friction. You keep Pass features until the end of the period you already paid for, then your account flips back to free (with the 5 downloads/month quota). No partial refunds for the unused portion of a paid period.",
+  },
+  {
+    q: "What about people who signed up before today?",
+    a: "Anyone with a free account before 2026-06-09 keeps unlimited preset downloads forever, regardless of whether they upgrade. We're not changing the deal you signed up for.",
+  },
+  {
+    q: "Why one-time Set Pack pricing instead of subscription?",
+    a: "Set Packs are a single solution to a single problem — your gig. One preset, eight snapshots, 30+ songs mapped. That's a thing you use forever, not a thing you re-evaluate every month. We sell it that way.",
   },
   {
     q: "Will there be more Set Packs?",
-    a: "Yes. Classic Rock, 90s/Alternative, and Blues are in production. You can sign up for the notify list on the Set Packs page; you'll hear from us when each ships.",
+    a: "Yes. Blues, Classic Rock, Metal, and Indie are next. Pass subscribers get 30% off every pack we ship — for as long as they're Pass subscribers.",
   },
   {
-    q: "Which platforms get presets?",
-    a: "Helix (.hlx) and Boss Katana (.tsl) export today. Quad Cortex, TONEX, Fractal, and Kemper exports are on the roadmap. The recipe pages always show the parameter values for every platform whether the export exists yet or not.",
-  },
-  {
-    q: "What about people who signed up for Tone Pass or Pro?",
-    a: "The subscription plans are retired. Anyone who subscribed continues to have full access for as long as they wish — billing simply stops. If you want a refund on any remaining time, email hello@faderandknob.com.",
+    q: "What about people on the old Tone Pass or Pro tiers?",
+    a: "Those plans are retired. Existing subscribers continue to have full access for as long as they want — billing simply stops. Email hello@faderandknob.com if you want a prorated refund on remaining time.",
   },
 ];
+
+/* -------------------------------------------------------------------------- */
+/*  Page                                                                       */
+/* -------------------------------------------------------------------------- */
 
 export default function PricingPage() {
   return (
@@ -99,39 +105,84 @@ export default function PricingPage() {
           </div>
           <h1 className="recipe-title display">Pricing</h1>
           <p className="recipe-summary">
-            The recipe catalog is free. Set Packs are one-time purchases — buy
-            the bundle that solves your gig, keep it forever.
+            Free to browse, every recipe, every platform. Upgrade to Pass for
+            unlimited preset downloads and members-only depth. Set Packs are
+            one-time purchases — you buy them, you keep them.
           </p>
         </header>
 
+        {/* Free + Pass — the two-column subscription comparison */}
         <div className="pricing-grid">
-          {PLANS.map((p) => (
-            <div
-              key={p.name}
-              className={`pricing-card ${p.highlight ? "is-highlight" : ""}`}
+          <div className="pricing-card">
+            <h2 className="pricing-name">Free</h2>
+            <div className="pricing-price-row">
+              <span className="pricing-price">$0</span>
+              <span className="pricing-period">/forever</span>
+            </div>
+            <p className="pricing-subnote">
+              Generous on purpose. Quota only catches you if you're a
+              heavy downloader.
+            </p>
+            <p className="pricing-blurb">
+              The entire recipe library, every platform, plus 5 preset
+              downloads each month. No card.
+            </p>
+            <ul className="pricing-features">
+              {FREE_FEATURES.map((f) => (
+                <li key={f}>{f}</li>
+              ))}
+            </ul>
+            <Link
+              href="/signup"
+              className="hero-cta hero-cta-secondary pricing-cta"
             >
-              {p.highlight && <span className="pricing-badge">Start here</span>}
-              <h2 className="pricing-name">{p.name}</h2>
+              Sign up free
+            </Link>
+            <p className="pricing-fine">No card. No upsell on the free flow.</p>
+          </div>
+
+          {/* Pass — client component owns the annual/monthly toggle. */}
+          <PassPricingCard />
+        </div>
+
+        {/* Set Packs — kept below the subscription comparison so the
+            primary upgrade narrative is Free → Pass, not Free → Set
+            Pack. Set Packs are a secondary purchase pattern (one-time,
+            problem-specific) and live in their own section. */}
+        <section className="pricing-set-packs">
+          <header className="how-head">
+            <h2 className="display">Set Packs</h2>
+            <span className="section-rule" aria-hidden="true" />
+          </header>
+          <p className="pricing-set-packs-intro">
+            One-time purchases. A single preset, eight snapshots, and the
+            song-to-snapshot map for your gig. Pass subscribers get{" "}
+            <strong>30% off</strong> every pack — automatically.
+          </p>
+          <div className="pricing-grid pricing-grid-single">
+            <div className="pricing-card">
+              <h3 className="pricing-name">{SET_PACK.name}</h3>
               <div className="pricing-price-row">
-                <span className="pricing-price">{p.price}</span>
-                <span className="pricing-period">{p.period}</span>
+                <span className="pricing-price">{SET_PACK.price}</span>
+                <span className="pricing-period">{SET_PACK.period}</span>
               </div>
-              <p className="pricing-blurb">{p.blurb}</p>
+              <p className="pricing-blurb">{SET_PACK.blurb}</p>
               <ul className="pricing-features">
-                {p.features.map((f) => (
+                {SET_PACK.features.map((f) => (
                   <li key={f}>{f}</li>
                 ))}
               </ul>
               <Link
-                href={p.href}
-                className={`hero-cta ${p.highlight ? "hero-cta-primary" : "hero-cta-secondary"} pricing-cta`}
+                href={SET_PACK.href}
+                className="hero-cta hero-cta-secondary pricing-cta"
               >
-                {p.cta}
+                {SET_PACK.cta}
               </Link>
             </div>
-          ))}
-        </div>
+          </div>
+        </section>
 
+        {/* FAQ */}
         <section className="pricing-faq">
           <div className="how-head">
             <h2 className="display">Frequently asked</h2>

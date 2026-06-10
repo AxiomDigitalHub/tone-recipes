@@ -121,7 +121,13 @@ export async function POST(req: NextRequest) {
     case "checkout.session.completed": {
       const session = event.data.object as Stripe.Checkout.Session;
       const userId = session.metadata?.supabase_user_id;
+      // "pass" is the live tier as of the 2026-06-09 relaunch. "premium"
+      // and "creator" are kept in the union so a stale webhook for a
+      // pre-retirement subscription still parses and routes correctly
+      // (the application layer aliases those legacy roles to free +
+      // grandfather; see src/lib/permissions.ts).
       const plan = session.metadata?.plan as
+        | "pass"
         | "premium"
         | "creator"
         | undefined;
