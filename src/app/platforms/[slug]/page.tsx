@@ -16,6 +16,7 @@ import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
 import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
+import { platformJsonLdSet } from "@/lib/seo/jsonld";
 
 export function generateStaticParams() {
   return getAllPlatforms().map((p) => ({ slug: p.id }));
@@ -303,8 +304,21 @@ export default async function PreviewPlatformDetail({
   const allPlatforms = getAllPlatforms();
   const family = PLATFORM_FAMILY[slug];
 
+  const { product: platformProduct, breadcrumb: platformBreadcrumb } =
+    platformJsonLdSet(platform);
+
   return (
     <div className="container">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(platformProduct) }}
+      />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(platformBreadcrumb) }}
+      />
       <div className="platform-detail">
         <div className="recipe-crumbs">
           <Link href="/">Home</Link>

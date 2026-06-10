@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { collectionPageJsonLd } from "@/lib/seo/jsonld";
 
 /**
  * /guides — Pillar-hub index.
@@ -92,8 +93,25 @@ const PILLARS: Pillar[] = [
 ];
 
 export default function GuidesIndexPage() {
+  const collectionLd = collectionPageJsonLd({
+    name: "Guides — Fader & Knob",
+    description:
+      "Pillar guides from Fader & Knob: artist tone recipes, pedal settings, amp settings, modeler mastery, signal chain theory, worship guitar, bedroom tone, and tone troubleshooting.",
+    url: "https://faderandknob.com/guides",
+    items: PILLARS.map((p) => ({
+      url: `https://faderandknob.com/guides/${p.slug}`,
+      name: p.title,
+      description: p.blurb,
+    })),
+  });
+
   return (
     <article className="container mx-auto max-w-3xl px-4 py-12 md:py-16">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }}
+      />
       <div className="recipe-crumbs">
         <Link href="/">Home</Link>
         <span className="sep">/</span>

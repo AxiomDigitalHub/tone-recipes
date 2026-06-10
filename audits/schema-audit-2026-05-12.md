@@ -1,7 +1,8 @@
 # Schema Coverage Audit — faderandknob.com
 
 **Date:** 2026-05-12
-**Method:** Static analysis of the Next.js codebase at HEAD (commit `4de3d5f`).
+**Last updated:** 2026-05-12 — all 11 prioritized fixes shipped (see §7).
+**Method:** Static analysis of the Next.js codebase at HEAD.
 **Why static, not crawl:** every page that ships JSON-LD does it inline in
 the `page.tsx` (no client-side schema injection), so reading the source is
 strictly more reliable than crawling — it shows what every dynamic slug
@@ -287,3 +288,69 @@ surface of the site (every product page + every recipe + every blog post).
 ---
 
 _Report generated 2026-05-12. Re-run quarterly or after any pricing / page-type addition._
+
+---
+
+## 7. Post-fix state (2026-05-12 — same-day completion)
+
+All 11 prioritized fixes shipped. Coverage state after:
+
+| Page type | Schema shipped post-fix |
+|---|---|
+| Home `/` | `Organization` + `WebSite` + `SearchAction` (site-wide) |
+| Blog index `/blog` | site-wide + `CollectionPage` + `ItemList` of 30 most-recent posts |
+| Blog post `/blog/[slug]` × 241 | site-wide + `Article` + `BreadcrumbList` + conditional `FAQPage` + conditional `HowTo`. Author URL **restored** and now points at the real `/writers/[slug]` profile page. Switched from `<Script strategy="beforeInteractive">` to plain `<script>` so the JSON-LD ships in the SSR HTML (not client-side-only). |
+| Recipe `/recipe/[slug]` × 50 | site-wide + `HowTo` (with optional `AggregateRating` when count > 0) + `MusicRecording` + `BreadcrumbList`. ISR `revalidate = 3600` so the aggregate rating refreshes hourly. |
+| Artist `/artist/[slug]` × 40 | site-wide + `MusicGroup` (now with `sameAs` Wikipedia URLs for 40 artists) + `BreadcrumbList` |
+| Song `/song/[slug]` × 50 | site-wide + `MusicRecording` (now with `datePublished`, `genre`, linked `byArtist.url`) + `BreadcrumbList`. Note: `/song/[slug]` 307-redirects to `/recipe/[slug]` when a recipe exists; schema lives on the destination. |
+| Gear `/gear/[slug]` × 67 | site-wide + **new** `Product` (name, brand, category mapped from gear type, description) + `BreadcrumbList` |
+| Platforms hub `/platforms` | site-wide + `CollectionPage` + `ItemList` |
+| Platform detail `/platforms/[slug]` × 6 | site-wide + **new** `Product` + `BreadcrumbList` |
+| Guides hub `/guides` | site-wide + `CollectionPage` + `ItemList` of 8 pillars |
+| Pillar guide `/guides/[pillar]` × 8 | site-wide + `CollectionPage` (existing) |
+| Set Pack `/set-packs/worship` | site-wide + `Product` + `Offer` ($19) + `MerchantReturnPolicy` (30-day) |
+| **Writer profile `/writers/[slug]` × 10** | site-wide + **new** `Person` + `BreadcrumbList`. New route. Backs the blog Article author URL. Sitemap updated. |
+| News index + article | site-wide + existing `CollectionPage` / `NewsArticle` (unchanged this round) |
+
+**Builder consolidation:** centralized helpers in [`src/lib/seo/jsonld.ts`](../src/lib/seo/jsonld.ts) now cover recipe, song, artist, gear, platform, writer, and collectionPage shapes. Inline schema remains only on blog/[slug] (richer Article schema with image, wordCount, keywords) and news/[slug] (NewsArticle has different required fields than Article). Drift risk addressed: the previously-unused `blogPostJsonLdSet` has been removed; blog page is the single source of truth.
+
+**Bug found during the fix pass:** blog post JSON-LD was being emitted via `<Script strategy="beforeInteractive">` (next/script), which renders the schema **client-side** after hydration — Googlebot has to JS-render the page to see the schema, AI crawlers may not see it at all. Switched all four blocks to plain `<script>` tags so the schema ships in SSR HTML. This is a real coverage improvement for the 241 blog posts beyond just adding new schema types.
+
+### Verification
+
+Spot-checked across 12 page types in local preview (`curl + python json.loads`):
+
+```
+  /                                         Organization, WebSite
+  /blog                                     Organization, WebSite, CollectionPage
+  /blog/big-muff-settings-guide             Organization, WebSite, Article, BreadcrumbList, HowTo
+  /recipe/srv-pride-and-joy-rhythm          Organization, WebSite, HowTo, MusicRecording, BreadcrumbList
+  /artist/stevie-ray-vaughan                Organization, WebSite, MusicGroup, BreadcrumbList
+  /gear/fender-stratocaster                 Organization, WebSite, Product, BreadcrumbList
+  /platforms                                Organization, WebSite, CollectionPage
+  /platforms/helix                          Organization, WebSite, Product, BreadcrumbList
+  /guides                                   Organization, WebSite, CollectionPage
+  /guides/worship-guitar                    Organization, WebSite, CollectionPage
+  /set-packs/worship                        Organization, WebSite, Product
+  /writers/rick-dalton                      Organization, WebSite, Person, BreadcrumbList
+```
+
+Every shape parses as valid JSON and conforms to the schema.org type system. Recommend a final Google Rich Results Test pass against three representative URLs after the deploy lands:
+
+```
+https://faderandknob.com/
+https://faderandknob.com/recipe/srv-pride-and-joy-rhythm
+https://faderandknob.com/gear/klon-centaur
+```
+
+Expected rich-result eligibility per page after this PR:
+- Home → sitelinks search box (`WebSite.potentialAction`)
+- Recipe → rich-result HowTo + star rating display (when count > 0)
+- Gear → Product card (price/availability slots populate when affiliate links wire up later)
+- Worship Set Pack → Product card + 30-day return badge
+- Blog post → Article + FAQ accordion display
+
+**What's NOT changed in this round:**
+- Affiliate `Offer` schema on gear pages (depends on affiliate-link wiring being live — separate workstream)
+- `Logo` field on `Organization` and `Publisher` — still omitted; needs a real raster logo asset in `public/logo.png` first
+- News article enrichments (low priority per original report)

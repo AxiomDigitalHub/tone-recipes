@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { toneRecipes, artists, gearItems } from "@/lib/data";
 import { getAllPosts } from "@/lib/blog";
+import { getAllWriters } from "@/lib/writers";
 import { getAllPlatforms } from "@/lib/data/platforms";
 import { getAllNewsPosts } from "@/lib/news";
 
@@ -77,6 +78,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // Writer profile pages — built 2026-05-12 to back the Article.author.url
+  // emitted on every blog post. fader-and-knob is the editorial-neutral
+  // catch-all byline; we don't index that one.
+  const writerPages: MetadataRoute.Sitemap = getAllWriters()
+    .filter((w) => w.slug !== "fader-and-knob")
+    .map((w) => ({
+      url: `${baseUrl}/writers/${w.slug}`,
+      lastModified: latestBlogDate,
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    }));
+
   const platformPages: MetadataRoute.Sitemap = getAllPlatforms().map((p) => ({
     url: `${baseUrl}/platforms/${p.id}`,
     lastModified: latestBlogDate,
@@ -84,5 +97,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...recipePages, ...artistPages, ...gearPages, ...blogPages, ...newsPages, ...platformPages];
+  return [...staticPages, ...recipePages, ...artistPages, ...gearPages, ...blogPages, ...newsPages, ...platformPages, ...writerPages];
 }

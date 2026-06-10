@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllPlatforms } from "@/lib/data/platforms";
+import { collectionPageJsonLd } from "@/lib/seo/jsonld";
 
 export const metadata: Metadata = {
   title: "Platforms — Fader & Knob",
@@ -25,8 +26,25 @@ const HUE_BY_PLATFORM: Record<string, number> = {
 export default function PreviewPlatformsIndex() {
   const platforms = getAllPlatforms();
 
+  const collectionLd = collectionPageJsonLd({
+    name: "Platforms — Fader & Knob",
+    description:
+      "Every recipe ports to Helix, Quad Cortex, TONEX, Fractal, Kemper, Boss Katana, and pedalboard. Pick your modeler.",
+    url: "https://faderandknob.com/platforms",
+    items: platforms.map((p) => ({
+      url: `https://faderandknob.com/platforms/${p.id}`,
+      name: p.label,
+      description: p.tagline,
+    })),
+  });
+
   return (
     <div className="container">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }}
+      />
       <section className="platforms-index">
         <div className="recipe-crumbs">
           <Link href="/">Home</Link>

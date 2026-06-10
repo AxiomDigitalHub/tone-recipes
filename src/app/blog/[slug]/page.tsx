@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import Script from "next/script";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
@@ -111,10 +110,9 @@ export default async function PreviewBlogPost({
     author: {
       "@type": "Person",
       name: writer.name,
-      // NOTE: `url` intentionally omitted as of 2026-05-12 — the
-      // `/writers/[slug]` route doesn't exist, so emitting a URL
-      // pointed at a 404 was actively bad for E-E-A-T signals.
-      // Restore once /writers/[slug] profile pages ship.
+      // /writers/[slug] now exists (built 2026-05-12) — restored to
+      // give Google a real Person URL to follow for E-E-A-T.
+      url: `${SITE_URL}/writers/${writer.slug}`,
     },
     publisher: {
       "@type": "Organization",
@@ -178,32 +176,34 @@ export default async function PreviewBlogPost({
 
   return (
     <div className="container">
-      {/* Article JSON-LD — Article schema always; FAQPage only when FAQs exist. */}
-      <Script
-        id="article-ld"
+      {/* JSON-LD: Article + Breadcrumb always; FAQPage and HowTo
+          conditionally. Switched from next/script's <Script
+          strategy="beforeInteractive"> to plain <script> on 2026-05-12
+          because beforeInteractive renders these client-side, which
+          makes the SSR HTML schema-empty until JS executes — bad for
+          crawlers that don't render. Plain script tags ship inline in
+          the SSR HTML, which is what Googlebot and AI engines want. */}
+      <script
         type="application/ld+json"
-        strategy="beforeInteractive"
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
       />
       {faqLd && (
-        <Script
-          id="faq-ld"
+        <script
           type="application/ld+json"
-          strategy="beforeInteractive"
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
         />
       )}
-      <Script
-        id="breadcrumb-ld"
+      <script
         type="application/ld+json"
-        strategy="beforeInteractive"
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       {howToLd && (
-        <Script
-          id="howto-ld"
+        <script
           type="application/ld+json"
-          strategy="beforeInteractive"
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }}
         />
       )}

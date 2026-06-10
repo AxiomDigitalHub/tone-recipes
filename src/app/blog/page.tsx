@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getAllPosts, getCallNumber, BLOG_CATEGORIES } from "@/lib/blog";
 import { getAllWriters } from "@/lib/writers";
 import { BlogArchive, type ArchiveGroup } from "@/components/v3/BlogArchive";
+import { collectionPageJsonLd } from "@/lib/seo/jsonld";
 import type { Metadata } from "next";
 
 /**
@@ -124,8 +125,27 @@ export default function PreviewBlogIndex() {
 
   const writers = getAllWriters();
 
+  // CollectionPage + ItemList JSON-LD covering the top 30 most-recent
+  // posts. Closes schema audit finding #10 (blog index had no schema).
+  const collectionLd = collectionPageJsonLd({
+    name: "Field Notes — Fader & Knob",
+    description:
+      "Long-form writing on tone, gear, and the songs you love. Pedalboard architecture, modeler block deep-dives, vintage gear histories, signal chain forensics.",
+    url: "https://faderandknob.com/blog",
+    items: all.slice(0, 30).map((p) => ({
+      url: `https://faderandknob.com/blog/${p.slug}`,
+      name: p.title,
+      description: p.description,
+    })),
+  });
+
   return (
     <div className="container">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }}
+      />
       <div className="recipe">
         {/* Breadcrumbs — same language as the recipe detail page */}
         <div className="recipe-crumbs">

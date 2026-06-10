@@ -28,6 +28,10 @@ import type { Metadata } from "next";
  * visual system. When the direction locks and migrates, this route retires.
  */
 
+// 1-hour ISR so the AggregateRating in JSON-LD doesn't lag too far
+// behind incoming ratings (rest of the page is content-stable).
+export const revalidate = 3600;
+
 export function generateStaticParams() {
   return toneRecipes.map((r) => ({ slug: r.slug }));
 }
@@ -146,7 +150,25 @@ export default async function PreviewRecipePage({
     limit: 3,
   });
 
-  const { howTo, musicRecording, breadcrumb } = recipeJsonLdSet(recipe, song, artist);
+  // Aggregate rating stats for AggregateRating in JSON-LD. Read at
+  // request time (this page is ISR-revalidated, so it's per-build, not
+  // per-request hot path). Failure / no Supabase → undefined → schema
+  // simply omits AggregateRating.
+  let stats: { average: number; count: number } | undefined;
+  try {
+    const { getRatingStats } = await import("@/lib/db/ratings");
+    const s = await getRatingStats(recipe.slug);
+    if (s.count > 0) stats = { average: s.average, count: s.count };
+  } catch {
+    // analytics never break SSR
+  }
+
+  const { howTo, musicRecording, breadcrumb } = recipeJsonLdSet(
+    recipe,
+    song,
+    artist,
+    stats,
+  );
 
   return (
     <div className="container">

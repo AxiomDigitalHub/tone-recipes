@@ -12,6 +12,7 @@ import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
 import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
+import { gearJsonLdSet } from "@/lib/seo/jsonld";
 
 export function generateStaticParams() {
   return gearItems.map((g) => ({ slug: g.slug }));
@@ -59,8 +60,20 @@ export default async function GearDetailPage({
     limit: 3,
   });
 
+  const { product, breadcrumb } = gearJsonLdSet(gear);
+
   return (
     <div className="container">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(product) }}
+      />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="gear-detail">
         <div className="recipe-crumbs">
           <Link href="/">Home</Link>
