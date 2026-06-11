@@ -2328,3 +2328,61 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 | 3 | sidechain-vs-inline-noise-gate | Sidechain vs. Inline Noise Gates: When the Detector Needs Its Own Signal | "sidechain noise gate," "noise gate key input guitar," "why does my noise gate stutter on high gain," "decimator g string vs standard" | Viktor Kessler | 6 — Quick Fixes | The 4CM post named the sidechain concept (Fortin "sidechain secret" ranks); this is the standalone explainer. Direct-answer definition, the chatter-fix mechanism, and the ISP G-String / two-jack hardware that does it. Viktor's gate authority. |
 | 4 | ported-vs-sealed-guitar-cab-tone | Ported vs. Sealed Guitar Cabs: Does a Vent Actually Change Your Tone? | "ported vs sealed guitar cab," "vented guitar speaker cabinet tone," "should a guitar cab be ported," "open back vs ported cab" | Carl Beckett | 5 — Gear Lab | The cabinet-volume post's "vent the back" fix deserves its own piece; the SERP is all bass/hi-fi ported-box calculators with nothing guitar-facing. Explain what a port does to the resonance, why guitar cabs are usually sealed or open rather than ported, and when a vent helps. Carl's cab-builder voice. |
 | 5 | mixed-cab-speaker-wiring-order-input-jack | Which Speaker Goes Nearest the Input Jack? Wiring Order in a Mixed Cab | "speaker wiring order cab," "which speaker first in cab," "mixed speaker cab wiring," "higher wattage speaker near input jack" | Hank Presswood | 6 — Quick Fixes | Surfaced by the mixing-speakers SERP (Scumback: the first speaker from the input takes the biggest current surge → wire the higher-wattage speaker nearest the jack). Niche but a strong extractable answer with a clear PAA. Hank's vintage-cab lore. |
+
+---
+
+## Daily Run — 2026-06-11 (3 new posts + 2 refreshes + SERP analysis + 3 new topics)
+
+**Cadence note:** First run under the 2026-06-10 cadence change (2-3 new + 1-2 refreshes, down from 5 new/day). Shipped **3 new + 2 refreshes**. This directly answers the standing "take a quiet day" recommendation from the last three runs — fewer new URLs, capacity reinvested in proven pages.
+
+**Velocity note:** Pre-run audit (`scripts/persona-velocity.ts`) showed `fk-staff` far over cap (13/7d), `hank-presswood` and `margot-thiessen` at the 3/week cap, and capacity in rick, carl, viktor, sean, jess, dev. The three 2026-06-10 queue topics that fit available personas with authentic voice were assigned: **Viktor** (sidechain gate), **Sean** (line-level loop), **Carl** (ported vs sealed cab). All three go 2→3 (at cap, not over). The two remaining 2026-06-10 topics (tube-screamer-front-distortion, mixed-cab-wiring-order) were both Hank-assigned and **carried forward** — Hank is at cap this week. Refreshes keep their original byline (Sean, Margot) and do NOT count against the new-post cap.
+
+**Image pipeline:** Flux 2 Pro (`--model=black-forest-labs/flux-2-pro`; default gpt-image-1-via-Replicate still throttled). 3 heroes generated, ~$0.17, 0 errors. Moodboards by author: Viktor → neon_noir, Sean → bedroom_producer, Carl → vintage_film.
+
+### Posts published this run
+
+**New (3):**
+
+| # | Slug | Title | Writer | Pillar |
+|---|---|---|---|---|
+| 1 | sidechain-vs-inline-noise-gate | Sidechain vs. Inline Noise Gates: When the Detector Needs Its Own Signal | Viktor Kessler | 6 — Quick Fixes |
+| 2 | line-level-vs-instrument-level-effects-loop | Line-Level vs. Instrument-Level Effects Loops: Why Your Pedals Clip or Go Weak | Sean Nakamura | 3 — Signal Chain |
+| 3 | ported-vs-sealed-guitar-cab-tone | Ported vs. Sealed Guitar Cabs: Does a Vent Actually Change Your Tone? | Carl Beckett | 5 — Gear Lab |
+
+**Refreshes (2):**
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | effects-loop-explained | Added `takeaways` + `faq` frontmatter (post had neither — a pillar with no answer-engine surface); added body cross-links to the new `series-vs-parallel-effects-loop` and `line-level-vs-instrument-level-effects-loop` posts; set `updated: 2026-06-11`. | Striking-distance signal-chain pillar (`featured: true`) with zero AEO surface. Adding takeaways/FAQ + cluster links is a real discovery-surface gain on a proven URL, not metadata churn. |
+| R2 | v30-still-right-medium-gain-rock | Migrated legacy `<FAQ questions={[...]}>` body component → frontmatter `faq:` (removes the duplicate-JSON-LD risk the validator warns on); added `takeaways:`; trimmed an over-length description (346→~178 chars); added a cab-cluster paragraph linking `open-back-vs-closed-back-cab-tone` and the new `ported-vs-sealed-guitar-cab-tone`; set `updated: 2026-06-11`. | Legacy `<FAQ>` migration (one of ~90 remaining) + answer-surface add + ties the speaker post into the cab-construction cluster the new Carl post anchors. |
+
+### SERP Analysis (2026-06-11)
+
+> **AI Overview note:** The search API used this run returns organic results, not the AI Overview block, so AIO presence/citation could not be directly captured here. Flagged for the monthly `weekly-recipe-audit` Step 5.5 to verify on the live SERP per `docs/AI_SEARCH_PLAYBOOK.md` §8. Estimates below are query-class judgments, not observations.
+
+**1. Sidechain vs. inline noise gate (Viktor)**
+- *Target:* "sidechain noise gate," "noise gate key input guitar," "why does my noise gate stutter on high gain," "decimator g string vs standard"
+- *Top results:* Fractal Audio Wiki (Noise gate), Premier Guitar ("Sidechain Techniques with Gates in the Recording Studio"), Guitar World ("Best noise gate pedals 2026"), Kemper + Fractal + Gear Forum threads (sidechain gate feature requests / input-vs-sidechain), practical-music-production.com (sidechain on compressor and gate).
+- *Gap we fill / cross-check:* The ranking is **forum threads + one studio-recording sidechain article (Premier Guitar) + a best-pedals listicle**. SERP confirms every load-bearing claim: a sidechain/key input "listens to a reference signal to decide when to open"; the **ISP Decimator G String uses the clean guitar signal as the trigger**; with a sidechain gate after the amp "the decay of the note seems much more natural since it just turns down the volume and not the gain." No single guitar-facing post unifies the inline-vs-sidechain mechanism + the **Decimator II vs. Decimator II G String System buyer line** + the **modeler key-input/two-gate rebuild**. We own that consolidation. **Fact folded in (verified):** the post's "release-time isn't the fix, detection signal is" thesis matches the SERP's "set the threshold more sensitively because it only deals with the non-distorted pickup signal." AIO estimate: likely present (definitional + buyer query); citation unverified.
+
+**2. Line-level vs. instrument-level effects loop (Sean)**
+- *Target:* "line level vs instrument level effects loop," "+4dbu effects loop pedals," "why do my pedals clip in the fx loop," "effects loop too hot for pedals"
+- *Top results:* Kemper Forum (FX loop instrument-or-line), theFretBoard, Strat-Talk, Ultimate Guitar ("Frustrations making instrument-level pedals work in line-level loops"), Z-Talk, Mesa Boogie Forum (Mark V FX loop level), Harmony Central ("using pedals in a line level loop"), ovnilab.com (line/instrument/mic level explainer).
+- *Gap we fill / cross-check:* The ranking is **almost entirely forum threads + one generic signal-level explainer (ovnilab)** — no structured, guitar-facing troubleshooting guide. SERP confirms: line-level signals' larger voltage swings clip devices without the headroom; "if a signal sounds weak, thin and noisy, it's likely line level"; multiple real reports of Boss delay/chorus clipping in line-level loops. Our differentiators the SERP lacks: the **symptom→cause→fix table**, the **bidirectional failure map** (hot send clips going in / cold pedal starves coming back), the named **level-matching interfaces** (Radial EXTC, Suhr Rückmount), and the **modeler send/return level** translation. **New cross-check surfaced (not in post, → follow-on):** impedance also differs (line ~50-60 kΩ vs instrument ~1 MΩ) — worth its own piece. AIO estimate: likely (troubleshooting "why" query); citation unverified.
+
+**3. Ported vs. sealed guitar cab (Carl)**
+- *Target:* "ported vs sealed guitar cab," "vented guitar speaker cabinet tone," "should a guitar cab be ported," "open back vs ported cab"
+- *Top results:* Eminence ("Sealed vs. Ported Enclosures"), Fluance (hi-fi), Carvin Audio ("Sealed vs. Ported: What's the Difference?"), TalkBass (front/rear ported vs sealed), Audioholics, Ohm Speakers, diyAudio, Harmony Central (bass).
+- *Gap we fill / cross-check:* The ranking is **speaker-maker explainers (Eminence, Carvin) + hi-fi/bass forums + DIY-audio threads** — almost none guitar-player-facing. SERP confirms the physics exactly: trapped air "acts as a spring… tighter, punchier, more articulate"; ported = "extended bass response, more rumble, deep, boomy"; and crucially **a rear-ported cab "changes with its distance from the wall"** while a sealed cab "sounds the same wherever placed." Our guitar-specific angle the field lacks: the **one-note resonance bump that muddies palm mutes** (why guitarists skip ports), the **82 Hz / speaker-rolloff** reasoning, Carl's **first-hand failed-port build**, and the **cab-IR equivalent**. Eminence/Carvin are real authorities (competitive), but neither writes the guitarist-facing "why your cab is sealed, not ported" thesis. AIO estimate: likely (broad comparison query); citation unverified. **New cross-check surfaced (→ follow-on):** the wall-distance sensitivity of ported/open-back cabs is a distinct, unwritten guitar topic — queued below.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO notes |
+|---|---|---|---|---|---|---|
+| 1 | ducking-delay-sidechain-repeats | Ducking Delay: How to Sidechain Your Delay So the Repeats Stay Out of the Way | "ducking delay," "sidechain delay guitar," "delay only on note decay," "duck delay repeats under playing" | Dev Okonkwo | 4 — Modeler Masterclass | The sidechain-gate SERP surfaced the sidechain *concept*; this is the creative-effect application, not gate troubleshooting — a genuinely different question. Direct-answer "what is a ducking delay," the auto-swell-vs-ducking distinction, starting threshold/ratio, and Helix/QC implementation (ducked delay block / sidechain). Dev's atmosphere/texture framing. |
+| 2 | cab-placement-wall-bass-boundary | Cab Placement and the Wall: Why a Rear-Ported or Open-Back Cab's Bass Changes Across the Room | "guitar cab against wall bass," "open back cab placement tone," "rear ported cab distance from wall," "cab in corner boomy" | Carl Beckett | 5 — Gear Lab | Surfaced directly by the ported-vs-sealed SERP ("rear-ported cabs change with distance from the wall; sealed sound the same anywhere"). Distinct boundary-effect/placement question. Plain-language boundary reinforcement, the corner-loads-bass rule, sealed-vs-ported/open sensitivity, and practical stage/room placement. Carl's cab voice. |
+| 3 | reamping-through-amp-effects-loop | Reamping Through Your Amp's Effects Loop: Level Matching for Studio Pedals on Guitar | "reamp through effects loop," "run studio pedals in guitar loop," "extc reamp effects loop," "line level studio gear guitar amp" | Sean Nakamura | 3 — Signal Chain | Off the line-level cluster but a distinct workflow question (reamping / running line-level studio gear in a guitar loop). The Radial EXTC-style interface, +4/-10 matching, when reamping through the loop beats re-recording, and the modeler send/return path. Sean's studio/signal-flow precision. |
+
+**Carried forward from 2026-06-10 queue (unassigned — Hank at cap this week):** tube-screamer-front-preamp-or-power-amp-distortion (Hank), mixed-cab-speaker-wiring-order-input-jack (Hank). Pick up next run when Hank resets under cap.
+
+**Follow-on backlog noted this run (not yet queued):** effects-loop input-impedance explainer (1 MΩ vs 50-60 kΩ); ISP Decimator II vs G String System dedicated buyer post (only if it can clear the variant gate against the sidechain post — likely a refresh-the-sidechain-post call instead).

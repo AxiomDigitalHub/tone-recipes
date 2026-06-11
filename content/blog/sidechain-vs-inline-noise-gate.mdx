@@ -1,0 +1,143 @@
+---
+title: 'Sidechain vs. Inline Noise Gates: When the Detector Needs Its Own Signal'
+description: >-
+  A sidechain noise gate reads your clean guitar to decide when to open while it
+  mutes the distorted signal. Here's why that stops high-gain chatter when an
+  inline gate can't.
+date: '2026-06-11'
+author: Viktor Kessler
+author_slug: viktor-kessler
+category: quick-fixes
+tags:
+  - noise-gate
+  - sidechain
+  - high-gain
+  - metal
+  - decimator
+  - gain-staging
+readingTime: 8
+image: /images/blog/sidechain-vs-inline-noise-gate.jpg
+image_alt: >-
+  A high-gain noise gate with a separate detector input jack wired to a clean
+  guitar signal, showing the sidechain key-input routing
+takeaways:
+  - >-
+    An inline noise gate detects the same compressed, distorted signal it is
+    muting, so on high gain it cannot find a stable threshold and either
+    chatters around it or clamps shut while a note is still ringing.
+  - >-
+    A sidechain (key-input) gate splits detection from gating: a dedicated
+    detector jack reads your dry guitar signal while the gate clamps the
+    distorted signal, so it tracks your pick attack instead of a flat wall of
+    saturation.
+  - >-
+    The ISP Decimator II G String System is the hardware that does this with a
+    second jack; the standard Decimator II is a single inline unit that detects
+    whatever passes through it.
+  - >-
+    A faster release time does not fix chatter caused by a compressed detection
+    signal — the detector has to read a signal that still has dynamic range,
+    which means your dry guitar, not the post-distortion mush.
+  - >-
+    On a modeler, feed the gate block's key or sidechain input the clean input
+    signal, or run two gate blocks — one at the input, one after the amp — to
+    rebuild the same decoupling without any cables.
+faq:
+  - q: What is a sidechain noise gate?
+    a: >-
+      It is a gate whose detection circuit listens to a separate signal — the
+      key or sidechain input — rather than the signal it is muting. In a guitar
+      rig you feed that detector your dry, pre-distortion guitar signal, which
+      still has a clear dynamic envelope, so the gate knows precisely when you
+      are playing and when you have stopped. It then opens and closes the gate
+      on the distorted signal downstream. Detection and gating happen on two
+      different signals.
+  - q: >-
+      What's the difference between the ISP Decimator II and the G String
+      version?
+    a: >-
+      The standard Decimator II is a single inline gate: one input, one output,
+      and it detects the signal passing through it. The Decimator II G String
+      System adds a second jack so it can sample your dry guitar at the front of
+      the chain while the gate itself sits later — after your distortion or in
+      the amp's effects loop. That separate detection is what lets the G String
+      track playing dynamics on a heavily saturated rig where the standard unit
+      would chatter.
+  - q: Why does my noise gate stutter or chatter on high gain?
+    a: >-
+      Because it is detecting an already-distorted signal. Distortion compresses
+      everything toward the same level, so a sustaining note and the noise floor
+      sit only a couple of dB apart. The gate cannot find a clean boundary
+      between them, so it flickers open and closed around the threshold. Letting
+      the gate detect your dry guitar instead — via a sidechain input or the
+      4-cable method — gives it a wide, stable gap to work with.
+  - q: 'Do I need a sidechain gate, or will an inline gate work?'
+    a: >-
+      For moderate gain, a well-placed inline gate is fine and most rigs use
+      one. The sidechain or key-input approach earns its complexity when you run
+      modern high or extreme gain, drop tunings, or an always-on boost — the
+      conditions that compress the signal enough to defeat inline detection. If
+      your inline gate chatters no matter how you set the threshold, that is the
+      signal it is reading talking, and a sidechain gate is the fix.
+  - q: How do I set up a sidechain gate on a modeler?
+    a: >-
+      If your modeler's gate block has a key or sidechain input, route it the
+      clean signal from immediately after the input block, then place the gate
+      itself after the amp or drive block. If there is no key input, use two
+      gate blocks: one right at the input reading your clean dynamics, and a
+      second after the amp to catch the noise the gain stage adds. Both rebuild
+      the detect-clean, mute-dirty split in software.
+---
+
+A noise gate that chatters on a high-gain patch is not broken, and it is usually not set wrong either. It is reading the wrong signal. An inline gate detects the same distorted signal it is trying to mute, and distortion is exactly the thing that destroys a gate's ability to find a threshold. The fix is to give the detector its own signal — a sidechain. Here is what that means, the hardware that does it, and how to rebuild it on a modeler with no cables at all.
+
+## The Short Answer
+
+| | Inline gate | Sidechain (key-input) gate |
+|---|---|---|
+| What it detects | The signal passing through it | A separate signal you choose — your dry guitar |
+| What it gates | That same signal | The distorted signal downstream |
+| Detection on high gain | Poor — distortion flattens the envelope | Accurate — dry signal keeps full dynamics |
+| Chatter / early cutoff | Common past the edge of saturation | Largely solved |
+| Hardware example | Standard ISP Decimator II, most pedal gates | ISP Decimator II **G String System** |
+
+The whole game is decoupling. An inline gate has to detect and mute on one signal. A sidechain gate detects on one signal and mutes on another. Past a certain gain level, that separation is the difference between a gate that works and a gate that fights you.
+
+## Why an Inline Gate Loses the Thread on High Gain
+
+Distortion is compression with attitude. Run a clean note through a 5150-class preamp and the gain stage pulls the quiet parts up and holds the loud parts down until a decaying note and the background hiss are sitting maybe 2-3 dB apart. That is the envelope your inline gate has to read.
+
+There is no stable threshold in that signal. Set it high enough to silence the hiss and it eats the tail of every sustained note; set it low enough to keep the sustain and the hiss walks right under it and the gate flutters. The threshold knob feels broken because the signal it is measuring has had its dynamic range squeezed out of it. **Pick attack is everything** here, and on a compressed signal the gate can barely see the transient that tells it you just hit a note.
+
+Putting the gate before the distortion does not save you — the noise is generated *by* the gain stage, so a gate up front has nothing to catch and then you amplify the hiss behind it. The noise lives downstream of where the inline tool wants to sit. That placement problem is its own subject, covered in [where to put a noise gate](/blog/where-to-put-noise-gate-4-cable-method).
+
+## What the Sidechain Input Actually Does
+
+A sidechain — also called a key input or detection input — is a second jack that feeds the gate's detector circuit independently of the signal path. You send it your dry guitar. The gate watches that clean signal, which still has a wide gap between a struck note and silence, and uses it to decide *when* to open. The gate itself acts on the distorted signal later in the chain.
+
+Now the two jobs are on two signals. Detection happens where the dynamics are intact; muting happens where the noise is. The gate closes the instant your dry note decays past the threshold, not whenever the compressed distorted tail finally gives up — which is why the chatter disappears and the note tails survive. This is the same logic as the [4-cable method](/blog/where-to-put-noise-gate-4-cable-method), which uses the amp's effects loop to achieve the same split; the sidechain gate builds the detection jack into the unit so you do not need the loop to do it.
+
+## Decimator II vs. Decimator II G String System
+
+This is the buyer question, so here is the clean line. The **standard ISP Decimator II** is one input, one output, inline. It detects the signal that runs through it. It is a fast, quiet gate and it is enough for a lot of rigs.
+
+The **Decimator II G String System** adds the dry-detection jack. You plug your guitar into the detector, run the dry signal on to your amp's front end, and place the actual gate after your distortion or in the effects loop. The "G String" is shorthand for *guitar dry signal detection*. That dry tap is the entire reason it costs more and the entire reason it holds up on a modern metal rig where the standard unit would stutter. Other gates take the same approach by other names — the Boss NS-2's send/return loop and the MXR Smart Gate's detection behave as a related idea — but the G String is the one most players mean when they say sidechain gate.
+
+## The Surprise: Release Time Wasn't the Problem
+
+When my first high-gain gate chattered, I did what the forums told me: speed up the release so the gate snaps shut faster and the flutter stops. It did not stop. A faster release just made the flutter faster — a stuttering buzz instead of a slow one. I tried the opposite, a long release to ride over the noise, and that smeared the gate into the next note. I had assumed chatter was a timing problem.
+
+It was not a timing problem. It was a detection problem. The gate's timing controls were all reacting correctly to a signal that had no usable threshold in it. The moment I fed the detector the dry guitar instead, the release time I had already set behaved — there was finally a real boundary for it to act on. The lesson generalizes past gates: when a control feels impossible to dial in, check whether the tool is even looking at the right signal before you keep turning knobs. A gate is downstream of [gain staging](/blog/gain-staging-drop-tunings), and so is most of what people blame on the gate.
+
+## The Modeler Version
+
+On a modeler you get the sidechain for free, because routing is just block placement. Two ways to do it:
+
+1. **Key input, if your gate block has one.** Route the gate's key or sidechain input from immediately after the input block — your cleanest tap — and place the gate block itself after the amp or drive block. That is the G String System rebuilt in software.
+2. **Two gate blocks, if it doesn't.** Put one gate right at the input so it reads your clean dynamics, set its threshold just over the noise floor, then add a second gate after the amp block to clamp the noise the modeled gain stage adds. This [two-gate approach](/blog/noise-gate-placement-modeler-preset) is the standard modeler move and it gets you most of the way to true sidechain behavior.
+
+Either way, the threshold finally sits in a stable place because at least one gate is detecting a signal that still has an envelope. And keep the expectation honest: a gate mutes the gaps, it does not remove the noise while you play — the [gate vs. suppressor breakdown](/blog/noise-gate-vs-noise-suppressor) covers what each tool actually does to the noise itself.
+
+## What to Do Next
+
+If your gate chatters and no threshold setting fixes it, stop adjusting the threshold. The signal it is reading is the problem, not the number. On a pedal rig, either run the [4-cable method](/blog/where-to-put-noise-gate-4-cable-method) with a send/return-capable gate or buy a sidechain unit like the Decimator II G String System and feed it your dry guitar. On a modeler, gate at the input, add a second after the amp, and use a key input if you have one. The detector needs a signal it can actually read — give it the clean one, and the gate you already own usually starts behaving.
