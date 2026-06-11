@@ -1,4 +1,5 @@
 import { toneRecipes, songs, artists } from "@/lib/data";
+import { norm, gearBigrams } from "@/lib/match-text";
 import type { ToneRecipe } from "@/types/recipe";
 
 /**
@@ -22,23 +23,6 @@ export interface RelatedRecipeMatch {
 
 const songBySlug = new Map(songs.map((s) => [s.slug, s]));
 const artistBySlug = new Map(artists.map((a) => [a.slug, a]));
-
-/** "John-Mayer" / "john-mayer" / "John Mayer" → "john mayer" */
-function norm(s: string): string {
-  return s.toLowerCase().replace(/-/g, " ").replace(/\s+/g, " ").trim();
-}
-
-/**
- * Two-word phrases from a gear name, e.g. "Ibanez TS808 Tube Screamer" →
- * ["ibanez ts808", "ts808 tube", "tube screamer"]. Bigrams are specific
- * enough to avoid single-word false positives ("delay", "fuzz").
- */
-function gearBigrams(name: string): string[] {
-  const words = norm(name).split(" ").filter((w) => w.length >= 2);
-  const out: string[] = [];
-  for (let i = 0; i < words.length - 1; i++) out.push(`${words[i]} ${words[i + 1]}`);
-  return out;
-}
 
 export function findRelatedRecipes(
   postTitle: string,

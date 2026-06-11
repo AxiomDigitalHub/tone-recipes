@@ -9,8 +9,7 @@ import {
 import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
 import { PreviewRecipeClient } from "@/components/v3/PreviewRecipeClient";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
-import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
-import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
+import { RelatedPosts } from "@/components/RelatedPosts";
 import RecipePdfButton from "@/components/v3/RecipePdfButton";
 import RecipeDownloadChip from "@/components/v3/RecipeDownloadChip";
 import PresetDownloadButton from "@/components/recipe/PresetDownloadButton";
@@ -132,23 +131,6 @@ export default async function PreviewRecipePage({
       return firstTag ? r.tags?.includes(firstTag) : false;
     })
     .slice(0, 3);
-
-  // Related Field Notes — match against the recipe's tags + the gear
-  // names in its signal chain + the artist + the song title. Posts get
-  // ranked, top 3 shown.
-  const gearKeywords = (recipe.signal_chain ?? [])
-    .map((b) => b.gear_name)
-    .filter((s): s is string => Boolean(s))
-    .slice(0, 8);
-  const relatedPosts = findRelatedPosts({
-    keywords: [
-      ...(artist?.name ? [artist.name] : []),
-      ...(song?.title ? [song.title] : []),
-      ...gearKeywords,
-    ],
-    tags: recipe.tags ?? [],
-    limit: 3,
-  });
 
   // Aggregate rating stats for AggregateRating in JSON-LD. Read at
   // request time (this page is ISR-revalidated, so it's per-build, not
@@ -444,12 +426,10 @@ export default async function PreviewRecipePage({
             Auth-gated post; anon users see read-only with sign-in CTA. */}
         <RecipeInteractions recipeSlug={recipe.slug} />
 
-        {/* Related Field Notes — pulls from the blog when there's a
-            keyword/tag overlap (gear, artist, song). */}
-        <FieldNotesRail
-          title="Field notes for this tone"
-          posts={relatedPosts}
-        />
+        {/* Field notes on this tone — precision-first recipe→blog links
+            (reverse of RelatedRecipes on /blog/[slug]; renders nothing
+            when no post genuinely matches). */}
+        <RelatedPosts recipe={recipe} />
 
         {/* Related recipes */}
         {related.length > 0 && (
