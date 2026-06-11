@@ -121,9 +121,12 @@ export default function RootLayout({
                   "@id": "https://faderandknob.com#org",
                   name: "Fader & Knob",
                   url: "https://faderandknob.com",
-                  // NOTE: logo field intentionally omitted — no /logo.png
-                  // raster asset exists today. Add a real 600×60 PNG and
-                  // restore the `logo` field once it ships.
+                  logo: {
+                    "@type": "ImageObject",
+                    url: "https://faderandknob.com/logo.png",
+                    width: 600,
+                    height: 60,
+                  },
                   description:
                     "Tone recipes from the songs you love. Signal chains, exact settings, and downloadable presets for Helix, Quad Cortex, TONEX, Fractal, Kemper, and Boss Katana.",
                 },

@@ -119,10 +119,12 @@ export default async function PreviewBlogPost({
       "@type": "Organization",
       name: "Fader & Knob",
       url: SITE_URL,
-      // NOTE: `logo` was emitting `${SITE_URL}/logo.png` which doesn't
-      // exist (broken since launch). Removed 2026-05-12 to stop shipping
-      // a 404 reference on 241 blog posts. Restore when a real
-      // 600×60 PNG logo ships in public/.
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/logo.png`,
+        width: 600,
+        height: 60,
+      },
     },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
     articleSection: catLabel,
