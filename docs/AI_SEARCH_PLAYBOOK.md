@@ -44,6 +44,15 @@ Quoted or paraphrased directly from the guide — stop investing in these and do
 
 ## 5. Non-Google answer engines (ChatGPT, Perplexity, Claude)
 
+> **⚠️ DISCOVERED 2026-06-11 (unresolved): the Vercel firewall is challenging crawlers at the edge — this overrides everything below.** Every non-JS request to faderandknob.com (any user agent, including `/robots.txt` and `/sitemap.xml`) returns `403` with `x-vercel-mitigated: challenge` and a "Vercel Security Checkpoint" page. A runtime log shows a third-party `/robots.txt` fetch 403'ing. Human browsers pass the JS challenge; crawlers that aren't on Vercel's verified-bots list cannot fetch a single page. An open `robots.ts` is meaningless if the firewall 403s the bot first.
+>
+> **Fix (needs dashboard access — Vercel project → Firewall):**
+> 1. If **Attack Challenge Mode** is on: turn it off unless actively under attack (it's designed as a temporary emergency switch).
+> 2. If the **Bot Protection** managed ruleset is on with action `challenge`/`deny`: set it to `log` (or off). Same for the **AI Bots** managed ruleset (`ai_bots`) — that one specifically targets the crawlers our strategy depends on and must be OFF or `log`.
+> 3. Verify after: `curl -sI https://faderandknob.com/robots.txt` must return 200 with no `x-vercel-mitigated` header.
+>
+> Until fixed, assume AI-crawler citation eligibility is zero and Google indexing relies on Vercel's verified-bot exemption.
+
 - These have their own crawlers. **Citation eligibility requires not blocking them.** Our `robots.ts` is `userAgent: "*" → allow /` which already permits every AI crawler (OAI-SearchBot, ChatGPT-User, PerplexityBot, ClaudeBot, Google-Extended, etc.). **Decision (2026-06-10): keep fully open.** F&K wants maximum citation surface; we have no paywall-content-protection reason to block training bots, and recipes being cited/recommended by ChatGPT is top-of-funnel.
 - OpenAI splits **GPTBot** (training) from **OAI-SearchBot** (ChatGPT search retrieval + citations). If we ever tighten robots, never block the retrieval bots.
 - Review the AI-crawler landscape quarterly (new bots appear); revisit during the quarterly strategy review.
