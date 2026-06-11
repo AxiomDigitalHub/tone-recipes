@@ -44,14 +44,7 @@ Quoted or paraphrased directly from the guide — stop investing in these and do
 
 ## 5. Non-Google answer engines (ChatGPT, Perplexity, Claude)
 
-> **⚠️ DISCOVERED 2026-06-11 (unresolved): the Vercel firewall is challenging crawlers at the edge — this overrides everything below.** Every non-JS request to faderandknob.com (any user agent, including `/robots.txt` and `/sitemap.xml`) returns `403` with `x-vercel-mitigated: challenge` and a "Vercel Security Checkpoint" page. A runtime log shows a third-party `/robots.txt` fetch 403'ing. Human browsers pass the JS challenge; crawlers that aren't on Vercel's verified-bots list cannot fetch a single page. An open `robots.ts` is meaningless if the firewall 403s the bot first.
->
-> **Fix (needs dashboard access — Vercel project → Firewall):**
-> 1. If **Attack Challenge Mode** is on: turn it off unless actively under attack (it's designed as a temporary emergency switch).
-> 2. If the **Bot Protection** managed ruleset is on with action `challenge`/`deny`: set it to `log` (or off). Same for the **AI Bots** managed ruleset (`ai_bots`) — that one specifically targets the crawlers our strategy depends on and must be OFF or `log`.
-> 3. Verify after: `curl -sI https://faderandknob.com/robots.txt` must return 200 with no `x-vercel-mitigated` header.
->
-> Until fixed, assume AI-crawler citation eligibility is zero and Google indexing relies on Vercel's verified-bot exemption.
+> **✅ RESOLVED 2026-06-11:** the Vercel firewall had been challenging ALL non-JS clients (403 + `x-vercel-mitigated: challenge` on every path, including `/robots.txt`), which silently zeroed crawler access regardless of robots.txt. Daniel disabled the challenge in the Vercel dashboard the same day; verified after: `/robots.txt` 200 with no mitigation header, sitemap 200, bot-UA page fetches 200. **Standing rule:** Attack Challenge Mode and the Bot Protection / AI Bots (`ai_bots`) managed rulesets must stay off or `log` — never `challenge`/`deny` — unless actively under attack, in which case allowlist verified AI crawlers. The monthly check (weekly-recipe-audit Step 5.5) curls the edge for `x-vercel-mitigated` so a regression gets caught within a month.
 
 - These have their own crawlers. **Citation eligibility requires not blocking them.** Our `robots.ts` is `userAgent: "*" → allow /` which already permits every AI crawler (OAI-SearchBot, ChatGPT-User, PerplexityBot, ClaudeBot, Google-Extended, etc.). **Decision (2026-06-10): keep fully open.** F&K wants maximum citation surface; we have no paywall-content-protection reason to block training bots, and recipes being cited/recommended by ChatGPT is top-of-funnel.
 - OpenAI splits **GPTBot** (training) from **OAI-SearchBot** (ChatGPT search retrieval + citations). If we ever tighten robots, never block the retrieval bots.
