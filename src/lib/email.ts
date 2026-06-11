@@ -242,3 +242,88 @@ export async function sendToneOfTheWeek(opts: {
     return { success: false, error };
   }
 }
+
+export interface SetlistSong {
+  title: string;
+  artist: string;
+  /** 2-3 sentence tone note: amp/snapshot guidance for this song. */
+  tone: string;
+  /** Site links for this song (recipe page, guide, blog post). */
+  links: { label: string; url: string }[];
+}
+
+/**
+ * "Sunday Setlist" — Tuesday email mapping this week's most-played worship
+ * songs to F&K tones. Same Resend batch pattern as sendToneOfTheWeek.
+ */
+export async function sendSundaySetlist(opts: {
+  to: string[];
+  subject: string;
+  intro: string;
+  sundayDate: string; // e.g. "June 14"
+  songs: SetlistSong[];
+  outro?: string;
+}) {
+  const { to, subject, intro, sundayDate, songs, outro } = opts;
+
+  const songBlocks = songs
+    .map(
+      (s) => `
+        <div style="border-top: 1px solid #333; padding: 20px 0;">
+          <h3 style="color: #ffffff; font-size: 17px; margin: 0 0 2px;">${esc(s.title)}</h3>
+          <p style="color: #666; font-size: 13px; margin: 0 0 10px;">${esc(s.artist)}</p>
+          <p style="color: #a3a3a3; line-height: 1.6; margin: 0 0 10px;">${esc(s.tone)}</p>
+          ${s.links
+            .map(
+              (l) =>
+                `<a href="https://faderandknob.com${l.url}" style="color: #f59e0b; font-size: 14px; text-decoration: none; margin-right: 16px;">${esc(l.label)} &rarr;</a>`,
+            )
+            .join("")}
+        </div>`,
+    )
+    .join("");
+
+  try {
+    const batches = [];
+    for (let i = 0; i < to.length; i += 100) {
+      batches.push(to.slice(i, i + 100));
+    }
+
+    for (const batch of batches) {
+      await resend.batch.send(
+        batch.map((email) => ({
+          from: FROM_EMAIL,
+          to: email,
+          replyTo: REPLY_TO,
+          headers: unsubscribeHeaders(email),
+          subject,
+          html: `
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; color: #e5e5e5; background-color: #1a1a1a; padding: 32px;">
+              <div style="border-bottom: 2px solid #f59e0b; padding-bottom: 16px; margin-bottom: 24px;">
+                <h1 style="color: #f59e0b; font-size: 24px; margin: 0;">Sunday Setlist</h1>
+                <p style="color: #666; font-size: 14px; margin: 4px 0 0;">Tones for ${esc(sundayDate)} &middot; by Fader & Knob</p>
+              </div>
+              <p style="color: #a3a3a3; line-height: 1.6;">${esc(intro)}</p>
+              ${songBlocks}
+              ${
+                outro
+                  ? `<div style="background: #262626; border-radius: 8px; padding: 20px; margin: 24px 0;"><p style="color: #a3a3a3; line-height: 1.6; margin: 0;">${esc(outro)}</p></div>`
+                  : ""
+              }
+              <div style="border-top: 1px solid #333; margin-top: 24px; padding-top: 16px; color: #666; font-size: 12px;">
+                <p style="margin: 0 0 6px;">You're receiving this because you subscribed to Fader & Knob updates.</p>
+                <p style="margin: 0 0 6px;"><a href="https://faderandknob.com" style="color: #666;">faderandknob.com</a></p>
+                ${unsubscribeFooter(email, "dark")}
+              </div>
+            </div>
+          `,
+        })),
+      );
+    }
+
+    return { success: true, sent: to.length };
+  } catch (error) {
+    console.error("Failed to send Sunday Setlist:", error);
+    return { success: false, error };
+  }
+}
