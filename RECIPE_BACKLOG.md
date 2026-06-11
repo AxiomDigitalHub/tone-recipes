@@ -104,11 +104,11 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 55 | Highway to Hell (riff) | AC/DC | Angus Young | Highway to Hell (1979) | 1968 SG → cranked Marshall 1959 Super Lead Plexi, G12-65 cab. Schaffer-Vega wireless preamp boost. Roundhouse, Mutt Lange polish. No pedals. | done |
 | 56 | Whole Lotta Rosie (riff) | AC/DC | Angus Young | Let There Be Rock (1977) | Late-'60s SG → cranked Marshall JMP Super Lead, G12M Greenbacks. Rawer/midrange-forward, Plexi Normal channel. Albert Studios Sydney, Vanda & Young, near-live. | done |
 | 57 | The Number of the Beast (chorus riff) | Iron Maiden | Dave Murray + Adrian Smith | The Number of the Beast (1982) | Murray's Strat (DiMarzio Super Distortion) + Smith's Ibanez Destroyer → cranked Marshall (model disputed: Super Lead vs early JCM800), MXR Distortion+ boost, Greenbacks. Martin Birch, Battery Studios. | done |
-| 58 | Aces High (intro riff) | Iron Maiden | Dave Murray + Adrian Smith | Powerslave (1984) | Same twin-Strat / twin-Marshall rig. Faster tempo than Run to the Hills, harmonized fifths underneath. | queued |
-| 59 | Pretty Woman (riff) | Roy Orbison | Roy Orbison + Billy Sanford | (1964 single) | Acoustic-driven hit, but Sanford's electric riff is iconic — through a Fender Twin, played on a Tele. | queued |
-| 60 | Johnny B. Goode (riff) | Chuck Berry | Chuck Berry | After School Session (1958) | ES-350T (later ES-355) through Fender Twin. The double-stop intro is the foundation of all rock guitar lead phrasing. | queued |
-| 61 | My Own Summer (riff) | Deftones | Stephen Carpenter | Around the Fur (1997) | Carpenter's ESP 7-string → Marshall, drop tuning, dark/heavy | queued |
-| 62 | Falling Away From Me (intro/verse) | Korn | Munky & Head | Issues (1999) | Ibanez 7-string (Apex/K7) → Mesa Triple Rectifier Solo, A-standard 7-string (drop-tuned 2 steps), clean DiMarzio neck into crushing chug | queued |
+| 58 | Aces High (intro riff) | Iron Maiden | Dave Murray + Adrian Smith | Powerslave (1984) | Same twin-Strat / twin-Marshall rig. Faster tempo than Run to the Hills, harmonized fifths underneath. | done |
+| 59 | Pretty Woman (riff) | Roy Orbison | Roy Orbison + Billy Sanford | (1964 single) | SKIPPED — riff guitar + amp undocumented. The in-room witness (Wayne Moss, MusicRadar) says he doesn't remember Sanford's guitar; the only named amp in the session was a Gibson, not the backlog's guessed "Tele through a Fender Twin." The riff was a layered stack of 3 electrics. Studio/reverb (RCA Studio B, EMT plate, Bill Porter) is documented but the signal chain is not. Fails the quality gate. | needs-research |
+| 60 | Johnny B. Goode (riff) | Chuck Berry | Chuck Berry | After School Session (1958) | ES-350T (later ES-355) through Fender Twin. The double-stop intro is the foundation of all rock guitar lead phrasing. | done |
+| 61 | My Own Summer (riff) | Deftones | Stephen Carpenter | Around the Fur (1997) | Carpenter's ESP 7-string → Marshall, drop tuning, dark/heavy | done |
+| 62 | Falling Away From Me (intro/verse) | Korn | Munky & Head | Issues (1999) | Ibanez 7-string (Apex/K7) → Mesa Triple Rectifier Solo, A-standard 7-string (drop-tuned 2 steps), clean DiMarzio neck into crushing chug | done |
 | 63 | Freak on a Leash (riff) | Korn | Munky & Head | Follow the Leader (1998) | Ibanez 7-string → Mesa Triple Rectifier, A-standard 7-string, scat-into-riff, scooped low chug | queued |
 | 64 | Blind (intro) | Korn | Munky & Head | Korn (1994) | Ibanez Universe/7-string → Mesa Triple Rectifier, A-standard 7-string, "Are you ready?" detuned slam | queued |
 | 65 | Got the Life (riff) | Korn | Munky & Head | Follow the Leader (1998) | Ibanez 7-string, Fusion Edge-style high-gain pickup → Mesa Triple Rectifier, A-standard 7-string, syncopated funk-chug | queued |
@@ -119,7 +119,7 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 70 | Spiders (clean/verse) | System of a Down | Daron Malakian | System of a Down (1998) | Ibanez Iceman → Marshall (Super Lead/JCM800), drop C, clean arpeggio into heavy | queued |
 | 71 | Aerials (intro) | System of a Down | Daron Malakian | Toxicity (2001) | Ibanez Iceman → Marshall, drop C, chiming clean-octave figure, MXR Phase 90 | queued |
 | 72 | B.Y.O.B. (chorus riff) | System of a Down | Daron Malakian | Mezmerize (2005) | Ibanez Iceman → Marshall, drop C, breakneck verse into anthemic chorus | queued |
-| 73 | Bulls on Parade (main riff/solo) | Rage Against the Machine | Tom Morello | Evil Empire (1996) | "Arm the Homeless" (EMG, Kramer neck, Floyd) → Marshall JCM800 + Peavey 4x12, drop D, wah toggle-scratch solo | queued |
+| 73 | Bulls on Parade (main riff/solo) | Rage Against the Machine | Tom Morello | Evil Empire (1996) | "Arm the Homeless" (EMG 81/85, Kramer neck, Floyd) → Marshall JCM800 2205 50W + Peavey 4x12, E♭ standard (NOT drop D — Morello tuned a half step down), wah toggle-scratch solo | done |
 | 74 | Guerrilla Radio (verse) | Rage Against the Machine | Tom Morello | The Battle of Los Angeles (1999) | Telecaster "Sendero Luminoso" → Marshall JCM800, drop D, percussive wah "wacka-wacka," DigiTech Whammy | queued |
 | 75 | Sleep Now in the Fire (riff) | Rage Against the Machine | Tom Morello | The Battle of Los Angeles (1999) | Telecaster → Marshall JCM800 + Peavey 4x12, drop D, bluesy stomp riff | queued |
 | 76 | People of the Sun (riff) | Rage Against the Machine | Tom Morello | Evil Empire (1996) | "Arm the Homeless" → Marshall JCM800, drop D, DigiTech WH-1 Whammy dive squeals | queued |
@@ -1107,6 +1107,11 @@ successful run.)
 | 2026-06-10 | angus-highway-to-hell-riff | 55 |
 | 2026-06-10 | angus-whole-lotta-rosie-riff | 56 |
 | 2026-06-10 | murray-number-of-the-beast-twin-riff | 57 |
+| 2026-06-11 | murray-aces-high-gallop | 58 |
+| 2026-06-11 | chuck-berry-johnny-b-goode | 60 |
+| 2026-06-11 | carpenter-my-own-summer | 61 |
+| 2026-06-11 | korn-falling-away-from-me | 62 |
+| 2026-06-11 | morello-bulls-on-parade | 73 |
 
 ### Corrections applied this run (2026-06-09)
 

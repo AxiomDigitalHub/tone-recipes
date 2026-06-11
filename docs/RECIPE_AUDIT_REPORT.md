@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
 **Date:** 2026-06-11
-**Recipes:** 100
-**Clean (no errors, no warns):** 92
+**Recipes:** 105
+**Clean (no errors, no warns):** 97
 **Warn-only:** 8
 **With errors:** 0
 
@@ -16,9 +16,9 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 15 / 100 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 7 / 100 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 100 | Signal chain includes a cabinet or microphone block |
+| `katana-kemper-multidrive-default-off` | info | 15 / 105 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 7 / 105 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 105 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -125,6 +125,18 @@ Passes every rule.
 ### `campbell-holy-diver-les-paul-marshall` — ✓ clean
 
 *Dio's Holy Diver Les Paul-into-Marshall Tone*
+
+Passes every rule.
+
+### `carpenter-my-own-summer` — ✓ clean
+
+*Deftones' My Own Summer Drop C# Riff Tone*
+
+Passes every rule.
+
+### `chuck-berry-johnny-b-goode` — ✓ clean
+
+*Chuck Berry's Johnny B. Goode Rock 'n' Roll Tone*
 
 Passes every rule.
 
@@ -368,6 +380,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `korn-falling-away-from-me` — ✓ clean
+
+*Korn's Falling Away from Me 7-String Tone*
+
+Passes every rule.
+
 ### `leadon-take-it-easy-tele-lead` — ✓ clean
 
 *Leadon's Take It Easy Telecaster Lead Tone*
@@ -464,9 +482,21 @@ Passes every rule.
 
 Passes every rule.
 
+### `morello-bulls-on-parade` — ✓ clean
+
+*Tom Morello's Bulls on Parade Riff & Toggle-Solo Tone*
+
+Passes every rule.
+
 ### `morello-killing-in-the-name` — ✓ clean
 
 *Morello's Killing in the Name Aggressive Tone*
+
+Passes every rule.
+
+### `murray-aces-high-gallop` — ✓ clean
+
+*Iron Maiden's Aces High Twin-Guitar Gallop Tone*
 
 Passes every rule.
 
