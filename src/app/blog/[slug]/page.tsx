@@ -17,6 +17,7 @@ import {
 import { getWriter } from "@/lib/writers";
 import { extractToc } from "@/lib/toc";
 import { ToC } from "@/components/v3/ToC";
+import { RelatedRecipes } from "@/components/RelatedRecipes";
 import type { Metadata } from "next";
 
 /**
@@ -353,6 +354,11 @@ export default async function PreviewBlogPost({
         <div className="post-endmark" aria-hidden="true">
           ▪ ▪ ▪
         </div>
+
+        {/* From the recipe archive — auto-matched recipe pages, linking the
+            blog cluster into the catalog (the non-commodity moat). Renders
+            nothing when no recipe genuinely matches. */}
+        <RelatedRecipes postTitle={post.title} postTags={post.tags} />
 
         {/* Related filings */}
         {related.length > 0 && (

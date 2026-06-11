@@ -165,6 +165,8 @@ These are specific, observable advantages that competitors have deployed and tha
 
 **What F&K should do:** Implement HowTo schema for tone recipe posts (each recipe is a step-by-step process). Implement FAQ schema for glossary terms and common questions answered within articles. Consider adapting Recipe schema (designed for cooking recipes) for "tone recipes" --- this would be novel in the guitar space and could generate unique rich snippets. Implement Article schema with author markup to surface writer personas in search results.
 
+> **Note (2026-06-10):** Google confirmed structured data is *not required* for generative AI features, and FAQ/HowTo rich results were deprecated for most sites in 2023. Keep Article/Breadcrumb/FAQPage JSON-LD as machine-readability hygiene, but the visible on-page content (takeaways callouts, FAQ blocks, settings tables) is what AI answers actually retrieve. Don't invest further engineering in schema as an AI play — see `docs/AI_SEARCH_PLAYBOOK.md` §4.
+
 ### 2. Evergreen URL Structure with Year-Dated Titles
 
 **Who does it:** Guitar Player uses evergreen URLs (/gear/best-reverb-pedals) with year-dated titles ("Best Reverb Pedals 2026"). The URL never changes (preserving link equity), but the title updates annually (maintaining freshness signals for Google).
@@ -191,9 +193,11 @@ These are specific, observable advantages that competitors have deployed and tha
 
 ### 6. AEO (Answer Engine Optimization) for AI Search
 
-**Who does it:** Nobody does this well yet. This is a greenfield opportunity.
+> **UPDATED 2026-06-10 per Google's official [AI optimization guide](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).** Google's position: "optimizing for generative AI search is optimizing for the search experience, and thus still SEO." AI Overviews / AI Mode retrieve via core Search ranking (RAG/grounding) plus **query fan-out** (many concurrent sub-queries). There is no separate AEO discipline and no special file, markup, chunking, or AI-specific writing style that helps. Full guidance, debunked hacks, and the Non-Commodity Gate live in **`docs/AI_SEARCH_PLAYBOOK.md`** — that file supersedes any older AEO advice.
 
-**What F&K should do:** Structure content to be directly extractable by AI models (ChatGPT, Perplexity, Google AI Overviews). This means: (a) clear question-and-answer formatting within articles, (b) specific, quotable settings in easily parseable formats (tables, lists), (c) summary sections at the top of long articles that provide the answer immediately before expanding on it. Fader & Knob's existing settings-driven format is naturally suited for AEO --- specific numbers and positions are exactly what AI models look for when answering "what are the best Tube Screamer settings for blues."
+**Who does it:** Everyone now claims to; almost all of it is folklore. The durable advantage is content AI systems *want* to retrieve: unique, first-hand, non-commodity answers.
+
+**What F&K should do:** (a) Keep clear question-and-answer headers, settings tables, and top-of-post summary/takeaways — because they serve readers, and what serves readers is what gets extracted. (b) Win **query fan-out** with topical clusters: one user question ("john mayer clean tone") fans out into many sub-queries, and our recipe + platform-translation + pillar structure can occupy several of them at once. (c) Protect the moat that makes us citable — exact, hardware-verified settings that don't exist elsewhere. (d) Stay retrievable everywhere: robots remain fully open to AI crawlers (OAI-SearchBot, PerplexityBot, ClaudeBot, etc.) for maximum citation surface. (e) **Never** spin out near-duplicate posts per keyword variation — at our publishing velocity that pattern risks Google's scaled content abuse policy; consolidate and update instead.
 
 ### 7. Internal Tool Linking for SEO
 

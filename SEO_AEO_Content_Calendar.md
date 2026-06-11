@@ -17,6 +17,14 @@ Each topic includes:
 
 Priority is based on: (1) search volume potential, (2) competitive gap size, (3) how well it clusters with existing content, and (4) whether it fills a pillar that's currently underserved.
 
+### AEO Ground Rules (UPDATED 2026-06-10 — per Google's AI optimization guide)
+
+Google's official guidance ([developers.google.com/search/docs/fundamentals/ai-optimization-guide](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)) confirmed: AI Overviews / AI Mode retrieve through normal Search ranking plus **query fan-out**. The "AEO structure" notes on topics below remain valid where they describe good reader-first formatting (tables, direct-answer headers, top-of-post summaries) — keep those. But three corrections apply to every topic in this calendar; full detail in **`docs/AI_SEARCH_PLAYBOOK.md`** (which supersedes older AEO advice):
+
+1. **No keyword-variant spinoffs.** Don't add calendar topics that re-answer an existing post for a phrasing variation — Google calls this out under the scaled content abuse policy. If a topic's honest "gap" is just wording, update + redate the existing post instead.
+2. **Every topic needs a non-commodity hook.** Each entry must contain something the top-5 SERP results don't have: exact settings, an original test, a cross-platform translation, or a first-hand finding. "Comprehensive summary of what's already out there" is not a valid topic.
+3. **Tables/headers serve readers, not robots.** No chunking, no llms.txt work, no schema-as-ranking-lever, no writing "for AI." Cluster depth (one question answered across recipe + pillar + platform pages) is how we win fan-out retrieval.
+
 ### Pillar Coverage (Current)
 
 | Pillar | Posts | Status |

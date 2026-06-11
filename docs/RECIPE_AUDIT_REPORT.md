@@ -1,6 +1,6 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-10
+**Date:** 2026-06-11
 **Recipes:** 100
 **Clean (no errors, no warns):** 92
 **Warn-only:** 8

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { toneRecipes, artists, gearItems } from "@/lib/data";
+import { toneRecipes, artists, gearItems, songs } from "@/lib/data";
 import { getAllPosts } from "@/lib/blog";
 import { getAllWriters } from "@/lib/writers";
 import { getAllPlatforms } from "@/lib/data/platforms";
@@ -43,16 +43,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/affiliate-disclosure`, lastModified: launchDate, changeFrequency: "yearly", priority: 0.3 },
   ];
 
+  // Recipes carry real publication/edit dates (created_at backfilled from git
+  // history 2026-06-10; updated_at stamped by the weekly audit on meaningful
+  // edits). Without these every recipe looked frozen at launch.
+  const recipeDate = (r: (typeof toneRecipes)[number]) =>
+    r.updated_at ? new Date(r.updated_at) : r.created_at ? new Date(r.created_at) : launchDate;
+
   const recipePages: MetadataRoute.Sitemap = toneRecipes.map((recipe) => ({
     url: `${baseUrl}/recipe/${recipe.slug}`,
-    lastModified: launchDate,
+    lastModified: recipeDate(recipe),
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
+  // An artist page changes when a recipe for that artist is added or edited,
+  // so its lastmod is the max date across the artist's recipes.
+  const artistSlugBySong = new Map(songs.map((s) => [s.slug, s.artist_slug]));
+  const latestByArtist = new Map<string, Date>();
+  for (const recipe of toneRecipes) {
+    const artistSlug = artistSlugBySong.get(recipe.song_slug);
+    if (!artistSlug) continue;
+    const d = recipeDate(recipe);
+    const prev = latestByArtist.get(artistSlug);
+    if (!prev || d > prev) latestByArtist.set(artistSlug, d);
+  }
+
   const artistPages: MetadataRoute.Sitemap = artists.map((artist) => ({
     url: `${baseUrl}/artist/${artist.slug}`,
-    lastModified: launchDate,
+    lastModified: latestByArtist.get(artist.slug) ?? launchDate,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
@@ -66,7 +84,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogPages: MetadataRoute.Sitemap = allPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
+    // `updated` is set by the daily refresh track (update + redate). It must
+    // surface here — the sitemap is what tells crawlers a proven URL changed.
+    lastModified: new Date(post.updated ?? post.date),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));

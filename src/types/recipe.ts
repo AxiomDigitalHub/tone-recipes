@@ -89,6 +89,10 @@ export interface ToneRecipe {
   view_count: number;
   rating_avg: number;
   rating_count: number;
+  /** ISO date (YYYY-MM-DD) the recipe was first published. Feeds sitemap lastmod. */
+  created_at?: string;
+  /** ISO date (YYYY-MM-DD) of the last meaningful edit (audit fixes, gear corrections). */
+  updated_at?: string;
 }
 
 export interface Artist {

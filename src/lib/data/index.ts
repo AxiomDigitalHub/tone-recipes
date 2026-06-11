@@ -3181,6 +3181,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "pride-and-joy-stevie-ray-vaughan",
     title: "SRV's Pride and Joy Rhythm Tone",
     slug: "srv-pride-and-joy-rhythm",
+    created_at: "2026-03-19",
     description:
       "The definitive Texas blues shuffle tone. SRV's tone on Pride and Joy is built on an incredibly simple signal chain: a Stratocaster with absurdly heavy strings, a Tube Screamer used as a clean boost, and a cranked Fender Vibroverb. The magic is in the player's hands and the amp being pushed hard. The Tube Screamer is not set for distortion; it's adding mids and pushing the amp's front end into breakup.",
     tone_context: "full_song",
@@ -3556,6 +3557,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "comfortably-numb-pink-floyd",
     title: "Gilmour's Comfortably Numb Solo Tone",
     slug: "gilmour-comfortably-numb-solo",
+    created_at: "2026-03-19",
     description:
       "Arguably the most famous guitar solo tone ever recorded. Gilmour's tone on the second solo of Comfortably Numb is built on a Big Muff Pi fuzz into a cranked Hiwatt, with delay adding depth and sustain. The Hiwatt provides clean headroom while the Big Muff does the heavy lifting for gain and sustain. The result is a singing, vocal-like lead tone that sustains endlessly.",
     tone_context: "solo",
@@ -4043,6 +4045,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "voodoo-child-slight-return-jimi-hendrix",
     title: "Hendrix's Voodoo Child Wah Tone",
     slug: "hendrix-voodoo-child-wah",
+    created_at: "2026-03-19",
     description:
       "The ultimate wah-fuzz guitar tone. Hendrix's Voodoo Child (Slight Return) opens with one of the most recognizable wah licks ever recorded. The tone is built on a Cry Baby wah into a germanium Fuzz Face, slamming a cranked Marshall Plexi. The wah isn't just an effect here; it's an integral part of the voice of the guitar, used as a tonal filter that shapes every note. The Fuzz Face provides thick, singing sustain that cleans up dynamically when Hendrix rolls back his guitar volume.",
     tone_context: "full_song",
@@ -4388,6 +4391,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "smells-like-teen-spirit-nirvana",
     title: "Cobain's Teen Spirit Grunge Tone",
     slug: "cobain-teen-spirit-grunge",
+    created_at: "2026-03-19",
     description:
       "The tone that defined a generation. Cobain's approach to guitar tone was anti-perfectionist: a cheap offset guitar, a Boss DS-1 cranked for maximum aggression, and a Small Clone chorus adding an underwater shimmer. The genius of Teen Spirit is the quiet-verse/loud-chorus dynamic. The verses are clean with chorus; the choruses slam the DS-1 for a wall of scooped, angry distortion. The mid-scooped character is key to the grunge sound: heavy lows, biting highs, and a hollow midrange.",
     tone_context: "full_song",
@@ -4803,6 +4807,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "under-the-bridge-red-hot-chili-peppers",
     title: "Frusciante's Under the Bridge Clean Tone",
     slug: "frusciante-under-the-bridge-clean",
+    created_at: "2026-03-19",
     description:
       "One of the most beautiful clean guitar tones in rock. The intro to Under the Bridge is Frusciante alone, playing delicate chord voicings on the neck pickup of a 1962 Stratocaster through a clean Marshall with a touch of chorus. The tone is warm, round, and shimmering, with the CE-1 chorus adding subtle movement that keeps the sound alive and breathing. The neck pickup is essential: it provides the full, rounded character that makes this tone so inviting. The Marshall is run clean at low volume, a departure from the typical cranked Marshall approach.",
     tone_context: "intro",
@@ -5137,6 +5142,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "sweet-child-o-mine-guns-n-roses",
     title: "Slash's Sweet Child O' Mine Lead Tone",
     slug: "slash-sweet-child-o-mine-lead",
+    created_at: "2026-03-22",
     description:
       "One of the most recognizable guitar intros ever written. Slash's tone on Appetite for Destruction is the textbook Les Paul through a cranked Marshall JCM800 sound: thick, warm humbuckers pushing a hot British amp into singing, vocal-like overdrive. The JCM800 is doing most of the work here, with its aggressive midrange and natural compression when pushed hard. A touch of reverb from the studio and Slash's fluid vibrato complete the picture.",
     tone_context: "full_song",
@@ -5438,6 +5444,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "eruption-van-halen",
     title: "Eddie Van Halen's Brown Sound (Eruption)",
     slug: "evh-eruption-brown-sound",
+    created_at: "2026-03-22",
     description:
       "The 'brown sound' that changed rock guitar forever. Eddie Van Halen's tone on the debut Van Halen album is a Frankenstrat with a single humbucker through a Marshall Plexi 1959, reportedly powered through a variac to lower the voltage and achieve a thick, compressed, harmonically rich overdrive at manageable volumes. An MXR Phase 90 adds a subtle swirl. The result is a warm, singing sustain that is neither too clean nor too distorted — it sits in a magical sweet spot that responds to every nuance of Eddie's playing.",
     tone_context: "full_song",
@@ -5808,6 +5815,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "where-the-streets-have-no-name-u2",
     title: "The Edge's Shimmering Delay Tone (Streets)",
     slug: "edge-where-the-streets-have-no-name",
+    created_at: "2026-03-22",
     description:
       "The defining textural guitar tone of the 1980s. The Edge's approach on Where the Streets Have No Name is built on rhythmic delay: a dotted eighth note delay synchronized to the tempo creates a cascading, shimmering pattern where the delayed notes fill in the gaps between picked notes. The result is a wall of chiming sound that seems much more complex than what is actually being played. The Vox AC30 provides a bright, chimey foundation, and the delay does the rest.",
     tone_context: "full_song",
@@ -6145,6 +6153,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "slow-dancing-in-a-burning-room-john-mayer",
     title: "Mayer's Slow Dancing Blues-Rock Tone",
     slug: "mayer-slow-dancing-burning-room",
+    created_at: "2026-03-22",
     description:
       "A modern masterclass in touch-sensitive blues-rock tone. John Mayer's sound on Continuum is built on a Stratocaster through a Tube Screamer into a boutique Two Rock amp — essentially the SRV formula updated for the 21st century. The Two Rock provides a sweet, harmonically complex clean tone that responds to every nuance of Mayer's pick dynamics. The Tube Screamer adds a mid-hump boost that pushes the amp into a warm, singing overdrive without obscuring the guitar's natural voice.",
     tone_context: "full_song",
@@ -6579,6 +6588,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "layla-derek-and-the-dominos",
     title: "Clapton's Layla Searing Lead Tone",
     slug: "clapton-layla-lead",
+    created_at: "2026-03-22",
     description:
       "One of the most passionate guitar performances ever recorded. Clapton's tone on Layla is raw, urgent, and biting: a Fender Stratocaster ('Brownie') through a cranked Fender Champ, with the tiny amp pushed to its absolute limits. The Champ's single-ended 5-watt circuit compresses and distorts beautifully when dimed, producing a thick, creamy overdrive with natural sustain. Duane Allman's slide guitar interweaves with Clapton's lead lines, and both guitars were recorded through small amps at high volume for maximum saturation.",
     tone_context: "full_song",
@@ -6913,6 +6923,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "sultans-of-swing-dire-straits",
     title: "Knopfler's Sultans of Swing Clean Fingerpicked Tone",
     slug: "knopfler-sultans-of-swing-clean",
+    created_at: "2026-03-22",
     description:
       "One of the most distinctive clean guitar tones in rock. Mark Knopfler plays with his bare fingers instead of a pick, which gives his Stratocaster a warm, rounded attack with a unique percussive quality. The tone on Sultans of Swing is remarkably clean and articulate: a Strat through a clean Fender amp with almost no effects. The magic is entirely in Knopfler's right hand technique — the combination of fingerpicking, muted strings, and dynamic control creates a tone that no amount of gear can replicate without the technique.",
     tone_context: "full_song",
@@ -7250,6 +7261,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "the-thrill-is-gone-bb-king",
     title: "B.B. King's Thrill Is Gone Blues Tone",
     slug: "bb-king-thrill-is-gone",
+    created_at: "2026-03-22",
     description:
       "The most iconic blues guitar tone of all time. B.B. King's sound on The Thrill Is Gone is warm, vocal, and dripping with emotion: his ES-355 'Lucille' through a Fender Bassman, with no effects whatsoever. The semi-hollow body of the ES-355 provides natural resonance and sustain, while the Bassman's warm, fat overdrive (when pushed) or clean tone (at moderate volume) creates the perfect canvas for King's expressive vibrato and precise bending. Every note sings like a human voice.",
     tone_context: "full_song",
@@ -7562,6 +7574,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "seven-nation-army-white-stripes",
     title: "Jack White's Seven Nation Army Lo-Fi Riff Tone",
     slug: "jack-white-seven-nation-army",
+    created_at: "2026-03-22",
     description:
       "The riff that conquered the world, played on a cheap Kay hollowbody through a DigiTech Whammy set to octave down, into a cranked Silvertone amp. The Whammy pedal makes the guitar sound like a bass on the iconic main riff, while the Silvertone's raw, lo-fi tube distortion adds grit and character. Jack White's entire approach is built on cheap, broken-sounding gear pushed to its limits — the imperfections ARE the tone.",
     tone_context: "full_song",
@@ -7859,6 +7872,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "killing-in-the-name-rage-against-the-machine",
     title: "Morello's Killing in the Name Aggressive Tone",
     slug: "morello-killing-in-the-name",
+    created_at: "2026-03-22",
     description:
       "Tom Morello's approach to guitar is unlike anyone else: he uses a simple rig — Les Paul, Marshall JCM800, Whammy pedal, and wah — but manipulates them in unconventional ways to create sounds that resemble turntables, synthesizers, and samples. On Killing in the Name, the core rhythm tone is a Les Paul through a cranked JCM800 for aggressive, tight palm-muted riffs. The Whammy and wah are used for the song's iconic solos and DJ-like scratching effects.",
     tone_context: "full_song",
@@ -8182,6 +8196,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "master-of-puppets-metallica",
     title: "Master of Puppets Rhythm Tone",
     slug: "hetfield-master-of-puppets-rhythm",
+    created_at: "2026-03-22",
     description:
       "The definitive thrash metal rhythm guitar tone. James Hetfield's sound on Master of Puppets is built on an ESP Explorer with EMG pickups through a Mesa/Boogie Mark IIC+ — a combination that produces a tight, aggressive, scooped-mid tone with razor-sharp pick attack and crushing low end. The Mark IIC+ is the holy grail of metal amps: its lead channel provides high-gain saturation with incredible note definition even at extreme gain levels. Hetfield's relentless downpicking technique is the engine that drives this tone.",
     tone_context: "full_song",
@@ -8493,6 +8508,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "back-in-black-ac-dc",
     title: "Angus Young's Back in Black Rhythm Tone",
     slug: "angus-young-back-in-black-rhythm",
+    created_at: "2026-03-25",
     description:
       "The most iconic rhythm guitar tone in hard rock. Angus Young's tone on Back in Black is deceptively simple: a Gibson SG plugged straight into a cranked Marshall Super Lead 1959 (Plexi) with nothing in between. No pedals, no effects, no tricks. The entire sound comes from the interaction between the SG's bridge humbucker and the amp pushed to the edge of breakup. The bright, biting attack of the SG cuts through the mix, while the Plexi's warm British overdrive provides just enough grit without losing note clarity. Malcolm Young's identical rig on rhythm creates the massive wall of sound.",
     tone_context: "full_song",
@@ -8779,6 +8795,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "smooth-santana",
     title: "Santana's Smooth Lead Tone",
     slug: "santana-smooth-lead",
+    created_at: "2026-03-25",
     description:
       "Carlos Santana's tone on Smooth is all about singing sustain and warm midrange. His PRS guitar through a Mesa Boogie Mark I produces a creamy, vocal-like lead sound that sustains endlessly. The midrange is emphasized heavily, giving each note a horn-like quality. The amp is pushed hard for natural compression, and the guitar's neck humbucker provides warmth without muddiness. This is a tone built for long, melodic phrases where every note sings.",
     tone_context: "solo",
@@ -9088,6 +9105,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "wont-get-fooled-again-the-who",
     title: "Townshend's Won't Get Fooled Again Power Chord Tone",
     slug: "townshend-wont-get-fooled-again",
+    created_at: "2026-03-25",
     description:
       "Pete Townshend's windmill-strumming attack through a cranked Hiwatt is one of the most powerful rhythm guitar sounds in rock. On Won't Get Fooled Again, the SG's humbuckers hit the Hiwatt DR103 at full volume, producing a massive, ringing power chord tone with incredible clarity and sustain. The Hiwatt's enormous clean headroom means it stays articulate even when pushed hard, preventing the mush that a Marshall might produce at similar volumes.",
     tone_context: "full_song",
@@ -9368,6 +9386,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "truckin-grateful-dead",
     title: "Jerry Garcia's Truckin' Clean Sparkle Tone",
     slug: "garcia-truckin-clean-sparkle",
+    created_at: "2026-03-25",
     description:
       "Jerry Garcia's tone on Truckin' is a sparkling, clean Guild Starfire sound through a Fender Twin Reverb. This is about clarity and articulation, not distortion. Every note rings out with bell-like precision, and the Twin's massive clean headroom ensures the tone stays pristine even at volume. The touch of spring reverb adds depth without washing out the details. Garcia's tone is the opposite of most rock guitarists: clean, bright, and dynamically responsive to his fingerpicking and flatpicking technique.",
     tone_context: "full_song",
@@ -9667,6 +9686,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "tom-sawyer-rush",
     title: "Alex Lifeson's Tom Sawyer Chorus-Driven Tone",
     slug: "lifeson-tom-sawyer-chorus",
+    created_at: "2026-03-25",
     description:
       "Alex Lifeson's tone on Tom Sawyer is a masterclass in using chorus and effects to create a massive, shimmering wall of guitar sound. The ES-355's semi-hollow body provides natural resonance and warmth, which is then pushed through a Marshall for crunch and layered with a Boss CE-1 chorus for that wide, sweeping stereo effect. The result is a tone that fills the entire sonic spectrum without ever getting in the way of Geddy Lee's bass and Neil Peart's drums.",
     tone_context: "full_song",
@@ -10008,6 +10028,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "bohemian-rhapsody-queen",
     title: "Brian May's Bohemian Rhapsody Guitar Tone",
     slug: "brian-may-bohemian-rhapsody",
+    created_at: "2026-03-25",
     description:
       "Brian May's tone on Bohemian Rhapsody is built on a unique combination: his homemade Red Special guitar played with a sixpence coin, a Dallas Rangemaster treble booster slamming the front end of a Vox AC30. The treble booster adds gain and upper-harmonic sparkle, pushing the AC30's Top Boost channel into a rich, creamy overdrive. May's multi-tracked guitar harmonies on this song create an orchestral wall of sound, but each individual guitar part has this distinctive bright, singing character.",
     tone_context: "full_song",
@@ -10407,6 +10428,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "iron-man-black-sabbath",
     title: "Tony Iommi's Iron Man Doom Riff Tone",
     slug: "iommi-iron-man-doom-riff",
+    created_at: "2026-03-25",
     description:
       "The tone that invented heavy metal. Tony Iommi's SG through a cranked Laney produces a thick, grinding, dark distortion that is the foundation of doom and heavy metal. The Rangemaster treble booster pushes the Laney into heavy saturation while maintaining note definition. Iommi's prosthetic fingertips and light string gauge contribute to a slightly looser, more aggressive attack.",
     tone_context: "full_song",
@@ -10698,6 +10720,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "crazy-train-ozzy-osbourne",
     title: "Randy Rhoads' Crazy Train Lead Tone",
     slug: "rhoads-crazy-train-lead",
+    created_at: "2026-03-25",
     description:
       "Randy Rhoads' tone on Crazy Train combines classical precision with heavy metal aggression. His Les Paul Custom through a cranked Marshall with an MXR Distortion+ produces a tight, articulate distortion with singing sustain. The iconic opening riff requires precise note separation and a tone with enough gain for sustain but enough clarity for the rapid alternate picking passages. Rhoads' classical training meant every note was deliberate, and his tone reflected that precision.",
     tone_context: "full_song",
@@ -11031,6 +11054,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "texas-flood-stevie-ray-vaughan",
     title: "SRV's Texas Flood Slow Blues Lead Tone",
     slug: "srv-texas-flood-slow-blues-lead",
+    created_at: "2026-03-25",
     description:
       "SRV's tone on Texas Flood (the title track) is a slow blues masterclass in dynamics and touch sensitivity. Unlike the driving shuffle of Pride and Joy, Texas Flood is about sustain, bending, and raw emotion at lower tempos. The tone is heavier and more saturated, with the Tube Screamer pushing the Vibroverb harder and the neck pickup providing warmth for singing, sustained bends. SRV's vibrato is wider and slower here, letting each note breathe and decay naturally.",
     tone_context: "solo",
@@ -11333,6 +11357,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "surfing-with-the-alien-joe-satriani",
     title: "Satriani's Surfing with the Alien Lead Tone",
     slug: "satriani-surfing-with-the-alien-lead",
+    created_at: "2026-03-25",
     description:
       "Joe Satriani's tone on Surfing with the Alien is a fluid, singing lead sound designed for legato playing and whammy bar acrobatics. The Ibanez JS guitar's high-output DiMarzio pickups drive a cranked Marshall into smooth saturation, while a wah pedal adds expression and a delay provides spacious depth. The tone has enough gain for effortless legato runs but enough clarity for each note to speak distinctly during rapid passages. This is the quintessential instrumental rock guitar tone.",
     tone_context: "full_song",
@@ -11708,6 +11733,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "wonderwall-oasis",
     title: "Noel Gallagher's Wonderwall Jangly Rhythm Tone",
     slug: "gallagher-wonderwall-jangly-rhythm",
+    created_at: "2026-03-25",
     description:
       "Wonderwall's guitar tone is a wall of jangly, layered acoustic and electric guitar. The electric guitar parts use an Epiphone Riviera semi-hollow through a Marshall, producing a bright, chiming rhythm tone. The semi-hollow body adds natural resonance and airiness, while the Marshall provides just enough crunch to give the chords bite without overwhelming the song's delicate melodic quality. Multiple guitar layers and a capo create the signature Britpop wall of sound.",
     tone_context: "full_song",
@@ -11992,6 +12018,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "how-soon-is-now-the-smiths",
     title: "Johnny Marr's How Soon Is Now? Tremolo Tone",
     slug: "marr-how-soon-is-now-tremolo",
+    created_at: "2026-03-25",
     description:
       "One of the most iconic guitar tones in alternative rock. Johnny Marr's tone on How Soon Is Now? is built on a Rickenbacker 330 through a Fender Twin Reverb with extreme tremolo effect. The tremolo is the defining feature: a pulsating, rhythmic wobble that gives the song its hypnotic, driving feel. Marr used four separate amp channels processed with tremolo at different speeds, then blended them to create a massive, swirling stereo effect. The result is a guitar tone that sounds like it is breathing.",
     tone_context: "full_song",
@@ -12311,6 +12338,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "start-me-up-rolling-stones",
     title: "Start Me Up Open-G Riff Tone",
     slug: "richards-start-me-up-open-g",
+    created_at: "2026-03-25",
     description:
       "Keith Richards' tone on Start Me Up is the sound of rock and roll rhythm guitar stripped to its essence. A Telecaster in open-G tuning (with the low E string removed, making it a 5-string guitar) through a cranked Fender Twin Reverb. The open tuning allows Richards to play full, ringing chords with a single finger barred across the fretboard, creating a big, open sound. The Twin Reverb's clean headroom preserves the jangly brightness of the Telecaster, while the slight natural breakup from playing hard gives it attitude.",
     tone_context: "full_song",
@@ -12595,6 +12623,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "la-grange-zz-top",
     title: "Billy Gibbons' La Grange Texas Blues Crunch",
     slug: "gibbons-la-grange-blues-crunch",
+    created_at: "2026-03-25",
     description:
       "Billy Gibbons' tone on La Grange is a grinding, bluesy crunch built on a Les Paul through a Marshall Plexi pushed by a Dallas Rangemaster treble booster. The Rangemaster adds searing upper harmonics and extra gain, driving the Plexi into rich, sustained overdrive. Gibbons' picking technique -- including his signature pinch harmonics -- makes each note scream with harmonic overtones. The tone is aggressive enough for rock but rooted deeply in Texas blues tradition.",
     tone_context: "full_song",
@@ -12955,6 +12984,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "walk-pantera",
     title: "Dimebag Darrell's Walk Groove Metal Tone",
     slug: "dimebag-walk-groove-metal",
+    created_at: "2026-03-25",
     description:
       "One of the tightest, most aggressive rhythm sounds in metal history. The rig is unconventional: a Dean ML 'Dean From Hell' into a SOLID-STATE Randall RG100ES through a Randall 4x12 with Celestion G12T-75s. The solid-state Randall is the secret weapon — where a tube amp compresses transients, the Randall delivers every pick attack with surgical precision. Half the tone is the amp; the other half is the MXR Six-Band Graphic EQ in front of it, scooping the mids flat to create the V-curve that defines groove metal.",
     tone_context: "full_song",
@@ -13349,6 +13379,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "whole-lotta-love-led-zeppelin",
     title: "Jimmy Page's Whole Lotta Love Heavy Riff Tone",
     slug: "page-whole-lotta-love-heavy-riff",
+    created_at: "2026-03-27",
     description:
       "The grinding, heavy riff tone that opens Whole Lotta Love. Jimmy Page's Les Paul through a cranked Marshall Super Lead produces a thick, aggressive overdrive with singing sustain. The riff is played in standard tuning with the neck pickup for extra fatness, then the solo sections use the bridge pickup for a more cutting tone. Page also used a theremin and backwards echo for the psychedelic middle section.",
     tone_context: "full_song",
@@ -13638,6 +13669,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "stairway-to-heaven-led-zeppelin",
     title: "Stairway to Heaven Clean Build Tone",
     slug: "page-stairway-to-heaven-clean-build",
+    created_at: "2026-03-27",
     description:
       "The arpeggiated intro to Stairway to Heaven uses a Telecaster through a small Supro amp for a warm, clean tone with subtle compression. As the song builds, the tone gradually shifts from clean fingerpicking to heavier strumming. The famous solo section uses a Les Paul through a cranked Marshall for a completely different character — singing sustain with aggressive attack.",
     tone_context: "intro",
@@ -13792,6 +13824,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "time-pink-floyd",
     title: "David Gilmour's Time Solo Lead Tone",
     slug: "gilmour-time-solo-lead",
+    created_at: "2026-03-27",
     description:
       "The blistering solo on Time features one of the most aggressive tones in Gilmour's catalog. A Stratocaster through a Big Muff Pi into a cranked Hiwatt DR103 creates a thick, sustaining fuzz tone with singing upper harmonics. The Binson Echorec delay adds rhythmic repeats that fill the sonic space. Gilmour's precise bending and vibrato bring the notes to life over the massive sustain.",
     tone_context: "solo",
@@ -14091,6 +14124,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "welcome-to-the-jungle-guns-n-roses",
     title: "Slash's Welcome to the Jungle Aggressive Riff Tone",
     slug: "slash-welcome-to-jungle-aggressive-riff",
+    created_at: "2026-03-27",
     description:
       "Welcome to the Jungle features a more aggressive, higher-gain version of Slash's Les Paul through Marshall tone compared to Sweet Child O' Mine. The opening wah-filtered harmonics lead into a pummeling riff with thick distortion and tight low end. Slash used an Alesis Midiverb for the pitch-shifted intro effect.",
     tone_context: "full_song",
@@ -14381,6 +14415,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "panama-van-halen",
     title: "Eddie Van Halen's Panama Brown Sound",
     slug: "evh-panama-brown-sound",
+    created_at: "2026-03-27",
     description:
       "Panama showcases Eddie Van Halen's legendary brown sound in its most refined form. The Frankenstrat with a single bridge humbucker runs through a modified Marshall Super Lead with an MXR Phase 90 adding subtle modulation. The tone is thick, warm, and harmonically rich with that signature compressed sustain. The Phase 90 adds a gentle swirl that thickens the tone without being obviously phasey.",
     tone_context: "full_song",
@@ -14662,6 +14697,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "gravity-john-mayer",
     title: "John Mayer's Gravity Super-Clean Dynamic Tone",
     slug: "mayer-gravity-super-clean-dynamic",
+    created_at: "2026-03-27",
     description:
       "Gravity is the ultimate showcase of Mayer's dynamic touch on a Stratocaster. The tone is remarkably clean -- almost no overdrive from the amp, just the pure sound of a great Strat through a boutique Two Rock amplifier. Every nuance of pick attack, finger pressure, and volume knob adjustment is audible. The Klon Centaur is always on but set extremely low, adding just a touch of harmonic richness and compression.",
     tone_context: "full_song",
@@ -14946,6 +14982,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "creep-radiohead",
     title: "Creep Clean-to-Crunch Tone",
     slug: "greenwood-creep-clean-to-crunch",
+    created_at: "2026-03-27",
     description:
       "Creep's dynamic shift from delicate clean arpeggios to crushing distorted chords is one of the most dramatic in rock. Greenwood's Telecaster Plus runs through a Fender Eighty Five amp for the clean verses. Before each chorus, he smashes the strings with a Marshall Shredmaster engaged, creating that iconic crunching noise that signals the heavy section. The contrast between whisper-quiet cleans and massive distortion defines the song.",
     tone_context: "full_song",
@@ -15112,6 +15149,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "do-i-wanna-know-arctic-monkeys",
     title: "Alex Turner's Do I Wanna Know? Fuzzy Riff Tone",
     slug: "turner-do-i-wanna-know-fuzzy-riff",
+    created_at: "2026-03-27",
     description:
       "The hypnotic riff of Do I Wanna Know? is built on a dark, fuzzy tone with heavy reverb. Turner's Jazzmaster-style guitar through a Vox AC30 with fuzz creates a thick, murky groove that sits low in the mix. The riff uses a slow, deliberate picking style with the notes slightly muted for a percussive, almost drum-like quality.",
     tone_context: "riff",
@@ -15277,6 +15315,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "enter-sandman-metallica",
     title: "James Hetfield's Enter Sandman Tight Rhythm Tone",
     slug: "hetfield-enter-sandman-tight-rhythm",
+    created_at: "2026-03-27",
     description:
       "Enter Sandman introduced a new, more polished Metallica rhythm sound. Hetfield's ESP through a Mesa/Boogie Mark IV with a scooped midrange and tight low end creates the punchy, percussive tone that defined the Black Album. Compared to the rawer Master of Puppets tone, Enter Sandman is more controlled, more produced, and heavier in the low end thanks to Bob Rock's production.",
     tone_context: "riff",
@@ -15466,6 +15505,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "the-trooper-iron-maiden",
     title: "Dave Murray's The Trooper Galloping Lead Tone",
     slug: "murray-trooper-galloping-lead",
+    created_at: "2026-03-27",
     description:
       "The Trooper's galloping rhythm and harmonized lead melodies defined the Iron Maiden sound. Murray's Stratocaster through a Marshall produces a bright, cutting tone with enough midrange to carry the twin-guitar harmonies. The tone is aggressive but not excessively distorted -- clarity is essential for the fast, galloping triplet picking patterns.",
     tone_context: "full_song",
@@ -15622,6 +15662,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "schism-tool",
     title: "Adam Jones' Schism Dark Heavy Tone",
     slug: "jones-schism-dark-heavy",
+    created_at: "2026-03-27",
     description:
       "Adam Jones' tone on Schism is dark, heavy, and mid-focused. A Les Paul in drop-D tuning through a Diezel VH4 and Mesa Rectifier blend creates a massive wall of low-end with enough midrange clarity to articulate the complex time signature changes. Jones uses minimal effects, relying on the raw power of the guitar and amp for his huge sound.",
     tone_context: "riff",
@@ -15775,6 +15816,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "plug-in-baby-muse",
     title: "Matt Bellamy's Plug In Baby Fuzz Whammy Tone",
     slug: "bellamy-plug-in-baby-fuzz-whammy",
+    created_at: "2026-03-27",
     description:
       "Plug In Baby features Matt Bellamy's signature combination of heavy fuzz and a DigiTech Whammy for the iconic riff. The Manson guitar runs through a fuzz pedal into a cranked Marshall for a thick, aggressive distortion, while the Whammy adds an octave-up effect that gives the riff its distinctive screaming, synth-like quality. The riff itself is a rapid-fire chromatic run that is instantly recognizable.",
     tone_context: "riff",
@@ -16059,6 +16101,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "lonely-boy-black-keys",
     title: "Dan Auerbach's Lonely Boy Raw Garage Tone",
     slug: "auerbach-lonely-boy-raw-garage",
+    created_at: "2026-03-27",
     description:
       "Lonely Boy's riff is a raw, fat, garage-rock tone built on simplicity: a Les Paul Junior with a single P-90 pickup into a cranked small amp. The tone is warm, slightly fuzzy, and dripping with character from the amp's natural breakup. No fancy effects -- just a guitar, a cable, and a loud amp doing what they do best.",
     tone_context: "riff",
@@ -16221,6 +16264,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "bright-lights-gary-clark-jr",
     title: "Bright Lights Modern Blues Tone",
     slug: "gary-clark-bright-lights-modern-blues",
+    created_at: "2026-03-27",
     description:
       "Gary Clark Jr.'s tone on Bright Lights is a modern take on classic blues guitar. An SG through a Fender Vibro-King produces a warm, fat clean tone that breaks up beautifully when he digs in. The tone has more midrange warmth than a typical Fender clean, thanks to the SG's humbuckers. Clark uses a Tube Screamer-style overdrive for solo boosts, pushing the amp into rich, singing sustain.",
     tone_context: "full_song",
@@ -16387,6 +16431,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "sloe-gin-joe-bonamassa",
     title: "Sloe Gin Blues-Rock Lead Tone",
     slug: "bonamassa-sloe-gin-blues-rock-lead",
+    created_at: "2026-03-27",
     description:
       "Sloe Gin features Bonamassa's signature blues-rock lead tone: a vintage Les Paul through a Marshall and Dumble blend that produces a thick, creamy sustain with singing upper harmonics. The tone is rich and saturated but never loses note definition. Bonamassa's precise vibrato and dynamic control bring each note to life with an expressiveness that bridges classic Clapton-era blues with modern production values.",
     tone_context: "solo",
@@ -16565,6 +16610,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "fade-to-black-metallica",
     title: "Kirk Hammett's Fade to Black Clean Intro and Wah Solo",
     slug: "hammett-fade-to-black-clean-wah-solo",
+    created_at: "2026-03-27",
     description:
       "Fade to Black begins with one of metal's most beautiful clean arpeggios before building to a wah-drenched lead solo. Hammett's ESP through a Mesa Boogie with a Cry Baby wah creates two distinct tones: the clean intro uses the neck pickup through a clean channel for crystalline arpeggios, while the solo engages the lead channel with a wah for Hammett's signature vocal phrasing.",
     tone_context: "full_song",
@@ -16728,6 +16774,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "no-one-knows-queens-of-the-stone-age",
     title: "Josh Homme's No One Knows Detuned Desert Tone",
     slug: "homme-no-one-knows-detuned-desert",
+    created_at: "2026-03-27",
     description:
       "No One Knows features Josh Homme's signature desert rock tone: an Ovation GP guitar detuned to C-standard through an Ampeg bass amp for a thick, woolly wall of low-end. The unconventional use of a bass amp gives the guitar an enormous, earth-shaking fundamental that no guitar amp can replicate. The tone is heavy but not conventionally distorted -- it's more of a massive, compressed crunch.",
     tone_context: "riff",
@@ -16880,6 +16927,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "little-wing-stevie-ray-vaughan",
     title: "SRV's Little Wing Hendrix Tribute Tone",
     slug: "srv-little-wing-hendrix-tribute",
+    created_at: "2026-03-27",
     description:
       "SRV's cover of Hendrix's Little Wing is a masterclass in blues tone and dynamics. His Stratocaster through a Vibroverb with a Tube Screamer produces a warm, singing tone that honors Hendrix while adding SRV's characteristic power and aggression. The tone is fatter and more driven than Hendrix's original, with heavier strings providing more body and sustain. SRV's version features extensive chord melody work that demands both clean articulation and overdrive sustain.",
     tone_context: "full_song",
@@ -17044,6 +17092,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "shine-on-you-crazy-diamond-pink-floyd",
     title: "David Gilmour's Shine On You Crazy Diamond Sustain Tone",
     slug: "gilmour-shine-on-sustain",
+    created_at: "2026-03-27",
     description:
       "The four-note opening motif of Shine On You Crazy Diamond is one of the most recognizable guitar phrases ever played. Gilmour's Stratocaster through a Hiwatt with a compressor and delay produces a tone of infinite sustain and crystalline clarity. The notes ring out with an almost vocal quality, each one sustaining until the next is played. The tone relies on precise gain staging: enough sustain to carry each note but not so much distortion that clarity is lost.",
     tone_context: "intro",
@@ -17350,6 +17399,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "thunderstruck-ac-dc",
     title: "Angus Young's Thunderstruck Tapping Intro Tone",
     slug: "angus-thunderstruck-tapping-intro",
+    created_at: "2026-03-27",
     description:
       "Thunderstruck opens with Angus Young's iconic tapping intro on the B string, creating a rapid-fire pattern that sounds like lightning. His SG through a cranked Marshall produces a bright, cutting tone with enough gain for the tapped notes to ring out clearly. The tone is raw and aggressive with the SG's bridge humbucker providing a sharp, biting attack that cuts through the mix.",
     tone_context: "intro_riff",
@@ -17502,6 +17552,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "hotel-california-eagles",
     title: "Felder's Hotel California Outro Solo Tone",
     slug: "felder-hotel-california-solo",
+    created_at: "2026-06-01",
     description:
       "One of the most-studied lead tones in rock. Don Felder cut the famous Hotel California outro solo with his 1959 Les Paul Standard plugged straight into a narrow-panel mid-50s Fender Tweed Deluxe, cranked into edge-of-breakup territory, with a Maestro Echoplex in the loop for the tape-delay swell. Felder and Walsh trade twin-harmony lines, but the lead voice is Felder's PAF-on-Tweed-combo — fat, singing, slightly breaking up at the top of every note.",
     tone_context: "solo",
@@ -17851,6 +17902,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "free-bird-lynyrd-skynyrd",
     title: "Collins' Free Bird Outro Solo Tone",
     slug: "collins-free-bird-outro-solo",
+    created_at: "2026-06-01",
     description:
       "The blueprint southern-rock outro solo. Allen Collins played the entire four-minute Free Bird outro himself on a modified 1964 Gibson Firebird I run through a slaved Marshall Super Tremolo + Fender Twin Reverb rig — Marshall grind for sustain, Fender Twin for clarity, both pushing the same Strat-into-cab signal. The solo was tracked in two takes and double-tracked for stereo width. No pedals, no boost — just two cranked amps in parallel.",
     tone_context: "outro",
@@ -18179,6 +18231,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "smoke-on-the-water-deep-purple",
     title: "Blackmore's Smoke on the Water Riff Tone",
     slug: "blackmore-smoke-on-the-water-riff",
+    created_at: "2026-06-01",
     description:
       "The most famous riff in rock — and one of the most misunderstood. Ritchie Blackmore played the Smoke on the Water riff in parallel fourths (not power chords) on a 1968 maple-neck Stratocaster through a 100W Marshall head, with a Hornby-Skewes treble booster adding clarity and just a touch of hair. The riff was tracked at the Grand Hotel in Montreux, December 1971, after a fire burned down the original recording venue.",
     tone_context: "intro_riff",
@@ -18513,6 +18566,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "sunshine-of-your-love-cream",
     title: "Clapton's Sunshine of Your Love Woman Tone",
     slug: "clapton-sunshine-of-your-love-woman-tone",
+    created_at: "2026-06-01",
     description:
       "The best-known illustration of Clapton's 'woman tone.' On Cream's Sunshine of Your Love (Disraeli Gears, May 1967, Atlantic Studios), Clapton played his 1964 Gibson SG Standard — the famous Fool-painted SG — through a 1966 Marshall JTM45/100 head into a single Marshall 1960B 4x12. The amp's passive tone controls were pushed to 10, the master and channel volumes were at or near 10 for natural compression, and the guitar's tone control was rolled down to bring out the fat, honking midrange that defines the riff.",
     tone_context: "riff",
@@ -18831,6 +18885,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "money-for-nothing-dire-straits",
     title: "Knopfler's Money for Nothing Intro Riff Tone",
     slug: "knopfler-money-for-nothing-intro",
+    created_at: "2026-06-01",
     description:
       "One of the most-mythologized accidental tones in rock. Mark Knopfler tracked the Money for Nothing intro riff at AIR Studios Montserrat (April 1985) on a Gibson Les Paul Junior through a Laney Klipp 2x12 combo, with a Morley wah pedal kept half-cocked in front. The SM57 had slipped off its stand the night before and was pointing at the floor, four inches from the speaker — by accident. Engineer Neil Dorfsman and Knopfler heard it through the talkback, told the room not to touch anything, and tracked the riff exactly as it stood. The tone has never been re-created since.",
     tone_context: "intro_riff",
@@ -19172,6 +19227,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "sweet-home-alabama-lynyrd-skynyrd",
     title: "Ed King's Sweet Home Alabama Intro Tone",
     slug: "edking-sweet-home-alabama-intro",
+    created_at: "2026-06-02",
     description:
       "Sweet Home Alabama's instantly-recognizable intro lick — and the spoken 'one, two, three' count-off — was played by Ed King, not Gary Rossington, on a Fender Stratocaster with notably weak single-coils. Tracked at Studio One in Doraville, Georgia (1974), it ran into a cranked amp captured by a single padded Neumann U87 placed close to the cabinet, with no pedals — just a touch of reverb. The cleanness is the secret: King turned the amp all the way up for sustain, but the feeble pickups couldn't push it into breakup, so the lick stays glassy even at full volume.",
     tone_context: "intro_riff",
@@ -19553,6 +19609,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "black-dog-led-zeppelin",
     title: "Jimmy Page's Black Dog Riff Tone",
     slug: "page-black-dog-riff",
+    created_at: "2026-06-02",
     description:
       "Black Dog's snarling, compressed riff was recorded with no guitar amp at all. At Island/Basing Street Studios in London (December 1970), Jimmy Page ran his 1959 Les Paul through a direct box into a mic channel of the Helios console and overdrove the console's mic preamp to make the distortion — then fed it through two UREI 1176 compressors in series, the first cranked as a saturation stage and the second doing the compression. Engineer Andy Johns triple-tracked it (left, right, centre). The tone that sounds like a synthesizer is a preamp pushed past its limit, not a speaker.",
     tone_context: "riff",
@@ -19932,6 +19989,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "money-pink-floyd",
     title: "David Gilmour's Money Solo Tone",
     slug: "gilmour-money-solo",
+    created_at: "2026-06-02",
     description:
       "David Gilmour's Money solo is really three solos. The clean, double-tracked opening and the spacious middle run on the Black Strat's bridge pickup through a Dallas Arbiter Fuzz Face and a Binson Echorec for the repeats; the more aggressive third section brings in his humbucker-loaded Bill Lewis Custom. It was tracked at Abbey Road (1973) with Alan Parsons into a Hiwatt DR103 and/or Fender Twin. The 'recorded direct' story is a myth — it was amp-and-mic. Per Bjorn Riis/gilmourish.com, the overdrive method isn't fully logged, so the Fuzz Face attribution is a reconstruction.",
     tone_context: "solo",
@@ -20389,6 +20447,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "more-than-a-feeling-boston",
     title: "Tom Scholz's More Than a Feeling Riff Tone",
     slug: "scholz-more-than-a-feeling-riff",
+    created_at: "2026-06-02",
     description:
       "Tom Scholz built More Than a Feeling's wall of guitar in his Watertown basement on gear he made himself. A 1968 Les Paul Goldtop with P-90s ran into a 100W Marshall (widely cited as a 1959 Super Lead Plexi) cranked into one of his homemade prototype Power Soak attenuators, plus a homemade compressor/sustainer and outboard EQ. The Rockman is a red herring — it didn't exist until 1982; the 1976 record is power-soaked Marshall plus DIY compression, heavily multi-tracked. The result is ultra-sustained, glassy, and impossibly layered.",
     tone_context: "riff",
@@ -20759,6 +20818,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "carry-on-wayward-son-kansas",
     title: "Kerry Livgren's Carry On Wayward Son Riff Tone",
     slug: "livgren-carry-on-wayward-son-riff",
+    created_at: "2026-06-02",
     description:
       "Kerry Livgren's rig on Carry On Wayward Son was disarmingly simple: a guitar straight into a 100-watt Marshall head and one slant cabinet, no pedals, 'no modification of any kind.' Recorded at Studio in the Country in Bogalusa, Louisiana (1976) and produced by Jeff Glixman, the dirty rhythm tone is all cranked-amp grind. Livgren's own main guitar in the Kansas years was a Gibson ES-335, though the exact guitar on this track isn't confirmed and Rich Williams' Les Paul doubled the rhythm. Standard tuning, an Am-pentatonic riff played straight in.",
     tone_context: "riff",
@@ -21129,6 +21189,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "black-pearl-jam",
     title: "McCready's Black Clean-to-Soaring Solo Tone",
     slug: "mccready-black-solo",
+    created_at: "2026-06-03",
     description:
       "Black is Mike McCready's masterclass in dynamics — clean, aching verses that bloom into one of grunge's most emotional outro solos. The secret is two amps: a Fender Bassman handles the pristine clean arpeggios (McCready himself said \"you can hear that on Black\"), while a cranked Marshall JCM800 pushed by an Ibanez TS-9 carries the soaring lead. The guitar is the black 1962 Japanese-reissue Stratocaster that Stone Gossard and Jeff Ament bought him during the Ten sessions.",
     tone_context: "lead",
@@ -21480,6 +21541,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "even-flow-pearl-jam",
     title: "McCready's Even Flow Wah-Drenched Solo",
     slug: "mccready-even-flow-solo",
+    created_at: "2026-06-03",
     description:
       "Even Flow is the gnarlier sibling to Black — same black 1962 reissue Strat, same cranked Marshall JCM800, but with more midrange grit and a Dunlop Cry Baby wah parked in the sweet spot for one of grunge's most frantic, Hendrix-indebted solos. The choppy main riff comes from the bridge pickup biting into the JCM800, and the TS-9 still rides in front to keep the lead singing through the chaos.",
     tone_context: "solo",
@@ -21844,6 +21906,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "the-pretender-foo-fighters",
     title: "Grohl's The Pretender Wall of Distortion",
     slug: "grohl-the-pretender-riff",
+    created_at: "2026-06-03",
     description:
       "The Pretender detonates from a tense, palm-muted verse into one of the biggest choruses Foo Fighters ever cut — a wall of high-gain distortion built on Dave Grohl's Gibson Trini Lopez semi-hollow through a Mesa/Boogie Dual Rectifier. The bright, woody semi-hollow into the Recto's modern high-gain channel is the band's signature combination, double-tracked hard left and right with Chris Shiflett's Telecaster Deluxe filling out the rhythm.",
     tone_context: "riff",
@@ -22172,6 +22235,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "snow-hey-oh-red-hot-chili-peppers",
     title: "Frusciante's Snow (Hey Oh) Cascading Clean Arpeggio",
     slug: "frusciante-snow-hey-oh-intro",
+    created_at: "2026-06-03",
     description:
       "Snow (Hey Oh) is a perpetual-motion machine of cascading sixteenth-note arpeggios, and the tone is deceptively simple: John Frusciante's 1962 Stratocaster running clean into a Marshall Major, with a Boss CE-1 Chorus Ensemble adding the liquid shimmer that makes the figure glisten. There is almost no dirt — the magic is in the clarity, the chorus, and Frusciante's relentlessly even right hand.",
     tone_context: "intro",
@@ -22520,6 +22584,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "this-charming-man-the-smiths",
     title: "Marr's This Charming Man Jangle",
     slug: "marr-this-charming-man-jangle",
+    created_at: "2026-06-03",
     description:
       "The chiming intro of This Charming Man is one of the most recognizable sounds in British guitar pop — and it's a beautiful studio illusion. What everyone hears as a Rickenbacker is mostly producer John Porter's 1954 Telecaster, double-tracked with Johnny Marr's Rickenbacker 330 and layered across roughly fifteen guitar tracks. The amp was a Roland JC-120 blended with a Fender Twin Reverb: the JC-120's glassy solid-state top and onboard chorus for the jangle, the Twin's tube warmth underneath.",
     tone_context: "intro_riff",
@@ -22869,6 +22934,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "there-is-a-light-that-never-goes-out-the-smiths",
     title: "Marr's There Is a Light That Never Goes Out Jangle",
     slug: "marr-there-is-a-light-jangle",
+    created_at: "2026-06-05",
     description:
       "The Queen Is Dead's most beloved song rides on the same chiming rig Johnny Marr built across the album: a Rickenbacker 330 layered with a capo'd Martin D-28, run through a Roland JC-120 blended with a Fender Twin Reverb. The JC-120's glassy solid-state top and lush onboard chorus carry the jangle; the Twin adds tube warmth underneath. Producer Stephen Street rode a pair of eighth-note delays on the part, and the sweeping strings that answer the vocal are an E-mu Emulator, not a guitar.",
     tone_context: "intro_riff",
@@ -23256,6 +23322,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "one-metallica",
     title: "Metallica's One Clean-to-Thrash Tone",
     slug: "metallica-one-clean-to-thrash",
+    created_at: "2026-06-05",
     description:
       "'One' moves from a clean, mournful arpeggiated intro to the machine-gun thrash outro — and the tone is the famously dry ...And Justice for All guitar sound. James Hetfield tracked rhythm on an ESP MX220 with EMG 81/60 pickups through a Mesa/Boogie Mark IIC+ borrowed from Kirk Hammett, with a parametric EQ in the loop and the parts triple-tracked. Kirk's lead and the war-machine solo ride a wah over the same Mark IIC+. No reverb, no delay — the dryness is the sound.",
     tone_context: "full_song",
@@ -23532,6 +23599,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "battery-metallica",
     title: "Metallica's Battery Acoustic-to-Thrash Tone",
     slug: "metallica-battery-acoustic-to-thrash",
+    created_at: "2026-06-05",
     description:
       "Battery opens with roughly a dozen layered nylon-string acoustic guitars — all played by James Hetfield — building a medieval-consort crescendo before the thrash riff detonates. The electric tone is pure Master of Puppets: a Jackson Custom Shop King V 'Kill Bon Jovi' loaded with Seymour Duncan Invaders into a Mesa/Boogie Mark IIC+ used as a preamp, slaved to a modified 100-watt Marshall power section and a 4x12. Tracked to analogue tape at Sweet Silence Studios by Flemming Rasmussen, standard E, all downpicks.",
     tone_context: "full_song",
@@ -23808,6 +23876,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "the-boys-are-back-in-town-thin-lizzy",
     title: "Thin Lizzy's The Boys Are Back in Town Twin-Lead Tone",
     slug: "gorham-boys-are-back-twin-lead",
+    created_at: "2026-06-05",
     description:
       "Thin Lizzy's signature is the harmonized twin lead, and The Boys Are Back in Town is its definitive statement. Scott Gorham and Brian Robertson each played a Gibson Les Paul Deluxe through cranked 100-watt non-master-volume Marshalls — gain from sheer volume, not pedals — harmonizing the hook (which started life as Phil Lynott's bass line) mostly in thirds. Gorham's only regular color was an MXR Phase 90; Robertson favored a Colorsound wah. Recorded at Ramport Studios with producer John Alcock.",
     tone_context: "lead",
@@ -24094,6 +24163,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "run-to-the-hills-iron-maiden",
     title: "Iron Maiden's Run to the Hills Galloping Twin-Guitar Tone",
     slug: "murray-run-to-the-hills-gallop",
+    created_at: "2026-06-05",
     description:
       "The galloping anthem of The Number of the Beast. Dave Murray drove his black Stratocaster — loaded with a hot DiMarzio Super Distortion humbucker — into a cranked 50-watt Marshall Super Lead, with an MXR Distortion+ for extra bite. Adrian Smith doubled the harmonized leads, famously on an Ibanez Destroyer. Producer Martin Birch tracked the twin guitars at Battery Studios in early 1982, doubling each part to widen the soundstage. Standard tuning; the gallop is in the picking hand.",
     tone_context: "riff",
@@ -24423,6 +24493,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "painkiller-judas-priest",
     title: "Judas Priest's Painkiller Speed-Metal Tone",
     slug: "tipton-painkiller-speed-metal",
+    created_at: "2026-06-06",
     description:
       "Judas Priest's fastest, most violent statement. On the 1990 title track, Glenn Tipton and K.K. Downing drove hot-humbucker Hamer solidbodies into cranked JCM800-era Marshalls, recorded by Chris Tsangarides at Miraval Studios in France. The rhythm is wall-of-Marshall high gain at roughly 200 BPM; Tipton's solo adds wah and screaming whammy dives. Standard tuning — the speed lives in the picking hand and a tight noise gate.",
     tone_context: "riff",
@@ -24747,6 +24818,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "holy-diver-dio",
     title: "Dio's Holy Diver Les Paul-into-Marshall Tone",
     slug: "campbell-holy-diver-les-paul-marshall",
+    created_at: "2026-06-06",
     description:
       "The riff and singing solo that launched Dio's solo career. Vivian Campbell recorded Holy Diver at Sound City Studios in 1983 on a wine-red Gibson Les Paul Deluxe he'd refinished matte black — loaded with a DiMarzio X2N in the bridge — pushed by a Boss SD-1 into a stock, cranked Marshall JCM800. No rack, no scoop: just a hot Les Paul and a Marshall on the edge, which is why the leads sound so vocal. Standard tuning.",
     tone_context: "riff",
@@ -25051,6 +25123,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "cemetery-gates-pantera",
     title: "Pantera's Cemetery Gates Clean-to-Crushing Tone",
     slug: "dimebag-cemetery-gates-clean-to-crushing",
+    created_at: "2026-06-06",
     description:
       "Pantera's most dynamic song: a clean, chiming arpeggio intro that explodes into a crushing groove and one of Dimebag Darrell's most expressive solos. Recorded with producer Terry Date in 1990, the heavy tone is a Dean ML 'Dean From Hell' with a Bill Lawrence L-500XL through a solid-state Randall RG100ES — mids scooped by an MXR six-band EQ — while the clean intro comes from a Roland JC-120's lush chorus. Standard tuning.",
     tone_context: "full_song",
@@ -25375,6 +25448,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "crossroads-cream",
     title: "Cream's Crossroads Live Blues-Rock Solo Tone",
     slug: "clapton-crossroads-live-solo",
+    created_at: "2026-06-06",
     description:
       "Cream's definitive live moment, cut at Winterland in March 1968 and released on Wheels of Fire. Eric Clapton's 1964 Gibson SG 'The Fool' ran straight into cranked 100-watt Marshall Super Lead stacks — no pedals at all. On the bridge pickup the amps sing with biting, vocal sustain, the opposite of his rolled-off 'woman tone.' The solo is improvised over a fast blues form; the tone is all guitar, hands, and cranked Plexi.",
     tone_context: "solo",
@@ -25636,6 +25710,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "the-sky-is-crying-stevie-ray-vaughan",
     title: "Stevie Ray Vaughan's The Sky Is Crying Slow-Blues Tone",
     slug: "srv-the-sky-is-crying-slow-blues",
+    created_at: "2026-06-06",
     description:
       "Stevie Ray Vaughan's aching Elmore James cover, released on the posthumous 1991 album. Slower and more vocal than Pride and Joy, it leans on Number One — his '62/'63 Strat strung with heavy .013s and tuned a half-step to E♭ — through an always-on Ibanez Tube Screamer into a cranked Fender Super Reverb, blended with his Dumble Steel String Singer. Neck pickup, fingertips on the strings, and a touch of spring reverb do the crying.",
     tone_context: "lead",
@@ -25931,6 +26006,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "walk-this-way-aerosmith",
     title: "Joe Perry's Walk This Way Funk-Rock Riff",
     slug: "perry-walk-this-way-riff",
+    created_at: "2026-06-07",
     description:
       "The funk-rock riff Joe Perry wrote at a Hawaii soundcheck, chasing a Meters/James Brown groove on Joey Kramer's beat. A P-90 Les Paul Junior straight into a cranked, mid-forward amp — no pedals on the riff. The growl lives entirely in the midrange (pushed up around 800 Hz), with the bass pulled way back and zero reverb. Engineer Jay Messina blended three mics into an 1176 and a Pultec at the Record Plant. The grit is cranked-tube saturation and Perry's right hand, not a stompbox.",
     tone_context: "riff",
@@ -26243,6 +26319,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "sweet-emotion-aerosmith",
     title: "Joe Perry's Sweet Emotion Talk-Box Intro",
     slug: "perry-sweet-emotion-talk-box",
+    created_at: "2026-06-07",
     description:
       "The dreamy, vocal-like intro that 'talks' the title — a guitar fed through a Kustom 'The Bag' talk box, with Perry mouthing the vowels into a vocal mic. Underneath is a Strat into a hot Ampeg V-2, with an early Eventide DDL adding short stereo slap. The descending main riff hits clean and mean. The signature is the talk box plus the studio's tight ambience, not high gain.",
     tone_context: "intro_riff",
@@ -26591,6 +26668,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "november-rain-guns-n-roses",
     title: "Slash's November Rain Outro Solo Tone",
     slug: "slash-november-rain-solo",
+    created_at: "2026-06-07",
     description:
       "The most-played stadium solo of a generation — a Kris Derrig '59 Les Paul replica with Seymour Duncan Alnico II Pros, into a modified Marshall JCM800 2203, in Eb. The voice is sustain and vibrato, not gain: a singing, vocal lead with lush studio reverb floating it over the piano. Slash tracked the feedback by splitting into a second amp and playing back loud — the sustain is real, not a pedal.",
     tone_context: "solo",
@@ -26916,6 +26994,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "mr-brightside-the-killers",
     title: "Dave Keuning's Mr. Brightside Ringing Riff",
     slug: "keuning-mr-brightside-riff",
+    created_at: "2026-06-07",
     description:
       "The cascading hook everyone thinks is delay — and isn't. Dave Keuning recorded it with one rig: a 1970s Ibanez Destroyer straight into a loud Fender Hot Rod DeVille. The shimmer is a moving Dadd9 voicing with the open high E ringing through it, played in standard tuning, pushed to edge-of-breakup. The famous Telecaster / AC30 / dotted-eighth-delay 'recipe' is a myth that contradicts Keuning's own account.",
     tone_context: "riff",
@@ -27228,6 +27307,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "black-hole-sun-soundgarden",
     title: "Black Hole Sun's Watery Rotary Verse Tone",
     slug: "thayil-black-hole-sun-rotary-verse",
+    created_at: "2026-06-07",
     description:
       "The warbling, underwater verse of Superunknown's biggest single — and the surprise is who played it. Chris Cornell tracked the rhythm on a Gretsch Duo Jet through a real Leslie 16 rotary cabinet driven by a Marshall; Kim Thayil handled the leads. The off-kilter shimmer is the spinning rotor plus a tape-speed trick that nudged the whole song ~3/4 semitone sharp of drop D. The album's heavier tones blend a Marshall and a Mesa Dual Rectifier.",
     tone_context: "verse",
@@ -27555,6 +27635,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "alive-pearl-jam",
     title: "McCready's Alive Soaring Outro Solo",
     slug: "mccready-alive-solo",
+    created_at: "2026-06-07",
     description:
       "Alive ends on one of rock's most euphoric outro solos — and famously, the keeper take was a single pass nailed at the mix in England, with a Uni-Vibe swirling underneath. The rig is McCready's Ten staple: the black 1962 Japanese-reissue Strat, an Ibanez TS-9 pushing a cranked Marshall JCM800, a Cry Baby in the solo, and that Uni-Vibe on the outro. Note: the 1959 Les Paul fans tie to Alive is his LIVE guitar (bought in 1998) — the recording is the Strat.",
     tone_context: "solo",
@@ -27951,6 +28032,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "yellow-ledbetter-pearl-jam",
     title: "McCready's Yellow Ledbetter Clean Tone",
     slug: "mccready-yellow-ledbetter-clean",
+    created_at: "2026-06-07",
     description:
       "Cut at the Ten sessions but left off the album, Yellow Ledbetter is McCready's love letter to Hendrix's Little Wing — warm, bell-like clean chords with thumb-fretted bass notes and major-pentatonic fills, drenched in studio reverb. The documented guitar is a Fender '57 reissue Strat with a maple neck (not the black '62 he used elsewhere on Ten). The amp isn't named in any source, so this builds the clean Fender voice his Ten rig points to.",
     tone_context: "clean",
@@ -28271,6 +28353,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "cherub-rock-smashing-pumpkins",
     title: "Corgan's Cherub Rock Wall of Fuzz",
     slug: "corgan-cherub-rock-big-muff",
+    created_at: "2026-06-07",
     description:
       "Cherub Rock opens Siamese Dream with the most famous wall of guitars in alt-rock — and the recipe is gloriously simple: a late-'70s op-amp Big Muff Pi slammed into the low-gain input of a 100-watt Marshall JCM800 with the master cranked and the preamp barely on, so the saturation is all fuzz and the amp is the loud, clean power stage. Tracked in Eb standard and layered four-to-six takes deep into a roaring mono-to-stereo wall.",
     tone_context: "riff",
@@ -28621,6 +28704,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "bullet-with-butterfly-wings-smashing-pumpkins",
     title: "Corgan's Bullet With Butterfly Wings Fender Blender Chorus",
     slug: "corgan-bullet-butterfly-fender-blender",
+    created_at: "2026-06-07",
     description:
       "The world is a vampire — and the detonating chorus is a Fender Blender, not a Big Muff. Corgan named the pedal and the song together: 'at about two-and-a-half minutes there's a part where the key changes and it comes in all loud and thick.' Built on the Mellon Collie rig — a KT88-loaded JCM800 through a Mesa Strategy 500 power amp into a Marshall 4x12 — Bullet pairs hushed clean verses against that blown-out octave-fuzz chorus, all in Eb standard.",
     tone_context: "riff",
@@ -28971,6 +29055,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "life-in-the-fast-lane-eagles",
     title: "Walsh's Life in the Fast Lane Riff Tone",
     slug: "walsh-life-in-the-fast-lane-riff",
+    created_at: "2026-06-07",
     description:
       "Joe Walsh wrote and played the snaking main riff of Life in the Fast Lane on a 1950s Fender Stratocaster straight into a cranked tweed Fender Deluxe — bright, biting, just over the edge of breakup. Don Felder doubled the riff an octave up on his 1959 Les Paul through the same amp. No pedals: producer Bill Szymczyk had the players punching parts in live from the control room, the growl coming entirely from a small tweed combo pushed hard.",
     tone_context: "riff",
@@ -29283,6 +29368,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "use-somebody-kings-of-leon",
     title: "Followill's Use Somebody Octave Lead Tone",
     slug: "followill-use-somebody-octave-lead",
+    created_at: "2026-06-08",
     description:
       "The widescreen guitar hook on Use Somebody is Matthew Followill — not Caleb, who plays rhythm and sings — riding a delayed octave melody through a Matchless combo. Producer Jacquire King confirmed the Matchless was the amp on this track (the Selmer was Sex on Fire's). The shimmer is a rhythmic Line 6 delay plus a lush studio reverb (an Eventide DSP4000 added the 'synth-like' sheen at Blackbird in Nashville). The guitar is dialed clean and bright, the delay and reverb do the rest.",
     tone_context: "lead",
@@ -29652,6 +29738,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "take-it-easy-eagles",
     title: "Leadon's Take It Easy Telecaster Lead Tone",
     slug: "leadon-take-it-easy-tele-lead",
+    created_at: "2026-06-08",
     description:
       "Bernie Leadon's bright country-rock lead licks on Take It Easy come from a refinished early-'60s Fender Telecaster fitted with a B-Bender, run clean into a Fender combo — no pedals. The Eagles cut their debut at Olympic Studios in London with Glyn Johns, whose dry, natural, room-honest approach kept everything close to the source. The track is in G major (open chords, no capo); Glenn Frey strums a Martin dreadnought and Leadon doubles on the bright double-time banjo.",
     tone_context: "lead",
@@ -29977,6 +30064,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "reptilia-the-strokes",
     title: "Valensi's Reptilia Lead Riff Tone",
     slug: "valensi-reptilia-lead-riff",
+    created_at: "2026-06-08",
     description:
       "The descending lead hook on Reptilia is Nick Valensi's Epiphone Riviera — a semi-hollow with bright P-94 single-coils — pushed by a Visual Sound Jekyll & Hyde overdrive into a loud, clean Fender Hot Rod DeVille. It's not high gain: the grind is edge-of-breakup amp headroom plus a light overdrive. Producer Gordon Raphael tracked the band at Transporterraum in NYC with a single Sennheiser MD 421 per amp straight into an API preamp, no EQ — and hard-panned the two interlocking guitars across the stereo field.",
     tone_context: "riff",
@@ -30346,6 +30434,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "last-nite-the-strokes",
     title: "Hammond's Last Nite Riff Tone",
     slug: "hammond-last-nite-riff",
+    created_at: "2026-06-08",
     description:
       "The bright, hammered riff of Last Nite is Albert Hammond Jr's white Fender Stratocaster into a loud, clean Fender Hot Rod DeVille — not, despite the persistent myth, a Crate VC30. Producer Gordon Raphael documented the DeVilles himself: one Sennheiser MD 421 per amp on opposite sides of the basement room at Transporterraum, straight into an API preamp with no EQ. The grit is amp headroom plus a light overdrive, and the two interlocking guitars are panned hard left and right.",
     tone_context: "riff",
@@ -30702,6 +30791,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "folsom-prison-blues-johnny-cash",
     title: "Perkins's Folsom Prison Blues Boom-Chicka Tone",
     slug: "perkins-folsom-prison-blues-boom-chicka",
+    created_at: "2026-06-08",
     description:
       "Luther Perkins built the 'boom-chicka-boom' on the 1955 Sun recording of Folsom Prison Blues with an early-'50s Fender Esquire — a single bridge pickup, and famously dead volume and tone controls, so it ran wide open. He muted the bass strings with the heel of his picking hand and played simple doubled runs, bright and clean through a small combo, with Sam Phillips's Sun Studio tape slapback as the only effect. The technique is as much the tone as the gear: palm-damped bass strings, no frills.",
     tone_context: "riff",
@@ -31036,6 +31126,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "sharp-dressed-man-zz-top",
     title: "ZZ Top's Sharp Dressed Man Eliminator Tone",
     slug: "gibbons-sharp-dressed-man-eliminator",
+    created_at: "2026-06-09",
     description:
       "The grinding, sustaining crunch behind ZZ Top's 1983 MTV smash. The folklore says Pearly Gates Les Paul into a Marshall — but engineer Terry Manning documented the real Eliminator rig: a custom Dean solidbody with a single DiMarzio Super Distortion humbucker into a small 'Legend' hybrid combo (tube preamp, solid-state power, one 12-inch Celestion), close-miked with an AKG C414 straight into a UA 176 limiter. No Rockman, no Marshall, no pedals — the thick sustain is the hot pickup, a cranked little combo, and that limiter.",
     tone_context: "riff",
@@ -31314,6 +31405,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "cult-of-personality-living-colour",
     title: "Vernon Reid's Cult of Personality Tone",
     slug: "reid-cult-of-personality-riff",
+    created_at: "2026-06-09",
     description:
       "Living Colour's 1988 breakout — a hyperactive funk-metal riff built on staccato pull-offs and a wild, improvised solo. Vernon Reid cut it on his multi-colored ESP Mirage (EMG 81 bridge humbucker plus two EMG SA single-coils) through a Pro-Co RAT into a wall of Marshalls blended with a Dean Markley DR150; the solo adds a Fender Showman to the amp stack. Standard tuning. The famous A/DA MP-1 rack rig came later, on Time's Up — on Vivid the bite is the RAT and the EMGs, recorded by Ed Stasium at Skyline.",
     tone_context: "riff",
@@ -31618,6 +31710,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "toxicity-system-of-a-down",
     title: "System of a Down's Toxicity Drop-C Tone",
     slug: "malakian-toxicity-drop-c-riff",
+    created_at: "2026-06-09",
     description:
       "The title track's lurching, drop-C main riff. Daron Malakian tracked Toxicity on an Ibanez Iceman in drop C (C-G-C-F-A-D) through a blend of two amps — engineer Dave Schiffman's words: 'the Mesa gave us the teeth, and the Marshall gave us the body.' A Mesa/Boogie Rectifier supplied the high-gain bite, a Marshall Plexi-type the low-mid weight, with no overdrive pedals in front. Rick Rubin wanted it dry and in-your-face: each cab was mic'd with an SM57 and SM87 into a pair of 1176s. Recorded at Cello Studios, mixed by Andy Wallace.",
     tone_context: "riff",
@@ -31903,6 +31996,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "chop-suey-system-of-a-down",
     title: "System of a Down's Chop Suey! Clean-to-Crushing Tone",
     slug: "malakian-chop-suey-clean-to-crushing",
+    created_at: "2026-06-09",
     description:
       "System of a Down's signature dynamic shift — a clean, fast drop-C arpeggio intro that detonates into a full-distortion chorus. Same rig as the rest of Toxicity: Daron Malakian's Ibanez Iceman in drop C (C-G-C-F-A-D) through a Mesa/Boogie Rectifier blended with a Marshall Plexi-type — Mesa for the teeth, Marshall for the body — no pedals. The trick is dynamics: roll the guitar volume back and pick lightly for the clean intro, then dig in and let the amp blend bite. Recorded dry at Cello Studios under Rick Rubin, mixed by Andy Wallace.",
     tone_context: "intro",
@@ -32187,6 +32281,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "plush-stone-temple-pilots",
     title: "Stone Temple Pilots' Plush Tone",
     slug: "deleo-plush-les-paul",
+    created_at: "2026-06-09",
     description:
       "Stone Temple Pilots' breakthrough — a brooding verse that swells into a soaring chorus. Dean DeLeo tracked Core on his 1978 sunburst Gibson Les Paul Standard through a Demeter TGP-3 tube preamp into a VHT Classic stereo power amp and two 4x12 cabinets — a refined, vintage-voiced crunch a cut above the grunge pack. Two myths to drop: it's standard E tuning (the droning low note is the open D string, not drop D), and there's no Mesa Mark IIB — that's a tone-blog guess. The spacious ambience on Plush is a Rocktron Intelliverb. Recorded at Rumbo Recorders with Brendan O'Brien.",
     tone_context: "full_song",
@@ -32475,6 +32570,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "interstate-love-song-stone-temple-pilots",
     title: "Dean DeLeo's Interstate Love Song Clean Intro Tone",
     slug: "deleo-interstate-love-song-clean-intro",
+    created_at: "2026-06-10",
     description:
       "The jangling clean intro that opens Stone Temple Pilots' biggest hit. Dean DeLeo tracked the arpeggiated figure on a vintage Fender Telecaster through a clean Vox AC30, with an S.I.B. VariDrive tube pedal nudged in for warmth — the one effect documented on the intro. The heavier chorus switched to his '57 Gibson Les Paul TV Special and a Demeter-into-VHT rig. Recorded at Southern Tracks in Atlanta with Brendan O'Brien, in Eb standard tuning.",
     tone_context: "intro",
@@ -32778,6 +32874,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "dont-fear-the-reaper-blue-oyster-cult",
     title: "Buck Dharma's Don't Fear the Reaper Clean Riff Tone",
     slug: "dharma-dont-fear-the-reaper-clean-riff",
+    created_at: "2026-06-10",
     description:
       "The shimmering clean riff that drives Blue Öyster Cult's classic. Buck Dharma cut it not on his signature SG but on co-producer Murray Krugman's hollowbody Gibson ES-175, chosen for its warmer, woodier jangle, through a clean Music Man 410-65 combo at the Record Plant in New York. The shimmer comes from the hollowbody plus an EMT plate and a 15-ips tape delay tracked live — not a chorus pedal. Standard tuning, A-minor riff.",
     tone_context: "riff",
@@ -33090,6 +33187,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "highway-to-hell-ac-dc",
     title: "Angus Young's Highway to Hell Riff Tone",
     slug: "angus-highway-to-hell-riff",
+    created_at: "2026-06-10",
     description:
       "The swaggering riff that opens AC/DC's breakthrough. Angus Young plugged a 1968 Gibson SG Standard straight into a cranked Marshall 1959 Super Lead Plexi — no pedals — and producer Mutt Lange shaped it into a tighter, glossier sound than the band's earlier records at Roundhouse Studios, London. Angus's Schaffer-Vega wireless added a subtle preamp boost that tightened the top end. Standard tuning; the swagger is in the right hand.",
     tone_context: "riff",
@@ -33392,6 +33490,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "whole-lotta-rosie-ac-dc",
     title: "Angus Young's Whole Lotta Rosie Riff Tone",
     slug: "angus-whole-lotta-rosie-riff",
+    created_at: "2026-06-10",
     description:
       "Rawer and louder than the law allows. On Let There Be Rock, Angus drove a late-'60s Gibson SG Standard into a cranked 100-watt Marshall JMP Super Lead with Celestion Greenbacks — and famously kept playing as the amp literally smoked during the solo. Producers Harry Vanda and George Young tracked it nearly live at Albert Studios, Sydney, with minimal overdubs and none of the later studio gloss. No pedals, standard tuning; the grit is all amp and right hand.",
     tone_context: "riff",
@@ -33694,6 +33793,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "the-number-of-the-beast-iron-maiden",
     title: "Iron Maiden's The Number of the Beast Twin-Guitar Riff Tone",
     slug: "murray-number-of-the-beast-twin-riff",
+    created_at: "2026-06-10",
     description:
       "The title track's driving, harmonized riff. Dave Murray drove his black Stratocaster — a DiMarzio Super Distortion in the bridge — and Adrian Smith his red Ibanez Destroyer (the guitar Smith said he 'recorded Number of the Beast on, the song, the solo, and everything') into cranked Marshalls, with an MXR Distortion+ adding the singing lead bite. Martin Birch tracked the twin parts at Battery Studios, London. Standard tuning; the aggression is in the picking hand and a tight gate.",
     tone_context: "chorus",

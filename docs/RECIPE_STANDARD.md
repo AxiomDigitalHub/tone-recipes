@@ -64,6 +64,22 @@ Every recipe object has: `id`, `slug`, `song_slug`, `title`,
 **Why:** these fields are referenced by the page template, the JSON-LD
 schema, and the audit. Missing fields silently break rendering.
 
+### A1.5 · `meta-dates` · warn
+Every recipe has `created_at: "YYYY-MM-DD"` (the date it was first
+published). `updated_at` is optional, same format, never earlier than
+`created_at`, and is stamped only on a **meaningful** edit (gear
+correction, settings fix, new platform block) — not on formatting or
+knob-order churn.
+
+**Why:** these dates feed sitemap `lastmod` (added 2026-06-10 per
+`docs/AI_SEARCH_PLAYBOOK.md`). Before them, every recipe page claimed a
+fixed launch-date lastmod forever, so crawlers had no signal that 5 new
+recipes land daily or that the weekly audit improves old ones. Existing
+recipes were backfilled from git history via
+`scripts/backfill-recipe-dates.ts`. The daily routine stamps
+`created_at` on new recipes; the weekly audit stamps `updated_at` on
+recipes it fixes.
+
 ### A2 · `description-substantive` · error
 `description` is ≥ 120 characters and ≤ 600 characters.
 

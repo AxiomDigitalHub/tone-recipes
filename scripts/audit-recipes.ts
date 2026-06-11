@@ -239,6 +239,21 @@ const RULES: Rule[] = [
     },
   },
   {
+    slug: "meta-dates",
+    severity: "warn",
+    description: "created_at present (YYYY-MM-DD); updated_at, if set, valid and not before created_at",
+    check: (r) => {
+      const iso = /^\d{4}-\d{2}-\d{2}$/;
+      if (!r.created_at) return "missing created_at (feeds sitemap lastmod — stamp with today's date)";
+      if (!iso.test(r.created_at)) return `created_at not YYYY-MM-DD: ${r.created_at}`;
+      if (r.updated_at) {
+        if (!iso.test(r.updated_at)) return `updated_at not YYYY-MM-DD: ${r.updated_at}`;
+        if (r.updated_at < r.created_at) return `updated_at (${r.updated_at}) before created_at (${r.created_at})`;
+      }
+      return null;
+    },
+  },
+  {
     slug: "description-substantive",
     severity: "error",
     description: "Description is between 120 and 600 characters",
