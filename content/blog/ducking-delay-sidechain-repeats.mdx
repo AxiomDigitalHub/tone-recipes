@@ -1,0 +1,126 @@
+---
+title: 'Ducking Delay: How to Sidechain Your Repeats So They Stay Out of the Way'
+description: >-
+  A ducking delay turns its repeats down while you play and lets them swell up
+  in the gaps. Here's what the threshold, amount, and release controls do — and
+  how to set it on a modeler.
+date: '2026-06-12'
+author: Dev Okonkwo
+author_slug: dev-okonkwo
+category: modeler-masterclass
+tags:
+  - ducking-delay
+  - delay
+  - sidechain
+  - ambient
+  - modeler
+  - texture
+readingTime: 9
+image: /images/blog/ducking-delay-sidechain-repeats.jpg
+image_alt: >-
+  A modeler delay block screen showing ducking parameters — threshold, amount,
+  and release — controlling delay repeats that swell in the gaps between notes
+takeaways:
+  - >-
+    A ducking delay lowers the volume of its repeats while you're playing and
+    lets them rise back up in the spaces between your notes, so the echoes never
+    pile up on top of the dry signal.
+  - >-
+    It works by watching your dry playing — the same sidechain idea as a
+    key-input noise gate — and using that to control the delay's output level
+    instead of muting it.
+  - >-
+    Three controls shape it: threshold (how loud you have to play to push the
+    repeats down), amount or depth (how far down they go), and release (how
+    quickly they come back after you stop).
+  - >-
+    Ducking is not the same as a volume swell. A swell shapes the attack of your
+    dry note; ducking shapes the level of the wet repeats against your playing.
+  - >-
+    Because the repeats only appear in the gaps, you can run more feedback and a
+    higher mix than usual without turning the track to mud.
+faq:
+  - q: What is a ducking delay?
+    a: >-
+      A ducking delay is a delay that automatically lowers the volume of its
+      repeats while you're actively playing, then raises them back up when you
+      stop or leave a gap. The dry note stays clear and present because the
+      echoes step out of its way, and the ambience fills the silences instead of
+      competing with the melody. It's the delay equivalent of sidechain ducking
+      in a mix.
+  - q: How is a ducking delay different from a volume swell?
+    a: >-
+      A volume swell shapes the attack of your dry note — it fades the pick
+      attack in so the note blooms instead of striking. A ducking delay leaves
+      your dry note alone and instead controls the level of the wet repeats,
+      pushing them down under your playing and letting them surface in the gaps.
+      One shapes the note you play; the other shapes the echoes around it.
+  - q: What settings should I start with on a ducking delay?
+    a: >-
+      Start with the threshold set so normal playing just triggers the duck, the
+      amount around 6 to 10 dB of reduction, and the release at roughly 200 to
+      400 ms so the repeats come back smoothly after you stop. From there, raise
+      the amount if the repeats still clutter your playing, and lengthen the
+      release if they pop back too abruptly.
+  - q: Can I get a ducking delay on a Helix or Quad Cortex?
+    a: >-
+      Yes. The Helix has a dedicated Ducked Delay model with Duck Threshold and
+      Duck Amount parameters built in. On other modelers and on flagship delay
+      pedals, look for a delay engine or parameter set labeled "ducking" or
+      "dynamic" — it exposes the same threshold, amount, and release controls.
+      If your platform lacks it, you can rebuild it by sidechaining a volume or
+      gain block to your dry signal.
+  - q: Why would I use ducking instead of just less delay?
+    a: >-
+      Less delay gives you less ambience everywhere, including the gaps where
+      you actually want it. Ducking keeps the full ambience but moves it out of
+      the way of your playing, so you get a spacious wash in the silences and a
+      clear dry signal when you're picking. It lets you run more feedback and a
+      higher mix than a static delay would allow before it muddies the track.
+---
+
+There's a specific kind of clutter that happens when you love delay. You set a long repeat with the feedback stacked deep, you start playing a melody over it, and within a few bars the echoes of the notes you played four seconds ago are tangled up with the notes you're playing right now. The space you added to make things feel bigger has turned into fog on the windshield. A ducking delay is the fix, and it's a quietly brilliant one: it keeps all that ambience but teaches it to wait its turn.
+
+## What a Ducking Delay Actually Does
+
+A ducking delay turns its repeats *down* while you're playing and lets them rise back *up* in the gaps. That's the whole idea. While your pick is moving, the echoes drop into the background so your dry notes stay clear and out front. The moment you stop — end of a phrase, a held note, a breath — the repeats swell back up and fill the silence. The wash lives in the spaces you leave, not on top of the notes you play.
+
+It does this by listening to your dry signal and using that to control the delay's output level. If that sounds familiar, it should — it's the same sidechain logic as a [key-input noise gate](/blog/sidechain-vs-inline-noise-gate), where a detector watches one signal to decide what to do to another. A gate uses your dry playing to decide when to *mute*. A ducking delay uses it to decide when to *turn the repeats down*. Same family, gentler tool.
+
+## The Three Controls
+
+Strip away the branding and every ducking delay gives you the same three knobs on top of the normal delay time, feedback, and mix.
+
+<SettingsGrid title="Ducked Delay" subtitle="Starting point">
+  <Knob name="Mix" value={4} min={0} max={10} display="~40%" />
+  <Knob name="Feedback" value={5} min={0} max={10} display="~50%, 3–4 repeats" />
+  <Knob name="Duck Threshold" value={4} display="trips on normal playing" />
+  <Knob name="Duck Amount" value={4} display="~8 dB down" />
+  <Knob name="Duck Release" value={3} display="~300 ms" />
+</SettingsGrid>
+
+- **Threshold** is how loud you have to play before the repeats get pushed down. Set it too high and the ducking never triggers, so it behaves like a normal delay. Too low and a single quiet note ducks everything. You want it to trip on your normal playing dynamics and relax when you stop.
+- **Amount** (sometimes Depth) is how far the repeats drop while you're playing. A few dB is subtle — the echoes just step back. A lot turns them nearly silent under your notes and lets them bloom dramatically in the gaps. Around 8 dB is a natural starting place.
+- **Release** is how fast the repeats come back after you stop. A short release snaps them back the instant you lift off, which can feel abrupt, like a light flicking on. A longer release lets them fade back in like the room slowly waking up. This is the knob that sets the mood.
+
+## Ducking Is Not a Volume Swell
+
+These get confused because both involve fading, but they touch completely different parts of the sound. A [volume swell](/blog/volume-swell-technique) shapes the attack of your *dry* note — it fades the pick attack in so the note arrives without a transient, that classic violin-like bloom. The note you play changes shape.
+
+A ducking delay leaves your dry note exactly as you played it. It only moves the level of the *wet* repeats, and it moves them against your playing rather than against the clock. You can stack them — a swell into a ducking delay is a gorgeous ambient texture, the dry note blooming in while the echoes hang back and then rise in the silence after. But they're doing two separate jobs. One shapes the note. The other shapes the air around it.
+
+## The Part I Got Wrong
+
+I assumed ducking would thin out my ambience. The logic seemed obvious: if the repeats spend most of their time turned down, there's less delay overall, so the whole thing should feel smaller and drier. I almost didn't bother with it for that reason.
+
+The opposite happened. Because the repeats only ever surface in the gaps, I could push the feedback well past where a static delay turns to mush — five, six repeats, a mix up around half — and it stayed clean, because all that density was happening in the silences where nothing was fighting it. A normal delay at those settings would smear every note into the next. Ducked, it sounded like a much bigger space than I was actually using, and my playing stayed legible right through the middle of it. I ended up with *more* ambience, not less. The ducking didn't subtract the wash. It just moved it somewhere it couldn't do any harm.
+
+That changed how I think about delay generally. The enemy was never the amount of delay. It was the delay landing in the same place as the dry signal. Move it into the gaps and the ceiling on how much you can use goes way up. It's the same problem the [muddy-delay fix](/blog/why-delay-sounds-muddy) is circling from the other direction — clear out where the dry and wet collide and the whole thing opens up.
+
+## Setting It on a Modeler
+
+The Helix makes this easy because it has a dedicated **Ducked Delay** model with **Duck Threshold** and **Duck Amount** parameters right in the block — no routing tricks, just dial the two extra knobs alongside Time, Feedback, and Mix. Start with the values in the grid above and adjust the threshold to your picking dynamics first; everything else follows from there.
+
+On a Quad Cortex or any other platform, look for a delay engine or parameter labeled **ducking** or **dynamic** — it'll give you the same threshold and amount controls under different names. If your modeler doesn't have a ducking delay at all, you can build one: put a volume or gain block on the delay's output and sidechain its control to your dry input signal, so your playing pulls the wet level down. That's exactly what the dedicated model is doing under the hood, and it's the same sidechain move from the [noise-gate side](/blog/sidechain-vs-inline-noise-gate), pointed at level instead of muting. If you're still sorting out which block does what in a chain like this, the [modeler dial-in walkthrough](/blog/how-to-dial-in-modeler-tone) is a good map.
+
+Where this really earns its place is anywhere a single guitar has to fill a lot of room without getting in its own way — ambient parts, sparse melodic lines, the kind of texture where you want the space to feel enormous but the notes to stay clear. It's a close cousin to how [the Edge uses rhythmic delay](/blog/the-edge-delay-settings) to do the playing for him, except instead of filling the gaps with rhythm, you're using them to hide the ambience until it's safe to show. Set the threshold to your hands, let the release set the mood, and the wash will learn to wait for the silences. That's where it belonged all along.

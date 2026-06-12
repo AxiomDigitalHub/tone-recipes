@@ -2386,3 +2386,56 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 **Carried forward from 2026-06-10 queue (unassigned — Hank at cap this week):** tube-screamer-front-preamp-or-power-amp-distortion (Hank), mixed-cab-speaker-wiring-order-input-jack (Hank). Pick up next run when Hank resets under cap.
 
 **Follow-on backlog noted this run (not yet queued):** effects-loop input-impedance explainer (1 MΩ vs 50-60 kΩ); ISP Decimator II vs G String System dedicated buyer post (only if it can clear the variant gate against the sidechain post — likely a refresh-the-sidechain-post call instead).
+
+---
+
+## Daily Run — 2026-06-12 (2 new posts + 2 refreshes + SERP analysis + 3 new topics)
+
+**Cadence note:** Second run under the 2026-06-10 cadence change. Shipped **2 new + 2 refreshes** (lower end of the 2-3 new range). Deliberate: the velocity audit showed **six personas at or over the 3/week cap** (fk-staff 13, hank, carl, margot, sean, viktor all at 3) with only rick (2), jess (2), dev (1) plus nathan/elena (0) holding capacity. Rather than force-fit voice-mismatched bylines or feed the over-cap `fk-staff` pile for the sake of hitting 3, shipped the two queued topics that fit available, authentic personas and had already cleared the calendar's non-commodity vetting. The standing "let the roster reset under cap" pressure is real — this is the quieter shape responding to it.
+
+**Velocity note:** Assignments: **Dev Okonkwo** took the ducking-delay topic (queued for Dev; perfect ambient/modeler fit; 1→2, under cap). The carried-forward `tube-screamer-front-preamp-or-power-amp-distortion` was **reassigned from Hank (at cap) to Rick Dalton** (2→3, at cap, not over) — Rick's cranked-amp / power-tube-breakup philosophy is arguably a *better* voice fit for the "what are you actually hearing" angle than Hank's circuit lens, so this was a voice-authenticity win, not just a velocity workaround. Refreshes keep original bylines (Viktor on the TS guide, Nathan on the Edge post) and do NOT count against the new-post cap.
+
+**Image pipeline:** Flux 2 Pro (`--model=black-forest-labs/flux-2-pro`; default gpt-image-1-via-Replicate still throttled). 2 heroes generated, ~$0.11, 0 errors. Moodboards by author: Dev → bedroom_producer, Rick → nocturnal_studio.
+
+### Posts published this run
+
+**New (2):**
+
+| # | Slug | Title | Writer | Pillar |
+|---|---|---|---|---|
+| 1 | tube-screamer-front-preamp-or-power-amp-distortion | Does a Tube Screamer Out Front Give You Preamp or Power-Amp Distortion? | Rick Dalton | 5 — Gear Lab |
+| 2 | ducking-delay-sidechain-repeats | Ducking Delay: How to Sidechain Your Repeats So They Stay Out of the Way | Dev Okonkwo | 4 — Modeler Masterclass |
+
+**Refreshes (2):**
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | tube-screamer-settings-guide | Added `takeaways` + `faq` frontmatter (post had neither — a P1 pillar anchor with zero answer-engine surface); improved the generic `image_alt`; added a precision caveat + reciprocal link to the new `tube-screamer-front-preamp-or-power-amp-distortion` post (clarifying that a clean boost drives the *preamp* by default, power section only when cranked); set `updated: 2026-06-12`. | Foundational Tube Screamer guide (1,650 words) ranking on a core query with no takeaways/FAQ. Adding both + the cluster link is a real discovery-surface gain on a proven URL, and the caveat corrects a common preamp/power-amp conflation. |
+| R2 | the-edge-delay-settings | Added the **missing required `image_alt`** (would have failed a future preflight), plus `takeaways` + `faq` frontmatter (had neither); added a reciprocal link to the new `ducking-delay-sidechain-repeats` post in the high-mix section (ducking as the way to run a loud wet mix without clutter); set `updated: 2026-06-12`. | Pillar 1 artist-tone anchor (1,860 words) with zero AEO surface AND a missing required field. High-value backfill + ties the Edge delay cluster to the new ducking-delay technique post. |
+
+### SERP Analysis (2026-06-12)
+
+> **AI Overview note:** The search API used this run returns organic results, not the AI Overview block, so AIO presence/citation could not be directly captured. Estimates below are query-class judgments, not observations. Flagged for the monthly live-SERP verify per `docs/AI_SEARCH_PLAYBOOK.md` §8.
+
+**1. Tube Screamer out front: preamp or power-amp distortion? (Rick)**
+- *Target:* "overdrive pedal preamp or power amp distortion," "tube screamer in front of amp," "does a pedal give power tube distortion," "stacking drive into clean amp"
+- *Top results:* Marshall Amp Forum ("Tube screamer and power amp distortion"), Unofficial Warmoth Forum, TalkBass ("Help understanding pre and power amp tube distortion"), Quora (×2: "Why choose a TS when you can't crank the amp" / "Is tube screamer overdrive or distortion"), That Guitar Lover ("Let's Talk Tube Screamers"), Songbirds, GroupDIY.
+- *Gap we fill / cross-check:* The ranking is **forum threads + Quora + one blog explainer** — no clean, guitar-facing direct-answer on the preamp-vs-power-amp question. SERP confirms the load-bearing claims: the TS "pushes the front end (preamp section)"; it's "a preamp booster," and crucially the common conflation appears verbatim — "the power tubes distort *more than they would have on their own*" — which is exactly the imprecision our post corrects. Our post's precision (a boost drives the **preamp** by default; it only pushes the power section when the amp is **already** cranked) plus the **by-ear dynamic test** (roll volume, dig in, listen for bloom/cleanup), the **attenuator/variable-power** path to real power-amp feel, and the **modeler Drive vs Master/Sag mapping** are the differentiators the field lacks. AIO estimate: likely present (definitional "is it preamp or power amp" query); citation unverified.
+- *New cross-check surfaced (→ follow-on, queued below):* multiple sources stress "keep the TS in *front* of the preamp, not in the effects loop" — the "why an overdrive sounds wrong in the FX loop" question is distinct and unwritten.
+
+**2. Ducking delay / sidechain repeats (Dev)**
+- *Target:* "ducking delay," "sidechain delay guitar," "delay only on note decay," "duck delay repeats under playing"
+- *Top results:* LANDR ("What is Ducking in Music Production?"), Sound on Sound ("Ducking At Mixdown"), Puremix ("Sidechain compression on vocal delays"), Professional Composers ("Sidechaining/Ducking on Reverbs and Delays"), Audient beginner's guide, Steinberg/Cubase + Cakewalk + Reaper/Cockos forums, Loopy Pro ("List of delays/reverbs with ducking").
+- *Gap we fill / cross-check:* The ranking is **almost entirely DAW/production-facing** — mixing tutorials, plugin lists, and DAW-routing forum threads. Virtually nothing is guitar-player or modeler-facing. SERP confirms the mechanism exactly: "a compressor with the dry signal connected to its sidechain… delay repeats get quieter when you play but provide trailing ambience when you stop," with ~2-4 dB attenuation and threshold/ratio/attack/release as the controls. Our guitar/modeler angle the field lacks: the **Helix Ducked Delay model** (Duck Threshold / Duck Amount as real params), the **three-control framing** (threshold/amount/release), the **swell-vs-ducking distinction**, the **DIY sidechain rebuild** on a modeler, and the first-hand **"I could run MORE feedback because the wash only shows up in the gaps"** finding. AIO estimate: likely present (definitional "what is a ducking delay" query); citation unverified.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO notes |
+|---|---|---|---|---|---|---|
+| 1 | overdrive-in-effects-loop-vs-front | Why Your Overdrive Sounds Wrong in the Effects Loop (and Right Out Front) | "overdrive in effects loop," "can you put a drive pedal in the fx loop," "tube screamer in effects loop," "why does my od sound bad in the loop" | Sean Nakamura | 3 — Signal Chain | Surfaced by the TS-front SERP (multiple sources: "keep the TS in front of the preamp, not the loop"). Distinct from the series/parallel and TS-front posts: this is the placement-troubleshooting question — the loop is *post-preamp*, so a drive there pushes the power amp / EQ rather than tightening the preamp. Direct-answer table (front = preamp drive; loop = post-preamp level/EQ), the rare exception, and the modeler block-order equivalent. Sean's signal-flow precision. |
+| 2 | ducking-reverb-tame-the-tail | Ducking Reverb: How to Keep Your Reverb Tail Out of the Way of Your Playing | "ducking reverb," "sidechain reverb guitar," "reverb only in the gaps," "tame reverb wash while playing" | Nathan Cross | 4 — Modeler Masterclass | The ducking-delay SERP showed the field treats reverb-ducking as a DAW-mix move; nothing guitar/worship-facing. Genuinely distinct application (reverb wash vs delay repeats). Direct-answer "what is a ducking reverb," threshold/depth/release for a tail vs discrete repeats, and the worship-pad use case (huge ambience that clears for vocals/dynamics). Nathan's worship-ambience authority; full capacity this week. |
+| 3 | attenuator-vs-power-scaling-low-volume | Attenuator vs. Power Scaling vs. Load Box: How to Get Power-Amp Distortion Quietly | "how to get power amp distortion at low volume," "attenuator vs power scaling," "load box power tube distortion," "cranked amp tone quiet" | Hank Presswood | 5 — Gear Lab | Direct follow-on to the TS-front post's "use an attenuator or variable-power amp, not a bigger pedal" line. Distinct from the existing variable-power-amps post (which is amp-specific): this compares the three ways to cook the power section at livable volume, with the trade-offs (tone change, speaker load, headroom). Hank's amp-circuit authority. |
+
+**Carried forward (still unassigned — Hank at cap):** mixed-cab-speaker-wiring-order-input-jack (Hank). The other carry-forward, tube-screamer-front-preamp-or-power-amp-distortion, was **published this run** (reassigned to Rick). Pick up the mixed-cab wiring post next run when Hank resets under cap.
+
+**Follow-on backlog (not yet queued):** effects-loop input-impedance explainer (1 MΩ vs 50-60 kΩ — still pending from 06-11); reamping-through-amp-effects-loop (Sean, queued 06-11, unbuilt); cab-placement-wall-bass-boundary (Carl, queued 06-11, unbuilt).
