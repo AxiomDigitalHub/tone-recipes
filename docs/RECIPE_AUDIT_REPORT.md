@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-11
-**Recipes:** 105
-**Clean (no errors, no warns):** 97
+**Date:** 2026-06-12
+**Recipes:** 110
+**Clean (no errors, no warns):** 102
 **Warn-only:** 8
 **With errors:** 0
 
@@ -16,9 +16,9 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 15 / 105 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 7 / 105 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 105 | Signal chain includes a cabinet or microphone block |
+| `katana-kemper-multidrive-default-off` | info | 15 / 110 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 7 / 110 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 110 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -266,6 +266,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `garrard-great-are-you-lord` — ✓ clean
+
+*Stu G's Great Are You Lord Folk-Worship Tone*
+
+Passes every rule.
+
 ### `gary-clark-bright-lights-modern-blues` — ✓ clean
 
 *Bright Lights Modern Blues Tone*
@@ -338,9 +344,21 @@ Passes every rule.
 
 Passes every rule.
 
+### `hendroff-what-a-beautiful-name` — ✓ clean
+
+*Hendroff's What a Beautiful Name Ambient Worship Tone*
+
+Passes every rule.
+
 ### `hetfield-master-of-puppets-rhythm` — ✓ clean
 
 *Master of Puppets Rhythm Tone*
+
+Passes every rule.
+
+### `hislop-goodness-of-god` — ✓ clean
+
+*Hislop's Goodness of God Bethel Ambient Tone*
 
 Passes every rule.
 
@@ -479,6 +497,18 @@ Passes every rule.
 ### `metallica-one-clean-to-thrash` — ✓ clean
 
 *Metallica's One Clean-to-Thrash Tone*
+
+Passes every rule.
+
+### `moore-living-hope` — ✓ clean
+
+*Casey Moore's Living Hope Worship-Pop Tone*
+
+Passes every rule.
+
+### `moore-way-maker` — ✓ clean
+
+*Casey Moore's Way Maker Ambient Swell Tone*
 
 Passes every rule.
 
