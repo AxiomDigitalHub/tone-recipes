@@ -119,11 +119,11 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 60 | Johnny B. Goode (riff) | Chuck Berry | Chuck Berry | After School Session (1958) | ES-350T (later ES-355) through Fender Twin. The double-stop intro is the foundation of all rock guitar lead phrasing. | done |
 | 61 | My Own Summer (riff) | Deftones | Stephen Carpenter | Around the Fur (1997) | Carpenter's ESP 7-string → Marshall, drop tuning, dark/heavy | done |
 | 62 | Falling Away From Me (intro/verse) | Korn | Munky & Head | Issues (1999) | Ibanez 7-string (Apex/K7) → Mesa Triple Rectifier Solo, A-standard 7-string (drop-tuned 2 steps), clean DiMarzio neck into crushing chug | done |
-| 63 | Freak on a Leash (riff) | Korn | Munky & Head | Follow the Leader (1998) | Ibanez 7-string → Mesa Triple Rectifier, A-standard 7-string, scat-into-riff, scooped low chug | queued |
-| 64 | Blind (intro) | Korn | Munky & Head | Korn (1994) | Ibanez Universe/7-string → Mesa Triple Rectifier, A-standard 7-string, "Are you ready?" detuned slam | queued |
-| 65 | Got the Life (riff) | Korn | Munky & Head | Follow the Leader (1998) | Ibanez 7-string, Fusion Edge-style high-gain pickup → Mesa Triple Rectifier, A-standard 7-string, syncopated funk-chug | queued |
-| 66 | Be Quiet and Drive (Far Away) (main riff) | Deftones | Stephen Carpenter | Around the Fur (1997) | ESP 7-string → ADA MP-1 preamp + Marshall 9200 power amp, C-G-C-F-A-D-D, dreamy/heavy | queued |
-| 67 | Change (In the House of Flies) (verse) | Deftones | Stephen Carpenter | White Pony (2000) | ESP 7-string, EMG 81-7 → Marshall JMP-1 preamp + 9200 power amp, C-G-C-F-A-D-D, atmospheric clean-to-heavy | queued |
+| 63 | Freak on a Leash (riff) | Korn | Munky & Head | Follow the Leader (1998) | SHIPPED as korn-freak-on-a-leash. CORRECTION: amp is Mesa DUAL Rectifier, not Triple (3-channel Triple shipped late 1999, post-album); exact studio head is forum-sourced, hedged in notes. Guitar = Ibanez Universe UV7 (K7 = 2001), DiMarzio Blaze, A-standard A-D-G-C-F-A-D, scooped Recto. | done |
+| 64 | Blind (intro) | Korn | Munky & Head | Korn (1994) | SHIPPED as korn-blind-intro. Ibanez Universe UV7, A-standard. Amp hedged: Mesa Dual Rectifier is era live amp / documented Korn voice, exact 1994 tracking head unpublished (forum-sourced). Distinctive: Ross Robinson's modded-fuzz, very-dry Indigo Ranch production, default-ON fuzz. | done |
+| 65 | Got the Life (riff) | Korn | Munky & Head | Follow the Leader (1998) | SHIPPED as korn-got-the-life. Same rig as #63 (Universe UV7 → Mesa Dual Rectifier, A-standard). Tuned for staccato funk-chug: slightly lower gain, tight fast gate + low Sag for articulation. (Dropped "Fusion Edge pickup" — anachronistic.) | done |
+| 66 | Be Quiet and Drive (Far Away) (main riff) | Deftones | Stephen Carpenter | Around the Fur (1997) | SHIPPED as carpenter-be-quiet-and-drive. CORRECTION: Around the Fur is a 6-STRING DROP C# record (C#-G#-C#-F#-A#-D#), NOT 7-string — Seymour Duncan JB (not EMG), per Carpenter interviews. ESP Horizon Custom → ADA MP-1 → Marshall 9200, FZ-2 Hyper Fuzz, chorus clean verse. | done |
+| 67 | Change (In the House of Flies) (verse) | Deftones | Stephen Carpenter | White Pony (2000) | SHIPPED as carpenter-change-in-the-house-of-flies. CORRECTION: 6-STRING DROP C (C-G-C-F-A-D), NOT 7-string/EMG — White Pony was "mostly six-string-led" with Seymour Duncan (Carpenter); EMG/7-string era came after. ESP Horizon → ADA MP-1/JMP-1 → Marshall 9200 + POD, atmospheric build. | done |
 | 68 | Hexagram (riff) | Deftones | Stephen Carpenter | Deftones (2003) | ESP 7-string, EMG 81-7 → Marshall JMP-1 + 9200, 7-string drop tuning, frantic tremolo chug | queued |
 | 69 | Sugar (verse) | System of a Down | Daron Malakian | System of a Down (1998) | Ibanez Iceman → Marshall JCM800, drop C (C-G-C-F-A-D), spastic stop-start riffing | queued |
 | 70 | Spiders (clean/verse) | System of a Down | Daron Malakian | System of a Down (1998) | Ibanez Iceman → Marshall (Super Lead/JCM800), drop C, clean arpeggio into heavy | queued |
@@ -1127,6 +1127,11 @@ successful run.)
 | 2026-06-12 | moore-living-hope | 1004 |
 | 2026-06-12 | moore-way-maker | 1007 |
 | 2026-06-12 | garrard-great-are-you-lord | 1009 |
+| 2026-06-13 | korn-freak-on-a-leash | 63 |
+| 2026-06-13 | korn-got-the-life | 65 |
+| 2026-06-13 | korn-blind-intro | 64 |
+| 2026-06-13 | carpenter-be-quiet-and-drive | 66 |
+| 2026-06-13 | carpenter-change-in-the-house-of-flies | 67 |
 
 ### Corrections applied this run (2026-06-09)
 

@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-12
-**Recipes:** 110
-**Clean (no errors, no warns):** 102
+**Date:** 2026-06-13
+**Recipes:** 115
+**Clean (no errors, no warns):** 107
 **Warn-only:** 8
 **With errors:** 0
 
@@ -16,9 +16,9 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 15 / 110 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 7 / 110 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 110 | Signal chain includes a cabinet or microphone block |
+| `katana-kemper-multidrive-default-off` | info | 15 / 115 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 7 / 115 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 115 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -125,6 +125,18 @@ Passes every rule.
 ### `campbell-holy-diver-les-paul-marshall` — ✓ clean
 
 *Dio's Holy Diver Les Paul-into-Marshall Tone*
+
+Passes every rule.
+
+### `carpenter-be-quiet-and-drive` — ✓ clean
+
+*Deftones' Be Quiet and Drive Drop C# Tone*
+
+Passes every rule.
+
+### `carpenter-change-in-the-house-of-flies` — ✓ clean
+
+*Deftones' Change (In the House of Flies) Drop C Tone*
 
 Passes every rule.
 
@@ -398,9 +410,27 @@ Passes every rule.
 
 Passes every rule.
 
+### `korn-blind-intro` — ✓ clean
+
+*Korn's Blind Intro 7-String Tone*
+
+Passes every rule.
+
 ### `korn-falling-away-from-me` — ✓ clean
 
 *Korn's Falling Away from Me 7-String Tone*
+
+Passes every rule.
+
+### `korn-freak-on-a-leash` — ✓ clean
+
+*Korn's Freak on a Leash 7-String Tone*
+
+Passes every rule.
+
+### `korn-got-the-life` — ✓ clean
+
+*Korn's Got the Life 7-String Funk-Chug Tone*
 
 Passes every rule.
 
