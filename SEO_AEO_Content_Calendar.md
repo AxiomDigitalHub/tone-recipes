@@ -2439,3 +2439,60 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 **Carried forward (still unassigned — Hank at cap):** mixed-cab-speaker-wiring-order-input-jack (Hank). The other carry-forward, tube-screamer-front-preamp-or-power-amp-distortion, was **published this run** (reassigned to Rick). Pick up the mixed-cab wiring post next run when Hank resets under cap.
 
 **Follow-on backlog (not yet queued):** effects-loop input-impedance explainer (1 MΩ vs 50-60 kΩ — still pending from 06-11); reamping-through-amp-effects-loop (Sean, queued 06-11, unbuilt); cab-placement-wall-bass-boundary (Carl, queued 06-11, unbuilt).
+
+---
+
+## Daily Run — 2026-06-13 (2 new posts + 2 refreshes + SERP analysis + 2 new topics)
+
+**Cadence note:** Third run under the 2026-06-10 cadence change. Shipped **2 new + 2 refreshes**. Intended 3 new, but the third queued topic (`attenuator-vs-power-scaling-low-volume`, queued 06-12 for Hank) was **dropped at the non-commodity gate (Gate 7 / Playbook §6)** — it is a near-duplicate of the existing `power-scaling-vs-attenuator.mdx` AND `reactive-load-box-vs-attenuator.mdx`, which already cover all three approaches across two posts. Per Step 5, an honest "gap" that's really a phrasing/consolidation variant becomes an **update to the strongest existing post**, not a new URL. The recovered capacity went into refresh R1 (see below), which folds the load-box third option into the existing power-scaling post. 1 disciplined drop beats 1 thin duplicate.
+
+**Velocity note:** Pre-run audit (`scripts/persona-velocity.ts`): `fk-staff` far over cap (13/7d), `carl-beckett` and `sean-nakamura` at the 3/week cap; capacity in rick (2), margot (2), dev (2), hank (2), viktor (2), jess (1), **nathan (0)**, elena (0). Assignments: **Nathan Cross** took the ducking-reverb topic (queued 06-12 for Nathan; his worship-ambience authority is the exact fit; 0→1, well under cap). The cab-placement-wall topic — queued 06-11 for **Carl**, who is at cap — was **reassigned to Dev Okonkwo** (2→3, at cap, not over): the topic's documented angle is boundary-effect/room-acoustics/frequency-space, which is squarely Dev's beat (he already anchors the room/IR cluster: cab-irs-vs-real-cab, early-reflections), so this was a voice-authenticity win, not just a velocity workaround. Refreshes keep their original byline (fk-staff, Nathan) and do NOT count against the new-post cap.
+
+**Image pipeline:** Flux 2 Pro (`--model=black-forest-labs/flux-2-pro`; default gpt-image-1-via-Replicate still throttled). 2 heroes generated, ~$0.11, 0 errors. Moodboards by author: Dev → bedroom_producer, Nathan → stage_haze.
+
+### Posts published this run
+
+**New (2):**
+
+| # | Slug | Title | Writer | Pillar |
+|---|---|---|---|---|
+| 1 | ducking-reverb-tame-the-tail | Ducking Reverb: How to Keep Your Reverb Tail Out of the Way of Your Playing | Nathan Cross | 4 — Modeler Masterclass |
+| 2 | cab-placement-wall-bass-boundary | Cab Placement and the Wall: Why a Rear-Ported or Open-Back Cab's Bass Changes Across the Room | Dev Okonkwo | 5 — Gear Lab |
+
+**Refreshes (2):**
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | power-scaling-vs-attenuator | Migrated legacy `<FAQ questions={[...]}>` body component → frontmatter `faq:` (removes the duplicate-JSON-LD warning); added `takeaways:`; added a **new "Where the Load Box Fits" section** treating the load box as a distinct third approach (silent recording / IR / direct rig) + a "Consider a load box if" decision block + cross-links to `reactive-load-box-vs-attenuator` and `cab-irs-vs-real-cab-bedroom-room-treatment`; improved the generic `image_alt`; set `updated: 2026-06-13`. | **Absorbs the dropped `attenuator-vs-power-scaling-low-volume` topic.** The honest gap that topic was chasing (no single post unifying attenuator vs power scaling vs load box) is now closed by strengthening the proven URL instead of spinning a near-duplicate. Plus legacy `<FAQ>` migration (one of ~90) + AEO surface add. |
+| R2 | reverb-sounds-washed-out-fix | Added `takeaways:` + `faq:` frontmatter (post had neither); migrated the body-prose "Frequently Asked Questions" section into frontmatter `faq:` and **removed the duplicate body block** (was rendering FAQ twice); fixed the generic `image_alt`; added a paragraph + FAQ pair linking the new `ducking-reverb-tame-the-tail` post as the dynamic alternative to statically pulling decay/mix down; set `updated: 2026-06-13`. | Nathan-byline reverb-cluster anchor with zero answer-engine surface. Adding takeaways/FAQ + the ducking-reverb cluster link is a real discovery-surface gain on a proven URL, and the new cross-link ties the reverb cluster to today's new technique post. |
+
+### SERP Analysis (2026-06-13)
+
+> **AI Overview note:** Used the live web-search API this run (returns organic results, not the AIO block), so AIO presence/citation could not be directly captured. Estimates below are query-class judgments. Flagged for the monthly live-SERP verify per `docs/AI_SEARCH_PLAYBOOK.md` §8.
+
+**1. Ducking reverb / sidechain reverb tail (Nathan)**
+- *Target:* "ducking reverb," "sidechain reverb guitar," "reverb only in the gaps," "tame reverb wash while playing"
+- *Top results:* LiquidSonics ("Reverb Sidechain Ducking Tutorial"), The REAPER Blog ("Ducking Vocal Reverb"), Audient (sidechaining beginner's guide), Slooply (reverb ducking in Serum), integraudio ("Should I Sidechain Reverb & Delay?"), Soundfly/Flypaper ("Can You Sidechain Reverb?"), HomeRecording.com + Cockos/Reaper forum threads, Wikipedia ("Gated reverb").
+- *Gap we fill / cross-check:* The ranking is **entirely DAW/production-facing** — plugin tutorials, DAW-routing forum threads, and one Wikipedia entry. Nothing guitar-pedal or modeler-facing. SERP confirms the mechanism exactly: "a compressor keyed off the same source… the reverb tail ducks out of the way whenever the dry signal is present"; "you keep all the atmosphere and depth without sacrificing clarity or punch"; "blooms naturally in the empty spaces between notes." Our guitar/modeler angle the field lacks: the **Helix Dynamic Hall/Plate + Ducking parameter**, the **tail-vs-repeats distinction** (a continuous wash wants longer release than discrete delay repeats — a point no production tutorial makes because they duck both the same way), the **worship-pad use case** (huge tail that clears for the vocal), and the **DIY sidechain rebuild**. Pairs into the ducking-delay cluster (06-12) for fan-out. AIO estimate: likely present (definitional "what is a ducking reverb"); citation unverified.
+- *New cross-check surfaced (→ queued below):* Wikipedia's "Gated reverb" sitting in this SERP confirms readers conflate **gated** reverb (hard 80s cutoff) with **ducking** (dynamic) — a genuinely distinct, guitar-unwritten question.
+
+**2. Cab placement and the wall / boundary bass (Dev)**
+- *Target:* "guitar cab against wall bass," "open back cab placement tone," "rear ported cab distance from wall," "cab in corner boomy"
+- *Top results:* Strat-Talk ("Open back vs closed back"), TDPRI (×4: "closed back vs open back vs front ports," "amp in a corner = bad bad sound!," "Boomy 2x10 cab help," "How Do You Position Your Amp From The Wall?"), TalkBass (×2: "Cab/Amp position… distance from the wall," "Against the wall or not?"), JazzGuitar.be, Strat-Talk ("amp placement against wall").
+- *Gap we fill / cross-check:* The ranking is **100% forum threads** — no structured, guitar-facing guide anywhere on page one. SERP confirms every load-bearing claim: an open-back cab against a wall "produces more bass… rear reflected waves bounce off the wall"; "putting a speaker in a corner is an old trick to greatly increase the bass but… standing waves… very boomy"; "in the middle of a room cabs sound thinner"; "give a rear ported cab a few inches to breathe." Our differentiators the forums lack: the **half/quarter/eighth-space framing** in plain language, the **cab-type sensitivity table** (open-back/rear-ported = high, sealed front-firing = low), the **60–200 Hz boom band**, the **mic'd-cab + in-the-box/monitor translation** (Dev's lane), and the explicit handoff to the **FRFR floor-coupling** post for the other boundary. AIO estimate: likely present (broad "why is my cab boomy" query); citation unverified.
+- *New cross-check surfaced (→ queued below):* the corner-standing-waves point is **room modes**, a distinct mechanism from boundary loading (resonances from room *dimensions*, not surface proximity) — guitar-unwritten and queued.
+
+### 2 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Adding only 2 this run (shipped 2 new) — there's already a standing backlog (below), so the queue isn't draining faster than it fills.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO notes |
+|---|---|---|---|---|---|---|
+| 1 | gated-reverb-vs-ducking-reverb | Gated Reverb vs. Ducking Reverb: Two Different Ways to Tame a Big Tail | "gated reverb vs ducking reverb," "what is gated reverb guitar," "phil collins reverb guitar," "gated reverb pedal" | Margot Thiessen | 4 — Modeler Masterclass | Surfaced by the ducking-reverb SERP (Wikipedia "Gated reverb" ranks for the adjacent query; readers conflate the two). Genuinely distinct: gated reverb is a hard *time/level cutoff* (80s drum sound, abrupt) vs ducking's *dynamic* pull-down. Direct-answer "what is gated reverb," the cutoff-vs-dynamic distinction, the 80s/Phil-Collins reference, and the Helix/pedal implementations of each. Margot's aesthetic/era ear; 2/wk, capacity. |
+| 2 | room-modes-standing-waves-boomy-note | Room Modes: Why One Bass Note Booms in Your Room (and Where the Dead Spots Are) | "room modes guitar amp," "standing waves practice room," "why does one note boom in my room," "room resonance bass guitar" | Viktor Kessler | 5 — Gear Lab | Distinct from today's boundary-loading post: room modes are resonances set by room *dimensions* (parallel surfaces), causing peaks and nulls at specific frequencies that move with listening position — not surface proximity. Surfaced by the cab-placement SERP ("corner… standing waves… very boomy"). Measurable, position-dependent, fixable by moving the cab or listener — Viktor's "I can measure it" lane; 2/wk, capacity. Cross-links the boundary post + bedroom room-treatment cluster. |
+
+**Built this run from earlier queue:** `ducking-reverb-tame-the-tail` (Nathan, queued 06-12) and `cab-placement-wall-bass-boundary` (Dev, reassigned from Carl, queued 06-11) — both now published. **Dropped this run (Gate 7):** `attenuator-vs-power-scaling-low-volume` (near-dup of `power-scaling-vs-attenuator` + `reactive-load-box-vs-attenuator`; gap closed via refresh R1 instead).
+
+**Carried forward (still unassigned — Hank at cap this week):** mixed-cab-speaker-wiring-order-input-jack (Hank). Pick up next run when Hank resets under cap.
+
+**Follow-on backlog (not yet queued):** effects-loop input-impedance explainer (1 MΩ vs 50-60 kΩ — pending since 06-11); reamping-through-amp-effects-loop (Sean, queued 06-11, unbuilt); overdrive-in-effects-loop-vs-front (Sean, queued 06-12, unbuilt); ducking-reverb-tame-the-tail (built today); attenuator-vs-power-scaling-low-volume (dropped — see above).

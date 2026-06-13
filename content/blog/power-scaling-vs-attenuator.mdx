@@ -16,9 +16,75 @@ tags:
   - tone-at-low-volume
   - london-power
   - fryette
+  - load-box
 readingTime: 8 min
+updated: '2026-06-13'
 image: /images/blog/power-scaling-vs-attenuator.jpg
-image_alt: a composition illustrating "Power Scaling vs. Attenuator"
+image_alt: >-
+  A tube amp head connected to an attenuator and speaker cabinet, illustrating
+  the different ways to play a cranked amp at lower volume
+takeaways:
+  - >-
+    An attenuator sits between the amp and speaker and burns off power after the
+    output transformer, so the power tubes do full work but the speaker and room
+    interaction shrink.
+  - >-
+    Power scaling lowers the amp's internal plate (B+) voltage, so the speaker
+    stays fully energized but the power tubes saturate at a lower threshold,
+    giving a different, more compressed character.
+  - >-
+    A load box takes the comparison a step further: it replaces the speaker
+    entirely with a dummy load so you can record or play silently with full
+    power-tube saturation, relying on an impulse response for the cab sound.
+  - >-
+    At moderate volume cuts (about 6 to 9 dB), a reactive attenuator stays
+    closest to a cranked amp; past roughly 15 dB its tone tradeoffs catch up with
+    power scaling.
+  - >-
+    Choose by constraint, not by hype: attenuator for reversible moderate cuts,
+    power scaling for a wide volume range on an amp you'll modify, load box for
+    silent recording or direct rigs.
+faq:
+  - q: What is power scaling on a tube amp?
+    a: >-
+      Power scaling modifies the amplifier's internal B+ (plate) voltage,
+      reducing the power output directly from the power supply rather than
+      absorbing power after the output transformer. It was developed by Kevin
+      O'Connor at London Power and allows a wide volume range while keeping the
+      speaker fully energized.
+  - q: Is power scaling better than an attenuator?
+    a: >-
+      It depends on what "better" means. At moderate volume reductions (6 to 9
+      dB), a reactive attenuator preserves more of the cranked-amp character
+      because the power tubes are doing full work. Power scaling changes the power
+      tube operating conditions, producing a different but sometimes preferred
+      tone. At very deep reductions (beyond 15 dB), power scaling has an
+      advantage because the speaker remains fully energized.
+  - q: How is a load box different from an attenuator?
+    a: >-
+      An attenuator reduces the signal to a real speaker; a load box replaces the
+      speaker with a dummy load and produces no acoustic sound at all. You then
+      take a line out into an impulse response or real cab elsewhere. A load box
+      is the tool for silent recording or a fully direct rig, where an attenuator
+      still assumes you want a speaker moving air in the room.
+  - q: Does power scaling void the amp warranty?
+    a: >-
+      Yes, in almost all cases. Power scaling requires opening the amp and
+      modifying internal components. Most manufacturers void the warranty for any
+      internal modification not performed at an authorized service center.
+  - q: What amps can be power scaled?
+    a: >-
+      London Power makes kits for most common amplifier platforms including
+      Marshall, Fender, Vox, and Hiwatt designs. Not all topologies accept power
+      scaling cleanly; some require additional circuit changes. Check London
+      Power's compatibility documentation before purchasing a kit.
+  - q: Can I add power scaling myself?
+    a: >-
+      With electronics skills and careful work, yes. London Power's kits include
+      documentation. Without electronics experience, it's a service job. A
+      technician who specializes in amp modification can do it in 2 to 4 hours
+      depending on the amp platform. The modification involves high-voltage
+      circuits; it's not a beginner project.
 ---
 
 The [attenuator limits post](/blog/tube-amp-attenuator-limits-lower-wattage) identified 15dB as the practical ceiling for attenuator usefulness. Beyond that, neither reactive nor resistive designs preserve what makes a cranked tube amp sound like a cranked tube amp. Power scaling is the other approach, and it operates on a different principle entirely.
@@ -105,17 +171,22 @@ An attenuator requires no modification and can be disconnected and sold. The tra
 - You're spending more on attenuation or modification than a second smaller amp would cost
 - The amp you're attenuating costs more than the character it adds at bedroom volume is worth
 
+**Consider a load box if:**
+- You need to play or record with no acoustic sound in the room at all
+- You're going direct to an interface or PA and taking your cab sound from an impulse response
+- You want full power-tube saturation without a moving speaker and are comfortable getting the cab voicing from an IR
+
 The London Power website has the most thorough documentation of power scaling theory and compatibility charts for common amplifier platforms. The [reactive vs. resistive attenuators post](/blog/reactive-vs-resistive-attenuators) covers the hardware selection decision in more detail if you're going the attenuator route.
 
 ---
 
-<FAQ questions={[
-  {q: "What is power scaling on a tube amp?", a: "Power scaling modifies the amplifier's internal B+ (plate) voltage, reducing the power output directly from the power supply rather than absorbing power after the output transformer. It was developed by Kevin O'Connor at London Power and allows a wide volume range while keeping the speaker fully energized."},
-  {q: "Is power scaling better than an attenuator?", a: "It depends on what 'better' means. At moderate volume reductions (6–9dB), a reactive attenuator preserves more of the cranked-amp character because the power tubes are doing full work. Power scaling changes the power tube operating conditions, producing a different but sometimes preferred tone. At very deep reductions (beyond 15dB), power scaling has an advantage because the speaker remains fully energized."},
-  {q: "Does power scaling void the amp warranty?", a: "Yes, in almost all cases. Power scaling requires opening the amp and modifying internal components. Most manufacturers void the warranty for any internal modification not performed at an authorized service center."},
-  {q: "What amps can be power scaled?", a: "London Power makes kits for most common amplifier platforms including Marshall, Fender, Vox, and Hiwatt designs. Not all topologies accept power scaling cleanly; some require additional circuit changes. Check London Power's compatibility documentation before purchasing a kit."},
-  {q: "Can I add power scaling myself?", a: "With electronics skills and careful work, yes. London Power's kits include documentation. Without electronics experience, it's a service job. A technician who specializes in amp modification can do it in 2–4 hours depending on the amp platform. The modification involves working with high-voltage circuits; it's not a beginner project."}
-]} />
+## Where the Load Box Fits
+
+Power scaling and attenuators both assume you still want a speaker moving air. A load box doesn't. It replaces the speaker with a dummy load — resistive or reactive — so the amp runs at full power into something that produces no sound, and you take a line-level signal off it into an [impulse response](/blog/cab-irs-vs-real-cab-bedroom-room-treatment) or a separate cab elsewhere. The power tubes saturate exactly as they would at full volume, because as far as the amp knows, it *is* at full volume.
+
+That makes the load box the right tool for a different problem than the other two. An attenuator is for "I want a quieter speaker in the room." Power scaling is for "I want a wide volume range from one amp." A load box is for "I want no sound in the room at all" — silent recording, late-night practice in headphones, or a fully direct rig where the cab tone comes from an IR rather than a microphone. Many modern load boxes are reactive and include built-in IR loading, which blurs the line between a load box and the power-amp-in stage of a modeler.
+
+The tradeoff is that you've removed the speaker and the room entirely, so everything a real cab and a real room contribute now has to come from the IR. For a deeper comparison of the load box against attenuation specifically, see [reactive load box vs. attenuator](/blog/reactive-load-box-vs-attenuator). The short version: if you ever need the amp to be genuinely silent, neither an attenuator nor power scaling gets you there — only a load box does.
 
 <SaveThisTone
   title="Pick a tone to chase"
