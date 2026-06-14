@@ -124,11 +124,11 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 65 | Got the Life (riff) | Korn | Munky & Head | Follow the Leader (1998) | SHIPPED as korn-got-the-life. Same rig as #63 (Universe UV7 → Mesa Dual Rectifier, A-standard). Tuned for staccato funk-chug: slightly lower gain, tight fast gate + low Sag for articulation. (Dropped "Fusion Edge pickup" — anachronistic.) | done |
 | 66 | Be Quiet and Drive (Far Away) (main riff) | Deftones | Stephen Carpenter | Around the Fur (1997) | SHIPPED as carpenter-be-quiet-and-drive. CORRECTION: Around the Fur is a 6-STRING DROP C# record (C#-G#-C#-F#-A#-D#), NOT 7-string — Seymour Duncan JB (not EMG), per Carpenter interviews. ESP Horizon Custom → ADA MP-1 → Marshall 9200, FZ-2 Hyper Fuzz, chorus clean verse. | done |
 | 67 | Change (In the House of Flies) (verse) | Deftones | Stephen Carpenter | White Pony (2000) | SHIPPED as carpenter-change-in-the-house-of-flies. CORRECTION: 6-STRING DROP C (C-G-C-F-A-D), NOT 7-string/EMG — White Pony was "mostly six-string-led" with Seymour Duncan (Carpenter); EMG/7-string era came after. ESP Horizon → ADA MP-1/JMP-1 → Marshall 9200 + POD, atmospheric build. | done |
-| 68 | Hexagram (riff) | Deftones | Stephen Carpenter | Deftones (2003) | ESP 7-string, EMG 81-7 → Marshall JMP-1 + 9200, 7-string drop tuning, frantic tremolo chug | queued |
-| 69 | Sugar (verse) | System of a Down | Daron Malakian | System of a Down (1998) | Ibanez Iceman → Marshall JCM800, drop C (C-G-C-F-A-D), spastic stop-start riffing | queued |
-| 70 | Spiders (clean/verse) | System of a Down | Daron Malakian | System of a Down (1998) | Ibanez Iceman → Marshall (Super Lead/JCM800), drop C, clean arpeggio into heavy | queued |
-| 71 | Aerials (intro) | System of a Down | Daron Malakian | Toxicity (2001) | Ibanez Iceman → Marshall, drop C, chiming clean-octave figure, MXR Phase 90 | queued |
-| 72 | B.Y.O.B. (chorus riff) | System of a Down | Daron Malakian | Mezmerize (2005) | Ibanez Iceman → Marshall, drop C, breakneck verse into anthemic chorus | queued |
+| 68 | Hexagram (riff) | Deftones | Stephen Carpenter | Deftones (2003) | ESP 7-string, EMG 81-7 → Marshall JMP-1 + 9200, 7-string drop tuning, frantic tremolo chug | done |
+| 69 | Sugar (verse) | System of a Down | Daron Malakian | System of a Down (1998) | Ibanez Iceman → Marshall JCM800, drop C (C-G-C-F-A-D), spastic stop-start riffing | done |
+| 70 | Spiders (clean/verse) | System of a Down | Daron Malakian | System of a Down (1998) | Ibanez Iceman → Marshall (Super Lead/JCM800), drop C, clean arpeggio into heavy | done |
+| 71 | Aerials (intro) | System of a Down | Daron Malakian | Toxicity (2001) | Ibanez Iceman → Marshall, drop C, chiming clean-octave figure, MXR Phase 90 | done |
+| 72 | B.Y.O.B. (chorus riff) | System of a Down | Daron Malakian | Mezmerize (2005) | Ibanez Iceman → Marshall, drop C, breakneck verse into anthemic chorus | done |
 | 73 | Bulls on Parade (main riff/solo) | Rage Against the Machine | Tom Morello | Evil Empire (1996) | "Arm the Homeless" (EMG 81/85, Kramer neck, Floyd) → Marshall JCM800 2205 50W + Peavey 4x12, E♭ standard (NOT drop D — Morello tuned a half step down), wah toggle-scratch solo | done |
 | 74 | Guerrilla Radio (verse) | Rage Against the Machine | Tom Morello | The Battle of Los Angeles (1999) | Telecaster "Sendero Luminoso" → Marshall JCM800, drop D, percussive wah "wacka-wacka," DigiTech Whammy | queued |
 | 75 | Sleep Now in the Fire (riff) | Rage Against the Machine | Tom Morello | The Battle of Los Angeles (1999) | Telecaster → Marshall JCM800 + Peavey 4x12, drop D, bluesy stomp riff | queued |
@@ -1132,6 +1132,11 @@ successful run.)
 | 2026-06-13 | korn-blind-intro | 64 |
 | 2026-06-13 | carpenter-be-quiet-and-drive | 66 |
 | 2026-06-13 | carpenter-change-in-the-house-of-flies | 67 |
+| 2026-06-14 | carpenter-hexagram | 68 |
+| 2026-06-14 | malakian-sugar | 69 |
+| 2026-06-14 | malakian-spiders | 70 |
+| 2026-06-14 | malakian-aerials | 71 |
+| 2026-06-14 | malakian-byob | 72 |
 
 ### Corrections applied this run (2026-06-09)
 

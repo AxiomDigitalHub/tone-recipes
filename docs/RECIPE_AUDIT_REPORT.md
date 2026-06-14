@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-13
-**Recipes:** 115
-**Clean (no errors, no warns):** 107
+**Date:** 2026-06-14
+**Recipes:** 120
+**Clean (no errors, no warns):** 112
 **Warn-only:** 8
 **With errors:** 0
 
@@ -16,9 +16,9 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 15 / 115 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 7 / 115 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 115 | Signal chain includes a cabinet or microphone block |
+| `katana-kemper-multidrive-default-off` | info | 15 / 120 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 7 / 120 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 120 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -137,6 +137,12 @@ Passes every rule.
 ### `carpenter-change-in-the-house-of-flies` — ✓ clean
 
 *Deftones' Change (In the House of Flies) Drop C Tone*
+
+Passes every rule.
+
+### `carpenter-hexagram` — ✓ clean
+
+*Deftones' Hexagram 7-String Tone*
 
 Passes every rule.
 
@@ -452,9 +458,33 @@ Passes every rule.
 
 Passes every rule.
 
+### `malakian-aerials` — ✓ clean
+
+*System of a Down's Aerials Intro Tone*
+
+Passes every rule.
+
+### `malakian-byob` — ✓ clean
+
+*System of a Down's B.Y.O.B. Chorus Tone*
+
+Passes every rule.
+
 ### `malakian-chop-suey-clean-to-crushing` — ✓ clean
 
 *System of a Down's Chop Suey! Clean-to-Crushing Tone*
+
+Passes every rule.
+
+### `malakian-spiders` — ✓ clean
+
+*System of a Down's Spiders Clean Tone*
+
+Passes every rule.
+
+### `malakian-sugar` — ✓ clean
+
+*System of a Down's Sugar Drop C Tone*
 
 Passes every rule.
 
