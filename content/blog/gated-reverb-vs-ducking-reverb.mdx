@@ -1,0 +1,158 @@
+---
+title: 'Gated Reverb vs. Ducking Reverb: Two Different Ways to Tame a Big Tail'
+description: >-
+  Gated reverb chops the tail off at a fixed point; ducking reverb pulls it down
+  while you play. Here's how each one works, where they came from, and how to
+  build them on a modeler.
+date: '2026-06-14'
+author: Margot Thiessen
+author_slug: margot-thiessen
+category: modeler-masterclass
+tags:
+  - gated-reverb
+  - ducking-reverb
+  - reverb
+  - ambient
+  - modeler
+  - reverb-types
+readingTime: 9
+image: /images/blog/gated-reverb-vs-ducking-reverb.jpg
+image_alt: >-
+  A modeler reverb block screen showing a large reverb tail being shaped two
+  ways — one cut off abruptly by a gate, one pulled down dynamically while a
+  chord is played
+takeaways:
+  - >-
+    Gated reverb is a time-and-level cutoff — a big reverb runs into a gate that
+    slams shut after a set hold, so the tail ends abruptly instead of decaying;
+    it's the same trick behind the 1980s drum sound.
+  - >-
+    Ducking reverb is dynamic, not fixed — the tail drops while you play and
+    blooms back in the gaps, so the size of the wash changes with your hands
+    rather than ending on a timer.
+  - >-
+    Reach for gated reverb when you want a percussive burst of space with a hard
+    edge — staccato chords, rhythmic stabs, a 1980s flavor; reach for ducking
+    when you want a continuous wash that stays out of your way.
+  - >-
+    On a modeler you build gated reverb by running a reverb block into a noise
+    gate and setting a short hold with a fast release; ducking is a separate
+    parameter or a dynamic reverb model.
+  - >-
+    Gated reverb sets the tail length independent of your playing dynamics,
+    which is exactly why it survives a busy mix where a long natural tail would
+    smear.
+faq:
+  - q: What is gated reverb?
+    a: >-
+      Gated reverb is a large reverb whose tail is cut off abruptly by a noise
+      gate after a fixed length of time, instead of being allowed to decay
+      naturally. You get a short, dense burst of ambience with a hard edge at
+      the end — the sound stops as if someone closed a door on it. It's the
+      effect that defined 1980s drum production and shows up on countless
+      records as a percussive, larger-than-life space.
+  - q: How is gated reverb different from ducking reverb?
+    a: >-
+      Gated reverb cuts the tail at a fixed point in time regardless of what
+      you're playing — the length is set by a hold time, not by your dynamics.
+      Ducking reverb keeps the full tail but lowers its volume while you play
+      and lets it rise back up in the gaps. Gated is a hard, rhythmic edge;
+      ducking is a continuous wash that breathes with your playing. One is a
+      timer, the other is a dynamic response.
+  - q: Where did the gated reverb sound come from?
+    a: >-
+      It was discovered in the studio around 1980, most famously on Phil
+      Collins' drums, when engineer Hugh Padgham routed a heavily compressed
+      room mic through a noise gate that slammed shut on the tail. Hardware
+      units like the AMS RMX16 and Lexicon's nonlinear reverb programs later
+      turned that accident into a preset, which is why "nonlinear" is the
+      technical name for a gated reverb algorithm.
+  - q: How do I make a gated reverb on a Helix or Quad Cortex?
+    a: >-
+      Run a reverb block into a noise gate. Set the reverb decay long and dense,
+      then set the gate threshold so the tail trips it, with a short hold and a
+      fast release so the tail is chopped rather than faded. Some platforms also
+      include a nonlinear, gated, or "particle" reverb mode that does this in
+      one block. On a Quad Cortex, look for a nonlinear reverb model or build
+      the reverb-into-gate chain the same way.
+  - q: When should I use gated reverb on guitar?
+    a: >-
+      Use it when you want space with a percussive edge rather than a long
+      atmospheric tail — staccato chord stabs, rhythmic single-note parts, an
+      explicitly 1980s flavor, or any time a natural tail would ring on too long
+      and clutter a busy arrangement. Because the tail length is fixed, gated
+      reverb keeps its shape in a dense mix where a long hall would smear into
+      everything else.
+  - q: Is gated reverb the same as a reverb with a fast decay?
+    a: >-
+      No. A short-decay reverb fades out smoothly and quietly over a few hundred
+      milliseconds. A gated reverb keeps the tail loud and dense the entire time
+      it's open, then cuts it off instantly — so it sounds much bigger for its
+      length and ends with a hard edge instead of trailing away. The abrupt stop
+      is the whole character; you can't get it just by shortening decay.
+---
+
+Two of the most useful things you can do with a reverb have nothing to do with the reverb itself — they're about what you do to the *tail*. You can chop it off at a fixed point so it ends with a hard edge, or you can pull it down while you play and let it rise in the gaps. The first is gated reverb. The second is ducking reverb. They get mentioned in the same breath because both are answers to the same complaint — *this tail is too much* — but they solve it from opposite directions, and the difference between them is the difference between a timer and a living dynamic.
+
+## The Short Version
+
+| | Gated reverb | Ducking reverb |
+|---|---|---|
+| What controls the tail | A fixed hold time, then a hard cutoff | Your playing dynamics, continuously |
+| The tail's shape | Loud and dense, then it stops dead | Full decay, but pushed down while you play |
+| The feeling | Percussive, rhythmic, a hard edge | Atmospheric, breathing, gets out of the way |
+| Classic use | 1980s drums, staccato stabs, rhythmic parts | Pads, ambient washes, worship swells |
+| Technical name | Nonlinear reverb | Sidechained / dynamic reverb |
+
+Gated reverb is about *shape* — it imposes a fixed silhouette on the tail. Ducking is about *behavior* — it lets the tail change in real time against what your hands are doing. Once you feel that distinction, you stop reaching for the wrong one.
+
+## What Gated Reverb Actually Is
+
+A gated reverb is a big, dense reverb running into a gate that slams shut after a set length of time. The reverb itself doesn't decay the way reverbs normally do — instead of trailing off into the distance for two or three seconds, it stays loud and full for a few hundred milliseconds and then simply *stops*, as if the room were switched off mid-bloom. That hard ending is the entire character. It's space with a guillotine on it.
+
+The sound was an accident before it was a technique. Around 1980, engineer Hugh Padgham was working on drums — the story always lands on Phil Collins, and the most famous example is "In the Air Tonight" — and routed a heavily compressed room mic through a noise gate. The gate cut the natural decay off abruptly, and instead of a normal roomy ambience you got this enormous, explosive burst that ended the instant the drum did. Hardware later canonized it: the AMS RMX16's "NonLin" program and Lexicon's nonlinear reverbs turned the studio trick into a knob, which is why the proper engineering name for a gated reverb is a **nonlinear reverb** — the decay envelope isn't the smooth exponential curve a real room produces.
+
+On guitar it does something a long reverb can't. Hit a staccato chord through a gated reverb and you get a percussive *whump* of dense space that arrives and leaves with the note — there's a quality to it that's closer to a snare hit than to ambience. It's rhythmic. It punctuates. Where a [hall or plate](/blog/reverb-types-guide) smears one chord into the next, a gated reverb keeps each one in its own box, which is why it survives in busy arrangements that a long tail would turn to fog.
+
+## What Ducking Reverb Does Instead
+
+A ducking reverb keeps the entire natural tail. Nothing gets chopped. What changes is the tail's *volume*, and it changes continuously based on how hard you're playing. While your pick is moving, the wash drops into the background so your dry notes stay defined; the moment you leave a gap, the tail swells back up and fills the silence. The reverb lives in the spaces you leave rather than on top of the notes you play.
+
+I've written about [how to dial a ducking reverb](/blog/ducking-reverb-tame-the-tail) in full, so I won't relitigate the threshold-depth-release controls here. The point that matters for the comparison is this: ducking is *dynamic*. The size of the space responds to your hands in real time. Play softly and the tail stays up; dig in and it ducks away. There's no fixed length, no hard edge — the tail comes and goes like breath, and a long natural decay is the whole point rather than something to be cut.
+
+That's the cleanest way to hold the two in your head. **Gated reverb ends the tail on a timer. Ducking reverb lowers the tail with your dynamics.** Same problem — a tail that's too much — answered by a stopwatch versus a dimmer.
+
+## Which One the Part Wants
+
+The choice isn't about taste so much as about what the part is doing.
+
+- **Staccato, rhythmic, percussive parts** want gated reverb. Chord stabs, muted single-note figures, anything where the guitar is functioning rhythmically. The hard cutoff reinforces the rhythm instead of blurring it. This is also where the explicit 1980s flavor lives — if you want a part to sound like it was tracked in 1984, a gated reverb on a bright, compressed clean is most of the way there.
+- **Sustained, atmospheric, legato parts** want ducking reverb. Pads, swells, ambient beds, the slow build under a vocal. You want the size of a long tail *and* the clarity of your notes, and ducking gives you both because the wash only surfaces in the gaps. A worship pad is the textbook case.
+- **A dense mix** can take either, for different reasons. Gated reverb survives because its tail length is fixed and short, so it never piles up past the point you set. Ducking survives because the tail is only ever loud when you've stopped playing. A long *static* reverb is the one that drowns in a busy track — and the reason both of these techniques exist.
+
+Here's a settings starting point for the gated side, since the ducking values live in the [other post](/blog/ducking-reverb-tame-the-tail):
+
+<SettingsGrid title="Gated Reverb" subtitle="Staccato / 1980s starting point">
+  <Knob name="Decay" value={7} min={0} max={10} display="big, dense room/plate" />
+  <Knob name="Mix" value={5} min={0} max={10} display="~40–50%" />
+  <Knob name="Gate Hold" value={3} display="~250–400 ms" />
+  <Knob name="Gate Release" value={1} display="fast — chop, not fade" />
+</SettingsGrid>
+
+The hold time is your single most important control: it sets how long the burst lasts before the cutoff. Shorter is more percussive and more obviously gated; longer starts to sound like a normal reverb that someone interrupted. The release wants to be *fast* — the entire effect depends on the tail ending abruptly, so a slow release just smears the edge you're trying to create.
+
+## The Part I Expected to Be a Gimmick
+
+I'll admit my bias going in: I assumed gated reverb was a period costume. A fun 1980s reference, useful for exactly one drum sound and one Phil Collins homage, and otherwise a novelty I'd never put on a part I actually cared about. Ducking felt like the *serious* technique — subtle, restrained, the one a tasteful player reaches for — and gated felt like the kazoo of reverbs.
+
+What changed my mind was a tight, staccato single-note part over a busy track, the kind of thing St. Vincent does where the guitar is functioning as percussion. I tried a ducking reverb first, on principle, and it did nothing useful — the notes were already short, so there were no sustained tails to duck and nothing to push out of the way. The ducking had no material to work with. Then I dropped a gated reverb on the same part and it snapped into place: each note got this dense little explosion of space that arrived and vanished with the note, locked to the rhythm, present without ringing on for even a beat too long. It wasn't a costume at all. It was the *only* one of the two that could put real size on a part that had no sustain to spare. I'd had it exactly backwards — gated reverb isn't the less serious tool, it's the one for rhythmic playing, and ducking is the one for sustained playing. They don't compete. They cover different halves of how a guitar can move through time.
+
+## Building Both on a Modeler
+
+Neither of these is exotic, and you don't need a dedicated pedal for either.
+
+**Gated reverb** is a two-block recipe on any platform: a reverb into a gate. On a Helix, put a big, dense reverb — a Plate or a Room with the decay up — and follow it with a **Noise Gate** (or the Hard Gate) block. Set the gate threshold so the reverb tail trips it open, then use a short hold and a fast release so the tail gets chopped rather than faded. Some reverbs also offer a **nonlinear**, **gated**, or **particle** mode that bakes the whole thing into one block — check the model list before you build it by hand. On a Quad Cortex, look for a nonlinear reverb model, or build the same reverb-into-gate chain; the logic is identical across platforms because it's just a gate doing what gates do.
+
+**Ducking reverb** is usually a single parameter rather than a chain — Helix's Dynamic Hall and Dynamic Plate, the Ducking control on several reverb blocks, or the equivalent on your platform. The [full how-to is here](/blog/ducking-reverb-tame-the-tail). If your modeler has neither a ducking parameter nor a nonlinear mode, both can be built from primitives: ducking from a sidechained volume block, gating from a reverb-into-gate chain.
+
+One last practical note, because it's the mistake I see most: if a part sounds [washed out](/blog/reverb-sounds-washed-out-fix), the instinct is to pull decay and mix down until the guitar can breathe. That works, but it shrinks the space. Gated and ducking reverb are the two ways to keep the size and fix the clutter instead — one by giving the tail a hard edge, the other by teaching it to wait for the gaps. Match the tool to how the part moves, and you stop choosing between a guitar that's big and a guitar that's clear.

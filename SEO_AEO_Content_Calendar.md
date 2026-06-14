@@ -2496,3 +2496,62 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 **Carried forward (still unassigned — Hank at cap this week):** mixed-cab-speaker-wiring-order-input-jack (Hank). Pick up next run when Hank resets under cap.
 
 **Follow-on backlog (not yet queued):** effects-loop input-impedance explainer (1 MΩ vs 50-60 kΩ — pending since 06-11); reamping-through-amp-effects-loop (Sean, queued 06-11, unbuilt); overdrive-in-effects-loop-vs-front (Sean, queued 06-12, unbuilt); ducking-reverb-tame-the-tail (built today); attenuator-vs-power-scaling-low-volume (dropped — see above).
+
+---
+
+## Daily Run — 2026-06-14 (3 new posts + 2 refreshes + SERP analysis + 2 new topics)
+
+**Cadence note:** Fourth run under the 2026-06-10 cadence change. Shipped **3 new + 2 refreshes** — the upper end of the 2-3 new range, which the roster supported cleanly this run: three already-vetted backlog topics each landed on an available, authentic persona with no force-fitting and no need to feed the over-cap `fk-staff` byline. All three cleared Gate 7 (Non-Commodity) against live SERPs before shipping; the mixed-cab topic in particular returned a search result that *explicitly* stated no page addresses the question — the cleanest non-commodity confirmation we've logged.
+
+**Velocity note:** Pre-run audit (`scripts/persona-velocity.ts`): `fk-staff` far over cap (13/7d) and `sean-nakamura` at the 3/week cap — both skipped for new posts. Capacity in rick (2), dev (2), carl (2), hank (2), margot (1), nathan (1), viktor (1), plus jess/elena (0). Assignments: **Margot Thiessen** took `gated-reverb-vs-ducking-reverb` (queued 06-13 for Margot; her reverb-cluster authority and era ear are the exact fit; 1→2). **Viktor Kessler** took `room-modes-standing-waves-boomy-note` (queued 06-13 for Viktor; the measurement/physics lane is his; 1→2). **Hank Presswood** took the carried-forward `mixed-cab-speaker-wiring-order-input-jack` — Hank was at cap last run, has now **reset to 2** and had capacity (2→3, at cap, not over); his cab-circuit authority is the native voice for the current-surge wiring lore. Refreshes keep their original bylines (Margot on the reverb-types guide, fk-staff on the acoustic-treatment guide) and do NOT count against the new-post cap.
+
+**Image pipeline:** Flux 2 Pro (`--model=black-forest-labs/flux-2-pro`; default gpt-image-1-via-Replicate still throttled). 3 heroes generated, ~$0.17, 0 errors. Moodboards by author: Margot → nocturnal_studio, Hank → nocturnal_studio, Viktor → neon_noir.
+
+### Posts published this run
+
+**New (3):**
+
+| # | Slug | Title | Writer | Pillar |
+|---|---|---|---|---|
+| 1 | gated-reverb-vs-ducking-reverb | Gated Reverb vs. Ducking Reverb: Two Different Ways to Tame a Big Tail | Margot Thiessen | 4 — Modeler Masterclass |
+| 2 | room-modes-standing-waves-boomy-note | Room Modes: Why One Bass Note Booms in Your Room (and Where the Dead Spots Are) | Viktor Kessler | 5 — Gear Lab |
+| 3 | mixed-cab-speaker-wiring-order-input-jack | Mixed Speaker Cabs: Which Speaker Goes Nearest the Input Jack, and Why | Hank Presswood | 5 — Gear Lab |
+
+**Refreshes (2):**
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | reverb-types-guide | Added `takeaways:` + `faq:` frontmatter (a 3,466-word P1 reverb pillar that had **zero** answer-engine surface — no takeaways, no FAQ); added a new **"Shaping the Tail: Gated and Ducking Reverb"** section (the post covered five reverb *types* but never the two tail-*behaviors*) with a reciprocal link to today's `gated-reverb-vs-ducking-reverb`; replaced the generic `image_alt`; set `updated: 2026-06-14`. | One of the largest, highest-traffic reverb posts on the site with no AEO surface at all. Adding takeaways/FAQ + a genuinely missing concept section + the cluster link is a real reader gain on a proven URL, and it ties the whole reverb cluster to today's new post for fan-out. |
+| R2 | cheap-acoustic-treatment-bedroom-studio | Migrated the body-prose `## FAQ` (6 Q&A) → frontmatter `faq:` and **removed the duplicate body block** (un-emits the second FAQ render); added `takeaways:`; added reciprocal links to today's `room-modes-standing-waves-boomy-note` in both the "Why Bass Traps Are Always First" and "When the Room Is the Problem" sections (the post already described 47/56 Hz resonances without naming them as room modes); trimmed the 214-char `description` to clear the SERP-snippet width; fixed the generic `image_alt`; set `updated: 2026-06-14`. | Proven room-treatment URL with no `takeaways`, a body-prose FAQ (no JSON-LD), and an over-long description. The room-modes cross-link closes the loop with today's new post — the treatment post is the "how to fix it," the room-modes post is the "why it happens." |
+
+### SERP Analysis (2026-06-14)
+
+> **AI Overview note:** Used the live web-search API this run (returns organic results, not the AIO block), so AIO presence/citation could not be directly captured. Estimates below are query-class judgments. Flagged for the monthly live-SERP verify per `docs/AI_SEARCH_PLAYBOOK.md` §8.
+
+**1. Gated vs. ducking reverb (Margot)**
+- *Target:* "gated reverb vs ducking reverb," "what is gated reverb guitar," "phil collins reverb," "gated reverb pedal"
+- *Top results:* Wikipedia ("Gated reverb"), iZotope ("What is Reverb / gated reverb"), LinkedIn Learning ("Ducked reverb — Pro Tools"), KVR + VI-Control forum threads ("Best practices for reverb ducking"), Strat-Talk ("Ducking reverb pedals?"), Red Panda Context, Acoustic Guitar Forum ("Reverb Compression = Ducking?").
+- *Gap we fill / cross-check:* The page is **mix/DAW-facing** — Wikipedia, iZotope, a Pro Tools tutorial, and plugin/VI forum threads — plus exactly one guitar-pedal forum thread (Strat-Talk) that asks the question without answering it structurally. No clean, guitar/modeler-facing **comparison** of the two with settings and Helix/QC implementation. SERP confirms the load-bearing mechanism: gated = "strong reverb + a noise gate that cuts the tail" for "punchy" drums; ducking = "reduces its level dynamically… swell back up when the instrument stops." Our differentiators the field lacks: the **timer-vs-dynamic framing**, the **nonlinear** technical name + the Padgham/AMS/Lexicon origin, the **gated-for-staccato / ducking-for-sustained** decision rule, and the **reverb-into-gate** modeler recipe. AIO estimate: likely present (definitional "what is gated reverb"); citation unverified.
+
+**2. Room modes / why one bass note booms (Viktor)**
+- *Target:* "room modes guitar amp," "why does one note boom in my room," "standing waves practice room," "room resonance bass guitar"
+- *Top results:* TalkBass (×4: "how to deal with boomy rooms," "Room resonance and louder note?," "Playing in a boomy room… how to EQ?," "Fixing a boomy bedroom?"), PRS Forum ("Amps and the rooms they live in"), JazzGuitar.be ("How to Fix Boomy Jazz Guitar Sound"), HiFiReport ("Understanding Room Modes"), Softube/bass-amp-EQ explainers.
+- *Gap we fill / cross-check:* The page is **forums + one hi-fi/audiophile explainer** — no structured, guitar-facing guide with the math and a measurement workflow. SERP confirms every load-bearing claim: "90% of boom problems are directly attributable to room dimensions"; "if your listening chair is in a peak, that note will sound overwhelmingly loud"; "boom is usually around 120 Hz"; fixes are "positioning… off the floor, away from corners" and "low cut filter / parametric EQ." Our differentiators: the **f = 565/L axial-mode math** + a worked size table, the **peaks-and-nulls / position-dependence** explanation, the explicit **"you can't EQ it out because it's a position problem"** point, and the **REW measure-move-measure** proof workflow. AIO estimate: likely present (broad "why does my room boom" query); citation unverified.
+
+**3. Mixed cab — which speaker nearest the input jack (Hank)**
+- *Target:* "mixed speaker cab wiring," "which speaker nearest input jack," "mixing speaker wattage cab," "wire higher power speaker first"
+- *Top results:* TDPRI ("Wiring a speaker cabinet 1/4 inch jack"), TalkBass (×2: "add 1/4″ speaker jack," "plug and play jack plate"), AmpGarage ("Speaker Wiring"), Sound Garage Tales ("3 Way Speaker Cabinet Input"), Dan Becker's cab-mod page.
+- *Gap we fill / cross-check:* **Cleanest non-commodity confirmation of the three.** The page is general jack-/cab-wiring how-tos; the search summary itself concluded the results "don't specifically address which individual speaker should be positioned nearest to the input jack." The current-surge / put-the-stronger-speaker-first rule (Scumback-style) has **no direct-answer page ranking**. Our post owns it — and, more honestly than the lore usually gets told, separates the **reliability** rationale (real) from the **tone** rationale (negligible with position held constant), plus the wiring-order-vs-physical-position distinction and the impedance/power-handling guardrails. AIO estimate: uncertain — niche query class may not trigger an AIO block; flagged for live verify.
+
+### 2 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Adding 2 this run (shipped 3 new, but the standing backlog still holds several Sean items, so the queue isn't draining faster than it fills). Deliberately **not** queuing a gated-reverb or room-modes phrasing variant — both would be scaled-content-abuse re-slices of today's posts.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO notes |
+|---|---|---|---|---|---|---|
+| 1 | reverse-reverb-guitar-swells-and-textures | Reverse Reverb on Guitar: How to Get the Backwards-Swell Texture | "reverse reverb guitar," "backwards reverb pedal," "how to use reverse reverb," "reverse reverb swell" | Dev Okonkwo | 4 — Modeler Masterclass | Surfaced adjacent to the gated/ducking SERP (iZotope/Wikipedia group reverse reverb in the nonlinear-reverb family). Genuinely distinct effect — a third nonlinear behavior alongside gated and ducking, where the tail swells *up into* the note rather than after it. Direct-answer "what is reverse reverb," the pre-delay/envelope mechanics, the swell-vs-gate-vs-duck distinction, and Helix/QC + pedal (e.g. reverse modes) implementation. Dev's ambient/texture lane; cross-links the gated-vs-ducking and reverb-types cluster. |
+| 2 | which-speaker-to-mic-multi-speaker-cab | Does It Matter Which Speaker You Mic in a 2x12 or 4x12? | "which speaker to mic 4x12," "best speaker to mic in a cab," "do all speakers in a cab sound the same," "mic one speaker mixed cab" | Sean Nakamura | 5 — Gear Lab | Surfaced by the mixed-cab SERP ("tap into one speaker individually to capture its particular flavor"). Distinct from the wiring-order post — this is the **recording** question: speakers in the same cab measure differently by position (center vs. edge of the baffle, floor-coupled bottom vs. top), so the mic'd speaker choice is a real tonal decision, doubly so in a mixed cab. Direct-answer table (which speaker = which voice), the break-in/position variance, and the DI/IR translation. Sean's signal-flow/recording precision (assign when he resets under cap). |
+
+**Built this run from earlier queue/backlog:** `gated-reverb-vs-ducking-reverb` (Margot, queued 06-13), `room-modes-standing-waves-boomy-note` (Viktor, queued 06-13), and the carried-forward `mixed-cab-speaker-wiring-order-input-jack` (Hank, queued since 06-11) — all three now published. The 06-11 Hank carry-forward is **cleared**.
+
+**Follow-on backlog (still not queued):** effects-loop input-impedance explainer (1 MΩ vs 50-60 kΩ — pending since 06-11); reamping-through-amp-effects-loop (Sean, queued 06-11, unbuilt); overdrive-in-effects-loop-vs-front (Sean, queued 06-12, unbuilt); gated-reverb-vs-ducking-reverb (built today); room-modes-standing-waves-boomy-note (built today). Sean has three unbuilt items waiting on a sub-cap week — prioritize clearing his queue before adding more to it.
