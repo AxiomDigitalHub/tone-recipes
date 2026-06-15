@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const TONE_FOUNDATIONS = [
   {
     title: "Modern Worship Guitar Tone (Helix)",
-    href: "/blog/modern-worship-guitar-tone-helix",
+    href: "/blog/worship-guitar-tone-helix",
     blurb:
       "The three-tone-states-in-one-preset framework: clean ambient, light crunch, full drive. How to dial each and transition between them mid-song.",
     tag: "Modeler",

@@ -50,6 +50,15 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+      // Worship-tone duplicate consolidated 2026-06-15. Both posts targeted
+      // the same "modern worship guitar tone helix" intent (cannibalization —
+      // neither ranked). Canonical is /blog/worship-guitar-tone-helix, which
+      // uses exact Helix model names (Essex A30 TB, Minotaur, Searchlights).
+      {
+        source: "/blog/modern-worship-guitar-tone-helix",
+        destination: "/blog/worship-guitar-tone-helix",
+        permanent: true,
+      },
     ];
   },
   images: {
