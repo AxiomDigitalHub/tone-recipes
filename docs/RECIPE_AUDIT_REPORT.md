@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-14
-**Recipes:** 120
-**Clean (no errors, no warns):** 112
+**Date:** 2026-06-15
+**Recipes:** 125
+**Clean (no errors, no warns):** 117
 **Warn-only:** 8
 **With errors:** 0
 
@@ -16,9 +16,9 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 15 / 120 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 7 / 120 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 120 | Signal chain includes a cabinet or microphone block |
+| `katana-kemper-multidrive-default-off` | info | 15 / 125 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 7 / 125 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 125 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -404,6 +404,18 @@ Passes every rule.
 
 Passes every rule.
 
+### `jones-sober-dynamic-crush` — ✓ clean
+
+*Adam Jones' Sober Dynamic Quiet-to-Crush Tone*
+
+Passes every rule.
+
+### `jones-stinkfist-drop-d-crush` — ✓ clean
+
+*Adam Jones' Stinkfist Drop-D Crush & Flanged Intro*
+
+Passes every rule.
+
 ### `keuning-mr-brightside-riff` — ✓ clean
 
 *Dave Keuning's Mr. Brightside Ringing Riff*
@@ -578,9 +590,27 @@ Passes every rule.
 
 Passes every rule.
 
+### `morello-guerrilla-radio` — ✓ clean
+
+*Tom Morello's Guerrilla Radio Drop-D Riff & Whammy-Siren Solo*
+
+Passes every rule.
+
 ### `morello-killing-in-the-name` — ✓ clean
 
 *Morello's Killing in the Name Aggressive Tone*
+
+Passes every rule.
+
+### `morello-people-of-the-sun` — ✓ clean
+
+*Tom Morello's People of the Sun Allen-Key Scrape Riff*
+
+Passes every rule.
+
+### `morello-sleep-now-in-the-fire` — ✓ clean
+
+*Tom Morello's Sleep Now in the Fire Bluesy Riff & Whammy Hum*
 
 Passes every rule.
 

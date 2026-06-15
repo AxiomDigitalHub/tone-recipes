@@ -2069,6 +2069,66 @@ export const songs: Song[] = [
     external_tab_url: "https://www.songsterr.com/a/wa/bestMatchForQueryString?s=deftones+hexagram",
     external_video_url: "https://www.youtube.com/results?search_query=deftones+hexagram+guitar+lesson",
   },
+  {
+    artist_slug: "tom-morello",
+    title: "Guerrilla Radio",
+    slug: "guerrilla-radio-rage-against-the-machine",
+    album: "The Battle of Los Angeles",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/10/7d/eb/107deb76-ee81-8151-2375-7b18f67591f0/074646963029.jpg/600x600bb.jpg",
+    year: 1999,
+    genres: ["rap-metal", "alternative-metal", "funk-metal"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wsa/rage-against-the-machine-guerrilla-radio-tab-s457",
+    external_video_url: "https://www.youtube.com/results?search_query=rage+against+the+machine+guerrilla+radio+guitar+lesson",
+  },
+  {
+    artist_slug: "tom-morello",
+    title: "Sleep Now in the Fire",
+    slug: "sleep-now-in-the-fire-rage-against-the-machine",
+    album: "The Battle of Los Angeles",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/10/7d/eb/107deb76-ee81-8151-2375-7b18f67591f0/074646963029.jpg/600x600bb.jpg",
+    year: 1999,
+    genres: ["rap-metal", "alternative-metal", "funk-metal"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wsa/rage-against-the-machine-sleep-now-in-the-fire-tab-s455",
+    external_video_url: "https://www.youtube.com/results?search_query=rage+against+the+machine+sleep+now+in+the+fire+guitar+lesson",
+  },
+  {
+    artist_slug: "tom-morello",
+    title: "People of the Sun",
+    slug: "people-of-the-sun-rage-against-the-machine",
+    album: "Evil Empire",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/42/d6/50/42d6501c-85bf-9929-9fa1-ba8ddecb80b1/884977724905.jpg/600x600bb.jpg",
+    year: 1996,
+    genres: ["rap-metal", "alternative-metal", "funk-metal"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wsa/rage-against-the-machine-people-of-the-sun-tab-s9493",
+    external_video_url: "https://www.youtube.com/results?search_query=rage+against+the+machine+people+of+the+sun+guitar+lesson",
+  },
+  {
+    artist_slug: "adam-jones",
+    title: "Stinkfist",
+    slug: "stinkfist-tool",
+    album: "Ænima",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/be/e3/59/bee35988-338f-f01a-6271-ceefdd3f8925/886447824757.jpg/600x600bb.jpg",
+    year: 1996,
+    genres: ["progressive-metal", "alternative-metal", "metal"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wsa/tool-stinkfist-tab-s348",
+    external_video_url: "https://www.youtube.com/results?search_query=tool+stinkfist+guitar+lesson",
+  },
+  {
+    artist_slug: "adam-jones",
+    title: "Sober",
+    slug: "sober-tool",
+    album: "Undertow",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/48/4c/fa/484cfa09-4d6c-16c5-d195-8a8b6027f71e/886447824740.jpg/600x600bb.jpg",
+    year: 1993,
+    genres: ["progressive-metal", "alternative-metal", "metal"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wsa/tool-sober-tab-s347",
+    external_video_url: "https://www.youtube.com/results?search_query=tool+sober+guitar+lesson",
+  },
 ];
 
 export const gearItems: GearItem[] = [
@@ -40093,6 +40153,901 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Search ToneNET for 'Marshall JCM800' or 'Marshall 100W'", block_category: "Tone Model", original_gear: "Marshall JMP-100 (100W head)", settings: {}, notes: "Search ToneNET for a 100W Marshall / JCM800 capture with a 4x12 at a huge-but-clear crunch. Push mids and presence so the open chorus chords cut, run a gate for the fast verse, and keep ambience minimal. Drop C#." },
         ],
         notes: "TONEX is capture-driven. Search ToneNET for a 100W Marshall capture. A wide, mid-forward crunch with a gate gives the anthemic chorus. Drop C#, 6-string.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Rage Against the Machine - Guerrilla Radio ----
+  {
+    id: "seed-morello-guerrilla-radio",
+    song_slug: "guerrilla-radio-rage-against-the-machine",
+    title: "Tom Morello's Guerrilla Radio Drop-D Riff & Whammy-Siren Solo",
+    slug: "morello-guerrilla-radio",
+    created_at: "2026-06-15",
+    description:
+      "The Battle of Los Angeles lead single, and the riff that proved Morello could make a guitar sound like a siren and a turntable in the same three minutes. He cut it on his 'Arm the Homeless' custom in Drop D into the same 50-watt Marshall JCM800 2205 and Peavey 4x12 he has used since 1988. The verse is a percussive, palm-muted wah 'wacka' over the low D; the solo is the DigiTech Whammy hauled two octaves up into a rising siren squeal while the toggle and pickup volumes do the rest. No fuzz, no extra gain — a mid-forward Marshall and a lot of right-hand control.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "'Arm the Homeless' custom (Performance body / Kramer neck)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "drop_d",
+      string_gauge: ".009-.046",
+      notable_mods:
+        "Morello's #1: a Performance Guitar alder body with a 22-fret Kramer graphite neck, a Floyd Rose, two humbuckers (EMG-era for the late '90s) and a 3-way toggle wired as a kill switch — one pickup volume at 10, the other at 0, so flicking the switch gates the signal for the stutter and 'scratch' effects. Strings are Ernie Ball Hybrid Slinky .009-.046. Drop D for Guerrilla Radio (tuned only the low string down a whole step).",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "wah",
+        gear_slug: "dunlop-cry-baby-wah",
+        gear_name: "Dunlop Cry Baby (GCB95)",
+        icon_type: "wah",
+        icon_color: "#1f2937",
+        is_in_effects_loop: false,
+        settings: { Position: "rocked rhythmically in verse" },
+        notes:
+          "The Cry Baby drives the verse 'wacka' — rocked in time over the muted Drop-D pedal so the riff sounds percussive and vocal. It is the rhythmic filter of the verse, not just a solo tool here, which is why it sits first in front of the amp.",
+      },
+      {
+        position: 2,
+        category: "effect",
+        subcategory: "pitch",
+        gear_slug: "digitech-whammy",
+        gear_name: "DigiTech Whammy WH-1",
+        icon_type: "boss_compact",
+        icon_color: "#e53e3e",
+        is_in_effects_loop: false,
+        settings: { Mode: "2 OCT UP", Position: "swept heel-to-toe in solo" },
+        notes:
+          "The original red WH-1 set two octaves up is the solo's siren. Swept from heel to toe it rockets the pitch into a screaming squeal; off for the riff. Two octaves (not one) is what gives the solo its inhuman, air-raid quality.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: "marshall-jcm800",
+        gear_name: "Marshall JCM800 2205 (50W)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Gain: 9, Bass: 10, Middle: 10, Treble: 7, Presence: 7, Master: 5 },
+        notes:
+          "The boost channel of the 50-watt JCM800 2205 — the same head on every RATM record. Bass and Middle near max, the opposite of a scooped metal tone, so the Drop-D riff stays percussive and cuts through the mix rather than turning to mush. Cleans come from rolling the guitar volume back, not switching channels.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Peavey 4x12 (Celestion G12K-85)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "A 1987 Peavey 4x12 with high-power Celestion G12K-85s — they stay tight and punchy under the maxed mids where lesser speakers would flub on the low D. Close-miked; the percussive thump of the riff is as much this cab as the amp.",
+      },
+      {
+        position: 5,
+        category: "wet_effect",
+        subcategory: "delay",
+        gear_slug: "boss-dd3",
+        gear_name: "Boss DD-3 Digital Delay (FX loop)",
+        icon_type: "boss_compact",
+        icon_color: "#3b82f6",
+        is_in_effects_loop: true,
+        settings: { Time: 400, Feedback: 2, Level: 22 },
+        notes:
+          "Morello runs digital delays in the amp's FX loop. A short, low-feedback setting thickens the riff without smearing the staccato attack; he reaches for longer feedback on the solo tails.",
+      },
+      {
+        position: 6,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, cap edge" },
+        notes:
+          "An SM57 off the cone keeps the attack present without harshness — the standard RATM capture, tracked fast and live so the take stays raw rather than layered.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "'Arm the Homeless' custom (Performance body, Kramer graphite neck, humbuckers, Floyd Rose, toggle kill switch), Drop D, Ernie Ball Hybrid Slinky .009-.046",
+      effects: ["Dunlop Cry Baby wah", "DigiTech Whammy WH-1 (2 oct up)", "Boss DD-3 Digital Delay (FX loop)"],
+      amp: "Marshall JCM800 2205 (50W), boost channel",
+      cabinet: "Peavey 4x12 (Celestion G12K-85)",
+      microphone: "Shure SM57",
+      other_notes:
+        "From The Battle of Los Angeles (1999), produced by Brendan O'Brien. The amp, cab and wah are the constants of Morello's career; the song is in Drop D. The Whammy-two-octaves-up siren solo is technique plus the toggle kill-switch, not a special pedal — Morello has described and demonstrated it many times.",
+    },
+    tags: ["rap-metal", "alternative-metal", "funk-metal", "marshall", "morello", "whammy"],
+    sources: [
+      "https://www.guitarchalk.com/guerrilla-radio-amp-settings/",
+      "https://www.premierguitar.com/videos/rig-rundown/tom-morello",
+      "https://en.wikipedia.org/wiki/The_Battle_of_Los_Angeles_(album)",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", enabled: true, original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -52, Decay: 0.2, Level: 0 }, notes: "DEFAULT-ON. The maxed-mid JCM800 is hot — a gate keeps the palm-muted Drop-D rests dead silent and stops the toggle-stutter from chattering between flicks." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -32, Ratio: 2, Knee: 6, Attack: 25, Release: 150, Mix: 40, Level: 0 }, notes: "Light parallel comp evens the percussive palm-mutes so the riff sits consistently. Mix 40 keeps the staccato attack — the punch is the point." },
+          { position: 3, block_name: "Teardrop 310", block_category: "Wah", enabled: false, original_gear: "Dunlop Cry Baby (GCB95)", settings: { Position: 0.5, Mix: 100, Level: 0 }, notes: "DEFAULT-OFF (assign to EXP 2). Rock it in time for the verse 'wacka'; the mid-sweep is what makes the muted riff talk. Off when you want the dry riff." },
+          { position: 4, block_name: "Pitch Wham", block_category: "Pitch/Synth", enabled: false, original_gear: "DigiTech Whammy WH-1", settings: { Position: 0, Mix: 100, Level: 0 }, notes: "DEFAULT-OFF (assign to EXP 1), range set to +24 semitones. Sweep heel-to-toe for the solo siren — two octaves up is what gives it the air-raid scream. Off for the riff." },
+          { position: 5, block_name: "Brit 2204", block_category: "Amp", original_gear: "Marshall JCM800 2205 (50W)", settings: { Drive: 8.5, Bass: 10, Mid: 9, Treble: 7, Presence: 7, ChVol: 5, Master: 8, Bias: 5, BiasX: 5, Sag: 4.5, Hum: 5, Ripple: 5 }, notes: "Brit 2204 is Helix's 50W JCM800. Bass and Mid near max — mid-forward and tight, the opposite of scooped metal — so the Drop-D riff cuts and stays percussive. Sag 4.5 keeps the low end firm." },
+          { position: 6, block_name: "4x12 Mars G12-65", block_category: "Cab", original_gear: "Peavey 4x12 (Celestion G12K-85)", settings: { Mic: 1, Distance: 1, Position: 0.4, Angle: 0, LowCut: 90, HighCut: 10000, Resonance: 0.5, Level: 0, Pan: 0.5, Delay: 0 }, notes: "A high-power Celestion 4x12 stands in for the G12K-85-loaded Peavey. Dynamic mic slightly off-center for the thump; LowCut 90 keeps Drop D tight, HighCut 10k tames the fizz while leaving the bite." },
+          { position: 7, block_name: "Simple Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 400, Feedback: 2, Mix: 16, LowCut: 200, HighCut: 6000, Level: 0 }, notes: "Short, low-feedback digital delay like Morello's loop DD-3 — kept subtle so it thickens the riff without smearing the staccato attack." },
+          { position: 8, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Neutral tilt — the maxed-mid JCM800 already cuts. Nudge brighter only if the riff gets lost on a dark FRFR rig." },
+        ],
+        notes:
+          "Gate → comp → wah (off) → Whammy (off) → Brit 2204 → G12-65 4x12 → short delay → tilt. The riff is a mid-forward 50W JCM800 with humbuckers in Drop D. For the solo, sweep the Whammy two octaves up and use the toggle kill-switch.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -52, Decay: 0.2, Level: 0 }, notes: "DEFAULT-ON. Keeps the Drop-D rests silent and stops the toggle-stutter chattering." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -32, Ratio: 2, Attack: 8, Release: 120, Mix: 40, Level: 0 }, notes: "Light parallel comp evens the percussive palm-mutes; the blend keeps the staccato attack." },
+          { position: 3, block_name: "Cry Wah", block_category: "Wah", enabled: false, original_gear: "Dunlop Cry Baby (GCB95)", settings: { Position: 0.5, Mix: 100, Level: 0 }, notes: "DEFAULT-OFF (assign to expression). Rock it in time for the verse 'wacka'; off for the dry riff." },
+          { position: 4, block_name: "Whammy", block_category: "Pitch", enabled: false, original_gear: "DigiTech Whammy WH-1", settings: { Position: 0, Mix: 100, Level: 0 }, notes: "DEFAULT-OFF, range +24 semitones. Sweep for the two-octave solo siren; off for the riff." },
+          { position: 5, block_name: "Brit 2203", block_category: "Amp", original_gear: "Marshall JCM800 2205 (50W)", settings: { Gain: 8.5, Bass: 10.0, Mid: 9.0, Treble: 7.0, Presence: 7.0, Master: 5.0, Sag: 4.5 }, notes: "The QC's JCM800. Bass and Mid near max — mid-forward and tight, not scooped — so the Drop-D riff cuts and stays percussive." },
+          { position: 6, block_name: "4x12 G12-65", block_category: "Cab", original_gear: "Peavey 4x12 (Celestion G12K-85)", settings: { Mic: "Dynamic 57", Distance: 1.0, Position: 0.4, LowCut: 90, HighCut: 10000, Level: 0 }, notes: "High-power Celestion 4x12 for the Peavey's thump; LowCut keeps Drop D tight, HighCut tames fizz." },
+          { position: 7, block_name: "Digital Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 400, Feedback: 2, Mix: 16, Level: 0 }, notes: "Short, low-feedback delay for dimension — subtle so it doesn't smear the staccato riff." },
+          { position: 8, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 }, notes: "Neutral tilt — the maxed-mid JCM800 already cuts. Nudge brighter only on a dark FRFR rig." },
+        ],
+        notes:
+          "Gate → comp → wah (off) → Whammy (off) → Brit 2203 → G12-65 4x12 → short delay → tilt. Mirrors the Helix chain. Mid-forward 50W JCM800 in Drop D; two-octave Whammy sweep for the solo siren.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "FX", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: 52, Release: 20, Level: 0 }, notes: "DEFAULT-ON. Keeps the Drop-D rests silent and tightens the toggle-stutter." },
+          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Marshall JCM800 2205 (50W)", settings: { Gain: 85, Volume: 55, Bass: 95, Middle: 90, Treble: 70, Presence: 70, Master: 55 }, notes: "The Lead character voices the Marshall JCM800. Bass and Middle near max — Morello's tone is mid-forward and tight, not scooped — so the Drop-D riff cuts and stays percussive." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 400, Feedback: 10, EffectLevel: 16 }, notes: "Short, low-feedback delay for dimension — subtle so the staccato riff stays tight." },
+        ],
+        notes:
+          "Gate → Lead amp → short delay. The Lead voice with maxed mids captures the mid-forward 50W JCM800. Use an outboard wah for the verse and the toggle kill-switch trick for the solo. Drop D.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Compressor", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: 5.5, Volume: 0.0 }, notes: "Slot A — Kemper's input gate. Silences the Drop-D rests and tightens the toggle-stutter." },
+          { position: 2, block_name: "Search Rig Exchange for 'JCM800 2205' or 'Marshall 50W'", block_category: "Profile", original_gear: "Marshall JCM800 2205 (50W)", settings: { Gain: 8.5, Bass: 10.0, Middle: 9.0, Treble: 7.0, Presence: 7.0 }, notes: "Search Rig Exchange for a 50W JCM800 2205 boost-channel profile (cab baked in). Bass and Middle near max for Morello's mid-forward, percussive cut." },
+          { position: 3, block_name: "Single Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 400, Feedback: 0.1, Mix: 0.16 }, notes: "DLY slot. Short, low-feedback delay for dimension — kept subtle behind the staccato riff." },
+        ],
+        notes:
+          "Kemper profiles bake in the cab. Gate → JCM800 profile → short delay. Mid-forward 50W Marshall in Drop D; wah for the verse, two-octave Whammy and the toggle for the solo.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -52, Decay: 0.2, Level: 0 }, notes: "DEFAULT-ON. Keeps the Drop-D rests silent and tightens the toggle-stutter." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -32, Ratio: 2, Attack: 8, Release: 120, Mix: 0.4, Level: 0 }, notes: "Light parallel comp evens the percussive palm-mutes; the blend keeps the staccato attack." },
+          { position: 3, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800 2205 (50W)", settings: { Drive: 8.5, Bass: 10.0, Mid: 9.0, Treble: 7.0, Presence: 7.0, MV: 5.0, Cut: 4.0 }, notes: "Fractal's JCM800. Bass and Mid near max — mid-forward and tight, not scooped — so the Drop-D riff cuts and stays percussive." },
+          { position: 4, block_name: "4x12 G12-65", block_category: "Cab", original_gear: "Peavey 4x12 (Celestion G12K-85)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 90, HighCut: 10000, Level: 0 }, notes: "High-power Celestion 4x12 for the Peavey's thump; LowCut keeps Drop D tight, HighCut tames fizz." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 400, Feedback: 2, Mix: 0.16 }, notes: "Short, low-feedback delay for dimension — subtle so it doesn't smear the staccato riff." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Neutral tilt — the maxed-mid JCM800 already cuts. Nudge brighter only on a dark FRFR rig." },
+        ],
+        notes: "Gate → comp → Brit 800 → G12-65 4x12 → short delay → tilt. Mirrors the Helix chain. Mid-forward 50W JCM800 in Drop D; wah and two-octave Whammy for the solo.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'JCM800 2205' or 'Marshall 50W'", block_category: "Tone Model", original_gear: "Marshall JCM800 2205 (50W)", settings: {}, notes: "Search ToneNET for a 50W JCM800 2205 boost-channel capture with a high-power Celestion 4x12, mid-forward not scooped. Add a short delay; use an outboard wah for the verse and a Whammy two octaves up for the solo siren. Drop D." },
+        ],
+        notes: "TONEX is capture-driven. Search ToneNET for a 50W JCM800 capture. The siren solo is hardware technique — Whammy two octaves up, the toggle kill-switch, and pickup-volume work. Drop D.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Rage Against the Machine - Sleep Now in the Fire ----
+  {
+    id: "seed-morello-sleep-now-in-the-fire",
+    song_slug: "sleep-now-in-the-fire-rage-against-the-machine",
+    title: "Tom Morello's Sleep Now in the Fire Bluesy Riff & Whammy Hum",
+    slug: "morello-sleep-now-in-the-fire",
+    created_at: "2026-06-15",
+    description:
+      "Standard tuning — not Drop D — and a goading, almost childlike riff built on A-minor pentatonic over a droning open A string. The Battle of Los Angeles single runs Morello's 'Arm the Homeless' into the career-long 50-watt Marshall JCM800 2205 and Peavey 4x12. The verse hides a strange harmonized hum: the DigiTech Whammy set to add a fixed interval below the fretted note. The wandering solo weaves wah and Whammy together while the pickup toggle stutters the feedback. The gear stays mid-forward and tight; the weirdness is all in the pedals and the right hand.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "'Arm the Homeless' custom (Performance body / Kramer neck)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: ".009-.046",
+      notable_mods:
+        "Morello's #1, in standard E tuning for this song (the open-A pedal note under the riff confirms standard, not Drop D). Performance body, Kramer graphite neck, two humbuckers, Floyd Rose, and the 3-way toggle wired as a kill switch (one pickup at 10, one at 0). Ernie Ball Hybrid Slinky .009-.046.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "pitch",
+        gear_slug: "digitech-whammy",
+        gear_name: "DigiTech Whammy WH-1 (harmony mode)",
+        icon_type: "boss_compact",
+        icon_color: "#e53e3e",
+        is_in_effects_loop: false,
+        settings: { Mode: "harmony, fixed interval below", Position: "toe-down for verse hum" },
+        notes:
+          "For the verse 'hum' Morello fixes the WH-1 in a harmony setting so a fretted note (e.g. C at the 15th fret of the A string) rings against a fixed interval below — that dissonant, droning second voice is the verse's eerie undertone, not an octave dive.",
+      },
+      {
+        position: 2,
+        category: "effect",
+        subcategory: "wah",
+        gear_slug: "dunlop-cry-baby-wah",
+        gear_name: "Dunlop Cry Baby (GCB95)",
+        icon_type: "wah",
+        icon_color: "#1f2937",
+        is_in_effects_loop: false,
+        settings: { Position: "rocked through solo" },
+        notes:
+          "The Cry Baby is the solo's voice — rocked freely while the Whammy and toggle do their work, smearing the feedback into the wandering, vocal lead. Off for the main riff.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: "marshall-jcm800",
+        gear_name: "Marshall JCM800 2205 (50W)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Gain: 9, Bass: 10, Middle: 10, Treble: 7, Presence: 7, Master: 5 },
+        notes:
+          "The same boost-channel JCM800 2205. Bass and Middle near max keep the open-A-pedal riff thick and cutting; the bluesy bends in the lead need the mids forward so each note speaks rather than disappearing into fizz.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Peavey 4x12 (Celestion G12K-85)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "The high-power G12K-85-loaded Peavey 4x12 stays tight under the maxed mids, close-miked for the percussive thump that anchors the bouncing riff.",
+      },
+      {
+        position: 5,
+        category: "wet_effect",
+        subcategory: "delay",
+        gear_slug: "boss-dd3",
+        gear_name: "Boss DD-3 Digital Delay (FX loop)",
+        icon_type: "boss_compact",
+        icon_color: "#3b82f6",
+        is_in_effects_loop: true,
+        settings: { Time: 420, Feedback: 3, Level: 22 },
+        notes:
+          "A short FX-loop delay adds dimension to the solo without washing out the riff — Morello's standard low-feedback loop setting.",
+      },
+      {
+        position: 6,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, cap edge" },
+        notes:
+          "An SM57 off the cone — the raw, immediate RATM capture that keeps the attack present without harshness.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "'Arm the Homeless' custom (Performance body, Kramer graphite neck, humbuckers, Floyd Rose, toggle kill switch), standard tuning, Ernie Ball Hybrid Slinky .009-.046",
+      effects: ["DigiTech Whammy WH-1 (harmony mode for verse hum)", "Dunlop Cry Baby wah (solo)", "Boss DD-3 Digital Delay (FX loop)"],
+      amp: "Marshall JCM800 2205 (50W), boost channel",
+      cabinet: "Peavey 4x12 (Celestion G12K-85)",
+      microphone: "Shure SM57",
+      other_notes:
+        "From The Battle of Los Angeles (1999). The song is in standard tuning — the riff hammers between the 5th and 7th frets of the D string over a droning open A, which is only possible in standard. The verse 'hum' is the WH-1 in a harmony setting, not the dive-bomb mode; the solo blends wah, Whammy and toggle-feedback manipulation.",
+    },
+    tags: ["rap-metal", "alternative-metal", "funk-metal", "marshall", "morello", "whammy"],
+    sources: [
+      "https://guitar.com/features/rage-against-the-machine-greatest-guitar-moments-ranked/",
+      "https://www.guitarchalk.com/amp-settings-sleep-now-in-the-fire-rage-against-the-machine/",
+      "https://www.premierguitar.com/videos/rig-rundown/tom-morello",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", enabled: true, original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -52, Decay: 0.2, Level: 0 }, notes: "DEFAULT-ON. The hot JCM800 needs a gate so the bouncy riff's rests stay silent and the toggle-stutter doesn't chatter." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -32, Ratio: 2, Knee: 6, Attack: 25, Release: 150, Mix: 40, Level: 0 }, notes: "Light parallel comp evens the riff; Mix 40 keeps the percussive attack so the bounce stays lively." },
+          { position: 3, block_name: "Pitch Wham", block_category: "Pitch/Synth", enabled: false, original_gear: "DigiTech Whammy WH-1 (harmony mode)", settings: { Position: 1.0, Mix: 50, Level: 0 }, notes: "DEFAULT-OFF. For the verse hum, use the harmony/fixed-interval voicing with Mix near 50 so the lower voice rings against the fretted note — not a clean octave but a dissonant drone. Real WH-1 territory." },
+          { position: 4, block_name: "Teardrop 310", block_category: "Wah", enabled: false, original_gear: "Dunlop Cry Baby (GCB95)", settings: { Position: 0.5, Mix: 100, Level: 0 }, notes: "DEFAULT-OFF (assign to EXP 2). Rock it freely through the solo while the Whammy and toggle work; off for the riff." },
+          { position: 5, block_name: "Brit 2204", block_category: "Amp", original_gear: "Marshall JCM800 2205 (50W)", settings: { Drive: 8.5, Bass: 10, Mid: 9, Treble: 7, Presence: 7, ChVol: 5, Master: 8, Bias: 5, BiasX: 5, Sag: 4.5, Hum: 5, Ripple: 5 }, notes: "Helix's 50W JCM800. Bass and Mid near max so the open-A-pedal riff stays thick and the bluesy bends speak — mid-forward, not scooped." },
+          { position: 6, block_name: "4x12 Mars G12-65", block_category: "Cab", original_gear: "Peavey 4x12 (Celestion G12K-85)", settings: { Mic: 1, Distance: 1, Position: 0.4, Angle: 0, LowCut: 85, HighCut: 10000, Resonance: 0.5, Level: 0, Pan: 0.5, Delay: 0 }, notes: "High-power Celestion 4x12 for the Peavey thump. LowCut 85 leaves the open-A weight while keeping it tight; HighCut 10k tames fizz." },
+          { position: 7, block_name: "Simple Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 420, Feedback: 3, Mix: 16, LowCut: 200, HighCut: 6000, Level: 0 }, notes: "Short, low-feedback loop delay — dimension on the solo without washing out the riff." },
+          { position: 8, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Neutral tilt — the maxed-mid JCM800 already cuts. Brighten only on a dark FRFR rig." },
+        ],
+        notes:
+          "Gate → comp → Whammy harmony (off) → wah (off) → Brit 2204 → G12-65 4x12 → short delay → tilt. Standard tuning. The verse hum is the Whammy in harmony mode; the solo is wah + Whammy + toggle.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -52, Decay: 0.2, Level: 0 }, notes: "DEFAULT-ON. Keeps the bouncy riff's rests silent and the toggle-stutter clean." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -32, Ratio: 2, Attack: 8, Release: 120, Mix: 40, Level: 0 }, notes: "Light parallel comp — evens the riff while the blend keeps its percussive bounce." },
+          { position: 3, block_name: "Whammy", block_category: "Pitch", enabled: false, original_gear: "DigiTech Whammy WH-1 (harmony mode)", settings: { Position: 1.0, Mix: 50, Level: 0 }, notes: "DEFAULT-OFF. Use the harmony voicing for the dissonant verse hum — lower voice ringing against the fretted note, blended ~50%." },
+          { position: 4, block_name: "Cry Wah", block_category: "Wah", enabled: false, original_gear: "Dunlop Cry Baby (GCB95)", settings: { Position: 0.5, Mix: 100, Level: 0 }, notes: "DEFAULT-OFF (assign to expression). Rock it through the solo; off for the riff." },
+          { position: 5, block_name: "Brit 2203", block_category: "Amp", original_gear: "Marshall JCM800 2205 (50W)", settings: { Gain: 8.5, Bass: 10.0, Mid: 9.0, Treble: 7.0, Presence: 7.0, Master: 5.0, Sag: 4.5 }, notes: "The QC's JCM800 — mid-forward and tight so the open-A riff stays thick and the bends speak." },
+          { position: 6, block_name: "4x12 G12-65", block_category: "Cab", original_gear: "Peavey 4x12 (Celestion G12K-85)", settings: { Mic: "Dynamic 57", Distance: 1.0, Position: 0.4, LowCut: 85, HighCut: 10000, Level: 0 }, notes: "High-power Celestion 4x12; LowCut 85 keeps the open-A weight tight, HighCut tames fizz." },
+          { position: 7, block_name: "Digital Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 420, Feedback: 3, Mix: 16, Level: 0 }, notes: "Short, low-feedback loop delay — dimension on the solo, subtle under the riff." },
+          { position: 8, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 }, notes: "Neutral tilt — the JCM800 already cuts. Brighten only on a dark FRFR rig." },
+        ],
+        notes:
+          "Gate → comp → Whammy harmony (off) → wah (off) → Brit 2203 → G12-65 4x12 → short delay → tilt. Mirrors the Helix chain. Standard tuning; harmony-mode verse hum, wah-and-Whammy solo.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "FX", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: 52, Release: 20, Level: 0 }, notes: "DEFAULT-ON. Keeps the riff's rests silent and the toggle-stutter tight." },
+          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Marshall JCM800 2205 (50W)", settings: { Gain: 85, Volume: 55, Bass: 95, Middle: 90, Treble: 70, Presence: 70, Master: 55 }, notes: "Lead character for the JCM800. Bass and Middle near max — mid-forward and tight so the open-A riff stays thick and the bluesy bends speak." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 420, Feedback: 12, EffectLevel: 16 }, notes: "Short, low-feedback delay for solo dimension — subtle so the riff stays tight." },
+        ],
+        notes:
+          "Gate → Lead amp → short delay. The Lead voice with maxed mids captures the 50W JCM800. Standard tuning; use an outboard Whammy in harmony mode for the verse hum and wah for the solo.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Compressor", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: 5.5, Volume: 0.0 }, notes: "Slot A — Kemper input gate. Silences the riff's rests and tightens the toggle-stutter." },
+          { position: 2, block_name: "Search Rig Exchange for 'JCM800 2205' or 'Marshall 50W'", block_category: "Profile", original_gear: "Marshall JCM800 2205 (50W)", settings: { Gain: 8.5, Bass: 10.0, Middle: 9.0, Treble: 7.0, Presence: 7.0 }, notes: "Search Rig Exchange for a 50W JCM800 2205 boost-channel profile (cab baked in). Bass and Middle near max for the mid-forward, percussive cut." },
+          { position: 3, block_name: "Single Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 420, Feedback: 0.12, Mix: 0.16 }, notes: "DLY slot. Short, low-feedback delay for solo dimension — subtle under the riff." },
+        ],
+        notes:
+          "Kemper profiles bake in the cab. Gate → JCM800 profile → short delay. Standard tuning; harmony-mode Whammy for the verse hum, wah for the solo.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -52, Decay: 0.2, Level: 0 }, notes: "DEFAULT-ON. Keeps the riff's rests silent and tightens the toggle-stutter." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -32, Ratio: 2, Attack: 8, Release: 120, Mix: 0.4, Level: 0 }, notes: "Light parallel comp evens the riff while keeping its percussive bounce." },
+          { position: 3, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800 2205 (50W)", settings: { Drive: 8.5, Bass: 10.0, Mid: 9.0, Treble: 7.0, Presence: 7.0, MV: 5.0, Cut: 4.0 }, notes: "Fractal's JCM800 — mid-forward and tight so the open-A riff stays thick and the bends speak." },
+          { position: 4, block_name: "4x12 G12-65", block_category: "Cab", original_gear: "Peavey 4x12 (Celestion G12K-85)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 85, HighCut: 10000, Level: 0 }, notes: "High-power Celestion 4x12; LowCut 85 keeps the open-A weight tight, HighCut tames fizz." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 420, Feedback: 3, Mix: 0.16 }, notes: "Short, low-feedback loop delay — solo dimension, subtle under the riff." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Neutral tilt — the JCM800 already cuts. Brighten only on a dark FRFR rig." },
+        ],
+        notes: "Gate → comp → Brit 800 → G12-65 4x12 → short delay → tilt. Mirrors the Helix chain. Standard tuning; harmony-mode Whammy hum, wah-and-Whammy solo.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'JCM800 2205' or 'Marshall 50W'", block_category: "Tone Model", original_gear: "Marshall JCM800 2205 (50W)", settings: {}, notes: "Search ToneNET for a 50W JCM800 2205 boost-channel capture, mid-forward not scooped. Standard tuning. Add a short delay; use an outboard Whammy in harmony mode for the verse hum and a wah for the solo." },
+        ],
+        notes: "TONEX is capture-driven. Search ToneNET for a 50W JCM800 capture. The eerie verse hum and wandering solo are pedal-and-technique work — harmony-mode Whammy, wah, and the toggle kill-switch. Standard tuning.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Rage Against the Machine - People of the Sun ----
+  {
+    id: "seed-morello-people-of-the-sun",
+    song_slug: "people-of-the-sun-rage-against-the-machine",
+    title: "Tom Morello's People of the Sun Allen-Key Scrape Riff",
+    slug: "morello-people-of-the-sun",
+    created_at: "2026-06-15",
+    description:
+      "One of Morello's most ingenious noises: the main 'riff' of People of the Sun is made by scraping a hex (Allen) wrench across the strings between the pickups, not by fretting notes — a metallic, machine-like screech that became an Evil Empire signature. Underneath it is his usual rig in Drop D: the 'Arm the Homeless' custom into the 50-watt Marshall JCM800 2205 and Peavey 4x12. The Whammy adds dive-bomb squeals over the chorus. The tone itself is plain mid-forward Marshall crunch — the magic is the technique sitting on top of it.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "'Arm the Homeless' custom (Performance body / Kramer neck)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "drop_d",
+      string_gauge: ".009-.046",
+      notable_mods:
+        "Morello's #1 in Drop D. The signature technique uses a hex/Allen wrench dragged across the strings between the bridge and neck pickups — the pickups read the metal-on-string vibration as pitched screech. Performance body, Kramer graphite neck, EMG-era humbuckers, Floyd Rose, toggle kill switch, Ernie Ball Hybrid Slinky .009-.046.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "pitch",
+        gear_slug: "digitech-whammy",
+        gear_name: "DigiTech Whammy WH-1",
+        icon_type: "boss_compact",
+        icon_color: "#e53e3e",
+        is_in_effects_loop: false,
+        settings: { Mode: "dive / octave", Position: "swept for squeals" },
+        notes:
+          "The WH-1 supplies the dive-bomb squeals and pitch-shifted accents over the chorus. It is an accent device here, off for the Allen-key main riff; the scrape itself is acoustic, made by the wrench, not the pedal.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: "marshall-jcm800",
+        gear_name: "Marshall JCM800 2205 (50W)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Gain: 9, Bass: 10, Middle: 10, Treble: 7, Presence: 7, Master: 5 },
+        notes:
+          "The boost-channel JCM800 2205. High gain and maxed mids make the Allen-key scrape sing and sustain — a clean amp would just sound like scratching, but the saturated mids turn the metallic screech into a pitched, vocal noise. Bass and Middle near max as always for Morello, not scooped.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Peavey 4x12 (Celestion G12K-85)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "The high-power Peavey 4x12 close-miked. Its tight, punchy voice keeps the Drop-D verse/chorus stomp solid while the scrape screams over the top.",
+      },
+      {
+        position: 4,
+        category: "wet_effect",
+        subcategory: "delay",
+        gear_slug: "boss-dd3",
+        gear_name: "Boss DD-3 Digital Delay (FX loop)",
+        icon_type: "boss_compact",
+        icon_color: "#3b82f6",
+        is_in_effects_loop: true,
+        settings: { Time: 360, Feedback: 4, Level: 20 },
+        notes:
+          "A short FX-loop delay smears the scrape and squeals into a wider, more chaotic texture — low feedback so the heavy Drop-D riff underneath stays tight.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, cap edge" },
+        notes:
+          "An SM57 off the cone — the standard fast-and-live Evil Empire capture, present without harshness.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "'Arm the Homeless' custom (Performance body, Kramer graphite neck, EMG-era humbuckers, Floyd Rose, toggle kill switch), Drop D, Ernie Ball Hybrid Slinky .009-.046",
+      effects: ["Hex/Allen wrench string scrape (technique)", "DigiTech Whammy WH-1 (chorus squeals)", "Boss DD-3 Digital Delay (FX loop)"],
+      amp: "Marshall JCM800 2205 (50W), boost channel",
+      cabinet: "Peavey 4x12 (Celestion G12K-85)",
+      microphone: "Shure SM57",
+      other_notes:
+        "From Evil Empire (1996), produced by Brendan O'Brien. The defining sound is the Allen-key scrape between the pickups — Morello drags a hex wrench across the strings (A string for the verse pitch, low E for the chorus) so the pickups read the metal-on-string screech as a pitched, machine-like riff. The Whammy handles dive squeals. Drop D.",
+    },
+    tags: ["rap-metal", "alternative-metal", "funk-metal", "marshall", "morello", "drop-d"],
+    sources: [
+      "https://www.guitarchalk.com/people-of-the-sun-amp-settings/",
+      "https://en.wikipedia.org/wiki/People_of_the_Sun",
+      "https://www.guitarguitar.co.uk/news/142004/",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", enabled: true, original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -50, Decay: 0.2, Level: 0 }, notes: "DEFAULT-ON. The high-gain JCM800 plus the wrench scrape generates a lot of hash — a gate keeps the rests dead so the scrape reads as deliberate, not as noise." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -32, Ratio: 2, Knee: 6, Attack: 25, Release: 150, Mix: 40, Level: 0 }, notes: "Light parallel comp keeps the scrape's wild dynamics from spiking; Mix 40 leaves enough transient that the metallic attack stays sharp." },
+          { position: 3, block_name: "Pitch Wham", block_category: "Pitch/Synth", enabled: false, original_gear: "DigiTech Whammy WH-1", settings: { Position: 0, Mix: 100, Level: 0 }, notes: "DEFAULT-OFF (assign to EXP 1), range -12/+12. Sweep for the chorus dive-bomb squeals; off for the Allen-key main riff." },
+          { position: 4, block_name: "Brit 2204", block_category: "Amp", original_gear: "Marshall JCM800 2205 (50W)", settings: { Drive: 8.5, Bass: 10, Mid: 9, Treble: 7, Presence: 7, ChVol: 5, Master: 8, Bias: 5, BiasX: 5, Sag: 4.5, Hum: 5, Ripple: 5 }, notes: "Helix's 50W JCM800. The high gain and maxed mids are what turn the wrench scrape into a pitched, sustaining screech rather than a dry scratch. Mid-forward, not scooped." },
+          { position: 5, block_name: "4x12 Mars G12-65", block_category: "Cab", original_gear: "Peavey 4x12 (Celestion G12K-85)", settings: { Mic: 1, Distance: 1, Position: 0.4, Angle: 0, LowCut: 90, HighCut: 9500, Resonance: 0.5, Level: 0, Pan: 0.5, Delay: 0 }, notes: "High-power Celestion 4x12. LowCut 90 keeps Drop D tight; HighCut 9.5k tames the scrape's harsh top so the screech is musical, not piercing." },
+          { position: 6, block_name: "Simple Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 360, Feedback: 4, Mix: 16, LowCut: 200, HighCut: 6000, Level: 0 }, notes: "Short, low-feedback delay smears the scrape/squeals into a wider texture without loosening the Drop-D riff." },
+          { position: 7, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.48, CenterFreq: 1000, Level: 0 }, notes: "Slightly darkened to tame the metallic screech on a bright FRFR rig while keeping the riff's cut." },
+        ],
+        notes:
+          "Gate → comp → Whammy (off) → Brit 2204 → G12-65 4x12 → short delay → tilt. Drop D. The main riff is a hex/Allen wrench scraped between the pickups into this high-gain Marshall — the saturation is what pitches the screech.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -50, Decay: 0.2, Level: 0 }, notes: "DEFAULT-ON. Keeps the rests dead so the wrench scrape reads as deliberate." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -32, Ratio: 2, Attack: 8, Release: 120, Mix: 40, Level: 0 }, notes: "Light parallel comp tames the scrape's spikes; blend keeps the metallic attack." },
+          { position: 3, block_name: "Whammy", block_category: "Pitch", enabled: false, original_gear: "DigiTech Whammy WH-1", settings: { Position: 0, Mix: 100, Level: 0 }, notes: "DEFAULT-OFF. Sweep for the chorus dive squeals; off for the Allen-key riff." },
+          { position: 4, block_name: "Brit 2203", block_category: "Amp", original_gear: "Marshall JCM800 2205 (50W)", settings: { Gain: 8.5, Bass: 10.0, Mid: 9.0, Treble: 7.0, Presence: 7.0, Master: 5.0, Sag: 4.5 }, notes: "The QC's JCM800. High gain and maxed mids pitch the wrench scrape into a sustaining screech." },
+          { position: 5, block_name: "4x12 G12-65", block_category: "Cab", original_gear: "Peavey 4x12 (Celestion G12K-85)", settings: { Mic: "Dynamic 57", Distance: 1.0, Position: 0.4, LowCut: 90, HighCut: 9500, Level: 0 }, notes: "High-power Celestion 4x12; LowCut keeps Drop D tight, HighCut tames the scrape's harsh top." },
+          { position: 6, block_name: "Digital Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 360, Feedback: 4, Mix: 16, Level: 0 }, notes: "Short, low-feedback delay smears the scrape into a wider texture without loosening the riff." },
+          { position: 7, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 4.8, CenterFreq: 1000, Level: 0 }, notes: "Slightly darkened to tame the screech on a bright FRFR rig." },
+        ],
+        notes:
+          "Gate → comp → Whammy (off) → Brit 2203 → G12-65 4x12 → short delay → tilt. Mirrors the Helix chain. Drop D; the riff is the wrench scrape into a high-gain Marshall.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "FX", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: 54, Release: 20, Level: 0 }, notes: "DEFAULT-ON. Keeps the rests dead so the wrench scrape reads as deliberate." },
+          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Marshall JCM800 2205 (50W)", settings: { Gain: 88, Volume: 55, Bass: 95, Middle: 90, Treble: 70, Presence: 70, Master: 55 }, notes: "Lead character with high gain and maxed mids — that saturation is what pitches the Allen-key scrape into a sustaining screech instead of a dry scratch." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 360, Feedback: 14, EffectLevel: 16 }, notes: "Short, low-feedback delay smears the scrape/squeals wider without loosening the Drop-D riff." },
+        ],
+        notes:
+          "Gate → Lead amp → short delay. The high-gain Lead voice pitches the wrench scrape. Drop D; use an outboard Whammy for the chorus dive squeals.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Compressor", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: 5.8, Volume: 0.0 }, notes: "Slot A — Kemper input gate. Keeps the rests dead so the wrench scrape reads as deliberate." },
+          { position: 2, block_name: "Search Rig Exchange for 'JCM800 2205' or 'Marshall 50W'", block_category: "Profile", original_gear: "Marshall JCM800 2205 (50W)", settings: { Gain: 8.5, Bass: 10.0, Middle: 9.0, Treble: 7.0, Presence: 7.0 }, notes: "Search Rig Exchange for a hot 50W JCM800 2205 profile (cab baked in). The gain and maxed mids pitch the wrench scrape into a screech." },
+          { position: 3, block_name: "Single Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 360, Feedback: 0.14, Mix: 0.16 }, notes: "DLY slot. Short, low-feedback delay smears the scrape wider without loosening the riff." },
+        ],
+        notes:
+          "Kemper profiles bake in the cab. Gate → JCM800 profile → short delay. Drop D; the riff is the wrench scrape into a high-gain Marshall, Whammy for the chorus squeals.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -50, Decay: 0.2, Level: 0 }, notes: "DEFAULT-ON. Keeps the rests dead so the wrench scrape reads as deliberate." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -32, Ratio: 2, Attack: 8, Release: 120, Mix: 0.4, Level: 0 }, notes: "Light parallel comp tames the scrape's spikes; blend keeps the metallic attack." },
+          { position: 3, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800 2205 (50W)", settings: { Drive: 8.5, Bass: 10.0, Mid: 9.0, Treble: 7.0, Presence: 7.0, MV: 5.0, Cut: 4.0 }, notes: "Fractal's JCM800. High gain and maxed mids pitch the wrench scrape into a sustaining screech." },
+          { position: 4, block_name: "4x12 G12-65", block_category: "Cab", original_gear: "Peavey 4x12 (Celestion G12K-85)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 90, HighCut: 9500, Level: 0 }, notes: "High-power Celestion 4x12; LowCut keeps Drop D tight, HighCut tames the scrape's harsh top." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Boss DD-3 (FX loop)", settings: { Time: 360, Feedback: 4, Mix: 0.16 }, notes: "Short, low-feedback delay smears the scrape into a wider texture without loosening the riff." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.48, CenterFreq: 1000, Level: 0 }, notes: "Slightly darkened to tame the screech on a bright FRFR rig." },
+        ],
+        notes: "Gate → comp → Brit 800 → G12-65 4x12 → short delay → tilt. Mirrors the Helix chain. Drop D; the riff is the wrench scrape into a high-gain Marshall.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'JCM800 2205' or 'Marshall 50W'", block_category: "Tone Model", original_gear: "Marshall JCM800 2205 (50W)", settings: {}, notes: "Search ToneNET for a hot 50W JCM800 2205 capture, mid-forward not scooped. Drop D. The main riff is technique — drag a hex/Allen wrench across the strings between the pickups; the amp's saturation pitches the screech. Whammy for the chorus squeals." },
+        ],
+        notes: "TONEX is capture-driven. Search ToneNET for a high-gain 50W JCM800 capture. The signature is the Allen-key string scrape, not a pedal — the saturated Marshall turns the metal-on-string screech into a pitched riff. Drop D.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Tool - Stinkfist ----
+  {
+    id: "seed-jones-stinkfist",
+    song_slug: "stinkfist-tool",
+    title: "Adam Jones' Stinkfist Drop-D Crush & Flanged Intro",
+    slug: "jones-stinkfist-drop-d-crush",
+    created_at: "2026-06-15",
+    description:
+      "The opener of Ænima and the song that set Tool's mature guitar sound: a 1979 Gibson Les Paul Custom Silverburst in Drop D into Adam Jones' twin-amp wall — a Diezel VH4 supplying the bottom and gain, a modified Marshall Super Bass adding the upper-mid grind and clean-up — through Mesa 4x12s. The intro and clean verses breathe through a Boss BF-2 flanger swirl before the chorus drops into a thick, mid-focused crush. Jones uses almost no gain stacking; the weight comes from the Drop-D Les Paul, the amp blend, and his slow, deliberate picking.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Les Paul Custom (1979 Silverburst)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "drop_d",
+      string_gauge: ".011-.052",
+      notable_mods:
+        "Jones' 1979 Les Paul Custom Silverburst with a Seymour Duncan JB in the bridge (mounted upside-down) and a Jazz in the neck. Heavy .011-.052 strings hold tension in Drop D. The Silverburst is the entire visual and tonal signature of Tool's guitar sound.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "modulation",
+        gear_slug: null,
+        gear_name: "Boss BF-2 Flanger",
+        icon_type: "boss_compact",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Manual: 5, Depth: 6, Rate: 3, Resonance: 6 },
+        notes:
+          "The BF-2 is the swirl on the clean intro and verse arpeggios — a slow, deep flange that gives the picked figures their seasick, hypnotic motion. It is the one obvious effect on the song; the heavy chorus runs dry so the crush stays tight.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: "diezel-vh4",
+        gear_name: "Diezel VH4 (Channel 3)",
+        icon_type: "marshall_head",
+        icon_color: "#333333",
+        is_in_effects_loop: false,
+        settings: { Gain: 7, Bass: 7, Middle: 10, Treble: 5, Presence: 6, Master: 6 },
+        notes:
+          "The VH4's Channel 3 provides the bottom end and the gain. Middle cranked, treble pulled back — that mid-heavy, darkish voicing is the core of Jones' tone and keeps the Drop-D chords articulate instead of muddy.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall Super Bass 100 (blended)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 6, Bass: 4, Middle: 7, Treble: 7, Volume: 7 },
+        notes:
+          "Blended underneath the Diezel, the modified Super Bass adds the upper mids and the ability to clean up — it is the 'cut' half of the two-amp sound. Jones runs both amps together so the VH4's heft sits under the Marshall's bite.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Mesa/Boogie 4x12 (Celestion V30)",
+        icon_type: "cab_4x12",
+        icon_color: "#333333",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Mesa 4x12s with V30s give the tight, modern low end that holds the Drop-D crush together. Close-miked for the percussive thump of Jones' deliberate picking.",
+      },
+      {
+        position: 5,
+        category: "wet_effect",
+        subcategory: "delay",
+        gear_slug: "boss-dd3",
+        gear_name: "Boss DD-3 Digital Delay",
+        icon_type: "boss_compact",
+        icon_color: "#3b82f6",
+        is_in_effects_loop: false,
+        settings: { Time: 450, Feedback: 3, Level: 18 },
+        notes:
+          "A subtle delay opens up the clean and lead passages with a touch of space — Jones uses delay for atmosphere, kept low so the heavy riffs stay dry and tight.",
+      },
+      {
+        position: 6,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "on-axis, cap edge" },
+        notes:
+          "Close-miked SM57 for a full, direct capture of the V30 — the standard for Jones' tight, articulate Drop-D tone.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1979 Gibson Les Paul Custom Silverburst (Seymour Duncan JB bridge, upside-down; Jazz neck), Drop D, .011-.052 strings",
+      effects: ["Boss BF-2 Flanger (intro/verse swirl)", "Boss DD-3 Digital Delay (atmosphere)"],
+      amp: "Diezel VH4 (Channel 3) + modified Marshall Super Bass 100 (blended)",
+      cabinet: "Mesa/Boogie 4x12 (Celestion V30)",
+      microphone: "Shure SM57",
+      other_notes:
+        "From Ænima (1996) — the album where Jones moved to the multi-amp rig, blending the Diezel VH4 with the Marshall Super Bass (and at times a Mesa Dual Rectifier). The Diezel supplies bottom and gain, the Marshall the upper mids and clean-up. Drop D, deliberate heavy picking; the BF-2 flanger is the one prominent effect on the intro and clean parts.",
+    },
+    tags: ["progressive-metal", "alternative-metal", "metal", "diezel", "tool", "drop-d"],
+    sources: [
+      "https://www.riffhard.com/how-to-get-adam-joness-guitar-tone/",
+      "https://www.guitarchalk.com/amp-settings-for-adam-jones-of-tool/",
+      "https://equipboard.com/pros/adam-jones",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", enabled: true, original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -52, Decay: 0.3, Level: 0 }, notes: "DEFAULT-ON. The high-gain Diezel needs a gate to silence the rests in Tool's slow, spacious Drop-D phrasing." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -32, Ratio: 2, Knee: 6, Attack: 38, Release: 200, Mix: 40, Level: 0 }, notes: "Light parallel comp — heavy comp would kill Jones' deliberate, percussive picking dynamic, so the blend stays low." },
+          { position: 3, block_name: "Dynamic Flanger", block_category: "Modulation", enabled: false, original_gear: "Boss BF-2 Flanger", settings: { Rate: 0.3, Depth: 0.6, Mix: 50, Level: 0 }, notes: "DEFAULT-OFF. Switch on for the intro and clean verses — slow, deep flange for the seasick swirl. Off for the dry, tight chorus crush." },
+          { position: 4, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4 (Channel 3)", settings: { Drive: 7, Bass: 7, Mid: 9, Treble: 5, Presence: 6, ChVol: 7, Master: 10, Bias: 5.5, BiasX: 5, Sag: 5.5, Hum: 5, Ripple: 5 }, notes: "Helix's Diezel model. Mid cranked, treble pulled back for the dark, mid-focused VH4 voice that keeps the Drop-D chords articulate. This stands in for the VH4+Super Bass blend." },
+          { position: 5, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "Mesa/Boogie 4x12 (Celestion V30)", settings: { Mic: 1, Distance: 1, Position: 0.35, Angle: 0, LowCut: 90, HighCut: 9000, Resonance: 0.5, Level: 0, Pan: 0.5, Delay: 0 }, notes: "Mesa-style V30 4x12. LowCut 90 keeps the Drop-D bottom tight; HighCut 9k tames fizz while leaving the upper-mid grind the Marshall half contributes." },
+          { position: 6, block_name: "Simple Delay", block_category: "Delay", original_gear: "Boss DD-3 Digital Delay", settings: { Time: 450, Feedback: 3, Mix: 14, LowCut: 200, HighCut: 6000, Level: 0 }, notes: "Subtle atmosphere on the clean/lead passages — low enough that the heavy riffs stay dry and tight." },
+          { position: 7, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slightly darkened to hold Jones' dark, mid-focused character on a bright FRFR rig." },
+        ],
+        notes:
+          "Gate → comp → flanger (off) → Diezel → V30 4x12 → subtle delay → tilt. Drop D, Les Paul bridge. Switch the flanger on for the intro/clean parts; the chorus is dry crush.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Studio noise gate", settings: { Threshold: -52, Decay: 0.3, Level: 0 }, notes: "DEFAULT-ON. Silences the rests in Tool's slow Drop-D phrasing." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 40, Level: 0 }, notes: "Light parallel comp — preserves Jones' deliberate picking dynamic." },
+          { position: 3, block_name: "Flanger", block_category: "Modulation", enabled: false, original_gear: "Boss BF-2 Flanger", settings: { Rate: 0.3, Depth: 0.6, Mix: 50 }, notes: "DEFAULT-OFF. On for the intro/clean swirl; off for the dry chorus." },
+          { position: 4, block_name: "D-Cell H4 Lead", block_category: "Amp", original_gear: "Diezel VH4 (Channel 3)", settings: { Gain: 7.0, Bass: 7.0, Mid: 9.0, Treble: 5.0, Presence: 6.0, Master: 6.0 }, notes: "The QC's VH4. Mid cranked, treble back for the dark, articulate Drop-D crush. Stands in for the VH4+Super Bass blend." },
+          { position: 5, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa/Boogie 4x12 (Celestion V30)", settings: { Mic: "SM57", Distance: 1.0, Position: 0.35, LowCut: 90, HighCut: 9000, Level: 0 }, notes: "V30 4x12 for the tight Drop-D bottom; LowCut keeps it tight, HighCut tames fizz." },
+          { position: 6, block_name: "Digital Delay", block_category: "Delay", original_gear: "Boss DD-3 Digital Delay", settings: { Time: 450, Feedback: 3, Mix: 14, Level: 0 }, notes: "Subtle atmosphere — low so the heavy riffs stay dry." },
+          { position: 7, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 4.5, CenterFreq: 1000, Level: 0 }, notes: "Slightly darkened to hold the dark Jones character on FRFR." },
+        ],
+        notes:
+          "Gate → comp → flanger (off) → VH4 → V30 4x12 → subtle delay → tilt. Mirrors the Helix chain. Drop D; flanger on for the intro, dry crush for the chorus.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "FX", enabled: true, original_gear: "Studio noise gate", settings: { Threshold: 52, Release: 30, Level: 0 }, notes: "DEFAULT-ON. The high-gain Lead voice needs a gate for Tool's spacious Drop-D silences." },
+          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Diezel VH4 (Channel 3)", settings: { Gain: 80, Volume: 60, Bass: 70, Middle: 95, Treble: 50, Presence: 60, Master: 60 }, notes: "Lead character with Middle cranked, Treble back — the dark, mid-focused VH4 voicing that keeps the Drop-D chords articulate." },
+          { position: 3, block_name: "Flanger", block_category: "Mod", enabled: false, original_gear: "Boss BF-2 Flanger", settings: { Rate: 25, Depth: 60, Level: 60 }, notes: "DEFAULT-OFF (Mod slot). On for the intro/clean swirl; off for the dry chorus crush." },
+          { position: 4, block_name: "Delay", block_category: "Delay", original_gear: "Boss DD-3 Digital Delay", settings: { Time: 450, Feedback: 12, EffectLevel: 14 }, notes: "Subtle atmosphere on the clean/lead passages — low so the heavy riffs stay dry and tight." },
+        ],
+        notes:
+          "Gate → Lead amp → flanger (off, Mod slot) → subtle delay. Drop D, Les Paul bridge. Switch the flanger on for the intro/clean parts; the chorus is dry, mid-focused crush.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Compressor", original_gear: "Studio noise gate", settings: { Threshold: 5.0, Volume: 0.0 }, notes: "Slot A — Kemper input gate for tight palm muting on the Drop-D riffs." },
+          { position: 2, block_name: "Search Rig Exchange for 'Diezel VH4'", block_category: "Profile", original_gear: "Diezel VH4 (Channel 3) + Marshall Super Bass", settings: { Gain: 7.0, Bass: 7.0, Middle: 9.0, Treble: 5.0, Presence: 6.0 }, notes: "Search Rig Exchange for a Diezel VH4 Channel 3 profile (cab baked in). Mid cranked, treble back for the dark, articulate Drop-D crush." },
+          { position: 3, block_name: "Flanger", block_category: "Effect", enabled: false, original_gear: "Boss BF-2 Flanger", settings: { Rate: 0.3, Depth: 0.6, Mix: 0.5 }, notes: "MOD slot. DEFAULT-OFF. On for the intro/clean swirl; off for the dry chorus." },
+          { position: 4, block_name: "Single Delay", block_category: "Delay", original_gear: "Boss DD-3 Digital Delay", settings: { Time: 450, Feedback: 0.12, Mix: 0.14 }, notes: "DLY slot. Subtle atmosphere on the clean/lead passages — low so the heavy riffs stay dry and tight." },
+        ],
+        notes:
+          "Kemper profiles bake in the cab. Gate → VH4 profile → flanger (off) → subtle delay. Drop D, Les Paul bridge; flanger on for the intro, dry crush for the chorus.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Studio noise gate", settings: { Threshold: -52, Decay: 0.3, Level: 0 }, notes: "DEFAULT-ON. Silences the rests in Tool's slow Drop-D phrasing." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 0.4, Level: 0 }, notes: "Light parallel comp — preserves the deliberate picking dynamic." },
+          { position: 3, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4 (Channel 3)", settings: { Drive: 7.0, Bass: 7.0, Mid: 9.0, Treble: 5.0, Presence: 6.0, MV: 7.0, Cut: 4.0 }, notes: "Fractal's Diezel. Mid cranked, treble back for the dark, mid-focused VH4 crush. Stands in for the VH4+Super Bass blend." },
+          { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa/Boogie 4x12 (Celestion V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 90, HighCut: 9000, Level: 0 }, notes: "V30 4x12 for the tight Drop-D bottom; LowCut keeps it tight, HighCut tames fizz." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Boss DD-3 Digital Delay", settings: { Time: 450, Feedback: 3, Mix: 0.14 }, notes: "Subtle atmosphere — low so the heavy riffs stay dry." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slightly darkened to hold the dark Jones character on FRFR." },
+        ],
+        notes: "Gate → comp → Diezel → V30 4x12 → subtle delay → tilt. Mirrors the Helix chain. Drop D; add a flanger in the modulation block for the intro swirl.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Diezel VH4' or 'Diezel VH4 Channel 3'", block_category: "Tone Model", original_gear: "Diezel VH4 (Channel 3) + Marshall Super Bass", settings: {}, notes: "Search ToneNET for a Diezel VH4 Channel 3 capture — dark, mid-focused high-gain with a V30 4x12. Drop D, Les Paul bridge. Add an outboard flanger for the intro swirl and a touch of delay for atmosphere." },
+        ],
+        notes: "TONEX is capture-driven. Search ToneNET for a Diezel VH4 capture, mid-cranked and treble-back. The weight is the Drop-D Silverburst and deliberate picking; the BF-2 flanger is the one prominent effect on the intro.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Tool - Sober ----
+  {
+    id: "seed-jones-sober",
+    song_slug: "sober-tool",
+    title: "Adam Jones' Sober Dynamic Quiet-to-Crush Tone",
+    slug: "jones-sober-dynamic-crush",
+    created_at: "2026-06-15",
+    description:
+      "Tool's breakthrough single, built entirely on dynamics — a brooding, restrained Drop-D verse that detonates into a crushing chorus. On Undertow (1993) Adam Jones cut it on his 1979 Les Paul Custom Silverburst into his modified mid-'70s Marshall Super Bass 100, the two channels jumpered together for an aggressive, saturated voice. This predates his Diezel multi-amp rig (which arrived on the later records). The quiet-to-loud swing is in the right hand and the guitar volume, not a pedal: a Plexi-family Marshall pushed hard, cleaning up when he eases off and roaring when he digs in.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Les Paul Custom (1979 Silverburst)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "drop_d",
+      string_gauge: ".011-.052",
+      notable_mods:
+        "Jones' 1979 Les Paul Custom Silverburst (Seymour Duncan JB bridge, upside-down; Jazz neck), .011-.052 strings for Drop-D tension. The dynamic swing of Sober relies on rolling the bridge-pickup volume and pick intensity rather than switching channels.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "compressor",
+        gear_slug: null,
+        gear_name: "Studio compressor (light)",
+        icon_type: "large_format",
+        icon_color: "#06b6d4",
+        is_in_effects_loop: false,
+        settings: { "Peak Reduction": 20, Gain: 5 },
+        notes:
+          "Only the lightest tracking compression — Sober lives on its dynamics, so heavy compression would flatten the whole quiet-to-crush arc. Just enough to catch the loudest chorus spikes.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall Super Bass 100 (modified, channels jumpered)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 6, Bass: 5, Middle: 7, Treble: 7, "Volume I": 8, "Volume II": 6 },
+        notes:
+          "The Undertow amp: a modified mid-'70s Super Bass 100, a 100-watt Plexi-family head with its two channels wired together for a hotter, more saturated tone. Pushed hard so it crunches when Jones digs in and cleans up when he backs off — the dynamic engine of the song. Middle and Treble up for the cutting, mid-forward grind.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: "marshall-4x12-greenback",
+        gear_name: "Marshall 4x12 (Celestion-loaded)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "A Celestion-loaded Marshall 4x12 close-miked — the natural partner to the Super Bass, giving the early-Tool tone its raw, slightly looser low end versus the tighter V30 Mesa rig of later records.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "on-axis, cap edge" },
+        notes:
+          "Close-miked SM57 for a direct, present capture of the Super Bass crunch — the standard for the raw Undertow guitar sound.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1979 Gibson Les Paul Custom Silverburst (Seymour Duncan JB bridge, upside-down; Jazz neck), Drop D, .011-.052 strings",
+      effects: [],
+      amp: "Modified mid-'70s Marshall Super Bass 100 (two channels jumpered)",
+      cabinet: "Marshall 4x12 (Celestion-loaded)",
+      microphone: "Shure SM57",
+      other_notes:
+        "From Undertow (1993). The Super Bass was the workhorse recording amp on Tool's debut; the Diezel VH4 multi-amp rig came later, from Ænima onward — so Sober is honestly a single modified Marshall, not the Diezel sound. The defining feature is dynamics: the quiet-to-crush swing comes from pick intensity and guitar volume into a hard-pushed Plexi-family amp, with effectively no effects.",
+    },
+    tags: ["progressive-metal", "alternative-metal", "metal", "marshall", "tool", "drop-d"],
+    sources: [
+      "https://vintagevinylnews.com/adam-jones-guitars-and-gear/",
+      "https://en.wikipedia.org/wiki/Sober_(Tool_song)",
+      "https://www.uberproaudio.com/who-plays-what/141-tools-adam-jones-guitar-gear-rig-and-equipment",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", enabled: true, original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -56, Decay: 0.3, Level: 0 }, notes: "DEFAULT-ON but gentle (low threshold) — Sober's quiet verses must breathe, so the gate only silences the dead-stop rests, not the soft picking." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor (light)", settings: { Threshold: -30, Ratio: 2, Knee: 6, Attack: 40, Release: 220, Mix: 30, Level: 0 }, notes: "Very light parallel comp — Mix 30 keeps the dynamic arc intact. The whole song is the swing from quiet to crush, so heavy comp is the enemy here." },
+          { position: 3, block_name: "Brit Plexi Jump", block_category: "Amp", original_gear: "Marshall Super Bass 100 (jumpered)", settings: { Drive: 7, Bass: 5, Mid: 7, Treble: 7, Presence: 6, ChVol: 6, Master: 9, Bias: 5, BiasX: 5, Sag: 5.5, Hum: 5, Ripple: 5 }, notes: "Helix's jumped-channel Plexi is the closest model to Jones' channel-bridged Super Bass. Drive 7 sits on the crunch edge so it cleans up when you ease off and roars when you dig in — the dynamic core of Sober. Sag 5.5 lets the low D bloom." },
+          { position: 4, block_name: "4x12 Greenback 25", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: 1, Distance: 1, Position: 0.35, Angle: 0, LowCut: 85, HighCut: 9500, Resonance: 0.5, Level: 0, Pan: 0.5, Delay: 0 }, notes: "A Celestion Greenback 4x12 for the rawer, slightly looser early-Tool low end. LowCut 85 keeps Drop D from flubbing; HighCut 9.5k tames Plexi fizz." },
+          { position: 5, block_name: "Spring", block_category: "Reverb", original_gear: "Light studio ambience", settings: { Mix: 10, Decay: 0.8, Predelay: 15, LowCut: 200, HighCut: 6500 }, notes: "A whisper of short reverb adds room to the verses without smearing the chorus crush — kept tiny because the Undertow guitar is dry and in-your-face." },
+          { position: 6, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.48, CenterFreq: 1000, Level: 0 }, notes: "Slightly darkened to keep the Plexi grind from getting brittle on a bright FRFR rig while preserving the cut." },
+        ],
+        notes:
+          "Gate (gentle) → light comp → Brit Plexi Jump → Greenback 4x12 → tiny spring → tilt. Drop D, Les Paul bridge. The dynamics are everything: ride the guitar volume and pick harder for the chorus crush.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -56, Decay: 0.3, Level: 0 }, notes: "DEFAULT-ON but gentle — only the dead-stop rests, so the quiet verses breathe." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light)", settings: { Threshold: -30, Ratio: 2, Attack: 40, Release: 220, Mix: 30, Level: 0 }, notes: "Very light parallel comp — keeps the quiet-to-crush dynamic arc intact." },
+          { position: 3, block_name: "1959 SLP", block_category: "Amp", original_gear: "Marshall Super Bass 100 (jumpered)", settings: { Gain: 7.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 6.0, Master: 6.0, Sag: 5.5 }, notes: "The QC's 100W Plexi stands in for the jumpered Super Bass. Set on the crunch edge so it cleans up when you back off and roars when you dig in." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "Dynamic 57", Distance: 1.0, Position: 0.35, LowCut: 85, HighCut: 9500, Level: 0 }, notes: "Greenback 4x12 for the raw early-Tool low end; LowCut keeps Drop D tight, HighCut tames Plexi fizz." },
+          { position: 5, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Light studio ambience", settings: { Decay: 0.8, Predelay: 15, Mix: 10, Level: 0 }, notes: "A whisper of short reverb for verse room — tiny, since the Undertow guitar is dry and direct." },
+          { position: 6, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 4.8, CenterFreq: 1000, Level: 0 }, notes: "Slightly darkened to keep the Plexi grind from getting brittle on FRFR." },
+        ],
+        notes:
+          "Gate (gentle) → light comp → 1959 SLP → Greenback 4x12 → tiny spring → tilt. Mirrors the Helix chain. Drop D; ride dynamics for the quiet-to-crush swing.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "FX", enabled: true, original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: 56, Release: 30, Level: 0 }, notes: "DEFAULT-ON but gentle — only the dead-stop rests, so the quiet verses breathe." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Marshall Super Bass 100 (jumpered)", settings: { Gain: 70, Volume: 60, Bass: 50, Middle: 70, Treble: 70, Presence: 60, Master: 60 }, notes: "Crunch character is the right voice for a jumpered Plexi-family Super Bass pushed to the edge — it cleans up when you ease off and grinds when you dig in, the dynamic core of Sober. Mids and treble up for the cutting Marshall grind." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Light studio ambience", settings: { Time: 1, PreDelay: 15, Tone: 5, EffectLevel: 8 }, notes: "A whisper of short reverb for verse room — kept tiny so the chorus crush stays dry and direct." },
+        ],
+        notes:
+          "Gate (gentle) → Crunch amp → tiny reverb. Drop D, Les Paul bridge. The Crunch voice on the edge of breakup captures the jumpered Super Bass; the quiet-to-crush swing is in the right hand and guitar volume.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Compressor", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: 4.5, Volume: 0.0 }, notes: "Slot A — gentle Kemper input gate. Only the dead-stop rests, so the quiet verses breathe." },
+          { position: 2, block_name: "Search Rig Exchange for 'Marshall Super Bass' or 'Plexi 100W'", block_category: "Profile", original_gear: "Marshall Super Bass 100 (jumpered)", settings: { Gain: 7.0, Bass: 5.0, Middle: 7.0, Treble: 7.0, Presence: 6.0 }, notes: "Search Rig Exchange for a jumpered 100W Plexi / Super Bass profile (cab baked in), set on the crunch edge so it cleans up and roars with your pick attack." },
+          { position: 3, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Light studio ambience", settings: { Decay: 0.8, Predelay: 15, Mix: 0.1 }, notes: "REV slot. A whisper of short reverb for verse room — tiny, since the Undertow guitar is dry and direct." },
+        ],
+        notes:
+          "Kemper profiles bake in the cab. Gentle gate → Plexi/Super Bass profile → tiny spring. Drop D, Les Paul bridge; the quiet-to-crush swing is dynamics, not a pedal.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -56, Decay: 0.3, Level: 0 }, notes: "DEFAULT-ON but gentle — only the dead-stop rests, so the quiet verses breathe." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light)", settings: { Threshold: -30, Ratio: 2, Attack: 40, Release: 220, Mix: 0.3, Level: 0 }, notes: "Very light parallel comp — keeps the dynamic arc intact." },
+          { position: 3, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Bass 100 (jumpered)", settings: { Drive: 7.0, Bass: 5.0, Mid: 7.0, Treble: 7.0, Presence: 6.0, MV: 6.0, Cut: 4.0 }, notes: "Fractal's 100W Plexi for the jumpered Super Bass. On the crunch edge so it cleans up when you ease off and roars when you dig in." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 85, HighCut: 9500, Level: 0 }, notes: "Greenback 4x12 for the raw early-Tool low end; LowCut keeps Drop D tight, HighCut tames Plexi fizz." },
+          { position: 5, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Light studio ambience", settings: { Mix: 0.1, Decay: 0.8, Predelay: 0.015 }, notes: "A whisper of short reverb for verse room — tiny, since the Undertow guitar is dry and direct." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.48, CenterFreq: 1000, Level: 0 }, notes: "Slightly darkened to keep the Plexi grind from getting brittle on FRFR." },
+        ],
+        notes: "Gate (gentle) → light comp → Plexi 100W High → Greenback 4x12 → tiny spring → tilt. Mirrors the Helix chain. Drop D; dynamics drive the quiet-to-crush swing.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Super Bass' or 'Plexi 100W'", block_category: "Tone Model", original_gear: "Marshall Super Bass 100 (jumpered)", settings: {}, notes: "Search ToneNET for a jumpered 100W Plexi / Super Bass capture on the crunch edge, with a Greenback 4x12. Drop D, Les Paul bridge. Keep it dry — the quiet-to-crush swing is pick intensity and guitar volume, not effects." },
+        ],
+        notes: "TONEX is capture-driven. Search ToneNET for a 100W Plexi / Super Bass capture set on the edge of breakup — that touch sensitivity is the whole song. This is the Undertow single-Marshall sound, before the later Diezel rig. Drop D.",
       },
     },
     is_editorial: true,

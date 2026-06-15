@@ -130,11 +130,11 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 71 | Aerials (intro) | System of a Down | Daron Malakian | Toxicity (2001) | Ibanez Iceman → Marshall, drop C, chiming clean-octave figure, MXR Phase 90 | done |
 | 72 | B.Y.O.B. (chorus riff) | System of a Down | Daron Malakian | Mezmerize (2005) | Ibanez Iceman → Marshall, drop C, breakneck verse into anthemic chorus | done |
 | 73 | Bulls on Parade (main riff/solo) | Rage Against the Machine | Tom Morello | Evil Empire (1996) | "Arm the Homeless" (EMG 81/85, Kramer neck, Floyd) → Marshall JCM800 2205 50W + Peavey 4x12, E♭ standard (NOT drop D — Morello tuned a half step down), wah toggle-scratch solo | done |
-| 74 | Guerrilla Radio (verse) | Rage Against the Machine | Tom Morello | The Battle of Los Angeles (1999) | Telecaster "Sendero Luminoso" → Marshall JCM800, drop D, percussive wah "wacka-wacka," DigiTech Whammy | queued |
-| 75 | Sleep Now in the Fire (riff) | Rage Against the Machine | Tom Morello | The Battle of Los Angeles (1999) | Telecaster → Marshall JCM800 + Peavey 4x12, drop D, bluesy stomp riff | queued |
-| 76 | People of the Sun (riff) | Rage Against the Machine | Tom Morello | Evil Empire (1996) | "Arm the Homeless" → Marshall JCM800, drop D, DigiTech WH-1 Whammy dive squeals | queued |
-| 77 | Stinkfist (main riff) | Tool | Adam Jones | Ænima (1996) | Gibson Les Paul Custom Silverburst (Duncan JB bridge) → Diezel VH4 + Marshall Super Bass, drop D, Boss BF-2 flanger swirl | queued |
-| 78 | Sober (riff) | Tool | Adam Jones | Undertow (1993/'94 single era) | Les Paul Silverburst → Diezel VH4 / Marshall Super Bass, drop D, dynamic quiet-to-crush | queued |
+| 74 | Guerrilla Radio (verse) | Rage Against the Machine | Tom Morello | The Battle of Los Angeles (1999) | "Arm the Homeless" → Marshall JCM800 2205 + Peavey 4x12, drop D, percussive wah "wacka-wacka," DigiTech Whammy 2-oct siren solo (corrected: Arm the Homeless, not Telecaster) | done |
+| 75 | Sleep Now in the Fire (riff) | Rage Against the Machine | Tom Morello | The Battle of Los Angeles (1999) | "Arm the Homeless" → Marshall JCM800 2205 + Peavey 4x12, STANDARD tuning (corrected from drop D), bluesy A-minor riff, Whammy harmony-mode verse hum | done |
+| 76 | People of the Sun (riff) | Rage Against the Machine | Tom Morello | Evil Empire (1996) | "Arm the Homeless" → Marshall JCM800 2205, drop D, signature is the hex/Allen-key string scrape between pickups (corrected: scrape is the main riff, Whammy is chorus squeals) | done |
+| 77 | Stinkfist (main riff) | Tool | Adam Jones | Ænima (1996) | Gibson Les Paul Custom Silverburst (Duncan JB bridge) → Diezel VH4 + Marshall Super Bass, drop D, Boss BF-2 flanger swirl | done |
+| 78 | Sober (riff) | Tool | Adam Jones | Undertow (1993) | Les Paul Silverburst → modified Marshall Super Bass 100 (jumpered), drop D, dynamic quiet-to-crush (corrected: Undertow is single Super Bass; Diezel rig came later, from Ænima on) | done |
 | 79 | The Pot (riff) | Tool | Adam Jones | 10,000 Days (2006) | Les Paul Silverburst → Diezel VH4 + Mesa 4x12, drop D, MXR Micro Amp boost, tight midrange grind | queued |
 | 80 | Jambi (riff/solo) | Tool | Adam Jones | 10,000 Days (2006) | Les Paul Silverburst → Diezel VH4 / Bogner Überschall, drop D, Heil Talk Box solo | queued |
 | 81 | Crawling (verse/chorus) | Linkin Park | Brad Delson | Hybrid Theory (2000) | PRS Custom 24 → Mesa Dual Rectifier + modded Marshall 1959SLP, drop D, heavy compressed chug | queued |
@@ -1137,6 +1137,11 @@ successful run.)
 | 2026-06-14 | malakian-spiders | 70 |
 | 2026-06-14 | malakian-aerials | 71 |
 | 2026-06-14 | malakian-byob | 72 |
+| 2026-06-15 | morello-guerrilla-radio | 74 |
+| 2026-06-15 | morello-sleep-now-in-the-fire | 75 |
+| 2026-06-15 | morello-people-of-the-sun | 76 |
+| 2026-06-15 | jones-stinkfist-drop-d-crush | 77 |
+| 2026-06-15 | jones-sober-dynamic-crush | 78 |
 
 ### Corrections applied this run (2026-06-09)
 
