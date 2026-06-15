@@ -4,8 +4,8 @@ import {
   toneRecipes,
   getSongBySlug,
   getArtistBySlug,
-  getRecipeBySlug,
 } from "@/lib/data";
+import { pickHomepageRecipes } from "@/lib/homepage-pool";
 import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
 import { getBandName } from "@/lib/song-band";
 import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
@@ -23,21 +23,16 @@ export const metadata: Metadata = {
   },
 };
 
-const SAMPLE_SLUGS = [
-  "srv-pride-and-joy-rhythm",
-  "gilmour-comfortably-numb-solo",
-  "hendrix-voodoo-child-wah",
-  "evh-eruption-brown-sound",
-  "hetfield-master-of-puppets-rhythm",
-  "mayer-slow-dancing-burning-room",
-  "page-whole-lotta-love-heavy-riff",
-  "angus-young-back-in-black-rhythm",
-];
+// Rotate the homepage via ISR: the page stays statically cached (good for SEO
+// and speed) but regenerates hourly, and each regeneration draws a fresh hero +
+// shelf from the curated flagship pool. Tune the cadence by changing this value
+// (e.g. 86400 for daily). See src/lib/homepage-pool.ts for the pool itself.
+export const revalidate = 3600;
 
 export default function PreviewIndex() {
-  // Featured recipe for the hero chain. First entry is typically a
-  // flagship tone; swap by reordering the data file or wiring a flag later.
-  const featured = toneRecipes[0];
+  // Hero + "opening shelf" are drawn from the curated flagship pool on each ISR
+  // regeneration, so the homepage rotates over time without per-request cost.
+  const { hero: featured, shelf } = pickHomepageRecipes(8);
   const featuredSong = featured ? getSongBySlug(featured.song_slug) : undefined;
   const featuredArtist = featuredSong
     ? getArtistBySlug(featuredSong.artist_slug)
@@ -171,9 +166,7 @@ export default function PreviewIndex() {
         </div>
 
         <div className="audition-grid">
-          {SAMPLE_SLUGS.map((slug) => {
-            const r = getRecipeBySlug(slug);
-            if (!r) return null;
+          {shelf.map((r) => {
             const rSong = getSongBySlug(r.song_slug);
             const rArtist = rSong
               ? getArtistBySlug(rSong.artist_slug)

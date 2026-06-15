@@ -4902,7 +4902,7 @@
 /* ── /preview/pricing ──────────────────────────────────────────────────── */
 .fk-preview .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0;
   border-top: 1px solid var(--ink);
   border-left: 1px solid var(--ink);
@@ -8854,6 +8854,31 @@
   margin: 8px 0 0;
   font-size: 13px;
   color: #b3261e;
+}
+
+/* ── Dark "Recommended" (is-highlight) card overrides ──────────────────
+   The highlight card paints its background with var(--ink), so any
+   element that also defaults to ink-colored fills/text disappears into
+   it. Re-skin the primary CTA, muted copy, and error state for legibility
+   on the dark surface. Without these the Pass button is an invisible
+   black-on-black box and the subnote/fine print render as dark-gray on
+   black. */
+.fk-preview .pricing-card.is-highlight .pricing-cta {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+}
+.fk-preview .pricing-card.is-highlight .pricing-cta:hover:not(:disabled) {
+  background: var(--amber);
+  color: var(--ink);
+  border-color: var(--amber);
+}
+.fk-preview .pricing-card.is-highlight .pricing-subnote,
+.fk-preview .pricing-card.is-highlight .pricing-fine {
+  color: rgba(237, 234, 228, 0.62);
+}
+.fk-preview .pricing-card.is-highlight .pricing-cta-error {
+  color: #ff8a80;
 }
 
 .fk-preview .pricing-set-packs {

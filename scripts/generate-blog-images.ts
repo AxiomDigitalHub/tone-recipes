@@ -9,18 +9,22 @@
  *    assigned moodboard in moodboards.json
  * 3. Fills the moodboard's prompt_template with a subject derived
  *    from the post title (or from SUBJECT_OVERRIDES if one exists)
- * 4. Calls Replicate (Flux 2 Pro by default, Nano Banana Pro for
- *    editorial_white) OR OpenAI (gpt-image-2) to generate the image
+ * 4. Calls Replicate to generate the image. Default model is OpenAI's
+ *    gpt-image-1 hosted on Replicate (billed via Replicate credits, which
+ *    sidesteps the OpenAI direct-API billing hard limit). Flux 2 Pro and
+ *    Nano Banana Pro are still available via --model=. The legacy direct
+ *    OpenAI API path is available via --provider=openai.
  * 5. Saves to public/images/blog/<slug>.jpg and updates frontmatter
  *
- * Cost:
- *   OpenAI gpt-image-2 (default): ~$0.04/image — logged per image after generation
- *   Replicate Flux 2 Pro:         ~$0.055/image (use --provider=replicate)
+ * Cost (approx, varies with quality):
+ *   Replicate openai/gpt-image-1 (default, medium quality): ~$0.04/image
+ *   Replicate Flux 2 Pro (--model=black-forest-labs/flux-2-pro): ~$0.055/image
+ *   OpenAI gpt-image-2 direct (--provider=openai): ~$0.04/image (needs OpenAI billing)
  *
  * Environment:
- *   OPENAI_API_KEY      — required (default provider)
- *   REPLICATE_API_TOKEN — required for --provider=replicate
- *   FK_MODEL            — optional Replicate model override
+ *   REPLICATE_API_TOKEN — required (default provider)
+ *   OPENAI_API_KEY      — required only for --provider=openai
+ *   FK_MODEL            — optional Replicate model override (or use --model=)
  */
 
 import fs from "fs";
@@ -45,7 +49,7 @@ if (fs.existsSync(envPath)) {
 
 const API_TOKEN = process.env.REPLICATE_API_TOKEN;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-const DEFAULT_MODEL = process.env.FK_MODEL ?? "black-forest-labs/flux-2-pro";
+const DEFAULT_MODEL = process.env.FK_MODEL ?? "openai/gpt-image-1";
 const OPENAI_IMAGE_MODEL = "gpt-image-2";
 const OPENAI_IMAGE_SIZE = "1536x1024"; // 16:9 landscape
 
@@ -128,10 +132,23 @@ async function generateImage(
   prompt: string,
   model: string
 ): Promise<string> {
-  // Build the payload — schema differs between Flux and Nano Banana
-  const input: Record<string, unknown> = model.startsWith("black-forest-labs/flux")
-    ? { prompt, aspect_ratio: "16:9", output_format: "jpg", safety_tolerance: 2 }
-    : { prompt, aspect_ratio: "16:9", resolution: "2K", output_format: "jpg", allow_fallback_model: true };
+  // Build the payload — input schema differs per model family
+  let input: Record<string, unknown>;
+  if (model.includes("gpt-image")) {
+    // OpenAI gpt-image-1 on Replicate: only 1:1 / 3:2 / 2:3 ratios.
+    // 3:2 => 1536x1024, the closest landscape (matches the old direct-OpenAI size).
+    input = {
+      prompt,
+      aspect_ratio: "3:2",
+      quality: "medium",
+      output_format: "jpeg",
+      number_of_images: 1,
+    };
+  } else if (model.startsWith("black-forest-labs/flux")) {
+    input = { prompt, aspect_ratio: "16:9", output_format: "jpg", safety_tolerance: 2 };
+  } else {
+    input = { prompt, aspect_ratio: "16:9", resolution: "2K", output_format: "jpg", allow_fallback_model: true };
+  }
 
   // Start prediction with retry-on-throttle
   let predictionId = "";
@@ -257,8 +274,9 @@ async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes("--dry-run");
   const singleSlug = args.find((a) => a.startsWith("--slug="))?.split("=")[1];
-  const provider = (args.find((a) => a.startsWith("--provider="))?.split("=")[1] ?? "openai") as "replicate" | "openai";
+  const provider = (args.find((a) => a.startsWith("--provider="))?.split("=")[1] ?? "replicate") as "replicate" | "openai";
   const moodOverride = args.find((a) => a.startsWith("--mood="))?.split("=")[1];
+  const modelOverride = args.find((a) => a.startsWith("--model="))?.split("=")[1];
 
   // Validate credentials for chosen provider
   if (provider === "openai") {
@@ -272,7 +290,7 @@ async function main() {
       console.error("❌ REPLICATE_API_TOKEN not set. Add it to .env.local");
       process.exit(1);
     }
-    console.log(`Provider: Replicate (${DEFAULT_MODEL})`);
+    console.log(`Provider: Replicate (${modelOverride ?? DEFAULT_MODEL})`);
   }
 
   // Ensure output directory exists
@@ -324,7 +342,7 @@ async function main() {
     const prompt = mood.prompt_template.replace(/SUBJECT_PLACEHOLDER/g, subject);
 
     // Pick the Replicate model (only used when provider=replicate)
-    const model = DEFAULT_MODEL;
+    const model = modelOverride ?? DEFAULT_MODEL;
 
     console.log(`[gen] ${slug}`);
     console.log(`  Author: ${authorSlug || "(none)"} → mood: ${moodKey}${moodOverride ? " (override)" : ""}`);
@@ -352,9 +370,14 @@ async function main() {
         console.log(`  ✓ Saved: ${imagePath} (${size}KB)`);
       }
 
-      // Update frontmatter to point to local image
+      // Update frontmatter to point to local image. Never clobber a
+      // hand-written image_alt — only fill it when missing/too short, since
+      // the auto value (a truncated subject fragment) is worse than a real
+      // descriptive alt and would regress accessibility + OpenGraph.
       data.image = `/images/blog/${slug}.jpg`;
-      data.image_alt = subject.split(",")[0];
+      if (!data.image_alt || String(data.image_alt).trim().length < 20) {
+        data.image_alt = subject.split(",")[0];
+      }
       const updated = matter.stringify(content, data);
       fs.writeFileSync(mdxPath, updated);
 
@@ -370,7 +393,9 @@ async function main() {
   if (provider === "openai") {
     console.log(`Actual cost (OpenAI): $${totalOpenAICost.toFixed(4)}`);
   } else {
-    console.log(`Estimated cost (Replicate): ~$${(generated * 0.055).toFixed(2)}`);
+    const activeModel = modelOverride ?? DEFAULT_MODEL;
+    const perImage = activeModel.includes("gpt-image") ? 0.04 : 0.055;
+    console.log(`Estimated cost (Replicate ${activeModel}): ~$${(generated * perImage).toFixed(2)}`);
   }
 }
 
