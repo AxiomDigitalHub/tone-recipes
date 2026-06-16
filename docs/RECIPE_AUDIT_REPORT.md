@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-15
-**Recipes:** 125
-**Clean (no errors, no warns):** 117
+**Date:** 2026-06-16
+**Recipes:** 130
+**Clean (no errors, no warns):** 122
 **Warn-only:** 8
 **With errors:** 0
 
@@ -16,9 +16,9 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 15 / 125 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 7 / 125 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 125 | Signal chain includes a cabinet or microphone block |
+| `katana-kemper-multidrive-default-off` | info | 15 / 130 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 7 / 130 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 130 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -212,6 +212,24 @@ Passes every rule.
 
 Passes every rule.
 
+### `delson-crawling-clean-to-heavy` — ✓ clean
+
+*Brad Delson's Crawling Clean-to-Heavy Dynamic Tone*
+
+Passes every rule.
+
+### `delson-faint-drop-d-octave-hook` — ✓ clean
+
+*Brad Delson's Faint Drop D Octave Hook*
+
+Passes every rule.
+
+### `delson-one-step-closer-drop-d` — ✓ clean
+
+*Brad Delson's One Step Closer Drop D Riff Crush*
+
+Passes every rule.
+
 ### `dharma-dont-fear-the-reaper-clean-riff` — ✓ clean
 
 *Buck Dharma's Don't Fear the Reaper Clean Riff Tone*
@@ -398,6 +416,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `jones-jambi-drop-d-talk-box` — ✓ clean
+
+*Adam Jones' Jambi Drop D Riff & Talk Box Solo*
+
+Passes every rule.
+
 ### `jones-schism-dark-heavy` — ✓ clean
 
 *Adam Jones' Schism Dark Heavy Tone*
@@ -413,6 +437,12 @@ Passes every rule.
 ### `jones-stinkfist-drop-d-crush` — ✓ clean
 
 *Adam Jones' Stinkfist Drop-D Crush & Flanged Intro*
+
+Passes every rule.
+
+### `jones-the-pot-drop-c-crush` — ✓ clean
+
+*Adam Jones' The Pot Drop C Mid-Heavy Crush*
 
 Passes every rule.
 

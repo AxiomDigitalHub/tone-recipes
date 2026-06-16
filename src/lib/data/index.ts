@@ -510,6 +510,13 @@ export const artists: Artist[] = [
     genres: ["worship", "folk-worship", "ccm"],
     image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/37/6e/0a/376e0a4c-f794-e798-0f86-b0482be27134/000768515952.png/600x600bb.jpg",
   },
+  {
+    name: "Brad Delson",
+    slug: "brad-delson",
+    bio: "Linkin Park's guitarist and a key architect of the band's nu-metal sound, pairing a PRS through high-gain Mesa/Boogie amps with the band's heavy electronic and turntable production. Delson favors economical, riff-driven parts cut in dropped and half-step-down tunings, choosing restraint and texture over flash so the guitar locks into Mike Shinoda's and Joe Hahn's layered production.",
+    genres: ["nu-metal", "alternative-metal", "rock"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/53/a7/7f/53a77fab-c54c-a57b-8130-248fc12d0c80/093624948995.jpg/600x600bb.jpg",
+  },
 ];
 
 export const songs: Song[] = [
@@ -2128,6 +2135,66 @@ export const songs: Song[] = [
     difficulty: "intermediate",
     external_tab_url: "https://www.songsterr.com/a/wsa/tool-sober-tab-s347",
     external_video_url: "https://www.youtube.com/results?search_query=tool+sober+guitar+lesson",
+  },
+  {
+    artist_slug: "adam-jones",
+    title: "The Pot",
+    slug: "the-pot-tool",
+    album: "10,000 Days",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/93/17/11/931711de-7877-94ac-7e4c-af25ee6775e8/886447824771.jpg/600x600bb.jpg",
+    year: 2006,
+    genres: ["progressive-metal", "alternative-metal", "metal"],
+    difficulty: "advanced",
+    external_tab_url: "https://www.songsterr.com/a/wsa/tool-the-pot-tab-s29442",
+    external_video_url: "https://www.youtube.com/results?search_query=tool+the+pot+guitar+lesson",
+  },
+  {
+    artist_slug: "adam-jones",
+    title: "Jambi",
+    slug: "jambi-tool",
+    album: "10,000 Days",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/93/17/11/931711de-7877-94ac-7e4c-af25ee6775e8/886447824771.jpg/600x600bb.jpg",
+    year: 2006,
+    genres: ["progressive-metal", "alternative-metal", "metal"],
+    difficulty: "advanced",
+    external_tab_url: "https://www.songsterr.com/a/wsa/tool-jambi-tab-s29443",
+    external_video_url: "https://www.youtube.com/results?search_query=tool+jambi+guitar+lesson",
+  },
+  {
+    artist_slug: "brad-delson",
+    title: "Crawling",
+    slug: "crawling-linkin-park",
+    album: "Hybrid Theory",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/53/a7/7f/53a77fab-c54c-a57b-8130-248fc12d0c80/093624948995.jpg/600x600bb.jpg",
+    year: 2000,
+    genres: ["nu-metal", "alternative-metal", "rock"],
+    difficulty: "beginner",
+    external_tab_url: "https://www.songsterr.com/a/wsa/linkin-park-crawling-tab-s33330",
+    external_video_url: "https://www.youtube.com/results?search_query=linkin+park+crawling+guitar+lesson",
+  },
+  {
+    artist_slug: "brad-delson",
+    title: "One Step Closer",
+    slug: "one-step-closer-linkin-park",
+    album: "Hybrid Theory",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/53/a7/7f/53a77fab-c54c-a57b-8130-248fc12d0c80/093624948995.jpg/600x600bb.jpg",
+    year: 2000,
+    genres: ["nu-metal", "alternative-metal", "rock"],
+    difficulty: "beginner",
+    external_tab_url: "https://www.songsterr.com/a/wsa/linkin-park-one-step-closer-tab-s464805",
+    external_video_url: "https://www.youtube.com/results?search_query=linkin+park+one+step+closer+guitar+lesson",
+  },
+  {
+    artist_slug: "brad-delson",
+    title: "Faint",
+    slug: "faint-linkin-park",
+    album: "Meteora",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/13/44/05/134405bd-9e27-a678-8953-b5f724201f95/093624948988.jpg/600x600bb.jpg",
+    year: 2003,
+    genres: ["nu-metal", "alternative-metal", "rock"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wsa/linkin-park-faint-tab-s44340",
+    external_video_url: "https://www.youtube.com/results?search_query=linkin+park+faint+guitar+lesson",
   },
 ];
 
@@ -41048,6 +41115,853 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Search ToneNET for 'Marshall Super Bass' or 'Plexi 100W'", block_category: "Tone Model", original_gear: "Marshall Super Bass 100 (jumpered)", settings: {}, notes: "Search ToneNET for a jumpered 100W Plexi / Super Bass capture on the crunch edge, with a Greenback 4x12. Drop D, Les Paul bridge. Keep it dry — the quiet-to-crush swing is pick intensity and guitar volume, not effects." },
         ],
         notes: "TONEX is capture-driven. Search ToneNET for a 100W Plexi / Super Bass capture set on the edge of breakup — that touch sensitivity is the whole song. This is the Undertow single-Marshall sound, before the later Diezel rig. Drop D.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Tool - The Pot ----
+  {
+    id: "seed-jones-the-pot",
+    song_slug: "the-pot-tool",
+    title: "Adam Jones' The Pot Drop C Mid-Heavy Crush",
+    slug: "jones-the-pot-drop-c-crush",
+    created_at: "2026-06-16",
+    description:
+      "The 10,000 Days single built on a syncopated, vocal-led groove and one of Tool's heaviest single-note riffs. Adam Jones cut it on his 1979 Les Paul Custom Silverburst tuned to Drop C — lower than his usual Drop D, which he said made it easier for Maynard to sing — into his multi-amp wall. Producer Joe Barresi split the guitar into a Diezel VH4 for bottom and gain, a modified Marshall Super Bass for upper-mid grind, and a third blended track, all through Mesa 4x12s. The weight is the low tuning, the amp blend, and Jones' slow, deliberate picking — almost no gain stacking.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Les Paul Custom (1979 Silverburst)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "drop_c",
+      string_gauge: ".010-.052",
+      notable_mods:
+        "Jones' 1979 Les Paul Custom Silverburst with a Seymour Duncan JB in the bridge (mounted upside-down) and a Jazz in the neck. Tuned to Drop C for The Pot — a whole step below his usual Drop D — so .010-.052 strings sit slightly looser for the heavy, slack low end. The Silverburst is the entire visual and tonal signature of Tool's guitar sound.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "boost",
+        gear_slug: null,
+        gear_name: "MXR M-133 Micro Amp",
+        icon_type: "mxr",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Gain: 4 },
+        notes:
+          "A clean level boost on Jones' board — set low here, it nudges the front of the amp blend without adding obvious dirt. The Pot's saturation comes from the amps, not a stacked drive, so the Micro Amp stays subtle and pushes level rather than gain.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: "diezel-vh4",
+        gear_name: "Diezel VH4 (Channel 3)",
+        icon_type: "marshall_head",
+        icon_color: "#333333",
+        is_in_effects_loop: false,
+        settings: { Gain: 7, Bass: 8, Middle: 10, Treble: 5, Presence: 6, Master: 6 },
+        notes:
+          "Channel 3 supplies the bottom and the gain. Bass pushed harder than the Drop-D recipes because Drop C drops the low string another whole step; Middle cranked and Treble pulled back keeps those slack low notes articulate instead of turning to mud.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall Super Bass 100 (blended)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 6, Bass: 4, Middle: 7, Treble: 7, Volume: 7 },
+        notes:
+          "Blended underneath the Diezel, the modified Super Bass adds the upper-mid grind and cut — the half of the sound that keeps the riff from disappearing into low-end soup at Drop C. Jones runs both heads together so the VH4's heft sits under the Marshall's bite.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Mesa/Boogie 4x12 (Celestion V30)",
+        icon_type: "cab_4x12",
+        icon_color: "#333333",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Barresi chose Mesa 4x12s for their tight low end — essential at Drop C, where a looser cab would let the bottom flub out. Close-miked for the percussive thump of Jones' deliberate picking.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 + Sennheiser MD421",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "SM57 on-axis cap edge, MD421 blended" },
+        notes:
+          "Barresi's standard for the sessions: an SM57 plus an MD421 on every cab, printed to their own tracks for blending at mix. The 57 supplies the bite, the 421 the body — together they give the Drop-C wall its weight and articulation.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1979 Gibson Les Paul Custom Silverburst (Seymour Duncan JB bridge, upside-down; Jazz neck), Drop C, .010-.052 strings",
+      effects: ["MXR M-133 Micro Amp (clean boost)"],
+      amp: "Diezel VH4 (Channel 3) + modified Marshall Super Bass 100, split and blended (plus a third blended track per Barresi)",
+      cabinet: "Mesa/Boogie 4x12 (Celestion V30)",
+      microphone: "Shure SM57 + Sennheiser MD421 per cab",
+      other_notes:
+        "From 10,000 Days (2006). Producer Joe Barresi split Jones' guitar through three-to-five heads at once — on the record, the Diezel was one track, the Marshall another, and a Bogner Uberschall + Rivera Knucklehead blend a third. This recipe centers the documented Diezel + Super Bass core. Drop C (not Jones' usual Drop D) is the key detail — he tuned down specifically for The Pot. The track is essentially dry; the heft is tuning, amp blend, and deliberate picking.",
+    },
+    tags: ["progressive-metal", "alternative-metal", "metal", "diezel", "tool", "drop-c"],
+    sources: [
+      "https://www.mixonline.com/recording/making-tools-10000-days-365657",
+      "https://www.guitarworld.com/artists/guitarists/adam-jones-tool-10000-days",
+      "https://www.songsterr.com/a/wsa/tool-the-pot-tab-s29442",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", enabled: true, original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -52, Decay: 0.3, Level: 0 }, notes: "DEFAULT-ON. The high-gain Diezel needs a gate to silence the rests in The Pot's spacious, syncopated Drop-C phrasing." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -32, Ratio: 2, Knee: 6, Attack: 38, Release: 200, Mix: 40, Level: 0 }, notes: "Light parallel comp before the amp — heavy comp would kill Jones' deliberate, percussive picking dynamic, so the blend stays at 40%." },
+          { position: 3, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4 (Channel 3) + Marshall Super Bass blend", settings: { Drive: 7, Bass: 8, Mid: 9, Treble: 5, Presence: 6, ChVol: 7, Master: 10, Bias: 5.5, BiasX: 5, Sag: 5.5, Hum: 5, Ripple: 5 }, notes: "Helix's Diezel model stands in for the VH4 + Super Bass blend. Bass pushed to 0.8 and Mid cranked for the dark, mid-focused VH4 voice that keeps the Drop-C low string articulate; Treble pulled back so the slack bottom doesn't fizz." },
+          { position: 4, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "Mesa/Boogie 4x12 (Celestion V30)", settings: { Mic: 1, Distance: 1, Position: 0.35, Angle: 0, LowCut: 85, HighCut: 8500, Resonance: 0.5, Level: 0, Pan: 0.5, Delay: 0 }, notes: "Mesa-style V30 4x12. LowCut 85 keeps the Drop-C bottom tight without choking the low fundamental; HighCut 8500 tames fizz while leaving the Super Bass's upper-mid grind." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 10, Decay: 0.3, Predelay: 10, LowCut: 200, HighCut: 6000, Level: 0 }, notes: "Barely-there room to glue the double-tracked guitars — kept tiny so the syncopated Drop-C chug stays surgical. LowCut 200 keeps the tail out of the riff's bottom." },
+          { position: 6, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slightly darkened to hold Jones' dark, mid-focused character on a bright FRFR rig." },
+        ],
+        notes:
+          "Gate → comp → Diezel (VH4 + Super Bass blend) → V30 4x12 → tiny room → tilt. Drop C, Les Paul bridge. The MXR Micro Amp clean boost is omitted — set output level to taste instead. Double-track hard L/R; the weight is the low tuning and the amp blend.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Studio noise gate", settings: { Threshold: -52, Decay: 30 }, notes: "DEFAULT-ON. Silences the rests in The Pot's spacious Drop-C phrasing." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 40, Level: 0 }, notes: "Light parallel comp — preserves Jones' deliberate picking dynamic." },
+          { position: 3, block_name: "D-Cell H4 Lead", block_category: "Amp", original_gear: "Diezel VH4 (Channel 3) + Marshall Super Bass blend", settings: { Gain: 7.0, Bass: 8.0, Mid: 9.0, Treble: 5.0, Presence: 6.0, Master: 6.0, Sag: 5.5 }, notes: "The QC's VH4. Bass pushed, Mid cranked, Treble back for the dark, articulate Drop-C crush. Stands in for the VH4 + Super Bass blend." },
+          { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa/Boogie 4x12 (Celestion V30)", settings: { Mic: "SM57", Distance: 1.0, Position: 0.35, LowCut: 85, HighCut: 8500, Level: 0 }, notes: "Mesa V30 4x12. LowCut 85 keeps the Drop-C bottom tight; HighCut 8500 tames fizz." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.6, Predelay: 10, Mix: 10, Level: 0 }, notes: "Barely-there room to glue the double-tracked guitars — minimal so the chug stays surgical." },
+          { position: 6, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global brightness adjustment", settings: { "100Hz": 0, "330Hz": 0, "1kHz": 0, "3.3kHz": -1, "10kHz": -1, Level: 0 }, notes: "Mirrors the Helix Tilt — a touch of high-cut shelving to hold the dark Jones character on a bright FRFR rig." },
+        ],
+        notes:
+          "Gate → comp → VH4 → V30 4x12 → tiny room → EQ. Mirrors the Helix chain. Drop C; double-track hard L/R for the full wall.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "FX", enabled: true, original_gear: "Studio noise gate", settings: { Threshold: 52, Release: 30, Level: 0 }, notes: "DEFAULT-ON. The high-gain Lead voice needs a gate for The Pot's spacious Drop-C silences." },
+          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Diezel VH4 (Channel 3) + Marshall Super Bass blend", settings: { Gain: 80, Volume: 60, Bass: 80, Middle: 95, Treble: 50, Presence: 60, Master: 60 }, notes: "Lead character with Bass and Middle pushed, Treble back — the dark, mid-focused VH4 voicing that keeps the slack Drop-C low string articulate." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio room ambience", enabled: true, settings: { Time: 3, PreDelay: 10, Tone: 40, EffectLevel: 10 }, notes: "A tiny room to glue the double-tracked guitars — kept very low so the Drop-C chug stays tight and surgical." },
+        ],
+        notes:
+          "Gate → Lead amp → tiny room. Comp lives in the Katana's amp section. Drop C, Les Paul bridge; double-track for the full wall. The dirt is all amp.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Gate", original_gear: "Studio noise gate", settings: { Intensity: 5.0, Threshold: 4.0 }, notes: "Front-of-chain gate for tight palm muting on the Drop-C riff." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 0.03, Volume: 0.0 }, notes: "Slot A. Light comp tightens the picking attack — subtle so Jones' deliberate dynamic survives." },
+          { position: 3, block_name: "Search Rig Exchange for 'Diezel VH4'", block_category: "Profile", original_gear: "Diezel VH4 (Channel 3) + Marshall Super Bass", settings: { Gain: 7.0, Bass: 8.0, Middle: 9.0, Treble: 5.0, Presence: 6.0 }, notes: "Search Rig Exchange for a Diezel VH4 Channel 3 profile (cab baked in). Bass pushed, Mid cranked, Treble back for the dark, articulate Drop-C crush." },
+          { position: 4, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.6, Predelay: 10, Mix: 0.1 }, notes: "REV slot. Barely-there room to glue the double-tracked rhythm — minimal so the chug stays tight." },
+        ],
+        notes:
+          "Kemper profiles bake in the cab. Gate → comp → VH4 profile → tiny room. Drop C, Les Paul bridge; double-track hard L/R. The dirt is all in the profile.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Studio noise gate", settings: { Threshold: -52, Release: 0.3 }, notes: "DEFAULT-ON. Silences the rests in The Pot's spacious Drop-C phrasing." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 0.4, Level: 0 }, notes: "Light parallel comp — preserves the deliberate picking dynamic." },
+          { position: 3, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4 (Channel 3) + Marshall Super Bass blend", settings: { Drive: 7.0, Bass: 8.0, Mid: 9.0, Treble: 5.0, Presence: 6.0, MV: 6.0, Cut: 4.0 }, notes: "Fractal's Diezel. Bass pushed, Mid cranked, Treble back for the dark, mid-focused Drop-C crush. Stands in for the VH4 + Super Bass blend." },
+          { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa/Boogie 4x12 (Celestion V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 85, HighCut: 8500, Level: 0 }, notes: "V30 4x12 for the tight Drop-C bottom; LowCut keeps it tight, HighCut tames fizz." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 0.1, Decay: 0.6, Predelay: 0.01 }, notes: "Barely-there room to glue the double-tracked guitars — minimal so the chug stays surgical." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slightly darkened to hold the dark Jones character on FRFR." },
+        ],
+        notes: "Gate → comp → Diezel → V30 4x12 → tiny room → tilt. Mirrors the Helix chain. Drop C; double-track hard L/R for the wall.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Diezel VH4' or 'Diezel VH4 Channel 3'", block_category: "Tone Model", original_gear: "Diezel VH4 (Channel 3) + Marshall Super Bass", settings: {}, notes: "Search ToneNET for a Diezel VH4 Channel 3 capture — dark, mid-focused high-gain with a V30 4x12. Tune to Drop C, Les Paul bridge. Add a gate in front (essential at this gain) and push the amp's bass to hold the low tuning." },
+        ],
+        notes: "TONEX is capture-driven. Search ToneNET for a Diezel VH4 capture, bass-pushed and mid-cranked. The weight is the Drop-C Silverburst and deliberate picking; keep a gate in front and the track otherwise dry.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Tool - Jambi ----
+  {
+    id: "seed-jones-jambi",
+    song_slug: "jambi-tool",
+    title: "Adam Jones' Jambi Drop D Riff & Talk Box Solo",
+    slug: "jones-jambi-drop-d-talk-box",
+    created_at: "2026-06-16",
+    description:
+      "Jambi pairs one of Tool's most muscular Drop-D riffs with a mid-song talk-box solo — Jones ran his amp through a Heil Talk Box, the same trick Joe Walsh and Peter Frampton made famous, to make the guitar 'speak.' He cut it on his 1979 Les Paul Custom Silverburst into a three-head wall: a 1976 Marshall Super Bass, a Diezel VH4, and a Rivera Knucklehead, each into its own 4x12. The rhythm track is kept bone-dry so the riff stays tight and articulate; the talk box is the one signature effect, reserved for the solo.",
+    tone_context: "full_song",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Les Paul Custom (1979 Silverburst)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "drop_d",
+      string_gauge: ".010-.052",
+      notable_mods:
+        "Jones' late-'70s Les Paul Custom Silverburst (sources cite 1978 or 1979) with a Seymour Duncan JB in the bridge, mounted upside-down. Drop D (D A D G B E), .010-.052 Ernie Ball Skinny Top/Heavy Bottom strings. Volume and tone run wide open; the Silverburst is Tool's tonal and visual signature.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "boost",
+        gear_slug: null,
+        gear_name: "MXR M-133 Micro Amp",
+        icon_type: "mxr",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Gain: 4 },
+        notes:
+          "A clean level boost on Jones' board, set low. Jambi's rhythm is documented as essentially dry, so the Micro Amp pushes the front of the amp wall for level rather than adding gain — the saturation is the three heads, not a stacked drive.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: "diezel-vh4",
+        gear_name: "Diezel VH4 (Channel 3)",
+        icon_type: "marshall_head",
+        icon_color: "#333333",
+        is_in_effects_loop: false,
+        settings: { Gain: 7, Bass: 7, Middle: 10, Treble: 5, Presence: 6, Master: 6 },
+        notes:
+          "The VH4 supplies bottom and gain in the three-head stack. Middle cranked, Treble pulled back for the dark, mid-focused voice that keeps the Drop-D riff articulate. Ran into its own Mesa 4x12 with V30s.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall Super Bass 100 (1976) + Rivera Knucklehead (blended)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 6, Bass: 4, Middle: 7, Treble: 7, Volume: 7 },
+        notes:
+          "The 1976 Super Bass (Greenback 4x12) adds upper-mid grind and cut; the Rivera Knucklehead (G12T-75 4x12) adds tightness and a different gain texture. Blended under the Diezel, the three heads together are the Jambi wall — no single amp carries it.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Mesa 4x12 (V30) / Marshall 4x12 (Greenback) / Rivera 4x12 (G12T-75)",
+        icon_type: "cab_4x12",
+        icon_color: "#333333",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Each head ran into its own matched 4x12, blended at the console. The mix of V30 bite, Greenback warmth, and G12T-75 tightness is why the Jambi rhythm sounds huge yet defined.",
+      },
+      {
+        position: 5,
+        category: "wet_effect",
+        subcategory: "other",
+        gear_slug: null,
+        gear_name: "Heil Talk Box (solo only)",
+        icon_type: "wah",
+        icon_color: "#e53e3e",
+        is_in_effects_loop: false,
+        settings: { Use: "solo/interlude only" },
+        notes:
+          "The defining moment: for the mid-song solo, Jones drove a Heil Talk Box from his amp, shaping the guitar's sound with his mouth into a mic so the notes 'talk.' Bob Heil himself was involved with the talkbox tradition Jones tapped here. It is the one prominent effect on the song; the rest of the track is dry.",
+      },
+      {
+        position: 6,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 + Sennheiser MD421",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "SM57 + MD421 per cab, plus a third varying mic" },
+        notes:
+          "Each cab got an SM57 and an MD421 (plus a third mic for color), printed to their own tracks. The 57 supplies bite, the 421 body; blending the three cabs' mic tracks builds the wide, defined Drop-D wall.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1979 Gibson Les Paul Custom Silverburst (Seymour Duncan JB bridge, upside-down), Drop D, .010-.052 strings",
+      effects: ["MXR M-133 Micro Amp (clean boost)", "Heil Talk Box (solo/interlude)"],
+      amp: "1976 Marshall Super Bass 100 + Diezel VH4 (Ch 3) + Rivera Knucklehead Reverb, each into its own 4x12, blended",
+      cabinet: "Mesa 4x12 (V30) / Marshall 4x12 (Greenback) / Rivera 4x12 (G12T-75)",
+      microphone: "Shure SM57 + Sennheiser MD421 per cab",
+      other_notes:
+        "From 10,000 Days (2006). The Jambi rhythm is documented as deliberately dry — three heads stacked and blended for the wall, no obvious effects. The talk box is the one signature element, used only on the mid-song solo. Drop D, deliberate heavy picking. No talk box is modeled by any of the platforms below; the solo needs an outboard talk box.",
+    },
+    tags: ["progressive-metal", "alternative-metal", "metal", "talk-box", "tool", "drop-d"],
+    sources: [
+      "https://www.guitarworld.com/artists/the-secrets-behind-adam-jones-guitar-tone-on-tools-jambi",
+      "https://www.musicradar.com/news/adam-jones-tool-jambi-talk-box",
+      "https://equipboard.com/pros/adam-jones",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", enabled: true, original_gear: "Studio noise gate (FRFR essential)", settings: { Threshold: -52, Decay: 0.3, Level: 0 }, notes: "DEFAULT-ON. The stacked high-gain heads need a gate to keep the dry Drop-D rhythm staccato between hits." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -32, Ratio: 2, Knee: 6, Attack: 38, Release: 200, Mix: 40, Level: 0 }, notes: "Light parallel comp before the amp — keeps the three-head wall even without softening Jones' deliberate, percussive picking." },
+          { position: 3, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4 + Marshall Super Bass + Rivera blend", settings: { Drive: 7, Bass: 7, Mid: 9, Treble: 5, Presence: 6, ChVol: 7, Master: 10, Bias: 5.5, BiasX: 5, Sag: 5.5, Hum: 5, Ripple: 5 }, notes: "Helix's Diezel stands in for the three-head blend. Mid cranked, Treble back for the dark, articulate Drop-D crush; the VH4 is the dominant voice of the stack so it anchors the patch." },
+          { position: 4, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "Mesa/Marshall/Rivera 4x12 blend (V30 / Greenback / G12T-75)", settings: { Mic: 1, Distance: 1, Position: 0.35, Angle: 0, LowCut: 90, HighCut: 8500, Resonance: 0.5, Level: 0, Pan: 0.5, Delay: 0 }, notes: "A V30 4x12 is the closest single-cab match for the blended bottom. LowCut 90 keeps the Drop-D chug tight; HighCut 8500 tames fizz while leaving the Super Bass upper-mid grind." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 10, Decay: 0.3, Predelay: 10, LowCut: 200, HighCut: 6000, Level: 0 }, notes: "Barely-there room to glue the double-tracked rhythm — minimal so the dry Drop-D chug stays surgical. LowCut 200 keeps the tail out of the riff's bottom." },
+          { position: 6, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slightly darkened to hold Jones' dark, mid-focused character on a bright FRFR rig." },
+        ],
+        notes:
+          "Gate → comp → Diezel (three-head blend) → V30 4x12 → tiny room → tilt. Drop D, Les Paul bridge. The rhythm is dry — no modeled talk box exists, so the solo needs an outboard Heil Talk Box driven from the amp. Double-track hard L/R for the wall.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Studio noise gate", settings: { Threshold: -52, Decay: 30 }, notes: "DEFAULT-ON. Keeps the dry Drop-D rhythm staccato between hits." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 40, Level: 0 }, notes: "Light parallel comp — keeps the wall even without softening the percussive picking." },
+          { position: 3, block_name: "D-Cell H4 Lead", block_category: "Amp", original_gear: "Diezel VH4 + Super Bass + Rivera blend", settings: { Gain: 7.0, Bass: 7.0, Mid: 9.0, Treble: 5.0, Presence: 6.0, Master: 6.0, Sag: 5.5 }, notes: "The QC's VH4 anchors the three-head blend. Mid cranked, Treble back for the dark, articulate Drop-D crush." },
+          { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa/Marshall/Rivera 4x12 blend", settings: { Mic: "SM57", Distance: 1.0, Position: 0.35, LowCut: 90, HighCut: 8500, Level: 0 }, notes: "V30 4x12 as the closest single-cab match. LowCut 90 tight, HighCut 8500 trims fizz." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.6, Predelay: 10, Mix: 10, Level: 0 }, notes: "Barely-there room to glue the double-tracked rhythm — minimal so the dry chug stays surgical." },
+          { position: 6, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global brightness adjustment", settings: { "100Hz": 0, "330Hz": 0, "1kHz": 0, "3.3kHz": -1, "10kHz": -1, Level: 0 }, notes: "Mirrors the Helix Tilt — high-cut shelving to hold the dark Jones character on a bright FRFR rig." },
+        ],
+        notes:
+          "Gate → comp → VH4 → V30 4x12 → tiny room → EQ. Mirrors the Helix chain. Drop D; the solo needs an outboard talk box. Double-track hard L/R.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "FX", enabled: true, original_gear: "Studio noise gate", settings: { Threshold: 52, Release: 30, Level: 0 }, notes: "DEFAULT-ON. The high-gain Lead voice needs a gate to keep the dry Drop-D rhythm staccato." },
+          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Diezel VH4 + Super Bass + Rivera blend", settings: { Gain: 80, Volume: 60, Bass: 70, Middle: 95, Treble: 50, Presence: 60, Master: 60 }, notes: "Lead character with Middle cranked, Treble back — the dark, mid-focused VH4 voicing that anchors the three-head wall and keeps the Drop-D riff articulate." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio room ambience", enabled: true, settings: { Time: 3, PreDelay: 10, Tone: 40, EffectLevel: 10 }, notes: "A tiny room to glue the double-tracked guitars — kept very low so the dry Drop-D chug stays tight." },
+        ],
+        notes:
+          "Gate → Lead amp → tiny room. Comp lives in the Katana's amp section. Drop D, Les Paul bridge; the solo needs an outboard talk box. Double-track for the full wall.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Gate", original_gear: "Studio noise gate", settings: { Intensity: 5.0, Threshold: 4.0 }, notes: "Front-of-chain gate for tight palm muting on the dry Drop-D riff." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 0.03, Volume: 0.0 }, notes: "Slot A. Light comp keeps the three-head wall even — subtle so the percussive picking survives." },
+          { position: 3, block_name: "Search Rig Exchange for 'Diezel VH4'", block_category: "Profile", original_gear: "Diezel VH4 + Super Bass + Rivera blend", settings: { Gain: 7.0, Bass: 7.0, Middle: 9.0, Treble: 5.0, Presence: 6.0 }, notes: "Search Rig Exchange for a Diezel VH4 Channel 3 profile (cab baked in). Mid cranked, Treble back for the dark, articulate Drop-D crush that anchors the blend." },
+          { position: 4, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.6, Predelay: 10, Mix: 0.1 }, notes: "REV slot. Barely-there room to glue the double-tracked rhythm — minimal so the dry chug stays tight." },
+        ],
+        notes:
+          "Kemper profiles bake in the cab. Gate → comp → VH4 profile → tiny room. Drop D, Les Paul bridge; the solo needs an outboard talk box. Double-track hard L/R.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Studio noise gate", settings: { Threshold: -52, Release: 0.3 }, notes: "DEFAULT-ON. Keeps the dry Drop-D rhythm staccato between hits." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 0.4, Level: 0 }, notes: "Light parallel comp — keeps the wall even without softening the picking." },
+          { position: 3, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4 + Super Bass + Rivera blend", settings: { Drive: 7.0, Bass: 7.0, Mid: 9.0, Treble: 5.0, Presence: 6.0, MV: 6.0, Cut: 4.0 }, notes: "Fractal's Diezel anchors the three-head blend. Mid cranked, Treble back for the dark Drop-D crush." },
+          { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa/Marshall/Rivera 4x12 blend", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 90, HighCut: 8500, Level: 0 }, notes: "V30 4x12 as the closest single-cab match; LowCut keeps it tight, HighCut tames fizz." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 0.1, Decay: 0.6, Predelay: 0.01 }, notes: "Barely-there room to glue the double-tracked guitars — minimal so the dry chug stays surgical." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slightly darkened to hold the dark Jones character on FRFR." },
+        ],
+        notes: "Gate → comp → Diezel → V30 4x12 → tiny room → tilt. Mirrors the Helix chain. Drop D; the solo needs an outboard talk box.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Diezel VH4' or 'Mesa Rectifier'", block_category: "Tone Model", original_gear: "Diezel VH4 + Super Bass + Rivera blend", settings: {}, notes: "Search ToneNET for a Diezel VH4 Channel 3 capture — dark, mid-focused high-gain with a V30 4x12. Drop D, Les Paul bridge. Add a gate in front; the rhythm is otherwise dry. The talk-box solo needs an outboard Heil Talk Box." },
+        ],
+        notes: "TONEX is capture-driven. Search ToneNET for a Diezel VH4 capture, mid-cranked and treble-back. The weight is the Drop-D Silverburst, the three-head blend, and deliberate picking. No talk box is captured — the solo needs an outboard unit.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Linkin Park - Crawling ----
+  {
+    id: "seed-delson-crawling",
+    song_slug: "crawling-linkin-park",
+    title: "Brad Delson's Crawling Clean-to-Heavy Dynamic Tone",
+    slug: "delson-crawling-clean-to-heavy",
+    created_at: "2026-06-16",
+    description:
+      "Crawling is built on contrast: brittle, atmospheric clean verses under Chester Bennington's restrained vocal, detonating into a wall of detuned power chords on the chorus. Brad Delson cut Hybrid Theory on a PRS through a Mesa/Boogie Dual Rectifier, tuned a half step down to Eb standard. The guitar plays a supporting role to the band's electronic and vocal layers — the recipe is less about a complex chain than nailing the clean-to-heavy swing with a tight, scooped Recto chorus tone.",
+    tone_context: "full_song",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "PRS CE 24",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.0",
+      tuning: "eb_standard",
+      string_gauge: ".010-.052",
+      notable_mods:
+        "Hybrid Theory was tracked on a bolt-neck PRS CE 24 (the gas-mask-graphic Custom 24 came after the album). Tuned a half step down to Eb standard (Eb-Ab-Db-Gb-Bb-Eb) — standard chord shapes, just detuned — so heavier .010-.052 strings hold tension. The bridge humbucker drives the heavy chorus; the neck handles the clean verses.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "boost",
+        gear_slug: null,
+        gear_name: "Boss NS-2 Noise Suppressor",
+        icon_type: "boss_compact",
+        icon_color: "#22c55e",
+        is_in_effects_loop: false,
+        settings: { Threshold: 5, Decay: 4 },
+        notes:
+          "A gate is essential at Recto gain — it clamps the hiss and keeps the gap between the clean verse and the heavy chorus dead silent, which is half of Crawling's dynamic impact.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Mesa/Boogie Dual Rectifier",
+        icon_type: "mesa_head",
+        icon_color: "#333333",
+        is_in_effects_loop: false,
+        settings: { Gain: 7, Bass: 6, Middle: 4, Treble: 7, Presence: 6, Master: 4 },
+        notes:
+          "The Recto's Modern channel — scooped mids, pushed bass, defined treble — is the core of the Hybrid Theory rhythm sound. For the clean verses, Delson rolls back the guitar volume or switches to a clean channel; the heavy chorus is this amp wide open.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Mesa/Boogie Recto 4x12 (Celestion V30)",
+        icon_type: "cab_4x12",
+        icon_color: "#333333",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "A Mesa Recto 4x12 with V30s gives the tight, modern low end the detuned chorus needs. Close-miked for the percussive chug that drives the heavy sections.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "on-axis, cap edge" },
+        notes:
+          "The exact studio mic chain for Hybrid Theory's guitars isn't documented; a close SM57 at the cap edge is the standard capture for this tight, aggressive Recto tone and matches the record's bite.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "PRS CE 24 (bolt-neck), bridge humbucker, Eb standard tuning, .010-.052 strings",
+      effects: ["Boss NS-2 Noise Suppressor (gate)"],
+      amp: "Mesa/Boogie Dual Rectifier (Modern channel)",
+      cabinet: "Mesa/Boogie Recto 4x12 (Celestion V30)",
+      microphone: "Shure SM57 (close-miked)",
+      other_notes:
+        "From Hybrid Theory (2000), produced by Don Gilmore at NRG and mixed by Andy Wallace. The exact studio guitar rig isn't documented in a primary session breakdown — the Mesa Dual Rectifier is the well-established consensus across gear sources and matches the record, so it's the basis here; mic and pedal specifics are reasonable reconstructions, not session logs. Much of the album's guitar weight is in the mix and the band's electronic/vocal layering. The recipe nails the clean-to-heavy dynamic and the scooped Recto chorus tone.",
+    },
+    tags: ["nu-metal", "alternative-metal", "rock", "mesa-boogie", "linkin-park", "eb-standard"],
+    sources: [
+      "https://www.thomann.de/blog/en/gear/the-linkin-park-signature-sound-amps-guitars-secrets/",
+      "https://www.uberproaudio.com/who-plays-what/214-linkin-park-brad-delson-guitar-gear-rig-and-equipment",
+      "https://tabs.ultimate-guitar.com/tab/linkin-park/crawling-tabs-33330",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", enabled: true, original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -50, Decay: 0.3, Level: 0 }, notes: "DEFAULT-ON. Clamps the Recto hiss and keeps the gap between the clean verse and the heavy chorus dead silent — half of Crawling's dynamic impact." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -30, Ratio: 3, Knee: 4, Attack: 50, Release: 600, Mix: 50, Level: 0 }, notes: "Light parallel comp before the amp tightens the palm-mute attack so the double-tracked chorus chords lock together. Mix=50% keeps the pick transient." },
+          { position: 3, block_name: "Cali Rectifire", block_category: "Amp", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Drive: 7, Bass: 6, Mid: 4, Treble: 7, Presence: 6, ChVol: 4.5, Master: 10, Bias: 5, BiasX: 5, Sag: 4.5, Hum: 5, Ripple: 5 }, notes: "Helix's Dual Rectifier on the Modern voicing. Mid scooped, Bass pushed for the chest-thump chorus; Sag lowered so the Eb palm mutes stay percussive. Roll the guitar volume back for the clean verses." },
+          { position: 4, block_name: "4x12 Cali V30", block_category: "Cab", original_gear: "Mesa Recto 4x12 (Celestion V30)", settings: { Mic: 1, Distance: 1, Position: 0.5, Angle: 0, LowCut: 85, HighCut: 8000, Resonance: 0.5, Level: 0, Pan: 0.5, Delay: 0 }, notes: "The Mesa V30 cab is the authentic match. SM57 at the cap edge for upper-mid bite. LowCut 85 keeps the Eb chug tight; HighCut 8000 trims V30 fizz." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 12, Decay: 0.4, Predelay: 10, LowCut: 180, HighCut: 6000, Level: 0 }, notes: "A small room to glue the double-tracked chorus — kept tight so the heavy sections stay surgical. A longer reverb on the clean verses (raise Decay) adds the brittle, atmospheric space." },
+          { position: 6, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Neutral global voicing — nudge below center if the Recto's top end feels harsh on FRFR, above to help the chorus cut." },
+        ],
+        notes:
+          "Gate → comp → Cali Rectifire (Modern) → V30 4x12 → room → tilt. Eb standard, PRS bridge. The dirt is all amp. Double-track the chorus hard L/R; roll the guitar volume back (or use a clean channel) for the verses.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -50, Decay: 30 }, notes: "DEFAULT-ON. Keeps the verse-to-chorus gap silent and clamps Recto hiss." },
+          { position: 2, block_name: "LA Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -30, Ratio: 3, Attack: 5, Release: 150, Mix: 50, Level: 0 }, notes: "Light parallel comp tightens the palm-mute attack so the double-tracked chorus locks. Mix=50% keeps the transient." },
+          { position: 3, block_name: "Recto", block_category: "Amp", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Gain: 7.0, Bass: 6.0, Mid: 4.0, Treble: 7.0, Presence: 6.0, Master: 4.5, Sag: 4.5 }, notes: "The QC's Recto on the Modern channel. Scooped mids, pushed bass for the chorus chug; treble keeps the chords defined. Roll guitar volume back for the clean verses." },
+          { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa Recto 4x12 (Celestion V30)", settings: { Mic: "SM57", Distance: 1.0, Position: 0.5, LowCut: 85, HighCut: 8000, Level: 0 }, notes: "Mesa V30 cab, SM57 at the cap edge for the upper-mid bite. LowCut 85 tight; HighCut 8000 trims fizz." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.8, Predelay: 10, Mix: 12, Level: 0 }, notes: "Small room to glue the double-tracked chorus — raise the decay on the clean verses for the brittle, atmospheric space." },
+          { position: 6, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global brightness adjustment", settings: { "100Hz": 0, "330Hz": 0, "1kHz": 0, "3.3kHz": 0, "10kHz": -1, Level: 0 }, notes: "Mirrors the Helix Tilt — a touch of high-cut to keep the Recto top end musical on FRFR." },
+        ],
+        notes:
+          "Gate → comp → Recto (Modern) → V30 4x12 → room → EQ. Mirrors the Helix chain. Eb standard; double-track the chorus, roll back for the verses.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "FX", enabled: true, original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: 50, Release: 30, Level: 0 }, notes: "DEFAULT-ON. Keeps the verse-to-chorus gap silent and clamps the high-gain hiss." },
+          { position: 2, block_name: "Brown", block_category: "Amp Type", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Gain: 80, Volume: 50, Bass: 60, Middle: 40, Treble: 70, Presence: 60, Master: 50 }, notes: "The Brown character is the Katana's most aggressive voice — the closest match to a Recto's Modern channel. Scooped mids, pushed bass for the chorus chug. Roll guitar volume back for the clean verses." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio room ambience", enabled: true, settings: { Time: 4, PreDelay: 10, Tone: 45, EffectLevel: 12 }, notes: "A small room to glue the double-tracked chorus — kept tight for the heavy sections; raise the level on the clean verses for atmosphere." },
+        ],
+        notes:
+          "Gate → Brown amp → small room. Comp lives in the Katana's amp section. Eb standard, PRS bridge; double-track the chorus, roll back for the verses. The dirt is all amp.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Intensity: 5.0, Threshold: 4.0 }, notes: "Front-of-chain gate keeps the verse-to-chorus gap silent and clamps Recto hiss." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 0.03, Volume: 0.0 }, notes: "Slot A. Light comp tightens the palm-mute attack so the double-tracked chorus locks together." },
+          { position: 3, block_name: "Search Rig Exchange for 'Mesa Dual Rectifier'", block_category: "Profile", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Gain: 7.0, Bass: 6.0, Middle: 4.0, Treble: 7.0, Presence: 6.0 }, notes: "Search Rig Exchange for a Dual Rectifier Modern-channel profile with a V30 4x12 baked in. Scooped mids, pushed bass for the chorus chug. The profile carries the cab." },
+          { position: 4, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.8, Predelay: 10, Mix: 0.12 }, notes: "REV slot. Small room to glue the double-tracked chorus — raise the mix on the clean verses for the atmospheric space." },
+        ],
+        notes:
+          "Kemper profiles bake in the cab. Gate → comp → Recto Modern profile → room. Eb standard, PRS bridge; double-track the chorus, roll back for the verses.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -50, Release: 0.3 }, notes: "DEFAULT-ON. Keeps the verse-to-chorus gap silent and clamps Recto hiss." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -30, Ratio: 3, Attack: 5, Release: 150, Mix: 0.5, Level: 0 }, notes: "Light parallel comp tightens the palm-mute attack so the double-tracked chorus locks." },
+          { position: 3, block_name: "Recto2 Modern", block_category: "Amp", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Drive: 7.0, Bass: 6.0, Mid: 4.0, Treble: 7.0, Presence: 6.0, MV: 4.5, Cut: 5.0 }, notes: "Fractal's Dual Rectifier Modern-channel model. Scooped mids, pushed bass for the chorus chug; Cut trims fizz. Roll guitar volume back for the clean verses." },
+          { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa Recto 4x12 (Celestion V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 85, HighCut: 8000, Level: 0 }, notes: "Mesa V30 cab, SM57 at the cap edge for the upper-mid bite. LowCut 85 tight; HighCut 8000 trims fizz." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 0.12, Decay: 0.8, Predelay: 0.01 }, notes: "Small room to glue the double-tracked chorus — raise the decay on the clean verses for the atmospheric space." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Neutral global voicing — nudge below center if the Recto top end feels harsh on FRFR." },
+        ],
+        notes: "Gate → comp → Recto2 Modern → V30 4x12 → room → tilt. Mirrors the Helix chain. Eb standard; double-track the chorus, roll back for the verses.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Mesa Dual Rectifier' or 'Recto Modern'", block_category: "Tone Model", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: {}, notes: "Search ToneNET for a Dual Rectifier Modern-channel capture with a V30 4x12 — a scooped, tight rhythm capture. Tune to Eb standard, PRS bridge. Add a gate in front (essential at this gain); roll guitar volume back for the clean verses." },
+        ],
+        notes: "TONEX is capture-driven. Search ToneNET for a Dual Rectifier Modern-channel capture for the heavy chorus. Use a noise gate in front and roll the guitar volume back for the brittle clean verses. Double-track the chorus for the full Hybrid Theory width.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Linkin Park - One Step Closer ----
+  {
+    id: "seed-delson-one-step-closer",
+    song_slug: "one-step-closer-linkin-park",
+    title: "Brad Delson's One Step Closer Drop D Riff Crush",
+    slug: "delson-one-step-closer-drop-d",
+    created_at: "2026-06-16",
+    description:
+      "One Step Closer rides Brad Delson's favorite riff he's ever written — a snarling, Drop-D power-chord figure that explodes into the 'shut up when I'm talking to you' breakdown. Cut for Hybrid Theory on a PRS through a Mesa/Boogie Dual Rectifier, tuned Drop D a half step down, it's a masterclass in restraint: a simple, brutal riff made huge by tight palm-muting, a scooped Recto, and Andy Wallace's mix. The recipe is about tightness and aggression, not complexity.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "PRS CE 24",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.0",
+      tuning: "drop_d",
+      string_gauge: ".010-.052",
+      notable_mods:
+        "Hybrid Theory was tracked on a bolt-neck PRS CE 24. One Step Closer uses Drop-D shapes a half step down (Db-Ab-Db-Gb-Bb-Eb) — the same fingering as Drop D, sounding a half step lower. Heavier .010-.052 strings hold the slack low string for the percussive single-note riff. Bridge humbucker throughout.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "boost",
+        gear_slug: null,
+        gear_name: "Boss NS-2 Noise Suppressor",
+        icon_type: "boss_compact",
+        icon_color: "#22c55e",
+        is_in_effects_loop: false,
+        settings: { Threshold: 6, Decay: 3 },
+        notes:
+          "The riff lives and dies on tight, staccato muting — the gate clamps the Recto hiss between hits so the gaps in the main figure are dead silent and the breakdown lands hard.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Mesa/Boogie Dual Rectifier",
+        icon_type: "mesa_head",
+        icon_color: "#333333",
+        is_in_effects_loop: false,
+        settings: { Gain: 8, Bass: 6, Middle: 4, Treble: 7, Presence: 6, Master: 4 },
+        notes:
+          "The Recto's Modern channel pushed harder than Crawling — One Step Closer is wall-to-wall heavy, so the gain sits higher. Scooped mids and pushed bass for the chest-thump; treble keeps the Drop-D single-note riff defined.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Mesa/Boogie Recto 4x12 (Celestion V30)",
+        icon_type: "cab_4x12",
+        icon_color: "#333333",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "A Mesa Recto 4x12 with V30s for the tight, modern low end the Drop-D riff demands. Close-miked for the percussive attack that makes the muting snap.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "on-axis, cap edge" },
+        notes:
+          "The studio mic chain isn't documented; a close SM57 at the cap edge is the standard capture for this aggressive Recto rhythm and matches the record's bite.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "PRS CE 24 (bolt-neck), bridge humbucker, Drop D (half step down), .010-.052 strings",
+      effects: ["Boss NS-2 Noise Suppressor (gate)"],
+      amp: "Mesa/Boogie Dual Rectifier (Modern channel)",
+      cabinet: "Mesa/Boogie Recto 4x12 (Celestion V30)",
+      microphone: "Shure SM57 (close-miked)",
+      other_notes:
+        "From Hybrid Theory (2000), produced by Don Gilmore at NRG, mixed by Andy Wallace. Delson has called this his favorite riff he's ever written, conceived during a band photoshoot. The exact studio guitar rig isn't documented in a primary session breakdown — the Mesa Dual Rectifier is the established consensus and matches the record, so it's the basis here; mic and pedal specifics are reasonable reconstructions. The tone is about tight, aggressive Drop-D muting, not a complex chain.",
+    },
+    tags: ["nu-metal", "alternative-metal", "rock", "mesa-boogie", "linkin-park", "drop-d"],
+    sources: [
+      "https://www.thomann.de/blog/en/gear/the-linkin-park-signature-sound-amps-guitars-secrets/",
+      "https://linkinpedia.com/wiki/One_Step_Closer",
+      "https://www.songsterr.com/a/wsa/simpleguitar-linkin-park-one-step-closer-drop-d-tab-s464805",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", enabled: true, original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -48, Decay: 0.2, Level: 0 }, notes: "DEFAULT-ON, tight. Clamps the Recto hiss between hits so the staccato gaps in the main riff are dead silent — the muting is the whole sound." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -30, Ratio: 3, Knee: 4, Attack: 50, Release: 600, Mix: 50, Level: 0 }, notes: "Light parallel comp before the amp tightens the palm-mute attack so the double-tracked riff locks. Mix=50% keeps the percussive pick transient." },
+          { position: 3, block_name: "Cali Rectifire", block_category: "Amp", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Drive: 8, Bass: 6, Mid: 4, Treble: 7, Presence: 6, ChVol: 4.5, Master: 10, Bias: 5, BiasX: 5, Sag: 4.5, Hum: 5, Ripple: 5 }, notes: "Helix's Dual Rectifier on the Modern voicing, gain higher than Crawling for the wall-to-wall heavy. Mid scooped, Bass pushed for the chest-thump; Sag lowered so the Drop-D mutes stay percussive." },
+          { position: 4, block_name: "4x12 Cali V30", block_category: "Cab", original_gear: "Mesa Recto 4x12 (Celestion V30)", settings: { Mic: 1, Distance: 1, Position: 0.5, Angle: 0, LowCut: 80, HighCut: 8000, Resonance: 0.5, Level: 0, Pan: 0.5, Delay: 0 }, notes: "The Mesa V30 cab is the authentic match. SM57 at the cap edge for upper-mid bite. LowCut 80 keeps the Drop-D chug tight; HighCut 8000 trims V30 fizz." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 10, Decay: 0.3, Predelay: 10, LowCut: 200, HighCut: 5500, Level: 0 }, notes: "Barely-there room to glue the double-tracked riff — kept tiny so the aggressive Drop-D muting stays surgical. LowCut 200 keeps the tail out of the riff's bottom." },
+          { position: 6, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Neutral global voicing — nudge above center to help the riff cut, below if the Recto's top end feels harsh on FRFR." },
+        ],
+        notes:
+          "Gate (tight) → comp → Cali Rectifire (Modern) → V30 4x12 → tiny room → tilt. Drop D, PRS bridge. The dirt is all amp. Double-track hard L/R; the gate and the muting are the whole sound.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -48, Decay: 20 }, notes: "DEFAULT-ON, tight. Clamps Recto hiss between hits so the staccato gaps are dead silent." },
+          { position: 2, block_name: "LA Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -30, Ratio: 3, Attack: 5, Release: 150, Mix: 50, Level: 0 }, notes: "Light parallel comp tightens the palm-mute attack so the double-tracked riff locks. Mix=50% keeps the transient." },
+          { position: 3, block_name: "Recto", block_category: "Amp", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Gain: 8.0, Bass: 6.0, Mid: 4.0, Treble: 7.0, Presence: 6.0, Master: 4.5, Sag: 4.5 }, notes: "The QC's Recto on the Modern channel, gain high for the wall-to-wall heavy. Scooped mids, pushed bass; treble keeps the Drop-D riff defined." },
+          { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa Recto 4x12 (Celestion V30)", settings: { Mic: "SM57", Distance: 1.0, Position: 0.5, LowCut: 80, HighCut: 8000, Level: 0 }, notes: "Mesa V30 cab, SM57 at the cap edge for the upper-mid bite. LowCut 80 tight; HighCut 8000 trims fizz." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.6, Predelay: 10, Mix: 10, Level: 0 }, notes: "Barely-there room to glue the double-tracked riff — minimal so the muting stays surgical." },
+          { position: 6, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global brightness adjustment", settings: { "100Hz": 0, "330Hz": 0, "1kHz": 1, "3.3kHz": 0, "10kHz": -1, Level: 0 }, notes: "Mirrors the Helix Tilt — a slight 1kHz push for riff definition, high-cut to keep the Recto top end musical on FRFR." },
+        ],
+        notes:
+          "Gate (tight) → comp → Recto (Modern) → V30 4x12 → tiny room → EQ. Mirrors the Helix chain. Drop D; double-track hard L/R for the wall.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "FX", enabled: true, original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: 55, Release: 20, Level: 0 }, notes: "DEFAULT-ON, tight. Clamps the high-gain hiss between hits so the staccato Drop-D gaps are dead silent." },
+          { position: 2, block_name: "Brown", block_category: "Amp Type", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Gain: 85, Volume: 50, Bass: 60, Middle: 40, Treble: 70, Presence: 60, Master: 50 }, notes: "The Brown character is the Katana's most aggressive voice — closest to a Recto's Modern channel. High gain for the wall-to-wall heavy; scooped mids, pushed bass for the chest-thump." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio room ambience", enabled: true, settings: { Time: 3, PreDelay: 10, Tone: 45, EffectLevel: 8 }, notes: "A tiny room to glue the double-tracked riff — kept very low so the aggressive Drop-D muting stays tight." },
+        ],
+        notes:
+          "Gate (tight) → Brown amp → tiny room. Comp lives in the Katana's amp section. Drop D, PRS bridge; double-track for the full wall. The dirt is all amp.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Intensity: 6.0, Threshold: 5.0 }, notes: "Front-of-chain gate, tight, for the staccato Drop-D muting — clamps Recto hiss between hits." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 0.03, Volume: 0.0 }, notes: "Slot A. Light comp tightens the palm-mute attack so the double-tracked riff locks together." },
+          { position: 3, block_name: "Search Rig Exchange for 'Mesa Dual Rectifier'", block_category: "Profile", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Gain: 8.0, Bass: 6.0, Middle: 4.0, Treble: 7.0, Presence: 6.0 }, notes: "Search Rig Exchange for a Dual Rectifier Modern-channel profile with a V30 4x12 baked in. High gain, scooped mids, pushed bass for the chest-thump chug. The profile carries the cab." },
+          { position: 4, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.6, Predelay: 10, Mix: 0.1 }, notes: "REV slot. Barely-there room to glue the double-tracked riff — minimal so the muting stays tight." },
+        ],
+        notes:
+          "Kemper profiles bake in the cab. Gate (tight) → comp → Recto Modern profile → tiny room. Drop D, PRS bridge; double-track hard L/R. The dirt is all in the profile.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -48, Release: 0.2 }, notes: "DEFAULT-ON, tight. Clamps Recto hiss between hits so the staccato Drop-D gaps are dead silent." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -30, Ratio: 3, Attack: 5, Release: 150, Mix: 0.5, Level: 0 }, notes: "Light parallel comp tightens the palm-mute attack so the double-tracked riff locks." },
+          { position: 3, block_name: "Recto2 Modern", block_category: "Amp", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Drive: 8.0, Bass: 6.0, Mid: 4.0, Treble: 7.0, Presence: 6.0, MV: 4.5, Cut: 5.0 }, notes: "Fractal's Dual Rectifier Modern-channel model, high gain for the wall-to-wall heavy. Scooped mids, pushed bass; Cut trims fizz so the riff stays defined." },
+          { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa Recto 4x12 (Celestion V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 80, HighCut: 8000, Level: 0 }, notes: "Mesa V30 cab, SM57 at the cap edge for the upper-mid bite. LowCut 80 tight; HighCut 8000 trims fizz." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 0.1, Decay: 0.6, Predelay: 0.01 }, notes: "Barely-there room to glue the double-tracked riff — minimal so the muting stays surgical." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Neutral global voicing — nudge above center to help the riff cut on FRFR." },
+        ],
+        notes: "Gate (tight) → comp → Recto2 Modern → V30 4x12 → tiny room → tilt. Mirrors the Helix chain. Drop D; double-track hard L/R for the wall.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Mesa Dual Rectifier' or 'Recto Modern'", block_category: "Tone Model", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: {}, notes: "Search ToneNET for a Dual Rectifier Modern-channel capture with a V30 4x12 — a tight, scooped, high-gain rhythm capture. Tune to Drop D, PRS bridge. A tight gate in front is essential — the staccato muting is the whole riff." },
+        ],
+        notes: "TONEX is capture-driven. Search ToneNET for a Dual Rectifier Modern-channel capture. Use a tight noise gate in front — the aggressive Drop-D muting is the sound. Double-track for the full Hybrid Theory width.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Linkin Park - Faint ----
+  {
+    id: "seed-delson-faint",
+    song_slug: "faint-linkin-park",
+    title: "Brad Delson's Faint Drop D Octave Hook",
+    slug: "delson-faint-drop-d-octave-hook",
+    created_at: "2026-06-16",
+    description:
+      "Faint's signature guitar gesture is a fast, down-strummed Drop-D octave hook riding over Meteora's driving string section — bright, cutting, and relentless. Brad Delson tracked it on a PRS through a Mesa/Boogie Dual Rectifier, with a Marshall layered in (the first time Linkin Park blended amps), tuned Drop D a half step down. The tone has to slice through a dense electronic-and-strings arrangement, so it's pushed brighter and more present than the Hybrid Theory rhythm sound.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "PRS Custom 24",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.0",
+      tuning: "drop_d",
+      string_gauge: ".010-.052",
+      notable_mods:
+        "By Meteora, Delson's main guitar was a set-neck PRS Custom 24. Faint uses Drop-D shapes a half step down (Db-Ab-Db-Gb-Bb-Eb) — the same fingering as Drop D, sounding a half step lower. The fast down-strummed octave hook lives on the bridge humbucker; .010-.052 strings hold the slack low string.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "boost",
+        gear_slug: null,
+        gear_name: "Boss NS-2 Noise Suppressor",
+        icon_type: "boss_compact",
+        icon_color: "#22c55e",
+        is_in_effects_loop: false,
+        settings: { Threshold: 6, Decay: 3 },
+        notes:
+          "The fast down-strummed octaves need a clean, controlled attack — the gate clamps the Recto hiss so the relentless eighth-note hook stays articulate and doesn't wash into noise over the strings.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Mesa/Boogie Dual Rectifier",
+        icon_type: "mesa_head",
+        icon_color: "#333333",
+        is_in_effects_loop: false,
+        settings: { Gain: 7, Bass: 5, Middle: 5, Treble: 8, Presence: 7, Master: 4 },
+        notes:
+          "The Recto's Modern channel, but voiced brighter than the Hybrid Theory songs — Treble and Presence pushed, mids brought up a touch — so the octave hook cuts through Meteora's dense string and electronic layers instead of disappearing under them.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 1959 Super Lead (layered)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 7, Bass: 5, Middle: 6, Treble: 7, Volume: 7 },
+        notes:
+          "Meteora was the first Linkin Park record to layer a Marshall over the Mesa. Blended under the Recto, the Plexi adds upper-mid grind and cut — the extra bite that helps the bright octave hook punch over the orchestration.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Mesa/Boogie Recto 4x12 (Celestion V30)",
+        icon_type: "cab_4x12",
+        icon_color: "#333333",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "A Mesa Recto 4x12 with V30s for the tight low end and the upper-mid bite the cutting hook needs. Close-miked for the percussive snap of the down-strummed octaves.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "on-axis, cap edge" },
+        notes:
+          "The studio mic chain isn't documented; a close SM57 at the cap edge is the standard capture for this bright, cutting Recto-plus-Marshall blend and matches the record's aggressive presence.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "PRS Custom 24 (set-neck), bridge humbucker, Drop D (half step down), .010-.052 strings",
+      effects: ["Boss NS-2 Noise Suppressor (gate)"],
+      amp: "Mesa/Boogie Dual Rectifier (Modern channel) + Marshall 1959 Super Lead (layered)",
+      cabinet: "Mesa/Boogie Recto 4x12 (Celestion V30)",
+      microphone: "Shure SM57 (close-miked)",
+      other_notes:
+        "From Meteora (2003), produced by Don Gilmore. The exact studio guitar rig isn't documented in a primary session breakdown — the Mesa Dual Rectifier core and the Meteora Mesa-plus-Marshall layering are the established consensus across gear sources and match the record, so they're the basis here; mic and pedal specifics are reasonable reconstructions. The defining gesture is the fast, bright, down-strummed Drop-D octave hook cutting over the string section.",
+    },
+    tags: ["nu-metal", "alternative-metal", "rock", "mesa-boogie", "linkin-park", "drop-d"],
+    sources: [
+      "https://www.thomann.de/blog/en/gear/the-linkin-park-signature-sound-amps-guitars-secrets/",
+      "https://www.uberproaudio.com/who-plays-what/214-linkin-park-brad-delson-guitar-gear-rig-and-equipment",
+      "https://www.songsterr.com/a/wsa/linkin-park-faint-tab-s44340",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", enabled: true, original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -48, Decay: 0.2, Level: 0 }, notes: "DEFAULT-ON, tight. Clamps the Recto hiss so the fast down-strummed octave hook stays articulate over the strings and doesn't wash into noise." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -30, Ratio: 3, Knee: 4, Attack: 40, Release: 400, Mix: 50, Level: 0 }, notes: "Light parallel comp before the amp evens out the relentless eighth-note strumming so every octave hits at the same level. Mix=50% keeps the percussive attack." },
+          { position: 3, block_name: "Cali Rectifire", block_category: "Amp", original_gear: "Mesa/Boogie Dual Rectifier (Modern) + Marshall layer", settings: { Drive: 7, Bass: 5, Mid: 5, Treble: 8, Presence: 7, ChVol: 4.5, Master: 10, Bias: 5, BiasX: 5, Sag: 4.5, Hum: 5, Ripple: 5 }, notes: "Helix's Dual Rectifier on the Modern voicing, but brighter than the Hybrid Theory patches — Treble and Presence pushed, mids brought up — so the octave hook cuts over Meteora's strings. The pushed treble stands in for the layered Marshall's bite." },
+          { position: 4, block_name: "4x12 Cali V30", block_category: "Cab", original_gear: "Mesa Recto 4x12 (Celestion V30)", settings: { Mic: 1, Distance: 1, Position: 0.45, Angle: 0, LowCut: 85, HighCut: 9000, Resonance: 0.5, Level: 0, Pan: 0.5, Delay: 0 }, notes: "The Mesa V30 cab. SM57 just off the cap edge — HighCut raised to 9000 (vs the darker Hybrid Theory patches) to keep the bright octave hook cutting. LowCut 85 holds the Drop-D bottom tight." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 10, Decay: 0.3, Predelay: 10, LowCut: 200, HighCut: 6500, Level: 0 }, notes: "Barely-there room to glue the double-tracked hook — kept tiny so the fast strumming stays tight and present over the orchestration." },
+          { position: 6, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.55, CenterFreq: 1200, Level: 0 }, notes: "Tilted slightly bright (0.55 at 1.2kHz) to help the octave hook slice through Meteora's dense string and electronic layers." },
+        ],
+        notes:
+          "Gate (tight) → comp → Cali Rectifire (Modern, bright) → V30 4x12 → tiny room → bright tilt. Drop D, PRS bridge. The pushed treble and HighCut stand in for the layered Marshall. Double-track the hook hard L/R so it sits over the strings.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -48, Decay: 20 }, notes: "DEFAULT-ON, tight. Keeps the fast octave hook articulate and clamps Recto hiss over the strings." },
+          { position: 2, block_name: "LA Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -30, Ratio: 3, Attack: 4, Release: 120, Mix: 50, Level: 0 }, notes: "Light parallel comp evens out the relentless strumming so every octave hits level. Mix=50% keeps the attack." },
+          { position: 3, block_name: "Recto", block_category: "Amp", original_gear: "Mesa/Boogie Dual Rectifier (Modern) + Marshall layer", settings: { Gain: 7.0, Bass: 5.0, Mid: 5.0, Treble: 8.0, Presence: 7.0, Master: 4.5, Sag: 4.5 }, notes: "The QC's Recto, voiced bright — Treble and Presence pushed — so the octave hook cuts over Meteora's strings. The pushed treble stands in for the layered Marshall's bite." },
+          { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa Recto 4x12 (Celestion V30)", settings: { Mic: "SM57", Distance: 1.0, Position: 0.45, LowCut: 85, HighCut: 9000, Level: 0 }, notes: "Mesa V30 cab, SM57 just off the cap edge. HighCut 9000 keeps the octave hook bright; LowCut 85 holds the Drop-D bottom." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.6, Predelay: 10, Mix: 10, Level: 0 }, notes: "Barely-there room to glue the double-tracked hook — minimal so it stays tight and present over the orchestration." },
+          { position: 6, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global brightness adjustment", settings: { "100Hz": 0, "330Hz": 0, "1kHz": 1, "3.3kHz": 1, "10kHz": 0, Level: 0 }, notes: "Mirrors the Helix bright tilt — a push at 1kHz and 3.3kHz so the octave hook slices through the strings on FRFR." },
+        ],
+        notes:
+          "Gate (tight) → comp → Recto (Modern, bright) → V30 4x12 → tiny room → bright EQ. Mirrors the Helix chain. Drop D; double-track the hook so it sits over the strings.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "FX", enabled: true, original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: 55, Release: 20, Level: 0 }, notes: "DEFAULT-ON, tight. Keeps the fast down-strummed octave hook articulate and clamps the high-gain hiss over the strings." },
+          { position: 2, block_name: "Brown", block_category: "Amp Type", original_gear: "Mesa/Boogie Dual Rectifier (Modern) + Marshall layer", settings: { Gain: 78, Volume: 50, Bass: 50, Middle: 50, Treble: 78, Presence: 70, Master: 50 }, notes: "The Brown character voiced bright — Treble and Presence pushed — so the octave hook cuts over Meteora's strings. The brightness stands in for the layered Marshall's bite." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio room ambience", enabled: true, settings: { Time: 3, PreDelay: 10, Tone: 55, EffectLevel: 8 }, notes: "A tiny room to glue the double-tracked hook — kept very low and slightly bright so the fast strumming stays present over the orchestration." },
+        ],
+        notes:
+          "Gate (tight) → Brown amp (bright) → tiny room. Comp lives in the Katana's amp section. Drop D, PRS bridge; double-track the hook. The pushed treble stands in for the layered Marshall.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Intensity: 6.0, Threshold: 5.0 }, notes: "Front-of-chain gate, tight, so the fast octave hook stays articulate over the strings — clamps Recto hiss." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 0.03, Volume: 0.0 }, notes: "Slot A. Light comp evens out the relentless strumming so every octave hits at the same level." },
+          { position: 3, block_name: "Search Rig Exchange for 'Mesa Dual Rectifier'", block_category: "Profile", original_gear: "Mesa/Boogie Dual Rectifier (Modern) + Marshall layer", settings: { Gain: 7.0, Bass: 5.0, Middle: 5.0, Treble: 8.0, Presence: 7.0 }, notes: "Search Rig Exchange for a bright Dual Rectifier Modern-channel profile with a V30 4x12 baked in — or a Mesa-plus-Marshall blend profile. Treble and Presence pushed so the octave hook cuts over the strings." },
+          { position: 4, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.6, Predelay: 10, Mix: 0.1 }, notes: "REV slot. Barely-there room to glue the double-tracked hook — minimal so it stays tight and present over the orchestration." },
+        ],
+        notes:
+          "Kemper profiles bake in the cab. Gate (tight) → comp → bright Recto Modern profile → tiny room. Drop D, PRS bridge; double-track the hook. The bright profile stands in for the Mesa-plus-Marshall layer.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -48, Release: 0.2 }, notes: "DEFAULT-ON, tight. Keeps the fast octave hook articulate and clamps Recto hiss over the strings." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -30, Ratio: 3, Attack: 4, Release: 120, Mix: 0.5, Level: 0 }, notes: "Light parallel comp evens out the relentless strumming so every octave hits level." },
+          { position: 3, block_name: "Recto2 Modern", block_category: "Amp", original_gear: "Mesa/Boogie Dual Rectifier (Modern) + Marshall layer", settings: { Drive: 7.0, Bass: 5.0, Mid: 5.0, Treble: 8.0, Presence: 7.0, MV: 4.5, Cut: 6.0 }, notes: "Fractal's Dual Rectifier Modern model, voiced bright — Treble and Presence pushed, Cut opened up — so the octave hook cuts over the strings. The brightness stands in for the layered Marshall." },
+          { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa Recto 4x12 (Celestion V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 85, HighCut: 9000, Level: 0 }, notes: "Mesa V30 cab, SM57 just off the cap edge. HighCut 9000 keeps the octave hook bright; LowCut 85 holds the Drop-D bottom." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 0.1, Decay: 0.6, Predelay: 0.01 }, notes: "Barely-there room to glue the double-tracked hook — minimal so it stays tight over the orchestration." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.55, CenterFreq: 1200, Level: 0 }, notes: "Tilted slightly bright to help the octave hook slice through Meteora's dense layers." },
+        ],
+        notes: "Gate (tight) → comp → Recto2 Modern (bright) → V30 4x12 → tiny room → bright tilt. Mirrors the Helix chain. Drop D; double-track the hook over the strings.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Mesa Dual Rectifier' or 'Recto Modern'", block_category: "Tone Model", original_gear: "Mesa/Boogie Dual Rectifier (Modern) + Marshall layer", settings: {}, notes: "Search ToneNET for a bright Dual Rectifier Modern-channel capture with a V30 4x12 — ideally one with some Marshall-style upper-mid bite. Tune to Drop D, PRS bridge. A tight gate in front keeps the fast octave hook articulate." },
+        ],
+        notes: "TONEX is capture-driven. Search ToneNET for a bright Dual Rectifier Modern-channel capture for the cutting octave hook. Use a tight gate in front; the fast down-strummed octaves over the strings need a controlled, present attack. Double-track for the full Meteora width.",
       },
     },
     is_editorial: true,

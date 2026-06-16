@@ -135,11 +135,11 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 76 | People of the Sun (riff) | Rage Against the Machine | Tom Morello | Evil Empire (1996) | "Arm the Homeless" → Marshall JCM800 2205, drop D, signature is the hex/Allen-key string scrape between pickups (corrected: scrape is the main riff, Whammy is chorus squeals) | done |
 | 77 | Stinkfist (main riff) | Tool | Adam Jones | Ænima (1996) | Gibson Les Paul Custom Silverburst (Duncan JB bridge) → Diezel VH4 + Marshall Super Bass, drop D, Boss BF-2 flanger swirl | done |
 | 78 | Sober (riff) | Tool | Adam Jones | Undertow (1993) | Les Paul Silverburst → modified Marshall Super Bass 100 (jumpered), drop D, dynamic quiet-to-crush (corrected: Undertow is single Super Bass; Diezel rig came later, from Ænima on) | done |
-| 79 | The Pot (riff) | Tool | Adam Jones | 10,000 Days (2006) | Les Paul Silverburst → Diezel VH4 + Mesa 4x12, drop D, MXR Micro Amp boost, tight midrange grind | queued |
-| 80 | Jambi (riff/solo) | Tool | Adam Jones | 10,000 Days (2006) | Les Paul Silverburst → Diezel VH4 / Bogner Überschall, drop D, Heil Talk Box solo | queued |
-| 81 | Crawling (verse/chorus) | Linkin Park | Brad Delson | Hybrid Theory (2000) | PRS Custom 24 → Mesa Dual Rectifier + modded Marshall 1959SLP, drop D, heavy compressed chug | queued |
-| 82 | One Step Closer (riff) | Linkin Park | Brad Delson | Hybrid Theory (2000) | PRS Custom 24 → Mesa Dual Rectifier + Marshall 1959SLP, drop D, aggressive chug with harmonics | queued |
-| 83 | Faint (octave riff) | Linkin Park | Brad Delson | Meteora (2003) | PRS Custom 24 → Mesa Dual Rectifier + Marshall 1959SLP, drop D, strummed octave hook over strings | queued |
+| 79 | The Pot (riff) | Tool | Adam Jones | 10,000 Days (2006) | Les Paul Silverburst → Diezel VH4 + Marshall Super Bass + Mesa 4x12. CORRECTION: tuning is **Drop C** (Adam Jones, per Guitar World — tuned down for Maynard), NOT drop D. MXR Micro Amp clean boost on board. | done |
+| 80 | Jambi (riff/solo) | Tool | Adam Jones | 10,000 Days (2006) | Les Paul Silverburst → 3-head blend (Marshall Super Bass + Diezel VH4 + Rivera Knucklehead), **Drop D (D A D G B E)**. Heil Talk Box on the solo (verified, MusicRadar/Guitar World). Bone-dry rhythm. | done |
+| 81 | Crawling (verse/chorus) | Linkin Park | Brad Delson | Hybrid Theory (2000) | PRS CE 24 → Mesa Dual Rectifier. CORRECTION: tuning is **Eb standard** (half-step down, standard shapes), NOT drop D. Amp rig is documented-consensus (no primary session breakdown); noted honestly in recipe. | done |
+| 82 | One Step Closer (riff) | Linkin Park | Brad Delson | Hybrid Theory (2000) | PRS CE 24 → Mesa Dual Rectifier, **Drop D (half-step down)**. Delson's favorite riff. Amp rig is documented-consensus; mic/pedal specifics are reconstructions, noted honestly in recipe. | done |
+| 83 | Faint (octave riff) | Linkin Park | Brad Delson | Meteora (2003) | PRS Custom 24 → Mesa Dual Rectifier + Marshall 1959 layered, **Drop D (half-step down)**, bright cutting octave hook over strings. Amp rig is documented-consensus, noted honestly in recipe. | done |
 | 84 | Papercut (riff) | Linkin Park | Brad Delson | Hybrid Theory (2000) | PRS Custom 24 → Mesa Dual Rectifier + Marshall 1959SLP, drop D, syncopated palm-mute groove | queued |
 | 85 | Duality (main riff) | Slipknot | Mick Thomson & Jim Root | Vol. 3: The Subliminal Verses (2004) | Ibanez (Thomson) + Fender Tele (Root) → Rivera KR-7 / Orange, drop B (B-F#-B-E-G#-C#), custom octave fuzz accents | queued |
 | 86 | Before I Forget (riff) | Slipknot | Mick Thomson & Jim Root | Vol. 3 (2004) | Ibanez MTM + Fender Tele → Rivera KR-7 / Orange Rockerverb, drop B, tight gallop chug | queued |
@@ -1142,6 +1142,11 @@ successful run.)
 | 2026-06-15 | morello-people-of-the-sun | 76 |
 | 2026-06-15 | jones-stinkfist-drop-d-crush | 77 |
 | 2026-06-15 | jones-sober-dynamic-crush | 78 |
+| 2026-06-16 | jones-the-pot-drop-c-crush | 79 |
+| 2026-06-16 | jones-jambi-drop-d-talk-box | 80 |
+| 2026-06-16 | delson-crawling-clean-to-heavy | 81 |
+| 2026-06-16 | delson-one-step-closer-drop-d | 82 |
+| 2026-06-16 | delson-faint-drop-d-octave-hook | 83 |
 
 ### Corrections applied this run (2026-06-09)
 
