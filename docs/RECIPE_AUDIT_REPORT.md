@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-16
-**Recipes:** 130
-**Clean (no errors, no warns):** 122
+**Date:** 2026-06-17
+**Recipes:** 135
+**Clean (no errors, no warns):** 127
 **Warn-only:** 8
 **With errors:** 0
 
@@ -16,9 +16,9 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 15 / 130 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 7 / 130 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 130 | Signal chain includes a cabinet or microphone block |
+| `katana-kemper-multidrive-default-off` | info | 15 / 135 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 7 / 135 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 135 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -230,6 +230,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `delson-papercut-rhythm` — ✓ clean
+
+*Papercut Rhythm Tone*
+
+Passes every rule.
+
 ### `dharma-dont-fear-the-reaper-clean-riff` — ✓ clean
 
 *Buck Dharma's Don't Fear the Reaper Clean Riff Tone*
@@ -245,6 +251,12 @@ Passes every rule.
 ### `dimebag-walk-groove-metal` — ✓ clean
 
 *Dimebag Darrell's Walk Groove Metal Tone*
+
+Passes every rule.
+
+### `donegan-down-with-the-sickness-riff` — ✓ clean
+
+*Down with the Sickness Riff Tone*
 
 Passes every rule.
 
@@ -716,6 +728,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `root-before-i-forget-riff` — ✓ clean
+
+*Before I Forget Riff Tone*
+
+Passes every rule.
+
 ### `santana-smooth-lead` — ✓ clean
 
 *Santana's Smooth Lead Tone*
@@ -779,6 +797,18 @@ Passes every rule.
 ### `thayil-black-hole-sun-rotary-verse` — ✓ clean
 
 *Black Hole Sun's Watery Rotary Verse Tone*
+
+Passes every rule.
+
+### `thomson-duality-riff` — ✓ clean
+
+*Duality Main Riff Tone*
+
+Passes every rule.
+
+### `thomson-psychosocial-riff` — ✓ clean
+
+*Psychosocial Main Riff Tone*
 
 Passes every rule.
 

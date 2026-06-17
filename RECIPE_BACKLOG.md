@@ -140,12 +140,12 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 81 | Crawling (verse/chorus) | Linkin Park | Brad Delson | Hybrid Theory (2000) | PRS CE 24 → Mesa Dual Rectifier. CORRECTION: tuning is **Eb standard** (half-step down, standard shapes), NOT drop D. Amp rig is documented-consensus (no primary session breakdown); noted honestly in recipe. | done |
 | 82 | One Step Closer (riff) | Linkin Park | Brad Delson | Hybrid Theory (2000) | PRS CE 24 → Mesa Dual Rectifier, **Drop D (half-step down)**. Delson's favorite riff. Amp rig is documented-consensus; mic/pedal specifics are reconstructions, noted honestly in recipe. | done |
 | 83 | Faint (octave riff) | Linkin Park | Brad Delson | Meteora (2003) | PRS Custom 24 → Mesa Dual Rectifier + Marshall 1959 layered, **Drop D (half-step down)**, bright cutting octave hook over strings. Amp rig is documented-consensus, noted honestly in recipe. | done |
-| 84 | Papercut (riff) | Linkin Park | Brad Delson | Hybrid Theory (2000) | PRS Custom 24 → Mesa Dual Rectifier + Marshall 1959SLP, drop D, syncopated palm-mute groove | queued |
-| 85 | Duality (main riff) | Slipknot | Mick Thomson & Jim Root | Vol. 3: The Subliminal Verses (2004) | Ibanez (Thomson) + Fender Tele (Root) → Rivera KR-7 / Orange, drop B (B-F#-B-E-G#-C#), custom octave fuzz accents | queued |
-| 86 | Before I Forget (riff) | Slipknot | Mick Thomson & Jim Root | Vol. 3 (2004) | Ibanez MTM + Fender Tele → Rivera KR-7 / Orange Rockerverb, drop B, tight gallop chug | queued |
-| 87 | Wait and Bleed (riff) | Slipknot | Mick Thomson & Jim Root | Slipknot (1999) | Ibanez 7-string-era → Mesa/Rivera high-gain, drop B, frantic verse riffing | queued |
-| 88 | Psychosocial (main riff) | Slipknot | Mick Thomson & Jim Root | All Hope Is Gone (2008) | Ibanez MTM + Fender Tele → Rivera KR-7 / Orange, drop A (A-E-A-D-F#-B), low chug + tremolo | queued |
-| 89 | Down with the Sickness (riff) | Disturbed | Dan Donegan | The Sickness (2000) | Washburn (pre-Maya signature) → Mesa Triple Rectifier, drop tuning (drop C/D area), Donegan's electronic siren effect | queued |
+| 84 | Papercut (riff) | Linkin Park | Brad Delson | Hybrid Theory (2000) | PRS CE 24 → Mesa Dual Rectifier (+Marshall 1959SLP layer), drop C# (½-step + drop D), NS-2 gate; NRG/Don Gilmore | done |
+| 85 | Duality (main riff) | Slipknot | Mick Thomson & Jim Root | Vol. 3: The Subliminal Verses (2004) | CORRECTED rig: VHT Pitbull (Thomson) + modded Bogner Uberschall/Mesa Mark IIC (Root), drop B; Rubin/Sound City. NOT the later Rivera/Orange/MTM touring gear | done |
+| 86 | Before I Forget (riff) | Slipknot | Mick Thomson & Jim Root | Vol. 3 (2004) | Same Vol.3 rig: modded Bogner Uberschall (Root, ~70%) + VHT Pitbull (Thomson), drop B; Rubin/Sound City | done |
+| 87 | Wait and Bleed (riff) | Slipknot | Mick Thomson & Jim Root | Slipknot (1999) | SKIPPED — Jim Root did NOT play this track (Josh Brainard + Mick Thomson tracked it, 1998); Brainard's debut rig is undocumented and no published settings exist. Re-scope to Thomson-only or drop. | needs-research |
+| 88 | Psychosocial (main riff) | Slipknot | Mick Thomson & Jim Root | All Hope Is Gone (2008) | Ibanez MTM1/Blackouts → JCM800 2203 + Maxon (Thomson); Jim Root Tele/EMG → Orange Rockerverb + Diezel (Root), drop A; Fortman/Sound Farm | done |
+| 89 | Down with the Sickness (riff) | Disturbed | Dan Donegan | The Sickness (2000) | Gibson-era guitar (pre-Maya) → Mesa Triple Rectifier, drop C#, DigiTech Whammy intro siren, GHS .012-.054; Johnny K/Groovemaster | done |
 | 90 | Stricken (riff) | Disturbed | Dan Donegan | Ten Thousand Fists (2005) | Washburn Maya DD signature (Duncan El Diablo bridge) → Randall RM4 (1086 module), drop C, GHS 12-52, tight modern chug | queued |
 | 91 | Stupify (riff) | Disturbed | Dan Donegan | The Sickness (2000) | Washburn → Mesa Triple Rectifier, drop tuning, bouncy syncopated groove | queued |
 | 92 | Whatever (riff) | Godsmack | Tony Rombola | Godsmack (1998) | Gibson Les Paul Custom → Mesa Dual Rectifier (Splawn studio era), drop D, thick warm grind | queued |
@@ -1147,6 +1147,11 @@ successful run.)
 | 2026-06-16 | delson-crawling-clean-to-heavy | 81 |
 | 2026-06-16 | delson-one-step-closer-drop-d | 82 |
 | 2026-06-16 | delson-faint-drop-d-octave-hook | 83 |
+| 2026-06-17 | delson-papercut-rhythm | 84 |
+| 2026-06-17 | thomson-duality-riff | 85 |
+| 2026-06-17 | root-before-i-forget-riff | 86 |
+| 2026-06-17 | thomson-psychosocial-riff | 88 |
+| 2026-06-17 | donegan-down-with-the-sickness-riff | 89 |
 
 ### Corrections applied this run (2026-06-09)
 
