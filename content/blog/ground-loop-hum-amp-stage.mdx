@@ -17,10 +17,68 @@ tags:
   - troubleshooting
   - venue-electrical
 readingTime: 7
+updated: '2026-06-18'
 image: /images/blog/ground-loop-hum-amp-stage.jpg
 image_alt: >-
-  a composition illustrating "Ground Loop Hum at the Amp: When the Pedalboard Is
-  Fine But the Stage Isn't"
+  A guitar amp and a PA console plugged into different stage outlets with a DI
+  box between them, illustrating the two ground paths that form a ground loop
+takeaways:
+  - >-
+    A rig that's silent at home but hums on stage almost always has a ground
+    loop, not a broken pedal — the loop forms the moment a grounded amp connects
+    to a PA grounded to a different power circuit.
+  - >-
+    Work the fix in order: (1) put your amp on the same circuit as the PA, (2)
+    lift the ground at the DI box, (3) measure the venue's neutral-to-ground
+    voltage, (4) for touring rigs, use an isolation-transformer power
+    conditioner.
+  - >-
+    Never lift the ground on the amp itself with a cheater plug — the third prong
+    is the only thing keeping the chassis from going live in a fault. Break the
+    loop on the signal side, at the DI or an inline isolator.
+  - >-
+    If the hum goes away when you touch your strings, that confirms a ground loop
+    — your body is completing a competing ground path. It's a diagnosis, not a
+    fix.
+  - >-
+    A faint, unfixable hum is usually masked completely once the band and the
+    room are making sound — get it "quiet enough," start the service, and finish
+    troubleshooting later.
+faq:
+  - q: Why does the hum go away when I touch my strings?
+    a: >-
+      You're acting as a second ground path. Your fingers connect through the
+      strings and bridge to the amp's chassis ground via the cable shield. When
+      you touch the strings you complete a ground path the loop current prefers,
+      and the hum at the input drops. It's not a fix — it's a symptom that
+      confirms you have a ground loop.
+  - q: My amp's third prong looks fine but the hum is bad. Should I have it tested?
+    a: >-
+      Yes. A multimeter on continuity mode between the amp's chassis (any
+      unpainted screw on the back) and the third prong on the power cable should
+      read near zero ohms. If it reads open, high, or intermittent, the safety
+      ground inside the amp isn't actually connected. Take it to a tech — it's a
+      10-minute repair.
+  - q: Will an isolation transformer between amp and wall work like a power conditioner with isolated ground?
+    a: >-
+      Yes, electrically. The isolation transformer inside a power conditioner is
+      what does the ground-isolation work. A standalone medical-grade isolation
+      transformer works identically for around the same money. The trade-off is
+      rack-mountability and the integrated surge protection a power conditioner
+      includes, which is why the conditioner form factor usually wins for touring.
+  - q: Why does this happen more in churches and old buildings than new ones?
+    a: >-
+      Older buildings often have grandfathered electrical code allowing longer
+      ground runs and shared ground rods that newer construction wouldn't be
+      permitted to use, plus multiple panels added over decades of renovations —
+      exactly the conditions that produce ground loops. Newer code-compliant
+      single-point grounding has fewer of these problems, though it's not immune.
+  - q: Is a "Hum Eliminator" the same as a DI ground lift?
+    a: >-
+      Functionally, yes. An inline hum eliminator (Ebtech HE-2/HE-8, Morley) does
+      the same job as a DI box's ground-lift switch, just at a different point in
+      the chain. It's useful when you want to break the loop somewhere other than
+      the DI — for example between two amps in a stereo or wet/dry/wet rig.
 ---
 
 > **The fix order:** If your rig is silent at home and hums on stage, you have a ground loop between your amp and the venue's electrical system, not a broken pedal. Diagnose in this order: (1) plug your amp into the same circuit as the PA console, (2) lift the ground on your DI box (not your amp), (3) check the venue's neutral-to-ground voltage, (4) install a power conditioner with isolated ground. **Never lift the ground on your amp itself.** Three-prong amp grounds exist to keep you alive.
@@ -63,7 +121,7 @@ If you can't share a circuit with the PA, the next step is to break the ground l
 
 Most quality passive DI boxes (Radial JDI, Whirlwind IMP, Countryman Type 85) have a "ground lift" switch. Engaging this switch disconnects the ground reference between the DI's input (your amp's signal) and its output (the PA's XLR cable). The signal still passes; only the ground reference is broken. This kills the loop without compromising your amp's safety ground.
 
-If the DI doesn't have a ground lift switch, you can use a "hum eliminator" inline (Ebtech Hum X for line-level signals, Radial JDX for amp-level). These do the same job: break the ground reference at a non-amp point in the chain.
+If the DI doesn't have a ground lift switch, you can use a "hum eliminator" inline (Ebtech Hum X for line-level signals, Radial JDX for amp-level). These do the same job: break the ground reference at a non-amp point in the chain. If you run two amps and the loop is between *them* rather than between the amp and the PA, a dedicated isolation box is the cleaner fix — our [Humdinger vs. Buzzkill vs. DIY comparison](/blog/humdinger-vs-buzzkill-vs-diy-isolation-box) sorts out which one your rig needs.
 
 This fix costs $5-15 if you don't already own a DI with a ground lift, and it fixes another 30-40% of the cases that step 1 didn't catch.
 
@@ -122,27 +180,5 @@ Here's what I've learned from playing through that situation about a hundred tim
 That is not permission to stop trying to fix the problem. It is permission to start the service when it's time and revisit the troubleshooting after rehearsal. Worship and live performance both run on rolling hour-by-hour adjustments; very few problems get solved at the moment they appear. Get to "quiet enough" and play. Fix the rest on Tuesday.
 
 ---
-
-## FAQ
-
-**Why does the hum go away when I touch my strings?**
-
-You're acting as a second ground path. Your body is connected through your fingers to the strings, the strings to the bridge, and the bridge to the amp's chassis ground via your cable shield. When you touch the strings, you complete a ground path that the loop current prefers, and the hum at the input gets reduced. This is not a fix; it's a symptom that confirms you have a ground loop. The fix is one of the steps above.
-
-**My amp's third prong looks fine but the hum is bad. Should I have it tested?**
-
-Yes. A multimeter on continuity mode between the amp's chassis (any unpainted screw on the back) and the third prong on the power cable should read near zero ohms. If it reads anything else (open, high resistance, intermittent), the safety ground inside the amp is not actually connected. Take it to a tech. This is a 10-minute repair for someone who knows what they're doing.
-
-**Will an isolation transformer between the amp and the wall work the same as a power conditioner with isolated ground?**
-
-Yes, electrically. The "isolation transformer" inside a power conditioner is what does the ground-isolation work. A standalone medical-grade isolation transformer (the same kind used in hospitals) works identically for around the same money and is sometimes a better deal. The trade-off is rack-mountability and the integrated surge protection that power conditioners include. For a touring rig, the power conditioner form factor usually wins.
-
-**Why does this happen more in churches and old buildings than new ones?**
-
-Older buildings often have grandfather-clauses on electrical code that allow longer ground runs and shared ground rods that newer construction would not be permitted to use. Add multiple electrical panels added during renovations over decades and you get exactly the conditions that produce ground loops. Newer commercial buildings with code-compliant single-point grounding and shorter ground runs have fewer of these problems, though they're not immune.
-
-**Is a "Hum Destroyer" or "Hum Eliminator" the same as a DI ground lift?**
-
-Functionally, yes. The Ebtech Hum Eliminator (HE-2 or HE-8) and the Morley Hum Exterminator do the same job as a DI box's ground lift switch, just inline rather than at the DI. They're useful when you want to break a ground loop somewhere other than at the DI (for example, between two amps in a stereo rig, or between an amp and a separate effects loop processor).
 
 <SaveThisTone title="Build a quiet stage rig" description="The complete worship signal chain (pedalboard power, DI strategy, and IEM mix) that survives multi-venue touring." href="/recipes/quiet-worship-rig" ctaLabel="See the rig" />

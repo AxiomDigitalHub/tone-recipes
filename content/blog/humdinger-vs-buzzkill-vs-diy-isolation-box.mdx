@@ -1,0 +1,148 @@
+---
+title: 'Humdinger vs. Buzzkill vs. DIY: Isolation Boxes for Multi-Amp Hum, Compared'
+description: >-
+  Running two amps and fighting ground-loop hum? Three fixes: the active GigRig
+  Humdinger, the passive Goodwood Buzzkill, and a $25 DIY transformer. Here's
+  which one your rig actually needs.
+date: '2026-06-18'
+author_slug: jess-kowalski
+category: gear-lab
+tags:
+  - ground-loop
+  - isolation-transformer
+  - hum-eliminator
+  - wet-dry-wet
+  - multi-amp
+  - diy
+readingTime: 9
+image: /images/blog/humdinger-vs-buzzkill-vs-diy-isolation-box.jpg
+image_alt: >-
+  Three ground-loop isolation devices on a pedalboard — an active buffered unit,
+  a passive transformer box, and a DIY transformer in a hand-wired enclosure —
+  with cables running to two amplifiers
+takeaways:
+  - >-
+    All three boxes do the same core job: an audio transformer passes your
+    guitar signal across magnetically while breaking the DC ground path, which
+    is what kills the ground-loop hum in a two-amp rig.
+  - >-
+    The real fork isn't price — it's whether you need a buffer. The Goodwood
+    Buzzkill and a DIY box are passive (no power, slight insertion loss); the
+    GigRig Humdinger adds an active buffer that drives long cable runs without
+    losing highs. The buffer is the ~$50 you're paying extra for.
+  - >-
+    A DIY box is a 1:1 line-isolation transformer in an enclosure for roughly
+    $20–40 in parts. It isolates exactly like the Buzzkill; you give up the
+    labeled phase/lift buttons and the nice metal box.
+  - >-
+    All of these isolate the AUDIO ground. Never use a 3-prong-to-2-prong
+    cheater plug to lift an amp's mains ground — that defeats the safety earth
+    and can leave the chassis live. Fix hum on the signal side, not the wall.
+  - >-
+    Lift the ground on one amp only, and use the phase switch if your two amps
+    end up out of polarity (thin, hollow sound with both running). Lifting both,
+    or none, won't break the loop.
+faq:
+  - q: >-
+      What's the difference between the GigRig Humdinger and the Goodwood
+      Buzzkill?
+    a: >-
+      The Buzzkill is fully passive — a transformer in a box with a ground-lift
+      button and a 180-degree phase button, no power required. The Humdinger is
+      active: it adds a Class A buffer on its main output and a transformer-
+      isolated second output with a phase switch, and it needs 9V power. Both
+      break a ground loop. You pay extra for the Humdinger's buffer, which
+      matters on long cable runs and for a clean isolated feed.
+  - q: Do I really need to spend $150 on a Humdinger?
+    a: >-
+      Only if you need the buffer. If your cable runs are short and your tone
+      isn't losing highs, a passive box like the Buzzkill (around $99) or a DIY
+      transformer (around $25 in parts) breaks the same ground loop for less.
+      The Humdinger earns its price when you're driving a long run to a second
+      amp or a DI and want a buffered, full-bandwidth signal as well as
+      isolation.
+  - q: Can I build my own ground-loop isolation box?
+    a: >-
+      Yes. A 1:1 line-level isolation transformer wired between an input jack
+      and an output jack, with the ground connected on only one side, does the
+      same isolation as a passive commercial box for roughly $20–40 in parts.
+      Add a DPDT switch to swap the secondary leads and you've got phase
+      correction too. The trade-offs: a cheap transformer can roll off some lows
+      and highs, and you don't get a buffer.
+  - q: Is it safe to lift the ground to stop hum?
+    a: >-
+      It's safe to lift the AUDIO signal ground — that's exactly what these
+      boxes do, and it breaks the loop without touching anything dangerous. It
+      is NOT safe to lift your amp's mains (AC) safety ground with a cheater
+      plug; that earth is what keeps the chassis from going live in a fault.
+      Always fix multi-amp hum on the signal side, never by defeating the wall
+      ground.
+  - q: Where in the signal chain does the isolation box go?
+    a: >-
+      On the feed to your second amp — the slave, wet, or DI send — not on your
+      main amp's input. The idea is to break the second ground path, so you
+      isolate the line going to the second amp and lift the ground there. Your
+      primary amp stays grounded normally; the isolated amp gets its signal
+      through the transformer with its ground floated.
+---
+
+Two amps. One hum. You plug the second amp in, both rigs come alive, and suddenly there's a 60-cycle buzz that wasn't there when you ran one amp. Nothing's broken. You've built a ground loop — two paths to earth fighting over which one is "ground" — and the fix is an audio transformer that breaks one of those paths while still letting your guitar signal through. Three products do it at three price points, and the honest answer to "which one" has almost nothing to do with the price tag.
+
+## The Short Answer
+
+| | Goodwood Buzzkill | GigRig Humdinger | DIY transformer box |
+|---|---|---|---|
+| Price | ~$99 | ~$150 | ~$20–40 parts |
+| Power | None (passive) | 9V / 100mA | None (passive) |
+| Buffer | No | Yes (Class A, main out) | No |
+| Ground lift | Yes (button) | Yes (isolated out) | Yes (wire it) |
+| Phase flip | Yes (180 button) | Yes (switch) | Yes (add a DPDT) |
+| You give up | Buffer, long-run drive | Nothing (costs more) | Labels, enclosure, buffer |
+
+**The fork:** passive (Buzzkill or DIY) breaks the loop for less. Active (Humdinger) does the same *and* buffers the signal. If you don't need a buffer, you don't need to pay for one.
+
+## What All Three Actually Do
+
+A ground loop is just more than one route to earth. Your two amps are each grounded through their own wall plug, your signal cable connects them, and now there's a loop of wire that acts like an antenna for mains hum. Break the loop at one point and the hum dies.
+
+An audio isolation transformer does that elegantly. It has two coils that aren't electrically connected — your signal jumps from one to the other as a magnetic field, so the audio passes but the *DC ground path doesn't.* That's the whole trick. Lift the ground on one side, isolate the line, hum gone. The [ground-lift vs. transformer-isolation decision tree](/blog/ground-lift-vs-transformer-isolation-wet-dry-wet-hum) goes deeper on when a simple lift is enough versus when you need the transformer.
+
+The 180-degree button (or switch) on these boxes is the other half. When you run two amps, they can end up out of polarity with each other — and two amps out of phase sound thin and hollow, like the low end got vacuumed out. Flip the switch, the bass comes back. (Quick test: if both amps together sound *weaker* than one amp alone, you're out of phase.)
+
+## Goodwood Buzzkill — The Passive Pick
+
+The Buzzkill is a transformer in a box. No battery, no power jack, two buttons: Lift and 180. Plug it inline on your second amp's feed, hit Lift, and the loop breaks. If the two amps go thin, hit 180.
+
+That's it, and "that's it" is the point. Nothing to power, nothing to fail, nothing to forget to turn on. For most two-amp and [wet/dry/wet rigs](/blog/stereo-signal-chain-architecture), this is all you need. The catch is the catch of every passive transformer: there's a little insertion loss, and a long cable run *after* the transformer can lose some sparkle because there's no buffer driving it. On a short run you won't hear it.
+
+## GigRig Humdinger — You're Paying for the Buffer
+
+Here's the thing nobody tells you up front: the Humdinger costs more not because it's fancier at killing hum, but because it's *active.* It runs a Class A buffer on its main output and gives you a separate transformer-isolated output with its own phase switch. It needs 9V.
+
+I went in assuming the price gap was a logo tax — boutique box, boutique price. It's not. It's a buffer. A passive box (Buzzkill or DIY) hands your signal off and walks away; the Humdinger's buffer actively drives the line, so a long run to a stage-left second amp or a board-to-FOH DI stays full-bandwidth instead of going dull. If you're already losing highs over long cable, the buffer is a real feature you'd otherwise buy separately. If your runs are short, you're paying $50 for a buffer you can't hear. The [buffer vs. transformer-DI breakdown](/blog/buffer-pedal-vs-transformer-di-ground-loops) is the post to read if you're not sure whether your rig even has a buffer problem.
+
+So: Humdinger if you need isolation **and** drive. Buzzkill if you just need isolation.
+
+## DIY — A $25 Box That Isolates Exactly the Same
+
+If you own a soldering iron, the passive fix is almost free. A 1:1 line-level audio isolation transformer, an input jack, an output jack, and a small enclosure — roughly $20–40 depending on the transformer. Wire the input to the transformer's primary, the secondary to the output, and connect the ground on only one side. That floated ground is your "lift," permanently. Want a phase button? Add a DPDT switch that swaps the two secondary leads.
+
+Functionally it's a Buzzkill without the labels. The honest trade-offs:
+
+- **Transformer quality is the whole game.** A cheap transformer can roll off some low end and some air up top; a better one (the kind that costs more than the rest of the box combined) stays flat. You get what you pay for in exactly one component.
+- **No buffer.** Same as the Buzzkill — fine for short runs, less ideal for long ones.
+- **You're on your own for the box.** No warranty, no pretty enclosure, no resale value. If that bugs you, buy the Buzzkill and move on.
+
+For a one-amp-slave home rig where I just needed to kill a buzz, the DIY box won. For anything I'd trust at a gig three nights a week, I want the commercial enclosure and the labeled buttons.
+
+## The Safety Line You Don't Get to Skip
+
+All three of these isolate the **audio signal ground.** That is safe and correct. What is **not** safe is the other "fix" you'll see in forum threads: plugging your amp into a 3-prong-to-2-prong cheater adapter to lift the mains ground. That earth wire is the thing that keeps your amp's metal chassis from becoming electrically live if something faults inside — and a live chassis plus a grounded mic is how people get hurt. Never defeat it. Hum is an annoyance; the wall ground is a safety system. Fix the loop on the signal side, every time. The [stage-hum diagnostic guide](/blog/ground-loop-hum-amp-stage) covers the safe way to chase down hum when it only shows up at the venue.
+
+## Which One Is Yours?
+
+- **Short cable runs, want it simple and passive:** Goodwood Buzzkill. No power, two buttons, done.
+- **Long runs, a DI send, or you're already losing highs:** GigRig Humdinger. The buffer is the feature.
+- **One amp slave, a soldering iron, and a tight budget:** build it. A good 1:1 transformer in a box isolates the same loop for the price of lunch.
+
+Honestly, most players reaching for one of these are overthinking the brand and underthinking the buffer. Figure out whether your signal needs driving over a long run. If yes, go active. If no, the cheapest box that breaks the loop is the right box — the audience will never hear the difference, and neither will you.
