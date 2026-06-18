@@ -146,11 +146,11 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 87 | Wait and Bleed (riff) | Slipknot | Mick Thomson & Jim Root | Slipknot (1999) | SKIPPED — Jim Root did NOT play this track (Josh Brainard + Mick Thomson tracked it, 1998); Brainard's debut rig is undocumented and no published settings exist. Re-scope to Thomson-only or drop. | needs-research |
 | 88 | Psychosocial (main riff) | Slipknot | Mick Thomson & Jim Root | All Hope Is Gone (2008) | Ibanez MTM1/Blackouts → JCM800 2203 + Maxon (Thomson); Jim Root Tele/EMG → Orange Rockerverb + Diezel (Root), drop A; Fortman/Sound Farm | done |
 | 89 | Down with the Sickness (riff) | Disturbed | Dan Donegan | The Sickness (2000) | Gibson-era guitar (pre-Maya) → Mesa Triple Rectifier, drop C#, DigiTech Whammy intro siren, GHS .012-.054; Johnny K/Groovemaster | done |
-| 90 | Stricken (riff) | Disturbed | Dan Donegan | Ten Thousand Fists (2005) | Washburn Maya DD signature (Duncan El Diablo bridge) → Randall RM4 (1086 module), drop C, GHS 12-52, tight modern chug | queued |
-| 91 | Stupify (riff) | Disturbed | Dan Donegan | The Sickness (2000) | Washburn → Mesa Triple Rectifier, drop tuning, bouncy syncopated groove | queued |
-| 92 | Whatever (riff) | Godsmack | Tony Rombola | Godsmack (1998) | Gibson Les Paul Custom → Mesa Dual Rectifier (Splawn studio era), drop D, thick warm grind | queued |
-| 93 | I Stand Alone (riff) | Godsmack | Tony Rombola | Faceless / soundtrack (2002) | Les Paul Standard → Mesa Dual Rectifier, drop D, tribal stomp riff | queued |
-| 94 | Awake (riff) | Godsmack | Tony Rombola | Awake (2000) | Les Paul Custom → Mesa Dual Rectifier, drop D, dense palm-muted chug | queued |
+| 90 | Stricken (riff) | Disturbed | Dan Donegan | Ten Thousand Fists (2005) | SHIPPED as donegan-stricken-riff. CORRECTION: Washburn Maya signature launched 2005 (the album year) with Seymour Duncan HBs; the RM4 1086 module was built IN-STUDIO during these sessions (Donegan: "a combination between a Mesa/Boogie and a Bogner Ecstasy") → RT2/50 → R412XLT V30. Drop C, Johnny K @ Groovemaster. | done |
+| 91 | Stupify (riff) | Disturbed | Dan Donegan | The Sickness (2000) | SHIPPED as donegan-stupify-riff. CORRECTION: recorded on a GIBSON LES PAUL STANDARD (PRS was live-only) — pre-Washburn era. Mesa Triple Rectifier (Modern), Recto 4x12 V30, drop C# (C#-G#-C#-F#-A#-D#), Johnny K @ Groovemaster. | done |
+| 92 | Whatever (riff) | Godsmack | Tony Rombola | Godsmack (1998) | SHIPPED as rombola-whatever-riff. CORRECTIONS: borrowed GIBSON LES PAUL STUDIO (not Custom — Rombola: "the one that worked best with my Mesas"); amp is his "Mesas" (Rectifier-family; exact debut model NOT pinned, Dual Rectos came post-Universal); NO Splawn confirmed for debut; tuning is DROP C (C-G-C-F-A-D), not drop D. New Alliance Studios, Sully Erna + Mudrock. | done |
+| 93 | I Stand Alone (riff) | Godsmack | Tony Rombola | Faceless / soundtrack (2002) | needs-research — SKIPPED 2026-06-18. Guitar (Les Paul Standard, from video) and tuning (drop C) are confirmable, but the amp is NOT documented for this specific 2002 single (only his general Mesa Dual Rectifier rig by inference) and the producer/studio could not be verified to 2+ sources. Don't guess the rig per the quality gate; revisit if a track-specific interview surfaces. | needs-research |
+| 94 | Awake (riff) | Godsmack | Tony Rombola | Awake (2000) | SHIPPED as rombola-awake-riff. CORRECTIONS: Mesa/Boogie (Mix Online primary: "Rombola's Mesa/Boogie amps were miked"; Dual Rectifier strong inference) captured with SM57 + Sennheiser MD 421 → John Hardy M1 preamps → Manley Massive Passive EQ; tuning is DROP C, not drop D. Gibson Les Paul. Sully Erna + Mudrock. | done |
 | 95 | Dig (main riff) | Mudvayne | Greg Tribbett | L.D. 50 (2000) | Ibanez RG7620 7-string (EMG 81/85) → Mesa Dual Rectifier / Randall RM100, drop C (C-G-C-F-A-D), staccato low-end groove | queued |
 | 96 | Last Resort (riff) | Papa Roach | Jerry Horton | Infest (2000) | Ibanez/EMG 81-85 → Mesa Dual Rectifier (Marshall JMP-1 era), drop C, signature single-note hook | queued |
 | 97 | Getting Away with Murder (riff) | Papa Roach | Jerry Horton | Getting Away with Murder (2004) | Ibanez/EMG → Mesa Dual Rectifier, drop D/C, driving radio-rock chug | queued |
@@ -1152,6 +1152,10 @@ successful run.)
 | 2026-06-17 | root-before-i-forget-riff | 86 |
 | 2026-06-17 | thomson-psychosocial-riff | 88 |
 | 2026-06-17 | donegan-down-with-the-sickness-riff | 89 |
+| 2026-06-18 | donegan-stricken-riff | 90 |
+| 2026-06-18 | donegan-stupify-riff | 91 |
+| 2026-06-18 | rombola-whatever-riff | 92 |
+| 2026-06-18 | rombola-awake-riff | 94 |
 
 ### Corrections applied this run (2026-06-09)
 
