@@ -5,6 +5,7 @@ description: >-
   help. The mono-sum test, the polarity flip, and the time alignment that find
   and kill the cancellation.
 date: '2026-06-02'
+updated: '2026-06-19'
 author: Sean Nakamura
 author_slug: sean-nakamura
 category: modeler-masterclass
@@ -146,6 +147,20 @@ The fix for a time offset is a small delay on the *earlier* path to bring it int
 On platforms with a sample-accurate time-align utility, use it instead of guessing — but the ear-and-nudge method gets you there on any modeler. The target is always the same: maximum level and body in the mono sum.
 
 <SaveThisTone title="Now place the compressor correctly" description="Phase alignment is the prerequisite for compressing a parallel bus. The stereo compressor placement guide covers before-split, per-path, and merged-bus compression, with the attack-mismatch data on why two unmatched comps smear the recombine." href="/blog/stereo-compressor-placement-parallel-amp-routing" ctaLabel="Read the stereo compressor placement guide" />
+
+## When It's Two Physical Amps, Not Two Blocks
+
+The same cancellation happens in the analog world, and it's even easier to trip over because there's no editor screen to show you the routing. Run a signal into two real amps at once — a stereo rig, a wet/dry setup, an A/B split — and the two miked or DI'd outputs merge at the mixing desk exactly the way two modeler paths merge at the output bus. If one amp's signal is polarity-inverted relative to the other, the front-of-house mono sum guts the low end and nobody on stage can hear why.
+
+The diagnostic is the analog version of the mono-sum test, and it's blunt: **both amps together sound weaker than one amp alone.** If soloing either amp at the desk sounds fuller than the two summed, you have a polarity problem between them. The usual culprits are a reverse-wired cable somewhere in one path, two amps with opposite internal phase, or a transformer-isolation box that flips polarity as a side effect.
+
+The fixes map one-to-one onto the modeler ones:
+
+- **The 180° / phase button.** Most ground-loop isolation boxes built for multi-amp rigs include a polarity-flip switch for exactly this reason — it's the analog "polarity invert block." If you're already running an isolator to kill amp-to-amp hum, the [Humdinger vs. Buzzkill vs. DIY isolation-box comparison](/blog/humdinger-vs-buzzkill-vs-diy-isolation-box) covers which boxes carry that 180 switch. Flip it, listen to the mono sum, keep whichever is fuller.
+- **A reverse-polarity cable.** If nothing in the chain offers a switch, a single polarity-inverting cable in one amp's path does the same job. It's binary, same as the block — there's no in-between to dial.
+- **Mic and DI alignment for the time offset.** The analog equivalent of unequal block latency is unequal *path length* — a mic 8 inches further back, or a DI'd amp arriving ahead of a miked one. Same 0.3 ms, same notch near 1.7 kHz. The fix is a sample delay on the early path at the desk, nudged until the sum is fullest.
+
+And if one of those "amps" is actually a real power section borrowed via an effects loop — a [preamp or modeler reamped through a real power amp and cab](/blog/reamping-through-the-effects-loop) — it lands in this same bus and follows the same rules. Wherever two copies of one guitar signal recombine, the mono sum is the judge.
 
 ## Why This Has to Happen Before You Compress
 
