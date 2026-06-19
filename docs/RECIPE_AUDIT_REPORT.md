@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-18
-**Recipes:** 139
-**Clean (no errors, no warns):** 131
+**Date:** 2026-06-19
+**Recipes:** 144
+**Clean (no errors, no warns):** 136
 **Warn-only:** 8
 **With errors:** 0
 
@@ -16,9 +16,9 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 15 / 139 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 7 / 139 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 139 | Signal chain includes a cabinet or microphone block |
+| `katana-kemper-multidrive-default-off` | info | 15 / 144 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 7 / 144 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 144 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -125,6 +125,12 @@ Passes every rule.
 ### `campbell-holy-diver-les-paul-marshall` — ✓ clean
 
 *Dio's Holy Diver Les Paul-into-Marshall Tone*
+
+Passes every rule.
+
+### `campbell-refugee-lead` — ✓ clean
+
+*Refugee Lead Tone*
 
 Passes every rule.
 
@@ -428,6 +434,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `horton-last-resort-riff` — ✓ clean
+
+*Last Resort Riff Tone*
+
+Passes every rule.
+
 ### `iommi-iron-man-doom-riff` — ✓ clean
 
 *Tony Iommi's Iron Man Doom Riff Tone*
@@ -467,6 +479,12 @@ Passes every rule.
 ### `jones-the-pot-drop-c-crush` — ✓ clean
 
 *Adam Jones' The Pot Drop C Mid-Heavy Crush*
+
+Passes every rule.
+
+### `kelliher-blood-and-thunder-riff` — ✓ clean
+
+*Blood and Thunder Riff Tone*
 
 Passes every rule.
 
@@ -521,6 +539,12 @@ Passes every rule.
 ### `livgren-carry-on-wayward-son-riff` — ✓ clean
 
 *Kerry Livgren's Carry On Wayward Son Riff Tone*
+
+Passes every rule.
+
+### `lowery-enemy-riff` — ✓ clean
+
+*Enemy Riff Tone*
 
 Passes every rule.
 
@@ -719,6 +743,12 @@ Passes every rule.
 ### `perry-walk-this-way-riff` — ✓ clean
 
 *Joe Perry's Walk This Way Funk-Rock Riff*
+
+Passes every rule.
+
+### `pierce-bodies-riff` — ✓ clean
+
+*Bodies Riff Tone*
 
 Passes every rule.
 
