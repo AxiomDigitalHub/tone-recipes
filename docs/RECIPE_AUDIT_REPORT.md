@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-19
-**Recipes:** 144
-**Clean (no errors, no warns):** 136
+**Date:** 2026-06-20
+**Recipes:** 149
+**Clean (no errors, no warns):** 141
 **Warn-only:** 8
 **With errors:** 0
 
@@ -16,9 +16,9 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 15 / 144 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 7 / 144 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
-| `signal-chain-has-cab-or-mic` | warn | 1 / 144 | Signal chain includes a cabinet or microphone block |
+| `katana-kemper-multidrive-default-off` | info | 17 / 149 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 7 / 149 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `signal-chain-has-cab-or-mic` | warn | 1 / 149 | Signal chain includes a cabinet or microphone block |
 
 ---
 
@@ -428,6 +428,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `homme-go-with-the-flow-riff` — ✓ clean
+
+*Go with the Flow Riff Tone*
+
+Passes every rule.
+
 ### `homme-no-one-knows-detuned-desert` — ✓ clean
 
 *Josh Homme's No One Knows Detuned Desert Tone*
@@ -680,6 +686,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `morello-like-a-stone-solo` — ✓ clean
+
+*Like a Stone Solo Tone*
+
+Passes every rule.
+
 ### `morello-people-of-the-sun` — ✓ clean
 
 *Tom Morello's People of the Sun Allen-Key Scrape Riff*
@@ -752,6 +764,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `pierce-sinner-riff` — ✓ clean
+
+*Sinner Riff Tone*
+
+Passes every rule.
+
 ### `reid-cult-of-personality-riff` — ✓ clean
 
 *Vernon Reid's Cult of Personality Tone*
@@ -812,6 +830,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `slash-slither-riff` — ✓ clean
+
+*Slither Riff Tone*
+
+Passes every rule.
+
 ### `slash-sweet-child-o-mine-lead` — ✓ clean
 
 *Slash's Sweet Child O' Mine Lead Tone*
@@ -845,6 +869,12 @@ Passes every rule.
 ### `srv-the-sky-is-crying-slow-blues` — ✓ clean
 
 *Stevie Ray Vaughan's The Sky Is Crying Slow-Blues Tone*
+
+Passes every rule.
+
+### `stockdale-woman-riff` — ✓ clean
+
+*Woman Riff Tone*
 
 Passes every rule.
 
