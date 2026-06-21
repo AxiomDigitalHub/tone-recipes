@@ -1,0 +1,138 @@
+---
+title: 'IR Loader Pedals: How to Turn Any Preamp or Overdrive Into a Direct Rig'
+description: >-
+  A standalone IR loader adds a speaker cab sim and a DI to anything in front of
+  it — a bare overdrive, a preamp pedal, an amp's preamp out. Here's what they
+  do, where they sit, and which one to buy.
+date: '2026-06-21'
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - ir-loader
+  - cab-sim
+  - direct-to-pa
+  - impulse-response
+  - two-notes
+  - recording
+readingTime: 9
+image: /images/blog/ir-loader-pedals-direct-rig-two-notes-boss-ir2-mooer.jpg
+image_alt: >-
+  A compact IR loader pedal at the end of a pedalboard with an XLR cable running
+  out to a direct box, no guitar amp in the signal path
+takeaways:
+  - >-
+    An IR loader is a pedal that holds speaker cabinet impulse responses and a
+    DI output. Put it last in your chain and whatever feeds it — overdrive,
+    preamp pedal, amp preamp out — becomes a complete direct rig with no amp in
+    the room.
+  - >-
+    The IR only re-cabs what you give it. Feed it a bare overdrive and you get a
+    buzzy clipped DI with a speaker on top; feed it a full preamp voicing and
+    you get a mic'd-cab sound. The input matters more than which IR you pick.
+  - >-
+    Turn the cab sim ON when you're going to a PA, interface, or FRFR. Turn it
+    OFF when you're feeding a real guitar power amp and cab, or you'll stack two
+    speaker sims and lose all the top end.
+  - >-
+    Most loaders accept third-party IRs as mono WAV files (commonly 24-bit, 48
+    kHz, truncated to around 1024–2048 samples). The stock IRs get you started;
+    third-party libraries are where the good cab tones live.
+  - >-
+    A reactive load box silences a tube amp but gives you no speaker tone — it
+    pairs with an IR loader. A loader with a built-in load (like the Captor X)
+    does both jobs in one box.
+faq:
+  - q: What does an IR loader pedal actually do?
+    a: >-
+      It applies a speaker cabinet impulse response to whatever signal passes
+      through it and gives you a balanced DI output. An impulse response is a
+      recording of one real cab, miked in one spot, frozen as a short audio
+      file. The loader convolves your signal with that file in real time, so a
+      signal that would sound like a fizzy DI comes out sounding like a miked
+      speaker. It's the last block before your PA or interface.
+  - q: Do I need an IR loader if I already have a modeler?
+    a: >-
+      No. A Helix, Quad Cortex, or HX Stomp already has cab and IR blocks built
+      in — you own the concept. IR loaders are for rigs that don't: a pedalboard
+      built around real overdrives and a preamp pedal, or a tube amp's preamp
+      out, where you want a direct cab sound without buying a full modeler.
+  - q: What's the difference between an IR loader and a load box?
+    a: >-
+      A reactive load box (like the standard Two Notes Captor) absorbs a tube
+      amp's power-section output so you can run it silently, and hands you a
+      line or DI signal — but with no speaker tone, that signal is harsh and
+      unusable on its own. An IR loader supplies the speaker tone. You chain
+      them: amp into load box, load box into IR loader. Some boxes, like the
+      Captor X, build the IR loader into the load box.
+  - q: Can I load my own IRs into these pedals?
+    a: >-
+      Most of them, yes. Two Notes, BOSS, Mooer, and UAFX all let you import
+      third-party IRs through their desktop or mobile software, usually as
+      standard mono WAV files. Each box has a fixed number of user slots. The UA
+      OX Stomp leans more on its own dynamic speaker models than on loading
+      arbitrary WAVs, so check that detail if custom-IR loading is the whole
+      reason you're buying.
+  - q: Should the cab sim be on or off when I plug into a real amp?
+    a: >-
+      Off. If you run an IR loader into a real guitar power amp and speaker
+      cabinet, the cab sim and the real cab stack — you get a dark, muffled tone
+      because you've filtered the high end twice. Cab sim ON is for going direct
+      to a PA, audio interface, or full-range (FRFR) speaker. Cab sim OFF is for
+      feeding a real power amp and cab.
+---
+
+Most guitarists meet impulse responses inside a modeler, where the cab block is just one more thing in the chain you scroll past. But the same technology comes in a small box that does exactly one job: it takes whatever signal you hand it and makes it sound like it came out of a miked speaker. Put one at the end of a pedalboard with no amp, and a bare overdrive or a preamp pedal becomes a finished, recordable, gig-ready signal. That's an IR loader, and it's the cheapest way to go direct without buying a full modeler.
+
+## What an IR Loader Is
+
+An impulse response is a snapshot of one cabinet — one speaker, one mic, one position, captured as a short audio file. An IR loader is a pedal that stores those files and convolves your live signal with one in real time, then sends the result out a balanced DI. The whole point is the output: it's meant to leave your board and go straight to a PA, an interface, or a powered full-range speaker, with no guitar amp involved.
+
+If you want the full background on what an IR is and why two "same" cabs sound different, the [impulse responses explainer](/blog/impulse-response-ir-guide) covers it. This post is about the hardware that loads them and how to build a rig around one.
+
+## Why You'd Want One
+
+The case for an IR loader is narrow but real. You have a pedalboard you like — actual overdrives, a fuzz, maybe a [preamp pedal](/blog/preamp-pedals-vs-overdrive-whole-front-end) — and you want to play a gig with no amp, or record without micing anything, or run in-ears at church. You don't want to relearn your whole rig on a modeler's menus. You just want a speaker on the end of the signal so it stops sounding like a DI.
+
+That's the gap. A modeler owner doesn't need this — the cab block is already there. An IR loader is for the analog board that needs one digital block at the very end and nothing else.
+
+## The Surprise: The IR Can Only Re-Cab What You Feed It
+
+I assumed the limiting factor would be the IRs themselves — that a cheap loader with mediocre stock cabs would be the bottleneck. So I ran the same IR, in the same box, fed by two different front ends: first a bare high-gain overdrive, then a preamp pedal with a real amp-style voicing.
+
+Same IR. The overdrive came out as an ice pick — all clipped fizz above 4 kHz, thin, no body underneath, a buzzy DI wearing a thin coat of speaker. The preamp pedal came out sounding like a 4x12 with an SM57 on it. The only variable was what hit the loader's input.
+
+Here's what's actually happening under the hood: the IR is a filter. It puts the speaker's frequency response — most importantly the high-end rolloff around 5 kHz that a real cone does — onto whatever passes through. It can subtract the fizz a real speaker would never reproduce. What it *cannot* do is manufacture the preamp saturation and power-amp character that a bare overdrive never had in the first place. The cab is the last 20 percent. If the front end isn't already a complete voicing, the IR can't invent the missing 80. That's the rule that decides whether your direct rig sounds finished or sounds like a practice-amp headphone jack.
+
+## Where It Goes in the Chain
+
+The IR loader is always last. Everything that shapes your tone happens in front of it; the loader is the speaker, and the speaker is the end of the line.
+
+1. Guitar into your drives, fuzz, modulation — your normal board.
+2. A preamp pedal or a strong overdrive providing the core voicing.
+3. Time-based effects (delay, reverb) — usually after the gain, before the cab, same as on a modeler.
+4. IR loader, cab sim ON, balanced out to the PA or interface.
+
+One critical switch: the cab sim toggle. Turn it **on** when the destination is full-range — a PA, an audio interface, an FRFR speaker. Turn it **off** when you're feeding a real guitar power amp and cabinet, because the real cab is already filtering the top end and a second cab sim on top of it gives you a blanket over the speaker. On for direct, off for a real cab. Get this backwards and you'll think the pedal is broken.
+
+## The Main Players
+
+| Pedal | What sets it apart | Custom IRs | Out |
+|---|---|---|---|
+| Two Notes Torpedo C.A.B. M+ | Dual IR engine, power-amp sim, mic + room distance controls — the deepest tone editing | Yes (WAV + Two Notes library) | XLR + jack, headphones |
+| BOSS IR-2 | Eleven amp voicings built in *plus* IRs — closer to a mini amp-and-cab than a pure loader | Yes (via BOSS Tone Studio) | Stereo jacks |
+| Mooer Radar | Smallest and cheapest; 30 cabs, 11 mics, 11 power-amp sims in a tiny enclosure | Yes (36 user slots) | XLR, jack, headphones |
+| UAFX OX Stomp | Dynamic speaker modeling and built-in room/mic emulation, very studio-voiced | Limited — leans on its own models | Stereo, app control |
+
+The honest decision framework: if you want the most editing depth and the best stock cabs, the *Torpedo C.A.B. M+*. If you want amp voicings included so a clean boost is enough in front, the *IR-2*. If you want the cheapest, smallest box that loads your own IRs, the *Radar*. If you live in a studio and want a polished, slightly produced sound out of the box, the *OX Stomp*. None of them is wrong; they're aimed at different rigs.
+
+## Loading Third-Party IRs
+
+The stock cabs get you playing in five minutes. The good tones live in third-party libraries. Loading them is the same shape on every box: connect over USB, open the desktop or mobile app, drag a WAV file into a user slot.
+
+A few specifics that save a support ticket: IRs are mono — load the mono file, not a stereo pair, unless the box specifically wants stereo. They're short, typically truncated to around 1024 or 2048 samples (roughly 20 to 40 ms); a longer file isn't "higher quality," it's just got more room tail baked in. Sample rate should match the box — most run at 48 kHz internally and will resample, but matching it avoids a conversion step. And every loader has a fixed number of slots, so you'll be auditioning and culling, not hoarding. For where to actually get cabs worth loading, the [Helix IR shootout](/blog/helix-ir-shootout) and the [2026 cab IR roundup](/blog/cab-ir-library-roundup-2026) both apply — an IR is an IR regardless of what plays it back.
+
+## If You're Coming From a Tube Amp
+
+One more rig worth naming, because people conflate two boxes. If your source is a real tube amp and you want it silent, you need a **reactive load box** first — something that absorbs the power section's output so the amp runs without a speaker moving air. A bare load box gives you a DI signal with no speaker tone, which sounds awful on its own. That's where the IR loader comes in: load box into IR loader, and now the silent amp has a cab. Some boxes fold both jobs together — the [Two Notes Captor X workflow](/blog/silent-recording-two-notes-captor-workflow) is exactly that, a reactive load with the IR engine built in, which is why it's a one-box answer for tube players who want to record quietly.
+
+The mental model that ties it all together: an IR loader is the speaker, delivered as software, at the end of the chain. It doesn't make tone — it shapes the tone you already have into something a console will accept. Feed it a finished front end and turn the cab sim on for direct, off for a real cab. Do that and a pedalboard with no amp behind it can sound like a miked cabinet, which a few years ago took a room, a mic, and a closed door.

@@ -3,11 +3,11 @@ title: >-
   Blending an Acoustic Pickup and a Microphone: The Two-Source Recording
   Workflow
 description: >-
-  Pickups give you a tight, isolated direct signal but lose the body of the
-  instrument. A microphone captures the body but picks up the room and bleeds.
-  Run them together — pickup for the attack, mic for the air — and you get the
-  recording most acoustic guitarists are actually trying for.
+  A pickup gives tight, isolated attack but loses the body; a mic captures the
+  body but bleeds. Run both — pickup for attack, mic for air — and time-align
+  them so the blend sounds like one guitar.
 date: '2026-04-27'
+updated: '2026-06-21'
 author: Margot Thiessen
 author_slug: margot-thiessen
 category: settings-guides
@@ -26,6 +26,63 @@ image_alt: >-
   a small-body acoustic guitar on a stand with an under-saddle pickup cable
   running to a DI and a small-diaphragm condenser pointed at the 12th fret,
   studio backdrop with subtle warm key lighting
+takeaways:
+  - >-
+    A pickup and a microphone hear two different things — the pickup captures
+    string attack and isolation, the mic captures body resonance and air.
+    Neither source alone is the whole instrument.
+  - >-
+    The pickup's electrical signal arrives a few milliseconds before the mic's.
+    Blend them unaligned and comb filtering hollows the guitar out. Time-align
+    the pickup later to match the mic before anything else in the mix.
+  - >-
+    The typical alignment offset is 100 to 200 samples at 44.1 kHz — slide the
+    pickup track right until its transient lines up with the mic's.
+  - >-
+    EQ each source for its job: cut the pickup's 2–4 kHz quack and its low end;
+    clean the mic's 200–400 Hz proximity buildup and add a little air up top.
+  - >-
+    Pan the pair tight, not wide. Hard-panned pickup and mic collapse into comb
+    filtering on a mono fold-down. Coherence beats stereo width on a blend.
+faq:
+  - q: Do I need an expensive condenser microphone to record acoustic this way?
+    a: >-
+      No. The sE Electronics sE7 is about $99 and produces a usable mic capture
+      for the blend; a Rode NT5 pair is excellent; the Neumann KM 184 is a step
+      up but diminishing returns hit hard above $300 for this. The blend forgives
+      a lot of microphone limitation because you're using each source for what it
+      does best, not asking either to be the complete picture.
+  - q: Can I blend a pickup and mic live, not just in the studio?
+    a: >-
+      Yes, with caveats. Some acoustic preamps (LR Baggs Venue DI, Fishman Aura
+      Spectrum) model a mic capture from the pickup alone — not as natural as a
+      real mic, but workable where you can't put up a microphone. For a real live
+      mic you'll need a feedback-resistant cardioid and careful stage volume;
+      pickup-mic blends feed back fast on loud stages. Controlled worship stages
+      handle it well, loud rock stages don't.
+  - q: What about using only the pickup and faking the body with EQ?
+    a: >-
+      It's better than nothing, and the pickup-only EQ approach is covered in our
+      acoustic pickup tone fix post. But the blend always sounds more natural,
+      because you can't generate body resonance from a transient signal — the
+      body is exactly what's missing from the pickup, and EQ can't add what isn't
+      there. If you have any microphone, even a $99 one, the blend wins.
+  - q: How do I time-align the pickup if my DAW has no sample-level editing?
+    a: >-
+      Most modern DAWs (GarageBand, Reaper, Logic, Pro Tools, Ableton Live) do
+      support it — look for "nudge by sample" or zoom in until you can see
+      individual sample points. Find a strong transient and slide the pickup
+      track right until it aligns with the mic. If your DAW genuinely can't, put
+      a delay plugin set to about 2.7 ms on the pickup instead — close enough for
+      many sources.
+  - q: Should I just record stereo with two condensers and skip the pickup?
+    a: >-
+      For solo acoustic in a great room, a well-placed stereo pair can be the
+      whole picture and the pickup adds little. For dense mixes where the
+      acoustic fights drums, bass, and electrics, the pickup's transient
+      definition gives you pick attack a stereo mic capture won't — it anchors
+      the attack while the mic handles air. Use the right tool for the context,
+      not the most expensive one every time.
 ---
 
 > **The short version:** Use the pickup signal for attack, transient definition, and isolation. Use the mic signal for body, air, and the harmonic content the pickup misses. Time-align the pickup so it lines up with the mic capture (the mic is later by a few milliseconds), then mix the pickup at about -6 dB under the mic for a natural blend or run them at unity for a more produced sound. EQ the pickup to lose its quack region (2–4 kHz) and EQ the mic to clean its proximity buildup (200–400 Hz). Pan them tight rather than wide. The blend is the sound. Either signal alone is half a tone.
@@ -64,6 +121,8 @@ Mix those two signals together without alignment and you get comb filtering. The
 The fix is straightforward in any DAW. Record both signals to separate tracks, find the pick attack on a transient, zoom in to the sample level, and slide the pickup track to the right (later in time) until its waveform aligns with the microphone's waveform. You are looking at the same physical event captured by two sources at slightly different times. Slide one to match the other.
 
 In practice the offset will be 100 to 200 samples at 44.1 kHz, depending on how far the mic is from the guitar. After alignment, the two signals reinforce instead of cancel, and the blend suddenly sounds like one coherent capture instead of two layered ones. This is the single most consequential step in the workflow. Skip it and nothing else matters.
+
+This is the same physics that bites an electric player blending a [close mic and a room mic on a guitar cab](/blog/close-mic-plus-room-mic-guitar-cab-phase-blend) — two captures of one source arriving a few milliseconds apart, comb-filtering when summed. Acoustic players hit it with a pickup versus a mic; electric players hit it with a near mic versus a far one. The fix is identical: line up the transients, or keep the later source quiet enough that the cancellation never surfaces.
 
 ---
 
@@ -149,29 +208,6 @@ This is the moment that changed how I record acoustic. The two-source approach i
 </SettingsGrid>
 
 For more practical context, our [acoustic pickup tone fix](/blog/acoustic-pickup-tone-fix) post covers what to do when you can only run a pickup signal (live use, no microphone option), and the [delay types comparison](/blog/delay-types-analog-digital-tape) post covers reverb and delay choices for acoustic that don't pile up around the pickup's quack region.
-
-<FAQ questions={[
-  {
-    q: "Do I need an expensive condenser microphone to record acoustic this way?",
-    a: "No. The sE Electronics sE7 is $99 and produces a usable mic capture for the blend. The Rode NT5 ($229 for a pair) is excellent. The Neumann KM 184 ($899) is a step up but the law of diminishing returns hits hard above $300 for this application. The pickup-and-mic blend forgives a lot of microphone limitations because you're using each for what it does best, not asking either to be the complete picture."
-  },
-  {
-    q: "Can I do this live, not just in the studio?",
-    a: "Yes, with caveats. Some acoustic preamps (LR Baggs Venue DI, Fishman Aura Spectrum) include a microphone-modeling section that approximates the mic capture from the pickup signal alone. It's not as natural as a real mic blend but it's a workable live solution where you can't use a microphone. For live performance with a real mic, you'll need a feedback-resistant cardioid (a small-diaphragm condenser) and a careful stage volume — pickup-mic blends start to feed back fast on loud stages. Worship contexts where stage volume is controlled handle it well. Loud rock stages don't."
-  },
-  {
-    q: "What about using only the pickup and faking the body with EQ?",
-    a: "It's better than nothing and we cover the EQ-only approach in our acoustic pickup tone fix post. The blend will always sound more natural than the EQ-only approach because you can't generate body resonance from a transient signal — the body is what's missing from the pickup, and EQ can't add what isn't there. If you have a microphone, even a $99 one, the blend is meaningfully better than EQ-only."
-  },
-  {
-    q: "How do I time-align the pickup if my DAW doesn't have sample-level editing?",
-    a: "Most modern DAWs (GarageBand, Reaper, Logic, Pro Tools, Ableton Live) all support sample-level editing. The feature you're looking for is usually called 'nudge by sample' or shows up as zoom levels deep enough to see individual sample points on the waveform. Find a strong transient, zoom until you can see the sample-level resolution, then slide the pickup track right until the transients align. If your DAW genuinely cannot do this, an alternative is to record the pickup with a delay plugin set to 2.5 ms — close enough for many sources."
-  },
-  {
-    q: "Should I record stereo with two condensers and forget the pickup?",
-    a: "For solo acoustic recording in a great room, a well-placed stereo pair can be the complete picture and the pickup adds nothing meaningful. For dense mixes where the acoustic needs to cut against drums, bass, and electric guitars, the pickup's transient definition gives you something a stereo mic capture won't — pick attack that doesn't get buried by surrounding instruments. In a band mix the two-source approach (pickup + single mic) often wins over a stereo-mic-only capture because the pickup anchors the attack while the mic handles the air. Use the right tool for the context, not the most expensive option for every situation."
-  }
-]} />
 
 The two-source approach takes about ten minutes to set up the first time and adds maybe five minutes per take in the mix stage once you've done it a few times. The output is recordings that sound like the instrument actually sounds when you're sitting in the room with it, which is what most acoustic guitarists are trying for and almost never achieve with a single source. Set it up once. Use it on the next session. The recordings will tell you whether it was worth the effort.
 

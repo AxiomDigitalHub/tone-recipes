@@ -1,0 +1,138 @@
+---
+title: 'Close Mic + Room Mic on a Guitar Cab: Blending Distance Without the Phase Hole'
+description: >-
+  A close mic gives you punch, a room mic gives you air — but blend them wrong
+  and the guitar goes hollow. Here's why two distances comb-filter, and the
+  three fixes that put the body back.
+date: '2026-06-21'
+author_slug: dev-okonkwo
+category: gear-lab
+tags:
+  - recording
+  - mic-placement
+  - phase
+  - room-mic
+  - comb-filtering
+  - home-recording
+readingTime: 8
+image: /images/blog/close-mic-plus-room-mic-guitar-cab-phase-blend.jpg
+image_alt: >-
+  A close dynamic microphone on a guitar cabinet grille with a second microphone
+  on a tall stand several feet back capturing the room
+takeaways:
+  - >-
+    A close mic and a room mic capture the same note at different times. When
+    you sum them, that time gap carves evenly spaced notches across the spectrum
+    — comb filtering — and the guitar goes from solid to hollow.
+  - >-
+    Sound travels about a foot per millisecond, so a room mic three feet back
+    arrives roughly 3 ms late. The first big notch lands around 170 Hz at that
+    distance, right in the body of the guitar.
+  - >-
+    The cleanest fix is to time-align in the DAW: slide the room track earlier
+    by about 39 samples per foot of extra distance (at 44.1 kHz) until the low
+    end snaps back.
+  - >-
+    Polarity flip is a coarse fix, not a real one — it only fills one notch and
+    opens another. Try it, keep it if it sounds fuller, but reach for
+    time-alignment when you want the body all the way back.
+  - >-
+    The 3:1 rule keeps the bleed quiet enough that comb filtering stays
+    inaudible: put the mics at least three times farther apart than each mic is
+    from the cab.
+faq:
+  - q: Why does my guitar sound hollow when I blend a close mic and a room mic?
+    a: >-
+      Because the two mics hear the same note at different times. The room mic
+      is farther away, so its signal arrives a millisecond or two late, and when
+      you add the two tracks together the delay cancels some frequencies and
+      reinforces others. That comb-filter pattern is what reads as thin, phasey,
+      or hollow. It isn't a bad room or a bad mic — it's arrival time, and you
+      fix it by aligning the tracks, not by re-EQing.
+  - q: How far back should a room mic be on a guitar cab?
+    a: >-
+      Far enough to capture real room reflections — usually three to ten feet —
+      but the exact distance matters less than what you do with the timing
+      after. A common bedroom starting point is three to four feet back at cab
+      height. Then either time-align the room track to the close mic in the DAW
+      or follow the 3:1 rule so the room mic stays well below the close mic in
+      level.
+  - q: 'What is the 3:1 rule for microphones?'
+    a: >-
+      The distance between two mics should be at least three times the distance
+      from each mic to its source. If your close mic is one inch off the grille,
+      the room mic wants to be at least three inches away from it — and for a
+      true room mic, much farther. Keeping that ratio means the source bleeds
+      into the second mic at least nine to ten decibels quieter, which keeps
+      comb filtering from being audible when you sum the two.
+  - q: Should I flip the polarity on my room mic?
+    a: >-
+      Try it and keep whichever sounds fuller, but don't expect it to solve
+      everything. Flipping polarity inverts the whole signal, which fills in
+      some cancelled frequencies and cancels others that were fine. It's a
+      coarse move. If the blend still sounds hollow after the flip, the real fix
+      is to slide the room track earlier in time until the low end returns.
+  - q: Can I use a close-plus-room blend with a modeler or IR?
+    a: >-
+      Sort of, and you don't have the phase problem. A modeler's cab block or an
+      IR is a single captured distance, so there's nothing to comb-filter
+      against itself. To get the close-plus-room feel digitally you add a reverb
+      or a room IR after the cab block and blend it to taste — the room is a
+      separate layer in time, mixed in, rather than a second live mic you have
+      to align.
+---
+
+A close mic on a guitar cab gives you the punch — the pick hitting the string, the cone moving air right at the grille. A room mic gives you the part you can't get up close: the sound after it's bounced off the walls, the size of the space, the air around the note. Blend them and you get a guitar that feels both present and three-dimensional. Or you blend them and the whole thing collapses into something thin and hollow, like the body got scooped out of the middle. The difference between those two outcomes isn't the room and it isn't the mics. It's time.
+
+## The Short Answer
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| Blend sounds hollow, phasey, scooped | Room mic arrives late, comb-filters against close mic | Time-align the room track in the DAW |
+| Low end disappears when you add the room | First notch landed in the body of the guitar | Slide room earlier ~39 samples per foot (44.1 kHz) |
+| Subtle thinning, can't pin it down | Bleed plus small delay | Apply the 3:1 rule, or align |
+| Fine on its own, weird when summed | Polarity mismatch | Flip room polarity, keep if fuller |
+
+The one move that fixes it almost every time: nudge the room mic's track earlier until the guitar's body comes back. Everything below is why that works.
+
+## Two Distances, Two Arrival Times
+
+Sound is slow. It covers about a foot every millisecond — call it 1.1 ft/ms if you want to be exact. The close mic, an inch or two off the grille, hears the speaker essentially instantly. A room mic three feet back hears the same note about 3 ms later, because the wavefront had to travel three more feet to reach it.
+
+On their own, neither track cares. The problem is what happens when you sum them. Add a signal to a slightly delayed copy of itself and you don't get "the same thing, louder." You get reinforcement at some frequencies and cancellation at others, in an evenly spaced pattern that looks like the teeth of a comb when you graph it. That's comb filtering, and it's the single most common reason a multi-mic guitar sound goes wrong.
+
+## Where the Notches Land
+
+Here's the part the buying guides skip. The delay decides exactly which frequencies disappear.
+
+The first notch — the deepest cut — sits at the frequency whose half-wavelength equals the delay. Run the math and a 3 ms delay (three feet of extra distance) puts that first null around 170 Hz, with more notches stacked above it every ~330 Hz. 170 Hz is the low body of the guitar. So a room mic three feet back, summed flat against the close mic, quietly deletes the chest of the tone and leaves you reaching for an EQ that can't put it back, because EQ boosts a frequency the cancellation is actively removing.
+
+Move the room mic closer and the notches climb higher in frequency. Move it farther and they drop lower and pack tighter together. There's no distance that has zero notches — there's only choosing where they fall and how loud the room mic is when they happen. That's the whole game.
+
+## Fix One: Time-Align (the real one)
+
+Pull up both tracks in your DAW and zoom in on a transient — a palm mute, the start of a chord. You'll see the close mic's spike, and then the room mic's matching spike a little to the right. That gap is your delay made visible.
+
+Slide the room track left until the two transients line up. At 44.1 kHz, one foot of distance is roughly 39 samples; at 48 kHz it's about 43. So a three-foot room mic needs to come earlier by something like 115 to 130 samples. You don't have to calculate it — just drag until the low end snaps back into focus and the guitar sounds solid again. The moment it does, you've moved the notches up out of the audible body and into frequencies you don't miss.
+
+This is the fix that actually restores the sound instead of trading one problem for another. It costs you nothing but a minute of zooming in.
+
+## Fix Two: The 3:1 Rule (when you're tracking live)
+
+If you're committing to tape and can't slide tracks around after — or you just want the room mic to behave on the way in — use the 3:1 rule. The distance between the two mics should be at least three times the distance from each mic to the cab.
+
+The logic: the farther the room mic is relative to the close mic, the quieter the direct sound is in it, so when the comb filtering happens it's happening to a signal that's already 9 to 10 dB down. The notches are still there. You just can't hear them, because the thing being notched is buried under the close mic. The 3:1 rule doesn't eliminate comb filtering — it makes it inaudible by keeping the bleed low.
+
+## Fix Three: Polarity (the coarse one)
+
+The polarity flip — the button labeled with the circle-and-slash, or "Ø" — inverts the entire room signal. People reach for it first because it's one click, and sometimes it genuinely sounds fuller, so keep it if it does.
+
+But I went in assuming polarity was the fix and time-alignment was the fussy optional thing. What I found was the opposite. Flipping polarity moved the hollowness around — it filled the notch at 170 Hz and opened a new one higher up, so the guitar stopped sounding scooped and started sounding nasal instead. Then I moved the room mic six inches and the flip that had helped now hurt. That's when it clicked: polarity is a 180-degree guess at a problem that's actually a continuous sliding delay. A flip can only ever be right at one specific distance. Time-alignment is right at every distance, because you're matching the actual arrival, not betting on a coin-flip of it. Use the flip as a quick A/B. Trust the nudge when you want it solved.
+
+## This Works on a Small Amp in a Bedroom Too
+
+You don't need a tracking room and a pair of expensive condensers for any of this. A small combo in an untreated bedroom, a dynamic on the grille, and whatever second mic you own a few feet back is exactly the setup where the close-plus-room trick earns its keep — that distant, slightly washed quality is half of why lo-fi guitar sounds like a warm memory instead of a DI. The room being imperfect is the texture. The phase math doesn't care how nice the room is; it only cares about the gap between the two mics, and the fix is the same in a bedroom as in a studio: line up the transients, or keep the room quiet enough that it doesn't fight.
+
+If you're micing a real cab, [which speaker you put the close mic on](/blog/which-speaker-to-mic-multi-speaker-cab) is the decision that comes before this one — pick the good speaker first, then add the room. And if you're hearing cancellation between two amp paths rather than two mics, that's a [different flavor of the same physics](/blog/phase-cancellation-dual-amp-modeler-presets), solved at the block level instead of the track level. Worth knowing both, because once you can hear comb filtering you start catching it everywhere — in your reverb sends, in your [room reflections](/blog/early-reflections-vs-reverb-tail-room-vs-space), in any two copies of a sound that arrive a hair apart.
+
+The close mic is the note. The room mic is where the note is standing. Get the timing right and you hear both at once — punch up front, space behind it, nothing carved out of the middle. Get it wrong and you've built an EQ notch with two microphones and a cable. Same gear, same room. Just time.
