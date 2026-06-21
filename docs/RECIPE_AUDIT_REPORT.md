@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
 **Date:** 2026-06-21
-**Recipes:** 149
-**Clean (no errors, no warns):** 149
+**Recipes:** 154
+**Clean (no errors, no warns):** 154
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,7 +16,7 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 17 / 149 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `katana-kemper-multidrive-default-off` | info | 19 / 154 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -406,15 +406,39 @@ Passes every rule.
 
 Passes every rule.
 
+### `homme-3s-and-7s-riff` — ✓ clean
+
+*3's & 7's Riff Tone*
+
+Passes every rule.
+
+### `homme-first-it-giveth-riff` — ✓ clean
+
+*First It Giveth Riff Tone*
+
+Passes every rule.
+
 ### `homme-go-with-the-flow-riff` — ✓ clean
 
 *Go with the Flow Riff Tone*
 
 Passes every rule.
 
+### `homme-green-machine-riff` — ✓ clean
+
+*Green Machine Riff Tone*
+
+Passes every rule.
+
 ### `homme-no-one-knows-detuned-desert` — ✓ clean
 
 *Josh Homme's No One Knows Detuned Desert Tone*
+
+Passes every rule.
+
+### `homme-thumb-riff` — ✓ clean
+
+*Thumb Riff Tone*
 
 Passes every rule.
 
@@ -655,6 +679,12 @@ Passes every rule.
 ### `morello-bulls-on-parade` — ✓ clean
 
 *Tom Morello's Bulls on Parade Riff & Toggle-Solo Tone*
+
+Passes every rule.
+
+### `morello-cochise-riff` — ✓ clean
+
+*Cochise Riff Tone*
 
 Passes every rule.
 
