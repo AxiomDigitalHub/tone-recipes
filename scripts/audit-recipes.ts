@@ -132,6 +132,15 @@ const HELIX_COMP_EXEMPT_SLUGS = new Set<string>([
   "dimebag-walk-groove-metal",
 ]);
 
+// Recipes recorded direct-to-console (DI), where the guitar never sees an
+// amp, cabinet, or microphone — the distortion comes from an overdriven
+// console mic-preamp and/or outboard saturation. A cab or mic block would
+// MISREPRESENT the tone, so the `signal-chain-has-cab-or-mic` rule should
+// not fire. See RECIPE_STANDARD.md → "Direct-to-console (no cab/mic) exemptions".
+const DIRECT_CONSOLE_NO_CAB_EXEMPT_SLUGS = new Set<string>([
+  "page-black-dog-riff",
+]);
+
 // Categories that always indicate a drive/boost block.
 const DRIVE_CATEGORIES = new Set(["Distortion", "Booster", "Drive"]);
 
@@ -343,6 +352,7 @@ const RULES: Rule[] = [
     severity: "warn",
     description: "Signal chain includes a cabinet or microphone block",
     check: (r) => {
+      if (DIRECT_CONSOLE_NO_CAB_EXEMPT_SLUGS.has(r.slug)) return null;
       const hasCabOrMic = r.signal_chain?.some(
         (b) => b.category === "cabinet" || b.category === "microphone",
       );

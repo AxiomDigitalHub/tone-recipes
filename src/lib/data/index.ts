@@ -10763,6 +10763,7 @@ export const toneRecipes: ToneRecipe[] = [
     title: "Brian May's Bohemian Rhapsody Guitar Tone",
     slug: "brian-may-bohemian-rhapsody",
     created_at: "2026-03-25",
+    updated_at: "2026-06-21",
     description:
       "Brian May's tone on Bohemian Rhapsody is built on a unique combination: his homemade Red Special guitar played with a sixpence coin, a Dallas Rangemaster treble booster slamming the front end of a Vox AC30. The treble booster adds gain and upper-harmonic sparkle, pushing the AC30's Top Boost channel into a rich, creamy overdrive. May's multi-tracked guitar harmonies on this song create an orchestral wall of sound, but each individual guitar part has this distinctive bright, singing character.",
     tone_context: "full_song",
@@ -11019,6 +11020,14 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 4,
+            block_name: "2x12 AC30 Blue",
+            block_category: "Cab",
+            original_gear: "AC30 2x12 Celestion Blue",
+            settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 12000, Level: 0 },
+            notes: "Blue Alnico cab for the AC30 chime.",
+          },
+          {
+            position: 5,
             block_name: "Tape Delay",
             block_category: "Delay",
             original_gear: "Echoplex",
@@ -11026,16 +11035,24 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Subtle tape delay for depth.",
           },
           {
-            position: 5,
+            position: 6,
             block_name: "Plate",
             block_category: "Reverb",
             original_gear: "EMT plate reverb",
             settings: { Decay: 2.5, Mix: 25 },
             notes: "Lush plate reverb for the Queen studio sound.",
           },
+          {
+            position: 7,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness. AC30 + Rangemaster can sound bright on FRFR — drop Tilt < 0.5 if needed.",
+          },
         ],
         notes:
-          "Rangemaster into AC30 with plate reverb. Search Cortex Cloud for Brian May captures for extra authenticity.",
+          "Rangemaster into AC30 with cab, plate reverb, and a tilt-EQ for FRFR brightness. Search Cortex Cloud for Brian May captures for extra authenticity.",
       },
       tonex: {
         chain_blocks: [
@@ -11073,10 +11090,10 @@ export const toneRecipes: ToneRecipe[] = [
           {
             position: 3,
             block_name: "Tape Echo",
-            block_category: "FX",
+            block_category: "Delay",
             original_gear: "Echoplex",
             settings: { Time: "350ms", Feedback: 25, Level: 25 },
-            notes: "Subtle delay for thickness.",
+            notes: "Subtle delay for thickness. Lives in the Katana's Delay slot.",
           },
           {
             position: 4,
@@ -11148,6 +11165,7 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 4, block_name: "Tape Mono", block_category: "Delay", original_gear: "Echoplex", settings: { Time: "350ms", Feedback: 25, Mix: 25 }, notes: "Subtle tape delay for thickness and sustain." },
           { position: 5, block_name: "London Plate", block_category: "Reverb", original_gear: "EMT plate reverb (Trident Studios)", settings: { Mix: 25, Decay: 2.5, "Pre Delay": 30 }, notes: "Lush plate reverb for the Queen studio sound." },
           { position: 6, block_name: "2x12 AC30 Blue", block_category: "Cab", original_gear: "AC30 2x12 Celestion Blue", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Blue Alnico cab for AC30 chime." },
+          { position: 7, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness. AC30 + Rangemaster can sound bright on FRFR — drop Tilt < 0.5 if needed." },
         ],
         notes: "FAS Boost into AC-30 TB for Brian May's treble-boosted AC30 tone. Red Special guitar essential. London Plate for Queen studio sound.",
       },
@@ -14559,6 +14577,7 @@ export const toneRecipes: ToneRecipe[] = [
     title: "David Gilmour's Time Solo Lead Tone",
     slug: "gilmour-time-solo-lead",
     created_at: "2026-03-27",
+    updated_at: "2026-06-21",
     description:
       "The blistering solo on Time features one of the most aggressive tones in Gilmour's catalog. A Stratocaster through a Big Muff Pi into a cranked Hiwatt DR103 creates a thick, sustaining fuzz tone with singing upper harmonics. The Binson Echorec delay adds rhythmic repeats that fill the sonic space. Gilmour's precise bending and vibrato bring the notes to life over the massive sustain.",
     tone_context: "solo",
@@ -14778,9 +14797,11 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 50, Level: 0 }, notes: "Light parallel comp evens out picking dynamics. Mix at 50% keeps the natural attack present." },
           { position: 2, block_name: "Fuzz Pi", block_category: "Drive", original_gear: "Big Muff Pi", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Big Muff for singing fuzz sustain." },
           { position: 3, block_name: "Search Cortex Cloud for 'Hiwatt DR103' capture", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Gain: 5.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, Master: 7.0 }, notes: "Clean Hiwatt as a pedal platform." },
-          { position: 4, block_name: "Digital Delay", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 440, Feedback: 30, Mix: 35 }, notes: "440ms delay for rhythmic repeats." },
+          { position: 4, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "WEM 4x12 (Fane)", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Greenback cab as a close approximation to the WEM Fane speakers." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 440, Feedback: 30, Mix: 35 }, notes: "440ms delay for rhythmic repeats." },
+          { position: 6, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate (EMT 140)", settings: { Decay: 1.8, Predelay: 10, Mix: 20, Level: 0 }, notes: "Tight EMT plate for the solo — Mix 20% keeps the dry note out front." },
         ],
-        notes: "Strat neck pickup, Big Muff fuzz, clean Hiwatt, delay. The Gilmour essentials.",
+        notes: "Strat neck pickup, Big Muff fuzz, clean Hiwatt, cab, delay, plate. The Gilmour essentials.",
       },
       tonex: {
         chain_blocks: [
@@ -14793,8 +14814,9 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Muff Fuzz", block_category: "Booster", original_gear: "Big Muff Pi", settings: { Sustain: 8, Tone: 6, Level: 7 }, notes: "Muff Fuzz booster in Boss Tone Studio for thick fuzz sustain." },
           { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Hiwatt DR103", settings: { Gain: 4, Volume: 7, Bass: 5, Middle: 6, Treble: 6, Presence: 5 }, notes: "Lead channel at moderate gain as a clean-ish platform for the fuzz." },
           { position: 3, block_name: "Digital", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 440, Feedback: 30, Level: 35 }, notes: "440ms delay for musical repeats." },
+          { position: 4, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio plate (EMT 140)", settings: { Time: 4, PreDelay: 10, Tone: 5, EffectLevel: 20 }, notes: "Tight plate for the solo; EffectLevel 20 keeps the dry note out front." },
         ],
-        notes: "Use the Katana's Muff Fuzz booster into a moderate-gain Lead channel with delay for a convincing Gilmour lead tone.",
+        notes: "Use the Katana's Muff Fuzz booster into a moderate-gain Lead channel with delay and a touch of plate for a convincing Gilmour lead tone.",
       },
       kemper: {
         chain_blocks: [
@@ -14833,6 +14855,15 @@ export const toneRecipes: ToneRecipe[] = [
             notes:
               "DLY slot. Set to ~440ms for the rhythmic repeats that fill space between phrases. The Binson Echorec's warm repeats are well matched by the Kemper's analog-style delay.",
           },
+          {
+            position: 5,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate (EMT 140)",
+            settings: { Decay: 1.8, Predelay: 10, Mix: 0.20 },
+            notes:
+              "REV slot. Tight EMT plate for the solo — Mix 20% keeps the dry note out front.",
+          },
         ],
         notes:
           "Kemper profiles include the cab, so no separate cab block is needed. The Muffin into a clean Hiwatt profile is the classic Gilmour formula. Use the Strat neck pickup, slow vibrato, and precise bends for authentic phrasing.",
@@ -14844,6 +14875,7 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 3, block_name: "Hipower", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 5.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, "MV": 7.0 }, notes: "Clean Hiwatt platform for the Big Muff." },
           { position: 4, block_name: "Digital Mono", block_category: "Delay", original_gear: "Binson Echorec", settings: { Time: 440, Feedback: 30, Mix: 35 }, notes: "Set delay to ~440ms for rhythmic repeats." },
           { position: 5, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "WEM 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0 }, notes: "Greenback cab as a close approximation to WEM Fane speakers." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (EMT 140)", settings: { Mix: 0.20, Decay: 1.8, PreDelay: 10 }, notes: "Tight EMT plate for the solo — Mix 20% keeps the dry note out front." },
         ],
         notes: "Ram's Head Big Muff for thick, singing fuzz.",
       },
@@ -16049,6 +16081,7 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "enter-sandman-metallica",
     title: "James Hetfield's Enter Sandman Tight Rhythm Tone",
     slug: "hetfield-enter-sandman-tight-rhythm",
+    updated_at: "2026-06-21",
     created_at: "2026-03-27",
     description:
       "Enter Sandman introduced a new, more polished Metallica rhythm sound. Hetfield's ESP through a Mesa/Boogie Mark IV with a scooped midrange and tight low end creates the punchy, percussive tone that defined the Black Album. Compared to the rawer Master of Puppets tone, Enter Sandman is more controlled, more produced, and heavier in the low end thanks to Bob Rock's production.",
@@ -16161,8 +16194,9 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 3, block_name: "Green 808", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5.0, Level: 8.0 }, notes: "Clean boost for bass tightening — drive at 0, level slamming the Mesa's input. Same Hetfield trick as the Helix recipe: the boost is the slam, not the pedal's gain." },
           { position: 4, block_name: "CA MkIV Lead", block_category: "Amp", original_gear: "Mesa Mark IV", settings: { Gain: 7.0, Bass: 3.0, Mid: 3.0, Treble: 7.0, Presence: 6.0, Master: 6.0 }, notes: "Scooped mids, tight low end. Bass + Mid both at 3 give the V-curve that defines Black Album rhythm." },
           { position: 5, block_name: "4x12 Brit T75", block_category: "Cab", original_gear: "Marshall 1960B with G12T-75 (Bob Rock's Black Album cab)", settings: { Mic: "SM57", Distance: "1 inch", LowCut: 80, HighCut: 12000 }, notes: "G12T-75 4x12 cab — the verified Black Album cab spec. SM57 close to the cone for tight, percussive bite. HighCut at 12k tames fizz without losing pick attack." },
+          { position: 6, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment for FRFR systems — pull Tilt < 0.5 to tame fizz." },
         ],
-        notes: "Aggressive noise gate → TS boost → scooped Mesa Mark IV → G12T-75 cab. The QC delivers an authentic Black Album rhythm formula. Hetfield's all-downstroke picking is half the tone.",
+        notes: "Aggressive noise gate → TS boost → scooped Mesa Mark IV → G12T-75 cab → tilt-EQ. The QC delivers an authentic Black Album rhythm formula. Hetfield's all-downstroke picking is half the tone.",
       },
       tonex: {
         chain_blocks: [
@@ -16225,8 +16259,9 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "T808 OD", block_category: "Drive", original_gear: "Tube Screamer", settings: { Drive: 0, Tone: 5.0, Level: 8.0 }, notes: "Clean boost to tighten the Mesa's low end." },
           { position: 3, block_name: "Cali IV Lead", block_category: "Amp", original_gear: "Mesa Mark IV", settings: { Drive: 7.0, Bass: 3.0, Mid: 3.0, Treble: 7.0, Presence: 6.0, "MV": 7.0 }, notes: "Scooped mids, tight bass. The classic Metallica Black Album rhythm tone." },
           { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa Rectifier 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "V30 cab for tight, focused metal tone." },
+          { position: 5, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment for FRFR — pull Tilt < 0.5 to tame fizz." },
         ],
-        notes: "Clean boost to tighten the Mesa's low end.",
+        notes: "Clean boost to tighten the Mesa's low end, into a scooped Mesa Mark IV with a tilt-EQ at the chain end.",
       },
     },
     is_editorial: true,
@@ -16551,6 +16586,7 @@ export const toneRecipes: ToneRecipe[] = [
     title: "Matt Bellamy's Plug In Baby Fuzz Whammy Tone",
     slug: "bellamy-plug-in-baby-fuzz-whammy",
     created_at: "2026-03-27",
+    updated_at: "2026-06-21",
     description:
       "Plug In Baby features Matt Bellamy's signature combination of heavy fuzz and a DigiTech Whammy for the iconic riff. The Manson guitar runs through a fuzz pedal into a cranked Marshall for a thick, aggressive distortion, while the Whammy adds an octave-up effect that gives the riff its distinctive screaming, synth-like quality. The riff itself is a rapid-fire chromatic run that is instantly recognizable.",
     tone_context: "riff",
@@ -16756,6 +16792,9 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "Wham", block_category: "Pitch", original_gear: "DigiTech Whammy", settings: { Mode: "1 Oct Up", Position: 10 }, notes: "Octave up, fully engaged." },
           { position: 3, block_name: "Fuzz Pi", block_category: "Drive", original_gear: "Fuzz", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Heavy fuzz for riff aggression." },
           { position: 4, block_name: "Brit Plexi 100 Bright", block_category: "Amp", original_gear: "Marshall", settings: { Gain: 7.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, Master: 7.0 }, notes: "Cranked Plexi for added compression." },
+          { position: 5, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 Greenback", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Marshall 4x12 with Greenbacks — captures both the bright fuzz cut and the Marshall body." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness. Whammy + fuzz can sound spiky on FRFR; pull Tilt < 0.5 to soften." },
+          { position: 7, block_name: "Plate", block_category: "Reverb", enabled: false, original_gear: "Studio plate", settings: { Decay: 1.5, Predelay: 20, Mix: 0.18 }, notes: "Subtle plate, off by default. The Origin of Symmetry mix is dry; flip on for live monitoring." },
         ],
         notes: "Whammy + fuzz + Marshall = Plug In Baby. The octave effect is essential.",
       },
@@ -16770,6 +16809,7 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Pitch Shifter", block_category: "Pedal FX", original_gear: "DigiTech Whammy", settings: { Pitch: "+1 Oct" }, notes: "Pitch shifter set to +1 octave." },
           { position: 2, block_name: "Muff Fuzz", block_category: "Booster", original_gear: "Fuzz", settings: { Sustain: 8, Tone: 6, Level: 7 }, notes: "Heavy fuzz for the riff." },
           { position: 3, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall", settings: { Gain: 7, Volume: 7, Bass: 5, Middle: 6, Treble: 7, Presence: 6 }, notes: "Brown channel for Marshall-style crunch and compression." },
+          { position: 4, block_name: "Reverb", block_category: "Reverb", enabled: false, original_gear: "Studio plate", settings: { Time: 4, PreDelay: 20, Tone: 5, EffectLevel: 20 }, notes: "Subtle plate, off by default — the album mix is dry. Flip on for live monitoring." },
         ],
         notes: "Octave-up pitch shift + fuzz + Brown channel. The Muse sound in three blocks.",
       },
@@ -16780,6 +16820,8 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 3, block_name: "PI Fuzz", block_category: "Drive", original_gear: "Fuzz Factory / Big Muff", settings: { Sustain: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Heavy fuzz for the thick riff distortion." },
           { position: 4, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall", settings: { Drive: 7.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 7.0 }, notes: "Cranked Marshall for compression on top of fuzz." },
           { position: 5, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0 }, notes: "Standard Marshall cab." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness. Whammy + fuzz can sound spiky on FRFR; pull Tilt < 0.5 to soften." },
+          { position: 7, block_name: "Plate", block_category: "Reverb", enabled: false, original_gear: "Studio plate", settings: { Mix: 0.18, Decay: 1.5, PreDelay: 20 }, notes: "Subtle plate, off by default. The album mix is dry; flip on for live monitoring." },
         ],
         notes: "Classic Whammy octave-up into PI Fuzz into cranked Plexi. The signature Muse riff formula.",
       },
@@ -16819,6 +16861,16 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Gain: 7.0, Bass: 5.0, Middle: 6.0, Treble: 7.0, Presence: 6.0 },
             notes:
               "Search Rig Exchange for cranked Marshall profiles. The amp adds compression and saturation on top of the fuzz. With Liquid Profiling, select the Marshall tone stack.",
+          },
+          {
+            position: 5,
+            block_name: "Plate",
+            block_category: "Reverb",
+            enabled: false,
+            original_gear: "Studio plate",
+            settings: { Decay: 1.5, Predelay: 20, Mix: 0.18 },
+            notes:
+              "Slot REV. Subtle plate, off by default — the Origin of Symmetry mix is dry. Flip on for live monitoring.",
           },
         ],
         notes:
@@ -18287,6 +18339,7 @@ export const toneRecipes: ToneRecipe[] = [
     title: "Felder's Hotel California Outro Solo Tone",
     slug: "felder-hotel-california-solo",
     created_at: "2026-06-01",
+    updated_at: "2026-06-21",
     description:
       "One of the most-studied lead tones in rock. Don Felder cut the famous Hotel California outro solo with his 1959 Les Paul Standard plugged straight into a narrow-panel mid-50s Fender Tweed Deluxe, cranked into edge-of-breakup territory, with a Maestro Echoplex in the loop for the tape-delay swell. Felder and Walsh trade twin-harmony lines, but the lead voice is Felder's PAF-on-Tweed-combo — fat, singing, slightly breaking up at the top of every note.",
     tone_context: "solo",
@@ -18516,9 +18569,17 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Decay: 1.8, Predelay: 30, Mix: 18, Level: 0 },
             notes: "Studio plate to glue the lead into the album mix. Decay 1.8 s and Mix 18% are tracking-room-appropriate — not stadium-sized.",
           },
+          {
+            position: 6,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 },
+            notes: "Slight tilt below center — a cranked Tweed Deluxe is already bright; pull Tilt down a hair so the FRFR rig doesn't get fizzy at volume.",
+          },
         ],
         notes:
-          "Search Cortex Cloud for Tweed Deluxe or Hotel California captures. Comp + Tweed + cab + tape echo + plate mirrors the Helix chain end-to-end.",
+          "Search Cortex Cloud for Tweed Deluxe or Hotel California captures. Comp + Tweed + cab + tape echo + plate + tilt-EQ mirrors the Helix chain end-to-end.",
       },
       tonex: {
         chain_blocks: [
@@ -18621,8 +18682,9 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 3, block_name: "1x12 Tweed", block_category: "Cab", original_gear: "Tweed Deluxe 1x12 with Jensen P12R", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 80, HighCut: 7500, Level: 0 }, notes: "Single-12 Tweed cab with SM57. Cuts tame the P12R's papery top end." },
           { position: 4, block_name: "EP-3 Tape Delay", block_category: "Delay", original_gear: "Maestro Echoplex EP-3", settings: { Time: 310, Feedback: 0.20, Mix: 0.18 }, notes: "Fractal's EP-3 emulation. Time=310 ms, Mix=18% — smear, not rhythmic." },
           { position: 5, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate", settings: { Mix: 0.18, Decay: 1.8, Predelay: 30 }, notes: "Tracking-room plate. Decay 1.8 s glues the lead without stadium-sizing it." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slight tilt below center — the cranked Tweed is already bright; pull Tilt down a hair so the FRFR rig doesn't get fizzy at volume." },
         ],
-        notes: "Comp → Tweed Deluxe → 1x12 → EP-3 delay → plate reverb mirrors the Helix chain. The Cygnus Tweed Deluxe model is one of Fractal's best.",
+        notes: "Comp → Tweed Deluxe → 1x12 → EP-3 delay → plate reverb → tilt-EQ mirrors the Helix chain. The Cygnus Tweed Deluxe model is one of Fractal's best.",
       },
     },
     is_editorial: true,
@@ -18966,6 +19028,7 @@ export const toneRecipes: ToneRecipe[] = [
     title: "Blackmore's Smoke on the Water Riff Tone",
     slug: "blackmore-smoke-on-the-water-riff",
     created_at: "2026-06-01",
+    updated_at: "2026-06-21",
     description:
       "The most famous riff in rock — and one of the most misunderstood. Ritchie Blackmore played the Smoke on the Water riff in parallel fourths (not power chords) on a 1968 maple-neck Stratocaster through a 100W Marshall head, with a Hornby-Skewes treble booster adding clarity and just a touch of hair. The riff was tracked at the Grand Hotel in Montreux, December 1971, after a fire burned down the original recording venue.",
     tone_context: "intro_riff",
@@ -19187,9 +19250,17 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Decay: 1.0, Predelay: 25, Mix: 15, Level: 0 },
             notes: "Short studio plate for glue. Mirrors what Martin Birch added at the console.",
           },
+          {
+            position: 6,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness. The Hornby-Skewes + Plexi + Greenback chain is mid-forward; pull Tilt below 0.5 if it sounds nasal on FRFR.",
+          },
         ],
         notes:
-          "Search Cortex Cloud for Plexi or Smoke on the Water captures. Comp + treble booster + Plexi + cab + plate mirrors the Helix chain.",
+          "Search Cortex Cloud for Plexi or Smoke on the Water captures. Comp + treble booster + Plexi + cab + plate + tilt-EQ mirrors the Helix chain.",
       },
       tonex: {
         chain_blocks: [
@@ -19285,8 +19356,9 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 3, block_name: "1959SLP", block_category: "Amp", original_gear: "Marshall 100W (Super Lead-era)", settings: { Drive: 6.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.5, MV: 6.5, Cut: 0 }, notes: "Cygnus 1959SLP — same EL34 / Plexi platform as the 100W head Blackmore used. Drive=6.0 — booster does the saturation." },
           { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 1960B with Greenback", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 100, HighCut: 8500, Level: 0 }, notes: "Greenback cab with SM57. Cuts tame the booster's top-end fizz." },
           { position: 5, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Console plate", settings: { Mix: 0.15, Decay: 1.0, Predelay: 25 }, notes: "Short studio plate for glue. Decay 1.0 s mirrors the dry-ish record." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness. The treble-booster + Plexi + Greenback chain is mid-forward; pull Tilt below 0.5 if it sounds nasal on FRFR." },
         ],
-        notes: "Comp → FAS Boost (default-on treble-booster stand-in) → 1959SLP → 4x12 Green → plate mirrors the Helix chain. The booster default-on is the key to this tone.",
+        notes: "Comp → FAS Boost (default-on treble-booster stand-in) → 1959SLP → 4x12 Green → plate → tilt-EQ mirrors the Helix chain. The booster default-on is the key to this tone.",
       },
     },
     is_editorial: true,
@@ -19620,6 +19692,7 @@ export const toneRecipes: ToneRecipe[] = [
     title: "Knopfler's Money for Nothing Intro Riff Tone",
     slug: "knopfler-money-for-nothing-intro",
     created_at: "2026-06-01",
+    updated_at: "2026-06-21",
     description:
       "One of the most-mythologized accidental tones in rock. Mark Knopfler tracked the Money for Nothing intro riff at AIR Studios Montserrat (April 1985) on a Gibson Les Paul Junior through a Laney Klipp 2x12 combo, with a Morley wah pedal kept half-cocked in front. The SM57 had slipped off its stand the night before and was pointing at the floor, four inches from the speaker — by accident. Engineer Neil Dorfsman and Knopfler heard it through the talkback, told the room not to touch anything, and tracked the riff exactly as it stood. The tone has never been re-created since.",
     tone_context: "intro_riff",
@@ -19850,9 +19923,17 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Decay: 1.5, Predelay: 25, Mix: 15, Level: 0 },
             notes: "Small AIR Studios plate — the record is dry; this is just glue.",
           },
+          {
+            position: 6,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 },
+            notes: "Slight tilt below center keeps the woman tone dark — the off-axis 2x12 is already rolled off; this is final FRFR shaping.",
+          },
         ],
         notes:
-          "Search Cortex Cloud for Laney or 'Money for Nothing' captures. Comp + wah (parked) + amp + off-axis 2x12 + plate mirrors the Helix chain. The wah is parked at 4.5/10 — DON'T sweep it.",
+          "Search Cortex Cloud for Laney or 'Money for Nothing' captures. Comp + wah (parked) + amp + off-axis 2x12 + plate + tilt-EQ mirrors the Helix chain. The wah is parked at 4.5/10 — DON'T sweep it.",
       },
       tonex: {
         chain_blocks: [
@@ -19947,8 +20028,9 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 3, block_name: "Brit Pre", block_category: "Amp", original_gear: "Laney Klipp 2x12 (1980s)", settings: { Drive: 6.5, Bass: 5.0, Mid: 6.5, Treble: 6.0, Presence: 5.0, MV: 6.5, Cut: 0 }, notes: "Cygnus Brit Pre or similar 'British combo' voicing — no direct Laney Klipp model. Gain=6.5 — singing breakup." },
           { position: 4, block_name: "2x12 British", block_category: "Cab", original_gear: "Laney Klipp built-in 2x12", settings: { Mic: "Condenser", Distance: 4.0, LowCut: 100, HighCut: 6500, Level: 0 }, notes: "2x12 cab with off-axis condenser mic to approximate the floor-pointed SM57 accident. HighCut 6.5k mimics the floor-bounce dulling." },
           { position: 5, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "AIR Studios Montserrat plate", settings: { Mix: 0.15, Decay: 1.5, Predelay: 25 }, notes: "Small AIR plate — the record is dry, just glue." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.45, CenterFreq: 1000, Level: 0 }, notes: "Slight tilt below center keeps the woman tone dark — the off-axis 2x12 is already rolled off; this is final FRFR shaping." },
         ],
-        notes: "Comp → parked wah → Brit Pre → 2x12 off-axis → plate mirrors the Helix chain. The wah is parked half-cocked — DON'T sweep it. The off-axis mic placement is the irreproducible part; the dark IR gets close.",
+        notes: "Comp → parked wah → Brit Pre → 2x12 off-axis → plate → tilt-EQ mirrors the Helix chain. The wah is parked half-cocked — DON'T sweep it. The off-axis mic placement is the irreproducible part; the dark IR gets close.",
       },
     },
     is_editorial: true,

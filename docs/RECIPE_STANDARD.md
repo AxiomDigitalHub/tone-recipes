@@ -161,6 +161,18 @@ At least one block is `category: "cabinet"` or `category: "microphone"`.
 **Why:** the cab + mic stage is 25% of the tone. Recipes that skip it
 miss the most-important downstream link.
 
+**Direct-to-console (no cab/mic) exemptions:** a small set of recipes
+were recorded DI — the guitar went straight into a console mic-preamp
+(or an outboard saturation stage) and never saw an amp, cabinet, or
+microphone. The distortion is preamp/console clipping, not a mic'd
+speaker. Adding a cab or mic block to these would *misrepresent* the
+tone, so they are exempt via `DIRECT_CONSOLE_NO_CAB_EXEMPT_SLUGS` in
+`scripts/audit-recipes.ts`. Current exemptions:
+- `page-black-dog-riff` — Jimmy Page recorded Black Dog's riff direct
+  into a Helios desk's overdriven mic preamp, then through two UREI
+  1176s in series. "We put my Les Paul through a direct box, and from
+  there into a mic channel." No amp, no cab, no mic by design.
+
 ### C4 · `signal-chain-block-notes` · warn
 Every signal-chain block has a non-empty `notes` field that explains
 WHY a setting is what it is — not just describing the setting.
