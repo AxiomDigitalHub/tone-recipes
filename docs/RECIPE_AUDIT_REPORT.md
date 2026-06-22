@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-21
-**Recipes:** 154
-**Clean (no errors, no warns):** 154
+**Date:** 2026-06-22
+**Recipes:** 159
+**Clean (no errors, no warns):** 159
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,7 +16,7 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 19 / 154 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `katana-kemper-multidrive-default-off` | info | 19 / 159 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -502,6 +502,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `kiszka-highway-tune-riff` — ✓ clean
+
+*Highway Tune Riff Tone*
+
+Passes every rule.
+
 ### `knopfler-money-for-nothing-intro` — ✓ clean
 
 *Knopfler's Money for Nothing Intro Riff Tone*
@@ -712,6 +718,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `morello-show-me-how-to-live-riff` — ✓ clean
+
+*Show Me How to Live Riff Tone*
+
+Passes every rule.
+
 ### `morello-sleep-now-in-the-fire` — ✓ clean
 
 *Tom Morello's Sleep Now in the Fire Bluesy Riff & Whammy Hum*
@@ -844,6 +856,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `slash-fall-to-pieces-solo` — ✓ clean
+
+*Fall to Pieces Solo Tone*
+
+Passes every rule.
+
 ### `slash-november-rain-solo` — ✓ clean
 
 *Slash's November Rain Outro Solo Tone*
@@ -892,9 +910,21 @@ Passes every rule.
 
 Passes every rule.
 
+### `stockdale-joker-and-the-thief-riff` — ✓ clean
+
+*Joker & the Thief Riff Tone*
+
+Passes every rule.
+
 ### `stockdale-woman-riff` — ✓ clean
 
 *Woman Riff Tone*
+
+Passes every rule.
+
+### `sult-electric-worry-riff` — ✓ clean
+
+*Electric Worry Riff Tone*
 
 Passes every rule.
 
