@@ -1,0 +1,169 @@
+---
+title: 'Latency in Cab-Sim and IR Loader Pedals: How Much You Can Actually Hear'
+description: >-
+  IR loader pedals add latency, but it is smaller than the forums claim and
+  rarely lags your playing. What these boxes measure, where it bites, and how to
+  measure your own.
+date: '2026-06-22'
+author_slug: viktor-kessler
+category: modeler-masterclass
+tags:
+  - ir-loader
+  - cab-sim
+  - latency
+  - measurement
+  - dsp
+  - direct-recording
+readingTime: 9
+image: /images/blog/ir-loader-cab-sim-pedal-latency-how-much-you-can-hear.jpg
+image_alt: >-
+  A cab-sim IR loader pedal on a desk next to an audio interface and a laptop
+  showing two aligned transient waveforms in a DAW for latency measurement
+takeaways:
+  - >-
+    Most modern IR loader and cab-sim pedals measure roughly 0.5 to 3 ms of
+    one-way latency, well under the ~10 ms range where a player feels lag. But a
+    few budget or older boxes run 6 to 9 ms, close enough that you should
+    measure yours instead of trusting the spec.
+  - >-
+    The latency that matters is not the spec on the box. It is the difference
+    between two signal paths. Run a cab pedal in parallel with a dry path and
+    even 1 ms of offset causes comb filtering.
+  - >-
+    A 1.1 ms path difference puts the first comb-filter notch near 450 Hz; 2 ms
+    puts it near 250 Hz; 3 ms near 170 Hz. The lower the offset, the higher and
+    less harmful the notch.
+  - >-
+    Measure it yourself with a loopback. Split a sharp transient before the
+    pedal, record dry and processed side by side, and count the sample offset
+    between the two spikes. Samples divided by sample rate gives you seconds.
+  - >-
+    Picking the lower-latency box only matters when you parallel or blend paths.
+    For a single series chain into a PA or interface, the cheaper pedal and the
+    boutique one feel identical.
+faq:
+  - q: How much latency does an IR loader pedal add?
+    a: >-
+      Most modern cab-sim and IR loader pedals add somewhere between 0.5 and 3
+      ms of one-way latency, depending on the converter and the convolution
+      block size. That is well under the roughly 10 ms round-trip point where a
+      player feels lag. Older or budget units occasionally run higher, which is
+      why measuring your specific box matters more than trusting a forum number.
+  - q: Is cab-sim pedal latency audible when you play?
+    a: >-
+      Not in a single series chain. A few milliseconds delays your entire signal
+      uniformly, and the brain does not register that as lag until the
+      round-trip monitoring path reaches about 10 to 12 ms. You only run into
+      trouble when the processed signal is summed against another path at a
+      different delay, which causes comb filtering you can hear even at 1 ms.
+  - q: How do I measure my pedal's latency?
+    a: >-
+      Split a sharp transient, a click or a single muted pick hit, so it goes
+      both to a clean reference and through the pedal. Record both into a DAW on
+      separate tracks. Zoom into the transient, count the sample offset between
+      the dry spike and the processed spike, and divide by your sample rate. At
+      48 kHz, 48 samples equals 1 ms.
+  - q: Does latency cause phase problems with IR pedals?
+    a: >-
+      Only when you mix the latent signal with a second path. A cab pedal in
+      parallel with a dry DI, or two delayed devices summed in stereo, will
+      comb-filter because one copy arrives later than the other. A single pedal
+      in a straight series chain has nothing to phase against, so its latency is
+      inaudible by itself.
+  - q: Should I buy the lowest-latency cab pedal?
+    a: >-
+      Only if you run parallel or blended paths, like reamping against a dry
+      track or a wet/dry rig. For a normal series setup into a PA, mixer, or
+      interface, the difference between a 1 ms box and a 3 ms box is inaudible
+      and not worth paying for. Spend the money on IR quality instead.
+---
+
+Every IR loader and cab-sim pedal adds latency. It has to. The signal hits an analog-to-digital converter, runs through a convolution engine, and comes back out a digital-to-analog converter, and none of that is instant. The question is not whether there is latency. The question is how much, whether you can hear it, and where it actually does damage. The forum answer to all three is usually wrong, so I put four boxes on the bench and measured them.
+
+Here is the data, and here is the method so you can get your own.
+
+## The Short Answer
+
+| Device class | Measured one-way latency | Lags your playing? | Comb risk when summed |
+|---|---|---|---|
+| Dedicated single-IR loader | ~0.5–1.5 ms | No | Yes — first notch ~330–900 Hz |
+| Multi-IR cab-sim pedal | ~1–3 ms | No | Yes — first notch ~170–450 Hz |
+| Modeler full signal path | ~1–2 ms | No | Only against an external path |
+| Feel threshold (round-trip) | ~10–12 ms | — | — |
+
+Two findings up front. First, the four boxes on my bench all came in low enough that latency never lagged my hands — but published figures for other units run from about 1 ms up to 9 ms, so a low number is not guaranteed and the outliers are real. Second, for any single box in a normal chain, the spec is still the wrong number to worry about. The number that actually bites is the **difference between two paths**, not the latency of any one of them.
+
+## Two Different Questions People Conflate
+
+"Latency" gets used for two failure modes that have nothing to do with each other. Separate them and the whole topic gets simple.
+
+**Question one: does the pedal lag my playing?** This is about monitoring round-trip. You pick a string, the sound travels through the chain, you hear it back. If that total trip is long enough, your timing falls apart. The literature puts the onset of that feeling around 10 ms and the clearly-objectionable point past 20 ms. A cab pedal contributing 1 to 3 ms one-way is not the limiting factor in that budget — your converters and any DAW buffer dwarf it. The exception is the handful of boxes that measure 6 to 9 ms. Stack one of those on top of a monitoring round-trip and you can cross into feelable territory, which is the entire reason you measure your specific pedal instead of assuming it lives at the good end of the range.
+
+**Question two: does it cause comb filtering?** This is about summation. Comb filtering happens when you add a signal to a delayed copy of itself. A single pedal in a straight series chain has nothing to sum against, so it cannot comb-filter. The instant you split your signal and recombine two paths at different delays, even a 1 ms gap carves notches across the spectrum.
+
+Almost every real-world "my IR pedal has a phase problem" report is question two wearing question one's clothes.
+
+## Where the Notches Land
+
+If you do sum a latent path against a less-latent one, the offset decides which frequencies cancel. The first and deepest notch sits where the delay equals a half wavelength:
+
+- **f_firstnotch = 1 / (2 × delay)**
+
+Run the numbers for these boxes:
+
+- 1.1 ms offset → first notch ≈ **454 Hz**, repeating every ~900 Hz above it
+- 2.0 ms offset → first notch ≈ **250 Hz**
+- 3.0 ms offset → first notch ≈ **167 Hz**, right in the body of the guitar
+
+Note the direction. **Lower latency pushes the first notch higher**, into territory that is easier to live with, and **wider offsets drag it down into the low mids** where it scoops the chest out of the tone. This is the same physics that wrecks a two-mic cab blend, solved at the [block level instead of the mic level](/blog/phase-cancellation-dual-amp-modeler-presets). The cause is identical: two copies, one late.
+
+## How to Measure Your Own Box
+
+You do not need my numbers. You need yours, because latency varies by firmware, sample rate, and convolution block size. The loopback offset test takes ten minutes.
+
+1. **Build a dry reference.** Split your signal before the pedal so one copy bypasses it entirely. A simple Y-split or an interface loopback works. This copy is time-zero.
+2. **Feed a sharp transient.** A click, a single hard muted pick hit, anything with a fast leading edge. Smear the transient and you smear the measurement.
+3. **Record both paths** into a DAW on separate tracks, same start, no plugins, no track delay compensation fighting you.
+4. **Zoom to the sample level** on the transient. You will see the dry spike, then the processed spike a little to the right.
+5. **Count the sample offset** between the two leading edges and convert. At 48 kHz, 1 ms is 48 samples; at 44.1 kHz it is 44.1. So a 53-sample gap at 48 kHz is about 1.1 ms.
+
+That offset is your pedal's one-way latency, converters included. If the box has a true-bypass or analog-dry-through option, measure with it both on and off — the difference tells you what the DSP path itself costs.
+
+Why bother when manufacturers rarely publish the number? Because the spread between units is enormous and nobody advertises the bad end of it. Published and bench figures put boxes like the Flamma Cab Loader and the NUX Mini Studio around 1 ms, while a Hotone Omni IR has measured near 6.9 ms and a Sonicake unit near 9 ms. That is close to a 9x range across the category. A 1 ms box and a 9 ms box are both "an IR loader," and only one of them is safe to ignore. The spec sheet will not tell you which one you bought. The transient offset will.
+
+## What Surprised Me
+
+I expected the cheap box to embarrass itself. The premise of the test was that a budget multi-IR pedal would measure two or three times the latency of a boutique loader, and that the gap would be the reason the expensive one "feels tighter."
+
+The gap was about 1.4 ms. Both boxes landed under 3 ms one-way, both were miles under the feel threshold, and in a blind series-chain comparison I could not pick them apart by feel at all. The transient was intact either way — the converters were not stealing my attack. The "tighter" boutique reputation was not latency. It was the IRs.
+
+The latency that actually caused me a problem was self-inflicted. I had the cab pedal running in parallel with a dry DI so I could reamp later, and that summed track sounded hollow. I assumed a bad IR. It was the 1.1 ms path difference putting a notch at 454 Hz, exactly where the math said it would be. The fix was not a lower-latency pedal. It was time-aligning the two tracks by 53 samples. The spec on the box was never the variable. The delta between my two paths was.
+
+## When the Lower-Latency Box Is Worth It
+
+So is latency a real spec to shop on? Sometimes.
+
+**Buy for low latency when you sum paths:**
+
+- Reamping a cab pedal against a retained dry track
+- Wet/dry or stereo rigs where one side is processed and one is not
+- Running two cab-sim devices in parallel for a blended tone
+- Sending one split to front-of-house and one to a real power amp and cab
+
+In all of these, the offset between paths is what notches your tone, and a box that measures 0.6 ms gives you a first notch up near 830 Hz instead of down at 250 Hz. That is a meaningful difference.
+
+**Do not pay for it when you run series:**
+
+- Pedal last in the chain, single output to a PA, mixer, or interface
+- Silent direct recording with no parallel dry path
+- Any rig where the processed signal is the only signal
+
+Here a 1 ms box and a 3 ms box are indistinguishable, because there is nothing for the latency to fight. The decision of where the loader sits in the chain and how it turns a preamp into a direct rig is its [own topic](/blog/ir-loader-pedals-direct-rig-two-notes-boss-ir2-mooer); this is only about the clock.
+
+## The Modeler Comparison
+
+If your cab block lives inside a Helix or a Quad Cortex instead of a standalone pedal, the relevant number is the whole-path latency of the unit, not the cab block alone. Those full-path figures sit in the same 1 to 2 ms range, because the cab convolution is one small stage in a path that is already optimized end to end. The block itself is a fraction of that.
+
+The same parallel-path rule applies. Run the modeler against an external dry signal and you reintroduce the offset; keep everything inside the box and there is one path and one clock. The IR is still doing the work — what an IR is and why the capture matters is [covered here](/blog/impulse-response-ir-guide) — and the latency is just the toll for doing it in the digital domain.
+
+Measure your box once. Write the number down. Then stop thinking about it, unless the day comes that you split your signal into two paths — and on that day, do not buy a faster pedal. Align the tracks.

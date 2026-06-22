@@ -3,11 +3,11 @@ title: >-
   Cab IR Library Roundup: Ownhammer vs. York Audio vs. ML Sound Lab vs. Free
   Options
 description: >-
-  An IR is the room your modeler thinks it's playing through. Different IR
-  libraries take radically different approaches to mic placement, room
-  contribution, and post-processing. Here's how to choose the one that fits your
-  rig.
+  Ownhammer, York Audio, ML Sound Lab, and the free packs each voice a cab
+  differently through mic placement, room, and post-processing. How to choose
+  the IR library that fits your rig.
 date: '2026-05-05'
+updated: '2026-06-22'
 author: Margot Thiessen
 author_slug: margot-thiessen
 category: modeler-masterclass
@@ -23,8 +23,65 @@ tags:
 readingTime: 11
 image: /images/blog/cab-ir-library-roundup-2026.jpg
 image_alt: >-
-  a composition illustrating "Cab IR Library Roundup: Ownhammer vs. York Audio
-  vs. ML Sound Lab vs. Free Options"
+  A laptop showing a modeler's IR loader screen beside a 4x12 guitar cabinet,
+  representing a comparison of cab impulse response libraries
+takeaways:
+  - >-
+    Which cab IR library you choose is often a bigger tonal decision than which
+    amp model you pick. Swapping libraries changes the room, the mic, and the
+    engineer's taste all at once, not just the speaker.
+  - >-
+    Ownhammer is dry and surgical for slotting into a dense mix; York Audio is
+    warm and three-dimensional for live FRFR; ML Sound Lab is bright and
+    present-mid, engineered to cut through modern-metal layering.
+  - >-
+    The free OwnHammer 412RW pack (six Mesa V30 4x12 captures) and Mesa's Cab
+    Clone IRs cover roughly 70 percent of real use cases for nothing. Try those
+    before spending a dollar.
+  - >-
+    Audition IRs in context and on the playback system you'll actually use, then
+    pick the one that needs the least EQ to sit right — not the prettiest one in
+    isolation.
+  - >-
+    CelestionPlus's consistent capture conditions make it the cleanest choice
+    for true A/B speaker comparisons, because only the speaker changes between
+    captures.
+faq:
+  - q: 'Do I need separate IR libraries for different amp models?'
+    a: >-
+      No, but you do need IRs that match the cab the amp is meant to be played
+      through. A Marshall amp model wants a 4x12 Greenback or V30 IR; a Fender
+      model wants a 1x12 or 2x12 with a Jensen-style speaker; a Vox AC30 model
+      wants a 2x12 Blue Alnico IR. Within those categories, any of the libraries
+      here work — the choice is tonal preference, not amp model.
+  - q: 'Why does my IR sound different on different playback systems?'
+    a: >-
+      Because each playback system colors the IR differently. Studio monitors
+      are flat and reveal IR character honestly. FRFR cabs add their own voicing
+      on top of the IR. Headphones emphasize close-mic detail and minimize room
+      contribution. Pick the IR on the system you'll actually use: monitors for
+      studio work, FRFR for live, headphones for headphone tracking.
+  - q: 'Should I use cab IRs with a voiced powered cab like the Friedman ASM-12?'
+    a: >-
+      Usually no. A powered guitar cab like the ASM-12 is voiced like a guitar
+      cab itself, so adding a cab IR on top stacks two cab curves and the tone
+      gets boxy. Either bypass the cab IR when running into a voiced FRFR, or use
+      a flat-response FRFR like the Atomic CLR with cab IRs enabled. Don't stack
+      two cab voicings.
+  - q: 'Are paid IR libraries worth it over the free OwnHammer 412RW pack?'
+    a: >-
+      For most players the free pack covers 70 to 80 percent of use cases. The
+      paid libraries earn their price when you need a specific cab the free pack
+      lacks, more mic positions for fine-tuning, or a tonal character (warm York
+      Audio, present-mid ML) the free pack doesn't offer. Try the free pack
+      first; upgrade only when you can name the limitation.
+  - q: 'Can I mix IRs from different libraries in the same preset?'
+    a: >-
+      Yes, and most modelers let you blend two cab IRs in parallel. Pairing a
+      tight close-mic'd IR with a more dimensional room-mic IR can give a fuller
+      composite than either alone. Start around a 70/30 close-to-room blend and
+      adjust by ear — just watch the timing, because two captures at different
+      distances can comb-filter against each other the same way two real mics do.
 ---
 
 > **Quick read:** Cab impulse responses are not interchangeable. Each library has a sonic personality that comes from the room it was captured in, the mics chosen, the way the engineer placed them, and the post-processing applied. Ownhammer leans dry, surgical, and dense, perfect for studio direct recording where the tone needs to fit cleanly into a mix. York Audio leans warm, three-dimensional, and slightly compressed, better for live FRFR where you want the IR to do some of the room-feel work the cab can't. ML Sound Lab leans bright, focused, and modern-metal-coded, designed to cut through dense djent mixes without EQ surgery. CelestionPlus is the official Celestion-licensed library, conservative and reliable across genres. The free OwnHammer 412RW pack and the Mesa Cab Clone IRs are legitimately good and cover most use cases without spending anything. The right library depends on what you're trying to do; there's no single best, only better fits for specific signal chains.
@@ -161,14 +218,14 @@ The library decision is downstream of the use case. Here's the matrix I use when
 Most players try too many IRs without a structured method. Here's the protocol I use when I'm picking a new IR for a track.
 
 1. **Set your amp model and gain at the playing level you'll use.** Don't audition IRs at one gain level and use them at another; the IR's character changes with input level.
-2. **Pick three IRs from the library you're auditioning:** one close-mic'd 57, one ribbon mic option, one mid-room or larger-distance mic. This gives you the spread of mic perspectives.
+2. **Pick three IRs from the library you're auditioning:** one close-mic'd 57, one ribbon mic option, one mid-room or larger-distance mic. This gives you the spread of mic perspectives, and the spread is real — a 57 bites, a ribbon smooths the top, a condenser opens up the air, exactly as they do on a live cab. If those differences aren't intuitive yet, our [SM57 vs. ribbon vs. condenser breakdown](/blog/sm57-vs-ribbon-vs-condenser-guitar-cab-which-mic) walks through what each mic does to the tone, which is the same character you're hearing baked into these captures.
 3. **Play the same 20-second loop through each, recording the audio.** Make sure your phrasing is identical. A picked chord, a strummed chord, a palm mute, a sustained lead note. Cover the dynamic range you'll actually play.
 4. **Listen back through the playback system you'll use.** Studio monitors for studio work, FRFR for live work, headphones for headphone tracking. The IR will sound different on different playback systems and you need to evaluate it on the right one.
 5. **Pick the one that needs the least EQ work to sit where you want it to sit.** The right IR is the one that requires the least post-processing, not the one that sounds best in isolation.
 
 The most common mistake players make is auditioning IRs in isolation, picking the prettiest one, and then fighting it in the mix because it's not the right IR for the use case. Audition in context. Always.
 
-For a deeper look at how the FRFR cab affects the IR choice, our [Friedman ASM-12 vs. Atomic CLR comparison](/blog/friedman-asm-12-vs-atomic-clr-mk-ii-frfr) walks through the powered-cab side of this same question, and our [stock Helix cabs vs. third-party IRs piece](/blog/ir-shootout-stock-helix-cabs-vs-third-party-irs) covers when an upgrade to a paid library is actually worth the money.
+For a deeper look at how the FRFR cab affects the IR choice, our [Friedman ASM-12 vs. Atomic CLR comparison](/blog/friedman-asm-12-vs-atomic-clr-mk-ii-frfr) walks through the powered-cab side of this same question, and our [stock Helix cabs vs. third-party IRs piece](/blog/helix-ir-shootout) covers when an upgrade to a paid library is actually worth the money.
 
 ## My Personal Library
 
@@ -177,28 +234,5 @@ For full transparency: my own preset library uses York Audio for everything I tr
 I've also kept the OwnHammer Free 412RW pack on my Quad Cortex's internal storage as a backup. If I ever lose my paid IRs in a firmware update or a project file corruption, I can fall back to the free pack and finish the session. The free pack is good enough for that.
 
 The IR decision is a tonal one and a functional one. Pick the library that fits how you actually use your rig, not the one with the biggest reputation or the highest price tag. The right IR is the one you stop wanting to swap.
-
-<FAQ questions={[
-  {
-    q: "Do I need separate IR libraries for different amp models?",
-    a: "No, but you do need IRs that match the cab the amp is meant to be played through. A Marshall amp model wants a 4×12 Greenback or V30 IR; a Fender amp model wants a 1×12 or 2×12 with a Jensen-style speaker; a Vox AC30 model wants a 2×12 Blue Alnico IR. Within those categories, any of the libraries above work; the choice is by tonal preference, not by amp model."
-  },
-  {
-    q: "Why does my IR sound different on different playback systems?",
-    a: "Because each playback system colors the IR differently. Studio monitors are flat and reveal IR character honestly. FRFR cabs add their own voicing on top of the IR. Headphones emphasize close-mic detail and minimize room contribution. The IR you pick should sound right on the playback system you'll actually use. Pick on monitors for studio work, on FRFR for live work, on headphones for headphone tracking."
-  },
-  {
-    q: "Should I use cab IRs with a powered guitar cab (FRFR with character like Friedman ASM-12)?",
-    a: "Usually no. A powered guitar cab like the ASM-12 is voiced like a guitar cab itself, so adding a cab IR on top creates double cab voicing (two cab curves stacked). Either bypass the cab IR in your modeler when running through a voiced FRFR, or use a flat-response FRFR (Atomic CLR) with cab IRs enabled. Don't stack two cab voicings."
-  },
-  {
-    q: "Are paid IR libraries worth it over the free OwnHammer 412RW pack?",
-    a: "For most players, the free pack covers 70-80% of the use cases. The paid libraries are worth the money if you need (a) specific cabs the free pack doesn't include, (b) more mic positions for fine-tuning, or (c) a tonal character (warm York Audio, present-mid ML) that the free pack doesn't offer. Try the free pack first; upgrade only when you can identify a specific limitation it has."
-  },
-  {
-    q: "Can I mix IRs from different libraries in the same preset?",
-    a: "Yes, and most modelers let you blend two cab IRs in parallel. Mixing a tight close-mic'd IR (SM57 from Ownhammer) with a more dimensional room mic IR (R121 mid-room from York Audio) can give you a fuller composite tone than either IR alone. Start with a 70/30 close-to-room blend and adjust by ear. The blend approach is how most professional engineers use IRs in mixing."
-  }
-]} />
 
 <SaveThisTone title="The cab-IR-tested preset bundle" description="Our preset library includes Helix and Quad Cortex presets dialed against the OwnHammer Free 412RW pack and the York Audio Mesa Standard pack. Known IRs, documented mic positions, A/B-able to your own library." href="/recipes/cab-ir-tested-presets" ctaLabel="Get the IR-tested preset bundle" />

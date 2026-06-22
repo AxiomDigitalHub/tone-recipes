@@ -5,6 +5,7 @@ description: >-
   of the most-recommended sources. Here's what the data showed and when it
   actually matters.
 date: '2026-04-04'
+updated: '2026-06-22'
 author: Sean Nakamura
 author_slug: sean-nakamura
 category: modeler-masterclass
@@ -18,7 +19,63 @@ tags:
   - modeler
 image: /images/blog/helix-ir-shootout.jpg
 readingTime: 12
-image_alt: a composition illustrating "Helix IR Shootout"
+image_alt: >-
+  A Line 6 Helix floor unit connected to a laptop running HX Edit, with the IR
+  loader screen open for an A/B comparison of stock cabs against third-party
+  impulse responses
+takeaways:
+  - >-
+    The Helix's stock cabs are real IRs captured from real cabinets with real
+    mics. Replacing them is a question of variety and character, not fixing
+    broken quality — the underlying convolution is identical.
+  - >-
+    Get the amp model and gain structure right first. No IR rescues a wrong amp
+    model, and swapping cabs to fix a tone problem that lives upstream just
+    wastes time.
+  - >-
+    Third-party IRs pay off most for recorded high-gain and for nailing a
+    specific named cab. They matter least for live FRFR use where the stock cabs
+    were already designed to shine.
+  - >-
+    The Helix accepts mono 24-bit 48 kHz WAV IRs up to 2048 samples. Longer
+    third-party captures (4096+ samples) must be converted; Ownhammer ships
+    Helix-length versions in its packs.
+  - >-
+    You can run two IR blocks in parallel and blend them — pairing one IR's low
+    end with another's top — at the cost of a little extra DSP overhead.
+faq:
+  - q: 'Are the Helix stock IRs or the amp model blocks the bigger limitation?'
+    a: >-
+      The amp modeling blocks are the foundation. If your amp model selection
+      and gain structure are wrong, no IR will fix it. Get the amp model right
+      first, then evaluate whether the cab actually needs to change. Most
+      "my cab sounds wrong" problems are amp-block problems in disguise.
+  - q: 'Can I mix two IRs in one preset on the Helix?'
+    a: >-
+      Yes. You can run two IR blocks in parallel within a single preset and
+      blend them — useful for combining the low-end character of one IR with the
+      high-frequency response of another. It adds a little latency overhead but
+      the Helix handles it without issues at standard sample rates. Watch the
+      relative timing so the two captures don't comb-filter against each other.
+  - q: 'What is the difference between a cab simulation and an IR on the Helix?'
+    a: >-
+      In the Helix, the stock cab blocks and the IR blocks use the same
+      underlying convolution technology. The distinction is between Line 6's
+      captured and processed cabs (which appear as named cab options) and
+      user-imported IRs (which load into IR blocks). The processing chain is
+      identical — only the source of the capture differs.
+  - q: 'Do free IRs sound worse than paid ones?'
+    a: >-
+      Not universally. Quality varies within both categories. The advantage of
+      paid packs from reputable sources is quality control and consistent
+      capture conditions. Free community IRs can be excellent but require more
+      vetting before you commit a preset to one.
+  - q: 'How often should I swap IRs?'
+    a: >-
+      When what you have stops working for you, or when you start a new project
+      with different tonal goals. Swapping IRs for its own sake is the gear
+      equivalent of rearranging furniture instead of practicing: it creates the
+      feeling of progress without producing any.
 ---
 
 > **Start Here:** The Helix's stock cab simulations are built from real measurements. Third-party IRs give you more variety and sometimes more character. Whether the difference matters depends on your use case. Here's the breakdown by specific scenario.
@@ -134,6 +191,8 @@ The cases where third-party IRs meaningfully improve the result:
 - Players who want simple, fast presets without file management overhead
 - Contexts where you can't control the monitoring environment enough to hear the difference
 
+Once you've decided a third-party pack is worth it, the next question is which one, and the libraries are not interchangeable — Ownhammer, York Audio, and ML Sound Lab each have a distinct voicing. Our [cab IR library roundup](/blog/cab-ir-library-roundup-2026) breaks down which fits which use case. And since most of what separates one IR from another is the mic and where it sat, our [SM57 vs. ribbon vs. condenser breakdown](/blog/sm57-vs-ribbon-vs-condenser-guitar-cab-which-mic) explains the mic character you're really choosing between when you pick a capture.
+
 ---
 
 ## How to Audition and Load IRs Into the Helix
@@ -148,25 +207,6 @@ The Helix accepts mono 24-bit 48kHz WAV files, up to 2048 samples long. Here's t
 6. Level-match against your existing cab block before A/B comparison.
 
 A note on sample length: Helix supports up to 2048 samples. Some third-party packs include longer captures (4096 or even 8192 samples) that need to be converted. Ownhammer provides Helix-compatible versions in their packs. If you download from other sources, check the specs before importing.
-
----
-
-## Frequently Asked Questions
-
-**Are the Helix stock IRs or the amp model blocks the bigger limitation?**
-This is worth asking. In my experience, the amp modeling blocks are the foundation. If your amp model selection and gain structure are wrong, no IR will fix it. Get the amp model right first, then evaluate whether the cab needs to change.
-
-**Can I mix two IRs in one preset?**
-Yes. You can run two IR blocks in parallel within a single preset and blend them. This is useful for combining the low-end character of one IR with the high-frequency response of another. It adds latency overhead but the Helix handles it without issues at standard sample rates.
-
-**What's the difference between a cab simulation and an IR?**
-In the Helix, the stock cab blocks and the IR blocks use the same underlying convolution technology. The distinction is between Line 6's captured and processed IRs (which appear as named cab options) and user-imported IRs (which appear in the IR blocks). The processing chain is identical.
-
-**Do free IRs sound worse than paid ones?**
-Not universally. Quality varies within both categories. The advantage of paid packs from reputable sources is quality control and consistent capture conditions. Free community IRs can be excellent but require more vetting before use.
-
-**How often should I swap IRs?**
-When what you have stops working for you or when you're starting a new project with different tonal goals. IR swapping for its own sake is the gear equivalent of rearranging furniture instead of practicing; it creates the feeling of progress without producing any.
 
 <SaveThisTone
   title="Every recipe ships a Helix preset"
