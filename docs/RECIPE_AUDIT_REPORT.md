@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-22
-**Recipes:** 159
-**Clean (no errors, no warns):** 159
+**Date:** 2026-06-23
+**Recipes:** 164
+**Clean (no errors, no warns):** 164
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,7 +16,7 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 19 / 159 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `katana-kemper-multidrive-default-off` | info | 19 / 164 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -502,9 +502,27 @@ Passes every rule.
 
 Passes every rule.
 
+### `kiszka-black-smoke-rising-riff` — ✓ clean
+
+*Black Smoke Rising Riff Tone*
+
+Passes every rule.
+
 ### `kiszka-highway-tune-riff` — ✓ clean
 
 *Highway Tune Riff Tone*
+
+Passes every rule.
+
+### `kiszka-sacred-the-thread-riff` — ✓ clean
+
+*Sacred the Thread Riff Tone*
+
+Passes every rule.
+
+### `kiszka-when-the-curtain-falls-riff` — ✓ clean
+
+*When the Curtain Falls Riff Tone*
 
 Passes every rule.
 
@@ -856,6 +874,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `slash-dirty-little-thing-riff` — ✓ clean
+
+*Dirty Little Thing Riff Tone*
+
+Passes every rule.
+
 ### `slash-fall-to-pieces-solo` — ✓ clean
 
 *Fall to Pieces Solo Tone*
@@ -907,6 +931,12 @@ Passes every rule.
 ### `srv-the-sky-is-crying-slow-blues` — ✓ clean
 
 *Stevie Ray Vaughan's The Sky Is Crying Slow-Blues Tone*
+
+Passes every rule.
+
+### `stockdale-dimension-riff` — ✓ clean
+
+*Dimension Riff Tone*
 
 Passes every rule.
 
