@@ -1,10 +1,11 @@
 ---
 title: 'Stacking Reverbs: When Two Reverb Blocks Sound Better Than One'
 description: >-
-  Two reverbs muddying each other is a signal-routing problem, not a concept
-  problem. Here are the specific parameter relationships that make stacked
-  reverbs sound like two separate spaces instead of one indistinct blur.
+  Two reverbs muddying each other is a routing problem, not a concept problem.
+  Here's how to high-pass and stagger them so they read as two separate spaces
+  instead of one indistinct blur.
 date: '2026-04-14'
+updated: '2026-06-23'
 author: Dev Okonkwo
 author_slug: dev-okonkwo
 category: signal-chain
@@ -19,7 +20,58 @@ tags:
   - shimmer
 readingTime: 7 min
 image: /images/blog/stacking-reverbs-guide.jpg
-image_alt: a composition illustrating "Stacking Reverbs"
+image_alt: >-
+  Two reverb plugins chained on a DAW track, a short room feeding a long
+  shimmer, with a high-pass filter on the first reverb's return
+takeaways:
+  - >-
+    Mud in a stacked-reverb setup comes from low-mid frequency buildup, not from
+    tails overlapping. The overlapping tails are the sound you want; the
+    150–500 Hz pile-up is what kills it.
+  - >-
+    High-pass the first reverb's return around 150–250 Hz before it feeds the
+    second. This single move is what makes two reverbs read as separate spaces
+    instead of one blur.
+  - >-
+    Keep the first reverb's mix low (about 20–25%) so the second reverb is
+    mostly processing clean guitar and building its own space, not re-reverbing
+    a wet signal.
+  - >-
+    Stagger them in time: keep the first reverb's decay shorter than the second
+    reverb's pre-delay so the attack stays defined and the bloom arrives after.
+  - >-
+    Stacking is worth the complexity for simultaneous near-and-far space,
+    shimmer without losing note clarity, or layered loops — but one reverb is
+    usually better in a live band mix.
+faq:
+  - q: Does stacking reverbs work on a pedalboard or only in a DAW?
+    a: >-
+      It works on a pedalboard. The principle is the same: the first reverb's
+      output needs to be filtered before it hits the second. On hardware, use
+      the first reverb's tone or damping control, or a dedicated EQ pedal
+      between the two reverbs, to do the high-pass. Some pedals (like the Strymon
+      BigSky) have a built-in low-cut on the wet signal, which helps.
+  - q: 'Is two reverb pedals better than one reverb pedal with two presets?'
+    a: >-
+      Two separate pedals with independent controls are more flexible. A single
+      pedal running two internal algorithms can work, but you usually lose the
+      ability to filter the first reverb's output before it feeds the second.
+      Pedals with routing flexibility (BigSky, Empress Reverb) may let you work
+      around that.
+  - q: What's the best reverb algorithm to put first in the stack?
+    a: >-
+      Room, spring, or plate. The first reverb's job is to add body and early
+      reflections without a long, competing tail. Room is the most neutral,
+      spring adds a musical bounce, plate adds smoother density. Avoid shimmer,
+      hall, and large algorithms first — their long tails feed too much
+      complexity into the second reverb.
+  - q: Why do my stacked reverbs sound fine in headphones but muddy through speakers?
+    a: >-
+      Low-frequency buildup that headphones mask. Headphones don't pressurize a
+      room, so low-mid accumulation in the tails doesn't register the same way.
+      Through speakers in a small room, that 150–300 Hz range becomes a
+      standing-wave problem. Tighten the high-pass on the first reverb's return
+      to 250–300 Hz and re-check on speakers.
 ---
 
 Most stacked reverb rigs sound muddy. The fix isn't choosing better reverbs; it's understanding what frequency information you're feeding into the second reverb, because that's what determines whether the two instances sound like complementary spaces or a single indistinct blur.
@@ -138,26 +190,16 @@ If you're playing with a band in a live context and need clarity, one reverb is 
 
 ---
 
-## FAQ
+## Reverb Isn't the Only Way to Build a Wash
 
-**Does stacking reverbs work on a pedalboard or only in a DAW?**
+Worth knowing before you reach for a second reverb: a lot of the lushest "reverb" in ambient and dream-pop guitar isn't reverb at all. Stacking two delay lines — a short clean one feeding a long modulated one — produces a bloom that reads as space for the same reason a stacked reverb does: enough detuned repeats arriving densely enough that the ear stops counting them. If your stacked-reverb wash still sounds too smooth or too static, [cascading delays](/blog/cascading-dual-delay-bloom-dream-pop-shoegaze) gets you a grainier, more moving version of the same idea, and the two techniques layer beautifully.
 
-It works on a pedalboard. The principle is the same: you need the first reverb's output to be filtered before hitting the second. On hardware, use the first reverb's tone/damping control or a dedicated EQ pedal between the two reverbs to accomplish the high-pass. Some reverb pedals (like the Strymon BigSky) have a built-in low-cut filter on the wet signal, which helps.
+The other half of a great ambient bed is the *source*. A reverb can only amplify what you feed it, and the single most rewarding thing to feed a stacked-reverb rig is a sustained, decay-free note — which is exactly what [an EBow](/blog/ebow-guitar-technique-infinite-sustain-swells) produces. One held note swelling into a near-and-far reverb stack is most of the ambient-guitar sound in three pieces of gear.
 
-**Is two reverb pedals better than one reverb pedal with two presets?**
-
-Two separate pedals with separate parameter controls is more flexible. A single pedal running two internal algorithms (if it supports that) can also work, but you lose the ability to independently filter the first reverb's output before it feeds the second. If the pedal has routing flexibility (like the BigSky or Empress Reverb), you may be able to work around this.
-
-**What's the best reverb algorithm for "first in the stack"?**
-
-Room, spring, or plate; all work. The goal of the first reverb is to add body and early reflections without generating a long, competing tail. Room is the most neutral. Spring adds a slight bounce character that can be musical. Plate adds a smoother density. Avoid shimmer, hall, and large reverb algorithms as the first in the stack; their long tails will feed too much complexity into the second reverb.
-
-**My stacked reverbs sound fine in headphones but muddy through speakers. Why?**
-
-Low-frequency buildup that headphones mask. Headphones have limited low-end extension and don't pressurize a room, so low-mid accumulation in the reverb tails doesn't register the same way. Through speakers, especially in a small room, that 150–300 Hz range becomes a standing wave problem. Tighten the high-pass on reverb A's return to 250–300 Hz and re-check through speakers.
+---
 
 <SaveThisTone
-  title="Want a ambient clean starting point?"
+  title="Want an ambient clean starting point?"
   description="Pick a recipe close to the tone in this post and tweak from there. Faster than building from a blank patch."
   href="/browse?tag=clean"
   ctaLabel="Browse ambient clean recipes"

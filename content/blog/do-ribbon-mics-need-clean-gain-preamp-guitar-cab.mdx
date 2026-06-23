@@ -1,0 +1,136 @@
+---
+title: >-
+  Do Ribbon Mics Need a Clean-Gain Preamp on a Guitar Cab? (Cloudlifter,
+  FetHead, and When You Don't)
+description: >-
+  Passive ribbons are quiet, so the advice is always "get a Cloudlifter." On a
+  loud guitar cab that's often wrong. Here's when an inline booster earns its
+  keep — and when it doesn't.
+date: '2026-06-23'
+author_slug: hank-presswood
+category: gear-lab
+tags:
+  - ribbon-mic
+  - recording
+  - preamp
+  - cloudlifter
+  - mic-gain
+  - guitar-cab
+readingTime: 9
+image: /images/blog/do-ribbon-mics-need-clean-gain-preamp-guitar-cab.jpg
+image_alt: >-
+  A passive ribbon microphone in front of a guitar cabinet with an inline gain
+  booster connected between the mic cable and the preamp
+takeaways:
+  - >-
+    A passive ribbon's low output isn't the whole story — what matters is output
+    times source loudness times preamp quality. A cranked guitar cab is loud
+    enough that the ribbon often needs no help at all.
+  - >-
+    An inline booster (Cloudlifter, FetHead) adds about 20–25 dB of clean,
+    low-noise gain using the preamp's phantom power, sparing you the hissy top
+    of a budget preamp's gain range.
+  - >-
+    The booster earns its keep on quiet sources — a room mic several feet back,
+    a clean amp, an acoustic — far more than on a close-mic'd loud cab where the
+    signal is already strong.
+  - >-
+    Active ribbons (Royer R-122, AEA active models) have a built-in
+    phantom-powered buffer and don't need a Cloudlifter — adding one is
+    redundant and can degrade the signal.
+  - >-
+    A passive ribbon plus an inline booster has a real safety benefit: the
+    booster absorbs the 48V phantom so it never reaches the fragile ribbon,
+    where a wiring fault could stretch or tear it.
+faq:
+  - q: Do passive ribbon mics always need a Cloudlifter?
+    a: >-
+      No. The "always get a Cloudlifter" advice comes from quiet sources like
+      vocals and room mics, where a passive ribbon's low output forces a budget
+      preamp into its noisy upper range. A guitar cab at performance volume is
+      loud enough that the ribbon delivers a healthy signal with only moderate
+      preamp gain, so the booster is often unnecessary on a close mic. It's a
+      situational tool, not a requirement.
+  - q: How much gain does a passive ribbon need on a guitar cab?
+    a: >-
+      On a close mic in front of a loud cab, usually 40 dB or less — well within
+      any decent preamp's clean range. On a quiet source or a distant room mic,
+      you may want 55–65 dB total, and that's where an inline booster's extra
+      20–25 dB keeps you out of the noisy top of the dial. Watch your meters and
+      listen for hiss rather than following a fixed number.
+  - q: Cloudlifter vs. FetHead — what's the difference?
+    a: >-
+      Both are inline FET boosters that run on phantom power and add roughly
+      20–25 dB of clean gain. The Cloudlifter CL-1 is a separate box that sits
+      on the floor or a stand. The FetHead is a tiny barrel that screws directly
+      onto the mic, so there's no extra box but a little more weight hanging off
+      the connector. Sound-wise they're very close; pick by form factor and
+      price.
+  - q: Is it safe to use phantom power with a ribbon mic?
+    a: >-
+      With a modern passive ribbon and correct, fault-free wiring, yes. The real
+      danger is a wiring fault, a bad patchbay, or hot-patching a cable, which
+      can dump 48V across the delicate ribbon and stretch or blow it. An inline
+      booster removes that risk because it consumes the phantom power itself, so
+      the mic never sees 48V. Never send phantom to a vintage ribbon without
+      knowing its tolerance.
+  - q: Do active ribbon mics need a clean-gain preamp too?
+    a: >-
+      No. An active ribbon (Royer R-122, AEA active models, sE VR2) has a
+      built-in phantom-powered buffer that already provides a strong, low-output
+      signal and a constant load on the ribbon. Adding a Cloudlifter on top is
+      redundant and can actually hurt the signal, since the active electronics
+      need the phantom that the booster would otherwise absorb.
+---
+
+There's a piece of recording advice that gets repeated so often it's stopped being examined: buy a ribbon mic, and in the same breath, buy a Cloudlifter to go with it, because ribbons are quiet and your preamp can't feed them. Half of that is true. The other half depends entirely on what you're pointing the ribbon at — and a loud guitar cabinet is the one source where the advice most often falls apart. A ribbon mic is one of the oldest microphone designs we have, going back to the RCA broadcast mics of the 1930s, and understanding why it's quiet tells you exactly when it needs help and when it doesn't.
+
+## The Short Answer
+
+| Situation | Need a clean-gain booster? |
+|---|---|
+| Passive ribbon, close mic, loud cranked cab | Usually no — the signal is already strong |
+| Passive ribbon, room mic several feet back | Yes — the source is quiet by the time it arrives |
+| Passive ribbon on a budget interface, hissy at high gain | Yes — the booster keeps you out of the noisy range |
+| Active ribbon (Royer R-122, AEA active) | No — it has its own buffer; a booster is redundant |
+| Any passive ribbon near questionable wiring | Yes — for the phantom-blocking safety alone |
+
+The thing nobody tells you is that "ribbons are quiet" is only half a spec. Loudness at the preamp is the mic's output *times* how loud the source is. A quiet mic on a loud source can be plenty hot.
+
+## Why a Ribbon Is Quiet in the First Place
+
+A passive ribbon works by suspending a wisp of corrugated aluminum foil between two magnets. Sound moves the foil, the foil moving through the magnetic field generates a tiny voltage, and that's your signal — no electronics, no power, just physics. It's an elegant design, about as direct as a microphone gets. But that thin ribbon makes very little voltage. A typical passive ribbon puts out somewhere around 10 to 20 dB less than an SM57, and the 57 isn't a hot mic to begin with. Feed that into a preamp and you're cranking the gain knob toward the top, where cheaper preamps start hissing.
+
+So the low output is real. What gets lost is the second half of the equation: a microphone's job is to convert sound pressure into voltage, and if there's a *lot* of sound pressure, even an inefficient converter makes a usable signal.
+
+## The Loud Cab Changes the Math
+
+Put that same quiet ribbon an inch off the grille of a guitar cab running at performance volume and the sound pressure hitting it is enormous — we're talking levels that would damage your hearing if you stood there. The ribbon converts a small fraction of that to voltage, but a small fraction of an enormous number is still a healthy signal. On a close-mic'd loud cab, a passive ribbon will often hand your preamp a level that only needs 35 to 40 dB of gain, which is comfortable, clean territory on just about any preamp made.
+
+This is the case the "always Cloudlifter" advice ignores. That advice was forged on vocals, acoustic guitars, and room mics — quiet sources where a passive ribbon really does push a budget preamp into its ugly range. A loud amp is the opposite situation. It's the one place the ribbon's biggest weakness mostly stops mattering.
+
+## What I Found When I Stopped Assuming
+
+I set up a passive ribbon on a cranked combo, plugged a Cloudlifter inline the way the forums told me to, and recorded a few passes. Then I pulled the booster out of the chain and recorded the same passes. I expected the no-booster version to be a noisy, anemic mess that proved the point.
+
+It wasn't. On the close mic, the difference was small — the booster version sat a touch hotter and had a slightly different feel up top, but the bare-ribbon track was perfectly strong and clean. The preamp wasn't straining. The hiss I'd been warned about never showed up, because the cab was doing the work the booster was supposed to do.
+
+Where the Cloudlifter suddenly mattered was the room mic. I had a second ribbon eight feet back catching the sound of the space, and *that* one was genuinely quiet — by the time the cab's roar had traveled across the room and bounced around, the level reaching the distant ribbon was a fraction of what the close mic saw. On the room mic, pulling the booster meant cranking the preamp into audible hiss. So the lesson reversed itself: the booster wasn't for the ribbon, it was for the *distance*. Same mic, same preamp. The only variable that decided whether I needed clean gain was how loud the sound was when it arrived. If you're running [a close mic and a room mic together](/blog/close-mic-plus-room-mic-guitar-cab-phase-blend), that's exactly where this bites — the room mic is the one that wants the help.
+
+## What a Booster Actually Does
+
+A Cloudlifter, a FetHead, or any of the cheaper clones (sE, Klark Teknik) is a small FET amplifier you put inline between the mic and the preamp. It runs on the 48V phantom power your preamp already supplies, and it adds roughly 20 to 25 dB of clean, low-noise gain right at the mic, before the preamp's own circuitry. Because it's adding that gain at the front, your preamp can sit lower and quieter. It also presents the ribbon with a steady, high input impedance, which can tighten up the ribbon's top end and transient response — a secondary benefit beyond the raw level.
+
+The Cloudlifter CL-1 is a box that lives on the floor. The FetHead is a little barrel that threads onto the mic itself, so there's no extra box but a bit of weight on the connector. Tonally they're close enough that I'd choose by form factor and price, not sound. The budget clones do the same job for a third of the money and are genuinely fine for a home setup.
+
+## The Phantom-Power Rule — and Active Ribbons
+
+Here's a reason to keep a booster inline even on a loud cab where you don't need the gain: it protects the ribbon. Phantom power is 48 volts, and a passive ribbon does not want 48 volts across that foil. Modern passive ribbons with correct wiring tolerate phantom fine — but a wiring fault, a flaky patchbay, or plugging a cable in while phantom is already up can send that voltage straight to the ribbon and stretch or tear it. An inline booster sits in the way and consumes the phantom itself; the mic side never sees it. That alone is worth the price of a cheap one if your signal path has any questionable links in it. The old broadcast engineers babied their RCA ribbons for a reason — those things were repairable but not cheap, and the same care applies to your modern one.
+
+The exception is the active ribbon — a Royer R-122, an AEA active model, an sE VR2. These have a phantom-powered buffer built in, which already gives you a strong output and a constant load on the ribbon. They need that phantom to run. Put a Cloudlifter in front of one and you've created a conflict: the booster wants to eat the phantom the active electronics need. Don't. An active ribbon is the booster-and-ribbon-in-one answer, and it costs accordingly.
+
+## So, Do You Need One?
+
+If you're close-micing a loud guitar cab with a passive ribbon, probably not — try it without first, watch your meters, and only add the booster if you're reaching for too much preamp gain and hearing hiss. If you're micing the room, recording a quiet clean amp, or working on a budget interface whose preamps get noisy past three o'clock, the booster will clean things up immediately. And if your wiring is anything less than bulletproof, keep one inline for the protection regardless.
+
+The ribbon's darkness — that smooth roll-off up top that tames the spit of a bright amp, the way a Royer makes a cranked Marshall sound like the body of the tone without the ice pick — is why people put up with the low output at all. Once you understand that the output only matters relative to the source, you stop buying a booster out of reflex and start using it where it actually does something. If you're still deciding [which mic to put on the cab in the first place](/blog/sm57-vs-ribbon-vs-condenser-guitar-cab-which-mic), that choice comes before this one — pick the voice, then solve the gain.
