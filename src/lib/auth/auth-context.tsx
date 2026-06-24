@@ -28,13 +28,6 @@ export interface AuthUser {
   displayName?: string;
   avatarUrl?: string;
   role: UserRole;
-  /**
-   * Grandfather flag for accounts created before the Pass relaunch
-   * (2026-06-09). True = unlimited preset downloads forever, regardless
-   * of `role`. False (new accounts) = subject to the free quota of 5
-   * preset downloads per calendar month. See migration 019.
-   */
-  legacyUnlimited?: boolean;
 }
 
 interface AuthContextValue {
@@ -95,7 +88,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const { data } = await supabase
         .from("profiles")
-        .select("role, display_name, avatar_url, legacy_unlimited")
+        .select("role, display_name, avatar_url")
         .eq("id", supabaseUserId)
         .single();
       if (data) {
@@ -107,7 +100,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             role: (row.role as UserRole) || prev.role,
             displayName: (row.display_name as string) || prev.displayName,
             avatarUrl: (row.avatar_url as string) || prev.avatarUrl,
-            legacyUnlimited: Boolean(row.legacy_unlimited),
           };
         });
       }

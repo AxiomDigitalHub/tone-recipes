@@ -12,6 +12,11 @@ import { generateQCPreset, slugifyPresetName as slugifyQC } from "@/lib/quadcort
 import { generateKatanaTSL, slugifyPresetName as slugifyKatana } from "@/lib/katana/generate-tsl";
 import type { PlatformTranslation, Platform } from "@/types/recipe";
 
+// PDF generation launches headless Chrome — needs the Node.js runtime (not
+// Edge) and extra time for cold-start + render.
+export const runtime = "nodejs";
+export const maxDuration = 60;
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /* -------------------------------------------------------------------------- */
@@ -75,12 +80,10 @@ async function getUserFromRequest(req: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return null;
 
-  // Get role + grandfather flag from profile. legacy_unlimited is set
-  // for every account that existed before the 2026-06-09 Pass relaunch
-  // (migration 019) and bypasses the free-tier monthly quota.
+  // Role drives the download quota: free = metered, paid = unlimited.
   const { data: profile } = await supabase
     .from("profiles")
-    .select("role, legacy_unlimited")
+    .select("role")
     .eq("id", user.id)
     .single();
 
@@ -88,9 +91,6 @@ async function getUserFromRequest(req: NextRequest) {
     id: user.id,
     email: user.email ?? "",
     role: (profile?.role as string) || "free",
-    legacyUnlimited: Boolean(
-      (profile as { legacy_unlimited?: boolean } | null)?.legacy_unlimited,
-    ),
     token,
   };
 }
@@ -164,31 +164,43 @@ export async function POST(
         );
       }
 
-      // Subscribe to newsletter if email provided (on conflict do nothing)
+      // Subscribe to newsletter if email provided (on conflict do nothing).
+      // Best-effort: a Supabase hiccup (or missing env in local dev) must
+      // NOT block the PDF the user asked for — the email gate is already
+      // enforced above; persistence is a side effect.
       if (email) {
-        const supabase = getSupabase();
-        await supabase
-          .from("newsletter_subscribers")
-          .insert({ email: email.toLowerCase(), source: "pdf_download" } as any);
-        // Ignore unique constraint errors — already subscribed
+        try {
+          const supabase = getSupabase();
+          await supabase
+            .from("newsletter_subscribers")
+            .insert({ email: email.toLowerCase(), source: "pdf_download" } as any);
+          // Ignore unique constraint errors — already subscribed
+        } catch (e) {
+          console.error("[download] newsletter insert failed (non-fatal):", e);
+        }
       }
 
-      // Generate PDF
-      const { generateRecipePDF } = await import("@/lib/pdf/generate-recipe-pdf");
-      const pdfBuffer = generateRecipePDF({
-        recipe,
-        songTitle: song?.title ?? "",
-        artistName: artist?.name ?? "",
-        artistGenres: artist?.genres ?? [],
-      });
+      // Render the beautiful HTML print view to PDF via headless Chrome, so
+      // the download matches the web design exactly (replaces the old
+      // hand-drawn jsPDF generator). song/artist are looked up by the print
+      // route itself from the slug, so we only need the URL here.
+      void song;
+      void artist;
+      const { renderUrlToPdf } = await import("@/lib/pdf/render-print-pdf");
+      const printUrl = `${req.nextUrl.origin}/recipe/${slug}/print`;
+      const pdfBuffer = await renderUrlToPdf(printUrl);
 
-      // Log download
-      await logDownload({
-        userId: user?.id,
-        email: email ?? user?.email,
-        recipeSlug: slug,
-        downloadType: "pdf",
-      });
+      // Log download (best-effort — analytics must not block the download).
+      try {
+        await logDownload({
+          userId: user?.id,
+          email: email ?? user?.email,
+          recipeSlug: slug,
+          downloadType: "pdf",
+        });
+      } catch (e) {
+        console.error("[download] logDownload failed (non-fatal):", e);
+      }
 
       // Send welcome email (non-blocking)
       if (email) {
@@ -224,15 +236,11 @@ export async function POST(
         );
       }
 
-      // Quota gate. Pass subscribers and grandfathered accounts are
-      // unlimited; free accounts get 5 preset downloads per calendar
-      // month. The 402 status signals "payment required" to the client,
-      // which maps to an upgrade prompt rather than a generic error.
-      const { allowed, remaining } = await canDownload(
-        user.id,
-        user.role,
-        user.legacyUnlimited,
-      );
+      // Quota gate. Paid accounts (pass/pro) are unlimited; free accounts
+      // get 5 preset downloads per calendar month. The 402 status signals
+      // "payment required" to the client, which maps to an upgrade prompt
+      // rather than a generic error.
+      const { allowed, remaining } = await canDownload(user.id, user.role);
       if (!allowed) {
         return NextResponse.json(
           {

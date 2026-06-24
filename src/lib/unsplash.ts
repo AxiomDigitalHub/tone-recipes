@@ -79,7 +79,10 @@ function getManufacturerImage(
 
 const CATEGORY_IMAGES: Record<string, string[]> = {
   "firmware-update": [
-    "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+    // photo-1558618666-… was deleted from Unsplash (404) — flagged as a
+    // broken internal image on /news in the 2026-06-16 site audit.
+    // Replaced with a verified-live circuit-board shot.
+    "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
     "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=800&q=80",
     "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
   ],

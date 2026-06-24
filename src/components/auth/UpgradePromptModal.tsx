@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { Check, X } from "lucide-react";
+import OverlayPortal from "@/components/ui/OverlayPortal";
 
 interface UpgradePromptModalProps {
   /** Whether the modal is visible. */
@@ -49,6 +50,7 @@ export default function UpgradePromptModal({
   if (!open) return null;
 
   return (
+    <OverlayPortal>
     <div
       className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8"
       role="dialog"
@@ -122,5 +124,6 @@ export default function UpgradePromptModal({
         </button>
       </div>
     </div>
+    </OverlayPortal>
   );
 }

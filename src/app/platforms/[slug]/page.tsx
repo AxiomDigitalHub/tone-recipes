@@ -304,16 +304,10 @@ export default async function PreviewPlatformDetail({
   const allPlatforms = getAllPlatforms();
   const family = PLATFORM_FAMILY[slug];
 
-  const { product: platformProduct, breadcrumb: platformBreadcrumb } =
-    platformJsonLdSet(platform);
+  const { breadcrumb: platformBreadcrumb } = platformJsonLdSet(platform);
 
   return (
     <div className="container">
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(platformProduct) }}
-      />
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger

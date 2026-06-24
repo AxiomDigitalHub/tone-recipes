@@ -50,8 +50,22 @@ export async function generateMetadata({
   const title = `${recipe.title} - ${artist?.name || ""}`;
   const description = recipe.description.slice(0, 160);
   return {
-    title,
+    // recipe.title is already artist-led and keyword-rich (e.g. "Buck
+    // Dharma's Don't Fear the Reaper Clean Riff Tone"). Appending
+    // "- {artist}" AND the "| Fader & Knob" template pushed 17 recipe
+    // titles past ~60 chars (truncated in SERPs — flagged in the audit).
+    // Use the bare recipe title as the absolute <title> to stay under the
+    // limit; the fuller `title` string still feeds OG/Twitter below where
+    // length isn't penalized.
+    title: { absolute: recipe.title },
     description,
+    // The platform switcher uses ?platform=<id> on the same page. Without
+    // a canonical, every variant (?platform=helix, ?platform=fractal, …)
+    // is crawled as a distinct page with identical title/description/body
+    // — the source of the duplicate-title / duplicate-meta / duplicate-
+    // content flags in the site audit. Self-canonical to the bare recipe
+    // URL consolidates all seven variants into one indexable page.
+    alternates: { canonical: `/recipe/${slug}` },
     keywords: [
       artist?.name,
       song?.title,
