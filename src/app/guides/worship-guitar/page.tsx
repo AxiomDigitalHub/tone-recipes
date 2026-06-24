@@ -52,8 +52,46 @@ const LIVE_RIG = [
   },
 ];
 
+const ARTIST_TONES = [
+  {
+    title: "Lincoln Brewster Lead Tone (Helix)",
+    href: "/blog/lincoln-brewster-tone-helix",
+    blurb:
+      "The outlier worship tone — a Strat into a Plexi Variac, bright and mid-forward. The lead lift is a mid-boost, not more gain.",
+    tag: "Artist tone",
+  },
+  {
+    title: "Hillsong Worship Tone — Nigel Hendroff (Helix)",
+    href: "/blog/hillsong-guitar-tone-helix",
+    blurb:
+      "The sound that defined modern worship guitar — a chimey Gretsch into a semi-clean Vox, always-on boost and comp, dotted-eighth delay, big ambient reverb.",
+    tag: "Artist tone",
+  },
+  {
+    title: "Elevation Worship Tone (Helix)",
+    href: "/blog/elevation-worship-guitar-tone-helix",
+    blurb:
+      "Polished, layered AC30 tones with the chorus shimmer behind tracks like 'Praise' — rhythm, lead, and ambient roles across snapshots.",
+    tag: "Artist tone",
+  },
+  {
+    title: "Bethel Music Tone — Paul Hislop (Helix)",
+    href: "/blog/bethel-music-guitar-tone-helix",
+    blurb:
+      "The most pad-forward worship sound — a clean AC30, octave-up shimmer, stacked delays, and huge swell reverb. Volume swells are half the tone.",
+    tag: "Artist tone",
+  },
+  {
+    title: "Phil Wickham Anthem Tone (Helix)",
+    href: "/blog/phil-wickham-guitar-tone-helix",
+    blurb:
+      "Taylor Johnson / Casey Moore's anthem-worship sound — bright British chime, octave shimmer, and a cutting, hummable lead for the big hooks.",
+    tag: "Artist tone",
+  },
+];
+
 export default function WorshipPillarPage() {
-  const allGuides = [...TONE_FOUNDATIONS, ...LIVE_RIG];
+  const allGuides = [...TONE_FOUNDATIONS, ...ARTIST_TONES, ...LIVE_RIG];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -121,6 +159,12 @@ export default function WorshipPillarPage() {
             title: "Tone foundations",
             meta: "Amp · OD · delay · reverb",
             entries: TONE_FOUNDATIONS,
+          },
+          {
+            mark: "★",
+            title: "Artist tones",
+            meta: "Brewster · Hillsong · Elevation · Bethel · Wickham",
+            entries: ARTIST_TONES,
           },
           {
             mark: "§",

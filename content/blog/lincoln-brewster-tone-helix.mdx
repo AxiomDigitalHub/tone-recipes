@@ -1,0 +1,151 @@
+---
+title: How to Get Lincoln Brewster's Lead Tone on the Line 6 Helix
+description: >-
+  Build Lincoln Brewster's bright, mid-forward Strat-into-Plexi worship lead
+  tone on the Helix — exact amp model, EQ shape, drive stack, and snapshot
+  layout for cutting rock-worship leads.
+date: '2026-06-23'
+author: Nathan Cross
+author_slug: nathan-cross
+category: tone-recipes
+tags:
+  - worship
+  - helix
+  - lincoln-brewster
+  - lead-tone
+  - plexi
+  - strat
+  - rock-worship
+  - signal-chain
+  - snapshots
+readingTime: 9
+image: /images/blog/lincoln-brewster-tone-helix.jpg
+image_alt: >-
+  A Line 6 Helix preset for Lincoln Brewster's lead tone — a Plexi Variac amp, a
+  Klon-style boost, a Tube Screamer, a mid-boost EQ, a dotted-eighth delay, and
+  a plate reverb across snapshots
+takeaways:
+  - >-
+    Brewster's tone is the outlier in modern worship — it is
+    Strat-into-Marshall, not Gretsch-into-Vox. The heart of it is the Plexi
+    Variac amp model, run bright and mid-forward with the drive set below half.
+  - >-
+    The single-coil Strat voice is non-negotiable. A bridge-position noiseless
+    single-coil (he uses DiMarzio Area 61) into the Plexi is what gives the cut;
+    humbuckers turn this tone muddy.
+  - >-
+    His lead lift comes from a mid-boost, not more gain. Stack a low-gain
+    Klon-style drive always-on, then a Tube Screamer for the lead snapshot, and
+    push 800 Hz–1 kHz with an EQ block — that mid-forward shape is the cut.
+  - >-
+    This is a controlled-delay tone, not an ambient wash. Use a dotted-eighth
+    digital delay at modest mix and a tight plate reverb. The notes stay
+    articulate; the space sits behind them.
+  - >-
+    Low bass is the worship-PA survival rule. Keep the amp's bass low so the
+    tone stays defined through a church system instead of getting flubby and
+    boomy.
+faq:
+  - q: What amp model does Lincoln Brewster use on the Helix?
+    a: >-
+      The core of Brewster's tone is a 1968 Marshall Plexi Super Lead run
+      through a variac, which on Line 6 devices is the Plexi Variac amp model
+      (Brit Plexi family). A variac-fed Plexi has slightly less headroom, a
+      saggier feel, and an earlier, smoother breakup than a standard Plexi. Set
+      Drive below half, mids and treble in the upper part of the range, and bass
+      low.
+  - q: Do I need a Stratocaster to get Lincoln Brewster's tone?
+    a: >-
+      Effectively, yes. Brewster is fundamentally a Strat player and chose
+      single-coils over humbuckers deliberately for their cutting, articulate
+      voice. A Strat or Strat-style guitar with single coils (ideally noiseless,
+      like his DiMarzio Area 58/61 set) is what makes this tone work. Humbuckers
+      will sound dark and muddy through this bright Plexi setting.
+  - q: Is Lincoln Brewster's tone ambient like Hillsong or Bethel?
+    a: >-
+      No — and that is what makes it the clearest lane to learn. Brewster's tone
+      is rock-worship: bright, mid-forward, articulate lead playing with
+      controlled delay, closer to Stevie Ray Vaughan or John Mayer than to the
+      pad-forward ambient sound of Hillsong or Bethel. The delay supports the
+      notes rather than washing over them.
+  - q: How do I get the lead boost without it sounding harsh?
+    a: >-
+      Use a mid-boost, not a treble boost. Brewster pushes the mids (around 800
+      Hz to 1 kHz) with an EQ block and a Tube Screamer for leads, which lifts
+      the tone in the band mix without adding ice-pick highs. If the top end is
+      harsh, apply a gentle high cut around 6–8 kHz and keep the amp's treble
+      just below maximum.
+---
+
+> **Start Here: The Brewster Lead Tone in Five Blocks:**
+> 1. Amp: **Brit Plexi** (Plexi Variac voice), Drive below half, mids and treble high, bass low
+> 2. Drive: **Minotaur** (Klon-style), always on, low drive — the foundation boost
+> 3. Drive+: **Scream 808** (Tube Screamer), on for leads — mid-push, low drive, high level
+> 4. EQ: **Parametric**, +3–4 dB around 800 Hz–1 kHz — the mid-forward cut
+> 5. Time/space: **Vintage Digital** delay (dotted eighth) + **Plate** reverb, modest mix
+
+---
+
+## Why Brewster Is the Easiest Worship Tone to Nail — and the Rarest
+
+Almost every modern worship guitar tone is some version of the same recipe: a Gretsch or Telecaster into a Vox AC30, with stacked ambient delays and big reverb. Lincoln Brewster is the exception. He plays a **Stratocaster into a Marshall Plexi**, and his tone is bright, mid-forward, and aggressively articulate — guitar-hero rock energy aimed at congregational worship. People have compared his sound to Stevie Ray Vaughan and John Mayer, and that is the right family: a single-coil Strat pushing a cranked tube amp.
+
+That makes Brewster the clearest lane to teach. There is almost nothing written about building his specific tone on the [Helix](/platforms/helix), and unlike the ambient-wash sounds, his tone is *defined* — you can tell when you have it right, because the notes cut and the leads sing.
+
+This walkthrough builds his lead tone from an empty patch. Every block name is exact, and it ports to a Helix Floor, Helix LT, HX Stomp, or Helix Native.
+
+I run this on Sunday-morning lead lines, and the part that sold me is how it cuts without my asking the front-of-house engineer for anything — the mid-boost does the lifting, so a single-note line over a full band and a piano pad still reads from the back of the room. The first time I backed the Drive below half instead of cranking it for the solo, the lower-gain setting actually came across *more* present, not less.
+
+## The Foundation: A Strat Into a Plexi Variac
+
+Brewster's foundational sound, across every platform he has used, is a **1968 Marshall Plexi Super Lead run through a variac** — a transformer that lowers the mains voltage so the amp sags and breaks up earlier. On Line 6 devices this is the **Plexi Variac** voicing (the Brit Plexi family of models). Versus a standard Plexi it has less headroom, a saggier, more touch-responsive feel, and a smoother top end.
+
+His amp settings — the "Brewster sweet spot":
+
+| Parameter | Setting | Why |
+|---|---|---|
+| Drive | Below half (~0.40) | He is after cut and clarity, not saturation. The boosts add the gain. |
+| Bass | Low (~0.25) | Prevents a flubby low end in a church PA — the survival rule of worship tone. |
+| Mids | High (~0.70) | The mid presence is the whole identity of this tone. |
+| Treble | High (~0.65) | Brightness and articulation, but keep it just under max to avoid ice-pick. |
+| Presence | Moderate (~0.45) | Sharpens attack without harshness. |
+
+The guitar matters as much as the amp. Brewster runs a **Strat with noiseless single-coils** (DiMarzio Area 58 in the neck/middle, Area 61 in the bridge) — vintage Strat voice without the 60-cycle hum that wrecks a quiet stage. Use the bridge or bridge+middle position for leads. Humbuckers will turn this bright Plexi setting dark and muddy; this tone is built on single coils.
+
+## The Lead Lift: Mid-Boost, Not More Gain
+
+The thing players get wrong is reaching for more distortion to make leads cut. Brewster does the opposite — he lifts the **mids**:
+
+1. **Minotaur** (Klon-style) — always on, Drive low (~0.20), Output unity-plus. This is the always-on foundation that thickens the Plexi and adds sustain.
+2. **Scream 808** (Tube Screamer) — engaged only for the lead snapshot. Drive low (~0.15), Tone ~0.55, Level high (~0.80). It is a mid-hump boost, not a distortion box here.
+3. **Parametric EQ** — +3 to +4 dB centered around 800 Hz–1 kHz, Q moderate. This is the "stealth mid-boost" that on his signature Strat lives on the tone knob; on the Helix you do it with an EQ block. Add a gentle high cut around 6–8 kHz to tame a bright Strat-through-Plexi top end.
+
+That stack — low-gain boost always on, Tube Screamer plus mid-EQ for leads — is the cut. It lifts the lead in the band mix without making it harsh or fizzy.
+
+## Time and Space: Controlled, Not Ambient
+
+Brewster's tone is **not** a pad wash. The delay and reverb support articulate playing rather than burying it.
+
+- **Vintage Digital** delay — dotted eighth (at 120 BPM ≈ 375 ms; the dotted-eighth formula is `(60000 / BPM) × 0.75`), Feedback ~25%, Mix ~20%. Clean, rhythmic, sits behind the notes.
+- **Plate** reverb — Decay short-to-medium, Mix ~15%, with a low cut around 120 Hz so it does not muddy the low end.
+
+Keep both modest. The dry note should always be the loudest thing.
+
+## Snapshot Layout
+
+Brewster works in defined gear changes, which maps perfectly to snapshots:
+
+1. **Clean** — amp only (or neck pickup, drives off), delay low, reverb low. Verse comping.
+2. **Rhythm/Drive** — Minotaur on, mild delay. Driven rhythm and builds.
+3. **Lead** — Minotaur + Scream 808 + mid-EQ, delay up to ~25% mix. The cutting lead.
+4. **Lead Ambient** (optional) — Lead plus longer delay feedback and more reverb for held melodic lines.
+
+Set per-snapshot Output level so the Lead snapshot lifts +1 to +2 dB above Rhythm — a musical lift, not just more gain.
+
+## On an HX Stomp
+
+You have fewer blocks, so collapse the stack: drop the separate Parametric EQ and bake the mid-boost into the Scream 808's Tone plus the amp's mids. That gives you Amp · Minotaur · Scream 808 · Vintage Digital · Plate across three snapshots — Clean, Rhythm, Lead — which is the whole tone in five blocks.
+
+---
+
+*Want the exact preset? [Download the Lincoln Brewster Helix preset](/recipe/lincoln-brewster-living-for-your-glory-lead) with every block and snapshot already built, and hear it A/B'd against the record.* {/* TODO: confirm/replace recipe slug + CTA target once the matching recipe object ships */}
