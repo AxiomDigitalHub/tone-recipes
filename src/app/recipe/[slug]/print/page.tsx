@@ -7,16 +7,9 @@ import {
 } from "@/lib/data";
 import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
 import {
-  PreviewBlockDetail,
-  PreviewHFader,
-} from "@/components/v3/PreviewBlocks";
-import {
-  isFaderBlock,
-  isHFaderControl,
   helixCategory,
   type PreviewBlockData,
 } from "@/components/v3/preview-helpers";
-import PreviewKnob from "@/components/v3/PreviewKnob";
 import { BlockIcon } from "@/components/v3/BlockIcon";
 import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
@@ -89,54 +82,9 @@ const PLATFORM_ORDER: Platform[] = [
   "tonex",
 ];
 
-/**
- * Compact card for volume-pedal-style blocks. Replaces the tall
- * vertical PreviewFader ramp with the same PreviewHFader the cab
- * block uses for Low/High Cut — proper fader handle, not a thin
- * progress bar. (Daniel 2026-05-05: "vol pedal horizontal is
- * missing the fader. see low cut / high cut components.") Same
- * head as PreviewBlockDetail, hfader as the body.
- */
-function PrintFaderRow({ block }: { block: PreviewBlockData }) {
-  const control = block.controls[0] ?? "Pedal";
-  const range = block.ranges?.[control];
-  const rawValue = block.values[control];
-  const value = rawValue ?? range?.max ?? 1;
-
-  const className = [
-    "block-detail",
-    block.color ? `node-color-${block.color}` : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
-
-  return (
-    <div className={className}>
-      <div className="block-detail-head">
-        <div className="head-icon" aria-hidden="true">
-          <BlockIcon block={block} size={22} />
-        </div>
-        <div className="head-title">
-          <div className="name">{block.name}</div>
-          {block.sub && <div className="sub">{block.sub}</div>}
-        </div>
-        <span className="kind">{helixCategory(block)}</span>
-      </div>
-      <PreviewHFader
-        label={control}
-        value={value}
-        min={range?.min ?? 0}
-        max={range?.max ?? 1}
-        unit={range?.unit}
-      />
-    </div>
-  );
-}
-
-/** Power-section / tube internals on a Helix amp model. Set once at
- *  factory neutral, rarely touched — separated from the per-recipe
- *  tone controls (Drive / Bass / Mid / Treble / Presence / Volume)
- *  so the spec sheet reads the way a tech would write it. */
+/** Power-section / tube internals on a Helix amp model — kept grouped so
+ *  the spec table reads the way a tech would write it (front-of-amp tone
+ *  stack first, then the rarely-touched power-section internals). */
 const AMP_INTERNAL_PARAMS = new Set([
   "Bias",
   "BiasX",
@@ -147,91 +95,103 @@ const AMP_INTERNAL_PARAMS = new Set([
 ]);
 
 /**
- * Print-specific detail card for amp blocks. Same head as
- * PreviewBlockDetail, but the knob grid is split into two labeled
- * groups — "Tone & gain" (front-of-amp tone-stack + volume stage)
- * and "Tube internals" (Bias / BiasX / Sag / Hum / Ripple) — so the
- * editorial logic stays visible. Daniel 2026-05-05: "the amp's 13
- * knobs are mashed into one undifferentiated grid."
+ * One settings table per platform — columns Block · Setting · Value, in the
+ * site's type/ink/cream system. Replaces the per-block knob-dial cards,
+ * which were beautiful but ate ~half a page each. The block name spans its
+ * rows; amp blocks keep the "Tone & gain" / "Tube internals" split as
+ * labeled sub-rows. This is the original jsPDF table density, styled like
+ * the website.
  */
-function PrintAmpDetail({ block }: { block: PreviewBlockData }) {
+type SpecLine =
+  | { kind: "group"; label: string }
+  | { kind: "param"; control: string };
+
+function blockLines(block: PreviewBlockData): SpecLine[] {
   const visible = block.controls.filter(
     (c) => block.values[c] !== undefined,
   );
-  const hfaders = visible.filter(isHFaderControl);
-  const knobs = visible.filter((c) => !isHFaderControl(c));
-  const internals = knobs.filter((c) => AMP_INTERNAL_PARAMS.has(c));
-  const tone = knobs.filter((c) => !AMP_INTERNAL_PARAMS.has(c));
+  if (block.variant !== "amp") {
+    return visible.map((control) => ({ kind: "param", control }));
+  }
+  const tone = visible.filter((c) => !AMP_INTERNAL_PARAMS.has(c));
+  const internals = visible.filter((c) => AMP_INTERNAL_PARAMS.has(c));
+  const lines: SpecLine[] = [];
+  if (tone.length) {
+    lines.push({ kind: "group", label: "Tone & gain" });
+    tone.forEach((control) => lines.push({ kind: "param", control }));
+  }
+  if (internals.length) {
+    lines.push({ kind: "group", label: "Tube internals" });
+    internals.forEach((control) => lines.push({ kind: "param", control }));
+  }
+  return lines;
+}
 
-  const renderKnob = (c: string) => {
-    const range = block.ranges?.[c];
-    return (
-      <PreviewKnob
-        key={c}
-        label={c}
-        value={block.values[c] ?? 5}
-        min={range?.min}
-        max={range?.max ?? 10}
-        neutral={range?.neutral}
-        unit={range?.unit}
-        size={52}
-        interactive={false}
-      />
-    );
-  };
-
-  const className = [
-    "block-detail",
-    block.color ? `node-color-${block.color}` : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
-
+function PlatformSpecTable({ blocks }: { blocks: PreviewBlockData[] }) {
+  const rows = blocks.filter((b) => b.variant !== "source");
   return (
-    <div className={className}>
-      <div className="block-detail-head">
-        <div className="head-icon" aria-hidden="true">
-          <BlockIcon block={block} size={22} />
-        </div>
-        <div className="head-title">
-          <div className="name">{block.name}</div>
-          {block.sub && <div className="sub">{block.sub}</div>}
-        </div>
-        <span className="kind">{helixCategory(block)}</span>
-      </div>
-
-      {hfaders.length > 0 && (
-        <div className="block-hfaders">
-          {hfaders.map((c) => {
-            const range = block.ranges?.[c];
-            return (
-              <PreviewHFader
-                key={c}
-                label={c}
-                value={block.values[c] ?? 0}
-                min={range?.min ?? 0}
-                max={range?.max ?? 100}
-                unit={range?.unit}
-              />
-            );
-          })}
-        </div>
-      )}
-
-      {tone.length > 0 && (
-        <div className="print-amp-group">
-          <div className="print-amp-group-head">Tone &amp; gain</div>
-          <div className="block-settings">{tone.map(renderKnob)}</div>
-        </div>
-      )}
-
-      {internals.length > 0 && (
-        <div className="print-amp-group">
-          <div className="print-amp-group-head">Tube internals</div>
-          <div className="block-settings">{internals.map(renderKnob)}</div>
-        </div>
-      )}
-    </div>
+    <table className="print-spec">
+      <thead>
+        <tr>
+          <th className="print-spec-h-block">Block</th>
+          <th className="print-spec-h-set">Setting</th>
+          <th className="print-spec-h-val">Value</th>
+        </tr>
+      </thead>
+      {rows.map((b, bi) => {
+        const lines = blockLines(b);
+        const span = Math.max(lines.length, 1);
+        const blockCell = (
+          <th className="print-spec-block" scope="rowgroup" rowSpan={span}>
+            <span className="bi" aria-hidden="true">
+              <BlockIcon block={b} size={18} />
+            </span>
+            <span className="bn">{b.name}</span>
+            {b.sub && <span className="bs">{b.sub}</span>}
+            <span className="bk">{helixCategory(b)}</span>
+          </th>
+        );
+        if (lines.length === 0) {
+          return (
+            <tbody key={`${b.name}-${bi}`} className="print-spec-group">
+              <tr className="print-spec-row print-spec-first">
+                {blockCell}
+                <td className="print-spec-empty" colSpan={2}>
+                  Engaged — no adjustable parameters
+                </td>
+              </tr>
+            </tbody>
+          );
+        }
+        return (
+          <tbody key={`${b.name}-${bi}`} className="print-spec-group">
+            {lines.map((ln, li) => (
+              <tr
+                key={li}
+                className={`print-spec-row${li === 0 ? " print-spec-first" : ""}`}
+              >
+                {li === 0 && blockCell}
+                {ln.kind === "group" ? (
+                  <td className="print-spec-grouplabel" colSpan={2}>
+                    {ln.label}
+                  </td>
+                ) : (
+                  <>
+                    <td className="print-spec-set">{ln.control}</td>
+                    <td className="print-spec-val">
+                      {String(b.values[ln.control])}
+                      {b.ranges?.[ln.control]?.unit ? (
+                        <span className="u"> {b.ranges?.[ln.control]?.unit}</span>
+                      ) : null}
+                    </td>
+                  </>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        );
+      })}
+    </table>
   );
 }
 
@@ -440,26 +400,7 @@ export default async function RecipePrintPage({
                   horizontal row instead of the tall vertical fader
                   to save page real estate. */}
               <div className="print-platform-details">
-                {blocks
-                  .filter((b) => b.variant !== "source")
-                  .map((b, i) => {
-                    const isFader = isFaderBlock(b);
-                    const isAmp = b.variant === "amp";
-                    return (
-                      <div
-                        key={`${b.name}-${i}`}
-                        className={`print-block-card${isFader ? " print-block-card-fader" : ""}${isAmp ? " print-block-card-amp" : ""}`}
-                      >
-                        {isFader ? (
-                          <PrintFaderRow block={b} />
-                        ) : isAmp ? (
-                          <PrintAmpDetail block={b} />
-                        ) : (
-                          <PreviewBlockDetail block={b} isSelected={false} />
-                        )}
-                      </div>
-                    );
-                  })}
+                <PlatformSpecTable blocks={blocks} />
               </div>
 
               <footer className="print-page-foot">

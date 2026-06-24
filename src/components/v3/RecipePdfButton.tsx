@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { useAuth } from "@/lib/auth/auth-context";
 import { createBrowserClient } from "@/lib/db/client";
+import OverlayPortal from "@/components/ui/OverlayPortal";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -116,6 +117,7 @@ export default function RecipePdfButton({
       </button>
 
       {showModal && (
+        <OverlayPortal>
         <div
           className="pdf-gate"
           role="dialog"
@@ -162,6 +164,7 @@ export default function RecipePdfButton({
             </p>
           </div>
         </div>
+        </OverlayPortal>
       )}
     </>
   );

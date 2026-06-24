@@ -13,16 +13,93 @@ import { buildRigTokens } from "@/lib/gear-match";
 import { getBandName } from "@/lib/song-band";
 import BrowseRigFilter from "@/components/browse/BrowseRigFilter";
 
-export const metadata: Metadata = {
-  title: "Browse Tones — Fader & Knob",
-  description:
-    "The full archive of verified tone recipes. Filter by era, platform, or genre. Sort by newest, song A–Z, artist A–Z, or block count.",
-  openGraph: {
-    title: "Browse Tones — Fader & Knob",
-    description: "Every recipe in the archive, filterable by era, platform, and genre.",
-    type: "website",
-  },
+/**
+ * Per-facet metadata. The browse filters (?era, ?genre, ?platform,
+ * ?artist, ?sort) previously all shared one static title + description,
+ * producing the duplicate-title / duplicate-meta cluster in the
+ * 2026-06-16 audit (and the static title double-branded via the layout
+ * template). Strategy (per Daniel): make the meaningful facets rankable
+ * with unique titles/descriptions, and canonical the no-value param
+ * (?sort) away.
+ *
+ * Canonical is built from era/genre/platform/artist in a FIXED key order
+ * (so ?genre=rock&platform=helix and ?platform=helix&genre=rock resolve
+ * to the same URL) and deliberately omits ?sort — sort variants carry no
+ * search value and would otherwise each be a distinct indexable page.
+ */
+const PLATFORM_LABELS: Record<string, string> = {
+  helix: "Helix",
+  quad_cortex: "Quad Cortex",
+  tonex: "TONEX",
+  fractal: "Fractal",
+  kemper: "Kemper",
+  katana: "Boss Katana",
+  pedalboard: "Pedalboard",
 };
+
+function titleCaseSlug(slug: string): string {
+  return slug
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join("-");
+}
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    era?: string;
+    platform?: string;
+    genre?: string;
+    artist?: string;
+    sort?: string;
+  }>;
+}): Promise<Metadata> {
+  const sp = await searchParams;
+
+  // Canonical: meaningful facets only, fixed order, ?sort excluded.
+  const canon = new URLSearchParams();
+  if (sp.era) canon.set("era", sp.era);
+  if (sp.genre) canon.set("genre", sp.genre);
+  if (sp.platform) canon.set("platform", sp.platform);
+  if (sp.artist) canon.set("artist", sp.artist);
+  const qs = canon.toString();
+  const canonical = qs ? `/browse?${qs}` : "/browse";
+
+  // Human-readable facet phrase for the title/description.
+  const parts: string[] = [];
+  if (sp.era) parts.push(`${sp.era}s`);
+  if (sp.genre) parts.push(titleCaseSlug(sp.genre));
+  if (sp.platform && PLATFORM_LABELS[sp.platform]) {
+    parts.push(PLATFORM_LABELS[sp.platform]);
+  }
+  if (sp.artist) parts.push(titleCaseSlug(sp.artist));
+
+  if (parts.length === 0) {
+    return {
+      title: "Browse Tones",
+      description:
+        "The full archive of verified tone recipes. Filter by era, platform, or genre — every recipe with full signal chains and settings.",
+      alternates: { canonical: "/browse" },
+      openGraph: {
+        title: "Browse Tones — Fader & Knob",
+        description:
+          "Every recipe in the archive, filterable by era, platform, and genre.",
+        type: "website",
+      },
+    };
+  }
+
+  const facet = parts.join(" ");
+  const title = `${facet} Tone Recipes`;
+  const description = `Verified ${facet} tone recipes with full signal chains and exact settings for Helix, Quad Cortex, Fractal, Kemper, and more — from the Fader & Knob archive.`;
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: { title: `${title} — Fader & Knob`, description, type: "website" },
+  };
+}
 
 type SortKey = "newest" | "oldest" | "song-az" | "artist-az" | "blocks-desc";
 

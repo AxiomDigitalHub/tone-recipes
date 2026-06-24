@@ -4,6 +4,7 @@ import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { toneRecipes, artists, songs, gearItems } from "@/lib/data";
+import OverlayPortal from "@/components/ui/OverlayPortal";
 
 interface SearchResult {
   type: "recipe" | "artist" | "song" | "gear";
@@ -226,6 +227,7 @@ export default function SearchPalette() {
   let flatIndex = 0;
 
   return (
+    <OverlayPortal>
     <div className="fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-label="Search" onKeyDown={handleKeyDown}>
       {/* Backdrop */}
       <div
@@ -377,5 +379,6 @@ export default function SearchPalette() {
         </div>
       </div>
     </div>
+    </OverlayPortal>
   );
 }

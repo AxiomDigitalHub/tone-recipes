@@ -317,17 +317,12 @@ export function gearJsonLdSet(
 
 export function platformJsonLdSet(
   platform: PlatformMeta,
-): { product: JsonLdNode; breadcrumb: JsonLdNode } {
-  const product: JsonLdNode = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: platform.label,
-    description: platform.tagline,
-    category: "Guitar amp modeler",
-    brand: { "@type": "Brand", name: platform.manufacturer },
-    url: `${SITE}/platforms/${platform.id}`,
-  };
-
+): { breadcrumb: JsonLdNode } {
+  // NOTE: these are informational hub pages, not product listings — we
+  // don't sell modelers. A `Product` node with no offers/review/
+  // aggregateRating is invalid structured data (the 6 markup errors in
+  // the 2026-06-16 audit, one per /platforms/* page). Emit only the
+  // breadcrumb, which is valid and useful.
   const breadcrumb: JsonLdNode = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -342,7 +337,7 @@ export function platformJsonLdSet(
     ],
   };
 
-  return { product, breadcrumb };
+  return { breadcrumb };
 }
 
 /* -------------------------------------------------------------------------- */

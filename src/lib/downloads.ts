@@ -45,23 +45,17 @@ export async function getDownloadCount(userId: string): Promise<number> {
  * Check whether a user can download a preset right now.
  *
  * Priority order:
- *   1. `legacyUnlimited` flag (grandfathered accounts) — always allowed
- *   2. Paid roles (pass, premium, creator, admin, super_admin) — always allowed
- *   3. Free role — allowed only if monthly count < FREE_DOWNLOAD_LIMIT
+ *   1. Paid roles (pass, pro, admin, super_admin) — always allowed
+ *   2. Free role — allowed only if monthly count < FREE_DOWNLOAD_LIMIT
  *
- * The two non-free paths return `remaining: Infinity` so the UI can
- * render "Unlimited" rather than a stale finite number. Free returns
- * an honest remaining count so the DownloadCounter component can show
- * "3 of 5 free downloads this month".
+ * Non-free roles return `remaining: Infinity` so the UI can render
+ * "Unlimited" rather than a stale finite number. Free returns an honest
+ * remaining count so the DownloadCounter can show "3 of 5 free downloads".
  */
 export async function canDownload(
   userId: string,
   role: string,
-  legacyUnlimited: boolean = false,
 ): Promise<{ allowed: boolean; remaining: number }> {
-  if (legacyUnlimited) {
-    return { allowed: true, remaining: Infinity };
-  }
   if (role !== "free") {
     return { allowed: true, remaining: Infinity };
   }

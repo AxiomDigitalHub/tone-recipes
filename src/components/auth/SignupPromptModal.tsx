@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Check, Mail, X } from "lucide-react";
 import { useAuth } from "@/lib/auth/auth-context";
+import OverlayPortal from "@/components/ui/OverlayPortal";
 
 const MIN_PASSWORD_LENGTH = 10;
 
@@ -141,6 +142,7 @@ export default function SignupPromptModal({
   }
 
   return (
+    <OverlayPortal>
     <div
       className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8"
       role="dialog"
@@ -315,5 +317,6 @@ export default function SignupPromptModal({
         </p>
       </div>
     </div>
+    </OverlayPortal>
   );
 }

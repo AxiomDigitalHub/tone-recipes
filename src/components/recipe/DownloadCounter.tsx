@@ -11,8 +11,7 @@ interface DownloadCounterProps {
 
 /**
  * Tiny pill that tells a user how many preset downloads they have left
- * this month, or "Unlimited downloads" if they're on Pass / grandfathered
- * / staff.
+ * this month, or "Unlimited downloads" if they're on Pass / Pro / staff.
  *
  * The count is per calendar month (UTC), matching the server-side enforcement
  * in src/lib/downloads.ts. Mismatch between these two would let a user see
@@ -25,10 +24,8 @@ export default function DownloadCounter({ className }: DownloadCounterProps) {
   const [count, setCount] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // Grandfathered accounts (created before the 2026-06-09 Pass relaunch)
-  // and Pass subscribers / staff are all unlimited.
-  const isUnlimited =
-    Boolean(user?.legacyUnlimited) || (user != null && user.role !== "free");
+  // Pass / Pro subscribers and staff are unlimited; free accounts are metered.
+  const isUnlimited = user != null && user.role !== "free";
 
   useEffect(() => {
     if (!user || isUnlimited) {
@@ -75,7 +72,7 @@ export default function DownloadCounter({ className }: DownloadCounterProps) {
   // Don't render for unauthenticated users
   if (!user) return null;
 
-  // Pass / grandfathered / staff
+  // Pass / Pro / staff
   if (isUnlimited) {
     return (
       <span

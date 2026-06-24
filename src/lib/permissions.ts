@@ -66,12 +66,12 @@ export const TIERS: Record<UserRole, TierConfig> = {
     },
   },
   // `premium` and `creator` are LEGACY tiers from the pre-2026-05 model.
-  // No new accounts get these roles. Existing rows with role=premium or
-  // role=creator are grandfathered via the `legacy_unlimited` flag on
-  // profiles (migration 019), so the canDownload() check treats them as
-  // unlimited regardless of what's in `features`/`limits` here. The
-  // labels stay friendly so the dashboard doesn't show "Free Account"
-  // to someone who paid us money in v1.
+  // No new accounts get these roles. canDownload() treats any non-free
+  // role as unlimited, so the few legacy rows (if any) still download
+  // freely. Grandfathering of *free* accounts was retired 2026-06-15
+  // (see migration 021); the free monthly quota now applies to all free
+  // accounts. The labels stay friendly so the dashboard doesn't show
+  // "Free Account" to someone who paid us money in v1.
   premium: {
     label: "Free Account",
     price: null,
@@ -185,12 +185,11 @@ export function isAtLeast(role: UserRole, minimum: UserRole): boolean {
 export const FREE_PLATFORM_LIMIT = Infinity;
 
 /**
- * Monthly preset-download quota for accounts on the free tier created
- * after the 2026-06-09 Pass relaunch. Accounts created before then are
- * grandfathered to unlimited via the `legacy_unlimited` flag on profiles
- * (migration 019), and Pass subscribers (`role = 'pass'`) are unlimited
- * by tier. canDownload() in src/lib/downloads.ts is the single
- * enforcement point; everywhere else just reads this constant.
+ * Monthly preset-download quota for free-tier accounts. Applies to ALL
+ * free accounts as of 2026-06-15 (grandfathering retired, migration 021).
+ * Paid roles (pass, pro) are unlimited by tier. canDownload() in
+ * src/lib/downloads.ts is the single enforcement point; everywhere else
+ * just reads this constant.
  */
 export const FREE_DOWNLOAD_LIMIT = 5;
 
