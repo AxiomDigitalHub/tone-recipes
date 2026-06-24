@@ -601,6 +601,20 @@ export const artists: Artist[] = [
     genres: ["stoner-rock", "hard-rock", "blues-rock"],
     image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/99/bf/eb/99bfeb36-0fd7-0141-dbd1-8016fe0359b6/884977682908.jpg/600x600bb.jpg",
   },
+  {
+    name: "Zach Myers",
+    slug: "zach-myers",
+    bio: "Lead and rhythm guitarist of Shinedown, the hard-rock band from Jacksonville, Florida, which he joined in 2005. A lifelong PRS loyalist — he has his own SE Zach Myers signature singlecut — Myers built Shinedown's arena sound on PRS singlecuts run for nearly a decade into a Diezel Herbert, later consolidating his five-amp 'rig of doom' (twin Diezel Herberts, Fuchs Mantis heads, a Diamond Hammersmith) into an Axe-Fx II that models the Herbert and a Fryette. His tone spans pristine semi-hollow cleans on 'Second Chance' to whole-step-down crushing rhythm on 'Cut the Cord,' making him one of modern radio rock's most versatile guitarists.",
+    genres: ["hard-rock", "alternative-metal", "post-grunge"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/68/34/66/6834668d-d532-490a-0319-34a4e9bda0ad/075679921413.jpg/600x600bb.jpg",
+  },
+  {
+    name: "Joe Hottinger",
+    slug: "joe-hottinger",
+    bio: "Lead guitarist of Halestorm, the Grammy-winning hard-rock band from Red Lion, Pennsylvania, which he joined in 2003. A self-described SG obsessive, Hottinger anchors his tone on Gibson SGs — including the 2003 SG Standard he bought new when he joined — run into vintage Marshall Super Lead plexis (a red 1971 and a purple 1973) and Bogner 4x12 cabinets loaded with Beyma Liberty speakers. His board pairs a Bogner La Grange plexi-style overdrive with a Tru-Fi Octavia fuzz, giving Halestorm's riffs and solos their raw, volume-driven Gibson-into-Marshall snarl.",
+    genres: ["hard-rock", "alternative-metal", "heavy-metal"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/6f/46/b0/6f46b06e-a2e9-8404-7f69-7457bf2383a7/075679963123.jpg/600x600bb.jpg",
+  },
 ];
 
 export const songs: Song[] = [
@@ -2717,6 +2731,66 @@ export const songs: Song[] = [
     difficulty: "intermediate",
     external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=clutch+electric+worry",
     external_video_url: "https://www.youtube.com/results?search_query=clutch+electric+worry+guitar+lesson",
+  },
+  {
+    artist_slug: "tim-sult",
+    title: "Earth Rocker",
+    slug: "earth-rocker-clutch",
+    album: "Earth Rocker",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/da/c2/be/dac2be02-91d5-ba1d-dda1-2b9add9ecf11/886443844810.jpg/600x600bb.jpg",
+    year: 2013,
+    genres: ["hard-rock", "stoner-rock", "blues-rock"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=clutch+earth+rocker",
+    external_video_url: "https://www.youtube.com/results?search_query=clutch+earth+rocker+guitar+lesson",
+  },
+  {
+    artist_slug: "zach-myers",
+    title: "Second Chance",
+    slug: "second-chance-shinedown",
+    album: "The Sound of Madness",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/85/0a/fe/850afe7b-9194-6f7a-f64e-677e48a76581/075679991591.jpg/600x600bb.jpg",
+    year: 2008,
+    genres: ["hard-rock", "post-grunge", "alternative-rock"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=shinedown+second+chance",
+    external_video_url: "https://www.youtube.com/results?search_query=shinedown+second+chance+guitar+lesson",
+  },
+  {
+    artist_slug: "zach-myers",
+    title: "Cut the Cord",
+    slug: "cut-the-cord-shinedown",
+    album: "Threat to Survival",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/68/34/66/6834668d-d532-490a-0319-34a4e9bda0ad/075679921413.jpg/600x600bb.jpg",
+    year: 2015,
+    genres: ["hard-rock", "alternative-metal", "post-grunge"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=shinedown+cut+the+cord",
+    external_video_url: "https://www.youtube.com/results?search_query=shinedown+cut+the+cord+guitar+lesson",
+  },
+  {
+    artist_slug: "joe-hottinger",
+    title: "I Miss the Misery",
+    slug: "i-miss-the-misery-halestorm",
+    album: "The Strange Case Of...",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/6f/46/b0/6f46b06e-a2e9-8404-7f69-7457bf2383a7/075679963123.jpg/600x600bb.jpg",
+    year: 2012,
+    genres: ["hard-rock", "alternative-metal", "heavy-metal"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=halestorm+i+miss+the+misery",
+    external_video_url: "https://www.youtube.com/results?search_query=halestorm+i+miss+the+misery+guitar+lesson",
+  },
+  {
+    artist_slug: "joe-hottinger",
+    title: "Love Bites (So Do I)",
+    slug: "love-bites-halestorm",
+    album: "The Strange Case Of...",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/6f/46/b0/6f46b06e-a2e9-8404-7f69-7457bf2383a7/075679963123.jpg/600x600bb.jpg",
+    year: 2012,
+    genres: ["hard-rock", "alternative-metal", "heavy-metal"],
+    difficulty: "advanced",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=halestorm+love+bites+so+do+i",
+    external_video_url: "https://www.youtube.com/results?search_query=halestorm+love+bites+so+do+i+guitar+lesson",
   },
 ];
 
@@ -53441,6 +53515,833 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 6, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tone shaping", settings: { Bands: "+1.5 dB above 2 kHz", Level: 0 }, notes: "A gentle high-shelf lift for the AC30 chime, mirroring the Helix Tilt." },
         ],
         notes: "Comp -> low treble boost -> AC-30 TB -> Blue 2x12 (far mic) -> room reverb -> bright EQ. Standard. Combos and room, not a stack.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Clutch - Earth Rocker ----
+  {
+    id: "seed-sult-earth-rocker",
+    song_slug: "earth-rocker-clutch",
+    title: "Earth Rocker Riff Tone",
+    slug: "sult-earth-rocker-riff",
+    created_at: "2026-06-24",
+    description:
+      "The title-track gallop from Clutch's 2013 album, cut with producer Machine at The Machine Shop in Belleville, NJ. Tim Sult tracked the whole record on one electric -- a Gibson Les Paul Junior with a single P-90 -- straight into a cranked Marshall JCM900, with a JTM45 layered in for heft. No pedals, no fuzz: the raw, in-your-face crunch is a hot P-90 hitting a master-volume Marshall and an Orange 2x12 of Vintage 30s. Standard E.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Les Paul Junior (P-90)",
+      pickup_config: "P90",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "Standard E (E-A-D-G-B-E)",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "Sult confirmed to Guitar World that a Les Paul Junior with P-90 pickups was the only electric guitar he used to track the entire Earth Rocker album. The single bridge P-90 is the key to the tone -- it has more output and midrange grind than a Strat single-coil but stays clearer and more open than a humbucker, so the cranked Marshall snarls without turning to mud.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "compressor",
+        gear_slug: null,
+        gear_name: "Light tracking compression",
+        icon_type: "compressor",
+        icon_color: "#06b6d4",
+        is_in_effects_loop: false,
+        settings: { Ratio: "2:1", "Gain Reduction": "2-3 dB" },
+        notes:
+          "Machine is a meticulous producer who tracked the band fully rehearsed; a touch of console compression evens the gallop's pick attack so the open-string runs sit steady. Kept very light -- the song's drive is dynamic, and over-compressing would kill the in-your-face punch.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall JCM900 (+ JTM45 blend)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Gain: 6, Bass: 5, Middle: 7, Treble: 6, Presence: 6, Master: 8 },
+        notes:
+          "Producer Machine confirmed the album leaned on a Marshall JCM900 with a JTM45 mixed in for density and heft. The 900 supplies the tight, mid-forward master-volume crunch; the JTM45 layer thickens the low-mids. Middle pushed to 7 -- the forward midrange is what lets the P-90 riff cut without scooping into metal territory. The gain is all amp, no boost pedal.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Orange PPC212 2x12 (Celestion Vintage 30)",
+        icon_type: "cab_2x12",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "The documented album cab -- an Orange 2x12 loaded with Celestion Vintage 30s. The V30's firm low end and pronounced upper-mid bump keep the cranked Marshall tight and present, so the raw crunch stays punchy rather than woolly in a 2x12's smaller, focused thump.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 (assumed)",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, on cone edge" },
+        notes:
+          "Undocumented for the track; a close SM57 on the cone edge is the standard capture for a cranked Marshall and matches the album's tight, mid-forward grind. Aim toward the dust cap edge for bite without harsh fizz.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Gibson Les Paul Junior with a single P-90 -- confirmed by Sult as the only electric used on the entire album",
+      effects: ["Light studio tracking compression"],
+      amp: "Marshall JCM900 (primary), with a Marshall JTM45 blended in for heft",
+      cabinet: "Orange PPC212 2x12 with Celestion Vintage 30 speakers",
+      microphone: "Undocumented (Shure SM57 assumed)",
+      other_notes:
+        "Earth Rocker (2013) was produced by Machine (who also produced 2004's Blast Tyrant) and recorded/mixed at The Machine Shop, Belleville, NJ. Sult said he 'kept the whole setup pretty simple for this album, just a JCM900 and a JTM45' -- no pedals, no fuzz on the hero rhythm. The Les Paul Junior P-90, the two Marshalls and the Orange 2x12/V30 cab are the hard-verified facts; the light tracking comp, exact amp settings and mic are inferred from his documented rig and Machine's production style.",
+    },
+    tags: ["hard-rock", "stoner-rock", "riff", "clutch", "tim-sult", "les-paul-junior"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Earth_Rocker",
+      "https://equipboard.com/albums/clutch-earth-rocker",
+      "https://www.musicradar.com/news/rig-tour-clutch",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Noise Gate", original_gear: "Hot P-90 hum control", settings: { Threshold: -64, Decay: 30 }, notes: "A single P-90 into a cranked Marshall hums and hisses between phrases; a gentle gate cleans the gaps without clipping the gallop's note tails. Set the threshold just above the noise floor so sustained notes ring out." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -26, Ratio: 2, Knee: 6, Attack: 50, Release: 200, Mix: 25, Level: 0 }, notes: "Before the amp -- a light comp evens the gallop's pick attack so the open-string riff stays steady. Gentle and parallel-blended because the song lives on dynamics; heavy comp would flatten the punch." },
+          { position: 3, block_name: "Brit 2204", block_category: "Amp", original_gear: "Marshall JCM900 (+ JTM45 blend)", settings: { Drive: 6.5, Bass: 5, Mid: 7, Treble: 6, Presence: 6, ChVol: 7, Master: 8, Bias: 5, BiasX: 5, Sag: 5, Hum: 5, Ripple: 5 }, notes: "Brit 2204 is Helix's master-volume Marshall -- the closest model to the JCM900 lineage. Mid at 7 for the forward Clutch grind; Drive 6.5 is raw crunch, not saturation. For the JTM45 heft, layer a second amp on 'Brit J-45' panned center and blend low." },
+          { position: 4, block_name: "2x12 Mandarin", block_category: "Cab", original_gear: "Orange PPC212 2x12 (V30)", settings: { Mic: 0, Distance: 2, Position: 0.45, Angle: 25, LowCut: 95, HighCut: 7500, Resonance: 0.4, Level: 0, Pan: 0.5, Delay: 0 }, notes: "2x12 Mandarin models an Orange PPC212 with V30s -- the exact cab. HighCut at 7.5k rolls the V30's fizzy top; LowCut at 95 keeps the open low strings tight rather than flubby under the cranked Marshall." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience (The Machine Shop)", settings: { Mix: 12, Decay: 1.0, Predelay: 12, LowCut: 180, HighCut: 7000, Level: 0 }, notes: "A short room, not a plate -- just enough air to place the riff in a tracking space. LowCut 180 and HighCut 7k keep the tail out of the riff's low-mid honk and off the fizzy top so it never washes the crunch." },
+          { position: 6, block_name: "Tilt", block_category: "EQ", original_gear: "Global midrange shaping", settings: { Tilt: 4.5, CenterFreq: 800, Level: 0 }, notes: "A gentle Tilt tipped toward the low-mids reinforces the mid-forward Marshall grind without muddying the open strings -- subtle global shaping to glue the P-90 bite, not a tone change." },
+        ],
+        notes:
+          "Gate -> light comp -> Brit 2204 (JCM900, mid 7) -> Orange 2x12 V30 -> short room -> low-mid Tilt. Raw crunch is all amp -- no fuzz, no boost. Layer a Brit J-45 underneath for the JTM45 heft. Standard E.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -26, Ratio: 2, Attack: 50, Release: 200, Mix: 25, Level: 0 }, notes: "Light comp evening the gallop's pick attack, mirroring the Helix -- parallel so the dynamic punch survives." },
+          { position: 2, block_name: "Brit 2203", block_category: "Amp", original_gear: "Marshall JCM900 (+ JTM45 blend)", settings: { Gain: 6.5, Bass: 5, Mid: 7, Treble: 6, Presence: 6, Master: 8, Sag: 5 }, notes: "QC's master-volume Marshall, the closest to the JCM900. Mid at 7 for the forward Clutch grind; the gain is all amp. Stack a second 'JTM45' amp block low for the heft layer." },
+          { position: 3, block_name: "2x12 Orange V30", block_category: "Cab", original_gear: "Orange PPC212 2x12 (V30)", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.45, LowCut: 95, HighCut: 7500, Level: 0 }, notes: "V30 2x12 for the Orange cab, close SM57. HighCut rolls the V30 edge; LowCut keeps the open strings tight." },
+          { position: 4, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 1.0, Predelay: 12, Mix: 12, Level: 0 }, notes: "A short room for the tracking-space air, mirroring the Helix -- not a plate." },
+          { position: 5, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global midrange shaping", settings: { Bands: "+2 dB at 700-900 Hz", Level: 0 }, notes: "A gentle low-mid bump reinforcing the mid-forward Marshall grind, mirroring the Helix Tilt." },
+        ],
+        notes:
+          "Comp -> Brit 2203 (JCM900, mid 7) -> Orange 2x12 V30 -> short room -> low-mid EQ. No fuzz. Standard E.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall JCM900'", block_category: "Tone Model", original_gear: "Marshall JCM900 (+ JTM45 blend)", settings: {}, notes: "Search ToneNET for a cranked Marshall JCM900 or 2203/2204 capture, mid-forward and crunchy -- no fuzz. The raw Clutch grind is the amp's midrange. Standard E." },
+        ],
+        notes: "TONEX is capture-driven. Pair a cranked JCM900 capture with a short room; the in-your-face crunch is a hot P-90 into a master-volume Marshall -- no pedals.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Crunch", block_category: "Amp Type", original_gear: "Marshall JCM900 (+ JTM45 blend)", settings: { Gain: 6, Volume: 8, Bass: 5, Middle: 7, Treble: 6, Presence: 6, Master: 8 }, notes: "Crunch nails the JCM900's master-volume grind. Middle at 7 is the forward Clutch grind that lets the P-90 riff cut; no booster needed, the amp does it all." },
+          { position: 2, block_name: "Booster", block_category: "Booster", original_gear: "Clean push (optional)", enabled: false, settings: { Drive: 2, Bottom: 3, Tone: 5, Level: 6 }, notes: "DEFAULT-OFF -- there's no boost on the record. Keep it as an optional clean push for solos; the riff is pure Junior-into-Marshall." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Time: 3, PreDelay: 12, Tone: 5, EffectLevel: 6 }, notes: "A short room for the tracking-space air -- just enough to place the riff in a space." },
+        ],
+        notes:
+          "Crunch amp (mid 7 grind), boost OFF -> short room. The tone is a P-90 into a cranked Marshall -- no fuzz. Standard E.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: 3.0, Volume: 0.0 }, notes: "Slot A -- light comp evening the gallop's pick attack, mirroring the Helix." },
+          { position: 2, block_name: "Search Rig Exchange for 'Marshall JCM900'", block_category: "Profile", original_gear: "Marshall JCM900 (+ JTM45 blend)", settings: { Gain: 6.5, Bass: 5.0, Middle: 7.0, Treble: 6.0, Presence: 6.0 }, notes: "Search Rig Exchange for a cranked JCM900 (or 2203/2204) profile, Middle pushed for the Clutch grind. The profile bakes in the cab. Gain is all amp -- no fuzz." },
+          { position: 3, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 1.0, Predelay: 12, Mix: 12 }, notes: "REV slot -- a short room for the tracking-space air." },
+        ],
+        notes:
+          "Kemper bakes the cab into the profile. Comp -> cranked JCM900 profile (mid grind) -> short room. No fuzz. Standard E.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -26, Ratio: 2, Attack: 50, Release: 200, Mix: 0.25, Level: 0 }, notes: "Light comp evening the gallop's pick attack, mirroring the Helix." },
+          { position: 2, block_name: "Brit Brown", block_category: "Amp", original_gear: "Marshall JCM900 (+ JTM45 blend)", settings: { Drive: 6.5, Bass: 5.0, Mid: 7.0, Treble: 6.0, Presence: 6.0, MV: 8.0 }, notes: "Brit Brown is Fractal's master-volume Marshall, the closest to the JCM900. Mid at 7 for the forward grind; layer a 'Plexi 45' amp low for the JTM45 heft." },
+          { position: 3, block_name: "2x12 Mandarin V30", block_category: "Cab", original_gear: "Orange PPC212 2x12 (V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 95, HighCut: 7500, Level: 0 }, notes: "V30 2x12 for the Orange cab, close SM57. HighCut rolls the V30 edge." },
+          { position: 4, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 0.12, Decay: 1.0, Predelay: 12 }, notes: "A short room for the tracking-space air, mirroring the Helix." },
+          { position: 5, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global midrange shaping", settings: { Bands: "+2 dB at 700-900 Hz", Level: 0 }, notes: "A gentle low-mid bump reinforcing the mid-forward grind, mirroring the Helix Tilt." },
+        ],
+        notes: "Comp -> Brit Brown (JCM900, mid 7) -> Orange 2x12 V30 -> short room -> low-mid EQ. No fuzz. Standard E.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Shinedown - Second Chance ----
+  {
+    id: "seed-myers-second-chance",
+    song_slug: "second-chance-shinedown",
+    title: "Second Chance Lead Tone",
+    slug: "myers-second-chance-lead",
+    created_at: "2026-06-24",
+    description:
+      "Shinedown's breakout radio anthem from 2008's The Sound of Madness. Zach Myers built it on a PRS Santana that he had converted into a semi-hollow -- the guitar he still brings out specifically for this song -- run into his longtime Diezel Herbert. The verses are chiming, clean arpeggios; the choruses and the soaring melodic lead push the amp into a smooth, vocal singing sustain. A polished, big-radio production with plate ambience holding it all together.",
+    tone_context: "lead",
+    guitar_specs: {
+      body_type: "semi_hollow",
+      model_name: "PRS Santana (semi-hollow conversion)",
+      pickup_config: "HH",
+      pickup_position: "neck",
+      string_count: 6,
+      scale_length: "25.0",
+      tuning: "Standard E (E-A-D-G-B-E)",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "Myers had a PRS Santana model transformed into a semi-hollow, and it's the guitar he specifically brings out for 'Second Chance.' The semi-hollow body adds a woody, airy resonance and bloom that suits the clean arpeggios and the singing lead; the neck humbucker rolled-back gives the warm, rounded clean, while the bridge handles the brighter chorus push.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "compressor",
+        gear_slug: null,
+        gear_name: "Studio Compressor",
+        icon_type: "large_format",
+        icon_color: "#06b6d4",
+        is_in_effects_loop: false,
+        settings: { "Peak Reduction": 30, Gain: 6 },
+        notes:
+          "A polished radio-rock production -- light studio compression keeps the clean arpeggios even and lets each picked note bloom consistently, the smooth dynamic that makes the verse feel intimate before the chorus opens up.",
+      },
+      {
+        position: 2,
+        category: "effect",
+        subcategory: "overdrive",
+        gear_slug: null,
+        gear_name: "Transparent boost (lead)",
+        icon_type: "pedal",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Gain: 2, Tone: 6, Level: 7 },
+        notes:
+          "A low-gain transparent boost pushes the Herbert from clean-edge into the smooth, singing sustain of the lead and chorus -- bloom and feedback-on-demand without piling on dirt, so the melody stays vocal and clear. Off for the clean verses.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Diezel Herbert",
+        icon_type: "amp_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Gain: 4, Bass: 5, Middle: 6, Treble: 6, Presence: 6, Master: 6 },
+        notes:
+          "Myers used a Diezel Herbert as his main Shinedown head for nearly a decade, calling it one of the most versatile, tonally perfect amps he's owned. Channel 1 supplies the pristine, full-bodied clean for the arpeggios; nudged with the boost it moves to a tight, harmonically rich mid-gain for the lead. Gain kept moderate so the melody breathes.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Diezel 4x12 (Celestion V30)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "A V30-loaded 4x12 paired with the Herbert -- the firm low end and pronounced upper-mids give the lead its cut and the cleans their body, with the tight focus a big-radio mix needs.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 (assumed)",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, on cap edge" },
+        notes:
+          "Undocumented for the session; a close SM57 toward the dust-cap edge is the standard capture for a V30 4x12 and matches the track's focused, present lead tone.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "PRS Santana converted to a semi-hollow -- the specific guitar Myers brings out for 'Second Chance'",
+      effects: ["Studio compression", "Transparent boost (for the lead/chorus push)"],
+      amp: "Diezel Herbert (Myers' main Shinedown head for nearly a decade)",
+      cabinet: "Diezel 4x12 with Celestion V30 speakers",
+      microphone: "Undocumented (Shure SM57 assumed)",
+      other_notes:
+        "The Sound of Madness (2008) was produced by Rob Cavallo. The hard-verified facts are the semi-hollow PRS Santana (which Myers names as the 'Second Chance' guitar) and the Diezel Herbert as his documented main head; the boost, comp, exact cab and mic are inferred from his documented rig. The song lives on the clean-verse / singing-lead contrast -- the recipe defaults the boost off for the arpeggios and on for the chorus and lead.",
+    },
+    tags: ["hard-rock", "post-grunge", "lead", "shinedown", "zach-myers", "prs"],
+    sources: [
+      "https://www.premierguitar.com/videos/rig-rundown/shinedown",
+      "https://equipboard.com/pros/zach-myers",
+      "https://en.wikipedia.org/wiki/Zach_Myers",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -28, Ratio: 3, Knee: 6, Attack: 12, Release: 200, Mix: 60, Level: 0 }, notes: "Before the amp -- light comp keeps the clean arpeggios even and lets each picked note bloom. Mix at 60 keeps the semi-hollow's natural attack alive instead of squashing it flat." },
+          { position: 2, block_name: "Minotaur", block_category: "Distortion", original_gear: "Transparent boost (lead)", enabled: true, settings: { Gain: 2.5, Tone: 6, Level: 7 }, notes: "DEFAULT-ON for the lead/chorus -- a transparent Klon-style boost nudges the Diezel into smooth singing sustain without adding obvious dirt. Switch OFF for the clean verse arpeggios; that on/off is the whole arrangement." },
+          { position: 3, block_name: "Das Benzin Lo", block_category: "Amp", original_gear: "Diezel Herbert", settings: { Drive: 4, Bass: 5, Mid: 6, Treble: 6, Presence: 6, ChVol: 6, Master: 6, Bias: 5, BiasX: 5, Sag: 5, Hum: 5, Ripple: 5 }, notes: "Das Benzin is Helix's Diezel-voiced model; the Lo channel gives the Herbert's full-bodied clean-to-mid-gain range. Drive 4 sits on the clean edge for the verses and blooms into the lead when the boost hits -- moderate so the melody stays vocal." },
+          { position: 4, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "Diezel 4x12 (V30)", settings: { Mic: 0, Distance: 2, Position: 0.4, Angle: 30, LowCut: 90, HighCut: 8000, Resonance: 0.5, Level: 0, Pan: 0.5, Delay: 0 }, notes: "V30 4x12 for the Diezel cab. HighCut at 8k keeps the lead smooth rather than brittle; LowCut at 90 tightens the cleans so the arpeggios stay articulate in a dense mix." },
+          { position: 5, block_name: "Simple Delay", block_category: "Delay", original_gear: "Lead ambience delay", settings: { Time: 400, Feedback: 18, Mix: 14, LowCut: 200, HighCut: 6000, Level: 0 }, notes: "A subtle quarter-note delay widens the lead and chorus without smearing the melody. Low mix and feedback so it adds dimension, not repeats; cuts keep the echoes dark and out of the way." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (big-radio ambience)", settings: { Mix: 22, Decay: 2.2, Predelay: 20, LowCut: 200, HighCut: 7000, Level: 0 }, notes: "A medium plate is the glue on this polished radio production -- bigger than a tracking-room recipe because the record's ambience is overt. LowCut 200 and HighCut 7k keep the tail from muddying the cleans or fizzing the lead." },
+        ],
+        notes:
+          "Comp -> transparent boost (ON for lead, OFF for verse) -> Diezel-voiced Das Benzin Lo -> V30 4x12 -> subtle delay -> medium plate. The arrangement is the boost on/off between clean verse and singing chorus/lead. Standard E.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -28, Ratio: 3, Attack: 12, Release: 200, Mix: 60, Level: 0 }, notes: "Light comp evening the clean arpeggios, mirroring the Helix -- parallel so the semi-hollow attack survives." },
+          { position: 2, block_name: "Klon", block_category: "Drive", original_gear: "Transparent boost (lead)", enabled: true, settings: { Drive: 2.5, Tone: 6, Level: 7 }, notes: "DEFAULT-ON for the lead/chorus push; switch off for the clean verses. Transparent boost into singing sustain, mirroring the Helix Minotaur." },
+          { position: 3, block_name: "Diezel VH4", block_category: "Amp", original_gear: "Diezel Herbert", settings: { Gain: 4, Bass: 5, Mid: 6, Treble: 6, Presence: 6, Master: 6, Sag: 5 }, notes: "QC's Diezel-voiced amp for the Herbert. Gain 4 on the clean edge, blooming to mid-gain under the boost -- moderate so the melody breathes." },
+          { position: 4, block_name: "4x12 V30", block_category: "Cab", original_gear: "Diezel 4x12 (V30)", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.4, LowCut: 90, HighCut: 8000, Level: 0 }, notes: "V30 4x12, close SM57. HighCut keeps the lead smooth; LowCut tightens the cleans." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Lead ambience delay", settings: { Time: 400, Feedback: 18, Mix: 14, Level: 0 }, notes: "Subtle quarter-note delay widening the lead, mirroring the Helix." },
+          { position: 6, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate", settings: { Decay: 2.2, Predelay: 20, Mix: 22, Level: 0 }, notes: "Medium plate for the big-radio glue, mirroring the Helix." },
+        ],
+        notes:
+          "Comp -> boost (ON for lead) -> Diezel VH4 -> V30 4x12 -> subtle delay -> medium plate. The clean/lead contrast is the boost on/off. Standard E.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Diezel Herbert'", block_category: "Tone Model", original_gear: "Diezel Herbert", settings: {}, notes: "Search ToneNET for a Diezel Herbert capture -- ideally a clean/low-gain channel so you can boost into the lead. Add a transparent boost and a plate for the singing chorus tone. Standard E." },
+        ],
+        notes: "TONEX is capture-driven. Pair a Diezel Herbert clean/mid capture with a transparent boost (on for the lead) and a medium plate; the song is the clean-verse / singing-lead contrast.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Lead", block_category: "Amp Type", original_gear: "Diezel Herbert", settings: { Gain: 5, Volume: 6, Bass: 5, Middle: 6, Treble: 6, Presence: 6, Master: 6 }, notes: "Lead gives the Herbert's smooth, sustaining mid-gain voice for the chorus and solo. Roll the guitar volume back for the cleaner verse arpeggios -- the semi-hollow cleans up nicely at lower amp gain." },
+          { position: 2, block_name: "Booster", block_category: "Booster", original_gear: "Transparent boost (lead)", enabled: true, settings: { Drive: 2, Bottom: 3, Tone: 6, Level: 6 }, notes: "DEFAULT-ON as the lead push -- a low-drive boost for the singing sustain. Kick it off (or roll guitar volume down) for the clean verses." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Lead ambience delay", settings: { Time: 400, Feedback: 18, EffectLevel: 14 }, notes: "Subtle quarter-note delay widening the lead, mirroring the Helix." },
+          { position: 4, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio plate", settings: { Time: 5, PreDelay: 20, Tone: 5, EffectLevel: 24 }, notes: "A medium plate-style reverb for the big-radio glue." },
+        ],
+        notes:
+          "Lead amp + boost (ON for lead) -> delay -> medium plate. Clean the verses with the guitar volume. Standard E.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: 3.0, Volume: 0.0 }, notes: "Slot A -- light comp evening the clean arpeggios, mirroring the Helix." },
+          { position: 2, block_name: "Search Rig Exchange for 'Diezel Herbert'", block_category: "Profile", original_gear: "Diezel Herbert", settings: { Gain: 4.0, Bass: 5.0, Middle: 6.0, Treble: 6.0, Presence: 6.0 }, notes: "Search Rig Exchange for a Diezel Herbert clean/low-gain profile -- the cab is baked in. Push it with a Stomp boost for the lead; keep gain moderate so the melody breathes." },
+          { position: 3, block_name: "Green Scream", block_category: "Drive", original_gear: "Transparent boost (lead)", enabled: true, settings: { Drive: 2.5, Tone: 6.0, Volume: 6.0 }, notes: "Stomp slot -- DEFAULT-ON transparent boost for the lead/chorus singing sustain; switch off for the clean verses." },
+          { position: 4, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate", settings: { Decay: 2.2, Predelay: 20, Mix: 22 }, notes: "REV slot -- a medium plate for the big-radio glue." },
+          { position: 5, block_name: "Single Delay", block_category: "Delay", original_gear: "Lead ambience delay", settings: { Time: 400, Feedback: 18, Mix: 14 }, notes: "DLY slot -- subtle quarter-note delay widening the lead, mirroring the Helix." },
+        ],
+        notes:
+          "Kemper bakes the cab into the profile. Comp -> Herbert profile + boost (ON for lead) -> plate -> subtle delay. Clean/lead contrast is the boost on/off. Standard E.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -28, Ratio: 3, Attack: 12, Release: 200, Mix: 0.6, Level: 0 }, notes: "Light comp evening the clean arpeggios, mirroring the Helix." },
+          { position: 2, block_name: "Klon", block_category: "Drive", original_gear: "Transparent boost (lead)", enabled: true, settings: { Drive: 2.5, Tone: 6, Level: 7 }, notes: "DEFAULT-ON transparent boost for the lead/chorus; off for the clean verses. Mirrors the Helix Minotaur." },
+          { position: 3, block_name: "Dizzy V4 Lead", block_category: "Amp", original_gear: "Diezel Herbert", settings: { Drive: 4.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 6.0, MV: 6.0 }, notes: "Fractal's Diezel-voiced amp for the Herbert. Drive 4 on the clean edge, blooming under the boost -- moderate so the melody breathes." },
+          { position: 4, block_name: "4x12 V30", block_category: "Cab", original_gear: "Diezel 4x12 (V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 90, HighCut: 8000, Level: 0 }, notes: "V30 4x12, close SM57. HighCut keeps the lead smooth." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Lead ambience delay", settings: { Time: 400, Feedback: 0.18, Mix: 0.14 }, notes: "Subtle quarter-note delay widening the lead, mirroring the Helix." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate", settings: { Mix: 0.22, Decay: 2.2, Predelay: 20 }, notes: "Medium plate for the big-radio glue, mirroring the Helix." },
+        ],
+        notes: "Comp -> boost (ON for lead) -> Dizzy V4 Lead -> V30 4x12 -> subtle delay -> medium plate. Standard E.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Shinedown - Cut the Cord ----
+  {
+    id: "seed-myers-cut-the-cord",
+    song_slug: "cut-the-cord-shinedown",
+    title: "Cut the Cord Riff Tone",
+    slug: "myers-cut-the-cord-riff",
+    created_at: "2026-06-24",
+    description:
+      "The pummeling lead single from Shinedown's 2015 album Threat to Survival. Zach Myers tracked it on a PRS SE tuned a whole step down to D standard with heavy .011-.052 strings, run through his Axe-Fx II -- patches built on a Diezel Herbert and a Fryette -- into a Diamond 4x12. It's a tight, percussive, low-tuned chug with a noise gate clamping the chug-stops, the kind of modern high-gain rhythm that lives on right-hand mute control.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "PRS SE Custom (singlecut)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.0",
+      tuning: "D standard (D-G-C-F-A-D), whole step down",
+      string_gauge: ".011-.052",
+      notable_mods:
+        "Myers plays one of his PRS SE customs tuned down a whole step to D standard for 'Cut the Cord,' strung with a heavier .011-.052 set so the slack of the low tuning stays tight and articulate. The bridge humbucker drives the percussive chug; the heavier gauge is what keeps the dropped pitch from going flabby under high gain.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "noise_gate",
+        gear_slug: null,
+        gear_name: "Noise Gate",
+        icon_type: "rack_fx",
+        icon_color: "#06b6d4",
+        is_in_effects_loop: false,
+        settings: { Threshold: "-50 dB", Release: "fast" },
+        notes:
+          "High-gain rhythm on a low-tuned guitar demands a gate -- it clamps the silence between the percussive chugs so the stop-start riff is tight and the amp doesn't roar in the gaps. The whole feel depends on dead-clean rests between hits.",
+      },
+      {
+        position: 2,
+        category: "effect",
+        subcategory: "overdrive",
+        gear_slug: null,
+        gear_name: "Tube Screamer-style boost",
+        icon_type: "ibanez",
+        icon_color: "#22c55e",
+        is_in_effects_loop: false,
+        settings: { Drive: 1, Tone: 6, Level: 7 },
+        notes:
+          "A low-gain TS-style boost in front tightens the low end and focuses the pick attack before the high-gain amp -- the standard modern-metal trick that keeps the D-standard chug percussive instead of mushy. Almost no added gain; it's an EQ-and-tightness pedal here.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Fractal Axe-Fx II (Diezel Herbert / Fryette)",
+        icon_type: "rack_preamp",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Gain: 7, Bass: 6, Middle: 5, Treble: 6, Presence: 6, Master: 5 },
+        notes:
+          "By Threat to Survival Myers had consolidated his amps into an Axe-Fx II, building his patches off a Diezel Herbert and a Fryette. Both are tight, aggressive high-gain voices; gain at 7 is plenty for the chug -- past that the low tuning loses definition. Bass pushed slightly to anchor the dropped pitch, mids scooped only a touch so the riff still cuts.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Diamond 4x12 (Celestion V30)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Myers cranks a Diamond 4x12 with a Crown power amp live; a V30-loaded 4x12 captures the recorded weight -- tight lows and the upper-mid bite that lets a low-tuned, high-gain rhythm stay defined rather than collapsing into low-end mud.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 (assumed)",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, on cap edge" },
+        notes:
+          "Undocumented; a close SM57 on the cap edge is the standard high-gain 4x12 capture and matches the track's tight, aggressive midrange bite.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "PRS SE Custom singlecut, tuned to D standard (whole step down) with .011-.052 strings",
+      effects: ["Noise gate", "Tube Screamer-style boost (low-end tightening)"],
+      amp: "Fractal Axe-Fx II -- patches built on a Diezel Herbert and a Fryette",
+      cabinet: "Diamond 4x12 with Celestion V30 speakers (Crown power amp live)",
+      microphone: "Undocumented (Shure SM57 assumed)",
+      other_notes:
+        "Threat to Survival (2015) finds Myers running his consolidated Axe-Fx II rig -- pre-programmed amps including a Diezel Herbert and a Fryette, a Diamond 4x12 cranked by a Crown CE4000 for stage volume. The hard-verified facts are the D-standard (whole-step-down) tuning, the .011-.052 gauge, the PRS SE, and the Axe-Fx II / Diezel-Fryette / Diamond 4x12 rig; the gate, boost, exact settings and mic are inferred from his documented rig and standard modern-metal rhythm practice.",
+    },
+    tags: ["hard-rock", "alternative-metal", "riff", "shinedown", "zach-myers", "high-gain"],
+    sources: [
+      "https://www.premierguitar.com/videos/rig-rundown/shinedown",
+      "https://www.guitarworld.com/artists/shinedown-cut-cord-playthrough-video-zach-myers-exclusive",
+      "https://en.wikipedia.org/wiki/Zach_Myers",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Noise Gate", original_gear: "Noise gate", settings: { Threshold: -50, Decay: 12 }, notes: "Clamps the silence between the percussive chugs so the stop-start riff is tight. Fast decay so the gate snaps shut on the rests -- the whole feel depends on dead-clean gaps." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -24, Ratio: 2, Knee: 6, Attack: 30, Release: 150, Mix: 20, Level: 0 }, notes: "Before the amp -- a light comp steadies the chug's attack so palm-muted hits land at even level. Subtle and parallel; the percussive dynamics still come through." },
+          { position: 3, block_name: "Scream 808", block_category: "Distortion", original_gear: "Tube Screamer-style boost", enabled: true, settings: { Gain: 1.5, Tone: 6, Level: 7 }, notes: "DEFAULT-ON, almost no gain -- the TS in front tightens the low end and focuses the attack before the high-gain amp, keeping the D-standard chug percussive instead of mushy. It's an EQ/tightness tool, not a dirt pedal." },
+          { position: 4, block_name: "Das Benzin Mega", block_category: "Amp", original_gear: "Axe-Fx II (Diezel Herbert / Fryette)", settings: { Drive: 7, Bass: 6, Mid: 5, Treble: 6, Presence: 6, ChVol: 5, Master: 5, Bias: 5, BiasX: 5, Sag: 4, Hum: 5, Ripple: 5 }, notes: "Das Benzin Mega is Helix's high-gain Diezel voice for the Herbert. Drive 7 is enough for the chug -- more would smear the low tuning. Bass at 6 anchors the dropped pitch; Sag lowered to 4 tightens the response for percussive picking." },
+          { position: 5, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "Diamond 4x12 (V30)", settings: { Mic: 0, Distance: 2, Position: 0.45, Angle: 35, LowCut: 100, HighCut: 8500, Resonance: 0.4, Level: 0, Pan: 0.5, Delay: 0 }, notes: "V30 4x12 for the Diamond cab. LowCut at 100 is the key for a low-tuned high-gain riff -- it strips the sub-mud so the chug stays defined; HighCut at 8.5k tames V30 fizz while keeping the bite." },
+          { position: 6, block_name: "Room", block_category: "Reverb", original_gear: "Subtle studio ambience", settings: { Mix: 8, Decay: 0.8, Predelay: 10, LowCut: 250, HighCut: 6500, Level: 0 }, notes: "Just a whisper of room so the rhythm isn't bone-dry -- a high-gain chug wants very little verb or it loses tightness. Heavy LowCut keeps the tail off the already-dense low end." },
+          { position: 7, block_name: "Tilt", block_category: "EQ", original_gear: "Global tightening EQ", settings: { Tilt: 5.5, CenterFreq: 1000, Level: 0 }, notes: "A slight tilt toward the highs adds cut and presence for the aggressive midrange bite without thinning the chug -- final global shaping on a dark, heavy patch." },
+        ],
+        notes:
+          "Gate -> light comp -> TS tightener (on) -> Das Benzin Mega (Diezel high-gain) -> V30 4x12 (LowCut 100) -> whisper of room -> bright Tilt. D standard, .011-.052. The riff lives on gated, percussive mutes.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Noise gate", settings: { Threshold: -50, Release: 12 }, notes: "Clamps the chug-stops tight, mirroring the Helix -- fast release for dead-clean rests." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -24, Ratio: 2, Attack: 30, Release: 150, Mix: 20, Level: 0 }, notes: "Light comp steadying the palm-mute attack, mirroring the Helix." },
+          { position: 3, block_name: "TS808", block_category: "Drive", original_gear: "Tube Screamer-style boost", enabled: true, settings: { Drive: 1.5, Tone: 6, Level: 7 }, notes: "DEFAULT-ON low-gain tightener focusing the low end before the amp, mirroring the Helix Scream 808." },
+          { position: 4, block_name: "Diezel VH4", block_category: "Amp", original_gear: "Axe-Fx II (Diezel Herbert / Fryette)", settings: { Gain: 7, Bass: 6, Mid: 5, Treble: 6, Presence: 6, Master: 5, Sag: 4 }, notes: "QC's Diezel-voiced high-gain for the Herbert. Gain 7 is enough for definition on the low tuning; Bass 6 anchors the dropped pitch." },
+          { position: 5, block_name: "4x12 V30", block_category: "Cab", original_gear: "Diamond 4x12 (V30)", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.45, LowCut: 100, HighCut: 8500, Level: 0 }, notes: "V30 4x12, close SM57. LowCut 100 strips the sub-mud so the chug stays defined." },
+          { position: 6, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Subtle studio ambience", settings: { Decay: 0.8, Predelay: 10, Mix: 8, Level: 0 }, notes: "A whisper of room so the rhythm isn't bone-dry, mirroring the Helix." },
+          { position: 7, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tightening EQ", settings: { Bands: "+2 dB above 2 kHz, -2 dB at 400 Hz", Level: 0 }, notes: "High-shelf cut and a low-mid scoop for the aggressive bite, mirroring the Helix Tilt." },
+        ],
+        notes:
+          "Gate -> comp -> TS tightener -> Diezel VH4 -> V30 4x12 (LowCut 100) -> whisper of room -> bright EQ. D standard. Percussive gated mutes.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Diezel Herbert' (high gain)", block_category: "Tone Model", original_gear: "Axe-Fx II (Diezel Herbert / Fryette)", settings: {}, notes: "Search ToneNET for a high-gain Diezel Herbert (or Fryette) capture. Run a gate and a TS-style tightener in front; tune to D standard with .011-.052. The chug lives on gated, percussive mutes." },
+        ],
+        notes: "TONEX is capture-driven. Pair a high-gain Diezel/Fryette capture with a gate and a TS tightener; D standard, heavy strings, dead-clean rests between chugs.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Brown", block_category: "Amp Type", original_gear: "Axe-Fx II (Diezel Herbert / Fryette)", settings: { Gain: 7, Volume: 6, Bass: 6, Middle: 5, Treble: 6, Presence: 6, Master: 5 }, notes: "Brown is the Katana's tight modern high-gain voice -- the closest to the Diezel/Fryette aggression. Bass 6 anchors the D-standard tuning; gain 7 is enough that the chug stays defined." },
+          { position: 2, block_name: "Booster", block_category: "Booster", original_gear: "Tube Screamer-style boost", enabled: true, settings: { Drive: 2, Bottom: 2, Tone: 6, Level: 6 }, notes: "DEFAULT-ON as the low-end tightener in front of the high-gain amp -- low Bottom so it focuses rather than fattens. This is the modern-metal tightness trick, not a gain stage." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Subtle studio ambience", settings: { Time: 2, PreDelay: 10, Tone: 4, EffectLevel: 5 }, notes: "Barely-there room so the chug isn't bone-dry -- a high-gain rhythm wants almost no verb." },
+        ],
+        notes:
+          "Brown amp (gain 7, bass 6) + TS-style booster ON for tightness -> whisper of reverb. Use the Katana's gate/Pedal FX for the chug-stops. D standard, heavy strings.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Gate", original_gear: "Noise gate", settings: { Threshold: -50, Intensity: 4.0 }, notes: "Input gate clamping the chug-stops tight, mirroring the Helix -- dead-clean rests are the feel." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: 2.0, Volume: 0.0 }, notes: "Slot A -- a light comp steadying the palm-mute attack so the chugs land at even level, mirroring the Helix. Subtle, so the percussive dynamics survive." },
+          { position: 3, block_name: "Green Scream", block_category: "Drive", original_gear: "Tube Screamer-style boost", enabled: true, settings: { Drive: 1.5, Tone: 6.0, Volume: 6.0 }, notes: "Stomp slot -- DEFAULT-ON low-gain tightener focusing the low end before the profile, mirroring the Helix." },
+          { position: 4, block_name: "Search Rig Exchange for 'Diezel Herbert' (high gain)", block_category: "Profile", original_gear: "Axe-Fx II (Diezel Herbert / Fryette)", settings: { Gain: 7.0, Bass: 6.0, Middle: 5.0, Treble: 6.0, Presence: 6.0 }, notes: "Search Rig Exchange for a high-gain Diezel Herbert (or Fryette) profile -- the cab is baked in. Bass 6 anchors the dropped tuning; keep gain reasonable so the chug stays defined." },
+          { position: 5, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Subtle studio ambience", settings: { Decay: 0.8, Predelay: 10, Mix: 8 }, notes: "REV slot -- a whisper of room so the rhythm isn't bone-dry." },
+        ],
+        notes:
+          "Kemper bakes the cab into the profile. Gate -> light comp -> TS tightener -> high-gain Diezel/Fryette profile -> whisper of room. D standard, .011-.052.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Noise gate", settings: { Threshold: -50, Release: 12 }, notes: "Input gate clamping the chug-stops tight, mirroring the Helix. This is the platform Myers actually used -- an Axe-Fx II." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -24, Ratio: 2, Attack: 30, Release: 150, Mix: 0.2, Level: 0 }, notes: "Light comp steadying the palm-mute attack, mirroring the Helix." },
+          { position: 3, block_name: "TS808 Mod", block_category: "Drive", original_gear: "Tube Screamer-style boost", enabled: true, settings: { Drive: 1.5, Tone: 6, Level: 7 }, notes: "DEFAULT-ON low-gain tightener focusing the low end before the amp, mirroring the Helix." },
+          { position: 4, block_name: "Dizzy V4 Lead", block_category: "Amp", original_gear: "Axe-Fx II (Diezel Herbert / Fryette)", settings: { Drive: 7.0, Bass: 6.0, Mid: 5.0, Treble: 6.0, Presence: 6.0, MV: 5.0 }, notes: "Fractal's Diezel-voiced high-gain for the Herbert -- the actual modeller Myers tracked on. Bass 6 anchors the dropped pitch; gain 7 keeps the chug defined." },
+          { position: 5, block_name: "4x12 V30", block_category: "Cab", original_gear: "Diamond 4x12 (V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 100, HighCut: 8500, Level: 0 }, notes: "V30 4x12, close SM57. LowCut 100 strips the sub-mud so the chug stays defined." },
+          { position: 6, block_name: "Room", block_category: "Reverb", original_gear: "Subtle studio ambience", settings: { Mix: 0.08, Decay: 0.8, Predelay: 10 }, notes: "A whisper of room so the rhythm isn't bone-dry, mirroring the Helix." },
+          { position: 7, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tightening EQ", settings: { Bands: "+2 dB above 2 kHz, -2 dB at 400 Hz", Level: 0 }, notes: "High-shelf cut and a low-mid scoop for the aggressive bite, mirroring the Helix Tilt." },
+        ],
+        notes: "Gate -> comp -> TS tightener -> Dizzy V4 Lead -> V30 4x12 (LowCut 100) -> whisper of room -> bright EQ. This is Myers' actual platform. D standard, .011-.052.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Halestorm - I Miss the Misery ----
+  {
+    id: "seed-hottinger-i-miss-the-misery",
+    song_slug: "i-miss-the-misery-halestorm",
+    title: "I Miss the Misery Riff Tone",
+    slug: "hottinger-i-miss-the-misery-riff",
+    created_at: "2026-06-24",
+    description:
+      "The swaggering hard-rock single from Halestorm's 2012 album The Strange Case Of... Joe Hottinger built his tone the old-fashioned way: a Gibson SG straight into cranked Marshall Super Lead plexis and a Bogner 4x12 loaded with Beyma speakers. The main riff is raw, mid-forward plexi crunch; the lead gets the snarl of a Tru-Fi Octavia fuzz on top. Loud guitar into a loud amp -- volume is the effect. Standard E.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson SG Standard (2003)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "Standard E (E-A-D-G-B-E)",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "Hottinger is a self-described SG obsessive; his core guitar is the 2003 SG Standard he bought new when he joined Halestorm that year. The SG's bridge humbucker into a cranked plexi gives the riff its mid-forward bark, while the lightweight mahogany body keeps the tone open and aggressive rather than thick.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "fuzz",
+        gear_slug: null,
+        gear_name: "Tru-Fi Octavia Fuzz (lead)",
+        icon_type: "fuzz",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Volume: 7, Fuzz: 6, Boost: "octave-up on top" },
+        notes:
+          "Hottinger's documented Octavia-style fuzz brings the screaming, octave-laced snarl on the lead and the song's nastier accents. Default off for the main riff -- the rhythm is straight plexi crunch -- and kicked in for the solo where the octave-up sizzle cuts over the band.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall Super Lead (plexi)",
+        icon_type: "marshall_stack",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Volume: 9, Bass: 5, Middle: 7, Treble: 6, Presence: 6 },
+        notes:
+          "Hottinger runs vintage Marshall Super Leads -- a red 1971 and a purple 1973 -- cranked for natural power-section crunch. With no master volume, the loudness IS the gain: pushed to 9, the plexi growls and blooms. Middle at 7 for the SG's mid-forward bark so the riff cuts; the dirt is all amp, no gain pedal on the rhythm.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Bogner 4x12 (Beyma Liberty)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "His documented cab -- a Bogner 4x12 loaded with Beyma Liberty speakers, prized for their versatility and tight, articulate response. They keep the cranked plexi from going woolly and add a firm punch that suits the SG's aggressive midrange.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 (assumed)",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, on cone edge" },
+        notes:
+          "Undocumented for the session; a close SM57 on the cone edge is the standard capture for a cranked plexi 4x12 and matches the track's raw, mid-forward crunch.",
+      },
+    ],
+    original_gear: {
+      guitar: "2003 Gibson SG Standard -- Hottinger's core guitar",
+      effects: ["Tru-Fi Octavia Fuzz (lead/accents)", "Bogner La Grange overdrive (plexi-style push)"],
+      amp: "Marshall Super Lead plexi (red 1971 / purple 1973), cranked",
+      cabinet: "Bogner 4x12 with Beyma Liberty speakers",
+      microphone: "Undocumented (Shure SM57 assumed)",
+      other_notes:
+        "The Strange Case Of... (2012) was produced by Howard Benson. Halestorm's identity is Gibson-into-Marshall played loud -- Guitar World framed it as the restorative power of Gibson guitars, Marshall amps and volume. The documented Hottinger rig (2003 SG Standard, vintage Marshall Super Lead plexis, Bogner 4x12 with Beyma speakers, Tru-Fi Octavia, Bogner La Grange) is the hero rig; the per-song amp settings and mic are inferred. The 2020 Marshall SV20H Studio he tours with now is the modern reissue equivalent of these vintage Super Leads.",
+    },
+    tags: ["hard-rock", "heavy-metal", "riff", "halestorm", "joe-hottinger", "sg"],
+    sources: [
+      "https://www.premierguitar.com/videos/rig-rundown/halestorm",
+      "https://www.guitarworld.com/features/halestorm-lzzy-hale-joe-hottinger-back-from-the-dead",
+      "https://equipboard.com/pros/joe-hottinger",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -26, Ratio: 2, Knee: 6, Attack: 40, Release: 200, Mix: 25, Level: 0 }, notes: "Before the amp -- a light comp evens the riff's pick attack so the swaggering groove sits steady. Parallel and gentle; the plexi's dynamic bloom is the point, so it stays mostly out of the way." },
+          { position: 2, block_name: "Brit Plexi Brt", block_category: "Amp", original_gear: "Marshall Super Lead (plexi)", settings: { Drive: 7, Bass: 5, Mid: 7, Treble: 6, Presence: 6, ChVol: 8, Master: 9, Bias: 5, BiasX: 5, Sag: 6, Hum: 5, Ripple: 5 }, notes: "Brit Plexi Brt is Helix's Super Lead. Master at 9 cranks the power section for natural plexi growl -- the loudness is the gain. Mid at 7 for the SG bark; Sag bumped to 6 for the loose, blooming plexi feel. No gain pedal on the rhythm." },
+          { position: 3, block_name: "4x12 Uber", block_category: "Cab", original_gear: "Bogner 4x12 (Beyma)", settings: { Mic: 0, Distance: 2, Position: 0.4, Angle: 25, LowCut: 90, HighCut: 7500, Resonance: 0.45, Level: 0, Pan: 0.5, Delay: 0 }, notes: "4x12 Uber models a Bogner Uberkab -- the closest match to his Bogner 4x12. HighCut at 7.5k tames the plexi fizz; LowCut at 90 keeps the SG's low strings tight under the cranked amp." },
+          { position: 4, block_name: "Octave Fuzz", block_category: "Distortion", original_gear: "Tru-Fi Octavia Fuzz (lead)", enabled: false, settings: { Gain: 7, Tone: 6, Level: 6 }, notes: "DEFAULT-OFF -- the octave-up fuzz is for the lead and the song's nastier accents, not the main riff. Kick it in for the solo where the screaming octave sizzle cuts over the band." },
+          { position: 5, block_name: "Spring", block_category: "Reverb", original_gear: "Studio ambience", settings: { Mix: 10, Decay: 1.0, Predelay: 12, LowCut: 200, HighCut: 6500, Level: 0 }, notes: "A short spring suits the raw, vintage-amp vibe better than a plate -- just enough air to place the riff in a room. Cuts keep the tail out of the low-mid bark and off the fizzy top." },
+          { position: 6, block_name: "Tilt", block_category: "EQ", original_gear: "Global midrange shaping", settings: { Tilt: 4.5, CenterFreq: 800, Level: 0 }, notes: "A gentle Tilt toward the low-mids reinforces the SG-into-plexi bark without muddying the riff -- subtle global glue, not a tone change." },
+        ],
+        notes:
+          "Comp -> cranked Brit Plexi (master 9, mid 7 bark) -> Bogner-style Uber 4x12 -> octave fuzz (OFF, for the lead) -> short spring -> low-mid Tilt. Volume is the effect. Standard E.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -26, Ratio: 2, Attack: 40, Release: 200, Mix: 25, Level: 0 }, notes: "Light comp evening the riff's attack, mirroring the Helix -- gentle so the plexi bloom survives." },
+          { position: 2, block_name: "Brit Plexi 100", block_category: "Amp", original_gear: "Marshall Super Lead (plexi)", settings: { Gain: 7, Bass: 5, Mid: 7, Treble: 6, Presence: 6, Master: 9, Sag: 6 }, notes: "QC's Super Lead cranked -- Master 9 for the power-section growl, Mid 7 for the SG bark. The dirt is all amp." },
+          { position: 3, block_name: "4x12 Uber", block_category: "Cab", original_gear: "Bogner 4x12 (Beyma)", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.4, LowCut: 90, HighCut: 7500, Level: 0 }, notes: "Bogner-style 4x12, close SM57. HighCut tames plexi fizz; LowCut keeps the SG low strings tight." },
+          { position: 4, block_name: "Octave Fuzz", block_category: "Drive", original_gear: "Tru-Fi Octavia Fuzz (lead)", enabled: false, settings: { Drive: 7, Tone: 6, Level: 6 }, notes: "DEFAULT-OFF octave fuzz for the lead/accents, mirroring the Helix -- kick in for the solo." },
+          { position: 5, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Studio ambience", settings: { Decay: 1.0, Predelay: 12, Mix: 10, Level: 0 }, notes: "Short spring for the raw vintage vibe, mirroring the Helix." },
+          { position: 6, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global midrange shaping", settings: { Bands: "+2 dB at 700-900 Hz", Level: 0 }, notes: "A gentle low-mid bump reinforcing the SG-into-plexi bark, mirroring the Helix Tilt." },
+        ],
+        notes:
+          "Comp -> cranked Brit Plexi 100 (master 9, mid 7 bark) -> Bogner-style 4x12 -> octave fuzz (OFF) -> short spring -> low-mid EQ. Volume is the effect. Standard E.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Super Lead Plexi'", block_category: "Tone Model", original_gear: "Marshall Super Lead (plexi)", settings: {}, notes: "Search ToneNET for a cranked Marshall Super Lead / plexi capture, mid-forward and growling -- no gain pedal on the rhythm. The bark is the amp's midrange. Add an octave fuzz for the lead. Standard E." },
+        ],
+        notes: "TONEX is capture-driven. Pair a cranked Super Lead plexi capture with a short spring; the snarl is a hot SG into a loud plexi. Octave fuzz on top for the solo.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Crunch", block_category: "Amp Type", original_gear: "Marshall Super Lead (plexi)", settings: { Gain: 7, Volume: 9, Bass: 5, Middle: 7, Treble: 6, Presence: 6, Master: 8 }, notes: "Crunch nails the cranked Super Lead's natural power-section grind. Middle at 7 is the SG bark; Volume up for the plexi growl. No booster needed for the riff -- the amp does it." },
+          { position: 2, block_name: "Booster", block_category: "Booster", original_gear: "Tru-Fi Octavia Fuzz (lead)", enabled: false, settings: { Drive: 7, Bottom: 4, Tone: 6, Level: 6 }, notes: "DEFAULT-OFF -- stands in for the octave fuzz on the lead/accents. Kick it in for the solo; the main riff is pure SG-into-plexi." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio ambience", settings: { Time: 3, PreDelay: 12, Tone: 5, EffectLevel: 6 }, notes: "A short spring-style room for the raw vintage vibe -- just enough to place the riff in a space." },
+        ],
+        notes:
+          "Crunch amp (volume 9, mid 7 bark), fuzz/booster OFF -> short reverb. Volume is the effect. Standard E.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: 3.0, Volume: 0.0 }, notes: "Slot A -- light comp evening the riff's attack, mirroring the Helix." },
+          { position: 2, block_name: "Search Rig Exchange for 'Marshall Super Lead Plexi'", block_category: "Profile", original_gear: "Marshall Super Lead (plexi)", settings: { Gain: 7.0, Bass: 5.0, Middle: 7.0, Treble: 6.0, Presence: 6.0 }, notes: "Search Rig Exchange for a cranked Super Lead / plexi profile, Middle pushed for the SG bark -- the cab is baked in. The dirt is all amp." },
+          { position: 3, block_name: "Muffin Fuzz", block_category: "Drive", original_gear: "Tru-Fi Octavia Fuzz (lead)", enabled: false, settings: { Drive: 7.0, Tone: 6.0, Volume: 6.0 }, notes: "Stomp slot -- DEFAULT-OFF octave/fuzz stand-in for the lead; off for the riff, mirroring the Helix." },
+          { position: 4, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Studio ambience", settings: { Decay: 1.0, Predelay: 12, Mix: 10 }, notes: "REV slot -- a short spring for the raw vintage vibe." },
+        ],
+        notes:
+          "Kemper bakes the cab into the profile. Comp -> cranked Super Lead profile (mid bark) -> fuzz (OFF) -> short spring. Volume is the effect. Standard E.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -26, Ratio: 2, Attack: 40, Release: 200, Mix: 0.25, Level: 0 }, notes: "Light comp evening the riff's attack, mirroring the Helix." },
+          { position: 2, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead (plexi)", settings: { Drive: 7.0, Bass: 5.0, Mid: 7.0, Treble: 6.0, Presence: 6.0, MV: 9.0 }, notes: "Plexi 100W High is Fractal's Super Lead. MV at 9 cranks the power section for the plexi growl; Mid 7 for the SG bark." },
+          { position: 3, block_name: "4x12 Bogner Uber", block_category: "Cab", original_gear: "Bogner 4x12 (Beyma)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 90, HighCut: 7500, Level: 0 }, notes: "Bogner-style 4x12, close SM57. HighCut tames plexi fizz." },
+          { position: 4, block_name: "Octave Fuzz", block_category: "Drive", original_gear: "Tru-Fi Octavia Fuzz (lead)", enabled: false, settings: { Drive: 7.0, Tone: 6.0, Level: 6.0 }, notes: "DEFAULT-OFF octave fuzz for the lead, mirroring the Helix." },
+          { position: 5, block_name: "Spring", block_category: "Reverb", original_gear: "Studio ambience", settings: { Mix: 0.1, Decay: 1.0, Predelay: 12 }, notes: "Short spring for the raw vintage vibe, mirroring the Helix." },
+          { position: 6, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global midrange shaping", settings: { Bands: "+2 dB at 700-900 Hz", Level: 0 }, notes: "A gentle low-mid bump reinforcing the SG-into-plexi bark, mirroring the Helix Tilt." },
+        ],
+        notes: "Comp -> Plexi 100W High (cranked, mid 7 bark) -> Bogner Uber 4x12 -> octave fuzz (OFF) -> short spring -> low-mid EQ. Volume is the effect. Standard E.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Halestorm - Love Bites (So Do I) ----
+  {
+    id: "seed-hottinger-love-bites",
+    song_slug: "love-bites-halestorm",
+    title: "Love Bites (So Do I) Solo Tone",
+    slug: "hottinger-love-bites-solo",
+    created_at: "2026-06-24",
+    description:
+      "The Grammy-winning lead single from Halestorm's 2012 album The Strange Case Of... For the solo, Joe Hottinger leans on the same loud-and-vintage rig that defines the band -- a Gibson SG into cranked Marshall Super Lead plexis and a Bogner 4x12 with Beyma speakers -- but pushed into singing lead territory with a Bogner La Grange plexi-style boost out front for sustain and a slap of delay for size. Raw, fast, vocal lead phrasing over a driving hard-rock track. Standard E.",
+    tone_context: "solo",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson SG Standard (2003)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "Standard E (E-A-D-G-B-E)",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "Hottinger's core SG is his 2003 SG Standard; he also reaches for a vintage Les Paul for thicker leads. For the solo the bridge humbucker into a boosted, cranked plexi gives the fast lines their cut and sustain, while the SG's open midrange keeps the fast runs articulate rather than congested.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "overdrive",
+        gear_slug: null,
+        gear_name: "Bogner La Grange (plexi-style boost)",
+        icon_type: "pedal",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Gain: 4, Tone: 6, Level: 7, Mode: "mid (51v)" },
+        notes:
+          "Hottinger's documented Bogner La Grange is a plexi-in-a-box overdrive; out front of the already-cranked Super Lead it adds gain and compression for the solo's singing sustain and feedback-on-demand without changing the core amp voice. This is the lead push -- more gain than the rhythm, by design.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall Super Lead (plexi)",
+        icon_type: "marshall_stack",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Volume: 9, Bass: 5, Middle: 7, Treble: 6, Presence: 7 },
+        notes:
+          "The same cranked vintage Super Lead -- red 1971, purple 1973 -- that anchors the band. Pushed to 9 with no master volume, the plexi blooms and sustains; for the solo the Presence is nudged to 7 so the fast lines cut over the full band. The La Grange in front takes it from rhythm crunch to lead sing.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Bogner 4x12 (Beyma Liberty)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "His documented Bogner 4x12 with Beyma Liberty speakers -- tight and articulate, which keeps the boosted, cranked plexi from blurring under the fast solo lines and gives the lead its firm, present body.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 (assumed)",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, on cone edge" },
+        notes:
+          "Undocumented; a close SM57 on the cone edge is the standard capture for a cranked plexi 4x12 and keeps the lead's mid-forward cut intact.",
+      },
+    ],
+    original_gear: {
+      guitar: "2003 Gibson SG Standard (vintage Les Paul for thicker leads) -- bridge pickup",
+      effects: ["Bogner La Grange overdrive (lead boost)", "Strymon TimeLine delay", "Tru-Fi Octavia Fuzz (accents)"],
+      amp: "Marshall Super Lead plexi (red 1971 / purple 1973), cranked",
+      cabinet: "Bogner 4x12 with Beyma Liberty speakers",
+      microphone: "Undocumented (Shure SM57 assumed)",
+      other_notes:
+        "'Love Bites (So Do I),' from The Strange Case Of... (2012, produced by Howard Benson), won the Grammy for Best Hard Rock/Metal Performance. The documented Hottinger rig -- 2003 SG Standard, vintage Marshall Super Lead plexis, Bogner 4x12 with Beyma speakers, Bogner La Grange overdrive, Strymon TimeLine -- is the hero rig; the per-song solo settings and mic are inferred. The solo is differentiated from the main riff by the La Grange boost (lead sustain) and a touch of delay. The 2020 Marshall SV20H Studio is the modern reissue equivalent of these vintage Super Leads.",
+    },
+    tags: ["hard-rock", "heavy-metal", "solo", "halestorm", "joe-hottinger", "sg"],
+    sources: [
+      "https://www.premierguitar.com/videos/rig-rundown/halestorm",
+      "https://en.wikipedia.org/wiki/Halestorm",
+      "https://equipboard.com/pros/joe-hottinger",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -28, Ratio: 3, Knee: 6, Attack: 14, Release: 200, Mix: 40, Level: 0 }, notes: "Before the amp -- a touch more comp than the rhythm patch to even out the fast solo runs and add sustain, so every note in a quick line speaks. Parallel-blended to keep the pick attack." },
+          { position: 2, block_name: "Minotaur", block_category: "Distortion", original_gear: "Bogner La Grange (plexi-style boost)", enabled: true, settings: { Gain: 4, Tone: 6, Level: 7 }, notes: "DEFAULT-ON -- the La Grange lead push in pedal form. Out front of the cranked plexi it adds gain and compression for the solo's singing sustain and feedback-on-demand. This is what separates the solo from the rhythm tone." },
+          { position: 3, block_name: "Brit Plexi Brt", block_category: "Amp", original_gear: "Marshall Super Lead (plexi)", settings: { Drive: 7, Bass: 5, Mid: 7, Treble: 6, Presence: 7, ChVol: 8, Master: 9, Bias: 5, BiasX: 5, Sag: 6, Hum: 5, Ripple: 5 }, notes: "Brit Plexi Brt cranked -- Master 9 for the power-section bloom. Presence at 7 (a touch over the rhythm) so the fast lines cut; Sag 6 for the loose plexi feel. The boost in front turns crunch into lead sing." },
+          { position: 4, block_name: "4x12 Uber", block_category: "Cab", original_gear: "Bogner 4x12 (Beyma)", settings: { Mic: 0, Distance: 2, Position: 0.38, Angle: 20, LowCut: 90, HighCut: 8000, Resonance: 0.45, Level: 0, Pan: 0.5, Delay: 0 }, notes: "4x12 Uber for the Bogner cab. HighCut at 8k (a touch brighter than the rhythm patch) keeps the lead singing and present; LowCut at 90 keeps it tight under the boosted plexi." },
+          { position: 5, block_name: "Simple Delay", block_category: "Delay", original_gear: "Strymon TimeLine (solo)", settings: { Time: 380, Feedback: 20, Mix: 16, LowCut: 200, HighCut: 6000, Level: 0 }, notes: "A quarter-note delay adds size to the solo without smearing the fast phrasing. Modest mix and feedback so it thickens rather than repeats; cuts keep the echoes dark behind the lead." },
+          { position: 6, block_name: "Spring", block_category: "Reverb", original_gear: "Studio ambience", settings: { Mix: 12, Decay: 1.2, Predelay: 14, LowCut: 200, HighCut: 6500, Level: 0 }, notes: "A short spring for the raw vintage vibe -- present enough to put the lead in a room without washing the fast lines. Cuts keep the tail tidy." },
+          { position: 7, block_name: "Tilt", block_category: "EQ", original_gear: "Global lead shaping", settings: { Tilt: 5.5, CenterFreq: 1000, Level: 0 }, notes: "A slight tilt toward the highs gives the solo extra cut and presence over the band -- final global polish on the lead voice." },
+        ],
+        notes:
+          "Comp -> La Grange-style boost (ON) -> cranked Brit Plexi (master 9, presence 7) -> Bogner Uber 4x12 -> quarter-note delay -> short spring -> bright Tilt. The boost + delay is what makes it a solo tone. Standard E.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -28, Ratio: 3, Attack: 14, Release: 200, Mix: 40, Level: 0 }, notes: "A touch more comp than the rhythm patch for solo sustain, mirroring the Helix -- parallel so the attack survives." },
+          { position: 2, block_name: "Klon", block_category: "Drive", original_gear: "Bogner La Grange (plexi-style boost)", enabled: true, settings: { Drive: 4, Tone: 6, Level: 7 }, notes: "DEFAULT-ON lead push for the singing sustain -- the La Grange in pedal form, mirroring the Helix Minotaur." },
+          { position: 3, block_name: "Brit Plexi 100", block_category: "Amp", original_gear: "Marshall Super Lead (plexi)", settings: { Gain: 7, Bass: 5, Mid: 7, Treble: 6, Presence: 7, Master: 9, Sag: 6 }, notes: "QC's Super Lead cranked, Presence 7 so the fast lines cut. The boost in front makes it sing." },
+          { position: 4, block_name: "4x12 Uber", block_category: "Cab", original_gear: "Bogner 4x12 (Beyma)", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.38, LowCut: 90, HighCut: 8000, Level: 0 }, notes: "Bogner-style 4x12, close SM57. HighCut 8k keeps the lead singing." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Strymon TimeLine (solo)", settings: { Time: 380, Feedback: 20, Mix: 16, Level: 0 }, notes: "Quarter-note delay adding size to the solo, mirroring the Helix." },
+          { position: 6, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Studio ambience", settings: { Decay: 1.2, Predelay: 14, Mix: 12, Level: 0 }, notes: "Short spring for the raw vintage vibe, mirroring the Helix." },
+          { position: 7, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global lead shaping", settings: { Bands: "+2 dB above 2 kHz", Level: 0 }, notes: "A slight high-shelf lift gives the solo extra cut over the band, mirroring the Helix Tilt." },
+        ],
+        notes:
+          "Comp -> boost (ON) -> cranked Brit Plexi 100 (presence 7) -> Bogner-style 4x12 -> quarter-note delay -> short spring -> bright EQ. Boost + delay = solo tone. Standard E.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Super Lead Plexi' (boosted)", block_category: "Tone Model", original_gear: "Marshall Super Lead (plexi) + La Grange boost", settings: {}, notes: "Search ToneNET for a cranked Super Lead / plexi capture, ideally already boosted for lead sustain. Add a transparent/plexi-style boost and a quarter-note delay for the solo. Standard E." },
+        ],
+        notes: "TONEX is capture-driven. Pair a cranked, boosted Super Lead capture with a quarter-note delay and a short spring; the solo is a hot SG into a boosted loud plexi.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall Super Lead (plexi) + La Grange boost", settings: { Gain: 8, Volume: 8, Bass: 5, Middle: 7, Treble: 6, Presence: 7, Master: 8 }, notes: "Brown gives a hotter, more sustaining plexi-plus-boost voice for the lead -- more gain than the rhythm's Crunch so the fast lines sing. Middle 7 keeps the SG bark; Presence 7 for cut." },
+          { position: 2, block_name: "Booster", block_category: "Booster", original_gear: "Bogner La Grange (plexi-style boost)", enabled: true, settings: { Drive: 4, Bottom: 3, Tone: 6, Level: 7 }, notes: "DEFAULT-ON as the La Grange lead push -- adds sustain and cut for the solo. This booster ON is what makes this the solo patch versus the rhythm." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Strymon TimeLine (solo)", settings: { Time: 380, Feedback: 20, EffectLevel: 16 }, notes: "Quarter-note delay adding size to the solo, mirroring the Helix." },
+          { position: 4, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio ambience", settings: { Time: 3, PreDelay: 14, Tone: 5, EffectLevel: 8 }, notes: "A short spring-style room for the raw vintage vibe." },
+        ],
+        notes:
+          "Brown amp + booster ON (lead push) -> quarter-note delay -> short reverb. The booster ON is the solo tone. Standard E.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: 4.0, Volume: 0.0 }, notes: "Slot A -- a touch more comp than the rhythm patch for solo sustain, mirroring the Helix." },
+          { position: 2, block_name: "Green Scream", block_category: "Drive", original_gear: "Bogner La Grange (plexi-style boost)", enabled: true, settings: { Drive: 4.0, Tone: 6.0, Volume: 7.0 }, notes: "Stomp slot -- DEFAULT-ON La Grange-style lead push for the singing sustain, mirroring the Helix." },
+          { position: 3, block_name: "Search Rig Exchange for 'Marshall Super Lead Plexi'", block_category: "Profile", original_gear: "Marshall Super Lead (plexi)", settings: { Gain: 7.0, Bass: 5.0, Middle: 7.0, Treble: 6.0, Presence: 7.0 }, notes: "Search Rig Exchange for a cranked Super Lead / plexi profile -- the cab is baked in. Presence 7 so the fast lines cut; the Stomp boost makes it sing." },
+          { position: 4, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Studio ambience", settings: { Decay: 1.2, Predelay: 14, Mix: 12 }, notes: "REV slot -- a short spring for the raw vintage vibe." },
+          { position: 5, block_name: "Single Delay", block_category: "Delay", original_gear: "Strymon TimeLine (solo)", settings: { Time: 380, Feedback: 20, Mix: 16 }, notes: "DLY slot -- quarter-note delay adding size to the solo, mirroring the Helix." },
+        ],
+        notes:
+          "Kemper bakes the cab into the profile. Comp -> La Grange-style boost (ON) -> cranked Super Lead profile (presence 7) -> short spring -> quarter-note delay. Boost + delay = solo. Standard E.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tracking compression", settings: { Threshold: -28, Ratio: 3, Attack: 14, Release: 200, Mix: 0.4, Level: 0 }, notes: "A touch more comp than the rhythm patch for solo sustain, mirroring the Helix." },
+          { position: 2, block_name: "Klon", block_category: "Drive", original_gear: "Bogner La Grange (plexi-style boost)", enabled: true, settings: { Drive: 4, Tone: 6, Level: 7 }, notes: "DEFAULT-ON lead push for the singing sustain, mirroring the Helix Minotaur." },
+          { position: 3, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Super Lead (plexi)", settings: { Drive: 7.0, Bass: 5.0, Mid: 7.0, Treble: 6.0, Presence: 7.0, MV: 9.0 }, notes: "Plexi 100W High cranked -- MV 9 for the bloom, Presence 7 so the fast lines cut. Boosted into lead sing." },
+          { position: 4, block_name: "4x12 Bogner Uber", block_category: "Cab", original_gear: "Bogner 4x12 (Beyma)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 90, HighCut: 8000, Level: 0 }, notes: "Bogner-style 4x12, close SM57. HighCut 8k keeps the lead singing." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Strymon TimeLine (solo)", settings: { Time: 380, Feedback: 0.2, Mix: 0.16 }, notes: "Quarter-note delay adding size to the solo, mirroring the Helix." },
+          { position: 6, block_name: "Spring", block_category: "Reverb", original_gear: "Studio ambience", settings: { Mix: 0.12, Decay: 1.2, Predelay: 14 }, notes: "Short spring for the raw vintage vibe, mirroring the Helix." },
+          { position: 7, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global lead shaping", settings: { Bands: "+2 dB above 2 kHz", Level: 0 }, notes: "A slight high-shelf lift gives the solo extra cut over the band, mirroring the Helix Tilt." },
+        ],
+        notes: "Comp -> boost (ON) -> Plexi 100W High (cranked, presence 7) -> Bogner Uber 4x12 -> quarter-note delay -> short spring -> bright EQ. Boost + delay = solo. Standard E.",
       },
     },
     is_editorial: true,

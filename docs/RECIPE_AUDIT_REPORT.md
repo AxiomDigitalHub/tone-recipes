@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-23
-**Recipes:** 164
-**Clean (no errors, no warns):** 164
+**Date:** 2026-06-24
+**Recipes:** 169
+**Clean (no errors, no warns):** 169
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,7 +16,7 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 19 / 164 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `katana-kemper-multidrive-default-off` | info | 19 / 169 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -448,6 +448,18 @@ Passes every rule.
 
 Passes every rule.
 
+### `hottinger-i-miss-the-misery-riff` — ✓ clean
+
+*I Miss the Misery Riff Tone*
+
+Passes every rule.
+
+### `hottinger-love-bites-solo` — ✓ clean
+
+*Love Bites (So Do I) Solo Tone*
+
+Passes every rule.
+
 ### `iommi-iron-man-doom-riff` — ✓ clean
 
 *Tony Iommi's Iron Man Doom Riff Tone*
@@ -772,6 +784,18 @@ Passes every rule.
 
 Passes every rule.
 
+### `myers-cut-the-cord-riff` — ✓ clean
+
+*Cut the Cord Riff Tone*
+
+Passes every rule.
+
+### `myers-second-chance-lead` — ✓ clean
+
+*Second Chance Lead Tone*
+
+Passes every rule.
+
 ### `page-black-dog-riff` — ✓ clean
 
 *Jimmy Page's Black Dog Riff Tone*
@@ -949,6 +973,12 @@ Passes every rule.
 ### `stockdale-woman-riff` — ✓ clean
 
 *Woman Riff Tone*
+
+Passes every rule.
+
+### `sult-earth-rocker-riff` — ✓ clean
+
+*Earth Rocker Riff Tone*
 
 Passes every rule.
 
