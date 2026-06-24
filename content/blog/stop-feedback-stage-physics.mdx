@@ -1,9 +1,9 @@
 ---
 title: How to Stop Feedback on Stage Without a Gate (The Physics-First Approach)
 description: >-
-  Stage feedback has physical causes that a noise gate can't fix. Here's the
-  frequency and physics explanation for why feedback happens, and the specific
-  techniques that address it at the source.
+  Stage feedback has physical causes a noise gate can't fix. Here's why it
+  happens — the frequency and physics — and the techniques that stop it at the
+  source.
 date: '2026-04-09'
 author: Viktor Kessler
 author_slug: viktor-kessler
@@ -16,10 +16,65 @@ tags:
   - quick-fix
   - noise
 readingTime: 10
+updated: '2026-06-24'
 image: /images/blog/stop-feedback-stage-physics.jpg
 image_alt: >-
-  a composition illustrating "How to Stop Feedback on Stage Without a Gate (The
-  Physics"
+  A guitarist on stage with a monitor wedge and amp positioned to control
+  feedback, with the resonant frequency loop between speaker and pickups
+takeaways:
+  - >-
+    A noise gate only stops feedback while you're not playing — it can't tell
+    feedback from intended notes once it's open, so it treats the symptom, not
+    the physical cause.
+  - >-
+    Feedback is a loop between speaker, room, and pickup at a specific resonant
+    frequency, usually between 80 Hz and 600 Hz for the primary mode, with
+    harmonics one to three octaves above.
+  - >-
+    Physical fixes come first and cost nothing: angle the monitor off your guitar
+    body, move the amp to your side and raise it, since every doubling of
+    distance drops sound pressure by 6 dB.
+  - >-
+    The surgical fix is a narrow EQ cut (Q of 4 to 8, 3 to 6 dB) at the exact
+    feedback frequency, placed after the gain stage in the effects loop or after
+    the amp/cab block on a modeler.
+  - >-
+    Rolling guitar volume back 10 to 15 percent raises the feedback threshold
+    more than it lowers your volume, because the feedback loop is exponential —
+    small signal cuts have an outsized effect.
+faq:
+  - q: Does a noise gate stop feedback?
+    a: >-
+      A noise gate stops signal below its threshold, which is useful for
+      preventing feedback buildup while you're not playing. It cannot stop
+      feedback that occurs while you're playing, because the gate is open during
+      signal. Physical and EQ solutions address feedback that occurs during
+      playing.
+  - q: Why does my amp feedback more in some rooms than others?
+    a: >-
+      Room resonance varies with dimensions, construction materials, and acoustic
+      treatment. Parallel walls and low ceilings create resonant build-up at
+      specific frequencies that vary by room. A gain level that's stable in one
+      room may be near the feedback threshold in another.
+  - q: Is feedback always bad?
+    a: >-
+      No. Controlled feedback is a deliberate technique used by Hendrix, Gilmour,
+      Santana, and many others. The goal is controllability: choose when feedback
+      occurs and at what pitch, rather than having it occur randomly. A built-in
+      sustainer recreates that singing sustain electronically at any volume.
+  - q: Does a humbucker eliminate feedback problems?
+    a: >-
+      Humbuckers are less feedback-prone than single coils at equivalent gain
+      settings because of their coil geometry and reduced sensitivity to ambient
+      vibration. They don't eliminate feedback at high enough gain levels
+      (nothing does), but they raise the threshold substantially.
+  - q: How does a guitar's body material affect feedback?
+    a: >-
+      Denser body materials (mahogany, ash) transmit and sustain vibration
+      differently than lighter or semi-hollow designs. Semi-hollow and fully
+      hollow guitars are significantly more feedback-prone at stage volumes,
+      which is why archtops are kept at lower gain on stage. Solid bodies resist
+      acoustic feedback better because there's less air resonating inside.
 ---
 
 > **Start Here: The five feedback causes and their fixes:**
@@ -198,22 +253,11 @@ The order of operations in these situations:
 
 ---
 
-## Frequently Asked Questions
+## When Feedback Is the Goal
 
-**Does a noise gate stop feedback?**
-A noise gate stops signal below its threshold. This is useful for preventing feedback buildup while you're not playing. It cannot stop feedback that occurs while you're playing, because the gate is open during signal. Physical and EQ solutions address feedback that occurs during playing.
+Everything above is about killing *uncontrolled* feedback. But the singing sustain that feedback produces — the held note that blooms into its overtone, the Santana/Gilmour lead that never decays — is something players spend whole careers chasing. The problem is that the musical version needs the same loud amp and lucky stage spot that the parasitic version does. You can't summon it on demand at bedroom volume, and you can't keep it from tipping into a howl.
 
-**Why does my amp feedback more in some rooms than others?**
-Room resonance varies with dimensions, construction materials, and acoustic treatment. Parallel walls and low ceilings create resonant build-up at specific frequencies that vary by room. A gain level that's stable in one room may be near the feedback threshold in another.
-
-**Is feedback always bad?**
-No. Controlled feedback is a deliberate technique used by Hendrix, Gilmour, Santana, and many others. The goal is controllability: choose when feedback occurs and at what pitch, rather than having it occur randomly. The fixes above are about preventing uncontrolled feedback, not eliminating intentional use of the technique.
-
-**Does a humbucker eliminate feedback problems?**
-Humbuckers are less feedback-prone than single coils at equivalent gain settings because of their coil geometry and reduced sensitivity to ambient vibration. They don't eliminate feedback at high enough gain levels (nothing does), but they raise the threshold substantially.
-
-**How does a guitar's body material affect feedback?**
-Denser body materials (mahogany, ash) transmit and sustain vibration differently than lighter or semi-hollow designs. Semi-hollow and fully hollow guitars are significantly more feedback-prone at stage volumes. This is why archtops are generally kept at lower gain settings on stage. Solid body guitars have more resistance to acoustic feedback at high stage volumes because there's less air resonating inside the body.
+That's the exact gap a [built-in sustainer pickup fills](/blog/sustainer-pickup-sustainiac-vs-fernandes-install-for-live-lead): it drives the strings electronically the way the speaker does, so you get controllable infinite sustain at any volume — even silent practice — without fighting the room. If your interest in feedback is the lead tone rather than the noise problem, the physics here tells you why the natural version is so finicky, and the sustainer is how players make it repeatable.
 
 <SaveThisTone
   title="Pick a tone to chase"
