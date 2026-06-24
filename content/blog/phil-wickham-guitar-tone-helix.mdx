@@ -1,0 +1,133 @@
+---
+title: How to Get the Phil Wickham Guitar Tone on the Line 6 Helix
+description: >-
+  Build the Phil Wickham anthem-worship guitar sound on the Helix — bright clean
+  chime, a cutting anthem lead, and dotted-eighth delays with controlled reverb,
+  with exact blocks and snapshots.
+date: '2026-06-23'
+author: Nathan Cross
+author_slug: nathan-cross
+category: tone-recipes
+tags:
+  - worship
+  - helix
+  - phil-wickham
+  - anthem
+  - lead-tone
+  - clean-tone
+  - delay
+  - reverb
+  - signal-chain
+  - snapshots
+readingTime: 8
+image: /images/blog/phil-wickham-guitar-tone-helix.jpg
+image_alt: >-
+  A Line 6 Helix preset for the Phil Wickham anthemic worship guitar tone — a
+  bright Vox-style clean amp, a cutting lead drive stack, a dotted-eighth delay,
+  and a controlled reverb, across clean, anthem, and lead snapshots
+takeaways:
+  - >-
+    Phil Wickham's records sit in modern anthem-worship territory — bright,
+    confident cleans for the verses and a cutting, melodic lead for the big
+    hooks, less ambient-washy than Bethel and less rock-aggressive than
+    Brewster.
+  - >-
+    The clean is a bright Vox-style chime; the lead lift is a mid-forward drive
+    stack, not a wall of gain — the hook needs to cut and be hummable.
+  - >-
+    Dotted-eighth delay drives the signature melodic guitar lines on songs like
+    Living Hope, Great Things, and Battle Belongs.
+  - >-
+    Reverb stays controlled. These are anthems built to be sung, so the space
+    supports the hook rather than burying it.
+  - >-
+    Dynamics and snapshots carry the song's build from intimate verse to full
+    anthem chorus without changing patches.
+faq:
+  - q: 'What is the Phil Wickham guitar tone, in one line?'
+    a: >-
+      Modern anthem worship — a bright, confident clean for verses and a
+      cutting, melodic lead for the choruses, with dotted-eighth delay driving
+      the signature hooks. On the Helix, a bright Vox-style clean amp with a
+      mid-forward lead drive stack covers it.
+  - q: What delay setting drives songs like Living Hope and Battle Belongs?
+    a: >-
+      A dotted-eighth delay. Calculate it as (60000 / BPM) × 0.75 — about 375 ms
+      at 120 BPM — with low-to-moderate feedback and a modest mix so the
+      rhythmic repeats define the melodic line without washing it out.
+  - q: How is this different from the Bethel or Hillsong tone?
+    a: >-
+      It is less ambient. Bethel leans pad-forward with heavy swells and
+      shimmer; Hillsong sits in chimey mid-ambience. The Wickham anthem sound
+      keeps the reverb and delay more controlled so the big hook cuts and the
+      congregation can lock onto it — closer to a pop-anthem lead than an
+      atmospheric bed.
+  - q: What guitar should I use?
+    a: >-
+      A bright, articulate guitar. Wickham's players favor a Fender Jazzmaster,
+      Duesenberg, and Filter'Tron-equipped Gretsch; a Strat or Telecaster works
+      too. The tone is about chime and cut, so avoid dark humbuckers unless you
+      roll up the treble to compensate.
+  - q: Who plays electric guitar for Phil Wickham?
+    a: >-
+      Taylor Johnson is Phil Wickham's longtime touring electric guitarist, and
+      session guitarist Casey Moore played on several records, including the
+      "Living Hope" title track. Both build the same tone — a chiming British
+      amp (Matchless or Morgan), an octave-up shimmer from an EHX Micro POG, and
+      a dotted-eighth Strymon Timeline delay.
+---
+
+> **Start Here: The Wickham Anthem Tone in Five Blocks:**
+> 1. Amp: **Matchstick** (Matchless) or **Essex A30 TB** (Vox), bright, edge-of-breakup
+> 2. Drive: **Minotaur** (Klon-style), low gain, always on — the RC Booster stand-in
+> 3. Octave/Lead: **Pitch Wham/Harmony** octave-up shimmer (POG-style) + **Scream 808** for leads
+> 4. Delay: **Vintage Digital** (dotted eighth) — the melodic-hook engine
+> 5. Reverb: **Plate** / **Searchlights**, controlled mix
+
+---
+
+## The Anthem-Worship Lead
+
+Phil Wickham's songs — "Living Hope," "Great Things," "Battle Belongs," "This Is Amazing Grace" — sit in **modern anthem-worship** territory: bright, confident cleans under the verses and a **cutting, melodic lead** carrying the big hooks. It is less ambient than Bethel and less rock-forward than Lincoln Brewster — the guitar's job is to be *hummable* and to lift the chorus.
+
+On the [Helix](/platforms/helix), this is one snapshot-driven preset, built here from empty and portable across Helix Floor, LT, HX Stomp, and Native.
+
+The guitar work behind Wickham is well-documented: **Taylor Johnson** is his longtime touring electric player, and several records (including the *Living Hope* title track) were cut by session guitarist **Casey Moore**. Both work from the same palette — a chiming British amp (**Matchless HC-30** or **Morgan AC20**), an EHX Micro POG for octave-up shimmer, a Strymon Timeline / Line 6 DL4 for dotted-eighth delay, and a clean boost (Xotic RC Booster). That maps cleanly onto the Helix blocks below.
+
+I run this lead on songs like "Living Hope," and the hook is the whole point live — with the mid-push and the dotted-eighth delay it stays hummable and cuts over a full band, so the congregation locks onto the melody instead of it disappearing into the mix.
+
+## The Clean: Bright British Chime
+
+Wickham's players run **Matchless HC-30** and **Morgan AC20** amps — chiming, British-voiced, with great clarity. On the Helix, use the **Matchstick** (Matchless) model, or the **Essex A30 TB** (Vox AC30) as a close alternative. Keep it bright and at edge-of-breakup, with the **Minotaur** (Klon-style, standing in for the Xotic RC Booster) on at low drive across the cleans for body. Their guitars run bright too — Jazzmaster, Duesenberg, and Filter'Tron Gretsch.
+
+| Block | Setting | Role |
+|---|---|---|
+| Matchstick / Essex A30 TB | Drive ~0.40, Bass ~0.30, Mids ~0.50, Treble ~0.60 | Bright clean chime |
+| Minotaur | Drive ~0.20, output up | Always-on body/sustain (RC Booster stand-in) |
+| Octave-up (POG-style) | Octave +1, Mix ~15% | The Micro POG shimmer on big moments |
+
+## The Lead: Mid-Forward Cut
+
+For the anthem hook, stack a **Scream 808** (Tube Screamer) — Drive low (~0.15), Tone ~0.55, Level high — for a mid-push that makes the line cut. Optionally add a **Parametric EQ** bump around 1 kHz for extra lead presence. The goal is *cut*, not saturation; the hook has to be clear over a full band and a singing room.
+
+## Time and Space: Controlled
+
+- **Vintage Digital** delay — dotted eighth (375 ms at 120 BPM), Feedback ~25%, Mix ~20%. This drives the melodic hooks.
+- **Plate** or **Searchlights** reverb — Mix ~15–20%, low cut 120 Hz. Kept controlled so the hook stays forward.
+
+## Snapshot Layout
+
+1. **Clean** — amp + Minotaur, delay/reverb low. Intimate verses.
+2. **Anthem** — fuller delay and reverb, driven rhythm. Big choruses.
+3. **Lead** — Scream 808 + mid-EQ, dotted-eighth delay up. The hook.
+4. **Build** (optional) — between anthem and lead for pre-chorus lifts.
+
+Set the Lead snapshot +1 to +2 dB so the hook lifts musically.
+
+## On an HX Stomp
+
+Keep Amp · Minotaur · Scream 808 · Vintage Digital · Plate across three snapshots — Clean, Anthem, Lead — folding the mid-EQ into the amp mids and the Tube Screamer tone.
+
+---
+
+*Want the anthem lead prebuilt? [Get the Phil Wickham-style Helix preset](/guides/worship-guitar) with the clean, anthem, and lead snapshots ready.* {/* TODO: point CTA at the matching recipe/preset once it ships */}
