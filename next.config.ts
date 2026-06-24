@@ -7,6 +7,15 @@ const nextConfig: NextConfig = {
   // 'input directory .../@sparticuz/chromium/bin does not exist'. These
   // must stay external so the files ship intact in the serverless function.
   serverExternalPackages: ["@sparticuz/chromium", "puppeteer-core"],
+  // serverExternalPackages keeps chromium's require external, but its bin/
+  // brotli payload is read from disk (not require()'d), so Next's file
+  // tracing drops it from the serverless function — the PDF route then 500s
+  // with 'input directory .../@sparticuz/chromium/bin does not exist'. Force
+  // the whole package (incl. bin/) into the download function's trace.
+  // Glob key (not the literal [slug] route — brackets are glob char-classes).
+  outputFileTracingIncludes: {
+    "/api/recipes/**": ["./node_modules/@sparticuz/chromium/**/*"],
+  },
   async headers() {
     return [
       {
