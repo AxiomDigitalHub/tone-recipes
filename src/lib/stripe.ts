@@ -25,13 +25,13 @@ export const stripe = {
 /*  Set Pack one-time purchases                                                */
 /* -------------------------------------------------------------------------- */
 /*                                                                             */
-/*  Subscription products (Tone Pass / Pro) were retired in 2026-04 — the      */
-/*  pricing page explicitly says so. The old ensureProducts() helper that      */
-/*  auto-created them on first /api/checkout request was removed in the        */
-/*  same pass so a stray call can't materialise dead products in live          */
-/*  Stripe. If you ever bring subscriptions back, restore the helper from      */
-/*  git history (commit "Perf: size guitar silhouette imgs…" was the last      */
-/*  commit before this cleanup) and re-add the /api/checkout route.            */
+/*  Note: the Fader & Knob Pass subscription ($39/yr or $4.99/mo) IS active —  */
+/*  it lives in /api/checkout and reads its price IDs from                     */
+/*  STRIPE_PASS_PRICE_ID_ANNUAL / _MONTHLY (create the product + prices with   */
+/*  scripts/stripe-create-pass-product.ts). Unlike that subscription, the      */
+/*  Set Packs below are one-time purchases whose Stripe product is             */
+/*  auto-created on first checkout via ensureSetPackPrice(), so they need no   */
+/*  price-ID env vars.                                                         */
 /*                                                                             */
 /* -------------------------------------------------------------------------- */
 
