@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Keep the headless-Chrome packages OUT of the bundler. Next/Turbopack
+  // otherwise relocates @sparticuz/chromium and drops its bin/ brotli
+  // payload (the actual Chromium binary), which 500s the PDF download with
+  // 'input directory .../@sparticuz/chromium/bin does not exist'. These
+  // must stay external so the files ship intact in the serverless function.
+  serverExternalPackages: ["@sparticuz/chromium", "puppeteer-core"],
   async headers() {
     return [
       {
