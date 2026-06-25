@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-24
-**Recipes:** 169
-**Clean (no errors, no warns):** 169
+**Date:** 2026-06-25
+**Recipes:** 174
+**Clean (no errors, no warns):** 174
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,7 +16,7 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 19 / 169 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `katana-kemper-multidrive-default-off` | info | 19 / 174 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -49,6 +49,12 @@ Passes every rule.
 ### `auerbach-lonely-boy-raw-garage` — ✓ clean
 
 *Dan Auerbach's Lonely Boy Raw Garage Tone*
+
+Passes every rule.
+
+### `baizley-take-my-bones-away-riff` — ✓ clean
+
+*Take My Bones Away Riff*
 
 Passes every rule.
 
@@ -163,6 +169,24 @@ Passes every rule.
 ### `corgan-cherub-rock-big-muff` — ✓ clean
 
 *Corgan's Cherub Rock Wall of Fuzz*
+
+Passes every rule.
+
+### `cronise-freya-riff` — ✓ clean
+
+*Freya Doom Riff*
+
+Passes every rule.
+
+### `cronise-maiden-mother-crone-riff` — ✓ clean
+
+*Maiden, Mother & Crone Riff*
+
+Passes every rule.
+
+### `cronise-open-casket-riff` — ✓ clean
+
+*Open Casket Doom Riff*
 
 Passes every rule.
 
@@ -319,6 +343,12 @@ Passes every rule.
 ### `gibbons-sharp-dressed-man-eliminator` — ✓ clean
 
 *ZZ Top's Sharp Dressed Man Eliminator Tone*
+
+Passes every rule.
+
+### `giles-wires-riff` — ✓ clean
+
+*Wires Riff*
 
 Passes every rule.
 

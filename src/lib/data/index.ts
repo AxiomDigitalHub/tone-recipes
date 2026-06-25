@@ -615,6 +615,27 @@ export const artists: Artist[] = [
     genres: ["hard-rock", "alternative-metal", "heavy-metal"],
     image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/6f/46/b0/6f46b06e-a2e9-8404-7f69-7457bf2383a7/075679963123.jpg/600x600bb.jpg",
   },
+  {
+    name: "J.D. Cronise",
+    slug: "jd-cronise",
+    bio: "Founder, frontman, and principal songwriter of Austin's The Sword, the band that helped revive riff-driven retro doom and stoner metal in the mid-2000s. Cronise built the sound on Sabbath-sized, down-tuned riffs played on a 1979 Gibson Explorer through Orange amps -- a lifelong Orange user since 1998. The Sword's 2006 debut Age of Winters and its track 'Freya' (featured in Guitar Hero II) made them a gateway band for a generation of young doom fans.",
+    genres: ["stoner-metal", "doom-metal", "heavy-metal"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/15/d8/a7/15d8a77e-ab50-781b-9c83-bdb06cbd7805/184923800081_cover.jpg/600x600bb.jpg",
+  },
+  {
+    name: "Bryan Giles",
+    slug: "bryan-giles",
+    bio: "Guitarist and co-vocalist of Red Fang, the Portland, Oregon heavy-rock band known as much for their self-deprecating beer-soaked music videos as for their thick, hooky stoner-metal riffs. Giles and co-guitarist David Sullivan built the band's tone on solid-state Sunn Beta Lead heads cranked into a wall of distortion -- a deliberately blunt, no-frills rig that made Red Fang's 2011 breakthrough Murder the Mountains a underground favorite.",
+    genres: ["stoner-rock", "heavy-metal", "hard-rock"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music/c8/54/1d/mzi.ofjenuzd.jpg/600x600bb.jpg",
+  },
+  {
+    name: "John Baizley",
+    slug: "john-baizley",
+    bio: "Frontman, rhythm guitarist, and visual artist of Savannah's Baroness -- whose hand-painted album covers are as recognizable as the band's music. Across the Red, Blue, and Yellow & Green albums Baizley pushed the band from heavy sludge toward melodic, anthemic prog-rock, swapping Gibson humbuckers for Fender single-coils run clean with pedal-driven dirt (a modded Big Muff, a Crowther Hot Cake, a Pro Co RAT). 'Take My Bones Away' became their first mainstream-rock chart single in 2012.",
+    genres: ["sludge-metal", "progressive-metal", "hard-rock"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/bd/dd/94/bddd94e9-a818-e962-327c-b4fda4c5928d/yellowgreen_1400.jpg/600x600bb.jpg",
+  },
 ];
 
 export const songs: Song[] = [
@@ -2791,6 +2812,66 @@ export const songs: Song[] = [
     difficulty: "advanced",
     external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=halestorm+love+bites+so+do+i",
     external_video_url: "https://www.youtube.com/results?search_query=halestorm+love+bites+so+do+i+guitar+lesson",
+  },
+  {
+    artist_slug: "jd-cronise",
+    title: "Open Casket",
+    slug: "open-casket-the-sword",
+    album: "Age of Winters",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/15/d8/a7/15d8a77e-ab50-781b-9c83-bdb06cbd7805/184923800081_cover.jpg/600x600bb.jpg",
+    year: 2006,
+    genres: ["stoner-metal", "doom-metal", "heavy-metal"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=the+sword+open+casket",
+    external_video_url: "https://www.youtube.com/results?search_query=the+sword+open+casket+guitar+lesson",
+  },
+  {
+    artist_slug: "jd-cronise",
+    title: "Freya",
+    slug: "freya-the-sword",
+    album: "Age of Winters",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/15/d8/a7/15d8a77e-ab50-781b-9c83-bdb06cbd7805/184923800081_cover.jpg/600x600bb.jpg",
+    year: 2006,
+    genres: ["stoner-metal", "doom-metal", "heavy-metal"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=the+sword+freya",
+    external_video_url: "https://www.youtube.com/results?search_query=the+sword+freya+guitar+lesson",
+  },
+  {
+    artist_slug: "jd-cronise",
+    title: "Maiden, Mother & Crone",
+    slug: "maiden-mother-and-crone-the-sword",
+    album: "Gods of the Earth",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/8f/bd/43/8fbd43e0-6864-def2-5f4d-7017084cc71a/184923800265_cover.jpg/600x600bb.jpg",
+    year: 2008,
+    genres: ["stoner-metal", "doom-metal", "heavy-metal"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=the+sword+maiden+mother+crone",
+    external_video_url: "https://www.youtube.com/results?search_query=the+sword+maiden+mother+and+crone+guitar+lesson",
+  },
+  {
+    artist_slug: "bryan-giles",
+    title: "Wires",
+    slug: "wires-red-fang",
+    album: "Murder the Mountains",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music/c8/54/1d/mzi.ofjenuzd.jpg/600x600bb.jpg",
+    year: 2011,
+    genres: ["stoner-rock", "heavy-metal", "hard-rock"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=red+fang+wires",
+    external_video_url: "https://www.youtube.com/results?search_query=red+fang+wires+guitar+lesson",
+  },
+  {
+    artist_slug: "john-baizley",
+    title: "Take My Bones Away",
+    slug: "take-my-bones-away-baroness",
+    album: "Yellow & Green",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/bd/dd/94/bddd94e9-a818-e962-327c-b4fda4c5928d/yellowgreen_1400.jpg/600x600bb.jpg",
+    year: 2012,
+    genres: ["sludge-metal", "progressive-metal", "hard-rock"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=baroness+take+my+bones+away",
+    external_video_url: "https://www.youtube.com/results?search_query=baroness+take+my+bones+away+guitar+lesson",
   },
 ];
 
@@ -54342,6 +54423,781 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 7, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global lead shaping", settings: { Bands: "+2 dB above 2 kHz", Level: 0 }, notes: "A slight high-shelf lift gives the solo extra cut over the band, mirroring the Helix Tilt." },
         ],
         notes: "Comp -> boost (ON) -> Plexi 100W High (cranked, presence 7) -> Bogner Uber 4x12 -> quarter-note delay -> short spring -> bright EQ. Boost + delay = solo. Standard E.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- The Sword - Open Casket ----
+  {
+    id: "seed-cronise-open-casket",
+    song_slug: "open-casket-the-sword",
+    title: "Open Casket Doom Riff",
+    slug: "cronise-open-casket-riff",
+    created_at: "2026-06-25",
+    description:
+      "The crushing opener of The Sword's 2006 debut Age of Winters -- the record that helped relaunch riff-first retro doom for a new generation. J.D. Cronise tracked it DIY in Austin, self-produced, tuned two whole steps down to C standard. The voice is a thick, mid-rich British high-gain crunch: live, Cronise runs a 1979 Gibson Explorer into a cranked Orange OR100 and a 4x12 of Vintage 30s, but the debut itself was cut on a borrowed Laney AOR pushed by a Maxon DS-830 Distortion Master.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "1979 Gibson Explorer E2 (DiMarzio Super Distortion)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "C standard (C-F-A#-D#-G-C) -- 2 whole steps down",
+      string_gauge: ".012-.060 (heavy, for the 2-step-down tuning)",
+      notable_mods:
+        "Cronise's signature guitar is a 1979 Gibson Explorer E2 loaded with DiMarzio Super Distortion humbuckers -- the high-output bridge pickup is what lets the cranked amp stay thick and articulate two steps down rather than collapsing into mush. Per Kyle Shutt (Guitar World, 2020), some Age of Winters tracks were actually cut on a Gibson SG Faded; either way the tuning is dropped a full two steps, so heavy strings are mandatory to keep tension.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "distortion",
+        gear_slug: null,
+        gear_name: "Maxon DS-830 Distortion Master",
+        icon_type: "pedal",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Drive: 6, Tone: 6, Level: 7 },
+        notes:
+          "Per Kyle Shutt, the Age of Winters guitars were tracked through a Maxon DS-830 Distortion Master into a borrowed amp. The DS-830 is a mid-rich distortion, not a transparent boost -- it adds the saturated, slightly compressed grind that makes the riff sound bigger than the DIY rig it was cut on. Default-on because it is the documented studio dirt.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Laney AOR 100 (Age of Winters) / Orange OR100 (live)",
+        icon_type: "amp_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Gain: 7, Bass: 6, Middle: 7, Treble: 6, Presence: 5, Master: 6 },
+        notes:
+          "Cronise has been an Orange player since 1998 -- his live doom voice is a cranked Orange OR100. But the debut was a borrowed Laney AOR 100, a hot EL34 British head, per Shutt. Both share the same DNA: a thick, mid-forward British high-gain crunch. Middle pushed to 7 -- the forward midrange is the whole point of the riff, keeping it heavy without scooping into modern metal.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Orange 4x12 (Celestion Vintage 30)",
+        icon_type: "cab_4x12",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Cronise's documented cab is an Orange 4x12 of Celestion Vintage 30s. The V30's firm low end and pronounced upper-mids give the down-tuned riff its punch and cut so it stays defined rather than turning to low-end soup. The exact DIY tracking cab on the 2006 sessions is undocumented; the Orange V30 4x12 is his consistent voice.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 (assumed)",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, on cone edge" },
+        notes:
+          "Undocumented for the DIY session; a close SM57 toward the cone edge is the standard capture for a cranked British 4x12 and matches the album's raw, mid-forward grind. Aim off the dust cap for bite without harsh fizz.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1979 Gibson Explorer E2 with DiMarzio Super Distortion humbuckers (Cronise's signature); a Gibson SG Faded was also used on some Age of Winters tracks",
+      effects: ["Maxon DS-830 Distortion Master"],
+      amp: "Borrowed Laney AOR 100 on the Age of Winters sessions; Cronise's live/defining amp is a cranked Orange OR100",
+      cabinet: "Orange 4x12 with Celestion Vintage 30 speakers",
+      microphone: "Undocumented (Shure SM57 assumed)",
+      other_notes:
+        "Age of Winters (2006) was self-produced by J.D. Cronise and tracked DIY in Austin (engineered by bassist Bryan Richie). The hard-verified facts: Cronise is a lifelong Orange user (since 1998), the band tunes ~2 steps down to C standard, and per Kyle Shutt (Guitar World, 2020) the album guitars went through a Maxon DS-830 into a borrowed Laney AOR. The Bogner Ecstasy Red in some gear lists is his later touring board and is anachronistic for 2006. Specific cab/mic/settings are inferred from his documented rig.",
+    },
+    tags: ["doom-metal", "stoner-metal", "riff", "the-sword", "jd-cronise", "gibson-explorer"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Age_of_Winters",
+      "https://en.wikipedia.org/wiki/John_D._Cronise",
+      "https://www.premierguitar.com/gear/rig-rundown-the-sword",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Noise Gate", original_gear: "High-output pickups, down-tuned hum control", settings: { Threshold: -62, Decay: 40 }, notes: "High-output humbuckers into a cranked British head hum and feed back between the riff's slow, deliberate chugs; a gentle gate cleans the gaps without clipping the long doom note tails. Set the threshold just above the noise floor." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -28, Ratio: 2, Knee: 6, Attack: 50, Release: 200, Mix: 30, Level: 0 }, notes: "Before the amp -- a light comp evens the heavy pick attack so the slow riff sits steady and even. Parallel-blended so the doom dynamics survive; heavy compression would flatten the lumbering groove the song lives on." },
+          { position: 3, block_name: "Hedgehog D9", block_category: "Distortion", original_gear: "Maxon DS-830 Distortion Master", enabled: true, settings: { Drive: 5.5, Gain: 5.5, Tone: 6, Level: 6 }, notes: "DEFAULT-ON -- the Hedgehog D9 (MXR Distortion+ voice) stands in for the Maxon DS-830 that tracked the album: a mid-rich distortion that thickens and saturates the front of the amp. Drive moderate so it adds grind and density without smearing the riff's articulation." },
+          { position: 4, block_name: "Mandarin 80", block_category: "Amp", original_gear: "Laney AOR 100 / Orange OR100", settings: { Drive: 7, Bass: 6, Mid: 7, Treble: 6, Presence: 5, ChVol: 6, Master: 7, Bias: 5, BiasX: 5, Sag: 5, Hum: 5, Ripple: 5 }, notes: "Mandarin 80 is Helix's Orange OR-series model -- Cronise's defining voice. Mid at 7 for the thick, forward British doom crunch; Drive 7 is heavy crunch, not fizzy saturation. For the Age of Winters Laney AOR, a Brit 2204 is the alternative -- same hot EL34 British DNA." },
+          { position: 5, block_name: "4x12 Mandarin", block_category: "Cab", original_gear: "Orange 4x12 (V30)", settings: { Mic: 0, Distance: 2, Position: 0.45, Angle: 30, LowCut: 95, HighCut: 7000, Resonance: 0.4, Level: 0, Pan: 0.5, Delay: 0 }, notes: "4x12 Mandarin models the Orange 4x12 with V30s -- the exact cab. HighCut at 7k rolls the V30 fizz off the down-tuned top; LowCut at 95 keeps the low C tight and defined rather than flubby under the cranked amp." },
+          { position: 6, block_name: "Room", block_category: "Reverb", original_gear: "DIY tracking-room ambience", settings: { Mix: 12, Decay: 1.2, Predelay: 14, LowCut: 200, HighCut: 6500, Level: 0 }, notes: "A short room, not a hall -- just enough air to place the riff in a space without washing the doom. LowCut 200 and HighCut 6.5k keep the tail out of the riff's low-mid weight and off the fizzy top so the crunch stays focused." },
+        ],
+        notes:
+          "Gate -> light comp -> Hedgehog D9 (Maxon DS-830) -> Mandarin 80 (Orange OR-series, mid 7) -> Orange 4x12 V30 -> short room. The heaviness is a mid-forward British amp plus a mid-rich distortion, two steps down. C standard.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Noise Gate", original_gear: "Down-tuned hum control", settings: { Threshold: -62, Decay: 40 }, notes: "Cleans the hum between the slow chugs without clipping the doom tails, mirroring the Helix gate." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -28, Ratio: 2, Attack: 50, Release: 200, Mix: 30, Level: 0 }, notes: "Light comp evening the heavy pick attack, parallel so the doom groove survives -- mirroring the Helix." },
+          { position: 3, block_name: "Vermin Dist", block_category: "Drive", original_gear: "Maxon DS-830 Distortion Master", enabled: true, settings: { Drive: 5.5, Tone: 6, Level: 6 }, notes: "DEFAULT-ON distortion standing in for the Maxon DS-830 -- mid-rich grind thickening the front of the amp, mirroring the Helix Hedgehog." },
+          { position: 4, block_name: "Brit 2203", block_category: "Amp", original_gear: "Laney AOR 100 / Orange OR100", settings: { Gain: 7, Bass: 6, Mid: 7, Treble: 6, Presence: 5, Master: 7, Sag: 5 }, notes: "QC's hot British master-volume amp for the Laney AOR / Orange OR100 DNA. Mid at 7 for the forward doom crunch; the weight is amp plus the front-end distortion." },
+          { position: 5, block_name: "2x12 Orange V30", block_category: "Cab", original_gear: "Orange 4x12 (V30)", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.45, LowCut: 95, HighCut: 7000, Level: 0 }, notes: "Orange V30 cab, close SM57. HighCut rolls the V30 fizz; LowCut keeps the low C tight." },
+          { position: 6, block_name: "Room Reverb", block_category: "Reverb", original_gear: "DIY tracking-room ambience", settings: { Decay: 1.2, Predelay: 14, Mix: 12, Level: 0 }, notes: "A short room for tracking-space air, mirroring the Helix -- not a hall." },
+        ],
+        notes:
+          "Gate -> comp -> distortion (Maxon) -> Brit 2203 (mid 7) -> Orange V30 cab -> short room. Mid-forward British doom, two steps down. C standard.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Orange OR100'", block_category: "Tone Model", original_gear: "Laney AOR 100 / Orange OR100", settings: {}, notes: "Search ToneNET for a cranked Orange OR100 / OR120 (or a hot Laney AOR) capture, thick and mid-forward. Add a mid-rich distortion in front for the Maxon DS-830 grind. Two steps down, C standard." },
+        ],
+        notes: "TONEX is capture-driven. Pair a cranked Orange OR-series capture with a Maxon-style distortion and a short room; the doom weight is a mid-forward British amp two steps down.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Lead", block_category: "Amp Type", original_gear: "Laney AOR 100 / Orange OR100", settings: { Gain: 7, Volume: 6, Bass: 6, Middle: 7, Treble: 6, Presence: 5, Master: 6 }, notes: "Lead supplies the smooth, thick high-gain that suits the down-tuned British doom crunch. Middle at 7 is the forward grind; the Sword tone is mid-rich, not scooped." },
+          { position: 2, block_name: "Booster", block_category: "Booster", original_gear: "Maxon DS-830 Distortion Master", enabled: true, settings: { Drive: 4, Bottom: 5, Tone: 6, Level: 6 }, notes: "DEFAULT-ON as the Maxon DS-830 stand-in -- a mid-rich push that thickens and saturates the front of the amp, the documented studio dirt. Roll it off for a rawer amp-only crunch." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "DIY tracking-room ambience", settings: { Time: 3, PreDelay: 14, Tone: 4, EffectLevel: 6 }, notes: "A short room for tracking-space air -- just enough to place the riff without washing the doom." },
+        ],
+        notes:
+          "Lead amp (mid 7) + booster ON for the Maxon grind -> short room. Mid-forward British doom, two steps down. C standard.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: 3.0, Volume: 0.0 }, notes: "Slot A -- light comp evening the heavy pick attack, mirroring the Helix." },
+          { position: 2, block_name: "Search Rig Exchange for 'Orange OR100'", block_category: "Profile", original_gear: "Laney AOR 100 / Orange OR100", settings: { Gain: 7.0, Bass: 6.0, Middle: 7.0, Treble: 6.0, Presence: 5.0 }, notes: "Search Rig Exchange for a cranked Orange OR100 / OR120 (or hot Laney AOR) profile, Middle pushed for the doom grind. The profile bakes in the cab. Add a distortion stomp for the Maxon DS-830 push." },
+          { position: 3, block_name: "Room Reverb", block_category: "Reverb", original_gear: "DIY tracking-room ambience", settings: { Decay: 1.2, Predelay: 14, Mix: 12 }, notes: "REV slot -- a short room for tracking-space air, mirroring the Helix." },
+        ],
+        notes:
+          "Kemper bakes the cab into the profile. Comp -> cranked Orange OR-series profile (mid grind) -> short room. Two steps down, C standard.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -28, Ratio: 2, Attack: 50, Release: 200, Mix: 0.3, Level: 0 }, notes: "Light comp evening the heavy pick attack, mirroring the Helix." },
+          { position: 2, block_name: "Citrus OR120", block_category: "Amp", original_gear: "Laney AOR 100 / Orange OR100", settings: { Drive: 7.0, Bass: 6.0, Mid: 7.0, Treble: 6.0, Presence: 5.0, MV: 7.0 }, notes: "Citrus OR120 is Fractal's Orange OR-series model -- Cronise's defining voice. Mid at 7 for the forward doom crunch; add a distortion block in front for the Maxon DS-830 grind." },
+          { position: 3, block_name: "4x12 Citrus V30", block_category: "Cab", original_gear: "Orange 4x12 (V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 95, HighCut: 7000, Level: 0 }, notes: "Orange V30 4x12, close SM57. HighCut rolls the V30 fizz off the down-tuned top." },
+          { position: 4, block_name: "Room", block_category: "Reverb", original_gear: "DIY tracking-room ambience", settings: { Mix: 0.12, Decay: 1.2, Predelay: 14 }, notes: "A short room for tracking-space air, mirroring the Helix." },
+        ],
+        notes: "Comp -> Citrus OR120 (mid 7, + distortion in front for the Maxon) -> Orange V30 cab -> short room. Mid-forward British doom, two steps down. C standard.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- The Sword - Freya ----
+  {
+    id: "seed-cronise-freya",
+    song_slug: "freya-the-sword",
+    title: "Freya Doom Riff",
+    slug: "cronise-freya-riff",
+    created_at: "2026-06-25",
+    description:
+      "The Sword's best-known song -- a galloping Sabbath-meets-Viking riff from 2006's Age of Winters that exploded after it landed in Guitar Hero II. J.D. Cronise and Kyle Shutt double-track the riff in C standard, two whole steps down, for a thick wall of mid-rich British crunch. Self-produced and cut DIY in Austin: per Shutt the guitars ran a Maxon DS-830 Distortion Master into a borrowed Laney AOR, while Cronise's defining live voice is a 1979 Gibson Explorer into a cranked Orange OR100.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "1979 Gibson Explorer E2 / Gibson Les Paul Custom",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "C standard (C-F-A#-D#-G-C) -- 2 whole steps down",
+      string_gauge: ".012-.060 (heavy, for the 2-step-down tuning)",
+      notable_mods:
+        "The riff is double-tracked -- Cronise's 1979 Explorer E2 (DiMarzio Super Distortion) and Kyle Shutt's Gibson are the documented instruments, though Shutt has said an SG Faded also appeared on Age of Winters. High-output humbuckers and heavy strings are what keep the doubled riff thick and tight two whole steps down rather than collapsing into mud.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "distortion",
+        gear_slug: null,
+        gear_name: "Maxon DS-830 Distortion Master",
+        icon_type: "pedal",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Drive: 6, Tone: 6, Level: 7 },
+        notes:
+          "Per Kyle Shutt, Age of Winters was tracked through a Maxon DS-830 Distortion Master. The DS-830 adds a saturated, mid-rich grind that makes the doubled Freya riff sound enormous out of a DIY rig. Default-on -- it is the documented studio dirt, not an optional boost.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Laney AOR 100 (Age of Winters) / Orange OR100 (live)",
+        icon_type: "amp_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Gain: 7, Bass: 6, Middle: 7, Treble: 6, Presence: 5, Master: 6 },
+        notes:
+          "The doom voice is a hot British EL34 head -- a borrowed Laney AOR 100 on the record, an Orange OR100 live (Cronise has played Orange since 1998). Both are thick and mid-forward. Middle at 7 because Freya's riff is all about that punchy midrange gallop; scooping it would bury the song's signature hook.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Orange 4x12 (Celestion Vintage 30)",
+        icon_type: "cab_4x12",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "An Orange 4x12 of Vintage 30s -- Cronise's documented cab. The V30's upper-mid bump and firm low end give the doubled riff its cut and keep the down-tuned chug defined under the wall of two guitars.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 (assumed)",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, on cone edge" },
+        notes:
+          "Undocumented for the DIY session; a close SM57 off the dust cap is the standard cranked-4x12 capture and matches Age of Winters' raw, mid-forward grind.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1979 Gibson Explorer E2 (Cronise) and a Gibson (Shutt), double-tracked; an SG Faded also appeared on Age of Winters",
+      effects: ["Maxon DS-830 Distortion Master"],
+      amp: "Borrowed Laney AOR 100 on the sessions; Cronise's live/defining amp is a cranked Orange OR100",
+      cabinet: "Orange 4x12 with Celestion Vintage 30 speakers",
+      microphone: "Undocumented (Shure SM57 assumed)",
+      other_notes:
+        "Age of Winters (2006) was self-produced by J.D. Cronise, tracked DIY in Austin. 'Freya' became the band's signature song after featuring in Guitar Hero II. The 'Big Crunch One Knob' in some gear lists is Kyle Shutt's later touring amp -- it is not a pedal and not on this 2006 record. Hard-verified: ~2 steps down (C standard), Orange-since-1998, and per Shutt the album's Maxon DS-830 into a borrowed Laney AOR. Cab/mic/settings inferred from the documented rig.",
+    },
+    tags: ["doom-metal", "stoner-metal", "riff", "the-sword", "jd-cronise", "kyle-shutt"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Age_of_Winters",
+      "https://songbpm.com/@the-sword/freya",
+      "https://www.premierguitar.com/gear/rig-rundown-the-sword",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Noise Gate", original_gear: "High-output pickups, down-tuned hum control", settings: { Threshold: -60, Decay: 35 }, notes: "Double-tracked high-output humbuckers two steps down build up hum and feedback; a gentle gate tightens the gaps between the gallop without choking the note tails. Threshold just above the noise floor." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -28, Ratio: 2, Knee: 6, Attack: 40, Release: 200, Mix: 30, Level: 0 }, notes: "Before the amp -- a light comp evens the galloping pick attack so the doubled riff locks tight. Parallel-blended so the gallop keeps its punch instead of flattening." },
+          { position: 3, block_name: "Hedgehog D9", block_category: "Distortion", original_gear: "Maxon DS-830 Distortion Master", enabled: true, settings: { Drive: 5.5, Gain: 5.5, Tone: 6, Level: 6 }, notes: "DEFAULT-ON -- the Hedgehog D9 (MXR Distortion+ voice) stands in for the Maxon DS-830 that tracked the album. A mid-rich grind that thickens the front of the amp; moderate Drive keeps the gallop articulate." },
+          { position: 4, block_name: "Mandarin 80", block_category: "Amp", original_gear: "Laney AOR 100 / Orange OR100", settings: { Drive: 7, Bass: 6, Mid: 7, Treble: 6, Presence: 5, ChVol: 6, Master: 7, Bias: 5, BiasX: 5, Sag: 5, Hum: 5, Ripple: 5 }, notes: "Mandarin 80 is Helix's Orange OR-series model -- Cronise's defining voice. Mid at 7 for Freya's punchy midrange gallop; Drive 7 is heavy crunch. A Brit 2204 is the alternative for the Age of Winters Laney AOR." },
+          { position: 5, block_name: "4x12 Mandarin", block_category: "Cab", original_gear: "Orange 4x12 (V30)", settings: { Mic: 0, Distance: 2, Position: 0.45, Angle: 30, LowCut: 95, HighCut: 7000, Resonance: 0.4, Level: 0, Pan: 0.5, Delay: 0 }, notes: "4x12 Mandarin models the Orange V30 4x12 -- the exact cab. HighCut at 7k rolls the V30 fizz; LowCut at 95 keeps the low C of the gallop tight and defined under two stacked guitars." },
+          { position: 6, block_name: "Room", block_category: "Reverb", original_gear: "DIY tracking-room ambience", settings: { Mix: 10, Decay: 1.1, Predelay: 12, LowCut: 200, HighCut: 6500, Level: 0 }, notes: "A short room -- enough air to seat the riff in a space without softening the gallop. LowCut 200 and HighCut 6.5k keep the tail off the riff's low-mid weight and fizzy top." },
+        ],
+        notes:
+          "Gate -> light comp -> Hedgehog D9 (Maxon DS-830) -> Mandarin 80 (Orange, mid 7) -> Orange 4x12 V30 -> short room. Double-track for the wall. Mid-forward British gallop, two steps down. C standard.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Noise Gate", original_gear: "Down-tuned hum control", settings: { Threshold: -60, Decay: 35 }, notes: "Tightens the gaps in the gallop without choking the tails, mirroring the Helix gate." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -28, Ratio: 2, Attack: 40, Release: 200, Mix: 30, Level: 0 }, notes: "Light comp locking the doubled gallop tight, parallel so the punch survives -- mirroring the Helix." },
+          { position: 3, block_name: "Vermin Dist", block_category: "Drive", original_gear: "Maxon DS-830 Distortion Master", enabled: true, settings: { Drive: 5.5, Tone: 6, Level: 6 }, notes: "DEFAULT-ON distortion for the Maxon DS-830 -- mid-rich grind thickening the amp front, mirroring the Helix Hedgehog." },
+          { position: 4, block_name: "Brit 2203", block_category: "Amp", original_gear: "Laney AOR 100 / Orange OR100", settings: { Gain: 7, Bass: 6, Mid: 7, Treble: 6, Presence: 5, Master: 7, Sag: 5 }, notes: "QC's hot British master-volume amp for the Laney AOR / Orange OR100. Mid at 7 for the Freya gallop's signature midrange punch." },
+          { position: 5, block_name: "2x12 Orange V30", block_category: "Cab", original_gear: "Orange 4x12 (V30)", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.45, LowCut: 95, HighCut: 7000, Level: 0 }, notes: "Orange V30 cab, close SM57. HighCut rolls the V30 fizz; LowCut keeps the gallop's low C tight." },
+          { position: 6, block_name: "Room Reverb", block_category: "Reverb", original_gear: "DIY tracking-room ambience", settings: { Decay: 1.1, Predelay: 12, Mix: 10, Level: 0 }, notes: "A short room for tracking-space air, mirroring the Helix." },
+        ],
+        notes:
+          "Gate -> comp -> distortion (Maxon) -> Brit 2203 (mid 7) -> Orange V30 cab -> short room. Double-track. Mid-forward British gallop, two steps down. C standard.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Orange OR100'", block_category: "Tone Model", original_gear: "Laney AOR 100 / Orange OR100", settings: {}, notes: "Search ToneNET for a cranked Orange OR-series (or hot Laney AOR) capture, thick and mid-forward, then add a mid-rich distortion in front for the Maxon DS-830. Double-track and pan for the wall. Two steps down, C standard." },
+        ],
+        notes: "TONEX is capture-driven. A cranked Orange capture plus a Maxon-style distortion gives Freya's gallop; double-track left/right for the doubled-guitar wall.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Lead", block_category: "Amp Type", original_gear: "Laney AOR 100 / Orange OR100", settings: { Gain: 7, Volume: 6, Bass: 6, Middle: 7, Treble: 6, Presence: 5, Master: 6 }, notes: "Lead gives the thick high-gain that suits the down-tuned gallop. Middle at 7 -- Freya is built on that forward midrange hook." },
+          { position: 2, block_name: "Booster", block_category: "Booster", original_gear: "Maxon DS-830 Distortion Master", enabled: true, settings: { Drive: 4, Bottom: 5, Tone: 6, Level: 6 }, notes: "DEFAULT-ON as the Maxon DS-830 stand-in -- a mid-rich push thickening the amp front, the documented studio dirt. Roll off for a rawer amp-only crunch." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "DIY tracking-room ambience", settings: { Time: 3, PreDelay: 12, Tone: 4, EffectLevel: 5 }, notes: "A short room for tracking-space air -- enough to seat the gallop without softening it." },
+        ],
+        notes:
+          "Lead amp (mid 7) + booster ON for the Maxon grind -> short room. Mid-forward gallop, two steps down. C standard.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: 3.0, Volume: 0.0 }, notes: "Slot A -- light comp locking the doubled gallop tight, mirroring the Helix." },
+          { position: 2, block_name: "Search Rig Exchange for 'Orange OR100'", block_category: "Profile", original_gear: "Laney AOR 100 / Orange OR100", settings: { Gain: 7.0, Bass: 6.0, Middle: 7.0, Treble: 6.0, Presence: 5.0 }, notes: "Search Rig Exchange for a cranked Orange OR-series (or hot Laney AOR) profile, Middle pushed for the gallop. The profile bakes in the cab. Add a distortion stomp for the Maxon push." },
+          { position: 3, block_name: "Room Reverb", block_category: "Reverb", original_gear: "DIY tracking-room ambience", settings: { Decay: 1.1, Predelay: 12, Mix: 10 }, notes: "REV slot -- a short room for tracking-space air, mirroring the Helix." },
+        ],
+        notes:
+          "Kemper bakes the cab into the profile. Comp -> cranked Orange profile (mid grind) -> short room. Double-track. Two steps down, C standard.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -28, Ratio: 2, Attack: 40, Release: 200, Mix: 0.3, Level: 0 }, notes: "Light comp locking the doubled gallop, mirroring the Helix." },
+          { position: 2, block_name: "Citrus OR120", block_category: "Amp", original_gear: "Laney AOR 100 / Orange OR100", settings: { Drive: 7.0, Bass: 6.0, Mid: 7.0, Treble: 6.0, Presence: 5.0, MV: 7.0 }, notes: "Citrus OR120 is Fractal's Orange OR-series model. Mid at 7 for the Freya gallop; add a distortion block in front for the Maxon DS-830 grind." },
+          { position: 3, block_name: "4x12 Citrus V30", block_category: "Cab", original_gear: "Orange 4x12 (V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 95, HighCut: 7000, Level: 0 }, notes: "Orange V30 4x12, close SM57. HighCut rolls the V30 fizz off the gallop's top." },
+          { position: 4, block_name: "Room", block_category: "Reverb", original_gear: "DIY tracking-room ambience", settings: { Mix: 0.1, Decay: 1.1, Predelay: 12 }, notes: "A short room for tracking-space air, mirroring the Helix." },
+        ],
+        notes: "Comp -> Citrus OR120 (mid 7, + distortion for the Maxon) -> Orange V30 cab -> short room. Double-track. Mid-forward gallop, two steps down. C standard.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- The Sword - Maiden, Mother & Crone ----
+  {
+    id: "seed-cronise-maiden-mother-crone",
+    song_slug: "maiden-mother-and-crone-the-sword",
+    title: "Maiden, Mother & Crone Riff",
+    slug: "cronise-maiden-mother-crone-riff",
+    created_at: "2026-06-25",
+    description:
+      "A driving, mid-tempo highlight from The Sword's 2008 second album Gods of the Earth -- tighter and more produced than the DIY debut but still pure Orange-fueled retro doom. J.D. Cronise and Kyle Shutt run Gibsons two whole steps down into a cranked Orange OR100 and a 4x12 of Vintage 30s, with an MXR Phase 90 sweeping the riff for that swirling '70s Sabbath/Priest motion. Self-produced in Austin, ~105 BPM in C.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "1979 Gibson Explorer E2 / Gibson Les Paul Custom",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "C standard (C-F-A#-D#-G-C) -- 2 whole steps down",
+      string_gauge: ".012-.060 (heavy, for the 2-step-down tuning)",
+      notable_mods:
+        "Cronise's 1979 Gibson Explorer E2 (DiMarzio Super Distortion) and Les Paul Custom are his documented instruments. High-output humbuckers and heavy strings keep the riff thick and tight two whole steps down; the bridge humbucker's output is what lets the cranked Orange stay articulate rather than woolly at that low tuning.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "phaser",
+        gear_slug: null,
+        gear_name: "MXR Phase 90",
+        icon_type: "pedal",
+        icon_color: "#f97316",
+        is_in_effects_loop: false,
+        settings: { Speed: 4 },
+        notes:
+          "A long-standing Cronise pedal -- the Phase 90's slow, gooey sweep is the swirling '70s motion that gives the riff its hypnotic, Sabbath/Priest character. Set slow so it breathes across the bars rather than warbling fast; one knob, all feel.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Orange OR100",
+        icon_type: "amp_head",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Gain: 7, Bass: 6, Middle: 7, Treble: 6, Presence: 5, Master: 6 },
+        notes:
+          "Cronise has been an Orange player since 1998, and by the second album the cranked OR100 is the locked-in voice -- thick, mid-forward British high-gain. Gain 7 is a heavy crunch, not a fizz; Middle at 7 keeps the riff punchy and present, the mid-rich grind that defines the band.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Orange 4x12 (Celestion Vintage 30)",
+        icon_type: "cab_4x12",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Orange 4x12 of Vintage 30s -- the V30's firm low end and upper-mid bump give the down-tuned riff its punch and let the phaser sweep read clearly instead of getting lost in mud.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 (assumed)",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, on cone edge" },
+        notes:
+          "Undocumented for the session; a close SM57 off the dust cap is the standard cranked-4x12 capture and matches the album's tighter, mid-forward grind.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1979 Gibson Explorer E2 (DiMarzio Super Distortion) and Les Paul Custom -- Cronise and Shutt",
+      effects: ["MXR Phase 90"],
+      amp: "Cranked Orange OR100 (Cronise's locked-in voice by the second album)",
+      cabinet: "Orange 4x12 with Celestion Vintage 30 speakers",
+      microphone: "Undocumented (Shure SM57 assumed)",
+      other_notes:
+        "Gods of the Earth (2008) was self-produced by J.D. Cronise, engineered by Bryan Richie at Folkvang/Premium Recording, Austin -- recorded 2007. Hard-verified: ~2 steps down (C standard), ~105 BPM in C, and Cronise's Orange identity. The MXR Phase 90 is a long-standing, documented part of his chain (it appears in both his 2014 and 2021 Premier Guitar rig rundowns), so it is the most plausible of the sketched pedals -- treated as a confident inference rather than song-isolated fact. An MXR Carbon Copy delay was also part of his board (it launched in 2008); left out here to keep the riff dry and forward.",
+    },
+    tags: ["doom-metal", "stoner-metal", "riff", "the-sword", "jd-cronise", "phaser"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Gods_of_the_Earth",
+      "https://songbpm.com/@the-sword/maiden-mother-crone",
+      "https://www.premierguitar.com/gear/rig-rundown-the-sword",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Noise Gate", original_gear: "High-output pickups, down-tuned hum control", settings: { Threshold: -60, Decay: 40 }, notes: "High-output humbuckers two steps down into a cranked Orange hum and feed back between phrases; a gentle gate cleans the gaps without clipping the riff's note tails. Threshold just above the noise floor." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -28, Ratio: 2, Knee: 6, Attack: 45, Release: 200, Mix: 30, Level: 0 }, notes: "Before the amp -- a light comp evens the driving pick attack so the mid-tempo riff stays steady. Parallel-blended so the groove keeps its push instead of flattening." },
+          { position: 3, block_name: "Mandarin 80", block_category: "Amp", original_gear: "Orange OR100", settings: { Drive: 7, Bass: 6, Mid: 7, Treble: 6, Presence: 5, ChVol: 6, Master: 7, Bias: 5, BiasX: 5, Sag: 5, Hum: 5, Ripple: 5 }, notes: "Mandarin 80 is Helix's Orange OR-series model -- the exact voice by Gods of the Earth. Mid at 7 for the thick, forward British doom crunch; Drive 7 is heavy crunch, not saturation. The gain is all amp, no boost pedal on this track." },
+          { position: 4, block_name: "4x12 Mandarin", block_category: "Cab", original_gear: "Orange 4x12 (V30)", settings: { Mic: 0, Distance: 2, Position: 0.45, Angle: 30, LowCut: 95, HighCut: 7000, Resonance: 0.4, Level: 0, Pan: 0.5, Delay: 0 }, notes: "4x12 Mandarin models the Orange V30 4x12 -- the exact cab. HighCut at 7k rolls the V30 fizz; LowCut at 95 keeps the low C tight so the phaser sweep stays clear." },
+          { position: 5, block_name: "Script Mod Phase", block_category: "Modulation", original_gear: "MXR Phase 90", settings: { Rate: 4, Depth: 6, Mix: 50, Level: 0 }, notes: "Script Mod Phase is Helix's MXR Phase 90 (script) model -- placed post-amp here for the swirling, all-over-the-riff motion the song rides on. Slow Rate so it breathes across the bars; this sweep is the song's signature character." },
+          { position: 6, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 12, Decay: 1.2, Predelay: 14, LowCut: 200, HighCut: 6500, Level: 0 }, notes: "A short room -- enough air to seat the riff without washing the doom. LowCut 200 and HighCut 6.5k keep the tail off the riff's low-mid weight and fizzy top." },
+        ],
+        notes:
+          "Gate -> light comp -> Mandarin 80 (Orange, mid 7) -> Orange 4x12 V30 -> Script Phase 90 (slow sweep) -> short room. Gain is all amp; the Phase 90 is the song's signature motion. C standard.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Noise Gate", original_gear: "Down-tuned hum control", settings: { Threshold: -60, Decay: 40 }, notes: "Cleans the hum between phrases without clipping the tails, mirroring the Helix gate." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -28, Ratio: 2, Attack: 45, Release: 200, Mix: 30, Level: 0 }, notes: "Light comp evening the driving pick attack, parallel so the groove survives -- mirroring the Helix." },
+          { position: 3, block_name: "Brit 2203", block_category: "Amp", original_gear: "Orange OR100", settings: { Gain: 7, Bass: 6, Mid: 7, Treble: 6, Presence: 5, Master: 7, Sag: 5 }, notes: "QC's hot British master-volume amp for the cranked Orange OR100. Mid at 7 for the forward doom crunch; gain is all amp." },
+          { position: 4, block_name: "2x12 Orange V30", block_category: "Cab", original_gear: "Orange 4x12 (V30)", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.45, LowCut: 95, HighCut: 7000, Level: 0 }, notes: "Orange V30 cab, close SM57. HighCut rolls the V30 fizz; LowCut keeps the low C tight under the phaser." },
+          { position: 5, block_name: "Phaser", block_category: "Modulation", original_gear: "MXR Phase 90", settings: { Rate: 4, Depth: 6, Mix: 50 }, notes: "A slow phaser for the MXR Phase 90 sweep -- the song's swirling signature motion, mirroring the Helix." },
+          { position: 6, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 1.2, Predelay: 14, Mix: 12, Level: 0 }, notes: "A short room for tracking-space air, mirroring the Helix." },
+        ],
+        notes:
+          "Gate -> comp -> Brit 2203 (mid 7) -> Orange V30 cab -> slow phaser -> short room. Gain is all amp; the Phase 90 is the motion. C standard.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Orange OR100'", block_category: "Tone Model", original_gear: "Orange OR100", settings: {}, notes: "Search ToneNET for a cranked Orange OR100 / OR120 capture, thick and mid-forward -- no boost, the gain is all amp. Add a slow phaser after it for the riff's swirling motion. Two steps down, C standard." },
+        ],
+        notes: "TONEX is capture-driven. A cranked Orange OR-series capture plus a slow Phase 90 gives the song's swirling doom; the dirt is all amp.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Lead", block_category: "Amp Type", original_gear: "Orange OR100", settings: { Gain: 7, Volume: 6, Bass: 6, Middle: 7, Treble: 6, Presence: 5, Master: 6 }, notes: "Lead supplies the thick high-gain that suits the down-tuned Orange crunch. Middle at 7 for the forward grind; the gain is all amp, no booster needed." },
+          { position: 2, block_name: "FX", block_category: "FX", original_gear: "MXR Phase 90", settings: { Rate: 4, Depth: 6, Level: 7 }, notes: "The Pedal-FX slot set to phaser for the MXR Phase 90 -- a slow sweep that gives the riff its swirling '70s motion. This is the song's signature, so keep it on." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Time: 3, PreDelay: 14, Tone: 4, EffectLevel: 6 }, notes: "A short room for tracking-space air -- enough to seat the riff without softening it." },
+        ],
+        notes:
+          "Lead amp (mid 7, gain all amp) -> phaser (slow sweep) -> short room. The Phase 90 is the song's motion. C standard.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: 3.0, Volume: 0.0 }, notes: "Slot A -- light comp evening the driving pick attack so the mid-tempo riff sits steady, mirroring the Helix." },
+          { position: 2, block_name: "Search Rig Exchange for 'Orange OR100'", block_category: "Profile", original_gear: "Orange OR100", settings: { Gain: 7.0, Bass: 6.0, Middle: 7.0, Treble: 6.0, Presence: 5.0 }, notes: "Search Rig Exchange for a cranked Orange OR100 / OR120 profile, Middle pushed for the doom grind. The profile bakes in the cab. Gain is all amp -- no boost on this track." },
+          { position: 3, block_name: "Phaser", block_category: "Modulation", original_gear: "MXR Phase 90", settings: { Rate: 4, Depth: 6, Mix: 50 }, notes: "MOD slot -- a slow phaser for the MXR Phase 90 sweep, the song's swirling signature motion." },
+          { position: 4, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 1.2, Predelay: 14, Mix: 12 }, notes: "REV slot -- a short room for tracking-space air, mirroring the Helix." },
+        ],
+        notes:
+          "Kemper bakes the cab into the profile. Comp -> cranked Orange profile (mid grind) -> slow phaser -> short room. Gain is all amp. C standard.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -28, Ratio: 2, Attack: 45, Release: 200, Mix: 0.3, Level: 0 }, notes: "Light comp evening the driving pick attack, mirroring the Helix." },
+          { position: 2, block_name: "Citrus OR120", block_category: "Amp", original_gear: "Orange OR100", settings: { Drive: 7.0, Bass: 6.0, Mid: 7.0, Treble: 6.0, Presence: 5.0, MV: 7.0 }, notes: "Citrus OR120 is Fractal's Orange OR-series model -- the exact voice. Mid at 7 for the forward doom crunch; gain is all amp." },
+          { position: 3, block_name: "4x12 Citrus V30", block_category: "Cab", original_gear: "Orange 4x12 (V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 95, HighCut: 7000, Level: 0 }, notes: "Orange V30 4x12, close SM57. HighCut rolls the V30 fizz off the down-tuned top." },
+          { position: 4, block_name: "Phaser", block_category: "Modulation", original_gear: "MXR Phase 90", settings: { Rate: 4, Depth: 6, Mix: 0.5 }, notes: "A slow phaser for the MXR Phase 90 sweep -- the song's swirling signature motion, mirroring the Helix." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 0.12, Decay: 1.2, Predelay: 14 }, notes: "A short room for tracking-space air, mirroring the Helix." },
+        ],
+        notes: "Comp -> Citrus OR120 (mid 7, gain all amp) -> Orange V30 cab -> slow phaser -> short room. The Phase 90 is the motion. C standard.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Red Fang - Wires ----
+  {
+    id: "seed-giles-wires",
+    song_slug: "wires-red-fang",
+    title: "Wires Riff",
+    slug: "giles-wires-riff",
+    created_at: "2026-06-25",
+    description:
+      "The beer-armor anthem -- the breakout single from Red Fang's 2011 album Murder the Mountains, produced by Chris Funk (The Decemberists) and mixed by Vance Powell at Blackbird in Nashville. Bryan Giles and David Sullivan build the riff on Red Fang's signature rig: solid-state Sunn Beta Lead heads cranked into a wall of blunt, fizzy high-gain crunch, tuned down to drop C. No frills, no fuss -- just two guitars and a hooky, fuzzed-out groove.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Electra Omega (David Sullivan) / Fender Mustang (Bryan Giles)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "Drop C (C-G-C-F-A-D)",
+      string_gauge: ".012-.054 (heavy, for drop C)",
+      notable_mods:
+        "Red Fang's signature guitar is the humbucker-loaded Electra Omega, documented to David Sullivan; Bryan Giles famously plays an unusual five-string Fender Mustang (its low string removed and re-tuned). The riff is two guitars together. Heavy strings hold tension in drop C, and the humbuckers feed the solid-state Sunn its thick, slightly fizzy crunch. Most Red Fang gear journalism postdates this 2011 album, so the per-song instrument detail is best inference, not isolated fact.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Sunn Beta Lead (solid-state)",
+        icon_type: "amp_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Gain: 8, Bass: 6, Middle: 6, Treble: 7, Presence: 6, Master: 6 },
+        notes:
+          "Red Fang's core tone is the cranked Sunn Beta Lead -- a 1980s solid-state head the whole band landed on because bassist Aaron Beam had a stash of them. It is famous for a thick, blunt, slightly fizzy high-gain crunch that is all its own; the dirt comes from the amp itself, not a pedal. Gain pushed for the wall, Treble up for the solid-state bite.",
+      },
+      {
+        position: 2,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "4x12 cabinet (Celestion-loaded)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "A 4x12 is the foundation for the riff's heft; the firm low end and mid push keep the drop-C crunch defined under two guitars. Red Fang's exact 2011 cab/speakers aren't documented to a primary source, so this is the period-typical foundation for the Sunn's thick crunch.",
+      },
+      {
+        position: 3,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 (assumed)",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, on cone edge" },
+        notes:
+          "Undocumented; a close SM57 off the dust cap is the standard cranked-4x12 capture and matches the record's blunt, mid-forward crunch. Vance Powell's mix is tight and punchy, which an SM57 close-mic suits.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Electra Omega (David Sullivan) and a five-string Fender Mustang (Bryan Giles) -- the riff is two guitars",
+      effects: [],
+      amp: "Cranked Sunn Beta Lead solid-state heads -- Red Fang's signature, all-amp dirt",
+      cabinet: "4x12 cabinet (Celestion-loaded); exact 2011 cab undocumented",
+      microphone: "Undocumented (Shure SM57 assumed)",
+      other_notes:
+        "Murder the Mountains (2011, Relapse) was produced by Chris Funk and Red Fang, recorded at Type Foundry, Portland, and mixed by Vance Powell at Blackbird Studios, Nashville -- all hard-verified. 'Wires' is the famous beer-armor video. The Sunn Beta Lead is Red Fang's well-documented signature amp and drop C is their documented tuning, but note that virtually all Red Fang gear journalism is from 2016+, so the exact 2011 per-song chain (guitars, cab, any fuzz) is informed inference, not session-confirmed. The backlog's 'Friedman BE-OD' is anachronistic (that pedal launched ~2015) and the dirt is really the cranked Sunn itself.",
+    },
+    tags: ["stoner-rock", "heavy-metal", "riff", "red-fang", "bryan-giles", "sunn-beta-lead"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Murder_the_Mountains",
+      "https://www.premierguitar.com/gear/rig-rundown-red-fang",
+      "https://www.premierguitar.com/artists/more-than-beer-blood-red-fangs-bryan-giles-and-david-sullivan",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Noise Gate", original_gear: "High-gain solid-state hum control", settings: { Threshold: -58, Decay: 25 }, notes: "A cranked solid-state high-gain head two steps' worth down in drop C hisses and feeds back between the riff's stabs; a gate tightens the gaps so the groove stays punchy and percussive. Fast-ish decay for the staccato riff." },
+          { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -26, Ratio: 2, Knee: 6, Attack: 40, Release: 180, Mix: 30, Level: 0 }, notes: "Before the amp -- a light comp evens the riff's blunt pick attack so the drop-C stabs sit even and tight. Parallel-blended so the punch survives; Red Fang's groove is percussive, not squashed." },
+          { position: 3, block_name: "Brit 2204", block_category: "Amp", original_gear: "Sunn Beta Lead (solid-state)", settings: { Drive: 8, Bass: 6, Mid: 6, Treble: 7, Presence: 6, ChVol: 6, Master: 7, Bias: 5, BiasX: 5, Sag: 3, Hum: 5, Ripple: 5 }, notes: "Helix has no Sunn Beta Lead model; the Brit 2204 (master-volume Marshall) is the closest high-gain crunch. Push Treble and Presence and drop Sag low to ape the blunt, fizzy, fast-responding solid-state character -- a tube amp's Sag softens transients the Sunn keeps stiff. Drive 8 for the wall." },
+          { position: 4, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "4x12 cabinet (V30)", settings: { Mic: 0, Distance: 2, Position: 0.45, Angle: 30, LowCut: 90, HighCut: 7500, Resonance: 0.4, Level: 0, Pan: 0.5, Delay: 0 }, notes: "A V30 4x12 for the heft. HighCut at 7.5k tames the solid-state fizz; LowCut at 90 keeps the drop-C low end tight and defined under two guitars rather than flubby." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 10, Decay: 1.0, Predelay: 12, LowCut: 200, HighCut: 6500, Level: 0 }, notes: "A short room -- Vance Powell's mix is tight and punchy, so just a touch of air to seat the riff. LowCut 200 and HighCut 6.5k keep the tail out of the low-mid weight and off the fizz." },
+          { position: 6, block_name: "Tilt", block_category: "EQ", original_gear: "Global mid shaping", settings: { Tilt: 5.5, CenterFreq: 800, Level: 0 }, notes: "A gentle Tilt toward the upper-mids reinforces the Sunn's blunt forward grind and the riff's cut without muddying the drop-C low end -- subtle glue, not a tone change." },
+        ],
+        notes:
+          "Gate -> light comp -> Brit 2204 (Drive 8, low Sag for the solid-state stiffness) -> V30 4x12 -> short room -> mid Tilt. The dirt is all amp -- no pedal. Drop C.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Noise Gate", original_gear: "High-gain hum control", settings: { Threshold: -58, Decay: 25 }, notes: "Tightens the gaps in the staccato riff so the groove stays percussive, mirroring the Helix gate." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -26, Ratio: 2, Attack: 40, Release: 180, Mix: 30, Level: 0 }, notes: "Light comp evening the blunt pick attack, parallel so the punch survives -- mirroring the Helix." },
+          { position: 3, block_name: "Brit 2203", block_category: "Amp", original_gear: "Sunn Beta Lead (solid-state)", settings: { Gain: 8, Bass: 6, Mid: 6, Treble: 7, Presence: 6, Master: 7, Sag: 3 }, notes: "QC's hot British master-volume amp as the closest stand-in for the Sunn Beta Lead. Push Treble/Presence and drop Sag low for the blunt, fizzy solid-state stiffness. Drive 8 for the wall." },
+          { position: 4, block_name: "4x12 V30", block_category: "Cab", original_gear: "4x12 cabinet (V30)", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.45, LowCut: 90, HighCut: 7500, Level: 0 }, notes: "V30 4x12, close SM57. HighCut tames the solid-state fizz; LowCut keeps the drop-C low tight." },
+          { position: 5, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 1.0, Predelay: 12, Mix: 10, Level: 0 }, notes: "A short room for a touch of air, mirroring the Helix -- the mix is tight." },
+          { position: 6, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global mid shaping", settings: { Bands: "+2 dB at 800 Hz", Level: 0 }, notes: "A gentle upper-mid bump reinforcing the Sunn's forward grind, mirroring the Helix Tilt." },
+        ],
+        notes:
+          "Gate -> comp -> Brit 2203 (Drive 8, low Sag) -> V30 4x12 -> short room -> mid EQ. All-amp dirt, no pedal. Drop C.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Sunn Beta Lead'", block_category: "Tone Model", original_gear: "Sunn Beta Lead (solid-state)", settings: {}, notes: "Search ToneNET for a Sunn Beta Lead capture -- the real thing, since the Sunn's blunt solid-state crunch is hard to fake with a tube model. Crank it for the wall; the dirt is all amp. Drop C." },
+        ],
+        notes: "TONEX is capture-driven -- and the best route here, because the Sunn Beta Lead's solid-state crunch is its own beast. Find a Beta Lead capture and pair it with a tight room.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Lead", block_category: "Amp Type", original_gear: "Sunn Beta Lead (solid-state)", settings: { Gain: 8, Volume: 6, Bass: 6, Middle: 6, Treble: 7, Presence: 6, Master: 6 }, notes: "Lead gives a thick, high-gain crunch -- and being a solid-state amp itself, the Katana is closer than most to the blunt Sunn Beta Lead character. Push Treble for the fizzy bite. Gain 8 for the wall." },
+          { position: 2, block_name: "Booster", block_category: "Booster", original_gear: "Clean push (optional)", enabled: false, settings: { Drive: 2, Bottom: 4, Tone: 6, Level: 6 }, notes: "DEFAULT-OFF -- there is no documented dirt pedal on the record; the crunch is all amp. Keep this as an optional tightening boost only." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Time: 2, PreDelay: 12, Tone: 4, EffectLevel: 5 }, notes: "A short room for a touch of air -- Vance Powell's mix is tight and punchy." },
+        ],
+        notes:
+          "Lead amp (Gain 8, Treble up for the solid-state bite), boost OFF -> short room. All-amp dirt. Drop C.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: 2.5, Volume: 0.0 }, notes: "Slot A -- light comp evening the blunt pick attack, mirroring the Helix." },
+          { position: 2, block_name: "Search Rig Exchange for 'Sunn Beta Lead'", block_category: "Profile", original_gear: "Sunn Beta Lead (solid-state)", settings: { Gain: 8.0, Bass: 6.0, Middle: 6.0, Treble: 7.0, Presence: 6.0 }, notes: "Search Rig Exchange for a Sunn Beta Lead profile -- profiling captures the solid-state crunch directly, the most faithful route. The profile bakes in the cab. Treble up for the fizzy bite." },
+          { position: 3, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 1.0, Predelay: 12, Mix: 10 }, notes: "REV slot -- a short room for a touch of air, mirroring the Helix." },
+        ],
+        notes:
+          "Kemper bakes the cab into the profile. Comp -> Sunn Beta Lead profile -> short room. All-amp dirt. Drop C.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -26, Ratio: 2, Attack: 40, Release: 180, Mix: 0.3, Level: 0 }, notes: "Light comp evening the blunt pick attack, mirroring the Helix." },
+          { position: 2, block_name: "Brit Brown", block_category: "Amp", original_gear: "Sunn Beta Lead (solid-state)", settings: { Drive: 8.0, Bass: 6.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 7.0 }, notes: "Brit Brown (master-volume Marshall) is the closest stand-in for the Sunn Beta Lead. Push Treble/Presence and keep Sag/Damping low for the blunt solid-state stiffness. Drive 8 for the wall." },
+          { position: 3, block_name: "4x12 Brit V30", block_category: "Cab", original_gear: "4x12 cabinet (V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 90, HighCut: 7500, Level: 0 }, notes: "V30 4x12, close SM57. HighCut tames the solid-state fizz; LowCut keeps the drop-C low tight." },
+          { position: 4, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Mix: 0.1, Decay: 1.0, Predelay: 12 }, notes: "A short room for a touch of air, mirroring the Helix." },
+          { position: 5, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global mid shaping", settings: { Bands: "+2 dB at 800 Hz", Level: 0 }, notes: "A gentle upper-mid bump reinforcing the Sunn's forward grind, mirroring the Helix Tilt." },
+        ],
+        notes: "Comp -> Brit Brown (Drive 8, low Sag) -> V30 4x12 -> short room -> mid EQ. All-amp dirt, no pedal. Drop C.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Baroness - Take My Bones Away ----
+  {
+    id: "seed-baizley-take-my-bones-away",
+    song_slug: "take-my-bones-away-baroness",
+    title: "Take My Bones Away Riff",
+    slug: "baizley-take-my-bones-away-riff",
+    created_at: "2026-06-25",
+    description:
+      "Baroness's big anthemic turn -- the lead single from 2012's Yellow & Green and their first mainstream-rock chart hit. Working again with producer John Congleton, the band deliberately swapped Gibson Les Pauls for Fender single-coils because Congleton had them in the studio, chasing a brighter, more vulnerable jangle under the soaring chorus. The amps run clean and the dirt comes entirely from pedals -- a Pro Co RAT and a modded Big Muff into Bad Cat and Matamp 'Green' heads.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Fender Telecaster / Jazzmaster (single-coil)",
+      pickup_config: "SS",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "Down-tuned, B-minor tonality (exact tuning unverified)",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "Baroness made a conscious move off Gibson humbuckers to Fender single-coils for Yellow & Green -- Baizley said it was 'easier to paint a picture with Fenders than Les Pauls,' and the brighter, glassier single-coil voice is the heart of this song's anthemic jangle. Tuning is uncertain: the song centers on B minor and crowd tabs transcribe it in drop B (B-F#-B-E-G#-C#), but that is not confirmed to a primary source -- verify by ear before relying on it.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "distortion",
+        gear_slug: null,
+        gear_name: "Pro Co RAT",
+        icon_type: "pedal",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Distortion: 5, Filter: 5, Volume: 6 },
+        notes:
+          "Baroness run their amps clean and get all the gain from pedals; the Pro Co RAT is a documented part of Baizley's dirt arsenal. Its tight, mid-rich grind drives the riff's crunchy push while leaving the single-coils' top-end jangle intact -- enough bite for the verses without burying the melody. Default-on as the riff's core dirt.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Bad Cat / Matamp 'Green' (clean)",
+        icon_type: "amp_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Gain: 3, Bass: 5, Middle: 6, Treble: 6, Presence: 5, Master: 6 },
+        notes:
+          "Baroness explicitly 'stopped playing the Marshall-y amps early on' and run a clean platform -- Baizley's Bad Cat and Peter Adams's Matamp 'Green,' praised for the 'best, booming clean.' The amp stays near-clean so the pedals shape the dirt; this clean-amp/pedal-gain structure is what gives the song its open, vulnerable jangle instead of a saturated wall.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Emperor / Matamp 4x12",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Baroness's documented cabs are Emperor and Matamp 'Green' 4x12s. A clean, full-range 4x12 lets the single-coil jangle and the RAT's grind both come through without the cab squashing the top -- the openness the anthemic chorus needs.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 (assumed)",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, slightly off-axis" },
+        notes:
+          "Undocumented for the session; a close SM57 angled slightly off-axis tames single-coil harshness while keeping the jangle and the RAT's bite -- a fitting capture for John Congleton's clear, modern production.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Fender single-coils -- Telecaster / Jazzmaster (Baizley's documented move off Les Pauls for this album)",
+      effects: ["Pro Co RAT", "EHX Big Muff (modded)", "Crowther Hot Cake"],
+      amp: "Bad Cat (Baizley) and Matamp 'Green' (Peter Adams), run clean",
+      cabinet: "Emperor and Matamp 'Green' 4x12 cabinets",
+      microphone: "Undocumented (Shure SM57 assumed)",
+      other_notes:
+        "Yellow & Green (2012, Relapse) was produced by John Congleton (the band's second album with him), recorded at Water Music (Hoboken) and Elmwood (Dallas). 'Take My Bones Away' was the lead single and the band's first mainstream-rock chart entry. Hard-verified: the deliberate Fender single-coil switch, the clean Bad Cat/Matamp platform with pedal-driven gain, and the Pro Co RAT in Baizley's rig. The backlog's Fender Deluxe Reverb is a later-era (2015+) Baroness amp and is anachronistic here. The exact per-song chain isn't isolated in any source; tuning is uncertain (B-minor tonality).",
+    },
+    tags: ["sludge-metal", "progressive-metal", "riff", "baroness", "john-baizley", "proco-rat"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Yellow_%26_Green_(Baroness_album)",
+      "https://www.guitarworld.com/artists/baroness-it-was-easier-for-us-to-paint-a-picture-with-fenders-than-les-pauls",
+      "https://www.premierguitar.com/articles/23385-baroness-sonic-shapeshifters",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          { position: 1, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -26, Ratio: 3, Knee: 6, Attack: 15, Release: 200, Mix: 50, Level: 0 }, notes: "Before the dirt and amp -- a light comp evens the single-coil pick attack so the jangle stays consistent under the big chorus. Mix at 50 keeps the Fender's natural snap alive rather than squashing it flat." },
+          { position: 2, block_name: "Vermin Dist", block_category: "Distortion", original_gear: "Pro Co RAT", enabled: true, settings: { Drive: 5, Gain: 5, Tone: 5, Level: 6 }, notes: "DEFAULT-ON -- Vermin Dist is Helix's Pro Co RAT model, the documented dirt. Its tight, mid-rich grind drives the riff while the single-coils keep their jangle on top. Filter/Tone mid so it bites without going harsh -- the dirt is the pedal, not the amp." },
+          { position: 3, block_name: "Matchless DC30", block_category: "Amp", original_gear: "Bad Cat / Matamp 'Green' (clean)", settings: { Drive: 3, Bass: 5, Mid: 6, Treble: 6, Presence: 5, ChVol: 6, Master: 6, Bias: 5, BiasX: 5, Sag: 6, Hum: 5, Ripple: 5 }, notes: "Bad Cat grew directly out of the Matchless lineage, so the Matchless DC30 model is the closest match for Baroness's clean boutique platform. Kept near-clean (Drive 3) so the RAT shapes the dirt -- the clean-amp/pedal-gain structure is the whole point of the song's open jangle." },
+          { position: 4, block_name: "4x12 XXL V30", block_category: "Cab", original_gear: "Emperor / Matamp 4x12", settings: { Mic: 0, Distance: 2, Position: 0.5, Angle: 35, LowCut: 95, HighCut: 9000, Resonance: 0.4, Level: 0, Pan: 0.5, Delay: 0 }, notes: "A V30 4x12 for the heft, but HighCut up at 9k to preserve the single-coil jangle and the RAT's bite -- this is a brighter, more open tone than a doom recipe, so less top is rolled off. LowCut 95 keeps the down-tuned low end tight." },
+          { position: 5, block_name: "Simple Delay", block_category: "Delay", original_gear: "Lead/chorus ambience", settings: { Time: 380, Feedback: 16, Mix: 12, LowCut: 200, HighCut: 6000, Level: 0 }, notes: "A subtle quarter-note delay widens the anthemic chorus without smearing the riff. Low mix and feedback so it adds dimension, not repeats; cuts keep the echoes dark and out of the way." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (Congleton production)", settings: { Mix: 20, Decay: 2.0, Predelay: 18, LowCut: 200, HighCut: 7000, Level: 0 }, notes: "A medium plate is the glue on Congleton's polished production -- bigger than a raw-room recipe because the record's ambience is overt and anthemic. LowCut 200 and HighCut 7k keep the tail from muddying the low end or fizzing the single-coil top." },
+        ],
+        notes:
+          "Comp -> Vermin Dist (RAT, ON) -> near-clean Matchless DC30 (Bad Cat/Matamp voice) -> V30 4x12 (HighCut high for the jangle) -> subtle delay -> medium plate. Clean amp, pedal dirt. B-minor tonality.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -26, Ratio: 3, Attack: 15, Release: 200, Mix: 50, Level: 0 }, notes: "Light comp evening the single-coil jangle, parallel so the Fender snap survives -- mirroring the Helix." },
+          { position: 2, block_name: "Vermin Dist", block_category: "Drive", original_gear: "Pro Co RAT", enabled: true, settings: { Drive: 5, Tone: 5, Level: 6 }, notes: "DEFAULT-ON -- QC's Pro Co RAT model, the documented dirt. Tight mid-rich grind driving the riff while the single-coils keep their jangle, mirroring the Helix." },
+          { position: 3, block_name: "Match D30", block_category: "Amp", original_gear: "Bad Cat / Matamp 'Green' (clean)", settings: { Gain: 3, Bass: 5, Mid: 6, Treble: 6, Presence: 5, Master: 6, Sag: 6 }, notes: "QC's Matchless-voiced amp for Baroness's boutique clean platform (Bad Cat shares the Matchless lineage). Kept near-clean so the RAT shapes the dirt." },
+          { position: 4, block_name: "4x12 V30", block_category: "Cab", original_gear: "Emperor / Matamp 4x12", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.5, LowCut: 95, HighCut: 9000, Level: 0 }, notes: "V30 4x12, close SM57, HighCut up at 9k to keep the single-coil jangle and RAT bite -- brighter than a doom recipe." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Lead/chorus ambience", settings: { Time: 380, Feedback: 16, Mix: 12, Level: 0 }, notes: "Subtle quarter-note delay widening the anthemic chorus, mirroring the Helix." },
+          { position: 6, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate", settings: { Decay: 2.0, Predelay: 18, Mix: 20, Level: 0 }, notes: "Medium plate for Congleton's polished, anthemic glue, mirroring the Helix." },
+        ],
+        notes:
+          "Comp -> RAT (ON) -> near-clean Match D30 -> V30 4x12 (bright) -> subtle delay -> medium plate. Clean amp, pedal dirt. B-minor tonality.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Matchless DC30'", block_category: "Tone Model", original_gear: "Bad Cat / Matamp 'Green' (clean)", settings: {}, notes: "Search ToneNET for a clean Matchless DC30 / Bad Cat capture (the Bad Cat shares the Matchless lineage). Keep it clean and put a Pro Co RAT in front -- the dirt is the pedal, not the amp. Add a plate for the anthemic chorus." },
+        ],
+        notes: "TONEX is capture-driven. Pair a clean boutique (Matchless/Bad Cat) capture with a RAT in front and a medium plate; the song is clean-amp, pedal-driven dirt under a big chorus.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Clean", block_category: "Amp Type", original_gear: "Bad Cat / Matamp 'Green' (clean)", settings: { Gain: 3, Volume: 6, Bass: 5, Middle: 6, Treble: 6, Presence: 5, Master: 6 }, notes: "Clean is the right character -- Baroness run a clean boutique platform and get all gain from pedals. Keep the amp gain low so the RAT booster shapes the dirt; this clean foundation is the song's open jangle." },
+          { position: 2, block_name: "Booster", block_category: "Booster", original_gear: "Pro Co RAT", enabled: true, settings: { Drive: 6, Bottom: 4, Tone: 5, Level: 6 }, notes: "DEFAULT-ON as the Pro Co RAT -- a tight, mid-rich distortion driving the riff over the clean amp. This is the dirt; without it the amp is clean." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Lead/chorus ambience", settings: { Time: 380, Feedback: 16, EffectLevel: 12 }, notes: "Subtle quarter-note delay widening the anthemic chorus, mirroring the Helix." },
+          { position: 4, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio plate", settings: { Time: 5, PreDelay: 18, Tone: 5, EffectLevel: 22 }, notes: "A medium plate for Congleton's polished, anthemic glue." },
+        ],
+        notes:
+          "Clean amp + RAT booster (ON) -> delay -> medium plate. The dirt is the pedal, not the amp. B-minor tonality.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: 2.5, Volume: 0.0 }, notes: "Slot A -- light comp evening the single-coil jangle, mirroring the Helix." },
+          { position: 2, block_name: "Search Rig Exchange for 'Matchless DC30 clean'", block_category: "Profile", original_gear: "Bad Cat / Matamp 'Green' (clean)", settings: { Gain: 3.0, Bass: 5.0, Middle: 6.0, Treble: 6.0, Presence: 5.0 }, notes: "Search Rig Exchange for a clean Matchless DC30 / Bad Cat profile (shared lineage). The profile bakes in the cab. Keep it clean and add a RAT-style stomp for the dirt." },
+          { position: 3, block_name: "RAT", block_category: "Drive", original_gear: "Pro Co RAT", enabled: true, settings: { Drive: 5.0, Tone: 5.0, Volume: 6.0 }, notes: "Stomp slot -- the Pro Co RAT driving the riff over the clean profile. This is the documented dirt." },
+          { position: 4, block_name: "Single Delay", block_category: "Delay", original_gear: "Lead/chorus ambience", settings: { Time: 380, Feedback: 16, Mix: 12 }, notes: "DLY slot -- a subtle quarter-note delay widening the anthemic chorus, mirroring the Helix." },
+          { position: 5, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate", settings: { Decay: 2.0, Predelay: 18, Mix: 20 }, notes: "REV slot -- a medium plate for Congleton's anthemic glue, mirroring the Helix." },
+        ],
+        notes:
+          "Kemper bakes the cab into the profile. Comp -> clean boutique profile -> RAT stomp -> subtle delay -> medium plate. Clean amp, pedal dirt. B-minor tonality.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tracking compression", settings: { Threshold: -26, Ratio: 3, Attack: 15, Release: 200, Mix: 0.5, Level: 0 }, notes: "Light comp evening the single-coil jangle, mirroring the Helix." },
+          { position: 2, block_name: "Rat Dist", block_category: "Drive", original_gear: "Pro Co RAT", enabled: true, settings: { Drive: 5.0, Tone: 5.0, Level: 6.0 }, notes: "DEFAULT-ON -- Fractal's Pro Co RAT model, the documented dirt driving the riff over the clean amp." },
+          { position: 3, block_name: "Class-A 30W TB", block_category: "Amp", original_gear: "Bad Cat / Matamp 'Green' (clean)", settings: { Drive: 3.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, MV: 6.0 }, notes: "Fractal's AC30/Matchless-family Class-A model for the boutique clean platform. Kept near-clean (Drive 3) so the RAT shapes the dirt." },
+          { position: 4, block_name: "4x12 Brit V30", block_category: "Cab", original_gear: "Emperor / Matamp 4x12", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 95, HighCut: 9000, Level: 0 }, notes: "V30 4x12, close SM57, HighCut up at 9k to keep the single-coil jangle and RAT bite." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Lead/chorus ambience", settings: { Time: 380, Feedback: 16, Mix: 0.12 }, notes: "A subtle quarter-note delay widening the anthemic chorus, mirroring the Helix." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate", settings: { Mix: 0.2, Decay: 2.0, Predelay: 18 }, notes: "Medium plate for Congleton's anthemic glue, mirroring the Helix." },
+        ],
+        notes: "Comp -> Rat Dist (ON) -> near-clean Class-A 30W -> V30 4x12 (bright) -> subtle delay -> medium plate. Clean amp, pedal dirt. B-minor tonality.",
       },
     },
     is_editorial: true,
