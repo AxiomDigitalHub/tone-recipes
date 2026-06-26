@@ -1,0 +1,139 @@
+---
+title: 'Your Latency Budget: Buffer Size, Round-Trip Lag, and What You Can Hear'
+description: >-
+  How much recording latency can a guitarist feel? The buffer-size-to-
+  milliseconds math, the round-trip number that matters, and a monitoring setup
+  with near-zero lag.
+date: '2026-06-26'
+author_slug: sean-nakamura
+category: workflow
+tags:
+  - latency
+  - buffer-size
+  - recording
+  - monitoring
+  - daw
+  - direct-monitoring
+readingTime: 8
+image: /images/blog/guitar-recording-latency-budget-buffer-size-monitoring.jpg
+image_alt: >-
+  An audio interface and DAW buffer-size setting next to a guitar, illustrating
+  the round-trip latency budget for recording and monitoring guitar
+takeaways:
+  - >-
+    Round-trip latency, not buffer size, is the number that matters — it's input
+    conversion plus your buffer plus output conversion plus driver overhead, and
+    your DAW or interface usually reports it directly.
+  - >-
+    Roughly 10 ms is where most players start to feel the lag on tight parts;
+    under about 6 ms feels immediate. Palm mutes and fast rhythm expose latency
+    that slow lead lines completely hide.
+  - >-
+    Track at a low buffer (64–128 samples) for the tightest feel, then raise it
+    to 512–1024 for mixing when plugin count matters more than input lag.
+  - >-
+    Lowering the buffer can't remove the fixed converter and driver overhead —
+    on a real interface that floor is often 3–5 ms no matter how low you go.
+  - >-
+    Direct (hardware) monitoring gives near-zero lag but only a dry signal;
+    hearing both it and a wet DAW track at once causes comb filtering, so pick
+    one monitoring path, not both.
+faq:
+  - q: How much recording latency can a guitarist actually hear?
+    a: >-
+      As a rough guide, round-trip latency under about 6 ms feels immediate, and
+      most players start to notice it somewhere around 10 ms on tight rhythm
+      parts. Slow lead lines and pads tolerate much more. Sound travels about
+      one foot per millisecond, so 10 ms is like standing ten feet from your amp
+      — detectable, but not unplayable for everything.
+  - q: What buffer size should I use for recording guitar?
+    a: >-
+      Track at 64 or 128 samples for the lowest input latency, which on most
+      interfaces lands in the playable single-digit-millisecond range. If you
+      hear clicks and pops or your CPU meter spikes, go up to 256. Save the big
+      buffers (512–1024) for mixing, when you're no longer playing live into the
+      track and plugin headroom matters more than feel.
+  - q: Why does lowering my buffer size not get me to zero latency?
+    a: >-
+      Buffer size is only one part of round-trip latency. Analog-to-digital and
+      digital-to-analog conversion, plus driver and USB overhead, add a fixed
+      amount that no buffer setting can remove — often 3–5 ms on a typical
+      interface. Halving the buffer halves only the buffer's share, so you hit a
+      floor and the returns shrink fast.
+  - q: Should I use direct monitoring or monitor through my DAW?
+    a: >-
+      Use direct (hardware) monitoring when you want near-zero latency and a dry
+      sound is fine — the interface routes your input straight to the headphones
+      before the computer touches it. Monitor through the DAW when you need to
+      hear your amp sim or effects while tracking, and get the buffer low enough
+      that the lag is comfortable. Don't run both at once.
+  - q: 'Why do I hear a hollow, phasey sound while tracking?'
+    a: >-
+      That's comb filtering. It happens when you hear two copies of your playing
+      a few milliseconds apart — usually direct hardware monitoring AND the
+      DAW's monitored signal at the same time. The slight time offset cancels
+      and reinforces frequencies, giving a hollow, flange-like tone. Mute one of
+      the two paths and it disappears.
+---
+
+The latency question gets argued like it's a matter of opinion, and it isn't. There's a real number, it's measurable, and the confusion comes almost entirely from people quoting the wrong one. Buffer size is not your latency. It's one ingredient in your latency. The number you actually feel under your pick is round-trip latency, and once you know how to read it, the whole "can you hear it or not" debate gets a lot quieter.
+
+Let me walk you through what's in that number, what it costs you, and how to spend your latency budget so the tight parts feel tight and the mix doesn't choke.
+
+## Round-Trip Is the Number That Matters
+
+When you play a note while monitoring through the computer, the signal makes a full trip: guitar into the interface, analog-to-digital conversion, into a buffer, through the DAW, back out through digital-to-analog conversion, to your headphones. Round-trip latency is the total time of that journey.
+
+It has four parts:
+
+1. **Input conversion** — analog-to-digital, a small fixed cost.
+2. **The buffer** — the chunk of samples the computer waits to collect before processing. This is the part you control.
+3. **Output conversion** — digital-to-analog, another small fixed cost.
+4. **Driver and bus overhead** — what the USB/Thunderbolt connection and the driver add.
+
+Your buffer is the only one of these you can change. The other three are a fixed floor for your specific interface. Most DAWs and interface control panels report the resulting round-trip number directly — Reaper, Logic, Pro Tools, and the Focusrite/Universal Audio/MOTU control panels all show it. Read that number. Don't compute it from the buffer alone and don't trust the theoretical figure on the box.
+
+## What the Buffer Actually Buys
+
+The buffer is a tradeoff. Small buffer, less latency, more CPU strain. Big buffer, more latency, more headroom for plugins. Here's the budget, at a 48 kHz sample rate, in round terms:
+
+| Buffer (samples) | Buffer time, one way | Use it for |
+|---|---|---|
+| 32 | ~0.7 ms | Tracking on a fast, modern interface — if your CPU can take it |
+| 64 | ~1.3 ms | The sweet spot for tracking guitar on most rigs |
+| 128 | ~2.7 ms | Tracking with a couple of input plugins; very safe feel |
+| 256 | ~5.3 ms | The upper edge of comfortable for tight rhythm |
+| 512 | ~10.7 ms | Mixing, or tracking pads and slow leads |
+| 1024 | ~21.3 ms | Mixing a heavy session; do not track live into this |
+
+Remember those are the buffer's share, one direction. Double it for the round trip, then add the fixed conversion and driver overhead. So a 64-sample buffer doesn't give you 1.3 ms round-trip — it gives you that buffer time twice plus the floor, which on a real interface usually lands somewhere around 5–7 ms total. Still firmly playable.
+
+The practical move is two presets. Track at 64 or 128. Mix at 512 or 1024. Flip between them depending on what the session needs — input feel or plugin count. You almost never need both at once.
+
+## The Floor You Can't Buffer Away
+
+Here's the part that surprised me when I started measuring instead of assuming. I had it in my head that latency was a slider: drag the buffer to zero and the lag goes to zero. So I A/B'd my interface's reported round-trip at 1024 samples versus 32 samples, expecting the low setting to be a tiny fraction of the high one.
+
+It wasn't. The high buffer reported around 48 ms; the low one reported around 5 ms — but not the near-zero I expected, because roughly 3–4 ms of that was fixed conversion and driver overhead that didn't move when the buffer did. Halving the buffer from 64 to 32 changed the total by under a millisecond. That's the law of diminishing returns made audible: once you're past the knee, you're grinding your CPU for tenths of a millisecond nobody can feel. Find the lowest *stable* buffer, not the lowest possible one, and stop there.
+
+## Palm Mutes Tell on You
+
+The other thing measuring taught me: how much latency you can hear depends entirely on what you're playing. I ran the same rig at a deliberately ugly buffer and played two things. A slow, sustained lead line over a pad — honestly couldn't tell it was lagging, because the notes are long and the attack is soft. Then a fast, palm-muted gallop on the low string. Instantly obvious. It felt like the chug was arriving a hair behind my hand, the way a cheap Bluetooth speaker drags a podcast a frame behind the video.
+
+That's the test that actually matters. Tight, percussive, low-string playing has a sharp transient and a fast rhythmic grid, so a few milliseconds of slip shows up as a feel that's dragging. Legato leads and ambient parts hide latency that would make a metal rhythm track unplayable. So budget for your hardest material: if you track djent or fast rhythm, you need a lower buffer than someone overdubbing swells, even on the same interface.
+
+## The Monitoring Fork (and the Comb-Filter Trap)
+
+There are two ways to hear yourself while tracking, and they solve different problems.
+
+**Direct (hardware) monitoring** routes your input straight to the headphone output inside the interface, before the computer ever sees it. Latency is effectively zero. The catch: it's a *dry* signal. No amp sim, no effects — just your raw pickup. Great for a real-amp rig you're micing, useless if the sound you play to lives in a plugin.
+
+**DAW monitoring** sends your signal through the computer so you hear your amp sim, your reverb, your whole processed tone. The cost is the round-trip latency we've been budgeting. Get the buffer low enough and it's comfortable.
+
+The trap is running both at once. If your interface is feeding you the dry direct signal *and* the DAW is feeding you the wet monitored signal a few milliseconds later, you're hearing two copies of yourself offset in time. That's comb filtering — a hollow, phasey, flange-like tone as frequencies cancel and reinforce. People chase this for an hour thinking their pickup died or their cab sim is broken. It's neither. Mute one path. Pick direct *or* DAW, never both.
+
+If you record a modeler or IR loader instead, the latency math shifts onto the hardware, and that's its own [how-much-can-you-hear question](/blog/ir-loader-cab-sim-pedal-latency-how-much-you-can-hear) — a fixed conversion delay inside the box rather than a buffer you can tune. And if you're printing a clean DI to re-cab later, the round-trip number is exactly what determines whether your blended tracks stay phase-aligned, which matters when you [reamp a clean DI through a cab sim](/blog/reamp-clean-di-through-cab-sim-pedal).
+
+## The Short Version
+
+Read the round-trip number your DAW reports, not the buffer size. Track at 64–128 samples, mix at 512–1024, and keep the two as saved presets. Don't bother chasing the buffer below the point where the total stops moving — the conversion floor eats your effort. Test your feel on your tightest part, not your prettiest one. And when you hear that hollow flange while tracking, it's not your gear failing, it's two monitor paths fighting — kill one. Do that and latency stops being a debate and goes back to being a setting.
