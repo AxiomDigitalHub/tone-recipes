@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-25
-**Recipes:** 174
-**Clean (no errors, no warns):** 174
+**Date:** 2026-06-26
+**Recipes:** 179
+**Clean (no errors, no warns):** 179
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,7 +16,7 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 19 / 174 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `katana-kemper-multidrive-default-off` | info | 20 / 179 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -538,6 +538,18 @@ Passes every rule.
 
 Passes every rule.
 
+### `kelliher-oblivion-riff` — ✓ clean
+
+*Oblivion Riff Tone*
+
+Passes every rule.
+
+### `kelliher-wolf-is-loose-riff` — ✓ clean
+
+*The Wolf Is Loose Riff Tone*
+
+Passes every rule.
+
 ### `keuning-mr-brightside-riff` — ✓ clean
 
 *Dave Keuning's Mr. Brightside Ringing Riff*
@@ -826,6 +838,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `nilsson-hisingen-blues-riff` — ✓ clean
+
+*Hisingen Blues Riff Tone*
+
+Passes every rule.
+
 ### `page-black-dog-riff` — ✓ clean
 
 *Jimmy Page's Black Dog Riff Tone*
@@ -1045,6 +1063,18 @@ Passes every rule.
 ### `townshend-wont-get-fooled-again` — ✓ clean
 
 *Townshend's Won't Get Fooled Again Power Chord Tone*
+
+Passes every rule.
+
+### `tremonti-higher-riff` — ✓ clean
+
+*Higher Riff Tone*
+
+Passes every rule.
+
+### `tremonti-my-own-prison-riff` — ✓ clean
+
+*My Own Prison Riff Tone*
 
 Passes every rule.
 
