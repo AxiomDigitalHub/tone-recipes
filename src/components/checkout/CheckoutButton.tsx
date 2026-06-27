@@ -7,27 +7,38 @@ import { createBrowserClient } from "@/lib/db/client";
 import { useAuth } from "@/lib/auth/auth-context";
 
 /**
- * <CheckoutButton interval="annual" /> — kicks off Pass checkout.
+ * <CheckoutButton tier="pro" interval="annual" /> — kicks off checkout.
  *
  * Three states the user can hit:
- *   1. Not signed in    → redirect to /login?next=/pricing
- *   2. Signed in, free  → POST /api/checkout → redirect to Stripe
- *   3. Already Pass     → redirect to dashboard
+ *   1. Not signed in           → redirect to /login?next=/pricing
+ *   2. Signed in, lower tier   → POST /api/checkout → redirect to Stripe
+ *   3. Already on this tier    → redirect to dashboard
  *
- * Errors surface inline below the button. The most common one in the
- * first week of go-live will be "Pricing not configured" — that's a
- * 503 from the API when STRIPE_PASS_PRICE_ID_{ANNUAL,MONTHLY} hasn't
- * been set in Vercel yet.
+ * Errors surface inline below the button. The most common one during a
+ * go-live will be "Pricing not configured" — that's a 503 from the API
+ * when STRIPE_{TIER}_PRICE_ID_{ANNUAL,MONTHLY} hasn't been set in
+ * Vercel yet.
  */
 
 interface CheckoutButtonProps {
   interval: "annual" | "monthly";
+  tier?: "pass" | "pro";
   label?: string;
   className?: string;
 }
 
+const TIER_LABEL: Record<"pass" | "pro", string> = {
+  pass: "Pass",
+  pro: "Pro",
+};
+const TIER_PRICE: Record<"pass" | "pro", { annual: string; monthly: string }> = {
+  pass: { annual: "$49/yr", monthly: "$4.99/mo" },
+  pro: { annual: "$79/yr", monthly: "$7.99/mo" },
+};
+
 export default function CheckoutButton({
   interval,
+  tier = "pass",
   label,
   className,
 }: CheckoutButtonProps) {
@@ -36,7 +47,7 @@ export default function CheckoutButton({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const defaultLabel = interval === "annual" ? "Start Pass — $39/yr" : "Start Pass — $4.99/mo";
+  const defaultLabel = `Start ${TIER_LABEL[tier]} — ${TIER_PRICE[tier][interval]}`;
 
   async function handleClick() {
     setError("");
@@ -67,7 +78,7 @@ export default function CheckoutButton({
           "Content-Type": "application/json",
           Authorization: `Bearer ${session.access_token}`,
         },
-        body: JSON.stringify({ interval }),
+        body: JSON.stringify({ interval, tier }),
       });
 
       const data = await res.json();

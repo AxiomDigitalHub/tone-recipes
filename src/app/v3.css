@@ -4931,6 +4931,15 @@
   margin-bottom: 80px;
 }
 @media (max-width: 880px) { .fk-preview .pricing-grid { grid-template-columns: 1fr; } }
+/* Free / Pass / Pro three-column comparison row (two-tier model). */
+.fk-preview .pricing-grid-trio { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 1040px) { .fk-preview .pricing-grid-trio { grid-template-columns: 1fr; } }
+/* Shared annual/monthly billing toggle that sits above the trio. */
+.fk-preview .pricing-billing-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 .fk-preview .pricing-card {
   background: var(--paper);
   padding: 32px 28px 36px;

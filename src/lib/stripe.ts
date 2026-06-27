@@ -25,10 +25,10 @@ export const stripe = {
 /*  Set Pack one-time purchases                                                */
 /* -------------------------------------------------------------------------- */
 /*                                                                             */
-/*  Note: the Fader & Knob Pass subscription ($39/yr or $4.99/mo) IS active —  */
-/*  it lives in /api/checkout and reads its price IDs from                     */
-/*  STRIPE_PASS_PRICE_ID_ANNUAL / _MONTHLY (create the product + prices with   */
-/*  scripts/stripe-setup-plans.ts). Unlike that subscription, the              */
+/*  Note: the Pass ($49/yr · $4.99/mo) and Pro ($79/yr · $7.99/mo)             */
+/*  subscriptions are active — they live in /api/checkout and read their       */
+/*  price IDs from STRIPE_{PASS,PRO}_PRICE_ID_ANNUAL / _MONTHLY (create the     */
+/*  products + prices with scripts/stripe-setup-plans.ts). Unlike those        */
 /*  Set Packs below are one-time purchases whose Stripe product is             */
 /*  auto-created on first checkout via ensureSetPackPrice(), so they need no   */
 /*  price-ID env vars.                                                         */
