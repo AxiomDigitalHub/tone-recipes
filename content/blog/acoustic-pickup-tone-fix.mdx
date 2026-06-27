@@ -3,14 +3,14 @@ title: >-
   Acoustic Guitar Through a Pickup Sounds Bad — Five Frequency Fixes That Save
   the Tone
 description: >-
-  Plug an acoustic with a piezo or magnetic soundhole pickup into an interface
-  and the result almost always sounds wrong — quacky, brittle, missing the body.
-  The good news is the problem is mostly in five specific frequency regions, and
-  you can fix it with EQ before reaching for a DI box upgrade.
+  An acoustic through a piezo or magnetic pickup sounds quacky, brittle, and
+  thin. Five specific EQ moves fix it for free — before you buy a DI box. Here's
+  the curve.
 date: '2026-04-25'
+updated: '2026-06-26'
 author: Dev Okonkwo
 author_slug: dev-okonkwo
-category: troubleshooting
+category: "quick-fixes"
 tags:
   - acoustic-guitar
   - pickup
@@ -25,6 +25,62 @@ image: /images/blog/acoustic-pickup-tone-fix.jpg
 image_alt: >-
   an acoustic guitar with cable and pickup visible, on a desk next to studio
   monitors and an audio interface in soft natural light
+takeaways:
+  - >-
+    An acoustic pickup isn't a microphone — it reads bridge pressure or string
+    magnetism, so its frequency content is fundamentally shifted from the sound
+    in the room, and that's why it sounds wrong by default.
+  - >-
+    Most of the "this doesn't sound like an acoustic" complaint is one move:
+    cut the piezo quack 3–5 dB with a narrow Q around 2.5–3 kHz. That cut alone
+    does the heavy lifting.
+  - >-
+    The full fix is five EQ moves — cut quack (2.5–3 kHz), tame brittleness
+    (6–8 kHz), add body (150 Hz), cut boxiness (400 Hz), add air (12 kHz) — and
+    the order matters: cut before you boost.
+  - >-
+    For recording, stock DAW EQ gets you 80–90% of the way for free; dedicated
+    acoustic preamps mainly add feedback control and mic modeling (the Fishman
+    Aura's convolution), not better EQ.
+  - >-
+    If your acoustic-electric has an active onboard preamp and suddenly goes
+    weak or farty, rule out a dead 9V battery before you touch the EQ — a sagging
+    battery mimics a tone problem.
+faq:
+  - q: Will these EQ settings work for my acoustic guitar?
+    a: >-
+      The frequency targets are good starting points but should be adjusted by
+      ear. The exact center of the quack varies by pickup and guitar — sweep
+      with a narrow boost (4 dB at Q 6) and find the most offensive peak, then
+      cut there. The 100–200 Hz boost frequency depends on body size; smaller
+      guitars resonate higher, dreadnoughts and jumbos lower.
+  - q: Why does my acoustic sound okay through an amp but bad through an interface?
+    a: >-
+      Acoustic amps (LR Baggs, AER, Fishman Loudbox) have built-in EQ shaping
+      tuned for piezo pickups — the amp is doing the same five-fix job you'd do
+      manually in a DAW. When you bypass the amp and go straight to an
+      interface, you lose that shaping. The fix is to recreate it in software.
+  - q: Should I use a microphone instead of the pickup?
+    a: >-
+      When you can. A small-diaphragm condenser (Røde NT5, AKG C451, Shure SM81)
+      about 12 inches from the 12th fret captures the guitar far more accurately
+      than any pickup. The downsides: it needs a quiet room and a stable stand,
+      and it's unusable while moving. For sit-down bedroom recording the mic
+      wins; for everything else, pickup-plus-EQ is more practical.
+  - q: Do magnetic soundhole pickups need different EQ than piezo?
+    a: >-
+      Yes, somewhat. Magnetic soundhole pickups have a peaked midrange (around
+      1.5 kHz) and don't have the 2–4 kHz quack of piezos, so the Fix 1 cut may
+      not be needed. The Fix 3 body boost matters even more because magnetic
+      pickups capture even less body resonance. The Fix 4 boxiness cut is
+      usually still relevant.
+  - q: Can I use these EQ settings as a preset for live performance?
+    a: >-
+      Yes. Most acoustic preamps and many digital pedals save EQ presets that
+      approximate this curve — the Boss AD-10 has built-in presets that hit
+      similar targets. You can also build the EQ on a Helix or HX Stomp with the
+      parametric EQ block, save it as a patch, and use it for live
+      acoustic-into-PA. The five-fix approach translates directly to live use.
 ---
 
 > **The five frequencies to fix:** Piezo "quack" lives at 2–4 kHz (cut 3–5 dB with a narrow Q). Brittleness lives at 6–8 kHz (high-shelf cut 2–4 dB). Missing body lives at 100–200 Hz (small boost or replace the lost low-mid information). Boxiness lives at 300–500 Hz (cut 2–4 dB). Air lives above 12 kHz (gentle high-shelf boost 1–2 dB if the pickup rolls off). Apply these five moves with a parametric EQ before adding any reverb or compression and the acoustic-through-a-pickup tone gets dramatically more natural.
@@ -34,6 +90,12 @@ The first time I plugged my friend's acoustic into my Scarlett interface to reco
 The thing nobody tells you about acoustic pickups is that they are not microphones. They translate the string and body vibration into an electrical signal through a piezo crystal or a magnetic coil, and the result has frequency content that doesn't match what a microphone in front of the guitar would capture. The pickup is missing some frequencies, has too much energy in others, and emphasizes harmonics that a microphone wouldn't pick up at all. The default sound is distorted relative to the actual instrument.
 
 The fix is EQ. Not a fancy DI box, not a special preamp — just five specific cuts and boosts in a parametric EQ. Here's the breakdown.
+
+---
+
+## First, Rule Out a Dead Battery
+
+Before you reach for the EQ, there's one failure that masquerades as a tone problem: a dying 9V. If your acoustic-electric has an active onboard preamp — most undersaddle systems with a built-in EQ do — that preamp runs on a battery, and as the voltage sags the output goes weak, thin, and slightly distorted on hard strums. It reads exactly like a bad pickup or a brittle interface input, and you'll waste an afternoon chasing frequencies that aren't the problem. Swap in a fresh battery first. If the weak, farty quality clears, the EQ below is for fine-tuning a healthy signal, not rescuing a starved one. The full story on how long those batteries last and what fails when they drain is in [living with a 9V in your guitar](/blog/onboard-9v-battery-active-electronics-life-management).
 
 ---
 
@@ -151,29 +213,6 @@ I rarely play acoustic — my main rig is a Stratocaster and a Jazzmaster — bu
 The result sounds like an acoustic guitar in a small room. Not like a microphone'd Martin in Studio A, but like a real instrument that someone could plausibly hand to you. For ambient layered work, that's enough.
 
 If I were releasing the recording to a wide audience and wanted reference-quality acoustic tone, I'd put a small-diaphragm condenser microphone on the guitar and use the pickup as a secondary signal blended in for body. But for the bedroom-producer use case, the pickup-with-EQ chain is genuinely sufficient.
-
-<FAQ questions={[
-  {
-    q: "Will these EQ settings work for my acoustic guitar?",
-    a: "The frequency targets are good starting points but should be adjusted by ear. The exact center frequency of the 'quack' varies by pickup and guitar — sweep with a narrow boost (4 dB at Q 6) and find the most offensive peak, then cut there. The 100–200 Hz boost frequency depends on your guitar's body size; smaller guitars resonate higher, larger guitars (dreadnoughts, jumbos) resonate lower."
-  },
-  {
-    q: "Why does my acoustic sound okay through an amp but bad through an interface?",
-    a: "Acoustic amps (LR Baggs, AER, Fishman Loudbox) have built-in EQ shaping specifically tuned for piezo pickups. The amp is doing the same five-fix job that you'd do manually in a DAW. When you bypass the amp and go directly to an interface, you lose that shaping. The fix is to recreate the shaping in software."
-  },
-  {
-    q: "Should I use a microphone instead of the pickup?",
-    a: "When you can. A small-diaphragm condenser (a Røde NT5, an AKG C451, or a Shure SM81) placed about 12 inches from the 12th fret captures the natural sound of the guitar much more accurately than any pickup can. The downsides are: needs a quiet room (HVAC, traffic, neighbors all show up), needs a stable mic stand, and isn't usable while you're moving. For sit-down bedroom recording where the room is quiet, microphones win. For everything else, the pickup-plus-EQ approach is more practical."
-  },
-  {
-    q: "Do magnetic soundhole pickups need different EQ than piezo?",
-    a: "Yes, somewhat. Magnetic soundhole pickups have a peaked midrange (around 1.5 kHz typically) and don't have the same 2–4 kHz quack as piezos. The Fix 1 cut may not be needed; the Fix 3 body boost is even more important because magnetic pickups capture even less body resonance than piezos. The Fix 4 boxiness cut is usually still relevant."
-  },
-  {
-    q: "Can I use these EQ settings as a 'preset' for live performance?",
-    a: "Yes — most acoustic preamps and many digital pedals will save EQ presets that approximate this curve. The Boss AD-10 has built-in EQ presets that hit similar targets. You can also build the EQ on a Helix or HX Stomp using the parametric EQ block, save it as a patch, and use it for live acoustic-into-PA situations. The same five-fix approach translates directly to live use."
-  }
-]} />
 
 The pickup-versus-microphone question gets framed as a quality choice, but most of the time it's a frequency-correction question. The pickup signal needs surgical EQ work to sound like the instrument it's attached to. Five cuts and boosts get you most of the way. The remaining work — feedback management, microphone modeling, mic-and-pickup blending — is what dedicated acoustic preamps add. Start with the EQ. The rest is optional.
 

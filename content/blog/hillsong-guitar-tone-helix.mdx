@@ -1,0 +1,143 @@
+---
+title: >-
+  How to Get the Hillsong Worship Guitar Tone on the Line 6 Helix (Nigel
+  Hendroff)
+description: >-
+  Build Nigel Hendroff's Hillsong worship guitar tone on the Helix — the Vox
+  AC15/AC30 chime, always-on preamp boost, dotted-eighth delay, and huge ambient
+  reverb, with exact block names and snapshots.
+date: '2026-06-23'
+author: Nathan Cross
+author_slug: nathan-cross
+category: tone-recipes
+tags:
+  - worship
+  - helix
+  - hillsong
+  - nigel-hendroff
+  - ac30
+  - ambient
+  - delay
+  - reverb
+  - signal-chain
+  - snapshots
+readingTime: 9
+image: /images/blog/hillsong-guitar-tone-helix.jpg
+image_alt: >-
+  A Line 6 Helix preset for the Hillsong worship guitar tone — a Vox AC15/AC30
+  amp, an always-on preamp boost and compressor, a dotted-eighth tape delay, a
+  long ambient delay, and a large shimmer reverb across clean-to-ambient
+  snapshots
+takeaways:
+  - >-
+    The Hillsong sound is a bright, chimey guitar (Filter'Tron or single coil)
+    into a low-wattage Vox — on the Helix that is the Essex A15 TB or A30 TB,
+    kept semi-clean with the gain coming from a pedal, not the amp.
+  - >-
+    Hendroff's secret weapon is an always-on preamp boost (his Jackson Audio
+    Prism) plus an always-on compressor (Bloom). Model that with a low-gain
+    Minotaur and a Deluxe Comp left on across every snapshot.
+  - >-
+    The motion comes from a dotted-eighth delay and the player's right hand, not
+    from gain. Picking patterns through a rhythmic delay are the core technique.
+  - >-
+    The ambient texture is stacked time and space — a rhythmic delay plus a long
+    modulated delay plus a large shimmer reverb, all filtered so they fill the
+    room without burying the vocal.
+  - >-
+    Dynamics do the work. The volume knob and pick attack move the tone from a
+    whisper-clean verse to a full driven chorus; the preset just sets the range.
+faq:
+  - q: What amp gives the Hillsong worship guitar tone on the Helix?
+    a: >-
+      A low-wattage Vox. Nigel Hendroff's cornerstone amp is an English Vox
+      AC15, with the AC30 close behind. On the Helix, use the Essex A15 TB or
+      Essex A30 TB (Vox AC Top Boost models). Keep them semi-clean to
+      edge-of-breakup and push the front end with a boost pedal rather than
+      cranking the amp's gain.
+  - q: Do I need a Gretsch to sound like Hillsong?
+    a: >-
+      It helps but is not required. Hendroff's signature chime comes from
+      Filter'Tron-equipped Gretsch guitars, but a Telecaster or a Strat in the
+      middle/neck positions gets you most of the way. The key is a bright,
+      articulate guitar into a chimey Vox — avoid dark humbuckers for this tone.
+  - q: How do I set a dotted-eighth delay for worship?
+    a: >-
+      Calculate the time with the formula (60000 / BPM) × 0.75. At 120 BPM that
+      is 375 ms. Set feedback low-to-moderate (around 30%) and mix around 20% so
+      the repeats add rhythmic motion without washing out the chords. Sync to
+      MIDI clock or tap tempo so it tracks tempo changes.
+  - q: How do I keep the ambient reverb and delay from sounding muddy?
+    a: >-
+      Filter them. Put a low cut around 120 Hz and a high cut around 6 kHz on
+      the reverb and the long delay so they do not pile up into a boomy low end
+      or a fizzy top end. Keep every ambient mix lower than feels exciting in
+      headphones — it has to leave room for the congregation.
+---
+
+> **Start Here: The Hillsong Tone in Five Blocks:**
+> 1. Amp: **Essex A15 TB** or **A30 TB** (Vox AC15/AC30), semi-clean, pushed by a pedal
+> 2. Boost: **Minotaur** (Klon-style), always on at low drive — the Prism stand-in
+> 3. Compressor: **Deluxe Comp**, always on, light — the Bloom stand-in
+> 4. Delay: **Transistor Tape** (dotted eighth) + **Vintage Digital** (long, for swells)
+> 5. Reverb: **Searchlights** or **Glitz** (shimmer), large, the ambient foundation
+
+---
+
+## The Sound That Defined Modern Worship Guitar
+
+Nigel Hendroff is, by wide agreement, the most influential worship electric guitarist of the modern era — his tone has been the Hillsong sound from roughly 2004 onward. The recipe is consistent: a **bright, chimey guitar into a low-wattage Vox**, kept semi-clean, with the gain and motion coming from pedals and his right hand.
+
+On the [Helix](/platforms/helix), the whole thing fits in one preset with snapshots. This walkthrough builds it from empty; every block is exact and ports to Helix Floor, LT, HX Stomp, and Native.
+
+I keep a version of this on my Sunday board, and the AC15 chime is what makes it work live — it sits under the vocal on the verses of something like "What a Beautiful Name," then opens up on the bridge just from leaning into the pick, without my touching a footswitch or fighting the house mix.
+
+## The Core: A Chimey Guitar Into a Semi-Clean Vox
+
+Hendroff's cornerstone amp is an **English-made Vox AC15** (the AC30 close behind), loved for its EL84 chime and sweet midrange. On the Helix, that is the **Essex A15 TB** or **Essex A30 TB**. The trick is that he keeps the amp *semi-clean* — the drive comes from a preamp pedal pushing the front end, not from the amp's gain.
+
+| Parameter | Setting | Why |
+|---|---|---|
+| Drive | Low-moderate (~0.35) | Edge-of-breakup; the boost does the rest. |
+| Bass | Low-moderate (~0.35) | Keeps the chime from getting boomy in a PA. |
+| Mids | Moderate (~0.50) | Vox midrange is the character — do not scoop it. |
+| Treble | Moderate-high (~0.60) | Chime and sparkle. |
+| Cut/Presence | Moderate | Tames AC30 top-end fizz. |
+
+Guitar: a Gretsch with Filter'Trons is the signature, but a Telecaster or Strat (neck/middle) works. Bright and articulate is the requirement.
+
+## The Always-On Foundation
+
+Two pedals are *never off* on Hendroff's board, and they are the secret to the tone:
+
+1. **Minotaur** (Klon-style) — the stand-in for his Jackson Audio Prism preamp/boost. Low drive (~0.20), output up. It pushes the Vox harder for harmonic richness and sustain.
+2. **Deluxe Comp** — the stand-in for his Jackson Audio Bloom compressor. Light setting, evens out picking and adds bloom to swells.
+
+Leave both on across every snapshot. They define the "polished" Hillsong character.
+
+## Time and Space: The Ambient Layer
+
+The motion is delay plus the player's right hand:
+
+- **Transistor Tape** delay — dotted eighth (375 ms at 120 BPM), Feedback ~30%, Mix ~20%. The rhythmic foundation for picking patterns.
+- **Vintage Digital** delay — long (quarter or longer), higher feedback, low mix, for ambient swells.
+- **Searchlights** or **Glitz** reverb — large hall/shimmer, Mix ~25%, low cut 120 Hz, high cut 6 kHz.
+
+His full-ambient preset kicks several of these on at once; on the Helix that is one snapshot.
+
+## Snapshot Layout (the worship standard)
+
+1. **Clean** — amp + always-on boost/comp, delay and reverb low. Verses.
+2. **Building** — delay mix up, reverb up slightly. Pre-chorus swells.
+3. **Full** — more boost/drive, both delays active. Choruses.
+4. **Ambient Swell** — long delay + big shimmer, volume-swell pad textures.
+
+Trails on, so reverb and delay tails carry across snapshot changes.
+
+## On an HX Stomp
+
+Drop the second delay first (fold long swells into the reverb's modulation), keep Amp · Minotaur · Comp · Transistor Tape · Searchlights, and run three snapshots: Clean, Full, Ambient.
+
+---
+
+*Want it built for you? [Download the Hillsong-style Helix preset](/guides/worship-guitar) with snapshots and ambient blocks ready to go.* {/* TODO: point CTA at the matching recipe/preset once it ships */}

@@ -130,10 +130,6 @@ const FAQ = [
     a: "Yes — from your dashboard, no email required, no friction. You keep Pass features until the end of the period you already paid for, then your account flips back to free (with the 5 downloads/month quota). No partial refunds for the unused portion of a paid period.",
   },
   {
-    q: "What about people who signed up before today?",
-    a: "Anyone with a free account before 2026-06-09 keeps unlimited preset downloads forever, regardless of whether they upgrade. We're not changing the deal you signed up for.",
-  },
-  {
     q: "Why one-time Set Pack pricing instead of subscription?",
     a: "Set Packs are a single solution to a single problem — your gig. One preset, eight snapshots, 30+ songs mapped. That's a thing you use forever, not a thing you re-evaluate every month. We sell it that way.",
   },

@@ -49,6 +49,28 @@
 
 .fk-preview * { box-sizing: border-box; }
 
+/* Token scope for overlays portaled to <body> (OverlayPortal). They render
+   OUTSIDE .fk-preview to escape the `.fk-preview > * { z-index: 1 }`
+   stacking trap, so they need the v3 design tokens re-declared here to
+   resolve var(--paper)/var(--ink)/etc. NO ::before texture and NO z-index
+   trap — just the variables. */
+.fk-overlay-scope {
+  --paper: #EDEAE4;
+  --paper-2: #E2DED6;
+  --paper-line: rgba(10, 9, 8, 0.12);
+  --ink: #0A0908;
+  --ink-2: #1C1A17;
+  --ink-muted: #5F5A52;
+  --ink-faint: #8F897E;
+  --amber: #E4A235;
+  --amber-2: #B37A1D;
+  --tape: #D8342B;
+  --font-body: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+}
+.fk-overlay-scope * { box-sizing: border-box; }
+
 .fk-preview a { color: inherit; text-decoration: none; }
 .fk-preview button {
   font: inherit;
@@ -6862,17 +6884,31 @@
 
   .fk-preview .preview-subnav-burger { display: inline-flex; }
 
+  /* THE FIX for "page bleeds through the open menu": `.fk-preview > *`
+     (see ~line 2988) sets `position:relative; z-index:1` on BOTH
+     `.preview-subnav` AND `<main>`. That traps the drawer's z-index:9000
+     inside the sub-nav's own stacking context, so `<main>` (later in the
+     DOM, same z-index:1) paints OVER the drawer — its opaque background
+     ends up beneath the page's text. Lifting the sub-nav's own z-index
+     while open frees the fixed drawer to sit above the page. */
+  .fk-preview .preview-subnav.is-open { z-index: 9000; }
+
   /* Drawer panel — full-screen fixed overlay with its own internal
-     close button. Avoids any stacking-context surprises by sitting
-     at z-index: 9000 over everything else. */
+     close button. Sits at z-index: 9000 inside the (now-lifted) sub-nav
+     stacking context. */
   .fk-preview .preview-subnav-drawer {
     display: flex;
     flex-direction: column;
     position: fixed;
     inset: 0;
-    background: var(--paper);
+    /* Explicit fallback hex: if --paper ever fails to resolve in this
+       context the panel must NOT fall back to transparent (that was the
+       reported "page bleeds through the menu" bug). */
+    background: var(--paper, #EDEAE4);
     z-index: 9000;
     overflow-y: auto;
+    /* Keep drawer scrolling from chaining to the page behind it on iOS. */
+    overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
     visibility: hidden;
     opacity: 0;
@@ -6892,7 +6928,7 @@
     justify-content: space-between;
     padding: 14px 18px;
     border-bottom: 1px solid var(--ink);
-    background: var(--paper);
+    background: var(--paper, #EDEAE4);
     flex-shrink: 0;
   }
   .fk-preview .preview-subnav-drawer-brand {
@@ -7161,7 +7197,7 @@
 }
 
 /* PDF email-gate modal */
-.fk-preview .pdf-gate {
+.fk-overlay-scope .pdf-gate {
   position: fixed;
   inset: 0;
   z-index: 80;
@@ -7171,7 +7207,7 @@
   justify-content: center;
   padding: 16px;
 }
-.fk-preview .pdf-gate-card {
+.fk-overlay-scope .pdf-gate-card {
   position: relative;
   width: 100%;
   max-width: 420px;
@@ -7181,7 +7217,7 @@
   padding: 28px 26px 22px;
   box-shadow: 0 12px 32px rgba(10, 9, 8, 0.25);
 }
-.fk-preview .pdf-gate-close {
+.fk-overlay-scope .pdf-gate-close {
   position: absolute;
   top: 6px;
   right: 8px;
@@ -7193,8 +7229,8 @@
   cursor: pointer;
   padding: 6px 10px;
 }
-.fk-preview .pdf-gate-close:hover { background: var(--paper-2); }
-.fk-preview .pdf-gate-title {
+.fk-overlay-scope .pdf-gate-close:hover { background: var(--paper-2); }
+.fk-overlay-scope .pdf-gate-title {
   font-family: var(--font-display);
   font-size: 28px;
   letter-spacing: -0.02em;
@@ -7202,7 +7238,7 @@
   margin: 0 0 8px;
   font-weight: 400;
 }
-.fk-preview .pdf-gate-dek {
+.fk-overlay-scope .pdf-gate-dek {
   font-family: var(--font-display);
   font-style: italic;
   font-size: 14px;
@@ -7210,12 +7246,12 @@
   color: var(--ink-muted);
   margin: 0 0 16px;
 }
-.fk-preview .pdf-gate-form {
+.fk-overlay-scope .pdf-gate-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.fk-preview .pdf-gate-input {
+.fk-overlay-scope .pdf-gate-input {
   font-family: var(--font-mono);
   font-size: 13px;
   background: var(--paper);
@@ -7224,16 +7260,16 @@
   padding: 12px 14px;
   outline: none;
 }
-.fk-preview .pdf-gate-input:focus {
+.fk-overlay-scope .pdf-gate-input:focus {
   background: var(--paper-2);
 }
-.fk-preview .pdf-gate-error {
+.fk-overlay-scope .pdf-gate-error {
   font-family: var(--font-mono);
   font-size: 11px;
   color: #a23b1f;
   margin: 0;
 }
-.fk-preview .pdf-gate-submit {
+.fk-overlay-scope .pdf-gate-submit {
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.18em;
@@ -7244,15 +7280,15 @@
   padding: 12px 16px;
   cursor: pointer;
 }
-.fk-preview .pdf-gate-submit:disabled {
+.fk-overlay-scope .pdf-gate-submit:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-.fk-preview .pdf-gate-submit:hover:not(:disabled) {
+.fk-overlay-scope .pdf-gate-submit:hover:not(:disabled) {
   background: var(--paper);
   color: var(--ink);
 }
-.fk-preview .pdf-gate-foot {
+.fk-overlay-scope .pdf-gate-foot {
   margin: 14px 0 0;
   font-family: var(--font-mono);
   font-size: 10.5px;
@@ -7260,7 +7296,7 @@
   color: var(--ink-muted);
   text-align: center;
 }
-.fk-preview .pdf-gate-foot a {
+.fk-overlay-scope .pdf-gate-foot a {
   color: var(--ink);
   text-decoration: underline;
 }
@@ -8161,6 +8197,97 @@
   break-after: page;
   /* On-screen rule between pages — disappears in print. */
   border: 1px solid var(--paper-line);
+}
+
+/* ── Per-platform settings table (pages 2→end) ─────────────────────────
+   Replaces the knob-dial cards with a dense, scannable spec sheet in the
+   site's type/ink/cream system — original-jsPDF density, website styling.
+   Columns: Block · Setting · Value; the block name spans its rows. */
+.print-mode .print-spec {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+  font-family: var(--font-body);
+}
+.print-mode .print-spec thead th {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-align: left;
+  font-weight: 400;
+  padding: 0 12px 7px;
+  border-bottom: 1.5px solid var(--ink);
+}
+.print-mode .print-spec-h-block { width: 34%; }
+.print-mode .print-spec-h-set { width: 40%; }
+.print-mode .print-spec-group { break-inside: avoid; }
+.print-mode .print-spec-row > td,
+.print-mode .print-spec-row > th {
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--paper-line);
+  vertical-align: top;
+  text-align: left;
+}
+/* Heavier rule starts each new block group. */
+.print-mode .print-spec-first > th,
+.print-mode .print-spec-first > td {
+  border-top: 1px solid var(--ink);
+}
+.print-mode .print-spec-block { font-weight: 400; }
+.print-mode .print-spec-block .bi {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.print-mode .print-spec-block .bn {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--ink);
+}
+.print-mode .print-spec-block .bs {
+  display: block;
+  font-size: 10.5px;
+  font-style: italic;
+  color: var(--ink-muted);
+  margin-top: 1px;
+}
+.print-mode .print-spec-block .bk {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber-2);
+  margin-top: 4px;
+}
+.print-mode .print-spec-grouplabel {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  background: var(--paper-2);
+}
+.print-mode .print-spec-set {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.print-mode .print-spec-val {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.print-mode .print-spec-val .u { color: var(--ink-muted); font-size: 10.5px; }
+.print-mode .print-spec-empty {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--ink-faint);
 }
 
 /* ── Cover page ───────────────────────────────────────────────────── */
