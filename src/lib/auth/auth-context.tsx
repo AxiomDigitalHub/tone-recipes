@@ -16,7 +16,8 @@ import { isSupabaseConfigured, createBrowserClient } from "@/lib/db/client";
 
 export type UserRole =
   | "free"
-  | "pass" // 2026-06-09 relaunch — $39/yr subscription, unlimited downloads
+  | "pass" // 2026-06-09 relaunch — $4.99/mo · $49/yr, unlimited downloads
+  | "pro" // 2026-06-15 model — $7.99/mo · $79/yr, Pass + all Set Packs included
   | "premium" // legacy 2026-04 — see permissions.ts (aliased to free + grandfather)
   | "creator" // legacy 2026-04 — see permissions.ts (aliased to free + grandfather)
   | "admin"

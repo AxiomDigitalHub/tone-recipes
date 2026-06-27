@@ -44,15 +44,39 @@ export const TIERS: Record<UserRole, TierConfig> = {
   },
   pass: {
     label: "Pass",
-    price: 4.99, // monthly equivalent; annual is $39 ($3.25/mo) — see /pricing
+    price: 4.99, // monthly equivalent; annual is $49 ($4.08/mo) — see /pricing
     features: [
       "Everything in Free",
       "Unlimited preset downloads",
+      "Unlimited recipe PDFs",
       "Early access — new recipes 1 week before public",
       "Members-only deep-dive content (A/Bs, video breakdowns)",
-      "30% off every Set Pack — forever",
-      "Members Discord",
-      "Tone Adapter (coming soon)",
+    ],
+    limits: {
+      savedRecipes: -1,
+      platformTranslations: true,
+      downloadPresets: true,
+      submitRecipes: false,
+      recipeAnalytics: false,
+      adFree: true,
+      forumPost: true,
+      comments: true,
+    },
+  },
+  // `pro` — 2026-06-15 model (docs/PRICING_MODEL.md). Everything in Pass,
+  // plus every Set Pack bundled while subscribed (the Pass→Pro upgrade
+  // lever: one pack is $19, so anyone buying even one a year nets ahead),
+  // ToneTrace priority access at launch, and a commercial-use license.
+  // Set Pack entitlement is enforced via setPackAccess() below — the
+  // download/checkout routes read it, not a `set_pack_purchases` row.
+  pro: {
+    label: "Pro",
+    price: 7.99, // monthly equivalent; annual is $79 ($6.58/mo) — see /pricing
+    features: [
+      "Everything in Pass",
+      "All Set Packs included while subscribed",
+      "ToneTrace priority access (at launch)",
+      "Commercial-use license",
     ],
     limits: {
       savedRecipes: -1,
@@ -175,10 +199,24 @@ export function canPostInForum(role: UserRole): boolean {
 }
 
 export function isAtLeast(role: UserRole, minimum: UserRole): boolean {
-  // pass sits just above free; legacy premium/creator are treated as
-  // pass-equivalent for ordering since their owners are grandfathered.
-  const order: UserRole[] = ["free", "pass", "premium", "creator", "admin"];
+  // free < pass < pro < admin. Legacy premium/creator slot just above
+  // pass (their owners are grandfathered to pass-equivalent access) but
+  // below pro, which is a real paid tier with Set Packs bundled.
+  const order: UserRole[] = ["free", "pass", "premium", "creator", "pro", "admin"];
   return order.indexOf(role) >= order.indexOf(minimum);
+}
+
+/**
+ * Does this role get every Set Pack included (no per-pack purchase)?
+ *
+ * Pro bundles all Set Packs while subscribed — the Pass→Pro upgrade lever
+ * (docs/PRICING_MODEL.md). Admins get everything. Everyone else (free,
+ * pass, legacy) buys packs à la carte and is gated on a `set_pack_purchases`
+ * row. This is the single source of truth: the Set Pack download route, its
+ * checkout short-circuit, and the SetPackAccess client all read it.
+ */
+export function setPackAccess(role: UserRole): boolean {
+  return role === "pro" || role === "admin" || role === "super_admin";
 }
 
 /** @deprecated All platforms are now free — gating is on downloads only */

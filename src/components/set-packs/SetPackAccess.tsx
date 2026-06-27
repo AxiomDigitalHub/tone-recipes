@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Download, Loader2 } from "lucide-react";
 import { useAuth } from "@/lib/auth/auth-context";
 import { createBrowserClient } from "@/lib/db/client";
+import { setPackAccess } from "@/lib/permissions";
 import { toast } from "@/lib/stores/toast-store";
 import { track } from "@/lib/analytics";
 
@@ -53,6 +54,12 @@ export default function SetPackAccess({
     (async () => {
       if (!user) {
         if (!cancelled) setState({ kind: "anon" });
+        return;
+      }
+      // Pro subscribers (and admins) get every Set Pack bundled — skip
+      // the purchase lookup and show the download immediately.
+      if (setPackAccess(user.role)) {
+        if (!cancelled) setState({ kind: "owned" });
         return;
       }
       const supabase = createBrowserClient();

@@ -7,6 +7,8 @@ import {
   type SetPackSlug,
 } from "@/lib/stripe";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
+import { setPackAccess } from "@/lib/permissions";
+import type { UserRole } from "@/lib/auth/auth-context";
 
 /**
  * POST /api/set-packs/[slug]/checkout
@@ -65,6 +67,21 @@ export async function POST(
     process.env.SUPABASE_SERVICE_ROLE_KEY!,
     { auth: { persistSession: false, autoRefreshToken: false } },
   );
+  // Pro subscribers (and admins) get every Set Pack bundled — never
+  // charge them for one (docs/PRICING_MODEL.md). Treat as already owned.
+  const { data: profile } = await admin
+    .from("profiles")
+    .select("role")
+    .eq("id", user.id)
+    .maybeSingle();
+  const role = (profile as { role?: UserRole } | null)?.role ?? "free";
+  if (setPackAccess(role)) {
+    return NextResponse.json({
+      already_owned: true,
+      redirect: `/set-packs/${packSlug}`,
+    });
+  }
+
   const { data: existing } = await admin
     .from("set_pack_purchases")
     .select("id, refunded_at")

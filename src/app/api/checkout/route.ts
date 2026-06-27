@@ -6,28 +6,37 @@ import { rateLimit, getClientIp } from "@/lib/rate-limit";
 /**
  * POST /api/checkout
  *
- * Creates a Stripe Checkout Session for the Pass subscription.
+ * Creates a Stripe Checkout Session for a subscription tier.
  *
- * Body: { interval: "annual" | "monthly" }
+ * Body: { tier?: "pass" | "pro"; interval: "annual" | "monthly" }
+ * (`tier` defaults to "pass" if omitted, so older callers keep working.)
  *
- * Unlike the original (retired) /api/checkout, this version:
- *   - Sells ONE tier ("pass") at two intervals — annual ($39) or
- *     monthly ($4.99). The "premium / creator" two-tier model is gone
- *     for good; the relaunch is single-tier on purpose.
- *   - Reads Price IDs from env vars (STRIPE_PASS_PRICE_ID_ANNUAL,
- *     STRIPE_PASS_PRICE_ID_MONTHLY) rather than auto-creating products
- *     via ensureProducts(). The previous helper was deleted as a
- *     footgun — it would silently spawn duplicate products in live
- *     Stripe if env was misconfigured.
- *   - Tags every session with metadata.plan = "pass" so the webhook
- *     can route the upgrade to role='pass'. Mirrors set-packs flow.
+ * Two-tier model (docs/PRICING_MODEL.md, 2026-06-15):
+ *   - Pass — annual ($49) / monthly ($4.99)
+ *   - Pro  — annual ($79) / monthly ($7.99); adds all Set Packs bundled
+ *   (Team ships later and is not sold here yet.)
+ *   - Reads Price IDs from env vars (STRIPE_{PASS,PRO}_PRICE_ID_{ANNUAL,
+ *     MONTHLY}) rather than auto-creating products. The previous
+ *     auto-create helper was deleted as a footgun — it would silently
+ *     spawn duplicate products in live Stripe if env was misconfigured.
+ *   - Tags every session with metadata.plan = tier so the webhook can
+ *     route the upgrade to role='pass'|'pro'. Mirrors set-packs flow.
  *
  * Requires authentication via Bearer token.
  */
 
-const PRICE_IDS: Record<"annual" | "monthly", string | undefined> = {
-  annual: process.env.STRIPE_PASS_PRICE_ID_ANNUAL,
-  monthly: process.env.STRIPE_PASS_PRICE_ID_MONTHLY,
+type Tier = "pass" | "pro";
+type Interval = "annual" | "monthly";
+
+const PRICE_IDS: Record<Tier, Record<Interval, string | undefined>> = {
+  pass: {
+    annual: process.env.STRIPE_PASS_PRICE_ID_ANNUAL,
+    monthly: process.env.STRIPE_PASS_PRICE_ID_MONTHLY,
+  },
+  pro: {
+    annual: process.env.STRIPE_PRO_PRICE_ID_ANNUAL,
+    monthly: process.env.STRIPE_PRO_PRICE_ID_MONTHLY,
+  },
 };
 
 export async function POST(req: NextRequest) {
@@ -41,11 +50,20 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { interval } = body as { interval?: "annual" | "monthly" };
+    const { interval, tier = "pass" } = body as {
+      interval?: Interval;
+      tier?: Tier;
+    };
 
     if (!interval || !["annual", "monthly"].includes(interval)) {
       return NextResponse.json(
         { error: "Invalid interval. Must be 'annual' or 'monthly'." },
+        { status: 400 },
+      );
+    }
+    if (!["pass", "pro"].includes(tier)) {
+      return NextResponse.json(
+        { error: "Invalid tier. Must be 'pass' or 'pro'." },
         { status: 400 },
       );
     }
@@ -77,14 +95,14 @@ export async function POST(req: NextRequest) {
     }
 
     // ---- Pricing env config (after auth so we don't leak env state) ----
-    const priceId = PRICE_IDS[interval];
+    const priceId = PRICE_IDS[tier][interval];
     if (!priceId) {
-      // Misconfigured env — this is what you see during the initial
-      // live-mode rollout if STRIPE_PASS_PRICE_ID_* is missing in
-      // Vercel. Honest error so the caller's button surfaces "Pricing
-      // not configured" rather than a generic 500.
+      // Misconfigured env — this is what you see during a live-mode
+      // rollout if STRIPE_{tier}_PRICE_ID_* is missing in Vercel. Honest
+      // error so the caller's button surfaces "Pricing not configured"
+      // rather than a generic 500.
       console.error(
-        "[checkout] STRIPE_PASS_PRICE_ID_" + interval.toUpperCase() + " not set",
+        `[checkout] STRIPE_${tier.toUpperCase()}_PRICE_ID_${interval.toUpperCase()} not set`,
       );
       return NextResponse.json(
         { error: "Pricing not configured. Please contact support." },
@@ -92,12 +110,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ---- Already on Pass? Short-circuit to dashboard. ----
+    // ---- Already on the requested tier? Short-circuit to dashboard. ----
     //
     // Bypasses Stripe entirely so we don't create a duplicate
-    // subscription if the user double-clicks the upgrade button. The
-    // webhook is the source of truth for role assignment but a quick
-    // check here avoids the round trip.
+    // subscription if the user double-clicks the upgrade button. Only
+    // short-circuits when the user is already on the SAME tier — a Pass
+    // subscriber buying Pro should still proceed (it's a real upgrade).
+    // The webhook is the source of truth for role assignment but this
+    // quick check avoids a needless round trip.
     const { data: profile } = await supabase
       .from("profiles")
       .select("role, stripe_subscription_id")
@@ -105,7 +125,7 @@ export async function POST(req: NextRequest) {
       .single();
     if (
       profile &&
-      (profile as { role?: string }).role === "pass" &&
+      (profile as { role?: string }).role === tier &&
       (profile as { stripe_subscription_id?: string }).stripe_subscription_id
     ) {
       return NextResponse.json({
@@ -120,7 +140,7 @@ export async function POST(req: NextRequest) {
       mode: "subscription",
       payment_method_types: ["card"],
       line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${req.nextUrl.origin}/dashboard?upgraded=pass`,
+      success_url: `${req.nextUrl.origin}/dashboard?upgraded=${tier}`,
       cancel_url: `${req.nextUrl.origin}/pricing`,
       client_reference_id: user.id,
       customer_email: user.email,
@@ -131,13 +151,13 @@ export async function POST(req: NextRequest) {
       allow_promotion_codes: true,
       metadata: {
         supabase_user_id: user.id,
-        plan: "pass",
+        plan: tier,
         interval,
       },
       subscription_data: {
         metadata: {
           supabase_user_id: user.id,
-          plan: "pass",
+          plan: tier,
           interval,
         },
       },

@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { generateWorshipSetPack } from "@/lib/helix/generate-set-pack";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
+import { setPackAccess } from "@/lib/permissions";
+import type { UserRole } from "@/lib/auth/auth-context";
 
 /**
  * GET /api/set-packs/worship
@@ -61,17 +63,30 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Invalid session." }, { status: 401 });
   }
 
-  // Ownership check.
+  // Access check. Pro subscribers (and admins) get every Set Pack
+  // bundled, so they download without a per-pack purchase row
+  // (docs/PRICING_MODEL.md). Everyone else needs an unrefunded
+  // `set_pack_purchases` row for this pack.
   const admin = getAdminClient();
-  const { data: purchase } = await admin
-    .from("set_pack_purchases")
-    .select("id, refunded_at")
-    .eq("user_id", user.id)
-    .eq("pack_slug", PACK_SLUG_DB)
+  const { data: profile } = await admin
+    .from("profiles")
+    .select("role")
+    .eq("id", user.id)
     .maybeSingle();
-  const owned =
-    Boolean(purchase) &&
-    !(purchase as { refunded_at?: string | null } | null)?.refunded_at;
+  const role = (profile as { role?: UserRole } | null)?.role ?? "free";
+
+  let owned = setPackAccess(role);
+  if (!owned) {
+    const { data: purchase } = await admin
+      .from("set_pack_purchases")
+      .select("id, refunded_at")
+      .eq("user_id", user.id)
+      .eq("pack_slug", PACK_SLUG_DB)
+      .maybeSingle();
+    owned =
+      Boolean(purchase) &&
+      !(purchase as { refunded_at?: string | null } | null)?.refunded_at;
+  }
   if (!owned) {
     return NextResponse.json(
       {
