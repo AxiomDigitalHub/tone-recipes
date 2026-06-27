@@ -180,7 +180,7 @@ export default function ToneChatClient() {
     return (
       <div className="mx-auto max-w-md py-16 text-center">
         <p className="mb-6 text-lg text-[var(--ink,#0A0908)]">
-          Tone Chat is free — you just need an account so we can save your daily messages.
+          Axl&apos;s free to talk to — you just need an account so we can keep track of your daily messages.
         </p>
         <Link
           href="/login?next=/tone-chat"
@@ -206,7 +206,8 @@ export default function ToneChatClient() {
         {messages.length === 0 && (
           <div>
             <p className="mb-4 text-[var(--ink-muted,#6b6257)]">
-              Ask about any tone — an artist, a song, a feel, or a problem you&apos;re fighting.
+              Axl here. Ask me about any tone — an artist, a song, a feel, or a
+              problem you&apos;re fighting. Pick your rig and I&apos;ll talk in its language.
             </p>
             <div className="flex flex-wrap gap-2">
               {STARTERS.map((s) => (

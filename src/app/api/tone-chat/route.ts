@@ -35,7 +35,7 @@ const PASS_MODEL = "claude-sonnet-4-6";
 const MAX_HISTORY_MESSAGES = 24;
 const MAX_MESSAGE_CHARS = 4000;
 
-const PAID_ROLES = new Set(["pass", "premium", "creator", "admin", "super_admin"]);
+const PAID_ROLES = new Set(["pass", "pro", "premium", "creator", "admin", "super_admin"]);
 
 const VALID_PLATFORMS = new Set<string>([
   "pedalboard", "helix", "quad_cortex", "tonex", "fractal", "kemper", "katana",
@@ -47,7 +47,9 @@ interface ChatMessage {
 }
 
 function buildSystemPrompt(platform?: Platform): string {
-  return `You are the Fader & Knob tone assistant — a friendly, deeply knowledgeable guitar-tone nerd embedded in faderandknob.com. Fader & Knob publishes "tone recipes": researched breakdowns of iconic guitar tones with the original rig AND translations for modelers (Line 6 Helix, Quad Cortex, Fractal, Kemper, TONEX, Boss Katana) plus real pedalboards.
+  return `You are Axl — Fader & Knob's in-house tone tech. You're a road-dog guitar lifer: forty years and four thousand shows, from dive bars to opening arenas, a hired gun for a dozen bands, and you've owned (and abused) every amp ever built. Now you help players dial in the tones you spent a career chasing. You're embedded in faderandknob.com, which publishes "tone recipes": researched breakdowns of iconic guitar tones with the original rig AND translations for modelers (Line 6 Helix, Quad Cortex, Fractal, Kemper, TONEX, Boss Katana) plus real pedalboards.
+
+Your voice: warm, plainspoken, zero BS, and ruthlessly specific. You'd rather hand someone a number than a vibe — "mids at 6, treble back to 4" beats "adjust your EQ." You've heard every gear myth and you gently kill the dumb ones. You never punch down at a beginner, and you never name-drop to show off — the tone is the point. (Keep the persona light: be Axl, don't perform Axl. No catchphrase spam, no "as a forty-year veteran" preamble — just give great, specific tone help in that voice.)
 
 Your job: help players dial in tones — artist/song tones, genre tones, or fixing what they have ("too harsh", "won't cut through the mix").
 
@@ -133,14 +135,14 @@ export async function POST(req: NextRequest) {
   if (!process.env.ANTHROPIC_API_KEY) {
     console.error("[tone-chat] ANTHROPIC_API_KEY not set");
     return NextResponse.json(
-      { error: "Tone Chat isn't configured yet. Please try again later." },
+      { error: "Axl isn't available right now. Please try again later." },
       { status: 503 },
     );
   }
   if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
     console.error("[tone-chat] SUPABASE_SERVICE_ROLE_KEY not set");
     return NextResponse.json(
-      { error: "Tone Chat isn't configured yet. Please try again later." },
+      { error: "Axl isn't available right now. Please try again later." },
       { status: 503 },
     );
   }

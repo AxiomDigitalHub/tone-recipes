@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 import ToneChatClient from "@/components/tone-chat/ToneChatClient";
 
 export const metadata: Metadata = {
-  title: "Tone Chat — Fader & Knob",
+  title: "Ask Axl — Fader & Knob's tone tech",
   description:
-    "Talk to an AI tone assistant grounded in the full Fader & Knob recipe archive. Describe the sound in your head — get the signal chain, the settings, and the recipe to build it on your modeler.",
+    "Ask Axl — a road-dog guitar lifer with forty years of tone on tap, grounded in the full Fader & Knob recipe archive. Describe the sound in your head and get the signal chain, the settings, and the recipe to build it on your modeler.",
   openGraph: {
-    title: "Tone Chat — Fader & Knob",
+    title: "Ask Axl — Fader & Knob's tone tech",
     description:
-      "Describe the sound in your head — get the signal chain, settings, and recipes to build it.",
+      "Forty years of tone, on tap. Describe the sound in your head — get the signal chain, settings, and recipes to build it.",
     type: "website",
   },
 };
@@ -21,19 +21,20 @@ export default function ToneChatPage() {
         <div className="recipe-crumbs">
           <Link href="/">Home</Link>
           <span className="sep">/</span>
-          <span style={{ color: "var(--ink, #0A0908)" }}>Tone Chat</span>
+          <span style={{ color: "var(--ink, #0A0908)" }}>Ask Axl</span>
         </div>
 
         <header className="archive-page-head">
-          <h1 className="archive-title">Tone Chat</h1>
+          <h1 className="archive-title">Ask Axl</h1>
           <p
             className="mt-2 max-w-2xl"
             style={{ color: "var(--ink-muted, #6b6257)" }}
           >
-            Describe the sound in your head — an artist, a song, a problem
-            you&apos;re fighting — and get real signal chains and settings,
-            grounded in the recipe archive. Pick your rig and the advice
-            speaks your modeler&apos;s language.
+            Forty years of tone, on tap. Axl is a road-dog guitar lifer who&apos;s
+            played every stage and abused every amp — tell him the sound in your
+            head, an artist, a song, or a problem you&apos;re fighting, and he&apos;ll
+            hand you real signal chains and settings, grounded in the recipe
+            archive. Pick your rig and he speaks your modeler&apos;s language.
           </p>
         </header>
 
