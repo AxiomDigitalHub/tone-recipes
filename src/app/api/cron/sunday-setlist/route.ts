@@ -76,16 +76,27 @@ export async function GET(req: NextRequest) {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 
-  // ---- Active subscribers ----
-  const { data: subs, error: subsError } = await admin
-    .from("newsletter_subscribers")
-    .select("email")
-    .is("unsubscribed_at", null);
-  if (subsError) {
-    console.error("[sunday-setlist] subscriber query failed:", subsError.message);
-    return NextResponse.json({ error: "Subscriber query failed." }, { status: 500 });
+  // ---- Recipients ----
+  // `?test=<email>` (still requires the valid CRON_SECRET above) sends the
+  // real email to a single address only — for verifying delivery/rendering
+  // without blasting the whole list. Otherwise: every active subscriber.
+  const testEmail = req.nextUrl.searchParams.get("test");
+  const isTest = Boolean(testEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(testEmail));
+
+  let to: string[];
+  if (isTest) {
+    to = [testEmail as string];
+  } else {
+    const { data: subs, error: subsError } = await admin
+      .from("newsletter_subscribers")
+      .select("email")
+      .is("unsubscribed_at", null);
+    if (subsError) {
+      console.error("[sunday-setlist] subscriber query failed:", subsError.message);
+      return NextResponse.json({ error: "Subscriber query failed." }, { status: 500 });
+    }
+    to = (subs ?? []).map((s) => (s as { email: string }).email).filter(Boolean);
   }
-  const to = (subs ?? []).map((s) => (s as { email: string }).email).filter(Boolean);
   if (to.length === 0) {
     console.log("[sunday-setlist] no active subscribers — nothing to send");
     return NextResponse.json({ sent: 0, reason: "no active subscribers" });
@@ -138,17 +149,27 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Send failed.", detail: String(result.error) }, { status: 500 });
   }
 
-  // ---- Log the send for the funnel/admin view ----
-  await admin.from("events").insert({
-    name: "newsletter_sent",
-    params: {
-      type: "sunday_setlist",
-      recipients: result.sent,
-      songs: picks.map((p) => p.slug),
-      sunday_date: sundayDate,
-    },
-  } as never);
+  // ---- Log the send for the funnel/admin view (skip test fires) ----
+  if (!isTest) {
+    await admin.from("events").insert({
+      name: "newsletter_sent",
+      params: {
+        type: "sunday_setlist",
+        recipients: result.sent,
+        songs: picks.map((p) => p.slug),
+        sunday_date: sundayDate,
+      },
+    } as never);
+  }
 
-  console.log(`[sunday-setlist] sent to ${result.sent} subscribers (${picks.length} songs)`);
-  return NextResponse.json({ sent: result.sent, songs: picks.map((p) => p.slug), sundayDate });
+  console.log(
+    `[sunday-setlist]${isTest ? " TEST" : ""} sent to ${result.sent} ` +
+      `recipient${result.sent === 1 ? "" : "s"} (${picks.length} songs)`,
+  );
+  return NextResponse.json({
+    sent: result.sent,
+    test: isTest,
+    songs: picks.map((p) => p.slug),
+    sundayDate,
+  });
 }
