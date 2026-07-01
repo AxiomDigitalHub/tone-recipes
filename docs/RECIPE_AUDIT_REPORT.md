@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-06-27
-**Recipes:** 179
-**Clean (no errors, no warns):** 179
+**Date:** 2026-07-01
+**Recipes:** 184
+**Clean (no errors, no warns):** 184
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,7 +16,7 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 20 / 179 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `katana-kemper-multidrive-default-off` | info | 20 / 184 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -388,6 +388,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `grohl-all-my-life-riff` — ✓ clean
+
+*Foo Fighters' All My Life Riff Tone*
+
+Passes every rule.
+
 ### `grohl-the-pretender-riff` — ✓ clean
 
 *Grohl's The Pretender Wall of Distortion*
@@ -535,6 +541,12 @@ Passes every rule.
 ### `kelliher-blood-and-thunder-riff` — ✓ clean
 
 *Blood and Thunder Riff Tone*
+
+Passes every rule.
+
+### `kelliher-colony-of-birchmen-riff` — ✓ clean
+
+*Mastodon's Colony of Birchmen Riff Tone*
 
 Passes every rule.
 
@@ -1072,9 +1084,27 @@ Passes every rule.
 
 Passes every rule.
 
+### `tremonti-kennedy-blackbird-solo` — ✓ clean
+
+*Alter Bridge's Blackbird Solo Tone*
+
+Passes every rule.
+
+### `tremonti-metalingus-riff` — ✓ clean
+
+*Alter Bridge's Metalingus Riff Tone*
+
+Passes every rule.
+
 ### `tremonti-my-own-prison-riff` — ✓ clean
 
 *My Own Prison Riff Tone*
+
+Passes every rule.
+
+### `tremonti-what-if-riff` — ✓ clean
+
+*Creed's What If Drop-D Riff Tone*
 
 Passes every rule.
 

@@ -206,15 +206,15 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 147 | Lydia (riff) | Highly Suspect | Johnny Stevens | Mister Asylum (2015) | needs-research — DEFERRED 2026-06-26. GEAR is buildable: hard-verified 'Battlefat' yellow MIM Strat, band's Supro Thunderbolt + Fender Hot Rod Deluxe dual-amp (label as signature setup, not session-isolated), Boss BD-2; producer Joel Hamilton / Studio G Brooklyn; F# minor ~128 BPM. (Keeley D&M Drive in the sketch is anachronistic — 2017.) BLOCKER: Mister Asylum is NOT on iTunes in any storefront (US/GB/DE/CA/AU/FR/NL checked), so album_art_url can't be verified per our rule. Needs a verified album-art source, then ship. | needs-research |
 | 148 | My Name Is Human (riff) | Highly Suspect | Johnny Stevens | The Boy Who Died Wolf (2016) | needs-research — SKIPPED 2026-06-26. All documented gear is the 2019 LIVE rig (Premier Guitar rundown); the 2016 studio guitar is unknown (the Venice Guitars customs didn't exist yet). Verified only: producer Joel Hamilton, 140 BPM / D minor. No session signal chain to build from. Revisit if studio gear surfaces. | needs-research |
 | 149 | The Wolf Is Loose (riff) | Mastodon | Brent Hinds / Bill Kelliher | Blood Mountain (2006) | SHIPPED as kelliher-wolf-is-loose-riff (2026-06-26). CORRECTION: the Diezel VH4 is anachronistic (Hinds' ~2011-2014 rig) — REMOVED. Documented Blood Mountain amps are a Laney VH100R (hard-verified) + 2-ch Marshall JCM800, boosted by a Chandler Tube Driver; Kelliher Silverburst LP Custom (Seymour Duncan SH-6), Hinds Silverburst Flying V; D standard (D-G-C-F-A-D). Matt Bayles / Robert Lang + Studio Litho, Seattle. ~173 BPM. | done |
-| 150 | Colony of Birchmen (riff) | Mastodon | Brent Hinds / Bill Kelliher | Blood Mountain (2006) | Hinds V / Kelliher LP → Marshall JMP / Diezel VH4 into Orange 4x12 | queued |
+| 150 | Colony of Birchmen (riff) | Mastodon | Brent Hinds / Bill Kelliher | Blood Mountain (2006) | Hinds V / Kelliher LP → Marshall JMP / Diezel VH4 into Orange 4x12 | done |
 | 151 | Oblivion (riff) | Mastodon | Brent Hinds / Bill Kelliher | Crack the Skye (2009) | SHIPPED as kelliher-oblivion-riff (2026-06-26). CORRECTION: NO Diezel in 2009 (that's the later touring rig). Per the 2009 Premier Guitar interview the amps are vintage Marshall JCM800/JMP + Fender Twin Reverb (cleans); Kelliher's 1960B 4x12 with 20W Greenbacks; SH-6 Silverburst LP Custom, Hinds Silverburst V. Brendan O'Brien / Southern Tracks, Atlanta, tracked live. Tuning standard-to-drop-D (exact 'Oblivion' tuning not primary-confirmed). | done |
 | 152 | My Own Prison (riff) | Creed | Mark Tremonti | My Own Prison (1997) | SHIPPED as tremonti-my-own-prison-riff (2026-06-26). CORRECTION: guitar = 1986 red Gibson Les Paul + stock Kahler (the 'My Own Prison' guitar, stolen '97 / recovered 2024), NOT a PRS (came 2001+). Drop D, ~140 BPM. Amp = Mesa Dual Rectifier (heavy) + Fender Twin (clean) — community-attributed, NOT session-confirmed (Tremonti: 'three different rigs,' never named). John Kurzweg, remixed by Ron Saint-Germain. New artist: mark-tremonti. | done |
 | 153 | Higher (riff) | Creed | Mark Tremonti | Human Clay (1999) | SHIPPED as tremonti-higher-riff (2026-06-26). CORRECTIONS: tracked with Gibson Les Pauls (1986 red + goldtop), NOT PRS; amp = Tremonti's hedged recollection of a Hughes & Kettner Attax 100 (Rectifier use uncertain), NOT a confirmed Mesa; no TS808 documented. Cleans/modulation from a TC Electronic rack. Drop D droning open low D, ~156 BPM, D major. John Kurzweg, Tallahassee / SSL 9000 mix. | done |
-| 154 | What If (riff) | Creed | Mark Tremonti | Human Clay (1999) | PRS → Mesa/Boogie Dual Rectifier, drop tuning, TS808 | queued |
+| 154 | What If (riff) | Creed | Mark Tremonti | Human Clay (1999) | PRS → Mesa/Boogie Dual Rectifier, drop tuning, TS808 | done |
 | 155 | Open Your Eyes (riff) | Alter Bridge | Mark Tremonti | One Day Remains (2004) | needs-research — SKIPPED 2026-06-26. The 2004 studio amp chain is poorly documented; the widely-cited Triple Rec / Cornford / Bogner Shiva rig is actually Tremonti's 2012 SOLO album All I Was (cross-contaminated by AI summarizers). Producer correction: Ben Grosse (NOT Baskette — he started with Blackbird 2007). Verified: PRS single-cut platform, D major ~162 BPM. Needs a 2004-session source. | needs-research |
-| 156 | Metalingus (riff) | Alter Bridge | Mark Tremonti | One Day Remains (2004) | PRS Tremonti → Mesa Triple Rectifier / Bogner Überschall dual-amp, drop tuning | queued |
-| 157 | Blackbird (solo) | Alter Bridge | Mark Tremonti / Myles Kennedy | Blackbird (2007) | PRS Tremonti → Mesa Triple Rec + Bogner, TS808 + Mark Tremonti phaser | queued |
-| 158 | All My Life (riff) | Foo Fighters | Dave Grohl / Chris Shiflett | One by One (2002) | Trini Lopez Standard → Mesa Dual Rectifier / Vox AC30, drop-D drive | queued |
+| 156 | Metalingus (riff) | Alter Bridge | Mark Tremonti | One Day Remains (2004) | PRS Tremonti → Mesa Triple Rectifier / Bogner Überschall dual-amp, drop tuning | done |
+| 157 | Blackbird (solo) | Alter Bridge | Mark Tremonti / Myles Kennedy | Blackbird (2007) | PRS Tremonti → Mesa Triple Rec + Bogner, TS808 + Mark Tremonti phaser | done |
+| 158 | All My Life (riff) | Foo Fighters | Dave Grohl / Chris Shiflett | One by One (2002) | Trini Lopez Standard → Mesa Dual Rectifier / Vox AC30, drop-D drive | done |
 | 159 | Times Like These (riff) | Foo Fighters | Dave Grohl / Chris Shiflett | One by One (2002) | Trini Lopez → Mesa Dual Rectifier + Vox AC30, clean-to-crunch | queued |
 | 160 | The Sky Is a Neighborhood (riff) | Foo Fighters | Dave Grohl / Chris Shiflett / Pat Smear | Concrete and Gold (2017) | Trini Lopez / Gibson ES-335 → Friedman BE-100 + Vox AC30, Strymon TimeLine | queued |
 | 161 | Devour (riff) | Shinedown | Zach Myers | The Sound of Madness (2008) | PRS SC-250 → Diezel Herbert (Axe-Fx profiled) into Diamond 4x12 | queued |
@@ -1196,6 +1196,11 @@ successful run.)
 | 2026-06-26 | kelliher-oblivion-riff | 151 |
 | 2026-06-26 | tremonti-my-own-prison-riff | 152 |
 | 2026-06-26 | tremonti-higher-riff | 153 |
+| 2026-07-01 | kelliher-colony-of-birchmen-riff | 150 |
+| 2026-07-01 | tremonti-what-if-riff | 154 |
+| 2026-07-01 | tremonti-metalingus-riff | 156 |
+| 2026-07-01 | tremonti-kennedy-blackbird-solo | 157 |
+| 2026-07-01 | grohl-all-my-life-riff | 158 |
 
 ### Corrections applied this run (2026-06-09)
 
