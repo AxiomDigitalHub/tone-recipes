@@ -5,6 +5,7 @@ description: >-
   milliseconds math, the round-trip number that matters, and a monitoring setup
   with near-zero lag.
 date: '2026-06-26'
+updated: '2026-07-03'
 author_slug: sean-nakamura
 category: workflow
 tags:
@@ -115,6 +116,10 @@ The practical move is two presets. Track at 64 or 128. Mix at 512 or 1024. Flip 
 Here's the part that surprised me when I started measuring instead of assuming. I had it in my head that latency was a slider: drag the buffer to zero and the lag goes to zero. So I A/B'd my interface's reported round-trip at 1024 samples versus 32 samples, expecting the low setting to be a tiny fraction of the high one.
 
 It wasn't. The high buffer reported around 48 ms; the low one reported around 5 ms — but not the near-zero I expected, because roughly 3–4 ms of that was fixed conversion and driver overhead that didn't move when the buffer did. Halving the buffer from 64 to 32 changed the total by under a millisecond. That's the law of diminishing returns made audible: once you're past the knee, you're grinding your CPU for tenths of a millisecond nobody can feel. Find the lowest *stable* buffer, not the lowest possible one, and stop there.
+
+## Sample Rate Is Not the Second Lever
+
+Someone always asks the obvious next question: if buffer size controls latency, doesn't a higher sample rate control it too? On paper, yes — 128 samples represents less time at 96 kHz than at 48 kHz, so the buffer's share of the delay shrinks. But look at what you just read. The buffer share isn't the problem; the fixed conversion-and-driver floor is, and raising the sample rate doesn't touch it. So the round-trip drops by a millisecond or two while your CPU load roughly doubles, because every plugin now processes twice as many samples per second. You spend half your plugin headroom to save what the buffer floor won't give back anyway. The sample rate is a tone decision — aliasing, high-gain top end — not a latency decision. I broke that math down in full in [does 96 kHz actually lower your latency](/blog/does-96khz-lower-latency-sample-rate-buffer-size). The short version: use the buffer for latency, and pick a sample rate for reasons that have nothing to do with it.
 
 ## Palm Mutes Tell on You
 
