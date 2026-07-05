@@ -3270,3 +3270,41 @@ SERP analysis run on 2026-04-05 covering the five posts published today. Gaps id
 | 3 | two-cab-irs-one-amp-parallel-blend-polarity | Two Cabs, One Amp: Blending Parallel Cab IRs (and the Polarity Trap) | "blend two cab irs," "parallel cab ir tone," "two ir loader blend," "mix two cab impulses," "double cab ir polarity" | Sean Nakamura | 4 — Modeler Masterclass | Surfaced directly by today's two-amp-sims SERP (Sweetwater "Extra Cabs for Your Amp Sims"; the SERP's parallel-cab polarity-cancellation note). Genuinely distinct from `stacking-two-amp-sims` (two *amps*) and `hybrid-reamp` (real amp + sim): this is **one amp feeding two cab IRs in parallel** — the classic two-mic-on-one-cab move done in-box (a dark ribbon-ish IR + a bright 57-ish IR, blended and level-matched), where polarity between the two IRs is the whole game and, like two sims, there's no time-align step. Sean's signal-routing lane is the native fit. Sean is at 2/wk after this run — **build once he's off the cap; else reassign to Dev (frequency-space) or fk-staff.** Verify no colliding slug at build time. |
 
 **Built this run from earlier queue/backlog:** `does-96khz-lower-latency-sample-rate-buffer-size` (Viktor, queued 06-26), `stacking-two-amp-sims-frequency-split-blend` (Dev, queued 06-30), `fast-restring-broken-string-mid-set-live` (Hank, queued 06-30). **Queued-but-still-unbuilt (priority order):** `delay-external-feedback-loop-processing-repeats` (Sean, queued 06-26 — build once Sean is off the cap, else reassign to Margot or fk-staff); `aiming-mic-null-reject-stage-bleed-cardioid-figure8-hypercardioid` (Carl, queued 06-30); then today's 3 new topics (44.1-vs-48/Dev, change-strings-schedule/Carl, two-cab-IRs/Sean). **Diversity:** today's new posts went to Viktor (→2), Hank (→1), Dev (→1); refreshes to Margot and Sean. **No one is over cap.** Next run should favor **Nathan (0), Elena (0), Jess (1), Rick (1), Margot (1)** and the queued Carl/Sean topics, and keep an eye on Sean (2) before adding the two-cab-IR or delay-external-loop posts to him.
+
+---
+
+## Monthly AI-Visibility Spot Check — 2026-07-05 (first Sunday; per Playbook §8)
+
+> Run from the weekly recipe-audit task (first-Sunday monthly branch). Method caveat unchanged: the web-search API returns **organic** results, not the literal Google AI Overview block, so AIO presence/citation is a query-class judgment, not a direct capture. Crawler-reachability and firewall checks are live curls against the production edge; runtime-log counts are from the Vercel MCP.
+
+### 1. Target-query SERP scan (5 queries)
+
+| # | Query | faderandknob in top organic? | Field owners | AIO estimate |
+|---|---|---|---|---|
+| 1 | john mayer clean tone helix settings | **No** | cainkong, Line 6 community, helixpatches, liveplayrock, joeycobra (preset vendors) | likely present; not our citation |
+| 2 | tube screamer settings blues lead tone | **No** | prosoundhq, midi-audio-expert, Reverb, Guitar Chalk, Ultimate Guitar | likely present; not our citation |
+| 3 | worship electric guitar tone helix hx stomp settings | **No** | worshiptutorials (×2), guitartonegurus, guitarforhisglory, Signal Theory | likely present; not our citation |
+| 4 | **the edge u2 delay settings helix** | **YES — #2 organic** | Line 6 customtone (#1), **faderandknob.com/blog/the-edge-delay-settings (#2)**, worshiptutorials, SVL, amnesta | likely present; **we are citation-eligible** |
+| 5 | ambient worship swell guitar tone helix preset | **No** | worshiptutorials (×4), guitarforhisglory (×2), komposition101, alexprice, joeycobra | likely present; not our citation |
+
+**Read:** 1 of 5 target queries surfaces us in the top organic block — the **Edge/U2 delay post ranks #2**, our single best AEO asset in this sample and unchanged from prior runs (no regression). The other four are owned by the same two clusters we've been tracking: **worshiptutorials.com** (worship-Helix) and the **preset-vendor pack sites** (John Mayer / TS). These are Non-Commodity-Gate targets — we lose on "download a preset" intent and should keep aiming our worship-Helix cluster at the *why/how* sub-questions the vendors don't answer, not the preset-download SERP itself.
+
+### 2. Crawler edge reachability — HEALTHY
+
+- `https://faderandknob.com/robots.txt` → **HTTP 200, no `x-vercel-mitigated`** header. Served body is the expected open `Allow: /` (private routes only: /admin, /dashboard, /saved, /api/, /invite/, /login, /signup) + sitemap line.
+- `src/app/robots.ts` still fully open (`userAgent: "*", allow: "/"`).
+- Content pages `/`, `/browse`, `/gear/vox-ac30`, a recipe, and a blog post all return **200 to plain curl AND to spoofed GPTBot / PerplexityBot / ClaudeBot / Googlebot UAs** — no challenge on any. **This is NOT the 2026-06-11 failure state** (where the firewall challenged all non-JS clients including robots.txt).
+
+### 3. AI-crawler hits (leading indicator) — partially unavailable this run
+
+- Vercel runtime logs **do not reliably expose the request User-Agent** (they're console/request-line logs, not full access logs); full-text queries for `GPTBot` and `Perplexity` returned no matches, so **retrieval-bot hit counts are unavailable via the runtime-log tool this run** — not a signal that bots aren't hitting us. A true access-log/UA count needs Vercel Observability Plus or a GA4/log-drain route (nice-to-have, no route yet).
+- 24h status-code mix (runtime logs): **550× 200, 71× 304, 8× 403 (~1.3%), 3× 307, 2× 404.**
+- The 8 × 403 hit real paths (`/`, `/browse`, `/robots.txt` once at 15:01, `/gear/vox-ac30`, a recipe, a blog post, `/favicon.ico`). **Every one of those paths was live-re-tested this run and returns 200 to plain curl and to named crawler UAs** — so these read as **transient / per-client firewall challenges on a small minority of requests, not a systemic crawler block.** Worth a re-check next month; not a regression.
+
+### 4. AI referral traffic (GA4) — skipped
+
+No GA4 API route available in this run; skipped without blocking per §8 step 4 (nice-to-have until an API route exists).
+
+### 5. Regression check — none
+
+Edge/U2 delay citation retained and ranking (#2). robots.ts open, robots.txt reachable at the edge with no mitigation. No crawler-hit collapse observed (counts simply not captured by the available tool). The only thing to watch is the small standing 403 minority — flagged, not fixed (strategy-level; no silent change).
