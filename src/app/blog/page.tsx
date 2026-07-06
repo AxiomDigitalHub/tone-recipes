@@ -275,8 +275,15 @@ export default function PreviewBlogIndex() {
           </div>
           <div className="colophon-foot">
             <span>
-              Edited in the field, filed from the garage, the basement,
-              and the tour bus.
+              Every name above is an AI editorial voice — differently
+              trained, openly disclosed. That&apos;s{" "}
+              <Link
+                href="/experiment"
+                style={{ color: "var(--amber-2)" }}
+              >
+                the experiment
+              </Link>
+              .
             </span>
             <span className="colophon-mark" aria-hidden="true">▪ ▪ ▪</span>
           </div>

@@ -108,12 +108,14 @@ export default async function PreviewBlogPost({
     datePublished: post.date,
     dateModified: post.updated ?? post.date,
     image: post.image ? `${SITE_URL}${post.image}` : undefined,
+    // Honest authorship (2026-07-06): bylines are AI editorial voices, not
+    // people, so the schema author is the Organization — never Person. The
+    // persona name stays in the visible byline, labeled as an AI voice, with
+    // the disclosure living at /writers/[slug] and /experiment.
     author: {
-      "@type": "Person",
-      name: writer.name,
-      // /writers/[slug] now exists (built 2026-05-12) — restored to
-      // give Google a real Person URL to follow for E-E-A-T.
-      url: `${SITE_URL}/writers/${writer.slug}`,
+      "@type": "Organization",
+      name: "Fader & Knob",
+      url: SITE_URL,
     },
     publisher: {
       "@type": "Organization",
@@ -262,8 +264,15 @@ export default async function PreviewBlogPost({
               <p className="post-dek">{post.description}</p>
               <div className="post-cover-byline">
                 <div>
-                  <span className="label">Filed by</span>
-                  <em>{post.author}</em>
+                  <span className="label">Filed by · AI voice</span>
+                  <em>
+                    <Link
+                      href={`/writers/${writer.slug}`}
+                      style={{ color: "inherit" }}
+                    >
+                      {post.author}
+                    </Link>
+                  </em>
                 </div>
                 <div>
                   <span className="label">Tagged</span>

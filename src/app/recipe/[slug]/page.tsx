@@ -15,8 +15,12 @@ import RecipeDownloadChip from "@/components/v3/RecipeDownloadChip";
 import PresetDownloadButton from "@/components/recipe/PresetDownloadButton";
 import RecipeCompatibility from "@/components/recipe/RecipeCompatibility";
 import RecipeInteractions from "./RecipeInteractions";
+import RecipeAudioDemo from "@/components/recipe/RecipeAudioDemo";
 import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
-import { recipeJsonLdSet } from "@/lib/seo/jsonld";
+import { recipeJsonLdSet, recipeMediaJsonLd } from "@/lib/seo/jsonld";
+import audioDemos from "@/data/audio-demos.json";
+import type { RecipeAudioDemo as RecipeAudioDemoData } from "@/types/recipe";
+import type { RatingStats } from "@/types/community";
 import type { Metadata } from "next";
 
 /**
@@ -150,14 +154,27 @@ export default async function PreviewRecipePage({
   // request time (this page is ISR-revalidated, so it's per-build, not
   // per-request hot path). Failure / no Supabase → undefined → schema
   // simply omits AggregateRating.
-  let stats: { average: number; count: number } | undefined;
+  // Full rating stats drive BOTH the JSON-LD AggregateRating and the
+  // server-rendered <RecipeInteractions/> display, so the visible stars match
+  // the structured data in raw HTML (no SSR/crawler mismatch).
+  let ratingStats: RatingStats | undefined;
   try {
     const { getRatingStats } = await import("@/lib/db/ratings");
     const s = await getRatingStats(recipe.slug);
-    if (s.count > 0) stats = { average: s.average, count: s.count };
+    if (s.count > 0) ratingStats = s;
   } catch {
     // analytics never break SSR
   }
+  const stats = ratingStats
+    ? { average: ratingStats.average, count: ratingStats.count }
+    : undefined;
+
+  // Tone demo: manifest (written by scripts/render-recipe-audio.mjs) wins,
+  // falling back to anything hand-set on the recipe object.
+  const audioDemo: RecipeAudioDemoData | undefined =
+    (audioDemos as Record<string, RecipeAudioDemoData>)[recipe.slug] ??
+    recipe.audio_demo;
+  const recipeForSchema = audioDemo ? { ...recipe, audio_demo: audioDemo } : recipe;
 
   const { howTo, musicRecording, breadcrumb } = recipeJsonLdSet(
     recipe,
@@ -165,6 +182,7 @@ export default async function PreviewRecipePage({
     artist,
     stats,
   );
+  const mediaNodes = recipeMediaJsonLd(recipeForSchema, song);
 
   return (
     <div className="container">
@@ -178,6 +196,13 @@ export default async function PreviewRecipePage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(musicRecording) }}
         />
       )}
+      {mediaNodes.map((node, i) => (
+        <script
+          key={`media-${i}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(node) }}
+        />
+      ))}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -351,6 +376,10 @@ export default async function PreviewRecipePage({
           platformLabel={activePlatform?.name ?? platform}
         />
 
+        {/* Self-produced tone demo (renders only when a clip exists). The
+            audible proof + "Verified" date that backs the settings. */}
+        <RecipeAudioDemo demo={audioDemo} />
+
         {/* Engineer's note — editorial voice block. Uses the recipe description
             as a proxy until we get real per-recipe engineer notes. */}
         {recipe.description && (
@@ -438,7 +467,7 @@ export default async function PreviewRecipePage({
 
         {/* Ratings + comments — recipe_ratings + comments tables.
             Auth-gated post; anon users see read-only with sign-in CTA. */}
-        <RecipeInteractions recipeSlug={recipe.slug} />
+        <RecipeInteractions recipeSlug={recipe.slug} initialStats={ratingStats} />
 
         {/* Field notes on this tone — precision-first recipe→blog links
             (reverse of RelatedRecipes on /blog/[slug]; renders nothing

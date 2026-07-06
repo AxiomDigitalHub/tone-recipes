@@ -4,10 +4,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "How We Work",
   description:
-    "How Fader & Knob uses AI to research tones, generate presets, and write content — and how humans verify work on real hardware.",
+    "How Fader & Knob uses AI to research tones, generate presets, and write content — an open experiment with the full record public at /experiment.",
   openGraph: {
     title: "How We Work | Fader & Knob",
-    description: "AI-powered tone research, human-verified on real hardware.",
+    description:
+      "An open AI experiment in guitar tone — here's exactly how the machine works.",
     type: "website",
   },
 };
@@ -17,17 +18,25 @@ export default function HowWeWorkPage() {
     <div className="mx-auto max-w-3xl px-4 py-16 md:py-24">
       <h1 className="page-title page-title-md">How We Work</h1>
       <p className="mt-4 text-lg text-[var(--ink-muted)]">
-        Human-verified, AI-powered.
+        An open AI experiment. Here&apos;s the machine.
       </p>
 
       <div className="mt-12 space-y-12 text-[15px] leading-relaxed text-[var(--ink)]/90">
         {/* Intro */}
         <section>
           <p>
-            Fader & Knob is an experiment in what happens when you combine AI
-            with real guitar expertise. We use AI tools extensively — for
-            research, writing, preset generation, and code — and we think you
-            should know exactly how.
+            Fader & Knob is an experiment in what happens when one person
+            directs AI to build an entire guitar resource. We use AI
+            extensively — for research, writing, preset generation, and code —
+            and we think you should know exactly how. The running log, with
+            every number generated from the repository, lives at{" "}
+            <Link
+              href="/experiment"
+              className="text-[var(--amber-2)] hover:underline"
+            >
+              The Experiment
+            </Link>
+            .
           </p>
         </section>
 
@@ -83,11 +92,17 @@ export default function HowWeWorkPage() {
             <li className="flex gap-3">
               <span className="mt-1 shrink-0 text-emerald-400">1.</span>
               <div>
-                <strong className="text-[var(--ink)]">Test on real hardware.</strong>{" "}
-                Presets are loaded into HX Edit and tested on real hardware as
-                part of our review process. When a preset doesn&apos;t sound
-                right or fails to load correctly, it gets flagged and fixed
-                before it ships.
+                <strong className="text-[var(--ink)]">Run the correction loop.</strong>{" "}
+                When a preset fails to load, a setting reads wrong, or a reader
+                flags an error, it gets fixed — and the fix ships as a public
+                commit. The correction count sits on{" "}
+                <Link
+                  href="/experiment"
+                  className="text-[var(--amber-2)] hover:underline"
+                >
+                  the experiment page
+                </Link>
+                , next to the wins.
               </div>
             </li>
             <li className="flex gap-3">
@@ -101,9 +116,11 @@ export default function HowWeWorkPage() {
             <li className="flex gap-3">
               <span className="mt-1 shrink-0 text-emerald-400">3.</span>
               <div>
-                <strong className="text-[var(--ink)]">Verify accuracy.</strong>{" "}
-                Tone research is checked against known gear lists, live footage,
-                and studio documentation. If the AI gets it wrong, we fix it.
+                <strong className="text-[var(--ink)]">Own the mistakes.</strong>{" "}
+                Research is cross-checked against gear lists, live footage, and
+                studio documentation — and when it&apos;s still wrong, the
+                error is acknowledged and corrected in the open, not quietly
+                swapped.
               </div>
             </li>
           </ul>
@@ -116,8 +133,8 @@ export default function HowWeWorkPage() {
             Building 50 tone recipes across multiple platforms with detailed
             signal chains, settings, and downloadable presets would take a
             traditional team months. AI lets us move faster, cover more ground,
-            and keep prices low — while human verification ensures the output
-            is actually useful when you plug in your guitar.
+            and keep prices low — and the public correction record keeps the
+            output honest: every fix is a visible commit, not a quiet edit.
           </p>
           <p className="mt-4">
             We think this is more honest than a polished marketing page that
@@ -137,8 +154,9 @@ export default function HowWeWorkPage() {
             over a single byline because it produces better, more focused writing.
           </p>
           <p className="mt-4">
-            Every post is reviewed for accuracy before publication. If you spot
-            something wrong, email{" "}
+            Posts are generated from cited research and corrected in public
+            when an audit or a reader catches an error. If you spot something
+            wrong, email{" "}
             <a
               href="mailto:hello@faderandknob.com"
               className="text-[var(--amber-2)] hover:underline"
@@ -153,9 +171,9 @@ export default function HowWeWorkPage() {
         <section className="rounded-2xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-8">
           <h2 className="mb-3 text-xl font-bold text-[var(--ink)]">The Bottom Line</h2>
           <p>
-            AI researches. AI writes. AI generates presets. Humans test on real
-            gear, set the direction, and make sure everything actually sounds
-            good. Judge us by the output — load a preset, dial in a tone, and
+            AI researches. AI writes. AI generates presets. A human sets the
+            direction, and the record — what worked and what got fixed — is
+            public. Judge us by the output: load a preset, dial in a tone, and
             see if it gets you closer to the sound you hear in your head.
           </p>
         </section>

@@ -15,6 +15,7 @@ const exploreLinks = [
 ];
 
 const communityLinks = [
+  { href: "/experiment", label: "The Experiment" },
   { href: "/blog", label: "Field Notes" },
   { href: "/community", label: "Community Hub" },
   { href: "/feed.xml", label: "RSS Feed" },
@@ -130,8 +131,11 @@ export default function Footer() {
             <Link href="/terms">Terms</Link>
           </div>
           <p className="fk-footer-disclaimer">
-            Researched and written with AI assistance; hardware testing is part of our review process.
-            Some links are affiliate links — Fader &amp; Knob may earn a commission on purchases at no extra cost to you.
+            Fader &amp; Knob is an open AI experiment — the recipes, articles,
+            and presets are AI-built, and the record is public.{" "}
+            <Link href="/experiment">See the running log</Link>. Some links are
+            affiliate links — Fader &amp; Knob may earn a commission on
+            purchases at no extra cost to you.
           </p>
         </div>
       </div>

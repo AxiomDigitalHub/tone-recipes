@@ -93,6 +93,33 @@ export interface ToneRecipe {
   created_at?: string;
   /** ISO date (YYYY-MM-DD) of the last meaningful edit (audit fixes, gear corrections). */
   updated_at?: string;
+  /**
+   * Self-produced audio demo of THIS recipe's tone — a DI run through the
+   * actual preset (see scripts/render-recipe-audio.mjs). Its presence is what
+   * turns an *asserted* recipe into a *verified* one: the rendered clip is the
+   * proof, and `rendered_at` is the honest "last tested" trust signal that
+   * replaces the seeded reviews. Optional; recipes without a demo render no
+   * player and emit no AudioObject/VideoObject schema.
+   *
+   * Usually supplied via the src/data/audio-demos.json manifest the render
+   * script writes, not hand-set here.
+   */
+  audio_demo?: RecipeAudioDemo;
+}
+
+export interface RecipeAudioDemo {
+  /** Public path to the rendered clip, e.g. /audio/cobain-teen-spirit-grunge.mp3 */
+  audio_url: string;
+  /** Optional waveform/visualizer video (for VideoObject + a richer embed). */
+  video_url?: string;
+  /** One line, e.g. "DI through the Helix preset — clean verse into the chorus hook." */
+  caption: string;
+  /** ISO date (YYYY-MM-DD) the clip was rendered. Doubles as the "verified" date. */
+  rendered_at: string;
+  /** Clip length in seconds (drives AudioObject/VideoObject `duration`). */
+  duration_sec?: number;
+  /** Honest provenance: what was played + the rig, e.g. "Strat DI → Helix Native 3.8". */
+  source_note?: string;
 }
 
 export interface Artist {

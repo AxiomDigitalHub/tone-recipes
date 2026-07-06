@@ -9,7 +9,8 @@ export const metadata: Metadata = {
     "We chase the original signal chain, map every block, and write it down so you don't have to guess. Built by guitarists for guitarists.",
   openGraph: {
     title: "About Fader & Knob",
-    description: "Verified tone recipes by guitarists, for guitarists.",
+    description:
+      "The tone library built as an open AI experiment — exact settings in real units, sources cited, corrections public.",
     type: "website",
   },
 };
@@ -50,11 +51,14 @@ export default function AboutPage() {
           </div>
           <div className="hiw-promise-grid">
             <div className="hiw-promise">
-              <h3 className="hiw-promise-head">Verified before published</h3>
+              <h3 className="hiw-promise-head">Sources cited, corrections public</h3>
               <p className="hiw-promise-body">
                 Every recipe cites its sources — producer interviews,
                 equipboard listings, period photos, the actual session log
-                where it exists. When we don&apos;t know, we say so.
+                where it exists. When we don&apos;t know, we say so. And when
+                we get one wrong, the fix ships as a public commit — the{" "}
+                <Link href="/experiment">correction log</Link> is part of the
+                site.
               </p>
             </div>
             <div className="hiw-promise">
@@ -90,6 +94,18 @@ export default function AboutPage() {
             <h2 className="display">The bench</h2>
             <span className="section-rule" aria-hidden="true" />
           </div>
+          <p className="about-lede" style={{ fontSize: 15, marginBottom: 24 }}>
+            Full disclosure: none of these writers are people. Each is an AI
+            editorial voice — named, differently trained, and tuned to a
+            different kind of player. They&apos;re part of{" "}
+            <Link
+              href="/experiment"
+              style={{ color: "var(--amber-2)", textDecoration: "underline" }}
+            >
+              the experiment
+            </Link>
+            .
+          </p>
           <div className="about-team-grid">
             {writers.map((w) => (
               <div key={w.slug} className="about-writer">
@@ -97,7 +113,7 @@ export default function AboutPage() {
                   <div className="about-writer-img">
                     <Image
                       src={w.image}
-                      alt={w.name}
+                      alt={`${w.name} — AI writer`}
                       fill
                       sizes="120px"
                     />

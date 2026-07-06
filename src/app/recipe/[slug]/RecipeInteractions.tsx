@@ -10,18 +10,31 @@ import type { RatingStats } from "@/types/community";
 
 interface RecipeInteractionsProps {
   recipeSlug: string;
+  /**
+   * Server-fetched rating stats. When provided, the component renders the
+   * real average/count/distribution in the initial (server) HTML so the
+   * visible stars match the JSON-LD AggregateRating. The client still
+   * refreshes after mount to pick up the signed-in user's own rating and any
+   * freshly-cast votes.
+   */
+  initialStats?: RatingStats;
 }
 
-export default function RecipeInteractions({ recipeSlug }: RecipeInteractionsProps) {
+const EMPTY_STATS: RatingStats = {
+  average: 0,
+  count: 0,
+  distribution: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
+};
+
+export default function RecipeInteractions({
+  recipeSlug,
+  initialStats,
+}: RecipeInteractionsProps) {
   const { user } = useAuth();
   const recordView = useRecentlyViewedStore((s) => s.record);
-  const [stats, setStats] = useState<RatingStats>({
-    average: 0,
-    count: 0,
-    distribution: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
-  });
+  const [stats, setStats] = useState<RatingStats>(initialStats ?? EMPTY_STATS);
   const [userRating, setUserRating] = useState<number | null>(null);
-  const [ratingLoading, setRatingLoading] = useState(true);
+  const [ratingLoading, setRatingLoading] = useState(!initialStats);
 
   // Record this recipe in the recently-viewed store (dashboard reads this)
   useEffect(() => {

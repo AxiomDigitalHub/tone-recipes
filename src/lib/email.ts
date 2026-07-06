@@ -154,8 +154,9 @@ export async function sendNewsletterWelcome(to: string) {
               <a href="https://faderandknob.com" style="color: #6e7a8a;">faderandknob.com</a>.
             </p>
             <p style="margin: 0 0 6px;">
-              Content researched and written with AI assistance.
-              Hardware testing is part of our review process.
+              Fader &amp; Knob is an open AI experiment — content is
+              AI-researched and AI-written, with the record public at
+              <a href="https://faderandknob.com/experiment" style="color: #6e7a8a;">faderandknob.com/experiment</a>.
             </p>
             ${unsubscribeFooter(to, "navy")}
           </div>

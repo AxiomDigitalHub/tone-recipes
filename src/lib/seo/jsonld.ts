@@ -109,6 +109,65 @@ export function recipeJsonLdSet(
 }
 
 /* -------------------------------------------------------------------------- */
+/*  Recipe media — AudioObject (+ optional VideoObject)                        */
+/* -------------------------------------------------------------------------- */
+
+/** ISO-8601 duration (e.g. 42 -> "PT42S"). Omitted upstream when unknown. */
+function isoDuration(seconds: number): string {
+  const s = Math.max(0, Math.round(seconds));
+  const m = Math.floor(s / 60);
+  const rem = s % 60;
+  return m > 0 ? `PT${m}M${rem}S` : `PT${rem}S`;
+}
+
+/**
+ * Self-produced tone demo as AudioObject, plus VideoObject when a waveform
+ * video exists. This is the structured-data moat: no direct competitor ships
+ * self-produced tone demos, so these nodes open rich-result / AI-citation
+ * surfaces nobody else in the niche occupies. Returns [] when no demo.
+ */
+export function recipeMediaJsonLd(
+  recipe: ToneRecipe,
+  song: Song | undefined,
+): JsonLdNode[] {
+  const demo = recipe.audio_demo;
+  if (!demo) return [];
+
+  const url = (p: string) => (p.startsWith("http") ? p : `${SITE}${p}`);
+  const name = `${recipe.title} — tone demo`;
+  const dur = demo.duration_sec ? { duration: isoDuration(demo.duration_sec) } : {};
+  const thumb = song?.album_art_url ? { thumbnailUrl: song.album_art_url } : {};
+
+  const nodes: JsonLdNode[] = [
+    {
+      "@context": "https://schema.org",
+      "@type": "AudioObject",
+      name,
+      description: demo.caption,
+      contentUrl: url(demo.audio_url),
+      encodingFormat: "audio/mpeg",
+      uploadDate: demo.rendered_at,
+      ...dur,
+    },
+  ];
+
+  if (demo.video_url) {
+    nodes.push({
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name,
+      description: demo.caption,
+      contentUrl: url(demo.video_url),
+      uploadDate: demo.rendered_at,
+      ...thumb,
+      ...dur,
+    });
+  }
+
+  return nodes;
+}
+
+/* -------------------------------------------------------------------------- */
 /*  Song — MusicRecording + Breadcrumb                                         */
 /* -------------------------------------------------------------------------- */
 
@@ -341,27 +400,25 @@ export function platformJsonLdSet(
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Writer — Person schema for /writers/[slug] profile pages                   */
+/*  Writer — /writers/[slug] profile pages (AI editorial voices)               */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * Honest authorship (2026-07-06): the writers are AI editorial voices, not
+ * people, so these pages must NOT emit Person schema — that asserts a human
+ * to search engines. The profile is a plain WebPage describing the voice,
+ * with the disclosure in the description itself.
+ */
 export function writerJsonLdSet(
   writer: Writer,
-): { person: JsonLdNode; breadcrumb: JsonLdNode } {
-  const person: JsonLdNode = {
+): { profile: JsonLdNode; breadcrumb: JsonLdNode } {
+  const profile: JsonLdNode = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: writer.name,
+    "@type": "WebPage",
+    name: `${writer.name} — AI editorial voice`,
     url: `${SITE}/writers/${writer.slug}`,
-    description: writer.bio,
-    jobTitle: writer.title,
-    worksFor: {
-      "@type": "Organization",
-      name: "Fader & Knob",
-      url: SITE,
-    },
-    ...(writer.image
-      ? { image: writer.image.startsWith("http") ? writer.image : `${SITE}${writer.image}` }
-      : {}),
+    description: `${writer.name} is one of Fader & Knob's AI editorial voices — ${writer.title}. Not a person: a differently-trained writing persona, disclosed as part of the open experiment.`,
+    isPartOf: { "@type": "WebSite", name: "Fader & Knob", url: SITE },
   };
 
   const breadcrumb: JsonLdNode = {
@@ -374,7 +431,7 @@ export function writerJsonLdSet(
     ],
   };
 
-  return { person, breadcrumb };
+  return { profile, breadcrumb };
 }
 
 /* -------------------------------------------------------------------------- */

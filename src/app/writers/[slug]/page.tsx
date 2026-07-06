@@ -6,15 +6,15 @@ import { getAllPosts } from "@/lib/blog";
 import { writerJsonLdSet } from "@/lib/seo/jsonld";
 
 /**
- * /writers/[slug] — staff writer profile page.
+ * /writers/[slug] — AI editorial voice profile page.
  *
- * Built 2026-05-12 to close schema audit finding #1: blog Article.author.url
- * had been pointing at /writers/${slug} which didn't exist. Now the URL is
- * real, the route ships Person schema (the E-E-A-T authorship signal Google
- * looks for), and the blog Article schema is restored to include the URL.
+ * Honest authorship (2026-07-06): these writers are AI personas, and the
+ * page now says so on its face — "AI Writer" kicker, an explicit disclosure
+ * line, and WebPage (not Person) schema. The persona/backstory data in
+ * src/lib/writers.ts stays intact: it's the prompt scaffolding that gives
+ * each voice its character, presented as the character card it is.
  *
- * Reads from src/lib/writers.ts (10 writers). Posts by the writer come
- * from getAllPosts() filtered by authorSlug.
+ * Posts by the voice come from getAllPosts() filtered by authorSlug.
  */
 
 export function generateStaticParams() {
@@ -55,14 +55,14 @@ export default async function WriterProfilePage({
     .filter((p) => p.authorSlug === slug)
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 
-  const { person, breadcrumb } = writerJsonLdSet(writer);
+  const { profile, breadcrumb } = writerJsonLdSet(writer);
 
   return (
     <>
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profile) }}
       />
       <script
         type="application/ld+json"
@@ -81,12 +81,28 @@ export default async function WriterProfilePage({
 
         <header className="archive-masthead">
           <div className="archive-kicker">
-            <span>Writer</span>
+            <span>AI Writer</span>
             <span style={{ opacity: 0.4 }}>·</span>
             <span>{writer.title}</span>
           </div>
           <h1 className="archive-title">{writer.name}</h1>
           <p className="archive-lede">{writer.bio}</p>
+          <p
+            className="mt-4 text-sm leading-relaxed"
+            style={{ color: "var(--ink-muted)" }}
+          >
+            {writer.name} is not a person. This is one of Fader &amp;
+            Knob&apos;s AI editorial voices — a differently-trained writing
+            persona, and the bio above is its character card. Why we write
+            this way is documented in{" "}
+            <Link
+              href="/experiment"
+              style={{ color: "var(--amber-2)", textDecoration: "underline" }}
+            >
+              the experiment
+            </Link>
+            .
+          </p>
         </header>
 
         {writer.backstory && (
