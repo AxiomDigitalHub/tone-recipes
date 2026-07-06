@@ -119,7 +119,7 @@ const PLATFORM_FAMILY: Record<
     methodology: [
       "Era-correct models. Every Helix recipe targets the actual amp, cab, and pedals on the original session, mapped to the closest HX models. We don't substitute models that just sound similar — if the song was a Tweed Bassman, we use Tweed Blues / Tweed Brt, not a generic clean.",
       "Real ranges. Amp gain sits in dB-equivalent territory, not on an abstract 0–10 scale. Delay times are real ms values. EQ frequency points are real Hz. Where the model exposes a Bias knob, we set it the way a tech would, not the way a knob graphic suggests.",
-      "Hardware-tested. Every patch is loaded onto a Helix Floor or LT and A/B'd against the reference recording before it ships. Mic + cab choices are picked by ear against the original master, with the dual-mic balance documented (e.g. 57 + 121 on a 4x12 G12M, 70/30 toward the 57).",
+      "Built against ground truth. Presets are generated against a structured dataset harvested from 250+ real HX Edit preset files — every model ID and parameter structure is checked against that corpus so patches load clean. Dual-mic cab balances are documented in the recipe (e.g. 57 + 121 on a 4x12 G12M, 70/30 toward the 57). When a patch loads wrong or reads wrong, the fix ships as a public commit.",
     ],
     gotchas: [
       ".hlx vs. .hlb — recipes ship .hlx (single preset) so importing won't overwrite your other patches. .hlb files are full setlist backups; we never publish those.",
@@ -209,7 +209,7 @@ const PLATFORM_FAMILY: Record<
     methodology: [
       "Amp character mapped by gain structure. Each Katana recipe picks the closest of Acoustic, Clean, Crunch, Lead, or Brown — the one that matches the gain shape of the original, not just the genre. AC30-style breakup → Crunch; JCM800 saturation → Brown. The recipe note explains the call so you can change it if your guitar's pickups push the picture differently.",
       "Effects budget aware. Katana gives you eight effect slots across BOOSTER, MOD/FX, and DLY/REV. Recipes are designed to fit. When the original tone really needs a ninth thing, the gotcha note tells you what to swap (typically the BOOSTER, since most recipes don't lean on it heavily).",
-      "Hardware-tested on the live unit. Every Katana recipe is dialed on a Katana 100 Gen 3, with both the speaker output and headphone-out checked separately — Boss applies a different speaker emulation EQ to the headphone path, so a tone that sits right through a 12\" can read very different on cans.",
+      "Translated, then corrected in public. Katana recipes are AI-translated from the recipe's reference chain into the eight-slot format, and fixes ship as public commits when a reader flags one. Worth knowing: Boss applies a different speaker-emulation EQ to the headphone path than the speaker output, so a tone that sits right through a 12\" can read very different on cans — re-check level and treble when you switch.",
     ],
     gotchas: [
       "Channel slots vs. variations. MkII has four memory channels; Gen 3 has two variations per channel for eight patches total. Recipes ship one .tsl per channel — moving a Gen 3 .tsl onto MkII drops the second variation.",

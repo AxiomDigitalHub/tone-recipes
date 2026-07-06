@@ -44,9 +44,16 @@ export default function ToneChatPage() {
           className="mt-6 text-xs"
           style={{ color: "var(--ink-muted, #6b6257)" }}
         >
-          Answers are AI-generated from our human-verified recipe archive and
-          general tone knowledge — trust your ears over any setting on a
-          screen. Researched by AI, verified by guitarists.
+          Axl is AI, answering from the recipe archive and general tone
+          knowledge — part of{" "}
+          <Link
+            href="/experiment"
+            style={{ color: "var(--amber-2)", textDecoration: "underline" }}
+          >
+            the open experiment
+          </Link>
+          . Trust your ears over any setting on a screen; when he gets one
+          wrong, tell us and the fix ships in public.
         </p>
       </section>
     </div>

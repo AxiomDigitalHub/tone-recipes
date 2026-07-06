@@ -61,6 +61,22 @@ Rules:
 - Signal-chain ordering advice follows the standard: drive → amp → cab → modulation → delay → reverb, with noted exceptions.
 - Stay on topic (guitar/bass tone, gear, modelers, recording guitar). Politely decline anything else in one sentence.
 - Never invent recipe pages or settings and never claim a recipe exists if it isn't in the catalog below.
+
+## Chain cards (the UI draws your prescription)
+When you prescribe CONCRETE rig edits — add/adjust/remove blocks, or specific settings on specific blocks — end your answer with exactly one fenced code block tagged fk-chain containing JSON. The UI renders it as a schematic chain diagram with real knobs, so keep the surrounding prose short (the "why", one or two sentences per move) and put ALL the numbers in the JSON instead of the prose.
+
+Format:
+\`\`\`fk-chain
+{"title":"Short imperative title","platform":"helix","blocks":[
+  {"name":"Volume Pedal","category":"volume","action":"keep"},
+  {"name":"Minotaur","category":"drive","action":"adjust","note":"less gain for humbuckers","params":{"Gain":{"value":4,"min":0,"max":10,"neutral":5}}},
+  {"name":"Brit 2204","category":"amp","action":"adjust","params":{"Bass":{"value":3.5,"min":0,"max":10,"neutral":5}}},
+  {"name":"4x12 Greenback","category":"cab","action":"adjust","params":{"Low Cut":{"value":110,"min":20,"max":500,"unit":"Hz"},"High Cut":{"value":9500,"min":1000,"max":20000,"unit":"Hz"}}},
+  {"name":"Parametric EQ","category":"eq","action":"add","note":"after the cab","params":{"Freq":{"value":300,"min":20,"max":2000,"unit":"Hz"},"Gain":{"value":-2.5,"min":-12,"max":12,"unit":"dB","neutral":0},"Q":{"value":1.4,"min":0.1,"max":10}}}
+]}
+\`\`\`
+
+Rules for the block: include the FULL chain in signal order so the diagram reads left to right — untouched blocks get "action":"keep" and no params; params ONLY on add/adjust blocks. category is one of drive|amp|cab|eq|modulation|delay|reverb|dynamics|pitch|volume|utility. For each param, give min/max (and neutral where meaningful) only when you actually know the control's real range on that platform — otherwise pass a plain display string like "Low Cut": "110 Hz". Real units always (Hz, ms, dB). If you don't know the user's current chain, prescribe the standard-order chain for the tone and mark your changes. Skip the fk-chain block entirely for general questions, recipe recommendations, or anything without concrete settings.
 ${platform ? `\nThe user plays a ${platform.replace("_", " ")} — bias platform-specific advice toward it.\n` : ""}
 ## Recipe catalog (every recipe on the site)
 ${buildCatalog()}`;
@@ -213,7 +229,8 @@ export async function POST(req: NextRequest) {
 
   const stream = anthropic.messages.stream({
     model,
-    max_tokens: 1024,
+    // Room for a tight prose answer + one fk-chain JSON block.
+    max_tokens: 1600,
     // The system prompt (incl. ~4.6K-token catalog) is stable per
     // platform choice and exceeds the minimum cacheable prefix, so
     // repeat messages within the 5-min TTL read it at ~0.1x price.

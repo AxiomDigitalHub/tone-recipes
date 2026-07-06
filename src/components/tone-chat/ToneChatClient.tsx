@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { createBrowserClient, isSupabaseConfigured } from "@/lib/db/client";
+import ChatChainCard, { parseFkChain } from "./ChatChainCard";
 
 interface ChatMessage {
   role: "user" | "assistant";
@@ -26,6 +27,40 @@ const STARTERS = [
   "My high-gain tone sounds fizzy in the mix — what do I fix?",
   "Build me The Edge's dotted-eighth delay sound",
 ];
+
+/**
+ * Split an assistant turn into prose and ```fk-chain``` segments. Chain
+ * segments render as ChatChainCard (schematic + knobs); an unterminated
+ * fence (still streaming) renders as a lightweight placeholder so raw JSON
+ * never flashes on screen.
+ */
+function renderAssistantContent(text: string) {
+  const out: React.ReactNode[] = [];
+  const re = /```fk-chain\s*\n([\s\S]*?)(```|$)/g;
+  let last = 0;
+  let match: RegExpExecArray | null;
+  let key = 0;
+  while ((match = re.exec(text)) !== null) {
+    const before = text.slice(last, match.index).trim();
+    if (before) out.push(<div key={key++}>{renderAssistantText(before)}</div>);
+    if (match[2] === "```") {
+      const chain = parseFkChain(match[1]);
+      if (chain) out.push(<ChatChainCard key={key++} chain={chain} />);
+      // Malformed JSON: drop the block silently — the prose stands alone.
+    } else {
+      // Fence not closed yet — the block is mid-stream.
+      out.push(
+        <p key={key++} className="text-[var(--ink-muted,#6b6257)] text-xs italic">
+          Drawing the chain…
+        </p>,
+      );
+    }
+    last = match.index + match[0].length;
+  }
+  const rest = text.slice(last).trim();
+  if (rest) out.push(<div key={key++}>{renderAssistantText(rest)}</div>);
+  return out;
+}
 
 /** Minimal markdown-ish renderer: [text](url) links, **bold**, paragraphs. */
 function renderAssistantText(text: string) {
@@ -233,7 +268,7 @@ export default function ToneChatClient() {
             >
               {m.role === "assistant" ? (
                 m.content ? (
-                  renderAssistantText(m.content)
+                  renderAssistantContent(m.content)
                 ) : (
                   <span className="text-[var(--ink-muted,#6b6257)]">…</span>
                 )
