@@ -79,7 +79,7 @@ export async function generateMetadata({
     return {
       title: "Browse Tones",
       description:
-        "The full archive of verified tone recipes. Filter by era, platform, or genre — every recipe with full signal chains and settings.",
+        "The full archive of tone recipes. Filter by era, platform, or genre — every recipe with full signal chains and exact settings.",
       alternates: { canonical: "/browse" },
       openGraph: {
         title: "Browse Tones — Fader & Knob",

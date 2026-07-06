@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/gear`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/compare`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/how-it-works`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${baseUrl}/how-we-work`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.5 },
     // The open-experiment running log — updated as stats regenerate.
     { url: `${baseUrl}/experiment`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.7 },
     { url: `${baseUrl}/request`, lastModified: launchDate, changeFrequency: "daily", priority: 0.7 },

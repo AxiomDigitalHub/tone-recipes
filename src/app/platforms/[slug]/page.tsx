@@ -34,7 +34,7 @@ export async function generateMetadata({
   }
   const recipeCount = getRecipesForPlatform(slug as Platform).length;
   const title = `${p.label}${p.manufacturer ? ` (${p.manufacturer})` : ""} Tone Recipes — Fader & Knob`;
-  const description = `${recipeCount} verified tone recipes for the ${p.label}. Signal chains, block settings, and presets ready to import.`;
+  const description = `${recipeCount} tone recipes for the ${p.label}. Full signal chains, exact block settings, and presets ready to import.`;
   return {
     title,
     description,

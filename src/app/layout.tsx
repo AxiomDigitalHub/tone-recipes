@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
+import Link from "next/link";
 import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import Footer from "@/components/layout/Footer";
+import experimentStats from "@/data/experiment-stats.json";
 import SiteSubnav from "@/components/layout/SiteSubnav";
 import LazySearchPalette from "@/components/search/LazySearchPalette";
 import SmoothScroll from "@/components/ui/SmoothScroll";
@@ -156,12 +158,34 @@ export default function RootLayout({
       >
         <AuthProvider>
           <div className="fk-preview flex min-h-screen flex-col flex-1">
+            {/* Masthead ticker — the sitewide inroad to /experiment. Live
+                numbers from experiment-stats.json (regenerated with content
+                drops), replacing the old hardcoded Vol./Issue fiction. */}
             <div className="masthead-bar">
               <div className="masthead-bar-inner">
-                <div>
+                <Link
+                  href="/experiment"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
                   <span className="tape-dot" />
-                  Vol. 04 · Issue 14 · APR 2026
-                </div>
+                  Open experiment · Day{" "}
+                  {/* Against generated_at (not Date.now) — pure render, and
+                      the ticker always agrees with the /experiment page. */}
+                  {Math.max(
+                    1,
+                    Math.round(
+                      (new Date(
+                        experimentStats.generated_at + "T00:00:00Z",
+                      ).getTime() -
+                        new Date(
+                          experimentStats.first_commit + "T00:00:00Z",
+                        ).getTime()) /
+                        86_400_000,
+                    ),
+                  )}{" "}
+                  · {experimentStats.commits} commits ·{" "}
+                  {experimentStats.public_corrections} public corrections
+                </Link>
                 <div>Stop tweaking. Start playing.</div>
               </div>
             </div>

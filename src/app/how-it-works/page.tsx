@@ -2,12 +2,12 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How Fader & Knob works — verified tone recipes, every modeler",
+  title: "How Fader & Knob works — tone recipes, every modeler",
   description:
     "We chase the original gear, map the signal chain, and translate it to every major modeler. Helix, Quad Cortex, TONEX, Fractal, Kemper, pedalboard. The numbers are the product.",
   openGraph: {
     title: "How Fader & Knob works",
-    description: "Verified tone recipes — chase, map, translate. Every modeler.",
+    description: "Tone recipes — chase, map, translate. Every modeler.",
     type: "website",
   },
 };
@@ -17,8 +17,8 @@ const STEPS = [
     no: "1",
     title: "We chase the tone",
     body:
-      "Our editors are tone nerds. They listen, isolate, and A/B against rigs we already know inside-out. The Pride and Joy session takes a whole afternoon — most of it on the Tube Screamer's tone knob and the Vibroverb's master volume. Recordings get reverse-engineered against producer interviews, gear lists, and (where it exists) the actual session log.",
-    tag: "Editorial",
+      "Every recipe starts with the historical record: producer interviews, gear lists, period photos, live footage, and (where it exists) the actual session log. Our AI research pipeline reads all of it and reconstructs what was actually plugged into what — era-correct, source-cited, and honest about what's inferred versus documented. When the record is thin, the recipe says so.",
+    tag: "Research",
   },
   {
     no: "2",
@@ -38,9 +38,9 @@ const STEPS = [
 
 const PROMISES = [
   {
-    head: "Verified, not guessed",
+    head: "Sourced, not guessed",
     body:
-      "Every recipe cites its sources — producer interviews, equipboard listings, gear photos, period-correct mods. When we don't know, we say so.",
+      "Every recipe cites its sources — producer interviews, equipboard listings, gear photos, period-correct mods. When we don't know, we say so. And when we get one wrong, the fix ships as a public commit.",
   },
   {
     head: "Era-correct gear",
@@ -119,6 +119,23 @@ export default function HowItWorksPage() {
               Read field notes
             </Link>
           </div>
+          <p style={{ marginTop: 24, fontSize: 14, color: "var(--ink-muted)" }}>
+            Curious who&apos;s behind this? An AI, mostly — openly.{" "}
+            <Link
+              href="/how-we-work"
+              style={{ color: "var(--amber-2)", textDecoration: "underline" }}
+            >
+              How we work
+            </Link>{" "}
+            explains the machine, and{" "}
+            <Link
+              href="/experiment"
+              style={{ color: "var(--amber-2)", textDecoration: "underline" }}
+            >
+              the experiment
+            </Link>{" "}
+            shows the running record.
+          </p>
         </section>
       </section>
     </div>

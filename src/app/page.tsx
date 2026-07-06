@@ -14,11 +14,11 @@ import { LpArt, monogramFor } from "@/components/v3/LpArt";
 export const metadata: Metadata = {
   title: "Fader & Knob — Tone recipes for modeler players",
   description:
-    "Verified signal chains for the songs you love, ported across Helix, Quad Cortex, TONEX, Fractal, Kemper, and pedalboard. Stop tweaking. Start playing.",
+    "Exact signal chains for the songs you love, ported across Helix, Quad Cortex, TONEX, Fractal, Kemper, and pedalboard. Stop tweaking. Start playing.",
   openGraph: {
     title: "Fader & Knob — Tone recipes for modeler players",
     description:
-      "Verified signal chains for the songs you love, ported across every modeler.",
+      "Exact signal chains for the songs you love, ported across every modeler.",
     type: "website",
   },
 };
@@ -67,7 +67,21 @@ export default function PreviewIndex() {
               We take an iconic recording, map the full signal chain, and
               translate every setting into the exact numbers for{" "}
               <b>your</b> Helix, Quad Cortex, TONEX, Fractal, Kemper,
-              Katana, or pedalboard.
+              Katana, or pedalboard.{" "}
+              <span style={{ display: "block", marginTop: 10 }}>
+                And the whole site is an open AI experiment —{" "}
+                <Link
+                  href="/experiment"
+                  style={{
+                    color: "var(--amber-2)",
+                    textDecoration: "underline",
+                    textUnderlineOffset: 3,
+                  }}
+                >
+                  watch it run
+                </Link>
+                .
+              </span>
             </p>
           </div>
 
@@ -135,8 +149,9 @@ export default function PreviewIndex() {
             <span className="how-step-no" aria-hidden="true">1</span>
             <h3 className="how-step-title">We chase the tone</h3>
             <p className="how-step-body">
-              Listen, isolate, A/B against rigs we know. Our editors are
-              tone nerds who will spend a whole afternoon on a delay tail.
+              Producer interviews, gear lists, period photos, session logs.
+              AI reads the historical record and reconstructs what was
+              actually plugged into what — sources cited.
             </p>
           </li>
           <li className="how-step">
