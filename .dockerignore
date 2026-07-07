@@ -6,7 +6,8 @@
 node_modules
 audits
 docs
-data
+# data/ stays IN the context: src/lib/helix/model-map.ts statically imports
+# data/helix-inventory.json at build time (bundled, not read at runtime).
 supabase
 *.md
 !content/**/*.md
