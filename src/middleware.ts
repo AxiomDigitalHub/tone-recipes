@@ -3,7 +3,9 @@ import type { NextRequest } from "next/server";
 
 /* -------------------------------------------------------------------------- */
 /*  Geo-blocking: OFAC-sanctioned + high-risk countries                       */
-/*  Uses Vercel's x-vercel-ip-country header (ISO 3166-1 alpha-2)            */
+/*  Host-portable: reads Vercel's x-vercel-ip-country OR Cloudflare's        */
+/*  cf-ipcountry (both ISO 3166-1 alpha-2). Behind neither, no header →      */
+/*  no block — geo-blocking degrades open rather than locking everyone out.  */
 /* -------------------------------------------------------------------------- */
 
 const BLOCKED_COUNTRIES = new Set([
@@ -21,7 +23,10 @@ const BLOCKED_COUNTRIES = new Set([
 
 export function middleware(request: NextRequest) {
   // ---- Geo-block ----
-  const country = request.headers.get("x-vercel-ip-country") ?? "";
+  const country =
+    request.headers.get("x-vercel-ip-country") ??
+    request.headers.get("cf-ipcountry") ??
+    "";
   if (country && BLOCKED_COUNTRIES.has(country)) {
     return new NextResponse("Access restricted in your region.", {
       status: 403,

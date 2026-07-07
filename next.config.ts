@@ -1,6 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Self-contained server bundle (.next/standalone) so the site runs on any
+  // Node host / Docker image with `node server.js` — no Vercel required.
+  // Vercel's build infra ignores this setting, so it's a no-op while we're
+  // still deployed there. See Dockerfile + docs/MIGRATION.md.
+  output: "standalone",
+  // Pin the tracing root to THIS project. A stray lockfile in a parent dir
+  // otherwise makes Next infer a broader workspace root, which nests the
+  // standalone output under .next/standalone/tone-recipes/ and breaks the
+  // Dockerfile's COPY paths.
+  outputFileTracingRoot: process.cwd(),
   // Keep the headless-Chrome packages OUT of the bundler. Next/Turbopack
   // otherwise relocates @sparticuz/chromium and drops its bin/ brotli
   // payload (the actual Chromium binary), which 500s the PDF download with

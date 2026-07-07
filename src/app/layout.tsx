@@ -199,8 +199,15 @@ export default function RootLayout({
           <Toaster />
         </AuthProvider>
         <SmoothScroll />
-        <Analytics />
-        <SpeedInsights />
+        {/* Vercel-only telemetry: their scripts 404 on any other host, so
+            gate on the platform env. GA4 + Clarity below are host-agnostic
+            and carry analytics after migration. */}
+        {process.env.VERCEL === "1" && (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        )}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-PZLWYT7VMP"
           strategy="lazyOnload"

@@ -1,0 +1,8 @@
+# Origin config for faderandknob.com behind Cloudflare (orange-cloud proxy).
+# Caddy auto-provisions the origin certificate; set Cloudflare SSL/TLS mode
+# to "Full (strict)". www→apex redirect is handled by src/middleware.ts.
+
+faderandknob.com, www.faderandknob.com {
+	encode zstd gzip
+	reverse_proxy app:3000
+}

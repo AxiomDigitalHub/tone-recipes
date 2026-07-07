@@ -1,0 +1,37 @@
+# Fader & Knob — VPS deployment stack.
+#
+# app:   the Next.js standalone image built by CI (GHCR)
+# caddy: TLS termination + reverse proxy. With Cloudflare proxying DNS
+#        (orange cloud), set Cloudflare SSL mode to "Full (strict)" and
+#        Caddy handles the origin cert automatically.
+#
+# Provision (once): copy this file + Caddyfile + .env.production to the
+# VPS, `docker login ghcr.io`, then `docker compose up -d`.
+# Deploys after that: `docker compose pull app && docker compose up -d app`
+# (the CI deploy job does exactly this over SSH when DEPLOY_ENABLED=true).
+
+services:
+  app:
+    image: ghcr.io/axiomdigitalhub/tone-recipes:latest
+    restart: unless-stopped
+    env_file:
+      - .env.production
+    expose:
+      - "3000"
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+
+volumes:
+  caddy_data:
+  caddy_config:
