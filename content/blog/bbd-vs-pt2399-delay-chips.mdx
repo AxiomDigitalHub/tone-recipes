@@ -20,6 +20,76 @@ image_alt: >-
   a Boss DM-2W analog delay pedal next to a Mooer Reecho delay pedal on a
   desk under cool studio monitor glow, soft purple RGB rim lighting and
   acoustic panels blurred behind
+updated: '2026-07-07'
+takeaways:
+  - >-
+    Both chips get sold as "analog delay," but only the bucket-brigade device
+    (BBD) keeps the signal analog end to end; the PT2399 converts to digital
+    internally and back, so the label is about character, not signal path.
+  - >-
+    The BBD rolls off treble on every repeat, so echoes darken as they decay —
+    great for slap-back and short ambient tails, but it maxes out around 600 ms.
+  - >-
+    The PT2399 keeps repeats cleaner and reaches past a second, which makes it
+    the better pick for audible dotted-eighth rhythm work and long ambient
+    washes.
+  - >-
+    The surprise across a month of A/B recordings: the cheaper PT2399 covers
+    more real applications than the BBD, which is a specialist, not a
+    general-purpose delay.
+  - >-
+    You can recreate the BBD's darkening decay on any clean digital delay by
+    putting a low-pass filter in an external feedback loop, so the character is a
+    routing trick, not just a chip.
+faq:
+  - q: Is a BBD pedal worth more than a PT2399 pedal?
+    a: >-
+      Used market values reflect the sourcing realities — BBD chips (MN3005,
+      MN3007) are out of production and getting harder to source, which has
+      pushed prices for both vintage BBD pedals and current BBD-based designs
+      higher. The DM-2W and Carbon Copy are $150 to $200 retail in part because
+      the chips themselves are expensive. PT2399 chips remain in production and
+      cost less than a dollar each, which is why PT2399 pedals start at $50. The
+      price difference reflects component cost more than tonal superiority.
+  - q: Will the BBD chip eventually be unavailable for new production?
+    a: >-
+      It's a real concern. Panasonic discontinued the MN3005 in the early 2000s,
+      and current BBD pedals use either remaining stock or alternative chips like
+      the V3205 (a Cool Audio reissue that's chemically similar but not
+      identical). The Boss DM-2W uses the V3205. The MXR Carbon Copy uses what
+      MXR has stockpiled plus the V3205 in newer production. If you want a
+      BBD-character pedal for the next 20 years, buy a current BBD-based pedal
+      now rather than assuming you'll be able to buy one in five years.
+  - q: Can a digital delay sound like a BBD?
+    a: >-
+      Modern modeling can come close. The Strymon DIG, the Helix Vintage Digital
+      model, and the Walrus Audio Slö all attempt to model BBD behavior. They get
+      the surface character (high-frequency rolloff per repeat, modulation
+      warble, soft saturation) but they don't fully capture the way a real BBD
+      chain compresses and degrades the signal in motion. You can also chase the
+      darkening decay directly with a low-pass filter in a delay's external
+      feedback loop, which recreates the per-repeat rolloff on a clean digital
+      delay.
+  - q: Why does the PT2399 sound "analog" if it's digital internally?
+    a: >-
+      Because the digital section is intentionally bandwidth-limited and the
+      analog input/output stages add the softness most players associate with
+      analog gear. The chip's internal sample rate is around 44 kHz with limited
+      bit depth, so the high-frequency content is reduced and quantization
+      artifacts sit at a level that reads as character rather than harshness.
+      Combined with the analog filtering most pedals add around the chip, the
+      result feels organic even though the signal path includes digital
+      processing. The label is about how it sounds, not the signal path.
+  - q: If I can only afford one delay pedal, which chip should I buy?
+    a: >-
+      If your playing leans rhythmic (dotted-eighth, half-tempo delays, longer
+      atmospheric work), buy a PT2399-based pedal — the Mooer Reecho or Walrus
+      Audio ARP-87 are both excellent. If your playing leans toward slap-back,
+      vintage character, and short ambient work, buy a BBD pedal — the MXR Carbon
+      Copy is the value pick at $150. If you don't know your bias yet, buy the
+      PT2399 first because it covers more applications and is significantly
+      cheaper. Your second delay can be the BBD when you find the use case where
+      its character matters.
 ---
 
 > **The short version:** The bucket-brigade device (BBD) is a true analog delay line — your signal stays in the analog domain the whole time, gets compressed and slightly distorted by the chip, and produces dark, organic repeats with a maximum useful delay time around 600 milliseconds. The PT2399 is a digital echo processor that internally converts to digital and back; the result has cleaner repeats, lower noise, and supports delay times over a second, but it loses some of the BBD's organic warmth. Use a BBD pedal for U2-style ambient repeats, slap-back, and any context where the delay should sit behind the dry signal. Use a PT2399 pedal for dotted-eighth rhythm work, longer delay times, and anything where repeat clarity matters. The choice isn't "analog vs. digital" — it's two different shaping characters with different tonal signatures.
@@ -137,28 +207,13 @@ The "analog delay is better" framing falls apart at the chip level. Both chips h
 
 For more delay context, the [delay types comparison](/blog/delay-types-analog-digital-tape) covers the broader category-level distinctions, the [why delay sounds muddy](/blog/why-delay-sounds-muddy) post addresses the EQ adjustments that fix the most common delay problems, and the [delay time BPM calculator](/blog/delay-time-bpm-calculator) covers the math for setting specific delay times by tempo.
 
-<FAQ questions={[
-  {
-    q: "Is a BBD pedal worth more than a PT2399 pedal?",
-    a: "Used market values reflect the sourcing realities — BBD chips (MN3005, MN3007) are out of production and getting harder to source, which has pushed prices for both vintage BBD pedals and current BBD-based designs higher. The DM-2W and Carbon Copy are $150 to $200 retail in part because the chips themselves are expensive. PT2399 chips remain in production and cost less than a dollar each, which is why PT2399 pedals start at $50. The price difference reflects component cost more than tonal superiority — both chips can produce great delay tones in well-designed pedals."
-  },
-  {
-    q: "Will the BBD chip eventually be unavailable for new production?",
-    a: "It's a real concern. Panasonic discontinued the MN3005 in the early 2000s, and current BBD pedals use either remaining stock or alternative chips like the V3205 (a Cool Audio reissue from Behringer that's chemically similar but not identical). The Boss DM-2W uses the V3205. The MXR Carbon Copy uses what MXR has stockpiled plus the V3205 in newer production. If you want a BBD-character pedal for the next 20 years, buy a current BBD-based pedal now rather than assuming you'll be able to buy one in five years."
-  },
-  {
-    q: "Can a digital delay sound like a BBD?",
-    a: "Modern modeling can come close. The Strymon DIG, the Helix Vintage Digital model, and the Walrus Audio Slö all attempt to model BBD behavior. They get the surface character (high-frequency rolloff per repeat, modulation warble, soft saturation) but they don't fully capture the way a real BBD chain compresses and degrades the signal in motion. For most playing situations the modeling is close enough; for purist applications the real chip is still meaningfully different."
-  },
-  {
-    q: "Why does the PT2399 sound 'analog' if it's digital internally?",
-    a: "Because the digital section is intentionally bandwidth-limited and the analog input/output stages add the warmth most players associate with analog gear. The chip's internal sample rate is around 44 kHz with limited bit depth, which means the high-frequency content is reduced and quantization artifacts are present but at a level that reads as 'character' rather than 'digital harshness.' Combined with the analog filtering most pedals add around the chip, the result feels organic and warm even though the signal path includes digital processing. The 'analog' label is about how it sounds, not strictly about the signal path."
-  },
-  {
-    q: "If I can only afford one delay pedal, which chip should I buy?",
-    a: "If your playing leans rhythmic (dotted-eighth, half-tempo delays, longer atmospheric work), buy a PT2399-based pedal — the Mooer Reecho or Walrus Audio ARP-87 are both excellent. If your playing leans toward slap-back, vintage character, and short ambient work, buy a BBD pedal — the MXR Carbon Copy is the value pick at $150. If you don't know your bias yet, buy the PT2399 first because it covers more applications and is significantly cheaper. Your second delay can be the BBD when you discover the specific use case where BBD character matters."
-  }
-]} />
+---
+
+## The Character Is a Routing Trick, Not Just a Chip
+
+Here's the part that reframes the whole comparison once you've heard both chips. The thing that makes a BBD sound like a BBD — repeats that get darker as they decay — isn't locked inside the silicon. It's what happens when the delayed signal passes through a low-pass filter *every time it recirculates*. The BBD does that automatically because the chip itself is a low-pass filter that the signal re-crosses on every trip around the feedback path.
+
+Which means you can recreate it on a clean digital delay that has no BBD character at all, as long as the delay exposes an external feedback loop. Patch a low-pass filter into that loop, roll the cutoff down to around 2–3 kHz, and each repeat loses a slice of top end the previous one still had — the same darkening decay the BBD gives you, on a delay with a pristine first repeat and no fixed 600 ms ceiling. I've [walked through the external-feedback-loop technique in full](/blog/delay-external-feedback-loop-processing-repeats) — filter, pitch, and drive in the loop — but the filter case is exactly the BBD-in-software move. It reframes what you're actually buying with a BBD pedal: not a magic tone, but a filter permanently wired into the feedback path. Useful to know, because it means the choice below is about convenience and ceiling, not about a character only one chip can produce.
 
 The "analog delay" category is two distinct chips doing two distinct things. The BBD is for slap-back, vintage atmosphere, and short ambient work where its compressed darkening character is the point. The PT2399 is for rhythm, longer times, and any context where the repeats need to stay audible. Pick the chip for the application, not the marketing copy. Either chip in the right context produces exactly the delay character that the application calls for. Either chip in the wrong context will leave you wondering why the analog delay everyone raves about doesn't work for what you're trying to do.
 

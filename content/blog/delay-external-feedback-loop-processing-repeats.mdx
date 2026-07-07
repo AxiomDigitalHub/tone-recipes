@@ -1,0 +1,136 @@
+---
+title: 'Pedals Inside the Delay: External Feedback Loops and Processing the Repeats'
+description: >-
+  An external feedback loop inserts a filter, pitch shifter, or drive into a
+  delay's regeneration path, so each repeat gets more processed than the last.
+  Here's how to wire it and dial it in.
+date: '2026-07-07'
+author_slug: sean-nakamura
+category: effects
+tags:
+  - delay
+  - feedback-loop
+  - signal-routing
+  - ambient
+  - modeler
+  - effects
+readingTime: 8
+image: /images/blog/delay-external-feedback-loop-processing-repeats.jpg
+image_alt: >-
+  A delay pedal with its feedback send and return jacks patched to a filter and
+  a pitch pedal, forming an external processing loop around the repeats
+takeaways:
+  - >-
+    An external feedback loop breaks open the delay's regeneration path so you
+    can insert a pedal between one repeat and the next — every echo passes
+    through that pedal one more time than the echo before it.
+  - >-
+    A low-pass filter in the loop makes each repeat darker than the last, so a
+    chord decays from bright to muffled like a tape echo running out of high
+    end, without touching your dry note.
+  - >-
+    A pitch shifter in the loop makes the repeats climb or fall by a set
+    interval per cycle; keep feedback low or the runaway transposition turns to
+    noise in three or four repeats.
+  - >-
+    A drive in the loop only bites on signal that has already recirculated, so
+    the first repeat stays nearly clean and the tail breaks up progressively —
+    not the effect most people expect.
+  - >-
+    True recirculating loops need a delay with feedback send/return jacks; on a
+    modeler you approximate the effect by cascading two delay-plus-filter stages
+    so each generation is processed further.
+faq:
+  - q: What is an external feedback loop on a delay pedal?
+    a: >-
+      It's a send-and-return pair wired around the delay's internal feedback
+      path — the loop that feeds each repeat back into the delay line to make
+      the next one. The send taps the signal on its way around, the return puts
+      it back, and any pedal you patch between them processes every repeat once
+      per cycle. Because the processing compounds, the tenth repeat has passed
+      through your inserted pedal ten times.
+  - q: Which pedals should I put in a delay's feedback loop?
+    a: >-
+      Anything whose effect you want to compound across the repeats. A low-pass
+      filter darkens each echo progressively; a pitch shifter transposes the
+      repeats up or down in steps; a drive or fuzz degrades the tail; a reverb
+      smears the repeats into wash. Time-based effects like a second delay work
+      too but get chaotic fast. Avoid anything that adds huge level, since gain
+      in a feedback loop runs away.
+  - q: Does my delay need special jacks for this?
+    a: >-
+      For a true recirculating loop, yes — the delay has to expose its feedback
+      path as a send/return pair. A growing number do: the DOD Rubberneck, the
+      Seymour Duncan Vapor Trail Deluxe, and the EHX Deluxe Memory Man/Boy all
+      have the insert, and some stereo digital delays (the Strymon TimeLine among
+      them) let you repurpose one output and one input as the send and return. If
+      your delay only has a normal input and output, you can't insert into the
+      regeneration path; the closest you can get is cascading separate
+      delay-and-filter stages so each generation is processed further.
+  - q: Why does a distortion in the feedback loop stay clean on the first repeat?
+    a: >-
+      Because the drive only sees signal that has already gone around the loop.
+      Your dry note bypasses the feedback path entirely, and the first repeat
+      has only recirculated once, so it's barely hotter than the source. Each
+      subsequent repeat adds another pass through the drive, so the breakup
+      builds as the tail decays instead of hitting everything at once.
+  - q: How do I keep an external feedback loop from running away into noise?
+    a: >-
+      Watch your gain and your feedback knob together. Any pedal in the loop
+      that adds level effectively raises the delay's feedback, so back the
+      feedback control down when you insert a drive or a resonant filter. Keep
+      the loop's unity gain honest, start with feedback around 40 percent, and
+      add repeats only after the inserted effect behaves.
+---
+
+Most delay pedals hide their most interesting jack on the back panel, and a lot of players never patch anything into it. It's the feedback loop — a send and a return wired around the part of the circuit that decides how each repeat becomes the next one. Put a pedal between those two jacks and you're no longer processing the delay. You're processing the repeats *as they recirculate*, which is a different thing, and it produces sounds a delay can't make on its own.
+
+Here's what's actually happening under the hood. A delay makes an echo, then feeds a portion of that echo back into its own input to make the next echo, and so on until the feedback runs out. That internal loop is normally sealed. An external feedback loop cuts it open and routes it out to a send, through whatever you plug in, and back through a return. Now every trip around the loop passes through your inserted pedal — and because repeats decay by cycling through that path over and over, the effect compounds. The first repeat sees your pedal once. The fifth sees it five times. That asymmetry is the entire trick.
+
+## A Filter in the Loop: Repeats That Darken as They Fade
+
+The cleanest place to start is a low-pass filter, because the result is intuitive and hard to get wrong.
+
+1. **Patch the filter between the delay's feedback send and return.** Not in front of the delay, not after it — inside the loop.
+2. **Set the delay first.** Feedback around 40–50%, enough for four to six audible repeats. Time to taste.
+3. **Roll the filter cutoff down to roughly 2–3 kHz.** Now each repeat loses a slice of top end that the previous one still had.
+4. **Listen to a single chord decay.** The attack is bright, the first repeat slightly less so, and by the fourth or fifth the echo is a dark hum with the treble sanded off.
+
+What you get sounds like a tape echo running out of high end as it degrades — that Roland Space Echo behavior where the repeats don't just get quieter, they get *duller*, folding back into the mix instead of pinging on top of it. The difference from a normal delay is that your dry note keeps all its brightness. Only the tail darkens. It's the opposite of putting a filter after the delay, which would dull the dry signal and every repeat equally.
+
+Push the filter's resonance up and each repeat also gets a little vocal peak at the cutoff, so the tail seems to sweep as it dies. Small amounts. A resonant filter is adding gain at the peak frequency, and gain inside a feedback loop is how you get a screech instead of a decay.
+
+## A Pitch Shifter in the Loop: Climbing and Falling Repeats
+
+Swap the filter for a pitch shifter and the repeats start moving in pitch instead of tone. Set the shifter to +7 semitones — a perfect fifth — and each repeat lands a fifth above the one before it: the note climbs a stack of fifths as it echoes away, like a staircase disappearing upward. Set it to −12 and the repeats tumble an octave at a time into the basement.
+
+This one bites back if you're careless. Because the transposition compounds, three repeats at +7 have already climbed an octave and a half, and by the fifth repeat you're in dog-whistle territory or, more likely, aliasing hash. Keep the delay feedback *low* here — 25–35%, two or three repeats — and let the small number of clean steps do the work. I expected to be able to run this at high feedback for an endless ascending shimmer. What actually happened was that the shifter's artifacts stacked with every pass and the whole thing turned to grit by the fourth repeat. The magic lives in the first two or three transpositions, so I dial feedback to serve those and stop there.
+
+## A Drive in the Loop: The Surprise
+
+Put an overdrive or fuzz in the feedback loop and most people brace for the whole delay to turn into a wall of dirt. That's not what happens, and the reason is worth sitting with.
+
+The drive only ever sees signal that has *already* gone around the loop. Your dry note skips the feedback path completely, so it stays clean. The first repeat has recirculated exactly once, so it's barely hotter than the source — almost clean too. The second repeat has been through the drive twice, the third three times, and so the breakup *builds* as the echo decays. You get a note that starts pristine and rots into fuzz as it repeats, which is a genuinely strange and useful reversal: normally decay means quieter and cleaner, here decay means dirtier.
+
+It's the kind of crunch where the echo is falling apart on purpose — a controlled collapse rather than a static distortion sitting under everything. Set the drive low (gain at 9 o'clock), delay feedback moderate (40–50%), and mind the level again, because a drive with its output above unity is quietly cranking your feedback for you.
+
+## Building It on a Modeler
+
+Here's where the honesty comes in. A true recirculating external loop needs a delay that actually breaks its feedback path out to jacks — a handful do (the DOD Rubberneck, the Seymour Duncan Vapor Trail Deluxe, and the EHX Deluxe Memory Man are the common references), and a modular rig lets you patch it directly. Most delays, hardware or digital, seal that path and give you only input and output.
+
+On a Helix or a Quad Cortex, you don't get a per-block feedback send/return, so you can't build the infinite version. What you *can* do is approximate it by cascading stages: place a delay block, then a filter (or pitch, or drive), then a second delay block, then the same effect again. Each delay-plus-effect pair is one "generation," so two or three in series gives you repeats that get progressively more processed — 80% of the sweep without the runaway recirculation. It's not identical; the real loop's compounding is smoother and can be pushed to self-oscillation, which the cascade can't. But for a darkening or pitch-stepping tail in a preset, the cascade gets you there, and it's fully recallable, which the pedal spaghetti isn't.
+
+If you want the runaway behavior specifically — repeats that build toward oscillation — that's the [controlled self-oscillation](/blog/controlled-delay-self-oscillation-ambient-noise-instrument) technique on the feedback *knob*, and it pairs naturally with an effect in the loop. And if you're stacking delay *lines* rather than processing one line's repeats, that's [cascading dual delay](/blog/cascading-dual-delay-bloom-dream-pop-shoegaze) — a different routing with a different result.
+
+## What to Try First
+
+Start with the filter. It's forgiving, the darkening tail is immediate and unmistakable — a chord that fades from bright to muffled instead of just fading — and it teaches you what "processing the repeats and not the note" actually sounds like before you move to the pitch and drive tricks that need a careful hand on the feedback knob. Keep one rule in mind through all of it: anything you insert that adds level is adding feedback, so every time you patch a pedal into the loop, reach for the delay's feedback control first and pull it back. Set the loop to unity, get the repeats stable, then build up.
+
+The reason this is worth the back-panel patching is that it turns a delay from a fixed echo into a system you can shape *over time* — where the tail evolves instead of just repeating. That's not a setting. It's a small signal-routing decision, and it opens a whole category of sounds a normal delay can't reach.
+
+<SaveThisTone
+  title="Save a delay starting point"
+  description="Grab a dialed-in delay setting to build the loop around — a stable feedback and time you can trust before you start patching pedals into the repeats."
+  href="/browse"
+  ctaLabel="Browse tone recipes"
+/>

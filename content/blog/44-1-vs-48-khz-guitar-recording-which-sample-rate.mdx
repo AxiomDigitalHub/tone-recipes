@@ -1,0 +1,129 @@
+---
+title: '44.1 vs 48 kHz for Guitar: Which Sample Rate Should You Actually Record At?'
+description: >-
+  On guitar, 44.1 and 48 kHz sound identical. The real choice is where the track
+  is going — streaming, CD, or video — and not resampling it twice. Here's how
+  to pick once.
+date: '2026-07-07'
+author_slug: dev-okonkwo
+category: workflow
+tags:
+  - recording
+  - sample-rate
+  - mixing
+  - direct-recording
+  - delivery
+  - workflow
+readingTime: 7
+image: /images/blog/44-1-vs-48-khz-guitar-recording-which-sample-rate.jpg
+image_alt: >-
+  A DAW project settings panel showing a sample rate menu with 44.1 kHz and 48
+  kHz options, next to a guitar plugged into an audio interface
+takeaways:
+  - >-
+    On guitar, 44.1 and 48 kHz sound identical — both capture far past human
+    hearing, and the extra 2 kHz of headroom 48 kHz gives you lives in a range
+    no guitar and no ear reaches.
+  - >-
+    The real choice is delivery: 44.1 kHz matches CD and most lossless streaming
+    masters, while 48 kHz matches video, film, and broadcast, so pick the rate
+    of wherever the track is going.
+  - >-
+    Sample-rate conversion is the thing that can actually degrade the sound, so
+    the win is recording at your delivery rate and never resampling, or
+    resampling once at the end with a good algorithm.
+  - >-
+    Dithering is for reducing bit depth (24-bit to 16-bit), not for changing
+    sample rate — confusing the two is the most common mistake in this decision.
+  - >-
+    Set the whole project to one rate before you record the first note; mixing
+    sample rates inside a session forces silent, sloppy conversions you didn't
+    choose.
+faq:
+  - q: Is there an audible difference between 44.1 and 48 kHz for guitar?
+    a: >-
+      No. Both sample rates capture frequencies well beyond what a guitar
+      produces and well beyond what anyone can hear — 44.1 kHz reaches up to
+      about 22 kHz, 48 kHz to about 24 kHz, and the top of hearing sits around
+      20 kHz. The extra range 48 gives you is real on paper and silent in
+      practice. Any difference you think you hear between two files is almost
+      always a conversion artifact, not the rate itself.
+  - q: Should I record guitar at 44.1 or 48 kHz?
+    a: >-
+      Match your destination. If the track is going to streaming or a CD and
+      never touches video, 44.1 kHz is the clean default — it's the CD standard
+      and the master rate for most lossless streaming, so nothing gets
+      resampled. If the project involves any video at all — YouTube, film, sync,
+      a podcast — use 48 kHz, because video runs at 48 and you avoid a
+      conversion. When in doubt with no video in sight, 44.1 is the safe pick.
+  - q: Does a higher sample rate mean better quality?
+    a: >-
+      Not audibly, for guitar. A higher rate captures higher frequencies, but
+      those are already above hearing at 44.1, so raising the rate mostly buys
+      you bigger files and more CPU load. There are niche technical arguments
+      for higher rates in certain processing, but for tracking and releasing
+      guitar, 44.1 versus 48 is a delivery decision, not a fidelity upgrade.
+  - q: Do I need to dither when changing sample rate?
+    a: >-
+      No — dithering applies to reducing bit depth, like going from a 24-bit mix
+      to a 16-bit file for CD. It has nothing to do with sample rate. When you
+      convert 48 kHz to 44.1 kHz you use sample-rate conversion, and you dither
+      separately only if you're also dropping to 16-bit at the same export. Two
+      different processes, two different fixes.
+  - q: What happens if my session mixes 44.1 and 48 kHz files?
+    a: >-
+      Your DAW resamples the mismatched files on the fly to match the project
+      rate, which is an uncontrolled conversion you didn't choose and can't
+      tune. A one-off dropped clip usually sounds fine, but as a habit it stacks
+      conversions and can pitch-shift misimported audio. Set the project rate
+      first and import or record everything at that rate so nothing gets
+      silently converted.
+---
+
+The difference between recording your guitar at 44.1 and 48 kHz is not a tone difference. That's worth putting up front, because most of the arguing about sample rate is really arguing about a sound nobody can hear. Both rates capture frequency content far above where a guitar lives and far above where your ears stop — 44.1 reaches up to about 22 kHz, 48 to about 24, and human hearing gives out around 20. That extra sliver 48 kHz buys you sits in a band no guitar produces and no one perceives. It's real on the spec sheet and silent in the room.
+
+So this isn't a fidelity question. It's a logistics question, and once you see it that way the answer gets simple: record at the rate of wherever the track is going, and try not to resample it more than once.
+
+## Where the Track Is Going Decides the Rate
+
+Think about the destination before you think about the number.
+
+- **Streaming or CD, no video:** 44.1 kHz. It's the CD standard, and it's the master rate most lossless streaming runs on, so your file lands where it's going without a conversion in the middle.
+- **Anything with video — YouTube, film, sync, a podcast:** 48 kHz. Video is 48 kHz everywhere, and if you deliver 44.1 into a video pipeline, something in the chain resamples it. Start at 48 and skip that.
+- **Genuinely don't know yet:** 44.1. Most bedroom-produced guitar ends up on streaming, and starting there means the common case needs no conversion at all.
+
+That's the whole decision tree. The rate isn't chasing quality; it's avoiding a resample. Which brings us to the part that actually matters.
+
+## The Thing That Can Really Degrade the Sound
+
+Sample-rate conversion — resampling — is the one place in this whole conversation where audio quality is genuinely on the line. Not the rate. The *conversion between* rates.
+
+Here's what surprised me, because I got it backwards for a while. I was convinced 48 kHz sounded a touch clearer than 44.1 on my guitar bus — more air, a little sharper on the top of a clean chord. So I tracked everything at 48 for a few months. Then I finally null-tested it: recorded the same DI at both rates, converted the 48 file down to 44.1 to line them up, flipped the polarity, and summed them. If they were different, I'd hear the leftover. What I heard was essentially nothing — the two cancelled down to a whisper of ultrasonic conversion residue I couldn't hear on playback.
+
+The "clearer" thing I'd been chasing wasn't the sample rate. It was that the *first* time I'd compared them, months earlier, I'd resampled one file with a lazy real-time conversion and heard the artifacts of that bad conversion as a difference in the rate. The rate was never the variable. My conversion was. That's the trap, and it's why the practical rule is: pick your delivery rate, record there, and let the audio stay at one rate from tracking to export. If you must convert — a 48 kHz video project that also needs a 44.1 streaming master — do it once, at the very end, with your DAW's high-quality offline resampler, not the on-the-fly one.
+
+## Don't Confuse Sample Rate with Bit Depth
+
+This is where a lot of good advice gets tangled, so it's worth pulling apart cleanly.
+
+- **Sample rate** (44.1 vs 48 vs 96 kHz) is how many times per second the audio is measured — it sets the highest frequency captured. Changing it uses sample-rate conversion.
+- **Bit depth** (24-bit vs 16-bit) is how finely each measurement is graded — it sets the noise floor and dynamic range. Reducing it uses *dithering*.
+
+Dither is the low-level noise you add when you drop from a 24-bit mix to a 16-bit file so that quantization doesn't leave grainy little errors in the quiet parts. It has nothing to do with sample rate. You dither when you export to 16-bit for a CD; you don't dither when you go from 48 to 44.1. If you're making a CD from a 48 kHz, 24-bit session, you do both, in one export: resample to 44.1 *and* dither to 16-bit. Two operations, two reasons, one bounce.
+
+Track at 24-bit regardless of your sample-rate choice, by the way — that's the setting that actually gives you headroom to record guitar without stressing your levels, and it's a separate lever from the one this whole post is about.
+
+## The One Setting Habit That Prevents Most of This
+
+Set the project rate before you record the first note, and set it once. A session that mixes 44.1 and 48 kHz files forces your DAW to resample the odd ones out on the fly, which is exactly the uncontrolled conversion you're trying to avoid. It works the same way in every DAW — Ableton, Logic, Reaper, whatever's open — because this is a project-level decision, not a plugin. Pick the rate for the destination, set the whole session to it, and import or record everything at that rate.
+
+If you want the deeper version of the *latency* side of this — whether a higher rate makes your monitoring feel tighter — that's its own thing, and the short answer is mostly no; the [96 kHz latency breakdown](/blog/does-96khz-lower-latency-sample-rate-buffer-size) and the [recording latency budget guide](/blog/guitar-recording-latency-budget-buffer-size-monitoring) cover why the round-trip barely moves.
+
+For the actual question here — 44.1 or 48 — let the destination pick, default to 44.1 when there's no video, and then forget about it and go make something. The sample rate was never going to be the reason the track sat right or didn't. That's mixing, and arrangement, and the guitar part itself. This one's just plumbing... get it right once and it disappears.
+
+<SaveThisTone
+  title="Start from a recorded-ready tone"
+  description="A tone that already sits in a mix beats chasing sample-rate ghosts. Grab a recipe dialed for direct recording and track it at whatever rate your release needs."
+  href="/browse"
+  ctaLabel="Browse tone recipes"
+/>
