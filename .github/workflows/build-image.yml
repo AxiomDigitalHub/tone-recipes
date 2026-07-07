@@ -20,7 +20,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  IMAGE: ghcr.io/${{ github.repository }}
+  # Hardcoded lowercase: registries reject the mixed-case github.repository.
+  IMAGE: ghcr.io/axiomdigitalhub/tone-recipes
 
 jobs:
   build:
