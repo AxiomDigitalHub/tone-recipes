@@ -26,10 +26,15 @@ COPY . .
 
 # NEXT_PUBLIC_* are baked into the client bundle at build time. They are
 # public-by-design values (Supabase anon key is meant for browsers).
+# AMAZON_ASSOCIATES_TAG bakes into SSG page HTML (affiliate links are
+# assembled at prerender time) — non-secret, but must be present here or
+# every static page renders unattributed amazon links.
 ARG NEXT_PUBLIC_SUPABASE_URL
 ARG NEXT_PUBLIC_SUPABASE_ANON_KEY
+ARG AMAZON_ASSOCIATES_TAG
 ENV NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL \
     NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY \
+    AMAZON_ASSOCIATES_TAG=$AMAZON_ASSOCIATES_TAG \
     NEXT_TELEMETRY_DISABLED=1
 
 RUN npm run build

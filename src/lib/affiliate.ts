@@ -11,12 +11,18 @@
  *   - Reverb      (best for used + vintage; international)
  *   - Amazon Associates (broad, mediocre commission, fastest approval)
  *
- * Set these in Vercel → Project → Settings → Environment Variables:
- *   AMAZON_ASSOCIATES_TAG="faderknob-20"
+ * Tags bake into SSG pages at BUILD time, so they must be present in the
+ * image build (Dockerfile ARG + build-image.yml build-arg from the GitHub
+ * repo variable), not just runtime env:
+ *   AMAZON_ASSOCIATES_TAG="faderandknob-20"   <- real StoreID, per the
+ *     Associates dashboard. (An earlier version of this comment said
+ *     "faderknob-20", which got installed as fact during the 2026-07
+ *     migration and mis-attributed links until caught. Doc examples
+ *     become config — keep this one exact.)
  *   SWEETWATER_AFFILIATE_ID="<impact id>"
  *   REVERB_AFFILIATE_ID="<impact id>"
  *
- * Then redeploy. No code change required to start earning commissions.
+ * Then rebuild + deploy. No code change required to start earning.
  *
  * Note on Sweetwater / Reverb: both programs run through Impact /
  * Avantlink with click-tracking redirects rather than URL tag params,
