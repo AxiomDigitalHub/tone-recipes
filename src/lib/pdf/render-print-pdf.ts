@@ -10,8 +10,12 @@ import puppeteer, { type Browser } from "puppeteer-core";
  * primitives and never looked like the site).
  *
  * Environments:
- *   - Production (Docker): the image installs Chromium via apt and sets
- *     LOCAL_CHROME_PATH=/usr/bin/chromium (see Dockerfile).
+ *   - Production (Docker): @sparticuz/chromium — the build made for
+ *     barebones Linux. Debian's apt chromium SIGTRAPs inside the slim
+ *     container (gpu-process crash regardless of flags; verified live
+ *     in-container 2026-07-08), so sparticuz is the ONLY chromium that
+ *     renders here. Do not "clean it up" again without a passing
+ *     in-container render test.
  *   - Local dev: a locally-installed Chrome, found via LOCAL_CHROME_PATH
  *     or the platform default.
  *
@@ -28,8 +32,29 @@ const PLATFORM_CHROME: Record<string, string> = {
 };
 
 async function launch(): Promise<Browser> {
-  const executablePath =
-    process.env.LOCAL_CHROME_PATH || PLATFORM_CHROME[process.platform];
+  // Explicit override wins (local dev pointing at a system Chrome).
+  if (process.env.LOCAL_CHROME_PATH) {
+    return puppeteer.launch({
+      headless: true,
+      executablePath: process.env.LOCAL_CHROME_PATH,
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    });
+  }
+
+  if (process.env.NODE_ENV === "production") {
+    // sparticuz ships its own flag set tuned for minimal containers
+    // (no-sandbox, dev-shm, gpu). Proven in-container 2026-07-08:
+    // 5.4MB PDF with Fraunces embedded, rendered off the live print route.
+    const chromium = (await import("@sparticuz/chromium")).default;
+    return puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: { width: 1200, height: 1600 },
+      executablePath: await chromium.executablePath(),
+      headless: true,
+    });
+  }
+
+  const executablePath = PLATFORM_CHROME[process.platform];
   if (!executablePath) {
     throw new Error(
       `No Chrome executable for platform "${process.platform}". Set LOCAL_CHROME_PATH.`,

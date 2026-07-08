@@ -3,8 +3,8 @@
 # Runs the site on ANY Docker host (Hetzner/DO VPS, Railway, Render, Fly)
 # with zero Vercel dependencies:
 #   - Next standalone output → `node server.js`
-#   - Real Chromium via apt for PDF rendering (LOCAL_CHROME_PATH replaces
-#     the @sparticuz/chromium serverless hack — see src/lib/pdf/)
+#   - PDF rendering via @sparticuz/chromium in node_modules (apt chromium
+#     SIGTRAPs in slim containers — see src/lib/pdf/render-print-pdf.ts)
 #   - content/ + presets/ copied in (read from disk at runtime)
 #
 # Build (CI does this — see .github/workflows/build-image.yml):
@@ -43,15 +43,20 @@ RUN npm run build
 FROM node:24-bookworm-slim AS runner
 WORKDIR /app
 
-# Chromium for the PDF download route. fonts-liberation keeps text metrics
-# sane; the site's own webfonts load over the network during render.
+# PDF rendering uses @sparticuz/chromium from node_modules (the build made
+# for barebones containers) — apt chromium SIGTRAPs here (gpu-process crash,
+# verified 2026-07-08), so it is deliberately NOT installed. fonts-liberation
+# keeps fallback text metrics sane; site webfonts load over the network.
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends chromium fonts-liberation ca-certificates curl \
+  && apt-get install -y --no-install-recommends fonts-liberation ca-certificates curl \
   && rm -rf /var/lib/apt/lists/*
 
+# No LOCAL_CHROME_PATH: its absence is what routes render-print-pdf.ts to the
+# sparticuz branch. HOME must exist/be writable for chromium's profile dirs
+# (the -r system user gets no home otherwise → crashpad "--database" crash).
 ENV NODE_ENV=production \
-    LOCAL_CHROME_PATH=/usr/bin/chromium \
     NEXT_TELEMETRY_DISABLED=1 \
+    HOME=/tmp \
     PORT=3000 \
     HOSTNAME=0.0.0.0
 

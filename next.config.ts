@@ -10,10 +10,17 @@ const nextConfig: NextConfig = {
   // standalone output under .next/standalone/tone-recipes/ and breaks the
   // Dockerfile's COPY paths.
   outputFileTracingRoot: process.cwd(),
-  // Keep puppeteer-core OUT of the bundler — it drives the system Chromium
-  // the Docker image installs via apt (LOCAL_CHROME_PATH), and bundling it
-  // breaks its runtime file resolution.
-  serverExternalPackages: ["puppeteer-core"],
+  // Keep the headless-Chrome packages OUT of the bundler. @sparticuz/chromium
+  // is the PRODUCTION chromium (Debian's apt build SIGTRAPs in the slim
+  // container — verified in-container 2026-07-08); external keeps its bin/
+  // brotli payload intact in the standalone node_modules, and puppeteer-core
+  // breaks its runtime file resolution when bundled.
+  serverExternalPackages: ["@sparticuz/chromium", "puppeteer-core"],
+  // Belt-and-braces: force the whole package (incl. bin/) into the download
+  // route's file trace so the payload always ships with the standalone build.
+  outputFileTracingIncludes: {
+    "/api/recipes/**": ["./node_modules/@sparticuz/chromium/**/*"],
+  },
   async headers() {
     return [
       {
