@@ -10,7 +10,13 @@ import { canDownload } from "@/lib/downloads";
 import { generateHelixPreset, slugifyPresetName } from "@/lib/helix/generate-hlx";
 import { generateQCPreset, slugifyPresetName as slugifyQC } from "@/lib/quadcortex/generate-qc";
 import { generateKatanaTSL, slugifyPresetName as slugifyKatana } from "@/lib/katana/generate-tsl";
-import type { PlatformTranslation, Platform } from "@/types/recipe";
+import JSZip from "jszip";
+import {
+  buildToneNotes,
+  buildInstallGuide,
+  buildTroubleshooter,
+} from "@/lib/downloads/sidecar";
+import type { PlatformTranslation, Platform, ToneRecipe } from "@/types/recipe";
 
 // PDF generation launches headless Chrome — needs the Node.js runtime (not
 // Edge) and extra time for cold-start + render.
@@ -267,7 +273,7 @@ export async function POST(
 
       const config = PLATFORM_CONFIG[platform];
       const content = config.generate(translation, recipe.title);
-      const filename = `${config.slugify(recipe.title)}${config.extension}`;
+      const baseName = config.slugify(recipe.title);
 
       // Log download
       await logDownload({
@@ -278,10 +284,33 @@ export async function POST(
         platform,
       });
 
-      return new NextResponse(content, {
+      // The download pack: preset + sidecar guides (tone notes, install,
+      // rig-translation troubleshooter). Presets fail on rig translation,
+      // not tone — the sidecars are the adaptation layer (see
+      // docs/research/REDDIT_SERVICE_RESEARCH_2026-07-08.md).
+      const platformLabel =
+        platform === "quad_cortex"
+          ? "Quad Cortex"
+          : platform === "katana"
+            ? "Boss Katana"
+            : "Helix";
+      const zip = new JSZip();
+      zip.file(`${baseName}${config.extension}`, content);
+      zip.file(
+        "TONE-NOTES.txt",
+        buildToneNotes(recipe as ToneRecipe, translation, platformLabel),
+      );
+      zip.file("INSTALL.txt", buildInstallGuide(platform));
+      zip.file("IF-IT-SOUNDS-WRONG.txt", buildTroubleshooter(platform));
+      const zipped = await zip.generateAsync({
+        type: "nodebuffer",
+        compression: "DEFLATE",
+      });
+
+      return new NextResponse(new Uint8Array(zipped), {
         headers: {
-          "Content-Type": config.mimeType,
-          "Content-Disposition": `attachment; filename="${filename}"`,
+          "Content-Type": "application/zip",
+          "Content-Disposition": `attachment; filename="${baseName}-pack.zip"`,
         },
       });
     }

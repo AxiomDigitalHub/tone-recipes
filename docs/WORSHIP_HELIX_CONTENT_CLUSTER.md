@@ -25,8 +25,19 @@ The CCLI Top 30 songs ≈ 80% of what worship teams play any given Sunday. We ha
 | How to Get the Phil Wickham Guitar Tone on Helix | "phil wickham guitar tone" | bright clean + anthemic lead |
 | How to Get Lincoln Brewster's Lead Tone on Helix | "lincoln brewster tone helix" | **Plexi Variac** model, single-coil voiced, mid-boost lead, controlled (not ambient) delay — rock-worship. We have a full research doc: `docs/research/LINCOLN_BREWSTER_DEEP_DIVE.md`. **Brewster = 0 posts today; clearest open lane.** |
 
-## Tier 2 — CCLI Top 25 song tone recipes ("[Song] Guitar Tone on Helix")
+## Tier 2 — CCLI Top 25 song tone posts ("[Song] Guitar Tone on Helix")
 Build in CCLI rank order. Each: target "[song] guitar tone" / "[song] helix patch". Map to the artist hub above + the relevant Set Pack.
+
+> **Attribution policy — CONFIRMED by Daniel 2026-07-08:** Tier-2 entries are
+> BLOG POSTS (tone/technique breakdowns: song key, BPM, delay subdivisions,
+> the sound's anatomy, how to get there on a Helix), NOT recipes. The
+> per-track guitarist-attribution bar applies to RECIPES only (recipes assert
+> "this is the player's documented rig" — that claim needs a source). A song
+> post makes no such claim and can ship on song facts + honest "here's how to
+> build this sound" guidance, linking to a recipe only when a verified one
+> exists. The 2026-06-12 needs-research verdicts on backlog #1003/1005/1006/
+> 1008/1010 block those RECIPES — they do NOT block the corresponding Tier-2
+> posts. Write the posts.
 
 1. Holy Forever — Chris Tomlin
 2. Goodness of God — Bethel

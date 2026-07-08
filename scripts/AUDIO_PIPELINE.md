@@ -66,3 +66,24 @@ After running: review each `caption` (and add a `source_note` like
 Backfill the top ~25 recipes by traffic first (per the content-authority
 strategy), then make a rendered demo part of the definition-of-done for every
 new recipe.
+
+## Level matching (added 2026-07-08)
+
+Decision (Daniel): we do NOT advertise a level-match guarantee until we can
+actually deliver it. The delivery loop:
+
+1. Render presets to `audio/raw/<slug>.wav` (the Helix Native step above).
+2. `node scripts/measure-preset-levels.mjs` — measures every render
+   (integrated LUFS + true peak via ffmpeg EBU R128) and writes
+   `docs/LEVEL_MATCH_REPORT.md` with the catalog spread and a per-preset
+   trim in dB against the house target (-18 LUFS, ±1 dB window,
+   -1 dBTP ceiling).
+3. Apply each trim on the preset's OUTPUT block Level (it's denominated
+   in dB in HX Edit, so the number transfers directly). Re-render, re-run.
+4. When the table is all ✓, the guarantee is real — then and only then it
+   goes on the site, and the check joins the render workflow permanently
+   so it stays true.
+
+The same numbers feed the "louder/quieter than your other presets" line in
+the download pack's troubleshooter — once the catalog is matched, that
+troubleshooting step should effectively never fire for our own presets.
