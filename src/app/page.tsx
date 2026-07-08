@@ -55,7 +55,7 @@ export default function PreviewIndex() {
               </h1>
               <div className="hero-cta-row">
                 <Link href="/browse" className="hero-cta hero-cta-primary">
-                  Browse recipes
+                  Browse the tones
                 </Link>
                 <Link href="/#how-it-works" className="hero-cta hero-cta-secondary">
                   How it works <span aria-hidden="true">↓</span>

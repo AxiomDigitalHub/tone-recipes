@@ -221,14 +221,14 @@ export default function GearBrowsePage() {
           See this gear in action.
         </h2>
         <p className="mx-auto mt-3 max-w-lg text-[var(--ink-muted)]">
-          Every piece of gear in this database is used in at least one tone recipe. Browse recipes to see exact settings on your platform.
+          Every piece of gear in this database is used in at least one tone. Browse the tones to see exact settings on your platform.
         </p>
         <div className="mt-6">
           <Link
             href="/browse"
             className="inline-block rounded-xl bg-[var(--amber)] px-10 py-4 text-base font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
           >
-            Browse Recipes
+            Browse the Tones
           </Link>
         </div>
       </section>

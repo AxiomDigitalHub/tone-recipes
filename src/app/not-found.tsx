@@ -17,7 +17,7 @@ export default function NotFound() {
           href="/browse"
           className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
         >
-          Browse Recipes
+          Browse the Tones
         </Link>
         <Link
           href="/"

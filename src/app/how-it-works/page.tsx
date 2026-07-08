@@ -113,10 +113,10 @@ export default function HowItWorksPage() {
           </p>
           <div className="hero-cta-row">
             <Link href="/browse" className="hero-cta hero-cta-primary">
-              Browse recipes
+              Browse the tones
             </Link>
             <Link href="/blog" className="hero-cta hero-cta-secondary">
-              Read field notes
+              Read the blog
             </Link>
           </div>
           <p style={{ marginTop: 24, fontSize: 14, color: "var(--ink-muted)" }}>

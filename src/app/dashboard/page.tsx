@@ -483,7 +483,7 @@ export default function DashboardOverview() {
         </header>
         <div className="dashboard-quick-actions">
           {[
-            { label: "Browse recipes", href: "/browse" },
+            { label: "Browse tones", href: "/browse" },
             { label: "My gear", href: "/dashboard/my-gear" },
             { label: "Settings", href: "/dashboard/settings" },
           ].map(({ label, href }) => (
