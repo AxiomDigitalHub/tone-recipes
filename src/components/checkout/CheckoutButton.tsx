@@ -16,8 +16,8 @@ import { useAuth } from "@/lib/auth/auth-context";
  *
  * Errors surface inline below the button. The most common one during a
  * go-live will be "Pricing not configured" — that's a 503 from the API
- * when STRIPE_{TIER}_PRICE_ID_{ANNUAL,MONTHLY} hasn't been set in
- * Vercel yet.
+ * when STRIPE_{TIER}_PRICE_ID_{ANNUAL,MONTHLY} hasn't been set in the
+ * runtime env yet.
  */
 
 interface CheckoutButtonProps {

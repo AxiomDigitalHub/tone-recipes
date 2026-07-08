@@ -8,8 +8,6 @@ import LazySearchPalette from "@/components/search/LazySearchPalette";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 import Toaster from "@/components/ui/Toaster";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AuthProvider } from "@/lib/auth/auth-context";
 import "./globals.css";
 import "./v3.css";
@@ -199,15 +197,6 @@ export default function RootLayout({
           <Toaster />
         </AuthProvider>
         <SmoothScroll />
-        {/* Vercel-only telemetry: their scripts 404 on any other host, so
-            gate on the platform env. GA4 + Clarity below are host-agnostic
-            and carry analytics after migration. */}
-        {process.env.VERCEL === "1" && (
-          <>
-            <Analytics />
-            <SpeedInsights />
-          </>
-        )}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-PZLWYT7VMP"
           strategy="lazyOnload"

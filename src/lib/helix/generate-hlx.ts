@@ -438,9 +438,9 @@ export function generateHelixPreset(
   // Cursor group = first block if any, empty string if none
   const cursorGroup = dsp0Slots.length > 0 ? "block0" : "";
 
-  // Server-side warning when blocks get dropped. Visible in Vercel
-  // runtime logs; helps us spot which recipes need real Helix preset
-  // captures so we can add their model IDs to the map.
+  // Server-side warning when blocks get dropped. Visible in server logs
+  // (`docker compose logs app`); helps us spot which recipes need real
+  // Helix preset captures so we can add their model IDs to the map.
   if (skipped.length > 0) {
     console.warn(
       `[generateHelixPreset] "${presetName}": skipped ${skipped.length} unverified block(s):`,

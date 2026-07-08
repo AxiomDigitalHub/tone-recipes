@@ -10,9 +10,10 @@ import puppeteer, { type Browser } from "puppeteer-core";
  * primitives and never looked like the site).
  *
  * Environments:
- *   - Production (Vercel/Lambda): puppeteer-core + @sparticuz/chromium.
- *   - Local dev: puppeteer-core + a locally-installed Chrome, found via
- *     LOCAL_CHROME_PATH or the platform default.
+ *   - Production (Docker): the image installs Chromium via apt and sets
+ *     LOCAL_CHROME_PATH=/usr/bin/chromium (see Dockerfile).
+ *   - Local dev: a locally-installed Chrome, found via LOCAL_CHROME_PATH
+ *     or the platform default.
  *
  * The /print route already hides the global chrome (masthead / sub-nav /
  * footer) via `.fk-preview:has(.print-mode)` and renders the recipe with
@@ -27,18 +28,6 @@ const PLATFORM_CHROME: Record<string, string> = {
 };
 
 async function launch(): Promise<Browser> {
-  // In production we ship the serverless-friendly chromium build. Anywhere
-  // else (local dev, CI) we drive a locally-installed Chrome.
-  if (process.env.NODE_ENV === "production" && !process.env.LOCAL_CHROME_PATH) {
-    const chromium = (await import("@sparticuz/chromium")).default;
-    return puppeteer.launch({
-      args: chromium.args,
-      defaultViewport: { width: 1200, height: 1600 },
-      executablePath: await chromium.executablePath(),
-      headless: true,
-    });
-  }
-
   const executablePath =
     process.env.LOCAL_CHROME_PATH || PLATFORM_CHROME[process.platform];
   if (!executablePath) {

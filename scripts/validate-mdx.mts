@@ -1,10 +1,10 @@
 /**
  * Compiles every blog MDX through @mdx-js/mdx (same engine next-mdx-remote uses)
  * AND validates frontmatter against the Zod contract in src/lib/blog.schema.ts.
- * Reports both kinds of failure with file:line:col before they reach Vercel.
+ * Reports both kinds of failure with file:line:col before they reach CI.
  *
  * Why this exists:
- *   1. Vercel's prerender runs the real MDX compiler. The dev server does not
+ *   1. The production build's prerender runs the real MDX compiler. The dev server does not
  *      compile every post on every save, so MDX-only bugs (unescaped `<` before
  *      a digit, unterminated strings inside JSX expressions, stray `{`) sneak
  *      through and only surface in CI ~6 minutes later. This script catches

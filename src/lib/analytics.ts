@@ -1,8 +1,7 @@
 /**
- * Conversion-event shim. Wraps GA4 (gtag) and Vercel Analytics (va.track)
- * so callsites don't need to know which provider is wired up. Fire from
- * client components only — gtag/va are loaded in src/app/layout.tsx and
- * only exist in the browser.
+ * Conversion-event shim. Wraps GA4 (gtag) so callsites don't need to know
+ * which provider is wired up. Fire from client components only — gtag is
+ * loaded in src/app/layout.tsx and only exists in the browser.
  *
  * Usage:
  *   import { track } from "@/lib/analytics";
@@ -32,7 +31,6 @@ type EventParams = Record<string, string | number | boolean | undefined>;
 
 interface WindowWithAnalytics {
   gtag?: (command: "event", name: string, params?: EventParams) => void;
-  va?: (cmd: "track", name: string, params?: EventParams) => void;
 }
 
 export function track(event: EventName, params?: EventParams): void {
@@ -41,12 +39,6 @@ export function track(event: EventName, params?: EventParams): void {
 
   try {
     w.gtag?.("event", event, params);
-  } catch {
-    // analytics never break the app
-  }
-
-  try {
-    w.va?.("track", event, params);
   } catch {
     // analytics never break the app
   }

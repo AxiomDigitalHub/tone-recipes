@@ -2,30 +2,18 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // Self-contained server bundle (.next/standalone) so the site runs on any
-  // Node host / Docker image with `node server.js` — no Vercel required.
-  // Vercel's build infra ignores this setting, so it's a no-op while we're
-  // still deployed there. See Dockerfile + docs/MIGRATION.md.
+  // Node host / Docker image with `node server.js`. See Dockerfile +
+  // docs/MIGRATION.md.
   output: "standalone",
   // Pin the tracing root to THIS project. A stray lockfile in a parent dir
   // otherwise makes Next infer a broader workspace root, which nests the
   // standalone output under .next/standalone/tone-recipes/ and breaks the
   // Dockerfile's COPY paths.
   outputFileTracingRoot: process.cwd(),
-  // Keep the headless-Chrome packages OUT of the bundler. Next/Turbopack
-  // otherwise relocates @sparticuz/chromium and drops its bin/ brotli
-  // payload (the actual Chromium binary), which 500s the PDF download with
-  // 'input directory .../@sparticuz/chromium/bin does not exist'. These
-  // must stay external so the files ship intact in the serverless function.
-  serverExternalPackages: ["@sparticuz/chromium", "puppeteer-core"],
-  // serverExternalPackages keeps chromium's require external, but its bin/
-  // brotli payload is read from disk (not require()'d), so Next's file
-  // tracing drops it from the serverless function — the PDF route then 500s
-  // with 'input directory .../@sparticuz/chromium/bin does not exist'. Force
-  // the whole package (incl. bin/) into the download function's trace.
-  // Glob key (not the literal [slug] route — brackets are glob char-classes).
-  outputFileTracingIncludes: {
-    "/api/recipes/**": ["./node_modules/@sparticuz/chromium/**/*"],
-  },
+  // Keep puppeteer-core OUT of the bundler — it drives the system Chromium
+  // the Docker image installs via apt (LOCAL_CHROME_PATH), and bundling it
+  // breaks its runtime file resolution.
+  serverExternalPackages: ["puppeteer-core"],
   async headers() {
     return [
       {

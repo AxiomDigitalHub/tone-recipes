@@ -4,6 +4,14 @@ Written 2026-07-06, the day Vercel fair-use-blocked the team and served
 402s on production. The escape hatch is built and CI is already producing
 host-portable images; this doc is the remaining human steps + cutover plan.
 
+> **STATUS 2026-07-07: steps 1–5 DONE.** faderandknob.com serves from the
+> DO droplet behind Cloudflare; auto-deploys and the GH cron are live.
+> Step 6 (decommission) is tracked — with the rest of the post-cutover
+> punch list — in docs/VERCEL_DECOMMISSION_SPRINT.md. Time-critical piece:
+> the old Vercel deployment's cron STILL fires Tuesdays 14:00 UTC (it sent
+> the 2026-07-07 newsletter itself) and will double-send alongside the GH
+> cron on 2026-07-14 unless the project is paused first.
+
 ## Why we're leaving
 
 - Fair-use block took the site down (402s to every visitor, including

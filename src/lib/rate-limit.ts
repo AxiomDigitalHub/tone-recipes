@@ -1,7 +1,9 @@
 /**
  * Simple in-memory rate limiter for API routes.
- * Works per-serverless-instance (resets on cold start).
- * Good enough to block abuse; upgrade to @upstash/ratelimit for distributed limiting.
+ * The site runs as one long-lived container, so this store covers all
+ * traffic (it resets on container restart, i.e. each deploy).
+ * Good enough to block abuse; upgrade to @upstash/ratelimit if we ever
+ * scale to multiple replicas.
  */
 
 interface RateLimitEntry {
@@ -57,9 +59,17 @@ export function rateLimit(
 }
 
 /**
- * Get the client IP from a request (works on Vercel).
+ * Get the client IP from a request.
+ *
+ * Trust order matters: `cf-connecting-ip` is set by Cloudflare itself and
+ * can't be forged through the proxy, so it wins. `x-forwarded-for` is
+ * client-appendable — Cloudflare/Caddy append the real IP after whatever
+ * the client sent, so trusting its FIRST entry would hand abusers a fresh
+ * rate-limit bucket per request. It remains only as a local-dev fallback.
  */
 export function getClientIp(req: Request): string {
+  const cf = req.headers.get("cf-connecting-ip");
+  if (cf) return cf.trim();
   const forwarded = req.headers.get("x-forwarded-for");
   if (forwarded) return forwarded.split(",")[0].trim();
   const real = req.headers.get("x-real-ip");

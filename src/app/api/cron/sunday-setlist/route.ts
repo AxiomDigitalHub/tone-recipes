@@ -7,18 +7,19 @@ import { sendSundaySetlist, type SetlistSong } from "@/lib/email";
  * GET /api/cron/sunday-setlist
  *
  * The "Sunday Setlist" email (docs/research: the killer worship concept).
- * Fires from a Vercel Cron on Tuesdays — worship guitarists get their
- * setlist early in the week and need tones by Sunday, so Tuesday is the
- * purchase/learn trigger.
+ * Fires from a GitHub Actions cron on Tuesdays (see
+ * .github/workflows/sunday-setlist-cron.yml) — worship guitarists get
+ * their setlist early in the week and need tones by Sunday, so Tuesday
+ * is the purchase/learn trigger.
  *
  * It is fully automated: it assembles a setlist of worship songs that
  * actually have recipes on the site, rotating the window each week (by ISO
  * week number) so the email is fresh, then sends to every active newsletter
  * subscriber via the existing sendSundaySetlist() template.
  *
- * Auth: Vercel Cron attaches `Authorization: Bearer ${CRON_SECRET}`. We
+ * Auth: the workflow attaches `Authorization: Bearer ${CRON_SECRET}`. We
  * reject anything else so the endpoint can't be triggered publicly to spam
- * the list. Configure CRON_SECRET in Vercel.
+ * the list. CRON_SECRET lives in GitHub secrets + the droplet env.
  */
 
 export const dynamic = "force-dynamic";

@@ -17,15 +17,16 @@
  *
  * Usage:
  *   STRIPE_SECRET_KEY=sk_live_... npx tsx scripts/stripe-setup-plans.ts
- *   STRIPE_SECRET_KEY=sk_live_... npx tsx scripts/stripe-setup-plans.ts --write-vercel
  *
- * --write-vercel pushes every price ID to Vercel (production + preview) via
- * the Vercel CLI. Price IDs are not secret. Rehearse with a sk_test_ key
- * first to build the plans harmlessly in test mode.
+ * The script prints ready-to-paste `.env.production` lines for every price
+ * ID (price IDs are not secret). Add them to the droplet's env file at
+ * /opt/faderandknob/.env.production, then `docker compose up -d app` to
+ * restart with the new values — the checkout route reads them at runtime.
+ * Rehearse with a sk_test_ key first to build the plans harmlessly in
+ * test mode.
  */
 
 import Stripe from "stripe";
-import { execSync } from "node:child_process";
 
 type PlanPrice = {
   lookupKey: string;
@@ -59,7 +60,6 @@ function fail(msg: string): never {
 }
 
 async function main() {
-  const writeVercel = process.argv.includes("--write-vercel");
   const key = process.env.STRIPE_SECRET_KEY?.trim();
 
   if (!key) {
@@ -111,31 +111,13 @@ async function main() {
     }
   }
 
-  console.log("\nPrice IDs (not secret):");
-  for (const [envVar, id] of Object.entries(results)) console.log(`  ${envVar}=${id}`);
-
-  if (writeVercel) {
-    console.log("\nWriting to Vercel (production + preview)…");
-    for (const [envVar, id] of Object.entries(results)) {
-      for (const target of ["production", "preview"]) {
-        try {
-          try { execSync(`npx vercel env rm ${envVar} ${target} -y`, { stdio: "ignore" }); } catch {}
-          execSync(`npx vercel env add ${envVar} ${target}`, { input: id, stdio: ["pipe", "ignore", "inherit"] });
-          console.log(`  ✓ ${envVar} → ${target}`);
-        } catch (err) {
-          console.error(`  ✖ ${envVar} → ${target}: ${(err as Error).message}`);
-        }
-      }
-    }
-    console.log("\nRedeploy for the env to take effect:  npx vercel redeploy --prod");
-  } else {
-    console.log("\nTo wire these into Vercel, re-run with --write-vercel, or run manually:");
-    for (const [envVar, id] of Object.entries(results)) {
-      console.log(`  echo "${id}" | npx vercel env add ${envVar} production`);
-      console.log(`  echo "${id}" | npx vercel env add ${envVar} preview`);
-    }
-    console.log("Then: npx vercel redeploy --prod");
-  }
+  console.log("\nAdd/update these lines in /opt/faderandknob/.env.production on the droplet:\n");
+  for (const [envVar, id] of Object.entries(results)) console.log(`${envVar}=${id}`);
+  console.log(
+    "\nThen restart so the checkout route picks them up:\n" +
+      "  cd /opt/faderandknob && docker compose up -d app\n" +
+      "(Price IDs are runtime env — no image rebuild needed.)",
+  );
 }
 
 main().catch((err) => {

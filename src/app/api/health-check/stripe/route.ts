@@ -17,8 +17,8 @@ import Stripe from "stripe";
  *   - Live Supabase admin query (profiles_count proves service role works)
  *
  * Protected by a `token` query parameter matched against HEALTH_CHECK_TOKEN
- * env var, so it's not accidentally public. Set that env var in Vercel to
- * any long random string before using.
+ * env var, so it's not accidentally public. Set that env var (droplet
+ * .env.production) to any long random string before using.
  *
  * Example: GET /api/health-check/stripe?token=YOUR_SECRET
  */
@@ -67,7 +67,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(
       {
         error:
-          "HEALTH_CHECK_TOKEN env var is not configured. Set it in Vercel to enable this endpoint.",
+          "HEALTH_CHECK_TOKEN env var is not configured. Set it in the server env (.env.production) to enable this endpoint.",
       },
       { status: 503 },
     );

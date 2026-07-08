@@ -3,9 +3,11 @@ import type { NextRequest } from "next/server";
 
 /* -------------------------------------------------------------------------- */
 /*  Geo-blocking: OFAC-sanctioned + high-risk countries                       */
-/*  Host-portable: reads Vercel's x-vercel-ip-country OR Cloudflare's        */
-/*  cf-ipcountry (both ISO 3166-1 alpha-2). Behind neither, no header →      */
-/*  no block — geo-blocking degrades open rather than locking everyone out.  */
+/*  Reads Cloudflare's cf-ipcountry (ISO 3166-1 alpha-2). REQUIRES the       */
+/*  "IP Geolocation" toggle in the Cloudflare dashboard (Network tab) —      */
+/*  without it the header never arrives and geo-blocking degrades open       */
+/*  rather than locking everyone out. Cloudflare strips client-sent          */
+/*  cf-* headers, so the value can't be forged through the proxy.            */
 /* -------------------------------------------------------------------------- */
 
 const BLOCKED_COUNTRIES = new Set([
@@ -23,10 +25,7 @@ const BLOCKED_COUNTRIES = new Set([
 
 export function middleware(request: NextRequest) {
   // ---- Geo-block ----
-  const country =
-    request.headers.get("x-vercel-ip-country") ??
-    request.headers.get("cf-ipcountry") ??
-    "";
+  const country = request.headers.get("cf-ipcountry") ?? "";
   if (country && BLOCKED_COUNTRIES.has(country)) {
     return new NextResponse("Access restricted in your region.", {
       status: 403,

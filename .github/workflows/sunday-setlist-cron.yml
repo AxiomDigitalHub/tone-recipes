@@ -1,11 +1,11 @@
-# Host-portable replacement for the vercel.json cron: fires the Sunday
-# Setlist newsletter endpoint every Tuesday 14:00 UTC with the CRON_SECRET
-# bearer token (same auth Vercel Cron uses).
+# Fires the Sunday Setlist newsletter endpoint every Tuesday 14:00 UTC
+# with the CRON_SECRET bearer token. Live since cutover (CRON_ENABLED=true,
+# 2026-07-08).
 #
-# Gated on the CRON_ENABLED repo variable (default "false") so it does NOT
-# double-send while the Vercel cron is still active. Flip to "true" at
-# cutover, at the same moment the vercel.json cron is retired — see
-# docs/MIGRATION.md.
+# The CRON_ENABLED gate existed to prevent double-sends while the old
+# Vercel cron was still active; it stays as a kill switch. NOTE: until the
+# Vercel project is paused/deleted, its cron ALSO fires Tue 14:00 UTC and
+# will double-send — see docs/VERCEL_DECOMMISSION_SPRINT.md item 2.
 
 name: Sunday Setlist cron
 

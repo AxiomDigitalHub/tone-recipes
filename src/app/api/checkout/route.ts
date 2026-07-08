@@ -98,9 +98,9 @@ export async function POST(req: NextRequest) {
     const priceId = PRICE_IDS[tier][interval];
     if (!priceId) {
       // Misconfigured env — this is what you see during a live-mode
-      // rollout if STRIPE_{tier}_PRICE_ID_* is missing in Vercel. Honest
-      // error so the caller's button surfaces "Pricing not configured"
-      // rather than a generic 500.
+      // rollout if STRIPE_{tier}_PRICE_ID_* is missing from the runtime
+      // env (droplet .env.production). Honest error so the caller's
+      // button surfaces "Pricing not configured" rather than a generic 500.
       console.error(
         `[checkout] STRIPE_${tier.toUpperCase()}_PRICE_ID_${interval.toUpperCase()} not set`,
       );

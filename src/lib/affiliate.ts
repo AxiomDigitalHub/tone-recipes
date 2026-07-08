@@ -1,10 +1,10 @@
 /**
  * Affiliate-link assembly.
  *
- * Tags are read from environment variables so the actual program IDs can
- * be rotated in Vercel without a deploy. When a tag is unset, we fall
- * back to an unattributed link so the UX still works (and existing
- * posts don't 404) — we just don't get paid for that click.
+ * Tags are read from environment variables so the actual program IDs
+ * never live in code. When a tag is unset, we fall back to an
+ * unattributed link so the UX still works (and existing posts don't
+ * 404) — we just don't get paid for that click.
  *
  * Programs supported today:
  *   - Sweetwater  (best for new boutique/amp gear, US-centric)
