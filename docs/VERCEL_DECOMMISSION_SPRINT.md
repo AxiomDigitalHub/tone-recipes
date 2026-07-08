@@ -11,9 +11,8 @@ runbook); this is the punch list that closes it out.
 shipping (cutover build green); `AMAZON_ASSOCIATES_TAG=faderandknob-20`
 repo var feeding the image build; `HEALTH_CHECK_TOKEN` configured on the
 droplet (endpoint returns the by-design 404, not the unconfigured 503);
-`sharp` installed for next/image; Dockerfile's system Chromium +
-`LOCAL_CHROME_PATH` bypasses the @sparticuz serverless path; Cloudflare
-strips client-sent `cf-ipcountry`, so outsiders can't spoof geo-blocks.
+`sharp` installed for next/image; Cloudflare strips client-sent
+`cf-ipcountry`, so outsiders can't spoof geo-blocks.
 
 **Out of scope:** Google OAuth — separate agent has it, pending.
 
@@ -29,36 +28,29 @@ Tue 2026-07-07 14:00:16 UTC and sent to 5 recipients**
 skipped (flag flipped ~10h later) — so exactly one send went out this
 week. Do NOT fire the workflow manually.
 
-### 2. Vercel cron is CONFIRMED live → double-send on 2026-07-14 unless paused
-Item 1's evidence upgrades this from "possibly" to "certainly": the stale
-deployment predates the `"crons": []` commit (git→deploy integration was
-broken), so its Tuesday cron is still armed alongside our now-enabled GH
-cron, and it holds all 17 prod secrets (`STRIPE_SECRET_KEY`,
-`SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, rotated `CRON_SECRET`).
-Dashboard-only fixes (project: `tone-recipes`,
+### 2. Vercel cron double-send risk — DEFUSED 2026-07-08
+The stale deployment's cron (which sent this week's issue) was retired by
+a CLI defang deploy: `dpl_HxnrSCxBU7gjDJ5qdoqQVfq9eZtL` with `crons: []`
+went READY on Vercel production, and the commits behind it delete
+vercel.json entirely. Only the GH Actions cron fires on 2026-07-14. What
+remains is ordinary decommissioning (project: `tone-recipes`,
 `prj_hJSpmqgR9cOJBFjZ7yGzO2ow5ATj`, team `team_1VkpZwZiPrgTLta0S2Pp9Bxb`):
 
-- [ ] **Before Tue 2026-07-14 14:00 UTC**: Vercel dashboard → Settings →
-      pause the project (one click, kills the cron + serving; keeps the
-      shell for DNS rollback). Deleting just the CRON_SECRET env var also
-      defangs the cron (route 503s without it) if pausing feels too final.
-- [ ] Delete the env vars from the Vercel project (rollback would need a
-      re-push anyway, and the snapshot exists).
+- [x] Retire the Vercel cron (defang deploy, 2026-07-08).
+- [ ] Delete the env vars from the Vercel project — it still holds all 17
+      prod secrets (`STRIPE_SECRET_KEY`, `SUPABASE_SERVICE_ROLE_KEY`,
+      `RESEND_API_KEY`, rotated `CRON_SECRET`).
 - [ ] After the clean week (~2026-07-14): delete the project, cancel
       billing.
 - [ ] Optional belt-and-braces: rotate `CRON_SECRET` once more after
       Vercel is gone, so the only holders are GitHub secrets + the droplet.
 
-### 3. Confirm Cloudflare "IP Geolocation" is ON — the OFAC geo-block depends on it
-`src/middleware.ts:27` reads `x-vercel-ip-country` (now never present)
-with `cf-ipcountry` as the only remaining source. Cloudflare only attaches
-`cf-ipcountry` when **IP Geolocation** is enabled (dashboard → Network).
-If it's off, geo-blocking of IR/KP/SY/CU/CN/RU/BY is silently disabled —
-the middleware deliberately degrades open. Not externally testable
-(Cloudflare strips the header from client requests either way).
-
-- [ ] Cloudflare dashboard → Network → IP Geolocation → verify ON.
-- [ ] Spot-check origin logs for `cf-ipcountry` on a real request.
+### 3. ~~Confirm Cloudflare "IP Geolocation" is ON~~ VERIFIED 2026-07-08
+`cf-ipcountry` reaches the origin (tested via a temporary Caddy `/__geo`
+route → `country=US`) — the toggle is already ON, so the OFAC geo-block
+(middleware, now cf-ipcountry-only) is live. Context kept for the future:
+if that toggle is ever switched off, the middleware degrades open (no
+header → no block) by design.
 
 ---
 
@@ -77,13 +69,21 @@ newsletter signup, and every rate-limited route.
       ranges — otherwise direct-to-origin requests bypass Cloudflare
       entirely (no geo header, forged XFF, no WAF).
 
-### 5. End-to-end PDF download check on prod
-The download route (src/app/api/recipes/[slug]/download) now renders via
-system Chromium (`LOCAL_CHROME_PATH=/usr/bin/chromium`). The code path is
-right; nobody has verified a real PDF since cutover.
+### 5. End-to-end PDF download check on prod — VERIFIED 2026-07-08
+Twist: the "obvious" post-Vercel cleanup (apt Chromium via
+`LOCAL_CHROME_PATH`, dropping @sparticuz/chromium) does NOT work — apt
+Chromium SIGTRAPs in the slim container (gpu-process crash regardless of
+flags; verified live in-container 2026-07-08). @sparticuz/chromium was
+restored in commit 8882928 as the production renderer (5.4 MB PDF with
+Fraunces embedded, rendered off the live print route). **Do not remove
+sparticuz again without a passing in-container render test** — see the
+warning comments in src/lib/pdf/render-print-pdf.ts and next.config.ts.
 
-- [ ] Download a recipe PDF from production; confirm fonts (Fraunces)
-      render, not fallback faces.
+- [x] In-container render verified (Fraunces embedded, off the live
+      print route).
+- [ ] Optional: one signed-in click-through of the download button on
+      production for the full route-level path (auth + entitlement +
+      render).
 
 ### 6. ~~`stripe-setup-plans.ts --write-vercel` writes to a dead platform~~ FIXED 2026-07-07
 The `--write-vercel` path is gone; the script now prints ready-to-paste
@@ -98,10 +98,11 @@ The `--write-vercel` path is gone; the script now prints ready-to-paste
 - [x] `@vercel/analytics` + `@vercel/speed-insights` uninstalled; the
       `VERCEL === "1"` block, imports, and the `va` branch in analytics.ts
       removed. GA4 + Clarity carry analytics.
-- [x] `@sparticuz/chromium` uninstalled; render-print-pdf.ts is
-      LOCAL_CHROME_PATH/platform-default only; `outputFileTracingIncludes`
-      gone from next.config.ts (~80 MB lighter images);
-      `serverExternalPackages` kept for `puppeteer-core`.
+- [x] ~~`@sparticuz/chromium` uninstalled~~ **REVERTED in 8882928** — it
+      turned out to be the only Chromium that renders in the container
+      (see item 5). It is NOT a Vercel-only leftover; it stays. The
+      `outputFileTracingIncludes` block in next.config.ts is what ships
+      its binary payload into the standalone build — also stays.
 
 ### 8. ~~Delete the artifacts~~ DONE
 - [x] `vercel.json` deleted (git rm).
