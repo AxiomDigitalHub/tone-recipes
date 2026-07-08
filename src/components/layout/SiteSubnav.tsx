@@ -18,13 +18,14 @@ import { useAuth } from "@/lib/auth/auth-context";
  *   - Signed in → initials avatar (links to /dashboard) + Sign out.
  */
 
+// Minimal on purpose (2026-07-08, Daniel's call): the top nav carries only
+// the words a first-time visitor parses instantly — everything else lives in
+// the footer. Labels are wayfaring, not branding: the blog page can call
+// itself "Field Notes"; the nav says "Blog".
 const NAV_LINKS = [
-  { href: "/browse", label: "Recipes" },
-  { href: "/platforms", label: "Platforms" },
-  { href: "/tone-chat", label: "Ask Axl" },
-  { href: "/blog", label: "Field Notes" },
+  { href: "/browse", label: "Tones" },
+  { href: "/blog", label: "Blog" },
   { href: "/news", label: "News" },
-  { href: "/request", label: "Request" },
   { href: "/pricing", label: "Pricing" },
 ];
 

@@ -3,20 +3,22 @@
 import Link from "next/link";
 import { useState } from "react";
 
+// The footer is the full map — the top nav stays minimal (Tones / Blog /
+// News / Pricing) and everything else is findable here.
 const exploreLinks = [
   { href: "/browse", label: "Browse Tones" },
   { href: "/platforms", label: "Platforms" },
+  { href: "/tone-chat", label: "Ask Axl (tone chat)" },
   { href: "/gear", label: "Gear" },
   { href: "/compare", label: "Compare" },
-  { href: "/news", label: "News" },
-  { href: "/blog", label: "Field Notes" },
   { href: "/request", label: "Request a Tone" },
-  { href: "/how-it-works", label: "How it Works" },
+  { href: "/how-it-works", label: "How It Works" },
 ];
 
 const communityLinks = [
   { href: "/experiment", label: "The Experiment" },
-  { href: "/blog", label: "Field Notes" },
+  { href: "/blog", label: "Blog" },
+  { href: "/news", label: "News" },
   { href: "/community", label: "Community Hub" },
   { href: "/feed.xml", label: "RSS Feed" },
   { href: "/llms.txt", label: "llms.txt" },
