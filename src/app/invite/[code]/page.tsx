@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth/auth-context";
 import Link from "next/link";
+import GoogleSignInButton from "@/components/auth/GoogleSignInButton";
 
 export default function InvitePage() {
   const { code } = useParams<{ code: string }>();
@@ -117,6 +118,12 @@ export default function InvitePage() {
                   Creator accounts include all platform translations, preset
                   downloads, recipe submission, and more.
                 </p>
+                {/* In-page Google sign-in when configured — auth state change
+                    re-renders this page into the redeem flow. Legacy redirect
+                    button as fallback. */}
+                <GoogleSignInButton
+                  text="signin_with"
+                  fallback={
                 <button
                   onClick={() => signInWithGoogle()}
                   className="w-full px-4 py-3 bg-foreground text-[var(--ink)] rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
@@ -141,6 +148,8 @@ export default function InvitePage() {
                   </svg>
                   Sign in with Google
                 </button>
+                  }
+                />
               </div>
             </>
           )}

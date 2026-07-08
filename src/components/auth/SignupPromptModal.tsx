@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Check, Mail, X } from "lucide-react";
 import { useAuth } from "@/lib/auth/auth-context";
 import OverlayPortal from "@/components/ui/OverlayPortal";
+import GoogleSignInButton from "@/components/auth/GoogleSignInButton";
 
 const MIN_PASSWORD_LENGTH = 10;
 
@@ -203,8 +204,19 @@ export default function SignupPromptModal({
           </div>
         )}
 
-        {/* Primary: Google */}
+        {/* Primary: Google. In-page ID-token flow when configured (session
+            lands without a redirect, so onSuccess resumes the action
+            directly); legacy redirect flow as fallback. */}
         {!isDemoMode && (
+          <GoogleSignInButton
+            text="continue_with"
+            onClick={() => {
+              setError("");
+              stashPending();
+            }}
+            onSuccess={onSuccess}
+            onError={(msg) => setError(msg)}
+            fallback={
           <button
             type="button"
             onClick={handleGoogle}
@@ -230,6 +242,8 @@ export default function SignupPromptModal({
             </svg>
             Continue with Google
           </button>
+            }
+          />
         )}
 
         {/* Email toggle / form */}
