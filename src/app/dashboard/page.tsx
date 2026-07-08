@@ -11,6 +11,7 @@ import { toneRecipes, getRecipeBySlug, getSongBySlug, getArtistBySlug } from "@/
 import type { ToneRecipe, Platform } from "@/types/recipe";
 import { TIERS } from "@/lib/permissions";
 import { classifyTonePersonality, getTimeGreeting } from "@/lib/tone-personality";
+import { track } from "@/lib/analytics";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 
 const PLATFORM_LABELS: Record<string, string> = {
@@ -65,6 +66,23 @@ export default function DashboardOverview() {
   const [hydrated, setHydrated] = useState(false);
   const [primaryPlatform, setPrimaryPlatform] = useState<string | null>(null);
   const [gearCount, setGearCount] = useState(0);
+
+  // Stripe redirects here with ?upgraded=<tier> after a successful checkout
+  // (see /api/checkout success_url). Fire the conversion once, then strip
+  // the param so a refresh/bookmark doesn't double-count.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const tier = params.get("upgraded");
+    if (!tier) return;
+    track("checkout_complete", { tier });
+    params.delete("upgraded");
+    const qs = params.toString();
+    window.history.replaceState(
+      null,
+      "",
+      window.location.pathname + (qs ? `?${qs}` : ""),
+    );
+  }, []);
 
   useEffect(() => {
     favoritesHydrate(user?.id);

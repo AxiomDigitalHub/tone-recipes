@@ -6,6 +6,7 @@ import { Check, Mail, X } from "lucide-react";
 import { useAuth } from "@/lib/auth/auth-context";
 import OverlayPortal from "@/components/ui/OverlayPortal";
 import GoogleSignInButton from "@/components/auth/GoogleSignInButton";
+import { track } from "@/lib/analytics";
 
 const MIN_PASSWORD_LENGTH = 10;
 
@@ -129,6 +130,7 @@ export default function SignupPromptModal({
     }
 
     setLoading(true);
+    track("signup_start", { method: "email", source: "prompt_modal" });
     const result = await signUp(email, password);
     setLoading(false);
 
@@ -213,6 +215,7 @@ export default function SignupPromptModal({
             onClick={() => {
               setError("");
               stashPending();
+              track("signup_start", { method: "google", source: "prompt_modal" });
             }}
             onSuccess={onSuccess}
             onError={(msg) => setError(msg)}

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { createBrowserClient } from "@/lib/db/client";
 import { useAuth } from "@/lib/auth/auth-context";
+import { track } from "@/lib/analytics";
 
 /**
  * <CheckoutButton tier="pro" interval="annual" /> — kicks off checkout.
@@ -52,6 +53,7 @@ export default function CheckoutButton({
   async function handleClick() {
     setError("");
     setLoading(true);
+    track("checkout_start", { tier, interval, signed_in: Boolean(user) });
 
     // Signed-out users go to login, with a return-to-pricing hint so
     // they land back here after auth.

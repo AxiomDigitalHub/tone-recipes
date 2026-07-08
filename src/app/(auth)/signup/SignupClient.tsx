@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth/auth-context";
 import GoogleSignInButton from "@/components/auth/GoogleSignInButton";
+import { track } from "@/lib/analytics";
 
 export default function SignupClient() {
   const router = useRouter();
@@ -21,6 +22,7 @@ export default function SignupClient() {
     if (submitting) return;
     setError(null);
     setSubmitting(true);
+    track("signup_start", { method: "email", source: "signup_page" });
     try {
       const result = await signUp(email, password);
       if (result.error) {
@@ -59,7 +61,10 @@ export default function SignupClient() {
 
           <GoogleSignInButton
             text="continue_with"
-            onClick={() => setError(null)}
+            onClick={() => {
+              setError(null);
+              track("signup_start", { method: "google", source: "signup_page" });
+            }}
             onSuccess={() => router.push("/dashboard")}
             onError={(msg) => setError(msg)}
             fallback={

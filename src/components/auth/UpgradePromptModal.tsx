@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { Check, X } from "lucide-react";
 import OverlayPortal from "@/components/ui/OverlayPortal";
+import { track } from "@/lib/analytics";
 
 interface UpgradePromptModalProps {
   /** Whether the modal is visible. */
@@ -27,6 +28,11 @@ export default function UpgradePromptModal({
   onClose,
   reason,
 }: UpgradePromptModalProps) {
+  // Conversion funnel: seeing this modal is the top of the upgrade path.
+  useEffect(() => {
+    if (open) track("upgrade_prompt_view", { reason });
+  }, [open, reason]);
+
   // Close on Esc
   useEffect(() => {
     if (!open) return;
@@ -110,6 +116,7 @@ export default function UpgradePromptModal({
 
         <Link
           href="/pricing"
+          onClick={() => track("upgrade_prompt_click", { reason })}
           className="block w-full rounded-lg bg-[var(--amber)] py-2.5 text-center text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
         >
           See Tone Pass
