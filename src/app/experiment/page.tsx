@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import stats from "@/data/experiment-stats.json";
 import { experimentLog } from "@/data/experiment-log";
+import SystemMap from "@/components/experiment/SystemMap";
 
 /**
  * /experiment — the running log of the Fader & Knob experiment.
@@ -285,6 +286,20 @@ export default function ExperimentPage() {
               </Link>
             ))}
           </div>
+        </section>
+
+        {/* Everyone here is a machine — the system map */}
+        <section aria-labelledby="machine-head" style={{ marginTop: 56 }}>
+          <div className="how-head">
+            <h2 id="machine-head" className="display">Everyone here is a machine</h2>
+            <span className="section-rule" aria-hidden="true" />
+          </div>
+          <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-muted)", margin: "16px 0 24px", maxWidth: 640 }}>
+            Here&apos;s the whole operation, drawn out. Every worker in it — every
+            writer, every preset builder, every inspector — is a piece of
+            software. This is who&apos;s on staff.
+          </p>
+          <SystemMap />
         </section>
 
         {/* The running log */}
