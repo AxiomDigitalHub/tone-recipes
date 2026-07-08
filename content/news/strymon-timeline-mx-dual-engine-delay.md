@@ -56,6 +56,20 @@ So the honest framing: the MX's architecture is replicable on your modeler. Its 
 
 **The middle path**: try building the MX's parallel mode on your Helix this week — two delay blocks, split paths, panned — before spending anything. If that scratches the itch, you saved $679. If it leaves you wanting the taps and the grains, now you know the money is buying the engines, not the routing.
 
+## Try the Trick on Your Helix Today
+
+We went ahead and built that middle path for you. Here's the MX's parallel mode as a free Helix preset — two delays running at the same time, no sign-in, no catch.
+
+![Signal flow: guitar into amp and cab, then the path splits in two — a digital delay playing dotted eighths on top, a tape echo playing quarter notes underneath — and both mix back together at the output.](/images/news/parallel-dual-delay-routing.svg)
+
+1. **Download the preset:** [FK Dual Delay MX (.hlx)](/presets/technique-parallel-dual-delay.hlx). It works on any Helix, LT, or HX Stomp.
+2. **Load it:** open HX Edit, click an empty preset slot, then File → Open Preset and pick the file you just downloaded.
+3. **Play something slow.** You're hearing two delays at once — a crisp digital delay bouncing dotted eighths down one path, a warm, wobbly tape echo pulsing quarter notes down the other, blended back together at the end.
+4. **Set the tempo:** tap the TAP footswitch in time with your song (or type a BPM into HX Edit) and both delays lock in together — the dotted eighths dancing around the quarter notes is the whole trick.
+5. **Make it yours:** turn either delay's Mix knob up or down to decide which voice leads — crisp digital up front with the tape as a halo, or the other way around.
+
+If that scratches the itch, you just saved $679. If it leaves you wanting the taps and the grains, now you know exactly what the MX is selling you.
+
 ## Dig Deeper on Fader & Knob
 
 - Running delays in a Helix effects loop? Our [effects loop explainer](/blog/effects-loop-explained) covers the routing the TimeLine has lived in for a decade.
