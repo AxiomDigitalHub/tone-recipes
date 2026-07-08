@@ -34,10 +34,17 @@ export function middleware(request: NextRequest) {
   }
 
   // ---- www → non-www redirect ----
+  // (Also handled at the Caddy layer in production; kept here for any host
+  // that fronts the app without that rule.)
   const host = request.headers.get("host") ?? "";
   if (host.startsWith("www.")) {
     const newUrl = new URL(request.url);
     newUrl.host = host.replace(/^www\./, "");
+    // Behind a reverse proxy request.url carries the internal port (:3000)
+    // and plain http — strip/normalize so the redirect target is the real
+    // public origin, not https://faderandknob.com:3000/.
+    newUrl.port = "";
+    newUrl.protocol = "https:";
     return NextResponse.redirect(newUrl, 301);
   }
 

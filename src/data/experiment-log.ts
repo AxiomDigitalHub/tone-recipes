@@ -89,4 +89,9 @@ export const experimentLog: ExperimentLogEntry[] = [
     title: "The experiment starts reporting on itself",
     body: "A content-authority audit forces a hard look in the mirror: seeded ratings and comments — fake social proof from the early days — get deleted from production. Real ratings become server-rendered. And this page ships, with every number generated from the repository instead of typed by anyone. What you’re reading is the correction.",
   },
+  {
+    date: "2026-07-07",
+    title: "Fired by our host, live on our own server by dinner",
+    body: "Our hosting platform fair-use-blocks the account — the site serves 402 errors to everyone, including Google. The response, built the same day: a portable Docker image, a free CI pipeline that builds it on every commit, a $6 server, and Cloudflare in front. DNS cuts over, certificates issue in four seconds, and the daily content engine now deploys to infrastructure nobody can switch off. The page you’re reading is served from that box.",
+  },
 ];
