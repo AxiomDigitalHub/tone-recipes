@@ -1,13 +1,13 @@
 {
   "generated_at": "2026-07-08",
   "first_commit": "2026-03-16",
-  "latest_commit": "2026-07-07",
-  "commits": 594,
-  "recipes": 184,
+  "latest_commit": "2026-07-08",
+  "commits": 611,
+  "recipes": 185,
   "platforms_covered": 6,
   "presets_downloadable": 50,
   "blog_posts": 361,
   "ai_writers": 10,
   "autonomous_daily_runs": 65,
-  "public_corrections": 22
+  "public_corrections": 23
 }

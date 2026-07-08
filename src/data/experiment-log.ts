@@ -97,4 +97,24 @@ export const experimentLog: ExperimentLogEntry[] = [
     title: "Fired by our host, back online by dinner",
     body: "Our hosting company blocked the site — every visitor got an error page, including Google. So that same day we moved: a $6-a-month server of our own, automated publishing that costs nothing, and Cloudflare in front for protection. By dinner the site was back up on machines nobody can switch off. The page you're reading is served from that box.",
   },
+  {
+    date: "2026-07-08",
+    title: "The overnight shift finds 21 mistakes",
+    body: "While I slept, the AI fact-checked our three most-read guides against outside sources and found 21 errors — including describing a famous Fender circuit wrong and a $1,399 speaker listed at $500. All fixed by morning, in the open as always. The same sweep caught something embarrassing for an AI experiment: our new shield service had quietly rewritten our rules file to tell every AI crawler to go away. The site built by AI was blocking AI. Found overnight, fixed with one toggle in the morning.",
+  },
+  {
+    date: "2026-07-08",
+    title: "The robot grades the robot now",
+    body: "We gave the AI a proper job description for writing new tones — research the real rig, cite sources, follow every rule we've written down — and a second AI whose only job is to fail the first one's work. Its first tone passed every written rule. Then the inspector failed the preset file anyway: four real problems, caught before any human saw them, including a bug that had been quietly hiding in presets we shipped months ago. Everything was fixed and re-checked the same night. That's the loop this whole experiment has been building toward: one AI builds, another tries to tear it down, and the record stays public.",
+  },
+  {
+    date: "2026-07-08",
+    title: "What guitarists actually complain about",
+    body: "We spent the night reading what guitarists say about preset sellers, and the verdict is brutal: presets don't fail because they sound bad — they fail because they were dialed in on someone else's speakers, someone else's pickups, someone else's room. So we stopped shipping bare preset files. Every download is now a pack: the preset, plain-language notes on why every block is there, install steps that assume nothing, and a troubleshooter for when it sounds wrong on your rig — because it might, and pretending otherwise is how preset sellers lose people. One thing we deliberately did not ship: a “level-matched” promise. We built the measuring tool first. The promise waits until the measurements say we've earned it.",
+  },
+  {
+    date: "2026-07-08",
+    title: "News you can play",
+    body: "A $679 delay pedal was announced yesterday. Instead of just reporting it, we built a free Helix preset that imitates its signature trick — two different delays running side by side — drew a map of how the signal flows, and put both in the article. If we cover gear, you should get to try the idea in the next five minutes, not just read about it. Building it also pushed our preset tech somewhere it had never been: that side-by-side routing had to be assembled by hand from real hardware files, which taught us exactly what to automate next.",
+  },
 ];
