@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-07-05
-**Recipes:** 184
-**Clean (no errors, no warns):** 184
+**Date:** 2026-07-08
+**Recipes:** 185
+**Clean (no errors, no warns):** 185
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,7 +16,7 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 20 / 184 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `katana-kemper-multidrive-default-off` | info | 20 / 185 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -397,6 +397,12 @@ Passes every rule.
 ### `grohl-the-pretender-riff` — ✓ clean
 
 *Grohl's The Pretender Wall of Distortion*
+
+Passes every rule.
+
+### `grohl-times-like-these-riff` — ✓ clean
+
+*Foo Fighters' Times Like These Riff Tone*
 
 Passes every rule.
 
