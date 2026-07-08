@@ -45,10 +45,14 @@ WORKDIR /app
 
 # PDF rendering uses @sparticuz/chromium from node_modules (the build made
 # for barebones containers) — apt chromium SIGTRAPs here (gpu-process crash,
-# verified 2026-07-08), so it is deliberately NOT installed. fonts-liberation
-# keeps fallback text metrics sane; site webfonts load over the network.
+# verified 2026-07-08), so it is deliberately NOT installed. sparticuz
+# bundles most of its own libs but links 4 system ones (exec fails with
+# code 127 without them — ldd-verified in-container): libexpat1, libnspr4,
+# libnss3 (provides nss3 + nssutil3). fonts-liberation keeps fallback text
+# metrics sane; site webfonts load over the network.
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends fonts-liberation ca-certificates curl \
+  && apt-get install -y --no-install-recommends \
+       libexpat1 libnspr4 libnss3 fonts-liberation ca-certificates curl \
   && rm -rf /var/lib/apt/lists/*
 
 # No LOCAL_CHROME_PATH: its absence is what routes render-print-pdf.ts to the
