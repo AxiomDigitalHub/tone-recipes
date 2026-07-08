@@ -3370,3 +3370,58 @@ Edge/U2 delay citation retained and ranking (#2). robots.ts open, robots.txt rea
 | 3 | why-24-bit-recording-headroom-vs-16-bit-guitar | Why Record Guitar at 24-Bit? Headroom, Noise Floor, and When 16-Bit Is Fine | "24 bit vs 16 bit recording," "why record at 24 bit," "bit depth for guitar recording," "does bit depth matter," "16 bit vs 24 bit guitar" | Elena Ruiz | Workflow | Surfaced by today's 44.1-vs-48 SERP (Boris FX / Sweetwater bit-depth notes) and raised-but-punted by the new sample-rate post ("track at 24-bit… a separate lever"). Genuinely distinct: bit depth sets noise floor and headroom, not the frequency ceiling — a different question from sample rate, and the one that actually lets you record without stressing your levels. Elena's practical, constraint-embracing, set-it-and-forget-it lane is the native fit (the "record at 24-bit so a loud take doesn't clip and you stop babysitting the meter" tip is exactly her parent-player, short-session voice). Elena 0/wk, most-rested. Verify no colliding slug at build time. |
 
 **Built this run from earlier queue/backlog:** `delay-external-feedback-loop-processing-repeats` (Sean, queued 06-26, priority #1), `aiming-mic-null-reject-stage-bleed-cardioid-figure8-hypercardioid` (reassigned Carl→Nathan, queued 06-30, priority #2), `44-1-vs-48-khz-guitar-recording-which-sample-rate` (Dev, queued 07-03). **Queued-but-still-unbuilt (priority order):** `change-strings-before-every-gig-string-life-breakage` (Carl, queued 07-03); `two-cab-irs-one-amp-parallel-blend-polarity` (Sean, queued 07-03 — build once Sean is off the cap, else reassign to Dev or fk-staff); then today's 3 new topics (diy-feedback-loop/Jess, 3-to-1-mic/Margot, 24-bit/Elena). **Diversity:** today's new posts went to Sean (→2), Nathan (→1), Dev (→2); refreshes to Sean and Rick. **No one is over cap.** Next run should favor **Jess (0), Margot (0), Elena (0), Carl (1), Hank (1), Rick (1)** and the queued Carl/Jess/Margot/Elena topics, and keep new posts off Sean/Dev/Viktor (2 each) until they reset.
+
+---
+
+## Strategic Queue Injection — 2026-07-08 (overnight audit, not a content run)
+
+**Why this section exists:** A roadmap audit (2026-07-08, overnight session) found the
+daily engine has drifted off the strategy docs. Three weeks after
+`docs/WORSHIP_HELIX_CONTENT_CLUSTER.md` called the CCLI song cluster "the highest-ROI
+content we can produce," the score is: **0 of 25 Tier-2 song posts published, 0 of 2
+named pillars published**, while runs shipped recording-generalist topics (mic nulls,
+sample rates). The SERP fan-out loop is structurally biased toward yesterday's
+cluster; nothing re-anchors it to strategy. This injection is that re-anchor.
+
+**Queue discipline for the next runs:** take AT LEAST 2 of the 3 new-post slots per
+run from the strategic queue below (in order) until it is drained; the third slot may
+come from SERP fan-out as usual. Existing queued topics (change-strings/Carl,
+two-cab-IRs/Sean, diy-feedback-loop/Jess, 3-to-1-mic/Margot, 24-bit/Elena) retain
+their order AFTER the strategic items. Writer assignments: Nathan Cross is the native
+worship byline but respect the 3/wk cap — spread across rested writers; song-tone
+posts can carry any byline whose lane fits (the recipe/CTA is the point, not the
+persona's denomination).
+
+### Strategic queue (priority order — drain from the top)
+
+| # | Slug | Title | Target queries | Pillar | Notes |
+|---|---|---|---|---|---|
+| S1 | helix-worship-snapshots-sunday-morning | 5 Helix Snapshots That Cover Every Sunday Morning | "helix worship snapshots," "helix snapshot worship setup," "worship guitar snapshots" | Worship cluster | The cluster spec's flagged "highest-utility" item. Links every worship recipe + the Worship Set Pack. |
+| S2 | goodness-of-god-guitar-tone-helix | Goodness of God Guitar Tone on Helix (Bethel) | "goodness of god guitar tone," "goodness of god electric guitar helix" | Worship cluster Tier-2 | Recipe hislop-goodness-of-god ALREADY SHIPPED — post wraps it with song-context + preset CTA. Fastest possible Tier-2 win. |
+| S3 | way-maker-guitar-tone-helix | Way Maker Guitar Tone on Helix (Leeland) | "way maker guitar tone," "way maker electric guitar" | Worship cluster Tier-2 | Recipe moore-way-maker shipped; same wrap pattern as S2. |
+| S4 | what-a-beautiful-name-guitar-tone-helix | What a Beautiful Name Guitar Tone on Helix (Hillsong) | "what a beautiful name guitar tone," "hillsong guitar tone helix" | Worship cluster Tier-2 | Recipe hendroff-what-a-beautiful-name shipped; wrap pattern. Note the Jackson Audio Prism correction (NOT a Klon) already captured in the backlog. |
+| S5 | complete-guide-line-6-helix-tone-2026 | The Complete Guide to Line 6 Helix Tone (2026) | "line 6 helix tone," "helix tone guide," "how to get good helix tones" | Pillar | The named head-term pillar (strategy priority #2). Long-form; internal-links to every settings guide + recipe. Consider splitting across 2 runs (draft + polish). |
+| S6 | boss-katana-settings-guide-every-genre | Boss Katana Settings Guide: Every Channel, Every Genre | "boss katana settings," "katana amp settings," "boss katana clean settings" | Pillar (Katana ICP) | The missing 10–18K/mo head term (strategy priority #3). Site has .tsl downloads as the CTA — no competitor offers that. |
+| S7 | holy-forever-guitar-tone-helix | Holy Forever (Chris Tomlin) Guitar Tone on Helix | "holy forever guitar tone," "holy forever electric guitar" | Worship cluster Tier-2 | CCLI #1 with zero coverage anywhere. Needs song-facts research; no recipe dependency (tone/technique breakdown per cluster spec Tier-2 note — attribution bar applies to RECIPES, not song posts). |
+| S8 | pod-go-worship-setup-snapshots-presets | POD Go for Worship: Setup, Snapshots, and Sunday Presets | "pod go worship," "pod go worship presets," "pod go snapshots" | Worship cluster | Zero POD Go coverage despite it being inside the Line 6 worship-market claim. Budget entry point → funnels to Helix content. |
+| S9 | worship-guitar-tone-boss-katana | Worship Guitar Tone on a Boss Katana | "boss katana worship," "katana worship settings" | Worship × Katana bridge | Connects the two ICPs; .tsl download CTA. |
+| S10 | september-volunteer-worship-guitarist-starter | New to the Worship Team? The Volunteer Guitarist's First-Month Guide | "worship guitar for beginners," "new worship team guitarist," "worship guitar volunteer" | Worship cluster (seasonal) | The September volunteer wave is ~8 weeks out and nothing is queued for it. Ship by mid-August for indexing lead time. |
+
+### News candidates surfaced 2026-07-08 (for the news pipeline, not the blog queue)
+
+1. **Strymon TimeLine MX** — announced 2026-07-07, $679; 2 simultaneous delay machines,
+   new Spectral/MultiTap/Oil Can/Drum engines, looper, insert.
+   Source: premierguitar.com/news/strymon-timeline-mx. Angle: TimeLine MX vs Helix
+   delay blocks — what $679 buys that the Helix engine can't do (worship-board icon successor).
+2. **Fractal FM9 firmware 12.00 FINAL** — 2026-07-07 (beta was covered 05-21; final was
+   not). FM9 reaches Axe-Fx III 32.06 parity: Brit JVM Crunch trio, PVH 6160 Block
+   Clean, Deluxe Tweed Normal. Source: forum.fractalaudio.com/threads/fm9-firmware-version-12-0.221547.
+   Natural follow-up to the 07-02 Axe-Fx 32.06 piece.
+3. Blackstar Beam Solo native NAM A2 (first shipping A2 hardware, ~06-26) — medium priority.
+4. MixWave Yvette Young signature plugin (06-16, AC30-adjacent) — medium; strong recipe-translation hook.
+5. Eventide H9 Gen 2 shipping (06-24) — short update/append to the 06-08 piece, not a standalone.
+
+**Stale-data flags for a future maintenance pass (do not block runs):** the "Pillar
+Coverage (Current)" table near the top of this file still reflects a ~21-post site
+(reality: 361); the worship cluster spec's "pre-Easter window" sequencing is dead —
+the live seasonal hook is the September volunteer wave.
