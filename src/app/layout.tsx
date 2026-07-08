@@ -154,6 +154,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} flex min-h-screen flex-col bg-background font-sans text-foreground antialiased`}
       >
+        {/* GTM noscript — standard install pair for the lazyOnload script
+            near the end of body. */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PDKBCT48"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <AuthProvider>
           <div className="fk-preview flex min-h-screen flex-col flex-1">
             {/* Masthead ticker — the sitewide inroad to /experiment. Live
@@ -197,6 +207,16 @@ export default function RootLayout({
           <Toaster />
         </AuthProvider>
         <SmoothScroll />
+        {/* Google Tag Manager (GTM-PDKBCT48). Loaded lazyOnload like the
+            rest of the telemetry — pageview-level tracking doesn't justify
+            competing with LCP. NOTE: the direct gtag snippet below stays
+            until GA4 is configured INSIDE GTM; do not run both — a GA4
+            config tag in GTM + the snippet below = double-counted views.
+            Cutover: add the GA4 tag in GTM, publish, then delete the two
+            gtag Script blocks below in the same day. */}
+        <Script id="gtm-init" strategy="lazyOnload">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PDKBCT48');`}
+        </Script>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-PZLWYT7VMP"
           strategy="lazyOnload"

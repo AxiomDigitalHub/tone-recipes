@@ -11,6 +11,11 @@ host-portable images; this doc is the remaining human steps + cutover plan.
 > the old Vercel deployment's cron STILL fires Tuesdays 14:00 UTC (it sent
 > the 2026-07-07 newsletter itself) and will double-send alongside the GH
 > cron on 2026-07-14 unless the project is paused first.
+>
+> **2026-07-08:** the cron was retired by a defang deploy (crons:[]), and a
+> DO Cloud Firewall now restricts 80/443 to Cloudflare IP ranges (22 stays
+> open for CI deploys). Direct-origin debugging (the step-3 curl above)
+> requires temporarily adding your IP to the firewall's 80/443 sources.
 
 ## Why we're leaving
 

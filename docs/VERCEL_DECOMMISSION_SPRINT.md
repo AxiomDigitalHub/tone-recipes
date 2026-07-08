@@ -65,9 +65,11 @@ an abuser used to get a fresh rate-limit bucket per request on checkout,
 newsletter signup, and every rate-limited route.
 
 - [x] Prefer `cf-connecting-ip`, fall back to XFF for local dev.
-- [ ] Optional hardening (droplet-side): firewall 80/443 to Cloudflare IP
-      ranges — otherwise direct-to-origin requests bypass Cloudflare
-      entirely (no geo header, forged XFF, no WAF).
+- [x] Firewall 80/443 to Cloudflare IP ranges — DONE 2026-07-08 via DO
+      Cloud Firewall (dashboard). Verified: direct-to-origin curl on both
+      ports times out; site serves 200 through Cloudflare; port 22 stays
+      open for the GitHub Actions deploy job. Origin can no longer be
+      reached without Cloudflare's geo header / IP handling / WAF.
 
 ### 5. End-to-end PDF download check on prod — VERIFIED 2026-07-08
 Twist: the "obvious" post-Vercel cleanup (apt Chromium via
