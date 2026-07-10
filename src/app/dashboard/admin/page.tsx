@@ -2,6 +2,47 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { createBrowserClient } from "@/lib/db/client";
+
+interface Growth {
+  accounts: {
+    total: number;
+    new7d: number;
+    new30d: number;
+    byRole: Record<string, number>;
+    sparkline: number[];
+  } | null;
+  paid: {
+    pass: number;
+    pro: number;
+    paidTotal: number;
+    estMrr: number;
+    conversionRate: number;
+  } | null;
+  newsletter: {
+    active: number;
+    unsubscribed: number;
+    new7d: number;
+  } | null;
+  downloads: {
+    total: number;
+    top: { slug: string; count: number }[];
+  } | null;
+  set_packs: {
+    purchases: {
+      active: number;
+      refunded: number;
+      totalCents: number;
+      last7dCount: number;
+      last7dCents: number;
+    } | null;
+    interest: { pack: string; count: number }[] | null;
+  } | null;
+  funnel: {
+    total: number;
+    byName: { name: string; count: number }[];
+  } | null;
+}
 
 interface Metrics {
   catalog: { recipes: number; artists: number; songs: number; gear: number };
@@ -22,6 +63,8 @@ interface Metrics {
 export default function AdminDashboard() {
   const [metrics, setMetrics] = useState<Metrics | null>(null);
   const [loading, setLoading] = useState(true);
+  const [growth, setGrowth] = useState<Growth | null>(null);
+  const [growthError, setGrowthError] = useState(false);
 
   useEffect(() => {
     fetch("/api/admin/metrics")
@@ -31,6 +74,33 @@ export default function AdminDashboard() {
         setLoading(false);
       })
       .catch(() => setLoading(false));
+  }, []);
+
+  // Growth data exposes revenue, so /api/admin/growth is auth-gated. Send
+  // the signed-in admin's access token (same pattern as CheckoutButton).
+  useEffect(() => {
+    (async () => {
+      try {
+        const supabase = createBrowserClient();
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
+        if (!session?.access_token) {
+          setGrowthError(true);
+          return;
+        }
+        const res = await fetch("/api/admin/growth", {
+          headers: { Authorization: `Bearer ${session.access_token}` },
+        });
+        if (!res.ok) {
+          setGrowthError(true);
+          return;
+        }
+        setGrowth(await res.json());
+      } catch {
+        setGrowthError(true);
+      }
+    })();
   }, []);
 
   const users = metrics?.users;
@@ -77,6 +147,9 @@ export default function AdminDashboard() {
               </div>
             )}
           </section>
+
+          {/* ── Growth Section ── */}
+          <GrowthSection growth={growth} error={growthError} />
 
           {/* ── Content Section ── */}
           <section className="mb-10">
@@ -168,6 +241,330 @@ export default function AdminDashboard() {
       )}
     </div>
   );
+}
+
+/* ── Growth Section ── */
+
+function GrowthSection({
+  growth,
+  error,
+}: {
+  growth: Growth | null;
+  error: boolean;
+}) {
+  if (error) {
+    return (
+      <section className="mb-10">
+        <h2 className="mb-4 text-lg font-semibold text-foreground">Growth</h2>
+        <div className="rounded-lg border border-border bg-surface px-4 py-3 text-sm text-muted">
+          <span className="mr-2 inline-block h-2 w-2 rounded-full bg-yellow-500" />
+          Couldn&apos;t load growth data. Sign in as an admin and refresh.
+        </div>
+      </section>
+    );
+  }
+
+  if (!growth) {
+    // Still loading growth (auth handshake) — keep it quiet, the rest of the
+    // page already rendered.
+    return (
+      <section className="mb-10">
+        <h2 className="mb-4 text-lg font-semibold text-foreground">Growth</h2>
+        <div className="rounded-lg border border-border bg-surface px-4 py-3 text-sm text-muted">
+          Loading growth data…
+        </div>
+      </section>
+    );
+  }
+
+  const { accounts, paid, newsletter, downloads, set_packs, funnel } = growth;
+
+  return (
+    <section className="mb-10">
+      <div className="mb-4 flex items-baseline justify-between">
+        <h2 className="text-lg font-semibold text-foreground">Growth</h2>
+        <span className="text-xs text-muted">
+          real accounts, not GA estimates
+        </span>
+      </div>
+
+      {/* This week headline row */}
+      <div className="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <StatCard
+          label="New accounts (7d)"
+          value={accounts?.new7d ?? 0}
+          trend
+        />
+        <StatCard
+          label="New subscribers (7d)"
+          value={newsletter?.new7d ?? 0}
+          trend
+        />
+        <StatCard label="Downloads (7d)" value={downloads?.total ?? 0} trend />
+        <MoneyCard
+          label="Est. MRR"
+          value={paid ? formatUsd(paid.estMrr) : "—"}
+          caption="est. monthly — Stripe is exact"
+          accent
+        />
+      </div>
+
+      {/* Accounts */}
+      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted">
+        Accounts
+      </h3>
+      {accounts ? (
+        <div className="mb-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
+          <div className="rounded-lg border border-border bg-surface p-5">
+            <p className="text-2xl font-bold text-foreground">
+              {accounts.total.toLocaleString()}
+            </p>
+            <p className="mt-1 text-sm text-muted">Total accounts</p>
+            <p className="mt-1 text-xs text-muted">real accounts, not GA estimates</p>
+          </div>
+          <div className="rounded-lg border border-border bg-surface p-5">
+            <p className="mb-2 text-sm text-muted">By role</p>
+            <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+              {Object.entries(accounts.byRole)
+                .sort((a, b) => b[1] - a[1])
+                .map(([role, n]) => (
+                  <span key={role} className="text-foreground">
+                    <span className="font-semibold">{n.toLocaleString()}</span>{" "}
+                    <span className="text-muted">{role}</span>
+                  </span>
+                ))}
+            </div>
+          </div>
+          <div className="rounded-lg border border-border bg-surface p-5">
+            <p className="mb-2 text-sm text-muted">New signups / week (8 wks)</p>
+            <Sparkline values={accounts.sparkline} />
+            <p className="mt-2 text-xs text-muted">
+              {accounts.new30d.toLocaleString()} in last 30 days
+            </p>
+          </div>
+        </div>
+      ) : (
+        <BlockUnavailable label="account data" />
+      )}
+
+      {/* Money */}
+      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted">
+        Money
+      </h3>
+      <div className="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        {paid ? (
+          <>
+            <StatCard label="Pass subscribers" value={paid.pass} />
+            <StatCard label="Pro subscribers" value={paid.pro} accent />
+            <MoneyCard
+              label="Free → paid"
+              value={`${(paid.conversionRate * 100).toFixed(1)}%`}
+              caption={`${paid.paidTotal} paid of ${
+                (accounts?.total ?? 0).toLocaleString()
+              }`}
+            />
+            <MoneyCard
+              label="Est. MRR"
+              value={formatUsd(paid.estMrr)}
+              caption="est. — Stripe is the exact number"
+              accent
+            />
+          </>
+        ) : (
+          <div className="col-span-full">
+            <BlockUnavailable label="subscription data" />
+          </div>
+        )}
+      </div>
+      {set_packs?.purchases && (
+        <div className="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <StatCard label="Set packs sold" value={set_packs.purchases.active} />
+          <MoneyCard
+            label="Set pack revenue"
+            value={formatUsdCents(set_packs.purchases.totalCents)}
+            caption="all-time, non-refunded"
+          />
+          <MoneyCard
+            label="Set packs (7d)"
+            value={formatUsdCents(set_packs.purchases.last7dCents)}
+            caption={`${set_packs.purchases.last7dCount} sold this week`}
+          />
+          {set_packs.purchases.refunded > 0 && (
+            <StatCard label="Refunded" value={set_packs.purchases.refunded} />
+          )}
+        </div>
+      )}
+      {set_packs?.interest && set_packs.interest.length > 0 && (
+        <div className="mb-6 rounded-lg border border-border bg-surface p-5">
+          <p className="mb-2 text-sm text-muted">
+            Set pack interest (notify-me demand signal)
+          </p>
+          <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+            {set_packs.interest.map(({ pack, count }) => (
+              <span key={pack} className="text-foreground">
+                <span className="font-semibold">{count.toLocaleString()}</span>{" "}
+                <span className="text-muted">{pack}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Newsletter */}
+      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted">
+        Newsletter
+      </h3>
+      {newsletter ? (
+        <div className="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <StatCard label="Active subscribers" value={newsletter.active} />
+          <StatCard label="New (7d)" value={newsletter.new7d} trend />
+          <StatCard label="Unsubscribed" value={newsletter.unsubscribed} />
+        </div>
+      ) : (
+        <div className="mb-6">
+          <BlockUnavailable label="newsletter data" />
+        </div>
+      )}
+
+      {/* Downloads */}
+      {downloads && downloads.top.length > 0 && (
+        <>
+          <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted">
+            Top downloads (7d)
+          </h3>
+          <div className="mb-6 overflow-hidden rounded-lg border border-border">
+            <table className="w-full text-left text-sm">
+              <thead className="border-b border-border bg-surface text-xs uppercase text-muted">
+                <tr>
+                  <th className="px-4 py-3">Recipe</th>
+                  <th className="px-4 py-3 text-right">Downloads</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {downloads.top.map(({ slug, count }) => (
+                  <tr key={slug} className="hover:bg-surface-hover">
+                    <td className="px-4 py-3 font-medium text-foreground">
+                      {slug}
+                    </td>
+                    <td className="px-4 py-3 text-right text-muted">{count}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
+      {/* Server events */}
+      <div className="mb-1 flex items-baseline justify-between">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-muted">
+          Server events (30d)
+        </h3>
+      </div>
+      <p className="mb-3 text-xs text-muted">
+        Server-side signal only — client funnel steps (checkout_start,
+        signup_start) go to GA4, not here.
+      </p>
+      {funnel && funnel.byName.length > 0 ? (
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          {funnel.byName.map(({ name, count }) => (
+            <div
+              key={name}
+              className="rounded-lg border border-border bg-surface p-4"
+            >
+              <p className="text-xl font-bold text-foreground">
+                {count.toLocaleString()}
+              </p>
+              <p className="mt-1 break-words text-xs text-muted">{name}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <BlockUnavailable label="server events" />
+      )}
+    </section>
+  );
+}
+
+function MoneyCard({
+  label,
+  value,
+  caption,
+  accent,
+}: {
+  label: string;
+  value: string;
+  caption?: string;
+  accent?: boolean;
+}) {
+  return (
+    <div className="rounded-lg border border-border bg-surface p-5">
+      <p
+        className={`text-2xl font-bold ${
+          accent ? "text-accent" : "text-foreground"
+        }`}
+      >
+        {value}
+      </p>
+      <p className="mt-1 text-sm text-muted">{label}</p>
+      {caption && <p className="mt-1 text-xs text-muted">{caption}</p>}
+    </div>
+  );
+}
+
+function BlockUnavailable({ label }: { label: string }) {
+  return (
+    <div className="rounded-lg border border-border bg-surface px-4 py-3 text-sm text-muted">
+      <span className="mr-2 inline-block h-2 w-2 rounded-full bg-yellow-500" />
+      No {label} available.
+    </div>
+  );
+}
+
+/** Tiny inline SVG sparkline — no chart lib. */
+function Sparkline({ values }: { values: number[] }) {
+  const w = 200;
+  const h = 40;
+  const max = Math.max(1, ...values);
+  const n = values.length;
+  const points =
+    n <= 1
+      ? `0,${h} ${w},${h}`
+      : values
+          .map((v, i) => {
+            const x = (i / (n - 1)) * w;
+            const y = h - (v / max) * h;
+            return `${x.toFixed(1)},${y.toFixed(1)}`;
+          })
+          .join(" ");
+  return (
+    <svg
+      viewBox={`0 0 ${w} ${h}`}
+      className="h-10 w-full"
+      preserveAspectRatio="none"
+      aria-hidden
+    >
+      <polyline
+        points={points}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        className="text-accent"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
+  );
+}
+
+function formatUsd(n: number): string {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(n);
+}
+
+function formatUsdCents(cents: number): string {
+  return formatUsd(cents / 100);
 }
 
 /* ── Helper Components ── */
