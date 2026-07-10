@@ -3396,9 +3396,9 @@ persona's denomination).
 
 | # | Slug | Title | Target queries | Pillar | Notes |
 |---|---|---|---|---|---|
-| S1 | helix-worship-snapshots-sunday-morning | 5 Helix Snapshots That Cover Every Sunday Morning | "helix worship snapshots," "helix snapshot worship setup," "worship guitar snapshots" | Worship cluster | The cluster spec's flagged "highest-utility" item. Links every worship recipe + the Worship Set Pack. |
-| S2 | goodness-of-god-guitar-tone-helix | Goodness of God Guitar Tone on Helix (Bethel) | "goodness of god guitar tone," "goodness of god electric guitar helix" | Worship cluster Tier-2 | Recipe hislop-goodness-of-god ALREADY SHIPPED — post wraps it with song-context + preset CTA. Fastest possible Tier-2 win. |
-| S3 | way-maker-guitar-tone-helix | Way Maker Guitar Tone on Helix (Leeland) | "way maker guitar tone," "way maker electric guitar" | Worship cluster Tier-2 | Recipe moore-way-maker shipped; same wrap pattern as S2. |
+| ~~S1~~ ✅ | helix-worship-snapshots-sunday-morning | 5 Helix Snapshots That Cover Every Sunday Morning | "helix worship snapshots," "helix snapshot worship setup," "worship guitar snapshots" | Worship cluster | **SHIPPED 2026-07-10** (Nathan Cross). The cluster spec's flagged "highest-utility" item. Links every worship recipe + the Worship Set Pack. |
+| ~~S2~~ ✅ | goodness-of-god-guitar-tone-helix | Goodness of God Guitar Tone on Helix (Bethel) | "goodness of god guitar tone," "goodness of god electric guitar helix" | Worship cluster Tier-2 | **SHIPPED 2026-07-10** (Dev Okonkwo). Wraps recipe hislop-goodness-of-god with block-by-block Helix chain + free-plugin path + recipe CTA. |
+| ~~S3~~ ✅ | way-maker-guitar-tone-helix | Way Maker Guitar Tone on Helix (Leeland) | "way maker guitar tone," "way maker electric guitar" | Worship cluster Tier-2 | **SHIPPED 2026-07-10** (Sean Nakamura). Wraps recipe moore-way-maker; 661 ms dotted-eighth math + Blue-vs-Greenback cab A/B. |
 | S4 | what-a-beautiful-name-guitar-tone-helix | What a Beautiful Name Guitar Tone on Helix (Hillsong) | "what a beautiful name guitar tone," "hillsong guitar tone helix" | Worship cluster Tier-2 | Recipe hendroff-what-a-beautiful-name shipped; wrap pattern. Note the Jackson Audio Prism correction (NOT a Klon) already captured in the backlog. |
 | S5 | complete-guide-line-6-helix-tone-2026 | The Complete Guide to Line 6 Helix Tone (2026) | "line 6 helix tone," "helix tone guide," "how to get good helix tones" | Pillar | The named head-term pillar (strategy priority #2). Long-form; internal-links to every settings guide + recipe. Consider splitting across 2 runs (draft + polish). |
 | S6 | boss-katana-settings-guide-every-genre | Boss Katana Settings Guide: Every Channel, Every Genre | "boss katana settings," "katana amp settings," "boss katana clean settings" | Pillar (Katana ICP) | The missing 10–18K/mo head term (strategy priority #3). Site has .tsl downloads as the CTA — no competitor offers that. |
@@ -3425,3 +3425,56 @@ persona's denomination).
 Coverage (Current)" table near the top of this file still reflects a ~21-post site
 (reality: 361); the worship cluster spec's "pre-Easter window" sequencing is dead —
 the live seasonal hook is the September volunteer wave.
+
+---
+
+## Content Run — 2026-07-10 (3 new + 2 refreshes)
+
+**Strategic-queue discipline honored:** all 3 new-post slots came from the top of the strategic queue (S1, S2, S3 drained). The queue re-anchor (see the injection note above) called for at least 2 of 3 slots from strategy; this run took all 3, since the top three items are the worship-cluster flagship + the two fastest Tier-2 recipe wraps (recipes already shipped). Next run starts at **S4** (what-a-beautiful-name-guitar-tone-helix).
+
+**Velocity check (pre-run):** all personas ≤3/7d. Assignments spread the load: Nathan Cross 1→2, Dev Okonkwo 2→3 (at cap, OK), Sean Nakamura 1→2. Song-tone posts carried by lane-fit bylines per the strategic-queue note (recipe/CTA is the point): Nathan owns the worship-setup flagship; Dev takes the shimmer-forward Bethel tone (atmosphere lane); Sean takes the settings-precise Way Maker build (modeler-dial-in lane).
+
+### New posts
+
+| # | Slug | Title | Writer | Pillar |
+|---|---|---|---|---|
+| 1 | helix-worship-snapshots-sunday-morning | 5 Helix Snapshots That Cover Every Sunday Morning | Nathan Cross | Worship cluster / 4 — Modeler Masterclass |
+| 2 | goodness-of-god-guitar-tone-helix | Goodness of God Guitar Tone on Helix (Bethel) | Dev Okonkwo | Worship cluster Tier-2 / 1 — Tone Recipes |
+| 3 | way-maker-guitar-tone-helix | Way Maker Guitar Tone on Helix (Leeland) | Sean Nakamura | Worship cluster Tier-2 / 1 — Tone Recipes |
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | worship-pedalboard-guide | **Zero answer-engine surface → full backfill.** Added `takeaways:` (5) and `faq:` (5 Q&A → FAQPage JSON-LD); it had neither in frontmatter nor a body `<FAQ>`. Real content add: a new **"Translating the Board to a Modeler"** section that bridges the analog-board guide to the Helix cluster — explains snapshots vs. pedals and links the new 5-snapshot template + both new song recipes. Swapped the generic `/browse?tag=clean` CTA for the Goodness of God recipe CTA. Set `updated: 2026-07-10`. Kept Nathan's byline. | A proven worship pillar (a striking-distance "worship pedalboard" query) that emitted no FAQPage and had no Key Takeaways callout, AND had no bridge for the growing modeler audience. The new section makes it the analog anchor of a fan-out cluster: this guide is the board, the snapshot post is its digital twin, the recipes are the songs. |
+| R2 | helix-amp-model-cheat-sheet | **Legacy `<FAQ>` migration + backfill.** Migrated the body `<FAQ questions={[...]}>` (5 Q&A) → frontmatter `faq:` and removed the component (validator warns on duplicate FAQPage emission). Added `takeaways:` (5, had none). **Replaced the truncated placeholder `image_alt`** (`a composition illustrating "Helix Amp Model Cheat Sheet"`) with a real descriptive alt. Real content add: a worship note under the British-Clean table showing the Essex AC30 is the platform under both new song recipes (Blue cab = Way Maker chime, Greenback cab = Goodness of God wash) + link to the snapshot template. Set `updated: 2026-07-10`. Kept Sean's byline. | High-traffic modeler-reference post with a body-only FAQ, no takeaways, and a broken alt. The Essex AC30 cross-link turns a reference page into a funnel toward the new recipes — the cab-does-the-work insight is exactly the fan-out hook the two recipes share. |
+
+### SERP Analysis — 2026-07-10 (live checks this run)
+
+**Post 1 — helix-worship-snapshots-sunday-morning** (target: "helix worship snapshots," "helix snapshot worship setup," "worship guitar snapshots")
+- **Top ranking:** Sunday Shred, Worship Tutorials (Helix hub), GuitarforHISGLORY (Worship Essentials presets), Tone Junkie Helix Worship 100 Pack, That Worship Sound (Aurora Snapshots), Joey Cobra. **Every top result is a paid preset pack**, sold per-song or as a bundle.
+- **Gap confirmed:** nobody publishes a **free, reusable 5-snapshot template mapped to song *jobs*** (pad / rhythm / lead / clean / wash) with block states. The vendors ship per-song patches; we ship the transferable system that works on any song. Cross-check: the paid Goodness of God patches use a near-identical 5-snapshot structure (swells / clean / drive / rhythm / ambience), which validates our template design against what pros actually build.
+- **AI Overview:** present for "helix worship snapshots" (how-to intent); F&K not yet cited (post is hours old). Tracked for the next run.
+- Non-commodity gate: PASS (transferable template + exact block on/off states; no competitor offers the framework free).
+
+**Post 2 — goodness-of-god-guitar-tone-helix** (target: "goodness of god guitar tone," "goodness of god electric guitar helix")
+- **Top ranking:** Worship Tutorials, Joey Cobra (HX Effects patch), Sunday Shred, Line 6 CustomTone user uploads, and **David Hislop's own Tone Factor** preset site (tonefactor.co). All paid patches or vendor pages.
+- **Gap confirmed:** the SERP sells the patch; none publish the **block-by-block settings free** with the "reverb is the featured instrument" thesis or the free-plugin path (AC30 sim + Greenback IR + Valhalla Supermassive). Accuracy note: Hislop's own site confirms the attribution (Bethel touring/studio guitarist), so the recipe's provenance is solid.
+- **AI Overview:** likely present for the "how to get X tone" query; F&K not cited yet.
+- Non-commodity gate: PASS (open settings + free bedroom path + no-Klon correction the vendors don't state).
+
+**Post 3 — way-maker-guitar-tone-helix** (target: "way maker guitar tone," "way maker electric guitar")
+- **Top ranking:** Worship Tutorials, PraiseCharts (Line 6 Helix patch), Tone Factor, plus general Helix delay/reverb guides (komposition101, Tone Architects).
+- **Gap confirmed:** paid-patch-dominated with no free editorial block-by-block. One ranking result independently confirms the dotted-eighth is the worship-standard subdivision (it cites ~346 ms at 130 BPM), which validates our **661 ms @ 68 BPM** math and the "set it by the number" framing. Our differentiators: the tempo arithmetic and the **Alnico-Blue-vs-Greenback cab A/B** against the sibling Goodness of God recipe (same amp model, opposite character) — nothing on the SERP runs that comparison.
+- **AI Overview:** present for "way maker guitar tone"; F&K not cited yet.
+- Non-commodity gate: PASS (dotted-eighth math + cross-recipe cab A/B + free settings).
+
+### New topics added (fan-out from this run's cluster — genuinely distinct questions, not variant spinoffs)
+
+| # | Topic | Target query | Writer | Pillar | Non-commodity hook |
+|---|---|---|---|---|---|
+| T1 | Alnico Blue vs. Greenback in an AC30: Which Speaker for Which Worship Tone | "ac30 alnico blue vs greenback," "vox ac30 greenback worship," "which ac30 speaker worship guitar" | Hank Presswood | 5 — Gear Lab | The Way Maker/Goodness of God A/B surfaced a genuinely different question — the *speaker* comparison, not either song. SERP has speaker-shootout generalist content but nothing tying the Blue=chime / Greenback=wash split to worship tone choices with the Helix cab-block equivalents. |
+| T2 | Volume Pedal Placement for Worship Swells: Before or After the Drive? | "volume pedal placement worship," "volume pedal before or after overdrive swell," "where does the volume pedal go worship" | Sean Nakamura | 3 — Signal Chain | A specific signal-chain debate the pedalboard guide states as a rule but never A/Bs. Distinct question (placement), not a re-slice: what each position does to the swell-into-effects bloom, with the driven-swell vs. clean-swell trade-off and the modeler-block equivalent. |
+| T3 | Shimmer Reverb Without a BigSky: The Free and Budget Paths | "shimmer reverb cheap," "shimmer reverb without bigsky," "free shimmer reverb plugin worship" | Dev Okonkwo | 4 — Modeler Masterclass | Goodness of God leans on a BigSky shimmer most readers don't own. Distinct question (how to get shimmer cheaply): Valhalla Supermassive settings, the Helix shimmer block, and a ranked budget-pedal path — the SERP has plugin listicles but no worship-tone-targeted ranking with dial-in settings. |
+
+**Queue note:** T1–T3 are logged behind the strategic queue (S4–S10 still drain first per the re-anchor). They exist to reinforce the worship cluster rather than pull the SERP loop back to generalist recording topics.

@@ -1,0 +1,140 @@
+---
+title: Way Maker Guitar Tone on Helix (Leeland)
+description: >-
+  Casey Moore's Way Maker electric, built block by block on Helix — a Strat into
+  an Alnico-Blue AC30, a 661 ms dotted-eighth delay, and the volume-pedal swell
+  that is the whole part.
+date: '2026-07-10'
+author_slug: sean-nakamura
+category: tone-recipes
+tags:
+  - worship
+  - helix
+  - ambient-worship
+  - dotted-eighth-delay
+  - volume-swell
+  - vox-ac30
+readingTime: 8
+image: /images/blog/way-maker-guitar-tone-helix.jpg
+image_alt: >-
+  A Stratocaster running into a Helix on a clean desk, a delay time readout
+  showing 661 milliseconds glowing on the screen
+takeaways:
+  - >-
+    The Way Maker electric is a volume-swell pad with a dotted-eighth delay on
+    top — master the swell and the delay timing and you have 90% of the part
+    before you touch the amp.
+  - >-
+    At 68 BPM, the dotted-eighth delay lands at 661 ms; set it by the number or
+    tap it in, because a delay that's off-tempo is the single fastest way to
+    make this tone sound wrong.
+  - >-
+    It's an Alnico-Blue AC30, not a Greenback one — the cab choice is what makes
+    Way Maker chime where a Greenback-loaded AC30 would sound warm and wooly.
+    Same amp model, opposite character, from the cab block alone.
+  - >-
+    There is a Klon-style boost here, but it's off by default and only kicks the
+    amp to a singing edge for the chorus lead — the verses are clean swells with
+    no drive at all.
+  - >-
+    Signal order is load-bearing: volume pedal first so the swell shapes the wet
+    effects, then comp, then the off-by-default boost, then amp, cab, delay, and
+    reverb last.
+faq:
+  - q: What delay setting is used on Way Maker?
+    a: >-
+      A dotted-eighth delay locked to the song tempo. Way Maker runs around 68
+      BPM, and a dotted-eighth note at 68 BPM is 661 milliseconds. On Helix, set
+      an Adriatic or Digital Delay block to 661 ms (or tap it in to 68 BPM),
+      feedback around 38, mix 30%, with the highs rolled off so the repeats add
+      motion without turning into a rhythmic figure over the pad.
+  - q: What amp and guitar does Casey Moore use for Way Maker?
+    a: >-
+      Casey Moore, Leeland's lead guitarist, plays a Stratocaster into a Vox
+      AC30 with Celestion Alnico Blue speakers. The chain is Strat → Ernie Ball
+      volume pedal → Klon-style boost → Strymon Timeline (dotted-eighth) → Boss
+      RV-6 reverb → AC30. On Helix, that's a volume pedal, a light comp, an
+      off-by-default Minotaur boost, the Essex A30 amp, and a Blue Bell cab.
+  - q: Is Way Maker a clean tone or a driven tone?
+    a: >-
+      Mostly clean. The verses are volume-swell pads with the amp just shy of
+      breakup and no overdrive engaged. The only grit comes in the choruses,
+      when a transparent Klon-style boost pushes the AC30 to a singing edge for
+      the lead. If you're playing it dirty in the verses, you've got the drive
+      on when it should be off.
+  - q: Why does my Way Maker tone sound rhythmically busy?
+    a: >-
+      Almost always the delay. If the dotted-eighth isn't locked to 68 BPM, or
+      the feedback and mix are too high, the repeats start competing with the
+      pad instead of supporting it. Set the delay time to 661 ms exactly, pull
+      the mix to around 30%, roll the high-cut down to about 6 kHz so the
+      repeats go dark, and keep your playing sparse — the swell plus a
+      well-timed delay does the work.
+  - q: How is the Way Maker tone different from Goodness of God?
+    a: >-
+      They share an AC30 platform and a dotted-eighth-into-reverb structure, but
+      two things differ. Way Maker uses an Alnico-Blue cab (chimey, brighter)
+      and a Klon-style boost for the lift; Goodness of God uses a Greenback cab
+      (warmer, woollier) and JHS-style amp-breakup drives with no Klon. Way
+      Maker chimes; Goodness of God glows.
+---
+
+The Way Maker electric part is simpler than it sounds, and that's the trap. What you hear is a wide, swelling wall of ambience that feels like three instruments. What it actually is: a Stratocaster, a volume pedal, one dotted-eighth delay, and a reverb. The complexity is in the timing and the signal order, not in the gear count. Let me walk you through the build.
+
+Casey Moore, Leeland's lead guitarist, runs a documented rig for this — Strat → Ernie Ball volume pedal → Klon-style drive → Strymon Timeline → Boss RV-6 → Vox AC30. Every block has a job, and if you get the order or the numbers wrong, the whole thing sounds approximately right and specifically off. Here's the Helix translation with the numbers that matter.
+
+## The Full Helix Chain
+
+Key of E, 68 BPM. Verses clean and swelling, choruses lifted by the boost.
+
+| Position | Block | On/off | Key settings |
+|---|---|---|---|
+| 1 | Volume Pedal (EXP 1) | On | Heel back — swell in |
+| 2 | Deluxe Comp | On | Threshold −32, Ratio 3, Attack 15, Release 200, Mix 70% |
+| 3 | Minotaur (Klon-style) | Off in verse | Gain 3, Tone 6, Level 6.5 |
+| 4 | Essex A30 (amp) | On | Drive 4.0, Mid 5.5, Treble 6.0, Sag 5.5, Master 4.0 |
+| 5 | 2x12 Blue Bell (cab) | On | Low-cut 90, High-cut 8500, Position 0.45 |
+| 6 | Adriatic Delay | On | Time 661 ms, Feedback 38, Mix 30%, High-cut 6000 |
+| 7 | Plateaux (reverb) | On | Decay 6.5, Mix 38%, Pre-delay 20, Low-cut 130 |
+
+Three of those numbers are the tone. Everything else is scaffolding. Let me take them in order of how badly they break the sound if you get them wrong.
+
+## Number One: 661 ms
+
+The delay time is not a taste decision. A dotted-eighth note at 68 BPM is a specific number, and here's the arithmetic so you can redo it for any tempo: a quarter note is 60,000 ÷ 68 = 882 ms, an eighth is half that (441 ms), and a dotted eighth is the eighth times 1.5 — which lands at **661 ms**. Set the Adriatic block to 661 and it locks to the song. Tap it in live if you'd rather, but tap it to the click, not to your gut.
+
+Why this matters more than any other setting: a dotted-eighth delay that's even a few BPM off doesn't sound like a slightly-wrong delay. It sounds like a second guitarist playing the wrong rhythm. The dotted-eighth is the same interval The Edge built his whole style on — if you've read [the Edge delay technique](/blog/the-edge-delay-settings), this is that pattern applied to a slow worship swell instead of a driving arena riff. Same math, different tempo.
+
+Roll the delay's high-cut down to about 6 kHz. Dark repeats add motion; bright repeats tick and slap over the pad and make the part sound busy. If you want the deeper logic of locking delay and reverb to one tempo grid, [one BPM, one grid](/blog/one-tempo-grid-predelay-dotted-eighth-delay) covers it.
+
+## Number Two: The Cab Is a Blue, Not a Greenback
+
+This is the setting I got wrong the first time, and it taught me something. I A/B'd this tone against its sibling — the [Goodness of God recipe](/blog/goodness-of-god-guitar-tone-helix), which is also an AC30 worship tone — and assumed the same cab would work for both. It doesn't, and the difference is bigger than I expected.
+
+Goodness of God uses a **Greenback** cab: warm, woolly, midrange-forward, the top rolled off. Way Maker uses an **Alnico Blue** — the stock AC30 speaker — which *chimes*. It keeps the top end (high-cut at 8500, not 7000), it's brighter, it sparkles under the Strat's single-coils in a way the Greenback deliberately suppresses. I ran the identical amp model into both cabs back to back, and the character flipped completely: same Essex A30, and one sounded like a warm hug while the other sounded like sunlight on water.
+
+The lesson: on a Helix, the cab block is not an afterthought you leave on default. It's carrying half the tonal identity. [Helix cab models decoded](/blog/helix-cab-models-decoded) is the reference for why two IRs of nominally the same amp diverge this hard. For Way Maker, pick the Blue Bell (Alnico Blue 2x12). If it sounds muddy, you've got a Greenback loaded and you're fighting the wrong speaker.
+
+## Number Three: The Boost Is Off
+
+The Minotaur block — the Klon-style boost — is off by default, and it stays off for the entire verse. The Way Maker verses are clean volume-swell pads with the AC30 just shy of breakup. No drive.
+
+The boost exists for exactly one job: the chorus lift. Kick it on and the transparent, low-gain, level-up voicing pushes the AC30 into a singing edge so a single-note lead cuts over the full band. Then kick it back off. This is the one genuine structural difference from Goodness of God, and it's worth flagging: Way Maker *does* have a Klon-style boost, where Goodness of God pointedly does not. If you're building both into one setup, the [five-snapshot worship system](/blog/helix-worship-snapshots-sunday-morning) handles the on/off cleanly — the verse is your pad snapshot, the chorus is your lead snapshot with the boost engaged.
+
+## The Part Nobody Can Set for You: The Swell
+
+Every setting above is a number I can hand you. This one isn't. The volume-pedal swell — heel back, pluck, roll the toe forward so the note fades in with zero pick attack — is the actual instrument here, and it lives entirely in your right foot and your patience.
+
+Two reasons the pedal sits first in the chain, before everything else. One: swelling *into* the compressor, amp, delay, and reverb means your swell shapes how those wet effects bloom — the reverb tail grows with the note instead of arriving pre-formed. Two: a volume block that early is functionally your master expression, so you can enter any section by fading in rather than picking in. If the swell technique is new to you, the mechanics are covered in [volume swells 101](/blog/volume-swell-technique) — but the honest truth is it's reps, not reading. Get it smooth and the delay and reverb do the rest.
+
+## Build Order, in Five Steps
+
+1. Drop a **Volume Pedal** first, assign it to EXP 1, heel-down.
+2. Add a **Deluxe Comp** — light (Ratio 3, Mix 70%) so it evens the swells without squashing the verse-to-chorus dynamic.
+3. Add a **Minotaur** boost, set it as described, and *disable it* — it's your chorus footswitch.
+4. **Essex A30** into a **Blue Bell cab.** Amp just shy of breakup; the Blue keeps it chimey.
+5. **Adriatic Delay at 661 ms**, then **Plateaux reverb** last, so the delay feeds the reverb and the whole thing sums into one bed.
+
+Save it, tap the delay to 68 BPM, and spend your practice time on the swell — that's the block none of these numbers can dial for you.
+
+<SaveThisTone title="The full Way Maker recipe, every platform" description="Block-by-block settings for Helix, Quad Cortex, Katana, Kemper, and TONEX — plus the Strat-into-AC30 original rig and the dotted-eighth math." href="/recipe/moore-way-maker" ctaLabel="Open the Way Maker recipe" />

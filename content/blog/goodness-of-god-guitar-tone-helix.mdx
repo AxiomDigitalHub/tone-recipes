@@ -1,0 +1,147 @@
+---
+title: Goodness of God Guitar Tone on Helix (Bethel)
+description: >-
+  David Hislop's swelling Bethel electric — a Greenback-loaded AC30, a
+  dotted-eighth delay, and a shimmer-plate wash that's the real instrument. The
+  full Helix chain, block by block.
+date: '2026-07-10'
+author_slug: dev-okonkwo
+category: tone-recipes
+tags:
+  - worship
+  - ambient-worship
+  - helix
+  - shimmer-reverb
+  - bethel
+  - volume-swell
+readingTime: 9
+image: /images/blog/goodness-of-god-guitar-tone-helix.jpg
+image_alt: >-
+  A hollowbody guitar bathed in violet stage haze, a shimmer reverb wash
+  visualized as soft light spreading across a dark room
+takeaways:
+  - >-
+    The Goodness of God electric is a reverb-first tone: David Hislop's
+    shimmer-plate wash is the featured instrument, and the guitar is the thing
+    that feeds it — not the other way around.
+  - >-
+    The core rig is a Greenback-loaded UK AC30 (warmer and woollier than a stock
+    Alnico-Blue AC30), a dotted-eighth delay kept dark so it blurs into the
+    reverb, and volume-swell pads with no pick attack.
+  - >-
+    On Helix, the chain is A30 Fawn Bright into a Greenback cab, an Adriatic
+    delay at 549 ms, and a big shimmer-plate reverb at 42% mix — the reverb runs
+    hotter than most players are comfortable with, and that's correct here.
+  - >-
+    There is no Klon on this board. The chorus grit is a pair of JHS-style
+    drives pushing the AC30; in the verses they're off and the amp is clean.
+  - >-
+    The whole thing translates to a bedroom rig for free — an AC30 sim, a
+    Greenback IR, and Valhalla Supermassive standing in for the shimmer, all in
+    headphones at midnight.
+faq:
+  - q: What guitar and amp does the Goodness of God electric use?
+    a: >-
+      David Hislop, Bethel's touring electric guitarist, plays Gretsch
+      Filter'Tron-equipped guitars — a Falcon Center Block and a '57 Duo Jet —
+      into a UK-made Vox AC30 loaded with Celestion Greenbacks instead of the
+      stock Alnico Blues. The Greenbacks make it warmer and more
+      midrange-forward than a classic jangly AC30, which is why the tone sits so
+      smoothly under all the reverb.
+  - q: What reverb is used on Goodness of God?
+    a: >-
+      A Strymon BigSky running a shimmer-plate blend, set high enough that it's
+      a featured instrument rather than a subtle ambience. It octave-washes the
+      volume-swell pads in the verses and opens up huge under the choruses. On
+      Helix, a plate-style reverb (Plateaux or Ganymede) at around 42% mix with
+      the decay near maximum gets you there.
+  - q: Is there a Klon or overdrive on the Goodness of God board?
+    a: >-
+      No Klon. The grit comes from a pair of JHS-style drives — a Supro-style
+      breakup pedal and a mid-pushing overdrive — that push the AC30 for the
+      final choruses. In the verses they're off entirely and the amp is clean,
+      so the swelling pads bloom without any distortion. The tone is an ambient
+      bed first and a lead second.
+  - q: What key and tempo is Goodness of God?
+    a: >-
+      The Bethel live version sits in Ab at about 82 BPM. That tempo is what
+      sets the delay time — a dotted-eighth note at 82 BPM is roughly 549
+      milliseconds, which is the repeat rhythm under the pads. If you play it in
+      a different key with a capo, the tempo and therefore the delay time stay
+      the same.
+  - q: Can I get this tone without a Helix or expensive pedals?
+    a: >-
+      Yes, and cheaply. Use any AC30 amp sim with a Greenback impulse response
+      for the amp and cab, a dotted-eighth digital delay with the highs rolled
+      off, and Valhalla Supermassive — which is free — for the shimmer-plate
+      wash. Add a volume pedal or a swell plugin for the pad attack. The whole
+      atmosphere is achievable in a DAW on headphones.
+---
+
+Start with the reverb, because that's what the song actually is. The Goodness of God electric — David Hislop's live Bethel tone — isn't a guitar part with reverb on it. It's a reverb with a guitar feeding it. The wash is the featured instrument, and everything upstream exists to give that wash something beautiful to hold.
+
+That reframing changes how you build it. If you dial the guitar first and add reverb at the end, you'll get the notes right and the atmosphere wrong. Build it the other way — decide what the space should feel like, then feed it — and the tone falls into place. It sounds like a room slowly filling with light... which is a strange thing to say about a signal chain, but that's the texture we're chasing.
+
+## The Full Helix Chain
+
+Here's the whole thing, block by block. Key of Ab, 82 BPM, verses clean and swelling, choruses driven.
+
+| Position | Block | On/off | Key settings |
+|---|---|---|---|
+| 1 | Volume Pedal (EXP 1) | On | Heel back — swell in |
+| 2 | Deluxe Comp | On | Threshold −32, Ratio 4, Mix 65% |
+| 3 | Kinky Boost (drive) | Off in verse | Gain 4, Tone 5.5, Level 6 |
+| 4 | Teemah (drive) | Off in verse | Gain 4.5, Tone 6, Level 6 |
+| 5 | A30 Fawn Bright (amp) | On | Drive 5.0, Mid 6.0, Treble 6.0, Sag 6.0 |
+| 6 | 4x12 Greenback 25 (cab) | On | Low-cut 100, High-cut 7000, Distance 2.0 |
+| 7 | Adriatic Delay | On | Time 549 ms, Feedback 35, Mix 28%, High-cut 5500 |
+| 8 | Plateaux (reverb) | On | Decay 8.0, Mix 42%, Pre-delay 15, Low-cut 150 |
+
+Two numbers in that table are doing most of the work, and both look wrong on paper.
+
+The first is the reverb mix at 42%. That's high — most tone guides tell you to keep reverb below 30% so the guitar stays defined. Here, defined is not the goal. The reverb is the instrument, so it gets to be loud. The low-cut at 150 Hz and high-cut at 7000 are what keep a mix that hot from turning to mud or fizz; they carve the tail so it's huge without being cloudy.
+
+The second is the delay high-cut at 5500 Hz. You want the repeats *dark* — darker than the dry signal — so they don't slap or tick over the top of the pad. Rolled off like that, the dotted-eighth stops sounding like a delay and starts sounding like more reverb. It blurs into the Plateaux tail and the two become one wide bed. That's the trick that makes the space sound seamless instead of layered.
+
+If you want to understand why a big wet mix stays clean once you filter it, [stacking reverbs](/blog/stacking-reverbs-guide) covers the low-cut/high-cut logic in depth, and [why modeler tone sounds fizzy](/blog/why-modeler-tone-sounds-fizzy) explains the high-cut side specifically.
+
+## The Amp Is Warmer Than You Think
+
+The surprise, when I first put this together, was the amp. AC30 in my head meant *jangle* — that bright, chimey Rickenbacker-into-Vox sparkle. I expected Goodness of God to sit up in the treble. What Hislop actually runs is a UK AC30 loaded with **Celestion Greenbacks** instead of the stock Alnico Blues, and that swaps the whole character. Greenbacks roll off the top and push the midrange forward, so the amp is woollier and more compressed — closer to a warm hug than a chime.
+
+That's why the tone doesn't get brittle under all that reverb. A bright AC30 into a big shimmer would turn to ice. The Greenback voicing gives the wash something warm to sit on. On Helix, that's the **A30 Fawn Bright** amp into a **Greenback cab IR** with the high-cut at 7000 — pick the Greenback model, not the default AC30 cab, or you'll spend an hour wondering why it sounds thin.
+
+For more on matching Helix amp blocks to the real amps behind them, the [Helix amp model cheat sheet](/blog/helix-amp-model-cheat-sheet) is the map.
+
+## The Drives Are Off Until They're Not
+
+Here's the part people miss: in the verses, there's no distortion at all. The Kinky Boost and Teemah blocks — standing in for the JHS Superbolt and The Kilt — are off. The amp is clean, the pads swell, the reverb blooms. It's an ambient bed.
+
+Only in the final choruses do the drives come on to push the AC30 into a thick, mid-forward grit that lets a lead line sing over the full band. And notably: **there's no Klon here.** The worship-guitar internet assumes every Bethel board has a transparent boost doing the lifting. This one doesn't. The grit is Supro-style amp breakup, mid-pushing overdrive, straight into the Greenbacks.
+
+If you're running the [five-snapshot worship system](/blog/helix-worship-snapshots-sunday-morning), this maps cleanly: the verse is your pad snapshot with the drives off, the final chorus is your lead snapshot with both drives on. Same preset, foot switches the moment.
+
+## The Pad Is All in the Right Hand
+
+Everything above is the sound. This is the technique that makes it a *part*: the volume swell. Heel the volume pedal back, pluck the chord or single note, and roll the toe forward so the sound fades in with no attack. No pick transient, no strum — just a note that appears, blooms into the delay and reverb, and hangs.
+
+Get that wrong and the whole thing collapses. A picked chord into this much reverb sounds cluttered and busy; a swelled one sounds like a pad a keyboard player would envy. The volume pedal sits early in the chain on purpose — before the drives, before the wet effects — so your swell shapes how the delay and reverb open up. You're not swelling the guitar. You're swelling the space.
+
+## The Free Bedroom Version
+
+You don't need a Helix or a Strymon rig for this. The atmosphere is mostly reverb, and the best shimmer-plate plugin ever made costs zero dollars.
+
+- **Amp + cab:** any AC30 amp sim with a Greenback impulse response. Roll the top off around 7 kHz.
+- **Delay:** any dotted-eighth digital delay. Set it to 549 ms (or tap it to 82 BPM), pull the feedback to a few repeats, and cut the highs so it goes dark.
+- **Reverb:** Valhalla Supermassive on a long, wide mode with the mix pushed up. It's the free stand-in for the BigSky wash, and honestly it gets astonishingly close.
+- **Swell:** an expression pedal into your interface, or a volume-swell plugin, for the pad attack.
+
+Run that in headphones at midnight and you've got the whole Bethel bed sitting in a mix — which, if we're honest, is where most of us are actually playing it. Live tone and recorded tone are different conversations, but this one happens to translate to both.
+
+If the reverb side is where you want to go deeper, the [three CorOS 4.0 reverbs ranked](/blog/coros-4-reverbs-nordic-studio-plate-blossom-ranked) breaks down which reverb algorithm does which job — hall for depth, plate for sheen, bloom for swell — and the same logic applies to picking a shimmer on any platform.
+
+## Put It Together
+
+The recipe is simple once you know what it's for: a warm Greenback AC30, a dark dotted-eighth delay, and a big shimmer-plate reverb that gets to be the loudest thing in the chain. Clean in the verses, driven in the final choruses, and every note swelled in with the volume pedal. Build the space first, feed it second, and let the guitar disappear into the wash it created.
+
+<SaveThisTone title="The full Goodness of God recipe, every platform" description="Block-by-block settings for Helix, Quad Cortex, Katana, Kemper, and TONEX — plus the Gretsch-into-Greenback-AC30 original rig." href="/recipe/hislop-goodness-of-god" ctaLabel="Open the Goodness of God recipe" />
