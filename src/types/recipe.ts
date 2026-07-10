@@ -1,7 +1,9 @@
 export interface GuitarSpecs {
   body_type: "solid" | "semi_hollow" | "hollow";
   model_name: string;
-  pickup_config: "SSS" | "HSS" | "HH" | "HSH" | "SS" | "P90" | "single";
+  // "H" = a single humbucker (e.g. an ESP with one bridge 'bucker, a Les Paul
+  // Junior-style layout). Distinct from "single" (single-coil) and "P90".
+  pickup_config: "SSS" | "HSS" | "HH" | "HSH" | "SS" | "P90" | "single" | "H";
   pickup_position: string;
   string_count: number;
   scale_length: string;
