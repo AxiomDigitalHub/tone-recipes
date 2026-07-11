@@ -17,10 +17,16 @@ const ADMIN_ROLES = new Set(["admin", "super_admin"]);
  * /login. It only checks the role once the user is available and
  * redirects non-admins to /dashboard.
  */
+// Admin access = an admin role OR the is_moderator flag (decoupled from
+// subscription tier — see AuthUser.isModerator).
+function hasAdminAccess(user: { role: string; isModerator?: boolean }): boolean {
+  return ADMIN_ROLES.has(user.role) || user.isModerator === true;
+}
+
 export default function AdminGuard({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
   const router = useRouter();
-  const isAdmin = user && ADMIN_ROLES.has(user.role);
+  const isAdmin = user && hasAdminAccess(user);
 
   useEffect(() => {
     // Don't do anything while auth is still loading — DashboardShell
@@ -28,7 +34,7 @@ export default function AdminGuard({ children }: { children: React.ReactNode }) 
     if (loading || !user) return;
 
     // User is authenticated but not an admin — bounce to dashboard.
-    if (!ADMIN_ROLES.has(user.role)) {
+    if (!hasAdminAccess(user)) {
       router.replace("/dashboard");
     }
   }, [user, loading, router]);

@@ -65,7 +65,11 @@ export default function DashboardSettingsPage() {
   const [billingRefreshing, setBillingRefreshing] = useState(false);
 
   const tierLabel = user ? TIERS[user.role]?.label ?? "Free" : "Free";
-  const isPaid = user?.role === "premium" || user?.role === "creator";
+  // Paid = a subscription tier (drives "Manage subscription" vs "Upgrade").
+  // Was a stale premium/creator check, which wrongly showed Pass/Pro users
+  // the Upgrade button. Admin roles aren't subscribers → treated as unpaid.
+  const PAID_TIERS = new Set(["pass", "pro", "premium", "creator"]);
+  const isPaid = user ? PAID_TIERS.has(user.role) : false;
   const tierPrice = user ? TIERS[user.role]?.price : null;
 
   // Detect ?billing_updated=true in the URL — user just came back from

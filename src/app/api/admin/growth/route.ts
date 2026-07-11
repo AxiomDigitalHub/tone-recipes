@@ -33,17 +33,19 @@ const EST_MONTHLY_PRICE: Record<string, number> = {
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 
 /**
- * Verify the bearer token → profile role. Returns the role string, or null
- * if the token is missing/invalid. Mirrors getUserFromRequest() in
- * src/app/api/recipes/[slug]/download/route.ts.
+ * Verify the bearer token → is the caller an admin? Admin access is granted
+ * by role ∈ {admin, super_admin} OR the `is_moderator` flag — the flag
+ * DECOUPLES admin from subscription tier, so subscribing (which the Stripe
+ * webhook writes to `role`) can never clobber admin access. Returns false on
+ * a missing/invalid token. Mirrors getUserFromRequest() in the download route.
  */
-async function getRoleFromRequest(req: NextRequest): Promise<string | null> {
+async function isAdminRequest(req: NextRequest): Promise<boolean> {
   const authHeader = req.headers.get("authorization");
-  if (!authHeader?.startsWith("Bearer ")) return null;
+  if (!authHeader?.startsWith("Bearer ")) return false;
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !anon) return null;
+  if (!url || !anon) return false;
 
   const token = authHeader.replace("Bearer ", "");
   const supabase = createClient(url, anon, {
@@ -53,15 +55,16 @@ async function getRoleFromRequest(req: NextRequest): Promise<string | null> {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return null;
+  if (!user) return false;
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("role")
+    .select("role, is_moderator")
     .eq("id", user.id)
     .single();
 
-  return (profile?.role as string) || "free";
+  const role = (profile?.role as string) || "free";
+  return ADMIN_ROLES.has(role) || profile?.is_moderator === true;
 }
 
 /** ISO-week bucket key (year + week number), used for the signup sparkline. */
@@ -90,8 +93,7 @@ export async function GET(req: NextRequest) {
   }
 
   // ── Auth gate (revenue must not be publicly fetchable) ──────────────
-  const role = await getRoleFromRequest(req);
-  if (!role || !ADMIN_ROLES.has(role)) {
+  if (!(await isAdminRequest(req))) {
     return NextResponse.json({ error: "Forbidden." }, { status: 403 });
   }
 

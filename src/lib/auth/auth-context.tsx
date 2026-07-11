@@ -29,6 +29,12 @@ export interface AuthUser {
   displayName?: string;
   avatarUrl?: string;
   role: UserRole;
+  /**
+   * Admin/dashboard access, DECOUPLED from subscription tier. Set from the
+   * profile's `is_moderator` flag so that subscribing (the Stripe webhook
+   * writes `role`) can never clobber admin access. Grants /dashboard/admin.
+   */
+  isModerator?: boolean;
 }
 
 interface AuthContextValue {
@@ -89,7 +95,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const { data } = await supabase
         .from("profiles")
-        .select("role, display_name, avatar_url")
+        .select("role, display_name, avatar_url, is_moderator")
         .eq("id", supabaseUserId)
         .single();
       if (data) {
@@ -101,6 +107,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             role: (row.role as UserRole) || prev.role,
             displayName: (row.display_name as string) || prev.displayName,
             avatarUrl: (row.avatar_url as string) || prev.avatarUrl,
+            isModerator: row.is_moderator === true,
           };
         });
       }

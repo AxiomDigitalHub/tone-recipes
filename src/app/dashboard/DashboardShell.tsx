@@ -54,7 +54,9 @@ export default function DashboardShell({ children }: { children: ReactNode }) {
 
   const displayName = user?.displayName ?? user?.email ?? null;
   const tier = tierLabelFor(user?.role);
-  const isAdmin = user?.role && ADMIN_ROLES.has(user.role);
+  // Admin access is decoupled from subscription tier: an admin role OR the
+  // is_moderator flag (so subscribing can't clobber it). See AuthUser.
+  const isAdmin = user && (ADMIN_ROLES.has(user.role) || user.isModerator === true);
   const initials = initialsFrom(user?.displayName, user?.email);
 
   return (
