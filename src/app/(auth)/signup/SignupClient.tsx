@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth/auth-context";
 import GoogleSignInButton from "@/components/auth/GoogleSignInButton";
 import { track } from "@/lib/analytics";
+import { resolvePostAuthRedirect, DEFAULT_POST_AUTH } from "@/lib/auth/redirect";
 
 export default function SignupClient() {
   const router = useRouter();
@@ -16,6 +17,12 @@ export default function SignupClient() {
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Same unified post-auth destination as login: ?next → referrer → dashboard.
+  const returnToRef = useRef<string>(DEFAULT_POST_AUTH);
+  useEffect(() => {
+    returnToRef.current = resolvePostAuthRedirect();
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -30,7 +37,7 @@ export default function SignupClient() {
         setSubmitting(false);
         return;
       }
-      router.push("/dashboard");
+      router.push(returnToRef.current);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong.");
       setSubmitting(false);
@@ -65,7 +72,7 @@ export default function SignupClient() {
               setError(null);
               track("signup_start", { method: "google", source: "signup_page" });
             }}
-            onSuccess={() => router.push("/dashboard")}
+            onSuccess={() => router.push(returnToRef.current)}
             onError={(msg) => setError(msg)}
             fallback={
               <button

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@/lib/db/client";
+import { safeNextPath, DEFAULT_POST_AUTH } from "@/lib/auth/redirect";
 
 export default function AuthCallbackPage() {
   const router = useRouter();
@@ -10,10 +11,15 @@ export default function AuthCallbackPage() {
   useEffect(() => {
     const supabase = createBrowserClient();
 
-    // Where to go after sign-in: saved page or home
-    const returnTo = typeof window !== "undefined"
-      ? sessionStorage.getItem("returnTo") || "/"
-      : "/";
+    // Where to go after sign-in: the saved same-origin path, else the
+    // dashboard. (Used to default to "/" — that was the "signed in, landed
+    // on home" bug. Validated to prevent an open-redirect via a crafted
+    // stored value.)
+    const stored =
+      typeof window !== "undefined"
+        ? sessionStorage.getItem("returnTo")
+        : null;
+    const returnTo = safeNextPath(stored) ? stored : DEFAULT_POST_AUTH;
 
     function handleRedirect() {
       sessionStorage.removeItem("returnTo");

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth/auth-context";
 import GoogleSignInButton from "@/components/auth/GoogleSignInButton";
+import { resolvePostAuthRedirect, DEFAULT_POST_AUTH } from "@/lib/auth/redirect";
 
 export default function LoginClient() {
   const router = useRouter();
@@ -15,23 +16,13 @@ export default function LoginClient() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Where to send the user after Google sign-in: back to the same-site page
-  // they came from, else the dashboard. Captured at mount — document.referrer
-  // is still the page that linked here.
-  const returnToRef = useRef<string>("/dashboard");
+  // Single post-login destination for BOTH email and Google, resolved once
+  // at mount: ?next → the page you came from → /dashboard. (Captured at
+  // mount because document.referrer still points at the page that linked
+  // here, and it survives the form submit which doesn't navigate.)
+  const returnToRef = useRef<string>(DEFAULT_POST_AUTH);
   useEffect(() => {
-    if (!document.referrer) return;
-    try {
-      const ref = new URL(document.referrer);
-      if (
-        ref.hostname === window.location.hostname &&
-        ref.pathname !== window.location.pathname
-      ) {
-        returnToRef.current = ref.pathname;
-      }
-    } catch {
-      /* ignore */
-    }
+    returnToRef.current = resolvePostAuthRedirect();
   }, []);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -46,7 +37,7 @@ export default function LoginClient() {
         setSubmitting(false);
         return;
       }
-      router.push("/dashboard");
+      router.push(returnToRef.current);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong.");
       setSubmitting(false);
@@ -57,15 +48,13 @@ export default function LoginClient() {
     if (submitting) return;
     setError(null);
     setSubmitting(true);
-    if (typeof window !== "undefined" && document.referrer) {
-      try {
-        const ref = new URL(document.referrer);
-        if (ref.hostname === window.location.hostname) {
-          sessionStorage.setItem("returnTo", ref.pathname);
-        }
-      } catch {
-        /* ignore */
-      }
+    // Old redirect flow (fallback when the in-page GIS button is unavailable)
+    // bounces through /auth/callback, which reads this. Store the SAME
+    // resolved destination the in-page flow uses.
+    try {
+      sessionStorage.setItem("returnTo", returnToRef.current);
+    } catch {
+      /* ignore */
     }
     const result = await signInWithGoogle();
     if (result.error) {

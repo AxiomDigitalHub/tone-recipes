@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/auth/auth-context";
+import { loginHref } from "@/lib/auth/redirect";
 
 /**
  * v3 sub-nav — editorial chrome under the masthead bar.
@@ -149,7 +150,7 @@ export default function SiteSubnav() {
             </>
           ) : (
             <>
-              <Link href="/login" className="preview-subnav-login">
+              <Link href={loginHref(pathname)} className="preview-subnav-login">
                 Log in
               </Link>
               <Link href="/signup" className="preview-subnav-signup">
@@ -219,7 +220,7 @@ export default function SiteSubnav() {
               <li className="preview-subnav-drawer-sep" aria-hidden />
               <li>
                 <Link
-                  href="/login"
+                  href={loginHref(pathname)}
                   className="preview-subnav-drawer-link"
                   onClick={() => setOpen(false)}
                 >
