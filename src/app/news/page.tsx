@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Modeler News — Fader & Knob",
   description:
     "Firmware updates, gear announcements, industry trends, and practical tips for guitar modeler players.",
+  alternates: { canonical: "/news" },
   openGraph: {
     title: "Modeler News — Fader & Knob",
     description:

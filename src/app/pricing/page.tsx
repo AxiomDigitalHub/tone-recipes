@@ -82,6 +82,7 @@ export const metadata: Metadata = {
   title: "Pricing — Fader & Knob",
   description:
     "Free to browse every recipe. Pass ($49/yr) for unlimited downloads; Pro ($79/yr) bundles every Set Pack. Set Packs are also one-time purchases you keep forever.",
+  alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Pricing — Fader & Knob",
     description:

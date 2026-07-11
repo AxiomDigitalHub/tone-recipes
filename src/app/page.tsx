@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   title: "Fader & Knob — Tone recipes for modeler players",
   description:
     "Exact signal chains for the songs you love, ported across Helix, Quad Cortex, TONEX, Fractal, Kemper, and pedalboard. Stop tweaking. Start playing.",
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Fader & Knob — Tone recipes for modeler players",
     description:

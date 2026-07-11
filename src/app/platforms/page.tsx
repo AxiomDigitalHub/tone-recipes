@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Platforms — Fader & Knob",
   description:
     "Every recipe ports to Helix, Quad Cortex, TONEX, Fractal Axe-Fx, Kemper, Boss Katana, and pedalboard. Pick your modeler.",
+  alternates: { canonical: "/platforms" },
   openGraph: {
     title: "Platforms — Fader & Knob",
     description: "Recipes for every major modeler. Helix, Quad Cortex, TONEX, Fractal, Kemper, Katana.",

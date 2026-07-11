@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   title: "Field Notes — Fader & Knob",
   description:
     "Long-form writing on tone, gear, and the songs you love. Pedalboard architecture, modeler block deep-dives, vintage gear histories, signal chain forensics.",
+  alternates: { canonical: "/blog" },
   openGraph: {
     title: "Field Notes — Fader & Knob",
     description: "Long-form writing on tone, gear, and the songs you love.",
