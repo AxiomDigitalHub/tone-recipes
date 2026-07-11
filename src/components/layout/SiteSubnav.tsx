@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/auth/auth-context";
 import { loginHref } from "@/lib/auth/redirect";
@@ -16,7 +16,11 @@ import { loginHref } from "@/lib/auth/redirect";
  *
  * Auth slot is state-aware:
  *   - Loading or anonymous → "Log in" / "Sign up" buttons.
- *   - Signed in → initials avatar (links to /dashboard) + Sign out.
+ *   - Signed in → initials avatar opening a disclosure menu
+ *     (identity · Dashboard · Sign out). Sign out lives one level
+ *     down on purpose: it's a rare, session-destroying action and
+ *     doesn't earn permanent top-level placement next to the avatar,
+ *     where a misclick logs you out mid-flow.
  */
 
 // Minimal on purpose (2026-07-08, Daniel's call): the top nav carries only
@@ -79,12 +83,37 @@ export default function SiteSubnav() {
   const { user, loading, signOut } = useAuth();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const accountRef = useRef<HTMLDivElement>(null);
+  const avatarRef = useRef<HTMLButtonElement>(null);
   const initials = user ? initialsFor(user.displayName, user.email) : "";
 
-  // Close drawer on route change.
+  // Close drawer + account menu on route change.
   useEffect(() => {
     setOpen(false);
+    setMenuOpen(false);
   }, [pathname]);
+
+  // Account menu: close on Escape (returning focus to the avatar) and
+  // on any pointer press outside the menu.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        avatarRef.current?.focus();
+      }
+    };
+    const onPress = (e: PointerEvent) => {
+      if (!accountRef.current?.contains(e.target as Node)) setMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPress);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPress);
+    };
+  }, [menuOpen]);
 
   // Close drawer on Escape; lock body scroll while open.
   useEffect(() => {
@@ -102,7 +131,9 @@ export default function SiteSubnav() {
   }, [open]);
 
   return (
-    <nav className={`preview-subnav ${open ? "is-open" : ""}`}>
+    <nav
+      className={`preview-subnav ${open ? "is-open" : ""}${menuOpen ? " account-open" : ""}`}
+    >
       <div className="preview-subnav-inner">
         <Link href="/" className="preview-subnav-brand">
           Fader &amp; Knob
@@ -130,24 +161,55 @@ export default function SiteSubnav() {
               ···
             </span>
           ) : user ? (
-            <>
+            <div className="preview-subnav-account" ref={accountRef}>
               <button
                 type="button"
-                onClick={() => signOut()}
-                className="preview-subnav-signout"
-                aria-label="Sign out"
-              >
-                Sign out
-              </button>
-              <Link
-                href="/dashboard"
+                ref={avatarRef}
+                onClick={() => setMenuOpen((v) => !v)}
                 className="preview-subnav-avatar"
-                aria-label="Open dashboard"
-                title={user.displayName ?? user.email ?? "Dashboard"}
+                aria-label="Account menu"
+                aria-expanded={menuOpen}
+                aria-controls="preview-subnav-account-menu"
               >
                 {initials}
-              </Link>
-            </>
+              </button>
+              {menuOpen && (
+                <div
+                  id="preview-subnav-account-menu"
+                  className="preview-subnav-account-menu"
+                >
+                  <div className="preview-subnav-account-id">
+                    {user.displayName && (
+                      <span className="preview-subnav-account-name">
+                        {user.displayName}
+                      </span>
+                    )}
+                    {user.email && (
+                      <span className="preview-subnav-account-email">
+                        {user.email}
+                      </span>
+                    )}
+                  </div>
+                  <Link
+                    href="/dashboard"
+                    className="preview-subnav-account-item"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Dashboard
+                  </Link>
+                  <button
+                    type="button"
+                    className="preview-subnav-account-item preview-subnav-account-signout"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      signOut();
+                    }}
+                  >
+                    Sign out
+                  </button>
+                </div>
+              )}
+            </div>
           ) : (
             <>
               <Link href={loginHref(pathname)} className="preview-subnav-login">

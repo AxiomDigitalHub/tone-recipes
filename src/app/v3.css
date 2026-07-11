@@ -9047,3 +9047,85 @@
   grid-template-columns: minmax(0, 480px);
   justify-content: center;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Header account menu — avatar becomes a disclosure trigger.
+   Sign out moves off the top level (rare, session-destroying action;
+   was one misclick away from the avatar) into a small menu with the
+   identity block and Dashboard. Same z-index escape as the drawer fix:
+   `.fk-preview > * { z-index: 1 }` would otherwise paint the menu
+   beneath later page sections.
+   ═══════════════════════════════════════════════════════════════════════ */
+.fk-preview .preview-subnav.account-open { z-index: 9000; }
+.fk-preview .preview-subnav-account {
+  position: relative;
+  display: inline-flex;
+}
+.fk-preview .preview-subnav-avatar {
+  cursor: pointer;
+}
+.fk-preview .preview-subnav-avatar[aria-expanded="true"] {
+  background: var(--amber);
+  color: var(--ink);
+}
+.fk-preview .preview-subnav-account-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 220px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  box-shadow: 4px 4px 0 rgba(26, 23, 18, 0.16);
+  padding: 6px 0;
+  display: flex;
+  flex-direction: column;
+}
+.fk-preview .preview-subnav-account-id {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 16px 12px;
+  border-bottom: 1px solid var(--ink-faint);
+  margin-bottom: 6px;
+}
+.fk-preview .preview-subnav-account-name {
+  font-family: var(--font-cond, "Oswald", sans-serif);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.fk-preview .preview-subnav-account-email {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 11px;
+  color: var(--ink-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fk-preview .preview-subnav-account-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 9px 16px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: var(--font-cond, "Oswald", sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  transition: background 120ms ease;
+}
+.fk-preview .preview-subnav-account-item:hover {
+  background: var(--amber);
+}
+.fk-preview .preview-subnav-account-signout {
+  color: var(--ink-muted);
+}
+.fk-preview .preview-subnav-account-signout:hover {
+  color: var(--ink);
+}
