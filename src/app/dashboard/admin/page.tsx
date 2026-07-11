@@ -111,7 +111,7 @@ export default function AdminDashboard() {
     <div className="mx-auto max-w-6xl px-4 py-12">
       <div className="mb-8">
         <h1 className="page-title page-title-sm">Admin Dashboard</h1>
-        <p className="mt-2 text-muted">
+        <p className="mt-2 text-[var(--ink-muted)]">
           Live metrics for Fader &amp; Knob.
         </p>
       </div>
@@ -122,38 +122,14 @@ export default function AdminDashboard() {
         </div>
       ) : (
         <>
-          {/* ── Users Section ── */}
-          <section className="mb-10">
-            <h2 className="mb-4 text-lg font-semibold text-foreground">Users</h2>
-            {users ? (
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-                <StatCard label="Total Users" value={users.total} />
-                <StatCard
-                  label="Premium"
-                  value={users.byRole.premium ?? 0}
-                  accent
-                />
-                <StatCard label="Free" value={users.byRole.free ?? 0} />
-                <StatCard
-                  label="New This Week"
-                  value={users.newThisWeek}
-                  trend
-                />
-              </div>
-            ) : (
-              <div className="rounded-lg border border-border bg-surface px-4 py-3 text-sm text-muted">
-                <span className="mr-2 inline-block h-2 w-2 rounded-full bg-yellow-500" />
-                Connect Supabase to see user metrics.
-              </div>
-            )}
-          </section>
-
-          {/* ── Growth Section ── */}
+          {/* ── Growth Section (accounts + revenue; supersedes the old
+                 Users stat row, which duplicated Total accounts / by-role
+                 and used the stale "Premium" label) ── */}
           <GrowthSection growth={growth} error={growthError} />
 
           {/* ── Content Section ── */}
           <section className="mb-10">
-            <h2 className="mb-4 text-lg font-semibold text-foreground">Content</h2>
+            <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">Content</h2>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
               <StatCard label="Recipes" value={catalog?.recipes ?? 0} href="/browse" />
               <StatCard label="Artists" value={catalog?.artists ?? 0} />
@@ -166,7 +142,7 @@ export default function AdminDashboard() {
 
           {/* ── Gear Section ── */}
           <section className="mb-10">
-            <h2 className="mb-4 text-lg font-semibold text-foreground">Gear Database</h2>
+            <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">Gear Database</h2>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
               <StatCard label="Gear Items" value={catalog?.gear ?? 0} />
             </div>
@@ -175,7 +151,7 @@ export default function AdminDashboard() {
           {/* ── Recent Sign-ups ── */}
           {users && users.recent.length > 0 && (
             <section className="mb-10">
-              <h2 className="mb-4 text-lg font-semibold text-foreground">
+              <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">
                 Recent Sign-ups
               </h2>
               <div className="overflow-hidden rounded-lg border border-border">
@@ -213,7 +189,7 @@ export default function AdminDashboard() {
 
           {/* ── Quick Actions ── */}
           <section>
-            <h2 className="mb-4 text-lg font-semibold text-foreground">
+            <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">
               Quick Actions
             </h2>
             <div className="flex flex-wrap gap-3">
@@ -255,7 +231,7 @@ function GrowthSection({
   if (error) {
     return (
       <section className="mb-10">
-        <h2 className="mb-4 text-lg font-semibold text-foreground">Growth</h2>
+        <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">Growth</h2>
         <div className="rounded-lg border border-border bg-surface px-4 py-3 text-sm text-muted">
           <span className="mr-2 inline-block h-2 w-2 rounded-full bg-yellow-500" />
           Couldn&apos;t load growth data. Sign in as an admin and refresh.
@@ -269,7 +245,7 @@ function GrowthSection({
     // page already rendered.
     return (
       <section className="mb-10">
-        <h2 className="mb-4 text-lg font-semibold text-foreground">Growth</h2>
+        <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">Growth</h2>
         <div className="rounded-lg border border-border bg-surface px-4 py-3 text-sm text-muted">
           Loading growth data…
         </div>
@@ -282,14 +258,16 @@ function GrowthSection({
   return (
     <section className="mb-10">
       <div className="mb-4 flex items-baseline justify-between">
-        <h2 className="text-lg font-semibold text-foreground">Growth</h2>
-        <span className="text-xs text-muted">
+        <h2 className="text-lg font-semibold text-[var(--ink)]">Growth</h2>
+        <span className="text-xs text-[var(--ink-muted)]">
           real accounts, not GA estimates
         </span>
       </div>
 
-      {/* This week headline row */}
-      <div className="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+      {/* This week headline row — genuinely weekly metrics only. Est. MRR
+          (a running total, not a weekly figure) lives in the Money section
+          below, so it isn't shown twice. */}
+      <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
         <StatCard
           label="New accounts (7d)"
           value={accounts?.new7d ?? 0}
@@ -301,16 +279,10 @@ function GrowthSection({
           trend
         />
         <StatCard label="Downloads (7d)" value={downloads?.total ?? 0} trend />
-        <MoneyCard
-          label="Est. MRR"
-          value={paid ? formatUsd(paid.estMrr) : "—"}
-          caption="est. monthly — Stripe is exact"
-          accent
-        />
       </div>
 
       {/* Accounts */}
-      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted">
+      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--ink-muted)]">
         Accounts
       </h3>
       {accounts ? (
@@ -348,7 +320,7 @@ function GrowthSection({
       )}
 
       {/* Money */}
-      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted">
+      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--ink-muted)]">
         Money
       </h3>
       <div className="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -411,7 +383,7 @@ function GrowthSection({
       )}
 
       {/* Newsletter */}
-      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted">
+      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--ink-muted)]">
         Newsletter
       </h3>
       {newsletter ? (
@@ -429,7 +401,7 @@ function GrowthSection({
       {/* Downloads */}
       {downloads && downloads.top.length > 0 && (
         <>
-          <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted">
+          <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--ink-muted)]">
             Top downloads (7d)
           </h3>
           <div className="mb-6 overflow-hidden rounded-lg border border-border">
@@ -457,7 +429,7 @@ function GrowthSection({
 
       {/* Server events */}
       <div className="mb-1 flex items-baseline justify-between">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-muted">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-[var(--ink-muted)]">
           Server events (30d)
         </h3>
       </div>
