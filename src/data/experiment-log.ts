@@ -117,4 +117,14 @@ export const experimentLog: ExperimentLogEntry[] = [
     title: "News you can play",
     body: "A $679 delay pedal was announced yesterday. Instead of just reporting it, we built a free Helix preset that imitates its signature trick — two different delays running side by side — drew a map of how the signal flows, and put both in the article. If we cover gear, you should get to try the idea in the next five minutes, not just read about it. Building it also pushed our preset tech somewhere it had never been: that side-by-side routing had to be assembled by hand from real hardware files, which taught us exactly what to automate next.",
   },
+  {
+    date: "2026-07-10",
+    title: "A place to see the truth",
+    body: "For months, the honest answer to “how's the site actually doing?” lived scattered across five different tools. So we built one screen that pulls the real numbers straight from the database — who signed up this week, who's paying, what they're downloading — instead of the guesswork ad-blockers leave behind. Building it surfaced a bug worth telling on ourselves: the owner's own admin access had been silently switched off the moment he subscribed to a plan, because one setting was quietly doing two jobs at once. Fixed, and split apart so it can't happen again. You can't improve what you can't see.",
+  },
+  {
+    date: "2026-07-10",
+    title: "The small door that opened on the wrong room",
+    body: "For a while, signing in could drop you somewhere random — you'd log in from the browse page and land back on the home screen for no reason. Turned out four different parts of the site each had their own idea of where to send you afterward, so it was luck of the draw. We gave them one rule: after you sign in, you go back to wherever you were. It's a small thing. But the small things are what quietly tell people whether anyone's actually paying attention. Someone is.",
+  },
 ];
