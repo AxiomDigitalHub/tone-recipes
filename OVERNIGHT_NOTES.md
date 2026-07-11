@@ -1,63 +1,84 @@
-# Overnight Session — 2026-07-07 → 08
+# Overnight Session — 2026-07-10 → 11
 
-Good morning. Skim the TL;DR, then the ⚠️ item — it's the one thing only you can do.
-(Previous overnight report from 2026-04-17 is in git history at `57dc1dd^`.)
+Good morning. Skim the TL;DR, then the decisions queue.
+(Previous overnight report from 2026-07-07→08 is in git history at `1792d39^` and earlier.)
 
 ## TL;DR
 
-- **✅ RESOLVED 07-08 morning (Daniel + Claude, in-browser): Cloudflare was blocking every AI crawler** (GPTBot, ClaudeBot, Google-Extended, CCBot, Amazonbot, meta-externalagent, more) via its managed robots.txt, live since cutover — the exact opposite of the AI Search Playbook while ChatGPT is your #6 traffic source. **Fixed via: AI Crawl Control → Signals → "Managed robots.txt" toggle OFF.** Verified clean: managed-block lines now 0, origin robots.txt serving. Network-level crawler blocks were never on (Security tab all-allow) — it was purely the robots.txt injection. (Same incident class as the 2026-06-11 Vercel firewall block.)
-- **21 factual errors fixed** in your three highest-traffic posts (Deluxe Reverb, FRFR roundup, Big Muff) — including the AB763 being called cathode-biased (it's fixed-bias), Siamese Dream credited to the wrong Muff variant, and the Friedman ASM-12 priced at $500 (it's $1,399). All WebSearch-verified, live.
-- **New recipe shipped through the full new pipeline**: `grohl-times-like-these-riff` (backlog #159), authored by the new **recipe-author agent**, then FAILED by helix-preset-qc, fixed, regenerated, and verified value-by-value. The QC catch-and-fix loop works.
-- **Content strategy re-anchored**: the roadmap audit found 0/25 worship Tier-2 posts and 0/2 pillars shipped three weeks after the cluster spec called them highest-ROI. A strategic queue (S1–S10) now sits at the top of the calendar; next runs take ≥2 of 3 slots from it.
-- **Reddit research filed** (docs/research/REDDIT_SERVICE_RESEARCH_2026-07-08.md): 15 evidence-backed improvement ideas. Headline: presets fail on *rig translation*, not tone — the moat is adaptation intelligence, which is the ToneTrace thesis validated by the market.
-- **TimeLine MX news post live** (announced yesterday, $679) — the worship-board delay successor, with the Helix-loop buy/skip angle.
-- Recipe audit 185/185 clean · MDX 361/361 compile · build green (1,194 pages) · every push deployed.
+- **Every downloaded Helix preset was silently losing its reverb pre-delay.** The generator
+  force-cased the param to `PreDelay`, but 18 of 21 models want `Predelay` — HX Edit drops
+  mismatched keys without a word. Fixed with model-aware casing, corpus-verified (the 3 VIC
+  "Dyn" reverbs are the real exceptions), and a permanent verify script now lives in
+  `scripts/verify-predelay-fix.ts`. Generator bug #3 (empty-dsp1 output routing, corpus
+  says 256/256 use `1`, we emitted `0`) is also fixed and verified across all 190 recipes.
+- **Canonical URLs now emit on every major page type.** Home, /blog + posts, /news + posts,
+  /pricing, /platforms had none — Google was picking its own during the indexing recovery.
+  Verified: exactly one canonical per page type; `/news?category=` folds into `/news`.
+- **33 factual errors fixed across 8 more high-traffic posts** (second rotation of the
+  fact-pass). Two fabricated products found and replaced. The AC30 post's "Class A" physics
+  and the Jubilee post's Slash/Appetite myth are gone. The Edge delay post: zero errors.
+- **The S1–S3 worship posts were brought to cluster spec** — the morning drafts lacked the
+  required snapshot layouts and had persona-mismatched bylines (a never-gigged bedroom
+  producer and a QC player on worship/Helix posts). Rewritten, re-bylined, verified against
+  the shipped recipes. "Paul Hislop" → David Hislop in the Bethel hub.
+- **You asked about the Sign out in the header (mid-session) — done.** It's now an avatar
+  disclosure menu (name/email, Dashboard, Sign out) instead of a top-level nav item one
+  misclick from the avatar. Browser-verified: Escape/click-outside/focus return, mobile fit,
+  end-to-end sign out.
+- **News:** Blackstar Beam Solo native NAM post live. FM9 12.00-final was deliberately
+  skipped — the 07-08 post already covers it (the agent caught the dupe).
+- All gates green at every step: tsc 0 errors · build 1,217 pages · audit 190 recipes,
+  0 errors · MDX 364 clean · deploy run for the first batch confirmed **success** (the
+  predelay/canonical/dsp1 commits are live; the content + header batch pushed after).
 
 ## Commit ledger (overnight, oldest → newest)
 
 | SHA | What |
 |---|---|
-| `91a5d42` | Fact-check corrections: 21 fixes across the three highest-traffic posts |
-| `e638886` | Strategy re-anchor: worship queue injection + Reddit research doc + recipe-author agent |
-| `57dc1dd` | Times Like These recipe + TimeLine MX news + backlog rows 105/106 repaired |
-
-(Earlier in the evening, same session: `8f9568d` funnel analytics wiring, `41f6029`/`590ee44` Vercel decommission, `ec17b2d` Google sign-in — see docs/VERCEL_DECOMMISSION_SPRINT.md.)
-
-## The new authoring pipeline (and what its first run caught)
-
-`.claude/agents/recipe-author.md` is the authoring counterpart to `helix-preset-qc`:
-research-grounded (≥2 sources or needs-research), standard-enforcing (0–10 amp scale,
-verified-inventory blocks, real units, honest stats), audit + tsc gates, QC handoff.
-
-Shakedown run on backlog #159 produced an audit-clean recipe whose generated .hlx
-**failed QC with 4 criticals** — exactly what the pipeline is for. Recipe-side issues
-fixed (comp attack/release in ms → clamped; drive Gain/Level on 0–10 → emitted raw;
-Master 7; Decay maxed; mic dial-in lost to legacy cab variant → fixed via the house
-cabSibling/WithPan pattern). Regenerated and verified value-by-value.
-
-### ⚙️ Three latent GENERATOR findings (affect existing presets; need a careful pass with corpus survey — don't blind-fix)
-
-1. **Predelay casing silent-drop**: `PARAM_NAME_MAP` forces `predelay → "PreDelay"`, but the corpus uses `Predelay` 18:3 (e.g. `HD2_ReverbRoom` 26/26). Every recipe authoring a predelay on those models is silently dropped today — including existing recipes (the SRV Spring block has `Predelay: 20`). Fix needs model-aware casing (the 3 `PreDelay` models are real).
-2. **Legacy cab aliases shadow CabMicIr variants**: `"2x12 Blue Bell" → HD2_Cab2x12BlueBell` (legacy, no Mic/Position, uses `"High Cut"` with a space). Single-mic recipes that author Mic/Position lose them silently. Dual-mic `cabSibling` recipes are fine (auto-promoted to WithPan). Survey which aliases/recipes are affected before switching aliases.
-3. **Empty-dsp1 routing**: generator emits `dsp1.outputA.@output = 0`; reference + corpus use `1` (Multi). Likely harmless (50 shipped presets load), but non-canonical.
+| `89d8125` | Predelay fix: model-aware `Predelay`/`PreDelay` casing + verify script |
+| `e55ade7` | Canonicals: home, blog, news, pricing, platforms (7 page types) |
+| `1792d39` | Empty-dsp1 `outputA.@output` → 1 (corpus-canonical), all 190 recipes verified |
+| `0034e75` | Header: Sign out moved into avatar disclosure menu (your mid-session ask) |
+| `67fc136` | Fact-check sweep: 33 corrections across 8 posts |
+| `e4636cd` | Worship S1–S3 rewritten to cluster spec + re-bylined + Hislop fix |
+| `323f0d7` | News: Blackstar Beam Solo native NAM A2 |
 
 ## What to review on the live site
 
-1. `/recipe/grohl-times-like-these-riff` — the new recipe page.
-2. `/news/strymon-timeline-mx-dual-engine-delay` — yesterday's news, published ahead of most outlets.
-3. `/blog/fender-deluxe-reverb-settings` — your #1 page, now technically correct.
+1. **Header account menu** (signed in) — the thing you flagged. Avatar → menu.
+2. `/blog/goodness-of-god-guitar-tone-helix` and `/blog/way-maker-guitar-tone-helix` —
+   now with verse/chorus/bridge snapshot tables.
+3. `/blog/vox-ac30-settings-guide` — the heaviest fact-check rewrite (Class A physics,
+   phantom knob removed).
+4. Download any recipe with a reverb pre-delay (e.g. SRV Pride and Joy) and load it in
+   HX Edit — the pre-delay now actually arrives.
 
 ## Morning decisions queue (yours)
 
-1. **Cloudflare AI-crawler toggle** (see ⚠️ above) — 2 minutes, biggest impact.
-2. **Reddit quick wins** — the research doc lists 5 low-effort/high-impact moves (per-block design notes, level-match guarantee + FOH spec sheet, venue-translation checklist, one free flagship worship preset, trail-handling docs). Pick any and I'll build it.
-3. **Worship recipe attribution policy** — 6 of 10 worship backlog entries died in needs-research under the per-track-attribution bar, but the cluster spec's Tier-2 *song posts* don't need that bar. Confirm the reconciliation (song posts ≠ recipes) and the worship queue unblocks.
-4. **GA4 key events** — when `checkout_start`/`signup_start`/`checkout_complete` appear under Admin → Events (they're deployed and fire with real traffic), star them.
-5. Standing items: GH cron 200-check Tue 7/14; delete Vercel project + cancel billing ~7/14; signed-in PDF + Google-login click-through when convenient.
+1. **Generator bug #2 — surveyed, NOT fixed (deliberate).** Cab names resolve to legacy
+   single-mic `HD2_Cab*` models, so recipes authoring Mic/Position lose those params
+   silently (dual-mic recipes are fine — auto-promoted to WithPan). The fix changes the
+   default cab block type on every generated preset, so it needs your call + a QC pass.
+   Corpus and affected-recipe survey notes are in this file's history and the code comments.
+2. **The other session's work is still uncommitted** (12 recipes in `src/lib/data/index.ts`,
+   the Stripe SITE_URL fix in `constants.ts` + 3 API routes, `docs/ai-sov-runs/`). I worked
+   around it all night per the no-clobber rule. It needs committing from that session —
+   the regenerated `RECIPE_AUDIT_REPORT.md` (190 recipes) belongs with it.
+3. **GA4 key events** — star `signup_start` / `checkout_complete` / `upgrade_prompt_*` when
+   they appear under Admin → Events. Trust the account name (daniel.livengood@gmail.com),
+   not the /u/N/ index.
+4. **Standing:** Vercel project deletion + billing cancel ~7/14; GH cron 200-check Tue 7/14.
+5. Optional: an /experiment log entry for the overnight batch (the other session already
+   logged the daytime run; I didn't double-post).
 
-## Audit results (the "errors in code, settings, facts" pass)
+## Loose ends / hygiene
 
-- **Code**: tsc clean; build green; 36 pre-existing lint errors (react-hooks/set-state-in-effect family — all predate tonight, mechanical to fix, none new). MDX 361/361 compile; 583 warnings are the known missing-takeaways/faq AEO backlog on old posts.
-- **Settings**: the Cloudflare robots block (⚠️ above) was the big one. Everything else checked healthy: feed.xml 200, llms.txt consistent with playbook (keep/zero-maintenance), sitemap fresh with lastmod, security headers intact, geo-block live, firewall + rate-limit hardening from earlier tonight holding.
-- **Facts**: 31 claims checked across the top 3 posts, 21 problems found and fixed. Recommend a rotating weekly fact-pass over the next-most-trafficked posts — the hit rate was high enough that older posts likely have more.
-- **Data hygiene**: RECIPE_BACKLOG rows 105/106 were malformed link-dumps sitting in the queue path (would've confused the daily task); repaired as reference rows. `data/proposed-recipes.md` is stale (many entries long since shipped) — worth an archive pass someday, low priority.
+- Untracked files I left alone (not mine): `docs/index-health-log.md` (scheduled task's
+  log — its 07-13 run will check whether the worship posts got indexed),
+  `docs/outreach-drafts.md` (outreach skill output, for you to post manually),
+  `scripts/animate-frame.ts` modification (DBBV Veo flag, another session's work).
+- Fact-pass meta-finding: for two wrong claims, Google's top confirmation was
+  **faderandknob.com itself** — our errors echo back through search. The rotation continues
+  to be worth it; next tier is queued in the calendar.
+- Dev server was run for header verification and stopped. Demo-user localStorage testing
+  works (`tone-recipes-demo-user`) since local env has no Supabase keys.

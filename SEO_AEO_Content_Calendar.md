@@ -3397,8 +3397,8 @@ persona's denomination).
 | # | Slug | Title | Target queries | Pillar | Notes |
 |---|---|---|---|---|---|
 | ~~S1~~ ✅ | helix-worship-snapshots-sunday-morning | 5 Helix Snapshots That Cover Every Sunday Morning | "helix worship snapshots," "helix snapshot worship setup," "worship guitar snapshots" | Worship cluster | **SHIPPED 2026-07-10** (Nathan Cross). The cluster spec's flagged "highest-utility" item. Links every worship recipe + the Worship Set Pack. |
-| ~~S2~~ ✅ | goodness-of-god-guitar-tone-helix | Goodness of God Guitar Tone on Helix (Bethel) | "goodness of god guitar tone," "goodness of god electric guitar helix" | Worship cluster Tier-2 | **SHIPPED 2026-07-10** (Dev Okonkwo). Wraps recipe hislop-goodness-of-god with block-by-block Helix chain + free-plugin path + recipe CTA. |
-| ~~S3~~ ✅ | way-maker-guitar-tone-helix | Way Maker Guitar Tone on Helix (Leeland) | "way maker guitar tone," "way maker electric guitar" | Worship cluster Tier-2 | **SHIPPED 2026-07-10** (Sean Nakamura). Wraps recipe moore-way-maker; 661 ms dotted-eighth math + Blue-vs-Greenback cab A/B. |
+| ~~S2~~ ✅ | goodness-of-god-guitar-tone-helix | Goodness of God Guitar Tone on Helix (Bethel) | "goodness of god guitar tone," "goodness of god electric guitar helix" | Worship cluster Tier-2 | **SHIPPED 2026-07-10** (Nathan Cross, re-bylined overnight). Wraps recipe hislop-goodness-of-god with block-by-block Helix chain + free-plugin path + recipe CTA. |
+| ~~S3~~ ✅ | way-maker-guitar-tone-helix | Way Maker Guitar Tone on Helix (Leeland) | "way maker guitar tone," "way maker electric guitar" | Worship cluster Tier-2 | **SHIPPED 2026-07-10** (fk-staff, re-bylined overnight). Wraps recipe moore-way-maker; 661 ms dotted-eighth math + Blue-vs-Greenback cab A/B. |
 | S4 | what-a-beautiful-name-guitar-tone-helix | What a Beautiful Name Guitar Tone on Helix (Hillsong) | "what a beautiful name guitar tone," "hillsong guitar tone helix" | Worship cluster Tier-2 | Recipe hendroff-what-a-beautiful-name shipped; wrap pattern. Note the Jackson Audio Prism correction (NOT a Klon) already captured in the backlog. |
 | S5 | complete-guide-line-6-helix-tone-2026 | The Complete Guide to Line 6 Helix Tone (2026) | "line 6 helix tone," "helix tone guide," "how to get good helix tones" | Pillar | The named head-term pillar (strategy priority #2). Long-form; internal-links to every settings guide + recipe. Consider splitting across 2 runs (draft + polish). |
 | S6 | boss-katana-settings-guide-every-genre | Boss Katana Settings Guide: Every Channel, Every Genre | "boss katana settings," "katana amp settings," "boss katana clean settings" | Pillar (Katana ICP) | The missing 10–18K/mo head term (strategy priority #3). Site has .tsl downloads as the CTA — no competitor offers that. |
@@ -3439,8 +3439,8 @@ the live seasonal hook is the September volunteer wave.
 | # | Slug | Title | Writer | Pillar |
 |---|---|---|---|---|
 | 1 | helix-worship-snapshots-sunday-morning | 5 Helix Snapshots That Cover Every Sunday Morning | Nathan Cross | Worship cluster / 4 — Modeler Masterclass |
-| 2 | goodness-of-god-guitar-tone-helix | Goodness of God Guitar Tone on Helix (Bethel) | Dev Okonkwo | Worship cluster Tier-2 / 1 — Tone Recipes |
-| 3 | way-maker-guitar-tone-helix | Way Maker Guitar Tone on Helix (Leeland) | Sean Nakamura | Worship cluster Tier-2 / 1 — Tone Recipes |
+| 2 | goodness-of-god-guitar-tone-helix | Goodness of God Guitar Tone on Helix (Bethel) | Nathan Cross *(overnight re-byline; was Dev Okonkwo)* | Worship cluster Tier-2 / 1 — Tone Recipes |
+| 3 | way-maker-guitar-tone-helix | Way Maker Guitar Tone on Helix (Leeland) | fk-staff *(overnight re-byline; was Sean Nakamura)* | Worship cluster Tier-2 / 1 — Tone Recipes |
 
 ### Refreshes
 
@@ -3478,3 +3478,34 @@ the live seasonal hook is the September volunteer wave.
 | T3 | Shimmer Reverb Without a BigSky: The Free and Budget Paths | "shimmer reverb cheap," "shimmer reverb without bigsky," "free shimmer reverb plugin worship" | Dev Okonkwo | 4 — Modeler Masterclass | Goodness of God leans on a BigSky shimmer most readers don't own. Distinct question (how to get shimmer cheaply): Valhalla Supermassive settings, the Helix shimmer block, and a ranked budget-pedal path — the SERP has plugin listicles but no worship-tone-targeted ranking with dial-in settings. |
 
 **Queue note:** T1–T3 are logged behind the strategic queue (S4–S10 still drain first per the re-anchor). They exist to reinforce the worship cluster rather than pull the SERP loop back to generalist recording topics.
+
+---
+
+## Daily Run — 2026-07-10 (overnight addendum)
+
+The overnight session (commits `e4636cd`, `67fc136`, `323f0d7`) finished what the
+morning run started and ran the recurring fact-pass:
+
+**S1–S3 brought to cluster spec** (`e4636cd`): the morning drafts shipped without the
+verse/chorus/bridge snapshot layouts the WORSHIP_HELIX_CONTENT_CLUSTER spec requires;
+both song posts now have them, and the snapshots flagship was trimmed 5 → 4 snapshots
+(Clean/Pad/Drive/Lead). **Bylines corrected for persona fit** — Dev Okonkwo (bedroom
+producer, never gigged) and Sean Nakamura (Quad Cortex player) can't carry worship/Helix
+song posts. Final bylines: Nathan Cross on snapshots + Goodness of God (that puts him at
+his 3/week cap), fk-staff on Way Maker per the overflow rule. The velocity note in the
+morning entry above is superseded accordingly. Also fixed in passing: the Bethel hub post
+said "Paul Hislop"; the sourced artist entry says **David Hislop** (his own tonefactor.co
+confirms).
+
+**Fact-check sweep, second rotation** (`67fc136`): 8 next-tier high-traffic posts,
+~40 claims verified, **33 corrections** — including two fabricated products (the
+"OwnHammer free 412RW pack" and three nonexistent "sag emulator" pedals), the
+Jubilee/Appetite myth, and the AC30 "Class A" rewrite. The Edge delay post was the only
+one with zero errors. Every touched post got `updated: 2026-07-10`. Meta-finding worth
+remembering: for two wrong claims, Google's top "confirmation" was faderandknob.com
+itself — our errors echo back through search, which is exactly why this pass rotates.
+
+**News** (`323f0d7`): Blackstar Beam Solo native NAM A2 (candidate #3 from the 07-08
+list) shipped. Candidate #2 (FM9 12.00 final) was **deliberately skipped** — the
+2026-07-08 post already covers the story; a re-report two days later would be duplicate
+content. Remaining candidates: MixWave Yvette Young (#4), H9 Gen 2 append (#5).
