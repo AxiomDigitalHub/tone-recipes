@@ -94,7 +94,10 @@ function makeDspInfrastructure(isPath1: boolean) {
     },
     outputA: {
       "@model": "HD2_AppDSPFlowOutput",
-      "@output": isPath1 ? 1 : 0,
+      // Corpus-unanimous (256/256 presets): outputA.@output is 1 (Multi)
+      // on BOTH dsps, including an empty dsp1. dsp0 is re-pointed to 2
+      // later when blocks route into dsp1.
+      "@output": 1,
       pan: 0.5,
       gain: 0,
     },
