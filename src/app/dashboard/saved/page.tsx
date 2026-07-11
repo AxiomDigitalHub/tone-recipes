@@ -26,19 +26,21 @@ export default function PreviewDashboardSaved() {
   );
 
   return (
-    <section className="dashboard-section">
-      <header className="dashboard-section-head">
-        <h2 className="display">Saved recipes</h2>
-      </header>
+    <div>
+      <h1 className="page-title page-title-sm">Saved recipes</h1>
+      <p className="dashboard-inner-dek">
+        Recipes you&apos;ve saved to revisit later.
+      </p>
 
       {recipes.length === 0 ? (
         <div className="dashboard-empty">
-          <p className="display dashboard-empty-title">Nothing saved yet</p>
+          <p className="display dashboard-empty-title">No saved recipes yet</p>
           <p className="dashboard-empty-hint">
-            Tap the heart on any recipe and it&apos;ll show up here. Your saves sync across devices when you&apos;re signed in.
+            Tap the heart on any recipe to save it here. Your saves sync across
+            devices when you&apos;re signed in.
           </p>
           <Link href="/browse" className="hero-cta hero-cta-primary">
-            Browse the archive
+            Browse recipes
           </Link>
         </div>
       ) : (
@@ -76,6 +78,6 @@ export default function PreviewDashboardSaved() {
           })}
         </div>
       )}
-    </section>
+    </div>
   );
 }

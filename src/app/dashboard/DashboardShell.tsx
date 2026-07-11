@@ -11,9 +11,9 @@ import type { ReactNode } from "react";
  * v3 dashboard shell — editorial chrome for the logged-in surface.
  *
  * Sidebar: 7 nav items mirroring the production /dashboard tree.
- * Top bar: identity tile (initials + name + tier pill) plus a
- * sign-out trigger via auth-context. When no user is signed in,
- * the shell shows a "Sign in to personalize" prompt rather than
+ * Top bar: identity tile (initials + name + tier pill). Sign out
+ * lives in the global masthead (SiteSubnav), not here. When no
+ * user is signed in, the shell shows a "Sign in" prompt rather than
  * crashing — handy for design preview without real auth state.
  *
  * The visual language matches /blog (left sticky sidebar,
@@ -49,7 +49,7 @@ function tierLabelFor(role: UserRole | null | undefined): { label: string; isPai
 }
 
 export default function DashboardShell({ children }: { children: ReactNode }) {
-  const { user, loading, signOut } = useAuth();
+  const { user, loading } = useAuth();
   const pathname = usePathname();
 
   const displayName = user?.displayName ?? user?.email ?? null;
@@ -87,19 +87,9 @@ export default function DashboardShell({ children }: { children: ReactNode }) {
               )}
             </div>
             <h1 className="display dashboard-name">
-              {displayName ? `Welcome back, ${displayName.split(/[@\s]/)[0]}` : "Your dashboard"}
+              {displayName ? displayName.split(/[@\s]/)[0] : "Your dashboard"}
             </h1>
           </div>
-          {user && (
-            <button
-              type="button"
-              onClick={() => signOut()}
-              className="dashboard-signout"
-              title="Sign out"
-            >
-              Sign out
-            </button>
-          )}
           {!user && !loading && (
             <Link href="/login" className="hero-cta hero-cta-primary dashboard-signin">
               Sign in

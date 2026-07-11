@@ -222,9 +222,9 @@ export default function DashboardOverview() {
 
   return (
     <>
-      {/* Greeting */}
+      {/* Page heading */}
       <header className="dashboard-greeting">
-        <h2 className="display dashboard-greeting-title">{greeting}</h2>
+        <h1 className="display dashboard-greeting-title">{greeting}</h1>
         {savedRecipes.length >= 3 ? (
           <p className="dashboard-greeting-dek">
             You&apos;re a{" "}
@@ -299,12 +299,11 @@ export default function DashboardOverview() {
         <section className="dashboard-activation">
           <header className="dashboard-activation-head">
             <div>
-              <span className="dashboard-eyebrow">Get started</span>
               <h2 className="display dashboard-activation-title">
-                Activate your dashboard
+                Get started
               </h2>
               <p className="dashboard-activation-dek">
-                Three quick steps to make Fader &amp; Knob feel like yours.
+                Three quick steps to set up your account.
               </p>
             </div>
             <span className="dashboard-activation-progress">
@@ -337,7 +336,6 @@ export default function DashboardOverview() {
         <section className="dashboard-section">
           <header className="dashboard-section-head">
             <div>
-              <span className="dashboard-eyebrow">Your library</span>
               <h2 className="display">Saved recipes</h2>
             </div>
             <Link href="/dashboard/saved" className="dashboard-section-all">
@@ -354,7 +352,6 @@ export default function DashboardOverview() {
         <section className="dashboard-section">
           <header className="dashboard-section-head">
             <div>
-              <span className="dashboard-eyebrow">Your library</span>
               <h2 className="display">Saved recipes</h2>
             </div>
           </header>
@@ -372,7 +369,6 @@ export default function DashboardOverview() {
         <section className="dashboard-section">
           <header className="dashboard-section-head">
             <div>
-              <span className="dashboard-eyebrow">Personalized</span>
               <h2 className="display">
                 Matches your{" "}
                 {PLATFORM_LABELS[primaryPlatform] ?? primaryPlatform}
@@ -401,7 +397,6 @@ export default function DashboardOverview() {
         <section className="dashboard-section">
           <header className="dashboard-section-head">
             <div>
-              <span className="dashboard-eyebrow">Jump back in</span>
               <h2 className="display">Recently viewed</h2>
             </div>
           </header>
@@ -418,8 +413,7 @@ export default function DashboardOverview() {
         <section className="dashboard-section">
           <header className="dashboard-section-head">
             <div>
-              <span className="dashboard-eyebrow">Editors&apos; picks</span>
-              <h2 className="display">Start with these</h2>
+              <h2 className="display">Editors&apos; picks</h2>
               <p className="dashboard-section-dek">
                 Iconic tones to bookmark and build from.
               </p>
@@ -440,7 +434,7 @@ export default function DashboardOverview() {
       <section className="dashboard-section dashboard-stats-section">
         <header className="dashboard-section-head">
           <div>
-            <span className="dashboard-eyebrow">Your account</span>
+            <h2 className="display">Account</h2>
           </div>
         </header>
         <div className="dashboard-stats">
@@ -478,7 +472,7 @@ export default function DashboardOverview() {
       <section className="dashboard-section">
         <header className="dashboard-section-head">
           <div>
-            <span className="dashboard-eyebrow">Quick actions</span>
+            <h2 className="display">Quick actions</h2>
           </div>
         </header>
         <div className="dashboard-quick-actions">

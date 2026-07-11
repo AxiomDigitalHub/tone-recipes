@@ -7334,7 +7334,9 @@
   font-style: italic;
   font-size: 15px;
   color: var(--ink-muted);
-  margin: 4px 0 0;
+  /* Bottom gap so the page intro doesn't collide with the first section
+     heading — the removed eyebrow kicker used to provide this breathing room. */
+  margin: 4px 0 28px;
 }
 .fk-preview .dashboard-inner-form {
   max-width: 520px;

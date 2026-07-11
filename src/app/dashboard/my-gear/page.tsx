@@ -177,7 +177,7 @@ export default function MyGearPage() {
   if (!hydrated) {
     return (
       <div>
-        <h1 className="page-title page-title-sm">My Gear</h1>
+        <h1 className="page-title page-title-sm">My gear</h1>
         <p className="dashboard-inner-dek">Loading…</p>
       </div>
     );
@@ -185,7 +185,7 @@ export default function MyGearPage() {
 
   return (
     <div>
-      <h1 className="page-title page-title-sm">My Gear</h1>
+      <h1 className="page-title page-title-sm">My gear</h1>
       <p className="dashboard-inner-dek">
         Your guitars, pedals, amps, and modelers.
       </p>
@@ -194,8 +194,7 @@ export default function MyGearPage() {
       <section className="dashboard-section">
         <header className="dashboard-section-head">
           <div>
-            <span className="dashboard-eyebrow">Add</span>
-            <h2 className="display">Add a piece of gear</h2>
+            <h2 className="display">Add gear</h2>
           </div>
         </header>
         <div className="dashboard-paper-card">
@@ -267,10 +266,10 @@ export default function MyGearPage() {
       {gear.length === 0 ? (
         <section className="dashboard-section">
           <div className="dashboard-notif-empty">
-            <p className="dashboard-notif-empty-title">No gear yet</p>
+            <p className="dashboard-notif-empty-title">No gear added yet</p>
             <p className="dashboard-notif-empty-dek">
-              Add a guitar, a pedal, an amp — anything you actually play.
-              The rest of the site personalizes around what&apos;s here.
+              Add your guitars, pedals, amps, and modelers to personalize your
+              recommendations.
             </p>
           </div>
         </section>
@@ -279,9 +278,6 @@ export default function MyGearPage() {
           <section key={gType} className="dashboard-section">
             <header className="dashboard-section-head">
               <div>
-                <span className="dashboard-eyebrow">
-                  {TYPE_LABELS[gType]}
-                </span>
                 <h2 className="display">{TYPE_LABELS[gType]}</h2>
               </div>
             </header>

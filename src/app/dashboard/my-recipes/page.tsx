@@ -133,7 +133,7 @@ export default function MyRecipesPage() {
   if (authLoading || !user) {
     return (
       <div>
-        <h1 className="page-title page-title-sm">My Recipes</h1>
+        <h1 className="page-title page-title-sm">My recipes</h1>
         <p className="dashboard-inner-dek">Loading…</p>
       </div>
     );
@@ -144,7 +144,7 @@ export default function MyRecipesPage() {
       {/* Header */}
       <div className="dashboard-notif-head">
         <div>
-          <h1 className="page-title page-title-sm">My Recipes</h1>
+          <h1 className="page-title page-title-sm">My recipes</h1>
           <p className="dashboard-inner-dek">
             Recipes you&apos;ve submitted to the community.
           </p>

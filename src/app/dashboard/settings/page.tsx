@@ -170,8 +170,7 @@ export default function DashboardSettingsPage() {
       <section className="dashboard-section">
         <header className="dashboard-section-head">
           <div>
-            <span className="dashboard-eyebrow">Profile</span>
-            <h2 className="display">Who you are</h2>
+            <h2 className="display">Profile</h2>
           </div>
         </header>
         <form onSubmit={handleSave} className="auth-form dashboard-inner-form">
@@ -243,8 +242,7 @@ export default function DashboardSettingsPage() {
       <section className="dashboard-section">
         <header className="dashboard-section-head">
           <div>
-            <span className="dashboard-eyebrow">Billing</span>
-            <h2 className="display">Plan &amp; payment</h2>
+            <h2 className="display">Billing</h2>
             <p className="dashboard-section-dek">
               Manage your subscription, payment method, and invoices.
             </p>
