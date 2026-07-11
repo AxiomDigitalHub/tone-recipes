@@ -169,7 +169,7 @@ function buildBlockEntry(
   const isLegacyCab = blockType === 2;
 
   for (const [key, value] of Object.entries(block.settings)) {
-    const paramKey = normalizeParamName(key);
+    const paramKey = normalizeParamName(key, modelId);
     if (isLegacyCab && !LEGACY_CAB_PARAMS.has(paramKey)) continue;
     if (typeof value === "boolean") {
       entry[paramKey] = value;
@@ -361,7 +361,7 @@ export function generateHelixPreset(
           "@enabled": true,
         };
         for (const [key, value] of Object.entries(block.cabSibling!)) {
-          const paramKey = normalizeParamName(key);
+          const paramKey = normalizeParamName(key, useModelId);
           if (typeof value === "boolean") {
             siblingEntry[paramKey] = value;
             continue;

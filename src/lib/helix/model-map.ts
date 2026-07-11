@@ -456,7 +456,41 @@ export function scaleParamValue(paramName: string, value: string | number): numb
  *
  * Helix uses PascalCase param names in the HLX JSON.
  */
-/** Known Helix param names that need exact casing */
+/**
+ * Reverb/delay models whose pre-delay param uses the capital-D key
+ * `PreDelay` in the .hlx JSON. This is the MINORITY casing — verified
+ * against data/helix-corpus/models.json, only the three VIC "Dyn"
+ * reverbs use it. Every other model that has a pre-delay param (all
+ * HD2_Reverb*, HD2_Chorus, AND VIC_ReverbRotating) uses lowercase-d
+ * `Predelay`. HX Edit SILENTLY DROPS a param whose key casing doesn't
+ * match the model's expected shape, so emitting `PreDelay` on an
+ * HD2_ReverbSpring (which expects `Predelay`) discards the pre-delay
+ * and the reverb runs at its default — the bug this map fixes.
+ */
+const PREDELAY_CAPITAL_D_MODELS = new Set<string>([
+  "VIC_DynPlate",
+  "VIC_ReverbDynAmbience",
+  "VIC_ReverbDynRoom",
+]);
+
+/**
+ * Resolve the correct pre-delay param key for a specific model.
+ * Default is lowercase-d `Predelay` (the corpus majority, ~18:3);
+ * the three VIC "Dyn" reverbs are the capital-D exception.
+ */
+export function resolvePredelayKey(modelId?: string): string {
+  return modelId && PREDELAY_CAPITAL_D_MODELS.has(modelId)
+    ? "PreDelay"
+    : "Predelay";
+}
+
+/**
+ * Known Helix param names that need exact casing.
+ *
+ * NOTE: `predelay` is intentionally NOT in this map — its casing is
+ * model-dependent (see PREDELAY_CAPITAL_D_MODELS / resolvePredelayKey)
+ * and is resolved inside normalizeParamName using the model context.
+ */
 const PARAM_NAME_MAP: Record<string, string> = {
   "biasx": "BiasX",
   "chvol": "ChVol",
@@ -465,8 +499,6 @@ const PARAM_NAME_MAP: Record<string, string> = {
   "low cut": "LowCut",
   "highcut": "HighCut",
   "high cut": "HighCut",
-  "predelay": "PreDelay",
-  "pre delay": "PreDelay",
   "temposync1": "TempoSync1",
   "temposync2": "TempoSync2",
   "syncselect1": "SyncSelect1",
@@ -490,16 +522,26 @@ const PARAM_NAME_MAP: Record<string, string> = {
  * Normalize a parameter name for the .hlx output.
  *
  * Strategy:
+ * 0. Pre-delay is model-dependent: resolve `Predelay` vs `PreDelay`
+ *    from the model context (see resolvePredelayKey). Emitting the
+ *    wrong casing makes HX Edit silently drop the param.
  * 1. Explicit alias map (case-insensitive lookup) wins.
  * 2. If the input already has any uppercase letter past position 0,
  *    trust the author's casing — strip non-alphanumerics and pass
  *    through. This preserves PascalCase keys like `MicA`, `Position`,
  *    `EarlyReflections` that the previous implementation flattened.
  * 3. Otherwise (lowercase or space-separated), title-case each word.
+ *
+ * @param modelId  The resolved Helix model ID this param is being
+ *                 emitted onto. Only consulted for pre-delay casing;
+ *                 optional so callers with no model context still work.
  */
-export function normalizeParamName(name: string): string {
+export function normalizeParamName(name: string, modelId?: string): string {
   const trimmed = name.trim();
   const lower = trimmed.toLowerCase();
+  if (lower === "predelay" || lower === "pre delay") {
+    return resolvePredelayKey(modelId);
+  }
   if (PARAM_NAME_MAP[lower]) return PARAM_NAME_MAP[lower];
 
   // Author already supplied PascalCase / camelCase — preserve it.
