@@ -7,6 +7,7 @@ description: >-
   truth involves transformer impedance, plate voltage swing, and a 1959 amp I
   rebuilt three times.
 date: '2026-05-15'
+updated: '2026-07-10'
 author: Hank Presswood
 author_slug: hank-presswood
 category: gear
@@ -52,17 +53,19 @@ faq:
       as 'sponge' or 'bloom.'
   - q: Will a solid-state rectifier damage my vintage amp?
     a: >-
-      No, if it's the right voltage rating. A Weber Copper Cap or a JJ GZ34 sub
-      is a drop-in replacement for any 5AR4/GZ34 socket. What changes is the
-      plate voltage — solid-state rectifiers don't drop the 30-50V that a tube
-      rectifier does, so your plate voltages will be higher and your tubes will
-      run hotter. Have a tech check the bias after the swap.
+      No, if it's the right voltage rating. A solid-state plug-in like a Weber
+      Copper Cap is a drop-in replacement for a 5AR4/GZ34 socket. What changes
+      is the plate voltage — a plain silicon rectifier doesn't drop the 30-50V
+      that a tube rectifier does (some Copper Cap models add series resistance
+      to mimic part of that drop), so your plate voltages may run higher and
+      your tubes hotter. Have a tech check the bias after the swap.
   - q: Which Fender amps use which rectifiers?
     a: >-
-      Generally: Champ and Princeton used 5Y3, Deluxe and Vibrolux used 5U4 or
-      5AR4, Super Reverb and Bassman used GZ34/5AR4, Twin Reverb and bigger amps
-      used solid-state rectifiers from the mid-1960s onward. Tweed amps mostly
-      used 5Y3 or 5U4; blackface amps used GZ34 or moved to silicon.
+      Generally: the tweed Champ, Princeton, and Deluxe used 5Y3; the blackface
+      Deluxe Reverb and Vibrolux Reverb used GZ34/5AR4, as did the Super Reverb
+      and the tweed Bassman; the Twin Reverb and bigger amps used solid-state
+      rectifiers from the blackface era onward. Tweed amps mostly used 5Y3 or
+      5U4; blackface amps used GZ34, 5U4GB, or moved to silicon.
   - q: Why do some players prefer the GZ34 over the 5AR4?
     a: >-
       They're the same tube — GZ34 is the European name and 5AR4 is the American
@@ -109,11 +112,11 @@ The rectifier choice in vintage Fenders followed power output more than era.
 
 | Amp | Era | Power | Rectifier | Sag character |
 |---|---|---|---|---|
-| Champ (5F1, 5F2) | 1955–1964 | 5W | 5Y3 | Heavy sag, classic tweed bloom |
-| Princeton (5F2, AA964) | 1955–1979 | 12W | 5Y3 | Heavy sag at full volume |
+| Champ (5E1, 5F1) | 1955–1964 | 5W | 5Y3 | Heavy sag, classic tweed bloom |
+| Princeton (5F2-A, AA964) | 1955–1979 | 4.5–12W | 5Y3 (tweed), 5U4GB/GZ34 (blackface) | Heavy sag at full volume |
 | Deluxe (5E3) | 1955–1960 | 15W | 5Y3 | Significant sag, the tweed Deluxe sound |
 | Bassman (5F6-A) | 1957–1960 | 50W | GZ34 | Moderate sag, fast recovery |
-| Super Reverb (AA763) | 1963–1981 | 40W | GZ34 | Moderate sag with 6L6 power tubes |
+| Super Reverb (AA763) | 1963–1981 | 45W | GZ34 | Moderate sag with 6L6 power tubes |
 | Twin Reverb (AB763) | 1964–1981 | 85W | Solid-state | No rectifier sag, transformer-limited |
 | Showman (6G14-A) | 1961–1969 | 85W | Solid-state | No rectifier sag |
 
@@ -141,7 +144,7 @@ On the bigger amps — Bassman, Super Reverb — the swap is more justifiable. T
 
 ## What the modern reissues get wrong
 
-A modern Fender Bassman reissue uses a solid-state rectifier even though the original used a GZ34. The reissue has the same transformer turn ratio as the original (close to it, anyway), the same speaker (Jensen P10R, more or less), and a circuit that's reasonably faithful to the 5F6-A schematic.
+The '59 Bassman reissue Fender sold from 1990 to 2004 used a solid-state rectifier even though the original used a GZ34 (the current '59 Bassman LTD finally put the tube rectifier back). That earlier reissue has the same transformer turn ratio as the original (close to it, anyway), the same speaker (Jensen P10R, more or less), and a circuit that's reasonably faithful to the 5F6-A schematic.
 
 It still doesn't sound like the original. The most common explanations — "the wood is different," "the transformers are different," "the tubes are different" — get part of it. The rest of it is the rectifier. A 5F6-A with a GZ34 sags about 30V at full output. The reissue with silicon barely sags at all. That changes the entire feel of how hard chords compress, how transients soften, and how sustained notes bloom.
 
@@ -155,9 +158,9 @@ If you own a vintage Fender with a tube rectifier and it sounds the way you want
 
 If you own a vintage Fender that's been modded to silicon at some point in its life and you're wondering why it sounds different from the same amp your friend has, **put the tube rectifier back**. Have a tech verify that the rectifier socket is intact and the heater winding on the power transformer is still good. The conversion back to tube is usually straightforward.
 
-If you own a modern reissue or boutique amp with a solid-state rectifier and you're chasing the vintage sag character, the better path is usually to add a power-supply sag emulator in front of the amp — a Boss SAG, a Catalinbread SFT, or a Carl Martin Atlantic — rather than rewiring the amp. The pedal route is reversible and cheaper.
+If you own a modern reissue or boutique amp with a solid-state rectifier and you're chasing the vintage sag character, the better path is usually in front of the amp rather than inside it — a compressor set slow and subtle gets you part of the compression, and a handful of boutique drives and fuzzes offer a "sag" or voltage-starve control that mimics a drooping supply. The pedal route is reversible and cheaper than rewiring the amp.
 
-If you have an amp with a switchable rectifier — some Mesa Boogie amps, some boutique Carr amps — the tube setting is the "vintage" setting and the silicon setting is the "modern" setting. They're different amps in the same chassis. Use whichever fits the song.
+If you have an amp with a switchable rectifier — some Mesa Boogie amps, a handful of boutique builds — the tube setting is the "vintage" setting and the silicon setting is the "modern" setting. They're different amps in the same chassis. Use whichever fits the song.
 
 ## The amp on the bench
 

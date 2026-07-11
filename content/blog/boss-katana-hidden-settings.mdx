@@ -4,6 +4,7 @@ description: >-
   The Boss Katana has a lot more going on than the front panel shows. Here are 7
   settings that change what the amp can do, most of them buried in Tone Studio.
 date: '2026-04-04'
+updated: '2026-07-10'
 author: Elena Ruiz
 author_slug: elena-ruiz
 category: settings-guides
@@ -33,7 +34,7 @@ This is the version of the Katana that's actually worth playing.
 
 This one is on the front panel but almost nobody uses it correctly.
 
-The Katana 100/212 and Katana-50 have a Power Control that lets you step down the output wattage. On the Katana-100: 100W, 50W, 0.5W. The Katana-Artist has an even wider range. Most players set it to 50W and forget about it.
+The Katana 100/212 and Katana-50 have a Power Control that lets you step down the output wattage. On the Katana-100: 100W, 50W, 0.5W; on the Katana-50: 50W, 25W, 0.5W. Most players set it to 50W and forget about it.
 
 Here's why 0.5W matters: the Katana's amp characters (Crunch, Lead, Brown especially) are designed to sound best with a certain amount of power section saturation. At 100W through a 12-inch speaker, that requires significant volume. At 0.5W, you can get the power section working appropriately at a level that won't get you evicted.
 
@@ -45,9 +46,9 @@ The catch: 0.5W still runs through the same speaker. If you're playing through h
 
 ## Setting 2: Noise Suppressor Depth (Tone Studio Only)
 
-The Katana has a built-in noise suppressor. You know this. There's an NS button on the panel.
+The Katana has a built-in noise suppressor. You'd never know it from the front panel, because there's no control for it there at all.
 
-What most players don't know: the front panel gives you one global on/off for the noise suppressor, with no threshold or depth control. In Tone Studio, you can set the suppressor threshold and decay individually for each channel preset. This is the difference between a noise gate that sounds like a gate and one that sounds natural.
+It lives entirely in Tone Studio, where you can set the suppressor threshold and decay individually for each channel preset. This is the difference between a noise gate that sounds like a gate and one that sounds natural.
 
 The Tone Studio noise suppressor controls:
 - **Threshold:** How loud the signal has to be to "open" the gate. Lower threshold = gate opens more easily (for moderate pickup noise). Higher threshold = gate only opens on strong playing (for high-gain scenarios with lots of background noise).
@@ -59,21 +60,21 @@ Default settings when you pull up a new Tone Studio preset tend to put the thres
 
 ---
 
-## Setting 3: Variation Channel (A Fully Programmable Second Voice)
+## Setting 3: Amp Variations (Five More Amps Hiding Behind One Button)
 
-The Katana has a Variation button (usually accessed by holding the channel button or by a dedicated Variation footswitch if you have the GA-FC). Most players treat it as a minor tone tweak on their main channel (a slight brightness boost or a bit more gain).
+The Katana MkII and Gen 3 have a Variation button next to the amp type selector. Most players either ignore it or assume it's a minor tone tweak on their main channel (a slight brightness boost or a bit more gain).
 
-In Tone Studio, the Variation channel is entirely independent from the main channel. It can be a completely different amp character, a different set of effects, a different gain structure; anything. It's essentially a second preset slot on top of whatever channel you're on.
+It isn't. Each of the five amp characters hides a second, fully distinct voicing behind that button — five more amp sounds on top of the five on the dial. Clean's variation is a different clean, Brown's variation is a different high-gain voice, and so on. It's not a freely programmable second preset (your effects and gain structure stay put when you toggle it), but the voicing change is bigger than most players expect, and the variation state saves with each channel preset, so two presets can sit on two different voicings of the same amp character.
 
-The obvious use case: main channel is your clean rhythm tone, variation is your lead or crunch with the same effects but a gain boost and slight treble cut. But you could also use it for a completely different playing situation (your practice tone vs. your recording tone) and switch between them with a footswitch without changing channels.
+The obvious use case: main preset on the standard Crunch voicing for rhythm, a second preset built on the Lead or Brown variation for solos, switchable from the channel buttons or a GA-FC.
 
-What caught me off guard was how good the Variation channel sounds when you actually take the time to build it out separately rather than just tapping a brightness control. I had it set as a "boost" for years. Once I built a dedicated variation tone in Tone Studio, I stopped using any outboard pedal for leads.
+What caught me off guard was how good some of the variations sound when you actually build a preset around them rather than toggling mid-song. I ignored the button for years. Once I built a dedicated preset on a variation voicing in Tone Studio, I stopped using any outboard pedal for leads.
 
 ---
 
 ## Setting 4: Effects Routing and Chain Order (Tone Studio)
 
-The front panel gives you five effect slots: Booster/Mod, Delay, Reverb, FX Loop (on larger models), and the built-in amp EQ. Tone Studio expands this significantly depending on the Katana model, up to 15 effect slots with routing options.
+The front panel shares its knobs between effect pairs (Booster/Mod, FX/Delay, plus Reverb), so panel-only players rarely run more than three effects at once. Tone Studio opens up five independent blocks — Booster, Mod, FX, Delay, and Reverb, all usable simultaneously on MkII and Gen 3 — with over 60 effect types to assign across them, plus routing options.
 
 The critical insight: you can change the order of effects in Tone Studio. This matters for the same reasons pedal board routing matters:
 - Compression before drives vs. after
@@ -94,13 +95,13 @@ The USB output sends two signals: the processed amp sound (with all your effects
 
 This is genuinely useful for anyone recording demos or ideas. You don't need a separate audio interface. You don't need to commit to a tone at the time of recording. The dry signal exists and can be processed later.
 
-The recording is 48kHz/16-bit. Not audiophile-grade, but fully workable for demos and for capturing ideas quickly. I've had sessions where I recorded fifteen minutes of ideas on a Thursday night, spent Saturday listening back through the DI track and deciding which parts to keep, then ran those parts through a different amp setup. The Katana was the capture device, not the final tone source.
+The resolution isn't audiophile-grade, but it's fully workable for demos and for capturing ideas quickly. I've had sessions where I recorded fifteen minutes of ideas on a Thursday night, spent Saturday listening back through the DI track and deciding which parts to keep, then ran those parts through a different amp setup. The Katana was the capture device, not the final tone source.
 
 ---
 
-## Setting 6: Boost Level (Beyond the Default +12dB)
+## Setting 6: Boost Level (Beyond the Defaults)
 
-The Katana's Boost (the red "Boost" indicator on the panel) can be set to three types: Treble Boost, Mid Boost, or Full Boost. Most players know this. What they don't know is that the boost level itself is adjustable in Tone Studio; it's not a fixed +12dB on all three modes.
+The Katana's Booster section has three front-panel color variations, and in Tone Studio you can assign any booster type from the full list — clean, mid, and treble boosts up through drive and distortion voicings. Most players know this. What they don't know is that the boost level itself is adjustable in Tone Studio; it's not a fixed jump.
 
 The default boost level is quite hot. This works for situations where you want a dramatic jump (from a quiet lead tone to a prominent one, or from a clean rhythm to a heavier rhythm). But for subtle boost use (say, a +3 to +5dB level bump for solos where you don't want a tonal change, just more presence), the default boost overshoots.
 
@@ -131,7 +132,7 @@ If you've been using your Katana with only the front-panel controls, you are pla
 ## Frequently Asked Questions
 
 **Does Tone Studio work with all Katana models?**
-Yes. Katana-50, Katana-100, Katana-100/212, Katana-Artist, and the MkII versions. Some features are model-specific (the Artist has more effect slots and power control options), but Tone Studio supports the entire current lineup.
+Yes. Katana-50, Katana-100, Katana-100/212, Katana-Artist, the MkII versions, and the Gen 3 models — though each generation pairs with its own version of the Tone Studio app. Some features are model-specific, but Tone Studio supports the entire current lineup.
 
 **Do settings saved in Tone Studio survive a factory reset?**
 No. Factory reset clears user presets. Back up your presets through Tone Studio's export function before performing a reset.
