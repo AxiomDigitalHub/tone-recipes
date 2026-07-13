@@ -1,8 +1,8 @@
 # Fader & Knob SEO/AEO Content Calendar
 
-**Date:** March 29, 2026
-**Existing posts:** 24
-**Target (Month 6):** 65-73 posts (~40-49 new posts needed)
+**Date:** March 29, 2026 (created) · last audited 2026-07-10
+**Existing posts:** 364 (as of 2026-07-10; was 24 at creation)
+**Target (Month 6):** 65-73 posts (~40-49 new posts needed) — met and long since surpassed; current focus is the strategic queue, not raw volume
 
 ---
 
@@ -25,18 +25,21 @@ Google's official guidance ([developers.google.com/search/docs/fundamentals/ai-o
 2. **Every topic needs a non-commodity hook.** Each entry must contain something the top-5 SERP results don't have: exact settings, an original test, a cross-platform translation, or a first-hand finding. "Comprehensive summary of what's already out there" is not a valid topic.
 3. **Tables/headers serve readers, not robots.** No chunking, no llms.txt work, no schema-as-ranking-lever, no writing "for AI." Cluster depth (one question answered across recipe + pillar + platform pages) is how we win fan-out retrieval.
 
-### Pillar Coverage (Current)
+### Pillar Coverage (Current — refreshed 2026-07-10, 364 posts)
 
-| Pillar | Posts | Status |
-|---|---|---|
-| 1. Tone Recipes (Artist/Genre) | 2 (SRV Helix, Edge Delay) | **Critical gap** |
-| 2. Settings Guides (Pedal/Amp) | 3 (Tube Screamer, Katana, OD/Dist/Fuzz) | Thin |
-| 3. Signal Chain & Tone Theory | 7 (signal chain order, effects loop, 4-wire, etc.) | Strongest pillar |
-| 4. Modeler Masterclass | 4 (Helix vs QC, dial-in, captures vs models, fizzy fix) | Moderate |
-| 5. Gear Lab (Comparisons) | 4 (modeler vs tube, $500 rigs, amp types) | Moderate |
-| 6. Quick Fixes & Troubleshooting | 1 (fizzy modeler) | **Critical gap** |
+Counts are the live per-category totals from `content/blog/*.mdx`, rolled up into the 6-pillar taxonomy. (The original March-2026 version of this table reflected a ~21-post site and is superseded.)
 
-**Conclusion:** Pillars 1 and 6 need the most attention. Pillar 1 (Tone Recipes) is the core product — it should be the largest category. Pillar 6 (Quick Fixes) targets long-tail troubleshooting queries that are low-competition and high-intent.
+| Pillar | Posts | Categories rolled up | Status |
+|---|---|---|---|
+| 1. Tone Recipes (Artist/Genre) | 35 | tone-recipes (33) + artist-tone (2) | **Under-weighted vs. strategy** — it's the core product but sits 4th of 6; the worship Tier-2 wraps are the fastest way to grow it |
+| 2. Settings Guides (Pedal/Amp) | 30 | settings-guides (30) | Developing; the missing Katana/Helix head-term pillars (S5–S6) live here |
+| 3. Signal Chain & Tone Theory | 63 | signal-chain (63) | Deep |
+| 4. Modeler Masterclass | 66 | modeler-masterclass (63) + platform-guide (3) | Deep |
+| 5. Gear Lab (Comparisons) | 98 | gear-lab (86) + gear (12) | **Largest pillar** — over-weighted; the SERP fan-out loop keeps feeding it |
+| 6. Quick Fixes & Troubleshooting | 54 | quick-fixes (54) | Strong now (was the original "critical gap") |
+| — Misc | 18 | effects (8) + workflow (10) | Support content, not a strategic pillar |
+
+**Conclusion:** the original two "critical gaps" are closed — Pillar 6 (Quick Fixes) is now healthy at 54, and Pillar 1 (Tone Recipes) has grown to 35. The new imbalance is the opposite of the 2026 one: **Gear Lab (98) has become the largest pillar** because the SERP fan-out loop keeps refilling it, while **Tone Recipes — which strategy says should be the *largest* category — is still only 4th.** This is exactly why the strategic queue re-anchor exists: draining the worship Tier-2 song wraps (S2–S4, S7) and the head-term pillars (S5–S6) is how Pillar 1 catches up to its intended weight.
 
 ---
 
@@ -3396,7 +3399,7 @@ persona's denomination).
 
 | # | Slug | Title | Target queries | Pillar | Notes |
 |---|---|---|---|---|---|
-| ~~S1~~ ✅ | helix-worship-snapshots-sunday-morning | 5 Helix Snapshots That Cover Every Sunday Morning | "helix worship snapshots," "helix snapshot worship setup," "worship guitar snapshots" | Worship cluster | **SHIPPED 2026-07-10** (Nathan Cross). The cluster spec's flagged "highest-utility" item. Links every worship recipe + the Worship Set Pack. |
+| ~~S1~~ ✅ | helix-worship-snapshots-sunday-morning | 4 Helix Snapshots That Cover Every Sunday Morning Worship Set | "helix worship snapshots," "helix snapshot worship setup," "worship guitar snapshots" | Worship cluster | **SHIPPED 2026-07-10** (Nathan Cross). The cluster spec's flagged "highest-utility" item. Links every worship recipe + the Worship Set Pack. |
 | ~~S2~~ ✅ | goodness-of-god-guitar-tone-helix | Goodness of God Guitar Tone on Helix (Bethel) | "goodness of god guitar tone," "goodness of god electric guitar helix" | Worship cluster Tier-2 | **SHIPPED 2026-07-10** (Nathan Cross, re-bylined overnight). Wraps recipe hislop-goodness-of-god with block-by-block Helix chain + free-plugin path + recipe CTA. |
 | ~~S3~~ ✅ | way-maker-guitar-tone-helix | Way Maker Guitar Tone on Helix (Leeland) | "way maker guitar tone," "way maker electric guitar" | Worship cluster Tier-2 | **SHIPPED 2026-07-10** (fk-staff, re-bylined overnight). Wraps recipe moore-way-maker; 661 ms dotted-eighth math + Blue-vs-Greenback cab A/B. |
 | S4 | what-a-beautiful-name-guitar-tone-helix | What a Beautiful Name Guitar Tone on Helix (Hillsong) | "what a beautiful name guitar tone," "hillsong guitar tone helix" | Worship cluster Tier-2 | Recipe hendroff-what-a-beautiful-name shipped; wrap pattern. Note the Jackson Audio Prism correction (NOT a Klon) already captured in the backlog. |
@@ -3438,7 +3441,7 @@ the live seasonal hook is the September volunteer wave.
 
 | # | Slug | Title | Writer | Pillar |
 |---|---|---|---|---|
-| 1 | helix-worship-snapshots-sunday-morning | 5 Helix Snapshots That Cover Every Sunday Morning | Nathan Cross | Worship cluster / 4 — Modeler Masterclass |
+| 1 | helix-worship-snapshots-sunday-morning | 4 Helix Snapshots That Cover Every Sunday Morning Worship Set | Nathan Cross | Worship cluster / 4 — Modeler Masterclass |
 | 2 | goodness-of-god-guitar-tone-helix | Goodness of God Guitar Tone on Helix (Bethel) | Nathan Cross *(overnight re-byline; was Dev Okonkwo)* | Worship cluster Tier-2 / 1 — Tone Recipes |
 | 3 | way-maker-guitar-tone-helix | Way Maker Guitar Tone on Helix (Leeland) | fk-staff *(overnight re-byline; was Sean Nakamura)* | Worship cluster Tier-2 / 1 — Tone Recipes |
 
@@ -3446,14 +3449,14 @@ the live seasonal hook is the September volunteer wave.
 
 | # | Slug | What changed | Why |
 |---|---|---|---|
-| R1 | worship-pedalboard-guide | **Zero answer-engine surface → full backfill.** Added `takeaways:` (5) and `faq:` (5 Q&A → FAQPage JSON-LD); it had neither in frontmatter nor a body `<FAQ>`. Real content add: a new **"Translating the Board to a Modeler"** section that bridges the analog-board guide to the Helix cluster — explains snapshots vs. pedals and links the new 5-snapshot template + both new song recipes. Swapped the generic `/browse?tag=clean` CTA for the Goodness of God recipe CTA. Set `updated: 2026-07-10`. Kept Nathan's byline. | A proven worship pillar (a striking-distance "worship pedalboard" query) that emitted no FAQPage and had no Key Takeaways callout, AND had no bridge for the growing modeler audience. The new section makes it the analog anchor of a fan-out cluster: this guide is the board, the snapshot post is its digital twin, the recipes are the songs. |
+| R1 | worship-pedalboard-guide | **Zero answer-engine surface → full backfill.** Added `takeaways:` (5) and `faq:` (5 Q&A → FAQPage JSON-LD); it had neither in frontmatter nor a body `<FAQ>`. Real content add: a new **"Translating the Board to a Modeler"** section that bridges the analog-board guide to the Helix cluster — explains snapshots vs. pedals and links the new four-snapshot template + both new song recipes. Swapped the generic `/browse?tag=clean` CTA for the Goodness of God recipe CTA. Set `updated: 2026-07-10`. Kept Nathan's byline. | A proven worship pillar (a striking-distance "worship pedalboard" query) that emitted no FAQPage and had no Key Takeaways callout, AND had no bridge for the growing modeler audience. The new section makes it the analog anchor of a fan-out cluster: this guide is the board, the snapshot post is its digital twin, the recipes are the songs. |
 | R2 | helix-amp-model-cheat-sheet | **Legacy `<FAQ>` migration + backfill.** Migrated the body `<FAQ questions={[...]}>` (5 Q&A) → frontmatter `faq:` and removed the component (validator warns on duplicate FAQPage emission). Added `takeaways:` (5, had none). **Replaced the truncated placeholder `image_alt`** (`a composition illustrating "Helix Amp Model Cheat Sheet"`) with a real descriptive alt. Real content add: a worship note under the British-Clean table showing the Essex AC30 is the platform under both new song recipes (Blue cab = Way Maker chime, Greenback cab = Goodness of God wash) + link to the snapshot template. Set `updated: 2026-07-10`. Kept Sean's byline. | High-traffic modeler-reference post with a body-only FAQ, no takeaways, and a broken alt. The Essex AC30 cross-link turns a reference page into a funnel toward the new recipes — the cab-does-the-work insight is exactly the fan-out hook the two recipes share. |
 
 ### SERP Analysis — 2026-07-10 (live checks this run)
 
 **Post 1 — helix-worship-snapshots-sunday-morning** (target: "helix worship snapshots," "helix snapshot worship setup," "worship guitar snapshots")
 - **Top ranking:** Sunday Shred, Worship Tutorials (Helix hub), GuitarforHISGLORY (Worship Essentials presets), Tone Junkie Helix Worship 100 Pack, That Worship Sound (Aurora Snapshots), Joey Cobra. **Every top result is a paid preset pack**, sold per-song or as a bundle.
-- **Gap confirmed:** nobody publishes a **free, reusable 5-snapshot template mapped to song *jobs*** (pad / rhythm / lead / clean / wash) with block states. The vendors ship per-song patches; we ship the transferable system that works on any song. Cross-check: the paid Goodness of God patches use a near-identical 5-snapshot structure (swells / clean / drive / rhythm / ambience), which validates our template design against what pros actually build.
+- **Gap confirmed:** nobody publishes a **free, reusable snapshot template mapped to song *jobs*** (our version: Clean / Pad / Drive / Lead) with block states. The vendors ship per-song patches; we ship the transferable system that works on any song. Cross-check: the paid Goodness of God patches organize around the same job types (swells / clean / drive / rhythm / ambience) — they just split them across five per-song snapshots where our reusable template folds them into four (Clean / Pad / Drive / Lead), which validates the job-based approach against what pros actually build.
 - **AI Overview:** present for "helix worship snapshots" (how-to intent); F&K not yet cited (post is hours old). Tracked for the next run.
 - Non-commodity gate: PASS (transferable template + exact block on/off states; no competitor offers the framework free).
 
