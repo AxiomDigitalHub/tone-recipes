@@ -234,3 +234,28 @@ export const FREE_DOWNLOAD_LIMIT = 5;
 export function getDownloadLimit(role: UserRole): number {
   return role === "free" ? FREE_DOWNLOAD_LIMIT : Infinity;
 }
+
+/**
+ * Monthly tone-request quota per tier. Requests are a membership feature:
+ * free gets a taste, Pass gets the headline "10 tone requests a month",
+ * Pro gets double. The caps exist as much to make people think before
+ * submitting as to bound fulfillment cost.
+ *
+ * Enforced in two places that MUST stay in sync:
+ *   - /api/tone-requests (friendly 402 with remaining count)
+ *   - enforce_tone_request_quota() DB trigger (migration 024 — backstop
+ *     against direct Supabase inserts)
+ */
+export const TONE_REQUEST_LIMITS: Record<UserRole, number> = {
+  free: 2,
+  pass: 10,
+  pro: 20,
+  premium: 10, // legacy: pass-equivalent
+  creator: 10, // legacy: pass-equivalent
+  admin: Infinity,
+  super_admin: Infinity,
+};
+
+export function getToneRequestLimit(role: UserRole): number {
+  return TONE_REQUEST_LIMITS[role] ?? TONE_REQUEST_LIMITS.free;
+}

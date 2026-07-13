@@ -3,9 +3,9 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { useAuth } from "@/lib/auth/auth-context";
+import { createBrowserClient, isSupabaseConfigured } from "@/lib/db/client";
 import {
   getRequests,
-  createRequest,
   upvoteRequest,
   hasUpvoted,
   type ToneRequest,
@@ -38,6 +38,22 @@ const STATUS_LABEL: Record<string, string> = {
 const PART_OPTIONS = ["Lead Guitar", "Rhythm Guitar", "Bass", "Synth/Keys", "Other"];
 const PAGE_SIZE = 20;
 
+/** null limit/remaining = unlimited (admin roles). */
+interface RequestQuota {
+  used: number;
+  limit: number | null;
+  remaining: number | null;
+}
+
+async function getAccessToken(): Promise<string | null> {
+  if (!isSupabaseConfigured()) return null;
+  const supabase = createBrowserClient();
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+  return session?.access_token ?? null;
+}
+
 /* -------------------------------------------------------------------------- */
 /*  Page                                                                      */
 /* -------------------------------------------------------------------------- */
@@ -63,10 +79,13 @@ export default function RequestClient() {
   const [part, setPart] = useState("Lead Guitar");
   const [description, setDescription] = useState("");
   const [referenceUrl, setReferenceUrl] = useState("");
-  const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [showUpgrade, setShowUpgrade] = useState(false);
+
+  // Quota state (signed-in only)
+  const [quota, setQuota] = useState<RequestQuota | null>(null);
 
   /* ---- Fetch ---- */
 
@@ -116,6 +135,33 @@ export default function RequestClient() {
     };
   }, [user, requests]);
 
+  /* ---- Quota ---- */
+
+  useEffect(() => {
+    if (!user) {
+      setQuota(null);
+      return;
+    }
+    let cancelled = false;
+    (async () => {
+      try {
+        const token = await getAccessToken();
+        if (!token) return;
+        const res = await fetch("/api/tone-requests", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (!res.ok) return;
+        const data = (await res.json()) as RequestQuota;
+        if (!cancelled) setQuota(data);
+      } catch {
+        // silent — quota display is best-effort
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
+
   /* ---- Upvote ---- */
 
   async function handleUpvote(requestId: string) {
@@ -147,39 +193,57 @@ export default function RequestClient() {
     e.preventDefault();
     setSubmitError(null);
     setSubmitSuccess(false);
+    setShowUpgrade(false);
 
     if (!songName.trim() || !artistName.trim()) {
       setSubmitError("Song name and artist are required.");
       return;
     }
-    if (!user && !email.trim()) {
-      setSubmitError("Please provide your email so we can notify you.");
-      return;
-    }
 
     setSubmitting(true);
     try {
-      const result = await createRequest({
-        song_name: songName.trim(),
-        artist_name: artistName.trim(),
-        part: part.toLowerCase(),
-        description: description.trim() || undefined,
-        reference_url: referenceUrl.trim() || undefined,
-        requested_by: user?.id,
-        requested_by_email: user ? user.email : email.trim(),
+      const token = await getAccessToken();
+      if (!token) {
+        setSubmitError("Your session expired — please log in again.");
+        return;
+      }
+
+      const res = await fetch("/api/tone-requests", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          song_name: songName.trim(),
+          artist_name: artistName.trim(),
+          part: part.toLowerCase(),
+          description: description.trim() || undefined,
+          reference_url: referenceUrl.trim() || undefined,
+        }),
       });
 
-      if (result) {
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok) {
         setSubmitSuccess(true);
         setSongName("");
         setArtistName("");
         setPart("Lead Guitar");
         setDescription("");
         setReferenceUrl("");
-        setEmail("");
+        if (typeof data.used === "number") {
+          setQuota({ used: data.used, limit: data.limit, remaining: data.remaining });
+        }
         fetchRequests(true);
       } else {
-        setSubmitError("Failed to submit request. Please try again.");
+        setSubmitError(data.error || "Failed to submit request. Please try again.");
+        if (res.status === 402) {
+          setQuota((prev) =>
+            prev ? { ...prev, remaining: 0 } : prev,
+          );
+          if (data.upgrade_url) setShowUpgrade(true);
+        }
       }
     } catch {
       setSubmitError("Something went wrong. Please try again.");
@@ -213,6 +277,29 @@ export default function RequestClient() {
         <div className="request-grid">
           {/* Form */}
           <aside className="request-form-col">
+            {!user ? (
+              <div className="auth-card">
+                <header className="auth-card-head">
+                  <h2 className="display auth-title">Submit a request</h2>
+                  <p className="auth-sub">
+                    Requests are a member feature — sign in and your fulfilled
+                    tones land in your dashboard.
+                  </p>
+                </header>
+                <div className="auth-form">
+                  <Link href="/login" className="hero-cta hero-cta-primary auth-submit">
+                    Log in to request a tone
+                  </Link>
+                  <p className="request-login-hint">
+                    No account yet?{" "}
+                    <Link href="/signup" className="auth-link auth-link-strong">
+                      Sign up free
+                    </Link>{" "}
+                    — free accounts get 2 requests a month.
+                  </p>
+                </div>
+              </div>
+            ) : (
             <div className="auth-card">
               <header className="auth-card-head">
                 <h2 className="display auth-title">Submit a request</h2>
@@ -289,38 +376,40 @@ export default function RequestClient() {
                   />
                 </label>
 
-                {!user && (
-                  <label className="auth-field">
-                    <span className="auth-label">
-                      Your email <span style={{ color: "var(--tape)" }}>*</span>
-                    </span>
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="So we can notify you when it's ready"
-                      required
-                      className="auth-input"
-                    />
-                  </label>
-                )}
-
                 <button
                   type="submit"
-                  disabled={submitting}
+                  disabled={submitting || quota?.remaining === 0}
                   className="hero-cta hero-cta-primary auth-submit"
                 >
                   {submitting ? "Submitting…" : "Submit request"}
                 </button>
 
+                {quota && quota.limit !== null && (
+                  <p className="request-quota-note">
+                    {quota.remaining === 0
+                      ? "0 requests left this month."
+                      : `${quota.remaining} of ${quota.limit} requests left this month.`}
+                  </p>
+                )}
+
                 {submitSuccess && (
                   <p className="request-flash request-flash-ok">
-                    Request submitted — it&apos;s now in the queue.
+                    Request submitted — it&apos;s now in the queue. Track it in{" "}
+                    <Link href="/dashboard/my-tones" className="auth-link auth-link-strong">
+                      your tones
+                    </Link>
+                    .
                   </p>
                 )}
                 {submitError && <p className="request-flash request-flash-err">{submitError}</p>}
+                {showUpgrade && (
+                  <Link href="/pricing" className="hero-cta hero-cta-secondary auth-submit">
+                    Upgrade to Pass — 10 requests a month
+                  </Link>
+                )}
               </form>
             </div>
+            )}
           </aside>
 
           {/* Queue */}

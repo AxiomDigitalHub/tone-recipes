@@ -19,6 +19,7 @@ import {
   Heart,
   Bell,
   CheckCheck,
+  Music,
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
@@ -33,6 +34,7 @@ const ICON_MAP: Record<NotificationType, typeof MessageSquare> = {
   recipe_rejected: XCircle,
   forum_reply: MessageCircle,
   recipe_comment: Heart,
+  request_completed: Music,
 };
 
 function timeAgo(dateStr: string): string {

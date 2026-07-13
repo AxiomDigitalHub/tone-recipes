@@ -79,38 +79,27 @@ export async function getRequests(options: {
 }
 
 /**
- * Submit a new tone request.
+ * Fetch every request a user has filed, newest first. Backs the
+ * "Your Tones" dashboard view (backed by idx_tone_requests_user_month).
  */
-export async function createRequest(data: {
-  song_name: string;
-  artist_name: string;
-  part: string;
-  description?: string;
-  reference_url?: string;
-  requested_by?: string;
-  requested_by_email?: string;
-}): Promise<ToneRequest | null> {
-  if (!isSupabaseConfigured()) return null;
+export async function getRequestsForUser(userId: string): Promise<ToneRequest[]> {
+  if (!isSupabaseConfigured()) return [];
 
   const supabase = getClient();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { data: row, error } = await (supabase.from("tone_requests") as any)
-    .insert({
-      song_name: data.song_name,
-      artist_name: data.artist_name,
-      part: data.part,
-      description: data.description ?? null,
-      reference_url: data.reference_url ?? null,
-      requested_by: data.requested_by ?? null,
-      requested_by_email: data.requested_by_email ?? null,
-    })
+  const { data, error } = await supabase
+    .from("tone_requests")
     .select("*")
-    .single();
+    .eq("requested_by", userId)
+    .order("created_at", { ascending: false });
 
-  if (error || !row) return null;
-  return row as ToneRequest;
+  if (error || !data) return [];
+  return data as ToneRequest[];
 }
+
+// NOTE: submissions go through POST /api/tone-requests (auth + quota +
+// rate limit), not a direct insert here — RLS (migration 024) requires
+// requested_by = auth.uid() and the quota trigger fires on insert.
 
 /**
  * Toggle upvote on a request. If the user already voted, remove the vote.

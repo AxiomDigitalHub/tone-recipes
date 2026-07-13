@@ -29,6 +29,7 @@ import {
   updateRequestStatus,
   type ToneRequest,
 } from "@/lib/db/tone-requests";
+import { createNotification } from "@/lib/db/notifications";
 
 /* -------------------------------------------------------------------------- */
 /*  Supabase client                                                           */
@@ -384,6 +385,22 @@ export default function ModerationPage() {
         setToneRequests((prev) =>
           prev.map((r) => (r.id === requestId ? { ...r, status: status as ToneRequest["status"] } : r)),
         );
+
+        // Ping the requester when their tone ships. Best-effort — a failed
+        // notification must not roll back the fulfillment.
+        if (status === "completed") {
+          const fulfilled = toneRequests.find((r) => r.id === requestId);
+          const slug = toneRecipeSlugs[requestId]?.trim();
+          if (fulfilled?.requested_by) {
+            createNotification({
+              user_id: fulfilled.requested_by,
+              type: "request_completed",
+              title: `Your tone request is ready: ${fulfilled.song_name}`,
+              body: `${fulfilled.song_name} — ${fulfilled.artist_name} is now a full recipe.`,
+              link: slug ? `/recipe/${slug}` : "/dashboard/my-tones",
+            }).catch(() => {});
+          }
+        }
       }
     } catch {
       // silent

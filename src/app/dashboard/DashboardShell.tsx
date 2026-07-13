@@ -24,6 +24,7 @@ const NAV_ITEMS = [
   { href: "/dashboard", label: "Overview" },
   { href: "/dashboard/saved", label: "Saved" },
   { href: "/dashboard/my-gear", label: "My gear" },
+  { href: "/dashboard/my-tones", label: "Your tones" },
   { href: "/dashboard/my-recipes", label: "My recipes" },
   { href: "/dashboard/notifications", label: "Notifications" },
   { href: "/dashboard/settings", label: "Settings" },

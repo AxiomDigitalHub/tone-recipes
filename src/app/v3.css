@@ -5836,6 +5836,21 @@
 .fk-preview .request-flash-ok { color: var(--ink); }
 .fk-preview .request-flash-err { color: var(--tape); }
 
+.fk-preview .dashboard-mytones-artist {
+  font-weight: 400;
+  color: var(--ink-muted);
+}
+
+.fk-preview .request-quota-note {
+  margin-top: 10px;
+  text-align: center;
+  font-family: var(--font-cond, "Oswald", sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
 .fk-preview .request-login-hint {
   margin-top: 16px;
   text-align: center;

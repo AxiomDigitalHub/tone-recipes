@@ -133,7 +133,8 @@ export type NotificationType =
   | "new_follower"
   | "forum_reply"
   | "recipe_comment"
-  | "rating";
+  | "rating"
+  | "request_completed";
 
 export interface Notification {
   id: string;

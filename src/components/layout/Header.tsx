@@ -151,6 +151,13 @@ export default function Header() {
                     My Gear
                   </Link>
                   <Link
+                    href="/dashboard/my-tones"
+                    onClick={() => setDropdownOpen(false)}
+                    className="block px-4 py-2 text-sm text-[var(--ink)] transition-colors hover:bg-[var(--paper)]"
+                  >
+                    Your Tones
+                  </Link>
+                  <Link
                     href="/dashboard/my-recipes"
                     onClick={() => setDropdownOpen(false)}
                     className="block px-4 py-2 text-sm text-[var(--ink)] transition-colors hover:bg-[var(--paper)]"
@@ -270,6 +277,13 @@ export default function Header() {
                   onClick={() => setMobileOpen(false)}
                 >
                   Saved Recipes
+                </Link>
+                <Link
+                  href="/dashboard/my-tones"
+                  className="text-sm font-medium text-[var(--ink-muted)]"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Your Tones
                 </Link>
                 <button
                   onClick={handleSignOut}
