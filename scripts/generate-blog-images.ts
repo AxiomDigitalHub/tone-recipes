@@ -110,6 +110,9 @@ const SUBJECT_OVERRIDES: Record<string, string> = {
   "overdrive-vs-distortion-vs-fuzz": "three guitar drive pedals side by side showing different gain types",
   "complete-guide-guitar-amp-types": "four different guitar amplifier types arranged together in a studio",
   "solid-state-amps-2026": "a Roland JC-120 Jazz Chorus combo amplifier and Boss Katana combo, two solid-state amps side by side on a clean white surface",
+  "what-a-beautiful-name-guitar-tone-helix": "a hollowbody electric guitar running into a Line 6 Helix on a church stage, warm amber light and ambient haze",
+  "september-volunteer-worship-guitarist-starter": "a butterscotch Telecaster leaning against a small combo amp on a quiet church stage, one cable, soft morning light through a window",
+  "alnico-blue-vs-greenback-ac30-worship": "two Celestion guitar speakers inside an open Vox AC30 cabinet, one blue alnico speaker and one green-magnet Greenback, warm workshop light",
 };
 
 /**

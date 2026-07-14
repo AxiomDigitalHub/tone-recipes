@@ -3512,3 +3512,96 @@ itself — our errors echo back through search, which is exactly why this pass r
 list) shipped. Candidate #2 (FM9 12.00 final) was **deliberately skipped** — the
 2026-07-08 post already covers the story; a re-report two days later would be duplicate
 content. Remaining candidates: MixWave Yvette Young (#4), H9 Gen 2 append (#5).
+
+---
+
+## Content Run — 2026-07-14 (3 new + 2 refreshes)
+
+**Strategic-queue discipline:** 2 of 3 new slots came from the strategic queue (**S4** in
+order + **S10** out of order); the 3rd was cluster-reinforcing SERP fan-out (**T1**). This
+satisfies the re-anchor's "≥2 of 3 from the strategic queue." **Why S10 out of order:** S5
+(Complete Helix pillar) and S6 (Katana pillar) are flagship long-forms the queue itself
+says to split across multiple runs — half-baking a pillar in one automated pass is worse
+than deferring it. S10 (September volunteer guide) is seasonally time-sensitive (ship by
+mid-August for indexing lead time) and was a native fit for a rested, on-lane persona
+(Carl Beckett, "what you have is enough"). **Next run: take S5 or S6 (pillar, likely
+multi-run) or the S7/S8 song/setup posts; S4 and S10 are drained.**
+
+**Velocity check (pre-run):** Nathan Cross **at cap (3/7d) — skipped**. dev 1, sean 1,
+fk-staff 1; all of rick/jess/margot/carl/hank/viktor/elena at 0. Assignments spread to
+rested/neutral bylines: fk-staff (worship Helix song post — Nathan capped, and Dev/Sean
+can't carry worship-Helix per the overnight persona-fit rule), Carl Beckett (0→1), Hank
+Presswood (0→1). No one over cap.
+
+### New posts
+
+| # | Slug | Title | Writer | Pillar |
+|---|---|---|---|---|
+| 1 | what-a-beautiful-name-guitar-tone-helix | What a Beautiful Name Guitar Tone on the Line 6 Helix (Hillsong) | fk-staff | Worship cluster Tier-2 / 1 — Tone Recipes |
+| 2 | september-volunteer-worship-guitarist-starter | New to the Worship Team? The Volunteer Guitarist's First-Month Guide | Carl Beckett | Worship cluster (seasonal) / Workflow |
+| 3 | alnico-blue-vs-greenback-ac30-worship | Alnico Blue vs. Greenback in an AC30: Which Speaker for Which Worship Tone | Hank Presswood | 5 — Gear Lab |
+
+Post 1 wraps recipe `hendroff-what-a-beautiful-name` (Prism-not-Klon correction, 331 ms
+dotted-eighth, always-on-boost reframe). Post 3 is the T1 fan-out topic queued 07-10 (built
+early because it reinforces the worship cluster and fit a rested on-lane byline). Hero images
+generated via Flux 2 Pro (~$0.17, 3/3, 0 errors). MDX preflight `--changed --strict`: **clean,
+7 files.**
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | el84-tube-character-ac30-boutique | **Legacy `<FAQ>` migration + backfill.** Migrated the body `<FAQ questions={[...]}>` (5 Q&A) → frontmatter `faq:` and removed the component (validator warns on duplicate FAQPage). Added `takeaways:` (5, had none). Trimmed the 327-char description to snippet width. Real content add: cross-linked the new Blue-vs-Greenback post from the "AC30 sounds harsh" FAQ, and added a worship-cluster link (What a Beautiful Name) in the four-tube-chime section. Set `updated: 2026-07-14`. Kept Hank's byline. | High-quality Hank AC30/EL84 post with a body-only FAQ and no takeaways — directly on-cluster for today's speaker post. The harsh-at-volume FAQ already discussed Blue vs Greenback, making it the natural reciprocal target for the new post. |
+| R2 | helix-cab-models-decoded | **Content-add** (already had takeaways+faq). New subsection "**For Worship AC30 Tones (Chime vs. Wash)**" tying the Blue-alnico/Greenback split to worship tone choices, cross-linking What a Beautiful Name, Way Maker, Goodness of God, and the new Blue-vs-Greenback deep-dive. Set `updated: 2026-07-14`. | Turns the cab reference page into a funnel toward the worship recipes and the new speaker post — the fan-out hook the whole AC30 cluster shares. |
+
+**Reciprocal links (not redated — minor, avoids fake freshness):** added the new What a
+Beautiful Name post as the third Blue-cab sibling into `way-maker-guitar-tone-helix` (cab
+section) and `goodness-of-god-guitar-tone-helix` (amp section, alongside the new speaker
+deep-dive).
+
+**⚠ Fact-check flag for the next sweep:** cross-post Helix cab-name inconsistency for the
+AC30 Blue-alnico 2x12. The worship recipe cluster + `hendroff` recipe data + the three new
+posts use **"2x12 Blue Bell"**; `helix-cab-models-decoded` uses **"2x12 Wishbook"** (line
+~161, also typo "alinicos"). "Blue Bell" is the name I believe is current; "Wishbook" looks
+wrong but I did not silently "fix" it without a verified Helix cab-list check. Also: the amp
+model name splits **"Essex A30"** (Way Maker) vs **"A30 Fawn Brt"** (Goodness of God) — both
+are the Helix AC30 Top Boost; the new post uses the full **"Essex A30 Fawn Brt."** Reconcile
+all three in one pass against the official Line 6 Helix model list.
+
+### SERP Analysis — 2026-07-14 (live checks this run)
+
+**Post 1 — what-a-beautiful-name-guitar-tone-helix** (target: "what a beautiful name guitar tone helix," "hillsong what a beautiful name helix patch," "nigel hendroff helix settings")
+- **Top ranking:** Worship Tutorials (song patch + a dedicated Nigel Hendroff Artist Series patch), PraiseCharts (Helix + HX Stomp patches), BenVesco, Worship Team Resources, plus YouTube playthroughs. **Every organic result is a paid patch vendor or a video** — no free block-by-block editorial.
+- **Gap confirmed / cross-check:** The vendor snapshots (clean / ambient swell / rhythm-bridge / big-lead) match our four-snapshot arc, validating the structure. None publish the settings free, and none carry the **Jackson-Audio-Prism-not-Klon correction** or the **always-on-boost reframe** — our non-commodity core. Cross-check held: vendors build from PRS Custom 24 + Tele and note single-coil vs humbucker versions, which is exactly why we added the pickup-adaptation paragraph.
+- **AI Overview:** likely present for the how-to phrasing (web-search API returns organic, not the AIO block — flagged for the monthly live-SERP verify per Playbook §8); F&K not cited yet (post is hours old).
+- Non-commodity gate: **PASS** (free block-by-block + the Prism correction + tempo math no vendor states).
+
+**Post 3 — alnico-blue-vs-greenback-ac30-worship** (target: "celestion alnico blue vs greenback," "vox ac30 blue vs greenback," "which ac30 speaker")
+- **Top ranking:** Marshall Forum, TDPRI (two threads), Vox Amps' own blog ("Greenback vs Alnico Blue — what's in a speaker"), StudentOfGuitar, Andertons Celestion guide, a YouTube A/B. **Generalist speaker shootouts + forum threads** — none framed for worship tone choices or tied to modeler cab blocks.
+- **Gap confirmed / cross-check (Gate 1 held on every load-bearing claim):** Live SERP confirms the Blue "has much more chime," "jangle," "rounded bass, scooped lower-mids, brilliant top-end, compresses when pushed," is "more efficient / noticeably louder," rated "15 watts"; the Greenback is "punchy, mid-heavy, tames fizzy top-end," "tighter," and some find Blues "too flubby at volume." All match the post. The one SERP nuance we didn't lead with — the Blue is *louder/more efficient* despite lower power handling — is real; noted here, not added, since it doesn't change the chime-vs-warmth thesis. Our differentiators the field lacks: the **worship chime-vs-wash framing**, the **ice-pick-on-a-bright-PA surprised discovery** (Gate 5), the **decision table**, and the **Helix cab-block translation** (Blue Bell / Greenback 25).
+- **AI Overview:** likely present (broad "X vs Y" class; Vox/Andertons are AIO feeders); citation unverified.
+- Non-commodity gate: **PASS**.
+
+**Post 2 — september-volunteer-worship-guitarist-starter** (target: "new worship team guitarist," "worship guitar for beginners," "first time worship guitar volunteer")
+- **Top ranking:** Worship Online (11 Golden Rules, Beginners guide), TDPRI "TURN IT DOWN: A Guide to playing guitar in Church," Mid-Cities Worship "Ten Tips," GuitarWiz, WorshipTheKing, Worship Guitar Skills. **Beginner tip-listicles exist** — this is the most-contested of the three.
+- **Gap confirmed:** the field is generic "do your homework / watch the leader / play less" listicles. Our differentiator is a **first-*month* operating frame** with a hard **two-sounds-cover-everything** framework, a gear-agnostic "what you already own is enough" stance (Gate 10 cross-platform baked in), and a testable first-hand finding ("the gear was never the problem — it's volume and note count"). The top-ranked "TURN IT DOWN" thread validates that our #1 rule is a real, high-intent pain point.
+- **AI Overview:** likely present ("worship guitar for beginners" is a classic PAA/AIO class); F&K not cited yet.
+- Non-commodity gate: **PASS** (weakest of the three, but a distinct POV + framework, not a restatement).
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3 (S4/fk-staff, S10/Carl, T1/Hank), adding 3. Each is a different sub-question
+> surfaced directly by today's SERPs, not a re-slice of a post we shipped. All go to the
+> **most-rested bylines** (Margot 0, Rick 0, Jess 0). **Verify no colliding slug at build time.**
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| 1 | single-coil-vs-humbucker-worship-ambient-tone | Single-Coil or Humbucker for Ambient Worship? What Each Does Under Heavy Reverb | "single coil vs humbucker worship," "best pickup for ambient worship guitar," "worship guitar single coil or humbucker" | Margot Thiessen | 3 — Signal Chain | Surfaced directly by the WABN patch vendors shipping separate single-coil and humbucker versions. Genuinely distinct from any tone recipe: it's the *pickup* question — how each behaves swelled into a big wash (single-coil clarity vs humbucker thickness turning to mud under reverb). Margot hears clean-tone nuance as tonal feeling — native fit. Margot 0/wk. |
+| 2 | worship-guitar-harsh-through-pa-quick-fix | Why Your Worship Tone Turns Harsh Through the PA (and the One Cut That Fixes It) | "worship guitar harsh through pa," "guitar too bright front of house," "ice pick worship guitar tone fix" | Rick Dalton | 6 — Quick Fixes | The ice-pick-on-a-bright-FOH discovery from the Blue-vs-Greenback post generalizes into a standalone quick fix: high-cut placement, speaker/cab high-cut, and where the harshness actually lives (2.5–4 kHz). Distinct from the speaker post (which is a *gear* choice); this is the *dial-in* fix on whatever rig you have. Rick's terse "here's the one cut" lane. Rick 0/wk. |
+| 3 | nashville-number-system-for-guitarists | The Nashville Number System for Guitarists: Read a Chart in an Afternoon | "nashville number system guitar," "how to read nashville numbers," "worship chart numbers guitar" | Jess Kowalski | Workflow | Surfaced by the volunteer guide (which tells readers to learn it but doesn't teach it). Genuinely distinct skill post, not a variant — the numbers, the shorthand, the diamonds/pushes, and why it makes you portable across keys. Jess's direct, pragmatic "learn this fast" voice fits. Jess 0/wk. |
+
+**Diversity/queue note:** today's new posts went to fk-staff, Carl (→1), Hank (→1); refreshes
+kept Hank's and the cab-post's original bylines. Next run should favor **Jess (0), Margot (0),
+Rick (0), Elena (0), Viktor (0)** and keep new posts off Nathan until he resets. Strategic queue
+now at **S5** (drained S4, S10); T1 drained, T2/T3 (volume-pedal-placement/Sean, shimmer-without-
+bigsky/Dev) plus today's 3 new topics remain behind the strategic S5–S9 items.
