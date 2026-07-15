@@ -218,15 +218,15 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 159 | Times Like These (riff) | Foo Fighters | Dave Grohl / Chris Shiflett | One by One (2002) | SHIPPED as grohl-times-like-these-riff (2026-07-07). Released take VERIFIED: re-recorded May 2002 at Studio 606 (Alexandria basement) with Raskulinecz; Grohl rhythm (Trini Lopez), Shiflett lead. The riff sits in Grohl's documented AC30 clean/edge lane with Dual Recto crunch layered for full-band sections — Helix core is Essex A30 with a default-off Scream 808 chorus push. Intro alternates 8/4 and 7/4, D Mixolydian, 145 BPM, standard tuning. | done |
 | 160 | The Sky Is a Neighborhood (riff) | Foo Fighters | Dave Grohl / Chris Shiflett / Pat Smear | Concrete and Gold (2017) | Trini Lopez / Gibson ES-335 → Friedman BE-100 + Vox AC30, Strymon TimeLine | queued |
 | 161 | Devour (riff) | Shinedown | Zach Myers | The Sound of Madness (2008) | PRS SC-250 → Diezel Herbert (Axe-Fx profiled) into Diamond 4x12 | queued |
-| 162 | Monkey Wrench (riff) | Foo Fighters | Dave Grohl / Pat Smear | The Colour and the Shape (1997) | Gibson Trini Lopez Standard → Mesa/Boogie Dual Rectifier + Vox AC30 | queued |
+| 162 | Monkey Wrench (riff) | Foo Fighters | Dave Grohl / Pat Smear | The Colour and the Shape (1997) | Gibson Trini Lopez Standard → Mesa/Boogie Dual Rectifier + Vox AC30 | done |
 | 163 | - Fu Manchu: Scott Hill uses a Univox Super-Fuzz into a Marshall JCM800, Bob Balch a Marshall Super Bass/DSL100H with Creepy Fingers fuzz — documented, but I didn't have a clean song-to-album gear pin, so I left them out rather than guess. Easy add if you want: "Hung Up in Heaven | Fu Manchu | Scott Hill / Bob Balch | California Crossing (2001) | Ampeg Dan Armstrong → Marshall JCM800, Univox Super-Fuzz." | queued |
-| 164 | Mr. Scary (instrumental) | Dokken | George Lynch | Back for the Attack (1987) | Lynch's ESP Kamikaze → modded Marshall, no-name 'Mr Scary' amp | queued |
+| 164 | Mr. Scary (instrumental) | Dokken | George Lynch | Back for the Attack (1987) | Lynch's ESP Kamikaze → modded Marshall, no-name 'Mr Scary' amp | done |
 | 165 | Power-Up (verse) | Judas Priest | Glenn Tipton / K.K. Downing | Stained Class (1978) | Tipton Gibson SG / Downing Gibson Flying V → non-master-volume Marshall 50W/100W stacks, Cornish-built pedalboard | queued |
-| 166 | Beyond the Realms of Death (clean intro/solo) | Judas Priest | Glenn Tipton | Stained Class (1978) | Gibson SG → Marshall Super Lead, clean-to-lead dynamics, Cry Baby | queued |
+| 166 | Beyond the Realms of Death (clean intro/solo) | Judas Priest | Glenn Tipton | Stained Class (1978) | Gibson SG → Marshall Super Lead, clean-to-lead dynamics, Cry Baby | done |
 | 167 | Victim of Changes (main riff) | Judas Priest | K.K. Downing / Glenn Tipton | Sad Wings of the Destiny (1976) | Downing Flying V / Tipton SG → vintage non-MV Marshall stacks, MXR Phase 100 | queued |
 | 168 | Exciter (intro) | Judas Priest | Glenn Tipton | Stained Class (1978) | Gibson SG → Marshall 100W, fast double-picked attack, treble booster | queued |
-| 169 | Hell Bent for Leather (riff) | Judas Priest | K.K. Downing | Killing Machine/Hell Bent for Leather (1978) | Gibson Flying V → Marshall Super Lead, Cry Baby wah, Echoplex EP3 | queued |
-| 170 | Wrathchild (riff) | Iron Maiden | Steve Harris-era twin guitars (Murray) | Killers (1981) | Dave Murray '57/'63 Strat (DiMarzio Super Distortion) → 50W Marshall Super Lead, MXR Distortion+ | queued |
+| 169 | Hell Bent for Leather (riff) | Judas Priest | K.K. Downing | Killing Machine/Hell Bent for Leather (1978) | Gibson Flying V → Marshall Super Lead, Cry Baby wah, Echoplex EP3 | done |
+| 170 | Wrathchild (riff) | Iron Maiden | Steve Harris-era twin guitars (Murray) | Killers (1981) | Dave Murray '57/'63 Strat (DiMarzio Super Distortion) → 50W Marshall Super Lead, MXR Distortion+ | done |
 | 171 | Phantom of the Opera (gallop) | Iron Maiden | Dave Murray | Iron Maiden (1980) | Strat w/ DiMarzio Super Distortion → Marshall 50W Super Lead, Phase 90, Distortion+ | queued |
 | 172 | 22 Acacia Avenue (twin lead) | Iron Maiden | Adrian Smith / Dave Murray | The Number of the Beast (1982) | Murray Strat / Smith Strat-style → 50W Marshall Super Leads, MXR Distortion+, Cry Baby | queued |
 | 173 | The Evil That Men Do (solo) | Iron Maiden | Adrian Smith / Dave Murray | Seventh Son of a Seventh Son (1988) | Murray/Smith Strats → Gallien-Krueger 250ML hot-rod combos, Distortion+ | queued |
@@ -1201,6 +1201,11 @@ successful run.)
 | 2026-07-01 | tremonti-metalingus-riff | 156 |
 | 2026-07-01 | tremonti-kennedy-blackbird-solo | 157 |
 | 2026-07-01 | grohl-all-my-life-riff | 158 |
+| 2026-07-15 | grohl-monkey-wrench-riff | 162 |
+| 2026-07-15 | george-lynch-mr-scary-lead | 164 |
+| 2026-07-15 | glenn-tipton-beyond-the-realms-clean-to-lead | 166 |
+| 2026-07-15 | kk-downing-hell-bent-for-leather-riff | 169 |
+| 2026-07-15 | dave-murray-wrathchild-riff | 170 |
 
 ### Corrections applied this run (2026-06-09)
 
