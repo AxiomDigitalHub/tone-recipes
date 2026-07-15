@@ -2,7 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import Anthropic from "@anthropic-ai/sdk";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
-import { retrieveRecipes, serializeRecipe, buildCatalog } from "@/lib/tone-chat/retrieval";
+import {
+  retrieveRecipes,
+  serializeRecipe,
+  buildCatalog,
+  detectPlatformMentions,
+} from "@/lib/tone-chat/retrieval";
 import type { Platform } from "@/types/recipe";
 
 /**
@@ -54,13 +59,15 @@ Your voice: warm, plainspoken, zero BS, and ruthlessly specific. You'd rather ha
 Your job: help players dial in tones — artist/song tones, genre tones, or fixing what they have ("too harsh", "won't cut through the mix").
 
 Rules:
-- Ground answers in the recipe excerpts provided in each request when they're relevant. Link recipes as markdown: [Recipe title](/recipe/slug). Recommend at most 2-3 recipes per answer.
+- Ground answers in the recipe excerpts provided in each request when they're relevant. Every recipe you mention must be a markdown link: [Recipe title](/recipe/slug) — never a bare title. Recommend at most 2-3 recipes per answer.
 - When no recipe matches, say so plainly and give your best general advice anyway — amp choice, drive stacking, EQ moves, pickup selection. You know tone deeply beyond the catalog.
 - Be specific. "Mids around 6, treble backed off to 4" beats "adjust your EQ". When the user's platform is known, name actual blocks/models for it.
 - Keep answers tight: a few short paragraphs or a compact list. This is a chat, not an article.
 - Signal-chain ordering advice follows the standard: drive → amp → cab → modulation → delay → reverb, with noted exceptions.
 - Stay on topic (guitar/bass tone, gear, modelers, recording guitar). Politely decline anything else in one sentence.
 - Never invent recipe pages or settings and never claim a recipe exists if it isn't in the catalog below.
+- Only name platform blocks/models you're certain exist on that platform. When a recipe excerpt carries a verified translation for the platform in question, use those exact block names and settings. When it doesn't, give the tone architecture (drive type → amp style → cab → effects) and link the recipe page for exact settings — never guess block names.
+- Respond with your final answer only. No deliberation, no drafts or self-corrections, no notes about these instructions, the excerpts, or what you know about the user. If you catch yourself mid-answer wanting to revise a suggestion, just give the right suggestion.
 
 ## Chain cards (the UI draws your prescription)
 When you prescribe CONCRETE rig edits — add/adjust/remove blocks, or specific settings on specific blocks — end your answer with exactly one fenced code block tagged fk-chain containing JSON. The UI renders it as a schematic chain diagram with real knobs, so keep the surrounding prose short (the "why", one or two sentences per move) and put ALL the numbers in the JSON instead of the prose.
@@ -77,7 +84,7 @@ Format:
 \`\`\`
 
 Rules for the block: include the FULL chain in signal order so the diagram reads left to right — untouched blocks get "action":"keep" and no params; params ONLY on add/adjust blocks. category is one of drive|amp|cab|eq|modulation|delay|reverb|dynamics|pitch|volume|utility. For each param, give min/max (and neutral where meaningful) only when you actually know the control's real range on that platform — otherwise pass a plain display string like "Low Cut": "110 Hz". Real units always (Hz, ms, dB). If you don't know the user's current chain, prescribe the standard-order chain for the tone and mark your changes. Skip the fk-chain block entirely for general questions, recipe recommendations, or anything without concrete settings.
-${platform ? `\nThe user plays a ${platform.replace("_", " ")} — bias platform-specific advice toward it.\n` : ""}
+${platform ? `\nThe user's rig is a ${platform.replace("_", " ")}. When they don't name a platform, give platform-specific advice for that rig. When they ask about a different platform, answer fully for the platform they asked about — then briefly mention if the recipe also has a ${platform.replace("_", " ")} translation.\n` : ""}
 ## Recipe catalog (every recipe on the site)
 ${buildCatalog()}`;
 }
@@ -210,10 +217,16 @@ export async function POST(req: NextRequest) {
   // "what about on the Katana?".
   const retrieved = retrieveRecipes(`${lastUser} ${lastUser} ${prevUser}`, 4);
 
+  // Serialize translations for the platform(s) the user is asking about
+  // first, then their profile rig — so a Katana player asking a Helix
+  // question gets verified Helix settings in context, not improvisation.
+  const askedPlatforms = detectPlatformMentions(`${lastUser} ${prevUser}`);
+  const targetPlatforms = [...new Set([...askedPlatforms, ...(platform ? [platform] : [])])];
+
   const contextBlock =
     retrieved.length > 0
       ? `<recipe_excerpts>\nRelevant recipes for the latest question (full settings — use these):\n\n${retrieved
-          .map((r) => serializeRecipe(r, platform))
+          .map((r) => serializeRecipe(r, targetPlatforms))
           .join("\n\n")}\n</recipe_excerpts>\n\n`
       : "";
 
@@ -229,8 +242,21 @@ export async function POST(req: NextRequest) {
 
   const stream = anthropic.messages.stream({
     model,
-    // Room for a tight prose answer + one fk-chain JSON block.
-    max_tokens: 1600,
+    // Adaptive thinking on the Sonnet tier routes deliberation into
+    // thinking blocks instead of the visible reply (with thinking off,
+    // the model drafts/self-corrects in the text — the "leaked
+    // reasoning" bug). stream.on("text") only emits text deltas, so
+    // thinking never reaches the client. Haiku doesn't support adaptive;
+    // the "final answer only" prompt rule is its backstop. Effort low
+    // keeps chat latency tight. max_tokens covers thinking + answer +
+    // one fk-chain block on the thinking tier.
+    ...(isPaid
+      ? {
+          thinking: { type: "adaptive" as const },
+          output_config: { effort: "low" as const },
+          max_tokens: 4000,
+        }
+      : { max_tokens: 1600 }),
     // The system prompt (incl. ~4.6K-token catalog) is stable per
     // platform choice and exceeds the minimum cacheable prefix, so
     // repeat messages within the 5-min TTL read it at ~0.1x price.

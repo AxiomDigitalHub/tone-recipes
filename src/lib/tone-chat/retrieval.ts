@@ -118,11 +118,33 @@ function serializeNode(node: SignalChainNode): string {
 }
 
 /**
- * Serialize a recipe for model context. Includes the original signal
- * chain always, plus the platform translation for the user's platform
- * when available (falls back to listing available platforms).
+ * Detect modeler platforms the user is actually talking about, so the
+ * excerpt carries the translation for the platform they ASKED about —
+ * not just the one on their profile. This is the fix for Axl improvising
+ * (and flubbing) Helix block names when a Katana player asks a Helix
+ * question: if we have verified settings, they go in the context.
  */
-export function serializeRecipe(r: RetrievedRecipe, platform?: Platform): string {
+const PLATFORM_KEYWORDS: [RegExp, Platform][] = [
+  [/\bhelix\b|\bhx\s?(stomp|effects)?\b|\bpod\s?go\b/i, "helix"],
+  [/\bquad\s?cortex\b|\bqc\b/i, "quad_cortex"],
+  [/\btonex\b/i, "tonex"],
+  [/\bfractal\b|\baxe[\s-]?fx\b|\bfm[39]\b/i, "fractal"],
+  [/\bkemper\b|\bprofiler\b/i, "kemper"],
+  [/\bkatana\b/i, "katana"],
+  [/\bpedal\s?board\b|\breal\s+pedals\b/i, "pedalboard"],
+];
+
+export function detectPlatformMentions(text: string): Platform[] {
+  return PLATFORM_KEYWORDS.filter(([re]) => re.test(text)).map(([, p]) => p);
+}
+
+/**
+ * Serialize a recipe for model context. Includes the original signal
+ * chain always, plus the translation for every requested platform we
+ * have (asked-about platforms first, then the user's own rig — the
+ * route dedupes). Falls back to listing available platforms.
+ */
+export function serializeRecipe(r: RetrievedRecipe, platforms: Platform[] = []): string {
   const { recipe } = r;
   const lines: string[] = [
     `### ${r.artistName} — ${r.songTitle}: ${recipe.title}`,
@@ -136,10 +158,10 @@ export function serializeRecipe(r: RetrievedRecipe, platform?: Platform): string
   ];
 
   const available = Object.keys(recipe.platform_translations) as Platform[];
-  const chosen = platform && recipe.platform_translations[platform] ? platform : undefined;
-  if (chosen) {
-    const t = recipe.platform_translations[chosen]!;
-    lines.push(`${chosen} translation:`);
+  const chosen = platforms.filter((p) => recipe.platform_translations[p]);
+  for (const p of chosen) {
+    const t = recipe.platform_translations[p]!;
+    lines.push(`${p} translation (verified — use these exact block names/settings):`);
     for (const block of t.chain_blocks) {
       const settings = Object.entries(block.settings)
         .map(([k, v]) => `${k}=${v}`)
@@ -149,8 +171,13 @@ export function serializeRecipe(r: RetrievedRecipe, platform?: Platform): string
       );
     }
     if (t.notes) lines.push(`  Notes: ${t.notes}`);
-  } else {
-    lines.push(`Platform translations available: ${available.join(", ")} (full settings on the recipe page)`);
+  }
+
+  const rest = available.filter((p) => !chosen.includes(p));
+  if (rest.length > 0) {
+    lines.push(
+      `Other platform translations available: ${rest.join(", ")} (full settings on the recipe page — don't guess block names for these; link the page instead)`,
+    );
   }
 
   return lines.filter(Boolean).join("\n");
