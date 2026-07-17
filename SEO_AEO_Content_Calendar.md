@@ -3605,3 +3605,100 @@ kept Hank's and the cab-post's original bylines. Next run should favor **Jess (0
 Rick (0), Elena (0), Viktor (0)** and keep new posts off Nathan until he resets. Strategic queue
 now at **S5** (drained S4, S10); T1 drained, T2/T3 (volume-pedal-placement/Sean, shimmer-without-
 bigsky/Dev) plus today's 3 new topics remain behind the strategic S5–S9 items.
+
+---
+
+## Content Run — 2026-07-17 (3 new + 2 refreshes)
+
+**Strategic-queue discipline:** all 3 new-post slots came from the worship strategic queue —
+**S7** (Holy Forever), **S8** (POD Go worship) in order, plus the queued fan-out **worship-harsh-
+through-PA** quick fix (logged 07-14, Rick/0). That exceeds the re-anchor's "≥2 of 3 from the
+strategic queue." **Why S5/S6 skipped again (deliberate, not drift):** S5 (Complete Helix Tone
+pillar) and S6 (Katana settings pillar) are the two flagship head-term long-forms the queue
+itself flags as "split across 2 runs (draft + polish)." The last two automated runs deferred
+them for the same reason — half-baking a 3,000-word pillar that must internal-link to *every*
+settings guide + recipe in one unattended pass is worse than deferring. **These have now been
+punted three runs running; they need a dedicated (ideally human-in-the-loop) multi-run session,
+not another daily slot.** Flagging louder here so the next roadmap audit picks it up. S7/S8 are
+the next executable worship items and drain cleanly; S9 (Katana worship) is next in order.
+
+**Velocity check (pre-run):** Nathan 2, fk-staff 2, Hank 1, Carl 1; all of rick/jess/sean/
+margot/dev/viktor/elena at **0**. Cap 3/7d. Assignments: **Nathan → 3 (at cap)** on Holy Forever
+— his last weekly slot spent on the CCLI #1 song is the single best persona-fit use of it; the
+07-14 "keep off Nathan" note was a diversity nudge, not the hard cap, and a native worship byline
+on the #1 worship song wins. **fk-staff → 3 (at cap)** on POD Go (neutral voice fits a budget-
+modeler setup guide; Dev/Sean barred from worship-Helix per the persona-fit rule). **Rick → 1**
+on the harsh-PA quick fix (terse "one cut" lane; the fix is universal frequency work, worship is
+just the context). No one over cap. **Next run: both worship bylines reset toward capacity — new
+posts should favor Jess/Sean/Margot/Dev/Viktor/Elena (all 0 this run).**
+
+### New posts
+
+| # | Slug | Title | Writer | Pillar |
+|---|---|---|---|---|
+| 1 | holy-forever-guitar-tone-helix | Holy Forever Guitar Tone on the Line 6 Helix (Chris Tomlin) | Nathan Cross | Worship Tier-2 / 1 — Tone Recipes |
+| 2 | pod-go-worship-setup-snapshots-presets | POD Go for Worship: Setup, Snapshots, and a Sunday-Ready Preset | fk-staff | Worship cluster / 4 — Modeler Masterclass |
+| 3 | worship-guitar-harsh-through-pa-quick-fix | Why Your Worship Tone Turns Harsh Through the PA (and the One Cut That Fixes It) | Rick Dalton | 6 — Quick Fixes |
+
+Post 1 is a tone/technique breakdown (no recipe dependency per the Tier-2 cluster note): Db, 72 BPM
+→ **625 ms** dotted eighth, bright Blue-cab AC30, and the deliberate contrast against Goodness of
+God (reverb-DOWN-for-bigger; a Klon-style boost *belongs* here where it doesn't there). Post 2's
+non-commodity core: POD Go's **4 snapshots = the exact Clean/Pad/Drive/Lead worship template**, the
+fixed Volume Pedal = free swells, the 4 free blocks = the whole chain, and the one real compromise
+(two-stage drive). Post 3 generalizes the ice-pick-through-a-bright-PA discovery into a standalone
+two-band fix (fizz 6–8 kHz high-cut + ice-pick 3 kHz dip). All three cross-link each other and the
+worship cluster. Hero images via Flux 2 Pro (`--model=black-forest-labs/flux-2-pro` — the default
+gpt-image-1 was throttling, per the standing image-backlog note). MDX preflight `--changed
+--strict`: **clean, 5 files.**
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | guitar-eq-guide | **Zero answer-engine surface → full backfill + content-add.** Viktor's 3,016-word EQ pillar had no `takeaways:` and no `faq:` — added 5 takeaways + 5 Q&A (FAQPage JSON-LD). Real content add: a new **"Problem: Harsh Only Through the PA"** fix under Practical EQ Fixes — the guide covered fizz but not the headphones-fine/PA-harsh, ice-pick-vs-fizz live case — cross-linked to the new Rick quick fix. Set `updated: 2026-07-17`. Kept Viktor's byline. | A high-value evergreen EQ guide (striking-distance "guitar eq" query) emitting no FAQPage and no Key Takeaways callout, missing the live-PA dimension entirely. The new section is the reciprocal target for post 3 and closes a genuine content gap, not metadata churn. |
+| R2 | hx-stomp-vs-helix-lt-worship | **Missing-tier content add.** The post compared two Line 6 worship modelers but omitted the cheaper POD Go below both — added a **"The Tier Below Both: POD Go"** section reframing the choice as a three-rung ladder (POD Go / HX Stomp / LT), with the four-snapshot + one-compromise summary and a cross-link to the new POD Go build guide. Set `updated: 2026-07-17` (was 2026-06-16). Kept Nathan's byline. | A worship buyer choosing between HX Stomp and LT should know POD Go exists as the budget entry; the omission was a real decision gap. Directly reciprocates post 2 and adds genuine buying-decision value. |
+
+**Reciprocal links (not redated — minor, avoids fake freshness):** the new posts already link
+outward into the sibling worship recipes (Way Maker, Goodness of God, WABN, snapshots) and the
+Blue-vs-Greenback deep-dive; no extra redate-only link edits made this run.
+
+### SERP Analysis — 2026-07-17 (live checks this run)
+
+**Post 1 — holy-forever-guitar-tone-helix** (target: "holy forever guitar tone," "holy forever helix patch," "holy forever chris tomlin electric")
+- **Top ranking:** Worship Tutorials (Helix + Fractal presets, "AMBI"/"VERSE-PreCH" scenes), Sunday Shred (Helix patch w/ Tyler OB 2x12 IRs), Joey Cobra (electric + acoustic snapshot patches), MultiTracks, Sunday Sounds, plus Ultimate-Guitar chords. **Every tone result is a paid patch vendor.**
+- **Gap confirmed / cross-check (Gate 1 held):** Song facts verified live — **Db, 72 BPM, 4/4**, written by Chris Tomlin with Brian & Jenn Johnson (plus Ingram/Wickham); dotted-eighth math checks at **625 ms**. Vendor scene layouts ("AMBI" ambient clean → verse overdrive) match our Pad/Clean/Drive/Lead arc, validating the structure. None publish the settings free, and none carry the **reverb-DOWN-for-bigger** thesis or the **Klon-belongs-here** contrast against Goodness of God — our non-commodity core.
+- **AI Overview:** likely present for the how-to phrasing (web-search API returns organic, not the AIO block — flagged for the monthly live-SERP verify per Playbook §8); F&K not cited yet (post is hours old).
+- Non-commodity gate: **PASS** (free block-by-block + verified tempo math + the cross-recipe cab/reverb/drive contrast).
+
+**Post 2 — pod-go-worship-setup-snapshots-presets** (target: "pod go worship," "pod go worship presets," "pod go snapshots worship")
+- **Top ranking:** GuitarforHISGLORY (POD Go Worship Essentials 6-pack), Worship Tutorials (POD Go patch library + "AC30 FREE"), PraiseCharts (per-song POD Go patches), Guitar Tone Gurus, plus a "build from scratch" YouTube and Line 6's own product page. **Paid preset packs + one video** — no free written block-by-block build.
+- **Gap confirmed / cross-check:** Live SERP independently confirms the **4-snapshot worship convention** — vendors label snapshots "1. CLEAN 2. DRIVE 3. LEAD 4. AMBIENT" with "Snapshot 4 = swell/ambient," exactly our Clean/Pad/Drive/Lead mapping. Also confirms the IR-import gotcha (patches sound wrong until you drag IRs into the IMPULSES column — surfaced a new topic, below). Our differentiators: the *why* (4 snapshots = 4 worship sounds by design, fixed Volume Pedal = free swells, 4 free blocks = whole chain) and the one honest compromise (two-stage drive).
+- **AI Overview:** likely present ("pod go worship" how-to intent); citation unverified.
+- Non-commodity gate: **PASS** (free written build + the constraint-is-a-feature framing + the one-compromise decision no vendor states).
+
+**Post 3 — worship-guitar-harsh-through-pa-quick-fix** (target: "worship guitar harsh through pa," "guitar ice pick fix," "guitar too bright front of house")
+- **Top ranking:** Fractal forum threads ("taming ice picking"), Premier Guitar "Fix Ice Pick in the Forehead Tone," My Les Paul + Guitars Canada ice-pick threads, an AxeDr worship-guitars roundup, WorshipIdeas general advice. **Scattered forum threads + one recording guide** — no worship-modeler-specific single fix card.
+- **Gap confirmed / cross-check (Gate 1 held):** SERP corroborates the core claim — "the 'icepick' is usually not the high end but the **upper mids (2–5k)**… examine 2.5–3.5 kHz and subtract"; Premier Guitar recommends **dynamic EQ** at FOH; "perfect brightness in isolation → ear-fatigue at band volume" validates the headphones-fine/PA-harsh framing. Our differentiators the field lacks: the explicit **fizz (6–8 kHz) vs ice-pick (2.5–4 kHz) two-band split**, the **cut-at-the-cab-before-effects placement rule**, the **"leave the amp knobs alone" reframe**, and **per-platform settings** (Helix / QC / POD Go / mic'd amp).
+- **AI Overview:** likely present (troubleshooting/how-to class); citation unverified.
+- Non-commodity gate: **PASS**.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3 from the queues this run (S7, S8, and the queued worship-harsh-PA fan-out), adding 3.
+> Each is a distinct sub-question surfaced directly by today's SERPs, not a re-slice of a shipped
+> post. All go to **rested bylines** (Sean 0, Viktor 0, Elena 0). **Verify no colliding slug at
+> build time.**
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| U1 | load-custom-irs-pod-go-impulses-column | Loading Custom IRs on a POD Go (and Why a Shared Preset Sounds Wrong Without Them) | "pod go custom ir," "pod go import impulse response," "pod go preset sounds wrong no ir" | Sean Nakamura | 6 — Quick Fixes | Surfaced directly by the POD Go SERP: every paid patch warns "drag the IR into the IMPULSES column or it sounds wrong," but no free walkthrough of the import + the 128-slot management + the "why the amp sounds thin without it" diagnosis. Sean's IR/modeler-precision lane; Sean 0/wk. Distinct from the setup guide (that builds the chain; this is the IR-transfer gotcha that breaks *shared* presets). |
+| U2 | dynamic-eq-vs-static-eq-taming-harsh-guitar | Dynamic EQ vs. Static EQ for Taming Harsh Guitar: When Each One Wins | "dynamic eq guitar harsh," "dynamic vs static eq guitar," "multiband compressor tame ice pick" | Viktor Kessler | 3 — Signal Chain | The harsh-PA SERP surfaced the FOH "dynamic EQ is more surgical" angle. Genuinely distinct from the static-cut quick fix: dynamic EQ/multiband comp only clamps the harsh band *when it spikes* (picked accents) instead of dulling it always — with the cross-platform reality that Helix has no native dynamic-EQ block (use a multiband comp / the console). Viktor's measurement rigor; Viktor 0/wk. |
+| U3 | acoustic-guitar-through-modeler-worship-di | Acoustic Guitar Through a Modeler for Worship: DI, Body EQ, and Killing Feedback | "acoustic guitar helix worship," "acoustic through pod go," "acoustic guitar modeler di feedback" | Elena Ruiz | Workflow | Surfaced by the Holy Forever/POD Go SERPs shipping *acoustic* patches alongside electric — the worship volunteer's first instrument, near-zero editorial coverage. Distinct signal problem: using the modeler as an acoustic preamp/DI (no amp/cab), a low-mid body cut, and a narrow notch for the feedback ring. Elena's practical worship-volunteer lane; Elena 0/wk. |
+
+**Diversity/queue note:** today's new posts maxed both worship bylines (Nathan → 3, fk-staff → 3)
+and Rick → 1; refreshes kept Viktor's and Nathan's original bylines. **Next run must keep new posts
+off Nathan and fk-staff until they reset**, and favor the seven writers at 0 this run. Strategic
+queue now at **S5** (S7, S8 drained; S9 Katana-worship next executable). Pending fan-out behind the
+strategic items: single-coil-vs-humbucker/Margot, nashville-numbers/Jess, volume-pedal-placement/
+Sean, shimmer-without-bigsky/Dev, plus today's U1/Sean, U2/Viktor, U3/Elena. **S5/S6 pillars remain
+the standing debt — escalate to a dedicated session.**

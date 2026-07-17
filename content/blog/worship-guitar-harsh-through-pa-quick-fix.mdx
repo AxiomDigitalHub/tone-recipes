@@ -1,0 +1,115 @@
+---
+title: >-
+  Why Your Worship Tone Turns Harsh Through the PA (and the One Cut That Fixes
+  It)
+description: >-
+  Your guitar sounds fine in headphones and like an ice pick through the church
+  PA. The harshness lives in two narrow bands, not your amp — and one high cut
+  plus one dip fixes both.
+date: '2026-07-17'
+author: Rick Dalton
+author_slug: rick-dalton
+category: quick-fixes
+tags:
+  - worship
+  - eq
+  - high-cut
+  - modeler
+  - troubleshooting
+  - frfr
+  - tone-shaping
+faq:
+  - q: What frequency makes a guitar sound harsh or like an ice pick?
+    a: >-
+      Two bands. The brittle, ice-pick edge lives in the upper mids, roughly
+      2.5–4 kHz. The thin, fizzy sizzle lives higher, around 6–8 kHz. A bright
+      PA exaggerates both. Fizz is fixed with a high cut; the ice-pick mid needs
+      a narrow dip. Knowing which one you have tells you which cut to make.
+  - q: Should I fix a harsh tone with the amp Treble and Presence knobs?
+    a: >-
+      Usually not. Pulling Treble and Presence down makes the tone dull and
+      often still harsh, because the harshness is coming from the cab or IR top
+      end and a bright PA, not the amp voicing. Leave the amp where it sounds
+      good and cut the specific problem bands instead.
+  - q: Where in the signal chain should the corrective cut go?
+    a: >-
+      At the cab or IR block, or in an EQ placed right after the amp and cab and
+      before your delay and reverb. Cut it at the source so the harshness never
+      reaches the time-based effects. A high cut placed after the reverb also
+      darkens the tails, which is sometimes useful but is not where the problem
+      starts.
+  - q: 'Does this apply to a real amp and a mic, not just a modeler?'
+    a: >-
+      Yes. Through a mic and the PA, the same two bands turn harsh — often
+      worse, because a bright condenser adds its own presence bump. Roll the
+      amp's presence back slightly and let the front-of-house engineer dip 3 kHz
+      and shelf above 8 kHz. The bands are the same; only the tool changes.
+takeaways:
+  - >-
+    Guitar harshness through a PA lives in two narrow bands — an ice-pick edge
+    around 2.5–4 kHz and a fizzy sizzle around 6–8 kHz — not in the amp voicing.
+  - >-
+    A high cut on the cab or IR, started at 8 kHz and pulled down toward 6.5–7
+    kHz, kills the fizz without dulling the whole tone.
+  - >-
+    If the harshness is an upper-mid ice pick rather than fizz, a high cut will
+    not fix it — you need a narrow 2–4 dB dip around 3 kHz.
+  - >-
+    Make the cut at the cab or right after the amp, before delay and reverb, so
+    the harshness never reaches the effects.
+  - >-
+    Leave Treble and Presence where the tone sounds good; cutting them makes the
+    guitar dull and still harsh.
+image: /images/blog/worship-guitar-harsh-through-pa-quick-fix.jpg
+image_alt: >-
+  A modeler floor unit and a PA speaker on a church stage, warm amber light, the
+  high-frequency edge suggested by sharp cool highlights along the speaker horn
+---
+
+Your tone sounds great in your headphones. Then it hits the church PA and turns into an ice pick. Nothing changed but the speaker. So the problem is not your amp — it is a couple of narrow frequency bands that your headphones were polite about and the PA is not.
+
+This is one of the most common worship-rig complaints, and it has a short, specific fix. Not a re-voice. A cut. Maybe two.
+
+## First, Figure Out Which Harsh You Have
+
+There are two different problems that both get called "harsh," and they need different cuts. Get this wrong and you make the tone worse.
+
+- **Ice pick.** An edge on the upper mids. Lives around **2.5 to 4 kHz**. Feels like the note is stabbing you. Worst on picked single notes and chord accents.
+- **Fizz.** A thin sizzle on top. Lives higher, around **6 to 8 kHz**. Feels like static riding on the note. Worst on distortion and high-gain.
+
+Play a chord and listen for which one is bothering you. Usually it is one, sometimes both. A bright PA pushes both, which is why the same rig that sounded warm in your basement sounds like broken glass in a live room with a lot of hard surfaces.
+
+## The One Cut That Fixes the Fizz
+
+Start here, because it fixes the most cases. Put a **high cut on the cab or IR block**. Start it at 8 kHz. Pull it down until the sizzle leaves. For most modeler-into-PA worship rigs that lands somewhere between **6.5 and 7 kHz**.
+
+That is it. That single move handles the fizz on most rigs. It works because the top octave of a guitar carries no music — nothing you play lives above 6 kHz, only pick noise, hiss, and speaker fizz. Cutting it costs you nothing and buys you a tone that does not slice.
+
+Where you put the cut matters. Do it at the cab, or in an EQ placed right after the amp and cab and **before** your delay and reverb. Kill the harshness at the source, before it feeds the effects. High-cut after the reverb and you just make the tails dark — which is fine sometimes, but it is not where the problem is born.
+
+## When a High Cut Is Not Enough
+
+If you cut the top and it is still stabbing you, you have the other problem — the ice pick in the upper mids. A high cut will not touch that. Reaching for it just dulls the tone while leaving the stab.
+
+For that one, add a **parametric EQ with a narrow dip around 3 kHz**. Two to four dB. Narrow Q. You are looking for a specific spike, not a broad scoop — scoop the whole midrange and the guitar disappears in the mix, which for a worship part is its own failure. Sweep a tight cut around until the stab stops, then back it off to the smallest cut that does the job.
+
+I spent years trying to fix this with the amp's Treble and Presence. Turn them down, get a dull tone that is *still* harsh. That taught me the harshness was never in the amp. It was in the cab's top end and a spike around 3k that the PA was exaggerating. Cut those two spots and the amp knobs go right back where they sounded good. The definition you thought you were losing was never the problem.
+
+## By Platform
+
+Same two bands everywhere. Different knob:
+
+- **Helix / HX Stomp:** Cab block high cut for the fizz. A Parametric EQ or the Cali Q for the 3 kHz dip. The [worship snapshot preset](/blog/pod-go-worship-setup-snapshots-presets) has a spot for exactly this.
+- **Quad Cortex:** Cab high cut, plus a Graphic or Parametric EQ block for the mid dip.
+- **POD Go:** Use the fixed Preset EQ block — set it as a high cut at 7 kHz and it rides every snapshot for free.
+- **Real amp into a mic:** Roll Presence back a hair, then let front-of-house dip 3 kHz and shelf off above 8 kHz. Talk to your sound person. They already know where the ice pick is.
+
+## The Real Rule
+
+Do not chase harshness with the amp knobs. The amp voicing is where your tone comes from — leave it where it sounds good. Harshness is two narrow problems in two narrow places. A high cut for the fizz. A tight 3 kHz dip for the ice pick. That is the whole toolkit, and if you want the full picture of what every band does, the [guitar EQ guide](/blog/guitar-eq-guide) maps the rest of the spectrum.
+
+Bright PA, hard room, single coils — the harshness is going to keep coming back every week. Now you know the two places it hides and the one cut that gets it out.
+
+---
+
+<SaveThisTone title="Know your whole EQ spectrum" description="This fix targets two bands. The full guitar EQ guide maps every band — where mud, honk, ice pick, and fizz each live — so the next tone problem is a known address, not a hunt." href="/blog/guitar-eq-guide" ctaLabel="Read the guitar EQ guide" />

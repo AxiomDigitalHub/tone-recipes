@@ -1,0 +1,172 @@
+---
+title: Holy Forever Guitar Tone on the Line 6 Helix (Chris Tomlin)
+description: >-
+  Build the Holy Forever (Chris Tomlin) electric tone on the Helix — a bright
+  AC30 chime, a 625 ms dotted-eighth delay at 72 BPM, and a four-snapshot
+  worship layout that keeps the anthem moving.
+date: '2026-07-17'
+author: Nathan Cross
+author_slug: nathan-cross
+category: tone-recipes
+tags:
+  - worship
+  - helix
+  - chris-tomlin
+  - holy-forever
+  - ambient-worship
+  - dotted-eighth-delay
+  - snapshots
+  - volume-swell
+readingTime: 9
+image: /images/blog/holy-forever-guitar-tone-helix.jpg
+image_alt: >-
+  A chiming electric guitar under warm amber stage light in a large room, the
+  delay repeats visualized as evenly spaced points of light receding into the
+  space
+takeaways:
+  - >-
+    Holy Forever is a driven anthem, not an ambient wash — the size comes from
+    the ringing chord and the dotted-eighth delay grid, so keep the reverb
+    around 30% and let the chime and the rhythm carry the room.
+  - >-
+    The recording sits in Db at 72 BPM, which puts the dotted-eighth delay at
+    exactly 625 ms. Teams tap it too fast and turn the chorus busy; set it by
+    the number, not by feel.
+  - >-
+    The amp is a bright AC30 voice — on the Helix, the Essex A30 Fawn Brt into
+    the 2x12 Blue Bell (Alnico Blue) cab, the chime cab, not the warmer
+    Greenback used for softer worship tones.
+  - >-
+    Unlike a lot of Bethel-lineage tones, a Klon-style boost belongs here — a
+    Minotaur nearly always on through the choruses gives the anthem its lift
+    without a full distortion.
+  - >-
+    Four snapshots — Pad, Clean, Drive, and a big Lead for the "Holy forever"
+    tag — cover the whole song, with trails on so the delay and reverb never cut
+    between sections.
+faq:
+  - q: 'What key and tempo is Holy Forever, and what delay time does that give?'
+    a: >-
+      The Chris Tomlin / Bethel recording is in Db at 72 BPM in 4/4. A
+      dotted-eighth delay at 72 BPM is (60000 / 72) × 0.75, which lands at
+      exactly 625 ms. A straight quarter note is 833 ms. Most teams that
+      struggle with the part have the delay set too fast — dial 625 ms and the
+      choruses lock in.
+  - q: What amp and cab give the Holy Forever guitar tone on the Helix?
+    a: >-
+      A bright AC30 chime. On the Helix, use the Essex A30 Fawn Brt amp into the
+      2x12 Blue Bell (Alnico Blue) cab — the same chime cab behind Way Maker and
+      What a Beautiful Name, not the darker Greenback cab used for wash-forward
+      tones like Goodness of God. Set the cab high cut around 7.5–8 kHz, then
+      pull it down if the top end turns harsh through the PA.
+  - q: How much reverb should be on the Holy Forever tone?
+    a: >-
+      Less than you think — around 30% mix. Holy Forever reads as huge because
+      of the ringing chord and the dotted-eighth rhythm, not because of reverb
+      depth. Push the reverb past 35% and it smears the delay grid that makes
+      the choruses feel like they are moving. The reverb is the room here, not
+      the instrument.
+  - q: Is there a Klon or boost on the Holy Forever tone?
+    a: >-
+      Yes. Unlike many Bethel-lineage ambient tones that stay completely clean,
+      Holy Forever wants a Klon-style boost — on the Helix, a Minotaur — nearly
+      always on through the choruses for the anthemic lift, with a mid-pushing
+      overdrive stacked on top only for the final "Holy forever" tag.
+  - q: Can I build this tone on an HX Stomp?
+    a: >-
+      Yes. Collapse to six blocks: Volume Pedal, Deluxe Comp, Minotaur, Essex
+      A30 Fawn Brt with the Blue Bell cab, a dotted-eighth delay at 625 ms, and
+      a hall or shimmer reverb. Run three snapshots — Pad, Clean, and Lead — and
+      set the single boost hot enough to carry the big tag on its own.
+---
+
+> **Start Here: The Holy Forever Tone in Five Blocks:**
+> 1. Amp: **Essex A30 Fawn Brt** into a **2x12 Blue Bell** cab — the bright AC30 chime
+> 2. Compressor: **Deluxe Comp**, always on — evens the swells and the strummed eighths
+> 3. Boost/Drive: **Minotaur** (Klon-style) nearly always on; **Teemah** stacked for the tag
+> 4. Delay: dotted eighth at 72 BPM (**625 ms**), repeats moderately dark, mix ~25%
+> 5. Reverb: a hall or shimmer at **~30% mix** — the room, not the featured instrument
+
+---
+
+## First, Decide What Kind of Big This Song Is
+
+There are two ways a worship guitar part gets big, and Holy Forever picks the harder one. It can be big the way an ambient pad is big — reverb everywhere, notes swelled in until the guitar is more weather than instrument. Or it can be big the way an anthem is big — a chord that rings, a delay that keeps time with the room, and a lead line that arrives when the whole congregation is already singing the title back at you. Holy Forever is the second kind, and if you build it like the first, you get a tone that sounds enormous alone and disappears the moment a hundred people start singing.
+
+That distinction drives every setting below. This walkthrough builds the sound from an empty [Helix](/platforms/helix) preset, grounded in the actual song — Db, 72 BPM, a slow 4/4 adoration anthem written by Chris Tomlin with Brian and Jenn Johnson. Every block name is exact and ports to Helix Floor, LT, HX Stomp, and Native. It is a build-this-sound guide, not a claim about one session player's exact rig — the goal is the tone on the record and, more to the point, the tone your team needs on Sunday.
+
+## The Amp: A Bright AC30, Not a Warm One
+
+Holy Forever chimes. Where a wash-forward tone wants the top rolled off, this one wants the top left on — the ringing high end is what makes a slow whole-note chord feel like light coming through a window. On the Helix that is the **Essex A30 Fawn Brt** into the bright **2x12 Blue Bell** (Alnico Blue) cab. That is the same chime cab behind [Way Maker](/blog/way-maker-guitar-tone-helix), and it is deliberately the opposite choice from the Greenback cab that gives [Goodness of God](/blog/goodness-of-god-guitar-tone-helix) its wool. If you want to understand why one speaker moves the tone this far, the [Blue-versus-Greenback breakdown](/blog/alnico-blue-vs-greenback-ac30-worship) is the whole story in one post.
+
+<SettingsGrid title="Amp" subtitle="Essex A30 Fawn Brt">
+  <Knob name="Drive" value={4.5} />
+  <Knob name="Bass" value={4.5} />
+  <Knob name="Mid" value={5.5} />
+  <Knob name="Treble" value={6} />
+  <Knob name="Presence" value={5.5} />
+  <Knob name="Sag" value={4} />
+</SettingsGrid>
+
+On the cab, set the low cut near 90 Hz and the **high cut around 7.5–8 kHz**. That is brighter than most worship patches, on purpose — but bright is exactly where this tone can turn on you. Through a dark room it sings; through a bright PA it can arrive as an ice pick in the 3 kHz range. If that happens, do not re-voice the whole amp — pull the cab high cut down toward 7 kHz first. That single move is the whole fix, and it is covered in depth in [why your worship tone turns harsh through the PA](/blog/worship-guitar-harsh-through-pa-quick-fix).
+
+## Time Is the Instrument: The 625 ms Dotted Eighth
+
+The delay is where Holy Forever either locks in or falls apart. The recording runs at **72 BPM**, and the part rides a dotted-eighth delay. The math is the standard worship formula — `(60000 / BPM) × 0.75` — which at 72 BPM gives **exactly 625 ms**. Not "around 600." 625.
+
+I expected this song to want the same reverb-drenched treatment as the softer Bethel tones, and I built it that way first: reverb up past 40%, delay tucked underneath. It sounded gorgeous in my headphones and turned to soup the second I imagined a band underneath it. What actually makes the chorus feel like it is moving is the dotted-eighth grid — those evenly spaced repeats are the pulse the congregation leans on. Bury them under reverb and the anthem stops walking forward. So the delay comes up and the reverb comes down.
+
+| Parameter | Setting | Why |
+|---|---|---|
+| Time | 625 ms | Dotted eighth at 72 BPM — set it by the number. |
+| Feedback | 30 | Two to three audible repeats, no wash of tails. |
+| Mix | 25% | Present enough to be the rhythm, not a slap. |
+| High cut | 6.0 kHz | Slightly dark so repeats sit under the dry chord. |
+
+If tap tempo drifts on you mid-service, [dial the dotted eighth without tapping](/blog/dotted-eighth-delay-no-tap-tempo) — for a slow anthem, a wrong tap is more destructive than a slightly stale time.
+
+## Reverb: The Room, Not the Weather
+
+Then the reverb, and here is the number that surprises people: **around 30% mix**, on a large hall or a gentle shimmer plate. That is restrained for a worship tone, and it is correct. Holy Forever is already big from the chime and the delay; the reverb's job is to put that bigness in a room, not to become the sound. Set the decay around 7, pre-delay near 20 ms, and a low cut at 150 Hz so the tails do not muddy the low mids under the bass and kick.
+
+The contrast with the wash-forward tones in this cluster is the useful lesson: on Goodness of God the reverb is the featured instrument and runs past 40%; here it is the space the featured instrument lives in. Same worship vocabulary, opposite grammar. If you want the filtering logic behind keeping a reverb this size clean, [stacking reverbs](/blog/stacking-reverbs-guide) covers it.
+
+## The Boost Belongs Here
+
+A lot of Bethel-lineage tones stay clean and let the reverb do everything. Holy Forever does not. It wants a **Minotaur** — a Klon-style transparent boost — nearly always on through the choruses. Set Gain around 4, Treble 5.5, Level 6. It does not read as distortion; it reads as the amp leaning in, the chord getting weight, the anthem standing up.
+
+For the final tag — the repeated "Holy forever" that lands when the whole room is singing — stack a **Teemah** (mid-pushing overdrive, Gain 4.5, Tone 6, Level 6) on top of the Minotaur. Two stages of gentle drive, not one loud one, so a lead line sings over a full band without turning into a rock tone. Keep a **Deluxe Comp** (Threshold −30, Ratio 4, Mix 60%) always on ahead of the drives so the swelled chords and the strummed eighths bloom at the same level.
+
+## Verse, Chorus, Tag: The Snapshot Layout
+
+Holy Forever is a slow climb — reflective verses, choruses that open into the title, and a final tag that is the emotional peak of most services that use it. Four snapshots cover it:
+
+| Snapshot | Song moment | Drives | Delay mix | Reverb mix |
+|---|---|---|---|---|
+| 1 — Pad | Intro, verses | Off | 18% | 34% |
+| 2 — Clean | Chorus 1, pre-tag | Minotaur on | 25% | 30% |
+| 3 — Drive | Big choruses | Minotaur on | 28% | 28% |
+| 4 — Lead | "Holy forever" tag | Minotaur + Teemah | 30% | 26% |
+
+- **Snapshot 1 — Pad.** Volume-swell territory. Drives off, delay tucked low, reverb at its highest so the quiet opening has air. Swell the chords in; a picked attack here breaks the spell.
+- **Snapshot 2 — Clean.** The first chorus opens up. The Minotaur comes on for weight, the delay mix rises so the dotted eighth starts driving the part, and the reverb steps back because the band is now filling the space.
+- **Snapshot 3 — Drive.** The big repeated choruses. Same blocks, pushed — strummed eighths ring and the delay grid is the engine.
+- **Snapshot 4 — Lead.** The tag. Both drives on for a singing lead, delay up a touch — and notice the reverb goes *down* as the song gets bigger. A long tail smears a melodic line; the moment is already huge because the room is singing, so the reverb just keeps the lead from sounding dry.
+
+Turn **trails on** so the delay and reverb tails carry across every snapshot change. The wash should never audibly cut between sections — that seam is the fastest way to remind a congregation there is a guy with a pedalboard up there.
+
+## The Volume Swell Carries the Verses
+
+Put a **Volume Pedal** block first in the chain on EXP 1. In the verses, heel back, pluck the chord, and roll the toe forward so the note fades in with no attack — swelling *into* the comp, amp, delay, and reverb means the whole space blooms with the note. The verses of Holy Forever are almost entirely this: swelled whole notes under a vocal, leaving room for the words. If the technique is new, [volume swells 101](/blog/volume-swell-technique) breaks down the timing, but mostly it is reps with a metronome.
+
+## On an HX Stomp
+
+Collapse to six blocks: Volume Pedal · Deluxe Comp · Minotaur · Essex A30 Fawn Brt (Blue Bell cab) · dotted-eighth delay (625 ms) · hall or shimmer reverb — across three snapshots: Pad, Clean, Lead. You lose the two-stage tag drive, so set the Minotaur hot enough to carry the final "Holy forever" on its own, and let the volume pedal handle the dynamics between sections.
+
+If you would rather run one preset for the whole service than a patch per song, the [four-snapshot Sunday morning system](/blog/helix-worship-snapshots-sunday-morning) is this same architecture generalized — Holy Forever lives almost entirely in its Pad and Lead snapshots.
+
+---
+
+<SaveThisTone title="Build your whole worship set this way" description="The four-snapshot worship system turns one Helix preset into your entire Sunday — Clean, Pad, Drive, and Lead — so any song, including Holy Forever, is just a matter of which snapshot you are on." href="/blog/helix-worship-snapshots-sunday-morning" ctaLabel="Get the four-snapshot worship system" />
+
+*Building a whole set on the Helix? [Explore the worship guitar guides](/guides/worship-guitar) for the full tone cluster.*

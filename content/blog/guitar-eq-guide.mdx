@@ -10,6 +10,56 @@ featured: false
 readingTime: "11 min"
 image: "/images/blog/guitar-eq-guide.jpg"
 image_alt: "An EQ curve over a guitar frequency chart, highlighting the bands that matter most for guitar tone"
+updated: "2026-07-17"
+takeaways:
+  - >-
+    An electric guitar's usable range is roughly 80 Hz to 12 kHz, with the
+    decisions that matter most concentrated between 200 Hz and 5 kHz.
+  - >-
+    Mud lives below 250 Hz, body at 350-500 Hz, the guitar's core voice at
+    500 Hz-1 kHz, pick attack and harshness at 1-4 kHz, and fizz above 6 kHz.
+  - >-
+    "Buried in the mix" is almost always scooped mids — a 2-4 dB boost at
+    700 Hz-1 kHz fixes more of that complaint than any other single move.
+  - >-
+    Cut before you boost: revealing a tone by cutting a competing band beats
+    adding energy with a boost, and it keeps headroom and noise in check.
+  - >-
+    Harshness that only appears through the PA is two narrow bands — an ice pick
+    around 3 kHz and fizz around 7 kHz — not the amp voicing.
+faq:
+  - q: What frequencies matter most for electric guitar tone?
+    a: >-
+      The usable range is about 80 Hz to 12 kHz, but the critical decisions
+      happen between 200 Hz and 5 kHz. Below 250 Hz is mud, 350-500 Hz is body,
+      500 Hz-1 kHz is the guitar's core voice, 1-4 kHz is pick attack and
+      presence, and above 6 kHz is air and fizz. Almost every guitar EQ move
+      lives in the 200 Hz to 5 kHz window.
+  - q: Why does my guitar disappear in a band mix?
+    a: >-
+      Scooped mids. Scooping 500 Hz-1 kHz sounds impressive alone because it
+      reads as wide and hi-fi, but that is exactly the range where the guitar
+      competes for space with vocals and snare. Boost 2-4 dB at 700 Hz-1 kHz
+      with a moderate Q and the guitar pushes forward without getting louder.
+  - q: Should I cut or boost frequencies when EQ-ing guitar?
+    a: >-
+      Cut first. When you boost a band you add energy and eat headroom; when you
+      cut a competing band you reveal what is already there. A 3 dB cut at 250 Hz
+      plus a 2 dB boost at 800 Hz does more than a 5 dB boost at 800 Hz alone,
+      with less noise and no added loudness.
+  - q: Where in the signal chain should I place an EQ?
+    a: >-
+      It depends on the goal. A high-pass before the amp cleans up flabby low end
+      going into the gain stage. The amp's own tone stack shapes the core voice.
+      A post-cab EQ is where you fix what the cab or IR does to the highs and
+      where you tame harshness before it reaches your delay and reverb.
+  - q: How do I fix a guitar tone that is only harsh through the PA?
+    a: >-
+      The harshness is in two narrow bands the PA exaggerates — an ice pick
+      around 2.5-4 kHz and fizz around 6-8 kHz — not in the amp. Cut the fizz
+      with a high cut on the cab pulled to 6.5-7 kHz, and if an upper-mid stab
+      remains, add a narrow 2-4 dB dip at 3 kHz. Leave Treble and Presence where
+      they sound good.
 ---
 
 ## The Guitar's Frequency Footprint
@@ -113,6 +163,15 @@ The tone has an artificial, papery quality on sustained notes and gets worse wit
 - Add a low-pass filter at 9-10 kHz
 - Reduce the amp's Presence and Treble controls; start by pulling Presence back to 9 o'clock
 - Try a different cab IR. This is frequently an IR problem, not an amp problem. The [fizzy tone diagnosis guide](/blog/why-modeler-tone-sounds-fizzy) walks through the full troubleshooting process.
+
+### Problem: Harsh Only Through the PA
+
+The rig sounds fine in headphones or in the room and turns into an ice pick the moment it hits a live PA. This is not the same problem as fizz, and it needs a different cut. Two bands are responsible, and a bright PA in a hard room exaggerates both: an upper-mid stab around 2.5-4 kHz (the ice pick) and the fizz band around 6-8 kHz. Headphones are polite about both; front-of-house is not.
+
+- Kill the fizz first: high cut on the cab or IR, pulled down to 6.5-7 kHz
+- If a stab remains, add a narrow 2-4 dB dip at 3 kHz with a tight Q — the ice pick is a spike, not a broad range, so do not scoop the whole midrange
+- Make the cut at the cab, or in an EQ placed after the amp and before delay and reverb, so the harshness never feeds the effects
+- Leave Treble and Presence where they sounded good; the harshness is not in the amp voicing. The [worship-through-a-bright-PA quick fix](/blog/worship-guitar-harsh-through-pa-quick-fix) walks the full diagnosis with per-platform settings
 
 ### Problem: Buried in the Mix
 
