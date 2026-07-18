@@ -16,6 +16,11 @@ import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
 import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
 import { artistJsonLdSet } from "@/lib/seo/jsonld";
 
+// Hard-404 unknown slugs. The segment's loading.tsx starts streaming a 200
+// before notFound() can throw, so garbage slugs were soft-404s; with
+// dynamicParams=false, non-generated slugs 404 without rendering at all.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return artists.map((a) => ({ slug: a.slug }));
 }

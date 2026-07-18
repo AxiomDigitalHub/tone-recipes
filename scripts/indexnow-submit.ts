@@ -33,7 +33,7 @@ const SITEMAP_URL = `https://${HOST}/sitemap.xml`;
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
 
-async function getSitemapUrls(): Promise<string[]> {
+async function getSitemapUrls(sinceHours: number | null): Promise<string[]> {
   const res = await fetch(SITEMAP_URL, {
     headers: { "User-Agent": "faderandknob-indexnow/1.0" },
   });
@@ -41,11 +41,23 @@ async function getSitemapUrls(): Promise<string[]> {
     throw new Error(`Sitemap fetch failed: ${res.status} ${res.statusText}`);
   }
   const xml = await res.text();
-  const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
-  if (urls.length === 0) {
+  const entries = [...xml.matchAll(
+    /<url>\s*<loc>([^<]+)<\/loc>(?:\s*<lastmod>([^<]+)<\/lastmod>)?/g,
+  )].map((m) => ({ loc: m[1].trim(), lastmod: m[2]?.trim() }));
+  if (entries.length === 0) {
     throw new Error("No <loc> entries found in sitemap — aborting.");
   }
-  return urls;
+  if (sinceHours !== null) {
+    const cutoff = Date.now() - sinceHours * 3_600_000;
+    const fresh = entries.filter(
+      (e) => e.lastmod && new Date(e.lastmod).getTime() >= cutoff,
+    );
+    console.log(
+      `--since-hours=${sinceHours}: ${fresh.length} of ${entries.length} sitemap URLs modified in window`,
+    );
+    return fresh.map((e) => e.loc);
+  }
+  return entries.map((e) => e.loc);
 }
 
 async function submit(urls: string[]): Promise<void> {
@@ -80,8 +92,22 @@ async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes("--dry-run");
   const explicitUrls = args.filter((a) => a.startsWith("http"));
+  // --since-hours=N: submit only sitemap URLs whose <lastmod> falls inside
+  // the window. This is what the post-deploy CI step uses — changed URLs
+  // only, per IndexNow guidance, instead of re-blasting the whole sitemap
+  // on every deploy.
+  const sinceArg = args.find((a) => a.startsWith("--since-hours="));
+  const sinceHours = sinceArg ? Number(sinceArg.split("=")[1]) : null;
+  if (sinceArg && (!Number.isFinite(sinceHours) || sinceHours! <= 0)) {
+    throw new Error(`Invalid ${sinceArg} — use e.g. --since-hours=48`);
+  }
 
-  const urls = explicitUrls.length > 0 ? explicitUrls : await getSitemapUrls();
+  const urls =
+    explicitUrls.length > 0 ? explicitUrls : await getSitemapUrls(sinceHours);
+  if (urls.length === 0) {
+    console.log("Nothing to submit in the window — done.");
+    return;
+  }
   console.log(`${urls.length} URL(s) to submit (key location: ${KEY_LOCATION})`);
 
   if (dryRun) {

@@ -71,3 +71,38 @@ jobs:
             docker compose pull app
             docker compose up -d app
             docker image prune -f
+
+  # Ping IndexNow (Bing/Yandex/Naver/Seznam — Google doesn't participate)
+  # with URLs whose sitemap <lastmod> changed in the last 48h. Bing's index
+  # is the retrieval backbone for ChatGPT search + Copilot, and measured
+  # citation rates skew hard toward fresh content, so minutes-not-weeks
+  # Bing pickup is the point (AI_SEARCH_PLAYBOOK §10). The script waits on
+  # deploy so the new sitemap is what gets read. Gated by INDEXNOW_ENABLED
+  # (same kill-switch pattern as DEPLOY_ENABLED/CRON_ENABLED). Best-effort:
+  # a failed ping must not mark the deploy red.
+  indexnow:
+    needs: deploy
+    if: vars.INDEXNOW_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Wait for edge to serve the new sitemap
+        run: sleep 45
+      - name: Submit changed URLs
+        run: npx -y tsx scripts/indexnow-submit.ts --since-hours=48
+
+      # WebSub: tell the hubs the feeds changed so subscribers (Feedly,
+      # NewsBlur, Flipboard, Inoreader) pull immediately instead of on
+      # their polling schedule. Standard protocol ping, content-free.
+      - name: Ping WebSub hubs
+        run: |
+          for hub in "https://pubsubhubbub.appspot.com/" "https://websub.superfeedr.com/"; do
+            for feed in "https://faderandknob.com/feed.xml" "https://faderandknob.com/feed.json"; do
+              curl -s -o /dev/null -w "$hub <- $feed : %{http_code}\n" \
+                -d "hub.mode=publish" --data-urlencode "hub.url=$feed" "$hub" || true
+            done
+          done

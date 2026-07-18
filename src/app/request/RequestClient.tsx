@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import { useAuth } from "@/lib/auth/auth-context";
 import { createBrowserClient, isSupabaseConfigured } from "@/lib/db/client";
@@ -58,12 +58,18 @@ async function getAccessToken(): Promise<string | null> {
 /*  Page                                                                      */
 /* -------------------------------------------------------------------------- */
 
-export default function RequestClient() {
+export default function RequestClient({
+  initialRequests = [],
+}: {
+  /** Server-rendered first page of the queue (popular sort) — crawlable content + instant first paint. */
+  initialRequests?: ToneRequest[];
+}) {
   const { user } = useAuth();
 
-  // Queue state
-  const [requests, setRequests] = useState<ToneRequest[]>([]);
-  const [loading, setLoading] = useState(true);
+  // Queue state — seeded from the server render; the client refetches on
+  // sort change or after a submission.
+  const [requests, setRequests] = useState<ToneRequest[]>(initialRequests);
+  const [loading, setLoading] = useState(initialRequests.length === 0);
   const [sort, setSort] = useState<"popular" | "newest">("popular");
   const [offset, setOffset] = useState(0);
   const [hasMore, setHasMore] = useState(true);
@@ -114,7 +120,19 @@ export default function RequestClient() {
     [sort, offset],
   );
 
+  const seededFromServer = useRef(initialRequests.length > 0);
   useEffect(() => {
+    // First mount with server-seeded data (popular sort): keep it instead of
+    // refetching over it — just wire up pagination state. ISR keeps the seed
+    // ≤5 min stale, and any sort change or submission refetches live.
+    if (seededFromServer.current && sort === "popular") {
+      seededFromServer.current = false;
+      setOffset(PAGE_SIZE);
+      setHasMore(initialRequests.length === PAGE_SIZE);
+      setLoading(false);
+      return;
+    }
+    seededFromServer.current = false;
     fetchRequests(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sort]);

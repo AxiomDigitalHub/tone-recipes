@@ -44,6 +44,8 @@ Quoted or paraphrased directly from the guide — stop investing in these and do
 
 ## 5. Non-Google answer engines (ChatGPT, Perplexity, Claude)
 
+> **✅ RE-VERIFIED 2026-07-17 (post-Vercel migration):** on the VPS/Caddy edge, `/robots.txt` and `/sitemap.xml` return 200 and GPTBot/PerplexityBot UA page fetches return 200 — no bot challenge layer exists on the new host. The Vercel-specific standing rule below is retained for history; the monthly check should now simply curl the edge with AI-bot UAs and expect 200s (no `x-vercel-mitigated` header to look for anymore). Same date: fixed soft-404s (unknown recipe/artist/gear/platform slugs returned HTTP 200; now real 404s) and made the `/request` queue server-rendered so its content is crawlable.
+>
 > **✅ RESOLVED 2026-06-11:** the Vercel firewall had been challenging ALL non-JS clients (403 + `x-vercel-mitigated: challenge` on every path, including `/robots.txt`), which silently zeroed crawler access regardless of robots.txt. Daniel disabled the challenge in the Vercel dashboard the same day; verified after: `/robots.txt` 200 with no mitigation header, sitemap 200, bot-UA page fetches 200. **Standing rule:** Attack Challenge Mode and the Bot Protection / AI Bots (`ai_bots`) managed rulesets must stay off or `log` — never `challenge`/`deny` — unless actively under attack, in which case allowlist verified AI crawlers. The monthly check (weekly-recipe-audit Step 5.5) curls the edge for `x-vercel-mitigated` so a regression gets caught within a month.
 
 - These have their own crawlers. **Citation eligibility requires not blocking them.** Our `robots.ts` is `userAgent: "*" → allow /` which already permits every AI crawler (OAI-SearchBot, ChatGPT-User, PerplexityBot, ClaudeBot, Google-Extended, etc.). **Decision (2026-06-10): keep fully open.** F&K wants maximum citation surface; we have no paywall-content-protection reason to block training bots, and recipes being cited/recommended by ChatGPT is top-of-funnel.
@@ -92,3 +94,16 @@ Supporting plumbing (shipped 2026-06-10): sitemap `lastmod` now reflects reality
 | Chunking posts into fragments for AI | ❌ Never |
 | Chasing manufactured mentions/backlinks | ❌ Never |
 | Daily volume above quality bar | ⚠️ Ship fewer when topics don't pass the Non-Commodity Gate |
+
+## 10. Citation-mechanics research deltas (2026-07-17)
+
+Full findings + sources: docs/research/AI_CITATION_RESEARCH_2026-07-17.md. What changed in our understanding:
+
+- **Bing is the ChatGPT lever.** ~92% of AI referral traffic is ChatGPT, and its retrieval leans on Bing (87% of sampled citations sat in Bing's top-20; Bing #1 isn't required — top-~20 retrievability is). **Action (Daniel): verify Bing Webmaster Tools, submit sitemap, audit indexation of all ~800 pages, check the AI Performance report monthly** — it's the only first-party AI-citation dataset any engine offers.
+- **Claude ≈ Brave Search** (~87% citation overlap). Worth a one-hour Brave indexation check for money queries; fastest-growing referrer.
+- **IndexNow: now shipped** (2026-07-17, CI post-deploy job, changed-URLs-only). Bing/Yandex/Naver/Seznam; Google confirmed non-participant. Value = minutes-not-weeks Bing freshness, compounding with the measured freshness bias (<30-day content ≈3.2x citation rate). Kill switch: `INDEXNOW_ENABLED` repo var.
+- **Freshness is real but redating-without-changes is detectably ignored** — confirms §6's "update + redate" practice; make the substantive-refresh cycle explicit in the weekly audit.
+- **Top-third answer placement:** 44–55% of cited passages come from the first third of the page. Recipe pages should lead with the at-a-glance settings/chain block. (Template change — design-sensitive, needs Daniel's eye before shipping.)
+- **Fan-out favors our long tail:** ~44%+ of AIO citations come from beyond top-20 via sub-query matches — one recipe page per narrow question is structurally correct; keep titles phrased as the sub-query ("[song] Helix preset settings").
+- **Reddit remains the #1–2 cited domain in our query class**; engines anoint 3–5 subreddits per topic as truth sources. Reinforces §4's "earn presence by genuinely helping" — now with a mechanism: complete in-thread answers are what gets quoted. Human lane only (outreach-drafts.md).
+- **Volatility warning:** ChatGPT's Reddit citation rate swung 60%→10% in weeks once. Don't overfit tactics to any single month's citation pattern.

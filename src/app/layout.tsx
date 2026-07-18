@@ -79,6 +79,17 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    // Google Discover eligibility wants large image previews; without this
+    // Google may cap preview size and Discover rarely picks the page up.
+    "max-image-preview": "large",
+  },
+  // Feed discovery: enables reader apps + Google's "Follow" feature to find
+  // the feeds from any page.
+  alternates: {
+    types: {
+      "application/rss+xml": [{ url: "/feed.xml", title: "Fader & Knob Blog" }],
+      "application/feed+json": [{ url: "/feed.json", title: "Fader & Knob Blog (JSON Feed)" }],
+    },
   },
   verification: {
     google: "JNyJnVry-lD7u00R3LYzg5jxYdJvY6Yb-vdit1nVHh0",

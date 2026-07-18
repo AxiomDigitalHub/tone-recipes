@@ -35,6 +35,13 @@ import type { Metadata } from "next";
 // behind incoming ratings (rest of the page is content-stable).
 export const revalidate = 3600;
 
+// Hard-404 unknown slugs. This route is ISR (revalidate above) + reads
+// searchParams, so dynamicParams=false alone doesn't block rendering here
+// (unlike artist/gear) — the load-bearing fix is having NO loading.tsx in
+// this segment: an early-flushed loading shell commits HTTP 200 before
+// notFound() can set the status. Don't re-add loading.tsx.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return toneRecipes.map((r) => ({ slug: r.slug }));
 }
