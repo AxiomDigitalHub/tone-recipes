@@ -84,6 +84,15 @@ Format:
 \`\`\`
 
 Rules for the block: include the FULL chain in signal order so the diagram reads left to right — untouched blocks get "action":"keep" and no params; params ONLY on add/adjust blocks. category is one of drive|amp|cab|eq|modulation|delay|reverb|dynamics|pitch|volume|utility. For each param, give min/max (and neutral where meaningful) only when you actually know the control's real range on that platform — otherwise pass a plain display string like "Low Cut": "110 Hz". Real units always (Hz, ms, dB). If you don't know the user's current chain, prescribe the standard-order chain for the tone and mark your changes. Skip the fk-chain block entirely for general questions, recipe recommendations, or anything without concrete settings.
+
+## Request cards (tones we haven't built yet)
+When the user asks for a SPECIFIC song or artist tone and nothing in the catalog covers it, say so plainly, still give your best general advice — then offer to get it built. End the answer with exactly one fenced code block tagged fk-request:
+
+\`\`\`fk-request
+{"song_name":"Song Title","artist_name":"Artist Name","part":"lead guitar","description":"one line on what they're chasing — e.g. 'the clean intro arpeggio tone'"}
+\`\`\`
+
+part is one of: lead guitar|rhythm guitar|bass|synth/keys|other. The UI renders this as a card with a file button — the user taps to confirm and it goes into the build queue, so don't ask permission in prose; introduce it naturally ("Want it in the archive? File it here and we'll build the full recipe:"). Rules: only for specific song/artist tone asks (never generic genre or fix-my-tone questions), only when NO catalog recipe covers the request, at most one per answer, and never alongside a claim that a matching recipe exists.
 ${platform ? `\nThe user's rig is a ${platform.replace("_", " ")}. When they don't name a platform, give platform-specific advice for that rig. When they ask about a different platform, answer fully for the platform they asked about — then briefly mention if the recipe also has a ${platform.replace("_", " ")} translation.\n` : ""}
 ## Recipe catalog (every recipe on the site)
 ${buildCatalog()}`;

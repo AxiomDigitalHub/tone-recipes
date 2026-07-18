@@ -5841,6 +5841,31 @@
   color: var(--ink-muted);
 }
 
+/* Chat (Ask Axl) buttons — the .fk-preview button reset (top of file)
+   zeroes background/border/padding with higher specificity than Tailwind
+   utilities, so chat CTAs need real classes. Used by the composer Send,
+   starter chips, and the fk-request card. */
+.fk-preview .fk-chat-cta {
+  border: 2px solid var(--ink);
+  background: var(--amber);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+}
+.fk-preview .fk-chat-cta:disabled { opacity: 0.4; cursor: default; }
+.fk-preview .fk-chat-cta-sm { font-size: 12px; padding: 6px 12px; }
+.fk-preview .fk-chat-chip {
+  border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
+  background: rgba(255, 255, 255, 0.6);
+  padding: 6px 12px;
+  font-size: 14px;
+  text-align: left;
+  color: var(--ink);
+  transition: color 0.15s, border-color 0.15s;
+}
+.fk-preview .fk-chat-chip:hover { border-color: var(--amber-2); color: var(--amber-2); }
+
 .fk-preview .request-quota-note {
   margin-top: 10px;
   text-align: center;

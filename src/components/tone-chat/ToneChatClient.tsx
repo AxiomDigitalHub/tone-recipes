@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { createBrowserClient, isSupabaseConfigured } from "@/lib/db/client";
 import ChatChainCard, { parseFkChain } from "./ChatChainCard";
+import ChatRequestCard, { parseFkRequest } from "./ChatRequestCard";
 
 interface ChatMessage {
   role: "user" | "assistant";
@@ -29,29 +30,35 @@ const STARTERS = [
 ];
 
 /**
- * Split an assistant turn into prose and ```fk-chain``` segments. Chain
- * segments render as ChatChainCard (schematic + knobs); an unterminated
- * fence (still streaming) renders as a lightweight placeholder so raw JSON
- * never flashes on screen.
+ * Split an assistant turn into prose and ```fk-chain``` / ```fk-request```
+ * segments. Chain segments render as ChatChainCard (schematic + knobs);
+ * request segments render as ChatRequestCard (file-a-tone-request button).
+ * An unterminated fence (still streaming) renders as a lightweight
+ * placeholder so raw JSON never flashes on screen.
  */
 function renderAssistantContent(text: string) {
   const out: React.ReactNode[] = [];
-  const re = /```fk-chain\s*\n([\s\S]*?)(```|$)/g;
+  const re = /```fk-(chain|request)\s*\n([\s\S]*?)(```|$)/g;
   let last = 0;
   let match: RegExpExecArray | null;
   let key = 0;
   while ((match = re.exec(text)) !== null) {
     const before = text.slice(last, match.index).trim();
     if (before) out.push(<div key={key++}>{renderAssistantText(before)}</div>);
-    if (match[2] === "```") {
-      const chain = parseFkChain(match[1]);
-      if (chain) out.push(<ChatChainCard key={key++} chain={chain} />);
+    if (match[3] === "```") {
+      if (match[1] === "chain") {
+        const chain = parseFkChain(match[2]);
+        if (chain) out.push(<ChatChainCard key={key++} chain={chain} />);
+      } else {
+        const request = parseFkRequest(match[2]);
+        if (request) out.push(<ChatRequestCard key={key++} request={request} />);
+      }
       // Malformed JSON: drop the block silently — the prose stands alone.
     } else {
       // Fence not closed yet — the block is mid-stream.
       out.push(
         <p key={key++} className="text-[var(--ink-muted,#6b6257)] text-xs italic">
-          Drawing the chain…
+          {match[1] === "chain" ? "Drawing the chain…" : "Prepping the request…"}
         </p>,
       );
     }
@@ -246,11 +253,7 @@ export default function ToneChatClient() {
             </p>
             <div className="flex flex-wrap gap-2">
               {STARTERS.map((s) => (
-                <button
-                  key={s}
-                  onClick={() => send(s)}
-                  className="border border-[var(--ink,#0A0908)]/25 bg-white/60 px-3 py-1.5 text-left text-sm text-[var(--ink,#0A0908)] hover:border-[var(--amber,#B97700)] hover:text-[var(--amber,#B97700)] transition-colors"
-                >
+                <button key={s} onClick={() => send(s)} className="fk-chat-chip">
                   {s}
                 </button>
               ))}
@@ -318,11 +321,7 @@ export default function ToneChatClient() {
           maxLength={2000}
           className="flex-1 border border-[var(--ink,#0A0908)]/30 bg-white/80 px-3 py-2.5 text-sm text-[var(--ink,#0A0908)] placeholder:text-[var(--ink-muted,#6b6257)]/70 focus:border-[var(--amber,#B97700)] focus:outline-none"
         />
-        <button
-          type="submit"
-          disabled={busy || !input.trim()}
-          className="border-2 border-[var(--ink,#0A0908)] bg-[var(--amber,#B97700)] px-5 py-2.5 text-sm font-semibold text-[var(--ink,#0A0908)] disabled:opacity-40"
-        >
+        <button type="submit" disabled={busy || !input.trim()} className="fk-chat-cta">
           {busy ? "Dialing…" : "Send"}
         </button>
       </form>
