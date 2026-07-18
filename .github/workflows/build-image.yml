@@ -72,34 +72,49 @@ jobs:
             docker compose up -d app
             docker image prune -f
 
-  # Ping IndexNow (Bing/Yandex/Naver/Seznam — Google doesn't participate)
-  # with URLs whose sitemap <lastmod> changed in the last 48h. Bing's index
-  # is the retrieval backbone for ChatGPT search + Copilot, and measured
-  # citation rates skew hard toward fresh content, so minutes-not-weeks
-  # Bing pickup is the point (AI_SEARCH_PLAYBOOK §10). The script waits on
-  # deploy so the new sitemap is what gets read. Gated by INDEXNOW_ENABLED
-  # (same kill-switch pattern as DEPLOY_ENABLED/CRON_ENABLED). Best-effort:
-  # a failed ping must not mark the deploy red.
-  indexnow:
+            # IndexNow (Bing/Yandex/Naver/Seznam — Google doesn't participate):
+            # submit URLs whose sitemap <lastmod> changed in the last 48h.
+            # Runs HERE (not on the GH runner) because Cloudflare 403s
+            # unverified datacenter clients — the runner can't read our own
+            # sitemap through the edge, but the app container serves it on
+            # localhost. Best-effort: never fails the deploy. Kill switch:
+            # `touch /opt/faderandknob/.indexnow-disabled` on the VPS
+            # (repo vars aren't visible inside this SSH script).
+            if [ ! -f .indexnow-disabled ]; then
+              sleep 20
+              docker compose exec -T app node --input-type=module -e '
+                const res = await fetch("http://localhost:3000/sitemap.xml");
+                if (!res.ok) { console.log("indexnow: sitemap fetch", res.status); process.exit(0); }
+                const xml = await res.text();
+                const entries = [...xml.matchAll(/<url>\s*<loc>([^<]+)<\/loc>(?:\s*<lastmod>([^<]+)<\/lastmod>)?/g)]
+                  .map((m) => ({ loc: m[1].trim(), lastmod: m[2] }));
+                const cutoff = Date.now() - 48 * 3600_000;
+                const urls = entries.filter((e) => e.lastmod && new Date(e.lastmod).getTime() >= cutoff).map((e) => e.loc);
+                if (urls.length === 0) { console.log("indexnow: nothing in 48h window"); process.exit(0); }
+                const key = "605edcb76678f4c3701342d58a18d405";
+                const r = await fetch("https://api.indexnow.org/indexnow", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json; charset=utf-8" },
+                  body: JSON.stringify({ host: "faderandknob.com", key, keyLocation: "https://faderandknob.com/" + key + ".txt", urlList: urls.slice(0, 10000) }),
+                });
+                console.log("indexnow:", r.status, "for", urls.length, "URLs");
+              ' || echo "indexnow ping failed (non-fatal)"
+            fi
+
+  # WebSub: tell the hubs the feeds changed so subscribers (Feedly,
+  # NewsBlur, Flipboard, Inoreader) pull immediately instead of on their
+  # polling schedule. Outbound-only POSTs — safe from the runner (the hubs
+  # then fetch our feeds themselves). Gated by INDEXNOW_ENABLED (shared
+  # syndication kill switch). Best-effort: never marks the deploy red.
+  websub:
     needs: deploy
     if: vars.INDEXNOW_ENABLED == 'true'
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Wait for edge to serve the new sitemap
-        run: sleep 45
-      - name: Submit changed URLs
-        run: npx -y tsx scripts/indexnow-submit.ts --since-hours=48
-
-      # WebSub: tell the hubs the feeds changed so subscribers (Feedly,
-      # NewsBlur, Flipboard, Inoreader) pull immediately instead of on
-      # their polling schedule. Standard protocol ping, content-free.
       - name: Ping WebSub hubs
         run: |
+          sleep 30
           for hub in "https://pubsubhubbub.appspot.com/" "https://websub.superfeedr.com/"; do
             for feed in "https://faderandknob.com/feed.xml" "https://faderandknob.com/feed.json"; do
               curl -s -o /dev/null -w "$hub <- $feed : %{http_code}\n" \
