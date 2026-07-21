@@ -3702,3 +3702,106 @@ queue now at **S5** (S7, S8 drained; S9 Katana-worship next executable). Pending
 strategic items: single-coil-vs-humbucker/Margot, nashville-numbers/Jess, volume-pedal-placement/
 Sean, shimmer-without-bigsky/Dev, plus today's U1/Sean, U2/Viktor, U3/Elena. **S5/S6 pillars remain
 the standing debt — escalate to a dedicated session.**
+
+---
+
+## Content Run — 2026-07-21 (3 new + 2 refreshes)
+
+**Strategic-queue discipline:** 1 of 3 new-post slots came from the strategic queue —
+**S9** (Worship Guitar Tone on a Boss Katana), the next *executable* worship item. The
+other two came from the pending cluster fan-out queue (**single-coil-vs-humbucker/Margot**,
+logged 07-14; **U1 load-custom-irs-pod-go/Sean**, logged 07-17). This run took **1 of 3
+from strategic**, below the re-anchor's "≥2 of 3" target, for the reason the last three runs
+have documented and escalated: **S5 (Complete Helix Tone pillar) and S6 (Katana settings
+pillar) are the only remaining strategic items above S9, and both are flagged by the queue
+itself as multi-run head-term long-forms that must NOT be half-baked in an unattended pass.**
+They have now been deferred four runs running. **This is standing debt that needs a dedicated,
+ideally human-in-the-loop session — an automated daily slot cannot responsibly produce a
+3,000-word pillar that internal-links to every settings guide + recipe.** With S5/S6 off the
+table for automation and S7/S8 drained, S9 was the sole executable strategic item, and it
+drained cleanly. Next executable strategic item after S9: **S10 was already shipped 07-14**;
+the strategic queue is now effectively empty of automatable items until S5/S6 get their
+dedicated session. Post-S9, daily runs should draw from the cluster fan-out queue (below) and
+flag S5/S6 to the next roadmap audit.
+
+**Velocity check (pre-run):** cap 3/7d. fk-staff 2, Hank 1, Nathan 1, Carl 1, Rick 1; all of
+**jess/sean/margot/dev/viktor/elena at 0**. Assignments honored the 07-17 "keep new posts off
+Nathan and fk-staff until they reset, favor the writers at 0" note: **Jess → 1** (S9 Katana
+worship — Katana is her budget-amp lane; she's a live-sound engineer, so the front-of-house /
+"what cuts through a PA" framing is native, and worship is the application, not a denomination
+claim), **Sean → 1** (POD Go IR loading — literally one of his five signature post ideas, "Why
+Your Cab Sim Sounds Wrong"), **Margot → 1** (single-coil vs humbucker under reverb — she owns
+both a Jazzmaster and a Collings I-35, clean-tone-as-feeling is her whole lane). No one over
+cap; Nathan and fk-staff untouched this run.
+
+### New posts
+
+| # | Slug | Title | Writer | Pillar |
+|---|---|---|---|---|
+| 1 | worship-guitar-tone-boss-katana | Worship Guitar Tone on a Boss Katana: Two Sounds That Cover a Whole Set | Jess Kowalski | Worship × Katana bridge / 2 — Settings Guides |
+| 2 | load-custom-irs-pod-go-impulses-column | Loading Custom IRs on a POD Go (and Why a Shared Preset Sounds Wrong Without Them) | Sean Nakamura | 6 — Quick Fixes |
+| 3 | single-coil-vs-humbucker-worship-ambient-tone | Single-Coil or Humbucker for Ambient Worship? What Each Pickup Does Under Heavy Reverb | Margot Thiessen | 3 — Signal Chain |
+
+Post 1's non-commodity core: a free **two-sound worship system** (ambient clean + driven lead
+as stored channel memories), the Bass-back-to-9-o'clock anti-boxy move, and the **line-out-to-
+FOH reasoning** no generalist Katana guide states; .tsl/`/browse?platform=katana` CTA. Post 2's
+core: the **reference-not-file diagnosis** (a preset stores a slot index + name, not the IR;
+the name persists even when the file is gone), the free step-by-step IMPULSES-column walkthrough,
+and the 128-slot-map discipline — vs. a SERP of paid patches + forum threads. Post 3's core: the
+**low-mid-stacking mechanism** (why humbuckers go opaque under a long wash while single-coils stay
+legible), the decision-by-job table, and the universal 200–300 Hz reverb low-cut fix. All three
+cross-link each other and the worship cluster (WABN, Way Maker, POD Go worship, harsh-through-PA).
+Hero images via Flux 2 Pro (`--model=black-forest-labs/flux-2-pro`; ~$0.17, 3/3, 0 errors). MDX
+preflight `--changed --strict`: **clean, 5 files** (2 description-length warnings trimmed to
+snippet width before commit).
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | best-katana-settings-tube-amp | **Full AEO backfill + content-add.** Jess's proven 5-tube-amp-tones Katana post had no `takeaways:` and no `faq:` — added 5 takeaways + 5 Q&A (FAQPage JSON-LD). Real content add: a new **"Two of These Cover a Worship Set"** section mapping the AC30 clean (#3) and Dumble lead (#5) onto the two-sound worship template, cross-linking the new S9 post. Set `updated: 2026-07-21`. Kept Jess's byline. | A striking-distance "boss katana settings" post emitting zero answer-engine surface, and the natural reciprocal target for today's S9 Katana-worship post. The worship section is a genuine use-case add, not metadata churn. |
+| R2 | overdrive-with-humbuckers-settings | **Legacy `<FAQ>` migration + AEO backfill + content-add.** Migrated the body `<FAQ questions={[...]}>` (5 Q&A) → frontmatter `faq:` and removed the component (validator warns on duplicate FAQPage); added 5 `takeaways:` (had none). Real content add: a new **"The Same Divergence Shows Up Under Reverb"** section tying the humbucker/overdrive mid-stacking to the humbucker/reverb low-mid-stacking, cross-linking the new Margot single-coil post. Set `updated: 2026-07-21`. Kept Margot's byline. | Margot's own humbucker-overdrive post is the exact companion to today's humbucker-reverb post — same physics, different point in the chain — and it was still on the legacy `<FAQ>` path with no takeaways. Migration + reciprocal link closes a real gap. |
+
+**Reciprocal links (not redated — minor, avoids fake freshness):** the three new posts already
+link outward into the worship cluster and sibling posts; no extra redate-only edits made.
+
+### SERP Analysis — 2026-07-21 (live checks this run)
+
+**Post 1 — worship-guitar-tone-boss-katana** (target: "boss katana worship," "katana worship settings," "worship guitar boss katana")
+- **Top ranking:** Guitar Chalk (Katana 100 settings), My Les Paul + Steel Guitar forum threads, Pro Sound HQ, **BOSS's own out-of-box setup + Sweetwater "Katana Gen 3 setup guide"**, Guitar Tricks forum. **All generalist Katana settings guides + forum threads** — none framed as a worship two-sound system, none with the line-out-to-FOH reasoning.
+- **Gap confirmed / cross-check (Gate 1 held):** SERP independently confirms the channel set — **acoustic / clean / crunch / lead / brown** — and that clean/crunch are the worship-appropriate voices, matching the post. It also confirms Tone Studio as the deeper-voicing/effects layer. Our differentiators the field lacks: the **two-sounds-cover-a-set** framing, the **Bass-back-to-9** anti-boxy move, and the **line-out (not mic) to FOH** argument.
+- **AI Overview:** likely present (how-to/settings intent; BOSS + Sweetwater are AIO feeders); F&K not cited yet (post is hours old).
+- Non-commodity gate: **PASS.** *(Note: SERP surfaced BOSS Katana **Gen 3** as a current product — queued as a distinct new topic below, not a variant of this post.)*
+
+**Post 2 — load-custom-irs-pod-go-impulses-column** (target: "pod go custom ir," "pod go import impulse response," "pod go preset sounds wrong no ir")
+- **Top ranking:** Choptones "Deep Dive into Loading Patches and IRs on the POD Go," Line 6 Community threads ("Need help loading an IR," "Help me understand paid IRs and presets"), Worship Tutorials paid POD Go patches, two YouTube tutorials. **One vendor deep-dive + forum threads + paid patches + video** — no free written walkthrough that *diagnoses* the reference-not-file behavior.
+- **Gap confirmed / cross-check (Gate 1 held):** SERP corroborates the core claim verbatim — "**if you do not have the IR loaded into the 'IMPULSES' column in POD Go Edit, the patch will not sound correct, even if you have the IR block on**" — and the three verify steps (format, slot-match, block enabled) match the post. Our differentiators: the **why** (preset stores a slot index + name, not the file; the name persists when the file is gone — the label lies), the **128-slot map discipline**, and the **QC-carries-IRs-in-the-cloud contrast**.
+- **AI Overview:** likely present (troubleshooting/how-to class); citation unverified.
+- Non-commodity gate: **PASS.**
+
+**Post 3 — single-coil-vs-humbucker-worship-ambient-tone** (target: "single coil vs humbucker worship," "best pickup for ambient worship guitar," "single coil or humbucker ambient")
+- **Top ranking:** Guitar World + Beginner Guitar HQ (generalist single-coil-vs-humbucker explainers), TDPRI "singlecoils or humbuckers for service," Ambient Online "Are single coils a must have," Ernie Ball "Worship Guitar Playing Quest," Steel Guitar Forum. **Generalist pickup explainers + forum threads** — none analyze *behavior under heavy reverb* specifically.
+- **Gap confirmed / cross-check (Gate 1 held):** SERP confirms single coils are valued for "chime and bell tones, plus the **clarity preferred for delay tails**," and humbuckers for "power and sustain" — matching the post's thesis. The field validates the clarity-vs-sustain split but does NOT explain the **low-mid-stacking mechanism**, the **chord-legible-vs-single-note-swell** trade, or the **200–300 Hz reverb low-cut** universal fix — our non-commodity core. SERP also surfaced a distinct adjacent pain point (single-coil hum/feedback in church wiring) — queued below as its own topic, not folded in.
+- **AI Overview:** likely present ("X vs Y" pickup class is a classic AIO/PAA feeder); citation unverified.
+- Non-commodity gate: **PASS.**
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Each was surfaced directly by today's SERPs and is a distinct sub-question, not a re-slice of
+> a post shipped today. Assigned to favor the **most-rested bylines** (Dev 0, Elena 0 this run;
+> Jess for her native Katana lane). **Verify no colliding slug at build time.**
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| V1 | single-coil-hum-feedback-worship-fix | Killing Single-Coil Hum and Feedback in a Worship Setting (Without Switching Guitars) | "single coil hum church," "worship guitar 60 cycle hum," "single coil feedback stage fix" | Elena Ruiz | 6 — Quick Fixes | Surfaced by Post 3's SERP: single coils are repeatedly flagged as "problematic" in electrically noisy church wiring (60-cycle hum, feedback near stage lighting). Genuinely distinct from Post 3 (which is a *tone/reverb* question): this is the *noise-floor* fix — noise gate, hum-canceling middle/RwRp position, grounding, distance from dimmers/LED walls, when a coil-tap or a silent-single-coil set is the real answer. Elena's practical worship-volunteer lane; Elena 0/wk. |
+| V2 | boss-katana-gen-3-vs-mkii-changes | Boss Katana Gen 3 vs. MkII: What Actually Changed, and Should You Upgrade | "boss katana gen 3 vs mkii," "katana gen 3 whats new," "should i upgrade katana gen 3" | Jess Kowalski | 5 — Gear Lab | Surfaced by Post 1's SERP (Sweetwater's "Katana Gen 3 setup guide" ranks — the Gen 3 is now a current product). A distinct product-lineup buying-decision question, not a variant of the worship post: what the Gen 3 adds (new voices, effects, editor) and whether it justifies replacing a working MkII. Jess's budget-buyer "is the upgrade worth it" lane; Katana is her beat. |
+| V3 | ambient-guitar-headphones-reverb-mono-collapse | Ambient Guitar on Headphones: Why Your Big Reverb Collapses in Mono (and How to Keep It) | "ambient guitar headphones reverb," "reverb sounds thin in mono," "bedroom ambient guitar wash headphones" | Dev Okonkwo | Workflow | Surfaced by Post 3's SERP (Ambient Online forum) + the reverb-legibility thread running through all three posts. Distinct problem: a wide stereo ambient wash that sounds huge in a room but collapses thin when summed to mono or heard on phones — pre-delay, stereo-width vs mono-compatibility, and the low-cut that survives the fold-down. Dev's bedroom/headphone/ambient lane; Dev 0/wk. |
+
+**Diversity/queue note:** today's new posts went to Jess, Sean, Margot (all 0→1); refreshes kept
+Jess's and Margot's original bylines (refreshes don't count against the cap). **Next run: keep
+new posts off Jess/Sean/Margot until they reset; favor Dev (0), Viktor (0), Elena (0), plus
+Carl/Hank/Rick as they age out.** Strategic queue is now **empty of automatable items** —
+**S5 (Complete Helix pillar) and S6 (Katana pillar) are the standing debt and need a dedicated
+human-in-the-loop multi-run session, not another daily slot (deferred 4 runs).** Cluster fan-out
+queue behind them: nashville-numbers/Jess, volume-pedal-placement/Sean, shimmer-without-bigsky/Dev,
+U2 dynamic-eq/Viktor, U3 acoustic-through-modeler/Elena, plus today's V1/Elena, V2/Jess, V3/Dev.
