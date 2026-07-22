@@ -113,13 +113,13 @@ function emptyFormState(): FormState {
 // ---------------------------------------------------------------------------
 
 const inputCls =
-  "w-full bg-background border border-border rounded-lg px-3 py-2 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-accent/50";
+  "w-full bg-[var(--paper)] border border-[var(--ink-faint)] rounded-lg px-3 py-2 text-[var(--ink)] text-sm focus:outline-none focus:ring-1 focus:ring-[var(--amber-2)]/50";
 const selectCls = inputCls;
-const labelCls = "block text-xs font-medium text-muted mb-1";
+const labelCls = "block text-xs font-medium text-[var(--ink-muted)] mb-1";
 const btnSecondary =
-  "rounded-lg border border-border bg-surface px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:bg-surface-hover";
+  "rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-3 py-1.5 text-sm font-medium text-[var(--ink)] transition-colors hover:bg-[var(--paper-2)]";
 const btnDanger =
-  "rounded-lg border border-red-800 bg-red-900/30 px-3 py-1.5 text-sm font-medium text-red-400 transition-colors hover:bg-red-900/50";
+  "rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-1.5 text-sm font-medium text-red-700 transition-colors hover:bg-red-500/20";
 
 // ---------------------------------------------------------------------------
 // Component
@@ -461,19 +461,19 @@ export default function NewRecipePage() {
             onClick={() => setStep(i)}
             className={`flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium transition-colors ${
               i === step
-                ? "bg-accent text-background"
+                ? "bg-[var(--amber)] text-[var(--ink)]"
                 : i < step
-                  ? "bg-surface text-accent"
-                  : "bg-surface text-muted"
+                  ? "bg-[var(--paper-2)] text-[var(--amber-2)]"
+                  : "bg-[var(--paper-2)] text-[var(--ink-muted)]"
             }`}
           >
             <span
               className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold ${
                 i === step
-                  ? "bg-background text-accent"
+                  ? "bg-[var(--paper)] text-[var(--amber-2)]"
                   : i < step
-                    ? "bg-accent/20 text-accent"
-                    : "bg-border text-muted"
+                    ? "bg-amber-500/15 text-[var(--amber-2)]"
+                    : "bg-border text-[var(--ink-muted)]"
               }`}
             >
               {i < step ? "\u2713" : i + 1}
@@ -544,9 +544,9 @@ export default function NewRecipePage() {
                 type="checkbox"
                 checked={form.is_editorial}
                 onChange={(e) => update("is_editorial", e.target.checked)}
-                className="h-4 w-4 rounded border-border bg-background accent-accent"
+                className="h-4 w-4 rounded border-[var(--ink-faint)] bg-[var(--paper)] accent-accent"
               />
-              <span className="text-sm text-foreground">Mark as editorial content</span>
+              <span className="text-sm text-[var(--ink)]">Mark as editorial content</span>
             </label>
           </div>
         </div>
@@ -592,18 +592,18 @@ export default function NewRecipePage() {
           </select>
         </div>
         {form.song_slug && (
-          <div className="rounded-lg border border-border bg-surface p-4 text-sm">
+          <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-4 text-sm">
             {(() => {
               const song = staticSongs.find((s) => s.slug === form.song_slug);
               if (!song) return null;
               return (
                 <div className="space-y-1">
-                  <p className="font-medium text-foreground">{song.title}</p>
-                  <p className="text-muted">
+                  <p className="font-medium text-[var(--ink)]">{song.title}</p>
+                  <p className="text-[var(--ink-muted)]">
                     Album: {song.album} &middot; Year: {song.year} &middot;
                     Difficulty: {song.difficulty}
                   </p>
-                  <p className="text-muted">
+                  <p className="text-[var(--ink-muted)]">
                     Genres: {song.genres.join(", ")}
                   </p>
                 </div>
@@ -760,7 +760,7 @@ export default function NewRecipePage() {
     const og = form.original_gear;
     return (
       <div className="space-y-5">
-        <p className="text-sm text-muted">
+        <p className="text-sm text-[var(--ink-muted)]">
           Provide a brief human-readable summary of the original gear used. The
           signal chain (next step) captures the detailed settings.
         </p>
@@ -837,7 +837,7 @@ export default function NewRecipePage() {
     return (
       <div className="space-y-5">
         <div className="flex items-center justify-between">
-          <p className="text-sm text-muted">
+          <p className="text-sm text-[var(--ink-muted)]">
             Build the signal chain in order. Each node represents a piece of gear.
           </p>
           <button className={btnSecondary} onClick={addNode}>
@@ -846,7 +846,7 @@ export default function NewRecipePage() {
         </div>
 
         {form.signal_chain.length === 0 && (
-          <div className="rounded-lg border border-dashed border-border py-8 text-center text-sm text-muted">
+          <div className="rounded-lg border border-dashed border-[var(--ink-faint)] py-8 text-center text-sm text-[var(--ink-muted)]">
             No nodes yet. Click &quot;Add Node&quot; to start building the signal chain.
           </div>
         )}
@@ -854,15 +854,15 @@ export default function NewRecipePage() {
         {form.signal_chain.map((node, i) => (
           <div
             key={i}
-            className="rounded-lg border border-border bg-surface p-4"
+            className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-4"
           >
             <div className="mb-3 flex items-center justify-between">
-              <span className="text-xs font-bold text-accent">
+              <span className="text-xs font-bold text-[var(--amber-2)]">
                 Node {node.position}
               </span>
               <div className="flex items-center gap-1">
                 <button
-                  className="rounded p-1 text-muted hover:text-foreground disabled:opacity-30"
+                  className="rounded p-1 text-[var(--ink-muted)] hover:text-[var(--ink)] disabled:opacity-30"
                   onClick={() => moveNode(i, -1)}
                   disabled={i === 0}
                   title="Move up"
@@ -872,7 +872,7 @@ export default function NewRecipePage() {
                   </svg>
                 </button>
                 <button
-                  className="rounded p-1 text-muted hover:text-foreground disabled:opacity-30"
+                  className="rounded p-1 text-[var(--ink-muted)] hover:text-[var(--ink)] disabled:opacity-30"
                   onClick={() => moveNode(i, 1)}
                   disabled={i === form.signal_chain.length - 1}
                   title="Move down"
@@ -970,7 +970,7 @@ export default function NewRecipePage() {
                     onChange={(e) =>
                       updateNode(i, { icon_color: e.target.value })
                     }
-                    className="h-9 w-9 cursor-pointer rounded border border-border bg-background"
+                    className="h-9 w-9 cursor-pointer rounded border border-[var(--ink-faint)] bg-[var(--paper)]"
                   />
                   <input
                     className={inputCls}
@@ -991,9 +991,9 @@ export default function NewRecipePage() {
                   onChange={(e) =>
                     updateNode(i, { is_in_effects_loop: e.target.checked })
                   }
-                  className="h-4 w-4 rounded border-border bg-background accent-accent"
+                  className="h-4 w-4 rounded border-[var(--ink-faint)] bg-[var(--paper)] accent-accent"
                 />
-                <span className="text-xs text-muted">In effects loop</span>
+                <span className="text-xs text-[var(--ink-muted)]">In effects loop</span>
               </label>
             </div>
 
@@ -1021,7 +1021,7 @@ export default function NewRecipePage() {
                       }}
                     />
                     <button
-                      className="text-xs text-red-400 hover:text-red-300"
+                      className="text-xs text-red-700 hover:text-red-300"
                       onClick={() => removeNodeSetting(i, key)}
                     >
                       x
@@ -1030,7 +1030,7 @@ export default function NewRecipePage() {
                 ))}
               </div>
               <button
-                className="mt-1 text-xs text-accent hover:underline"
+                className="mt-1 text-xs text-[var(--amber-2)] hover:underline"
                 onClick={() => {
                   const key = prompt("Setting name (e.g. Drive, Volume):");
                   if (key) updateNodeSetting(i, key, 5);
@@ -1065,7 +1065,7 @@ export default function NewRecipePage() {
     return (
       <div className="space-y-5">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-sm text-muted">Add platform:</span>
+          <span className="text-sm text-[var(--ink-muted)]">Add platform:</span>
           {availablePlatforms.map((p) => (
             <button
               key={p.id}
@@ -1076,7 +1076,7 @@ export default function NewRecipePage() {
             </button>
           ))}
           {availablePlatforms.length === 0 && (
-            <span className="text-xs text-muted">All platforms added</span>
+            <span className="text-xs text-[var(--ink-muted)]">All platforms added</span>
           )}
         </div>
 
@@ -1088,7 +1088,7 @@ export default function NewRecipePage() {
           return (
             <div
               key={platformId}
-              className="rounded-lg border border-border bg-surface p-4"
+              className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-4"
             >
               <div className="mb-3 flex items-center justify-between">
                 <span
@@ -1120,7 +1120,7 @@ export default function NewRecipePage() {
               <div className="mb-2 flex items-center justify-between">
                 <label className={labelCls}>Blocks</label>
                 <button
-                  className="text-xs text-accent hover:underline"
+                  className="text-xs text-[var(--amber-2)] hover:underline"
                   onClick={() => addPlatformBlock(platformId)}
                 >
                   + Add Block
@@ -1130,14 +1130,14 @@ export default function NewRecipePage() {
               {translation.chain_blocks.map((block, bi) => (
                 <div
                   key={bi}
-                  className="mb-2 rounded border border-border bg-background p-3"
+                  className="mb-2 rounded border border-[var(--ink-faint)] bg-[var(--paper)] p-3"
                 >
                   <div className="mb-2 flex items-center justify-between">
-                    <span className="text-xs font-medium text-muted">
+                    <span className="text-xs font-medium text-[var(--ink-muted)]">
                       Block {block.position}
                     </span>
                     <button
-                      className="text-xs text-red-400 hover:text-red-300"
+                      className="text-xs text-red-700 hover:text-red-300"
                       onClick={() => removePlatformBlock(platformId, bi)}
                     >
                       Remove
@@ -1211,34 +1211,34 @@ export default function NewRecipePage() {
     const recipe = buildRecipeJson();
     return (
       <div className="space-y-5">
-        <div className="rounded-lg border border-border bg-surface p-4">
-          <h3 className="mb-2 text-sm font-semibold text-foreground">
+        <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-4">
+          <h3 className="mb-2 text-sm font-semibold text-[var(--ink)]">
             Recipe Summary
           </h3>
-          <div className="space-y-1 text-sm text-muted">
+          <div className="space-y-1 text-sm text-[var(--ink-muted)]">
             <p>
-              <span className="text-foreground">Title:</span> {recipe.title || "(empty)"}
+              <span className="text-[var(--ink)]">Title:</span> {recipe.title || "(empty)"}
             </p>
             <p>
-              <span className="text-foreground">Song:</span> {recipe.song_slug || "(none)"}
+              <span className="text-[var(--ink)]">Song:</span> {recipe.song_slug || "(none)"}
             </p>
             <p>
-              <span className="text-foreground">Context:</span> {recipe.tone_context}
+              <span className="text-[var(--ink)]">Context:</span> {recipe.tone_context}
             </p>
             <p>
-              <span className="text-foreground">Guitar:</span>{" "}
+              <span className="text-[var(--ink)]">Guitar:</span>{" "}
               {recipe.guitar_specs.model_name || "(empty)"}
             </p>
             <p>
-              <span className="text-foreground">Signal Chain:</span>{" "}
+              <span className="text-[var(--ink)]">Signal Chain:</span>{" "}
               {recipe.signal_chain.length} node(s)
             </p>
             <p>
-              <span className="text-foreground">Platforms:</span>{" "}
+              <span className="text-[var(--ink)]">Platforms:</span>{" "}
               {Object.keys(recipe.platform_translations).join(", ") || "(none)"}
             </p>
             <p>
-              <span className="text-foreground">Tags:</span>{" "}
+              <span className="text-[var(--ink)]">Tags:</span>{" "}
               {recipe.tags.join(", ") || "(none)"}
             </p>
           </div>
@@ -1246,14 +1246,14 @@ export default function NewRecipePage() {
 
         <div>
           <label className={labelCls}>JSON Preview</label>
-          <pre className="max-h-80 overflow-auto rounded-lg border border-border bg-background p-3 text-xs text-muted">
+          <pre className="max-h-80 overflow-auto rounded-lg border border-[var(--ink-faint)] bg-[var(--paper)] p-3 text-xs text-[var(--ink-muted)]">
             {JSON.stringify(recipe, null, 2)}
           </pre>
         </div>
 
         <div className="flex flex-wrap gap-3">
           <button
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+            className="rounded-lg border border-[var(--ink)] bg-[var(--amber)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] hover:text-[var(--paper)]"
             onClick={handleSaveToLocalStorage}
           >
             Save to localStorage
@@ -1283,21 +1283,21 @@ export default function NewRecipePage() {
       <div className="mb-6 flex items-center gap-3">
         <Link
           href="/admin/recipes"
-          className="text-sm text-muted hover:text-foreground"
+          className="text-sm text-[var(--ink-muted)] hover:text-[var(--ink)]"
         >
           &larr; Back to Recipes
         </Link>
       </div>
 
       <h1 className="page-title page-title-sm mb-2">New Recipe</h1>
-      <p className="mb-6 text-sm text-muted">
+      <p className="mb-6 text-sm text-[var(--ink-muted)]">
         Fill out each step, then copy the JSON or save to localStorage.
       </p>
 
       {renderStepIndicator()}
 
-      <div className="rounded-lg border border-border bg-surface/50 p-6">
-        <h2 className="mb-4 text-lg font-semibold text-foreground">
+      <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)]/50 p-6">
+        <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">
           {STEPS[step]}
         </h2>
 
@@ -1321,13 +1321,13 @@ export default function NewRecipePage() {
         </button>
         {step < STEPS.length - 1 ? (
           <button
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+            className="rounded-lg border border-[var(--ink)] bg-[var(--amber)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] hover:text-[var(--paper)]"
             onClick={() => setStep((s) => Math.min(STEPS.length - 1, s + 1))}
           >
             Next &rarr;
           </button>
         ) : (
-          <span className="text-xs text-muted">
+          <span className="text-xs text-[var(--ink-muted)]">
             Use the buttons above to save or copy.
           </span>
         )}

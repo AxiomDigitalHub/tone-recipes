@@ -118,7 +118,7 @@ export default function AdminDashboard() {
 
       {loading ? (
         <div className="flex h-40 items-center justify-center">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-accent border-t-transparent" />
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[var(--amber-2)] border-t-transparent" />
         </div>
       ) : (
         <>
@@ -154,9 +154,9 @@ export default function AdminDashboard() {
               <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">
                 Recent Sign-ups
               </h2>
-              <div className="overflow-hidden rounded-lg border border-border">
+              <div className="overflow-hidden rounded-lg border border-[var(--ink-faint)]">
                 <table className="w-full text-left text-sm">
-                  <thead className="border-b border-border bg-surface text-xs uppercase text-muted">
+                  <thead className="border-b border-[var(--ink-faint)] bg-[var(--paper-2)] text-xs uppercase text-[var(--ink-muted)]">
                     <tr>
                       <th className="px-4 py-3">User</th>
                       <th className="px-4 py-3">Role</th>
@@ -164,19 +164,19 @@ export default function AdminDashboard() {
                       <th className="px-4 py-3">Joined</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-border">
+                  <tbody className="divide-y divide-[var(--ink-faint)]">
                     {users.recent.map((u, i) => (
-                      <tr key={i} className="hover:bg-surface-hover">
-                        <td className="px-4 py-3 font-medium text-foreground">
+                      <tr key={i} className="hover:bg-[var(--paper-2)]">
+                        <td className="px-4 py-3 font-medium text-[var(--ink)]">
                           {u.displayName}
                         </td>
                         <td className="px-4 py-3">
                           <RoleBadge role={u.role} />
                         </td>
-                        <td className="px-4 py-3 text-muted">
+                        <td className="px-4 py-3 text-[var(--ink-muted)]">
                           {u.platform ?? "—"}
                         </td>
-                        <td className="px-4 py-3 text-muted">
+                        <td className="px-4 py-3 text-[var(--ink-muted)]">
                           {timeAgo(u.createdAt)}
                         </td>
                       </tr>
@@ -195,19 +195,19 @@ export default function AdminDashboard() {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/dashboard/admin/recipes/new"
-                className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+                className="rounded-lg border border-[var(--ink)] bg-[var(--amber)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] hover:text-[var(--paper)]"
               >
                 + New Recipe
               </Link>
               <Link
                 href="/dashboard/admin/recipes"
-                className="rounded-lg border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-surface-hover"
+                className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-4 py-2 text-sm font-medium text-[var(--ink)] transition-colors hover:bg-[var(--paper-2)]"
               >
                 Manage Recipes
               </Link>
               <Link
                 href="/dashboard/admin/moderation"
-                className="rounded-lg border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-surface-hover"
+                className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-4 py-2 text-sm font-medium text-[var(--ink)] transition-colors hover:bg-[var(--paper-2)]"
               >
                 Moderation Queue
               </Link>
@@ -232,7 +232,7 @@ function GrowthSection({
     return (
       <section className="mb-10">
         <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">Growth</h2>
-        <div className="rounded-lg border border-border bg-surface px-4 py-3 text-sm text-muted">
+        <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-4 py-3 text-sm text-[var(--ink-muted)]">
           <span className="mr-2 inline-block h-2 w-2 rounded-full bg-yellow-500" />
           Couldn&apos;t load growth data. Sign in as an admin and refresh.
         </div>
@@ -246,7 +246,7 @@ function GrowthSection({
     return (
       <section className="mb-10">
         <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">Growth</h2>
-        <div className="rounded-lg border border-border bg-surface px-4 py-3 text-sm text-muted">
+        <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-4 py-3 text-sm text-[var(--ink-muted)]">
           Loading growth data…
         </div>
       </section>
@@ -287,30 +287,30 @@ function GrowthSection({
       </h3>
       {accounts ? (
         <div className="mb-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
-          <div className="rounded-lg border border-border bg-surface p-5">
-            <p className="text-2xl font-bold text-foreground">
+          <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
+            <p className="text-2xl font-bold text-[var(--ink)]">
               {accounts.total.toLocaleString()}
             </p>
-            <p className="mt-1 text-sm text-muted">Total accounts</p>
-            <p className="mt-1 text-xs text-muted">real accounts, not GA estimates</p>
+            <p className="mt-1 text-sm text-[var(--ink-muted)]">Total accounts</p>
+            <p className="mt-1 text-xs text-[var(--ink-muted)]">real accounts, not GA estimates</p>
           </div>
-          <div className="rounded-lg border border-border bg-surface p-5">
-            <p className="mb-2 text-sm text-muted">By role</p>
+          <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
+            <p className="mb-2 text-sm text-[var(--ink-muted)]">By role</p>
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
               {Object.entries(accounts.byRole)
                 .sort((a, b) => b[1] - a[1])
                 .map(([role, n]) => (
-                  <span key={role} className="text-foreground">
+                  <span key={role} className="text-[var(--ink)]">
                     <span className="font-semibold">{n.toLocaleString()}</span>{" "}
-                    <span className="text-muted">{role}</span>
+                    <span className="text-[var(--ink-muted)]">{role}</span>
                   </span>
                 ))}
             </div>
           </div>
-          <div className="rounded-lg border border-border bg-surface p-5">
-            <p className="mb-2 text-sm text-muted">New signups / week (8 wks)</p>
+          <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
+            <p className="mb-2 text-sm text-[var(--ink-muted)]">New signups / week (8 wks)</p>
             <Sparkline values={accounts.sparkline} />
-            <p className="mt-2 text-xs text-muted">
+            <p className="mt-2 text-xs text-[var(--ink-muted)]">
               {accounts.new30d.toLocaleString()} in last 30 days
             </p>
           </div>
@@ -367,15 +367,15 @@ function GrowthSection({
         </div>
       )}
       {set_packs?.interest && set_packs.interest.length > 0 && (
-        <div className="mb-6 rounded-lg border border-border bg-surface p-5">
-          <p className="mb-2 text-sm text-muted">
+        <div className="mb-6 rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
+          <p className="mb-2 text-sm text-[var(--ink-muted)]">
             Set pack interest (notify-me demand signal)
           </p>
           <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
             {set_packs.interest.map(({ pack, count }) => (
-              <span key={pack} className="text-foreground">
+              <span key={pack} className="text-[var(--ink)]">
                 <span className="font-semibold">{count.toLocaleString()}</span>{" "}
-                <span className="text-muted">{pack}</span>
+                <span className="text-[var(--ink-muted)]">{pack}</span>
               </span>
             ))}
           </div>
@@ -404,21 +404,21 @@ function GrowthSection({
           <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--ink-muted)]">
             Top downloads (7d)
           </h3>
-          <div className="mb-6 overflow-hidden rounded-lg border border-border">
+          <div className="mb-6 overflow-hidden rounded-lg border border-[var(--ink-faint)]">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-border bg-surface text-xs uppercase text-muted">
+              <thead className="border-b border-[var(--ink-faint)] bg-[var(--paper-2)] text-xs uppercase text-[var(--ink-muted)]">
                 <tr>
                   <th className="px-4 py-3">Recipe</th>
                   <th className="px-4 py-3 text-right">Downloads</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-border">
+              <tbody className="divide-y divide-[var(--ink-faint)]">
                 {downloads.top.map(({ slug, count }) => (
-                  <tr key={slug} className="hover:bg-surface-hover">
-                    <td className="px-4 py-3 font-medium text-foreground">
+                  <tr key={slug} className="hover:bg-[var(--paper-2)]">
+                    <td className="px-4 py-3 font-medium text-[var(--ink)]">
                       {slug}
                     </td>
-                    <td className="px-4 py-3 text-right text-muted">{count}</td>
+                    <td className="px-4 py-3 text-right text-[var(--ink-muted)]">{count}</td>
                   </tr>
                 ))}
               </tbody>
@@ -433,7 +433,7 @@ function GrowthSection({
           Server events (30d)
         </h3>
       </div>
-      <p className="mb-3 text-xs text-muted">
+      <p className="mb-3 text-xs text-[var(--ink-muted)]">
         Server-side signal only — client funnel steps (checkout_start,
         signup_start) go to GA4, not here.
       </p>
@@ -442,12 +442,12 @@ function GrowthSection({
           {funnel.byName.map(({ name, count }) => (
             <div
               key={name}
-              className="rounded-lg border border-border bg-surface p-4"
+              className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-4"
             >
-              <p className="text-xl font-bold text-foreground">
+              <p className="text-xl font-bold text-[var(--ink)]">
                 {count.toLocaleString()}
               </p>
-              <p className="mt-1 break-words text-xs text-muted">{name}</p>
+              <p className="mt-1 break-words text-xs text-[var(--ink-muted)]">{name}</p>
             </div>
           ))}
         </div>
@@ -470,23 +470,23 @@ function MoneyCard({
   accent?: boolean;
 }) {
   return (
-    <div className="rounded-lg border border-border bg-surface p-5">
+    <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
       <p
         className={`text-2xl font-bold ${
-          accent ? "text-accent" : "text-foreground"
+          accent ? "text-[var(--amber-2)]" : "text-[var(--ink)]"
         }`}
       >
         {value}
       </p>
-      <p className="mt-1 text-sm text-muted">{label}</p>
-      {caption && <p className="mt-1 text-xs text-muted">{caption}</p>}
+      <p className="mt-1 text-sm text-[var(--ink-muted)]">{label}</p>
+      {caption && <p className="mt-1 text-xs text-[var(--ink-muted)]">{caption}</p>}
     </div>
   );
 }
 
 function BlockUnavailable({ label }: { label: string }) {
   return (
-    <div className="rounded-lg border border-border bg-surface px-4 py-3 text-sm text-muted">
+    <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-4 py-3 text-sm text-[var(--ink-muted)]">
       <span className="mr-2 inline-block h-2 w-2 rounded-full bg-yellow-500" />
       No {label} available.
     </div>
@@ -521,7 +521,7 @@ function Sparkline({ values }: { values: number[] }) {
         fill="none"
         stroke="currentColor"
         strokeWidth={2}
-        className="text-accent"
+        className="text-[var(--amber-2)]"
         vectorEffect="non-scaling-stroke"
       />
     </svg>
@@ -556,21 +556,21 @@ function StatCard({
 }) {
   const inner = (
     <div
-      className={`rounded-lg border border-border bg-surface p-5 transition-colors ${
-        href ? "hover:border-accent/40 hover:bg-surface-hover" : ""
+      className={`rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5 transition-colors ${
+        href ? "hover:border-[var(--amber-2)] hover:bg-[var(--paper-2)]" : ""
       }`}
     >
       <p
         className={`text-2xl font-bold ${
-          accent ? "text-accent" : "text-foreground"
+          accent ? "text-[var(--amber-2)]" : "text-[var(--ink)]"
         }`}
       >
         {value.toLocaleString()}
         {trend && value > 0 && (
-          <span className="ml-2 text-sm font-normal text-green-400">↑</span>
+          <span className="ml-2 text-sm font-normal text-green-700">↑</span>
         )}
       </p>
-      <p className="mt-1 text-sm text-muted">{label}</p>
+      <p className="mt-1 text-sm text-[var(--ink-muted)]">{label}</p>
     </div>
   );
 
@@ -579,10 +579,10 @@ function StatCard({
 
 function RoleBadge({ role }: { role: string }) {
   const styles: Record<string, string> = {
-    admin: "bg-red-500/20 text-red-400",
-    premium: "bg-accent/20 text-accent",
-    creator: "bg-purple-500/20 text-purple-400",
-    free: "bg-surface text-muted",
+    admin: "bg-red-500/10 text-red-700",
+    premium: "bg-amber-500/15 text-[var(--amber-2)]",
+    creator: "bg-purple-500/10 text-purple-700",
+    free: "bg-[var(--paper-2)] text-[var(--ink-muted)]",
   };
   return (
     <span

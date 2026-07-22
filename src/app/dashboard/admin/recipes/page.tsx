@@ -42,22 +42,22 @@ export default function AdminRecipesList() {
       <div className="mb-8 flex items-center justify-between">
         <div>
           <h1 className="page-title page-title-sm">Recipes</h1>
-          <p className="mt-1 text-sm text-muted">
+          <p className="mt-1 text-sm text-[var(--ink-muted)]">
             {rows.length} recipe{rows.length !== 1 ? "s" : ""}
           </p>
         </div>
         <Link
           href="/admin/recipes/new"
-          className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
+          className="rounded-lg border border-[var(--ink)] bg-[var(--amber)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] hover:text-[var(--paper)]"
         >
           + Add Recipe
         </Link>
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto rounded-lg border border-border">
+      <div className="overflow-x-auto rounded-lg border border-[var(--ink-faint)]">
         <table className="w-full text-left text-sm">
-          <thead className="border-b border-border bg-surface text-xs uppercase text-muted">
+          <thead className="border-b border-[var(--ink-faint)] bg-[var(--paper-2)] text-xs uppercase text-[var(--ink-muted)]">
             <tr>
               <th className="px-4 py-3">Title</th>
               <th className="px-4 py-3">Artist</th>
@@ -71,23 +71,23 @@ export default function AdminRecipesList() {
             {rows.map((row) => (
               <tr
                 key={row.slug}
-                className="border-b border-border transition-colors hover:bg-surface-hover"
+                className="border-b border-[var(--ink-faint)] transition-colors hover:bg-[var(--paper-2)]"
               >
-                <td className="px-4 py-3 font-medium text-foreground">
+                <td className="px-4 py-3 font-medium text-[var(--ink)]">
                   {row.title}
                 </td>
-                <td className="px-4 py-3 text-muted">{row.artistName}</td>
-                <td className="px-4 py-3 text-muted">{row.songTitle}</td>
-                <td className="px-4 py-3 text-center text-muted">
+                <td className="px-4 py-3 text-[var(--ink-muted)]">{row.artistName}</td>
+                <td className="px-4 py-3 text-[var(--ink-muted)]">{row.songTitle}</td>
+                <td className="px-4 py-3 text-center text-[var(--ink-muted)]">
                   {row.platformCount}
                 </td>
                 <td className="px-4 py-3 text-center">
                   {row.isEditorial ? (
-                    <span className="rounded-full bg-accent/20 px-2 py-0.5 text-xs font-medium text-accent">
+                    <span className="rounded-full bg-amber-500/15 px-2 py-0.5 text-xs font-medium text-[var(--amber-2)]">
                       Editorial
                     </span>
                   ) : (
-                    <span className="rounded-full bg-surface px-2 py-0.5 text-xs font-medium text-muted">
+                    <span className="rounded-full bg-[var(--paper-2)] px-2 py-0.5 text-xs font-medium text-[var(--ink-muted)]">
                       Community
                     </span>
                   )}
@@ -95,7 +95,7 @@ export default function AdminRecipesList() {
                 <td className="px-4 py-3 text-right">
                   <Link
                     href={`/recipe/${row.slug}`}
-                    className="text-xs text-accent hover:underline"
+                    className="text-xs text-[var(--amber-2)] hover:underline"
                   >
                     View
                   </Link>
@@ -106,7 +106,7 @@ export default function AdminRecipesList() {
               <tr>
                 <td
                   colSpan={6}
-                  className="px-4 py-8 text-center text-muted"
+                  className="px-4 py-8 text-center text-[var(--ink-muted)]"
                 >
                   No recipes yet. Click &quot;Add Recipe&quot; to create one.
                 </td>
