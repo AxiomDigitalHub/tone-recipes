@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-07-15
-**Recipes:** 190
-**Clean (no errors, no warns):** 186
+**Date:** 2026-07-22
+**Recipes:** 195
+**Clean (no errors, no warns):** 191
 **Warn-only:** 4
 **With errors:** 0
 
@@ -16,8 +16,8 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 21 / 190 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
-| `translations-utility-mirror` | warn | 4 / 190 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
+| `katana-kemper-multidrive-default-off` | info | 23 / 195 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `translations-utility-mirror` | warn | 4 / 195 | Utility blocks (comp/reverb/delay/EQ/cab) present on Helix mirror across other modeller translations (with platform-aware exemptions) |
 
 ---
 
@@ -288,6 +288,12 @@ Passes every rule.
 ### `donegan-stupify-riff` — ✓ clean
 
 *Stupify Riff Tone*
+
+Passes every rule.
+
+### `downing-victim-of-changes-riff` — ✓ clean
+
+*Judas Priest's Victim of Changes Twin-Guitar Attack*
 
 Passes every rule.
 
@@ -855,6 +861,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `murray-22-acacia-avenue-riff` — ✓ clean
+
+*Iron Maiden's 22 Acacia Avenue Twin-Guitar Riff*
+
+Passes every rule.
+
 ### `murray-aces-high-gallop` — ✓ clean
 
 *Iron Maiden's Aces High Twin-Guitar Gallop Tone*
@@ -864,6 +876,12 @@ Passes every rule.
 ### `murray-number-of-the-beast-twin-riff` — ✓ clean
 
 *Iron Maiden's The Number of the Beast Twin-Guitar Riff Tone*
+
+Passes every rule.
+
+### `murray-phantom-of-the-opera-riff` — ✓ clean
+
+*Iron Maiden's Phantom of the Opera Riff Tone*
 
 Passes every rule.
 
@@ -1035,6 +1053,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `smith-wasted-years-riff` — ✓ clean
+
+*Iron Maiden's Wasted Years Chiming Clean Tone*
+
+Passes every rule.
+
 ### `srv-little-wing-hendrix-tribute` — ✓ clean
 
 *SRV's Little Wing Hendrix Tribute Tone*
@@ -1104,6 +1128,12 @@ Passes every rule.
 ### `thomson-psychosocial-riff` — ✓ clean
 
 *Psychosocial Main Riff Tone*
+
+Passes every rule.
+
+### `tipton-exciter-riff` — ✓ clean
+
+*Judas Priest's Exciter Speed-Metal Attack*
 
 Passes every rule.
 
