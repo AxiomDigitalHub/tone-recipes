@@ -10,6 +10,7 @@ import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
 import { getBandName } from "@/lib/song-band";
 import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
+import FridaySendForm from "@/components/newsletter/FridaySendForm";
 
 export const metadata: Metadata = {
   title: "Fader & Knob — Tone recipes for modeler players",
@@ -256,26 +257,7 @@ export default function PreviewIndex() {
               unsubscribe anytime.
             </p>
           </div>
-          <form
-            className="newsletter-form"
-            action="/api/newsletter"
-            method="post"
-          >
-            <label htmlFor="newsletter-email" className="newsletter-label sr-only">
-              Email
-            </label>
-            <input
-              id="newsletter-email"
-              type="email"
-              name="email"
-              required
-              placeholder="your@email.com"
-              className="newsletter-input"
-            />
-            <button type="submit" className="newsletter-submit">
-              Subscribe
-            </button>
-          </form>
+          <FridaySendForm />
         </div>
       </section>
     </>

@@ -22,11 +22,37 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Too many requests. Please try again later." }, { status: 429 });
   }
 
+  // Accept both JSON (fetch from our components) and form-encoded
+  // bodies (native <form> submits, including the no-JS fallback).
+  // The old json()-only parse 500'd on native submits and left the
+  // browser stranded on the API URL showing raw JSON.
+  const contentType = request.headers.get("content-type") ?? "";
+  const isFormSubmit = !contentType.includes("application/json");
+
+  // Native submits navigate the browser here — send them back to the
+  // homepage instead of a JSON response body. Never build this from
+  // request.url: behind Caddy it resolves to 0.0.0.0:3000 (same trap
+  // as the Stripe checkout URLs). TODO: use SITE_URL from
+  // lib/constants once that lands on main.
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
+    "https://faderandknob.com";
+  const redirectHome = (flag: "1" | "0") =>
+    NextResponse.redirect(`${siteUrl}/?subscribed=${flag}`, 303);
+
   try {
-    const body = await request.json();
-    const email: string | undefined = body?.email;
+    let email: string | undefined;
+    if (isFormSubmit) {
+      const form = await request.formData().catch(() => null);
+      const value = form?.get("email");
+      email = typeof value === "string" ? value : undefined;
+    } else {
+      const body = await request.json();
+      email = body?.email;
+    }
 
     if (!email || !EMAIL_RE.test(email)) {
+      if (isFormSubmit) return redirectHome("0");
       return NextResponse.json(
         { error: "Please enter a valid email address." },
         { status: 400 },
@@ -44,9 +70,11 @@ export async function POST(request: Request) {
       // Unique constraint violation — already subscribed.
       // Don't re-send the welcome email.
       if (error.code === "23505") {
+        if (isFormSubmit) return redirectHome("1");
         return NextResponse.json({ success: true });
       }
       console.error("Newsletter subscribe error:", error);
+      if (isFormSubmit) return redirectHome("0");
       return NextResponse.json(
         { error: "Unable to subscribe. Please try again later." },
         { status: 500 },
@@ -64,9 +92,11 @@ export async function POST(request: Request) {
       });
     }
 
+    if (isFormSubmit) return redirectHome("1");
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("Newsletter route error:", err);
+    if (isFormSubmit) return redirectHome("0");
     return NextResponse.json(
       { error: "Unable to subscribe. Please try again later." },
       { status: 500 },

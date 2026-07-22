@@ -4149,6 +4149,21 @@
   color: var(--paper);
   border-color: var(--amber-2);
 }
+/* In-place states for the Friday Send form (dark ink panel). */
+.fk-preview .newsletter-confirm {
+  font-family: var(--font-cond);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--amber);
+  align-self: center;
+}
+.fk-preview .newsletter-error {
+  flex-basis: 100%;
+  font-size: 12px;
+  color: #E8837A;
+}
 @media (max-width: 760px) {
   .fk-preview .newsletter { padding: 56px 18px 72px; }
   .fk-preview .newsletter-grid {
