@@ -32,6 +32,19 @@ const nextConfig: NextConfig = {
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
           { key: "X-DNS-Prefetch-Control", value: "on" },
           { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+          // Agent discovery (RFC 8288): point crawling agents at the
+          // machine-readable surfaces. rel=api-catalog (RFC 9727) resolves
+          // to /.well-known/api-catalog (linkset+json of the surfaces we
+          // actually serve — llms.txt + feeds; no fictional API advertised).
+          // Global because agents land on deep links, not just /. llms.txt-
+          // tier plumbing per AI_SEARCH_PLAYBOOK §4: harmless, cheap, zero
+          // maintenance priority. (A homepage-scoped source: "/" rule didn't
+          // match under output:standalone — kept global instead.)
+          {
+            key: "Link",
+            value:
+              '</.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="service-doc"; type="text/plain"; title="Site guide for LLM agents"',
+          },
         ],
       },
     ];
