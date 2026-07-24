@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { stripe } from "@/lib/stripe";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
+import { SITE_URL } from "@/lib/constants";
 
 /**
  * POST /api/billing/portal
@@ -66,7 +67,7 @@ export async function POST(req: NextRequest) {
     // subscription changes made in the portal.
     const session = await stripe.billingPortal.sessions.create({
       customer: profile.stripe_customer_id as string,
-      return_url: `${req.nextUrl.origin}/dashboard/settings?billing_updated=true`,
+      return_url: `${SITE_URL}/dashboard/settings?billing_updated=true`,
     });
 
     return NextResponse.json({ url: session.url });

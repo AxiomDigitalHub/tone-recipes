@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { getStripe } from "@/lib/stripe";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
+import { SITE_URL } from "@/lib/constants";
 
 /**
  * POST /api/checkout
@@ -140,8 +141,8 @@ export async function POST(req: NextRequest) {
       mode: "subscription",
       payment_method_types: ["card"],
       line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${req.nextUrl.origin}/dashboard?upgraded=${tier}`,
-      cancel_url: `${req.nextUrl.origin}/pricing`,
+      success_url: `${SITE_URL}/dashboard?upgraded=${tier}`,
+      cancel_url: `${SITE_URL}/pricing`,
       client_reference_id: user.id,
       customer_email: user.email,
       // Allow Stripe's automatic tax calc + promo codes on the hosted

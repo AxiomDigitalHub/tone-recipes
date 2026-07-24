@@ -1,3 +1,18 @@
+/**
+ * Canonical public origin, no trailing slash.
+ *
+ * Use this for any absolute URL that leaves the server — Stripe
+ * success/cancel URLs, emails, redirects. Do NOT derive these from
+ * `req.nextUrl.origin` / `request.url`: behind the production reverse
+ * proxy (Caddy) those resolve to the container's internal bind address
+ * (http://0.0.0.0:3000), which is how a live Stripe checkout redirect
+ * once landed on a dead 0.0.0.0:3000 page after the Vercel→self-hosted
+ * migration. Overridable via NEXT_PUBLIC_SITE_URL for preview/staging.
+ */
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
+  "https://faderandknob.com";
+
 export const PLATFORMS = [
   { id: "pedalboard", label: "Pedalboard", color: "#a1a1aa" },
   { id: "helix", label: "Helix", color: "#cc0000" },

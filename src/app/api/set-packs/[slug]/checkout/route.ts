@@ -8,6 +8,7 @@ import {
 } from "@/lib/stripe";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
 import { setPackAccess } from "@/lib/permissions";
+import { SITE_URL } from "@/lib/constants";
 import type { UserRole } from "@/lib/auth/auth-context";
 
 /**
@@ -101,8 +102,8 @@ export async function POST(
       mode: "payment",
       payment_method_types: ["card"],
       line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${req.nextUrl.origin}/set-packs/${packSlug}?purchased=true`,
-      cancel_url: `${req.nextUrl.origin}/set-packs/${packSlug}`,
+      success_url: `${SITE_URL}/set-packs/${packSlug}?purchased=true`,
+      cancel_url: `${SITE_URL}/set-packs/${packSlug}`,
       client_reference_id: user.id,
       customer_email: user.email,
       metadata: {
