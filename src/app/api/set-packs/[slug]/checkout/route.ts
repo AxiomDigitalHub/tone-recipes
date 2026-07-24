@@ -102,7 +102,7 @@ export async function POST(
       mode: "payment",
       payment_method_types: ["card"],
       line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${SITE_URL}/set-packs/${packSlug}?purchased=true`,
+      success_url: `${SITE_URL}/set-packs/${packSlug}?purchased=true&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${SITE_URL}/set-packs/${packSlug}`,
       client_reference_id: user.id,
       customer_email: user.email,

@@ -24,10 +24,14 @@ export type EventName =
   | "signup_start"
   | "checkout_start"
   | "checkout_complete"
+  | "purchase"
   | "upgrade_prompt_view"
   | "upgrade_prompt_click";
 
-type EventParams = Record<string, string | number | boolean | undefined>;
+type EventParams = Record<
+  string,
+  string | number | boolean | undefined | Array<Record<string, string | number>>
+>;
 
 interface WindowWithAnalytics {
   gtag?: (command: "event", name: string, params?: EventParams) => void;

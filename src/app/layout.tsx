@@ -9,6 +9,8 @@ import SmoothScroll from "@/components/ui/SmoothScroll";
 import Toaster from "@/components/ui/Toaster";
 import Script from "next/script";
 import { AuthProvider } from "@/lib/auth/auth-context";
+import { Suspense } from "react";
+import PurchaseTracker from "@/components/analytics/PurchaseTracker";
 import "./globals.css";
 import "./v3.css";
 
@@ -122,7 +124,7 @@ export default function RootLayout({
             its search-term filter from (see src/app/browse/page.tsx). */}
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
+           
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
@@ -176,6 +178,12 @@ export default function RootLayout({
           />
         </noscript>
         <AuthProvider>
+          {/* Fires GA4 `purchase` after Stripe checkout (?session_id=...).
+              Renders null on every other page load. Suspense: useSearchParams
+              requirement for client components mounted in a server layout. */}
+          <Suspense fallback={null}>
+            <PurchaseTracker />
+          </Suspense>
           <div className="fk-preview flex min-h-screen flex-col flex-1">
             {/* Masthead ticker — the sitewide inroad to /experiment. Live
                 numbers from experiment-stats.json (regenerated with content
