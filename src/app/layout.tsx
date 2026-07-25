@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import experimentStats from "@/data/experiment-stats.json";
 import SiteSubnav from "@/components/layout/SiteSubnav";
 import LazySearchPalette from "@/components/search/LazySearchPalette";
+import WebMcpProvider from "@/components/webmcp/WebMcpProvider";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 import Toaster from "@/components/ui/Toaster";
 import Script from "next/script";
@@ -220,6 +221,9 @@ export default function RootLayout({
             <SiteSubnav />
 
             <LazySearchPalette />
+            {/* WebMCP: exposes search/recipe tools to in-browser AI agents
+                via navigator.modelContext. Renders nothing. */}
+            <WebMcpProvider />
             <main id="main-content" className="flex-1">{children}</main>
             <Footer />
           </div>
