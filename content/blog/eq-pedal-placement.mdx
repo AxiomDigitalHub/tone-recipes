@@ -18,7 +18,68 @@ tags:
   - tone
 image: /images/blog/eq-pedal-placement.jpg
 readingTime: 9
-image_alt: a composition illustrating "EQ Pedal Placement"
+updated: '2026-07-24'
+image_alt: >-
+  A pedalboard signal chain showing an EQ pedal in two positions — before the
+  distortion pedal and after it — with arrows indicating how each placement
+  shapes the clipping versus the output
+takeaways:
+  - >-
+    EQ before dirt shapes what gets distorted — boosting a band pre-gain makes
+    that band clip harder and adds harmonic density; EQ after dirt shapes the
+    final output you hear. Same settings, different positions, different results.
+  - >-
+    A high-pass filter before the gain stage (around 80 Hz for standard 6-string)
+    tightens low-end that would otherwise turn to mud once distorted — you can't
+    EQ that mud out afterward, so it has to happen pre-dirt.
+  - >-
+    An always-on Tube Screamer with low drive is a pre-EQ move: it boosts roughly
+    700-800 Hz into the gain stage, which is why it tightens a high-gain amp
+    rather than just adding volume.
+  - >-
+    Use both when you need it — the "sandwich": a pre-dirt EQ to control what
+    saturates and a post-dirt EQ to voice the result. They solve different
+    problems and aren't interchangeable.
+  - >-
+    Both pre and post EQ here are static cuts. For harshness that only spikes on
+    hard picking, a dynamic EQ downstream is the right tool — a fixed cut deep
+    enough to catch the spikes would dull every softer note.
+faq:
+  - q: Can I use a graphic EQ or only a parametric for pedal-placement EQ?
+    a: >-
+      Both work, with different precision. A graphic EQ with fixed bands is
+      faster to set up but less precise — you adjust whatever frequencies sit at
+      those fixed points. A parametric EQ lets you find the exact problem
+      frequency and address it. For surgical cuts (removing 2.3 kHz harshness,
+      say), parametric is significantly more useful.
+  - q: Does an always-on Tube Screamer with low drive act as a pre-EQ?
+    a: >-
+      Yes. A Tube Screamer with the drive low (around 8-9 o'clock) and the level
+      up functions as a pre-amp boost with the TS's midrange hump added before
+      the gain stage — effectively the same as a parametric EQ boosting 700-800
+      Hz pre-amp. Less precise than a dedicated EQ, but a well-characterized
+      result.
+  - q: Should the EQ go in the amp's effects loop?
+    a: >-
+      An EQ in the effects loop sits after the preamp stage — post preamp
+      distortion but pre power amp. That's effectively a post-dirt position for
+      the preamp's gain, appropriate for presence and output shaping. If you want
+      pre-gain-stage EQ, it has to go in front of the amp's input, not in the
+      loop.
+  - q: Why does cutting mids post-distortion hurt mix presence but boosting mids pre-distortion help it?
+    a: >-
+      They do different things. Boosting mids pre-distortion changes what the amp
+      saturates, making the midrange clip harder for more harmonic density and
+      compression. Cutting mids post-distortion removes midrange from the final
+      output. The first adds character to the mids; the second removes it from
+      what the speaker produces.
+  - q: What high-pass frequency should I use for a 6-string versus extended range?
+    a: >-
+      Standard 6-string: 80 Hz is usually enough — the low E fundamental is
+      around 82 Hz, so an 80 Hz HPF barely touches it while removing sub-bass.
+      Drop D (73 Hz): 65-70 Hz. Seven-string in B or eight-string in drop E
+      (fundamental around 40 Hz): 80-100 Hz still works because you're cutting
+      sub-harmonic content, not the fundamental.
 ---
 
 > **Start Here:** EQ before dirt controls what gets distorted. EQ after dirt controls what you hear after distortion. Same EQ settings, different positions — different results. The correct placement depends on what problem you're solving.
@@ -120,22 +181,11 @@ This is functionally what a good amp's EQ section does — the tone stack intera
 
 ---
 
-## Frequently Asked Questions
+## Static Placement Solves Constant Problems. Spikes Are a Different Job.
 
-**Can I use a graphic EQ or only a parametric?**
-Both work, with different precision levels. A graphic EQ with fixed frequency bands is faster to set up but less precise — you're adjusting whatever frequencies happen to be at those fixed points. A parametric EQ lets you find the exact frequency that's causing a problem and address it directly. For surgical cuts (removing 2.3kHz harshness, for example), parametric is significantly more useful.
+Everything here — pre-dirt, post-dirt, the sandwich — is *static* EQ: a fixed cut or boost that applies to every note equally. That's correct for the constant problems this post targets: a low-end that always turns to mud, a midrange that's always too honest, a presence peak that's always there.
 
-**Does an always-on Tube Screamer with low drive act as pre-EQ?**
-Yes. A Tube Screamer running with the drive set low (around 8-9 o'clock) and the level elevated functions as a pre-amp boost with the TS's characteristic midrange hump added to the signal before the gain stage. This is identical in effect to using a parametric EQ to boost the 700–800Hz range pre-amp. The TS is less precise than a dedicated EQ but produces a well-characterized, musical result.
-
-**Should the EQ go in the effects loop?**
-An EQ in the effects loop sits after the amp's preamp stage — this is post-preamp-distortion but pre-power-amp. It's effectively a post-dirt position for the preamp's gain, which is appropriate for presence and output shaping. If you want pre-gain-stage EQ, the EQ needs to go in front of the amp's input, not in the loop.
-
-**Why does cutting mids post-distortion hurt my mix presence but boosting mids pre-distortion help it?**
-Because they're doing different things. Boosting mids pre-distortion changes what the amp saturates — it makes the midrange content clip harder, which produces more harmonic density and compression in the midrange. Cutting mids post-distortion removes midrange content from the final output. The first adds character to the midrange; the second removes it from what the speaker produces.
-
-**What's the right HPF frequency for a standard-tuned 6-string vs. extended range?**
-Standard 6-string: 80Hz is typically sufficient. The low E fundamental is around 82Hz, so an 80Hz HPF barely touches it while removing sub-bass content. For drop D (low D = 73Hz): use 65–70Hz. For 7-string in B or 8-string in drop E (low string fundamental around 40Hz): 80–100Hz HPF still works well because you're cutting sub-harmonic content, not the fundamental.
+It's the wrong tool when the harshness is intermittent — an upper-mid ice-pick that only jumps out when you dig into a chord, or a band that only needs to move when a vocal is loud. A static cut deep enough to catch those spikes dulls every softer note you play. That's what dynamic EQ is for, and it lives downstream in the DAW or at the console rather than on the board — the full breakdown of when each one wins is in [dynamic EQ vs. static EQ for taming harsh guitar](/blog/dynamic-eq-vs-static-eq-taming-harsh-guitar). Placement decides *what* gets shaped; static-versus-dynamic decides *when*.
 
 <SaveThisTone
   title="Want a high-gain starting point?"

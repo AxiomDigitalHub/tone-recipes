@@ -3805,3 +3805,94 @@ Carl/Hank/Rick as they age out.** Strategic queue is now **empty of automatable 
 human-in-the-loop multi-run session, not another daily slot (deferred 4 runs).** Cluster fan-out
 queue behind them: nashville-numbers/Jess, volume-pedal-placement/Sean, shimmer-without-bigsky/Dev,
 U2 dynamic-eq/Viktor, U3 acoustic-through-modeler/Elena, plus today's V1/Elena, V2/Jess, V3/Dev.
+
+---
+
+## Content Run — 2026-07-24 (3 new + 2 refreshes)
+
+**Strategic-queue discipline:** the strategic queue is empty of automatable items (S5/S6 remain
+the standing human-in-the-loop pillar debt — see the 07-21 note; not touched this run). All 3 new
+slots came from the cluster fan-out queue, in roughly its documented order, taking the three items
+whose **best-fit bylines were the rested writers at 0/wk**: shimmer-without-bigsky/**Dev**,
+U2 dynamic-eq/**Viktor**, U3 acoustic-through-modeler/**Elena**. The two Jess/Sean items above them
+(nashville-numbers, volume-pedal-placement) were deferred for byline diversity per the 07-21
+"favor Dev/Viktor/Elena" note — Jess and Sean still carry last week's counts.
+
+**Velocity check (pre-run):** cap 3/7d. Live audit showed nathan/sean/fk-staff/margot/rick/jess all
+at 1; **dev/viktor/elena/carl/hank at 0**. Assignments went to the three at 0 whose lanes fit:
+**Dev → 1** (shimmer free/plugin path — Valhalla Supermassive is literally his desert-island plugin),
+**Viktor → 1** (dynamic vs static EQ — frequency-measurement rigor, worship-free topic), **Elena → 1**
+(acoustic-through-a-modeler DI — framed as a signal/gear setup for the beginner volunteer, her
+"what you already own is enough" lane, NOT a live-performance guide, which is on her never-assign
+list). No one over cap. Refreshes kept Sean's and Viktor's original bylines (refreshes don't count).
+
+### New posts
+
+| # | Slug | Title | Writer | Pillar |
+|---|---|---|---|---|
+| 1 | shimmer-reverb-without-bigsky | Shimmer Reverb Without a BigSky: The Free, In-the-Box, and Budget Paths | Dev Okonkwo | 4 — Modeler Masterclass |
+| 2 | dynamic-eq-vs-static-eq-taming-harsh-guitar | Dynamic EQ vs. Static EQ for Taming Harsh Guitar: When Each One Wins | Viktor Kessler | 3 — Signal Chain |
+| 3 | acoustic-guitar-through-modeler-worship-di | Acoustic Guitar Through a Modeler for Worship: DI, Body EQ, and Feedback | Elena Ruiz | Workflow |
+
+Post 1's non-commodity core: **shimmer = a +12 pitch block into a long reverb** (build it, don't buy
+it), the free DAW path (pitch-shifter → Valhalla Supermassive, correctly noting Supermassive has
+**no pitch-shifter** so it can't do true octave shimmer alone), the in-the-modeler build, and the
+**250 Hz low-cut on the tail matters more than the octave** discovery (Gate 5). Distinct from the
+existing `shimmer-reverb-guitar-settings-helix` (that dials the sound; this is the *how-to-get-it-cheap*
+question) — cross-linked, not duplicated. Post 2's core: the **constant→static / intermittent→dynamic**
+rule, the sweep-to-find method, and the honest **"neither Helix nor QC ships a dynamic-EQ block, so it
+lives in the DAW/FOH"** reality, plus the surprised discovery that on a *constant* fizz a dynamic band
+is "a static cut with extra steps." Post 3's core: **turn the amp/cab off and use the modeler as a DI**,
+the subtractive piezo-quack EQ (250 Hz honk + 3 kHz quack), light comp, and the **single-notch feedback
+fix** — vs. a SERP of paid preset packs. All three cross-link the cluster and each other. Hero images
+via Flux 2 Pro (`--model=black-forest-labs/flux-2-pro`; ~$0.17, 3/3, 0 errors). MDX preflight
+`--changed --strict`: **clean, 6 files** (one description-length warning on Post 3 trimmed to snippet
+width before commit).
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | modeler-eq-guide | **Prose-FAQ → structured `faq:` migration + full AEO backfill + content-add.** The post had a body `## Frequently Asked Questions` prose block (5 Q&A) but **no frontmatter `faq:`** (so it emitted no FAQPage JSON-LD) and **no `takeaways:`**. Migrated the 5 Q&A to frontmatter `faq:`, removed the now-duplicate prose section, added 5 `takeaways:`. **Replaced the placeholder `image_alt`** (`a composition illustrating "Modeler EQ Guide"`) with a real descriptive alt. Real content-add: a new **"Static vs. Dynamic: The One Thing the Modeler EQ Can't Do"** section bridging to the new dynamic-EQ post, plus reciprocal links to the shimmer post (EQ on the reverb tail) and the acoustic-DI post (EQ as the piezo fix). `updated: 2026-07-24`. Kept Sean's byline. | A striking-distance "modeler eq" evergreen emitting zero answer-engine surface, and the natural hub for today's EQ-cluster posts. |
+| R2 | eq-pedal-placement | **Prose-FAQ → structured `faq:` migration + full AEO backfill + content-add.** Same shape: body prose FAQ (5 Q&A) → frontmatter `faq:` (removed the duplicate prose), added 5 `takeaways:`, **replaced the placeholder `image_alt`** (`a composition illustrating "EQ Pedal Placement"`) with a real alt. Real content-add: a new **"Static Placement Solves Constant Problems. Spikes Are a Different Job."** section distinguishing placement (what gets shaped) from static-vs-dynamic (when), cross-linking the new dynamic-EQ post. `updated: 2026-07-24`. Kept Viktor's byline (already his — perfect reciprocal for his new dynamic-EQ post). | Zero AEO surface + a placeholder alt on a proven signal-chain post; Viktor's own EQ-placement post is the ideal companion to his new dynamic-vs-static piece. |
+
+### SERP Analysis — 2026-07-24 (live checks this run)
+
+**Post 1 — shimmer-reverb-without-bigsky** (target: "shimmer reverb without bigsky," "free shimmer reverb plugin," "cheap shimmer reverb pedal")
+- **Top ranking:** pluginoise "19 Best Shimmer Reverb Plugins," theguitarstand "11 Best Shimmer Reverb Pedals," KVR + Equipboard forum threads ("comparable to Strymon BigSky"), SoundOnSound "Creating Shimmer Reverb Effects," Adorama/Newegg affordable-pedal lists. **Plugin/pedal listicles + forum threads.**
+- **Gap confirmed / cross-check:** SERP surfaces the paid **Valhalla Shimmer** plugin and TC HOF2/Fluorescence ($109) as budget picks — but nobody frames shimmer as *"pitch block into a long reverb, build it yourself for free / in the modeler you already own."* Cross-check held: our claim that **Valhalla Supermassive has no pitch-shifter** (so it's a wash, not true octave shimmer, without a pitch plugin in front) is correct and is exactly the distinction the listicles blur. Differentiators: the free-DAW build, the in-the-box build, and the **250 Hz-low-cut-beats-the-octave** finding.
+- **AI Overview:** likely present ("without bigsky" / "free shimmer" are buying-intent PAA classes; web-search API returns organic, not the AIO block — flagged for monthly live-SERP verify per Playbook §8); F&K not cited yet (hours old).
+- Non-commodity gate: **PASS** (free + in-box builds with exact settings; no competitor gives the decision framework free).
+
+**Post 2 — dynamic-eq-vs-static-eq-taming-harsh-guitar** (target: "dynamic eq vs static eq guitar," "dynamic eq harsh guitar," "tame harsh guitar eq")
+- **Top ranking:** Slate Digital, iZotope, Unison, Pro Audio Files, Carvin Audio, AIMM glossary, mikesmixmaster (dynamic EQ vs multiband). **All generic mixing/production explainers** — none guitar-rig-specific, none address the modeler reality.
+- **Gap confirmed / cross-check (Gate 1 held):** The production sites independently confirm the core thesis verbatim — dynamic EQ "tames harshness during loud passages while leaving the tone untouched during softer parts," and "when you make a static EQ cut deep enough to fix that, the rest of the track sounds dull." That validates our rule. What the field lacks: the **guitar-rig framing**, the **"neither Helix nor QC ships a dynamic-EQ block → it lives in the DAW/FOH"** reality, and the measured **surprised discovery** that on a *constant* fizz a dynamic band is a static cut with added latency.
+- **AI Overview:** likely present (mix-technique how-to class; iZotope/Slate are AIO feeders); citation unverified.
+- Non-commodity gate: **PASS** (guitar-and-modeler translation of a mixing concept + a first-hand measured finding).
+
+**Post 3 — acoustic-guitar-through-modeler-worship-di** (target: "acoustic guitar helix worship," "acoustic through hx stomp di," "acoustic guitar modeler feedback")
+- **Top ranking:** Worship Tutorials (acoustic HX presets), GuitarforHISGLORY (HX Stomp acoustic worship packs), churchmediatraining (acoustic HX Stomp patch walkthrough), Line 6 Community "HX Stomp acoustic modeling," multiple gumroad preset sellers. **Almost entirely paid preset packs + one blog describing a paid patch.**
+- **Gap confirmed / cross-check:** The one editorial result (churchmediatraining) and the Line 6 thread build acoustic tone with a **comp + graphic EQ + acoustic IR block** — validating the comp/EQ spine but leaning on IRs. Our differentiated POV: **the fix is subtractive (cut the quack), not additive (chase a sim/IR)** — the surprised-discovery core (Gate 5). Nobody free publishes the amp/cab-off DI principle + piezo-EQ numbers + the single-notch feedback method as one walkthrough. Honesty note logged: acoustic/body IRs *are* a real option on the Line 6 platform; the post frames subtractive-EQ-first as opinion (Gate 8), not as "IRs don't work."
+- **AI Overview:** likely present (worship how-to class); citation unverified.
+- Non-commodity gate: **PASS** (free written DI walkthrough + subtractive-first POV + feedback notch, against an all-paid SERP).
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3 from the fan-out queue this run (shimmer/Dev, U2/Viktor, U3/Elena), adding 3. Each is a
+> distinct sub-question surfaced directly by today's SERPs, not a re-slice of a post shipped today.
+> Bylines are best-fit assignments; the executing run re-checks velocity. **Verify no colliding slug
+> at build time.**
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| W1 | rising-vs-fixed-shimmer-pitch-in-reverb-feedback-loop | Rising vs. Fixed Shimmer: Putting a Pitch Shifter Inside the Reverb's Feedback Loop | "rising shimmer reverb," "pitch in reverb feedback loop helix," "shimmer feedback loop routing" | Sean Nakamura | 4 — Modeler Masterclass | Post 1 named the two wirings (pitch *in front* = fixed octave vs pitch *in the feedback loop* = endlessly rising) but only built the fixed one. The rising version is a genuine routing/DSP topic — how to wire a pitch block into a reverb's regeneration path on a Helix (send/return trick) and in a DAW, and why it climbs. Sean's feedback-loop-routing precision lane; distinct from Post 1 (a *how-to-get-shimmer* decision guide), this is the *advanced-routing* build. |
+| W2 | sidechain-dynamic-eq-guitar-duck-for-vocal | Sidechained Dynamic EQ: Making the Guitar Duck for the Vocal (Not the Whole Mix) | "sidechain dynamic eq guitar vocal," "make guitar duck for vocal eq," "guitar clashing with vocal 3khz" | Dev Okonkwo | Workflow | Post 2 mentioned sidechained dynamic EQ for the guitar-vs-vocal clash but didn't build it. Distinct mixing question (not a static-vs-dynamic re-slice): keying one guitar band off the vocal so it steps back *only when the vocal sings*, with the frequency (2-4 kHz), the settings, and the "why this beats automating a fader" reasoning. Dev's mix-first "what it does to the track" lane — his controversial opinion is literally that guitar obsession stops mattering once it's in a mix. |
+| W3 | acoustic-ir-vs-subtractive-eq-piezo-real | Acoustic IR vs. Subtractive EQ: Which Actually Makes a Piezo Sound Real? | "acoustic ir vs eq piezo," "do acoustic irs work worship," "make piezo acoustic sound natural modeler" | Carl Beckett | 4 — Modeler Masterclass | Post 3's SERP showed the ranking editorial builds acoustic tone with an **acoustic IR block**, while Post 3 argued **subtractive EQ first**. A genuine head-to-head A/B is a distinct question (one specific decision, not the full setup guide): what a body IR adds that EQ can't, what EQ fixes that an IR can't, and when the IR is worth the DSP. Carl's principled "do you even need the fancy thing / what you have is enough" lane is dead-center for the debate. Carl 0/wk and rested. |
+
+**Diversity/queue note:** today's new posts went to Dev, Viktor, Elena (all 0→1); refreshes kept Sean's
+and Viktor's original bylines (don't count against cap). **Next run: keep new posts off Dev/Viktor/Elena
+until they reset; favor Carl (0), Hank (0), and Rick/Jess/Sean/Margot/Nathan as they age out.** Strategic
+queue still **empty of automatable items — S5 (Complete Helix pillar) + S6 (Katana pillar) remain the
+standing debt (now deferred 5 runs); escalate to a dedicated human-in-the-loop session.** Cluster fan-out
+queue remaining: nashville-numbers/Jess, volume-pedal-placement/Sean, V1 single-coil-hum/Elena,
+V2 katana-gen3/Jess, V3 ambient-headphones-mono/Dev, plus today's W1/Sean, W2/Dev, W3/Carl.

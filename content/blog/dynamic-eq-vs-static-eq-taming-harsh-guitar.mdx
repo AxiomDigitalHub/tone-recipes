@@ -1,0 +1,149 @@
+---
+title: 'Dynamic EQ vs. Static EQ for Taming Harsh Guitar: When Each One Wins'
+description: >-
+  A static cut dulls your tone all the time. A dynamic cut only clamps the harsh
+  band when it spikes. Here is how to tell which one your guitar actually needs
+  — and where each lives in a modeler rig.
+date: '2026-07-24'
+author_slug: viktor-kessler
+category: signal-chain
+tags:
+  - eq
+  - dynamic-eq
+  - signal-chain
+  - mixing
+  - harsh-tone
+  - multiband-compression
+takeaways:
+  - >-
+    Static EQ cuts a frequency band by a fixed amount all the time; dynamic EQ
+    cuts the same band only when its level crosses a threshold, so quiet
+    passages keep their brightness and only the spikes get clamped.
+  - >-
+    If your harshness is constant — a fixed fizz shelf, a resonant cab peak —
+    static EQ is the right tool and dynamic EQ is just a static cut with extra
+    latency. If the harshness only shows up on hard picking or open chords, that
+    is exactly what dynamic EQ is for.
+  - >-
+    Find the offending band the same way for either tool: sweep a narrow +6 dB
+    boost across 2.5-5 kHz until it becomes unbearable, note the center, then
+    cut there instead of boosting.
+  - >-
+    Neither the Helix nor the Quad Cortex ships a true dynamic-EQ block, so the
+    dynamic move happens in the DAW (Pro-Q 3, Waves F6) or at the FOH console.
+    In the guitar rig itself, a static parametric cut is the realistic option.
+  - >-
+    For picked accents that spike harsh, a dynamic band with a fast attack and
+    3-6 dB of range preserves the average tone while a static cut of the same
+    depth would dull every note you play.
+faq:
+  - q: What is the difference between dynamic EQ and static EQ?
+    a: >-
+      Static EQ applies a fixed boost or cut to a frequency band at all times —
+      set minus 3 dB at 3 kHz and it is always minus 3 dB at 3 kHz. Dynamic EQ
+      watches the level in that band and only applies the cut when the signal
+      crosses a threshold, then releases. It behaves like a compressor aimed at
+      one frequency range, so it acts on spikes and leaves everything else
+      alone.
+  - q: When should I use dynamic EQ instead of a normal EQ cut on guitar?
+    a: >-
+      Use dynamic EQ when the harshness is intermittent — it only bites on hard
+      picking, on open chords, or when the guitar and a vocal collide at the
+      same frequency. A static cut deep enough to tame those moments would dull
+      the whole performance. Use static EQ when the problem is constant, because
+      a fixed cut is simpler, cheaper on CPU, and does the job.
+  - q: Does the Helix or Quad Cortex have a dynamic EQ?
+    a: >-
+      Not a dedicated dynamic-EQ block, as of current firmware. Both give you
+      static parametric and graphic EQ plus compressors, which covers most
+      in-rig needs. True dynamic EQ typically happens downstream — a plugin like
+      FabFilter Pro-Q 3 or Waves F6 in the DAW, or a dynamic EQ on the front-of-
+      house console. Plan the surgical band-by-band work for that stage, not the
+      pedalboard.
+  - q: How do I find the harsh frequency to cut?
+    a: >-
+      Insert a parametric EQ, set a narrow band (Q around 4) to about +6 dB of
+      boost, and sweep it slowly from roughly 2 kHz up to 6 kHz while you play.
+      The frequency where the harshness becomes intolerable is your target. Then
+      turn that boost into a cut of 2-4 dB. You located the problem by making it
+      worse on purpose; now you remove it.
+  - q: Is a multiband compressor the same as dynamic EQ?
+    a: >-
+      They overlap. A multiband compressor splits the signal into a few fixed
+      bands and compresses each, which is coarse but effective. Dynamic EQ lets
+      you place a band anywhere, at any width, and move it only when it spikes —
+      finer control. For a single narrow harsh band, dynamic EQ is more
+      surgical; for broad tonal balancing across the whole spectrum, a multiband
+      compressor is often the faster tool.
+image: /images/blog/dynamic-eq-vs-static-eq-taming-harsh-guitar.jpg
+image_alt: >-
+  A parametric EQ display showing one narrow band, split into a static fixed cut
+  on the left and a dynamic cut that moves with the signal on the right, over a
+  guitar frequency curve
+---
+
+> **The Rule in One Line**
+> Constant harshness → static cut. Intermittent harshness (only on hard picking or open chords) → dynamic cut. If the harsh band never drops below the threshold, a dynamic EQ is a static cut with extra steps.
+
+Harsh guitar is almost always one narrow band getting out of hand — usually somewhere between 2.5 and 5 kHz, the range where pick attack and upper-mid presence live. The question is not *where* to cut. That part is easy and I'll show you. The question is *how* to cut: a fixed reduction that's always there, or a reduction that only engages when the band actually misbehaves. Get that choice wrong and you either leave the harshness in or dull the entire performance chasing it.
+
+## Static EQ: A Fixed Cut, Always On
+
+A static EQ cut is exactly what it sounds like. You set minus 3 dB at 3 kHz with some bandwidth, and that reduction is present on every note, at every dynamic level, for the entire song. Simple, predictable, cheap on CPU, and available in every rig on earth.
+
+Static EQ is the correct answer when the problem is constant:
+
+- A fizz shelf above 6 kHz that's there whether you play soft or hard.
+- A resonant peak in a cab or IR that rings on every note.
+- A broadly-too-bright amp model you want to shave a few dB off across the board.
+
+For any of these, reach for a parametric cut and stop. There is nothing a dynamic EQ can do here that a static cut doesn't do more efficiently. This matters more than people admit — see below.
+
+## Dynamic EQ: A Cut That Only Engages on Spikes
+
+A dynamic EQ places a band exactly like a parametric EQ, but instead of a fixed amount, it watches the level inside that band and applies the cut *only when the signal crosses a threshold*. Below the threshold, the band is flat and your tone is untouched. Cross it — a hard-picked accent, a big open chord — and the band ducks by a set range, then releases. It is a compressor with a frequency-selective sidechain, aimed at one problem band.
+
+This is the tool for intermittent harshness:
+
+- The tone is fine until you dig in, and *then* the 3.5 kHz ice-pick jumps out.
+- Open chords ring harsh but single-note lines are fine.
+- The guitar and a vocal both crowd 3 kHz, and you only want the guitar to move out of the way when the vocal is loud (that's a sidechained dynamic EQ, and it's how mixers keep both present).
+
+A static cut deep enough to tame the loud accents would dull every soft note you play. The dynamic band leaves the soft notes alone and clamps only the transients that were actually the problem.
+
+## Finding the Band (Same Method Either Way)
+
+Before you choose a tool, locate the target. The method is identical for static and dynamic:
+
+1. Insert a parametric EQ. Set one band to a narrow width — **Q around 4**.
+2. Boost that band **+6 dB** and sweep it slowly from **2 kHz up to 6 kHz** while you play the part that offends.
+3. The frequency where it becomes genuinely unpleasant is your center. For most single-coils and bright humbuckers that lands **2.5-4 kHz**; for high-gain fizz it's higher, **6-8 kHz**.
+4. Now flip that boost into a **cut of 2-4 dB** at the same center. You found the problem by amplifying it; now you remove it.
+
+Here's the data on settings once you've picked your tool:
+
+| Parameter | Static cut | Dynamic cut |
+|---|---|---|
+| Center | The band you found | The band you found |
+| Q / width | 2-3 (broad, not surgical) | 3-5 (tighter — it only acts on spikes) |
+| Depth / range | 2-4 dB, fixed | 3-6 dB of range when engaged |
+| Threshold | n/a | Set so only the loud accents cross it |
+| Attack | n/a | Fast — you're catching transients |
+| Release | n/a | Medium (60-150 ms) so it doesn't pump |
+
+## The Surprised-Discovery Part
+
+I assumed, going in, that dynamic EQ was simply the more sophisticated tool and would always win a head-to-head. So I measured it. I took a high-gain rhythm tone with a constant fizz shelf sitting around 7 kHz and set up both: a static high cut, and a dynamic band chasing the same region.
+
+The dynamic band did essentially nothing useful. The fizz never dropped below the threshold — it was constant, by definition — so the dynamic EQ sat there engaged full-time, which is a static cut with a slower reaction time and more latency. The static high cut removed the same harshness with less phase artifact and no threshold to babysit. Pick attack was cleaner with the dumber tool.
+
+The lesson is precise: **dynamic EQ is only worth its complexity when the problem is intermittent.** If the harsh band never stops, the dynamic version is a static cut with extra steps. Match the tool to the *behavior* of the problem, not to which one sounds more advanced on paper.
+
+## Where Each One Lives in a Modeler Rig
+
+This is the part the plugin tutorials skip, and it's the part that matters if your guitar rig is a Helix or a Quad Cortex. Neither ships a true dynamic-EQ block. You get static parametric and graphic EQ, and you get compressors — good ones — but not a frequency-selective dynamic band. So the honest division of labor is:
+
+- **In the rig (Helix / QC / HX Stomp / POD Go):** do the *static* work. Carve the constant problems with a parametric cut, exactly as in the [modeler EQ guide](/blog/modeler-eq-guide). This is also where the [worship-harsh-through-the-PA fix](/blog/worship-guitar-harsh-through-pa-quick-fix) lives — a static high-cut placed right at the cab, before your effects.
+- **Downstream (DAW or FOH console):** do the *dynamic* work. A dynamic EQ plugin (Pro-Q 3, Waves F6) on the recorded track, or a dynamic band on the front-of-house channel, handles the intermittent spikes and the guitar-versus-vocal collisions. That's where the surgical band-by-band control actually exists.
+
+If you only have the modeler and no downstream stage, you are not stuck — you're just working with the right tool for what you have. A well-placed static cut fixes the large majority of harsh-guitar problems, because most harsh-guitar problems are constant. Reserve the dynamic EQ for the day you're in front of a console or in a session and the harshness only bites when you do. For the broader map of what each band does before you start cutting anything, the [guitar EQ guide](/blog/guitar-eq-guide) and [where to place an EQ in the chain](/blog/eq-pedal-placement) are the companions to this one.

@@ -16,8 +16,64 @@ tags:
   - patch-building
   - tone-shaping
 readingTime: 10
+updated: '2026-07-24'
 image: /images/blog/modeler-eq-guide.jpg
-image_alt: a composition illustrating "Modeler EQ Guide"
+image_alt: >-
+  A modeler signal chain on screen with a parametric EQ block highlighted after
+  the cab block, showing a gentle low-mid cut and a high-frequency shelf against
+  a guitar frequency curve
+takeaways:
+  - >-
+    A modeler EQ block is a monitoring-correction layer, not a fix for a bad amp
+    model — it makes one patch translate across headphones, monitors, FRFR, and
+    the house PA, which all have different frequency responses.
+  - >-
+    Place the EQ after the cab/IR block and before time-based effects, so it
+    shapes the final voiced output instead of a signal the IR will re-shape
+    unpredictably.
+  - >-
+    If any single band needs more than about ±5 dB, the problem is upstream —
+    amp model, cab IR, or gain staging — not the EQ knob.
+  - >-
+    Build patches through headphones first; they expose low-mid congestion faster
+    than flattering studio monitors, so patches dialed there translate better
+    everywhere else.
+  - >-
+    A modeler's EQ block is static — it can't duck a band only when it spikes.
+    For intermittent harshness (hard-picking ice-pick, guitar-versus-vocal
+    clashes) the dynamic move happens in the DAW or at the console, not in the
+    box.
+faq:
+  - q: Should I use a graphic EQ or a parametric EQ block on a modeler?
+    a: >-
+      Parametric gives you control over the Q (width) of each adjustment, which
+      is more precise for surgical cuts like the low-mid reduction. A graphic EQ
+      is fine for broad shaping. If your modeler offers both, use parametric for
+      the correction EQ after the cab.
+  - q: Why does my patch sound great through headphones but harsh through the PA?
+    a: >-
+      The PA is likely exposing high-frequency content that the headphones roll
+      off naturally. Try an additional -1 to -2 dB cut at 6-8 kHz and check if
+      the harshness resolves. If it only bites on hard picking, that's a dynamic
+      problem a static block can't fully solve — handle it downstream.
+  - q: How much EQ is too much on a modeler patch?
+    a: >-
+      If you're applying more than ±5 dB on any single band, the issue is
+      upstream: the amp model selection, the cab IR, or the gain staging. EQ
+      corrections larger than 5 dB are a sign that something else needs to
+      change, not that the EQ knob needs more rotation.
+  - q: Can I use the amp model's bass, mid, and treble instead of an EQ block?
+    a: >-
+      Use those controls first — they interact with the amp's gain structure in
+      ways that matter. The EQ block after the cab is a separate, additional
+      correction layer for the monitoring environment. Both have roles; they're
+      not interchangeable.
+  - q: Does this EQ approach work for recording direct?
+    a: >-
+      Yes, but the 100 Hz low cut might need to be reduced or removed in a
+      recording context where a separate low-cut is applied at the mix stage.
+      Discuss it with whoever's mixing if you're recording for someone else's
+      project.
 ---
 
 > **Start Here:** Every modeler patch needs an EQ block, not because the amp models sound bad, but because the monitoring environment changes everything. This guide covers where to place the EQ, what each band actually does in a modeler context, and the starting shape that works as a foundation across Helix, Quad Cortex, and Fractal platforms. If you already know you need a 5-band EQ block and just want the starting settings, jump to [The Starting Shape](#the-starting-shape). If you're not sure why your patches sound right through studio monitors but wrong through a PA, start from the top.
@@ -183,22 +239,13 @@ Fractal units have very powerful 10-band graphic EQ and parametric EQ blocks. Th
 
 ---
 
-## Frequently Asked Questions
+## Static vs. Dynamic: The One Thing the Modeler EQ Can't Do
 
-**Should I use a graphic EQ or a parametric EQ block?**
-Parametric gives you control over the Q (width) of each adjustment, which is more precise for surgical cuts like the low-mid reduction. A graphic EQ is fine for broad shaping. If your modeler offers both, use parametric for the correction EQ after the cab.
+Everything above is *static* EQ — a fixed cut or boost that's present on every note. That's the right tool for the constant problems this guide targets: a monitoring imbalance, a too-bright cab, a low-mid buildup. Those don't come and go, so a fixed correction is exactly what they need.
 
-**Why does my patch sound great through headphones but harsh through the PA?**
-The PA is likely exposing high-frequency content that the headphones are rolling off naturally. Try an additional -1 to -2 dB cut at 6–8 kHz and check if the harshness resolves.
+What a modeler EQ block can't do is *dynamic* EQ — cutting a band only when it spikes and leaving it alone the rest of the time. Neither the Helix nor the Quad Cortex ships a true dynamic-EQ block. So when the harshness is intermittent — an ice-pick that only jumps out on hard-picked accents, or a guitar that only needs to move out of a vocal's way when the vocal is loud — the static block over-corrects: a cut deep enough to catch the spikes dulls every soft note. That work belongs downstream, in a DAW plugin or on the FOH console. The full breakdown of when each one wins is in [dynamic EQ vs. static EQ for taming harsh guitar](/blog/dynamic-eq-vs-static-eq-taming-harsh-guitar).
 
-**How much EQ is too much?**
-If you're applying more than ±5 dB on any single band, the issue is upstream: either the amp model selection, the cab IR, or the gain staging. EQ corrections of more than 5 dB are a sign that something else needs to change, not that the EQ knob needs more rotation.
-
-**Can I use the amp model's built-in bass, mid, treble controls instead of an EQ block?**
-Yes, and you should use those controls first; they're interactive with the amp's gain structure in ways that matter. The EQ block after the cab is a separate, additional correction. Both have roles.
-
-**Does this approach work for recording direct?**
-Yes, but the 100 Hz low cut might need to be reduced or removed in a recording context where a separate low-cut is applied at the mix stage. Discuss this with whoever's mixing if you're recording for someone else's project.
+Two places this same EQ block earns its keep beyond amp tones: carving the low-mids out of a long reverb tail so [shimmer sits as a pad instead of mush](/blog/shimmer-reverb-without-bigsky), and taming the piezo quack when you [run an acoustic through the modeler as a DI](/blog/acoustic-guitar-through-modeler-worship-di) with the amp and cab switched off. Same block, same subtractive thinking — different signal.
 
 <SaveThisTone
   title="Every recipe ships a Helix preset"
