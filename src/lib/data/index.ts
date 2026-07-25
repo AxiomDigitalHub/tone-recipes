@@ -58954,6 +58954,7 @@ export const toneRecipes: ToneRecipe[] = [
     title: "Grohl's Monkey Wrench Rhythm Wall",
     slug: "grohl-monkey-wrench-riff",
     created_at: "2026-07-09",
+    updated_at: "2026-07-24",
     description:
       "Monkey Wrench opens The Colour and the Shape at a full sprint — a frantic single-note main riff and a chorus wall of high-gain distortion. Dave Grohl tracked the heavy parts on his Gibson Trini Lopez semi-hollow through a Mesa/Boogie Dual Rectifier, with the lighter verse and the bridge breakdown leaning on a Vox AC30. Producer Gil Norton double-tracked the rhythm hard left and right, and the dirt is all amp — no distortion pedals.",
     tone_context: "riff",
@@ -59144,9 +59145,17 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Decay: 0.8, Predelay: 10, Mix: 12, Level: 0 },
             notes: "Barely-there room to glue the double-tracked guitars — minimal so the chug stays surgical.",
           },
+          {
+            position: 6,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness trim mirroring the Helix tilt. The Recto V30 wall can get fizzy on FRFR — pull below 0.5 to round it off.",
+          },
         ],
         notes:
-          "Gate → comp → Recto (Modern) → V30 4x12 → tiny room. Mirrors the Helix chain. Double-track hard L/R. The dirt is all amp — no drive needed. Search Cortex Cloud for 'Mesa Dual Rectifier' or 'Foo Fighters' captures.",
+          "Gate → comp → Recto (Modern) → V30 4x12 → tiny room → tilt. Mirrors the Helix chain. Double-track hard L/R. The dirt is all amp — no drive needed. Search Cortex Cloud for 'Mesa Dual Rectifier' or 'Foo Fighters' captures.",
       },
       tonex: {
         chain_blocks: [
@@ -59247,6 +59256,7 @@ export const toneRecipes: ToneRecipe[] = [
     title: "George Lynch's Mr. Scary Lead Tone",
     slug: "george-lynch-mr-scary-lead",
     created_at: "2026-07-09",
+    updated_at: "2026-07-24",
     description:
       "Mr. Scary is George Lynch's instrumental calling card — a showcase of screaming legato, whammy dives, and one of the most vocal lead tones in 1980s metal. Lynch drove his ESP into a pair of 1968 Marshall plexis and a 100-watt Super Tremolo, all hot-rodded by Lee Jackson of Metaltronix with 6550 power tubes for extra gain and headroom, pushed harder by an Ibanez Tube Screamer or a Boss GE-7 out front.",
     tone_context: "lead",
@@ -59461,9 +59471,17 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Decay: 1.6, Predelay: 20, Mix: 18, Level: 0 },
             notes: "Medium plate for the lush 80s lead space — enough to float the leads, not so much it washes out the fast runs.",
           },
+          {
+            position: 8,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness trim mirroring the Helix tilt. The hot-rodded plexi can get ice-picky on FRFR — pull below 0.5 if the leads feel harsh.",
+          },
         ],
         notes:
-          "Gate → comp → Green Scream (on) → boosted 1959 SLP → Celestion 4x12 → delay → plate. Mirrors the Helix chain. The gain is a boosted, modded plexi. Search Cortex Cloud for 'George Lynch' or 'modded plexi' captures.",
+          "Gate → comp → Green Scream (on) → boosted 1959 SLP → Celestion 4x12 → delay → plate → tilt. Mirrors the Helix chain. The gain is a boosted, modded plexi. Search Cortex Cloud for 'George Lynch' or 'modded plexi' captures.",
       },
       tonex: {
         chain_blocks: [
@@ -59565,8 +59583,9 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 5, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion)", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 90, HighCut: 8000, Level: 0 }, notes: "Celestion 4x12 close-miked. LowCut 90 tightens the lows; HighCut 8000 tames the modded fizz while keeping the scream." },
           { position: 6, block_name: "Digital Delay", block_category: "Delay", original_gear: "Lead ambience delay", settings: { Time: 380, Feedback: 0.18, Mix: 0.18 }, notes: "Short quarter-note delay to thicken the lead without smearing the legato." },
           { position: 7, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (80s lead ambience)", settings: { Mix: 0.18, Decay: 1.6, Predelay: 20 }, notes: "Medium plate for the lush 80s lead space, floating under the delay." },
+          { position: 8, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness trim mirroring the Helix tilt — pull below 0.5 if the hot-rodded plexi feels ice-picky on FRFR." },
         ],
-        notes: "Gate → comp → TS808 (on) → boosted Plexi 100W → Celestion 4x12 → delay → plate. Boosted, modded plexi for the gain. Legato and whammy do the rest.",
+        notes: "Gate → comp → TS808 (on) → boosted Plexi 100W → Celestion 4x12 → delay → plate → tilt. Boosted, modded plexi for the gain. Legato and whammy do the rest.",
       },
     },
     is_editorial: true,
@@ -59948,6 +59967,7 @@ export const toneRecipes: ToneRecipe[] = [
     title: "Dave Murray's Wrathchild Riff Tone",
     slug: "dave-murray-wrathchild-riff",
     created_at: "2026-07-09",
+    updated_at: "2026-07-24",
     description:
       "Wrathchild kicks off side two of Killers with one of Iron Maiden's most menacing bass-and-guitar riffs. Dave Murray's tone is the New Wave of British Heavy Metal in a nutshell: his black 1957/63 Stratocaster loaded with a DiMarzio Super Distortion, an MXR Distortion+ shoving the front end, into a cranked 50-watt Marshall Super Lead and a Greenback 4x12.",
     tone_context: "riff",
@@ -60156,9 +60176,17 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Decay: 0.6, Predelay: 12, Mix: 12, Level: 0 },
             notes: "Small room to glue the twin guitars — Killers is fairly dry, so keep it subtle.",
           },
+          {
+            position: 7,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness trim mirroring the Helix tilt. The boosted plexi can get bright on FRFR — pull below 0.5 if the riff feels harsh.",
+          },
         ],
         notes:
-          "Gate → comp → Distortion+ (on) → cranked 1959 SLP → Greenback → small room. Mirrors the Helix chain. Hot Strat humbucker + Distortion+ + pushed plexi is the NWOBHM gain. Search Cortex Cloud for 'Marshall Plexi' captures.",
+          "Gate → comp → Distortion+ (on) → cranked 1959 SLP → Greenback → small room → tilt. Mirrors the Helix chain. Hot Strat humbucker + Distortion+ + pushed plexi is the NWOBHM gain. Search Cortex Cloud for 'Marshall Plexi' captures.",
       },
       tonex: {
         chain_blocks: [
@@ -60251,8 +60279,9 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 4, block_name: "Plexi 50W High", block_category: "Amp", original_gear: "Marshall Super Lead 50W (JMP, non-master)", settings: { Drive: 7, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 7.0, Cut: 5.0 }, notes: "Fractal's 50W Plexi cranked for the pushed Super Lead voice — the 50-watter's tighter, earlier breakup suits the gallop. The boost supplies the extra gain." },
           { position: 5, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion Greenback)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 90, HighCut: 8500, Level: 0 }, notes: "Greenback 4x12 close-miked. LowCut 90 keeps the riff tight; HighCut 8500 keeps the bite while trimming fizz." },
           { position: 6, block_name: "Room", block_category: "Reverb", original_gear: "Studio room ambience (Battery Studios)", settings: { Mix: 0.12, Decay: 0.6, Predelay: 12 }, notes: "Small room to glue the twin guitars — subtle for the dry Killers sound." },
+          { position: 7, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness trim mirroring the Helix tilt — pull below 0.5 if the boosted plexi feels harsh on FRFR." },
         ],
-        notes: "Gate → comp → Distortion+ (on) → cranked 50W Plexi → Greenback → small room. Hot humbucker + Distortion+ + pushed plexi for the NWOBHM gain.",
+        notes: "Gate → comp → Distortion+ (on) → cranked 50W Plexi → Greenback → small room → tilt. Hot humbucker + Distortion+ + pushed plexi for the NWOBHM gain.",
       },
     },
     is_editorial: true,
@@ -60267,6 +60296,7 @@ export const toneRecipes: ToneRecipe[] = [
     title: "K.K. Downing's Hell Bent for Leather Riff",
     slug: "kk-downing-hell-bent-for-leather-riff",
     created_at: "2026-07-09",
+    updated_at: "2026-07-24",
     description:
       "Hell Bent for Leather is the leather-and-studs title track that gave Judas Priest their US album name — a lean, driving Marshall riff built for speed. K.K. Downing drove his red 1967 Gibson Flying V into cranked, non-master 50-watt Marshall Super Leads, with a Cry Baby wah for the accents and a Maestro Echoplex trailing the leads. No high-gain channel — the grind is a Flying V slamming a pushed plexi.",
     tone_context: "riff",
@@ -60479,9 +60509,17 @@ export const toneRecipes: ToneRecipe[] = [
             settings: { Decay: 1.4, Predelay: 18, Mix: 13, Level: 0 },
             notes: "Subtle plate for studio glue — Hell Bent for Leather is fairly dry, so keep it low.",
           },
+          {
+            position: 7,
+            block_name: "Tilt EQ",
+            block_category: "EQ",
+            original_gear: "Tilt EQ (global brightness)",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes: "Global brightness trim mirroring the Helix tilt. A dimed plexi can get bright on FRFR — pull below 0.5 if the riff feels harsh.",
+          },
         ],
         notes:
-          "Wah (parked, off) → comp → dimed 1959 SLP → Greenback → tape delay → plate. Mirrors the Helix chain. The grind is a cranked non-master plexi. Search Cortex Cloud for 'Marshall Super Lead' or 'Judas Priest' captures.",
+          "Wah (parked, off) → comp → dimed 1959 SLP → Greenback → tape delay → plate → tilt. Mirrors the Helix chain. The grind is a cranked non-master plexi. Search Cortex Cloud for 'Marshall Super Lead' or 'Judas Priest' captures.",
       },
       tonex: {
         chain_blocks: [
@@ -60583,6 +60621,7 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion Greenback)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 90, HighCut: 8500, Level: 0 }, notes: "Greenback 4x12 close-miked. LowCut 90 keeps the riff tight; HighCut 8500 keeps the cut while trimming fizz." },
           { position: 5, block_name: "Tape Delay", block_category: "Delay", original_gear: "Maestro Echoplex EP-3 (tape echo)", settings: { Time: 300, Feedback: 0.12, Mix: 0.15 }, notes: "Echoplex-style tape delay for the leads — short, low feedback, warm repeats that don't smear the title riff." },
           { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate (Utopia Studios ambience)", settings: { Mix: 0.13, Decay: 1.4, Predelay: 18 }, notes: "Subtle plate for studio glue — low for the dry Hell Bent for Leather sound." },
+          { position: 7, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness trim mirroring the Helix tilt — pull below 0.5 if the dimed plexi feels harsh on FRFR." },
         ],
         notes: "Wah (parked, off) → comp → dimed 50W Plexi → Greenback → tape delay → plate. The grind is a cranked non-master plexi. Flying V bridge humbucker, dig in.",
       },
