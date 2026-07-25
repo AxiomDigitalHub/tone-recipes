@@ -56,6 +56,25 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/blog", request.url), 301);
   }
 
+  // ---- Markdown for Agents: Accept: text/markdown → markdown rendition ----
+  // In-app equivalent of Cloudflare's "Markdown for Agents" (Pro-plan-only,
+  // this zone is Free). Agents that ask for text/markdown get a converted
+  // rendition via the internal /agent-md route; browsers never send this
+  // Accept value, so HTML stays the default. Extension'd paths (llms.txt,
+  // feed.xml, sitemap.xml, …) are already plaintext/XML and stay untouched.
+  const pathname = request.nextUrl.pathname;
+  if (
+    request.method === "GET" &&
+    (request.headers.get("accept") ?? "").includes("text/markdown") &&
+    !pathname.startsWith("/api/") &&
+    !pathname.startsWith("/agent-md") &&
+    !/\.[a-z0-9]+$/i.test(pathname)
+  ) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/agent-md${pathname === "/" ? "" : pathname}`;
+    return NextResponse.rewrite(url);
+  }
+
   // Admin route protection is handled by DashboardShell (auth gate
   // for all /dashboard/* routes) + AdminGuard (role check for
   // super_admin/admin). No middleware check needed — the old one
