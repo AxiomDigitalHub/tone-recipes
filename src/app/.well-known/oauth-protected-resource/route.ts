@@ -19,9 +19,12 @@ export function GET() {
   const metadata = {
     resource: SITE_URL,
     authorization_servers: [issuer],
+    // Genuinely empty: access is governed by account plan/role, not token
+    // scopes. Present (vs. omitted) because auth.md validators require it.
+    scopes_supported: [],
     bearer_methods_supported: ["header"],
     resource_name: "Fader & Knob",
-    resource_documentation: `${SITE_URL}/llms.txt`,
+    resource_documentation: `${SITE_URL}/auth.md`,
   };
 
   return new Response(JSON.stringify(metadata, null, 2), {

@@ -28,6 +28,11 @@ export function GET() {
             type: "text/plain",
             title: "Fader & Knob — full machine-readable content index",
           },
+          {
+            href: `${SITE}/auth.md`,
+            type: "text/markdown",
+            title: "Fader & Knob — agent registration & authentication (auth.md)",
+          },
         ],
         alternate: [
           {
