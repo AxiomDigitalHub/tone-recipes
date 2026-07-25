@@ -90,6 +90,7 @@ Supporting plumbing (shipped 2026-06-10): sitemap `lastmod` now reflects reality
 | robots: fully open to all AI crawlers | ✅ Keep (max citation surface) |
 | llms.txt routes | ✅ Keep, zero maintenance priority |
 | RFC 8288 Link header + RFC 9727 /.well-known/api-catalog (2026-07-23) | ✅ Keep, same tier as llms.txt — catalogs only real surfaces (llms.txt, feeds), zero maintenance priority |
+| OAuth discovery: RFC 9728 /.well-known/oauth-protected-resource + WWW-Authenticate on API 401s (2026-07-25) | ✅ Shipped honest version — F&K is a *resource server*, Supabase is the issuer; metadata points at `$NEXT_PUBLIC_SUPABASE_URL/auth/v1` (which serves its own OIDC discovery + JWKS). /.well-known/openid-configuration and /oauth-authorization-server 307 to Supabase's discovery doc rather than faking an issuer here (would fail RFC 8414 issuer validation). No dynamic client registration on the Supabase side yet, so agents can't self-serve tokens — revisit if that or a real MCP endpoint ships (ToneTrace era) |
 | Cloudflare "Markdown for agents" (2026-07-23) | ✅ Adopt — edge toggle, `Accept: text/markdown` → markdown for agents, HTML unchanged for browsers; zero code |
 | DNS-AID `_agents` SVCB records (2026-07-23) | ❌ Declined — individual IETF draft, no consumers, and we have NO agent endpoint to advertise (fictional-service problem). Revisit when a real MCP/A2A endpoint ships (ToneTrace era). DNSSEC separately = optional hygiene, not an AI lever |
 | FAQPage/HowTo JSON-LD | ✅ Keep, but not an AI lever; on-page content is |

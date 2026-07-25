@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { unauthorized } from "@/lib/oauth-discovery";
 import { createClient } from "@supabase/supabase-js";
 import Anthropic from "@anthropic-ai/sdk";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
@@ -145,10 +146,7 @@ export async function POST(req: NextRequest) {
   // ---- Auth ----
   const authHeader = req.headers.get("authorization");
   if (!authHeader?.startsWith("Bearer ")) {
-    return NextResponse.json(
-      { error: "Sign in to chat about your tone.", redirect: "/login?next=/tone-chat" },
-      { status: 401 },
-    );
+    return unauthorized({ error: "Sign in to chat about your tone.", redirect: "/login?next=/tone-chat" });
   }
   const token = authHeader.replace("Bearer ", "");
   const supabase = createClient(
@@ -160,7 +158,7 @@ export async function POST(req: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) {
-    return NextResponse.json({ error: "Invalid session." }, { status: 401 });
+    return unauthorized({ error: "Invalid session." });
   }
 
   // ---- Env guards (after auth so callers can't probe config) ----

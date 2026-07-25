@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { unauthorized } from "@/lib/oauth-discovery";
 import { createClient } from "@supabase/supabase-js";
 import { getStripe } from "@/lib/stripe";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
@@ -73,13 +74,10 @@ export async function POST(req: NextRequest) {
     // probe whether env vars are configured) ----
     const authHeader = req.headers.get("authorization");
     if (!authHeader?.startsWith("Bearer ")) {
-      return NextResponse.json(
-        {
-          error: "Sign in to start your Pass subscription.",
-          redirect: "/login?next=/pricing",
-        },
-        { status: 401 },
-      );
+      return unauthorized({
+        error: "Sign in to start your Pass subscription.",
+        redirect: "/login?next=/pricing",
+      });
     }
     const token = authHeader.replace("Bearer ", "");
     const supabase = createClient(
@@ -92,7 +90,7 @@ export async function POST(req: NextRequest) {
       data: { user },
     } = await supabase.auth.getUser();
     if (!user) {
-      return NextResponse.json({ error: "Invalid session." }, { status: 401 });
+      return unauthorized({ error: "Invalid session." });
     }
 
     // ---- Pricing env config (after auth so we don't leak env state) ----

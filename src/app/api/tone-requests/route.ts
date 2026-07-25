@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { unauthorized } from "@/lib/oauth-discovery";
 import { createClient } from "@supabase/supabase-js";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
 import { canRequestTone } from "@/lib/tone-request-quota";
@@ -65,7 +66,7 @@ function quotaPayload(q: { remaining: number; limit: number; used: number }) {
 export async function GET(req: NextRequest) {
   const user = await getUserFromRequest(req);
   if (!user) {
-    return NextResponse.json({ error: "Sign in required." }, { status: 401 });
+    return unauthorized({ error: "Sign in required." });
   }
 
   const quota = await canRequestTone(user.id, user.role);
@@ -89,10 +90,7 @@ export async function POST(req: NextRequest) {
   try {
     const user = await getUserFromRequest(req);
     if (!user) {
-      return NextResponse.json(
-        { error: "Sign in to request a tone." },
-        { status: 401 },
-      );
+      return unauthorized({ error: "Sign in to request a tone." });
     }
 
     const body = await req.json();

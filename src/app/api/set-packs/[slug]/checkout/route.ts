@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { unauthorized } from "@/lib/oauth-discovery";
 import { createClient } from "@supabase/supabase-js";
 import {
   stripe,
@@ -41,10 +42,7 @@ export async function POST(
   // Auth
   const authHeader = req.headers.get("authorization");
   if (!authHeader?.startsWith("Bearer ")) {
-    return NextResponse.json(
-      { error: "Sign in to buy this Set Pack.", redirect: "/login" },
-      { status: 401 },
-    );
+    return unauthorized({ error: "Sign in to buy this Set Pack.", redirect: "/login" });
   }
   const token = authHeader.replace("Bearer ", "");
 
@@ -57,7 +55,7 @@ export async function POST(
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) {
-    return NextResponse.json({ error: "Invalid session." }, { status: 401 });
+    return unauthorized({ error: "Invalid session." });
   }
 
   // Already-owned short-circuit. Uses admin client to bypass RLS

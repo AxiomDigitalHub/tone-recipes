@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { unauthorized } from "@/lib/oauth-discovery";
 import { createClient } from "@supabase/supabase-js";
 import { generateWorshipSetPack } from "@/lib/helix/generate-set-pack";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
@@ -50,17 +51,14 @@ export async function GET(req: NextRequest) {
 
   const authHeader = req.headers.get("authorization");
   if (!authHeader?.startsWith("Bearer ")) {
-    return NextResponse.json(
-      { error: "Sign in to download.", redirect: "/login" },
-      { status: 401 },
-    );
+    return unauthorized({ error: "Sign in to download.", redirect: "/login" });
   }
   const supabase = getAnonClient(authHeader);
   const {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) {
-    return NextResponse.json({ error: "Invalid session." }, { status: 401 });
+    return unauthorized({ error: "Invalid session." });
   }
 
   // Access check. Pro subscribers (and admins) get every Set Pack

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { unauthorized } from "@/lib/oauth-discovery";
 import { createClient } from "@supabase/supabase-js";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
 import {
@@ -229,10 +230,7 @@ export async function POST(
     // ======================================================================
     if (type === "preset") {
       if (!user) {
-        return NextResponse.json(
-          { error: "You must be signed in to download presets." },
-          { status: 401 },
-        );
+        return unauthorized({ error: "You must be signed in to download presets." });
       }
 
       if (!platform || !PLATFORM_CONFIG[platform]) {

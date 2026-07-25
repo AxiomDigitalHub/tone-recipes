@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { unauthorized } from "@/lib/oauth-discovery";
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import fs from "node:fs";
 import path from "node:path";
@@ -67,20 +68,14 @@ export async function GET(
   // Auth check — accept Bearer access token from the client.
   const authHeader = req.headers.get("authorization");
   if (!authHeader?.startsWith("Bearer ")) {
-    return NextResponse.json(
-      { error: "Sign in to download presets.", redirect: "/login" },
-      { status: 401 },
-    );
+    return unauthorized({ error: "Sign in to download presets.", redirect: "/login" });
   }
 
   const supabase = getAnonClient(req);
   const { data: userData } = await supabase.auth.getUser();
   const user = userData.user;
   if (!user) {
-    return NextResponse.json(
-      { error: "Session expired. Sign in again.", redirect: "/login" },
-      { status: 401 },
-    );
+    return unauthorized({ error: "Session expired. Sign in again.", redirect: "/login" });
   }
 
   // The recipe catalog is free as of 2026-05-10. Any signed-in user

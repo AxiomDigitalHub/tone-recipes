@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { unauthorized } from "@/lib/oauth-discovery";
 import { createClient } from "@supabase/supabase-js";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
@@ -22,10 +23,7 @@ export async function POST(req: NextRequest) {
     // Get the user's session from the auth header
     const authHeader = req.headers.get("authorization");
     if (!authHeader?.startsWith("Bearer ")) {
-      return NextResponse.json(
-        { success: false, error: "Not authenticated" },
-        { status: 401 },
-      );
+      return unauthorized({ success: false, error: "Not authenticated" });
     }
 
     const token = authHeader.replace("Bearer ", "");

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { unauthorized } from "@/lib/oauth-discovery";
 import { createClient } from "@supabase/supabase-js";
 import { stripe } from "@/lib/stripe";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
@@ -24,10 +25,7 @@ export async function POST(req: NextRequest) {
     // Authenticate user via Bearer token
     const authHeader = req.headers.get("authorization");
     if (!authHeader?.startsWith("Bearer ")) {
-      return NextResponse.json(
-        { error: "You must be signed in to manage billing." },
-        { status: 401 },
-      );
+      return unauthorized({ error: "You must be signed in to manage billing." });
     }
 
     const token = authHeader.replace("Bearer ", "");
@@ -41,7 +39,7 @@ export async function POST(req: NextRequest) {
       data: { user },
     } = await supabase.auth.getUser();
     if (!user) {
-      return NextResponse.json({ error: "Invalid session." }, { status: 401 });
+      return unauthorized({ error: "Invalid session." });
     }
 
     // Fetch the user's Stripe customer ID from their profile
