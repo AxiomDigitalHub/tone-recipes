@@ -289,3 +289,32 @@ Among the things that would kill a product here: **being mistaken for AI slop.**
 That is not an argument against our authorship posture — §9 showed disclosure is what worship audiences actually want. It is an argument that **in this segment, disclosure without demonstrated verification reads as slop.** Audio demos and honest "starting point, here's how to adapt it to your pickups" framing are the price of entry. Related: *"the most annoying thing about selling patches is that you cant test them before buying."*
 
 One reputational note worth internalising — the critique this category attracts is that sellers *"intentionally leave an information vacuum so that they don't cannibalize their preset pack sales."* Publishing the reasoning alongside the numbers inoculates against it, and it is exactly what free exchanges never do. That is the recipe model, validated from the outside.
+
+---
+
+## 11. Addendum — routing module, and two corrections to Wave One
+
+The routing research finished last and produced `ROUTING_AND_MIX_ARCHITECTURE.md` (1,614 lines, ~90 cited sources). It corrects two claims **I made in Wave One**, which is worth stating plainly because both were repeated as fact:
+
+1. **Pearl Jam's "Black" is not a documented parallel blend.** McCready's own account describes a JCM800 for leads and a Bassman for clean parts — two amps doing two jobs, sequentially. Wave One listed it among "documented two-amp records flattened to serial chains." It isn't one, and the site apparently states the blend framing too. Under-sourced; fix both.
+2. **"Two mid-gain overdrives in parallel is measurably worse" is not supported.** Lehle, That Pedal Show and Hamilton Effects all describe parallel as *different*, not worse; the real documented downsides are polarity mismatch and buffered-split loading. Our series preference is taste plus DSP budget, not physics — say so.
+
+Also corrected: "Fractal auto-compensates delay across parallel rows" is not in the manual (the only Delay Compensation there is in the IR-capture utility); Eric Johnson and *Nevermind* are amp-selection and overdub stories, not blends; and sources disagree on Tool's third amp (the engineer of *10,000 Days* says Mesa, not Bogner).
+
+### The five rules of thumb worth internalising
+
+1. **Mix 50 is the only number that means the same thing on every platform.** All four mix laws converge there. Below it they diverge hard: at Mix 20 the wet level spans −14.0 to −7.0 dB across platforms; at Mix 10 the spread is **9.6 dB**. Only 50 and 100 port without conversion — which means most of our published Mix values are platform-specific in a way we never disclosed.
+2. **On Kemper and the Fractal Delay block, dial our published Mix down by about a third at the quiet end** — both use a documented 50/50 law where dry stays at unity until Mix 50.
+3. **An even Helix split-and-merge nets +3 dB** (−6 dBFS in, −9 per leg, −3 merged; confirmed by Line 6 staff). And **HX Stomp ships that merge mixer at +3.0 dB where Floor/LT/Native ship 0.0** — the same recipe is 3 dB hotter on a Stomp, which is a real, unflagged difference for our #1 target device.
+4. **Short micro-delays do far more mono damage than long ones** — a 1 ms Haas offset puts comb nulls at 500 Hz spaced 1 kHz, straight through the guitar's body and presence; a 20 ms offset puts them at 25/75/125 Hz, below the guitar entirely. This inverts the usual advice.
+5. **A guitar speaker is a 5 kHz low-pass with a personality; an FRFR box isn't.** The fizz you're cutting comes from the IR's close-miked capture, not the wedge. FRFR starting points: low cut 72–150 Hz, high cut 6–9.5 kHz at 12 dB/oct — but Helix cab/IR filters are 6 dB/oct, so 4.7–5.5 kHz there ≈ 8–10 kHz on Global EQ. Into a real cab, turn the high cut off entirely.
+
+### The Mix migration, measured exactly
+
+**1,696 `Mix:` values — 1,097 written 0–100, 596 written 0–1.** (My earlier hand count of 1,013/585 was less precise; these supersede it.) **192 of 195 recipes contain both conventions**, and 54 platform blocks contain both *inside a single platform*. Helix skews 482:5 toward percent; Fractal runs 426:57 the other way.
+
+Fourteen values sit in the ambiguous 1.0–5.0 band and must be hand-fixed before any automated migration — they are indistinguishable by rule. One is a confirmed defect, verified at `src/lib/data/index.ts:5444`: `gilmour-comfortably-numb-solo`'s Fractal Plate reads `Mix: 3.0` while all three sibling platforms say `25`, and the block's own note promises "the lush spaciousness essential to Gilmour's lead tone" — which 3% cannot deliver. That is a recipe that sounds wrong for a reader who follows it exactly.
+
+### Honest limits
+
+Section 10 of the module lists 16 things it could not verify. The load-bearing one: **the Helix and Quad Cortex mix laws are unpublished**, leaving a 4–6 dB uncertainty at the centre of our most-used platform. The module includes a 10-minute measurement procedure to settle it — the single highest-value hour of hardware time available, since it retroactively validates or corrects every Mix number we have ever published.
