@@ -39,11 +39,28 @@ documentation gaps in the catalogue as it stands:
    part collapses when FOH sums to mono. Worship players are the
    segment most likely to hit this and the least likely to have a way
    to diagnose it.
+
+   The good news, and the reason this rule is cheap: **253 of 253 Helix
+   cab blocks already have `Delay: 0` and `Pan: 0.5`.** The catalogue
+   has no Haas offsets and no hard pans, so R2's mechanical
+   cross-checks pass today and the rule's job is to keep it that way
+   while ~8 recipes get a hand-written `mono_note`.
 4. **33 recipes describe a blend in prose and a single serial chain in
-   data.** Mike McCready's *Black*, Adam Jones' three-amp wall, Josh
-   Homme's bass-amp blend, Slipknot's two-amp stereo pair — the
-   `notes` say "blended with," the `chain_blocks` say one amp. The
-   format cannot express a split, so the recipe silently flattens.
+   data.** Adam Jones' three-amp wall, SRV's two-amp rig, Josh Homme's
+   bass-amp blend, Slipknot's two-amp stereo pair — the `notes` say
+   "blended with," the `chain_blocks` say one amp. The format cannot
+   express a split, so the recipe silently flattens.
+
+   **Caveat that has to travel with this rule:** per
+   [ROUTING_AND_MIX_ARCHITECTURE.md § 9.5](ROUTING_AND_MIX_ARCHITECTURE.md#95-the-dual-amp-records--whats-actually-documented),
+   most of those 33 are *not* documented parallel blends. Mike
+   McCready's own quote about *Black* describes a JCM800 for leads and
+   a Bassman for clean parts — two amps doing two jobs, not two amps
+   summed. Eric Johnson and Nirvana's *Nevermind* are amp-selection and
+   overdub stories respectively. Adding `routing` to a recipe on
+   historical grounds requires a source that says **simultaneous**.
+   Several recipes need their prose corrected *before* they get a
+   routing field, not after.
 
 ---
 
@@ -143,14 +160,26 @@ Cheap to backfill: ~8 recipes need a real answer, the rest are `true`.
   check: (r) => {
     if (r.mono_safe === undefined) return "missing mono_safe";
     if (r.mono_safe === true) {
-      // cross-check: flag a `true` that contradicts the blocks present
+      // cross-check 1: a `true` that contradicts a stereo-identity block
       const RISK = /rotary|leslie|ping.?pong|stereo (chorus|widener|delay|spread)|dimension d|haas/i;
-      const hit = Object.values(r.platform_translations)
-        .flatMap((t) => t?.chain_blocks ?? [])
-        .find((b) => RISK.test(b.block_name));
-      return hit
-        ? `mono_safe: true but chain has "${hit.block_name}" — verify or downgrade`
-        : null;
+      const blocks = Object.values(r.platform_translations)
+        .flatMap((t) => t?.chain_blocks ?? []);
+      const hit = blocks.find((b) => RISK.test(b.block_name));
+      if (hit) return `mono_safe: true but chain has "${hit.block_name}" — verify or downgrade`;
+
+      // cross-check 2: the mechanical mono killers, per
+      // ROUTING_AND_MIX_ARCHITECTURE.md §8.4. These are always wrong on a
+      // mono_safe: true recipe, regardless of block name.
+      for (const b of blocks) {
+        const s = b.settings ?? {};
+        if (typeof s.Delay === "number" && s.Delay > 0 && /cab|ir/i.test(b.block_category))
+          return `${b.block_name}: cab/IR Delay=${s.Delay} is a Haas widener — combs in mono`;
+        if (typeof s.Polarity === "string" && /invert/i.test(s.Polarity))
+          return `${b.block_name}: Polarity=${s.Polarity} nulls when summed`;
+        if (typeof s.Pan === "number" && (s.Pan <= 0.15 || s.Pan >= 0.85))
+          return `${b.block_name}: Pan=${s.Pan} is near-hard — loses 6 dB in mono`;
+      }
+      return null;
     }
     return (r.mono_note?.length ?? 0) >= 40
       ? null
@@ -322,21 +351,24 @@ export interface ToneRecipe {
 }
 ```
 
-### Worked example — `mccready-black-solo`
+### Worked example A — a documented simultaneous blend
 
-The recipe's prose already describes a two-amp blend; today the data
-flattens it to one amp. With `routing` it can say what it means:
+Adam Jones' rig is one of the few that passes the "simultaneous" test:
+a Marshall Super Bass and a Diezel VH4 running at once, with a third
+amp rotating (sources disagree between a Bogner Überschall and a Mesa —
+the recipe should say so).
 
 ```ts
 helix: {
-  chain_blocks: [ /* … 0: comp, 1: drive, 2: Tweed Blues Nrm, 3: 4x10 Tweed P10R,
-                        4: Brit 2204, 5: 4x12 Greenback 25, 6: delay, 7: reverb … */ ],
+  chain_blocks: [ /* … 0: gate, 1: comp, 2: drive, 3: Brit Plexi Brt,
+                        4: 2x15 Brute, 5: Das Benzin Mega, 6: 4x12 Uber V30,
+                        7: delay … */ ],
   routing: {
-    split_after: 2,
+    split_after: 3,
     split_type: "y",
     paths: [
-      { id: "A", block_positions: [2, 3], role: "Bassman — lows and body" },
-      { id: "B", block_positions: [4, 5], role: "JCM800 — mids and bite" },
+      { id: "A", block_positions: [3, 4], role: "Super Bass — low-end weight" },
+      { id: "B", block_positions: [5, 6], role: "VH4 — gain and cut" },
     ],
     merge: {
       a_level_db: -3.0,
@@ -347,10 +379,13 @@ helix: {
     },
     notes:
       "Two amps, not one amp twice — the split earns its DSP because the " +
-      "voicings barely overlap. Merge levels sit at -3.0 dB each because an " +
-      "even Helix split-and-merge nets +3 dB on correlated content; pulling " +
-      "both legs back 3 dB restores unity so bypassing the split doesn't jump. " +
-      "Pans stay inside ±25 so the blend survives a mono FOH.",
+      "voicings barely overlap (see ROUTING_AND_MIX_ARCHITECTURE.md §2.2 Q2, " +
+      "the 3 dB test). Merge levels sit at -3.0 dB each because an even Helix " +
+      "split-and-merge nets +3 dB on correlated content; pulling both legs " +
+      "back 3 dB restores unity so bypassing the split doesn't jump. Pans " +
+      "stay inside ±25 so the blend survives a mono FOH. Calibrated on a " +
+      "Helix LT — an HX Stomp ships its Merge Mixer at +3.0 dB, so zero it " +
+      "first.",
   },
   notes: "… FRFR-calibrated …",
 },
@@ -359,6 +394,22 @@ helix: {
 `mono_safe: true` here — ±25 pan is a level trim in mono, not a
 cancellation. Hard-panning the same two cabs would make it
 `"conditional"`.
+
+### Worked example B — a recipe that should NOT get a `routing` field
+
+`mccready-black-solo` currently reads as a two-amp blend in prose. The
+only primary quote available describes **two amps for two different
+parts**: a JCM800 with a 4×12 for the lead, a Fender Bassman for the
+clean sections. That is a snapshot/scene story, not a parallel split.
+
+The correct fix is to leave `routing` undefined, correct the prose, and
+express the two amps as two **snapshots** or a default-off alternate
+amp block — which the current format already supports. A `routing`
+field added here would encode a claim the source doesn't make.
+
+This is the case R3's `routing.notes` requirement is designed to catch:
+if you can't write a sentence saying why the split exists, the split
+shouldn't exist.
 
 ---
 
