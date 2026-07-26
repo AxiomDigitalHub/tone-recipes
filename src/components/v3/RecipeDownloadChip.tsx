@@ -32,9 +32,9 @@ export default function RecipeDownloadChip({ slug, platform }: Props) {
     return () => obs.disconnect();
   }, []);
 
-  const format: "hlx" | "tsl" | null =
-    platform === "helix" ? "hlx" : platform === "katana" ? "tsl" : null;
-  if (!format) return null;
+  const downloadable =
+    platform === "helix" || platform === "quad_cortex" || platform === "katana";
+  if (!downloadable) return null;
 
   return (
     <div
@@ -43,10 +43,9 @@ export default function RecipeDownloadChip({ slug, platform }: Props) {
     >
       <PresetDownloadButton
         recipeSlug={slug}
-        format={format}
+        platform={platform}
         source="floating_chip"
         className="recipe-dl-chip-btn"
-        label={`Download .${format} ↓`}
       />
     </div>
   );

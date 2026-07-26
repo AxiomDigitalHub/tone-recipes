@@ -343,18 +343,12 @@ export default async function PreviewRecipePage({
             ))}
           </div>
           <div className="platform-switcher-exports">
-            {platform === "helix" && (
+            {(platform === "helix" ||
+              platform === "quad_cortex" ||
+              platform === "katana") && (
               <PresetDownloadButton
                 recipeSlug={recipe.slug}
-                format="hlx"
-                source="platform_switcher"
-                className="export"
-              />
-            )}
-            {platform === "katana" && (
-              <PresetDownloadButton
-                recipeSlug={recipe.slug}
-                format="tsl"
+                platform={platform}
                 source="platform_switcher"
                 className="export"
               />

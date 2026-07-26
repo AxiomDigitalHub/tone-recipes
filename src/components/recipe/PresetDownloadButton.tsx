@@ -7,37 +7,51 @@ import { createBrowserClient } from "@/lib/db/client";
 import { toast } from "@/lib/stores/toast-store";
 import { track } from "@/lib/analytics";
 
+/** Platforms the generator route can build a preset for. */
+export type DownloadablePlatform = "helix" | "quad_cortex" | "katana";
+
 interface PresetDownloadButtonProps {
   recipeSlug: string;
-  format: "hlx" | "tsl";
+  platform: DownloadablePlatform;
   /** Where this button lives — for analytics ("platform_switcher", "floating_chip", etc.). */
   source: string;
-  /** Optional override; falls back to "Download .hlx ↓" / "Download .tsl ↓". */
+  /** Optional override; falls back to "Download .hlx pack ↓" etc. */
   label?: string;
   /** Tailwind classes for the rendered button. */
   className?: string;
   children?: React.ReactNode;
 }
 
-const FORMAT_LABEL: Record<"hlx" | "tsl", string> = {
-  hlx: "Download .hlx ↓",
-  tsl: "Download .tsl ↓",
+const PLATFORM_META: Record<
+  DownloadablePlatform,
+  { extension: string; label: string }
+> = {
+  helix: { extension: "hlx", label: "Download .hlx pack ↓" },
+  quad_cortex: { extension: "json", label: "Download QC pack ↓" },
+  katana: { extension: "tsl", label: "Download .tsl pack ↓" },
 };
 
 /**
  * Auth-gated preset download.
  *
+ * Hits POST /api/recipes/<slug>/download, which GENERATES the preset from
+ * the recipe's platform translation and returns a zip with the preset plus
+ * TONE-NOTES / INSTALL / IF-IT-SOUNDS-WRONG sidecars. It previously called
+ * GET /api/preset/<slug>, which served pre-built files from `presets/` —
+ * that directory holds 50 .hlx and zero .tsl against ~195 recipes, so most
+ * Helix downloads and every Katana download 404'd after sign-in.
+ *
+ * The generator route also enforces the free tier's 5-per-month quota
+ * (PRICING_MODEL.md) and answers 402 when it's spent; that maps to an
+ * upgrade toast pointing at /pricing rather than a generic error.
+ *
  * Behaviour by user state:
  *   - anonymous → sign-in toast + redirect to /login?return=/recipe/<slug>
- *   - signed in → fetch with bearer token, save blob, success toast
- *
- * As of 2026-05-10 there is no quota — the catalog is free. Sign-in
- * remains for analytics and abuse rate-limiting. Fires
- * `recipe_download_click` on every press for funnel visibility.
+ *   - signed in → POST with bearer token, save zip, success toast
  */
 export default function PresetDownloadButton({
   recipeSlug,
-  format,
+  platform,
   source,
   label,
   className,
@@ -47,8 +61,15 @@ export default function PresetDownloadButton({
   const router = useRouter();
   const [busy, setBusy] = useState(false);
 
+  const meta = PLATFORM_META[platform];
+
   const onClick = useCallback(async () => {
-    track("recipe_download_click", { recipe_slug: recipeSlug, format, source });
+    track("recipe_download_click", {
+      recipe_slug: recipeSlug,
+      format: meta.extension,
+      platform,
+      source,
+    });
 
     // Anon → kick to sign-in. Use a query param so /login can redirect
     // back here after success.
@@ -76,29 +97,45 @@ export default function PresetDownloadButton({
       }
 
       const res = await fetch(
-        `/api/preset/${encodeURIComponent(recipeSlug)}?format=${format}`,
+        `/api/recipes/${encodeURIComponent(recipeSlug)}/download`,
         {
-          method: "GET",
-          headers: { Authorization: `Bearer ${session.access_token}` },
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${session.access_token}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ type: "preset", platform }),
         },
       );
 
       if (!res.ok) {
-        const data = (await res.json().catch(() => ({}))) as { error?: string };
+        const data = (await res.json().catch(() => ({}))) as {
+          error?: string;
+          upgrade_url?: string;
+        };
+        // 402 = monthly free quota spent. Send them to /pricing, not an
+        // error dead-end.
+        if (res.status === 402) {
+          toast.info(data.error ?? "You've used your free downloads this month.", {
+            href: data.upgrade_url ?? "/pricing",
+            label: "See Pass",
+          });
+          return;
+        }
         toast.error(data.error ?? "Couldn't download. Try again.");
         return;
       }
 
       const blob = await res.blob();
-      saveBlob(blob, `${recipeSlug}.${format}`);
-      toast.success(`Downloaded ${recipeSlug}.${format}.`);
+      saveBlob(blob, filenameFrom(res, recipeSlug));
+      toast.success("Downloaded — unzip and read INSTALL.txt first.");
     } catch (err) {
       console.error("preset download failed:", err);
       toast.error("Couldn't download. Try again.");
     } finally {
       setBusy(false);
     }
-  }, [user, busy, recipeSlug, format, source, router]);
+  }, [user, busy, recipeSlug, platform, meta.extension, source, router]);
 
   return (
     <button
@@ -108,9 +145,16 @@ export default function PresetDownloadButton({
       className={className}
       aria-busy={busy}
     >
-      {children ?? (busy ? "Downloading…" : label ?? FORMAT_LABEL[format])}
+      {children ?? (busy ? "Building…" : label ?? meta.label)}
     </button>
   );
+}
+
+/** Prefer the server's Content-Disposition filename; fall back to the slug. */
+function filenameFrom(res: Response, slug: string): string {
+  const header = res.headers.get("content-disposition") ?? "";
+  const match = header.match(/filename="([^"]+)"/);
+  return match?.[1] ?? `${slug}-pack.zip`;
 }
 
 function saveBlob(blob: Blob, filename: string) {
