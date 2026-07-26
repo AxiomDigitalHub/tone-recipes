@@ -3896,3 +3896,70 @@ queue still **empty of automatable items — S5 (Complete Helix pillar) + S6 (Ka
 standing debt (now deferred 5 runs); escalate to a dedicated human-in-the-loop session.** Cluster fan-out
 queue remaining: nashville-numbers/Jess, volume-pedal-placement/Sean, V1 single-coil-hum/Elena,
 V2 katana-gen3/Jess, V3 ambient-headphones-mono/Dev, plus today's W1/Sean, W2/Dev, W3/Carl.
+
+---
+
+## ⭐ OWNER PRIORITY INJECTION — 2026-07-24: "Ask Axl" explainer (fk-staff) — TAKE FIRST NEXT RUN
+
+**This overrides normal queue order.** Daniel requested a blog post about **Axl** (Ask Axl, the
+site's AI tone tech). Take it as **slot 1 of the next run's new posts.** It is a **first-party
+product post**, not a pseudonymous SEO recipe — the usual rules bend accordingly:
+
+- **Byline: `fk-staff` (REQUIRED, non-negotiable).** Do NOT assign a guitarist persona and do NOT
+  write in a persona voice. Use the editorial-neutral fk-staff voice (clean, precise, no persona
+  quirks). This byline requirement overrides the persona-diversity nudge for this one slot; the
+  fk-staff velocity cap does not block it (owner-directed product post).
+- **Angle: explainer + SEO how-to combined** (Daniel's call). Lead with a genuine, keyword-targeted
+  how-to ("how to get *any* guitar tone on your Helix/QC — just ask Axl") that *also* serves as the
+  meet-Axl explainer. Conversion + discovery in one post.
+- **Slug:** `ask-axl-ai-guitar-tone-assistant` (verified free 2026-07-24).
+- **Category:** `platform-guide` (first-party tool guide; alt acceptable: `modeler-masterclass`).
+- **Target queries:** "ai guitar tone assistant," "ask axl," "how to dial in guitar tone helix,"
+  "guitar tone ai," "how to get [artist] tone on a modeler," "chatgpt for guitar tone."
+
+**Facts to use — VERIFIED from the codebase 2026-07-24 (`src/app/tone-chat/page.tsx`,
+`src/app/api/tone-chat/route.ts`). Do NOT invent features beyond this list; if unsure, omit.**
+
+- **What it is:** "Ask Axl" — an AI tone tech at **[/tone-chat](/tone-chat)**. Persona in-product:
+  a road-dog guitar lifer, "forty years and four thousand shows," warm, plainspoken, ruthlessly
+  specific ("mids at 6, treble back to 4" over "adjust your EQ"), kills gear myths, never punches
+  down at beginners.
+- **How to use it (the how-to spine):** (1) sign in — free account, doubles as lead capture;
+  (2) pick your rig — **Helix, Quad Cortex, Fractal, Kemper, TONEX, Boss Katana, or a real
+  pedalboard** (the rig biases retrieval + the answer's block names); (3) describe the sound — an
+  **artist, a song, a feel, or a problem** you're fighting; (4) Axl returns a real signal chain +
+  exact settings, **grounded in the recipe archive** (RAG — not free-hallucinating), every recipe
+  it names is a **link to the full-settings/preset page**; (5) concrete edits render as an
+  interactive **fk-chain schematic card** (real knobs, blocks in signal order); (6) if a specific
+  song/artist tone **isn't in the catalog yet**, Axl gives general advice + an **fk-request card** —
+  tap to file it → it enters the build queue → the recipe gets built and published.
+- **Tiers/limits:** free = **10 messages/day** on Claude Haiku; **Pass+ = 200/day** on Claude
+  Sonnet (smarter tone advice). (State as "free vs. Pass" — avoid hard-coding the model version in
+  case it changes; the caps are current as of 2026-07-24.)
+- **The problem it solves / the why:** natural-language front door to a 370+ recipe archive
+  (describe the sound in your head instead of keyword-hunting); translates *any* tone to *your*
+  modeler's language; closes the gap when a tone isn't built yet (the request pipeline); grounded
+  in real recipes so mentions link to reproducible settings.
+- **Honesty framing (REQUIRED — per the experiment-page honesty rules):** label Axl clearly as AI,
+  answering from the recipe archive + general tone knowledge; part of **[the open experiment](/experiment)**;
+  "trust your ears over any setting on a screen; when Axl gets one wrong, tell us and the fix ships
+  in public." Do NOT imply Axl is a human or a real 40-year veteran — the bio is an in-product
+  persona; the post must not present it as a real person's résumé.
+- **Non-commodity hook (Gate 7):** no competitor has an AI tone assistant grounded in a public,
+  reproducible recipe archive that outputs an interactive chain diagram AND files a build request
+  when the tone's missing. Show, don't tell: include one concrete worked example (e.g., "type
+  *SRV Texas Flood lead on a Helix* → here's the chain Axl hands back," using a real recipe that
+  exists — verify the slug at build time).
+- **Internal links:** [/tone-chat](/tone-chat) (primary CTA), [/experiment](/experiment), the tone
+  request pipeline, 2-3 real recipe pages used in the worked example, and a couple of settings
+  guides (e.g. [modeler-eq-guide](/blog/modeler-eq-guide)). Verify every slug at build time.
+- **AEO surface:** `takeaways:` (what Axl is, the rig list, free-vs-Pass caps, the request handoff,
+  the honesty note) + `faq:` ("Is Ask Axl free?", "What rigs does it support?", "Is Axl accurate /
+  is it just ChatGPT?", "What if my tone isn't in the archive?", "Does Axl work for pedalboards
+  too?"). Frontmatter `faq:`, not the `<FAQ>` component.
+
+**Distribution tie-in (optional, if it fits naturally):** the post itself is a shareable asset —
+consider a soft "share the chain Axl builds you" line, but don't force it. Broader share/distribution
+work (Bing Webmaster Tools verify + indexation audit, Brave check, on-page share affordances,
+shareable Axl chain permalinks, tone-demo Shorts) is tracked separately with Daniel — not part of
+this post's scope.
