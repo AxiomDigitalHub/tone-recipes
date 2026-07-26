@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import {
   songs,
@@ -67,7 +67,9 @@ export default async function PreviewSongDetail({
   // detour. Send the user straight to the recipe — the Listen/Tab CTAs
   // and album art now live on the recipe head, so nothing is lost.
   if (recipes.length === 1) {
-    redirect(`/recipe/${recipes[0].slug}`);
+    // 308, not 307: this alias is permanent and is linked from every
+    // recipe breadcrumb, so link equity must consolidate on the recipe.
+    permanentRedirect(`/recipe/${recipes[0].slug}`);
   }
   const songIdx = songs.findIndex((s) => s.slug === slug) + 1;
 

@@ -33,7 +33,8 @@ export async function generateMetadata({
   if (!g) {
     return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
   }
-  const title = `${g.name} — Recipes & modeler equivalents | Fader & Knob`;
+  // Brand comes from the root layout's title template — don't repeat it.
+  const title = `${g.name} — Recipes & modeler equivalents`;
   const description = `${g.name} on Fader & Knob: which recipes use it, how to model it on Helix, Quad Cortex, TONEX, Fractal, and Kemper.`;
   return {
     title,

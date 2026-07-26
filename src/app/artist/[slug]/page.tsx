@@ -35,7 +35,10 @@ export async function generateMetadata({
   if (!a) {
     return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
   }
-  const title = `${a.name} Tone Recipes - Fader & Knob`;
+  // No brand suffix here — the root layout's title template appends
+  // " | Fader & Knob" (src/app/layout.tsx). Spelling it out twice bloated
+  // every artist SERP title past 60 chars.
+  const title = `${a.name} Tone Recipes`;
   const description = (a.bio ?? "").slice(0, 160);
   return {
     title,

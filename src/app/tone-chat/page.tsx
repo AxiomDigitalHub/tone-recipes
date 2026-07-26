@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import ToneChatClient from "@/components/tone-chat/ToneChatClient";
 
 export const metadata: Metadata = {
-  title: "Ask Axl — Fader & Knob's tone tech",
+  title: "Ask Axl — AI tone tech",
   description:
     "Ask Axl — a road-dog guitar lifer with forty years of tone on tap, grounded in the full Fader & Knob recipe archive. Describe the sound in your head and get the signal chain, the settings, and the recipe to build it on your modeler.",
   openGraph: {

@@ -38,7 +38,8 @@ export async function generateMetadata({
     return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
   }
   const recipeCount = getRecipesForPlatform(slug as Platform).length;
-  const title = `${p.label}${p.manufacturer ? ` (${p.manufacturer})` : ""} Tone Recipes — Fader & Knob`;
+  // Brand comes from the root layout's title template — don't repeat it.
+  const title = `${p.label}${p.manufacturer ? ` (${p.manufacturer})` : ""} Tone Recipes`;
   const description = `${recipeCount} tone recipes for the ${p.label}. Full signal chains, exact block settings, and presets ready to import.`;
   return {
     title,

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LegalShell } from "@/components/v3/LegalShell";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Fader & Knob",
+  title: "Terms of Service",
 };
 
 export default function TermsPage() {

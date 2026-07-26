@@ -4,6 +4,12 @@ import { getAllPosts } from "@/lib/blog";
 import { getAllWriters } from "@/lib/writers";
 import { getAllPlatforms } from "@/lib/data/platforms";
 import { getAllNewsPosts } from "@/lib/news";
+import type { Platform } from "@/types/recipe";
+
+/** Newest date in the list, or `fallback` when the list is empty. */
+function maxDate(dates: Date[], fallback: Date): Date {
+  return dates.reduce((max, d) => (d > max ? d : max), fallback);
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://faderandknob.com";
@@ -31,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/community`, lastModified: launchDate, changeFrequency: "weekly", priority: 0.7 },
     { url: `${baseUrl}/platforms`, lastModified: latestBlogDate, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/pricing`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.6 },
+    // Indexable pages that were missing from the sitemap entirely.
+    { url: `${baseUrl}/about`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${baseUrl}/tone-chat`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/set-packs`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/set-packs/worship`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/terms`, lastModified: launchDate, changeFrequency: "yearly", priority: 0.3 },
     // Pillar hubs — topical authority anchors. Indexed at high priority since
     // they're the internal-linking backbone for every leaf tone-recipe post.
     { url: `${baseUrl}/guides`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.9 },
@@ -78,9 +90,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // Song hub pages. Only songs with 2+ recipes: /song/<slug> redirects
+  // straight to the recipe when there's exactly one, so listing those
+  // would put a redirect in the sitemap. These were missing entirely
+  // even though every recipe breadcrumb links to them.
+  const recipesBySong = new Map<string, typeof toneRecipes>();
+  for (const recipe of toneRecipes) {
+    const list = recipesBySong.get(recipe.song_slug);
+    if (list) list.push(recipe);
+    else recipesBySong.set(recipe.song_slug, [recipe]);
+  }
+
+  const songPages: MetadataRoute.Sitemap = songs
+    .filter((s) => (recipesBySong.get(s.slug)?.length ?? 0) > 1)
+    .map((s) => ({
+      url: `${baseUrl}/song/${s.slug}`,
+      lastModified: maxDate(
+        (recipesBySong.get(s.slug) ?? []).map(recipeDate),
+        launchDate,
+      ),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }));
+
+  // Gear lastmod = newest recipe referencing that gear. It was frozen at
+  // launchDate forever, which trains crawlers to ignore our lastmods.
+  const latestByGear = new Map<string, Date>();
+  for (const recipe of toneRecipes) {
+    const d = recipeDate(recipe);
+    for (const node of recipe.signal_chain ?? []) {
+      if (!node.gear_slug) continue;
+      const prev = latestByGear.get(node.gear_slug);
+      if (!prev || d > prev) latestByGear.set(node.gear_slug, d);
+    }
+  }
+
   const gearPages: MetadataRoute.Sitemap = gearItems.map((gear) => ({
     url: `${baseUrl}/gear/${gear.slug}`,
-    lastModified: launchDate,
+    lastModified: latestByGear.get(gear.slug) ?? launchDate,
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
@@ -113,12 +160,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     }));
 
+  // Platform lastmod = newest recipe carrying a translation for it, not
+  // "whenever we last published any blog post".
   const platformPages: MetadataRoute.Sitemap = getAllPlatforms().map((p) => ({
     url: `${baseUrl}/platforms/${p.id}`,
-    lastModified: latestBlogDate,
+    lastModified: maxDate(
+      toneRecipes
+        .filter((r) => r.platform_translations?.[p.id as Platform])
+        .map(recipeDate),
+      launchDate,
+    ),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
-  return [...staticPages, ...recipePages, ...artistPages, ...gearPages, ...blogPages, ...newsPages, ...platformPages, ...writerPages];
+  return [...staticPages, ...recipePages, ...artistPages, ...songPages, ...gearPages, ...blogPages, ...newsPages, ...platformPages, ...writerPages];
 }
