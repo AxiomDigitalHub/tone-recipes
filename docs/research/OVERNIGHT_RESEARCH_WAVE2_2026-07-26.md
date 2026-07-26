@@ -236,3 +236,56 @@ Accept: Ryan Kennedy plays acoustic for Charity Gayle (Casey Moore is the electr
 **Rejected:** the claim that Lincoln Brewster's modeler is unconfirmed and our deep-dive should be downgraded. That agent was working past an exhausted search budget through fallback endpoints, and our `LINCOLN_BREWSTER_DEEP_DIVE.md` is the better-sourced document — it carries a direct Brewster quote on Helix and notes his published patch libraries across POD X3 / HD500 / HD500X / Helix. Not every agent claim outranks what we already hold; this one doesn't.
 
 **A demand proxy worth adopting:** "does Worship Tutorials sell a per-song electric preset for this?" is a cheap, commercially-motivated read on whether a song has a real guitar part. It surfaced confirmed gaps — *So Will I*, *Thank You Jesus for the Blood*, *Evidence* — and the **Lincoln Brewster anomaly**: the most recipe-worthy guitar content in worship, with no song-specific competition at all.
+
+---
+
+## 10. Addendum — the Katana buyer (and a contradiction worth keeping)
+
+A final research stream reported after §9, reading r/BossKatana, Sweetwater reviews and the JustinGuitar forum in full with permalinks and dates. It is the best-evidenced customer work in the run — and it **partly contradicts §9**, which concluded the Katana segment may not be monetizable. Both are recorded; the disagreement is the finding.
+
+### The Katana buyer is a different job, not a cheaper Helix buyer
+
+He bought an amp specifically to *avoid* a rig, and every minute in Boss Tone Studio feels like the thing he paid to escape.
+
+| | Helix buyer | Katana buyer |
+|---|---|---|
+| Mental model | Signal chain: blocks, routing, DSP | **Knob positions on a front panel** |
+| What they buy | Capability; they enjoy editing | **Escape from editing** |
+| Computer | Assumed — HX Edit is part of the rig | **A barrier, sometimes absolute** |
+| Preset norm | Paid packs normal (Line 6 runs a Marketplace) | **Paid packs are contested**; free `.tsl` is the default |
+| Vocabulary | Fluent | *"what are patches? I was picturing just a list of settings to use"* |
+
+The quotes are unambiguous: *"If you could tell me the knob positions that would be great"* … *"I don't have a computer at the moment mate sorry!"* … *"I don't want to spend so much time with settings, I want to play!"*
+
+### The format finding — the sharpest single result of the run
+
+**The `.tsl` file is necessary but not sufficient, and it is not the primary format.** Delivery order should be:
+
+1. **A knob-position table with explicit numbers, on the page, readable on a phone, requiring nothing.** In the amp's own units, the way the community already writes it: *"Lead channel, Gain 30, Volume 100, Bass and Mids 50, Treble 85, Analog reverb 30."*
+2. The `.tsl` / Liveset file, **labelled by generation** — MkI, MkII and Gen 3 are mutually incompatible.
+3. **Explicit Global EQ / global-settings disclosure.** Global settings don't travel with the file, this is the #1 reason downloaded patches sound wrong, and *Boss doesn't document it.* No free exchange offers this.
+4. **A stated output-level / volume-match figure** — volume mismatch is the most-complained-about property of every free library.
+5. **A band-volume variant** ("for rehearsal: drop bass to 35"). Nobody supplies it; everybody needs it.
+6. **An audio demo** — named explicitly as the buying deal-breaker.
+
+Items 3–5 are things no free `.tsl` library provides, and they map exactly onto the #1 pain in §9 ("great at home, terrible at church"). That is the wedge in this segment, if we want one.
+
+### Willingness to pay: thin, contested, real
+
+*For:* five named buyers with stated reasons; three separate unsolicited cash offers that nobody monetised (*"ill pay you whatever you ask atp"*); one functioning business — Juca Nery at €10–60, **including a €18.99 Worship Tones pack**, already running the free-lead-magnet → paid-pack funnel in this exact niche.
+
+*Against:* the one thread that ever debated it ran ~8 refusals to ~5 admissions of purchase; Juca Nery's product pages show zero reviews; Marty Schwartz gives his away; thousands of free `.tsl` files sit one search away plus two ~9k-member Facebook groups; and ChatGPT is already doing a passable job in those same threads in 2026.
+
+**Honest read:** the file is a commodity priced at zero forever. What buyers described paying for is **time-to-stage**. The strongest sentence in the corpus is a cover-band player: *"I prefer to spend the time learning the song than trying to dial in tones."* Price anchor is **€10–20 per pack, €59 for everything** — do not anchor higher.
+
+### Worship Katana players exist in volume — and get mocked
+
+25+ distinct worship posts, including a guitarist who bought the amp specifically for its direct-out because his team runs a silent stage. But *"Anyone have Katana Gen 3 patches for worship?"* sits at **0 points**, with the top reply: *"I'm dying to know how 'worship' is now its own genre with a definable tone."* This is an underserved audience inside a subreddit that doesn't serve it — which is an opportunity and a tone warning at once.
+
+### The warning that applies to us specifically
+
+Among the things that would kill a product here: **being mistaken for AI slop.** A "KatanaToneStream — generate guitar tones using an LLM" post sat on the r/BossKatana front page at **0 points** (2026-07-24). This community will torch anything that reads as machine-generated and unverified.
+
+That is not an argument against our authorship posture — §9 showed disclosure is what worship audiences actually want. It is an argument that **in this segment, disclosure without demonstrated verification reads as slop.** Audio demos and honest "starting point, here's how to adapt it to your pickups" framing are the price of entry. Related: *"the most annoying thing about selling patches is that you cant test them before buying."*
+
+One reputational note worth internalising — the critique this category attracts is that sellers *"intentionally leave an information vacuum so that they don't cannibalize their preset pack sales."* Publishing the reasoning alongside the numbers inoculates against it, and it is exactly what free exchanges never do. That is the recipe model, validated from the outside.
