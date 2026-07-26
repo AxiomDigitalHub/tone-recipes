@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { Search } from "lucide-react";
 import { useAuth } from "@/lib/auth/auth-context";
 import { loginHref } from "@/lib/auth/redirect";
 
@@ -156,6 +157,18 @@ export default function SiteSubnav() {
         </div>
 
         <div className="preview-subnav-auth">
+          {/* Inside the auth group, not a fourth flex sibling — a fourth
+              child overflowed the row and wrapped LOG IN / SIGN UP onto a
+              second line at desktop widths. */}
+          <button
+            type="button"
+            className="preview-subnav-search"
+            onClick={() => window.dispatchEvent(new Event("open-search"))}
+            aria-label="Search tones"
+            title="Search (⌘K)"
+          >
+            <Search size={16} aria-hidden />
+          </button>
           {loading ? (
             <span className="preview-subnav-loading" aria-hidden>
               ···
@@ -262,6 +275,18 @@ export default function SiteSubnav() {
           </button>
         </div>
         <ul className="preview-subnav-drawer-list">
+          <li>
+            <button
+              type="button"
+              className="preview-subnav-drawer-link preview-subnav-drawer-search"
+              onClick={() => {
+                setOpen(false);
+                window.dispatchEvent(new Event("open-search"));
+              }}
+            >
+              <Search size={16} aria-hidden /> Search tones
+            </button>
+          </li>
           {NAV_LINKS.map((l) => {
             const active = isNavActive(pathname, l.href);
             return (

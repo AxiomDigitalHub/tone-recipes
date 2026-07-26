@@ -115,8 +115,15 @@ const sectionIcons: Record<SearchResult["type"], React.ReactNode> = {
   ),
 };
 
-export default function SearchPalette() {
-  const [open, setOpen] = useState(false);
+export default function SearchPalette({
+  /**
+   * Open immediately on mount. LazySearchPalette only loads this
+   * component once the user has already asked for search, so the
+   * trigger event has come and gone by the time we mount.
+   */
+  defaultOpen = false,
+}: { defaultOpen?: boolean } = {}) {
+  const [open, setOpen] = useState(defaultOpen);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);

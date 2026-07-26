@@ -5580,6 +5580,40 @@
 .fk-preview .preview-subnav-links {
   justify-self: end;
 }
+/* Search trigger. Until this shipped, the palette could only be opened
+   with Cmd/Ctrl+K — i.e. not at all on a phone. */
+.fk-preview .preview-subnav-search {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid rgba(10, 9, 8, 0.18);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  opacity: 0.75;
+  cursor: pointer;
+  transition: opacity 120ms ease, border-color 120ms ease;
+}
+.fk-preview .preview-subnav-search:hover {
+  opacity: 1;
+  border-color: var(--amber-2, #b37a1d);
+}
+.fk-preview .preview-subnav-search:focus-visible {
+  outline: 2px solid var(--amber-2, #b37a1d);
+  outline-offset: 2px;
+}
+/* Desktop only: the mobile drawer carries its own "Search tones" row. */
+@media (max-width: 860px) {
+  .fk-preview .preview-subnav-search { display: none; }
+}
+.fk-preview .preview-subnav-drawer-search {
+  gap: 12px;
+  cursor: pointer;
+  text-align: left;
+}
 .fk-preview .preview-subnav-auth {
   display: flex;
   align-items: center;
