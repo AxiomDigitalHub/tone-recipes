@@ -187,3 +187,52 @@ The crawler-versus-referral distinction is the one that makes these numbers mean
 ---
 
 *Verification note: every number in §1, §3, §5 and §7 was re-checked by hand against the repository. Two agents' figures were corrected in the process (worship percentage, honesty-annotation count) and one agent's competitive claim was softened after direct checking (MultiTracks sells generic, not song-specific, presets). Two agents did not finish within the window — the Routing & Mix Architecture module (its spec companion `ROUTING_SPEC_ADDITIONS.md` did land) and the voice-of-customer study. The session's web-search budget was exhausted late in the run, so the worship rig research for Tomlin, Wickham, Cody Carnes, and Brandon Lake is documented as a known gap rather than papered over.*
+
+---
+
+## 9. Addendum — voice of customer, and the late worship research
+
+Both remaining agents reported after the synthesis above was written. The customer study is the single most valuable result of the run, because it is primary evidence from players rather than inference from our own documents — and it contradicts several things we have been treating as settled.
+
+### The pain ranking (≈180 attributed quotes)
+
+1. **"Sounds great at home, terrible at church."** Dominant by a wide margin, surfacing unprompted in nearly every thread. *"Bedroom tone is a thing."*
+2. **Purchased presets don't translate.** *"there's not a single preset that I've tried that I've been happy with straight out of the box."*
+3. **Tweaking instead of playing** — *"almost a year of tweaking my LT till i got to a tone that i kinda liked."*
+4. Weekly setlist/preset management on the device.
+5. Level mismatch and gain staging. 6. Snapshot/preset/stomp-mode confusion (a Line 6 developer publicly concedes the naming is broken). 7. HX Stomp block limits. 8. FOH/stage volume. 9. Global EQ / output mode / IR confusion. 10. Firmware anxiety — thin; do not build a pillar page on it.
+
+**Pains 1, 5, 8 and 9 are all the same missing knowledge module** — the routing, gain-staging, mono-sum and FOH material specced in `ROUTING_SPEC_ADDITIONS.md`. That module is no longer a nice-to-have; it addresses the #1 complaint in the category, and nothing we publish today speaks to it.
+
+**Pain 2 is our QA spec.** "Doesn't translate out of the box" is precisely what a verified, level-matched, FOH-tested preset fixes. It is also the thing a generated preset is worst at — which is why the block-drop bug in §1b matters more than its size suggests.
+
+### The finding that reframes the product
+
+> *"What am I supposed to do with this thing? How do I know what I am supposed to play?… is there an actual resource out there that teaches a guitarist how to know what to play?"*
+
+**The worship guitarist's first problem is not tone — it is the part.** Nobody answers this; music directors hand-build part-isolated MP3s to compensate. This sits directly on top of the strategic conclusion in §4: a section-level map that says *play this, here, with this tone* answers the part question and the tone question in one artifact, and it is the same artifact Helix Stadium's Showcase consumes. Three independent lines of evidence — the corpus gap, the hardware format, and the customer's own words — now point at the same thing.
+
+### Assumptions we should stop repeating
+
+- **"Setlist Tuesday, tones by Sunday" is wrong.** Monday appeared once in the entire corpus, framed as unusual discipline. Realistic prep is **1–2 hours, often the night before**, and a large minority get under three days or same-day. Songs *and keys* change hours before service — *"a key change 15 minutes before the service started."* Any setlist-keyed product must degrade gracefully rather than assume a stable input.
+- **"Line 6 owns 55–65% of the worship modeler market"** — unverifiable; no such survey exists. What *is* evidenced is a content network effect: players choose Line 6 because the patches exist. That is a better argument and a different claim. Stop citing the number.
+- **Worship Tutorials' Tone Pass is $249.99, not $319.99**, and the preset business has been spun out into **Signal Theory Audio**. Their flagship worship patches show 2021 update dates and no reviews.
+- **Song-specific patches as the #1 purchase driver** — the market leader's flagships are *artist series*, and the loudest purchase justifications are **time and curation**, not song accuracy.
+- **The Katana segment may not be monetizable.** *"I get the set list on a Tuesday, tweak a few settings… done"* — they don't have our headline pain, they call Helix "super digital sounding," and they pay $12 for a librarian app to reach *free* patches. No evidence they buy presets.
+- **Our competitor list is materially incomplete** — it misses MultiTracks, Sunday Shred, Worship Guitar Resources, StadiumDepot, Tonevault, ToneBuilder.ai, Komposition101, and the entire AI-tone category.
+- **TDPRI and TheGearPage are now behind Tollbit AI paywalls** — two channels named in our docs are closed.
+- **Helix Stadium shipped and every competitor already ships Stadium versions; we don't.** Preset conversion is one-way, backups can't import, cabs sound different.
+
+Supporting our existing calls: the market leader **dropped Quad Cortex from Tone Pass 2026**, which independently validates the zero-QC decision.
+
+### On AI disclosure — the evidence is now on our side
+
+AI presets are already mainstream and openly branded (BIAS X text-to-tone and music-to-tone, Cortex Studio, ToneBuilder.ai, Tonevault's ToneAI). **We are late, not early** — and the only credible objection players raise is hallucination, put best by a Line 6 developer: *"at worst will just give you nonsense, but it'll be equally confident in both answers."* The moat is **verification, not generation**. Meanwhile worship-world objections to AI are entirely about *authorship*, not craft — *"AI can assist the craft but cannot replace the heart and witness of human worshippers"* — and the stated fear is **undisclosed** AI. Both findings argue for exactly the posture the site already takes.
+
+### Late worship research — corrections, and one I rejected
+
+Accept: Ryan Kennedy plays acoustic for Charity Gayle (Casey Moore is the electric player, which also *confirms* our existing Living Hope attribution — he's credited on track 2, the title track); "Death Was Arrested" is North Point InsideOut, not Passion; Mike Dodson was David Crowder*Band's bassist; Jonathan Jay is keys and Kirby Kaple vocals only; Daniel Carson has come off the road; **Maverick City is permanently tribute-tier** — no named guitarists on record or tour, and the market agrees (Worship Tutorials discounted its only Maverick electric preset from $5.99 to free). Cut Forrest Frank entirely: he builds instrumentals live from a Logic/Scarlett/C414 chain — there is no amp rig to model.
+
+**Rejected:** the claim that Lincoln Brewster's modeler is unconfirmed and our deep-dive should be downgraded. That agent was working past an exhausted search budget through fallback endpoints, and our `LINCOLN_BREWSTER_DEEP_DIVE.md` is the better-sourced document — it carries a direct Brewster quote on Helix and notes his published patch libraries across POD X3 / HD500 / HD500X / Helix. Not every agent claim outranks what we already hold; this one doesn't.
+
+**A demand proxy worth adopting:** "does Worship Tutorials sell a per-song electric preset for this?" is a cheap, commercially-motivated read on whether a song has a real guitar part. It surfaced confirmed gaps — *So Will I*, *Thank You Jesus for the Blood*, *Evidence* — and the **Lincoln Brewster anomaly**: the most recipe-worthy guitar content in worship, with no song-specific competition at all.
