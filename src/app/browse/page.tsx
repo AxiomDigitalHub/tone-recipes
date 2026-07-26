@@ -101,11 +101,18 @@ export async function generateMetadata({
   };
 }
 
-type SortKey = "newest" | "oldest" | "song-az" | "artist-az" | "blocks-desc";
+type SortKey =
+  | "newest"
+  | "oldest"
+  | "song-az"
+  | "artist-az"
+  | "blocks-desc"
+  | "song-year";
 
 const SORT_OPTIONS: { key: SortKey; label: string }[] = [
   { key: "newest", label: "Newest" },
   { key: "oldest", label: "Oldest" },
+  { key: "song-year", label: "Song year" },
   { key: "song-az", label: "Song A–Z" },
   { key: "artist-az", label: "Artist A–Z" },
   { key: "blocks-desc", label: "Most blocks" },
@@ -164,8 +171,14 @@ export default async function PreviewBrowse({
     const sA = getSongBySlug(a.song_slug);
     const sB = getSongBySlug(b.song_slug);
     switch (sort) {
+      // "Newest"/"Oldest" mean newest RECIPE (created_at, 100% coverage),
+      // not oldest song — sorting by song year buried every recipe the
+      // daily pipeline publishes behind 1970s classics, which made the
+      // catalog look frozen. Song year is its own option now.
       case "oldest":
-        return (sA?.year ?? 9999) - (sB?.year ?? 9999);
+        return (a.created_at ?? "").localeCompare(b.created_at ?? "");
+      case "song-year":
+        return (sB?.year ?? 0) - (sA?.year ?? 0);
       case "song-az":
         return (sA?.title ?? a.title).localeCompare(sB?.title ?? b.title);
       case "artist-az": {
@@ -179,7 +192,7 @@ export default async function PreviewBrowse({
         );
       case "newest":
       default:
-        return (sB?.year ?? 0) - (sA?.year ?? 0);
+        return (b.created_at ?? "").localeCompare(a.created_at ?? "");
     }
   });
 
