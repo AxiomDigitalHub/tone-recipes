@@ -99,6 +99,18 @@ export function retrieveRecipes(query: string, limit = 4): RetrievedRecipe[] {
   return scored.slice(0, limit);
 }
 
+/** Exact-slug lookup, same shape search results use (score 0). */
+export function getRecipeBySlug(slug: string): RetrievedRecipe | null {
+  const entry = buildIndex().find((e) => e.recipe.slug === slug);
+  if (!entry) return null;
+  return {
+    recipe: entry.recipe,
+    artistName: entry.artistName,
+    songTitle: entry.songTitle,
+    score: 0,
+  };
+}
+
 /** One line per recipe — lives in the system prompt (~3K tokens). */
 export function buildCatalog(): string {
   return buildIndex()

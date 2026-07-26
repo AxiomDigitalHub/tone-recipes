@@ -19,6 +19,11 @@ export function GET() {
         anchor: `${SITE}/`,
         "service-doc": [
           {
+            href: `${SITE}/.well-known/agents.json`,
+            type: "application/json",
+            title: "Agent service index — MCP server (/api/mcp) and Axl chat API",
+          },
+          {
             href: `${SITE}/llms.txt`,
             type: "text/plain",
             title: "Fader & Knob — guide to the site for LLM agents",
