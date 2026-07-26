@@ -66,3 +66,31 @@ Recommended: `source-tier` audit rule (warn) — every recipe should cite ≥1 p
 5. Source-tier backlog: upgrade the 57.
 
 Nothing here requires new research. It's all mechanical work against data we already have, and it makes every downstream product — fit reports, Set Builder, audio previews — rest on ground that holds.
+
+---
+
+## Addendum — chain-length distribution (measured after fit reports landed)
+
+Helix chain lengths across the 195 recipes: **avg 6.8 blocks, median 7, max 10.**
+Distribution: 6 blocks ×94 · 7 ×66 · 8 ×21 · 9 ×10 · 10 ×4. Essential (non-optional)
+blocks average 6.2; exactly **one** recipe exceeds 8 essential blocks.
+
+This is why the computed fit report says every recipe runs on an HX Stomp. That
+headline is true, but the reason matters: **our chains are lean**, not that the
+Stomp is roomier than players find it. A pro worship rig (comp → drive → drive →
+amp → cab → delay → delay → reverb → reverb) reaches 9–10 blocks routinely and is
+exactly the case players hit the wall on.
+
+Two implications:
+
+1. **Frame the flagship comparison page honestly.** "Every Fader & Knob recipe
+   fits an HX Stomp" invites the reply "then your recipes are simpler than my
+   rig." Better: publish the block count per recipe and let the player compare it
+   to what they're already running. The number is the proof; the claim is the risk.
+2. **Worth a human ear:** 48% of recipes landing at exactly 6 blocks is a tight
+   cluster. It's partly genre-honest (a lean rock chain really is comp → amp →
+   cab → delay → reverb), and heavy-metal recipes never sit at 6 — so this is not
+   obviously a template floor. But someone should A/B a few 6-block chains against
+   the records to confirm we're not systematically under-building. If the corpus
+   is leaving tone on the table, that is invisible to every audit we run, because
+   every rule we have checks structure rather than sound.
