@@ -66,14 +66,27 @@ export default function AdminDashboard() {
   const [growth, setGrowth] = useState<Growth | null>(null);
   const [growthError, setGrowthError] = useState(false);
 
+  // Metrics carries signup PII, so it's bearer-gated like /api/admin/growth.
   useEffect(() => {
-    fetch("/api/admin/metrics")
-      .then((r) => r.json())
-      .then((data) => {
-        setMetrics(data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+    (async () => {
+      try {
+        const supabase = createBrowserClient();
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
+        if (!session?.access_token) {
+          setLoading(false);
+          return;
+        }
+        const res = await fetch("/api/admin/metrics", {
+          headers: { Authorization: `Bearer ${session.access_token}` },
+        });
+        if (res.ok) setMetrics(await res.json());
+      } catch {
+        // fall through to setLoading below
+      }
+      setLoading(false);
+    })();
   }, []);
 
   // Growth data exposes revenue, so /api/admin/growth is auth-gated. Send

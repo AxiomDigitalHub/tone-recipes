@@ -21,6 +21,16 @@ function getClient() {
 /*  Types                                                                     */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * Columns the anon/authenticated Postgres roles may SELECT (migration
+ * 026). `requested_by_email` and `admin_notes` are grant-revoked, so a
+ * `select("*")` here would fail with "permission denied for column" —
+ * always select this list explicitly.
+ */
+const PUBLIC_COLUMNS =
+  "id, song_name, artist_name, part, description, reference_url, " +
+  "requested_by, status, completed_recipe_slug, upvotes, created_at, updated_at";
+
 export interface ToneRequest {
   id: string;
   song_name: string;
@@ -29,11 +39,13 @@ export interface ToneRequest {
   description: string | null;
   reference_url: string | null;
   requested_by: string | null;
-  requested_by_email: string | null;
+  /** Grant-revoked for client roles (026); present only in service-role reads. */
+  requested_by_email?: string | null;
   status: "pending" | "in_progress" | "completed" | "declined";
   completed_recipe_slug: string | null;
   upvotes: number;
-  admin_notes: string | null;
+  /** Grant-revoked for client roles (026); writable by moderators, not readable. */
+  admin_notes?: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -58,7 +70,7 @@ export async function getRequests(options: {
 
   let query = supabase
     .from("tone_requests")
-    .select("*");
+    .select(PUBLIC_COLUMNS);
 
   if (status) {
     query = query.eq("status", status);
@@ -89,7 +101,7 @@ export async function getRequestsForUser(userId: string): Promise<ToneRequest[]>
 
   const { data, error } = await supabase
     .from("tone_requests")
-    .select("*")
+    .select(PUBLIC_COLUMNS)
     .eq("requested_by", userId)
     .order("created_at", { ascending: false });
 

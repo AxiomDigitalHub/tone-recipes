@@ -64,9 +64,13 @@ const PLATFORM_CONFIG: Record<
 /* -------------------------------------------------------------------------- */
 
 function getSupabase() {
+  // Service role: migration 026 revoked recipe_downloads INSERT from the
+  // anon/authenticated roles (quota-burning attack surface), so download
+  // logging — and the quota count it feeds — must run privileged.
   return createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false, autoRefreshToken: false } },
   );
 }
 

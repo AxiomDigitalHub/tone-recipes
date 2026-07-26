@@ -1,7 +1,22 @@
-import { createClient } from "@/lib/db/client";
+import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { FREE_DOWNLOAD_LIMIT } from "@/lib/permissions";
 
 export { FREE_DOWNLOAD_LIMIT };
+
+/**
+ * Service-role client. The quota count MUST run privileged: the anon
+ * client used previously carried no user JWT, so the RLS "read own rows"
+ * policy matched nothing and the counter always read 0 — the free-tier
+ * cap was silently fail-open. Server-only module (imported by the
+ * download API route); the key never reaches a client bundle.
+ */
+function createClient() {
+  return createSupabaseClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false, autoRefreshToken: false } },
+  );
+}
 
 /**
  * Count preset downloads this user has made IN THE CURRENT CALENDAR MONTH.
