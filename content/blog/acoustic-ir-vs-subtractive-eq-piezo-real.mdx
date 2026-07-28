@@ -1,0 +1,160 @@
+---
+title: 'Acoustic IR vs. Subtractive EQ: Which One Actually Makes a Piezo Sound Real?'
+description: >-
+  A body IR and a few EQ cuts fix different halves of the piezo problem. Here is
+  what each one can and cannot do, the exact frequencies to cut, and when
+  spending an IR block is worth it.
+date: '2026-07-28'
+author_slug: nathan-cross
+category: modeler-masterclass
+tags:
+  - acoustic-guitar
+  - acoustic-ir
+  - piezo
+  - eq
+  - helix
+  - quad-cortex
+  - worship
+takeaways:
+  - >-
+    Subtractive EQ fixes the piezo's tonal problem — the 200-350 Hz box and the
+    2.5-4 kHz quack — and it costs almost no DSP, so it should always be the
+    first move, not the fallback.
+  - >-
+    An acoustic body IR adds something EQ genuinely cannot: the time-domain
+    resonance and decay of a real body, which is why a note sounds like it is
+    ringing in wood rather than through a filter.
+  - >-
+    The catch nobody mentions is that the IR's body resonance stacks on top of
+    your guitar's — a dreadnought through a dreadnought IR gets boomier, while a
+    small-body guitar gains the low end it was missing.
+  - >-
+    On a loud stage an IR can make feedback worse, because it introduces
+    resonant peaks that a bare EQ'd piezo does not have. Live, EQ first and add
+    the IR only if the stage volume allows it.
+  - >-
+    Start with a high-pass at 80 Hz, a 3-4 dB cut around 250 Hz, and a 4-6 dB
+    cut around 3 kHz. If it still sounds like a pickup instead of a guitar after
+    that, the IR is what is missing.
+faq:
+  - q: What frequencies should I cut to fix piezo quack?
+    a: >-
+      Two bands do most of the work. Cut 3-4 dB around 200-350 Hz with a
+      moderate Q to remove the boxy honk, and cut 4-6 dB somewhere between 2.5
+      and 4 kHz with a narrower Q to remove the brittle quack. Add a high-pass
+      at 80 Hz to clear out stage rumble. Sweep to find the exact centers — they
+      move with the guitar and the saddle.
+  - q: Does an acoustic IR replace EQ or work alongside it?
+    a: >-
+      Alongside. An IR is a fixed transfer function captured from one specific
+      instrument, so it imposes that body's character on top of whatever your
+      pickup is already producing — including the problems. Cut the honk and the
+      quack first, then place the IR after the EQ so it is shaping a signal that
+      is already clean.
+  - q: Why does my acoustic IR make the guitar sound boomier?
+    a: >-
+      Because you are hearing two body resonances at once. The IR carries the
+      low-mid resonance of the guitar it was captured from, and your guitar's
+      own resonance is already in the piezo signal. On a dreadnought through a
+      dreadnought IR they stack. Either pick an IR captured from a smaller
+      instrument or pull another 2-3 dB out around 150-250 Hz after the IR.
+  - q: Is an acoustic IR worth the DSP on an HX Stomp?
+    a: >-
+      For recording or a quiet room, usually yes — it is the single biggest step
+      toward sounding mic'd rather than plugged in. For a loud stage with a
+      tight block budget, usually no. An IR block costs real DSP and adds
+      resonant peaks that can worsen feedback, while a parametric EQ costs
+      almost nothing and solves the more audible problem.
+  - q: Do I need an IR if I already have a preamp like an LR Baggs Venue DI?
+    a: >-
+      No. A dedicated acoustic preamp already gives you the notch filter, the
+      high-pass, and usually a semi-parametric mid band, which is the entire
+      subtractive fix in hardware. An IR would be additive on top of that, and
+      you would need somewhere to load it. Fix the tone with the preamp first
+      and decide whether anything is still missing.
+  - q: Will any of this stop feedback?
+    a: >-
+      The high-pass and the low-mid cut help, and a single narrow notch at the
+      guitar's main body resonance helps most of all — sweep a tight, deep cut
+      between 90 and 130 Hz until the howl stops. An IR does not help and can
+      hurt, because it adds resonant peaks. A soundhole cover remains the most
+      effective fix if the stage is genuinely too loud.
+image: /images/blog/acoustic-ir-vs-subtractive-eq-piezo-real.jpg
+image_alt: >-
+  An acoustic guitar with an undersaddle pickup plugged into a floor modeler on
+  a church stage, with an EQ curve and a cabinet impulse response displayed side
+  by side on a laptop
+---
+
+> **The Short Version**
+> Subtractive EQ fixes the piezo's tone — cut around 250 Hz and around 3 kHz, high-pass at 80 Hz. An acoustic IR fixes something else entirely: the way the note resonates and decays. EQ first, always. Add the IR when you have the DSP and the stage volume to afford it, and expect to re-cut the low mids afterward because the IR's body resonance stacks on top of your guitar's.
+
+There are two competing answers to the question of how you make an undersaddle pickup stop sounding like an undersaddle pickup, and they get recommended almost interchangeably. One says load an acoustic body impulse response and let convolution do the work. The other says take a parametric EQ and cut the two frequencies that make a piezo sound like a piezo.
+
+They are not the same fix. They address different halves of the problem, and knowing which half you are actually hearing is the difference between a five-minute repair and an afternoon of chasing your own tail.
+
+## The Two Halves of the Piezo Problem
+
+An undersaddle transducer is a pressure sensor. It hears the saddle being squeezed, not the air moving in front of the guitar, and that produces two distinct complaints.
+
+The first is **tonal**. There is a boxy honk somewhere between 200 and 350 Hz, and a hard, brittle spike somewhere between 2.5 and 4 kHz. That spike is the "quack" — the sound that makes a strummed chord land like it is coming through a telephone with a sharp edge on it. Both of these are magnitude-response problems: certain frequencies are too loud relative to the others.
+
+The second is **behavioral**. A real acoustic guitar in a room has a body that rings. Energy goes into the top, bounces around inside the box, and comes back out slightly late and slightly changed. That is why a note on a mic'd acoustic seems to bloom for a moment after you pick it. A piezo signal has almost none of that — the decay is flat and immediate, and the result sounds correct but lifeless, like a photograph of a guitar rather than a guitar.
+
+EQ solves the first problem completely. It cannot touch the second one.
+
+## What Subtractive EQ Does, and Why It Goes First
+
+A parametric EQ is a magnitude tool. Point it at the two problem bands and they stop being problems. Here is the starting point I would build on any platform:
+
+| Band | Setting | What it fixes |
+|---|---|---|
+| High-pass | 80 Hz, 12 dB/octave | Stage rumble, handling noise, and the mud that eats your headroom |
+| Low-mid cut | 200-350 Hz, −3 to −4 dB, Q ≈ 1.4 | The boxy honk. Sweep with a narrow Q first to find it, then widen |
+| Presence cut | 2.5-4 kHz, −4 to −6 dB, Q ≈ 2 | The quack. This is the single most audible change you will make |
+| High shelf | 8 kHz and up, −2 dB | Piezo brittleness on the top end. Optional, and guitar-dependent |
+
+Two things about this table. First, the frequency centers are starting points, not gospel — they move with the guitar, the saddle material, and how hard you play, so sweep a boosted narrow band until the ugliness gets *worse*, then invert it. Second, all of it is subtractive. The temptation with a thin-sounding piezo is to boost the lows and the air until it sounds full, and that reliably produces a signal that feeds back and disappears the moment a keyboard shows up. Take away what is wrong instead of adding what seems missing.
+
+On a Helix or HX Stomp this is one Parametric EQ block, or the [modeler's EQ blocks](/blog/modeler-eq-guide) more generally. On a Quad Cortex it is a Graphic or Parametric EQ block. On a dedicated preamp like an LR Baggs Venue DI or a Fishman preamp, it is the notch and mid controls you already paid for. The cost in every case is close to zero — an EQ block is the cheapest processing in the box.
+
+## What an IR Does That EQ Cannot
+
+An impulse response is a recording of how a system responds over time. That is the important word: **over time**. When you convolve your signal with a body IR, you are not just applying a frequency curve — you are applying the resonances, the internal reflections, and the decay behavior of the instrument that IR was captured from.
+
+That is the missing half. It is what makes a note seem to open up after the pick leaves the string instead of simply starting and stopping. If your EQ'd piezo sounds *correct* but somehow still sounds plugged in, this is what you are hearing the absence of, and no amount of EQ will produce it, because EQ has no mechanism to add a resonance that decays on its own schedule.
+
+Practically: load the acoustic IR into an IR block *after* your EQ, run it at full mix to start, and expect to pull the output level down a few dB because most acoustic IRs come out hot.
+
+## The Surprise: You Are Stacking Two Bodies
+
+Here is what I expected, and here is what happened.
+
+I expected the IR to be the refined move and the EQ to be the crude one — that once the IR was in, I would need less EQ, not more. What I found was the opposite. Dropping a dreadnought-captured IR onto a dreadnought made the low end noticeably worse: boomier, slower, with a lump in the low mids that had not been there when the EQ was doing the work alone. On a small-body guitar through the same IR, the effect was the reverse — it filled in exactly the low end that instrument was missing, and it sounded better than either tool alone.
+
+The reason is obvious in hindsight and almost never stated. **The IR does not replace your guitar's body response. It adds another one on top.** Your piezo is already hearing a saddle that is loaded by your guitar's top and its air cavity, so that resonance is baked into the signal before the IR ever sees it. Convolve that with a second instrument's resonance and the two low-mid peaks stack.
+
+So the practical rule is a mismatch rule: pick an IR captured from a guitar *smaller* than yours, or plan on a second 2-3 dB cut around 150-250 Hz sitting after the IR block. If you have a dreadnought and you are auditioning IRs, the parlor and OM captures will almost certainly beat the dreadnought captures, which is the opposite of what the file names suggest.
+
+## The Live Problem Nobody Mentions
+
+There is one more asymmetry, and it matters more on a stage than in a bedroom.
+
+An IR introduces resonant peaks. That is the entire point of it. But a resonant peak is also exactly what a feedback loop needs to find, and the resonance an acoustic body IR imposes tends to sit in the same low-mid region where an acoustic guitar in front of a wedge or a loud sidefill already wants to howl. An EQ'd piezo with a high-pass and a notch is a comparatively flat, well-behaved signal. The same signal through a body IR has depth in front of it and space behind it — and a resonant peak sitting right where the wedge will find it.
+
+If the stage is loud, the honest order of operations is: high-pass, then a single narrow deep notch swept between 90 and 130 Hz until the howl stops, then the tonal cuts, then the IR *only if* you still have margin. There is no shame in leaving the IR off on a loud Sunday and switching it on for the acoustic set. That is a snapshot or a scene, not a compromise.
+
+## How to Decide
+
+| Your situation | Use |
+|---|---|
+| Recording, or a quiet room, one guitar | EQ, then an IR from a smaller-bodied instrument |
+| Loud stage, feedback is a live concern | EQ and a notch. Skip the IR |
+| HX Stomp with the block count already tight | EQ. It costs almost nothing; the IR block costs real DSP |
+| Several different guitars through one preset | EQ. An IR tuned to one instrument will fight the others |
+| Already running an acoustic preamp like a Venue DI | The preamp's own filters. Add nothing until you can name what is missing |
+| It sounds correct but lifeless after EQ | The IR. That specific complaint is the one an IR exists to fix |
+
+The general answer, then, is that this was never really a versus. EQ is the repair and the IR is the finish, and doing the finish first just means convolving a problem into something more elaborate. Cut the honk and the quack, listen for a week, and if the thing still sounds like a pickup rather than an instrument, that is when the IR earns its block.
+
+If you are setting the whole signal path up from scratch rather than fixing an existing one, the [full acoustic-through-a-modeler walkthrough](/blog/acoustic-guitar-through-modeler-worship-di) covers the routing, the compressor, and the feedback notch in order. This post is only the one decision that walkthrough deferred. And if you are still choosing a pickup system rather than fixing the one you have, the [hybrid pickup comparison](/blog/hybrid-acoustic-pickup-comparison) is the better starting point — a mic-blend system solves some of this in hardware before any of it reaches your modeler.

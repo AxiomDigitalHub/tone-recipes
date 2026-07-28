@@ -1,0 +1,181 @@
+---
+title: >-
+  Rising vs. Fixed Shimmer: Putting the Pitch Shifter Inside the Reverb Feedback
+  Loop
+description: >-
+  A pitch block in front of a reverb gives one fixed octave. Inside the
+  regeneration path it climbs forever. Here is the routing difference, and why
+  a Helix cannot do it internally.
+date: '2026-07-28'
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - shimmer-reverb
+  - pitch-shifting
+  - signal-routing
+  - helix
+  - quad-cortex
+  - reverb
+  - dsp
+takeaways:
+  - >-
+    A pitch shifter in front of a reverb adds one fixed octave to the tail. A
+    pitch shifter inside the reverb's regeneration path re-pitches every lap, so
+    the tail climbs in stacked octaves — that is the difference between fixed
+    and rising shimmer.
+  - >-
+    The climb self-limits rather than running away, because each lap loses gain
+    to the feedback setting and loses top end to the damping filter. The high
+    cut, not the feedback amount, is what decides how many octaves you hear.
+  - >-
+    Helix and Quad Cortex signal paths only run forward, so neither can build an
+    internal feedback loop. True rising shimmer on those units requires a
+    physical cable from a send back to a return.
+  - >-
+    The buildable in-the-box approximation is two stages in series — pitch +12
+    into reverb, then pitch +12 into a second reverb — which gets you the +12
+    and +24 layers without infinite regeneration.
+  - >-
+    Loop time controls the musicality, not pitch amount. Under about 300 ms per
+    lap the octaves stack too fast and it reads as a metallic whistle; 500 ms to
+    1.2 seconds is where it sounds like a rising pad.
+faq:
+  - q: What is the difference between rising shimmer and fixed shimmer?
+    a: >-
+      Fixed shimmer puts the pitch shifter before the reverb, so exactly one
+      octave-up layer enters the tail and then decays with it. Rising shimmer
+      puts the pitch shifter inside the reverb's feedback path, so every
+      regeneration gets pitched up again — the first lap is +12, the second is
+      +24, the third is +36 — and the tail appears to climb continuously.
+  - q: Why does rising shimmer not run away into infinite feedback?
+    a: >-
+      Two mechanisms limit it. The feedback amount is always below unity, so
+      each lap is quieter than the last, and the damping or high-cut filter in
+      the loop removes top end on every pass. Since each lap moves the content
+      an octave higher into the region that filter is already attenuating, the
+      climb dies out on its own after three or four octaves.
+  - q: Can a Helix or HX Stomp do true rising shimmer internally?
+    a: >-
+      No. Helix signal paths run forward only — a block cannot feed audio back
+      to a block earlier in the chain — so there is no way to build an internal
+      regeneration loop around a pitch block. You can get true rising shimmer by
+      patching a physical cable from a Send to a Return, or approximate it with
+      two pitch-plus-reverb stages in series.
+  - q: What pitch interval should I use for shimmer?
+    a: >-
+      Plus 12 semitones is the standard and the safest, because octaves stay
+      consonant no matter what chord you play. Adding a +7 fifth gives a richer
+      wash but turns dissonant over minor chords. In a rising loop, stick to +12
+      alone — a fifth that gets re-stacked every lap drifts out of the key by
+      the third pass.
+  - q: How do I build a feedback loop like this in a DAW?
+    a: >-
+      Either use a DAW that permits explicit feedback routing, such as Reaper,
+      and route a bus carrying pitch and reverb back into its own input at
+      reduced gain, or use a reverb plugin that already has pitch shifting
+      inside its own regeneration path. Ableton Live will not let a return track
+      feed itself, which is why the plugin route is usually simpler there.
+  - q: Should I use rising or fixed shimmer in a band mix?
+    a: >-
+      Fixed, almost always. The rising version keeps adding energy in the upper
+      octaves for as long as the tail lasts, which is gorgeous on a solo intro
+      and turns into competing content the moment vocals or cymbals arrive. Keep
+      rising shimmer for exposed passages and switch to a fixed octave for
+      anything with a full arrangement.
+image: /images/blog/rising-vs-fixed-shimmer-pitch-in-reverb-feedback-loop.jpg
+image_alt: >-
+  A signal routing diagram showing a pitch shifter block placed inside a reverb
+  feedback loop, next to a floor modeler with a patch cable running from its
+  send jack back into its return jack
+---
+
+> **The Short Version**
+> Pitch before the reverb gives you one fixed octave in the tail. Pitch inside the reverb's regeneration path re-pitches every lap, so the tail climbs +12, +24, +36 and appears to rise forever. Helix and Quad Cortex cannot route audio backward, so true rising shimmer needs a physical send-to-return cable — or a two-stage series approximation that gets you the first two octaves.
+
+There are two ways to wire a pitch shifter and a reverb together, and they produce sounds that are not variations on each other. One gives you a steady octave layer floating in the wash. The other gives you a tail that keeps climbing after you have stopped playing, which is the sound most people actually mean when they say shimmer.
+
+The difference is entirely a routing question, and it comes down to one thing: whether the pitch shifter sees the signal once, or sees it again every time the reverb regenerates.
+
+## What Is Actually Happening in Each Case
+
+**Fixed shimmer — pitch in front.** Your dry signal hits a pitch block set to +12, and the pitched copy is mixed in at some percentage. That combined signal enters the reverb. From the reverb's perspective this is just an input containing two notes an octave apart, and it smears both of them into a decaying cloud at the same rate. You get one octave layer. It fades. Done.
+
+**Rising shimmer — pitch inside the loop.** The pitch block sits in the reverb's regeneration path, so it processes the tail on every lap:
+
+| Lap | Content | Level |
+|---|---|---|
+| 0 (input) | Fundamental | 0 dB |
+| 1 | +12 | feedback × input |
+| 2 | +24 | feedback² × input |
+| 3 | +36 | feedback³ × input |
+| 4 | +48 | feedback⁴ × input |
+
+Each pass through the loop pitches whatever is already there up another octave. That is the mechanism, and it explains the character precisely: the effect does not sound like an octave layered on a note, it sounds like a note that is continuously *ascending*, because at any moment you are hearing several laps at once, each one an octave higher and quieter than the last.
+
+## Why It Does Not Explode
+
+The obvious objection to a feedback loop containing a gain-preserving effect is that it should run away. It does not, for two reasons that compound:
+
+1. **The feedback coefficient is below unity.** Each lap is multiplied by something like 0.6-0.8, so lap four is already 15-25 dB down from lap one.
+2. **The damping filter attenuates the top end on every pass.** Every reverb regeneration path has a high cut. Since each lap moves the content an octave *higher* — directly into the region that filter is already pulling down — the attenuation per lap gets progressively worse.
+
+Those two effects multiply. The practical result is that the climb dies out after three or four octaves regardless of how the feedback is set, which is why you can run this at high feedback without the thing becoming a fire alarm.
+
+**Here is the part I got wrong the first time.** I assumed feedback amount was the control that shaped this — more feedback, more climb — and spent an evening pushing it toward 90% trying to get more rising octaves. What actually governs the sound is the damping filter. At a 4 kHz high cut the effect climbs two audible octaves and settles into a pad. Open that same filter to 12 kHz with the feedback untouched and it climbs four octaves into a thin ascending whistle that sits right where cymbals live. The feedback knob sets how long. The high cut sets how *high*, and it is the one that decides whether this is usable in a mix. Set the damping before you touch anything else.
+
+## The Architectural Problem on a Modeler
+
+Here is the constraint nobody mentions when they tell you to put a pitch block in the feedback loop: on a Helix or a Quad Cortex, **you cannot**.
+
+Both units build presets as directed signal paths that run forward. Block 3 feeds block 4; there is no routing primitive that lets block 4 feed audio back into block 3. Parallel paths split and re-merge, but they still only move downstream. And the reverb block's own regeneration loop is internal to the algorithm — it is not exposed as a routing point you can insert into. Neither of these is a firmware oversight. A user-configurable feedback loop is a stability and latency problem in a fixed-block-budget DSP architecture, and both manufacturers reasonably declined to open it.
+
+So the "put the pitch in the feedback loop" advice, taken literally, describes what a Strymon or an Eventide does *internally* — where the algorithm designer controls the loop — and not something you can build inside a modeler preset. There are two honest ways around it.
+
+### Build 1: The Physical Loop (true rising shimmer)
+
+If your unit has a send and a return, you can make the loop out of hardware. Run a patch cable from **Send 1 to Return 1**, set a parallel path's input to that return, put the pitch and reverb on it, and route that path's output back out through the send. The audio physically leaves the box and comes back, which is a regeneration path the internal router never has to know about.
+
+Two warnings, both real:
+
+- **Set the send level low to start — around 20-25%.** You are building an analog feedback loop with a full-gain effect in it. Start conservative and creep up.
+- **Watch converter latency.** Each lap costs one D/A plus one A/D conversion on top of the pitch block's own latency, so laps are not free the way an internal loop would be. On most floor units that puts you in the 5-10 ms per lap range, which is inaudible as latency but does slightly smear the attack of each new octave.
+
+The exact routing menu differs across Helix, HX Stomp, and Quad Cortex, so check what your unit lets you assign as a path input before you buy into this. The principle is the same on all of them: the cable *is* the feedback path.
+
+### Build 2: Two Stages in Series (the approximation)
+
+This one is fully in-the-box, works on any platform with two pitch blocks and two reverbs, and gets you most of the way there:
+
+| Position | Block | Setting |
+|---|---|---|
+| 1 | Pitch | +12 semitones, mix 30% |
+| 2 | Reverb A | Long hall, decay high, mix 25%, **high cut 4 kHz** |
+| 3 | Pitch | +12 semitones, mix 20% |
+| 4 | Reverb B | Long hall, decay high, mix 20%, **high cut 3.5 kHz** |
+| 5 | Low cut on the wet path | 250 Hz |
+
+Stage 2 re-pitches everything stage 1 produced, which means the output contains the fundamental, a +12 layer, and a +24 layer — the first three rows of that table above. What you lose is the infinite regeneration: it does not keep climbing past +24, so it reads as a wide, tall pad rather than an endless ascent. What you gain is that it costs no cables, no analog feedback risk, and it is snapshot-switchable.
+
+Note the descending pitch mix (30% then 20%) and the descending high cuts. That is deliberate — it reproduces by hand the per-lap attenuation that a real feedback loop produces automatically. Set both stages to identical values and the +24 layer comes out too loud and too bright relative to the +12, which sounds artificial in a way that is hard to place until you fix it.
+
+The 250 Hz low cut carries over from the [fixed-shimmer build](/blog/shimmer-reverb-without-bigsky) and matters just as much here. Two stacked reverbs put twice as much low-mid energy into the wash.
+
+### Build 3: In a DAW
+
+Two routes. If your DAW permits explicit feedback routing — Reaper does, with a warning dialog — put the pitch and reverb on a bus and route that bus's output back into its own input at 60-70% gain, with a high cut somewhere around 4 kHz in the path. That is a literal implementation of the diagram.
+
+If your DAW blocks it, which Ableton Live does by only allowing return tracks to feed *later* return tracks, use a reverb that already has pitch inside its own regeneration. The shimmer algorithms in dedicated shimmer plugins are exactly this loop, implemented where the routing restrictions do not apply.
+
+## Which One You Actually Want
+
+| Situation | Use |
+|---|---|
+| Solo intro, exposed passage, ambient piece | Rising. The continuous climb is the whole point |
+| Full band arrangement, anything with vocals or cymbals | Fixed. Rising keeps adding upper-octave content that competes |
+| Live, needs to be switchable per section | Fixed, or the two-stage approximation with the second stage on a snapshot |
+| Recording, want the sound that flagship pedals make | Rising, via the physical loop or a shimmer plugin |
+| Minor keys and non-diatonic chords | Either, but +12 only. No fifths |
+
+The interval note in that last row deserves one more sentence. In a *fixed* setup, adding a +7 fifth alongside the octave is a well-known way to thicken the wash, and it works because the fifth enters once. In a *rising* loop it does not, because a fifth that gets re-stacked every lap compounds: lap two is a ninth above the fundamental, lap three is a thirteenth, and by the fourth lap the loop is playing a chord that has nothing to do with the one your hands are on. Octaves are the only interval that survives repeated stacking, which is precisely why every commercial shimmer defaults to +12.
+
+If you want the sound and do not want to build any of this, that is a legitimate answer too — this is one of the few places where a dedicated pedal is buying you real engineering rather than convenience, because the manufacturer has access to a routing point your modeler does not expose. What you should not do is pay for a flagship reverb believing it does something magic to the tail. It puts a pitch shifter in a feedback loop and filters the daylights out of it. Everything above is that, with the lid off.

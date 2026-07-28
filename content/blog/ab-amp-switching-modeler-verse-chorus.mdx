@@ -7,6 +7,7 @@ description: >-
   on a dirty — using snapshots in Helix and scenes in Quad Cortex, with the
   volume balanced and the transition silent.
 date: '2026-05-01'
+updated: '2026-07-28'
 author: Fader & Knob Staff
 author_slug: fk-staff
 category: modeler-masterclass
@@ -20,10 +21,74 @@ tags:
   - verse-chorus
   - signal-routing
 readingTime: 8
+takeaways:
+  - >-
+    A/B amp switching runs one amp at a time and toggles between them, which is
+    a different technique from parallel routing — parallel blends both amps
+    simultaneously and cannot give you a hard tonal change on a footswitch.
+  - >-
+    Build it with two snapshots in one Helix preset or two scenes in one Quad
+    Cortex preset. Both transition gaplessly because the bypassed amp block
+    simply stops contributing; there is no crossfade to go wrong.
+  - >-
+    Voice the two amps for different frequency ranges rather than matching them.
+    A bright clean and a darker, midrange-forward dirty tone makes the chorus
+    read as a new color instead of a louder verse.
+  - >-
+    Match volume by perceived loudness, not by meters — peak and RMS both lie
+    about distorted versus clean signals. Keep the chorus no more than 1-2 dB
+    above the verse; past 3 dB a single footswitch press sounds like a mistake.
+  - >-
+    Dial the loudest tone first and bring the quieter tones up to meet it. This
+    keeps the chorus correct for the band mix instead of forcing you to pull it
+    down to match the verse.
+faq:
+  - q: Will both amps drain DSP even when one is bypassed in a snapshot?
+    a: >-
+      On the Helix, a bypassed block does not consume DSP. On the Quad Cortex, a
+      bypassed block consumes minimal DSP. Both platforms have enough headroom
+      to run two amp blocks in a single preset with full effects on both. DSP is
+      only a concern if you are running four or more amp blocks or large IR
+      collections.
+  - q: Why is the transition silent — does the modeler crossfade between the amps?
+    a: >-
+      The transition is silent because the bypassed amp block is not
+      contributing to the output at all. The audible amp's signal continues
+      uninterrupted while the other toggles its on/off state. There is no
+      crossfade and no audio interpolation, just a clean handoff — which is
+      exactly why both Helix snapshots and QC scenes are reliable live.
+  - q: Can I set the volume match automatically?
+    a: >-
+      Not reliably. Both units have output level meters, but perceived loudness
+      for a distorted signal does not track peak or RMS the way it does for a
+      clean one. Manual matching by ear is the only dependable approach. Budget
+      5-10 minutes of A/B listening whenever you build a new preset.
+  - q: Does A/B amp switching work live, or only for studio recording?
+    a: >-
+      Both. Transitions are gapless and reliable on Helix and QC firmware from
+      2023 forward, and touring players use snapshot and scene switching nightly.
+      The one live-specific step is testing the volume match through the actual
+      front-of-house PA, since monitors and FOH boxes have different frequency
+      responses that shift perceived levels.
+  - q: Can I use this technique with a tube amp instead of two amp models?
+    a: >-
+      Yes, but the routing changes. You run the modeler as a clean preamp and
+      effects unit into a clean tube amp, and footswitch the amp's own channel
+      switching for the dirty tone. The volume match is harder because the tube
+      amp's channel volume is mechanical rather than stored, so most players in
+      this hybrid setup use a MIDI controller to fire the modeler snapshot and
+      the amp channel change on one press.
+  - q: How many distinct tones can I switch between in one preset?
+    a: >-
+      Up to eight snapshots on Helix or eight scenes on Quad Cortex, which
+      covers any practical song. A common three-tone build is clean amp, clean
+      amp plus a low-gain drive, then the dirty amp. The volume match gets
+      fussier with each addition, so dial the loudest tone first and bring the
+      others up to it.
 image: /images/blog/ab-amp-switching-modeler-verse-chorus.jpg
 image_alt: >-
-  a composition illustrating "A/B Amp Switching on a Modeler: Verse-to-Chorus
-  Tone Changes Without a Volume Jump"
+  A floor modeler on a stage with two footswitches lit, alongside a screen
+  showing two amp blocks in one preset with one enabled and one bypassed
 ---
 
 > **Quick read:** A/B amp switching is different from parallel amp routing. Parallel runs both amps at once and blends them. A/B switching runs one amp at a time and toggles between them — the verse on a clean Fender Twin, the chorus on a cranked Marshall, with one footswitch press in between. On the Line 6 Helix, this is built with snapshots — two snapshots in the same preset, each with a different amp block enabled. On the Neural DSP Quad Cortex, it is built with scenes — two scenes in the same preset, each routing to a different amp block. The transition is gapless on both platforms. The volume needs to be balanced manually.
@@ -166,30 +231,18 @@ A modeler with snapshots or scenes gives you two completely independent amp mode
 
 For deeper coverage of when to choose A/B switching vs. parallel routing for a given song, see our [parallel amp routing post](/blog/parallel-amp-routing-modeler). For the specific Helix snapshot mechanics in more detail, our [Helix amp model cheat sheet](/blog/helix-amp-model-cheat-sheet) covers which amp blocks pair well for verse-chorus contrast.
 
-<FAQ
-  title="Frequently Asked Questions"
-  questions={[
-    {
-      q: "Will both amps drain DSP even when one is bypassed in a snapshot?",
-      a: "On the Helix, a bypassed block does not consume DSP. On the Quad Cortex, a bypassed block consumes minimal DSP. Both platforms have enough headroom to run two amp blocks in a single preset with full effects on both. DSP is only a concern if you are running 4+ amp blocks or large IR collections."
-    },
-    {
-      q: "Why is the transition silent — does the modeler crossfade the amps?",
-      a: "The transition is silent because the bypassed amp block is not contributing to the output. The audible-amp signal continues uninterrupted while the other amp toggles its on/off state. There is no crossfade and no audio interpolation — just a clean handoff. This is why both Helix snapshots and QC scenes work for live performance."
-    },
-    {
-      q: "Can I set the volume match automatically?",
-      a: "Not reliably. The Helix and QC both have output level meters, but perceived loudness for distorted vs. clean signals does not match peak or RMS levels. Manual matching by ear is the only reliable approach. Plan for 5-10 minutes of A/B listening to get the levels right when you build a new preset."
-    },
-    {
-      q: "Does this work for live performance, or only studio recording?",
-      a: "It works for both. The transitions are gapless and reliable on both Helix and QC firmware versions from 2023 forward. Touring players use snapshot/scene switching every night without issues. The only live-performance consideration is to test the volume match through the actual front-of-house PA, since stage monitors and FOH speakers can have different frequency responses that affect perceived levels."
-    },
-    {
-      q: "Can I use this technique with a tube amp and a modeler instead of two amp models?",
-      a: "Yes, but the routing is different. You would use the modeler as a clean amp + effects unit running into a clean tube amp, with a footswitch on the tube amp's channel switching for the dirty tone. The volume match is harder because the tube amp's channel volume is mechanical, not stored. Most players in this hybrid setup use a MIDI controller to coordinate the modeler's snapshot and the amp's channel switch on a single footswitch press."
-    }
-  ]}
-/>
+## What Snapshots Cannot Do: The Forward-Only Rule
 
-<SaveThisTone title="Save This Tone" description="The verse-clean and chorus-driven A/B preset, ready for Helix or Quad Cortex." href="/recipes/verse-chorus-ab-amp-switch" ctaLabel="Save the recipe" />
+There is one boundary worth knowing before you try to build something more ambitious than a two-amp swap, because it explains a whole class of "why won't this work" questions.
+
+Snapshots and scenes change **parameter values and bypass states**. They do not change **routing topology**. A snapshot can turn a block off, set its gain to 4, and move its mix to 30%, all instantly. What it cannot do is rearrange the order of the chain, or make a block feed audio backward to a block earlier in the path.
+
+That second restriction is architectural rather than a snapshot limitation. Both Helix and Quad Cortex build presets as forward-only signal paths — block 3 feeds block 4, parallel paths split and re-merge downstream, and nothing ever routes upstream. It is why you can A/B two amps effortlessly but cannot, for example, build a regenerating effect loop around a pitch block inside a preset. If you have run into that wall, the [rising shimmer routing post](/blog/rising-vs-fixed-shimmer-pitch-in-reverb-feedback-loop) covers the workarounds, including using a physical send-to-return cable to create the feedback path the internal router will not.
+
+The practical takeaway for A/B switching: design your preset so that every tone you need is reachable by **turning blocks on and off and changing their values**. If a tone you want requires the blocks to be in a different order, that is a second preset, not a second snapshot.
+
+## A Faster Way to Get the Starting Point
+
+If you would rather not build the volume match from a blank preset, describing the song to [Ask Axl](/tone-chat) will get you a two-amp starting chain with block names and settings for your specific unit, which you can then split across two snapshots and balance by ear. The balancing is still yours to do — that part genuinely cannot be automated.
+
+<SaveThisTone title="Find a tone to build this around" description="Every recipe in the catalog has the chain, exact settings, and platform translations for Helix and Quad Cortex." href="/browse" ctaLabel="Browse the catalog" />

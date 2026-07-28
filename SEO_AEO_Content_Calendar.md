@@ -3963,3 +3963,119 @@ consider a soft "share the chain Axl builds you" line, but don't force it. Broad
 work (Bing Webmaster Tools verify + indexation audit, Brave check, on-page share affordances,
 shareable Axl chain permalinks, tone-demo Shorts) is tracked separately with Daniel — not part of
 this post's scope.
+
+**STATUS: ✅ CONSUMED 2026-07-28.** Shipped as slot 1 of the 07-28 run
+(`ask-axl-ai-guitar-tone-assistant`, fk-staff). See that run's notes below for the
+fact-corrections made against this brief.
+
+---
+
+## Daily Run — 2026-07-28 (3 new posts + 2 refreshes + SERP analysis + 3 new topics)
+
+**Velocity check:** 6 posts / 6 authors in the trailing 7 days, all at 1/wk (Elena, Viktor, Sean,
+Dev, Margot, Jess). Carl, Hank, Rick, Nathan at 0. No one at or over the 3/week cap.
+
+**Assignment correction (Gate 3).** The queued W3 assignment (`acoustic-ir-vs-subtractive-eq-piezo-real`
+→ **Carl Beckett**) was **reassigned to Nathan Cross**. Carl's `writers.md` never-assign list is
+explicit: *"Any modeler deep-dive — he's never used one and wouldn't be authentic."* His entire rig is
+a Tele, a Blues Junior, and one cable. The W3 brief picked him for his "do you even need the fancy
+thing" lane, which is the right *angle* on the wrong *byline* — a Carl post about IR blocks and DSP
+budgets fails voice consistency no matter how well it's written. Nathan is the worship-acoustic
+authority, was at 0/wk, and has prior modeler assignments. **Standing note for future queue entries:
+check the never-assign list when proposing a byline, not just the velocity count.**
+
+### New posts
+
+| # | Slug | Title | Writer | Pillar |
+|---|---|---|---|---|
+| 1 | ask-axl-ai-guitar-tone-assistant | Ask Axl: How to Get Any Guitar Tone on Your Modeler by Describing It | fk-staff | Platform Guide (owner priority) |
+| 2 | acoustic-ir-vs-subtractive-eq-piezo-real | Acoustic IR vs. Subtractive EQ: Which One Actually Makes a Piezo Sound Real? | Nathan Cross | 4 — Modeler Masterclass |
+| 3 | rising-vs-fixed-shimmer-pitch-in-reverb-feedback-loop | Rising vs. Fixed Shimmer: Putting the Pitch Shifter Inside the Reverb Feedback Loop | Sean Nakamura | 4 — Modeler Masterclass |
+
+**Post 1 fact-corrections against the owner brief.** The injection said *"370+ recipe archive"* —
+**that number is wrong and was not used.** 370-ish is the *blog post* count (379 files); the actual
+recipe corpus is **195** (`npx tsx -e "import {toneRecipes} from './src/lib/data'; console.log(toneRecipes.length)"`,
+corroborated by the comment in `src/lib/tone-chat/retrieval.ts`, which itself says "105" and is stale).
+The post states 195. Everything else in the brief verified clean against
+`src/app/api/tone-chat/route.ts` and `src/components/tone-chat/ToneChatClient.tsx`: free cap 10/day,
+Pass 200/day, rig list (Helix/HX, Quad Cortex, Fractal, Kemper, TONEX, Boss Katana, Pedalboard, plus
+an **"Any rig"** option the brief omitted), sign-in gate, fk-chain and fk-request cards, honesty
+framing. The worked example uses the **real** verified Helix translation of
+`/recipe/srv-texas-flood-slow-blues-lead` (Volume Pedal → Deluxe Comp → Scream 808 at Drive 2 / Tone 5
+/ **Level 8** → US Deluxe Vib), and the Drive-2-Level-8 inversion is the post's teaching beat.
+**Route note:** recipe pages live at `/recipe/<slug>` (SINGULAR) — see the debt item below.
+
+Post 2's non-commodity core: the **magnitude-vs-time-domain split** (EQ fixes the honk and the quack;
+only an IR supplies body resonance and decay), exact cut frequencies, and the **surprised discovery
+that the IR's body resonance stacks on top of your guitar's** — so a dreadnought through a dreadnought
+IR gets boomier while a small-body gains what it lacked, which inverts the usual "buy the matching IR"
+instinct. Plus the live tradeoff nobody publishes: **an IR adds resonant peaks and therefore worsens
+feedback**, so EQ-and-notch is the loud-stage answer. Post 3's core: the **octave-stacking math per
+lap**, the self-limiting mechanism (feedback < 1 **and** the damping filter attenuating each
+progressively-higher lap), the discovery that **the high cut, not the feedback knob, decides how many
+octaves you hear**, and the architectural finding that **Helix and QC signal paths are forward-only, so
+neither can build this internally** — with the physical send-to-return workaround and a two-stage
+series approximation (descending pitch mix and descending high cuts, hand-reproducing per-lap decay).
+
+Hero images via Flux 2 Pro (`--model=black-forest-labs/flux-2-pro`, ~$0.17, 3/3). Post 1's first
+attempt was **rejected by the provider's sensitivity filter** — the auto-derived subject from the title
+put the bare token "Axl" in the prompt, which reads as a real person. Fixed by adding a scene-describing
+`SUBJECT_OVERRIDES` entry in `scripts/generate-blog-images.ts` (committed). MDX preflight
+`--changed --strict`: **clean, 5 files** (one 205-char description on Post 3 trimmed to snippet width).
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | hybrid-acoustic-pickup-comparison | **Legacy `<FAQ>` → frontmatter `faq:` migration + AEO backfill + content-add.** Migrated the 5 body Q&A to frontmatter (removed the duplicate component), added a 6th ("Does a better pickup mean I need less EQ?"), added 5 `takeaways:`, and **replaced the placeholder `image_alt`** (`a composition illustrating "LR Baggs Anthem vs..."`) with a real descriptive alt. Description trimmed to snippet width. Real content-add: a new **"How Much EQ Repair Each One Needs"** section with a per-system table (low-mid box / quack / body resonance), landing the buying insight that *a tone problem is a free EQ cut and a missing-body problem is a hardware or IR problem* — which is the actual decision behind the $100-vs-$300 spread. Cross-links Post 2 and the 07-24 acoustic DI post. `updated: 2026-07-28`, Elena's byline kept. | A proven gear-lab comparison emitting zero answer-engine surface, and the natural hub for today's acoustic post. |
+| R2 | ab-amp-switching-modeler-verse-chorus | **Legacy `<FAQ>` → frontmatter `faq:` migration + AEO backfill + content-add + broken-CTA fix.** Migrated 5 body Q&A to frontmatter, added a 6th (multi-tone snapshot limits), added 5 `takeaways:`, replaced the placeholder `image_alt`. Real content-add: a new **"What Snapshots Cannot Do: The Forward-Only Rule"** section distinguishing *parameter/bypass state* (what snapshots change) from *routing topology* (what they can't), which is the reciprocal of Post 3's architectural finding and answers a recurring "why won't this work" class. Also a short Ask Axl tie-in for getting a two-amp starting chain. **Fixed a broken CTA:** `href="/recipes/verse-chorus-ab-amp-switch"` → `/browse` (wrong path *and* a nonexistent slug). `updated: 2026-07-28`, fk-staff byline kept. | Zero AEO surface plus a dead CTA on a proven modeler post; the perfect reciprocal for Post 3's forward-only-routing thesis. |
+
+### 🔧 New tech debt logged — 35 posts with broken `/recipes/` CTAs
+
+`grep -rn 'href="/recipes/' content/blog/*.mdx` returns **35 posts**. Two compounding faults: the
+route is **`/recipe/[slug]` (singular)** so every one of them 404s, and most of the referenced slugs
+(e.g. `verse-chorus-ab-amp-switch`, `frfr-cab-dial-in-checklist`, `cab-ir-tested-presets`) **do not
+exist** in the 195-recipe corpus. Only R2's instance was fixed this run. A background task was spawned
+with the repair pattern (repoint to a real `/recipe/<slug>` where one matches, else `/browse`) and an
+explicit instruction **not** to touch `date:` on those posts — link repair is not a substantive refresh
+and redating without a real content change is a spam signal per Playbook §6.
+
+### SERP Analysis — 2026-07-28 (live checks this run)
+
+**Post 1 — ask-axl-ai-guitar-tone-assistant** (target: "ai guitar tone assistant," "ask axl," "how to dial in guitar tone helix," "guitar tone ai")
+- **Top ranking:** **ToneBuilder.ai** ("describe your sound, get a complete signal chain, refine in chat"), **DialMyTone**, **HelixTones** ("describe your tone, get a mix-ready preset… instantly and free"), the **L6 Helix Sound Designer** custom GPT on yeschat.ai, and a Line 6 Community thread from someone who built their own ChatGPT Helix helper.
+- **Gap — and an honest correction to the brief.** The owner brief asserted *"no competitor has an AI tone assistant."* **That is not what the SERP shows** — this is a genuinely crowded category with at least four direct competitors, and the post does **not** make that claim. What none of them have, verified across the ranking pages: answers **grounded in a public, reproducible recipe archive** where every recommendation is a **link to a settings page you can check**, and a **request handoff** that turns a catalog miss into a published recipe. The competitors are generators; ours is a retrieval front door to a citable corpus. The post's hedge ("the part most tone chatbots don't have") is the defensible version and was kept deliberately.
+- **AI Overview:** likely present (tool-discovery query class); F&K not cited (hours old).
+- Non-commodity gate: **PASS** — but on the *archive-grounding + request-pipeline* differentiator, not on novelty. Flagging for the next strategy review: this category got crowded fast and the moat is the corpus, not the chat.
+
+**Post 2 — acoustic-ir-vs-subtractive-eq-piezo-real** (target: "acoustic ir vs eq piezo," "do acoustic irs work," "make piezo acoustic sound natural modeler")
+- **Top ranking:** Sweetwater InSync ("Sweeten Your Electric Guitar's Acoustic Tone with IR Magic"), isthisgeargood ("Using Acoustic IRs to Fix That Awful Piezo Guitar Sound"), Harmony Central ("Better Sound from Acoustic Guitar Piezo Pickups"), Fractal and LoopyPro forum threads, plus a plugin roundup.
+- **Gap confirmed / cross-check (Gate 1 held).** The field independently corroborates the post's core framing — one ranking source describes an EQ curve as *"a snapshot of a tone lasting a single instant"* versus an IR that *"applies the resonance of a miked guitar,"* which is exactly the magnitude-vs-time-domain split the post is built on, and several note the combined EQ+IR approach beats either alone. So the thesis is safe. What **nothing** in the top results covers: the **body-resonance stacking problem** (pick an IR from a *smaller* guitar than yours), the **IR-worsens-feedback** live tradeoff, and a **DSP-budget decision table**. The SERP is uniformly pro-IR and additive; the post's contribution is the cost side and the ordering.
+- **AI Overview:** likely present (how-to/comparison class; Sweetwater is a heavy AIO feeder); citation unverified.
+- Non-commodity gate: **PASS** (three findings absent from the entire top-5, plus exact frequencies).
+
+**Post 3 — rising-vs-fixed-shimmer-pitch-in-reverb-feedback-loop** (target: "rising shimmer reverb," "pitch in reverb feedback loop," "shimmer feedback loop routing helix")
+- **Top ranking:** Reason Studios "Building a Shimmer Reverb," Aulart "Make a Shimmer Reverb in Ableton Live," KVR and MOD WIGGLER forum threads, Gearspace. **Entirely DAW, Reason, and modular-synth tutorials.**
+- **Gap confirmed / cross-check (Gate 1 held).** The mechanism is corroborated verbatim by the ranking sources — *"feeding the pitch shifted reverb tail back on itself, which shifts the reverb tail in pitch again and again"* and *"turn up the feedback control and you should start to hear… a rising pitch shifting reverb."* Our octave-per-lap table and self-limiting explanation match the field. **The entire gap is the guitar-hardware half:** every ranking result assumes a routing environment with free feedback (Reason's Spider merger, a modular patchbay, an Ableton workaround). **Not one addresses that Helix and Quad Cortex cannot route audio backward at all** — which is the single most useful fact for the guitarist actually searching this. The send-to-return physical loop and the two-stage series approximation appear to be unpublished elsewhere in this form.
+- **AI Overview:** likely present (technique how-to class); citation unverified.
+- Non-commodity gate: **PASS** (strongest of the three — a platform-architecture answer the whole SERP is blind to).
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3 from the fan-out queue this run (W1/Sean, W3/→Nathan, plus the owner injection), adding 3.
+> Bylines are best-fit proposals; the executing run re-checks **both** velocity **and** the
+> never-assign list (see the Gate 3 correction above). **Verify no colliding slug at build time.**
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| X1 | modeler-send-return-loop-tricks-beyond-shimmer | What Else the Send-to-Return Cable Trick Unlocks on a Modeler | "helix send return loop trick," "modeler external feedback loop," "hx stomp send return routing" | Sean Nakamura | 4 — Modeler Masterclass | Post 3 established that a physical send→return cable is the only way to defeat the forward-only routing rule, and used it for one effect. The general technique is a distinct topic: infinite-repeat delay freeze, self-oscillating filter sweeps, re-amping a wet path, and the gain-staging/latency rules that keep the loop stable. Genuinely different question (a technique's full surface, not shimmer re-sliced). Sean's routing lane; re-check his velocity. |
+| X2 | acoustic-body-ir-capture-your-own-guitar | Capturing a Body IR of Your Own Acoustic (So the Resonance Actually Matches) | "capture acoustic body ir," "make your own acoustic ir," "diy impulse response acoustic guitar" | Dev Okonkwo | Workflow | Falls directly out of Post 2's stacking discovery: if a mismatched IR is the problem, the fix is an IR captured from *your* instrument. Distinct question (a capture how-to, not a comparison): mic placement, the sweep-vs-transient method, deconvolving against the piezo signal, and the honest limits. Dev's recording/bedroom-production lane. |
+| X3 | how-ai-tone-tools-differ-generator-vs-retrieval | Generator vs. Retrieval: Why AI Tone Tools Give You Different Answers | "ai guitar tone tool comparison," "tonebuilder vs helixtones," "are ai guitar presets any good" | Viktor Kessler | Gear Lab | Straight out of Post 1's SERP, which revealed four-plus direct competitors. The genuinely useful unpublished question is the **architectural** one: tools that generate settings from a model's weights vs. tools that retrieve from a tested corpus, why the failure modes differ (invented block names vs. coverage gaps), and how to tell which you're using. Viktor's measure-it-and-verify lane makes this an evaluation piece, not a promo. **Must be written with Gate 8 fairness — F&K is a participant in this category, so state the conflict of interest plainly.** |
+
+**Diversity/queue note:** new posts went to fk-staff (owner-directed), Nathan (0→1), Sean (1→2).
+**Next run: Sean is at 2/wk — one slot left, and X1 would consume it. Favor Carl, Hank, Rick, Jess,
+Margot, Dev, Elena, Viktor.** Cluster fan-out queue remaining: nashville-numbers/Jess,
+volume-pedal-placement/Sean, V1 single-coil-hum/Elena, V2 katana-gen3/Jess, V3
+ambient-headphones-mono/Dev, W2 sidechain-dynamic-eq/Dev, plus today's X1/Sean, X2/Dev, X3/Viktor.
+Strategic queue still **empty of automatable items — S5 (Complete Helix pillar) + S6 (Katana pillar)
+remain the standing debt (now deferred 6 runs); escalate to a dedicated human-in-the-loop session.**
