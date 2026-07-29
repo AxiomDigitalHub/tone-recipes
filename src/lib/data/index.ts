@@ -3192,6 +3192,81 @@ export const songs: Song[] = [
     external_video_url:
       "https://www.youtube.com/results?search_query=iron+maiden+wasted+years+guitar+lesson",
   },
+  {
+    artist_slug: "adrian-smith",
+    title: "The Evil That Men Do",
+    slug: "the-evil-that-men-do-iron-maiden",
+    album: "Seventh Son of a Seventh Son",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/89/e3/ce/89e3cef5-2cdb-fb65-bedd-b77460a98acd/0881034134493.jpg/600x600bb.jpg",
+    year: 1988,
+    genres: ["heavy-metal", "nwobhm", "hard-rock"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=iron+maiden+the+evil+that+men+do",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=iron+maiden+the+evil+that+men+do+guitar+lesson",
+  },
+  {
+    artist_slug: "adrian-smith",
+    title: "Sea of Madness",
+    slug: "sea-of-madness-iron-maiden",
+    album: "Somewhere in Time",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c6/24/de/c624de71-e086-6f24-a279-b32a1e1c1009/0881034134486.jpg/600x600bb.jpg",
+    year: 1986,
+    genres: ["heavy-metal", "nwobhm", "hard-rock"],
+    difficulty: "intermediate",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=iron+maiden+sea+of+madness",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=iron+maiden+sea+of+madness+guitar+lesson",
+  },
+  {
+    artist_slug: "ritchie-blackmore",
+    title: "Stargazer",
+    slug: "stargazer-rainbow",
+    album: "Rising",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/ba/90/85/ba90851d-b3bf-ff6d-3695-d230bf07daf4/00731454736121.rgb.jpg/600x600bb.jpg",
+    year: 1976,
+    genres: ["hard-rock", "heavy-metal", "classic-rock"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=rainbow+stargazer",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=rainbow+stargazer+guitar+lesson",
+  },
+  {
+    artist_slug: "ritchie-blackmore",
+    title: "Kill the King",
+    slug: "kill-the-king-rainbow",
+    album: "Long Live Rock 'n' Roll",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/33/ce/4d/33ce4d6e-2584-9ec7-ea9a-c1cb79ecc10f/00731454736329.rgb.jpg/600x600bb.jpg",
+    year: 1978,
+    genres: ["hard-rock", "heavy-metal", "classic-rock"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=rainbow+kill+the+king",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=rainbow+kill+the+king+guitar+lesson",
+  },
+  {
+    artist_slug: "vivian-campbell",
+    title: "Stand Up and Shout",
+    slug: "stand-up-and-shout-dio",
+    album: "Holy Diver",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e4/8e/9a/e48e9aa6-1488-8b71-82eb-0b856d1034d2/mzm.txbqniop.jpg/600x600bb.jpg",
+    year: 1983,
+    genres: ["heavy-metal", "metal", "hard-rock"],
+    difficulty: "intermediate",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=dio+stand+up+and+shout",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=dio+stand+up+and+shout+guitar+lesson",
+  },
 ];
 
 export const gearItems: GearItem[] = [
@@ -61636,6 +61711,1215 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Search ToneNET for 'Jazz Chorus' or 'JC-120' or 'solid-state clean'", block_category: "Tone Model", original_gear: "Gallien-Krueger 250-series solid-state combo", settings: {}, notes: "Search ToneNET for a JC-120 or solid-state clean capture -- the GK's bright, compressed transistor voice is closest to a Jazz Chorus. Add a chorus pedal (or the TONEX Pedal's modulation) in front for the chime." },
         ],
         notes: "Capture-driven: a solid-state clean Tone Model (JC-120 / Jazz Chorus) plus a chorus for the Somewhere in Time chime. Keep it bright and compressed -- this is the un-Marshall Maiden tone.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Adrian Smith - The Evil That Men Do (solo) ----
+  {
+    id: "seed-smith-evil-that-men-do",
+    song_slug: "the-evil-that-men-do-iron-maiden",
+    title: "Iron Maiden's The Evil That Men Do Solo Tone",
+    slug: "smith-evil-that-men-do-solo",
+    created_at: "2026-07-29",
+    description:
+      "Adrian Smith's most singing solo sits on top of the strangest amp Iron Maiden ever used. Seventh Son of a Seventh Son was tracked at Musicland in Munich with Martin Birch, and both guitarists were still running Gallien-Krueger 250ML solid-state combos rather than Marshalls -- 100 watts of transistor gain with onboard chorus and echo. A Super-Distortion-loaded Jackson into that GK overdrive channel is why the lead cuts so cleanly through the keyboard wash.",
+    tone_context: "solo",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Jackson Custom Adrian Smith prototype (1986, white)",
+      pickup_config: "HSS",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: ".009-.042",
+      notable_mods:
+        "Smith's white Jackson custom superstrat carries a DiMarzio Super Distortion in the bridge with single-coils in the neck and middle, plus a Floyd Rose and locking tuners. The high-output bridge humbucker is what lets a 100W solid-state combo produce a lead that sustains -- the pickup, not the amp, supplies most of the front-end drive. Neck/middle pickup type is described from the later signature model and is not documented for the 1986 prototype; string gauge is era-typical, not documented.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: "gallien-krueger-250ml",
+        gear_name: "Gallien-Krueger 250ML (overdrive channel)",
+        icon_type: "fender_combo",
+        icon_color: "#94a3b8",
+        is_in_effects_loop: false,
+        settings: { Gain: 7, Bass: 4, Middle: 6, Treble: 7, Master: 6, Overdrive: 7 },
+        notes:
+          "The 250ML's overdrive channel is transistor clipping, not tube saturation -- it stays tight and bright no matter how hard you push it, which is exactly why the solo reads as a separate voice above the keyboards instead of blending into the rhythm bed. Middle left at 6 so the melody carries; a scooped setting would bury the lead in this mix.",
+      },
+      {
+        position: 2,
+        category: "wet_effect",
+        subcategory: "delay",
+        gear_slug: null,
+        gear_name: "Gallien-Krueger onboard echo",
+        icon_type: "large_format",
+        icon_color: "#94a3b8",
+        is_in_effects_loop: true,
+        settings: { Time: 350, Feedback: 2, Level: 3 },
+        notes:
+          "The GK's built-in echo is why Maiden could drop the outboard racks for this era -- one short repeat behind the lead thickens the line without smearing Smith's phrasing. Kept low: this solo is melodic and needs its note-ends audible.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Gallien-Krueger internal speakers",
+        icon_type: "cab_1x12",
+        icon_color: "#94a3b8",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "The GK's own small speakers give the tight, slightly boxy, mid-forward voice that separates this record from the Marshall-era Maiden albums -- the reason the 1988 leads sound compressed and immediate rather than open and roaring.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, cap edge" },
+        notes:
+          "Session miking is not documented for these sessions; a close SM57 at the cap edge is the reconstruction that gets closest to the record's tight, present lead sound without adding room that isn't on the master.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Jackson custom superstrat (DiMarzio Super Distortion bridge, Floyd Rose) -- Adrian Smith; Dave Murray's Strat carries the harmony lines, standard E",
+      effects: [
+        "Gallien-Krueger 250ML onboard overdrive channel",
+        "Gallien-Krueger 250ML onboard echo",
+        "MXR pedals (Smith's era pedalboard; specific models not documented per-track)",
+      ],
+      amp: "Gallien-Krueger 250ML solid-state combo (100W)",
+      cabinet: "Gallien-Krueger internal speakers",
+      microphone: "Shure SM57 -- inferred; the session capture is not documented",
+      other_notes:
+        "Recorded February-March 1988 at Musicland Studios, Munich; produced and engineered by Martin Birch. Smith plays the solo on this track (Murray takes Prowler '88). The keyboards on this album are deliberately not a hired player -- Dickinson describes them as one-finger parts from Smith, Harris or whoever was free -- which is why the guitars had to stay bright and mid-forward to cut. Standard E. Mic choice and reverb are production-style reconstruction, not documented.",
+    },
+    tags: ["heavy-metal", "nwobhm", "iron-maiden", "solo", "lead", "solid-state"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Seventh_Son_of_a_Seventh_Son",
+      "https://www.guitarlobby.com/adrian-smith-guitars-and-gear/",
+      "https://equipboard.com/albums/iron-maiden-seventh-son-of-a-seventh-son-2015-remaster",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Noise Gate",
+            block_category: "Dynamics",
+            original_gear: "Studio noise gate (FRFR essential)",
+            enabled: true,
+            settings: { Threshold: -58, Decay: 0.25, Level: 0 },
+            notes:
+              "DEFAULT-ON. Transistor gain hisses more than tube gain on an FRFR rig, so a shallow gate cleans the gaps between phrases without clipping the long held bends this solo lives on.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression",
+            settings: { Threshold: -34, Ratio: 2, Knee: 6, Attack: 50, Release: 250, Mix: 35, Level: 1 },
+            notes:
+              "Light parallel comp only. The GK is already heavily compressed by its own solid-state clipping, so a heavy comp on top would flatten the pick attack that gives Smith's phrasing its definition.",
+          },
+          {
+            position: 3,
+            block_name: "Hedgehog D9",
+            block_category: "Distortion",
+            original_gear: "Gallien-Krueger 250ML overdrive channel",
+            enabled: true,
+            settings: { Gain: 6.5, Tone: 6.5, Level: 6 },
+            notes:
+              "DEFAULT-ON. This is the solo's gain. A DOD 250-voiced hard clip is a far better stand-in for the GK's transistor overdrive than a tube screamer would be -- op-amp clipping, no tube softening, which is exactly the character on the record.",
+          },
+          {
+            position: 4,
+            block_name: "Stupor OD",
+            block_category: "Distortion",
+            original_gear: "MXR Distortion+ (Smith's era pedalboard)",
+            enabled: false,
+            settings: { Gain: 5, Tone: 6, Level: 6.5 },
+            notes:
+              "ALTERNATE drive, off by default. Smith carried MXR pedals through this era; the Distortion+ is the same hard-clipping family as the GK's own overdrive, so stack it only as an A/B flavor -- running both at once turns the lead to mush.",
+          },
+          {
+            position: 5,
+            block_name: "Jazz Rivet 120",
+            block_category: "Amp",
+            original_gear: "Gallien-Krueger 250ML solid-state combo",
+            settings: { Drive: 4, Bass: 4, Mid: 6, Treble: 7, Presence: 6, ChVol: 6.5, Master: 8, Bias: 5, BiasX: 5, Sag: 2.5, Hum: 4, Ripple: 4 },
+            notes:
+              "The JC-120 model is Helix's only true solid-state platform, which is the right chassis for a GK. Sag pulled to 2.5 because transistor power sections barely sag -- that lack of give is what makes the lead feel immediate and slightly clinical, the signature of this album.",
+          },
+          {
+            position: 6,
+            block_name: "2x12 Silver Bell",
+            block_category: "Cab",
+            original_gear: "Gallien-Krueger internal speakers",
+            settings: { Mic: 0, Distance: 1.5, Position: 0.42, Angle: 0, LowCut: 110, HighCut: 9500, Resonance: 4, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "A tight solid-state-voiced 2x12 close-miked with a 57. LowCut 110 pulls the low-mid thickness that would fight Harris's bass, and HighCut 9500 shaves the transistor fizz that sits above the useful lead range.",
+          },
+          {
+            position: 7,
+            block_name: "Adriatic Delay",
+            block_category: "Delay",
+            original_gear: "Gallien-Krueger onboard echo",
+            settings: { Time: 350, Feedback: 18, Mix: 16, LowCut: 220, HighCut: 4500, Level: 0 },
+            notes:
+              "An analog-voiced single repeat stands in for the GK's onboard echo. HighCut 4500 makes each repeat darker than the dry note, so the delay adds depth behind the melody instead of doubling and blurring it.",
+          },
+          {
+            position: 8,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Musicland studio plate",
+            settings: { Mix: 15, Decay: 1.3, Predelay: 25, LowCut: 160, HighCut: 8000, Level: 0 },
+            notes:
+              "A short, polished plate in the Musicland house style. LowCut 160 keeps the tail out of the rhythm guitars' territory; HighCut 8000 stops the solid-state top end from turning the tail into hiss.",
+          },
+          {
+            position: 9,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global tilt EQ",
+            settings: { Tilt: 0.55, CenterFreq: 1000, Level: 0 },
+            notes:
+              "Nudged slightly bright because the lead has to sit above keyboards and two rhythm tracks. Pull it back toward 0.5 if your IR already has plenty of presence.",
+          },
+        ],
+        notes:
+          "Gate -> comp -> GK overdrive (Hedgehog, on) -> Distortion+ alternate (off) -> Jazz Rivet 120 -> tight 2x12 -> short analog echo -> polished plate -> tilt. The whole trick is that the gain is solid-state and the pickup is hot: bright, compressed and immediate, not a roaring Marshall.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Dynamics", original_gear: "Studio noise gate", enabled: true, settings: { Threshold: -58, Decay: 0.25 }, notes: "Shallow gate -- transistor gain hisses on FRFR, but the held bends must survive." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -34, Ratio: 2, Attack: 8, Release: 250, Mix: 35, Level: 1 }, notes: "Parallel and light -- the GK already compresses itself, so this just steadies the sustain." },
+          { position: 3, block_name: "Gold Drive", block_category: "Drive", original_gear: "Gallien-Krueger 250ML overdrive channel", enabled: true, settings: { Drive: 6.5, Tone: 6.5, Level: 6 }, notes: "DEFAULT-ON. Hard op-amp clipping stands in for the GK's transistor overdrive; this block supplies the solo's gain." },
+          { position: 4, block_name: "Jazz Chorus", block_category: "Amp", original_gear: "Gallien-Krueger 250ML solid-state combo", settings: { Gain: 4.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, Master: 8.0, Sag: 2.5 }, notes: "The QC's JC-120 is the only true solid-state platform here. Sag low so the lead keeps the immediate, unsagging transistor response." },
+          { position: 5, block_name: "2x12 Jazz Cab", block_category: "Cab", original_gear: "Gallien-Krueger internal speakers", settings: { Mic: "SM57", Distance: 1.5, Position: 0.42, LowCut: 110, HighCut: 9500, Level: 0 }, notes: "Tight solid-state cab; the cuts keep the lead clear of the bass and free of transistor fizz." },
+          { position: 6, block_name: "Analog Delay", block_category: "Delay", original_gear: "Gallien-Krueger onboard echo", settings: { Time: 350, Feedback: 18, Mix: 16, Level: 0 }, notes: "One darkened repeat for depth -- the GK's onboard echo, kept low so the phrasing stays legible." },
+          { position: 7, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Musicland studio plate", settings: { Decay: 1.3, Predelay: 25, Mix: 15, Level: 0 }, notes: "Short polished plate in the Musicland style -- depth without wash." },
+          { position: 8, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 5.5, CenterFreq: 1000, Level: 0 }, notes: "Slightly bright so the lead sits above the keyboards; flatten it if your IR is already forward." },
+        ],
+        notes:
+          "Gate -> comp -> hard-clip drive (on) -> Jazz Chorus solid-state -> tight 2x12 -> analog echo -> plate -> EQ. Mirrors the Helix chain. The gain comes from the drive block and the hot bridge humbucker, not from the amp.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: true, original_gear: "Gallien-Krueger 250ML overdrive channel", settings: { Drive: 6.5, Bottom: 4, Tone: 6.5, Level: 6 }, notes: "DEFAULT-ON -- this is not an A/B flavor, it stands in for the GK's own always-engaged overdrive channel on the solo. Bottom pulled back so the lead stays tight." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Gallien-Krueger 250ML solid-state combo", settings: { Gain: 5, Volume: 6.5, Bass: 4, Middle: 6, Treble: 7, Presence: 6, Master: 8 }, notes: "Crunch rather than Lead: the GK's gain is tight and transistor-bright, and the Katana's Lead character adds a tube-flavored softness the record does not have." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Gallien-Krueger onboard echo", settings: { Time: 350, Feedback: 2, EffectLevel: 16 }, notes: "One short repeat, low level -- the onboard GK echo. Enough to thicken the line without blurring the melodic phrasing." },
+          { position: 4, block_name: "Reverb", block_category: "Reverb", original_gear: "Musicland studio plate", settings: { Time: 13, PreDelay: 25, Tone: 5, EffectLevel: 15 }, notes: "A short plate for depth. Keep it modest -- the album's lead sound is close and present, not roomy." },
+        ],
+        notes:
+          "Booster (on) -> Crunch amp -> short echo -> plate. The booster carries the gain because the GK's drive is a pedal-like transistor clip, not amp saturation. Bridge humbucker throughout.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 0.05, Volume: 1 }, notes: "Slot A. Light -- the GK compresses itself; this only evens out the sustained bends." },
+          { position: 2, block_name: "Green Scream", block_category: "Drive", enabled: true, original_gear: "Gallien-Krueger 250ML overdrive channel", settings: { Drive: 6.5, Tone: 6.5, Volume: 6 }, notes: "Stomp slot, DEFAULT-ON. Stands in for the GK's overdrive channel -- push the Drive rather than the profile, since the amp itself is a clean solid-state platform." },
+          { position: 3, block_name: "Search Rig Exchange for 'Jazz Chorus' or 'JC-120 solid state'", block_category: "Profile", original_gear: "Gallien-Krueger 250ML solid-state combo", settings: { Gain: 4, Bass: 4, Middle: 6, Treble: 7, Presence: 6 }, notes: "Pick a clean JC-120 style capture and let the Stomp drive do the work -- a Marshall profile would give you the wrong album. Cab is baked into the profile." },
+          { position: 4, block_name: "Single Delay", block_category: "Delay", original_gear: "Gallien-Krueger onboard echo", settings: { Time: 350, Feedback: 18, Mix: 16 }, notes: "DLY slot. One darkened repeat behind the melody, standing in for the GK's onboard echo." },
+          { position: 5, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Musicland studio plate", settings: { Decay: 1.3, Predelay: 25, Mix: 15 }, notes: "REV slot. Short polished plate -- depth without turning the lead roomy." },
+        ],
+        notes:
+          "Comp -> drive stomp (on) -> solid-state clean profile -> echo -> plate. Search Rig Exchange for a JC-120 or GK-style capture; the gain belongs in the Stomp slot, not the profile.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -34, Ratio: 2, Attack: 50, Release: 250, Mix: 0.35, Level: 1 }, notes: "Light parallel comp -- the GK's own clipping already does most of the levelling." },
+          { position: 2, block_name: "T808 Mod", block_category: "Drive", enabled: true, original_gear: "Gallien-Krueger 250ML overdrive channel", settings: { Drive: 6.5, Tone: 6.5, Level: 6 }, notes: "DEFAULT-ON. Set the Clip Type to hard/op-amp in the advanced page so it behaves like the GK's transistor overdrive rather than a soft tube-screamer clip." },
+          { position: 3, block_name: "Jazz 120", block_category: "Amp", original_gear: "Gallien-Krueger 250ML solid-state combo", settings: { Drive: 4.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 8.0 }, notes: "Fractal's JC-120. Drop Supply Sag in the advanced page for the unsagging transistor response that defines this album's leads." },
+          { position: 4, block_name: "2x12 Jazz Cab", block_category: "Cab", original_gear: "Gallien-Krueger internal speakers", settings: { Mic: "57 Dynamic", Distance: 1.5, LowCut: 110, HighCut: 9500, Level: 0 }, notes: "Tight solid-state cab; cuts placed to keep the lead above the bass and below the fizz." },
+          { position: 5, block_name: "Analog Delay", block_category: "Delay", original_gear: "Gallien-Krueger onboard echo", settings: { Time: 350, Feedback: 0.18, Mix: 0.16 }, notes: "One darkened repeat, standing in for the GK's onboard echo." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Musicland studio plate", settings: { Mix: 0.15, Decay: 1.3, Predelay: 25 }, notes: "Short polished plate -- Musicland house ambience, not a hall." },
+          { position: 7, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 0.55, CenterFreq: 1000, Level: 0 }, notes: "Slightly bright so the lead clears the keyboards; flatten if your IR is already forward." },
+        ],
+        notes:
+          "Comp -> hard-clip drive (on) -> Jazz 120 -> tight 2x12 -> analog echo -> plate -> tilt. Keep the amp clean and the drive hot; that division is what makes it read as a GK and not a Marshall.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'JC-120' or 'solid state clean' or 'Jazz Chorus'", block_category: "Tone Model", original_gear: "Gallien-Krueger 250ML solid-state combo", settings: {}, notes: "Capture a clean solid-state platform and put a hard-clipping drive in front of it. Searching for a Marshall capture will get you the wrong Maiden album -- the 1988 lead tone is transistor gain, not EL34 saturation." },
+        ],
+        notes:
+          "Capture-driven: a clean JC-120 / solid-state Tone Model with an external hard-clip overdrive supplying the gain, plus a short dark delay. Bright, compressed and immediate -- the Seventh Son lead voice.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Adrian Smith - Sea of Madness (riff) ----
+  {
+    id: "seed-smith-sea-of-madness",
+    song_slug: "sea-of-madness-iron-maiden",
+    title: "Iron Maiden's Sea of Madness Riff Tone",
+    slug: "smith-sea-of-madness-riff",
+    created_at: "2026-07-29",
+    description:
+      "Adrian Smith wrote Sea of Madness and it shows: the riff is chorused, chiming and mid-forward rather than heavy, because Somewhere in Time was cut on Gallien-Krueger solid-state combos instead of Marshalls. Guitars went down at Wisseloord with the rhythm section from Compass Point, Martin Birch producing, and the GK's onboard chorus and echo replaced the outboard rack. Bright transistor drive is what makes this riff sound like no other Maiden record.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Jackson Custom Adrian Smith prototype (1986, white)",
+      pickup_config: "HSS",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: ".009-.042",
+      notable_mods:
+        "DiMarzio Super Distortion in the bridge with a Floyd Rose and locking tuners -- the hot humbucker is doing the front-end driving because a 100W solid-state combo has no tube stage to push. Smith also used a black Charvel San Dimas with a lone bridge humbucker in this period; Dave Murray doubles the rhythm on his Super-Distortion-loaded Strat. Neck/middle pickup type and string gauge are era-typical, not documented for the prototype.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "modulation",
+        gear_slug: null,
+        gear_name: "Boss CE-3 Chorus / Gallien-Krueger onboard chorus",
+        icon_type: "boss_compact",
+        icon_color: "#3b82f6",
+        is_in_effects_loop: false,
+        settings: { Rate: 3, Depth: 4, Level: 6 },
+        notes:
+          "Smith reached for stereo chorus in this era specifically to make the guitars read as synth-adjacent, which is the whole design brief of Somewhere in Time. Rate and depth stay moderate: enough width to shimmer, not enough to make the riff's rhythmic edge wobble.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: "gallien-krueger-250ml",
+        gear_name: "Gallien-Krueger 250ML (overdrive channel)",
+        icon_type: "fender_combo",
+        icon_color: "#94a3b8",
+        is_in_effects_loop: false,
+        settings: { Gain: 6, Bass: 4, Middle: 6, Treble: 7, Master: 6, Overdrive: 6 },
+        notes:
+          "Overdrive set lower than the solo patch so the riff stays articulate under the layered synth parts -- push it further and the sixteenths smear. The GK's transistor clipping never gets loose the way a cranked Marshall does, which is why this riff keeps its edge even chorused.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Gallien-Krueger internal speakers",
+        icon_type: "cab_1x12",
+        icon_color: "#94a3b8",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "The GK's own speakers are small, tight and mid-forward. That boxiness is a feature here: it keeps the doubled rhythm guitars from swallowing the low end that Harris's bass owns on this record.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, cap edge" },
+        notes:
+          "Not documented for these sessions. A close 57 is the reconstruction that best matches the record's dry, forward rhythm sound -- the album has almost no room on the guitars.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Jackson custom superstrat / Charvel San Dimas with DiMarzio Super Distortion bridge and Floyd Rose (Smith), Fender Strat with Super Distortion (Murray), standard E",
+      effects: [
+        "Boss CE-3 Stereo Chorus",
+        "Gallien-Krueger 250ML onboard chorus",
+        "Gallien-Krueger 250ML onboard echo",
+        "Gallien-Krueger 250ML onboard overdrive channel",
+      ],
+      amp: "Gallien-Krueger 250ML solid-state combo (100W)",
+      cabinet: "Gallien-Krueger internal speakers",
+      microphone: "Shure SM57 -- inferred; the session capture is not documented",
+      other_notes:
+        "Written by Adrian Smith. Rhythm tracks cut at Compass Point Studios, Nassau; guitars at Wisseloord Studios, Netherlands; produced by Martin Birch. Somewhere in Time is the album where Maiden set the Marshalls aside for GK solid-state combos -- the onboard chorus, echo and effects loop are the reason the record sounds futuristic. Guitar synthesizers appear across the album, but the riff itself is guitar. Standard E. Mic and reverb are production-style reconstruction, not documented.",
+    },
+    tags: ["heavy-metal", "nwobhm", "iron-maiden", "riff", "chorus", "solid-state"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Somewhere_in_Time_(Iron_Maiden_album)",
+      "https://www.guitarlobby.com/adrian-smith-guitars-and-gear/",
+      "https://ironmaiden.fandom.com/wiki/Sea_of_Madness",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression",
+            settings: { Threshold: -33, Ratio: 2, Knee: 6, Attack: 45, Release: 220, Mix: 38, Level: 1 },
+            notes:
+              "Parallel and light. The GK's transistor clipping already levels the signal hard, so this block exists to steady the doubled rhythm parts rather than to squash them -- Mix 38 leaves the pick attack that drives the riff.",
+          },
+          {
+            position: 2,
+            block_name: "Hedgehog D9",
+            block_category: "Distortion",
+            original_gear: "Gallien-Krueger 250ML overdrive channel",
+            enabled: true,
+            settings: { Gain: 5.5, Tone: 6.5, Level: 6 },
+            notes:
+              "DEFAULT-ON, and set lower than the solo patch. A DOD 250-style hard clip is the honest stand-in for the GK's transistor overdrive; keeping Gain at 5.5 is what stops the riff's sixteenths from blurring together under the chorus.",
+          },
+          {
+            position: 3,
+            block_name: "70s Chorus",
+            block_category: "Modulation",
+            original_gear: "Boss CE-3 / GK onboard chorus",
+            enabled: true,
+            settings: { Rate: 0.55, Depth: 38, Mix: 40, Level: 0 },
+            notes:
+              "DEFAULT-ON -- this is the album's signature color. Placed after the drive so the chorus widens an already-distorted signal; put it in front and the modulation gets clipped into a warble instead of shimmering.",
+          },
+          {
+            position: 4,
+            block_name: "Jazz Rivet 120",
+            block_category: "Amp",
+            original_gear: "Gallien-Krueger 250ML solid-state combo",
+            settings: { Drive: 4, Bass: 4, Mid: 6, Treble: 7, Presence: 6, ChVol: 6.5, Master: 8, Bias: 5, BiasX: 5, Sag: 2.5, Hum: 4, Ripple: 4 },
+            notes:
+              "Helix's JC-120 is the only genuinely solid-state amp platform on the unit, which makes it the right chassis for a GK. Sag at 2.5 removes the power-tube give -- without that, the riff loses the stiff, immediate attack that defines this record.",
+          },
+          {
+            position: 5,
+            block_name: "2x12 Silver Bell",
+            block_category: "Cab",
+            original_gear: "Gallien-Krueger internal speakers",
+            settings: { Mic: 0, Distance: 1.5, Position: 0.40, Angle: 0, LowCut: 120, HighCut: 9000, Resonance: 4, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "LowCut pushed to 120 -- higher than the solo patch -- because two chorused rhythm tracks stacked together get muddy fast and Harris's bass needs that space. HighCut 9000 tames the transistor sizzle the chorus would otherwise exaggerate.",
+          },
+          {
+            position: 6,
+            block_name: "Adriatic Delay",
+            block_category: "Delay",
+            original_gear: "Gallien-Krueger onboard echo",
+            settings: { Time: 300, Feedback: 12, Mix: 10, LowCut: 240, HighCut: 4000, Level: 0 },
+            notes:
+              "Barely there -- a single dark repeat for depth. On a riff this rhythmic, anything more starts fighting the sixteenths, which is why the echo sits well below the chorus in the blend.",
+          },
+          {
+            position: 7,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Somewhere in Time studio plate",
+            settings: { Mix: 14, Decay: 1.4, Predelay: 22, LowCut: 170, HighCut: 8500, Level: 0 },
+            notes:
+              "Small polished plate. The album's guitars are dry and forward, so the reverb is there to stop the patch sounding sterile on FRFR -- LowCut 170 keeps the tail out of the riff's fundamental.",
+          },
+          {
+            position: 8,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global tilt EQ",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes:
+              "Left flat. The solid-state voice plus chorus is already bright; tilt down toward 0.45 if the chorused top end gets glassy on your rig.",
+          },
+        ],
+        notes:
+          "Comp -> GK overdrive (Hedgehog, on) -> chorus (on) -> Jazz Rivet 120 -> tight 2x12 -> faint echo -> small plate -> flat tilt. Drive lower and chorus higher than the solo patch: this is the rhythm voice of the record, bright and chiming rather than heavy.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -33, Ratio: 2, Attack: 8, Release: 220, Mix: 38, Level: 1 }, notes: "Light and parallel -- steadies the doubled rhythm tracks without flattening the pick attack." },
+          { position: 2, block_name: "Gold Drive", block_category: "Drive", enabled: true, original_gear: "Gallien-Krueger 250ML overdrive channel", settings: { Drive: 5.5, Tone: 6.5, Level: 6 }, notes: "DEFAULT-ON at moderate drive. Hard op-amp clipping keeps the sixteenths articulate where a softer tube-screamer clip would smear them." },
+          { position: 3, block_name: "Chorus", block_category: "Modulation", enabled: true, original_gear: "Boss CE-3 / GK onboard chorus", settings: { Rate: 0.55, Depth: 38, Mix: 40 }, notes: "DEFAULT-ON, placed after the drive so it widens a distorted signal rather than getting clipped into a warble." },
+          { position: 4, block_name: "Jazz Chorus", block_category: "Amp", original_gear: "Gallien-Krueger 250ML solid-state combo", settings: { Gain: 4.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, Master: 8.0, Sag: 2.5 }, notes: "JC-120 as the solid-state chassis; low Sag preserves the stiff, immediate attack the riff depends on." },
+          { position: 5, block_name: "2x12 Jazz Cab", block_category: "Cab", original_gear: "Gallien-Krueger internal speakers", settings: { Mic: "SM57", Distance: 1.5, Position: 0.40, LowCut: 120, HighCut: 9000, Level: 0 }, notes: "LowCut high because stacked chorused rhythms muddy quickly and the bass owns the bottom on this record." },
+          { position: 6, block_name: "Analog Delay", block_category: "Delay", original_gear: "Gallien-Krueger onboard echo", settings: { Time: 300, Feedback: 12, Mix: 10, Level: 0 }, notes: "Faint dark repeat -- depth only, so it never competes with the riff's rhythm." },
+          { position: 7, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Somewhere in Time studio plate", settings: { Decay: 1.4, Predelay: 22, Mix: 14, Level: 0 }, notes: "Small plate -- the album's guitars are dry, this just keeps FRFR from sounding sterile." },
+          { position: 8, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 }, notes: "Flat; darken slightly if the chorused top end turns glassy." },
+        ],
+        notes:
+          "Comp -> hard-clip drive (on) -> chorus (on) -> Jazz Chorus amp -> tight 2x12 -> faint echo -> small plate -> EQ. Mirrors the Helix chain. Chorus after drive is the ordering that makes this sound like the record.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: true, original_gear: "Gallien-Krueger 250ML overdrive channel", settings: { Drive: 5.5, Bottom: 4, Tone: 6.5, Level: 6 }, notes: "DEFAULT-ON because the GK's overdrive channel was engaged for this riff -- it is the amp's own gain, not an A/B flavor. Bottom low so the doubled parts stay tight." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Gallien-Krueger 250ML solid-state combo", settings: { Gain: 4.5, Volume: 6.5, Bass: 4, Middle: 6, Treble: 7, Presence: 6, Master: 8 }, notes: "Crunch, not Lead: the GK's drive is tight and bright, and Lead's tube-flavored compression would round off the riff's attack." },
+          { position: 3, block_name: "FX", block_category: "FX", enabled: true, original_gear: "Boss CE-3 / GK onboard chorus", settings: { Rate: 3, Depth: 4, Level: 6 }, notes: "DEFAULT-ON. This is a Boss chorus on a Boss amp -- the FX slot is exactly where it belongs, and it is the signature color of the album." },
+          { position: 4, block_name: "Delay", block_category: "Delay", original_gear: "Gallien-Krueger onboard echo", settings: { Time: 300, Feedback: 1, EffectLevel: 10 }, notes: "One faint repeat. Kept very low so it adds depth without muddying the riff's rhythmic grid." },
+          { position: 5, block_name: "Reverb", block_category: "Reverb", original_gear: "Somewhere in Time studio plate", settings: { Time: 14, PreDelay: 22, Tone: 5, EffectLevel: 14 }, notes: "Small plate -- the record's guitars are dry and forward, so keep the level modest." },
+        ],
+        notes:
+          "Booster (on) -> Crunch amp -> chorus (on) -> faint echo -> small plate. Chorus after the amp's gain stage, exactly as on the record. Bridge humbucker, standard E.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 0.05, Volume: 1 }, notes: "Slot A. Light -- the GK compresses itself, so this only steadies the doubled rhythm tracks." },
+          { position: 2, block_name: "Green Scream", block_category: "Drive", enabled: true, original_gear: "Gallien-Krueger 250ML overdrive channel", settings: { Drive: 5.5, Tone: 6.5, Volume: 6 }, notes: "Stomp slot, DEFAULT-ON. The clean profile stays clean and this block supplies the gain -- that split is what makes it read as a GK." },
+          { position: 3, block_name: "Chorus", block_category: "Stomp", enabled: true, original_gear: "Boss CE-3 / GK onboard chorus", settings: { Rate: 3, Depth: 4, Volume: 6 }, notes: "Mod slot, DEFAULT-ON and after the drive -- the defining Somewhere in Time shimmer." },
+          { position: 4, block_name: "Search Rig Exchange for 'Jazz Chorus' or 'JC-120 solid state'", block_category: "Profile", original_gear: "Gallien-Krueger 250ML solid-state combo", settings: { Gain: 4, Bass: 4, Middle: 6, Treble: 7, Presence: 6 }, notes: "A clean solid-state capture, not a Marshall -- the cab is baked in, and the profile's job here is to stay bright and stiff while the Stomp drives." },
+          { position: 5, block_name: "Single Delay", block_category: "Delay", original_gear: "Gallien-Krueger onboard echo", settings: { Time: 300, Feedback: 12, Mix: 10 }, notes: "DLY slot. Faint dark repeat for depth behind the riff." },
+          { position: 6, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Somewhere in Time studio plate", settings: { Decay: 1.4, Predelay: 22, Mix: 14 }, notes: "REV slot. Small plate; the record's guitars are dry, so keep it restrained." },
+        ],
+        notes:
+          "Comp -> drive stomp (on) -> chorus (on) -> solid-state clean profile -> faint echo -> small plate. Search Rig Exchange for a JC-120 style capture and keep the gain in the Stomp slot.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -33, Ratio: 2, Attack: 45, Release: 220, Mix: 0.38, Level: 1 }, notes: "Light parallel comp -- the GK already levels hard, so this just steadies the stacked rhythm parts." },
+          { position: 2, block_name: "T808 Mod", block_category: "Drive", enabled: true, original_gear: "Gallien-Krueger 250ML overdrive channel", settings: { Drive: 5.5, Tone: 6.5, Level: 6 }, notes: "DEFAULT-ON. Switch the Clip Type to hard/op-amp so it clips like a transistor overdrive -- a soft tube-screamer clip loses the riff's articulation." },
+          { position: 3, block_name: "Chorus", block_category: "Modulation", enabled: true, original_gear: "Boss CE-3 / GK onboard chorus", settings: { Rate: 0.55, Depth: 0.38, Mix: 0.4 }, notes: "DEFAULT-ON, after the drive. The album's signature width; before the drive it would just get clipped into wobble." },
+          { position: 4, block_name: "Jazz 120", block_category: "Amp", original_gear: "Gallien-Krueger 250ML solid-state combo", settings: { Drive: 4.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 8.0 }, notes: "Fractal's JC-120. Pull Supply Sag down in the advanced page so the attack stays stiff like a transistor power section." },
+          { position: 5, block_name: "2x12 Jazz Cab", block_category: "Cab", original_gear: "Gallien-Krueger internal speakers", settings: { Mic: "57 Dynamic", Distance: 1.5, LowCut: 120, HighCut: 9000, Level: 0 }, notes: "Tight cab with a high LowCut -- stacked chorused rhythms need the room below 120 Hz left to the bass." },
+          { position: 6, block_name: "Analog Delay", block_category: "Delay", original_gear: "Gallien-Krueger onboard echo", settings: { Time: 300, Feedback: 0.12, Mix: 0.1 }, notes: "Faint dark repeat -- depth without competing with the sixteenths." },
+          { position: 7, block_name: "Plate", block_category: "Reverb", original_gear: "Somewhere in Time studio plate", settings: { Mix: 0.14, Decay: 1.4, Predelay: 22 }, notes: "Small plate -- the guitars on this record are dry and close." },
+          { position: 8, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Flat; darken if the chorused top end gets glassy." },
+        ],
+        notes:
+          "Comp -> hard-clip drive (on) -> chorus (on) -> Jazz 120 -> tight 2x12 -> faint echo -> small plate -> tilt. Keep the amp clean and let the drive and the hot bridge humbucker make the gain.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'JC-120' or 'Jazz Chorus' or 'solid state clean'", block_category: "Tone Model", original_gear: "Gallien-Krueger 250ML solid-state combo", settings: {}, notes: "Take a clean solid-state capture and add a hard-clipping overdrive plus a chorus after it. Chorus placement matters more than the capture here -- after the gain is what makes it the Somewhere in Time sound." },
+        ],
+        notes:
+          "Capture-driven: clean JC-120 style Tone Model, an external hard-clip drive for the gain, chorus after it. Bright, chiming and stiff -- the un-Marshall Maiden riff tone.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Ritchie Blackmore - Stargazer (solo) ----
+  {
+    id: "seed-blackmore-stargazer",
+    song_slug: "stargazer-rainbow",
+    title: "Rainbow's Stargazer Solo Tone",
+    slug: "blackmore-stargazer-solo",
+    created_at: "2026-07-29",
+    description:
+      "Blackmore's most ambitious solo, cut at Musicland in Munich in February 1976 with Martin Birch and 28 members of the Munich Philharmonic. The rig is deceptively simple: a scalloped Olympic-white Strat into an AIWA TP-1011 reel-to-reel used as a preamp and echo, then into a 200-watt Marshall Major. That tape preamp is the secret -- it boosts and saturates before the amp, which is how a Strat sustains like that over two chords of A minor and G.",
+    tone_context: "solo",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Fender Stratocaster (1974, Olympic white)",
+      pickup_config: "SSS",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "Scalloped rosewood fretboard -- Blackmore's first rosewood-board Strat, chosen over maple for a warmer tone. Fender staggered single-coils, slightly overwound to roughly 6.6k, and Schaller tuners replacing the originals. The scalloping is functional, not cosmetic: with no wood under the string, tiny finger pressure produces the wide vibrato and pitch control the solo is built on, which is also why it demands a very light touch. String gauge is era-typical, not documented.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "boost",
+        gear_slug: null,
+        gear_name: "AIWA TP-1011 reel-to-reel (preamp/booster + echo)",
+        icon_type: "large_format",
+        icon_color: "#d4a574",
+        is_in_effects_loop: false,
+        settings: { Input: 8, Output: 7, Echo: 2 },
+        notes:
+          "Blackmore plugged straight into the tape deck's input, took the boost from its record preamp, then took the echo off its third head before hitting the amp. Running the input hot is the point -- the preamp is being deliberately overdriven, which is where the thick midrange and the singing sustain come from. This replaced the Hornby-Skewes treble booster in late 1973 and stayed in the rig until 1992.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall Major (200W, modified)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 6, Bass: 2.5, Middle: 6, Treble: 8, Volume: 7 },
+        notes:
+          "The Major is a 200-watt KT88 head with far more headroom than a Super Lead, so the amp itself is barely breaking up -- the dirt arrives from the AIWA in front. Bass at 2.5 and Treble at 8 is the documented Rainbow-era setting, and it is why the tone stays articulate at that volume instead of turning to wool.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12 (Celestion-loaded)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Celestion-loaded 4x12s roll off the extreme top that the Major's Treble-at-8 setting would otherwise make brittle. The speaker is doing the tone-shaping the amp's EQ deliberately isn't. Exact speaker complement for the Rising sessions is not documented.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, off cone centre" },
+        notes:
+          "Not documented for the Musicland sessions. A close dynamic off the cone centre is the reconstruction that matches the record: present and mid-heavy, with the room ambience coming from the orchestra tracks rather than the guitar mic.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1974 Olympic-white Fender Stratocaster, scalloped rosewood fretboard, overwound staggered single-coils (~6.6k), Schaller tuners",
+      effects: [
+        "AIWA TP-1011 reel-to-reel tape deck used as preamp/booster and echo",
+      ],
+      amp: "Marshall Major 200W (modified)",
+      cabinet: "Marshall 4x12 (Celestion-loaded)",
+      microphone: "Shure SM57 -- inferred; the session capture is not documented",
+      other_notes:
+        "Recorded February 1976 at Musicland Studios, Munich; produced and mixed by Martin Birch. Blackmore described the song as 'basically two chords, A minor and G' -- the harmonic simplicity is deliberate, leaving room for the modal, half-Turkish scale over the outro. 28 members of the Munich Philharmonic under conductor Rainer Pietsch play the finale, alongside a Vako Orchestron. The Hornby-Skewes treble booster people associate with Blackmore belongs to the Deep Purple Mk1/Mk2 years; by 1976 the AIWA had long replaced it.",
+    },
+    tags: ["hard-rock", "classic-rock", "heavy-metal", "solo", "strat", "marshall", "blackmore"],
+    sources: [
+      "https://www.treblebooster.net/bsm-tonezone/ritchie-blackmore.html",
+      "https://en.wikipedia.org/wiki/Stargazer_(Rainbow_song)",
+      "https://www.guitarplayer.com/music/ritchie-blackmore-on-the-making-of-rainbow-s-epic-stargazer",
+      "https://www.guitarchalk.com/rising-rainbow-amp-settings/",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression",
+            settings: { Threshold: -32, Ratio: 2, Knee: 6, Attack: 55, Release: 300, Mix: 32, Level: 0 },
+            notes:
+              "Light and parallel. Scalloped-board vibrato produces wildly uneven note levels, and a gentle comp keeps the long sustained notes from dropping out -- but Mix stays at 32 because squashing the dynamics would kill the violin-like swells this solo is built on.",
+          },
+          {
+            position: 2,
+            block_name: "Kinky Boost",
+            block_category: "Distortion",
+            original_gear: "AIWA TP-1011 tape preamp (boost stage)",
+            enabled: true,
+            settings: { Gain: 6.5, Tone: 6, Level: 7.5 },
+            notes:
+              "DEFAULT-ON, and the single most important block here. The Kinky Boost models the Echoplex tape preamp -- the same idea as Blackmore's AIWA, a tape deck's record preamp driven hard. Level high, Gain moderate: it pushes the Major and adds tape-preamp midrange without becoming a fuzz.",
+          },
+          {
+            position: 3,
+            block_name: "Scream 808",
+            block_category: "Distortion",
+            original_gear: "Modern lead boost (alternate)",
+            enabled: false,
+            settings: { Gain: 3, Tone: 6, Level: 7 },
+            notes:
+              "ALTERNATE, off by default. Not on the record -- included because a mid-humped TS is the easiest way to get modern gain-stage sustain if your rig cannot get loud enough for the Major model to bloom. Never stack it with the Kinky Boost.",
+          },
+          {
+            position: 4,
+            block_name: "Brit Plexi Brt",
+            block_category: "Amp",
+            original_gear: "Marshall Major 200W (modified)",
+            settings: { Drive: 5, Bass: 2.5, Mid: 6, Treble: 8, Presence: 6, ChVol: 7, Master: 10, Bias: 5.5, BiasX: 5, Sag: 6, Hum: 5, Ripple: 5 },
+            notes:
+              "Helix has no Marshall Major, so the Plexi bright channel stands in -- but Drive stays at 5 rather than cranked, because the Major's 200 watts mean the amp is far cleaner than a Super Lead at the same volume. Bass 2.5 / Treble 8 are Blackmore's documented Rainbow settings. Sag at 6 restores some of the KT88 give the Plexi model lacks.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 (Celestion-loaded)",
+            settings: { Mic: 0, Distance: 1.5, Position: 0.38, Angle: 0, LowCut: 95, HighCut: 7500, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "HighCut at 7500 is doing what the real Celestions did to a Treble-at-8 amp -- without it the Plexi model turns brittle. Position 0.38 off centre keeps the midrange fat so the single-coil bridge pickup still sounds thick under the orchestra.",
+          },
+          {
+            position: 6,
+            block_name: "Transistor Tape",
+            block_category: "Delay",
+            original_gear: "AIWA TP-1011 echo section",
+            settings: { Time: 320, Feedback: 22, Mix: 18, LowCut: 200, HighCut: 3800, Level: 0 },
+            notes:
+              "The AIWA's echo came off a third tape head, so it is dark, wobbly and short. HighCut 3800 is deliberately aggressive: real tape repeats lose top end fast, and that darkness is what lets the echo sit behind an eight-minute solo without clouding it.",
+          },
+          {
+            position: 7,
+            block_name: "Chamber",
+            block_category: "Reverb",
+            original_gear: "Musicland studio ambience",
+            settings: { Mix: 20, Decay: 1.8, Predelay: 30, LowCut: 150, HighCut: 6500, Level: 0 },
+            notes:
+              "A chamber rather than a plate -- Musicland was a basement studio with real ambience, and the orchestral finale needs the guitar sitting in the same space. LowCut 150 stops the tail thickening the low mids where the strings live.",
+          },
+          {
+            position: 8,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global tilt EQ",
+            settings: { Tilt: 0.48, CenterFreq: 1000, Level: 0 },
+            notes:
+              "Just below flat. The Major's Treble-at-8 setting plus a bridge single-coil is a lot of top end, and a slight darkening keeps it from getting glassy on a full-range system.",
+          },
+        ],
+        notes:
+          "Comp -> tape-preamp boost (on) -> TS alternate (off) -> Plexi Brt standing in for the Major -> Greenback 4x12 -> dark tape echo -> chamber -> slight dark tilt. The gain lives in the boost, not the amp: that inversion is the whole Blackmore rig, and it is why a Strat sustains like this.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -32, Ratio: 2, Attack: 10, Release: 300, Mix: 32, Level: 0 }, notes: "Light parallel comp so long sustained notes hold, without flattening the vibrato swells." },
+          { position: 2, block_name: "Tape Preamp Boost", block_category: "Drive", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 6.5, Tone: 6.0, Level: 7.5 }, notes: "DEFAULT-ON. An Echoplex/tape-preamp style boost driven hard is the closest match to the AIWA -- this block, not the amp, is the source of the gain." },
+          { position: 3, block_name: "Plexi 100", block_category: "Amp", original_gear: "Marshall Major 200W (modified)", settings: { Gain: 5.0, Bass: 2.5, Mid: 6.0, Treble: 8.0, Presence: 6.0, Master: 7.0, Sag: 6.0 }, notes: "Plexi standing in for the Major. Keep the Gain moderate -- 200 watts means the real amp is much cleaner than a Super Lead at the same stage volume." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "SM57", Distance: 1.5, Position: 0.38, LowCut: 95, HighCut: 7500, Level: 0 }, notes: "HighCut 7500 replaces what real Celestions did to a Treble-at-8 amp; off-centre mic keeps the mids fat." },
+          { position: 5, block_name: "Tape Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 320, Feedback: 22, Mix: 18, Level: 0 }, notes: "Dark, short, slightly unstable -- the AIWA's third-head echo. Darkness is what keeps it out of the way over a long solo." },
+          { position: 6, block_name: "Chamber Reverb", block_category: "Reverb", original_gear: "Musicland studio ambience", settings: { Decay: 1.8, Predelay: 30, Mix: 20, Level: 0 }, notes: "Chamber rather than plate -- Musicland's real basement ambience, and it puts the guitar in the orchestra's space." },
+          { position: 7, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 4.8, CenterFreq: 1000, Level: 0 }, notes: "A touch dark to offset Treble-at-8 plus a bridge single-coil." },
+        ],
+        notes:
+          "Comp -> tape-preamp boost (on) -> Plexi standing in for the Major -> Greenback 4x12 -> dark tape echo -> chamber -> slightly dark EQ. Gain from the boost, headroom from the amp.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 6.5, Bottom: 5, Tone: 6, Level: 7.5 }, notes: "DEFAULT-ON -- the AIWA was permanently in the signal path, not an A/B option, so this is the one case where an always-on booster is historically correct. It supplies the gain the Major does not." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Marshall Major 200W (modified)", settings: { Gain: 4.5, Volume: 7, Bass: 2.5, Middle: 6, Treble: 8, Presence: 6, Master: 7 }, notes: "Crunch, with Gain kept moderate because the Major is a high-headroom amp. Bass 2.5 / Treble 8 mirror Blackmore's documented Rainbow settings -- the thin bass is what keeps a 200W stack articulate." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 320, Feedback: 2, EffectLevel: 18 }, notes: "Short dark echo with the Katana's tape-style voicing. Two repeats is plenty -- the AIWA's tape echo was never a long ambient wash." },
+          { position: 4, block_name: "Reverb", block_category: "Reverb", original_gear: "Musicland studio ambience", settings: { Time: 18, PreDelay: 30, Tone: 4, EffectLevel: 20 }, notes: "Room-flavored, tone rolled dark -- Musicland's basement ambience rather than a bright plate." },
+        ],
+        notes:
+          "Always-on booster -> Crunch amp -> dark tape echo -> dark room. Keep the amp Gain moderate and let the booster do the driving; that split is what separates a Major from a cranked Super Lead.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 0.06, Volume: 0 }, notes: "Slot A. Gentle -- enough to hold the long notes, not enough to flatten the vibrato." },
+          { position: 2, block_name: "Treble Booster", block_category: "Drive", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 6.5, Tone: 6, Volume: 7.5 }, notes: "Stomp slot, DEFAULT-ON. Historically correct as an always-on block: the AIWA never left Blackmore's chain. Roll the Tone back from full -- the AIWA is a fat tape preamp, not a thin treble booster." },
+          { position: 3, block_name: "Search Rig Exchange for 'Marshall Major' or 'Marshall Super Lead 200W'", block_category: "Profile", original_gear: "Marshall Major 200W (modified)", settings: { Gain: 5, Bass: 2.5, Middle: 6, Treble: 8, Presence: 6 }, notes: "Major profiles are rare; a clean-ish 100W Plexi capture with the Gain kept down is the better fallback than a hot JCM-era profile. Cab is baked into the profile." },
+          { position: 4, block_name: "Tape Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 320, Feedback: 22, Mix: 18 }, notes: "DLY slot. Dark and short. Add a little Flutter for the wow-and-flutter of a real deck." },
+          { position: 5, block_name: "Chamber Reverb", block_category: "Reverb", original_gear: "Musicland studio ambience", settings: { Decay: 1.8, Predelay: 30, Mix: 20 }, notes: "REV slot. A chamber puts the guitar in the same room as the orchestral finale." },
+        ],
+        notes:
+          "Comp -> always-on tape-preamp boost -> high-headroom Marshall profile -> dark tape echo -> chamber. Look for a clean Plexi capture rather than a high-gain one; the boost makes the gain.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -32, Ratio: 2, Attack: 55, Release: 300, Mix: 0.32, Level: 0 }, notes: "Light parallel comp for sustain that does not flatten the vibrato dynamics." },
+          { position: 2, block_name: "EP Booster", block_category: "Drive", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 6.5, Tone: 6.0, Level: 7.5 }, notes: "DEFAULT-ON. The EP Booster models the Echoplex's tape preamp, which is the same trick Blackmore ran with the AIWA -- a tape deck's record preamp used as a permanent front-end boost." },
+          { position: 3, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Major 200W (modified)", settings: { Drive: 5.0, Bass: 2.5, Mid: 6.0, Treble: 8.0, Presence: 6.0, MV: 7.0 }, notes: "Plexi standing in for the Major, with Drive held back for the Major's extra headroom. Raise Supply Sag in the advanced page for the KT88 give the EL34 model lacks." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "57 Dynamic", Distance: 1.5, LowCut: 95, HighCut: 7500, Level: 0 }, notes: "HighCut 7500 does the job real Celestions did on a Treble-at-8 amp -- without it the model turns brittle." },
+          { position: 5, block_name: "Tape Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 320, Feedback: 0.22, Mix: 0.18 }, notes: "Dark, short, with a little wow/flutter -- the AIWA's third-head echo, not a clean digital repeat." },
+          { position: 6, block_name: "Chamber", block_category: "Reverb", original_gear: "Musicland studio ambience", settings: { Mix: 0.2, Decay: 1.8, Predelay: 30 }, notes: "Chamber rather than plate; it seats the guitar in the same space as the orchestra." },
+          { position: 7, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 0.48, CenterFreq: 1000, Level: 0 }, notes: "Slightly dark to offset the bright amp settings and the bridge single-coil." },
+        ],
+        notes:
+          "Comp -> EP Booster (on) -> Plexi standing in for the Major -> Greenback 4x12 -> tape echo -> chamber -> slight dark tilt. The gain belongs in front of the amp, exactly as the AIWA did.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Major' or 'Marshall Plexi 200W' or 'Blackmore'", block_category: "Tone Model", original_gear: "Marshall Major 200W (modified)", settings: {}, notes: "Look for a clean-to-edge-of-breakup Plexi capture rather than a saturated one, then put an Echoplex-style tape-preamp boost in front. Capturing an already-cranked Marshall gives you the wrong gain structure -- Blackmore's dirt came from the AIWA in front of a high-headroom amp." },
+        ],
+        notes:
+          "Capture-driven: a high-headroom Plexi/Major Tone Model with an always-on tape-preamp boost supplying the gain, plus a dark short tape echo. Scalloped-board vibrato and a very light touch do the rest.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Ritchie Blackmore - Kill the King (riff) ----
+  {
+    id: "seed-blackmore-kill-the-king",
+    song_slug: "kill-the-king-rainbow",
+    title: "Rainbow's Kill the King Riff Tone",
+    slug: "blackmore-kill-the-king-riff",
+    created_at: "2026-07-29",
+    description:
+      "Rainbow's fastest riff, and Blackmore's favorite guitar of the period playing it: the 1974 sunburst Strat with a fat scalloped neck and slightly overwound single-coils. Long Live Rock 'n' Roll was cut at the Chateau d'Herouville outside Paris with Martin Birch, still running the AIWA TP-1011 tape deck as a front-end boost into a modified Marshall Major. At this tempo the amp has to stay tight, so the dirt sits in the tape preamp and the Major keeps its headroom.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Fender Stratocaster (1974, sunburst)",
+      pickup_config: "SSS",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "Scalloped rosewood fretboard on an unusually fat neck profile, with Fender staggered single-coils rewound slightly hot to around 6.6k. The extra winding matters at this tempo -- a stock Strat pickup does not have the output to keep a fast alternate-picked riff dense once the tape preamp compresses it. Schaller tuners replace the originals. This sunburst was Blackmore's favorite instrument of the Long Live Rock 'n' Roll period. String gauge is era-typical, not documented.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "boost",
+        gear_slug: null,
+        gear_name: "AIWA TP-1011 reel-to-reel (preamp/booster + echo)",
+        icon_type: "large_format",
+        icon_color: "#d4a574",
+        is_in_effects_loop: false,
+        settings: { Input: 8, Output: 7, Echo: 1 },
+        notes:
+          "Echo pulled back further than the Stargazer setting -- at this tempo repeats turn a fast riff into porridge, so the deck is being used almost purely as a preamp. The record preamp still runs hot, because that boost plus the deck's own tape compression is what keeps every note of the riff even.",
+      },
+      {
+        position: 2,
+        category: "effect",
+        subcategory: "modulation",
+        gear_slug: null,
+        gear_name: "Schulte Compact Phasing A",
+        icon_type: "large_format",
+        icon_color: "#8b5cf6",
+        is_in_effects_loop: false,
+        settings: { Rate: 2, Depth: 3 },
+        notes:
+          "The Berlin-built 8-stage phaser sat on top of the AIWA through this period. Whether it is engaged on this particular track is not documented, so treat it as an optional colour -- kept slow and shallow, it adds movement to the riff's sustained chords without softening the picking attack.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall Major (200W, modified)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 6, Bass: 2.5, Middle: 6, Treble: 8, Volume: 7 },
+        notes:
+          "Blackmore's tech had modified the Major's preamp, but the character stays the same: 200 watts of KT88 headroom that refuses to blur. Bass held down at 2.5 is not a stylistic choice at this tempo, it is a necessity -- any more low end and the riff's fast alternate picking loses definition entirely.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12 (Celestion-loaded)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "The Celestions' natural top-end rolloff is what makes Treble-at-8 usable. Without that speaker filtering, a bridge single-coil into a bright 200W amp would be unplayably harsh. Exact speaker complement for these sessions is not documented.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, off cone centre" },
+        notes:
+          "Not documented for the Chateau sessions. A close dynamic slightly off cone centre is the reconstruction that matches the record's dry, mid-forward rhythm sound -- there is very little room on the guitars here.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1974 sunburst Fender Stratocaster, scalloped rosewood fretboard, fat neck profile, overwound staggered single-coils (~6.6k), Schaller tuners",
+      effects: [
+        "AIWA TP-1011 reel-to-reel tape deck used as preamp/booster and echo",
+        "Schulte Compact Phasing A (8-stage phaser, era rig -- track use not documented)",
+      ],
+      amp: "Marshall Major 200W (preamp modified by Blackmore's tech)",
+      cabinet: "Marshall 4x12 (Celestion-loaded)",
+      microphone: "Shure SM57 -- inferred; the session capture is not documented",
+      other_notes:
+        "Recorded 1977 at Le Chateau d'Herouville (Strawberry Studios), France, produced by Martin Birch; the band moved there because Musicland in Munich was fully booked. Blackmore ended up playing bass on much of the album himself after Mark Clarke was dismissed. The AIWA TP-1011 stayed in his rig from November 1973 until 1992, so the Rising and Long Live Rock 'n' Roll tones share the same front end -- what changes here is the tempo, which forces the echo down and the bass control lower. Mic and reverb are production-style reconstruction, not documented.",
+    },
+    tags: ["hard-rock", "heavy-metal", "classic-rock", "riff", "strat", "marshall", "blackmore"],
+    sources: [
+      "https://www.treblebooster.net/bsm-tonezone/ritchie-blackmore.html",
+      "https://en.wikipedia.org/wiki/Long_Live_Rock_%27n%27_Roll",
+      "https://www.guitarchalk.com/rising-rainbow-amp-settings/",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Tape-deck compression / studio comp",
+            settings: { Threshold: -30, Ratio: 2, Knee: 6, Attack: 25, Release: 180, Mix: 45, Level: 0 },
+            notes:
+              "Faster attack and higher Mix than the Stargazer patch. A fast riff needs its note-to-note levels evened out, and the real chain got that from the AIWA's own tape compression -- this block reproduces it without adding more gain.",
+          },
+          {
+            position: 2,
+            block_name: "Kinky Boost",
+            block_category: "Distortion",
+            original_gear: "AIWA TP-1011 tape preamp (boost stage)",
+            enabled: true,
+            settings: { Gain: 6, Tone: 6.5, Level: 7.5 },
+            notes:
+              "DEFAULT-ON. The Echoplex-preamp model is the right idea for the AIWA. Gain slightly lower and Tone slightly brighter than the solo patch, because a riff needs articulation where a solo needs thickness.",
+          },
+          {
+            position: 3,
+            block_name: "Stupor OD",
+            block_category: "Distortion",
+            original_gear: "Extra gain stage (alternate)",
+            enabled: false,
+            settings: { Gain: 4, Tone: 6, Level: 7 },
+            notes:
+              "ALTERNATE, off by default. Not on the record. Use it only if your rig cannot reach the volume where the Plexi model bloom happens -- and never on top of the Kinky Boost, which would bury the riff's picking definition.",
+          },
+          {
+            position: 4,
+            block_name: "Brit Plexi Brt",
+            block_category: "Amp",
+            original_gear: "Marshall Major 200W (modified)",
+            settings: { Drive: 4.5, Bass: 2.5, Mid: 6, Treble: 8, Presence: 6, ChVol: 7, Master: 10, Bias: 5.5, BiasX: 5, Sag: 5.5, Hum: 5, Ripple: 5 },
+            notes:
+              "Drive at 4.5 -- lower even than the Stargazer patch. That is the point: a 200W Major at riff tempo is nearly clean, and every bit of extra amp gain you add here costs you a note in the fast picking. Bass 2.5 / Treble 8 are Blackmore's documented Rainbow-era settings.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 (Celestion-loaded)",
+            settings: { Mic: 0, Distance: 1, Position: 0.42, Angle: 0, LowCut: 100, HighCut: 7000, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "Closer mic and a tighter HighCut than the solo patch. At speed the riff wants attack, and pulling the mic in to 1 inch adds the proximity punch that makes each downstroke land.",
+          },
+          {
+            position: 6,
+            block_name: "Script Mod Phase",
+            block_category: "Modulation",
+            original_gear: "Schulte Compact Phasing A",
+            enabled: false,
+            settings: { Rate: 0.2, Depth: 30, Mix: 30, Level: 0 },
+            notes:
+              "DEFAULT-OFF because track use is not documented -- the Schulte lived on top of the AIWA through this era, but nobody has confirmed it is engaged here. Slow and shallow if you switch it on; a fast phase would fight the riff's rhythm.",
+          },
+          {
+            position: 7,
+            block_name: "Transistor Tape",
+            block_category: "Delay",
+            original_gear: "AIWA TP-1011 echo section",
+            settings: { Time: 260, Feedback: 12, Mix: 10, LowCut: 240, HighCut: 3500, Level: 0 },
+            notes:
+              "Much drier than the Stargazer setting. One dark repeat is all a riff this fast can carry -- push Mix past about 15 and the sixteenths start smearing into each other.",
+          },
+          {
+            position: 8,
+            block_name: "Room",
+            block_category: "Reverb",
+            original_gear: "Chateau d'Herouville room ambience",
+            settings: { Mix: 12, Decay: 0.9, Predelay: 18, LowCut: 180, HighCut: 7000, Level: 0 },
+            notes:
+              "A short room, not a plate -- the Chateau was a converted house and the record is dry. Decay under a second keeps the riff's edges clean while stopping the patch sounding airless on FRFR.",
+          },
+          {
+            position: 9,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global tilt EQ",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes:
+              "Flat. The cab's 7000 Hz HighCut has already done the darkening; use this to trim further only if your IR is fizzy.",
+          },
+        ],
+        notes:
+          "Comp -> tape-preamp boost (on) -> extra-gain alternate (off) -> Plexi Brt for the Major -> tight close-miked 4x12 -> optional phaser (off) -> dry dark echo -> short room -> flat tilt. Everything here is set drier and lower-gain than the Stargazer patch, because tempo is the constraint.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tape-deck compression / studio comp", settings: { Threshold: -30, Ratio: 2, Attack: 5, Release: 180, Mix: 45, Level: 0 }, notes: "Faster and firmer than the solo patch -- reproduces the AIWA's tape compression so fast picking stays even." },
+          { position: 2, block_name: "Tape Preamp Boost", block_category: "Drive", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 6.0, Tone: 6.5, Level: 7.5 }, notes: "DEFAULT-ON. Brighter and slightly lower-gain than the Stargazer setting because a riff needs articulation, not thickness." },
+          { position: 3, block_name: "Plexi 100", block_category: "Amp", original_gear: "Marshall Major 200W (modified)", settings: { Gain: 4.5, Bass: 2.5, Mid: 6.0, Treble: 8.0, Presence: 6.0, Master: 7.0, Sag: 5.5 }, notes: "Low Gain on purpose -- the Major is nearly clean at riff volume, and extra amp gain costs picking definition." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "SM57", Distance: 1.0, Position: 0.42, LowCut: 100, HighCut: 7000, Level: 0 }, notes: "Close mic for proximity punch so each downstroke lands; tight HighCut keeps Treble-at-8 usable." },
+          { position: 5, block_name: "Phaser", block_category: "Modulation", enabled: false, original_gear: "Schulte Compact Phasing A", settings: { Rate: 0.2, Depth: 30, Mix: 30 }, notes: "DEFAULT-OFF -- the Schulte was in the era rig but track use is undocumented. Slow and shallow if used." },
+          { position: 6, block_name: "Tape Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 260, Feedback: 12, Mix: 10, Level: 0 }, notes: "One dark repeat only -- more and the fast picking smears." },
+          { position: 7, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Chateau d'Herouville room ambience", settings: { Decay: 0.9, Predelay: 18, Mix: 12, Level: 0 }, notes: "Short room. The record is dry; this only stops FRFR sounding airless." },
+          { position: 8, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 }, notes: "Flat -- the cab HighCut already handles the brightness." },
+        ],
+        notes:
+          "Comp -> tape-preamp boost (on) -> Plexi for the Major -> close-miked Greenback 4x12 -> phaser (off) -> dry echo -> short room -> flat EQ. Drier and lower-gain than the Stargazer patch by design.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 6, Bottom: 4, Tone: 6.5, Level: 7.5 }, notes: "DEFAULT-ON -- historically correct, the AIWA was never switched out. Bottom pulled to 4 so the fast riff stays tight rather than woolly." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Marshall Major 200W (modified)", settings: { Gain: 4, Volume: 7, Bass: 2.5, Middle: 6, Treble: 8, Presence: 6, Master: 7 }, notes: "Crunch with a genuinely low Gain. The temptation is to crank it; resist -- the Major's headroom is what lets the riff's picking stay separated at speed." },
+          { position: 3, block_name: "FX", block_category: "FX", enabled: false, original_gear: "Schulte Compact Phasing A", settings: { Rate: 2, Depth: 3, Level: 5 }, notes: "DEFAULT-OFF phaser -- in the era rig but not confirmed on this track. Slow and shallow if you engage it." },
+          { position: 4, block_name: "Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 260, Feedback: 1, EffectLevel: 10 }, notes: "A single dark repeat. Anything more at this tempo turns the riff to mush." },
+          { position: 5, block_name: "Reverb", block_category: "Reverb", original_gear: "Chateau d'Herouville room ambience", settings: { Time: 9, PreDelay: 18, Tone: 4, EffectLevel: 12 }, notes: "Short dark room -- the record has very little ambience on the guitars." },
+        ],
+        notes:
+          "Always-on booster -> low-gain Crunch -> optional phaser (off) -> dry echo -> short room. The discipline here is keeping the amp gain down; the boost and the hot single-coils supply everything the riff needs.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Tape-deck compression / studio comp", settings: { Intensity: 4, Attack: 0.03, Volume: 0 }, notes: "Slot A. Firmer and faster than the solo patch -- it stands in for the AIWA's tape compression evening out fast picking." },
+          { position: 2, block_name: "Treble Booster", block_category: "Drive", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 6, Tone: 6.5, Volume: 7.5 }, notes: "Stomp slot, DEFAULT-ON. Always-on is the historically correct default here. Keep the Tone from full brightness -- the AIWA is fat, not thin." },
+          { position: 3, block_name: "Search Rig Exchange for 'Marshall Major' or 'Plexi 200W clean'", block_category: "Profile", original_gear: "Marshall Major 200W (modified)", settings: { Gain: 4.5, Bass: 2.5, Middle: 6, Treble: 8, Presence: 6 }, notes: "Choose the cleanest Plexi-family capture you can find and drive it with the Stomp. A saturated profile will not hold a riff this fast together. Cab is baked in." },
+          { position: 4, block_name: "Tape Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 260, Feedback: 12, Mix: 10 }, notes: "DLY slot. One dark repeat only -- the AIWA's echo, kept well back at this tempo." },
+          { position: 5, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Chateau d'Herouville room ambience", settings: { Decay: 0.9, Predelay: 18, Mix: 12 }, notes: "REV slot. Short room; the album's guitars are dry and close." },
+        ],
+        notes:
+          "Comp -> always-on tape boost -> cleanest Plexi-family profile -> dry echo -> short room. Look for headroom in the profile, not gain -- the riff's speed is the constraint.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tape-deck compression / studio comp", settings: { Threshold: -30, Ratio: 2, Attack: 25, Release: 180, Mix: 0.45, Level: 0 }, notes: "Fast attack, higher blend -- reproduces the AIWA's tape compression so every note of the riff sits at the same level." },
+          { position: 2, block_name: "EP Booster", block_category: "Drive", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 6.0, Tone: 6.5, Level: 7.5 }, notes: "DEFAULT-ON. The Echoplex tape-preamp model is the same concept as the AIWA; brighter than the solo setting because articulation beats thickness on a riff." },
+          { position: 3, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Major 200W (modified)", settings: { Drive: 4.5, Bass: 2.5, Mid: 6.0, Treble: 8.0, Presence: 6.0, MV: 7.0 }, notes: "Deliberately low Drive for the Major's headroom -- extra amp gain here directly costs picking definition at tempo." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 100, HighCut: 7000, Level: 0 }, notes: "Close mic for proximity punch; the 7000 Hz cut is what makes a Treble-at-8 amp listenable." },
+          { position: 5, block_name: "Phaser", block_category: "Modulation", enabled: false, original_gear: "Schulte Compact Phasing A", settings: { Rate: 0.2, Depth: 0.3, Mix: 0.3 }, notes: "DEFAULT-OFF -- era rig, undocumented on this track. Set Stages to 8 to match the Schulte if you use it." },
+          { position: 6, block_name: "Tape Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 260, Feedback: 0.12, Mix: 0.1 }, notes: "One dark repeat; more would smear the fast picking." },
+          { position: 7, block_name: "Room", block_category: "Reverb", original_gear: "Chateau d'Herouville room ambience", settings: { Mix: 0.12, Decay: 0.9, Predelay: 18 }, notes: "Short room -- the record is dry, this just prevents an airless FRFR patch." },
+          { position: 8, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Flat; the cab HighCut has already done the darkening." },
+        ],
+        notes:
+          "Comp -> EP Booster (on) -> low-gain Plexi for the Major -> close-miked Greenback -> phaser (off) -> dry echo -> short room -> flat tilt. Headroom in the amp, gain in the boost, dryness everywhere.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Plexi clean' or 'Marshall Major' or 'Blackmore'", block_category: "Tone Model", original_gear: "Marshall Major 200W (modified)", settings: {}, notes: "Pick the cleanest Plexi-family capture available -- at this tempo a saturated Tone Model loses the riff's note separation. Put an Echoplex-style tape-preamp boost in front to supply the gain, exactly as the AIWA did." },
+        ],
+        notes:
+          "Capture-driven: a clean, high-headroom Plexi/Major Tone Model with an always-on tape-preamp boost in front, one dark repeat of echo, and almost no reverb. Speed is the constraint -- keep everything dry and tight.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Vivian Campbell - Stand Up and Shout (riff) ----
+  {
+    id: "seed-campbell-stand-up-and-shout",
+    song_slug: "stand-up-and-shout-dio",
+    title: "Dio's Stand Up and Shout Riff Tone",
+    slug: "campbell-stand-up-and-shout-riff",
+    created_at: "2026-07-29",
+    description:
+      "The first thirty seconds of Dio's solo career, and the whole rig is a hot Les Paul into a rented Marshall. Vivian Campbell cut Holy Diver at Sound City in 1983 on his matte-black Les Paul Deluxe with a DiMarzio X2N, boosted into a stock JCM800. Where the title track is about singing lead sustain, this opener is about attack: the same chain set drier and tighter so the driving eighth-note riff keeps its edge under Ronnie's first entrance.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Les Paul Deluxe (refinished matte black)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge: ".009-.046",
+      notable_mods:
+        "Campbell's wine-red Les Paul Deluxe, bought as a teenager in Belfast and later sanded and refinished matte black, with a DiMarzio X2N in the bridge. The X2N is one of the highest-output passive humbuckers ever made, and on a riff like this it is what lets a stock JCM800 sound aggressive without being cranked past the point where the picking blurs. The Charvels people associate with Campbell arrived later, on the Last in Line tour.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "overdrive",
+        gear_slug: null,
+        gear_name: "Boss SD-1 Super Overdrive (boost)",
+        icon_type: "boss_compact",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Level: 8, Tone: 5.5, Drive: 2 },
+        notes:
+          "Drive near zero, Level near maximum -- the SD-1 is a level boost, not a distortion. On this riff it tightens the low end going into the Marshall's input stage, which is exactly what a fast eighth-note pattern needs. Campbell used the SD-1 or a GE-7 in this role, not both.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall JCM800 2203 (stock, cranked)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Gain: 6.5, Bass: 4.5, Middle: 6, Treble: 7.5, Presence: 6.5, Master: 6 },
+        notes:
+          "A rented, unmodified JCM800 at natural breakup. Gain is set slightly lower and Presence slightly higher than the Holy Diver lead patch, because a rhythm part at this tempo needs the pick transient intact -- more gain would round the attack off and the riff would stop driving.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12 (Celestion-loaded)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Close-miked Celestion 4x12. The Celestion midrange bump is what makes this riff read as thick on a record with no rhythm-guitar doubling to hide behind -- there is one guitar carrying the whole track.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, cap edge" },
+        notes:
+          "The Sound City house approach: a close 57 at the cap edge, which gives body without the harshness of dead-centre placement. Session mic detail is not documented per-track; this is the reconstruction that matches the record's dry, punchy rhythm sound.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Gibson Les Paul Deluxe refinished matte black, DiMarzio X2N bridge pickup, standard tuning",
+      effects: ["Boss SD-1 Super Overdrive used as a level boost -- or a Boss GE-7 graphic EQ in the same role"],
+      amp: "Marshall JCM800 2203 (stock, rented, cranked)",
+      cabinet: "Marshall 4x12 (Celestion-loaded)",
+      microphone: "Shure SM57",
+      other_notes:
+        "Recorded early 1983 at Sound City Studios, Van Nuys, California; produced by Ronnie James Dio. Stand Up and Shout is the album opener and the shortest track on it at 3:18. The rig is documented at album level rather than per track -- Campbell used the same Les Paul, boost and rented JCM800 across the Holy Diver sessions, so what changes song to song is the setting, not the gear. There is no rack, no scoop and no second rhythm guitar: one Les Paul, one Marshall, boosted.",
+    },
+    tags: ["heavy-metal", "metal", "hard-rock", "riff", "marshall", "les-paul", "dio"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Holy_Diver",
+      "https://www.vintageguitar.com/46268/pop-n-hiss-dios-holy-diver/",
+      "https://equipboard.com/pros/vivian-campbell",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Noise Gate",
+            block_category: "Dynamics",
+            original_gear: "Studio noise gate (FRFR essential)",
+            enabled: true,
+            settings: { Threshold: -54, Decay: 0.2, Level: 0 },
+            notes:
+              "DEFAULT-ON with a faster decay than the lead patch. This riff has hard stops in it, and a quick-closing gate is what makes those rests actually silent instead of ringing with boosted Marshall hum.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression",
+            settings: { Threshold: -32, Ratio: 2, Knee: 6, Attack: 30, Release: 200, Mix: 30, Level: 0 },
+            notes:
+              "Barely there, and deliberately so. Mix at 30 with a 30 ms attack lets the pick transient through untouched -- compress a riff like this properly and you flatten exactly the attack that makes it drive.",
+          },
+          {
+            position: 3,
+            block_name: "Scream 808",
+            block_category: "Distortion",
+            original_gear: "Boss SD-1 (level boost)",
+            enabled: true,
+            settings: { Gain: 1.5, Tone: 5.5, Level: 8.5 },
+            notes:
+              "DEFAULT-ON, standing in for Campbell's always-on SD-1. Gain lower than the lead patch: on the riff its job is to tighten the low end and push the amp's input, not to add sustain. Level high is where the push comes from.",
+          },
+          {
+            position: 4,
+            block_name: "Brit 2204",
+            block_category: "Amp",
+            original_gear: "Marshall JCM800 2203 (stock)",
+            settings: { Drive: 6, Bass: 4.5, Mid: 6, Treble: 7.5, Presence: 6.5, ChVol: 6.5, Master: 10, Bias: 5, BiasX: 5, Sag: 4.5, Hum: 5, Ripple: 5 },
+            notes:
+              "Helix's JCM800 with Drive pulled to 6 and Presence pushed to 6.5 -- a rhythm setting, not a lead one. Sag down at 4.5 tightens the power section so the eighth notes stay separated; the mids stay at 6 because this is 1983 hard rock, not scooped 90s metal.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 1960 V30",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 (Celestion-loaded)",
+            settings: { Mic: 0, Distance: 1, Position: 0.35, Angle: 0, LowCut: 100, HighCut: 10000, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "Position 0.35, further off centre than the lead patch, for the bite a rhythm part needs. LowCut 100 keeps the riff out of the bass guitar's range -- with only one guitar track on this record, that separation has to be earned in the cab.",
+          },
+          {
+            position: 6,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Sound City studio plate (light)",
+            settings: { Mix: 10, Decay: 0.6, Predelay: 18, LowCut: 200, HighCut: 7000, Level: 0 },
+            notes:
+              "Even drier than the Holy Diver patch. An early-80s plate at Mix 10 adds a hint of space without smearing the riff's stops; LowCut 200 keeps the tail entirely clear of the guitar's fundamental.",
+          },
+          {
+            position: 7,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global tilt EQ",
+            settings: { Tilt: 0.52, CenterFreq: 1000, Level: 0 },
+            notes:
+              "Nudged slightly bright so the riff cuts on its own. With no doubled rhythm track to thicken it, this guitar has to carry the whole midrange of the song.",
+          },
+        ],
+        notes:
+          "Gate -> light comp -> SD-1 boost (on) -> Brit 2204 -> V30 4x12 -> very light plate -> slight bright tilt. Drier, tighter and lower-gain than the Holy Diver lead patch, because this is the opener's driving rhythm voice. Bridge X2N, standard tuning.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Dynamics", original_gear: "Studio noise gate", enabled: true, settings: { Threshold: -54, Decay: 0.2 }, notes: "Fast decay so the riff's hard stops land silent rather than ringing with boosted amp hum." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -32, Ratio: 2, Attack: 30, Release: 200, Mix: 30, Level: 0 }, notes: "Minimal and parallel -- the pick transient is the point of this part, so it stays untouched." },
+          { position: 3, block_name: "SD-1 Overdrive", block_category: "Drive", enabled: true, original_gear: "Boss SD-1 (level boost)", settings: { Drive: 1.5, Tone: 5.5, Level: 8.5 }, notes: "DEFAULT-ON. Low drive, high level -- it tightens the low end into the amp rather than adding its own dirt." },
+          { position: 4, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800 2203 (stock)", settings: { Gain: 6.0, Bass: 4.5, Mid: 6.0, Treble: 7.5, Presence: 6.5, Master: 6.5, Sag: 4.5 }, notes: "Rhythm settings: less gain and more presence than the lead patch, low Sag for separated eighth notes." },
+          { position: 5, block_name: "4x12 V30", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "SM57", Distance: 1.0, Position: 0.35, LowCut: 100, HighCut: 10000, Level: 0 }, notes: "Off-centre mic for rhythm bite; LowCut 100 keeps the single guitar track clear of the bass." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Sound City studio plate (light)", settings: { Decay: 0.6, Predelay: 18, Mix: 10, Level: 0 }, notes: "Very light plate -- a hint of space that does not smear the riff's stops." },
+          { position: 7, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 5.2, CenterFreq: 1000, Level: 0 }, notes: "Slightly bright; with no doubled rhythm track this guitar carries the midrange alone." },
+        ],
+        notes:
+          "Gate -> light comp -> SD-1 boost (on) -> Brit 800 -> V30 4x12 -> light plate -> slightly bright EQ. Mirrors the Helix chain, set for attack rather than sustain.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: true, original_gear: "Boss SD-1 (level boost)", settings: { Drive: 1.5, Bottom: 4, Tone: 5.5, Level: 8.5 }, notes: "DEFAULT-ON -- correct here because Campbell's SD-1 ran always-on as a boost rather than as an A/B flavor. Bottom at 4 tightens the riff's low end going in." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Marshall JCM800 2203 (stock)", settings: { Gain: 6, Volume: 6.5, Bass: 4.5, Middle: 6, Treble: 7.5, Presence: 6.5, Master: 6.5 }, notes: "Crunch rather than the Lead voice used on the Holy Diver lead patch -- Crunch keeps the pick attack intact, which is what a driving rhythm part needs from a JCM800 at natural breakup." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Sound City studio plate (light)", settings: { Time: 6, PreDelay: 18, Tone: 5, EffectLevel: 10 }, notes: "Very short plate. The record is dry and the riff has hard stops; a long tail would blur them." },
+        ],
+        notes:
+          "Always-on boost -> Crunch amp -> very light plate. The whole tone is a hot bridge humbucker and a boosted, cranked Marshall with the mids left in. Keep the gain honest.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 2.5, Attack: 0.03, Volume: 0 }, notes: "Slot A. Very light -- any more and the pick transient that drives the riff gets flattened." },
+          { position: 2, block_name: "Green Scream", block_category: "Drive", enabled: true, original_gear: "Boss SD-1 (level boost)", settings: { Drive: 1.5, Tone: 5.5, Volume: 8.5 }, notes: "Stomp slot, DEFAULT-ON. Low drive and high volume -- it exists to push the profile's input stage and tighten the bottom, not to add gain of its own." },
+          { position: 3, block_name: "Search Rig Exchange for 'Marshall JCM800 2203' or 'JCM800 stock'", block_category: "Profile", original_gear: "Marshall JCM800 2203 (stock)", settings: { Gain: 6, Bass: 4.5, Middle: 6, Treble: 7.5, Presence: 6.5 }, notes: "Look for a stock, non-modded JCM800 capture -- the hot-rodded ones have too much gain for this. With Liquid Profiling, pick the Marshall tone stack. Cab is baked into the profile." },
+          { position: 4, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Sound City studio plate (light)", settings: { Decay: 0.6, Predelay: 18, Mix: 10 }, notes: "REV slot. Short and quiet, so the riff's stops stay clean." },
+        ],
+        notes:
+          "Comp -> SD-1 boost stomp (on) -> stock JCM800 profile -> very light plate. Kemper bakes the cab into the profile. Hunt for a stock capture, not a modded high-gain one.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -32, Ratio: 2, Attack: 30, Release: 200, Mix: 0.3, Level: 0 }, notes: "Light and parallel so the pick attack survives -- that attack is the riff." },
+          { position: 2, block_name: "TS808 OD", block_category: "Drive", enabled: true, original_gear: "Boss SD-1 (level boost)", settings: { Drive: 1.5, Tone: 5.5, Level: 8.5 }, notes: "DEFAULT-ON. Switch the Clip Type to asymmetric to match the SD-1 rather than the symmetric TS808. Low drive, high level -- a boost, not a distortion." },
+          { position: 3, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall JCM800 2203 (stock)", settings: { Drive: 6.0, Bass: 4.5, Mid: 6.0, Treble: 7.5, Presence: 6.5, MV: 6.5 }, notes: "Rhythm-set JCM800 -- less drive, more presence than a lead patch. Lower Supply Sag in the advanced page to keep the eighth notes separated." },
+          { position: 4, block_name: "4x12 Marshall V30", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 100, HighCut: 10000, Level: 0 }, notes: "Close 57 on a Celestion 4x12; LowCut 100 gives the bass its own space since there is only one guitar track." },
+          { position: 5, block_name: "Plate", block_category: "Reverb", original_gear: "Sound City studio plate (light)", settings: { Mix: 0.1, Decay: 0.6, Predelay: 18 }, notes: "Very light plate -- space without smearing the riff's hard stops." },
+          { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 0.52, CenterFreq: 1000, Level: 0 }, notes: "Slightly bright so the single guitar track carries the song's midrange on its own." },
+        ],
+        notes:
+          "Comp -> SD-1-style boost (on) -> Brit 800 -> V30 4x12 -> light plate -> slightly bright tilt. Attack over sustain: that is the difference between this patch and the Holy Diver lead.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'JCM800 2203' or 'Marshall 800 stock' or 'Holy Diver'", block_category: "Tone Model", original_gear: "Marshall JCM800 2203 (stock)", settings: {}, notes: "Choose a stock JCM800 capture at natural breakup, not a modded high-gain one -- the record's gain comes from an X2N pickup and an SD-1 boost, so a hot capture stacks gain that was never there and the riff loses its attack." },
+        ],
+        notes:
+          "Capture-driven: a stock JCM800 Tone Model at natural breakup with an SD-1-style level boost in front. Hot bridge humbucker, mids left in, everything dry and tight.",
       },
     },
     is_editorial: true,

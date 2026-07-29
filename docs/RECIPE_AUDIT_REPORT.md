@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-07-26
-**Recipes:** 195
-**Clean (no errors, no warns):** 195
+**Date:** 2026-07-29
+**Recipes:** 200
+**Clean (no errors, no warns):** 200
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,7 +16,7 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 23 / 195 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `katana-kemper-multidrive-default-off` | info | 26 / 200 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -70,9 +70,21 @@ Passes every rule.
 
 Passes every rule.
 
+### `blackmore-kill-the-king-riff` — ✓ clean
+
+*Rainbow's Kill the King Riff Tone*
+
+Passes every rule.
+
 ### `blackmore-smoke-on-the-water-riff` — ✓ clean
 
 *Blackmore's Smoke on the Water Riff Tone*
+
+Passes every rule.
+
+### `blackmore-stargazer-solo` — ✓ clean
+
+*Rainbow's Stargazer Solo Tone*
 
 Passes every rule.
 
@@ -97,6 +109,12 @@ Passes every rule.
 ### `campbell-refugee-lead` — ✓ clean
 
 *Refugee Lead Tone*
+
+Passes every rule.
+
+### `campbell-stand-up-and-shout-riff` — ✓ clean
+
+*Dio's Stand Up and Shout Riff Tone*
 
 Passes every rule.
 
@@ -1045,6 +1063,18 @@ Passes every rule.
 ### `slash-welcome-to-jungle-aggressive-riff` — ✓ clean
 
 *Slash's Welcome to the Jungle Aggressive Riff Tone*
+
+Passes every rule.
+
+### `smith-evil-that-men-do-solo` — ✓ clean
+
+*Iron Maiden's The Evil That Men Do Solo Tone*
+
+Passes every rule.
+
+### `smith-sea-of-madness-riff` — ✓ clean
+
+*Iron Maiden's Sea of Madness Riff Tone*
 
 Passes every rule.
 
