@@ -4079,3 +4079,78 @@ volume-pedal-placement/Sean, V1 single-coil-hum/Elena, V2 katana-gen3/Jess, V3
 ambient-headphones-mono/Dev, W2 sidechain-dynamic-eq/Dev, plus today's X1/Sean, X2/Dev, X3/Viktor.
 Strategic queue still **empty of automatable items — S5 (Complete Helix pillar) + S6 (Katana pillar)
 remain the standing debt (now deferred 6 runs); escalate to a dedicated human-in-the-loop session.**
+
+---
+
+## Monthly AI-Visibility Spot Check — 2026-08-03
+
+> Per `docs/AI_SEARCH_PLAYBOOK.md` §8. August's check; the first-Sunday run
+> (Aug 2) fired a day late, and the next weekly run is Aug 9, so this run
+> carries the monthly check rather than leaving August uncovered.
+
+### 1. Target-query citation check (5 queries, live)
+
+| # | Query | F&K cited? | Notes |
+|---|-------|-----------|-------|
+| 1 | john mayer clean tone helix settings | **No** | Owned by line6.com community threads, cainkong.com, helixpatches.com, and a wall of Gumroad preset sellers. Preset-storefront-dominated SERP — commodity zone. |
+| 2 | tube screamer settings blues | **No** | Results collapsed to Wikipedia (Tube Screamer, Blues Junior, SD-1, distortion-pedal list). Encyclopedic head term; no settings page of any publisher ranked. Low-value target. |
+| 3 | worship guitar tone Line 6 Helix settings | **YES** | `faderandknob.com/blog/hillsong-guitar-tone-helix` ranked 4th, above GuitarforHISGLORY's storefront and alongside jwtones + komposition101. Core target-segment query — this is the one that matters. |
+| 4 | HX Stomp worship ambient delay reverb settings | **No** | tone3000, komposition101, worshipflow, plus Gumroad bundles. Notably, the answer summary's specifics (Glitz decay 8–10s, predelay 80–100ms, "one delay + one reverb covers 80%") mirror our house framing but the citation went to komposition101. Adjacent-content gap worth attacking. |
+| 5 | Big Muff settings guide best tones | **YES** | `faderandknob.com/blog/big-muff-settings-guide` ranked 6th against EHX's own page, Reverb News, and Guitar Chalk. The synthesized answer visibly leans on our tone-stack explanation and Russian-variant/doom framing. |
+
+**Citation rate: 2/5.** Both hits are on *non-commodity* pages (a named-artist
+worship recipe and an every-variant settings guide). Both misses are on
+commodity head terms where the SERP is either encyclopedic (Q2) or owned by
+preset storefronts (Q1, Q4). **This is the Non-Commodity Gate working exactly
+as designed** — we win where we have something the field doesn't, and we are
+absent where we'd only be a summary of what already exists. No regression.
+
+**Actionable gap:** Q4. We rank for worship-Helix generally but not for the
+HX Stomp DSP-budget question specifically, despite that being squarely our
+territory. Candidate for the strategic queue.
+
+### 2. Crawler reachability at the edge — PASS
+
+```
+curl -sI https://faderandknob.com/robots.txt  →  HTTP/2 200
+server: cloudflare        (no x-vercel-mitigated header)
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /   (only /admin, /dashboard, /saved, /api/, /invite/, /login, /signup, /dev/ disallowed)
+```
+
+No challenge interception. robots.txt is fully open to AI crawlers and the
+Content-Signal header explicitly permits `ai-input`. Sitemap advertised.
+The 2026-06-11 Vercel-firewall failure mode **cannot recur** — see §3.
+
+### 3. AI crawler hit counts — UNAVAILABLE THIS RUN (expected, not a regression)
+
+The site is **no longer on Vercel**. Response headers now show
+`server: cloudflare` / `cf-ray` / `cf-cache-status` with no `x-vercel-*` of
+any kind, confirming the migration in `docs/MIGRATION.md` completed after the
+2026-07-06 fair-use block. **The Vercel MCP log path in the playbook's §8.3 is
+therefore obsolete** — Vercel has no traffic to report.
+
+**Standing debt:** we currently have *no* AI-crawler-hit telemetry, which was
+the leading indicator of citation eligibility. Needs a Cloudflare-side
+replacement (Logpush, or Web Analytics + a bot-UA breakdown) before the next
+monthly check. Logged here rather than silently fixed — this is a
+strategy-level change, not an audit fix.
+
+### 4. AI referral traffic — SKIPPED
+
+GA4 requires interactive auth (and lives under authuser=1); no API route
+exists yet. Nice-to-have per the playbook; not blocking.
+
+### 5. Regressions — NONE
+
+Citations held (2/5 on genuinely competitive queries), robots stayed fully
+open, no firewall interception. The only open item is the crawler-telemetry
+blind spot in §3, which is a consequence of the intended Cloudflare migration
+rather than a regression in visibility.
+
+**Observation for the next strategy review (not acted on):** the site now
+advertises `</llms.txt>; rel="service-doc"` in its `link:` header. The
+playbook's current position is that llms.txt is not worth maintaining. Either
+the file was added deliberately since that position was written, or the
+position needs updating — worth a deliberate decision either way rather than
+drift.
