@@ -1,0 +1,159 @@
+---
+title: Capturing a Body IR of Your Own Acoustic (So the Resonance Actually Matches)
+description: >-
+  A bought acoustic IR carries someone else's guitar body and stacks it on
+  yours. Capturing your own removes the stacking. Here is the method that works
+  — and the popular one that quietly does not.
+date: '2026-08-03'
+author_slug: dev-okonkwo
+category: workflow
+tags:
+  - impulse-response
+  - acoustic-guitar
+  - piezo
+  - recording
+  - deconvolution
+  - ir-capture
+  - helix
+takeaways:
+  - >-
+    A commercial acoustic IR is the transfer function between someone else's
+    pickup and someone else's microphone. Applied to your pickup it layers their
+    guitar's body resonance on top of yours, which is why a dreadnought through
+    a dreadnought IR gets boomier instead of more natural.
+  - >-
+    Capturing your own removes the stacking by construction. When the
+    denominator of the transfer function is your own pickup signal, the result
+    maps your pickup to your microphone exactly, with nothing left over.
+  - >-
+    The widely shared DIY recipe — EQ-match the mic to the DI, then sweep a sine
+    through the match — produces a minimum-phase magnitude filter. It is a
+    static EQ curve saved as an IR file, and it cannot contain body resonance or
+    decay.
+  - >-
+    The method that works is a dual capture — mic and pickup recording the same
+    excitation simultaneously — deconvolved against each other. Tap the bridge
+    with a soft mallet, strings muted, and average several taps.
+  - >-
+    Helix-family IR slots hold 2048 samples, roughly 43 ms at 48 kHz, which
+    truncates most of an acoustic body's decay. A plugin convolver has no such
+    limit, so the same capture is meaningfully better in a DAW than on a floor
+    unit.
+faq:
+  - q: 'Why does a purchased acoustic IR make my guitar sound worse, not better?'
+    a: >-
+      Because it contains a different guitar's body response. An IR made from
+      someone else's instrument maps their pickup to their microphone, and your
+      pickup signal already carries your own guitar's resonance. The two stack.
+      The effect is most obvious when their guitar and yours are the same body
+      size, which is the opposite of the usual buying instinct.
+  - q: What gear do I need to capture my own body IR?
+    a: >-
+      A microphone, an interface with two inputs so the mic and the pickup
+      record simultaneously and stay sample-aligned, a quiet room, and a
+      deconvolution utility. Voxengo Deconvolver and Room EQ Wizard both do the
+      math and both are free. A soft mallet or a rubber hammer helps; a padded
+      thumb works.
+  - q: Does the sine sweep and EQ match method work?
+    a: >-
+      Not for what people want from it. An EQ match captures magnitude only, so
+      sweeping through it and deconvolving gives you a minimum-phase filter —
+      mathematically an IR file, functionally a static EQ curve. It will fix the
+      honk and the quack, but it contains no body resonance and no decay, which
+      is the entire reason to use an IR rather than an EQ.
+  - q: How long should an acoustic body IR be?
+    a: >-
+      Longer than most hardware will accept. The resonant decay you are trying
+      to capture runs well past 100 ms, but Helix-family IR slots hold 2048
+      samples, about 43 ms at 48 kHz. Check your own unit's maximum length
+      before you plan around it — that spec, more than the capture technique,
+      decides how much of the body you actually get to keep.
+  - q: Will a body IR help with feedback on stage?
+    a: >-
+      No, and it can make it worse. An IR adds resonant peaks, and resonant
+      peaks are what feed back. If a loud room is the problem, a narrow notch
+      between 90 and 130 Hz plus a high-pass is the fix, and the IR is something
+      to leave off until you are recording or playing somewhere quiet.
+  - q: Do I need a separate capture for each guitar?
+    a: >-
+      Yes, and for each pickup system. The whole premise is that the transfer
+      function is specific to one pickup in one instrument. Using a capture from
+      your dreadnought on your parlor guitar reintroduces exactly the stacking
+      problem you made your own capture to avoid.
+image: /images/blog/acoustic-body-ir-capture-your-own-guitar.jpg
+image_alt: >-
+  An acoustic guitar on a stand with a small-diaphragm condenser microphone
+  aimed at the twelfth fret, an audio interface showing two input meters, and a
+  deconvolution waveform on a laptop screen
+---
+
+> **The Short Version**
+> Record your microphone and your pickup at the same time, from the same excitation — soft mallet taps on the bridge with the strings muted — then deconvolve the mic track against the pickup track. The result maps your pickup to your microphone, so nothing stacks and nothing has to be undone afterward. Do not use the sweep-through-an-EQ-match method that circulates on forums: it produces a magnitude-only filter with no resonance in it. Budget a full evening, and know before you start that a Helix-family IR slot will truncate most of what you capture.
+
+There is a specific disappointment that comes from buying an acoustic impulse response, loading it, and finding that your guitar now sounds like a bigger version of the problem you were trying to solve. Not thin anymore. Just... boomy, in a low-mid region that was not especially crowded before, with a thickness around 200 Hz that no amount of adjusting the IR mix seems to place correctly.
+
+That is not a bad IR. That is the IR working exactly as designed, on the wrong instrument.
+
+## Why a Bought IR Stacks and Your Own Does Not
+
+An acoustic body IR is a transfer function. Someone recorded a guitar two ways at once — a microphone in front of it, and its own pickup — and computed the filter that turns the second signal into the first. Written out, that is their microphone divided by their pickup.
+
+When you load that file, the convolver applies it to *your* pickup. So what comes out is their microphone signal multiplied by the ratio of your pickup to theirs. Their guitar's body resonance is in the numerator and never cancels against anything, because the thing it was meant to cancel against — their pickup signal — is not what you fed it.
+
+Your own capture makes that cancellation exact. The denominator becomes your pickup, the same signal you will later convolve, and the two annihilate cleanly. What is left is your microphone. Not an approximation of it, not your pickup wearing a body-shaped coat — the actual measured sound of your instrument in front of a microphone, driven live by the pickup.
+
+This is also the honest reason the [advice to buy an IR from a smaller-bodied guitar](/blog/acoustic-ir-vs-subtractive-eq-piezo-real) works as well as it does. It is a correction for stacking. You are picking an IR whose surplus low end is small enough that adding it to yours lands somewhere tolerable. Capturing your own means you do not have to play that game.
+
+## The Method That Circulates, and Why It Falls Short
+
+The most-shared DIY recipe goes: record the DI and the mic, use an EQ-match plugin to derive the curve between them, then send a sine sweep through that matched EQ and deconvolve the result into an IR file.
+
+Every step of that runs. You get a `.wav`, it loads, and the guitar sounds better than it did.
+
+**I assumed the problem with it would be accuracy — that the match would be a bit off, that the curve would be coarse.** What I found is more structural than that, and it took a null test to see: an EQ match is a magnitude operation. It measures how much energy sits at each frequency and builds a filter with that frequency response. Phase is not measured, so the tool assigns minimum phase, which is the mathematically simplest choice consistent with the magnitude.
+
+A minimum-phase filter has essentially no time structure. Its impulse response is a brief click that decays in a few milliseconds. Body resonance is *entirely* time structure — a top and back that keep moving after the string stops, ringing for a hundred milliseconds or more at frequencies the shape of the box decides. Magnitude-only cannot express that. So the file you built is an EQ curve in a container that says IR on it.
+
+Which explains something that otherwise seems strange: people who make an IR this way report that it fixes the quack and the honk but that the guitar still sounds plugged-in. Of course it does. They built an EQ. It did what an EQ does, and the missing piece — the decay, the sense that the note is happening inside a wooden box rather than under a saddle — was never in the file.
+
+## The Capture That Actually Contains a Body
+
+You need one physical event that excites both transducers at once, with energy spread across the whole spectrum.
+
+A mallet tap on the bridge does this. So does a padded thumb. The strings get muted with a cloth weave so they contribute nothing, the tap drives the top directly, and both the microphone and the pickup hear the same impulse — the mic hears the box respond, the pickup hears the saddle move. Divide one by the other and the ratio is the body.
+
+1. **Mute the strings** with a cloth woven through them near the nut and another near the bridge. You want silence when you strum.
+2. **Set the mic** where you would record the guitar, not where it sounds most flattering. Twelfth fret, 20-30 cm out, slightly off-axis is a reasonable default. Whatever you pick is now permanently part of the IR.
+3. **Record both inputs to one session, armed together.** They must be sample-aligned. Two separate passes will not work, and neither will a phone.
+4. **Tap the bridge** softly, near the saddle, twenty to thirty times with a few seconds between. Soft enough that nothing clips, hard enough to be well above the room.
+5. **Trim to individual taps and average them.** Averaging is what pulls the room noise down — uncorrelated noise falls as you average while the repeatable response does not.
+6. **Deconvolve the mic average against the pickup average.** Voxengo Deconvolver and Room EQ Wizard both do this and both are free.
+7. **Window the result** with a short fade at the end. An untapered tail introduces a click that shows up as comb filtering.
+
+Step 6 has a trap in it worth naming, because it is where a capture usually goes wrong in a way that sounds dramatic rather than subtle.
+
+Deconvolution divides in the frequency domain, and your pickup signal does not have energy everywhere. Undersaddle pickups roll off hard up top, and there are regions where the tap put almost nothing into the piezo. Dividing by almost-nothing produces almost-infinity. What you hear is a capture with a violent resonant peak somewhere in the upper mids that was never in either recording — pure arithmetic, no acoustics involved.
+
+The fix is regularization, which every deconvolution tool implements under some name: a floor below which the divisor is not allowed to fall. Set it around -40 dB relative to the peak. You lose accuracy in the regions where you had no real data to begin with, which is a good trade, since the alternative is inventing data there.
+
+## Loading It
+
+| Destination | Limit | What survives |
+|---|---|---|
+| Helix / HX family IR slot | 2048 samples, ~43 ms at 48 kHz | Early response and the first part of the decay |
+| Plugin convolver in a DAW | Effectively none | The whole capture, tail included |
+| Hardware IR loader pedal | Varies by unit — check the spec first | Usually more than a modeler slot, less than a plugin |
+
+That length limit is the part of this worth knowing before you spend the evening. An acoustic body's ring is not a 43 ms event, and truncating it removes the low-frequency tail first, because low frequencies need the most time to be described at all. A capture that sounds like a room in a plugin can arrive on a floor unit sounding like a thin approximation of itself.
+
+If your listening happens in a DAW, that limit never touches you and this technique is at its best. If the destination is a floor unit, keep expectations calibrated: you get the early reflections and the initial body response, which is a real improvement over a pickup alone, but not the sustained resonance you heard in the capture.
+
+Start the IR mix around 60 percent and blend a little dry pickup back in. Not to fix a tonal problem — to restore the pick attack, which sits in the first few milliseconds where the pickup is more direct than the microphone. The [subtractive EQ moves](/blog/acoustic-ir-vs-subtractive-eq-piezo-real) come after the IR, not before it, and there should be much less for them to do now.
+
+## What This Cannot Do
+
+The whole method assumes the guitar is a linear, time-invariant system, and it is only mostly that. A hard strum drives the top into slightly different behavior than a mallet tap does, and one IR cannot represent both. The capture also bakes in your microphone, your room, and your mic position, permanently — that is not a flaw, it is what you were capturing, but it does mean the file is worth exactly as much as those choices were.
+
+And it is one instrument, one pickup. The moment you use it on a different guitar you have rebuilt the stacking problem from scratch, this time with your own body response as the thing that does not belong.
+
+None of that undercuts the point. The reason to do this is not that a captured IR is a better product than a purchased one in some general sense. It is that the entire failure mode of purchased acoustic IRs — the boom you cannot EQ away, the sense that you added something rather than revealed something — comes from a mismatch that stops existing when the two halves of the transfer function come from the same guitar. You are not making a better IR. You are making the one that cancels.

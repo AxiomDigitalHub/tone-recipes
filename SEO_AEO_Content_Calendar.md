@@ -4154,3 +4154,112 @@ playbook's current position is that llms.txt is not worth maintaining. Either
 the file was added deliberately since that position was written, or the
 position needs updating — worth a deliberate decision either way rather than
 drift.
+
+---
+
+## Daily Run — 2026-08-03 (3 new posts + 2 refreshes + SERP analysis + 3 new topics)
+
+**Velocity check:** 3 posts / 3 authors in the trailing 7 days (Nathan 1, Sean 1, fk-staff 1). The
+07-24 run aged out of the window, so Sean was back to 1/wk rather than the 2/wk the 07-28 notes
+projected. Nobody at or over the cap. After this run: Sean 2, Dev 1, Viktor 1, Nathan 1, fk-staff 1.
+Carl, Hank, Rick, Jess, Margot, Elena still at 0 — **favor them next run.**
+
+**Queue drained:** X1, X2, X3 (all three of the 07-28 fan-out entries). Never-assign lists checked
+against each byline before assignment per the 07-28 standing note — no conflicts (Sean/routing,
+Dev/recording-workflow, Viktor/measurement-and-evaluation are all in-lane).
+
+### New posts
+
+| # | Slug | Title | Writer | Pillar |
+|---|---|---|---|---|
+| 1 | modeler-send-return-loop-tricks-beyond-shimmer | The Send-to-Return Cable Trick: Four Things It Unlocks on a Modeler | Sean Nakamura | 4 — Modeler Masterclass |
+| 2 | acoustic-body-ir-capture-your-own-guitar | Capturing a Body IR of Your Own Acoustic (So the Resonance Actually Matches) | Dev Okonkwo | Workflow |
+| 3 | how-ai-tone-tools-differ-generator-vs-retrieval | Generator vs. Retrieval: Why Two AI Tone Tools Give You Different Answers | Viktor Kessler | Gear Lab |
+
+Post 1 generalizes the 07-28 shimmer post's one-off finding (a physical send→return cable is the only
+way to defeat forward-only routing) into the full technique surface: **four applications** — delay
+repeats past unity/freeze, a filter driven into self-oscillation, reverb that *accumulates* rather
+than decays, and modulation that compounds per lap — plus a six-step **calibration procedure**, a
+cost table (I/O, latency, snapshot safety), and an honest "don't bother" section noting several
+delay models already self-oscillate internally at max feedback. Gate 5 discovery: **the first failure
+mode is not runaway oscillation, it is noise-floor accumulation** — each lap re-converts and re-adds
+converter noise, converging 20+ dB above the unit's normal floor without ever oscillating; the fix is
+a 4-6 kHz high cut *inside* the loop, not a lower loop gain.
+
+Post 2's non-commodity core is a **debunk plus a cancellation argument**. The debunk: the most-shared
+DIY recipe (EQ-match mic to DI, sweep a sine through the match, deconvolve) is a **magnitude-only**
+operation, so the resulting file is a minimum-phase EQ curve in an IR container — it structurally
+cannot hold body resonance or decay, which is the entire reason to prefer an IR over an EQ. The
+argument: a purchased IR is `their mic ÷ their pickup`, so applied to your pickup their body
+resonance never cancels (this is *why* the 07-28 post's stacking discovery happens); capturing your
+own makes the denominator your own pickup, so the cancellation is exact **by construction**. Plus the
+deconvolution trap nobody publishes (**dividing by near-zero** where the piezo has no energy produces
+a violent phantom resonance; regularize at −40 dB) and the constraint that decides everything:
+**Helix-family IR slots hold 2048 samples ≈ 43 ms at 48 kHz**, which truncates most of an acoustic
+body's decay, so the same capture is materially better in a plugin than on a floor unit.
+
+Post 3 carries a **Gate 8 conflict-of-interest disclosure in the second paragraph** — F&K operates a
+retrieval-based assistant, so the post ships reader-run tests instead of a product ranking, and
+explicitly says to run them on ours. Core is the architectural split (generator = settings from model
+weights; retrieval = corpus lookup; hybrid = retrieve-then-narrate, where the prose layer can drift
+from the grounded numbers), a failure-mode contrast table, **four five-minute diagnostic tests**
+(nonexistent-block, repeat, citation, obscure-material), and a verification checklist. Gate 5
+discovery: **wrong values are the recoverable failure and invented block names are not** — a bad gain
+setting is audible in ten seconds and costs one knob, while a plausible block that was never in the
+firmware costs twenty minutes of menu-diving during which the reader assumes the problem is them.
+
+Hero images via Flux 2 Pro (`--model=black-forest-labs/flux-2-pro`, ~$0.17, 3/3, no filter
+rejections). MDX preflight `--changed --strict`: **all 5 changed content files clean.** Note: the
+run-wide `--changed` invocation still reports 12 warnings, all on four posts belonging to a
+**concurrent in-flight affiliate-GearPick task** (big-muff, fender-deluxe-reverb,
+helix-vs-quad-cortex-vs-kemper, vox-ac30) — those were not touched and not committed here.
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | parallel-reverb-routing | **Legacy `<FAQ>` → frontmatter `faq:` + AEO backfill + two content-adds.** Migrated the 5 body Q&A to frontmatter, added a 6th (mono-sum thinning), added 5 `takeaways:`, replaced the placeholder `image_alt` (`a composition illustrating "Parallel Reverb Routing"`), trimmed the description to snippet width, fixed a CTA grammar bug ("Want a ambient" → "an ambient"). **Content-add 1 — the 100%-wet rule:** leaving each parallel reverb block at its usual 30% mix sends a second and third copy of the *dry* signal to the mixer, so the reverbs seem quieter when the dry actually tripled. **Content-add 2 — "The Cost Nobody Mentions: What Happens in Mono":** parallel's own tradeoff, absent from the original — both reverbs are fed from the same dry source, so their early reflections are *correlated* and comb-filter on a mono fold-down; fix is a 10-20 ms pre-delay offset, with a decorrelation table. Plus a "What Parallel Routing Still Cannot Do" section (both split and series are forward-only) linking Post 1. `updated: 2026-08-03`, Margot's byline kept. | A proven signal-chain post with zero answer-engine surface, and the natural reciprocal of Post 1 — it explains what split-and-merge *can* do, Post 1 explains what only a cable can. |
+| R2 | parallel-amp-routing-modeler | **Legacy `<FAQ>` → frontmatter `faq:` + AEO backfill + content-add.** Migrated 5 body Q&A to frontmatter, added a 6th (how to find the alignment offset), added 5 `takeaways:`, replaced the placeholder `image_alt`, trimmed a 287-char description. Real content-add: **"How to Find the Alignment Offset Instead of Guessing"** — the original said "try 1-3 ms and see," which is unsatisfying because the correct value is a fixed sample count, not a taste call. New section explains *why* the offset exists (amp/cab/EQ blocks have unequal processing latency; at 48 kHz a 48-sample difference is 1 ms, putting a comb notch at 500 Hz and every odd multiple), gives a five-step DAW measurement, adds a polarity-flip null test to confirm, and names two caveats (a deep null is *not* the goal since the amps are deliberately EQ'd apart; the offset changes on any block swap, so re-measure). Cross-links R1 and Post 1. `updated: 2026-08-03`, fk-staff byline kept. | Proven modeler post, zero AEO surface, and its one hand-wave ("try 1-3 ms") was the exact spot a measurable procedure belonged. |
+
+### SERP Analysis — 2026-08-03 (live checks this run)
+
+**Post 1 — modeler-send-return-loop-tricks-beyond-shimmer** (target: "helix send return loop trick," "modeler external feedback loop," "hx stomp send return routing")
+- **Top ranking:** the Line 6 Community thread *"Send/return as feedback loop?"*, Sweetwater InSync *"3 Helix Effects Secrets,"* a Fluid Solo "Feedbacker" model page, a Fractal forum thread on delay vs. master feedback, and MOD WIGGLER modular feedback-patch threads.
+- **Gap — and an honest scoping note.** The *wiring* is published: the Line 6 thread states the exact chain (return 1 → delay → reverb → send 1, using the return/send level controls as the feedback amount), and the field corroborates both the filter-into-self-oscillation behavior and that delays can self-oscillate well below 100% feedback. **The post does not claim the technique is undocumented, and it explicitly tells readers to skip the cable if a delay model already self-oscillates on its own.** What is absent from every ranking result: the **four-application survey** in one place, the **calibration procedure**, the **noise-floor accumulation mechanism** (nobody discusses that the loop's first audible failure is converter noise rather than oscillation), and the **cost table** (per-lap conversion latency, the permanently-consumed insert point, snapshot safety).
+- **AI Overview:** likely present (how-to/technique class); F&K not cited (hours old).
+- Non-commodity gate: **PASS**, but on depth and the noise finding — not on novelty of the wiring. Flagging honestly.
+
+**Post 2 — acoustic-body-ir-capture-your-own-guitar** (target: "capture acoustic body ir," "make your own acoustic ir," "diy impulse response acoustic guitar")
+- **Top ranking:** jimamsden's *"Creating an Acoustic Guitar Impulse Response for Line6 Helix,"* a Fractal forum *"Capturing Acoustic Body IRs"* thread, a DjangoBooks IR-experiments thread, Worship Tutorials' acoustic IR packs, and an Acoustic Guitar Forum thread on pickup types with IRs.
+- **Gap confirmed, and the SERP *is* the story.** The dominant published recipe is exactly the one the post debunks: record DI and mic, **EQ-match**, sweep a sine through the match, deconvolve with Voxengo Deconvolver. The Fractal thread independently documents the method the post endorses — **hit the bridge with a rubber hammer, strings muted, recording mic and onboard pickup simultaneously** — which is a genuine dual-channel capture and confirms the approach is sound. So the post is not inventing a method; it is explaining **why the popular one produces a magnitude-only filter** and the forum one does not. Absent from the entire top-5: the **minimum-phase argument**, the **near-zero-division/regularization** trap, the **2048-sample truncation** constraint, and the **cancellation-by-construction** framing that ties back to the 07-28 stacking discovery.
+- **AI Overview:** likely present (DIY how-to class); citation unverified.
+- Non-commodity gate: **PASS** (strongest of the three — it corrects the top-ranking result rather than restating it).
+
+**Post 3 — how-ai-tone-tools-differ-generator-vs-retrieval** (target: "ai guitar tone tool comparison," "are ai guitar presets any good," "ai preset generator accuracy")
+- **Top ranking:** ToneBuilder.ai, DialMyTone, HelixTones, the Line 6 Community thread from a member who built a ChatGPT Helix helper, Vishwanath Subramanian's *"Dialing In the Ghost in the Machine: LLMs for guitar tones,"* and a Facebook Helix-user group post.
+- **Gap confirmed, with strong independent corroboration of the thesis.** Subramanian's engineering write-up states the core claim almost verbatim — *"LLMs are excellent at sounding like they know an amp; they are unreliable at emitting exact plugin state"* — and his fix is architectural (the model fills a constrained JSON contract, deterministic code owns the file format) specifically to avoid *"shipping hallucinated attributes."* The Line 6 thread's own builder concedes the tool *"sometimes makes stuff up."* So the invented-block-name failure mode is real and acknowledged **by builders**. Meanwhile the commercial tools advertise platform-correct blocks, i.e. they claim the problem is solved. **What nobody publishes is the reader-side view:** four tests a guitarist can run in five minutes to determine which architecture they are talking to, and the parameter-scale check (Helix amp blocks 0-10 vs. plugin 0-1 or 0-100). Every existing deep treatment is written for the person *building* the tool.
+- **AI Overview:** likely present (evaluation/comparison class); F&K not cited.
+- Non-commodity gate: **PASS** — reader-side diagnostics in a field that only publishes builder-side engineering. Gate 8 disclosure carried in-body.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3 (X1/X2/X3), adding 3 — queue stays flat. Bylines are best-fit proposals; the executing
+> run re-checks **both** velocity **and** the never-assign list. **Verify no colliding slug at build time.**
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| Y1 | modeler-latency-budget-per-block-cost | The Latency Budget: What Each Block Type Actually Costs You | "helix latency per block," "modeler latency add up," "does adding blocks increase latency" | Viktor Kessler | 4 — Modeler Masterclass | R2 established that unequal path latency comb-filters a parallel sum, and Post 1 established that each send/return lap costs a conversion. The distinct question neither answers: **what does each block type cost, and when does the total become audible?** A measurement piece — per-category latency, which blocks are effectively free, why pitch and IR blocks are not, the 4-cable-method and re-amp cases where it compounds, and the honest threshold below which none of it matters. Viktor's measure-it lane; he is at 1/wk. **Must ship with real measured numbers or not at all** — a guessed latency table would fail Gate 1. |
+| Y2 | null-test-guitar-tone-what-changed | Null Testing: How to Hear What a Block Actually Changes | "null test guitar tone," "how to null test plugin," "does this pedal actually do anything" | Dev Okonkwo | Workflow | Both Post 2 and R2 used a null test as a *tool* without teaching it. Distinct, broadly useful question: polarity-invert one of two takes, sum, and listen to the residual — what remains is exactly what the block changed. Covers the setup, why level and time alignment must be exact first, what a *non*-null tells you (nonlinearity, time variance), and the honest limit that a deep null does not mean two things sound the same. Dev's DAW-native lane; he is at 1/wk. |
+| Y3 | stereo-width-tricks-that-survive-mono | Which Stereo Widening Tricks Survive a Mono PA (and Which Vanish) | "stereo guitar collapses in mono," "haas effect mono compatibility," "mono compatible stereo widening guitar" | Margot Thiessen | 3 — Signal Chain | Falls out of R1's new correlation section, but generalizes past reverb to the whole widening toolkit: Haas/short-delay offset, micro-pitch detune, true double-tracking, ping-pong delay, stereo chorus. Distinct question — **each one has a different mono fate**, and double-tracking is the only one that survives intact because it is the only genuinely uncorrelated source. Ends with a decision table for players who will be summed. Margot at 0/wk and already the R1 byline, so the cluster stays coherent. |
+
+**Diversity/queue note:** new posts went to Sean (1→2), Dev (0→1), Viktor (0→1). **Next run: Sean is at
+2/wk with one slot left; Carl, Hank, Rick, Jess, Margot, Elena are all at 0 — favor them.** Cluster
+fan-out queue remaining: nashville-numbers/Jess, volume-pedal-placement/Sean, V1 single-coil-hum/Elena,
+V2 katana-gen3/Jess, V3 ambient-headphones-mono/Dev, W2 sidechain-dynamic-eq/Dev, plus today's
+Y1/Viktor, Y2/Dev, Y3/Margot. **Note on V1 (single-coil-hum-feedback-worship-fix): flagged as a Gate 7
+risk before assignment** — F&K already has `60-cycle-hum-decision-tree`, `how-to-remove-60-cycle-hum`,
+`ground-loop-hum-amp-stage`, and `single-coil-vs-humbucker-worship-ambient-tone`. The executing run
+must confirm it is a genuinely distinct question and not a worship-flavored re-slice; if it is not,
+**refresh the decision tree instead**. Strategic queue still **empty of automatable items — S5
+(Complete Helix pillar) + S6 (Katana pillar) remain the standing debt (now deferred 7 runs); escalate
+to a dedicated human-in-the-loop session.**
