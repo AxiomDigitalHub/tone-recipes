@@ -127,4 +127,39 @@ export const experimentLog: ExperimentLogEntry[] = [
     title: "The small door that opened on the wrong room",
     body: "For a while, signing in could drop you somewhere random — you'd log in from the browse page and land back on the home screen for no reason. Turned out four different parts of the site each had their own idea of where to send you afterward, so it was luck of the draw. We gave them one rule: after you sign in, you go back to wherever you were. It's a small thing. But the small things are what quietly tell people whether anyone's actually paying attention. Someone is.",
   },
+  {
+    date: "2026-07-13",
+    title: "Ask us for a tone we don't have",
+    body: "Until now, if the song you needed wasn't in the library, that was the end of the conversation. So we built the other direction: you can ask for a tone, and it goes into a real queue with your name on it. Everyone gets a couple of requests; paying members get more. There's a page that shows you what you asked for and where it stands. It's also the most honest market research we have — instead of guessing what to build next, we're now being told.",
+  },
+  {
+    date: "2026-07-17",
+    title: "Axl stops guessing",
+    body: "Our tone chatbot had two bad habits. It would occasionally think out loud in front of you — you'd ask about a delay setting and get a paragraph of the machine talking to itself. And when it didn't know a song, it would improvise settings rather than admit the gap. We fixed both: the chat now answers from the settings we've actually published, and when a song isn't in the archive it says so and offers to file the request for you. A chatbot that confidently invents amp settings is worse than no chatbot.",
+  },
+  {
+    date: "2026-07-22",
+    title: "The signup button that went nowhere",
+    body: "Someone tried to join the newsletter from the homepage and instead of a thank-you they got a raw error page with a web address they'd never seen. It had been doing that quietly — the form was submitting the old-fashioned way and the code behind it only knew how to answer modern requests. Every person who signed up from the homepage without JavaScript running hit a wall. Fixed the same day. I don't know how many people that cost us, and that's the part that stings: the failures that don't show up in any dashboard are the expensive ones.",
+  },
+  {
+    date: "2026-07-25",
+    title: "The download button had been lying",
+    body: "This is the worst thing we've found so far. Only 50 tones had a preset file sitting on the server, but every tone in the library showed a download button. So you'd find your song, make an account because we asked you to, click download — and get nothing. Every Katana download failed too, and the Quad Cortex button never got built at all, even though the machinery behind it had worked for months. We rewired every download to build the file on demand instead of hunting for one that was never made, then checked all of them: every tone in the library now produces a working file, with the notes, install steps, and a troubleshooter in the same zip. If you hit that dead end, I'm sorry. It was live for longer than I want to admit.",
+  },
+  {
+    date: "2026-07-25",
+    title: "We graded our own homework and failed a lot of it",
+    body: "We stopped adding things for a night and measured what we'd already built, honestly, nine different ways. The results: about a quarter of our tones were quietly dropping a block when the file got built — one of them lost its amp and its speaker cabinet, which means the preset couldn't possibly sound like the record. Most of the causes were embarrassing rather than hard: our own writing called a pedal by its real-world name when the Helix calls it something else for trademark reasons. Worse for strategy: we say we're building for worship guitarists, and five songs out of the whole library were worship songs. One song from the 2020s. Total. You can't fix what you refuse to count.",
+  },
+  {
+    date: "2026-07-25",
+    title: "Opening a door for the machines",
+    body: "More people find answers through an AI now than by scrolling a results page, so we made the site properly readable by them: a clean text version of every page for any assistant that asks for one, a formal way for an AI agent to look up our tones directly, and a plain statement in our rules file that AI systems are welcome to read and train on what we publish. Two weeks earlier we'd turned down a piece of this — advertising a service address we hadn't actually built — because announcing a door that opens onto nothing is exactly the kind of thing this experiment is supposed to not do. We built the door first. Then we announced it.",
+  },
+  {
+    date: "2026-07-26",
+    title: "Killing the product we'd been planning since spring",
+    body: "The original pitch for this whole thing was a tool where you upload a clip of a tone you love and get back the settings to recreate it. We researched it for months. Then a night of digging turned up the obvious: one of the big modeling companies shipped exactly that last September, inside the amp software people already own. We're not going to build a worse version of a thing our customers already have. So we cut it, wrote down why, and kept the parts that were actually ours — the research layer underneath, and the request queue that tells us what people can't find anywhere else. Announcing a pivot is easy. Cancelling your own favorite idea is the part nobody posts about.",
+  },
 ];

@@ -48,8 +48,12 @@ const correctionCommits = subjects.filter((s) =>
 const blogPosts = readdirSync(resolve(ROOT, "content/blog")).filter((f) =>
   f.endsWith(".mdx"),
 ).length;
-const presetFiles = readdirSync(resolve(ROOT, "presets")).filter((f) =>
-  f.endsWith(".hlx"),
+// Downloadable presets are no longer the static files in presets/ — since
+// 2026-07-25 the download route generates the file on demand from the
+// recipe's platform translation, so a tone is downloadable when it has one.
+// (Counting presets/*.hlx undercounted by 150 and contradicted the page.)
+const presetsDownloadable = toneRecipes.filter(
+  (r) => r.platform_translations?.helix,
 ).length;
 
 const recipes = toneRecipes.length;
@@ -59,13 +63,15 @@ const platformsCovered = new Set(
 const aiWriters = getAllWriters().length;
 
 const stats = {
-  generated_at: new Date().toISOString().slice(0, 10),
+  // Local date, not UTC: running this in the evening Pacific stamped the
+  // page (and its dateModified) with tomorrow's date.
+  generated_at: new Date().toLocaleDateString("en-CA"),
   first_commit: firstCommitDate,
   latest_commit: latestCommitDate,
   commits: commitCount,
   recipes,
   platforms_covered: platformsCovered,
-  presets_downloadable: presetFiles,
+  presets_downloadable: presetsDownloadable,
   blog_posts: blogPosts,
   ai_writers: aiWriters,
   autonomous_daily_runs: dailyContentRuns,

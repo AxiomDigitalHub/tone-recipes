@@ -58,7 +58,7 @@ export default function ExperimentPage() {
     { value: String(stats.recipes), label: "Tone recipes", sub: `across ${stats.platforms_covered} platforms` },
     { value: String(stats.blog_posts), label: "Articles", sub: "written by the AI masthead" },
     { value: String(stats.ai_writers), label: "AI writers", sub: "named, tuned, disclosed" },
-    { value: String(stats.presets_downloadable), label: "Presets", sub: ".hlx files you can load" },
+    { value: String(stats.presets_downloadable), label: "Downloadable", sub: "tones that build you a preset file" },
     { value: String(stats.autonomous_daily_runs), label: "Autonomous runs", sub: "days the engine published itself" },
     { value: String(stats.public_corrections), label: "Public corrections", sub: "mistakes fixed in the open" },
   ];
