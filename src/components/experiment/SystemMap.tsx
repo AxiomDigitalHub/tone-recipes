@@ -24,6 +24,8 @@
  *                                           public-corrections count
  *   - src/lib/tone-chat/retrieval.ts ...... Axl, reading the recipe corpus
  */
+import auditHistory from "@/data/experiment-audit-history.json";
+
 export default function SystemMap() {
   // Palette bound to the real site tokens (see src/app/v3.css). All fills,
   // strokes and text below use these classes — no hex anywhere.
@@ -312,7 +314,9 @@ export default function SystemMap() {
           {
             name: "Recipe Audit",
             l1: "every rule, every recipe",
-            l2: "185 / 185 clean",
+            // Read from the latest committed audit report — this used to be a
+            // typed-in "185 / 185" that went stale as the corpus grew.
+            l2: `${auditHistory.latest.clean} / ${auditHistory.latest.recipes} clean`,
           },
           {
             name: "Preset QC",

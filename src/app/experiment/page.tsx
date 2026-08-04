@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import stats from "@/data/experiment-stats.json";
 import { experimentLog } from "@/data/experiment-log";
 import SystemMap from "@/components/experiment/SystemMap";
+import AuditHistoryChart from "@/components/experiment/AuditHistoryChart";
 
 /**
  * /experiment — the running log of the Fader & Knob experiment.
@@ -300,6 +301,23 @@ export default function ExperimentPage() {
             software. This is who&apos;s on staff.
           </p>
           <SystemMap />
+        </section>
+
+        {/* What the Recipe Audit box above actually did, over time */}
+        <section aria-labelledby="audit-head" style={{ marginTop: 56 }}>
+          <div className="how-head">
+            <h2 id="audit-head" className="display">
+              The inspector&apos;s record
+            </h2>
+            <span className="section-rule" aria-hidden="true" />
+          </div>
+          <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-muted)", margin: "16px 0 0", maxWidth: 640 }}>
+            The Recipe Audit runs every rule against every recipe. Here is what
+            it has found since May — including the weeks it was failing most of
+            the library, and every batch of new recipes that landed dirty
+            before it got cleaned up.
+          </p>
+          <AuditHistoryChart />
         </section>
 
         {/* The running log */}

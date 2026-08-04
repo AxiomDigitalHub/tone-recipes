@@ -1,0 +1,201 @@
+{
+  "generated_at": "2026-08-04",
+  "source": "docs/RECIPE_AUDIT_REPORT.md",
+  "latest": {
+    "date": "2026-08-03",
+    "recipes": 200,
+    "clean": 200
+  },
+  "series": [
+    {
+      "date": "2026-05-04",
+      "recipes": 50,
+      "clean": 5
+    },
+    {
+      "date": "2026-05-05",
+      "recipes": 50,
+      "clean": 6
+    },
+    {
+      "date": "2026-05-06",
+      "recipes": 50,
+      "clean": 0
+    },
+    {
+      "date": "2026-05-09",
+      "recipes": 50,
+      "clean": 38
+    },
+    {
+      "date": "2026-05-29",
+      "recipes": 55,
+      "clean": 40
+    },
+    {
+      "date": "2026-06-02",
+      "recipes": 60,
+      "clean": 44
+    },
+    {
+      "date": "2026-06-03",
+      "recipes": 65,
+      "clean": 49
+    },
+    {
+      "date": "2026-06-06",
+      "recipes": 75,
+      "clean": 59
+    },
+    {
+      "date": "2026-06-07",
+      "recipes": 85,
+      "clean": 77
+    },
+    {
+      "date": "2026-06-08",
+      "recipes": 90,
+      "clean": 82
+    },
+    {
+      "date": "2026-06-09",
+      "recipes": 95,
+      "clean": 87
+    },
+    {
+      "date": "2026-06-10",
+      "recipes": 100,
+      "clean": 92
+    },
+    {
+      "date": "2026-06-11",
+      "recipes": 105,
+      "clean": 97
+    },
+    {
+      "date": "2026-06-12",
+      "recipes": 110,
+      "clean": 102
+    },
+    {
+      "date": "2026-06-13",
+      "recipes": 115,
+      "clean": 107
+    },
+    {
+      "date": "2026-06-14",
+      "recipes": 120,
+      "clean": 112
+    },
+    {
+      "date": "2026-06-15",
+      "recipes": 125,
+      "clean": 117
+    },
+    {
+      "date": "2026-06-16",
+      "recipes": 130,
+      "clean": 122
+    },
+    {
+      "date": "2026-06-17",
+      "recipes": 135,
+      "clean": 127
+    },
+    {
+      "date": "2026-06-18",
+      "recipes": 139,
+      "clean": 131
+    },
+    {
+      "date": "2026-06-19",
+      "recipes": 144,
+      "clean": 136
+    },
+    {
+      "date": "2026-06-20",
+      "recipes": 149,
+      "clean": 141
+    },
+    {
+      "date": "2026-06-21",
+      "recipes": 154,
+      "clean": 154
+    },
+    {
+      "date": "2026-06-22",
+      "recipes": 159,
+      "clean": 159
+    },
+    {
+      "date": "2026-06-23",
+      "recipes": 164,
+      "clean": 164
+    },
+    {
+      "date": "2026-06-24",
+      "recipes": 169,
+      "clean": 169
+    },
+    {
+      "date": "2026-06-25",
+      "recipes": 174,
+      "clean": 174
+    },
+    {
+      "date": "2026-06-26",
+      "recipes": 179,
+      "clean": 179
+    },
+    {
+      "date": "2026-06-27",
+      "recipes": 179,
+      "clean": 179
+    },
+    {
+      "date": "2026-07-01",
+      "recipes": 184,
+      "clean": 184
+    },
+    {
+      "date": "2026-07-05",
+      "recipes": 184,
+      "clean": 184
+    },
+    {
+      "date": "2026-07-08",
+      "recipes": 185,
+      "clean": 185
+    },
+    {
+      "date": "2026-07-15",
+      "recipes": 190,
+      "clean": 186
+    },
+    {
+      "date": "2026-07-22",
+      "recipes": 195,
+      "clean": 191
+    },
+    {
+      "date": "2026-07-25",
+      "recipes": 195,
+      "clean": 195
+    },
+    {
+      "date": "2026-07-26",
+      "recipes": 195,
+      "clean": 195
+    },
+    {
+      "date": "2026-07-29",
+      "recipes": 200,
+      "clean": 200
+    },
+    {
+      "date": "2026-08-03",
+      "recipes": 200,
+      "clean": 200
+    }
+  ]
+}
