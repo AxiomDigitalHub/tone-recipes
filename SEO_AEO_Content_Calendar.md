@@ -4263,3 +4263,142 @@ must confirm it is a genuinely distinct question and not a worship-flavored re-s
 **refresh the decision tree instead**. Strategic queue still **empty of automatable items — S5
 (Complete Helix pillar) + S6 (Katana pillar) remain the standing debt (now deferred 7 runs); escalate
 to a dedicated human-in-the-loop session.**
+
+---
+
+## Daily Run — 2026-08-04 (3 new posts + 2 refreshes + SERP analysis + 3 new topics)
+
+**Velocity check:** 6 posts / 5 authors in the trailing 7 days (Sean 2; Dev, Nathan, Viktor, fk-staff
+1 each). Nobody at or over the 3/week cap. After this run: Sean 2, Dev 2, Margot 1, Hank 1, Nathan 1,
+Viktor 1, fk-staff 1. **Carl, Rick, Jess, Elena still at 0** — all three of today's new topics target
+them.
+
+**Queue drained:** Y2 (null-test/Dev), Y3 (stereo-mono/Margot), and `nashville-number-system-for-guitarists`
+(queued 07-21 for Jess).
+
+**Assignment correction (Gate 3) — Nashville numbers reassigned Jess → Hank Presswood.** The queued
+byline was Jess Kowalski. Her `writers.md` profile lists music theory as her *biggest insecurity*
+("fakes it well but gets nervous when Sean starts talking about modes"), and the target-query set is
+country/session/worship — a lane she has no connection to. Not a never-assign-list hit, but a clear
+voice-consistency failure. Hank was at 0/wk, the system's origin is literally the 1950s Nashville
+session scene, and his profile's storytelling-through-history register is the natural way to teach it.
+**Standing note reinforced:** the byline check is never-assign list *plus* lane fit, not velocity alone.
+
+**Topic dropped (Gate 7) — V1 `single-coil-hum-feedback-worship-fix`.** The 08-03 notes flagged this
+as a Gate 7 risk and instructed the executing run to confirm distinctness or refresh the decision tree
+instead. Confirmed as a re-slice: F&K already ships `60-cycle-hum-decision-tree`,
+`how-to-remove-60-cycle-hum`, `ground-loop-hum-amp-stage`, `noise-gate-placement-modeler-preset`,
+`noise-gate-threshold-decay-settings-high-gain`, and `single-coil-vs-humbucker-worship-ambient-tone`.
+A worship-flavored seventh entry is exactly the per-variation page Playbook §6 warns about. **Its two
+genuinely new pieces — the hum-vs-feedback distinction and the LED-video-wall noise mechanism — were
+absorbed into R2 instead**, on a proven URL. Dropped from the queue, not deferred.
+
+**Topic deferred again — Y1 `modeler-latency-budget-per-block-cost` (Viktor).** Its own brief says
+"must ship with real measured numbers or not at all." This routine cannot measure per-block latency on
+hardware, and a guessed latency table fails Gate 1 outright. **Escalating to the human-in-the-loop
+pile alongside S5/S6** rather than deferring silently a second time.
+
+**Topic flagged for rescoping — V3 `ambient-guitar-headphones-reverb-mono-collapse` (Dev).** Post 1
+generalizes the mono-collapse question across the whole widening toolkit, which absorbs most of V3's
+core. Either rescope it to the genuinely distinct part (headphone-specific: crossfeed, why phones
+exaggerate width that a room never delivers) or drop it. Do not build it as originally written.
+
+### New posts
+
+| # | Slug | Title | Writer | Pillar |
+|---|---|---|---|---|
+| 1 | stereo-width-tricks-that-survive-mono | Which Stereo Widening Tricks Survive a Mono PA (and Which Vanish) | Margot Thiessen | 3 — Signal Chain |
+| 2 | null-test-guitar-tone-what-changed | Null Testing: How to Hear What a Block Actually Changes | Dev Okonkwo | Workflow |
+| 3 | nashville-number-system-for-guitarists | The Nashville Number System for Guitarists: Where the Capo Trips You Up | Hank Presswood | Workflow |
+
+Post 1's non-commodity core is a **per-technique fate table** where every existing treatment offers a
+single generic warning. Six widening methods, six different mono outcomes, each with its mechanism:
+Haas offset combs (first notch at 1/(2t), so 20 ms puts notches every 50 Hz), ping-pong flattens to an
+ordinary centered delay at full level, stereo chorus becomes a *sweeping* comb rather than a fixed one,
+dual-mic hard-pan combs for the same reason as Haas, and true double-tracking survives intact because
+it is the only genuinely uncorrelated source. Gate 5 discovery: **micro-pitch detune and Haas delay
+look structurally identical — split, offset one side, pan apart — and have opposite fates.** A time
+offset holds still and forms a fixed notch; a pitch offset never settles, so instead of a comb you get
+a beat (about 2.5 Hz at concert A for 10 cents). The deciding variable is whether the offset is in
+time or in pitch, which is the whole rule the post ends on: build width from difference, not delay.
+
+Post 2's non-commodity core is **reading the residual instead of the meter**, plus six guitar-specific
+applications in a field that only publishes the mixing-engineer framing. Covers the four residual
+shapes (scaled copy = level, narrow band = EQ, new harmonics = nonlinearity, pulsing = time-varying),
+the two setup failures that invalidate the test (uncompensated plugin latency, level mismatch above
+~0.1 dB), and the hard limit that **an analog pedal cannot be nulled against anything, including
+itself** — two converter round-trips plus component drift guarantee it, so a shallow null there is
+evidence about the measurement chain, not the model. Gate 5 discovery: **null depth and audibility
+diverge.** A pair of IRs nulling at minus 38 dB was harder to tell apart than a pair nulling at minus
+52 dB, because the first pair's residual was a broad shelf under 100 Hz the cab was already rolling
+off, while the second's sat on the pick transient around 3 kHz.
+
+Post 3's non-commodity core is the **capo-versus-concert-key problem**, which the top-ranking
+guitar-specific NNS guide disposes of in a single sentence (see SERP below). Ships the piece that is
+missing everywhere: numbers are always concert key, your shapes are not, and the fix is not mental
+arithmetic but reading numbers *as shapes* from a five-row table (E/A/D/G/C) that never changes. Plus
+a full concert-key-to-capo-position chart and the notation set (diamonds, pushes, split bars,
+inversions). Gate 5 discovery: **the payoff is not transposition speed, it is that capo position stops
+being part of the song** — two guitarists reading identical numbers from different capo positions is
+an arrangement rather than a collision, with the C-shape player's root landing a full octave above the
+open-E player's and a different set of open strings droning underneath. Factual anchor verified: Neal
+Matthews Jr. of the Jordanaires, late 1950s. Capo/shape-key table checked by semitone math; the Bb row
+is honestly marked as awkward (its E-shape position is capo 6, off the table).
+
+Hero images via Flux 2 Pro (`--model=black-forest-labs/flux-2-pro`, ~$0.17, 3/3, no rejections). MDX
+preflight `--changed --strict`: **all 5 of this run's files compile clean with zero warnings.** The
+run-wide `--changed` invocation still reports 12 warnings on four posts belonging to the **concurrent
+in-flight affiliate-GearPick task** (big-muff, fender-deluxe-reverb, helix-vs-quad-cortex-vs-kemper,
+vox-ac30) — untouched and not committed here, same as the 08-03 run.
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | stereo-signal-chain-architecture | **Legacy `<FAQ>` → frontmatter `faq:` + AEO backfill + two content-adds.** Migrated the 5 body Q&A to frontmatter, added a 6th (the "passes fold-down but still thins at the gig" case), added 5 `takeaways:`, capitalized the lowercase `image_alt`, trimmed a 330-char description to snippet width. **Content-add 1 — "What the Split Point Does Not Protect You From":** the post's fold-down test section implied a correct architecture is sufficient, which is false. The split point solves dirt-path comb filtering only; blocks *after* the split can still build width from a fixed time offset. New table names the five offenders (imager using short delay, ping-pong, hard-panned dual cab, deep stereo chorus, parallel reverbs sharing a pre-delay) with a replacement for each. **Content-add 2 — "Bisecting a Failed Fold-Down":** a five-step binary search to find the offending block, replacing the original's implicit "restructure it" advice with a four-minute procedure. Cross-links Post 1. `updated: 2026-08-04`, Sean's byline kept. | A proven signal-chain post with zero answer-engine surface, and the exact upstream reciprocal of Post 1 — this one says where to split, Post 1 says what you can safely put after the split. |
+| R2 | 60-cycle-hum-decision-tree | **Two content-adds + AEO extension** (post already had `takeaways`/`faq` from the 06-30 refresh, so this is substance, not migration). **Content-add 1 — "Step 0: Two Tests That Narrow It Instantly":** the tree assumed the noise *is* hum and started at frequency identification. New Step 0 adds (a) the **guitar-volume-to-zero test** — the volume pot sits between the pickups and everything downstream, so if the noise stops at zero it entered at or before the guitar and if it persists it entered after, which bisects the entire tree in five seconds — and (b) a **hum-vs-feedback comparison table** (level over time, pitch behavior, response to movement, presence below a volume threshold), because the tree had no branch for "this isn't hum at all." **Content-add 2 — LED video walls** appended to the 180 Hz-plus branch: the modern replacement for wall dimmers couples by *radiation* rather than conduction, so power-side filters underperform and distance/orientation/cable-length dominate; noise gate ranked last with the reason. Added a 6th takeaway and 2 FAQ pairs. `updated: 2026-08-04`, Dev's byline kept; the additions are frequency-diagnostic rather than stagecraft, which keeps them inside his lane. | Absorbs the two genuinely new pieces of the dropped V1 topic onto a proven URL instead of spawning a seventh hum post — the explicit instruction from the 08-03 notes. |
+
+### SERP Analysis — 2026-08-04 (live checks this run)
+
+**Post 1 — stereo-width-tricks-that-survive-mono** (target: "stereo guitar collapses in mono," "haas effect mono compatibility," "mono compatible stereo widening guitar")
+- **Top ranking:** MusicRadar's *"10 ways to stereoise your sounds,"* Sound On Sound's *"Can Haas delays be mono-compatible?",* EDMProd and mastering.com Haas explainers, RoastYourMix's *"How to Fix Mono Compatibility,"* sonible's *"Avoiding the Collapse,"* plus a Gearspace thread. A second pass on the guitar-rig framing surfaced a Fractal forum thread (*"The importance of Mono for live guitar playing"*) and a Cortex Presets stereo-rig article.
+- **Gap confirmed.** The mechanism is thoroughly published — Sound On Sound states plainly that Haas delays will never sum to mono because the effect *is* a phase differential. What no ranking result provides is a **per-technique fate table**: every one of them gives a general warning and a list of "mono-safe alternatives" without saying what each specific technique degrades *into*, or that ping-pong survives at full level while losing its identity, or that detune and Haas diverge despite identical topology. The guitar-facing results are the thinnest of the set — the Fractal thread is practical advice ("run mono to FOH") with no mechanism, and the mix-engineering results never mention a modeler block by name.
+- **AI Overview:** likely present (explainer/how-to class); F&K not cited (hours old).
+- Non-commodity gate: **PASS** — on the per-technique breakdown and the time-versus-pitch finding, not on novelty of the Haas mechanism, which is well documented. Flagging honestly.
+
+**Post 2 — null-test-guitar-tone-what-changed** (target: "null test guitar tone," "how to null test plugin," "does this pedal actually do anything")
+- **Top ranking:** Musik Hack's *"Null Tests: A Technical Deep-Dive,"* Sound On Sound's *"Reaper: Which Plug-ins Make A Difference?",* a long Gearspace *"Null test with plugins"* thread, Production Expert's *"5 Ways Inverting Polarity Helps Audio Engineers,"* and a KVR thread about a plugin's gain offset defeating null tests.
+- **Gap confirmed, and the audience is the story.** The procedure is well covered and the residual-reading logic partially so — Sound On Sound already notes that an EQ change leaves the difference curve as the residual and that added noise shows up as residual noise. Two things are absent across the whole top 5. First, **the null-depth-versus-audibility divergence**: every result treats depth as the score, and none says that a quieter residual on a transient beats a louder one under 100 Hz. Second, **the entire guitarist application set** — these are written for engineers comparing plugins, so nothing addresses comparing two IRs, verifying a firmware update did or did not revoice an amp model, or testing whether a "transparent" boost is transparent. The analog-cannot-null limit appears in forum threads as folklore rather than as a stated constraint with its reason.
+- **AI Overview:** likely present (definitional/how-to class); citation unverified.
+- Non-commodity gate: **PASS** — reader-side applications plus the depth/audibility correction in a field that publishes only the engineer-side procedure.
+
+**Post 3 — nashville-number-system-for-guitarists** (target: "nashville number system guitar," "how to read nashville numbers," "worship chart numbers guitar")
+- **Top ranking:** Collaborate Worship's *"The Nashville Number System for Guitar Players: A Simple Guide,"* CMUSE's NNS calculator, Equipboard's explainer, two 10,000 Fathers pages, Churchfront's *"Why Your Worship Band NEEDS the Number System,"* Worship Tutorials' paid Chord Number System course, and a Musix book on capo/transposing/NNS.
+- **Gap confirmed by direct inspection, which is why this topic survived its Gate 7 review.** The SERP is saturated and the topic looked like a commodity, so the top guitar-specific result was fetched and read rather than assumed. Collaborate Worship's guide — the single most on-target ranking page — **mentions capo exactly once**, as a benefit bullet ("if you're capoing on the 4th fret and someone else is playing open chords, the numbers keep everyone on the same page"), and then never returns to it. It has **no** capo-position-to-shape-key mapping, **no** treatment of the concert-key-versus-shape error, and **no** notation coverage (diamonds, pushes, split bars). It is an introductory piece that deliberately sidesteps the complications a capo creates. Everything else ranking is either key-agnostic theory or a worship-leader framing aimed at the person running rehearsal rather than the guitarist reading the chart.
+- **AI Overview:** likely present (definitional class, heavily so for "what is the nashville number system"); F&K not cited.
+- Non-commodity gate: **PASS**, but it was the closest call of the three and it passes on the capo layer specifically — a generic NNS explainer would have failed. Noted so a future run does not read this as license to write more chart-literacy posts.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 1 (V1), added 3 — queue shrinks by one, which is correct given the standing
+> backlog. **All three target bylines currently at 0/wk** (Rick, Carl, Elena) per the 08-03 diversity
+> note. Bylines are best-fit proposals; the executing run re-checks **both** velocity **and** the
+> never-assign list. **Verify no colliding slug at build time.**
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| Z1 | two-units-same-pedal-component-tolerance | Two of the Same Pedal, Two Different Sounds: What Component Tolerance Actually Costs | "why do two of the same pedal sound different," "guitar pedal component tolerance," "are all tube screamers the same" | Rick Dalton | 5 — Gear Lab | Falls directly out of Post 2's hard limit — an analog pedal cannot be nulled even against another unit of itself — but asks the distinct question Post 2 only gestures at: *how much* do two units actually differ and *which components* are responsible. Real content: standard tolerance bands (5% film resistors, 10-20% on electrolytics), which parts move an audible amount versus which do not, why germanium fuzz units are the extreme case (transistor gain varies enormously unit to unit) while a modern op-amp overdrive barely moves, and an honest A/B protocol for comparing two units without fooling yourself. Rick's analog lane; he is at 0/wk. **Confirmed no colliding slug** — nothing in `content/blog` covers unit-to-unit variance. |
+| Z2 | capo-position-as-a-tone-decision | Your Capo Position Is a Tone Decision, Not Just a Key Change | "which capo position sounds best," "capo changes tone," "partial capo guitar," "capo 5 vs capo 2 sound" | Carl Beckett | 3 — Signal Chain | Post 3 established in passing that capo position determines which open strings drone and where your voicings sit. This generalizes it past chart-reading to the player choosing a capo position for a *song*: the tonal argument (which open strings ring, how the register shifts, why a high capo thins the low end), the intonation cost of over-clamping, partial capos as an arrangement tool, and a position-by-position character guide. Every existing capo guide treats it as pure transposition arithmetic. Carl's one-guitar, no-purchase-required lane — and explicitly clear of his never-assign list, which bars modeler deep-dives. He is at 0/wk. **Confirmed no colliding slug** — F&K has no capo post at all. |
+| Z3 | double-tracking-on-a-time-budget | Double-Tracking When You Only Have Twenty Minutes: What Actually Needs Two Takes | "is double tracking worth it," "double tracking guitar tips," "doubler plugin vs real double tracking" | Elena Ruiz | Workflow | Post 1 names true double-tracking as the only widener that survives a mono fold-down, in two paragraphs, and moves on. The distinct question for a player whose session *is* the constraint: which parts repay a second take (rhythm, riffs, anything rhythmically simple), which do not (leads, heavily modulated parts, anything where the two takes will smear), how tight is tight enough before it stops sounding like two guitars, and an honest comparison against a doubler block or plugin — which is the right call when the twenty minutes are the budget. Elena's constraint-embracing lane; she is at 0/wk. **Gate 7 note for the executing run:** verify this is not read as a re-slice of Post 1 — it must lead with the time-budget decision framework, not with mono compatibility. |
+
+**Diversity/queue note:** new posts went to Margot (0→1), Dev (1→2), Hank (0→1); refreshes to Sean and
+Dev (refreshes do not count against the cap). **Next run: Sean and Dev are at 2/wk with one slot each;
+Carl, Rick, Jess, Elena are at 0 — favor them, and today's Z1/Z2/Z3 are built for exactly that.**
+Cluster fan-out queue remaining: volume-pedal-placement/Sean, V2 katana-gen3/Jess, W2
+sidechain-dynamic-eq/Dev, V3 ambient-headphones-mono/Dev **(flagged for rescoping — see above)**, Y1
+latency-budget/Viktor **(escalated to human-in-the-loop, do not auto-build)**, plus today's Z1/Rick,
+Z2/Carl, Z3/Elena. **V2 katana-gen3 note:** it is a current-product buying-decision post and will need
+live spec verification at build time or it fails Gate 1; do not build it from memory. Strategic queue
+still **empty of automatable items — S5 (Complete Helix pillar) + S6 (Katana pillar) remain the
+standing debt (now deferred 8 runs), now joined by Y1. Escalate all three to a dedicated
+human-in-the-loop session.**

@@ -1,11 +1,11 @@
 ---
 title: 'Stereo Guitar Signal Chain Architecture: What Stays Mono and What Splits'
 description: >-
-  A signal chain that goes stereo too early gets phasey and unfocused. One that
-  goes stereo too late wastes the modulation and time effects that need both
-  channels to do their work. Here is the rule that gets it right: dirt is mono,
-  time is stereo, and the split point is the modulation block.
+  Dirt is mono, time is stereo, and the split point is the modulation block.
+  The architecture that gives you a coherent stereo image without damaging the
+  tone when the room sums to mono.
 date: '2026-04-27'
+updated: '2026-08-04'
 author: Sean Nakamura
 author_slug: sean-nakamura
 category: signal-chain
@@ -21,9 +21,75 @@ tags:
 readingTime: 10
 image: /images/blog/stereo-signal-chain-architecture.jpg
 image_alt: >-
-  a diagram-style overhead view of a Quad Cortex with split routing visible on
+  A diagram-style overhead view of a Quad Cortex with split routing visible on
   the screen, two cables running to studio monitors, soft purple and teal RGB
   lighting in a home studio
+takeaways:
+  - >-
+    Run everything through the amp and cab in mono, split at the modulation
+    block, and keep delay and reverb stereo to the output. Splitting earlier
+    sends two slightly different dirt signals downstream and creates phase
+    problems you cannot fix later.
+  - >-
+    Stereo is a relationship, not a setting. Two identical signals panned hard
+    apart sound mono with artifacts; two related-but-distinct signals sharing a
+    source are what produce an image.
+  - >-
+    A correct architecture is only about 15 to 20 percent wider in stereo
+    monitoring. The real payoff is that it stays intact when summed, while a
+    bad one loses 3 to 6 dB and hollows out.
+  - >-
+    The split point protects you from dirt-path comb filtering, not from every
+    mono failure. Blocks placed after the split can still be mono-fragile if
+    their width comes from a fixed time offset.
+  - >-
+    Build mono first, verify the tone on one channel, then add the stereo layer
+    last and confirm with a fold-down test. If the fold-down fails, bisect the
+    chain block by block rather than guessing.
+faq:
+  - q: Should I run my modeler in stereo if I am only playing through one speaker?
+    a: >-
+      No. If your output destination is mono — a single FRFR speaker, a mono PA,
+      one guitar cab — build the preset in mono. The stereo blocks add nothing
+      when summed to a single channel and may add phase issues. The architecture
+      in this post is for stereo destinations: studio monitors, headphones,
+      stereo recordings, stereo PA mixes.
+  - q: Can I use two amps in stereo if they are very different?
+    a: >-
+      Yes, but understand what you are doing. That is parallel amp blending, and
+      it is a tonal technique rather than a width technique. Sum the parallel
+      amps back to mono before the modulation block and let the
+      modulation, delay, and reverb generate the stereo image. Two amps in
+      parallel produce a different character; they do not produce stereo width.
+  - q: Should I be using both of the Helix parallel paths?
+    a: >-
+      Use parallel paths when you want two tonally distinct sources to blend — a
+      clean blend under a dirt path, for example. They do not produce stereo
+      width when both carry the same character. For a coherent image from one
+      tone, use a single path with a stereo split at the modulation block.
+  - q: Does this apply to pedalboard rigs too, not just modelers?
+    a: >-
+      Yes, and the implementation is patch cables instead of a routing screen.
+      Run mono drives and amp into a single mono output, then split with a
+      stereo splitter or a stereo modulation pedal's two outputs into stereo
+      modulation, delay, and reverb, and out to two amps or a stereo PA feed.
+      The split point is the first stereo pedal in the chain.
+  - q: How do I handle reverb and delay in stereo when only one of them is on?
+    a: >-
+      Most modern stereo time-effect blocks pass the input through correctly
+      when bypassed. If modulation is your split point and you bypass it, the
+      signal stays mono until the next active stereo block. That block then
+      receives mono and produces stereo, which works — it just means the image
+      is generated entirely by the delay or reverb, so the character is more
+      space-like and less width-like.
+  - q: My preset passes the mono fold-down test but still thins out at the gig. Why?
+    a: >-
+      The architecture is protecting the dirt path, which is what it is for, but
+      something after the split is probably building width from a fixed time
+      offset. A ping-pong delay, a hard-panned dual-cab block, or an imager
+      using a short delay will all survive your monitoring and fail in the room.
+      Bypass everything after the split, confirm the fold-down is clean, then
+      re-enable one block at a time.
 ---
 
 > **The short version:** Run dirt mono. Split to stereo at the modulation block (chorus, phaser, flanger if you use one, or just before the delay). Keep delay and reverb stereo to the output. Route as: guitar → preamp/dirt (mono) → split → modulation L/R → delay L/R → reverb L/R → output L/R. The common mistake is splitting at the amp model, which sends two slightly different dirt signals through the modulation and creates phase issues. The amp is mono. The space is stereo. The split point is the moment time-based effects start contributing to the picture.
@@ -142,6 +208,38 @@ This test is the single most useful tool for evaluating whether your stereo work
 
 ---
 
+## What the Split Point Does Not Protect You From
+
+The architecture above solves exactly one problem: it stops two slightly different copies of your dirt signal from comb filtering against each other. That is the problem worth solving first, because it is the one that costs you 3 to 6 dB and cannot be recovered downstream.
+
+It is not the only way a preset fails in mono, and this is where a correctly built chain still surprises people at a gig. Everything after the split point is stereo by definition, and some stereo blocks build their width out of a fixed time offset between the two channels. Those blocks comb-filter on fold-down regardless of how clean your architecture is upstream.
+
+The specific offenders, in rough order of how often they show up in a preset that otherwise passes:
+
+| Block | Why it fails the fold-down | What to use instead |
+|---|---|---|
+| Imager or width block using a short delay | A fixed offset of 10 to 35 ms puts comb notches every 30 to 100 Hz | A pitch-based detune of 5 to 8 cents per side |
+| Ping-pong delay | Alternating hard-panned taps collapse to a plain centered delay | Dual delay with different times per side, e.g. 380 ms and 570 ms |
+| Dual cab hard-panned | Two mic positions are a time offset — the same comb, one block earlier | One cab, or sum the two cabs to mono before the split |
+| Stereo chorus at high depth | The comb notches sweep, producing a phaser you did not ask for | Same block at roughly half the depth |
+| Two parallel reverbs, same pre-delay | Correlated early reflections arrive together and cancel | Offset the pre-delays by 10 to 20 ms |
+
+The pattern is that width built from a *time* difference fails and width built from a *pitch* or *performance* difference survives. Which techniques land where, and what each one actually sounds like after the sum, is worked through in detail in [which stereo widening tricks survive a mono PA](/blog/stereo-width-tricks-that-survive-mono).
+
+## Bisecting a Failed Fold-Down
+
+When the fold-down test fails on a preset you believe is architecturally correct, don't rebuild it. Find the block.
+
+1. Bypass every block after the split point. Run the fold-down test. This should be clean — you are testing the mono chain against itself, and if it isn't clean the problem is upstream and the architecture is genuinely wrong.
+2. Re-enable one block. Test. Note the result.
+3. Repeat until the fold-down degrades. The block you just enabled is the one building width from a time offset.
+4. For that block, check three parameters in this order: width or spread, any delay or pre-delay offset between channels, and modulation depth. One of them is almost always the whole problem.
+5. Save the working version before you continue. A preset that passes in both contexts is worth a snapshot you can return to.
+
+This takes about four minutes on a preset with six blocks after the split, and it is considerably faster than the alternative, which is rebuilding the chain and hoping. It also tells you something durable: once you have found the same offender twice, you stop putting it in presets that have to survive a house PA.
+
+---
+
 ## How Much Wider Stereo Actually Gets You
 
 I expected stereo presets to feel meaningfully bigger than mono presets in stereo monitoring. They do, but the difference is smaller than I expected once the architecture is correct, and the trade-off is significant.
@@ -162,29 +260,6 @@ I now build mono first, verify the tone, and then add stereo as the last layer. 
 </SettingsGrid>
 
 For more on the routing decisions that interact with this architecture, the [parallel reverb routing](/blog/parallel-reverb-routing) post covers running two reverbs side-by-side rather than in series, and the [HX Stomp polarity trick](/blog/hx-stomp-polarity-trick) post covers the inverted-cab technique that creates apparent width through phase manipulation rather than time-based stereo. Both are worth reading once the basic mono/stereo architecture is solid.
-
-<FAQ questions={[
-  {
-    q: "Should I run my modeler in stereo if I'm only playing through one speaker?",
-    a: "No. If your output destination is mono (single FRFR speaker, mono PA, single guitar cab), build the preset in mono. The stereo blocks add nothing when summed to a single channel and may add phase issues. The architecture in this post is for stereo destinations: stereo studio monitors, headphones, stereo recordings, stereo PA mixes. For mono output, run a fully mono signal chain and skip the stereo blocks entirely."
-  },
-  {
-    q: "Can I use two amps in stereo if they're very different?",
-    a: "Yes. This is the parallel amp blending technique and it's a valid approach for some fusion and ambient styles. The key is that you're using the two amps for tonal blend, not for stereo width. You should still sum the parallel amps back to mono before the modulation block, and let the modulation/delay/reverb generate the stereo image. The two-amp parallel blend produces a tonal character that's different from a single amp; it doesn't produce stereo width."
-  },
-  {
-    q: "What about the Helix's parallel paths: should I be using both?",
-    a: "Helix's parallel paths (1A and 1B, 2A and 2B) are useful for mixing two distinct tones (clean blend with dirt, for example), but they don't produce stereo width when used for parallel amp models with the same character. Use parallel paths when you want two tonally distinct sources to blend; use a single path with a stereo split at the modulation block when you want a coherent stereo image from one tone."
-  },
-  {
-    q: "Does this apply to pedalboard rigs too, not just modelers?",
-    a: "Yes. A stereo pedalboard rig should run mono drives and amp into a single mono output, then split (with a stereo splitter or a stereo modulation pedal's two outputs) into stereo modulation, stereo delay, stereo reverb, and into two amplifiers or a stereo PA feed. The architecture is the same; the implementation is patch cables instead of a routing screen. The split point is the first stereo pedal in the chain."
-  },
-  {
-    q: "How do I handle reverb and delay in stereo when only one of them is on?",
-    a: "Most modern stereo time-effect blocks pass the input signal through correctly when bypassed. If the modulation block is your split point and you bypass the modulation, the signal becomes mono until the next active stereo block (delay or reverb). The delay or reverb will receive a mono input and produce a stereo output, which is fine for spatial effect but means your stereo image is generated entirely by the delay/reverb rather than by modulation. This works; it just means the stereo character is different (more space-like, less width-like) when modulation is off."
-  }
-]} />
 
 Build your next preset mono first. Get the tone you want from a single channel of monitoring. Then add the stereo layer at the modulation block and verify with a mono fold-down test. The discipline of separating "tone" from "spatial picture" produces presets that work in any monitoring context, and the architecture stops being a routing puzzle and starts being obvious. Mono until you need stereo. Split at the modulation block. Output stereo. That's the rule. Everything else is implementation detail.
 

@@ -1,0 +1,188 @@
+---
+title: Which Stereo Widening Tricks Survive a Mono PA (and Which Vanish)
+description: >-
+  Five ways to widen a guitar, and five different fates when the room sums to
+  mono. A per-technique breakdown of what cancels, what merely thins, and the
+  one method that survives completely intact.
+date: '2026-08-04'
+author_slug: margot-thiessen
+category: signal-chain
+tags:
+  - stereo
+  - mono-compatibility
+  - phase
+  - signal-chain
+  - modulation
+  - delay
+  - modeler
+takeaways:
+  - >-
+    Short-delay (Haas) widening is the most dramatic trick in stereo and the
+    only one that can vanish outright in mono — summing a signal with a copy
+    delayed by 20 ms puts comb notches every 50 Hz across the entire spectrum.
+  - >-
+    Micro-pitch detuning survives mono far better than the delay trick, because
+    two slightly different pitches never hold a fixed phase relationship. You
+    lose the width but keep the tone, trading a comb filter for a slow beat of
+    roughly 2.5 Hz at concert A.
+  - >-
+    True double-tracking is the only technique that survives a mono fold-down
+    completely intact, because it is the only one where the two channels are
+    genuinely different performances rather than two copies of one.
+  - >-
+    Stereo chorus and ping-pong delay do not cancel, they change identity — the
+    chorus becomes a slow sweeping hollowness and the ping-pong flattens into an
+    ordinary delay at the same rate.
+  - >-
+    Test before the gig, not at it. Sum your output to mono for thirty seconds
+    and play the part you actually play; anything that gets quieter or hollower
+    is a phase relationship you built on purpose.
+faq:
+  - q: >-
+      Why does my stereo guitar tone disappear when the sound engineer runs
+      mono?
+    a: >-
+      Because most stereo width is built from a phase or time relationship
+      between the two channels, and summing to mono forces those two channels to
+      interact. If your width comes from a short delay on one side, the sum
+      produces comb filtering — a series of deep notches across the spectrum —
+      and the part both thins out and drops in level.
+  - q: What is the Haas effect and why is it bad for live guitar?
+    a: >-
+      The Haas effect is the perceptual trick where a copy of a sound arriving
+      10 to 35 ms after the original is heard as width rather than as an echo.
+      It is not bad, it is just fragile. It works entirely because of the timing
+      difference between your ears, so the moment a mono PA collapses both
+      channels into one speaker the timing difference becomes comb filtering
+      instead of space.
+  - q: Is micro-pitch detuning mono compatible?
+    a: >-
+      Largely, yes. Because the two sides are at slightly different pitches
+      rather than at different arrival times, their phase relationship slides
+      continuously instead of holding still, so no fixed notch can form. What
+      you hear in mono is a gentle beating and a thickening. The width is gone
+      but the tone is intact, which makes detuning the safest widener for a
+      player who might get summed.
+  - q: Does reverb survive a mono fold-down?
+    a: >-
+      The tails do, because the left and right sides of a good reverb algorithm
+      are already decorrelated. The early reflections are the problem — they
+      arrive close in time and are often nearly identical on both sides, so they
+      comb-filter in the sum. Offsetting the pre-delay between two parallel
+      reverbs by 10 to 20 ms decorrelates them and largely fixes it.
+  - q: Should I just run mono to front of house?
+    a: >-
+      For most stages, yes. Send mono to the PA and keep stereo for your in-ears
+      or your recordings, where you control both channels. It is not a
+      compromise so much as an acknowledgment that a stereo image only exists
+      for a listener standing between two speakers, which at a gig is roughly
+      nobody.
+  - q: How do I test mono compatibility without a mono PA?
+    a: >-
+      Sum your output to mono at whatever the last stereo point in your chain
+      is. In a modeler, set a stereo output block or an imager block to zero
+      width. In a DAW, put a utility or imager plugin on the master and collapse
+      it. On an interface, plug both outputs into one channel of a mixer. Then
+      play the actual part, not a chord, and listen for level loss and
+      hollowness.
+image: /images/blog/stereo-width-tricks-that-survive-mono.jpg
+image_alt: >-
+  A Jazzmaster running into a stereo pedalboard with two amps in a live room,
+  one signal path highlighted as it collapses into a single PA speaker
+---
+
+> **The Short Version**
+> Five widening techniques, five different fates. Short-delay (Haas) offset can vanish outright — it is built entirely from a timing difference, and the sum turns that difference into comb filtering. Micro-pitch detune mostly survives: you lose width, keep tone. Stereo chorus survives but changes character into a slow sweep. Ping-pong delay survives at full level but flattens into an ordinary delay. True double-tracking survives completely, because it is the only one where the two sides were never copies of each other. If you might get summed, detune and double-track; save the delay offset for headphones.
+
+A stereo guitar tone is a promise about where the listener is standing. Every widening trick in the box assumes two speakers and one head positioned somewhere between them, and the entire effect — the sense that the guitar occupies space rather than a point — is built out of the small differences between what reaches the left ear and what reaches the right.
+
+Then the engineer sums the mix to mono, because the fill speakers are mono, or the broadcast feed is, or someone is listening through a single phone speaker in a kitchen. The two channels stop being separate paths and become one signal added to another. Whatever difference you built between them now has to survive being added to itself.
+
+Some of those differences survive beautifully. One of them does not survive at all. What follows is which is which, and why each one behaves the way it does.
+
+## The Fates, Up Front
+
+| Technique | What it survives as in mono | Level change | Verdict |
+|---|---|---|---|
+| Short delay offset (Haas, 10-35 ms) | Dense comb filtering, hollow and thinner | Audible drop in the notched bands | **Fragile** |
+| Micro-pitch detune (±5-12 cents) | Gentle beating, slight thickening | Essentially none | **Safe** |
+| Stereo chorus | Slow sweeping hollowness | Small, varies with the LFO | **Changed** |
+| Ping-pong delay | Ordinary centered delay at the same rate | None | **Changed** |
+| True double-tracking | Two performances, centered | Up about 3 dB | **Intact** |
+| Dual-mic or dual-cab hard pan | Comb filtering from the mic time offset | Drop, often in the low mids | **Fragile** |
+
+The pattern that runs through all of it: a technique survives mono in proportion to how *genuinely different* the two channels are. Two copies of one signal, separated by time, cancel. Two separate performances do not. Everything else sits somewhere along that line.
+
+## The Thirty-Second Test
+
+Before any of the explanations matter, do this, because it takes less time than reading about it.
+
+Find the last stereo point in your chain and collapse it. On a modeler that means a Stereo Imager or Stereo Width block with the width parameter at zero, or an output block set to mono. In a DAW it means a utility plugin on the master bus. On a pedalboard it means running both outputs into two channels of a mixer panned dead center.
+
+Then play the part you actually play in the song. Not a strummed open chord — a strummed chord is the most forgiving signal there is, because it has energy everywhere and a notch at 500 Hz gets buried. Play the arpeggiated figure, the single-note line, the thing with space around it. Listen for two things: does it get quieter, and does it get hollow?
+
+If the answer to either is yes, you have built width out of a phase relationship, and the room is going to take it away from you.
+
+## Short Delay Offset: The One That Vanishes
+
+Delay one side by 10 to 35 ms and pan the two hard apart, and the result in stereo is startling — the guitar stops being a source and becomes a wall. This is the Haas effect, and it is the most efficient width-per-effort trick in audio.
+
+It is also the one that fails hardest, and the reason is arithmetic rather than taste. When you add a signal to a delayed copy of itself, you get cancellation at every frequency where the delay equals half a cycle, and reinforcement at every frequency where it equals a full one. The first notch sits at 1/(2t) and they repeat every 1/t after that. At a 20 ms offset the first notch lands at 25 Hz and the rest arrive every 50 Hz — hundreds of them, straight up through the spectrum.
+
+Individually those notches are too closely spaced to hear as notches. Collectively they are a distinct tonal signature: the sound goes hollow and slightly nasal, drops in level, and loses the low mids that gave the part its body. It is the sound of a guitar being played through a cardboard tube, and it is why a part that felt enormous at rehearsal can turn into a rumor at the gig.
+
+The cruelty is that the effect is *strongest* where the delay is most audible as width. Shorter offsets push the first notch higher — 1 ms puts it at 500 Hz — but they also produce less width. There is no offset that gives you the Haas image and survives the fold-down, because the thing that produces the image is the thing that produces the comb.
+
+Keep it for headphone mixes and for recordings you will hear in stereo. If the part has to work in a room, use something else.
+
+## Micro-Pitch Detune: The Surprise
+
+I went into this expecting detuning to fail the same way, and for the same reason. Two copies of one signal, hard panned, differing by some small amount — it looks like the same setup with a different variable.
+
+It behaves completely differently, and once you see why it is obvious. A time offset holds still. A pitch offset does not. If the right channel is 10 cents sharp of the left, the two are never at the same frequency, so their phase relationship never settles into a fixed value — it slides continuously through every possible alignment. There is no frequency at which the cancellation is permanent, which means there is no notch to hear.
+
+What you get instead is a beat. Ten cents at concert A works out to about 2.5 Hz of difference, so the summed signal swells and dips two or three times a second, faster on higher notes and slower on lower ones. In practice this reads as thickness rather than motion. You lose the stereo image completely, but the tone that arrives in the room is essentially the tone you dialed, plus a subtle animation that most listeners will describe as the guitar sounding a little larger.
+
+That asymmetry is the useful finding in all of this. Two techniques that look structurally identical — split, offset one side, pan apart — have opposite fates, and the deciding factor is whether the offset is in time or in pitch. If you widen with a pitch block set to a handful of cents in each direction, you have built something that degrades gracefully. If you widen with a delay, you have built something that degrades catastrophically.
+
+Set it modestly. Five to eight cents is plenty for a rhythm part; twelve starts to sound like a chorus and, on sustained clean chords, like a piano that needs tuning.
+
+## Stereo Chorus: Changed, Not Lost
+
+A stereo chorus is a delay whose time is being modulated, with the left and right LFOs offset from each other. That means the comb filtering from the previous section is still there in mono — but the notches are moving.
+
+The result is not cancellation, it is a slow sweep. In mono a stereo chorus sounds like a mild phaser you did not ask for: a hollowness that travels up and down through the mids at the LFO rate. It is not unpleasant, and on a part that was already meant to shimmer it can read as intentional. On a clean arpeggiated figure, where the ear is tracking individual note bodies, the sweep becomes distracting.
+
+The fix is depth rather than removal. Cutting the chorus depth roughly in half narrows the range the notches travel through, which turns a sweep into a stable coloration. You lose some of the motion in stereo. You keep the part legible everywhere else. If the chorus is doing something structural to the song — the [Robert Smith approach](/blog/cure-robert-smith-chorus-tone), where the modulation is the identity of the sound rather than a decoration on it — accept the mono behavior and mix around it, because the alternative is not that song.
+
+## Ping-Pong Delay: Full Level, No Personality
+
+Ping-pong alternates repeats hard left and hard right. Each repeat exists on only one side, so nothing is being added to anything, and nothing cancels. The level survives perfectly.
+
+What does not survive is the entire point. In mono, evenly alternating left-right taps become evenly spaced center taps — which is to say, a plain delay running at the same rate. The bouncing that made the part feel like it was moving around the room turns into repeats stacking up in the same place the guitar already is, and because they are no longer spatially separated from the dry signal they compete with it for the same real estate.
+
+If a delay needs to survive summing with its character intact, use a dual delay with genuinely different times on each side — something like 380 ms left and 570 ms right. In stereo that is width. In mono it is a polyrhythm, which is still interesting, and which is still recognizably the thing you wrote.
+
+## True Double-Tracking: The Only One That Survives Whole
+
+Record the part twice. Pan the takes apart. This is the oldest widening technique there is and the only one on the list that survives a mono fold-down without losing anything at all.
+
+The reason is the reason for everything above: two performances are not two copies. The pick attacks land microseconds apart in ways that vary note to note, the vibrato differs, the fret noise is unrelated. There is no consistent phase relationship anywhere in the signal, so summing them produces no comb filtering — just two guitars, roughly 3 dB louder than one, occupying the center.
+
+The cost is that you have to play it twice, cleanly, which is not free. But it is the technique that makes those tightly doubled clean lines on a well-made record feel wide *and* solid on a phone speaker, and it is why doubling remains standard practice in studios that have every widening plugin ever written.
+
+For live playing, the modeler equivalent is a doubler block — Helix calls its version Double Take — which generates additional voices with small randomized timing and pitch variation rather than a fixed offset. Because the variation is randomized rather than constant, it behaves much more like real double-tracking than like the Haas trick. Set the number of voices to two, keep the dry signal centered, and it survives a sum far better than anything built on a fixed delay.
+
+## What To Actually Do
+
+**If you play live through a house PA:** run mono to front of house and stop thinking about it. Keep stereo for your in-ears, where you control both channels and the image is genuinely reaching a listener positioned between two speakers. This is not a downgrade. A stereo image at a gig only exists for people standing dead center, and there is no such person.
+
+**If you want some width and might get summed:** build it from micro-pitch detune, a doubler, or genuinely different delay times per side. All three degrade gracefully. Avoid the Haas offset and avoid hard-panning two mics on the same cab — the mic offset combs the same way a delay does, which is the same mechanism behind [dual-amp phase cancellation](/blog/phase-cancellation-dual-amp-modeler-presets) in a modeler preset.
+
+**If you are recording:** keep everything, but check the sum. Run the mono test at the end of the session rather than the end of the mix, when the fix is still cheap.
+
+**If you run parallel reverbs:** offset their pre-delays by 10 to 20 ms so their early reflections do not arrive at the same instant. That single change does most of the work of keeping a [parallel reverb setup](/blog/parallel-reverb-routing) mono-safe, and it costs nothing in stereo.
+
+The general rule underneath all of it: build width out of *difference*, not out of *delay*. A difference in performance, a difference in pitch, a difference in delay time between the two sides — those are all real differences, and they hold up when the room adds the channels together. A single signal split and time-shifted is not a difference at all. It is one thing pretending to be two, and mono is the moment the pretending stops.
+
+For the upstream question of where the split should even happen, the [stereo signal chain architecture](/blog/stereo-signal-chain-architecture) piece covers what stays mono and what does not — and getting that right prevents most of the failures above from ever being built.

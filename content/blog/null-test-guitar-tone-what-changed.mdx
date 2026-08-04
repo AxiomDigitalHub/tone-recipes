@@ -1,0 +1,178 @@
+---
+title: 'Null Testing: How to Hear What a Block Actually Changes'
+description: >-
+  Invert one of two identical takes, sum them, and what is left is exactly what
+  the block changed. The setup, how to read a residual, and why null depth is a
+  worse measure of similarity than it looks.
+date: '2026-08-04'
+author_slug: dev-okonkwo
+category: workflow
+tags:
+  - null-test
+  - impulse-response
+  - daw
+  - phase
+  - measurement
+  - amp-sim
+  - recording
+takeaways:
+  - >-
+    A null test isolates change. Duplicate a track, process one copy, invert its
+    polarity, and sum — whatever remains audible is precisely and only what the
+    processing did.
+  - >-
+    Level and time alignment must be exact before the test means anything. A 0.5
+    dB level mismatch or a single uncompensated sample of plugin latency will
+    dominate the residual and tell you nothing about the plugin.
+  - >-
+    The residual has a shape, and the shape is the diagnosis — a scaled copy
+    means level, a narrow band means EQ, harmonics that were not in the source
+    mean nonlinearity, and a pulsing residual means the block is time-varying.
+  - >-
+    Null depth measures the magnitude of a difference, not its audibility. A
+    residual 52 dB down that sits on the pick transient is easier to hear than
+    one 38 dB down sitting under 100 Hz where the cab rolls off anyway.
+  - >-
+    You cannot null an analog pedal against anything, including its own model —
+    two trips through converters plus component drift guarantee a non-null. Null
+    plugin against plugin, and compare analog gear a different way.
+faq:
+  - q: What is a null test in audio?
+    a: >-
+      It is a way of isolating a difference. You take two versions of the same
+      audio, invert the polarity of one, and add them together. Anything
+      identical between the two cancels to silence, so whatever you can still
+      hear is exactly what differs between them. In a guitar context it answers
+      questions like whether two impulse responses really differ, or whether a
+      firmware update changed an amp model.
+  - q: How do I null test two plugins in a DAW?
+    a: >-
+      Put the same rendered audio file on two tracks. Insert plugin A on the
+      first and plugin B on the second. Flip polarity on either track using a
+      utility plugin or the channel's polarity button. Match the two output
+      levels to within about 0.1 dB, confirm the DAW is compensating for any
+      latency the plugins report, then play both and listen to what is left.
+  - q: Why does my null test not cancel to silence?
+    a: >-
+      Four common reasons, in order of likelihood. The levels are not matched
+      closely enough. The DAW is not compensating for a plugin's reported
+      latency, so the two signals are offset by samples. One of the plugins is
+      nonlinear, which means no level or time adjustment can ever make it null.
+      Or one plugin is adding noise or dither, which by definition does not
+      cancel.
+  - q: Can I null test a real pedal against its amp sim model?
+    a: >-
+      No, and it is worth knowing why rather than trying. The pedal has to be
+      recorded, which means a digital-to-analog conversion out and an
+      analog-to-digital conversion back, each with its own filtering and timing.
+      Add analog component tolerance and thermal drift and the two signals will
+      never cancel deeply, regardless of how good the model is. A shallow null
+      here is evidence about the measurement, not about the model.
+  - q: What does it mean if the residual sounds like the original?
+    a: >-
+      It means the difference is broadband and roughly proportional, which
+      almost always means level. Turn one side down slightly and repeat. If the
+      residual sounds like the original but thinner or duller, the difference is
+      frequency-dependent and you are hearing the EQ curve of whatever the block
+      is doing, isolated.
+  - q: Does a deep null mean two things sound the same?
+    a: >-
+      Not reliably. Null depth is a single number describing the energy of the
+      difference signal, and human hearing is not a single number. A difference
+      concentrated on transients or in the 2 to 5 kHz region can be obvious at a
+      level where a broadband low-frequency difference is inaudible. Use the
+      depth to confirm your setup is clean, then judge by listening to the
+      residual itself.
+image: /images/blog/null-test-guitar-tone-what-changed.jpg
+image_alt: >-
+  A DAW session showing two identical guitar tracks with one channel polarity
+  inverted, the summed output meter reading near silence with a small residual
+  waveform visible
+---
+
+> **The Short Version**
+> Put the same rendered audio on two tracks. Process one. Invert the polarity of either track. Sum them. Everything the two versions share cancels to silence, and what is left playing is exactly and only what the processing changed. Match levels to within 0.1 dB and confirm latency compensation first, or the residual will be about your setup instead of your plugin. Then listen to the residual rather than reading the meter — its shape tells you whether the block moved level, moved frequency, added harmonics, or moved in time.
+
+Most of the questions guitarists argue about are difference questions. Does that impulse response actually sound different from this one, or does it just sit a decibel louder. Did the firmware update change the amp model or change the marketing. Is the boost transparent.
+
+All of those are hard to answer by listening, because listening in sequence is unreliable — you hear A, then B, and by the time B arrives your memory of A has already started rewriting itself toward whichever one you expected to prefer.
+
+There is a way to hear the difference directly instead of hearing two things and inferring one. It is arithmetic rather than opinion, it takes about four minutes to set up, and once it is set up it answers a whole category of questions permanently.
+
+## The Idea
+
+Add a signal to an inverted copy of itself and you get silence. Perfect, absolute silence — not approximately, not mostly, but every sample cancelling exactly.
+
+So: take two versions of the same audio that are *almost* the same. Invert one. Sum. Everything they share still cancels. Everything they do not share survives.
+
+What survives is the difference, isolated and playable. Not described, not measured on a graph — the actual sound of what changed, on its own, with the guitar removed from underneath it.
+
+## The Setup
+
+| Step | What to do | Why it matters |
+|---|---|---|
+| 1 | Render your DI or source to a file | Two live takes are different performances and will never null |
+| 2 | Put that same file on two tracks | Same file, not two copies of a recording |
+| 3 | Process track A, leave track B, or process both differently | This is the comparison you are actually making |
+| 4 | Invert polarity on either track | A utility plugin or the channel's polarity switch |
+| 5 | Confirm latency compensation is active | The single most common cause of a false result |
+| 6 | Match output levels to within about 0.1 dB | Level difference dominates everything else |
+| 7 | Play, and listen to what remains | The residual is the answer |
+
+Steps 5 and 6 are where nearly every failed null test fails, so they are worth a moment each.
+
+**Latency.** Plugins that oversample or look ahead — most saturation, most limiters, some cab loaders — introduce delay and report it to the host so the host can compensate. If compensation is off, or if the plugin under-reports, the two tracks are offset by some number of samples and you are no longer testing the plugin. You are testing a delay, and a delay never nulls. A single sample of offset at 48 kHz is enough to put a comb notch at 24 kHz and every odd multiple below it, which is a shallower error than it sounds but still enough to floor your null at a misleading depth. Larger offsets are catastrophic. The tell is a residual that sounds bright and thin — comb filtering removes low frequencies last.
+
+**Level.** If one side is 0.5 dB louder, the residual is a scaled copy of the source, about 25 dB down, and it drowns everything you were trying to hear. Match by rendering both and comparing measured levels rather than by ear. Getting inside 0.1 dB is usually enough to push the level residual below whatever else you are looking for.
+
+## Reading the Residual
+
+The residual is not just present or absent. It has a character, and the character is the diagnosis.
+
+**It sounds like the original, just quieter.** The difference is broadband and proportional. This is a level mismatch nine times out of ten. Fix the level and run it again.
+
+**It sounds like the original with most of it missing — a band, a region, a shelf.** The difference is frequency-dependent. What you are hearing is the EQ curve of the block, isolated. This is the most useful residual there is, because you can hear *where* a cab or an IR is doing its work rather than reading it off a plot. Two impulse responses that both sound plausible on a guitar will often null down to a narrow band of upper mids, which is the honest answer to what actually separates them.
+
+**It contains things that were not in the source at all.** Harmonics, grit, fizz above where the source had energy. That is nonlinearity, and it is a hard result: a nonlinear process cannot be nulled by any amount of level or time adjustment, because its output is not a filtered version of its input. Any saturation, any compression that is actually compressing, any clipping. If you are trying to null two amp sims against each other and the residual is full of harmonic content, you have confirmed they are genuinely different circuits rather than the same one voiced differently.
+
+**It pulses, breathes, or sweeps.** The block is time-varying. Chorus, tremolo, phaser, any modulation. The residual moves at the LFO rate, which is a fast way to measure a modulation rate you cannot read off a knob.
+
+**It is broadband and constant, and sounds like hiss or hum.** Noise, dither, or a converter floor. Nothing cancels noise, because noise is different every time.
+
+## What I Got Wrong About Null Depth
+
+The number the meter shows is seductive. Minus 52 dB feels like a verdict.
+
+I had assumed for a long time that a deeper null meant a smaller audible difference, in a straightforward way, and that comparing two null depths was a reasonable way of ranking two comparisons. It is not, and the case that broke it for me was mundane.
+
+Two pairs of cab impulse responses. The first pair nulled to about minus 38 dB. The second pair nulled to about minus 52 dB — nearly fifteen decibels quieter, by the meter a much closer match. In a blind listening comparison I could pick the second pair apart easily and the first pair barely at all.
+
+The reason is in the residuals rather than the numbers. The first pair's difference was almost entirely a broad shelf below 100 Hz, in a region the cab was already rolling off and the mix was already high-passing. Large energy, no consequence. The second pair's difference was small in total energy but concentrated on the pick attack and sitting around 3 kHz, which is precisely where hearing is most sensitive and precisely where a guitar's identity lives.
+
+Null depth measures the energy of a difference signal. Hearing does not weight energy evenly across frequency, and it weights transients far more heavily than steady state. The two measures agree often enough to be misleading and disagree often enough to matter.
+
+So the number is for validating your setup — if you cannot get a plugin to null against a bypassed copy of itself, something in the chain is wrong. The judgment comes from listening to the residual. Solo it, turn it up, and ask what it is made of and whether that thing lives anywhere near where your guitar lives.
+
+## Six Guitar Questions It Answers
+
+**1. Do these two IRs actually differ, and where?** Render the same DI through both, null, listen. This is the fastest way to sort a folder of nearly identical cab captures into groups that actually matter. It is also the honest check on whether a [captured body IR](/blog/acoustic-body-ir-capture-your-own-guitar) is holding anything beyond a frequency curve.
+
+**2. Did the update change my amp model?** Render a DI through your preset before updating. Render it again after. Null. A silent result means nothing changed regardless of what the release notes imply, and a residual full of harmonic content means the gain stage was revoiced.
+
+**3. Is this boost transparent?** Render clean, render boosted, drop the boosted version's level until the two match, and null. Almost every pedal marketed as transparent leaves a residual, and the residual is usually a hump somewhere between 700 Hz and 1 kHz. That is not a criticism of the pedal. It is a more useful description of it than the word transparent.
+
+**4. Are these two amp models different or just louder?** Level-match first, then null. Two models that null to near silence after level matching are the same model with different output trim, which happens more than you would expect inside a single unit's model list.
+
+**5. How much did that mic distance change do?** Two renders, one inch of movement apart, nulled. The residual shows you the comb pattern that the distance change created, which is the same mechanism behind [close-mic and room-mic blending](/blog/close-mic-plus-room-mic-guitar-cab-phase-blend) and a good way to build intuition for it.
+
+**6. Are my two parallel paths time-aligned?** Null one path against the other with the processing bypassed. If they do not cancel, you have a latency difference, and that is the measurement that makes [parallel amp routing](/blog/parallel-amp-routing-modeler) work instead of comb-filtering.
+
+## The Limit Worth Stating Plainly
+
+You cannot null an analog pedal. Not against its model, not against another unit of the same pedal, not against itself on a second pass.
+
+The signal has to leave the computer through a converter, go through the circuit, and come back through another converter. Each conversion has its own anti-aliasing filter and its own clock, and neither is sample-accurate against the other. Add component tolerances, add temperature, and two captures of the same pedal an hour apart will not null against each other. A shallow null in that situation is a fact about the measurement chain, not about the pedal or the model.
+
+This matters because the analog-versus-model argument gets conducted with null tests constantly, and the null test cannot settle it. What you can do instead is level-match carefully and listen in fast alternation, or capture both and compare their residuals *against a common reference* rather than against each other. Less satisfying. More honest.
+
+The null test is not a verdict machine. It is a way of taking the guitar out from underneath a difference so you can hear the difference by itself... which turns out to be enough, because most of the time the difference is smaller and stranger than either side of the argument assumed. And when it does not cancel, the residual will tell you why — you just have to listen to its shape instead of reading its level.

@@ -16,7 +16,7 @@ tags:
   - bedroom-rig
   - direct-recording
 readingTime: 8
-updated: '2026-06-30'
+updated: '2026-08-04'
 image: /images/blog/60-cycle-hum-decision-tree.jpg
 image_alt: >-
   A guitarist holding a sustained note while a DAW spectrum analyzer shows the
@@ -40,7 +40,28 @@ takeaways:
   - >-
     When you can't name the pitch by ear, record five seconds into your DAW and
     read the spectrum. The peak frequency names the problem and the fix.
+  - >-
+    Roll the guitar volume to zero before anything else. If the noise stops, it
+    entered at or before the guitar; if it persists, it entered downstream. That
+    one test eliminates half the decision tree in five seconds.
 faq:
+  - q: How do I tell the difference between hum and feedback?
+    a: >-
+      Hum is constant, locked to 60, 120, or 180 Hz and their multiples, present
+      with the strings muted, and it scales with gain rather than switching off.
+      Feedback rises over time, sits at a resonance of the guitar or room so its
+      pitch can be anything, changes when you move or turn, and vanishes
+      entirely below a volume threshold. If turning down makes it stop rather
+      than get quieter, it is feedback and no grounding fix will touch it.
+  - q: Why do I get noise standing in front of an LED video wall?
+    a: >-
+      Because a video wall is a large array of switching power supplies
+      radiating a field into the room, not just polluting the power line. The
+      artifact lands anywhere from a few hundred Hz to a few kHz depending on
+      the dimming scheme, which is why it sounds like a buzzy rasp rather than a
+      hum. Since the coupling is radiated, distance and pickup orientation help
+      far more than any power filter, and a shorter cable run reduces the length
+      of antenna sitting in the field.
   - q: I bought a Hum X and the hum is still there. What did I get wrong?
     a: >-
       Most likely the hum wasn't a power-line ground loop in the first place. The
@@ -82,6 +103,32 @@ faq:
 ---
 
 > **Quick read:** Hum has a fundamental frequency, and that frequency tells you which fix to buy. Pure 60 Hz is a magnetic field induced into your single-coil pickups — humbucker mode or repositioning fixes it for free. 120 Hz with a slight buzz on top is a power-line ground loop — a $30 Ebtech Hum X solves it. 60 Hz that gets louder when you touch the strings is a missing chassis ground — check the third pin on your power cord. Buzzy 720 Hz that wasn't there yesterday is a new dimmer switch in the room — unplug it. The expensive boxes (Furman P-2400 IT, Equi=Tech ET2R, Radial Twin-Iso) only solve a narrow set of problems and most home players don't have those problems. The diagnostic flow below identifies which box you actually need before you spend $400 on the wrong one.
+
+## Step 0: Two Tests That Narrow It Instantly
+
+Before the frequency diagnosis, two questions worth thirty seconds each. Both of them can eliminate half the tree before you've listened to a single fundamental.
+
+**Test 1: Roll the guitar volume to zero.**
+
+The volume pot sits between the pickups and everything downstream, so this test cuts the signal path in exactly the place that matters. If the noise disappears when the knob hits zero, it is entering at or before the guitar — pickup induction, guitar wiring, a bad bridge ground, or a failing cable. If the noise is still there at zero, it is entering after the guitar, which means a ground loop, an amp or interface problem, or something on the power side.
+
+That single test splits the decision tree cleanly in half. Everything in the "goes away when you touch the strings" and "gets louder when you touch the strings" branches lives on the guitar side. Everything in the 120 Hz ground-loop branch lives on the other side. Knowing which half you're in before you start listening for pitch saves most of the diagnosis.
+
+**Test 2: Is it hum, or is it feedback?**
+
+These get conflated constantly, and they have nothing in common except that both are unwanted and both have a pitch.
+
+| | Hum | Feedback |
+|---|---|---|
+| Level over time | Constant | Rises, often slowly at first |
+| Pitch | Locked to 60, 120, or 180 Hz and multiples | A resonance of the guitar, room, or system — any pitch |
+| Changes when you move or turn | No | Yes, sometimes dramatically |
+| Present with the amp turned down | Yes, proportionally | No, it stops entirely below a threshold |
+| Present with strings muted | Yes | Usually not, unless it's a body resonance |
+
+Feedback is a loop: sound (or a magnetic field) from the speaker gets back into the pickup and goes around again with gain. It has a threshold, which is why turning down makes it vanish rather than merely quieter. Hum has no loop and no threshold; it's a signal being added to yours, so it scales with whatever gain is downstream of where it entered and never has a point where it suddenly stops.
+
+If you're chasing something that builds while you hold a note and dies when you turn down, none of the fixes below apply. That's a gain-before-feedback problem, and it's solved with distance, orientation, and a narrow EQ cut at the offending resonance — not with a grounding fix.
 
 ## Step 1: Listen to the Hum and Identify the Frequency
 
@@ -157,6 +204,12 @@ This is **switching noise from a dimmer, an LED driver, or a fluorescent ballast
 4. **If you can't fix the source, buy a Furman SS-6B or PL-8C.** These are low-cost line conditioners with EMI filtering — they don't fix true ground loops but they do filter the high-frequency switching noise that LED drivers produce.
 
 **Don't buy:** Balanced power for dimmer noise. Most balanced power supplies don't filter switching noise effectively because the noise is common-mode and the balanced supply is differential.
+
+**A note on LED walls and modern stage lighting.** The classic version of this problem was a wall dimmer on a resistive circuit. The current version is an LED video wall or a rig of LED fixtures, and it behaves differently in one important way: those fixtures are not just polluting the power line, they are a large array of switching power supplies radiating a field into the room. The dimming scheme puts the artifact anywhere from a few hundred Hz to a few kHz depending on the fixture, which is why it reads as a buzzy rasp rather than a hum.
+
+Because the coupling is radiated rather than conducted, the power-side fixes do less than you'd expect and the physical fixes do more. Distance is the first lever — the field falls off steeply, so a few feet of separation between the guitar and the wall is worth more than any filter. Orientation is the second: single-coils are directional, so the same rotation trick from the pickup-induction branch above applies unchanged. And because a long unbalanced guitar cable is an antenna in that field, a shorter run or a wireless pack that puts a transmitter on the strap can remove the pickup point entirely.
+
+If you play in front of a video wall regularly and you're on single-coils, the honest ranking is: move first, rotate second, shorten the cable third, and only then consider a hum-canceling pickup set. A noise gate belongs at the end of that list rather than the start — it hides the noise between phrases and does nothing while you're playing, which is when the wall is loudest relative to a quiet passage.
 
 ### If You Hear Broadband Hiss With No Fundamental Pitch
 
