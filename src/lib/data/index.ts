@@ -671,6 +671,13 @@ export const artists: Artist[] = [
     genres: ["heavy-metal", "nwobhm", "hard-rock"],
     image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c6/24/de/c624de71-e086-6f24-a279-b32a1e1c1009/0881034134486.jpg/600x600bb.jpg",
   },
+  {
+    name: "Jake E. Lee",
+    slug: "jake-e-lee",
+    bio: "The guitarist who followed Randy Rhoads into Ozzy Osbourne's band and refused to imitate him. Lee cut Bark at the Moon (1983) and The Ultimate Sin (1986) on a blue-burst Charvel San Dimas through a Jose Arredondo-modified Marshall, trading Rhoads' classical precision for a looser, bluesier phrasing built on wide bends, hybrid picking and unusual chord voicings. He later formed Badlands with Ray Gillen and, from 2013, Red Dragon Cartel.",
+    genres: ["heavy-metal", "hard-rock", "glam-metal"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/51/5c/65/515c65e6-8210-28da-049e-b7fec5638cf4/888003836686.jpg/600x600bb.jpg",
+  },
 ];
 
 export const songs: Song[] = [
@@ -3266,6 +3273,81 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wa/search?pattern=dio+stand+up+and+shout",
     external_video_url:
       "https://www.youtube.com/results?search_query=dio+stand+up+and+shout+guitar+lesson",
+  },
+  {
+    artist_slug: "ritchie-blackmore",
+    title: "Gates of Babylon",
+    slug: "gates-of-babylon-rainbow",
+    album: "Long Live Rock 'n' Roll",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/33/ce/4d/33ce4d6e-2584-9ec7-ea9a-c1cb79ecc10f/00731454736329.rgb.jpg/600x600bb.jpg",
+    year: 1978,
+    genres: ["hard-rock", "heavy-metal", "classic-rock"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=rainbow+gates+of+babylon",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=rainbow+gates+of+babylon+guitar+lesson",
+  },
+  {
+    artist_slug: "vivian-campbell",
+    title: "Don't Talk to Strangers",
+    slug: "dont-talk-to-strangers-dio",
+    album: "Holy Diver",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e4/8e/9a/e48e9aa6-1488-8b71-82eb-0b856d1034d2/mzm.txbqniop.jpg/600x600bb.jpg",
+    year: 1983,
+    genres: ["heavy-metal", "metal", "hard-rock"],
+    difficulty: "intermediate",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=dio+dont+talk+to+strangers",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=dio+dont+talk+to+strangers+guitar+lesson",
+  },
+  {
+    artist_slug: "tony-iommi",
+    title: "Neon Knights",
+    slug: "neon-knights-black-sabbath",
+    album: "Heaven and Hell",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/26/d6/fb/26d6fb50-5e33-baf7-98ec-13b167b06387/mzi.bxsjhsxe.jpg/600x600bb.jpg",
+    year: 1980,
+    genres: ["heavy-metal", "metal", "hard-rock"],
+    difficulty: "intermediate",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=black+sabbath+neon+knights",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=black+sabbath+neon+knights+guitar+lesson",
+  },
+  {
+    artist_slug: "randy-rhoads",
+    title: "Mr. Crowley",
+    slug: "mr-crowley-ozzy-osbourne",
+    album: "Blizzard of Ozz",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/92/06/bd/9206bdb3-453a-db69-44f4-c4b5bfe33510/886448748045.jpg/600x600bb.jpg",
+    year: 1980,
+    genres: ["heavy-metal", "metal", "hard-rock"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=ozzy+osbourne+mr+crowley",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=ozzy+osbourne+mr+crowley+solo+guitar+lesson",
+  },
+  {
+    artist_slug: "jake-e-lee",
+    title: "Bark at the Moon",
+    slug: "bark-at-the-moon-ozzy-osbourne",
+    album: "Bark at the Moon",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/9c/2b/93/9c2b933c-c0de-689e-0b7c-ccadf7649954/696998542921.jpg/600x600bb.jpg",
+    year: 1983,
+    genres: ["heavy-metal", "metal", "hard-rock"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=ozzy+osbourne+bark+at+the+moon",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=ozzy+osbourne+bark+at+the+moon+guitar+lesson",
   },
 ];
 
@@ -62920,6 +63002,1205 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Capture-driven: a stock JCM800 Tone Model at natural breakup with an SD-1-style level boost in front. Hot bridge humbucker, mids left in, everything dry and tight.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Ritchie Blackmore - Gates of Babylon (solo) ----
+  {
+    id: "seed-blackmore-gates-of-babylon",
+    song_slug: "gates-of-babylon-rainbow",
+    title: "Rainbow's Gates of Babylon Solo Tone",
+    slug: "blackmore-gates-of-babylon-solo",
+    created_at: "2026-08-05",
+    description:
+      "Rainbow's orchestral epic, cut at the Chateau d'Herouville in December 1977 and finished with a Bavarian string ensemble scored by Rainer Pietsch. The front end is the same AIWA-tape-deck-into-Marshall-Major rig as the rest of Long Live Rock 'n' Roll, but this solo asks something different of it: a harmonic-minor melody that has to sing over real strings. The tone sits darker and wetter than the album's riffs, because the orchestra already owns the top end.",
+    tone_context: "solo",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Fender Stratocaster (1974, sunburst)",
+      pickup_config: "SSS",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "Scalloped rosewood fretboard, Fender staggered single-coils rewound slightly hot to roughly 6.6k, Schaller tuners. The scalloping does its most audible work on this track: with no wood under the string, the flattened second and augmented second of the Phrygian-dominant phrasing can be bent into tune by finger pressure alone, which is how the melody gets its vocal, quarter-tone inflection instead of sounding like a scale exercise. String gauge is era-typical, not documented.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "boost",
+        gear_slug: null,
+        gear_name: "AIWA TP-1011 reel-to-reel (preamp/booster + echo)",
+        icon_type: "large_format",
+        icon_color: "#d4a574",
+        is_in_effects_loop: false,
+        settings: { Input: 8, Output: 7, Echo: 3 },
+        notes:
+          "Echo pushed further up than on the album's riffs, because a slow modal melody can carry repeats that a fast riff cannot -- the tail fills the space between phrases so the guitar reads as a lead voice rather than an overdub. The record preamp still runs hot: that stage, not the amp, is where the sustain comes from.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall Major (200W, modified)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 5, Bass: 3, Middle: 6.5, Treble: 7, Volume: 7 },
+        notes:
+          "Treble comes down from the album's usual 8 and Middle goes up, which is the one place this track departs from Blackmore's standard Rainbow setting. Strings and a bridge single-coil occupy the same 2-5 kHz band; leaning on the mids instead of the treble is how the guitar stays audible over the ensemble without turning shrill against it.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12 (Celestion-loaded)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "The Celestions' natural top-end rolloff is the reason a 200-watt amp can be run this loud and still sit under an orchestra. That speaker filtering is doing tone-shaping the amp's EQ is deliberately leaving alone. Exact speaker complement for the Chateau sessions is not documented.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, off cone centre" },
+        notes:
+          "Not documented for these sessions. A close dynamic off cone centre is the reconstruction that fits the record: the guitar is dry and forward while the sense of space on the track comes from the string overdubs, which were recorded separately.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1974 sunburst Fender Stratocaster, scalloped rosewood fretboard, overwound staggered single-coils (~6.6k), Schaller tuners",
+      effects: [
+        "AIWA TP-1011 reel-to-reel tape deck used as preamp/booster and echo",
+      ],
+      amp: "Marshall Major 200W (preamp modified by Blackmore's tech)",
+      cabinet: "Marshall 4x12 (Celestion-loaded)",
+      microphone: "Shure SM57 -- inferred; the session capture is not documented",
+      other_notes:
+        "Recorded December 1977 at Le Chateau d'Herouville, France, with Martin Birch producing; the track was a late addition after the band's European touring. Keyboardist David Stone wrote the middle-eight that sits under the guitar solo but was paid rather than credited. The strings are the Bavarian String Ensemble, scored and conducted by Rainer Pietsch -- the same conductor who handled the Munich Philharmonic on Stargazer a year earlier -- with flute and recorder overdubs on top. The rig is documented at album level, not per track: what changes here is the setting, the amount of echo, and the mid-forward EQ needed to share a mix with an orchestra.",
+    },
+    tags: ["hard-rock", "classic-rock", "heavy-metal", "solo", "strat", "marshall", "blackmore"],
+    sources: [
+      "https://www.treblebooster.net/bsm-tonezone/ritchie-blackmore.html",
+      "https://en.wikipedia.org/wiki/Gates_of_Babylon",
+      "https://en.wikipedia.org/wiki/Long_Live_Rock_%27n%27_Roll",
+      "https://www.guitarchalk.com/rising-rainbow-amp-settings/",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Tape-deck compression / studio comp",
+            settings: { Threshold: -34, Ratio: 2, Knee: 8, Attack: 60, Release: 350, Mix: 35, Level: 0 },
+            notes:
+              "Slow attack and a soft knee, because this melody is played almost entirely with sustained bent notes. A fast attack would clamp the front of every bend and flatten the phrasing the whole solo is built on; the comp is here only to keep the long tails from dying.",
+          },
+          {
+            position: 2,
+            block_name: "Kinky Boost",
+            block_category: "Distortion",
+            original_gear: "AIWA TP-1011 tape preamp (boost stage)",
+            enabled: true,
+            settings: { Gain: 7, Tone: 5.5, Level: 7.5 },
+            notes:
+              "DEFAULT-ON. Highest Gain of any Blackmore patch in the catalogue and the Tone rolled below noon -- the thickest version of the AIWA setting, because the guitar has to hold its own against a string section rather than cut through a dry four-piece.",
+          },
+          {
+            position: 3,
+            block_name: "Scream 808",
+            block_category: "Distortion",
+            original_gear: "Modern lead boost (alternate)",
+            enabled: false,
+            settings: { Gain: 3.5, Tone: 5, Level: 7 },
+            notes:
+              "ALTERNATE, off by default. Not on the record. Use it only if your rig cannot get loud enough for the amp model to bloom, and never stacked on the Kinky Boost -- two mid-humped boosts in series will bury the guitar in exactly the band where the strings live.",
+          },
+          {
+            position: 4,
+            block_name: "Brit Plexi Brt",
+            block_category: "Amp",
+            original_gear: "Marshall Major 200W (modified)",
+            settings: { Drive: 5.5, Bass: 3, Mid: 6.5, Treble: 7, Presence: 5, ChVol: 7, Master: 10, Bias: 6, BiasX: 5, Sag: 6.5, Hum: 5, Ripple: 5 },
+            notes:
+              "Treble backed off to 7 and Mid pushed to 6.5 -- the inverse of the usual Blackmore recipe, and deliberate: violins own 2-5 kHz, so the guitar claims the 700 Hz-1.5 kHz range instead of fighting them up top. Sag at 6.5 is the highest in the set because sustained bends want the power supply to give a little.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 (Celestion-loaded)",
+            settings: { Mic: 0, Distance: 2, Position: 0.32, Angle: 0, LowCut: 110, HighCut: 6500, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "Pulled back to 2 inches and further off centre than the riff patches. Distance trades proximity punch for a rounder, less percussive attack, which is what a legato melody wants -- and the 6500 Hz HighCut clears the air band so the string overdubs have somewhere to sit.",
+          },
+          {
+            position: 6,
+            block_name: "Transistor Tape",
+            block_category: "Delay",
+            original_gear: "AIWA TP-1011 echo section",
+            settings: { Time: 380, Feedback: 28, Mix: 22, LowCut: 180, HighCut: 3600, Level: 0 },
+            notes:
+              "Longer and wetter than the album's riff patches because the phrasing leaves gaps to fill. HighCut at 3600 keeps it real: tape repeats lose top end fast, and dark repeats stay out of the violins' way in a manner a bright digital delay never would.",
+          },
+          {
+            position: 7,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate on the solo",
+            settings: { Mix: 24, Decay: 2.4, Predelay: 40, LowCut: 200, HighCut: 6000, Level: 0 },
+            notes:
+              "A plate rather than the room used on the album's riffs -- this is the one track where the guitar is a featured melodic voice, and a plate is the period-correct way to seat a lead against orchestral strings. Predelay at 40 ms keeps the note attacks defined before the tail arrives.",
+          },
+          {
+            position: 8,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global tilt EQ",
+            settings: { Tilt: 0.44, CenterFreq: 900, Level: 0 },
+            notes:
+              "Darker than flat, and the pivot moved down to 900 Hz. This is the mix-context block: if you play this patch without an orchestra behind you it will sound too dark, so push Tilt back toward 0.5 when the guitar is on its own.",
+          },
+        ],
+        notes:
+          "Comp -> tape-preamp boost (on) -> TS alternate (off) -> Plexi Brt for the Major -> distant Greenback 4x12 -> long dark echo -> plate -> dark tilt. Every departure from the standard Blackmore chain here is a mix decision: mids up, treble down, more space, because this is the only Rainbow track where the guitar has to share a frequency band with real strings.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tape-deck compression / studio comp", settings: { Threshold: -34, Ratio: 2, Attack: 12, Release: 350, Mix: 35, Level: 0 }, notes: "Slow attack so the front of every bend survives -- the phrasing here is all sustained notes, and clamping their attack would flatten the melody." },
+          { position: 2, block_name: "Tape Preamp Boost", block_category: "Drive", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 7.0, Tone: 5.5, Level: 7.5 }, notes: "DEFAULT-ON and thicker than the other Rainbow patches -- the guitar has to hold a melody against a string section, which needs body rather than bite." },
+          { position: 3, block_name: "Plexi 100", block_category: "Amp", original_gear: "Marshall Major 200W (modified)", settings: { Gain: 5.5, Bass: 3.0, Mid: 6.5, Treble: 7.0, Presence: 5.0, Master: 7.0, Sag: 6.5 }, notes: "Mids up, treble down. Violins own 2-5 kHz, so the amp claims the lower midrange instead of competing for the same air." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "SM57", Distance: 2.0, Position: 0.32, LowCut: 110, HighCut: 6500, Level: 0 }, notes: "Backed off to 2 inches for a rounder attack -- a legato melody does not want the percussive punch a close mic gives a riff." },
+          { position: 5, block_name: "Tape Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 380, Feedback: 28, Mix: 22, Level: 0 }, notes: "Longer and wetter than the riff patches because the phrasing leaves gaps. Keep it dark so the repeats stay behind the strings." },
+          { position: 6, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate on the solo", settings: { Decay: 2.4, Predelay: 40, Mix: 24, Level: 0 }, notes: "A plate is the period-correct way to seat a featured lead against orchestral strings; 40 ms of predelay protects the note attacks." },
+          { position: 7, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 4.4, CenterFreq: 900, Level: 0 }, notes: "Deliberately dark for the orchestral context -- return it toward flat if you play this patch without strings behind you." },
+        ],
+        notes:
+          "Comp -> thick tape boost (on) -> mid-forward Plexi -> distant Greenback -> long dark echo -> plate -> dark EQ. The whole patch is voiced to share a mix with a string ensemble, which is what separates it from the album's riff tones.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 7, Bottom: 6, Tone: 5.5, Level: 7.5 }, notes: "DEFAULT-ON, because the AIWA was permanently wired into Blackmore's chain rather than switched -- one of the few historically correct always-on boosters in the catalogue. Bottom up at 6 for the extra body a sustained melody needs." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Marshall Major 200W (modified)", settings: { Gain: 5, Volume: 7, Bass: 3, Middle: 6.5, Treble: 7, Presence: 5, Master: 7 }, notes: "Crunch with Middle above Treble, which is unusual for a Marshall-style patch and is the point -- the mid-forward voicing is what lets a single-coil hold a melody over strings." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 380, Feedback: 3, EffectLevel: 22 }, notes: "Three dark repeats, longer than any other Rainbow patch. The phrasing leaves room for them, so the echo becomes part of the arrangement rather than clutter." },
+          { position: 4, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio plate on the solo", settings: { Time: 24, PreDelay: 40, Tone: 5, EffectLevel: 24 }, notes: "Plate-flavoured and longer than the album's other tones -- this is the one Long Live Rock 'n' Roll track where the guitar is a featured lead voice rather than a rhythm engine." },
+        ],
+        notes:
+          "Always-on booster -> mid-forward Crunch -> long dark echo -> plate. Resist scooping the mids: everything that makes this patch work is in the 700 Hz-1.5 kHz range the strings leave open.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Tape-deck compression / studio comp", settings: { Intensity: 3, Attack: 0.07, Volume: 0 }, notes: "Slot A. Slow attack, low intensity -- enough to hold the long bends, not enough to squash their front end." },
+          { position: 2, block_name: "Treble Booster", block_category: "Drive", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 7, Tone: 5.5, Volume: 7.5 }, notes: "Stomp slot, DEFAULT-ON -- historically correct here. Roll the Tone well below noon: the AIWA is a fat tape preamp, and this patch needs body rather than the usual treble-booster bite." },
+          { position: 3, block_name: "Search Rig Exchange for 'Marshall Major' or 'Marshall Plexi 200W'", block_category: "Profile", original_gear: "Marshall Major 200W (modified)", settings: { Gain: 5.5, Bass: 3, Middle: 6.5, Treble: 7, Presence: 5 }, notes: "Choose a high-headroom Plexi-family capture and drive it from the Stomp slot. Push the profile's Middle above its Treble -- that inversion, not the gain, is what makes the guitar audible under an orchestra. Cab is baked into the profile." },
+          { position: 4, block_name: "Tape Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 380, Feedback: 28, Mix: 22 }, notes: "DLY slot. Long, dark, with a little Flutter for the wow of a real deck. Darkness keeps the repeats behind the strings." },
+          { position: 5, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Studio plate on the solo", settings: { Decay: 2.4, Predelay: 40, Mix: 24 }, notes: "REV slot. A plate seats a featured lead in front of an ensemble the way a room reverb cannot." },
+        ],
+        notes:
+          "Comp -> always-on tape boost -> high-headroom mid-forward profile -> long dark echo -> plate. Look for headroom in the profile and add the gain from the Stomp, exactly as the AIWA did in 1977.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tape-deck compression / studio comp", settings: { Threshold: -34, Ratio: 2, Attack: 60, Release: 350, Mix: 0.35, Level: 0 }, notes: "Slow attack, parallel blend -- it holds the sustained notes without clamping the bends the melody is built from." },
+          { position: 2, block_name: "EP Booster", block_category: "Drive", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 7.0, Tone: 5.5, Level: 7.5 }, notes: "DEFAULT-ON. The Echoplex preamp model is the same trick as the AIWA; set thicker and darker than the album's riff patches because this solo needs weight, not attack." },
+          { position: 3, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall Major 200W (modified)", settings: { Drive: 5.5, Bass: 3.0, Mid: 6.5, Treble: 7.0, Presence: 5.0, MV: 7.0 }, notes: "Mid above treble on purpose -- the strings own the top, so the amp claims the lower mids. Raise Supply Sag on the advanced page for the KT88 give the EL34 model lacks." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 110, HighCut: 6500, Level: 0 }, notes: "Two inches out for a rounder, less percussive attack, and a 6500 Hz cut to leave the air band for the string overdubs." },
+          { position: 5, block_name: "Tape Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 380, Feedback: 0.28, Mix: 0.22 }, notes: "Long and dark with some wow/flutter -- the gaps in the phrasing are what let this much echo work." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate on the solo", settings: { Mix: 0.24, Decay: 2.4, Predelay: 40 }, notes: "Plate rather than room; this is the album's one featured lead voice and it wants a studio tail, not a tracking-room ambience." },
+          { position: 7, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 0.44, CenterFreq: 900, Level: 0 }, notes: "Dark, pivoting low. Bring it back toward 0.5 if you use the patch outside an orchestral context or it will sound muffled." },
+        ],
+        notes:
+          "Comp -> EP Booster (on) -> mid-forward Plexi -> distant Greenback -> long tape echo -> plate -> dark tilt. Voiced for a mix that already has violins in it.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Major' or 'Marshall Plexi 200W' or 'Blackmore'", block_category: "Tone Model", original_gear: "Marshall Major 200W (modified)", settings: {}, notes: "Pick a high-headroom, edge-of-breakup Plexi-family capture and put an Echoplex-style tape-preamp boost in front to supply the gain. Then pull the Tone Model's treble down and its mids up -- a stock bright Marshall capture will sit right on top of the string parts instead of underneath them." },
+        ],
+        notes:
+          "Capture-driven: a clean, high-headroom Plexi/Major Tone Model, an always-on tape-preamp boost for the gain, long dark echo and a plate. The mid-forward voicing is the whole trick -- it is what lets a bridge single-coil carry a melody over an orchestra.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Vivian Campbell - Don't Talk to Strangers (clean intro) ----
+  {
+    id: "seed-campbell-dont-talk-to-strangers",
+    song_slug: "dont-talk-to-strangers-dio",
+    title: "Dio's Don't Talk to Strangers Clean Intro Tone",
+    slug: "campbell-dont-talk-to-strangers-clean",
+    created_at: "2026-08-05",
+    description:
+      "The most dynamic track on Holy Diver, and Campbell plays it on exactly the same one-guitar-one-Marshall rig as the rest of the record. A JCM800 2203 is a single-channel amp -- there is no clean channel to switch to -- so the whispered arpeggios that open the song are a cranked Marshall with the Les Paul's volume rolled back to around 3. That is why they still have grain and bloom instead of sounding sterile, and why the explosion into the heavy section needs nothing but the volume knob.",
+    tone_context: "clean",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Les Paul Deluxe (1977, refinished matte black)",
+      pickup_config: "HH",
+      pickup_position: "neck",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge: ".009-.042",
+      notable_mods:
+        "Refinished matte black, with a DiMarzio X2N routed into the bridge in place of the Deluxe's stock mini-humbucker -- the one documented modification, and the reason the heavy sections hit as hard as they do. The neck position on this guitar is not documented in the same detail; the intro is played there because the arpeggios have the round, woody attack a neck pickup gives at low volume, but treat that as a reconstruction rather than a confirmed fact. String gauge is era-typical, not documented.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "overdrive",
+        gear_slug: null,
+        gear_name: "Boss SD-1 Super Overdrive (level boost)",
+        icon_type: "pedal",
+        icon_color: "#facc15",
+        is_in_effects_loop: false,
+        settings: { Level: 8, Tone: 5, Drive: 1.5 },
+        notes:
+          "Bypassed for the intro and stamped on for the heavy sections. Drive at 1.5 means it is a level boost, not a distortion -- all it does is shove more signal into an already-cranked 2203. Keeping the pedal's own gain near zero is what stops the heavy tone turning fizzy and preserves the pick attack under Ronnie's vocal.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall JCM800 2203 (stock, rented)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 6, Bass: 4, Middle: 6, Treble: 7, "Preamp Volume": 7, Master: 6 },
+        notes:
+          "The amp never changes across this song, which is the whole engineering story. A 2203 has one channel and one preamp volume, so a guitarist who wants clean and heavy in the same take gets them from the guitar. Preamp Volume at 7 is hot enough that rolling the Les Paul back to 3 lands right at the edge of breakup rather than in a dead clean.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12 (Celestion-loaded)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Celestion greenback-family speakers roll off above roughly 5 kHz, and that rolloff is what makes an X2N usable -- the pickup's raw output is bright and spiky enough to be unpleasant through anything more full-range. Exact speaker complement for the Sound City sessions is not documented.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, on cone edge" },
+        notes:
+          "Not documented per track. A close 57 on the cone edge is the reconstruction that matches Holy Diver: the guitars are dry, forward and midrange-heavy with almost no room on them, which is exactly what a single close dynamic gives you.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1977 Gibson Les Paul Deluxe refinished matte black, DiMarzio X2N bridge pickup, standard tuning",
+      effects: ["Boss SD-1 Super Overdrive used as a level boost for the heavy sections -- bypassed for the clean intro"],
+      amp: "Marshall JCM800 2203 (stock, rented, cranked)",
+      cabinet: "Marshall 4x12 (Celestion-loaded)",
+      microphone: "Shure SM57",
+      other_notes:
+        "Recorded early 1983 at Sound City Studios, Van Nuys, California; produced by Ronnie James Dio. Campbell has said the Les Paul -- his first, bought as a teenager in Belfast -- was the only electric guitar he played on the entire album, and the JCM800 was rented for the sessions. The rig is documented at album level rather than per track, so what makes this recipe different from the album's riff tones is not the gear but the technique: the whole clean-to-heavy arc is played on the guitar's volume control, because a single-channel 2203 offers no other way to do it.",
+    },
+    tags: ["heavy-metal", "hard-rock", "clean", "dynamics", "marshall", "les-paul", "dio"],
+    sources: [
+      "https://www.vintageguitar.com/46268/pop-n-hiss-dios-holy-diver/",
+      "https://en.wikipedia.org/wiki/Holy_Diver",
+      "https://guitar.com/news/gear-news/epiphone-vivian-campbell-def-leppard-dio-holy-diver-les-paul-outfit/",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression on the clean intro",
+            settings: { Threshold: -28, Ratio: 3, Knee: 5, Attack: 20, Release: 220, Mix: 55, Level: 1 },
+            notes:
+              "Firmer than most patches in the catalogue, and only because of the intro. Arpeggios played at volume-3 on a cranked amp have very little natural level consistency; the comp evens the notes so the figure reads as a part rather than as a guitarist being quiet. Turn Mix down to about 25 if you leave the patch on for the heavy sections.",
+          },
+          {
+            position: 2,
+            block_name: "Scream 808",
+            block_category: "Distortion",
+            original_gear: "Boss SD-1 Super Overdrive (level boost)",
+            enabled: false,
+            settings: { Gain: 1.5, Tone: 5, Level: 8 },
+            notes:
+              "DEFAULT-OFF, because the intro is the tone this recipe is about -- stamp it on for the heavy sections. Gain almost at zero and Level near maximum: the pedal's job is to slam the amp's input, not to make distortion of its own.",
+          },
+          {
+            position: 3,
+            block_name: "Brit 2204",
+            block_category: "Amp",
+            original_gear: "Marshall JCM800 2203 (stock)",
+            settings: { Drive: 7, Bass: 4, Mid: 6, Treble: 7, Presence: 6, ChVol: 6, Master: 10, Bias: 5, BiasX: 5, Sag: 4.5, Hum: 4, Ripple: 4 },
+            notes:
+              "Drive stays at 7 for the clean intro, which looks wrong and is the entire point -- do not turn the amp down. Roll your guitar's volume to 3 and this setting produces the intro; roll it to 10 and it produces the chorus. Sag kept low at 4.5 because a 2203 is a tight, fast amp with very little give, and softening it would cost the intro its articulation.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 (Celestion-loaded)",
+            settings: { Mic: 0, Distance: 1, Position: 0.55, Angle: 0, LowCut: 90, HighCut: 5200, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "HighCut at 5200 is lower than most Marshall patches, and that is an X2N decision -- the pickup puts out enough top end to sound like glass through a full-range system. Position 0.55 sits just off centre for the mid bite the clean arpeggios need to stay audible at low volume.",
+          },
+          {
+            position: 5,
+            block_name: "Simple Delay",
+            block_category: "Delay",
+            original_gear: "Studio delay on the intro",
+            settings: { Time: 300, Feedback: 15, Mix: 14, LowCut: 220, HighCut: 4500, Level: 0 },
+            notes:
+              "Short and quiet, and mainly there for the intro -- a bare arpeggio on a dry record needs something to keep it from sounding like a rehearsal take. Feedback stays low so the repeats never survive into the downbeat of the heavy section.",
+          },
+          {
+            position: 6,
+            block_name: "Room",
+            block_category: "Reverb",
+            original_gear: "Sound City tracking-room ambience",
+            settings: { Mix: 15, Decay: 1.1, Predelay: 22, LowCut: 170, HighCut: 6800, Level: 0 },
+            notes:
+              "A short room, not a plate. Sound City's rock records are famously dry and close-miked, so anything longer than about a second would put the guitar in a different building from the drums.",
+          },
+          {
+            position: 7,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global tilt EQ",
+            settings: { Tilt: 0.52, CenterFreq: 1000, Level: 0 },
+            notes:
+              "Fractionally bright, to give the clean arpeggios back a little of the sparkle the 5200 Hz cab cut takes away. Return it to 0.5 when you stamp the boost on for the heavy sections.",
+          },
+        ],
+        notes:
+          "Comp -> SD-1-style boost (OFF for the intro) -> hot 2204 -> dark Greenback 4x12 -> short delay -> short room -> slight bright tilt. Build this patch and then leave the amp alone: the entire clean-to-heavy transition lives on your guitar's volume knob, which is exactly how Campbell tracked it.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression on the clean intro", settings: { Threshold: -28, Ratio: 3, Attack: 8, Release: 220, Mix: 55, Level: 1 }, notes: "Firm blend for the intro -- volume-rolled-back arpeggios are naturally uneven, and the comp is what makes them read as a written part." },
+          { position: 2, block_name: "Yellow Drive", block_category: "Drive", enabled: false, original_gear: "Boss SD-1 Super Overdrive (level boost)", settings: { Drive: 1.5, Tone: 5.0, Level: 8.0 }, notes: "DEFAULT-OFF -- this recipe is the clean intro. Gain near zero, Level near max: a level boost into a cranked 2203, not a distortion." },
+          { position: 3, block_name: "Brit 2203", block_category: "Amp", original_gear: "Marshall JCM800 2203 (stock)", settings: { Gain: 7.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, Master: 6.0, Sag: 4.5 }, notes: "Leave the Gain at 7 even for the clean tone. Roll the guitar's volume to 3 for the intro -- that is the actual mechanism, and turning the amp down instead loses the grain that makes the intro sound alive." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "SM57", Distance: 1.0, Position: 0.55, LowCut: 90, HighCut: 5200, Level: 0 }, notes: "A low HighCut is an X2N necessity -- the pickup is bright enough to sound like glass without the Celestion rolloff modelled in." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Studio delay on the intro", settings: { Time: 300, Feedback: 15, Mix: 14, Level: 0 }, notes: "Short and quiet, for the intro only -- low feedback so nothing survives into the downbeat of the heavy section." },
+          { position: 6, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Sound City tracking-room ambience", settings: { Decay: 1.1, Predelay: 22, Mix: 15, Level: 0 }, notes: "Short room. Holy Diver is a dry, close-miked record; a long tail would put the guitar in a different room from the drums." },
+          { position: 7, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 5.2, CenterFreq: 1000, Level: 0 }, notes: "A touch bright to return some sparkle to the arpeggios after the cab's 5200 Hz cut." },
+        ],
+        notes:
+          "Comp -> boost (off) -> hot Brit 2203 -> dark Greenback -> short delay -> short room -> slightly bright EQ. Same amp setting for the whole song; the dynamics come from the guitar.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: false, original_gear: "Boss SD-1 Super Overdrive (level boost)", settings: { Drive: 1.5, Bottom: 5, Tone: 5, Level: 8 }, notes: "DEFAULT-OFF for the intro -- and on a Katana this is the actual Boss circuit family the record used, so the Blues Drive or Overdrive voicing gets you closer than a Tube Screamer model would." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Marshall JCM800 2203 (stock)", settings: { Gain: 7, Volume: 6, Bass: 4, Middle: 6, Treble: 7, Presence: 6, Master: 6 }, notes: "Crunch rather than Lead, because a stock 2203 is a single-gain-stage amp -- Lead's extra saturation would give you a nineties tone, not a 1983 one. Keep Gain at 7 and use the guitar's volume for the intro." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Studio delay on the intro", settings: { Time: 300, Feedback: 2, EffectLevel: 14 }, notes: "Two quiet repeats for the intro. Anything more and the arpeggios blur into the vocal entrance." },
+          { position: 4, block_name: "Reverb", block_category: "Reverb", original_gear: "Sound City tracking-room ambience", settings: { Time: 11, PreDelay: 22, Tone: 5, EffectLevel: 15 }, notes: "Short room, tone near neutral -- the record is dry, and this only stops the patch sounding airless on a full-range speaker." },
+        ],
+        notes:
+          "Booster (off) -> Crunch at a genuinely hot gain -> short delay -> short room. The discipline is leaving the amp alone: turn your guitar down for the intro, turn it up for the chorus, and the patch does the rest.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression on the clean intro", settings: { Intensity: 5, Attack: 0.02, Volume: 0 }, notes: "Slot A, and firmer than usual -- the intro's arpeggios need levelling. Drop the Intensity to about 2 if you leave the patch on for the heavy sections." },
+          { position: 2, block_name: "Green Scream", block_category: "Drive", enabled: false, original_gear: "Boss SD-1 Super Overdrive (level boost)", settings: { Drive: 1.5, Tone: 5, Volume: 8 }, notes: "Stomp slot, DEFAULT-OFF for this recipe. Set as a level boost -- Drive near zero, Volume near max -- so it drives the profile's input rather than adding its own dirt." },
+          { position: 3, block_name: "Search Rig Exchange for 'Marshall JCM800 2203' or 'JCM800 stock'", block_category: "Profile", original_gear: "Marshall JCM800 2203 (stock)", settings: { Gain: 7, Bass: 4, Middle: 6, Treble: 7, Presence: 6 }, notes: "Pick a stock, un-modded 2203 capture -- hot-rodded JCM800 profiles have an extra gain stage the 1983 amp did not, and they will not clean up when you roll your guitar back, which breaks the one technique this recipe is built on. Cab is baked into the profile." },
+          { position: 4, block_name: "Single Delay", block_category: "Delay", original_gear: "Studio delay on the intro", settings: { Time: 300, Feedback: 15, Mix: 14 }, notes: "DLY slot. Short and quiet, intro only." },
+          { position: 5, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Sound City tracking-room ambience", settings: { Decay: 1.1, Predelay: 22, Mix: 15 }, notes: "REV slot. A short room keeps the guitar in the same dry space as the rest of the record." },
+        ],
+        notes:
+          "Comp -> level boost (off) -> stock 2203 profile -> short delay -> short room. Profile selection is the whole game here: it has to clean up when you roll the guitar back, or the intro is impossible.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression on the clean intro", settings: { Threshold: -28, Ratio: 3, Attack: 20, Release: 220, Mix: 0.55, Level: 1 }, notes: "Firm blend for the intro's arpeggios, which have almost no natural level consistency at volume-3 on a cranked amp." },
+          { position: 2, block_name: "Super OD", block_category: "Drive", enabled: false, original_gear: "Boss SD-1 Super Overdrive (level boost)", settings: { Drive: 1.5, Tone: 5.0, Level: 8.0 }, notes: "DEFAULT-OFF. The Super OD is Fractal's SD-1 model, which is the exact pedal on the record -- keep the Drive near zero so it works as the level boost it was used as." },
+          { position: 3, block_name: "Brit 800 2203", block_category: "Amp", original_gear: "Marshall JCM800 2203 (stock)", settings: { Drive: 7.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 6.0 }, notes: "Do not turn the Drive down for the clean intro -- roll your guitar's volume instead. Lower the Input Trim if your pickups are hotter than an X2N and the patch will not clean up." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 90, HighCut: 5200, Level: 0 }, notes: "The low HighCut tames the X2N's top end, which is spiky enough to be unpleasant through a modern IR without it." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Studio delay on the intro", settings: { Time: 300, Feedback: 0.15, Mix: 0.14 }, notes: "Short, quiet, intro-focused. Low feedback so nothing bleeds into the heavy section." },
+          { position: 6, block_name: "Room", block_category: "Reverb", original_gear: "Sound City tracking-room ambience", settings: { Mix: 0.15, Decay: 1.1, Predelay: 22 }, notes: "A short room; Holy Diver's guitars are dry and close, and a longer tail immediately sounds wrong against them." },
+          { position: 7, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 0.52, CenterFreq: 1000, Level: 0 }, notes: "Slightly bright to restore sparkle to the clean arpeggios after the cab cut." },
+        ],
+        notes:
+          "Comp -> Super OD (off) -> hot Brit 800 -> dark Greenback -> short delay -> short room -> slight bright tilt. Set the amp once and play the dynamics with your hands and your volume knob.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'JCM800 2203 stock' or 'Marshall JCM800 crunch'", block_category: "Tone Model", original_gear: "Marshall JCM800 2203 (stock)", settings: {}, notes: "The selection criterion is unusual here: audition captures by rolling your guitar's volume down to 3, not by playing them wide open. A hot-rodded JCM800 capture will stay saturated and give you a mushy intro, while a stock 2203 capture will clean up into exactly the grainy, half-broken-up arpeggio tone the record opens with." },
+        ],
+        notes:
+          "Capture-driven, and the one recipe where the audition method matters more than the search term. Find a stock 2203 Tone Model that cleans up under a rolled-back volume knob; add a short delay and a short room, and play the whole song without touching the amp.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Tony Iommi - Neon Knights (riff) ----
+  {
+    id: "seed-iommi-neon-knights",
+    song_slug: "neon-knights-black-sabbath",
+    title: "Black Sabbath's Neon Knights Riff Tone",
+    slug: "iommi-neon-knights-riff",
+    created_at: "2026-08-05",
+    description:
+      "The fastest thing Sabbath ever opened an album with, and the first Iommi tone that does not run a treble booster. John 'Dawk' Stillwell rebuilt six Marshall 1959 Super Leads with an extra gain stage for the Heaven and Hell sessions -- 'he'd done away with the treble booster I had forever,' as Iommi put it -- so the gain finally lives inside the amp instead of in a box in front of it. At this tempo that matters: the boost is gone and the note separation comes back.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson SG Special ('Monkey', left-handed, cherry red)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge: ".008-.032",
+      notable_mods:
+        "The most-modified guitar in metal. 'Monkey' carries a custom John Birch pickup in the neck and, in the bridge, a Gibson P-90 rehoused by Birch in a metal humbucker-sized casing -- so the bridge tone is single-coil bite in a humbucker's clothes, which is a large part of why Iommi cuts through where other detuned rhythm guitars disappear. Overdubs on this album were also cut on 'Old Boy', the SG-style guitar John Diggins built for Iommi in 1975 with a zero fret, cross inlays and a second low-impedance output for recording. Iommi's .008-.032 strings are a consequence of his 1965 industrial accident: the plastic thimbles he wears on his fretting hand cannot feel heavy strings, so the whole rig is built around gauges most metal players would consider unplayable.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 1959 Super Lead (Dawk Stillwell mod, extra gain stage + master volume)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 6, Bass: 4, Middle: 7, Treble: 7, "Preamp Volume": 8, Master: 6 },
+        notes:
+          "The whole point of the Dawk mod is that this amp makes its own gain. Iommi ran a Rangemaster-style treble booster in front of a Laney for a decade because a stock amp could not get there; Stillwell's extra preamp tube and added master volume made the booster redundant, and Iommi said so directly. Middle at 7 is the setting that survived from the treble-booster years -- the boost used to supply that midrange hump, and now the amp's own EQ has to.",
+      },
+      {
+        position: 2,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12 (Celestion-loaded)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Era-typical rather than documented for these sessions. Celestion 4x12s roll off above roughly 5 kHz, which is what keeps a P-90-in-a-humbucker-casing bridge pickup from sounding thin -- the speaker is putting weight back into a fundamentally bright pickup.",
+      },
+      {
+        position: 3,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, off cone centre" },
+        notes:
+          "Not documented for Studio Ferber. A close dynamic off centre is the reconstruction that matches the record's tight, mid-forward rhythm sound -- there is essentially no room on the guitars here, which is one reason Heaven and Hell sounds so much more modern than the Ozzy-era albums.",
+      },
+      {
+        position: 4,
+        category: "wet_effect",
+        subcategory: "delay",
+        gear_slug: null,
+        gear_name: "Studio delay",
+        icon_type: "rack",
+        icon_color: "#60a5fa",
+        is_in_effects_loop: true,
+        settings: { Time: 240, Repeats: 1, Mix: 8 },
+        notes:
+          "Iommi has said the only effects on the album were a chorus, a delay and a wah. The delay is audible on the title track's solo and sits far back on the fast rhythm tracks -- at this tempo it is a thickener, not an effect, and pushing it any further forward smears the gallop that drives the song.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "'Monkey' -- customised left-handed cherry-red Gibson SG Special with a John Birch neck pickup and a Birch-rehoused Gibson P-90 in the bridge; 'Old Boy' (John Diggins, 1975) used for overdubs; .008-.032 strings",
+      effects: [
+        "Chorus",
+        "Delay",
+        "Wah (Tychobrahe Parapedal, his long-standing choice)",
+        "No treble booster -- removed for this album once the amps were modified",
+      ],
+      amp: "Marshall 1959 Super Lead, rebuilt by John 'Dawk' Stillwell with an extra gain stage and a master volume (six were modified)",
+      cabinet: "Marshall 4x12 (Celestion-loaded) -- era-typical, not documented for these sessions",
+      microphone: "Shure SM57 -- inferred; the session capture is not documented",
+      other_notes:
+        "Recorded January 1980 at Studio Ferber, Paris, with Martin Birch producing. Stillwell -- who had previously built amps for Ritchie Blackmore -- lived with the band while they wrote in Miami, which is how the amp modifications and the album came together at the same time. The Laney Supergroups that people associate with Iommi are the Ozzy-era rig; for Heaven and Hell he switched to the modified Marshalls, and the absence of the treble booster is the single biggest reason this album's rhythm tone is tighter and less saturated than Paranoid or Master of Reality. Neon Knights was the last song written for the album and was cut in a hurry.",
+    },
+    tags: ["heavy-metal", "metal", "hard-rock", "riff", "marshall", "sg", "iommi", "nwobhm"],
+    sources: [
+      "https://guitar.com/features/artist-rigs/the-guitar-gear-used-by-tony-iommi-on-black-sabbath-heaven-hell-album/",
+      "https://en.wikipedia.org/wiki/Neon_Knights",
+      "https://equipboard.com/pros/tony-iommi",
+      "https://www.uberproaudio.com/who-plays-what/154-black-sabbath-tony-iommis-guitar-gear-rig-and-equipment",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Noise Gate",
+            block_category: "Dynamics",
+            original_gear: "Gain-structure housekeeping",
+            settings: { Threshold: -62, Decay: 22 },
+            notes:
+              "First in the chain and set gently. An amp with an extra preamp stage and no booster is quieter than the old Iommi rig, so the gate only has to catch string noise between the riff's staccato stabs -- clamp it harder and you will chop the ends off the gallop.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression",
+            settings: { Threshold: -26, Ratio: 2.5, Knee: 4, Attack: 12, Release: 140, Mix: 35, Level: 0 },
+            notes:
+              "Fast attack and a short release, because the riff is a constant stream of down-picked eighths at 160 bpm. The comp evens the picking hand without smoothing the transient -- Mix stays at 35 so the attack that defines the gallop stays intact.",
+          },
+          {
+            position: 3,
+            block_name: "Brit Plexi Jump",
+            block_category: "Amp",
+            original_gear: "Marshall 1959 Super Lead (Dawk-modified)",
+            settings: { Drive: 7.5, Bass: 4, Mid: 7, Treble: 7, Presence: 6, ChVol: 6, Master: 10, Bias: 5.5, BiasX: 5.5, Sag: 4, Hum: 4, Ripple: 4 },
+            notes:
+              "The jumped Plexi is the closest stock Helix model to a Super Lead with an extra gain stage grafted in -- jumpering the channels is the period-correct way to get more preamp gain out of a 1959 without a mod. Sag pulled down to 4 on purpose: Stillwell's amps were tightened for the Dio era, and a saggy power supply would blur the fast picking this riff is made of.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 (Celestion-loaded)",
+            settings: { Mic: 0, Distance: 1, Position: 0.45, Angle: 0, LowCut: 105, HighCut: 5800, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "LowCut at 105 is high for a metal patch and is the right call -- Iommi's .008 strings produce far less low-end energy than modern gauges, and leaving sub-100 Hz in the patch adds weight the original guitar never had. Close mic for the attack the gallop lives on.",
+          },
+          {
+            position: 5,
+            block_name: "Optical Trem",
+            block_category: "Modulation",
+            original_gear: "Chorus (album-level effect)",
+            enabled: false,
+            settings: { Rate: 0.4, Depth: 22, Mix: 22, Level: 0 },
+            notes:
+              "DEFAULT-OFF. Iommi lists a chorus among the album's three effects but it is not audible on this rhythm track -- it belongs to the album's cleaner passages. Included as a colour so the patch covers the record's other textures; keep it slow and shallow if you engage it.",
+          },
+          {
+            position: 6,
+            block_name: "Simple Delay",
+            block_category: "Delay",
+            original_gear: "Studio delay",
+            settings: { Time: 240, Feedback: 8, Mix: 8, LowCut: 260, HighCut: 4000, Level: 0 },
+            notes:
+              "Barely there, and deliberately so. One dark repeat at 240 ms sits just behind the beat and thickens the riff; anything louder and the sixteenth-note transitions in the pre-chorus start running together.",
+          },
+          {
+            position: 7,
+            block_name: "Room",
+            block_category: "Reverb",
+            original_gear: "Studio Ferber tracking-room ambience",
+            settings: { Mix: 10, Decay: 0.8, Predelay: 15, LowCut: 200, HighCut: 6500, Level: 0 },
+            notes:
+              "Under a second, and quiet. Heaven and Hell is the album where Sabbath's guitars stopped sounding like they were recorded in a cave -- the dryness is a production choice worth preserving, so this block only stops the patch sounding airless on FRFR.",
+          },
+          {
+            position: 8,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global tilt EQ",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
+            notes:
+              "Flat. The cab's 5800 Hz cut has already handled the brightness of a P-90-based bridge pickup; use this only if your IR is fizzier than a Greenback.",
+          },
+        ],
+        notes:
+          "Gate -> comp -> jumped Plexi -> close-miked Greenback 4x12 -> chorus (off) -> near-silent delay -> short room -> flat tilt. The one thing to resist is adding a treble booster in front. Iommi spent a decade needing one and this album is the record where he stopped -- putting one back gives you Paranoid, not Neon Knights.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -62, Decay: 22 }, notes: "Gentle -- a boosterless modified Plexi is quieter than the old Iommi rig, and a hard gate would clip the ends off the staccato riff." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -26, Ratio: 2.5, Attack: 5, Release: 140, Mix: 35, Level: 0 }, notes: "Fast attack, short release, partial blend -- evens a stream of down-picked eighths without softening the transient that makes the gallop." },
+          { position: 3, block_name: "Plexi 100 Jump", block_category: "Amp", original_gear: "Marshall 1959 Super Lead (Dawk-modified)", settings: { Gain: 7.5, Bass: 4.0, Mid: 7.0, Treble: 7.0, Presence: 6.0, Master: 6.0, Sag: 4.0 }, notes: "Jumped channels stand in for Stillwell's extra gain stage. Keep Sag low -- these amps were modified for tightness, and the fast picking depends on it." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "SM57", Distance: 1.0, Position: 0.45, LowCut: 105, HighCut: 5800, Level: 0 }, notes: "A high LowCut is right here: .008-gauge strings never produced the sub-100 Hz weight modern metal patches assume." },
+          { position: 5, block_name: "Chorus", block_category: "Modulation", enabled: false, original_gear: "Chorus (album-level effect)", settings: { Rate: 0.4, Depth: 22, Mix: 22 }, notes: "DEFAULT-OFF -- listed among the album's effects but not audible on this rhythm track." },
+          { position: 6, block_name: "Digital Delay", block_category: "Delay", original_gear: "Studio delay", settings: { Time: 240, Feedback: 8, Mix: 8, Level: 0 }, notes: "One dark repeat, almost inaudible. It thickens the riff without smearing the pre-chorus sixteenths." },
+          { position: 7, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio Ferber tracking-room ambience", settings: { Decay: 0.8, Predelay: 15, Mix: 10, Level: 0 }, notes: "Short and quiet -- the dryness of this album is a deliberate production choice, not an omission." },
+          { position: 8, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 }, notes: "Flat; the cab HighCut has already dealt with the bridge pickup's brightness." },
+        ],
+        notes:
+          "Gate -> comp -> jumped Plexi -> close Greenback -> chorus (off) -> quiet delay -> short room -> flat EQ. No treble booster anywhere: that absence is what makes this a Heaven and Hell tone rather than a Paranoid one.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: false, original_gear: "No booster on the record -- optional modern tightener", settings: { Drive: 2, Bottom: 3, Tone: 6, Level: 7 }, notes: "DEFAULT-OFF, and this is the one recipe where that default is a historical statement rather than a convenience. Iommi's amps were modified specifically so he could stop using a boost; only reach for this if your Katana cannot get enough preamp gain on its own." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Marshall 1959 Super Lead (Dawk-modified)", settings: { Gain: 7.5, Volume: 6, Bass: 4, Middle: 7, Treble: 7, Presence: 6, Master: 6 }, notes: "Crunch rather than Brown. A Super Lead with one extra gain stage is still a Plexi at heart -- Brown's saturation and compression belong to a later generation of amps and would cost this riff its picking definition." },
+          { position: 3, block_name: "FX", block_category: "FX", enabled: false, original_gear: "Chorus (album-level effect)", settings: { Rate: 0.4, Depth: 2, Level: 5 }, notes: "DEFAULT-OFF chorus -- documented as being on the album but not on this rhythm track. Slow and shallow if you use it for the cleaner passages." },
+          { position: 4, block_name: "Delay", block_category: "Delay", original_gear: "Studio delay", settings: { Time: 240, Feedback: 1, EffectLevel: 8 }, notes: "A single quiet repeat used as a thickener. Push the level up and the gallop turns to porridge." },
+          { position: 5, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio Ferber tracking-room ambience", settings: { Time: 8, PreDelay: 15, Tone: 5, EffectLevel: 10 }, notes: "Short, dry room -- this album's guitars sit right up against the speaker, and that is the sound." },
+        ],
+        notes:
+          "Booster (off by design) -> Crunch with genuinely high gain -> chorus (off) -> quiet delay -> dry room. Get the gain from the amp, not from a pedal; that inversion is the entire Heaven and Hell rig change.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -62, Decay: 22 }, notes: "Slot A. Gentle -- just enough to silence string noise between the riff's stabs." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 0.012, Volume: 0 }, notes: "Slot B. Fast attack for down-picked eighths; low intensity so the pick transient survives." },
+          { position: 3, block_name: "Search Rig Exchange for 'Marshall 1959 Super Lead jumped' or 'Plexi modded'", block_category: "Profile", original_gear: "Marshall 1959 Super Lead (Dawk-modified)", settings: { Gain: 7.5, Bass: 4, Middle: 7, Treble: 7, Presence: 6 }, notes: "Look for a jumped or lightly-modded Plexi capture rather than a JCM800 -- a 2203's extra cold-clipper stage is a different circuit and gives you an eighties tone. Middle above Treble is the setting that carried over from Iommi's treble-booster years. Cab is baked into the profile." },
+          { position: 4, block_name: "Chorus", block_category: "Modulation", enabled: false, original_gear: "Chorus (album-level effect)", settings: { Rate: 0.4, Depth: 22, Mix: 22 }, notes: "MOD slot, DEFAULT-OFF -- on the album but not on this track." },
+          { position: 5, block_name: "Single Delay", block_category: "Delay", original_gear: "Studio delay", settings: { Time: 240, Feedback: 8, Mix: 8 }, notes: "DLY slot. One dark repeat, used as a thickener rather than an audible effect." },
+          { position: 6, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio Ferber tracking-room ambience", settings: { Decay: 0.8, Predelay: 15, Mix: 10 }, notes: "REV slot. Short and quiet; the record is dry by design." },
+        ],
+        notes:
+          "Gate -> comp -> jumped-Plexi profile -> chorus (off) -> quiet delay -> short room. Profile choice matters more than any knob: a Plexi with extra gain, not a JCM800, is what Stillwell actually built.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate/Expander", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -62, Ratio: 4, Release: 22 }, notes: "Gentle expansion rather than a hard gate, so the staccato riff keeps its natural decay." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -26, Ratio: 2.5, Attack: 12, Release: 140, Mix: 0.35, Level: 0 }, notes: "Fast and partial -- evens the picking hand across a stream of eighths without dulling the attack." },
+          { position: 3, block_name: "Plexi 100W Jump", block_category: "Amp", original_gear: "Marshall 1959 Super Lead (Dawk-modified)", settings: { Drive: 7.5, Bass: 4.0, Mid: 7.0, Treble: 7.0, Presence: 6.0, MV: 6.0 }, notes: "Jumped-channel Plexi for Stillwell's extra gain stage. Lower Supply Sag and raise the Master on the advanced page -- these amps were modified to be tight, which is the opposite of a stock Plexi's character." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 105, HighCut: 5800, Level: 0 }, notes: "High LowCut because .008-gauge strings never had modern low-end weight; a close mic for gallop attack." },
+          { position: 5, block_name: "Chorus", block_category: "Modulation", enabled: false, original_gear: "Chorus (album-level effect)", settings: { Rate: 0.4, Depth: 0.22, Mix: 0.22 }, notes: "DEFAULT-OFF -- documented on the album, inaudible on this rhythm track." },
+          { position: 6, block_name: "Digital Delay", block_category: "Delay", original_gear: "Studio delay", settings: { Time: 240, Feedback: 0.08, Mix: 0.08 }, notes: "One dark repeat used as a thickener; louder settings smear the pre-chorus sixteenths." },
+          { position: 7, block_name: "Room", block_category: "Reverb", original_gear: "Studio Ferber tracking-room ambience", settings: { Mix: 0.1, Decay: 0.8, Predelay: 15 }, notes: "Short and quiet -- preserving the album's dryness is part of getting the tone right." },
+          { position: 8, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Flat. The cab cut has already handled the P-90-based bridge pickup's brightness." },
+        ],
+        notes:
+          "Gate -> comp -> jumped Plexi -> close Greenback -> chorus (off) -> quiet delay -> short room -> flat tilt. Gain from the amp, tightness from low sag, and no treble booster anywhere in the chain.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Super Lead jumped' or 'Plexi modded high gain' or 'Iommi'", block_category: "Tone Model", original_gear: "Marshall 1959 Super Lead (Dawk-modified)", settings: {}, notes: "Search for a jumped or modified Plexi, not a JCM800 -- the amp on this record is a 1959 with one extra preamp stage, which is a meaningfully different circuit from a 2203's cold clipper. And do not add a treble booster in front of the capture: Iommi's amps were rebuilt specifically so he could stop using one, and putting it back gives you the Ozzy-era tone instead." },
+        ],
+        notes:
+          "Capture-driven: a jumped/modified Plexi Tone Model with the mids pushed above the treble, no boost in front, a near-silent dark delay and a short room. The absence of the booster is the defining characteristic of this tone.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Randy Rhoads - Mr. Crowley (solo) ----
+  {
+    id: "seed-rhoads-mr-crowley",
+    song_slug: "mr-crowley-ozzy-osbourne",
+    title: "Ozzy's Mr. Crowley Solo Tone",
+    slug: "rhoads-mr-crowley-solo",
+    created_at: "2026-08-05",
+    description:
+      "The outro solo that made Randy Rhoads' reputation, cut at Ridge Farm in the spring of 1980 with Max Norman engineering. The rig is a 1974 Les Paul Custom into a Marshall 1959 Super Lead run through a Variac at around 90 volts, with an MXR Distortion+ in front. The room matters as much as the amp: the cabinets lived in a stone chamber under the control room, and Rhoads played from the top of the steps into that natural reverb rather than a plate.",
+    tone_context: "solo",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Les Paul Custom (1974, cream)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge: ".009-.042",
+      notable_mods:
+        "Largely stock electronics -- the original Gibson humbuckers, which is worth stating because so much of Rhoads' catalogue is played on heavily-modified guitars. The visible modifications are cosmetic: a custom pickguard with his name on it and a brass poker chip around the selector, plus tuners believed to have been swapped for Schallers. The tone here is a stock 1970s Les Paul Custom being pushed by a pedal and a Variac'd amp, not a hot-rodded instrument. String gauge is era-typical, not documented.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "distortion",
+        gear_slug: null,
+        gear_name: "MXR Distortion+",
+        icon_type: "pedal",
+        icon_color: "#facc15",
+        is_in_effects_loop: false,
+        settings: { Output: 7, Distortion: 6 },
+        notes:
+          "Rhoads' pedals were assembled into a single resin-potted enclosure, so this was never a stomp-and-tweak arrangement -- the settings were fixed and the dynamics came from his hands. The Distortion+ is a germanium-flavoured hard-clipper with a mid hump, and that hump is why a stock Les Paul Custom sounds this vocal through it: it lifts exactly the band the melody lives in.",
+      },
+      {
+        position: 2,
+        category: "effect",
+        subcategory: "eq",
+        gear_slug: null,
+        gear_name: "MXR 10-Band Graphic EQ",
+        icon_type: "pedal",
+        icon_color: "#22d3ee",
+        is_in_effects_loop: false,
+        settings: { "500 Hz": "+3 dB", "1 kHz": "+4 dB", "2 kHz": "+2 dB", Gain: "+3 dB" },
+        notes:
+          "The block most players leave out of a Rhoads rig, and the one that makes the solo tone work. A mid-forward EQ curve plus the pedal's own output gain is a second boost stage, and it is why the lead jumps forward in the mix without the amp being turned up -- the level change is happening before the amp, not at it.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 1959 Super Lead 100W (run through a Variac at ~90V)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 5, Bass: 4, Middle: 6, Treble: 7, "Volume I": 8 },
+        notes:
+          "Dropping the mains to around 90 volts is the whole trick and it is not about volume. Starving the plate supply makes the power tubes compress and sag far earlier than they should, which turns a stiff 100-watt Plexi into an amp that blooms under a sustained note -- exactly what a slow, melodic solo needs. It also runs the amp well outside its design spec, which is why it was a studio technique rather than a touring one.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "2x Marshall 4x12",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Two cabinets rather than one, which matters more than it looks: splitting a Variac'd 100-watt head across eight speakers means each speaker is working well below its breakup point, so the distortion stays clean and pedal-shaped instead of turning into speaker grind.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 (close) plus the stone room",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close on cone, stone chamber ambience" },
+        notes:
+          "Max Norman set Randy's amps up in a stone room beneath the control room, facing the stone steps, with Randy standing at the top of those steps playing over the backing track through Tannoy monitors. That means the album's lead ambience is a real stone chamber, not an outboard reverb -- which is exactly why the solo sounds live and reflective rather than plated. The close mic itself is not documented.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1974 Gibson Les Paul Custom (cream) with stock Gibson humbuckers, custom pickguard and brass poker chip",
+      effects: [
+        "MXR Distortion+",
+        "MXR 10-Band Graphic EQ",
+        "MXR Stereo Chorus",
+        "MXR Flanger",
+        "Dunlop Cry Baby wah",
+        "Roland volume pedal",
+        "External delay units",
+        "All assembled into a single resin-potted enclosure",
+      ],
+      amp: "Marshall 1959 Super Lead 100W, run through a Variac at roughly 90V",
+      cabinet: "Two Marshall 4x12 cabinets",
+      microphone: "Shure SM57 -- inferred; the mic is undocumented, but the stone-room placement is not",
+      other_notes:
+        "Recorded at Ridge Farm Studio in Rusper, West Sussex, in the spring of 1980; Max Norman engineered and produced. Norman has described Rhoads as a perfectionist who would discard takes he had just nailed because a single intended harmonic had not sounded -- and Ozzy, by Rhoads' own account, told him everything he had recorded for this solo was wrong, which Rhoads later read as deliberate pressure to push him further. Blizzard of Ozz and Ozzy's next-guitarist album, Bark at the Moon, were both cut at Ridge Farm with Max Norman, which is part of why the two records share a room sound despite completely different players and rigs.",
+    },
+    tags: ["heavy-metal", "metal", "hard-rock", "solo", "marshall", "les-paul", "randy-rhoads", "ozzy"],
+    sources: [
+      "https://guitar.com/features/artist-rigs/gear-used-by-randy-rhoads-blizzard-of-ozz-ozzy-osbourne/",
+      "https://www.guitarworld.com/features/max-norman-randy-rhoads",
+      "https://en.wikipedia.org/wiki/Mr._Crowley",
+      "https://www.zzounds.com/lp/iconic-rigs-randy-rhoads/336",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression",
+            settings: { Threshold: -30, Ratio: 2.5, Knee: 6, Attack: 45, Release: 300, Mix: 40, Level: 0 },
+            notes:
+              "Medium attack so the pick definition on the fast descending runs survives, with enough blend to hold the long bends in the solo's opening phrases. This solo swings between legato melody and rapid classical-flavoured runs, so the comp has to serve both -- which is why it sits mid-way rather than at either extreme.",
+          },
+          {
+            position: 2,
+            block_name: "Vermin Dist",
+            block_category: "Distortion",
+            original_gear: "MXR Distortion+",
+            enabled: true,
+            settings: { Gain: 6, Tone: 6, Level: 7 },
+            notes:
+              "DEFAULT-ON, and non-negotiable -- the Vermin is Helix's Rat-family hard-clipper, the closest stock model to a Distortion+. Set the Gain around 6: high enough for singing sustain, low enough that the pedal's clipping stays audible as a distinct texture over the amp's own breakup rather than merging into a wall.",
+          },
+          {
+            position: 3,
+            block_name: "10 Band Graphic EQ",
+            block_category: "EQ",
+            original_gear: "MXR 10-Band Graphic EQ",
+            settings: { Tilt: 0.5, CenterFreq: 1000, Level: 3, "500Hz": 3, "1kHz": 4, "2kHz": 2 },
+            notes:
+              "Placed before the amp, not after, because that is where Rhoads had it -- and the placement is what makes it a boost rather than a tone control. The +3 dB output gain drives the amp harder while the mid curve aims the lead at the vocal range. Move this block after the amp and you get a mix EQ instead, which is a different and much less useful thing.",
+          },
+          {
+            position: 4,
+            block_name: "Brit Plexi Nrm",
+            block_category: "Amp",
+            original_gear: "Marshall 1959 Super Lead (Variac'd to ~90V)",
+            settings: { Drive: 8, Bass: 4, Mid: 6, Treble: 7, Presence: 5, ChVol: 6, Master: 10, Bias: 6.5, BiasX: 6, Sag: 8, Hum: 5.5, Ripple: 6 },
+            notes:
+              "Sag at 8 and Ripple at 6 are the Variac, and they are the most important numbers in this patch. Under-volting a Plexi makes the power supply collapse under load; on Helix, high Sag plus raised Ripple is how you model a starved plate supply, and it is what gives the sustained notes their bloom. Bias at 6.5 pushes the tubes hotter for the extra even-order warmth the technique produces.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Two Marshall 4x12 cabinets",
+            settings: { Mic: 0, Distance: 3, Position: 0.4, Angle: 0, LowCut: 100, HighCut: 6800, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "Three inches back, further than any other patch here. With the real rig spread across two cabinets in a stone room the mic was never hard against a grille -- pulling the virtual mic out trades a little punch for the openness the recording actually has, and the HighCut at 6800 keeps the Distortion+'s fizz in check.",
+          },
+          {
+            position: 6,
+            block_name: "Optical Trem",
+            block_category: "Modulation",
+            original_gear: "MXR Stereo Chorus",
+            enabled: false,
+            settings: { Rate: 0.5, Depth: 25, Mix: 25, Level: 0 },
+            notes:
+              "DEFAULT-OFF. The MXR chorus was in the potted board and shows up elsewhere on the album -- most obviously on cleans -- but the solo's thickness comes from double-tracking and the room, not from modulation. Engage it only if you are playing this alone and want some width.",
+          },
+          {
+            position: 7,
+            block_name: "Simple Delay",
+            block_category: "Delay",
+            original_gear: "External delay units",
+            settings: { Time: 420, Feedback: 24, Mix: 16, LowCut: 200, HighCut: 4200, Level: 0 },
+            notes:
+              "Long enough to be a repeat rather than a slap, and rolled dark at 4200 Hz so it reads as an echo behind the line instead of a second guitar competing with it. The solo's phrasing leaves space at the end of each melodic statement, which is exactly where these repeats land.",
+          },
+          {
+            position: 8,
+            block_name: "Chamber",
+            block_category: "Reverb",
+            original_gear: "Ridge Farm stone room",
+            settings: { Mix: 26, Decay: 2.2, Predelay: 25, LowCut: 160, HighCut: 7000, Level: 0 },
+            notes:
+              "A chamber, not a plate, and this is the detail most Rhoads patches get wrong. The ambience on this record is a real stone room with hard reflective steps -- a chamber algorithm reproduces that dense early-reflection character, while a plate would give you a smooth eighties tail the 1980 recording never had. Mix sits high at 26 because the room is genuinely audible on the album.",
+          },
+        ],
+        notes:
+          "Comp -> Distortion+ (on) -> 10-band EQ as a pre-amp boost -> Variac'd Plexi with Sag maxed -> distant Greenback 4x12 -> chorus (off) -> dark delay -> stone chamber. Two things distinguish this from a generic Marshall lead patch: the EQ sits before the amp as a second boost, and the reverb is a chamber because the real one was a basement full of stone.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -30, Ratio: 2.5, Attack: 10, Release: 300, Mix: 40, Level: 0 }, notes: "Mid-way settings because the solo alternates legato melody with fast classical runs -- either extreme would serve one half and hurt the other." },
+          { position: 2, block_name: "Fuzz Face Dist", block_category: "Drive", enabled: true, original_gear: "MXR Distortion+", settings: { Drive: 6.0, Tone: 6.0, Level: 7.0 }, notes: "DEFAULT-ON. Any hard-clipping Distortion+/Rat-family model works; keep the Gain around 6 so the pedal's clipping stays a distinct texture rather than merging into the amp's own." },
+          { position: 3, block_name: "Graphic EQ", block_category: "EQ", original_gear: "MXR 10-Band Graphic EQ", settings: { "500Hz": 3, "1kHz": 4, "2kHz": 2, Level: 3 }, notes: "Placed BEFORE the amp, as Rhoads had it -- the output gain makes it a second boost stage, which is the point. After the amp it becomes a mix EQ and stops doing the job." },
+          { position: 4, block_name: "Plexi 100", block_category: "Amp", original_gear: "Marshall 1959 Super Lead (Variac'd to ~90V)", settings: { Gain: 8.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 5.0, Master: 6.0, Sag: 8.0 }, notes: "Sag at 8 is the Variac. Under-volting collapses the power supply under load, and that early compression is what makes the sustained notes bloom the way they do on the record." },
+          { position: 5, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Two Marshall 4x12 cabinets", settings: { Mic: "SM57", Distance: 3.0, Position: 0.4, LowCut: 100, HighCut: 6800, Level: 0 }, notes: "Backed off to 3 inches -- the real rig was two cabs in a live stone room, never a mic jammed against one grille." },
+          { position: 6, block_name: "Chorus", block_category: "Modulation", enabled: false, original_gear: "MXR Stereo Chorus", settings: { Rate: 0.5, Depth: 25, Mix: 25 }, notes: "DEFAULT-OFF -- in the potted board and used elsewhere on the album, but the solo's width comes from the room and double-tracking." },
+          { position: 7, block_name: "Digital Delay", block_category: "Delay", original_gear: "External delay units", settings: { Time: 420, Feedback: 24, Mix: 16, Level: 0 }, notes: "Dark and long enough to be a real repeat -- it lands in the gaps the phrasing leaves rather than on top of the line." },
+          { position: 8, block_name: "Chamber Reverb", block_category: "Reverb", original_gear: "Ridge Farm stone room", settings: { Decay: 2.2, Predelay: 25, Mix: 26, Level: 0 }, notes: "Chamber, not plate. The album's lead ambience is a literal stone basement, and a chamber's dense early reflections are what reproduce it." },
+        ],
+        notes:
+          "Comp -> hard-clipper (on) -> graphic EQ BEFORE the amp -> Variac'd Plexi with high sag -> distant Greenback -> chorus (off) -> dark delay -> chamber. The pre-amp EQ placement and the chamber reverb are the two details that separate this from a generic Plexi lead.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: true, original_gear: "MXR Distortion+", settings: { Drive: 6, Bottom: 5, Tone: 6, Level: 7 }, notes: "DEFAULT-ON, and one of the few always-on boosters in the catalogue that is historically correct -- the Distortion+ was potted into a fixed enclosure and never switched off. Use the Distortion or Blues Drive voicing rather than an OD; the Distortion+ is a hard clipper, not a soft one." },
+          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Marshall 1959 Super Lead (Variac'd to ~90V)", settings: { Gain: 7, Volume: 6, Bass: 4, Middle: 6, Treble: 7, Presence: 5, Master: 6 }, notes: "Lead rather than Crunch, and this is the one place the Katana translation deliberately departs from the source amp. A Variac'd Plexi compresses and sustains far more than a stock one, and Lead's softer, more saturated character is a closer match to that behaviour than Crunch's stiff attack." },
+          { position: 3, block_name: "FX", block_category: "FX", enabled: false, original_gear: "MXR Stereo Chorus", settings: { Rate: 0.5, Depth: 3, Level: 5 }, notes: "DEFAULT-OFF chorus -- in Rhoads' board and audible elsewhere on the album, but not what gives this solo its size." },
+          { position: 4, block_name: "Delay", block_category: "Delay", original_gear: "External delay units", settings: { Time: 420, Feedback: 3, EffectLevel: 16 }, notes: "Three dark repeats landing in the gaps between melodic phrases -- the solo is written with that space in it." },
+          { position: 5, block_name: "Reverb", block_category: "Reverb", original_gear: "Ridge Farm stone room", settings: { Time: 22, PreDelay: 25, Tone: 5, EffectLevel: 26 }, notes: "The wettest reverb setting in the Ozzy-era recipes, because the ambience is real: the amps were in a stone chamber and Randy played into it from the top of the steps." },
+        ],
+        notes:
+          "Always-on hard-clipper -> Lead amp standing in for a Variac'd Plexi -> chorus (off) -> long dark delay -> a genuinely wet room. The higher reverb level is not a stylistic flourish; the record has that much natural ambience on the lead.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 4, Attack: 0.045, Volume: 0 }, notes: "Slot A. Medium attack -- fast enough for the runs, slow enough not to clamp the bends." },
+          { position: 2, block_name: "Muffin", block_category: "Drive", enabled: true, original_gear: "MXR Distortion+", settings: { Drive: 6, Tone: 6, Volume: 7 }, notes: "Stomp slot, DEFAULT-ON and historically correct -- the pedal was potted into a fixed enclosure. Any hard-clipping distortion model works; avoid soft-clipping Tube Screamer types, which give a rounder tone than a Distortion+." },
+          { position: 3, block_name: "Graphic EQ", block_category: "EQ", original_gear: "MXR 10-Band Graphic EQ", settings: { "500Hz": 3, "1kHz": 4, "2kHz": 2, Level: 3 }, notes: "Second Stomp slot, before the Profile. The output gain is what makes it a boost -- placing it in the post-Profile EQ section instead loses the input drive that lifts the solo out of the mix." },
+          { position: 4, block_name: "Search Rig Exchange for 'Marshall Super Lead Variac' or 'Plexi 1959 100W'", block_category: "Profile", original_gear: "Marshall 1959 Super Lead (Variac'd to ~90V)", settings: { Gain: 8, Bass: 4, Middle: 6, Treble: 7, Presence: 5 }, notes: "If you cannot find a Variac'd capture, take a stock Plexi profile and raise the Profile's Sag and Tube Shape parameters -- those two controls are the Kemper's route to the under-volted, early-compressing behaviour that defines this tone. Cab is baked in." },
+          { position: 5, block_name: "Chorus", block_category: "Modulation", enabled: false, original_gear: "MXR Stereo Chorus", settings: { Rate: 0.5, Depth: 25, Mix: 25 }, notes: "MOD slot, DEFAULT-OFF -- present in the board, not what makes this solo big." },
+          { position: 6, block_name: "Single Delay", block_category: "Delay", original_gear: "External delay units", settings: { Time: 420, Feedback: 24, Mix: 16 }, notes: "DLY slot. Long, dark repeats that fall into the phrasing's gaps." },
+          { position: 7, block_name: "Chamber Reverb", block_category: "Reverb", original_gear: "Ridge Farm stone room", settings: { Decay: 2.2, Predelay: 25, Mix: 26 }, notes: "REV slot. A chamber for a literal stone chamber -- the one reverb choice that is documented rather than reconstructed." },
+        ],
+        notes:
+          "Comp -> hard-clipper (on) -> graphic EQ boost -> Plexi profile with Sag raised -> chorus (off) -> dark delay -> chamber. If the profile will not bloom on a sustained note, raise Sag before you touch the gain.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -30, Ratio: 2.5, Attack: 45, Release: 300, Mix: 0.4, Level: 0 }, notes: "Balanced between the solo's two modes -- sustained melody and fast descending runs -- rather than optimised for either." },
+          { position: 2, block_name: "MXR Dist+", block_category: "Drive", enabled: true, original_gear: "MXR Distortion+", settings: { Drive: 6.0, Tone: 6.0, Level: 7.0 }, notes: "DEFAULT-ON. Fractal models the actual pedal, so this is the closest any platform gets to the source. Keep the Drive near 6 -- pushed further, the pedal's clipping stops being audible as its own texture." },
+          { position: 3, block_name: "Graphic EQ", block_category: "EQ", original_gear: "MXR 10-Band Graphic EQ", settings: { "500Hz": 3, "1kHz": 4, "2kHz": 2, Level: 3 }, notes: "Before the amp block, where Rhoads had it. The +3 dB output is a second boost stage into the Plexi's input; that is the mechanism, not the EQ curve on its own." },
+          { position: 4, block_name: "Plexi 100W Normal", block_category: "Amp", original_gear: "Marshall 1959 Super Lead (Variac'd to ~90V)", settings: { Drive: 8.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 5.0, MV: 6.0 }, notes: "Fractal is the one platform that models this directly: drop the B+ Supply / Variac parameter on the advanced power-amp page to around 90 percent rather than faking it with Sag. That single control does what the real Variac did, and everything else in the patch follows from it." },
+          { position: 5, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Two Marshall 4x12 cabinets", settings: { Mic: "57 Dynamic", Distance: 3.0, LowCut: 100, HighCut: 6800, Level: 0 }, notes: "Three inches out, because the real capture was two cabs breathing in a live stone room rather than one mic against a grille." },
+          { position: 6, block_name: "Chorus", block_category: "Modulation", enabled: false, original_gear: "MXR Stereo Chorus", settings: { Rate: 0.5, Depth: 0.25, Mix: 0.25 }, notes: "DEFAULT-OFF -- in the board, but the solo's size comes from the room and the double-tracking." },
+          { position: 7, block_name: "Digital Delay", block_category: "Delay", original_gear: "External delay units", settings: { Time: 420, Feedback: 0.24, Mix: 0.16 }, notes: "Long dark repeats sitting in the gaps between phrases rather than under them." },
+          { position: 8, block_name: "Chamber", block_category: "Reverb", original_gear: "Ridge Farm stone room", settings: { Mix: 0.26, Decay: 2.2, Predelay: 25 }, notes: "A chamber for a real stone chamber. Raise the early-reflection level if your model exposes it -- hard stone steps are almost all early reflections." },
+        ],
+        notes:
+          "Comp -> Dist+ (on) -> graphic EQ before the amp -> Plexi with the Variac parameter dropped to ~90 percent -> distant Greenback -> chorus (off) -> dark delay -> chamber. Fractal can model the under-volting literally, so use the B+ control rather than approximating it with sag.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Marshall Super Lead Variac' or 'Plexi 1959 100W' or 'Randy Rhoads'", block_category: "Tone Model", original_gear: "Marshall 1959 Super Lead (Variac'd to ~90V)", settings: {}, notes: "Look specifically for captures that mention a Variac or under-volting -- a stock Plexi capture will be too stiff and will not bloom on the long notes. If you can only find a stock one, put a hard-clipping Distortion+ style pedal and a mid-boosting graphic EQ in front, in that order, and accept that the compression will be pedal-shaped rather than power-supply-shaped." },
+        ],
+        notes:
+          "Capture-driven: a Variac'd Plexi Tone Model with a Distortion+ and a mid-forward graphic EQ in front, a long dark delay, and a chamber reverb standing in for Ridge Farm's stone basement. The under-volted power supply is the character to chase; everything else is easy to approximate.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Jake E. Lee - Bark at the Moon (riff) ----
+  {
+    id: "seed-jake-e-lee-bark-at-the-moon",
+    song_slug: "bark-at-the-moon-ozzy-osbourne",
+    title: "Ozzy's Bark at the Moon Riff Tone",
+    slug: "jake-e-lee-bark-at-the-moon-riff",
+    created_at: "2026-08-05",
+    description:
+      "The riff that had to follow Randy Rhoads, played on a rig that shares almost nothing with his. Jake E. Lee cut it at Ridge Farm in 1983 on his blue-burst Charvel San Dimas -- a Seymour Duncan JB in the bridge, DiMarzio SDS-1 single-coils elsewhere -- through a Jose Arredondo-modified Marshall he carried over from California. Where Rhoads got his sustain from an under-volted Plexi, Lee got his from a cascading-gain mod, which is why the riff is tighter and more percussive than anything on Blizzard of Ozz.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Charvel San Dimas Style 1 (blue burst)",
+      pickup_config: "HSS",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: ".009-.042",
+      notable_mods:
+        "A parts-built superstrat rather than a production model: Seymour Duncan JB with an Alnico II magnet in the bridge -- the softer magnet is the detail, since a stock JB's Alnico V would have made this riff harsher -- plus DiMarzio SDS-1 single-coils in the middle and neck and a locking tremolo. The 25.5-inch bolt-on scale is doing real work here: it is why the riff's low open notes stay tight and defined where a 24.75-inch Gibson would bloom, and it is the clearest sonic difference between this record and the Rhoads albums.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 100W (1977, modified by Jose Arredondo)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 6, Bass: 4, Middle: 5, Treble: 7, "Preamp Volume": 8, Master: 5 },
+        notes:
+          "Lee has said he took a Jose-modded Marshall with him to England and that is what he recorded the album with. Jose Arredondo's mods added cascading preamp gain and a master volume to Marshall heads for the LA session scene, which means the amp makes its own saturation at manageable levels -- no Variac, no boost pedal, no treble booster. That is why the riff sounds like an eighties record and the Rhoads albums sound like seventies ones.",
+      },
+      {
+        position: 2,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12 (Celestion-loaded)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Era-typical rather than documented for these sessions. The Celestion rolloff matters more with a JB than with a PAF-style pickup -- the JB is a bright, aggressive humbucker, and without the speaker taming its top the modded amp's extra gain stage would turn the riff brittle.",
+      },
+      {
+        position: 3,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, on cone edge" },
+        notes:
+          "Not documented per track. A close 57 on the cone edge is the reconstruction that matches the record's aggressive, forward rhythm sound -- and it is consistent with the same room and the same engineer that handled Blizzard of Ozz three years earlier.",
+      },
+      {
+        position: 4,
+        category: "effect",
+        subcategory: "modulation",
+        gear_slug: null,
+        gear_name: "Ibanez SF10 Swell Flanger",
+        icon_type: "pedal",
+        icon_color: "#8b5cf6",
+        is_in_effects_loop: false,
+        settings: { Speed: 3, Width: 5, Regen: 4, Delay: 4 },
+        notes:
+          "Documented on the guitar solo rather than the main riff, which is why it sits here as a section effect rather than a chain-wide one. The SF10's swell function sweeps the flange in response to picking dynamics, so it moves with the phrasing instead of cycling against it -- worth knowing before you try to reproduce it with a plain LFO flanger.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Blue-burst Charvel San Dimas Style 1 with a Seymour Duncan JB (Alnico II) bridge humbucker and DiMarzio SDS-1 single-coils in the middle and neck",
+      effects: ["Ibanez SF10 Swell Flanger (documented on the solo)"],
+      amp: "1977 Marshall 100W head modified by Jose Arredondo (cascading gain)",
+      cabinet: "Marshall 4x12 (Celestion-loaded) -- era-typical, not documented for these sessions",
+      microphone: "Shure SM57 -- inferred; the session capture is not documented",
+      other_notes:
+        "Recorded 1983 at Ridge Farm Studio, Rusper, West Sussex, produced by Max Norman with Ozzy Osbourne and Bob Daisley; most tracks mixed by Tony Bongiovi at the Power Station in New York, with two mixed by Malcolm Pollack. The same studio and the same engineer as Blizzard of Ozz, which makes the tonal contrast unusually clean to hear -- the room and the production team are constant and only the guitarist and his rig changed. Lee did not receive a songwriting credit on the album, a decision he has since discussed publicly. The blue-burst Charvel stayed his main instrument through the Bark at the Moon and Ultimate Sin years and is the guitar Charvel later reissued as his signature model.",
+    },
+    tags: ["heavy-metal", "metal", "hard-rock", "riff", "marshall", "superstrat", "charvel", "ozzy"],
+    sources: [
+      "https://guitar.com/news/gear-news/charvel-jake-e-lee-blue-burst-pro-mod-san-dimas/",
+      "https://www.charvel.com/features/jake-e-lee",
+      "https://riffology.co/2024/09/30/the-making-of-bark-at-the-moon-by-ozzy-osbourne/",
+      "https://en.wikipedia.org/wiki/Bark_at_the_Moon",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Noise Gate",
+            block_category: "Dynamics",
+            original_gear: "Gain-structure housekeeping",
+            settings: { Threshold: -58, Decay: 18 },
+            notes:
+              "A cascading-gain mod is noisier than a stock Plexi, and the riff is full of short rests that a hissing amp would fill. Set the decay short at 18 so the gate closes cleanly between the staccato figures rather than letting them bleed together.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression",
+            settings: { Threshold: -24, Ratio: 2.5, Knee: 4, Attack: 15, Release: 130, Mix: 30, Level: 0 },
+            notes:
+              "Light and fast. This riff is played with an aggressive picking hand and a lot of muted attack, so the comp is only levelling the swing between muted and open notes -- push the Mix past about 40 and the percussive quality that defines the track starts to disappear.",
+          },
+          {
+            position: 3,
+            block_name: "Brit 2204",
+            block_category: "Amp",
+            original_gear: "Marshall 100W (Jose Arredondo mod)",
+            settings: { Drive: 7.5, Bass: 4, Mid: 5, Treble: 7, Presence: 6, ChVol: 5, Master: 10, Bias: 5, BiasX: 5, Sag: 3.5, Hum: 4, Ripple: 4 },
+            notes:
+              "The 2204 is the closest stock Helix model to a Jose-modded Marshall -- both are master-volume Marshalls with cascaded preamp gain, which is exactly what Arredondo built. Sag drops to 3.5, the lowest in this batch, and it is the deliberate opposite of the Rhoads patch: no Variac here, so the amp should feel stiff and immediate rather than blooming.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 (Celestion-loaded)",
+            settings: { Mic: 0, Distance: 1, Position: 0.5, Angle: 0, LowCut: 95, HighCut: 5500, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "Dead centre and hard against the grille, which is the most aggressive mic position in this batch and the right one for a JB. HighCut at 5500 is doing necessary work: a bright Alnico II JB through a cascaded-gain amp has more upper-mid energy than any of the humbucker rigs in this set.",
+          },
+          {
+            position: 5,
+            block_name: "Deluxe Flange",
+            block_category: "Modulation",
+            original_gear: "Ibanez SF10 Swell Flanger",
+            enabled: false,
+            settings: { Rate: 0.3, Depth: 45, Mix: 35, Level: 0 },
+            notes:
+              "DEFAULT-OFF, because the flanger is documented on the solo and not on the riff. Slow rate and a deep sweep get you close to the SF10's character -- but the pedal's swell function was dynamics-triggered, so if your unit offers an envelope mode use it rather than a free-running LFO.",
+          },
+          {
+            position: 6,
+            block_name: "Simple Delay",
+            block_category: "Delay",
+            original_gear: "Studio delay",
+            settings: { Time: 280, Feedback: 10, Mix: 9, LowCut: 240, HighCut: 4000, Level: 0 },
+            notes:
+              "Set almost to inaudible. Bark at the Moon is a dry, punchy eighties mix and the guitar's size comes from double-tracking rather than time-based effects -- this block exists to add a hair of depth, not an audible repeat.",
+          },
+          {
+            position: 7,
+            block_name: "Room",
+            block_category: "Reverb",
+            original_gear: "Ridge Farm tracking ambience",
+            settings: { Mix: 13, Decay: 1, Predelay: 18, LowCut: 190, HighCut: 6800, Level: 0 },
+            notes:
+              "Far drier than the Mr. Crowley patch even though it is the same building, and that is a production difference rather than a room one -- by 1983 Ozzy's records were being mixed tight and close in New York, so the stone-chamber wash that defines the 1980 lead tone is gone.",
+          },
+          {
+            position: 8,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global tilt EQ",
+            settings: { Tilt: 0.5, CenterFreq: 1100, Level: 0 },
+            notes:
+              "Flat, pivoting a little higher than usual so any adjustment you make lands in the upper mids where the JB is loudest. The cab's 5500 Hz cut has already done the heavy lifting.",
+          },
+        ],
+        notes:
+          "Gate -> light comp -> 2204 standing in for the Jose mod -> tight close-miked Greenback -> flanger (off, solo only) -> near-silent delay -> short dry room -> flat tilt. The whole patch is built around stiffness: low sag, close mic, minimal ambience. It is the deliberate opposite of the Variac'd Rhoads tone recorded in the same studio three years earlier.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -58, Decay: 18 }, notes: "Short decay so the gate closes between the riff's staccato figures -- a cascading-gain mod hisses more than a stock Marshall." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -24, Ratio: 2.5, Attack: 6, Release: 130, Mix: 30, Level: 0 }, notes: "Light blend -- the riff's identity is in the swing between muted and open notes, and heavy compression erases exactly that." },
+          { position: 3, block_name: "Brit 2204", block_category: "Amp", original_gear: "Marshall 100W (Jose Arredondo mod)", settings: { Gain: 7.5, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, Master: 5.0, Sag: 3.5 }, notes: "A master-volume Marshall with cascaded gain is the right family for a Jose mod. Keep Sag low: this amp should feel immediate and stiff, not spongy." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "SM57", Distance: 1.0, Position: 0.5, LowCut: 95, HighCut: 5500, Level: 0 }, notes: "Dead centre and close for maximum attack; the low HighCut tames a bright JB through a high-gain amp." },
+          { position: 5, block_name: "Flanger", block_category: "Modulation", enabled: false, original_gear: "Ibanez SF10 Swell Flanger", settings: { Rate: 0.3, Depth: 45, Mix: 35 }, notes: "DEFAULT-OFF -- documented on the solo, not the riff. Use an envelope-triggered mode if available; the SF10's sweep responded to picking." },
+          { position: 6, block_name: "Digital Delay", block_category: "Delay", original_gear: "Studio delay", settings: { Time: 280, Feedback: 10, Mix: 9, Level: 0 }, notes: "Almost inaudible. The record's size comes from double-tracking, not from delay." },
+          { position: 7, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Ridge Farm tracking ambience", settings: { Decay: 1.0, Predelay: 18, Mix: 13, Level: 0 }, notes: "Short and dry -- a 1983 New York mix, not the 1980 stone-room sound from the same studio." },
+          { position: 8, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 5.0, CenterFreq: 1100, Level: 0 }, notes: "Flat, pivoting high so any tweak lands in the upper mids where the JB dominates." },
+        ],
+        notes:
+          "Gate -> light comp -> master-volume Marshall -> close centred Greenback -> flanger (off) -> near-silent delay -> dry room -> flat EQ. Stiff and percussive by design.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: false, original_gear: "No boost on the record -- optional tightener", settings: { Drive: 2, Bottom: 3, Tone: 6, Level: 7 }, notes: "DEFAULT-OFF. There was no boost pedal in front of the Jose-modded head; the mod supplied all the gain. Only engage this if your Katana cannot reach the saturation on its own, and keep the Bottom low so the riff stays tight." },
+          { position: 2, block_name: "Brown", block_category: "Amp Type", original_gear: "Marshall 100W (Jose Arredondo mod)", settings: { Gain: 7, Volume: 5, Bass: 4, Middle: 5, Treble: 7, Presence: 6, Master: 5 }, notes: "Brown rather than Crunch -- and unlike the Iommi and Blackmore recipes, that is correct here. Brown models a hot-rodded, cascaded-gain Marshall, which is precisely what Jose Arredondo built for the LA session scene in the early eighties." },
+          { position: 3, block_name: "FX", block_category: "FX", enabled: false, original_gear: "Ibanez SF10 Swell Flanger", settings: { Rate: 0.3, Depth: 5, Level: 6 }, notes: "DEFAULT-OFF flanger for the solo section. Slow and deep; the Katana's flanger is LFO-driven, so it will cycle rather than swell with your picking." },
+          { position: 4, block_name: "Delay", block_category: "Delay", original_gear: "Studio delay", settings: { Time: 280, Feedback: 1, EffectLevel: 9 }, notes: "One barely-audible repeat used for depth only -- this is a dry, close eighties mix." },
+          { position: 5, block_name: "Reverb", block_category: "Reverb", original_gear: "Ridge Farm tracking ambience", settings: { Time: 10, PreDelay: 18, Tone: 5, EffectLevel: 13 }, notes: "Short room. Keep it dry: the punch of this track comes from the absence of ambience around the guitars." },
+        ],
+        notes:
+          "Booster (off) -> Brown -> flanger (off, solo only) -> near-silent delay -> dry room. This is one of the few recipes where Brown is the historically correct amp character rather than a modern substitution.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -58, Decay: 18 }, notes: "Slot A. Short decay so the gate tracks the riff's staccato phrasing." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 0.015, Volume: 0 }, notes: "Slot B. Light -- the muted-to-open dynamic swing is the riff, so do not flatten it." },
+          { position: 3, block_name: "Search Rig Exchange for 'Jose Marshall' or 'Marshall Jose mod' or 'Cameron/Jose 2204'", block_category: "Profile", original_gear: "Marshall 100W (Jose Arredondo mod)", settings: { Gain: 7.5, Bass: 4, Middle: 5, Treble: 7, Presence: 6 }, notes: "Jose-modded Marshalls are a well-represented capture family on the Rig Exchange precisely because of this era of records, so search the modder's name before you settle for a stock Plexi. If you end up on a stock capture, lower its Sag and Tube Shape -- the mod's character is tightness, not bloom. Cab is baked in." },
+          { position: 4, block_name: "Flanger", block_category: "Modulation", enabled: false, original_gear: "Ibanez SF10 Swell Flanger", settings: { Rate: 0.3, Depth: 45, Mix: 35 }, notes: "MOD slot, DEFAULT-OFF -- solo section only." },
+          { position: 5, block_name: "Single Delay", block_category: "Delay", original_gear: "Studio delay", settings: { Time: 280, Feedback: 10, Mix: 9 }, notes: "DLY slot. Near-inaudible depth rather than an audible repeat." },
+          { position: 6, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Ridge Farm tracking ambience", settings: { Decay: 1.0, Predelay: 18, Mix: 13 }, notes: "REV slot. Short and dry, matching the tight 1983 mix rather than the studio's natural stone ambience." },
+        ],
+        notes:
+          "Gate -> light comp -> Jose-modded Marshall profile -> flanger (off) -> quiet delay -> dry room. Searching for the modder by name is the single highest-value move here; generic Plexi captures will not have the mod's cascaded tightness.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate/Expander", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -58, Ratio: 6, Release: 18 }, notes: "Firmer ratio than the Sabbath patch -- a cascading-gain mod puts out more hiss between notes than a jumped Plexi does." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -24, Ratio: 2.5, Attack: 15, Release: 130, Mix: 0.3, Level: 0 }, notes: "Light blend so the muted-versus-open dynamic that carries the riff stays intact." },
+          { position: 3, block_name: "Cameron Ch2", block_category: "Amp", original_gear: "Marshall 100W (Jose Arredondo mod)", settings: { Drive: 7.5, Bass: 4.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, MV: 5.0 }, notes: "The Cameron models descend from the same Jose Arredondo lineage of hot-rodded Marshalls, which makes them a closer match than any stock Plexi or 2203 model. If you prefer a plainer starting point, Brit Super/2204 with the input trim raised gets most of the way there." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 95, HighCut: 5500, Level: 0 }, notes: "Close and centred for attack; the 5500 Hz cut keeps a bright JB from turning brittle through a cascaded-gain preamp." },
+          { position: 5, block_name: "Flanger", block_category: "Modulation", enabled: false, original_gear: "Ibanez SF10 Swell Flanger", settings: { Rate: 0.3, Depth: 0.45, Mix: 0.35 }, notes: "DEFAULT-OFF -- solo only. Set the LFO to envelope-follow if your firmware allows; the SF10 swelled with picking dynamics rather than cycling." },
+          { position: 6, block_name: "Digital Delay", block_category: "Delay", original_gear: "Studio delay", settings: { Time: 280, Feedback: 0.1, Mix: 0.09 }, notes: "Depth only, not an audible repeat -- the record is dry and the width comes from double-tracking." },
+          { position: 7, block_name: "Room", block_category: "Reverb", original_gear: "Ridge Farm tracking ambience", settings: { Mix: 0.13, Decay: 1.0, Predelay: 18 }, notes: "Short and dry. Same studio as Blizzard of Ozz, completely different production era -- this mix keeps the guitars close." },
+          { position: 8, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 0.5, CenterFreq: 1100, Level: 0 }, notes: "Flat, pivoting a little high so any adjustment lands in the upper mids where the JB is loudest. The cab's 5500 Hz cut has already done the work." },
+        ],
+        notes:
+          "Gate -> light comp -> Cameron/Jose-lineage Marshall -> close Greenback -> flanger (off) -> near-silent delay -> dry room -> flat tilt. Pick the amp model by modder lineage rather than by badge and the rest of the patch falls into place.",
+      },
+      tonex: {
+        chain_blocks: [
+          { position: 1, block_name: "Search ToneNET for 'Jose Marshall' or 'Marshall Jose mod' or 'hot rodded Marshall 100W'", block_category: "Tone Model", original_gear: "Marshall 100W (Jose Arredondo mod)", settings: {}, notes: "Search the modder's name rather than the amp's -- a stock Marshall capture will not have the cascaded preamp gain, and adding a boost pedal in front to compensate gives you a looser, more mid-humped tone than the record has. If only a stock capture is available, pick the tightest, most master-volume-flavoured one you can find and leave the front end empty." },
+        ],
+        notes:
+          "Capture-driven: a Jose-modded or otherwise hot-rodded master-volume Marshall Tone Model with nothing in front of it, a near-silent delay and a short dry room. The defining quality is stiffness -- if the capture blooms and sustains like a Variac'd Plexi, it is the wrong one for this riff.",
       },
     },
     is_editorial: true,

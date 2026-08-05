@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-08-03
-**Recipes:** 200
-**Clean (no errors, no warns):** 200
+**Date:** 2026-08-05
+**Recipes:** 205
+**Clean (no errors, no warns):** 205
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,7 +16,7 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 26 / 200 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `katana-kemper-multidrive-default-off` | info | 27 / 205 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -70,6 +70,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `blackmore-gates-of-babylon-solo` — ✓ clean
+
+*Rainbow's Gates of Babylon Solo Tone*
+
+Passes every rule.
+
 ### `blackmore-kill-the-king-riff` — ✓ clean
 
 *Rainbow's Kill the King Riff Tone*
@@ -97,6 +103,12 @@ Passes every rule.
 ### `brian-may-bohemian-rhapsody` — ✓ clean
 
 *Brian May's Bohemian Rhapsody Guitar Tone*
+
+Passes every rule.
+
+### `campbell-dont-talk-to-strangers-clean` — ✓ clean
+
+*Dio's Don't Talk to Strangers Clean Intro Tone*
 
 Passes every rule.
 
@@ -556,9 +568,21 @@ Passes every rule.
 
 Passes every rule.
 
+### `iommi-neon-knights-riff` — ✓ clean
+
+*Black Sabbath's Neon Knights Riff Tone*
+
+Passes every rule.
+
 ### `jack-white-seven-nation-army` — ✓ clean
 
 *Jack White's Seven Nation Army Lo-Fi Riff Tone*
+
+Passes every rule.
+
+### `jake-e-lee-bark-at-the-moon-riff` — ✓ clean
+
+*Ozzy's Bark at the Moon Riff Tone*
 
 Passes every rule.
 
@@ -985,6 +1009,12 @@ Passes every rule.
 ### `rhoads-crazy-train-lead` — ✓ clean
 
 *Randy Rhoads' Crazy Train Lead Tone*
+
+Passes every rule.
+
+### `rhoads-mr-crowley-solo` — ✓ clean
+
+*Ozzy's Mr. Crowley Solo Tone*
 
 Passes every rule.
 
