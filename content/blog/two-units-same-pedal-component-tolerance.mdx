@@ -1,0 +1,209 @@
+---
+title: >-
+  Two of the Same Pedal, Two Different Sounds: What Component Tolerance Actually
+  Costs
+description: >-
+  Same circuit, same board, same year, and one unit sounds better. Here is which
+  parts actually move, how far, and why germanium fuzz varies wildly while an
+  op-amp overdrive barely moves at all.
+date: '2026-08-07'
+author_slug: rick-dalton
+category: gear-lab
+tags:
+  - component-tolerance
+  - analog-pedals
+  - fuzz-face
+  - germanium
+  - tube-screamer
+  - pedal-circuits
+  - buying-used
+takeaways:
+  - >-
+    Two units of the same pedal are never electrically identical, but the parts
+    people blame are rarely the parts that moved. Resistors and film capacitors
+    are tight enough that their contribution is usually inaudible.
+  - >-
+    The potentiometer is the biggest single offender, because a plus-or-minus 20
+    percent part with a different taper breakpoint puts a different resistance
+    in the circuit at the same knob position.
+  - >-
+    An op-amp overdrive barely varies because feedback sets its gain by a ratio
+    of two resistors, and two resistors off the same reel drift the same
+    direction together.
+  - >-
+    Germanium fuzz is the extreme case. Transistor gain in an unsorted batch can
+    run from about 50 to 150, and leakage current changes with room temperature,
+    so the same unit is not the same unit in a hot club.
+  - >-
+    Before you decide one unit is better, match output level by ear rather than
+    by knob position. Most reported differences between two units survive a
+    knob-matched test and vanish in a level-matched one.
+faq:
+  - q: Why do two of the same guitar pedal sound different?
+    a: >-
+      Every part in the circuit is manufactured to a tolerance band rather than
+      an exact value, so two units built from the same design land on slightly
+      different component values. The audible ones are potentiometers, which
+      commonly run plus-or-minus 10 to 20 percent with taper variation on top,
+      and transistors, whose gain can vary by a factor of two or three. Resistor
+      and film capacitor spread is usually too small to hear.
+  - q: Are all Tube Screamers the same?
+    a: >-
+      Electrically, two units of the same TS revision are close, because the
+      gain is set by a resistor ratio and both resistors come off the same reel
+      and drift together. The midrange emphasis around 720 Hz can move by
+      roughly 10 percent unit to unit from the resistor-capacitor filter spread,
+      which is measurable and marginal to hear. Different revisions (TS808
+      versus TS9) differ far more than two units of one revision.
+  - q: Which pedal components vary the most between units?
+    a: >-
+      Potentiometers and transistors, in that order for most pedals. Pots are
+      typically plus-or-minus 20 percent, and the audio taper is approximated
+      with a two-segment track whose breakpoint shifts, so the same rotation is
+      a different resistance. Germanium transistors are the worst case in the
+      whole box, with gain spread of 3 to 1 and temperature-dependent leakage.
+  - q: Should I buy a used pedal in person to test the specific unit?
+    a: >-
+      For a germanium fuzz, yes, and bring the amp you actually use. For a
+      modern op-amp overdrive, distortion, or a digital delay, no. Those are
+      consistent enough that testing one unit against another tells you more
+      about the batteries in them than about the circuits.
+  - q: >-
+      Does component tolerance mean expensive boutique pedals are more
+      consistent?
+    a: >-
+      Sometimes, and for a specific reason: a builder who hand-selects
+      transistors, uses 1 percent metal film resistors, and measures each pot is
+      buying consistency with labor, not with better physics. That is worth
+      paying for on a germanium circuit where selection genuinely decides the
+      outcome. On a silicon op-amp overdrive you are paying for consistency the
+      circuit already had.
+  - q: Do modelers have unit-to-unit variation?
+    a: >-
+      No. A digital model of a pedal runs the same math on every unit, so two
+      copies of the same preset on two Helix units are bit-identical. That is a
+      real advantage when you need a backup rig that matches, and it is also the
+      honest source of the complaint that modeled drives feel less alive than
+      the box they came from.
+image: /images/blog/two-units-same-pedal-component-tolerance.jpg
+image_alt: >-
+  Two identical overdrive pedals side by side on a workbench with the backplates
+  removed, showing their circuit boards and potentiometers
+---
+
+> **The short version:** Two units of the same analog pedal are never electrically identical, but the parts guitarists blame are almost never the parts that moved. Resistors and film capacitors are tight. Potentiometers are loose, at plus-or-minus 10 to 20 percent with taper variation stacked on top, which means the same knob position is a different setting on the two units. Transistors are looser still, and germanium transistors are in a category of their own. An op-amp overdrive is consistent because feedback sets its gain by a ratio. A germanium fuzz is inconsistent because nothing in it is set by a ratio.
+
+Somebody on a forum has two TS9s and swears one is better. Somebody at a shop has played four Fuzz Faces and only one of them was any good. Both of those people are probably telling the truth. They are just wrong about why.
+
+Here is what actually varies inside a pedal, how far it varies, and which of it you can hear.
+
+## What Every Part Is Allowed to Be
+
+Nothing in a pedal is manufactured to an exact value. Every part is made to a tolerance band, and the price of the part is mostly the price of narrowing that band.
+
+| Part | Typical tolerance | Does it move the sound? |
+|---|---|---|
+| Metal film resistor | ±1% | No |
+| Carbon film resistor | ±5% | Rarely, and never alone |
+| Film capacitor (polyester, polypropylene) | ±5% to ±10% | Slightly — shifts filter corners |
+| Ceramic C0G / NP0 | ±5% | No |
+| Ceramic X7R | ±10% | Slightly |
+| Aluminum electrolytic | ±20%, older parts wider | Only in the power and coupling paths, and mostly as noise |
+| Clipping diode (1N4148 and similar) | Forward voltage varies by tens of millivolts | A little — moves the clipping threshold and the asymmetry |
+| **Potentiometer** | **±10% good, ±20% typical, plus taper deviation** | **Yes. More than anything else in the box.** |
+| Silicon transistor | Gain spread of 3 to 1 within one grade | Depends entirely on the circuit |
+| **Germanium transistor** | **Gain roughly 50 to 150 unsorted, plus leakage that tracks temperature** | **Yes, and it is not subtle** |
+
+Read that table and the folklore starts to look backwards. The parts that get argued about on forums — capacitor brand, resistor type, whether the electrolytics are the good ones — sit in the top half, where the numbers are small. The parts nobody mentions sit at the bottom.
+
+## Why an Op-Amp Overdrive Barely Moves
+
+This is the part that surprises people, so it goes first.
+
+A Tube Screamer-style overdrive sets its gain with a feedback network. The op-amp does not decide the gain. Two resistors and the drive pot decide the gain, and the op-amp just does what the feedback tells it. That is the whole point of feedback.
+
+Now here is why that matters for tolerance. Gain is set by a *ratio* of two resistors. Two resistors pulled off the same reel on the same day were made in the same run, from the same material, with the same drift. If one is 2 percent high, the other is usually 2 percent high too. A ratio of two numbers that both moved the same direction is almost unchanged.
+
+So the JRC4558 argument is mostly noise. Swap the chip and the closed-loop gain does not move, because the closed-loop gain was never the chip's decision. What does move between units is the filter corners, because those are set by a resistor times a capacitor, and R and C are independent parts with independent spread. A ±5% resistor and a ±10% capacitor can put a corner about 11 percent off nominal on a realistic stack-up.
+
+On a Tube Screamer, the midrange emphasis sits around 720 Hz. Eleven percent of 720 Hz is about 80 Hz. That is a real shift and it is measurable. On a broad, gentle hump it is also right at the edge of what you can hear in a blind test, which is a different statement from "inaudible" and a very different statement from "one of these is better."
+
+Same logic applies to a RAT, a Blues Driver, most modern distortions, and every digital delay. Consistent by design. See [overdrive vs. distortion vs. fuzz](/blog/overdrive-vs-distortion-vs-fuzz) for what separates those circuits in the first place.
+
+## Why Germanium Fuzz Is the Opposite
+
+A Fuzz Face has two transistors and almost nothing else. There is no feedback loop setting the operating point by a ratio. The bias is set by resistors against the transistor's own gain and its own leakage current, and both of those are properties of the specific piece of germanium in your pedal.
+
+Unsorted germanium transistors come out of a batch with gain anywhere from roughly 50 to 150. That is not a tolerance band. That is a lottery. Builders who care measure every transistor and select pairs — a lower-gain part in the first position, a higher-gain part in the second — which is exactly why a hand-built germanium fuzz costs what it costs. You are paying for somebody to sort a bag of parts.
+
+Then there is leakage. Germanium leaks current in a way silicon does not, and the leakage rises with temperature. That means the bias point of a germanium fuzz drifts as the room warms up. A fuzz that cleans up beautifully off your guitar volume knob in a cold garage at noon can go woolly and gated in a hot club at eleven at night. Same unit. Different afternoon.
+
+Silicon fuzz sits between the two poles. Silicon transistor gain still varies by a factor of three within a grade, and the Fuzz Face topology is still sensitive to it, but silicon does not leak and does not chase the temperature. Two silicon Fuzz Faces can sound genuinely different. Neither one changes its mind mid-gig.
+
+## The Part Nobody Blames
+
+I went into this expecting the capacitors to be the story. That is the folklore, and folklore usually has something in it.
+
+It was not the capacitors. Set two TS-style pedals to matched knob positions and the filter corners land within a few percent of each other — audible in principle, hard to pick out in practice. The gap was somewhere else entirely.
+
+It was the knobs.
+
+A potentiometer is typically a ±20% part. Worse, the audio taper you feel when you turn it is not a real logarithmic curve. It is a two-segment straight-line approximation that bends somewhere in the middle of the rotation, and that bend point moves from part to part. So on unit A, "noon" is one resistance. On unit B, "noon" is a different resistance, and it is not off by a hair.
+
+Which means the entire way we compare two pedals is broken. Set both to noon, flip between them, decide one is louder and hotter and better. What you have actually done is compare two different settings and credit the difference to the circuit.
+
+Level-match the two units by ear instead — get them to the same perceived loudness with the amp doing the deciding, never mind where the knobs end up — and most of the reported difference goes away. Not all of it. Most of it. The knob position is not a setting. It is a guess about a setting.
+
+This is also why "my drive is at 10 o'clock and yours should be too" is bad advice, and always has been. Two people with the same pedal are not at the same place on the dial.
+
+## Which Pedals Actually Vary
+
+| Circuit type | Unit-to-unit variation | What causes it |
+|---|---|---|
+| Germanium fuzz (Fuzz Face, Tone Bender) | Very high | Transistor gain spread, leakage, temperature |
+| Silicon fuzz | Moderate to high | Transistor gain spread, no thermal drift |
+| Op-amp overdrive (TS, Blues Driver, RAT) | Low | Filter corners only; gain is ratio-set |
+| Op-amp distortion with lots of filtering | Low to moderate | More filter stages, more corners to stack |
+| Analog BBD delay and chorus | Moderate | Bucket-brigade chip spread, bias trimmer setting |
+| Digital anything | None | Same code on every unit |
+
+The bucket-brigade line is worth a note. Analog delays and choruses have a bias trimmer inside them, and it is set at the factory by somebody with a scope and a schedule. A poorly trimmed BBD delay sounds gritty and thin in the repeats. That is not tolerance, that is assembly, and unlike tolerance it is fixable by a tech in twenty minutes.
+
+## How to A/B Two Units Without Fooling Yourself
+
+If you are going to compare two of the same pedal, do it properly. Otherwise you are testing your own expectations.
+
+1. **Same power, same voltage.** Two 9-volt batteries at different states of charge will out-argue any component in either pedal. Use one power supply and one output.
+2. **Let both warm up.** Ten minutes, plugged in. This matters enormously for germanium and not at all for silicon, so do it anyway and stop thinking about it.
+3. **Match output level by ear, not by knob position.** This is the step everybody skips and it is the step that decides the result. Louder wins every blind test ever conducted, and a ±20% pot guarantees your knob positions are lying to you.
+4. **Switch fast.** Use an A/B box. Human tonal memory is a few seconds long, and anything you have to unplug and replug will sound different because of the unplugging.
+5. **Have somebody else flip the switch.** Or flip it yourself with your eyes shut and no idea which is which.
+6. **Play one part, not four.** A single riff, repeated. Chasing the difference across a whole song is how you convince yourself of anything you like.
+
+If the difference survives all six steps, it is real. Most do not. The ones that do are usually fuzz.
+
+For a way to see rather than hear the difference, a [null test](/blog/null-test-guitar-tone-what-changed) is the obvious tool — with one hard limit worth knowing before you try it. Two analog pedals cannot be nulled against each other, and one analog pedal cannot even be nulled against itself, because getting both signals into the same file requires two converter round-trips and the parts drift in between. A shallow null between two units of the same pedal is evidence about your measurement chain, not about the pedals.
+
+## What This Means at the Counter
+
+Buying used, the rule is simple. If it has germanium in it, play the specific unit, through an amp you know, in a room at a normal temperature. That unit is the product. The model name is barely relevant.
+
+If it is a modern op-amp overdrive, a distortion, or anything digital, the specific unit does not matter and you should buy on price and condition. Nobody has ever gotten a bad TS9 in a way component tolerance explains. They have gotten a TS9 with a dying jack, which is a different problem with a better fix.
+
+And if you are eyeing a boutique version of a circuit you already own, ask what the money buys. Hand-selected germanium is real value, because selection is genuinely the product. A 1 percent resistor in a spot where the gain was set by a ratio anyway is not. Neither is a capacitor with a nice name. The [Behringer clone roundup](/blog/behringer-pedal-clone-roundup) makes the same point from the other end of the price range — what decides whether a clone lands is the chip family and the circuit around it, not the polish.
+
+## The Digital Footnote
+
+None of this applies to a modeler, and that cuts both ways.
+
+Two Helix units running the same preset produce the same output, sample for sample. There is no lottery, no warm-up, no unit that got the good transistors. For a backup rig, or a fly rig, or anybody who needs tonight to sound like last night, that is a genuine advantage and it is not a small one.
+
+It is also the honest root of a complaint that gets dismissed too quickly. When players say a modeled drive feels less alive than the box, part of what they are describing is that the box was drifting — bias moving with temperature, bias moving with battery sag, an operating point that was never quite the same twice. A model holds still. Holding still is worth a lot and it costs something, and pretending it costs nothing does not make the argument better.
+
+## What To Do About Any of This
+
+Stop comparing knob positions. Compare sounds at matched levels.
+
+If you own a germanium fuzz you love, do not chase a second one expecting a match. Buy the second one on its own terms or do not buy it.
+
+And if you have been reading settings guides and wondering why the numbers never quite work on your unit, now you know one of the reasons. The [Tube Screamer settings guide](/blog/tube-screamer-settings-guide) gives you clock positions because that is the only language available, but treat them as a neighborhood rather than an address. Get in the neighborhood, then use your ears to find the house.

@@ -4402,3 +4402,138 @@ live spec verification at build time or it fails Gate 1; do not build it from me
 still **empty of automatable items — S5 (Complete Helix pillar) + S6 (Katana pillar) remain the
 standing debt (now deferred 8 runs), now joined by Y1. Escalate all three to a dedicated
 human-in-the-loop session.**
+
+---
+
+## SERP Analysis — 2026-08-07 (Posts Published Today)
+
+### Posts published: two-units-same-pedal-component-tolerance, capo-position-as-a-tone-decision, double-tracking-on-a-time-budget
+
+**Velocity check:** 6 posts / 5 authors in the trailing 7 days before this run (Dev 2; Viktor, Sean,
+Hank, Margot 1 each). Nobody at the 3/week cap. All three of today's topics went to bylines sitting at
+**0/wk** — Rick, Carl, Elena — exactly as the 08-04 notes instructed. After this run: Dev 2, and
+Viktor, Sean, Hank, Margot, Rick, Carl, Elena at 1 each. **Jess and Nathan are now the 0/wk pair**,
+and two of today's three new topics target them.
+
+**Queue drained:** Z1 (Rick), Z2 (Carl), Z3 (Elena) — the full set queued on 08-04. No topic dropped
+this run; all three cleared Gate 7 on live SERP inspection (details below, including the one that came
+closest to failing).
+
+**Byline check (Gate 3) — all three confirmed, no reassignment needed.** Z1 component tolerance sits
+in Rick's analog lane and is clear of his never-assign list (DAW/plugin workflows, modern prog, social
+strategy). Z2 capo is clear of Carl's list (modeler deep-dives, complex signal-chain theory, gear
+shootouts) — it is instrument-side and pedal-free, which is the center of his beat rather than the
+edge, despite the Pillar 3 filing. Z3 double-tracking is clear of Elena's list (vintage/boutique,
+gigging guides, high-gain) and lands on her documented home-recording rig.
+
+**Gate 7 honesty note on Z2.** The live SERP does already contain the claim that capo position changes
+tone — gear4music and fretjam both say a high capo sounds brighter and more mandolin-like, and
+Acoustic Guitar covers partial-capo drones. So the post does **not** pass on "capo affects tone," which
+is commodity. It passes on the per-position open-string table, the register/lowest-note cost, the decay
+finding, and the two-guitar arrangement rule. Logged explicitly so a future run does not read this as
+license to write more general capo content.
+
+**Factual divergence worth recording.** Two ranking capo guides state that a capo makes string tension
+"feel tighter." A capo does not raise tension; it shortens the speaking length, which raises stiffness
+and perceived attack. Z2 deliberately does not repeat the tension claim. If a future post covers capo
+physics, do not import that phrasing from the SERP.
+
+### SERP Analysis — 2026-08-07 (live checks this run)
+
+**Post 1 — two-units-same-pedal-component-tolerance** (target: "why do two of the same pedal sound
+different," "guitar pedal component tolerance," "are all tube screamers the same")
+- **Top ranking:** Aion FX's *"All About Component Tolerances,"* Premier Guitar's *"DIY Guide:
+  Understanding Pedal-Component Tolerances,"* a Queen's University Belfast thesis chapter on component
+  tolerances in guitar pedals, MusicRadar's *"3 top guitar pedal makers on the secrets of great gain
+  tone,"* and a Steel Guitar Forum thread titled *"Two pedals with identical volume pots sound very
+  different."*
+- **Gap confirmed, and the audience is the story again.** The mechanism is well published, but every
+  ranking result is **builder-facing** — Aion FX sells DIY kits, the Premier Guitar piece is a DIY
+  column, the thesis is academic. They tell you tolerances exist and stack; they do not tell a player
+  which circuits this actually applies to. Three specific absences: (1) nobody separates
+  **ratio-set circuits from part-set circuits**, which is the entire predictor — an op-amp overdrive
+  barely moves because feedback sets gain by a resistor ratio and two resistors off one reel drift
+  together, while a discrete germanium fuzz has no ratio to absorb anything; (2) the ranking results
+  generalize tolerance at "up to ±10%" and **never isolate the potentiometer** as the dominant term
+  despite it being the loosest part in the box at ±20% with taper-breakpoint drift on top; (3) no
+  buying or A/B protocol. The forum thread is the closest to our angle and is a forum thread.
+- **AI Overview:** likely present (definitional/explainer class); presence inferred from query class
+  rather than observed, and F&K not cited (hours old).
+- Non-commodity gate: **PASS** — on the ratio-versus-part predictor, the pot-as-dominant-term finding,
+  and the player-side protocol. Not on the existence of tolerance, which is thoroughly covered.
+
+**Post 2 — capo-position-as-a-tone-decision** (target: "which capo position sounds best," "capo
+changes tone," "capo 5 vs capo 2 sound," "partial capo guitar")
+- **Top ranking:** gear4music's *"How To Use a Capo,"* fretjam's *"Using a Guitar Capo,"* D'Addario's
+  *"How To Put a Capo on a Guitar,"* guitar-chord.org's capo transposition chart, MakeMySongBook's
+  2026 capo guide, CMUSE's partial-capo position calculator, and Acoustic Guitar's *"Using a Partial
+  Capo Can Open Up New Doors Tonally"* video lesson.
+- **Gap confirmed, narrower than the other two.** The SERP is dominated by **transposition arithmetic**
+  — most of page one is a chart telling you which key you land in from which position. Two results do
+  reach tone: gear4music's brightness/mandolin line and Acoustic Guitar's partial-capo drone lesson.
+  Neither publishes **which open strings actually ring at each position by note name**, which is the
+  thing that decides whether the guitar supports or fights the vocal. Also absent everywhere: the
+  register cost stated as an arrangement decision (a capo raises the guitar's lowest available note one
+  semitone per fret, so capo 5 hands away the bottom), the decay consequence, the two-guitars-two-capos
+  split, and the intonation triage that starts at the plain G and B rather than the low E.
+- **AI Overview:** very likely present (definitional class, heavily so for "how to use a capo"); F&K
+  not cited.
+- Non-commodity gate: **PASS**, and it is the closest call of the three — see the honesty note above.
+  It passes on the per-position drone table and the arrangement framing, not on the premise.
+
+**Post 3 — double-tracking-on-a-time-budget** (target: "is double tracking worth it," "double tracking
+guitar tips," "doubler plugin vs real double tracking")
+- **Top ranking:** integraudio's *"Top 10 Doubler Plugins,"* Nembrini Audio's Doubler product page, a
+  Gearspace thread *"Tips for simulating double tracked guitar,"* the Wikipedia double-tracking entry,
+  a groovetools blog roundup, and several App Store doubler listings.
+- **Gap confirmed, and the SERP is unusually commercial.** More than half of page one is a product page
+  or a plugin roundup, which means the *decision* is barely served at all. The editorial results agree
+  on two things — real takes beat plugins, and doubling is for distorted rock rhythm panned hard — and
+  stop. Absent across the whole top 5: (1) any **cost model**, i.e. that a second take runs roughly
+  2.5x the length of the part once punch-ins are counted, which is the only number that matters when
+  the session is the constraint; (2) a **which-parts-repay-it table** — the SERP says "double your
+  rhythms" and never says why leads, bends, and modulated parts fail to fuse; (3) the **note-ends
+  finding**, that a smeared double is a release problem rather than an attack problem; (4) any split of
+  a doubler's **mono behavior between its pitch half and its delay half**, which is the part that
+  decides whether the trick survives a club PA.
+- **AI Overview:** likely present (comparison/how-to class); citation unverified.
+- Non-commodity gate: **PASS** — cost model, decision table, and the release-versus-attack correction,
+  in a query space where page one is mostly plugin listings.
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | behringer-pedal-clone-roundup | **Legacy `<FAQ>` → frontmatter `faq:` + AEO backfill + two content-adds + Gate 6 repairs.** Migrated the 5 body Q&A to frontmatter, added a 6th (do two of the same Behringer sound the same), added 5 `takeaways:`, replaced the generic `image_alt`. **Content-add 1 — "Chip Overlap Tells You About the Model, Not About Your Unit":** the post's entire framework is that chip overlap predicts the clone, which silently assumes unit consistency. New section splits the catalog three ways — TO800/TM300/AB100 buy sight unseen because gain is ratio-set; SF300 varies audibly because a discrete fuzz has no feedback loop to absorb transistor spread; VD400/CC300 vary for a **fixable** reason, the factory BBD bias trim, which reframes a gritty-sounding unit as a bench job rather than a return. Cross-links Post 1. **Content-add 2 — "The Sixty-Second Incoming Check":** five-step receiving test (jack wiggle, fifteen stomps, noise floor with volume rolled off, BBD repeat character, SF300 cleanup sweep) plus the missing street-price-as-of qualifier that Gate 1 requires. **Gate 6 repairs:** three bare "warm"/"lush" tone descriptors replaced with specific ones (the CC300 now cites the Andy Summers "Walking on the Moon" tone and the depth knob's seasick threshold). `updated: 2026-08-07`, Elena's byline kept. | A proven budget-gear URL with zero answer-engine surface, and the exact downstream of Post 1 — Post 1 says which circuits vary, this one says what that means when the pedal costs $30 and the parts are looser. |
+| R2 | country-telecaster-tone-settings | **Legacy `<FAQ>` → frontmatter `faq:` + AEO backfill + two content-adds + a broken internal link fixed.** Migrated the 5 body Q&A, added a 6th on capo placement, added 5 `takeaways:`, replaced the generic `image_alt`, trimmed a 218-char description. **Fixed a genuinely broken link:** the post pointed at `/blog/nashville-session-clean`, which does not exist — the real slug is `nashville-session-clean-tele-compressor`. Added a second link to `chicken-pickin-foundations`. **Content-add 1 — "Mistake 6: Treating the Capo as Only a Key Change":** country uses the capo more than almost any style and the post did not mention it; new section covers the open-string drones by position, the lowest-note cost, the one-guitar-versus-two rule, and the clamp-tension check. Title and intro updated 5 → 6 for consistency. **Content-add 2 — "How to Tell Which Mistake You Are Making":** the post listed six problems and a symptom table but gave no way to identify which one you have; new four-step ordered procedure isolates one variable at a time. Two rows added to the quick-reference table. **Gate 6 repair:** a bare "more warmth" replaced with the specific lower-midrange description. `updated: 2026-08-07`, Carl's byline kept. | Striking-distance settings post that was thin at 1,640 words, carried a broken link, and had no AEO surface — and it is the natural country-side landing page for Post 2's capo argument. |
+
+**Preflight:** `validate-mdx.mts --changed --strict` — **all 5 of this run's files compile clean with
+zero warnings and zero errors.** The run-wide `--changed` invocation still reports 12 warnings on the
+same four posts belonging to the **concurrent in-flight affiliate-GearPick task** (big-muff,
+fender-deluxe-reverb, helix-vs-quad-cortex-vs-kemper, vox-ac30) — untouched and not committed here,
+identical to the 08-03 and 08-04 runs. Hero images via Flux 2 Pro
+(`--model=black-forest-labs/flux-2-pro`, ~$0.17, 3/3, no rejections).
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 0, added 3 — **queue is flat this run**, which is the intended steady state.
+> **Two of the three target the current 0/wk bylines** (Jess, Nathan); the third goes to Margot at
+> 1/wk. Bylines are best-fit proposals; the executing run re-checks **both** velocity **and** the
+> never-assign list. **Verify no colliding slug at build time.**
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AA1 | bbd-bias-trim-symptoms-analog-delay-chorus | Your Analog Delay Isn't Broken, It's Out of Trim: How to Hear a Bad BBD Bias | "analog delay sounds gritty," "bbd bias adjustment," "why does my analog delay hiss," "used analog delay worth buying" | Jess Kowalski | 6 — Quick Fixes | Falls out of R1's bias-trimmer paragraph, but asks the distinct question that paragraph only gestures at: how do you tell a mis-trimmed bucket-brigade unit from one that is simply voiced dark, by ear, before you spend money. Real content: the symptom set (grit present from the *first* repeat rather than accumulating, hiss that rises with regeneration, repeats that thin rather than blur), the distinction from a genuinely dying BBD chip, what the trim actually sets and why factories get it wrong at volume, what a tech charges, and the used-market implication — a cheap "broken" analog delay is often a twenty-minute fix. Jess's budget lane and she is at 0/wk. **Gate 7 note for the executing run: F&K already ships `bbd-vs-pt2399-delay-chips` and `way-huge-aqua-puss-mkiii-bbd-delay`. Confirm this is a diagnostic post and not a third chip explainer, or drop it.** |
+| AA2 | two-guitar-arrangement-register-split | Two Guitarists, One Frequency Range: How to Split a Song So Both Parts Are Audible | "two guitarists same band arrangement," "guitars fighting in the mix live," "second guitar part ideas," "worship two guitar arrangement" | Nathan Cross | 3 — Signal Chain | Post 2 solves one slice of this in two paragraphs (put one player at capo 5). The distinct question is the full arrangement: the four axes you can split on — register (capo/voicing), gain (one dirty, one clean), effects (one dry and rhythmic, one ambient), and rhythmic role (one strums, one holds) — plus which axis to reach for first, and what to do when both players own the same pedal. Nathan's serves-the-room lane and the worship two-guitar setup is his documented world. He is at 0/wk. **Confirmed no colliding slug** — F&K has `worship-pedalboard-guide` but nothing on two-guitar arrangement. |
+| AA3 | picking-hand-position-timbre-bridge-to-neck | Where Your Picking Hand Sits Changes More Than Your Overdrive Does | "picking near the bridge vs neck tone," "picking hand position tone," "sul ponticello guitar," "why does my tone change when I move my hand" | Margot Thiessen | 3 — Signal Chain | Post 3 notes in passing that moving the picking hand between takes breaks double-tracking fusion, because the timbre shift is large enough to read as two different guitars. That throwaway is a whole post: the harmonic mechanism (plucking near a node suppresses that harmonic, so bridge-side picking emphasizes upper partials and neck-side picking approaches a near-sine fundamental), a position-by-position character map, how it interacts with compression and gain, and the argument that this free control has more range than most drive pedals. Margot's touch-and-harmonic-content lane is exactly what she notices first. She is at 1/wk. **Confirmed no colliding slug** — F&K covers `pickup-position-guide` (which pickup) but nothing on where the hand strikes. |
+
+**Diversity/queue note:** new posts went to Rick (0→1), Carl (0→1), Elena (0→1); refreshes to Elena and
+Carl (refreshes do not count against the cap). **Next run: Jess and Nathan are at 0/wk — favor them,
+and today's AA1/AA2 are built for exactly that.** Dev is the only writer at 2/wk with one slot left.
+Cluster fan-out queue remaining: volume-pedal-placement/Sean, V2 katana-gen3/Jess **(needs live spec
+verification at build time or it fails Gate 1 — do not build from memory)**, W2 sidechain-dynamic-eq/Dev,
+V3 ambient-headphones-mono/Dev **(still flagged for rescoping — see 08-04)**, Y1 latency-budget/Viktor
+**(escalated to human-in-the-loop, do not auto-build)**, plus today's AA1/Jess, AA2/Nathan,
+AA3/Margot. Strategic queue still **empty of automatable items — S5 (Complete Helix pillar) + S6
+(Katana pillar) remain the standing debt (now deferred 9 runs), alongside Y1. All three still need a
+dedicated human-in-the-loop session.**
