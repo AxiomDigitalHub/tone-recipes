@@ -1,0 +1,204 @@
+---
+title: 'The Modeler Latency Budget: What Each Block Type Actually Costs You'
+description: >-
+  Adding blocks to a modeler preset mostly does not add latency, and the reason
+  is architectural. Which block types genuinely cost something, where latency
+  compounds, and how to measure your own rig.
+date: '2026-08-07'
+author_slug: viktor-kessler
+category: modeler-masterclass
+tags:
+  - latency
+  - modeler
+  - helix
+  - dsp
+  - signal-chain
+  - measurement
+  - recording
+takeaways:
+  - >-
+    Block count is the wrong variable. A modeler processes an entire preset
+    inside one fixed buffer period, so a 4-block preset and a 20-block preset
+    generally have the same analog round-trip latency.
+  - >-
+    The block types that genuinely add latency are the ones doing lookahead or
+    block-based math — polyphonic pitch shifting above all, plus some
+    convolution and FFT-based processing.
+  - >-
+    Latency compounds where the signal leaves and re-enters the converters. A
+    four-cable-method loop or an external re-amp lap costs another conversion
+    pair every time, and that is additive in a way blocks are not.
+  - >-
+    The audible failure is almost never total round-trip. It is unequal latency
+    between two parallel paths that are then summed, which produces comb
+    filtering rather than lag.
+  - >-
+    Below roughly 5 ms of total round-trip, latency stops being the thing you
+    are hearing. If a preset feels sluggish under that threshold, measure before
+    you assume the cause.
+faq:
+  - q: Does adding more blocks to a Helix preset increase latency?
+    a: >-
+      Generally no. The unit computes the whole preset within a single fixed
+      buffer period, so the analog in to analog out figure is dominated by
+      conversion and buffering rather than by how many blocks are in the chain.
+      A small number of block types are exceptions because they need lookahead
+      or block-based processing, and polyphonic pitch shifting is the clearest
+      one.
+  - q: Which modeler blocks actually add latency?
+    a: >-
+      The ones that cannot compute a sample from the current sample alone.
+      Polyphonic pitch shifting has to buffer and analyse before it can output,
+      which is why it is the most commonly reported offender. Convolution-based
+      cab and IR processing and any FFT-based effect can also carry a cost
+      depending on implementation. Ordinary amp, drive, EQ, compressor, delay,
+      and reverb blocks are effectively free in round-trip terms.
+  - q: What is the actual round-trip latency of a Helix or HX Stomp?
+    a: >-
+      Community measurements put whole-unit throughput at roughly 1 ms for Helix
+      and about 1.54 ms — around 68 samples at 44.1 kHz — for an HX Stomp on an
+      empty preset. Those are user-forum figures rather than published Line 6
+      specifications, so treat them as the right order of magnitude rather than
+      as a datasheet.
+  - q: Why does my parallel routing sound thin or phasey?
+    a: >-
+      Because the two paths have different latencies and you summed them. A few
+      samples of difference between two correlated signals produces comb
+      filtering, which reads as thin, hollow, or phasey rather than as delay.
+      Putting a pitch block on one side of a parallel split and nothing on the
+      other is the classic way to cause this.
+  - q: How much latency can a guitarist actually feel?
+    a: >-
+      Below about 5 ms of total round-trip, latency is not what you are reacting
+      to. Between roughly 5 and 10 ms players start describing a rig as sluggish
+      without necessarily identifying why, and past that it becomes obvious. A
+      modeler used on its own sits comfortably under the threshold; stacking it
+      with a DAW buffer is where budgets get spent.
+  - q: Does the four-cable method add latency?
+    a: >-
+      Yes, and this is one of the few places the cost is genuinely cumulative.
+      Every time the signal leaves the unit and comes back it passes through
+      another digital-to-analog and analog-to-digital conversion pair. One lap
+      is usually inconsequential; a loop that crosses the converters several
+      times is worth measuring rather than assuming.
+image: /images/blog/modeler-latency-budget-per-block-cost.jpg
+image_alt: >-
+  A modeler floor unit connected to an audio interface and a laptop showing a
+  waveform measurement, patch cables forming a loopback
+---
+
+> **The short version:** Adding blocks to a preset mostly does not add latency, because the unit computes the entire preset inside one fixed buffer period. The variable is block *type*, not block *count*, and only a short list of types cost anything — polyphonic pitch shifting above all. Where latency genuinely accumulates is at the converters: every lap out of the unit and back costs another conversion pair. And the failure you are most likely to actually hear is not lag at all, it is comb filtering from two parallel paths with unequal latency being summed.
+
+The question arrives in a predictable form. Someone builds a preset with four blocks, likes it, expands it to fourteen, and reports that it feels slower. The assumed mechanism is that each block adds a small delay and that fourteen small delays are worse than four.
+
+That is not how the architecture works, and the mistake is worth correcting precisely, because the real offenders are a different and much shorter list.
+
+## Block Count Is the Wrong Variable
+
+A modeler does not process blocks the way a pedalboard processes pedals. A pedalboard is a chain of independent analog circuits, each with its own propagation through the signal. A modeler is a processor running a program.
+
+The unit takes in a buffer of samples, computes the entire signal chain on that buffer, and puts the result out. **The buffer period is fixed.** Whether the program running inside that period contains four operations or twenty, the buffer still arrives and departs on the same schedule. What changes with more blocks is DSP load — how much of the processor's capacity you are consuming, which is why you eventually hit a block limit — but DSP load and latency are different quantities and running out of one does not affect the other.
+
+This is why a modeler will tell you that a preset is too complex to build rather than silently getting slower. The failure mode is a hard ceiling, not a gradual slide.
+
+**The consequence:** if your fourteen-block preset feels worse than your four-block preset, the cause is almost certainly tonal or dynamic — more compression stages, more gain reduction, a different pick-attack transient — rather than temporal. Those are fixable problems, and chasing them as latency wastes the effort.
+
+## Which Block Types Genuinely Cost Something
+
+The exceptions all share a property: they cannot compute an output sample from the current input sample alone. They need to see ahead, or they need to work on a chunk rather than a stream.
+
+| Block category | Cost | Why |
+|---|---|---|
+| Amp, preamp | Effectively free | Sample-by-sample nonlinear processing |
+| Drive, distortion, fuzz | Effectively free | Same |
+| EQ, filter | Effectively free | Sample-by-sample filtering |
+| Compressor, gate | Effectively free | Envelope tracking, no lookahead in most implementations |
+| Delay, echo | Effectively free | Delay is the intended output, not overhead |
+| Modulation (chorus, flanger, phaser) | Effectively free | Short modulated delay lines |
+| Reverb | Usually free, implementation-dependent | Algorithmic reverbs are delay networks; some designs differ |
+| Cab / IR convolution | Small, implementation-dependent | Partitioned convolution can introduce a block-size cost |
+| **Polyphonic pitch shift** | **The real one** | Must buffer and analyse before it can output a shifted signal |
+| Monophonic pitch / whammy | Lower than polyphonic | Simpler tracking, less analysis |
+
+Polyphonic pitch shifting is the block worth knowing about by name. To shift a chord it has to observe enough signal to work out what is in it, and observing takes time. This is not a Line 6 limitation or a modeler limitation — it is what the problem costs, on every platform, including expensive studio plugins.
+
+Compressors carry an asterisk. A compressor with genuine lookahead trades latency for the ability to catch a transient before it happens. Most guitar compressor blocks do not work that way, but if you are using a mastering-style compressor in a DAW alongside your modeler, check.
+
+## Where Latency Actually Compounds
+
+Blocks do not stack. **Conversions do.**
+
+Every time the signal leaves the unit as analog and comes back as digital, it passes through a digital-to-analog converter and then an analog-to-digital converter, and each of those costs real time. That cost is genuinely additive, because each lap is a separate trip through the hardware.
+
+The setups where this matters:
+
+1. **Four-cable method.** The signal leaves the unit into a real amp's preamp and returns. One extra conversion pair.
+2. **External loop with analog pedals.** Same cost, once per loop, every time.
+3. **Re-amping through outboard gear.** Each pass through the converters is another pair.
+4. **Modeler plus DAW.** The DAW buffer is usually the dominant term by a wide margin. Our [latency budget for direct recording](/blog/guitar-recording-latency-budget-buffer-size-monitoring) covers the buffer-to-milliseconds arithmetic, and [whether a higher sample rate helps](/blog/does-96khz-lower-latency-sample-rate-buffer-size) covers why raising the rate is the expensive lever.
+
+One lap is generally inconsequential. Three laps in a complicated hybrid rig is worth measuring rather than assuming, and it is the only configuration in normal use where a guitarist has a realistic chance of building something they can feel.
+
+## The Failure You Are Actually Hearing
+
+Here is the correction that matters most, because it redirects the complaint.
+
+Total round-trip latency, on a modeler used on its own, is small. Community measurements put whole-unit throughput at roughly 1 ms for a Helix, and about 1.54 ms — around 68 samples at 44.1 kHz — for an HX Stomp on an empty preset. Those figures come from user forum testing rather than from published Line 6 specifications, so treat them as the correct order of magnitude rather than as a datasheet entry. Either way they sit far below the threshold where a player reacts to delay.
+
+So when a preset feels wrong, the round-trip is usually not the problem. **Unequal latency between two parallel paths is.**
+
+If you split the signal, put a block with real latency on one side, and sum the two paths back together, the two copies arrive misaligned. Two correlated signals summed with a small offset produce comb filtering — a series of evenly spaced notches through the spectrum. That does not sound like delay. It sounds thin, hollow, or phasey, and the player almost never diagnoses it as a timing problem because it does not present as one.
+
+The classic version: a polyphonic pitch block on one side of a parallel split, nothing on the other, both summed to a single output. The pitch block's latency is now a phase offset applied to half your signal.
+
+**Three rules that prevent it:**
+
+1. If two paths will be summed, keep their latency equal. Either both sides get the latency-bearing block or neither does.
+2. If you must have one, put the pitch block after the sum rather than inside one branch.
+3. If a parallel routing sounds thin and you cannot find an EQ reason, suspect this before anything else.
+
+The [phase cancellation in dual-amp modeler presets](/blog/phase-cancellation-dual-amp-modeler-presets) post covers the summing problem in more depth; this is the same mechanism arriving from a different direction.
+
+## What I Expected, and What the Architecture Says
+
+I went into this expecting to build a per-block latency table — a column of milliseconds, one row per block category, summed to a preset total. That is the shape the question implies and it is the shape most people want.
+
+The table does not exist, because the model behind it is wrong. There is no per-block millisecond figure to sum, because blocks are not sequential physical stages each contributing delay. They are operations inside a fixed buffer period, and the buffer period does not care how many of them there are.
+
+The correct mental model is not a running total. It is: **a fixed floor, set by conversion and buffering, plus a short list of specific block types that add a discrete cost, plus one conversion pair for every lap out of the box.** That is three terms, and only one of them scales with what you put in the preset.
+
+## The Threshold That Ends the Argument
+
+Below roughly 5 ms of total round-trip, latency is not what you are reacting to. That figure is consistent with what our own direct-recording testing established and with the general consensus on monitoring latency for guitar.
+
+Between about 5 and 10 ms, players start describing a rig as sluggish or disconnected without reliably identifying the cause. Past 10 ms it stops being subtle.
+
+A modeler on its own is nowhere near that. A modeler through a DAW at a large buffer can be. That is the honest ranking of where your budget goes, and it means the block-count anxiety is aimed at the smallest term in the equation.
+
+## Measure Your Own Rig
+
+If you want numbers for your specific unit and preset rather than someone else's, the measurement is straightforward and takes about fifteen minutes. This is also the method to use if you want to build the per-block table for your platform — which is a genuinely useful thing to have and which I would rather you generate than take on faith.
+
+**What you need:** an audio interface with two inputs, two cables, and any DAW.
+
+1. Send a short, sharp click from the DAW out to the modeler's input.
+2. Take the modeler's output back into a second interface input.
+3. Record both simultaneously — the direct click on one track, the returned click on the other.
+4. Zoom to sample level and measure the offset between the two transients. Convert samples to milliseconds by dividing by the sample rate. At 44.1 kHz, 44.1 samples is 1 ms.
+5. **Subtract your interface's own loopback figure.** Measure that first by cabling the interface output straight back to its input with the modeler out of the path. Skipping this step is the most common way to produce a wrong number, because you will otherwise be attributing your interface's latency to the modeler.
+
+To get per-block costs, measure an empty preset, then add one block, then measure again. The difference is that block's contribution. Work through the categories in the table above and you will find most of them return zero, which is the expected result and confirms the measurement is working rather than indicating a failure.
+
+Two things that will corrupt the result: any block that is itself a delay, and any block whose output level differs enough to move where you judge the transient to begin. Use a click, use the transient onset, and keep levels matched.
+
+## Summary
+
+| Claim | Verdict |
+|---|---|
+| More blocks equals more latency | **False.** Fixed buffer period. |
+| Some blocks add latency | **True**, and polyphonic pitch is the main one. |
+| Four-cable method adds latency | **True**, one conversion pair per lap, genuinely additive. |
+| Parallel paths can cause problems | **True**, and this is the audible one — comb filtering, not lag. |
+| Modeler round-trip is a problem on its own | **False** for normal use. The DAW buffer is the larger term. |
+
+If your preset feels sluggish, measure before you rebuild it. The number is usually not the thing that is wrong, and the fifteen minutes spent measuring will tell you that faster than an afternoon spent deleting blocks.

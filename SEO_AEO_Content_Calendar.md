@@ -4537,3 +4537,121 @@ V3 ambient-headphones-mono/Dev **(still flagged for rescoping — see 08-04)**, 
 AA3/Margot. Strategic queue still **empty of automatable items — S5 (Complete Helix pillar) + S6
 (Katana pillar) remain the standing debt (now deferred 9 runs), alongside Y1. All three still need a
 dedicated human-in-the-loop session.**
+
+---
+
+## Strategic Queue Drain — 2026-08-07 (S5, S6, Y1)
+
+**Second run of the day, executed on explicit instruction to launch S5, S6, and Y1.** These are the
+three items the daily routine had escalated to the human-in-the-loop pile — S5/S6 deferred **9 runs**,
+Y1 deferred twice.
+
+> ⚠️ **CADENCE EXCEPTION — READ BEFORE REPEATING THIS.** Combined with the daily run earlier today,
+> this puts **6 new posts on a single calendar date**, against a documented cadence of 2-3/day. The
+> per-persona 3/week caps all hold (see velocity below) and pillars are the opposite of thin content,
+> so this is not a scaled-content-abuse pattern in the sense Playbook §6 describes. But it is a
+> visible spike in the publishing curve, and **it should not become a habit.** If more strategic
+> pillars get drained in future, stagger them across days rather than batching. Dates were not faked
+> to disguise the spike — all six carry today's real publish date.
+
+### Posts published: complete-guide-line-6-helix-tone-2026, boss-katana-settings-guide-every-genre, modeler-latency-budget-per-block-cost
+
+| # | Slug | Title | Writer | Category | Queue item |
+|---|---|---|---|---|---|
+| 1 | complete-guide-line-6-helix-tone-2026 | The Complete Guide to Line 6 Helix Tone (2026) | Sean Nakamura | settings-guides | **S5** |
+| 2 | boss-katana-settings-guide-every-genre | Boss Katana Settings Guide: Every Channel, Every Genre | Jess Kowalski | settings-guides | **S6** |
+| 3 | modeler-latency-budget-per-block-cost | The Modeler Latency Budget: What Each Block Type Actually Costs You | Viktor Kessler | modeler-masterclass | **Y1 (rescoped — see below)** |
+
+**Velocity:** Sean 1→2, Jess 0→1, Viktor 1→2. **Nobody at or over the 3/week cap.** Post-run standing:
+Dev 2, Sean 2, Viktor 2, Rick 1, Carl 1, Elena 1, Hank 1, Margot 1, Jess 1, Nathan 0, fk-staff 0.
+Nathan is now the only byline at 0.
+
+**Category placement:** S5 and S6 both filed `settings-guides`, per the Pillar-2 rollup at the top of
+this calendar ("the missing Katana/Helix head-term pillars (S5–S6) live here"). This also feeds the
+**developing** pillar rather than the already-deep Modeler Masterclass, and `settings-guides` is
+HowTo-eligible. Y1 filed `modeler-masterclass` per its own queue row.
+
+### ⚠️ Y1 was RESCOPED, not delivered as specified — the per-block table is still open
+
+The Y1 queue row carries a hard guard: **"Must ship with real measured numbers or not at all — a
+guessed latency table would fail Gate 1."** That guard was tested this run and it held.
+
+**What was checked:** live search for authoritative per-block latency data. Result — **no such dataset
+exists publicly.** Whole-unit figures do exist (roughly 1 ms throughput for Helix; about 1.54 ms /
+68 samples at 44.1 kHz for an HX Stomp on an empty preset) but they are **Line 6 user-forum
+measurements, not published Line 6 specifications**, and nothing anywhere publishes per-block costs.
+
+**Decision: the post shipped without a fabricated millisecond table.** What it delivers instead:
+
+1. **The architectural correction, which is the stronger finding anyway.** Block *count* is the wrong
+   variable — the unit computes the whole preset inside one fixed buffer period, so a 4-block and a
+   20-block preset have the same round-trip. This directly answers the target queries ("does adding
+   blocks increase latency," "modeler latency add up") with a well-reasoned *no*, which is a better
+   non-commodity position than a table would have been.
+2. A **block-category cost table by mechanism** (free vs. lookahead/block-based), not by milliseconds —
+   polyphonic pitch named as the primary offender because it must buffer and analyse before it outputs.
+3. **Where latency genuinely is additive:** conversion pairs, one per lap out of the box (4CM, external
+   loops, re-amping) — the only cumulative term in the system.
+4. The **audible failure redirect:** unequal parallel-path latency summing into comb filtering, which
+   is what players actually hear and misdiagnose as lag.
+5. Community figures **explicitly labelled as forum measurements rather than datasheet entries.**
+6. A **reproducible loopback measurement harness**, including the interface-loopback subtraction step
+   that is the most common way to produce a wrong number.
+
+**STILL OPEN for a hardware session:** the measured per-block millisecond table for a specific unit and
+firmware. The post ships the harness to generate it and explicitly invites the reader to. If Daniel
+runs it on real hardware, the numbers become a high-value **refresh** of this URL rather than a new
+post — that is the correct route, and it is exactly the "freshness on a proven URL" pattern from
+Playbook §6. **Do not let a future automated run fill that table from memory.**
+
+### Gate 1 verifications performed this run (both were live-checked, not written from memory)
+
+- **Katana Gen 3 (2024):** six amp characters — Acoustic, Clean, **Pushed** (new), Crunch, Lead, Brown
+  — each with a selectable variation, **12 voices total**. MkI (2016) and MkII (2019) have **five**
+  characters. Katana-50 Gen 3 has **four** tone memories; Katana Head Gen 3 has **eight**, plus four
+  more addressable via GA-FC. Five effect sections (Booster, Mod, FX, Delay, Reverb), 60-plus types via
+  BOSS Tone Studio. Gen 3 reads MkI/MkII patches and livesets. **This is exactly the live-spec check
+  the standing V2 katana-gen3 warning demanded** — the "five amp types" figure that appears throughout
+  older Katana coverage is now wrong for current product, and any future Katana post must account for
+  Pushed.
+- **Helix:** HX Stomp is **8 blocks since firmware 3.0** (6 at launch) and **3 snapshots** per preset;
+  Helix Floor/LT/Rack carry 8 snapshots. Global EQ is assignable to the 1/4" outputs, the XLRs, or
+  both. Helix amp blocks use the **0–10 scale** (per the standing repo note), not 0–1 — settings
+  imported from other platforms' scales will land nowhere near the intended value.
+
+### Non-commodity hooks (Gate 7)
+
+- **S5:** the load-bearing finding is that **the cab block does more work than the amp block** — two
+  presets on the same amp model with different mic/distance/high-cut differ more than two presets on
+  different amp models sharing a cab. That reframes the entire "which amp model" premise the head term
+  arrives with. Plus: four of the five settings that break Helix tone live *outside* the preset, which
+  is why preset-shopping so rarely fixes anything.
+- **S6:** **Power Control is a tone control, not a volume control** — a preset dialed at 0.5 W leans on
+  power-amp compression that vanishes at 50 W, so bedroom presets do not survive the gig. Plus the
+  generation-translation table (Pushed → Crunch at low gain for MkI/MkII owners), which no existing
+  Katana guide provides now that Gen 3 has shifted the character count.
+- **Y1:** see the rescope note above. The architectural correction is the hook.
+
+### Preflight and images
+
+`validate-mdx.mts --strict` — **all 3 files compile clean, zero warnings, zero errors.** All **17
+internal links verified to resolve** against the post inventory before commit. Hero images via Flux 2
+Pro (~$0.17, 3/3, no rejections). The 12 pre-existing warnings on the in-flight affiliate/GearPick
+files (big-muff, fender-deluxe-reverb, helix-vs-quad-cortex-vs-kemper, vox-ac30) are untouched and not
+committed, same as every run since 08-03.
+
+### Strategic queue status after this run
+
+**S5 and S6 are DONE.** The line that has appeared at the bottom of every run's notes since
+mid-July — *"strategic queue empty of automatable items; S5/S6 remain the standing debt"* — is
+retired. Both head-term pillars are live.
+
+**Remaining human-in-the-loop debt is now one item, and it is narrow:** the Y1 measured per-block
+table, which needs a modeler, an interface, and about fifteen minutes with the harness in the post.
+That is a much smaller ask than the three-item pile it replaces.
+
+**Cluster fan-out queue unchanged and still automatable:** volume-pedal-placement/Sean, V2
+katana-gen3/Jess **(note: S6 now covers much of the Gen 3 spec ground — re-check V2 for Gate 7
+distinctness before building, it may have become a re-slice)**, W2 sidechain-dynamic-eq/Dev, V3
+ambient-headphones-mono/Dev (still flagged for rescoping), plus AA1/Jess, AA2/Nathan, AA3/Margot from
+this morning's run. **Next run: Nathan is the only byline at 0 — AA2 is built for him.**
