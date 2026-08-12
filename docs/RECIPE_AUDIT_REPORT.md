@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-08-05
-**Recipes:** 205
-**Clean (no errors, no warns):** 205
+**Date:** 2026-08-12
+**Recipes:** 210
+**Clean (no errors, no warns):** 210
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,7 +16,8 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `katana-kemper-multidrive-default-off` | info | 27 / 205 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `settings-outside-unverified-range` | info | 210 / 210 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
+| `katana-kemper-multidrive-default-off` | info | 27 / 210 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -127,6 +128,12 @@ Passes every rule.
 ### `campbell-stand-up-and-shout-riff` — ✓ clean
 
 *Dio's Stand Up and Shout Riff Tone*
+
+Passes every rule.
+
+### `campbell-we-rock-riff` — ✓ clean
+
+*Dio's We Rock Riff Tone*
 
 Passes every rule.
 
@@ -562,6 +569,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `iommi-children-of-the-sea-solo` — ✓ clean
+
+*Black Sabbath's Children of the Sea Solo Tone*
+
+Passes every rule.
+
 ### `iommi-iron-man-doom-riff` — ✓ clean
 
 *Tony Iommi's Iron Man Doom Riff Tone*
@@ -583,6 +596,12 @@ Passes every rule.
 ### `jake-e-lee-bark-at-the-moon-riff` — ✓ clean
 
 *Ozzy's Bark at the Moon Riff Tone*
+
+Passes every rule.
+
+### `jake-e-lee-killer-of-giants-solo` — ✓ clean
+
+*Ozzy's Killer of Giants Solo Tone*
 
 Passes every rule.
 
@@ -1012,6 +1031,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `rhoads-diary-of-a-madman` — ✓ clean
+
+*Ozzy's Diary of a Madman Tone*
+
+Passes every rule.
+
 ### `rhoads-mr-crowley-solo` — ✓ clean
 
 *Ozzy's Mr. Crowley Solo Tone*
@@ -1249,5 +1274,11 @@ Passes every rule.
 ### `walsh-life-in-the-fast-lane-riff` — ✓ clean
 
 *Walsh's Life in the Fast Lane Riff Tone*
+
+Passes every rule.
+
+### `zakk-wylde-miracle-man-riff` — ✓ clean
+
+*Ozzy's Miracle Man Riff Tone*
 
 Passes every rule.

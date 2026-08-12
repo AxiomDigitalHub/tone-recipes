@@ -239,17 +239,17 @@ Format: `Pri · Song · Band · Guitarist · Album (Year) · Gear sketch · Stat
 | 180 | Gates of Babylon (solo) | Rainbow | Ritchie Blackmore | Long Live Rock 'n' Roll (1978) | Fender Strat → Marshall Major, AIWA tape echo, Middle-Eastern phrasing. (Note 2026-07-29: DEFERRED one run for tonal variety — #178 and #179 both shipped this run and #180 is the same album and the same rig as #179, so writing it in the same batch would have produced near-identical block notes. Gear is documented and ready; promote it next run. Use the #179 entry's corrected rig details.) | done |
 | 181 | Stand Up and Shout (riff) | Dio | Vivian Campbell | Holy Diver (1983) | SHIPPED as campbell-stand-up-and-shout-riff. Les Paul Deluxe refinished matte black w/ DiMarzio X2N → Boss SD-1 (or GE-7) as a level boost → stock rented Marshall JCM800 2203, cranked. Sound City Studios, Van Nuys, early 1983; produced by Ronnie James Dio. Rig is documented at ALBUM level, not per track — sibling of campbell-holy-diver-les-paul-marshall, set drier/tighter for the opener's rhythm attack. | done |
 | 182 | Don't Talk to Strangers (clean intro/solo) | Dio | Vivian Campbell | Holy Diver (1983) | Les Paul Deluxe (X2N) → JCM800, Boss OD for solo mid-boost, clean neck pickup intro | done |
-| 183 | We Rock (riff) | Dio | Vivian Campbell | The Last in Line (1984) | Les Paul / Charvel → Marshall JCM800 + 4x12s, Boss overdrive (Note 2026-08-05: DEFERRED one run for tonal variety — #182 ships the same artist and the same rig from this cluster, so writing these in one batch would produce near-identical block notes. Gear sketch is unchanged and ready; promote on a later run.) | queued |
+| 183 | We Rock (riff) | Dio | Vivian Campbell | The Last in Line (1984) | Les Paul / Charvel → Marshall JCM800 + 4x12s, Boss overdrive (Note 2026-08-05: DEFERRED one run for tonal variety — #182 ships the same artist and the same rig from this cluster, so writing these in one batch would produce near-identical block notes. Gear sketch is unchanged and ready; promote on a later run.) | done |
 | 184 | The Last in Line (solo) | Dio | Vivian Campbell | The Last in Line (1984) | Charvel super-strat (Floyd Rose) → JCM800, Boss OD boost (Note 2026-08-05: DEFERRED one run for tonal variety — #182 ships the same artist and the same rig from this cluster, so writing these in one batch would produce near-identical block notes. Gear sketch is unchanged and ready; promote on a later run.) | queued |
 | 185 | Neon Knights (riff) | Black Sabbath | Tony Iommi | Heaven and Hell (1980) | Gibson SG (Iommi) → Laney Klipp / Marshall, Tycobrahe/Dallas Rangemaster-style treble boost | done |
-| 186 | Children of the Sea (solo) | Black Sabbath | Tony Iommi | Heaven and Hell (1980) | GEAR SKETCH CORRECTED 2026-08-05 (was "Laney stack, treble booster"): Heaven and Hell was NOT the Laney/treble-booster rig. Iommi tracked it on 'Monkey' (left-handed cherry SG, John Birch neck pickup, Birch-rehoused Gibson P-90 in the bridge) plus 'Old Boy' (John Diggins, 1975) for overdubs, into a Marshall 1959 Super Lead rebuilt by John 'Dawk' Stillwell with an extra gain stage and master volume — Iommi: "He'd done away with the treble booster I had forever." Only effects on the album: chorus, delay, wah. Recorded Jan 1980, Studio Ferber, Paris; Martin Birch producing. Use these details, not the old sketch (Note 2026-08-05: DEFERRED one run for tonal variety — #185 ships the same artist and the same rig from this cluster, so writing these in one batch would produce near-identical block notes. Gear sketch is unchanged and ready; promote on a later run.) | queued |
+| 186 | Children of the Sea (solo) | Black Sabbath | Tony Iommi | Heaven and Hell (1980) | GEAR SKETCH CORRECTED 2026-08-05 (was "Laney stack, treble booster"): Heaven and Hell was NOT the Laney/treble-booster rig. Iommi tracked it on 'Monkey' (left-handed cherry SG, John Birch neck pickup, Birch-rehoused Gibson P-90 in the bridge) plus 'Old Boy' (John Diggins, 1975) for overdubs, into a Marshall 1959 Super Lead rebuilt by John 'Dawk' Stillwell with an extra gain stage and master volume — Iommi: "He'd done away with the treble booster I had forever." Only effects on the album: chorus, delay, wah. Recorded Jan 1980, Studio Ferber, Paris; Martin Birch producing. Use these details, not the old sketch (Note 2026-08-05: DEFERRED one run for tonal variety — #185 ships the same artist and the same rig from this cluster, so writing these in one batch would produce near-identical block notes. Gear sketch is unchanged and ready; promote on a later run.) | done |
 | 187 | The Mob Rules (riff) | Black Sabbath | Tony Iommi | Mob Rules (1981) | Gibson SG Special → Laney Klipp, treble boost, light-gauge strings (Note 2026-08-05: DEFERRED one run for tonal variety — #185 ships the same artist and the same rig from this cluster, so writing these in one batch would produce near-identical block notes. Gear sketch is unchanged and ready; promote on a later run.) | queued |
 | 188 | Mr. Crowley (solo) | Ozzy Osbourne | Randy Rhoads | Blizzard of Ozz (1980) | Cream 1974 Gibson Les Paul Custom → white Marshall 1959 stacks, MXR Distortion+, MXR 10-band EQ, MXR stereo chorus | done |
-| 189 | Diary of a Madman (clean/heavy) | Ozzy Osbourne | Randy Rhoads | Diary of a Madman (1981) | Karl Sandoval polka-dot Flying V & Les Paul Custom → white Marshall stacks, MXR Distortion+, 10-band EQ, MXR analog delay (Note 2026-08-05: DEFERRED one run for tonal variety — #188 ships the same artist and the same rig from this cluster, so writing these in one batch would produce near-identical block notes. Gear sketch is unchanged and ready; promote on a later run.) | queued |
+| 189 | Diary of a Madman (clean/heavy) | Ozzy Osbourne | Randy Rhoads | Diary of a Madman (1981) | Karl Sandoval polka-dot Flying V & Les Paul Custom → white Marshall stacks, MXR Distortion+, 10-band EQ, MXR analog delay (Note 2026-08-05: DEFERRED one run for tonal variety — #188 ships the same artist and the same rig from this cluster, so writing these in one batch would produce near-identical block notes. Gear sketch is unchanged and ready; promote on a later run.) | done |
 | 190 | Flying High Again (solo) | Ozzy Osbourne | Randy Rhoads | Diary of a Madman (1981) | Jackson Concorde/Les Paul Custom → Marshall Super Lead, MXR Distortion+ and chorus (Note 2026-08-05: DEFERRED one run for tonal variety — #188 ships the same artist and the same rig from this cluster, so writing these in one batch would produce near-identical block notes. Gear sketch is unchanged and ready; promote on a later run.) | queued |
 | 191 | Bark at the Moon (riff) | Ozzy Osbourne | Jake E. Lee | Bark at the Moon (1983) | Charvel super-strat → Marshall, MXR Distortion+, fast legato leads | done |
-| 192 | Killer of Giants (clean/solo) | Ozzy Osbourne | Jake E. Lee | The Ultimate Sin (1986) | Charvel → Marshall stack, clean arpeggio into gain, chorus/delay | queued |
-| 193 | Miracle Man (riff) | Ozzy Osbourne | Zakk Wylde | No Rest for the Wicked (1988) | Bullseye Gibson Les Paul Custom → Marshall JCM800, MXR Rotovibe, pinch-harmonic squeals | queued |
+| 192 | Killer of Giants (clean/solo) | Ozzy Osbourne | Jake E. Lee | The Ultimate Sin (1986) | Charvel → Marshall stack, clean arpeggio into gain, chorus/delay | done |
+| 193 | Miracle Man (riff) | Ozzy Osbourne | Zakk Wylde | No Rest for the Wicked (1988) | Bullseye Gibson Les Paul Custom → Marshall JCM800, MXR Rotovibe, pinch-harmonic squeals | done |
 | 194 | Fast as a Shark (riff) | Accept | Wolf Hoffmann | Restless and Wild (1982) | Fender Stratocaster (studio) → Marshall stack, MXR Distortion+, bright single-coil attack | queued |
 | 195 | Restless and Wild (solo) | Accept | Wolf Hoffmann | Restless and Wild (1982) | Stratocaster → Marshall Super Lead, MXR Distortion+ boost | queued |
 | 196 | Balls to the Wall (riff) | Accept | Wolf Hoffmann | Balls to the Wall (1983) | Fender Strat → Marshall stack, MXR Distortion+, mid-heavy grind | queued |
@@ -1221,6 +1221,46 @@ successful run.)
 | 2026-08-05 | iommi-neon-knights-riff | 185 |
 | 2026-08-05 | rhoads-mr-crowley-solo | 188 |
 | 2026-08-05 | jake-e-lee-bark-at-the-moon-riff | 191 |
+| 2026-08-12 | campbell-we-rock-riff | 183 |
+| 2026-08-12 | iommi-children-of-the-sea-solo | 186 |
+| 2026-08-12 | rhoads-diary-of-a-madman | 189 |
+| 2026-08-12 | jake-e-lee-killer-of-giants-solo | 192 |
+| 2026-08-12 | zakk-wylde-miracle-man-riff | 193 |
+
+
+### Corrections applied this run (2026-08-12)
+
+- **#193 Miracle Man** — the backlog sketch listed an "MXR Rotovibe," which is
+  **wrong on two counts.** The Rotovibe is a *Dunlop* pedal, and it is a
+  nineties signature product — it did not exist when No Rest for the Wicked was
+  recorded in 1988. Wylde's documented effects for this period are a Boss SD-1
+  Super Overdrive, a Boss CH-1 Super Chorus and a Dunlop Jimi Hendrix JH-1 wah.
+  The sketch's "bullseye Gibson Les Paul Custom" is also anachronistic as
+  written: the guitar is right (the 1981 Les Paul Custom he calls "the Grail,"
+  acquired 1987), but it was still cream at this point. Wylde had it refinished
+  *afterwards* precisely because a cream Custom in Ozzy's band looked like a
+  Randy Rhoads impression — he asked for a Vertigo-poster spiral and got the
+  bullseye back instead. Recipe written with the corrected gear.
+- **#193 amp, flagged not resolved** — sources conflict on whether No Rest for
+  the Wicked was tracked with the Marshall JCM800 2203 or the Lee Jackson
+  Metaltronix M-1000. The 2203 is documented as his amp from 1987 onward and is
+  what most sources point to; the Metaltronix is certainly all over the
+  supporting tour and may have been in the studio. The recipe is built on the
+  2203 and says so, with the ambiguity stated in `other_notes` rather than
+  papered over.
+- **#183 We Rock** — watch out for Campbell's ENGL Ritchie Blackmore signature
+  head turning up in interview quotes attached to these songs. That refers to
+  re-recording the Dio material with his band Last In Line decades later; no
+  such amp existed in 1984. The 1984 rig is the Les Paul Deluxe / DiMarzio X2N
+  / Boss overdrive / JCM800 chain, in his own words "a Les Paul through an
+  overdrive pedal into a Marshall."
+- **#192 Killer of Giants** — no track-level gear documentation exists for this
+  song. What is documented is album-level (white Charvel for basics and solos,
+  doubled with the blue or purple burst through whichever Marshall was not used
+  on the first pass; EV-loaded straight 4x12; Boss OD-1 and a Rat), and the
+  blue-burst credit for this specific solo comes from transcription sources
+  rather than from Lee. The recipe states this distinction rather than
+  presenting album-level gear as track-level fact.
 
 
 ### Corrections applied this run (2026-08-05)
