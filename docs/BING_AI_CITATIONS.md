@@ -114,3 +114,32 @@ Worth holding both: keep building the worship thesis, and stop treating the Gear
 
 ### 2026-08-03 — first read
 Window 07-23 → 08-02 (all data that exists). ~2,000 citations, 44 avg cited pages/day, 111 distinct pages, 28 queries sampled. Top page `bone-vs-tusq-vs-graph-tech-nut-materials` (248). Highest share `best guitar tuning machines retrofit stability` (83.3%). No worship queries present. robots.txt verified open to AI crawlers. No baseline — do not infer trend.
+
+### 2026-08-12 — second read
+Window 07-23 → **08-10** (19 days, `3 M` selector — still returns the same start date, so collection began 07-23 and **this window overlaps the first read; it is cumulative, not an independent week**). **3.6K** citations (3,624 by day-sum), **47** avg cited pages/day, **160** distinct pages (was 111), **36** queries sampled (was 28).
+
+New days since first read (Aug 03–10): 156 · 80 · 86 · 121 · **338 · 295 · 275 · 262**. The Aug 07–10 block is the highest sustained run since Jul 23–26. The 11 days from the first read came back **byte-identical**, so the historical series is stable and the refinement lag does not appear to rewrite past days.
+
+**Top 5 pages:**
+| Page | Citations | vs first read |
+|---|---|---|
+| `/blog/bone-vs-tusq-vs-graph-tech-nut-materials` | **427** | 248 → 427 |
+| `/blog/guitar-eq-guide` | **137** | 110 → 137 |
+| `/blog/signal-chain-order-guide` | **85** | **new to top 5** (absent from prior top 9) |
+| `/blog/best-frfr-speakers-for-modelers` | **79** | 31 → 79 (#8 → #4) |
+| `/blog/the-edge-delay-settings` | **68** | 59 → 68 |
+
+**Notable movement:** `signal-chain-order-guide` is the new top-5 entrant. `best-frfr-speakers-for-modelers` more than doubled. Against that, `/blog/locking-tuners-slip-test-…` sat at **64 → 64 — zero new citations in 8 days**, falling #3 → #7; worth a second look, since it is one of the original-measurement pages the thesis leans on.
+
+**3 highest citation shares:** best guitar tuning machines retrofit stability smooth operation **83.33%** · most reliable locking tuners for bass guitars **71.43%** · best guitar nut materials intonation comfortable action **58.62%**.
+**3 lowest:** tonex modeler **15.65%** · qc capture **18.75%** · fixed bias vs cathode bias (video intent) **21.82%**.
+
+**No share moved more than ~15 points.** Largest mover: `graphite vs silicone lubricant guitar tuning pegs nut slots` **64.7% → 51.52%** (−13.2). The two flagship measured queries (tuning machines 83.3%, bass locking tuners 71.4%) held flat to the decimal. §3's split — original measurement 57–83%, generic head terms 15–25% — **holds unchanged on a second read**.
+
+**Worship — §6's open probe, now answered (partially).** Searching the full 160-page list for `worship` returns **4 cited pages, 26 citations total**: `/guides/worship-guitar` (9), `/blog/worship-guitar-tone-helix` (9), `/blog/hx-stomp-vs-helix-lt-worship` (5), `/blog/worship-pedalboard-guide` (3). So worship is **no longer entirely absent** — the generic/evergreen worship pages do get cited.
+
+But searching for `tone-helix` returns **exactly one row** (`worship-guitar-tone-helix`, 9). **None of the 5 worship artist posts is cited at all** — not lincoln-brewster, hillsong, elevation-worship, bethel-music, or phil-wickham. Note that **hillsong-guitar-tone-helix has been indexed in Google for four consecutive weeks and still draws zero AI citations**, which splits §6's two hypotheses: this is not purely an indexing problem. Being crawlable is necessary but not sufficient. Still **zero worship queries** in the query sample (top 25 of 36 inspected).
+
+**Trend readable yet? No.** Two run-log entries, and the second window *contains* the first — these are not independent weeks. The daily series is the only clean comparison available, and 8 new days with a 4-day surge at the end is not a trend. Need ~2 more weekly entries before reading direction. Watch share, not volume.
+
+**Capture caveats:** top 25 of 36 queries and top 25 of 160 pages captured via the UI (pagination not walked); the worship findings above come from server-side search across the full lists, so they are complete for those terms. `Download all` CSVs were not committed this run.
