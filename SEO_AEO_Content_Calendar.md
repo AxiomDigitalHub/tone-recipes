@@ -4655,3 +4655,138 @@ katana-gen3/Jess **(note: S6 now covers much of the Gen 3 spec ground — re-che
 distinctness before building, it may have become a re-slice)**, W2 sidechain-dynamic-eq/Dev, V3
 ambient-headphones-mono/Dev (still flagged for rescoping), plus AA1/Jess, AA2/Nathan, AA3/Margot from
 this morning's run. **Next run: Nathan is the only byline at 0 — AA2 is built for him.**
+
+---
+
+## SERP Analysis — 2026-08-12 (Posts Published Today)
+
+**Cadence:** 3 new + 2 refreshes, the documented shape. Velocity at run start was 1/wk for all nine
+active bylines with Nathan and fk-staff at 0 — so two of today's three went to the queue's
+lowest-velocity names exactly as the 08-07 notes recommended.
+
+### New posts
+
+| # | Slug | Title | Writer | Category | Queue item |
+|---|---|---|---|---|---|
+| 1 | bbd-bias-trim-symptoms-analog-delay-chorus | Your Analog Delay Isn't Broken, It's Out of Trim | Jess Kowalski | quick-fixes | **AA1** |
+| 2 | two-guitar-arrangement-register-split | Two Guitarists, One Frequency Range | Nathan Cross | signal-chain | **AA2** |
+| 3 | picking-hand-position-timbre-bridge-to-neck | Where Your Picking Hand Sits Changes More Than Your Overdrive Does | Margot Thiessen | signal-chain | **AA3** |
+
+**Velocity after run:** Jess 1→2, Nathan 0→1, Margot 1→2. Nobody at or over the 3/week cap.
+Post-run standing: Jess 2, Margot 2, Nathan 1, Rick 1, Carl 1, Sean 1, Elena 1, Viktor 1, Hank 1,
+Dev 1, fk-staff 0.
+
+**Post 1 — bbd-bias-trim-symptoms-analog-delay-chorus** (target: "analog delay sounds gritty," "bbd
+bias adjustment," "why does my analog delay distort," "used analog delay worth buying")
+- **Top ranking:** a ModWiggler thread on quiet BBD delays, Premier Guitar's *"Behind the Bucket
+  Brigade,"* Roland AU's *"I Love Analog Delay But What Is A BBD?"*, Delicious Audio's BBD chip
+  explainer, General Guitar Gadgets' AD-3208 build page, and Anasounds' BBD history piece.
+- **Gap confirmed, and the SERP splits cleanly into two piles that both miss the question.** Pile one
+  is chip explainers (Roland, Delicious Audio, Anasounds, Premier Guitar) — they describe what a BBD
+  is and why repeats darken, and never mention the trimmer. Pile two is DIY build documentation
+  (General Guitar Gadgets, ModWiggler) — it assumes you already have the board open and a scope
+  attached. **Nothing on page one serves the player who owns a pedal that sounds wrong and wants to
+  know whether that is a fault or the format.** Absent across the top 5: (1) the **discriminator**,
+  that a bias fault arrives on the first repeat while BBD character accumulates across repeats; (2)
+  the **guitar-volume test**, which isolates a headroom problem without opening anything; (3) the
+  **feedback-cranked trap** — the setting everyone reaches for to hear the problem is the one whose
+  treble roll-off hides it; (4) any **separation of the four failure modes** (bias, clock bleed,
+  dying chip, normal noise floor) that all get reported as "sounds broken"; (5) the **used-market
+  math**, i.e. which price tiers justify a bench fee at all.
+- **Gate 1 note:** the by-ear adjustment section was tightened post-draft after live sources
+  confirmed the usable trimmer window is often a fraction of a turn, with the delay path cutting out
+  entirely past it. The post now says plainly that by-ear lands you inside the range rather than at
+  its center, and routes anyone who cares about the pedal to a tech. **Do not let a future run soften
+  that back into a confident DIY procedure.**
+- **AI Overview:** likely present (troubleshooting/definitional class); F&K not cited.
+- Non-commodity gate: **PASS** — the symptom-discrimination table and the volume-knob test exist
+  nowhere on page one, and the article is a diagnostic rather than a third F&K chip explainer, which
+  was the standing Gate 7 warning on this queue row. Confirmed distinct from
+  `bbd-vs-pt2399-delay-chips` (chip character) and `way-huge-aqua-puss-mkiii-bbd-delay` (pedal review).
+
+**Post 2 — two-guitar-arrangement-register-split** (target: "two guitarists same band arrangement,"
+"guitars fighting in the mix live," "second guitar part ideas," "worship two guitar arrangement")
+- **Top ranking:** ProSoundWeb's *"Mixing Multiple Guitars Live,"* Bax Music's *"Two Guitarists in One
+  Band: Who Plays What?"*, a Gearspace thread on mixing two guitarists, a HomeRecording.com thread on
+  rhythm/lead balance, ProSoundWeb's *"The 2 Arrangement Rules,"* and IndiePanda's *"Why Do Bands Have
+  Two Guitarists?"*
+- **Gap confirmed, and the SERP has a structural blind spot: page one is written for the engineer, not
+  the players.** The two strongest results (both ProSoundWeb) are front-of-house articles about
+  carving EQ and placing guitars in a mix — useful, and addressed to someone holding a console rather
+  than a guitar. The band-facing results (Bax, IndiePanda) stop at "one plays rhythm, one plays lead"
+  and "use different guitars, maybe a Les Paul and a Strat." Absent across the top 5: (1) any
+  **ranking** of the available fixes — every source lists options, none says which to try first; (2)
+  the **register-first argument**, that a voicing decision survives the PA and an EQ decision does
+  not; (3) the **same-subdivision delay collision**, which is the single most common two-guitar
+  failure in worship and post-rock and appears nowhere; (4) a **rehearsal procedure** that isolates
+  one variable at a time; (5) the **both-players-own-the-same-pedal** case.
+- **AI Overview:** likely present (how-to/advice class); citation unverified.
+- Non-commodity gate: **PASS** — the four-axis ranking with "register first because it survives the
+  room" is a position, not a summary, and the delay-subdivision collision is absent from the entire
+  SERP.
+
+**Post 3 — picking-hand-position-timbre-bridge-to-neck** (target: "picking near the bridge vs neck
+tone," "picking hand position tone," "sul ponticello guitar," "why does my tone change when I move my
+hand")
+- **Top ranking:** Happy Bluesman's *"Your picking hand position: implications for tone &
+  playability,"* an Ultimate Guitar forum thread *"Does It Matter Where You Strum?"*, plus several
+  **pickup**-position articles that rank on this query because the engines conflate the two — American
+  Musical Supply, Guyker, Guitar Kit World, GuitarPickups.xyz. **F&K's own `pickup-position-guide`
+  ranks on page one for this query**, which is what made it the obvious refresh target (see R1).
+- **Gap confirmed, and it is the widest of the three.** Every result on page one delivers the same
+  qualitative sentence — bridge is bright and tight, neck is thick and round — and stops. Absent
+  across the entire top 5: (1) the **node rule**, i.e. that plucking at a harmonic's node suppresses
+  that harmonic, which is the mechanism the whole topic rests on; (2) **even-harmonic cancellation at
+  the midpoint**, the one position with a genuinely distinct color; (3) the finding that **the
+  midpoint moves as you fret** — it sits over the twelfth fret for an open string and near the neck
+  pickup for a note fretted at the twelfth, which is why "pick over the twelfth fret" stops working
+  the moment you use it, and why leads high on the neck thin out; (4) the **gain reversal**, that
+  neck-side picking sounds cleaner under high gain because there is less upper-harmonic content to
+  intermodulate into fizz — the opposite of what the spectral description predicts; (5) **picking
+  position times pickup position** as two independent spatial filters that multiply.
+- **AI Overview:** very likely present (definitional/how-to class); F&K not cited, though the
+  pickup-position URL's page-one presence makes this the most realistic near-term citation target of
+  the three.
+- Non-commodity gate: **PASS**, and comfortably. Four of the five gaps are mechanism-level findings
+  that cannot be produced by summarizing what ranks.
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | pickup-position-guide | **Full AEO backfill + two content-adds + Gate 5 addition.** The post had *no* `takeaways:`, *no* `faq:`, no `updated:`, a generic `image_alt`, and ran only 90 lines. Added 5 takeaways, 5 Q&A pairs, a real `image_alt`, two tags, and a description that reflects the new scope. **Content-add 1 — "Where You Pick Changes What the Pickup Hears":** the post treated the selector switch as the whole story; the new section establishes that the hand decides which harmonics exist and the pickup decides which get transmitted, names the bridge-pickup/neck-picking combination as the underused one, and cross-links Post 3 for the mechanism. **Content-add 2 — "Pickup Height Is the Adjustment Nobody Makes":** the post contained no adjustable setting at all, which is a Gate 7 hole in a gear-category piece. New section covers the magnet-pull failure (low strings warbling on a neck pickup set too high, routinely misdiagnosed as a dark pickup), a four-step balance procedure, and the two directional rules (humbuckers closer than single coils, neck lower than bridge). **Gate 1 discipline: no invented height specs** — the section routes to the manufacturer's published figure as the starting point and gives the by-ear procedure from there. Carries a Gate 5 moment (lowering a pickup made it *clearer*, not just quieter). `updated: 2026-08-12`, Carl's byline and plain-sentence voice kept. | It ranks on page one for the picking-position query cluster *today* (see Post 3's SERP), it was the thinnest proven URL in that cluster, and it had zero answer-engine surface. Textbook striking-distance refresh, and it is now the pickup half of a two-post cluster. |
+| R2 | why-delay-sounds-muddy | **Legacy body-FAQ → frontmatter `faq:` + AEO backfill + two content-adds + Gate 6 repairs.** Migrated the 5 body-level H3 Q&A to frontmatter, added a 6th (both guitarists run delay), added 5 `takeaways:`, replaced the generic `image_alt`, added a tag. **Content-add 1 — "The Filter Frequency Should Follow the Part":** the post's core advice was a fixed 150–200 Hz low cut, which quietly assumes the part lives on the low strings. New section corrects it — a triad figure on the D/G/B strings has fundamentals above 150 Hz, so the stock number filters a region containing nothing and leaves the actual smear untouched. Adds a five-row table mapping where the part lives to where the cut belongs, plus the note that the 250–400 Hz region is where vocal clarity lives, which is why an unfiltered ambient part crowds a room without sounding loud. **Content-add 2 — "When the Mud Is a Second Guitarist":** the entire post assumed one delay in the room; new section covers the same-subdivision collision between two players, the one-player delay-plus-reverb version of it, and cross-links Post 2. **Gate 6 repairs:** four bare descriptors ("more transparent," "feel musical," "useful for warmth," "stays musical") replaced with concrete ones. `updated: 2026-08-12`, Nathan's byline kept. | A March quick-fix post with no AEO surface whose central number was under-specified in a way that makes the fix fail for exactly the players most likely to search it. It is also the natural delay-side landing page for Post 2's arrangement argument. |
+
+**Preflight:** `validate-mdx.mts --strict` — **all 5 of this run's files compile clean, zero warnings,
+zero errors.** All **18 internal links verified to resolve** against the post inventory before commit.
+Hero images via Flux 2 Pro (`--model=black-forest-labs/flux-2-pro`, ~$0.17, 3/3; the Margot image
+timed out on the first pass at the script's 3-minute prediction ceiling and succeeded on a re-run —
+worth knowing that a timeout is not a rejection and costs a second call). The run-wide `--changed`
+invocation still reports the same **12 warnings on the four in-flight affiliate/GearPick files**
+(big-muff, fender-deluxe-reverb, helix-vs-quad-cortex-vs-kemper, vox-ac30) — untouched and not
+committed here, identical to every run since 08-03.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 0, added 3 — **queue is flat this run**, the intended steady state. Bylines are
+> best-fit proposals; the executing run re-checks **both** velocity **and** the never-assign list.
+> **Verify no colliding slug at build time.**
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AB1 | pickup-height-magnet-pull-warble | Your Pickup Is Too High: How Magnet Pull Kills Sustain and Makes Notes Warble | "pickup too close to strings," "guitar note warbles," "stratitis," "how high should pickups be" | Carl Beckett | 6 — Quick Fixes | Falls out of R1's height section, but asks the distinct diagnostic question that section only has room to gesture at: how do you tell magnet-pull warble from a fretting-out buzz, a bad nut slot, or genuinely dead strings, given that all four present as "this note sounds wrong and dies early." Real content: the string-by-string and pickup-by-pickup isolation test (the fault follows the pickup selector, which is what rules the other three out), why it is worst on the neck pickup and the wound strings, why higher-output pickups need *more* clearance rather than less, and the counterintuitive part — lowering a pickup can make it sound clearer even as output drops. Carl's you-already-own-this lane and he is at 1/wk. **Gate 7 note for the executing run: this must be a diagnostic, not a second setup guide. If it turns into "here are the spec numbers," drop it — R1 already covers the procedure.** |
+| AB2 | delay-vs-reverb-which-one-is-crowding-the-room | Delay or Reverb: Which One Is Actually Crowding Your Sound? | "delay vs reverb too much," "should I use delay or reverb," "ambient guitar too washy," "reverb making mix muddy" | Dev Okonkwo | 3 — Signal Chain | R2 notes in one paragraph that a delay and a long reverb running together compound, and that reverb needs the harder high-pass because tails hold low frequencies longer than discrete repeats do. That is a whole post: how to A/B which of the two is doing the damage (mute one, count what changes), why the two effects fail differently — delay smears rhythm, reverb smears pitch and register — and the decision framework for which one a given part actually needs. Dev's frequency-and-texture lane, and the headphone/bedroom case where this goes wrong fastest is his documented world. He is at 1/wk. **Confirmed no colliding slug** — F&K has `why-delay-sounds-muddy` and reverb-type posts but nothing that pits the two against each other as a diagnosis. |
+| AB3 | one-guitarist-two-parts-loop-and-arrange | Playing Both Parts: How One Guitarist Covers a Two-Guitar Arrangement | "one guitarist two guitar parts," "how to sound like two guitars," "guitar arrangement for one player," "worship guitar solo player" | Elena Ruiz | 3 — Signal Chain | Post 2 answers the two-player question and structurally cannot answer the one-player version, which is the more common situation — most bands, and most churches, have one guitarist and a song written for two. Distinct content: which of the two parts to actually play (and the argument that it is usually neither, but a third part built from both), what a looper can and cannot cover live, the register compromise that lets a single part imply two, and when the honest answer is to let the keys or the bass take the missing role. Elena's constraint-embracing lane and the "you have less than the arrangement assumes" framing is exactly hers. She is at 1/wk. **Confirmed no colliding slug** — F&K has `looper-pedal-composition` (composition-focused) but nothing on covering a two-guitar arrangement alone. |
+
+**Diversity/queue note:** new posts went to Jess (1→2), Nathan (0→1), Margot (1→2); refreshes to Carl
+and Nathan (refreshes do not count against the cap). **Next run: fk-staff is the only byline at 0, and
+Rick, Carl, Sean, Elena, Viktor, Hank, and Dev are all at 1 — the queue is unusually flat, so pick on
+topic fit rather than velocity.** Cluster fan-out queue remaining: volume-pedal-placement/Sean, V2
+katana-gen3/Jess **(re-check for Gate 7 distinctness — S6 now covers much of the Gen 3 spec ground and
+this may have become a re-slice)**, W2 sidechain-dynamic-eq/Dev, V3 ambient-headphones-mono/Dev
+**(still flagged for rescoping)**, plus today's AB1/Carl, AB2/Dev, AB3/Elena.
+
+**Human-in-the-loop debt unchanged: one item.** The Y1 measured per-block latency table still needs a
+modeler, an interface, and fifteen minutes with the harness published in
+`modeler-latency-budget-per-block-cost`. When it happens it is a **refresh** of that URL, not a new
+post. **Do not let an automated run fill that table from memory.**

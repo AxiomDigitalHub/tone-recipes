@@ -1,0 +1,230 @@
+---
+title: 'Your Analog Delay Isn''t Broken, It''s Out of Trim: How to Hear a Bad BBD Bias'
+description: >-
+  A gritty, hissy, thin-sounding bucket-brigade delay usually isn't a dead chip.
+  It's a mis-set bias trim, and you can hear the difference in about sixty
+  seconds without opening the pedal.
+date: '2026-08-12'
+author_slug: jess-kowalski
+category: quick-fixes
+tags:
+  - bbd
+  - analog-delay
+  - bias-trim
+  - troubleshooting
+  - used-gear
+  - chorus-pedal
+  - budget-pedals
+takeaways:
+  - >-
+    A mis-set BBD bias shows up on the FIRST repeat, at normal playing level.
+    Grit that builds up gradually over four or five repeats is the chip doing
+    its job, not a fault.
+  - >-
+    The bias trimmer sets the DC operating point of the bucket-brigade chip.
+    Off-center means the loudest half of your waveform clips inside the delay
+    line, which is why hot pickups make it worse and rolling your guitar volume
+    to 6 makes it vanish.
+  - >-
+    Testing with feedback cranked is backwards. The BBD's own treble roll-off
+    buries the distortion in the later repeats, so the setting most people reach
+    for to "really hear it" is the one that hides it.
+  - >-
+    Clock whine is a different fault. If the noise is a steady high-pitched tone
+    that changes pitch when you turn the Time knob, that's clock bleed, not
+    bias, and no amount of trimming fixes it.
+  - >-
+    A used analog delay described as "gritty" or "distorted" is frequently a
+    twenty-minute bench job, which makes it the most reliably underpriced thing
+    on the used market.
+faq:
+  - q: How do I know if my analog delay's bias is out of adjustment?
+    a: >-
+      Play a single note at normal volume with the feedback set for two repeats
+      and the mix at about 50 percent. If the first repeat comes back with a
+      fuzzy, spitty edge that the dry note doesn't have, the bias is suspect.
+      Then roll your guitar volume down to about 6 and play the same note. If
+      the grit disappears while everything else stays the same, that's a
+      headroom problem inside the delay line.
+  - q: What does the bias trimmer in a BBD pedal actually do?
+    a: >-
+      It sets the DC voltage the bucket-brigade chip's signal swings around.
+      Centered, the chip has equal headroom above and below the signal.
+      Off-center, one half of the waveform runs out of room first and clips
+      inside the delay line, which sounds like distortion on the repeats even
+      though your dry signal is clean.
+  - q: Is a gritty analog delay just what analog delay sounds like?
+    a: >-
+      Partly, and this is the confusion the whole diagnosis turns on. A healthy
+      bucket-brigade delay darkens and softens on each successive repeat, and
+      that progressive decay is the sound people buy these pedals for. What it
+      should not do is add a hard, fizzy edge to the first repeat while the
+      later ones are still clean-ish underneath. Character accumulates. A fault
+      arrives immediately.
+  - q: Can I adjust the BBD bias myself?
+    a: >-
+      If you already solder and you're comfortable working inside a powered
+      pedal, yes, by ear, with a small screwdriver on the trimmer and a
+      continuously repeating note as the source. If you don't already do your
+      own work, don't start here. The trimmer is small, easy to overshoot, and a
+      tech with an oscilloscope will do it properly in under half an hour.
+  - q: How much does it cost to have a BBD bias set correctly?
+    a: >-
+      Most independent techs treat it as a minimum bench charge, roughly 40 to
+      80 dollars as of August 2026 depending on the shop and how much of the
+      pedal has to come apart. On a 30 dollar clone that's a bad trade. On a 90
+      dollar used Aqua-Puss or a 130 dollar DM-2W it's usually worth it.
+  - q: Does the same problem affect analog chorus and flanger pedals?
+    a: >-
+      Yes, same chip family, same trimmer, same symptom set. On a chorus the
+      failure reads differently because the delay time is short and the wet
+      signal is always mixed in, so instead of a gritty repeat you get a
+      hardness that rides on top of the sweep and gets worse as depth goes up.
+image: /images/blog/bbd-bias-trim-symptoms-analog-delay-chorus.jpg
+image_alt: >-
+  An open analog delay pedal on a workbench with the bias trimmer visible on the
+  circuit board next to the bucket-brigade chip
+---
+
+> **Start here:** If your analog delay sounds gritty, check *when* the grit arrives. A bias problem distorts the first repeat at normal playing volume and cleans up when you roll your guitar volume back. Normal bucket-brigade character darkens gradually across repeats and doesn't care where your volume knob is. Those two things get confused constantly, and the confusion is why perfectly fixable pedals get listed as "sounds broken, selling cheap."
+
+Every few weeks someone posts the same thing. Bought an analog delay used, it sounds fuzzy, the repeats have a weird spitty edge, is the chip dying? And the replies split immediately into two camps: "that's just analog, dude" and "sounds like the BBD is toast."
+
+Both are usually wrong. The most common cause is a bias trimmer that isn't where it should be, and it's the cheapest problem in the entire pedal to fix.
+
+## The Symptom Table
+
+Start here before you do anything else. Three faults get lumped together as "my analog delay sounds bad," and they have almost nothing to do with each other.
+
+| What you hear | When it happens | What it is | Fixable? |
+|---|---|---|---|
+| Fuzzy, spitty edge on the **first** repeat | At normal playing level; goes away when you roll guitar volume to 6 | Bias out of adjustment | Yes, trimmer |
+| Repeats get darker and softer each cycle | Always, every repeat, regardless of level | Normal BBD behavior | Nothing to fix |
+| Steady high-pitched whistle | Constant, **changes pitch with the Time knob** | Clock bleed into the audio path | Sometimes, filtering/shielding |
+| Repeats drop out, stutter, or go to noise | Intermittent, often worse when warm | Actually failing chip | Rarely, chip sourcing |
+| Broadband hiss that rises with feedback | Always, proportional to repeats | Normal BBD noise floor | No, it's the format |
+
+Notice how many rows are not a fault. That's the point.
+
+## What the Trimmer Actually Sets
+
+A bucket-brigade device moves your signal down a chain of tiny capacitors, one step per clock tick. It's a genuinely analog delay line, which is why these pedals get sold as analog. But the chip has a limited voltage window to work inside, and the signal has to sit centered in that window.
+
+The bias trimmer sets where the center is.
+
+Get it right and your waveform has equal room above and below. Get it wrong and one half runs out of room before the other. The loud half clips, inside the delay line, after your dry signal has already split off. Which is exactly why the symptom is so confusing: your dry tone is perfect, your repeats are distorted, and nothing in the signal chain explains it.
+
+This also explains the two facts that make the diagnosis easy. Hotter input makes it worse, because a bigger waveform hits the ceiling sooner. And rolling your guitar volume back makes it disappear, because a smaller waveform fits in the window even when the window isn't centered.
+
+Factories set these trimmers, but they set them fast, usually at a low signal level, on a bench, in bulk. A unit that measured fine at the factory's test level can clip audibly with a hot humbucker in front of it and an overdrive before that.
+
+## The Test That Everyone Gets Backwards
+
+Here's the part I got wrong for years, and it's the reason I misdiagnosed at least two pedals I should have kept.
+
+I assumed a bias problem would be most obvious in the long tails. More repeats, more chances to hear the fault, more accumulation. So the natural move is to crank the feedback, let it wash, and listen hard.
+
+That's the one setting that hides it.
+
+A BBD rolls treble off on every pass. By repeat four, the pedal has filtered away most of the high-frequency content that clipping distortion actually lives in. The tail sounds smooth and dark and fine. Meanwhile repeat one, the one you skipped past on your way to the wash, is carrying the whole fault out in the open with nothing filtered off it yet.
+
+Test with two repeats. Not eight. The fault is loudest at the front and quietest at the back, which is the opposite of how basically every other pedal problem behaves.
+
+## The Sixty-Second Diagnostic
+
+No screwdriver. No multimeter. Pedal stays closed.
+
+1. **Set feedback for two audible repeats.** Around 9 o'clock on most delays. Mix at noon so you can hear the repeats clearly against the dry note.
+2. **Set the delay time to the middle of the knob's range.** Not minimum, not maximum. Extremes bring their own artifacts and you're trying to isolate one variable.
+3. **Guitar volume all the way up. Play one note, hard, around the 5th fret of the D string.** Let it ring. Listen to the first repeat only.
+4. **Roll your guitar volume back to about 6. Same note, same attack.** Listen to the first repeat again.
+5. **Compare.** If step 3 had a fizzy edge that step 4 doesn't, that's a headroom problem in the delay line, and bias is the first suspect. If both sound the same, you don't have a bias problem, and you can stop.
+6. **Then turn the Time knob while listening to any steady noise.** If the noise pitch tracks the knob, that's the clock, and it's a completely different repair conversation.
+
+Step 5 is the whole test. Everything else is setup.
+
+## What It Sounds Like, Specifically
+
+Vague descriptions are why this gets misdiagnosed, so let me be concrete about all three.
+
+**Healthy BBD repeats** sound like the note is walking away from you down a carpeted hallway. Each pass loses a little top end and a little level, and by repeat three or four it's a soft shape of the note rather than the note. That progressive softening is the entire reason anyone still buys these.
+
+**A mis-trimmed BBD** sounds like there's a tiny broken speaker inside the pedal that only plays the repeats. There's a crackle riding on the front of the echo, most obvious on the pick attack, and it sits *on top of* an otherwise normal-sounding repeat rather than replacing it. On a chord it turns to a kind of gravel. It's the sound of a signal hitting a wall, because that's what it is.
+
+**A dying chip** doesn't sound like distortion at all. It sounds like the repeat is intermittently not there. Dropouts, stutters, a repeat that comes back at half level for no reason, or the whole delay path collapsing into hiss. That one's real and it's the expensive one.
+
+## The Used-Market Part
+
+Now the useful bit.
+
+There's a whole class of used analog delay and chorus listings with words like "gritty," "distorted repeats," "sounds broken," "as-is," "for parts or repair." Sellers price those at a fraction of a working unit because they can't describe the fault and don't want the return.
+
+A meaningful share of them are a trimmer that's forty degrees off.
+
+I'm not going to pretend I can tell you the hit rate. Nobody can, and anyone who quotes you one is guessing. But the failure mode is common, the fix is cheap, and the discount for "sounds weird" is steep — which means the expected value works out in your favor even when you're wrong a good chunk of the time.
+
+What makes the bet safe is the diagnosis being free. Ask the seller for a phone video: one note, two repeats, guitar volume up, then the same note with guitar volume at 6. Any seller willing to make a thirty-second video has just told you which of the five rows in that table you're buying.
+
+The cost math, though, is real, and it's where budget logic actually bites:
+
+| Pedal | Typical used price (Aug 2026) | Bench fee worth it? |
+|---|---|---|
+| Behringer VD400 | $20–30 | No. Buy a second one. |
+| Danelectro/other clones | $30–50 | Marginal. Only if you already solder. |
+| Way Huge Aqua-Puss MkIII | $90–115 | Yes |
+| MXR Carbon Copy | $90–120 | Yes |
+| Boss DM-2W | $130–160 | Yes, easily |
+| Vintage MN3005-based units | $200+ | Yes, and use a tech who knows the circuit |
+
+On a $25 pedal the labor costs more than the pedal. That's not a tragedy, it's just arithmetic, and it's the same arithmetic that makes the cheap ones worth buying in the first place.
+
+## What to Tell the Tech
+
+Walk in with the diagnosis, not the symptom. It saves them bench time and it saves you money.
+
+Say: "The first repeat distorts at full guitar volume and cleans up when I roll back to 6. Later repeats sound fine. Delay time and feedback don't change it. Can you check the BBD bias?"
+
+That sentence contains every discriminator in this article. A competent tech will know exactly what you mean and roughly what they're going to do, which is put a scope on the chip's output, feed it a sine wave near your real playing level, and set the trimmer for a symmetrical waveform right up to the point of clipping.
+
+Expect a minimum bench charge, generally $40 to $80 as of August 2026. Ask them to set it at a realistic input level rather than a conservative one, especially if you play humbuckers or run a boost in front.
+
+## If You Do Your Own Work
+
+Short section, because this is not a beginner repair and I'm not going to pretend otherwise.
+
+The trimmer is usually a small single-turn pot near the BBD chip, often the only trimmer on the board or one of two (the other typically being a clock or level adjustment — if there are two, you want the one closest to the delay chip, and you should confirm against the schematic rather than my guess).
+
+The by-ear method: set a repeating note going, feedback high enough that the delay keeps talking while your hands are busy, guitar volume at maximum, and turn the trimmer *slowly* while listening for the point where the grit disappears. You'll typically find a range where it's clean, and you want the middle of that range, not the first edge of it. Mark where it started with a pencil so you can get back.
+
+Now the honest caveat, because it's bigger than I want it to be. On many units the usable window on that trimmer is *tiny* — a fraction of a turn, with distortion on one side and the delay path shutting off entirely on the other. Techs who do this properly put a scope on the chip output and adjust for a symmetrical waveform, and they do it that way because by ear you will land somewhere inside the usable range rather than at its center. That is fine if your goal is "this pedal is playable again." It is not the same as correct.
+
+The rest of the caveats: the pedal is powered while you do this, a quarter turn is often too much, and some units have interacting trimmers where fixing one moves the other. If the pedal matters to you, this is the paragraph that should send you to a tech instead.
+
+If you don't already own a soldering iron, this is not the project to buy one for.
+
+## Chorus and Flanger, Same Story
+
+Analog choruses are BBDs with a short delay time and a modulated clock. Same chip family, same trimmer, same fault.
+
+It reads differently, though. On a delay you get a discrete repeat you can isolate and study. On a chorus the wet signal is permanently blended in, so instead of a gritty echo you get a hardness that rides along with the sweep, worst at the top of the modulation cycle, and it gets uglier as you turn Depth up. Players almost always blame the depth control and turn it down, which works in the sense that it hides the problem.
+
+The tell is the same one: roll your guitar volume back. If the hardness leaves and only the chorus remains, the trim is off. This shows up a lot on budget analog choruses and on old units that have never been serviced.
+
+## On a Modeler
+
+If you're running a modeled BBD, none of this applies to you, which is either the boring answer or the whole selling point depending on your mood. Modeled bucket-brigade delays don't drift, don't have a trimmer, and sound the same in August as they did in March.
+
+What's actually worth knowing is the reverse translation. If you've heard a mis-trimmed BBD and liked it — some people genuinely do, it's a specific kind of dirty that sits nicely under a fuzz — you can build it deliberately: put a low-gain drive block *inside* the delay's feedback path if your platform supports it, or in front of a parallel delay path, and keep it off the dry signal. That's the same architecture as the fault. The difference is you can turn it off.
+
+And if you want the honest character rather than the fault, that's just a BBD-voiced delay model with the treble roll-off doing its work. Our [BBD vs. PT2399 breakdown](/blog/bbd-vs-pt2399-delay-chips) covers what separates the two chip camps, and the [Aqua-Puss MkIII writeup](/blog/way-huge-aqua-puss-mkiii-bbd-delay) has more on what a healthy short-BBD repeat is supposed to sound like. If your delay is fine and it's the *mix* that's muddy, that's a different article: [why your delay sounds muddy](/blog/why-delay-sounds-muddy).
+
+## The Whole Thing in One Line
+
+Grit on the first repeat that follows your guitar volume knob is a fault worth fixing. Grit that accumulates over four repeats and ignores your volume knob is the pedal working correctly. Test with two repeats, not eight, and stop cranking the feedback to hear a problem that lives at the front.
+
+<SaveThisTone
+  title="Pick a tone to chase"
+  description="Every recipe in the catalog has the chain, exact settings, and a preset for Helix or Katana."
+  href="/browse"
+  ctaLabel="Browse the catalog"
+/>
