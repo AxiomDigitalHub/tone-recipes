@@ -4790,3 +4790,171 @@ this may have become a re-slice)**, W2 sidechain-dynamic-eq/Dev, V3 ambient-head
 modeler, an interface, and fifteen minutes with the harness published in
 `modeler-latency-budget-per-block-cost`. When it happens it is a **refresh** of that URL, not a new
 post. **Do not let an automated run fill that table from memory.**
+
+---
+
+## SERP Analysis — 2026-08-14 (Posts Published Today)
+
+**Cadence:** 3 new + 2 refreshes, the documented shape. This run drained the entire AB queue added
+on 08-12 (AB1/AB2/AB3), so the queue is refilled below with three new rows and stays flat.
+
+**Velocity at run start:** Jess 2, and Carl/Sean/Elena/Viktor/Margot/Nathan/Rick all at 1. **Dev,
+Hank and fk-staff were at 0** (the 08-12 notes recorded Dev and Hank at 1, but the 7-day window
+rolled). Assignments went to Carl, Dev and Elena exactly as the AB rows proposed, which put one of
+the three on the byline that had gone quietest.
+
+### New posts
+
+| # | Slug | Title | Writer | Category | Queue item |
+|---|---|---|---|---|---|
+| 1 | pickup-height-magnet-pull-warble | Your Pickup Is Too High: How Magnet Pull Kills Sustain and Makes Notes Warble | Carl Beckett | quick-fixes | **AB1** |
+| 2 | delay-vs-reverb-which-one-is-crowding-the-room | Delay or Reverb: Which One Is Actually Crowding Your Sound? | Dev Okonkwo | signal-chain | **AB2** |
+| 3 | one-guitarist-two-parts-loop-and-arrange | Playing Both Parts: How One Guitarist Covers a Two-Guitar Arrangement | Elena Ruiz | signal-chain | **AB3** |
+
+**Velocity after run:** Carl 1→2, Dev 0→1, Elena 1→2. Nobody at or over the 3/week cap. Post-run
+standing: Jess 2, Carl 2, Elena 2, Margot 2, Rick 1, Sean 1, Viktor 1, Nathan 1, Dev 1, **Hank 0,
+fk-staff 0**.
+
+**Post 1 — pickup-height-magnet-pull-warble** (target: "pickup too close to strings," "guitar note
+warbles," "stratitis," "how high should pickups be")
+- **Top ranking:** Sweetwater's *"Adjusting Strat Pickup Height,"* Fender's own *"What are factory
+  setup specs,"* Edgewater Guitars' height guide, owningafender.com's setup guide, Haze Guitars'
+  *"Problems due to pickup height,"* plus a cluster of Strat-Talk and TDPRI forum threads on wolf
+  tones and warbling low strings.
+- **Gap confirmed, and the SERP splits into two piles that both miss the reader.** Pile one is
+  **setup guides** (Sweetwater, Fender, Edgewater, owningafender) — they publish the target numbers
+  and the adjustment procedure, and address someone who has already decided to adjust their pickups.
+  Pile two is **forum threads** (Strat-Talk, TDPRI, My Les Paul) where a player describes a warble
+  and gets a dozen competing guesses. **Nothing on page one is a diagnostic**, which is the gate the
+  AB1 queue row explicitly demanded and the thing that made it worth writing. Absent across the top
+  5: (1) any **discrimination table** separating magnet pull from a worn fret, a bad nut slot and
+  dead strings, which all present as "this note sounds wrong and dies early"; (2) the **capo test**,
+  which isolates magnet pull with no tools by shortening the string and reducing its excursion over
+  the pickup; (3) the **new-strings-versus-screwdriver pair** as the two-move diagnostic that
+  resolves all four causes; (4) the point that **higher-output pickups need more clearance, not
+  less**, so a hot set dialed to a vintage-set number still warbles; (5) the **rig-is-irrelevant
+  note** — no amp, modeler, IR or EQ can restore a harmonic the magnet flattened at the string.
+- **Gate 1 note — two claims were live-verified rather than written from memory.** Fender's published
+  factory spec is measured **from the top of the pole piece to the bottom of the string with the last
+  fret held down**: neck and middle 2.4mm bass / 2.0mm treble, bridge 2.0mm bass / 1.6mm treble.
+  Gibson currently publishes 1.6mm (1/16 in) bridge and 2.4mm (3/32 in) neck for humbuckers, against
+  1.6mm for both positions on 1950s PAFs. Two mechanism claims come straight from Fender's own setup
+  guidance and are attributed as such in the post: that excessive magnetic pull makes the string
+  **vibrate in an elliptical rather than circular pattern**, costing harmonics and sustain; and that
+  **string vibration is wider at the neck pickup than at the bridge pickup**, which is the published
+  basis for the neck-pickup-is-worse claim rather than an inference. **Do not let a future run
+  restate these as generic tone advice — the attribution is what makes them Gate 1 safe.**
+- **AI Overview:** very likely present (troubleshooting/definitional class); F&K not cited.
+- Non-commodity gate: **PASS.** The discrimination table and the capo test exist nowhere on page one,
+  and the article is a diagnostic rather than a fourth setup guide — which was the standing Gate 7
+  warning on this queue row ("if it turns into 'here are the spec numbers,' drop it"). Confirmed
+  distinct from the 08-12 refresh of `pickup-position-guide`, which owns the *procedure*; this post
+  owns the *diagnosis* and the two cross-link rather than overlap.
+
+**Post 2 — delay-vs-reverb-which-one-is-crowding-the-room** (target: "delay vs reverb too much,"
+"should I use delay or reverb," "ambient guitar too washy," "reverb making mix muddy")
+- **Top ranking:** guitarguitar's *"Reverb vs Delay,"* powersof10's *"Delay vs Reverb: 5 Key
+  Differences,"* Guitar Lobby, DeathCloud's *"What Actually Makes Your Guitar Sound Bigger,"*
+  Gearank's ultimate guide, Pro Sound HQ, and Guitar Head — plus iZotope's pre-delay explainer and a
+  Worship Online piece on wet guitar tone.
+- **Gap confirmed, and it is a clean category miss: page one answers "what is the difference," not
+  "which one is doing this to me."** Every top result is definitional — reverb is space, delay is
+  time, here is when to use each. Useful for a beginner, useless to someone whose part has already
+  turned to soup. Absent across the top 5: (1) the **failure-mode split**, that delay smears rhythm
+  while reverb smears pitch, which converts the symptom directly into a diagnosis; (2) the **mute
+  test done correctly** — listening for what *returns* rather than which version is quieter, since
+  both get quieter and that is why the standard advice fails; (3) the **asymmetric filter argument**,
+  that a reverb tail sustains low-mid energy for its whole decay while a delay repeat only occupies
+  its own moment, so reverb needs the harder high-pass; (4) the **series-routing multiplication** —
+  a delay with three audible repeats feeding a reverb produces four reverb events per note, which is
+  a routing problem people try to fix with settings; (5) the **headphone over-dial mechanism**, that
+  removing the room removes a reverb you were not paying for, so you push the mix knob and it
+  collapses on speakers.
+- **Gate 1 note:** the 500–600 Hz reverb high-pass is attributed to the long-standing Abbey Road
+  practice (roll off below ~600 Hz and above ~6 kHz on the reverb return) rather than presented as an
+  F&K measurement. Pre-delay range given as 20–60 ms.
+- **AI Overview:** very likely present (comparison/definitional class); F&K not cited.
+- Non-commodity gate: **PASS.** The post is a diagnostic built on top of a SERP made entirely of
+  definitions, and the failure-mode table cannot be produced by summarizing what ranks. Confirmed
+  distinct from `why-delay-sounds-muddy` (delay only) and `reverb-sounds-washed-out-fix` (reverb
+  only) — this is the post that tells you *which of the two* to open, and it cross-links both.
+
+**Post 3 — one-guitarist-two-parts-loop-and-arrange** (target: "one guitarist two guitar parts,"
+"how to sound like two guitars," "guitar arrangement for one player," "worship guitar solo player")
+- **Top ranking:** two Quora threads on playing one-guitar songs with two-plus guitarists, Acoustic
+  Guitar's *"How to Make the Most of Playing With Two Guitars,"* a Harmony Central thread titled
+  *"Cover bands with 2 guitarists — how do you cover 1-guitar songs?"*, musictheoryforguitar's *"How
+  To Write Songs For 2 Guitars,"* and a Tune In Tone Up lesson on arranging for two-plus guitarists.
+- **Gap confirmed, and it is the most striking of the three: page one answers the inverse question.**
+  Nearly every ranking result addresses a band that has **two guitarists** and needs to divide a
+  **one-guitar** song. Our reader is one guitarist facing a two-guitar song. The engines are matching
+  on entity overlap ("two guitars," "arrangement," "who plays what") rather than on the direction of
+  the problem, which leaves the actual query effectively unserved. Absent across the top 5: (1) any
+  **triage of the two parts by function** — foundation versus identity — and the resulting rule that
+  the floor matters more than the hook; (2) the **coverage observation** that the signature figure
+  typically occupies only the intro, the turnaround and a final lift, so the job is one full part
+  plus a handful of inserted bars rather than two full parts; (3) **register separation as the
+  mechanism** for implying two players from one hand, with the middle deliberately left empty; (4)
+  the **honest looper limits** — no dynamic arc, no arrangement change, no tempo that breathes — and
+  the identical-in-verse-and-chorus test for deciding; (5) the **give-the-part-away option**, letting
+  keys or bass absorb the missing line, which appears in none of the guitar-facing sources.
+- **AI Overview:** likely present (how-to class); F&K not cited. Worth a re-check in a month — the
+  inverse-question mismatch on this SERP means a directly-on-target page has an unusually clear run
+  at the citation slot.
+- Non-commodity gate: **PASS, comfortably.** When page one answers the opposite question, anything
+  correctly aimed is non-commodity by construction. Confirmed distinct from
+  `two-guitar-arrangement-register-split` (the two-player side, published 08-12) and
+  `looper-pedal-composition` (composition, not coverage); this post is the one-player counterpart and
+  links to both.
+- **Byline note for future runs:** Elena's never-assign list includes "live performance or gigging
+  guides." AB3 was kept for her by framing it as an **arrangement and part-selection** post that
+  applies to practice, recording and band contexts, with the looper's live limits stated but not
+  expanded into a performance guide. That framing is load-bearing — **if a future refresh grows this
+  into a gigging piece, move the byline.**
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | single-pickup-guitar-logic | **Full AEO backfill + two content-adds + Gate 6 repairs.** Post had *no* `takeaways:`, no frontmatter `faq:` (4 body-level `<FAQ>` Q&A), no `updated:`, and a broken `image_alt` (literally `a composition illustrating "Single"`). Migrated the 4 Q&A to frontmatter and added 2 more (pickup height, Esquire switch), added 5 takeaways, a real `image_alt`, and swapped a tag for `pickup-height`. **Content-add 1 — "Pickup Height Is the Setting That Matters Most Here":** the post never mentioned height, which is a real hole in a one-pickup argument, since a single-pickup guitar has no second position to escape to when the magnet is flattening the string. Section carries the published Fender/Gibson starting figures, the by-ear procedure, and a Gate 5 moment (the volume-knob clean-up trick only works if there are harmonics left to clean up). Cross-links Post 1. **Content-add 2 — "the Esquire three-way, explained":** the original opened this and abandoned it ("different capacitor and bypass combinations"), which is the kind of half-answer that sends a reader elsewhere. Now a three-row table: tone bypassed / standard / fixed treble roll-off, with Leo Fender's bass-preset intent and the **live-verified** note that Fender revised the third position's component values several times before 1969, so two stock Esquires can differ. **Gate 6 repairs:** two bare "warmer" descriptors replaced with concrete ones. `updated: 2026-08-14`, Carl's byline and plain-sentence voice kept. | It is the strongest existing post in Post 1's cluster, it was one of the ~60 legacy `<FAQ>` posts with zero answer-engine surface, and it had a visibly broken alt text. Now the guitar-side companion to the new diagnostic. |
+| R2 | looper-pedal-composition | **AEO backfill + two content-adds + stale-price fix.** Post had no `takeaways:`, a body-level markdown `## FAQ` (not the component — worth noting, the legacy-FAQ sweep misses these), no `updated:`, and the same broken `image_alt` pattern. Migrated 4 body Q&A to frontmatter, added 2 (ambience placement, covering a second part), added 5 takeaways and a real `image_alt`. **Content-add 1 — "Where the Ambience Goes, and Why It Is a One-Way Door":** the post covered layering in depth but never said where reverb belongs relative to the looper, which is the decision that compounds — ambience printed into a layer stacks on every overdub and cannot be removed, so three layers is three reverbs. Includes the two cases where printing is correct. Cross-links Post 2. **Content-add 2 — "Where a Loop Cannot Help":** the post was all upside; this is the honest counterweight (no dynamic arc, no arrangement change, no tempo that breathes) plus the identical-in-verse-and-chorus test. Cross-links Post 3. **Gate 1:** removed two hard street prices from April and replaced with a check-current-pricing qualifier. | Directly adjacent to Post 3, it was the weakest link in the looper cluster on answer surface, and its price claims had gone stale in the four months since publication. |
+
+**Preflight:** `validate-mdx.mts --strict` — **all 5 of this run's files compile clean, zero warnings,
+zero errors.** All **19 internal links verified to resolve** against the post inventory before commit.
+Hero images via Flux 2 Pro (`--model=black-forest-labs/flux-2-pro`, ~$0.17, 3/3, no rejections, no
+timeouts). The run-wide `--changed` invocation still reports **14 warnings on the five in-flight
+affiliate/GearPick files** (big-muff, fender-deluxe-reverb, helix-vs-quad-cortex-vs-kemper,
+les-paul-junior, vox-ac30) — untouched and not committed here, same as every run since 08-03.
+
+> **Repo-state note for the next run:** at run start the working tree carried a **large uncommitted
+> change set from another routine** (~58 files: `alternates: { canonical: ... }` added across the app
+> routes, plus lib/script edits, plus small edits to 6 blog posts). It was left untouched and this
+> run committed **only its own five files by exact path**, per the standing concurrent-commit rule.
+> **Do not `git add content/blog/*.mdx`** while that work is in flight — it will sweep in six posts
+> that belong to another commit.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 0, added 3 — **queue is flat this run**, the intended steady state. Bylines are
+> best-fit proposals; the executing run re-checks **both** velocity **and** the never-assign list.
+> **Verify no colliding slug at build time.** **Hank and fk-staff are the only bylines at 0 — AC1 is
+> built for Hank.**
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AC1 | pickup-magnet-types-alnico-2-3-5-ceramic-string-pull | Alnico II, III, V or Ceramic: What the Magnet Actually Changes | "alnico 2 vs alnico 5 pickup," "ceramic vs alnico pickups," "which pickup magnet for less string pull," "alnico 3 pickups" | Hank Presswood | 5 — Gear Lab | Post 1 establishes that magnet *strength* is why some pickups need more clearance and closes without saying which magnets are strong. That is the obvious next question and it has a real answer with history attached: Alnico III is the weakest (and is the reason certain '50s sets stay clear at heights that make an A5 set warble), A5 is the modern default, ceramic is stronger again. Non-commodity content: the **strength-to-clearance table** tying magnet grade to how much room the pickup needs, the point that a magnet swap changes required height and therefore your setup, and the historical thread — why Fender used A3 in early Strats and what changed. Hank's vintage-history lane, and he is the only active byline at 0. **Gate 7 note: this must be about pull and clearance, not a general "which magnet sounds best" roundup — that would be a commodity re-slice of a crowded SERP.** |
+| AC2 | reverb-decay-vs-song-tempo-when-tails-collide | How Long Should the Reverb Tail Be? Let the Tempo Decide | "reverb decay time guitar," "how long should reverb tail be," "reverb decay tempo," "ambient reverb settings too long" | Margot Thiessen | 3 — Signal Chain | Post 2 makes the case that reverb smears pitch when the decay outlasts the gap between notes, and gives that one sentence. The full version is a method: derive the decay ceiling from the song's tempo and the part's note density, so the tail ends before the next chord rather than under it. Distinct content: the **note-density-to-decay table**, the finding that a slower song does not automatically want a longer tail (density matters more than BPM), and the chord-change collision that makes a part sound out of tune rather than merely washy. Margot's lane is exactly how a sound feels over time, and she is at 2 so re-check velocity at build time. **Confirmed no colliding slug** — F&K has `predelay-by-tempo-sync-reverb-decay-to-song` (pre-delay-led) and `subtract-predelay-from-decay-reverb-tail` (arithmetic); neither derives the decay ceiling from note density. **Check both for overlap before building — if it is a re-slice, refresh `predelay-by-tempo-sync` instead.** |
+| AC3 | second-guitar-part-writing-from-scratch | Writing the Second Guitar Part When the Song Doesn't Have One | "how to write a second guitar part," "guitar harmony part ideas," "what to play under a riff," "second guitar part worship" | Nathan Cross | 3 — Signal Chain | The 08-12 and 08-14 posts cover dividing an existing two-guitar arrangement and covering one alone. Neither covers the case where the part does not exist yet and someone has to invent it — which is the weekly reality for anyone playing with a second guitarist on original or loosely-arranged material. Distinct content: the four things a second part can be (harmony, counter-rhythm, register extension, texture) ranked by how often they work, why doubling is the default and almost always the worst option, and the rule that the second part should be decidable in one rehearsal rather than composed. Nathan's serve-the-song lane and the worship context where this happens weekly. He is at 1. **Confirmed no colliding slug.** |
+
+**Diversity/queue note:** new posts went to Carl (1→2), Dev (0→1), Elena (1→2); refreshes to Carl and
+Dev (refreshes do not count against the cap). **Next run: Hank and fk-staff are the only bylines at
+0, and AC1 is written for Hank.** Cluster fan-out queue remaining: volume-pedal-placement/Sean, V2
+katana-gen3/Jess **(re-check for Gate 7 distinctness — the 08-07 S6 post covers much of the Gen 3
+spec ground and this may have become a re-slice)**, W2 sidechain-dynamic-eq/Dev, V3
+ambient-headphones-mono/Dev **(still flagged for rescoping)**, plus today's AC1/Hank, AC2/Margot,
+AC3/Nathan.
+
+**Human-in-the-loop debt unchanged: one item.** The Y1 measured per-block latency table still needs a
+modeler, an interface, and fifteen minutes with the harness published in
+`modeler-latency-budget-per-block-cost`. When it happens it is a **refresh** of that URL, not a new
+post. **Do not let an automated run fill that table from memory.**

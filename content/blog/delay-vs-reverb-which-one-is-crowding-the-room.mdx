@@ -1,0 +1,188 @@
+---
+title: 'Delay or Reverb: Which One Is Actually Crowding Your Sound?'
+seo_title: 'Delay or Reverb: Which One Is Crowding Your Sound?'
+description: >-
+  When an ambient part turns to soup, most players turn both effects down and
+  hope. There is a faster way to find the culprit, because delay and reverb fail
+  in two completely different directions.
+date: '2026-08-14'
+author_slug: dev-okonkwo
+category: signal-chain
+tags:
+  - delay
+  - reverb
+  - ambient-guitar
+  - signal-chain
+  - mixing
+  - high-pass-filter
+  - bedroom-producer
+takeaways:
+  - >-
+    Delay and reverb fail along different axes. Delay smears time, so the part
+    loses its groove. Reverb smears space and pitch, so the part loses its note
+    definition. Name which one you lost and you have named the offender.
+  - >-
+    Mute one effect at a time and listen for what returns, not for what gets
+    quieter. Both will sound cleaner when muted, so a volume drop tells you
+    nothing.
+  - >-
+    Reverb needs the harder high-pass because a tail holds low-mid energy for
+    its whole decay, while a discrete repeat only occupies its own moment. A
+    filter around 500 to 600 Hz on the reverb alone fixes more mud than pulling
+    the mix knob does.
+  - >-
+    Pre-delay separates the attack from the wash. Twenty to sixty milliseconds
+    keeps the pick transient in front of the reverb instead of inside it.
+  - >-
+    Headphones make this worse, not better. There is no room adding its own
+    reflections, so you dial in more ambience than the part needs and it
+    collapses the moment it plays through speakers.
+faq:
+  - q: How can I tell whether delay or reverb is making my guitar sound washy?
+    a: >-
+      Mute one, then the other, and listen for which thing comes back. If muting
+      the delay makes the rhythm legible again, the delay was the problem. If
+      muting the reverb makes individual notes readable inside a chord, the
+      reverb was. Do not judge by which mute gets quieter, because both will.
+  - q: Should I high-pass my reverb or my delay?
+    a: >-
+      Reverb first, and harder. A reverb tail sustains low-mid energy for its
+      entire decay while a delay repeat only occupies the moment it lands. Try a
+      filter around 500 to 600 Hz on the reverb and something gentler near 200
+      to 300 Hz on the delay, then move both to suit where the part sits.
+  - q: What is pre-delay and how much should I use?
+    a: >-
+      Pre-delay is the gap between the dry note and the start of the reverb.
+      Twenty to sixty milliseconds keeps the pick attack in front of the wash so
+      the note still reads as a note. Shorter than that and the transient gets
+      swallowed. Longer and the reverb starts to behave like a slapback echo.
+  - q: Do I need both delay and reverb on an ambient part?
+    a: >-
+      Often not, and the part usually tells you which. If the figure has rhythm
+      you want reinforced, delay is doing the work and the reverb is decoration.
+      If the figure is sustained chords or swells, reverb is doing the work and
+      the delay is adding clutter. Cut the decoration before you cut the
+      structure.
+  - q: Why does my ambient tone sound great in headphones and terrible in a room?
+    a: >-
+      Because headphones remove the room from the equation. Playing through
+      speakers, the space adds reflections on top of your effects and the total
+      is more than you dialed. On headphones you hear only what the pedals or
+      plugins produce, so you push them further to feel the same sense of size,
+      and then the room adds its share on playback.
+  - q: >-
+      Delay and reverb both sound fine alone but bad together. What is
+      happening?
+    a: >-
+      They are stacking in the same frequency region and the same time window.
+      Each repeat from the delay is also feeding the reverb, so a three-repeat
+      delay into a four-second tail is producing four overlapping reverbs. Feed
+      the reverb from the dry signal only, or cut the delay feedback until the
+      repeats stop retriggering the tail.
+image: /images/blog/delay-vs-reverb-which-one-is-crowding-the-room.jpg
+image_alt: >-
+  A guitar pedalboard with a delay pedal and a reverb pedal side by side, lit so
+  the two units read as separate decisions rather than one ambient block
+---
+
+The part sounded enormous in the room where you built it. Then you put it against a drum loop and a bass, and it turned into weather. Not a guitar anymore. A front moving through.
+
+The reflex is to reach for both knobs and pull them down until something recognisable comes back. It works, sort of, and it costs you whatever the effects were doing right. You end up with a smaller version of the same problem.
+
+There is a faster question. The two effects do not fail in the same direction, so the way the part fell apart tells you which one pushed it.
+
+## The Two Failure Modes
+
+Delay is a time effect. Reverb is a space effect. When they go wrong, they go wrong along the axis they operate on.
+
+| Symptom | The offender | Why |
+|---|---|---|
+| You cannot find the beat anymore | Delay | Repeats land between the notes and the ear stops trusting which hits are yours |
+| A chord reads as a chord-shaped cloud, not notes | Reverb | Tails from each note overlap and the pitches blur into one another |
+| The part feels late even though you are on time | Delay | The first repeat is loud enough to compete with the dry attack for the downbeat |
+| Low mids build up and never clear | Reverb | The tail sustains low frequency energy for its whole decay |
+| Fast passages turn to mush, slow ones are fine | Delay | Repeat spacing is colliding with your note spacing |
+| Slow passages turn to mush, fast ones are fine | Reverb | Decay is longer than the gaps between your notes |
+
+Read that table before you touch anything. Most of the time you already know which line describes what happened, and that is the diagnosis.
+
+Delay smears rhythm. Reverb smears pitch. If you lost the groove, look at the delay. If you lost the notes, look at the reverb.
+
+## The Mute Test, Done Correctly
+
+The standard advice is to bypass one effect and listen. That is right, and most people run it wrong, because they listen for which version is quieter.
+
+Both versions are quieter. That tells you nothing.
+
+Listen for what comes *back*.
+
+Mute the reverb. Play the part. Can you now hear the individual notes inside a chord? Can you tell a third from a fourth? If the harmony resolves into separate pitches, the reverb was the one crowding the room.
+
+Now unmute it and mute the delay instead. Play the part. Can you find the downbeat without counting? Does the figure sit on the grid again? If the rhythm snaps back into place, the delay was.
+
+Sometimes both come back and you have two problems. That is common and it is fine. Fix them in order: whichever effect is doing more structural work for the part stays, and the other one gets treated as decoration and cut first.
+
+## Reverb Needs the Harder Filter
+
+This is the part that changes the most for the least effort, and it is the piece the reverb-versus-delay explainers tend to skip.
+
+A delay repeat is an event. It happens, it occupies its moment, it is gone. Whatever low-mid energy it carries is present for the length of one note.
+
+A reverb tail is a condition. It is present for its entire decay, which on an ambient patch might be four seconds, and it is holding low-mid energy the whole time. Play a chord every two seconds into a four second tail and there is never a moment when the low mids are not occupied.
+
+So the filters are not symmetrical.
+
+| Effect | High-pass starting point | What you are protecting |
+|---|---|---|
+| Reverb | 500 to 600 Hz | The 250 to 400 Hz band where vocal and snare body live |
+| Delay | 200 to 300 Hz | The fundamental of the part itself |
+| Reverb on a low-register part | 300 to 400 Hz | Same, moved down so the tail keeps some weight |
+| Delay on a high figure above the twelfth fret | 400 Hz and up | Nothing below that is signal anyway |
+
+The 500 to 600 Hz figure on reverb is not new. It is roughly the Abbey Road move, where engineers rolled off below around 600 Hz and above around 6 kHz on the reverb return, and it has been on records since the sixties for exactly this reason. It sounds aggressive written down. It does not sound aggressive in a mix, because the reverb was never the thing supplying your low end.
+
+Follow the part when you set it. A figure played on the D, G and B strings has fundamentals above 200 Hz, so a 150 Hz filter is cutting a region that contains nothing while the actual smear sits untouched two octaves up. The same trap in delay is covered in [why your delay sounds muddy](/blog/why-delay-sounds-muddy).
+
+## Pre-Delay Is the Other Half
+
+High-passing fixes the frequency collision. Pre-delay fixes the timing one.
+
+Pre-delay is the gap between your dry note and the moment the reverb starts. With it at zero, the wash begins on the same millisecond as the pick attack, and the transient that tells the listener a guitar was struck gets buried inside the tail. The note loses its front edge, which reads to the ear as blur even when the frequency balance is fine.
+
+Twenty to sixty milliseconds is the working range. The attack lands in clear air, then the space opens behind it. Same reverb, same decay, same mix, and the part reads as articulate instead of soft. Tying that number to the song's tempo instead of picking it by feel is worth doing, and there is a method for it in [pre-delay by tempo](/blog/predelay-by-tempo-sync-reverb-decay-to-song).
+
+## What I Expected and What Actually Happened
+
+I assumed high-passing a reverb would make it sound smaller. That is what a filter does. You remove energy, you get less.
+
+I put a 600 Hz filter on a long tail expecting to trade size for clarity, and the tail got *longer*. Not literally. The decay time never moved. But I could suddenly hear the last second and a half of it, which had previously been buried under its own low-mid buildup.
+
+The mud had been masking the thing I liked about the reverb. All that low-frequency energy sat in front of the tail and hid it, so I had been compensating by pushing the decay time up, which added more energy to the region that was causing the problem in the first place. A loop I had been feeding four seconds of decay only needed about two and a half once the filter was on.
+
+That is the reversal worth carrying around. On a long ambient patch, the filter is not a size control. It is the thing that lets you hear the size you already paid for.
+
+## The Compounding Case
+
+Both effects on, each one reasonable by itself, and the combination is unusable. This happens because of routing more than settings.
+
+In a standard series chain, the delay runs into the reverb. Every repeat is a new input to the reverb, so a delay with three audible repeats is producing four reverb events per note. You did not dial four reverbs. The routing did.
+
+Two ways out. Run the reverb from the dry signal in parallel so it only ever sees what you played, which the [parallel reverb routing post](/blog/parallel-reverb-routing) walks through. Or keep the series chain and pull the delay feedback down until the repeats stop retriggering the tail, which is cheaper and works nearly as well. Chain order matters here too, and [reverb before or after delay](/blog/reverb-before-or-after-delay-chain-order) covers which way round to run them.
+
+## Why Headphones Make You Overdo It
+
+Worth naming, because it is the most common way this goes wrong for anyone building parts at night.
+
+A room is a reverb you are not paying for. Playing through speakers, the space you are in adds its own reflections on top of whatever the pedals produce, and you hear the total. On headphones that layer is gone. You hear the effect and nothing else, so the part feels drier than it is, and you push the mix knob to get the sense of size you are used to.
+
+Then it plays back on speakers and the room adds its share to a signal that was already at the ceiling.
+
+The fix is a habit, not a setting. Build the ambience on headphones if that is what you have, then check it once at low volume on any speaker before you commit, and expect to pull the reverb mix down by a few percent. If headphones are your only monitoring, the frequency response you are trusting matters more than the reverb does, and that is worth its own look in the [bedroom modeler headphone post](/blog/bedroom-modeler-headphone-frequency-response).
+
+## The Short Version
+
+Name what you lost. Groove means delay. Notes mean reverb.
+
+Mute one at a time and listen for what returns rather than what gets quiet. Then filter the reverb around 500 to 600 Hz before you touch its mix knob, give it 20 to 60 ms of pre-delay, and only then decide whether the part still needs both.
+
+Most of the time it does not. Most ambient guitar parts are one effect doing structural work and a second one along for the ride, and the ride is what turned the room into weather.
