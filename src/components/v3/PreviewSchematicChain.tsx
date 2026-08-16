@@ -23,6 +23,7 @@ export function PreviewSchematicChain({
   selectedIndex,
   onSelect,
   interactive = true,
+  showSource = true,
 }: {
   blocks: PreviewBlockData[];
   selectedIndex: number | null;
@@ -30,6 +31,10 @@ export function PreviewSchematicChain({
   /** When false (e.g. on the home page hero), every tile renders as a
    *  static anchor — no click target, no selected state. */
   interactive?: boolean;
+  /** When false, the guitar profile card is omitted so the caller can place
+   *  it itself. The homepage hero does this to sit the card beside the album
+   *  sleeve instead of stacking it above the chain. */
+  showSource?: boolean;
 }) {
   // Guitar profile card sits above the chain row. The chain row itself
   // only renders pedals / amps / cabs — the guitar's spec-sheet lives in
@@ -41,7 +46,7 @@ export function PreviewSchematicChain({
 
   return (
     <div className="chain-board">
-      {sourceBlock && <GuitarProfile block={sourceBlock} />}
+      {showSource && sourceBlock && <GuitarProfile block={sourceBlock} />}
 
       <div className="chain-row" role="tablist" aria-label="Signal chain">
         {chainBlocks.map(({ b, i }, idx) => {
@@ -98,8 +103,9 @@ export function PreviewSchematicChain({
   );
 }
 
-/** Top-left profile card for the guitar source block. */
-function GuitarProfile({ block }: { block: PreviewBlockData }) {
+/** Profile card for the guitar source block. Exported so the homepage hero
+ *  can place it in its own grid rather than above the chain row. */
+export function GuitarProfile({ block }: { block: PreviewBlockData }) {
   // block.sub is "SSS (bridge) · Eb Standard · .013-.058" style
   const parts = (block.sub || "")
     .split(" · ")

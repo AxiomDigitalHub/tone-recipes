@@ -4007,40 +4007,77 @@
 }
 .fk-preview .hero-chain-light .hero-chain-head {
   border-bottom: 1px solid var(--paper-line);
-}
-/* Album sleeve in the featured-recipe head.
-   The head is grid, not the base flex row: with three children, the base
-   `justify-content: space-between` spread the sleeve, the title and the CTA
-   evenly and left the title floating in the middle of the card. Grid pins
-   the title against the sleeve and lets only the CTA take the slack.
-   The hard offset shadow in --paper-2 (no blur) matches the flat, printed
-   language the rest of the card uses. */
-.fk-preview .hero-chain-light .hero-chain-head {
   display: grid;
+  /* col 1 = sleeve, col 2 = title + guitar card, col 3 = CTA.
+     The sleeve spans both rows so the cover reads as the anchor of the
+     whole block rather than a thumbnail next to the headline. */
   grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
   align-items: start;
-  gap: 22px;
+  column-gap: 26px;
+  row-gap: 18px;
 }
+.fk-preview .hero-chain-light .hero-chain-sleeve {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: 216px;
+}
+.fk-preview .hero-chain-light .hero-chain-head > .hero-chain-titles {
+  grid-column: 2;
+  grid-row: 1;
+}
+.fk-preview .hero-chain-light .hero-chain-head > .hero-chain-cta {
+  grid-column: 3;
+  grid-row: 1;
+}
+/* The lifted guitar card fills the width under the headline. */
+.fk-preview .hero-chain-light .hero-chain-head > .chain-guitar {
+  grid-column: 2 / -1;
+  grid-row: 2;
+  margin: 0;
+  align-self: stretch;
+}
+/* The sleeve itself. Hard offset shadow in --paper-2, no blur, to match the
+   flat printed language the rest of the card uses. */
 .fk-preview .hero-chain-sleeve {
-  width: 132px;
   box-shadow: 3px 3px 0 var(--paper-2);
 }
 .fk-preview .hero-chain-sleeve .lp-art {
   border: 1px solid var(--ink);
 }
-/* Below the CTA's comfortable width, drop it to its own row under the
-   sleeve+title pair rather than letting the title column collapse. */
+/* Narrow: the CTA drops below, and the guitar card drops under the sleeve
+   rather than being squeezed into a column beside it. */
+@media (max-width: 900px) {
+  .fk-preview .hero-chain-light .hero-chain-sleeve { width: 168px; }
+}
 @media (max-width: 720px) {
   .fk-preview .hero-chain-light .hero-chain-head {
     grid-template-columns: auto minmax(0, 1fr);
   }
   .fk-preview .hero-chain-light .hero-chain-head > .hero-chain-cta {
     grid-column: 1 / -1;
+    grid-row: 3;
     justify-self: start;
   }
 }
 @media (max-width: 620px) {
-  .fk-preview .hero-chain-sleeve { width: 96px; }
+  .fk-preview .hero-chain-light .hero-chain-sleeve {
+    width: 100%;
+    max-width: 200px;
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .fk-preview .hero-chain-light .hero-chain-head > .hero-chain-titles {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .fk-preview .hero-chain-light .hero-chain-head > .chain-guitar {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+  .fk-preview .hero-chain-light .hero-chain-head > .hero-chain-cta {
+    grid-row: 4;
+  }
 }
 .fk-preview .hero-chain-light .hero-chain-kicker {
   color: var(--ink-muted);

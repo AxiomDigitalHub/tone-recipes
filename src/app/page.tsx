@@ -8,7 +8,7 @@ import {
 import { pickHomepageRecipes } from "@/lib/homepage-pool";
 import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
 import { getBandName } from "@/lib/song-band";
-import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
+import { PreviewSchematicChain, GuitarProfile } from "@/components/v3/PreviewSchematicChain";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import FridaySendForm from "@/components/newsletter/FridaySendForm";
 
@@ -43,6 +43,7 @@ export default function PreviewIndex() {
     ? "helix"
     : "pedalboard";
   const heroBlocks = featured ? recipeToBlocks(featured, heroPlatform) : [];
+  const heroSource = heroBlocks.find((b) => b.variant === "source");
 
   return (
     <>
@@ -110,7 +111,7 @@ export default function PreviewIndex() {
                     }
                   />
                 </div>
-                <div>
+                <div className="hero-chain-titles">
                   <div className="hero-chain-kicker">
                     <span className="rec">
                       <span className="rec-dot" />
@@ -146,11 +147,16 @@ export default function PreviewIndex() {
                 >
                   Open full recipe <span aria-hidden="true">→</span>
                 </Link>
+                {/* The guitar card is lifted out of the chain and placed here,
+                    second row of the head grid, so it sits beside the sleeve
+                    instead of below it. The sleeve spans both rows. */}
+                {heroSource && <GuitarProfile block={heroSource} />}
               </div>
               <PreviewSchematicChain
                 blocks={heroBlocks}
                 selectedIndex={null}
                 interactive={false}
+                showSource={false}
               />
             </div>
           )}
