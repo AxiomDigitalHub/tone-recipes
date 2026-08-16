@@ -74,13 +74,42 @@ const moodboards: Record<string, Moodboard> = JSON.parse(
   fs.readFileSync(MOODBOARDS_PATH, "utf-8")
 );
 
-// Reverse map: author_slug → first moodboard key that lists them
-const AUTHOR_TO_MOOD: Record<string, string> = {};
+/**
+ * Reverse map: author_slug → EVERY moodboard that lists them.
+ *
+ * This used to keep only the first match, which had two costs. Four of the
+ * nine boards — cathedral_ambient, editorial_white, tech_bench, brand_pop —
+ * listed only authors already claimed by an earlier board, so they never
+ * generated a single image. And each author got one look for all 40 of
+ * their posts, which is why the library reads as five variations on "dark
+ * room, warm rim light, haze".
+ *
+ * Every board that lists an author is now a candidate, and the choice is
+ * made per post below.
+ */
+const AUTHOR_TO_MOODS: Record<string, string[]> = {};
 for (const [moodKey, mood] of Object.entries(moodboards)) {
   if (moodKey.startsWith("_") || !mood.authors) continue;
   for (const author of mood.authors) {
-    if (!AUTHOR_TO_MOOD[author]) AUTHOR_TO_MOOD[author] = moodKey;
+    (AUTHOR_TO_MOODS[author] ??= []).push(moodKey);
   }
+}
+
+/**
+ * Pick one of an author's moodboards from the post slug.
+ *
+ * Deterministic on purpose: regenerating a post must land on the same board
+ * it had before, or every re-run silently restyles the archive. Sorting the
+ * candidates first keeps the choice stable against key order in
+ * moodboards.json.
+ */
+function moodForPost(authorSlug: string, slug: string): string | undefined {
+  const moods = AUTHOR_TO_MOODS[authorSlug];
+  if (!moods?.length) return undefined;
+  const sorted = [...moods].sort();
+  let h = 0;
+  for (let i = 0; i < slug.length; i++) h = (h * 31 + slug.charCodeAt(i)) >>> 0;
+  return sorted[h % sorted.length];
 }
 
 /* -------------------------------------------------------------------------- */
@@ -122,12 +151,78 @@ const SUBJECT_OVERRIDES: Record<string, string> = {
  * Derive a subject string from the post title when no override exists.
  * Strips common suffixes and prepends "a composition illustrating".
  */
-function subjectFromTitle(title: string): string {
-  const cleaned = title
-    .replace(/\s+[-—:]\s+.+$/, "") // drop subtitle after spaced dash/colon
-    .replace(/\s*\(.*?\)\s*/g, "") // drop parentheticals
-    .trim();
-  return `a composition illustrating "${cleaned}"`;
+/**
+ * Concrete photographable subjects per tag, most specific first.
+ *
+ * The old derivation handed the model the headline verbatim —
+ * `a composition illustrating "Best FRFR Speakers for Modelers"` — and let
+ * it free-associate from marketing copy. That is why the FRFR roundup got a
+ * tweed guitar cab as its hero, contradicting its own argument in the most
+ * visible slot on the page, and why "Metallica Rhythm Tone Settings" got a
+ * Telecaster into a tweed combo.
+ *
+ * A diffusion model renders nouns, not claims. Order matters: the first tag
+ * a post carries that appears here wins, so put physical objects above
+ * abstractions.
+ */
+const TAG_SUBJECTS: Array<[RegExp, string]> = [
+  [/^frfr$/, "a black powered FRFR wedge monitor on a stage floor beside a floor modeler"],
+  [/^hx-stomp$/, "a Line 6 HX Stomp compact modeler on a small pedalboard, patch cables attached"],
+  [/^helix$/, "a Line 6 Helix floor modeler with its scribble strips lit and an expression pedal"],
+  [/^quad-cortex$/, "a Neural DSP Quad Cortex modeler, its touchscreen lit, on a dark pedalboard"],
+  [/^(tonex|kemper|fractal|axe-fx)$/, "a rackmount amp modeler with its front-panel display lit"],
+  [/^katana$/, "a Boss Katana combo amplifier with its control panel facing the camera"],
+  [/^(tube-amp|amp-settings|amps?)$/, "a tube amplifier head on a 4x12 cabinet, control panel lit"],
+  [/^(overdrive|drive|fuzz|distortion)$/, "an overdrive pedal on a pedalboard, knobs and footswitch in focus"],
+  [/^(delay|echo)$/, "a delay pedal on a pedalboard with patch cables running out of frame"],
+  [/^(reverb|ambient|shimmer)$/, "a reverb pedal on a pedalboard, its indicator LED lit"],
+  [/^(compressor|comp)$/, "a compressor pedal on a pedalboard beside a guitar cable"],
+  [/^(eq|equali[sz]er)$/, "a graphic EQ pedal with its faders set in a curve"],
+  [/^(cab|cabinet|speakers?|ir|impulse-response)$/, "a 4x12 guitar cabinet with a dynamic microphone on a stand in front of the grille"],
+  [/^(mic|microphone|recording)$/, "a dynamic microphone on a boom stand aimed at a guitar speaker cabinet"],
+  [/^(pedalboard|board)$/, "a fully wired pedalboard photographed from above"],
+  [/^(strat|stratocaster)$/, "a Fender Stratocaster leaning against an amplifier"],
+  [/^(les-paul|lp)$/, "a Gibson Les Paul leaning against an amplifier"],
+  [/^(telecaster|tele)$/, "a Fender Telecaster leaning against an amplifier"],
+  [/^(pickups?|humbucker|single-coil|p90)$/, "a close view of electric guitar pickups under the strings"],
+  [/^(nut|tuners?|floyd-rose|tremolo|setup)$/, "a guitar headstock and nut on a workbench beside luthier tools"],
+  [/^worship$/, "a guitar rig set up on a church stage before a service"],
+  [/^(modeler|modelers|patch|preset)$/, "a floor modeler on a pedalboard with its display lit"],
+  [/^(signal-chain|routing|gain-staging)$/, "a pedalboard photographed from above with patch cables tracing the signal path"],
+];
+
+/** Fallback per category when no tag resolves — still a noun, never a claim. */
+const CATEGORY_SUBJECTS: Record<string, string> = {
+  "gear-lab": "a piece of guitar gear on a technician's workbench",
+  "settings-guides": "an amplifier control panel photographed straight on, knobs in focus",
+  "signal-chain": "a pedalboard photographed from above with patch cables tracing the signal path",
+  "tone-recipes": "an electric guitar and amplifier set up in a recording room",
+  "technique": "an electric guitar being played, hands in frame",
+  "recording": "a guitar cabinet with a microphone in front of it in a treated room",
+};
+
+/**
+ * Build a photographable subject from the post's own structured data.
+ *
+ * Priority: hand-written override → tag match → category → a neutral
+ * gear still life. The title is deliberately never used.
+ */
+function subjectForPost(
+  slug: string,
+  tags: string[],
+  category: string,
+): string {
+  if (SUBJECT_OVERRIDES[slug]) return SUBJECT_OVERRIDES[slug];
+  for (const tag of tags) {
+    const norm = tag.toLowerCase().trim();
+    for (const [re, subject] of TAG_SUBJECTS) {
+      if (re.test(norm)) return subject;
+    }
+  }
+  return (
+    CATEGORY_SUBJECTS[category] ??
+    "an electric guitar, amplifier and pedalboard arranged as a still life"
+  );
 }
 
 /* -------------------------------------------------------------------------- */
@@ -332,7 +427,8 @@ async function main() {
 
     // Look up moodboard from author_slug (--mood flag overrides)
     const authorSlug: string = data.author_slug ?? "";
-    const moodKey = moodOverride ?? AUTHOR_TO_MOOD[authorSlug] ?? "nocturnal_studio";
+    const moodKey =
+      moodOverride ?? moodForPost(authorSlug, slug) ?? "nocturnal_studio";
     const mood = moodboards[moodKey];
 
     if (!mood?.prompt_template) {
@@ -342,7 +438,11 @@ async function main() {
     }
 
     // Build the subject
-    const subject = SUBJECT_OVERRIDES[slug] ?? subjectFromTitle(data.title ?? slug);
+    const subject = subjectForPost(
+      slug,
+      Array.isArray(data.tags) ? (data.tags as string[]) : [],
+      String(data.category ?? ""),
+    );
 
     // Fill the template
     const prompt = mood.prompt_template.replace(/SUBJECT_PLACEHOLDER/g, subject);
