@@ -2829,6 +2829,23 @@
   line-height: 1.5;
   color: var(--ink);
 }
+/* Tables scroll inside this wrapper rather than widening the article.
+   See src/components/mdx/ScrollableTable.tsx. */
+.fk-preview .post-body .post-table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 24px 0;
+  -webkit-overflow-scrolling: touch;
+}
+.fk-preview .post-body .post-table-scroll:focus-visible {
+  outline: 2px solid var(--amber-2);
+  outline-offset: 2px;
+}
+.fk-preview .post-body .post-table-scroll > table {
+  margin: 0;
+  min-width: 100%;
+  width: auto;
+}
 .fk-preview .post-body table {
   width: 100%;
   border-collapse: collapse;
