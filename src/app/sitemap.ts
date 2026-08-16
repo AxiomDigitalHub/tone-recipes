@@ -22,24 +22,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const latestNewsDate = allNews.length > 0 ? new Date(allNews[0].date) : new Date("2026-03-31");
   const launchDate = new Date("2026-03-15");
 
+  // Hub pages that gained substantial new copy in the Aug 2026 SEO pass
+  // (each was flagged "low word count" and picked up several hundred words
+  // of explainer). They had been advertising `launchDate`, so nothing told
+  // a crawler the content had changed.
+  //
+  // Only bump this for a real content change. A `lastmod` that moves for
+  // every trivial edit is one crawlers learn to ignore — and the 326 blog
+  // posts that got a shorter `seo_title` in the same pass are deliberately
+  // NOT listed here: their bodies are untouched, and `updated:` on a post
+  // also prints a visible "Updated <date>" byline and a fresh
+  // `dateModified`. Neither would be true.
+  const contentRewriteDate = new Date("2026-08-14");
+
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 1.0 },
     { url: `${baseUrl}/browse`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/blog`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/news`, lastModified: latestNewsDate, changeFrequency: "daily", priority: 0.8 },
     { url: `${baseUrl}/gear`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/compare`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/compare`, lastModified: contentRewriteDate, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/how-it-works`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.5 },
     { url: `${baseUrl}/how-we-work`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.5 },
     // The open-experiment running log — updated as stats regenerate.
     { url: `${baseUrl}/experiment`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.7 },
     { url: `${baseUrl}/request`, lastModified: launchDate, changeFrequency: "daily", priority: 0.7 },
-    { url: `${baseUrl}/community`, lastModified: launchDate, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${baseUrl}/platforms`, lastModified: latestBlogDate, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/community`, lastModified: contentRewriteDate, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${baseUrl}/platforms`, lastModified: contentRewriteDate, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/pricing`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.6 },
     // Indexable pages that were missing from the sitemap entirely.
     { url: `${baseUrl}/about`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${baseUrl}/tone-chat`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/tone-chat`, lastModified: contentRewriteDate, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/set-packs`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/set-packs/worship`, lastModified: launchDate, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/terms`, lastModified: launchDate, changeFrequency: "yearly", priority: 0.3 },
@@ -55,7 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/guides/bedroom-and-home-recording`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/guides/tone-troubleshooting`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/privacy`, lastModified: launchDate, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${baseUrl}/affiliate-disclosure`, lastModified: launchDate, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/affiliate-disclosure`, lastModified: contentRewriteDate, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   // Recipes carry real publication/edit dates (created_at backfilled from git
