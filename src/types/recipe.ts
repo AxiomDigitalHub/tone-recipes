@@ -91,6 +91,24 @@ export interface ToneRecipe {
   view_count: number;
   rating_avg: number;
   rating_count: number;
+  /**
+   * How well-established it is that *this player* played *this part*.
+   *
+   * The corpus is already scrupulous about this distinction in prose — it
+   * debunks the Strokes' "Crate VC30" myth by name — but the distinction was
+   * never a field, so a documented rig and a plausible guess rendered
+   * identically. Per `docs/CORPUS_QC_SCORECARD.md` finding #2:
+   *
+   * - `documented` — named for this part in credits or an interview
+   * - `pool` — credited on the record, but the label never says who played
+   *   this particular part (e.g. Bethel credits electric guitar as an
+   *   unordered pool). Plausible-from-the-pool is not documented.
+   * - `tribute` — no usable documentation; reconstructed from the recording
+   *
+   * Absent means "not yet reviewed", which the page states plainly rather
+   * than defaulting to the flattering answer.
+   */
+  attribution_confidence?: "documented" | "pool" | "tribute";
   /** ISO date (YYYY-MM-DD) the recipe was first published. Feeds sitemap lastmod. */
   created_at?: string;
   /** ISO date (YYYY-MM-DD) of the last meaningful edit (audit fixes, gear corrections). */

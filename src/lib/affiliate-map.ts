@@ -68,9 +68,19 @@ function getArtistForRecipe(recipe: ToneRecipe): string {
   return artist?.name ?? "Unknown";
 }
 
-/** Build a search query a shopper would type on a retailer site */
+/**
+ * Build a search query a shopper would type on a retailer site.
+ *
+ * `name` usually already leads with the manufacturer ("Shure SM57"), so a
+ * naive `${manufacturer} ${name}` produces "Shure Shure SM57" and returns
+ * junk on every retailer. Drop the duplicate prefix.
+ */
 function buildSearchQuery(gear: GearItem): string {
-  return `${gear.manufacturer} ${gear.name}`.trim();
+  const escaped = gear.manufacturer.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const model = gear.manufacturer
+    ? gear.name.replace(new RegExp(`^${escaped}\\s+`, "i"), "")
+    : gear.name;
+  return `${gear.manufacturer} ${model}`.trim();
 }
 
 /**

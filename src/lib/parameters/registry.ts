@@ -49,6 +49,24 @@ export interface ParamMeta {
   unit?: string;
   /** One-sentence explainer for tooltips / editor / generated docs. */
   description?: string;
+  /**
+   * Whether `min`/`max`/`unit` have been checked against ground truth —
+   * `data/helix-corpus/models.json` (built from 256 real presets), official
+   * documentation, or a completed migration in `docs/`.
+   *
+   * This exists because the registry was written Helix-first and never made
+   * platform-aware, so most entries describe a scale that several platforms
+   * do not use: Katana runs 0–100 where this says 0–10, and Helix amp
+   * internals were migrated to 0–10 while this still said 0–1. Roughly 3,700
+   * corpus values sit outside their declared range for that reason, and
+   * almost none of them are bad data.
+   *
+   * The audit enforces the range as an **error** only where this is true.
+   * Everything else is reported separately as a range that needs verifying,
+   * so a genuine regression can't hide inside a pile of known staleness.
+   * See `docs/PARAM_RANGE_AUDIT.md`.
+   */
+  rangeVerified?: boolean;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -102,19 +120,29 @@ export const PARAM_REGISTRY: Record<string, ParamMeta> = {
   Output: { kind: "knob", min: 0, max: 10, neutral: 5 },
   Post: { kind: "knob", min: 0, max: 10, neutral: 10, description: "Post gain / master (Peavey-style). Same convention as Master — kept high, Channel Volume sets loudness." },
 
-  /* ── Amp tube internals (Helix 0–1 controls) — neutral = 0.5 (factory) ── */
-  Sag: { kind: "knob", min: 0, max: 1, neutral: 0.5, description: "Power-section compression / sag under load." },
-  Bias: { kind: "knob", min: 0, max: 1, neutral: 0.5 },
-  BiasX: { kind: "knob", min: 0, max: 1, neutral: 0.5 },
-  Ripple: { kind: "knob", min: 0, max: 1, neutral: 0.5, description: "Power-supply ripple simulation." },
-  Hum: { kind: "knob", min: 0, max: 1, neutral: 0.5 },
+  /* ── Amp tube internals — Helix 0–10 controls, neutral = 5 (factory) ──
+     These said 0–1 until 2026-08-05, which was left over from before
+     `scripts/migrate-helix-amp-scale.ts` moved amp blocks onto the
+     Helix-native 0–10 scale (docs/HELIX_AMP_SCALE_MIGRATION.md). The corpus
+     has run 2.5–8 on these ever since; only the registry lagged. */
+  Sag: { kind: "knob", min: 0, max: 10, neutral: 5, rangeVerified: true, description: "Power-section compression / sag under load." },
+  Bias: { kind: "knob", min: 0, max: 10, neutral: 5, rangeVerified: true },
+  BiasX: { kind: "knob", min: 0, max: 10, neutral: 5, rangeVerified: true },
+  Ripple: { kind: "knob", min: 0, max: 10, neutral: 5, rangeVerified: true, description: "Power-supply ripple simulation." },
+  Hum: { kind: "knob", min: 0, max: 10, neutral: 5, rangeVerified: true },
 
   /* ── Compressor ── */
   Threshold: { kind: "fader", min: -60, max: 0, neutral: 0, unit: "dB", description: "Level above which compression kicks in. 0 = no compression." },
   Ratio: { kind: "knob", min: 1, max: 20, neutral: 1, unit: ":1", description: "1:1 = no compression." },
   Knee: { kind: "knob", min: 0, max: 12, neutral: 0, unit: "dB", description: "Soft-knee transition width." },
-  Attack: { kind: "knob", min: 0, max: 1, neutral: 0, unit: "s" },
-  Release: { kind: "knob", min: 0, max: 1, neutral: 0.3, unit: "s" },
+  // Envelope times read in milliseconds — the unit printed on the hardware.
+  // These were `min 0, max 1, unit "s"`, which rendered a 60 ms attack as
+  // "Attack 60s" on a 0–1 knob. Ranges bracket the real hardware: observed
+  // maxima across 256 factory presets are ~72 ms attack and ~2 s release
+  // (data/helix-corpus/models.json). The generator converts ms → seconds on
+  // its way into the .hlx. See docs/COMP_TIME_UNIT_MIGRATION.md.
+  Attack: { kind: "knob", min: 0, max: 500, neutral: 10, unit: "ms", rangeVerified: true, description: "How fast the compressor clamps down. Low = catches the pick attack; high = lets it through." },
+  Release: { kind: "knob", min: 0, max: 2000, neutral: 300, unit: "ms", rangeVerified: true, description: "How fast it lets go. Too short pumps; too long squashes everything that follows." },
   Mix: { kind: "knob", min: 0, max: 1, neutral: 1, description: "Wet/dry mix. 1 = fully wet." },
   "Peak Reduction": { kind: "knob", min: 0, max: 10, neutral: 0 },
 

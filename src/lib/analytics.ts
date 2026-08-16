@@ -26,7 +26,11 @@ export type EventName =
   | "checkout_complete"
   | "purchase"
   | "upgrade_prompt_view"
-  | "upgrade_prompt_click";
+  | "upgrade_prompt_click"
+  // Affiliate outbound clicks. Params: retailer, gear_slug, placement,
+  // recipe_slug? — without these, affiliate CTR is invisible in GA4 and
+  // there's no way to tell which placements actually earn.
+  | "affiliate_click";
 
 type EventParams = Record<
   string,

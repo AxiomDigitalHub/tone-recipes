@@ -1,0 +1,40 @@
+# Drains the welcome-sequence email queue (migration 025, docs/WELCOME_SEQUENCE.md)
+# every hour at :23 with the CRON_SECRET bearer token. Hourly so the "instant"
+# signup email (account step 1) lands within the hour, and the day-3/5/7 steps
+# land in the hour they come due. An empty queue run is a fast no-op.
+#
+# Same CRON_ENABLED kill switch as sunday-setlist-cron.yml.
+#
+# Manual runs: workflow_dispatch with test_email set sends EVERY sequence step
+# to that one address (no queue rows touched) — use this to proof rendering.
+# Leave test_email empty for a real drain.
+
+name: Email sequence cron
+
+on:
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+    inputs:
+      test_email:
+        description: "Send all sequence steps to this address (test mode). Empty = real drain."
+        required: false
+        default: "daniel.livengood@gmail.com"
+
+jobs:
+  drain:
+    if: vars.CRON_ENABLED == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Drain email sequence queue
+        run: |
+          url="https://faderandknob.com/api/cron/email-sequence"
+          if [ -n "${{ inputs.test_email }}" ]; then
+            url="$url?test=${{ inputs.test_email }}"
+          fi
+          code=$(curl -s -o /tmp/body -w "%{http_code}" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            "$url")
+          echo "HTTP $code"
+          cat /tmp/body
+          [ "$code" = "200" ] || exit 1

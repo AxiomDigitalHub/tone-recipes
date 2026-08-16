@@ -367,6 +367,27 @@ const SIGNED_DB_PARAMS = new Set([
 ]);
 
 /**
+ * Compressor envelope times. The corpus stores these in **milliseconds** (the
+ * form a player reads off the unit); the .hlx wants **seconds as a float**.
+ *
+ * Verified against `data/helix-corpus/models.json`, built from 256 real
+ * presets: `HD2_CompressorDeluxeComp` shows `Attack 0.0001..0.072` and
+ * `Release 0.064..2.009`.
+ *
+ * These used to have no rule at all, so they fell through to the closing
+ * `Math.min(1, num)` clamp and every millisecond value — `Attack: 60`,
+ * `Release: 910` — was emitted as **1.0**. Maximum attack, maximum release,
+ * on every compressor in every generated preset. See
+ * `docs/COMP_TIME_UNIT_MIGRATION.md`.
+ */
+const MS_TO_SECONDS_PARAMS = new Set([
+  "attack", "release",
+]);
+
+/** Ceiling for a converted envelope time, in seconds. Real presets reach ~2s. */
+const MAX_ENVELOPE_SECONDS = 4;
+
+/**
  * Params that older recipes encode on a 0-100 percent scale (Feedback: 35
  * meaning 35%, Mix: 30 meaning 30%, etc.). Pro-template recipes use 0-1
  * floats here. The scaler below handles both: 0-1 inputs pass through,
@@ -423,6 +444,16 @@ export function scaleParamValue(paramName: string, value: string | number): numb
   // Real-unit and signed-dB params: pass through verbatim
   if (RAW_UNIT_PARAMS.has(lower)) return num;
   if (SIGNED_DB_PARAMS.has(lower)) return num;
+
+  // Compressor envelope times: corpus is in ms, the .hlx wants seconds.
+  // Checked BEFORE the 0–1 pass-through so a legacy sub-second value
+  // (Attack: 0.04, meaning 40 ms) still lands on 0.04 s rather than being
+  // read as 0.04 ms. Deliberately not clamped to 1 — real presets run
+  // releases past 2 seconds.
+  if (MS_TO_SECONDS_PARAMS.has(lower)) {
+    const seconds = num > 1 ? num / 1000 : num;
+    return Math.max(0, Math.min(MAX_ENVELOPE_SECONDS, parseFloat(seconds.toFixed(6))));
+  }
 
   // Already in 0–1 range — pro template values land here
   if (num >= 0 && num <= 1) return num;

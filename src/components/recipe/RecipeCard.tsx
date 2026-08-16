@@ -5,7 +5,7 @@ import Image from "next/image";
 import FavoriteButton from "@/components/ui/FavoriteButton";
 import VerificationBadge from "@/components/ui/VerificationBadge";
 import { getChainIcon } from "@/lib/chain-icons";
-import { getVerificationLevel } from "@/lib/verification";
+import { lookupVerificationLevel } from "@/lib/verification-lookup";
 import { track } from "@/lib/analytics";
 import type { ToneRecipe, Artist, Song } from "@/types/recipe";
 
@@ -17,7 +17,7 @@ interface RecipeCardProps {
 
 export default function RecipeCard({ recipe, artist, song }: RecipeCardProps) {
   const chainLength = recipe.signal_chain.length;
-  const verificationLevel = getVerificationLevel(recipe);
+  const verificationLevel = lookupVerificationLevel(recipe.slug);
 
   return (
     <Link

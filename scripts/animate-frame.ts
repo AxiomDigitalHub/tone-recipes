@@ -20,6 +20,8 @@ if (fs.existsSync(envPath)) {
 const API_TOKEN = process.env.REPLICATE_API_TOKEN;
 const [INPUT, LABEL, PROMPT] = [process.argv[2], process.argv[3], process.argv[4]];
 const GROK = "xai/grok-imagine-video";
+const VEO = "google/veo-3.1-fast";
+const USE_VEO = process.argv.includes("--veo"); // native 1080p, no upscale
 const FFMPEG = fs.existsSync("/opt/homebrew/bin/ffmpeg") ? "/opt/homebrew/bin/ffmpeg" : "ffmpeg";
 
 const toDataURI = (file: string) => {
@@ -28,10 +30,14 @@ const toDataURI = (file: string) => {
 };
 
 async function run(): Promise<string> {
-  const res = await fetch(`https://api.replicate.com/v1/models/${GROK}/predictions`, {
+  const model = USE_VEO ? VEO : GROK;
+  const input = USE_VEO
+    ? { image: toDataURI(INPUT), prompt: PROMPT, duration: 6, resolution: "1080p", aspect_ratio: "16:9", generate_audio: false, negative_prompt: "warped hand or phone, morphing, screen reflections, glare, content on the green screen" }
+    : { image: toDataURI(INPUT), prompt: PROMPT, duration: 6, aspect_ratio: "16:9", resolution: "720p" };
+  const res = await fetch(`https://api.replicate.com/v1/models/${model}/predictions`, {
     method: "POST",
     headers: { Authorization: `Bearer ${API_TOKEN}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ input: { image: toDataURI(INPUT), prompt: PROMPT, duration: 6, aspect_ratio: "16:9", resolution: "720p" } }),
+    body: JSON.stringify({ input }),
   });
   const body = await res.json();
   if (!body.id) throw new Error(`start failed: ${JSON.stringify(body)}`);
@@ -53,12 +59,17 @@ async function main() {
   const dir = path.dirname(INPUT);
   const hdDir = path.join(dir, "1080");
   fs.mkdirSync(hdDir, { recursive: true });
-  const raw = path.join(dir, `${LABEL}_grok.mp4`);
   const hd = path.join(hdDir, `${LABEL}_1080.mp4`);
   const out = await run();
-  fs.writeFileSync(raw, Buffer.from(await (await fetch(out)).arrayBuffer()));
-  execFileSync(FFMPEG, ["-y", "-loglevel", "error", "-i", raw, "-vf", "scale=1920:1080:flags=lanczos",
-    "-c:v", "libx264", "-crf", "18", "-preset", "slow", "-pix_fmt", "yuv420p", "-c:a", "copy", hd]);
+  if (USE_VEO) {
+    // Veo is native 1080p — download straight to the HD path, no upscale.
+    fs.writeFileSync(hd, Buffer.from(await (await fetch(out)).arrayBuffer()));
+  } else {
+    const raw = path.join(dir, `${LABEL}_grok.mp4`);
+    fs.writeFileSync(raw, Buffer.from(await (await fetch(out)).arrayBuffer()));
+    execFileSync(FFMPEG, ["-y", "-loglevel", "error", "-i", raw, "-vf", "scale=1920:1080:flags=lanczos",
+      "-c:v", "libx264", "-crf", "18", "-preset", "slow", "-pix_fmt", "yuv420p", "-c:a", "copy", hd]);
+  }
   console.log(`✓ ${hd}`);
 }
 main().catch((e) => { console.error(e); process.exit(1); });

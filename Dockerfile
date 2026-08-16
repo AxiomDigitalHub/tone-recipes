@@ -60,6 +60,14 @@ RUN apt-get update \
        libexpat1 libnspr4 libnss3 fonts-liberation ca-certificates curl \
   && rm -rf /var/lib/apt/lists/*
 
+# AMAZON_ASSOCIATES_TAG is needed HERE as well as in the builder, and ARGs
+# don't cross stages. The builder copy only covers routes prerendered at
+# build time; anything server-rendered on demand assembles its affiliate
+# links per request. /recipe/[slug] is exactly that (it reads the ?platform
+# searchParam), so with the tag only in the builder stage every recipe page
+# served unattributed amazon.com links — clicks, no commission. Keep both.
+ARG AMAZON_ASSOCIATES_TAG
+
 # No LOCAL_CHROME_PATH: its absence is what routes render-print-pdf.ts to the
 # sparticuz branch. HOME must exist/be writable for chromium's profile dirs
 # (the -r system user gets no home otherwise → crashpad "--database" crash).
@@ -67,7 +75,8 @@ ENV NODE_ENV=production \
     NEXT_TELEMETRY_DISABLED=1 \
     HOME=/tmp \
     PORT=3000 \
-    HOSTNAME=0.0.0.0
+    HOSTNAME=0.0.0.0 \
+    AMAZON_ASSOCIATES_TAG=$AMAZON_ASSOCIATES_TAG
 
 # Non-root runtime user.
 RUN groupadd -r nextjs && useradd -r -g nextjs nextjs

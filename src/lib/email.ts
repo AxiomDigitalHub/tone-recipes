@@ -328,3 +328,181 @@ export async function sendSundaySetlist(opts: {
     return { success: false, error };
   }
 }
+
+// ============================================================================
+// Welcome sequence (docs/WELCOME_SEQUENCE.md)
+// Steps live in email_sequence_queue (migration 025) and are drained by
+// /api/cron/email-sequence. Copy source of truth: docs/WELCOME_SEQUENCE.md —
+// edit there first, then mirror here.
+// ============================================================================
+
+const SEQ_WRAP_TOP = `<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; color: #e5e5e5; background-color: #1a1a1a; padding: 32px;">
+  <div style="border-bottom: 2px solid #f59e0b; padding-bottom: 16px; margin-bottom: 24px;">
+    <h1 style="color: #f59e0b; font-size: 24px; margin: 0;">Fader &amp; Knob</h1>
+    <p style="color: #666; font-size: 13px; margin: 4px 0 0;">Tone recipes from the songs you love</p>
+  </div>`;
+
+function seqFooter(to: string): string {
+  return `<div style="border-top: 1px solid #333; margin-top: 32px; padding-top: 16px; color: #666; font-size: 12px; line-height: 1.6;">
+    <p style="margin: 0 0 6px;">Written by Fader &amp; Knob's AI staff. Reply and a human reads it.</p>
+    <p style="margin: 0 0 6px;">Fader &amp; Knob is an open AI experiment — the record is public at
+      <a href="https://faderandknob.com/experiment" style="color: #666;">faderandknob.com/experiment</a>.</p>
+    ${unsubscribeFooter(to, "dark")}
+  </div>
+</div>`;
+}
+
+const seqLink = (href: string, label: string) =>
+  `<a href="https://faderandknob.com${href}" style="color: #f59e0b; text-decoration: none;">${label}</a>`;
+
+export type SequenceName = "account" | "newsletter";
+
+interface SequenceStep {
+  subject: string;
+  html: (to: string) => string;
+}
+
+/** All sequence steps, keyed "<sequence>:<step>". */
+const SEQUENCE_STEPS: Record<string, SequenceStep> = {
+  // A1 — sent shortly after account creation.
+  "account:1": {
+    subject: "Your 5 downloads, and where to spend them",
+    html: (to) => `${SEQ_WRAP_TOP}
+      <h2 style="color: #ffffff; font-size: 20px;">You're in.</h2>
+      <p style="line-height: 1.6; color: #a3a3a3;">
+        The free plan is <strong style="color:#ffffff;">5 preset downloads</strong> and
+        <strong style="color:#ffffff;">10 recipe PDFs</strong> a month, every month,
+        plus unlimited browsing and saved recipes.
+      </p>
+      <p style="line-height: 1.6; color: #a3a3a3;">
+        Five downloads is enough to matter if you spend them well. Start with your rig:
+      </p>
+      <div style="background: #262626; border-radius: 8px; padding: 20px; margin: 24px 0;">
+        <ul style="color: #a3a3a3; line-height: 1.9; padding-left: 20px; margin: 0;">
+          <li><strong style="color:#ffffff;">Helix / HX Stomp:</strong> ${seqLink("/browse?platform=helix", "every recipe with a .hlx download")}</li>
+          <li><strong style="color:#ffffff;">Boss Katana:</strong> ${seqLink("/blog/boss-katana-hidden-settings", "the 7 settings most players never find")}, then ${seqLink("/browse?platform=katana", "the .tsl recipes")}</li>
+          <li><strong style="color:#ffffff;">Quad Cortex / TONEX / Fractal / Kemper:</strong> ${seqLink("/browse", "every recipe has your platform's tab")}</li>
+          <li><strong style="color:#ffffff;">Pedals and an amp, no modeler:</strong> every recipe includes the pedalboard translation</li>
+        </ul>
+      </div>
+      <p style="line-height: 1.6; color: #a3a3a3;">
+        One tip before you load anything: <strong style="color:#ffffff;">level-match first.</strong>
+        A patch that is 2 dB louder always sounds &quot;better.&quot; Set output levels equal
+        before you judge a preset, or you will keep the wrong one.
+      </p>
+      <a href="https://faderandknob.com/browse"
+         style="display: inline-block; background: #f59e0b; color: #1a1a1a; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; margin: 8px 0 0;">
+        Browse the library &rarr;
+      </a>
+      ${seqFooter(to)}`,
+  },
+
+  // A2 — day 3.
+  "account:2": {
+    subject: "How to read a recipe (and adjust it for your room)",
+    html: (to) => `${SEQ_WRAP_TOP}
+      <p style="line-height: 1.6; color: #a3a3a3;">
+        Every Fader &amp; Knob recipe gives exact positions: not &quot;add some drive,&quot;
+        but Gain 4.5, Master 7, Presence 6. Exact starting points beat vague advice,
+        but no room, cab, or pickup set is identical. Here is the adjustment order
+        that works on any platform:
+      </p>
+      <div style="background: #262626; border-radius: 8px; padding: 20px; margin: 24px 0;">
+        <ol style="color: #a3a3a3; line-height: 1.9; padding-left: 20px; margin: 0;">
+          <li><strong style="color:#ffffff;">Play it as written.</strong> No touching anything for two minutes.</li>
+          <li><strong style="color:#ffffff;">Fix the feel first (gain).</strong> Too fizzy, back the gain down 1. Too stiff, up 0.5. Gain changes feel more than tone.</li>
+          <li><strong style="color:#ffffff;">Fix the room second (highs).</strong> Harsh in your room: presence/treble down 1. Dull: up 1. One knob, one step.</li>
+          <li><strong style="color:#ffffff;">Stop.</strong> Two knobs is almost always enough. Still wrong? The problem is usually level or the cab/IR, not the amp block.</li>
+        </ol>
+      </div>
+      <p style="line-height: 1.6; color: #a3a3a3;">
+        Going deeper: ${seqLink("/blog/guitar-eq-guide", "the frequencies that actually matter")} and
+        ${seqLink("/blog/signal-chain-order-guide", "the complete signal chain order guide")}.
+      </p>
+      <p style="line-height: 1.6; color: #a3a3a3;">
+        Chasing a tone we don't have yet? Reply to this email and it goes into the
+        production queue; you'll get the page when it's live.
+      </p>
+      ${seqFooter(to)}`,
+  },
+
+  // A3 — day 7. Skipped at send time if the user already upgraded.
+  "account:3": {
+    subject: "The math on the download cap",
+    html: (to) => `${SEQ_WRAP_TOP}
+      <p style="line-height: 1.6; color: #a3a3a3;">Quick math, then we'll leave you alone.</p>
+      <p style="line-height: 1.6; color: #a3a3a3;">
+        Free gives you 5 preset downloads a month. If that's your pace, keep it forever;
+        the cap resets monthly and nothing expires.
+      </p>
+      <p style="line-height: 1.6; color: #a3a3a3;">
+        If you're downloading faster than that, the <strong style="color:#ffffff;">Pass is $49 a year</strong>:
+        unlimited presets, unlimited PDFs, and new recipes a week before everyone else.
+        That's $4.08 a month, or about the cost of one set of strings for a year of
+        every tone on the site.
+      </p>
+      <p style="line-height: 1.6; color: #a3a3a3;">
+        If you buy Set Packs, skip Pass and take <strong style="color:#ffffff;">Pro at $79</strong>:
+        every Set Pack is included while you're subscribed, so one $19 pack a year plus
+        unlimited downloads already makes it the better deal.
+      </p>
+      <a href="https://faderandknob.com/pricing"
+         style="display: inline-block; background: #f59e0b; color: #1a1a1a; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; margin: 8px 12px 0 0;">
+        Start Pass — $49/yr
+      </a>
+      <a href="https://faderandknob.com/pricing"
+         style="display: inline-block; color: #f59e0b; padding: 12px 0; text-decoration: none; font-weight: 600; margin: 8px 0 0;">
+        See what Pro includes &rarr;
+      </a>
+      <p style="line-height: 1.6; color: #a3a3a3; margin-top: 24px;">
+        Either way, you'll keep getting the weekly email like everyone else: one recipe,
+        one insight, one thing worth knowing. That part is free forever too.
+      </p>
+      ${seqFooter(to)}`,
+  },
+
+  // B2 — day 5 for newsletter-only subscribers. Skipped if they now have an account.
+  "newsletter:2": {
+    subject: "Saved recipes beat bookmarks",
+    html: (to) => `${SEQ_WRAP_TOP}
+      <p style="line-height: 1.6; color: #a3a3a3;">
+        A free account adds three things the newsletter can't do:
+        unlimited saved recipes, <strong style="color:#ffffff;">5 preset downloads a month</strong>
+        in your platform's native format (.hlx, .tsl), and 10 printable recipe PDFs.
+        No card, no trial clock.
+      </p>
+      <a href="https://faderandknob.com/signup"
+         style="display: inline-block; background: #f59e0b; color: #1a1a1a; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; margin: 8px 0 0;">
+        Create the free account &rarr;
+      </a>
+      ${seqFooter(to)}`,
+  },
+};
+
+export function getSequenceStep(sequence: SequenceName, step: number): SequenceStep | null {
+  return SEQUENCE_STEPS[`${sequence}:${step}`] ?? null;
+}
+
+/** Send one welcome-sequence email. Used by /api/cron/email-sequence. */
+export async function sendSequenceEmail(opts: {
+  to: string;
+  sequence: SequenceName;
+  step: number;
+}): Promise<{ success: boolean; error?: unknown }> {
+  const def = getSequenceStep(opts.sequence, opts.step);
+  if (!def) return { success: false, error: `unknown step ${opts.sequence}:${opts.step}` };
+  try {
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: opts.to,
+      replyTo: REPLY_TO,
+      headers: unsubscribeHeaders(opts.to),
+      subject: def.subject,
+      html: def.html(opts.to),
+    });
+    return { success: true };
+  } catch (error) {
+    console.error(`Failed to send sequence email ${opts.sequence}:${opts.step}:`, error);
+    return { success: false, error };
+  }
+}

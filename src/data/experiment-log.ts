@@ -168,4 +168,19 @@ export const experimentLog: ExperimentLogEntry[] = [
     title: "We cancelled the tool we'd planned since spring",
     body: "The original pitch for this whole thing was a tool where you upload a clip of a tone you love and get back the settings to recreate it. We researched it for months. Then a night of digging turned up the obvious: one of the big modeling companies shipped exactly that last September, inside the amp software people already own. We're not going to build a worse version of a thing our customers already have. So we cut it, wrote down why, and kept the parts that were actually ours — the research layer underneath, and the request queue that tells us what people can't find anywhere else. Announcing a pivot is easy. Cancelling your own favorite idea is the part nobody posts about.",
   },
+  {
+    date: "2026-08-05",
+    title: "Every recipe page now shows what we checked — and what we didn't",
+    body: "We had a blue verified checkmark on all 205 tones. Hover it and it said \"manually reviewed and verified by our editorial team.\" There is no editorial team. Nobody here plugs in a guitar. That badge was on every card in the library and it was simply false, so it's gone. What replaced it is a block on every recipe page listing what a program actually checked on that specific tone: whether the preset file we hand you contains every block we printed, how much of the amp's processing power the chain uses, whether the sources are real gear journalism or somebody's wiki, and how firmly the guitarist is tied to that specific part. Underneath it, in the same size type, is what nobody checked — starting with the fact that no human has ever heard these settings played.",
+  },
+  {
+    date: "2026-08-05",
+    title: "Every compressor we shipped was set wrong",
+    body: "Building that block meant measuring things we'd never measured, and the first number back was bad. Compressor attack and release times were written in our library as milliseconds — 60, 200, 910 — but the code that builds your preset had no rule for them, so anything above 10 got flattened to the maximum. Every compressor in every Helix preset we've ever handed out was shipping with the slowest possible attack and the slowest possible release, which is close to the compressor doing nothing at all. The same confusion showed on the page: a 60-millisecond attack printed as \"Attack 60s\". Sixty seconds. We fixed the values, fixed the display, and added a rule to the nightly check so a number that contradicts its own scale can't pass again. That rule immediately found about 2,600 more values where the scale we print doesn't match the gear — most of them because a Boss Katana runs its knobs 0 to 100 and we were describing them 0 to 10. Those are written down and being worked through in the open.",
+  },
+  {
+    date: "2026-08-05",
+    title: "The Quad Cortex and Katana files were quietly wrong",
+    body: "The same measurement turned up something worse than the compressor. When our library names a block the translator doesn't recognise, the Helix builder leaves it out — visible, honest, annoying. The Quad Cortex and Katana builders instead substitute something else and say nothing. A block called \"Studio Comp\" was coming out as a Tube Screamer in 175 tones: a compressor turned into an overdrive, in a file that loads perfectly and sounds nothing like the record. On Katana, the word \"Reverb\" wasn't in the translation table at all, so it fell through to the overdrive slot and any real reverb later in the chain got dropped. Not one of our 205 tones produces a fully correct Quad Cortex or Katana file today. That's now printed on each recipe page, per platform, with the blocks named, so you know exactly what to set by hand before you play it. Fixing the translation tables is next; telling you first was the part that couldn't wait.",
+  },
 ];

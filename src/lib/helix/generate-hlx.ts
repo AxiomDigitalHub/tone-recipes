@@ -189,10 +189,43 @@ function buildBlockEntry(
   return { entry, isEnabled };
 }
 
-export function generateHelixPreset(
-  translation: PlatformTranslation,
-  presetName: string,
-): string {
+/** A chain block whose `block_name` resolved to a verified Helix model ID. */
+export interface ResolvedBlock {
+  block: PlatformTranslation["chain_blocks"][number];
+  modelId: string;
+}
+
+/** A resolved block with the DSP slot it was assigned. */
+export interface PlannedSlot extends ResolvedBlock {
+  position: number;
+}
+
+/**
+ * The layout decision for one chain, before any JSON is emitted.
+ *
+ * Split out from {@link generateHelixPreset} so that anything reporting on a
+ * preset — the recipe page's verification band, the audit script — reads the
+ * *same* plan the file is built from. A parallel reimplementation would drift,
+ * and a published claim that drifts from the artifact is worse than no claim.
+ */
+export interface HelixChainPlan {
+  /** Blocks whose model ID resolved. These make it into the file. */
+  renderable: ResolvedBlock[];
+  /**
+   * Blocks whose `block_name` has no verified Helix model ID. These are
+   * silently absent from the downloaded preset — the single most important
+   * thing to tell a reader before they load it.
+   */
+  skipped: PlatformTranslation["chain_blocks"];
+  dsp0Slots: PlannedSlot[];
+  dsp1Slots: PlannedSlot[];
+  /** Cab pulled out of the chain for the amp+cab combo topology. */
+  cabSibling: ResolvedBlock | null;
+  /** Whether the chain spans both SHARC chips. */
+  needsSplit: boolean;
+}
+
+export function planHelixChain(translation: PlatformTranslation): HelixChainPlan {
   const blocks = translation.chain_blocks;
 
   // Filter to verified model IDs only (no silent Minotaur fallbacks).
@@ -218,7 +251,7 @@ export function generateHelixPreset(
   const cabAfterAmp = useAmpCabCombo && ampIndex !== -1 && ampIndex + 1 < renderable.length
     && getBlockType(renderable[ampIndex + 1].block.block_category) === 2;
 
-  let cabSibling: { block: typeof renderable[0]["block"]; modelId: string } | null = null;
+  let cabSibling: ResolvedBlock | null = null;
   let chainAfterCabPull = renderable;
   if (cabAfterAmp) {
     cabSibling = renderable[ampIndex + 1];
@@ -260,8 +293,8 @@ export function generateHelixPreset(
   const needsSplit = (hasDualMicCab || chainAfterCabPull.length >= 8) && splitBoundary !== -1;
 
   // Slot blocks into dsp0 and dsp1
-  const dsp0Slots: Array<{ block: typeof renderable[0]["block"]; modelId: string; position: number }> = [];
-  const dsp1Slots: Array<{ block: typeof renderable[0]["block"]; modelId: string; position: number }> = [];
+  const dsp0Slots: PlannedSlot[] = [];
+  const dsp1Slots: PlannedSlot[] = [];
 
   if (needsSplit) {
     const dsp0Blocks = chainAfterCabPull.slice(0, splitBoundary + 1);
@@ -310,6 +343,17 @@ export function generateHelixPreset(
       dsp0Slots.push({ block, modelId, position: i });
     }
   }
+
+  return { renderable, skipped, dsp0Slots, dsp1Slots, cabSibling, needsSplit };
+}
+
+export function generateHelixPreset(
+  translation: PlatformTranslation,
+  presetName: string,
+): string {
+  const blocks = translation.chain_blocks;
+  const { skipped, dsp0Slots, dsp1Slots, cabSibling, needsSplit } =
+    planHelixChain(translation);
 
   /**
    * Emit one DSP's blocks. If a cab block in the slot list has

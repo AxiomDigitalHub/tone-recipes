@@ -18,10 +18,45 @@
  */
 
 import { writeFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { toneRecipes } from "../src/lib/data";
 import { getCanonicalParams } from "../src/lib/parameters/canonical";
+import { lookupParam } from "../src/lib/parameters/registry";
+
+/**
+ * Settings whose value falls outside the range their registry entry declares.
+ *
+ * `verified` selects which half to report: `true` for ranges checked against
+ * hardware (a violation is a real defect), `false` for ranges that have not
+ * been checked (a violation is usually the registry lagging a platform).
+ */
+function outOfRange(r: ToneRecipe, verified: boolean): string | null {
+  const offenders: string[] = [];
+  for (const [platform, translation] of Object.entries(r.platform_translations ?? {})) {
+    for (const block of translation?.chain_blocks ?? []) {
+      for (const [key, value] of Object.entries(block.settings ?? {})) {
+        if (typeof value !== "number") continue;
+        const meta = lookupParam(key, block.block_category);
+        // Unknown parameters render as plain numbers and have no range to
+        // violate; "text" params aren't controls.
+        if (!meta || meta.kind === "text") continue;
+        if ((meta.rangeVerified ?? false) !== verified) continue;
+        if (value < meta.min || value > meta.max) {
+          offenders.push(
+            `${platform}/${block.block_name}.${key}=${value} (declared ${meta.min}–${meta.max}${meta.unit ? " " + meta.unit : ""})`,
+          );
+        }
+      }
+    }
+  }
+  if (offenders.length === 0) return null;
+  const shown = offenders.slice(0, 4).join("; ");
+  return offenders.length > 4
+    ? `${offenders.length} settings out of range: ${shown}; …`
+    : `settings out of range: ${shown}`;
+}
 import type {
   ToneRecipe,
   PlatformTranslation,
@@ -302,6 +337,35 @@ const RULES: Rule[] = [
     description: "At least one source URL",
     check: (r) =>
       (r.sources?.length ?? 0) < 1 ? "no sources cited" : null,
+  },
+  {
+    slug: "settings-within-verified-range",
+    severity: "error",
+    description:
+      "Numeric settings sit inside the declared range, for parameters whose range has been verified against hardware",
+    // Added 2026-08-05. Before this rule the audit reported 205/205 clean
+    // while every one of those 205 rendered at least one out-of-range value:
+    // `Attack: 60` against a registry entry declaring `min 0, max 1, unit "s"`,
+    // printed on the page as "Attack 60s", and clamped to 1.0 in the .hlx.
+    // The standard wasn't checking the thing that was broken.
+    //
+    // Scoped to `rangeVerified` parameters on purpose. The registry was
+    // written Helix-first and never made platform-aware, so ~3,700 corpus
+    // values sit outside a declared range that simply doesn't describe their
+    // platform (Katana runs 0–100 where the registry says 0–10). Enforcing on
+    // all of them would make the audit permanently red and hide real
+    // regressions. The unverified ones are reported by the rule below.
+    check: (r) => outOfRange(r, true),
+  },
+  {
+    slug: "settings-outside-unverified-range",
+    severity: "info",
+    description:
+      "Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data",
+    // A ledger, not an accusation. Each of these is a range that needs
+    // checking against the hardware; as ranges get verified they graduate to
+    // the error rule above. See docs/PARAM_RANGE_AUDIT.md.
+    check: (r) => outOfRange(r, false),
   },
   {
     slug: "tone-context-valid",
@@ -820,4 +884,20 @@ for (const { rule, count } of sortedRuleStats.slice(0, 6)) {
     `  [${rule.severity.padEnd(5)}] ${rule.slug.padEnd(34)} ${count}/${total}`,
   );
 }
+console.log("");
+
+// ─────────────────────────────────────────────────────────────────────
+//  Recipe-card verification data
+// ─────────────────────────────────────────────────────────────────────
+// The recipe page computes its verification band live, but browse cards read
+// a precomputed map. Regenerate it here so the two can never disagree — a
+// stale map would let a card claim "preset complete" for a recipe whose page
+// says otherwise, which is exactly the kind of unearned claim this whole
+// feature exists to remove.
+console.log("Regenerating recipe-card verification data…");
+execFileSync(
+  "npx",
+  ["tsx", resolve(__dirname, "generate-verification-data.ts")],
+  { stdio: "inherit" },
+);
 console.log("");

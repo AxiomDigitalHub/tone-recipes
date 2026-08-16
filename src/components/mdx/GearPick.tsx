@@ -1,4 +1,5 @@
 import { getAffiliateLinks } from "@/lib/affiliate";
+import AffiliateCta from "@/components/ui/AffiliateCta";
 
 /**
  * <GearPick> — editor's-pick attribution block for gear roundup posts.
@@ -38,7 +39,41 @@ interface GearPickProps {
   price?: string;
   pros?: string[];
   cons?: string[];
+  /**
+   * Experiment arm id, when this block is part of a running affiliate
+   * experiment (see docs/AFFILIATE_EXPERIMENTS.md). Flows through to the
+   * affiliate_click event so arms can be compared without splitting
+   * traffic — at this site's volume, page-level arms are the only design
+   * with any statistical power.
+   */
+  experiment?: string;
+  /**
+   * Analytics placement label. Defaults to "gear_pick". Override to measure
+   * a distinct use of this block separately — E1 in
+   * docs/AFFILIATE_EXPERIMENTS.md uses "settings_companion" for the
+   * companion-gear blocks on settings guides, which need to be compared
+   * against the amp-offer blocks on the same pages.
+   */
+  placement?: string;
+  /**
+   * Put Amazon first instead of Sweetwater. This is the E4 decision rule,
+   * settled on commission structure rather than a test that could never
+   * reach significance: below roughly $200, Amazon's 24-hour cookie is
+   * survivable on an impulse buy, Prime friction is lowest, and cart-wide
+   * attribution pays on the rest of the basket. Above that, Sweetwater's
+   * 3–8% and 14–30 day cookie win on gear people deliberate over.
+   */
+  amazonFirst?: boolean;
   children?: React.ReactNode;
+}
+
+/** Stable-ish product id for analytics grouping (no gear record exists here). */
+function pickSlug(name: string, manufacturer?: string): string {
+  return `${manufacturer ?? ""} ${name}`
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
 export default function GearPick({
@@ -48,15 +83,25 @@ export default function GearPick({
   price,
   pros,
   cons,
+  experiment,
+  placement = "gear_pick",
+  amazonFirst = false,
   children,
 }: GearPickProps) {
   const links = getAffiliateLinks(name, manufacturer);
+  const slug = pickSlug(name, manufacturer);
 
-  const buttons: { label: string; url: string | undefined }[] = [
-    { label: "Sweetwater", url: links.sweetwater },
-    { label: "Reverb", url: links.reverb },
-    { label: "Amazon", url: links.amazon },
-  ];
+  const buttons: { label: string; url: string | undefined }[] = amazonFirst
+    ? [
+        { label: "Amazon", url: links.amazon },
+        { label: "Sweetwater", url: links.sweetwater },
+        { label: "Reverb", url: links.reverb },
+      ]
+    : [
+        { label: "Sweetwater", url: links.sweetwater },
+        { label: "Reverb", url: links.reverb },
+        { label: "Amazon", url: links.amazon },
+      ];
 
   return (
     <aside
@@ -70,7 +115,16 @@ export default function GearPick({
           {price && (
             <>
               <span className="sep">·</span>
-              <span className="gear-pick-price">{price}</span>
+              {/* Labelled "street" on purpose. Amazon's Operating Agreement
+                  bars showing a price as if it were theirs unless it comes
+                  live from PA-API — this is a hand-written ballpark, so it
+                  must never read as the price behind the Amazon button. */}
+              <span
+                className="gear-pick-price"
+                title="Approximate street price when written — not a live retailer quote"
+              >
+                Street {price}
+              </span>
             </>
           )}
         </div>
@@ -115,23 +169,25 @@ export default function GearPick({
         {buttons.map(
           (b) =>
             b.url && (
-              <a
+              <AffiliateCta
                 key={b.label}
-                href={b.url}
-                target="_blank"
-                rel="nofollow sponsored noopener"
+                retailer={b.label}
+                url={b.url}
+                placement={placement}
+                gearSlug={slug}
+                experiment={experiment}
+                unstyled
                 className="gear-pick-cta"
-                data-analytics={`gear_pick_${b.label.toLowerCase()}`}
-              >
-                {b.label} <span aria-hidden="true">↗</span>
-              </a>
+              />
             ),
         )}
       </div>
 
       <p className="gear-pick-disclosure">
         Affiliate links — we may earn a small commission at no extra cost
-        to you. Picks are editorial.
+        to you, and as an Amazon Associate we earn from qualifying
+        purchases. Picks are editorial; prices are approximate street
+        prices, not live retailer quotes.
       </p>
     </aside>
   );

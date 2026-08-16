@@ -5152,7 +5152,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -5986,7 +5986,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out aggressive picking dynamics.",
           },
           {
@@ -6391,7 +6391,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -6736,7 +6736,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor (light)",
-            settings: { Intensity: 4.0, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 4.0, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Light comp for fingerpicked dynamics consistency.",
           },
           {
@@ -7048,7 +7048,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 4.0, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 4.0, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Light parallel compression to even out Slash's dynamic swing without crushing the pick attack.",
           },
           {
@@ -7409,7 +7409,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -7747,7 +7747,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -8528,7 +8528,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor (Criteria Studios)",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp — Layla's compression mostly comes from the Champ being dimed. Don't overdo it.",
           },
           {
@@ -8864,7 +8864,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "MXR Dyna Comp",
-            settings: { Intensity: 4.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 4.0, Attack: 40, Volume: 0.0 },
             notes:
               "Slot A. Light compression to even out fingerpicked dynamics. Keep it transparent and subtle.",
           },
@@ -9466,7 +9466,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 4.0, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 4.0, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Light compression to even out the Kay's uneven hollowbody dynamics.",
           },
           {
@@ -9788,7 +9788,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 4.0, Attack: 0.04, Volume: 2.0 },
+            settings: { Intensity: 4.0, Attack: 40, Volume: 2.0 },
             notes: "Slot A. Moderate compression to even out aggressive picking on the Drop D palm mutes.",
           },
           {
@@ -10391,7 +10391,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -10992,7 +10992,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 2.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 2.0 },
             notes: "Slot A. Light comp tames the windmill dynamic peaks.",
           },
           {
@@ -11281,7 +11281,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 4.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 4.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp for clean fingerpicked dynamics.",
           },
           {
@@ -11614,7 +11614,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -12031,7 +12031,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -12252,7 +12252,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Light parallel compression",
-            settings: { Threshold: -32, Ratio: 2.0, Attack: 0.038, Release: 0.20, Mix: 0.4, Level: 0 },
+            settings: { Threshold: -32, Ratio: 2.0, Attack: 38, Release: 200, Mix: 0.4, Level: 0 },
             notes: "Light parallel comp to match the Helix Deluxe Comp. Tames the Rangemaster's dynamic spikes without squashing the dynamic Sabbath chunk.",
           },
           {
@@ -12370,7 +12370,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Light parallel compression", enabled: true, settings: { Threshold: -32, Ratio: 2.0, Attack: 0.038, Release: 0.20, Mix: 0.4, Level: 0 }, notes: "Light parallel comp mirroring the Helix Deluxe Comp. Tames Rangemaster spikes; preserves the Sabbath dynamic chunk." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Light parallel compression", enabled: true, settings: { Threshold: -32, Ratio: 2.0, Attack: 38, Release: 200, Mix: 0.4, Level: 0 }, notes: "Light parallel comp mirroring the Helix Deluxe Comp. Tames Rangemaster spikes; preserves the Sabbath dynamic chunk." },
           { position: 2, block_name: "FAS Boost", block_category: "Drive", original_gear: "Dallas Rangemaster Treble Booster", enabled: true, settings: { Drive: 7.0, Tone: 8.0, Level: 7.0 }, notes: "No direct Rangemaster model. FAS Boost with bright settings for treble boost character. Default-on — core to Iommi's signal flow." },
           { position: 3, block_name: "1959SLP", block_category: "Amp", original_gear: "Laney Supergroup", settings: { Drive: 6.5, Bass: 6.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, MV: 7.0, Cut: 0 }, notes: "No Laney model available. 1959SLP (Plexi) is the closest approximation for Iommi's Laney tone. Drive=6.5 — the Rangemaster supplies the upper-mid saturation; the amp stays in JTM-era breakup territory." },
           { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall/Laney 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 7500, Level: 0 }, notes: "4x12 cab for the heavy doom character. LowCut/HighCut tame the Rangemaster's top-end and the cab's sub-rumble." },
@@ -12658,7 +12658,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -12973,7 +12973,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 4.0, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 4.0, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Light, transparent compression for SRV's huge dynamic range — keeps quiet passages audible without squashing bend attack.",
           },
           {
@@ -13332,7 +13332,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -13635,7 +13635,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 4.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 4.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp to even out strummed chord dynamics — important for layered Britpop rhythm.",
           },
           {
@@ -13946,7 +13946,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 4.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 4.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out the percussive Rickenbacker jangle.",
           },
           {
@@ -14145,7 +14145,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Studio compressor (light)",
-            settings: { Threshold: -28, Ratio: 2, Attack: 0.06, Release: 0.5, Mix: 0.6, Level: 0 },
+            settings: { Threshold: -28, Ratio: 2, Attack: 60, Release: 500, Mix: 0.6, Level: 0 },
             notes: "Light parallel compression evens out the strummed-rhythm dynamics so the open-G chords sit consistent in the mix. Mix 0.6 keeps the Telecaster's pick attack intact.",
           },
           {
@@ -14241,7 +14241,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Compressor",
             block_category: "Stomp",
             original_gear: "Studio compressor (light)",
-            settings: { Threshold: -28, Ratio: 2, Attack: 0.06, Release: 0.5, Mix: 0.6 },
+            settings: { Threshold: -28, Ratio: 2, Attack: 60, Release: 500, Mix: 0.6 },
             notes: "Slot A. Light parallel compression evens out strummed-rhythm dynamics. Mix 0.6 keeps the Telecaster's bridge-bite intact. Optional — bypass for maximum dynamic feel.",
           },
           {
@@ -14596,7 +14596,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 2.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 2.0 },
             notes: "Slot A. Light comp — preserves pinch-harmonic snap.",
           },
           {
@@ -14983,7 +14983,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -15273,7 +15273,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor (light parallel)",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 3.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 3.0 },
             notes: "Slot A. Light parallel comp — preserves the Les Paul-into-Plexi dynamic. Heavy comp would kill the Page bite.",
           },
           {
@@ -15417,7 +15417,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light)", settings: { Threshold: -32, Ratio: 2, Attack: 0.06, Release: 0.91, Mix: 0.6, Level: 0 }, notes: "Light parallel compression evens the fingerpicked arpeggios — Mix 0.6 keeps the dynamics that make the build work. Bypass and let the amp's natural compression carry it if your touch is doing the work." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light)", settings: { Threshold: -32, Ratio: 2, Attack: 60, Release: 910, Mix: 0.6, Level: 0 }, notes: "Light parallel compression evens the fingerpicked arpeggios — Mix 0.6 keeps the dynamics that make the build work. Bypass and let the amp's natural compression carry it if your touch is doing the work." },
           { position: 2, block_name: "Search Cortex Cloud for 'Supro' capture", block_category: "Amp", original_gear: "Supro Thunderbolt", settings: { Gain: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, Master: 5.0 }, notes: "Low-gain Supro for warm, compressed cleans. Captures of real Supros on Cortex Cloud nail the squashy character better than the stock model." },
           { position: 3, block_name: "1x15 US", block_category: "Cab", original_gear: "Supro 1x15", settings: { Mic: "SM57", Distance: "3 inches", LowCut: 80, HighCut: 14000 }, notes: "Warm, round cab for the clean arpeggio sections. SM57 a few inches off the cone — captures the Supro without going harsh." },
           { position: 4, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Tracking-room ambience", settings: { Decay: 2.0, Predelay: 25, Mix: 0.18, Level: 0 }, notes: "Subtle spring at Mix 0.18 for the tracking-room glue on the original recording. Present, never washy — the build is about touch dynamics, not reverb depth." },
@@ -15446,7 +15446,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Compressor",
             block_category: "Stomp",
             original_gear: "Studio compressor (light)",
-            settings: { Threshold: -32, Ratio: 2, Attack: 0.06, Release: 0.5, Mix: 0.6 },
+            settings: { Threshold: -32, Ratio: 2, Attack: 60, Release: 500, Mix: 0.6 },
             notes:
               "Slot A. Light compression evens out the fingerpicked arpeggios. Mix 0.6 keeps the dry attack of the Telecaster's neck pickup. Optional — bypass and let the touch carry it.",
           },
@@ -15742,7 +15742,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -16040,7 +16040,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 4.0, Attack: 0.04, Volume: 3.0 },
+            settings: { Intensity: 4.0, Attack: 40, Volume: 3.0 },
             notes: "Slot B. Moderate compression to even out aggressive picking attack.",
           },
           {
@@ -16314,7 +16314,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 2.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 2.0 },
             notes: "Slot A. Light comp — heavy comp would mask the touch-sensitivity central to the Brown Sound.",
           },
           {
@@ -16612,7 +16612,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Always-on studio compressor",
-            settings: { Intensity: 6.0, Attack: 0.04, Volume: 4.0 },
+            settings: { Intensity: 6.0, Attack: 40, Volume: 4.0 },
             notes: "Slot A. Heavy always-on compression — core to Mayer's touch sensitivity. Notes sustain like horn lines.",
           },
           {
@@ -16776,7 +16776,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp for clean arpeggio articulation.",
           },
           {
@@ -16943,7 +16943,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 2.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 2.0 },
             notes: "Slot A. Light comp for the percussive slow picking.",
           },
           {
@@ -17136,7 +17136,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -17302,7 +17302,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp for galloping triplet consistency.",
           },
           {
@@ -17749,7 +17749,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -17883,7 +17883,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light)", settings: { Threshold: -36, Ratio: 2, Attack: 0.06, Release: 0.91, Mix: 0.74, Level: 0 }, notes: "Light parallel compression — Mix 0.74 keeps the dry attack of the P-90's bite. Optional. Bypass for the absolute rawest take." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light)", settings: { Threshold: -36, Ratio: 2, Attack: 60, Release: 910, Mix: 0.74, Level: 0 }, notes: "Light parallel compression — Mix 0.74 keeps the dry attack of the P-90's bite. Optional. Bypass for the absolute rawest take." },
           { position: 2, block_name: "Search Cortex Cloud for 'Fender Champ' capture", block_category: "Amp", original_gear: "Fender Champ", settings: { Gain: 10.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, Master: 8.0 }, notes: "Cranked small amp capture. Capture-driven authenticity beats the QC's stock small-amp model for this lo-fi character. Look for captures of Champs, Silvertones, or Valcos at their loudest." },
           { position: 3, block_name: "1x8 Tweed", block_category: "Cab", original_gear: "Champ 1x8", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.30, LowCut: 80, HighCut: 7500, Level: 0 }, notes: "Small-cone cab. SM57 close to the cone, HighCut at 7.5k to tame small-speaker fizz." },
           { position: 4, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Tracking room ambience", settings: { Decay: 0.3, Predelay: 15, Mix: 18, Level: 0 }, notes: "Subtle spring matching the lo-fi tracking-room ambience." },
@@ -17922,7 +17922,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -18089,7 +18089,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp for dynamic consistency.",
           },
           {
@@ -18260,7 +18260,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 4.0, Attack: 0.04, Volume: 2.0 },
+            settings: { Intensity: 4.0, Attack: 40, Volume: 2.0 },
             notes: "Slot A. Light comp for sustain articulation.",
           },
           {
@@ -18435,7 +18435,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 2.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 2.0 },
             notes: "Slot A. Light comp for the clean arpeggio dynamics; doesn't crush the lead solo.",
           },
           {
@@ -18597,7 +18597,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 2.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 2.0 },
             notes: "Slot A. Light comp for percussive C-standard attack.",
           },
           {
@@ -18753,7 +18753,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 4.0, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 4.0, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Transparent compression for chord-melody articulation across SRV's huge dynamic range.",
           },
           {
@@ -19052,7 +19052,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor (parallel)",
-            settings: { Intensity: 5.0, Attack: 0.04, Volume: 5.0 },
+            settings: { Intensity: 5.0, Attack: 40, Volume: 5.0 },
             notes: "Slot A. Parallel-style compression that carries each note of the motif without squashing the attack.",
           },
           {
@@ -19221,7 +19221,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 2.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 2.0 },
             notes: "Slot A. Light comp to even out the rapid tapping dynamics so every note rings consistent.",
           },
           {
@@ -19451,7 +19451,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Light parallel compression",
-            settings: { Threshold: -30, Ratio: 2.5, Attack: 0.05, Release: 0.20, Mix: 0.5, Level: 0 },
+            settings: { Threshold: -30, Ratio: 2.5, Attack: 50, Release: 200, Mix: 0.5, Level: 0 },
             notes: "Parallel comp to mirror the Helix Deluxe Comp — tames Tweed Deluxe dynamic spikes without killing the bloom on bent notes.",
           },
           {
@@ -19594,7 +19594,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light parallel compression", settings: { Threshold: -30, Ratio: 2.5, Attack: 0.05, Release: 0.20, Mix: 0.5, Level: 0 }, notes: "Parallel comp mirroring the Helix Deluxe Comp. Preserves the Tweed's dynamic bloom on bent notes." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light parallel compression", settings: { Threshold: -30, Ratio: 2.5, Attack: 50, Release: 200, Mix: 0.5, Level: 0 }, notes: "Parallel comp mirroring the Helix Deluxe Comp. Preserves the Tweed's dynamic bloom on bent notes." },
           { position: 2, block_name: "Tweed Deluxe", block_category: "Amp", original_gear: "Fender Tweed Deluxe (narrow panel)", settings: { Drive: 7.5, Bass: 4.0, Mid: 6.0, Treble: 6.0, Presence: 5.0, MV: 6.0, Cut: 0 }, notes: "Cygnus Tweed Deluxe model. Drive=7.5 lives in 5E3 breakup; the cathode-biased power section bloom is what Felder's lead rides." },
           { position: 3, block_name: "1x12 Tweed", block_category: "Cab", original_gear: "Tweed Deluxe 1x12 with Jensen P12R", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 80, HighCut: 7500, Level: 0 }, notes: "Single-12 Tweed cab with SM57. Cuts tame the P12R's papery top end." },
           { position: 4, block_name: "EP-3 Tape Delay", block_category: "Delay", original_gear: "Maestro Echoplex EP-3", settings: { Time: 310, Feedback: 0.20, Mix: 0.18 }, notes: "Fractal's EP-3 emulation. Time=310 ms, Mix=18% — smear, not rhythmic." },
@@ -19806,7 +19806,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Light parallel compression",
-            settings: { Threshold: -28, Ratio: 2.5, Attack: 0.06, Release: 0.25, Mix: 0.45, Level: 0 },
+            settings: { Threshold: -28, Ratio: 2.5, Attack: 60, Release: 250, Mix: 0.45, Level: 0 },
             notes: "Parallel comp mirroring the Helix Deluxe Comp. Mimics the natural compression of two cranked amps in parallel.",
           },
           {
@@ -19924,7 +19924,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light parallel compression", settings: { Threshold: -28, Ratio: 2.5, Attack: 0.06, Release: 0.25, Mix: 0.45, Level: 0 }, notes: "Parallel comp mirroring the Helix Deluxe Comp. Approximates parallel-amp natural compression." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light parallel compression", settings: { Threshold: -28, Ratio: 2.5, Attack: 60, Release: 250, Mix: 0.45, Level: 0 }, notes: "Parallel comp mirroring the Helix Deluxe Comp. Approximates parallel-amp natural compression." },
           { position: 2, block_name: "1959SLP", block_category: "Amp", original_gear: "Marshall Super Tremolo (1973, 100W)", settings: { Drive: 7.0, Bass: 5.0, Mid: 6.0, Treble: 6.5, Presence: 6.0, MV: 7.0, Cut: 0 }, notes: "Cygnus 1959SLP — same EL34 / Plexi platform as the Super Tremolo. Drive=7.0 lives in singing-sustain territory." },
           { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 4x12 with Celestion G12M-25 Greenback", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 100, HighCut: 8000, Level: 0 }, notes: "Greenback cab with SM57. LowCut/HighCut tame the Plexi's top-end fizz and the cab's sub-rumble." },
           { position: 4, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Fender Twin Reverb spring tank (parallel amp)", settings: { Mix: 0.20, Decay: 1.5, Predelay: 20 }, notes: "Spring reverb stands in for the Fender Twin's tank in the parallel blend." },
@@ -20132,7 +20132,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Light parallel compression",
-            settings: { Threshold: -28, Ratio: 2.5, Attack: 0.05, Release: 0.20, Mix: 0.4, Level: 0 },
+            settings: { Threshold: -28, Ratio: 2.5, Attack: 50, Release: 200, Mix: 0.4, Level: 0 },
             notes: "Parallel comp to keep the parallel-fourth riff articulate.",
           },
           {
@@ -20268,7 +20268,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Light parallel compression", settings: { Threshold: -28, Ratio: 2.5, Attack: 0.05, Release: 0.20, Mix: 0.4, Level: 0 }, notes: "Parallel comp mirroring the Helix Deluxe Comp. Keeps the parallel-fourth riff articulate." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Light parallel compression", settings: { Threshold: -28, Ratio: 2.5, Attack: 50, Release: 200, Mix: 0.4, Level: 0 }, notes: "Parallel comp mirroring the Helix Deluxe Comp. Keeps the parallel-fourth riff articulate." },
           { position: 2, block_name: "FAS Boost", block_category: "Drive", original_gear: "Hornby-Skewes Treble Booster", enabled: true, settings: { Drive: 6.0, Tone: 8.0, Level: 7.5 }, notes: "No direct Hornby-Skewes model. FAS Boost with bright settings approximates the treble-booster character. DEFAULT-ON — core to the signal flow." },
           { position: 3, block_name: "1959SLP", block_category: "Amp", original_gear: "Marshall 100W (Super Lead-era)", settings: { Drive: 6.0, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.5, MV: 6.5, Cut: 0 }, notes: "Cygnus 1959SLP — same EL34 / Plexi platform as the 100W head Blackmore used. Drive=6.0 — booster does the saturation." },
           { position: 4, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 1960B with Greenback", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 100, HighCut: 8500, Level: 0 }, notes: "Greenback cab with SM57. Cuts tame the booster's top-end fizz." },
@@ -20470,7 +20470,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Natural amp + tape compression",
-            settings: { Threshold: -28, Ratio: 2.5, Attack: 0.05, Release: 0.30, Mix: 0.5, Level: 0 },
+            settings: { Threshold: -28, Ratio: 2.5, Attack: 50, Release: 300, Mix: 0.5, Level: 0 },
             notes: "Parallel comp to glue the woman-tone midrange. Mirrors the Helix Deluxe Comp.",
           },
           {
@@ -20588,7 +20588,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Natural amp + tape compression", settings: { Threshold: -28, Ratio: 2.5, Attack: 0.05, Release: 0.30, Mix: 0.5, Level: 0 }, notes: "Parallel comp mirroring the Helix Deluxe Comp. Glues the woman-tone midrange." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Natural amp + tape compression", settings: { Threshold: -28, Ratio: 2.5, Attack: 50, Release: 300, Mix: 0.5, Level: 0 }, notes: "Parallel comp mirroring the Helix Deluxe Comp. Glues the woman-tone midrange." },
           { position: 2, block_name: "Plexi 100W 1968", block_category: "Amp", original_gear: "Marshall JTM45/100 (1966)", settings: { Drive: 8.5, Bass: 10.0, Mid: 10.0, Treble: 10.0, Presence: 10.0, MV: 10.0, Cut: 0 }, notes: "Cygnus Plexi 100W — closest to the JTM45/100 transitional head. ALL tone knobs at 10. MV=10 forces the power section into natural compression." },
           { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "Marshall 1960B with Greenback", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 100, HighCut: 7000, Level: 0 }, notes: "Greenback cab with SM57. HighCut 7k preserves the woman-tone midrange focus." },
           { position: 4, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Atlantic Studios EMT plate", settings: { Mix: 0.15, Decay: 1.5, Predelay: 25 }, notes: "EMT plate — Atlantic Studios signature." },
@@ -20805,7 +20805,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Natural amp + tape compression",
-            settings: { Threshold: -30, Ratio: 2.5, Attack: 0.05, Release: 0.25, Mix: 0.5, Level: 0 },
+            settings: { Threshold: -30, Ratio: 2.5, Attack: 50, Release: 250, Mix: 0.5, Level: 0 },
             notes: "Parallel comp mirroring the Helix Deluxe Comp. Approximates the natural compression of a cranked Laney Klipp.",
           },
           {
@@ -20940,7 +20940,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Natural amp + tape compression", settings: { Threshold: -30, Ratio: 2.5, Attack: 0.05, Release: 0.25, Mix: 0.5, Level: 0 }, notes: "Parallel comp mirroring the Helix Deluxe Comp." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Natural amp + tape compression", settings: { Threshold: -30, Ratio: 2.5, Attack: 50, Release: 250, Mix: 0.5, Level: 0 }, notes: "Parallel comp mirroring the Helix Deluxe Comp." },
           { position: 2, block_name: "Cry Baby Wah", block_category: "Drive", original_gear: "Morley Wah Pedal (half-cocked)", settings: { Drive: 0, Tone: 5.0, Level: 5.0 }, notes: "Wah PARKED at half-cocked position (~45% of sweep). DON'T assign to a pedal — fixed position is the recipe." },
           { position: 3, block_name: "Brit Pre", block_category: "Amp", original_gear: "Laney Klipp 2x12 (1980s)", settings: { Drive: 6.5, Bass: 5.0, Mid: 6.5, Treble: 6.0, Presence: 5.0, MV: 6.5, Cut: 0 }, notes: "Cygnus Brit Pre or similar 'British combo' voicing — no direct Laney Klipp model. Gain=6.5 — singing breakup." },
           { position: 4, block_name: "2x12 British", block_category: "Cab", original_gear: "Laney Klipp built-in 2x12", settings: { Mic: "Condenser", Distance: 4.0, LowCut: 100, HighCut: 6500, Level: 0 }, notes: "2x12 cab with off-axis condenser mic to approximate the floor-pointed SM57 accident. HighCut 6.5k mimics the floor-bounce dulling." },
@@ -21164,7 +21164,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Natural amp + studio compression",
-            settings: { Threshold: -30, Ratio: 2, Attack: 0.06, Release: 0.5, Mix: 0.5, Level: 0 },
+            settings: { Threshold: -30, Ratio: 2, Attack: 60, Release: 500, Mix: 0.5, Level: 0 },
             notes:
               "Light parallel comp mirroring the Helix Deluxe Comp — evens the single-coil attack without flattening the pick dynamics that make the lick speak.",
           },
@@ -21296,7 +21296,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Natural amp + studio compression",
-            settings: { Threshold: -30, Ratio: 2, Attack: 0.06, Release: 0.5, Mix: 0.5, Level: 0 },
+            settings: { Threshold: -30, Ratio: 2, Attack: 60, Release: 500, Mix: 0.5, Level: 0 },
             notes:
               "Light parallel comp mirroring the Helix Deluxe Comp — evens the glassy attack without flattening the dynamics.",
           },
@@ -21544,7 +21544,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "UREI 1176 #1 (saturation stage)",
-            settings: { Threshold: -22, Ratio: 8, Attack: 0.02, Release: 0.15, Mix: 1.0, Level: 3 },
+            settings: { Threshold: -22, Ratio: 8, Attack: 20, Release: 150, Mix: 1.0, Level: 3 },
             notes:
               "First 1176 as a saturation stage — high ratio, fast attack, pushed level for grit. QC's comp models the 1176 well; this is the front half of the series pair.",
           },
@@ -21553,7 +21553,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "UREI 1176 #2 (the compressor)",
-            settings: { Threshold: -18, Ratio: 12, Attack: 0.02, Release: 0.1, Mix: 1.0, Level: 0 },
+            settings: { Threshold: -18, Ratio: 12, Attack: 20, Release: 100, Mix: 1.0, Level: 0 },
             notes:
               "Second 1176 in series, doing the actual compression — fast and aggressive to tighten the preamp distortion into the even, sustaining riff.",
           },
@@ -21676,7 +21676,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "UREI 1176 #1 (saturation stage)",
-            settings: { Threshold: -22, Ratio: 8, Attack: 0.02, Release: 0.15, Mix: 1.0, Level: 3 },
+            settings: { Threshold: -22, Ratio: 8, Attack: 20, Release: 150, Mix: 1.0, Level: 3 },
             notes:
               "Fractal's 1176-style comp as the saturating first stage — pushed input for grit ahead of the second comp.",
           },
@@ -21685,7 +21685,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "UREI 1176 #2 (the compressor)",
-            settings: { Threshold: -18, Ratio: 12, Attack: 0.02, Release: 0.1, Mix: 1.0, Level: 0 },
+            settings: { Threshold: -18, Ratio: 12, Attack: 20, Release: 100, Mix: 1.0, Level: 0 },
             notes:
               "Second 1176 in series doing the actual compression — fast, aggressive, tightening the preamp distortion. The series pair is the Black Dog signature.",
           },
@@ -21938,7 +21938,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Studio/natural compression",
-            settings: { Threshold: -28, Ratio: 3, Attack: 0.08, Release: 0.6, Mix: 0.6, Level: 0 },
+            settings: { Threshold: -28, Ratio: 3, Attack: 80, Release: 600, Mix: 0.6, Level: 0 },
             notes:
               "Light comp for even, singing lead sustain — moderate so the fuzz dynamics breathe.",
           },
@@ -22116,7 +22116,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Studio/natural compression",
-            settings: { Threshold: -28, Ratio: 3, Attack: 0.08, Release: 0.6, Mix: 0.6, Level: 0 },
+            settings: { Threshold: -28, Ratio: 3, Attack: 80, Release: 600, Mix: 0.6, Level: 0 },
             notes:
               "Light comp for even lead sustain — moderate so the fuzz breathes.",
           },
@@ -22373,7 +22373,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Scholz homemade compressor/sustainer",
-            settings: { Threshold: -34, Ratio: 4, Attack: 0.05, Release: 0.7, Mix: 0.9, Level: 2 },
+            settings: { Threshold: -34, Ratio: 4, Attack: 50, Release: 700, Mix: 0.9, Level: 2 },
             notes:
               "Heavy, mostly-wet comp recreating Scholz's homemade sustainer — the most important block, giving the endless even sustain.",
           },
@@ -22505,7 +22505,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Scholz homemade compressor/sustainer",
-            settings: { Threshold: -34, Ratio: 4, Attack: 0.05, Release: 0.7, Mix: 0.9, Level: 2 },
+            settings: { Threshold: -34, Ratio: 4, Attack: 50, Release: 700, Mix: 0.9, Level: 2 },
             notes:
               "Heavy, mostly-wet comp recreating Scholz's homemade sustainer — the most important block for the endless sustain.",
           },
@@ -22743,7 +22743,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Natural amp + studio compression",
-            settings: { Threshold: -30, Ratio: 2, Attack: 0.06, Release: 0.5, Mix: 0.5, Level: 0 },
+            settings: { Threshold: -30, Ratio: 2, Attack: 60, Release: 500, Mix: 0.5, Level: 0 },
             notes:
               "Light comp to steady the riff attack — gentle, since the original is dynamic cranked-amp tone.",
           },
@@ -22875,7 +22875,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Natural amp + studio compression",
-            settings: { Threshold: -30, Ratio: 2, Attack: 0.06, Release: 0.5, Mix: 0.5, Level: 0 },
+            settings: { Threshold: -30, Ratio: 2, Attack: 60, Release: 500, Mix: 0.5, Level: 0 },
             notes:
               "Light comp to steady the riff attack — gentle, since the original is dynamic cranked-amp tone.",
           },
@@ -23162,7 +23162,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 3.5, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 3.5, Attack: 50, Volume: 0.0 },
             notes: "Slot A. Light, transparent compression evens McCready's dynamics so the solo sustains evenly — subtle so the pick attack survives.",
           },
           {
@@ -23535,7 +23535,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 3.5, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 3.5, Attack: 50, Volume: 0.0 },
             notes: "Tames the wah-peak volume spikes so the fast solo runs stay even. Subtle so the pick attack survives.",
           },
           {
@@ -23881,7 +23881,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Tightening compression",
-            settings: { Intensity: 3.0, Attack: 0.03, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 30, Volume: 0.0 },
             notes: "Light comp tightens the palm-mute attack so the double-tracked chug locks together — subtle so the chord percussion survives.",
           },
           {
@@ -23911,7 +23911,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Gate",
             block_category: "Gate",
             original_gear: "Boss NS-2 Noise Suppressor",
-            settings: { Threshold: -58, Release: 0.3 },
+            settings: { Threshold: -58, Release: 300 },
             notes: "Input gate clamps the high-gain hiss and semi-hollow feedback between the verse stabs so the palm mutes stay surgical.",
           },
           {
@@ -24206,7 +24206,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 4.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 4.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Evens the sixteenth-note arpeggio into a smooth cascade — subtle so the pick attack survives and it stays lively.",
           },
           {
@@ -24556,7 +24556,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 3.5, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.5, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Gentle comp keeps the jangle even so the layered figure rings as one instrument — subtle so the bright pick attack survives.",
           },
           {
@@ -24936,7 +24936,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 3.5, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.5, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Gentle comp keeps the jangle even so the layered figure rings as one instrument — subtle so the bright pick attack survives.",
           },
           {
@@ -25844,7 +25844,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 3.5, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 3.5, Attack: 50, Volume: 0.0 },
             notes: "Slot A. Light comp evens the lead sustain so the harmonized thirds sing consistently — subtle so the Marshall's dynamics survive.",
           },
           {
@@ -29654,7 +29654,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 3.5, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 3.5, Attack: 50, Volume: 0.0 },
             notes: "Slot A. Light, transparent compression evens McCready's dynamics so the lead sustains — subtle so the pick attack survives.",
           },
           {
@@ -29999,7 +29999,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 3.0, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Light, transparent comp evens the fingered chord/bass dynamics — subtle so the attack survives.",
           },
           {
@@ -30326,7 +30326,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Input conditioning",
-            settings: { Intensity: 3.0, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 50, Volume: 0.0 },
             notes: "Slot A. Light comp ahead of the fuzz so the Muff's sustain stays even across stacked takes.",
           },
           {
@@ -30677,7 +30677,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Input conditioning",
-            settings: { Intensity: 3.0, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 50, Volume: 0.0 },
             notes: "Slot A. Light comp steadies the verse-to-chorus dynamic so the octave-fuzz stays controlled when it slams in.",
           },
           {
@@ -31014,7 +31014,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 2.5, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 2.5, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Light, transparent comp evens the picked attack so the syncopated riff stays consistent — subtle so the tweed's bark survives.",
           },
           {
@@ -31368,7 +31368,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 3.0, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 50, Volume: 0.0 },
             notes: "Slot A. Light, transparent comp evens the picked octaves so the delay repeats stack cleanly — subtle so the chime survives.",
           },
           {
@@ -31710,7 +31710,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 2.5, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 2.5, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Light, transparent comp smooths the Tele's bright transients so the licks sit evenly — subtle so the glassy attack survives.",
           },
           {
@@ -32064,7 +32064,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression / level riding",
-            settings: { Intensity: 2.5, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 2.5, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Light, transparent comp evens the P-94 attack so the descending hook stays consistent — subtle so the cutting bite survives.",
           },
           {
@@ -32421,7 +32421,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression / level riding",
-            settings: { Intensity: 2.5, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 2.5, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Light, transparent comp evens the Strat's bright transients so the hammered riff stays consistent — subtle so the jangle survives.",
           },
           {
@@ -32756,7 +32756,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Even out the muted runs",
-            settings: { Intensity: 2.0, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 2.0, Attack: 50, Volume: 0.0 },
             notes: "Slot A. Light, transparent comp keeps the palm-muted boom-chicka steady and percussive — subtle so the bright Esquire snap survives.",
           },
           {
@@ -33087,7 +33087,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "UA 176 tube limiter",
-            settings: { Intensity: 6.0, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 6.0, Attack: 50, Volume: 0.0 },
             notes: "Slot A. Stands in for the UA 176 limiter that glued the Eliminator sustain — push the intensity, this tone is audibly limited.",
           },
           {
@@ -33383,7 +33383,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 3.0, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 50, Volume: 0.0 },
             notes: "Slot A. Light comp to even the staccato riff dynamics.",
           },
           {
@@ -33963,7 +33963,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "UREI 1176 (paired, tracking)",
-            settings: { Intensity: 4.0, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 4.0, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Light comp to even the clean intro arpeggio — stands in for the tracking 1176s.",
           },
           {
@@ -34252,7 +34252,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 3.0, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Gentle comp to even the verse-to-chorus dynamic.",
           },
           {
@@ -34546,7 +34546,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 3.0, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 50, Volume: 0.0 },
             notes: "Slot A. Light comp evens the picked arpeggio without flattening the jangle.",
           },
           {
@@ -34860,7 +34860,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 3.0, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 50, Volume: 0.0 },
             notes: "Slot A. Light comp keeps the riff even without flattening the hollowbody jangle.",
           },
           {
@@ -35162,7 +35162,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp keeps the riff even across the SG's bright attack.",
           },
           {
@@ -35465,7 +35465,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compression",
-            settings: { Intensity: 2.5, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 2.5, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens the riff just enough — keep it loose for the barely-controlled feel.",
           },
           {
@@ -36404,7 +36404,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio level control",
-            settings: { Intensity: 3.5, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 3.5, Attack: 50, Volume: 0.0 },
             notes: "Slot A. Light comp to even the flatwound attack — transparent, so the double-stop 'twop' survives.",
           },
           {
@@ -37438,6 +37438,9 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "what-a-beautiful-name-hillsong-worship",
     title: "Hendroff's What a Beautiful Name Ambient Worship Tone",
     slug: "hendroff-what-a-beautiful-name",
+    // Hendroff's rig is exhaustively documented and he is Hillsong's MD, but
+    // the per-track electric credit is inferred from that role, not published.
+    attribution_confidence: "pool",
     created_at: "2026-06-12",
     description:
       "The blueprint for modern worship guitar. Nigel Hendroff builds this from a clean Gretsch into a chiming Vox AC30 held on the edge of breakup by an always-on boost — not a wall of gain, but an amp working just hard enough to bloom. A Strymon Timeline lays a dotted-eighth pulse under the verses while a BigSky hall washes everything wide, then the bridge swells into a big, reverb-soaked lead. The secret is the always-on boost and the ambient delay/reverb, not a distortion pedal. Key of D, 136 BPM.",
@@ -37609,7 +37612,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "CMATMODS Deluxe Signa Comp", settings: { Intensity: 3.5, Attack: 0.04, Volume: 0.0 }, notes: "Slot A. Light comp to even the picked bed before the profile. Transparent and subtle." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "CMATMODS Deluxe Signa Comp", settings: { Intensity: 3.5, Attack: 40, Volume: 0.0 }, notes: "Slot A. Light comp to even the picked bed before the profile. Transparent and subtle." },
           { position: 2, block_name: "Search Rig Exchange for 'Vox AC30 Top Boost'", block_category: "Profile", original_gear: "Vox AC30 Top Boost", settings: { Gain: 4.0, Bass: 4.0, Middle: 5.5, Treble: 7.0, Presence: 6.0 }, notes: "Search Rig Exchange for an AC30 Top Boost profile on the edge of breakup. Keep gain low so it chimes; the profile bakes in the cab, so no separate cab block." },
           { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Strymon Timeline (dotted-eighth)", settings: { Time: 331, Feedback: 38, Mix: 30 }, notes: "Dotted-eighth at 136 BPM. Use the Kemper's note-value delay locked to tempo." },
           { position: 4, block_name: "Hall Reverb", block_category: "Reverb", original_gear: "Strymon BigSky (NH ambient hall)", settings: { Decay: 7.0, Predelay: 20, Mix: 35 }, notes: "REV slot. Long hall for the wide ambient bed and the blooming bridge lead." },
@@ -37639,6 +37642,12 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "goodness-of-god-bethel-music",
     title: "Hislop's Goodness of God Bethel Ambient Tone",
     slug: "hislop-goodness-of-god",
+    // Bethel's Victory credits electric guitar as an unordered pool (Ed Cash,
+    // Scott Cash, Hislop, Jonathan Lee, Michael Pope) with no per-song
+    // attribution. Hislop is the most likely player and has the best-documented
+    // rig of the five — but plausible-from-the-pool is not documented.
+    // See docs/CORPUS_QC_SCORECARD.md finding #2.
+    attribution_confidence: "pool",
     created_at: "2026-06-12",
     description:
       "Bethel's swelling live-guitar atmosphere. David Hislop runs a Gretsch Filter'Tron into a UK Vox AC30 loaded with Greenbacks, with JHS overdrives for grit and a Strymon Timeline / BigSky / El Capistan rig doing the heavy lifting. The verses are volume-swell pads soaked in shimmer and plate reverb; the final choruses drive harder as the JHS Superbolt and The Kilt push the AC30. It's an ambient bed first, a lead second. Key of Ab, 82 BPM.",
@@ -37811,7 +37820,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Walrus Audio Deep Six", settings: { Intensity: 4.5, Attack: 0.05, Volume: 0.0 }, notes: "Slot A. 1176-style comp smooths the volume swells before the profile." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Walrus Audio Deep Six", settings: { Intensity: 4.5, Attack: 50, Volume: 0.0 }, notes: "Slot A. 1176-style comp smooths the volume swells before the profile." },
           { position: 2, block_name: "Search Rig Exchange for 'Vox AC30 Greenback'", block_category: "Profile", original_gear: "Vox AC30/6 Top Boost (Greenbacks)", settings: { Gain: 4.0, Bass: 5.0, Middle: 6.0, Treble: 6.0, Presence: 5.0 }, notes: "Search Rig Exchange for a Greenback-loaded AC30 profile — warmer than a stock Blue AC30. The profile includes the cab, so no separate cab block." },
           { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Strymon Timeline + El Capistan", settings: { Time: 549, Feedback: 35, Mix: 28 }, notes: "Dotted-eighth at 82 BPM, dark repeats feeding the reverb." },
           { position: 4, block_name: "Hall Reverb", block_category: "Reverb", original_gear: "Strymon BigSky (shimmer/plate)", settings: { Decay: 8.0, Predelay: 15, Mix: 42 }, notes: "REV slot. Big shimmer/plate-style wash — the featured atmosphere. The Kemper's reverb can stack a pitch/shimmer voice for the octave bloom." },
@@ -37841,6 +37850,8 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "living-hope-phil-wickham",
     title: "Casey Moore's Living Hope Worship-Pop Tone",
     slug: "moore-living-hope",
+    // Per-track session credit verified. See docs/WORSHIP_RECIPE_BACKLOG.md.
+    attribution_confidence: "documented",
     created_at: "2026-06-12",
     description:
       "The polished worship-pop electric on Phil Wickham's title track — played by session guitarist Casey Moore, not Wickham's touring player. A clean Vox-or-boutique amp bed sits under a dotted-eighth delay and a big plate reverb, with an EHX Micro POG adding an octave-up shimmer to the swells. The verses are pad-like and compressed; the choruses open up with a light boost into the amp. Half-time feel in Eb, about 72 BPM. The atmosphere is the part — the dry tone alone is almost nothing.",
@@ -38013,7 +38024,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compressor (pad-like)", settings: { Intensity: 6.0, Attack: 0.06, Volume: 0.0 }, notes: "Slot A. Heavy compression turns the part into a smooth pad before the profile." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compressor (pad-like)", settings: { Intensity: 6.0, Attack: 60, Volume: 0.0 }, notes: "Slot A. Heavy compression turns the part into a smooth pad before the profile." },
           { position: 2, block_name: "Search Rig Exchange for 'Vox AC30 clean'", block_category: "Profile", original_gear: "Vox AC30 / Bad Cat (clean)", settings: { Gain: 3.5, Bass: 5.0, Middle: 5.5, Treble: 6.0, Presence: 5.0 }, notes: "Search Rig Exchange for a clean AC30 or boutique clean profile with headroom. Profile includes the cab, so no separate cab block." },
           { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Dotted-eighth delay", settings: { Time: 625, Feedback: 36, Mix: 28 }, notes: "Dotted-eighth at 72 BPM, locked to tempo." },
           { position: 4, block_name: "Hall Reverb", block_category: "Reverb", original_gear: "Big plate reverb", settings: { Decay: 6.5, Predelay: 20, Mix: 38 }, notes: "REV slot. Big plate bed; high mix for the verse pads. Add a Kemper octave block before the amp for the POG shimmer." },
@@ -38043,6 +38054,10 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "way-maker-leeland",
     title: "Casey Moore's Way Maker Ambient Swell Tone",
     slug: "moore-way-maker",
+    // Moore is verified as Leeland's lead player, which makes him the near-
+    // certain guitarist here — but that is a role, not a published per-track
+    // credit, and the distinction is the point of this field.
+    attribution_confidence: "pool",
     created_at: "2026-06-12",
     description:
       "Leeland's wide, swelling Way Maker electric, played by lead guitarist Casey Moore. A Strat into a Vox AC30 with a Klon-style boost for lift, an Ernie Ball volume pedal for the signature pad swells, a Strymon Timeline dotted-eighth, and a Boss RV-6 for the ambient bed. The verses are volume-swell pads with almost no attack; the choruses ride the boost into the AC30 for a singing lead. Key of E, 68 BPM. Master the volume-pedal swell and you have the song.",
@@ -38214,7 +38229,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Light evening comp", settings: { Intensity: 4.0, Attack: 0.05, Volume: 0.0 }, notes: "Slot A. Light comp evens the swell volumes before the profile." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Light evening comp", settings: { Intensity: 4.0, Attack: 50, Volume: 0.0 }, notes: "Slot A. Light comp evens the swell volumes before the profile." },
           { position: 2, block_name: "Search Rig Exchange for 'Vox AC30'", block_category: "Profile", original_gear: "Vox AC30", settings: { Gain: 3.5, Bass: 5.0, Middle: 5.5, Treble: 6.0, Presence: 5.0 }, notes: "Search Rig Exchange for an edge-of-breakup AC30 profile. Profile includes the cab, so no separate cab block. Push it harder for the chorus lead." },
           { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Strymon Timeline (dotted-eighth)", settings: { Time: 661, Feedback: 38, Mix: 30 }, notes: "Dotted-eighth at 68 BPM, locked to tempo — the signature delay." },
           { position: 4, block_name: "Hall Reverb", block_category: "Reverb", original_gear: "Boss RV-6 (plate/hall)", settings: { Decay: 6.5, Predelay: 20, Mix: 38 }, notes: "REV slot. Plate/hall bed for the swells; high mix in the verses. Use a volume pedal into the front for the signature swell." },
@@ -38244,6 +38259,8 @@ export const toneRecipes: ToneRecipe[] = [
     song_slug: "great-are-you-lord-all-sons-and-daughters",
     title: "Stu G's Great Are You Lord Folk-Worship Tone",
     slug: "garrard-great-are-you-lord",
+    // Named in the Discogs credits for the recording.
+    attribution_confidence: "documented",
     created_at: "2026-06-12",
     description:
       "Sparse, warm folk-worship from All Sons & Daughters. Stu Garrard ('Stu G,' ex-Delirious?) plays a blue Telecaster into a chiming Vox AC30 and a Park combo, with an always-on Jackson Audio Prism boost holding the amp on the edge of breakup and a restrained ambient delay/reverb for space. This is a Tele-and-amp tone, not a pedalboard tone — the texture comes from the spank of the Telecaster and the bloom of the AC30, with reverb filling the room. Key of A, ~72 BPM in 6/8.",
@@ -38415,7 +38432,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Light compressor", settings: { Intensity: 3.5, Attack: 0.04, Volume: 0.0 }, notes: "Slot A. Light comp evens the Tele dynamics while keeping the 6/8 strum breathing." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Light compressor", settings: { Intensity: 3.5, Attack: 40, Volume: 0.0 }, notes: "Slot A. Light comp evens the Tele dynamics while keeping the 6/8 strum breathing." },
           { position: 2, block_name: "Search Rig Exchange for 'Vox AC30'", block_category: "Profile", original_gear: "Vox AC30 (+ Park combo)", settings: { Gain: 4.0, Bass: 5.0, Middle: 5.5, Treble: 6.0, Presence: 5.0 }, notes: "Search Rig Exchange for an edge-of-breakup AC30 profile for the Tele chime. Profile includes the cab, so no separate cab block." },
           { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Subtle quarter-note delay", settings: { Time: 833, Feedback: 25, Mix: 18 }, notes: "Quarter-note at 72 BPM, low mix — depth without a wash." },
           { position: 4, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Spring / plate reverb", settings: { Decay: 4.0, Predelay: 15, Mix: 25 }, notes: "REV slot. Medium spring/plate for the warm live room — restrained for the sparse folk-worship feel." },
@@ -41192,7 +41209,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -42581,7 +42598,7 @@ export const toneRecipes: ToneRecipe[] = [
       kemper: {
         chain_blocks: [
           { position: 1, block_name: "Noise Gate", block_category: "Gate", original_gear: "Studio noise gate", settings: { Intensity: 5.0, Threshold: 4.0 }, notes: "Front-of-chain gate for tight palm muting on the Drop-C riff." },
-          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 0.03, Volume: 0.0 }, notes: "Slot A. Light comp tightens the picking attack — subtle so Jones' deliberate dynamic survives." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 30, Volume: 0.0 }, notes: "Slot A. Light comp tightens the picking attack — subtle so Jones' deliberate dynamic survives." },
           { position: 3, block_name: "Search Rig Exchange for 'Diezel VH4'", block_category: "Profile", original_gear: "Diezel VH4 (Channel 3) + Marshall Super Bass", settings: { Gain: 7.0, Bass: 8.0, Middle: 9.0, Treble: 5.0, Presence: 6.0 }, notes: "Search Rig Exchange for a Diezel VH4 Channel 3 profile (cab baked in). Bass pushed, Mid cranked, Treble back for the dark, articulate Drop-C crush." },
           { position: 4, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.6, Predelay: 10, Mix: 0.1 }, notes: "REV slot. Barely-there room to glue the double-tracked rhythm — minimal so the chug stays tight." },
         ],
@@ -42590,7 +42607,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Studio noise gate", settings: { Threshold: -52, Release: 0.3 }, notes: "DEFAULT-ON. Silences the rests in The Pot's spacious Drop-C phrasing." },
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Studio noise gate", settings: { Threshold: -52, Release: 300 }, notes: "DEFAULT-ON. Silences the rests in The Pot's spacious Drop-C phrasing." },
           { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 0.4, Level: 0 }, notes: "Light parallel comp — preserves the deliberate picking dynamic." },
           { position: 3, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4 (Channel 3) + Marshall Super Bass blend", settings: { Drive: 7.0, Bass: 8.0, Mid: 9.0, Treble: 5.0, Presence: 6.0, MV: 6.0, Cut: 4.0 }, notes: "Fractal's Diezel. Bass pushed, Mid cranked, Treble back for the dark, mid-focused Drop-C crush. Stands in for the VH4 + Super Bass blend." },
           { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa/Boogie 4x12 (Celestion V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 85, HighCut: 8500, Level: 0 }, notes: "V30 4x12 for the tight Drop-C bottom; LowCut keeps it tight, HighCut tames fizz." },
@@ -42766,7 +42783,7 @@ export const toneRecipes: ToneRecipe[] = [
       kemper: {
         chain_blocks: [
           { position: 1, block_name: "Noise Gate", block_category: "Gate", original_gear: "Studio noise gate", settings: { Intensity: 5.0, Threshold: 4.0 }, notes: "Front-of-chain gate for tight palm muting on the dry Drop-D riff." },
-          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 0.03, Volume: 0.0 }, notes: "Slot A. Light comp keeps the three-head wall even — subtle so the percussive picking survives." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 30, Volume: 0.0 }, notes: "Slot A. Light comp keeps the three-head wall even — subtle so the percussive picking survives." },
           { position: 3, block_name: "Search Rig Exchange for 'Diezel VH4'", block_category: "Profile", original_gear: "Diezel VH4 + Super Bass + Rivera blend", settings: { Gain: 7.0, Bass: 7.0, Middle: 9.0, Treble: 5.0, Presence: 6.0 }, notes: "Search Rig Exchange for a Diezel VH4 Channel 3 profile (cab baked in). Mid cranked, Treble back for the dark, articulate Drop-D crush that anchors the blend." },
           { position: 4, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.6, Predelay: 10, Mix: 0.1 }, notes: "REV slot. Barely-there room to glue the double-tracked rhythm — minimal so the dry chug stays tight." },
         ],
@@ -42775,7 +42792,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Studio noise gate", settings: { Threshold: -52, Release: 0.3 }, notes: "DEFAULT-ON. Keeps the dry Drop-D rhythm staccato between hits." },
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Studio noise gate", settings: { Threshold: -52, Release: 300 }, notes: "DEFAULT-ON. Keeps the dry Drop-D rhythm staccato between hits." },
           { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -32, Ratio: 2, Attack: 38, Release: 200, Mix: 0.4, Level: 0 }, notes: "Light parallel comp — keeps the wall even without softening the picking." },
           { position: 3, block_name: "Das Benzin Lead", block_category: "Amp", original_gear: "Diezel VH4 + Super Bass + Rivera blend", settings: { Drive: 7.0, Bass: 7.0, Mid: 9.0, Treble: 5.0, Presence: 6.0, MV: 6.0, Cut: 4.0 }, notes: "Fractal's Diezel anchors the three-head blend. Mid cranked, Treble back for the dark Drop-D crush." },
           { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa/Marshall/Rivera 4x12 blend", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 90, HighCut: 8500, Level: 0 }, notes: "V30 4x12 as the closest single-cab match; LowCut keeps it tight, HighCut tames fizz." },
@@ -42925,7 +42942,7 @@ export const toneRecipes: ToneRecipe[] = [
       kemper: {
         chain_blocks: [
           { position: 1, block_name: "Noise Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Intensity: 5.0, Threshold: 4.0 }, notes: "Front-of-chain gate keeps the verse-to-chorus gap silent and clamps Recto hiss." },
-          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 0.03, Volume: 0.0 }, notes: "Slot A. Light comp tightens the palm-mute attack so the double-tracked chorus locks together." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 30, Volume: 0.0 }, notes: "Slot A. Light comp tightens the palm-mute attack so the double-tracked chorus locks together." },
           { position: 3, block_name: "Search Rig Exchange for 'Mesa Dual Rectifier'", block_category: "Profile", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Gain: 7.0, Bass: 6.0, Middle: 4.0, Treble: 7.0, Presence: 6.0 }, notes: "Search Rig Exchange for a Dual Rectifier Modern-channel profile with a V30 4x12 baked in. Scooped mids, pushed bass for the chorus chug. The profile carries the cab." },
           { position: 4, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.8, Predelay: 10, Mix: 0.12 }, notes: "REV slot. Small room to glue the double-tracked chorus — raise the mix on the clean verses for the atmospheric space." },
         ],
@@ -42934,7 +42951,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -50, Release: 0.3 }, notes: "DEFAULT-ON. Keeps the verse-to-chorus gap silent and clamps Recto hiss." },
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -50, Release: 300 }, notes: "DEFAULT-ON. Keeps the verse-to-chorus gap silent and clamps Recto hiss." },
           { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -30, Ratio: 3, Attack: 5, Release: 150, Mix: 0.5, Level: 0 }, notes: "Light parallel comp tightens the palm-mute attack so the double-tracked chorus locks." },
           { position: 3, block_name: "Recto2 Modern", block_category: "Amp", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Drive: 7.0, Bass: 6.0, Mid: 4.0, Treble: 7.0, Presence: 6.0, MV: 4.5, Cut: 5.0 }, notes: "Fractal's Dual Rectifier Modern-channel model. Scooped mids, pushed bass for the chorus chug; Cut trims fizz. Roll guitar volume back for the clean verses." },
           { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa Recto 4x12 (Celestion V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 85, HighCut: 8000, Level: 0 }, notes: "Mesa V30 cab, SM57 at the cap edge for the upper-mid bite. LowCut 85 tight; HighCut 8000 trims fizz." },
@@ -43084,7 +43101,7 @@ export const toneRecipes: ToneRecipe[] = [
       kemper: {
         chain_blocks: [
           { position: 1, block_name: "Noise Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Intensity: 6.0, Threshold: 5.0 }, notes: "Front-of-chain gate, tight, for the staccato Drop-D muting — clamps Recto hiss between hits." },
-          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 0.03, Volume: 0.0 }, notes: "Slot A. Light comp tightens the palm-mute attack so the double-tracked riff locks together." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 30, Volume: 0.0 }, notes: "Slot A. Light comp tightens the palm-mute attack so the double-tracked riff locks together." },
           { position: 3, block_name: "Search Rig Exchange for 'Mesa Dual Rectifier'", block_category: "Profile", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Gain: 8.0, Bass: 6.0, Middle: 4.0, Treble: 7.0, Presence: 6.0 }, notes: "Search Rig Exchange for a Dual Rectifier Modern-channel profile with a V30 4x12 baked in. High gain, scooped mids, pushed bass for the chest-thump chug. The profile carries the cab." },
           { position: 4, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.6, Predelay: 10, Mix: 0.1 }, notes: "REV slot. Barely-there room to glue the double-tracked riff — minimal so the muting stays tight." },
         ],
@@ -43093,7 +43110,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -48, Release: 0.2 }, notes: "DEFAULT-ON, tight. Clamps Recto hiss between hits so the staccato Drop-D gaps are dead silent." },
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -48, Release: 200 }, notes: "DEFAULT-ON, tight. Clamps Recto hiss between hits so the staccato Drop-D gaps are dead silent." },
           { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -30, Ratio: 3, Attack: 5, Release: 150, Mix: 0.5, Level: 0 }, notes: "Light parallel comp tightens the palm-mute attack so the double-tracked riff locks." },
           { position: 3, block_name: "Recto2 Modern", block_category: "Amp", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Drive: 8.0, Bass: 6.0, Mid: 4.0, Treble: 7.0, Presence: 6.0, MV: 4.5, Cut: 5.0 }, notes: "Fractal's Dual Rectifier Modern-channel model, high gain for the wall-to-wall heavy. Scooped mids, pushed bass; Cut trims fizz so the riff stays defined." },
           { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa Recto 4x12 (Celestion V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 80, HighCut: 8000, Level: 0 }, notes: "Mesa V30 cab, SM57 at the cap edge for the upper-mid bite. LowCut 80 tight; HighCut 8000 trims fizz." },
@@ -43256,7 +43273,7 @@ export const toneRecipes: ToneRecipe[] = [
       kemper: {
         chain_blocks: [
           { position: 1, block_name: "Noise Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Intensity: 6.0, Threshold: 5.0 }, notes: "Front-of-chain gate, tight, so the fast octave hook stays articulate over the strings — clamps Recto hiss." },
-          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 0.03, Volume: 0.0 }, notes: "Slot A. Light comp evens out the relentless strumming so every octave hits at the same level." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Light studio compression", settings: { Intensity: 3.0, Attack: 30, Volume: 0.0 }, notes: "Slot A. Light comp evens out the relentless strumming so every octave hits at the same level." },
           { position: 3, block_name: "Search Rig Exchange for 'Mesa Dual Rectifier'", block_category: "Profile", original_gear: "Mesa/Boogie Dual Rectifier (Modern) + Marshall layer", settings: { Gain: 7.0, Bass: 5.0, Middle: 5.0, Treble: 8.0, Presence: 7.0 }, notes: "Search Rig Exchange for a bright Dual Rectifier Modern-channel profile with a V30 4x12 baked in — or a Mesa-plus-Marshall blend profile. Treble and Presence pushed so the octave hook cuts over the strings." },
           { position: 4, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room ambience", settings: { Decay: 0.6, Predelay: 10, Mix: 0.1 }, notes: "REV slot. Barely-there room to glue the double-tracked hook — minimal so it stays tight and present over the orchestration." },
         ],
@@ -43265,7 +43282,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -48, Release: 0.2 }, notes: "DEFAULT-ON, tight. Keeps the fast octave hook articulate and clamps Recto hiss over the strings." },
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -48, Release: 200 }, notes: "DEFAULT-ON, tight. Keeps the fast octave hook articulate and clamps Recto hiss over the strings." },
           { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light studio compression", settings: { Threshold: -30, Ratio: 3, Attack: 4, Release: 120, Mix: 0.5, Level: 0 }, notes: "Light parallel comp evens out the relentless strumming so every octave hits level." },
           { position: 3, block_name: "Recto2 Modern", block_category: "Amp", original_gear: "Mesa/Boogie Dual Rectifier (Modern) + Marshall layer", settings: { Drive: 7.0, Bass: 5.0, Mid: 5.0, Treble: 8.0, Presence: 7.0, MV: 4.5, Cut: 6.0 }, notes: "Fractal's Dual Rectifier Modern model, voiced bright — Treble and Presence pushed, Cut opened up — so the octave hook cuts over the strings. The brightness stands in for the layered Marshall." },
           { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa Recto 4x12 (Celestion V30)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 85, HighCut: 9000, Level: 0 }, notes: "Mesa V30 cab, SM57 just off the cap edge. HighCut 9000 keeps the octave hook bright; LowCut 85 holds the Drop-D bottom." },
@@ -49336,7 +49353,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -56059,7 +56076,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Light tracking compression",
-            settings: { Intensity: 3.0, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 50, Volume: 0.0 },
             notes: "Slot A — light, transparent comp to even the semi-hollow attack while keeping the dynamic bloom.",
           },
           {
@@ -57222,7 +57239,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Light tracking compression",
-            settings: { Intensity: 3.5, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 3.5, Attack: 50, Volume: 0.0 },
             notes: "Slot A — light, transparent comp so the droning open low D sits steady under the chiming riff.",
           },
           {
@@ -57534,7 +57551,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio tracking compression",
-            settings: { Intensity: 3.0, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Light comp to even the fast picking; keep it transparent.",
           },
           {
@@ -57851,7 +57868,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio tracking compression",
-            settings: { Intensity: 3.0, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Light comp to even the tracked rhythm; keep it transparent.",
           },
           {
@@ -58169,7 +58186,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio tracking compression",
-            settings: { Intensity: 3.0, Attack: 0.06, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 60, Volume: 0.0 },
             notes: "Slot A. Light comp to even the layered rhythm; keep it transparent.",
           },
           {
@@ -58520,7 +58537,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio tracking compression",
-            settings: { Intensity: 5.0, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 5.0, Attack: 50, Volume: 0.0 },
             notes: "Slot A. More comp than a rhythm patch for even lead sustain.",
           },
           {
@@ -58838,7 +58855,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio tracking compression",
-            settings: { Intensity: 4.0, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 4.0, Attack: 50, Volume: 0.0 },
             notes: "Slot A. Light comp to even the frantic muted picking; keep it transparent.",
           },
           {
@@ -58986,7 +59003,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Deluxe Comp",
             block_category: "Compressor",
             original_gear: "Studio tracking compression",
-            settings: { Threshold: -28, Ratio: 3, Knee: 6, Attack: 0.04, Release: 0.2, Mix: 30, Level: 0 },
+            settings: { Threshold: -28, Ratio: 3, Knee: 6, Attack: 40, Release: 200, Mix: 30, Level: 0 },
             notes: "Light comp so every cycle of the 7/4 arpeggio reads at the same level — the riff repeats for bars, and evenness is what makes it hypnotic. Mix 0.30 keeps the strum attack alive.",
           },
           {
@@ -59131,7 +59148,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Studio Comp",
             block_category: "Compressor",
             original_gear: "Studio tracking compression",
-            settings: { Intensity: 3.0, Attack: 0.05, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 50, Volume: 0.0 },
             notes: "Slot A. Light comp evening the repeating 7/4 strums; keep it transparent so the strum attack survives.",
           },
           {
@@ -59448,7 +59465,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Tightening compression",
-            settings: { Intensity: 3.0, Attack: 0.03, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 30, Volume: 0.0 },
             notes: "Light comp tightens the palm-mute attack so the double-tracked chug locks together — subtle so the fast riff's percussion survives.",
           },
           {
@@ -59473,7 +59490,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -58, Release: 0.3 }, notes: "Input gate clamps the high-gain hiss and semi-hollow feedback between the staccato stabs so the fast riff stays surgical." },
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Boss NS-2 Noise Suppressor", settings: { Threshold: -58, Release: 300 }, notes: "Input gate clamps the high-gain hiss and semi-hollow feedback between the staccato stabs so the fast riff stays surgical." },
           { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Tightening compression", settings: { Threshold: -30, Ratio: 3, Attack: 5, Release: 150, Mix: 0.5, Level: 0 }, notes: "Light parallel comp tightens the palm-mute attack so the double-tracked chug locks. Blend keeps the pick transient." },
           { position: 3, block_name: "Recto2 Modern", block_category: "Amp", original_gear: "Mesa/Boogie Dual Rectifier (Modern channel)", settings: { Drive: 8, Bass: 6, Mid: 4, Treble: 7, Presence: 6, MV: 4.5, Cut: 5.0 }, notes: "Fractal's Dual Rectifier Modern-channel model. Scooped mids, pushed bass for the chug; treble keeps the fast riff defined. Cut trims fizz so the wall stays musical." },
           { position: 4, block_name: "4x12 Recto V30", block_category: "Cab", original_gear: "Mesa/Boogie 4x12 (Vintage 30)", settings: { Mic: "SM57", Distance: 1.0, LowCut: 80, HighCut: 7500, Level: 0 }, notes: "V30 cab close-miked for the upper-mid bite. LowCut 80 keeps it tight; HighCut 7500 trims fizz." },
@@ -59774,7 +59791,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -59815,7 +59832,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Noise gate", settings: { Threshold: -60, Release: 0.4 }, notes: "Input gate clamps the boosted-plexi hiss between phrases so the legato starts from silence." },
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Noise gate", settings: { Threshold: -60, Release: 400 }, notes: "Input gate clamps the boosted-plexi hiss between phrases so the legato starts from silence." },
           { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light lead compression", settings: { Threshold: -32, Ratio: 3, Attack: 5, Release: 200, Mix: 0.6, Level: 0 }, notes: "Light comp evens out the legato for liquid sustain — blend keeps some natural dynamics." },
           { position: 3, block_name: "TS808 OD", block_category: "Drive", original_gear: "Ibanez Tube Screamer (front-end boost)", enabled: true, settings: { Drive: 2, Tone: 6, Level: 8 }, notes: "DEFAULT-ON. The TS boost — low drive, high level — that tightens the lows and pushes the plexi into sustain." },
           { position: 4, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Metaltronix-modded 1968 Marshall Super Lead (6550)", settings: { Drive: 8.5, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 7.0, Cut: 5.0 }, notes: "Fractal's 100W Plexi pushed hard for the hot-rodded gain; the front-end TS supplies the Metaltronix mod's extra saturation. Mids at 6 keep the lead vocal." },
@@ -60142,7 +60159,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -60471,7 +60488,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -60512,7 +60529,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Noise gate", settings: { Threshold: -58, Release: 0.3 }, notes: "Input gate tames the boosted-plexi hiss and hot-pickup noise between the staccato riff figures." },
+          { position: 1, block_name: "Gate", block_category: "Gate", original_gear: "Noise gate", settings: { Threshold: -58, Release: 300 }, notes: "Input gate tames the boosted-plexi hiss and hot-pickup noise between the staccato riff figures." },
           { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Light tightening compression", settings: { Threshold: -32, Ratio: 2, Attack: 5, Release: 150, Mix: 0.45, Level: 0 }, notes: "Light parallel comp firms up the pick attack so the fast riff locks. Blend keeps the pick snap." },
           { position: 3, block_name: "FAS Boost", block_category: "Drive", original_gear: "MXR Distortion+ (front-end boost)", enabled: true, settings: { Drive: 5, Tone: 6, Level: 7 }, notes: "DEFAULT-ON. Distortion+-style boost — high level to slam the plexi into NWOBHM saturation, moderate gain for articulation." },
           { position: 4, block_name: "Plexi 50W High", block_category: "Amp", original_gear: "Marshall Super Lead 50W (JMP, non-master)", settings: { Drive: 7, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 7.0, Cut: 5.0 }, notes: "Fractal's 50W Plexi cranked for the pushed Super Lead voice — the 50-watter's tighter, earlier breakup suits the gallop. The boost supplies the extra gain." },
@@ -60812,7 +60829,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_name: "Compressor",
             block_category: "Compressor",
             original_gear: "Studio compressor",
-            settings: { Intensity: 3.0, Attack: 0.04, Volume: 0.0 },
+            settings: { Intensity: 3.0, Attack: 40, Volume: 0.0 },
             notes: "Slot A. Light comp evens out picking dynamics."
           },
           {
@@ -61059,7 +61076,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compressor", settings: { Intensity: 3, Attack: 0.04, Volume: 2 }, notes: "Slot A. Light comp evening the twin-guitar wall." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compressor", settings: { Intensity: 3, Attack: 40, Volume: 2 }, notes: "Slot A. Light comp evening the twin-guitar wall." },
           { position: 2, block_name: "Treble Booster", block_category: "Drive", enabled: true, original_gear: "Dallas Rangemaster treble booster", settings: { Drive: 6, Tone: 6, Volume: 6 }, notes: "Stomp slot, DEFAULT-ON -- the Rangemaster push that makes the profile saturate and sing." },
           { position: 3, block_name: "Search Rig Exchange for '1959 Super Lead Plexi'", block_category: "Profile", original_gear: "Marshall Super Lead 100W (non-master)", settings: { Gain: 8, Bass: 5, Middle: 7, Treble: 7, Presence: 7 }, notes: "Search for a cranked non-master Super Lead / Plexi 100W profile. The captured cab is baked in -- no separate cab block on Kemper." },
           { position: 4, block_name: "Tape Delay", block_category: "Delay", enabled: false, original_gear: "Maestro Echoplex (live)", settings: { Time: 300, Feedback: 10, Mix: 10 }, notes: "DLY slot, OFF -- album riff is dry; on for solo slap." },
@@ -61248,7 +61265,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compressor", settings: { Intensity: 4, Attack: 0.02, Volume: 2 }, notes: "Slot A. Quick attack to keep the double-picked notes even." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compressor", settings: { Intensity: 4, Attack: 20, Volume: 2 }, notes: "Slot A. Quick attack to keep the double-picked notes even." },
           { position: 2, block_name: "Treble Booster", block_category: "Drive", enabled: true, original_gear: "Dallas/Arbiter Rangemaster", settings: { Drive: 6, Tone: 7, Volume: 6 }, notes: "Stomp slot, DEFAULT-ON -- upper-mid bite for note separation at speed." },
           { position: 3, block_name: "Search Rig Exchange for '1959 Super Lead Plexi'", block_category: "Profile", original_gear: "Marshall Super Lead 100W (non-master)", settings: { Gain: 8, Bass: 4, Middle: 6, Treble: 8, Presence: 8 }, notes: "Search for a cranked non-master Plexi 100W capture; bass down, treble/presence up for articulation. Cab is baked into the profile." },
           { position: 4, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Chipping Norton room (dry)", settings: { Decay: 1.0, Predelay: 10, Mix: 8 }, notes: "REV slot. Barely-there plate -- keep it dry." },
@@ -61456,7 +61473,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compressor", settings: { Intensity: 2.5, Attack: 0.04, Volume: 2 }, notes: "Slot A. Light comp -- keep the debut's loose dynamics." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compressor", settings: { Intensity: 2.5, Attack: 40, Volume: 2 }, notes: "Slot A. Light comp -- keep the debut's loose dynamics." },
           { position: 2, block_name: "Green Scream", block_category: "Drive", enabled: false, original_gear: "MXR Distortion+ (not debut-confirmed)", settings: { Drive: 4, Tone: 5, Volume: 6 }, notes: "Stomp slot, OFF -- no boost on the debut; on only for the Beast-era bite." },
           { position: 3, block_name: "Search Rig Exchange for '50W Plexi Super Lead'", block_category: "Profile", original_gear: "Marshall Super Lead 50W (non-master)", settings: { Gain: 8, Bass: 5, Middle: 6, Treble: 7, Presence: 6 }, notes: "Search for a cranked 50W non-master Plexi capture; Presence back for the raw debut character. Cab baked into the profile." },
           { position: 4, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Kingsway room (very dry)", settings: { Decay: 0.8, Predelay: 8, Mix: 6 }, notes: "REV slot. Almost dry -- a hint of room only." },
@@ -61664,7 +61681,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compressor", settings: { Intensity: 3, Attack: 0.04, Volume: 2 }, notes: "Slot A. Light comp to keep the double-tracked parts even." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compressor", settings: { Intensity: 3, Attack: 40, Volume: 2 }, notes: "Slot A. Light comp to keep the double-tracked parts even." },
           { position: 2, block_name: "Green Scream", block_category: "Drive", enabled: true, original_gear: "MXR Distortion+ (Murray)", settings: { Drive: 5, Tone: 6, Volume: 6 }, notes: "Stomp slot, DEFAULT-ON -- the Distortion+ that enters on the Beast, tightening the Plexi front end." },
           { position: 3, block_name: "Search Rig Exchange for '50W Plexi Super Lead'", block_category: "Profile", original_gear: "Marshall Super Lead 50W (non-master)", settings: { Gain: 7, Bass: 5, Middle: 7, Treble: 7, Presence: 6 }, notes: "Search for a cranked 50W non-master Plexi capture; mids forward for the NWOBHM cut. Cab baked into the profile." },
           { position: 4, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Battery Studios plate (short)", settings: { Decay: 1.2, Predelay: 12, Mix: 12 }, notes: "REV slot. Short plate -- a little air on leads." },
@@ -61852,7 +61869,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compressor", settings: { Intensity: 3, Attack: 0.04, Volume: 2 }, notes: "Slot A. Light comp to steady the chime; the GK is already compressed." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compressor", settings: { Intensity: 3, Attack: 40, Volume: 2 }, notes: "Slot A. Light comp to steady the chime; the GK is already compressed." },
           { position: 2, block_name: "Chorus", block_category: "Stomp", enabled: true, original_gear: "Boss CH-1 Super Chorus", settings: { Rate: 3, Depth: 4, Volume: 6 }, notes: "Mod slot, DEFAULT-ON -- the defining Somewhere in Time chime." },
           { position: 3, block_name: "Search Rig Exchange for 'Jazz Chorus' or 'solid-state clean'", block_category: "Profile", original_gear: "Gallien-Krueger 250-series solid-state combo", settings: { Gain: 3, Bass: 5, Middle: 5, Treble: 6, Presence: 5 }, notes: "Search for a JC-120 / solid-state clean profile -- closest to the GK's bright transistor voice. Cab baked into the profile." },
           { position: 4, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Somewhere in Time plate (polished)", settings: { Decay: 1.6, Predelay: 20, Mix: 18 }, notes: "REV slot. Generous plate for the polished clean chime." },
@@ -62095,7 +62112,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 0.05, Volume: 1 }, notes: "Slot A. Light -- the GK compresses itself; this only evens out the sustained bends." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 50, Volume: 1 }, notes: "Slot A. Light -- the GK compresses itself; this only evens out the sustained bends." },
           { position: 2, block_name: "Green Scream", block_category: "Drive", enabled: true, original_gear: "Gallien-Krueger 250ML overdrive channel", settings: { Drive: 6.5, Tone: 6.5, Volume: 6 }, notes: "Stomp slot, DEFAULT-ON. Stands in for the GK's overdrive channel -- push the Drive rather than the profile, since the amp itself is a clean solid-state platform." },
           { position: 3, block_name: "Search Rig Exchange for 'Jazz Chorus' or 'JC-120 solid state'", block_category: "Profile", original_gear: "Gallien-Krueger 250ML solid-state combo", settings: { Gain: 4, Bass: 4, Middle: 6, Treble: 7, Presence: 6 }, notes: "Pick a clean JC-120 style capture and let the Stomp drive do the work -- a Marshall profile would give you the wrong album. Cab is baked into the profile." },
           { position: 4, block_name: "Single Delay", block_category: "Delay", original_gear: "Gallien-Krueger onboard echo", settings: { Time: 350, Feedback: 18, Mix: 16 }, notes: "DLY slot. One darkened repeat behind the melody, standing in for the GK's onboard echo." },
@@ -62335,7 +62352,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 0.05, Volume: 1 }, notes: "Slot A. Light -- the GK compresses itself, so this only steadies the doubled rhythm tracks." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 50, Volume: 1 }, notes: "Slot A. Light -- the GK compresses itself, so this only steadies the doubled rhythm tracks." },
           { position: 2, block_name: "Green Scream", block_category: "Drive", enabled: true, original_gear: "Gallien-Krueger 250ML overdrive channel", settings: { Drive: 5.5, Tone: 6.5, Volume: 6 }, notes: "Stomp slot, DEFAULT-ON. The clean profile stays clean and this block supplies the gain -- that split is what makes it read as a GK." },
           { position: 3, block_name: "Chorus", block_category: "Stomp", enabled: true, original_gear: "Boss CE-3 / GK onboard chorus", settings: { Rate: 3, Depth: 4, Volume: 6 }, notes: "Mod slot, DEFAULT-ON and after the drive -- the defining Somewhere in Time shimmer." },
           { position: 4, block_name: "Search Rig Exchange for 'Jazz Chorus' or 'JC-120 solid state'", block_category: "Profile", original_gear: "Gallien-Krueger 250ML solid-state combo", settings: { Gain: 4, Bass: 4, Middle: 6, Treble: 7, Presence: 6 }, notes: "A clean solid-state capture, not a Marshall -- the cab is baked in, and the profile's job here is to stay bright and stiff while the Stomp drives." },
@@ -62573,7 +62590,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 0.06, Volume: 0 }, notes: "Slot A. Gentle -- enough to hold the long notes, not enough to flatten the vibrato." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 60, Volume: 0 }, notes: "Slot A. Gentle -- enough to hold the long notes, not enough to flatten the vibrato." },
           { position: 2, block_name: "Treble Booster", block_category: "Drive", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 6.5, Tone: 6, Volume: 7.5 }, notes: "Stomp slot, DEFAULT-ON. Historically correct as an always-on block: the AIWA never left Blackmore's chain. Roll the Tone back from full -- the AIWA is a fat tape preamp, not a thin treble booster." },
           { position: 3, block_name: "Search Rig Exchange for 'Marshall Major' or 'Marshall Super Lead 200W'", block_category: "Profile", original_gear: "Marshall Major 200W (modified)", settings: { Gain: 5, Bass: 2.5, Middle: 6, Treble: 8, Presence: 6 }, notes: "Major profiles are rare; a clean-ish 100W Plexi capture with the Gain kept down is the better fallback than a hot JCM-era profile. Cab is baked into the profile." },
           { position: 4, block_name: "Tape Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 320, Feedback: 22, Mix: 18 }, notes: "DLY slot. Dark and short. Add a little Flutter for the wow-and-flutter of a real deck." },
@@ -62834,7 +62851,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Tape-deck compression / studio comp", settings: { Intensity: 4, Attack: 0.03, Volume: 0 }, notes: "Slot A. Firmer and faster than the solo patch -- it stands in for the AIWA's tape compression evening out fast picking." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Tape-deck compression / studio comp", settings: { Intensity: 4, Attack: 30, Volume: 0 }, notes: "Slot A. Firmer and faster than the solo patch -- it stands in for the AIWA's tape compression evening out fast picking." },
           { position: 2, block_name: "Treble Booster", block_category: "Drive", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 6, Tone: 6.5, Volume: 7.5 }, notes: "Stomp slot, DEFAULT-ON. Always-on is the historically correct default here. Keep the Tone from full brightness -- the AIWA is fat, not thin." },
           { position: 3, block_name: "Search Rig Exchange for 'Marshall Major' or 'Plexi 200W clean'", block_category: "Profile", original_gear: "Marshall Major 200W (modified)", settings: { Gain: 4.5, Bass: 2.5, Middle: 6, Treble: 8, Presence: 6 }, notes: "Choose the cleanest Plexi-family capture you can find and drive it with the Stomp. A saturated profile will not hold a riff this fast together. Cab is baked in." },
           { position: 4, block_name: "Tape Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 260, Feedback: 12, Mix: 10 }, notes: "DLY slot. One dark repeat only -- the AIWA's echo, kept well back at this tempo." },
@@ -63058,7 +63075,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 2.5, Attack: 0.03, Volume: 0 }, notes: "Slot A. Very light -- any more and the pick transient that drives the riff gets flattened." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 2.5, Attack: 30, Volume: 0 }, notes: "Slot A. Very light -- any more and the pick transient that drives the riff gets flattened." },
           { position: 2, block_name: "Green Scream", block_category: "Drive", enabled: true, original_gear: "Boss SD-1 (level boost)", settings: { Drive: 1.5, Tone: 5.5, Volume: 8.5 }, notes: "Stomp slot, DEFAULT-ON. Low drive and high volume -- it exists to push the profile's input stage and tighten the bottom, not to add gain of its own." },
           { position: 3, block_name: "Search Rig Exchange for 'Marshall JCM800 2203' or 'JCM800 stock'", block_category: "Profile", original_gear: "Marshall JCM800 2203 (stock)", settings: { Gain: 6, Bass: 4.5, Middle: 6, Treble: 7.5, Presence: 6.5 }, notes: "Look for a stock, non-modded JCM800 capture -- the hot-rodded ones have too much gain for this. With Liquid Profiling, pick the Marshall tone stack. Cab is baked into the profile." },
           { position: 4, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Sound City studio plate (light)", settings: { Decay: 0.6, Predelay: 18, Mix: 10 }, notes: "REV slot. Short and quiet, so the riff's stops stay clean." },
@@ -63292,7 +63309,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Tape-deck compression / studio comp", settings: { Intensity: 3, Attack: 0.07, Volume: 0 }, notes: "Slot A. Slow attack, low intensity -- enough to hold the long bends, not enough to squash their front end." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Tape-deck compression / studio comp", settings: { Intensity: 3, Attack: 70, Volume: 0 }, notes: "Slot A. Slow attack, low intensity -- enough to hold the long bends, not enough to squash their front end." },
           { position: 2, block_name: "Treble Booster", block_category: "Drive", enabled: true, original_gear: "AIWA TP-1011 tape preamp (boost stage)", settings: { Drive: 7, Tone: 5.5, Volume: 7.5 }, notes: "Stomp slot, DEFAULT-ON -- historically correct here. Roll the Tone well below noon: the AIWA is a fat tape preamp, and this patch needs body rather than the usual treble-booster bite." },
           { position: 3, block_name: "Search Rig Exchange for 'Marshall Major' or 'Marshall Plexi 200W'", block_category: "Profile", original_gear: "Marshall Major 200W (modified)", settings: { Gain: 5.5, Bass: 3, Middle: 6.5, Treble: 7, Presence: 5 }, notes: "Choose a high-headroom Plexi-family capture and drive it from the Stomp slot. Push the profile's Middle above its Treble -- that inversion, not the gain, is what makes the guitar audible under an orchestra. Cab is baked into the profile." },
           { position: 4, block_name: "Tape Delay", block_category: "Delay", original_gear: "AIWA TP-1011 echo section", settings: { Time: 380, Feedback: 28, Mix: 22 }, notes: "DLY slot. Long, dark, with a little Flutter for the wow of a real deck. Darkness keeps the repeats behind the strings." },
@@ -63515,7 +63532,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression on the clean intro", settings: { Intensity: 5, Attack: 0.02, Volume: 0 }, notes: "Slot A, and firmer than usual -- the intro's arpeggios need levelling. Drop the Intensity to about 2 if you leave the patch on for the heavy sections." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression on the clean intro", settings: { Intensity: 5, Attack: 20, Volume: 0 }, notes: "Slot A, and firmer than usual -- the intro's arpeggios need levelling. Drop the Intensity to about 2 if you leave the patch on for the heavy sections." },
           { position: 2, block_name: "Green Scream", block_category: "Drive", enabled: false, original_gear: "Boss SD-1 Super Overdrive (level boost)", settings: { Drive: 1.5, Tone: 5, Volume: 8 }, notes: "Stomp slot, DEFAULT-OFF for this recipe. Set as a level boost -- Drive near zero, Volume near max -- so it drives the profile's input rather than adding its own dirt." },
           { position: 3, block_name: "Search Rig Exchange for 'Marshall JCM800 2203' or 'JCM800 stock'", block_category: "Profile", original_gear: "Marshall JCM800 2203 (stock)", settings: { Gain: 7, Bass: 4, Middle: 6, Treble: 7, Presence: 6 }, notes: "Pick a stock, un-modded 2203 capture -- hot-rodded JCM800 profiles have an extra gain stage the 1983 amp did not, and they will not clean up when you roll your guitar back, which breaks the one technique this recipe is built on. Cab is baked into the profile." },
           { position: 4, block_name: "Single Delay", block_category: "Delay", original_gear: "Studio delay on the intro", settings: { Time: 300, Feedback: 15, Mix: 14 }, notes: "DLY slot. Short and quiet, intro only." },
@@ -63756,7 +63773,7 @@ export const toneRecipes: ToneRecipe[] = [
       kemper: {
         chain_blocks: [
           { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -62, Decay: 22 }, notes: "Slot A. Gentle -- just enough to silence string noise between the riff's stabs." },
-          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 0.012, Volume: 0 }, notes: "Slot B. Fast attack for down-picked eighths; low intensity so the pick transient survives." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 12, Volume: 0 }, notes: "Slot B. Fast attack for down-picked eighths; low intensity so the pick transient survives." },
           { position: 3, block_name: "Search Rig Exchange for 'Marshall 1959 Super Lead jumped' or 'Plexi modded'", block_category: "Profile", original_gear: "Marshall 1959 Super Lead (Dawk-modified)", settings: { Gain: 7.5, Bass: 4, Middle: 7, Treble: 7, Presence: 6 }, notes: "Look for a jumped or lightly-modded Plexi capture rather than a JCM800 -- a 2203's extra cold-clipper stage is a different circuit and gives you an eighties tone. Middle above Treble is the setting that carried over from Iommi's treble-booster years. Cab is baked into the profile." },
           { position: 4, block_name: "Chorus", block_category: "Modulation", enabled: false, original_gear: "Chorus (album-level effect)", settings: { Rate: 0.4, Depth: 22, Mix: 22 }, notes: "MOD slot, DEFAULT-OFF -- on the album but not on this track." },
           { position: 5, block_name: "Single Delay", block_category: "Delay", original_gear: "Studio delay", settings: { Time: 240, Feedback: 8, Mix: 8 }, notes: "DLY slot. One dark repeat, used as a thickener rather than an audible effect." },
@@ -64015,7 +64032,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       kemper: {
         chain_blocks: [
-          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 4, Attack: 0.045, Volume: 0 }, notes: "Slot A. Medium attack -- fast enough for the runs, slow enough not to clamp the bends." },
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 4, Attack: 45, Volume: 0 }, notes: "Slot A. Medium attack -- fast enough for the runs, slow enough not to clamp the bends." },
           { position: 2, block_name: "Muffin", block_category: "Drive", enabled: true, original_gear: "MXR Distortion+", settings: { Drive: 6, Tone: 6, Volume: 7 }, notes: "Stomp slot, DEFAULT-ON and historically correct -- the pedal was potted into a fixed enclosure. Any hard-clipping distortion model works; avoid soft-clipping Tube Screamer types, which give a rounder tone than a Distortion+." },
           { position: 3, block_name: "Graphic EQ", block_category: "EQ", original_gear: "MXR 10-Band Graphic EQ", settings: { "500Hz": 3, "1kHz": 4, "2kHz": 2, Level: 3 }, notes: "Second Stomp slot, before the Profile. The output gain is what makes it a boost -- placing it in the post-Profile EQ section instead loses the input drive that lifts the solo out of the mix." },
           { position: 4, block_name: "Search Rig Exchange for 'Marshall Super Lead Variac' or 'Plexi 1959 100W'", block_category: "Profile", original_gear: "Marshall 1959 Super Lead (Variac'd to ~90V)", settings: { Gain: 8, Bass: 4, Middle: 6, Treble: 7, Presence: 5 }, notes: "If you cannot find a Variac'd capture, take a stock Plexi profile and raise the Profile's Sag and Tube Shape parameters -- those two controls are the Kemper's route to the under-volted, early-compressing behaviour that defines this tone. Cab is baked in." },
@@ -64254,7 +64271,7 @@ export const toneRecipes: ToneRecipe[] = [
       kemper: {
         chain_blocks: [
           { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -58, Decay: 18 }, notes: "Slot A. Short decay so the gate tracks the riff's staccato phrasing." },
-          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 0.015, Volume: 0 }, notes: "Slot B. Light -- the muted-to-open dynamic swing is the riff, so do not flatten it." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 15, Volume: 0 }, notes: "Slot B. Light -- the muted-to-open dynamic swing is the riff, so do not flatten it." },
           { position: 3, block_name: "Search Rig Exchange for 'Jose Marshall' or 'Marshall Jose mod' or 'Cameron/Jose 2204'", block_category: "Profile", original_gear: "Marshall 100W (Jose Arredondo mod)", settings: { Gain: 7.5, Bass: 4, Middle: 5, Treble: 7, Presence: 6 }, notes: "Jose-modded Marshalls are a well-represented capture family on the Rig Exchange precisely because of this era of records, so search the modder's name before you settle for a stock Plexi. If you end up on a stock capture, lower its Sag and Tube Shape -- the mod's character is tightness, not bloom. Cab is baked in." },
           { position: 4, block_name: "Flanger", block_category: "Modulation", enabled: false, original_gear: "Ibanez SF10 Swell Flanger", settings: { Rate: 0.3, Depth: 45, Mix: 35 }, notes: "MOD slot, DEFAULT-OFF -- solo section only." },
           { position: 5, block_name: "Single Delay", block_category: "Delay", original_gear: "Studio delay", settings: { Time: 280, Feedback: 10, Mix: 9 }, notes: "DLY slot. Near-inaudible depth rather than an audible repeat." },

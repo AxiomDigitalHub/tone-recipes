@@ -137,7 +137,9 @@ export default function Footer() {
             and presets are AI-built, and the record is public.{" "}
             <Link href="/experiment">See the running log</Link>. Some links are
             affiliate links — Fader &amp; Knob may earn a commission on
-            purchases at no extra cost to you.
+            purchases at no extra cost to you. As an Amazon Associate we earn
+            from qualifying purchases.{" "}
+            <Link href="/affiliate-disclosure">Full disclosure</Link>.
           </p>
         </div>
       </div>

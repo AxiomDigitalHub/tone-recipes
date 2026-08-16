@@ -60,6 +60,20 @@ const recipes = toneRecipes.length;
 const platformsCovered = new Set(
   toneRecipes.flatMap((r) => Object.keys(r.platform_translations ?? {})),
 ).size;
+
+// "6 platforms" is true but does two jobs at once: three of them get a real
+// generated file (Helix .hlx, Quad Cortex JSON, Katana .tsl) and three get
+// on-page settings or a capture-search pointer. Splitting the number keeps the
+// page from implying six downloads. `SystemMap`'s alt text already draws this
+// distinction; the dashboard should too.
+const PLATFORMS_WITH_GENERATORS = ["helix", "quad_cortex", "katana"] as const;
+const platformsWithPresetFiles = new Set(
+  toneRecipes.flatMap((r) =>
+    Object.keys(r.platform_translations ?? {}).filter((p) =>
+      (PLATFORMS_WITH_GENERATORS as readonly string[]).includes(p),
+    ),
+  ),
+).size;
 const aiWriters = getAllWriters().length;
 
 const stats = {
@@ -71,6 +85,7 @@ const stats = {
   commits: commitCount,
   recipes,
   platforms_covered: platformsCovered,
+  platforms_with_preset_files: platformsWithPresetFiles,
   presets_downloadable: presetsDownloadable,
   blog_posts: blogPosts,
   ai_writers: aiWriters,
