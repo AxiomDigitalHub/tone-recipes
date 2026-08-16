@@ -112,11 +112,16 @@ export default function AboutPage() {
               <div key={w.slug} className="about-writer">
                 {w.image && (
                   <div className="about-writer-img">
+                    {/* Fixed dimensions, not `fill`. With `fill` and a
+                        px-only `sizes`, next/image emits a candidate for
+                        every configured size — twelve of them, up to 1200w,
+                        for a 100px avatar, and `src` defaults to the widest.
+                        Fixed width/height gets the 1x/2x pair instead. */}
                     <Image
                       src={w.image}
                       alt={`${w.name} — AI writer`}
-                      fill
-                      sizes="120px"
+                      width={100}
+                      height={100}
                     />
                   </div>
                 )}

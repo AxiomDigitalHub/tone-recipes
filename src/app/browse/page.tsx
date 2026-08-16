@@ -232,10 +232,16 @@ export default async function PreviewBrowse({
 
   // URL builder — preserves other filters when toggling one
   const buildHref = (next: Partial<typeof sp>) => {
+    // Key order here MUST match the canonical builder in generateMetadata
+    // (era, genre, platform, artist). It used to emit platform before
+    // genre, so every link carrying both facets pointed at a URL whose own
+    // canonical was a different string — Google filed all 11 two-facet
+    // combinations it had found under "Alternate page with proper
+    // canonical tag" purely because of the key order.
     const merged: Record<string, string | undefined> = {
       era,
-      platform: platformFilter,
       genre: genreFilter,
+      platform: platformFilter,
       artist: artistFilter,
       sort: sort === "newest" ? undefined : sort,
       ...next,

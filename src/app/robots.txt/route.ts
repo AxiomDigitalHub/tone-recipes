@@ -22,6 +22,17 @@ Disallow: /login
 Disallow: /signup
 Disallow: /dev/
 
+# Sort variants only. /browse facet pages (?era=, ?genre=, ?platform=) are
+# deliberately indexable — self-canonical, unique titles and descriptions,
+# long-tail landing pages — and stay crawlable. But ?sort= only reorders the
+# same result set, so generateMetadata strips it from the canonical and no
+# sort URL can ever be indexed. The sort control still renders five links on
+# every facet page, which multiplied the crawlable space ~6x: as of the
+# 2026-08-16 GSC coverage drilldown, 59 of 119 "Alternate page with proper
+# canonical tag" URLs were sort variants, and the total was doubling
+# fortnightly. Blocking costs nothing that could have ranked.
+Disallow: /*?*sort=
+
 Sitemap: ${SITE_URL}/sitemap.xml
 `;
 
