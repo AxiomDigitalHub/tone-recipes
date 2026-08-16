@@ -42,6 +42,24 @@ export interface PreviewKnobProps {
  *  Linear by default. If bipolar (min<0 and neutral exists), pivot at noon
  *  around `neutral` so the indicator lands at 12 o'clock when value===neutral,
  *  even when min and max aren't symmetric around it (e.g. Cab Level -60..+12). */
+/**
+ * Snap an SVG coordinate to a fixed grid before it reaches the DOM.
+ *
+ * The tick geometry below is trig, and Node's Math.sin/Math.cos disagree
+ * with the browser's in the last bit — the server rendered
+ * x1="28.208456012501752" where the client computed 28.208456012501756.
+ * React treats that as a mismatched attribute, refuses to patch it, and
+ * re-renders the whole block-detail grid on the client: every knob on
+ * every recipe page, on load.
+ *
+ * Four decimals on a 100-unit viewBox is ~1/10,000th of the knob — orders
+ * of magnitude below a rendered pixel, so nothing moves visually — and it
+ * makes both runtimes agree on the string.
+ */
+function onGrid(n: number): number {
+  return Math.round(n * 1e4) / 1e4;
+}
+
 function computeNorm(
   value: number,
   min: number,
@@ -115,10 +133,10 @@ export default function PreviewKnob({
     const r1 = 48;
     const r2 = 50;
     return {
-      x1: 50 + r1 * Math.sin(rad),
-      y1: 50 - r1 * Math.cos(rad),
-      x2: 50 + r2 * Math.sin(rad),
-      y2: 50 - r2 * Math.cos(rad),
+      x1: onGrid(50 + r1 * Math.sin(rad)),
+      y1: onGrid(50 - r1 * Math.cos(rad)),
+      x2: onGrid(50 + r2 * Math.sin(rad)),
+      y2: onGrid(50 - r2 * Math.cos(rad)),
       key: i,
       major: i % 5 === 0,
     };
@@ -140,10 +158,10 @@ export default function PreviewKnob({
           const r1 = 46;
           const r2 = 52;
           return {
-            x1: 50 + r1 * Math.sin(rad),
-            y1: 50 - r1 * Math.cos(rad),
-            x2: 50 + r2 * Math.sin(rad),
-            y2: 50 - r2 * Math.cos(rad),
+            x1: onGrid(50 + r1 * Math.sin(rad)),
+            y1: onGrid(50 - r1 * Math.cos(rad)),
+            x2: onGrid(50 + r2 * Math.sin(rad)),
+            y2: onGrid(50 - r2 * Math.cos(rad)),
           };
         })()
       : null;
