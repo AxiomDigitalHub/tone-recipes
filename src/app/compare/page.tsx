@@ -12,6 +12,7 @@ import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
 import type { Platform } from "@/types/recipe";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/compare" },
   title: "Compare tone recipes side-by-side — Fader & Knob",
   description:
     "Pick any two recipes from the archive and view their signal chains side-by-side. Switch the platform to see how each chain ports across modelers.",
@@ -112,6 +113,64 @@ export default async function ComparePage({
             buildHref={buildHref}
           />
         </div>
+
+        {/* The page was a lede plus two pickers — under 100 words, and
+            flagged as thin. This is the part that makes the comparison
+            useful rather than decorative. */}
+        <section className="hub-prose" aria-labelledby="compare-how-head">
+          <div className="how-head">
+            <h2 id="compare-how-head" className="display">
+              How to read a side-by-side
+            </h2>
+            <span className="section-rule" aria-hidden="true" />
+          </div>
+
+          <p>
+            Two chains rarely differ everywhere. Most of the time one or two
+            blocks are doing the work that makes the tones sound unrelated,
+            and the rest is close enough to ignore. Putting them next to
+            each other is how you find which ones.
+          </p>
+
+          <h3>Start at the amp, not the pedals</h3>
+          <p>
+            The amp model and its gain setting decide most of what you hear.
+            If one chain runs a clean amp with a drive pedal doing the
+            distortion and the other runs a cranked amp with a boost, no
+            amount of matching the pedals will get you across — those are
+            two different distortion sources with different compression and
+            different response to your picking hand.
+          </p>
+
+          <h3>Then check what&apos;s in front of it</h3>
+          <p>
+            Order matters more than the count of blocks. A boost before a
+            drive pushes the drive harder; the same boost after it just gets
+            louder. When two chains share a pedal but sound different,
+            check where it sits relative to the amp before you touch a
+            single knob.
+          </p>
+
+          <h3>Ignore the effects until last</h3>
+          <p>
+            Delay and reverb settings are the most visible difference
+            between two chains and usually the least important to the core
+            tone. Get the amp and drive right first — the ambience is quick
+            to match once the front of the chain is in the right place.
+          </p>
+
+          <h3>Compare on your own platform</h3>
+          <p>
+            The switcher above re-expresses both chains in your modeler&apos;s
+            blocks, so you&apos;re comparing what you&apos;d actually dial
+            rather than two hardware rigs you don&apos;t own. If your unit
+            isn&apos;t listed, the pedalboard view shows the original
+            hardware for both. More on how that translation works on the{" "}
+            <Link href="/platforms">platforms page</Link>, or browse{" "}
+            <Link href="/browse">the full archive</Link> to pick a second
+            recipe.
+          </p>
+        </section>
       </section>
     </div>
   );

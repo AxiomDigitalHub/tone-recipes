@@ -32,6 +32,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: { canonical: `/song/${slug}` },
     keywords: [s.title, artist?.name, ...(s.genres ?? []), "tone recipe", "guitar tone"].filter(
       Boolean,
     ) as string[],

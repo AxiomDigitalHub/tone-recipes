@@ -311,6 +311,9 @@
   display: flex; gap: 0;
   flex: 1; flex-wrap: wrap;
 }
+/* Rendered as <button> (was <a href="?platform=…"> — see
+   RecipePlatformView for why), so the UA button chrome has to be reset
+   before the shared tab styling applies. */
 .fk-preview .platform-switcher .tab {
   font-family: var(--font-mono);
   font-size: 10.5px;
@@ -319,7 +322,14 @@
   color: var(--ink);
   opacity: 0.55;
   padding: 8px 14px;
+  background: none;
+  border: 0;
   border-right: 1px solid rgba(10,9,8,0.15);
+  border-radius: 0;
+  line-height: 1.2;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
 }
 .fk-preview .platform-switcher .tab.on {
   opacity: 1;
@@ -631,40 +641,9 @@
 .fk-preview ::-webkit-scrollbar-thumb { background: rgba(10,9,8,0.3); }
 .fk-preview ::selection { background: var(--amber); color: var(--ink); }
 
-/* ── Engineer's note ────────────────────────────────────────────────────── */
-.fk-preview .eng-note {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 32px;
-  padding: 28px 0;
-  margin-bottom: 40px;
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
-}
-@media (max-width: 720px) {
-  .fk-preview .eng-note { grid-template-columns: 1fr; gap: 14px; }
-}
-.fk-preview .eng-note h4 {
-  font-family: var(--font-display);
-  font-size: 22px;
-  margin: 0;
-  font-weight: 400;
-  line-height: 1;
-}
-.fk-preview .eng-note-body {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--ink-2);
-  max-width: 64ch;
-}
-.fk-preview .eng-note-sig {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  margin-top: 14px;
-}
+/* The "Engineer's note" styles were removed 2026-08-05 along with the block
+   itself — it reprinted the recipe description verbatim and signed it with the
+   artist's name. Nothing renders `.eng-note` any more. */
 
 /* ── Per-block settings grid ────────────────────────────────────────────── */
 .fk-preview .block-detail-grid {
@@ -2113,6 +2092,13 @@
 .fk-preview .ledger {
   border-top: 1px solid var(--paper-line);
 }
+/* The ledger renders as <ul>/<li> (see BlogArchive). Rows are still the
+   inner <a class="ledger-row">, so only the list chrome needs resetting. */
+.fk-preview ul.ledger {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 .fk-preview .ledger-header,
 .fk-preview .ledger-row {
   display: grid;
@@ -3056,18 +3042,6 @@
   animation: fk-knob-pulse 380ms ease;
 }
 
-/* Drop cap — engineer's note gets a magazine-grade lead-in */
-.fk-preview .eng-note .eng-note-body::first-letter {
-  font-family: var(--font-display);
-  float: left;
-  font-size: 4.4em;
-  line-height: 0.86;
-  padding: 4px 10px 0 0;
-  margin-top: 4px;
-  color: var(--ink);
-  font-weight: 400;
-}
-
 /* ─── §02 How this works — three-step editorial feature ──────────────── */
 .fk-preview .how {
   padding: 64px 28px 8px;
@@ -3222,9 +3196,26 @@
   border-top: 1px solid var(--ink);
   border-left: 1px solid var(--ink);
 }
-.fk-preview .audition-grid > .audition-card {
+/* Grid items are either the card itself (older call sites) or an <li>
+   wrapping it (/browse — see the note there). Both take the cell borders;
+   the li is a flex box so the card still fills the whole cell. */
+.fk-preview .audition-grid > .audition-card,
+.fk-preview .audition-grid > .audition-card-item {
   border-right: 1px solid var(--ink);
   border-bottom: 1px solid var(--ink);
+}
+.fk-preview ul.audition-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.fk-preview .audition-card-item {
+  display: flex;
+  min-width: 0;
+}
+.fk-preview .audition-card-item > .audition-card {
+  flex: 1;
+  min-width: 0;
 }
 @media (max-width: 1100px) {
   .fk-preview .audition-grid { grid-template-columns: repeat(3, 1fr); }
@@ -3435,6 +3426,11 @@
 .fk-preview .lp-art .lp-cover-img {
   position: absolute;
   inset: 0;
+  /* LpArt passes fixed width/height instead of next/image's `fill` (see the
+     note there), so the stretch that `fill`'s inline style used to provide
+     has to come from here. */
+  width: 100%;
+  height: 100%;
   z-index: 0;
   object-fit: cover;
   filter: contrast(1.05) saturate(0.95) brightness(0.92);
@@ -5532,6 +5528,46 @@
   line-height: 1.65;
   color: var(--ink-2);
 }
+
+/* ── Hub-page explainers ────────────────────────────────────────────────
+   /platforms, /compare, /community and /tone-chat were link grids with
+   40-90 words of prose between them — thin enough that the site audit
+   flagged all four. These carry the copy that answers what the page is
+   for. Same measure and rhythm as .legal-prose, plus an h3 level. */
+.fk-preview .hub-prose {
+  max-width: 70ch;
+  margin-top: 48px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+.fk-preview .hub-prose h3 {
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.5vw, 20px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 28px 0 10px;
+}
+.fk-preview .hub-prose p { margin: 0 0 16px; }
+.fk-preview .hub-prose ul {
+  margin: 0 0 16px;
+  padding-left: 22px;
+  list-style: disc;
+}
+.fk-preview .hub-prose li { margin-bottom: 6px; }
+.fk-preview .hub-prose code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--paper-2);
+  padding: 1px 5px;
+}
+.fk-preview .hub-prose a {
+  color: var(--ink);
+  border-bottom: 1px dashed var(--paper-line);
+  text-decoration: none;
+}
+.fk-preview .hub-prose a:hover { border-color: var(--ink); }
 .fk-preview .legal-prose h2 {
   font-family: var(--font-display);
   font-size: clamp(22px, 2.2vw, 28px);
@@ -8976,6 +9012,35 @@
   color: var(--ink);
   border-color: var(--amber, #c98a2b);
 }
+/* Prose-link override. `.fk-preview .post-body a` (0,2,1) out-specifies
+   `.fk-preview .gear-pick-cta` (0,2,0), so inside a blog post every buy
+   button rendered var(--ink) text on a var(--ink) background — black on
+   black, with a red prose underline. Verified 2026-07-29 on
+   best-frfr-speakers-for-modelers, which nobody had touched, so this had
+   been live on all six GearPick posts including cab-ir-library-roundup
+   (the site's best-converting page). Same trap for .aff-cta-primary, whose
+   paper-on-ink treatment would invert the same way inside a post.
+   These selectors are (0,3,1) and (0,3,0) so they win outright. */
+.fk-preview .gear-pick a.gear-pick-cta,
+.fk-preview .post-body a.gear-pick-cta {
+  color: var(--paper, #f5f1e8);
+  text-decoration: none;
+}
+.fk-preview .gear-pick a.gear-pick-cta:hover,
+.fk-preview .post-body a.gear-pick-cta:hover {
+  color: var(--ink);
+}
+.fk-preview .post-body a.aff-cta {
+  color: var(--ink);
+  text-decoration: none;
+}
+.fk-preview .post-body a.aff-cta-primary {
+  color: var(--paper, #f5f1e8);
+}
+.fk-preview .post-body a.aff-cta:hover {
+  color: var(--ink);
+}
+
 .fk-preview .gear-pick-disclosure {
   margin: 12px 0 0;
   font-family: var(--font-mono);
@@ -8993,6 +9058,203 @@
   .fk-preview .gear-pick-cta-row { flex-direction: column; align-items: stretch; }
   .fk-preview .gear-pick-cta-label { margin: 0 0 4px; }
   .fk-preview .gear-pick-cta { justify-content: space-between; }
+}
+
+/* ═══ Gear shortlist ═══════════════════════════════════════════════════
+   Early-in-post contenders row (GearShortlist). Deliberately flatter and
+   quieter than .gear-pick — it appears BEFORE the article has argued its
+   case, so it must not read as a recommendation. No amber accent bar, no
+   star mark: a ruled list, not a pick. */
+.fk-preview .gear-shortlist {
+  margin: 28px 0;
+  padding: 16px 18px;
+  border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  background: var(--paper-2);
+}
+.fk-preview .gear-shortlist-label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+.fk-preview .gear-shortlist-items {
+  margin: 0;
+  padding: 0;
+}
+/* Items arrive as MDX children, so each one is wrapped in the <p> that the
+   markdown pipeline puts around a line of JSX. Neutralise that wrapper so
+   it doesn't add prose margins between rows. */
+.fk-preview .gear-shortlist-items > p {
+  margin: 0;
+}
+.fk-preview .gear-shortlist-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 0;
+  margin: 0;
+}
+.fk-preview .gear-shortlist-item + .gear-shortlist-item {
+  border-top: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+}
+.fk-preview .gear-shortlist-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  min-width: 0;
+}
+.fk-preview .gear-shortlist-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.fk-preview .gear-shortlist-mfr {
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+.fk-preview .gear-shortlist-price {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+.fk-preview .gear-shortlist-note {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+.fk-preview .gear-shortlist-ctas {
+  display: flex;
+  flex-shrink: 0;
+  gap: 6px;
+}
+.fk-preview .gear-shortlist-disclosure {
+  margin: 12px 0 0;
+  /* Wider measure than the mic-pick footnote: at 9.5px mono, 68ch is only
+     ~390px and wrapped this into a five-line column inside a ~700px block. */
+  max-width: 92ch;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 640px) {
+  .fk-preview .gear-shortlist-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .fk-preview .gear-shortlist-ctas { width: 100%; }
+  .fk-preview .gear-shortlist-ctas .aff-cta {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+/* ═══ Recipe mic pick ══════════════════════════════════════════════════
+   Affiliate module on recipe pages (RecipeMicPick). Deliberately quieter
+   than .gear-pick — a recipe page is reference material, not a roundup,
+   so this reads as a footnote to the chain rather than a sales block.
+   Raw paper/ink/amber vars only; bg-surface/text-muted leak the dark
+   global theme outside .post-body. */
+.fk-preview .mic-pick {
+  margin: 32px 0;
+  padding: 18px 20px;
+  border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  border-left: 2px solid var(--amber, #c98a2b);
+  background: var(--paper-2);
+}
+.fk-preview .mic-pick-kicker {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+.fk-preview .mic-pick-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+.fk-preview .mic-pick-row + .mic-pick-row {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+}
+.fk-preview .mic-pick-meta { min-width: 0; }
+.fk-preview .mic-pick-name {
+  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.fk-preview .mic-pick-mfr {
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+.fk-preview .mic-pick-note {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  max-width: 52ch;
+}
+.fk-preview .mic-pick-ctas {
+  display: flex;
+  flex-shrink: 0;
+  gap: 8px;
+}
+.fk-preview .aff-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 13px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--ink);
+  border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
+  background: transparent;
+  transition: background 140ms ease, color 140ms ease, border-color 140ms ease;
+}
+.fk-preview .aff-cta-primary {
+  background: var(--ink);
+  color: var(--paper, #f5f1e8);
+  border-color: var(--ink);
+}
+.fk-preview .aff-cta:hover {
+  background: var(--amber, #c98a2b);
+  color: var(--ink);
+  border-color: var(--amber, #c98a2b);
+}
+.fk-preview .mic-pick-disclosure {
+  margin: 14px 0 0;
+  /* Capped so it reads as a footnote under the row rather than a
+     full-width band of mono competing with the module itself. */
+  max-width: 68ch;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 640px) {
+  .fk-preview .mic-pick-row { flex-direction: column; gap: 12px; }
+  .fk-preview .mic-pick-ctas { width: 100%; }
+  .fk-preview .aff-cta { flex: 1; justify-content: center; }
 }
 
 /* ═══ Pass relaunch — pricing page additions ═══════════════════════════
@@ -9217,4 +9479,143 @@
 }
 .fk-preview .preview-subnav-account-signout:hover {
   color: var(--ink);
+}
+
+/* ─── Verification band ──────────────────────────────────────────────────
+   Machine-computed facts about THIS recipe, sitting between the chain and
+   the editorial voice. Deliberately plain: this block earns its trust by
+   being checkable, not by looking confident. Statuses are carried by a
+   left rule + a word, never by colour alone.
+   ────────────────────────────────────────────────────────────────────── */
+.fk-preview .rv {
+  padding: 26px 0;
+  margin-bottom: 40px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.fk-preview .rv-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 16px;
+  margin-bottom: 20px;
+}
+.fk-preview .rv-head h4 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1;
+}
+.fk-preview .rv-sub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0;
+}
+.fk-preview .rv-sub a {
+  color: var(--ink-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.fk-preview .rv-sub a:hover { color: var(--ink); }
+
+.fk-preview .rv-body {
+  display: grid;
+  gap: 24px;
+  max-width: 74ch;
+}
+.fk-preview .rv-group-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 10px;
+  font-weight: 400;
+}
+
+/* Preset build results */
+.fk-preview .rv-presets { list-style: none; margin: 0; padding: 0; }
+.fk-preview .rv-preset {
+  padding: 8px 0 8px 14px;
+  border-left: 3px solid var(--ink-faint);
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.fk-preview .rv-preset-clean    { border-left-color: var(--ink); }
+.fk-preview .rv-preset-degraded { border-left-color: var(--amber-2); }
+.fk-preview .rv-preset-failed   { border-left-color: #A32E1D; }
+.fk-preview .rv-preset-platform {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-right: 8px;
+}
+.fk-preview .rv-preset-detail { margin-top: 4px; }
+.fk-preview .rv-preset-detail summary {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+.fk-preview .rv-preset-detail summary:hover { color: var(--ink); }
+.fk-preview .rv-preset-detail p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 8px 0 0;
+  max-width: 62ch;
+}
+
+/* Fact list */
+.fk-preview .rv-facts { display: grid; gap: 10px; }
+.fk-preview .rv-fact { display: grid; grid-template-columns: 140px 1fr; gap: 16px; }
+@media (max-width: 720px) {
+  .fk-preview .rv-fact { grid-template-columns: 1fr; gap: 2px; }
+}
+.fk-preview .rv-fact dt {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  padding-top: 3px;
+}
+.fk-preview .rv-fact dd {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.fk-preview .rv-fact-caveat { color: var(--ink-muted); }
+
+/* What we didn't check — quieter, but present, never collapsed */
+.fk-preview .rv-unchecked ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.fk-preview .rv-unchecked li {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 6px;
+  max-width: 66ch;
+}
+.fk-preview .rv-unchecked li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--ink-faint);
 }

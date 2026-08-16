@@ -28,6 +28,12 @@ export type { BlogFaq };
 export interface BlogPost {
   slug: string;
   title: string;
+  /**
+   * Optional short <title> for the SERP, when the editorial headline is
+   * longer than the ~60 chars Google renders. Falls back to `title`.
+   * Set it via `seo_title:` in frontmatter; the H1 always uses `title`.
+   */
+  seoTitle?: string;
   description: string;
   date: string; // ISO date — first publish
   updated?: string; // ISO date — last meaningful edit (optional)
@@ -95,6 +101,7 @@ export function getPostBySlug(slug: string): BlogPostWithContent | null {
   return {
     slug,
     title: data.title ?? "",
+    seoTitle: data.seo_title ?? undefined,
     description: data.description ?? "",
     date: data.date ?? "",
     updated: data.updated ?? undefined,

@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import { LegalShell } from "@/components/v3/LegalShell";
+import { ContactEmailLink } from "@/components/ui/ContactEmail";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Fader & Knob",
+  // Without its own description this page inherited the site default,
+  // which /terms and /affiliate-disclosure also inherited — three
+  // duplicate meta descriptions in the site audit.
+  description:
+    "What Fader & Knob collects when you save recipes or download presets, which analytics tools we use, and how to export or delete your data.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {
@@ -51,7 +58,7 @@ export default function PrivacyPage() {
       <p>
         You can export or delete your account data at any time from your
         dashboard. Email{" "}
-        <a href="mailto:hello@faderandknob.com">hello@faderandknob.com</a>{" "}
+        <ContactEmailLink />{" "}
         with any privacy questions.
       </p>
 

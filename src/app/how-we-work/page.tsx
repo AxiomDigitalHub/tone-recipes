@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ContactEmailLink } from "@/components/ui/ContactEmail";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/how-we-work" },
   title: "How We Work",
   description:
     "How Fader & Knob uses AI to research tones, generate presets, and write content — an open experiment with the full record public at /experiment.",
@@ -157,12 +159,7 @@ export default function HowWeWorkPage() {
             Posts are generated from cited research and corrected in public
             when an audit or a reader catches an error. If you spot something
             wrong, email{" "}
-            <a
-              href="mailto:hello@faderandknob.com"
-              className="text-[var(--amber-2)] hover:underline"
-            >
-              hello@faderandknob.com
-            </a>{" "}
+            <ContactEmailLink className="text-[var(--amber-2)] hover:underline" />{" "}
             and we&apos;ll fix it.
           </p>
         </section>

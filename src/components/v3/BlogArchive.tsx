@@ -124,31 +124,33 @@ export function BlogArchive({
           {activeDept ? activeDept.label : "The Archive"}
         </h2>
 
-        <div className="ledger ledger-3col">
-          <div className="ledger-header" aria-hidden="true">
+        {/* The archive is a list of filings, so it's marked up as one.
+            Several hundred <div> rows with no list semantics is what the
+            audit's "low semantic HTML usage" flag was pointing at, and a
+            screen reader gets an item count out of this for free. */}
+        <ul className="ledger ledger-3col">
+          <li className="ledger-header" aria-hidden="true">
             <span className="ledger-dept">Dept.</span>
             <span className="ledger-title">Title</span>
             <span className="ledger-by">By</span>
-          </div>
+          </li>
 
           {flatRows.length === 0 && (
-            <div className="ledger-empty">
+            <li className="ledger-empty">
               No filings under this department yet.
-            </div>
+            </li>
           )}
 
           {flatRows.map((p) => (
-            <Link
-              key={p.slug}
-              href={`/blog/${p.slug}`}
-              className="ledger-row"
-            >
-              <span className="ledger-dept">{p.categoryLabel}</span>
-              <span className="ledger-title">{p.title}</span>
-              <span className="ledger-by">{p.author}</span>
-            </Link>
+            <li key={p.slug}>
+              <Link href={`/blog/${p.slug}`} className="ledger-row">
+                <span className="ledger-dept">{p.categoryLabel}</span>
+                <span className="ledger-title">{p.title}</span>
+                <span className="ledger-by">{p.author}</span>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
     </div>
   );

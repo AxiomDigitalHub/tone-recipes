@@ -4,9 +4,11 @@ import { Suspense } from "react";
 import { Music, Zap, Clock } from "lucide-react";
 import SetlistMapper from "@/components/set-packs/SetlistMapper";
 import SetPackAccess from "@/components/set-packs/SetPackAccess";
+import { ContactEmailText } from "@/components/ui/ContactEmail";
 
 export const metadata: Metadata = {
   title: "Worship Set Pack — Helix Preset with 8 Snapshots",
+  alternates: { canonical: "/set-packs/worship" },
   description:
     "One Helix preset with 8 snapshots that covers your entire worship setlist. AC30 + Klon + delays + shimmer reverb. Includes Setlist Mapper for 30 top worship songs.",
   openGraph: {
@@ -266,8 +268,8 @@ export default function WorshipSetPackPage() {
         </div>
         <p className="mt-4 text-xs" style={{ color: "var(--ink-muted)" }}>
           Compatible with Line 6 Helix and HX Stomp on recent firmware.
-          30-day refund if it doesn&apos;t work for your rig — just email
-          hello@faderandknob.com.
+          30-day refund if it doesn&apos;t work for your rig — just email{" "}
+          <ContactEmailText />.
         </p>
       </div>
 

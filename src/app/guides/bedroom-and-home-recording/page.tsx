@@ -4,6 +4,7 @@ import PillarHub from "@/components/guides/PillarHub";
 /** Pillar VII — Bedroom & Home Recording. */
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/guides/bedroom-and-home-recording" },
   title: "Bedroom & Home Recording — Great Tone in Small Spaces",
   description:
     "Headphone rigs, direct recording, quiet pedalboards, parent-player practice frameworks, and bedroom-volume tone guides for players who don't have two hours and a dedicated music room.",

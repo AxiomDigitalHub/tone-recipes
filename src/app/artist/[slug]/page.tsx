@@ -43,6 +43,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: { canonical: `/artist/${slug}` },
     keywords: [a.name, ...(a.genres ?? []), "tone recipe", "guitar tone"],
     openGraph: {
       title,

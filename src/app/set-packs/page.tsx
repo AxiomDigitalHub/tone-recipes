@@ -3,6 +3,7 @@ import Link from "next/link";
 import SetPackInterestForm from "@/components/set-packs/SetPackInterestForm";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/set-packs" },
   title: "Set Packs — Genre Presets for Your Whole Setlist",
   description:
     "One preset with 8 snapshots that covers your entire gig. Worship, Classic Rock, 90s, Blues, and more. Each includes a Setlist Mapper.",

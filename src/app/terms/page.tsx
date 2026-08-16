@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { LegalShell } from "@/components/v3/LegalShell";
+import { ContactEmailLink } from "@/components/ui/ContactEmail";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
+  description:
+    "The terms covering your Fader & Knob account, what you may do with the tone recipes and preset files you download, and how subscriptions are billed.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {
@@ -51,8 +55,7 @@ export default function TermsPage() {
       </p>
 
       <p>
-        Questions:{" "}
-        <a href="mailto:hello@faderandknob.com">hello@faderandknob.com</a>
+        Questions: <ContactEmailLink />
       </p>
 
       <p>

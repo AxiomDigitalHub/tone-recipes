@@ -88,6 +88,69 @@ export default function PreviewPlatformsIndex() {
             );
           })}
         </div>
+
+        {/* What porting a recipe actually means. This page used to be a
+            grid of seven links and ~45 words, which read as thin to
+            crawlers and answered none of the questions a player arrives
+            with. */}
+        <section className="hub-prose" aria-labelledby="porting-head">
+          <div className="how-head">
+            <h2 id="porting-head" className="display">
+              What gets translated
+            </h2>
+            <span className="section-rule" aria-hidden="true" />
+          </div>
+
+          <p>
+            A tone recipe starts as the physical rig: the guitar and pickup
+            position, the pedals in front, the amp and its knob positions,
+            the cabinet and where the mic sat. That chain is the source of
+            truth. Every platform page below is that same chain re-expressed
+            in the block names and parameter ranges your unit actually uses
+            — a Tube Screamer becomes a Screamer on Helix and a TS808 on
+            Fractal, and the drive knob is converted into whatever scale
+            that block reports, not copied across as a number that happens
+            to look right.
+          </p>
+
+          <h3>Where you get a file, and where you get settings</h3>
+          <p>
+            Helix, Quad Cortex, and Boss Katana recipes build a preset file
+            you can import — a <code>.hlx</code>, a bundle, or a{" "}
+            <code>.tsl</code> — because those formats are documented well
+            enough to write correctly. TONEX, Fractal, and Kemper recipes
+            give you the full block list and every value to dial in by hand.
+            That split is a limitation of the file formats, not of the
+            research behind the recipe, and it&apos;s marked on each recipe
+            before you click anything.
+          </p>
+
+          <h3>What survives the port, and what doesn&apos;t</h3>
+          <p>
+            Gain structure, block order, and the relationships between
+            settings port cleanly: if the amp is on the edge of breakup with
+            a boost slamming the front, that survives on every platform.
+            Exact captures don&apos;t. A Kemper profile of a specific 1959
+            Bassman and a Helix model of the same amp are different pieces
+            of software, so the recipe gives you the closest model plus the
+            settings that get its behaviour into the same place, not a
+            claim that they are identical. Where a platform has no
+            equivalent block at all, the chain says so rather than
+            substituting something quietly.
+          </p>
+
+          <h3>Don&apos;t own a modeler?</h3>
+          <p>
+            The pedalboard view drops the translation layer and shows the
+            original hardware chain — real pedals, real amp, real settings.
+            It&apos;s the same recipe, which is the point: the modeler
+            versions are derived from it, not the other way round. You can
+            also put two chains next to each other on the{" "}
+            <Link href="/compare">compare page</Link> to see how a rig
+            changes from one player to another, or start from{" "}
+            <Link href="/browse">the full archive</Link>.
+          </p>
+        </section>
       </section>
     </div>
   );

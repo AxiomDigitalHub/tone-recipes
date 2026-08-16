@@ -6,6 +6,7 @@ import PillarHub from "@/components/guides/PillarHub";
  */
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/guides/modeler-mastery" },
   title: "Modeler Mastery — Helix, Quad Cortex, TONEX, Fractal, Kemper, Katana",
   description:
     "Deep dives on every major modeler platform: amp model picks, preset-building workflow, cab IRs, capture fundamentals, and how to get real tone out of digital.",

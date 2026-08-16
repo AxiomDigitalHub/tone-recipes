@@ -396,7 +396,10 @@ export default async function PreviewBrowse({
                 </Link>
               </div>
             ) : (
-              <div className="audition-grid browse-grid">
+              /* A results list is a list. <ul>/<li> gives the grid real
+                 structure for assistive tech and parsers instead of ~700
+                 undifferentiated <div>s (the "low semantic HTML" flag). */
+              <ul className="audition-grid browse-grid">
                 {sorted.map((r) => {
                   const rSong = getSongBySlug(r.song_slug);
                   const rArtist = rSong
@@ -408,8 +411,8 @@ export default async function PreviewBrowse({
                   const rigTokens = buildRigTokens(r.signal_chain);
                   const rBand = rSong ? getBandName(rSong, rArtist) : null;
                   return (
+                    <li key={r.slug} className="audition-card-item">
                     <Link
-                      key={r.slug}
                       href={`/recipe/${r.slug}`}
                       className="audition-card"
                       data-rig-tokens={rigTokens}
@@ -449,9 +452,10 @@ export default async function PreviewBrowse({
                         </span>
                       </div>
                     </Link>
+                    </li>
                   );
                 })}
-              </div>
+              </ul>
             )}
           </div>
         </div>

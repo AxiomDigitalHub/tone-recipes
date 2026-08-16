@@ -4,6 +4,7 @@ import stats from "@/data/experiment-stats.json";
 import { experimentLog } from "@/data/experiment-log";
 import SystemMap from "@/components/experiment/SystemMap";
 import AuditHistoryChart from "@/components/experiment/AuditHistoryChart";
+import { ContactEmailLink } from "@/components/ui/ContactEmail";
 
 /**
  * /experiment — the running log of the Fader & Knob experiment.
@@ -56,10 +57,10 @@ export default function ExperimentPage() {
   const dash: { value: string; label: string; sub: string }[] = [
     { value: String(daysRunning), label: "Days running", sub: `since ${fmtDate(stats.first_commit)}` },
     { value: String(stats.commits), label: "Commits", sub: "every change, public record" },
-    { value: String(stats.recipes), label: "Tone recipes", sub: `across ${stats.platforms_covered} platforms` },
+    { value: String(stats.recipes), label: "Tone recipes", sub: `${stats.platforms_with_preset_files} platforms get a preset file, ${stats.platforms_covered - stats.platforms_with_preset_files} get settings only` },
     { value: String(stats.blog_posts), label: "Articles", sub: "written by the AI masthead" },
     { value: String(stats.ai_writers), label: "AI writers", sub: "named, tuned, disclosed" },
-    { value: String(stats.presets_downloadable), label: "Downloadable", sub: "tones that build you a preset file" },
+    { value: String(stats.presets_downloadable), label: "Downloadable", sub: "tones that build you a Helix preset on request" },
     { value: String(stats.autonomous_daily_runs), label: "Autonomous runs", sub: "days the engine published itself" },
     { value: String(stats.public_corrections), label: "Public corrections", sub: "mistakes fixed in the open" },
   ];
@@ -439,12 +440,10 @@ export default function ExperimentPage() {
               how we work
             </Link>
             . Spot something wrong? That&apos;s the experiment working —{" "}
-            <a
-              href="mailto:hello@faderandknob.com"
-              style={{ color: "var(--amber-2)", textDecoration: "underline" }}
-            >
-              tell us
-            </a>{" "}
+            <ContactEmailLink
+              label="tell us"
+              style="color: var(--amber-2); text-decoration: underline"
+            />{" "}
             and the fix ships in public.
           </p>
         </section>

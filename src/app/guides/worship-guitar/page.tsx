@@ -6,6 +6,7 @@ import PillarHub from "@/components/guides/PillarHub";
  */
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/guides/worship-guitar" },
   title: "Worship Guitar — Live Rigs, Sunday Mornings, and Analog Warmth",
   description:
     "Worship guitar tone from first principles. AC30 + Klon + delays + shimmer. Live rigs, in-ear mix workflow, pedalboard organization, and how to dial the Hillsong/Bethel/Elevation sound on whatever gear you own.",

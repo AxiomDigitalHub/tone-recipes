@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Guitar, Zap, Volume2, Speaker, Mic } from "lucide-react";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/gear" },
   title: "Gear Database",
   description:
     "Browse guitars, effects pedals, amps, cabinets, and microphones used in our tone recipes. See modeler equivalents across Helix, Quad Cortex, TONEX, and more.",

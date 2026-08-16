@@ -45,7 +45,12 @@ export async function generateMetadata({
     return { title: "Preview — Field Notes", robots: { index: false, follow: false } };
   }
   return {
-    title: post.title,
+    // `absolute` drops the "| Fader & Knob" root template — 15 chars of
+    // every SERP title spent restating the domain, which is already on the
+    // result. Same call the recipe route makes, for the same reason.
+    // `seo_title` frontmatter overrides when the editorial headline is
+    // longer than a SERP will render; the H1 keeps the full headline.
+    title: { absolute: post.seoTitle ?? post.title },
     description: post.description,
     keywords: post.tags,
     alternates: { canonical: `/blog/${slug}` },

@@ -7,15 +7,14 @@ import {
   getArtistBySlug,
 } from "@/lib/data";
 import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
-import { PreviewRecipeClient } from "@/components/v3/PreviewRecipeClient";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { RelatedPosts } from "@/components/RelatedPosts";
-import RecipePdfButton from "@/components/v3/RecipePdfButton";
-import RecipeDownloadChip from "@/components/v3/RecipeDownloadChip";
-import PresetDownloadButton from "@/components/recipe/PresetDownloadButton";
+import RecipePlatformView from "./RecipePlatformView";
 import RecipeCompatibility from "@/components/recipe/RecipeCompatibility";
 import RecipeInteractions from "./RecipeInteractions";
 import RecipeAudioDemo from "@/components/recipe/RecipeAudioDemo";
+import RecipeMicPick from "@/components/recipe/RecipeMicPick";
+import RecipeVerification from "@/components/recipe/RecipeVerification";
 import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
 import { recipeJsonLdSet, recipeMediaJsonLd } from "@/lib/seo/jsonld";
 import audioDemos from "@/data/audio-demos.json";
@@ -35,11 +34,14 @@ import type { Metadata } from "next";
 // behind incoming ratings (rest of the page is content-stable).
 export const revalidate = 3600;
 
-// Hard-404 unknown slugs. This route is ISR (revalidate above) + reads
-// searchParams, so dynamicParams=false alone doesn't block rendering here
-// (unlike artist/gear) — the load-bearing fix is having NO loading.tsx in
-// this segment: an early-flushed loading shell commits HTTP 200 before
-// notFound() can set the status. Don't re-add loading.tsx.
+// Hard-404 unknown slugs. Also keep NO loading.tsx in this segment: an
+// early-flushed loading shell commits HTTP 200 before notFound() can set
+// the status. Don't re-add loading.tsx.
+//
+// Nothing in this component may read `searchParams`, `cookies()` or
+// `headers()`. Any one of them opts the route into per-request rendering,
+// which discards `revalidate` above, moves the getRatingStats() Supabase
+// call onto the hot path, and takes TTFB from ~0.1s to 3–5s.
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -115,31 +117,28 @@ const PLATFORMS: Array<{ id: "pedalboard" | "helix" | "quad_cortex" | "tonex" | 
 
 export default async function PreviewRecipePage({
   params,
-  searchParams,
 }: {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ platform?: string }>;
 }) {
   const { slug } = await params;
-  const { platform: platformParam } = await searchParams;
   const recipe = getRecipeBySlug(slug);
   if (!recipe) notFound();
 
   const song = getSongBySlug(recipe.song_slug);
   const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
 
-  // Platform selection: URL ?platform=helix wins. Otherwise first available.
+  // Platform selection happens on the CLIENT (<RecipePlatformView/>).
+  // Reading `?platform=` here made the route dynamic and threw away the
+  // ISR config below it — see the note on that component. The server
+  // renders the first available platform (what crawlers index) and ships
+  // every platform's blocks so the switch needs no round-trip.
   const validPlatforms = PLATFORMS.filter((p) =>
     p.id === "pedalboard" ? true : Boolean(recipe.platform_translations?.[p.id]),
   );
-  const platform =
-    (platformParam &&
-      validPlatforms.find((p) => p.id === platformParam)?.id) ||
-    validPlatforms[0]?.id ||
-    "pedalboard";
-  const activePlatform = PLATFORMS.find((p) => p.id === platform);
-
-  const blocks = recipeToBlocks(recipe, platform);
+  const defaultPlatform = validPlatforms[0]?.id ?? "pedalboard";
+  const blocksByPlatform = Object.fromEntries(
+    validPlatforms.map((p) => [p.id, recipeToBlocks(recipe, p.id)]),
+  );
 
   const recipeIdx =
     toneRecipes.findIndex((r) => r.slug === recipe.slug) + 1;
@@ -328,86 +327,57 @@ export default async function PreviewRecipePage({
           </div>
         </div>
 
-        {/* Platform switcher */}
-        <div id="recipe-platform-switcher" className="platform-switcher">
-          <span className="label">Settings for</span>
-          <div className="tabs">
-            {validPlatforms.map((p) => (
-              <Link
-                key={p.id}
-                href={`/recipe/${recipe.slug}?platform=${p.id}`}
-                className={`tab ${platform === p.id ? "on" : ""}`}
-              >
-                {p.short}
-              </Link>
-            ))}
-          </div>
-          <div className="platform-switcher-exports">
-            {(platform === "helix" ||
-              platform === "quad_cortex" ||
-              platform === "katana") && (
-              <PresetDownloadButton
-                recipeSlug={recipe.slug}
-                platform={platform}
-                source="platform_switcher"
-                className="export"
-              />
-            )}
-            <RecipePdfButton slug={recipe.slug} />
-          </div>
-        </div>
-        <RecipeDownloadChip slug={recipe.slug} platform={platform} />
+        {/* Platform switcher, export buttons, download chip and the
+            interactive chain. All platform-dependent, all client-owned so
+            this route stays statically rendered. */}
+        <RecipePlatformView
+          slug={recipe.slug}
+          platforms={validPlatforms}
+          blocksByPlatform={blocksByPlatform}
+          defaultPlatform={defaultPlatform}
+        >
+          {/* My Rig compatibility — reads viewer's user_gear (Supabase or
+              localStorage) and reports how many signal-chain blocks match.
+              Renders nothing while loading; shows a "Set up My Rig" prompt
+              when empty. Sits between the chip and the chain, so it's
+              passed through as children rather than hoisted out. */}
+          <RecipeCompatibility
+            signalChain={(recipe.signal_chain ?? []).map((b) => ({
+              gear_name: b.gear_name ?? "",
+              gear_slug: b.gear_slug ?? null,
+              category: b.category ?? "",
+            }))}
+          />
+        </RecipePlatformView>
 
-        {/* My Rig compatibility — reads viewer's user_gear (Supabase or
-            localStorage) and reports how many signal-chain blocks match.
-            Renders nothing while loading; shows a "Set up My Rig" prompt
-            when empty. */}
-        <RecipeCompatibility
-          signalChain={(recipe.signal_chain ?? []).map((b) => ({
-            gear_name: b.gear_name ?? "",
-            gear_slug: b.gear_slug ?? null,
-            category: b.category ?? "",
-          }))}
-        />
-
-        {/* Interactive schematic + sticky detail panel. Click a tile,
-            the detail swaps in place (no scroll). */}
-        <PreviewRecipeClient
-          blocks={blocks}
-          platformLabel={activePlatform?.name ?? platform}
-        />
+        {/* What a program actually checked about this recipe — preset build
+            result, blocks that don't survive into the file, DSP cost, source
+            tier, attribution confidence, and the matching list of what nobody
+            checked. Sits directly under the chain because "can I trust these
+            numbers?" is the next question after reading them. */}
+        <RecipeVerification recipe={recipe} />
 
         {/* Self-produced tone demo (renders only when a clip exists). The
             audible proof + "Verified" date that backs the settings. */}
         <RecipeAudioDemo demo={audioDemo} />
 
-        {/* Engineer's note — editorial voice block. Uses the recipe description
-            as a proxy until we get real per-recipe engineer notes. */}
-        {recipe.description && (
-          <div className="eng-note">
-            <div>
-              <h4>Engineer&apos;s note</h4>
-              <div
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 9.5,
-                  letterSpacing: "0.14em",
-                  textTransform: "uppercase",
-                  color: "var(--ink-faint)",
-                  marginTop: 8,
-                }}
-              >
-                File {String(recipeIdx).padStart(3, "0")}
-              </div>
-            </div>
-            <div className="eng-note-body">
-              {recipe.description}
-              {artist?.name && (
-                <div className="eng-note-sig">— {artist.name}</div>
-              )}
-            </div>
-          </div>
-        )}
+        {/* Mic affiliate module. Placed after the chain and the demo — the
+            reader has seen how the tone is built and heard it, which is the
+            moment the one buyable part of the chain is worth surfacing.
+            Renders nothing when the chain's mic can't be resolved. */}
+        <RecipeMicPick
+          signalChain={recipe.signal_chain ?? []}
+          recipeSlug={recipe.slug}
+        />
+
+        {/* The "Engineer's note" block was removed 2026-08-05. It reprinted
+            `recipe.description` verbatim — the same paragraph already rendered
+            as `.recipe-summary` at the top of the page, roughly halving the
+            unique word count — and then signed it "— {artist.name}", which
+            presented an AI-written summary as a quote from a real, frequently
+            deceased, guitarist. Neither the duplication nor the fabricated
+            attribution was defensible, and the verification band above now
+            occupies this slot with something the reader can check. */}
 
         {/* Sources — primary citations backing the signal-chain claims. */}
         {recipe.sources && recipe.sources.length > 0 && (

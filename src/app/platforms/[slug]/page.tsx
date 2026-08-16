@@ -44,6 +44,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: { canonical: `/platforms/${slug}` },
     keywords: [p.label, p.manufacturer, "tone recipe", "patch", "preset", "guitar tone"].filter(
       Boolean,
     ) as string[],
@@ -479,6 +480,29 @@ export default async function PreviewPlatformDetail({
           title={`Field notes for ${platform.label} players`}
           posts={platformPosts}
         />
+
+        {/* Set Pack cross-link. Helix only — the pack is a Helix preset,
+            and this page is the highest-authority page on the site that a
+            player looking for one would already be on. The pack previously
+            had a single inbound internal link. */}
+        {slug === "helix" && (
+          <section className="platform-section" aria-labelledby="setpack-head">
+            <div className="how-head">
+              <h2 id="setpack-head" className="display">
+                Playing a whole set?
+              </h2>
+              <span className="section-rule" aria-hidden="true" />
+            </div>
+            <p className="hub-prose" style={{ marginTop: 0 }}>
+              Individual recipes get you one song. The{" "}
+              <Link href="/set-packs/worship">Worship Set Pack</Link> is the
+              other approach: one Helix preset with eight snapshots — clean,
+              drive, lead, ambient, swells — that covers an entire setlist
+              without swapping patches between songs. Built around an AC30
+              with a Klon and a pair of delays, and it works on HX Stomp too.
+            </p>
+          </section>
+        )}
 
         {/* Other platforms — quiet jumper rail */}
         <section className="platform-section platform-other">

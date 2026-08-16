@@ -107,6 +107,17 @@ export const BlogFrontmatterSchema = z.object({
     .min(20, "Title is too short — aim for 40-100 characters for SEO")
     .max(140, "Title is too long — Google truncates at ~60 chars; keep under 110"),
 
+  // ── OPTIONAL SERP TITLE ──────────────────────────────────────────────────
+  // Editorial headlines are allowed to run long (they're the H1). When one
+  // does, `seo_title` supplies the short <title> Google actually renders.
+  // 60 is the hard cap because that IS the render budget — the root
+  // "| Fader & Knob" suffix is dropped on blog posts.
+  seo_title: z
+    .string()
+    .min(20, "seo_title is too short to describe the post")
+    .max(60, "seo_title must fit the ~60-char SERP budget — that's its whole job")
+    .optional(),
+
   description: z
     .string()
     .min(80, "Description is too short — aim for 120-180 characters")

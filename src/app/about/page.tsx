@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getAllWriters } from "@/lib/writers";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About",
   description:
     "We chase the original signal chain, map every block, and write it down so you don't have to guess. Built by guitarists for guitarists.",

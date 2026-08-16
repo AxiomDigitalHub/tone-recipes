@@ -20,6 +20,24 @@ interface LpArtProps {
   alt?: string;
 }
 
+/**
+ * Rendered size of the cover, in CSS pixels. The widest LpArt on the site is
+ * `.recipe-art-lp` at `max-width: 360px`; cards are smaller.
+ *
+ * This is a fixed `width`/`height` rather than `fill` on purpose. With
+ * `fill`, next/image builds a `w`-descriptor srcSet, and `sizes` can only
+ * ever raise the FLOOR of that list — it cannot drop the top end. So every
+ * tile shipped five candidates (640/750/828/1080/1200) even though the
+ * source covers are 600x600 iTunes thumbnails, making 828 and up upscales
+ * that no viewport could select. On /browse that was 210 tiles x ~1.5KB of
+ * unusable srcSet. Fixed dimensions switch Next to an `x`-descriptor pair
+ * (1x/2x), which is all a 360px box can use.
+ *
+ * `.lp-cover-img` pins the image to the container with `inset: 0` and
+ * `width/height: 100%`, so it fills exactly as `fill` did.
+ */
+const COVER_PX = 360;
+
 export function LpArt({
   cover,
   monogram,
@@ -46,8 +64,8 @@ export function LpArt({
         <Image
           src={cover}
           alt={alt}
-          fill
-          sizes="(max-width: 600px) 50vw, 360px"
+          width={COVER_PX}
+          height={COVER_PX}
           className="lp-cover-img"
         />
       )}

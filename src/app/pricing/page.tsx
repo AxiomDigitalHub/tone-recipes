@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import PlanCards from "@/components/pricing/PlanCards";
+import { ContactEmailText } from "@/components/ui/ContactEmail";
 
 /**
  * JSON-LD: a Product + multi-Offer entry for each subscription tier
@@ -142,7 +143,10 @@ const FAQ = [
   },
   {
     q: "What about people on the old (2026) Tone Pass or Pro tiers?",
-    a: "Those original plans are retired and are unrelated to today's Pass/Pro. Anyone who subscribed back then keeps full access for as long as they want — billing simply stopped. Email hello@faderandknob.com if you want a prorated refund on remaining time.",
+    // {EMAIL} is substituted for <ContactEmailText/> at render — a raw
+    // address in this string gets rewritten by Cloudflare into a link to
+    // its 404ing /cdn-cgi/l/email-protection endpoint.
+    a: "Those original plans are retired and are unrelated to today's Pass/Pro. Anyone who subscribed back then keeps full access for as long as they want — billing simply stopped. Email {EMAIL} if you want a prorated refund on remaining time.",
   },
 ];
 
@@ -232,7 +236,14 @@ export default function PricingPage() {
             {FAQ.map((f) => (
               <div key={f.q} className="pricing-faq-item">
                 <dt>{f.q}</dt>
-                <dd>{f.a}</dd>
+                <dd>
+                  {f.a.split("{EMAIL}").map((part, i, parts) => (
+                    <span key={i}>
+                      {part}
+                      {i < parts.length - 1 && <ContactEmailText />}
+                    </span>
+                  ))}
+                </dd>
               </div>
             ))}
           </dl>

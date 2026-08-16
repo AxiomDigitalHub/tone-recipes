@@ -4,6 +4,7 @@ import PillarHub from "@/components/guides/PillarHub";
 /** Pillar VIII — Tone Troubleshooting. */
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/guides/tone-troubleshooting" },
   title: "Tone Troubleshooting — Why Your Rig Sounds Wrong (and How to Fix It)",
   description:
     "Diagnostic guides for the tone problems every player hits — fizzy highs, thin sound, muddy delays, 60-cycle hum, pedal hiss, volume drops, washed-out reverb.",

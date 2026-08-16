@@ -38,6 +38,7 @@ export async function generateMetadata({
   return {
     title,
     description: writer.bio.slice(0, 160),
+    alternates: { canonical: `/writers/${slug}` },
     openGraph: { title, description: writer.bio.slice(0, 160), type: "profile" },
   };
 }
