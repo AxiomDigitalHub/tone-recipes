@@ -49,6 +49,42 @@ function getSupabaseAdmin() {
   });
 }
 
+/**
+ * Roles that billing events must never overwrite.
+ *
+ * Staff accounts get full entitlement from src/lib/permissions.ts — every
+ * TIERS limit unlocked, setPackAccess() true, unlimited downloads and tone
+ * requests — with no subscription involved. So a staff account never needs
+ * to pay, and the owner's own account shouldn't be on a paid plan just to
+ * use the site.
+ *
+ * Without this guard, cancelling that subscription in Stripe fires
+ * customer.subscription.deleted, which wrote `role: "free"` unconditionally
+ * and locked the owner out of their own admin. The upgrade path had the
+ * mirror bug: testing checkout on a staff account would overwrite
+ * super_admin with "pass".
+ */
+const PROTECTED_ROLES = new Set(["admin", "super_admin"]);
+
+/** True when the profile holds a staff role that billing must not touch. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function isProtectedRole(
+  supabase: any,
+  userId: string,
+): Promise<boolean> {
+  const { data, error } = await supabase
+    .from("profiles")
+    .select("role")
+    .eq("id", userId)
+    .single();
+  if (error) {
+    // Fail safe: if we can't read the role, don't touch it.
+    console.error("[stripe-webhook] role lookup failed:", error.message);
+    return true;
+  }
+  return PROTECTED_ROLES.has((data as { role?: string } | null)?.role ?? "");
+}
+
 /** Decode the `role` claim from a Supabase JWT without exposing the key. */
 function decodeJwtRole(jwt: string | undefined): string {
   if (!jwt) return "absent";
@@ -206,6 +242,14 @@ export async function POST(req: NextRequest) {
         break;
       }
 
+      if (await isProtectedRole(supabase, userId)) {
+        console.log(
+          "[stripe-webhook] skipping role upgrade: protected staff role",
+          "userId=", userId,
+        );
+        break;
+      }
+
       // Do the update and capture both error and row count for diagnosis.
       // `.select()` on an update returns the affected rows, letting us
       // distinguish "error" from "zero rows matched" — the silent failure
@@ -320,6 +364,14 @@ export async function POST(req: NextRequest) {
         console.error(
           "[stripe-webhook] subscription.deleted: no userId in metadata and no profile with stripe_customer_id",
           subscription.customer,
+        );
+        break;
+      }
+
+      if (await isProtectedRole(supabase, userId)) {
+        console.log(
+          "[stripe-webhook] skipping downgrade: protected staff role",
+          "userId=", userId,
         );
         break;
       }
