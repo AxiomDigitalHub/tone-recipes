@@ -18,6 +18,17 @@ interface LpArtProps {
   /** Square (default) or 16:10 banner. */
   shape?: "square" | "banner";
   alt?: string;
+  /**
+   * Load eagerly and hint high fetch priority.
+   *
+   * next/image defaults every image to `loading="lazy"`, which is right for
+   * the 210 tiles on /browse and wrong for a cover that sits at or near the
+   * first screen. The homepage featured sleeve lands around y=686 — inside a
+   * 900px viewport but below the fold on a shorter laptop — so lazily it
+   * renders as an empty 132px box until the reader scrolls. Set this for any
+   * LpArt that is part of the initial view.
+   */
+  priority?: boolean;
 }
 
 /**
@@ -47,6 +58,7 @@ export function LpArt({
   hue,
   shape = "square",
   alt = "",
+  priority = false,
 }: LpArtProps) {
   const cls = [
     "lp-art",
@@ -66,6 +78,7 @@ export function LpArt({
           alt={alt}
           width={COVER_PX}
           height={COVER_PX}
+          priority={priority}
           className="lp-cover-img"
         />
       )}

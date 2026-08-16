@@ -102,6 +102,7 @@ export default function PreviewIndex() {
                     monogram={monogramFor(featuredArtist?.name)}
                     showMonogram={!featuredSong?.album_art_url}
                     hue={1}
+                    priority
                     alt={
                       featuredSong?.album
                         ? `${featuredSong.album} cover`
