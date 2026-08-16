@@ -4008,6 +4008,40 @@
 .fk-preview .hero-chain-light .hero-chain-head {
   border-bottom: 1px solid var(--paper-line);
 }
+/* Album sleeve in the featured-recipe head.
+   The head is grid, not the base flex row: with three children, the base
+   `justify-content: space-between` spread the sleeve, the title and the CTA
+   evenly and left the title floating in the middle of the card. Grid pins
+   the title against the sleeve and lets only the CTA take the slack.
+   The hard offset shadow in --paper-2 (no blur) matches the flat, printed
+   language the rest of the card uses. */
+.fk-preview .hero-chain-light .hero-chain-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 22px;
+}
+.fk-preview .hero-chain-sleeve {
+  width: 132px;
+  box-shadow: 3px 3px 0 var(--paper-2);
+}
+.fk-preview .hero-chain-sleeve .lp-art {
+  border: 1px solid var(--ink);
+}
+/* Below the CTA's comfortable width, drop it to its own row under the
+   sleeve+title pair rather than letting the title column collapse. */
+@media (max-width: 720px) {
+  .fk-preview .hero-chain-light .hero-chain-head {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .fk-preview .hero-chain-light .hero-chain-head > .hero-chain-cta {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+@media (max-width: 620px) {
+  .fk-preview .hero-chain-sleeve { width: 96px; }
+}
 .fk-preview .hero-chain-light .hero-chain-kicker {
   color: var(--ink-muted);
 }

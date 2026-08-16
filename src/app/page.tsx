@@ -91,6 +91,24 @@ export default function PreviewIndex() {
           {featured && heroBlocks.length > 0 && (
             <div className="hero-chain hero-chain-light">
               <div className="hero-chain-head">
+                {/* The record, as a sleeve. album_art_url is already on the
+                    song and already loaded here — no extra request. LpArt
+                    falls back to the hue plate when a song has no artwork,
+                    and only then shows the artist monogram so the plate
+                    isn't a blank square. */}
+                <div className="hero-chain-sleeve">
+                  <LpArt
+                    cover={featuredSong?.album_art_url}
+                    monogram={monogramFor(featuredArtist?.name)}
+                    showMonogram={!featuredSong?.album_art_url}
+                    hue={1}
+                    alt={
+                      featuredSong?.album
+                        ? `${featuredSong.album} cover`
+                        : `${featuredSong?.title ?? featured.title} artwork`
+                    }
+                  />
+                </div>
                 <div>
                   <div className="hero-chain-kicker">
                     <span className="rec">
