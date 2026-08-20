@@ -143,3 +143,8 @@ But searching for `tone-helix` returns **exactly one row** (`worship-guitar-tone
 **Trend readable yet? No.** Two run-log entries, and the second window *contains* the first — these are not independent weeks. The daily series is the only clean comparison available, and 8 new days with a 4-day surge at the end is not a trend. Need ~2 more weekly entries before reading direction. Watch share, not volume.
 
 **Capture caveats:** top 25 of 36 queries and top 25 of 160 pages captured via the UI (pagination not walked); the worship findings above come from server-side search across the full lists, so they are complete for those terms. `Download all` CSVs were not committed this run.
+
+### 2026-08-19 — SKIPPED (blocked, no data)
+Dashboard never reached. The Claude-in-Chrome layer reported **two connected Chrome browsers with none selected for the session** (Browser 1 `c0f2daee-8c65-4ddb-b9ef-ca4354dfd446`, Browser 2 `b89db820-bd49-45cb-b08c-b65da091b763`) and requires an interactive pick before any browser action, which an unattended run cannot make. This is **a browser-selection block, not a Microsoft sign-in block** — nothing can be said about session state this week.
+
+Cost of the gap: this would have been the **third** run-log entry and the first with a chance of being a genuinely independent window from the 07-23 collection start. Trend reading is pushed out another week — still **not readable**. The rolling window means this week cannot be backfilled; whatever days fall off the dashboard's retention are gone.
