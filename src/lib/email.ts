@@ -170,6 +170,116 @@ export async function sendNewsletterWelcome(to: string) {
   }
 }
 
+/** Where internal owner alerts go. Override with OWNER_EMAIL in env. */
+const OWNER_EMAIL = process.env.OWNER_EMAIL || "hello@faderandknob.com";
+
+/**
+ * Purchase welcome email — sent from the Stripe webhook when a customer buys
+ * a Set Pack or starts a Pass/Pro subscription. Transactional (no unsubscribe
+ * footer by design). Non-blocking: guarded so a Resend failure never breaks
+ * the webhook.
+ */
+export async function sendPurchaseWelcome(opts: {
+  to: string;
+  kind: "set_pack" | "subscription";
+  label: string; // e.g. "Worship set pack" or "Pro"
+  amountCents?: number;
+}) {
+  if (!process.env.RESEND_API_KEY) return { success: false, error: "no_key" };
+  const { to, kind, label } = opts;
+  const price =
+    opts.amountCents != null ? `$${(opts.amountCents / 100).toFixed(2)}` : null;
+  const subject =
+    kind === "subscription"
+      ? `You're in — welcome to Fader & Knob ${esc(label)}`
+      : `Your ${esc(label)} is ready`;
+  const ctaHref =
+    kind === "subscription"
+      ? "https://faderandknob.com/dashboard"
+      : "https://faderandknob.com/browse";
+  const ctaLabel =
+    kind === "subscription" ? "Go to your dashboard" : "Open your Set Pack";
+  const blurb =
+    kind === "subscription"
+      ? `You've got full access now — every recipe, every platform translation, every preset download. Load them into your rig and go play.`
+      : `Thanks for grabbing the <strong style="color:#f0eadf;">${esc(label)}</strong>. It's unlocked on your account — download the preset, load the snapshots, and you're ready for Sunday.`;
+  try {
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to,
+      replyTo: REPLY_TO,
+      subject,
+      html: `
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; color: #e5e5e5; background-color: #0b0f1a; padding: 32px;">
+          <div style="border-bottom: 2px solid #f59e0b; padding-bottom: 16px; margin-bottom: 24px;">
+            <h1 style="color: #f59e0b; font-size: 24px; margin: 0;">Fader &amp; Knob</h1>
+            <p style="color: #6e7a8a; font-size: 13px; margin: 4px 0 0;">Tone recipes from the songs you love</p>
+          </div>
+          <h2 style="color: #f0eadf; font-size: 22px; margin: 0 0 12px;">Thanks — you're all set.</h2>
+          <p style="line-height: 1.6; color: #a3b2c4; margin: 0 0 20px;">${blurb}</p>
+          <div style="text-align:center; margin: 28px 0;">
+            <a href="${ctaHref}" style="background:#f59e0b; color:#0b0f1a; text-decoration:none; font-weight:600; padding:12px 24px; border-radius:6px; display:inline-block;">${ctaLabel}</a>
+          </div>
+          ${price ? `<p style="color:#6e7a8a; font-size:13px; margin:0 0 20px;">Amount: ${price}. A receipt from Stripe is on its way separately.</p>` : ""}
+          <p style="line-height: 1.6; color: #a3b2c4; margin: 0 0 20px;">
+            Questions, or a song you want a recipe for? Just reply — I read every message.<br /><br />
+            — Daniel<br />
+            <span style="color:#6e7a8a; font-size:13px;">Fader &amp; Knob</span>
+          </p>
+          <div style="border-top: 1px solid #1e2840; margin-top: 24px; padding-top: 16px; color: #6e7a8a; font-size: 12px;">
+            <p style="margin:0;">You're receiving this because you made a purchase at
+              <a href="https://faderandknob.com" style="color:#6e7a8a;">faderandknob.com</a>.</p>
+          </div>
+        </div>
+      `,
+    });
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to send purchase welcome:", error);
+    return { success: false, error };
+  }
+}
+
+/**
+ * Internal owner alert — pings the store owner (OWNER_EMAIL) when something
+ * needs a human: a sale, a churn, a failed payment, a dispute, or the
+ * dreaded "customer paid but the DB write failed" case. Non-blocking.
+ */
+export async function sendOwnerAlert(opts: {
+  subject: string;
+  heading: string;
+  rows: Array<[string, string]>;
+  urgent?: boolean;
+}) {
+  if (!process.env.RESEND_API_KEY) return { success: false, error: "no_key" };
+  const accent = opts.urgent ? "#ef4444" : "#f59e0b";
+  const rowsHtml = opts.rows
+    .map(
+      ([k, v]) =>
+        `<tr><td style="padding:6px 12px 6px 0; color:#6e7a8a; white-space:nowrap; vertical-align:top;">${esc(k)}</td><td style="padding:6px 0; color:#f0eadf;">${esc(v)}</td></tr>`,
+    )
+    .join("");
+  try {
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: OWNER_EMAIL,
+      replyTo: REPLY_TO,
+      subject: `${opts.urgent ? "🔴 " : ""}[F&K] ${opts.subject}`,
+      html: `
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 560px; margin: 0 auto; color: #e5e5e5; background-color: #0b0f1a; padding: 24px;">
+          <h2 style="color: ${accent}; font-size: 18px; margin: 0 0 16px;">${esc(opts.heading)}</h2>
+          <table style="border-collapse:collapse; font-size:14px;">${rowsHtml}</table>
+          <p style="margin-top:20px;"><a href="https://dashboard.stripe.com" style="color:#f59e0b;">Open Stripe Dashboard &rarr;</a></p>
+        </div>
+      `,
+    });
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to send owner alert:", error);
+    return { success: false, error };
+  }
+}
+
 /**
  * Send the weekly "Tone of the Week" newsletter.
  */

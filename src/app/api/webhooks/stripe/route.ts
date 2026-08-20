@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { stripe } from "@/lib/stripe";
+import { sendPurchaseWelcome, sendOwnerAlert } from "@/lib/email";
 import type Stripe from "stripe";
 
 /**
@@ -169,6 +170,8 @@ export async function POST(req: NextRequest) {
         | "creator"
         | undefined;
       const setPackSlug = session.metadata?.fk_set_pack;
+      const customerEmail =
+        session.customer_details?.email ?? session.customer_email ?? undefined;
 
       console.log(
         "[stripe-webhook] checkout.session.completed parsed:",
@@ -207,6 +210,18 @@ export async function POST(req: NextRequest) {
             "[stripe-webhook] set_pack_purchases upsert error:",
             purchaseInsert.error,
           );
+          await sendOwnerAlert({
+            urgent: true,
+            subject: "PAID BUT NO ACCESS — set pack DB write failed",
+            heading: "Customer paid but did not get access",
+            rows: [
+              ["Pack", setPackSlug],
+              ["Customer", customerEmail ?? userId],
+              ["Stripe session", session.id],
+              ["Error", purchaseInsert.error.message ?? "unknown"],
+              ["Action", "Grant access manually, then fix the write"],
+            ],
+          });
           return NextResponse.json(
             { error: "Database error" },
             { status: 500 },
@@ -230,6 +245,29 @@ export async function POST(req: NextRequest) {
             livemode: event.livemode,
           },
         } as never);
+
+        // Notify the customer (welcome) and the owner (sale).
+        if (customerEmail) {
+          await sendPurchaseWelcome({
+            to: customerEmail,
+            kind: "set_pack",
+            label: `${setPackSlug} set pack`,
+            amountCents: amount,
+          });
+        }
+        await sendOwnerAlert({
+          subject: `Set Pack sold: ${setPackSlug}`,
+          heading: "💰 New Set Pack purchase",
+          rows: [
+            ["Pack", setPackSlug],
+            [
+              "Amount",
+              `$${(amount / 100).toFixed(2)} ${currency.toUpperCase()}`,
+            ],
+            ["Customer", customerEmail ?? userId],
+            ["Mode", event.livemode ? "LIVE" : "test"],
+          ],
+        });
         break;
       }
 
@@ -277,6 +315,18 @@ export async function POST(req: NextRequest) {
           "[stripe-webhook] DB error during upgrade:",
           updateRes.error,
         );
+        await sendOwnerAlert({
+          urgent: true,
+          subject: "PAID BUT NO ACCESS — subscription DB write failed",
+          heading: "Customer paid but was not upgraded",
+          rows: [
+            ["Plan", plan],
+            ["Customer", customerEmail ?? userId],
+            ["Stripe session", session.id],
+            ["Error", updateRes.error.message ?? "unknown"],
+            ["Action", "Upgrade the profile manually, then fix the write"],
+          ],
+        });
         return NextResponse.json(
           { error: "Database error" },
           { status: 500 },
@@ -288,6 +338,18 @@ export async function POST(req: NextRequest) {
           "[stripe-webhook] upgrade matched ZERO rows — user_id did not match any profile",
           "userId=", userId,
         );
+        await sendOwnerAlert({
+          urgent: true,
+          subject: "PAID BUT NO ACCESS — profile not found",
+          heading: "Customer paid but no matching profile (0 rows)",
+          rows: [
+            ["Plan", plan],
+            ["Customer", customerEmail ?? userId],
+            ["metadata user_id", userId],
+            ["Stripe session", session.id],
+            ["Action", "Find the account and upgrade it manually"],
+          ],
+        });
         // Still return 200 so Stripe doesn't retry; this is a data issue,
         // not a transient error. Log is loud so we can triage.
         break;
@@ -319,6 +381,24 @@ export async function POST(req: NextRequest) {
           eventInsert.error,
         );
       }
+
+      // Notify the customer (welcome) and the owner (sale).
+      if (customerEmail) {
+        await sendPurchaseWelcome({
+          to: customerEmail,
+          kind: "subscription",
+          label: plan === "pro" ? "Pro" : plan === "pass" ? "Pass" : plan,
+        });
+      }
+      await sendOwnerAlert({
+        subject: `New subscriber: ${plan}`,
+        heading: "💰 New Pass/Pro subscriber",
+        rows: [
+          ["Plan", plan],
+          ["Customer", customerEmail ?? userId],
+          ["Mode", event.livemode ? "LIVE" : "test"],
+        ],
+      });
       break;
     }
 
@@ -394,6 +474,71 @@ export async function POST(req: NextRequest) {
           { status: 500 },
         );
       }
+
+      await sendOwnerAlert({
+        subject: "Subscriber canceled",
+        heading: "🟠 Subscription canceled",
+        rows: [
+          ["User", userId],
+          ["Customer", subscription.customer as string],
+        ],
+      });
+      break;
+    }
+
+    case "invoice.payment_failed": {
+      const invoice = event.data.object as Stripe.Invoice;
+      await sendOwnerAlert({
+        urgent: true,
+        subject: "Payment failed",
+        heading: "🔴 A payment failed",
+        rows: [
+          [
+            "Customer",
+            invoice.customer_email ?? (invoice.customer as string) ?? "unknown",
+          ],
+          ["Amount due", `$${((invoice.amount_due ?? 0) / 100).toFixed(2)}`],
+          ["Attempt", String(invoice.attempt_count ?? "")],
+          ["Action", "Stripe retries (dunning); watch for churn"],
+        ],
+      });
+      break;
+    }
+
+    case "charge.dispute.created": {
+      const dispute = event.data.object as Stripe.Dispute;
+      await sendOwnerAlert({
+        urgent: true,
+        subject: "Dispute / chargeback opened",
+        heading: "🔴 Chargeback — respond fast",
+        rows: [
+          ["Amount", `$${((dispute.amount ?? 0) / 100).toFixed(2)}`],
+          ["Reason", dispute.reason ?? "unknown"],
+          ["Charge", dispute.charge as string],
+          ["Action", "Submit evidence in Stripe before the deadline"],
+        ],
+      });
+      break;
+    }
+
+    case "charge.refunded": {
+      const charge = event.data.object as Stripe.Charge;
+      await sendOwnerAlert({
+        subject: "Refund issued",
+        heading: "🟠 A charge was refunded",
+        rows: [
+          [
+            "Amount",
+            `$${((charge.amount_refunded ?? 0) / 100).toFixed(2)}`,
+          ],
+          [
+            "Customer",
+            charge.billing_details?.email ??
+              (charge.customer as string) ??
+              "unknown",
+          ],
+        ],
+      });
       break;
     }
 
