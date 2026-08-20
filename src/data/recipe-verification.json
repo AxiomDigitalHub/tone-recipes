@@ -1556,5 +1556,41 @@
     ],
     "droppedCount": 2,
     "substitutedCount": 12
+  },
+  "campbell-the-last-in-line-solo": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 2,
+    "substitutedCount": 9
+  },
+  "iommi-the-mob-rules-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 9
+  },
+  "rhoads-flying-high-again-solo": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 9
+  },
+  "hoffmann-fast-as-a-shark-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 10
+  },
+  "tatler-am-i-evil-riff": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 2,
+    "substitutedCount": 9
   }
 }

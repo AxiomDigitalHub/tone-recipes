@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-08-16
-**Recipes:** 210
-**Clean (no errors, no warns):** 210
+**Date:** 2026-08-20
+**Recipes:** 215
+**Clean (no errors, no warns):** 215
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,8 +16,8 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `settings-outside-unverified-range` | info | 210 / 210 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
-| `katana-kemper-multidrive-default-off` | info | 27 / 210 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `settings-outside-unverified-range` | info | 215 / 215 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
+| `katana-kemper-multidrive-default-off` | info | 28 / 215 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -128,6 +128,12 @@ Passes every rule.
 ### `campbell-stand-up-and-shout-riff` — ✓ clean
 
 *Dio's Stand Up and Shout Riff Tone*
+
+Passes every rule.
+
+### `campbell-the-last-in-line-solo` — ✓ clean
+
+*Dio's The Last in Line Solo Tone*
 
 Passes every rule.
 
@@ -515,6 +521,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `hoffmann-fast-as-a-shark-riff` — ✓ clean
+
+*Accept's Fast as a Shark Riff Tone*
+
+Passes every rule.
+
 ### `homme-3s-and-7s-riff` — ✓ clean
 
 *3's & 7's Riff Tone*
@@ -584,6 +596,12 @@ Passes every rule.
 ### `iommi-neon-knights-riff` — ✓ clean
 
 *Black Sabbath's Neon Knights Riff Tone*
+
+Passes every rule.
+
+### `iommi-the-mob-rules-riff` — ✓ clean
+
+*Black Sabbath's The Mob Rules Riff Tone*
 
 Passes every rule.
 
@@ -1037,6 +1055,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `rhoads-flying-high-again-solo` — ✓ clean
+
+*Ozzy's Flying High Again Solo Tone*
+
+Passes every rule.
+
 ### `rhoads-mr-crowley-solo` — ✓ clean
 
 *Ozzy's Mr. Crowley Solo Tone*
@@ -1190,6 +1214,12 @@ Passes every rule.
 ### `sult-electric-worry-riff` — ✓ clean
 
 *Electric Worry Riff Tone*
+
+Passes every rule.
+
+### `tatler-am-i-evil-riff` — ✓ clean
+
+*Diamond Head's Am I Evil? Riff Tone*
 
 Passes every rule.
 
