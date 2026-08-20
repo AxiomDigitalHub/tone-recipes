@@ -1,0 +1,166 @@
+---
+title: 'How Long Should the Reverb Tail Be? Count the Notes, Not the Tempo'
+seo_title: 'Reverb Decay Time: Let Note Density Decide the Tail'
+description: >-
+  A reverb tail that outlasts the next chord does not sound washy — it sounds
+  out of tune. The ceiling is set by the gap between the notes that must stay
+  distinct, not by the song's BPM.
+date: '2026-08-19'
+author_slug: margot-thiessen
+category: signal-chain
+tags:
+  - reverb
+  - decay
+  - note-density
+  - tempo
+  - ambient
+  - signal-chain
+takeaways:
+  - >-
+    The decay ceiling is the gap between the events that have to stay distinct
+    from each other — one chord change, one arpeggio note — not a fraction of
+    the bar and not a function of tempo.
+  - >-
+    Two songs at the same BPM can want tails that differ by a factor of eight. A
+    whole-bar pad at 120 BPM tolerates two full seconds; an eighth-note arpeggio
+    at 72 BPM wants less than half a second.
+  - >-
+    A tail that outlasts a chord change is not heard as too much space. It is
+    heard as wrong notes, because the old chord is still sounding underneath the
+    new one — which is why players reach for the mix knob and it does not help.
+  - >-
+    Count the notes you actually play, not the chords on the page. An
+    arpeggiated part that feels unhurried can be four times denser than the
+    progression it comes from.
+  - >-
+    When the arithmetic says you cannot have the tail you want, ducking or a
+    high-pass on the reverb buys you back some of it without lengthening the
+    collision.
+faq:
+  - q: How long should reverb decay be for guitar?
+    a: >-
+      Work out the gap in milliseconds between the notes or chords that need to
+      stay separate, and treat that as the ceiling. At 72 BPM with one chord per
+      bar that is about 3.3 seconds; at 120 BPM with an eighth-note arpeggio it
+      is about 0.25 seconds. The tempo alone will not tell you.
+  - q: Does a slower song need a longer reverb tail?
+    a: >-
+      Not automatically, and this is the most common mistake. A slow song with a
+      busy arpeggiated part needs a shorter tail than a fast song built on
+      whole-bar chords. Density decides the ceiling; tempo only scales it.
+  - q: Why does my reverb make the chords sound out of tune?
+    a: >-
+      Because the tail from the previous chord is still ringing when the new one
+      lands, so two harmonies overlap. It reads as wrong notes rather than as
+      too much space, which is why turning the mix knob down makes it quieter
+      without making it correct. Shorten the decay instead.
+  - q: What is the formula for reverb decay time by tempo?
+    a: >-
+      Milliseconds per beat equals 60000 divided by BPM. Multiply that by how
+      many beats sit between the events you need to keep distinct, and that
+      product is your decay ceiling in milliseconds. Divide by 1000 for the
+      seconds most pedals and plugins display.
+  - q: Should I set decay by the arithmetic or by ear?
+    a: >-
+      Use the arithmetic to find the ceiling, then set by ear underneath it.
+      Published decay figures are an RT60 approximation and the audible tail is
+      shorter than the number suggests, so the calculated value usually lands
+      slightly conservative — which is the right direction to be wrong in.
+  - q: What do I do if I want a long tail but the part is too busy?
+    a: >-
+      Three options, in order of how much they cost you. Duck the reverb so the
+      tail drops out of the way while you play and returns in the gaps;
+      high-pass the reverb return so the overlap stops competing in the low
+      mids; or play fewer notes, which is free and usually the real answer.
+image: /images/blog/reverb-decay-vs-song-tempo-when-tails-collide.jpg
+image_alt: >-
+  A reverb pedal on a dim pedalboard with the decay control turned up, a guitar
+  and amp visible behind it in a dark room
+---
+
+There is a specific sound a part makes when the reverb is too long, and it is not the sound people describe. The word everyone reaches for is *washy* — too much space, too much cloud, turn the mix down a bit. But listen to a part with a genuinely oversized tail and what you hear is not excess space at all.
+
+You hear wrong notes.
+
+The tail from the chord you played four beats ago is still sounding when the new chord arrives, and those two harmonies are now on top of each other. Your ear does not file that as "spacious." It files it as *out of tune*, and it goes looking for a tuning problem, and there isn't one. This is why the mix knob fails so completely as a fix. Turning the reverb down makes the collision quieter. It does not make it stop being a collision.
+
+Which brings me to the parameter everyone sets by feel and almost nobody sets by arithmetic.
+
+## The Ceiling Is a Gap, Not a Tempo
+
+The question "how long should my reverb be" gets answered with tempo. Slow song, long tail. Fast song, short tail. It is intuitive and it is wrong often enough to be worth dismantling.
+
+The thing that decides your decay ceiling is the interval between the events that need to stay distinct from one another. If the chord changes every bar, the ceiling is one bar. If you are playing an arpeggio where the individual notes should still be individual, the ceiling is one note. Tempo enters the calculation, but only as a multiplier — it converts your event spacing into milliseconds. It is not the input.
+
+Here is the arithmetic, which is one line. Milliseconds per beat equals 60000 divided by BPM. Multiply by the number of beats between the events you need to keep separate, and that is your ceiling.
+
+## The Same Tempo, Eight Times the Tail
+
+Run that across a few realistic parts and the tempo argument falls apart on its own.
+
+| What repeats in your part | 72 BPM | 90 BPM | 120 BPM |
+|---|---|---|---|
+| One chord per bar (pads, swells) | 3.3s | 2.7s | 2.0s |
+| One chord every two beats | 1.7s | 1.3s | 1.0s |
+| One note per beat (quarter-note figure) | 0.83s | 0.67s | 0.50s |
+| Eighth-note arpeggio | 0.42s | 0.33s | 0.25s |
+
+Read that table down a column rather than across a row and you can see the problem with tempo as an input. At 72 BPM — a slow song, by anyone's definition — the ceiling ranges from 3.3 seconds to 0.42 seconds depending entirely on what your right hand is doing. That is a factor of eight inside a single tempo.
+
+And read it diagonally. A whole-bar pad at 120 BPM gives you 2.0 seconds. An eighth-note arpeggio at 72 BPM gives you 0.42. The *faster* song wants the *longer* tail, by nearly five to one, and every rule of thumb you have ever read gets that backwards.
+
+These are ceilings derived from the grid, not measurements. They tell you where the collision starts, not where the setting should land.
+
+## Count What You Play, Not What Is Written
+
+This is where I keep catching myself, and it is the reason the table above says "what repeats in your part" rather than "the chord progression."
+
+A progression of one chord per bar looks sparse on the page. Play it as block chords and it is sparse — 3.3 seconds at 72 BPM, go ahead. Play the same progression as a rolling arpeggio and you have not changed the harmony at all, but you have gone from one event per bar to eight, and your ceiling has collapsed to under half a second.
+
+The part *feels* unhurried either way. Slow tempo, gentle picking, nothing rushed about it. That feeling is what fools people, because the ear registers the emotional pace of a part and the reverb only cares about the mechanical one.
+
+So count notes. Actual notes, the ones your fingers produce, in one bar. Then divide the bar's length by that number and you have your gap.
+
+The exception, and it is a real one: notes inside a single unchanging chord can overlap without dissonance, because they belong to the same harmony. An arpeggio that sits on one chord for two full bars can carry a much longer tail than the note spacing implies — what you are protecting there is rhythmic definition, not tuning. The moment the harmony moves is the moment the ceiling drops to the chord spacing. That distinction is the whole difference between a part that blooms and a part that curdles.
+
+## The Thing I Had Exactly Backwards
+
+I spent a long time believing that ballads wanted long reverbs and up-tempo songs wanted short ones, and I set decay accordingly for years without examining it, because it worked most of the time and the times it did not work I blamed on the room.
+
+What broke it was a slow song — 68 BPM, a genuinely spacious arrangement — where the guitar part was a fingerpicked sixteenth-note figure over slow-moving chords. I had the decay somewhere around three seconds, which felt correct for the song, and the part sounded like it had been recorded through a closed door in another apartment. I shortened it in stages. It did not properly resolve until I got down under 0.6 seconds, which on the pedal's own dial looked absurd next to a song that slow.
+
+And the reverb still sounded large. That was the part I did not expect. I had been treating tail length and perceived size as the same quantity, and they are not — a short tail on a dense part still tells your ear the room is big, because the *early reflections* do that job, not the decay. The decay only decides how long the room takes to forget. Those two things live in different parts of the reverb and I had been controlling one with the other for about a decade. The [early reflections versus tail breakdown](/blog/early-reflections-vs-reverb-tail-room-vs-space) covers the mechanism properly.
+
+Size is the front of the reverb. Length is the back of it. You can have the first without buying much of the second, and if your part is busy, you should.
+
+## Where the Collision Actually Hurts
+
+Not all overlap is equal, and knowing which kind you have tells you which knob to reach for.
+
+**Harmonic collision** is the expensive one. The chord changed and the old chord is still audible underneath. This is the one that reads as wrong notes, and shortening the decay is the only real fix — no filter saves you, because the problem is pitch, not frequency balance.
+
+**Rhythmic smear** is cheaper. The harmony has not moved but the individual notes have stopped being individual, so a figure that was supposed to have a shape has turned into a single sustained wash. Annoying, but it lives in a narrower band than people assume: it is mostly the low mids piling up. A high-pass on the reverb return buys back a surprising amount of definition here without touching the decay at all.
+
+**Low-end accumulation** is the one you will not hear on headphones and will absolutely hear in a room. Every tail overlapping the next means the low mids never get a chance to clear. This is the mechanism behind most of what gets diagnosed as [a washed-out reverb](/blog/reverb-sounds-washed-out-fix), and it is also why deciding whether the problem is [the delay or the reverb](/blog/delay-vs-reverb-which-one-is-crowding-the-room) matters before you start turning things.
+
+## When You Cannot Have the Tail You Want
+
+Sometimes the arithmetic says 0.4 seconds and the song wants something enormous. There are three moves, and they cost different amounts.
+
+**Duck it.** A ducking reverb pulls the tail down while you are playing and lets it return in the gaps, which means you can run a decay well past the collision ceiling as long as the part has holes in it. This is the closest thing to having both, and it is covered properly in [taming the tail with ducking](/blog/ducking-reverb-tame-the-tail).
+
+**Filter it.** Roll the reverb return off below the low mids — the long-standing Abbey Road practice of high-passing the return around 500 to 600 Hz is the version most people land on — and the overlap stops fighting the fundamental of the next chord. It is still there. It is just no longer standing where the song needs to be.
+
+**Play less.** Fewer notes per bar raises the ceiling directly, and it is the only one of the three that costs nothing and improves the part. If a figure needs a two-second tail to feel right and the figure has eight notes in it, the figure probably wants six.
+
+## Setting It, Start to Finish
+
+Work out the gap. Notes per bar, divided into the bar length, in milliseconds. If the harmony moves, use the chord spacing instead — that is the tighter constraint and it wins.
+
+Set the decay to that number and play the part. It will sound slightly too short, because the audible tail on most units is shorter than the published figure suggests — decay times are quoted as an RT60 approximation and you stop hearing the tail well before it reaches sixty decibels down. That gap between the number and the sound is worked through in the [predelay subtraction post](/blog/subtract-predelay-from-decay-reverb-tail).
+
+Now open it up by ear until you can hear the previous chord surviving into the next one, then come back a hair. That is the setting. It will usually land somewhere between one and one and a half times the calculated gap.
+
+Then set your predelay, which is a separate decision and a separate mechanism — the gap before the tail arrives, rather than how long it stays. [Deriving predelay from the tempo](/blog/predelay-by-tempo-sync-reverb-decay-to-song) handles that half.
+
+One last thing worth saying, because it is the reason any of this matters. A reverb set to its collision ceiling does not sound like a reverb that has been cut back. It sounds like the part got clearer for no visible reason, and the space is still there, and nothing was traded away. That is the whole trick — the tail you lose is the only part of the reverb that was never doing anything for you anyway.

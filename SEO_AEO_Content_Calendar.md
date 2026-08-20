@@ -4958,3 +4958,184 @@ AC3/Nathan.
 modeler, an interface, and fifteen minutes with the harness published in
 `modeler-latency-budget-per-block-cost`. When it happens it is a **refresh** of that URL, not a new
 post. **Do not let an automated run fill that table from memory.**
+
+---
+
+## Daily Run — 2026-08-19 (3 new posts + 2 refreshes + SERP analysis + 3 new topics)
+
+**Cadence:** 3 new + 2 refreshes, the documented shape. This run drained the entire AC queue added on
+08-14 (AC1/AC2/AC3), so the queue is refilled below with three new rows and stays flat.
+
+**Velocity at run start:** Jess, Dev, Elena, Margot, Carl and Nathan all at 1. **Hank, Sean, Viktor,
+Rick and fk-staff were at 0.** Assignments went to Hank, Margot and Nathan exactly as the AC rows
+proposed, which put the byline that had gone quietest (Hank, 0) on the lead post. Never-assign lists
+re-checked: AC1 is vintage history and setup, not a modeler workflow or a budget roundup (Hank clear);
+AC2 was kept platform-agnostic and feel-led rather than written as a modeler menu tutorial (Margot's
+never-assign list bars step-by-step modeler workflows — **that framing is load-bearing, do not let a
+refresh turn it into an HX Edit walkthrough**); AC3 is arrangement, not metal or vintage collecting
+(Nathan clear).
+
+### New posts
+
+| # | Slug | Title | Writer | Category | Queue item |
+|---|---|---|---|---|---|
+| 1 | pickup-magnet-types-alnico-2-3-5-ceramic-string-pull | Alnico II, III, V or Ceramic: What the Magnet Actually Changes | Hank Presswood | gear-lab | **AC1** |
+| 2 | reverb-decay-vs-song-tempo-when-tails-collide | How Long Should the Reverb Tail Be? Count the Notes, Not the Tempo | Margot Thiessen | signal-chain | **AC2** |
+| 3 | second-guitar-part-writing-from-scratch | Writing the Second Guitar Part When the Song Doesn't Have One | Nathan Cross | signal-chain | **AC3** |
+
+**Velocity after run:** Hank 0→1, Margot 1→2, Nathan 1→2. Nobody at or over the 3/week cap. Post-run
+standing: Margot 2, Nathan 2, Jess 1, Dev 1, Elena 1, Carl 1, Hank 1, **Sean 0, Viktor 0, Rick 0,
+fk-staff 0**.
+
+**Post 1 — pickup-magnet-types-alnico-2-3-5-ceramic-string-pull** (target: "alnico 2 vs alnico 5
+pickup," "ceramic vs alnico pickups," "which pickup magnet for less string pull," "alnico 3 pickups")
+- **Top ranking:** Stringjoy's *"Pickup Magnet Types: Alnico vs Ceramic,"* Fralin Pickups' *"All About
+  Alnico,"* Pro Sound HQ's *"Alnico 2 vs 3 vs 4 vs 5 vs 8 Complete Guide,"* Fender's own *"What Are
+  Alnico Pickups,"* menga.net's Strat magnet comparison, Kuassa, Nordstrand Audio's *"Alnico and
+  numbers,"* WGS, Coils Boutique, Romain Pickups, Mbit, Heartland.
+- **Gap confirmed, and it is a single consistent miss across a dozen results: every one of them
+  answers "what does this magnet sound like" and none of them answers "what does this magnet do to
+  my setup."** The SERP is a wall of tonal adjectives — bouncy lows, glassy highs, brittle ceramic —
+  attached to grades. Absent across the top 5: (1) the **strength-to-clearance table**, tying magnet
+  grade to how much room the pickup needs, which is the entire non-commodity claim of the post; (2)
+  the point that **published factory height specs assume the magnet the factory shipped** (Alnico V
+  for a modern Fender single-coil), so a magnet swap silently invalidates the chart number; (3) the
+  **magnet-swap confound** — that a pickup removed and reinstalled almost never goes back at the same
+  height, so a large share of every reported magnet difference is clearance being reported as alloy;
+  (4) the **coil-versus-magnet split**, that turns and wire gauge set output while the magnet sets
+  loading and resonant peak, which the SERP's "ceramic is louder" framing obscures; (5) the
+  **single-coil versus humbucker geometry** point — in a Strat pickup the pole pieces *are* the
+  magnets, in a PAF the field reaches the string through steel and arrives weaker.
+- **Gate 1 note — the numbers are published third-party figures, not F&K measurements, and the post
+  says so.** Traditional pickup bar-magnet gauss ranges used: Alnico III 470-490, Alnico II 530-590,
+  Alnico IV 630-670, Alnico V 710-770, Alnico VIII 1200-1320, ceramic 1250-1300. The counterintuitive
+  ordering (**A3 is weaker than A2; the grade numbers are a material recipe and rough order of
+  invention, not a strength ranking, and A3 followed A2 largely as a cheaper alloy**) is live-verified
+  and is the single most-repeated error in this topic. History live-verified: the **1954 Stratocaster
+  used Alnico III, carried over from Telecaster pickup practice, and Fender moved to Alnico V in
+  1955** — which means the scooped-mid Strat sound everyone pictures is the second-year guitar. **The
+  clearance offsets in the second table are explicitly labelled as starting adjustments from the
+  chart figure, not measurements.** Do not let a future run harden them into a spec.
+- **AI Overview:** very likely present (comparison/definitional class); F&K not cited.
+- Non-commodity gate: **PASS.** The clearance table exists nowhere on the SERP, and the post is a
+  setup argument rather than a thirteenth tonal-adjective roundup — which was the standing Gate 7
+  warning on this queue row ("this must be about pull and clearance, not which magnet sounds best").
+  Confirmed distinct from `pickup-height-magnet-pull-warble` (08-14), which owns the *diagnosis*;
+  this post owns *what to do about the magnet*, and the two cross-link.
+
+**Post 2 — reverb-decay-vs-song-tempo-when-tails-collide** (target: "reverb decay time guitar," "how
+long should reverb tail be," "reverb decay tempo," "ambient reverb settings too long")
+- **Top ranking:** four separate **calculators** (violetrecording's reverb pre-delay and decay
+  calculator, tools4music' reverb time tool, anotherproducer's delay and reverb calculator,
+  jukeblocks), MusicRadar's reverb-parameters explainer, two Gearspace threads on calculating reverb
+  times, Beat Kitchen's mix primer, and an LA Studio vocal-focused settings guide.
+- **Gap confirmed, and the SERP has an unusual shape: it is mostly tools, not articles.** The
+  calculators take BPM and a note division and return a number, which quietly encodes the assumption
+  the post is written to break — that tempo is the input. Note density appears in passing in a couple
+  of results ("a fast busy arrangement with a 4-second tail turns into mud") and is never made the
+  determinant. Absent across the top 5: (1) the **gap-not-tempo rule**, that the ceiling is the
+  interval between the events which must stay distinct, so two songs at the same BPM can want tails
+  eight times apart; (2) the **density matrix** showing a whole-bar pad at 120 BPM tolerating a
+  longer tail than an eighth-note arpeggio at 72 BPM — the reverse of every rule of thumb on the
+  page; (3) the **harmonic-collision framing**, that an oversized tail reads as *out of tune* rather
+  than as washy, which is why the mix knob fails as a fix; (4) the **count-notes-not-chords trap**,
+  that an arpeggiated part feels unhurried while being four to eight times denser than its
+  progression; (5) the **size-versus-length separation** — early reflections carry perceived room
+  size, decay only carries how long the room takes to forget, so a busy part can have a short tail
+  and still sound large.
+- **Gate 1 note:** the 500-600 Hz reverb-return high-pass is again attributed to the long-standing
+  Abbey Road practice rather than presented as an F&K measurement (consistent with the 08-14 post).
+  The decay figures in the matrix are **derived from the grid** (60000/BPM times beats between
+  events) and are labelled in the post as ceilings, not measurements. The RT60-versus-audible-tail
+  caveat is referenced to the existing Margot post rather than re-taught.
+- **AI Overview:** very likely present (how-to/numeric class); F&K not cited. Worth a re-check —
+  a SERP made mostly of calculators is thin on prose an engine can quote, which may leave the
+  citation slot unusually open.
+- Non-commodity gate: **PASS**, and the Gate 7 distinctness check the AC2 row demanded was run
+  explicitly. **Both adjacent posts were read before building.**
+  `predelay-by-tempo-sync-reverb-decay-to-song` (Nathan, 06-03) derives *predelay* from BPM and gives
+  the decay question one paragraph keyed to tempo; `subtract-predelay-from-decay-reverb-tail`
+  (Margot, 06-06) does the arithmetic of landing the whole gesture on a note value. **Neither derives
+  the ceiling from note density, and neither contains the claim that tempo is the wrong input.** The
+  new post is a correction and extension of that pair rather than a re-slice, and it links to both.
+  Verdict: build, not refresh.
+
+**Post 3 — second-guitar-part-writing-from-scratch** (target: "how to write a second guitar part,"
+"guitar harmony part ideas," "what to play under a riff," "second guitar part worship")
+- **Top ranking:** Riffhard's *"How to Write Dual Guitar Harmonies"* and *"How to Harmonize Guitar
+  Riffs,"* musictheoryforguitar's *"How To Write Songs For 2 Guitars"* and its chord-progression
+  companion, Study Guitar's *"How to Write Guitar Harmonies Like Iron Maiden,"* Macri School of
+  Music's harmony lesson, songwritinglessonsonline's rhythm-part page, and the Wikipedia article on
+  rhythm guitar.
+- **Gap confirmed, and it is a category miss rather than a coverage miss: the SERP answers the
+  harmony-theory question and treats it as the whole problem.** Nearly every result is an interval
+  lesson — thirds, fourths, counterpoint, how to harmonize a riff — pitched at metal and rock
+  riff-writing, where the figure is short, fixed and repeating. That is the one case where harmony
+  actually works, and it is the least common case for a band playing loosely-arranged material.
+  Absent across the top 5: (1) any **ranking of the four part types by hit rate**, with register
+  extension first and harmony last, versus a SERP that treats harmony as the default; (2) the
+  **doubling argument** — that two guitars on the same figure produce smearing at the front of the
+  note rather than size, costing a whole player for no new information; (3) the **one-rehearsal
+  test**, which is the constraint that actually decides what survives past week three; (4) the
+  **tone-side half of the decision** — frequency division around 200-500 Hz versus above 2 kHz, one
+  player carrying delay and the other reverb, and deciding who lifts in the chorus — which is
+  entirely absent from a SERP made of interval lessons and is squarely F&K's lane; (5) **not playing
+  as a legitimate part**, which no result treats as an option.
+- **AI Overview:** likely present (how-to class); F&K not cited.
+- Non-commodity gate: **PASS.** The four-type ranking and the frequency/effects division cannot be
+  produced by summarising interval lessons. Confirmed distinct from
+  `two-guitar-arrangement-register-split` (dividing an existing two-part arrangement) and
+  `one-guitarist-two-parts-loop-and-arrange` (08-14, one player covering two parts); this is the
+  third corner — the part does not exist yet and has to be invented — and it links to both.
+- **Byline note:** Nathan's worship context is carried implicitly (a Sunday, a rehearsal, the room)
+  with **zero signature-phrase uses** and no self-identification. Kept off his never-assign list.
+
+### Refreshes
+
+Both refreshes were chosen to build out the cluster the new Post 1 anchors: the two legacy
+`<FAQ>` posts that sit either side of it on the pickup-into-overdrive question. Neither had
+`takeaways:`, frontmatter `faq:`, or `updated:`, and **both carried the same broken generated
+`image_alt`** (`a composition illustrating "P"` and `a composition illustrating "TS808 vs. Klon vs.
+RAT"`) — the pattern first flagged on 08-14. Both keep their original `fk-staff` byline; refreshes do
+not count against the velocity cap.
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | p90-pickups-overdrive | **Full AEO backfill + two content-adds + Gate 6 repairs.** Migrated 4 body-level `<FAQ>` Q&A to frontmatter and added 2 (pickup height as a drive control, vintage versus modern P-90s), added 5 takeaways, a real `image_alt`, `updated: 2026-08-19`, and trimmed a 245-char description to 204. **Content-add 1 — "Pickup Height Is a Drive Control":** the post prescribed exact TS/Klon/RAT settings without ever mentioning the variable that changes how hard the pickup hits those pedals. A P-90 mounted closer arrives louder *and* with more of the upper-mid energy that causes the stacking the post is about, so half a turn lower is a legitimate first move for a pedal problem — with the limit stated (too close and it becomes magnet damping, a different fault) and cross-linked to the 08-14 diagnostic. **Content-add 2 — "If Your P-90 Is a Hot One":** the whole post silently assumed a 7.5-9.5 kΩ alnico P-90, and a good share of P-90s sold now are hotter or ceramic. Adds a two-column table of how each of the three pedals shifts with a hot set, and cross-links Post 1. **Gate 6:** two bare uses of "transparent" replaced with concrete descriptions. 2,084 → 2,887 words. | It was the weakest post in Post 1's cluster on answer surface, Post 1 links to it, and its central advice was incomplete without the height variable. |
+| R2 | ts808-klon-rat-humbuckers | **AEO backfill + two content-adds + Gate 6 repairs.** Migrated 4 body `<FAQ>` Q&A to frontmatter and added 2 (magnet type, coil-splitting), added 5 takeaways, a real `image_alt`, `updated: 2026-08-19`, description trimmed 279 → 199 chars. **Content-add 1 — "Magnet Grade Decides Which Problem You Have":** the post named magnet type as a factor in the humbucker's midrange peak in one clause and then never returned to it, while sorting humbuckers purely by DC resistance. New section adds the grade-to-behaviour table and **the trap that matters: DC resistance only measures the coil, so a ceramic-magnet humbucker at 8.5 kΩ reads PAF-spec on paper and behaves like a hot pickup at the pedal.** Cross-links Post 1. **Content-add 2 — "Coil-Splitting Does Not Give You the Single-Coil Settings Back":** a common and wrong assumption the post left standing — splitting removes the level half of the problem but the remaining coil keeps the humbucker's position and magnet, so the peak does not relocate; includes the practical one-setting-two-positions approach. **Gate 6:** three bare descriptors repaired ("more transparent", "extra warmth", "transparent boost"). Scare-quoted uses of "transparent" that the post is explicitly interrogating were left alone. 2,287 → 3,077 words. | Sibling to R1 (which links to it directly), same legacy gaps, and the DC-resistance-as-proxy trap it left open is exactly what Post 1's magnet argument corrects. |
+
+**Preflight:** `validate-mdx.mts --changed --strict` — **all 5 files compile clean, zero warnings,
+zero errors** (two pre-existing over-length descriptions on the refreshed posts were trimmed to clear
+strict). All **17 internal links verified to resolve** against the post inventory before commit.
+Hero images via Flux 2 Pro (`--model=black-forest-labs/flux-2-pro`, ~$0.17, 3/3, no rejections, no
+timeouts): Hank → `nocturnal_studio`, Margot → `nocturnal_studio`, Nathan → `cathedral_ambient`.
+
+**Repo-state note:** at run start the working tree was clean apart from an untracked
+`docs/NAM_STRATEGY.md` belonging to another routine. It was left untouched and this run committed
+**only its own seven files by exact path**, per the standing concurrent-commit rule.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 0, added 3 — **queue is flat this run**, the intended steady state. Bylines are
+> best-fit proposals; the executing run re-checks **both** velocity **and** the never-assign list.
+> **Verify no colliding slug at build time.** **Sean, Viktor, Rick and fk-staff are the bylines at 0
+> — AD1 is built for Viktor and AD2 for Sean.**
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AD1 | pickup-dc-resistance-what-it-actually-measures | What DC Resistance Actually Tells You About a Pickup (and What It Doesn't) | "pickup dc resistance chart," "is a higher ohm pickup louder," "how to measure pickup output," "8k vs 16k pickup" | Viktor Kessler | 5 — Gear Lab | Both refreshes this run collided with the same trap and neither post could resolve it in place: **DC resistance is the number every spec sheet publishes and every forum quotes, and it measures wire, not output.** A ceramic-magnet humbucker at 8.5 kΩ reads PAF-spec and behaves like a hot pickup at the pedal. Non-commodity content: what the meter reading is actually made of (turns × wire length × gauge × temperature — including the point that a warm guitar reads higher than a cold one), why two pickups at the same resistance can differ by a wide margin in output, what to look at instead (inductance and magnet grade), and a worked table of common pickups where resistance ranks them wrongly. Viktor's measurement lane exactly, and he is at 0. **Gate 7 note: this must stay a measurement-literacy post. If it drifts into "best pickups by resistance" it becomes a commodity roundup — drop it instead.** |
+| AD2 | reverb-decay-time-units-pedal-vs-plugin | Why Your Pedal's 2-Second Reverb Is Shorter Than Your Plugin's 2-Second Reverb | "reverb decay time seconds," "rt60 vs decay time," "reverb pedal vs plugin decay," "why does my reverb sound shorter" | Sean Nakamura | 4 — Modeler Masterclass | The AC2 SERP turned out to be **mostly calculators**, every one of which returns a decay figure in seconds — and the seconds are not comparable across units. Published decay is an RT60 approximation, implementations differ in where they start and stop counting, and the audible tail is shorter than the number in ways that vary by box. That mismatch is asserted in two existing F&K posts and explained in none. Distinct content: what RT60 means and why it overstates the audible tail, why a pedal dial and a plugin field with the same number sound different, how to calibrate one against the other by ear in about five minutes, and the practical consequence for anyone translating a preset between a pedalboard and a modeler. Squarely Gate 10 (cross-platform) and Sean's lane; he is at 0. **Confirmed no colliding slug** — the two existing decay posts do the tempo arithmetic and neither addresses units. |
+| AD3 | capo-split-two-guitarists-same-song | Who Puts the Capo On: Dividing a Song Between Two Guitarists With One Capo | "two guitarists capo different positions," "capo arrangement two guitars," "should both guitarists capo," "worship guitar capo split" | Carl Beckett | 3 — Signal Chain | Post 3 establishes register extension as the highest-hit-rate second part and stops short of the most common practical way bands achieve it: **one player capos and the other doesn't.** The AC3 SERP is interval lessons and contains nothing on this at all. Distinct content: why a capo separates two guitars more reliably than fret position does (open strings in a different key, different string tension, a genuinely different timbre rather than the same voicing moved), which player should take it and why it is usually the one playing the simpler part, the keys where a 2nd/4th/5th-fret split works and the ones where it forces bad voicings, and the tuning cost — a capo pushes sharp and two guitars where one is capoed will beat against each other if the intonation is not checked at the capo. Carl's one-guitar, minimal-gear lane; he is at 1, so re-check velocity at build time. **Confirmed no colliding slug** — `capo-position-as-a-tone-decision` is a single-player tone post and does not treat the capo as an arrangement tool between two players. |
+
+**Diversity/queue note:** new posts went to Hank (0→1), Margot (1→2), Nathan (1→2); refreshes were
+both `fk-staff` (do not count against the cap). **Next run: Sean, Viktor, Rick and fk-staff are the
+bylines at 0, and AD1/AD2 are written for Viktor and Sean.** Cluster fan-out queue remaining:
+volume-pedal-placement/Sean, V2 katana-gen3/Jess **(still flagged — re-check for Gate 7 distinctness
+against the 08-07 S6 post before building; this has probably become a re-slice and should be dropped
+in favour of a refresh)**, W2 sidechain-dynamic-eq/Dev, V3 ambient-headphones-mono/Dev **(still
+flagged for rescoping)**, plus today's AD1/Viktor, AD2/Sean, AD3/Carl.
+
+**Human-in-the-loop debt unchanged: one item.** The Y1 measured per-block latency table still needs a
+modeler, an interface, and fifteen minutes with the harness published in
+`modeler-latency-budget-per-block-cost`. When it happens it is a **refresh** of that URL, not a new
+post. **Do not let an automated run fill that table from memory.**
