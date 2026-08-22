@@ -118,29 +118,29 @@ function moodForPost(authorSlug: string, slug: string): string | undefined {
 /* -------------------------------------------------------------------------- */
 
 const SUBJECT_OVERRIDES: Record<string, string> = {
-  "tube-screamer-settings-guide": "a green Ibanez Tube Screamer overdrive pedal with its knobs visible",
-  "big-muff-settings-guide": "a Big Muff Pi fuzz pedal with its distinctive enclosure",
-  "boss-ds1-settings-guide": "an orange Boss DS-1 distortion pedal on a pedalboard with patch cables",
-  "klon-centaur-settings-guide": "a gold Klon Centaur overdrive pedal in pristine condition",
+  "tube-screamer-settings-guide": "a small green overdrive pedal, unbranded, knobs and footswitch visible",
+  "big-muff-settings-guide": "a large rectangular fuzz pedal enclosure, unbranded, three knobs",
+  "boss-ds1-settings-guide": "a small orange distortion pedal on a pedalboard with patch cables, unbranded",
+  "klon-centaur-settings-guide": "a gold-enclosure overdrive pedal in pristine condition, unbranded",
   "rat-pedal-settings-guide": "a ProCo RAT distortion pedal with gritty texture",
-  "jcm800-settings-guide": "a Marshall JCM800 amplifier head showing the front panel controls and logo",
+  "jcm800-settings-guide": "an unbranded plexi-style amplifier head, front panel controls in focus, no lettering",
   "helix-vs-quad-cortex-vs-kemper": "three guitar modeler units arranged on a dark surface",
   "helix-vs-quad-cortex": "two guitar multi-effects processors side by side on a pedalboard",
-  "david-gilmour-pink-floyd-tone": "a vintage black Fender Stratocaster next to a Big Muff and delay pedal",
-  "hendrix-fuzz-tone-recipe": "a vintage Stratocaster with a Fuzz Face and wah pedal on a dark stage",
-  "john-mayer-clean-tone-settings": "a clean Fender Stratocaster and Fender amplifier in a warm studio",
+  "david-gilmour-pink-floyd-tone": "a black double-cutaway electric guitar with three single-coil pickups, beside a large fuzz pedal and a delay pedal, all unbranded",
+  "hendrix-fuzz-tone-recipe": "a double-cutaway electric guitar with a round fuzz pedal and a treadle wah on a dark stage, unbranded",
+  "john-mayer-clean-tone-settings": "a double-cutaway electric guitar with three single-coil pickups and a blackface-style combo amplifier in a warm studio, unbranded",
   "metallica-rhythm-tone-settings": "a dark ESP guitar and high-gain amplifier stack with aggressive lighting",
-  "srv-tone-on-helix": "a vintage Stratocaster with heavy string gauge and a Tube Screamer pedal",
+  "srv-tone-on-helix": "a well-worn double-cutaway electric guitar with heavy strings and a small green overdrive pedal, unbranded",
   "the-edge-delay-settings": "a guitar pedalboard with multiple delay pedals in ethereal blue lighting",
   "worship-guitar-tone-helix": "a worship guitarist's pedalboard with ambient effects on a church stage",
-  "acdc-rhythm-tone-recipe": "a Gibson SG leaning against a Marshall amplifier stack",
+  "acdc-rhythm-tone-recipe": "a double-cutaway solidbody electric guitar with two humbuckers leaning against a full amplifier stack, unbranded",
   "shoegaze-wall-of-sound-recipe": "a massive pedalboard covered in reverb and fuzz pedals with haze",
   "signal-chain-order-guide": "guitar effects pedals arranged in a signal chain on a pedalboard",
   "overdrive-vs-distortion-vs-fuzz": "three guitar drive pedals side by side showing different gain types",
   "complete-guide-guitar-amp-types": "four different guitar amplifier types arranged together in a studio",
-  "solid-state-amps-2026": "a Roland JC-120 Jazz Chorus combo amplifier and Boss Katana combo, two solid-state amps side by side on a clean white surface",
-  "what-a-beautiful-name-guitar-tone-helix": "a hollowbody electric guitar running into a Line 6 Helix on a church stage, warm amber light and ambient haze",
-  "september-volunteer-worship-guitarist-starter": "a butterscotch Telecaster leaning against a small combo amp on a quiet church stage, one cable, soft morning light through a window",
+  "solid-state-amps-2026": "two solid-state combo amplifiers side by side on a clean white surface, unbranded, control panels facing the camera",
+  "what-a-beautiful-name-guitar-tone-helix": "a hollowbody electric guitar running into an unbranded floor multi-effects unit on a church stage, warm amber light and ambient haze",
+  "september-volunteer-worship-guitarist-starter": "a butterscotch slab-body electric guitar leaning against a small combo amp on a quiet church stage, one cable, soft morning light through a window, unbranded",
   "alnico-blue-vs-greenback-ac30-worship": "two Celestion guitar speakers inside an open Vox AC30 cabinet, one blue alnico speaker and one green-magnet Greenback, warm workshop light",
   // Auto-derived subject from this title trips the provider's sensitivity
   // filter (the "Axl" token reads as a real person). Describe the scene instead.
@@ -164,31 +164,39 @@ const SUBJECT_OVERRIDES: Record<string, string> = {
  * A diffusion model renders nouns, not claims. Order matters: the first tag
  * a post carries that appears here wins, so put physical objects above
  * abstractions.
+ *
+ * NEVER NAME A REAL PRODUCT HERE. An earlier pass used "a Line 6 Helix floor
+ * modeler" and "a Neural DSP Quad Cortex", which reads to the model as an
+ * instruction to counterfeit hardware it has never seen: it invented a
+ * plausible chassis and stamped a garbled logo on it. Our readers own these
+ * units and spot the fake immediately — directly under copy claiming exact
+ * block names and parameter values. Describe the FORM FACTOR instead. There
+ * is then nothing to get wrong.
  */
 const TAG_SUBJECTS: Array<[RegExp, string]> = [
-  [/^frfr$/, "a black powered FRFR wedge monitor on a stage floor beside a floor modeler"],
-  [/^hx-stomp$/, "a Line 6 HX Stomp compact modeler on a small pedalboard, patch cables attached"],
-  [/^helix$/, "a Line 6 Helix floor modeler with its scribble strips lit and an expression pedal"],
-  [/^quad-cortex$/, "a Neural DSP Quad Cortex modeler, its touchscreen lit, on a dark pedalboard"],
-  [/^(tonex|kemper|fractal|axe-fx)$/, "a rackmount amp modeler with its front-panel display lit"],
-  [/^katana$/, "a Boss Katana combo amplifier with its control panel facing the camera"],
-  [/^(tube-amp|amp-settings|amps?)$/, "a tube amplifier head on a 4x12 cabinet, control panel lit"],
-  [/^(overdrive|drive|fuzz|distortion)$/, "an overdrive pedal on a pedalboard, knobs and footswitch in focus"],
-  [/^(delay|echo)$/, "a delay pedal on a pedalboard with patch cables running out of frame"],
-  [/^(reverb|ambient|shimmer)$/, "a reverb pedal on a pedalboard, its indicator LED lit"],
-  [/^(compressor|comp)$/, "a compressor pedal on a pedalboard beside a guitar cable"],
-  [/^(eq|equali[sz]er)$/, "a graphic EQ pedal with its faders set in a curve"],
-  [/^(cab|cabinet|speakers?|ir|impulse-response)$/, "a 4x12 guitar cabinet with a dynamic microphone on a stand in front of the grille"],
-  [/^(mic|microphone|recording)$/, "a dynamic microphone on a boom stand aimed at a guitar speaker cabinet"],
-  [/^(pedalboard|board)$/, "a fully wired pedalboard photographed from above"],
-  [/^(strat|stratocaster)$/, "a Fender Stratocaster leaning against an amplifier"],
-  [/^(les-paul|lp)$/, "a Gibson Les Paul leaning against an amplifier"],
-  [/^(telecaster|tele)$/, "a Fender Telecaster leaning against an amplifier"],
+  [/^frfr$/, "an unbranded black powered wedge monitor on a stage floor beside a floor multi-effects unit"],
+  [/^hx-stomp$/, "a small unbranded multi-effects unit on a compact pedalboard, patch cables attached"],
+  [/^helix$/, "an unbranded floor multi-effects unit, a row of footswitches and an expression pedal, small displays lit"],
+  [/^quad-cortex$/, "an unbranded tabletop modeler with a lit touchscreen on a dark pedalboard"],
+  [/^(tonex|kemper|fractal|axe-fx)$/, "an unbranded rackmount processor with a lit front-panel display"],
+  [/^katana$/, "an unbranded solid-state combo amplifier, control panel facing the camera"],
+  [/^(tube-amp|amp-settings|amps?)$/, "an unbranded tube amplifier head on a 4x12 cabinet, control panel lit, no lettering"],
+  [/^(overdrive|drive|fuzz|distortion)$/, "a small unbranded overdrive pedal on a pedalboard, knobs and footswitch in focus"],
+  [/^(delay|echo)$/, "a small unbranded delay pedal on a pedalboard with patch cables running out of frame"],
+  [/^(reverb|ambient|shimmer)$/, "a small unbranded reverb pedal on a pedalboard, indicator LED lit"],
+  [/^(compressor|comp)$/, "a small unbranded compressor pedal on a pedalboard beside a coiled guitar cable"],
+  [/^(eq|equali[sz]er)$/, "an unbranded graphic EQ pedal, faders set in a curve"],
+  [/^(cab|cabinet|speakers?|ir|impulse-response)$/, "a 4x12 guitar cabinet, unbranded grille cloth, a dynamic microphone on a stand in front of it"],
+  [/^(mic|microphone|recording)$/, "a dynamic microphone on a boom stand aimed at a speaker cabinet grille"],
+  [/^(pedalboard|board)$/, "a fully wired pedalboard photographed from above, unbranded enclosures"],
+  [/^(strat|stratocaster)$/, "a double-cutaway electric guitar with three single-coil pickups, leaning against an amplifier"],
+  [/^(les-paul|lp)$/, "a single-cutaway electric guitar with two humbuckers, leaning against an amplifier"],
+  [/^(telecaster|tele)$/, "a slab-body electric guitar with a bridge plate and two single-coil pickups"],
   [/^(pickups?|humbucker|single-coil|p90)$/, "a close view of electric guitar pickups under the strings"],
   [/^(nut|tuners?|floyd-rose|tremolo|setup)$/, "a guitar headstock and nut on a workbench beside luthier tools"],
   [/^worship$/, "a guitar rig set up on a church stage before a service"],
-  [/^(modeler|modelers|patch|preset)$/, "a floor modeler on a pedalboard with its display lit"],
-  [/^(signal-chain|routing|gain-staging)$/, "a pedalboard photographed from above with patch cables tracing the signal path"],
+  [/^(modeler|modelers|patch|preset)$/, "an unbranded floor multi-effects unit on a pedalboard, display lit"],
+  [/^(signal-chain|routing|gain-staging)$/, "a pedalboard photographed from above, patch cables tracing the signal path"],
 ];
 
 /** Fallback per category when no tag resolves — still a noun, never a claim. */
@@ -445,7 +453,16 @@ async function main() {
     );
 
     // Fill the template
-    const prompt = mood.prompt_template.replace(/SUBJECT_PLACEHOLDER/g, subject);
+    // Global anti-counterfeit clause. Garbled lettering on a faked chassis
+    // is the single clearest "this is AI" tell, and the one our readers are
+    // best equipped to spot. Nothing in frame should claim to be a product.
+    const NO_BRANDING =
+      " All equipment is generic and unbranded: no logos, no brand marks, no " +
+      "model names, and no readable text of any kind on any device, panel or " +
+      "enclosure.";
+    const prompt =
+      mood.prompt_template.replace(/SUBJECT_PLACEHOLDER/g, subject) +
+      NO_BRANDING;
 
     // Pick the Replicate model (only used when provider=replicate)
     const model = modelOverride ?? DEFAULT_MODEL;
