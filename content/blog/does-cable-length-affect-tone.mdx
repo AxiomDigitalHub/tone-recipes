@@ -1,10 +1,12 @@
 ---
-title: Does Cable Length Actually Affect Tone? We Measured It
+title: Does Cable Length Actually Affect Tone? We Ran the Numbers
+seo_title: 'Does Cable Length Affect Tone? The Capacitance Math'
 description: >-
-  Guitar cables affect your tone through capacitance — but how much? We ran the
-  numbers on short, medium, and long cables and found out when it actually
-  matters.
+  Cable capacitance does not roll off your treble like a tone control. It moves
+  your pickup's resonant peak down the spectrum. Here is the actual mechanism,
+  the numbers, and when it matters.
 date: '2026-04-03'
+updated: '2026-08-22'
 author: Viktor Kessler
 author_slug: viktor-kessler
 category: gear-lab
@@ -15,18 +17,78 @@ tags:
   - signal-chain
   - buffers
   - capacitance
+takeaways:
+  - >-
+    A pickup is an inductor, not a resistor, so the cable does not form a simple
+    treble rolloff with it. The two form a resonant circuit, and adding cable
+    moves the pickup's resonant peak down in frequency.
+  - >-
+    Going from a 10-foot to a 30-foot standard cable moves a Strat single-coil's
+    peak from roughly 5.1 kHz to roughly 3.2 kHz. That is close to a major sixth
+    and it is the change people hear.
+  - >-
+    Capacitance works on the square root, so quadrupling it halves the peak
+    frequency. Doubling cable length only moves the peak down by about a fifth,
+    which is why 15 feet and 20 feet sound so similar.
+  - >-
+    Above the peak the rolloff is second-order at about 12 dB per octave, twice
+    as steep as the simple filter model predicts, which is why long cables lose
+    air rather than just sounding a little softer.
+  - >-
+    A buffer at the front fixes the cable and also freezes the peak in place. If
+    a buffered board makes a favorite guitar sound different, that is the
+    mechanism, and it is not a fault.
+faq:
+  - q: Does an expensive cable sound better than a cheap one?
+    a: >-
+      For tone purposes the variable is capacitance per foot, not price. Some
+      expensive cables publish genuinely low capacitance figures, which does
+      matter over long runs. Others spend the money on connectors, which matters
+      for longevity rather than frequency response. Check the pF per foot spec
+      when you are comparing.
+  - q: Does cable length affect hum and noise?
+    a: >-
+      Yes, and separately from tone. A longer cable is a longer antenna, so it
+      collects more electromagnetic interference, and shielding quality matters
+      more as length grows. This is a different mechanism from capacitance and
+      both are worth considering on a long run.
+  - q: Can I use two short cables instead of one long one?
+    a: >-
+      Yes. Capacitance is roughly additive, so two 15-foot cables load your
+      pickup about the same as one 30-foot cable of the same spec. The extra
+      connector junction adds a small amount of series resistance that is not
+      audible.
+  - q: Do patch cables between pedals matter?
+    a: >-
+      Not in practice. A 6-inch patch cable at 30 pF per foot adds about 15 pF,
+      which moves a resonant peak sitting near 4 kHz by well under one percent.
+      The exception is a board with a dozen true-bypass pedals all switched off,
+      where the patch cables sum into something measurable.
+  - q: Do wireless systems have the same problem?
+    a: >-
+      No. A wireless transmitter presents a low-impedance input to your guitar,
+      so the capacitance mechanism does not apply. Wireless units have their own
+      frequency response and companding characteristics, but cable capacitance
+      is not among them.
+  - q: Why does my guitar sound different through a buffered board?
+    a: >-
+      Because the buffer sets your pickup's load and holds it there. Without one,
+      your cable length and pedal chain were part of your tone, moving the
+      resonant peak around. A buffer fixes the peak at wherever its input
+      impedance puts it, usually 1M ohm, which is higher and therefore brighter
+      than most players are used to.
 readingTime: 9
 image: /images/blog/does-cable-length-affect-tone.jpg
 image_alt: >-
-  a composition illustrating "Does Cable Length Actually Affect Tone? We
-  Measured It"
+  A coiled guitar cable and a straight instrument cable on a workbench beside a
+  capacitance meter and an electric guitar
 ---
 
-> **Start Here:** Cable length affects tone through a measurable physical mechanism called capacitance. Longer cables roll off high frequencies. The effect is real, but the degree to which it matters depends on your pickups, your pedal chain, and how long your cable actually is. This post covers the physics, the measurements, and the practical fix.
+> **Start Here:** Cable capacitance does not work like a tone knob. Your pickup is an inductor, and the cable's capacitance forms a resonant circuit with it, so adding cable moves the pickup's resonant peak down the spectrum rather than shaving off the top. Going from 10 feet to 30 feet moves a Strat single-coil's peak from about 5.1 kHz to about 3.2 kHz. A buffer at the front of the chain removes the effect entirely.
 
 Cable length affects your tone. That statement is true. It is also, on its own, nearly useless without the numbers behind it. "Affects tone" is what forum debates are made of. This post is about what actually happens, how much it matters, and when you should care.
 
-The short version: a 30-foot cable can roll off 3-4dB of high-frequency content compared to a 10-foot cable, the effect is most pronounced with single-coil pickups, and a buffer pedal eliminates most of it entirely. If you want to understand why, read on.
+The short version: a 30-foot standard cable moves a single-coil's resonant peak down by nearly two kilohertz compared to a 10-foot cable, which costs you around 5 dB at 6 kHz and considerably more above that. The effect is largest on single-coils, it scales with total capacitance rather than length, and a buffer eliminates it. The rest of this is why.
 
 ---
 
@@ -34,7 +96,7 @@ The short version: a 30-foot cable can roll off 3-4dB of high-frequency content 
 
 Yes. Unambiguously yes. But the magnitude of the change is what's worth measuring.
 
-A guitar cable is not just a wire. Electrically, it behaves as a low-pass RC filter: a resistor-capacitor circuit that progressively attenuates high frequencies as capacitance increases. Cable capacitance is a fixed physical property, measured in picofarads per foot (pF/ft). Most standard instrument cables fall somewhere between 20 and 50 pF/ft depending on construction.
+A guitar cable is not just a wire. It has capacitance, a fixed physical property measured in picofarads per foot (pF/ft), and most standard instrument cables fall between 20 and 50 pF/ft depending on construction. That capacitance sits across your signal, and what it does next depends entirely on what is driving it.
 
 A passive guitar pickup is a high-impedance source. Its DC resistance is only one piece of the story — pickups are inductive coils, so their impedance rises with frequency. At audio frequencies the effective impedance is several times the DC resistance.
 
@@ -49,23 +111,39 @@ The practical result: longer cables sound darker than shorter ones. Not dramatic
 
 ## What's the Science Behind Cable Capacitance?
 
-The cutoff frequency of a simple RC low-pass filter is:
+Here is where most explanations of this topic, including an earlier version of this one, take a wrong turn.
 
-**f = 1 / (2 x pi x R x C)**
+The tempting model is a simple RC low-pass filter, where you plug your pickup's DC resistance in as R and your cable capacitance in as C and read off a cutoff frequency. Do that with a 10k ohm pickup and 300 pF and you get a cutoff around 53 kHz, which would mean cable length is inaudible and this whole article is unnecessary.
 
-Where R is the source impedance (your pickup) and C is total cable capacitance.
+That model is wrong, and it is wrong for a specific reason: **a pickup is not a resistor. It is an inductor.**
 
-Run the numbers with a typical Stratocaster single-coil at roughly 10k ohm output impedance:
+A coil of several thousand turns of wire has inductance, typically 2 to 3 henries for a single-coil and 4 to 8 for a humbucker. An inductor and a capacitor together do not make a gentle rolloff. They make a **resonant circuit**, with a peak, and the peak frequency falls as the square root of the inductance times the capacitance rises.
 
-- **10-foot cable at 30 pF/ft:** Total capacitance = 300 pF. Cutoff frequency is around 53 kHz. Well above the audible range.
-- **20-foot cable at 30 pF/ft:** Total capacitance = 600 pF. Cutoff frequency drops to around 26 kHz. Still above audible, but the rolloff slope is now affecting content in the upper treble range.
-- **30-foot cable at 30 pF/ft:** Total capacitance = 900 pF. Cutoff frequency approaches 18 kHz. Rolloff in the 8-15 kHz range becomes measurable.
+So the question is not "where does the treble start rolling off." It is "where does the peak sit," because everything above the peak drops away at about 12 dB per octave, which is twice as steep as the simple filter model predicts.
 
-The filter math is clean. The reality is messier because pickup resonance interacts with cable capacitance in a way that's not purely linear, but the directional effect is consistent: more cable, more capacitance, more high-frequency attenuation.
+### Where the Peak Actually Lands
 
-What the numbers above don't fully capture is that the resonant peak of the pickup also shifts as capacitance changes. With a short cable, a Strat single-coil might resonate at around 8-10 kHz, which is partly responsible for that glassy "quack." Add a longer cable, and that resonant peak shifts down toward 5-7 kHz and becomes less pronounced. The high-end character changes before the absolute frequency response does.
+These are calculated from typical published inductance figures, with about 100 pF added for the guitar's own wiring and pots on top of the cable.
 
----
+| Cable | Total capacitance | Strat single-coil (2.4 H) | PAF humbucker (4.5 H) |
+|---|---|---|---|
+| 10 ft at 30 pF/ft | about 400 pF | about 5.1 kHz | about 3.8 kHz |
+| 20 ft at 30 pF/ft | about 700 pF | about 3.9 kHz | about 2.8 kHz |
+| 30 ft at 30 pF/ft | about 1000 pF | about 3.2 kHz | about 2.4 kHz |
+| 30 ft of cheap coiled cable at 70 pF/ft | about 2200 pF | about 2.2 kHz | about 1.6 kHz |
+| 30 ft of low-capacitance cable at 15 pF/ft | about 550 pF | about 4.4 kHz | about 3.3 kHz |
+
+Read the single-coil column. Going from a 10-foot cable to a 30-foot cable moves the peak from 5.1 kHz to 3.2 kHz. That is close to a major sixth, and it lands right in the range your ear is most sensitive to. This is the change people are describing when they say a long cable sounds darker. They are not losing 15 kHz content. They are moving the pickup's fingerprint.
+
+The square-root relationship is the part worth remembering, because it explains something that confuses people constantly. **Doubling your cable length only moves the peak down by a factor of about 1.4, roughly a fifth.** Quadrupling it halves the frequency. That is why 15 feet and 20 feet genuinely do sound nearly identical, and why the jump from 10 feet to a 30-foot coiled cable is not subtle at all.
+
+### Why This Is a Pickup Property, Not a Cable Property
+
+The peak frequency depends on the pickup's inductance as much as it does on your cable. Which means the same cable does different amounts of damage depending on what guitar is plugged into it, and a pickup with more inductance starts lower and has less room to give.
+
+That is also why DC resistance is useless for predicting any of this, since resistance and inductance are separate properties that only correlate loosely. [What DC resistance actually measures](/blog/pickup-dc-resistance-what-it-actually-measures) covers why the number on the spec sheet cannot tell you where your peak sits.
+
+One more variable that belongs here. Your volume and tone pots load the coil resistively, and that damping sets how tall and sharp the peak is rather than where it sits. 500k pots damp less than 250k pots, which is most of the reason humbucker guitars ship with 500k and Fenders ship with 250k. Capacitance moves the peak. Resistance flattens it.
 
 ## At What Length Does the Effect Become Audible?
 
@@ -73,27 +151,28 @@ This is the right question, and it depends on two variables: your pickup type an
 
 **With passive single-coil pickups (highest source impedance):**
 
-The effect starts becoming measurable at around 20 feet and clearly audible in a direct comparison at 30 feet. The primary change is a softening of the upper treble and a slight shift in the pickup's resonant peak. Players often describe this as "warmer" without realizing it's a frequency response change, not a quality improvement.
+The effect starts becoming measurable at around 20 feet and is clearly audible in a direct comparison at 30 feet. The primary change is the resonant peak moving down, taking the top edge of the pickup's character with it. Players describe this as the guitar sounding rounder or further away, and it is a frequency response change rather than an improvement. It is also reversible for about fifty dollars, which is the useful part.
 
 **With passive humbuckers (lower source impedance, lower resonant frequency):**
 
-Humbuckers already have a darker, thicker sound profile. Their resonant peaks tend to sit lower (around 3-5 kHz vs. 8-10 kHz for single-coils). The cable capacitance effect is still present, but you're starting from a different place. At 30 feet, the audible difference vs. a 10-foot cable is noticeably smaller.
+Humbuckers have more inductance, typically 4 to 8 henries against 2 to 3 for a single-coil, so their peaks start lower. A PAF-style humbucker sits around 3.8 kHz on a short cable against about 5.1 kHz for a Strat pickup. Because the relationship is a square root, the humbucker loses a similar ratio but from a lower starting point, so the same 30-foot cable costs it about 1.4 kHz where the single-coil loses about 1.9 kHz. The change is real on both. It is more obvious on the single-coil because the peak was doing more of the work.
 
 **With active pickups (buffered output, very low source impedance):**
 
 The cable capacitance effect is largely irrelevant. Active pickups include an internal preamp that presents a low-impedance output to the cable. Low source impedance plus capacitive cable does almost nothing. This is part of why EMG-equipped guitars sound consistent regardless of cable length.
 
-### Measured Frequency Response: Short vs. Medium vs. Long Cable
+### What the Change Looks Like, Length by Length
 
-The table below reflects approximate real-world measurements using a passive single-coil pickup (8.5k ohm output impedance) at standard instrument cable capacitance (30 pF/ft). Values represent approximate dB attenuation relative to a direct connection.
+The right way to read the change is by where the peak went and what happens above it, not as a flat percentage of treble lost. These figures are derived from the resonance calculation above for a 2.4 H single-coil at 30 pF per foot, not from F&K measurements.
 
-| Cable Length | At 5 kHz | At 10 kHz | At 15 kHz | Audible Difference |
-|---|---|---|---|---|
-| 10 feet | ~0 dB | ~0.5 dB | ~1.5 dB | Negligible |
-| 20 feet | ~0.2 dB | ~1.5 dB | ~3 dB | Subtle; noticeable in A/B |
-| 30+ feet | ~0.5 dB | ~3 dB | ~5 dB | Clearly audible; tone shifts warmer |
+| Cable length | Peak lands near | Relative to 10 ft, at 6 kHz | What you notice |
+|---|---|---|---|
+| 10 feet | about 5.1 kHz | reference | The pickup as designed |
+| 20 feet | about 3.9 kHz | roughly 3 dB down | Subtle. Clear in a direct comparison, easy to miss otherwise |
+| 30 feet | about 3.2 kHz | roughly 5 to 6 dB down | Obvious. The pick attack loses its top edge |
+| 30 feet of coiled cable | about 2.2 kHz | roughly 10 dB down | A different guitar |
 
-These numbers assume cable capacitance around 30 pF/ft. Higher-capacitance cables (cheap coiled cables can hit 60-80 pF/ft) make the effect significantly worse. Lower-capacitance premium cables (some spec around 12-15 pF/ft) reduce it.
+The last row is the one worth internalizing. Cheap coiled cables run 60 to 80 pF per foot, so a 30-foot coiled cable can load your pickup more than 60 feet of decent straight cable would. Length is not the variable. Total capacitance is, and a bad cable spends it faster.
 
 ---
 
@@ -101,7 +180,9 @@ These numbers assume cable capacitance around 30 pF/ft. Higher-capacitance cable
 
 A buffer is a unity-gain amplifier. It takes a high-impedance input signal and converts it to a low-impedance output. When a buffer sits at the beginning of your signal chain, the cable between the buffer and your next destination is being driven by a low-impedance source. Low source impedance plus cable capacitance produces a cutoff frequency so high that it's irrelevant.
 
-Practically: a standard 10k ohm single-coil pickup driving 900 pF of cable sees a cutoff interaction in the audible range. The same 900 pF of cable driven by a 100 ohm buffer output has a cutoff frequency well above 1 MHz. The cable might as well not exist, electrically speaking.
+The reason this works is that a buffer output genuinely is resistive, so the simple filter model that fails for a pickup is the correct model here. A 100 ohm buffer output driving 900 pF gives a cutoff well above 1 MHz. Electrically, the cable after the buffer might as well not be there.
+
+There is a consequence worth knowing about. A buffer does not just remove the cable. It **sets your pickup's load and freezes it**, usually at its 1M ohm input impedance, which is a lighter load than most players have been hearing. If you put a buffer at the front of a board and your guitar suddenly sounds brighter or more forward than you remember, nothing is broken. Your resonant peak moved back up to where the pickup was designed to sit, and the cable had been holding it down.
 
 **Where buffers appear in a typical rig:**
 
@@ -121,7 +202,7 @@ Length determines total capacitance, but capacitance per foot varies by cable co
 
 Standard instrument cables typically fall between 25-40 pF/ft. Some cheap cables, particularly coiled types, can measure 60-80 pF/ft. Premium low-capacitance cables (Mogami 2524, Canare GS-6) typically measure around 25-30 pF/ft. Some boutique cables market "ultra-low capacitance" specs at 12-15 pF/ft.
 
-Running the same filter math: a 30-foot run of 70 pF/ft cable carries 2,100 pF total capacitance. A 30-foot run of 15 pF/ft cable carries only 450 pF. That's nearly a 5x difference in capacitance from the same length. The low-capacitance cable at 30 feet behaves closer to a standard cable at 10 feet.
+Run that through the resonance calculation: a 30-foot run of 70 pF/ft cable carries 2,100 pF of cable capacitance. A 30-foot run of 15 pF/ft cable carries only 450 pF. That's nearly a 5x difference in capacitance from the same length. The low-capacitance cable at 30 feet behaves closer to a standard cable at 10 feet.
 
 Cable quality matters most when:
 
@@ -151,12 +232,14 @@ Switching from a 40 pF/ft cable to a 15 pF/ft cable effectively halves your capa
 
 **Option 3: Treble compensation via EQ**
 
-If you're already running a long cable and noticing softness in the upper registers, a small treble boost can partially compensate. Note that this is corrective, not preventive. You're boosting treble that shouldn't have rolled off in the first place, and you'll also boost any noise in that range.
+If you are already running a long cable and the top edge has gone soft, a small boost can partially compensate. Aim it where the peak used to be rather than at the very top of the spectrum, because that is what you lost. A shelf at 10 kHz will boost hiss and give you back very little of the pick attack. A bell around 5 kHz gets closer to the actual shape of the problem.
+
+It is still corrective rather than preventive, and it cannot restore the resonance itself. A boost adds level at a frequency. It does not put the peak back where the pickup wanted it.
 
 | Setting | Control | Position | Notes |
 |---|---|---|---|
 | Amp treble (compensating for long cable) | Treble | About 2-3 o'clock | Dial in relative to your normal position |
-| EQ high-shelf (compensating for long cable) | High shelf | +2 to +3 dB | Center frequency around 8-10 kHz |
+| EQ peaking band (compensating for long cable) | Bell, moderate Q | +2 to +3 dB | Centered around 5 kHz, where the peak used to be |
 | Buffer output level | Volume/Trim | Around noon | Unity gain is the target; no boost needed |
 
 ---
@@ -178,30 +261,6 @@ The case where longer cables are unavoidable:
 - Studio setups with amp in isolation rooms
 
 If you regularly run 20 feet or more, use a buffer first in your chain. The physics is not ambiguous on this point.
-
----
-
-## FAQ
-
-### Does an expensive cable sound better than a cheap one?
-
-For tone preservation purposes, the relevant variable is capacitance per foot, not price. Some expensive cables have lower capacitance specs, which does matter. Others have high-quality connectors that matter more for longevity than tone. Check the pF/ft spec when evaluating cables.
-
-### Does cable length affect hum and noise?
-
-Yes, separately from tone. Longer cables pick up more electromagnetic interference. Shielding quality becomes more relevant at longer lengths. This is a different issue from capacitance, and both are worth considering.
-
-### Can I use two short cables instead of one long one?
-
-Yes, and the total capacitance is roughly additive. Two 15-foot cables carry approximately the same capacitance load as one 30-foot cable of the same spec. The connector junction adds minor resistance but it is negligible in practice.
-
-### Does this apply to patch cables between pedals?
-
-The lengths involved (6-12 inches typically) produce capacitance values so small they are not a practical concern. A 6-inch patch cable at 30 pF/ft adds 15 pF total. At a 10k ohm source impedance, that moves the cutoff frequency by a fraction of a percent. This is not a variable worth optimizing.
-
-### Do wireless systems have the same cable capacitance issue?
-
-No. Wireless transmitters and receivers present low-impedance outputs and inputs. The capacitance mechanism does not apply in the same way. Wireless systems introduce different frequency response characteristics depending on the unit and its compression algorithms, but cable length capacitance is not among them.
 
 ---
 

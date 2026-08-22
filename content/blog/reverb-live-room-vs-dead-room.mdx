@@ -1,10 +1,12 @@
 ---
 title: How to Set Reverb for a Live Room vs. a Dead Room
+seo_title: 'Reverb Settings for Live Rooms vs. Dead Rooms'
 description: >-
   The reverb you set in your bedroom doesn't behave the same way in a reflective
-  church sanctuary. Here's how to calibrate your reverb settings for the room
-  you're actually playing in.
+  sanctuary. Clap once, count the tail, and let the room tell you what your
+  pedal should be doing.
 date: '2026-04-16'
+updated: '2026-08-22'
 author: Nathan Cross
 author_slug: nathan-cross
 category: signal-chain
@@ -17,9 +19,69 @@ tags:
   - ambient
   - strymon
   - room-acoustics
+takeaways:
+  - >-
+    A room's reverb and your pedal's reverb do not add up to a longer tail. The
+    slower of the two sets the length. In a live room your pedal is adding
+    density and level, not time, which is why the mix knob matters more there
+    than the decay knob.
+  - >-
+    Clap once in the empty room and count how long you hear it. Double that
+    number for a rough RT60, and set your pedal decay well underneath it.
+  - >-
+    In a live room, predelay is the most valuable control you have. 50 to 80 ms
+    lets the dry note arrive and register before the room and the pedal start
+    filling in behind it.
+  - >-
+    A full room is a deader room. People absorb sound, so dial in slightly more
+    reverb at an empty soundcheck than sounds right at the time.
+  - >-
+    In-ear monitors put you in a dead room while the congregation sits in a live
+    one. Set reverb for the room, not for what sounds good in your ears.
+faq:
+  - q: Can I use the same reverb preset at every venue?
+    a: >-
+      Not if the rooms differ much acoustically. Build two or three reference
+      presets for dead, medium and live rooms, and pick one at soundcheck.
+      Fifteen seconds of choosing beats fighting the room for a whole set.
+  - q: Does the reverb algorithm matter in a live room?
+    a: >-
+      Yes, and more than the decay setting does. Hall reverb is the most
+      immersive choice in a dead room but it blends indistinguishably with a
+      live room's own reverberation, so you get wash without character. Spring
+      or plate gives you tonal contrast against the room instead of competing
+      with it.
+  - q: How do I estimate a room's reverb time without any gear?
+    a: >-
+      Stand in the middle of the empty room and clap once, hard. Count how long
+      you can still hear the tail. Roughly double that to estimate the room's
+      RT60, since the audible portion is around half of the full decay. Under
+      0.4 seconds is a treated room, 0.8 to 1.5 seconds is live, and anything
+      past that is a stone sanctuary.
+  - q: Why does my reverb wash out once the congregation arrives?
+    a: >-
+      It does the opposite, and that surprises people. Bodies absorb sound, so a
+      full room is acoustically deader than an empty one. If your reverb sounded
+      right at an empty soundcheck it will sound slightly thin once people are
+      in. Dial in a little more than feels correct in the empty room.
+  - q: Does adding pedal reverb in a live room make the tail longer?
+    a: >-
+      Barely. When two decays overlap, the slower one sets how long you hear the
+      combined tail. A 1.5-second pedal decay inside a 3-second room adds almost
+      nothing to the length. It adds level and density at the front of the tail,
+      which is why the mix control is doing the damage people blame on the decay
+      control.
+  - q: How should I set reverb for outdoor performances?
+    a: >-
+      Outdoors is close to a perfectly dead room with no reflections at all, so
+      use generous settings near the dead-room column and expect it to feel drier
+      and more immediate than any indoor setting. Predelay matters less outdoors
+      because there is no room ambience for the note to sit against.
 readingTime: 8
 image: /images/blog/reverb-live-room-vs-dead-room.jpg
-image_alt: a composition illustrating "How to Set Reverb for a Live Room vs. a Dead Room"
+image_alt: >-
+  An ambient reverb pedal on a pedalboard at the front of a church sanctuary,
+  with rows of empty seats and a high reflective ceiling behind it
 ---
 
 > **Quick answer:** In a live, reflective room, your pedal reverb stacks on top of the room's natural reverberation. The result is much more reverb than you dialed in. Cut your reverb mix by 30–50% from your bedroom settings, shorten the decay, and raise the pre-delay. In a dead, treated room, your pedal reverb has to do all the work alone, so you can use longer decays and more mix than you think.
@@ -32,6 +94,8 @@ image_alt: a composition illustrating "How to Set Reverb for a Live Room vs. a D
 | High-cut (reverb tail) | 5–6kHz | 4–5kHz | 3–4kHz (darker, less competition with room) |
 | Low-cut (reverb tail) | 200Hz | 250Hz | 300Hz |
 
+One note on reading that table. The decay figures are what you type into the unit, and the tail you actually hear is shorter than the number, by roughly half when you are playing alone and closer to a third once the band is in. That gap is worked through in [why a published decay is not the tail you hear](/blog/reverb-decay-time-units-pedal-vs-plugin), and it matters here because it means the 3-second dead-room setting is delivering about a second of audible tail on stage. If that sounds short for an ambient part, it is, and the answer is more decay rather than more mix.
+
 ---
 
 ## The Problem Nobody Warns You About
@@ -43,6 +107,39 @@ Walk into a sanctuary with those same settings and you're now adding your pedal 
 I've been playing at the same church for seven years. The sanctuary seats 1,200 and has the acoustic profile of a slightly treated room (not completely live, but not dead either). It took me two years of rehearsals and services before I stopped fighting the room and started calibrating to it. The difference in how my tone sits in the mix (how much the congregation hears the guitar versus an ambient wash) was significant.
 
 The settings aren't the same at every venue. But the principle is consistent: know what kind of room you're walking into and adjust before you play, not during the set.
+
+---
+
+## The Room and Your Pedal Do Not Add Up
+
+This is the part I misunderstood for years, and getting it right changes which knob you reach for.
+
+When you put pedal reverb into a reflective room, the two tails overlap. It feels like they should add together into one longer tail, and that is how everybody describes it, including me at the top of this post. What actually happens is different in a useful way.
+
+Two decaying tails sum, and **the slower one decides how long you hear the result.** A 1.5-second pedal decay inside a room with a 3-second natural decay does almost nothing to the length, because the room is still going long after your pedal has finished. What your pedal contributes is level and density at the *front* of the tail, in the first half second or so, before the room's own reflections have built up.
+
+So in a live room, the thing making your guitar sound washed out is usually not your decay setting. It is your mix. You are adding a dense wash on top of a room that was already providing the tail for free.
+
+Which reorders the whole adjustment. In a live room, **pull the mix first, predelay second, decay third.** Most players do it in exactly the reverse order and then wonder why shortening the decay barely helped.
+
+## Clap Once and Count
+
+You cannot set any of this without knowing what the room is doing, and you do not need a measurement rig to find out.
+
+Stand roughly in the middle of the empty room. Clap once, hard, and count how long you can still hear the tail before it disappears into the room noise.
+
+That number is not the room's RT60. It is the audible portion, which runs around half of the full decay for the same reason [a published reverb decay is longer than the tail you hear](/blog/reverb-decay-time-units-pedal-vs-plugin). So double what you counted for a rough RT60, and work from there.
+
+| What you hear after the clap | Rough room RT60 | Room class | Pedal decay starting point |
+|---|---|---|---|
+| Under 0.4 s | Under about 1.0 s | Dead or treated | 2.5 to 4 s |
+| 0.4 to 0.8 s | About 1.0 to 2.0 s | Medium | 1.5 to 2.5 s |
+| 0.8 to 1.5 s | About 2.0 to 3.5 s | Live | 0.8 to 1.5 s |
+| Over 1.5 s | Over about 3.5 s | Stone sanctuary | 0.6 to 1.0 s, or none at all |
+
+Two things about that last row. "Or none at all" is a real option and I use it more than I used to. In a genuinely reverberant sanctuary, a dry guitar with a little predelay-only slap will sit better than anything your pedal can produce, because the room is already doing the job with better early reflections than any algorithm.
+
+And do the clap test empty, then remember that the room will get deader when it fills.
 
 ---
 
@@ -120,22 +217,8 @@ This is the hardest part of live reverb management and the part I got wrong for 
 
 ---
 
-## FAQ
-
-**Can I use the same reverb preset at every venue?**
-Not if the venues have significantly different acoustic properties. What you can do is create two or three reference presets (dead room, medium room, live room) and choose the appropriate one at soundcheck. Fifteen seconds of adjustment prevents the reverb from fighting the room all night.
-
-**Does the type of reverb algorithm matter (hall, plate, spring, room)?**
-Yes, specifically in live rooms. Hall reverb is the most immersive-sounding algorithm in a dead room but blends indistinguishably with a live room's natural reverb. Use spring or plate in live rooms for tonal contrast.
-
-**My reverb sounds perfect during soundcheck but washes out once the congregation fills in.**
-People absorb sound. A full room is acoustically more dead than an empty one. The same settings that were borderline too much in an empty sanctuary may be appropriate once the room fills. Account for this: if your soundcheck reverb sounds right in an empty room, it will probably be slightly less prominent once the room fills. Dial in a little more reverb during empty-room soundcheck than you think you need.
-
-**How do I set reverb for outdoor performances?**
-Outdoors is essentially a perfectly dead room with no reflections at all, just open air. Use generous reverb settings (close to the dead room column in the table) and expect the sound to feel drier and more immediate than any indoor setting. Pre-delay matters less outdoors because there's no room ambience for the note to blend into.
-
 <SaveThisTone
-  title="Want a ambient clean starting point?"
+  title="Want an ambient clean starting point?"
   description="Pick a recipe close to the tone in this post and tweak from there. Faster than building from a blank patch."
   href="/browse?tag=clean"
   ctaLabel="Browse ambient clean recipes"

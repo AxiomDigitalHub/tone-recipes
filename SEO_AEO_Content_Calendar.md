@@ -5139,3 +5139,171 @@ flagged for rescoping)**, plus today's AD1/Viktor, AD2/Sean, AD3/Carl.
 modeler, an interface, and fifteen minutes with the harness published in
 `modeler-latency-budget-per-block-cost`. When it happens it is a **refresh** of that URL, not a new
 post. **Do not let an automated run fill that table from memory.**
+
+---
+
+## SERP Analysis — 2026-08-22 (Posts Published Today)
+
+### Posts published: pickup-dc-resistance-what-it-actually-measures, reverb-decay-time-units-pedal-vs-plugin, capo-split-two-guitarists-same-song
+
+**Queue state:** drained AD1, AD2, AD3 from the 08-19 run. All three were built for the bylines that
+queue nominated (Viktor, Sean, Carl), and all three were at 0 posts in the trailing 7 days at run
+start. Velocity at run start: Hank 1, Margot 1, Nathan 1, everyone else 0. After run: Viktor 1,
+Sean 1, Carl 1 added. **Nobody is near the 3/week cap.**
+
+> ⚠️ **OPERATIONAL INCIDENT — read before the next run.** Midway through this run, a concurrent
+> image-regeneration routine committed and **pushed** all three of today's in-progress new posts as
+> part of commit `38301b8` ("Regenerate the 18 heroes with de-branded prompts"). The posts went to
+> `origin/main` **before preflight had run on them and before their hero images existed**, under a
+> commit message that does not mention them. Nothing was lost and all three later passed
+> `--strict` cleanly, but this is the mirror image of the hazard the weekly-audit routine already
+> guards against: that routine was told to commit by exact path, and it committed everything in the
+> tree instead. **Action for whoever owns the image routine: make it stage by exact path
+> (`git commit -m msg -- <paths>`), the same rule the recipe routines follow.** Until that lands,
+> assume any file left uncommitted in this repo can be swept into an unrelated commit at any time.
+
+**Post 1 — pickup-dc-resistance-what-it-actually-measures** (target: "pickup dc resistance chart,"
+"is a higher ohm pickup louder," "how to measure pickup output," "8k vs 16k pickup")
+- **Top ranking:** Fralin Pickups' *"What does Resistance mean for pickups?"*, Seymour Duncan's
+  *"Pickup Resistance vs Output,"* two Lollar Pickups blog posts on DC resistance, two Mojotone
+  posts (*"Spec Check"* and *"How to Measure Pickup Resistance"*), Planet Z, TalkBass, Quora.
+- **Gap confirmed, and the SERP is closer to correct than the usual gear-topic SERP — which changes
+  what the post has to do.** Fralin, Duncan, Lollar and Mojotone all already say "higher DCR does
+  not reliably mean louder" and several correctly name turns and wire gauge as the underlying
+  variables. Restating that would have been a commodity post. Absent across the top 5: (1) the
+  **quantified gauge trade** — that 43 AWG hits the same resistance with about 20% fewer turns and
+  therefore about a third less inductance, which turns a qualitative caveat into a number; (2) the
+  **temperature term**, which no result mentions at all, and which at 0.393%/°C produces a ~690 ohm
+  swing on an 8k pickup across a plausible room-temperature range, i.e. larger than the differences
+  people argue about; (3) the **inductance-to-resonant-peak table**, which converts the spec into
+  the thing a player actually hears; (4) the **P-90 versus PAF pair** — same resistance band, up to
+  50% more inductance, half a kilohertz of peak difference, invisible to the meter; (5) the
+  **volume-pot loading correction** (250k in parallel pulls the reading ~3% low), which the two
+  "how to measure" results both omit.
+- **Gate 1 note:** wire resistance-per-foot figures and inductance ranges are **published
+  third-party figures, not F&K measurements, and the post says so in-line.** Resonant-peak
+  frequencies are **calculated** from those inductances against 700 pF, and are labelled as
+  calculated. The ceramic-at-8.5k claim is carried over from the 08-19 R2 refresh.
+- **AI Overview:** very likely present (definitional/comparison class); F&K not cited.
+- Non-commodity gate: **PASS**, but it was the closest call of the three, precisely because the
+  SERP already gets the headline right. The post earns its place on the numbers, not the thesis.
+  **Note for future runs: do not queue a follow-up that re-states "DCR is not output." That claim is
+  now well-served by the SERP and by this post.**
+
+**Post 2 — reverb-decay-time-units-pedal-vs-plugin** (target: "reverb decay time seconds," "rt60 vs
+decay time," "reverb pedal vs plugin decay," "why does my reverb sound shorter")
+- **Top ranking:** the query splits into two disjoint SERPs. One is **room acoustics** — Sweetwater's
+  RT60 glossary entry, Svantek, Larson Davis, Commercial Acoustics, DDS Acoustical, NoiseMeters,
+  Rational Acoustics. The other is **generic plugin-parameter explainers** — Valhalla's *"Reverb 101:
+  Size,"* FabFilter's basic-controls page, MusicRadar, Joey Sturgis Tones, mixinglessons.
+- **Gap confirmed, and the split is the gap.** The acoustics results define RT60 rigorously and never
+  touch a guitar rig; the plugin results name decay and diffusion and never define what the number
+  means. Nothing on the page joins them. Absent across the top 5: (1) the **audible-tail fraction**
+  quantified — roughly 1/2 of RT60 alone and 1/3 in a mix, with a conversion table; (2) the
+  **mix-knob-as-decay-control** result, that dropping mix 50%→10% removes ~0.47 s of audible tail
+  from a 2-second reverb without touching the decay control, which is the post's strongest
+  non-commodity claim and appears nowhere; (3) the **three tiers of decay control** (unlabeled knob /
+  normalized percentage / real seconds) and the warning that only the third tier is comparable —
+  directly useful for preset translation and entirely absent; (4) **damping decoupled from decay**,
+  that RT60 is specified at mid frequencies so a bright tail outlasts a dark one at the same number;
+  (5) the **ear-calibration procedure**, including the instruction to check at both ends of the range
+  because the offset is a curve rather than a factor.
+- **Note on one SERP result:** several of the acoustics pages independently state the ambient-noise
+  mechanism ("raise the noise floor and the reverb time sounds shorter"), which corroborates the
+  post's central premise from the acoustics side. Good sign for the physics, and it is still nobody's
+  guitar-rig advice.
+- **AI Overview:** very likely present; F&K not cited. **Worth a re-check for the same reason
+  flagged on 08-19** — the prose on this SERP is either academic or vague, so the citation slot for a
+  concrete guitar-context answer may be unusually open.
+- Non-commodity gate: **PASS.** Confirmed distinct from the two existing decay posts:
+  `reverb-decay-vs-song-tempo-when-tails-collide` and `subtract-predelay-from-decay-reverb-tail`
+  **both assert "published decay is an RT60 approximation and the audible tail is shorter" in a
+  single clause and neither explains it.** This post is the explanation those two defer to, and both
+  are cross-linked from it.
+
+**Post 3 — capo-split-two-guitarists-same-song** (target: "two guitarists capo different positions,"
+"capo arrangement two guitars," "should both guitarists capo," "worship guitar capo split")
+- **Top ranking:** Reverb's *"Using Capos and Alternate Tunings for Depth with Multiple Guitars,"*
+  Riffninja's *"Capo Secrets With Two Guitars,"* Acoustic Guitar's two-guitar video lesson, Worship
+  Tutorials' capo/key lesson, Guitar Lessons Camberley, MakeMySongBook's capo guide, a Canadian
+  Guitar Forum thread, a Scribd transposition chart.
+- **Gap confirmed, and the top result contains a live error that defines the opening.** The most
+  prominent explanation of the technique gives this worked example: for a song in G, C and D, the
+  capoed player goes to **capo 2 and plays F, Bb and C shapes.** The arithmetic is correct
+  (F+2=G, Bb+2=C, C+2=D) and the advice is unplayable — it hands the second guitarist a barre-chord
+  set at the second fret and throws away the open strings that are the entire reason to use a capo.
+  Absent across the top 5: (1) any **shape-quality filter** at all — the rule that E/A/D/G/C shapes
+  work and F/B/Bb/Eb do not, and the key-by-fret table built from it, which is the post's main
+  non-commodity asset; (2) an **answer to the headline question** — the SERP explicitly declines
+  ("there's no fixed rule about which player should use the capo") where the post gives the rule and
+  its reason (the capo removes the low register and open-position riffs, so it goes on the player who
+  needs neither); (3) the **capoed player has to drop strings**, which is the failure mode that kills
+  the technique on first attempt and which no result mentions; (4) the **two-guitar beating problem**
+  — one capoed guitar sits a few cents sharp against an uncapoed one, and both read in tune on a
+  tuner; (5) **sitting out as a legitimate arrangement choice.**
+- **Gate 7 distinctness — this was the closest call in the queue and was checked explicitly against
+  the existing post before building.** `capo-position-as-a-tone-decision` (Carl) already contains a
+  ~150-word "Two Guitars, Two Capos" section and a single-guitar intonation section. That section
+  asserts the technique and gives one sentence on who takes the capo. It contains **no key table, no
+  shape-quality rule, no string-count guidance, and no treatment of two guitars beating against each
+  other** (its intonation section is about one guitar going sharp with itself, a different failure).
+  The new post owns the arrangement decision, defers to the old post for the capo-placement
+  procedure rather than re-teaching it, and links to it. **Verdict: build, not refresh — but this
+  cluster is now full. A third capo post would be a re-slice. Do not queue one.**
+- **AI Overview:** likely present (how-to class); F&K not cited.
+- **Byline note:** Carl's voice constraints were enforced mechanically at audit — **zero em dashes,
+  zero exclamation points, zero italics, zero signature-phrase uses** across the post.
+
+### Refreshes
+
+Both refreshes are the two posts each new post most directly depends on, and both were chosen off the
+legacy-gap list: **neither had `takeaways:`, frontmatter `faq:`, or `updated:`, and both carried the
+broken generated `image_alt`** (`a composition illustrating "..."`) first flagged on 08-14. Both keep
+their original byline. Refreshes do not count against the velocity cap.
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | does-cable-length-affect-tone | **Gate 1 correction + full AEO backfill.** The post modelled a pickup as a *resistor* and computed an RC cutoff from DC resistance, producing "cutoff around 53 kHz" for a 10-foot cable — a figure that implies cable length is inaudible and that **contradicts the post's own next paragraph**, which correctly says the pickup is inductive and forms a resonant peak. It also placed a Strat single-coil's resonant peak at "8-10 kHz" (true only with essentially zero cable) and its long-cable peak at "5-7 kHz". **Replaced the entire physics section with the LC resonance model**, added a calculated peak table (single-coil 5.1 kHz at 10 ft → 3.2 kHz at 30 ft → 2.2 kHz on a coiled cable; humbucker column alongside), added the square-root relationship (quadrupling capacitance halves the peak — which is *why* 15 ft and 20 ft sound alike), noted the 12 dB/octave second-order slope, and added pot-value damping as the separate variable that sets peak height. Rewrote the "measured frequency response" table as a calculated peak-shift table and **relabelled it as calculated, not measured**. Retargeted the EQ-compensation advice from a 10 kHz shelf to a bell at 5 kHz, where the loss actually is. Added the buffer-freezes-your-peak consequence. Migrated 5 body Q&A to frontmatter and added 1, added 5 takeaways, a real `image_alt`, `updated: 2026-08-22`. Cross-links Post 1. 2,195 → 3,154 words. | It is the post Post 1 leans on hardest for the loading argument, and it was carrying a wrong model with confident numbers attached. Fixing a Gate 1 error on a proven URL beats any new post this run could have added. |
+| R2 | reverb-live-room-vs-dead-room | **AEO backfill + two content-adds.** **Content-add 1 — "The Room and Your Pedal Do Not Add Up":** the post opened by saying room reverb and pedal reverb "pile on top of each other" so a 2-second decay "sounds like four or five." That is the wrong mechanism. When two decays overlap the **slower one sets the audible length**, so a 1.5-second pedal decay inside a 3-second room adds essentially nothing to the tail — it adds level and density at the front. The correction has a practical payload the original lacked: **in a live room, pull mix first, predelay second, decay third**, which is the reverse of what most players do. **Content-add 2 — "Clap Once and Count":** the post twice told readers to "do a quick clap test" and never said how to run one or what to do with the result. Adds the procedure, the doubling rule (audible clap tail ≈ half the RT60, consistent with Post 2), and a four-row table mapping what you hear to a room class and a pedal decay starting point — including "or none at all" for a stone sanctuary. Also flagged that the decay figures in the post's own top table are published values rather than audible tail, cross-linking Post 2. Migrated 4 body Q&A to frontmatter and added 2, added 5 takeaways, a real `image_alt`, `updated: 2026-08-22`, fixed a typo in the CTA title. 1,906 → 2,858 words. | It is Post 2's most-affected downstream post: every decay figure in it is a published number being read as an audible tail, and its central "the tails pile up" framing needed the correction rather than a redate. |
+
+**Preflight:** `validate-mdx.mts --strict` on all 5 files — **clean, zero warnings, zero errors.**
+Two over-length descriptions (209 and 201 chars) were trimmed to 176 and 193 to clear strict. All
+**12 internal links verified to resolve** against the post inventory. Gate 6 sweep found three hits
+for "warm" in Post 1, all three literal temperature ("a warm room", "cool to warm"), none tonal.
+Signature-phrase count across the three new posts: **0.**
+
+**Hero images:** Flux 2 Pro (`--model=black-forest-labs/flux-2-pro`), 5 generations for 3 posts,
+~$0.28. The first pass produced two off-topic heroes because the auto-derived subject fell back to a
+generic pedalboard — the capo post got a pedalboard on a workbench, and the pickup post got a
+guitar body with no meter in frame. **Added `SUBJECT_OVERRIDES` entries in
+`scripts/generate-blog-images.ts` for both slugs and regenerated**; both now match their post and
+their alt text. Moodboards: Viktor → `neon_noir`, Sean → `bedroom_producer`, Carl → `tech_bench`.
+**Standing note: a post whose subject is a technique rather than a device will fall back to a generic
+pedalboard. Check the hero before committing, and add an override rather than accepting it.**
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 0, added 3 — **queue is flat again**, the intended steady state. Bylines are
+> best-fit proposals; the executing run re-checks **both** velocity **and** the never-assign list.
+> **Verify no colliding slug at build time.** Post-run standing: Hank 1, Margot 1, Nathan 1,
+> Viktor 1, Sean 1, Carl 1. **Rick, Jess, Dev, Elena and fk-staff are the bylines at 0.**
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AE1 | modeler-input-impedance-setting-what-to-set-it-to | Your Modeler Has an Input Impedance Setting. Here Is What to Set It To. | "helix input impedance," "modeler input impedance setting," "guitar input impedance 1M," "auto impedance helix" | Sean Nakamura | 4 — Modeler Masterclass | Post 1 and the R1 refresh both land on the same conclusion from opposite directions: **your pickup's resonant peak is set by what loads it, and a modeler's input impedance is that load — exposed as a user-settable parameter that almost nobody touches.** Helix and several other units ship a selectable input impedance with an Auto default, and the SERP for it is manual excerpts and forum guesses. Non-commodity content: what each setting actually does to the resonant peak (calculated, per pickup class), why Auto picks what it picks and when it picks wrong, the specific case where a low setting emulates a vintage fuzz's loading, and a decision table by pickup type and first-block choice. Squarely Gate 10 and Sean's lane. **Confirmed no colliding slug** — `impedance-buffers-fuzz` covers fuzz-specific loading and `buffer-vs-true-bypass-looper` covers bypass, neither treats the modeler parameter. **Gate 7 note: this must stay about the parameter and what to set it to. If it drifts into a general "what is impedance" explainer it becomes a commodity post — drop it.** |
+| AE2 | reverb-diffusion-what-it-does-to-a-guitar-part | Diffusion Is the Reverb Control You Have Never Set | "reverb diffusion setting," "what does diffusion do reverb," "reverb density vs diffusion," "reverb sounds grainy" | Dev Okonkwo | 3 — Signal Chain | Post 2's SERP sweep turned up diffusion in **every** plugin-parameter explainer (FabFilter, MusicRadar, Valhalla, mixinglessons) and in none of them as something you would actually decide. All four define it and move on, and the definitions collapse into the same two adjectives. Distinct content: what low diffusion does to a **guitar part specifically** — staccato and palm-muted playing exposes discrete reflections as a grainy stutter that sustained pads hide completely, which makes diffusion a function of your right hand rather than of the reverb; the diffusion/decay interaction (low diffusion plus long decay is where the metallic ring comes from); and why a reverb that sounds fine on a chord sounds broken on a single-note line. Dev's texture lane, and he is at 0. **Confirmed no colliding slug** — `reverb-types-guide` names diffusion in passing. |
+| AE3 | tuning-two-guitars-to-each-other-not-the-tuner | Two Guitars, Both In Tune, Still Wrong: Tuning to Each Other | "two guitars sound out of tune together," "tuning two acoustic guitars," "guitars in tune but sound bad," "beating between two guitars" | Rick Dalton | 6 — Quick Fixes | Post 3 hit this as a sub-problem and could only give it a paragraph: **two guitars that each read perfectly in tune on a clip-on tuner will still beat against each other**, and the capo case is only one of the causes. The general question has no good answer on the SERP, which is wall-to-wall "how to tune a guitar." Distinct content: the four independent causes (a capo's stretch, intonation set to different saddle positions, string age changing where a string plays sharp, and the fact that a tuner enforces equal temperament per-instrument but nothing enforces agreement between two), why the plain G is the string that exposes it first, the reference-note method for tuning the second guitar to the first instead of to a device, and which guitar should be the reference. Rick's lane and he is at 0. **Byline caution: "your ears don't lie" is one of his two signature phrases and this topic will pull it out of him. Cap it at zero uses — the post argues the point on its own.** |
+
+**Diversity/queue note:** new posts went to Viktor (0→1), Sean (0→1), Carl (0→1); refreshes kept
+Viktor's and Nathan's original bylines and do not count against the cap. **Next run: Rick, Jess, Dev,
+Elena and fk-staff are the bylines at 0, and AE3 is written for Rick with AE2 for Dev.** Cluster
+fan-out queue remaining: volume-pedal-placement/Sean, W2 sidechain-dynamic-eq/Dev, V3
+ambient-headphones-mono/Dev **(still flagged for rescoping)**, plus today's AE1/Sean, AE2/Dev,
+AE3/Rick. **V2 katana-gen3/Jess was flagged on 08-19 as probably a re-slice of the 08-07 S6 post and
+is now dropped from the queue** — it was carried for two runs without being built, which is the
+signal. If the Katana Gen 3 needs coverage it is a refresh of the existing post.
+
+**Human-in-the-loop debt unchanged: one item.** The Y1 measured per-block latency table still needs a
+modeler, an interface, and fifteen minutes with the harness published in
+`modeler-latency-budget-per-block-cost`. When it happens it is a **refresh** of that URL, not a new
+post. **Do not let an automated run fill that table from memory.**

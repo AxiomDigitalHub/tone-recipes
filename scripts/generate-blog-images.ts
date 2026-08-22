@@ -142,6 +142,12 @@ const SUBJECT_OVERRIDES: Record<string, string> = {
   "what-a-beautiful-name-guitar-tone-helix": "a hollowbody electric guitar running into an unbranded floor multi-effects unit on a church stage, warm amber light and ambient haze",
   "september-volunteer-worship-guitarist-starter": "a butterscotch slab-body electric guitar leaning against a small combo amp on a quiet church stage, one cable, soft morning light through a window, unbranded",
   "alnico-blue-vs-greenback-ac30-worship": "two Celestion guitar speakers inside an open Vox AC30 cabinet, one blue alnico speaker and one green-magnet Greenback, warm workshop light",
+  // Auto-derived subjects for these fall back to a generic pedalboard, which
+  // has nothing to do with either topic. Describe the actual scene.
+  "pickup-dc-resistance-what-it-actually-measures":
+    "a digital multimeter with its test probes resting on the output jack of an electric guitar lying on a workbench, an unmounted humbucker pickup and a spool of fine copper wire beside it, unbranded",
+  "capo-split-two-guitarists-same-song":
+    "two acoustic guitars leaning against folding chairs in an empty rehearsal room, one with a capo clamped partway up the neck and the other without, unbranded",
   // Auto-derived subject from this title trips the provider's sensitivity
   // filter (the "Axl" token reads as a real person). Describe the scene instead.
   "ask-axl-ai-guitar-tone-assistant": "a laptop on a desk beside a floor modeler and an electric guitar, the screen showing a chat window with a signal chain diagram of amp and pedal blocks, warm desk lamp light",
