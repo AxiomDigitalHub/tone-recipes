@@ -1,0 +1,207 @@
+---
+title: What DC Resistance Actually Tells You About a Pickup (and What It Doesn't)
+seo_title: 'Pickup DC Resistance: What the Number Really Measures'
+description: >-
+  DC resistance is the number on every pickup spec sheet and the one every forum
+  quotes. It measures wire, not output. Here is what the meter is actually
+  reading and what to look at instead.
+date: '2026-08-22'
+author_slug: viktor-kessler
+category: gear-lab
+tags:
+  - pickups
+  - dc-resistance
+  - inductance
+  - measurement
+  - gear-lab
+  - pickup-output
+takeaways:
+  - >-
+    DC resistance measures the length and gauge of the wire in the coil. It does
+    not measure output, and it does not measure magnetic field strength, which
+    are the two things that decide how hard a pickup hits the front of your rig.
+  - >-
+    Copper resistance rises about 0.39% per degree Celsius, so the same pickup
+    reads roughly 690 ohms higher at 32C than at 10C. That swing is larger than
+    the difference between many pickups people describe as sounding different.
+  - >-
+    Two pickups can read the same resistance and have very different turn
+    counts. Thinner wire has more resistance per foot, so a 43 AWG coil hits the
+    same number with about 20% fewer turns and roughly a third less inductance.
+  - >-
+    Inductance is the number that predicts what you will hear. It sets the
+    resonant peak with your cable capacitance, which is where a pickup's
+    character actually lives.
+  - >-
+    A ceramic-magnet humbucker at 8.5k reads PAF-spec on paper and behaves like
+    a hot pickup at your overdrive, because resistance never sees the magnet.
+faq:
+  - q: Does a higher DC resistance mean a louder pickup?
+    a: >-
+      Not reliably. Resistance rises with both more turns and thinner wire, and
+      only the turns produce output. A pickup wound with 43 AWG can read higher
+      than a 42 AWG pickup while having fewer turns and less output. Within one
+      model line from one maker, resistance tracks output well enough to be
+      useful. Across different pickups it is a coin flip.
+  - q: How do I measure a pickup's DC resistance?
+    a: >-
+      Set a multimeter to the 20k ohm range and touch the probes to the tip and
+      sleeve of the output jack with the guitar unplugged, the selector on the
+      pickup you want, and the volume on 10. The tone control is capacitor
+      coupled so it will not affect a DC reading. Note that the volume pot sits
+      in parallel with the pickup and pulls the reading about 3% low on a 250k
+      pot.
+  - q: What is a normal DC resistance for a guitar pickup?
+    a: >-
+      Vintage-spec single-coils generally land between 5.5k and 6.5k, hotter
+      single-coils between 6.8k and 7.5k, P-90s between 7.5k and 9k, PAF-style
+      humbuckers between 7.5k and 8.5k, and high-output humbuckers between 14k
+      and 17k. These are broad classes, not a ranking of how loud they are.
+  - q: Why did my pickup measure differently the second time?
+    a: >-
+      Almost certainly temperature. Copper gains about 0.39% resistance per
+      degree Celsius, so a guitar that has been under stage lights or in a warm
+      car reads meaningfully higher than one that has been sitting in a cold
+      room. If you are comparing two pickups, measure them in the same room
+      within a few minutes of each other or the comparison is noise.
+  - q: What should I look at instead of DC resistance?
+    a: >-
+      Inductance in henries, and the magnet grade. Inductance scales with the
+      square of the turn count and sets the resonant peak with your cable
+      capacitance, so it predicts brightness and midrange emphasis far better.
+      The magnet sets the field strength and how hard the string is loaded.
+      Neither shows up in a resistance reading.
+  - q: Can I compare DC resistance between a single-coil and a humbucker?
+    a: >-
+      No, and it is the most common misuse of the number. A humbucker's two
+      coils are wired in series so their resistances add, which means an 8k
+      humbucker is two 4k coils. Comparing that to an 8k single-coil compares a
+      pair of small coils to one large one. Their inductances are not
+      comparable either.
+image: /images/blog/pickup-dc-resistance-what-it-actually-measures.jpg
+image_alt: >-
+  A digital multimeter with its probes on the output jack of an electric guitar
+  lying on a workbench, with an unmounted humbucker pickup beside it
+---
+
+Every pickup you can buy publishes a DC resistance figure, and it is the first number anybody quotes. 8.4k. 16.6k. Somebody in a forum thread asks which pickup will push their overdrive harder and gets back a column of kilohms as though that settles it.
+
+The number is real and the meter is not lying. It is measuring something specific and it does that job accurately. The problem is what people think it measures.
+
+DC resistance measures the wire. Length, thickness, and temperature. That is the entire list. It does not measure how much signal the pickup produces, it does not know what magnet is underneath the coil, and it cannot tell you where the pickup's character sits in the frequency spectrum. Three of the four things you actually want to know are invisible to it.
+
+## What the Meter Is Reading
+
+A pickup coil is several thousand feet of extremely thin insulated copper wound around a bobbin. Resistance in a wire follows one equation.
+
+**R = resistivity × length / cross-sectional area**
+
+Resistivity is fixed here, because a pickup coil is always copper. So the reading you get is a statement about two variables: **how much wire is on the bobbin, and how thick that wire is.**
+
+Here is what that means in practice. Standard pickup wire and its resistance per foot at room temperature:
+
+| Wire gauge | Diameter | Resistance per foot |
+|---|---|---|
+| 42 AWG | 0.0025 in | about 1.66 ohms |
+| 43 AWG | 0.0022 in | about 2.07 ohms |
+| 44 AWG | 0.0020 in | about 2.59 ohms |
+
+Going one gauge thinner raises resistance per foot by roughly 25%. Two gauges thinner raises it by more than 50%.
+
+Now put that to work. Suppose two builders both target 8.0k. The one using 42 AWG needs a certain number of turns to get there. The one using 43 AWG hits the same 8.0k with **about 20% fewer turns**, because each turn contributes more resistance.
+
+Those two pickups read identically on your meter. They are not the same pickup.
+
+## Output Comes From Turns, Not Ohms
+
+The reason the turn count matters is Faraday's law, which is the actual mechanism by which a pickup works. Voltage out is proportional to **the number of turns multiplied by how fast the magnetic flux through the coil is changing.** Two inputs. The turn count, and the flux, which is the magnet's job.
+
+Resistance appears nowhere in that relationship. It is a side effect of having wound a lot of wire, not the reason the wire produces anything.
+
+So the 43 AWG pickup above, with 20% fewer turns at the same resistance, produces roughly 20% less signal. On a meter it is the twin of the 42 AWG pickup. At the front of a Tube Screamer it is nearly 2 dB quieter, which is enough to move where the drive starts to break up.
+
+## The Number That Actually Predicts What You Hear
+
+Inductance. Measured in henries, published by roughly nobody, and the single most useful pickup spec there is.
+
+Inductance scales with the **square** of the turn count. That 20% turn deficit becomes a 36% inductance deficit. And inductance is what sets the pickup's resonant peak when it meets the capacitance of your cable and your guitar's wiring: the peak frequency falls as the square root of inductance times capacitance rises.
+
+That resonant peak is a broad emphasis of a few decibels sitting somewhere between 2 kHz and 5 kHz, with a rolloff above it. It is the closest thing a pickup has to a fingerprint. Everything people describe as glassy, or thick, or mid-forward is mostly a statement about where that peak landed.
+
+Here is the same set of classes sorted by both numbers, with the peak calculated against a typical 700 pF of cable and wiring capacitance:
+
+| Pickup class | Typical DC resistance | Typical inductance | Resonant peak |
+|---|---|---|---|
+| Vintage-spec Strat single-coil | 5.8-6.3k | 2.2-2.6 H | about 3.8-4.2 kHz |
+| Hot Strat single-coil | 6.8-7.4k | 2.8-3.2 H | about 3.4-3.6 kHz |
+| PAF-style humbucker | 7.5-8.5k | 4.0-4.8 H | about 2.7-3.0 kHz |
+| P-90 | 7.5-9.0k | 5.0-7.0 H | about 2.4-2.7 kHz |
+| Hot alnico humbucker | 14-17k | 6.5-8.0 H | about 2.1-2.3 kHz |
+
+These are typical published ranges for each class rather than F&K measurements, and the peak frequencies are calculated from the inductance figures, not measured.
+
+Look at the middle two rows. A PAF-style humbucker and a P-90 sit in the same resistance band. Order them by the meter and they are neighbors. Order them by inductance and the P-90 has up to 50% more of it, which drags its resonant peak down by half a kilohertz or so. That is not a subtle difference. It is most of the reason a P-90 sounds like a P-90, and it is completely invisible to the number everyone quotes.
+
+## The Magnet Is Not In The Reading At All
+
+This is the trap worth internalizing, because it is where the meter goes from unhelpful to actively misleading.
+
+DC resistance is a property of the copper. Remove the magnet from a pickup entirely and the reading does not move by a single ohm. The pickup will produce no signal whatsoever and it will still measure 8.4k.
+
+Which means a ceramic-magnet humbucker built to a vintage turn count reads **8.5k, right in PAF territory**, and then arrives at your overdrive with substantially more level and a harder-loaded string, because ceramic runs in the neighborhood of twice the field strength of Alnico II. Buy that pickup off a spec sheet expecting PAF behavior and you will spend an evening wondering why your amp settings are wrong.
+
+The magnet decides field strength, how hard the string is loaded, and where the top end sits. The [magnet grade guide](/blog/pickup-magnet-types-alnico-2-3-5-ceramic-string-pull) covers what each grade does and the clearance each one needs. Two pickups at the same resistance with different magnets are not variations on a theme. They are different pickups that happen to have the same amount of wire on them.
+
+## The Reading Moves While You Watch It
+
+I built a spreadsheet for this. Fourteen pickups, DC resistance in one column, the intent being to predict which ones would need the most gain reduction on the amp when I swapped guitars mid-session.
+
+The first thing that went wrong was not the prediction. It was that I measured one pickup twice, four hours apart, and got 8.31k in the morning and 8.66k in the evening. My assumption was meter drift, so I checked the meter against a 1% reference resistor and it was fine both times.
+
+It was the room. Copper has a temperature coefficient of about **0.393% per degree Celsius**, and the apartment had gone from cool to warm across the afternoon.
+
+Run that out. Take a pickup that reads 8.00k at 20C:
+
+| Guitar temperature | Reading |
+|---|---|
+| 10C, cold room, guitar just in from the car | 7.69k |
+| 20C, reference | 8.00k |
+| 32C, warm room, or forty minutes under lights | 8.38k |
+
+That is a 690 ohm spread on one unchanged pickup. It is larger than the gap between plenty of pickups that people describe as sounding meaningfully different from each other, and larger than the tolerance most winders publish.
+
+The practical consequence is not that the number is useless. It is that **a resistance figure quoted without a temperature is quoted at an unknown precision of roughly plus or minus 4%**, and almost nobody states one. If you are comparing two pickups, measure them in the same room, within a few minutes of each other, with both guitars having sat there for a while. Otherwise you are measuring the weather.
+
+## How To Measure It Properly
+
+Five steps, and two of them are the ones people skip.
+
+1. Multimeter on the 20k ohm range. Unplug the guitar from everything.
+2. Selector switch on the pickup you want to read. Volume on 10.
+3. Probes on the tip and the sleeve of the output jack. Tip is hot, sleeve is ground.
+4. Let the guitar sit in the room for twenty minutes first, and note the room temperature.
+5. Subtract the pot loading, or at least know it is there.
+
+That last one is the correction nobody mentions. With the volume on 10 the wiper is at the top of the track, which puts the **full resistance of the volume pot in parallel with the pickup**. On a 250k pot reading an 8k pickup, the meter shows about 7.75k. That is a 3% error, always in the same direction, always low. On a 500k pot it is closer to 1.5%.
+
+If you want the pickup's actual figure, measure at the pickup's own leads with them disconnected from the harness. If you are just comparing pickups in the same guitar, leave it, because the error is identical for both and it cancels out of the comparison.
+
+The tone control does not matter. It is in series with a capacitor, which blocks DC, so it is invisible to a resistance measurement regardless of where it is set.
+
+## What This Changes About Your Rig
+
+The reason any of this is worth your Saturday is that pickup output is the first gain stage in your signal chain, and every stage after it was set for a specific input level.
+
+**Into pedals.** An overdrive's character is set by how hard it is driven. Two pickups at the same resistance that differ by 2 dB of output will hit a TS-style circuit at different points on its curve, and the difference shows up as where the note breaks up rather than as a volume change. If you swap pickups and your drive settings all feel a semitone wrong, that is why. The [humbucker overdrive guide](/blog/ts808-klon-rat-humbuckers) covers how to compensate, and the [P-90 version](/blog/p90-pickups-overdrive) covers the middle case.
+
+**Into a modeler.** Same problem, plus one more. A modeler's amp block was voiced against an expected input level, and its input impedance is usually fixed unless the unit offers a variable setting. A high-inductance pickup driving a low fixed impedance loses more of its resonant peak than the same pickup into a 1M ohm tube amp input, so a pickup that sounded mid-forward through the amp can arrive noticeably duller in the box. If your modeler offers an input impedance parameter, this is the situation it exists for. Set it to 1M ohm or Auto before you start EQing to fix a problem that is not an EQ problem.
+
+**Through a long cable or a buffer.** The resonant peak is only as high as your total capacitance allows. Thirty feet of cable moves it down by roughly a kilohertz on a single-coil, which is worked through in [the cable capacitance post](/blog/does-cable-length-affect-tone). A buffer at the front of the chain fixes the cable but also fixes the peak in place, which is why some players find a buffered board makes a favorite pickup sound different. It did. The pickup did not change. Its load did.
+
+## The Short Version
+
+Use DC resistance for exactly one thing: **comparing pickups within a single maker's single model line, measured at the same temperature.** Inside that box it is a decent proxy for how hard they were wound and it will rank them correctly.
+
+Outside that box it is a number about wire.
+
+If you want to predict what a pickup will do, ask for inductance and magnet grade. If the seller cannot tell you either, the resistance figure they can tell you is not filling the gap. It is just the measurement that happened to be easy.

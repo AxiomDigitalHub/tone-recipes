@@ -1,0 +1,191 @@
+---
+title: Why Your Pedal's 2-Second Reverb Is Shorter Than Your Plugin's 2-Second Reverb
+seo_title: 'Reverb Decay Time: Why 2 Seconds Is Not 2 Seconds'
+description: >-
+  Published reverb decay is an RT60 figure, and the tail you actually hear is
+  roughly half of it. Here is why the same number sounds different on a pedal
+  and a plugin, and how to calibrate one against the other.
+date: '2026-08-22'
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - reverb
+  - decay
+  - rt60
+  - modeler
+  - plugins
+  - preset-translation
+takeaways:
+  - >-
+    Published decay is an RT60 figure, meaning the time for the tail to fall 60
+    decibels. You stop hearing it around 30 decibels down when playing alone and
+    around 20 decibels down in a band mix, so the audible tail is roughly a half
+    to a third of the printed number.
+  - >-
+    Because the reverb's own level is what decays, the mix knob changes how long
+    the tail lasts. Dropping the mix from 50% to 10% removes about 14 decibels,
+    which cuts almost half a second off the audible tail of a 2-second reverb.
+  - >-
+    Decay controls come in three tiers. Most pedals give you an unlabeled knob,
+    most modeler blocks give you a percentage, and most plugins give you actual
+    seconds. Only the third tier is even a candidate for comparison.
+  - >-
+    High-frequency damping shortens the tail you hear without changing the
+    published decay at all, because RT60 is specified at mid frequencies and
+    your ear tracks whichever band survives longest.
+  - >-
+    Calibrate by ear in five minutes with a metronome at 60 BPM, and check the
+    offset at both a short and a long setting. The mismatch is not a constant
+    you can apply across the whole range.
+faq:
+  - q: What does RT60 mean on a reverb?
+    a: >-
+      RT60 is the time it takes for the reverberant energy to fall 60 decibels
+      below its starting level after the source stops. It comes from room
+      acoustics, where it describes a physical space, and reverb units borrowed
+      it as the unit for their decay control. It describes the whole decay
+      curve, not the part of it you can hear.
+  - q: Why does my reverb sound shorter than the decay time says?
+    a: >-
+      Because 60 decibels of decay is far more than you can hear in context. In
+      a quiet room playing alone you lose the tail around 30 decibels down,
+      which is half of an RT60. In a band mix the other instruments mask it
+      around 20 decibels down, which is a third. A published 3-second reverb
+      gives you roughly one second of audible tail on stage.
+  - q: Why does turning the mix knob down make the reverb sound shorter?
+    a: >-
+      Because it is the reverb's own signal that decays, and lowering the mix
+      lowers the whole curve. If the tail becomes inaudible at a fixed level,
+      starting it 6 decibels lower means it crosses that threshold 6 decibels
+      sooner. On a 2-second reverb that is about 0.2 seconds of tail removed by
+      a control that has nothing to do with time.
+  - q: How do I translate a reverb setting from a pedal to a plugin?
+    a: >-
+      Match the mix, predelay, and damping first, because all three change the
+      audible tail. Then play a chord against a metronome at 60 BPM, count the
+      beats until the tail disappears, and adjust one unit until they match.
+      Repeat at a short setting and a long setting, because the offset between
+      the two units is usually not constant across the range.
+  - q: Does high-frequency damping change the decay time?
+    a: >-
+      It changes the decay you hear without changing the number on the control.
+      RT60 is specified at mid frequencies, so a dark tail and a bright tail can
+      publish the same figure while the bright one keeps your attention several
+      hundred milliseconds longer. If two units disagree and their decay
+      settings match, damping is usually the reason.
+  - q: Is the decay parameter on a Helix or Quad Cortex in seconds?
+    a: >-
+      Usually not. Most modeler reverb blocks give you decay as a percentage or
+      a normalized number rather than a time, so the value is meaningful only
+      inside that algorithm. That is why a preset value copied from a plugin
+      that works in seconds will not land where you expect.
+image: /images/blog/reverb-decay-time-units-pedal-vs-plugin.jpg
+image_alt: >-
+  A reverb pedal on a pedalboard beside a laptop screen showing a reverb plugin
+  interface, both in a dim home studio
+---
+
+Set a plugin reverb to 2.0 seconds. Set your reverb pedal to what its manual says is 2 seconds. Play the same chord through each one.
+
+They do not last the same length of time. Usually the plugin wins by a comfortable margin, sometimes by more than a factor of two, and neither unit is mislabeled or broken.
+
+I ran into this trying to move a preset from a pedalboard into a modeler, which is a translation problem I do a lot, and I assumed I had made an arithmetic error somewhere. I had not. The number is a real specification with a real definition. It just does not mean "how long you hear the tail," and the gap between those two things is different in every box.
+
+## The Number Is RT60, and RT60 Overshoots
+
+Reverb decay is inherited from room acoustics, where **RT60** is the time for the reverberant field to drop 60 decibels below its initial level after the source stops. It is a genuinely useful figure for describing a concert hall. It got adopted wholesale as the unit for a decay control, and the mismatch starts there.
+
+Sixty decibels is an enormous amount of decay. It is a thousand-to-one drop in amplitude. You cannot hear the bottom of it under almost any circumstance that involves playing music, because something else gets there first: the room noise floor, the next note you play, or the rest of the band.
+
+Where you actually lose the tail is somewhere around 30 decibels down if you are alone in a quiet room, and around 20 decibels down if there is a band. Reverb decay is close enough to exponential that this scales cleanly: 30 decibels is half of 60, so the audible tail is about half the RT60. Twenty decibels is a third of it.
+
+| Published decay | Audible alone, quiet room | Audible in a band mix |
+|---|---|---|
+| 1.0 s | about 0.50 s | about 0.33 s |
+| 2.0 s | about 1.00 s | about 0.67 s |
+| 3.0 s | about 1.50 s | about 1.00 s |
+| 4.0 s | about 2.00 s | about 1.33 s |
+| 6.0 s | about 3.00 s | about 2.00 s |
+
+That table assumes an exponential decay and a fixed masking threshold, which is a simplification, but it is the right simplification. The practical read: **the four-second ambient setting you love at home is delivering under a second and a half of audible tail at rehearsal.** Nothing is wrong with your pedal. You changed the noise floor.
+
+This is the piece our [note-density post](/blog/reverb-decay-vs-song-tempo-when-tails-collide) and the [predelay subtraction post](/blog/subtract-predelay-from-decay-reverb-tail) both flag in passing and neither one unpacks. Both are right that the calculated value lands conservative. This is why.
+
+## The Mix Knob Is a Decay Control
+
+Here is the part I got wrong, and it is the reason my translation table fell apart.
+
+I was building a lookup that mapped my pedal's decay positions onto plugin seconds, and I held the mix constant at 50% on both units because mix is a level control and level is not time. That is true of the setting and false of the result.
+
+The thing that decays is the reverb signal itself. If the tail becomes inaudible at some fixed level in the room, and you start the whole decay curve 6 decibels lower, it crosses that threshold 6 decibels earlier. Six decibels out of 60 is a tenth of the RT60.
+
+So on a 2-second reverb:
+
+| Mix, relative to a 50% reference | Level change | Audible tail lost |
+|---|---|---|
+| 35% | about -3 dB | about 0.10 s |
+| 25% | about -6 dB | about 0.20 s |
+| 15% | about -10.5 dB | about 0.35 s |
+| 10% | about -14 dB | about 0.47 s |
+| 5% | about -20 dB | about 0.67 s |
+
+Double those figures for a 4-second reverb. They scale directly with the decay setting.
+
+Read the 10% row. Going from a bedroom mix to a stage mix on the same pedal, with the decay control untouched, removes almost half a second of tail from a 2-second setting. That is a larger change than most people make with the decay knob when they are trying to fix exactly this problem, and they are making both changes at once without realizing the mix knob did half the work.
+
+Which also means the two controls fight each other. Turn the mix down because the wash is too thick, and you have shortened the tail as a side effect. Then lengthen the decay to get the tail back, and you have thickened the wash again.
+
+## Damping Moves the Tail Without Moving the Number
+
+The second reason two units disagree at the same setting.
+
+RT60 is conventionally specified at mid frequencies, typically the 500 Hz and 1 kHz octave bands. But a reverb's decay is frequency dependent by design, because real rooms absorb high frequencies faster than low ones and every algorithm models that with some form of high-frequency damping.
+
+Your ear does not average across bands. It tracks whichever part of the tail is still audible, and the upper mids stay perceptually available longest against a guitar part. So a bright tail and a dark tail can publish the same RT60 while the bright one holds your attention several hundred milliseconds longer.
+
+The practical version: **if two reverbs disagree and their decay settings match, check damping before you touch decay.** A plugin defaulting to a bright hall against a pedal with a fixed dark voicing will produce exactly the mismatch this post opened with, and adjusting decay to compensate gets you a tail of the right length with the wrong shape.
+
+Low-frequency damping does the reverse and is worth knowing about for a different reason. A reverb with no low cut has a tail that survives longer in the low mids, which is where it collides with the bass guitar rather than with you. That tail is long in a way you will not hear on your own and the front-of-house engineer will hear immediately.
+
+## Three Tiers of Decay Control
+
+Before you can compare two units you have to know whether their controls are even the same kind of thing. They are usually not.
+
+**Tier 1: an unlabeled knob.** Most reverb pedals. The control sweeps from short to long and the manual may give you the endpoints. There is no number, and the taper is a design choice, so noon is not the midpoint of the time range and there is no reason to expect it to be.
+
+**Tier 2: a percentage or a normalized value.** Most modeler reverb blocks, including the reverbs in Helix and HX hardware, present decay as a percentage rather than a time. The value is meaningful inside that algorithm and meaningless outside it. Copying 45% from one reverb model to another in the same unit does not give you the same tail, because each algorithm maps its own range.
+
+**Tier 3: actual milliseconds or seconds.** Most plugins, and a handful of modeler blocks. This is the only tier where the number is a physical quantity, and even here it is an RT60 whose relationship to the audible tail depends on everything above.
+
+The mistake worth avoiding is treating a Tier 2 value as though it were Tier 3. A preset that says 45% and a preset that says 4.5 seconds have nothing to do with each other, and I have watched people transcribe one into the other because the digits matched.
+
+## Calibrating Two Units in Five Minutes
+
+This is the procedure I use whenever a preset has to cross a platform boundary. It takes about five minutes and it beats any conversion table, because it measures your actual signal path at your actual listening level.
+
+1. **Neutralize the variables.** Set both units to the same mix, the same predelay, and the same damping. If one has no damping control, set the other to the middle of its range and note that you did.
+2. **Set your monitoring where you will actually be.** Do this at rehearsal volume if the preset is for rehearsal. The masking threshold is the whole mechanism and it moves with the room.
+3. **Get a clock.** Metronome at 60 BPM, so one beat is exactly one second. This is easier to count against than trying to estimate seconds.
+4. **Play one chord and let it go.** Count beats until you genuinely cannot hear the tail any more. Not until it is quiet. Until it is gone.
+5. **Repeat on the other unit and adjust one of them until the counts match.** Write down both settings.
+6. **Do the whole thing again at the other end of the range.** Once short, once long.
+
+Step 6 is the one that matters and the one everybody skips. The offset between two units is almost never a constant. Different algorithms have different tapers, different damping behavior at long settings, and some units compress or truncate their longest decays. If your short setting needs the plugin at 1.4 seconds to match the pedal and your long setting needs 5.2, you have a curve, not a factor, and you should treat the two anchor points as the calibration rather than the ratio between them.
+
+## What I Expected and What Happened
+
+The assumption I started with was that this was a labeling problem, and that somewhere in each manual there would be enough information to build a conversion.
+
+What I found is that the largest single term in the mismatch was not the labeling at all. Holding decay constant and moving only the mix knob across the range a guitarist actually uses changed the audible tail by more than switching between two different units at the same nominal setting did. The variable I had frozen because it was obviously irrelevant was contributing more than the variable I was studying.
+
+That reframes the whole problem. Decay is not a property of the reverb. It is a property of the reverb, its level, its damping, and the room you are standing in, and only the first of those four is printed on the box.
+
+## What To Do With This
+
+**When a preset does not sound right after a platform move,** check mix and damping before you touch decay. Those two are doing more than you think and they are usually the reason the tail is wrong.
+
+**When you write down a reverb setting for later,** write down the mix and the damping alongside the decay. A decay figure on its own is not a reproducible setting, which is why so many shared presets do not land.
+
+**When a spec sheet quotes a maximum decay,** halve it in your head. A pedal advertising 8 seconds is offering you around 4 seconds of tail alone in a room and closer to 2.7 in a band. That is still a long time. It is not what the box says.
+
+And when you are setting decay by ear and the number does not agree with the sound, trust the sound. The number was measuring something else the whole time.
