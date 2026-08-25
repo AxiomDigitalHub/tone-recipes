@@ -8,6 +8,7 @@ import {
 import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { getAllPlatforms } from "@/lib/data/platforms";
+import { PLATFORMS, platformLabel } from "@/lib/constants";
 import type { Platform } from "@/types/recipe";
 import { buildRigTokens } from "@/lib/gear-match";
 import { getBandName } from "@/lib/song-band";
@@ -27,15 +28,10 @@ import BrowseRigFilter from "@/components/browse/BrowseRigFilter";
  * to the same URL) and deliberately omits ?sort — sort variants carry no
  * search value and would otherwise each be a distinct indexable page.
  */
-const PLATFORM_LABELS: Record<string, string> = {
-  helix: "Helix",
-  quad_cortex: "Quad Cortex",
-  tonex: "TONEX",
-  fractal: "Fractal",
-  kemper: "Kemper",
-  katana: "Boss Katana",
-  pedalboard: "Pedalboard",
-};
+// Platform labels come from the canonical list in @/lib/constants
+// (platformLabel). isKnownPlatform guards against junk ?platform values
+// leaking into the page title.
+const isKnownPlatform = (id: string) => PLATFORMS.some((p) => p.id === id);
 
 function titleCaseSlug(slug: string): string {
   return slug
@@ -70,8 +66,8 @@ export async function generateMetadata({
   const parts: string[] = [];
   if (sp.era) parts.push(`${sp.era}s`);
   if (sp.genre) parts.push(titleCaseSlug(sp.genre));
-  if (sp.platform && PLATFORM_LABELS[sp.platform]) {
-    parts.push(PLATFORM_LABELS[sp.platform]);
+  if (sp.platform && isKnownPlatform(sp.platform)) {
+    parts.push(platformLabel(sp.platform));
   }
   if (sp.artist) parts.push(titleCaseSlug(sp.artist));
 
@@ -166,35 +162,39 @@ export default async function PreviewBrowse({
     });
   }
 
-  // Sort
-  const sorted = [...filtered].sort((a, b) => {
-    const sA = getSongBySlug(a.song_slug);
-    const sB = getSongBySlug(b.song_slug);
+  // Sort. Resolve song/artist ONCE per recipe before sorting — the old
+  // comparator did the lookups inside sort(), i.e. O(n log n) times per
+  // uncached page view (and /browse renders per-request; it reads
+  // searchParams).
+  const decorated = filtered.map((r) => {
+    const song = getSongBySlug(r.song_slug);
+    const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
+    return { r, song, artist };
+  });
+  decorated.sort((a, b) => {
     switch (sort) {
       // "Newest"/"Oldest" mean newest RECIPE (created_at, 100% coverage),
       // not oldest song — sorting by song year buried every recipe the
       // daily pipeline publishes behind 1970s classics, which made the
       // catalog look frozen. Song year is its own option now.
       case "oldest":
-        return (a.created_at ?? "").localeCompare(b.created_at ?? "");
+        return (a.r.created_at ?? "").localeCompare(b.r.created_at ?? "");
       case "song-year":
-        return (sB?.year ?? 0) - (sA?.year ?? 0);
+        return (b.song?.year ?? 0) - (a.song?.year ?? 0);
       case "song-az":
-        return (sA?.title ?? a.title).localeCompare(sB?.title ?? b.title);
-      case "artist-az": {
-        const aA = sA ? getArtistBySlug(sA.artist_slug) : undefined;
-        const bA = sB ? getArtistBySlug(sB.artist_slug) : undefined;
-        return (aA?.name ?? "").localeCompare(bA?.name ?? "");
-      }
+        return (a.song?.title ?? a.r.title).localeCompare(b.song?.title ?? b.r.title);
+      case "artist-az":
+        return (a.artist?.name ?? "").localeCompare(b.artist?.name ?? "");
       case "blocks-desc":
         return (
-          (b.signal_chain?.length ?? 0) - (a.signal_chain?.length ?? 0)
+          (b.r.signal_chain?.length ?? 0) - (a.r.signal_chain?.length ?? 0)
         );
       case "newest":
       default:
-        return (b.created_at ?? "").localeCompare(a.created_at ?? "");
+        return (b.r.created_at ?? "").localeCompare(a.r.created_at ?? "");
     }
   });
+  const sorted = decorated.map((d) => d.r);
 
   const totalRecipes = toneRecipes.length;
   const allPlatforms = getAllPlatforms();

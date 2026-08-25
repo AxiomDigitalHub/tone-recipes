@@ -66969,29 +66969,53 @@ export const toneRecipes: ToneRecipe[] = [
 // ---------------------------------------------------------------------------
 // Helper functions
 // ---------------------------------------------------------------------------
+// Lookup indexes, built once at module load. The accessors used to be
+// Array.prototype.find/filter — O(n) per call — which concentrated badly in
+// /browse (its sort comparator did two slug lookups per comparison, ~700k
+// string compares per uncached page view at 215 recipes). Same pattern as
+// src/lib/tone-chat/retrieval.ts.
+
+const artistBySlug = new Map(artists.map((a) => [a.slug, a]));
+const songBySlug = new Map(songs.map((s) => [s.slug, s]));
+const recipeBySlug = new Map(toneRecipes.map((r) => [r.slug, r]));
+const gearBySlug = new Map(gearItems.map((g) => [g.slug, g]));
+
+const recipesBySong = new Map<string, ToneRecipe[]>();
+for (const r of toneRecipes) {
+  const list = recipesBySong.get(r.song_slug);
+  if (list) list.push(r);
+  else recipesBySong.set(r.song_slug, [r]);
+}
+
+const songsByArtist = new Map<string, Song[]>();
+for (const s of songs) {
+  const list = songsByArtist.get(s.artist_slug);
+  if (list) list.push(s);
+  else songsByArtist.set(s.artist_slug, [s]);
+}
 
 export function getArtistBySlug(slug: string): Artist | undefined {
-  return artists.find((a) => a.slug === slug);
+  return artistBySlug.get(slug);
 }
 
 export function getSongBySlug(slug: string): Song | undefined {
-  return songs.find((s) => s.slug === slug);
+  return songBySlug.get(slug);
 }
 
 export function getRecipeBySlug(slug: string): ToneRecipe | undefined {
-  return toneRecipes.find((r) => r.slug === slug);
+  return recipeBySlug.get(slug);
 }
 
 export function getRecipesBySongSlug(songSlug: string): ToneRecipe[] {
-  return toneRecipes.filter((r) => r.song_slug === songSlug);
+  return recipesBySong.get(songSlug) ?? [];
 }
 
 export function getSongsByArtistSlug(artistSlug: string): Song[] {
-  return songs.filter((s) => s.artist_slug === artistSlug);
+  return songsByArtist.get(artistSlug) ?? [];
 }
 
 export function getGearBySlug(slug: string): GearItem | undefined {
-  return gearItems.find((g) => g.slug === slug);
+  return gearBySlug.get(slug);
 }
 
 export function getAllGenres(): string[] {
