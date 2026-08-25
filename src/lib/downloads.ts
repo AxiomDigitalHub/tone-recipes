@@ -43,14 +43,17 @@ export async function getDownloadCount(userId: string): Promise<number> {
 
   const { count, error } = await supabase
     .from("recipe_downloads")
-    .select("*", { count: "exact", head: true })
+    .select("id", { count: "exact", head: true })
     .eq("user_id", userId)
     .eq("download_type", "preset")
     .gte("created_at", monthStart);
 
   if (error) {
-    console.error("Error fetching download count:", error);
-    return 0;
+    // Throw — do NOT return 0. "Count failed" returned as "0 used" made
+    // the free-tier cap silently fail-open (the exact bug class this
+    // module's header documents having shipped once already). Callers
+    // treat a throw as "can't verify quota" → 503.
+    throw new Error(`download count failed: ${error.message}`);
   }
 
   return count ?? 0;

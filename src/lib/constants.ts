@@ -23,6 +23,17 @@ export const PLATFORMS = [
   { id: "katana", label: "Boss Katana", color: "#e11d48" },
 ] as const;
 
+/**
+ * Full display label for a platform id, from the canonical PLATFORMS list.
+ * Use this instead of re-declaring a `{ helix: "Helix", ... }` map (the
+ * codebase had ~10 copies; the full-label ones now call this). Note some
+ * surfaces intentionally use SHORT labels ("Katana" not "Boss Katana") —
+ * those keep their own maps on purpose.
+ */
+export function platformLabel(id: string): string {
+  return PLATFORMS.find((p) => p.id === id)?.label ?? id;
+}
+
 /** Platform IDs shown in recipe UI (tabs, browse filters). All platform data remains in the database. */
 export const DISPLAYED_PLATFORM_IDS: ReadonlySet<string> = new Set([
   "pedalboard",

@@ -27,7 +27,7 @@ function getClient() {
  * `select("*")` here would fail with "permission denied for column" —
  * always select this list explicitly.
  */
-const PUBLIC_COLUMNS =
+export const PUBLIC_COLUMNS =
   "id, song_name, artist_name, part, description, reference_url, " +
   "requested_by, status, completed_recipe_slug, upvotes, created_at, updated_at";
 

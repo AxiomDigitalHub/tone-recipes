@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { unauthorized } from "@/lib/oauth-discovery";
 import { createClient } from "@supabase/supabase-js";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
+import { getUserFromRequest } from "@/lib/auth/request-user";
+import { platformLabel } from "@/lib/constants";
 import {
   getRecipeBySlug,
   getSongBySlug,
@@ -74,37 +76,9 @@ function getSupabase() {
   );
 }
 
-function getAuthenticatedSupabase(token: string) {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { global: { headers: { Authorization: `Bearer ${token}` } } },
-  );
-}
-
-async function getUserFromRequest(req: NextRequest) {
-  const authHeader = req.headers.get("authorization");
-  if (!authHeader?.startsWith("Bearer ")) return null;
-
-  const token = authHeader.replace("Bearer ", "");
-  const supabase = getAuthenticatedSupabase(token);
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return null;
-
-  // Role drives the download quota: free = metered, paid = unlimited.
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("role")
-    .eq("id", user.id)
-    .single();
-
-  return {
-    id: user.id,
-    email: user.email ?? "",
-    role: (profile?.role as string) || "free",
-    token,
-  };
-}
+// Request auth lives in @/lib/auth/request-user (shared with tone-requests
+// and the admin routes). Role drives the download quota: free = metered,
+// paid = unlimited.
 
 async function logDownload(opts: {
   userId?: string;
@@ -114,13 +88,19 @@ async function logDownload(opts: {
   platform?: string;
 }) {
   const supabase = getSupabase();
-  await supabase.from("recipe_downloads").insert({
+  // supabase-js reports failures via the result object, not by throwing —
+  // throw explicitly so callers can decide whether logging is best-effort
+  // (PDF path) or quota-critical (preset path).
+  const { error } = await supabase.from("recipe_downloads").insert({
     user_id: opts.userId ?? null,
     email: opts.email ?? null,
     recipe_slug: opts.recipeSlug,
     download_type: opts.downloadType,
     platform: opts.platform ?? null,
   } as any);
+  if (error) {
+    throw new Error(`recipe_downloads insert failed: ${error.message}`);
+  }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -198,7 +178,16 @@ export async function POST(
       void song;
       void artist;
       const { renderUrlToPdf } = await import("@/lib/pdf/render-print-pdf");
-      const printUrl = `${req.nextUrl.origin}/recipe/${slug}/print`;
+      // SECURITY: never derive this from req.nextUrl.origin — that comes
+      // from the client's Host header, and Chrome fetching an attacker-
+      // chosen origin server-side (and returning the render as a PDF) is
+      // a textbook SSRF read primitive. Loopback keeps the render on THIS
+      // process (fast, no Cloudflare round trip); INTERNAL_BASE_URL is the
+      // escape hatch if the serving topology ever changes.
+      const internalBase =
+        process.env.INTERNAL_BASE_URL ??
+        `http://127.0.0.1:${process.env.PORT ?? 3000}`;
+      const printUrl = `${internalBase}/recipe/${slug}/print`;
       const pdfBuffer = await renderUrlToPdf(printUrl);
 
       // Log download (best-effort — analytics must not block the download).
@@ -248,7 +237,20 @@ export async function POST(
       // get 5 preset downloads per calendar month. The 402 status signals
       // "payment required" to the client, which maps to an upgrade prompt
       // rather than a generic error.
-      const { allowed, remaining } = await canDownload(user.id, user.role);
+      // Fail closed: if the count can't be read, that's "can't verify",
+      // never "0 used" (getDownloadCount throws instead of returning 0).
+      let allowed: boolean;
+      let remaining: number;
+      try {
+        ({ allowed, remaining } = await canDownload(user.id, user.role));
+      } catch (e) {
+        console.error("[download] quota read failed:", e);
+        return NextResponse.json(
+          { error: "Couldn't check your download quota. Try again in a minute." },
+          { status: 503 },
+        );
+      }
+      void remaining;
       if (!allowed) {
         return NextResponse.json(
           {
@@ -277,30 +279,36 @@ export async function POST(
       const content = config.generate(translation, recipe.title);
       const baseName = config.slugify(recipe.title);
 
-      // Log download
-      await logDownload({
-        userId: user.id,
-        email: user.email,
-        recipeSlug: slug,
-        downloadType: "preset",
-        platform,
-      });
+      // Log download. NOT best-effort like the PDF path's log: this row is
+      // what the free-tier monthly quota counts, so silently skipping it
+      // would make failed logging = free unlimited downloads. A logging
+      // failure therefore blocks the download (fail closed), with an
+      // honest 503 instead of the generic 500.
+      try {
+        await logDownload({
+          userId: user.id,
+          email: user.email,
+          recipeSlug: slug,
+          downloadType: "preset",
+          platform,
+        });
+      } catch (e) {
+        console.error("[download] preset logDownload failed:", e);
+        return NextResponse.json(
+          { error: "Couldn't record the download. Try again in a minute." },
+          { status: 503 },
+        );
+      }
 
       // The download pack: preset + sidecar guides (tone notes, install,
       // rig-translation troubleshooter). Presets fail on rig translation,
       // not tone — the sidecars are the adaptation layer (see
       // docs/research/REDDIT_SERVICE_RESEARCH_2026-07-08.md).
-      const platformLabel =
-        platform === "quad_cortex"
-          ? "Quad Cortex"
-          : platform === "katana"
-            ? "Boss Katana"
-            : "Helix";
       const zip = new JSZip();
       zip.file(`${baseName}${config.extension}`, content);
       zip.file(
         "TONE-NOTES.txt",
-        buildToneNotes(recipe as ToneRecipe, translation, platformLabel),
+        buildToneNotes(recipe as ToneRecipe, translation, platformLabel(platform)),
       );
       zip.file("INSTALL.txt", buildInstallGuide(platform));
       zip.file("IF-IT-SOUNDS-WRONG.txt", buildTroubleshooter(platform));
@@ -319,6 +327,15 @@ export async function POST(
 
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   } catch (err) {
+    // Render queue full (headless-Chrome concurrency cap) — a transient
+    // capacity condition, not a failure. 503 + Retry-After so clients
+    // (and crawlers) back off instead of hammering.
+    if ((err as Error)?.name === "PdfQueueFullError") {
+      return NextResponse.json(
+        { error: "We're rendering a lot of PDFs right now. Try again in a moment." },
+        { status: 503, headers: { "Retry-After": "15" } },
+      );
+    }
     console.error("Download route error:", err);
     return NextResponse.json(
       { error: "Unable to process download. Please try again later." },

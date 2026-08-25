@@ -67,7 +67,58 @@ async function launch(): Promise<Browser> {
   });
 }
 
+/* -------------------------------------------------------------------------- */
+/*  Concurrency gate                                                          */
+/* -------------------------------------------------------------------------- */
+// Each render launches a full headless Chrome (~150-300MB RSS). The PDF
+// endpoint needs no auth beyond an email and is rate-limited per IP only,
+// so without a global cap, 30 parallel requests = 30 Chromes = OOM on the
+// single-container VPS. Two run, a short queue waits, everything past that
+// gets a typed error the route maps to 503.
+
+const MAX_CONCURRENT_RENDERS = 2;
+const MAX_QUEUE = 8;
+
+let activeRenders = 0;
+const renderWaiters: (() => void)[] = [];
+
+/** Thrown when the render queue is full — callers should return 503. */
+export class PdfQueueFullError extends Error {
+  constructor() {
+    super("PDF render queue is full");
+    this.name = "PdfQueueFullError";
+  }
+}
+
+async function acquireRenderSlot(): Promise<void> {
+  if (activeRenders < MAX_CONCURRENT_RENDERS) {
+    activeRenders++;
+    return;
+  }
+  if (renderWaiters.length >= MAX_QUEUE) {
+    throw new PdfQueueFullError();
+  }
+  // The releasing render hands its slot to the next waiter directly, so
+  // activeRenders stays constant across the handoff.
+  await new Promise<void>((resolve) => renderWaiters.push(resolve));
+}
+
+function releaseRenderSlot(): void {
+  const next = renderWaiters.shift();
+  if (next) next();
+  else activeRenders--;
+}
+
 export async function renderUrlToPdf(url: string): Promise<Buffer> {
+  await acquireRenderSlot();
+  try {
+    return await renderUrlToPdfUnbounded(url);
+  } finally {
+    releaseRenderSlot();
+  }
+}
+
+async function renderUrlToPdfUnbounded(url: string): Promise<Buffer> {
   const browser = await launch();
   try {
     const page = await browser.newPage();

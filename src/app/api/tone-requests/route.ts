@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { unauthorized } from "@/lib/oauth-discovery";
-import { createClient } from "@supabase/supabase-js";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
 import { canRequestTone } from "@/lib/tone-request-quota";
-import type { ToneRequest } from "@/lib/db/tone-requests";
+import { PUBLIC_COLUMNS, type ToneRequest } from "@/lib/db/tone-requests";
+import {
+  getAuthenticatedSupabase,
+  getUserFromRequest,
+} from "@/lib/auth/request-user";
 
 export const runtime = "nodejs";
 
@@ -18,37 +21,8 @@ const VALID_PARTS = new Set([
 /* -------------------------------------------------------------------------- */
 /*  Helpers                                                                    */
 /* -------------------------------------------------------------------------- */
-
-function getAuthenticatedSupabase(token: string) {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { global: { headers: { Authorization: `Bearer ${token}` } } },
-  );
-}
-
-async function getUserFromRequest(req: NextRequest) {
-  const authHeader = req.headers.get("authorization");
-  if (!authHeader?.startsWith("Bearer ")) return null;
-
-  const token = authHeader.replace("Bearer ", "");
-  const supabase = getAuthenticatedSupabase(token);
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return null;
-
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("role")
-    .eq("id", user.id)
-    .single();
-
-  return {
-    id: user.id,
-    email: user.email ?? "",
-    role: (profile?.role as string) || "free",
-    token,
-  };
-}
+// Request auth lives in @/lib/auth/request-user (shared with the download
+// and admin routes).
 
 /** Infinity doesn't survive JSON — admins read `remaining: null` as unlimited. */
 function quotaPayload(q: { remaining: number; limit: number; used: number }) {
@@ -69,8 +43,17 @@ export async function GET(req: NextRequest) {
     return unauthorized({ error: "Sign in required." });
   }
 
-  const quota = await canRequestTone(user.id, user.role);
-  return NextResponse.json(quotaPayload(quota));
+  // Fail closed: an unreadable count is "can't verify", never "0 used".
+  try {
+    const quota = await canRequestTone(user.id, user.role);
+    return NextResponse.json(quotaPayload(quota));
+  } catch (err) {
+    console.error("[tone-requests] quota read failed:", err);
+    return NextResponse.json(
+      { error: "Couldn't check your quota. Try again in a minute." },
+      { status: 503 },
+    );
+  }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -130,7 +113,17 @@ export async function POST(req: NextRequest) {
 
     // Quota gate. 402 → the client renders an upgrade prompt, mirroring the
     // preset-download route. The DB trigger (migration 024) backstops this.
-    const quota = await canRequestTone(user.id, user.role);
+    // Fail closed on a quota-read error (503), never fail open.
+    let quota;
+    try {
+      quota = await canRequestTone(user.id, user.role);
+    } catch (err) {
+      console.error("[tone-requests] quota read failed:", err);
+      return NextResponse.json(
+        { error: "Couldn't check your quota. Try again in a minute." },
+        { status: 503 },
+      );
+    }
     if (!quota.allowed) {
       const isFree = user.role === "free";
       return NextResponse.json(
@@ -159,7 +152,12 @@ export async function POST(req: NextRequest) {
         requested_by: user.id,
         requested_by_email: user.email || null,
       })
-      .select("*")
+      // NOT select("*"): migration 026 revoked SELECT on requested_by_email/
+      // admin_notes for client roles, and INSERT ... RETURNING requires
+      // SELECT on every returned column — a "*" here aborts the whole
+      // insert with "permission denied for column". PUBLIC_COLUMNS is the
+      // exact grant list from 026.
+      .select(PUBLIC_COLUMNS)
       .single();
 
     if (error) {

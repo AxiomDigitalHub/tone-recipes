@@ -14,6 +14,9 @@ on:
     - cron: "0 14 * * 2"
   workflow_dispatch:
 
+permissions:
+  issues: write
+
 jobs:
   send:
     if: vars.CRON_ENABLED == 'true' || github.event_name == 'workflow_dispatch'
@@ -27,3 +30,15 @@ jobs:
           echo "HTTP $code"
           cat /tmp/body
           [ "$code" = "200" ] || exit 1
+
+      # Scheduled runs fail silently unless someone checks the Actions tab —
+      # file an issue so a broken newsletter send actually surfaces.
+      - name: File issue on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Sunday Setlist cron failed ($(date -u +%F))" \
+            --body "Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+            || echo "issue creation failed (non-fatal)"

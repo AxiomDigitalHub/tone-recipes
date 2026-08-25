@@ -33,6 +33,16 @@ export const maxDuration = 60;
 
 const BATCH_LIMIT = 200;
 
+/**
+ * Steps more than this many days overdue are cancelled, not sent. A day-7
+ * onboarding email arriving weeks late reads as machine-blind — worse than
+ * no email. This exists because the drain cron shipped later than the
+ * enqueue triggers (migration 025), so a backlog accumulated; it also
+ * covers any future cron outage longer than two weeks. On a normal hourly
+ * cadence nothing ever comes close to this window.
+ */
+const STALE_AFTER_DAYS = 14;
+
 /** Every defined step, for test mode and validation. */
 const ALL_STEPS: { sequence: SequenceName; step: number }[] = [
   { sequence: "account", step: 1 },
@@ -47,6 +57,7 @@ interface QueueRow {
   user_id: string | null;
   sequence: SequenceName;
   step: number;
+  due_at: string;
 }
 
 interface EmailContext {
@@ -99,7 +110,7 @@ export async function GET(req: NextRequest) {
   // ---- Fetch due rows ----
   const { data: due, error: dueError } = await admin
     .from("email_sequence_queue")
-    .select("id, email, user_id, sequence, step")
+    .select("id, email, user_id, sequence, step, due_at")
     .is("sent_at", null)
     .is("cancelled_at", null)
     .lte("due_at", new Date().toISOString())
@@ -128,9 +139,17 @@ export async function GET(req: NextRequest) {
     cancelled++;
   };
 
+  const staleCutoff = Date.now() - STALE_AFTER_DAYS * 24 * 60 * 60 * 1000;
+
   for (const row of rows) {
     if (!getSequenceStep(row.sequence, row.step)) {
       await cancel(row, "unknown_step");
+      continue;
+    }
+
+    // ---- Stale guard: never send a step weeks past its moment ----
+    if (new Date(row.due_at).getTime() < staleCutoff) {
+      await cancel(row, "stale_backlog");
       continue;
     }
 

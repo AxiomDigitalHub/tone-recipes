@@ -33,14 +33,19 @@ function getSupabaseAdmin() {
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 
-  console.log(
-    "[stripe-webhook] supabase env:",
-    "url_present=", Boolean(url),
-    "service_key_present=", Boolean(serviceKey),
-    "service_key_length=", serviceKey?.length ?? 0,
-    // Log only the role claim from the JWT, never the full key
-    "service_key_role=", decodeJwtRole(serviceKey),
-  );
+  // Diagnostics from the 2026-04 live-mode debug session, now scoped to the
+  // failure path only — a healthy webhook no longer logs key shape on
+  // every event.
+  if (!serviceKey || decodeJwtRole(serviceKey) !== "service_role") {
+    console.error(
+      "[stripe-webhook] supabase env problem:",
+      "url_present=", Boolean(url),
+      "service_key_present=", Boolean(serviceKey),
+      "service_key_length=", serviceKey?.length ?? 0,
+      // Log only the role claim from the JWT, never the full key
+      "service_key_role=", decodeJwtRole(serviceKey),
+    );
+  }
 
   if (!serviceKey) {
     throw new Error("SUPABASE_SERVICE_ROLE_KEY is not set");
@@ -84,6 +89,46 @@ async function isProtectedRole(
     return true;
   }
   return PROTECTED_ROLES.has((data as { role?: string } | null)?.role ?? "");
+}
+
+/**
+ * Revoke Set Pack access purchased with the given PaymentIntent by stamping
+ * `refunded_at`. Every access gate (set-pack checkout short-circuit, worship
+ * download route, SetPackAccess client, admin revenue) already filters on
+ * refunded_at — this was the missing WRITE side: before it existed, a
+ * refunded or charged-back customer kept the pack forever.
+ *
+ * Returns the number of rows revoked (0 = the charge wasn't a set pack,
+ * e.g. a subscription invoice — nothing to do).
+ */
+async function revokeSetPackByPaymentIntent(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  supabase: any,
+  paymentIntentId: string,
+  reason: "refund" | "dispute",
+): Promise<number> {
+  const { data, error } = await supabase
+    .from("set_pack_purchases")
+    .update({ refunded_at: new Date().toISOString() })
+    .eq("stripe_payment_intent_id", paymentIntentId)
+    .is("refunded_at", null)
+    .select("id, pack_slug, user_id");
+
+  if (error) {
+    console.error(
+      `[stripe-webhook] refunded_at write failed (${reason}):`,
+      error.message,
+    );
+    return 0;
+  }
+  const rows = (data ?? []) as { pack_slug: string }[];
+  if (rows.length > 0) {
+    console.log(
+      `[stripe-webhook] set pack access revoked (${reason}):`,
+      rows.map((r) => r.pack_slug).join(", "),
+    );
+  }
+  return rows.length;
 }
 
 /** Decode the `role` claim from a Supabase JWT without exposing the key. */
@@ -154,6 +199,42 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  // ---- Idempotency claim (migration 027) ----
+  // Stripe retries on non-2xx AND on timeout; without a dedupe a retry
+  // re-sends welcome/owner emails and double-counts checkout_complete.
+  // Claim the event.id up front; a unique violation = duplicate delivery.
+  // Failure paths that WANT a retry must releaseClaim() before their 500,
+  // or the retry would be skipped as a duplicate.
+  let claimed = false;
+  {
+    const claim = await supabase
+      .from("stripe_webhook_events")
+      .insert({ event_id: event.id, type: event.type } as never);
+    if (!claim.error) {
+      claimed = true;
+    } else if (claim.error.code === "23505") {
+      console.log("[stripe-webhook] duplicate delivery, skipping:", event.id);
+      return NextResponse.json({ received: true, duplicate: true });
+    } else {
+      // Table missing (migration not applied) or transient — proceed
+      // without dedupe, same behavior as before migration 027.
+      console.error(
+        "[stripe-webhook] idempotency claim failed (continuing without dedupe):",
+        claim.error.message,
+      );
+    }
+  }
+  const releaseClaim = async () => {
+    if (!claimed) return;
+    const { error } = await supabase
+      .from("stripe_webhook_events")
+      .delete()
+      .eq("event_id", event.id);
+    if (error) {
+      console.error("[stripe-webhook] claim release failed:", error.message);
+    }
+  };
+
   switch (event.type) {
     case "checkout.session.completed": {
       const session = event.data.object as Stripe.Checkout.Session;
@@ -210,7 +291,9 @@ export async function POST(req: NextRequest) {
             "[stripe-webhook] set_pack_purchases upsert error:",
             purchaseInsert.error,
           );
-          await sendOwnerAlert({
+          // Fire-and-forget: don't let a slow Resend push us past Stripe's
+          // delivery timeout (which would itself trigger a retry).
+          void sendOwnerAlert({
             urgent: true,
             subject: "PAID BUT NO ACCESS — set pack DB write failed",
             heading: "Customer paid but did not get access",
@@ -221,7 +304,10 @@ export async function POST(req: NextRequest) {
               ["Error", purchaseInsert.error.message ?? "unknown"],
               ["Action", "Grant access manually, then fix the write"],
             ],
-          });
+          }).catch(() => {});
+          // We WANT Stripe to retry this one — release the claim so the
+          // retry isn't skipped as a duplicate.
+          await releaseClaim();
           return NextResponse.json(
             { error: "Database error" },
             { status: 500 },
@@ -246,16 +332,21 @@ export async function POST(req: NextRequest) {
           },
         } as never);
 
-        // Notify the customer (welcome) and the owner (sale).
+        // Notify the customer (welcome) and the owner (sale). Fire-and-
+        // forget: entitlement is already written, and awaiting email I/O
+        // here risks Stripe's timeout → a retry → duplicate emails (the
+        // exact failure the idempotency claim exists to stop).
         if (customerEmail) {
-          await sendPurchaseWelcome({
+          void sendPurchaseWelcome({
             to: customerEmail,
             kind: "set_pack",
             label: `${setPackSlug} set pack`,
             amountCents: amount,
-          });
+          }).catch((e) =>
+            console.error("[stripe-webhook] purchase welcome failed:", e),
+          );
         }
-        await sendOwnerAlert({
+        void sendOwnerAlert({
           subject: `Set Pack sold: ${setPackSlug}`,
           heading: "💰 New Set Pack purchase",
           rows: [
@@ -267,7 +358,9 @@ export async function POST(req: NextRequest) {
             ["Customer", customerEmail ?? userId],
             ["Mode", event.livemode ? "LIVE" : "test"],
           ],
-        });
+        }).catch((e) =>
+          console.error("[stripe-webhook] owner alert failed:", e),
+        );
         break;
       }
 
@@ -315,7 +408,7 @@ export async function POST(req: NextRequest) {
           "[stripe-webhook] DB error during upgrade:",
           updateRes.error,
         );
-        await sendOwnerAlert({
+        void sendOwnerAlert({
           urgent: true,
           subject: "PAID BUT NO ACCESS — subscription DB write failed",
           heading: "Customer paid but was not upgraded",
@@ -326,7 +419,9 @@ export async function POST(req: NextRequest) {
             ["Error", updateRes.error.message ?? "unknown"],
             ["Action", "Upgrade the profile manually, then fix the write"],
           ],
-        });
+        }).catch(() => {});
+        // Release so Stripe's retry re-attempts the profile write.
+        await releaseClaim();
         return NextResponse.json(
           { error: "Database error" },
           { status: 500 },
@@ -382,15 +477,18 @@ export async function POST(req: NextRequest) {
         );
       }
 
-      // Notify the customer (welcome) and the owner (sale).
+      // Notify the customer (welcome) and the owner (sale). Fire-and-forget
+      // — see the set-pack branch for why these never block the ACK.
       if (customerEmail) {
-        await sendPurchaseWelcome({
+        void sendPurchaseWelcome({
           to: customerEmail,
           kind: "subscription",
           label: plan === "pro" ? "Pro" : plan === "pass" ? "Pass" : plan,
-        });
+        }).catch((e) =>
+          console.error("[stripe-webhook] purchase welcome failed:", e),
+        );
       }
-      await sendOwnerAlert({
+      void sendOwnerAlert({
         subject: `New subscriber: ${plan}`,
         heading: "💰 New Pass/Pro subscriber",
         rows: [
@@ -398,7 +496,9 @@ export async function POST(req: NextRequest) {
           ["Customer", customerEmail ?? userId],
           ["Mode", event.livemode ? "LIVE" : "test"],
         ],
-      });
+      }).catch((e) =>
+        console.error("[stripe-webhook] owner alert failed:", e),
+      );
       break;
     }
 
@@ -469,26 +569,28 @@ export async function POST(req: NextRequest) {
       );
 
       if (updateRes.error) {
+        // Release so Stripe's retry re-attempts the downgrade.
+        await releaseClaim();
         return NextResponse.json(
           { error: "Database error" },
           { status: 500 },
         );
       }
 
-      await sendOwnerAlert({
+      void sendOwnerAlert({
         subject: "Subscriber canceled",
         heading: "🟠 Subscription canceled",
         rows: [
           ["User", userId],
           ["Customer", subscription.customer as string],
         ],
-      });
+      }).catch(() => {});
       break;
     }
 
     case "invoice.payment_failed": {
       const invoice = event.data.object as Stripe.Invoice;
-      await sendOwnerAlert({
+      void sendOwnerAlert({
         urgent: true,
         subject: "Payment failed",
         heading: "🔴 A payment failed",
@@ -501,13 +603,24 @@ export async function POST(req: NextRequest) {
           ["Attempt", String(invoice.attempt_count ?? "")],
           ["Action", "Stripe retries (dunning); watch for churn"],
         ],
-      });
+      }).catch(() => {});
       break;
     }
 
     case "charge.dispute.created": {
       const dispute = event.data.object as Stripe.Dispute;
-      await sendOwnerAlert({
+
+      // Revoke set-pack access immediately on a chargeback — the money is
+      // already frozen, so keeping access open is pure loss.
+      const disputePi =
+        typeof dispute.payment_intent === "string"
+          ? dispute.payment_intent
+          : dispute.payment_intent?.id;
+      const disputeRevoked = disputePi
+        ? await revokeSetPackByPaymentIntent(supabase, disputePi, "dispute")
+        : 0;
+
+      void sendOwnerAlert({
         urgent: true,
         subject: "Dispute / chargeback opened",
         heading: "🔴 Chargeback — respond fast",
@@ -515,15 +628,35 @@ export async function POST(req: NextRequest) {
           ["Amount", `$${((dispute.amount ?? 0) / 100).toFixed(2)}`],
           ["Reason", dispute.reason ?? "unknown"],
           ["Charge", dispute.charge as string],
+          [
+            "Access",
+            disputeRevoked > 0
+              ? `Set pack access revoked (${disputeRevoked})`
+              : "No set pack matched (subscription charge?)",
+          ],
           ["Action", "Submit evidence in Stripe before the deadline"],
         ],
-      });
+      }).catch(() => {});
       break;
     }
 
     case "charge.refunded": {
       const charge = event.data.object as Stripe.Charge;
-      await sendOwnerAlert({
+
+      // Only revoke on a FULL refund (charge.refunded flag). Partial refunds
+      // (goodwill credits) keep access. Subscription-invoice refunds match
+      // no set_pack_purchases row and are a no-op here — role downgrades
+      // stay with customer.subscription.deleted.
+      const refundPi =
+        typeof charge.payment_intent === "string"
+          ? charge.payment_intent
+          : charge.payment_intent?.id;
+      const refundRevoked =
+        charge.refunded && refundPi
+          ? await revokeSetPackByPaymentIntent(supabase, refundPi, "refund")
+          : 0;
+
+      void sendOwnerAlert({
         subject: "Refund issued",
         heading: "🟠 A charge was refunded",
         rows: [
@@ -537,8 +670,16 @@ export async function POST(req: NextRequest) {
               (charge.customer as string) ??
               "unknown",
           ],
+          [
+            "Access",
+            refundRevoked > 0
+              ? `Set pack access revoked (${refundRevoked})`
+              : charge.refunded
+                ? "No set pack matched (subscription charge?)"
+                : "Partial refund — access kept",
+          ],
         ],
-      });
+      }).catch(() => {});
       break;
     }
 
