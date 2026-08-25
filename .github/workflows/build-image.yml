@@ -24,7 +24,24 @@ env:
   IMAGE: ghcr.io/axiomdigitalhub/tone-recipes
 
 jobs:
+  # Unit tests gate the image build. `next build` (inside the Docker build)
+  # already fails on type/lint errors; this catches the logic classes it
+  # can't — quota math, token verification, rate-limit trust order, and the
+  # stranded-workflow check that would have caught the email-sequence cron
+  # sitting in docs/ for weeks.
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+
   build:
+    needs: test
     runs-on: ubuntu-latest
     permissions:
       contents: read
