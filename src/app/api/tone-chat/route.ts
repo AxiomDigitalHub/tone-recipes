@@ -37,7 +37,12 @@ import type { Platform } from "@/types/recipe";
 const FREE_DAILY_CAP = 10;
 const PASS_DAILY_CAP = 200;
 const FREE_MODEL = "claude-haiku-4-5";
-const PASS_MODEL = "claude-sonnet-4-6";
+// Sonnet 5: same list price as Sonnet 4.6 ($3/$15 per MTok, intro $2/$10
+// through 2026-08-31) and a clear quality step up on exactly this kind of
+// grounded-advice work. Adaptive thinking + effort params carry over
+// unchanged; its new tokenizer counts ~30% more tokens for the same text,
+// hence the max_tokens bump below.
+const PASS_MODEL = "claude-sonnet-5";
 const MAX_HISTORY_MESSAGES = 24;
 const MAX_MESSAGE_CHARS = 4000;
 
@@ -261,7 +266,10 @@ export async function POST(req: NextRequest) {
       ? {
           thinking: { type: "adaptive" as const },
           output_config: { effort: "low" as const },
-          max_tokens: 4000,
+          // Sonnet 5's tokenizer counts ~30% more tokens for the same text
+          // than 4.6 — 4000 tuned on 4.6 could truncate an answer with an
+          // fk-chain block mid-JSON. max_tokens caps thinking + answer.
+          max_tokens: 5200,
         }
       : { max_tokens: 1600 }),
     // The system prompt (incl. ~4.6K-token catalog) is stable per

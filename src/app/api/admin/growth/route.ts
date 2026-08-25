@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { isAdminRequest } from "@/lib/auth/request-user";
 
 /**
  * GET /api/admin/growth
@@ -21,7 +22,7 @@ import { createClient } from "@supabase/supabase-js";
 
 export const runtime = "nodejs";
 
-const ADMIN_ROLES = new Set(["admin", "super_admin"]);
+// Admin gate lives in @/lib/auth/request-user (shared with /api/admin/metrics).
 
 // Estimated monthly price per paid role. Annual plans exist too, so this is
 // deliberately an ESTIMATE — Stripe is the exact number.
@@ -31,41 +32,6 @@ const EST_MONTHLY_PRICE: Record<string, number> = {
 };
 
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
-
-/**
- * Verify the bearer token → is the caller an admin? Admin access is granted
- * by role ∈ {admin, super_admin} OR the `is_moderator` flag — the flag
- * DECOUPLES admin from subscription tier, so subscribing (which the Stripe
- * webhook writes to `role`) can never clobber admin access. Returns false on
- * a missing/invalid token. Mirrors getUserFromRequest() in the download route.
- */
-async function isAdminRequest(req: NextRequest): Promise<boolean> {
-  const authHeader = req.headers.get("authorization");
-  if (!authHeader?.startsWith("Bearer ")) return false;
-
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !anon) return false;
-
-  const token = authHeader.replace("Bearer ", "");
-  const supabase = createClient(url, anon, {
-    global: { headers: { Authorization: `Bearer ${token}` } },
-  });
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) return false;
-
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("role, is_moderator")
-    .eq("id", user.id)
-    .single();
-
-  const role = (profile?.role as string) || "free";
-  return ADMIN_ROLES.has(role) || profile?.is_moderator === true;
-}
 
 /** ISO-week bucket key (year + week number), used for the signup sparkline. */
 function isoWeekKey(d: Date): string {

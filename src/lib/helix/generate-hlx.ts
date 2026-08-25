@@ -607,9 +607,4 @@ export function generateHelixPreset(
   return JSON.stringify(hlx, null, 2);
 }
 
-export function slugifyPresetName(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
+export { slugifyPresetName } from "@/lib/slug";

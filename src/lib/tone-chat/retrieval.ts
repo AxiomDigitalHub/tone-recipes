@@ -3,8 +3,8 @@ import type { ToneRecipe, Platform, SignalChainNode } from "@/types/recipe";
 
 /**
  * Lightweight keyword retrieval over the static recipe corpus for the
- * Tone Chat assistant. No vector DB — 105 recipes score in well under a
- * millisecond, and the corpus ships in the bundle anyway.
+ * Tone Chat assistant. No vector DB — a few hundred recipes score in well
+ * under a millisecond, and the corpus ships in the bundle anyway.
  *
  * Two outputs:
  *   - buildCatalog(): a compact one-line-per-recipe index that lives in
@@ -111,7 +111,9 @@ export function getRecipeBySlug(slug: string): RetrievedRecipe | null {
   };
 }
 
-/** One line per recipe — lives in the system prompt (~3K tokens). */
+/** One line per recipe — lives in the system prompt (~4-5K tokens at 215
+ * recipes; grows with the corpus, which also keeps the cached prefix well
+ * past the model's cacheable minimum). */
 export function buildCatalog(): string {
   return buildIndex()
     .map(({ recipe, artistName, songTitle }) => {

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import fs from "fs";
 import path from "path";
+import { isAdminRequest } from "@/lib/auth/request-user";
 
 /**
  * GET /api/admin/metrics
@@ -19,35 +20,7 @@ import path from "path";
  * `recent` array is signup PII and `byRole` is a paying-customer count,
  * neither of which belongs on an open endpoint.
  */
-const ADMIN_ROLES = new Set(["admin", "super_admin"]);
-
-async function isAdminRequest(req: NextRequest): Promise<boolean> {
-  const authHeader = req.headers.get("authorization");
-  if (!authHeader?.startsWith("Bearer ")) return false;
-
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !anon) return false;
-
-  const token = authHeader.replace("Bearer ", "");
-  const supabase = createClient(url, anon, {
-    global: { headers: { Authorization: `Bearer ${token}` } },
-  });
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) return false;
-
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("role, is_moderator")
-    .eq("id", user.id)
-    .single();
-
-  const role = (profile?.role as string) || "free";
-  return ADMIN_ROLES.has(role) || profile?.is_moderator === true;
-}
+// Admin gate lives in @/lib/auth/request-user (shared with /api/admin/growth).
 
 export async function GET(req: NextRequest) {
   if (!(await isAdminRequest(req))) {

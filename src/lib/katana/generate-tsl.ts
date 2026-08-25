@@ -175,9 +175,4 @@ ${effectSlots.join("\n")}
 /**
  * Slugify a preset name into a safe filename.
  */
-export function slugifyPresetName(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
+export { slugifyPresetName } from "@/lib/slug";

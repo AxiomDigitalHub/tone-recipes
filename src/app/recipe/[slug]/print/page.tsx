@@ -15,6 +15,7 @@ import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { getCanonicalParams } from "@/lib/parameters/canonical";
 import { lookupParam } from "@/lib/parameters/registry";
+import { platformLabel } from "@/lib/constants";
 import type { Metadata } from "next";
 import type { Platform, PlatformTranslation } from "@/types/recipe";
 
@@ -52,15 +53,8 @@ export async function generateMetadata({
   };
 }
 
-const PLATFORM_LABELS: Record<string, string> = {
-  helix: "Helix",
-  quad_cortex: "Quad Cortex",
-  tonex: "TONEX",
-  fractal: "Fractal",
-  kemper: "Kemper",
-  katana: "Boss Katana",
-  pedalboard: "Pedalboard",
-};
+// Labels come from the canonical PLATFORMS list — see platformLabel()
+// in @/lib/constants.
 
 const PLATFORM_MFR: Record<string, string> = {
   helix: "Line 6",
@@ -365,7 +359,7 @@ export default async function RecipePrintPage({
                   <span>Translation</span>
                 </div>
                 <h2 className="display print-page-title">
-                  {PLATFORM_LABELS[platform]}
+                  {platformLabel(platform)}
                 </h2>
                 {translation.notes && (
                   <p className="print-page-dek">
@@ -384,7 +378,7 @@ export default async function RecipePrintPage({
                 <div className="print-platform-chain-eyebrow">
                   <span>Signal path</span>
                   <span aria-hidden="true">·</span>
-                  <span>{PLATFORM_LABELS[platform]} blocks</span>
+                  <span>{platformLabel(platform)} blocks</span>
                 </div>
                 <PreviewSchematicChain
                   blocks={blocks}
@@ -406,7 +400,7 @@ export default async function RecipePrintPage({
               <footer className="print-page-foot">
                 <span>Fader &amp; Knob · faderandknob.com</span>
                 <span className="print-cover-foot-rule" aria-hidden="true" />
-                <span>{PLATFORM_LABELS[platform]}</span>
+                <span>{platformLabel(platform)}</span>
               </footer>
             </section>
           );
