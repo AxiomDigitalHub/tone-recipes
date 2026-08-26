@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-08-23
-**Recipes:** 215
-**Clean (no errors, no warns):** 215
+**Date:** 2026-08-26
+**Recipes:** 220
+**Clean (no errors, no warns):** 220
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,8 +16,8 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `settings-outside-unverified-range` | info | 215 / 215 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
-| `katana-kemper-multidrive-default-off` | info | 28 / 215 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `settings-outside-unverified-range` | info | 220 / 220 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
+| `katana-kemper-multidrive-default-off` | info | 28 / 220 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -188,6 +188,12 @@ Passes every rule.
 ### `clapton-sunshine-of-your-love-woman-tone` — ✓ clean
 
 *Clapton's Sunshine of Your Love Woman Tone*
+
+Passes every rule.
+
+### `clarke-ace-of-spades-riff` — ✓ clean
+
+*Motorhead's Ace of Spades Riff Tone*
 
 Passes every rule.
 
@@ -479,6 +485,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `hackett-firth-of-fifth-solo` — ✓ clean
+
+*Genesis's Firth of Fifth Solo Tone*
+
+Passes every rule.
+
 ### `hammett-fade-to-black-clean-wah-solo` — ✓ clean
 
 *Kirk Hammett's Fade to Black Clean Intro and Wah Solo*
@@ -524,6 +536,12 @@ Passes every rule.
 ### `hoffmann-fast-as-a-shark-riff` — ✓ clean
 
 *Accept's Fast as a Shark Riff Tone*
+
+Passes every rule.
+
+### `hoffmann-restless-and-wild-solo` — ✓ clean
+
+*Accept's Restless and Wild Solo Tone*
 
 Passes every rule.
 
@@ -770,6 +788,12 @@ Passes every rule.
 ### `lowery-enemy-riff` — ✓ clean
 
 *Enemy Riff Tone*
+
+Passes every rule.
+
+### `lynch-tooth-and-nail-riff` — ✓ clean
+
+*Dokken's Tooth and Nail Riff Tone*
 
 Passes every rule.
 
@@ -1220,6 +1244,12 @@ Passes every rule.
 ### `tatler-am-i-evil-riff` — ✓ clean
 
 *Diamond Head's Am I Evil? Riff Tone*
+
+Passes every rule.
+
+### `tatler-lightning-to-the-nations-riff` — ✓ clean
+
+*Diamond Head's Lightning to the Nations Riff Tone*
 
 Passes every rule.
 

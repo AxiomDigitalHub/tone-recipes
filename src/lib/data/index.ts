@@ -699,6 +699,20 @@ export const artists: Artist[] = [
     genres: ["nwobhm", "heavy-metal", "metal"],
     image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/37/75/ce/3775ce8a-2b0c-b420-90eb-d91f09cd919f/190296144103.jpg/600x600bb.jpg",
   },
+  {
+    name: "\"Fast\" Eddie Clarke",
+    slug: "fast-eddie-clarke",
+    bio: "Motorhead's guitarist across the run that made them, from 1977's debut through 1982's Iron Fist -- the player who had to find a way to be heard next to Lemmy's Rickenbacker. His solution shaped the band: he set his beloved 1972 Les Paul Deluxe aside and played a Stratocaster loaded with DiMarzio pickups because he needed something sharp enough to cut through a bass rig running all treble and no bass. What came out was Chuck Berry played at punk velocity through a cranked Marshall, and it became the template for a decade of thrash. He formed Fastway after leaving in 1982, and was the last of the classic trio to die, in January 2018.",
+    genres: ["heavy-metal", "hard-rock", "speed-metal"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/12/bd/5f/12bd5f42-768d-bdae-c346-c199d1568a09/4050538804966.jpg/600x600bb.jpg",
+  },
+  {
+    name: "Steve Hackett",
+    slug: "steve-hackett",
+    bio: "Genesis's guitarist from 1971 to 1977 and one of progressive rock's genuine innovators -- he was using two-handed tapping on Nursery Cryme years before it became a mainstream technique. His playing is defined by restraint and by sustain: long, vocal, violin-like lines built from a 1957 Les Paul Goldtop he bought in 1972, a Peter Cornish pedalboard full of period fuzzes, and an amp turned up until notes stopped decaying. The Firth of Fifth solo is the piece everyone cites, and it is a masterclass in playing fewer notes and holding them longer. He has recorded prolifically as a solo artist since 1975.",
+    genres: ["progressive-rock", "rock", "art-rock"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music/49/52/90/mzi.zezbnsxb.jpg/600x600bb.jpg",
+  },
 ];
 
 export const songs: Song[] = [
@@ -3519,6 +3533,81 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wa/search?pattern=diamond+head+am+i+evil",
     external_video_url:
       "https://www.youtube.com/results?search_query=diamond+head+am+i+evil+guitar+lesson",
+  },
+  {
+    artist_slug: "wolf-hoffmann",
+    title: "Restless and Wild",
+    slug: "restless-and-wild-accept",
+    album: "Restless and Wild",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/53/91/cf/5391cff2-7d09-6e58-dcdf-c33322537383/mzi.zshnfiau.jpg/600x600bb.jpg",
+    year: 1982,
+    genres: ["speed-metal", "heavy-metal", "metal"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=accept+restless+and+wild",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=accept+restless+and+wild+guitar+solo+lesson",
+  },
+  {
+    artist_slug: "brian-tatler",
+    title: "Lightning to the Nations",
+    slug: "lightning-to-the-nations-diamond-head",
+    album: "Lightning to the Nations",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/37/75/ce/3775ce8a-2b0c-b420-90eb-d91f09cd919f/190296144103.jpg/600x600bb.jpg",
+    year: 1980,
+    genres: ["nwobhm", "heavy-metal", "metal"],
+    difficulty: "intermediate",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=diamond+head+lightning+to+the+nations",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=diamond+head+lightning+to+the+nations+guitar+lesson",
+  },
+  {
+    artist_slug: "george-lynch",
+    title: "Tooth and Nail",
+    slug: "tooth-and-nail-dokken",
+    album: "Tooth and Nail",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/a4/98/8e/a4988e34-08d6-47fb-ef02-696362d0198f/0603497879885.jpg/600x600bb.jpg",
+    year: 1984,
+    genres: ["heavy-metal", "glam-metal", "metal"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=dokken+tooth+and+nail",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=dokken+tooth+and+nail+guitar+lesson",
+  },
+  {
+    artist_slug: "fast-eddie-clarke",
+    title: "Ace of Spades",
+    slug: "ace-of-spades-motorhead",
+    album: "Ace of Spades",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/12/bd/5f/12bd5f42-768d-bdae-c346-c199d1568a09/4050538804966.jpg/600x600bb.jpg",
+    year: 1980,
+    genres: ["heavy-metal", "hard-rock", "speed-metal"],
+    difficulty: "intermediate",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=motorhead+ace+of+spades",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=motorhead+ace+of+spades+guitar+lesson",
+  },
+  {
+    artist_slug: "steve-hackett",
+    title: "Firth of Fifth",
+    slug: "firth-of-fifth-genesis",
+    album: "Selling England by the Pound",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music/49/52/90/mzi.zezbnsxb.jpg/600x600bb.jpg",
+    year: 1973,
+    genres: ["progressive-rock", "rock", "art-rock"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=genesis+firth+of+fifth",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=genesis+firth+of+fifth+guitar+solo+lesson",
   },
 ];
 
@@ -66957,6 +67046,1232 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Capture-driven: a moderate-gain JMP Tone Model with an external cocked wah in front and essentially no reverb behind. Audition captures with the wah already engaged -- a capture that sounds great open can turn harsh once a resonant peak is parked on top of it, and that interaction is the only thing you actually need to get right.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Wolf Hoffmann - Restless and Wild (solo) ----
+  {
+    id: "seed-hoffmann-restless-and-wild",
+    song_slug: "restless-and-wild-accept",
+    title: "Accept's Restless and Wild Solo Tone",
+    slug: "hoffmann-restless-and-wild-solo",
+    created_at: "2026-08-26",
+    description:
+      "Same room, same amp and the same beat-up germanium pedal as 'Fast as a Shark' -- but a completely different job. Where the riff tone is built to stay legible at speed, the title-track solo has to sing over a full band, and every setting that made the riff patch tight and dry gets loosened. This is the Rangemaster-into-Plexi rig asked to sustain instead of chop.",
+    tone_context: "solo",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Fender Stratocaster (HSS, studio guitar)",
+      pickup_config: "HSS",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: ".009-.042",
+      notable_mods:
+        "Bridge humbucker in a Strat -- Hoffmann's documented studio configuration for this album, with single-coils in middle and neck. The 25.5-inch scale is doing more work on a lead than it does on the riff: longer scale means higher tension at the same gauge, which is why bends on this record snap back into pitch rather than going slack. Hoffmann has been explicit that the Flying V is a stage instrument and that Vs 'didn't have that bright attack that I wanted' in the studio. The specific 1982 bridge humbucker is undocumented; the EMG 81 associated with him came later, so do not build this around actives.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "booster",
+        gear_slug: null,
+        gear_name: "Dallas Rangemaster Treble Booster",
+        icon_type: "pedal",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: { Boost: 9 },
+        notes:
+          "Pushed even harder here than on the riff, and for a specific reason: the Rangemaster's gain lives entirely above its input capacitor's corner frequency, so turning it up does not thicken the note, it extends how long the upper harmonics keep feeding the amp. That is sustain. On a riff you want the pedal to stop where the note stops; on a solo you want it to keep going, which is why this is the one control worth pushing past where the rhythm patch sits.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 1959 Super Lead 100W (normal channel)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 6, Bass: 6, Middle: 7, Treble: 5, "Volume I": 10 },
+        notes:
+          "Middle goes up to 7 for the lead where the riff patch sat at 6, and that single knob is most of the difference between the two tones. A solo has to occupy the frequency band a vocal just vacated, and on a non-master Super Lead the midrange control is the only thing standing between a lead line and the wall of rhythm guitar underneath it. Volume I at maximum because there is no other gain stage -- everything here is EL34s clipping.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12 (Celestion-loaded)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Era-typical rather than documented. The Celestion's high-frequency rolloff is the only low-pass filter anywhere in this chain, and with the booster running hotter for the solo there is even more energy above 5 kHz arriving at the speaker than there was on the rhythm take.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, off cone centre" },
+        notes:
+          "Inferred rather than documented for Dierks. Off-centre is what the record argues for: the lead is aggressive but never shrill, and a 57 dead-centre on a booster-driven Marshall lands squarely in the frequency range this rig already has too much of.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Fender Stratocaster with a bridge humbucker -- the studio guitar for this album; the Flying Vs never left the stage",
+      effects: [
+        "Dallas Rangemaster Treble Booster (original germanium unit) -- documented in Hoffmann's studio chain across Breaker, Restless and Wild, Balls to the Wall and Metal Heart",
+      ],
+      amp: "Vintage Marshall Super Lead 100W; a 1980 50W Marshall JMP MkII is also documented as being on 'just about every Accept album'",
+      cabinet: "Marshall 4x12, Celestion-loaded -- era-typical, not documented for these sessions",
+      microphone: "Shure SM57 -- inferred; the Dierks capture is not documented",
+      other_notes:
+        "Recorded at Dieter Dierks' studio in Stommeln, outside Cologne, across February-March and June 1982, produced by Accept with Michael Wagener recording and mixing. This was the first Accept album not tracked at Delta-Studio. The rig is identical to the one behind 'Fast as a Shark' on the same album -- what differs is how it is set, and that is the whole point of building the solo separately. Settings here are a lead-voiced reading of a documented rig rather than transcribed session notes; nobody wrote down where the knobs sat.",
+    },
+    tags: ["speed-metal", "heavy-metal", "metal", "solo", "lead", "marshall", "stratocaster", "accept", "treble-booster"],
+    sources: [
+      "https://blabbermouth.net/news/accepts-wolf-hoffmann-explains-why-he-didnt-use-his-flying-v-guitars-in-the-studio",
+      "https://bravewords.com/news/accept-s-wolf-hoffmann-to-sell-custom-superstrats-original-dallas-rangemaster-more-via-reverb/",
+      "https://en.wikipedia.org/wiki/Restless_and_Wild",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Noise Gate",
+            block_category: "Dynamics",
+            original_gear: "Gain-structure housekeeping",
+            settings: { Threshold: -68, Decay: 120 },
+            notes:
+              "Deliberately looser than the rhythm patch on this same album -- threshold twelve decibels lower and a decay nearly seven times longer. A gate set for a chugging riff will chop the tail off every sustained lead note, and sustained notes are the entire reason this patch exists. Set it just tight enough to stop the germanium hiss between phrases and no tighter.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression",
+            settings: { Threshold: -26, Ratio: 4, Knee: 3, Attack: 30, Release: 400, Mix: 60, Level: 2 },
+            notes:
+              "Blended much wetter than a rhythm comp and released far more slowly. On a lead the compressor's job flips completely: instead of evening out pick attacks it is holding the back half of each note up as it decays, which is what lets a single sustained bend keep its level while the band moves underneath it. Slow attack at 30 ms so the pick transient still gets through unsquashed.",
+          },
+          {
+            position: 3,
+            block_name: "Deranged Master",
+            block_category: "Booster",
+            original_gear: "Dallas Rangemaster Treble Booster",
+            settings: { Drive: 9, Tone: 6, Boost: 9, Level: 7 },
+            notes:
+              "DEFAULT-ON and a literal model rather than a substitute -- Deranged Master is Helix's Dallas Rangemaster. Higher than the rhythm patch because on this pedal drive translates directly into sustain rather than into thickness. Do not swap in a Scream 808: a Tube Screamer adds mids and keeps the bass, a Rangemaster strips the bass and amplifies what is left, and the whole voicing of the amp downstream is compensating for that.",
+          },
+          {
+            position: 4,
+            block_name: "Brit Plexi Nrm",
+            block_category: "Amp",
+            original_gear: "Marshall 1959 Super Lead 100W",
+            settings: { Drive: 8, Bass: 6, Mid: 7, Treble: 5, Presence: 6, ChVol: 6, Master: 10, Bias: 6, BiasX: 5, Sag: 6, Hum: 4, Ripple: 4 },
+            notes:
+              "Sag at 6 where the riff patch runs 3, and this is the single most important edit between the two. Sag models power-supply give, which on a fast riff smears the attack and is a liability -- but on a lead it is exactly what makes a held note bloom rather than sit flat. Bias nudged up to 6 pushes the tubes hotter for a little more even-harmonic warmth. Normal input, not bright: a Rangemaster into Brit Plexi Brt is unusable.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 (Celestion-loaded)",
+            settings: { Mic: 0, Distance: 3, Position: 0.55, Angle: 15, LowCut: 110, HighCut: 5200, Resonance: 6, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "Further back and further off-centre than the rhythm capture, at Distance 3 and Position 0.55. Backing the mic away trades pick definition for cabinet bloom, which is the correct trade on a lead and the wrong one on a riff. HighCut is even lower than the rhythm patch's 5400 because the booster is running hotter here and there is correspondingly more fizz to remove.",
+          },
+          {
+            position: 6,
+            block_name: "Simple Delay",
+            block_category: "Delay",
+            original_gear: "Studio lead delay",
+            settings: { Time: 340, Feedback: 22, Mix: 16, LowCut: 300, HighCut: 3800, Level: 0 },
+            notes:
+              "Audible, unlike the 6-percent thickener on the rhythm patch. Filtered hard at both ends so the repeats sit behind the dry note instead of competing with it -- an undarkened repeat on a treble-boosted rig arrives brighter than the note that spawned it, which sounds backwards to the ear.",
+          },
+          {
+            position: 7,
+            block_name: "Dynamic Plate",
+            block_category: "Reverb",
+            original_gear: "Dierks Studios plate",
+            settings: { Mix: 18, Decay: 1.6, Predelay: 25, LowCut: 220, HighCut: 6200, Level: 0 },
+            notes:
+              "A real plate rather than the nearly-dry room the riff patch uses. Predelay at 25 ms keeps the attack of each note in front of the tail so the phrasing stays articulate; without it a plate this size makes fast lead runs sound like they are underwater.",
+          },
+          {
+            position: 8,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global tilt EQ",
+            settings: { Tilt: 4.5, CenterFreq: 900, Level: 0 },
+            notes:
+              "Tilted slightly downward as a safety valve, same as the rhythm patch. If you are running a modern V30-flavoured IR rather than a Greenback this one control tames the rig faster than re-editing the booster.",
+          },
+        ],
+        notes:
+          "Loose gate -> heavy slow comp -> Rangemaster past the rhythm setting -> Plexi normal channel with Sag up -> Greenback backed off the cone -> real delay -> real plate. Every difference from the 'Fast as a Shark' patch on this same album points one direction: the riff patch is engineered to stop, this one is engineered to keep going.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -68, Decay: 120 }, notes: "Loose and slow. Tight gating is for the riff patch; here it would truncate the sustained notes the solo is built from." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -26, Ratio: 4, Attack: 30, Release: 400, Mix: 60, Level: 2 }, notes: "Wet and slow-releasing -- holding up the decay of each note rather than flattening its attack, which is the opposite of what a rhythm comp does." },
+          { position: 3, block_name: "Treble Booster", block_category: "Drive", original_gear: "Dallas Rangemaster Treble Booster", settings: { Drive: 9, Tone: 6, Level: 7 }, notes: "DEFAULT-ON, past the rhythm setting. If your firmware has no Rangemaster, use a clean boost with a high-pass in front rather than a Green Scream -- removing the bass is the functional part, and a Tube Screamer does the reverse." },
+          { position: 4, block_name: "Plexi 100", block_category: "Amp", original_gear: "Marshall 1959 Super Lead 100W", settings: { Gain: 8.0, Bass: 6.0, Mid: 7.0, Treble: 5.0, Presence: 6.0, Master: 6.0, Sag: 6.0 }, notes: "Mid at 7 to claim the band's midrange, and Sag up at 6 so held notes bloom. Both are lead-specific and both are wrong for the riff patch on this same album." },
+          { position: 5, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "SM57", Distance: 3.0, Position: 0.55, LowCut: 110, HighCut: 5200, Level: 0 }, notes: "Backed off the grille and further off-cone, trading attack definition for bloom -- the right trade on a solo." },
+          { position: 6, block_name: "Digital Delay", block_category: "Delay", original_gear: "Studio lead delay", settings: { Time: 340, Feedback: 22, Mix: 16, Level: 0 }, notes: "An audible repeat, darkened hard so it sits behind the dry note instead of on top of it." },
+          { position: 7, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Dierks Studios plate", settings: { Decay: 1.6, Predelay: 25, Mix: 18, Level: 0 }, notes: "Predelay is the control that matters -- 25 ms keeps each attack in front of the tail so fast runs stay legible." },
+          { position: 8, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 4.5, CenterFreq: 900, Level: 0 }, notes: "Tilted slightly down against bright modern IRs." },
+        ],
+        notes:
+          "Loose gate -> wet slow comp -> booster past the rhythm setting -> Plexi with mids and sag up -> cab backed off -> audible delay -> plate. The rig is the same one behind 'Fast as a Shark'; only the settings turn it from a chopping tool into a singing one.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: true, original_gear: "Dallas Rangemaster Treble Booster", settings: { Drive: 9, Bottom: 2, Tone: 6, Level: 7 }, notes: "DEFAULT-ON and historically correct -- the Rangemaster was permanent in the studio chain, not an A/B option. Bottom pulled down to 2 is what turns the Katana booster into a Rangemaster: that control approximates the pedal's input capacitor, and leaving it at noon gives you a fat mid boost, which is a different pedal entirely." },
+          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Marshall 1959 Super Lead 100W", settings: { Gain: 7, Volume: 6, Bass: 6, Middle: 7, Treble: 5, Presence: 6, Master: 6 }, notes: "Lead rather than the Crunch the riff patch uses, and it is a deliberate departure. A stock Super Lead is genuinely Crunch-character, but Katana's Lead voicing supplies the compression and sustain that a real cranked Plexi produces at volumes a Katana will never reach -- on a solo that trade is worth making, on a riff it costs you the articulation." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Studio lead delay", settings: { Time: 340, Feedback: 22, EffectLevel: 16 }, notes: "A real, audible repeat -- the rhythm patch on this album runs one barely-there slap, and that difference is most of what makes this read as a lead sound." },
+          { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Dierks Studios plate", settings: { Time: 5, PreDelay: 25, Tone: 5, EffectLevel: 18 }, notes: "A proper plate rather than the near-dry setting the riff needs. Tempo is no longer the constraint here, so the tail can breathe." },
+        ],
+        notes:
+          "Treble Boost with Bottom rolled off -> Lead amp -> real delay -> plate. The Bottom control on the booster is the block worth your time: it is the difference between a Rangemaster and a generic mid boost, and everything the amp is doing downstream assumes the bass has already been removed.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -68, Decay: 120 }, notes: "Slot A, set loose. Germanium boosters hiss, but a lead patch has long tails to protect and a tight gate will eat them." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 5, Attack: 30, Volume: 2 }, notes: "Slot B, and considerably heavier than the rhythm patch. Intensity here is buying sustain, not evenness." },
+          { position: 3, block_name: "Treble Booster", block_category: "Drive", original_gear: "Dallas Rangemaster Treble Booster", settings: { Drive: 9, Tone: 7, Volume: 7 }, notes: "Stomp slot, DEFAULT-ON. Kemper ships a genuine Rangemaster-style model rather than an approximation, which makes this the easiest platform to get right -- turn it up past where the rhythm patch sits and leave it on." },
+          { position: 4, block_name: "Search Rig Exchange for 'Marshall 1959 Super Lead' or 'Plexi 100 cranked'", block_category: "Profile", original_gear: "Marshall 1959 Super Lead 100W", settings: { Gain: 7, Bass: 6, Middle: 7, Treble: 5, Presence: 6 }, notes: "A stock cranked Super Lead capture, and specifically not one taken with a boost already in front of it -- you are supplying the boost, and a double-boosted capture will be shrill. Avoid JCM800 profiles; that circuit is tighter and darker than this record. Cab is baked into the profile." },
+          { position: 5, block_name: "Single Delay", block_category: "Delay", original_gear: "Studio lead delay", settings: { Time: 340, Feedback: 22, Mix: 16 }, notes: "DLY slot, and audible this time. Darken the repeats or they arrive brighter than the note that made them." },
+          { position: 6, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Dierks Studios plate", settings: { Decay: 1.6, Predelay: 25, Mix: 18 }, notes: "REV slot. Predelay keeps the attacks in front of the tail so the phrasing does not blur." },
+        ],
+        notes:
+          "Loose gate -> heavier comp -> Treble Booster on -> stock Super Lead profile -> audible delay -> plate. Kemper gets closest out of the box because it supplies both a real Rangemaster model and a genuinely unboosted Plexi to point it at.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate/Expander", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -68, Ratio: 2, Release: 120 }, notes: "Gentler ratio and slower release than the rhythm patch -- a hard gate on a lead patch clips the tails you are trying to grow." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -26, Ratio: 4, Attack: 30, Release: 400, Mix: 0.6, Level: 2 }, notes: "Wet blend, slow release. Holding up note decay rather than flattening attack." },
+          { position: 3, block_name: "Treble Booster", block_category: "Drive", original_gear: "Dallas Rangemaster Treble Booster", settings: { Drive: 9, Tone: 6, Level: 7 }, notes: "DEFAULT-ON. Fractal's Rangemaster is a genuine model -- if your firmware exposes the input capacitor, confirm it sits at the Rangemaster value rather than a full-range boost setting. A Rangemaster configured as a flat boost is just a loud Plexi and sounds nothing like this." },
+          { position: 4, block_name: "Plexi 100W Normal", block_category: "Amp", original_gear: "Marshall 1959 Super Lead 100W", settings: { Drive: 8.0, Bass: 6.0, Mid: 7.0, Treble: 5.0, Presence: 6.0, MV: 6.0, Cut: 5.0 }, notes: "Normal channel. Raise Supply Sag on the advanced page rather than dropping it to minimum as the riff patch does -- sag is a liability at speed and an asset on a held note, and this is the same amp asked to do the opposite job." },
+          { position: 5, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "57 Dynamic", Distance: 3.0, LowCut: 110, HighCut: 5200, Level: 0 }, notes: "Backed off the cone for bloom, with a low ceiling because the hotter booster setting puts more fizz into the speaker than the rhythm take did." },
+          { position: 6, block_name: "Digital Delay", block_category: "Delay", original_gear: "Studio lead delay", settings: { Time: 340, Feedback: 0.22, Mix: 0.16 }, notes: "Audible and darkened. Filter the repeats hard so they add depth behind the note instead of brightness on top of it." },
+          { position: 7, block_name: "Plate", block_category: "Reverb", original_gear: "Dierks Studios plate", settings: { Mix: 0.18, Decay: 1.6, Predelay: 25 }, notes: "A real plate. Predelay at 25 ms is what keeps fast runs from turning into a wash." },
+          { position: 8, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 0.45, CenterFreq: 900, Level: 0 }, notes: "Tilted slightly downward as a safety valve on a rig that is bright by design." },
+        ],
+        notes:
+          "Loose gate -> wet comp -> Rangemaster -> Plexi normal channel with sag raised -> Greenback backed off -> delay -> plate. Check the booster's input capacitor before touching anything else; everything the amp does downstream assumes the low end is already gone.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Rangemaster Plexi lead' or 'treble booster Super Lead' or 'Accept Restless and Wild'",
+            block_category: "Tone Model",
+            original_gear: "Marshall 1959 Super Lead + Dallas Rangemaster",
+            settings: {},
+            notes:
+              "Search by the pedal rather than the amp -- Rangemaster-into-Plexi captures are far rarer than Tube-Screamer-into-Marshall ones, and the two are not interchangeable. Audition candidates on a long held bend rather than on a chord: what you are listening for is whether the note keeps blooming after the pick attack decays, which is the property that separates a lead-usable capture from a rhythm one. If nothing suitable exists, take a stock cranked Plexi capture and put a real treble booster in front of TONEX -- the bass rolloff has to happen before the capture, not after it.",
+          },
+        ],
+        notes:
+          "Capture-driven: a treble-boosted Super Lead Tone Model with a real delay and plate behind it. The failure mode to listen for is a capture that sounds huge on a power chord and dies the moment you hold a single note.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Brian Tatler - Lightning to the Nations (riff) ----
+  {
+    id: "seed-tatler-lightning-to-the-nations",
+    song_slug: "lightning-to-the-nations-diamond-head",
+    title: "Diamond Head's Lightning to the Nations Riff Tone",
+    slug: "tatler-lightning-to-the-nations-riff",
+    created_at: "2026-08-26",
+    description:
+      "The title track of the record Metallica spent a career paying back, and the cleanest look at Tatler's actual rig: 'I used my Flying V on every song with a Marshall 2203 model 100 watt amp into a Laney 4x12 cab.' Note what that is not -- the 2203 is a master-volume Marshall with a real preamp gain stage, which puts this in a completely different circuit family from the non-master Plexis that most 1980 metal is built on.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Flying V (1979, white)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge: ".009-.042",
+      notable_mods:
+        "None, and that is worth stating plainly. Tatler bought this V new in 1979, still owns it, and ran it stock through the first two Diamond Head albums -- factory Gibson humbuckers, factory wiring. A stock late-1970s Gibson humbucker is a moderate-output pickup by metal standards, so if you are chasing this with a modern hot ceramic bridge pickup you will overshoot: the amp is supposed to be doing more of the work than the guitar is. String gauge is era-typical rather than documented.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "wah",
+        gear_slug: null,
+        gear_name: "Morley Power Wah Boost (bypassed on the riff)",
+        icon_type: "pedal",
+        icon_color: "#8b5cf6",
+        is_in_effects_loop: false,
+        settings: { Position: "bypassed" },
+        notes:
+          "In the chain but off, and the distinction matters. Tatler's own description is that the Morley was there 'for solos' -- 'Am I Evil?' is the famous exception where he left it cocked for the entire take. Building the title-track riff with a parked wah is the single most common way to get this record wrong: the two songs were tracked with the same four pieces of gear and the difference between them is whether this pedal is engaged.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall JMP 2203 100W (master volume)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 6, Bass: 5, Middle: 6, Treble: 7, Preamp: 7, Master: 5 },
+        notes:
+          "The 2203 is why this record sounds tighter than its NWOBHM contemporaries. A non-master Super Lead makes its dirt by clipping the power tubes, which is loose and bloomy; the 2203 has a cascaded preamp gain stage ahead of a master volume, so the distortion happens early in the circuit and arrives at the speaker already tight. Preamp at 7 rather than maxed because the stock V pickups are moderate output and pushing this circuit further just adds fizz without adding weight.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Laney 4x12",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "A Laney, not a Marshall -- Tatler is specific about this and it is a detail almost every recreation gets wrong. Period Laney 4x12s were typically Celestion-loaded like their Marshall equivalents but the cabinets are built differently, and the practical consequence is slightly less of the tight upper-mid bark a Marshall cab produces. If you only have a Marshall IR, take a little upper-midrange out rather than adding low end.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close on cone" },
+        notes:
+          "Inferred rather than documented. The Old Smithy was a small budget room that Tatler has described as 'very dead,' and a dead room with a seven-day album schedule means close-miked and committed -- there was no time or acoustic to capture anything else.",
+      },
+    ],
+    original_gear: {
+      guitar: "Gibson Flying V, bought new in 1979, stock factory humbuckers -- used on every song on the album",
+      effects: ["Morley Power Wah Boost -- Tatler's only pedal, and by his own account reserved for solos"],
+      amp: "Marshall 2203 100W master-volume head",
+      cabinet: "Laney 4x12",
+      microphone: "Shure SM57 -- inferred; the Old Smithy capture is not documented",
+      other_notes:
+        "Recorded in 1980 at the Old Smithy Recording Studio in Worcester and self-released on Happy Face, a label owned by Old Smithy's Muff Murfin, after major labels passed; Reg Fellows is the credited producer and Tatler recalls engineer Paul Robbins and roughly seven days to record and mix the whole album. The four-item rig is documented in Tatler's own words: 'I used my Flying V on every song with a Marshall 2203 model 100 watt amp into a Laney 4x12 cab and a Morley power/wah/boost pedal for solos.' Two corrections worth carrying: the cab is a Laney rather than a Marshall, and the amp is a master-volume 2203 rather than the non-master Plexi the era invites you to assume. Mic choice and any reverb are era-accurate reconstruction.",
+    },
+    tags: ["nwobhm", "heavy-metal", "metal", "riff", "marshall", "flying-v", "diamond-head", "master-volume"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Lightning_to_the_Nations",
+      "https://www.diamond-head.net/",
+      "https://guitar.com/features/interviews/diamond-head-brian-tatler-interview/",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Noise Gate",
+            block_category: "Dynamics",
+            original_gear: "Gain-structure housekeeping",
+            settings: { Threshold: -60, Decay: 45 },
+            notes:
+              "Moderate, because a 2203 at preamp 7 is meaningfully quieter than a boosted non-master Plexi -- the gain is happening in one preamp stage rather than across the whole amp. Set it looser than you would for a modern high-gain patch or you will clip the ends of the ringing open chords the riff is built around.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression",
+            settings: { Threshold: -24, Ratio: 3, Knee: 6, Attack: 20, Release: 180, Mix: 35, Level: 0 },
+            notes:
+              "Light and blended. The 2203's preamp already compresses more than a power-tube-driven amp does, so this is doing consistency work across a fast seven-day tracking schedule rather than adding sustain. Push it further and the riff's palm-muted sections lose the definition the master-volume circuit is providing for free.",
+          },
+          {
+            position: 3,
+            block_name: "Teemah!",
+            block_category: "Distortion",
+            original_gear: "Front-end tightening (not on the record)",
+            enabled: false,
+            settings: { Drive: 3, Tone: 6, Level: 6 },
+            notes:
+              "ALTERNATE -- OFF, and it should stay off if you want the record. Tatler's chain had exactly one pedal and it was a wah. This is here for players on modern speakers who find a bare 2203 model looser than expected; a low-drive transparent boost tightens the front end without adding the midrange hump a Tube Screamer would. Historically wrong, practically useful.",
+          },
+          {
+            position: 4,
+            block_name: "Brit 2204",
+            block_category: "Amp",
+            original_gear: "Marshall JMP 2203 100W",
+            settings: { Drive: 7, Bass: 5, Mid: 6, Treble: 7, Presence: 6, ChVol: 6, Master: 5, Bias: 5, BiasX: 5, Sag: 4, Hum: 4, Ripple: 4 },
+            notes:
+              "Brit 2204 is Helix's master-volume JMP and it is the correct family -- do not substitute Brit Plexi, which is the non-master circuit and distorts in a completely different place. Master at 5 rather than maxed is the whole reason to use this amp: the preamp is making the dirt, so the power section stays comparatively clean and tight. Sag at 4 keeps that tightness intact.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 Blackback 30",
+            block_category: "Cab",
+            original_gear: "Laney 4x12",
+            settings: { Mic: 0, Distance: 2, Position: 0.40, Angle: 0, LowCut: 85, HighCut: 7200, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "Blackback rather than Greenback, deliberately -- it is a slightly smoother, less mid-barky 4x12 voicing, which is the closest Helix gets to a period Laney cab standing in for the Marshall everyone assumes. HighCut sits high at 7200 because there is no treble booster in this chain adding fizz; unlike the Rangemaster rigs of the same era, this one can afford to keep its top end.",
+          },
+          {
+            position: 6,
+            block_name: "Chrome Custom",
+            block_category: "Wah",
+            original_gear: "Morley Power Wah Boost",
+            enabled: false,
+            settings: { Position: 0.35, Mix: 100, Level: 0 },
+            notes:
+              "OFF, which is the historically correct default for this song and the difference between this patch and the 'Am I Evil?' one. Park it around 0.35 and switch it on when you get to the solo -- that is precisely how Tatler used it. Chrome Custom is the right model to reach for rather than a Cry Baby type -- it is Helix's Morley-derived wah, and the Morley is optical rather than inductor-based, so its resonant peak is broader and smoother. Park a Fassel or Teardrop in the same place and it reads narrower and honkier than the record.",
+          },
+          {
+            position: 7,
+            block_name: "Room",
+            block_category: "Reverb",
+            original_gear: "Old Smithy tracking room",
+            settings: { Mix: 10, Decay: 0.9, Predelay: 12, LowCut: 200, HighCut: 6500, Level: 0 },
+            notes:
+              "Small and quiet, because the room genuinely was. Tatler calls the Old Smithy 'very dead' and the record sounds it -- reaching for a big plate here makes the track sound like a later, better-funded album and loses the raw self-released character that is half its appeal.",
+          },
+          {
+            position: 8,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global tilt EQ",
+            settings: { Tilt: 5.2, CenterFreq: 1000, Level: 0 },
+            notes:
+              "Nudged very slightly bright, opposite to the treble-booster patches in this catalogue. A 2203 into a Laney is a darker starting point than a boosted Plexi into a Marshall cab, and this recovers a little of the cut without touching the amp's Treble control.",
+          },
+        ],
+        notes:
+          "Gate -> light comp -> boost (off) -> Brit 2204 with the master DOWN -> Blackback 4x12 -> wah (off, parked for solos) -> small dead room -> slight bright tilt. The two edits that make or break this: use the master-volume 2204 rather than a Plexi, and leave the wah off -- that is what separates this from 'Am I Evil?' on the same record.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -60, Decay: 45 }, notes: "Moderate. A 2203 at preamp 7 is a quieter rig than a boosted non-master Plexi, and the riff has ringing open chords to protect." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -24, Ratio: 3, Attack: 20, Release: 180, Mix: 35, Level: 0 }, notes: "Light blend -- the master-volume preamp is already compressing, so this is take-to-take consistency rather than sustain." },
+          { position: 3, block_name: "Brit 2203", block_category: "Amp", original_gear: "Marshall JMP 2203 100W", settings: { Gain: 7.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, Master: 5.0, Sag: 4.0 }, notes: "QC names this amp exactly right. Keep Master at 5 -- the point of a 2203 is that the preamp makes the dirt and the power section stays tight, and cranking the master throws that away." },
+          { position: 4, block_name: "4x12 Blackback", block_category: "Cab", original_gear: "Laney 4x12", settings: { Mic: "SM57", Distance: 2.0, Position: 0.40, LowCut: 85, HighCut: 7200, Level: 0 }, notes: "A smoother 4x12 voicing standing in for the Laney. High ceiling at 7200 -- with no treble booster in the chain there is no fizz to cut." },
+          { position: 5, block_name: "Wah", block_category: "Wah", enabled: false, original_gear: "Morley Power Wah Boost", settings: { Position: 0.35, Mix: 100, Level: 0 }, notes: "OFF and parked for solos, exactly as Tatler used it. Leaving it on is how you accidentally build 'Am I Evil?' instead." },
+          { position: 6, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Old Smithy tracking room", settings: { Decay: 0.9, Predelay: 12, Mix: 10, Level: 0 }, notes: "Small and dry. The Old Smithy was a dead budget room and the record's character depends on it staying that way." },
+          { position: 7, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 5.2, CenterFreq: 1000, Level: 0 }, notes: "Slightly bright, recovering cut a 2203-into-Laney rig starts without." },
+        ],
+        notes:
+          "Gate -> light comp -> Brit 2203 with the master low -> Blackback -> wah off -> dead little room -> slight bright tilt. Reach for the 2203 model rather than a Plexi; the tightness of this record is a circuit difference, not an EQ difference.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Crunch", block_category: "Amp Type", original_gear: "Marshall JMP 2203 100W", settings: { Gain: 7, Volume: 6, Bass: 5, Middle: 6, Treble: 7, Presence: 6, Master: 5 }, notes: "Crunch is the right character for a 2203 at these settings -- there is real preamp gain here but nowhere near modern-metal saturation, and picking Lead would push it into a decade the record predates. Treble at 7 against Bass at 5 is the master-volume Marshall's signature imbalance." },
+          { position: 2, block_name: "Booster", block_category: "Booster", enabled: false, original_gear: "Front-end tightening (not on the record)", settings: { Drive: 3, Bottom: 5, Tone: 6, Level: 6 }, notes: "DEFAULT-OFF because Tatler's chain had no boost -- only a wah, and only on solos. Available at low drive if the Katana's Crunch reads flabbier through your speaker than the record does." },
+          { position: 3, block_name: "Wah", block_category: "FX", original_gear: "Morley Power Wah Boost", settings: { Rate: 0, Depth: 0, Level: 0, Position: 0.35 }, notes: "Loaded into the pedal FX slot and parked at 0.35, ready for the solo. On the riff it stays out of circuit -- engaging it is what turns this patch into the 'Am I Evil?' sound." },
+          { position: 4, block_name: "Room", block_category: "Reverb", original_gear: "Old Smithy tracking room", settings: { Time: 3, PreDelay: 12, Tone: 5, EffectLevel: 10 }, notes: "Short and quiet, matching a room Tatler describes as 'very dead.' A big reverb here buys production values the record never had." },
+        ],
+        notes:
+          "Crunch amp -> booster off -> wah parked and out -> small dry room. The Katana's Crunch channel is genuinely close to a 2203 territory-wise; keep the gain moderate and let the treble-forward EQ do the cutting.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -60, Decay: 45 }, notes: "Slot A, moderate. Enough to keep a master-volume Marshall quiet between phrases without truncating open chords." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 20, Volume: 0 }, notes: "Slot B, light. The 2203 preamp is already doing most of the levelling." },
+          { position: 3, block_name: "Wah", block_category: "Wah", enabled: false, original_gear: "Morley Power Wah Boost", settings: { Position: 0.35, Mix: 100 }, notes: "Stomp slot, OFF and parked. Assign it to an expression pedal and save it for the solo -- that is exactly how the pedal was used." },
+          { position: 4, block_name: "Search Rig Exchange for 'Marshall JMP 2203' or 'JMP Master Volume 100W'", block_category: "Profile", original_gear: "Marshall JMP 2203 100W", settings: { Gain: 7, Bass: 5, Middle: 6, Treble: 7, Presence: 6 }, notes: "Search specifically for a 2203 or JMP master-volume capture rather than a Plexi or a JCM800. A Plexi profile distorts in the power section and will be too loose; a JCM800 profile is the 2203's successor and is tighter and hotter than 1980. Cab is baked into the profile, so look for one captured through a Celestion-loaded 4x12 rather than a modern V30 cab." },
+          { position: 5, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Old Smithy tracking room", settings: { Decay: 0.9, Predelay: 12, Mix: 10 }, notes: "REV slot. Small, dry and unglamorous, like the room." },
+        ],
+        notes:
+          "Gate -> light comp -> wah (off, for solos) -> JMP 2203 master-volume profile -> small room. The whole recipe hinges on picking the right profile family: 2203, not Plexi, not JCM800.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate/Expander", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -60, Ratio: 3, Release: 45 }, notes: "Moderate settings for a moderate-gain amp -- this rig is much quieter than the boosted Plexis of the same era." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -24, Ratio: 3, Attack: 20, Release: 180, Mix: 0.35, Level: 0 }, notes: "Light parallel blend for take consistency, not sustain." },
+          { position: 3, block_name: "Brit JM45 2203", block_category: "Amp", original_gear: "Marshall JMP 2203 100W", settings: { Drive: 7.0, Bass: 5.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 5.0, Cut: 5.0 }, notes: "Fractal's master-volume JMP family. Keep MV at 5 -- the whole character of a 2203 is preamp dirt into a relatively clean power section, and raising the master converts it into a Plexi you did not want." },
+          { position: 4, block_name: "4x12 Blackback", block_category: "Cab", original_gear: "Laney 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 85, HighCut: 7200, Level: 0 }, notes: "Smoother than a Greenback IR, closer to a period Laney. Keep the ceiling high -- nothing in this chain is generating fizz that needs removing." },
+          { position: 5, block_name: "Wah", block_category: "Wah", enabled: false, original_gear: "Morley Power Wah Boost", settings: { Position: 0.35, Mix: 1.0, Level: 0 }, notes: "OFF and parked. If your firmware offers an optical or Morley-style wah type, choose it over a Clyde model -- the Morley's sweep is genuinely broader and less honky." },
+          { position: 6, block_name: "Room", block_category: "Reverb", original_gear: "Old Smithy tracking room", settings: { Mix: 0.10, Decay: 0.9, Predelay: 12 }, notes: "Tiny. A dead room is a documented characteristic of this record rather than a limitation to fix." },
+          { position: 7, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 0.52, CenterFreq: 1000, Level: 0 }, notes: "Very slightly bright, recovering the cut that a darker cab and an unboosted front end give up." },
+        ],
+        notes:
+          "Gate -> light comp -> 2203-family amp with MV low -> Blackback -> wah off -> tiny room -> slight bright tilt. If it sounds too loose, the fix is lowering the master and raising the preamp, not adding a drive pedal in front.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Marshall 2203' or 'JMP Master Volume' or 'JMP 800 pre-JCM'",
+            block_category: "Tone Model",
+            original_gear: "Marshall JMP 2203 100W into a Laney 4x12",
+            settings: {},
+            notes:
+              "Search on the model number rather than on 'Marshall' -- 2203 captures behave quite differently from the Plexi captures that dominate ToneNET, and the tightness of this record comes from the circuit rather than from EQ. Avoid cranked JCM800 captures: that is the 2203's direct successor and it is hotter and tighter than 1980. Unlike the 'Am I Evil?' recipe from this same album, you do not need a wah in front here -- the title-track riff was tracked with the Morley bypassed, so a plain capture is the whole tone.",
+          },
+        ],
+        notes:
+          "Capture-driven: a moderate-gain 2203 Tone Model with almost no reverb behind it. This is the easiest recipe on the album to get right on TONEX precisely because nothing is in front of the amp -- what you hear from the capture is what the record is.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- George Lynch (Dokken) - Tooth and Nail (riff) ----
+  {
+    id: "seed-lynch-tooth-and-nail",
+    song_slug: "tooth-and-nail-dokken",
+    title: "Dokken's Tooth and Nail Riff Tone",
+    slug: "lynch-tooth-and-nail-riff",
+    created_at: "2026-08-26",
+    description:
+      "The tone everybody assumes is a hot-rodded Marshall, and by Lynch's own account it is not one. He has said he used Randall RG100ES heads for the entire Tooth and Nail record and tour -- solid-state amps, in 1984, on one of the definitive tube-metal albums of the decade. Once you know that, the tightness of the palm mutes stops being a mystery and starts being a design choice.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Charvel super-strat (maple body and neck, ebony board)",
+      pickup_config: "H",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: ".009-.042",
+      notable_mods:
+        "Seymour Duncan Distortion humbucker at the bridge and a Floyd Rose double-locking trem -- the two modifications that define the 1984 Californian super-strat. This is the pre-ESP era: Lynch's long ESP relationship and the Kamikaze guitars come later in the decade, so building this recipe around a Kamikaze is an anachronism. The maple body is worth noting because it pushes the guitar bright and hard-attacking, which matters a great deal when the amp downstream has no power-tube compression to soften anything.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "overdrive",
+        gear_slug: null,
+        gear_name: "Tube Screamer-style overdrive (front-end boost)",
+        icon_type: "pedal",
+        icon_color: "#22c55e",
+        is_in_effects_loop: false,
+        settings: { Drive: 2, Tone: 6, Level: 8 },
+        notes:
+          "Low drive, high level -- used as a level and midrange shaper rather than a distortion. Lynch's documented habit across this era is a Tube Screamer or a Boss GE-7 in front to push the amp, and on a solid-state front end that job changes character: there is no tube to overdrive, so what the pedal actually buys you is a midrange hump that puts the guitar back in front of the mix. Its exact per-song use on these sessions is not documented; the boost is era-consistent rather than transcribed.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Randall RG100ES (100W solid-state)",
+        icon_type: "amp_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Gain: 8, Bass: 4, Middle: 6, Treble: 7, Presence: 6, Master: 6 },
+        notes:
+          "Solid-state clipping behaves nothing like tube clipping and that is the entire reason this record sounds the way it does. A tube amp compresses as it saturates and sags as the power supply is loaded, which rounds off transients; a solid-state amp clips hard and instantly and then stops, so the pick attack arrives intact and the note stops dead when you mute it. Bass at 4 because there is no power-tube looseness to tighten up -- the amp is already tight and adding low end just makes it thick.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Randall 4x12 (65W Celestions)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Higher-powered Celestions than the Greenbacks of the 1970s, and the difference is audible: a 65-watt speaker breaks up far less at the same volume, so the speaker stops contributing distortion and starts behaving like a filter. Combined with a solid-state head that means nothing in the chain after the preamp is adding any warmth -- which is exactly why the album needed a room and a mix as lush as it got.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, off cone centre" },
+        notes:
+          "Inferred rather than documented. Off-centre is the safe assumption for a rig this bright: a 57 on axis at the dust cap of a 65-watt Celestion fed by a solid-state head produces a top end that a 1984 Hollywood mix would have had to EQ straight back out.",
+      },
+    ],
+    original_gear: {
+      guitar: "Charvel-type super-strat, maple body and neck, ebony fingerboard, Seymour Duncan Distortion bridge humbucker, Floyd Rose trem -- pre-ESP era",
+      effects: ["Tube Screamer-style overdrive or Boss GE-7 as a front-end boost (era-documented habit; per-song use unconfirmed)"],
+      amp: "Randall RG100ES 100W solid-state -- Lynch has said he used these for the entire Tooth and Nail record and tour",
+      cabinet: "Randall 4x12 loaded with 65-watt Celestions",
+      microphone: "Shure SM57 -- inferred; the Cherokee capture is not documented",
+      other_notes:
+        "Recorded April-August 1984 at Cherokee Studios in Hollywood, produced by Tom Werman with Roy Thomas Baker. The sessions are well documented as difficult -- Don Dokken and Lynch could not work in the studio at the same time, so the guitar and vocal takes were largely done apart from each other. The correction worth carrying is the amp: the assumption that this is a modded Marshall is so widespread that it has become folklore, and Lynch's Metaltronix/Lee Jackson-modded plexis are real but belong to the later Back for the Attack period. Accounts vary slightly on the exact Randall model designation across the era (RG-80 heads also appear in interviews), so treat RG100ES as the best-supported specific claim rather than a settled fact.",
+    },
+    tags: ["heavy-metal", "glam-metal", "metal", "riff", "shred", "dokken", "solid-state", "super-strat"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Tooth_and_Nail_(Dokken_album)",
+      "https://forum.fractalaudio.com/threads/george-lynch-used-the-randall-rg100es-on-tooth-and-nail.180238/",
+      "https://www.vintageguitar.com/15158/george-lynch/",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Noise Gate",
+            block_category: "Dynamics",
+            original_gear: "Gain-structure housekeeping",
+            settings: { Threshold: -58, Decay: 30 },
+            notes:
+              "Fast decay, and it suits the source rig unusually well -- a solid-state amp stops dead when the signal stops rather than trailing off through a power section, so a quick gate is reinforcing the amp's natural behaviour rather than fighting it. On a tube patch this setting would sound abrupt; here it sounds correct.",
+          },
+          {
+            position: 2,
+            block_name: "LA Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Cherokee console compression",
+            settings: { Threshold: -20, Ratio: 4, Knee: 3, Attack: 25, Release: 250, Mix: 45, Level: 1 },
+            notes:
+              "An opto-style compressor rather than the FET-flavoured Deluxe Comp, chosen because it is doing the job the amp refuses to do. Solid-state clipping supplies no compression of its own, so unlike every tube-amp recipe in this catalogue the comp here is not a light seasoning -- it is the only thing gluing the rhythm track together. Blended at 45 percent so the hard pick attack still comes through.",
+          },
+          {
+            position: 3,
+            block_name: "Scream 808",
+            block_category: "Distortion",
+            original_gear: "Tube Screamer-style front-end boost",
+            enabled: true,
+            settings: { Drive: 2, Tone: 6, Level: 8 },
+            notes:
+              "DEFAULT-ON at very low drive and high level. On a tube amp a Scream 808 pushes the front end into saturation; on a solid-state amp there is nothing to push, so what survives is the pedal's midrange bump and its input-side bass rolloff -- both of which the RG100ES needs, because the amp is bright, tight and mid-neutral on its own.",
+          },
+          {
+            position: 4,
+            block_name: "Solo Lead OD",
+            block_category: "Amp",
+            original_gear: "Randall RG100ES (100W solid-state)",
+            settings: { Drive: 8, Bass: 4, Mid: 6, Treble: 7, Presence: 6, ChVol: 6, Master: 6, Bias: 5, BiasX: 5, Sag: 0, Hum: 0, Ripple: 0 },
+            notes:
+              "Read the internals before the tone stack: Sag, Hum and Ripple are all at ZERO, and that is the whole trick. No modeller ships a Randall RG100ES, so the honest approach is to take the tightest high-gain tube model available -- Solo Lead OD, Helix's Soldano SLO-100 -- and then strip out every parameter that makes it behave like a tube amp. Sag 0 removes power-supply give, Hum and Ripple 0 remove the AC artefacts a solid-state power stage does not produce. What is left is a model clipping hard and consistently, which is a genuinely close approximation of the real thing.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 1960 T75",
+            block_category: "Cab",
+            original_gear: "Randall 4x12 (65W Celestions)",
+            settings: { Mic: 0, Distance: 2, Position: 0.40, Angle: 0, LowCut: 105, HighCut: 6600, Resonance: 4, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "A 75-watt Celestion cab standing in for 65-watt Celestions, which is the closest available match in behaviour rather than in badge -- what matters is that it is a high-power speaker that stays clean instead of a Greenback that breaks up and adds warmth. Resonance pulled down to 4 because a stiff high-power cone genuinely has less low-end bloom than the vintage cabs the rest of this era used.",
+          },
+          {
+            position: 6,
+            block_name: "Simple Delay",
+            block_category: "Delay",
+            original_gear: "Cherokee outboard delay",
+            settings: { Time: 290, Feedback: 12, Mix: 9, LowCut: 320, HighCut: 4200, Level: 0 },
+            notes:
+              "Quiet and dark, sitting under the riff rather than on top of it. A 1984 Hollywood record was never dry, but the palm-muted sections need to stay articulate, so this is set to add depth in the ringing bars and stay out of the way in the muted ones.",
+          },
+          {
+            position: 7,
+            block_name: "Dynamic Plate",
+            block_category: "Reverb",
+            original_gear: "Cherokee Studios plate",
+            settings: { Mix: 16, Decay: 1.5, Predelay: 20, LowCut: 240, HighCut: 6800, Level: 0 },
+            notes:
+              "Bigger than any of the 1980 NWOBHM recipes in this catalogue, and that difference is production era rather than taste -- this is a major-label Hollywood album with Roy Thomas Baker involved, and the ambience is part of the sound. LowCut at 240 keeps the tail from muddying the palm mutes, which is the one thing a plate this size would otherwise ruin.",
+          },
+          {
+            position: 8,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global tilt EQ",
+            settings: { Tilt: 4.6, CenterFreq: 1100, Level: 0 },
+            notes:
+              "Tilted down, because solid-state clipping generates harsher high-order harmonics than tube clipping does and modern full-range speakers reproduce every one of them. This is the fastest single control for making the patch usable on FRFR without softening the attack you came here for.",
+          },
+        ],
+        notes:
+          "Fast gate -> opto comp doing real work -> Scream 808 as a mid shaper -> Solo Lead OD with Sag/Hum/Ripple at ZERO -> high-power T75 cab -> dark delay -> real plate -> downward tilt. The zeroed amp internals are the block to copy first; without them you have a nice Soldano patch and none of what makes this record sound like 1984.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -58, Decay: 30 }, notes: "Fast, and it matches the source -- solid-state amps stop when you stop, so a quick gate reinforces the amp rather than fighting it." },
+          { position: 2, block_name: "Tube Comp", block_category: "Compressor", original_gear: "Cherokee console compression", settings: { Threshold: -20, Ratio: 4, Attack: 25, Release: 250, Mix: 45, Level: 1 }, notes: "Doing real work rather than seasoning. The amp supplies zero compression of its own, so this is the only stage gluing the rhythm track." },
+          { position: 3, block_name: "Green Scream", block_category: "Drive", enabled: true, original_gear: "Tube Screamer-style front-end boost", settings: { Drive: 2, Tone: 6, Level: 8 }, notes: "DEFAULT-ON, low drive and high level. It is buying midrange and an input bass rolloff, not saturation -- there is no tube downstream to push." },
+          { position: 4, block_name: "Solo 100 Lead", block_category: "Amp", original_gear: "Randall RG100ES (100W solid-state)", settings: { Gain: 8.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, Master: 6.0, Sag: 0.0 }, notes: "Sag at zero is the critical edit. QC has no Randall model, so take the tightest SLO-family amp and remove the power-supply give -- what is left clips hard and consistently, which is what a solid-state head does." },
+          { position: 5, block_name: "4x12 1960 T75", block_category: "Cab", original_gear: "Randall 4x12 (65W Celestions)", settings: { Mic: "SM57", Distance: 2.0, Position: 0.40, LowCut: 105, HighCut: 6600, Level: 0 }, notes: "High-power Celestion voicing rather than a Greenback -- the point is a speaker that stays clean and filters rather than one that breaks up and warms." },
+          { position: 6, block_name: "Digital Delay", block_category: "Delay", original_gear: "Cherokee outboard delay", settings: { Time: 290, Feedback: 12, Mix: 9, Level: 0 }, notes: "Dark and quiet, adding depth in the ringing bars without smearing the palm mutes." },
+          { position: 7, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Cherokee Studios plate", settings: { Decay: 1.5, Predelay: 20, Mix: 16, Level: 0 }, notes: "Genuinely bigger than the NWOBHM recipes of four years earlier -- this is a major-label Hollywood production and the ambience is part of the record." },
+          { position: 8, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 4.6, CenterFreq: 1100, Level: 0 }, notes: "Tilted down against the harsh upper harmonics that hard clipping produces." },
+        ],
+        notes:
+          "Gate -> comp doing real work -> Green Scream as a mid shaper -> Solo 100 Lead with Sag at zero -> T75 cab -> dark delay -> plate -> downward tilt. Zero the sag before you touch the tone stack; it is the difference between a Soldano patch and a Randall one.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: false, original_gear: "Tube Screamer-style front-end boost", settings: { Drive: 2, Bottom: 4, Tone: 6, Level: 8 }, notes: "DEFAULT-OFF so you can A/B it rather than stacking it onto an already-saturated amp. When you do engage it, keep Drive at 2 and Level at 8 -- this is a level-and-midrange tool, not a gain tool, and turning it up defeats the purpose." },
+          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Randall RG100ES (100W solid-state)", settings: { Gain: 8, Volume: 6, Bass: 4, Middle: 6, Treble: 7, Presence: 6, Master: 6 }, notes: "Lead rather than Brown, and this is a rare case where the Katana has a structural advantage: it is itself a solid-state amp, so its clipping character is closer to a Randall than any tube model is. Lead gives the saturation level without the Brown channel's scoop, which would take out exactly the midrange this riff lives in." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Cherokee outboard delay", settings: { Time: 290, Feedback: 12, EffectLevel: 9 }, notes: "Dark and low, filling the ringing bars while staying clear of the palm-muted ones." },
+          { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Cherokee Studios plate", settings: { Time: 5, PreDelay: 20, Tone: 4, EffectLevel: 16 }, notes: "A real plate -- this is a 1984 Hollywood production, not a dead English budget room, and skimping here makes it sound like the wrong decade." },
+        ],
+        notes:
+          "Booster (off) -> Lead amp -> dark delay -> plate. Of every platform here the Katana is arguably the most authentic starting point, because the original amp was solid-state too -- resist the urge to compensate for that with a tube-flavoured preset.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -58, Decay: 30 }, notes: "Slot A, fast. It reinforces how a solid-state amp already behaves rather than imposing something on it." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Cherokee console compression", settings: { Intensity: 5, Attack: 25, Volume: 1 }, notes: "Slot B, and heavier than most recipes here. With no tube compression anywhere in the chain this is the only stage evening the rhythm track out." },
+          { position: 3, block_name: "Green Scream", block_category: "Drive", enabled: true, original_gear: "Tube Screamer-style front-end boost", settings: { Drive: 2, Tone: 6, Volume: 8 }, notes: "Stomp slot, DEFAULT-ON at low drive. Midrange and input filtering, not saturation." },
+          { position: 4, block_name: "Search Rig Exchange for 'Randall RG100ES' or 'George Lynch Tooth and Nail'", block_category: "Profile", original_gear: "Randall RG100ES (100W solid-state)", settings: { Gain: 8, Bass: 4, Middle: 6, Treble: 7, Presence: 6 }, notes: "This is the one platform that can give you the actual amp instead of an approximation, and it is worth exploiting -- Rig Exchange has genuine Randall solid-state captures and Lynch-specific rigs. A profile records the amp's real clipping behaviour, so you get the hard, instant, sag-free character for free rather than dialling it in by zeroing parameters. Cab is baked into the profile; look for one captured through a high-power Celestion 4x12." },
+          { position: 5, block_name: "Single Delay", block_category: "Delay", original_gear: "Cherokee outboard delay", settings: { Time: 290, Feedback: 12, Mix: 9 }, notes: "DLY slot. Dark and quiet, under the riff." },
+          { position: 6, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Cherokee Studios plate", settings: { Decay: 1.5, Predelay: 20, Mix: 16 }, notes: "REV slot. A proper Hollywood plate -- this record was never dry." },
+        ],
+        notes:
+          "Gate -> real comp -> low-drive boost -> an actual Randall profile -> dark delay -> plate. Kemper is the standout for this recipe: every other platform is impersonating a solid-state amp with a tube model, and a capture does not have to.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate/Expander", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -58, Ratio: 6, Release: 30 }, notes: "Hard ratio and fast release, matching how abruptly the source amp stops." },
+          { position: 2, block_name: "Optical Comp", block_category: "Compressor", original_gear: "Cherokee console compression", settings: { Threshold: -20, Ratio: 4, Attack: 25, Release: 250, Mix: 0.45, Level: 1 }, notes: "Carrying real weight here rather than seasoning -- nothing else in this chain compresses." },
+          { position: 3, block_name: "TS808 OD", block_category: "Drive", enabled: true, original_gear: "Tube Screamer-style front-end boost", settings: { Drive: 2, Tone: 6, Level: 8 }, notes: "DEFAULT-ON, low drive. The mid hump and the input high-pass are the useful parts; there is no tube being pushed." },
+          { position: 4, block_name: "Solo 100 Lead", block_category: "Amp", original_gear: "Randall RG100ES (100W solid-state)", settings: { Drive: 8.0, Bass: 4.0, Mid: 6.0, Treble: 7.0, Presence: 6.0, MV: 6.0, Cut: 5.0 }, notes: "On the advanced pages take Supply Sag to minimum, set Transformer Match tight, and turn Power Tube Bias Excursion right down -- Fractal exposes more of the tube-behaviour modelling than any other platform, which means it can be stripped out more completely. That stripping, not the tone stack, is what turns an SLO into a convincing Randall." },
+          { position: 5, block_name: "4x12 1960 T75", block_category: "Cab", original_gear: "Randall 4x12 (65W Celestions)", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 105, HighCut: 6600, Level: 0 }, notes: "High-power Celestion behaviour rather than a Greenback -- a stiff cone that filters instead of breaking up." },
+          { position: 6, block_name: "Digital Delay", block_category: "Delay", original_gear: "Cherokee outboard delay", settings: { Time: 290, Feedback: 0.12, Mix: 0.09 }, notes: "Dark and low so the palm mutes stay defined." },
+          { position: 7, block_name: "Plate", block_category: "Reverb", original_gear: "Cherokee Studios plate", settings: { Mix: 0.16, Decay: 1.5, Predelay: 20 }, notes: "A genuine Hollywood plate. Predelay keeps the attacks in front of the tail." },
+          { position: 8, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 0.46, CenterFreq: 1100, Level: 0 }, notes: "Tilted down against the harsh harmonics hard clipping produces on full-range speakers." },
+        ],
+        notes:
+          "Gate -> optical comp -> low-drive TS -> Solo 100 Lead with every tube behaviour stripped on the advanced pages -> T75 cab -> dark delay -> plate -> downward tilt. Fractal gets closest of the modelling platforms precisely because it lets you turn the tube-ness off.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Randall RG100ES' or 'Randall solid state' or 'George Lynch Tooth and Nail'",
+            block_category: "Tone Model",
+            original_gear: "Randall RG100ES (100W solid-state)",
+            settings: {},
+            notes:
+              "Search on Randall by name rather than reaching for a Soldano or a modded Marshall capture -- this is one of the few recipes in the catalogue where the capture platforms can deliver the literal amp and the modelling platforms cannot. Audition candidates on fast palm-muted eighths rather than on chords: what you are listening for is whether the note stops the instant you mute it. A tube capture will have a short bloom after the mute; the real thing does not, and that difference is the whole character of this record.",
+          },
+        ],
+        notes:
+          "Capture-driven, and unusually well served -- a genuine Randall solid-state Tone Model with a low-drive boost in front and a Hollywood plate behind. If you can only find tube captures, take the tightest, least saggy one you can and accept that you are approximating.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- "Fast" Eddie Clarke (Motorhead) - Ace of Spades (riff) ----
+  {
+    id: "seed-clarke-ace-of-spades",
+    song_slug: "ace-of-spades-motorhead",
+    title: "Motorhead's Ace of Spades Riff Tone",
+    slug: "clarke-ace-of-spades-riff",
+    created_at: "2026-08-26",
+    description:
+      "The most-copied downstroke riff in rock, and it is not a Les Paul. Clarke had pawned his 1972 Deluxe before Motorhead and did not get it back until he formed Fastway in 1982 -- the Motorhead-era guitar is a DiMarzio-loaded Stratocaster, chosen for one reason: Lemmy ran a Rickenbacker through a Marshall with all treble and no bass, and a Les Paul simply could not be heard next to it.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Fender Stratocaster (DiMarzio-loaded)",
+      pickup_config: "HSS",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "A DiMarzio X2N humbucker at the bridge, a DiMarzio SDS-1 at the neck and the stock Fender pickup left in the middle -- a deliberately non-standard set assembled to solve a mix problem rather than to chase a tone. Worth a caveat: the account that describes this set places it at Clarke's arrival in the band in 1976, but the X2N was not released until 1979, so the exact pickups in the guitar at the August 1980 sessions cannot be pinned with confidence. What is not in doubt is the guitar family: bright, single-coil-scale, bolt-on Strat rather than the mahogany Les Paul everyone pictures.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "overdrive",
+        gear_slug: null,
+        gear_name: "Boss OD-1 Over Drive",
+        icon_type: "boss_compact",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Level: 7, Drive: 5 },
+        notes:
+          "Clarke is documented as a long-term OD-1 user going back to the 1970s, and the pedal's asymmetric clipping is a good fit for what this riff needs -- it thickens without adding the scooped midrange a later Tube Screamer would. Per-song use at these particular sessions is not documented, so treat it as era-consistent rather than confirmed. Drive around halfway: the pedal is helping a bright Strat push a cranked Marshall, not supplying the distortion itself.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 100W (bright channel, cranked)",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 7, Bass: 4, Middle: 6, Treble: 8, "Volume I": 10 },
+        notes:
+          "Bright channel, which is the opposite of what the treble-booster rigs of the same era want -- there is no pedal here stripping the bass first, and a Strat's bridge position needs the amp's help rather than its restraint. Bass down at 4 for a reason specific to this band: Lemmy's bass rig occupies the low midrange the way a rhythm guitar normally would, so the guitar has to get out of the way underneath or the two disappear into each other.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12 (Celestion-loaded)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Era-typical rather than documented. The Celestion rolloff matters more than usual here because the front of this chain is a bright guitar into a bright channel with a boost on top -- the speaker is the only stage removing anything.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close on cone" },
+        notes:
+          "Inferred, but the production style supports it. Vic Maile's reputation was for capturing bands playing loud in a room and committing to it rather than layering, and the album sounds close-miked and immediate -- there is no studio polish here to suggest anything more elaborate.",
+      },
+    ],
+    original_gear: {
+      guitar: "Fender Stratocaster with DiMarzio pickups (X2N bridge, SDS-1 neck, stock Fender middle) -- the Les Paul Deluxe was gone throughout the Motorhead years",
+      effects: ["Boss OD-1 Over Drive -- documented as part of Clarke's chain from the 1970s onward; per-song use at these sessions unconfirmed"],
+      amp: "Marshall 100W stack -- Plexi/JMP family for this period; the JCM800 that Clarke later used did not exist in 1980",
+      cabinet: "Marshall 4x12, Celestion-loaded -- era-typical, not documented for these sessions",
+      microphone: "Shure SM57 -- inferred; the Jackson's capture is not documented",
+      other_notes:
+        "Recorded 4 August to 15 September 1980 at Jackson's Studios in Rickmansworth, produced by Vic Maile. The correction that matters most: this is not a Les Paul record. Clarke had to sell his 1972 Les Paul Deluxe before joining and only recovered it when he left to form Fastway in 1982, so every Motorhead album he plays on is a Stratocaster. His own explanation for the switch is about being audible rather than about tone -- Lemmy played 'a Rickenbacker bass through a Marshall amp with all the treble at maximum and all the bass at minimum,' which left a hole above rather than below the guitar. Amp model, cab, mics and any reverb are era-accurate reconstruction; the guitar and the pedal are the documented parts.",
+    },
+    tags: ["heavy-metal", "hard-rock", "speed-metal", "riff", "marshall", "stratocaster", "motorhead", "nwobhm"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Ace_of_Spades_(album)",
+      "https://guitarsexchange.com/en/unplugged/1047/fast-eddie-clarke/",
+      "https://www.guitarworld.com/artists/former-motorhead-guitarist-fast-eddie-clarke-1950-2018-a-tribute",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Noise Gate",
+            block_category: "Dynamics",
+            original_gear: "Gain-structure housekeeping",
+            settings: { Threshold: -62, Decay: 60 },
+            notes:
+              "Moderate rather than tight, which is a genuine judgement call on a riff this fast. The song is built from relentless downstrokes, but the open A ringing between phrases is part of the sound -- gate it as hard as you would a modern palm-muted riff and you clip off exactly what makes this feel like a band playing live rather than a click-track production.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression",
+            settings: { Threshold: -22, Ratio: 3, Knee: 6, Attack: 14, Release: 120, Mix: 30, Level: 0 },
+            notes:
+              "Light and fast-attacking. Vic Maile's production is famously immediate, and heavy compression is the fastest way to lose that -- what this is buying is consistency across a punishing downstroke take, not sustain. Attack at 14 ms so the pick transient survives, because on this riff the transient IS the groove.",
+          },
+          {
+            position: 3,
+            block_name: "Stupor OD",
+            block_category: "Distortion",
+            original_gear: "Boss OD-1 Over Drive",
+            enabled: true,
+            settings: { Drive: 5, Tone: 6, Level: 7 },
+            notes:
+              "DEFAULT-ON, and the closest thing Helix ships to the pedal Clarke actually used -- Stupor OD is the Boss SD-1, which is the OD-1 circuit with a tone control bolted on. That shared asymmetric clipping stage is what you are after: it thickens the mids without the scoop a TS-family pedal introduces, which matters because there is a bass guitar occupying all the midrange already.",
+          },
+          {
+            position: 4,
+            block_name: "Brit Plexi Brt",
+            block_category: "Amp",
+            original_gear: "Marshall 100W (bright channel)",
+            settings: { Drive: 8, Bass: 4, Mid: 6, Treble: 8, Presence: 7, ChVol: 6, Master: 9, Bias: 5, BiasX: 5, Sag: 5, Hum: 5, Ripple: 5 },
+            notes:
+              "The BRIGHT channel, and it is worth pausing on why -- the Rangemaster-era recipes in this catalogue all warn you away from Brit Plexi Brt, because a treble booster has already removed the bass and the bright input on top is unusable. There is no treble booster here. A Strat into an OD-1 arrives with its low end intact, so the bright channel is doing a job rather than piling on. Master at 9 for power-tube dirt.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 (Celestion-loaded)",
+            settings: { Mic: 0, Distance: 1, Position: 0.35, Angle: 0, LowCut: 120, HighCut: 6800, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "LowCut unusually high at 120, and this is the setting that makes the recipe work in a band context rather than solo. Motorhead is a trio with a bass player who fills the low midrange completely; leaving guitar energy below 120 Hz means the two instruments fight and both lose. On its own the patch will sound slightly thin -- that is correct, and it will stop sounding thin the moment a bass is playing underneath it.",
+          },
+          {
+            position: 6,
+            block_name: "Simple Delay",
+            block_category: "Delay",
+            original_gear: "Studio slap",
+            settings: { Time: 120, Feedback: 3, Mix: 7, LowCut: 400, HighCut: 3200, Level: 0 },
+            notes:
+              "A very short, very dark slap -- density rather than an audible repeat. At this tempo anything past about 140 ms lands on the next downstroke and turns the riff to mush, so this is deliberately shorter than the delay on almost any other recipe here.",
+          },
+          {
+            position: 7,
+            block_name: "Dynamic Room",
+            block_category: "Reverb",
+            original_gear: "Jackson's Studios tracking room",
+            settings: { Mix: 11, Decay: 0.8, Predelay: 8, LowCut: 260, HighCut: 6000, Level: 0 },
+            notes:
+              "A room rather than a plate, and small. Maile tracked this band close and loud, and the record's power comes from immediacy -- a big tail here reads as 1987 arena production and takes all the menace out of it.",
+          },
+          {
+            position: 8,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global tilt EQ",
+            settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 },
+            notes:
+              "Left flat, unusually for a bright rig. Every other bright patch in this catalogue gets tilted down as a safety valve, but here the brightness is load-bearing -- it is the entire reason Clarke chose this guitar. Darken it and you have solved a problem the record was engineered to have.",
+          },
+        ],
+        notes:
+          "Moderate gate -> light fast comp -> Stupor OD (the OD-1's sibling) -> Brit Plexi BRIGHT with the master up -> Greenback with a high LowCut -> tiny dark slap -> small room -> flat tilt. If it sounds thin on its own, do not fix it: the 120 Hz LowCut is there so a Rickenbacker bass can live underneath, and the patch is designed to be heard in a trio.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -62, Decay: 60 }, notes: "Moderate. The ringing open strings between phrases are part of the feel -- gate them off and the riff stops sounding like a live band." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -22, Ratio: 3, Attack: 14, Release: 120, Mix: 30, Level: 0 }, notes: "Light and fast. Consistency across a brutal downstroke take, with the pick transient left intact because it carries the groove." },
+          { position: 3, block_name: "Yellow Scream", block_category: "Drive", enabled: true, original_gear: "Boss OD-1 Over Drive", settings: { Drive: 5, Tone: 6, Level: 7 }, notes: "DEFAULT-ON. Reach for the SD-1-family model rather than a TS -- the asymmetric clipping thickens the mids instead of scooping them, and there is already a bass guitar filling that range." },
+          { position: 4, block_name: "Plexi 100 Bright", block_category: "Amp", original_gear: "Marshall 100W (bright channel)", settings: { Gain: 8.0, Bass: 4.0, Mid: 6.0, Treble: 8.0, Presence: 7.0, Master: 9.0, Sag: 5.0 }, notes: "Bright channel and master high. Unlike the treble-booster rigs of this era there is nothing upstream stripping the bass, so the bright input is helping rather than piling on." },
+          { position: 5, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "SM57", Distance: 1.0, Position: 0.35, LowCut: 120, HighCut: 6800, Level: 0 }, notes: "The 120 Hz LowCut is the important number -- it is what leaves room for Lemmy's bass, and it is why the patch sounds correct in a band and thin alone." },
+          { position: 6, block_name: "Digital Delay", block_category: "Delay", original_gear: "Studio slap", settings: { Time: 120, Feedback: 3, Mix: 7, Level: 0 }, notes: "Very short and dark. Past ~140 ms the repeat lands on the next downstroke." },
+          { position: 7, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Jackson's Studios tracking room", settings: { Decay: 0.8, Predelay: 8, Mix: 11, Level: 0 }, notes: "Small room, not a plate. Maile's production is about immediacy and a long tail undoes it." },
+          { position: 8, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 5.0, CenterFreq: 1000, Level: 0 }, notes: "Flat. The brightness here is the point rather than a problem to solve." },
+        ],
+        notes:
+          "Gate -> light comp -> SD-1-family drive -> bright Plexi with master up -> Greenback with a high-pass at 120 -> short slap -> small room -> flat EQ. This is the rare Marshall patch you should not darken.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: true, original_gear: "Boss OD-1 Over Drive", settings: { Drive: 5, Bottom: 5, Tone: 6, Level: 7 }, notes: "DEFAULT-ON, and on this platform that is more than a historical nod -- the OD-1 is a Boss pedal and the Katana's booster models are Boss's own circuits, so this is the closest any modeller gets to the real thing. Keep Bottom at noon: unlike the treble-booster recipes here you are not trying to strip bass out at the input." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Marshall 100W (bright channel)", settings: { Gain: 7, Volume: 6, Bass: 4, Middle: 6, Treble: 8, Presence: 7, Master: 7 }, notes: "Crunch rather than Lead because a cranked non-master Marshall in 1980 is a Crunch-character amp -- the saturation on this record is far lower than memory suggests, and the aggression comes from tempo and attack rather than from gain. Treble at 8 against Bass at 4 is the whole EQ story." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Studio slap", settings: { Time: 120, Feedback: 3, EffectLevel: 7 }, notes: "One short dark repeat adding density, inaudible as an effect." },
+          { position: 4, block_name: "Room", block_category: "Reverb", original_gear: "Jackson's Studios tracking room", settings: { Time: 3, PreDelay: 8, Tone: 5, EffectLevel: 11 }, notes: "Small and quiet, matching a record built on immediacy rather than ambience." },
+        ],
+        notes:
+          "Boss booster (on) -> Crunch amp -> tiny slap -> small room. Keep the gain lower than instinct suggests -- Ace of Spades is a fast, bright, moderately-driven record and the menace is in the right hand.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -62, Decay: 60 }, notes: "Slot A, moderate. Leave the ringing open strings alone; they are part of the feel." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3, Attack: 14, Volume: 0 }, notes: "Slot B, light. Take-to-take consistency without softening the downstroke attack." },
+          { position: 3, block_name: "Green Scream", block_category: "Drive", enabled: true, original_gear: "Boss OD-1 Over Drive", settings: { Drive: 5, Tone: 6, Volume: 7 }, notes: "Stomp slot, DEFAULT-ON at moderate drive. If your Kemper offers an SD-1-flavoured model prefer it -- an OD-1 thickens the mids where a Tube Screamer scoops them, and the bass guitar in this band is already living there." },
+          { position: 4, block_name: "Search Rig Exchange for 'Marshall Plexi Bright' or 'JMP 100W cranked'", block_category: "Profile", original_gear: "Marshall 100W (bright channel)", settings: { Gain: 7, Bass: 4, Middle: 6, Treble: 8, Presence: 7 }, notes: "Look for a cranked non-master Plexi or JMP capture taken on the BRIGHT input, and specifically not one captured with a treble booster in front -- most Plexi captures on Rig Exchange are boosted, which is right for the Rangemaster recipes in this catalogue and wrong for this one. Cab is baked into the profile." },
+          { position: 5, block_name: "Single Delay", block_category: "Delay", original_gear: "Studio slap", settings: { Time: 120, Feedback: 3, Mix: 7 }, notes: "DLY slot. Short, dark, and only noticeable when bypassed." },
+          { position: 6, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Jackson's Studios tracking room", settings: { Decay: 0.8, Predelay: 8, Mix: 11 }, notes: "REV slot. A small room; this record earns its power from being close and loud." },
+        ],
+        notes:
+          "Gate -> light comp -> OD-1-style drive -> bright unboosted Plexi profile -> short slap -> small room. The profile-shopping tip is the useful one: unboosted captures are rarer than boosted ones and this recipe needs an unboosted one.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate/Expander", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -62, Ratio: 3, Release: 60 }, notes: "Gentle ratio -- the open strings ringing between phrases carry the feel and a hard gate removes them." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -22, Ratio: 3, Attack: 14, Release: 120, Mix: 0.3, Level: 0 }, notes: "Light parallel blend with a fast attack, preserving the pick transient that drives the riff." },
+          { position: 3, block_name: "SD-1 OD", block_category: "Drive", enabled: true, original_gear: "Boss OD-1 Over Drive", settings: { Drive: 5, Tone: 6, Level: 7 }, notes: "DEFAULT-ON. The SD-1 is the OD-1 with a tone knob, so this is the closest real model. Its asymmetric clipping adds midrange rather than scooping it, which is what a guitar competing with a Rickenbacker needs." },
+          { position: 4, block_name: "Plexi 100W Bright", block_category: "Amp", original_gear: "Marshall 100W (bright channel)", settings: { Drive: 8.0, Bass: 4.0, Mid: 6.0, Treble: 8.0, Presence: 7.0, MV: 9.0, Cut: 4.0 }, notes: "Bright channel with MV high for power-tube clip. Leave Supply Sag near default rather than minimising it -- this riff is fast but it is groove-driven rather than machine-precise, and a little give is part of why it swings." },
+          { position: 5, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (Celestion-loaded)", settings: { Mic: "57 Dynamic", Distance: 1.0, LowCut: 120, HighCut: 6800, Level: 0 }, notes: "High-pass at 120 to clear space for the bass. The patch is meant to sound slightly thin in isolation." },
+          { position: 6, block_name: "Digital Delay", block_category: "Delay", original_gear: "Studio slap", settings: { Time: 120, Feedback: 0.03, Mix: 0.07 }, notes: "Very short and heavily filtered -- a density trick, not an effect." },
+          { position: 7, block_name: "Room", block_category: "Reverb", original_gear: "Jackson's Studios tracking room", settings: { Mix: 0.11, Decay: 0.8, Predelay: 8 }, notes: "Small. Vic Maile's whole approach was capturing a loud band in a room and leaving it alone." },
+          { position: 8, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Flat, deliberately. The brightness of this rig is a feature Clarke chose on purpose and darkening it defeats the recipe." },
+        ],
+        notes:
+          "Gate -> light comp -> SD-1 -> bright Plexi with MV up and sag left alone -> Greenback high-passed at 120 -> short slap -> small room -> flat tilt. The two counterintuitive edits are the bright channel and the flat EQ; both are correct here and wrong on the treble-booster recipes from the same year.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Marshall Plexi bright' or 'JMP 100 cranked' or 'Motorhead Ace of Spades'",
+            block_category: "Tone Model",
+            original_gear: "Marshall 100W (bright channel) + Boss OD-1",
+            settings: {},
+            notes:
+              "Look for an unboosted cranked Plexi or JMP capture rather than a boosted one -- the boosted captures that dominate ToneNET are built for treble-booster and Tube-Screamer rigs, and stacking an OD-1 on top of one gives you a fizzy mess. Audition on fast downstrokes with the bridge pickup of a bright guitar rather than on a chord: the failure mode here is not darkness, it is the capture collapsing into compressed mush when you hit it hard, which is exactly what this riff does for three and a half minutes.",
+          },
+        ],
+        notes:
+          "Capture-driven: an unboosted bright Plexi Tone Model with an OD-1-style pedal in front and a small room behind. Keep the low end out of it -- this tone was designed to sit above a bass guitar, not next to one.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Steve Hackett (Genesis) - Firth of Fifth (solo) ----
+  {
+    id: "seed-hackett-firth-of-fifth",
+    song_slug: "firth-of-fifth-genesis",
+    title: "Genesis's Firth of Fifth Solo Tone",
+    slug: "hackett-firth-of-fifth-solo",
+    created_at: "2026-08-26",
+    description:
+      "Progressive rock's most-cited guitar solo, and it is built on restraint rather than gain: a 1957 Les Paul Goldtop on the neck pickup, a period fuzz, and an amp set so the notes simply refuse to decay. Hackett is direct about the guitar -- 'It's the one I used on Selling England By The Pound - on Firth Of Fifth' -- and the whole performance is an argument for playing fewer notes and holding each one longer.",
+    tone_context: "solo",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "1957 Gibson Les Paul Goldtop",
+      pickup_config: "HH",
+      pickup_position: "neck",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "Stock PAF humbuckers, and the NECK pickup is the setting that matters -- almost every recreation of this solo is played on the bridge and almost every one of them sounds wrong. A PAF at the neck position of a 24.75-inch guitar produces a rounded, fundamental-heavy signal with very little upper harmonic content, which is precisely what a fuzz needs if it is going to sound vocal rather than buzzy. Hackett bought the guitar in about 1972, it has been re-fretted since, and he still plays it. String gauge is era-typical rather than documented.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "volume",
+        gear_slug: null,
+        gear_name: "Schaller volume pedal (Peter Cornish board)",
+        icon_type: "pedal",
+        icon_color: "#64748b",
+        is_in_effects_loop: false,
+        settings: { Pedal: 9 },
+        notes:
+          "Part of the Cornish-assembled board Hackett used for this album, and it is not a mute switch -- swelling into notes with a volume pedal removes the pick attack entirely, which is a large part of why this solo reads as a wind or string instrument rather than a guitar. Set near maximum for the sustained passages and rolled back for entries.",
+      },
+      {
+        position: 2,
+        category: "effect",
+        subcategory: "fuzz",
+        gear_slug: null,
+        gear_name: "Marshall Supa Fuzz / Shaftesbury Duo-Fuzz (Tone Bender family)",
+        icon_type: "pedal",
+        icon_color: "#dc2626",
+        is_in_effects_loop: false,
+        settings: { Fuzz: 7, Level: 7 },
+        notes:
+          "A germanium Tone Bender-lineage fuzz rather than a modern distortion, and the distinction is the recipe. Germanium fuzz compresses enormously and cleans up dramatically with guitar volume, which means the sustain arrives without the note ever getting louder -- the effect is a long, even, flute-like tail. A silicon Big Muff will give you sustain too, but it will also give you a scooped midrange and a hard edge that this solo does not have anywhere in it.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Hiwatt DR103 100W",
+        icon_type: "amp_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Normal: 6, Brilliance: 4, Bass: 5, Middle: 6, Treble: 5, Presence: 5, Master: 7 },
+        notes:
+          "A Hiwatt is the opposite of a Marshall in the way that matters here: enormous clean headroom and a far more linear power section, so it stays clean under a fuzz instead of adding its own distortion on top. That is what keeps the note pure enough to sound like a bowed instrument. Set it loud but not distorting -- the amp's job on this track is to be a very large, very honest window.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Hiwatt 4x12 (Fane-loaded)",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Fane speakers rather than Celestions, and they are noticeably flatter and less mid-forward. Combined with a clean Hiwatt that means almost nothing in this chain is colouring the signal -- the fuzz is producing the entire character, which is unusual and worth understanding before you start substituting parts.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, off cone centre" },
+        notes:
+          "Inferred rather than documented for Island Studios. Off-centre suits a fuzz-into-clean-amp signal: on axis a fuzz's upper harmonics get emphasised exactly where the ear is most sensitive to buzz, and this solo has no buzz in it at all.",
+      },
+    ],
+    original_gear: {
+      guitar: "1957 Gibson Les Paul Goldtop, neck pickup -- Hackett's own account names it for this solo specifically",
+      effects: [
+        "Peter Cornish-built pedalboard: Schaller volume pedal, Marshall Supa Fuzz and Shaftesbury Duo-Fuzz (both Tone Bender-lineage germanium fuzzes), Colorsound Octivider",
+        "Tape delay and studio reverb downstream",
+      ],
+      amp: "Hiwatt DR103 100W -- Hackett's Genesis-era amp; he has also said he recorded with 'a little Fender Champ or a Pignose and various small amps,' and an HH solid-state head is reported for this album",
+      cabinet: "Hiwatt 4x12, Fane-loaded",
+      microphone: "Shure SM57 -- inferred; the Island Studios capture is not documented",
+      other_notes:
+        "Recorded August 1973 at Island Studios in London, produced by John Burns with the band. One honest ambiguity is worth flagging: the Hiwatt is the correct and modelable centre of Hackett's Genesis-era rig, but he has said plainly that he tracked with small amps during that period as well, and an HH solid-state head has been reported for this album specifically. The recipe is built on the Hiwatt because it is the amp everyone can reach on every platform and because the character -- huge clean headroom under a germanium fuzz -- is the same either way. The one thing not open to interpretation is the guitar and the pickup position. Also worth knowing: the famously endless sustained note in this solo was not held by a sustainer or any device; up to 1975 it was a technique, and no patch will do it for you.",
+    },
+    tags: ["progressive-rock", "rock", "solo", "lead", "fuzz", "hiwatt", "les-paul", "genesis", "sustain"],
+    sources: [
+      "https://www.musicradar.com/news/guitars/career-in-gear-steve-hackett-627196",
+      "https://en.wikipedia.org/wiki/Selling_England_by_the_Pound",
+      "https://en.wikipedia.org/wiki/Firth_of_Fifth",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Vol Pedal",
+            block_category: "Volume/Pan",
+            original_gear: "Schaller volume pedal",
+            settings: { Pedal: 90 },
+            notes:
+              "First in the chain rather than last, which is deliberate -- placed before the fuzz, rolling back the pedal reduces how hard the fuzz is driven and cleans the tone up, exactly as it did on the Cornish board. Put it after the fuzz and it becomes a simple level control and you lose the ability to swell into a note without a pick attack.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression",
+            settings: { Threshold: -28, Ratio: 2, Knee: 9, Attack: 40, Release: 500, Mix: 25, Level: 0 },
+            notes:
+              "Lighter than you would expect for a lead patch, and that is because the fuzz downstream is already compressing far harder than any compressor in this catalogue. Stack a heavy comp on top of a germanium fuzz and the result is a completely static signal with no dynamic range left for the volume pedal to work with -- which would remove the technique the solo is actually built on.",
+          },
+          {
+            position: 3,
+            block_name: "Arbitrator Fuzz",
+            block_category: "Distortion",
+            original_gear: "Marshall Supa Fuzz / Shaftesbury Duo-Fuzz",
+            enabled: true,
+            settings: { Drive: 7, Tone: 5, Level: 7 },
+            notes:
+              "DEFAULT-ON. Arbitrator Fuzz is Helix's germanium Arbiter Fuzz Face, and while the Supa Fuzz is a three-transistor Tone Bender rather than a two-transistor Fuzz Face, the germanium topology and the volume-knob cleanup behaviour are shared -- which is what matters here. Reach for Bighorn or Triangle Fuzz instead and you get a Big Muff: more sustain, but scooped mids and a hard silicon edge that is nowhere on this record.",
+          },
+          {
+            position: 4,
+            block_name: "WhoWatt 100",
+            block_category: "Amp",
+            original_gear: "Hiwatt DR103 100W",
+            settings: { Drive: 4, Bass: 5, Mid: 6, Treble: 5, Presence: 5, ChVol: 7, Master: 5, Bias: 5, BiasX: 5, Sag: 4, Hum: 3, Ripple: 3 },
+            notes:
+              "Drive at only 4, which is the lowest amp gain of any lead patch in this catalogue and completely intentional. WhoWatt 100 is Helix's Hiwatt DR103, and a Hiwatt's defining trait is headroom -- the fuzz is supplying every bit of the distortion and the amp is supplying none. Push Drive up and the two distortions stack into something buzzy and undefined, losing the vocal quality that makes this solo what it is.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 WhoWatt 100",
+            block_category: "Cab",
+            original_gear: "Hiwatt 4x12 (Fane-loaded)",
+            settings: { Mic: 0, Distance: 4, Position: 0.60, Angle: 20, LowCut: 90, HighCut: 5800, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "The matched Fane-loaded Hiwatt cab, backed a long way off at Distance 4 and well off-centre. That distance is buying cabinet bloom and air, which on a note held for several bars is most of what you hear once the attack is gone -- close-miking this rig gives you the first half-second and nothing after it.",
+          },
+          {
+            position: 6,
+            block_name: "Transistor Tape",
+            block_category: "Delay",
+            original_gear: "Studio tape delay",
+            settings: { Time: 420, Feedback: 26, Mix: 20, LowCut: 260, HighCut: 3400, Level: 0 },
+            notes:
+              "A tape model rather than a digital one, because tape's wow, flutter and progressive high-end loss are doing real work: each repeat is darker and slightly detuned relative to the last, which blurs into the reverb rather than repeating cleanly. On sustained notes that blur is indistinguishable from the note continuing, which is the effect you want.",
+          },
+          {
+            position: 7,
+            block_name: "Dynamic Hall",
+            block_category: "Reverb",
+            original_gear: "Island Studios reverb",
+            settings: { Mix: 24, Decay: 2.4, Predelay: 30, LowCut: 180, HighCut: 6400, Level: 0 },
+            notes:
+              "The biggest reverb in this batch by a wide margin, and appropriate -- this is a 1973 progressive rock record, not a metal one, and the ambience is compositional rather than incidental. Predelay at 30 ms keeps each note's entry distinct so the melody stays readable inside a tail this long.",
+          },
+          {
+            position: 8,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global tilt EQ",
+            settings: { Tilt: 5.4, CenterFreq: 800, Level: 0 },
+            notes:
+              "Tilted slightly bright, opposite to almost every other patch here. A neck pickup into a germanium fuzz into a clean Hiwatt is a genuinely dark signal path with no bright stage anywhere in it, and this recovers just enough presence for the line to sit above a Mellotron.",
+          },
+        ],
+        notes:
+          "Volume pedal FIRST -> light comp -> germanium fuzz -> WhoWatt with the drive DOWN at 4 -> Fane cab backed well off -> tape delay -> big hall -> slight bright tilt. The two edits that matter most are the amp drive and the pickup selector: neck pickup, clean amp, all the dirt from the fuzz. Get those wrong and no amount of reverb will rescue it.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Schaller volume pedal", settings: { Pedal: 90 }, notes: "Placed BEFORE the fuzz so rolling back cleans the tone up rather than just turning it down -- that interaction is how the swells on this solo were played." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -28, Ratio: 2, Attack: 40, Release: 500, Mix: 25, Level: 0 }, notes: "Deliberately light. The germanium fuzz is already compressing hard, and piling on removes the dynamic range the volume pedal needs." },
+          { position: 3, block_name: "Germanium Fuzz", block_category: "Drive", enabled: true, original_gear: "Marshall Supa Fuzz / Shaftesbury Duo-Fuzz", settings: { Drive: 7, Tone: 5, Level: 7 }, notes: "DEFAULT-ON. Choose a germanium Fuzz Face-family model over any Big Muff type -- the Muff's scooped mids and silicon edge are not on this record, and the cleanup behaviour of germanium is part of the technique." },
+          { position: 4, block_name: "Brit Watt 100", block_category: "Amp", original_gear: "Hiwatt DR103 100W", settings: { Gain: 4.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, Presence: 5.0, Master: 5.0, Sag: 4.0 }, notes: "Gain at 4 and no higher. A Hiwatt's job on this track is headroom -- every bit of distortion comes from the pedal, and stacking amp gain on top turns a vocal tone into a buzzy one." },
+          { position: 5, block_name: "4x12 Hiwatt Fane", block_category: "Cab", original_gear: "Hiwatt 4x12 (Fane-loaded)", settings: { Mic: "SM57", Distance: 4.0, Position: 0.60, LowCut: 90, HighCut: 5800, Level: 0 }, notes: "Backed a long way off the grille. On notes held for bars at a time the cabinet bloom after the attack is most of what you actually hear." },
+          { position: 6, block_name: "Tape Echo", block_category: "Delay", original_gear: "Studio tape delay", settings: { Time: 420, Feedback: 26, Mix: 20, Level: 0 }, notes: "Tape rather than digital -- darkening, detuning repeats blur into the reverb instead of repeating cleanly, which reads as extended sustain." },
+          { position: 7, block_name: "Hall Reverb", block_category: "Reverb", original_gear: "Island Studios reverb", settings: { Decay: 2.4, Predelay: 30, Mix: 24, Level: 0 }, notes: "Large and unapologetic. This is 1973 progressive rock; the space is part of the composition rather than a finishing touch." },
+          { position: 8, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 5.4, CenterFreq: 800, Level: 0 }, notes: "Slightly bright, recovering presence in a signal path that has no bright stage anywhere in it." },
+        ],
+        notes:
+          "Volume pedal first -> light comp -> germanium fuzz -> clean Hiwatt -> Fane cab well back -> tape -> hall -> slight bright tilt. Keep the amp gain low; this is a fuzz recipe with an amp behind it, not an amp recipe with a fuzz in front.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: true, original_gear: "Marshall Supa Fuzz / Shaftesbury Duo-Fuzz", settings: { Drive: 8, Bottom: 5, Tone: 5, Level: 7 }, notes: "DEFAULT-ON, and unusually so for this catalogue -- the fuzz is not a flavour option here, it is the only source of distortion in the entire chain. Load the Booster slot with a Fuzz voicing rather than an overdrive one; the Katana's fuzz models cleanup with guitar volume in roughly the right way." },
+          { position: 2, block_name: "Clean", block_category: "Amp Type", original_gear: "Hiwatt DR103 100W", settings: { Gain: 3, Volume: 7, Bass: 5, Middle: 6, Treble: 5, Presence: 5, Master: 6 }, notes: "CLEAN, which no other recipe in this batch uses, and it is the single most important choice on the platform. A Hiwatt under a fuzz is a clean amp, so reaching for Crunch or Lead here stacks a second distortion onto a pedal that is already saturating and destroys the vocal quality. Gain at 3 keeps genuine headroom." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Studio tape delay", settings: { Time: 420, Feedback: 26, EffectLevel: 20 }, notes: "Long and prominent. Choose a tape or analogue voicing so the repeats darken as they decay and blur into the reverb rather than echoing cleanly." },
+          { position: 4, block_name: "Hall", block_category: "Reverb", original_gear: "Island Studios reverb", settings: { Time: 8, PreDelay: 30, Tone: 5, EffectLevel: 24 }, notes: "A real hall, far bigger than anything else in this batch. The predelay is what keeps note entries legible inside a tail this long." },
+        ],
+        notes:
+          "Fuzz-voiced Booster (on) -> CLEAN amp -> long tape-flavoured delay -> big hall. The Clean amp type is the whole recipe on this platform; every instinct will push you toward Crunch and every one of them is wrong here.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Schaller volume pedal", settings: { Pedal: 90 }, notes: "Slot A, ahead of the fuzz. Placement is the point -- before the fuzz it cleans up, after it merely quietens." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 2, Attack: 40, Volume: 0 }, notes: "Slot B, minimal. The fuzz supplies more compression than any pedal could and doubling up flattens the dynamics the technique relies on." },
+          { position: 3, block_name: "Fuzz", block_category: "Drive", enabled: true, original_gear: "Marshall Supa Fuzz / Shaftesbury Duo-Fuzz", settings: { Drive: 7, Tone: 5, Volume: 7 }, notes: "Stomp slot, DEFAULT-ON. Pick a germanium Fuzz Face-style model rather than a Muff type; the midrange is the difference and this solo lives entirely in it." },
+          { position: 4, block_name: "Search Rig Exchange for 'Hiwatt DR103' or 'Hiwatt Custom 100 clean'", block_category: "Profile", original_gear: "Hiwatt DR103 100W", settings: { Gain: 3, Bass: 5, Middle: 6, Treble: 5, Presence: 5 }, notes: "Search for a CLEAN Hiwatt capture, not a cranked one -- most Hiwatt profiles on Rig Exchange are Townshend-flavoured and taken with the amp pushed, which is the wrong end of the amp for this. You want headroom, because the fuzz is doing all the work. Cab is baked into the profile; a Fane-loaded capture is ideal if you can find one." },
+          { position: 5, block_name: "Tape Delay", block_category: "Delay", original_gear: "Studio tape delay", settings: { Time: 420, Feedback: 26, Mix: 20 }, notes: "DLY slot. Tape voicing so repeats darken and drift, blurring into the reverb rather than repeating cleanly." },
+          { position: 6, block_name: "Hall Reverb", block_category: "Reverb", original_gear: "Island Studios reverb", settings: { Decay: 2.4, Predelay: 30, Mix: 24 }, notes: "REV slot. Big, with enough predelay that the melody stays readable." },
+        ],
+        notes:
+          "Volume pedal -> minimal comp -> germanium fuzz -> CLEAN Hiwatt profile -> tape -> hall. Profile shopping is the whole game: a cranked Hiwatt capture will ruin this and clean ones are rarer.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Schaller volume pedal", settings: { Pedal: 0.9 }, notes: "Ahead of the fuzz so it functions as a gain control rather than a level control -- that is how the swells were performed." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -28, Ratio: 2, Attack: 40, Release: 500, Mix: 0.25, Level: 0 }, notes: "Very light. The fuzz already compresses more than this ever will." },
+          { position: 3, block_name: "Fuzz Face Germ", block_category: "Drive", enabled: true, original_gear: "Marshall Supa Fuzz / Shaftesbury Duo-Fuzz", settings: { Drive: 7, Tone: 5, Level: 7 }, notes: "DEFAULT-ON. If your firmware exposes input impedance, set it low as a real germanium fuzz would present it -- that loading interaction with the guitar's pickup is a genuine part of the sound and Fractal is one of the few platforms that models it." },
+          { position: 4, block_name: "Hiwatt Custom 100", block_category: "Amp", original_gear: "Hiwatt DR103 100W", settings: { Drive: 4.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, Presence: 5.0, MV: 5.0, Cut: 5.0 }, notes: "Drive at 4, deliberately low. The Hiwatt model is here for headroom and honesty; every bit of distortion should be arriving from the pedal in front of it." },
+          { position: 5, block_name: "4x12 Hiwatt Fane", block_category: "Cab", original_gear: "Hiwatt 4x12 (Fane-loaded)", settings: { Mic: "57 Dynamic", Distance: 4.0, LowCut: 90, HighCut: 5800, Level: 0 }, notes: "Well back off the grille -- on notes this long the post-attack bloom is the majority of what the listener hears." },
+          { position: 6, block_name: "Tape Delay", block_category: "Delay", original_gear: "Studio tape delay", settings: { Time: 420, Feedback: 0.26, Mix: 0.2 }, notes: "Tape rather than digital. The darkening and drifting repeats read as sustain rather than as echo." },
+          { position: 7, block_name: "Hall", block_category: "Reverb", original_gear: "Island Studios reverb", settings: { Mix: 0.24, Decay: 2.4, Predelay: 30 }, notes: "Large. 1973 progressive rock treats space as part of the arrangement, not as polish." },
+          { position: 8, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Global tilt EQ", settings: { Tilt: 0.54, CenterFreq: 800, Level: 0 }, notes: "Slightly bright, recovering presence from a chain with no bright stage in it anywhere." },
+        ],
+        notes:
+          "Volume pedal -> light comp -> germanium fuzz with low input impedance -> Hiwatt at low drive -> Fane cab well back -> tape -> hall -> slight bright tilt. Fractal's fuzz input-impedance modelling is worth the detour here; it is one of the few places the guitar-to-pedal interaction is audible.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Hiwatt DR103 clean' or 'Hiwatt Custom 100' or 'clean pedal platform'",
+            block_category: "Tone Model",
+            original_gear: "Hiwatt DR103 100W (clean, fuzz in front)",
+            settings: {},
+            notes:
+              "Search for a CLEAN Hiwatt capture and treat it as a pedal platform, which is the opposite of how most people shop for Tone Models. The fuzz has to sit in front of TONEX as a real pedal rather than being baked into the capture -- a captured fuzz tone is frozen at one setting and loses the volume-knob cleanup that this solo is built on, which is the single most important interaction in the whole recipe. If no Hiwatt capture appeals, any high-headroom clean amp model works; what you must not use is a driven capture.",
+          },
+        ],
+        notes:
+          "Capture-driven, but unusually the capture is the least important part -- take a clean high-headroom Tone Model and put a real germanium fuzz in front of it. Everything characteristic about this tone happens before the amp.",
       },
     },
     is_editorial: true,
