@@ -2,31 +2,23 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 /* -------------------------------------------------------------------------- */
-/*  Geo-blocking: OFAC-sanctioned + high-risk countries                       */
+/*  Geo policy: Western-countries ALLOWLIST (see src/lib/geo.ts — the list,  */
+/*  the fail-open rules, and the accepted tradeoffs all live there).         */
 /*  Reads Cloudflare's cf-ipcountry (ISO 3166-1 alpha-2). REQUIRES the       */
 /*  "IP Geolocation" toggle in the Cloudflare dashboard (Network tab) —      */
 /*  without it the header never arrives and geo-blocking degrades open       */
 /*  rather than locking everyone out. Cloudflare strips client-sent          */
 /*  cf-* headers, so the value can't be forged through the proxy.            */
+/*  Replaces the previous OFAC+CN/RU/BY blocklist — every country it named  */
+/*  is outside the allowlist, so nothing previously blocked is now allowed. */
 /* -------------------------------------------------------------------------- */
 
-const BLOCKED_COUNTRIES = new Set([
-  // OFAC fully sanctioned
-  "IR", // Iran
-  "KP", // North Korea
-  "SY", // Syria
-  "CU", // Cuba
-
-  // High-risk for bot/scraping/fraud traffic
-  "CN", // China
-  "RU", // Russia
-  "BY", // Belarus
-]);
+import { isBlockedGeo } from "@/lib/geo";
 
 export function middleware(request: NextRequest) {
-  // ---- Geo-block ----
+  // ---- Geo allowlist ----
   const country = request.headers.get("cf-ipcountry") ?? "";
-  if (country && BLOCKED_COUNTRIES.has(country)) {
+  if (isBlockedGeo(country)) {
     return new NextResponse("Access restricted in your region.", {
       status: 403,
     });
