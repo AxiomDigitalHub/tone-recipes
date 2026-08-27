@@ -1,0 +1,181 @@
+---
+title: Diffusion Is the Reverb Control You Have Never Set
+seo_title: 'Reverb Diffusion: What It Does to a Guitar Part'
+description: >-
+  Diffusion decides whether a reverb blooms or stutters, and your picking hand
+  decides which one you get. How to set it, and what to use when you cannot.
+date: '2026-08-27'
+author_slug: dev-okonkwo
+category: signal-chain
+tags:
+  - reverb
+  - diffusion
+  - ambient
+  - signal-chain
+  - plugins
+  - texture
+takeaways:
+  - >-
+    Diffusion sets how quickly discrete reflections smear into a continuous
+    wash. Low diffusion leaves individual echoes audible; high diffusion blends
+    them into a single body of sound.
+  - >-
+    Whether low diffusion sounds like detail or like a stutter is decided by
+    your picking hand, not by the reverb. Sustained chords hide sparse
+    reflections completely; staccato and palm-muted lines expose every one.
+  - >-
+    Low diffusion plus long decay is where metallic ringing comes from. The
+    reflections repeat at a regular enough interval to form a pitch, and the
+    long tail gives you time to hear it.
+  - >-
+    Most Helix and HX reverb blocks do not expose a diffusion control at all.
+    The usable substitutes are switching to a plate or spring algorithm, or
+    adding 20 to 40 ms of predelay to buy the attack some clearance.
+  - >-
+    Set it against the busiest part you will actually play, not against a held
+    chord. A reverb dialled in on a sustained voicing will fall apart the first
+    time you play sixteenth notes through it.
+faq:
+  - q: What does diffusion do on a reverb?
+    a: >-
+      Diffusion controls how fast the individual early reflections scatter into
+      a continuous tail. At low settings you can hear discrete repeats arriving
+      one at a time, which reads as detail or as stutter depending on the part.
+      At high settings they blend immediately into one smooth body of sound with
+      no individual arrivals audible.
+  - q: Should diffusion be high or low for guitar?
+    a: >-
+      It depends on note density rather than on the instrument. Sustained chords
+      and slow pad parts tolerate low diffusion and often benefit from it,
+      because the held notes mask the gaps between reflections. Fast picking,
+      palm mutes and staccato single-note lines need high diffusion, because
+      every new attack restarts the reflection pattern before the previous one
+      has smoothed out.
+  - q: Why does my reverb sound grainy or stuttery?
+    a: >-
+      Usually low diffusion meeting a percussive part. Each pick attack fires a
+      burst of sparse early reflections, and at low diffusion those arrive far
+      enough apart to be heard individually. It sounds like the algorithm is
+      struggling. It is doing exactly what you asked it to.
+  - q: What causes metallic ringing in a reverb tail?
+    a: >-
+      Low diffusion combined with a long decay. Sparse reflections repeating at
+      a near-regular interval produce a perceived pitch, in the same way a
+      flutter echo between two parallel walls does, and a long tail gives that
+      pitch time to become obvious. Raising diffusion or shortening the decay
+      both remove it.
+  - q: My reverb has no diffusion control. What do I use instead?
+    a: >-
+      Change algorithm first. Plate and spring algorithms are built dense and
+      behave like high diffusion; room and early-reflection algorithms are built
+      sparse. After that, predelay is the most useful substitute, because moving
+      the reflections later gives the dry attack clearance and stops the two
+      from interleaving.
+  - q: Is diffusion the same as density?
+    a: >-
+      They are usually the same control under two names. Valhalla Supermassive
+      calls it Density, Strymon's BigSky calls it Diffusion, and some plugins
+      fold it into a single Character or Shape control alongside modulation.
+      Where a unit offers both separately, diffusion tends to govern the early
+      scattering and density the reflection count in the tail.
+image: /images/blog/reverb-diffusion-what-it-does-to-a-guitar-part.jpg
+image_alt: >-
+  A reverb pedal and audio interface on a bedroom desk lit by a monitor,
+  headphones resting beside a guitar cable, late-night studio setup
+---
+
+There is a control on most good reverbs that sits between decay and predelay, gets a two-sentence explanation in every parameter guide, and then never gets touched again. It is usually called Diffusion. Sometimes Density. Occasionally it is hidden inside something called Character or Shape.
+
+Every explanation of it says roughly the same thing: low diffusion sounds like distinct echoes, high diffusion sounds like a smooth wash. That is accurate and it is not enough to make a decision with, because it leaves out the part that determines whether low diffusion sounds like a beautiful sense of space or like the reverb is broken.
+
+The missing variable is your right hand.
+
+## What the Control Is Doing
+
+When a sound happens in a room, the reflections do not arrive as a smooth cloud. They arrive one at a time — first bounce off the near wall, then the ceiling, then the far wall — and only after enough bounces have accumulated do they become dense enough that your ear stops resolving them individually and starts hearing a single continuous tail.
+
+Diffusion is the control over how fast that transition happens. Turn it down and the early arrivals stay sparse and separated for longer. Turn it up and they scatter immediately into one body.
+
+Strymon describes the parameter on BigSky as modelling the scattering caused by room materials, furniture, and people, which is a good physical picture of it: an empty tiled corridor is a low-diffusion room, and the same corridor with rugs, bookshelves and a dozen bodies in it is a high-diffusion room. Same decay. Completely different texture.
+
+Valhalla Supermassive calls its version Density, and its range runs from separated pointillistic echoes at one end to a continuous body of reverb at the other. Same parameter, different name, and its low end is unusually far down, which makes it a good place to hear the effect without guessing.
+
+## The Part the Explainers Skip
+
+Here is the thing none of the parameter guides say, and it is the whole decision.
+
+Low diffusion does not sound sparse on a sustained chord. It sounds sparse on a *note that stops.*
+
+If you hold a big open voicing and let it ring, the dry signal is continuously producing new energy. The reflections coming back are sparse, but they are landing on top of a sound that never goes away, and you cannot hear the gaps between them because there are no gaps in what you are playing. A low-diffusion reverb on a held chord sounds spacious and slightly three-dimensional. You can almost hear the walls.
+
+Now palm-mute a sixteenth-note line through the same setting. Every note is a short burst with silence after it, and in that silence you hear the individual reflections arriving. Tick. Tick. Tick. It sounds like a delay with a broken feedback loop, or like the algorithm cannot keep up with you. Nothing about the reverb changed. You removed the thing that was covering it.
+
+That gives a rule you can actually use:
+
+| What you are playing | Diffusion | What goes wrong at the other extreme |
+|---|---|---|
+| Held chords, swells, pad parts | Low to medium | Too high and the space stops having dimension |
+| Slow single-note melody, sustained | Medium | Either extreme is workable |
+| Arpeggios, fingerpicked patterns | Medium to high | Too low and the picking pattern gets doubled |
+| Staccato lines, palm mutes, chugs | High | Too low and every note stutters |
+| Percussive muted rhythm parts | High, or no reverb | Too low and the part sounds like it has a fault |
+
+The old mixing advice — sustained sources like pads and strings want low diffusion, percussive sources like drums want high — is the same rule, stated as if it were about instruments. It is not about instruments. It is about note density and attack rate, and a guitar can sit anywhere on that axis depending on the part. Which is why the same guitar, the same pedal and the same preset can be right on the verse and wrong on the chorus.
+
+## Where the Metallic Ring Comes From
+
+There is a specific failure mode worth naming because it gets blamed on the wrong thing constantly.
+
+Set diffusion low and decay long, and the tail starts to ring at a pitch. Not a note you played — a thin metallic tone sitting underneath everything, somewhere in the upper mids, that follows the reverb rather than the guitar.
+
+That is the same phenomenon as the flutter echo you get clapping between two parallel walls in an empty room. Reflections repeating at a near-regular interval stop reading as separate events and start reading as a frequency. Low diffusion keeps them separate and regular enough to do that. Long decay gives them enough time for your ear to lock onto the pitch.
+
+Two fixes, and they are not interchangeable:
+
+1. **Raise diffusion.** Scatters the repeat interval so no pitch forms. Keeps your long tail. This is usually the right one.
+2. **Shorten decay.** Removes the time needed to perceive the pitch. Also removes the tail you presumably wanted.
+
+If your unit has modulation on the reverb, a small amount does a third version of the same job by continuously detuning the repeat interval. That is why so many ambient patches have modulation on by default — it is not there for the chorus effect, it is there to stop the tail from ringing. Our [modulated reverb post](/blog/modulated-reverb-movement-on-the-tail) covers what that does to the character; this is the structural reason it exists.
+
+## The Thing I Had Backwards
+
+I assumed for a long time that diffusion was a quality control. Higher is smoother, smoother is better, so put it up and stop thinking about it. Most of my ambient patches had it near the top.
+
+What I found is that maxing it removes the information that tells you how big the space is.
+
+The early reflections are the part of a reverb that carries dimension. Their timing is what your ear reads as room size, before the tail arrives at all — the same mechanism the [early reflections post](/blog/early-reflections-vs-reverb-tail-room-vs-space) unpacks. Smear them completely and you get a large amount of sound with no shape to it. It does not sound like a cathedral. It sounds like fog: dense, featureless, no far wall.
+
+The patches I liked most turned out to be sitting around 40 to 60 percent diffusion, not at the top. Enough scattering that nothing stutters, not so much that the space loses its edges. And every one of them fell apart the moment I played something percussive through it, which I never noticed because I only ever tested them on held chords.
+
+That is the practical lesson, and it is a boring one: **dial diffusion against the busiest part you will actually play through it, not the prettiest.**
+
+## Setting It on What You Actually Own
+
+**Plugins.** Valhalla Supermassive gives you Density with a genuinely wide range, and it is free, which makes it the easiest place to hear what this parameter does at both extremes. Valhalla Room has a dedicated Diffusion control. FabFilter Pro-R folds the same behaviour into Character alongside modulation, so it moves two things at once. If you want to hear the effect cleanly, use a plugin that isolates it.
+
+**Pedals.** BigSky exposes Diffusion on several of its machines, including on the tape-style Magneto machine where it blurs the boundary between delay and reverb rather than shaping a room. Source Audio's Ventris exposes reverb internals through its editor rather than on the front panel, which is where you will find its equivalent. Most affordable reverb pedals do not offer the control at all, and simply ship a diffusion value the designer chose for that algorithm.
+
+**Helix and HX.** Most of the reverb blocks do not give you a diffusion parameter. Check yours before you go looking for it in a menu that does not have it. What you have instead:
+
+- **Algorithm choice does most of the work.** Plate and spring algorithms are built dense and behave like high diffusion. Room and early-reflection algorithms are built sparse and behave like low diffusion. Choosing between them is the diffusion decision, made once, in a different place.
+- **Predelay is the best substitute.** Pushing the reflections 20 to 40 ms later gives the dry attack room to land before anything comes back, which fixes most of what low diffusion does wrong on a percussive part without touching the tail. The [predelay post](/blog/subtract-predelay-from-decay-reverb-tail) covers how that trades against decay.
+- **Modulation depth** handles the metallic ringing case, as above.
+
+**Quad Cortex and other platforms.** Same principle: if there is no diffusion parameter, algorithm choice and predelay are the two levers that move the same thing.
+
+## A Five-Minute Way to Hear It
+
+1. Load a reverb with a real diffusion or density control. Set decay long, around 4 seconds, and mix around 40 percent so the tail is clearly audible.
+2. Set diffusion to minimum. Hold one open chord and let it ring out. Listen past the attack, into the tail.
+3. Same setting. Now play a palm-muted eighth-note figure on the low strings. That grain is what the control does when nothing is covering it.
+4. Raise diffusion to maximum, keep playing the muted figure. The stutter fills in and becomes one continuous wash.
+5. Go back to the held chord at maximum diffusion. Notice what left. The tail is smoother and the room got less specific.
+6. Find the point between those where the muted part is clean and the chord still has walls. On most algorithms that is nearer the middle than either end.
+
+Do this on headphones if you can. The early reflections are quiet and they are the part you are listening for, and a room of your own around the speakers adds its own scattering on top of the algorithm's.
+
+## The Short Version
+
+Diffusion is not a smoothness knob and it is not a quality setting. It is a decision about whether the reflections in your reverb are individually audible, and that decision has a different right answer for a held chord than for a muted line — which means it is really a decision about the part, not about the reverb.
+
+If you have been leaving it wherever the preset put it, the fastest thing you can do is find the busiest thing you play through that patch and check it there. Most patches were built on a pretty chord. Most songs are not.

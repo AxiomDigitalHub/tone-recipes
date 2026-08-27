@@ -1,0 +1,198 @@
+---
+title: Your Modeler Has an Input Impedance Setting. Here Is What to Set It To.
+seo_title: 'Modeler Input Impedance: What to Set It To'
+description: >-
+  Helix, Fractal and Quad Cortex all let you set the guitar input's impedance,
+  and almost nobody touches it. What each value does to your pickup, why Auto
+  gets it wrong, and the value to pick.
+date: '2026-08-27'
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - impedance
+  - helix
+  - quad-cortex
+  - fractal
+  - modeler
+  - pickups
+  - global-settings
+takeaways:
+  - >-
+    The input impedance parameter is a real analog load circuit at the input
+    jack, not a DSP filter. It changes what your pickup sees before any
+    conversion happens, which is why no EQ block downstream reproduces it.
+  - >-
+    Load resistance mostly changes the height of your pickup's resonant peak,
+    not its frequency. Cable capacitance is what moves the peak down in
+    frequency. Almost every explanation of this parameter conflates the two.
+  - >-
+    Helix's Auto setting looks at the first block on the path whether or not it
+    is bypassed. A fuzz sitting bypassed at the front of your chain is setting
+    the input impedance for every other block in the preset.
+  - >-
+    The setting does nothing at all if anything buffered sits between your
+    guitar and the input, which includes wireless systems, active pickups, and
+    most bypassed boutique pedals.
+  - >-
+    Set it to 1M and leave it there unless a fuzz or wah is first in the chain,
+    or unless you want a specific pickup to sound less peaky. Those are the only
+    three reasons to move it.
+faq:
+  - q: What should I set my Helix input impedance to?
+    a: >-
+      Set it to 1M unless a fuzz or wah model is the first block in your chain,
+      in which case Auto is more accurate. 1M is what a modern amp or buffered
+      pedal presents, so it gives you the full resonant peak of your pickup and
+      the most consistent behaviour across presets. Change it only when you have
+      a specific reason.
+  - q: Does input impedance change the tone or just the level?
+    a: >-
+      It changes tone, and specifically it changes the height of your pickup's
+      resonant peak rather than where that peak sits. A lower value flattens the
+      peak, which reads as less bite and slightly less output. It does not act
+      like a tone knob rolling off a shelf of treble, which is how it usually
+      gets described.
+  - q: Why does my modeler sound different when I bypass the first pedal block?
+    a: >-
+      On a Helix set to Auto, it should not, and that is the problem. The
+      default Auto Impedance mode is First Block, which reads the first block on
+      the path regardless of bypass state. Switch Global Settings to First
+      Enabled if you want bypassing a fuzz to also release its input loading.
+  - q: Does input impedance matter if I use a wireless system?
+    a: >-
+      No. A wireless transmitter presents its own fixed load to your pickup and
+      sends a buffered signal onward, so the modeler's impedance circuit is
+      loading a low-impedance source that does not care. The same is true of
+      active pickups, a buffered pedal in front, and any interface you have
+      already gone through.
+  - q: Does the Quad Cortex have an input impedance setting?
+    a: >-
+      Yes. The combo inputs carry an IMPEDANCE parameter with 1M ohm as the
+      default, selectable down through lower values, and it is disabled when the
+      input TYPE is set to Mic. Unlike Helix and Fractal it is a per-input
+      choice rather than something the unit derives from your first block.
+  - q: What impedance do real pedals and amps present?
+    a: >-
+      Most modern amps and buffered pedals sit at or near 1M ohm. Vintage
+      germanium fuzz circuits load the pickup far harder, in the tens of
+      kilohms, which is exactly why a fuzz sounds different first in the chain
+      than it does after a buffer. The impedance parameter exists to reproduce
+      that difference.
+image: /images/blog/modeler-input-impedance-setting-what-to-set-it-to.jpg
+image_alt: >-
+  A guitar multi-effects floor processor on a white studio desk, photographed
+  from the rear so the input jack and the plugged-in guitar cable are in focus
+---
+
+Somewhere in your modeler there is a parameter called In-Z, or Instrument Impedance, or just IMPEDANCE. On a Helix it lives on the Input block. On a Fractal it is on Input 1. On a Quad Cortex it is in the input settings next to the level control. Most people find it once, decide it looks like something for advanced users, and leave it on whatever it shipped as.
+
+It is worth more attention than that, for a reason that has nothing to do with modeling accuracy: **it is the only parameter in the entire unit that changes your signal before conversion.** Every other setting you can reach is math applied to a signal that has already been digitized. This one is an analog load circuit sitting on the input jack, altering what your pickup does before the converter ever sees it. Nothing downstream reproduces it.
+
+Here is what each value actually does, why the Auto setting gets it wrong more often than you would guess, and the specific value to set.
+
+## Quick Answer: What to Set It To
+
+| Your situation | Setting | Why |
+|---|---|---|
+| Amp or drive model first, passive pickups | 1M | Matches a modern amp input; full resonant peak |
+| Fuzz model first in the chain | Auto | The loading is part of the fuzz sound |
+| Wah model first in the chain | Auto, then verify | Some platforms deliberately keep this at 1M |
+| Bright single coils that read as harsh | 230k or lower | Flattens the peak without dulling everything |
+| Active pickups (EMG, Fishman Fluence) | Any value; it is inert | The preamp already buffered your signal |
+| Wireless system or buffered pedal in front | Any value; it is inert | Same reason |
+| Recording through an interface first | No effect | You are past the analog load stage |
+
+If you read nothing else: **1M, unless a fuzz is first.** The rest of this post is why that is the answer and when it stops being the answer.
+
+## It Is an Analog Load Circuit, Not a Filter
+
+The impedance circuit is a real resistive load in the input amplifier section of the guitar input. It simulates the input of a real pedal or amp by loading the pickup, per Line 6's own description of the feature and Fractal's description of the equivalent parameter, which says it "changes the actual analog circuitry" of the instrument jack.
+
+That distinction matters more than it sounds like it should. A passive pickup is not a voltage source with a flat output that you then filter. It is an inductor with resistance and self-capacitance, and what you connect to it becomes part of the circuit. Change the load and you change the pickup, not the signal from the pickup.
+
+Which is why you cannot get here with an EQ block. You can approximate the frequency response with EQ. You cannot approximate the interaction, because the interaction happens upstream of the thing doing the approximating.
+
+## The Part Everyone Gets Backwards
+
+I went into this assuming the parameter was a brightness control with an unusual name. Lower value, darker. Higher value, brighter. That is roughly what the manuals imply: Line 6's own wording is that a lower value gives "high frequency attenuation, lower gain, and an overall softer feel," and a higher value gives "full frequency response, higher gain, and an overall tighter feel."
+
+That description is accurate about the result and misleading about the mechanism, and the mechanism is what tells you when to use it.
+
+Your pickup and your cable form a resonant circuit. The inductance of the coil and the capacitance of the cable set a resonant peak, typically somewhere between 2 and 5 kHz depending on the pickup and how much cable you are dragging. That peak is most of what makes a Strat sound like a Strat and a PAF sound like a PAF. Two things act on it, and they act differently:
+
+- **Capacitance moves the peak.** More cable capacitance pushes the resonant frequency down. This is why a 30-foot cable sounds different from a 10-foot cable, and it is a frequency shift.
+- **Resistance damps the peak.** A lower load impedance lowers the Q of the resonance, which flattens and shortens the peak. The frequency barely moves. The peak just stops sticking up.
+
+So the input impedance parameter is not a treble control. **It is a peak-height control.** At 1M the resonance stands up at full height. At 230k it is shorter and broader. At 70k it is nearly gone, and what is left is a pickup with no character of its own left in the top end.
+
+That is why the result reads as "darker" — remove a 4 kHz peak and the top end recedes — and it is also why the result does not behave like a tone knob. A tone knob takes the whole top end down on a slope. This takes down one resonant bump and leaves the shelf above it roughly where it was. If you have ever tried to reproduce this with a high-cut and found it never quite matched, that is the reason.
+
+We ran into the frequency side of the same physics in the [cable length post](/blog/does-cable-length-affect-tone), and the pickup side of it in [what DC resistance actually measures](/blog/pickup-dc-resistance-what-it-actually-measures). This parameter is the third variable in that circuit, and it is the only one you can change from a menu.
+
+## The Auto Setting Has a Trap In It
+
+Auto is the default on Helix and Fractal, and the concept is sound: look at the first block, find the impedance that block's real-world counterpart would present, apply it. It is the pedalboard behaviour our [fuzz and buffers post](/blog/impedance-buffers-fuzz) describes, automated. A Tube Screamer model sets around 230k. An amp model sets 1M. A fuzz drops it much lower, which is the whole point, because a germanium fuzz loading the pickup hard is a substantial part of what a fuzz sounds like first in the chain.
+
+The trap is what counts as "the first block."
+
+On Helix, the default behaviour reads the first block on Path 1A **regardless of whether it is bypassed.** A fuzz you are not using, parked at the front of the preset because that is where it belongs when you do use it, is loading your pickup for every other sound in that preset. Your clean tone is being run through a fuzz's input impedance with the fuzz switched off.
+
+Line 6 addressed this in firmware 3.0 by adding a Global Settings preference called Auto Impedance with two modes:
+
+| Mode | Behaviour |
+|---|---|
+| First Block (default) | Impedance follows the first block on Path 1A, enabled or bypassed |
+| First Enabled | Impedance follows the first block that is actually switched on |
+
+**First Enabled is the one that behaves like a real pedalboard**, where a true-bypass pedal that is off is electrically out of the circuit. First Block remains the default for backwards compatibility with every preset built before 3.0. If you have ever noticed that a snapshot sounds subtly different depending on which drive was engaged, in a way the drive itself does not explain, check this setting.
+
+Fractal handles the same problem differently: its AUTO mode is documented as following the first *active* effect after the input, which is the First Enabled behaviour by default. It also has a quirk worth knowing — the Wah block does not trigger auto-impedance and the input stays at 1M, which is a deliberate choice rather than an oversight, since a wah's loading behaviour is already modeled inside the block.
+
+Two platforms, same feature name, different default. This is exactly the sort of thing that makes a preset translated between them not sound like the original, and it never shows up in the block-by-block comparison because it is not in the blocks.
+
+## When the Setting Does Nothing at All
+
+This is the finding that cost me an afternoon.
+
+I set up an A/B between 1M and 70k on a bright single-coil to characterize how much peak height each step cost. The results were noise. Nothing moved. I checked the setting was saving, checked I was on the right input, checked the preset had a guitar input block and not a multi input block.
+
+The problem was upstream: I had a wireless unit in the signal path, which is where it always is. The impedance circuit only interacts with a pickup connected directly to the jack. Put anything buffered in between and the modeler is now loading the output stage of that buffer, which has an output impedance in the hundreds of ohms and does not care what you load it with.
+
+The full list of things that make this parameter inert:
+
+1. **A wireless system.** The transmitter's own input is the load your pickup actually sees. Whatever it is, it is fixed, and it is not what you selected on the modeler.
+2. **Active pickups.** An EMG or a Fluence has already buffered the signal at the guitar.
+3. **Any buffered pedal in front**, including a tuner left in the chain, most Boss pedals whether engaged or not, and a lot of boutique pedals that advertise true bypass but buffer the input.
+4. **An audio interface**, if you are going in via a DI or interface input before the modeling stage.
+5. **Reamping.** The signal you recorded is already loaded by whatever it went through the first time.
+
+That means for a large fraction of players the parameter is decorative. It also means that if you use a wireless live and a cable at home, one of your two rigs has an input impedance and one does not, and presets that felt right at home can lose a little bite on stage for reasons that have nothing to do with the room. Our [buffer post](/blog/buffer-myth-buffered-bypass) covers the same boundary from the analog side.
+
+## Platform by Platform
+
+**Helix / HX family.** The parameter is In-Z on the Input block, which means it is per-preset rather than global, and it is a genuine per-preset value you can also assign to a snapshot or a footswitch. The Auto Impedance behaviour (First Block versus First Enabled) is the global preference described above. The [complete Helix tone guide](/blog/complete-guide-line-6-helix-tone-2026) treats this as one of the five settings that break presets from outside; this post is the deep version of that section.
+
+**Fractal (Axe-Fx III, FM9, FM3).** Instrument Impedance sits on Input 1. AUTO follows the first active block. Wah is exempt. Fractal is the platform most explicit that the purpose is reproducing how classic circuits load pickups and change the resonance.
+
+**Quad Cortex.** The combo inputs have an IMPEDANCE parameter with 1M ohm as the default and lower values available, and it greys out when the input TYPE is set to Mic. There is no Auto derivation from your chain — you pick a value for the input and it stays there. That is a defensible design, and it does mean a QC user who wants authentic fuzz loading has to remember to change it and then change it back, where a Helix user gets it handled per-preset.
+
+**Plugins.** You do not have this control, because by the time the signal reaches a plugin it has been through an interface's fixed input impedance. Most instrument DIs sit around 1M, which is the good default anyway. If you want the loaded sound, the honest approaches are a real pedal in front, a higher-capacitance cable, or a peaking EQ cut at your pickup's resonant frequency — which is an imitation, not the thing.
+
+## How to Set It in Three Minutes
+
+1. **Confirm the parameter is live.** Plug straight in with a cable. No wireless, no pedals, passive pickups. If any of those are not true, skip the rest; the setting is not doing anything.
+2. **Start at 1M** with an amp model first in the chain and nothing else engaged. Play the bridge pickup, open strings and around the 12th fret.
+3. **Drop to 230k.** Listen for the bite going flat rather than the tone going dark. On a bright bridge single coil this is often an improvement; on a dark humbucker it usually just costs you definition.
+4. **Drop to 70k or lower.** This is well past useful for most sounds. Do it once so you know what the bottom of the range sounds like, because that is the value a fuzz block will select for you.
+5. **Set your Auto behaviour.** If your first block is a bypassed drive you rarely use, switch to First Enabled on Helix or verify Fractal's active-block behaviour. Then go back through your main presets and listen for anything that changed — some of them were built around the old behaviour.
+6. **Leave it at 1M** for everything except presets where a fuzz or wah leads. Consistency across presets is worth more than a per-preset optimum you will forget you set.
+
+## What This Actually Buys You
+
+Not much, most days. That is a fair summary and I would rather say it than oversell a menu item.
+
+What it buys you is on the days it matters. A fuzz model that will not clean up off the guitar volume knob is almost always an impedance problem and almost never a model problem, because cleanup behaviour off the volume knob is a function of the interaction between pickup and input, and if the input is presenting 1M the interaction is not there to have. Swapping fuzz models to fix that is the most common wrong answer to this problem, and it is expensive in a way that changing one parameter is not.
+
+The other thing it buys you is an explanation. If two presets on the same amp model behave differently under the fingers and you have compared every block twice, look at what is sitting first in the chain with its light off.
+
+Then go set First Enabled and stop thinking about it.

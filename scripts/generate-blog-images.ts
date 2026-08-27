@@ -118,6 +118,9 @@ function moodForPost(authorSlug: string, slug: string): string | undefined {
 /* -------------------------------------------------------------------------- */
 
 const SUBJECT_OVERRIDES: Record<string, string> = {
+  "modeler-input-impedance-setting-what-to-set-it-to": "a guitar multi-effects floor processor on a studio desk, the input jack and a plugged-in cable in sharp focus, unbranded",
+  "reverb-diffusion-what-it-does-to-a-guitar-part": "a single reverb pedal on a bedroom desk beside an audio interface and over-ear headphones, unbranded, monitor glow",
+  "tuning-two-guitars-to-each-other-not-the-tuner": "two electric guitars on stands side by side in a rehearsal room, a clip-on tuner on one headstock and a tuner pedal on the floor, unbranded",
   "tube-screamer-settings-guide": "a small green overdrive pedal, unbranded, knobs and footswitch visible",
   "big-muff-settings-guide": "a large rectangular fuzz pedal enclosure, unbranded, three knobs",
   "boss-ds1-settings-guide": "a small orange distortion pedal on a pedalboard with patch cables, unbranded",

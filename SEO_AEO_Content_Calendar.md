@@ -5307,3 +5307,167 @@ signal. If the Katana Gen 3 needs coverage it is a refresh of the existing post.
 modeler, an interface, and fifteen minutes with the harness published in
 `modeler-latency-budget-per-block-cost`. When it happens it is a **refresh** of that URL, not a new
 post. **Do not let an automated run fill that table from memory.**
+
+---
+
+## SERP Analysis — 2026-08-27 (Posts Published Today)
+
+### Posts published: modeler-input-impedance-setting-what-to-set-it-to, reverb-diffusion-what-it-does-to-a-guitar-part, tuning-two-guitars-to-each-other-not-the-tuner
+
+**Queue state:** drained **AE1, AE2, AE3** from the 08-22 run — the full set, built for the bylines that
+queue nominated (Sean, Dev, Rick). Velocity at run start: Sean 1, Carl 1, Viktor 1, everyone else 0, so
+two of three went to bylines at zero exactly as the 08-22 notes recommended. **Post-run standing: Sean 2,
+Viktor 1, Carl 1, Dev 1, Rick 1. Nobody near the 3/week cap. Jess, Margot, Nathan, Hank, Elena and
+fk-staff are the bylines at 0.**
+
+**Cluster shape this run:** all three new posts are the second half of a pair the last two runs opened.
+AE1 is the modeler-side answer to the 04-04 fuzz-and-buffers post and the third variable in the
+pickup-loading circuit that 08-22's Post 1 and R1 refresh set up. AE2 is the control that 08-22's Post 2
+kept running into. AE3 is the sub-problem 08-22's Post 3 could only give a paragraph to. Each new post
+cross-links its parent and both refreshes link forward, so the cluster is bidirectional rather than a
+chain of orphans.
+
+**Post 1 — modeler-input-impedance-setting-what-to-set-it-to** (target: "helix input impedance,"
+"modeler input impedance setting," "guitar input impedance 1M," "auto impedance helix")
+- **Top ranking:** five separate Line 6 Community forum threads (*Input impedance
+  underrated/overlooked*, *Guitar Impedance Setting*, *Guitar In-Z Full Clarification?*, *How/where to
+  set input impedance?*, *Input impedance on the Helix, do you just keep it on auto?*), two Gear Page
+  threads, thegearforum's *Check your Impedance!*, the Helix Help tip page and its *The Blocks*
+  reference, Alex Strabala's global-settings page, and — genuinely, on page one — the Wikipedia article
+  for "Input impedance."
+- **Gap confirmed, and the shape of the SERP is the finding: there is no editorial guide at all.** Page
+  one is forum Q&A, one manual-excerpt help page, and an encyclopaedia entry. Every result that answers
+  the question answers it as one person's reply to another person. Absent across the top 5: (1) the
+  **Q-versus-frequency correction** — every source, including Line 6's own wording ("high frequency
+  attenuation… softer feel"), frames the parameter as a brightness control, and none states that load
+  resistance damps the *height* of the pickup's resonant peak while capacitance is what moves its
+  *frequency*; that distinction is the post's load-bearing claim and it is why an EQ high-cut never
+  reproduces the setting; (2) any **decision table** by pickup type and first-block choice; (3) the
+  **First Block versus First Enabled** Auto Impedance preference treated as a decision a reader should
+  make rather than a line in a changelog — including the consequence, that a *bypassed* fuzz parked at
+  the front of a preset is loading the pickup for every other sound in it; (4) the **inert-behind-a-
+  buffer list** (wireless, active pickups, buffered tuner, interface, reamping), which decides whether
+  the parameter does anything at all for a given reader and appears nowhere on page one; (5) the
+  **cross-platform contrast** — Helix's default Auto reads the first block regardless of bypass state,
+  Fractal's AUTO follows the first *active* block and exempts the Wah block entirely, and Quad Cortex
+  offers no Auto derivation at all (1M default, per-input, greyed out in Mic mode). Same feature name,
+  three different behaviours, which is a preset-translation trap that never shows up in a block-by-block
+  comparison because it is not in the blocks.
+- **Gate 1 note — read before any follow-up.** The **Auto Impedance First Block / First Enabled**
+  preference is sourced to **Line 6's own 3.0 release notes**. The manual wording on lower-versus-higher
+  values is from the Helix Help reference. **The ohm figures (70k, 90k, 136k, 230k, 1M; QC's 1M default
+  with 232k reported by a user) are community forum reports, not a Line 6 published menu list.** A
+  complete authoritative enumeration of the In-Z menu was searched for across the Line 6 manuals, the
+  Helix Help block reference and four forum threads and **was not findable** — the manual PDFs exceed
+  fetch limits and no secondary source reproduces the full list. **The post therefore does not publish a
+  complete menu enumeration, and no future run should fill one in from memory.** If Daniel has a unit in
+  front of him, photographing that menu turns this into a high-value refresh of this URL rather than a
+  new post — same pattern as the standing Y1 latency-table debt.
+- **AI Overview:** very likely present (definitional / how-to class); F&K not cited.
+- Non-commodity gate: **PASS**, and comfortably. The Gate 7 warning carried on this queue row — "if it
+  drifts into a general what-is-impedance explainer it becomes a commodity post" — was checked at draft:
+  the post spends four sentences on what impedance is and the rest on what to set and why Auto misfires.
+  Confirmed distinct from `impedance-buffers-fuzz` (analog pedalboard, fuzz-specific) and
+  `buffer-vs-true-bypass-looper` (bypass topology).
+
+**Post 2 — reverb-diffusion-what-it-does-to-a-guitar-part** (target: "reverb diffusion setting," "what
+does diffusion do reverb," "reverb density vs diffusion," "reverb sounds grainy")
+- **Top ranking:** Audiotent's *Reverb Diffusion Explained*, Bobby Owsinski's *A Look At Reverb
+  Diffusion And When To Use It*, MusicRadar's reverb-parameters explainer, mixinglessons' *5 key reverb
+  plugin parameters*, ac3filter's *What is Diffusion in Reverb?*, Goldmidi, a Gearspace D-Verb thread,
+  Craig Anderton's *How to Use Reverb with Guitar*, Nail The Mix.
+- **Gap confirmed, and page one contains a live contradiction that defines the opening.** The two
+  instrument-level rules on this SERP do not agree with each other. One prominent result advises **low
+  diffusion for lead guitar clarity**; the same guidance family advises that **sustained pads and
+  strings want low diffusion** while percussive drums want high. Both cannot be a rule about
+  instruments, and no result names the variable that reconciles them. Absent across the top 5: (1) the
+  **resolving variable — note density and attack rate, not instrument** — which is why the same guitar
+  through the same patch needs opposite settings on a held-chord verse and a palm-muted chorus; (2) the
+  **masking mechanism**: a sustained note is continuously producing energy that covers the gaps between
+  sparse reflections, and a note that stops uncovers every one of them, so the control is really a
+  function of the picking hand; (3) **low diffusion plus long decay as the origin of metallic ringing**,
+  the flutter-echo mechanism, with the corollary that reverb modulation exists structurally to break
+  that repeat interval rather than as a flavour; (4) the finding that **maxing diffusion removes
+  dimensional information** — early-reflection timing is what reads as room size, so full smear produces
+  volume without shape; (5) the **"your unit does not have this control" path**, which is most readers.
+- **Gate 1 note:** the claim that most Helix/HX reverb blocks expose no diffusion parameter is a **user
+  forum report and is hedged in-line** ("check yours before you go looking for it in a menu that does
+  not have it") rather than asserted as a Line 6 spec. BigSky's Diffusion description (scattering from
+  room materials, furniture and people; head-smearing on Magneto) and Supermassive's Density range are
+  from Strymon and Valhalla product material.
+- **AI Overview:** likely present (definitional class); F&K not cited. Same note as 08-19 and 08-22 —
+  the prose on this SERP is generic enough that the citation slot for a concrete guitar-context answer
+  may be unusually open.
+- Non-commodity gate: **PASS.** Confirmed distinct from `reverb-types-guide` (names diffusion once, in
+  passing, inside the room-reverb section) and `early-reflections-vs-reverb-tail-room-vs-space`
+  (structure of a reverb, not the control that shapes it). Both are cross-linked.
+
+**Post 3 — tuning-two-guitars-to-each-other-not-the-tuner** (target: "two guitars sound out of tune
+together," "guitars in tune but sound bad," "beating between two guitars," "tuning two acoustic
+guitars")
+- **Top ranking:** Guitar World's *Why Your Guitar Sounds Out of Tune, Regardless of What Your Tuner
+  Says*, Strange Guitarworks' *Your guitar is out of tune. Deal with it.*, two Gearspace threads (one on
+  psychoacoustic pitch perception, one on guitars that sound in tune played and out of tune recorded), a
+  Brainly physics question about two guitars and beat frequency, and a Purdue course page on tuning.
+- **Gap confirmed, and it is a category error rather than a depth problem: page one answers a different
+  question.** The strong editorial results (Guitar World, Strange Guitarworks) are about **one** guitar
+  and equal temperament — why a single instrument can never be perfectly in tune with itself. The
+  physics results state beat frequency as a textbook problem with no instrument in the room. Nothing on
+  page one addresses two players who have both tuned and still disagree. Absent across the top 5: (1)
+  any **quantification of how far out is audible** — the cents-to-beat-rate table, and the conclusion
+  that four cents is enough, which is well inside where two carefully tuned guitars land; (2) the
+  observation that **beat rate scales with frequency**, so the same error is a lazy wobble on an open G
+  and an obvious warble an octave up, meaning the player in the higher register hears it first and gets
+  blamed for it; (3) the **reference-pitch check** — a tuner bumped from 440 to 442 puts a whole guitar
+  about eight cents out with every string reading green — which is the cheapest fix on the list and
+  appears nowhere; (4) **accuracy versus display window as separate things**, i.e. that the green zone
+  is a band rather than a point; (5) any **procedure for tuning two instruments to each other**,
+  including which guitar is the reference (the one that is harder to change) and the rule that only one
+  guitar moves.
+- **Gate 7 distinctness — checked explicitly before building, and this cluster is now closed.** Against
+  `capo-split-two-guitarists-same-song` (Carl, 08-22): that post raises two guitars beating as a
+  sub-problem in one paragraph and is otherwise about arrangement and shape quality. Against
+  `capo-position-as-a-tone-decision` (Carl): its intonation section is one guitar going sharp with
+  itself, a different failure. The new post owns the general case, defers the capo arrangement decision
+  rather than re-teaching it, and links both. **Verdict: build. A fourth post in this cluster would be a
+  re-slice — do not queue one.**
+- **Gate 1 note:** Peterson's ±0.1 cent and TC Electronic's strobe-mode claim are **published
+  manufacturer figures**. The ~1 cent figure for basic clip-ons is **labelled in-post as a working
+  estimate**, because those manufacturers publish nothing. The beat-rate table is **calculated** from
+  Δf = f × (2^(cents/1200) − 1) and is presented as arithmetic, not measurement.
+- **AI Overview:** likely present (troubleshooting class); F&K not cited.
+- **Byline note:** the standing caution on this queue row was that "your ears don't lie" would pull
+  itself out of Rick on this topic. **Enforced mechanically at audit: zero signature-phrase uses, zero
+  exclamation points, zero ellipses across the post.**
+
+### Refreshes
+
+Both refreshes are the posts the new work most directly depends on, and both came off the legacy-gap
+list: **neither had `takeaways:`, frontmatter `faq:`, or `updated:`, and both carried the broken
+generated `image_alt`** (`a composition illustrating "..."`) first flagged on 08-14. Both keep their
+original byline. Refreshes do not count against the velocity cap.
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | impedance-buffers-fuzz | **Two Gate 1 corrections + full AEO backfill.** **Correction 1:** the post said a fuzz "loads the pickup slightly." It is the opposite — a germanium Fuzz Face input sits in the tens of kilohms against roughly 1 MΩ for a modern amp, so it loads the pickup by around a factor of thirty, and that heavy damping of the resonant peak *is* a large part of the pedal's sound. Understating it by two orders of magnitude undercut the post's own thesis. **Correction 2:** the volume-knob cleanup was explained as "lower volume = lower effective output impedance = less loading." That is backwards over most of the sweep. Looking back into the guitar you see the top half of the pot in parallel with the bottom half plus the pickup, so source resistance *climbs* as you roll off, peaking near a quarter of the pot value — about 125 kΩ on a 500 kΩ pot — at the midpoint. In series with a fuzz input of a few tens of kilohms that is a resistive divider starving the input stage, which is also why a volume pedal downstream does not reproduce the effect. Rewrote both passages. **Content-add:** a new "The Same Problem, Now as a Menu Item" section bridging to Post 1, including the inert-behind-a-buffer rule. Migrated 5 body Q&A to frontmatter and added 1, added 5 takeaways, a real `image_alt`, `updated: 2026-08-27`. | It is the post Post 1 leans on hardest for the loading argument, and it was carrying a claim that reversed its own mechanism. Fixing a Gate 1 error on a proven URL beats any fourth new post this run could have shipped. |
+| R2 | reverb-pedal-pairings | **AEO backfill + a structural content-add.** The post's stated mechanism named two axes on which two reverbs must differ — frequency territory and temporal behaviour — and missed the one that actually decides whether a pair muds up. **Content-add — "The Third Axis: Diffusion":** stacking two dense, highly diffuse reverbs compounds the smearing rather than averaging it, so you can separate them perfectly in frequency, high-pass between them, and still get volume with no shape — the failure players describe as "it sounds huge but I can't hear the guitar." Gives the rule (one reverb sparse, one dense) and re-reads the existing pairings through it: the Afterneath/Sloer pairing works because one unit supplies structure and the other supplies body, which explains it better than the attack-timing story the post originally told, and the Spirit-plus-Supermassive combination is the same split in software. Migrated 5 body Q&A to frontmatter and added 1, added 5 takeaways, a real `image_alt`, fixed a grammar error in the CTA title, `updated: 2026-08-27`. Cross-links Post 2. | It is Post 2's most-affected downstream post: it is the site's main "how do I stack two reverbs" page and it was missing the variable that determines the answer. |
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 0, added 3 — **queue is flat again**, the intended steady state. Bylines are
+> best-fit proposals; the executing run re-checks **both** velocity **and** the never-assign list, and
+> **verifies no colliding slug at build time** (all three were collision-checked when queued and all
+> three are clear). **Next run: Jess, Margot, Nathan, Hank, Elena and fk-staff are the bylines at 0.**
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AF1 | wireless-transmitter-input-impedance-tone | Your Wireless System Is an Impedance Decision You Did Not Know You Made | "guitar wireless tone loss," "does wireless change your tone," "wireless system input impedance," "wireless vs cable tone" | Nathan Cross | 3 — Signal Chain | Post 1's inert-behind-a-buffer list turned up a hole: **the site has zero wireless coverage**, and Post 1 establishes that a transmitter is the load that permanently replaces your cable's — and that it silently voids every downstream impedance decision, including the modeler parameter Post 1 is about. The SERP for wireless is latency-and-dropout reviews and buying guides; nothing treats the transmitter as a fixed load on the pickup with a resonant-peak consequence. Distinct content: what a transmitter's input impedance does to the peak versus a 10-foot cable, why "wireless sounds brighter than my cable" is usually true and is a capacitance story rather than a fidelity one, the cable-length figure a given wireless is actually emulating when it offers a cable-tone setting, and the practical consequence for a player who uses wireless live and a cable at home. Nathan's live lane and he is at 0. **Confirmed no colliding slug — no wireless post exists.** |
+| AF2 | when-strings-go-false-string-age-and-intonation | When Do Strings Go False? The Intonation Answer, Not the Lifestyle Answer | "old strings intonation," "when do guitar strings go false," "how often to change strings intonation," "strings won't intonate" | Hank Presswood | 6 — Quick Fixes | Post 3's cause #5 needed a paragraph and deserves a page: a worn string has uneven mass along its length and stops producing a consistent pitch across the neck, which is why no amount of tuning fixes it. The SERP for string changes is wall-to-wall "how often should you change your strings" content pitched at tone and feel; nothing measures the **intonation** consequence or gives a test. Distinct content: the 12th-fret-harmonic-versus-fretted-note check run on a new set and a worn set, which string goes false first and why (plain G, again), what "false" means physically, and the decision rule for when a setup problem is actually a string problem — the case where a player books a bench appointment for something a nine-dollar packet fixes. Hank's setup-and-history lane and he is at 0. **Confirmed no colliding slug** — `string-pings-at-nut-diagnostic` is a nut-friction diagnostic, not string wear. |
+| AF3 | modeler-input-pad-when-you-need-it | The Pad Switch on Your Modeler Input, and the Three Rigs That Need It | "helix guitar in pad," "modeler input pad," "modeler clipping active pickups," "input clipping before any block" | Jess Kowalski | 4 — Modeler Masterclass | The sibling parameter to Post 1 and a genuinely different question: impedance is what the input *loads* your pickup with, the pad is what it does when your pickup is too hot for the converter. Distinct content: why clipping here is invisible to every meter inside the preset (it happens ahead of them), the three rigs that actually trigger it (active pickups, hot ceramic humbuckers, a boost left on in front), how to tell input clipping from an over-driven amp block by ear, and what the pad costs you in noise floor when you engage it without needing it. **Gate 7 guard: this must stay about the input stage. If it becomes a general gain-staging post it is a re-slice of `gain-staging-drop-tunings` — drop it.** Jess's practical lane and she is at 0. **Confirmed no colliding slug.** |
+
+**Human-in-the-loop debt: now two items, both narrow and both the same shape.** (1) The Y1 measured
+per-block latency table still needs a modeler, an interface, and fifteen minutes with the harness in
+`modeler-latency-budget-per-block-cost`. (2) **New this run:** the complete Helix In-Z menu enumeration
+for `modeler-input-impedance-setting-what-to-set-it-to`, which needs about thirty seconds with a unit
+and a camera. Both become **refreshes** of an existing URL when they land, not new posts, and **neither
+may be filled in from memory by an automated run.**
