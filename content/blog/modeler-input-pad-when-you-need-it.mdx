@@ -1,0 +1,180 @@
+---
+title: 'The Pad Switch on Your Modeler Input, and the Three Rigs That Need It'
+seo_title: 'Modeler Input Pad: When You Actually Need It'
+description: >-
+  Your modeler has a pad on the guitar input and it is off by default. What it
+  does, why input clipping is invisible to every meter inside your preset, and
+  the three rigs that genuinely trigger it.
+date: '2026-08-28'
+author_slug: jess-kowalski
+category: modeler-masterclass
+tags:
+  - helix
+  - modeler
+  - input-pad
+  - active-pickups
+  - gain-staging
+  - quad-cortex
+  - fractal
+takeaways:
+  - >-
+    The pad is analog attenuation ahead of the converter, which means it is the
+    only level control in your rig that acts before anything in your preset can
+    measure it. Every meter you can see is downstream of the problem.
+  - >-
+    Three rigs actually trigger it: active pickups, very hot ceramic humbuckers
+    played hard, and a boost or overdrive pedal left running in front of the
+    modeler. Everyone else is solving a problem they do not have.
+  - >-
+    Input clipping does not scale with your amp block's Drive control. If
+    lowering Drive to zero leaves the spit on the attack exactly where it was,
+    the damage happened before the amp model.
+  - >-
+    Turning the pad on when you do not need it costs you signal above the noise
+    floor and quietly changes how hard the amp models are being hit, which reads
+    as the modeler sounding flat rather than as a level change.
+  - >-
+    Fractal and Quad Cortex solve the same problem with a continuous input
+    control rather than a switch, so the fix translates between platforms even
+    though the parameter does not.
+faq:
+  - q: What does the pad switch on a modeler input do?
+    a: >-
+      It attenuates the guitar signal in the analog domain before the
+      analog-to-digital converter. On a Helix the Guitar In Pad has been
+      measured at roughly 5.5 dB and ships off by default. It exists so a very
+      hot pickup cannot overload the input stage before any block gets to
+      process it.
+  - q: How do I know if my modeler input is clipping?
+    a: >-
+      Set your amp block's Drive to zero and play hard. If you still hear a
+      papery spit on the pick attack, it is not the amp model, because there is
+      no drive left in it to make that sound. Input clipping stays constant
+      while everything downstream is turned down.
+  - q: Should I leave the input pad on all the time?
+    a: >-
+      No. It is a real attenuation, so leaving it on with normal passive pickups
+      moves your whole rig further down over the converter's noise floor and
+      hits every amp model softer than it was voiced to be hit. Turn it on for a
+      reason, not as insurance.
+  - q: Do active pickups need the input pad?
+    a: >-
+      Usually yes. An EMG or similar active set has an onboard preamp and puts
+      out a significantly hotter, lower-impedance signal than a passive pickup,
+      which is exactly the case Line 6 names in the manual when describing the
+      pad. Turn it on, then re-check your amp block gain, because your presets
+      were built around the un-padded level.
+  - q: Does the Quad Cortex or Fractal have an input pad?
+    a: >-
+      Not as a switch, but both give you the same control by a different route.
+      Fractal exposes input trim and input sensitivity in the I/O menu, and the
+      Quad Cortex gives you an input gain setting per input. The useful
+      difference is that they are continuous, so you can take off two decibels
+      instead of a fixed step.
+  - q: Will the pad make my modeler quieter?
+    a: >-
+      Slightly, and that is not the important part. The important part is that
+      every gain-based block downstream is now being hit softer, so a high-gain
+      preset loses some of its saturation and a clean preset loses some of its
+      pick attack. Expect to re-balance rather than expecting a pure volume
+      change.
+image: /images/blog/modeler-input-pad-when-you-need-it.jpg
+image_alt: >-
+  A floor multi-effects modeler with an expression pedal and a lit display
+  sitting on a dark stage, a guitar cable coiled beside it and amp cabinets
+  and colored stage lights behind
+---
+
+There is a switch in your modeler's global settings called Guitar In Pad, or Input Pad, or on some platforms it is not a switch at all but a number you can drag. It is off by default. Most people find it, read the one-line description, decide it sounds like a safety feature for somebody else, and never touch it again.
+
+Which is mostly correct! It IS for somebody else. The problem is that about one player in five is that somebody else and does not know it, because the failure mode is a sound you would never attribute to the input stage.
+
+Here is what the pad does, the three rigs that need it, and — more useful — how to tell in thirty seconds whether you are one of them.
+
+## Quick Answer
+
+| Your rig | Pad | What to expect |
+|---|---|---|
+| Passive single coils | Off | You are not close to the ceiling. Leave it alone. |
+| Medium-output humbuckers (PAF-style) | Off | Same. Some players prefer it on for feel; that is a voicing choice, not a fix. |
+| Hot ceramic humbuckers, played hard | On, then re-check amp gain | This is the borderline case and it depends on your right hand |
+| Active pickups (EMG, Fishman Fluence) | On | The named case in the manual. Turn it on. |
+| Boost or overdrive pedal running into the modeler | On | You built a preamp in front of the input and did not call it one |
+| Anything through a wireless or interface first | Depends on that unit's output level | The pad still works, but the level it is padding is no longer your pickup's |
+
+## It Happens Before Anything Can See It
+
+The pad is analog. That is the whole reason it exists as a separate control instead of being a level knob on the input block.
+
+On a Helix, the Guitar In Pad sits in the analog stage before the analog-to-digital converter, and it has been measured by the folks at Helix Help at approximately 5.5 dB. That figure is a measurement rather than a published Line 6 number, so treat it as a good estimate and not a spec, but the placement is not in question — Line 6's own manual describes the setting as being for guitars with active or really loud pickups, which is a statement about the input stage and not about your preset.
+
+And that placement is the entire point. Every meter you can look at inside a preset — the input block's level, the amp block, the output — is reading a signal that has already been converted. If the signal was too hot on the way in, the conversion already went wrong and everything downstream is faithfully processing damaged material. Your meters will look FINE. They are measuring the wrong side of the problem.
+
+This is different from ordinary gain staging inside the chain, where every stage is visible and adjustable and you can find the offender by muting things. If you want that version of the conversation, [gain staging for drop tunings](/blog/gain-staging-drop-tunings) is the deep one and it covers the whole chain. This post is about one stage: the one you cannot see.
+
+## The Part That Surprised Me
+
+I went into this assuming the pad was a hardware protection switch. Signal too hot, converter clips, turn on pad, problem solved. Simple story, obvious mechanism, done.
+
+Then I went looking for how much headroom the input actually has, and the number people who have measured it report is somewhere around 123 dB. Which, if that is even approximately right, means clipping the converter with a guitar is genuinely hard. Not impossible — put a boost pedal in front of it and you can get there — but not something a hot humbucker does on its own.
+
+So if the converter is not clipping, why does turning the pad on fix the complaint?
+
+Because the complaint was never about the converter. It is about how the models respond. The amp models are voiced for a signal level in a particular range, and a very hot input pushes them past where their input stage was tuned to sit. The result is compression and fizz that reads as the model being bad rather than the model being overfed. Turn on the pad and the model behaves. Nothing was ever clipping.
+
+That reframes the switch completely. It is not a protection device with a tone side effect. It is a voicing control that got documented as a protection device, and once you look at it that way it stops being mysterious that some players swear by leaving it on and others say it makes everything lifeless. They are both right — they are just feeding it different pickups.
+
+## The Three Rigs That Actually Trigger It
+
+**1. Active pickups.** An EMG or a Fishman Fluence has a preamp in the guitar. The output is hotter and its source impedance is very low, so nothing downstream is loading it back down. This is the case Line 6 names by name, and if you play EMGs the answer is yes, turn it on, and then go re-check the Drive on your amp blocks because they were dialed against the un-padded level.
+
+**2. Very hot ceramic humbuckers, played hard.** This one is a right-hand question, not a pickup question. A ceramic bridge humbucker into a modeler is fine at moderate attack and can push past useful at full commitment on a low string. If you play thrash downstrokes for a living, you are in this category. If you play the same pickup fingerstyle, you are not.
+
+**3. A boost or overdrive left on in front of the modeler.** People do this constantly — a Tube Screamer or a clean boost as an always-on in front of the unit, feeding a high-gain amp model. That is a preamp. You have added 10 or 15 dB before the input and then wondered why the front end sounds gritty in a way the amp block's Drive control does not explain. It does not explain it because it is not causing it.
+
+Three rigs. That is the list. If none of them is you, the pad is not your problem and turning it on will make your rig quieter and softer for no benefit — which is its own failure mode, and I have watched people chase that one for a week.
+
+## Telling It From an Overdriven Amp Block, By Ear
+
+This takes thirty seconds and requires nothing but the guitar you are worried about.
+
+1. **Drop the amp block's Drive to zero.** All the way down. The preset will sound useless; that is fine, we are not auditioning it.
+2. **Play as hard as you ever play.** Low string, hard downstroke, the most aggressive thing in your set.
+3. **Listen to the attack.** If there is a thin, papery spit on the front of the note — not a fat overdrive crunch, more like a tiny burst of static riding the pick — that is not the amp model. There is no drive left in it to make that sound.
+4. **Turn the pad on and play the same thing.** If the spit goes away, you found it.
+5. **Turn Drive back up and re-balance.** Everything downstream is now being hit softer. Your high-gain presets in particular will need Drive and channel volume nudged back up.
+
+The distinguishing feature is that input clipping does not scale with anything inside the preset. Amp block distortion gets worse when you raise Drive and better when you lower it, because that is what Drive does. Input-stage grit sits there unchanged while you turn every knob you can reach — which is exactly why people conclude the modeler itself sounds bad. It is also, worth saying, a completely different symptom from the high-end fizz problem covered in [why modeler tone sounds fizzy](/blog/why-modeler-tone-sounds-fizzy), which lives in the cab and IR stage at the other end of the chain.
+
+## What It Costs When You Do Not Need It
+
+Attenuating roughly 5.5 dB in the analog domain means roughly 5.5 dB less signal sitting above the converter's noise floor. With a converter in the range these units use, that is not a practical problem for most players most of the time — you are not going to hear noise appear on a high-gain preset that was already noisy.
+
+Where it shows up is quiet material. A clean single-coil part played softly, with the guitar volume rolled back, into a preset with a compressor doing real work. That compressor is now pulling up a slightly lower signal, and what it pulls up with it is whatever noise is down there. Not catastrophic. Noticeable in in-ears, which is where most people first hear it.
+
+The bigger cost is the one nobody attributes correctly: your amp models are being hit softer, so a rig that was voiced un-padded now sounds like it lost a little push. Players describe this as the modeler sounding flat or two-dimensional after a firmware update, when what actually happened is that they toggled a global setting three weeks ago and forgot.
+
+Turn it on for a reason. Write down when you did it.
+
+## The Other Platforms
+
+**Helix and HX family.** Guitar In Pad, global, one switch, off by default. Because it is global rather than per-preset, it affects everything at once — so if you switch between an active-pickup guitar and a passive one across a set, you are making a compromise no matter which way you set it. Pick for the guitar you play most.
+
+**Fractal.** No pad switch; instead you get input trim and input sensitivity in the I/O menu, and the practical detail worth knowing is that these are not interchangeable — the reports from players who have chased this say input sensitivity is what governs level into the converter while input gain does not. Verify on your firmware rather than taking a forum's word for it, but the shape of the fix is the same and the continuous control is genuinely nicer than a fixed step.
+
+**Quad Cortex.** Input gain per input, which is the most flexible arrangement of the three because it is both continuous and per-input, so a hot guitar on Input 1 does not force a compromise on Input 2.
+
+None of these platforms is doing anything the others cannot. They just named it differently, which is why the advice you find for one unit reads as irrelevant on another.
+
+## While You Are In There
+
+The pad is one of two settings on the guitar input that change your signal before conversion. The other is the input impedance parameter, which loads your pickup rather than attenuating it, and which most people also leave on the default without ever finding out what it does. If you are in the global menu anyway, [that one is worth ten minutes too](/blog/modeler-input-impedance-setting-what-to-set-it-to) — and if you play through a wireless, [it may not be doing anything at all](/blog/wireless-transmitter-input-impedance-tone), which is worth knowing before you spend an evening A/B-ing it.
+
+Two settings, one jack, and between them they explain a surprising share of the complaints that get blamed on the models.
+
+<SaveThisTone
+  title="Pick a tone to chase"
+  description="Every recipe in the catalog has the chain, exact settings, and a preset for Helix or Katana."
+  href="/browse"
+  ctaLabel="Browse the catalog"
+/>

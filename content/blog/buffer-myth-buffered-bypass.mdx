@@ -18,8 +18,68 @@ tags:
   - impedance
   - klon
 readingTime: 9
+updated: '2026-08-28'
+takeaways:
+  - >-
+    A buffer is not a tone improver. It is an impedance converter that lowers
+    your signal's source impedance so cable capacitance downstream stops moving
+    your pickup's resonant peak.
+  - >-
+    True bypass is not neutral either. It hands your high-impedance signal to
+    the full length of cable in your chain, which is exactly the condition
+    capacitance needs to do damage.
+  - >-
+    The germanium fuzz exception is real and it is about loading, not about
+    purity. A vintage fuzz input loads a pickup by roughly a factor of thirty
+    against a modern amp, and that damping is part of the sound.
+  - >-
+    A wireless system is a buffer you did not choose. The transmitter buffers at
+    the guitar, which means the true-bypass-versus-buffered decision on your
+    board has already been made for you.
+  - >-
+    The test is free: play through a short cable straight to the amp, then
+    through your bypassed board. If the second one is duller, you have a loading
+    problem and a buffer at the front is the fix.
+faq:
+  - q: Does true bypass always sound better than buffered bypass?
+    a: >-
+      No. True bypass routes your signal through cables at high impedance, which
+      means longer cable runs cause more high-frequency loss. A well-designed
+      buffer prevents this loss. Neither is universally better; chain length and
+      context determine which is appropriate.
+  - q: Should I put a buffer before or after my pedals?
+    a: >-
+      Before. The purpose of a buffer is to lower the signal's source impedance
+      before it travels through cables and components. A buffer at the end of
+      your chain does not help the signal that has already traveled through 30
+      feet of cable to get there.
+  - q: Can I have too many buffers?
+    a: >-
+      Technically yes; cascaded buffers can introduce a mild compression effect.
+      In practice, one or two quality buffers in a chain is ideal. More than
+      three is unnecessary in most rigs.
+  - q: Will a buffer change my fuzz pedal's tone?
+    a: >-
+      If it is a germanium fuzz, yes, and not in a way most players want. Place
+      the germanium fuzz before the first buffer in your chain, or use a bypass
+      loop to keep it isolated. Silicon fuzz pedals are generally less affected.
+  - q: What is the simplest way to know if I need a buffer?
+    a: >-
+      Plug your guitar directly into your amp with a single short cable. Listen.
+      Now plug the same guitar through your full pedalboard with everything
+      bypassed. If it sounds noticeably darker or flatter, you have a
+      high-frequency loading problem. A buffer at the front of the chain is the
+      fix.
+  - q: Does a wireless system count as a buffer?
+    a: >-
+      Yes, and it is not optional. The transmitter buffers your signal at the
+      guitar, so everything downstream sees a low-impedance source regardless of
+      what bypass topology your pedals use. That resolves the cable-capacitance
+      question for you and removes the germanium fuzz option at the same time.
 image: /images/blog/buffer-myth-buffered-bypass.jpg
-image_alt: a composition illustrating "The Buffer Myth"
+image_alt: >-
+  A pedalboard photographed from above with a buffer pedal at the start of the
+  signal chain and patch cables running between four bypassed pedals
 ---
 
 > **Start Here:** Buffered bypass preserves your signal level and frequency response through long cable runs and multi-pedal chains. True bypass routes your signal through zero circuitry when disengaged. Neither is universally better; the right choice depends on your chain length, what fuzzes you use, and how sensitive your pickups are to impedance loading. If you just want the practical decision guide, jump to [Which Setup Should You Use?](#which-setup-should-you-use). If you want to understand why the argument exists in the first place, start from the top.
@@ -66,11 +126,11 @@ I ran this test on my own board. All true bypass chain, measured at the amp: not
 
 There is one context where the buffered bypass vs. true bypass question has a clear, specific answer: **fuzz pedals that use germanium transistors.**
 
-Germanium fuzz circuits (the classic Fuzz Face topology in particular) are input-impedance-sensitive in a way that most other circuits are not. They are designed to be driven by a high-impedance source: your guitar's pickups, unmodified. When a buffer precedes a germanium fuzz, the low-impedance output of the buffer drives the fuzz input at a different impedance than the circuit expects. The result is a noticeably different sound, often described as "flat," "compressed," or "less chewy." The interactive quality that makes germanium fuzz responsive to your guitar volume disappears.
+Germanium fuzz circuits (the classic Fuzz Face topology in particular) are input-impedance-sensitive in a way that most other circuits are not, and the mechanism runs in the direction people usually get backwards. The fuzz is not being harmed by the buffer; the fuzz is being *deprived* of something. A germanium Fuzz Face input sits in the tens of kilohms against roughly 1 megohm for a modern amp, so it loads a passive pickup by around a factor of thirty, and that heavy damping of the pickup's resonant peak is a large part of what the pedal sounds like. Put a buffer in front and the pickup is no longer connected to that load — the fuzz now sees a few hundred ohms of buffer output, which is a source it cannot interact with at all. The result is flatter in a specific way: the peak that the fuzz used to be flattening is now arriving pre-flattened, and the guitar-volume cleanup, which depends entirely on that interaction, largely disappears.
 
 This is why Jimi Hendrix's pedalboard didn't have any other pedals before his Fuzz Face. The fuzz needed to see the guitar directly.
 
-The practical implication: **if you run a germanium or vintage-topology silicon fuzz, it should either be first in chain (before any buffers) or on a true bypass loop that keeps it isolated from the buffered section.** Every other pedal before a fuzz in a buffered chain will load the fuzz input in a way the circuit wasn't designed for.
+The practical implication: **if you run a germanium or vintage-topology silicon fuzz, it should either be first in chain (before any buffers) or on a true bypass loop that keeps it isolated from the buffered section.** Any buffered pedal ahead of it — including a tuner left in the chain and a good many pedals that advertise true bypass but buffer the input — drives the fuzz from a low source impedance instead of from your pickup, which is the whole problem.
 
 Modern silicon fuzz circuits (and silicon Fuzz Face variants specifically) are less sensitive to input impedance. They'll generally work fine after a buffer. Germanium circuits are the ones to watch.
 
@@ -141,22 +201,15 @@ Any of these placed at the beginning of a long chain will do the job. The differ
 
 ---
 
-## FAQ
+## The Buffer You Did Not Choose
 
-**Does true bypass always sound better than buffered bypass?**
-No. True bypass routes your signal through cables at high impedance, which means longer cable runs cause more high-frequency loss. A well-designed buffer prevents this loss. Neither is universally better; chain length and context determine which is appropriate.
+Everything above assumes the decision is yours — that you pick a topology, order your pedals, and live with the tradeoff. There is one common piece of gear that makes the decision for you and does not announce it.
 
-**Should I put a buffer before or after my pedals?**
-Before. The purpose of a buffer is to lower the signal's source impedance before it travels through cables and components. A buffer at the end of your chain doesn't help the signal that's already traveled through 30 feet of cable to get there.
+A wireless system buffers your signal at the guitar. The transmitter's input is the load your pickup actually sees, and its output is low-impedance and cable-length-indifferent, which means every question in this article has already been answered by the time your signal reaches the first pedal. The upside is real: cable capacitance stops mattering, chain length stops mattering, and a long run to the stage costs you nothing. The downside is that the germanium fuzz exception above is now closed, because there is no way to get your pickup in front of that fuzz without going back to a cable for those songs.
 
-**Can I have too many buffers?**
-Technically, yes; cascaded buffers can introduce a mild compression effect. In practice, one or two quality buffers in a chain is ideal. More than three is unnecessary in most rigs.
+Manufacturers know this, which is why cable tone simulation exists — Boss ships the WL-20 with a simulation of a 10-foot cable's capacitance and the WL-20L without it, and Line 6's Relay line offers switchable equivalents. Those settings are not nostalgia. They are the wireless equivalent of choosing your bypass topology, and most players never look at them. [The full version of that argument is here.](/blog/wireless-transmitter-input-impedance-tone)
 
-**Will a buffer change my fuzz pedal's tone?**
-If it's a germanium fuzz, yes, and not in a way most players want. Place the germanium fuzz before the first buffer in your chain, or use a bypass loop to keep it isolated. Silicon fuzz pedals are generally not affected.
-
-**What's the simplest way to know if I need a buffer?**
-Plug your guitar directly into your amp with a single short cable. Listen. Now plug the same guitar through your full pedalboard with everything bypassed. If it sounds noticeably darker or flatter, you have a high-frequency loading problem. A buffer at the front of the chain is the fix.
+The practical upshot for anyone building a board: decide whether you are a wireless rig or a cable rig first, then decide about buffers. Doing it the other way around means solving a problem that a transmitter already solved, or planning around a fuzz that a transmitter already broke.
 
 <SaveThisTone
   title="Pick a tone to chase"

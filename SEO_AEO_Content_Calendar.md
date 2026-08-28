@@ -5471,3 +5471,175 @@ per-block latency table still needs a modeler, an interface, and fifteen minutes
 for `modeler-input-impedance-setting-what-to-set-it-to`, which needs about thirty seconds with a unit
 and a camera. Both become **refreshes** of an existing URL when they land, not new posts, and **neither
 may be filled in from memory by an automated run.**
+
+---
+
+## SERP Analysis — 2026-08-28 (Posts Published Today)
+
+### Posts published: wireless-transmitter-input-impedance-tone, when-strings-go-false-string-age-and-intonation, modeler-input-pad-when-you-need-it
+
+**Queue state:** drained **AF1, AF2, AF3** from the 08-27 run — the full set, built for the bylines that
+queue nominated (Nathan, Hank, Jess). Velocity at run start: Sean 2, Carl 1, Viktor 1, Dev 1, Rick 1,
+everyone else 0, so all three went to bylines at zero exactly as the 08-27 notes recommended.
+**Post-run standing: Sean 2, Viktor 1, Carl 1, Dev 1, Rick 1, Nathan 1, Hank 1, Jess 1. Nobody near the
+3/week cap. Margot, Elena and fk-staff are the bylines at 0.**
+
+**Cluster shape this run:** this is the third and last run of the input-stage cluster the 08-22 and
+08-27 runs opened, and it closes it from both ends. AF1 and AF3 are the two remaining variables at the
+guitar input — what loads the pickup (wireless), and what attenuates it (the pad) — and both were
+nominated by holes the 08-27 impedance post exposed rather than by keyword mining. AF2 is the standing
+sub-problem from 08-27's Post 3. Both refreshes are the posts the new work leans on hardest. Every new
+post cross-links its parents and both refreshes link forward.
+
+**Post 1 — wireless-transmitter-input-impedance-tone** (target: "guitar wireless tone loss," "does
+wireless change your tone," "wireless system input impedance," "wireless vs cable tone")
+- **Top ranking:** StewMac's *Understanding Guitar Impedance and Impedance Matching*, Sweetwater's *The
+  Truth About Guitar Connections*, psionicaudio's *Preventing Tone Loss: Impedance, Capacitance,
+  Resonant Frequency*, a Guitar Tricks forum thread (*Lost gain with wireless*), a Fractal Audio forum
+  thread (*Input Impedance question. What happens when using wireless?*), and cablefreeguitar's
+  *Wireless Woes* troubleshooting post.
+- **Gap confirmed, and the SERP splits cleanly in two with nothing bridging it.** One half is
+  well-written general impedance theory that never mentions wireless (StewMac, Sweetwater,
+  psionicaudio). The other half is wireless troubleshooting written around dropouts, battery life and
+  latency, with tone handled as a one-line disclaimer ("ALL wireless systems alter your tone"). Nobody
+  connects them. Absent across the top 5: (1) the **published transmitter input impedance** treated as a
+  spec that matters — Line 6's TBP12 is documented at **1.3 megohms**, comfortably above the ~1 MΩ a
+  modern amp presents, which means load resistance is *not* where the tonal change comes from and every
+  "impedance mismatch" explanation on the SERP is pointing at the wrong variable; (2) the actual
+  mechanism, which is **capacitance deletion** — six inches of transmitter lead instead of twenty feet
+  of cable, so the pickup's resonant peak snaps back up, which is why wireless reads as brighter and why
+  that is a removal rather than an improvement; (3) **cable tone simulation treated as the decision it
+  is** — Boss ships the WL-20 with a 10-foot cable capacitance simulation and the **WL-20L as the same
+  product without it**, recommended for active pickups and onboard preamps, which is the entire
+  argument sold as two SKUs, and no editorial result reads those two products against each other; (4)
+  the **volume-knob consequence** — the treble loss players know from rolling back is the volume pot
+  working against cable capacitance, so wireless makes the knob closer to a straight level control,
+  which is the finding that carries the post's Gate 5 moment; (5) the **downstream disablements**, that
+  a transmitter makes the modeler's In-Z parameter inert and closes the germanium-fuzz cleanup option
+  permanently.
+- **Gate 1 note.** The **1.3 MΩ TBP12 figure** and the **Boss WL-20 / WL-20L cable tone split** are
+  manufacturer-published. The **Line 6 Relay G10 behaviour** (quarter-inch output carrying a fixed
+  10-foot Cable Tone that the XLR output does not, and the G10S adding a none/10ft/30ft switch) is
+  **user-reported and is hedged in-line** — the post tells the reader to verify their own unit rather
+  than asserting it as a Line 6 spec. The resonant-peak-shift magnitude is carried from the already
+  published capacitance math in `does-cable-length-affect-tone`, not re-derived.
+- **AI Overview:** likely present (definitional / does-X-do-Y class); F&K not cited. The prose on this
+  SERP is generic enough, and the two halves disconnected enough, that the citation slot for a concrete
+  mechanism answer looks unusually open — same read as 08-22 and 08-27.
+- Non-commodity gate: **PASS.** Confirmed distinct from `does-cable-length-affect-tone` (cable
+  capacitance math, no wireless), `impedance-buffers-fuzz` (analog pedalboard) and
+  `modeler-input-impedance-setting-what-to-set-it-to` (the menu item). **Confirmed: this is the site's
+  first wireless post — no colliding slug existed.**
+
+**Post 2 — when-strings-go-false-string-age-and-intonation** (target: "old strings intonation," "when do
+guitar strings go false," "strings won't intonate," "how often to change strings intonation")
+- **Top ranking:** two distinct SERPs feed this query. The intonation half is forum: Strat-Talk's *12th
+  fret harmonic way off*, Squier-Talk's *One string won't intonate*, MyLesPaul's *Any hope for a guitar
+  that just won't intonate?*, an Ultimate Guitar thread on the 12-fret method, plus Seymour Duncan's
+  string-problems article. The string-change half is editorial and enormous: Taylor Guitars, Gearank,
+  Guitar Gear Finder, Music Industry How To, Yamaha's care pages.
+- **Gap confirmed, and the two halves of the SERP never meet.** The string-change editorial is
+  wall-to-wall lifestyle — brightness, feel, "2 to 6 months," "pros change before every gig" — and
+  mentions intonation only as a bullet in a symptom list. The intonation content is forum diagnosis that
+  reaches "your string is probably false, put on a new set" as a terminal answer with no test attached.
+  Absent across the top 5: (1) **what false physically means** — uneven mass per unit length, so pitch
+  stops following fretted position, which is why no saddle adjustment can fix it (the saddle sets one
+  length and makes one correction); (2) the **multi-position test that separates the two causes** — a
+  misplaced saddle produces a monotonic error that grows up the neck in one direction, a false string
+  produces an error that changes magnitude or sign between the 5th, 7th, 12th and 19th, and consistency
+  versus inconsistency is the whole diagnosis; nothing on page one gives this; (3) **which string goes
+  false first and why** — the plain G, because it is the thickest unwound string (highest stiffness and
+  therefore the worst inharmonicity when new), takes the most bending, and sits under the most fret
+  contact; (4) the distinction that **falseness and dullness are different failure curves** on different
+  clocks, which is why a set that sounds acceptable strummed can be unusable above the seventh fret —
+  this is the post's Gate 5 moment and it directly contradicts the "wound strings die first" instinct
+  the whole string-change SERP is built on; (5) the **wear mechanism**, that fret contact flattens the
+  underside of the string and a flat spot is a local diameter change.
+- **Gate 1 note:** the definition of a false string (uneven thickness/mass along the length skewing the
+  position-to-pitch relationship) and the wear mechanism are sourced to luthier and string-technical
+  material. The **plain-G inharmonicity claim** is sourced to string-stiffness literature and the
+  arXiv paper on intonation and compensation of fretted instruments, which supports both the stiffness
+  and the "plain strings need far more bridge compensation" halves. **No cents figures or wear-rate
+  numbers are published in this post** — the calendar-versus-test framing is deliberate, and no future
+  run should fill in a "change every N weeks" table, because that number does not exist.
+- **AI Overview:** likely present (the "how often should I change strings" query class is heavily
+  AI-Overviewed); F&K not cited.
+- Non-commodity gate: **PASS.** Checked against `string-pings-at-nut-diagnostic` (nut friction),
+  `nut-slot-width-by-string-gauge` and `setting-nut-slot-depth-feeler-gauge-fret-rock-method` (nut
+  geometry), `floyd-rose-intonation-saddle-by-saddle` (saddle procedure). None of them addresses the
+  string itself as the variable. All are cross-linked from the "when it is the guitar after all"
+  section, which exists specifically so the post hands readers off rather than re-teaching them.
+
+**Post 3 — modeler-input-pad-when-you-need-it** (target: "helix guitar in pad," "modeler input pad,"
+"modeler clipping active pickups," "input clipping before any block")
+- **Top ranking:** The Gear Page's *Global pad "on" helix? Why!*, Line 6 Community's *Guitar input
+  clipping hot pickups?*, thegearforum's *HX Stomp clipping*, Helix Help's *Tip: Global Guitar PAD*,
+  and — as with the 08-27 impedance post — a Wikipedia article (EMG 81) on page one.
+- **Gap confirmed, and it is the same shape as 08-27's: forum Q&A plus one tip page, no editorial
+  guide.** Helix Help is the only result that treats the pad as a decision, and its position is a strong
+  one worth arguing with: it recommends leaving the pad ON globally. Absent across the top 5: (1) the
+  **reframe that the pad is a voicing control, not a protection switch** — the reported input headroom
+  (~123 dB) means clipping the converter with a passive guitar is genuinely hard, so if the pad fixes
+  the complaint the complaint was never converter clipping, it was amp models being overfed; this is the
+  post's Gate 5 moment and it is the load-bearing claim; (2) the **invisibility argument** — the pad is
+  analog and pre-conversion, so every meter inside the preset reads a signal that has already been
+  damaged and reports healthy numbers; (3) the **by-ear discriminator** — drop amp Drive to zero, and
+  grit that survives came from ahead of the amp, because input-stage grit does not scale with anything
+  inside the preset; (4) an explicit **three-rig list** (active pickups, hot ceramic humbuckers played
+  hard, a boost left running in front) instead of "if your pickups are hot"; (5) **what it costs when
+  you do not need it** — attenuation is real, quiet clean parts through a compressor is where it shows
+  up, and the more common cost is amp models being hit softer and getting blamed on a firmware update.
+- **Gate 1 note.** The **~5.5 dB figure and the analog pre-converter placement** are from Helix Help's
+  measurement and are **labelled in-post as a measurement rather than a published Line 6 spec.** Line
+  6's own manual wording (the pad is for guitars with "active or really loud pickups") is quoted as
+  manufacturer material. The **~123 dB input headroom figure is a community report and is hedged**
+  ("the number people who have measured it report"). The **Fractal input trim versus input sensitivity
+  distinction is forum-sourced and explicitly flagged in-post as verify-on-your-firmware.** No published
+  Fractal or Neural DSP figures were findable for the equivalent parameters and **no future run should
+  supply them from memory.**
+- **Gate 7 guard — checked at draft and enforced.** The queue row warned that this becomes a re-slice of
+  `gain-staging-drop-tunings` if it drifts into general gain staging. The post stays on the input stage,
+  states the boundary explicitly, and hands the whole-chain conversation to that post by link. The R2
+  refresh below closes the loop from the other side.
+- **AI Overview:** likely present (troubleshooting / should-I-enable class); F&K not cited.
+- Non-commodity gate: **PASS.**
+
+### Refreshes
+
+Both refreshes are the posts the new work leans on hardest, and both came off the legacy-gap list:
+**neither had `takeaways:`, frontmatter `faq:`, or `updated:`.** Both keep their original byline.
+Refreshes do not count against the velocity cap.
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | buffer-myth-buffered-bypass | **Gate 1 precision fix + a structural content-add + full AEO backfill.** **Correction:** the fuzz section explained the buffer problem as "the low-impedance output drives the fuzz input at a different impedance than the circuit expects," which is true but points at the wrong end of the circuit. Rewrote it in the direction the 08-27 R1 refresh established: a germanium Fuzz Face input sits in the tens of kilohms against roughly 1 MΩ for a modern amp, loading a passive pickup by around a factor of thirty, and that damping of the resonant peak *is* much of the pedal's sound — so a buffer does not harm the fuzz, it *deprives* it, and the volume-knob cleanup disappears because the interaction it depends on is gone. Also fixed a following sentence that described buffered pedals as "loading the fuzz input," which is backwards. **Content-add — "The Buffer You Did Not Choose":** a wireless transmitter buffers at the guitar, which answers every question in the article before the signal reaches the first pedal, closes the germanium-fuzz exception permanently, and reframes cable tone simulation as the wireless equivalent of choosing a bypass topology. Migrated 5 body Q&A to frontmatter and added 1 (wireless), added 5 takeaways, replaced the broken generated `image_alt` (`a composition illustrating "The Buffer Myth"`), `updated: 2026-08-28`. Cross-links Post 1. | It is the post Post 1 leans on hardest for the buffering argument, and it was carrying the same reversed mechanism that the 08-27 run fixed in its sibling. Fixing the pair keeps them consistent. |
+| R2 | gain-staging-drop-tunings | **AEO backfill + the content-add that closes Post 3's Gate 7 boundary.** The post is a stage-by-stage gain-staging guide whose own summary chain begins at "Guitar (pickup height adjusted)" and goes straight to the noise gate — it never mentions the one gain stage a modeler adds that a tube rig does not have, despite closing with "the principle is the same whether you are running a 5150 with a pedalboard or a Quad Cortex with virtual blocks." **Content-add — "The Gain Stage Before the First Block":** drop tunings are the single most likely thing to overrun the analog input, because the same wider string arc that opens the article is also the biggest peak the rig produces; no meter inside the preset can see it; the discriminator is that it does not respond to amp Drive; and this is why a preset that is tight in standard turns to fizz in Drop B while every block reads normal. Updated the signal-chain summary and the closing paragraph to include the stage. Added 5 takeaways and 5 frontmatter Q&A, `updated: 2026-08-28`. Cross-links Post 3. | Post 3's Gate 7 guard required a hard boundary between "input stage" and "gain staging." Rather than police that boundary with prose only, this refresh makes the two posts genuinely complementary: the whole-chain post now names the stage it was missing and hands it off. |
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 0, added 3 — **queue is flat again**, the intended steady state. Bylines are
+> best-fit proposals; the executing run re-checks **both** velocity **and** the never-assign list, and
+> **verifies no colliding slug at build time** (all three were collision-checked when queued and all
+> three are clear). **Next run: Margot, Elena and fk-staff are the bylines at 0**, and AG1 is written
+> for Margot. **AG3 is nominated for Sean, who is at 2 this week — re-check his velocity before
+> building it, and if he is capped, it goes to fk-staff rather than to a worse-fitting persona.**
+>
+> **A note on this cluster: it is now closed.** AF1/AF2/AF3 were the last three holes the 08-22 →
+> 08-27 → 08-28 input-stage arc opened. A fourth input-stage post would be a re-slice. AG1 below is
+> deliberately the *guitar-side* end of the same circuit rather than another modeler parameter, and
+> AG2/AG3 leave the cluster entirely.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AG1 | treble-bleed-when-you-actually-need-one | Do You Need a Treble Bleed? It Depends on What Is Plugged In | "treble bleed guitar," "guitar gets dark when volume down," "treble bleed capacitor value," "do I need a treble bleed" | Margot Thiessen | 3 — Signal Chain | Post 1's volume-knob finding needs a page of its own, and the SERP for treble bleed is wiring diagrams and capacitor-value debates that all share one unstated assumption: that the darkening is caused by the volume pot alone. It is not — it is the pot working against whatever capacitance is downstream, which means **the right treble bleed value depends on your cable length, and there is no correct value for a player who switches between a 20-foot cable and a wireless.** Distinct content: why the same circuit that fixes a long-cable rig over-brightens a wireless rig; the three standard topologies (cap only, cap plus parallel resistor, cap plus series resistor) described by what each does to the *taper* rather than by schematic; why the effect is largest around 7 on the dial and nearly absent at 10 and at 2; and the case for not installing one at all, which no result on this SERP makes. Margot's touch-and-dynamics lane and she is at 0. **Confirmed no colliding slug — no treble bleed or volume-pot post exists.** |
+| AG2 | wound-g-vs-plain-g-the-intonation-answer | Wound G or Plain G? The Answer Is About Compensation, Not Feel | "wound g string vs plain," "should I use a wound g," "plain g string intonation," "jazz strings wound third" | Carl Beckett | 6 — Quick Fixes | Post 2's plain-G section raised this and deliberately deferred it. The SERP is entirely tone-and-feel — "wound G sounds more even," "plain G bends easier" — with the measurable half missing. Distinct content: a plain G needs substantially more bridge compensation than a wound G of comparable pitch because stiffness scales with diameter on an unwound string, which is why the plain G is the hardest string to intonate on any guitar and the first to go false; what actually happens to your saddle position when you switch (and that switching sets you back to the bench); the bend tradeoff stated as a real cost rather than a preference; and the honest verdict for players who mostly play chords above the fifth fret. **Gate 7 guard: this must stay a decision guide anchored on compensation. If it becomes a general "best strings" post it is a commodity page — drop it.** Carl's one-guitar maintenance lane; he is at 1 with capacity. **Confirmed no colliding slug.** |
+| AG3 | one-modeler-two-guitars-different-output-levels | One Rig, Two Guitars, Very Different Output: How to Level Them | "two guitars different volume modeler," "active and passive guitar same preset," "guitar volume mismatch presets," "input level per guitar" | Sean Nakamura (re-check velocity; fk-staff as fallback) | 4 — Modeler Masterclass | Post 3 surfaced this and could only give it a sentence: the Helix pad is **global**, so a player who switches between an active-pickup guitar and a passive one mid-set is forced into a compromise no setting resolves. The SERP has nothing on it — searches land on generic "gain staging" or on per-preset volume advice that solves loudness while leaving the *drive* mismatch untouched. Distinct content: why matching perceived volume between two guitars does not match how hard they hit an amp model (the thing that actually changes), the four places you can compensate (guitar-side pickup height, the input block level, per-preset amp Drive, and the global pad) ranked by what each one costs you, why the Quad Cortex's per-input gain makes this a non-problem and Helix's global pad makes it a real one, and the honest answer that some rigs should carry two preset banks rather than one. **Confirmed no colliding slug.** |
+
+**Human-in-the-loop debt: still two items, unchanged, and this run added none.** (1) The Y1 measured
+per-block latency table in `modeler-latency-budget-per-block-cost`. (2) The complete Helix In-Z menu
+enumeration for `modeler-input-impedance-setting-what-to-set-it-to`. Both become **refreshes** of an
+existing URL when they land, not new posts, and **neither may be filled in from memory by an automated
+run.** Today's Gate 1 notes add three hedged claims that would each be upgraded by a unit in front of a
+human rather than by more searching — the Relay G10 output-by-output Cable Tone behaviour, the Helix
+input headroom figure, and the Fractal input trim versus sensitivity distinction — but none of them is
+load-bearing enough to be worth queuing as debt.
