@@ -1592,5 +1592,43 @@
     "completePlatforms": [],
     "droppedCount": 2,
     "substitutedCount": 9
+  },
+  "hoffmann-restless-and-wild-solo": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 9
+  },
+  "tatler-lightning-to-the-nations-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 8
+  },
+  "lynch-tooth-and-nail-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 9
+  },
+  "clarke-ace-of-spades-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 10
+  },
+  "hackett-firth-of-fifth-solo": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 2,
+    "substitutedCount": 10
   }
 }
