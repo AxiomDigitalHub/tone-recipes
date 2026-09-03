@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-08-30
-**Recipes:** 220
-**Clean (no errors, no warns):** 220
+**Date:** 2026-09-03
+**Recipes:** 225
+**Clean (no errors, no warns):** 225
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,8 +16,8 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `settings-outside-unverified-range` | info | 220 / 220 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
-| `katana-kemper-multidrive-default-off` | info | 28 / 220 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `settings-outside-unverified-range` | info | 225 / 225 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
+| `katana-kemper-multidrive-default-off` | info | 30 / 225 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -197,6 +197,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `clarke-overkill-riff` — ✓ clean
+
+*Motorhead's Overkill Riff Tone*
+
+Passes every rule.
+
 ### `cobain-teen-spirit-grunge` — ✓ clean
 
 *Cobain's Teen Spirit Grunge Tone*
@@ -242,6 +248,12 @@ Passes every rule.
 ### `dave-murray-wrathchild-riff` — ✓ clean
 
 *Dave Murray's Wrathchild Riff Tone*
+
+Passes every rule.
+
+### `degarmo-eyes-of-a-stranger-solo` — ✓ clean
+
+*Queensryche's Eyes of a Stranger Solo Tone*
 
 Passes every rule.
 
@@ -797,6 +809,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `lynch-unchain-the-night-riff` — ✓ clean
+
+*Dokken's Unchain the Night Riff Tone*
+
+Passes every rule.
+
 ### `malakian-aerials` — ✓ clean
 
 *System of a Down's Aerials Intro Tone*
@@ -1049,6 +1067,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `petrucci-pull-me-under-riff` — ✓ clean
+
+*Dream Theater's Pull Me Under Riff Tone*
+
+Passes every rule.
+
 ### `pierce-bodies-riff` — ✓ clean
 
 *Bodies Riff Tone*
@@ -1130,6 +1154,12 @@ Passes every rule.
 ### `scholz-more-than-a-feeling-riff` — ✓ clean
 
 *Tom Scholz's More Than a Feeling Riff Tone*
+
+Passes every rule.
+
+### `shermann-a-dangerous-meeting-riff` — ✓ clean
+
+*Mercyful Fate's A Dangerous Meeting Riff Tone*
 
 Passes every rule.
 
