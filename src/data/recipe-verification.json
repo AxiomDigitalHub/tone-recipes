@@ -1630,5 +1630,39 @@
     "completePlatforms": [],
     "droppedCount": 2,
     "substitutedCount": 10
+  },
+  "shermann-a-dangerous-meeting-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 2,
+    "substitutedCount": 10
+  },
+  "lynch-unchain-the-night-riff": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 4,
+    "substitutedCount": 12
+  },
+  "clarke-overkill-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 11
+  },
+  "degarmo-eyes-of-a-stranger-solo": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 3,
+    "substitutedCount": 11
+  },
+  "petrucci-pull-me-under-riff": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 5,
+    "substitutedCount": 10
   }
 }
