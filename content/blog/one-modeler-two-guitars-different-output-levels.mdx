@@ -1,0 +1,187 @@
+---
+title: 'One Rig, Two Guitars, Very Different Output: How to Level Them'
+seo_title: 'Two Guitars, One Modeler: Leveling Different Outputs'
+description: >-
+  Matching perceived volume between two guitars is not the same as matching how
+  hard they drive an amp model. The four places you can compensate, ranked by
+  what each one costs.
+date: '2026-09-04'
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - modeler
+  - helix
+  - quad-cortex
+  - fractal
+  - gain-staging
+  - active-pickups
+  - presets
+takeaways:
+  - >-
+    Volume and drive are two different mismatches. An output trim fixes loudness
+    and leaves the amp model being hit at two different levels, which is the
+    part you were actually complaining about.
+  - >-
+    The Helix input pad is global and coarse, and it is not assignable to a
+    snapshot or a footswitch. It is the wrong tool for a guitar swap even though
+    it is the control that looks most like the right one.
+  - >-
+    The Quad Cortex input level is attached to the physical input rather than
+    the preset, so it only helps when your two guitars live on two different
+    inputs. It cannot be saved per preset or moved by a scene.
+  - >-
+    The per-preset fix on every platform is a gain block placed first in the
+    chain. It is the only compensation that sits ahead of the amp model and can
+    still be stored with the preset.
+  - >-
+    Some rigs should carry two preset banks rather than one compromised bank. If
+    your two guitars are more than about 6 dB apart, that is the honest answer
+    and it costs you nothing but disk space.
+faq:
+  - q: >-
+      Why does my single-coil guitar sound thin on a preset built for
+      humbuckers?
+    a: >-
+      Because the amp model is being driven softer, not just quieter. Amp models
+      respond to input level the way a real amp front end does, so a
+      lower-output guitar gets less saturation and less compression out of the
+      same block. Turning the preset up afterwards does not put that back.
+  - q: Can I use the input pad to switch between two guitars?
+    a: >-
+      Not usefully on a Helix. The pad is a global setting, it moves in one
+      coarse step, and it cannot be assigned to a snapshot or a footswitch, so
+      you would be walking into the global menu between songs. It is a setup
+      decision, not a performance control.
+  - q: Does the Quad Cortex solve the two-guitar problem?
+    a: >-
+      Partly. Its input level is continuous rather than a fixed step, which is
+      better, and it is attached to each physical input. But it is global across
+      presets and cannot be stored per preset or changed by a scene, so it only
+      helps if you run each guitar into its own input.
+  - q: What is the best way to match two guitars on the same preset?
+    a: >-
+      Put a gain block first in the chain and store a different value in a
+      second copy of the preset, or on a second snapshot. It is the only
+      per-preset control that sits ahead of the amp model, which is where the
+      mismatch actually lives.
+  - q: Should I just raise my pickup height to match my other guitar?
+    a: >-
+      You can, and it is free, but it is the most permanent option on the list.
+      Raising a pickup changes output and also changes the magnetic pull on the
+      strings, so you are altering how that guitar sounds on every rig you ever
+      plug it into in order to fix one preset bank.
+  - q: How far apart do two guitars have to be before I need separate presets?
+    a: >-
+      Roughly 6 dB is where compensation stops being clean. Under that a gain
+      block handles it. Above that you are asking one amp model to be voiced two
+      ways at once, and duplicating the bank is less work than fighting it.
+image: /images/blog/one-modeler-two-guitars-different-output-levels.jpg
+image_alt: >-
+  Two electric guitars on stands beside a floor modeler unit with two input
+  jacks, a lit display and cables running to studio monitors in a home studio
+---
+
+You built the bank around one guitar. It sounds correct. Then you pick up the other guitar, plug into the same rig, and every preset is wrong in a way that is hard to name — not simply quieter, and not fixed by turning anything up.
+
+That last part is the diagnostic. If the problem were volume, volume would fix it. The reason it does not is that you are looking at two mismatches stacked on top of each other, and the tools most people reach for only address one of them.
+
+## Quick Answer
+
+| Where you compensate | Per preset? | What it costs you |
+|---|---|---|
+| Gain block, first in the chain | Yes | One block of DSP. The correct answer most of the time. |
+| Amp block Drive | Yes | You are re-voicing the amp, not leveling the guitar |
+| Pickup height on the guitar | No, it is permanent | Changes that guitar everywhere, forever, including on other rigs |
+| Global input pad or input level | No | Coarse, global, and not switchable mid-set |
+| Output block level | Yes | Fixes loudness only. Leaves the drive mismatch exactly where it was. |
+| Two preset banks | Yes | Disk space and maintenance. Honest answer past about 6 dB. |
+
+## Two Mismatches, Not One
+
+When you swap a hot humbucker guitar for a single-coil guitar, two things change at the input, and they need separate fixes.
+
+**Mismatch one is loudness.** The whole preset is quieter. This one is obvious, it is easy to measure, and it is the one everybody notices first.
+
+**Mismatch two is drive.** The amp model is now being hit with a smaller signal, and amp models respond to input level roughly the way a real amp front end does. Less signal into the model means less saturation, less compression, a softer attack, and a different harmonic balance. The model is not broken. It is doing exactly what it does when you play a quieter guitar into it.
+
+Here is why this distinction is worth 800 words: **the fix for mismatch one does not touch mismatch two.** An Output block trim sits at the very end of the chain, after the amp, after the cab, after everything. Raise it and the preset gets louder. The amp model upstream is still being driven at the level it was being driven at, so the tone you were complaining about is unchanged and now it is just louder.
+
+This is the single most common wasted afternoon in modeler ownership. If you are chasing preset-to-preset consistency across a set, that is a real and separate job and [leveling your presets](/blog/level-match-modeler-presets) is the right procedure for it. It is not this job.
+
+## The Part I Had Wrong About the Quad Cortex
+
+I went in assuming this was a solved problem on the *Quad Cortex* and an unsolved one on the *Helix*, because the QC exposes an input level control and the Helix exposes a pad switch. Continuous beats a fixed step, per-input beats global, done.
+
+The continuous part is true. The rest is not.
+
+The Quad Cortex input level is attached to the physical input, and it is **global** — it cannot be saved per preset and it cannot be controlled by a scene. So it is not a per-preset guitar-compensation control at all. It is a setup-time trim, and the only way it solves the two-guitar problem is if you actually run two cables into two different inputs and build your presets to expect that.
+
+Which some people do, and it works. But it means the answer on the QC is not "adjust the input gain when you swap guitars," it is "commit an input to each guitar," and that is a rig decision rather than a menu decision. If you swap guitars on one cable, you are in the same position as the Helix player: one global number that has to serve both instruments.
+
+That reframed the whole comparison for me. The platforms are much closer together than the spec sheets suggest, and the useful difference is granularity — a continuous trim versus a fixed step — not per-preset recall, which none of them give you at the input.
+
+## The Four Places You Can Compensate, Ranked
+
+### 1. A gain block, first in the chain
+
+This is the answer on every platform. Drop a gain block ahead of everything else, set it to 0 dB for your reference guitar, and store a different value in the version of the preset you use with the other guitar.
+
+It works because it is the only per-preset control that sits **ahead of the amp model**, which is where the mismatch lives. Push the quieter guitar up 4 dB at the front and the amp block sees the signal it was voiced for. Saturation comes back. Attack comes back. You have not touched the amp's own settings.
+
+Two ways to store it:
+
+1. **Two copies of the preset.** Duplicate, change the one number, name them clearly. Zero cleverness, always works, and you can footswitch between them.
+2. **A snapshot.** Assign the gain block's level to a snapshot controller and store a different value per snapshot. Cleaner if your snapshots are not already spoken for by song sections.
+
+The cost is one block of DSP, which on any current unit is not a real constraint.
+
+### 2. Amp block Drive
+
+This works, and it is what a lot of players do by instinct, but understand what you are doing: you are compensating for a level change by re-voicing the amp. Nudging Drive from 5.0 to 6.2 to make the quieter guitar bite does get you bite. It also moves where the model's gain structure sits, which affects the cleanup when you roll your guitar volume back and the way the amp responds to a drive pedal in front of it.
+
+Fine as a final touch after the gain block has done the coarse work. A poor substitute for it.
+
+### 3. Pickup height on the guitar
+
+Free, permanent, and the option people forget. Lowering the hot guitar's pickups a millimeter or two is often enough to close a 3 dB gap, and it happens before any electronics are involved.
+
+The reason it is third on this list and not first: you are changing that instrument everywhere. It will be quieter through your friend's amp, in a studio, on every other rig it ever sees. And pickup height is not only an output control — the magnets are pulling on the strings, and raising or lowering them changes sustain and can introduce [wolf tones and warble](/blog/pickup-height-magnet-pull-warble) if you go too far. Adjust it because the guitar wants it, not because a preset bank wants it.
+
+### 4. The global pad or input level
+
+Last, because it is the control that looks most like the right one and behaves least like it.
+
+On the Helix, the Guitar In Pad is global, moves in one coarse step, and is not assignable to a snapshot or a footswitch. There is no adjustable global input trim you can put on a switch. So using the pad as a guitar-swap control means walking into the global settings menu between songs, which is not a thing anyone does twice.
+
+Where the pad genuinely belongs is the case it was built for: an input that is hot enough to be a problem in its own right, independent of any preset. If that is what you are dealing with, [the pad has its own decision tree](/blog/modeler-input-pad-when-you-need-it) and it is a different question from this one. leveling two guitars against each other is not what it is for.
+
+## Setting It: A Ten-Minute Procedure
+
+1. **Pick your reference guitar.** The one you built the presets with. Its gain block stays at 0 dB permanently.
+2. **Load a mid-gain preset**, not a clean and not your highest-gain patch. Mid-gain is where an input level difference is most audible, because there is enough saturation for the difference to show and not so much that everything compresses into the same wall.
+3. **Play a part you know well on the reference guitar.** Same passage, same picking force, every time. Consistency in the test signal is the entire method.
+4. **Swap guitars and play the same part.** Do not adjust anything yet. Listen for which of the two mismatches is bigger: is it mostly quieter, or does the attack sound softer and the note feel like it is not pushing?
+5. **Raise the gain block on the second guitar's preset in 1 dB steps** until the *drive character* matches. Match how hard it feels, not how loud it is. You are listening to the front of the note.
+6. **Now check loudness.** If it is close, you are done. If the second guitar is now noticeably louder or quieter overall, trim the Output block to match. That is the correct order: drive first at the front, loudness last at the back.
+7. **Write down the number.** 4 dB on the Tele bank, 0 dB on the Les Paul bank. It is one value per guitar and you will want it again after every firmware update.
+
+Most guitar pairs land between 2 and 5 dB. If yours needs more than about 6, go to the next section.
+
+## When the Answer Is Two Banks
+
+There is a point where compensation stops being clean, and it is roughly 6 dB.
+
+Past that, you are not leveling a guitar anymore, you are asking one amp model to be voiced two different ways. A gain block will get the level right and the tone will still be somewhere it should not be — a passive single-coil guitar pushed 9 dB into a model voiced for actives has all the level and none of the pickup's own top end interacting with the drive stage the way it should.
+
+The rig this happens to most predictably: one guitar with active pickups and one passive guitar. That is a genuinely large gap, and it is compounded by the fact that the pad decision and the impedance behavior differ between them too.
+
+Duplicating a bank is cheap. Fighting a compromise every night is not. If you have two instruments that are far apart, build two banks, put the guitar name in the preset name, and stop thinking about it.
+
+That is less elegant than one bank that handles everything. It is also the version that works, and the elegant one is a spreadsheet exercise that ends with both guitars slightly wrong.
+
+<SaveThisTone
+  title="Pick a tone to chase"
+  description="Every recipe in the catalog has the chain, exact settings, and a preset for Helix or Katana."
+  href="/browse"
+  ctaLabel="Browse the catalog"
+/>

@@ -5643,3 +5643,197 @@ run.** Today's Gate 1 notes add three hedged claims that would each be upgraded 
 human rather than by more searching — the Relay G10 output-by-output Cable Tone behaviour, the Helix
 input headroom figure, and the Fractal input trim versus sensitivity distinction — but none of them is
 load-bearing enough to be worth queuing as debt.
+
+---
+
+## SERP Analysis — 2026-09-04 (Posts Published Today)
+
+### Posts published: treble-bleed-when-you-actually-need-one, wound-g-vs-plain-g-the-intonation-answer, one-modeler-two-guitars-different-output-levels
+
+**Queue state:** drained **AG1, AG2, AG3** — the full set queued on 08-28, built for the bylines the
+queue nominated (Margot, Carl, Sean). Velocity at run start: Jess 1, Hank 1, Nathan 1, everyone else 0,
+so all three nominated bylines were clear and none needed the fk-staff fallback the AG3 row provided
+for. **Post-run standing: Margot 1, Carl 1, Sean 1, Jess 1, Hank 1, Nathan 1. Rick, Viktor, Dev, Elena
+and fk-staff are the bylines at 0.** Nobody within two posts of the cap.
+
+**Cluster shape this run:** the 08-28 notes closed the input-stage cluster and deliberately pointed the
+next run at the *guitar* end of the circuit. That is what happened, and the three posts turned out to
+share a single mechanism rather than a keyword: **compensation is set by what is downstream, not by the
+control you are touching.** Post 1 is that idea in a volume pot (the pot supplies resistance, the cable
+supplies the capacitance), Post 2 is the same idea in a saddle (compensation follows the core diameter,
+not the string you can see), Post 3 is the same idea in a modeler (an output trim cannot reach a
+mismatch that lives ahead of the amp model). Neither refresh is decorative: both are the posts the new
+work leans on hardest and both were on the legacy-gap list.
+
+**Two queue assumptions were wrong and were corrected at build time — logged here so a future run does
+not reintroduce them.** See the Gate 1 notes on Posts 1 and 3.
+
+**Post 1 — treble-bleed-when-you-actually-need-one** (target: "treble bleed guitar," "guitar gets dark
+when volume down," "treble bleed capacitor value," "do I need a treble bleed")
+- **Top ranking:** Fender's *How a Treble-Bleed Circuit Can Affect Your Tone*, Seymour Duncan's *3
+  Popular Treble Bleed Mods*, Premier Guitar's *Mod Garage: Deep Diving into Treble-Bleed Networks*,
+  Equipboard's *Ultimate Guide*, a CMUSE treble bleed calculator, plus Strat-Talk and TheGearForum
+  component-value threads.
+- **Gap confirmed, and it is a mechanism gap rather than a coverage gap.** Every top result explains
+  *that* the pot loses treble and then proceeds directly to capacitor values. Premier Guitar's Mod
+  Garage is the deepest technical piece on the SERP and it **does not explain the physical mechanism at
+  all** — no source impedance, no cable capacitance, no account of where on the dial the loss happens.
+  That is the whole opening. Absent across the top 5: (1) the **load-bearing reframe** that a volume pot
+  contributes resistance and essentially no capacitance, so it cannot filter anything by itself — the
+  capacitance is the cable, which makes the darkening a property of the *rig* and not the guitar; (2)
+  the **corner-frequency table** computed from the pot's maximum source resistance (Rpot/4) against
+  realistic total capacitance, showing the same guitar and knob position landing at ~6.4 kHz on a 10-ft
+  cable and ~25 kHz on a wireless; nothing on this SERP puts numbers on it; (3) the **position finding**
+  — source resistance peaks at the pot's *resistive* midpoint and falls on both sides, which on an
+  audio-taper pot sits high on the dial, so the loss is a hump around 7-8 rather than a slope to the
+  bottom, and that is exactly where players park the knob (the post's Gate 5 moment); (4) the
+  **consequence nobody states** — because the right cap value tracks cable capacitance, a player who
+  switches between a long cable and a wireless has **no single correct value**, and a bleed sized for a
+  cable rig makes a wireless rig brittle; (5) the **case for not installing one**, which no result makes.
+- **Gate 1 notes.** Topology values are manufacturer- and publication-sourced: **cap-only** (Fender,
+  1000 pF on 1960s Telecasters; 220–1500 pF range), **cap + parallel resistor** (1000 pF / 150k typical;
+  100k–330k), **cap + series resistor** (**Kinman 1200 pF + 130k**, **Fender Tone Saver 1000 pF +
+  130k**) all from Premier Guitar's Mod Garage. The **cap-should-track-cable-capacitance rule** and the
+  10-ft/30-ft value bands are from Mars-Tronic. Cable capacitance figures (30 pF/ft, ~100 pF for guitar
+  wiring) are **carried from the already-published table in `does-cable-length-affect-tone` rather than
+  re-derived**, so the two posts are numerically comparable. **The corner frequencies are our own
+  arithmetic (f = 1/2πRC with R = Rpot/4) and the post says so, and explicitly hedges that this is a
+  first-order model which ignores the pickup's inductance and the damping of the resonant peak.** No
+  measured dB figures are published and no future run should add them without a bench.
+  **Queue correction:** the AG1 row said the effect is "largest around 7 on the dial." That is
+  approximately right but imprecise — the resistive midpoint of a standard audio taper falls nearer 8.
+  The post says "around 7 or 8" rather than pinning a number.
+- **AI Overview:** almost certainly present (this is a definitional / should-I query class that is
+  heavily AI-Overviewed); F&K not cited. **Inferred from the query class and SERP composition, not
+  directly observed** — automated runs cannot see rendered AI Overviews. The citation slot for a
+  mechanism answer looks unusually open given that the deepest result on the page declines to explain it.
+- Non-commodity gate: **PASS.** Checked against `does-cable-length-affect-tone` (capacitance and the
+  resonant peak, volume knob never mentioned), `impedance-buffers-fuzz` and `buffer-myth-buffered-bypass`
+  (pedalboard buffering) and `wireless-transmitter-input-impedance-tone` (the transmitter). **Confirmed:
+  the site had no treble bleed or volume-pot post — no colliding slug existed.**
+
+**Post 2 — wound-g-vs-plain-g-the-intonation-answer** (target: "wound g string vs plain," "should I use
+a wound g," "plain g string intonation," "jazz strings wound third")
+- **Top ranking:** Stringjoy's *Wound G String (or Wound 3rd): Is It Right For You?*, jazzguitar.be
+  threads (*Unwound G String*, *Wound or plain G*, *G-string compensation*), SevenString.org's *Wound vs
+  Plain G-string*, ChasingGuitars' *Intonation and Wound G strings*, Haze Guitars' *An Old G and a New
+  G*, and a Gretsch-Talk thread.
+- **Gap confirmed, and the SERP splits the same way the 08-28 strings SERP did.** The editorial half is
+  entirely tone-and-feel — "wound sounds more even," "plain bends easier," "jazz players prefer wound."
+  Stringjoy is the best-written result on the page and **explicitly contains nothing about saddle
+  position or setup consequences.** The measurable half exists only on luthier forums and one
+  independent blog, and it is written about *acoustic* saddle compensation patterns. Nobody connects
+  them for an electric player. Absent across the top 5: (1) **compensation follows the core diameter,
+  not the apparent diameter** — a wound G looks bigger than a plain B and needs *less* compensation
+  because its core is smaller, which is the post's Gate 5 moment and is counterintuitive on sight; (2)
+  the **shape of the whole set** — with a plain G, compensation climbs E → B → G and then *jumps
+  forward* at the D because the D is wound; put a wound G in and that jump moves to the G, so one string
+  change alters the geometry of the entire bridge; (3) **the Telecaster case**, which is the strongest
+  finding on the page: a stock three-saddle bridge puts D and G on one barrel, a wound G and a D want
+  nearly the same position, a plain G wants to sit well behind the D, and **Fender designed that bridge
+  when a wound G was standard** — so the "three-saddle Teles can't intonate" complaint is substantially
+  a string-choice artifact with two honest fixes (wound third with stock barrels, or compensated
+  saddles); (4) **the time cost of switching**, stated as a setup rather than a string change, with the
+  warning not to judge the new string before moving the saddle; (5) the **bend cost stated as
+  disqualifying** for players whose main move is a bent third, which the tone-and-feel results treat as
+  a preference rather than as the deciding variable.
+- **Gate 1 notes.** The **core-diameter mechanism** and the **saddle-jump-moves-to-the-G** claim are
+  sourced to Haze Guitars and the jazzguitar.be builders' bench material. The **Telecaster three-saddle
+  history** (wound G standard at design time; wound G intonates alongside the D; stock straight barrels
+  work with a wound third) is from TDPRI and jazzguitar.be discussion and is stated as the reason the
+  bridge behaves as it does, not as a Fender-published claim. **Gauge equivalences (.017 plain → .018w;
+  .018/.019 plain → .020w) are Stringjoy's.** The **~.020 stiffness threshold** is carried from the
+  string-stiffness material already cited in `when-strings-go-false-string-age-and-intonation`. **No
+  cents figures and no saddle-travel distances in millimetres are published** — the acoustic-saddle
+  "3–5 mm" figure that appears in the source material is *acoustic* and was deliberately not carried
+  over to an electric post. No future run should supply one from memory.
+- **Gate 7 guard — checked at draft and enforced.** The queue row warned this becomes a commodity "best
+  strings" page if it drifts. The post is a decision guide anchored on compensation throughout: every
+  section resolves to a saddle, a bridge type, or a bend cost, and there is no string-brand content.
+- **AI Overview:** likely present (should-I / versus query class); F&K not cited. Inferred, not observed.
+- Non-commodity gate: **PASS.** Checked against `when-strings-go-false-string-age-and-intonation`
+  (which raised this question and explicitly deferred it), `nut-slot-width-by-string-gauge` (nut
+  geometry) and `floyd-rose-intonation-saddle-by-saddle` (procedure). **Confirmed no colliding slug.**
+
+**Post 3 — one-modeler-two-guitars-different-output-levels** (target: "two guitars different volume
+modeler," "active and passive guitar same preset," "guitar volume mismatch presets," "input level per
+guitar")
+- **Top ranking:** Line 6 Community's *Building presets to accommodate multiple guitar output levels*
+  and *Helix Hardware... low input gain?*, two Fractal forum threads (*Setting different input levels
+  for multiple guitars*, *Advice On Controlling Sound/Levels In Preset With Different Pickup Guitars*),
+  komposition101's *How to Volume Match Presets on the Line 6 Helix*, and the Quad Cortex Wiki's *Gain
+  Staging* page.
+- **Gap confirmed, and it is the same shape as the 08-27 and 08-28 modeler SERPs: forum Q&A plus one
+  adjacent how-to, no editorial guide on the actual question.** The one polished editorial result
+  (komposition101) solves **preset-to-preset** volume matching, which is a different problem, and the
+  forum threads produce workarounds without ever separating the two mismatches. Absent across the top 5:
+  (1) the **load-bearing distinction** that matching perceived volume and matching how hard the amp
+  model is driven are two different jobs, and that an output trim sits after the amp so it fixes the
+  first and cannot touch the second — this is why the obvious fix does not work and nobody on the SERP
+  says it; (2) the **four compensation points ranked by cost** (gain block first in chain / amp Drive /
+  pickup height / global pad) rather than listed as options; (3) the finding that the **Helix has no
+  adjustable global input trim assignable to a footswitch or snapshot**, so the pad is structurally the
+  wrong tool for a guitar swap however much it looks like the right one; (4) the **Quad Cortex
+  correction** below, which is the post's Gate 5 moment; (5) the **~6 dB threshold** past which the
+  honest answer is two preset banks rather than one compromised bank — a recommendation no result makes.
+- **Gate 1 notes, including a queue correction.** **The AG3 queue row asserted that "the Quad Cortex's
+  per-input gain makes this a non-problem." That is wrong and the post says the opposite.** The Quad
+  Cortex Wiki's gain-staging page states the input level is attached to the physical input and is
+  **global — it cannot be saved per preset or controlled by a scene.** So the QC only solves the
+  two-guitar case if each guitar gets its own physical input; a player swapping guitars on one cable is
+  in the same position as a Helix player, with a continuous trim instead of a fixed step. The post
+  builds its Gate 5 section on exactly this corrected expectation.
+  **Second correction: the Helix Input block has no Level parameter** (it carries In-Z and gate
+  parameters). An earlier draft assumed one. The per-preset front-of-chain control is a **gain block**,
+  which is also what the Line 6 Community thread recommends. Helix pad behaviour (global, coarse, not
+  snapshot- or footswitch-assignable) is from that thread and from Helix Help's global-settings page.
+  **The Fractal input gain vs. input level distinction remains forum-sourced and is NOT asserted in this
+  post** — the Fractal thread 403'd on fetch and the hedge established on 08-28 stands. **The ~6 dB
+  threshold is our own editorial recommendation, not a measured or published figure, and the post
+  presents it as a judgement call ("roughly").** No future run should harden it into a spec.
+- **AI Overview:** likely present (troubleshooting / how-do-I class); F&K not cited. Inferred, not
+  observed.
+- Non-commodity gate: **PASS.** Checked against `level-match-modeler-presets` (preset-to-preset output
+  leveling — the boundary is now stated explicitly in *both* posts, see R1), `modeler-input-pad-when-you-need-it`
+  (the input-clipping question), `gain-staging-drop-tunings` (whole-chain gain staging) and
+  `pickup-height-magnet-pull-warble` (pickup height as a setup variable). **Confirmed no colliding slug.**
+
+### Refreshes
+
+Both refreshes came off the legacy-gap list and both are the posts the new work leans on hardest:
+**neither had `takeaways:`, frontmatter `faq:`, or `updated:`, and both carried a broken generated
+`image_alt`.** Both keep their original byline. Refreshes do not count against the velocity cap.
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | level-match-modeler-presets | **Structural content-add + full AEO backfill.** **Content-add — "When Leveling Is Not the Fix: Two Guitars, One Bank":** the post is a preset-to-preset normalization procedure that never states its own boundary, which is exactly the confusion Post 3 exists to resolve. The new section explains why an Output block trim cannot reach a guitar-to-guitar mismatch (it sits after the amp model, so it changes loudness without changing how hard the model is driven), gives a two-row symptom/fix table, and hands off to Post 3 and to `modeler-input-pad-when-you-need-it`. Removed the body-level markdown FAQ and migrated all 5 Q&A to frontmatter, adding 1 new (the two-guitar case). Added 5 takeaways. Replaced the broken generated `image_alt` (`a composition illustrating "How to Level"`). `updated: 2026-09-04`. | It is the post Post 3 is most likely to be confused with, and it ranks for queries that Post 3's readers also run. Stating the boundary in both directions is what keeps them complementary instead of competing. |
+| R2 | floyd-rose-intonation-saddle-by-saddle | **Legacy `<FAQ>` migration + two content-adds.** Migrated the body `<FAQ questions={[...]}>` component to frontmatter `faq:` (5 Q&A preserved, 1 added on the G-string saddle position) and removed the component — this is one of the ~90 legacy posts on the migration list. **Content-add 1 — "The String That Runs Out of Travel First":** the existing "What If You Run Out of Saddle Travel" section lists three causes (gauge, stud drift, neck angle) and never mentions that this happens to the plain G more than to anything else, or why. The new section explains the core-diameter reason, tells the reader the kink at the G is what a correct bridge looks like, and offers a wound third as a four-dollar diagnostic before a luthier-level stud reset. Cross-links Post 2. **Content-add 2 — "When It Is the String, Not the Saddle":** the procedure assumed good strings and never said so; the new section gives the consistency test that separates a misplaced saddle from a false string and cross-links `when-strings-go-false-string-age-and-intonation`. Added 5 takeaways, replaced the broken generated `image_alt`, `updated: 2026-09-04`. | It was carrying a real procedural hole — an intonation guide that cannot tell you when the string, not the saddle, is the problem will send readers in circles. Post 2 supplied the mechanism to close it. |
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 0, added 3 — **queue is flat again**, the intended steady state. Bylines are
+> best-fit proposals; the executing run re-checks **both** velocity **and** the never-assign list, and
+> **verifies no colliding slug at build time** (all three were collision-checked when queued and all
+> three are clear; the never-assign lists for Hank, Rick and Viktor were checked at queue time and none
+> of the three topics trips a ban). **Next run: Rick, Viktor, Dev, Elena and fk-staff are the bylines
+> at 0.**
+>
+> **A note on this cluster.** AH1 and AH2 are the two halves of the volume-knob question Post 1 opened
+> and deliberately did not answer — what the pot *loads* (AH1) and what the player *does* with it
+> (AH2). A third volume-pot post after those would be a re-slice. AH3 leaves the cluster and closes a
+> loop the R2 refresh's own FAQ opened.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AH1 | volume-pot-value-250k-vs-500k-what-it-loads | 250k or 500k Volume Pot? What the Value Actually Loads | "250k vs 500k pots," "volume pot value tone," "should I use 500k pots with single coils," "pot value brightness" | Hank Presswood | 3 — Signal Chain | Post 1 established that the pot supplies resistance and the cable supplies capacitance, then deliberately left the pot *value* alone. The SERP is wiring-shop copy that says "500k is brighter, 250k is smoother" without ever explaining that the pot is a **load across the pickup at full volume** and a **source resistance below it**, and that those are two different effects with two different consequences. Distinct content: why the value matters most at 10 (where it is purely a load damping the pickup's resonant peak) and again around 7-8 (where it sets how hard the cable filters), why the Fender-250k / Gibson-500k convention is a pickup-inductance decision rather than a house style, why swapping to 500k on single coils brightens the top *and* makes the treble bleed question worse at the same time, and the case for 250k with humbuckers that nobody makes. **Gate 7 guard: this must stay about what the value loads. If it becomes a general "guitar wiring upgrades" post it is a commodity page — drop it.** Hank's vintage-wiring and gear-history lane; he is at 1 with capacity. **Confirmed no colliding slug — no volume-pot-value post exists.** |
+| AH2 | volume-knob-cleanup-tube-amp-vs-modeler | Why Your Volume Knob Cleans Up on a Tube Amp and Not on a Modeler | "guitar volume knob cleanup," "volume knob doesn't clean up modeler," "roll back volume amp breakup," "why doesn't my modeler clean up" | Rick Dalton | 4 — Modeler Masterclass | Post 1 noted in passing that restoring the highs perfectly can remove the point of the gesture, and Post 3 established that amp models respond to input level like a real front end. Neither addresses the complaint players actually have, which is that the same move that works on a cranked amp does much less on a modeler. The SERP is forum threads with contradictory answers and no mechanism. Distinct content: the three separate things a real cranked amp does when you back off (preamp saturation drops, power-amp and speaker behaviour change, and the treble loss covered in Post 1 arrives at the same time), which of those a modeler reproduces and which it does not, why a preset built at bedroom level has less to clean up in the first place, and the specific settings that restore the response — amp Drive relative to Master, and where a drive block does and does not help. **Gate 7 guard: this must stay about amp response. If it becomes a modeler workflow tutorial it is both off-lane for Rick and a re-slice of `gain-staging-drop-tunings` — drop it.** Rick's core territory and he is at 0; the topic sits squarely in the analog-vs-digital lane his profile names as the publication's best content, and trips none of his three bans. **Confirmed no colliding slug.** |
+| AH3 | nut-compensation-why-first-position-chords-play-sharp | Your Open Chords Play Sharp and the Saddle Cannot Fix It | "first position chords sharp," "guitar sharp in first three frets," "nut compensation," "Buzz Feiten tuning system" | Viktor Kessler (fk-staff as fallback) | 6 — Quick Fixes | The R2 refresh's own FAQ says a correctly intonated guitar can still play sharp in the first three frets because of the nut, and then hands the reader nothing. We have nut posts on slot depth, slot width, slot geometry, materials, files, lube and pings — **and nothing on the nut's position**, which is the variable this failure mode depends on. Distinct content: why the sharpness is largest at the first fret and decays upward (the fretted-length error is a fixed distance and the string gets shorter), why it is invisible to a twelfth-fret intonation check by construction, the measurable test that separates it from high slots (compare first-fret pitch with the slot at correct depth versus capo at the first fret), what shelf-nut and compensated-nut systems actually move and by how little, and the honest verdict that most players should set slot depth correctly and stop rather than buy a system. **Gate 7 guard: must stay about nut position/compensation. If it drifts into slot depth it is a re-slice of `setting-nut-slot-depth-feeler-gauge-fret-rock-method` — drop it.** Viktor's measurement lane; he is at 0 and none of his three bans applies. **Confirmed no colliding slug — no nut compensation or first-position post exists among the 12 nut posts on the site.** |
+
+**Human-in-the-loop debt: still two items, unchanged, and this run added none.** (1) The Y1 measured
+per-block latency table in `modeler-latency-budget-per-block-cost`. (2) The complete Helix In-Z menu
+enumeration for `modeler-input-impedance-setting-what-to-set-it-to`. Both become **refreshes** of an
+existing URL when they land, not new posts, and **neither may be filled in from memory by an automated
+run.** Today's Gate 1 notes add two claims that a bench would upgrade — the corner-frequency table in
+Post 1 (computed, not measured; a capacitance meter and a scope would turn it into measured data) and
+the ~6 dB two-bank threshold in Post 3 (editorial judgement) — but neither is load-bearing enough to
+queue as debt, and both are labelled as what they are inside the posts.

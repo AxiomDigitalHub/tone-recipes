@@ -6,9 +6,10 @@ description: >-
   for Helix, Quad Cortex, and Fractal Axe-Fx to get consistent output levels
   across your entire preset library.
 date: '2026-04-08'
+updated: '2026-09-04'
 author: Sean Nakamura
 author_slug: sean-nakamura
-category: quick-fixes
+category: "quick-fixes"
 tags:
   - preset level matching
   - helix volume
@@ -17,9 +18,65 @@ tags:
   - helix output block
   - volume matching
   - modeler workflow
-readingTime: 6
+readingTime: 7
+takeaways:
+  - >-
+    Normalise at the Output block, not the amp block's Channel Volume. Channel
+    Volume changes how hard the amp model is driven, which is a tone change
+    wearing a level control's clothing.
+  - >-
+    Set one reference preset and never touch it again. Every other preset gets
+    matched to that anchor, which is what keeps the library consistent as you
+    add to it.
+  - >-
+    Match perceived loudness by ear rather than peak meters. A compressed lead
+    and an open clean patch can read identically on a meter and sound several
+    decibels apart.
+  - >-
+    Always re-check the Output trim on any preset you download. It was built
+    around somebody else's gain structure and almost never lands where yours
+    does.
+  - >-
+    This procedure fixes preset-to-preset jumps only. If the problem appears
+    when you change guitars rather than when you change presets, the mismatch
+    is ahead of the amp model and an output trim cannot reach it.
+faq:
+  - q: Should I use a decibel meter app to level-match my presets?
+    a: >-
+      A meter helps as a starting reference, but ultimately you are matching
+      perceived loudness, which is not purely a dB measurement. Use it as a
+      rough guide and then trust your ears for the final trim.
+  - q: Why do my presets sound matched at home but different at the venue?
+    a: >-
+      The room and the monitoring setup change how loudness is perceived. A
+      bright stage makes some frequencies feel louder, and a dark room absorbs
+      high frequency content so treble-heavy patches seem quieter. Normalise in
+      an environment similar to where you play, then re-check at soundcheck.
+  - q: Is there an automatic volume normalizer on Helix, Quad Cortex, or Fractal?
+    a: >-
+      Not natively. Fractal's Global Blocks let you share parameters across
+      presets but do not auto-normalize levels. The manual trim method is still
+      the standard approach on every platform.
+  - q: Do I need to re-level presets I download from the cloud?
+    a: >-
+      Yes, every time. Cloud presets are built by players with different gain
+      structures and different output levels, so check the Output block trim on
+      any imported preset before you use it in performance.
+  - q: What output level should I send to the PA?
+    a: >-
+      A common target is around -18 to -12 dBFS average for your clean tone,
+      with headroom for peaks. Your job is a consistent, manageable signal from
+      preset to preset. The overall level in the PA is the engineer's.
+  - q: My presets are level but one guitar sounds wrong through all of them. Why?
+    a: >-
+      Because that is a different mismatch. Output trims sit at the end of the
+      chain, so they change loudness without changing how hard the amp model is
+      being driven. A quieter guitar gets less saturation out of the same
+      block, and no amount of output trim puts that back.
 image: /images/blog/level-match-modeler-presets.jpg
-image_alt: a composition illustrating "How to Level"
+image_alt: >-
+  A floor modeler's output block screen showing a level parameter, with studio
+  monitors and a guitar on a stand behind it
 ---
 
 Volume jumps between presets are one of the most common live performance problems with modelers, and one of the most solvable. The fix is different on each platform, but the principle is the same: you need a volume reference point that's independent of your tone-shaping chain.
@@ -131,22 +188,24 @@ One session of an hour or two normalizes an entire preset library. After that, m
 
 ---
 
-## FAQ
+## When Leveling Is Not the Fix: Two Guitars, One Bank
 
-**Q: Should I use a decibel meter app for this?**
-A: A meter helps as a starting reference, but ultimately you're matching perceived loudness, which isn't purely a dB measurement. Use it as a rough guide, then trust your ears for the final trim.
+Everything above solves preset-to-preset jumps. There is a neighbouring problem it cannot touch, and it is worth naming because the symptoms overlap enough to waste an afternoon.
 
-**Q: My presets sound matched at home but different at the venue. Why?**
-A: The room and the monitoring setup change how loudness is perceived. A bright stage environment makes some frequencies feel louder. A dark room absorbs high-frequency content and makes treble-heavy patches seem quieter. For gigging, build your presets and normalize them in a similar acoustic environment to where you'll play, then do a quick check at soundcheck.
+If your presets are consistent with each other but the whole bank sounds wrong the moment you pick up your *other* guitar, output trims are the wrong tool. Here is why: the Output block sits at the very end of the chain, after the amp, after the cab, after everything. It changes how loud the finished sound is. It does not change how hard the amp model is being hit.
 
-**Q: Is there an automatic volume normalizer on these platforms?**
-A: Not natively. Fractal's Axe-Fx has a Global Block system that lets you share parameters across presets, but it doesn't auto-normalize. The manual trim method described here is the standard approach.
+And the amp model is where the difference actually lands. Amp models respond to input level the way a real amp front end does, so a lower-output guitar gets less saturation, less compression, and a softer attack out of the same block. Raise the Output trim afterwards and you get all of that, louder. The tone you were complaining about is untouched.
 
-**Q: Do I need to do this every time I download a preset from the cloud?**
-A: Yes. Cloud presets are built by other players with different gain structures and different output levels. Always check the Output block trim on any imported preset before using it in a performance context. It will almost certainly need adjustment.
+The distinction in one line:
 
-**Q: What's the right output level to the PA?**
-A: This depends on your FOH engineer's setup. A common target is −18 to −12 dBFS average for your clean tone, with headroom for peaks. Your FOH engineer will tell you if you're hitting the console too hot or too cold. The goal is to give them a consistent, manageable signal from preset to preset; that's your job. The overall level in the PA is theirs.
+| Symptom | Where the fix lives |
+|---|---|
+| Preset A is louder than preset B | Output block. This article. |
+| Same preset, different guitar, feels soft and undriven | Ahead of the amp model. A gain block first in the chain. |
+
+If it is the second one, [leveling two guitars through one rig](/blog/one-modeler-two-guitars-different-output-levels) covers the four places you can compensate and why only one of them is per-preset. And if the hotter of your two guitars runs active pickups, [the input pad decision](/blog/modeler-input-pad-when-you-need-it) is a third question again, sitting ahead of both.
+
+Do the output leveling first regardless. A consistent bank is the reference you need before you can hear anything else clearly.
 
 <SaveThisTone
   title="Pick a tone to chase"

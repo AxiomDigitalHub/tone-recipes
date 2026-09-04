@@ -1,0 +1,189 @@
+---
+title: Do You Need a Treble Bleed? It Depends on What Is Plugged In
+seo_title: Do You Need a Treble Bleed? Cable Length Decides
+description: >-
+  The darkening you hear when you roll your volume back is not the pot acting as a
+  tone control. It is the pot working against your cable, which is why the right
+  value depends on your rig.
+date: '2026-09-04'
+author_slug: margot-thiessen
+category: signal-chain
+tags:
+  - treble-bleed
+  - volume-knob
+  - guitar-wiring
+  - capacitance
+  - dynamics
+  - cables
+  - wireless
+takeaways:
+  - >-
+    The volume pot contributes no capacitance of its own. It raises the source
+    impedance feeding whatever capacitance already sits downstream, which is
+    almost entirely your cable — so the same guitar darkens differently on a
+    10-foot cable than on a 30-foot one.
+  - >-
+    The darkening is worst in the upper half of the dial, somewhere around 7 to
+    8 on an audio-taper pot, and nearly absent at 10 and at 2. That is exactly
+    where most players actually park the knob.
+  - >-
+    Because the correct capacitor value tracks your cable capacitance, a player
+    who switches between a long cable and a wireless has no single correct
+    value. One rig will be right and the other will be over-brightened.
+  - >-
+    The three standard topologies differ mainly in what they do to the taper.
+    Cap-only goes thin at low settings, cap with a parallel resistor can wreck
+    the sweep if the values are mismatched, and cap with a series resistor is
+    the one that behaves.
+  - >-
+    A wireless rig, a buffer at the front of the board, or a 250k pot with a
+    short cable may need no treble bleed at all, and installing one anyway is
+    how a guitar ends up brittle at 8.
+faq:
+  - q: What causes a guitar to get darker when you turn the volume down?
+    a: >-
+      The volume pot forms a voltage divider, and as you roll it back the
+      resistance looking back from the wiper rises. That resistance forms a
+      low-pass filter with the capacitance downstream of it, which is mostly
+      your cable. The pot adds no capacitance itself, so the amount of treble
+      you lose depends on what is plugged in after the guitar.
+  - q: What capacitor value should I use for a treble bleed?
+    a: >-
+      Start near your cable's total capacitance. A 10-foot cable at roughly 30
+      picofarads per foot lands around 400 pF including the guitar's own wiring,
+      so 470 to 680 pF is the usual range. A 30-foot cable puts you nearer 1000
+      pF and the common values become 1 nF to 1.5 nF. Bigger cap means the bleed
+      reaches further down into the mids.
+  - q: Which treble bleed circuit is best?
+    a: >-
+      A capacitor with a resistor in series is the one that causes the fewest
+      new problems. Chris Kinman popularized 1200 pF with 130k, and Fender's
+      Tone Saver uses 1000 pF with 130k. Cap-only is the simplest but thins out
+      at low settings, and cap with a parallel resistor can distort the volume
+      taper badly when the values are not matched to the pot.
+  - q: Do I need a treble bleed if I use a wireless system?
+    a: >-
+      Almost certainly not. A transmitter clipped to your strap replaces twenty
+      feet of cable capacitance with a few inches of lead, so there is very
+      little capacitance left for the pot to work against. A treble bleed sized
+      for a cable rig will make a wireless rig sound brittle as soon as you back
+      the knob off.
+  - q: Where on the volume knob is the treble loss worst?
+    a: >-
+      Not where most people assume. The source resistance peaks when the pot is
+      at its resistive midpoint, which on a standard audio-taper pot sits high
+      on the dial, around 7 or 8. At 10 the pot adds no resistance at all, and
+      down at 1 or 2 the resistance has fallen again. The loss is a hump in the
+      middle, not a slope to the bottom.
+  - q: Does a buffer remove the need for a treble bleed?
+    a: >-
+      A buffer placed after the guitar does not, because the pot is still ahead
+      of it and still driving the cable that runs to it. What changes the
+      equation is capacitance close to the guitar. Shorten that run, or go
+      wireless, and the problem the treble bleed was solving mostly disappears.
+image: /images/blog/treble-bleed-when-you-actually-need-one.jpg
+image_alt: >-
+  Close view of an electric guitar volume knob and control plate with the wiring
+  cavity open beside it, a coiled instrument cable running out of frame
+---
+
+Roll your volume knob from 10 down to 7 and listen to what leaves. It is not a proportional loss. The body stays, most of the midrange stays, and what goes is the top edge — the string noise, the pick definition, the air that told you which pickup you were on. The note is still there. It has just stopped being specific.
+
+Every explanation you will find for this puts the blame on the volume pot, and then proceeds directly to capacitor values. That order of operations is why so many treble bleed installs end up getting reversed six months later. The pot is only half of the circuit. The other half is sitting on the floor between you and the amp, and it is the half that decides what value you should have used.
+
+## Quick Answer
+
+| Your rig | Do you need one | Where to start |
+|---|---|---|
+| 250k pots, cable under about 12 feet | Probably not | Try a shorter cable first. The problem may not be big enough to solve. |
+| 250k pots, 20 to 30 foot cable | Yes, if you use the knob | 680 pF to 1 nF with a 130k resistor in series |
+| 500k pots, humbuckers, long cable | Yes, and it will be the most dramatic install you ever do | 1 nF with 130k in series |
+| Wireless transmitter | No | There is almost no capacitance left to fight. Adding one makes it brittle. |
+| You switch between a long cable and wireless | No correct value exists | Pick the rig you play most and accept the compromise on the other |
+| You never move the volume knob off 10 | No | The circuit only does anything below 10 |
+
+## The Pot Is Not a Tone Control
+
+Here is the part that reorders everything else.
+
+A volume pot has resistance. It does not have meaningful capacitance. On its own, a resistor in the signal path cannot remove treble — it can only make the signal quieter across the board. Something else has to supply the capacitance for a low-pass filter to exist at all.
+
+That something is your cable. A standard instrument cable runs somewhere between 20 and 50 picofarads per foot, and it sits across your signal for its entire length. When the volume is at 10, the pot's wiper is at the top of its travel and the resistance in the signal path is essentially zero, so the pickup drives that cable directly — which is its own well-documented effect, and the reason [cable length changes your tone](/blog/does-cable-length-affect-tone) even with the knob untouched.
+
+Roll the knob back and you insert resistance between the pickup and that cable. Now you have a genuine RC low-pass: the pot supplying the R, the cable supplying the C. The treble does not disappear into the pot. It gets filtered out by a circuit that only exists once the pot stops being a wire.
+
+Which means the darkening is not a fixed property of your guitar. It is a property of your guitar *and whatever is plugged into it*, and those are separable.
+
+## What the Numbers Actually Look Like
+
+The resistance the pot presents is at its highest when the wiper sits at the resistive midpoint of the track — a quarter of the pot's total value. For a 250k pot that is 62.5k; for a 500k pot, 125k. Put that against the capacitance downstream and you get a corner frequency for the rolloff you are hearing.
+
+| Pot | What is plugged in | Total capacitance | Corner of the added rolloff |
+|---|---|---|---|
+| 250k | 10 ft cable | about 400 pF | about 6.4 kHz |
+| 250k | 20 ft cable | about 700 pF | about 3.6 kHz |
+| 250k | 30 ft cable | about 1000 pF | about 2.5 kHz |
+| 500k | 20 ft cable | about 700 pF | about 1.8 kHz |
+| 250k | wireless transmitter | about 100 pF | about 25 kHz |
+| 500k | wireless transmitter | about 100 pF | about 12.7 kHz |
+
+Cable figures assume 30 pF per foot with roughly 100 pF added for the guitar's own wiring and pots, matching the numbers in our [cable capacitance](/blog/does-cable-length-affect-tone) piece so the two are comparable.
+
+Read the first and last rows against each other. The same guitar, the same pot, the same knob position — and the filter lands three and a half octaves apart depending on what you plugged into. On the 30-foot cable the rolloff has come down *into the guitar*, past the fundamental of the highest note on the neck, which is why that rig feels like it lost a blanket's worth of definition at 7. On the wireless there is no audible filter at all.
+
+One honest caveat, because it matters: these are first-order corners, and the real network is more interesting than a resistor and a capacitor. Your pickup is an inductor, so what it forms with that capacitance is a resonant circuit with a peak — and the pot's rising source resistance also damps that peak as you roll back, which is a second thing happening at the same time. The corner frequencies above tell you where the added rolloff sits and how far apart the rigs are. They are not a full model of the sound.
+
+## The Part I Had Backwards
+
+I had assumed, for years, that the treble loss got progressively worse the further down you went. Roll to 7 and lose a little, roll to 3 and lose a lot, roll to 1 and it is a blanket. It seemed obvious. It matches how it feels.
+
+It is not what the circuit does.
+
+The source resistance peaks at the *middle* of the resistance track and falls away on both sides. At 10 the pot contributes nothing — the wiper is at the top, there is no resistance in series, no filter. And at 1 or 2, the resistance has dropped back down again on the other side of the hump. On a standard audio-taper pot the resistive midpoint sits surprisingly high on the dial, up around 7 or 8, because audio taper compresses most of the resistance change into the top of the sweep.
+
+So the treble loss is a hump, and the hump is parked exactly where players live. Rolling back to 7 or 8 for a verse, or to hold a rhythm part under a vocal, is not the gentle end of the problem. It is the worst of it. The very low settings that *feel* darkest are darker mostly because quiet things sound duller to us, not because the filter got worse.
+
+Once you see that, the whole install decision changes shape. A treble bleed is not insurance against the bottom of the knob. It is a repair to the part of the sweep you use every time you play.
+
+## The Three Circuits, Described by What They Do to the Sweep
+
+Schematics for all three are everywhere. What is harder to find is what each one costs you, which is the part that decides between them.
+
+**Capacitor alone.** Fender put 1000 pF on Telecasters in the 1960s and the mod has been in circulation ever since. Values run 220 pF to 1500 pF. The capacitor passes highs around the pot, and it keeps passing them as everything else drops — so the lower you go, the more the highs dominate what is left. At 3 you are not hearing your guitar quieter, you are hearing a thin, papery version of it that has lost its low end. Good on a bridge single-coil where you want the roll-back to get spikier. Bad almost everywhere else.
+
+**Capacitor with a resistor in parallel.** The most common network on the market, typically 1000 pF with 150k, and the resistor's job is to stop the highs from taking over at low settings. It does that. What it also does — and this is the failure mode that gets these reversed — is change the taper. The resistor sits permanently across part of the pot, so the sweep stops behaving like the pot you bought. Values run 220 to 1500 pF and 100k to 330k, and the resistor wants to be somewhere in the region of half to two-thirds of the pot's value: 120k to 160k on a 250k pot, 250k to 330k on a 500k. Get that wrong and the knob dumps everything in the last two numbers, or stays loud until it suddenly is not.
+
+**Capacitor with a resistor in series.** Chris Kinman popularized this in the 1990s with 1200 pF and 130k, and Fender's Tone Saver is 1000 pF with 130k. Putting the resistor in series with the cap limits how much treble gets through instead of fighting it after the fact, and it leaves the taper broadly alone. It is the version that causes the fewest new problems, which is a lower bar than "best" but is the right bar for a modification you are soldering into a guitar you like.
+
+## Choosing a Value, and Why Yours Is Not Mine
+
+Start from the capacitance you are actually driving. The useful rule is to put the capacitor somewhere near your cable's total capacitance, because what you are trying to do is hold the resonant peak roughly where it sat at full volume rather than to invent brightness that was never there.
+
+- 10-foot cable, around 400 pF total: **470 to 680 pF**
+- 20-foot cable, around 700 pF: **680 pF to 1 nF**
+- 30-foot cable, around 1000 pF: **1 nF to 1.5 nF**
+
+Then the resistor. In series: 100k to 330k, with 130k the value two different manufacturers landed on independently, which is a reasonable signal. Lower resistance lets more through and sounds brighter at low settings.
+
+And now the consequence nobody puts in the wiring diagram. If you sized the capacitor for a 30-foot cable and then bought a wireless, the circuit is still compensating for capacitance that is no longer in the rig. The pot is barely filtering anything now — look at the last two rows of the table — but the bleed keeps passing highs around it regardless. The result is a guitar that gets *brighter* relative to itself as you back off, thin at 7 in a way that reads as a bad pickup rather than as a modification that outlived its reason. If you play through a transmitter, [there are other things about your input stage that changed too](/blog/wireless-transmitter-input-impedance-tone), and this is one more of them.
+
+There is no value that is correct for both rigs. That is not a failure to find the right compromise; the two rigs need different circuits. Pick the one you play most.
+
+## The Case for Not Installing One
+
+This is the section the search results do not have, so here it is plainly.
+
+A treble bleed is a fix for a problem, and a good number of guitars do not have the problem badly enough to be worth soldering. If you run 250k pots into a 10-foot cable, the corner is up around 6 kHz and there is not much above it that you will miss. If you run a wireless, there is nothing to fix. If your volume knob lives at 10 and your dynamics come from your right hand and the amp's front end, the circuit is inert.
+
+And the players whose volume-knob work is worth studying were mostly not using one. The clean-to-crunch move on *Continuum* is a guitar volume interacting with an amp that responds to level, and that interaction includes some of the treble loss, not despite it. Roll a Deluxe Reverb back and the loss of top end is part of why the amp stops sounding urgent — the tone and the level move together, and the ear hears one gesture. Restore the highs perfectly and you can get a sound that is quieter but has not softened, which is sometimes what you want and sometimes removes the entire point of the gesture.
+
+So before you order parts: play the rig you actually play, roll to 7, and decide whether what you lost was information you needed or a dimming you were unconsciously relying on. If it is the first, the circuit is a genuine improvement and you will notice it every night. If it is the second, you are about to spend an evening making your guitar less responsive with a soldering iron.
+
+The knob was always doing two things. Deciding whether to separate them is the actual question, and it comes before any capacitor value.
+
+<SaveThisTone
+  title="Pick a tone to chase"
+  description="Every recipe in the catalog has the chain, exact settings, and a preset for Helix or Katana."
+  href="/browse"
+  ctaLabel="Browse the catalog"
+/>
