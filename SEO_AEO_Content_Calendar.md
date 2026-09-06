@@ -5837,3 +5837,131 @@ run.** Today's Gate 1 notes add two claims that a bench would upgrade — the co
 Post 1 (computed, not measured; a capacitance meter and a scope would turn it into measured data) and
 the ~6 dB two-bank threshold in Post 3 (editorial judgement) — but neither is load-bearing enough to
 queue as debt, and both are labelled as what they are inside the posts.
+
+---
+
+## Monthly AI-Visibility Spot Check — 2026-09-06
+
+> Per `docs/AI_SEARCH_PLAYBOOK.md` §8. September's check, run from the weekly
+> recipe audit on the first Sunday. Same 5 queries as 2026-08-03 so the
+> month-over-month comparison is like-for-like.
+
+### 1. Target-query citation check (5 queries, live)
+
+| # | Query | F&K cited? | vs. Aug | Notes |
+|---|-------|-----------|---------|-------|
+| 1 | john mayer clean tone helix settings | **No** | = | Unchanged shape: line6.com threads, a YouTube pair, cainkong.com, helixpatches.com, and four Gumroad storefronts. Preset-storefront commodity zone. |
+| 2 | tube screamer settings blues | **YES** | ▲ **gained** | `faderandknob.com/blog/tube-screamer-settings-guide` ranked 5th of 7. Last month this SERP had collapsed to Wikipedia with no publisher settings page ranking at all; the encyclopedic result set has been replaced by a settings-page set, and we are in it alongside Reverb, Pro Sound HQ and Traveling Guitarist. |
+| 3 | worship guitar tone Line 6 Helix settings | **No** | ▼ **lost** | Was 4th in August via `hillsong-guitar-tone-helix`. SERP is now worshiptutorials.com, a TikTok discovery page, komposition101, two jwtones posts and GuitarforHISGLORY. **This is a ranking loss on one query, NOT a deindexing — see §5.** |
+| 4 | HX Stomp worship ambient delay reverb settings | **No** | = | tone3000, Worship Tutorials, worshipflow, worshipguitarbasics, GuitarforHISGLORY, komposition101, plus two Gumroad bundles. The August note still holds: the answer summary's framing (dotted-eighth + Glitz, delay-into-reverb ordering, wet/dry path) mirrors our house explanation while the citation goes elsewhere. |
+| 5 | Big Muff settings guide best tones | **YES** | = | `faderandknob.com/blog/big-muff-settings-guide` ranked 7th (was 6th) against EHX's own page, Reverb News, Guitar Chalk and ToneStakr. The synthesized answer still leans on our tone-stack/mid-scoop framing — it reproduces the 500 Hz–1 kHz scoop range and the variant-dependent depth. |
+
+**Citation rate: 2/5 — flat on the number, but the composition changed: we
+gained Q2 and lost Q3.** That is not a wash. Both movements are informative:
+
+- **Q2 is a real gain and the more durable of the two.** We did not out-rank a
+  competitor; the SERP itself re-formed. An encyclopedic result set became a
+  settings-page result set, and the page that was already built for that
+  intent was there to catch it. This is the Non-Commodity Gate paying out on a
+  delay.
+- **Q3 is the one to watch,** because it is the core target-segment query
+  (per `TARGET_SEGMENT_AND_SEO_STRATEGY.md`) and the only one of the five we
+  had actually won on merit.
+
+### 2. Crawler reachability at the edge — PASS
+
+```
+curl -sI https://faderandknob.com/robots.txt  →  HTTP/2 200
+no x-vercel-mitigated header;  cf-nel present (Cloudflare)
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /   (only /admin, /dashboard, /saved, /api/, /invite/, /login, /signup, /dev/, /*?*sort= disallowed)
+Sitemap advertised.
+```
+
+Went one step past the header check this month and fetched the homepage with
+four real AI crawler user agents. **All four returned 200:** `GPTBot/1.0`,
+`OAI-SearchBot/1.0`, `ClaudeBot/1.0`, `PerplexityBot/1.0`. No UA-conditional
+interception anywhere in the path.
+
+**Source-of-truth note for future runs:** the playbook's §8.2 step says to
+confirm `src/app/robots.ts` is still open. **That file no longer exists** —
+robots moved to a route handler at `src/app/robots.txt/route.ts` so it could
+emit the `Content-Signal` directive, which Next's metadata API cannot. Read
+and verified: fully open, and the only addition since is the documented
+`Disallow: /*?*sort=` sort-variant block from 2026-08-16. Checking the old
+path alone would silently pass on a missing file — future runs should check
+the route handler.
+
+### 3. AI crawler hit counts — STILL UNAVAILABLE (debt carried, now 2 months old)
+
+Unchanged from 2026-08-03 and for the same reason: the site is on Cloudflare,
+Vercel has no traffic to report, and the playbook's §8.3 Vercel-MCP log path
+is obsolete. **No Cloudflare-side replacement has been built** — no Logpush
+config, no bot-UA breakdown, nothing in `scripts/`.
+
+**This is the second consecutive month with zero AI-crawler telemetry.** It is
+the leading indicator the playbook asks for, and it is the one measurement
+that would tell us whether the Q3 loss is a retrieval problem or purely a
+ranking one. Escalating from "standing debt" to **the single highest-value
+unbuilt item in the AI-visibility loop.** Still logged rather than
+silently fixed — it is a strategy-level build, not an audit fix.
+
+### 4. AI referral traffic — SKIPPED
+
+Unchanged: GA4 needs interactive auth under `authuser=1` and no API route
+exists. Nice-to-have per the playbook; not blocking.
+
+### 5. Regressions — ONE, and it is narrower than it first looks
+
+**The Q3 loss is a ranking movement, not an indexing failure.** Verified
+before reporting, because "we fell off a SERP" and "our page fell out of the
+index" have completely different responses:
+
+- All five worship posts return **200**: `hillsong-guitar-tone-helix`,
+  `lincoln-brewster-tone-helix`, `elevation-worship-guitar-tone-helix`,
+  `bethel-music-guitar-tone-helix`, `phil-wickham-guitar-tone-helix`.
+- The Hillsong page is **still indexed and still retrievable** — a targeted
+  search returns it, and the answer synthesis quotes its actual specifics
+  (Essex A15/A30 TB, Minotaur at ~0.20 drive, Transistor Tape at dotted-eighth
+  375 ms / ~30% feedback). A deindexed page cannot do that.
+- (Method note: an earlier status sweep in this run showed
+  `lincoln-brewster-guitar-tone-helix` → 404. That was **my own wrong slug
+  guess**, not a site fault — the real slug has no "guitar" segment. Corrected
+  against the sitemap before it reached this log.)
+
+So the page is fetchable, indexed, and citable; it simply is not ranking for
+that one generic head query this month.
+
+**Corroborating evidence from two independent runs the same week, both
+pointing at the same constraint:**
+
+1. `docs/index-health-log.md` (2026-09-05): worship coverage pinned at **1/5
+   for a seventh consecutive week**, 71 days after submission, with all 5 URLs
+   technically clean. Its verdict — coverage is gated by **authority (0
+   backlinks)**, not by pages — is now reinforced by **+73 URLs over four
+   weeks moving coverage not at all.**
+2. `docs/ai-sov-runs/ai-sov-2026-09-05.csv`: on the discovery prompt "Best
+   site for exact Helix block settings for worship songs," faderandknob.com is
+   **still not in AI authority priors**, unchanged across all four runs
+   (07-03, 07-21, 08-03, 09-05).
+
+Three different instruments — organic SERP, index coverage, AI authority
+priors — are all reading the same thing on the worship cluster. **That
+triangulation is the finding, not the individual Q3 miss.** The one bright
+spot is that the mechanism still works where authority is not the binding
+constraint: Q2 was won this month on a non-worship page.
+
+**Do not respond to this by publishing more worship pages.** That is
+explicitly the wrong lever per the index-health verdict, and four weeks of
+volume data now support it.
+
+### 6. Closed since last month
+
+August's open observation — that the site advertises `</llms.txt>;
+rel="service-doc"` while the playbook's position was that llms.txt is not
+worth maintaining — **is resolved, and resolved deliberately rather than by
+drift.** `docs/AI_SEARCH_PLAYBOOK.md` §38 and the decision table now carry an
+explicit position: the `/llms.txt` and `/llms-full.txt` routes are *"harmless
+and may help non-Google tools, but are NOT load-bearing. Zero maintenance
+priority."* Keep-tier, same as the RFC 8288 Link header and the DNS-AID SVCB
+records. No action needed.

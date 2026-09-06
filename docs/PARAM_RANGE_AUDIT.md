@@ -1,8 +1,28 @@
 # Parameter range audit — what the registry declares vs what the corpus holds
 
-**Generated:** 2026-08-05
+**Generated:** 2026-08-05 · **Last measured:** 2026-09-06
 **Rule:** `settings-outside-unverified-range` in `scripts/audit-recipes.ts`
+**Re-measure with:** `npx tsx scripts/count-param-ranges.mts`
 **Companion:** `docs/COMP_TIME_UNIT_MIGRATION.md` (the first of these resolved)
+
+> **Measurement log** (added 2026-09-06 by the weekly audit, which found the
+> original 2,666 was a one-time hand count with no way to reproduce it):
+>
+> | Date | Recipes | Out-of-range, unverified | Out-of-range, verified |
+> |---|---|---|---|
+> | 2026-08-05 | 205 | 2,666 | 0 |
+> | 2026-09-06 | 225 | **3,059** | 0 |
+>
+> **The ledger grew by 393 values (+15%) in a month.** That is not new bad
+> data and not a regression in the audit — it is 20 new recipes inheriting the
+> same unverified ranges, while **zero additional parameters were marked
+> `rangeVerified` in that month** (still 8 in the registry). The debt scales
+> with the corpus by construction, so it will keep growing at roughly
+> 20 values per new recipe until the ranges below are actually verified.
+>
+> The verified-range count is **0**, which is the number that matters for
+> correctness: no recipe violates a range anyone has checked. The table below
+> is a work queue, not a defect list.
 
 `src/lib/parameters/registry.ts` is the single source of truth for how a
 setting renders — knob vs fader, its range, its unit, its neutral marker. It

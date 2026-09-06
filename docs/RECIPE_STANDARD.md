@@ -486,3 +486,43 @@ should be retrofitted before batch-2 rewrites.
 **Status:** ready to codify as a `warn` rule next pass; left out of
 this commit because the tag taxonomy needs a quick audit first
 (some recipes are tagged `rock` not `high-gain` despite ≥ 8 drive).
+
+### The unverified-range ledger grows with the catalog (2026-09-06)
+`settings-outside-unverified-range` fires on **225/225** recipes and has
+fired on every recipe for months. A rule that matches the entire catalog
+carries no per-recipe signal, and it is easy to read the 100% as either
+"everything is broken" or "this rule is noise." It is neither, and future
+audits should not act on it as if it were a warn.
+
+What it actually tracks is registry debt, not recipe defects:
+`src/lib/parameters/registry.ts` was written Helix-first and never made
+platform-aware, so a Katana `Gain: 90` is correct on hardware that runs
+0–100 and only looks wrong against an entry declaring 0–10. The companion
+error rule `settings-within-verified-range` covers the ranges someone has
+actually checked, and that one is at **0 violations** — which is the number
+that means "no recipe is wrong."
+
+The measured consequence, now that the count is reproducible
+(`npx tsx scripts/count-param-ranges.mts`, added this pass because the
+ledger's original 2,666 was a one-time hand count):
+
+| Date | Recipes | Unverified out-of-range | Verified out-of-range |
+|---|---|---|---|
+| 2026-08-05 | 205 | 2,666 | 0 |
+| 2026-09-06 | 225 | 3,059 | 0 |
+
+**+393 values in a month, purely from 20 new recipes inheriting the same
+unverified ranges — no parameter graduated to `rangeVerified` in that
+window.** So the ledger grows at roughly +20 values per recipe shipped and
+will keep doing so indefinitely. `Mix` alone is 1,330 of the 3,059 (43%),
+and it is a single unit convention (percent vs 0–1), not 1,330 judgment
+calls.
+
+**Status: deliberately NOT promoted to `warn`, and it should not be
+promoted until the ranges are verified.** Promoting it now would turn the
+audit permanently red on all 225 recipes and hide real regressions —
+exactly the failure the `rangeVerified` split was introduced to prevent.
+The work is in `docs/PARAM_RANGE_AUDIT.md` under "The order to fix them
+in"; it needs hardware ground truth per platform, which is bench work, not
+something a weekly audit run can resolve. **The rule against fixing this by
+widening ranges to fit the data still stands.**
