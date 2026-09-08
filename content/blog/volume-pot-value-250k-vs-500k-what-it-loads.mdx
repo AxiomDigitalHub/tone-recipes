@@ -1,0 +1,189 @@
+---
+title: 250k or 500k Volume Pot? What the Value Actually Loads
+description: >-
+  The pot value is a load across your pickup, and the number on the casing is
+  never the number your pickup sees. What changes at 10, what reverses below it,
+  and when the swap is not worth the solder.
+date: '2026-09-08'
+author_slug: hank-presswood
+category: signal-chain
+tags:
+  - guitar-wiring
+  - volume-knob
+  - pot-value
+  - pickups
+  - resonant-peak
+  - signal-chain
+  - impedance
+takeaways:
+  - >-
+    A volume pot loads your pickup at full resistance no matter where the knob
+    sits, and that load damps the height of the pickup's resonant peak. It does
+    not move the peak's frequency — that job belongs to the capacitance in your
+    cable.
+  - >-
+    The number on the pot is never the load. Your tone pot sits in parallel with
+    it above the tone cap's corner, and the amp input sits in parallel with
+    both, so a 500k Les Paul actually loads its pickup at roughly 200k and a
+    250k Strat at roughly 111k.
+  - >-
+    A traditional Stratocaster's bridge pickup has no tone pot on it, which puts
+    it at about the same total load as a Les Paul despite the 250k folklore.
+    That is part of why that one position is the ice pick.
+  - >-
+    The value reverses direction below 10. A 500k pot has twice the peak source
+    resistance of a 250k, so it is brighter at full volume and darker at 7 —
+    which is why a 500k guitar is the one that most needs a treble bleed.
+  - >-
+    Load anything hard downstream — a fuzz first in the chain, a low modeler
+    input impedance — and the pot value stops mattering. Check what is already
+    loading you before you buy parts.
+faq:
+  - q: Does a 250k or 500k pot change my guitar's tone at full volume?
+    a: >-
+      Yes, but not in the way the phrase "500k is brighter" suggests. The pot is
+      a permanent resistive load across the pickup, and lowering the resistance
+      damps the height of the pickup's resonant peak. The peak's frequency stays
+      roughly where it was. You are shortening a bump, not moving a filter.
+  - q: What is the actual load on my pickup?
+    a: >-
+      Every resistance to ground in parallel. On a Les Paul that is the volume
+      pot, the tone pot for the selected pickup, and the amp's input impedance —
+      500k with 500k with 1M works out near 200k. Swapping both pots to 250k
+      lands near 111k. Neither number is the one printed on the pot.
+  - q: Should I use 500k pots with single coils?
+    a: >-
+      Only if the guitar is currently too dark for you at full volume and you
+      live at 10. A single coil's resonant peak sits up around 3 to 5 kHz, which
+      is where the ear is most sensitive, and an undamped peak there reads as
+      ice pick rather than as clarity. You also double the source resistance in
+      the middle of the sweep, so the guitar darkens faster when you roll back.
+  - q: Is there ever a case for 250k pots with humbuckers?
+    a: >-
+      Two of them. If the guitar sounds honky in the upper mids — common with
+      hot ceramic humbuckers, whose higher inductance puts the peak lower —
+      damping is the right medicine. And if you work the volume knob between 6
+      and 8 on a long cable, halving the source resistance keeps that part of
+      the sweep usable. You trade a little top at 10 for range below it.
+  - q: Why did Fender use 250k and Gibson use 500k?
+    a: >-
+      Whatever the reasons in the 1950s, the arithmetic holds up. A single coil
+      runs about 2 to 2.5 henries of inductance and peaks around 3 to 5 kHz; a
+      PAF-style humbucker runs above 4 henries and peaks nearer 2 to 2.5 kHz. A
+      peak up in the ear's most sensitive region wants damping. A peak down in
+      the low treble does not, and damping it is how a humbucker gets dull.
+  - q: Will changing pot values fix a muddy or shrill guitar?
+    a: >-
+      Rarely on its own. The change from 250k to 500k in a real rig is a modest
+      shift in peak height, and anything that loads the signal hard downstream —
+      a germanium fuzz first in the chain, a modeler input set low — flattens
+      the difference to almost nothing. Pickup height and cable length are
+      bigger levers and cost no solder.
+image: /images/blog/volume-pot-value-250k-vs-500k-what-it-loads.jpg
+image_alt: >-
+  An electric guitar laid across an amp cabinet in a dim studio, its neck and
+  control knobs lit from the side, with a pedalboard and tuner beside it
+---
+
+The two sentences you will find everywhere are that 500k is brighter and 250k is smoother, and both are true enough to be useless. They describe the outcome without describing the mechanism, which is why so many people swap a set of pots, hear a difference smaller than they were promised, and conclude that pot values are a myth.
+
+They are not a myth. But the pot value is doing something more specific than adding or removing treble, and it is doing two different jobs at two different points on the dial — jobs that pull in opposite directions. Get that straight and the decision stops being a coin flip between two Fender and Gibson conventions.
+
+## Quick Answer
+
+| Your situation | Value | Why |
+|---|---|---|
+| Single coils, guitar already sounds bright enough at 10 | 250k | The peak sits where your ear is most sensitive. Damping it is the point. |
+| Single coils, guitar sounds dull and you never leave 10 | 500k | Taller peak, more air. You will pay for it below 10. |
+| PAF-style humbuckers | 500k | Peak already sits low. Damping it further just closes the top down. |
+| Hot ceramic humbuckers that sound honky in the upper mids | 250k | Higher inductance puts the peak lower still. Damping is the right medicine. |
+| You work the volume knob between 6 and 8 on a long cable | 250k | Half the source resistance in the middle of the sweep. |
+| Fuzz first in the chain, or a modeler input set low | Either | Something downstream is already loading you harder than the pot is. |
+
+## The Pot Is a Load, Not a Filter
+
+Here is the thing that reorders the rest of it.
+
+A potentiometer wired as a volume control sits across the pickup as a resistance to ground, and — this is the part that surprises people — it sits there at full value regardless of where the knob is. Turn it to 10 and the pot has not left the circuit. The whole 250k or 500k is still hanging across your pickup, drawing current.
+
+What that resistance does is damp. A pickup is a coil, which makes it an inductor, and an inductor working against the capacitance in your wiring and cable forms a resonant circuit with a peak in it — a bump in the response, somewhere in the upper midrange or low treble, and that bump is most of what makes one pickup sound different from another. Put a resistance across that circuit and the bump gets shorter and broader. Lower the resistance and it gets shorter still.
+
+The frequency of the peak barely moves. That belongs to the capacitance, which is why [cable length changes your tone](/blog/does-cable-length-affect-tone) and pot values do not, in the same way. The pot value is a peak *height* control. We made the same argument from the other end of the cable in the piece on [what to set your modeler's input impedance to](/blog/modeler-input-impedance-setting-what-to-set-it-to), and it is the same physics — a load is a load, whether it lives in your control cavity or in the input stage of the thing you plugged into.
+
+So when someone says a 500k pot is brighter, what they mean is that a lighter load lets the pickup's own resonance stand up at more of its natural height. It is not adding treble. It is declining to flatten what was already there.
+
+## The Number on the Pot Is Never the Load
+
+Now the arithmetic, and it is the part that explains why so many pot swaps underdeliver.
+
+Resistances to ground add in parallel, and there are always more of them than the one you are thinking about. The tone pot is the one people forget. Its capacitor is a near short circuit at the frequencies where your resonant peak lives — a 0.022 µF cap is only a few thousand ohms at 2 kHz — so above the tone control's corner, that pot is functionally a second resistor straight to ground, with the knob on 10 and doing nothing you can hear. It is still loading you. Then the amp's input impedance, typically 1M, sits in parallel with both.
+
+Run the numbers on the two guitars everybody argues about:
+
+| Guitar | What is in parallel | Total load on the pickup |
+|---|---|---|
+| Les Paul, 500k volume + 500k tone | 500k, 500k, 1M | about 200k |
+| Strat, 250k volume + one 250k tone | 250k, 250k, 1M | about 111k |
+| Les Paul with the volume swapped to 250k only | 250k, 500k, 1M | about 143k |
+| Traditional Strat, **bridge pickup** | 250k, 1M | about 200k |
+
+Look at the first row against the last one. On a traditionally wired Stratocaster, the bridge pickup has no tone control on it at all — the two tone pots were assigned to the neck and middle, and the bridge was left bare. Which means that position sees roughly the same total load as a Les Paul, from a guitar that everybody files under "250k."
+
+I had assumed for a long time that the vintage Strat bridge pickup was thin and glassy because of the pickup and the string angle over that back saddle. Some of it is. But part of it is that the position is running a lighter load than any other selection on the same guitar, with its resonant peak standing up at full height, in a pickup whose peak already sits at 3 kHz or above — right in the band where human hearing is at its most sensitive. That is not a tonal accident. That is a wiring decision from 1954 that nobody documented as one. It also explains why the bridge-tone mod, which puts a tone pot on that position, is the single most common Strat modification there is, and why players describe the result as taming the pickup rather than as darkening it. They are adding a load that was never there.
+
+Worth knowing if you are checking your own guitar: most Fenders built since the 1980s reassign the second tone pot to cover the bridge as well, so this only applies if your wiring is the traditional arrangement. Pull the pickguard and follow the wire.
+
+## What Changes at 10, and What Reverses Below It
+
+The load story above is the pot's job at full volume. It has a second job, and the two do not agree.
+
+Roll the knob back and the pot stops being a load and starts also being a source resistance — a series resistance between the pickup and everything downstream, which forms a genuine low-pass filter against your cable's capacitance. That resistance is highest at the resistive midpoint of the track, where it works out to a quarter of the pot's value. We laid the corner frequencies out in detail in the [treble bleed piece](/blog/treble-bleed-when-you-actually-need-one), and the number that matters here is simple: a 500k pot peaks at 125k of source resistance and a 250k peaks at 62.5k.
+
+Twice the resistance means the added rolloff lands a full octave lower.
+
+So the two jobs point opposite ways. **A 500k pot is brighter than a 250k at 10 and darker than a 250k at 7.** Not slightly — the crossover is real and it is roughly an octave wide in the middle of the sweep, on a first-order model of what is admittedly a more complicated network. It is the cleanest available explanation for a complaint you hear constantly from humbucker players and almost never from Strat players: that the guitar sounds great wide open and falls apart the moment you back it off. Their guitars are optimized for one number on the dial.
+
+Which is also why a treble bleed does more on a 500k guitar than on a 250k one. Same install, twice the problem to solve.
+
+## The Convention Is About Inductance
+
+The Fender-and-Gibson split gets described as house style, and it is worth pointing out that the arithmetic backs it up regardless of what anyone was thinking at the time.
+
+A Stratocaster single coil runs somewhere between about 1.8 and 2.5 henries of inductance, and it peaks up around 3 to 5 kHz before the cable pulls it down. A PAF-style humbucker runs above 4 henries — two coils in series, more turns, more inductance — and peaks nearer 2 to 2.5 kHz.
+
+Where the peak sits determines whether damping it is a favor or an injury. Three to five kilohertz is the band the human ear is most sensitive in, the region where a peak stops sounding like presence and starts sounding like a dental instrument. Damping that is doing the player a kindness. Two kilohertz is lower, in the region that reads as body and bark, and shortening a peak there does not make a humbucker civilized. It makes it sound like a blanket went over the cab.
+
+That is the actual rule, and it is more useful than the brand names: **the higher the pickup's resonant peak, the more it wants loading.** Which is why the interesting case is the one nobody argues.
+
+## The Case for 250k With Humbuckers
+
+Hot ceramic humbuckers are not PAFs. More winds and a stronger magnet push the inductance higher, which pushes the resonant peak *lower* — down toward 1.8 kHz on some of the hotter ones. A peak sitting there does not sound like air. It sounds like the guitar is honking through a length of pipe, particularly on the bridge pickup through a mid-forward amp, and the standard reaction is to reach for the amp's mid control and scoop out the exact frequency band the guitar needs to be heard in.
+
+Load it instead. A 250k volume pot on a hot humbucker shortens the peak where it actually is, which is a more surgical move than an amp EQ cut because the guitar's midrange below the peak stays where it was.
+
+The second case is more practical. If you spend your night between 6 and 8 on the volume knob — rhythm under a vocal, verse-to-chorus without touching a pedal — then the source resistance in the middle of the sweep is the thing you live with, and 250k halves it. You give up some peak height at full volume, which you are not using much. You get back an octave of usable range in the part of the dial you are using constantly. For a player who works the knob, that is not a compromise. That is the trade going the right way.
+
+I would not describe either of those as a bright-versus-dark decision, which is the frame the whole conversation is stuck in.
+
+## Before You Buy Pots, Check What Is Already Loading You
+
+The last thing, and the reason many pot swaps disappoint.
+
+The pot's load only matters in proportion to everything else in parallel. Change what is downstream and you change how much the pot value is worth. On a modeler this is a menu setting rather than a soldering job, which makes it easy to check.
+
+| First block / input impedance | 250k guitar becomes | 500k guitar becomes | Difference |
+|---|---|---|---|
+| 1M (amp model, or a modern amp) | about 111k | about 200k | 1.8× |
+| 230k (a Tube Screamer model) | about 75k | about 107k | 1.4× |
+| 70k (a germanium fuzz model) | about 43k | about 52k | 1.2× |
+
+Put a fuzz at the front of the chain and your pot value has nearly stopped mattering, because the fuzz is loading your pickup an order of magnitude harder than the pot ever did — which, as our [impedance and fuzz](/blog/impedance-buffers-fuzz) piece covers, is most of what a fuzz first in the chain even sounds like. The same is true for anyone running a Helix or Fractal with In-Z on Auto and a drive model at the front of the preset. You are already loaded. Rewiring the guitar to change the load by twenty percent is not going to be the revelation you were promised.
+
+So the honest order of operations: find out what the guitar is plugged into, decide whether the peak wants standing up or sitting down, and only then reach for the iron. Pots cost eight dollars and an evening. They are one of the few genuinely cheap modifications left, and they are worth doing when the arithmetic says they will land. They are also the single easiest way to spend that evening changing nothing at all.
+
+<SaveThisTone
+  title="Pick a tone to chase"
+  description="Every recipe in the catalog has the chain, exact settings, and a preset for Helix or Katana."
+  href="/browse"
+  ctaLabel="Browse the catalog"
+/>

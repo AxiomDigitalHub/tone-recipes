@@ -1,0 +1,180 @@
+---
+title: Why Your Volume Knob Cleans Up on a Tube Amp and Not on a Modeler
+seo_title: Why Your Volume Knob Won't Clean Up on a Modeler
+description: >-
+  A cranked amp does four things when you roll back your guitar volume. A
+  modeler at bedroom level reproduces three. Which one is missing, and the
+  settings that get most of it back.
+date: '2026-09-08'
+author_slug: rick-dalton
+category: modeler-masterclass
+tags:
+  - volume-knob
+  - modeler
+  - dynamics
+  - amp-response
+  - helix
+  - quad-cortex
+  - gain-staging
+takeaways:
+  - >-
+    Rolling back the guitar volume on a cranked amp does four things at once —
+    less preamp drive, less power-amp saturation, a loss of top end, and a break
+    in the acoustic feedback loop between speaker and strings. A modeler
+    reproduces the first three.
+  - >-
+    The one it cannot reproduce is the room. A loud speaker feeds energy back
+    into the strings, which effectively raises the amp's gain; backing off the
+    knob removes that too, so the amp appears to clean up further than the
+    electronics alone account for.
+  - >-
+    Most factory presets are built preamp-dominant — high Drive, low Master —
+    and cascaded preamp gain stays clipped across a wide input range. That
+    topology is the main reason a preset does not unwind when you turn down.
+  - >-
+    The fix is redistribution, not reduction. Take Drive down two to three,
+    bring Master up toward the top of its range, and the dirt moves into a stage
+    that responds to level instead of one that ignores it.
+  - >-
+    Put the gain in the amp block, not in a hard-clipping drive pedal in front
+    of it. A drive block with the gain up flattens your dynamics before the amp
+    model ever sees them.
+faq:
+  - q: Do modelers actually clean up with the guitar volume knob?
+    a: >-
+      Yes. The amp models respond to input level the way a real front end does.
+      What is usually broken is the preset, not the modeling — a preamp-dominant
+      gain structure stays saturated across a wide range of input levels, so the
+      knob changes loudness long before it changes the amount of distortion.
+  - q: What settings make a Helix preset respond to the guitar volume knob?
+    a: >-
+      Drive down two to three from where you have it, Master up toward 8 or
+      higher so the modeled power amp is doing real work, Sag around 4 to 6 for
+      the give on attacks, and Bias X up around 6 to 8 for touch sensitivity.
+      Then rebalance level with the channel volume, not with Drive.
+  - q: Why does a real cranked amp clean up more than the same amp modeled?
+    a: >-
+      Because at gig volume the speaker is putting energy back into your
+      strings. That acoustic feedback effectively adds gain when the knob is
+      wide open, and it disappears as you roll back. So part of what you hear as
+      the amp cleaning up is the loop opening, and a modeler on headphones has
+      no loop to open.
+  - q: Does a drive pedal help or hurt volume-knob cleanup?
+    a: >-
+      A low-gain drive used as a boost helps, because it passes your dynamics
+      through to the amp stage. A high-gain drive block doing most of the
+      distortion hurts, because hard diode clipping compresses the signal before
+      the amp model gets it. If you want cleanup, the dirt belongs in the amp.
+  - q: Does input impedance affect how the volume knob behaves on a modeler?
+    a: >-
+      It affects the tone of the roll-back rather than the amount of cleanup. A
+      lower input impedance damps the pickup's resonant peak, so the guitar
+      arrives with less top end to lose. Set it to 1M unless a fuzz is first in
+      the chain and you will hear the roll-back the way an amp input does.
+  - q: Will turning my modeler up louder fix the problem?
+    a: >-
+      Partly, and it is worth trying before you touch a parameter. Through a
+      real cab or a loud FRFR at a volume where the guitar can feel the speaker,
+      some of the missing loop comes back. On headphones it never will, which is
+      why a preset built at bedroom level should be rebuilt before you take it
+      to a gig.
+image: /images/blog/volume-knob-cleanup-tube-amp-vs-modeler.jpg
+image_alt: >-
+  A floor modeler sitting on a shag rug in a wood-panelled basement room with a
+  hi-fi rack, record shelves and a lava lamp behind it
+---
+
+Roll back to 6 on a cranked Plexi and the distortion goes away. Roll back to 6 on a modeler and the guitar gets quieter. Same gesture, different result. It is the most common complaint from players who moved to a floor unit and kept everything else the same.
+
+The usual explanation is that digital does not respond to your hands. That is not it. The amp models respond to input level fine — feed one a smaller signal and it distorts less, which you can verify in about ten seconds with a volume pedal in front of the amp block. Something else is going on, and it is four things, not one.
+
+## Quick Answer
+
+| What you notice | What is causing it | What to do |
+|---|---|---|
+| Knob only changes loudness, not dirt | Preset is preamp-dominant — Drive high, Master low | Drive down 2-3, Master up toward 8+ |
+| Cleans up but goes lifeless doing it | No power-amp behavior in the chain | Master up, Sag 4-6, Bias X 6-8 |
+| Cleaned-up tone is dull, not clean | Input impedance loading the pickup | Set In-Z to 1M unless a fuzz is first |
+| Never cleans up no matter what | Drive block doing the distortion | Move the gain into the amp block |
+| Works at the gig, not at home | The acoustic loop is missing | Nothing to fix. Build the preset at gig level. |
+
+## Four Things Happen at Once
+
+Turn the volume knob down on a real amp that is working hard, and here is everything that changes in the same motion.
+
+**One. Less signal into the preamp.** Obvious. Less drive at the front means less preamp saturation, and that is the part everyone assumes is the whole story.
+
+**Two. Less signal into the power amp.** On a non-master amp — a Plexi, a tweed Deluxe, an AC30 — most of your distortion is coming from the output stage, not the preamp. That is the whole argument in our [master volume versus non-master](/blog/master-volume-vs-non-master-amp-breakup) piece. Power tubes clip softly and progressively. They unwind. Cascaded preamp stages clip hard and stay clipped over a wide range of input levels, which is a different animal.
+
+**Three. You lose top end.** The volume pot forms a filter against your cable capacitance the moment it leaves 10, and that darkening arrives at the same instant as the cleanup. The two are welded together in your ear. We took that apart in the [treble bleed](/blog/treble-bleed-when-you-actually-need-one) post, and the relevant part here is that some of what you call cleaning up is the top edge going away.
+
+**Four. The room stops feeding you.** This is the one.
+
+## The Room Is Part of the Circuit
+
+At gig volume, the speaker is moving enough air to drive your strings. Energy comes out of the cab, hits the guitar, and goes back into the pickup. That is a feedback loop, and at wide-open volume it is adding gain to the whole system — not metaphorically, actually. The amp is amplifying a signal that includes its own output.
+
+Roll the knob back and the loop weakens along with everything else. So the cranked amp is not just getting less input. It is getting less input *and* losing the free gain the room was handing it. The cleanup looks larger than the electronics alone would produce, because two things are subtracting at once.
+
+This argument comes out of Fractal's own forum, where it has been made repeatedly against the "modelers do not clean up" complaint, and I think it is right. It also explains why the effect is strongest exactly where players describe it: loud, in a room, with a cab on the floor. Nobody has ever complained that their tube amp fails to clean up at 1 on the master.
+
+I had assumed for years this was a modeling shortfall. It is a volume shortfall. Put the same modeler through a real cab at gig level and a good chunk of the missing behavior comes back on its own, because the loop is a physical thing and it does not care whether the amp upstream is glass or silicon. On headphones the loop cannot exist at any setting. That part is not fixable and it is worth saying plainly instead of chasing it through parameters.
+
+Which leaves the three that are fixable.
+
+## Why the Preset Was Built Not to Clean Up
+
+Here is the part that does the most damage, and it is a design decision, not a limitation.
+
+Factory presets and most shared presets are built preamp-dominant: Drive up around 6 to 8, Master somewhere down around 3 to 5. That gets you a consistent, tight, repeatable high-gain sound at any output volume, which is exactly what most people want from a modeler, and it is the sound of every modern metal preset you have ever loaded.
+
+It is also the topology that ignores your volume knob.
+
+Preamp distortion in a cascaded gain structure is a wall. Once you are into it, feeding it twenty percent less signal gets you a slightly quieter version of the same wall. The clipping does not unwind gradually, because there is enough gain ahead of it to keep it pinned. Power-amp distortion is the opposite: it is a soft ceiling that the signal approaches and backs away from, and it responds proportionally across a wide range. That is the mechanism your hands are looking for.
+
+So a preset with the Drive at 7 and the Master at 4 has put all of its dirt in the stage that does not listen and none in the stage that does. You did not lose the amp's dynamics. Somebody moved them somewhere you are not touching.
+
+## Redistribute, Do Not Reduce
+
+The fix is not less gain overall. It is the same gain, in a different place.
+
+On a Helix, the Master parameter in the amp block models how hard the preamp signal pushes the virtual power tubes — it is a power-amp drive control, not an output level. Turn it up and the modeled output stage starts doing real work. The Quad Cortex has the same parameter under the same name and it behaves the same way, and both of them share the property that everything else in the amp block gets more effective as Master rises.
+
+| Parameter | Preamp-dominant preset | Rebuild for cleanup |
+|---|---|---|
+| Drive | 6-8 | 3-5 |
+| Master | 3-5 | 8-10 |
+| Sag | 0-2 | 4-6 |
+| Bias X | low or default | 6-8 |
+| Channel Volume | wherever | use this to rebalance, not Drive |
+
+Work in that order. Drive down first — it will sound thin and wrong for a moment, ignore that. Master up until the amp starts to thicken and compress on its own, which is the output stage coming alive rather than a level increase. Then Sag, which is the power supply droop that rounds the attack and lets held notes bloom; our [amp sag piece](/blog/what-is-amp-sag) covers what the parameter is modeling and why 4 to 6 lands near a blackface Fender. Bias X last, which shifts the operating point with playing intensity and is the parameter most directly responsible for soft playing coming out cleaner than hard playing.
+
+Then set level with the channel volume, not by putting Drive back.
+
+Two more things worth checking while you are in there. Set the input impedance to 1M unless there is a fuzz model at the front of the preset — a low input load damps your pickup's resonant peak, so the guitar shows up with less top end to lose, and a roll-back that starts dull ends duller. The [input impedance guide](/blog/modeler-input-impedance-setting-what-to-set-it-to) has the platform specifics, including the Helix trap where a bypassed fuzz at the front of the chain is still loading you. And if you are running a wireless, your knob behaves differently than it does on a cable regardless of any of this, because the pot has nothing much left to filter against.
+
+## Where the Drive Block Helps and Where It Ruins It
+
+A drive block in front of an amp model is not the enemy. A drive block doing the distortion is.
+
+Set as a boost — gain low, level up, tone to taste — it pushes the amp model harder while passing your dynamics through, and the roll-back works exactly as it should because the amp is still the thing clipping. That is what the Tube Screamer in front of a high-gain amp has always been, and it is the reason that arrangement survived forty years.
+
+Set as the main source of dirt, it kills the gesture. Hard diode clipping compresses the signal before the amp block sees it, so by the time you roll the guitar back you are feeding a compressed signal into a stage that was going to clip anyway. Two stages of hard clipping in series is about as responsive as a wall socket.
+
+If the preset only sounds right with the drive block cranked, the amp model underneath it is probably wrong for the sound you want. Pick a higher-gain amp model and use the drive as a boost. That is a better trade than stacking.
+
+## What You Should Actually Expect
+
+Do the rebuild and the knob will work. It will not work the way a 100-watt Super Lead in a room works, because a third of that is the room, and you are not going to get the room out of a headphone amp.
+
+What you will get is an amp that goes from crunch to nearly clean between 10 and 5, that responds to pick attack instead of flattening it, and that has some give on the front of a note instead of arriving fully formed. That covers most of what the gesture is for. Malcolm Young got an entire career of rhythm dynamics out of a knob and a right hand, and the part of that you can have is not the part that requires a wall of cabinets.
+
+Rebuild one preset this way before you rebuild all of them. Take the one you use most, spend twenty minutes on it, and play the same part at 10, at 7, and at 5. If the difference between those three is only loudness, the Master is still too low.
+
+<SaveThisTone
+  title="Pick a tone to chase"
+  description="Every recipe in the catalog has the chain, exact settings, and a preset for Helix or Katana."
+  href="/browse"
+  ctaLabel="Browse the catalog"
+/>

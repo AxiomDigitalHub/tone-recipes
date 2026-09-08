@@ -5965,3 +5965,241 @@ explicit position: the `/llms.txt` and `/llms-full.txt` routes are *"harmless
 and may help non-Google tools, but are NOT load-bearing. Zero maintenance
 priority."* Keep-tier, same as the RFC 8288 Link header and the DNS-AID SVCB
 records. No action needed.
+
+---
+
+## SERP Analysis — 2026-09-08 (3 new posts + 2 refreshes)
+
+### Posts published: volume-pot-value-250k-vs-500k-what-it-loads, volume-knob-cleanup-tube-amp-vs-modeler, nut-compensation-why-first-position-chords-play-sharp
+
+Drained AH1, AH2 and AH3 from the 09-04 queue. **All three bylines were taken as
+proposed** — velocity was clear (Sean, Margot and Carl at 1 each; Hank, Rick and
+Viktor at 0), and each writer's never-assign list was rechecked at build time and
+none of the three topics trips a ban. Viktor's `fk-staff` fallback was not needed.
+Post-run velocity: six authors at 1/week, nobody near the cap.
+
+**Post 1 — volume-pot-value-250k-vs-500k-what-it-loads** (target: "250k vs 500k
+pots," "volume pot value tone," "should I use 500k pots with single coils," "pot
+value brightness")
+- **Top ranking:** Seymour Duncan's *250K Pots Versus 500K Pots: Going Deeper Into
+  The Subject*, Cobra Electronics' *Guitar Potentiometers: 250K vs 500K*, Aeonic
+  Frets' *250k vs 500k Pots: Do They Really Change Your Tone?*, mk-guitar.com's
+  volume-pot article, Fralin's *Volume Pots & Tone Pots: How Do They Work?*,
+  Guitar World's control-pots feature, plus Seymour Duncan / TDPRI / Ernie Ball /
+  Gear Page threads.
+- **Gap confirmed by direct fetch of the two best results, and it is a depth gap
+  rather than a coverage gap.** Seymour Duncan's piece — the strongest editorial
+  result — does explain the pot as a resistive load damping the resonance, and
+  **explicitly contains nothing on the tone pot loading in parallel, nothing on
+  cable capacitance, and no measurements.** Aeonic Frets supplies a peak-height
+  figure and the single-coil/humbucker convention and stops. The one result that
+  does the parallel arithmetic is mk-guitar.com, a 2010 post on a Mark Knopfler
+  fan site, ranking below the retail blogs. Absent across the top 5: (1) the
+  **total-load arithmetic applied to the two guitars everybody argues about** — a
+  "500k Les Paul" loads its pickup at roughly 200k and a "250k Strat" at roughly
+  111k, so neither number on the casing is the load; (2) the **traditional-Strat
+  bridge-pickup finding** — that position has no tone pot on it, which puts it at
+  about the same total load as a Les Paul, and it is the post's Gate 5 moment;
+  (3) the **reversal below 10** — a 500k pot has twice the peak source resistance
+  of a 250k, so it is brighter at full volume and darker at 7, which follows from
+  the arithmetic in our own 09-04 treble-bleed post and which no result connects
+  to the pot-value decision; (4) the **case for 250k with hot ceramic
+  humbuckers**, whose higher inductance puts the peak lower still; (5) the
+  **downstream-load table** showing the 250k-vs-500k difference collapsing from
+  1.8× to 1.2× as the input impedance ahead of the guitar drops.
+- **Gate 1 notes.** Inductance and resonant-frequency ranges (single coil about
+  1.8–2.5 H peaking 3–5 kHz; PAF-style above 4 H peaking 2–2.5 kHz) are from
+  published pickup-spec sources and are stated as ranges, not as specifications
+  for any one pickup. The parallel arithmetic is exact and computed; the
+  tone-cap-as-near-short assumption at the resonant peak is stated in the body
+  (a 0.022 µF cap is a few thousand ohms at 2 kHz). The traditional-Strat
+  bridge-pickup claim is standard vintage wiring and **the post explicitly hedges
+  that most Fenders built since the 1980s reassign the second tone pot to cover
+  the bridge**, and tells the reader to follow the wire. **No dB figures are
+  published.** Aeonic Frets' "roughly 2 to 3 dB" peak-height difference was
+  available and was deliberately not carried over — it is a single unsourced blog
+  figure, and the 09-04 no-measured-dB rule for this cluster stands. Vintage
+  Gibson pot tolerance was researched (nominal 500k, generally within ±10%) and
+  left out as not load-bearing. **No future run should add a dB figure here
+  without a bench.**
+  **Queue correction:** the AH1 row framed the 500k-brightens-and-worsens-the-
+  treble-bleed interaction as a single-coil issue. It is not specific to single
+  coils — it follows from the pot value alone and is *more* relevant to humbucker
+  players, which is what the post says.
+- **AI Overview:** likely present (definitional versus / should-I class); F&K not
+  cited. **Inferred from the query class and SERP composition, not observed** —
+  automated runs cannot see rendered AI Overviews.
+- Non-commodity gate: **PASS.** Checked against `treble-bleed-when-you-actually-need-one`
+  (source resistance below 10 — the boundary is now stated in both directions,
+  see the reciprocal link below), `modeler-input-impedance-setting-what-to-set-it-to`
+  (the load downstream of the guitar, same physics from the other side),
+  `does-cable-length-affect-tone` and `impedance-buffers-fuzz`. **Confirmed no
+  colliding slug — the site had no volume-pot-value post.**
+
+**Post 2 — volume-knob-cleanup-tube-amp-vs-modeler** (target: "guitar volume knob
+cleanup," "volume knob doesn't clean up modeler," "roll back volume amp breakup,"
+"why doesn't my modeler clean up")
+- **Top ranking:** Fractal Audio Systems Forum's *The "Modelers Don't Clean Up
+  with the Volume Knob" Myth* (two pages), TDPRI's *Using volume knob on tele to
+  clean up amp*, SevenString.org's *Line 6 helix volume knob question*, and
+  komposition101's *How to Volume Match Presets on the Line 6 Helix*.
+  **`faderandknob.com/blog/modeler-preset-sounds-different-live` already appears
+  in this result set** — we were present on the adjacent query and had no page on
+  this one.
+- **Gap confirmed, and it is the familiar shape: forum threads carrying the
+  mechanism in fragments across pages, plus one polished editorial result solving
+  a different problem** (komposition101 is preset-to-preset volume matching).
+  Absent across the top 5: (1) the **four-things-at-once decomposition** of what a
+  cranked amp does when you roll back — preamp drive, power-amp saturation,
+  treble loss against cable capacitance, and the acoustic loop; (2) the
+  **preamp-dominant-preset diagnosis**, which is the most actionable cause and
+  reframes the complaint as a preset-design problem rather than a modeling
+  shortfall; (3) the **redistribution table** (Drive down, Master up, Sag, Bias X)
+  as an ordered procedure rather than scattered tips; (4) an **honest statement of
+  which part is not fixable** on headphones, which the forum threads argue about
+  instead of conceding; (5) the **drive-block boundary** — a low-gain boost passes
+  dynamics through, a high-gain drive block flattens them before the amp model
+  sees them.
+- **Gate 1 notes.** **The acoustic-feedback mechanism is the post's load-bearing
+  claim and it is attributed in the body to the argument made on Fractal's own
+  forum.** The thread itself 403'd on fetch; the claim reached this run through a
+  search-result summary of that thread, so the post presents it as an argument we
+  find persuasive rather than as a Fractal-published specification. **No future
+  run should harden it into a measurement.** The Helix Master parameter as a
+  power-amp drive control is from Line 6 community documentation and helixhelp
+  (Sweetwater 403'd; komposition101 corroborated). The Sag direction — higher
+  equals more droop and bloom — was checked against our own `what-is-amp-sag`
+  table for consistency and matches. QC Master behaves equivalently. **The
+  numeric Drive / Master / Sag / Bias X ranges in the rebuild table are editorial
+  starting points, not manufacturer specifications, and the post frames them as a
+  starting point.**
+- **AI Overview:** likely present (troubleshooting / why class); F&K not cited on
+  this query, though we do rank organically on the adjacent
+  `modeler-preset-sounds-different-live` query. Inferred, not observed.
+- Non-commodity gate: **PASS.** Checked against `master-volume-vs-non-master-amp-breakup`
+  (where breakup comes from on real amps), `amp-gain-volume-master-controls` (R1 —
+  boundary now stated in both directions), `tube-amp-sounds-different-bedroom-volume`
+  (R2 — the new third-reason section is the shared mechanism),
+  `gain-staging-drop-tunings` and `level-match-modeler-presets`. **Confirmed no
+  colliding slug.**
+
+**Post 3 — nut-compensation-why-first-position-chords-play-sharp** (target: "first
+position chords sharp," "guitar sharp in first three frets," "nut compensation,"
+"Buzz Feiten tuning system")
+- **Top ranking:** Haze Guitars' *Guitar Hardware School: Nuts II — Compensated
+  Nuts*, Phil Hartley Guitar Repairs' *Nuts About Intonation* and Buzz Feiten
+  pages, setitupbetter.com's *Compensating The Nut* and *Nut Compensation
+  Products*, the Buzz Feiten Wikipedia entry, gstringuitars' Feiten review, and
+  TalkBass / UMGF / strat-talk threads.
+- **Gap confirmed, and the strongest single finding is what the best result does
+  not do.** Haze Guitars is the best-written page on the SERP and, verified by
+  direct fetch, **explicitly declines to explain why the early frets go sharp** —
+  it says only that inconsistencies "hang around the first few positions." The
+  rest of the page splits into vendor pages for the systems and luthier-forum
+  argument. Absent across the top 5: (1) the **quantified reason the saddle cannot
+  reach it** — on a 25.5-inch scale a saddle move flattens the 12th fret about
+  twice as much as the 1st, so the correction is shaped backwards; (2) the
+  **shelf-nut magnitude in cents** — a 0.020-inch offset is worth about 1.4 cents,
+  uniform at every fret — set against the roughly 5–6 cent perception threshold,
+  which is what turns the buy-or-not question into arithmetic; (3) the
+  **flat-correction-versus-curved-error framing** that explains why the Feiten
+  system needs three interventions (nut offset, altered saddle positions,
+  tempered tuning chart) rather than one; (4) the **ordered diagnostic** that
+  separates a high slot from nut position; (5) the **plain-G finding**, which ties
+  the nut end to the saddle end through core stiffness and is the Gate 5 moment.
+- **Gate 1 notes, including two queue corrections.** **The saddle 2:1 ratio and the
+  1.4-cents-per-0.020-inch figure are computed from scale-length geometry, not
+  measured, and the post presents them as arithmetic** (fret 12 at 12.75 in. and
+  fret 1 at about 24.07 in. from the saddle on a 25.5-in. scale). The per-string
+  sensitivity claim — the high E must be deflected about twice as far as the G for
+  the same pitch change — is Phil Hartley's and is cited as one luthier's
+  measurement. **The published per-string compensation figures genuinely disagree
+  by a factor of several** (setitupbetter's table runs to about 0.1 in. on the 6th
+  string; an acoustic rule of thumb amounts to about 0.020 in.), and **the post
+  reports the disagreement rather than picking a number. No future run should
+  resolve it from memory.** The Feiten over-compensation consequence — D, A and
+  high E can end up flat at the low frets — is Hartley's stated experience. The
+  5–6 cent perception threshold and the 3-cents-across-the-fingerboard best case
+  are general published figures presented as such. **The "tens of cents" figure
+  for a badly cut nut is deliberately loose**: the one concrete number found
+  (+20–40 cents) was on a newly built guitar with an essentially uncut nut, which
+  is not representative, and it was not carried into the post as a spec.
+  **Queue correction 1:** the AH3 row proposed the capo-at-the-first-fret test as
+  the primary diagnostic. A capo has its own height and its own stretch, so it
+  cannot isolate the variable cleanly. The post reorders the procedure — strings,
+  then slot depth, then remeasure, and only then the capo check — and states
+  explicitly that the capo result is directional, not a cents figure to correct
+  against.
+  **Queue correction 2:** the AH3 row described the mechanism as "the fretted-
+  length error is a fixed distance and the string gets shorter." That framing is
+  backwards for a fixed shortening, which produces a *larger* effect higher up the
+  neck. The real mechanism, and what the post says, is the **bend geometry**: near
+  the nut the string leaves a fixed point and drops to the fingerboard across
+  about an inch and a half, so the same deflection buys far more length change
+  than it does at the 12th fret. The error is largest at fret 1 and decays.
+- **AI Overview:** likely present (why / how-do-I class); F&K not cited. Inferred,
+  not observed.
+- Non-commodity gate: **PASS.** Checked against **all 12 nut posts on the site** —
+  slot depth, slot width, slot geometry, materials ×2, files, lube, pings, recut
+  binding, Floyd locking nut ×2 — **and none of them covers the nut's position**,
+  which is the variable this failure mode depends on. Also checked against
+  `floyd-rose-intonation-saddle-by-saddle` (whose FAQ raised this question and
+  handed the reader nothing) and `when-strings-go-false-string-age-and-intonation`.
+  **Confirmed no colliding slug.**
+
+### Refreshes
+
+Both refreshes are the posts the new work leans on hardest, and **both were
+missing `takeaways:`, frontmatter `faq:` and `updated:`, and both carried a
+broken generated `image_alt`.** Both keep their original byline (Hank Presswood).
+Refreshes do not count against the velocity cap.
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | amp-gain-volume-master-controls | **Full AEO backfill + content-add + a factual fix.** **Content-add — "The Control You Did Not Count":** the post explains gain, channel volume and master as three stages and never mentions the guitar's own volume knob, which is the first stage in that chain and the only one you can reach while playing. The new section explains why the gain distribution decides whether that knob does anything (cascaded preamp clipping stays pinned; power-amp clipping unwinds proportionally) and hands off to Post 2. Migrated the six body-level markdown FAQ answers to frontmatter `faq:` and removed the body section, adding 1 new Q&A on the volume-knob case. Added 5 takeaways. Replaced the broken generated `image_alt` (truncated mid-sentence at `a composition illustrating "How to Use Gain`). Trimmed a 222-char description. **Also corrected a persona-timeline error:** the post opened "In 1978, I watched a kid walk into my shop" and claimed "nearly fifty years" of amp work, for a writer born in 1969 whose shop ran 1994–2019. Reset to 1996 and the age claim removed. | It is the post Post 2 assumes the reader has read, and it was ending one stage short of the thing Post 2 is about. Stating the boundary in both directions keeps them complementary. |
+| R2 | tube-amp-sounds-different-bedroom-volume | **Legacy `<FAQ>` migration + a structural content-add.** Migrated the body `<FAQ questions={[...]}>` component to frontmatter `faq:` (5 Q&A preserved, 1 added on volume-knob range) and removed the component — one of the ~90 legacy posts on the migration list. **Content-add — "The Third Reason: The Room Stops Feeding You":** the post is framed around two reasons, Fletcher-Munson and the power-tube threshold, and both live inside the amp. The new section adds the acoustic loop between speaker and strings, explains that it contributes real gain while it is closed, and draws the consequence the post was missing — that your guitar's volume knob has less cleanup range at bedroom volume for reasons that have nothing to do with the amp. The "two reasons" framing sentence was rewritten to three. **Also qualified the existing modeler FAQ answer**, which recommended a modeler for bedroom practice without noting that a modeler at bedroom volume is missing the same loop. Added 5 takeaways, replaced the broken generated `image_alt`, trimmed a 212-char description. `updated: 2026-09-08`. | It was the post most likely to be read as a complete answer to "why does my amp sound different quiet," and it was missing the mechanism that Post 2 turned out to depend on. |
+
+**Reciprocal links added without redating** (a useful cross-link is not a refresh,
+and per the 06-10 cadence note we do not redate posts we did not substantively
+improve): `treble-bleed-when-you-actually-need-one` → Post 1 (the pot's second job
+as a load, which that post deliberately left alone), and
+`setting-nut-slot-depth-feeler-gauge-fret-rock-method` → Post 3 (what to do with
+the residue after the depth is on the number).
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 0, added 3 — **queue is flat again.** Bylines are best-fit
+> proposals; the executing run re-checks **both** velocity **and** the never-assign
+> list, and **verifies no colliding slug at build time**. All three were
+> collision-checked when queued and all three are clear. **Next run: Jess, Dev,
+> Nathan, Elena and fk-staff are at 0; everyone else is at 1.**
+>
+> **Two topics were researched, collision-checked, and dropped before queuing,**
+> which is worth recording so a future run does not re-derive them. (1) *Capo
+> intonation* — `capo-position-as-a-tone-decision` already carries a full "The
+> Intonation Cost" section. (2) *Why an in-tune guitar sounds wrong on certain
+> chords / equal temperament* — `tuning-two-guitars-to-each-other-not-the-tuner`
+> already covers cents thresholds and beating. Both would have been re-slices.
+> A drive-stacking topic was also considered and dropped against
+> `stacking-ts-and-klon-into-marshall`.
+>
+> **A note on this cluster.** AI closes the guitar-wiring-load cluster that Post 1
+> and the 09-04 treble-bleed post opened — after it, the load question is fully
+> answered from the volume side, the tone side and the input side, and a fourth
+> post would be a re-slice. AJ and AK leave the cluster entirely.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AI1 | tone-pot-at-10-what-it-still-loads | Your Tone Knob at 10 Is Still in the Circuit | "does the tone pot affect tone at 10," "no load tone pot," "remove tone pot brighter," "tone capacitor value guitar" | Jess Kowalski | 3 — Signal Chain | Post 1 established that the tone pot is a permanent parallel load above the tone cap's corner frequency, then moved on — it was a term in the arithmetic, not the subject. **The site has no tone-pot post at all** (checked: zero slugs match tone-pot, tone-cap, no-load or tone-control). The SERP is wiring-shop copy that treats "10" as out of circuit, which is false. Distinct content: what the cap is doing at 10 and why a bigger cap does not change that, what a no-load pot actually opens and at which detent, why the audible gain from removing the tone circuit is smaller on a guitar already loaded by a low input impedance downstream, and the honest verdict on whether the mod is worth the cavity time. **Gate 7 guard: this must stay about the load and the cap's corner. If it becomes a "guitar wiring mods" roundup it is a commodity page — drop it.** Jess's budget-mod, is-this-oversold lane; she is at 0 and trips none of her bans. **Confirmed no colliding slug.** |
+| AI2 | modeler-bias-and-bias-x-what-they-do | Bias and Bias X: The Two Modeler Parameters Nobody Sets | "helix bias x," "what does bias do on a modeler," "cold bias vs hot bias tone," "quad cortex bias parameter" | Sean Nakamura | 4 — Modeler Masterclass | Post 2 names Bias X as the parameter most directly responsible for soft playing coming out cleaner than hard playing, and does not explain it — the post is about the volume knob, not the parameter. The site has **three bias posts and all three are about real amp hardware biasing** (`cathode-bias-vs-fixed-bias`, `fixed-bias-rebiasing-guide`, plus the BBD trim post); the modeler parameter gets exactly one sentence anywhere on the site, in `power-tube-saturation-explained`. Distinct content: what operating point means in a modeled output stage, why Bias changes harmonic content while Bias X changes how that content moves with playing intensity, the values that produce touch response versus the values that produce a constant character, why Bias X does almost nothing when Master is low (same interaction Post 2 documents for Sag), and the Helix/QC/Fractal naming differences. **Gate 7 guard: must stay about the operating point. If it drifts into general power-amp behaviour it duplicates `what-is-amp-sag` and `power-tube-saturation-explained` — drop it.** Sean's modeler-parameter lane; he is at 1 with capacity. **Confirmed no colliding slug.** |
+| AI3 | one-amp-two-sounds-volume-knob-settings | One Amp, Two Sounds, No Pedals: Setting Up for the Knob | "clean and dirty from one amp no pedals," "guitar volume knob clean to crunch settings," "one channel amp two sounds," "edge of breakup settings" | Elena Ruiz | 2 — Settings Guides | Post 2 explains *why* the knob works or does not and stops at diagnosis; nothing on the site tells a player how to set an amp up so the knob is the channel switch. `master-volume-vs-non-master-amp-breakup` explains where breakup comes from and is not a settings recipe. **This also serves the standing pillar imbalance** — the queue keeps refilling Gear Lab and Signal Chain while Pillars 1 and 2 stay under-weighted. Distinct content: the exact amp settings that put the dirt where the knob can reach it, the two knob positions to build against and how to check the gap is wide enough, the guitar-side variables that decide how much range you get (pot value, cable length, pickup output — the payoff of Post 1), what to do when the clean side is too quiet to gig, and the modeler translation. **Gate 7 guard: must ship exact settings and knob positions. If it becomes a philosophy piece about minimal rigs it is both a commodity page and Carl's lane, not Elena's — drop it.** Elena's constraint-embracing lane and she is at 0. **Confirmed no colliding slug.** |
+
+**Human-in-the-loop debt: still two items, unchanged, and this run added none.**
+(1) The Y1 measured per-block latency table in `modeler-latency-budget-per-block-cost`.
+(2) The complete Helix In-Z menu enumeration for `modeler-input-impedance-setting-what-to-set-it-to`.
+Both become **refreshes** of an existing URL when they land, and **neither may be
+filled in from memory by an automated run.** Today produced one *declined*
+measurement rather than a new debt item: the 2–3 dB peak-height difference between
+250k and 500k that Aeonic Frets asserts. It is not in Post 1, so there is nothing
+to upgrade — a bench would let us publish it for the first time, which is a
+different and lower-priority thing than correcting something already shipped.
