@@ -1664,5 +1664,35 @@
     "completePlatforms": [],
     "droppedCount": 5,
     "substitutedCount": 10
+  },
+  "hansen-a-tale-that-wasnt-right-lead": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 3,
+    "substitutedCount": 6
+  },
+  "hansen-im-alive-riff": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 2,
+    "substitutedCount": 8
+  },
+  "howe-roundabout-lead": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 3,
+    "substitutedCount": 7
+  },
+  "howe-siberian-khatru-riff": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 3,
+    "substitutedCount": 8
+  },
+  "hackett-moonlit-knight-tapping": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 2,
+    "substitutedCount": 10
   }
 }
