@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-09-06
-**Recipes:** 225
-**Clean (no errors, no warns):** 225
+**Date:** 2026-09-09
+**Recipes:** 230
+**Clean (no errors, no warns):** 230
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,8 +16,8 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `settings-outside-unverified-range` | info | 225 / 225 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
-| `katana-kemper-multidrive-default-off` | info | 30 / 225 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `settings-outside-unverified-range` | info | 230 / 230 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
+| `katana-kemper-multidrive-default-off` | info | 30 / 230 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -503,6 +503,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `hackett-moonlit-knight-tapping` — ✓ clean
+
+*Genesis's Dancing with the Moonlit Knight Tapping Tone*
+
+Passes every rule.
+
 ### `hammett-fade-to-black-clean-wah-solo` — ✓ clean
 
 *Kirk Hammett's Fade to Black Clean Intro and Wah Solo*
@@ -512,6 +518,18 @@ Passes every rule.
 ### `hammond-last-nite-riff` — ✓ clean
 
 *Hammond's Last Nite Riff Tone*
+
+Passes every rule.
+
+### `hansen-a-tale-that-wasnt-right-lead` — ✓ clean
+
+*Helloween's A Tale That Wasn't Right Lead Tone*
+
+Passes every rule.
+
+### `hansen-im-alive-riff` — ✓ clean
+
+*Helloween's I'm Alive Riff Tone*
 
 Passes every rule.
 
@@ -608,6 +626,18 @@ Passes every rule.
 ### `hottinger-love-bites-solo` — ✓ clean
 
 *Love Bites (So Do I) Solo Tone*
+
+Passes every rule.
+
+### `howe-roundabout-lead` — ✓ clean
+
+*Yes's Roundabout Electric Lead Tone*
+
+Passes every rule.
+
+### `howe-siberian-khatru-riff` — ✓ clean
+
+*Yes's Siberian Khatru Riff Tone*
 
 Passes every rule.
 
