@@ -6203,3 +6203,187 @@ measurement rather than a new debt item: the 2–3 dB peak-height difference bet
 250k and 500k that Aeonic Frets asserts. It is not in Post 1, so there is nothing
 to upgrade — a bench would let us publish it for the first time, which is a
 different and lower-priority thing than correcting something already shipped.
+
+---
+
+## SERP Analysis — 2026-09-11 (3 new posts + 2 refreshes)
+
+### Posts published: tone-pot-at-10-what-it-still-loads, modeler-bias-and-bias-x-what-they-do, one-amp-two-sounds-volume-knob-settings
+
+Drained AI1, AI2 and AI3 from the 09-08 queue. **All three bylines taken as
+proposed** — velocity was clear (Jess 0, Sean 1, Elena 0) and each never-assign
+list was rechecked. **One scope adjustment on AI3:** the queued row asked for a
+"what to do when the clean side is too quiet to gig" section, and live/gigging
+guides are on Elena's never-assign list. The section shipped as a general
+level-drop section with no stage framing. Post-run velocity: Sean 2, everyone
+else who posted this week at 1; nobody near the cap.
+
+**Post 1 — tone-pot-at-10-what-it-still-loads** (Jess Kowalski; target: "does the
+tone pot affect tone at 10," "no load tone pot," "remove tone pot brighter," "tone
+capacitor value guitar")
+- **Top ranking:** Seymour Duncan forum *No load tone pots. Do they really make a
+  difference?*, two TDPRI threads (*How is no-load different to tone on 10?*, *No
+  Load Tone Pot*), Kemper forum *Removing Tone control*, Guitar Sauce *What are
+  No-Load Guitar Tone Pots?*, MyLesPaul *Tone knob on full vs no tone pot*, Dylan
+  Talks Tone *No load tone Pots*.
+- **Gap confirmed by direct fetch of the best editorial result (Dylan Talks
+  Tone):** it states the pot at 10 still has resistance to ground and that
+  bypassing gives "a jump in perceived volume" — and **explicitly has no numbers,
+  nothing on the parallel arithmetic with the volume pot, nothing on cable or
+  downstream input impedance.** The rest of the SERP is forum argument
+  ("subtle" vs "night and day") with no mechanism for why both camps are right.
+  Absent across the top 5: (1) the **cap-corner table** proving the cap value is
+  irrelevant at 10 (29 Hz for 250k/0.022 µF, 14 Hz for 0.047 µF, both under the
+  82 Hz low E); (2) the **111k → 200k load arithmetic**, and the Gate 5 finding
+  that on a Strat the no-load is a *bigger* change than a 250k→500k volume-pot
+  swap (111k → 143k); (3) the observation that a no-load on the neck tone gives
+  the neck position the traditional Strat bridge-pickup load; (4) the
+  **downstream table** (1.8× / 1.5× / 1.2× at 1M / 230k / 70k) that explains the
+  forum split; (5) a **free, reversible audition procedure** before buying the
+  part.
+- **Gate 1 notes.** Every figure is computed from stated component values, not
+  measured, and the post presents them as arithmetic. Tone-0 honk frequencies
+  (about 680–760 Hz for a 0.022 µF cap and 460–520 Hz for 0.047 µF on single
+  coils) are computed from the same 1.8–2.5 H single-coil inductance range the
+  09-08 post used, and are stated as approximate ranges. **No dB figures, no
+  prices.** Tele row is phrased conditionally ("a Tele with 250k pots") because
+  Tele pot values vary by era. **No future run should add a dB figure for the
+  no-load change without a bench.**
+- **AI Overview:** likely present (does-X / definitional class); F&K not cited.
+  Inferred from query class, not observed.
+- Non-commodity gate: **PASS.** Checked against `volume-pot-value-250k-vs-500k-what-it-loads`
+  (the load arithmetic's home — this post takes the tone pot as the variable, which
+  that post treated as one term), `treble-bleed-when-you-actually-need-one`,
+  `single-pickup-guitar-logic`. **Confirmed no colliding slug** (zero tone-pot,
+  tone-cap, no-load or tone-control slugs at build time).
+
+**Post 2 — modeler-bias-and-bias-x-what-they-do** (Sean Nakamura; target: "helix bias
+x," "what does bias do on a modeler," "cold bias vs hot bias tone," "quad cortex bias
+parameter")
+- **Top ranking:** Sweetwater InSync *Understanding Helix Amp Parameters*, Line 6
+  Model Citizens blog (Dave Hunter, *What's Behind the Sag, Bias, and Bias X
+  Controls*), two Line 6 Community threads, The Gear Forum, komposition101,
+  helixhelp.com *Common Amp Settings*, Tone Architects *Cleaning Up Your Amps
+  Using the Bias Parameter*.
+- **Gap confirmed, and it is a contradiction the SERP never resolves.** Dave
+  Hunter's piece (fetched) says hot bias gives an easier onset of distortion; the
+  Tone Architects page (fetched) says raise Bias to 7.0–8.5 to clean a preset up,
+  and admits shallow knowledge of the class A/AB mechanism. **Both are right at
+  different signal levels** — crossover distortion is proportionally largest on
+  quiet notes, so hotter bias cleans the quiet end and clips the loud end sooner.
+  That reconciliation is the post's non-commodity core and appears in no top-5
+  result. Also absent: (2) the **Master gate** stated as the reason both
+  parameters appear to do nothing (helixhelp states it in one line, nobody builds
+  on it); (3) a **set-in-this-order procedure** with reamping to remove the
+  picking hand as a variable; (4) a **cross-platform map** (Helix / Fractal /
+  Kemper / QC) that is honest about the QC.
+- **Gate 1 notes, including one correction to our own site.** Bias semantics
+  (lower = colder Class AB, maximum = Class A) and the Master interaction are from
+  helixhelp.com's parameter reference; Bias X as bias excursion is from Line 6's
+  own blog. Fractal names (Power Tube Bias, Master Bias Excursion, default usually
+  100% with some models 0%) and blocking distortion are from Fractal's Blocks
+  Guide / forum via search summaries — **the Fractal wiki 403'd on direct fetch.**
+  Kemper Tube Bias is described from the Kemper manual as surfaced in search, and
+  the post says it is the closest analog, not identical. **QC: the Neural DSP
+  manual (4.1.0, fetched) does not enumerate amp parameters, and both search
+  summaries asserting a QC Sag control were citing `faderandknob.com/blog/what-is-amp-sag`
+  — i.e., us.** The post therefore says the QC manual documents no equivalent and
+  that we could not confirm one. **Circular-sourcing warning for future runs:
+  search summaries in this cluster now echo our own pages; do not treat a
+  summary as independent confirmation without the underlying URL.** The Bias
+  default "5" is cited as commonly cited (Tone Architects), not as a Line 6 spec.
+  The starting-values table is framed as editorial starting points.
+- **AI Overview:** likely present (what-does-X-do class); F&K not cited on this
+  query. Inferred, not observed.
+- Non-commodity gate: **PASS.** Checked against `power-tube-saturation-explained`
+  and `what-is-amp-sag` (both refreshed today to hand off to this post rather than
+  duplicate it), `cathode-bias-vs-fixed-bias`, `fixed-bias-rebiasing-guide`,
+  `class-a-vs-class-ab-amp` (all real-hardware), and `volume-knob-cleanup-tube-amp-vs-modeler`
+  (which named Bias X and did not explain it — reciprocal link added). Stayed on
+  the operating point per the AI2 Gate 7 guard. **Confirmed no colliding slug.**
+
+**Post 3 — one-amp-two-sounds-volume-knob-settings** (Elena Ruiz; target: "clean and
+dirty from one amp no pedals," "guitar volume knob clean to crunch settings," "one
+channel amp two sounds," "edge of breakup settings")
+- **Top ranking:** American Musical Supply *What Is "Edge of Breakup"*, TDPRI
+  *Edge of breakup?*, Gearspace *Edge of Breakup*, MyLesPaul *Solid State Amp
+  Breakup*.
+- **Gap confirmed: the SERP defines edge of breakup and stops.** The AMS article
+  and the threads all give the same instruction — set the amp at the edge, use
+  your hands and volume knob — with no numbers and no procedure. Absent across the
+  top 5: (1) the **set-it-from-the-clean-side procedure** (guitar at 7, raise the
+  amp to first grain, then 10), which is the Gate 5 reversal — setting the edge at
+  10 leaves a limp clean at ~5; (2) the **three-outcome gap check**; (3)
+  **per-amp starting points** including a master-volume amp and a Katana; (4) the
+  **guitar-side variables** (pot value, cable, pickup output, tone pot) linked into
+  the load cluster; (5) the **headphone caveat** from the 09-08 acoustic-loop
+  argument and a modeler translation.
+- **Gate 1 notes.** Deluxe Reverb numbers were reconciled against our own
+  `fender-deluxe-reverb-settings` post (edge of breakup at 5–6 with the guitar full
+  up; humbuckers 1.5–2 positions lower), and this post deliberately sits a notch
+  above that because it sets the clean at 7. The table notes the Deluxe Reverb has
+  **no middle control**. Helix model names (US Deluxe Vib, Brit Plexi, Essex A30)
+  were checked against existing site usage. **The acoustic-loop mechanism is
+  stated as "part of" what a loud amp loses, and links to the 09-08 source post
+  rather than hardening it into a measurement** (per that run's standing rule).
+  Katana starting point is a clock position, framed as a starting point.
+- **AI Overview:** likely present (how-to class); F&K not cited. Inferred, not
+  observed.
+- Non-commodity gate: **PASS.** Checked against `master-volume-vs-non-master-amp-breakup`
+  (mechanism, not settings), `clean-headroom-fender-amp-chords-dont-break-up`
+  (maximizing headroom — the opposite goal), `fender-deluxe-reverb-settings`
+  (per-style settings for one amp, no knob procedure), and
+  `volume-knob-cleanup-tube-amp-vs-modeler` (diagnosis, not setup). Serves the
+  standing Pillar 2 imbalance. **Confirmed no colliding slug.**
+
+### Refreshes
+
+Both refreshes are the posts AI2 leans on, and **both were missing `takeaways:`,
+frontmatter `faq:` and `updated:`, and both carried a broken generated
+`image_alt`** (`a composition illustrating "…"`). Original bylines kept (fk-staff,
+Hank Presswood). `updated: 2026-09-11` on both.
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | what-is-amp-sag | **Legacy `<FAQ>` migration + four factual corrections + two content-adds.** Migrated the body `<FAQ questions={[...]}>` (5 Q&A) to frontmatter and added 1 new Q&A on Master; added 5 takeaways; fixed `image_alt`; trimmed a 250-char description. **Corrections:** (1) the QC section claimed a Sag parameter under Advanced — **unverifiable, and the web now cites this page as the source**; rewritten to say the manual doesn't document one, that an earlier version said otherwise, and what is certain about Captures; (2) "Modelers by default: zero sag" replaced with check-the-value (defaults vary); (3) the Tube Screamer palm-mute paragraph attributed the tightening to the pedal "buffering" the sag response — rewritten to the actual mechanism, the pedal's low cut; (4) Fractal's parameter is **Supply Sag** (supply impedance), not "Supply Impedance control," with Fractal's 2 / 4–6 rectifier guidance; also replaced an unsourced "5V to 30V" droop figure with a qualitative range. **Content-adds:** a "Sag Needs Master" section (the reason the Sag table does nothing on preamp-dominant presets) and a "Sag vs. Bias X" section handing off to Post 2; Kemper Power Sagging added for cross-platform coverage. | It is the site's Sag reference and was being quoted back to us by search summaries on the one claim we could not stand behind. |
+| R2 | power-tube-saturation-explained | **Internal-contradiction fix + modeler rewrite + AEO backfill.** The summary table said power tubes give "more even-order harmonics (warm, musical, full)" while the body correctly said push-pull cancels even orders — **the table contradicted the article.** The body also said asymmetric single-ended preamp clipping produces "significant odd-order content," which is backwards (asymmetry is what *generates* even harmonics; a lightly driven triode is second-harmonic dominant). Both corrected, and the "odd vs even" shorthand is now called out as close to backwards for most amps. **Modeler section rewritten:** removed the unverified claim that the QC has power-tube parameters; added Helix Master as the power-amp drive control that gates Sag/Bias/Bias X, Fractal and Kemper equivalents, and a link to Post 2. Migrated the 3 body-markdown FAQs to frontmatter (fixing the one repeating the even-order claim) and added 2; added 5 takeaways; fixed `image_alt`; cleared 4 Gate 6 hits (bare "warm"/"musical"/"rich"). | The post was teaching the harmonic folklore it set out to correct, in its own first table — the first thing a reader or an answer engine extracts. |
+
+**Corrections without redating** (a correction to a days-old post is not a
+refresh): `volume-pot-value-250k-vs-500k-what-it-loads` — the downstream table's
+230k and 70k rows **double-counted a 1M amp input in parallel with the modeler's
+input impedance** (the modeler input *replaces* the 1M). Corrected 75k/107k/1.4× →
+81k/120k/1.5× and 43k/52k → 45k/55k. Also added a reciprocal link to Post 1.
+`volume-knob-cleanup-tube-amp-vs-modeler` — "Bias X" now links to Post 2.
+
+**New refresh debt, TOP PRIORITY next run:** `fender-deluxe-reverb-settings` lists a
+**Middle** control in its Edge of Breakup table (and possibly elsewhere). The '65
+Deluxe Reverb has Volume, Treble and Bass only (plus Reverb, Speed, Intensity on
+Vibrato). Found while reconciling Post 3's numbers; not fixed today to keep scope.
+Audit the whole post for the phantom Mid control, including the Quick-Start table.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 0, added 3 — **queue is flat.** Bylines are best-fit
+> proposals; the executing run re-checks velocity **and** the never-assign list, and
+> **verifies no colliding slug at build time**. All three collision-checked when
+> queued. **Next run: Dev, Nathan, Margot, Carl, Rick, Viktor, Hank at 0–1; Sean
+> at 2 — don't give Sean a third.**
+>
+> **This closes the load cluster.** With Post 1, the pickup-load question is
+> answered from the volume pot, the tone pot, the cable and the input side. AJ1 is
+> the tone knob's *other* half (below 10), which is a different question, not a
+> fourth load post. AJ2 and AJ3 leave the cluster.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AJ1 | tone-knob-bottom-third-cap-value | Where Your Tone Knob Actually Does Something | "0.022 vs 0.047 tone cap," "tone knob at 0 honk," "woman tone settings," "tone cap value difference" | Margot Thiessen | 3 — Signal Chain | Post 1 proved the cap value is irrelevant at 10 and stopped at one paragraph on where it matters: the resonance between the cap and the pickup's inductance near 0. Distinct content: computed honk frequency by cap value and pickup type (single coil ~680–760 Hz at 0.022 µF, ~460–520 Hz at 0.047 µF; humbucker lower), why the useful range of most tone knobs is the bottom third, the tone knob as a performance control on a neck pickup for jazz and clean parts (Margot's lane), and what a cap swap audibly changes and doesn't. **Gate 7 guard: must ship the honk-frequency table and knob positions. If it becomes a "vintage cap" roundup (oil-in-paper, bumblebee) it is a commodity page — drop it.** Any "woman tone" attribution to a specific player needs Grade A/B sourcing. **Confirmed no colliding slug.** |
+| AJ2 | ambient-guitar-and-keys-pad-who-gets-which-octave | Ambient Guitar and the Keys Pad: Who Gets Which Octave | "worship guitar clashing with keys," "ambient guitar muddy with pad," "guitar and keyboard frequency space worship" | Nathan Cross | Worship / Helix (target segment) | The site covers the missing-keys-player case (`synth-pad-guitar-no-keyboard-freeze-hold`) and never covers the far more common one: a keys player *and* an ambient guitarist both holding sustained sounds. Distinct content: an octave/frequency allotment between pad and guitar, voicing choices (upper-structure triads, capo) that move the guitar out of the pad's range, Helix EQ/high-cut/low-cut block settings for the ambient snapshot, and reverb pre-delay as a separation tool. **Gate 7 guard: must ship concrete EQ corners and voicing examples. A generic "leave space in the mix" piece fails.** Nathan is at 0 and this is squarely the SEO target segment. **Confirmed no colliding slug** (checked keys/pad/mix slugs and keys mentions in the worship posts). |
+| AJ3 | reamp-comparisons-what-they-cant-test | What a Reamp Comparison Can't Tell You | "reamp to compare presets," "helix reamp settings," "is reamping accurate," "reamp input impedance" | Dev Okonkwo | 4 — Modeler Masterclass | Post 2 recommends reamping a DI to take the picking hand out of a comparison. The trap nobody states: a DI is recorded **after** the pickup has been loaded by the recording input, so a reamp comparison cannot audition anything on the input side — In-Z, the tone pot (Post 1), the volume knob, cable length, a fuzz's input loading. Distinct content: which comparisons reamping is valid for (everything from the first block onward) and which it silently invalidates, the recording-input impedance to use for an honest DI, and reamp level matching. The three existing reamp posts are about the routing mechanics (reamp box, cab-sim pedal, effects loop) and none covers this. **Gate 7 guard: must stay about validity of comparisons. If it becomes a reamping how-to it duplicates the existing three — drop it.** Dev is at 0. **Confirmed no colliding slug.** |
+
+**Human-in-the-loop debt: unchanged at two items, and this run added none.** (1) The
+Y1 measured per-block latency table in `modeler-latency-budget-per-block-cost`. (2)
+The complete Helix In-Z menu enumeration for `modeler-input-impedance-setting-what-to-set-it-to`.
+Neither may be filled in from memory by an automated run. **Declined today, recorded
+so nobody re-derives them:** a dB figure for the no-load change, factory default
+values for Helix Sag per model, and any QC power-amp parameter list — all three
+need the hardware or an authoritative document, and none was available.

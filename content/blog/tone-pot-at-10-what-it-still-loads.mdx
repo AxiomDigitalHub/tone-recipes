@@ -1,0 +1,170 @@
+---
+title: Your Tone Knob at 10 Is Still in the Circuit
+description: >-
+  Full up is not out of the circuit. What a tone pot at 10 still loads, why the
+  cap value doesn't matter there, and when a no-load pot is worth the solder.
+date: '2026-09-11'
+author_slug: jess-kowalski
+category: signal-chain
+tags:
+  - guitar-wiring
+  - tone-knob
+  - no-load-pot
+  - tone-capacitor
+  - pickups
+  - impedance
+  - signal-chain
+takeaways:
+  - >-
+    A standard tone pot at 10 still hangs its full resistance across your
+    pickup. At guitar frequencies the capacitor behind it is close to a wire, so
+    the whole branch acts like a plain resistor to ground.
+  - >-
+    The cap value does nothing at 10. A 250k pot with a 0.022 µF cap has its
+    corner near 29 Hz, and a 0.047 µF cap moves it to about 14 Hz — both below
+    the open low E at 82 Hz.
+  - >-
+    On a Strat or Tele with 250k pots into a 1M input, taking the tone pot out
+    moves the load on the pickup from about 111k to about 200k. That is a bigger
+    change than swapping the volume pot from 250k to 500k.
+  - >-
+    What sits downstream decides whether you hear it. With a Tube Screamer or a
+    fuzz first in the chain, the same change shrinks from 1.8× to roughly 1.5×
+    and 1.2×.
+  - >-
+    Audition it for free before buying a no-load pot: lift the wire feeding the
+    tone pot, play through your real rig, and put it back if you can't hear it.
+faq:
+  - q: Does the tone knob affect my tone when it's on 10?
+    a: >-
+      Yes. A standard tone pot at 10 still connects its full resistance to
+      ground through the tone cap, and at guitar frequencies that cap is close
+      to a short. So the pot is a permanent load in parallel with your volume
+      pot, damping the height of the pickup's resonant peak even if you never
+      touch it.
+  - q: What does a no-load tone pot actually do?
+    a: >-
+      It behaves like a normal pot for almost all of its travel, then
+      disconnects itself at a detent on 10. At that last click the tone circuit
+      is gone and the pickup sees only the volume pot and whatever you are
+      plugged into. Everywhere below 10 it is a standard tone control.
+  - q: Will a bigger tone capacitor make my guitar darker at 10?
+    a: >-
+      No. At 10 the cap's corner frequency sits below the lowest note on the
+      guitar — about 29 Hz for 0.022 µF on a 250k pot, about 14 Hz for 0.047 µF.
+      The cap value only matters as you turn the knob down, where it sets how
+      low the tone knob's honk lands.
+  - q: Is a no-load pot worth it on a guitar with humbuckers?
+    a: >-
+      Less often. A humbucker's resonant peak already sits low, around 2 to 2.5
+      kHz, and a lighter load makes that bump taller rather than adding air
+      above it. On single coils played at 10 into a clean amp or a 1M input, it
+      is one of the more audible cheap mods there is.
+  - q: Why can't I hear any difference after removing my tone pot?
+    a: >-
+      Usually because something downstream is already loading the pickup harder
+      than the pot was. A fuzz first in the chain, a Tube Screamer, or a modeler
+      input impedance set low all sit in parallel with your pots and flatten the
+      difference. Audition the change through the rig you actually play.
+image: /images/blog/tone-pot-at-10-what-it-still-loads.jpg
+image_alt: >-
+  A humbucker and tune-o-matic bridge photographed flat on pastel color blocks, with a coiled cable, confetti and a paper plane around them
+---
+
+Turning the tone knob to 10 takes it out of the circuit. Everybody knows that, and it's wrong. At 10 a standard tone pot is still hanging its full 250k or 500k across your pickup, and on a Strat that one part is loading the pickup about as hard as the volume pot is.
+
+That's the whole reason no-load pots exist. It's also why the forum threads about them never settle. Some people pull the tone circuit and hear the guitar wake up. Some people hear nothing. Both are telling the truth, and the difference is almost never the guitar.
+
+## Quick Answer
+
+| Question | Short answer |
+|---|---|
+| Is the tone pot doing anything at 10? | Yes. Its full resistance goes to ground, in parallel with the volume pot. |
+| Does the cap value matter at 10? | No. The cap's corner sits around 29 Hz or lower, under your low E. |
+| What does a no-load pot change? | At the final click the tone circuit leaves. A Strat neck pickup into a 1M input goes from about 111k of load to about 200k. |
+| Will I hear it? | Single coils into a clean amp or a 1M modeler input: yes. A fuzz or Tube Screamer first in the chain: much less. |
+| Is it worth doing? | Single coils on 10 most of the time, yes. Humbuckers, or you ride the tone knob, probably not. |
+
+## What the Pot Is Doing at 10
+
+A tone control is a pot and a capacitor in series, running from the hot signal to ground. Turn it down and the pot's resistance drops, the cap gets a straighter path to ground, and treble drains away through it. Turn it up and the resistance rises to the pot's full value.
+
+Full value. Not infinity. At 10 a 250k tone pot is 250k to ground, and that's the part that gets lost.
+
+Now the cap. A capacitor's opposition to AC falls as frequency rises, and there's a corner where it matches the pot. Below the corner the cap dominates. Above it the cap is basically a wire, and the branch is just the pot. For the usual parts:
+
+| Tone pot | Cap | Corner frequency |
+|---|---|---|
+| 250k | 0.022 µF | about 29 Hz |
+| 250k | 0.047 µF | about 14 Hz |
+| 500k | 0.022 µF | about 14 Hz |
+| 500k | 0.047 µF | about 7 Hz |
+
+Your open low E is 82 Hz. Every note you will ever play sits above every one of those corners. So at 10 the tone circuit is a plain resistor to ground, and **the cap value is irrelevant.** Swapping a 0.022 for a 0.047 changes nothing you can hear with the knob up. People buy "vintage" caps to fix a guitar that sounds wrong at 10 all the time. At 10, the cap is invisible.
+
+Where the cap does matter is the bottom of the sweep. With the knob near 0, the cap and the pickup's inductance form a resonance of their own — the honk. Run the numbers on typical single-coil inductance and a 0.022 µF cap puts that honk somewhere around 680 to 760 Hz; a 0.047 µF cap drops it to roughly 460 to 520 Hz. Different cap, different honk. Not a different 10.
+
+## The Arithmetic Nobody Does
+
+Every resistance to ground adds in parallel, and the tone pot is one of them. The full version of this is in [what your volume pot value actually loads](/blog/volume-pot-value-250k-vs-500k-what-it-loads). Here it is with the tone pot as the variable:
+
+| Guitar and position | Tone pot at 10 | No-load at 10 |
+|---|---|---|
+| Strat neck pickup, 250k volume + 250k tone, 1M input | about 111k | about 200k |
+| Tele with 250k pots, 1M input | about 111k | about 200k |
+| Les Paul, one pickup selected, 500k + 500k, 1M input | about 200k | about 333k |
+
+Here's what I didn't expect. I'd always filed the no-load pot as the placebo mod and the pot-value swap as the real one. On a Strat it's backwards. Swap the volume pot from 250k to 500k and keep the 250k tone pot, and the load goes from 111k to about 143k. Pull the tone circuit instead and it goes to 200k. The "subtle" mod is the bigger one.
+
+It also lands on a familiar number. A traditionally wired Strat bridge pickup has no tone pot on it at all, so it has always run at about 200k. A no-load on the neck tone pot, parked at 10, gives the neck position the same load the bridge has had since 1954. That's what you're buying: a taller resonant peak, a touch more level, and a neck pickup that moves a little toward the glassy "Every Breath You Take" side of the sound and a little away from the blanket-over-the-cab side.
+
+## What Your Rig Does to the Result
+
+This is where the forum threads split. The pot is one resistor in a stack, and whatever you plug into is another one.
+
+| First thing in your chain | Strat, tone pot at 10 | No-load at 10 | Difference |
+|---|---|---|---|
+| 1M (clean amp, or an amp model first) | about 111k | about 200k | 1.8× |
+| 230k (a Tube Screamer, or a model of one) | about 81k | about 120k | 1.5× |
+| 70k (a germanium fuzz, or a model of one) | about 45k | about 55k | 1.2× |
+
+A fuzz first in the chain is already loading your pickup harder than both pots put together — which is most of what a fuzz first in the chain even sounds like, and [impedance and fuzz](/blog/impedance-buffers-fuzz) has the long version. On a modeler it's a menu setting. If your preset opens with a drive block and the input impedance is on Auto, the guitar is seeing that block's impedance, not 1M. Our [modeler input impedance guide](/blog/modeler-input-impedance-setting-what-to-set-it-to) covers where the setting lives on each platform. Check it before you pick up a soldering iron. It's free.
+
+Running an HX Stomp straight to the PA with a drive model up front, this is the difference between a mod you notice every night and one you forget you did.
+
+## The Click at 10
+
+A no-load pot is a normal pot for almost all of its travel. At the top there's a detent, and at that final click it disconnects itself.
+
+Which means the whole change happens in one click — full resistance to open circuit. Some players hear that as a small jump in level and top end right at 10, and it bugs them. The workaround is simple: live at 10 or live at 9. Nine on a no-load pot is a standard tone pot at 9. That's not a compromise position. That's the old guitar.
+
+What it won't touch: the darkening when you roll the *volume* back. That's the volume pot working against your cable capacitance, and the fix is a [treble bleed](/blog/treble-bleed-when-you-actually-need-one), not anything on the tone side.
+
+## Try It Before You Buy It
+
+You can hear this for free, and you should, because the answer depends on your rig and not on anyone else's.
+
+1. Pull the pickguard or open the control cavity.
+2. Find the wire that feeds the tone pot. On a Strat it comes from the selector switch; on a Les Paul, from the volume pot.
+3. Unsolder that one end, tape it off so it can't touch anything, and put the guitar back together enough to play.
+4. Play through the rig you actually use — same amp or preset, same cable, same first pedal.
+5. Put it back if you can't hear it.
+
+Ten minutes, fully reversible, and it tells you exactly what a no-load pot will do (minus the tone knob). If you can't hear the difference through your real chain, you just saved yourself a part and an evening.
+
+## The Verdict
+
+Worth it: single coils, knob on 10 most of the night, into a clean amp or a modeler input at 1M. It's one of the few cheap mods that moves the pickup more than a pot-value swap does.
+
+Probably not: humbuckers. Their peak is already down around 2 to 2.5 kHz, so a lighter load makes that bump taller instead of adding air above it. On a guitar that already reads as honky, that's the wrong direction.
+
+Skip it: if you ride the tone knob. A no-load only changes the last click, and you'll spend the set below it anyway.
+
+And if the first block in your preset is a fuzz, save the solder. The fuzz already made this decision for you.
+
+<SaveThisTone
+  title="Pick a tone to chase"
+  description="Every recipe in the catalog has the chain, exact settings, and a preset for Helix or Katana."
+  href="/browse"
+  ctaLabel="Browse the catalog"
+/>

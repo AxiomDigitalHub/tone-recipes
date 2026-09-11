@@ -116,7 +116,7 @@ So when someone says a 500k pot is brighter, what they mean is that a lighter lo
 
 Now the arithmetic, and it is the part that explains why so many pot swaps underdeliver.
 
-Resistances to ground add in parallel, and there are always more of them than the one you are thinking about. The tone pot is the one people forget. Its capacitor is a near short circuit at the frequencies where your resonant peak lives — a 0.022 µF cap is only a few thousand ohms at 2 kHz — so above the tone control's corner, that pot is functionally a second resistor straight to ground, with the knob on 10 and doing nothing you can hear. It is still loading you. Then the amp's input impedance, typically 1M, sits in parallel with both.
+Resistances to ground add in parallel, and there are always more of them than the one you are thinking about. The tone pot is the one people forget. Its capacitor is a near short circuit at the frequencies where your resonant peak lives — a 0.022 µF cap is only a few thousand ohms at 2 kHz — so above the tone control's corner, that pot is functionally a second resistor straight to ground, with the knob on 10 and doing nothing you can hear. It is still loading you — and taking it out entirely is a bigger change than most pot swaps, which [the tone pot piece](/blog/tone-pot-at-10-what-it-still-loads) works through. Then the amp's input impedance, typically 1M, sits in parallel with both.
 
 Run the numbers on the two guitars everybody argues about:
 
@@ -174,8 +174,8 @@ The pot's load only matters in proportion to everything else in parallel. Change
 | First block / input impedance | 250k guitar becomes | 500k guitar becomes | Difference |
 |---|---|---|---|
 | 1M (amp model, or a modern amp) | about 111k | about 200k | 1.8× |
-| 230k (a Tube Screamer model) | about 75k | about 107k | 1.4× |
-| 70k (a germanium fuzz model) | about 43k | about 52k | 1.2× |
+| 230k (a Tube Screamer model) | about 81k | about 120k | 1.5× |
+| 70k (a germanium fuzz model) | about 45k | about 55k | 1.2× |
 
 Put a fuzz at the front of the chain and your pot value has nearly stopped mattering, because the fuzz is loading your pickup an order of magnitude harder than the pot ever did — which, as our [impedance and fuzz](/blog/impedance-buffers-fuzz) piece covers, is most of what a fuzz first in the chain even sounds like. The same is true for anyone running a Helix or Fractal with In-Z on Auto and a drive model at the front of the preset. You are already loaded. Rewiring the guitar to change the load by twenty percent is not going to be the revelation you were promised.
 

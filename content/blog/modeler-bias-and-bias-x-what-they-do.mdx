@@ -1,0 +1,179 @@
+---
+title: 'Bias and Bias X: The Two Modeler Parameters Nobody Sets'
+seo_title: 'Helix Bias and Bias X: What They Actually Do'
+description: >-
+  Bias sets where the virtual power tubes idle. Bias X sets how far that point
+  moves when you dig in. What each one does, why Master gates both, and where to
+  start.
+date: '2026-09-11'
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - helix
+  - bias-x
+  - amp-bias
+  - modeler
+  - power-amp
+  - crossover-distortion
+  - fractal
+  - kemper
+takeaways:
+  - >-
+    Bias sets the idle operating point of the modeled output tubes — lower is
+    colder Class AB, and at maximum a Helix amp runs in Class A. Bias X sets how
+    far that point shifts when a hard signal hits the power amp.
+  - >-
+    Raising Bias cleans up the amp and dirties it up, at different levels. It
+    removes crossover distortion, which is proportionally loudest on quiet
+    notes, and it lowers the ceiling where loud peaks start to clip.
+  - >-
+    High Bias X makes hard playing sound different from soft playing, with
+    compression and grit that follow your pick. Low Bias X keeps one character
+    at every intensity. Too much, with Master and Drive high, gives a splatty
+    decay after hard hits.
+  - >-
+    Neither parameter does much with Master low. Set Master to its final value
+    first, then Bias, then Bias X — otherwise you hear nothing and leave both at
+    default.
+  - >-
+    Fractal calls them Power Tube Bias and Master Bias Excursion, and Kemper's
+    closest control is Tube Bias. The Quad Cortex manual documents no
+    equivalent, so on a QC the levers are Master and the capture you choose.
+faq:
+  - q: What does Bias X do on a Helix?
+    a: >-
+      It controls bias excursion — how far the modeled output tubes' operating
+      point shifts when you hit the power amp hard. Higher values add
+      compression and grit that follow your playing intensity; lower values keep
+      the response the same whether you pick softly or dig in. It reacts
+      strongly to both Drive and Master.
+  - q: Should I set Bias high or low?
+    a: >-
+      For clean tones, higher — around 7 to 8 removes a faint crossover grain on
+      quiet notes. For edge-of-breakup and crunch, 5 to 6. For tight modern high
+      gain, colder at 3 to 5, which is punchier. Treat these as starting points,
+      and set Master before any of them.
+  - q: Why can't I hear any difference when I change Bias or Bias X?
+    a: >-
+      Almost always because Master is low. Master sets how hard the modeled
+      power amp is driven, and every other power-amp parameter scales with it. A
+      preset built with Drive around 7 and Master around 3 has put its dirt in
+      the preamp, where Bias and Bias X have nothing to act on.
+  - q: Is Bias X the same thing as Sag?
+    a: >-
+      No. Sag models the power supply voltage drooping under a hard attack. Bias
+      X models the tubes' operating point moving under a hard signal. Both
+      respond to how hard you play, which is why they get confused, but Sag
+      mostly softens the attack while Bias X changes the texture of what follows
+      it.
+  - q: Does the Quad Cortex have Bias and Bias X?
+    a: >-
+      Neural DSP's manual does not document an equivalent, and we could not
+      confirm one. A capture bakes the power stage in at whatever operating
+      point the amp was captured at. On a QC the practical levers are the Master
+      control and choosing a capture made at the drive level you want.
+image: /images/blog/modeler-bias-and-bias-x-what-they-do.jpg
+image_alt: >-
+  A floor multi-effects modeler with an expression pedal and a row of knobs, photographed on a plain white background
+---
+
+Every Helix amp block has two parameters on its advanced page that almost nobody moves: Bias and Bias X. Load a factory preset, open the amp block, and there they are at default.
+
+That isn't laziness, exactly. The two most-cited explanations appear to say opposite things. Line 6's own blog, in a piece by Dave Hunter, says a hotter bias gives "an easier onset of distortion." The most-shared Helix tip on the subject says to raise Bias to clean a preset up. If one source says hotter is dirtier and another says hotter is cleaner, the reasonable response is to leave the knob alone.
+
+Both are right. They're describing the same parameter at two different signal levels, and once that's clear, both parameters become predictable.
+
+## Quick Answer
+
+| Parameter | What it models | Low | High | Depends on |
+|---|---|---|---|---|
+| Bias | Where the output tubes idle | Colder Class AB: tighter, punchier, faint grain on quiet notes | Toward Class A (the Helix maximum): no grain on quiet notes, fuller cleans, peaks clip sooner | Master |
+| Bias X | How far that idle point moves under a hard signal | Operating point stays put: one character at every intensity | Hard hits shift it: compression and grit that follow your pick | Master and Drive |
+
+## What the Operating Point Is
+
+Most guitar amps use a push-pull output stage: two tubes, or two pairs, splitting the waveform between them. One handles the upper half of the swing and the other handles the lower half. Bias sets how much current each draws at idle, and that determines how the handoff between them happens at the zero crossing.
+
+Run them cold and there's a small window around zero where neither tube is conducting well, so the waveform gets a notch at every crossing. That's crossover distortion. Run them hotter and the two overlap through the crossing, the notch closes, and at the extreme each tube conducts through the whole cycle — Class A. Helix Help's parameter reference is exact about the modeled version: lower values give a colder Class AB bias, and at maximum the amp is operating in Class A.
+
+That's the static half. The real-hardware version — what bias does to actual tubes, and why you set it with a meter — is in [cathode bias vs. fixed bias](/blog/cathode-bias-vs-fixed-bias) and [Class A vs. Class AB](/blog/class-a-vs-class-ab-amp). The modeled parameter is a model of that, and nothing more mysterious.
+
+## Why Hotter Is Both Cleaner and Dirtier
+
+This is the part that reconciles the two camps.
+
+Crossover distortion is a notch of roughly fixed width at the zero crossing. On a loud note, the notch is a tiny fraction of the waveform. On a quiet note — a decaying chord, a light arpeggio, the last half-second of a held note — the same notch is a much bigger fraction of what's left. **Crossover distortion is proportionally loudest on your quietest playing.**
+
+So a cold bias is heard first as a faint grain on the tail of a clean chord. Raise Bias, the notch closes, the grain goes, and the preset sounds cleaner. That's the tip, and it's correct: the usual recommendation for clean presets is somewhere around 7 to 8.5, against a commonly cited factory default of 5.
+
+At the other end of the dynamic range, a hotter tube idles closer to its limits, so a loud peak runs out of room sooner. That's the easier onset of distortion, and it's also correct.
+
+Same knob. Raising it cleans up the quiet end and dirties up the loud end.
+
+I expected Bias to be a high-gain parameter — something I'd hear on palm mutes. The first place I actually heard it was the decay of a clean chord with Master at 8: a faint grain on the tail, like a speaker with a loose dust cap, that disappeared somewhere between 6 and 7. I'd been hearing it in clean presets for a long time and blaming the IR.
+
+## Bias X Is the Dynamic Half
+
+Bias sets where the tubes idle. Bias X sets how far they wander from there when you hit them hard.
+
+The mechanism in a real amp is bias excursion. Drive the output tubes hard enough and their grids start to conduct, which charges the coupling capacitors feeding them and pushes the bias colder until that charge bleeds off. For the length of that recovery, two things happen: the tubes' gain drops, which you hear as compression, and the colder operating point brings crossover distortion back, which you hear as grit on whatever follows the hard hit. Line 6 describes the parameter as governing how much bias excursion the output stage experiences under high input — more of it means more of the crossover distortion a tube amp produces when driven toward its limits.
+
+In practice:
+
+- **Low Bias X:** the operating point stays where Bias put it. Soft and hard playing get the same character at different levels. Tighter and more predictable.
+- **High Bias X:** hard hits push the point colder. Dig in and the note compresses and gets a grainier tail; play softly and it doesn't. This is the parameter most responsible for soft playing coming out cleaner than hard playing on a modeled power amp.
+- **Too much:** with Master and Drive also high, excursion turns into what Fractal's documentation calls blocking distortion — a splatty, choked decay after every hard attack, as if the note has to clear its throat before it can sustain.
+
+The test that isolates it: a hard strum followed by a held chord. With Bias X high, the first half-second of the held chord sounds grainier and slightly quieter, then settles. With Bias X low, nothing changes.
+
+## Neither One Works With Master Down
+
+This is why most people conclude both parameters do nothing.
+
+Helix Help's reference is direct about it: Master interacts with every other power-amp parameter, and the lower it sits, the less effect the rest of them have. Bias X is flagged separately as highly reactive to both Drive and Master.
+
+Master is not an output level on a Helix amp block. It sets how hard the preamp drives the modeled power amp. A preset with Drive at 7 and Master at 3 — a fair description of most factory high-gain presets — has put nearly all of its distortion in the preamp. The power stage is idling. There's nothing for Bias to shape and nothing for Bias X to push around. We went through what that topology does to your volume knob in [why the knob cleans up a tube amp and not a modeler](/blog/volume-knob-cleanup-tube-amp-vs-modeler), and it's the same reason.
+
+So the order is fixed: Master first, then Bias, then Bias X.
+
+## Starting Values
+
+These are starting points on the Helix 0–10 scale, not specifications. The amp model and your guitar will move them.
+
+| Goal | Master | Bias | Bias X | Sag |
+|---|---|---|---|---|
+| Clean with no grain on quiet notes | 6–8 | 7–8 | 2–4 | 3–5 |
+| Edge of breakup that follows your pick | 8–10 | 5–6 | 6–7 | 4–6 |
+| Non-master crunch (Plexi and tweed models) | 9–10 | 5–6 | 6–8 | 4–6 |
+| Tight modern high gain | leave as built | 3–5 | 2–3 | 0–2 |
+
+Two notes on that table. The high-gain row runs cold on purpose: a cold bias is the tighter, punchier setting with a little more headroom, which is what palm mutes want, and a low Bias X keeps the attack from compressing. And Sag is in there because it's the parameter people confuse Bias X with. Sag models the power supply drooping and mostly softens the attack; Bias X changes the texture of what comes after it. The supply side is covered in [what amp sag is](/blog/what-is-amp-sag).
+
+## How to Set Them
+
+1. **Set Master to where the preset will live.** If you change it later, redo everything below.
+2. **Turn Bias X to minimum** so you're hearing Bias alone.
+3. **Sweep Bias with a quiet clean chord** and listen to the last second of the decay. Stop where the grain on the tail goes away. Then hit a hard chord and confirm you haven't moved the onset of breakup somewhere you don't want it.
+4. **Bring Bias X up while alternating one phrase soft and hard.** Stop when hard sounds different from soft in the way you want. Back off the moment the tail after a hard hit starts to splat.
+5. **Take your hands out of the comparison.** Record 15 seconds of dry DI once and reamp it through each setting, so your picking isn't the variable. Then [level-match](/blog/level-match-modeler-presets) before you judge. Even a small level difference will beat most parameter changes, because louder reads as better.
+6. **Put the values in the preset name** — something like `DLX b7 bx3` — so the next time you open it you know what you did and why.
+
+## The Same Controls on Other Platforms
+
+| Platform | Operating point | Excursion | Notes |
+|---|---|---|---|
+| Helix family (Floor, LT, Rack, HX Stomp) | Bias | Bias X | Both scale with Master. Maximum Bias is Class A. |
+| Fractal (Axe-Fx III, FM9, FM3) | Power Tube Bias | Master Bias Excursion | Master Bias Excursion scales the individual excursion parameters. Defaults are set per model — usually 100%, some 0%. |
+| Kemper | Tube Bias (Amplifier section) | No separate control | The closest analog, not the same thing: Kemper describes it as moving distortion onset earlier while keeping dynamic headroom, with little effect on fully clean or fully distorted sounds. |
+| Quad Cortex | Not documented | Not documented | A capture bakes the power stage in at the operating point used during capture. Master and capture choice are the levers. |
+
+Fractal's version is the most granular, and its defaults start from the reference amp rather than a midpoint. So "leave it at default" means something different on an Axe-Fx than it does on a Helix, where the Bias default is a generic 5 on the models most people talk about.
+
+If you take one thing from this, take the order: Master, then Bias, then Bias X. Setting them any other way is how presets end up back at default. You move a knob, hear nothing because the power stage is idling, and reasonably decide the knob doesn't work.
+
+<SaveThisTone
+  title="Every recipe ships a Helix preset"
+  description="Block-by-block settings, the preset file, and a signal chain that actually translates. Load it and tweak from there."
+  href="/browse?platform=helix"
+  ctaLabel="Browse Helix recipes"
+/>
