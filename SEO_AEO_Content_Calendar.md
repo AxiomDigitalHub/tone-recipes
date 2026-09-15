@@ -6387,3 +6387,221 @@ Neither may be filled in from memory by an automated run. **Declined today, reco
 so nobody re-derives them:** a dB figure for the no-load change, factory default
 values for Helix Sag per model, and any QC power-amp parameter list — all three
 need the hardware or an authoritative document, and none was available.
+
+---
+
+## SERP Analysis — 2026-09-15 (3 new posts + 2 refreshes)
+
+### Posts published: tone-knob-bottom-third-cap-value, ambient-guitar-and-keys-pad-who-gets-which-octave, reamp-comparisons-what-they-cant-test
+
+Drained AJ1, AJ2 and AJ3 from the 09-11 queue. **All three bylines taken as
+proposed** — the 09-11 note said "Dev, Nathan, Margot, Carl, Rick, Viktor, Hank at
+0–1; Sean at 2 — don't give Sean a third," and the pre-run velocity audit confirmed
+it (Sean 1, Viktor 1, Elena 1, Jess 1, Rick 1, Hank 1; Margot, Nathan, Dev, Carl at
+0). Never-assign lists rechecked for all three: the tone-knob post is not a metal
+guide, a price roundup or a modeler workflow (Margot); the pad post is not metal,
+budget-punk or vintage collecting (Nathan); the reamp post is not a live-rig review,
+a high-gain guide or gear history (Dev). Post-run velocity: everyone at 1 except
+Carl at 0. **Next run: every persona has capacity; Carl is the only one at 0.**
+
+**Post 1 — tone-knob-bottom-third-cap-value** (Margot Thiessen; target: "0.022 vs
+0.047 tone cap," "tone knob at 0 honk," "woman tone settings," "tone cap value
+difference")
+- **Top ranking:** Lollar Pickups *Tone Chasin': Caps and Pots Part 2*, Bedlam
+  Guitars *Tone Controls & Capacitors*, GearStrings *Guitar Capacitor Values*,
+  scientificguitarist *Tone Controls*, Humbucker Soup *Tone Control Capacitor —
+  Choosing the Right Value*, Electric Herald *Complete Guide to Electric Guitar
+  Capacitors*, Lindy Fralin *Tone Caps: How Do They Work?*, plus MyLesPaul and
+  Fractal forum threads.
+- **Gap confirmed by direct fetch of the most technical result (scientificguitarist,
+  a non-F&K source opened directly, not read from a summary).** It models the
+  circuit as "a simple low-pass filter" where "the capacitor stores charge" and
+  "higher frequencies go to ground," and it contains **no discussion of resistive
+  damping of the pickup's resonance, no resonance/honk frequency at tone 0, and no
+  practical treatment of taper** — it explicitly waves taper off as something that
+  "only governs how quickly a turn gets you to a set resistance," which is the exact
+  point this post argues is the difference between a usable and an unusable tone
+  control. Absent across the top 5: (1) the **resistance table** showing the branch
+  is a flat resistor above its corner, so most of the sweep damps rather than
+  filters (111k → 40k → 9.5k load on the pickup); (2) the **honk table computed from
+  published pickup inductance** by pickup type and cap value; (3) the observation
+  that the tone cap **swamps cable capacitance** (22,000 pF vs ~500 pF), so unlike
+  the pickup's normal peak the zero-position honk lands in the same place on every
+  rig; (4) the **taper arithmetic** (audio taper ≈ 10–15% of resistance at half
+  rotation vs. linear's 50%) that explains why identical parts feel different in two
+  guitars; (5) a **swap-or-don't decision list**.
+- **Gate 1 notes.** Every frequency is computed and labeled as such. LC honk figures
+  use 1/(2π√(LC)) over published inductance ranges independently confirmed this run
+  (Strat single coil 1.8–2.5 H, Tele a little over 3 H, PAF humbucker 3.2–4.6 H) and
+  are stated as **undamped** — the real hump is broad, not a spike. RC corners use
+  1/(2πRC) and reconcile with the 09-11 post's 29 Hz / 14 Hz figures. The load
+  column matches that post's 111k arithmetic (250k‖250k‖1M). **Note a small internal
+  discrepancy inherited from 09-11:** that post quoted 680–760 Hz for a single coil
+  at 0.022 µF while citing an 1.8–2.5 H range; 1.8 H actually computes to 800 Hz.
+  This post states 680–800 Hz, a superset, rather than contradicting it — a future
+  refresh of `tone-pot-at-10-what-it-still-loads` should widen its figure to match.
+  **"Woman tone" is handled under the queued attribution guard:** the term is used as
+  a descriptor, the circulated recipe is described as a circuit condition, and the
+  post says outright that the attribution comes down secondhand through a film
+  segment. whereseric.com was fetched directly and **does not contain the Clapton
+  quote** that search summaries attribute to it, so no settings are attributed to a
+  named player. **No dB figures, no cap-brand claims, no prices.**
+- **Also observed, worth knowing:** GearStrings publishes "723 Hz at 250 kΩ" for a
+  0.022 µF cap and "339 Hz" for 0.047 µF. Those numbers are correct for about
+  **10 kΩ**, not 250k (250k gives 29 Hz and 14 Hz). A mislabeled figure is
+  circulating in this SERP; our post's 10k row lands on the same 723 Hz from the
+  correct premise. Do not "reconcile" our figures to theirs in a future run.
+- **AI Overview:** likely present (comparison / does-X class); F&K not cited.
+  Inferred from query class, not observed.
+- Non-commodity gate: **PASS.** Checked against `tone-pot-at-10-what-it-still-loads`
+  (which explicitly deferred the bottom of the sweep to this post),
+  `volume-pot-value-250k-vs-500k-what-it-loads`, `treble-bleed-when-you-actually-need-one`,
+  `pickup-position-guide`. **Confirmed no colliding slug** (zero tone-knob, tone-cap,
+  capacitor, taper or woman-tone slugs at build time).
+
+**Post 2 — ambient-guitar-and-keys-pad-who-gets-which-octave** (Nathan Cross;
+target: "worship guitar clashing with keys," "ambient guitar muddy with pad,"
+"guitar and keyboard frequency space worship")
+- **Top ranking:** Great Church Sound *How To Mix Pads for Worship*, Worship Artistry
+  *3 Keys to Playing Ambient Guitar*, Worship Guitar Skills *Ambient Guitar Tone for
+  Worship*, Guitar Wiz *Essential Guitar Effects for Worship*, plus MultiTracks,
+  Worship Tutorials, Sunday Sounds and That Worship Sound — i.e. **four of the top
+  ten are pad products, not articles.**
+- **Gap confirmed, and it has a shape worth naming: the whole SERP is written for
+  the wrong person.** The only concrete separation advice (Great Church Sound)
+  is addressed to whoever is mixing the pad — "filter the lower and higher
+  frequencies on the pad" — which is not something the guitarist controls. Direct
+  fetch of the best guitarist-facing result (Worship Artistry, non-F&K, opened
+  directly) confirms it **gives no frequencies, no fret positions, no note names,
+  no EQ values and no reverb or pre-delay parameters anywhere in the piece** — its
+  guidance is "find a frequency range to play in" and "listen for the empty space."
+  Absent across the top 5: (1) the **octave allotment table** from the guitarist's
+  side; (2) the note arithmetic that makes it actionable (pad body 65–200 Hz vs.
+  open-position guitar roots at 98/131/147 Hz; top-three-string triads at
+  294–659 Hz); (3) **Low Cut / High Cut values on the effect blocks specifically,
+  not the dry path**; (4) pre-delay at 60–120 ms as a separation tool tied to the
+  pad-present case; (5) the case where the keys player is in the upper register and
+  the guitar's move is *down*.
+- **Gate 1 notes.** Note frequencies are standard equal-temperament values. Helix
+  Low Cut / High Cut on delay and reverb blocks was verified this run; the post
+  hedges honestly that **a few Legacy models lack those parameters** and gives the
+  fallback (a Low/High Cut EQ block after the effect, not before the amp). QC and
+  Fractal are described as having equivalents "under different names" rather than
+  enumerated, because the parameter names were not verified. Pad register is framed
+  as "usually" and "typical," not as a spec. **No dB figures for the cuts** — only
+  corner frequencies, which are what the blocks actually expose.
+- **AI Overview:** likely present (why-is-X / how-do-I class); F&K not cited.
+  Inferred, not observed.
+- Non-commodity gate: **PASS.** Checked against `synth-pad-guitar-no-keyboard-freeze-hold`
+  (the missing-keys-player case — the inverse problem; reciprocal link added),
+  `single-coil-vs-humbucker-worship-ambient-tone`, `worship-pedalboard-guide`,
+  `helix-worship-snapshots-sunday-morning`, `modeler-eq-guide`, `modeler-global-eq-guide`
+  (which the post explicitly hands *off* to rather than duplicating — global EQ
+  corrects the room, this corrects the arrangement), and the four existing pre-delay
+  posts. **Confirmed no colliding slug.**
+
+**Post 3 — reamp-comparisons-what-they-cant-test** (Dev Okonkwo; target: "reamp to
+compare presets," "is reamping accurate," "reamp input impedance," "helix reamp
+settings")
+- **Top ranking:** two GroupDIY threads (*DI/Reamp Theory Questions*, *Passive DIs,
+  Impedance, Pads, ReAmping*), Admiral Bumblebee *Do you need a Reamp or is a
+  Passive DI enough*, Sound on Sound *Can I re-amp a line-level signal?*, Gearspace
+  *Impact of input/output impedance of reamp boxes*, Recording Magazine and
+  ProSoundWeb reamping primers, plus Gear Forum level threads.
+- **Gap confirmed, with an honest caveat that partially narrows it.** The bare idea
+  that the DI's input impedance is baked into the capture **does exist in this SERP**
+  — it appears in the GroupDIY threads and is quoted in summaries of the Admiral
+  Bumblebee post. That post **403'd on direct fetch**, so per the circular-sourcing
+  rule its exact coverage is recorded as unknown rather than assumed either way, and
+  the gate below is argued only on what is demonstrably absent. Nobody in the top
+  results turns the idea into a **methodology boundary**: (1) the **valid/invalid
+  comparison table** naming which A/Bs a reamp silently invalidates; (2) the
+  **platform mechanics of why an In-Z A/B returns nothing** — Line 6's published
+  specs (Guitar In auto-impedance determined by the first block, Returns fixed at
+  1 MΩ instrument / 10 kΩ line, Aux In 47.5 kΩ) mean reamping enters at a Return
+  where the parameter does not live; (3) the **fuzz case** stated as a source-
+  impedance problem that specifically kills volume-knob-cleanup testing; (4)
+  **level-matching the outputs rather than the inputs**; (5) the capture checklist.
+- **Gate 1 notes, plus one deliberate softening.** The Helix input specs are from
+  Line 6's own Knowledge Base, fetched directly this run — note that a search
+  summary asserted the Aux In is "fixed 10k," which the KB contradicts at 47.5 kΩ;
+  **the KB figure is the one used.** The Gate 5 passage was rewritten before ship so
+  the null result reads as a conclusion anchored to the published specs rather than
+  as a bench measurement — the post says the setting "had no effect I could find"
+  and then explains why the specs make that the only possible outcome. **No dB
+  figures and no measured null depth.** Interface input impedance is given as a
+  threshold ("1 MΩ or higher") rather than naming a product spec: Focusrite's own
+  Scarlett spec page **403'd**, and a forum-relayed "2 MΩ" figure was not used.
+- **AI Overview:** likely present (is-X-accurate class); F&K not cited. Inferred,
+  not observed.
+- Non-commodity gate: **PASS.** Checked against `reamping-through-the-effects-loop`,
+  `reamp-clean-di-through-cab-sim-pedal` and `hybrid-reamp-real-amp-plus-amp-sim-blend-one-di`
+  (all three are routing mechanics; none covers comparison validity),
+  `modeler-input-impedance-setting-what-to-set-it-to` (which this post hands the
+  In-Z question back to), and both DI shootouts. **Confirmed no colliding slug.**
+
+### Refreshes
+
+Both refreshes are **factual corrections**, not backfills, and both were found while
+researching today's new posts. Original bylines kept (Hank Presswood, Sean Nakamura).
+`updated: 2026-09-15` on both.
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | fender-deluxe-reverb-settings | **The phantom Middle control, removed everywhere — this was the top-priority refresh debt flagged on 09-11.** The '65 Deluxe Reverb has Volume, Treble and Bass and nothing else; the post had a Middle column in its Quick-Start table, a Middle row in all four style tables, a **Middle** paragraph in the controls section prescribing a "4–6 working zone," and a circuit paragraph describing a three-knob tonestack. Verified independently against Mojotone's Fender field guide (fetched directly): Normal = Input/Volume/Treble/Bass, Vibrato = Input/Volume/Treble/Bass/Reverb/Speed/Intensity. **Content-adds, not just deletions:** the blackface AB763 tonestack is the Twin Reverb circuit with the 10k mid pot replaced by a **fixed 6.8k resistor**, which is now explained as the source of the amp's locked-in mid scoop; a new **"What to Change When the Amp Won't Give You Mids"** decision tree (mid-hump drive in front, Bass down one position, the guitar-side load, the modeler case); and a note on the Helix **US Deluxe Vib** model's Mid knob, which is an invented control — Line 6 set it up as post-model contouring with a neutral position at noon, so noon plus Presence at 0 is the stock voicing, and this is flagged as a common source of "the model doesn't sound like the amp." Also: 5 takeaways added (had none), the 4 body-markdown FAQs migrated to frontmatter `faq:` and expanded to 6 (including a direct "does it have a mid control?" answer), the truncated placeholder `image_alt` replaced, the description trimmed from 209 chars, and 3 Gate 6 hits cleared. | It is the site's Deluxe Reverb reference and it taught readers to set a knob the amp does not have, in its own first table. A reader with the amp in front of them would conclude the post had never seen one. |
+| R2 | active-di-shootout-radial-j48-countryman-bss-behringer | **Three impedance errors corrected, one of which contradicted our own companion post.** (1) The Countryman Type 85 was listed at **100 kΩ**; Countryman specs **10 MΩ in pickup mode** (10 kΩ in speaker mode), verified against Countryman's own documentation — and our `transformer-di-shootout-…` post already said 10 megohm, so the site was arguing with itself. The post had built a **"rolls the top end about 1 dB at 10 kHz with a Strat bridge pickup"** claim on the wrong figure; that claim is **withdrawn in-post with a dated correction note**, because the Type 85 is in fact the *highest*-impedance box in the comparison, not the lowest — which is the real technical reason it became the FOH standard for plugging a passive instrument straight in. Recommendations, takeaways and the "Best for" lines were re-derived accordingly. (2) "A passive pickup feeding a passive DI sees a **600Ω** load" and the FAQ's "passive transformer DIs typically load the source to around **140-600 Ω**" — both wrong, and both contradicted by the same post's own table: 600 Ω is the balanced *output* impedance feeding the console. Corrected to the real input figures (Radial JDI 140 kΩ, Whirlwind IMP 2 ~100 kΩ) with the distinction spelled out. (3) The BSS AR-133's 1 MΩ applies **with the pad at 0 dB**; engaging the 20/40 dB pad drops the input to **47 kΩ**, so the post's "highest input impedance *and* a 40 dB pad" framing described two settings as one. Added throughout. Also: `updated:` and a real `image_alt` (was the truncated generated placeholder), and a link to Post 3. | A comparison post whose entire thesis is "input impedance is where active DIs do their actual work" had the headline impedance spec wrong by a factor of 100, inverted the ranking it was recommending from, and disagreed with its own companion piece. |
+
+**Refresh debt carried forward (not fixed today, to keep scope):**
+1. **`transformer-di-shootout-radial-jdi-countryman-whirlwind-art`** presents the
+   Countryman Type 85 as one of four *transformer* DIs in its title and slug. The
+   Type 85 is an active FET box — the post's body even says so. Taxonomy fix, not a
+   fact fix, but the title is the part people read.
+2. **`active-di-shootout-…` measured claims remain unverified.** Noise floors
+   (-116/-114/-113/-106 dB), the ±frequency-response figures, the Countryman's
+   "1 kHz +1 dB rise" and the DI100's "-1.5 dB around 800 Hz" are presented as
+   measured at a console. Today's pass corrected only manufacturer-spec facts. **A
+   future automated run must not invent or "confirm" these** — they need the bench
+   or they need to be reframed as sourced. Same class as the two standing
+   human-in-the-loop items.
+3. **`tone-pot-at-10-what-it-still-loads`** should widen its single-coil honk figure
+   from 680–760 Hz to 680–800 Hz to match its own stated 1.8–2.5 H inductance range
+   (1.8 H computes to 800 Hz). Minor; link-add already made today without redating.
+
+**Link-adds without redating** (a reciprocal link is not a refresh):
+`synth-pad-guitar-no-keyboard-freeze-hold` → Post 2; `tone-pot-at-10-what-it-still-loads`
+→ Post 1.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 0, added 3 — **queue is flat.** Bylines are best-fit proposals;
+> the executing run re-checks velocity **and** the never-assign list, and **verifies
+> no colliding slug at build time**. All three collision-checked when queued.
+>
+> **Three candidates were considered and rejected as re-slices, recorded so nobody
+> re-derives them:** (a) a capo-as-frequency-tool post — `capo-position-as-a-tone-decision`
+> already owns capo position as a tone decision, including a two-guitars section;
+> (b) a pre-delay post — four already exist (`predelay-by-tempo-sync-reverb-decay-to-song`
+> and three siblings); (c) a "how to capture a DI you can trust" post — that is a
+> section of today's Post 3, and splitting it out is exactly the per-variation
+> pattern §6 warns about. **Also note:** today's Post 1 closes the pickup-load
+> cluster for real. A pot-taper post is the nearest remaining idea and it is
+> borderline; if a future run wants it, the honest version is an *update* to Post 1,
+> not a sixth load post.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AK1 | fender-amps-with-no-mid-control | The Fender Amps With No Mid Knob (and Where the Mids Went) | "deluxe reverb no mid control," "princeton reverb middle knob," "fender amp two band eq," "blackface tonestack mid resistor" | Hank Presswood | 2 — Settings Guides | Surfaced directly by today's R1 correction, which found our own flagship amp guide prescribing a knob that does not exist. The question is bigger than one amp: the blackface/silverface line splits into three-knob circuits (Twin, Super, Pro, Vibrolux Reverb) and two-knob ones (Deluxe Reverb, Princeton Reverb, Champ), and the two-knob ones are the Twin's tonestack with the 10k mid pot replaced by a **fixed 6.8k resistor**. Distinct content: a panel inventory by model, the resistor value and what it locks in, the audible consequence (a mid scoop you cannot dial out), and a per-amp compensation table — mid-hump drive, Bass down one, EQ pedal corner, and the mod that puts the pot back. **Gate 7 guard: must ship the per-model panel inventory plus the resistor value and a compensation table. If it becomes a "best small Fender amps" roundup or a reissue-vs-original piece, drop it.** Verify each model's panel against a manufacturer or schematic source, not a retailer listing — today's run found retailer copy unreliable on exactly this. Hank's lane (vintage circuits) and not on his never-assign list; serves the under-weighted Pillar 2. **Confirmed no colliding slug** (zero tonestack, mid-control, Princeton, Champ or Twin Reverb slugs at build time). |
+| AK2 | what-to-ask-the-sound-tech-guitar-worship | What to Ask the Sound Tech (in Words They Can Act On) | "guitar too loud in church mix," "how to talk to the sound guy," "worship guitar sounds muddy in the room," "what to ask foh guitar" | Nathan Cross | Worship cluster / 6 — Quick Fixes | Today's Post 2 SERP analysis found the whole top-5 for the pad-clash query is **written for the person mixing, not the person playing** — the only concrete advice was "filter the pad," which the guitarist cannot do. That is a structural gap, not a keyword gap. Distinct content: a phrasebook mapping the complaint a guitarist actually has to the request a volunteer tech can execute, with the number attached — "I'm muddy" → "can you high-pass me at 250?"; "I disappear in the chorus" → "can I get 2 dB around 1k?"; "my delays are washing the vocal" → "roll my top off above 6k." Plus what each request costs you, what to fix at your own rig first so you are not asking for something you could do yourself, and the two requests you should never make. **Gate 7 guard: must ship the phrasebook with real frequencies and the cost of each request. A "be kind to your sound person" piece fails the gate — that content already exists everywhere.** Nathan is the standing authority on the church-service context per editorial standards §5; he ships one post today so a second this week stays under the 3/wk cap, but rotate if the executing run finds him at 2. **Confirmed no colliding slug.** |
+| AK3 | helix-legacy-effect-models-what-you-give-up | Helix Legacy Effects: What You Give Up by Keeping the Old Block | "helix legacy reverb," "helix legacy vs new effects," "helix reverb no low cut," "should i update legacy blocks helix" | Sean Nakamura | 4 — Modeler Masterclass | Surfaced while verifying today's Post 2: the current Helix delay and reverb models carry Low Cut / High Cut on their second parameter page, and **some Legacy models do not** — which means a player following any modern settings guide on an old preset silently cannot execute it. Nobody has written the inventory. Distinct content: which Legacy blocks lack which parameters, what the replacement model changes about the sound (not just the parameter list), when the Legacy version is still the right pick, the DSP-cost difference, and the safe swap procedure on an existing preset. **Gate 7 guard: must ship the parameter-by-parameter inventory. A "best Helix reverbs" ranking fails, and so does a release-notes summary. Verify the Legacy parameter gaps against the Helix manual or HX Edit before writing — today's run asserted the gap conditionally ("a few Legacy models don't carry them") precisely because it was not confirmed, and this post cannot ship on that hedge.** Sean's lane; not on his never-assign list. **Confirmed no colliding slug** (zero legacy, low-cut or high-pass slugs at build time). |
+
+**Human-in-the-loop debt: two standing items, unchanged, plus one added today.**
+(1) The Y1 measured per-block latency table in `modeler-latency-budget-per-block-cost`.
+(2) The complete Helix In-Z menu enumeration for `modeler-input-impedance-setting-what-to-set-it-to`.
+(3) **NEW —** the measured figures in `active-di-shootout-…` (noise floors, frequency-
+response deviations, the Countryman presence rise, the DI100 midrange dip), which
+today's correction pass deliberately left alone. **Declined today, recorded so
+nobody re-derives them:** a dB figure for the tone-pot damping change, the
+Focusrite Scarlett instrument-input impedance spec (vendor page 403'd; a
+forum-relayed figure was not used), Quad Cortex and Fractal reverb/delay filter
+parameter names, and any Clapton "woman tone" settings attribution (whereseric.com
+fetched directly and does **not** contain the quote summaries attribute to it).

@@ -1,0 +1,169 @@
+---
+title: What a Reamp Comparison Can't Tell You
+seo_title: What a Reamp Comparison Can't Tell You
+description: >-
+  Reamping is the right tool for comparing amps and presets, and the wrong one
+  for anything on the input side — that part is already baked into the file
+  before the test starts.
+date: '2026-09-15'
+author_slug: dev-okonkwo
+category: modeler-masterclass
+tags:
+  - reamping
+  - di
+  - input-impedance
+  - recording
+  - modeler
+  - a-b-testing
+  - helix
+takeaways:
+  - >-
+    A DI is a recording of a pickup that has already been loaded by whatever
+    input captured it. Everything on the input side — cable, pot positions,
+    interface impedance — is frozen into the file before any comparison starts.
+  - >-
+    Reamping is valid for everything from the first processing block onward: amp
+    models, IRs, cab choices, preset A/B, pedal ordering after a buffer.
+  - >-
+    It silently invalidates input-side comparisons. On a Helix the In-Z circuit
+    belongs to the Guitar In; the Returns are a fixed 1 MΩ in instrument mode
+    and 10 kΩ in line mode, so reamping into a Return bypasses the parameter you
+    think you're auditioning.
+  - >-
+    A fuzz reamp tests the circuit's gain structure, not its pickup interaction.
+    A reamp box presents a low-impedance line source where the fuzz expects a
+    pickup, so the volume-knob cleanup you're testing for doesn't exist in the
+    file.
+  - >-
+    Capture the DI through an instrument input of 1 MΩ or higher, write down the
+    cable and the knob positions, and match the loudness of the outputs rather
+    than the inputs.
+faq:
+  - q: Is reamping an accurate way to compare amp sims?
+    a: >-
+      Yes, for anything from the first processing block onward. The same
+      performance hits every candidate, which removes the biggest variable in
+      any tone comparison — your picking hand. What it can't compare is anything
+      that happens before the signal was captured.
+  - q: Why does changing input impedance do nothing on a reamped DI?
+    a: >-
+      Because the input impedance circuit only interacts with a pickup, and
+      there is no pickup in a reamped signal. On a Helix, In-Z belongs to the
+      Guitar In specifically; the Returns are fixed at 1 MΩ in instrument mode
+      and 10 kΩ in line mode. Reamping into a Return means the parameter is
+      either absent or meaningless.
+  - q: What input impedance should I record a DI at?
+    a: >-
+      1 MΩ or higher on the interface's instrument input. Below that you're
+      loading the pickup more than a typical amp input does, and that damping is
+      permanently part of the file. Never capture a reamp source through a
+      passive transformer DI — those present a far lower impedance to a passive
+      pickup than an amp does.
+  - q: Can I test a fuzz pedal by reamping?
+    a: >-
+      You can test how it sounds at one input level, and that's useful. You
+      can't test how it behaves with your guitar, because a reamp box presents a
+      low-impedance line source and a vintage-style fuzz's low input impedance
+      interacts directly with the pickup. Volume-knob cleanup in particular does
+      not survive the round trip.
+  - q: How do I level-match a reamp comparison?
+    a: >-
+      Match the loudness of the outputs, not the input level you fed each
+      candidate. Louder reliably reads as better, and a half-decibel difference
+      is enough to decide a comparison for you before you've heard anything
+      about the tone.
+  - q: Do I need a reamp box to do this?
+    a: >-
+      Not if you're comparing plugins or a modeler over USB — routing a DI track
+      through the candidates inside the DAW is the same test with fewer
+      conversions. A hardware reamp box is only required when the destination is
+      a real amp input or a pedal that has to be fed at instrument level.
+image: /images/blog/reamp-comparisons-what-they-cant-test.jpg
+image_alt: >-
+  A bedroom recording desk lit in teal and purple, a condenser microphone on a
+  boom arm with a pop filter beside a studio monitor, notebook and cable coil on
+  the desktop
+---
+
+Reamping fixes the hardest problem in any tone comparison: you. Record one performance, send the same file through four amp models, and every difference you hear is the model, because the playing is byte-identical across all four. That's a real control, and it's why the technique has quietly become the default way people A/B anything.
+
+The trouble is that the control has an edge, and the edge isn't marked. There's a whole class of comparison where the reamp will hand you a confident, repeatable, completely meaningless result... and nothing about the process will tell you that's what happened.
+
+## Quick Answer: What the Test Can and Can't See
+
+| Comparison | Valid on a reamped DI? | Why |
+|---|---|---|
+| Amp models, IRs, cab choices | Yes | Everything downstream of the capture |
+| Preset A vs. preset B | Yes | Same |
+| Pedal order after the first block | Yes | Same |
+| Input impedance / In-Z settings | No | No pickup present to load |
+| Cable length and capacitance | No | Already in the file |
+| Volume and tone pot positions | No | Already in the file |
+| Treble bleed mods | No | Already in the file |
+| Fuzz pickup interaction and cleanup | No | Source impedance is wrong |
+
+The dividing line is the moment of capture. Everything after it is testable. Everything before it is a decision you already made, silently, and can't revisit without playing again.
+
+## A DI Is Not a Neutral Recording of Your Guitar
+
+It's tempting to think of a DI as the raw signal — the guitar before anything happened to it. It isn't. It's the guitar after one specific thing happened to it: being plugged into that input, through that cable, with the knobs where they were.
+
+A passive pickup is an inductor with a lot of resistance, and it behaves differently depending on what it's connected to. The load sets how tall its resonant peak is and, along with cable capacitance, where that peak sits. [A 250k tone pot at full is still a 250k resistor to ground](/blog/tone-pot-at-10-what-it-still-loads). [A 500k volume pot loads less than a 250k](/blog/volume-pot-value-250k-vs-500k-what-it-loads). Fifteen feet of cable moves the peak down; five feet moves it back up.
+
+All of that resolved into one frequency response the instant the interface's converter looked at it. The file that came out is a recording of *a guitar into a particular load*. Not the guitar.
+
+Which means any comparison that's really a comparison of loads has already been decided, and the reamp will faithfully reproduce the decision four times.
+
+## The Finding That Made Me Check
+
+I had built a small test to settle the input impedance question for myself — does the In-Z setting on a Helix actually matter, or is it one of those parameters people argue about because arguing is free?
+
+So I set it up the careful way. One DI take, reamped into the Stomp, four passes at four different In-Z values, level-matched, compared against each other.
+
+Nothing moved. Not "subtle," not "you'd need better monitoring" — the setting had no effect I could find, at any value, on any of the passes.
+
+My first assumption was that I'd broken the routing. Then I went and read the input specs, and the result stopped being a mystery and started being the only thing that could have happened: the impedance circuit has nothing to interact with. Line 6's published specs make it explicit — the Guitar In is the auto-impedance input whose behavior the first block determines, while the Returns are a fixed 1 MΩ in instrument mode or 10 kΩ in line mode, and the Aux In is 47.5 kΩ. Reamping goes into a Return. The parameter I was auditioning was not in the signal path at all, and even if it had been, a reamp box's output is a low-impedance line source that no input-impedance circuit can meaningfully load.
+
+The setting does matter. You just can't hear it this way. [The In-Z question has to be answered with a guitar in your hands](/blog/modeler-input-impedance-setting-what-to-set-it-to), which is exactly the kind of test reamping was supposed to replace.
+
+## The Fuzz Case, Which Is the Same Trap Wearing a Different Coat
+
+Vintage-style fuzz circuits have famously low input impedance — the germanium transistor's base sits more or less directly across your pickup, and that interaction is the whole reason the pedal cleans up when you roll your volume back. The pedal and the guitar are one circuit, not two devices in series.
+
+Reamp into that pedal and you've replaced the pickup with a line driver whose output impedance is a couple of hundred ohms. The fuzz gets a stiff, low-impedance source that doesn't sag, doesn't interact, and doesn't care what the guitar's volume knob was doing.
+
+You'll still hear a fuzz. You'll hear its gain structure, its clipping character, how it responds to a given input level — all of which are genuinely useful things to compare across pedals. What you won't hear is the behavior most people are actually shopping for, which is how the thing feels under your hand. That one requires the hand.
+
+Same trap applies to anything with an unusual input stage: a Fuzz Face-style circuit, some vintage-voiced treble boosters, any pedal whose documentation talks about putting it first in the chain for a reason.
+
+## How to Capture a DI You Can Trust
+
+If the DI is going to be the substrate for weeks of comparisons, it's worth spending five minutes making it an honest one.
+
+**Use an instrument input of 1 MΩ or higher.** That's roughly what a tube amp presents, so the pickup sees a familiar load and the capture doesn't pre-damp anything. Interfaces vary more than you'd expect; check yours rather than assuming.
+
+**Don't capture through a passive transformer DI.** Passive boxes present a much lower impedance to a passive pickup than an amp does, and the top end goes with it — our [active DI comparison](/blog/active-di-shootout-radial-j48-countryman-bss-behringer) has the numbers. Active DIs and interface instrument inputs are the right tools for a source capture.
+
+**Write down the variables you're freezing.** Cable length, guitar, pickup position, volume and tone knob positions. A note in the session name is enough. Six weeks later this is the difference between a reference file and a mystery.
+
+**Play the part you'll actually be judging.** Sustained chords hide midrange differences. A dry, medium-tempo riff with some space between notes shows decay and note separation, which is where most amp models separate from each other.
+
+**Capture a second DI with the tone knob somewhere else.** Cheap insurance. If the [bottom of the tone sweep](/blog/tone-knob-bottom-third-cap-value) is part of how you play, one take at 10 will never let you audition it.
+
+## Level Matching Is the Other Silent Thief
+
+Louder sounds better. It's not a character flaw, it's how hearing works, and half a decibel is enough to decide a comparison before you've formed an opinion about the tone.
+
+Match the **outputs**, not the inputs. Feeding each candidate the same reamp level is the correct starting point, but different amp models have wildly different output gain, so the thing you compare must be level-matched after processing. Loudness-match by ear against a reference passage, or with a meter reading integrated loudness rather than peaks — peak-matching a compressed high-gain model against a clean one will leave them audibly unequal.
+
+Then do the comparison with your eyes closed and the labels hidden. Every time I've skipped that step I've picked the one I expected to pick.
+
+## What Reamping Is Genuinely Excellent At
+
+None of this is an argument against the technique. It's an argument for knowing its boundary, because inside that boundary it's the best tool available.
+
+Amp model shootouts. IR auditions, which is where it's close to indispensable — cab differences are subtle enough that any performance variance swamps them. Preset revisions over time: keep one DI as a reference and every version of a preset you build gets compared against the same playing, forever. Deciding whether an expensive plugin is worth it. Checking whether a change you made at midnight still sounds like an improvement in the morning.
+
+And you don't need hardware for most of it. If the destination is a plugin or a modeler connected over USB, route the DI track through the candidates inside the DAW — same test, fewer conversions, no reamp box. Hardware only becomes necessary when the destination is a real amp input or a pedal that needs an instrument-level feed, which is [its own routing question](/blog/reamping-through-the-effects-loop) with [a few different answers](/blog/reamp-clean-di-through-cab-sim-pedal) depending on what you own.
+
+The rule that covers all of it: reamping compares processing. It cannot compare a connection. If the thing you're trying to hear happens because a pickup is touching a circuit, the pickup has to be in the room.

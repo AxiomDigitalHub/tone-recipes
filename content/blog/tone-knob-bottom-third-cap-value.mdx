@@ -1,0 +1,184 @@
+---
+title: Where Your Tone Knob Actually Does Something
+seo_title: Where Your Tone Knob Actually Does Something
+description: >-
+  Most of a guitar's tone sweep is damping, not filtering, and the cap value
+  only matters in the last stretch. Corner and honk frequencies by cap value and
+  pickup.
+date: '2026-09-15'
+author_slug: margot-thiessen
+category: signal-chain
+tags:
+  - tone-control
+  - tone-capacitor
+  - pickups
+  - neck-pickup
+  - clean-tone
+  - guitar-wiring
+  - signal-chain
+takeaways:
+  - >-
+    From 10 down to roughly the middle, the tone control is a variable resistor
+    to ground. It damps the pickup's resonant peak rather than sweeping a filter
+    corner, which is why the guitar gets softer-topped before it gets dark.
+  - >-
+    The capacitor only takes over once the tone control's resistance falls below
+    about 10k to 25k. Above that the branch behaves like a plain resistor across
+    the whole audio band and the cap value changes nothing.
+  - >-
+    At the very bottom the cap and the pickup's inductance resonate. Computed
+    for a Strat-style single coil, a 0.022 µF cap puts that peak around 680 to
+    800 Hz and a 0.047 µF cap drops it to roughly 460 to 550 Hz.
+  - >-
+    An audio-taper pot sits near 10 to 15 percent of its resistance at the
+    halfway mark, so the interesting range lands under your fingers. A linear
+    pot is still at 50 percent there, which is why it feels dead until about 2.
+  - >-
+    A cap swap moves where the bottom of the sweep lands. It does not fix a
+    guitar that sounds wrong with the knob up, because with the knob up the cap
+    is not in the picture.
+faq:
+  - q: Does the tone capacitor value change my sound with the knob on 10?
+    a: >-
+      No. With the control at full resistance the cap's corner sits near 29 Hz
+      on a 250k pot with a 0.022 µF cap and near 14 Hz with a 0.047 µF, both
+      below your open low E at 82 Hz. Across the band you actually play, the
+      branch behaves as a plain resistor and the cap value is invisible.
+  - q: Why does my tone knob seem to do nothing until the last quarter turn?
+    a: >-
+      Because the capacitor only starts shunting audibly once the control's
+      resistance drops to roughly the same order as the cap's reactance in the
+      band you care about, which is somewhere under 25k on a 250k pot. Where
+      that lands on the dial depends on the pot's taper, so an audio taper puts
+      it around the middle and a linear taper pushes it down to about 2.
+  - q: What is the difference between a 0.022 and a 0.047 tone cap?
+    a: >-
+      Only at the bottom of the sweep, where the cap and the pickup resonate.
+      Computed for a typical Strat-style single coil, 0.022 µF puts that peak
+      around 680 to 800 Hz and 0.047 µF drops it to roughly 460 to 550 Hz. The
+      0.047 is darker and more vocal at zero; both are identical at 10.
+  - q: Which tone cap should I use for a neck pickup jazz sound?
+    a: >-
+      A 0.047 µF on a humbucker puts the zero-position peak near 340 to 410 Hz,
+      which is the hollow, hornlike register that dark neck-pickup playing lives
+      in. On a single coil, 0.047 µF lands around 460 to 550 Hz and keeps a
+      little more definition. Try the cheaper experiment first and see whether
+      you actually use the bottom of the dial.
+  - q: Do expensive vintage tone capacitors sound better?
+    a: >-
+      A film cap of the right value behaves like its value in this circuit, and
+      the value is the variable that moves the resonance. If a guitar sounds
+      wrong with the tone knob up, the cap is not the cause — look at the pot
+      values, the cable, and what the amp or modeler input is loading the pickup
+      with.
+  - q: Does a modeler reproduce what the tone knob does?
+    a: >-
+      Not directly, because all of this happens inside the guitar before the
+      signal reaches anything. The one platform-side lever is input impedance —
+      a modeler set to 1M loads the pickup roughly like a tube amp does, and a
+      lower setting damps the resonant peak the same way rolling the tone back a
+      little does.
+image: /images/blog/tone-knob-bottom-third-cap-value.jpg
+image_alt: >-
+  A top-down view of a nickel-covered humbucker, bridge and stop tailpiece on a
+  guitar, strings crossing the pole pieces, shot against a plain white backdrop
+---
+
+Roll your tone knob from 10 to 7 and listen for the moment something happens. On most guitars, nothing does — not really. The top goes slightly softer, the whole guitar drops a hair in level, and the character stays put. Keep going and somewhere past the middle the sound finally starts to move, and in the last stretch it moves fast, until the guitar is doing something else entirely.
+
+That uneven sweep is not a worn pot or a cheap cap. It's the circuit behaving exactly as the arithmetic says it should, and the arithmetic is worth knowing, because it tells you which part of the dial is a tone control and which part is a performance control — and it settles the capacitor argument in about two paragraphs.
+
+## Quick Answer
+
+| Where the knob is | What the circuit is doing | What you hear |
+|---|---|---|
+| 10 | A fixed resistor to ground, cap invisible | The guitar's full resonant peak |
+| 10 down to about the middle | Variable resistance damping the pickup | The peak flattens; slightly softer and quieter |
+| The last stretch | The cap takes over as a shunt | A real lowpass, with a resonant honk above it |
+| 0 | Cap directly across the pickup | A hollow, vocal peak in the mid register |
+
+The cap value only participates in the bottom two rows. Everything above that is the resistor.
+
+## The Part Nobody Tells You: Most of the Sweep Is Damping
+
+A guitar's tone control is a resistance in series with a capacitor, running from the pickup's hot side to ground. That branch has an impedance that depends on frequency, and the useful way to think about it is: which of the two parts is in charge?
+
+The capacitor's reactance falls as frequency rises. A 0.022 µF cap measures about 7.2 kΩ at 1 kHz. So when the control is at 250k, the branch at 1 kHz is a 250k resistor with a rounding error attached. The frequency where the two swap roles is the familiar corner, and on a 250k pot with a 0.022 µF cap it sits near 29 Hz — under your open low E, which is why [the tone pot at 10 is a load and nothing else](/blog/tone-pot-at-10-what-it-still-loads).
+
+Now roll the control down and watch that corner climb.
+
+| Control resistance | Above this frequency the branch is just a resistor | What the pickup sees |
+|---|---|---|
+| 250k | about 29 Hz | 111k |
+| 100k | about 72 Hz | 67k |
+| 50k | about 145 Hz | 40k |
+| 25k | about 290 Hz | 22k |
+| 10k | about 720 Hz | 9.5k |
+| near 0 | the cap alone | resonance takes over |
+
+*Corner computed as 1/(2πRC) for a 0.022 µF cap. Load column assumes a 250k volume pot and a 1 MΩ amp input; a cable and a lower input impedance both pull it down further.*
+
+Read the right-hand column, because that's the column you can hear. Rolling from 10 to the middle of the pot's resistance takes the load on the pickup from 111k to 40k. That's not a filter sweeping. That's the pickup's resonant peak being flattened — the same mechanism as [dropping from a 500k volume pot to a 250k](/blog/volume-pot-value-250k-vs-500k-what-it-loads), only continuously and under your finger.
+
+A flattened peak reads as less air and slightly less level, which is why people describe the first half of a tone sweep as "it just gets quieter." It does get quieter. The resistor to ground is taking signal with it.
+
+## Where the Capacitor Finally Shows Up
+
+Keep going. Once the control's resistance falls under roughly 25k, the corner has climbed to around 290 Hz, and by 10k it's at 720 Hz — which means across most of the band you're actually playing in, the branch is now a capacitor, and a capacitor shunting the top of a pickup is a lowpass filter.
+
+At zero it's a lowpass with a peak on it. The cap sits directly across the pickup, and the pickup is an inductor, and an inductor across a capacitor is a resonant circuit whose frequency you can compute:
+
+| Pickup (typical inductance) | 0.022 µF | 0.047 µF |
+|---|---|---|
+| Strat-style single coil (1.8–2.5 H) | about 680–800 Hz | about 460–550 Hz |
+| Tele-style bridge (about 3.2 H) | about 600 Hz | about 410 Hz |
+| PAF-style humbucker (3.2–4.6 H) | about 500–600 Hz | about 340–410 Hz |
+
+*Computed as 1/(2π√(LC)) from published inductance ranges. These are undamped figures — the pickup's own resistance and whatever is loading it spread the peak into a broad hump rather than a spike, so treat them as where the hump centers, not as a spec.*
+
+One detail makes these numbers unusually trustworthy for guitar arithmetic: your cable capacitance doesn't move them. A long cable might add 500 pF, and 0.022 µF is 22,000 pF. The tone cap swamps it. So unlike the pickup's normal resonant peak — which drifts around depending on what cable you grabbed — the zero-position honk lands where the cap says it lands, in every room, on every board.
+
+That is the whole cap argument. A 0.022 and a 0.047 are identical at 10, identical at 8, nearly identical at 5, and about a third of an octave apart at 0. Choose the value by where you want the bottom of the dial to sit, and ignore anyone selling you the difference as a change to your guitar's voice.
+
+## Why the Same Parts Feel Different in Two Guitars
+
+Here's the part I got wrong for years. I assumed the tone controls on my Jazzmaster and my semi-hollow behaved differently because of the pickups. They do, a little. But the larger difference was the pot taper, and I had never once thought about it.
+
+The resistance ranges above are where the interesting behavior lives: under about 25k. On a 250k pot, that's the bottom tenth of the *resistance*. Where the bottom tenth of the resistance lands on the *dial* is entirely a question of taper.
+
+- An **audio-taper** pot sits near 10 to 15 percent of its total resistance at the halfway mark. So at 5 on the dial you are already around 25k to 38k — right at the handoff. The cap is about to take over, and the last half of the rotation gives you the whole interesting range spread across a comfortable sweep.
+- A **linear** pot is still at 125k at the halfway mark, deep in resistor territory. You'll get nothing but damping until the dial is down around 2, and then everything happens at once.
+
+Two guitars, identical cap, identical pot value, completely different instrument. If your tone knob feels like a light switch that only has "on" and "muffled," the taper is the first suspect, and it's a cheaper fix than a pickup swap. Which end of the pot you wire as "10" also flips the effective curve, so a correctly specified pot can still feel backwards depending on how it was soldered.
+
+## Playing the Bottom Third
+
+Once you know the honk frequency for your guitar, the bottom of the sweep stops being a fault condition and starts being a register you can pick.
+
+**On a neck humbucker with a 0.047 µF cap**, zero puts a hump around 340 to 410 Hz with the top rolled off above it. Stripped of its upper harmonics, a single note stops sounding like a plucked string and starts sounding like something blown — the attack disappears into the body of the note, and what's left has the vowel quality that dark neck-pickup lead playing has always traded on. This is the circuit condition behind the sound guitarists call "woman tone," and the commonly circulated recipe for it — neck pickup, volume full, tone all the way down — is exactly the two-component arrangement described above. The attribution details for that recipe come down secondhand through a film segment, so take the history loosely and the circuit literally.
+
+**On a neck single coil with a 0.022 µF cap**, zero lands near 680 to 800 Hz, and the higher peak keeps more of the pick definition. That's the useful setting for a chord-melody part that needs to sit under a vocal without vanishing: dark enough that the top of the chord stops competing, present enough that you can still hear which voicing you played. The Bill Frisell trick of letting a line go almost featureless and then opening it back up lives right here, and the opening is a knob move, not a pedal.
+
+**The half-position, around 3 to 4 on an audio taper,** is the one worth practicing. The corner is around 300 to 400 Hz, so the filter is real but gentle, and the pickup is still lightly damped. On a clean amp this is where a Jazzmaster stops sounding like glass and starts sounding like felt without losing the note's front edge. Set a clean platform — the kind of setting in our [Deluxe Reverb guide](/blog/fender-deluxe-reverb-settings) — and spend ten minutes moving only the tone knob. You'll find two or three positions you didn't know your guitar had.
+
+## What This Means for a Cap Swap
+
+If you're considering a capacitor change, the honest brief is short.
+
+**Swap the value if:** you use the bottom of the dial as a sound and want that sound in a different register. Going from 0.022 to 0.047 moves the zero-position peak down roughly a third of an octave — from a hollow mid to a rounder, hornlike one.
+
+**Don't swap the value if:** the complaint is that the guitar sounds dull, thin, or wrong with the knob up. With the knob up the cap is not connected to your problem. Look at pot values, the cable, [whether a treble bleed belongs on the volume pot](/blog/treble-bleed-when-you-actually-need-one), and what your amp or interface input impedance is doing to the pickup.
+
+**Swap the pot taper before the cap** if the complaint is that the sweep feels unusable. That's the fix that changes how the control plays rather than what it sounds like at one extreme.
+
+Cap *construction* — paper-in-oil, polyester, the ones sold in small envelopes at a markup — is a different conversation, and a much smaller one. In this circuit the component is doing a single job across a two-octave window, and its value is what determines the answer.
+
+## If You Play Through a Modeler
+
+All of this happens inside the guitar, before the signal reaches anything with a screen, which means no amp model or plugin reproduces it — your tone knob is already doing it by the time the modeler sees you.
+
+The one platform-side control that touches the same physics is input impedance. A modeler set to 1M loads the pickup about the way a tube amp's input does; drop it and you damp the resonant peak, which is the same lever the top half of your tone sweep pulls. If a preset sounds a little glassier than your amp did, the input setting is the first place to look, and it's also why [pickup position](/blog/pickup-position-guide) and the tone knob interact differently on a modeler than they did on your amp.
+
+For headphone players the practical note is that the bottom third gets *more* useful, not less. A resonant hump at 400 Hz is polite through a speaker in a room and very obvious in closed-back headphones, so the positions that read as "dark" on an amp often read as "vocal" on cans — and you'll settle on a slightly higher setting than you expected.
+
+Set your amp clean, pick one pickup, and spend one session doing nothing but moving the tone control between zero and halfway. The numbers above tell you what's happening; your ears will tell you which two positions are worth keeping.

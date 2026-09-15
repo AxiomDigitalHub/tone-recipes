@@ -1,0 +1,158 @@
+---
+title: 'Ambient Guitar and the Keys Pad: Who Gets Which Octave'
+seo_title: 'Ambient Guitar and the Keys Pad: Who Gets What'
+description: >-
+  When the pad and the ambient guitar both hold sound, the mud is two
+  instruments in one octave. The octave split, the voicings that fix it, and the
+  Helix cut frequencies.
+date: '2026-09-15'
+author_slug: nathan-cross
+category: signal-chain
+tags:
+  - worship
+  - ambient
+  - keys-pad
+  - helix
+  - eq
+  - voicings
+  - frequency-space
+takeaways:
+  - >-
+    The clash is almost never the reverb tails. It's fundamentals — a pad voiced
+    around C3 to G3 and a guitar playing open-position chords are both putting
+    root notes between 130 and 200 Hz.
+  - >-
+    Voicing moves more than EQ can. Triads on the top three strings above the
+    7th fret put the guitar's fundamentals between roughly 290 and 660 Hz, clear
+    of the pad's body, before you touch a single parameter.
+  - >-
+    Cut the wash, not the dry. On a Helix, Low Cut on the reverb block around
+    300 to 400 Hz and on the delay around 200 to 250 Hz removes the sustained
+    low-mid content while leaving the guitar's attack intact.
+  - >-
+    Pre-delay separates two sustained sources better than EQ does. 60 to 120 ms
+    keeps the guitar's attack in front of the pad instead of dissolving into it.
+  - >-
+    If the keys player is committed to the upper register, the guitar's move is
+    down and simpler — one sustained low note or a two-note shape, not a
+    competing wash.
+faq:
+  - q: Why does my ambient guitar sound muddy with the keys pad?
+    a: >-
+      Usually because both instruments are holding notes in the same octave. A
+      typical worship pad is voiced around C3 to G3, putting fundamentals
+      between roughly 130 and 200 Hz, and open-position guitar chords land in
+      the same window. The mud is two sets of fundamentals, not two reverbs.
+  - q: What frequencies should I cut on ambient guitar in a worship mix?
+    a: >-
+      Cut the effected signal, not the dry one. A Low Cut around 300 to 400 Hz
+      on the reverb block and 200 to 250 Hz on the delay removes the sustained
+      low-mid buildup. A High Cut around 5 to 6 kHz on the reverb keeps the wash
+      from competing with cymbals and the pad's air.
+  - q: What guitar voicings work best over a keyboard pad?
+    a: >-
+      Triads on the top three strings above the 7th fret, or the same shapes
+      with a capo at 5 or 7. Those put the guitar's fundamentals roughly between
+      290 and 660 Hz — above the pad's body and below its air. Avoid
+      open-position chords and low power chords while the pad is holding.
+  - q: Should the guitar or the keys player change what they're playing?
+    a: >-
+      Whoever can move with the least cost to the arrangement, which is usually
+      the guitar, because a capo and a different triad shape take one rehearsal
+      minute. Raise it as a range question rather than a mix complaint — "do you
+      want the low end of that chord or should I take it?" gets a faster answer
+      than anything about frequencies.
+  - q: How much pre-delay should ambient guitar reverb have?
+    a: >-
+      60 to 120 ms when a pad is present. That's long enough for the guitar's
+      attack to be heard before the reverb starts, which keeps the two sustained
+      sources distinguishable. With no pad in the arrangement you can drop it to
+      20 to 40 ms and let the reverb sit closer to the note.
+image: /images/blog/ambient-guitar-and-keys-pad-who-gets-which-octave.jpg
+image_alt: >-
+  A hollowbody electric guitar on a stand next to a small Fender combo amp and a
+  pedalboard on a church platform, wooden pews and daylight from high windows
+  behind them
+---
+
+Two people on the platform are holding sound. The keys player has a pad down, the guitarist has a volume swell going into a long reverb, and what comes back through the in-ears is a wide, indistinct wall that the congregation hears as "loud but blurry." Nobody is playing badly. There's just one octave in the arrangement doing two jobs.
+
+The instinct is to reach for EQ, and EQ is part of it. But the first fix is usually free, it happens before the signal leaves the guitar, and it takes about a minute at rehearsal.
+
+## Quick Answer: The Octave Split
+
+| Range | Who owns it | What the guitarist does |
+|---|---|---|
+| Below about 120 Hz | Bass | Nothing. Stay out entirely. |
+| 120 to 250 Hz | The pad's body | High-pass the wash; don't voice chords here |
+| 250 Hz to 1 kHz | The guitar's fundamentals | This is the room you're given — use it |
+| 1 to 4 kHz | Shared: guitar attack, pad air | Keep the attack, cut the tails |
+| Above 6 kHz | Cymbals and the pad's top | High-cut the wash around 5 to 6 kHz |
+
+You only control your own side of that table, which turns out to be enough most Sundays.
+
+## Where the Mud Actually Is
+
+A pad patch is usually played as sustained triads somewhere around C3 to G3, and many patches quietly double an octave below that. C3 is 131 Hz. G3 is 196 Hz. Add the octave-down layer and the pad's body sits from roughly 65 Hz up through 200 Hz, with its harmonics fanning out above.
+
+Now put an ambient guitar part next to it. An open C, an open G, a first-position D — those chords have roots at 131 Hz, 98 Hz, and 147 Hz. The guitarist is playing in the same octave as the pad, on the same sustained note values, into a reverb that holds them there for three seconds.
+
+That's the mud. It isn't reverb tails piling up in the high end. It's two instruments agreeing to occupy 130 to 200 Hz and both refusing to let go of it.
+
+I spent a long time treating this as an effects problem, and it's worth saying plainly what changed my mind: I built a snapshot with the reverb high-cut at 4 kHz, expecting the wash to clear. It cleared the cymbal area beautifully and did nothing at all for the blur, because the blur was two hundred Hz lower than anything I had touched. The high cut was answering a question nobody asked.
+
+## Fix One: Voicing, Which Costs Nothing
+
+Move the guitar up and out. Triads on the top three strings are the workhorse here, and the arithmetic explains why they work.
+
+Play a three-note shape on strings 1 through 3 around the 7th fret and your lowest note is near D4 at 294 Hz. Move the same shape to the 12th and the range runs from about G4 at 392 Hz up to E5 at 659 Hz. Either way, every note the guitar produces is above the pad's body, and the two instruments stop stepping on each other before any processing happens.
+
+Three practical versions of this:
+
+- **Capo at 5 or 7 and keep your shapes.** The cheapest possible fix and the one most volunteers can execute cold. A capo at 5 moves an open G shape up a fourth; the fingering you already know now lands in the right octave. Worth keeping one on the headstock for exactly this reason.
+- **Upper-structure triads over the bass note.** If the band is on a C and the pad has the low end, play an E minor or a G triad on the top strings. You get the color tones — the third, fifth, seventh, ninth — without duplicating the root anyone else is already holding.
+- **Two notes instead of six.** A held sixth or a fourth on strings 2 and 3 reads as "ambient guitar" more convincingly than a full chord does, because the ear has fewer things to sort.
+
+The test at rehearsal is simple. Play the part you'd normally play, then play the same part an octave up on the top three strings, and ask anyone standing in the room which one lets them hear the vocal better. The answer is consistent enough that it stops being a question after a few weeks.
+
+## Fix Two: Cut the Wash, Not the Dry Signal
+
+Now EQ, applied where it belongs. The guitar's attack is what tells the congregation there's a guitar in the room, and it's short — it's the sustained part that's crowding the pad. So the cuts go on the effect blocks, not on the amp or a global EQ.
+
+On a Helix or HX Stomp, both the delay and reverb models put Low Cut and High Cut on the second page of parameters. Starting points for an ambient snapshot with a pad in the arrangement:
+
+| Block | Low Cut | High Cut | Why |
+|---|---|---|---|
+| Reverb | 300 to 400 Hz | 5 to 6 kHz | Removes the sustained low-mid entirely; keeps the tail from reaching into the cymbals |
+| Delay | 200 to 250 Hz | 4 kHz | Repeats stay audible as rhythm without rebuilding the low-mid wall |
+| Amp / dry path | leave alone | leave alone | The attack and body of the note are the part that isn't causing trouble |
+
+A few of the Legacy models don't carry those parameters. If yours doesn't, put a Low/High Cut EQ block immediately after the effect rather than in front of the amp — in front of the amp you're thinning the note, after the effect you're thinning only the wash.
+
+On a Quad Cortex or Fractal unit the same parameters exist under different names on the reverb and delay blocks; the frequencies above transfer directly. On an analog board there's no per-effect filter, so the equivalent move is an EQ pedal in the effects loop after your time-based pedals, or a high-pass on the guitar channel at front of house — which is worth asking your sound person for by name, since "can you high-pass me at 300" is a request they can act on immediately and "I sound muddy" isn't. The broader approach to setting these is in our [modeler EQ guide](/blog/modeler-eq-guide); note that this is a per-snapshot fix and not a job for [global EQ](/blog/modeler-global-eq-guide), which corrects the room rather than the arrangement.
+
+## Fix Three: Pre-Delay, the Underused One
+
+Two sustained sources are hard to tell apart because neither has a clear beginning. Pre-delay gives the guitar one back.
+
+Set the reverb block's pre-delay to 60 to 120 ms when a pad is in the arrangement. The dry note speaks first, and the wash arrives a beat-fraction later, so the ear registers "guitar, then space" instead of one continuous smear. Under about 40 ms the reverb is effectively fused to the note and the guitar disappears into the pad's texture. Over about 150 ms you start hearing the reverb as a separate event, which is a real sound but a distracting one under a congregation.
+
+The same logic applies in reverse: if there's no keys player that morning and you're [covering the pad yourself](/blog/synth-pad-guitar-no-keyboard-freeze-hold), shorten the pre-delay back to 20 to 40 ms. With nothing else holding the middle, you want the guitar's reverb closer to the note.
+
+## When the Keys Player Is in Your Octave
+
+Sometimes the pad is voiced high because the song needs it there, or because that's the patch the album used, and asking for it to move is asking for the wrong thing.
+
+When the keys are holding the 300 Hz to 1 kHz range, the guitar's move is down and simpler — not up. One sustained low note with a slow swell, or a two-note shape on strings 4 and 5, played sparsely. You lose the shimmering part and you gain a floor, and the arrangement usually sounds better for having a floor. Turning the reverb decay down at the same time helps; a long tail on a low note is where the arrangement gets heavy fastest.
+
+The conversation itself goes better as a range question than a mix complaint. "Do you want the low end of that chord, or should I take it?" gets settled in ten seconds. Anything involving the word "frequencies" tends to get filed under criticism, and that isn't what anyone came to rehearsal for.
+
+## A Five-Minute Rehearsal Check
+
+1. Have the keys player hold the pad alone. Listen for where its body sits — you can usually hear whether it's in the low or the upper register without measuring anything.
+2. Add the guitar part as written. If the two blur, play the same part an octave up on the top three strings and listen again.
+3. Set the reverb's Low Cut to 350 Hz and the delay's to 220 Hz. Bypass and re-engage them while the pad holds to hear what the cut is actually doing.
+4. Set reverb pre-delay to 80 ms. Play a single note and check that you hear the attack before the wash.
+5. Check it in the in-ears, then ask someone standing in the room. The two will not agree, and [the room is the one the congregation is standing in](/blog/iem-mix-guitar-compression).
+
+Once the octave split is settled, most of what people call an "ambient tone problem" turns out to have been an arrangement question the whole time — and it stays fixed from week to week, which is more than you can say for most tone fixes. Build it into the snapshot you already use for the quiet verses in your [Sunday snapshot set](/blog/helix-worship-snapshots-sunday-morning) and it stops being something you have to remember.

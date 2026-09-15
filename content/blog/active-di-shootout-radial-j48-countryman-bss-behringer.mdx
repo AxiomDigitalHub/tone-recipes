@@ -8,6 +8,7 @@ description: >-
   frequency response, and where each one actually belongs in a modeler-direct
   signal chain.
 date: '2026-05-11'
+updated: '2026-09-15'
 author: Sean Nakamura
 author_slug: sean-nakamura
 category: modeler-masterclass
@@ -22,17 +23,17 @@ tags:
 readingTime: 9
 image: /images/blog/active-di-shootout-radial-j48-countryman-bss-behringer.jpg
 image_alt: >-
-  a composition illustrating "Active DI Shootout: Radial J48 vs. Countryman Type
-  85 vs. BSS AR-133 vs. Behringer DI100"
+  Four active DI boxes lined up on a studio desk — Radial J48, Countryman Type
+  85, BSS AR-133 and Behringer DI100 — XLR cables running off to a patchbay
 takeaways:
   - "All four active DIs pass guitar-level signals cleanly; differences show up at line-level modeler outputs and in studios where the DI's own coloration becomes part of the signal."
   - "The Radial J48 ($249) is the studio active standard — flattest frequency response, lowest noise floor at -116 dB, 220 kΩ input impedance."
-  - "The Countryman Type 85 ($219) is the live FOH standard, with an intentional 1 kHz presence rise that flatters direct guitar signals."
-  - "The BSS AR-133 ($249) has the highest input impedance (1 MΩ) and a 40 dB pad that handles amp-level signals — the right choice for speaker-out DI applications."
+  - "The Countryman Type 85 ($219) is the live FOH standard and has by far the highest input impedance here — Countryman specs 10 MΩ in pickup mode — which is why it is the box to reach for when a passive pickup plugs straight in."
+  - "The BSS AR-133 ($249) pairs a 1 MΩ input with a 40 dB pad that handles amp-level signals, but the pad drops the input to 47 kΩ — you get the high impedance or the pad, not both at once."
   - "The Behringer DI100 ($35) is honest about its budget components — audible -106 dB noise floor, a midrange dip around 800 Hz, usable at home but not at gig volume."
 faq:
   - q: "When should I use an active DI instead of a passive one?"
-    a: "Active DIs are better for high-impedance sources — passive guitar pickups, piezo systems, and electric pianos — because they present a higher input impedance (100 kΩ to 1 MΩ) that preserves the source's high-frequency content. Passive transformer DIs typically load the source to around 140-600 Ω, which is fine for line-level modeler outputs but rolls off the top end on long cable runs from passive pickups. The rule: if your source is a battery-powered preamp or a line-level output, a passive DI is simpler and quieter. If your source is a passive pickup or any high-impedance signal, an active DI preserves more of the signal."
+    a: "Active DIs are better for high-impedance sources — passive guitar pickups, piezo systems, and electric pianos — because they present a higher input impedance (220 kΩ to 10 MΩ across the boxes here) that preserves the source's high-frequency content. Passive transformer DIs present a far lower input impedance: the Radial JDI is 140 kΩ and the Whirlwind IMP 2 is around 100 kΩ, both well under the 1 MΩ a guitar amp input gives you. That is fine for line-level modeler outputs but audibly dulls a passive pickup. The rule: if your source is a battery-powered preamp or a line-level output, a passive DI is simpler and quieter. If your source is a passive pickup or any high-impedance signal, an active DI preserves more of the signal."
   - q: "Does the Countryman's 1 kHz presence rise color the signal too much?"
     a: "It's a 1 dB rise centered at 1 kHz with about a one-octave Q. Audible on a direct guitar signal as slight forward mids, inaudible once the signal is mixed with other instruments. The Countryman's reputation for sounding good on direct guitar at FOH without further EQ work is the presence rise doing exactly what Countryman designed it to do. If you want a flat DI, the J48 or AR-133 is the right pick. If you want the Countryman's voicing as a feature, that's the buy reason."
   - q: "Will the BSS AR-133's 40 dB pad handle a speaker output?"
@@ -47,7 +48,7 @@ faq:
 
 If you've already read the transformer DI shootout, this is the companion piece. Transformer DIs are passive — they pass signal through an audio transformer that does the impedance bridging without active electronics. Active DIs use a buffer amplifier (transistor or op-amp) to do the same job, which lets them present a higher input impedance to the source and handle wider input voltage swings before clipping. The trade-off is that active DIs need power (battery or phantom) and add their own active circuit noise to the signal path.
 
-The cross-shopping question — passive vs active — comes up constantly in my console threads. The short version: active DIs are better for high-impedance sources (passive guitar pickups, high-Z piezo systems, electric piano outputs) and worse for situations where you can't deliver clean phantom or a fresh battery. Passive DIs are simpler, quieter at the noise floor, and harder to break, but they load the source they're connected to — a passive pickup feeding a passive DI sees a 600Ω load, which can dampen high frequencies on long cable runs.
+The cross-shopping question — passive vs active — comes up constantly in my console threads. The short version: active DIs are better for high-impedance sources (passive guitar pickups, high-Z piezo systems, electric piano outputs) and worse for situations where you can't deliver clean phantom or a fresh battery. Passive DIs are simpler, quieter at the noise floor, and harder to break, but they load the source they're connected to — a passive pickup feeding a Radial JDI sees a 140 kΩ load, well under the 1 MΩ a guitar amp input presents, and the top end goes with it. (The 600 Ω figure you see quoted for passive DIs is the balanced *output* impedance feeding the console, not what the guitar sees.)
 
 I tested these four through a Strymon Iridium modeler feeding the DI input, console pre-gain matched at +24 dB on a Behringer X32, with a talkback channel for noise-floor reference and Smaart driving the frequency-response sweeps. Same rig as the transformer DI piece, run twice — once in a treated room with the cab simulating actual stage conditions, and once in my home studio for consistency. The X32's preamps are honest enough at the noise floor that I'm not worried about preamp coloration interfering with the DI measurements.
 
@@ -65,15 +66,19 @@ I tested these four through a Strymon Iridium modeler feeding the DI input, cons
 | DI | Noise floor (dB) | Freq response (dB, 30 Hz-18 kHz) | Input Z | Max input (dBu) | Phantom | Street price |
 |---|---|---|---|---|---|---|
 | Radial J48 | -116 | ±0.6 | 220 kΩ | +9 (no pad), +29 (15 dB pad) | 48V phantom or internal 9V battery | $249 |
-| Countryman Type 85 | -114 | ±1.0 (1 kHz +1 dB rise) | 100 kΩ | +12 | 48V phantom required | $219 |
-| BSS AR-133 | -113 | ±0.8 | 1 MΩ | +12 (no pad), +52 (40 dB pad) | 48V phantom or internal 9V battery | $249 |
+| Countryman Type 85 | -114 | ±1.0 (1 kHz +1 dB rise) | 10 MΩ (pickup mode) / 10 kΩ (speaker mode) | +12 | 48V phantom required | $219 |
+| BSS AR-133 | -113 | ±0.8 | 1 MΩ (pad at 0 dB) / 47 kΩ (pad engaged) | +12 (no pad), +52 (40 dB pad) | 48V phantom or internal 9V battery | $249 |
 | Behringer DI100 | -106 | ±2.0 (-1.5 dB around 800 Hz) | 220 kΩ | +18 (with 20 dB pad) | 48V phantom or internal 9V battery | $35 |
 
 The 10 dB spread in noise floor between the J48 and the DI100 sounds small on paper. In practice, -106 dB is audible as a faint hiss when a single channel is soloed at gig volume, and -116 dB is silent. The console is not the limiting factor here; the DI is.
 
 Frequency response is interesting because three of the four boxes are essentially flat, and the Countryman has an intentional voicing — a 1 dB rise centered at 1 kHz that the company calls "presence" in their marketing. It's audible on a direct guitar signal as a slight forward-mids character, and it's what gives the Type 85 its reputation for "sounding good on guitar" without further EQ. The J48 and AR-133 are flat to within 1 dB across the entire audible band. The DI100 has a 1.5 dB midrange dip around 800 Hz that I assume is a parts-tolerance issue rather than an intentional voicing, but the result is the same: the DI100 sounds slightly scooped compared to the others.
 
-Input impedance is where active DIs do their actual work. A passive guitar pickup wants to see at least 250 kΩ at its output for the full frequency response to come through; load it with less than that and the high end rolls off. The J48 at 220 kΩ is at the lower edge of acceptable. The Countryman at 100 kΩ is below that threshold and rolls the top end about 1 dB at 10 kHz when feeding a Strat bridge pickup directly. The BSS at 1 MΩ is the most pickup-friendly box in the test — passive pickups see almost no load and the high end comes through unaffected. The DI100 also claims 220 kΩ and measures close to that.
+Input impedance is where active DIs do their actual work. A passive guitar pickup wants to see at least 250 kΩ at its output for the full frequency response to come through; load it with less than that and the high end rolls off, because the load damps the pickup's resonant peak. The spread across these four boxes is much wider than the price spread.
+
+The Countryman is the outlier, by a factor of ten. Countryman specifies 10 MΩ in pickup mode — ten times a typical guitar amp input — which makes it the least intrusive load of anything here by a wide margin. (Its speaker mode is a different circuit at 10 kΩ; that mode is for amp speaker taps, not for a guitar.) The BSS follows at 1 MΩ with its pad at 0 dB, roughly an amp input's worth of load, though engaging the 20 or 40 dB pad drops the input to 47 kΩ — so the AR-133's headroom trick and its pickup-friendliness are two settings, not one. The J48 at 220 kΩ is at the lower edge of what leaves a passive pickup unaffected, and the DI100 also claims 220 kΩ.
+
+**Correction, 2026-09-15:** an earlier version of this post listed the Type 85 at 100 kΩ and built a top-end rolloff claim on that figure. The spec is 10 MΩ in pickup mode, and that claim is withdrawn. The Type 85 is the highest-impedance box in this comparison, not the lowest — which is the actual technical reason it became the front-of-house standard for plugging a passive instrument straight in.
 
 The headroom numbers matter when you're feeding modeler outputs. A typical modeler line output runs around 0 dBu to +4 dBu nominal, with peaks reaching +12 dBu on transients. The J48 without a pad clips at +9 dBu; you need the 15 dB pad engaged to handle modeler line outputs cleanly. The Countryman handles +12 dBu without a pad. The BSS handles +12 dBu without a pad, and with the 40 dB pad engaged it'll take +52 dBu — that's amp speaker output level, which is what the AR-133's pad is designed for. The DI100 with its 20 dB pad engaged handles +18 dBu cleanly.
 
@@ -101,7 +106,7 @@ The build is what Radial is known for: cast aluminum chassis, sealed XLR connect
 
 The Type 85 is what every touring sound engineer carries in their gig bag, and there's a reason. The enclosure is the smallest active DI on the market — about the size of a deck of playing cards — and the build is bombproof. Aluminum chassis, recessed switches, a body shape that fits in road cases where bigger DIs don't. I have a Type 85 that's been on tour for fifteen years (loaner from a sound engineer friend) and it still measures within spec.
 
-The 100 kΩ input impedance is the Type 85's main spec limitation. For direct passive guitar pickups, it's below the threshold where the high end stays flat. In practice, the rolloff is about 1 dB at 10 kHz with a Strat bridge pickup, which is audible only in critical listening. For modeler line outputs or active pickups, the 100 kΩ is irrelevant.
+The 10 MΩ input impedance in pickup mode is the Type 85's headline spec and the reason it earned its place on FOH inputs: a passive pickup or a piezo plugged straight into it is loaded less than it would be by any guitar amp. The trade-off list is elsewhere — no battery option, phantom required, and a fixed +12 dBu input ceiling with no pad on the instrument side. Use the separate speaker-mode input for an amp tap; that path is 10 kΩ and is not where a guitar goes.
 
 The 1 kHz presence rise is the Type 85's signature voicing. I A/B'd a clean Strat through the Type 85 against the same signal through the J48; the Type 85 sounded slightly more forward in the upper mids, with what I'd describe as a subtle vocal-range presence. I didn't expect to like the voicing — flat is what I'm usually looking for — but on a direct guitar signal into a busy mix, the 1 dB rise helps the guitar sit forward without further EQ work. This is one of the few cases where I prefer a colored DI to a flat one.
 
@@ -117,13 +122,13 @@ The downside of the Type 85 is that it's phantom-only. There's no battery option
 
 The AR-133 is the broadcast active DI — the one you see in TV studios, news desks, and theater installs. Same parts class as the J48 but a slightly different voicing and a much wider pad range. The headline feature is the 40 dB pad, which lets the AR-133 take speaker-level signals at the input. I've used an AR-133 in front of a guitar cabinet to capture a clean DI tap of a speaker output without an attenuator; nothing else in this comparison can do that.
 
-The 1 MΩ input impedance is the highest in the test, which makes the AR-133 the most pickup-friendly active DI here. A passive pickup feeding the AR-133 sees almost no load. Compared to the J48's 220 kΩ, the difference is subtle but measurable — the AR-133 preserves about 0.5 dB more high-frequency content above 5 kHz when fed a Strat bridge pickup directly.
+The 1 MΩ input impedance is roughly what a guitar amp's input gives you, and it is a meaningfully lighter load than the J48's 220 kΩ. The caveat is in BSS's own spec: that 1 MΩ applies with the pad at 0 dB, and engaging the 20 or 40 dB pad drops the input to 47 kΩ. For a passive pickup straight in, leave the pad off. For a speaker tap or a hot line source, use the pad and accept that the impedance advantage is gone — you don't need it there anyway.
 
 The frequency response is flat within 0.8 dB, slightly less flat than the J48 but still within studio-grade tolerance. The noise floor at -113 dB is 3 dB above the J48 — audible only if you're soloing the channel at high gain. The build is BSS Audio's usual standard: heavy aluminum chassis, recessed switches, XLR connectors that lock.
 
 The AR-133's controversy is that it's an op-amp design where the J48 is a discrete-transistor design. Some studio engineers will argue that the op-amp colors the signal more than discrete circuitry; I A/B'd both DIs with a clean guitar signal and couldn't hear a meaningful difference. Both measured flat. If there's an audible difference, it's below my hearing threshold.
 
-**Best for:** Broadcast and theater installs, line-level sources that need padding (synth keyboards, modeler outputs), passive pickups that need the highest input impedance available.
+**Best for:** Broadcast and theater installs, line-level sources that need padding (synth keyboards, modeler outputs, amp speaker taps via the 40 dB pad), and passive pickups when the pad is off.
 
 ### Behringer DI100: The Honest Budget Option
 
@@ -151,15 +156,17 @@ This is the question I get asked every time I post a DI comparison. The short an
 
 The crossover case is the modeler-direct rig, and I get asked about it constantly. The right answer for most modeler-direct rigs is a passive transformer DI (the Radial JDI is the standard), because the modeler's output is already buffered and line-level, and you don't need the active DI's input impedance advantage. The exception is when the modeler has a low-output line-out that runs better with active gain in front of it; in that case, an active DI like the J48 with the pad engaged is the right tool.
 
-For direct passive-guitar recording — no amp, no modeler, just a guitar cable into the DI — the active DI wins on input impedance. The J48 or AR-133 will give you a clean DI tap from a passive pickup that a passive transformer DI can't match.
+For direct passive-guitar recording — no amp, no modeler, just a guitar cable into the DI — the active DI wins on input impedance, and the order here is not the order the prices suggest: Type 85 at 10 MΩ, AR-133 at 1 MΩ with the pad off, then the J48 and DI100 at 220 kΩ. All four beat a passive transformer DI for this job.
+
+This matters more than it sounds if the DI is going to be a reamp source, because whatever the input did to your pickup is frozen into the file before any comparison starts — [which is the part of reamping that nothing downstream can undo](/blog/reamp-comparisons-what-they-cant-test).
 
 ## Which One Should You Buy?
 
 The four boxes serve four different jobs.
 
-**Studio active DI for direct passive-guitar recording:** Radial J48 if you want the discrete-transistor topology and the smallest noise floor; BSS AR-133 if you want the higher input impedance and the bigger pad range. Both are excellent. Pick the one whose pad range matches what you'll feed it.
+**Studio active DI for direct passive-guitar recording:** Radial J48 if you want the discrete-transistor topology and the smallest noise floor; BSS AR-133 if you want the lighter load on the pickup and the bigger pad range, remembering that you only get the 1 MΩ with the pad off. If the *only* thing you care about is loading the pickup as little as possible — a piezo, a low-output vintage single coil, a DI you plan to reamp from for years — the Type 85's 10 MΩ beats both, and you give up the pad and the battery option to get it.
 
-**Live FOH active DI:** Countryman Type 85. Period. The form factor, the bombproof build, the slight presence rise — all three are designed for live work in a way the studio DIs aren't.
+**Live FOH active DI:** Countryman Type 85. Period. The form factor, the bombproof build, the slight presence rise, and the 10 MΩ input that lets any passive instrument plug straight in without a buffer — all four are designed for live work in a way the studio DIs aren't.
 
 **Modeler-direct active DI:** Radial J48 with the 15 dB pad engaged. The J48's headroom margin and flat response are what you want for a clean modeler signal. The Type 85's presence rise is too much voicing for a signal that's already shaped by the modeler.
 
