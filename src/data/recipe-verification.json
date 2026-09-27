@@ -1730,5 +1730,41 @@
     ],
     "droppedCount": 1,
     "substitutedCount": 9
+  },
+  "petrucci-metropolis-unison-lead": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 6
+  },
+  "edge-with-or-without-you-infinite-sustain": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 1,
+    "substitutedCount": 7
+  },
+  "buckland-yellow-dual-twin-clean": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 8
+  },
+  "cantrell-rooster-lead": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 3,
+    "substitutedCount": 8
+  },
+  "bellamy-knights-of-cydonia-lead": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 6
   }
 }

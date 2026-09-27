@@ -762,6 +762,20 @@ export const artists: Artist[] = [
     genres: ["progressive-rock", "hard-rock", "folk-rock"],
     image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/0a/a0/6f/0aa06f12-dcc9-1096-77cd-783af1bc393f/dj.kzxxwyvz.jpg/600x600bb.jpg",
   },
+  {
+    name: "Jonny Buckland",
+    slug: "jonny-buckland",
+    bio: "Coldplay's lead guitarist and the band's most disciplined player -- his parts on Parachutes are built from two or three notes at a time, left ringing, with the space around them doing as much work as the notes. Producer Ken Nelson's account of the sessions has Buckland running a Fender Twin Reverb with a rack of delays feeding it; Nelson's suggestion that he split into two amps, one wet and one dry, is the reason those early records sound wide without sounding washed out. His main instrument from that era is a Fender Jerry Donahue Signature Telecaster.",
+    genres: ["alternative-rock", "britpop", "indie-rock"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f5/93/8c/f5938c49-964c-31d1-4b33-78b634f71fb7/190295978075.jpg/600x600bb.jpg",
+  },
+  {
+    name: "Jerry Cantrell",
+    slug: "jerry-cantrell",
+    bio: "Alice in Chains' guitarist and the architect of a tone that sounds like one enormous amp and is actually three small ones. His instrument is a 1984 G&L Rampage he bought in Dallas in 1985 -- all-maple, ebony board, a Seymour Duncan JB dropped in, a pin-up sticker that gave it the name Blue Dress -- and by his own count it is on nearly everything he has recorded. On Dirt, producer Dave Jerden split the rhythm guitar across three amps by frequency range and doubled each one, which is why the record has weight and clarity at the same time rather than trading one for the other.",
+    genres: ["grunge", "alternative-metal", "hard-rock"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/54/26/62/5426627b-4707-7867-acc0-ce616d250381/074645247526.jpg/600x600bb.jpg",
+  },
 ];
 
 export const songs: Song[] = [
@@ -3882,6 +3896,81 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wa/search?pattern=jethro+tull+aqualung",
     external_video_url:
       "https://www.youtube.com/results?search_query=jethro+tull+aqualung+guitar+lesson",
+  },
+  {
+    artist_slug: "john-petrucci",
+    title: "Metropolis, Pt. 1: The Miracle and the Sleeper",
+    slug: "metropolis-pt-1-dream-theater",
+    album: "Images and Words",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/62/02/e1/6202e1a9-e297-848e-c3c2-e4571fc8d2e0/mzi.opgeoigt.jpg/600x600bb.jpg",
+    year: 1992,
+    genres: ["progressive-metal", "progressive-rock", "heavy-metal"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=dream+theater+metropolis",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=dream+theater+metropolis+pt+1+guitar+lesson",
+  },
+  {
+    artist_slug: "the-edge",
+    title: "With or Without You",
+    slug: "with-or-without-you-u2",
+    album: "The Joshua Tree",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/8f/e2/c3/8fe2c384-f6cb-9af7-371d-2b6a9b204e59/17UMGIM79292.rgb.jpg/600x600bb.jpg",
+    year: 1987,
+    genres: ["rock", "post-punk", "alternative-rock"],
+    difficulty: "intermediate",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=u2+with+or+without+you",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=u2+with+or+without+you+guitar+lesson",
+  },
+  {
+    artist_slug: "jonny-buckland",
+    title: "Yellow",
+    slug: "yellow-coldplay",
+    album: "Parachutes",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f5/93/8c/f5938c49-964c-31d1-4b33-78b634f71fb7/190295978075.jpg/600x600bb.jpg",
+    year: 2000,
+    genres: ["alternative-rock", "britpop", "indie-rock"],
+    difficulty: "beginner",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=coldplay+yellow",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=coldplay+yellow+guitar+lesson",
+  },
+  {
+    artist_slug: "jerry-cantrell",
+    title: "Rooster",
+    slug: "rooster-alice-in-chains",
+    album: "Dirt",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/54/26/62/5426627b-4707-7867-acc0-ce616d250381/074645247526.jpg/600x600bb.jpg",
+    year: 1992,
+    genres: ["grunge", "alternative-metal", "hard-rock"],
+    difficulty: "intermediate",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=alice+in+chains+rooster",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=alice+in+chains+rooster+guitar+lesson",
+  },
+  {
+    artist_slug: "matt-bellamy",
+    title: "Knights of Cydonia",
+    slug: "knights-of-cydonia-muse",
+    album: "Black Holes and Revelations",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4a/c1/5d/4ac15dc9-2ae6-1d5b-3add-43bae227f941/825646095452.jpg/600x600bb.jpg",
+    year: 2006,
+    genres: ["alternative-rock", "progressive-rock", "space-rock"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=muse+knights+of+cydonia",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=muse+knights+of+cydonia+guitar+lesson",
   },
 ];
 
@@ -72597,6 +72686,2207 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "One cranked Hiwatt capture with a treble booster in front of it -- and if your capture is clean, the booster has to work much harder and the result will be thinner and fizzier than the record. Spend the effort on finding the right capture rather than on compensating with EQ afterwards.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- John Petrucci (Dream Theater) - Metropolis, Pt. 1 (unison lead) ----
+  {
+    id: "seed-petrucci-metropolis",
+    song_slug: "metropolis-pt-1-dream-theater",
+    title: "Dream Theater's Metropolis Pt. 1 Unison Lead Tone",
+    slug: "petrucci-metropolis-unison-lead",
+    created_at: "2026-09-27",
+    description:
+      "The riff patch and the lead patch on this album are not the same patch, and the difference is where most attempts go wrong. Images and Words was cut on Mesa rack preamps rather than the Mark IIC+ head Petrucci gets credited with, and the lead voice is that rack running its lead mode with the mids pushed back up -- because a scooped rhythm curve that sounds enormous under a palm mute disappears the moment you play single notes in unison with a keyboard.",
+    tone_context: "lead",
+    attribution_confidence: "documented",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Ibanez JPM prototype (first signature build)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "The same prototype that carries the rest of the record: a DiMarzio Tone Zone at the bridge, a Humbucker From Hell at the neck. For the lead parts the Tone Zone matters more than it does on the riff. It is a high-output humbucker voiced with a low-mid bump rather than a ceramic scoop, and that bump is what keeps a single note audible when it is doubled an octave apart against a synth playing the same line. A scooped bridge pickup into a scooped amp leaves nothing in the band where the ear actually tracks pitch.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "overdrive",
+        gear_slug: null,
+        gear_name: "Tube Screamer-style front-end boost",
+        icon_type: "pedal",
+        icon_color: "#22c55e",
+        is_in_effects_loop: false,
+        settings: { Drive: 2, Tone: 6, Level: 8 },
+        notes:
+          "Inferred from the amp rather than documented for this session, and included as an option rather than a default. A Mark-series preamp already cascades more gain than a lead line needs; the only job left for a pedal in front is to roll off the bass that would otherwise smear fast legato runs. Low drive, high level -- and leave it off until you hear the runs turning to mush.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Mesa/Boogie Quad Preamp and TriAxis into a 2:90 power amp",
+        icon_type: "rack",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Gain: 7, Bass: 4, Middle: 5.5, Treble: 7, Presence: 6, Master: 6 },
+        notes:
+          "The lead voice of the same rack that tracked the rest of the album, with one deliberate change from the rhythm setting: the mids come back up. Mark-series rigs are usually dialed with a deep V for rhythm, and that curve is exactly wrong here -- the Metropolis unison line is a single note doubled against keyboard, and the frequency band that lets a listener follow the pitch of a single note is the band a V-curve removes. Middle at 5.5 rather than 2 is the whole recipe.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Harry Kolbe-modified Marshall 1x12 with EVM 12L and Bag End cabinets",
+        icon_type: "cab_1x12",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "An Electro-Voice EVM 12L is a far stiffer, higher-power speaker than a Celestion and it barely breaks up, which is why this record's leads sound composed rather than ragged at the top of a bend. The Kolbe-modified 1x12 keeps the low end tight enough that the doubled-octave line does not turn woolly.",
+      },
+      {
+        position: 4,
+        category: "wet_effect",
+        subcategory: "delay",
+        gear_slug: null,
+        gear_name: "Rack digital delay",
+        icon_type: "rack",
+        icon_color: "#3b82f6",
+        is_in_effects_loop: true,
+        settings: { Time: 400, Feedback: 18, Mix: 16 },
+        notes:
+          "A long single repeat rather than a rhythmic pattern. The purpose is sustain, not texture -- it fills the tail of a held note so the line keeps singing through the bar without the player having to push the amp into feedback. Kept low in the mix because the unison line is already doubled; more repeats would blur the two voices into one smear.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, slightly off-axis" },
+        notes:
+          "Off-axis rather than dead centre. An EVM 12L on-axis is a genuinely harsh speaker in the 3-5 kHz range, and pulling the mic toward the cone edge trims exactly the band that would make a high lead line painful on a record this bright.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Ibanez JPM prototype, bridge DiMarzio Tone Zone, .010-.046 strings, standard tuning",
+      effects: ["Tube Screamer-style front-end boost (inferred, optional)", "Rack digital delay in the loop"],
+      amp: "Mesa/Boogie Quad Preamp and TriAxis into a Mesa 2:90 power amp -- not the Mark IIC+ head the tone is usually credited to",
+      cabinet: "Harry Kolbe-modified Marshall 1x12 loaded with an Electro-Voice EVM 12L, plus Bag End cabinets",
+      microphone: "Shure SM57",
+      other_notes:
+        "The Mark IIC+ association belongs to Awake and after. Images and Words is a rack record, and the distinction is audible: the rack preamps are cleaner and more even across the neck than a Mark head pushed hard, which is what lets the Metropolis unison lines stay legible at speed. The clean sections of the same album ran a Roland JC-120 rather than the Mesa rig.",
+    },
+    tags: ["progressive-metal", "lead", "mesa-boogie", "petrucci", "dream-theater", "rack-rig"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Images_and_Words",
+      "https://equipboard.com/pros/john-petrucci",
+      "https://forums.ernieball.com/threads/petrucci-amp-timeline.44618/",
+      "https://www.premierguitar.com/gear/rig-rundown-dream-theaters-john-petrucci-and-john-myung",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression on the lead track",
+            settings: { Threshold: -22, Ratio: 3, Attack: 12, Release: 180, Mix: 70, Level: 1.5 },
+            notes:
+              "Before the amp, and gentle. A doubled unison line only works if both voices sit at the same level, so the compressor's job is to stop the loudest note of a run from jumping out ahead of the rest. Mix at 70 leaves enough uncompressed pick attack that fast alternate picking still reads as picking.",
+          },
+          {
+            position: 2,
+            block_name: "Scream 808",
+            block_category: "Distortion",
+            original_gear: "Tube Screamer-style front-end boost (inferred)",
+            enabled: false,
+            settings: { Gain: 1.5, Tone: 6, Level: 7.5 },
+            notes:
+              "OFF by default because nothing documents a boost on this session. Switch it in only if your low end is flubbing on the fast passages -- the TS high-pass is doing the work here, not the gain, which is why Gain sits at 1.5 and Level at 7.5.",
+          },
+          {
+            position: 3,
+            block_name: "Cali IV Lead",
+            block_category: "Amp",
+            original_gear: "Mesa Quad Preamp / TriAxis lead mode into a 2:90",
+            settings: {
+              Drive: 6.5,
+              Bass: 3.5,
+              Mid: 5.5,
+              Treble: 7.2,
+              Presence: 6.0,
+              ChVol: 5.0,
+              Master: 6.5,
+              Bias: 5.2,
+              BiasX: 5.5,
+              Sag: 4.5,
+              Hum: 3.0,
+              Ripple: 4.0,
+            },
+            notes:
+              "Helix's Mark IV lead channel is the closest model to the rack's lead mode. Mid at 5.5 is the deliberate departure from every other Mark-series patch in this catalogue -- see the amp note on the original chain. Sag is pulled to 4.5 because the 2:90 is a big solid power amp that barely sags; a high Sag value would add a compression bloom that this rig does not have and would round off the attack the unison line needs.",
+          },
+          {
+            position: 4,
+            block_name: "1x12 Cali EXT",
+            block_category: "Cab",
+            original_gear: "Kolbe-modified Marshall 1x12 with EVM 12L",
+            settings: {
+              Mic: 0,
+              Distance: 2.0,
+              Position: 0.45,
+              Angle: 25,
+              LowCut: 95,
+              HighCut: 7200,
+              Resonance: 5.0,
+              Level: 0,
+              Pan: 0.5,
+              Delay: 0,
+            },
+            notes:
+              "The Cali extension cab is Helix's EVM-loaded Mesa Thiele, which is the right speaker family rather than an approximation. Angle at 25 degrees and Position at 0.45 move the capsule off the dust cap -- an EVM 12L on-axis is brutal around 4 kHz. HighCut at 7200 finishes the job; LowCut at 95 clears the sub-100 Hz thump that a lead line has no use for.",
+          },
+          {
+            position: 5,
+            block_name: "Vintage Digital",
+            block_category: "Delay",
+            original_gear: "Rack digital delay in the loop",
+            settings: { Time: 400, Feedback: 18, Mix: 16, LowCut: 220, HighCut: 5500, Level: 0 },
+            notes:
+              "A sustain device, not a rhythm device. One clear repeat at 400 ms carries a held note to the end of the phrase. The LowCut and HighCut on the repeats matter more than usual here: an unfiltered repeat sitting underneath a doubled unison line makes it sound like a third voice slightly out of tune with the other two.",
+          },
+          {
+            position: 6,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate on the lead track",
+            settings: { Mix: 14, Decay: 1.8, Predelay: 25, LowCut: 250, HighCut: 6500, Level: 0 },
+            notes:
+              "Short plate, low mix. The record is dense enough that a long tail would just raise the noise floor. Predelay at 25 ms keeps the initial transient dry so the note still starts in front of the reverb rather than inside it.",
+          },
+          {
+            position: 7,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global brightness trim",
+            settings: { Tilt: 0.48, CenterFreq: 1000, Level: 0 },
+            notes:
+              "Sitting just below centre because the EVM-voiced cab plus a Tone Zone is already a bright combination on most FRFR rigs. Push it above 0.5 only if you are playing through a dark cab-sim monitor.",
+          },
+        ],
+        notes:
+          "Comp into a Cali IV Lead with the mids restored, through an EVM-loaded Thiele cab, with a long single-repeat delay for sustain. The boost is scaffolded and off. The one setting to not copy from a generic Mesa patch is the Mid control -- this is a unison lead, not a rhythm part.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compression on the lead track",
+            settings: { Threshold: -22, Ratio: 3, Attack: 12, Release: 180, Mix: 70, Level: 1.5 },
+            notes:
+              "Same job as the Helix comp -- even out a doubled line so the two voices track each other. Parallel mix keeps the pick attack intact for the fast passages.",
+          },
+          {
+            position: 2,
+            block_name: "CA MkIIC+ Lead",
+            block_category: "Amp",
+            original_gear: "Mesa Quad Preamp / TriAxis lead mode",
+            settings: { Gain: 6.8, Bass: 3.5, Mid: 5.5, Treble: 7.2, Presence: 6.0, Master: 6.0, Sag: 4.0 },
+            notes:
+              "The QC's Mark-family lead model. Take the Mid up to 5.5 rather than leaving it at the scooped setting the model ships with -- the scoop is a rhythm curve and it removes the exact band the unison line lives in.",
+          },
+          {
+            position: 3,
+            block_name: "1x12 EVM Thiele",
+            block_category: "Cab",
+            original_gear: "Kolbe-modified Marshall 1x12 with EVM 12L",
+            settings: { Mic: "SM57", Distance: 2.0, Position: 0.45, LowCut: 95, HighCut: 7200, Level: 0 },
+            notes:
+              "Off-centre mic position for the same reason as the Helix cab: an EVM 12L on-axis is harsh where a high lead line already has plenty of energy.",
+          },
+          {
+            position: 4,
+            block_name: "Digital Delay",
+            block_category: "Delay",
+            original_gear: "Rack digital delay in the loop",
+            settings: { Time: 400, Feedback: 18, Mix: 16, Level: 0 },
+            notes:
+              "One long repeat for sustain. Keep the feedback under 20 percent so the repeat dies before the next phrase starts.",
+          },
+          {
+            position: 5,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate on the lead track",
+            settings: { Decay: 1.8, Predelay: 25, Mix: 14, Level: 0 },
+            notes:
+              "Short, quiet plate. Predelay keeps the attack of each note ahead of the tail.",
+          },
+          {
+            position: 6,
+            block_name: "Graphic EQ",
+            block_category: "EQ",
+            original_gear: "Global brightness trim",
+            settings: { Tilt: 4.8, CenterFreq: 1000, Level: 0 },
+            notes:
+              "Final brightness trim, biased slightly dark to offset the EVM-voiced cab and a hot bridge humbucker.",
+          },
+        ],
+        notes:
+          "Comp, Mark-family lead model with the mids put back, EVM Thiele cab, long single repeat and a short plate. The mid setting is the difference between this and a rhythm patch.",
+      },
+      katana: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Tube Screamer",
+            block_category: "Booster",
+            original_gear: "Tube Screamer-style front-end boost (inferred)",
+            enabled: false,
+            settings: { Drive: 2, Bottom: 4, Tone: 6, Level: 8 },
+            notes:
+              "OFF by default -- no boost is documented on this session. Bring it in only if the low end flubs on fast runs; it is tightening, not gain.",
+          },
+          {
+            position: 2,
+            block_name: "Lead",
+            block_category: "Amp Type",
+            original_gear: "Mesa Quad Preamp / TriAxis lead mode",
+            settings: { Gain: 7, Volume: 5, Bass: 4, Middle: 6, Treble: 7, Presence: 6, Master: 6 },
+            notes:
+              "Lead is the right character rather than Brown: the Katana's Brown voice is a modern scooped high-gain and that scoop is precisely what this part cannot have. Middle at 6 is higher than most metal Katana patches on purpose.",
+          },
+          {
+            position: 3,
+            block_name: "Digital Delay",
+            block_category: "Delay",
+            original_gear: "Rack digital delay in the loop",
+            settings: { Time: 400, Feedback: 18, EffectLevel: 25 },
+            notes:
+              "Single long repeat for sustain, not a rhythmic pattern. Keep the effect level modest so the repeat supports the line instead of doubling it.",
+          },
+          {
+            position: 4,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate on the lead track",
+            settings: { Time: 3, PreDelay: 25, Tone: 5, EffectLevel: 18 },
+            notes:
+              "Short plate at a low level. Anything longer buries the articulation the unison line depends on.",
+          },
+        ],
+        notes:
+          "Lead channel with the mids up, a long single delay repeat and a short plate. The booster is scaffolded and off by default.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compression on the lead track",
+            settings: { Sustain: 3.5, Tone: 5.0, Volume: 0.0 },
+            notes:
+              "Slot A, light. Evens a doubled line without softening the pick attack that fast passages depend on.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Mesa Quad Preamp' or 'TriAxis Lead'",
+            block_category: "Profile",
+            original_gear: "Mesa Quad Preamp / TriAxis into a 2:90",
+            settings: { Gain: 6.8, Bass: 3.5, Middle: 5.5, Treble: 7.2, Presence: 6.0 },
+            notes:
+              "Search the Rig Exchange for a TriAxis or Quad Preamp profile rather than a Mark IIC+ head profile -- the rack preamps are the documented rig for this record and they are noticeably more even across the neck than a cranked head. Take the Middle up once loaded; most Mark profiles arrive scooped for rhythm.",
+          },
+          {
+            position: 3,
+            block_name: "Delay",
+            block_category: "Delay",
+            original_gear: "Rack digital delay in the loop",
+            settings: { Time: 400, Feedback: 18, Mix: 16 },
+            notes:
+              "DLY slot. One long repeat carrying the tail of each held note. Low mix so it does not read as a third voice under the unison.",
+          },
+          {
+            position: 4,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate on the lead track",
+            settings: { Decay: 1.8, Predelay: 25, Mix: 14 },
+            notes:
+              "REV slot. Short and quiet -- this is a dense arrangement and the reverb is there for depth, not space.",
+          },
+        ],
+        notes:
+          "The profile carries amp and cab together, so there is no separate cab block. Comp into a TriAxis-family profile with the mids restored, then a long single repeat and a short plate.",
+      },
+      fractal: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression on the lead track",
+            settings: { Threshold: -22, Ratio: 3, Attack: 12, Release: 180, Mix: 0.7, Level: 0 },
+            notes:
+              "Parallel-blended so the compressed body sits under an untouched transient. That is what keeps fast alternate picking legible after compression.",
+          },
+          {
+            position: 2,
+            block_name: "USA Lead 3",
+            block_category: "Amp",
+            original_gear: "Mesa Quad Preamp / TriAxis lead mode into a 2:90",
+            settings: { Drive: 6.5, Bass: 3.5, Mid: 5.5, Treble: 7.2, Presence: 6.0, MV: 6.5, Cut: 5.0 },
+            notes:
+              "Fractal's Mark IV lead voice. As everywhere else in this recipe, the Mid control is the one to not leave where a factory Mark patch puts it. In the amp's Power Supply page, pull Sag down toward 2 -- the 2:90 is a stiff power amp and the default sag adds a bloom this rig does not have.",
+          },
+          {
+            position: 3,
+            block_name: "1x12 Thiele EVM12L",
+            block_category: "Cab",
+            original_gear: "Kolbe-modified Marshall 1x12 with EVM 12L",
+            settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 95, HighCut: 7200, Level: 0 },
+            notes:
+              "The EVM-loaded Thiele is the actual speaker family rather than a stand-in. Keep the HighCut in place; the EVM's top end is the part that turns shrill on a bright lead patch.",
+          },
+          {
+            position: 4,
+            block_name: "Digital Mono",
+            block_category: "Delay",
+            original_gear: "Rack digital delay in the loop",
+            settings: { Time: 400, Feedback: 18, Mix: 0.16 },
+            notes:
+              "One long repeat for sustain. Roll the repeats' high end off in the delay's EQ tab so they sit behind the dry note.",
+          },
+          {
+            position: 5,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate on the lead track",
+            settings: { Mix: 0.14, Decay: 1.8, Predelay: 25 },
+            notes:
+              "Short plate for depth rather than space -- the arrangement is already crowded.",
+          },
+          {
+            position: 6,
+            block_name: "Filter Tilt",
+            block_category: "EQ",
+            original_gear: "Global brightness trim",
+            settings: { Tilt: 0.48, CenterFreq: 1000, Level: 0 },
+            notes:
+              "Slightly dark-biased global trim to offset the EVM cab and the Tone Zone's output.",
+          },
+        ],
+        notes:
+          "Studio comp into USA Lead 3 with the mids restored, an EVM Thiele cab, a long single repeat and a short plate. Pull the amp's Sag down to match a solid-state power amp.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Mesa TriAxis Lead' or 'Mesa Quad Preamp'",
+            block_category: "Tone Model",
+            original_gear: "Mesa Quad Preamp / TriAxis into a 2:90",
+            settings: {},
+            notes:
+              "Search ToneNET for a TriAxis or Quad Preamp capture rather than a Mark IIC+ head -- the rack preamps are what this record was actually cut on, and captures of the two do not sound the same. Favour captures taken through an EVM-loaded cab if the uploader lists one.",
+          },
+        ],
+        notes:
+          "TONEX is capture-driven, so the whole amp and cab arrive as one Tone Model. Use the pedal's onboard compressor lightly in front and add a 400 ms single-repeat delay after for sustain. If the capture you find is scooped for rhythm, use the post EQ to put the mids back -- that is the single adjustment this lead tone depends on.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- The Edge (U2) - With or Without You (Infinite Guitar) ----
+  {
+    id: "seed-edge-with-or-without-you",
+    song_slug: "with-or-without-you-u2",
+    title: "The Edge's With or Without You Infinite Sustain",
+    slug: "edge-with-or-without-you-infinite-sustain",
+    created_at: "2026-09-27",
+    description:
+      "The sustained line that runs under this song is not a keyboard and it is not an EBow. It is a prototype of Michael Brook's Infinite Guitar -- a Stratocaster modified with a feedback-driven sustainer circuit -- which the Edge had access to because he and Brook had worked together on the Captive soundtrack. Understanding that changes how you chase the sound: the tone is a fairly plain clean amp, and the thing that makes it unmistakable is an instrument that never lets a note decay.",
+    tone_context: "lead",
+    attribution_confidence: "documented",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Fender Stratocaster modified as a Michael Brook Infinite Guitar prototype",
+      pickup_config: "SSS",
+      pickup_position: "neck",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "The Infinite Guitar drives the string with an onboard electromagnetic circuit rather than letting it decay, producing endless sustain without the volume and feedback loop a player would normally need to get it. Only a handful were ever built and the Edge's was a prototype from Brook himself. This is the one spec worth being honest about: a modern sustainer-equipped guitar -- a Fernandes or a Sustainiac retrofit -- is the closest thing available now, and a bowed EBow gets a similar effect with a slower attack and a harder time crossing between strings. String gauge is era-typical rather than documented.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "compressor",
+        gear_slug: null,
+        gear_name: "Studio compression on the guitar track",
+        icon_type: "large_format",
+        icon_color: "#06b6d4",
+        is_in_effects_loop: false,
+        settings: { Ratio: 3, Attack: 20, Release: 250 },
+        notes:
+          "Light and slow. A sustainer already delivers a note at a constant level, so the compressor is not there to even anything out -- its job is to keep the swell into each note smooth as the circuit takes hold, which happens over a few hundred milliseconds rather than instantly.",
+      },
+      {
+        position: 2,
+        category: "wet_effect",
+        subcategory: "delay",
+        gear_slug: null,
+        gear_name: "Korg SDD-3000 digital delay",
+        icon_type: "rack",
+        icon_color: "#3b82f6",
+        is_in_effects_loop: false,
+        settings: { Time: 480, Feedback: 22, Mix: 25 },
+        notes:
+          "The SDD-3000 arrived in the Edge's rig around The Unforgettable Fire and stayed through The Joshua Tree, and on this song it is doing something different from its famous job. There is no dotted-eighth cascade here. The delay is set long and soft so it thickens a sustained note into a bed, and the unit's own input stage adds a little colour on the way -- the SDD-3000 is not a transparent delay and that is part of why it is identifiable.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: "vox-ac30",
+        gear_name: "Vox AC30 (Top Boost)",
+        icon_type: "fender_combo",
+        icon_color: "#8b4513",
+        is_in_effects_loop: false,
+        settings: { Volume: 4, Treble: 6, Bass: 5, Cut: 6 },
+        notes:
+          "Kept clean, which is unusual for an AC30 in a rock context and essential here. The delays feed straight into the amps in this rig, so any amp breakup would distort the repeats as well as the dry note and turn a smooth sustained line into a buzzing one. Cut at 6 pulls back the AC30's top-end bite -- the sustainer is already producing a very pure, harmonically simple note and a bright amp makes it sound synthetic rather than vocal.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Vox AC30 built-in 2x12 (Celestion Blue)",
+        icon_type: "cab_1x12",
+        icon_color: "#8b4513",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "The AC30's alnico Blues have a soft, slightly compressed top end that suits a note with no attack transient to speak of. A stiffer ceramic speaker makes the sustained line sound more like an oscillator and less like a guitar.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 with room ambience",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close plus room pair" },
+        notes:
+          "The Joshua Tree was cut largely in houses -- Danesmoate and Melbeach -- rather than in a conventional studio, and Eno and Lanois used the rooms rather than fighting them. A close mic plus real room is why the sustained parts sit in an actual space instead of sounding pasted on.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Fender Stratocaster modified as a prototype of Michael Brook's Infinite Guitar -- an onboard sustainer circuit, not an EBow and not a keyboard",
+      effects: ["Korg SDD-3000 digital delay (long, soft, non-rhythmic)", "Light studio compression"],
+      amp: "Vox AC30 Top Boost, kept clean",
+      cabinet: "AC30 built-in 2x12 with Celestion alnico speakers",
+      microphone: "Shure SM57 plus room ambience",
+      other_notes:
+        "The Edge had worked with Michael Brook on the Captive soundtrack, which is how a prototype of an instrument that barely existed ended up on a record this big. Recorded across STS, Danesmoate House, Melbeach and Windmill Lane between January 1986 and January 1987 with Brian Eno and Daniel Lanois producing. The rest of the Edge's Joshua Tree sound is built on the same AC30-plus-SDD-3000 foundation -- what is unique to this song is the instrument.",
+    },
+    tags: ["rock", "lead", "sustain", "ambient", "the-edge", "u2", "vox-ac30"],
+    sources: [
+      "https://en.wikipedia.org/wiki/With_or_Without_You",
+      "https://en.wikipedia.org/wiki/Infinite_Guitar",
+      "https://www.premierguitar.com/gear/korg-sdd-3000-programmable-digital-delay-review",
+      "https://equipboard.com/pros/the-edge",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression on the guitar track",
+            settings: { Threshold: -20, Ratio: 3, Attack: 20, Release: 250, Mix: 60, Level: 1.0 },
+            notes:
+              "Before the amp, slow attack. If you are faking the sustainer with volume swells or an EBow, this block is doing real work -- the slow attack lets the swell breathe instead of clamping down on it. With an actual sustainer guitar you can drop the Mix further.",
+          },
+          {
+            position: 2,
+            block_name: "Minotaur",
+            block_category: "Distortion",
+            original_gear: "Clean level lift into the amp",
+            enabled: false,
+            settings: { Gain: 1.5, Tone: 5.0, Level: 7.0 },
+            notes:
+              "OFF by default. There is no drive pedal on this part. It is scaffolded as a transparent level lift for players whose sustainer circuit is weak and needs more signal to keep the string driven -- use it for level, not for grit.",
+          },
+          {
+            position: 3,
+            block_name: "Simple Delay",
+            block_category: "Delay",
+            original_gear: "Korg SDD-3000",
+            settings: { Time: 480, Feedback: 22, Mix: 25, LowCut: 160, HighCut: 6000, Level: 0 },
+            notes:
+              "Placed before the amp, which is how the Edge ran it -- the SDD-3000s fed straight into the AC30s. That ordering matters: the repeats get the same amp colour as the dry note, so they blend into one bed instead of sitting behind it. Long and soft, no dotted-eighth pattern; this is the song where the Edge is not doing that.",
+          },
+          {
+            position: 4,
+            block_name: "A-30 Fawn Brt",
+            block_category: "Amp",
+            original_gear: "Vox AC30 Top Boost",
+            settings: {
+              Drive: 3.2,
+              Bass: 5.0,
+              Mid: 5.5,
+              Treble: 5.8,
+              Presence: 4.5,
+              ChVol: 5.0,
+              Master: 9.0,
+              Cut: 6.0,
+              Bias: 5.0,
+              BiasX: 5.0,
+              Sag: 5.5,
+              Hum: 3.0,
+              Ripple: 4.0,
+            },
+            notes:
+              "Drive at 3.2 keeps it genuinely clean. This is the hardest thing to get right, because the instinct with an AC30 model is to push it until it chimes -- and any breakup here distorts the delay repeats too, since they are upstream. Cut at 6 tames the top; a sustainer note is harmonically simple and a bright amp makes it sound like a test tone.",
+          },
+          {
+            position: 5,
+            block_name: "2x12 Blue Bell",
+            block_category: "Cab",
+            original_gear: "AC30 built-in 2x12, Celestion alnico",
+            settings: {
+              Mic: 0,
+              Distance: 3.0,
+              Position: 0.35,
+              Angle: 0,
+              LowCut: 110,
+              HighCut: 7800,
+              Resonance: 5.5,
+              Level: 0,
+              Pan: 0.5,
+              Delay: 0,
+            },
+            notes:
+              "The alnico Blue cab, mic'd back at 3 inches to let some cabinet body into the capture. LowCut at 110 because a sustained note with endless energy in it will build up low mud fast; HighCut at 7800 keeps the alnico sweetness without the fizz.",
+          },
+          {
+            position: 6,
+            block_name: "Glitz",
+            block_category: "Reverb",
+            original_gear: "Room ambience at Danesmoate / Melbeach",
+            settings: { Mix: 26, Decay: 3.4, Predelay: 40, LowCut: 180, HighCut: 6200, Level: 0 },
+            notes:
+              "Longer and wetter than most recipes in this catalogue, because the record's guitars genuinely sit in large rooms rather than in a plate. Predelay at 40 ms keeps the swell readable as it starts. The LowCut at 180 is doing more work than it looks -- an endlessly sustained note through a long reverb builds low-mid mud within a bar or two without it.",
+          },
+          {
+            position: 7,
+            block_name: "Tilt",
+            block_category: "EQ",
+            original_gear: "Global brightness trim",
+            settings: { Tilt: 0.46, CenterFreq: 900, Level: 0 },
+            notes:
+              "Biased dark. Every instinct says brighten an Edge patch; this particular part wants the opposite, because the warmth is what makes the sustained line read as vocal rather than electronic.",
+          },
+        ],
+        notes:
+          "Comp, then the delay, then a clean AC30 -- delay before the amp, as the Edge ran it, so the repeats share the amp's colour. The whole tone is unremarkable on purpose. What makes it this song is the sustainer: use a Fernandes or Sustainiac guitar if you have one, an EBow if you do not, and expect the EBow to struggle with the string crossings.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compression on the guitar track",
+            settings: { Threshold: -20, Ratio: 3, Attack: 20, Release: 250, Mix: 60, Level: 1.0 },
+            notes:
+              "Slow attack so the swell into each note stays smooth rather than being clamped at the front.",
+          },
+          {
+            position: 2,
+            block_name: "Digital Delay",
+            block_category: "Delay",
+            original_gear: "Korg SDD-3000",
+            settings: { Time: 480, Feedback: 22, Mix: 25, Level: 0 },
+            notes:
+              "Put this ahead of the amp block rather than after it. The SDD-3000s fed the AC30s directly, and running the repeats through the amp is what fuses them with the dry note into a single bed.",
+          },
+          {
+            position: 3,
+            block_name: "UK 30 TopBoost",
+            block_category: "Amp",
+            original_gear: "Vox AC30 Top Boost",
+            settings: { Gain: 3.2, Bass: 5.0, Mid: 5.5, Treble: 5.8, Presence: 4.5, Master: 5.0, Sag: 5.5 },
+            notes:
+              "Clean, not chiming. Breakup here would distort the repeats too, because they arrive at the amp alongside the dry signal.",
+          },
+          {
+            position: 4,
+            block_name: "2x12 Vox Blue",
+            block_category: "Cab",
+            original_gear: "AC30 built-in 2x12, Celestion alnico",
+            settings: { Mic: "SM57", Distance: 3.0, Position: 0.35, LowCut: 110, HighCut: 7800, Level: 0 },
+            notes:
+              "Mic'd back a little for cabinet body. LowCut is non-negotiable on a part that never stops ringing.",
+          },
+          {
+            position: 5,
+            block_name: "Hall Reverb",
+            block_category: "Reverb",
+            original_gear: "Room ambience at Danesmoate / Melbeach",
+            settings: { Decay: 3.4, Predelay: 40, Mix: 26, Level: 0 },
+            notes:
+              "Long and genuinely wet -- the record's guitars are in rooms, not plates. Predelay keeps the front of the swell legible.",
+          },
+          {
+            position: 6,
+            block_name: "Graphic EQ",
+            block_category: "EQ",
+            original_gear: "Global brightness trim",
+            settings: { Tilt: 4.6, CenterFreq: 900, Level: 0 },
+            notes:
+              "Trimmed dark on purpose. Warmth is what stops the sustained note sounding synthetic.",
+          },
+        ],
+        notes:
+          "Comp, delay, clean UK 30, alnico 2x12, long hall. Delay ahead of the amp. The instrument does the heavy lifting -- a sustainer-equipped guitar or an EBow.",
+      },
+      katana: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Clean Boost",
+            block_category: "Booster",
+            original_gear: "Clean level lift into the amp",
+            enabled: false,
+            settings: { Drive: 0, Bottom: 5, Tone: 5, Level: 6 },
+            notes:
+              "OFF by default -- there is no drive on this part. Available as a transparent lift if your sustainer needs more signal to hold a note.",
+          },
+          {
+            position: 2,
+            block_name: "Clean",
+            block_category: "Amp Type",
+            original_gear: "Vox AC30 Top Boost",
+            settings: { Gain: 3, Volume: 5, Bass: 5, Middle: 6, Treble: 6, Presence: 4, Master: 6 },
+            notes:
+              "Clean rather than Crunch. The Katana's Crunch voice starts breaking up right where this part needs headroom, and any breakup smears the delay repeats along with the note. Treble held at 6 and Presence pulled to 4 to keep the sustained line warm.",
+          },
+          {
+            position: 3,
+            block_name: "Digital Delay",
+            block_category: "Delay",
+            original_gear: "Korg SDD-3000",
+            settings: { Time: 480, Feedback: 22, EffectLevel: 40 },
+            notes:
+              "Long and soft, no dotted-eighth. On the Katana the delay sits after the amp section rather than in front of it, so back the effect level off slightly compared with the Helix patch -- post-amp repeats sound louder than pre-amp ones at the same setting.",
+          },
+          {
+            position: 4,
+            block_name: "Hall",
+            block_category: "Reverb",
+            original_gear: "Room ambience at Danesmoate / Melbeach",
+            settings: { Time: 7, PreDelay: 40, Tone: 4, EffectLevel: 40 },
+            notes:
+              "Genuinely long and wet. Tone pulled to 4 so the tail stays dark and does not add fizz on top of a note that never ends.",
+          },
+        ],
+        notes:
+          "Clean channel with the treble restrained, a long soft delay and a big hall. No drive. The sustainer instrument is the part the Katana cannot supply.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compression on the guitar track",
+            settings: { Sustain: 3.0, Tone: 5.0, Volume: 0.0 },
+            notes:
+              "Slot A, gentle. Smooths the swell as the sustainer circuit takes hold rather than levelling anything.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'AC30 Top Boost' or 'Vox Clean'",
+            block_category: "Profile",
+            original_gear: "Vox AC30 Top Boost",
+            settings: { Gain: 3.2, Bass: 5.0, Middle: 5.5, Treble: 5.8, Presence: 4.5 },
+            notes:
+              "Look specifically for a clean AC30 profile rather than an edge-of-breakup one. Most Vox profiles on the Exchange are captured hot because that is what people want from an AC30; this part needs the opposite. With Liquid Profiling, select the Vox tone stack so the Cut control behaves properly.",
+          },
+          {
+            position: 3,
+            block_name: "Delay",
+            block_category: "Delay",
+            original_gear: "Korg SDD-3000",
+            settings: { Time: 480, Feedback: 22, Mix: 25 },
+            notes:
+              "DLY slot. Long and soft. If your Kemper is set up with a pre-stomp delay slot, put it there instead -- running the repeats through the profile is closer to how the Edge fed his AC30s.",
+          },
+          {
+            position: 4,
+            block_name: "Hall Reverb",
+            block_category: "Reverb",
+            original_gear: "Room ambience at Danesmoate / Melbeach",
+            settings: { Decay: 3.4, Predelay: 40, Mix: 26 },
+            notes:
+              "REV slot, long. The Joshua Tree guitars sit in real houses; a short plate will not get you there.",
+          },
+        ],
+        notes:
+          "The profile bakes the cab in, so no cab block. Comp, clean AC30 profile, long soft delay, big hall. Hunt for a genuinely clean Vox profile -- that is the hard part of this one on Kemper.",
+      },
+      fractal: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression on the guitar track",
+            settings: { Threshold: -20, Ratio: 3, Attack: 20, Release: 250, Mix: 0.6, Level: 0 },
+            notes:
+              "Slow attack, parallel mix. Shapes the swell rather than controlling dynamics that a sustainer has already flattened.",
+          },
+          {
+            position: 2,
+            block_name: "Digital Mono",
+            block_category: "Delay",
+            original_gear: "Korg SDD-3000",
+            settings: { Time: 480, Feedback: 22, Mix: 0.25 },
+            notes:
+              "Route this ahead of the Amp block. The repeats sharing the amp's colour is what makes them fuse with the dry note into one sustained bed.",
+          },
+          {
+            position: 3,
+            block_name: "AC-30 TB Brt",
+            block_category: "Amp",
+            original_gear: "Vox AC30 Top Boost",
+            settings: { Drive: 3.2, Bass: 5.0, Mid: 5.5, Treble: 5.8, Presence: 4.5, MV: 5.0, Cut: 6.0 },
+            notes:
+              "Clean. The Cut control is the important one here -- it is the AC30's own top-end shelf and it is the most direct way to stop a sustainer note sounding like an oscillator.",
+          },
+          {
+            position: 4,
+            block_name: "2x12 Blue Alnico",
+            block_category: "Cab",
+            original_gear: "AC30 built-in 2x12, Celestion alnico",
+            settings: { Mic: "57 Dynamic", Distance: 3.0, LowCut: 110, HighCut: 7800, Level: 0 },
+            notes:
+              "Alnico Blue, mic'd back for body. The LowCut matters more than usual on a note with no decay.",
+          },
+          {
+            position: 5,
+            block_name: "Large Hall",
+            block_category: "Reverb",
+            original_gear: "Room ambience at Danesmoate / Melbeach",
+            settings: { Mix: 0.26, Decay: 3.4, Predelay: 40 },
+            notes:
+              "Long hall. Pull the reverb block's own low cut up to around 180 Hz or the tail will silt up under a continuously ringing note.",
+          },
+          {
+            position: 6,
+            block_name: "Filter Tilt",
+            block_category: "EQ",
+            original_gear: "Global brightness trim",
+            settings: { Tilt: 0.46, CenterFreq: 900, Level: 0 },
+            notes:
+              "Dark-biased global trim. Warmth is what keeps the line vocal.",
+          },
+        ],
+        notes:
+          "Comp, delay ahead of the amp, clean AC-30 Top Boost, alnico 2x12, large hall. Everything about the chain is ordinary; the instrument is not.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Vox AC30 Top Boost clean' or 'AC30 Clean'",
+            block_category: "Tone Model",
+            original_gear: "Vox AC30 Top Boost",
+            settings: {},
+            notes:
+              "Search ToneNET for a genuinely clean AC30 capture -- most AC30 Tone Models are captured at the edge of breakup because that is the classic Vox sound, and breakup is the one thing this part cannot have. If the uploader lists a Cut setting, favour captures with Cut high.",
+          },
+        ],
+        notes:
+          "TONEX delivers the amp and cab as a single capture. Add a long soft delay after it -- around 480 ms, low feedback -- and a large hall reverb. The tone chain is the easy half. The half that matters is the instrument: a Fernandes or Sustainiac sustainer guitar gets you there, and an EBow gets you most of the way with a slower attack.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Jonny Buckland (Coldplay) - Yellow (wet/dry twin cleans) ----
+  {
+    id: "seed-buckland-yellow",
+    song_slug: "yellow-coldplay",
+    title: "Coldplay's Yellow Wet-and-Dry Clean Tone",
+    slug: "buckland-yellow-dual-twin-clean",
+    created_at: "2026-09-27",
+    description:
+      "The usual shorthand for early Coldplay is a Telecaster into a Vox AC30, and the documented Parachutes rig is neither half of that amp claim. Producer Ken Nelson's account has Jonny Buckland running a Fender Twin Reverb with a rack of delays feeding it, and Nelson's own suggestion to split the signal across two Twins -- one taking the delays, one staying dry -- is why this record sounds wide without sounding washed out.",
+    tone_context: "full_song",
+    attribution_confidence: "documented",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Fender Jerry Donahue Signature Telecaster",
+      pickup_config: "SS",
+      pickup_position: "neck",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "The Jerry Donahue signature is not a standard Telecaster and the difference is audible on this part. It carries a Stratocaster-style neck pickup rather than the Tele's usual small-bodied one, and a five-way switch giving out-of-phase and pseudo-Strat positions a normal Tele cannot reach. That Strat-voiced neck pickup is where Yellow's rounded, slightly hollow arpeggios come from -- a stock Tele neck pickup is darker and blunter, and a bridge pickup is the wrong end of the instrument entirely. String gauge is era-typical rather than documented.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "wet_effect",
+        subcategory: "delay",
+        gear_slug: null,
+        gear_name: "Lexicon PCM 42 and WEM Copicat (delay rack)",
+        icon_type: "rack",
+        icon_color: "#3b82f6",
+        is_in_effects_loop: false,
+        settings: { Time: 380, Feedback: 20, Mix: 30 },
+        notes:
+          "Feeding one amp only. Ken Nelson describes Buckland arriving with a Twin and all these delays going into it, and the delays are upstream of the amp rather than in a loop -- which is why the repeats carry the amp's own character instead of floating above it. A digital Lexicon and a tape-driven Copicat in the same rack is the reason the repeats are neither perfectly clean nor obviously warbly.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Fender '65 Twin Reverb (wet amp)",
+        icon_type: "fender_combo",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: { Volume: 4, Treble: 6, Bass: 5, Reverb: 3 },
+        notes:
+          "The amp taking the delays. A Twin is chosen here for headroom rather than character: this part is arpeggiated with a lot of ringing open strings, and an amp that starts compressing would blur the individual notes into a strum. Volume at 4 keeps it well clear of breakup.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Fender '65 Twin Reverb (dry amp)",
+        icon_type: "fender_combo",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: { Volume: 4, Treble: 6, Bass: 5, Reverb: 2 },
+        notes:
+          "The second amp, taking no delay at all. This is the idea that makes the record work and it came from the producer, not the guitarist: with everything through one amp the delays have to be quiet or the part turns to soup, but with a dry amp holding the centre the wet amp can be pushed far harder than it otherwise could. The width you hear is two amps, not a stereo effect.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Twin Reverb built-in 2x12",
+        icon_type: "cab_1x12",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Two 12s with a lot of clean power behind them. The Twin's famously scooped, glassy voice is doing something specific on this song -- it leaves a hole in the low mids where the piano and vocal sit, which is why the guitar never fights the arrangement despite ringing constantly.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 per amp",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "one per cabinet, panned apart" },
+        notes:
+          "Each amp mic'd separately and panned apart in the mix. Panning two genuinely different signals -- one wet, one dry -- produces a wider image than duplicating one signal and delaying it, and without the phase weirdness that a delayed duplicate creates in mono.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Fender Jerry Donahue Signature Telecaster, neck pickup, standard tuning",
+      effects: [
+        "Lexicon PCM 42 delay",
+        "WEM Watkins Copicat tape echo",
+        "Roland SDD-320 Dimension D (studio chorus)",
+        "Chandler EMI TG12413 Zener limiter and API 525 compression on the desk",
+      ],
+      amp: "Two Fender '65 Twin Reverbs -- one fed by the delay rack, one dry",
+      cabinet: "Twin Reverb built-in 2x12 speakers",
+      microphone: "Shure SM57 on each amp, panned apart",
+      other_notes:
+        "Produced by Ken Nelson, whose suggestion the two-amp split was. The wider Parachutes guitar sound also passes through a Roland SDD-320 Dimension D at the desk, which is a very specific piece of studio chorus -- it widens without any audible sweep, and it is a large part of why these guitars sound big and still sound still. Worth knowing what is not here: no AC30, and no overdrive pedal.",
+    },
+    tags: ["alternative-rock", "clean", "delay", "britpop", "coldplay", "telecaster", "wet-dry"],
+    sources: [
+      "https://equipboard.com/albums/coldplay-parachutes",
+      "https://equipboard.com/pros/jonny-buckland-coldplay",
+      "https://en.wikipedia.org/wiki/Parachutes",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Chandler Zener limiter / API 525 on the desk",
+            settings: { Threshold: -18, Ratio: 2.5, Attack: 15, Release: 220, Mix: 55, Level: 1.0 },
+            notes:
+              "Gentle and parallel, standing in for the desk compression rather than a pedal. Ratio 2.5 is deliberately low -- this is an arpeggiated part where the dynamic difference between the thumb notes and the melody notes is the musical content, and a hard ratio flattens it.",
+          },
+          {
+            position: 2,
+            block_name: "Minotaur",
+            block_category: "Distortion",
+            original_gear: "Clean level lift",
+            enabled: false,
+            settings: { Gain: 1.5, Tone: 5.5, Level: 7.0 },
+            notes:
+              "OFF by default. There is no overdrive on this recording. Scaffolded only for the chorus sections if you want the Twins to hint at breakup live -- keep the gain low and use it as a level push.",
+          },
+          {
+            position: 3,
+            block_name: "Simple Delay",
+            block_category: "Delay",
+            original_gear: "Lexicon PCM 42 / WEM Copicat",
+            settings: { Time: 380, Feedback: 20, Mix: 30, LowCut: 180, HighCut: 5200, Level: 0 },
+            notes:
+              "Ahead of the amp, matching how the rack fed the wet Twin. HighCut at 5200 is what makes a digital delay behave like a rack from 2000 sitting next to a tape echo -- the repeats need to be duller than the dry note or they crowd the vocal.",
+          },
+          {
+            position: 4,
+            block_name: "US Double Nrm",
+            block_category: "Amp",
+            original_gear: "Fender '65 Twin Reverb",
+            settings: {
+              Drive: 3.0,
+              Bass: 5.0,
+              Mid: 4.5,
+              Treble: 6.2,
+              Presence: 5.0,
+              ChVol: 5.0,
+              Master: 10.0,
+              Bias: 5.0,
+              BiasX: 5.0,
+              Sag: 3.5,
+              Hum: 2.5,
+              Ripple: 3.5,
+            },
+            notes:
+              "Helix's Twin Reverb model, and the normal channel rather than the bright one -- the Jerry Donahue's Strat-style neck pickup already supplies the top end. Sag pulled down to 3.5 on purpose: a Twin has an enormous, stiff power supply and almost no sag, and leaving Sag at the default adds a spongy bloom that turns crisp arpeggios mushy.",
+          },
+          {
+            position: 5,
+            block_name: "2x12 Double C12N",
+            block_category: "Cab",
+            original_gear: "Twin Reverb built-in 2x12",
+            settings: {
+              Mic: 0,
+              Distance: 2.5,
+              Position: 0.4,
+              Angle: 15,
+              LowCut: 105,
+              HighCut: 8500,
+              Resonance: 4.5,
+              Level: 0,
+              Pan: 0.5,
+              Delay: 0,
+            },
+            notes:
+              "The Jensen-style 2x12 that matches the Twin. LowCut at 105 clears the boom that a constantly ringing open-string part builds up; HighCut at 8500 is set high because this tone is meant to be glassy -- pull it down only if your rig is fizzy.",
+          },
+          {
+            position: 6,
+            block_name: "Bubble Vibrato",
+            block_category: "Modulation",
+            original_gear: "Roland SDD-320 Dimension D",
+            settings: { Rate: 0.3, Depth: 12, Mix: 22, Level: 0 },
+            notes:
+              "Standing in for the Dimension D, which is the hardest part of this sound to fake. A Dimension D widens without any audible sweep, so the trick is a very slow Rate and a shallow Depth -- if you can hear it moving, it is turned up too far. Set it by turning it up until you notice it, then backing off until you do not.",
+          },
+          {
+            position: 7,
+            block_name: "Glitz",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb spring tank plus room",
+            settings: { Mix: 16, Decay: 2.0, Predelay: 20, LowCut: 200, HighCut: 6800, Level: 0 },
+            notes:
+              "Modest. There is already a long delay in front of the amp, and stacking a big reverb on top of it is the single most common way this tone gets ruined -- the two effects compete for the same space and the part stops sounding intimate.",
+          },
+        ],
+        notes:
+          "Comp, delay ahead of a clean Twin, Dimension-style widener and a small reverb. If your Helix has dual paths, split after the comp and run the delay down one path only into a second amp block -- that wet-and-dry pair is the actual record, and a single path with the delay turned down is the compromise version.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Compressor",
+            block_category: "Compressor",
+            original_gear: "Chandler Zener limiter / API 525 on the desk",
+            settings: { Threshold: -18, Ratio: 2.5, Attack: 15, Release: 220, Mix: 55, Level: 1.0 },
+            notes:
+              "Low ratio, parallel. The dynamic swing between the low notes and the melody notes of the arpeggio is the part -- do not flatten it.",
+          },
+          {
+            position: 2,
+            block_name: "Digital Delay",
+            block_category: "Delay",
+            original_gear: "Lexicon PCM 42 / WEM Copicat",
+            settings: { Time: 380, Feedback: 20, Mix: 30, Level: 0 },
+            notes:
+              "Ahead of the amp. The QC's dual-lane routing makes the real wet/dry split easy -- run this on one lane into its own amp block and leave the other lane dry.",
+          },
+          {
+            position: 3,
+            block_name: "US Twin",
+            block_category: "Amp",
+            original_gear: "Fender '65 Twin Reverb",
+            settings: { Gain: 3.0, Bass: 5.0, Mid: 4.5, Treble: 6.2, Presence: 5.0, Master: 5.0, Sag: 3.0 },
+            notes:
+              "Clean with plenty of headroom. Keep Sag low -- a Twin barely sags and the stiffness is what keeps the arpeggios separated.",
+          },
+          {
+            position: 4,
+            block_name: "2x12 Fender Twin",
+            block_category: "Cab",
+            original_gear: "Twin Reverb built-in 2x12",
+            settings: { Mic: "SM57", Distance: 2.5, Position: 0.4, LowCut: 105, HighCut: 8500, Level: 0 },
+            notes:
+              "Glassy and open. The high cut sits high on purpose; this is meant to sparkle.",
+          },
+          {
+            position: 5,
+            block_name: "Dimension Chorus",
+            block_category: "Modulation",
+            original_gear: "Roland SDD-320 Dimension D",
+            settings: { Rate: 0.3, Depth: 12, Mix: 22 },
+            notes:
+              "A Dimension-style widener rather than a chorus. If you can hear it modulating you have gone past the setting -- this effect is meant to be felt as width, not heard as movement.",
+          },
+          {
+            position: 6,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb spring tank plus room",
+            settings: { Decay: 2.0, Predelay: 20, Mix: 16, Level: 0 },
+            notes:
+              "Small. The delay is already providing the depth; reverb on top of it just muddies the picture.",
+          },
+        ],
+        notes:
+          "Comp, delay, clean Twin, Jensen 2x12, Dimension-style width and a touch of spring. Use the QC's second lane for a dry amp and you have the actual Parachutes setup rather than an approximation of it.",
+      },
+      katana: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Clean Boost",
+            block_category: "Booster",
+            original_gear: "Clean level lift",
+            enabled: false,
+            settings: { Drive: 0, Bottom: 5, Tone: 5, Level: 6 },
+            notes:
+              "OFF by default -- there is no drive on this recording. Available as a clean lift for the chorus if you need the part to grow.",
+          },
+          {
+            position: 2,
+            block_name: "Clean",
+            block_category: "Amp Type",
+            original_gear: "Fender '65 Twin Reverb",
+            settings: { Gain: 3, Volume: 5, Bass: 5, Middle: 5, Treble: 6, Presence: 5, Master: 6 },
+            notes:
+              "Clean, with the gain genuinely low. The Katana's Clean voice is the only one of the five with enough headroom to keep ringing open strings separated instead of letting them compress into each other.",
+          },
+          {
+            position: 3,
+            block_name: "Digital Delay",
+            block_category: "Delay",
+            original_gear: "Lexicon PCM 42 / WEM Copicat",
+            settings: { Time: 380, Feedback: 20, EffectLevel: 45 },
+            notes:
+              "The Katana's delay sits after the amp, so it will sound more prominent than the pre-amp placement on the record. That is a fair trade on a single-amp rig, but keep the effect level under 50 or the repeats start masking the vocal line.",
+          },
+          {
+            position: 4,
+            block_name: "Chorus",
+            block_category: "Mod",
+            original_gear: "Roland SDD-320 Dimension D",
+            settings: { Rate: 1, Depth: 15, Level: 25 },
+            notes:
+              "Standing in for the Dimension D. Set the rate as slow as the Katana allows and the depth shallow -- the goal is width, and any audible warble is wrong for this record.",
+          },
+          {
+            position: 5,
+            block_name: "Spring",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb spring tank",
+            settings: { Time: 4, PreDelay: 20, Tone: 5, EffectLevel: 20 },
+            notes:
+              "Light spring for a bit of Fender air. Keep it small -- the delay is already doing the depth work.",
+          },
+        ],
+        notes:
+          "Clean channel, post-amp delay a little lower than the record, a very slow shallow chorus for width and a small spring. No drive anywhere.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Chandler Zener limiter / API 525 on the desk",
+            settings: { Sustain: 3.0, Tone: 5.0, Volume: 0.0 },
+            notes:
+              "Slot A, light. Desk-style smoothing rather than pedal squash -- the arpeggio's dynamics are the part.",
+          },
+          {
+            position: 2,
+            block_name: "Search Rig Exchange for 'Fender Twin Reverb' or '65 Twin Clean'",
+            block_category: "Profile",
+            original_gear: "Fender '65 Twin Reverb",
+            settings: { Gain: 3.0, Bass: 5.0, Middle: 4.5, Treble: 6.2, Presence: 5.0 },
+            notes:
+              "Search for a clean blackface Twin profile specifically, not a Deluxe. The difference is headroom, and headroom is the reason a Twin was used on a part built from ringing open strings. Keep Gain low after loading; many Twin profiles are captured with the volume up.",
+          },
+          {
+            position: 3,
+            block_name: "Dimension Chorus",
+            block_category: "Modulation",
+            original_gear: "Roland SDD-320 Dimension D",
+            settings: { Rate: 0.3, Depth: 12, Mix: 22 },
+            notes:
+              "MOD slot. The Kemper's Air Chorus and Vintage Chorus both get close to a Dimension D if you keep the rate near zero and the depth shallow -- width without audible movement.",
+          },
+          {
+            position: 4,
+            block_name: "Delay",
+            block_category: "Delay",
+            original_gear: "Lexicon PCM 42 / WEM Copicat",
+            settings: { Time: 380, Feedback: 20, Mix: 30 },
+            notes:
+              "DLY slot. Roll the repeats' high end off in the delay's own EQ so they sit under the dry note rather than beside it.",
+          },
+          {
+            position: 5,
+            block_name: "Spring Reverb",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb spring tank",
+            settings: { Decay: 2.0, Predelay: 20, Mix: 16 },
+            notes:
+              "REV slot, small. The Kemper's spring model has a Dripstone control -- keep it low; a dripping spring is wrong for this record.",
+          },
+        ],
+        notes:
+          "Profile includes the cab, so no cab block. Comp into a clean blackface Twin profile, Dimension-style width, delay and a small spring. If your Kemper rig runs stereo into two amps, send the delay to one side only.",
+      },
+      fractal: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Chandler Zener limiter / API 525 on the desk",
+            settings: { Threshold: -18, Ratio: 2.5, Attack: 15, Release: 220, Mix: 0.55, Level: 0 },
+            notes:
+              "Parallel and low-ratio so the arpeggio keeps its internal dynamics.",
+          },
+          {
+            position: 2,
+            block_name: "Digital Mono",
+            block_category: "Delay",
+            original_gear: "Lexicon PCM 42 / WEM Copicat",
+            settings: { Time: 380, Feedback: 20, Mix: 0.3 },
+            notes:
+              "Ahead of the amp. Use the delay block's EQ page to roll the repeats off above 5 kHz -- that is what separates a 2000-era rack delay from a modern pristine one.",
+          },
+          {
+            position: 3,
+            block_name: "Double Verb Nrm",
+            block_category: "Amp",
+            original_gear: "Fender '65 Twin Reverb",
+            settings: { Drive: 3.0, Bass: 5.0, Mid: 4.5, Treble: 6.2, Presence: 5.0, MV: 10.0, Cut: 5.0 },
+            notes:
+              "Fractal's Twin Reverb, normal channel. In the Power Supply page, drop Sag to around 2 -- the Twin's stiff supply is exactly why arpeggios stay separated on this record.",
+          },
+          {
+            position: 4,
+            block_name: "2x12 Double Verb",
+            block_category: "Cab",
+            original_gear: "Twin Reverb built-in 2x12",
+            settings: { Mic: "57 Dynamic", Distance: 2.5, LowCut: 105, HighCut: 8500, Level: 0 },
+            notes:
+              "Open and glassy. Keep the high cut generous; the sparkle is the point of this tone.",
+          },
+          {
+            position: 5,
+            block_name: "Dimension Chorus",
+            block_category: "Modulation",
+            original_gear: "Roland SDD-320 Dimension D",
+            settings: { Rate: 0.3, Depth: 12, Mix: 0.22 },
+            notes:
+              "Fractal's Chorus block has a Dimension mode; use it rather than a standard chorus. Width without a sweep is the whole character of the original box.",
+          },
+          {
+            position: 6,
+            block_name: "Spring 63",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb spring tank",
+            settings: { Mix: 0.16, Decay: 2.0, Predelay: 20 },
+            notes:
+              "A small amount of Fender spring. Do not let it grow -- the long delay is already occupying that space.",
+          },
+        ],
+        notes:
+          "Comp, delay ahead of the amp, clean Double Verb, matching 2x12, Dimension chorus and a little spring. Use a second amp/cab lane with no delay on it to build the true wet-and-dry pair.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Fender Twin Reverb clean' or '65 Twin'",
+            block_category: "Tone Model",
+            original_gear: "Fender '65 Twin Reverb",
+            settings: {},
+            notes:
+              "Search for a clean blackface Twin capture -- a Deluxe capture will not do, because the whole reason a Twin is on this record is headroom that a Deluxe does not have. Skip anything captured at the edge of breakup.",
+          },
+        ],
+        notes:
+          "TONEX gives you amp and cab in one capture. Put a 380 ms delay after it with the repeats rolled off above 5 kHz, add a very slow shallow chorus for Dimension-style width and a small spring reverb. If you can run two outputs, send the delay to one and leave the other dry -- that split is the sound of this record and it costs nothing to reproduce.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Jerry Cantrell (Alice in Chains) - Rooster (lead) ----
+  {
+    id: "seed-cantrell-rooster",
+    song_slug: "rooster-alice-in-chains",
+    title: "Jerry Cantrell's Rooster Lead Tone",
+    slug: "cantrell-rooster-lead",
+    created_at: "2026-09-27",
+    description:
+      "This sounds like one enormous amp and it is three small ones. Producer Dave Jerden split Cantrell's guitar across three rigs by frequency range -- a Bogner Fish preamp handling the lows, a Bogner Ecstasy the mids and a Rockman going direct for the highs -- then doubled each and panned the pairs apart. That is six tracks of guitar that each carry only a third of the spectrum, which is why the record is simultaneously enormous and completely clear.",
+    tone_context: "lead",
+    attribution_confidence: "documented",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "1984 G&L Rampage 'Blue Dress'",
+      pickup_config: "H",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "eb_standard",
+      string_gauge: ".010-.052",
+      notable_mods:
+        "Cantrell bought this guitar in Dallas in 1985 and says close to everything he has recorded has it on there somewhere. All-maple neck and body with an ebony board, originally white, later covered in stickers and the pin-up that gave it the Blue Dress name. The important modifications are structural rather than cosmetic: the original Kahler flat-mount got a Floyd Rose locking nut and a countersunk trem to stop the low E dropping out, and the stock Schaller PAF-copy was eventually replaced with a Seymour Duncan JB. A single bridge humbucker in an all-maple body is a bright, hard-attacking combination, which is exactly what a three-way frequency split needs -- each amp gets a signal with real content in its own band.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "flanger",
+        gear_slug: null,
+        gear_name: "Electro-Harmonix Electric Mistress",
+        icon_type: "pedal",
+        icon_color: "#a855f7",
+        is_in_effects_loop: false,
+        settings: { Rate: 2, Range: 6, Color: 7 },
+        notes:
+          "Audible across the intro, and it is a flanger rather than the phaser Cantrell also used in this era. The distinction matters when you dial it: a flanger's notches are harmonically related and metallic where a phaser's are broader and rounder, and the intro's slightly seasick, hollow quality is specifically a flanger's comb filtering. Set slow with the feedback up.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Bogner Fish preamp into a VHT power amp (low band)",
+        icon_type: "rack",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Gain: 6, Bass: 7, Middle: 4, Treble: 4, Presence: 3 },
+        notes:
+          "The bottom third of the split, and it is dialed in a way that would sound wrong on its own -- dark, thick, almost no top. That is the point of a frequency split: each amp is allowed to be extreme in its own band because the other two cover what it gives up. Trying to make this one amp sound complete is how the technique gets lost.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Bogner Ecstasy (mid band)",
+        icon_type: "amp_head",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Gain: 6.5, Bass: 4, Middle: 7, Treble: 5, Presence: 5 },
+        notes:
+          "The band where a vocal-register lead line actually lives, which is why this amp is the one to get right if you can only build one. Alice in Chains are usually described as scooped, and the guitars are -- but the scoop happens across the blend of three amps, not inside any one of them. This amp is emphatically not scooped.",
+      },
+      {
+        position: 4,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Rockman headphone amp, direct (high band)",
+        icon_type: "pedal",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Volume: 5, Tone: 8 },
+        notes:
+          "A battery-powered headphone amp going straight into the desk with no speaker at all. It contributes the glassy top-end sheen and, because it is direct, a tight and completely consistent attack that a mic'd cabinet cannot give. A Rockman's built-in compression is a big part of why the doubled tracks line up so precisely.",
+      },
+      {
+        position: 5,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12 with Vox Bulldog speakers",
+        icon_type: "cab_4x12",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Vox Bulldogs in a Marshall cab is an unusual pairing and a deliberate one -- the Bulldog is a softer, warmer speaker than the Greenbacks or V30s a Marshall cab normally carries, and softening the low-band amp's cabinet keeps the bottom third from turning into a wall of undefined thud.",
+      },
+      {
+        position: 6,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 on the low and mid amps",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, on the cone edge" },
+        notes:
+          "SM57s on the two amps that have speakers, with Summit compressors on the way to tape. The high band skips this stage entirely because the Rockman is already direct -- so one of the three tracks has no microphone in it at all, which is part of why the top end of this record is so uncannily even.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1984 G&L Rampage 'Blue Dress', bridge humbucker (Seymour Duncan JB), Floyd Rose locking nut, tuned a half step down",
+      effects: [
+        "Electro-Harmonix Electric Mistress flanger (intro)",
+        "Electro-Harmonix Small Stone phaser (period rig)",
+        "Lucas Deceiver splitter feeding the three amps",
+      ],
+      amp: "Three-way frequency split -- Bogner Fish preamp into VHT for lows, Bogner Ecstasy for mids, Rockman direct for highs. A 1988 Marshall 100/50 convertible Super Lead, modified with an extra preamp stage and running 6L6s instead of EL34s, handled lead parts.",
+      cabinet: "Marshall 4x12 loaded with Vox Bulldog speakers",
+      microphone: "Shure SM57 on the speaker cabinets, Summit compression to tape",
+      other_notes:
+        "Recorded March to May 1992 at Eldorado Recording Studios in Burbank and One on One in Los Angeles. The one Dirt track this does not describe is Would?, which Rick Parashar produced separately at London Bridge in Seattle for the Singles soundtrack months before these sessions -- do not transplant Jerden's three-amp method onto it. Everything is a half step down, which is a real part of the tone and not just a key choice: slacker strings on an all-maple guitar give the pick attack a slight give that the same riff in standard does not have.",
+    },
+    tags: ["grunge", "lead", "alternative-metal", "cantrell", "alice-in-chains", "multi-amp", "flanger"],
+    sources: [
+      "https://guitar.com/features/artist-rigs/the-gear-used-by-jerry-cantrell-on-alice-in-chains-dirt/",
+      "https://en.wikipedia.org/wiki/Rooster_(song)",
+      "https://equipboard.com/pros/jerry-cantrell",
+      "https://www.groundguitar.com/jerry-cantrell-gear/",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Summit compression to tape / Rockman internal compression",
+            settings: { Threshold: -20, Ratio: 3.5, Attack: 10, Release: 160, Mix: 65, Level: 1.5 },
+            notes:
+              "Before the amp. On the record the compression is distributed -- Summits on the way to tape, plus whatever the Rockman does internally -- so a single comp block here is standing in for all of it. Ratio 3.5 gets the doubled-track consistency without flattening the pick attack the riff depends on.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Mistress",
+            block_category: "Modulation",
+            original_gear: "Electro-Harmonix Electric Mistress",
+            settings: { Rate: 0.18, Depth: 60, Mix: 45, Level: 0 },
+            notes:
+              "Helix's model of the actual pedal, which is a piece of luck -- a generic flanger will not get the Mistress's slightly grainy, filter-matrix character. Very slow rate with the feedback high is the intro setting. Switch it off for the verses; it is not on the whole song.",
+          },
+          {
+            position: 3,
+            block_name: "Scream 808",
+            block_category: "Distortion",
+            original_gear: "Front-end tightening (inferred)",
+            enabled: false,
+            settings: { Gain: 2.0, Tone: 5.5, Level: 7.5 },
+            notes:
+              "OFF by default -- no boost pedal is documented on these sessions. It is scaffolded because a single Helix amp block cannot do what three amps did, and a low-gain TS high-passing the input is the nearest single-amp substitute for the low-band amp's job. Use it only if your low end is flubbing.",
+          },
+          {
+            position: 4,
+            block_name: "Cali Rectifire",
+            block_category: "Amp",
+            original_gear: "Bogner Ecstasy (mid band) -- the band that matters most",
+            settings: {
+              Drive: 6.0,
+              Bass: 4.5,
+              Mid: 6.5,
+              Treble: 5.5,
+              Presence: 5.0,
+              ChVol: 5.0,
+              Master: 6.0,
+              Bias: 5.5,
+              BiasX: 5.5,
+              Sag: 5.0,
+              Hum: 3.5,
+              Ripple: 4.0,
+            },
+            notes:
+              "Modelled on the mid amp rather than trying to average all three, because that is the band a lead line occupies. Mid at 6.5 will look wrong to anyone copying a grunge patch -- the famous Alice in Chains scoop is a property of the three-amp blend, not of any single amp, and a scooped single amp gets you a thin lead with no body. Gain at 6 is lower than most people expect too; this record is less saturated than its reputation.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 Cali V30",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 with Vox Bulldog speakers",
+            settings: {
+              Mic: 0,
+              Distance: 1.5,
+              Position: 0.5,
+              Angle: 20,
+              LowCut: 85,
+              HighCut: 6800,
+              Resonance: 5.5,
+              Level: 0,
+              Pan: 0.5,
+              Delay: 0,
+            },
+            notes:
+              "The Bulldog is softer than a V30, so Angle at 20 degrees and HighCut at 6800 pull the modelled cab back toward that warmer character. LowCut at 85 is set lower than most high-gain patches because the low band is real content here, not mud to be removed.",
+          },
+          {
+            position: 6,
+            block_name: "Low/High Cut",
+            block_category: "EQ",
+            original_gear: "The three-way frequency split, collapsed",
+            settings: { Tilt: 0.52, CenterFreq: 1200, Level: 0 },
+            notes:
+              "The closest single block to what Jerden was doing. If your Helix has dual paths, the far better move is to split after the comp into two amp blocks -- one dark and bassy, one mid-forward -- panned apart, and get closer to the actual method than any EQ curve will.",
+          },
+          {
+            position: 7,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate on the lead track",
+            settings: { Mix: 15, Decay: 2.2, Predelay: 25, LowCut: 220, HighCut: 6000, Level: 0 },
+            notes:
+              "Short plate at a low level. Dirt is a fairly dry record -- the size comes from layered amps rather than from ambience, and adding reverb to compensate for a single amp just makes it sound distant instead of big.",
+          },
+        ],
+        notes:
+          "Comp, Electric Mistress for the intro, a mid-forward Bogner-flavoured amp and a softened 4x12. The mid setting is the one to trust against instinct. If your Helix has dual paths, build two amps instead of one -- a dark low amp and this mid amp, panned apart, is a far better approximation of the record than any single-amp patch.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Compressor",
+            block_category: "Compressor",
+            original_gear: "Summit compression to tape",
+            settings: { Threshold: -20, Ratio: 3.5, Attack: 10, Release: 160, Mix: 65, Level: 1.5 },
+            notes:
+              "Standing in for the distributed compression on the record. Parallel so the attack survives.",
+          },
+          {
+            position: 2,
+            block_name: "Flanger",
+            block_category: "Modulation",
+            original_gear: "Electro-Harmonix Electric Mistress",
+            settings: { Rate: 0.18, Depth: 60, Mix: 45 },
+            notes:
+              "Slow with the regeneration up for the intro. A flanger, not a phaser -- the metallic comb notches are the character.",
+          },
+          {
+            position: 3,
+            block_name: "Ecstasy Red",
+            block_category: "Amp",
+            original_gear: "Bogner Ecstasy (mid band)",
+            settings: { Gain: 6.0, Bass: 4.5, Mid: 6.5, Treble: 5.5, Presence: 5.0, Master: 6.0, Sag: 5.0 },
+            notes:
+              "The QC has an actual Bogner Ecstasy model, which makes this the closest single-amp translation of the three. Keep the mids up -- the scoop belongs to the blend, not to this amp.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 Marshall Bulldog",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 with Vox Bulldog speakers",
+            settings: { Mic: "SM57", Distance: 1.5, Position: 0.5, LowCut: 85, HighCut: 6800, Level: 0 },
+            notes:
+              "If no Bulldog-loaded cab is available, use a Greenback-loaded 4x12 rather than a V30 one -- the Bulldog's softer top is closer to a Greenback than to a modern ceramic.",
+          },
+          {
+            position: 5,
+            block_name: "Graphic EQ",
+            block_category: "EQ",
+            original_gear: "The three-way frequency split, collapsed",
+            settings: { Tilt: 5.2, CenterFreq: 1200, Level: 0 },
+            notes:
+              "A single-amp stand-in for the split. The QC's dual lanes make the real thing achievable -- run a dark bassy amp on one lane and this one on the other and pan them apart.",
+          },
+          {
+            position: 6,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate on the lead track",
+            settings: { Decay: 2.2, Predelay: 25, Mix: 15, Level: 0 },
+            notes:
+              "Small and short. This record is dry; the scale comes from layering.",
+          },
+        ],
+        notes:
+          "Comp, flanger, Ecstasy model with the mids up, softened 4x12. Use both QC lanes for two amps if you want the actual Jerden approach rather than a single-amp approximation of it.",
+      },
+      katana: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Tube Screamer",
+            block_category: "Booster",
+            original_gear: "Front-end tightening (inferred)",
+            enabled: false,
+            settings: { Drive: 2, Bottom: 4, Tone: 5.5, Level: 8 },
+            notes:
+              "OFF by default -- no boost is documented on these sessions. Available if the low end flubs, since a single Katana cannot do what three amps did.",
+          },
+          {
+            position: 2,
+            block_name: "Crunch",
+            block_category: "Amp Type",
+            original_gear: "Bogner Ecstasy (mid band)",
+            settings: { Gain: 6, Volume: 5, Bass: 5, Middle: 7, Treble: 6, Presence: 5, Master: 6 },
+            notes:
+              "Crunch rather than Brown, which surprises people. The Katana's Brown voice is a modern scooped high-gain, and both halves of that are wrong -- Dirt is less saturated than its reputation and its mids are present, not scooped, at the single-amp level. Middle at 7 is the setting to trust.",
+          },
+          {
+            position: 3,
+            block_name: "Flanger",
+            block_category: "Mod",
+            original_gear: "Electro-Harmonix Electric Mistress",
+            settings: { Rate: 1, Depth: 60, Level: 45 },
+            notes:
+              "Slowest rate the Katana allows with the depth well up, for the intro only. Turn it off for the verses.",
+          },
+          {
+            position: 4,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate on the lead track",
+            settings: { Time: 4, PreDelay: 25, Tone: 4, EffectLevel: 16 },
+            notes:
+              "Short and quiet. Reaching for more reverb to make a single amp sound as big as six tracks pushes the guitar backwards instead of making it larger.",
+          },
+        ],
+        notes:
+          "Crunch with the mids up, a slow flanger for the intro, minimal reverb. The booster is scaffolded and off. The honest note on Katana: a single amp cannot reproduce a three-way frequency split, so this patch chases the mid amp -- the one carrying the lead line.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Summit compression to tape",
+            settings: { Sustain: 4.0, Tone: 5.0, Volume: 0.0 },
+            notes:
+              "Slot A. Moderate -- enough to get the doubled-track evenness without softening the attack.",
+          },
+          {
+            position: 2,
+            block_name: "Electric Mistress Flanger",
+            block_category: "Modulation",
+            original_gear: "Electro-Harmonix Electric Mistress",
+            settings: { Rate: 0.18, Depth: 60, Mix: 45 },
+            notes:
+              "MOD slot. The Kemper's Vintage Flanger with the feedback up gets close. Slow, and only for the intro.",
+          },
+          {
+            position: 3,
+            block_name: "Search Rig Exchange for 'Bogner Ecstasy' or 'Bogner Fish'",
+            block_category: "Profile",
+            original_gear: "Bogner Ecstasy (mid band)",
+            settings: { Gain: 6.0, Bass: 4.5, Middle: 6.5, Treble: 5.5, Presence: 5.0 },
+            notes:
+              "Search for Bogner profiles rather than Marshall ones -- the Fish and the Ecstasy are the documented amps and they do not sound like a hot-rodded Plexi. After loading, bring the Middle up; most high-gain profiles on the Exchange are captured scooped, which is the opposite of what the mid amp was doing.",
+          },
+          {
+            position: 4,
+            block_name: "Plate Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio plate on the lead track",
+            settings: { Decay: 2.2, Predelay: 25, Mix: 15 },
+            notes:
+              "REV slot, small. Dirt is a dry record and the size is layering, not ambience.",
+          },
+        ],
+        notes:
+          "Profile carries the cab, so no cab block. Comp, Mistress-style flanger for the intro, a Bogner profile with the mids restored, small plate. If you run a stereo rig, a second dark bass-heavy profile panned opposite gets you meaningfully closer to the three-amp record.",
+      },
+      fractal: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Summit compression to tape",
+            settings: { Threshold: -20, Ratio: 3.5, Attack: 10, Release: 160, Mix: 0.65, Level: 0 },
+            notes:
+              "Parallel-blended, standing in for the distributed compression across tape and the Rockman.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Flanger",
+            block_category: "Modulation",
+            original_gear: "Electro-Harmonix Electric Mistress",
+            settings: { Rate: 0.18, Depth: 0.6, Mix: 0.45 },
+            notes:
+              "Fractal's Deluxe Flanger is modelled on the Deluxe Electric Mistress specifically. Slow, feedback up, intro only.",
+          },
+          {
+            position: 3,
+            block_name: "Bogner Ecstasy Red",
+            block_category: "Amp",
+            original_gear: "Bogner Ecstasy (mid band)",
+            settings: { Drive: 6.0, Bass: 4.5, Mid: 6.5, Treble: 5.5, Presence: 5.0, MV: 6.0, Cut: 5.0 },
+            notes:
+              "Fractal models the actual amp. Mid at 6.5 against every instinct about grunge patches -- the scoop is in the three-amp blend, not in this amp.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 Bulldog",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 with Vox Bulldog speakers",
+            settings: { Mic: "57 Dynamic", Distance: 1.5, LowCut: 85, HighCut: 6800, Level: 0 },
+            notes:
+              "Fractal's cab library includes Bulldog-loaded impulse responses. If you cannot find one, a Greenback 4x12 is closer than a V30 -- the Bulldog's top is soft, not aggressive.",
+          },
+          {
+            position: 5,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Studio plate on the lead track",
+            settings: { Mix: 0.15, Decay: 2.2, Predelay: 25 },
+            notes:
+              "Short plate. The record is dry and its size comes from track count.",
+          },
+          {
+            position: 6,
+            block_name: "Filter Tilt",
+            block_category: "EQ",
+            original_gear: "The three-way frequency split, collapsed",
+            settings: { Tilt: 0.52, CenterFreq: 1200, Level: 0 },
+            notes:
+              "A single-block stand-in. Fractal's multiple amp blocks make the real method available -- build a dark low amp and this mid amp on separate rows and pan them apart, which is what Jerden actually did.",
+          },
+        ],
+        notes:
+          "Comp, Deluxe Flanger for the intro, Ecstasy Red with the mids up, Bulldog 4x12, small plate. On Fractal the honest advice is to stop approximating and build two amp blocks -- the platform can do the split.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Bogner Ecstasy' or 'Bogner Fish preamp'",
+            block_category: "Tone Model",
+            original_gear: "Bogner Ecstasy (mid band)",
+            settings: {},
+            notes:
+              "Search ToneNET for a Bogner capture rather than a Marshall one. The Fish and Ecstasy are the documented amps and a hot-rodded Plexi capture will put you in the wrong voice from the start. Prefer captures that are not scooped -- most high-gain Tone Models are, and this tone's mids need to be there.",
+          },
+        ],
+        notes:
+          "TONEX bundles amp and cab into one capture, which means the three-way frequency split cannot be rebuilt inside the pedal -- pick the mid amp and accept it, since that is the band the lead line lives in. Use the post EQ to bring the mids up if the capture arrives scooped, and add a slow flanger in front for the intro. A short plate after, kept quiet: Dirt is a dry record.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Matt Bellamy (Muse) - Knights of Cydonia (lead) ----
+  {
+    id: "seed-bellamy-knights-of-cydonia",
+    song_slug: "knights-of-cydonia-muse",
+    title: "Muse's Knights of Cydonia Galloping Lead",
+    slug: "bellamy-knights-of-cydonia-lead",
+    created_at: "2026-09-27",
+    description:
+      "The surf-western gallop that opens this song is a different rig from the fuzz-and-Whammy riff tone Muse are usually copied for. By Black Holes and Revelations the amp had become a Diezel VH4 rather than a cranked Marshall, and the defining effect on the lead is an MXR Phase 90 rather than the Fuzz Factory -- a phaser's slow sweep over a tremolo-picked line is what gives the part its shimmering, widescreen quality.",
+    tone_context: "lead",
+    attribution_confidence: "documented",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Manson MB-1 Matt Bellamy Signature",
+      pickup_config: "H",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: ".011-.049",
+      notable_mods:
+        "The MB-1 is the guitar built as a production version of Bellamy's customs, released the same year as this album. Its defining feature is a Z.Vex Fuzz Factory wired into the body with its knobs on the face of the guitar, alongside a Kaoss Pad touchscreen and a Fernandes Sustainer in the neck position. On this song the on-board fuzz is not the point -- it is the whammy-bar guitar, used for the dive-bombs and the pitch gestures that punctuate the gallop, which is why a trem-equipped instrument matters more here than the fuzz circuit does.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "pitch",
+        gear_slug: null,
+        gear_name: "DigiTech Whammy",
+        icon_type: "pedal",
+        icon_color: "#ec4899",
+        is_in_effects_loop: false,
+        settings: { Mode: "Octave Up", Mix: 100 },
+        notes:
+          "Used in gestures rather than continuously -- the octave-up sweeps that answer the vocal line. Keeping it at 100 percent wet rather than blended is what makes those moments sound like a separate instrument arriving rather than the guitar getting brighter; a blended Whammy just sounds detuned.",
+        },
+      {
+        position: 2,
+        category: "effect",
+        subcategory: "phaser",
+        gear_slug: null,
+        gear_name: "MXR Phase 90",
+        icon_type: "mxr",
+        icon_color: "#f97316",
+        is_in_effects_loop: false,
+        settings: { Speed: 3 },
+        notes:
+          "The effect that actually defines the gallop, and the one most people leave out. A Phase 90 has a single knob, so the only decision is rate -- set slow, around a third up, so a full sweep takes several bars. Against a rapidly tremolo-picked line the slow sweep reads as the whole passage breathing rather than as a wobble, which is the difference between widescreen and seasick.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Diezel VH4",
+        icon_type: "amp_head",
+        icon_color: "#dc2626",
+        is_in_effects_loop: false,
+        settings: { Gain: 7, Bass: 5, Middle: 6, Treble: 7, Presence: 7, Master: 7 },
+        notes:
+          "A German high-gain head with a very tight, controlled low end and a hard-edged top -- and crucially, mids that stay present at high gain in a way a scooped modern metal amp's do not. That mid presence is why a single-note gallop cuts through an arrangement this dense without the guitar having to be louder than everything else.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Diezel/Marshall 4x12 with Celestion V30s",
+        icon_type: "cab_4x12",
+        icon_color: "#dc2626",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "A V30-loaded 4x12 is the right partner for a VH4 specifically because the speaker's upper-mid peak lands where the amp is already strong -- the two together push the gallop forward. A Greenback cab would soften exactly the band this part needs.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, on the cone edge" },
+        notes:
+          "Close and slightly off the dust cap. A VH4 into V30s on-axis is a genuinely piercing combination, and moving to the cone edge trims the 4 kHz spike that would make a tremolo-picked lead exhausting over a long passage.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "Manson MB-1 Matt Bellamy Signature -- on-board Z.Vex Fuzz Factory, Kaoss Pad, Fernandes Sustainer, whammy bar",
+      effects: [
+        "MXR Phase 90 (the defining effect on this part)",
+        "DigiTech Whammy (octave-up gestures)",
+        "Z.Vex Fuzz Factory built into the guitar",
+      ],
+      amp: "Diezel VH4",
+      cabinet: "4x12 with Celestion V30s",
+      microphone: "Shure SM57",
+      other_notes:
+        "The rig had moved on by this record. The Origin of Symmetry tone that Muse are usually copied for is fuzz into a cranked Marshall; by Black Holes and Revelations the backbone is a Diezel VH4, which is tighter and more controlled, and the character on this particular part comes from a phaser rather than from the fuzz. Chasing this tone with a Big Muff and a Plexi gets you a different song.",
+    },
+    tags: ["alternative-rock", "lead", "phaser", "high-gain", "bellamy", "muse", "diezel"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Knights_of_Cydonia",
+      "https://equipboard.com/pros/matthew-bellamy",
+      "https://mixdownmag.com.au/features/gear-rundown-matt-bellamy/",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression on the lead track",
+            settings: { Threshold: -21, Ratio: 3, Attack: 10, Release: 150, Mix: 60, Level: 1.5 },
+            notes:
+              "Before the amp. A tremolo-picked gallop is dozens of attacks per bar and small differences between them add up to a ragged-sounding line; a moderate comp evens them without killing the percussive edge that makes the part gallop rather than drone.",
+          },
+          {
+            position: 2,
+            block_name: "Pitch Wham",
+            block_category: "Pitch",
+            original_gear: "DigiTech Whammy",
+            enabled: false,
+            settings: { Position: 0, Mix: 100, Level: 0 },
+            notes:
+              "Assigned to EXP 2 and OFF by default, because the Whammy is a gesture on this song rather than an always-on colour. Full wet -- a blended octave-up sounds like the guitar is out of tune; a fully wet one sounds like a second instrument answering.",
+          },
+          {
+            position: 3,
+            block_name: "Script Mod Phase",
+            block_category: "Modulation",
+            original_gear: "MXR Phase 90",
+            settings: { Rate: 0.35, Depth: 70, Mix: 100, Level: 0 },
+            notes:
+              "The script-logo Phase 90 model, which is subtler than the block-logo version and closer to what this part wants. Rate at 0.35 is slow on purpose -- fast phasing over a tremolo-picked line produces a nauseating beat frequency against the picking, while a slow sweep makes the whole passage feel like it is moving.",
+          },
+          {
+            position: 4,
+            block_name: "Das Benzin Mega",
+            block_category: "Amp",
+            original_gear: "Diezel VH4",
+            settings: {
+              Drive: 6.8,
+              Bass: 5.0,
+              Mid: 6.0,
+              Treble: 6.8,
+              Presence: 6.5,
+              ChVol: 5.0,
+              Master: 6.5,
+              Bias: 5.5,
+              BiasX: 5.5,
+              Sag: 3.5,
+              Hum: 3.0,
+              Ripple: 3.5,
+            },
+            notes:
+              "Helix's Diezel model, which makes this a direct translation rather than an approximation. Sag pulled to 3.5 because the VH4 is a tight, stiff amp with very little power-supply give -- leaving Sag high adds a bloom that softens the gallop's front edge, which is the one thing this part cannot lose. Mid at 6 keeps the single-note line present.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 XXL V30",
+            block_category: "Cab",
+            original_gear: "4x12 with Celestion V30s",
+            settings: {
+              Mic: 0,
+              Distance: 1.5,
+              Position: 0.55,
+              Angle: 20,
+              LowCut: 95,
+              HighCut: 7000,
+              Resonance: 5.0,
+              Level: 0,
+              Pan: 0.5,
+              Delay: 0,
+            },
+            notes:
+              "V30-loaded 4x12, mic'd off the dust cap. The HighCut at 7000 and the 20-degree angle exist to tame the V30-plus-Diezel upper-mid spike, which is punishing on-axis over a sustained tremolo-picked passage.",
+          },
+          {
+            position: 6,
+            block_name: "Simple Delay",
+            block_category: "Delay",
+            original_gear: "Stereo delay on the lead",
+            settings: { Time: 330, Feedback: 15, Mix: 14, LowCut: 250, HighCut: 5000, Level: 0 },
+            notes:
+              "Short and quiet, adding space rather than rhythm. On a gallop the repeats must be filtered hard or they collide with the next picked note and turn the rhythm indistinct -- hence the aggressive HighCut at 5000.",
+          },
+          {
+            position: 7,
+            block_name: "Hall",
+            block_category: "Reverb",
+            original_gear: "Studio ambience on the lead",
+            settings: { Mix: 20, Decay: 2.8, Predelay: 30, LowCut: 200, HighCut: 6500, Level: 0 },
+            notes:
+              "Bigger than most high-gain patches here, because the song is deliberately widescreen. Predelay at 30 ms keeps the pick attack ahead of the tail so the gallop still reads as rhythm rather than wash.",
+          },
+        ],
+        notes:
+          "Comp, a slow Phase 90, a Diezel model with the sag pulled down and a V30 4x12, then modest delay and a large hall. The Whammy is assigned to an expression pedal and off by default. The part people get wrong is reaching for fuzz -- this is the phaser song, not the Fuzz Factory song.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compression on the lead track",
+            settings: { Threshold: -21, Ratio: 3, Attack: 10, Release: 150, Mix: 60, Level: 1.5 },
+            notes:
+              "Evens out a tremolo-picked line without dulling the attack that makes it a gallop.",
+          },
+          {
+            position: 2,
+            block_name: "Phaser",
+            block_category: "Modulation",
+            original_gear: "MXR Phase 90",
+            settings: { Rate: 0.35, Depth: 70, Mix: 100 },
+            notes:
+              "Slow. The single most important setting in this patch -- fast phasing beats against the picking rate and sounds seasick.",
+          },
+          {
+            position: 3,
+            block_name: "Das Metall",
+            block_category: "Amp",
+            original_gear: "Diezel VH4",
+            settings: { Gain: 6.8, Bass: 5.0, Mid: 6.0, Treble: 6.8, Presence: 6.5, Master: 6.5, Sag: 3.0 },
+            notes:
+              "The QC's Diezel-flavoured model. Low Sag keeps the amp stiff, which is what preserves the gallop's leading edge.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 V30",
+            block_category: "Cab",
+            original_gear: "4x12 with Celestion V30s",
+            settings: { Mic: "SM57", Distance: 1.5, Position: 0.55, LowCut: 95, HighCut: 7000, Level: 0 },
+            notes:
+              "Off the dust cap, with the high cut in place -- Diezel into V30s on-axis is a genuinely fatiguing combination.",
+          },
+          {
+            position: 5,
+            block_name: "Digital Delay",
+            block_category: "Delay",
+            original_gear: "Stereo delay on the lead",
+            settings: { Time: 330, Feedback: 15, Mix: 14, Level: 0 },
+            notes:
+              "Short and filtered. Unfiltered repeats blur the gallop's rhythm.",
+          },
+          {
+            position: 6,
+            block_name: "Hall Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio ambience on the lead",
+            settings: { Decay: 2.8, Predelay: 30, Mix: 20, Level: 0 },
+            notes:
+              "Large, deliberately. The song is written as a widescreen western; the reverb is part of the writing.",
+          },
+        ],
+        notes:
+          "Comp, slow phaser, Diezel-style amp with low sag, V30 4x12, short delay and a big hall. Put the Whammy on an expression pedal and leave it out of the default chain.",
+      },
+      katana: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Tube Screamer",
+            block_category: "Booster",
+            original_gear: "Front-end tightening (inferred)",
+            enabled: false,
+            settings: { Drive: 2, Bottom: 4, Tone: 6, Level: 8 },
+            notes:
+              "OFF by default -- no boost is documented on this track. Available only if your low end is loose under the gallop.",
+          },
+          {
+            position: 2,
+            block_name: "Brown",
+            block_category: "Amp Type",
+            original_gear: "Diezel VH4",
+            settings: { Gain: 7, Volume: 5, Bass: 5, Middle: 6, Treble: 7, Presence: 7, Master: 7 },
+            notes:
+              "Brown is the right character here -- unlike the grunge and Mesa patches in this catalogue, this genuinely is a modern German high-gain amp, and Brown is the Katana's closest voice to one. Middle at 6 rather than scooped, because the VH4's mid presence is what lets a single-note line cut.",
+          },
+          {
+            position: 3,
+            block_name: "Phaser",
+            block_category: "Mod",
+            original_gear: "MXR Phase 90",
+            settings: { Rate: 2, Depth: 70, Level: 50 },
+            notes:
+              "Slow rate, deep. The Katana's phaser is close enough to a Phase 90 for this; the setting matters far more than the model does.",
+          },
+          {
+            position: 4,
+            block_name: "Digital Delay",
+            block_category: "Delay",
+            original_gear: "Stereo delay on the lead",
+            settings: { Time: 330, Feedback: 15, EffectLevel: 22 },
+            notes:
+              "Short and low. Post-amp placement on the Katana makes repeats more prominent, so keep the level down or the gallop loses definition.",
+          },
+          {
+            position: 5,
+            block_name: "Hall",
+            block_category: "Reverb",
+            original_gear: "Studio ambience on the lead",
+            settings: { Time: 6, PreDelay: 30, Tone: 5, EffectLevel: 30 },
+            notes:
+              "Generous. This is the rare high-gain patch in this catalogue that wants a big reverb -- the song is built as a widescreen western and a dry gallop sounds small.",
+          },
+        ],
+        notes:
+          "Brown channel with the mids held up, a slow phaser, short delay and a big hall. The booster is scaffolded and off.",
+      },
+      kemper: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Compressor",
+            block_category: "Compressor",
+            original_gear: "Studio compression on the lead track",
+            settings: { Sustain: 3.5, Tone: 5.0, Volume: 0.0 },
+            notes:
+              "Slot A, moderate. Keeps a fast picked line even without softening the attack.",
+          },
+          {
+            position: 2,
+            block_name: "Phaser",
+            block_category: "Modulation",
+            original_gear: "MXR Phase 90",
+            settings: { Rate: 0.35, Depth: 70, Mix: 100 },
+            notes:
+              "MOD slot, set slow. The Kemper's Phaser Vibe with the rate near the bottom of its range is the setting -- a fast sweep beats against the tremolo picking.",
+          },
+          {
+            position: 3,
+            block_name: "Search Rig Exchange for 'Diezel VH4' or 'Diezel Herbert'",
+            block_category: "Profile",
+            original_gear: "Diezel VH4",
+            settings: { Gain: 6.8, Bass: 5.0, Middle: 6.0, Treble: 6.8, Presence: 6.5 },
+            notes:
+              "Search specifically for Diezel profiles -- the Rig Exchange has plenty, and a Rectifier or 5150 profile will put you in a looser, more scooped voice than the VH4's tight controlled one. Bring the Middle up after loading if the profile arrives scooped.",
+          },
+          {
+            position: 4,
+            block_name: "Delay",
+            block_category: "Delay",
+            original_gear: "Stereo delay on the lead",
+            settings: { Time: 330, Feedback: 15, Mix: 14 },
+            notes:
+              "DLY slot. Short, quiet, with the repeats' high end rolled off so they do not smear the picked rhythm.",
+          },
+          {
+            position: 5,
+            block_name: "Hall Reverb",
+            block_category: "Reverb",
+            original_gear: "Studio ambience on the lead",
+            settings: { Decay: 2.8, Predelay: 30, Mix: 20 },
+            notes:
+              "REV slot, large. The widescreen space is part of the song rather than an effect layered on top of it.",
+          },
+        ],
+        notes:
+          "Profile bakes in the cab, so no cab block. Comp, slow phaser, a genuine Diezel profile, short delay and a big hall. The phaser rate is the setting that makes or breaks this one.",
+      },
+      fractal: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression on the lead track",
+            settings: { Threshold: -21, Ratio: 3, Attack: 10, Release: 150, Mix: 0.6, Level: 0 },
+            notes:
+              "Parallel so the gallop's attack survives the compression.",
+          },
+          {
+            position: 2,
+            block_name: "Phase 90",
+            block_category: "Modulation",
+            original_gear: "MXR Phase 90",
+            settings: { Rate: 0.35, Depth: 0.7, Mix: 1.0 },
+            notes:
+              "Fractal models the Phase 90 directly, script and block variants both. Take the script setting and keep the rate slow -- this is the effect the part is built on.",
+          },
+          {
+            position: 3,
+            block_name: "Das Metall",
+            block_category: "Amp",
+            original_gear: "Diezel VH4",
+            settings: { Drive: 6.8, Bass: 5.0, Mid: 6.0, Treble: 6.8, Presence: 6.5, MV: 6.5, Cut: 5.0 },
+            notes:
+              "Fractal's VH4 model. In the Power Supply page pull Sag down near 1.5 -- the VH4's stiffness is what keeps the leading edge of every picked note intact at this tempo.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 German V30",
+            block_category: "Cab",
+            original_gear: "4x12 with Celestion V30s",
+            settings: { Mic: "57 Dynamic", Distance: 1.5, LowCut: 95, HighCut: 7000, Level: 0 },
+            notes:
+              "V30-loaded 4x12 with the top trimmed. The Diezel-plus-V30 upper-mid peak needs taming on a sustained tremolo passage.",
+          },
+          {
+            position: 5,
+            block_name: "Digital Mono",
+            block_category: "Delay",
+            original_gear: "Stereo delay on the lead",
+            settings: { Time: 330, Feedback: 15, Mix: 0.14 },
+            notes:
+              "Short and filtered. Roll the repeats off above 5 kHz in the delay's EQ page so the gallop's rhythm stays legible.",
+          },
+          {
+            position: 6,
+            block_name: "Large Hall",
+            block_category: "Reverb",
+            original_gear: "Studio ambience on the lead",
+            settings: { Mix: 0.2, Decay: 2.8, Predelay: 30 },
+            notes:
+              "Large and intentional. Predelay keeps the attack in front of the tail so the part still drives.",
+          },
+        ],
+        notes:
+          "Comp, a slow modelled Phase 90, Das Metall with the sag pulled right down, V30 4x12, short delay and a large hall. Assign a Pitch block set to octave-up to an expression pedal for the Whammy gestures, default off.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Diezel VH4' or 'Diezel Herbert'",
+            block_category: "Tone Model",
+            original_gear: "Diezel VH4",
+            settings: {},
+            notes:
+              "Search ToneNET for a Diezel capture specifically. A Rectifier or 5150 Tone Model will land you in a looser, more scooped high-gain voice, and the VH4's tight low end with present mids is the whole reason a single-note gallop cuts through this arrangement. Favour captures taken through a V30 4x12.",
+          },
+        ],
+        notes:
+          "TONEX delivers the amp and cab as one capture. Everything that makes this part recognisable happens outside it: put a slow-rate Phase 90 in front -- that is the effect the tone is built on -- and add a short filtered delay plus a large hall after. Do not reach for the fuzz; that is the Origin of Symmetry sound, not this record.",
       },
     },
     is_editorial: true,

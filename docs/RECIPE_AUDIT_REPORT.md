@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
 **Date:** 2026-09-27
-**Recipes:** 235
-**Clean (no errors, no warns):** 235
+**Recipes:** 240
+**Clean (no errors, no warns):** 240
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,8 +16,8 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `settings-outside-unverified-range` | info | 235 / 235 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
-| `katana-kemper-multidrive-default-off` | info | 31 / 235 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `settings-outside-unverified-range` | info | 240 / 240 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
+| `katana-kemper-multidrive-default-off` | info | 31 / 240 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -71,6 +71,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `bellamy-knights-of-cydonia-lead` — ✓ clean
+
+*Muse's Knights of Cydonia Galloping Lead*
+
+Passes every rule.
+
 ### `bellamy-plug-in-baby-fuzz-whammy` — ✓ clean
 
 *Matt Bellamy's Plug In Baby Fuzz Whammy Tone*
@@ -113,6 +119,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `buckland-yellow-dual-twin-clean` — ✓ clean
+
+*Coldplay's Yellow Wet-and-Dry Clean Tone*
+
+Passes every rule.
+
 ### `campbell-dont-talk-to-strangers-clean` — ✓ clean
 
 *Dio's Don't Talk to Strangers Clean Intro Tone*
@@ -146,6 +158,12 @@ Passes every rule.
 ### `campbell-we-rock-riff` — ✓ clean
 
 *Dio's We Rock Riff Tone*
+
+Passes every rule.
+
+### `cantrell-rooster-lead` — ✓ clean
+
+*Jerry Cantrell's Rooster Lead Tone*
 
 Passes every rule.
 
@@ -344,6 +362,12 @@ Passes every rule.
 ### `edge-where-the-streets-have-no-name` — ✓ clean
 
 *The Edge's Shimmering Delay Tone (Streets)*
+
+Passes every rule.
+
+### `edge-with-or-without-you-infinite-sustain` — ✓ clean
+
+*The Edge's With or Without You Infinite Sustain*
 
 Passes every rule.
 
@@ -1124,6 +1148,12 @@ Passes every rule.
 ### `perry-walk-this-way-riff` — ✓ clean
 
 *Joe Perry's Walk This Way Funk-Rock Riff*
+
+Passes every rule.
+
+### `petrucci-metropolis-unison-lead` — ✓ clean
+
+*Dream Theater's Metropolis Pt. 1 Unison Lead Tone*
 
 Passes every rule.
 
