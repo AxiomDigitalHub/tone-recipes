@@ -748,6 +748,20 @@ export const artists: Artist[] = [
     genres: ["progressive-rock", "rock", "art-rock"],
     image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music/3d/2b/92/mzi.wlixyfyw.jpg/600x600bb.jpg",
   },
+  {
+    name: "Robert Fripp",
+    slug: "robert-fripp",
+    bio: "King Crimson's founder and only constant member, and the player who made rigour sound like violence. Across the band's first run his rig barely changed: a three-pickup Gibson Les Paul Custom bought on Shaftesbury Avenue in the late sixties, a Hiwatt DR103 with the normal and brilliant channels jumpered so a famously clean amp sat on the edge of a snarl, a germanium fuzz he would name as his own preference, and for years little else -- he has said a cheap volume pedal was the finest he ever found, and that for a while it was the only effect he used live. The tone that came out of it is dark and hornlike rather than bright and aggressive, built on the neck pickup with the tone rolled back, and it made 1974's Red one of the most-cited guitar records of its decade. He has played in New Standard Tuning since the mid-eighties and runs a Fractal-based rig today.",
+    genres: ["progressive-rock", "art-rock", "rock"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/a8/5d/d3/a85dd370-ed7e-1e6f-f2ee-5464f7b3a978/Red_2500px.jpg/600x600bb.jpg",
+  },
+  {
+    name: "Martin Barre",
+    slug: "martin-barre",
+    bio: "Jethro Tull's guitarist for forty-three years and the author of one of rock's most-voted-for solos, played on a rig with almost nothing in it. He met Leslie West after Benefit, bought a 1958 Les Paul Junior the way he says everyone who met West did, and cut essentially all of 1971's Aqualung on it -- one P-90, one volume, one tone. The amps were Hiwatts, which the whole band was using, with a homemade treble booster in front because the Hiwatt had no front-end overdrive of its own; Barre's description of the box is a couple of capacitors and wires, and by his account it picked up radio stations along with the guitar. The exceptions on that record are worth knowing: Cross-Eyed Mary is a tiny unbranded amp he bought for two pounds, and My God is a small Fender Super.",
+    genres: ["progressive-rock", "hard-rock", "folk-rock"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/0a/a0/6f/0aa06f12-dcc9-1096-77cd-783af1bc393f/dj.kzxxwyvz.jpg/600x600bb.jpg",
+  },
 ];
 
 export const songs: Song[] = [
@@ -3793,6 +3807,81 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wa/search?pattern=genesis+dancing+with+the+moonlit+knight",
     external_video_url:
       "https://www.youtube.com/results?search_query=genesis+dancing+with+the+moonlit+knight+guitar+lesson",
+  },
+  {
+    artist_slug: "robert-fripp",
+    title: "Red",
+    slug: "red-king-crimson",
+    album: "Red",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/a8/5d/d3/a85dd370-ed7e-1e6f-f2ee-5464f7b3a978/Red_2500px.jpg/600x600bb.jpg",
+    year: 1974,
+    genres: ["progressive-rock", "art-rock", "rock"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=king+crimson+red",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=king+crimson+red+guitar+lesson",
+  },
+  {
+    artist_slug: "alex-lifeson",
+    title: "La Villa Strangiato",
+    slug: "la-villa-strangiato-rush",
+    album: "Hemispheres",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/17/98/25/1798259b-6cd8-d7c0-b211-88f49eea18a0/12UMGIM19109.rgb.jpg/600x600bb.jpg",
+    year: 1978,
+    genres: ["progressive-rock", "hard-rock", "rock"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=rush+la+villa+strangiato",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=rush+la+villa+strangiato+guitar+lesson",
+  },
+  {
+    artist_slug: "alex-lifeson",
+    title: "The Spirit of Radio",
+    slug: "the-spirit-of-radio-rush",
+    album: "Permanent Waves",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/72/bd/cc/72bdcc25-6dd3-78ea-e86c-4430a091119e/12UMGIM19118.rgb.jpg/600x600bb.jpg",
+    year: 1980,
+    genres: ["progressive-rock", "hard-rock", "rock"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=rush+the+spirit+of+radio",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=rush+the+spirit+of+radio+guitar+lesson",
+  },
+  {
+    artist_slug: "david-gilmour",
+    title: "Dogs",
+    slug: "dogs-pink-floyd",
+    album: "Animals",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ef/03/66/ef036634-5956-38db-ba78-db6200adfdc4/886445635942.jpg/600x600bb.jpg",
+    year: 1977,
+    genres: ["progressive-rock", "art-rock", "rock"],
+    difficulty: "advanced",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=pink+floyd+dogs",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=pink+floyd+dogs+guitar+lesson",
+  },
+  {
+    artist_slug: "martin-barre",
+    title: "Aqualung",
+    slug: "aqualung-jethro-tull",
+    album: "Aqualung",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/0a/a0/6f/0aa06f12-dcc9-1096-77cd-783af1bc393f/dj.kzxxwyvz.jpg/600x600bb.jpg",
+    year: 1971,
+    genres: ["progressive-rock", "hard-rock", "classic-rock"],
+    difficulty: "intermediate",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=jethro+tull+aqualung",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=jethro+tull+aqualung+guitar+lesson",
   },
 ];
 
@@ -71215,6 +71304,1299 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "A clean, close-miked high-headroom capture with a real germanium fuzz in front of it, set hot. As with Firth of Fifth the capture is the least important part of this tone -- but here the mic distance matters, because bloom that flatters a held note buries a fast one.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Robert Fripp (King Crimson) - Red (main riff) ----
+  {
+    id: "seed-fripp-red",
+    song_slug: "red-king-crimson",
+    title: "King Crimson's Red Riff Tone",
+    slug: "fripp-red-riff",
+    created_at: "2026-09-27",
+    description:
+      "The gain on this riff is not coming from where most players assume. Fripp ran his Hiwatt DR103 with the normal and brilliant channels jumpered together so the amp sat right on the edge of a snarl with the guitar wide open, then backed the Les Paul Custom's volume down when he wanted it clean again. Vintage Guitar reads the result as a dark take on the woman tone, and that is the honest description: a three-pickup Black Beauty run dark and loud, not a fuzz box doing the heavy lifting.",
+    tone_context: "riff",
+    attribution_confidence: "documented",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "1959 Gibson Les Paul Custom (three-pickup Black Beauty)",
+      pickup_config: "HH",
+      pickup_position: "neck",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "The guitar is a three-humbucker Custom -- the spec field has no HHH value, so it is listed as HH and the middle pickup is noted here instead. Fripp bought it on Shaftesbury Avenue around 1968 and Premier Guitar has it on the early King Crimson records; multiple accounts place it on every KC album from 1969 through 1974. The setting that matters is the NECK pickup with the tone control wound down, which is what produces the dark, hornlike reading of the woman tone this riff lives on. Played on the bridge it turns brittle and the whole-tone harmony stops sounding menacing and starts sounding thin. String gauge is era-typical rather than documented.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "volume",
+        gear_slug: null,
+        gear_name: "Volume pedal (Fripp's board)",
+        icon_type: "pedal",
+        icon_color: "#64748b",
+        is_in_effects_loop: false,
+        settings: { Pedal: 10 },
+        notes:
+          "Fripp called the cheapest pedal he could find the finest volume pedal he had used anywhere, and it was the only effect he ran live with King Crimson in 1969. It stays wide open for the riff because the guitar's own volume knob is already doing the clean-to-snarl work -- the pedal is there for swells and for pulling the guitar out of an arrangement that gets very loud very suddenly.",
+      },
+      {
+        position: 2,
+        category: "effect",
+        subcategory: "fuzz",
+        gear_slug: null,
+        gear_name: "Burns Buzzaround germanium fuzz",
+        icon_type: "pedal",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Sustain: 6, Balance: 5, Timbre: 4 },
+        notes:
+          "On his board through this period and the fuzz he names as his own choice, but be clear about what is and is not documented: nobody has confirmed a fuzz was engaged on the title track specifically, and the jumpered amp alone gets you most of the way. Treat this as the extra shove for the heavier passages rather than the riff's base tone. Timbre set low keeps the germanium from adding fizz on top of an already-dark neck pickup.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Hiwatt DR103 Custom 100 (channels jumpered)",
+        icon_type: "amp_head",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: { Normal: 8, Brilliant: 6, Bass: 5, Middle: 7, Treble: 5, Presence: 4, Master: 8 },
+        notes:
+          "The jumper is the whole recipe. Linking the normal and brilliant inputs sums both preamp channels, which is how a famously clean amp ends up with enough front-end grind to snarl when the guitar is wide open -- the same trick Gilmour used on the same model. Normal higher than Brilliant because this tone needs weight rather than sparkle. Middle at 7 is deliberate: the Hiwatt has a very linear tone stack, and the mids are what keep a whole-tone riff sounding like a threat instead of a scale exercise.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Hiwatt 4x12 (Fane-loaded)",
+        icon_type: "cab_4x12",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Fane speakers rather than Celestions, and the difference matters more here than on a Marshall rig. Fanes are stiffer and more linear with a harder top end, which is why a Hiwatt stays articulate at volumes where a Greenback cab would already have compressed into mush -- and articulation is what lets a riff this rhythmically awkward read clearly.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, slightly off cone centre" },
+        notes:
+          "Inferred rather than documented -- Olympic's specific placement for these sessions is not on record. Off-centre is the safer guess and the better sound: dead on the dust cap a Fane gets glassy in a way that fights the dark neck-pickup voicing the rest of the chain is built around.",
+      },
+    ],
+    original_gear: {
+      guitar:
+        "1959 Gibson Les Paul Custom, the three-pickup Black Beauty, on the neck pickup with the tone rolled back",
+      effects: [
+        "Volume pedal -- for years the only effect he ran live",
+        "Burns Buzzaround germanium fuzz (his stated preference; a Guild Foxey Lady also turns up in gear lists)",
+        "Dunlop Cry Baby wah on the board from 1970 onward, not used on this riff",
+      ],
+      amp: "Hiwatt DR103 Custom 100 with the normal and brilliant channels jumpered together",
+      cabinet: "Hiwatt 4x12 loaded with Fane speakers",
+      microphone: "Shure SM57 close on the grille -- inferred; the Olympic capture is not documented",
+      other_notes:
+        "Recorded at Olympic Studios in London across July and August 1974, self-produced, with George Chkiantz engineering. Chkiantz's memory of the sessions is worth knowing before you dial anything, because it explains the tone's character better than any knob setting: Fripp worked in the dark, on a stool, door pulled to, playing when the count-in came. This is a guitar sound built for isolation and control rather than for room feel, which is why the recipe's reverb is short and why there is no ambience mic in the chain. The riff itself is in standard tuning -- the menace comes from whole-tone harmony over open strings and a shift from 4/4 into 7/8, not from a detuned guitar.",
+    },
+    tags: ["progressive-rock", "rock", "riff", "king-crimson", "hiwatt", "les-paul", "art-rock", "heavy"],
+    sources: [
+      "https://www.vintageguitar.com/55460/pop-n-hiss-king-crimsons-red/",
+      "https://www.premierguitar.com/gear/rig-rundown-king-crimsons-robert-fripp",
+      "https://www.guitarplayer.com/guitarists/robert-fripp-on-buying-his-1959-gibson-les-paul-custom",
+      "https://en.wikipedia.org/wiki/Red_(King_Crimson_album)",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Vol Pedal",
+            block_category: "Volume/Pan",
+            original_gear: "Volume pedal",
+            settings: { Pedal: 100 },
+            notes:
+              "Assigned to EXP 1 and parked open. It is here for swells into the quieter sections rather than for shaping the riff, because on this tone the cleanup happens at the guitar's volume knob -- a pedal before the amp drops level without changing how hard the preamp is driven.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Olympic console compression",
+            settings: { Threshold: -32, Ratio: 2, Knee: 6, Attack: 30, Release: 250, Mix: 45, Level: 0 },
+            notes:
+              "Gentle and parallel, because the riff's phrasing is aggressively syncopated and a hard ratio would flatten exactly the accents that make it work. Mix at 45 keeps the uncompressed transient audible under the managed signal.",
+          },
+          {
+            position: 3,
+            block_name: "Arbitrator Fuzz",
+            block_category: "Distortion",
+            original_gear: "Burns Buzzaround germanium fuzz",
+            enabled: false,
+            settings: { Drive: 6, Tone: 4, Level: 5.5 },
+            notes:
+              "DEFAULT-OFF, and the reason is honesty rather than taste: the fuzz is documented on his board but not on this track. Helix's germanium Fuzz Face model is the closest thing to a Buzzaround in the library. Tone kept low so that switching it in adds weight rather than a fizzy top layer the neck pickup is not asking for.",
+          },
+          {
+            position: 4,
+            block_name: "WhoWatt 100",
+            block_category: "Amp",
+            original_gear: "Hiwatt DR103, channels jumpered",
+            settings: { Drive: 6.5, Bass: 5, Mid: 7, Treble: 5, Presence: 4, ChVol: 7, Master: 10, Bias: 5.5, BiasX: 5, Sag: 6.5, Hum: 4, Ripple: 4 },
+            notes:
+              "Drive at 6.5 is the jumpered-channel setting -- higher than any Gilmour patch on the same model, because there the Hiwatt is a clean pedal platform and here it is the distortion. Master pinned at 10 with ChVol at 7 keeps the power section fully engaged, which is where the compression and bloom come from. Sag raised to 6.5 for the slight give on hard downstrokes; Presence deliberately low at 4, since the source tone is dark by design and Presence is the fastest way to lose that.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 WhoWatt 100",
+            block_category: "Cab",
+            original_gear: "Hiwatt 4x12 (Fane)",
+            settings: { Mic: 5, Distance: 2, Position: 0.4, Angle: 0, LowCut: 90, HighCut: 6000, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "The matching Fane cab rather than a Greenback substitute, because the stiffer speaker is a real part of why this amp stays readable when it is loud. HighCut at 6000 is lower than you would use on a lead patch and it is intentional -- it is the cab-side half of the dark woman-tone voicing, and it stops the Fane top end from undoing what the rolled-back tone knob did.",
+          },
+          {
+            position: 6,
+            block_name: "Simple Delay",
+            block_category: "Delay",
+            original_gear: "Studio tape delay",
+            settings: { Time: 180, Feedback: 8, Mix: 6, LowCut: 300, HighCut: 4500, Level: 0 },
+            notes:
+              "Barely there, and short enough to read as thickness rather than echo. The riff moves through a metre change into 7/8, so anything long enough to be heard as a repeat starts landing on the wrong side of the beat and blurs the figure. HighCut at 4500 keeps the repeats behind the dry signal.",
+          },
+          {
+            position: 7,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Olympic plate",
+            settings: { Mix: 12, Decay: 1.6, Predelay: 18, LowCut: 180, HighCut: 6500, Level: 0 },
+            notes:
+              "Low mix, because Chkiantz's account of Fripp tracking alone in a darkened room with the door pulled to describes a very controlled, very close sound. LowCut at 180 keeps the plate from adding mud underneath an already low-mid-heavy amp setting, which is the specific failure mode of putting a big reverb on a dark tone.",
+          },
+        ],
+        notes:
+          "Volume -> comp -> optional germanium fuzz -> a jumpered-Hiwatt setting that is genuinely driven -> Fane 4x12 -> short delay -> low plate. The single most important move is not in the patch at all: play it on the neck pickup with the guitar's tone rolled back. Build this on the bridge pickup and no amount of HighCut will get you there.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Olympic console compression", settings: { Threshold: -32, Ratio: 2, Attack: 30, Release: 250, Mix: 45, Level: 0 }, notes: "Light and parallel so the syncopated accents survive -- a hard ratio flattens the exact thing that makes this riff move." },
+          { position: 2, block_name: "Germanium Fuzz", block_category: "Drive", original_gear: "Burns Buzzaround", settings: { Drive: 6.0, Tone: 4.0, Level: 5.5 }, notes: "DEFAULT-OFF for the same reason as the Helix patch -- documented on his board, not documented on this track. Tone low so it adds mass rather than fizz." },
+          { position: 3, block_name: "Brit Watt 100", block_category: "Amp", original_gear: "Hiwatt DR103, channels jumpered", settings: { Gain: 6.5, Bass: 5.0, Mid: 7.0, Treble: 5.0, Presence: 4.0, Master: 8.0, Sag: 6.5 }, notes: "Gain well past where a Gilmour patch sits on this amp, because here the Hiwatt is the distortion rather than a platform. Presence held down to protect the dark voicing." },
+          { position: 4, block_name: "4x12 Hiwatt Fane", block_category: "Cab", original_gear: "Hiwatt 4x12 (Fane)", settings: { Mic: "57 Dynamic", Distance: 2.0, Position: 0.4, LowCut: 90, HighCut: 6000, Level: 0 }, notes: "The real Fane cab. HighCut at 6000 does the cab half of the woman-tone voicing so the amp does not have to be dulled further." },
+          { position: 5, block_name: "Digital Delay", block_category: "Delay", original_gear: "Studio tape delay", settings: { Time: 180, Feedback: 8, Mix: 6, Level: 0 }, notes: "Short and quiet -- thickness, not echo. Longer settings fight the 4/4-into-7/8 shift." },
+          { position: 6, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Olympic plate", settings: { Decay: 1.6, Predelay: 18, Mix: 12, Level: 0 }, notes: "Small, matching a guitar tracked alone and close rather than in a live room." },
+          { position: 7, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Global FRFR trim", settings: { Tilt: 4.6, CenterFreq: 800, Level: 0 }, notes: "A slight dark tilt, because a Fane 4x12 modelled on FRFR reads brighter than it does in a room and this tone has no margin for extra top." },
+        ],
+        notes:
+          "Comp -> optional germanium fuzz -> a driven jumpered Hiwatt -> Fane 4x12 -> short delay -> low plate -> dark tilt. Same warning as everywhere else in this recipe: the neck pickup with the tone rolled down is doing as much work as the amp.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Treble Booster", block_category: "Booster", original_gear: "Burns Buzzaround germanium fuzz", enabled: false, settings: { Drive: 45, Bottom: 55, Tone: 35, Level: 60 }, notes: "DEFAULT-OFF. The Katana's booster slot is the flavour switch here, standing in for the fuzz that may or may not be on the record. Bottom pushed above centre and Tone pulled below it, because a bright boost in front of an already-driven amp is the opposite of what this tone wants." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Hiwatt DR103, channels jumpered", settings: { Gain: 55, Volume: 70, Bass: 50, Middle: 70, Treble: 45, Presence: 40, Master: 70 }, notes: "CRUNCH, not Clean, and this is a deliberate departure from the usual Hiwatt mapping. The standard translation sends a DR103 to the Clean character because the amp is famously a clean platform -- but a DR103 with its channels jumpered and the guitar wide open is past clean by design, and the Katana's Clean character will not break up the way the source does. Crunch at 55 gets the edge-of-snarl behaviour; Middle at 70 is the setting that keeps the whole-tone riff menacing rather than thin." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Studio tape delay", settings: { Time: 180, Feedback: 8, EffectLevel: 8 }, notes: "Short and low. On a mono rig it is tempting to push delay to recover size, but the metre change punishes that here -- keep it as thickness." },
+          { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Olympic plate", settings: { Time: 3, PreDelay: 18, Tone: 4, EffectLevel: 14 }, notes: "Tone below centre so the tail stays dark with the rest of the patch. A bright plate on a dark amp setting is the single most common way this tone goes wrong." },
+        ],
+        notes:
+          "An off-by-default booster into a genuinely crunching amp character, with short delay and a small dark plate. The Crunch-over-Clean choice is the one thing to keep if you change anything else.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Olympic console compression", settings: { Intensity: 3.0, Attack: 30, Volume: 0.0 }, notes: "Slot A, light. Enough to even out the downstrokes without softening the attack the riff is built on." },
+          { position: 2, block_name: "Fuzz DS", block_category: "Stomp", original_gear: "Burns Buzzaround germanium fuzz", enabled: false, settings: { Drive: 6.0, Tone: 4.0, Volume: 5.5 }, notes: "DEFAULT-OFF, matching the Helix and QC patches -- on his board, unconfirmed on the track. Tone low; the point of adding it is mass." },
+          { position: 3, block_name: "Search Rig Exchange for 'Hiwatt DR103' or 'Hiwatt jumped channels'", block_category: "Profile", original_gear: "Hiwatt DR103, channels jumpered", settings: { Gain: 6.5, Bass: 5.0, Middle: 7.0, Treble: 5.0, Presence: 4.0 }, notes: "Be specific in what you search for. Most Hiwatt profiles on the Exchange are clean pedal-platform captures, which is the wrong starting point -- look for a jumped or cranked capture that already has grind in it, because dialling Gain up on a clean profile gives you Kemper gain rather than Hiwatt gain, and the two do not sound alike. With Liquid Profiling, pick the Hiwatt tone stack so the Middle control behaves the way the real amp's does." },
+          { position: 4, block_name: "Single Delay", block_category: "Delay", original_gear: "Studio tape delay", settings: { Time: 180, Feedback: 8, Mix: 8 }, notes: "DLY slot, short. A shade wetter than the Helix setting because a single profile has slightly less inherent size than a full modelled chain." },
+          { position: 5, block_name: "Plate", block_category: "Reverb", original_gear: "Olympic plate", settings: { Decay: 1.6, Predelay: 18, Mix: 0.12 }, notes: "REV slot, small and dark, matching a guitar tracked alone in a darkened room rather than in a live space." },
+        ],
+        notes:
+          "Comp -> optional fuzz -> a Hiwatt profile that is already driven -> short delay -> low plate. No cab block: the profile carries it. The profile choice is the whole game on this platform -- a clean Hiwatt capture with the Gain knob turned up will not get you there.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Olympic console compression", settings: { Threshold: -32, Ratio: 2, Attack: 30, Release: 250, Mix: 0.45, Level: 0 }, notes: "Parallel and gentle so the syncopation keeps its edges." },
+          { position: 2, block_name: "Fuzz Face Germ", block_category: "Drive", original_gear: "Burns Buzzaround", enabled: false, settings: { Drive: 6.0, Tone: 4.0, Level: 5.5 }, notes: "DEFAULT-OFF. Germanium rather than silicon, which is the right family for a Buzzaround and the reason it thickens instead of buzzing." },
+          { position: 3, block_name: "Hipower Jumped", block_category: "Amp", original_gear: "Hiwatt DR103, channels jumpered", settings: { Drive: 6.5, Bass: 5.0, Mid: 7.0, Treble: 5.0, Presence: 4.0, MV: 8.0, Cut: 5.0 }, notes: "Fractal ships a jumped variant of the Hipower, which makes this the most literal translation of the source rig available on any platform -- use it rather than the standard Hipower with the Drive turned up." },
+          { position: 4, block_name: "4x12 Hiwatt Fane", block_category: "Cab", original_gear: "Hiwatt 4x12 (Fane)", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 90, HighCut: 6000, Level: 0 }, notes: "A genuine Fane IR is in the stock library and is worth using over an EQ'd Greenback -- the stiffness is audible on hard downstrokes." },
+          { position: 5, block_name: "Digital Mono", block_category: "Delay", original_gear: "Studio tape delay", settings: { Time: 180, Feedback: 0.08, Mix: 0.06 }, notes: "Short and quiet; long repeats blur the 7/8 section." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Olympic plate", settings: { Mix: 0.12, Decay: 1.6, Predelay: 18 }, notes: "Small and dark, consistent with how closely this guitar was tracked." },
+        ],
+        notes:
+          "Comp -> optional germanium fuzz -> the jumped Hipower -> Fane 4x12 -> short delay -> low plate. The jumped amp variant is why Fractal gets closest to this particular tone with the least dialling.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Hiwatt DR103 jumped' or 'Hiwatt cranked' or 'Hiwatt DR103 crunch'",
+            block_category: "Tone Model",
+            original_gear: "Hiwatt DR103 with channels jumpered, into a Fane 4x12",
+            settings: {},
+            notes:
+              "Search terms matter more here than on any other platform. The overwhelming majority of Hiwatt captures on ToneNET are clean pedal-platform models made for Gilmour tones, and those are the wrong tool: this riff needs the amp's own breakup, and a capture is a fixed snapshot of a gain stage rather than an amp you can turn up. Filter for jumped, cranked or crunch captures, and if the only thing available is clean, put a germanium fuzz in front rather than pretending the Gain knob will get you there.",
+          },
+        ],
+        notes:
+          "One driven Hiwatt capture, chosen carefully. TONEX is capture-driven, so the whole decision is made at the download and not at the knobs -- pick a clean capture and you have built a different recipe.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Alex Lifeson (Rush) - La Villa Strangiato (solo) ----
+  {
+    id: "seed-lifeson-la-villa-strangiato",
+    song_slug: "la-villa-strangiato-rush",
+    title: "Rush's La Villa Strangiato Solo Tone",
+    slug: "lifeson-la-villa-strangiato-solo",
+    created_at: "2026-09-27",
+    description:
+      "Lifeson describes the basic track as a one-shot deal -- the band set up live at Rockfield and played it through -- with the solo overdubbed afterwards. That order is audible in the tone. The rhythm guitar is a band in a room; the solo is a single Gibson ES-355 recorded alone, with the chorus that defines Rush's late-seventies sound sitting underneath a lead voice that is warmer and less hurried than anything on the album around it.",
+    tone_context: "solo",
+    attribution_confidence: "documented",
+    guitar_specs: {
+      body_type: "semi_hollow",
+      model_name: "Gibson ES-355",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge: ".009-.042",
+      notable_mods:
+        "Hemispheres was the first Rush record made with the 355, and it is the guitar named for this solo. A semi-hollow with a centre block is the reason the sustained notes in the second half of the solo bloom the way they do -- the top moves with the note in a way a slab body does not, which adds a slow swell you would otherwise have to fake with compression. It is also the reason a patch built for this tone misbehaves if you dial in solid-body levels of gain: the body starts feeding back before the amp gets there. Bridge pickup is the sensible read for a lead this bright and is not separately documented per-section. String gauge is era-typical rather than documented.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "chorus",
+        gear_slug: null,
+        gear_name: "Boss CE-1 Chorus Ensemble",
+        icon_type: "pedal",
+        icon_color: "#3b82f6",
+        is_in_effects_loop: false,
+        settings: { Mode: "Chorus", Intensity: 4, Rate: 3, Depth: 4 },
+        notes:
+          "Lifeson was an early adopter -- the CE-1 has been on his board since the 1977 tour, and he has said that with a three-piece band chorus is what widens the guitar enough to cover the space. Set slow and shallow here rather than obvious: this is a solo, and a deep chorus smears the pitch of held bends, which is the one thing this particular lead cannot afford.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Hiwatt 100W head",
+        icon_type: "amp_head",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: { Normal: 7, Brilliant: 5, Bass: 5, Middle: 6, Treble: 6, Presence: 6, Master: 7 },
+        notes:
+          "Hiwatt heads into matching 4x12s were his rig from the mid-seventies until 1981, and he has been candid that he liked them for how hard they push while conceding they were inefficient with a mean top end. Presence held at 6 rather than higher for exactly that reason -- push it and the ES-355's bridge pickup turns shrill before the amp gets any more aggressive.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 100W head (studio)",
+        icon_type: "amp_head",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: { Presence: 5, Bass: 5, Middle: 6, Treble: 6, Volume: 7 },
+        notes:
+          "Lifeson calls the Marshall the real workhorse of this period, and a Marshall cab is on record as part of the Rockfield setup alongside the Hiwatts. The pairing is the point: the Hiwatt supplies headroom and low-end authority, the Marshall supplies the midrange bark that makes a solo cut through a mix already crowded with a busy bass and Peart's kit. Either alone is thinner than the record.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Hiwatt 4x12 and Marshall 4x12",
+        icon_type: "cab_4x12",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Two cabinets with different speaker complements, which is a large part of why this lead sounds bigger than one amp. The Hiwatt's Fanes are stiff and linear; the Marshall's Celestions compress and bark. Blended, you get a lead tone with both a solid bottom and a forward midrange, and neither cab has to be asked to do the other one's job.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 (one per cabinet)",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, one per cab, blended to taste" },
+        notes:
+          "Inferred rather than documented for Rockfield. The useful part is not the mic model but the count -- two cabs means two mics and a blend decision, and that blend is where the tone actually gets made. Start with the Marshall slightly forward for the solo and back it off for the rhythm sections.",
+      },
+    ],
+    original_gear: {
+      guitar: "Gibson ES-355, the first Rush album to use it",
+      effects: [
+        "Boss CE-1 Chorus Ensemble -- on his board since the 1977 tour and heavily used across this album",
+        "Roland Space Echo, which had replaced his Echoplex by this point",
+        "Maestro parametric filter for midrange shaping",
+        "Roland JC-120 used for clean sections elsewhere on the record rather than for this lead",
+      ],
+      amp: "Hiwatt 100W heads, with a Marshall he describes as the real workhorse of the period",
+      cabinet: "Hiwatt 4x12s and a Marshall cab in the studio",
+      microphone: "Shure SM57 per cabinet -- inferred; the Rockfield capture is not documented",
+      other_notes:
+        "Recorded at Rockfield Studios in Wales in June and July 1978, produced by Rush with Terry Brown. There are two accounts of how the take came together and they are worth holding side by side: Lifeson remembers a one-shot deal with the band live in the room and his solo overdubbed after, while Lee remembers the piece being split into four sections and edited together. Both can be true of different passes, and either way the fact that matters for this recipe is the same one -- the solo was played alone, to a finished track, which is why it can be more sustained and more relaxed than anything the band is doing underneath it. No click was used, and the tempo drifts accordingly; set any delay by ear against the section rather than by a calculated BPM.",
+    },
+    tags: ["progressive-rock", "rock", "solo", "rush", "hiwatt", "chorus", "semi-hollow", "instrumental"],
+    sources: [
+      "https://www.musicradar.com/artists/rush-the-making-of-la-villa-strangiato",
+      "http://www.2112.net/powerwindows/transcripts/19811100guitarworld.htm",
+      "https://forum.fractalaudio.com/threads/what-gear-did-alex-use-on-hemispheres-in-1978.200879/",
+      "https://en.wikipedia.org/wiki/Hemispheres_(Rush_album)",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression",
+            settings: { Threshold: -30, Ratio: 2, Knee: 8, Attack: 20, Release: 280, Mix: 55, Level: 0 },
+            notes:
+              "Before the amp and gentle. A semi-hollow already sustains more evenly than a solid body, so the comp's job here is to keep the fast runs in the first half of the solo level with the long held notes in the second -- not to manufacture sustain the guitar is already producing.",
+          },
+          {
+            position: 2,
+            block_name: "70s Chorus",
+            block_category: "Modulation",
+            original_gear: "Boss CE-1 Chorus Ensemble",
+            settings: { Rate: 0.35, Depth: 35, Mix: 30, Level: 0 },
+            notes:
+              "Placed in front of the amp, which is where the CE-1 actually sat, and that placement changes the result -- chorus into a driven amp gets partially re-compressed and sits under the tone, where chorus after the amp floats on top and announces itself. Depth held at 35 because deep modulation blurs the pitch centre of a bend, and this solo is full of them.",
+          },
+          {
+            position: 3,
+            block_name: "WhoWatt 100",
+            block_category: "Amp",
+            original_gear: "Hiwatt 100W head",
+            settings: { Drive: 5.5, Bass: 5, Mid: 6, Treble: 6, Presence: 5.5, ChVol: 7, Master: 9, Bias: 5, BiasX: 5, Sag: 6, Hum: 4, Ripple: 4 },
+            notes:
+              "Path A, the headroom half. Drive at 5.5 rather than higher on purpose: with a semi-hollow in front, gain past this point starts producing uncontrolled feedback rather than more sustain, and the extra aggression the solo needs comes from the Marshall path instead.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 WhoWatt 100",
+            block_category: "Cab",
+            original_gear: "Hiwatt 4x12 (Fane)",
+            settings: { Mic: 5, Distance: 3, Position: 0.45, Angle: 0, LowCut: 100, HighCut: 6500, Resonance: 5, Level: 0, Pan: 0.35, Delay: 0 },
+            notes:
+              "Panned slightly left of centre rather than hard, because the two amps were blended in a mono-ish image on the record rather than spread wide. LowCut at 100 keeps the Fane's bottom from muddying a track that already has Geddy Lee's bass occupying that space.",
+          },
+          {
+            position: 5,
+            block_name: "Brit Plexi Brt",
+            block_category: "Amp",
+            original_gear: "Marshall 100W head",
+            settings: { Drive: 7, Bass: 4.5, Mid: 7, Treble: 6, Presence: 5, ChVol: 6.5, Master: 9, Bias: 5.5, BiasX: 5, Sag: 5, Hum: 4, Ripple: 4 },
+            notes:
+              "Path B, the bark. Driven harder than the Hiwatt and voiced with far less bass, because its whole job in the blend is midrange presence -- doubling the low end across both paths is how this patch turns into mud. Mid at 7 is the setting that makes the lead audible over a busy arrangement.",
+          },
+          {
+            position: 6,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12",
+            settings: { Mic: 5, Distance: 2, Position: 0.5, Angle: 0, LowCut: 120, HighCut: 7000, Resonance: 5, Level: -2, Pan: 0.65, Delay: 0 },
+            notes:
+              "Greenbacks against the other path's Fanes, which is the actual asymmetry of the rig rather than one tone spread across the field. Level pulled 2 dB below the Hiwatt path so the Marshall adds edge without taking over -- it is a seasoning, not the main voice.",
+          },
+          {
+            position: 7,
+            block_name: "Cosmos Echo",
+            block_category: "Delay",
+            original_gear: "Roland Space Echo",
+            settings: { Time: 320, Feedback: 18, Mix: 14, LowCut: 300, HighCut: 3800, Level: 0 },
+            notes:
+              "The Space Echo had replaced his Echoplex by this record, and the tape model matters -- a clean digital repeat sits too far forward. HighCut at 3800 darkens each successive repeat the way tape does, which is what lets the delay add depth without competing with the dry note.",
+          },
+          {
+            position: 8,
+            block_name: "Hall",
+            block_category: "Reverb",
+            original_gear: "Rockfield room and plate",
+            settings: { Mix: 16, Decay: 2.0, Predelay: 25, LowCut: 200, HighCut: 6500, Level: 0 },
+            notes:
+              "Larger than most of the batch because this solo was overdubbed onto a finished track and given room to sit above it. Predelay at 25 ms keeps the note's attack dry and in time, so the reverb reads as space around the lead rather than as a softening of it.",
+          },
+        ],
+        notes:
+          "Comp -> CE-1-style chorus in front -> split into a Hiwatt for weight and a Plexi for bark -> two different cabs -> tape echo -> hall. The blend is the recipe. Fold this to one amp and it still sounds good, but it stops sounding like a guitar with two rigs behind it, which is what Lifeson had.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -30, Ratio: 2, Attack: 20, Release: 280, Mix: 55, Level: 0 }, notes: "Gentle -- the semi-hollow supplies most of the evenness on its own, so the comp only has to match the fast runs to the held notes." },
+          { position: 2, block_name: "CE-1", block_category: "Modulation", original_gear: "Boss CE-1 Chorus Ensemble", settings: { Rate: 0.35, Depth: 35, Mix: 30 }, notes: "In front of the amps, which is where the real pedal sat -- chorus that gets re-compressed by the amp sits under the tone instead of floating on top of it." },
+          { position: 3, block_name: "Brit Watt 100", block_category: "Amp", original_gear: "Hiwatt 100W head", settings: { Gain: 5.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.5, Master: 7.0, Sag: 6.0 }, notes: "Lane A, the headroom half. Gain kept moderate because a semi-hollow feeds back before it gets more sustain." },
+          { position: 4, block_name: "4x12 Hiwatt Fane", block_category: "Cab", original_gear: "Hiwatt 4x12", settings: { Mic: "57 Dynamic", Distance: 3.0, Position: 0.45, LowCut: 100, HighCut: 6500, Level: 0 }, notes: "Panned slightly left. LowCut at 100 keeps the Fane out of the bass guitar's territory." },
+          { position: 5, block_name: "Plexi 100", block_category: "Amp", original_gear: "Marshall 100W head", settings: { Gain: 7.0, Bass: 4.5, Mid: 7.0, Treble: 6.0, Presence: 5.0, Master: 7.0, Sag: 5.0 }, notes: "Lane B, the bark. Much less bass than lane A on purpose -- stacking low end across both lanes is the fastest way to lose the solo in the mix." },
+          { position: 6, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0, Position: 0.5, LowCut: 120, HighCut: 7000, Level: -2 }, notes: "Greenbacks against the Fanes, and 2 dB down -- the Marshall is seasoning the Hiwatt rather than splitting the job evenly." },
+          { position: 7, block_name: "Tape Echo", block_category: "Delay", original_gear: "Roland Space Echo", settings: { Time: 320, Feedback: 18, Mix: 14, Level: 0 }, notes: "Tape rather than digital so each repeat darkens and steps back behind the dry note." },
+          { position: 8, block_name: "Hall Reverb", block_category: "Reverb", original_gear: "Rockfield room and plate", settings: { Decay: 2.0, Predelay: 25, Mix: 16, Level: 0 }, notes: "Roomier than the rest of the batch, because this lead was overdubbed above a finished band track rather than tracked inside it." },
+        ],
+        notes:
+          "Comp -> chorus in front -> dual lanes, Hiwatt for weight and Plexi for bark -> tape echo -> hall. The QC's native dual-lane routing makes the two-amp blend straightforward, so build both rather than folding it down.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", original_gear: "Front-end lift for the single-amp fold-down", enabled: false, settings: { Drive: 30, Bottom: 45, Tone: 60, Level: 65 }, notes: "DEFAULT-OFF. It exists because one amp has to cover what two were doing -- switch it in for the sustained second half of the solo if the lead is not cutting. Bottom below centre so the lift is midrange and treble rather than more low end." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Hiwatt and Marshall heads blended", settings: { Gain: 60, Volume: 70, Bass: 48, Middle: 68, Treble: 60, Presence: 52, Master: 70 }, notes: "CRUNCH rather than Lead, because the source is two moderately driven amps rather than one high-gain one -- Lead adds a cascaded-gain texture that did not exist in 1978. Middle at 68 and Bass at 48 is the honest average of the pair: the Marshall's midrange bark is what has to survive the fold-down, and the Hiwatt's low end is what can be given up." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Roland Space Echo", settings: { Time: 320, Feedback: 18, EffectLevel: 16 }, notes: "Nudged slightly wetter than the Helix patch, deliberately -- with the two-amp blend gone, the delay is carrying width that the cab pair supplied on the record." },
+          { position: 4, block_name: "Hall", block_category: "Reverb", original_gear: "Rockfield room and plate", settings: { Time: 5, PreDelay: 25, Tone: 5, EffectLevel: 20 }, notes: "Also a touch higher than the modelled patches, for the same reason. Predelay preserved at 25 ms so the attack stays dry and in time." },
+        ],
+        notes:
+          "One Crunch amp voiced between the two originals, with delay and reverb pushed a little to recover the size the second amp was providing. The chorus lives in the Katana's Mod slot if you want it -- set it slow and shallow so held bends keep their pitch.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 3.5, Attack: 20, Volume: 0.0 }, notes: "Slot A, light. Evens the fast runs against the held notes without flattening pick attack." },
+          { position: 2, block_name: "Vintage Chorus", block_category: "Stomp", original_gear: "Boss CE-1 Chorus Ensemble", settings: { Rate: 0.35, Depth: 3.5, Mix: 30 }, notes: "Stomp slot, ahead of the profile -- the CE-1 ran in front of the amps, and putting it there keeps the modulation under the tone rather than over it." },
+          { position: 3, block_name: "Search Rig Exchange for 'Hiwatt 100' or 'Plexi 100 crunch' or 'Hiwatt Marshall blend'", block_category: "Profile", original_gear: "Hiwatt and Marshall 100W heads blended", settings: { Gain: 6.0, Bass: 5.0, Middle: 6.5, Treble: 6.0, Presence: 5.5 }, notes: "One profile stands in for two amps, so pick for the midrange rather than the name. A Hiwatt capture alone lands too polite and a Plexi capture alone too thin in the bottom; a cranked Plexi with a full low end is closer to the blend than either. If your Kemper is in a stereo rig, the Double Tracker with a small offset recovers some of the two-cab width honestly -- a stereo chorus does not, and will announce itself immediately." },
+          { position: 4, block_name: "Tape Delay", block_category: "Delay", original_gear: "Roland Space Echo", settings: { Time: 320, Feedback: 18, Mix: 16 }, notes: "DLY slot. Slightly wetter than the modelled patches because one profile has less inherent size than a two-amp blend." },
+          { position: 5, block_name: "Hall Reverb", block_category: "Reverb", original_gear: "Rockfield room and plate", settings: { Decay: 2.0, Predelay: 25, Mix: 0.18 }, notes: "REV slot, roomy. This is an overdubbed lead sitting above a finished track, and it should sound like it." },
+        ],
+        notes:
+          "Comp -> chorus in front -> a single profile chosen for midrange -> tape delay -> hall. No cab block; the profile carries it. The profile audition is worth doing properly here, because the one thing that must survive is the Marshall bark.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -30, Ratio: 2, Attack: 20, Release: 280, Mix: 0.55, Level: 0 }, notes: "Ahead of the split so both rows get the same managed signal -- compressing per row lets the two amps drift apart dynamically." },
+          { position: 2, block_name: "Chorus", block_category: "Modulation", original_gear: "Boss CE-1 Chorus Ensemble", settings: { Rate: 0.35, Depth: 0.35, Mix: 0.3 }, notes: "In front of the amps, matching the real pedal's position, so the modulation gets re-compressed and sits under the tone." },
+          { position: 3, block_name: "Hipower 100", block_category: "Amp", original_gear: "Hiwatt 100W head", settings: { Drive: 5.5, Bass: 5.0, Mid: 6.0, Treble: 6.0, Presence: 5.5, MV: 7.0, Cut: 5.0 }, notes: "Row 1, the weight. Moderate Drive because a semi-hollow starts feeding back before it starts sustaining more." },
+          { position: 4, block_name: "4x12 Hiwatt Fane", block_category: "Cab", original_gear: "Hiwatt 4x12", settings: { Mic: "57 Dynamic", Distance: 3.0, LowCut: 100, HighCut: 6500, Level: 0 }, notes: "Panned slightly left using the cab block's own Pan control, so no separate mixer stage is needed." },
+          { position: 5, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall 100W head", settings: { Drive: 7.0, Bass: 4.5, Mid: 7.0, Treble: 6.0, Presence: 5.0, MV: 7.0, Cut: 5.0 }, notes: "Row 2, the bark, voiced with much less bass than row 1 -- the two rows divide the spectrum instead of duplicating it." },
+          { position: 6, block_name: "4x12 Greenback 25W", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 120, HighCut: 7000, Level: -2 }, notes: "Greenbacks against Fanes and 2 dB down, reproducing the real asymmetry rather than a symmetrical double." },
+          { position: 7, block_name: "Tape Delay", block_category: "Delay", original_gear: "Roland Space Echo", settings: { Time: 320, Feedback: 0.18, Mix: 0.14 }, notes: "Tape so successive repeats darken and recede behind the dry note." },
+          { position: 8, block_name: "Hall", block_category: "Reverb", original_gear: "Rockfield room and plate", settings: { Mix: 0.16, Decay: 2.0, Predelay: 25 }, notes: "Roomy, with enough predelay that the note's attack stays dry and rhythmically intact." },
+        ],
+        notes:
+          "Comp -> chorus -> two parallel rows, Hiwatt weight against Plexi bark, different cabs, slightly unequal levels -> tape echo -> hall. Fractal's parallel rows make this the most literal build of the original two-amp setup.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Hiwatt 100 crunch' or 'Plexi 100 lead' or 'Hiwatt lead'",
+            block_category: "Tone Model",
+            original_gear: "Hiwatt and Marshall 100W heads blended, ES-355 in front",
+            settings: {},
+            notes:
+              "A single capture cannot be two amps, so choose which half you are keeping. A cranked Plexi capture gets you the midrange bark that makes the lead audible and gives up some low-end authority; a Hiwatt capture gets you the weight and lands politer than the record. The bark is the more useful half. If you are running TONEX in a DAW rather than on the pedal, two instances on two tracks -- one of each capture, fed from the same DI, levels unequal -- reproduces the actual method instead of approximating its result.",
+          },
+        ],
+        notes:
+          "One capture if you must, two if you can. Add the chorus ahead of TONEX rather than after it, so the modulation behaves the way a CE-1 in front of an amp does.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Alex Lifeson (Rush) - The Spirit of Radio (intro) ----
+  {
+    id: "seed-lifeson-spirit-of-radio",
+    song_slug: "the-spirit-of-radio-rush",
+    title: "Rush's The Spirit of Radio Intro Tone",
+    slug: "lifeson-spirit-of-radio-intro",
+    created_at: "2026-09-27",
+    description:
+      "Lifeson names the pedal himself: the flanger on this song was an Electro-Harmonix Electric Mistress, and he still has it. That single sentence settles the part of this tone that players usually get wrong by reaching for a chorus instead. The cascading intro lick is a bright semi-hollow through a barely-driven amp with the Mistress doing the sweeping -- and the flanger's filter notches, not the amp, are what make the figure shimmer.",
+    tone_context: "intro",
+    attribution_confidence: "documented",
+    guitar_specs: {
+      body_type: "semi_hollow",
+      model_name: "Gibson ES-355",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge: ".009-.042",
+      notable_mods:
+        "The 355 is the guitar in the 1980 live footage of this song and the instrument he had been building Rush's sound around since Hemispheres. Bridge pickup for the intro: the lick is a fast descending cascade, and a neck humbucker rounds off exactly the attack that lets each note register at that speed. What the semi-hollow adds here is not sustain but a slightly softer, woodier transient than a solid body would produce, which is why the figure sounds fluid rather than percussive. String gauge is era-typical rather than documented.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "flanger",
+        gear_slug: null,
+        gear_name: "Electro-Harmonix Electric Mistress",
+        icon_type: "pedal",
+        icon_color: "#8b5cf6",
+        is_in_effects_loop: false,
+        settings: { Rate: 3, Range: 6, Color: 7 },
+        notes:
+          "The one piece of this rig that is documented from Lifeson's own mouth rather than reconstructed. The Mistress is a filter-matrix flanger, which is why it does not sound like a modern flanger pedal -- its notches are wider and it keeps a fixed comb character even at slow rates. Colour set high because the intro's shimmer comes from regeneration; Rate slow so the sweep moves across the whole figure rather than warbling within each note.",
+      },
+      {
+        position: 2,
+        category: "effect",
+        subcategory: "chorus",
+        gear_slug: null,
+        gear_name: "Boss CE-1 Chorus Ensemble",
+        icon_type: "pedal",
+        icon_color: "#3b82f6",
+        is_in_effects_loop: false,
+        settings: { Mode: "Chorus", Intensity: 3, Rate: 3, Depth: 3 },
+        notes:
+          "Lifeson names the CE-1 in the same breath as the Mistress, and the two running together is the actual Permanent Waves sound rather than a choice between them. Set shallower than the flanger on purpose: two deep modulations stacked start cancelling each other's movement and the result goes seasick. The chorus is adding width underneath, the flanger is doing the sweeping on top.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Hiwatt 100W head",
+        icon_type: "amp_head",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: { Normal: 6, Brilliant: 5, Bass: 5, Middle: 6, Treble: 6, Presence: 6, Master: 6 },
+        notes:
+          "Hiwatts were his amps from the mid-seventies until 1981, which covers this record, though accounts of the Permanent Waves sessions also put Marshalls and Mesas in the room for different tracks. Set much cleaner than the La Villa Strangiato lead: a flanger in front of a driven amp gets its notches smeared by the distortion, and the intro depends on those notches staying sharp.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Hiwatt 4x12 (Fane-loaded)",
+        icon_type: "cab_4x12",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Fanes are the right speaker for a modulated clean part for the same reason they suit a loud clean amp -- they are stiff and stay linear, so the flanger's comb filtering reads as a clean sweep rather than being coloured by speaker breakup on the way out.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, off cone centre" },
+        notes:
+          "Inferred rather than documented for Le Studio. Off-centre matters more than usual on a flanged part: dead on the cap the mic emphasises the very high frequencies where a flanger's upper notches live, which turns a shimmer into a whistle.",
+      },
+    ],
+    original_gear: {
+      guitar: "Gibson ES-355",
+      effects: [
+        "Electro-Harmonix Electric Mistress flanger -- named by Lifeson as the flanger on this song",
+        "Boss CE-1 Chorus Ensemble, running alongside rather than instead of the flanger",
+        "Roland Space Echo, which had replaced his Echoplex",
+        "Maestro parametric filter for midrange shaping room to room",
+      ],
+      amp: "Hiwatt 100W heads, his amps until 1981; Marshalls and Mesas also present at the Permanent Waves sessions for other tracks",
+      cabinet: "Hiwatt 4x12 loaded with Fane speakers",
+      microphone: "Shure SM57 close on the grille -- inferred; the Le Studio capture is not documented",
+      other_notes:
+        "Recorded at Le Studio in Morin-Heights, Quebec, in September and October 1979, produced by Rush with Terry Brown. The thing to understand before dialling this is that the intro is an effect-led tone rather than an amp-led one, which is the opposite of most of this catalogue: if you get the flanger right and the amp roughly right you will be close, and if you get the amp perfect and substitute a chorus for the flanger you will not be close at all. Lifeson has also said that with a three-piece band chorus is what widens the guitar enough to fill the space, which is why the CE-1 stays on underneath the Mistress rather than being switched out for it.",
+    },
+    tags: ["progressive-rock", "rock", "intro", "rush", "flanger", "clean", "semi-hollow", "modulation"],
+    sources: [
+      "https://www.ehx.com/topic/rush-spirit-of-radio-intro/",
+      "http://www.2112.net/powerwindows/transcripts/19811100guitarworld.htm",
+      "https://en.wikipedia.org/wiki/Permanent_Waves",
+      "https://en.wikipedia.org/wiki/The_Spirit_of_Radio",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Studio compression",
+            settings: { Threshold: -28, Ratio: 2, Knee: 9, Attack: 15, Release: 220, Mix: 50, Level: 0 },
+            notes:
+              "Before the modulation, not after, and that ordering is worth being deliberate about. Compressing a flanged signal pumps the filter notches in and out with the gain reduction, which sounds like a broken pedal. Compressing first gives the Mistress an even signal to sweep. Fast attack at 15 ms keeps the cascading lick's individual notes level.",
+          },
+          {
+            position: 2,
+            block_name: "Courtesan Flange",
+            block_category: "Modulation",
+            original_gear: "Electro-Harmonix Electric Mistress",
+            settings: { Rate: 0.28, Depth: 60, Mix: 70, Level: 0 },
+            notes:
+              "The Helix model of the Deluxe Electric Mistress, and the single block that makes or breaks this patch. Mix at 70 is far higher than a normal modulation setting because the intro tone IS the flanger -- at 30 you get a guitar with a flanger on it, which is a different and much more ordinary sound. Rate slow enough that the sweep travels across the whole four-bar figure rather than wobbling inside each note.",
+          },
+          {
+            position: 3,
+            block_name: "70s Chorus",
+            block_category: "Modulation",
+            original_gear: "Boss CE-1 Chorus Ensemble",
+            settings: { Rate: 0.3, Depth: 28, Mix: 22, Level: 0 },
+            notes:
+              "Underneath the flanger and much shallower, because both pedals were on together. Two deep modulations stacked at similar depths start fighting -- their movements partially cancel and the result wobbles unpredictably. Keeping the chorus at roughly a third of the flanger's depth lets it add width without competing for the sweep.",
+          },
+          {
+            position: 4,
+            block_name: "WhoWatt 100",
+            block_category: "Amp",
+            original_gear: "Hiwatt 100W head",
+            settings: { Drive: 3.5, Bass: 5, Mid: 6, Treble: 6.5, Presence: 6, ChVol: 6.5, Master: 8, Bias: 5, BiasX: 5, Sag: 5.5, Hum: 3, Ripple: 3 },
+            notes:
+              "Drive at 3.5 -- markedly cleaner than the La Villa Strangiato patch on the same amp, and the reason is the flanger rather than taste. Distortion after a flanger smears the comb notches into a general swirl, and the sharp-edged filter sweep is exactly what makes this intro recognisable. If it sounds too polite soloed, it is correct; this part lives in an arrangement.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 WhoWatt 100",
+            block_category: "Cab",
+            original_gear: "Hiwatt 4x12 (Fane)",
+            settings: { Mic: 5, Distance: 3, Position: 0.4, Angle: 0, LowCut: 110, HighCut: 8000, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "HighCut at 8000 rather than the 6000-6500 the driven patches use, because a flanger's upper notches live in exactly that region and cutting them off flattens the shimmer. LowCut at 110 keeps the low end tight so the modulation stays audible as pitch movement rather than as a woofy pulse.",
+          },
+          {
+            position: 6,
+            block_name: "Cosmos Echo",
+            block_category: "Delay",
+            original_gear: "Roland Space Echo",
+            settings: { Time: 290, Feedback: 15, Mix: 12, LowCut: 320, HighCut: 3600, Level: 0 },
+            notes:
+              "Short and dark. The intro is a fast rhythmic figure and long repeats collide with the notes still being played -- the tape model's darkening repeats are what keep this readable as depth rather than as a second guitar part.",
+          },
+          {
+            position: 7,
+            block_name: "Room",
+            block_category: "Reverb",
+            original_gear: "Le Studio room",
+            settings: { Mix: 13, Decay: 1.0, Predelay: 15, LowCut: 220, HighCut: 7000, Level: 0 },
+            notes:
+              "A room rather than a hall, and small. The patch already has enormous apparent width from two stacked modulations, and adding a big reverb on top of that is how a flanged part turns into an indistinct wash. HighCut left fairly open at 7000 so the tail does not dull the shimmer the flanger just created.",
+          },
+        ],
+        notes:
+          "Comp -> Mistress-style flanger high in the mix -> shallow chorus underneath -> a genuinely clean Hiwatt -> Fane cab with the top left open -> short dark echo -> small room. If you take one thing from this patch: the flanger Mix at 70 and the amp Drive at 3.5 are a pair, and moving either one without the other loses the tone.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -28, Ratio: 2, Attack: 15, Release: 220, Mix: 50, Level: 0 }, notes: "Ahead of the modulation. Compressing after a flanger pumps its notches with the gain reduction, which reads as a malfunctioning pedal rather than an effect." },
+          { position: 2, block_name: "Flanger", block_category: "Modulation", original_gear: "Electro-Harmonix Electric Mistress", settings: { Rate: 0.28, Depth: 60, Mix: 70 }, notes: "Mix at 70 because the intro tone is the flanger. Set the QC's feedback or regeneration control high if it offers one -- the Mistress's fixed comb character comes from regeneration, not depth." },
+          { position: 3, block_name: "Vintage Chorus", block_category: "Modulation", original_gear: "Boss CE-1 Chorus Ensemble", settings: { Rate: 0.3, Depth: 28, Mix: 22 }, notes: "Shallower than the flanger and underneath it -- both pedals were on, but matched depths make the two modulations cancel each other's movement." },
+          { position: 4, block_name: "Brit Watt 100", block_category: "Amp", original_gear: "Hiwatt 100W head", settings: { Gain: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.5, Presence: 6.0, Master: 6.5, Sag: 5.5 }, notes: "Clean by design. Distortion after modulation smears the comb notches that make this figure recognisable." },
+          { position: 5, block_name: "4x12 Hiwatt Fane", block_category: "Cab", original_gear: "Hiwatt 4x12", settings: { Mic: "57 Dynamic", Distance: 3.0, Position: 0.4, LowCut: 110, HighCut: 8000, Level: 0 }, notes: "Top left open at 8000 so the flanger's upper notches survive the cab stage." },
+          { position: 6, block_name: "Tape Echo", block_category: "Delay", original_gear: "Roland Space Echo", settings: { Time: 290, Feedback: 15, Mix: 12, Level: 0 }, notes: "Short and dark so the repeats do not collide with a fast figure." },
+          { position: 7, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Le Studio room", settings: { Decay: 1.0, Predelay: 15, Mix: 13, Level: 0 }, notes: "Small. Two stacked modulations already supply the width; a hall on top of them turns the part to soup." },
+          { position: 8, block_name: "Tilt EQ", block_category: "EQ", original_gear: "Maestro parametric filter", settings: { Tilt: 5.4, CenterFreq: 900, Level: 0 }, notes: "A very slight bright tilt, standing in for the parametric filter he used to adjust midrange room to room -- nudge it dark if the flanger starts whistling on FRFR." },
+        ],
+        notes:
+          "Comp -> flanger high in the mix -> shallow chorus -> clean Hiwatt -> open-topped cab -> short echo -> small room -> slight tilt. Everything here serves the flanger; the amp is a delivery mechanism.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", original_gear: "Front-end level for the clean figure", enabled: false, settings: { Drive: 0, Bottom: 45, Tone: 60, Level: 62 }, notes: "DEFAULT-OFF and set to zero drive. There is no distortion in this part; the slot is a clean level lift for stages where a clean flanged guitar disappears in a band mix. Adding actual drive here undoes the whole recipe." },
+          { position: 2, block_name: "Clean", block_category: "Amp Type", original_gear: "Hiwatt 100W head", settings: { Gain: 35, Volume: 68, Bass: 50, Middle: 60, Treble: 65, Presence: 60, Master: 68 }, notes: "CLEAN, and this is the one Hiwatt mapping in the batch where the standard Clean character is exactly right rather than a compromise -- the source amp really is running clean here so the flanger's notches survive. Treble at 65 keeps the cascading lick articulate at speed." },
+          { position: 3, block_name: "Flanger", block_category: "FX", original_gear: "Electro-Harmonix Electric Mistress", settings: { Rate: 28, Depth: 60, Level: 70 }, notes: "The Katana's FX slot carries the part. Push the Level high -- this is not a garnish on the tone, it is the tone, and the usual instinct to keep modulation subtle produces a completely different and much more generic sound." },
+          { position: 4, block_name: "Delay", block_category: "Delay", original_gear: "Roland Space Echo", settings: { Time: 290, Feedback: 15, EffectLevel: 14 }, notes: "Short. On a mono rig the temptation is to push delay for width, but a fast figure punishes long repeats -- take the width from the flanger instead." },
+          { position: 5, block_name: "Room", block_category: "Reverb", original_gear: "Le Studio room", settings: { Time: 3, PreDelay: 15, Tone: 6, EffectLevel: 15 }, notes: "Small, with Tone above centre so the tail stays bright enough not to dull what the flanger is doing." },
+        ],
+        notes:
+          "A genuinely clean amp with the flanger pushed hard in the FX slot. The Katana handles this recipe better than most in the catalogue, because the tone is effect-led and the amp only has to stay out of the way. Run the chorus in the Mod slot underneath if your model allows both.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Studio compression", settings: { Intensity: 4.0, Attack: 15, Volume: 0.0 }, notes: "Slot A, ahead of the modulation so the flanger sweeps an even signal rather than a pumping one." },
+          { position: 2, block_name: "Flanger", block_category: "Stomp", original_gear: "Electro-Harmonix Electric Mistress", settings: { Rate: 0.28, Depth: 6.0, Mix: 70 }, notes: "Stomp slot, high mix. If your Kemper offers a feedback or regeneration parameter on the flanger, raise it -- the Mistress's character is a regeneration artefact, and depth alone gets you a sweep without the comb." },
+          { position: 3, block_name: "Search Rig Exchange for 'Hiwatt DR103 clean' or 'Hiwatt clean 4x12'", block_category: "Profile", original_gear: "Hiwatt 100W head", settings: { Gain: 3.5, Bass: 5.0, Middle: 6.0, Treble: 6.5, Presence: 6.0 }, notes: "This is the one recipe in the batch where the abundant clean Hiwatt captures on the Exchange are exactly what you want -- the usual complaint about them does not apply, because the source amp genuinely is clean here. Pick a capture with an open top end; a dark clean profile mutes the flanger's upper notches at the source and no amount of EQ afterwards convincingly restores them." },
+          { position: 4, block_name: "Tape Delay", block_category: "Delay", original_gear: "Roland Space Echo", settings: { Time: 290, Feedback: 15, Mix: 14 }, notes: "DLY slot, short and dark so repeats do not pile into a fast figure." },
+          { position: 5, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Le Studio room", settings: { Decay: 1.0, Predelay: 15, Mix: 0.14 }, notes: "REV slot, small. The modulation supplies the width; the reverb only supplies a little air." },
+        ],
+        notes:
+          "Comp -> flanger high in the mix -> a clean Hiwatt profile with an open top -> short echo -> small room. No cab block; the profile carries it. Run the CE-1 chorus in a spare Mod slot underneath the flanger if you want the full Permanent Waves stack.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compression", settings: { Threshold: -28, Ratio: 2, Attack: 15, Release: 220, Mix: 0.5, Level: 0 }, notes: "Ahead of the flanger so the comb notches are not pumped by gain reduction." },
+          { position: 2, block_name: "Flanger", block_category: "Modulation", original_gear: "Electro-Harmonix Electric Mistress", settings: { Rate: 0.28, Depth: 0.6, Mix: 0.7 }, notes: "Fractal's flanger exposes a feedback control -- raise it, because the Mistress's fixed comb character is a regeneration artefact rather than a depth one. Mix at 0.7; this effect is the tone." },
+          { position: 3, block_name: "Chorus", block_category: "Modulation", original_gear: "Boss CE-1 Chorus Ensemble", settings: { Rate: 0.3, Depth: 0.28, Mix: 0.22 }, notes: "Shallow, underneath the flanger. Matched depths make the two modulations cancel each other's movement, which is why this one sits at roughly a third of the flanger's." },
+          { position: 4, block_name: "Hipower 100", block_category: "Amp", original_gear: "Hiwatt 100W head", settings: { Drive: 3.5, Bass: 5.0, Mid: 6.0, Treble: 6.5, Presence: 6.0, MV: 6.5, Cut: 5.0 }, notes: "Clean by design -- the distortion that flatters a lead tone smears a flanger's notches into an undifferentiated swirl." },
+          { position: 5, block_name: "4x12 Hiwatt Fane", block_category: "Cab", original_gear: "Hiwatt 4x12", settings: { Mic: "57 Dynamic", Distance: 3.0, LowCut: 110, HighCut: 8000, Level: 0 }, notes: "Top left open so the flanger's upper notches survive the cab stage." },
+          { position: 6, block_name: "Tape Delay", block_category: "Delay", original_gear: "Roland Space Echo", settings: { Time: 290, Feedback: 0.15, Mix: 0.12 }, notes: "Short and dark; a fast figure has no room for long repeats." },
+          { position: 7, block_name: "Room", block_category: "Reverb", original_gear: "Le Studio room", settings: { Mix: 0.13, Decay: 1.0, Predelay: 15 }, notes: "Small, because the stacked modulation is already doing the width." },
+        ],
+        notes:
+          "Comp -> flanger with feedback up -> shallow chorus -> clean Hipower -> open-topped Fane cab -> short echo -> small room. Fractal's flanger feedback control is the parameter that gets you from a generic sweep to something that sounds like a Mistress.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Hiwatt DR103 clean' or 'Hiwatt clean' or 'Hiwatt 100 clean 4x12'",
+            block_category: "Tone Model",
+            original_gear: "Hiwatt 100W head into a Fane 4x12, run clean",
+            settings: {},
+            notes:
+              "The easiest search in the batch: clean Hiwatt captures are abundant on ToneNET because everyone builds them as Gilmour pedal platforms, and a clean pedal platform is precisely what this tone needs. Favour a capture with an open top end over a warm, rolled-off one -- the flanger's shimmer lives above 5 kHz, and a dark capture removes it before your pedal ever gets to work.",
+          },
+        ],
+        notes:
+          "A clean Hiwatt capture and an external flanger. This is the one recipe where the capture is the easy part and the pedal in front of it is the whole job -- TONEX has no Electric Mistress, so use a real flanger or a plugin, set the mix high, and raise the regeneration.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- David Gilmour (Pink Floyd) - Dogs (solo) ----
+  {
+    id: "seed-gilmour-dogs",
+    song_slug: "dogs-pink-floyd",
+    title: "Pink Floyd's Dogs Solo Tone",
+    slug: "gilmour-dogs-solo",
+    created_at: "2026-09-27",
+    description:
+      "The guitar on Dogs is not the Black Strat, and the tuning is not standard. Gilmour cut this on a 1959 Telecaster Custom tuned a whole step down to D G C F A D, which is why the chord voicings ring in a register no Strat in E reaches and why the solos sit lower and thicker than his other work from the period. Add the detail most recreations miss -- the Yamaha rotary cabinet mixed so high on the verse solos that the dry Hiwatt signal nearly disappears -- and the tone stops being hard to place.",
+    tone_context: "solo",
+    attribution_confidence: "documented",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "1959 Fender Telecaster Custom (two-colour sunburst)",
+      pickup_config: "SS",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "D standard (D-G-C-F-A-D)",
+      string_gauge: ".010-.048",
+      notable_mods:
+        "The guitar has carried a Gibson PAF humbucker in the neck position over its life, later swapped for a Seymour Duncan -- but that does not change this recipe, because the solos are played on the bridge single-coil. What does change it is the tuning: the whole record's guitar parts are in D standard, and playing them in E puts every open-string voicing a step too high and makes the bends feel wrong under the fingers. A whole step down on a 25.5-inch scale also drops the string tension noticeably, which is part of why the vibrato on the long notes is as wide and slow as it is. If you are building this from the recipe, use .010s or heavier or the guitar will feel like rubber.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "fuzz",
+        gear_slug: null,
+        gear_name: "Electro-Harmonix Big Muff (ram's head)",
+        icon_type: "pedal",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Sustain: 7, Tone: 4.5, Volume: 7 },
+        notes:
+          "The ram's-head revision rather than the triangle he used earlier, and the difference is audible: the ram's head is darker and less scooped, which suits a guitar already tuned down a step. Tone kept below centre because a Muff's tone control past halfway starts hollowing out exactly the midrange that lets a solo be heard over an arrangement this dense.",
+      },
+      {
+        position: 2,
+        category: "effect",
+        subcategory: "overdrive",
+        gear_slug: null,
+        gear_name: "Colorsound Power Boost",
+        icon_type: "pedal",
+        icon_color: "#22c55e",
+        is_in_effects_loop: false,
+        settings: { Treble: 4, Bass: 6, Volume: 6 },
+        notes:
+          "Stacked after the Muff rather than instead of it, which is the specific arrangement documented for the 1977 solos. The Power Boost is not adding much distortion here -- it is adding level and a treble lift that pushes the Hiwatt's front end into bloom. Treble set low at 4 because the Muff has already supplied all the top this chain can use.",
+      },
+      {
+        position: 3,
+        category: "effect",
+        subcategory: "flanger",
+        gear_slug: null,
+        gear_name: "Electro-Harmonix Electric Mistress",
+        icon_type: "pedal",
+        icon_color: "#8b5cf6",
+        is_in_effects_loop: false,
+        settings: { Rate: 2, Range: 5, Color: 5 },
+        notes:
+          "Set with the Range control off, which is how Gilmour ran it for this material -- that turns the Mistress from a sweeping flanger into a fixed comb filter, adding a static metallic colour rather than movement. It is why the solo tone has a slightly hollow, phasey character that never actually sweeps. Treating this as a normal flanger and letting it cycle is the most common way this tone goes wrong.",
+      },
+      {
+        position: 4,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Hiwatt DR103 Custom 100",
+        icon_type: "amp_head",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: { Normal: 6, Brilliant: 5, Bass: 5, Middle: 4, Treble: 5.5, Presence: 5, Master: 4 },
+        notes:
+          "Clean, as always in this rig -- the Hiwatt is a platform and the Muff is the distortion. Master at roughly a third of the channel volume is the documented relationship, and linking the normal and brilliant inputs adds presence without adding gain. Middle pulled to 4 because the Muff is already mid-scooped and fighting that with the amp only makes the scoop worse.",
+      },
+      {
+        position: 5,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "WEM Super Starfinder 200 4x12 (Fane Crescendo)",
+        icon_type: "cab_4x12",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "Fane Crescendos are high-power, stiff and comparatively flat -- much less mid-forward than a Celestion. That flatness is why Gilmour's Muff tone stays vocal instead of nasal at volume, and it is the reason a Greenback substitute needs its mids eased back to sit in the same place.",
+      },
+      {
+        position: 6,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Yamaha RA-200 rotating speaker cabinet",
+        icon_type: "cab_2x12",
+        icon_color: "#a855f7",
+        is_in_effects_loop: false,
+        settings: { Speed: "slow", Blend: "high on verse solos" },
+        notes:
+          "The part almost nobody reproduces, and the reason the verse solos sound the way they do. The Yamahas were recorded to a separate track, and on the fast solos between the verses they are mixed high enough that the dry Hiwatt signal is nearly absent. The twin solo gets barely any and the dry solo gets a hint. So this is not a global effect setting -- it is a per-section blend decision, and treating it as one setting for the whole song flattens the arrangement.",
+      },
+      {
+        position: 7,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57 (per cabinet)",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close on the WEM, pair on the rotary" },
+        notes:
+          "Inferred rather than documented. What is documented is that the rotary went to its own track, which is the part that matters -- two separate captures and a fader ride between them, rather than a rotary effect printed onto the main guitar sound.",
+      },
+    ],
+    original_gear: {
+      guitar: "1959 Fender Telecaster Custom, tuned D G C F A D, bridge pickup for the solos",
+      effects: [
+        "Electro-Harmonix Big Muff, ram's-head revision",
+        "Colorsound Power Boost, stacked after the Muff",
+        "Electro-Harmonix Electric Mistress with the Range control off -- a fixed comb rather than a sweep",
+        "MXR digital delay around 370 ms",
+      ],
+      amp: "Hiwatt DR103 Custom 100, run clean as a pedal platform",
+      cabinet: "WEM Super Starfinder 200 4x12s with Fane Crescendo speakers, plus Yamaha RA-200 rotating speaker cabinets on their own track",
+      microphone: "Shure SM57 per cabinet -- inferred; the Britannia Row capture is not documented",
+      other_notes:
+        "Animals was cut largely at Pink Floyd's own Britannia Row studio through 1976 and into early 1977. The two facts that separate a convincing Dogs from an approximation are both structural rather than tonal: the guitar is a Telecaster Custom in D standard, not the Black Strat in E, and the rotary cabinet is a mix element that changes from section to section rather than a pedal left on. Gilmour's own advice about pickups is worth passing on if you are substituting a guitar -- low-output vintage-style single-coils, because modern high-output pickups turn boomy once a Muff is in front of a clean Hiwatt.",
+    },
+    tags: ["progressive-rock", "rock", "solo", "pink-floyd", "big-muff", "hiwatt", "rotary", "telecaster"],
+    sources: [
+      "https://www.gilmourish.com/?p=356",
+      "https://www.gilmourish.com/?page_id=18",
+      "https://reverb.com/news/david-gilmour-tone-analysis-dogs-animals-1977",
+      "https://en.wikipedia.org/wiki/Animals_(Pink_Floyd_album)",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Red Squeeze",
+            block_category: "Compressor",
+            original_gear: "MXR Dyna Comp",
+            settings: { Threshold: -30, Ratio: 3, Knee: 5, Attack: 35, Release: 300, Mix: 65, Level: 1 },
+            notes:
+              "Ahead of the fuzz, which is where a Dyna Comp sat on this board. Compression before a Muff does something specific and useful: it raises the quiet part of each note into the fuzz's sustain region, so the long held notes bloom instead of decaying. Level nudged to +1 dB to drive the Muff a little harder.",
+          },
+          {
+            position: 2,
+            block_name: "Ram's Head",
+            block_category: "Distortion",
+            original_gear: "Electro-Harmonix Big Muff (ram's head)",
+            settings: { Sustain: 7, Tone: 4.5, Level: 7 },
+            notes:
+              "The ram's-head model specifically, not the Triangle used on the Dark Side-era recipes -- it is darker and less scooped, which is the correct pairing for a guitar tuned a whole step down. Tone below centre because past halfway a Muff hollows out the midrange a solo needs to be heard through.",
+          },
+          {
+            position: 3,
+            block_name: "Heir Apparent",
+            block_category: "Distortion",
+            original_gear: "Colorsound Power Boost",
+            settings: { Gain: 4, Tone: 4, Level: 6.5, Presence: 4.5 },
+            notes:
+              "DEFAULT-ON and stacked after the Muff, which is the documented 1977 solo arrangement rather than the usual either-or. Gain deliberately low: this block is contributing level and a push into the amp's front end, not more distortion. Stack it the other way round and you get fizz instead of bloom.",
+          },
+          {
+            position: 4,
+            block_name: "Courtesan Flange",
+            block_category: "Modulation",
+            original_gear: "Electro-Harmonix Electric Mistress",
+            settings: { Rate: 0.02, Depth: 45, Mix: 40, Level: 0 },
+            notes:
+              "Rate set almost to zero on purpose, because Gilmour ran the Mistress with its Range control off -- a fixed comb filter rather than a sweep. Pulling the rate to a near stop is how you reproduce that on a modeller: you keep the metallic hollow colour and lose the cycling. Let this block sweep at a normal rate and you have built a completely different and much more obvious effect.",
+          },
+          {
+            position: 5,
+            block_name: "WhoWatt 100",
+            block_category: "Amp",
+            original_gear: "Hiwatt DR103",
+            settings: { Drive: 3.5, Bass: 5, Mid: 4, Treble: 5.5, Presence: 5, ChVol: 6, Master: 8, Bias: 5, BiasX: 5, Sag: 6, Hum: 4, Ripple: 4 },
+            notes:
+              "Clean, because everything upstream is already the distortion. Mid at 4 is the counterintuitive setting worth keeping -- the instinct is to add mids back under a scooped Muff, but the source amp was not doing that, and adding them here makes the fuzz sound boxy rather than vocal.",
+          },
+          {
+            position: 6,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "WEM Super Starfinder 4x12 (Fane Crescendo)",
+            settings: { Mic: 5, Distance: 3, Position: 0.35, Angle: 0, LowCut: 90, HighCut: 7000, Resonance: 4, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "A Greenback cab standing in for Fane Crescendos, with Resonance pulled to 4 to compensate for the substitution -- Fanes are stiffer and less resonant than Celestions, and leaving Resonance at centre gives the low end a bloom the real cab did not have. LowCut at 90 keeps the D-standard tuning's fundamentals from turning woolly.",
+          },
+          {
+            position: 7,
+            block_name: "Rotary",
+            block_category: "Modulation",
+            original_gear: "Yamaha RA-200 rotating speaker cabinet",
+            settings: { Rate: 0.35, Depth: 70, Mix: 55, Level: 0 },
+            notes:
+              "The block that makes this patch Dogs rather than generic Gilmour, and it is placed after the cab because the Yamahas were a separate speaker system rather than an effect in front of the amp. Mix at 55 is the verse-solo setting where the rotary nearly swallows the dry signal. Drop it to about 15 for the twin solo and to near zero for the dry one -- the original was a fader ride across the arrangement, and a single setting for the whole song loses the shape.",
+          },
+          {
+            position: 8,
+            block_name: "Simple Delay",
+            block_category: "Delay",
+            original_gear: "MXR digital delay",
+            settings: { Time: 370, Feedback: 22, Mix: 18, LowCut: 250, HighCut: 5000, Level: 0 },
+            notes:
+              "370 ms, which is the documented time for this song rather than a guess. A digital-flavoured model rather than tape, matching the MXR he was using by then -- the repeats stay brighter and more defined than a Space Echo would, which is what keeps them audible under a rotary mixed this high.",
+          },
+          {
+            position: 9,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Britannia Row plate",
+            settings: { Mix: 15, Decay: 2.2, Predelay: 20, LowCut: 160, HighCut: 6800, Level: 0 },
+            notes:
+              "Modest, because the rotary is already supplying an enormous amount of movement and apparent space. Piling a long plate on top of a heavily rotating signal is how this patch turns into an undifferentiated smear -- LowCut at 160 is doing real work keeping the tail out of the down-tuned guitar's fundamentals.",
+          },
+        ],
+        notes:
+          "Comp -> ram's-head Muff -> Power Boost stacked on top -> a Mistress frozen with the rate near zero -> clean Hiwatt -> Fane-substitute cab -> rotary mixed high -> 370 ms delay -> modest plate. Two things carry this patch more than any knob: tune the guitar down a whole step, and treat the rotary Mix as a per-section control rather than a preset value.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Vintage Comp", block_category: "Compressor", original_gear: "MXR Dyna Comp", settings: { Threshold: -30, Ratio: 3, Attack: 35, Release: 300, Mix: 65, Level: 1 }, notes: "Before the fuzz, so the tail of each note is lifted into the Muff's sustain region and the long notes bloom rather than decay." },
+          { position: 2, block_name: "Fuzz Pi", block_category: "Drive", original_gear: "Big Muff (ram's head)", settings: { Drive: 7.0, Tone: 4.5, Level: 7.0 }, notes: "Tone below centre -- a Muff past halfway scoops out the midrange the solo needs to carry over the arrangement." },
+          { position: 3, block_name: "Tube Driver", block_category: "Drive", original_gear: "Colorsound Power Boost", settings: { Drive: 4.0, Tone: 4.0, Level: 6.5 }, notes: "Stacked after the Muff, contributing level and front-end push rather than extra distortion. The stacking order is documented and reversing it gives fizz instead of bloom." },
+          { position: 4, block_name: "Flanger", block_category: "Modulation", original_gear: "Electric Mistress, Range off", settings: { Rate: 0.02, Depth: 45, Mix: 40 }, notes: "Rate near zero, reproducing a Mistress with its Range control off -- a fixed comb colour rather than a moving sweep." },
+          { position: 5, block_name: "Search Cortex Cloud for 'Hiwatt DR103' capture", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Gain: 3.5, Bass: 5.0, Mid: 4.0, Treble: 5.5, Presence: 5.0, Master: 6.0, Sag: 6.0 }, notes: "Clean platform. Mid at 4 rather than propped up -- adding mids back under a scooped Muff makes it boxy, and the source amp was not doing it." },
+          { position: 6, block_name: "4x12 Green 25", block_category: "Cab", original_gear: "WEM Super Starfinder 4x12 (Fane)", settings: { Mic: "57 Dynamic", Distance: 3.0, Position: 0.35, LowCut: 90, HighCut: 7000, Level: 0 }, notes: "Greenback standing in for Fane Crescendos. LowCut at 90 keeps a whole-step-down tuning from going woolly." },
+          { position: 7, block_name: "Rotary Speaker", block_category: "Modulation", original_gear: "Yamaha RA-200", settings: { Rate: 0.35, Depth: 70, Mix: 55 }, notes: "After the cab, because the Yamahas were a separate speaker system rather than a pedal. Mix 55 for the verse solos, around 15 for the twin solo, near zero for the dry one." },
+          { position: 8, block_name: "Digital Delay", block_category: "Delay", original_gear: "MXR digital delay", settings: { Time: 370, Feedback: 22, Mix: 18, Level: 0 }, notes: "370 ms, the documented time. Digital rather than tape so the repeats stay defined under a heavily rotating signal." },
+          { position: 9, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Britannia Row plate", settings: { Decay: 2.2, Predelay: 20, Mix: 15, Level: 0 }, notes: "Modest -- the rotary already supplies more movement and space than a long plate can add to without smearing." },
+        ],
+        notes:
+          "Comp -> Muff -> Power Boost stacked -> frozen flanger -> clean Hiwatt capture -> cab -> rotary -> 370 ms -> plate. The rotary placement after the cab is not a stylistic choice; it is where the real speaker was.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Muff Fuzz", block_category: "Booster", original_gear: "Big Muff (ram's head)", settings: { Drive: 70, Bottom: 55, Tone: 45, Level: 70 }, notes: "DEFAULT-ON, because unlike most recipes in the catalogue the drive here is not an optional flavour -- it is the sound. Tone below centre keeps the Muff from scooping out the mids the solo needs. Bottom slightly up to support the down-tuned guitar." },
+          { position: 2, block_name: "Clean", block_category: "Amp Type", original_gear: "Hiwatt DR103", settings: { Gain: 30, Volume: 65, Bass: 50, Middle: 42, Treble: 55, Presence: 50, Master: 65 }, notes: "CLEAN, and this is the standard Hiwatt mapping used correctly -- the amp really is a clean pedal platform here, with all the distortion arriving from the Muff in front. Middle at 42 rather than propped up, matching the source amp; compensating for the Muff's scoop at the amp makes the fuzz boxy." },
+          { position: 3, block_name: "Flanger", block_category: "FX", original_gear: "Electric Mistress, Range off", settings: { Rate: 2, Depth: 45, Level: 40 }, notes: "Rate at its slowest available setting. The real pedal was not sweeping at all, so the closer you get to stationary the closer you get to the record." },
+          { position: 4, block_name: "Delay", block_category: "Delay", original_gear: "MXR digital delay", settings: { Time: 370, Feedback: 22, EffectLevel: 20 }, notes: "370 ms, the documented figure, and slightly wetter than the modelled patches because the Katana cannot run the rotary and the delay is recovering some of that lost movement." },
+          { position: 5, block_name: "Plate", block_category: "Reverb", original_gear: "Britannia Row plate", settings: { Time: 5, PreDelay: 20, Tone: 5, EffectLevel: 18 }, notes: "Modest even here. It is tempting to substitute reverb for the missing rotary, but reverb smears where a rotor modulates -- the honest fix is the Mod slot, not a bigger tail." },
+        ],
+        notes:
+          "This is the recipe in the batch where the Katana gives up the most, and it is worth knowing which part: the Yamaha rotary is a whole second speaker system on its own track, and one amp block cannot be in two places. If your Katana's Mod slot is free, put a slow rotary in it and accept that it sits in series rather than in parallel -- that is much closer than leaving it out.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "MXR Dyna Comp", settings: { Intensity: 4.5, Attack: 35, Volume: 1.0 }, notes: "Slot A, before the fuzz -- it lifts the tail of each note into the Muff's sustain region, which is where the long held notes get their bloom." },
+          { position: 2, block_name: "Muffin", block_category: "Stomp", original_gear: "Big Muff (ram's head)", settings: { Drive: 7.0, Tone: 4.5, Volume: 7.0 }, notes: "Kemper's Big Muff model. Tone below centre so the midrange survives -- a scooped Muff vanishes under an arrangement this busy." },
+          { position: 3, block_name: "Green Scream", block_category: "Drive", original_gear: "Colorsound Power Boost", settings: { Drive: 3.0, Tone: 4.0, Volume: 6.5 }, notes: "Second Stomp slot, stacked after the Muff with the Drive almost off -- it is supplying level and push into the profile's front end, which is what the Power Boost was actually doing in this chain." },
+          { position: 4, block_name: "Search Rig Exchange for 'Hiwatt DR103 clean' or 'Hiwatt Fane clean'", block_category: "Profile", original_gear: "Hiwatt DR103 into WEM 4x12", settings: { Gain: 3.5, Bass: 5.0, Middle: 4.0, Treble: 5.5, Presence: 5.0 }, notes: "A clean Hiwatt capture, which the Exchange has in abundance because they are built for exactly this purpose. If you can find one captured through a Fane-loaded cab rather than Celestions, take it -- the stiffer speaker is a real part of why this Muff tone stays vocal instead of turning nasal." },
+          { position: 5, block_name: "Rotary Speaker", block_category: "Stomp", original_gear: "Yamaha RA-200", settings: { Rate: 0.35, Depth: 7.0, Mix: 55 }, notes: "X slot, after the profile. Assign the Mix to a pedal or a morph if you can -- the original was ridden across sections, high on the verse solos and almost absent on the dry one, and a fixed value flattens that." },
+          { position: 6, block_name: "Single Delay", block_category: "Delay", original_gear: "MXR digital delay", settings: { Time: 370, Feedback: 22, Mix: 18 }, notes: "DLY slot at the documented 370 ms, digital-flavoured so the repeats stay defined behind the rotor." },
+          { position: 7, block_name: "Plate", block_category: "Reverb", original_gear: "Britannia Row plate", settings: { Decay: 2.2, Predelay: 20, Mix: 0.15 }, notes: "REV slot, modest. The rotary is already generating most of the sense of space this tone has." },
+        ],
+        notes:
+          "Comp -> Muff -> a nearly-clean boost stacked on top -> a clean Hiwatt profile -> rotary -> 370 ms -> plate. No cab block; the profile carries it. Morphing the rotary Mix is the single most worthwhile assignment on this patch.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Dyna Comp", block_category: "Compressor", original_gear: "MXR Dyna Comp", settings: { Threshold: -30, Ratio: 3, Attack: 35, Release: 300, Mix: 0.65, Level: 1 }, notes: "Ahead of the fuzz so held notes bloom into the Muff's sustain instead of decaying out of it." },
+          { position: 2, block_name: "PI Fuzz", block_category: "Drive", original_gear: "Big Muff (ram's head)", settings: { Drive: 7.0, Tone: 4.5, Level: 7.0 }, notes: "Pick the ram's-head variant rather than the triangle -- darker and less scooped, which is the right pairing for a guitar tuned down a whole step." },
+          { position: 3, block_name: "Tube Drive", block_category: "Drive", original_gear: "Colorsound Power Boost", settings: { Drive: 4.0, Tone: 4.0, Level: 6.5 }, notes: "Stacked after the Muff, low gain, high level -- the documented 1977 arrangement, contributing push rather than distortion." },
+          { position: 4, block_name: "Flanger", block_category: "Modulation", original_gear: "Electric Mistress, Range off", settings: { Rate: 0.02, Depth: 0.45, Mix: 0.4 }, notes: "Rate frozen near zero to reproduce a Mistress running with Range off. Raise the feedback if your block exposes it; the fixed comb character is a regeneration artefact." },
+          { position: 5, block_name: "Hipower", block_category: "Amp", original_gear: "Hiwatt DR103", settings: { Drive: 3.5, Bass: 5.0, Mid: 4.0, Treble: 5.5, Presence: 5.0, MV: 6.0, Cut: 5.0 }, notes: "Clean platform, with the mids left low to match the source rather than propped up under the Muff's scoop." },
+          { position: 6, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "WEM Super Starfinder 4x12 (Fane)", settings: { Mic: "57 Dynamic", Distance: 3.0, LowCut: 90, HighCut: 7000, Level: 0 }, notes: "Greenback substituting for Fane Crescendos. If your library has a Fane IR, use it -- the stiffness is the whole reason this tone stays vocal at volume." },
+          { position: 7, block_name: "Rotary Speaker", block_category: "Modulation", original_gear: "Yamaha RA-200", settings: { Rate: 0.35, Depth: 0.7, Mix: 0.55 }, notes: "After the cab, matching the real signal path. Fractal's scene controller is the right way to handle the per-section blend the original mix used." },
+          { position: 8, block_name: "Digital Mono", block_category: "Delay", original_gear: "MXR digital delay", settings: { Time: 370, Feedback: 0.22, Mix: 0.18 }, notes: "The documented 370 ms, digital rather than tape so repeats stay defined under the rotor." },
+          { position: 9, block_name: "Plate", block_category: "Reverb", original_gear: "Britannia Row plate", settings: { Mix: 0.15, Decay: 2.2, Predelay: 20 }, notes: "Modest, with enough low cut that the tail stays clear of a down-tuned guitar's fundamentals." },
+        ],
+        notes:
+          "Comp -> ram's-head Muff -> stacked Power Boost -> frozen flanger -> clean Hipower -> cab -> rotary -> 370 ms -> plate. Use scenes for the rotary blend; that per-section ride is the part of this tone that recordings capture and presets usually do not.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Hiwatt DR103 clean' or 'Gilmour Hiwatt' or 'Hiwatt WEM clean'",
+            block_category: "Tone Model",
+            original_gear: "Hiwatt DR103 into a WEM Super Starfinder 4x12 with Fane Crescendos",
+            settings: {},
+            notes:
+              "The capture is the easy half here and it should be a clean one -- the Hiwatt in this rig never distorts, so a cranked capture actively gets in the way of the Muff. Where possible, choose a capture made through a Fane-loaded cab; most Gilmour-targeted models use Celestion or WEM approximations, and the Fane's flatter midrange is why the fuzz reads as vocal rather than nasal.",
+          },
+        ],
+        notes:
+          "One clean Hiwatt capture, with the entire rest of the recipe living outside TONEX: a Big Muff, a boost stacked after it, a flanger set to stop sweeping, and a rotary. That last one is the make-or-break element and there is no capture-based substitute for it -- use a rotary pedal or plugin, and ride its blend by section the way the original mix did.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Martin Barre (Jethro Tull) - Aqualung (solo) ----
+  {
+    id: "seed-barre-aqualung",
+    song_slug: "aqualung-jethro-tull",
+    title: "Jethro Tull's Aqualung Solo Tone",
+    slug: "barre-aqualung-solo",
+    created_at: "2026-09-27",
+    description:
+      "One of rock's most-voted-for solos came out of a rig with almost nothing in it. Barre had met Leslie West after Benefit and bought a Les Paul Junior the way, as he puts it, everyone who met West did -- one P-90, one volume, one tone. That went into a Hiwatt with a homemade treble booster he describes as a couple of capacitors and some wire, because the Hiwatt had no front-end overdrive of its own. The entire tone is a single pickup pushing a clean amp past its limit.",
+    tone_context: "solo",
+    attribution_confidence: "documented",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "1958 Gibson Les Paul Junior",
+      pickup_config: "P90",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "Barre bought the Junior shortly before the sessions and says plainly that the album was basically all recorded on it. A Junior is the most stripped instrument Gibson made -- one P-90, a wraparound bridge, no neck pickup and no choices -- and that limitation is why the tone works. A P-90 sits between a single-coil and a humbucker in output and well above both in midrange, which is exactly the shape a treble-boosted clean amp needs: enough level to push the front end, enough mids to stay audible, and enough top that the booster has something to work with. Swap in a humbucker guitar and the same chain turns thick and indistinct. String gauge is era-typical rather than documented.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "boost",
+        gear_slug: null,
+        gear_name: "Hornby Skewes treble booster",
+        icon_type: "pedal",
+        icon_color: "#22c55e",
+        is_in_effects_loop: false,
+        settings: { Boost: 8 },
+        notes:
+          "The reason there is any distortion on this record at all. Barre is clear about why it was there -- the Hiwatts had no front-end overdrive, so they needed a kick -- and equally clear about what it was, a couple of capacitors and wires inside a box. A treble booster is not a distortion pedal: it cuts bass before amplifying, so what reaches the amp is a thin, hot, midrange-and-up signal that makes the power section work hard without ever muddying the low end. That pre-amplifier bass cut is why this solo stays articulate at a gain level that would turn a normal overdrive to porridge. It also, by his account, picked up radio.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Hiwatt 100W head",
+        icon_type: "amp_head",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: { Normal: 8, Brilliant: 6, Bass: 4, Middle: 6, Treble: 6, Presence: 6, Master: 8 },
+        notes:
+          "Run loud, which is the only way a Hiwatt produces this kind of grind -- it has enormous clean headroom by design, so the breakup here is the power section being pushed rather than a preamp being overdriven, and that is audibly different: it compresses and blooms rather than fizzing. Bass held down at 4 because the booster has already stripped the low end and putting it back at the amp undoes the whole arrangement.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Hiwatt 4x12",
+        icon_type: "cab_4x12",
+        icon_color: "#ef4444",
+        is_in_effects_loop: false,
+        settings: {},
+        notes:
+          "The whole band was on Hiwatt at this point, and the matching cab is part of why the guitar reads as loud rather than as distorted. Stiff speakers keep the transient intact at high level, so a fast phrase in the middle of the solo still articulates when the amp is compressing hard around it.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: "shure-sm57",
+        gear_name: "Shure SM57",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close, off cone centre" },
+        notes:
+          "Inferred rather than documented for Basing Street. Off-centre for a reason specific to this chain: a treble-boosted P-90 already has a hard upper-midrange peak, and a mic on the dust cap adds another one on top of it, which is how this tone tips from biting into painful.",
+      },
+    ],
+    original_gear: {
+      guitar: "1958 Gibson Les Paul Junior with its single P-90 -- Barre says the album was basically all recorded on it",
+      effects: [
+        "Hornby Skewes treble booster -- his description is a couple of capacitors and wires, added because the Hiwatts had no front-end overdrive",
+      ],
+      amp: "Hiwatt 100W head",
+      cabinet: "Hiwatt 4x12",
+      microphone: "Shure SM57 close on the grille -- inferred; the Basing Street capture is not documented",
+      other_notes:
+        "Recorded at Island Studios on Basing Street in London over the winter of 1970 into 1971. Two other amps turn up on the record and are worth knowing about because they are not this song: a tiny unbranded mid-sixties amp Barre bought for two pounds carries all of Cross-Eyed Mary, and a small Fender Super does My God. The title track's solo is the Junior into the Hiwatt. The best-known story from the session belongs to the solo itself -- Led Zeppelin were recording in the basement of the same building, and Jimmy Page appeared at the control-room window waving in the middle of the take. Barre turned his back and kept playing.",
+    },
+    tags: ["progressive-rock", "hard-rock", "solo", "jethro-tull", "hiwatt", "p90", "treble-booster", "classic-rock"],
+    sources: [
+      "https://www.yahoo.com/entertainment/martin-barre-jethro-tull-pioneering-123259867.html",
+      "https://www.guitarworld.com/artists/guitarists/jethro-tull-martin-barre-looks-back-on-acqualung",
+      "https://www.guitarplayer.com/players/martin-barre-reflects-on-the-recording-of-jethro-tulls-1971-prog-milestone-aqualung",
+      "https://en.wikipedia.org/wiki/Aqualung_(album)",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Island Studios console compression",
+            settings: { Threshold: -30, Ratio: 2, Knee: 7, Attack: 25, Release: 260, Mix: 45, Level: 0 },
+            notes:
+              "Light and parallel, and placed before the booster rather than after. A treble booster is extremely sensitive to input level -- it is essentially a single transistor gain stage -- so compressing first means it receives a consistent signal and produces a consistent amount of push, instead of surging on the loud notes and going polite on the quiet ones.",
+          },
+          {
+            position: 2,
+            block_name: "Deranged Master",
+            block_category: "Distortion",
+            original_gear: "Hornby Skewes treble booster",
+            settings: { Drive: 8, Tone: 6, Level: 7 },
+            notes:
+              "Helix's Rangemaster-family treble booster, which is the right model for a period British booster of this kind. Drive high because Barre's box was there to hit the amp hard, not to add a polite lift. The thing to resist is adding bass back anywhere in this block -- the pre-amplifier low-end cut is the entire mechanism that keeps a hot signal articulate, and restoring it turns the solo to mush.",
+          },
+          {
+            position: 3,
+            block_name: "WhoWatt 100",
+            block_category: "Amp",
+            original_gear: "Hiwatt 100W head",
+            settings: { Drive: 7, Bass: 4, Mid: 6, Treble: 6, Presence: 6, ChVol: 7.5, Master: 10, Bias: 6, BiasX: 5, Sag: 7, Hum: 4, Ripple: 4 },
+            notes:
+              "Master pinned at 10 and Sag raised to 7, which together are what reproduce power-section breakup rather than preamp distortion -- the source amp was loud, not gainy, and the two do not sound alike. Bass at 4 matching the amp setting: the booster already removed the low end on purpose, and adding it back here is the single most common way this recipe gets ruined.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 WhoWatt 100",
+            block_category: "Cab",
+            original_gear: "Hiwatt 4x12",
+            settings: { Mic: 5, Distance: 2, Position: 0.42, Angle: 0, LowCut: 110, HighCut: 6500, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "Position off the cap at 0.42, which matters more on this patch than on most -- a treble-boosted P-90 already has a hard upper-mid peak, and a dead-centre mic stacks a second one on top of it. LowCut at 110 is high, and correct: this is a deliberately thin-at-the-bottom tone that gets its size from level rather than from bass.",
+          },
+          {
+            position: 5,
+            block_name: "Transistor Tape",
+            block_category: "Delay",
+            original_gear: "Studio tape delay",
+            settings: { Time: 210, Feedback: 10, Mix: 9, LowCut: 300, HighCut: 4000, Level: 0 },
+            notes:
+              "Short, dark and quiet. The solo is a fast, wordy line with very little space in it, so anything long enough to be heard as an echo lands on top of the next phrase -- this is here to give the raw amp tone some body, not to add ambience.",
+          },
+          {
+            position: 6,
+            block_name: "Room",
+            block_category: "Reverb",
+            original_gear: "Island Studios room",
+            settings: { Mix: 13, Decay: 1.1, Predelay: 14, LowCut: 200, HighCut: 6000, Level: 0 },
+            notes:
+              "A room rather than a plate, and small. The record is a dry, close, early-seventies capture with the amp doing the work, and a big tail on a tone this raw immediately makes it sound like a modern recreation rather than the thing itself.",
+          },
+          {
+            position: 7,
+            block_name: "Parametric",
+            block_category: "EQ",
+            original_gear: "Console midrange trim",
+            settings: { Tilt: 4.8, CenterFreq: 2200, Level: 0 },
+            notes:
+              "A narrow dip around 2.2 kHz, which is where a boosted P-90 through a stiff cab piles up. This is the one block to reach for if the patch is biting your ears on FRFR -- it takes the harshness out without dulling the attack the way pulling the amp's Treble down would.",
+          },
+        ],
+        notes:
+          "Comp -> treble booster hard -> a Hiwatt run loud rather than gainy -> stiff cab off the cap -> short dark delay -> small room -> a narrow dip at 2.2k. The discipline that makes this patch work is negative: do not add bass anywhere. Every stage in this chain is thinner than instinct says it should be, and that is exactly why the solo cuts.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Island Studios console compression", settings: { Threshold: -30, Ratio: 2, Attack: 25, Release: 260, Mix: 45, Level: 0 }, notes: "Before the booster, so a very input-sensitive gain stage receives a consistent level and pushes the amp consistently." },
+          { position: 2, block_name: "Treble Booster", block_category: "Drive", original_gear: "Hornby Skewes treble booster", settings: { Drive: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Driven hard -- this box existed to hit the amp, not to sweeten it. Do not restore bass here; the pre-amplifier low cut is the mechanism that keeps the tone articulate." },
+          { position: 3, block_name: "Brit Watt 100", block_category: "Amp", original_gear: "Hiwatt 100W head", settings: { Gain: 7.0, Bass: 4.0, Mid: 6.0, Treble: 6.0, Presence: 6.0, Master: 9.0, Sag: 7.0 }, notes: "Master high and Sag raised, reproducing power-section breakup rather than preamp gain -- the source amp was loud, not overdriven, and the distinction is audible." },
+          { position: 4, block_name: "4x12 Hiwatt Fane", block_category: "Cab", original_gear: "Hiwatt 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0, Position: 0.42, LowCut: 110, HighCut: 6500, Level: 0 }, notes: "Off the cap, because a boosted P-90 already has an upper-mid peak and a centred mic doubles it." },
+          { position: 5, block_name: "Tape Echo", block_category: "Delay", original_gear: "Studio tape delay", settings: { Time: 210, Feedback: 10, Mix: 9, Level: 0 }, notes: "Short and dark -- the solo is a busy line with no room for audible repeats." },
+          { position: 6, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Island Studios room", settings: { Decay: 1.1, Predelay: 14, Mix: 13, Level: 0 }, notes: "Small and dry, matching a close early-seventies capture rather than a modern lead sound." },
+          { position: 7, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Console midrange trim", settings: { Tilt: 4.8, CenterFreq: 2200, Level: 0 }, notes: "A narrow dip at 2.2 kHz for FRFR harshness -- more surgical than pulling the amp's Treble, which would cost you the attack." },
+        ],
+        notes:
+          "Comp -> treble boost -> a loud Hiwatt -> stiff cab -> short echo -> small room -> narrow 2.2k dip. Every stage is deliberately thin at the bottom; that is the recipe, not an oversight.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Treble Booster", block_category: "Booster", original_gear: "Hornby Skewes treble booster", settings: { Drive: 80, Bottom: 25, Tone: 62, Level: 72 }, notes: "DEFAULT-ON, which is the exception to this catalogue's usual booster-off convention and it is deliberate: Barre's booster was not an A/B flavour, it was the only source of gain in the rig, and switching it off leaves you with a clean amp and no solo. Bottom pulled right down to 25 to reproduce the pre-amplifier bass cut that makes the whole thing work." },
+          { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Hiwatt 100W head", settings: { Gain: 58, Volume: 72, Bass: 40, Middle: 62, Treble: 62, Presence: 60, Master: 72 }, notes: "CRUNCH rather than the usual Clean mapping for a Hiwatt, and rather than Lead. The source is a clean-headroom amp pushed into power-section breakup, which sits between the two characters -- Clean will not break up at all and Lead adds a cascaded-preamp texture that did not exist in 1971. Crunch with the Gain around 58 and the Master high is the closest the platform gets to loud-rather-than-gainy." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Studio tape delay", settings: { Time: 210, Feedback: 10, EffectLevel: 10 }, notes: "Short and quiet, giving the raw tone a little body without putting repeats on top of a busy line." },
+          { position: 4, block_name: "Room", block_category: "Reverb", original_gear: "Island Studios room", settings: { Time: 3, PreDelay: 14, Tone: 5, EffectLevel: 14 }, notes: "Small and dry. The temptation on a mono rig is to add reverb for size, but this particular tone gets smaller when you do -- its size comes from apparent loudness, and reverb reads as distance." },
+        ],
+        notes:
+          "Booster on by default into a Crunch character with the Master high. This recipe translates unusually well to a Katana, because the source rig was two pieces of gear and the hard part -- restraint about bass -- is a setting rather than a feature.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Island Studios console compression", settings: { Intensity: 3.0, Attack: 25, Volume: 0.0 }, notes: "Slot A, light -- it steadies the input to a very level-sensitive booster rather than shaping the tone." },
+          { position: 2, block_name: "Treble Booster", block_category: "Stomp", original_gear: "Hornby Skewes treble booster", settings: { Drive: 8.0, Tone: 6.0, Volume: 7.0 }, notes: "DEFAULT-ON, because this is the rig's only gain source rather than an optional colour. Kemper's treble booster already applies the pre-amplifier bass cut; leave it alone rather than compensating." },
+          { position: 3, block_name: "Search Rig Exchange for 'Hiwatt 100 cranked' or 'Hiwatt DR103 loud' or 'Hipower crunch'", block_category: "Profile", original_gear: "Hiwatt 100W head into a Hiwatt 4x12", settings: { Gain: 6.5, Bass: 4.0, Middle: 6.0, Treble: 6.0, Presence: 6.0 }, notes: "Search for a cranked capture, not a clean one -- this is the opposite of the usual Gilmour-oriented Hiwatt advice. The tone depends on power-section compression, and that lives in the capture: a clean profile with the Gain knob turned up gives you Kemper preamp gain in front of a clean amp, which is a different and much flatter sound." },
+          { position: 4, block_name: "Tape Delay", block_category: "Delay", original_gear: "Studio tape delay", settings: { Time: 210, Feedback: 10, Mix: 10 }, notes: "DLY slot, short and dark so repeats never collide with the next phrase." },
+          { position: 5, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Island Studios room", settings: { Decay: 1.1, Predelay: 14, Mix: 0.13 }, notes: "REV slot, small. A dry, close capture is part of the record's character, not a limitation of 1971 to be improved on." },
+        ],
+        notes:
+          "Comp -> treble booster on -> a cranked Hiwatt profile -> short delay -> small room. No cab block; the profile carries it. The profile brief is the one thing to get right: cranked, not clean.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Island Studios console compression", settings: { Threshold: -30, Ratio: 2, Attack: 25, Release: 260, Mix: 0.45, Level: 0 }, notes: "Ahead of the booster so its gain stage sees a consistent input level." },
+          { position: 2, block_name: "FAS Treble Boost", block_category: "Drive", original_gear: "Hornby Skewes treble booster", settings: { Drive: 8.0, Tone: 6.0, Level: 7.0 }, notes: "Driven hard and left thin. The block's own low cut is the mechanism -- reaching for the bass control here to make it fuller undoes the reason it works." },
+          { position: 3, block_name: "Hipower 100", block_category: "Amp", original_gear: "Hiwatt 100W head", settings: { Drive: 7.0, Bass: 4.0, Mid: 6.0, Treble: 6.0, Presence: 6.0, MV: 9.0, Cut: 5.0 }, notes: "Master Volume high so the modelled power section is genuinely working -- Fractal's power-amp modelling is the part doing the heavy lifting on this tone, and a low MV bypasses exactly what you want." },
+          { position: 4, block_name: "4x12 Hiwatt Fane", block_category: "Cab", original_gear: "Hiwatt 4x12", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 110, HighCut: 6500, Level: 0 }, notes: "A real Fane IR if the library has one. LowCut deliberately high at 110 -- this tone is thin at the bottom by design." },
+          { position: 5, block_name: "Tape Delay", block_category: "Delay", original_gear: "Studio tape delay", settings: { Time: 210, Feedback: 0.1, Mix: 0.09 }, notes: "Short and dark; the line is too busy for audible repeats." },
+          { position: 6, block_name: "Room", block_category: "Reverb", original_gear: "Island Studios room", settings: { Mix: 0.13, Decay: 1.1, Predelay: 14 }, notes: "Small and close, matching a dry early-seventies capture." },
+          { position: 7, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Console midrange trim", settings: { Tilt: 0.48, CenterFreq: 2200, Level: 0 }, notes: "A narrow dip around 2.2 kHz, which is where a boosted P-90 through a stiff cab piles up. Reach for this before touching the amp's Treble -- pulling Treble down fixes the harshness by removing the attack, which is the one thing this solo cannot spare." },
+        ],
+        notes:
+          "Comp -> treble boost -> Hipower with the Master up -> stiff cab -> short echo -> small room -> a narrow dip at 2.2k. Fractal's power-amp modelling gives the most convincing version of loud-rather-than-gainy on this recipe; push the MV rather than the Drive if it is not there yet.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Hiwatt 100 cranked' or 'Hiwatt DR103 crunch' or 'Hipower loud'",
+            block_category: "Tone Model",
+            original_gear: "Hiwatt 100W head into a Hiwatt 4x12, run loud",
+            settings: {},
+            notes:
+              "Look for a cranked capture rather than the abundant clean Gilmour-platform ones, because this tone is power-section compression and a capture freezes whatever gain state it was made in. That constraint actually suits this recipe better than most: the source rig had exactly two components, so once you have the right capture there is very little left to get wrong.",
+          },
+        ],
+        notes:
+          "One cranked Hiwatt capture with a treble booster in front of it -- and if your capture is clean, the booster has to work much harder and the result will be thinner and fizzier than the record. Spend the effort on finding the right capture rather than on compensating with EQ afterwards.",
       },
     },
     is_editorial: true,

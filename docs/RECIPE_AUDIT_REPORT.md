@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-09-13
-**Recipes:** 230
-**Clean (no errors, no warns):** 230
+**Date:** 2026-09-27
+**Recipes:** 235
+**Clean (no errors, no warns):** 235
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,8 +16,8 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `settings-outside-unverified-range` | info | 230 / 230 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
-| `katana-kemper-multidrive-default-off` | info | 30 / 230 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `settings-outside-unverified-range` | info | 235 / 235 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
+| `katana-kemper-multidrive-default-off` | info | 31 / 235 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -56,6 +56,12 @@ Passes every rule.
 ### `baizley-take-my-bones-away-riff` — ✓ clean
 
 *Take My Bones Away Riff*
+
+Passes every rule.
+
+### `barre-aqualung-solo` — ✓ clean
+
+*Jethro Tull's Aqualung Solo Tone*
 
 Passes every rule.
 
@@ -371,6 +377,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `fripp-red-riff` — ✓ clean
+
+*King Crimson's Red Riff Tone*
+
+Passes every rule.
+
 ### `frusciante-snow-hey-oh-intro` — ✓ clean
 
 *Frusciante's Snow (Hey Oh) Cascading Clean Arpeggio*
@@ -434,6 +446,12 @@ Passes every rule.
 ### `gilmour-comfortably-numb-solo` — ✓ clean
 
 *Gilmour's Comfortably Numb Solo Tone*
+
+Passes every rule.
+
+### `gilmour-dogs-solo` — ✓ clean
+
+*Pink Floyd's Dogs Solo Tone*
 
 Passes every rule.
 
@@ -812,6 +830,18 @@ Passes every rule.
 ### `leadon-take-it-easy-tele-lead` — ✓ clean
 
 *Leadon's Take It Easy Telecaster Lead Tone*
+
+Passes every rule.
+
+### `lifeson-la-villa-strangiato-solo` — ✓ clean
+
+*Rush's La Villa Strangiato Solo Tone*
+
+Passes every rule.
+
+### `lifeson-spirit-of-radio-intro` — ✓ clean
+
+*Rush's The Spirit of Radio Intro Tone*
 
 Passes every rule.
 
