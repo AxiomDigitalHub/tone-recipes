@@ -1694,5 +1694,41 @@
     "completePlatforms": [],
     "droppedCount": 2,
     "substitutedCount": 10
+  },
+  "fripp-red-riff": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 2,
+    "substitutedCount": 9
+  },
+  "lifeson-la-villa-strangiato-solo": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 10
+  },
+  "lifeson-spirit-of-radio-intro": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 2,
+    "substitutedCount": 12
+  },
+  "gilmour-dogs-solo": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 4,
+    "substitutedCount": 10
+  },
+  "barre-aqualung-solo": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 9
   }
 }
