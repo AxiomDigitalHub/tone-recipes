@@ -6605,3 +6605,190 @@ Focusrite Scarlett instrument-input impedance spec (vendor page 403'd; a
 forum-relayed figure was not used), Quad Cortex and Fractal reverb/delay filter
 parameter names, and any Clapton "woman tone" settings attribution (whereseric.com
 fetched directly and does **not** contain the quote summaries attribute to it).
+
+---
+
+## SERP Analysis — 2026-09-27 (2 new posts + 3 refreshes + 1 correction)
+
+> **Shipped 2 new, not 3.** AK3 (`helix-legacy-effect-models-what-you-give-up`) was
+> **dropped at research time** — see the drop note below. Per Gate 7 / Playbook §6
+> ("ship fewer when topics don't pass"), the recovered capacity went into a third
+> refresh plus a cross-post factual correction rather than into a thinner post.
+> Persona velocity at run start: **0 posts in the last 7 days across all authors**
+> (last content run was 09-15), so every byline had full capacity.
+
+### Dropped topic — AK3, Helix Legacy effect models
+
+The queued brief required a **parameter-by-parameter inventory** of which Legacy
+blocks lack which parameters, and explicitly said the post "cannot ship on that
+hedge." It cannot be verified from the sources available to an automated run:
+
+- The **Helix 3.0 Owner's Manual (Rev E)** was downloaded from line6.com and
+  converted to text in full. It lists models and their source gear but **does not
+  enumerate per-model parameters** for reverbs or delays — there is no Low Cut /
+  High Cut inventory in it to check against.
+- **HX Edit and the hardware are not available to this run**, which was the brief's
+  other named verification path.
+- `helixhelp.com/models` renders its parameter tables client-side and returned no
+  model data to a fetch; it is also third-party, not the manual or HX Edit.
+
+What the manual **does** confirm, fetched directly, is a different and genuinely
+useful Legacy gotcha — captured as topic AK4 below rather than bolted onto a post
+that would have been argued on a hedge.
+
+Also recovered from the official **Line 6 Helix gear list** (line6.jp, 2.70 PDF,
+extracted locally): the Legacy Reverb list is `Plate, Room, Chamber, Hall, Echo,
+Tile, Cave, Ducking, Octo, '63 Spring, Spring, Particle Verb` and the current list
+is `Glitz, Ganymede, Searchlights, Plateaux, Double Tank`. A web-search summary
+asserted the *opposite* (that Glitz/Ganymede/etc. were the Legacy ones) — recorded
+here so a future run doesn't re-derive the wrong split from a summary.
+
+### New posts
+
+**Post 1 — fender-amps-with-no-mid-control** (Hank Presswood; target: "deluxe
+reverb no mid control," "which fender amps have a middle knob," "blackface
+tonestack mid resistor," "princeton reverb middle knob")
+
+- **Top ranking:** almost entirely forums — two TDPRI threads (*Why doesn't a
+  Deluxe Reverb have a mids control?*, pages 1 and 2), theFretBoard (*Deluxe
+  reverb and Mid range tweaks*, *Deluxe Reverb Amp Settings*), The Gear Forum,
+  strat-talk — plus a Reverb.com listing for a modded amp and a Helix Help tag
+  page. **No structured, per-model reference ranks at all.**
+- **Gap confirmed, with an honest narrowing.** The bare "6.8k ≈ a 10k pot at
+  68%" insight **does already exist in this SERP**, inside a TDPRI thread ("if the
+  mid control was there it would effectively be set somewhere between 6 and 7").
+  So that fact is not the non-commodity claim, and the post does not pretend it is.
+  What no result has: (1) the **per-model panel inventory**; (2) the **Super Reverb
+  split** — Middle on the Vibrato channel only, so its Normal channel is a two-knob
+  stack like a Deluxe's; (3) the **Pro Reverb year split** — no Middle on blackface
+  through ~1976, Middle *and* a Master Volume from 1976–82; (4) the **mod-value
+  consequence** (a 10k pot mostly buys the ability to remove mids; 25k/100k linear
+  is what goes past stock and acts as a raw boost); (5) the compensation table.
+- **Gate 1 notes — the queue's own model list was wrong and was corrected.** The
+  queued brief asserted the line "splits into three-knob circuits (Twin, Super,
+  Pro, Vibrolux Reverb) and two-knob ones." **Both Pro Reverb and Vibrolux Reverb
+  are two-knob**, verified against Mojotone's Fender field guides fetched directly
+  (Vibrolux Reverb: `Volume, Treble, Bass` per channel; blackface Pro Reverb: same;
+  Super Reverb: `Volume, Treble, Middle, Bass` on Vibrato only; Twin Reverb: Middle
+  on both). Corroborated by robrobinette's *AB763 Model Differences*, which states
+  only the Twin (both channels) and Super (Vibrato) carry a Middle pot. A search
+  summary separately claimed "most Fender amps with a Mid control are Reverb amps,
+  with the Showman/Dual Showman the main exception" — **contradicted by the
+  per-model sources and not used.**
+- **Deliberately omitted for lack of verification:** Showman, Dual Showman,
+  Concert, Bandmaster and Vibroverb panels. They are *not* in the published table.
+  A future run wanting them must verify each against a field guide or schematic.
+- **Circular-sourcing check:** the first search on this topic returned our own
+  `fender-deluxe-reverb-settings` paraphrased back as the answer. Every load-bearing
+  figure was re-fetched from robrobinette and Mojotone directly before use.
+- **AI Overview:** not observed (WebSearch does not surface AIO). Query class
+  (why-doesn't-X / which-X) suggests one is likely; F&K not known to be cited.
+- Non-commodity gate: **PASS.** Checked against `fender-deluxe-reverb-settings`,
+  `fender-deluxe-reverb-vs-tonemaster`, `clean-headroom-fender-amp-chords-dont-break-up`,
+  `guitar-eq-guide`, `eq-pedal-placement`, `modeler-eq-guide`. **Confirmed no
+  colliding slug.**
+
+**Post 2 — what-to-ask-the-sound-tech-guitar-worship** (Nathan Cross; target:
+"guitar too loud in church mix," "how to talk to the sound guy," "worship guitar
+sounds muddy," "what to ask FOH")
+
+- **Top ranking:** Worship Sound Guy (*How Loud Is Too Loud?*), Collaborate Worship
+  (*Complaints about church sound?*), Sweetwater InSync (*Dealing with that guitar
+  that's too loud, but can't be heard*), Behind The Mixer (×2), Musicademy,
+  Gearspace, TalkBass.
+- **The structural gap held, and is sharper than the brief guessed.** The entire
+  top set is written for **the person mixing** or is about **stage volume** (amp
+  height, less distortion, talk at rehearsal). The one piece of EQ advice in the
+  results — "analyze the frequency spectrum and apply EQ as needed" — is addressed
+  to the tech. Nothing hands the *player* an executable sentence. Note also that
+  "be collaborative, talk at practice" is **saturated** in this SERP, which is
+  exactly what the queued Gate 7 guard said would fail; the post ships the
+  phrasebook and treats the timing advice as one closing line, not the thesis.
+- **Gate 1 — frequencies are sourced, not invented.** Mud 200–400 Hz, honk
+  600–800 Hz, vocal-presence band 2–4 kHz (where guitars get *cut* to protect
+  intelligibility), low-pass electric guitar around 8 kHz: all from Worship Sound
+  Guy's *5 EQ Tricks You'll Actually Use This Sunday*, **fetched directly**.
+  Electric-guitar HPF given as 100–120 Hz (sources: ~80 Hz as the safe floor,
+  "start around 100 Hz"). **The queued brief's suggested "high-pass me at 250" was
+  not used** — that is far above a normal electric-guitar HPF and would have been
+  bad advice. Harshness bands (2.5–4 kHz ice pick, 6–8 kHz fizz) kept consistent
+  with `worship-guitar-harsh-through-pa-quick-fix`. **No dB figures asserted beyond
+  "a couple of dB," which is how the source frames it.**
+- **The post's actual non-commodity claim:** the band a guitarist instinctively
+  asks to be boosted in (2–4 kHz) is the exact band a competent tech is already
+  cutting guitars in to protect vocal consonants — so the intuitive request works
+  against the reason the room is there, and the move that actually works is a
+  *cut* near 400 Hz. That inversion is the Gate 5 moment and it is not in the SERP.
+- **AI Overview:** not observed; inferred likely for the how-do-I class. F&K not
+  cited.
+- Non-commodity gate: **PASS.** Checked against `worship-guitar-harsh-through-pa-quick-fix`
+  (fix-it-at-your-own-rig — reciprocal link added), `modeler-preset-sounds-different-live`,
+  `iem-mix-guitar-compression`, `modeler-global-eq-guide`, `worship-pedalboard-guide`.
+  **Confirmed no colliding slug.**
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | transformer-di-shootout-radial-jdi-countryman-whirlwind-art | **The carried-forward taxonomy debt, cleared.** The body already said, in five places, that the Countryman Type 85 is an active FET box — but the **title** called all four "Transformer DI," the **description** said "Four passive transformer DIs," and the Quick read opened "All four passive transformer DIs work." Title is now *DI Box Shootout*, `seo_title` and description follow, and the Quick read states the three-passive-plus-one-active split up front. **Content add, not just relabeling:** a new **"Passive or Active: Which Kind You Actually Need"** section with a decision table keyed on *what feeds the DI* (modeler/buffered board → passive; bare passive pickup or piezo → active; unconfirmed phantom → passive), plus the asymmetry that matters — a passive box fed too hot is fixable at the fader, an active box with no 48V is a dead channel. Sixth takeaway added, generated-placeholder `image_alt` replaced, description trimmed from 213 chars. Links added to the buffer-vs-DI piece and the active-DI shootout. | A comparison whose title asserts a category membership that its own body spends five paragraphs denying. The slug is unchanged; the title is the part people read. |
+| R2 | 6v6-vs-6l6-vs-el34-power-tubes | **Legacy `<FAQ>` migrated to frontmatter, 5 takeaways added (had none), and a real factual error fixed.** The old FAQ claimed matching isn't needed on single-ended amps "like some Princeton Reverbs" — **the Princeton Reverb is push-pull**, 2×6V6GT, 12 W, verified against Mojotone's blackface Princeton Reverb field guide. The blackface **Champ** is the single-ended one; the answer now says so and names both. Same source surfaced a second improvement: the Princeton Reverb's bias is **fixed and nonadjustable** from the factory, so the post's closing "have the amp re-biased" advice now carries that caveat, and a sixth FAQ was added on it. Description trimmed from 296 chars. Cluster link added to Post 1 with the point that a tube swap will not move the tonestack's mid scoop. | The post told readers a push-pull amp was single-ended and that they didn't need matched tubes in it — advice that costs money and uneven tube wear. |
+| R3 | modeler-global-eq-guide | **Legacy `<FAQ>` migrated to frontmatter, 5 takeaways added (had none), typo fixed** ("harsh in the live cabinet **rage**" → "upper-mid range"), description trimmed from ~262 chars. A sixth FAQ and a new closing paragraph draw the boundary the post never stated: global EQ corrects **what you monitor through** and cannot touch what the audience hears, because the PA and room are downstream of everything the player controls. Links to Post 2 as the fix for the downstream half. | It is the site's reference for "EQ that applies to everything," and readers were using it to try to fix house-mix problems it structurally cannot fix. |
+
+**Cross-post correction (redated, logged separately from the refreshes above):**
+
+- **`fender-deluxe-reverb-settings`** stated that the 6.8k resistor leaves the amp
+  "permanently voiced in the **lower half** of that pot's range." Today's
+  verification says the opposite — 6.8k is a 10k **linear** pot at **68%**, the
+  upper part of the range. The passage now states the corrected figure, makes the
+  point that a Deluxe is not a Twin with the Middle rolled off but a Twin with it
+  soldered near 7, and attributes the scoop to the tonestack's own notch rather
+  than to a low mid setting. `updated: 2026-09-27`. **Left alone:** the rest of the
+  post, including the 09-15 Middle-control removals, which remain correct.
+- **`tone-pot-at-10-what-it-still-loads`** — the 09-11 debt item, cleared. Honk
+  figures widened from 680–760 Hz / 460–520 Hz to **680–800 Hz / 460–550 Hz**,
+  which is what the post's own stated 1.8–2.5 H inductance range computes to
+  (verified: 0.022 µF gives 800 Hz at 1.8 H and 679 Hz at 2.5 H; 0.047 µF gives
+  547 Hz and 464 Hz). This also ends the disagreement with its sibling
+  `tone-knob-bottom-third-cap-value`, which already published the wider ranges.
+  `updated: 2026-09-27`.
+
+**Refresh debt carried forward (unchanged, not touched today):**
+1. **`active-di-shootout-…` measured claims remain unverified** — noise floors,
+   frequency-response deviations, the Countryman presence rise, the DI100 midrange
+   dip. **A future automated run must not invent or "confirm" these.** Note that R1
+   today touched only taxonomy and added a decision section; the measured figures
+   in *both* DI shootouts were deliberately left alone for the same reason.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 2, dropped 1, added 3 — **queue goes from 3 to 3, flat.** Bylines are
+> best-fit proposals; the executing run re-checks velocity **and** the never-assign
+> list, and **verifies no colliding slug at build time**. All three collision-checked
+> when queued.
+>
+> **Rejected as re-slices, recorded so nobody re-derives them:** (a) a
+> "which Fender amps have a mid knob on one channel only" post — that is Post 1's
+> Super Reverb row re-sliced; (b) a "how to be kind to your sound person" post —
+> the 09-27 SERP shows that content is saturated and it is what the AK2 guard was
+> written to prevent; (c) a standalone "6.8k resistor explained" post — it is one
+> section of Post 1, and splitting it is exactly the per-variation pattern §6 warns
+> about.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AK4 | helix-legacy-blocks-mono-stereo-collapse | Helix Legacy Blocks Are Mono (and What That Does to the Rest of Your Path) | "helix legacy effects mono," "helix stereo collapsing," "why is my helix preset mono," "helix legacy vs stereo blocks" | Sean Nakamura | 4 — Modeler Masterclass | **The salvageable, verifiable half of the dropped AK3.** Quoted from the Helix Owner's Manual (Rev E), fetched and extracted this run: "Adding a mono effects block will collapse any preceding stereo blocks on the same path to mono," and Legacy behaviour is explicitly uneven — "Legacy Distortion, Dynamics & Pitch/Synth effects are mono," "Legacy Modulation & Delay effects vary in that some are mono, some stereo, and some mono-in/stereo-out, where adjusting the effect's Mix parameter can narrow the stereo image," "Legacy Filter and Reverb effects are stereo." Distinct content: the real consequence is that dropping one Legacy compressor or fuzz into a stereo path **silently mono-es everything upstream of it**, including a stereo reverb the player just spent an hour on — and the manual's own wording means you cannot tell by category which Legacy modulation/delay blocks will do it. Ship the category-level inventory with the manual quotes, the ordering rule that avoids it, and the Mix-parameter narrowing case. **Gate 7 guard: this is a *block-behaviour* post, not the parameter-gap inventory AK3 wanted — do NOT resurrect Low Cut / High Cut claims unless HX Edit or the hardware is actually available. Must also stay distinct from `stereo-width-tricks-that-survive-mono`, which is general mono-compatibility; this one is specifically about Legacy blocks collapsing a path.** Sean's lane; not on his never-assign list. **Confirmed no colliding slug.** |
+| AK5 | fender-normal-vs-vibrato-channel | Normal or Vibrato: Why Your Fender's Two Channels Don't Sound the Same | "fender normal vs vibrato channel," "deluxe reverb which channel," "why does the normal channel sound different," "jumper fender channels" | Rick Dalton | 2 — Settings Guides | Surfaced while verifying Post 1 and deliberately kept out of it. robrobinette's *AB763 Model Differences* states that reverb-equipped models carry **a third preamp stage** the non-reverb amps don't, and today's field-guide work found the channels are not symmetrical in other ways either — the Super Reverb's Middle knob exists **only** on Vibrato, and Normal has no reverb or tremolo at all. That makes "which channel should I plug into" a real circuit question with a different answer per model, not a preference. Distinct content: what differs per channel per model, what the bright cap does at low volume versus high, why the Normal channel is often the better pedal platform, and whether jumpering is worth it. **Gate 7 guard: must ship a per-model, per-channel difference table verified against field guides or schematics — retailer copy was found unreliable on exactly this class of fact today. If it becomes "best Fender amp channel" opinion or a jumpering-cable how-to, drop it.** Verify the bright-cap values before writing; they were **not** confirmed this run. Rick's lane (vintage, analog) and not on his never-assign list. **Confirmed no colliding slug.** |
+| AK6 | high-pass-filter-electric-guitar-how-high | How High Can You High-Pass an Electric Guitar Before It Costs You Something? | "high pass filter electric guitar," "hpf guitar frequency live," "should i high pass electric guitar," "low cut guitar mix" | Dev Okonkwo | 1 — Signal Chain | Post 2 tells a player to *ask* for a high-pass near 120 Hz; it does not explain the parameter, and the question of how far you can go is genuinely open and genuinely counterintuitive. The low E fundamental is **82 Hz**, which sits *below* the frequency most engineers filter at — so a 120 Hz high-pass is already cutting above the fundamental of the lowest note on the instrument, and what it removes is body and proximity rather than the note. Distinct content: where the fundamental actually sits per tuning (standard, drop D, drop C), what each 20 Hz of filter costs, why the answer differs for a mic'd cab versus a modeler's full-range output versus a DI'd acoustic, and the slope question (12 vs 24 dB/oct) nobody specifies when they say "high-pass at 100." **Gate 7 guard: must ship the fundamental-frequency-per-tuning table and the per-source answers. A generic "always high-pass everything" piece fails — that advice is everywhere.** Dev's frequency-first lane. **Confirmed no colliding slug** (zero high-pass, low-cut or HPF slugs at build time). |
+
+**Human-in-the-loop debt: three standing items, plus one added today.**
+(1) The Y1 measured per-block latency table in `modeler-latency-budget-per-block-cost`.
+(2) The complete Helix In-Z menu enumeration for `modeler-input-impedance-setting-what-to-set-it-to`.
+(3) The measured figures in `active-di-shootout-…` (and, by the same standard, the
+measured figures in the transformer shootout refreshed today).
+(4) **NEW — the AK3 parameter-gap inventory needs HX Edit or the hardware.** It is
+not obtainable from the Owner's Manual; an automated run should not attempt it again
+without that access. **Declined today, recorded so nobody re-derives them:** Showman,
+Dual Showman, Concert, Bandmaster and Vibroverb mid-control status (not verified, so
+not published); Fender's own product spec pages (fender.com **403s** to direct fetch,
+so reissue panels were not sourced from the manufacturer); Helix Legacy per-model
+parameter lists (helixhelp.com renders client-side and returned nothing).

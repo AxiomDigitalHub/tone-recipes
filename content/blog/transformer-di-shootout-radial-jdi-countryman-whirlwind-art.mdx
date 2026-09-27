@@ -1,13 +1,14 @@
 ---
 title: >-
-  Transformer DI Shootout: Radial JDI vs. Countryman Type 85 vs. Whirlwind IMP 2
-  vs. ART CleanBox Pro
-seo_title: "Transformer DI Shootout: Radial JDI to ART CleanBox"
+  DI Box Shootout: Radial JDI vs. Countryman Type 85 vs. Whirlwind IMP 2 vs. ART
+  CleanBox Pro
+seo_title: "DI Box Shootout: Radial JDI to ART CleanBox"
 description: >-
-  Four passive transformer DIs at four price points. We measured the noise
-  floor, the frequency response, and what each one actually does for a guitar
-  rig on stage and in the studio.
+  Three passive transformer DIs and the active box everyone cross-shops against
+  them. Noise floor, frequency response, and which kind your rig actually
+  needs.
 date: '2026-05-10'
+updated: '2026-09-27'
 author: Nathan Cross
 author_slug: nathan-cross
 category: modeler-masterclass
@@ -22,14 +23,19 @@ tags:
 readingTime: 9
 image: /images/blog/transformer-di-shootout-radial-jdi-countryman-whirlwind-art.jpg
 image_alt: >-
-  a composition illustrating "Transformer DI Shootout: Radial JDI vs. Countryman
-  Type 85 vs. Whirlwind IMP 2 vs. ART CleanBox Pro"
+  Four direct boxes arranged on a dark studio surface with XLR and quarter-inch
+  cables running between them, ground-lift switches visible on the metal
+  chassis
 takeaways:
   - All four boxes solved the ground loop in our test rig — the differences are in noise floor, top-end clarity, and build quality.
   - The Radial JDI ($229) is the studio standard — flattest frequency response (±0.5 dB) and lowest noise floor (-118 dB).
   - The Whirlwind IMP 2 ($69) is the budget pick that punches above its price — slightly darker top end but quiet and reliable.
   - The Countryman Type 85 ($219) is technically active (needs phantom) but is the live-FOH standard, especially for passive pickups like acoustic piezos.
   - The ART CleanBox Pro ($59) is honest about being a budget tool — audible noise floor at gig volume but solves the ground-loop problem.
+  - >-
+    Passive or active is decided by what feeds the box rather than by price. A
+    modeler or a buffered board is happy with a passive transformer DI, while a
+    bare passive pickup wants the active box's much higher input impedance.
 faq:
   - q: "Do I need a transformer DI if I'm running an active modeler?"
     a: "Sometimes. An active modeler with a balanced XLR output (Helix, Quad Cortex) doesn't strictly need a DI for level conversion — the XLR output is already mic-level and balanced. But a transformer DI breaks the ground loop between the modeler's interface and the FOH console, which is the most common reason guitarists need one. If you're running an unbalanced 1/4-inch output to FOH and getting hum, a DI fixes it. If balanced XLR is going direct and you have no hum, you don't need a DI."
@@ -43,7 +49,7 @@ faq:
     a: "Yes, slightly. The DI breaks the ground at its location in the chain. If the ground loop is between your pedalboard's power supply and the FOH console, putting the DI right after your pedalboard fixes it. If the ground loop is between your guitar and the modeler, the DI needs to sit before the modeler. The standard placement (last in the chain, before the cable run to FOH) catches the most common sources and is the right default."
 ---
 
-> **Quick read:** All four passive transformer DIs work. The Radial JDI ($229) is the studio standard for a reason: Jensen JT-DB-EPC transformer, dead-quiet noise floor, the flattest frequency response in the test (within 0.5 dB from 30 Hz to 18 kHz). The Countryman Type 85 ($219) is technically active, not passive, but I'm including it because it's the live standard at almost every venue I've worked, and players cross-shop these against the JDI constantly. The Whirlwind IMP 2 ($69) is the budget pick that punches above its price: a US-made transformer, slightly darker top end than the JDI but quiet and reliable. The ART CleanBox Pro ($59) is honest about what it is: a serviceable DI for a kid's first pedalboard, with audible transformer coloration and a noise floor 6 dB above the others. All four solved a ground loop in our test rig. The differences show up in noise floor, top-end clarity, and how much you trust the box at 11 PM on a Saturday night when the venue's electrical isn't your friend.
+> **Quick read:** All four of these boxes work, but they are not all the same kind of box — three are passive transformer DIs and the Countryman Type 85 is an active FET design with a transformer only on its output. The Radial JDI ($229) is the studio standard for a reason: Jensen JT-DB-EPC transformer, dead-quiet noise floor, the flattest frequency response in the test (within 0.5 dB from 30 Hz to 18 kHz). The Countryman Type 85 ($219) is technically active, not passive, but I'm including it because it's the live standard at almost every venue I've worked, and players cross-shop these against the JDI constantly. The Whirlwind IMP 2 ($69) is the budget pick that punches above its price: a US-made transformer, slightly darker top end than the JDI but quiet and reliable. The ART CleanBox Pro ($59) is honest about what it is: a serviceable DI for a kid's first pedalboard, with audible transformer coloration and a noise floor 6 dB above the others. All four solved a ground loop in our test rig. The differences show up in noise floor, top-end clarity, and how much you trust the box at 11 PM on a Saturday night when the venue's electrical isn't your friend.
 
 I run sound at a 1,200-member church on Sundays and I do freelance live mixing on weeknights. I have used every one of these DIs in production, on stages where things were going wrong and the DI was the only piece of gear standing between a guitar rig and a hum that would have killed the service. They all work. They are not all the same.
 
@@ -59,6 +65,22 @@ I bought the JDI, the Whirlwind, and the ART new for this test. The Countryman T
 | Headroom | Maximum input level before audible distortion (measured with a 1 kHz sine sweep) |
 | Build feel | Subjective: does it survive being stepped on? |
 | Phantom requirement | Does the box need 48V phantom from the console? |
+
+## Passive or Active: Which Kind You Actually Need
+
+Three of these boxes are passive transformer DIs. The Countryman Type 85 is not — it is an active FET input stage with a transformer on its output only. That distinction is not pedantry, because it decides which box is correct for your rig, and it is decided by **what feeds the DI**, not by what you are willing to spend.
+
+| What is plugged into the DI | Which kind you want | Why |
+|---|---|---|
+| A modeler, an amp's line out, or a pedalboard ending in a buffer | Passive transformer | The source already drives a low impedance, so the DI's input impedance is irrelevant. You get more headroom and no phantom dependency |
+| A guitar or bass straight in, no pedals, passive pickups | Active | A passive DI's input impedance (140 kΩ on the JDI, around 100 kΩ on the Whirlwind) sits well below the 1 MΩ a guitar amp presents, and it loads the pickup |
+| An acoustic guitar with a passive piezo | Active | Piezos are the most impedance-sensitive source you will plug in. This is the reason the Type 85 became the standard in FOH racks |
+| A hot, high-output modeler you have already clipped a console with | Passive | Headroom. The Type 85 tops out at +12 dBu, which is the lowest figure in this group |
+| A backline gig where you cannot confirm phantom power | Passive | An active DI with no 48V is not a quiet DI, it is a dead channel |
+
+That last row is worth more than its position suggests. The failure modes are not symmetrical: a passive box fed by something too hot gives you a sound you can fix at the fader, while an active box with no phantom gives you nothing at all, and you will discover it during the first song.
+
+The corollary is that a buffer in front of a passive DI buys you most of what the active box's input stage was providing — which is the actual decision point for a pedalboard player, and it is the subject of our [buffer versus DI walkthrough](/blog/buffer-pedal-vs-transformer-di-ground-loops). If you want the comparison one tier over, where every box in the test is active, our [active DI shootout](/blog/active-di-shootout-radial-j48-countryman-bss-behringer) covers the J48, the BSS AR-133 and the Behringer against this same Type 85.
 
 ## The Results
 

@@ -2,11 +2,11 @@
 title: 'Global EQ on Your Modeler: The One Setting You''re Probably Skipping'
 seo_title: "Global EQ on Your Modeler: The Setting You Skip"
 description: >-
-  Per-preset EQ fixes the tone on one patch. Global EQ corrects every preset at
-  once, and it solves the actual problem most modeler users have: the room or
-  monitor coloring all your tones in the same way. Here is how to use it for
-  studio, headphone, and live contexts.
+  Per-preset EQ fixes one patch. Global EQ corrects every preset at once, which
+  is the real problem — your room, monitors or headphones coloring all of them
+  the same way.
 date: '2026-04-27'
+updated: '2026-09-27'
 author: Dev Okonkwo
 author_slug: dev-okonkwo
 category: modeler-masterclass
@@ -19,6 +19,68 @@ tags:
   - eq-strategy
   - room-correction
   - frequency-response
+takeaways:
+  - >-
+    Global EQ sits at the modeler's output and corrects every preset at once. It
+    is the right tool for environmental problems — a room, a monitor, a pair of
+    headphones — and the wrong tool for fixing one patch's tone.
+  - >-
+    Keep the two layers separate. Environmental correction belongs in global EQ;
+    tone shaping belongs in a parametric block inside the preset. When both try
+    to solve the same problem you end up correcting twice.
+  - >-
+    Corrections should be small. Cuts of 1 to 4 dB and gentle shelves do the job;
+    if a profile needs more than that, the speaker placement or the room is the
+    thing to fix first.
+  - >-
+    Global EQ is part of anything you send out, including a FOH feed and a file
+    you hand a mixing engineer. Bypass it when you are delivering tracks someone
+    else will mix.
+  - >-
+    A library built before you knew about global EQ can often be rescued with one
+    cut. A consistent low-mid thickness across every preset is a single 2 dB dip
+    near 300 Hz, not an editing project.
+faq:
+  - q: Does global EQ affect the recording I make from the modeler?
+    a: >-
+      Yes. Global EQ is applied at the output of the modeler, which means it is
+      part of the signal that goes to your interface, your DAW, your headphones
+      and any FOH feed. If you are recording for personal use and want what you
+      hear to match the file, leave it on. If you are sending tracks to another
+      mixing engineer, bypass it so they receive the uncorrected signal.
+  - q: Should I use my modeler's global EQ or my interface's monitor EQ?
+    a: >-
+      If your interface has a dedicated monitor-controller EQ, that is the better
+      location for room correction, because it affects everything coming out of
+      the interface rather than only the modeler. If it does not, the modeler's
+      global EQ is the next best place. The math is the same; run the correction
+      as close to the speakers as your hardware allows.
+  - q: How is global EQ different from a parametric EQ block in the preset chain?
+    a: >-
+      Functionally the same EQ math, architecturally not. A parametric block in a
+      preset affects only that preset; global EQ affects all of them. Use global
+      EQ for environmental correction and a block for a specific preset's tone
+      shaping. The two layers solve different problems and should not overlap.
+  - q: Can global EQ fix a library of presets I built before I knew about it?
+    a: >-
+      Yes, and this is one of the most common reasons players adopt it. If your
+      library has a consistent low-mid thickness, a 2 dB cut near 300 Hz in the
+      global EQ improves every preset at once with no individual editing. The
+      presets themselves are untouched, which keeps them portable if you export
+      them or load them on another unit.
+  - q: Does TONEX have a global EQ?
+    a: >-
+      The TONEX hardware pedal has a 3-band global EQ with low, mid and high
+      shelves. The desktop plugin does not include one — use your DAW's mixer
+      instead, placing a parametric EQ on the master bus, saving it as a default
+      chain so every session inherits the correction.
+  - q: Should I use global EQ to fix how I sound in the house mix at church?
+    a: >-
+      No. Global EQ corrects what you are monitoring through; it cannot know what
+      the room and the PA are doing to the audience. Use it to make your own rig
+      honest, then talk to whoever is mixing about the house. Those are two
+      different jobs and doing the second one in the first place is why some
+      players' tones never travel.
 readingTime: 9
 image: /images/blog/modeler-global-eq-guide.jpg
 image_alt: >-
@@ -107,7 +169,7 @@ For monitoring through an FRFR speaker (or in-ears with a stage monitor mix). Th
 - High-pass at 80 Hz, 12 dB/octave. Protects your low end from stage rumble and room boom.
 - Low-shelf cut of 2 to 4 dB at 100-150 Hz. Most FRFR speakers in live rooms have boosted low end.
 - Parametric cut of 2 to 4 dB at 250 Hz. Addresses venue room buildup.
-- Parametric cut of 1 to 2 dB at 4 kHz. Most modeler tones get harsh in the live cabinet rage when the FRFR is at gig volume.
+- Parametric cut of 1 to 2 dB at 4 kHz. Most modeler tones get harsh in the upper-mid range when the FRFR is at gig volume.
 - High-shelf cut of 1 dB above 8 kHz. Protects against stage haze and PA system character.
 
 The live profile is the most situational. A small room is different from a large room. An indoor stage is different from an outdoor festival. Most touring modeler players keep two or three live profiles for different venue types and switch between them at soundcheck.
@@ -179,30 +241,9 @@ The setup time was ten minutes. The compounding benefit has lasted years. This i
 
 For more practical EQ context, the [modeler EQ guide](/blog/modeler-eq-guide) covers per-preset EQ strategy (the work that should happen inside the preset), and the [Helix amp model cheat sheet](/blog/helix-amp-model-cheat-sheet) covers which amp models pair naturally with which EQ approaches. Global EQ sits on top of all of that as the room/monitor correction layer.
 
-<FAQ questions={[
-  {
-    q: "Does global EQ affect the recording I make from the modeler?",
-    a: "Yes. Global EQ is applied at the output of the modeler, which means it's part of the signal that goes to your interface, your DAW, your headphones, and any FOH feed. If you're recording for personal use and want the signal you hear to match the file, leave global EQ on for recording. If you're sending tracks to another mixing engineer, bypass global EQ so they receive the uncorrected signal."
-  },
-  {
-    q: "Should I use my modeler's global EQ or my interface's monitor EQ?",
-    a: "If your interface has dedicated monitor controller EQ (Audient, MOTU UltraLite mk5, etc.), that's the better location for room correction because it affects everything coming out of your interface, not just the modeler. If your interface doesn't have that capability, the modeler's global EQ is the next best place. The principle is the same; the location is different. Run the EQ as close to the speakers as your hardware allows."
-  },
-  {
-    q: "How is global EQ different from a parametric EQ block in the preset chain?",
-    a: "Functionally they're the same EQ math. Architecturally they're different: a parametric block in the preset only affects that one preset; the global EQ affects every preset. Use the global EQ for environmental correction (room, monitors, headphones). Use a parametric EQ block in a specific preset for that preset's tone shaping. The two layers solve different problems and shouldn't overlap."
-  },
-  {
-    q: "Can I use global EQ to fix an entire library of presets I built before knowing about it?",
-    a: "Yes. This is one of the most common reasons players adopt global EQ. If your library has a consistent low-mid muddiness, a 2 dB cut at 300 Hz on the global EQ improves every preset at once without requiring you to edit them individually. The presets themselves stay the same, which preserves their portability if you ever export them or load them on another modeler."
-  },
-  {
-    q: "Does TONEX have a global EQ?",
-    a: "The TONEX hardware pedal has a 3-band global EQ (low/mid/high shelf). The TONEX desktop plugin uses your DAW's mixer for global correction rather than including a built-in global EQ. For TONEX desktop users, place a parametric EQ on the master bus of your DAW project to handle the same function: adjust the EQ for the room, save it as a default chain, and every TONEX session gets the correction automatically."
-  }
-]} />
-
 Spend ten minutes finding your global EQ. The reference recording test will tell you what your room and monitors are doing. The fix is small adjustments (1 to 4 dB cuts and gentle shelves) applied once at the output stage. Every preset you've ever built and every preset you'll build going forward gets the benefit. This is the cheapest tonal upgrade in your modeler and the one that pays back across years of use.
+
+One boundary worth drawing before you start: global EQ fixes what *you* are monitoring through. It cannot fix what the audience hears, because the PA and the room are downstream of everything you control. When the problem is out in the house rather than in your monitoring, the fix is a conversation, and [asking for it in words the person at the console can act on](/blog/what-to-ask-the-sound-tech-guitar-worship) gets further than another dB of correction on your end.
 
 <SaveThisTone
   title="Every recipe ships a Helix preset"
