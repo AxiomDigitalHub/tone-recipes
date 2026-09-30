@@ -2,9 +2,9 @@
 title: 'Dialing In Drop-Tuned High Gain: A Frequency-By-Frequency Guide'
 seo_title: "Drop-Tuned High Gain, Frequency by Frequency"
 description: >-
-  Drop tunings shift your fundamental frequencies down by a perfect fourth or
-  more. Your tone settings don't adjust automatically. Here's a systematic
-  approach to high-gain EQ for 7-string and drop-tuned guitars.
+  Drop tunings move your lowest fundamental down an octave-and-a-bit, and your EQ
+  doesn't follow. Per-tuning frequencies, what each low-cut costs, and the gain
+  ceiling for every tuning.
 date: '2026-04-16'
 author: Viktor Kessler
 author_slug: viktor-kessler
@@ -19,21 +19,91 @@ tags:
   - gain-staging
   - palm-muting
 readingTime: 9
+updated: '2026-09-29'
 image: /images/blog/dialing-in-drop-tuned-high-gain.jpg
-image_alt: a composition illustrating "Dialing In Drop"
+image_alt: >-
+  A seven-string electric guitar with a black satin finish resting against a 4x12
+  cabinet in a dim room, lit from one side, with a floor modeler and a laptop
+  showing an EQ curve on the floor beside it
+takeaways:
+  - >-
+    Every drop tuning moves your lowest fundamental, and the numbers are not
+    intuitive. Drop A on a six-string is A1 at 55 Hz, not 110 Hz — an octave
+    error here leads directly to a low-cut set an octave too high.
+  - >-
+    A low-cut at 80 Hz costs a standard-tuned low E about 2.8 dB and a drop-A
+    low string about 7.4 dB at 12 dB per octave. The same filter is a different
+    decision at every tuning.
+  - >-
+    Low-end buildup between 80 and 200 Hz in drop tunings is measurable and
+    consistent across guitar and pickup combinations. Fix it with a high-pass
+    before the amp plus a narrow parametric cut after the cab, not with gain.
+  - >-
+    Maximum useful gain drops as you tune down — roughly 6 to 7 in standard, 5
+    in drop C or B, 4.5 to 5 in drop A. Recover the saturation with a Tube
+    Screamer-style boost in front instead of the amp's gain control.
+  - >-
+    The 200 to 400 Hz mud problem is the one most players miss, because it
+    sounds like a bad cab impulse response rather than an EQ problem. A 2 dB cut
+    near 220 Hz is usually the whole fix.
+faq:
+  - q: Why do my palm mutes sound tight when I'm alone but loose in a mix?
+    a: >-
+      The mix context exposes low-end issues that aren't obvious in isolation.
+      Bass guitar occupies the same frequency range as your drop-tuned guitar's
+      low strings. Without EQ correction, your guitar and bass will compete for
+      the same range and both will sound worse. Cut the guitar more aggressively
+      at 100 to 200 Hz than you think you need to when recording. You'll get it
+      back in the mix.
+  - q: Do I need a different signal chain for each tuning?
+    a: >-
+      Yes, if you regularly switch between tunings. A preset optimized for
+      standard E will sound flabby in drop A and vice versa. Keep separate
+      presets by tuning and label them clearly. The EQ corrections are
+      tuning-specific, and so is the low-cut frequency.
+  - q: Does a higher-output pickup fix the low-end buildup problem?
+    a: >-
+      No. Higher output pickups often make it worse by driving the amp's gain
+      stage harder with more low-frequency content. The solution is EQ, not
+      pickup output.
+  - q: My drop-tuned preset sounds great in headphones but muddy through a cab. Why?
+    a: >-
+      Headphone monitoring reproduces the full frequency range with a much
+      flatter response. A guitar cabinet has resonant characteristics that boost
+      certain frequencies — particularly 80 to 120 Hz for most guitar speakers. A
+      preset calibrated on headphones will have more low-end buildup than
+      expected through a physical cab. Apply additional low-frequency cuts when
+      testing through a cab.
+  - q: What is the lowest fundamental frequency on a drop-tuned guitar?
+    a: >-
+      Drop D is D2 at 73.42 Hz, drop C is C2 at 65.41 Hz, drop B and a standard
+      seven-string are B1 at 61.74 Hz, drop A is A1 at 55 Hz, and an eight-string
+      dropped to E is E1 at 41.20 Hz. These are the numbers your low-cut has to
+      respect — a filter set above them is removing note, not rumble.
+  - q: How high can I set the low-cut on a drop-tuned guitar?
+    a: >-
+      Set it below your lowest fundamental if you want it to cost you nothing,
+      and expect to pay for every hertz above that. At 12 dB per octave an 80 Hz
+      filter takes about 5.8 dB off a drop-B low string and about 7.4 dB off a
+      drop-A one. That is often the right trade in a dense mix, but it is a
+      trade, not housekeeping.
 ---
 
-> **Start Here:** Standard tuning's low E is 82Hz. Drop A (A2) is 110Hz. Drop G# is 103Hz. Drop F# is 92Hz. Every tuning step down moves your fundamental frequencies closer to the range where cab resonance, EQ cuts, and amp voicing behave differently. The settings that work for standard tuning do not work for drop tuning without adjustment.
+> **Start Here:** Standard tuning's low E is 82.41 Hz. Drop A is A1 at 55 Hz, drop G# is 51.91 Hz, drop F# is 46.25 Hz. Every tuning step down moves your fundamental frequencies closer to the range where cab resonance, EQ cuts, and amp voicing behave differently — and closer to the low-cut you set for standard tuning and forgot about. The settings that work for standard tuning do not work for drop tuning without adjustment.
 
-| Tuning | Low string fundamental | Primary problem frequency | Recommended low-cut | Recommended mid cut |
-|---|---|---|---|---|
-| Standard E (E2–E6) | 82Hz | N/A (baseline) | 80Hz | None required by default |
-| Drop D (D2) | 73Hz | 100–200Hz buildup | 80Hz | Cut 150Hz by 1–2dB |
-| Drop C (C2) | 65Hz | 80–120Hz buildup | 80–90Hz | Cut 120Hz by 2–3dB |
-| Drop B (B1) | 62Hz | 80–120Hz buildup | 80Hz | Cut 100–120Hz by 2–3dB |
-| Drop A (A1) | 55Hz | 60–100Hz mud | 80–90Hz | Cut 100Hz by 3–4dB |
-| 7-string Drop A (A2) | 110Hz | 200–300Hz mud, low-end buildup | 80Hz | Cut 200–250Hz by 2–3dB |
-| 8-string Drop E (E1) | 41Hz | Subsonic content, severe low-end buildup | 90–100Hz | Cut 100–150Hz by 3–4dB |
+| Tuning | Lowest fundamental | Primary problem frequency | Recommended low-cut | What that low-cut costs the fundamental | Recommended mid cut |
+|---|---|---|---|---|---|
+| Standard E | E2 — 82.41 Hz | N/A (baseline) | 80 Hz | −2.8 dB | None required by default |
+| Drop D | D2 — 73.42 Hz | 100–200 Hz buildup | 80 Hz | −3.8 dB | Cut 150 Hz by 1–2 dB |
+| Drop C | C2 — 65.41 Hz | 80–120 Hz buildup | 80–85 Hz | −5.1 to −5.9 dB | Cut 120 Hz by 2–3 dB |
+| Drop B, or 7-string standard | B1 — 61.74 Hz | 80–120 Hz buildup | 80 Hz | −5.8 dB | Cut 100–120 Hz by 2–3 dB |
+| Drop A, or 7-string dropped to A | A1 — 55.00 Hz | 60–100 Hz mud | 80–85 Hz | −7.4 to −8.3 dB | Cut 100 Hz by 3–4 dB |
+| 8-string standard | F#1 — 46.25 Hz | Subsonic content, severe buildup | 80–90 Hz | −10.4 to −12.7 dB | Cut 100–150 Hz by 3–4 dB |
+| 8-string dropped to E | E1 — 41.20 Hz | Subsonic content, severe buildup | 80–90 Hz | −12.3 to −14.0 dB | Cut 100–150 Hz by 3–4 dB |
+
+The cost column assumes a 12 dB per octave slope with the stated frequency as the −3 dB point, which is what the preset at the bottom of this page uses. Double the slope to 24 dB per octave and every figure below the corner roughly doubles: the same 80 Hz filter goes from −5.8 dB to −9.5 dB on a drop-B low string, and from −12.3 dB to −24 dB on an eight-string's dropped E. The full arithmetic, and why a steeper filter is actually *gentler* above the corner, is worked through in [how high you can high-pass an electric guitar](/blog/high-pass-filter-electric-guitar-how-high).
+
+Read that column before you copy the low-cut recommendation. Eighty hertz is a reasonable default in standard tuning because it sits just under the fundamental. By the time you are in drop A it is half an octave *above* the fundamental, and it is no longer removing rumble — it is a deliberate decision to let the bass own the bottom octave and let the guitar live on its second harmonic. In a dense mix with a bass player, that is usually correct. In a two-guitar instrumental with no bass, it will hollow the track out.
 
 ---
 
@@ -162,27 +232,6 @@ Here's a working starting point for a 7-string guitar in drop B, running through
 />
 
 100Hz and 220Hz cuts use a Q of 2.0 and 1.5 respectively. The 5kHz cut is a shelf. Adjust the 100Hz and 220Hz cuts by ear after playing palm mutes at your specific drop tuning — the resonant frequencies shift slightly depending on the specific guitar, pickup, and scale length.
-
-<FAQ
-  questions={[
-    {
-      q: "Why do my palm mutes sound tight when I'm alone but loose in a mix?",
-      a: "The mix context exposes low-end issues that aren't obvious in isolation. Bass guitar occupies the same frequency range as your drop-tuned guitar's low strings. Without EQ correction, your guitar and bass will compete for the same frequency range and both will sound worse. Cut the guitar more aggressively at 100–200 Hz than you think you need to when recording. You'll get it back in the mix.",
-    },
-    {
-      q: "Do I need a different signal chain for each tuning?",
-      a: "Yes, if you regularly switch between tunings. A preset optimized for standard E will sound flabby in drop A and vice versa. Keep separate presets by tuning and label them clearly. The EQ corrections are tuning-specific.",
-    },
-    {
-      q: "Does a higher-output pickup fix the low-end buildup problem?",
-      a: "No. Higher output pickups often make it worse by driving the amp's gain stage harder with more low-frequency content. The solution is EQ, not pickup output.",
-    },
-    {
-      q: "My drop-tuned high-gain preset sounds great in headphones but muddy through a cab. Why?",
-      a: "Headphone monitoring reproduces the full frequency range with flat response. A guitar cabinet has resonant characteristics that boost certain frequencies — particularly the 80–120 Hz range for most guitar speakers. A preset calibrated on headphones will have more low-end buildup than expected through a physical cab. Apply additional low-frequency cuts when testing through a cab.",
-    },
-  ]}
-/>
 
 <SaveThisTone
   title="Start your drop-B high-gain preset"

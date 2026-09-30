@@ -6,6 +6,7 @@ description: >-
   soldered in its place. Which models have the knob, what the resistor is set
   to, and how to get mids without it.
 date: '2026-09-27'
+updated: '2026-09-29'
 author_slug: hank-presswood
 category: settings-guides
 tags:
@@ -24,9 +25,8 @@ takeaways:
     uses a fixed 6.8k resistor in its place.
   - >-
     That resistor is not the same as a mid knob turned off. A 6.8k fixed
-    resistor is equivalent to a 10k linear Middle pot sitting at 68 percent, so
-    the factory voicing is closer to the mid-forward end of the range than the
-    scooped end.
+    resistor is 68 percent of a 10k Middle pot's resistance, so the factory
+    voicing is closer to the mid-forward end of the range than the scooped end.
   - >-
     The mid scoop people blame on the missing knob comes from the tone stack
     itself, not from the resistor. Every passive Fender Treble-Middle-Bass
@@ -56,11 +56,13 @@ faq:
       Pro Reverb and Champ all shipped without one.
   - q: Is a Deluxe Reverb just a Twin Reverb with the mid turned down?
     a: >-
-      It is closer to a Twin with the Middle knob set around 7. The 6.8k fixed
-      resistor is equivalent to a 10k linear mid pot at 68 percent of its
-      resistance, so the Deluxe is voiced nearer the top of that control's range
-      than the bottom. If you want to hear the difference on a Twin, start at 7
-      and work down.
+      It is closer to a Twin with the Middle knob set around 7 or above. The
+      6.8k fixed resistor is 68 percent of a 10k Middle pot's resistance, so the
+      Deluxe is voiced nearer the top of that control's range than the bottom.
+      Whether 68 percent of the resistance lands at 7 on the dial depends on the
+      pot's taper, which sources disagree on — an audio taper would put it
+      higher. If you want to hear the difference on a Twin, start at 7 and work
+      in both directions.
   - q: Why do Fender amps sound mid-scooped even with the mid knob up?
     a: >-
       Because the scoop is built into the passive Treble-Middle-Bass circuit
@@ -122,7 +124,9 @@ Which raises the question everybody skips: if the resistor is standing in for a 
 
 Here is the part I had wrong for longer than I would like to admit. I assumed the fixed resistor was Fender's way of saving a dollar on a pot and that it landed the amp somewhere near the scooped end of the range — that a Deluxe Reverb was, roughly speaking, a Twin with the Middle rolled off. Add the pot back, I figured, and you'd finally hear mids the amp had been hiding.
 
-It's the other way around. A 6.8k resistor is equivalent to a 10k linear mid pot sitting at 68 percent of its resistance. The factory voicing on a Deluxe Reverb is not the mid knob off. It's the mid knob at about 7.
+It's the other way around. A 6.8k resistor is 68 percent of a 10k Middle pot's resistance, and the factory voicing on a Deluxe Reverb is therefore nowhere near the mid knob off. On a linear pot that works out to about 7 on the dial.
+
+One caveat on that dial number, because it depends on a part spec that is not settled. Rob Robinette's own Twin Reverb layout drawing labels both Middle pots **10K audio taper**, not linear, and plenty of amp-building references call them linear. The resistance figure is unaffected — 6.8k of 10k is 68 percent either way — but the *dial position* is not. An audio-taper pot reaches a given fraction of its resistance later in the rotation than a linear one, which would put the equivalent setting higher than 7 rather than lower. Every conclusion below survives that either way, and the mid-forward reading gets stronger, not weaker. If you are matching a Twin to a Deluxe by ear, start around 7 and expect to end up above it.
 
 That reframes the whole project. If you install a 10k pot in place of that resistor, nearly everything you have gained is the ability to make the amp *thinner* than it left the factory, with a sliver of new territory above stock. All the range is on the wrong side of where you already were. Which is why the mod disappoints people who expected it to hand them midrange, and why the players who are happy with it are the ones who wanted a scoop control — a way to get out of a vocalist's way on a rhythm part, and then step back in.
 
@@ -166,11 +170,13 @@ The first row is the one that solves the actual complaint most of the time. A mi
 
 If you want the control, pick the value deliberately.
 
-A 10k linear pot is the historically correct choice in the sense that it matches what the Twin and Super use, and as established above, it puts your stock sound at about 7 with everything interesting below it. That is the right pick if what you actually want is a scoop control.
+A 10k pot is the historically correct choice in the sense that it matches what the Twin and Super use, and as established above, it puts your stock sound at roughly 7 or above with everything interesting below it. That is the right pick if what you actually want is a scoop control.
 
 A 25k or 100k linear pot goes further. Past the stock 6.8k the added resistance starts acting as a raw control, boosting signal in a way the fixed resistor never does, and the amp drifts out of blackface territory toward something closer to a tweed voicing. More range, more sounds, and a control that no longer has a "stock" position you can find by feel.
 
 Either way: it is a modification to a circuit that is often the most valuable thing in the room. On a reissue, have at it. On a 1964 amp with its original transformers, the conversation with a good tech should start with whether a pedal gets you 90 percent of the way there for none of the risk. Usually it does.
+
+The Middle knob is not the only control that is missing, or present, depending on which side of the panel you plug into. Which channel carries reverb, tremolo, a Bright switch and a third gain stage varies by model too, and on a Super Reverb the Middle knob itself is on one channel only — [the per-channel breakdown is here](/blog/fender-normal-vs-vibrato-channel).
 
 ## If You're Playing the Model Instead of the Amp
 

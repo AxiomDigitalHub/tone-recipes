@@ -6792,3 +6792,239 @@ Dual Showman, Concert, Bandmaster and Vibroverb mid-control status (not verified
 not published); Fender's own product spec pages (fender.com **403s** to direct fetch,
 so reissue panels were not sourced from the manufacturer); Helix Legacy per-model
 parameter lists (helixhelp.com renders client-side and returned nothing).
+
+---
+
+## Daily Content Run — 2026-09-29
+
+> **Shape:** 3 new posts + 2 refreshes + 2 cross-post corrections. The queue held
+> exactly 3 topics (AK4, AK5, AK6) and all three cleared Gate 7, so all three
+> shipped. Persona velocity at run start: **2 posts in 7 days across 2 authors**
+> (hank-presswood, nathan-cross), so every other byline had full capacity. After
+> this run: 5 posts across 5 authors, all at 1/week, no one near the 3/week cap.
+
+### New posts
+
+**Post 1 — helix-legacy-blocks-mono-stereo-collapse** (Sean Nakamura; target:
+"helix legacy effects mono," "why is my helix preset mono," "helix stereo
+collapsing," "helix legacy vs stereo blocks")
+
+- **Top ranking:** two Line 6 Community threads asking this exact question
+  (*Legacy fx.... Stereo or mono*, *So legacy effects are always stereo? mono?*),
+  a Line 6 Manuals page (Helix Stadium signal path routing), a YouTube episode
+  (*Stereo Vs. Mono Presets*), Helix Help's 3.80 release notes, Fluid Solo's
+  Stereo Imager model page, one more Line 6 thread.
+- **Honest narrowing, same discipline as the 09-27 6.8k case.** The manual's
+  three-line Legacy category rule **is already in this SERP**, because the forum
+  threads quote it. So "Legacy Distortion/Dynamics/Pitch-Synth are mono" is not
+  the non-commodity claim and the post doesn't pretend it is. What no result has:
+  (1) the **models actually enumerated** per category — all 7 Legacy compressors,
+  17 Legacy distortions, 17 Legacy Pitch/Synth, 12 Legacy reverbs, 11 Legacy
+  filters, and the ~43 Legacy modulation + delay models listed as the set the
+  manual declines to resolve; (2) the **inspector stereo-indicator diagnostic**
+  presented as the answer to that refusal; (3) the **ordering table** keyed on
+  mono/stereo certainty; (4) the argument that the standard "mono before the amp,
+  stereo after" architecture rule is a *category* rule and the Legacy
+  subcategory breaks the category mapping in both directions; (5) the distinction
+  from a mono fold-down failure — a Legacy collapse **passes** the fold-down test
+  because there is nothing left to fold down; (6) the hardware contrast (Helix
+  *sums* both channels, a single-input mono pedal *discards* one).
+- **Gate 1 — every quote re-verified against the current firmware manual, not
+  the Rev E the queue cited.** Downloaded the **Helix 3.80 Owner's Manual** from
+  line6.com and extracted it locally. Confirmed verbatim: "Adding a mono effects
+  block will collapse any preceding stereo blocks on the same path to mono";
+  "All Amp+Cab, Amp, Preamp, and Poly effects blocks are mono"; "A stereo block
+  displays [indicator] after its model name in the inspector"; and the three
+  Legacy bullets. **One wording correction vs. the queued note:** the Mix clause
+  is "can narrow the stereo image **that is fed into them**" — the Mix parameter
+  narrows the *incoming* image, not the block's output. The post is built on that
+  reading and says so explicitly.
+- **Cross-platform verified, not assumed:** also downloaded the **HX Effects 2.50
+  Owner's Manual** and confirmed the same three Legacy bullets appear verbatim,
+  plus the extra sentence "both channels of audio are combined and sent out of
+  the block as mono" (the summing detail used in the pedalboard section) and "It
+  is best to experiment with these effects and tweak the Mix parameter."
+- **Deliberately not claimed:** which specific Legacy modulation or delay models
+  are mono vs stereo vs mono-in/stereo-out. Line 6 does not publish it and
+  neither HX Edit nor the hardware was available to this run. The post names this
+  as a documented refusal and routes the reader to the inspector instead.
+- **AI Overview:** not observed (WebSearch does not surface AIO). Query class
+  ("why is my X mono") suggests one is likely; F&K not known to be cited.
+- Non-commodity gate: **PASS.** Checked against `stereo-signal-chain-architecture`,
+  `stereo-width-tricks-that-survive-mono`, `stereo-compressor-placement-parallel-amp-routing`,
+  `compressor-placement-modeler-preset-pre-amp-post-amp`, `complete-guide-line-6-helix-tone-2026`.
+  **Confirmed no colliding slug.**
+
+**Post 2 — fender-normal-vs-vibrato-channel** (Rick Dalton; target: "fender
+normal vs vibrato channel," "deluxe reverb which channel," "why does the normal
+channel sound different," "jumper fender channels")
+
+- **Top ranking:** almost entirely forums — two TDPRI threads, two strat-talk
+  threads, Marshall Forum, Canadian Guitar Forum, Harmony Central — plus
+  fenderguru's Deluxe Reverb page. **No per-model reference ranks.**
+- **Honest narrowing.** The core facts — Vibrato has reverb/tremolo, Normal is
+  darker, there is a hardwired 47 pF bright cap on the Vibrato volume pot — are
+  **already in this SERP**, stated plainly in the forum threads and on fenderguru.
+  That is not the post's claim. What no result has: (1) the **per-model Bright
+  switch inventory**, which is the finding that reframes the whole topic; (2) the
+  per-model 2-vs-3 preamp stage split as a table; (3) the Super Reverb's
+  Middle-on-Vibrato-only asymmetry sitting in the same table; (4) the
+  pedal-platform conclusion derived from (1) rather than asserted.
+- **Gate 1 — the post's own first draft was wrong and was corrected before
+  publishing.** The draft generalised the Deluxe Reverb's hardwired-cap
+  arrangement across the blackface line. Mojotone's Fender field guides, fetched
+  per model, say otherwise. Verified panel layouts:
+  - **Deluxe Reverb:** `"Normal" In, In, Volume, Treble, Bass` / `"Vibrato" In,
+    In, Volume, Treble, Bass, Reverb, Speed, Intensity` — **no Bright switch on
+    either channel**, which is exactly why its 47 pF is soldered in.
+  - **Vibrolux Reverb:** Bright switch on **both** channels, no Middle on either.
+  - **Pro Reverb:** Bright switch on **both** channels, no Middle on either.
+  - **Super Reverb:** Bright switch on **both**; Middle on **Vibrato only**
+    (`Normal: In, In, Bright Switch, Volume, Treble, Bass`).
+  - **Twin Reverb:** Bright switch and Middle on **both** channels.
+  So the Deluxe Reverb is the outlier, and on the other four the treble variable
+  is switchable — which *weakens* the naive "Normal is the flat channel" claim
+  and produces a better one: switch both off and what remains is the third gain
+  stage plus the effects routing.
+- **Gate 1 — other sourcing.** 47 pF value and "the Normal channel did not get
+  this bright cap" quoted from fenderguru's Deluxe Reverb page, fetched directly;
+  the 2-vs-3 preamp stage split (third stage = V4B, mixes the reverb return) from
+  robrobinette's *AB763 Model Differences*, fetched directly. Twin Reverb pot and
+  cap values (1M audio volume, 250K audio treble, 10K mid, 250K audio bass; 250
+  pF treble, .047 µF mid, .1 µF bass, identical on both channels; Super Reverb
+  and Concert use .022 µF mid) extracted locally from robrobinette's Twin Reverb
+  DIYLC layout PDF. The V1-pull noise tip is fenderguru's.
+- **Handled as a genuine source conflict, not resolved by picking one:** whether
+  the Vibrato channel's third stage lands above or below unity. Robinette says it
+  "more than compensates"; forum measurements report near-parity. The post states
+  both and concludes that **level is not the reliable channel difference — the
+  cap is**, which is what the evidence actually supports.
+- **Deliberately omitted:** Showman, Dual Showman, Concert, Bandmaster and
+  Vibroverb panels (still unverified, same standing as the 09-27 run); and the
+  per-channel **coupling cap** difference (.047 µF Normal vs .022 µF Vibrato),
+  which appears only in forum summaries. Note that this claim is **already
+  published** in `fender-deluxe-reverb-settings` from an earlier run — today's
+  SERP corroborates it ("much larger coupling capacitor feeding the phase
+  inverter") but only from the same forum tier, so it was left alone rather than
+  either repeated in the new post or removed. **Logged as verification debt.**
+- **AI Overview:** not observed. F&K not known to be cited.
+- Non-commodity gate: **PASS.** Checked against `fender-deluxe-reverb-settings`,
+  `fender-amps-with-no-mid-control`, `clean-headroom-fender-amp-chords-dont-break-up`,
+  `fender-deluxe-reverb-vs-tonemaster`. **Confirmed no colliding slug.**
+
+**Post 3 — high-pass-filter-electric-guitar-how-high** (Dev Okonkwo; target:
+"high pass filter electric guitar," "hpf guitar frequency," "should i high pass
+electric guitar," "low cut guitar mix")
+
+- **Top ranking:** Premier Guitar's *Recording Dojo: What's a High-Pass Filter?*,
+  isina.com's HPF/LPF explainer, ProducerSpot's mixing tips, plus Gearspace,
+  TalkBass, SevenString, HomeRecording and Avid DUC threads.
+- **Honest narrowing — two things the brief assumed were gaps are not.** Premier
+  Guitar's article, fetched directly, **already states** "the lowest frequency on
+  the guitar is about 83 Hz (our lowest E string)" and **already discusses slope
+  at length** ("The gentle slope of 12 dB per octave…", recommends 12 to 48 dB
+  slopes). So neither the 83 Hz figure nor "slope matters" is the non-commodity
+  claim, and the post does not present them as discoveries. What no result has:
+  (1) the **per-tuning fundamental table** (E2 82.41 / D2 73.42 / C2 65.41 / B1
+  61.74 / A1 55.00); (2) the **computed dB cost** of each common corner at each
+  tuning at both slopes — nobody publishes the arithmetic; (3) the **slope
+  inversion**: the 12 and 24 dB/oct curves cross *exactly at the corner*, so above
+  it the steeper filter attenuates **less**, which makes "steep and low" the
+  safest combination in the space and "steep and high" the most destructive; (4)
+  the **per-source answers** (mic'd cab already bandpassed by speaker + box;
+  modeler full-range output not; DI'd piezo the extreme case); (5) the observation
+  that Premier Guitar's own 155 Hz example puts the E2 fundamental **22 dB down**
+  at 24 dB/oct, i.e. the note is being carried by its second harmonic.
+- **Gate 1 — every figure computed, not recalled.** Fundamentals derived from
+  A4 = 440 Hz equal temperament; attenuation from the Butterworth magnitude
+  |H| = 1/√(1+(fc/f)^2n). Both computed in-run. The article **states the
+  Butterworth/−3 dB assumption explicitly** so the numbers are not read as a spec
+  for any particular device.
+- **Platform detail verified from the manual, including its limits:** the Helix
+  cab/IR **Low Cut** parameter range ("from Off up to 500 Hz") and its stated
+  purpose ("help remove rumble") are quoted from the Helix 3.80 manual extracted
+  this run. **The manual gives no slope**, and the post says so rather than
+  inventing one — which is itself one of the piece's points.
+- **AI Overview:** not observed. Query class ("what frequency should I…")
+  suggests one is likely; F&K not known to be cited.
+- Non-commodity gate: **PASS.** Checked against `guitar-eq-guide`,
+  `eq-pedal-placement`, `modeler-global-eq-guide`, `gain-staging-drop-tunings`,
+  `dialing-in-drop-tuned-high-gain`, `what-to-ask-the-sound-tech-guitar-worship`.
+  **Confirmed no colliding slug** (zero high-pass / low-cut / HPF slugs existed).
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | dialing-in-drop-tuned-high-gain | **A real factual error fixed, plus the legacy `<FAQ>` migrated and 5 takeaways added (had none).** The Start Here callout stated "Drop A (A2) is 110Hz. Drop G# is 103Hz. Drop F# is 92Hz" — **all three are an octave high.** A six-string dropped to A is **A1 = 55 Hz**, drop G# is **51.91 Hz**, drop F# is **46.25 Hz**; 110/103.83/92.50 Hz are the octave-2 values. The table carried the same error in a "7-string Drop A (A2) \| 110Hz" row, now replaced with correctly-labelled 7- and 8-string rows (B1 61.74, F#1 46.25, E1 41.20). **Content add, not just correction:** a new column giving **what each recommended low-cut actually costs the fundamental** in dB — which exposes that the post's own 90–100 Hz recommendation for an 8-string costs roughly 15 dB at 12 dB/oct and 29 dB at 24. Two FAQs added on fundamentals and low-cut ceilings, placeholder `image_alt` ("a composition illustrating \"Dialing In Drop\"") replaced, description trimmed from 210 chars, links added to Post 3. | A frequency-by-frequency guide that states three of its frequencies an octave too high sends readers to a low-cut set an octave too high. The post's whole premise is the numbers. |
+| R2 | stereo-signal-chain-architecture | **The category table made correct for Helix users.** Its "Mono Until You Need Stereo" table sorts blocks by category, and the Helix Legacy subcategory breaks that mapping in both directions — which means a reader can follow this page exactly and still be mono from block five onward. New subsection states the three Legacy category rules, names the seven-mono-compressor case as the one that actually bites, and points out that **this failure passes the page's own mono fold-down test**. Reciprocal link to Post 1. `updated: 2026-09-29`. | It is the site's reference architecture for stereo presets, and on the platform it gives step-by-step instructions for, the architecture alone is not sufficient. |
+
+**Cross-post corrections (logged separately from the refreshes above):**
+
+- **`fender-amps-with-no-mid-control` and `fender-deluxe-reverb-settings` — the
+  09-27 taper claim, hedged to what the evidence supports.** Both posts asserted
+  the 6.8k resistor equals "a 10k **linear** pot at 68 percent," and translated
+  that into a dial position ("the Middle soldered at roughly 7"). The resistance
+  figure is fine — 6.8k is 68% of 10k on any taper — but **the dial translation
+  requires a linear taper, and robrobinette's own Twin Reverb layout drawing
+  labels both Middle pots `10K Log`.** Sources genuinely disagree and no parts
+  list or vendor spec resolving it was reachable this run (Mojotone's field guides
+  list panel layouts, not tapers). Both posts now state the resistance figure
+  unconditionally, name the taper disagreement, and note that an audio taper would
+  put the equivalent **higher** than 7 rather than lower — so the mid-forward
+  conclusion survives either way and in fact strengthens. `updated: 2026-09-29` on
+  both. Reciprocal link to Post 2 added to the mid-control post.
+- **`fender-deluxe-reverb-settings` — channel section expanded.** A settings
+  guide for this amp never told the reader which input to use. Now adds the
+  **three-vs-two preamp stage** difference, the fact that **neither channel has a
+  Bright switch** (which is why the 47 pF is soldered in and cannot be defeated),
+  and the resulting **pedal-platform recommendation**, plus a Gate 6 fix
+  ("warmer, darker" → a specific comparison). Links to Post 2.
+
+**Refresh debt carried forward:**
+1. The Y1 measured per-block latency table in `modeler-latency-budget-per-block-cost`.
+2. The complete Helix In-Z menu enumeration for `modeler-input-impedance-setting-what-to-set-it-to`.
+3. The measured figures in both DI shootouts.
+4. The AK3 Legacy parameter-gap inventory — needs HX Edit or hardware; **still not
+   obtainable from the Owner's Manual (re-confirmed today against 3.80).**
+5. **NEW — the blackface Middle pot taper.** Linear or audio? Robinette's layout
+   says Log, plenty of amp-building references say linear, and the dial
+   translations in two published posts depend on it. Resolving it needs a Fender
+   parts list or a vendor's pot spec, not a schematic (schematics give the value,
+   not the taper).
+6. **NEW — the Deluxe Reverb per-channel coupling cap values** (.047 µF Normal vs
+   .022 µF Vibrato), published in `fender-deluxe-reverb-settings` on forum-tier
+   sourcing only. Corroborated again today at the same tier. Verify against a
+   schematic or leave it, but do not "confirm" it from another forum thread.
+
+**Image pipeline note:** the `nocturnal_studio` moodboard produced a hero for Post
+2 with a legible `Fender` script on the grille cloth on the first generation and
+visible `Marshall` logos in the background on the second, despite the prompt
+specifying "unbranded." Regenerated a third time to a clean unbranded result. All
+three new posts' `image_alt` values were rewritten **after** generation to
+describe the images that actually exist rather than the ones the drafts assumed —
+worth making standard practice, since the moodboard subject rotation does not
+follow the article's subject.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 0, added 3 — **queue goes from 3 to 3, flat.** Bylines are
+> best-fit proposals; the executing run re-checks velocity **and** the never-assign
+> list, and **verifies no colliding slug at build time**. All three
+> collision-checked when queued.
+>
+> **Rejected as re-slices, recorded so nobody re-derives them:** (a) "which Helix
+> blocks are mono-only" — that is Post 1's inventory re-sliced; (b) a standalone
+> "how high should I low-pass an electric guitar" — the mirror of Post 3 and the
+> exact per-variation pattern §6 warns about; (c) "which Fender amps have a mid
+> knob on one channel only" — already rejected on 09-27 and still a Super Reverb
+> row re-sliced; (d) a general "linear vs audio taper explained" post — the
+> interesting version of that question is today's unresolved debt item, and
+> shipping it without resolving the taper would be a generic explainer that is
+> everywhere.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AK7 | fender-bright-switch-what-it-actually-does | Your Fender's Bright Switch Does Nothing Above Volume 5. Here's Why. | "fender bright switch," "what does the bright switch do," "bright switch no difference," "deluxe reverb no bright switch" | Hank Presswood | 2 — Settings Guides | **Surfaced by Post 2's panel audit and deliberately kept out of it.** The Bright switch is a treble-bypass cap across the volume pot, which means its effect is **inversely proportional to how far up the Volume is** — it does the most at 2 and approaches nothing wide open. That is why players A/B it loud, hear no difference, and conclude it is broken. Distinct content: the per-model inventory of which blackface amps have the switch and which channels carry it (verified this run: Vibrolux Reverb, Pro Reverb, Super Reverb and Twin Reverb have it on **both** channels; the **Deluxe Reverb has none at all** and uses a hardwired 47 pF instead), the volume-dependence explained as the mechanism rather than a quirk, what value goes where, and the modeler problem — most modeler EQ is level-independent, so a modeled bright switch either behaves or does not and you should check yours. **Gate 7 guard: must ship per-model cap *values* verified against a schematic or a parts list, not just the panel presence already verified. If the values can't be sourced, ship the volume-dependence mechanism plus the verified per-model presence table and say the values are unconfirmed — do NOT invent picofarad figures.** Hank's lane (vintage, gear history); not on his never-assign list. **Confirmed no colliding slug.** |
+| AK8 | polyphonic-pitch-blocks-dsp-cost-worth-it | Polyphonic Pitch Blocks Eat Half Your DSP. When Is That a Fair Trade? | "helix poly pitch dsp," "polyphonic vs monophonic pitch shifter," "helix dsp limit pitch," "poly capo worth it" | Viktor Kessler | 4 — Modeler Masterclass | Quoted from the Helix 3.80 manual, extracted this run: the Poly models "utilize polyphonic pitch shifting and, therefore, are extremely DSP-intensive. **Each one might take up half of all DSP available for Path 1 or Path 2**," and separately "All Amp+Cab, Amp, Preamp, and **Poly effects blocks are mono**." So a Poly block costs you half a path *and* collapses stereo — two prices for one block, and nobody prices them together. Distinct content: what polyphonic tracking actually buys over the monophonic Pitch Wham / Simple Pitch (chords vs single notes), the DSP arithmetic of what else fits alongside one, the drop-tune-with-Poly-Capo use case versus just tuning the guitar down, and the latency question. **Gate 7 guard: must stay distinct from Post 1 — that post is about Legacy blocks collapsing a path; this is about Poly blocks' DSP price and when the tracking is worth it. If it turns into a second mono-collapse post, drop it.** Also must not assert per-block DSP percentages beyond the manual's own "might take up half" — the measured budget is human-in-the-loop debt. Viktor's lane (data-driven, measurable); not on his never-assign list. **Confirmed no colliding slug.** |
+| AK9 | guitar-speaker-low-end-rolloff-what-a-cab-actually-passes | What a Guitar Cab Actually Passes Below 100 Hz (and Why Your IR Doesn't Match) | "guitar speaker frequency response low end," "why does my IR sound boomy," "guitar cab rolloff," "12 inch speaker low frequency" | Margot Thiessen | 5 — Gear Lab | Post 3 asserts that a mic'd cab arrives pre-filtered and a modeler's full-range output does not, and treats that as the reason the same high-pass frequency is right in one case and wasteful in the other. **That claim deserves its own page with the actual numbers behind it.** Distinct content: published low-frequency response figures for common guitar speakers, what open-back versus sealed does to the rolloff, why two impulse responses of the same cab can differ by several dB below 100 Hz depending on capture distance and room, and the practical consequence — an IR chosen on its midrange can hand you a low end no real box would produce in a room. **Gate 7 guard: must ship manufacturer-published response figures per speaker, sourced. If those can't be obtained, drop it — a "cabs roll off low end" piece with no numbers is exactly the commodity content §6 deprioritises, and the measured-figures rule from the DI shootouts applies here in full: do NOT invent or "confirm" response measurements.** Margot's lane (what she notices first is harmonic content and feel) and not on her never-assign list; Dev and Sean are the obvious alternates if her velocity is full. **Confirmed no colliding slug.** |

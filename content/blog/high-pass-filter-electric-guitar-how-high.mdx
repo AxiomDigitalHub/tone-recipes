@@ -1,0 +1,180 @@
+---
+title: How High Can You High-Pass an Electric Guitar Before It Costs You Something?
+seo_title: How High Can You High-Pass an Electric Guitar?
+description: >-
+  The low E fundamental is 82 Hz, which sits below where most people filter.
+  Here is what each corner frequency actually costs in dB, per tuning, and why a
+  steeper slope is gentler than you think.
+date: '2026-09-29'
+author_slug: dev-okonkwo
+category: signal-chain
+tags:
+  - eq
+  - mixing
+  - frequency
+  - signal-chain
+  - modeler
+  - recording
+  - low-end
+takeaways:
+  - >-
+    The open low E fundamental is 82.41 Hz in standard tuning, which is below
+    the 100 to 120 Hz range most engineers high-pass at. A filter up there is
+    not cleaning out frequencies the guitar can't produce — it is taking dB off
+    the lowest note you play.
+  - >-
+    At 120 Hz with a 12 dB per octave slope, that 82 Hz fundamental comes down
+    about 7 dB. With a 24 dB per octave slope at the same frequency it comes
+    down about 13 dB. Same corner, nearly twice the cost.
+  - >-
+    Above the corner frequency a steeper filter attenuates less than a gentler
+    one. The two curves cross exactly at the corner. So "steeper" only means
+    "more filtering" for the material below where you set it.
+  - >-
+    Where you can put the filter depends on the source. A mic'd cab has already
+    been filtered by the speaker and the cabinet; a modeler's full-range output
+    and a DI'd piezo have not, and they need the most help.
+  - >-
+    Drop tunings move the target. Drop C puts the lowest fundamental at 65 Hz,
+    where a 100 Hz filter at 24 dB per octave costs about 15 dB — enough to
+    change what the part is doing in the arrangement.
+faq:
+  - q: What frequency should I high-pass an electric guitar at?
+    a: >-
+      Between 80 and 120 Hz for a standard-tuned electric in a full arrangement,
+      and toward the low end of that if the guitar is carrying weight in the
+      track. 80 Hz sits just below the open low E fundamental at 82 Hz, so it
+      removes cabinet thump and handling rumble without touching the note. Above
+      100 Hz you are trading body for space, which is often the right trade —
+      just know you are making it.
+  - q: What is the lowest frequency an electric guitar produces?
+    a: >-
+      The open low E in standard tuning has a fundamental of 82.41 Hz. Drop D
+      puts it at 73.42 Hz, drop C at 65.41 Hz, a seven-string low B at 61.74 Hz,
+      and drop A at 55 Hz. Anything below the fundamental of your lowest note is
+      cabinet resonance, room, handling noise or amp hum rather than the
+      instrument.
+  - q: Is a 24 dB per octave high-pass better than 12 dB per octave?
+    a: >-
+      It is not simply more filtering. The two curves cross at the corner
+      frequency: below it the steeper filter removes much more, and above it the
+      steeper filter removes slightly less. So a steep filter set below your
+      lowest fundamental is the cleanest option available, and a steep filter
+      set above it is the most destructive.
+  - q: Should I high-pass a modeler's direct output differently than a mic'd amp?
+    a: >-
+      Yes. A real speaker in a real cabinet has already rolled off most of what
+      a filter would remove, so a mic'd cab often needs nothing above 60 to 80
+      Hz beyond stand rumble control. A modeler feeding a full-range system is
+      reproducing whatever the cab block or impulse response passes, and that is
+      where a deliberate filter earns its place.
+  - q: Does a high-pass filter help with muddiness?
+    a: >-
+      It helps with low-end buildup below roughly 100 Hz, which is a different
+      problem from mud. What most people call mud lives around 200 to 400 Hz,
+      above almost any sensible high-pass corner, and a filter set high enough
+      to reach it will have taken the fundamental of your lowest string with it.
+      Cut at 250 to 300 Hz instead and leave the filter where it belongs.
+  - q: What slope does my modeler's Low Cut use?
+    a: >-
+      Most manufacturers don't publish it. The Helix manual documents the Low
+      Cut parameter on cab and IR blocks as filtering "a portion of the cab's
+      bass" up to 500 Hz and describes its purpose as removing rumble, but gives
+      no slope. That means the dB figures in this article are a model of filter
+      behaviour rather than a spec for any one device — use them to reason, then
+      trust the meter and your ears.
+image: /images/blog/high-pass-filter-electric-guitar-how-high.jpg
+image_alt: >-
+  A small black graphic EQ unit with its faders set in a curve, patched with two
+  cables on a grey desk in a dim bedroom studio, with a record sleeve, a mug and
+  a plant behind it under teal and purple light
+---
+
+There is a number that gets repeated so often it has stopped being examined. High-pass your electric guitars at 100 Hz. Sometimes 120. It appears in every mixing tutorial as the first move you make on a guitar track, framed as housekeeping — you're sweeping out the stuff down there that the guitar doesn't use.
+
+The open low E is 82.41 Hz. The advice puts the filter above it.
+
+That's not necessarily wrong. But it changes what the move is. You are not cleaning below the instrument. You are standing on the fundamental of the lowest note on the neck and deciding how much of it to keep.
+
+## Where the Fundamentals Actually Sit
+
+| Tuning | Lowest open string | Fundamental |
+|---|---|---|
+| Standard | Low E (E2) | 82.41 Hz |
+| Drop D | D2 | 73.42 Hz |
+| Drop C | C2 | 65.41 Hz |
+| Seven-string standard | Low B (B1) | 61.74 Hz |
+| Drop A | A1 | 55.00 Hz |
+
+And the strings above it, for scale — open A is 110 Hz, open D is 146.83 Hz, open G is 196 Hz. That whole cluster of open strings lives inside the range people sweep filters through without thinking about it. A filter at 155 Hz, which is a real recommendation you'll find in print for a heavily distorted rhythm part, is sitting above the open A and just under the open D.
+
+## What Each Corner Costs
+
+These are Butterworth responses, where the stated frequency is the −3 dB point. Twelve dB per octave first, twenty-four second.
+
+| Lowest note | 80 Hz | 100 Hz | 120 Hz | 155 Hz |
+|---|---|---|---|---|
+| E2 — 82.41 Hz | −2.8 / −2.5 | −5.0 / −7.6 | −7.4 / −13.3 | −11.3 / −22.0 |
+| D2 — 73.42 Hz | −3.8 / −4.8 | −6.5 / −11.1 | −9.1 / −17.2 | −13.2 / −26.0 |
+| C2 — 65.41 Hz | −5.1 / −7.8 | −8.1 / −14.9 | −10.9 / −21.1 | −15.1 / −30.0 |
+| B1 — 61.74 Hz | −5.8 / −9.5 | −9.0 / −16.8 | −11.8 / −23.1 | −16.1 / −32.0 |
+| A1 — 55.00 Hz | −7.4 / −13.2 | −10.8 / −20.8 | −13.7 / −27.1 | −18.1 / −36.0 |
+
+The thing to read off that table is not any single number. It's the shape. Move the corner from 80 to 120 Hz in standard tuning and the fundamental goes from barely touched to down 7 dB. Do the same thing in drop C and you've gone from −5 to −11. The filter didn't change. Your tuning decided what the filter was worth.
+
+And notice the 155 Hz column against the E2 row. Twenty-two dB at the steeper slope. At that point the fundamental isn't reduced, it's gone, and what you're hearing when you play an open low E is its second harmonic at 165 Hz doing the work of the root. Sometimes that's exactly what a dense mix wants. It is not housekeeping.
+
+## The Slope Does the Opposite of What You Expect
+
+I went into this assuming a steeper filter was simply more filtering — that 24 dB per octave was the aggressive setting and 12 was the polite one, everywhere. That's only true on one side of the corner.
+
+The two curves cross exactly at the corner frequency, where both sit at −3 dB. Below it the steeper filter pulls away fast. Above it the steeper filter is the *gentler* of the two, because a higher-order Butterworth response is flatter in the passband. At 120 Hz with the corner set to 100, the 12 dB slope has taken 1.7 dB and the 24 dB slope has taken 0.9.
+
+Which gives a rule that's more useful than "pick a number":
+
+- **A steep filter below your lowest fundamental is the cleanest tool you have.** It clears rumble hard and leaves the note almost untouched. Set 24 dB per octave at 70 Hz in standard tuning and the low E loses under a dB.
+- **A steep filter above your lowest fundamental is the most destructive.** Same knob, opposite outcome, because now the note is on the wrong side of the crossing point.
+
+So the slope question and the frequency question aren't separate. Steep and low is the safest combination in the whole space. Gentle and high is the compromise position — it takes body out of everything gradually instead of taking one region out decisively. Steep and high is a deliberate effect.
+
+## Then It Depends Entirely on the Source
+
+This is the part that doesn't generalize, and it's why "high-pass guitars at 100" can be both good advice and a waste of a filter depending on what's feeding it.
+
+**A mic'd cabinet has already been filtered.** A 12-inch guitar speaker in a sealed or open-back box is a bandpass device with its own low-frequency rolloff, and a dynamic mic in front of it adds another. By the time the signal reaches your preamp, most of what a 60 to 80 Hz filter would have removed isn't there. What you're catching at that point is stand rumble, footfall through the floor, and the low-frequency thump of air moving in the room — real problems, small in level. A gentle filter around 60 to 70 Hz usually covers it.
+
+**A modeler's full-range output has not been filtered the same way.** A cab block or an impulse response is a frequency response, and what it passes below 80 Hz depends entirely on which one you loaded. Some IRs are honest about the cabinet's rolloff and some are captured in a way that leaves more weight down there than a real box would produce in a room. This is the case where a deliberate filter does the most work, and it's also the case where you can hear it best — if you're monitoring on [headphones with a lift in the low end](/blog/bedroom-modeler-headphone-frequency-response), you may be making the decision against a response that isn't telling you the truth.
+
+Worth knowing what your platform gives you here: the Helix Low Cut parameter on cab and IR blocks sweeps from off up to 500 Hz, and Line 6 describes its purpose as removing rumble. Five hundred hertz is nearly three octaves above the open low E. That range exists because the same parameter serves other jobs, but it's a reminder that the control will happily go somewhere that has nothing to do with rumble.
+
+**A DI'd piezo is the extreme case.** An under-saddle pickup produces energy well below anything the instrument is actually sounding, and it's the one source where a filter above the fundamental is often correct rather than a compromise. That's a [different conversation about impedance and what the pickup is doing](/blog/piezo-di-for-acoustic-guitar-input-impedance), but the filter logic is the same: know where the lowest note is, then decide how far above it you're willing to go.
+
+## What You Actually Remove, By Region
+
+| Region | What lives there | Cost of removing it |
+|---|---|---|
+| Below 50 Hz | Handling noise, floor rumble, HVAC, mains hum harmonics | None. Take it |
+| 50 to 70 Hz | Cabinet resonance, the thump of air in the room, drop-tuned fundamentals | Nothing in standard tuning. Everything if you tune low |
+| 70 to 90 Hz | The low E fundamental, and the sense that an amp is physically present | Weight. The guitar gets smaller before it gets clearer |
+| 90 to 130 Hz | Body, proximity, the low end of power chords | Room for bass and kick. This is the real trade |
+| Above 130 Hz | The notes of the part itself, not resonance | You are now arranging, not filtering |
+
+The row that matters is 70 to 90. That's where the word "thin" starts applying, and it's also where every standard recommendation sits. The reason the advice works despite crossing the fundamental is that a full arrangement already has a bass and a kick drum occupying that space, and two instruments fighting over 82 Hz sounds worse than one of them losing gracefully. But if the guitar is the only low-mid source in the track — a solo part, a duo, an ambient piece with no bass — the filter you copied from a rock mixing tutorial is taking something you needed.
+
+## A Way to Pick the Number in Ninety Seconds
+
+1. Find your lowest open string's fundamental in the first table.
+2. Set the slope steep — 24 dB per octave — and put the corner one whole step below that frequency. Standard tuning gives you roughly 73 Hz. Drop C gives you roughly 58.
+3. Solo the guitar. It should sound identical. If it doesn't, your filter is higher than you think or your plugin's stated frequency isn't its −3 dB point.
+4. Now play the full arrangement and sweep the corner up slowly. The first thing you'll notice is the bass getting clearer, not the guitar getting worse. Keep going until the guitar loses presence, then come back about 10 Hz.
+5. Wherever you land, write the number down next to the tuning. Next session in that tuning starts from there instead of from 100.
+
+Step 4 is the whole method. You're not listening for the guitar to sound better — high-passing a guitar in isolation never sounds better. You're listening for what the removal gives to everything else, which means the decision can only be made in context. Soloed, this move is always a loss.
+
+## The Part People Skip
+
+If what you're chasing is mud, a high-pass is the wrong tool and you'll hurt the track reaching for it. Thickness that makes a mix feel congested lives around 200 to 400 Hz — above any filter corner you should be using, and the reason a general [EQ approach for guitar](/blog/guitar-eq-guide) starts with a cut there rather than a filter. Setting the corner high enough to reach 300 Hz means passing through the fundamental of every open string below the G.
+
+Two different moves, two different regions. The filter handles what's below the instrument. A cut handles what the instrument has too much of. Ask a front-of-house engineer for the wrong one and you'll get a polite no; ask [in the terms they can act on](/blog/what-to-ask-the-sound-tech-guitar-worship) and you'll get the fix.
+
+And if you're tracking low, the numbers in the second table are worth re-reading before you touch anything — because most low-tuned guitar problems that look like filter problems are actually [gain staging problems](/blog/gain-staging-drop-tunings) wearing a filter's clothes. A part that was never clean at 65 Hz doesn't get clean by having 65 Hz removed. It just gets smaller.

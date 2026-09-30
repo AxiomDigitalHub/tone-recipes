@@ -6,7 +6,7 @@ description: >-
   The architecture that gives you a coherent stereo image without damaging the
   tone when the room sums to mono.
 date: '2026-04-27'
-updated: '2026-08-04'
+updated: '2026-09-29'
 author: Sean Nakamura
 author_slug: sean-nakamura
 category: signal-chain
@@ -165,6 +165,18 @@ The Helix's signal flow editor makes the split point explicit. Build the preset 
 The amp and cab are mono blocks in path 1. The split happens after the cab. The modulation onward is stereo. This is the correct architecture for the Helix and it produces a clean mono-summed signal with a coherent stereo image.
 
 If you don't have a modulation block, the split happens at the delay. The principle is identical.
+
+### The One Helix-Specific Exception to the Category Table
+
+Everything above sorts blocks by category — compression is mono-appropriate, modulation is where stereo begins — and on the Helix there is a subcategory where that mapping does not hold. The Legacy models, carried over from the POD-era units, have their own mono/stereo behaviour that Line 6 documents by category rather than by model:
+
+- Legacy Distortion, Dynamics and Pitch/Synth models are **all mono**.
+- Legacy Filter and Reverb models are **all stereo**.
+- Legacy Modulation and Delay models **vary**, and the manual explicitly does not say which is which.
+
+That first line is the one that breaks presets built to the architecture on this page. All seven Legacy compressors are mono, so dropping one into step 5, 6 or 7 above will collapse everything upstream of it back to mono — the manual's wording is that a mono block "will collapse any preceding stereo blocks on the same path." You will have followed the split-point rule correctly and still be mono from that block onward, and the mono fold-down test below will pass, because there is nothing left to fold down.
+
+The check is per-block and takes two seconds: a stereo block shows a stereo indicator after its model name in the inspector. The full per-category inventory, the models the manual won't resolve, and the ordering rule that works around it are in [Helix Legacy blocks are mono](/blog/helix-legacy-blocks-mono-stereo-collapse).
 
 ---
 

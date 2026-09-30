@@ -1,0 +1,196 @@
+---
+title: Helix Legacy Blocks Are Mono (and What That Does to the Rest of Your Preset)
+seo_title: Helix Legacy Blocks and the Silent Stereo Collapse
+description: >-
+  One Legacy compressor after your amp collapses every stereo block in front of
+  it. The per-category inventory from the Line 6 manual, and the two-second
+  check for the models it won't list.
+date: '2026-09-29'
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - helix
+  - hx-stomp
+  - stereo
+  - signal-chain
+  - modeler
+  - presets
+  - legacy-effects
+takeaways:
+  - >-
+    A mono block collapses every stereo block before it on the same path. The
+    Legacy subcategory is full of mono blocks hiding in categories you think of
+    as stereo, which is why a preset can lose its width without you touching a
+    stereo setting.
+  - >-
+    Line 6 documents this by category, not by model. Legacy Distortion, Dynamics
+    and Pitch/Synth are all mono. Legacy Filter and Reverb are all stereo.
+    Legacy Modulation and Delay are a mixed bag the manual explicitly declines
+    to enumerate.
+  - >-
+    The standard "mono before the amp, stereo after" rule does not protect you,
+    because it sorts blocks by category and the Legacy subcategory breaks the
+    category's promise.
+  - >-
+    The stereo indicator next to the model name in the inspector is the only
+    per-model answer. Check it before you place the block, not after you notice
+    the preset sounds narrow.
+  - >-
+    Some Legacy modulation and delay models are mono-in, stereo-out, and their
+    Mix parameter narrows the stereo image being fed into them. A lower Mix on
+    those blocks preserves more of what arrived.
+faq:
+  - q: Why did my Helix preset suddenly sound mono after I added one block?
+    a: >-
+      Because a mono block collapses every stereo block ahead of it on the same
+      path. The Line 6 manual states it directly: "Adding a mono effects block
+      will collapse any preceding stereo blocks on the same path to mono." If
+      the block you added was from the Legacy subcategory, it may be mono even
+      though the category it sits in usually is not.
+  - q: Which Helix Legacy effects are mono?
+    a: >-
+      Every Legacy Distortion, Legacy Dynamics and Legacy Pitch/Synth model is
+      mono. That includes all seven Legacy compressors — Tube Comp, Red Comp,
+      Blue Comp, Blue Comp Treb, Vetta Comp, Vetta Juice and Boost Comp — and
+      every Legacy drive and fuzz. Legacy Filter and Legacy Reverb models are
+      all stereo.
+  - q: Are Helix Legacy delays and modulations mono or stereo?
+    a: >-
+      It varies per model, and Line 6 does not publish which is which. The
+      manual says some are mono, some are stereo, and some are
+      mono-in/stereo-out. The only reliable answer is the stereo indicator shown
+      after the model name in the inspector when you select the block on the
+      hardware or in HX Edit.
+  - q: How do I tell if a Helix block is stereo before I use it?
+    a: >-
+      Select the block and look at the model name in the inspector. A stereo
+      block displays a stereo indicator after its name; a mono block does not.
+      This works for every block including Legacy models, which is the only way
+      to resolve the Legacy modulation and delay ambiguity without guessing.
+  - q: Does the Mix parameter affect stereo width on Legacy blocks?
+    a: >-
+      On the mono-in/stereo-out Legacy modulation and delay models, yes. The
+      manual notes that adjusting Mix on those models "can narrow the stereo
+      image that is fed into them," so the wet signal the block generates is
+      stereo while the incoming image gets squeezed as Mix rises. Lower Mix
+      preserves more of the stereo picture that arrived at the block.
+  - q: Do HX Stomp and HX Effects behave the same way as Helix?
+    a: >-
+      Yes. The HX Effects manual carries the same three-line Legacy breakdown
+      verbatim and adds that when a mono block is used, "both channels of audio
+      are combined and sent out of the block as mono." The Legacy model set and
+      its mono/stereo behaviour are shared across the HX family.
+image: /images/blog/helix-legacy-blocks-mono-stereo-collapse.jpg
+image_alt: >-
+  A black floor multi-effects processor with two rows of footswitches and an
+  expression pedal sitting on a wooden desk in a dim bedroom studio, lit by a
+  desk lamp with teal and purple light on the wall behind it
+---
+
+You build a stereo preset the way everyone says to build one. Mono chain into the amp, stereo modulation after it, stereo delay, stereo reverb, hard-panned out to two monitors. It sounds enormous. Then you add a compressor after the amp to even out the level going into the delay, and the whole thing shrinks — not subtly, not in a way that requires headphones to detect, but audibly narrower on the same speakers you just A/B'd on.
+
+Nothing you did looks wrong. The compressor is a utility block. You put it in a position the architecture rule says is fine. What happened is that you picked it out of the Legacy subcategory, and every Legacy compressor in the Helix is mono.
+
+## The Rule, Stated Once
+
+From the Helix owner's manual, under Block Order and Stereo Imaging:
+
+> Adding a mono effects block will collapse any preceding stereo blocks on the same path to mono.
+
+That is the entire mechanism. It applies to any mono block, not just Legacy ones — the manual separately notes that all Amp+Cab, Amp, Preamp and Poly blocks are mono, so "add only mono blocks before amps and preamps" is the standard advice. The part that catches people is downstream, after the amp, where you believe you are in stereo territory and a Legacy block quietly is not.
+
+## What Line 6 Documents, and What It Doesn't
+
+The manual gives three lines on Legacy behaviour. They are worth reading as three different kinds of statement:
+
+| Legacy category | Behaviour | How certain |
+|---|---|---|
+| Distortion, Dynamics, Pitch/Synth | Mono | Stated as a blanket rule for the whole category |
+| Filter, Reverb | Stereo | Stated as a blanket rule for the whole category |
+| Modulation, Delay | Varies — some mono, some stereo, some mono-in/stereo-out | Explicitly not enumerated |
+
+The first two rows are usable as inventory. The third row is a documented refusal, and it is the more interesting one. Here is the exact wording:
+
+> Legacy Modulation & Delay effects vary in that some are mono, some stereo, and some mono-in/stereo-out, where adjusting the effect's Mix parameter can narrow the stereo image that is fed into them.
+
+Note what that last clause actually says. On those models the Mix parameter narrows the image *arriving at* the block, not the image the block produces. So a mono-in/stereo-out Legacy delay at 100% Mix hands you its own stereo picture and squeezes whatever width you built upstream; the same block at 30% Mix lets more of the upstream image through. That is a genuinely different parameter behaviour from the current-generation blocks, and it is the reason a Legacy delay can sound wide and still make a preset feel like it lost something.
+
+## The Confirmed-Mono Inventory
+
+Every model in these three Legacy categories is mono. If any of them sits after your stereo split point, the split is gone.
+
+**Legacy Dynamics** — Tube Comp, Red Comp, Blue Comp, Blue Comp Treb, Vetta Comp, Vetta Juice, Boost Comp.
+
+**Legacy Distortion** — Tube Drive, Screamer, Overdrive, Classic Dist, Heavy Dist, Colordrive, Buzz Saw, Facial Fuzz, Jumbo Fuzz, Fuzz Pi, Jet Fuzz, L6 Drive, L6 Distortion, Sub Oct Fuzz, Octave Fuzz, Bronze Master, Killer Z.
+
+**Legacy Pitch/Synth** — Bass Octaver, Smart Harmony, Octi Synth, Synth O Matic, Attack Synth, Synth String, Growler, Buzz Wave, Rez Synth, Seismik Synth, Analog Synth, Synth Lead, String Theory, Synth FX, Saturn 5 Ring Mod, Synth Harmony, Double Bass.
+
+The Dynamics row is the one that does real damage in practice, because a compressor is the block people most often add late, after the tone is finished, as a corrective — and post-amp is a legitimate place to put one, as the full argument about [where compression belongs in a modeler preset](/blog/compressor-placement-modeler-preset-pre-amp-post-amp) lays out. It is also the least suspicious-looking block in the list. A Legacy fuzz placed after a stereo chorus is an unusual thing to do. A Legacy compressor placed after the amp is Tuesday.
+
+## The Confirmed-Stereo Inventory
+
+Every model in these two Legacy categories is stereo, which means they are safe anywhere downstream and cost you nothing on placement.
+
+**Legacy Reverb** — Plate, Room, Chamber, Hall, Echo, Tile, Cave, Ducking, Octo, '63 Spring, Spring, Particle Verb.
+
+**Legacy Filter** — Voice Box, V Tron, Q Filter, Seeker, Obi Wah, Tron Up, Tron Down, Throbber, Slow Filter, Spin Cycle, Comet Trails.
+
+I expected this to run the other way. The Legacy reverbs are the oldest-feeling things in the box — they are the POD-era algorithms, they cost a fraction of the DSP a Dynamic Hall does, and the intuition that a cheaper older algorithm is a mono algorithm is a reasonable intuition. It is also wrong for every one of the twelve. Meanwhile the modern-sounding utility blocks in Legacy Dynamics, which do almost no signal shaping at all, are the ones that flatten the path.
+
+## The Category That Can't Be Answered From Documentation
+
+Legacy Modulation and Legacy Delay together are roughly fifty models, and the manual's position is that you have to check. For reference, that's the set in question:
+
+**Legacy Modulation** — Pattern Tremolo, Panner, Bias Tremolo, Opto Tremolo, Script Phase, Panned Phaser, Barberpole, Dual Phaser, U-Vibe, Phaser, Pitch Vibrato, Dimension, Analog Chorus, Tri Chorus, Analog Flanger, Jet Flanger, AC Flanger, 80A Flanger, Frequency Shift, Ring Modulator, Rotary Drum, Rotary Drum/Horn, Tape Eater, Warble-Matic, Random S&H, Sweeper.
+
+**Legacy Delay** — Ping Pong, Dynamic, Stereo, Digital, Dig w/Mod, Reverse, Lo Res, Tube Echo, Tape Echo, Sweep Echo, Echo Platter, Analog Echo, Analog w/Mod, Auto-Volume Echo, Multi-Head, Bubble Echo, Phaze Eko.
+
+You can guess from some of those names and you will be right some of the time. *Panner* has to be stereo to do its job. The model literally called *Stereo* is not ambiguous. But *Ping Pong* sits in the Legacy list and also exists as a current stereo delay, *Dimension* was a stereo chorus in its original hardware form, and none of that is documentation. Guessing produces a preset that works and a mental model that doesn't, which is worse than not knowing, because the next preset inherits the wrong rule.
+
+## How to Actually Check, in Two Seconds
+
+The manual answers this in the sentence right before the mono/stereo bullets, and it is easy to skim past:
+
+> A stereo block displays [a stereo indicator] after its model name in the inspector.
+
+That's the whole diagnostic. Select the block, look at the model name, look for the indicator. It resolves every Legacy model including the fifty the tables won't, it works on the hardware and in HX Edit, and it is per-model rather than per-category, which is the level the question actually lives at.
+
+Two habits follow from that:
+
+1. **Check at placement time, not at debug time.** The cost of noticing a collapse after you've built four more blocks on top of it is that you now have to bisect the path to find it.
+2. **Check the Legacy block even when the current-generation sibling is stereo.** The two model lists are separate. A stereo indicator on *Ping Pong* in the Delay list tells you nothing about *Ping Pong* in the Legacy list.
+
+## Why the Architecture Rule Doesn't Cover This
+
+The standard advice for building a stereo preset is to keep the chain mono up to a split point — usually the modulation block — and stereo from there to the output. That rule is correct and it is worth following; the [full version of that architecture](/blog/stereo-signal-chain-architecture) is a better default than anything else you can do to a preset in five minutes.
+
+It just doesn't help here, because it is a rule about *categories*. It says compression is mono-appropriate and modulation is where stereo begins. The Legacy subcategory breaks that mapping in both directions: it puts mono blocks inside Pitch/Synth, where you might reasonably run a harmonizer after the split, and it puts stereo blocks inside Filter, where you might reasonably have kept things mono. Follow the architecture rule perfectly, pull your compressor from the Legacy list, and you will have a correctly designed preset that is mono from block four onward.
+
+This is also a different failure from the one people usually debug. A preset that collapses at the PA is a [mono fold-down problem](/blog/stereo-width-tricks-that-survive-mono) — the width was real, it existed in the box, and it cancelled when the room summed it. A Legacy collapse means the width never left the unit. The fold-down test will pass, because there is nothing left to fold down.
+
+## The Ordering Rule
+
+Sort the blocks after your split point by what they cost, and the ordering resolves itself:
+
+| Priority | Block type | Where it goes |
+|---|---|---|
+| 1 | Anything confirmed mono (Legacy Dynamics, Distortion, Pitch/Synth) | Before the split point, with the amp |
+| 2 | Mono-in/stereo-out Legacy modulation or delay | First position after the split — it creates the image rather than inheriting one |
+| 3 | Confirmed-stereo blocks (Legacy Filter, Reverb, current stereo models) | Anywhere downstream |
+| 4 | A mono block you cannot move | Last, so it only collapses what you were about to sum anyway |
+
+Row 2 is the useful one. If a Legacy delay is mono-in/stereo-out, it is not a liability — it is a legitimate stereo split point, the same job a stereo chorus does in the standard architecture. You just want it *first* among the stereo blocks, because its Mix parameter narrows what comes in and there is no reason to hand it something wide.
+
+Row 4 is the compromise. If you want Vetta Juice specifically, and you want it after the amp, put it at the end of the path and accept that everything upstream is mono. On a preset headed to a single amp or a mono PA feed that costs you nothing at all, which the manual also says plainly: if you're only ever connecting to one speaker, there may be no reason to use stereo models in the first place.
+
+## On a Pedalboard, the Same Problem Is Worse
+
+The physics are identical on hardware and the consequence is harsher. Run a stereo chorus into a single-input mono pedal and the mono pedal does not sum your two channels — it takes the one cable you plugged into it and the other side is simply gone. Helix at least combines both channels when it collapses; the HX Effects manual is explicit that "both channels of audio are combined and sent out of the block as mono." A mono pedal discards half the signal, which means anything that lived only in the right channel — the wet side of a ping-pong, one half of a panned dual-amp — disappears rather than being averaged in.
+
+Practically: on a board, put every mono pedal before whatever creates your stereo image, and if you must have a mono pedal downstream, run it in the left-channel path only and accept the asymmetry. On an HX unit you have the better version of the same constraint, and the stereo indicator to plan around it with.
+
+## What to Do Tonight
+
+Open the preset you care most about — or start from a clean build, since the [complete Helix tone walkthrough](/blog/complete-guide-line-6-helix-tone-2026) assumes a stereo path that this problem quietly undoes. Walk it left to right and check the inspector indicator on every block after your split point. If you find a mono block, note whether you actually needed *that* model or just a model of that type — in most cases the current-generation equivalent is available in both mono and stereo, and switching to the stereo version costs nothing but DSP you probably have.
+
+Then check the one place this most often hides: the compressor you added last, to fix something else.
