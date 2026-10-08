@@ -25,10 +25,21 @@
  *   ✓ match       stored artwork is the artwork iTunes returns
  *   ⚠ review      iTunes returned tracks for this band and none carries our
  *                 artwork. This is the tier that has ever held a real bug.
- *   ? unverified  iTunes returned nothing for the query; check can't run.
+ *   ? unverified  iTunes returned an empty result set for the query; the
+ *                 check can't run, but iTunes did answer.
+ *   ! error       iTunes refused to answer (non-ok status, empty body,
+ *                 unparseable body, or all retries exhausted). This is a
+ *                 problem with the run, NOT with our data — never "fix" a
+ *                 song's album_art_url off the back of an error row.
  *
- * A sustained 403 aborts the run loudly instead of emitting a report full of
- * phantom flags.
+ * A sustained refusal aborts the run loudly instead of emitting a report full
+ * of phantom flags. Note that bug 2 below recurred on 2026-10-08 through a
+ * path the original fix missed: the abort guard counted only 403/429, while
+ * `lookup` returns null for *every* refusal mode, and the caller collapsed
+ * null into "unverified". A 69-song transient failure window (indices
+ * 143-211) was reported as 69 data flags. The guard now counts refusals of
+ * any kind, and the caller keeps null and [] apart as `lookup` always
+ * promised.
  *
  * Run: `npx tsx scripts/audit-album-art.ts`
  */
@@ -98,7 +109,7 @@ function normalizeArtworkPath(url: string): string {
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-let consecutive403 = 0;
+let consecutiveRefusals = 0;
 
 /** Returns null (not []) when the request was rejected, so callers can tell
  *  "iTunes has nothing" apart from "iTunes refused to answer". */
@@ -117,34 +128,46 @@ async function lookup(term: string): Promise<ITunesResult[] | null> {
     }
 
     if (res.status === 403 || res.status === 429) {
-      consecutive403++;
-      if (consecutive403 >= 12) {
-        throw new Error(
-          "iTunes returned 403/429 twelve times in a row — the run is rate limited.\n" +
-            "Aborting rather than writing a report full of phantom flags.\n" +
-            "Wait ~an hour and re-run; do not lower THROTTLE_MS.",
-        );
-      }
+      noteRefusal(`iTunes returned ${res.status}`);
       await sleep(15_000 * (attempt + 1)); // back off hard
       continue;
     }
 
-    consecutive403 = 0;
-    if (!res.ok) return null;
+    if (!res.ok) return refused(`iTunes returned ${res.status}`);
 
     const body = await res.text();
-    if (!body.trim()) return null;
+    if (!body.trim()) return refused("iTunes returned an empty body");
     try {
       const data: { results: ITunesResult[] } = JSON.parse(body);
+      consecutiveRefusals = 0;
       return data.results ?? [];
     } catch {
-      return null;
+      return refused("iTunes returned an unparseable body");
     }
   }
+  return refused("all retries exhausted");
+}
+
+/** A refusal is a problem with the run, not with our data. Twelve in a row
+ *  means the run is no longer measuring anything, so abort instead of
+ *  emitting a report full of phantom flags. */
+function noteRefusal(why: string): void {
+  consecutiveRefusals++;
+  if (consecutiveRefusals >= 12) {
+    throw new Error(
+      `iTunes refused twelve requests in a row (${why}) — the run is not measuring anything.\n` +
+        "Aborting rather than writing a report full of phantom flags.\n" +
+        "Wait ~an hour and re-run; do not lower THROTTLE_MS.",
+    );
+  }
+}
+
+function refused(why: string): null {
+  noteRefusal(why);
   return null;
 }
 
-type Status = "match" | "review" | "unverified";
+type Status = "match" | "review" | "unverified" | "error";
 
 interface Flag {
   status: Status;
@@ -176,7 +199,10 @@ async function main(): Promise<void> {
     let status: Status;
     let candidates: Flag["candidates"] = [];
 
-    if (results === null || results.length === 0) {
+    if (results === null) {
+      // iTunes refused to answer. Never a statement about our data.
+      status = "error";
+    } else if (results.length === 0) {
       status = "unverified";
     } else if (
       results.some((r) => r.artworkUrl100 && normalizeArtworkPath(r.artworkUrl100) === storedCore)
@@ -206,7 +232,9 @@ async function main(): Promise<void> {
     });
 
     console.log(
-      { match: "✓ match", review: "⚠ REVIEW", unverified: "? unverified" }[status],
+      { match: "✓ match", review: "⚠ REVIEW", unverified: "? unverified", error: "! ERROR" }[
+        status
+      ],
     );
 
     await sleep(THROTTLE_MS);
@@ -218,6 +246,13 @@ async function main(): Promise<void> {
   console.log(`✓ Match:       ${by("match").length} / ${flags.length}`);
   console.log(`⚠ Review:      ${by("review").length} / ${flags.length}`);
   console.log(`? Unverified:  ${by("unverified").length} / ${flags.length}`);
+  console.log(`! Error:       ${by("error").length} / ${flags.length}`);
+  if (by("error").length > 0) {
+    console.log(
+      `\n  ${by("error").length} request(s) were refused by iTunes. Those rows say nothing\n` +
+        "  about our stored artwork — re-run before acting on them.",
+    );
+  }
 
   const section = (heading: string, list: Flag[], withCandidates: boolean) => {
     if (list.length === 0) return;
@@ -238,7 +273,12 @@ async function main(): Promise<void> {
   };
 
   section("REVIEW — iTunes has this band's tracks, none carries our artwork", by("review"), true);
-  section("Unverified — iTunes returned nothing for the query", by("unverified"), false);
+  section("Unverified — iTunes returned an empty result set", by("unverified"), false);
+  section(
+    "ERROR — iTunes refused to answer; these rows are NOT data problems",
+    by("error"),
+    false,
+  );
 }
 
 main().catch((err) => {

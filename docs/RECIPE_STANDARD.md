@@ -526,3 +526,49 @@ The work is in `docs/PARAM_RANGE_AUDIT.md` under "The order to fix them
 in"; it needs hardware ground truth per platform, which is bench work, not
 something a weekly audit run can resolve. **The rule against fixing this by
 widening ranges to fit the data still stands.**
+
+### A refused iTunes request is not a data flag (2026-10-08)
+
+`scripts/audit-album-art.ts` has now shipped the *same* bug twice, and both
+times it manifested as a wall of false flags rather than a missed mismatch.
+The 2026-08-10 pass fixed the rate-limiting half (see the script header, bug
+2) by aborting after 12 consecutive 403/429s. The 2026-10-08 weekly run hit
+it again through the path that fix missed:
+
+- `lookup()` returns `null` for **every** refusal mode — non-ok status, empty
+  body, unparseable body, all retries exhausted — and `[]` only when iTunes
+  genuinely answered with no results. Its doc comment says so explicitly.
+- The abort guard counted only `403`/`429`, so none of the other refusal
+  modes advanced it.
+- The call site then collapsed `null` and `[]` into one `unverified` status.
+
+Net effect: a transient ~3.5-minute iTunes failure window (run indices
+143–211) produced **69 consecutive "unverified" rows** — Linkin Park, Tool,
+System of a Down, Slipknot, Ozzy, Black Sabbath — while the guard stayed
+silent, because the failures were not 403s.
+
+**How it was caught, and the diagnostic to reuse:** the flags were
+*contiguous* and the same bands passed on both sides of the window. Black
+Sabbath was "unverified" at #203 and #207 but `✓ match` at #212; Ozzy was
+"unverified" at #204–210 but matched at #213; Dokken "unverified" at #187,
+matched at #218. A data problem cannot behave that way. Rendering the run as
+a status string makes it a one-line check:
+
+```bash
+grep -oE '^\[[0-9]+/240\].*(match|REVIEW|unverified)' /tmp/albumart.txt \
+ | sed -E 's/^\[([0-9]+)\/240\].*(✓ match|⚠ REVIEW|\? unverified)$/\1 \2/' \
+ | awk '{printf "%s", ($2=="?"?"U":($2=="⚠"?"R":"M"))} END{print ""}'
+```
+
+One contiguous `U` block bounded by `M`s on both sides is a transport
+failure, not 69 bad covers. Confirm by re-probing a couple of the "missing"
+bands directly (`curl -s "https://itunes.apple.com/search?term=tool&entity=album&limit=5"`);
+if they return results, the window was the run's fault.
+
+**The rule:** the album-art audit now reports a fourth tier, `! error`, for
+refusals, counts refusals of *any* kind toward the abort guard, and keeps
+`null` and `[]` apart as `lookup` always promised. **Never update a song's
+`album_art_url` off the back of an `error` row** — those rows carry no
+information about our data. Re-run first. And when adding a failure path to
+`lookup`, route it through `refused()` so it advances the guard; returning a
+bare `null` silently recreates this bug a third time.
