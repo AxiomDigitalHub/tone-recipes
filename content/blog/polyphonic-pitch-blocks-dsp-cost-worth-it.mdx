@@ -1,0 +1,212 @@
+---
+title: Polyphonic Pitch Blocks Cost You Half a Path and All of Your Stereo
+seo_title: Helix Poly Pitch DSP Cost — Is It Worth It?
+description: >-
+  A Helix Poly block takes roughly half a DSP and is mono-only, so it charges
+  twice. Here are the per-block allocations and the non-poly alternatives at an
+  eighth of the cost.
+date: '2026-10-08'
+author_slug: viktor-kessler
+category: modeler-masterclass
+tags:
+  - helix
+  - hx-stomp
+  - dsp
+  - pitch-shifting
+  - modeler
+  - preset-building
+takeaways:
+  - >-
+    Line 6's own manual states each polyphonic Pitch/Synth model "might take up
+    half of all DSP available for Path 1 or Path 2." Community allocation data
+    puts Poly Pitch and Poly Wham at 53.33 units of 100, and Poly Capo at 48.
+  - >-
+    The non-polyphonic pitch blocks are among the cheapest on the platform.
+    Pitch Wham is 6.13 mono. Poly Pitch costs 8.7 times as much for the same
+    interval shift on single notes.
+  - >-
+    Every Poly block is mono-only. The manual lists no stereo subcategory for
+    any of the seven, and states that Poly blocks collapse any stereo signal
+    reaching them, so the block charges DSP and stereo width in one transaction.
+  - >-
+    On a Helix the block-count cap bites before the DSP does — one Poly block
+    per path, maximum, no matter how much DSP is free. An HX Stomp gets one per
+    preset.
+  - >-
+    Switching the amp block to its Preamp variant is the cheapest way to make
+    room. One high-gain chain goes from 102.59 percent (will not build) to 90.63
+    percent on that change alone.
+faq:
+  - q: How much DSP does a Helix Poly Pitch block use?
+    a: >-
+      Line 6 does not publish per-model figures, but the manual's own footnote
+      says each polyphonic Pitch/Synth model "might take up half of all DSP
+      available for Path 1 or Path 2." Ben Vesco's community allocation table
+      for firmware 3.80 puts Poly Pitch and Poly Wham at 53.33 units of a
+      100-unit path, Poly Sustain at 53.33, 12 String at 50.67, and Poly Capo
+      and Poly Detune at 48.
+  - q: What is the difference between Poly Pitch and Pitch Wham?
+    a: >-
+      Poly Pitch tracks several notes at once, so chords and double stops shift
+      coherently. Pitch Wham is monophonic — it tracks one note and produces
+      artefacts on anything played together. The cost difference is the point:
+      Pitch Wham is 6.13 against Poly Pitch's 53.33, so if you only ever shift
+      single notes you are paying roughly eight times the price for tracking you
+      never use.
+  - q: Can I use two Poly blocks in one Helix preset?
+    a: >-
+      Yes, but only one per path. The manual caps polyphonic and high-DSP blocks
+      at one per path on Helix Floor, LT and Rack, which means two per preset
+      across both paths. HX Stomp and HX Stomp XL allow one per preset. The cap
+      is structural and applies even when the path has DSP to spare.
+  - q: Are Helix Poly blocks stereo?
+    a: >-
+      No. The manual lists Poly Pitch, Poly Wham, Poly Capo, 12 String, Poly
+      Sustain, Poly Detune and Feedbacker with a Mono subcategory and no stereo
+      option, and separately states that all Poly effects blocks are mono and
+      will collapse a stereo signal sent into them. Any stereo width built
+      before a Poly block is lost at that block.
+  - q: Should I use Poly Capo to drop tune instead of tuning the guitar down?
+    a: >-
+      Only when you need both tunings inside one song and cannot change
+      instruments. Poly Capo costs 48 of 100 DSP units and, like every pitch
+      shifter, makes the string tension wrong for the pitch you hear. If the
+      whole set is in one lowered tuning, tune the guitar, string it for the
+      tuning, and spend that 48 percent on an amp and a reverb instead.
+  - q: Does a Poly block add latency?
+    a: >-
+      Polyphonic pitch shifting requires analysis over a window of samples,
+      which is the class of processing that genuinely adds delay rather than
+      merely consuming DSP. Line 6 does not publish per-block latency figures
+      and this article does not estimate them. If you run a Poly block on a
+      parallel path against a dry path, check the blend for phase and timing
+      problems before trusting it live.
+image: /images/blog/polyphonic-pitch-blocks-dsp-cost-worth-it.jpg
+image_alt: >-
+  An unbranded floor multi-effects unit with four footswitches and an
+  expression pedal sitting on wet pavement at night, lit magenta and cyan by
+  neon signs above a graffitied wall
+---
+
+A preset stops building and four of the eight block slots are still empty. The unit does not say why — since firmware 2.x there is no "DSP limit reached" dialog, the models simply grey out and get skipped over. If there is a polyphonic pitch block in that chain, it is almost certainly the reason, and it has charged you twice without itemizing the bill.
+
+Both prices are in Line 6's own documentation. Neither is in the same place as the other.
+
+## Price One: Roughly Half the Path
+
+The Helix 3.80 Owner's Manual carries this footnote under the Pitch/Synth model list:
+
+> These indicated Pitch/Synth models utilize polyphonic pitch shifting and, therefore, are extremely DSP-intensive. Each one might take up half of all DSP available for Path 1 or Path 2!
+
+The same sentence, singular, appears under Feedbacker in Dynamics, under Poly Detune in Modulation, and under Poly Sustain in Delay. Four separate footnotes, four separate pages, one claim.
+
+"Might take up half" is as specific as Line 6 gets. The most complete numbers available are Ben Vesco's community allocation table for firmware 3.80, derived by trial and error against real hardware. Those are **reported** figures, not measurements I have taken, and they describe an allocation rather than a load — Vesco's own caveat is that the values "are the upper limit of DSP reserved for each block" and "are not an indication of the processing horsepower required."
+
+With that stated, here is the poly tier against a 100-unit path:
+
+| Block | Category | Allocation |
+|---|---|---|
+| Poly Pitch | Pitch/Synth | 53.33 |
+| Poly Wham | Pitch/Synth | 53.33 |
+| Poly Sustain | Delay | 53.33 |
+| 12 String | Pitch/Synth | 50.67 |
+| Poly Capo | Pitch/Synth | 48.00 |
+| Poly Detune | Modulation | 48.00 |
+| Feedbacker | Dynamics | 29.33 |
+
+The manual's "half" is accurate to within four units for five of the seven. Note that one widely repeated forum figure puts Poly Pitch at "up to 25% of the patch processing capacity." That number is low by a factor of two and contradicts Line 6's own footnote. Use the footnote.
+
+## Price Two: Mono, Non-Negotiable
+
+> All Amp+Cab, Amp, Preamp, and Poly effects blocks are mono, so any stereo signal sent into these will be collapsed to mono.
+
+Check the model tables and the subcategory column confirms it from the other direction. Pitch Wham is listed "Mono, Stereo." Simple Pitch, Dual Pitch and Twin Harmony are "Mono, Stereo." Every Poly block — Pitch, Wham, Capo, 12 String, Sustain, Detune, Feedbacker — is listed **Mono** with no stereo option offered.
+
+So the transaction is: half a path, and everything upstream of that block goes mono. This is a different failure from the one where a [Legacy block silently collapses a stereo path](/blog/helix-legacy-blocks-mono-stereo-collapse) — that one is a surprise because the category rule is undocumented per model. This one is published in three places. It is just published a long way from the DSP figure, so nobody adds the two prices together before committing a slot.
+
+Placement follows directly. A Poly block belongs early, before the amp, where everything is mono anyway and it costs you no width you had. Put it after a stereo delay and you have paid for that delay's stereo allocation and then thrown the stereo away.
+
+## The Comparison Nobody Runs
+
+"Pitch blocks are expensive" is the received wisdom, and it is wrong. It is only true of the polyphonic ones.
+
+| Block | Mono | Stereo | Tracks chords |
+|---|---|---|---|
+| Boctaver | 5.33 | 10.67 | No |
+| Pitch Wham | 6.13 | 8.80 | No |
+| Simple Pitch | 7.07 | 13.33 | No |
+| Twin Harmony | 8.80 | 17.07 | No |
+| Dual Pitch | 9.47 | 18.67 | No |
+| 3 OSC Synth | 8.71 | 18.13 | No |
+| **Poly Pitch** | **53.33** | — | Yes |
+
+Poly Pitch costs 8.7 times what Pitch Wham costs. Simple Pitch does a fixed interval shift for 7.07 and is available in stereo for 13.33 — less than a quarter of the mono Poly Pitch allocation, with width included.
+
+This is the decision, and it is a single question: **do you play more than one note at a time through this block?**
+
+If the answer is no — a fixed octave under a single-note riff, a divebomb on one string, an octave-up lead line — the polyphonic tracking is doing nothing you can hear and you are paying half a path for it. Swapping Poly Pitch for Pitch Wham returns 47.20 units. That is an amp block and a reverb.
+
+If the answer is yes, there is no substitute. A monophonic shifter fed a power chord does not produce a shifted power chord. It produces an unstable guess that warbles between the two notes, and no amount of parameter tweaking fixes it, because the algorithm is not trying to do what you want. For chord work, poly tracking is the product and the price is the price.
+
+## What Actually Blocks the Build
+
+I went in expecting DSP to be the binding constraint. On a Helix it usually is not — the block-count cap is, and it bites first.
+
+The manual's block rules list polyphonic and high-DSP blocks at **one per path, maximum**, naming Feedbacker, Poly Sustain, Poly Detune, Poly Pitch, Wham, Capo and 12 String. That is structural. A Helix Floor with an entirely empty Path 2 still cannot accept a second Poly block on Path 1, regardless of how much of Path 1 is free. The fix is not to economize elsewhere; it is to move the second Poly block to Path 2, which is what the second DSP chip is for.
+
+An HX Stomp or Stomp XL gets **one Poly block per preset**. HX Effects gets one per path. If your plan involved a Poly Capo for the tuning and a Poly Pitch for the octave on a Stomp, the plan does not exist and no amount of block-shuffling creates it.
+
+## The Arithmetic on an HX Stomp
+
+One chip, one 100-unit budget, eight block locations. All figures from the same reported dataset.
+
+**Chain H — Poly Capo, noise gate, TS808, Cali Rectifire, cab, delay:**
+
+48.00 + 3.87 + 7.33 + 35.63 + 3.33 + 4.43 = **102.59 percent.** Six blocks. It will not build. Two slots are empty and unusable.
+
+**Chain G — the same chain with the amp switched to its Preamp variant:**
+
+48.00 + 3.87 + 7.33 + 23.67 + 3.33 + 4.43 = **90.63 percent.** Builds, with 9.37 percent free.
+
+One parameter change, 11.96 units recovered, and the preset exists. The Preamp variant of a model is typically 25 to 50 percent cheaper than the full amp block, and on a direct rig feeding a cab block or an impulse response it is frequently the correct choice anyway — the power-amp stage you dropped is the part a real cab and a real mic were going to re-shape regardless.
+
+Two more for calibration:
+
+- **Poly Pitch plus a Fender preamp, cab, EQ, delay and a short reverb:** 53.33 + 13.55 + 3.33 + 1.71 + 4.43 + 11.33 = **87.68 percent.** Six blocks, comfortable.
+- **Poly Capo plus a full Fender amp, cab, EQ, delay and the same reverb:** 48.00 + 29.63 + 3.33 + 1.71 + 4.43 + 11.33 = **98.43 percent.** It builds, with 1.57 percent left. Do not plan to add anything.
+
+The pattern across all of these: one Poly block plus one amp consumes 78 to 89 percent before a single effect. Everything after that is scraps. If the preset needs a poly block *and* a developed effects chain, it needs a Helix, and the poly block needs its own path.
+
+## The Drop-Tune Case, Priced Honestly
+
+Poly Capo exists so you can retune without retuning, and the pitch is obvious: one guitar, any tuning, 48 units.
+
+The counter-argument is not about the DSP. It is that a pitch shifter changes the pitch and not the string tension, so a guitar shifted down two semitones still has the tension, the attack and the pick response of the tuning it is actually in. Palm mutes do not get slacker. The low string does not develop the looseness that is most of why players drop tune in the first place. You get the notes and not the behavior.
+
+So the honest rule:
+
+1. **Whole set in one lowered tuning?** Tune the guitar. String it for the tuning. Spend the 48 units on a better amp block and a reverb you can hear.
+2. **Two tunings inside one song, one guitar, no time to swap?** Poly Capo earns its half a path. This is the case it was built for.
+3. **Two tunings across a set, with a gap between songs?** A second guitar is cheaper than a preset that cannot hold an amp and a delay at the same time.
+4. **Shifting single-note lines only?** Pitch Wham, 6.13, and move on.
+
+For the parts of low tuning a shifter cannot give you, the limits are mechanical rather than digital — string gauge, scale length and [how the gain structure has to change](/blog/dialing-in-drop-tuned-high-gain) when the fundamental moves down. A pitch block does not participate in any of that.
+
+## Other Platforms
+
+Every major modeler now has polyphonic pitch blocks and all of them are expensive relative to their monophonic siblings, because the algorithm is the cost and the algorithm is the same problem everywhere.
+
+What I will not do is publish per-block percentages for platforms that do not publish them and that I have not measured. Line 6's numbers exist here only because a community effort built the table against real units and Line 6 staff acknowledged the gap on the official forum. For a Quad Cortex or a Fractal unit, the method is the same as the one that produced the Helix table: build the chain, add the poly block last, and note what stops being available. The ordering conclusion transfers without any numbers at all — poly block early, before the amp, where mono costs nothing.
+
+## The Summary
+
+| Situation | Block | Cost |
+|---|---|---|
+| Single-note octave or divebomb | Pitch Wham | 6.13 |
+| Fixed interval, single notes, stereo wanted | Simple Pitch | 13.33 stereo |
+| Two-voice harmony on single notes | Dual Pitch | 9.47 |
+| Chords shifted coherently | Poly Pitch | 53.33, mono |
+| Mid-song retune, chords included | Poly Capo | 48.00, mono |
+| Whole set in one lowered tuning | None — tune the guitar | 0 |
+
+Half a path is a fair trade for tracking you can hear on a chord. It is a terrible trade for tracking you have never once needed, and the default assumption in most presets I have taken apart is that polyphonic is simply the better version of the same effect. It is the more capable version of a different effect, and it bills accordingly.

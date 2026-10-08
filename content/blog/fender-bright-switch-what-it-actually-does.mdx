@@ -1,0 +1,193 @@
+---
+title: Your Fender's Bright Switch Can Only Give Back What the Volume Pot Throws Away
+seo_title: 'Fender Bright Switch: What It Does, in Decibels'
+description: >-
+  The bright switch is a treble cap across the volume pot, so its effect is
+  bounded by how far down the volume is. Here is the lift in dB at every
+  position, and which blackface amps have it.
+date: '2026-10-08'
+author_slug: hank-presswood
+category: settings-guides
+tags:
+  - fender
+  - amps
+  - vintage
+  - tone-controls
+  - blackface
+  - modeler
+takeaways:
+  - >-
+    A bright switch puts a small capacitor across the volume pot, from its input
+    to its wiper. It routes treble around the part of the pot that is currently
+    attenuating, which means the most it can ever give back is exactly the
+    attenuation the pot is applying at that moment.
+  - >-
+    With the volume pot at half its resistance, a 120 pF cap is worth about 3.8
+    dB at 5 kHz. At three quarters up it is worth 1 dB. At nine tenths up it is
+    worth 0.1 dB. The switch is not broken when you A/B it loud — there is
+    nothing left for it to do.
+  - >-
+    The blackface Deluxe Reverb has no bright switch at all. It has a 47 pF cap
+    soldered permanently across the Vibrato channel's volume pot, which is
+    roughly 6 dB less lift at 5 kHz than the 120 pF switched cap in a Super or
+    Twin Reverb.
+  - >-
+    Of the blackface reverb amps, the Vibrolux, Pro, Super and Twin Reverb carry
+    a bright switch on both channels. The Deluxe Reverb carries none on either.
+    That difference changes which amp makes the better pedal platform.
+  - >-
+    Line 6 models the Fender blackface amps split by channel — normal and
+    vibrato — and offers no bright variant of any of them, so the switch
+    position captured in the model is fixed and undocumented.
+faq:
+  - q: Why does my Fender bright switch make no difference?
+    a: >-
+      Almost certainly because the volume is up. The cap only passes treble
+      around the resistance above the wiper, and as you turn up, that resistance
+      shrinks toward zero. Past about three quarters of the pot's rotation the
+      lift is a fraction of a decibel. Test it with the volume between 1 and 3 —
+      if you hear nothing there either, then suspect the switch or a cold joint.
+  - q: What value is the bright cap in a Fender amp?
+    a: >-
+      Mojotone's parts reference lists the Deluxe Reverb at 47 pF hard-wired and
+      the Super and Twin Reverb at 120 pF switched, with the 5F6-A Bassman at
+      100 pF hard-wired. Per-model values for the Vibrolux Reverb and Pro Reverb
+      are not separately published, though both amps do carry the switch.
+  - q: Should the bright switch be on or off?
+    a: >-
+      On for bedroom and low-stage volumes, where the pot is low and the cap is
+      doing real work. Off once the volume is past the middle of its travel,
+      where it contributes almost nothing but can still add edge to a pedal
+      feeding the front end. If you cannot hear the difference, you are already
+      playing loud enough that the question is moot.
+  - q: Does the Deluxe Reverb have a bright switch?
+    a: >-
+      No. The blackface Deluxe Reverb has no bright switch on either channel.
+      Instead it has a 47 pF bright cap soldered permanently across the Vibrato
+      channel's volume pot, which is why its Vibrato channel is brighter than
+      its Normal channel and why there is no way to defeat that difference from
+      the panel.
+  - q: Can I change my amp's bright cap value?
+    a: >-
+      Yes, and it is one of the cheapest meaningful changes available — the cap
+      is a single component across two lugs. Going smaller, from 120 pF toward
+      68 or 47 pF, narrows the window to the bottom of the volume travel and
+      raises the frequency where the lift starts. Going larger pushes the lift
+      down into the upper midrange, which is usually not what you want.
+  - q: Is the bright switch the same as a treble bleed on a guitar?
+    a: >-
+      It is the same circuit doing the same job on a different pot. A guitar
+      treble bleed bridges the volume pot's input and wiper so highs survive
+      when you roll back, and an amp bright switch does exactly that with a
+      switch in series. The values differ because the pot resistances and the
+      following loads differ.
+image: /images/blog/fender-bright-switch-what-it-actually-does.jpg
+image_alt: >-
+  A tweed-covered amplifier head sitting on a matching speaker cabinet on a
+  cluttered repair bench, with amp schematics pinned to a pegboard of tools,
+  two multimeters, an oscilloscope and a lit desk lamp
+---
+
+Somebody flips the bright switch on a blackface Fender at rehearsal volume, listens hard, flips it back, listens again, and concludes the switch is broken — or that it was always snake oil to begin with. This happens constantly, and it happens to people who know what they're doing, which is the part worth explaining.
+
+The switch is working. It just has nothing to work with.
+
+## What the Switch Is Wired To
+
+A bright switch puts a small capacitor across the volume potentiometer, from the input lug to the wiper. Mojotone, which sells the parts and documents them, describes it as "a small, low-value capacitor that is either connected between the input terminal and wiper terminal on an amp's volume potentiometer, or on a switch that makes such a connection between those points when in the 'on' position."
+
+That geometry is the whole story. A volume pot works by dividing the signal between the resistance above the wiper and the resistance below it. When you turn down, you are increasing the share above — the part that throws signal away. The cap gives high frequencies a path around that part.
+
+Which tells you the bound immediately, and it's a harder bound than most of the conversation around this switch admits: **the most a bright cap can ever return is exactly the attenuation the pot is applying.** Turn the volume all the way up and the resistance above the wiper is gone, the cap is bridging nothing, and no capacitor of any value can brighten a signal that is already passing at full.
+
+Mojotone puts the same point this way — at high settings, "all of the frequencies coming in should be headed out the other side, and the bright cap itself is redundant."
+
+Redundant is a strong word for a component that costs a nickel and gets a dedicated toggle on a $3,000 amp. So let's put numbers on it.
+
+## The Lift, in Decibels, at Every Position
+
+A treble-bypass cap across a pot produces a shelf. It starts lifting at a frequency set by the resistance above the wiper and the capacitance, it flattens out at a higher frequency, and the height of the shelf is the attenuation being bypassed. Blackface volume pots are 1 MΩ audio — Rob Robinette's Twin Reverb layout drawing labels them `1M Log` — so the numbers below assume a 1 MΩ pot and the standard shelf response, and they're stated relative to the same amp with the switch off.
+
+One caution before the table, and it matters. Because the taper is logarithmic, the fraction of *resistance* below the wiper is not the same as the fraction of *rotation* on the dial. A log pot spends most of its resistance in the upper part of its travel. So these rows are keyed to resistance, not to a number painted on the panel, and anybody who tells you a bright cap dies at exactly "volume 5" is translating through a taper curve they haven't measured. I'm not going to do that.
+
+**120 pF switched cap — Super Reverb, Twin Reverb:**
+
+| Resistance below wiper | 1 kHz | 3 kHz | 5 kHz |
+|---|---|---|---|
+| 10% | +1.6 dB | +6.9 dB | +10.5 dB |
+| 25% | +1.1 dB | +5.2 dB | +7.8 dB |
+| 50% | +0.4 dB | +2.4 dB | +3.8 dB |
+| 75% | +0.1 dB | +0.5 dB | +1.0 dB |
+| 90% | 0.0 dB | 0.0 dB | +0.1 dB |
+
+**47 pF hard-wired cap — Deluxe Reverb, Vibrato channel:**
+
+| Resistance below wiper | 1 kHz | 3 kHz | 5 kHz |
+|---|---|---|---|
+| 10% | +0.3 dB | +2.1 dB | +4.3 dB |
+| 25% | +0.2 dB | +1.5 dB | +3.2 dB |
+| 50% | +0.1 dB | +0.6 dB | +1.3 dB |
+| 75% | 0.0 dB | +0.1 dB | +0.2 dB |
+| 90% | 0.0 dB | 0.0 dB | 0.0 dB |
+
+The 120 pF column at 10% is a real effect — ten and a half decibels at 5 kHz is not subtle, it's the difference between a dark amp and an ice pick, which is precisely the complaint people level at bright Twins. The same cap at 75% is one decibel. One decibel at 5 kHz, on a stage, through a speaker with its own peaks and dips, next to a drummer. You will not hear it, and you should stop trying.
+
+There's a second thing buried in those rows. The frequency where the lift *begins* climbs as you turn up. With a 120 pF cap and the pot low, the shelf starts around 1.4 kHz and runs up through the whole top end. At 90% the shelf doesn't begin until roughly 13 kHz — above anything a guitar speaker is still reproducing. The switch hasn't weakened so much as it has slid out of the band, taking its effect with it, and that's a more honest description of what's happening than "it does less when you turn up."
+
+## The Deluxe Reverb Is the Interesting Case
+
+Here is where I expected the arithmetic to confirm a complaint and instead got the opposite.
+
+The blackface Deluxe Reverb has no bright switch. Not on the Normal channel, not on the Vibrato channel. What it has instead is a 47 pF cap soldered permanently across the Vibrato channel's volume pot — Robinette's model-differences notes put it plainly, that the Deluxe and Deluxe Reverb "do not have a Bright Switch but they do have a Bright Cap on the Vibrato channel Volume pot," and that it is "smaller than other AB763 amps at 47pF."
+
+I had always filed that under things Fender did to save a part, with the consequence that Deluxe Reverb owners are stuck with a treble lift they can't defeat. The second table says they are stuck with almost nothing. A 47 pF cap at half the pot's resistance is worth 1.3 dB at 5 kHz, and by three quarters it's two tenths of a decibel. The cap that can't be switched off is also the cap that nearly switches itself off — which is a reasonable answer to why, in sixty years of Deluxe Reverb owners complaining about plenty of things, the absent bright switch has never been high on the list.
+
+It also explains the thing people *do* notice. At the volume a 22-watt amp gets played in a living room, the pot is low, and down there the cap is contributing three or four decibels of top end to the Vibrato channel that the Normal channel never gets. That's the audible channel difference at bedroom volume, and it closes up as you turn up. Two channels that measure further apart quietly than loudly.
+
+## Which Blackface Amps Actually Have the Switch
+
+Panel layouts, verified model by model against Mojotone's Fender field guides:
+
+| Amp | Bright switch | Channels carrying it | Published cap value |
+|---|---|---|---|
+| Deluxe Reverb | No | — | 47 pF hard-wired, Vibrato only |
+| Vibrolux Reverb | Yes | Both | Not separately published |
+| Pro Reverb | Yes | Both | Not separately published |
+| Super Reverb | Yes | Both | 120 pF switched |
+| Twin Reverb | Yes | Both | 120 pF switched |
+
+The value column is deliberately thin in two rows. Mojotone's parts reference lists "Fender Deluxe Reverb – 47pF (hard-wired)" and "Fender Super/Twin Reverb etc – 120pF (switched)," and that *etc* is doing work I'm not willing to do for it. The Vibrolux and the Pro both have the switch — I've confirmed the panels — but I haven't found either one's cap value in a parts list or on a schematic, and 120 pF is a guess until somebody reads it off a chassis. Treat those two rows as presence confirmed, value open.
+
+While we're in the neighborhood: the same reference lists the 5F6-A Bassman at 100 pF hard-wired, which is a tweed amp and a different circuit, but it's the one other Fender value that's actually published.
+
+## What This Does to the Pedal-Platform Question
+
+If you are buying one of these amps to sit pedals in front of, the bright switch stops being a tone control and becomes a question about the front end.
+
+An always-on overdrive feeding a Super or Twin with the bright switch engaged and the amp volume low is getting its upper harmonics lifted by ten decibels at 5 kHz before the tone stack ever sees them. That is the fizz. Not the pedal, not the speaker, not the strings — a nickel capacitor plus a volume knob that's barely open. Flip the switch off and the same pedal that sounded like a wasp in a jar sounds like a pedal.
+
+The Deluxe Reverb can't do that on the Vibrato channel, which is the practical argument for using its Normal channel as a pedal platform even though the Normal channel gives up the reverb and the tremolo. And the Twin, with the bright switch off and the volume genuinely up, is the flattest thing in the table — which is a sentence I'd have resisted twenty years ago and now just accept.
+
+For the broader question of which channel to plug into and why, that's the [Normal versus Vibrato channel breakdown](/blog/fender-normal-vs-vibrato-channel), where the preamp-stage count and the effects routing do most of the explaining. The bright cap is the one variable that behaves differently depending on where your volume knob is, which is why it needed its own page.
+
+## On a Modeler, There Is No Switch
+
+Line 6 does model these amps, and the way it splits them is worth knowing before you go hunting for a parameter that isn't there.
+
+The Helix 3.80 model list gives you `US Deluxe Nrm` and `US Deluxe Vib` for the Deluxe Reverb, `US Double Nrm` and `US Double Vib` for the Twin Reverb, and `US Super Nrm` and `US Super Vib` for the Super Reverb. Split by channel, in every case. There is no bright variant of any of the three — and that's notable, because Line 6 clearly *does* use a "Brt" suffix when it wants to, offering `Tweed Blues Brt` for the Bassman's bright channel and `Brit Plexi Brt` for the Super Lead's. On the Fender blackface models they chose channel as the axis and left the bright switch out of it.
+
+So on a Super or a Twin model, the bright switch is in whatever position Line 6 captured, the manual doesn't say which, and you can't move it. If the model sounds brighter at low Channel Volume than you expect from the real amp, that's a plausible reason, and the fix is the amp block's own Treble and Presence rather than a switch you'll never find in the menu.
+
+That also means the volume dependence may or may not have survived modeling, and you can test it in a minute. Set the amp block's Volume or Drive low, toggle the block's Treble up and down a notch, and note how much changes. Now set the Volume high and do the same. On the real circuit, the top end behaves differently at those two operating points because the pot's division changed. If your model behaves identically at both, it's applying a fixed voicing, which is useful to know and not a defect — just don't expect the low-volume bright-cap trick to be available.
+
+Players building a modeled version of a blackface clean sound will get closer by starting from the right channel model and then treating the top end as a fixed voicing decision, which is also most of what makes the [Deluxe Reverb settings](/blog/fender-deluxe-reverb-settings) translate or not.
+
+## What To Do With Your Switch Tonight
+
+Turn your amp volume to where you actually play it. Not where you tested the amp in a shop, not where it sounds best alone — where it sits in a band. Then toggle the switch.
+
+If you hear a clear difference, you are playing in the bottom quarter of the pot, and the switch is a genuine tone control for you. Leave it on for cleans and off when a pedal is driving the front end.
+
+If you hear almost nothing, you're past the middle of the pot and the switch is finished doing its job. Stop toggling it mid-set. The treble control is where your decisions live now, and the bright switch is a low-volume feature you've outgrown by playing louder.
+
+And if you want it to behave differently, it's one capacitor across two lugs on the volume pot. Smaller — 68 pF, 47 pF — narrows the window toward the bottom of the travel and starts the lift higher up, which is the fix for an amp that's ice-picky at apartment volume. Fender already made that choice once, in the Deluxe Reverb, and the numbers suggest they knew exactly what they were doing with a 22-watt amp.

@@ -1,0 +1,172 @@
+---
+title: >-
+  What a Guitar Speaker Actually Passes Below 100 Hz — and Why Your IR Doesn't
+  Match
+seo_title: Guitar Speaker Low-End Rolloff — The Published Numbers
+description: >-
+  Celestion and Eminence publish a resonance frequency for every speaker. Put
+  those numbers next to the low E at 82.41 Hz and the picture changes, including
+  for the speaker everyone calls bass-heavy.
+date: '2026-10-08'
+author_slug: margot-thiessen
+category: gear-lab
+tags:
+  - speakers
+  - cabinets
+  - impulse-response
+  - celestion
+  - low-end
+  - modeler
+takeaways:
+  - >-
+    The open low E fundamental is 82.41 Hz. A Celestion G12T-75's published
+    frequency range starts at 80 Hz and its resonance sits at 85 Hz, so the
+    lowest note on the guitar lands essentially at the bottom edge of what the
+    speaker claims to reproduce.
+  - >-
+    A 10-inch Celestion G10 Greenback publishes a range of 95 to 5500 Hz. The
+    open low E's fundamental is 13 Hz below that. What you hear as the low E on
+    a 10-inch cab is being carried substantially by its harmonics.
+  - >-
+    The published bottom figures vary by 25 Hz across common 12-inch speakers —
+    70 Hz for a Vintage 30, 80 Hz for a G12T-75 — which is large enough to
+    change where a sensible high-pass filter goes.
+  - >-
+    The G12T-75 has the highest resonance and the highest range floor of the
+    common 12s, despite its reputation for extended bass. Extension and weight
+    at volume are different properties and the reputation is about the second.
+  - >-
+    Celestion publishes no dB tolerance for its "frequency range" figure and
+    Eminence calls the same kind of number a "usable frequency range," so the
+    two cannot be compared as if they were the same measurement.
+faq:
+  - q: What is the lowest frequency a guitar speaker reproduces?
+    a: >-
+      For common 12-inch guitar speakers the published frequency range starts
+      between 70 and 80 Hz, and the resonance frequency sits between 75 and 89
+      Hz. A Celestion Vintage 30 publishes 70 to 5000 Hz with a resonance of 75
+      Hz; a G12T-75 publishes 80 to 5000 Hz with a resonance of 85 Hz. A 10-inch
+      G10 Greenback starts at 95 Hz.
+  - q: Is the low E fundamental below my speaker's range?
+    a: >-
+      It is right at the edge. The open low E in standard tuning is 82.41 Hz,
+      which sits just above the 75 Hz resonance of a Vintage 30 or Greenback but
+      below the 85 Hz resonance of a G12H Anniversary or a G12T-75, and below
+      the 95 Hz range floor of a 10-inch Greenback. Drop tunings put the
+      fundamental below every speaker in this comparison.
+  - q: Why do two IRs of the same cab sound different in the low end?
+    a: >-
+      An impulse response captures the speaker, the cabinet, the microphone, the
+      mic's position and the room as one inseparable measurement. Low
+      frequencies are where mic distance and nearby boundaries matter most, so
+      the same physical cab captured at two distances or in two rooms genuinely
+      differs down there. You are not comparing speakers; you are comparing
+      captures.
+  - q: Where should I high-pass a guitar if I know my speaker?
+    a: >-
+      Set the corner below your lowest fundamental and let the speaker do the
+      rest. In standard tuning that means roughly 70 to 75 Hz, which sits under
+      the 82.41 Hz low E and above nothing you want. If you are feeding a
+      full-range system from a modeler, the filter has more work to do because
+      no physical speaker is in the chain to roll off the bottom for you.
+  - q: Does the resonance frequency tell me how much bass a speaker has?
+    a: >-
+      Not directly. Resonance marks where the driver's own mechanical resonance
+      sits, and useful output falls away below it — so a lower figure implies
+      more extension, all else equal. It says nothing about how much low end you
+      perceive at volume, which depends on power handling, cone behaviour, the
+      enclosure and how hard you are driving it.
+  - q: Is an open-back or closed-back cab better for low end?
+    a: >-
+      A sealed box gives tighter and more extended low end because the trapped
+      air damps the cone; an open back is looser and rolls off earlier. That is
+      an enclosure property layered on top of the driver's own published
+      numbers, which are measured in a standardised baffle rather than in your
+      cabinet.
+image: /images/blog/guitar-speaker-low-end-rolloff-what-a-cab-actually-passes.jpg
+image_alt: >-
+  A four-by-twelve guitar speaker cabinet with grey grille cloth on a plain
+  white background, with a dynamic microphone on a tripod stand angled in close
+  to the grille
+---
+
+Every speaker manufacturer prints two numbers that almost nobody in guitar reads, and they are sitting on the same product page as the wattage everybody does read. One is the frequency range. The other is the resonance frequency, listed as Fs. They are free, they are published by the people who built the thing, and when you put them next to the pitch of an open low E they rearrange some assumptions.
+
+The open low E is 82.41 Hz. Hold onto that.
+
+## What the Makers Publish
+
+All of these come from Celestion's and Eminence's own specifications.
+
+| Speaker | Size | Published frequency range | Resonance, Fs |
+|---|---|---|---|
+| Celestion Vintage 30 | 12 in | 70–5000 Hz | 75 Hz |
+| Celestion G12M Greenback | 12 in | 75–5000 Hz | 75 Hz |
+| Celestion G12M-65 Creamback | 12 in | 75–5000 Hz | 75 Hz |
+| Celestion G12 Alnico Blue | 12 in | 75–5000 Hz | 75 Hz |
+| Celestion G12H Anniversary | 12 in | 75–5000 Hz | 85 Hz |
+| Celestion G12T-75 | 12 in | 80–5000 Hz | 85 Hz |
+| Eminence Legend V128 | 12 in | 80 Hz–5 kHz *(usable)* | 89 Hz |
+| Celestion G10 Greenback | 10 in | 95–5500 Hz | 98 Hz |
+
+Two cautions, and they are not pedantry — they change what the table can be used for.
+
+Celestion prints "Frequency range" with no tolerance. Not plus-or-minus three decibels, not minus ten, nothing. So 70–5000 Hz is a window the manufacturer considers useful and is *not* a minus-3 dB point you can convert into a filter curve. Eminence calls its version a "usable frequency range," which is a more honest label for the same kind of claim, and also means the Legend V128's 80 Hz and the Vintage 30's 70 Hz were not necessarily arrived at the same way. Compare within a brand with some confidence; across brands, loosely.
+
+Resonance is the solid one. Fs is a defined physical parameter — the frequency at which the driver's moving mass and suspension resonate — and output falls away below it. It is measured in a standard baffle rather than in your cabinet, so your box shifts it, but the number itself is real in a way the marketing range is not.
+
+## Now Put the Guitar Next to It
+
+| Note | Where it comes from | Fundamental |
+|---|---|---|
+| E2 | Open low E, standard | 82.41 Hz |
+| D2 | Drop D | 73.42 Hz |
+| C2 | Drop C | 65.41 Hz |
+| B1 | Seven-string low B | 61.74 Hz |
+| E1 | Eight-string low E | 41.20 Hz |
+| A2 | Open A string | 110.00 Hz |
+
+Read the two tables against each other and the first thing that happens is the standard-tuning low E stops looking safe.
+
+On a Vintage 30, Greenback, Creamback or Blue — resonance at 75 Hz — the 82.41 Hz fundamental sits about seven hertz above resonance. That is inside the useful band but close to the edge of it, which is a fair physical description of why the low E on a 1x12 has body but never has *weight* the way a bass guitar's low E does.
+
+On a G12H Anniversary or a G12T-75, resonance is 85 Hz. **That is above the open low E.** The lowest note in standard tuning is below the driver's own resonance, and the harmonics above it are doing more of the work of making it sound like a low E than the fundamental is.
+
+And on the 10-inch Greenback, the published range *begins* at 95 Hz. The low E fundamental is thirteen hertz under the bottom of the window. A 10-inch cab is not failing when the low E sounds tighter and smaller — it is doing exactly what its specification says, and what you are hearing as the note is mostly the second harmonic at 165 Hz with the fundamental as a suggestion underneath.
+
+For drop tunings the table runs out of road entirely. D2 at 73.42 Hz is below resonance on every speaker listed. C2 at 65.41 Hz is below every published range floor. An eight-string's low E at 41.20 Hz is not claimed by anything here, which is the honest reason low-tuned rhythm guitar lives or dies on [how the gain structure handles the fundamental](/blog/dialing-in-drop-tuned-high-gain) rather than on whether the cab can reproduce it. It mostly cannot.
+
+## The Thing I Had Backwards
+
+I expected these numbers to be soft and roughly interchangeable — all 12-inch guitar speakers claiming something like 75 Hz, with the real differences living in the midrange where the character is. The midrange part is true. The bottom is not interchangeable at all: the range floors span 70 to 80 Hz and the resonances span 75 to 89 Hz across the 12s alone.
+
+What actually caught me is which speaker sits at the far end. The G12T-75 has the *highest* resonance and the *highest* range floor of every 12-inch speaker in that table. The G12T-75 — the speaker in a thousand Marshall 1960A cabs, the one with a long-standing reputation for more low end than a Greenback, including in [our own four-way Celestion comparison](/blog/celestion-speaker-showdown), which described its low end as extending further and with more weight.
+
+By the published figures, extension is the one thing it has least of.
+
+Both things can be true, and the resolution is worth more than either claim on its own. *Extension* is how low the speaker reproduces, and it is what Fs and the range floor describe. *Weight* is how much low end survives when you drive the thing hard — and that depends on power handling, on how early the cone starts compressing, on the enclosure. A 25-watt Greenback at stage volume is compressing and softening; a 75-watt T-75 at the same volume is still behaving linearly and holding its lows together. The player hears more low end from the T-75 and is not wrong. The speaker is not reaching lower. It is keeping more of what it does reach, under conditions where the other one gives up.
+
+Which means the sentence to retire is "it has more bass," because it conflates two properties that the specification sheet keeps separate.
+
+## Why Your IR Doesn't Match Any of This
+
+An impulse response is not a speaker. It is a single measurement of a speaker *and* the cabinet it was mounted in *and* the microphone *and* exactly where that microphone was *and* the room it all happened in, fused into one file you cannot unpick.
+
+Low frequencies are precisely where those extra variables do the most damage to comparability. A mic six inches off the grille and a mic three feet back are not capturing the same low end from the same cab — distance changes the balance, and nearby floors and walls add their own reinforcement at exactly these frequencies. That is why [where you put the cab in the room](/blog/cab-placement-wall-bass-boundary) changes the bass before you have touched an EQ, and an IR captured in one position carries that position's bass permanently.
+
+So two IRs labelled with the same speaker and the same cab can differ meaningfully below 150 Hz, and neither is wrong. They are different captures. Celestion does publish a measured response curve on its spec sheets, which is the closest thing to a reference, but it is the driver in a standardised baffle rather than your cab in your room with your mic.
+
+The practical consequence is the part that costs people tone. You audition impulse responses the way everybody auditions them — on the midrange, because that is where the character is, that is where the difference between exciting and dull lives, and that is what makes you pick one in the first ten seconds. Then you keep whatever low end came attached to it. Not a low end you chose. A low end that is an artefact of a mic position somebody else liked, on a cab you have never heard, in a room you have never stood in.
+
+And because a modeler's output goes to a full-range system, nothing downstream rolls that off for you the way a real speaker would. The [difference between an IR and a real cab in a room](/blog/cab-irs-vs-real-cab-bedroom-room-treatment) is largely a difference in what has already been filtered before the sound reaches you.
+
+## What To Do About It
+
+Four things, in order of how much they change.
+
+1. **Look up your actual speaker's two numbers.** They are on the manufacturer's product page. Takes a minute and tells you where your low end genuinely ends, rather than where a mixing tutorial assumed it ends.
+2. **Set your high-pass from that, not from habit.** In standard tuning, below the 82.41 Hz fundamental — call it 70 to 75 Hz — removes rumble and keeps the note. The generic 100 Hz recommendation is above the low E, and whether that is the right trade depends on the arrangement, not on the speaker. The full accounting of what each corner frequency costs is in the [high-pass guide](/blog/high-pass-filter-electric-guitar-how-high); the point here is that a mic'd cab arrives already filtered and a modeler's direct output does not.
+3. **Audition impulse responses below 150 Hz on purpose.** Load two IRs of nominally the same cab, put a low shelf or a narrow band on the monitoring path, and listen only down there. You will hear differences you have been accepting without noticing. Pick deliberately, then go back and judge the midrange.
+4. **Stop reading power handling as low-end extension.** A higher-wattage speaker holds its low end together at volume. It does not reach lower. If you want reach, look at Fs, and accept that in guitar speakers nobody is reaching very far — which is not a defect, because a guitar cab that reproduced 40 Hz cleanly would mostly reproduce things you spend the rest of the signal chain trying to remove.
+
+The last one is the one I would press hardest. Guitar speakers are narrow on purpose. The bandwidth they do not have is a feature that has been shaping recorded electric guitar since the 1950s, and the moment you replace the speaker with a full-range system and an impulse response, you have taken that feature out of the hardware and made it a decision somebody has to make on purpose. Usually that somebody is you, at midnight, choosing a file.

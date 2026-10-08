@@ -7028,3 +7028,253 @@ follow the article's subject.
 | AK7 | fender-bright-switch-what-it-actually-does | Your Fender's Bright Switch Does Nothing Above Volume 5. Here's Why. | "fender bright switch," "what does the bright switch do," "bright switch no difference," "deluxe reverb no bright switch" | Hank Presswood | 2 — Settings Guides | **Surfaced by Post 2's panel audit and deliberately kept out of it.** The Bright switch is a treble-bypass cap across the volume pot, which means its effect is **inversely proportional to how far up the Volume is** — it does the most at 2 and approaches nothing wide open. That is why players A/B it loud, hear no difference, and conclude it is broken. Distinct content: the per-model inventory of which blackface amps have the switch and which channels carry it (verified this run: Vibrolux Reverb, Pro Reverb, Super Reverb and Twin Reverb have it on **both** channels; the **Deluxe Reverb has none at all** and uses a hardwired 47 pF instead), the volume-dependence explained as the mechanism rather than a quirk, what value goes where, and the modeler problem — most modeler EQ is level-independent, so a modeled bright switch either behaves or does not and you should check yours. **Gate 7 guard: must ship per-model cap *values* verified against a schematic or a parts list, not just the panel presence already verified. If the values can't be sourced, ship the volume-dependence mechanism plus the verified per-model presence table and say the values are unconfirmed — do NOT invent picofarad figures.** Hank's lane (vintage, gear history); not on his never-assign list. **Confirmed no colliding slug.** |
 | AK8 | polyphonic-pitch-blocks-dsp-cost-worth-it | Polyphonic Pitch Blocks Eat Half Your DSP. When Is That a Fair Trade? | "helix poly pitch dsp," "polyphonic vs monophonic pitch shifter," "helix dsp limit pitch," "poly capo worth it" | Viktor Kessler | 4 — Modeler Masterclass | Quoted from the Helix 3.80 manual, extracted this run: the Poly models "utilize polyphonic pitch shifting and, therefore, are extremely DSP-intensive. **Each one might take up half of all DSP available for Path 1 or Path 2**," and separately "All Amp+Cab, Amp, Preamp, and **Poly effects blocks are mono**." So a Poly block costs you half a path *and* collapses stereo — two prices for one block, and nobody prices them together. Distinct content: what polyphonic tracking actually buys over the monophonic Pitch Wham / Simple Pitch (chords vs single notes), the DSP arithmetic of what else fits alongside one, the drop-tune-with-Poly-Capo use case versus just tuning the guitar down, and the latency question. **Gate 7 guard: must stay distinct from Post 1 — that post is about Legacy blocks collapsing a path; this is about Poly blocks' DSP price and when the tracking is worth it. If it turns into a second mono-collapse post, drop it.** Also must not assert per-block DSP percentages beyond the manual's own "might take up half" — the measured budget is human-in-the-loop debt. Viktor's lane (data-driven, measurable); not on his never-assign list. **Confirmed no colliding slug.** |
 | AK9 | guitar-speaker-low-end-rolloff-what-a-cab-actually-passes | What a Guitar Cab Actually Passes Below 100 Hz (and Why Your IR Doesn't Match) | "guitar speaker frequency response low end," "why does my IR sound boomy," "guitar cab rolloff," "12 inch speaker low frequency" | Margot Thiessen | 5 — Gear Lab | Post 3 asserts that a mic'd cab arrives pre-filtered and a modeler's full-range output does not, and treats that as the reason the same high-pass frequency is right in one case and wasteful in the other. **That claim deserves its own page with the actual numbers behind it.** Distinct content: published low-frequency response figures for common guitar speakers, what open-back versus sealed does to the rolloff, why two impulse responses of the same cab can differ by several dB below 100 Hz depending on capture distance and room, and the practical consequence — an IR chosen on its midrange can hand you a low end no real box would produce in a room. **Gate 7 guard: must ship manufacturer-published response figures per speaker, sourced. If those can't be obtained, drop it — a "cabs roll off low end" piece with no numbers is exactly the commodity content §6 deprioritises, and the measured-figures rule from the DI shootouts applies here in full: do NOT invent or "confirm" response measurements.** Margot's lane (what she notices first is harmonic content and feel) and not on her never-assign list; Dev and Sean are the obvious alternates if her velocity is full. **Confirmed no colliding slug.** |
+
+---
+
+## Daily Run — 2026-10-08 (3 new posts + 2 refreshes)
+
+### Posts published: fender-bright-switch-what-it-actually-does, polyphonic-pitch-blocks-dsp-cost-worth-it, guitar-speaker-low-end-rolloff-what-a-cab-actually-passes
+
+**Velocity:** `persona-velocity.ts` reported **0 posts across 0 authors in the
+last 7 days** — the previous daily run was 2026-09-29, nine days ago. Every
+persona had full capacity, so all three queued bylines (AK7 Hank, AK8 Viktor,
+AK9 Margot) were taken as proposed. All three re-checked against the
+never-assign lists: Hank on a vintage Fender circuit is squarely his lane (the
+post's one modeler paragraph is a translation note, not the "modeler deep-dive"
+his list bars); Viktor on DSP arithmetic is his lane; Margot's list bars metal
+guides, pure-price roundups and step-by-step modeler tutorials, none of which
+AK9 is. **All three slugs collision-checked against `content/blog/` at build
+time — confirmed clear.**
+
+### SERP analysis
+
+**Post 1 — fender-bright-switch-what-it-actually-does** (Hank Presswood;
+target: "fender bright switch," "what does the bright switch do," "bright
+switch no difference," "deluxe reverb no bright switch")
+
+- **Top ranking:** almost entirely forums — two TDPRI threads (*Fender Bright
+  Switch. On or off?*, *How Exactly Does a Bright Switch in a Fender Amp
+  Work?*), guitarscanada, strat-talk, music-electronics-forum, offsetguitars,
+  surfguitar101 — plus 300guitars' bright-cap tweak article, Mojotone's *Bright
+  Caps* blog post, and Fralin's push-pull guitar mod (a different circuit
+  entirely).
+- **Honest narrowing — the brief's premise was half wrong and the post says so.**
+  AK7 was queued on the theory that the volume-dependence *mechanism* was the
+  non-commodity hook. It is not: the mechanism is stated plainly in the SERP by
+  Mojotone ("When the pot is turned up high… the bright cap itself is
+  redundant"), by 300guitars, and by multiple forum threads. The 120 pF value is
+  also already out there. **The post opens by conceding the mechanism rather
+  than presenting it as a discovery.** What no result has: (1) the **lift
+  quantified in dB** at 1/3/5 kHz across pot positions for both cap values;
+  (2) the bound stated as a rule — *the cap can only return the attenuation the
+  pot is currently applying*; (3) the **per-model presence table**; (4) the
+  observation that the lift's **onset frequency climbs out of the audible band**
+  as you turn up, rather than the effect merely weakening; (5) the Helix model-
+  naming finding.
+- **Gate 1 — numbers computed in-run, not recalled.** Treble-bypass-cap shelf:
+  zero at f = 1/(2π·R_top·C), pole at 1/(2π·C·(R_top∥R_bot)), shelf height
+  (R_top+R_bot)/R_bot. Evaluated against a 1 MΩ pot. **The table is keyed to
+  resistance fraction, not dial position, and the post says why** — Robinette's
+  Twin Reverb DIYLC layout labels the Volume pots `1M Log`, so rotation and
+  resistance are not interchangeable. This deliberately avoids the trap the
+  09-29 run was corrected on (the Middle-pot taper); the post makes no dial-
+  position claim at all, and the queued title's "Above Volume 5" framing was
+  **dropped for exactly this reason.**
+- **Gate 1 — cap values.** Mojotone's *Bright Caps* article, fetched directly,
+  lists "Fender Deluxe Reverb – 47pF (hard-wired)," "Fender Super/Twin Reverb
+  etc – 120pF (switched)" and "Fender 5F6-A Bassman – 100pF (hard-wired)."
+  Robinette's *AB763 Model Differences*, fetched directly, independently
+  confirms the Deluxe: they "do not have a Bright Switch but they do have a
+  Bright Cap on the Vibrato channel Volume pot. It smaller than other AB763 amps
+  at 47pF."
+- **Deliberately not claimed:** per-model cap values for the **Vibrolux Reverb
+  and Pro Reverb.** Both carry the switch (panels verified 09-29 from Mojotone's
+  field guides), but Mojotone's value list covers them only under "etc," and no
+  parts list or schematic reachable this run gives either one individually. The
+  post's table marks those two rows **presence confirmed, value open** rather
+  than extending 120 pF to them.
+- **Cross-platform verified from the manual:** Line 6 splits the Fender
+  blackface amps by *channel* — `US Deluxe Nrm`/`Vib`, `US Double Nrm`/`Vib`,
+  `US Super Nrm`/`Vib` — and offers **no Brt variant of any of the three**,
+  despite using a "Brt" suffix freely elsewhere (`Tweed Blues Brt`, `Brit Plexi
+  Brt`, `Brit J45 Brt`, `A30 Fawn Brt`). So on a modeled Super or Twin the
+  bright switch sits in an undocumented fixed position. Extracted locally from
+  the Helix 3.80 Owner's Manual.
+- **AI Overview:** not observed (WebSearch does not surface AIO). Query class
+  ("why does my X do nothing") suggests one is likely; F&K not known to be cited.
+- Non-commodity gate: **PASS.** Checked against `fender-deluxe-reverb-settings`,
+  `fender-normal-vs-vibrato-channel`, `fender-amps-with-no-mid-control`,
+  `clean-headroom-fender-amp-chords-dont-break-up`. **Confirmed no colliding
+  slug** — F&K had no bright-switch post at all.
+
+**Post 2 — polyphonic-pitch-blocks-dsp-cost-worth-it** (Viktor Kessler; target:
+"helix poly pitch dsp," "polyphonic vs monophonic pitch shifter," "helix dsp
+limit pitch," "poly capo worth it")
+
+- **Top ranking:** five Line 6 Community threads, Fluid Solo's Poly Pitch model
+  page, musicplayers.com's Helix 3.0 firmware announcement, plus pure noise
+  (Walmart, eBay, a Korg synth Wikipedia page). **No reference page prices the
+  block.**
+- **A SERP error corrected, with the correction sourced.** A widely echoed forum
+  figure puts Poly Pitch at "up to 25% of the patch processing capacity." Line
+  6's own manual footnote says each polyphonic Pitch/Synth model "might take up
+  half of all DSP available for Path 1 or Path 2," and the community allocation
+  table puts it at 53.33 of 100. The forum number is low by a factor of two and
+  the post names it.
+- **Gate 1 — manual quotes re-verified against 3.80, extracted locally.**
+  Confirmed verbatim: the Pitch/Synth footnote above; the identical
+  singular-form footnotes under **Feedbacker** (Dynamics), **Poly Detune**
+  (Modulation) and **Poly Sustain** (Delay); "All Amp+Cab, Amp, Preamp, and Poly
+  effects blocks are mono"; and the block-rules row capping "Polyphonic ('Poly')
+  and high DSP type effects blocks" at **one per path max**, naming all seven.
+- **Gate 1 — a data conflict found in our own repo and NOT propagated.** The
+  manual's model tables list **every** Poly block with subcategory `Mono` and no
+  stereo option — Poly Pitch, Poly Wham, Poly Capo, 12 String, Poly Sustain,
+  Poly Detune, Feedbacker. `src/lib/helix/dsp-costs.ts` nonetheless carries
+  stereo figures for six of them (Poly Pitch 62.48, Poly Capo 56.23, 12 String
+  59.36, Poly Sustain 62.49, Feedbacker 35.79), and `docs/HELIX_DSP_BUDGET.md`
+  uses "Poly Pitch (stereo)" in a worked example. **The post publishes only the
+  mono figures** and the stereo column is logged below as new verification debt.
+- **Sourcing labelled, not laundered.** Every allocation figure is attributed in
+  the post to Ben Vesco's community table (3.80.0) and explicitly called
+  *reported*, with Vesco's own caveat that the values "are the upper limit of
+  DSP reserved for each block" and "are not an indication of the processing
+  horsepower required." The post does not present them as Line 6 specification.
+- **Arithmetic computed in-run** from `dsp-costs.ts` values: the Preamp-lever
+  demonstration (identical chain, 102.59% → 90.63%, will-not-build → builds with
+  9.37% free) and three further buildable/unbuildable HX Stomp chains.
+- **Deliberately not claimed:** per-block **latency** figures (the FAQ says
+  explicitly that Line 6 does not publish them and this article does not
+  estimate them) and per-block DSP percentages for **any non-Line 6 platform** —
+  the post states that refusal rather than hand-waving a comparison.
+- **Stayed distinct from the 09-29 Legacy post** per the queue's Gate 7 guard:
+  the mono fact gets one tight section framed as "the second price," linking out
+  to `helix-legacy-blocks-mono-stereo-collapse` rather than re-explaining
+  collapse behaviour. This post's subject is the DSP price and the
+  poly-vs-monophonic decision.
+- **AI Overview:** not observed. F&K not known to be cited.
+- Non-commodity gate: **PASS.** Checked against
+  `helix-legacy-blocks-mono-stereo-collapse`, `helix-amp-model-cheat-sheet`,
+  `modeler-latency-budget-per-block-cost`, `rising-vs-fixed-shimmer-pitch-in-reverb-feedback-loop`.
+  **Confirmed no colliding slug** — F&K had no pitch-block or DSP-budget post.
+
+**Post 3 — guitar-speaker-low-end-rolloff-what-a-cab-actually-passes** (Margot
+Thiessen; target: "guitar speaker frequency response low end," "why does my IR
+sound boomy," "guitar cab rolloff," "12 inch speaker low frequency")
+
+- **Top ranking:** three Fractal Audio forum threads, two TalkBass threads
+  (bass-focused), the Fractal wiki IR page, Darwin's Cat's IR editor, and two
+  tangential Wikipedia articles. The commodity claim in this SERP is "speakers
+  roll off below about 80–100 Hz, so high-pass there." **No result publishes
+  per-speaker figures.**
+- **Gate 7 guard satisfied — the post ships manufacturer-published numbers or it
+  was going to be dropped.** Eight speakers, each figure fetched from the
+  manufacturer: Celestion Vintage 30 (70–5000 Hz / Fs 75 Hz), G12M Greenback
+  (75–5000 / 75), G12M-65 Creamback (75–5000 / 75), G12H Anniversary (75–5000 /
+  85), G12T-75 (80–5000 / 85), G10 Greenback (95–5500 / 98), G12 Alnico Blue
+  (75–5000 / 75), Eminence Legend V128 (80 Hz–5 kHz usable / Fs 89 Hz). The Blue
+  was verified by downloading Celestion's own spec sheet PDF and extracting it
+  locally rather than trusting a search summary; the V128 came from eminence.com
+  directly (**note:** Eminence's own page says 100.9 dB sensitivity where
+  loudspeakerdatabase says 97 — the manufacturer figure was used).
+- **An honesty caveat the SERP does not make:** Celestion publishes "Frequency
+  range" with **no dB tolerance**, so its bottom figure cannot be converted into
+  a filter curve, and Eminence labels the comparable number "usable frequency
+  range." The post states that the two are not strictly comparable across brands
+  and that Fs is the physically defined parameter of the two.
+- **The finding that reframes the topic:** three of the eight speakers have a
+  resonance **above** the open low E's 82.41 Hz fundamental (G12H Anniversary
+  85, G12T-75 85, Legend V128 89), and the 10-inch G10 Greenback's published
+  range *starts* at 95 Hz — 13 Hz above the low E. Drop tunings fall below every
+  range floor in the table.
+- **This corrected two of our own published posts** (logged as refreshes below).
+- **Deliberately not claimed:** any measured IR response. The post argues from
+  what an impulse response *is* — speaker plus cab plus mic plus position plus
+  room, inseparable — and notes that Celestion publishes a response curve on its
+  spec sheets, rather than asserting dB differences between captures. **The
+  measured-figures rule from the DI shootouts was applied in full.**
+- **AI Overview:** not observed. F&K not known to be cited.
+- Non-commodity gate: **PASS.** Checked against `celestion-speaker-showdown`,
+  `celestion-g12t-75-1960a`, `open-back-vs-closed-back-cab-tone`,
+  `ported-vs-sealed-guitar-cab-tone`, `impulse-response-ir-guide`,
+  `speaker-power-handling-watts-cab`, `cab-irs-vs-real-cab-bedroom-room-treatment`.
+  None of them publishes a single Fs or frequency-range figure — all are
+  qualitative. **Confirmed no colliding slug.**
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | celestion-g12t-75-1960a | **A fabricated first-person measurement removed, the claim it supported reversed, and the legacy `<FAQ>` migrated with 5 takeaways added (had none).** The post contained "I measured this directly: running a signal sweep through a G12T-75 vs. a G12M Greenback, the T-75 was 4–6dB louder in the 80–120Hz region at matched overall SPL" — a measurement claim by a pseudonymous byline, which the honest-authorship rules do not permit, **and it points the wrong way**: Celestion publishes the T-75 at 80–5000 Hz / Fs 85 Hz against the Greenback's 75–5000 Hz / Fs 75 Hz, so the Greenback is the one that reaches lower. Replaced with the published figures and an explicit **extension-versus-headroom** distinction that preserves what was true in the original claim (a 75 W speaker holds its low end together at volume where a 25 W one compresses). The "Surprised Finding" section, which rested on the same fabricated measurement, was rewritten around the published-spec reversal. Also: placeholder `image_alt` ("a composition illustrating \"What the Celestion G12T\"") replaced; Gate 6 fixes ("warmth" standalone, "more 'musical'"); **a real rendering bug fixed** — two `<Knob>` elements carried both `display="80–100 Hz"` and `unit="kHz"`, and `Knob.tsx` appends `unit` after `display`, so the live page was printing "80–100 Hz kHz" and reading it out in the aria-label. `updated: 2026-10-08`. | The post's central differentiating claim about the speaker was both unsupportable and backwards, and it was being repeated downstream. |
+| R2 | celestion-speaker-showdown | **The same reversed claim corrected at its source, plus published specs added to the comparison table.** This post described the T-75's low end as extending "further and with more weight than the Greenback" in the body, the at-a-glance table ("extended bass"), the quick-version callout and a takeaway — four places. A new **Published range / Fs** column now carries the manufacturer figures for all four speakers (V30 70/75, Greenback 75/75, Blue 75/75, T-75 80/85), and a new "low-end correction" subsection states the reversal and the headroom-not-extension resolution. Five Gate 6 violations fixed in passing ("warm" standalone ×3, "musical" ×2; "transparent overdrive" left alone as a pedal-category name rather than a tone descriptor). Reciprocal link to Post 3. `updated: 2026-10-08`. | It is the four-way reference page the G12T-75 post links to, so leaving the claim correct in one post and wrong in the other would have been worse than leaving both wrong. |
+
+**Image pipeline note:** the `tech_bench` moodboard produced a hero for Post 1
+with a legible `Fender` script on the grille cloth **and** a second "Fender" on a
+bench tag, despite the prompt specifying "unbranded" — **the same failure mode
+the `nocturnal_studio` board showed on 09-29.** Regenerated once to a clean
+result (nonsense script logo). This is now two consecutive runs where a
+Fender-adjacent subject produced a real trademark; worth treating as a prompt
+bug rather than a coin flip. All three `image_alt` values were rewritten **after**
+generation — the standard practice proposed on 09-29, applied here for the first
+time, and it was needed in all three cases: the boards rotated to subjects
+(amp head on a cab; floor modeler on wet pavement; mic'd 4x12 on white) that did
+not match what the drafts had assumed.
+
+**Refresh debt carried forward:**
+1. The Y1 measured per-block latency table in `modeler-latency-budget-per-block-cost`.
+2. The complete Helix In-Z menu enumeration for `modeler-input-impedance-setting-what-to-set-it-to`.
+3. The measured figures in both DI shootouts.
+4. The AK3 Legacy parameter-gap inventory — needs HX Edit or hardware.
+5. The blackface **Middle** pot taper (linear or audio). Unchanged. Note that
+   Robinette's Twin layout labels the **Volume** pots `1M Log`, which is what
+   Post 1 relied on; it says nothing about the Middle pots, and Post 1 makes no
+   dial-position claim, so this debt did not block today's run.
+6. The Deluxe Reverb per-channel coupling cap values (.047 µF Normal vs .022 µF
+   Vibrato), still forum-tier only.
+7. **NEW — per-model bright cap values for the Vibrolux Reverb and Pro Reverb.**
+   Switch presence is verified; the capacitance is not. Needs a Fender parts
+   list or a chassis reading, not another vendor blog that says "etc."
+**Queued refresh (not a new topic):**
+- `treble-bleed-when-you-actually-need-one` — add the **computed per-value dB
+  tables** that Post 1 produced for the amp-side version of the same circuit,
+  run against 250K and 500K guitar pots. The post already has the topologies and
+  the cable-capacitance argument; what it lacks is the arithmetic showing what
+  each value costs at each volume position. Same method as Post 1 (shelf zero at
+  1/(2*pi*R_top*C), pole at 1/(2*pi*C*(R_top parallel R_bot)), height
+  (R_top+R_bot)/R_bot), and the same taper caveat applies. Set `updated:`, do
+  not change `date` or the URL.
+
+8. **NEW — the stereo column for Poly blocks in `src/lib/helix/dsp-costs.ts`.**
+   The 3.80 manual lists all seven Poly models as Mono-only with no stereo
+   subcategory, yet the file carries stereo allocations for six of them and
+   `docs/HELIX_DSP_BUDGET.md` uses "Poly Pitch (stereo)" in a worked example.
+   Either the stereo figures describe something other than a stereo block
+   instance, or they are wrong. **Today's post published mono figures only.**
+   Resolving it needs HX Edit or hardware.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 0, added 3 — **queue goes from 3 to 3, flat.** Bylines are
+> best-fit proposals; the executing run re-checks velocity **and** the
+> never-assign list, and **verifies no colliding slug at build time.** All three
+> collision-checked when queued.
+>
+> **Rejected as re-slices, recorded so nobody re-derives them:** (a) "what does
+> the bright cap value do" as a standalone — that is Post 1's second table
+> re-sliced; (b) "how much DSP does a Helix reverb use" — the same post with a
+> different block, and the per-category figures are a lookup rather than a
+> question; (c) "Vintage 30 vs Greenback frequency response" — Post 3's table
+> narrowed to two rows, and `celestion-speaker-showdown` already owns the
+> four-way comparison; (d) a general "what is speaker resonance" explainer — the
+> definition is everywhere and the interesting version is Post 3; (e) **a guitar
+> treble-bleed values post, which was drafted into this queue and then pulled
+> during the collision check** — `treble-bleed-when-you-actually-need-one`
+> already covers the values, the three topologies and what each does to the
+> taper, so per §6 a new URL would be a per-variation page. Queued instead as an
+> **update + redate**, below.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AL1 | jumping-amp-channels-what-the-patch-cable-actually-does | Jumping Your Amp's Channels: What the Patch Cable Actually Blends | "jump amp channels," "jumper plexi channels," "how to jump a fender amp," "jumping channels patch cable" | Rick Dalton | 2 — Settings Guides | **Surfaced by Post 1 and deliberately kept out of it.** Jumping is usually explained as "more gain," which is the least interesting thing it does. What it actually gives you is a **two-knob blend between two different voicings**, and because one of those channels has a treble-bypass cap across its volume pot, the blend's tone changes as you move either knob — which is Post 1's arithmetic applied to a circuit people use without understanding why the sweet spot is so narrow. Distinct content: which amps can be jumped and which cannot (verified per model, as Post 1 did for bright switches), what the phase relationship between the two inputs does, why the two Volume controls are not a simple crossfade, and the modeler finding — Line 6 ships `Brit Plexi Jump` and `Fullerton Jump` as **fixed separate models** (verified in the 3.80 manual this run), so the one parameter that makes jumping worth doing on a real amp is the one thing the model does not give you. **Gate 7 guard: must ship a verified per-model jumpable/not-jumpable inventory and must handle the phase question honestly — if the per-model input wiring cannot be sourced, ship the two-knob-blend mechanism plus the Helix finding and say the inventory is incomplete. Do NOT assert phase relationships from forum posts.** Rick's lane (Marshall Super Lead, classic rock, analog) and clear of his never-assign list (DAW/plugin workflows, modern prog, social). **Confirmed no colliding slug** — F&K has no jumpering post. |
+| AL2 | why-your-modeler-preset-wont-fit-what-to-cut-first | Your Preset Won't Fit. Here's the Order to Cut Things In. | "helix dsp full," "hx stomp running out of dsp," "cannot add block helix," "what uses the most dsp helix" | Sean Nakamura | 4 — Modeler Masterclass | Post 2 priced one block family. This is the general decision procedure, and it is a genuinely different question: *given a chain that will not build, what do you remove and in what order?* Distinct content: the **Preamp lever** quantified across amp families (the saving is largest on vintage amps and smallest on modern high-gain, which inverts the intuition), new-engine versus Legacy cab blocks (3.33 against 9.60 mono — a free 6-point saving most presets leave on the table), reverbs as the quiet second-biggest line item, and the structural-violation-before-DSP ordering (block count, amp count, poly count) because "you used three amps" is actionable where "you are at 140%" is not. **Gate 7 guard: must be a procedure with an order, not a cost list — Post 2 already has the cost list. Same sourcing discipline: Ben Vesco's table cited as reported, never as Line 6 spec. If it degenerates into "here is the DSP table," drop it.** Sean's lane; not on his never-assign list. Viktor is the alternate but wrote AK8, so rotate. **Confirmed no colliding slug.** |
+| AL3 | what-your-amps-speaker-size-decides-before-you-plug-in | What Your Speaker's Diameter Decides Before You Plug In | "10 inch vs 12 inch guitar speaker," "does speaker size affect tone," "1x12 vs 4x10," "why do 10 inch speakers sound tighter" | Carl Beckett | 5 — Gear Lab | **Post 3 surfaced the number that makes this answerable and kept it to one row:** the 10-inch G10 Greenback publishes 95–5500 Hz against the 12-inch Greenback's 75–5000 Hz — the smaller driver's range starts 20 Hz higher *and* extends 500 Hz further up, from the same maker, same model family, same year. That is the size trade stated in the manufacturer's own figures rather than as folklore. Distinct content: published range and Fs for 8-, 10- and 12-inch models across a maker's line; why multiple small speakers do not sum to one large one in the way players assume; what the higher range floor means for a Bassman-style 4x10 versus a 1x12 in the same room; and the practical consequence for drop tunings. **Gate 7 guard: must ship published per-size figures from at least two manufacturers, sourced, and must handle the 4x10-versus-1x12 question with the honest answer about cone area rather than inventing a summing rule. If the figures for 8- and 10-inch models cannot be obtained, drop it — the measured-figures rule applies exactly as it did to AK9.** Carl's one-guitar, what-you-have-is-enough lane, and clear of his never-assign list (which bars modeler deep-dives). **Confirmed no colliding slug.** |
