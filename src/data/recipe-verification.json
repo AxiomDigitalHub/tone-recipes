@@ -1766,5 +1766,39 @@
     ],
     "droppedCount": 0,
     "substitutedCount": 6
+  },
+  "hoffmann-balls-to-the-wall-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 10
+  },
+  "petrucci-six-oclock-riff": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 3,
+    "substitutedCount": 9
+  },
+  "wilson-sleep-together-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 9
+  },
+  "townsend-death-of-music-wall": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 2,
+    "substitutedCount": 10
+  },
+  "abasi-cafo-riff": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 2,
+    "substitutedCount": 8
   }
 }

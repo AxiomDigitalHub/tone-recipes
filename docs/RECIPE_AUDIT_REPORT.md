@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
 **Date:** 2026-10-08
-**Recipes:** 240
-**Clean (no errors, no warns):** 240
+**Recipes:** 245
+**Clean (no errors, no warns):** 245
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,12 +16,18 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `settings-outside-unverified-range` | info | 240 / 240 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
-| `katana-kemper-multidrive-default-off` | info | 31 / 240 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `settings-outside-unverified-range` | info | 245 / 245 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
+| `katana-kemper-multidrive-default-off` | info | 31 / 245 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
 ## Per-recipe results
+
+### `abasi-cafo-riff` — ✓ clean
+
+*Animals as Leaders' CAFO Riff Tone*
+
+Passes every rule.
 
 ### `angus-highway-to-hell-riff` — ✓ clean
 
@@ -605,6 +611,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `hoffmann-balls-to-the-wall-riff` — ✓ clean
+
+*Accept's Balls to the Wall Riff Tone*
+
+Passes every rule.
+
 ### `hoffmann-fast-as-a-shark-riff` — ✓ clean
 
 *Accept's Fast as a Shark Riff Tone*
@@ -1163,6 +1175,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `petrucci-six-oclock-riff` — ✓ clean
+
+*Dream Theater's 6:00 Riff Tone*
+
+Passes every rule.
+
 ### `pierce-bodies-riff` — ✓ clean
 
 *Bodies Riff Tone*
@@ -1403,6 +1421,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `townsend-death-of-music-wall` — ✓ clean
+
+*Devin Townsend's The Death of Music Wall of Sound*
+
+Passes every rule.
+
 ### `townshend-wont-get-fooled-again` — ✓ clean
 
 *Townshend's Won't Get Fooled Again Power Chord Tone*
@@ -1454,6 +1478,12 @@ Passes every rule.
 ### `walsh-life-in-the-fast-lane-riff` — ✓ clean
 
 *Walsh's Life in the Fast Lane Riff Tone*
+
+Passes every rule.
+
+### `wilson-sleep-together-riff` — ✓ clean
+
+*Porcupine Tree's Sleep Together Riff Tone*
 
 Passes every rule.
 
