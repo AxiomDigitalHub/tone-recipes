@@ -185,3 +185,21 @@ So this is not the old condition persisting; it is the **same failure mode recur
 **Standing recommendation, unchanged and now overdue:** on the next successful read, capture the AI Performance `Download all` CSVs and commit them, so a future gap costs interpretation rather than raw data. Four blind weeks is exactly the scenario that recommendation was written for.
 
 **What has not changed:** nothing in this run touches the canonical reading of the 08-10 data — citation share still tracks **original measurement** (pages carrying a test we ran ourselves hold 57–83% share; generic head terms 13–25%), and **zero** worship or song-preset queries had appeared as of the last successful capture. Note one cross-signal worth carrying into the next capture: Google newly indexed `elevation-worship-guitar-tone-helix` this week, joining `hillsong-guitar-tone-helix` (indexed 8 weeks, still drawing zero AI citations as of 08-10). If entry 3 shows Hillsong *still* at zero citations despite two months of Google indexing, that further confirms indexing is necessary but not sufficient for AI citation — the split first flagged in the 08-10 entry.
+
+### 2026-10-10 — SKIPPED (blocked, no data) — **fifth consecutive miss; device ids churned again**
+Dashboard never reached. Same failure mode as 09-27: the Claude-in-Chrome layer reports **two connected Chrome extensions with none selected for the session**, mandating an interactive pick that an unattended run cannot make and is explicitly forbidden from making unilaterally.
+
+The device ids moved again, and the direction is informative:
+
+- **Browser 1 — `c0f2daee-8c65-4ddb-b9ef-ca4354dfd446`** — the id from 08-19 and 08-24 is **back**. Last run this slot held a brand-new `fe28ff9d-…`, which has now vanished.
+- **Browser 2 — `b89db820-bd49-45cb-b08c-b65da091b763`** — the long-lived instance, unchanged across every run, and the one that selected cleanly on 09-05.
+
+Four observations of the Browser 1 slot now read: `c0f2daee` (08-19) → `c0f2daee` (08-24) → `fe28ff9d` (09-27) → `c0f2daee` (10-10). Ids are **not** monotonically accumulating spares; they churn and reappear. That kills the "disconnect the spare extension" fix outright — the spare is not a stray install to be cleaned up once, it is an extension instance whose registration id changes across sessions. **The durable fix remains pinning this task to `b89db820-…`**, which is the only id stable across all five runs. Disconnecting whatever sits in the Browser 1 slot buys exactly one run, as 09-27 → 10-10 now demonstrates twice over.
+
+**Session state:** unknown — dashboard never reached. 09-05 established the Microsoft session in `b89db820-…` had **expired**, and nothing since could have renewed it. Assume **two stacked blockers**: a device pick *and* a re-login. Unblock both in one sitting or the next run clears the pick and stalls on the sign-in wall exactly as 09-05 did.
+
+**Cost of the gap:** **five consecutive misses** (08-19, 08-24, 09-05, 09-27, 10-10) now sit between entry 2 and any future entry 3. The last captured window ended **2026-08-10 — 61 days ago**. The dashboard shows a rolling window, so every one of those days has aged out of retention and is permanently unrecoverable. Trend is **not readable**, and the series is no longer merely delayed — it is **broken**: entry 3, whenever it lands, will be a coarse before/after against a two-month-stale baseline with no way to locate when anything changed inside the gap. The original goal of "~4+ weekly entries before a trend is readable" is further away now than it was on 08-12, because the clock on a contiguous run has reset.
+
+**Standing recommendation, unchanged and now five weeks overdue:** on the next successful read, capture the AI Performance `Download all` CSVs and commit them, so a future gap costs interpretation rather than raw data. Five blind weeks is precisely the scenario that recommendation was written for, and it is now the most valuable single action available on this doc.
+
+**Content guidance is unaffected by the gap.** The canonical finding from entries 1–2 stands and should keep steering work: citation share tracks **original measurement** — pages carrying a test we ran ourselves hold **57–83%** share, generic head terms **13–25%**. Recommend original measurement, not volume.
