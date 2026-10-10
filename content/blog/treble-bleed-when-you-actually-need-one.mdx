@@ -6,6 +6,7 @@ description: >-
   tone control. It is the pot working against your cable, which is why the right
   value depends on your rig.
 date: '2026-09-04'
+updated: '2026-10-10'
 author_slug: margot-thiessen
 category: signal-chain
 tags:
@@ -39,6 +40,11 @@ takeaways:
     A wireless rig, a buffer at the front of the board, or a 250k pot with a
     short cable may need no treble bleed at all, and installing one anyway is
     how a guitar ends up brittle at 8.
+  - >-
+    A bleed cap can only return the attenuation the pot is currently applying,
+    and that ceiling depends on wiper position alone — not on the cap value or
+    the pot value. The capacitor decides where the shelf starts, not how much
+    lift you get.
 faq:
   - q: What causes a guitar to get darker when you turn the volume down?
     a: >-
@@ -154,6 +160,41 @@ Schematics for all three are everywhere. What is harder to find is what each one
 **Capacitor with a resistor in parallel.** The most common network on the market, typically 1000 pF with 150k, and the resistor's job is to stop the highs from taking over at low settings. It does that. What it also does — and this is the failure mode that gets these reversed — is change the taper. The resistor sits permanently across part of the pot, so the sweep stops behaving like the pot you bought. Values run 220 to 1500 pF and 100k to 330k, and the resistor wants to be somewhere in the region of half to two-thirds of the pot's value: 120k to 160k on a 250k pot, 250k to 330k on a 500k. Get that wrong and the knob dumps everything in the last two numbers, or stays loud until it suddenly is not.
 
 **Capacitor with a resistor in series.** Chris Kinman popularized this in the 1990s with 1200 pF and 130k, and Fender's Tone Saver is 1000 pF with 130k. Putting the resistor in series with the cap limits how much treble gets through instead of fighting it after the fact, and it leaves the taper broadly alone. It is the version that causes the fewest new problems, which is a lower bar than "best" but is the right bar for a modification you are soldering into a guitar you like.
+
+## How Much Treble a Bleed Can Actually Return
+
+Everything above is about where the rolloff lands. This is the other half of the question, and it has a clean answer that reframes the value choice: **a bleed cap can only hand back the attenuation the pot is currently applying.** Not more. The ceiling is set by the knob position and nothing else.
+
+A capacitor across the top of a volume pot makes a shelving filter. Three things define it, and they come straight out of the divider:
+
+- The shelf starts rising at `1 / (2π × R_top × C)`
+- It flattens out at `1 / (2π × C × (R_top ∥ R_bot))`
+- Its height is `(R_top + R_bot) / R_bot`
+
+Work the height through. With the wiper at a fraction `x` of the track above ground, `R_bot` is `x·R` and `R_top` is `(1−x)·R`, so the height is `R / (x·R)` — which is `1/x`, with the pot value cancelling out entirely. The capacitor cancels out too. **The maximum lift depends only on where the wiper is.**
+
+Here is what that looks like, with four cap-and-pot combinations to show what the capacitor *does* change:
+
+| Wiper position (fraction of track resistance to ground) | Attenuation the pot is applying | Maximum lift the cap can return | Shelf starts: 250k + 680 pF | 250k + 1 nF | 500k + 1 nF | 500k + 2.2 nF |
+|---|---|---|---|---|---|---|
+| 0.90 | −0.9 dB | +0.9 dB | 9.4 kHz | 6.4 kHz | 3.2 kHz | 1.4 kHz |
+| 0.70 | −3.1 dB | +3.1 dB | 3.1 kHz | 2.1 kHz | 1.1 kHz | 482 Hz |
+| 0.50 | −6.0 dB | +6.0 dB | 1.9 kHz | 1.3 kHz | 637 Hz | 289 Hz |
+| 0.30 | −10.5 dB | +10.5 dB | 1.3 kHz | 909 Hz | 455 Hz | 207 Hz |
+| 0.20 | −14.0 dB | +14.0 dB | 1.2 kHz | 796 Hz | 398 Hz | 181 Hz |
+| 0.10 | −20.0 dB | +20.0 dB | 1.0 kHz | 707 Hz | 354 Hz | 161 Hz |
+
+Computed for the capacitor-alone circuit with no load downstream, which is the case the shelf arithmetic describes exactly. Add a resistor in series with the cap and the shelf height comes down by the divider that resistor forms with the pot — which is precisely why the series version does not go papery at low settings. Add a load, and real cable capacitance pulls the top of the shelf down. These are the bounds, not a prediction of the curve.
+
+**The positions are resistance fractions, not dial numbers, and that distinction is load-bearing.** Guitar volume pots are audio taper, so rotation and resistance are not interchangeable — which is the same point the section above makes about where the source-resistance hump sits. A wiper at 0.5 of the *track* is not the knob at 5.
+
+Three things fall out of this table.
+
+**One: the value is a frequency choice, not a brightness choice.** Every column has the same lift ceiling. What changes between 680 pF and 2.2 nF is where the shelf begins. That reframes the usual question — "which value is brightest" has no answer, because none of them is brighter than any other at a given knob position. The bigger cap just starts lifting lower down.
+
+**Two: big values stop being treble bleeds.** A 2.2 nF cap on a 500k pot starts its shelf at 289 Hz with the wiper at mid-track. That is not high frequencies bypassing the pot, that is most of the guitar bypassing the pot — and when nothing is being attenuated, there is nothing to restore. The circuit has turned into a partial short across the volume control. This is the mechanism behind the complaint that oversized bleeds sound harsh and uncontrolled: they are not adding treble, they are removing the volume control's effect on everything above a couple of hundred Hertz.
+
+**Three: at the top of the sweep there is nothing to fix.** With the wiper at 0.90 the pot is applying 0.9 dB and the cap can return 0.9 dB. A bleed is doing almost nothing in the top tenth of the track, no matter what value you fit, which is the same bound [an amp's bright switch runs into at high volume settings](/blog/fender-bright-switch-what-it-actually-does) — the circuits are the same topology in two different places.
 
 ## Choosing a Value, and Why Yours Is Not Mine
 

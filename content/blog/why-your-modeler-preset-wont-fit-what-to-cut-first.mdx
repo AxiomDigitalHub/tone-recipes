@@ -1,0 +1,229 @@
+---
+title: Your Preset Won't Fit. Here's the Order to Cut Things In.
+seo_title: 'Helix DSP Full: What to Cut First, In Order'
+description: >-
+  When a Helix or HX Stomp preset stops building, the fix has an order. Check
+  the structural limits first, then cut by tone cost per DSP unit recovered —
+  with the arithmetic for each step.
+date: '2026-10-10'
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - helix
+  - hx-stomp
+  - dsp
+  - preset-building
+  - modeler
+  - signal-chain
+takeaways:
+  - >-
+    Check the structural limits before the DSP number. Block count, amp count,
+    cab count and poly count are hard ceilings that cheaper models cannot fix,
+    and the device enforces them first.
+  - >-
+    Cut in order of tone cost per unit recovered, not in order of units
+    recovered. Moving blocks to Path 2 and dropping stereo you cannot hear are
+    free; swapping the amp for its Preamp variant is not.
+  - >-
+    An Amp+Cab block costs exactly the same DSP as an Amp block plus a
+    new-engine Cab block — 40.13 either way on a Brit Plexi Brt. What it saves
+    is a block slot, which is the constraint that actually bites on an HX Stomp.
+  - >-
+    The Preamp saving is not where the received wisdom puts it. Across 111 amp
+    models the high-gain amps are tightly clustered at 10.46 to 15.62 units,
+    while the vintage amps run from 0.29 to 21.33 — the unpredictable group is
+    the old one.
+  - >-
+    A six-block HX Stomp chain at 129.57 percent reaches 90 percent without
+    touching the amp, using only stereo-to-mono and one reverb swap. The amp
+    change after that buys another 17 points of headroom.
+faq:
+  - q: Why does my Helix say I cannot add a block when there are empty slots?
+    a: >-
+      Because block slots and DSP are separate constraints. Since firmware 2.x
+      there is no warning dialog — models that will not fit simply grey out in
+      the list and get skipped over. Empty slots with no selectable models means
+      you are out of DSP on that path, not out of room. Empty slots with
+      selectable models and a refusal means you have hit a structural limit
+      instead, such as the two-amps-per-path or one-poly-block-per-path cap.
+  - q: >-
+      Does using an Amp+Cab block instead of separate Amp and Cab blocks save
+      DSP?
+    a: >-
+      No. This is widely repeated and it is wrong on DSP. An Amp+Cab block is
+      modelled as the amp cost plus one new-engine single cab, which is the same
+      total as the two blocks separately — 40.13 units for a Brit Plexi Brt
+      either way. The combined block saves one block slot. On an HX Stomp, with
+      eight slots total, that is often the more valuable saving.
+  - q: What uses the most DSP on a Helix?
+    a: >-
+      Amps, polyphonic blocks and the newer reverbs, in that rough order. Line
+      6's own optimisation tips name Amps, Reverbs and Poly effects as the
+      expensive categories and EQ, Dynamics, Volume/Pan and Send/Return as the
+      cheap ones. In reported allocation figures a full amp block runs 13 to 41
+      units of 100, a Poly block 48 to 53, and reverbs from 7.35 for a Legacy
+      model to 30.67 for Nonlinear.
+  - q: How much DSP does switching from Amp to Preamp actually save?
+    a: >-
+      It depends heavily on the model, which is the part the usual advice skips.
+      The median across 111 amp models is 12.93 units, but the spread runs from
+      0.29 on a Fender Champ to 21.33 on a tweed Deluxe, and several Line 6
+      Original models save nothing at all. Look up your amp rather than assuming
+      a percentage.
+  - q: Do snapshots reduce DSP usage?
+    a: >-
+      No. A preset's DSP requirement accounts for every block in the preset
+      regardless of whether a given snapshot has it bypassed. Snapshots change
+      parameter values and bypass states, not what is loaded. If a chain will
+      not build, bypassing half of it in snapshot one does not help.
+  - q: Is an HX Stomp XL better than an HX Stomp for big presets?
+    a: >-
+      Not for DSP. Both have one processor, the same reported allocation budget
+      and the same eight-block ceiling. The XL buys footswitches and a fourth
+      snapshot. If you are hitting DSP or block limits on a Stomp, the XL will
+      hit them in exactly the same place.
+image: /images/blog/why-your-modeler-preset-wont-fit-what-to-cut-first.jpg
+image_alt: >-
+  A dark grey floor multi-effects unit with two lit screens, four control knobs,
+  three footswitches and a built-in expression pedal, photographed straight on
+  against a plain white background
+---
+
+A chain that built yesterday stops building today, and the unit tells you nothing. Models grey out in the list and get skipped over — that has been the behaviour since firmware 2.x, with no dialog and no number. You are left guessing which block broke the budget, and the usual response is to start deleting from the end of the chain, which is close to the worst possible order.
+
+There is a correct order. It has two halves: rule out the structural limits, then cut by what each cut costs you in tone per unit it gives back. Those are different questions and they want different answers.
+
+## Step 1: Is This Even a DSP Problem?
+
+Four of the limits on a Helix have nothing to do with processing power. They are counts, they are enforced before DSP, and no amount of cheaper models will move them. From the 3.80 manual's block rules, verbatim:
+
+| Limit | Helix Floor / LT / Rack | HX Stomp / XL |
+|---|---|---|
+| Amp+Cab, Amp, or Preamp blocks | "Any combination, up to four (two per path max.)" | Two |
+| Cab blocks (includes Amp+Cab blocks) | "Up to four Single Cab blocks (two per path max.), or up to two Dual Cab blocks (one per path max.)" | Two single |
+| IR blocks | "Up to four 1024-point Single IR blocks (two per path max.), or two 2048-point Single IR blocks (one per path .max), or two Dual IR blocks, (one per path max.)" | Two |
+| Polyphonic and high-DSP blocks | "One per path max." | One per preset |
+| Looper | "One" | One |
+| Total blocks | 32, 16 per path | 8 |
+
+The ordering matters because the fix is different in kind. "You are at 140 percent of Path 1" is a problem you solve by making things cheaper. "You used three amps on one path" is a problem you solve by moving one, and swapping every reverb in the chain will not help you at all.
+
+This is the order our own preset builder checks in, for the same reason: unsupported category, then total block count, then per-path block count, then amp count, then cab count, then poly count, and only then DSP. If an earlier check fails, the DSP figure is noise.
+
+Two structural wins worth knowing before you start cutting anything:
+
+- **Path 2 exists and it has its own processor.** Line 6's first optimisation tip is blunt about it: "Each of Helix's two primary paths utilizes its own DSP. If all of your blocks are on paths 1A and 1B, you're only using half its horsepower!" A preset that lives entirely on Path 1 is at 100 percent while half the unit idles. Parallel branches 1A and 1B share one chip; Path 2 is the other one.
+- **The Input block has a gate built in.** The Threshold and Decay parameters on the Input block are greyed out until you turn Input Gate on. Using it instead of a separate Noise Gate block returns the block slot and the 3.87 units the gate block was costing.
+
+Neither of those changes a single sound.
+
+## Step 2: Cut by Tone Cost, Not by Size
+
+Once it genuinely is DSP, the instinct is to find the biggest number and delete it. That gets you a preset that fits and doesn't sound like the one you wanted.
+
+Order the cuts by what they cost you per unit recovered. Four tiers, cheapest first. All allocation figures below are reported community data for firmware 3.80 against a 100-unit path — the upper limit of DSP reserved for each block, not a measurement of processing load.
+
+### Tier 1 — Free, or close to it
+
+Stereo width you are not listening to. Most blocks cost roughly twice as much in stereo as in mono, and if the signal ends at one amp, one cab or one mono output, every stereo block upstream is paying double for a width that collapses anyway.
+
+| Block | Mono | Stereo | Returned by going mono |
+|---|---|---|---|
+| Legendary Drive | 21.33 | 41.33 | 20.00 |
+| Tone Sovereign | 20.00 | 38.00 | 18.00 |
+| Cosmos Echo | 14.13 | 25.60 | 11.47 |
+| Heliosphere | 16.00 | 29.33 | 13.33 |
+| Simple EQ | 1.71 | 2.17 | 0.46 |
+
+Note the shape of that list. Drives and delays roughly double. EQ and dynamics barely move, so converting them is not worth the loss of anything. Go after the expensive stereo blocks and leave the cheap ones alone.
+
+Worth checking while you are in there: a [Legacy block downstream can collapse your stereo path anyway](/blog/helix-legacy-blocks-mono-stereo-collapse), in which case you were paying for width that was already being thrown away.
+
+### Tier 2 — A model swap inside the same job
+
+Same function, different algorithm, real tone difference but a difference you can audition in ten seconds.
+
+| Swap | From | To | Returned |
+|---|---|---|---|
+| Reverb: new engine to Legacy | Dynamic Hall 20.67 | Hall (Legacy) 7.35 | 13.32 |
+| Reverb: the expensive end | Nonlinear 30.67 | Hall (Legacy) 7.35 | 23.32 |
+| Cab: Legacy to new engine | Cab (legacy, single) 9.60 | Cab (new, single) 3.33 | 6.27 |
+| IR: Legacy to 1024-point | IR (legacy) 9.33 | IR 1024 3.33 | 6.00 |
+
+The reverb line is the one most presets are leaving on the table. A Legacy Hall at 7.35 against a Dynamic Hall at 20.67 is a 13-point swing from a block most players set once and never return to, and in a dense mix with a drive and a delay in front of it the two are much closer than the price difference suggests. The new reverbs earn their cost on exposed clean parts and almost never on a rhythm sound.
+
+The cab line is the one most presets already have for free and don't know it — firmware 3.50's new cab engine cut a single cab from 9.60 to 3.33. If your preset predates 3.50 and still carries a Legacy cab block, you have been paying 6.27 units for a model you probably didn't choose deliberately. Our [cab and IR pairing notes](/blog/helix-cab-ir-pairings) cover which new-engine cabs land closest to the Legacy ones.
+
+### Tier 3 — Give up the power amp model
+
+Switching an amp block to its Preamp variant drops the modelled power section and keeps the preamp. On a direct rig into a cab block or an impulse response this is frequently the right choice regardless, because the part you removed is the part a real cabinet and microphone were going to re-shape anyway.
+
+I went into this expecting the saving to be predictable by amp family — bigger on the simple vintage circuits, smaller on the modern high-gain ones, since the high-gain amps carry more preamp and proportionally less power amp. The first half is wrong and the second half is wrong for an interesting reason.
+
+Across the 111 amp models with a published Preamp allocation:
+
+| Group | Models | Mean saving | Range |
+|---|---|---|---|
+| Modern high-gain (Mesa, Soldano, Diezel, Revv, EVH, Peavey, Friedman, Bogner, ENGL, Archon) | 23 | 13.07 | 10.46 to 15.62 |
+| Vintage (Fender, Marshall, Vox, Supro, Gibson, Matchless, Hiwatt, Orange, Park, Sunn) | 46 | 14.13 | 0.29 to 21.33 |
+| All amps | 111 | 11.07 | -0.35 to 21.33 |
+
+The means are close enough to be uninteresting. The ranges are the finding. Every modern high-gain amp in the set returns between 10 and 16 units — you can budget for that without looking it up. The vintage group spans the entire distribution: a tweed Deluxe returns 21.33, a Fender Champ returns 0.29, and five Line 6 Original models return exactly zero because their Preamp allocation is identical to their full amp allocation. Two bass amps are listed a third of a point *higher* as a preamp, which given the dataset's own stated precision of about one unit I read as "no saving" rather than as a penalty.
+
+So the rule is not a percentage. It is: look up your amp, because the group you are in only tells you something if you are playing a modern high-gain model.
+
+The amps worth knowing, highest saving first:
+
+| Model | Full amp | Preamp | Returned |
+|---|---|---|---|
+| Fullerton Nrm / Brt (5C3 tweed Deluxe) | 37.33 | 16.00 | 21.33 |
+| Mandarin Rocker (Rockerverb) | 38.33 | 17.89 | 20.44 |
+| Grammatico Nrm / Brt (LaGrange) | 39.00 | 18.67 | 20.33 |
+| Brit Plexi Nrm (Super Lead 100) | 36.05 | 17.57 | 18.48 |
+| US Deluxe Nrm (Deluxe Reverb) | 29.63 | 13.55 | 16.08 |
+| Cali Rectifire (Dual Rectifier) | 35.63 | 23.67 | 11.96 |
+| US Small Tweed (Champ) | 16.12 | 15.83 | 0.29 |
+
+A Champ model is already so cheap that there is nothing in it to recover. If your chain is built on US Small Tweed, Tier 3 does not exist for you and you should go back to Tier 2.
+
+### Tier 4 — Give up the feature
+
+Last, because these change what the preset does rather than how it sounds.
+
+Polyphonic blocks are the big line item: Poly Pitch and Poly Wham at 53.33, Poly Capo and Poly Detune at 48. Swapping Poly Pitch for the monophonic Pitch Wham at 6.13 returns 47.20 units, which is an amp block and a reverb — but it only works if you never send a chord through it. [That decision has its own arithmetic.](/blog/polyphonic-pitch-blocks-dsp-cost-worth-it)
+
+After that: delete a block. If you are deleting, delete the one you would miss least on a dark stage, not the one with the biggest number.
+
+## The Procedure, Run on a Real Chain
+
+Six blocks on an HX Stomp, which is where this comes up most. Compressor, overdrive, Plexi Amp+Cab, graphic EQ, stereo delay, stereo reverb. Every figure below is from the same reported dataset.
+
+**As written:** Deluxe Comp 2.33 + Tone Sovereign stereo 38.00 + Brit Plexi Brt Amp+Cab 40.13 + Cali Q Graphic 2.84 + Cosmos Echo stereo 25.60 + Dynamic Hall stereo 20.67 = **129.57 percent.** It will not build. Six blocks used, two slots free, and the free slots are a taunt.
+
+Now the order.
+
+1. **Structural check.** Six of eight blocks, one amp, one cab, no poly, no looper. Nothing structural. It is a real DSP problem.
+2. **Tier 1 — drive to mono.** The Stomp is going to one amp. 38.00 becomes 20.00. → **111.57 percent.** Still no.
+3. **Tier 1 — delay to mono.** 25.60 becomes 14.13. → **100.10 percent.** One tenth of a percent over, and the answer is still no. This is the most instructive number in the article: the budget is a cliff, not a slope.
+4. **Tier 2 — Dynamic Hall to Hall (Legacy), kept in stereo.** 20.67 becomes 10.57. → **90.00 percent.** It builds, with 10 percent free and two slots open.
+5. **Tier 3, optional — amp to Preamp.** Only if you want room for something else. 40.13 becomes 22.83. → **72.70 percent**, 27.30 free.
+
+The preset that would not build now builds with a quarter of the path spare, and the amp model was never touched until the optional step. Working from the biggest number down would have started by deleting the amp.
+
+## When the Answer Is a Different Device
+
+Two cases where no amount of cutting is the fix.
+
+**You need two amps and a developed effects chain.** On an HX Stomp that is two of eight blocks spent on 60 to 80 units before a single effect. Line 6's own tip offers the alternative: "Instead of a parallel path with two Amp+Cab blocks or two separate Amps and Cabs, try adding a single Amp block followed by one Cab > Dual block." One amp, two cabs — 40.13 plus 6.67 against roughly 80 for the two-amp version. It is not the same sound, and it is frequently the better preset.
+
+**You want a jumped-channel blend an amp model doesn't offer.** Building that by hand is two preamps in parallel, which on a Plexi is 40.40 against Brit Plexi Jump's 27.24 — [and the Jump models only exist for six amps](/blog/jumping-amp-channels-what-the-patch-cable-actually-does).
+
+**You need two poly blocks, or two of anything structurally capped.** No. That is a Helix Floor, LT or Rack, because the cap is per path and the Stomp has one path. The XL does not help; it has the same processor and the same eight-block ceiling.
+
+## What These Numbers Are and Are Not
+
+Line 6 does not publish per-model DSP costs. Every allocation figure here is from Ben Vesco's community table for firmware 3.80, derived by iterative trial and error against real hardware and acknowledged by Line 6 staff on the official forum. Vesco's caveat applies to all of it: the values "are the upper limit of DSP reserved for each block" and "are not an indication of the processing horsepower required." Treat them as good to about one unit.
+
+They also move between firmware releases. 3.50's new cab engine cut cab cost by two thirds; 3.10's oversampling change raised amp costs. The ordering of the tiers survives those changes. The specific figures do not, so re-check after a major update rather than trusting a table you bookmarked.
+
+What transfers to a Quad Cortex or a Fractal unit is the procedure, not the arithmetic. Structural limits before capacity limits, then cut in order of tone cost per unit recovered, then audition before you keep it. The numbers are platform-specific. The order is not.

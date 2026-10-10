@@ -6,6 +6,7 @@ description: >-
   gain stage and, on a Deluxe Reverb, a treble cap you can't switch off.
   Verified panel layouts per model.
 date: '2026-09-29'
+updated: '2026-10-10'
 author_slug: rick-dalton
 category: settings-guides
 tags:
@@ -39,6 +40,11 @@ takeaways:
     The Middle knob is a separate question and it varies by model. A Twin Reverb
     has one on both channels, a Super Reverb has one on the Vibrato channel
     only, and most of the rest have none.
+  - >-
+    Because the two channels have different gain-stage counts, they arrive at
+    the shared mixing resistors with opposite polarity. Jumpering them with a
+    patch cable partly cancels rather than blending — a correction to an earlier
+    version of this post.
 faq:
   - q: Which channel should I plug into on a Deluxe Reverb?
     a: >-
@@ -76,12 +82,16 @@ faq:
       at all.
   - q: Should I jumper the two channels together on my Fender?
     a: >-
-      Only if you want the Normal channel's darker voice blended under the
-      Vibrato channel's reverb, and you are willing to lose some headroom to it.
-      It is a real trick and it is not a tone upgrade — you are mixing two
-      voicings and the result depends heavily on the relative volume settings.
-      Try the Normal channel on its own first; most players who jumper have
-      never actually spent a rehearsal on the plain channel.
+      No, and this answer is a correction to an earlier version of this post. On
+      the reverb-equipped blackface amps the Normal channel runs two preamp gain
+      stages and the Vibrato channel runs three, and every stage inverts, so the
+      two arrive at the shared 220k mixing resistors with opposite polarity and
+      partly cancel. Rob Robinette's AB763 walkthrough states it directly: "If
+      you do jumper the channels the tone will be weak and funky as the two
+      signal streams cancel one another out." The trick works on amps whose
+      channels have matching stage counts, such as a Marshall Plexi or a tweed
+      Deluxe. It does not work here, and the reason is the third stage described
+      below.
 image: /images/blog/fender-normal-vs-vibrato-channel.jpg
 image_alt: >-
   A black tolex amplifier head with a lit control panel sitting on a matching
@@ -126,6 +136,24 @@ On the reverb-equipped amps, the Normal channel runs two gain stages and stops. 
 That stage is a recovery stage. The reverb circuit costs signal — you're driving a spring pan and reading it back off a transducer — and something has to make up the difference. So the third stage isn't there to give the Vibrato channel more gain. It's there to get the Vibrato channel back to even after the reverb tank takes its cut.
 
 Whether a given amp actually lands back at even is a coin flip. Rob Robinette's read is that the stage more than compensates, which would make the Vibrato channel the one that breaks up first. Plenty of owners measure the two channels as near enough identical. Both can be true in different amps — that's one 12AX7 and a handful of resistors, and tolerance stacks. The point for a player is that level is not the reliable difference between these channels. The cap is.
+
+## Why You Cannot Jumper These Two Channels
+
+An earlier version of this post said jumpering the Normal and Vibrato channels together was a real trick worth trying. That was wrong, and the reason it was wrong is the third tube stage described immediately above.
+
+Every triode gain stage inverts the signal. The Normal channel has two of them, V1A and V1B, so it inverts twice and comes out the way it went in. The Vibrato channel has three — V2A, V2B and V4B — so it comes out inverted relative to the Normal channel. Both then meet at 220k mixing resistors on the way to the phase inverter, and two signals of opposite polarity at a summing node subtract rather than add.
+
+Rob Robinette's AB763 circuit walkthrough puts it plainly:
+
+> You can't really "jumper" AB763 channels together because the Vibrato Channel has an additional gain stage that puts the two channels' signals out of phase.
+>
+> If you do jumper the channels the tone will be weak and funky as the two signal streams cancel one another out.
+
+You will hear something, because the two channels are not carrying identical signals — different voicings, the bright cap on one of them, the reverb and tremolo sitting in the Vibrato path — so the cancellation is partial and frequency-dependent. But it is thinner and quieter than either channel on its own, which is the opposite of what people are trying to achieve when they reach for the patch cable.
+
+The trick is real on amps whose two channels have matching gain-stage counts. A Marshall Super Lead's Normal and High Treble channels both run two stages and sum in phase. A tweed Deluxe's two channels are recommended for jumpering by the same source that rules out the blackface amps. [Which amps can be jumped, and what the cable actually blends](/blog/jumping-amp-channels-what-the-patch-cable-actually-does) covers the per-model rule.
+
+If what you want is the Normal channel's darker voice *with* reverb, the route is a reverb pedal into the Normal channel, not a patch cable between the two.
 
 ## Which Channel Wants Your Pedals
 

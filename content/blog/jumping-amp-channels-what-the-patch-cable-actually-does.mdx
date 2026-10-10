@@ -1,0 +1,227 @@
+---
+title: 'Jumping Your Amp''s Channels: Which Amps It Works On, and Why'
+seo_title: How to Jump Amp Channels (and Which Amps Can't)
+description: >-
+  Jumping two channels with a patch cable only works when both channels have the
+  same number of gain stages. On a blackface Fender they don't, and the signals
+  partly cancel. Here is the per-amp rule.
+date: '2026-10-10'
+author_slug: rick-dalton
+category: settings-guides
+tags:
+  - marshall
+  - fender
+  - amp-settings
+  - vintage
+  - helix
+  - signal-chain
+takeaways:
+  - >-
+    Jumping does not stack two channels in series for more gain. It parallels
+    two differently biased preamp channels that sum through mixing resistors
+    into a shared stage, so both volume knobs become blend controls.
+  - >-
+    The test for whether an amp can be jumped is the gain-stage count. A Plexi's
+    two channels both run two preamp stages and sum in phase. A blackface
+    Fender's Vibrato channel has three to the Normal channel's two, so jumping
+    them partly cancels.
+  - >-
+    Line 6 ships six jumped guitar amp models in Helix 3.80 and not one of them
+    is a blackface Fender, which matches the circuit rather than contradicting
+    it. There is no US Deluxe Jump, no US Double Jump and no US Super Jump.
+  - >-
+    A Plexi's 470 pF bright cap sits across the Bright channel's mixing
+    resistor, not across its volume pot, so the blend's treble content shifts as
+    you move either knob and the useful window is narrow on purpose.
+  - >-
+    If your amp is jumpable but has no Jump model, two parallel Preamp blocks
+    cost 40.40 DSP units against Brit Plexi Jump's 27.24. Building the blend by
+    hand costs about 13 units more than the model Line 6 already made.
+faq:
+  - q: How do you jump the channels on a Marshall Plexi?
+    a: >-
+      Plug the guitar into one channel's High input, then run a short patch
+      cable from that channel's Low input to the other channel's High input.
+      Both channels now receive the signal in parallel and both Volume controls
+      are live. Neither is a master — they are two blend-and-gain controls
+      feeding the same stage, so the useful settings are found by moving them
+      against each other rather than by turning both up.
+  - q: Can you jump the channels on a Fender Deluxe Reverb or Twin Reverb?
+    a: >-
+      Not usefully. On the AB763 circuit the Normal channel runs two preamp gain
+      stages and the Vibrato channel runs three, because the extra stage makes
+      up the loss through the reverb and tremolo circuits. Each stage inverts,
+      so the two channels arrive at the shared 220k mixing resistors with
+      opposite polarity and partly cancel. Rob Robinette's circuit walkthrough
+      states it plainly — the tone comes out weak and odd rather than bigger.
+  - q: Does jumping channels add gain?
+    a: >-
+      It adds some, but that is the least interesting thing it does. Two
+      in-phase channels summing at a shared grid give you more signal than one,
+      and the volume pots sit mid-preamp with further gain stages after them, so
+      both behave like gain controls. The real product is the blend between two
+      differently voiced and differently biased channels, which you cannot get
+      from either channel alone at any setting.
+  - q: Which amps can have their channels jumped?
+    a: >-
+      Amps with two separate input jacks feeding two independently voiced preamp
+      channels that sum later — Marshall JTM-45, JTM-50 and Super Lead, the
+      Fender tweed Deluxe, Vox AC30 Normal and Brilliant, Matchless DC30, Sunn
+      Model T, the tweed Bassman. Amps with one input and a footswitch for
+      channels cannot be jumped at all; there is nothing to patch between. High
+      and Low jacks on the same channel are two sensitivities, not two channels.
+  - q: Is there a Helix model of a jumped amp?
+    a: >-
+      Six, in firmware 3.80 — Fullerton Jump (5C3 tweed Deluxe), GrammaticoLG
+      Jmp, Brit Trem Jump (JTM-50), Brit Plexi Jump (Super Lead 100), Matchstick
+      Jump (DC30) and MOO)))N T Jump (Sunn Model T), plus Busy One Jump on the
+      bass side. Each is a fixed blend, which is the catch: the two knobs that
+      make jumping worth doing on the real amp are the one thing the model does
+      not hand you.
+  - q: Why do the two volume controls interact so strangely on a jumped amp?
+    a: >-
+      Because they are not a crossfade. Each channel's volume pot sets the level
+      into a mixing resistor, and the two mixing resistors meet at the next
+      stage's grid, so moving one knob changes the source impedance that stage
+      sees as well as the level. On a Plexi there is also a 470 pF cap across
+      the Bright channel's mixing resistor, so the high-frequency share of the
+      blend changes with position too. That is why the sweet spot feels like a
+      window rather than a range.
+image: /images/blog/jumping-amp-channels-what-the-patch-cable-actually-does.jpg
+image_alt: >-
+  A black tolex combo amplifier with a silver control panel and a long row of
+  knobs, its indicator lamps glowing blue and red, standing on a patterned rug
+  in a dark studio with rack gear behind it and a small pedal on the floor
+---
+
+Four input jacks on the front of an amp, two sets of knobs, and a six-inch patch cable linking two of the holes. That is channel jumping. Every explanation of it you will find says the same thing — it gives you more gain — and that is true in the same way that saying a Les Paul is heavy is true. It is the least useful fact available.
+
+What the cable actually does is put two differently voiced preamp channels in parallel and hand you both of their volume controls as blend knobs. And it works on some amps and fails on others for a reason you can check before you buy the cable.
+
+## Quick Answer: Can This Amp Be Jumped?
+
+| What the front panel looks like | Jumpable | Why |
+|---|---|---|
+| Two channels, each with its own input jack and its own knobs | Yes, usually | Two independent preamp channels that sum later. This is the real case. |
+| Two jacks on one channel marked High and Low | No | Same channel, two input sensitivities. Nothing to blend. |
+| One input jack, channels on a footswitch | No | One front end. There is no second channel to patch into. |
+| Normal and Vibrato on a blackface Fender | No | The channels have different gain-stage counts and partly cancel. See below. |
+
+Count the gain stages, not the jacks. That is the whole test, and it is why the Fender case breaks.
+
+## What the Cable Does
+
+On a Marshall Super Lead, the two channels are not variations on a theme. They are two different tubes biased two different ways. Rob Robinette's circuit walkthrough of the Plexi puts it exactly:
+
+> The I "Bright" or "Lead" Channel signal is amplified by V1B (the B half of Valve 1) which has a cool bias from its 2.7k cathode resistor.
+>
+> The II "Normal" Channel signal is amplified by V1A (the A half of Valve 1) which has a warm bias from its 820 ohm cathode resistor.
+
+Cool bias on one, warm bias on the other. Same tube, two halves, two personalities. Then:
+
+> These two channels parallel one another and both go through two preamp gain stages before hitting the no-gain V2B cathode follower.
+
+That sentence is the mechanism. Both channels get two stages. Both arrive at the cathode follower together. Every triode stage flips the signal, and two flips put you back where you started — so the two channels show up at the same place with the same polarity and add instead of fighting.
+
+The patch cable doesn't create that. The patch cable just gives the guitar access to both front doors at once.
+
+The result: the Normal channel's darker, thicker voice sitting underneath the Bright channel's upper-mid cut. Not an average of the two. The Bright channel alone past noon is the sound of a telephone with ambitions. The Normal channel alone is thick and a little slow off the pick. Jumped, with Bright around 6 and Normal around 4, you get the top-end bite with the body behind it — the Malcolm Young rhythm sound where you can hear the plectrum hit the string and the chord still fills the room.
+
+## Why It Fails on a Blackface Fender
+
+Here is where I was wrong, and where this site was wrong in print.
+
+The Normal and Vibrato channels on a Deluxe Reverb, Super Reverb or Twin Reverb look like the Marshall case. Two jacks per channel, two sets of knobs, obvious candidate for a patch cable. Plenty of players do it and report a result.
+
+They do not have the same number of gain stages. The Vibrato channel has an extra one, because the reverb and tremolo circuits eat signal and something has to put it back. From the AB763 walkthrough:
+
+> You can't really "jumper" AB763 channels together because the Vibrato Channel has an additional gain stage that puts the two channels' signals out of phase.
+>
+> If you do jumper the channels the tone will be weak and funky as the two signal streams cancel one another out.
+
+Normal channel: two preamp stages, V1A and V1B. Vibrato channel: three, V2A, V2B and V4B. Both then hit 220k mixing resistors on their way to the phase inverter. Two inversions against three inversions means the two signals meet with opposite polarity, and opposite polarity at a summing node is subtraction.
+
+You still hear something. The two channels aren't carrying identical signals — different voicings, different stage counts, the reverb and tremolo sitting in one of them — so the cancellation is partial and frequency-dependent. That is what "weak and funky" means. It is thinner than one channel on its own and quieter than either, and the reason it sounds like a trick with a trade-off is that it is a trick with a trade-off, not a blend.
+
+We published the opposite of this in a [guide to the Normal and Vibrato channels](/blog/fender-normal-vs-vibrato-channel) a couple of weeks ago, which said jumpering those two was a real trick worth trying. That post has been corrected. The irony is that it already contained the reason it doesn't work — the extra gain stage — three paragraphs above the advice.
+
+## The Per-Amp List
+
+Two separate input jacks feeding two independently voiced channels, same stage count, summing later. That is the pattern.
+
+| Amp | Channels | Jumpable | Note |
+|---|---|---|---|
+| Marshall JTM-45 | Normal / High Treble | Yes | Bassman-derived front end, two jacks per channel |
+| Marshall JTM-50 | Normal / High Treble | Yes | Line 6 models the jumped version |
+| Marshall Super Lead 100 | Normal / High Treble | Yes | The canonical case |
+| Marshall JCM800 2203 | High / Low sensitivity | No | One channel, two input sensitivities |
+| Fender tweed Bassman | Normal / Bright | Yes | Fender has published its own jumpering article for the '59 |
+| Fender tweed Deluxe | Normal / Bright | Yes | Robinette: "Plug a short cable into two jacks in the normal and bright channels for a thicker tone" |
+| Fender Deluxe / Super / Twin Reverb | Normal / Vibrato | No | Three gain stages against two. Partial cancellation. |
+| Vox AC30 Fawn | Normal / Brilliant | Yes | Separate jacks, separate voicings |
+| Matchless DC30 | Channel 1 / Channel 2 | Yes | Line 6 models the jumped version |
+| Sunn Model T | Normal / Brite | Yes | Line 6 models the jumped version |
+| Any single-input channel switcher | — | No | Mesa, Soldano, Friedman, Bogner, Revv, 5150 |
+
+The High and Low jacks confuse people, so it is worth being plain about it. Those two are the same channel. The Low jack feeds the grid through a resistor to drop the sensitivity — on the Plexi the two jacks present roughly 1 megohm and 68k. Patching between High and Low on one channel does nothing you want.
+
+## The Knobs Are Not a Crossfade
+
+This is the part that makes jumped amps frustrating until you understand it.
+
+Each channel's volume pot sets how much of that channel reaches a mixing resistor. The two mixing resistors meet at the next stage's grid. So when you move one knob you are changing that channel's level *and* the impedance the shared stage is looking at. The other channel's contribution changes too, without you touching it.
+
+Then Marshall put a capacitor in the path. Robinette again:
+
+> Marshall employed a 470pF Bright Cap or "treble peaker" around the Bright or "Lead" Channel's Mixer Resistor to preserve those high frequencies.
+
+Around the mixing resistor. Not across the volume pot, which is where Fender put theirs and where I assumed Marshall had put theirs too. It matters because the two placements do different jobs. [A cap across a volume pot](/blog/fender-bright-switch-what-it-actually-does) can only hand back the treble that pot is currently throwing away, so it does the most at low volume and nothing wide open. A cap around a mixing resistor is adjusting one branch of a two-source mixer, so what it does depends on both knobs — on the Bright channel's level and on what the Normal channel is presenting at the same node.
+
+Practical consequence: the blend's treble share moves as you move either control. The sweet spot is a window, not a range, and it moves when you change the other knob. That is not a flaw in your amp.
+
+## How to Dial It
+
+Start from one channel, not from both.
+
+1. Cable from the Bright channel's Low jack to the Normal channel's High jack. Guitar into the Bright channel's High jack. (Either direction works — the channels are in parallel. Do it the same way every time so your settings mean something.)
+2. Normal volume all the way down. Set the Bright channel on its own until it's close. On a Super Lead that's somewhere past 5, which is already loud.
+3. Now bring Normal up from zero, slowly. The first thing you'll hear is the low end filling in. Keep going and the whole thing thickens and the pick attack softens.
+4. The useful range is narrower than you expect. On most Plexi-style amps it's between about 2 and 5 on the Normal control, and the last third does almost nothing except compress.
+5. Go back and re-check the Bright knob. It will want to come down a little, because the blend has already given you the body you were using Bright to compensate for.
+
+If the amp gets muddier rather than fuller as Normal comes up, you are past the window. Back it down a hair rather than reaching for the Treble knob.
+
+One warning: jumped, both volume controls are gain controls, and the amp has no master. Plexi-style amps jumped at a usable blend are louder than they were on one channel, not quieter. A [power attenuator or a lower-wattage variant](/blog/marshall-studio-vintage-sv20-comparison) is the difference between using this at all and not.
+
+## On a Modeler
+
+Line 6 did the inventory work and published it in the model list. Helix firmware 3.80 ships six jumped guitar amp models:
+
+| Model | Based on |
+|---|---|
+| Fullerton Jump | Fender 5C3 Tweed Deluxe (jumped channels) |
+| GrammaticoLG Jmp | Grammatico LaGrange (jumped channels) |
+| Brit Trem Jump | Marshall JTM-50 (jumped) |
+| Brit Plexi Jump | Marshall Super Lead 100 (jumped) |
+| Matchstick Jump | Matchless DC30 (jumped) |
+| MOO)))N T Jump | Sunn Model T (jumped channels) |
+
+Plus Busy One Jump on the bass side, modeled on a jumped Pearce BC-1 preamp.
+
+Look at what is not on that list. Line 6 models the Fender Deluxe Reverb, Twin Reverb and Super Reverb as separate Normal and Vibrato channel models — US Deluxe Nrm and Vib, US Double Nrm and Vib, US Super Nrm and Vib — and offers no jumped version of any of them. Six Jump models and not one blackface Fender among them. That is the circuit showing up in a product decision.
+
+The list is conservative rather than complete. The tweed Bassman gets Tweed Blues Nrm and Tweed Blues Brt with no Jump model, and the JTM-45 gets Brit J45 Nrm and Brt with no Jump model, and both of those amps are genuinely jumpable. So the rule on a Helix is:
+
+- **Jump model exists?** Use it. It is cheaper than building the blend and it is already balanced.
+- **Jumpable amp with no Jump model?** Build it. Two Preamp blocks of the two channels on parallel paths, summed. The cost of doing that by hand, using our own allocation data for firmware 3.80: Brit Plexi Nrm at 17.57 plus Brit Plexi Brt at 22.83 is 40.40 units of a 100-unit path. Brit Plexi Jump as a single Preamp block is 27.24. Full amp blocks instead of preamps: 72.85 by hand against 41.23 for the Jump model. Hand-building costs you between 13 and 31 units for a blend Line 6 already made.
+- **Either way, the fixed-blend problem is real.** The model is one point in the two-knob space. You cannot move the Normal control, because there isn't one. If the blend you want isn't the one they captured, the parallel-path build is the only route — and [it will cost you DSP you may not have](/blog/why-your-modeler-preset-wont-fit-what-to-cut-first).
+
+For a sense of how that plays against the rest of the amp list, the [Helix amp model cheat sheet](/blog/helix-amp-model-cheat-sheet) has the full mapping.
+
+## Where the Evidence Stops
+
+The out-of-phase story gets told about every two-channel amp on forums, usually without a circuit behind it. The AB763 case is documented in a schematic walkthrough and I am happy to stand on it. The tweed Deluxe is murkier: its two volume controls demonstrably interact — Robinette states that changing the volume of the unused channel alters the tone and breakup of the channel in use — but the explanations circulating for *why* range from phase cancellation to the unused channel's pot loading the other channel's plate. The loading explanation is the one the circuit analysis actually supports, and the amp is recommended for jumpering by the same source. So I'll say the interaction is real, the cause is not settled in anything I can point you at, and jumper it anyway. It sounds thicker and that is the entire reason anyone does this.
+
+Per-model input wiring for the Vox and Matchless cases came from the Line 6 model list and from panel layouts, not from schematics I have read. Treat those rows as strong rather than certain.
+
+One cable, two knobs, and an amp that does something it will not do on either channel alone. There is no setting on a single channel that gets you there.

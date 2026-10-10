@@ -7278,3 +7278,291 @@ not match what the drafts had assumed.
 | AL1 | jumping-amp-channels-what-the-patch-cable-actually-does | Jumping Your Amp's Channels: What the Patch Cable Actually Blends | "jump amp channels," "jumper plexi channels," "how to jump a fender amp," "jumping channels patch cable" | Rick Dalton | 2 — Settings Guides | **Surfaced by Post 1 and deliberately kept out of it.** Jumping is usually explained as "more gain," which is the least interesting thing it does. What it actually gives you is a **two-knob blend between two different voicings**, and because one of those channels has a treble-bypass cap across its volume pot, the blend's tone changes as you move either knob — which is Post 1's arithmetic applied to a circuit people use without understanding why the sweet spot is so narrow. Distinct content: which amps can be jumped and which cannot (verified per model, as Post 1 did for bright switches), what the phase relationship between the two inputs does, why the two Volume controls are not a simple crossfade, and the modeler finding — Line 6 ships `Brit Plexi Jump` and `Fullerton Jump` as **fixed separate models** (verified in the 3.80 manual this run), so the one parameter that makes jumping worth doing on a real amp is the one thing the model does not give you. **Gate 7 guard: must ship a verified per-model jumpable/not-jumpable inventory and must handle the phase question honestly — if the per-model input wiring cannot be sourced, ship the two-knob-blend mechanism plus the Helix finding and say the inventory is incomplete. Do NOT assert phase relationships from forum posts.** Rick's lane (Marshall Super Lead, classic rock, analog) and clear of his never-assign list (DAW/plugin workflows, modern prog, social). **Confirmed no colliding slug** — F&K has no jumpering post. |
 | AL2 | why-your-modeler-preset-wont-fit-what-to-cut-first | Your Preset Won't Fit. Here's the Order to Cut Things In. | "helix dsp full," "hx stomp running out of dsp," "cannot add block helix," "what uses the most dsp helix" | Sean Nakamura | 4 — Modeler Masterclass | Post 2 priced one block family. This is the general decision procedure, and it is a genuinely different question: *given a chain that will not build, what do you remove and in what order?* Distinct content: the **Preamp lever** quantified across amp families (the saving is largest on vintage amps and smallest on modern high-gain, which inverts the intuition), new-engine versus Legacy cab blocks (3.33 against 9.60 mono — a free 6-point saving most presets leave on the table), reverbs as the quiet second-biggest line item, and the structural-violation-before-DSP ordering (block count, amp count, poly count) because "you used three amps" is actionable where "you are at 140%" is not. **Gate 7 guard: must be a procedure with an order, not a cost list — Post 2 already has the cost list. Same sourcing discipline: Ben Vesco's table cited as reported, never as Line 6 spec. If it degenerates into "here is the DSP table," drop it.** Sean's lane; not on his never-assign list. Viktor is the alternate but wrote AK8, so rotate. **Confirmed no colliding slug.** |
 | AL3 | what-your-amps-speaker-size-decides-before-you-plug-in | What Your Speaker's Diameter Decides Before You Plug In | "10 inch vs 12 inch guitar speaker," "does speaker size affect tone," "1x12 vs 4x10," "why do 10 inch speakers sound tighter" | Carl Beckett | 5 — Gear Lab | **Post 3 surfaced the number that makes this answerable and kept it to one row:** the 10-inch G10 Greenback publishes 95–5500 Hz against the 12-inch Greenback's 75–5000 Hz — the smaller driver's range starts 20 Hz higher *and* extends 500 Hz further up, from the same maker, same model family, same year. That is the size trade stated in the manufacturer's own figures rather than as folklore. Distinct content: published range and Fs for 8-, 10- and 12-inch models across a maker's line; why multiple small speakers do not sum to one large one in the way players assume; what the higher range floor means for a Bassman-style 4x10 versus a 1x12 in the same room; and the practical consequence for drop tunings. **Gate 7 guard: must ship published per-size figures from at least two manufacturers, sourced, and must handle the 4x10-versus-1x12 question with the honest answer about cone area rather than inventing a summing rule. If the figures for 8- and 10-inch models cannot be obtained, drop it — the measured-figures rule applies exactly as it did to AK9.** Carl's one-guitar, what-you-have-is-enough lane, and clear of his never-assign list (which bars modeler deep-dives). **Confirmed no colliding slug.** |
+
+---
+
+## Daily Run — 2026-10-10 (3 new posts + 2 refreshes)
+
+### Posts published: jumping-amp-channels-what-the-patch-cable-actually-does, why-your-modeler-preset-wont-fit-what-to-cut-first, what-your-amps-speaker-size-decides-before-you-plug-in
+
+**Velocity:** `persona-velocity.ts` reported **3 posts across 3 authors in the
+last 7 days** — Hank, Margot and Viktor at 1 each, everyone else at 0. No one
+was near the cap.
+
+**One queued byline was rejected and reassigned.** AL3 (speaker diameter) was
+queued to Carl Beckett on the note that his never-assign list "bars modeler
+deep-dives." That cited one of his three bars and missed the one that applies:
+**"Gear roundups or shootouts — he fundamentally doesn't care."** AL3's Gate 7
+guard requires publishing sourced per-size specification figures from two
+manufacturers, which is a shootout in table form, and Carl's profile is
+explicitly "I don't need to understand how it works." Gate 3 (voice
+consistency) would have failed. Reassigned to **Viktor Kessler** — data-driven,
+"A Measured Comparison" is literally one of his five listed posts, the
+drop-tuning consequence is his lane, and his never-assign list (worship/ambient,
+vintage history, budget roundups) is clear of it. He goes to 2 of 3 for the
+week. AL1 (Rick) and AL2 (Sean) were taken as queued and re-checked: Rick's bars
+are DAW workflows, modern prog and social — a Marshall jumpering article is his
+lane; Sean's are vintage history, fingers-philosophy and gigging logistics, none
+of which AL2 is. **All three slugs collision-checked against `content/blog/` at
+build time — confirmed clear.**
+
+### SERP analysis
+
+**Post 1 — jumping-amp-channels-what-the-patch-cable-actually-does** (Rick
+Dalton; target: "jump amp channels," "jumper plexi channels," "how to jump a
+fender amp," "jumping channels patch cable")
+
+- **Top ranking:** almost entirely forums — marshallforum (two threads),
+  metropoulos, mylespaul, strat-talk, seymourduncan, guitarscanada, nzguitars —
+  plus Sweetwater's InSync *Jumpering Marshall Amp Channels*, a Fender article
+  on jumpering the '59 Bassman, kuassa.com's "What Is Channel Jumping," and a
+  YouTube video. The commodity claim across all of it is **"it adds gain."**
+- **The brief's premise was wrong in a specific place, and the post corrects it
+  rather than shipping it.** AL1 was queued on the theory that jumping is a
+  two-knob blend whose tone shifts "because one of those channels has a
+  treble-bypass cap across its volume pot" — Post 1 of the 10-08 run's
+  arithmetic applied to a new circuit. On a Marshall it is not across the volume
+  pot. Robinette: "Marshall employed a 470pF Bright Cap or 'treble peaker'
+  **around the Bright or 'Lead' Channel's Mixer Resistor**." Different node,
+  different behaviour — a cap across a pot can only return what that pot is
+  attenuating, while a cap around a mixer resistor is adjusting one branch of a
+  two-source mixer and depends on both knobs. The post says so.
+- **Gate 1 — the real finding, and it is a rule rather than a list.** Jumping
+  works when the two channels have **matching gain-stage counts** and fails when
+  they do not, because every triode stage inverts. Verified both directions from
+  Rob Robinette's circuit walkthroughs, fetched directly:
+  - Plexi: "These two channels parallel one another and both go through two
+    preamp gain stages before hitting the no-gain V2B cathode follower." Channel
+    I (Bright) is V1B with a 2.7k cathode resistor, channel II (Normal) is V1A
+    with 820 ohms. Two and two — in phase, additive.
+  - AB763 blackface: "You can't really 'jumper' AB763 channels together because
+    the Vibrato Channel has an additional gain stage that puts the two channels'
+    signals out of phase," and "If you do jumper the channels the tone will be
+    weak and funky as the two signal streams cancel one another out." Normal =
+    V1A, V1B. Vibrato = V2A, V2B, V4B. Both meet at 220k mixing resistors.
+- **Cross-platform verified from the 3.80 manual, extracted locally.** Line 6
+  ships **six jumped guitar amp models** — Fullerton Jump (5C3 tweed Deluxe),
+  GrammaticoLG Jmp, Brit Trem Jump (JTM-50), Brit Plexi Jump (Super Lead 100),
+  Matchstick Jump (DC30), MOO)))N T Jump (Sunn Model T) — plus Busy One Jump on
+  the bass side. **Not one is a blackface Fender**, despite US Deluxe, US Double
+  and US Super all shipping as Nrm/Vib pairs. The model list and the circuit
+  analysis agree. The list is a conservative subset rather than a complete
+  inventory: the tweed Bassman and the JTM-45 are both genuinely jumpable and
+  both ship Nrm/Brt with no Jump model, which the post states.
+- **Arithmetic computed in-run** from `src/lib/helix/dsp-costs.ts`: building a
+  Plexi jump blend by hand costs 40.40 as two Preamp blocks against Brit Plexi
+  Jump's 27.24, or 72.85 as two full amps against 41.23. Hand-building costs 13
+  to 31 units for a blend Line 6 already made.
+- **Deliberately not claimed:** the phase explanation for the **tweed Deluxe**.
+  Its volume-control interaction is documented by Robinette ("Changing the
+  volume level of the unused channel will alter the tone and breakup of the
+  channel in use"), but the circuit analysis supports a *loading* explanation
+  and the phase story circulating on forums is unsourced — so the post states
+  the interaction is real, the cause is unsettled, and recommends jumpering
+  anyway because the same source does. Also not quoted: **Fender's own '59
+  Bassman jumpering article**, which is in the SERP but Cloudflare-blocked to our
+  fetcher. Its existence is cited; its contents are not.
+- **AI Overview:** not observed (WebSearch does not surface AIO). "How to X"
+  query class makes one likely; F&K not known to be cited.
+- Non-commodity gate: **PASS.** Nothing in the SERP has the gain-stage rule, the
+  per-model inventory, the mixer-resistor placement, or the Helix finding.
+  Checked against `fender-normal-vs-vibrato-channel`,
+  `fender-bright-switch-what-it-actually-does`, `helix-amp-model-cheat-sheet`,
+  `marshall-st20h-vs-sc20c-jtm-vs-plexi`. **Confirmed no colliding slug** — F&K
+  had no jumpering post.
+
+**Post 2 — why-your-modeler-preset-wont-fit-what-to-cut-first** (Sean Nakamura;
+target: "helix dsp full," "hx stomp running out of dsp," "cannot add block
+helix," "what uses the most dsp helix")
+
+- **Top ranking:** two Line 6 Community threads and nothing else of substance.
+  Their combined advice is four unordered tips: use Amp+Cab instead of separate
+  blocks, use mono instead of stereo, use Legacy reverbs, snapshots don't help,
+  plus the Input Gate trick. **No result gives an order.**
+- **A SERP claim corrected from our own model.** The "use Amp+Cab instead of
+  separate Amp and Cab blocks to save DSP" tip is wrong on DSP. `costOf()` in
+  `dsp-costs.ts` models Amp+Cab as amp cost plus one new-engine single cab,
+  which is identical to the two blocks separately — **40.13 either way** on a
+  Brit Plexi Brt, verified by running `estimateDspUsage` both ways. What it
+  saves is a block slot, which on an eight-slot HX Stomp is frequently the more
+  valuable saving. The post makes that distinction rather than repeating the tip.
+- **Gate 5 — the queue's hypothesis did not survive the data, and the post says
+  so.** AL2 was queued asserting the Preamp saving "is largest on vintage amps
+  and smallest on modern high-gain, which inverts the intuition." Computed
+  across all 111 amp models carrying a Preamp allocation: high-gain mean 13.07
+  (range 10.46–15.62, n=23), vintage mean 14.13 (range **0.29–21.33**, n=46).
+  The means are uninteresting; **the ranges are the finding.** High-gain amps are
+  tightly clustered and budgetable without a lookup; the vintage group spans the
+  entire distribution, and five Line 6 Original models save nothing at all. The
+  post publishes that rather than the queued claim.
+- **Gate 1 — structural limits quoted verbatim from the 3.80 manual**, extracted
+  locally: amp blocks "Any combination, up to four (two per path max.)"; cabs
+  "Up to four Single Cab blocks (two per path max.), or up to two Dual Cab
+  blocks (one per path max.)"; the IR tiering; poly "One per path max."; one
+  Looper. Plus the Tips to Optimize DSP list and the "Grayed out items cannot be
+  accommodated and are skipped over" behaviour.
+- **The cut order is our own shipping code, not an opinion.** `fitsOnDevice()`
+  checks unsupported category → total block count → per-path block count → amp
+  count → cab count → poly count → DSP, precisely because "you used three amps"
+  is actionable where "you are at 140 percent" is not. The article presents that
+  as the procedure and says where it comes from.
+- **Worked example computed in-run**, not recalled: a six-block HX Stomp chain
+  at 129.57 → 111.57 (drive to mono) → **100.10** (delay to mono — one tenth of
+  a percent over, and still refused) → 90.00 (Dynamic Hall to Hall Legacy) →
+  72.70 (amp to Preamp, optional). The amp is untouched until the last step.
+- **Sourcing labelled, not laundered.** Every allocation figure is attributed to
+  Ben Vesco's community table for 3.80 and called *reported*, with his caveat
+  that the values "are the upper limit of DSP reserved for each block" and "are
+  not an indication of the processing horsepower required."
+- **Deliberately not claimed:** per-block figures for any non-Line 6 platform —
+  the post states the procedure transfers and the arithmetic does not. Also not
+  published: the **Noise Gate stereo figure**, which is lower than its mono
+  figure in our own data (see debt below).
+- **AI Overview:** not observed. F&K not known to be cited.
+- Non-commodity gate: **PASS.** Checked against
+  `polyphonic-pitch-blocks-dsp-cost-worth-it` (that post prices one block
+  family; this one is the general procedure and links out rather than
+  re-explaining), `helix-legacy-blocks-mono-stereo-collapse`,
+  `helix-amp-model-cheat-sheet`, `helix-cab-ir-pairings`. **Confirmed no
+  colliding slug.**
+
+**Post 3 — what-your-amps-speaker-size-decides-before-you-plug-in** (Viktor
+Kessler; target: "10 inch vs 12 inch guitar speaker," "does speaker size affect
+tone," "1x12 vs 4x10," "why do 10 inch speakers sound tighter")
+
+- **Top ranking:** a Harmony Central forum thread, studentofguitar.com,
+  prosoundhq.com. Entirely adjectival — "warmest," "tighter," "punchier," "a
+  bassier but boomy-sounding" low end. **No result publishes a single figure.**
+- **Gate 7 guard satisfied, and better than the guard asked for.** The guard
+  required published per-size figures from at least two manufacturers or the
+  topic was to be dropped. What the run found is a **controlled** set: Jensen's
+  Vintage Alnico P-series publishes the same 200 g Alnico magnet, the same 25 mm
+  voice coil and the same 25 W rating across three diameters, so cone size is
+  the only variable. From jensentone.com's own specification sheets, 8-ohm
+  versions: **P8R 135 Hz / 91.8 dB, P10R 97 Hz / 94.2 dB, P12R 80 Hz / 93.7 dB.**
+  Cross-checked against Celestion (fetched per product page): Eight 15 (8 in,
+  100–5000 Hz, Fs 120), Ten 30 (10 in, 85–5000, Fs 93.9), G10 Greenback (10 in,
+  95–5500, Fs 98), G12M Greenback (12 in, 75–5000, Fs 75), G12T-75 (12 in,
+  80–5000, Fs 85), Vintage 30 (12 in, 70–5000, Fs 75).
+- **The finding that reframes the topic:** a standard-tuned open low E is 82.41
+  Hz. **Every 8-inch and 10-inch driver in both tables resonates above it.** The
+  fundamental of the lowest open string sits beneath the speaker's own resonant
+  peak on a 10, and at or just above it on a 12. That is the mechanism behind
+  "tens are tighter," stated with numbers instead of adjectives.
+- **Gate 5 — a genuine surprise in the controlled set.** Sensitivity is **not**
+  monotonic with diameter: the 10-inch P10R is published at 94.2 dB against the
+  12-inch P12R's 93.7 dB, same maker, same magnet, same coil. The efficiency
+  gain from 8 to 10 inches is 2.4 dB and from 10 to 12 it is negative — the
+  larger cone spends its area on reaching lower rather than on being louder. The
+  folklore version (bigger is louder) does not survive the spec sheet.
+- **The 4x10 question answered without inventing a summing rule.** Frontal area
+  computed from published frame diameters (207 / 259 / 307 mm): four tens are
+  2.85× one twelve. But resonance is a property of each driver, so four P10Rs
+  resonate at 97 Hz exactly where one does. A 4x10 is a louder 10-inch cabinet,
+  not a bigger-sounding 12-inch one. **Stated caveat:** frame diameter is not
+  radiating area, Sd is the correct parameter, and Sd was not read this run.
+- **The cross-brand honesty section the SERP has no version of:** Celestion
+  publishes "Frequency range" with **no dB tolerance**, so its bottom figure
+  cannot be converted to a filter slope; Eminence labels its equivalent a
+  "usable frequency range"; Jensen publishes no range at all for this line but
+  does publish Fs and Thiele-Small. Resonance is the only figure defined the
+  same way by everyone, and the post says to compare that one and nothing else.
+- **Deliberately not claimed:** any measured response. Figures come from
+  manufacturer pages only. The measured-figures rule from the DI shootouts was
+  applied in full.
+- **AI Overview:** not observed. F&K not known to be cited.
+- Non-commodity gate: **PASS.** Checked against
+  `guitar-speaker-low-end-rolloff-what-a-cab-actually-passes` (that post is
+  about what a cab passes below resonance; this one is about what diameter sets
+  resonance to, with a controlled same-family set it does not contain),
+  `celestion-speaker-showdown`, `speaker-power-handling-watts-cab`,
+  `mixing-speakers-different-wattage-cab`, `open-back-vs-closed-back-cab-tone`.
+  **Confirmed no colliding slug.**
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | fender-normal-vs-vibrato-channel | **A wrong claim corrected at its source.** The post's FAQ said jumpering the Normal and Vibrato channels was "a real trick" worth trying and advised on blending them. Robinette's AB763 walkthrough rules it out: the Vibrato channel's third gain stage inverts it relative to the Normal channel's two, and they meet at shared 220k mixing resistors, so they partly cancel. The irony is that **the post already contained the mechanism** — its own "The Third Tube Stage" section describes the extra stage three paragraphs above the advice. Added a new body section, "Why You Cannot Jumper These Two Channels," with the quotes and the inversion arithmetic; rewrote the FAQ answer to a sourced no that names itself as a correction; added a sixth takeaway stating it. Reciprocal link to Post 1. `updated: 2026-10-10`. | The post is the Fender channel reference page the new jumpering article links to. Leaving it endorsing a technique the new post rules out would have been worse than leaving both wrong. |
+| R2 | treble-bleed-when-you-actually-need-one | **The computed per-value dB tables the 10-08 queue specified, with a finding that reframes the value choice.** Added "How Much Treble a Bleed Can Actually Return" — a six-row table keyed to resistance fraction giving the attenuation the pot applies, the maximum lift the cap can return, and the shelf-start frequency for four pot/cap combinations (250k+680 pF, 250k+1 nF, 500k+1 nF, 500k+2.2 nF). Same method as the bright-switch post: zero at 1/(2π·R_top·C), pole at 1/(2π·C·(R_top∥R_bot)), height (R_top+R_bot)/R_bot. **The height works out to 1/x, so the pot value and the cap value both cancel** — the maximum lift depends only on wiper position, and the capacitor decides where the shelf *starts*, not how much lift you get. Three consequences drawn out, including why a 2.2 nF on a 500k pot (shelf starting at 289 Hz at mid-track) has stopped being a treble bleed and become a partial short across the volume control. Keyed to resistance fraction with the taper caveat stated, matching the bright-switch post's discipline. Sixth takeaway added. `updated: 2026-10-10`. | It was the explicitly queued refresh. The post already had the topologies, the corner frequencies and the cable-capacitance argument; what it lacked was the arithmetic showing what each value costs at each position — and running it produced a result the post's own value-selection section did not have. |
+
+**Image pipeline note:** the default model is still throttled — the first run
+failed all three with "Failed to start prediction after 8 attempts" on
+`openai/gpt-image-1`; `--model=black-forest-labs/flux-2-pro` succeeded
+immediately. **A new trademark failure mode, and a third consecutive run with
+one:** both `nocturnal_studio` (Post 1) and `neon_noir` (Post 3) produced a
+legible **Ampeg-style badge** — the stylised letter in a rounded square — on the
+grille cloth on the first generation, despite the prompt specifying
+"unbranded." 09-29 produced a Fender script, 10-08 produced a Fender script plus
+a bench tag, and this run produced an Ampeg mark on two different moodboards. It
+is not a coin flip and it is not confined to one board; treat it as a prompt
+bug. Both regenerated once to clean results (Post 1 now carries an illegible
+script-style scrawl, Post 3 an unreadable one). `editorial_white` (Post 2) was
+clean first time. All three `image_alt` values were rewritten **after**
+generation — needed in all three cases, since the boards rotated to subjects (a
+combo on a rug; a mic'd combo on wet pavement; a product shot on white) that
+matched none of the drafts' assumptions.
+
+**Refresh debt carried forward:**
+1. The Y1 measured per-block latency table in `modeler-latency-budget-per-block-cost`.
+2. The complete Helix In-Z menu enumeration for `modeler-input-impedance-setting-what-to-set-it-to`.
+3. The measured figures in both DI shootouts.
+4. The AK3 Legacy parameter-gap inventory — needs HX Edit or hardware.
+5. The blackface **Middle** pot taper (linear or audio). Unchanged. Note that
+   R2 this run makes no dial-position claim either — its table is keyed to
+   resistance fraction for exactly this reason.
+6. The Deluxe Reverb per-channel coupling cap values (.047 µF Normal vs .022 µF
+   Vibrato), still forum-tier only.
+7. Per-model bright cap values for the **Vibrolux Reverb and Pro Reverb.**
+   Presence verified; capacitance not.
+8. The stereo column for Poly blocks in `src/lib/helix/dsp-costs.ts`.
+9. **NEW — the gate blocks' stereo allocations in `dsp-costs.ts`.** Noise Gate
+   is carried at **3.87 mono / 2.16 stereo** and Hard Gate at 1.55 / 2.91. A
+   stereo instance costing *less* than a mono one is not credible; either the
+   Noise Gate row is transposed or the stereo column means something else for
+   that category. Post 2 published the mono figure only and said nothing about
+   the stereo one. Resolving it needs HX Edit or hardware.
+10. **NEW — the Fullerton model's year label.** The 3.80 manual says "Fender 5C3
+    Tweed Deluxe" with no year; `dsp-costs.ts` says "1958 Fender® 5C3 Tweed
+    Deluxe." The 5C3 is a 1953–54 circuit and 1958 is 5E3 territory, so one of
+    the two is wrong. Post 1 used the manual's naming and did not editorialise.
+    Cheap to fix once someone confirms which Line 6 meant.
+11. **NEW — Sd (effective radiating area) for the Jensen P-series.** Post 3's
+    area comparison is computed from published *frame* diameters and says so.
+    Jensen publishes Thiele-Small including Sd; it was not read this run, and
+    reading it would turn a proportional claim into an absolute one.
+12. **NEW — schematic confirmation for the Vox AC30 Fawn and Matchless DC30
+    jump rows.** Those two rows in Post 1's inventory rest on the Line 6 model
+    list and panel layouts, not on input wiring I have read. The post flags them
+    as strong rather than certain.
+13. **NEW — Fender's own '59 Bassman jumpering article** is Cloudflare-blocked
+    to our fetcher (403 via WebFetch and via curl with a browser UA). Its
+    existence is cited in Post 1; nothing from it is quoted. Worth a manual read.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 3, dropped 0, added 3 — **queue goes from 3 to 3, flat.** Bylines are
+> best-fit proposals; the executing run re-checks velocity **and** the
+> never-assign list, and **verifies no colliding slug at build time.** All three
+> collision-checked when queued. Note this run's lesson on that: AL3's queued
+> byline cited one of Carl's three bars and missed the one that applied, so
+> **quote the bar you checked against, not the conclusion.**
+>
+> **Rejected as re-slices, recorded so nobody re-derives them:** (a) "which
+> Helix blocks are mono-only" — still Post 1 of 10-08 re-sliced, rejected again;
+> (b) "why channel-switching amps can't be jumped" — Post 1's inventory narrowed
+> to the no rows; (c) "speaker sensitivity: why the louder speaker isn't the
+> bigger one" — Post 3's surprise promoted to its own URL, which is the
+> per-variation pattern §6 names; (d) "how much DSP does a Helix reverb use" —
+> rejected on 10-08 and still a lookup rather than a question; (e) "what is
+> speaker resonance" — the definition is everywhere; (f) "how to read a guitar
+> speaker spec sheet" — Post 3's honesty section already carries the
+> cross-brand tolerance problem, and the rest is a glossary; (g) **a general
+> linear-vs-audio-taper explainer** — rejected on 10-08, still rejected, and the
+> interesting version is still debt item 5.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AM1 | what-you-lose-switching-amp-block-to-preamp | What You Actually Give Up When You Switch an Amp Block to Preamp | "helix preamp vs amp block," "should i use preamp block helix," "amp block vs preamp direct," "what does preamp only mean modeler" | Dev Okonkwo | 4 — Modeler Masterclass | **Post 2 surfaced the saving and deliberately did not explain the cost.** Its Tier 3 says switching to Preamp is "frequently the right choice" on a direct rig and leaves it there. The distinct question is what the modelled power section was contributing, and it is answerable rather than philosophical: the 3.80 manual's Common Amp Settings table documents **Master** ("Adjusts the amount of power amp distortion… the lower the Master is set, the less effect the other controls will have") and **Sag** ("Lower Sag values offer 'tighter' responsiveness for metal and djent playing; higher values provide more touch dynamics & sustain") — both verified in the manual this run — and a Preamp block is the variant where those parameters stop existing. Distinct content: which parameters disappear per variant, what power-amp compression and sag do that no EQ replaces, when a real cab and mic were going to re-shape that anyway, and the per-model table of what the saving actually is (Champ 0.29, tweed Deluxe 21.33) so the trade is priced. **Gate 7 guard: must enumerate the parameter differences from the manual's own amp tables — if the per-variant parameter lists cannot be extracted, drop it; a "preamps sound thinner" piece with no parameter inventory is commodity. Do NOT assert latency or CPU differences beyond the allocation figures.** Dev's lane (direct recording, frequency space, headphone rigs) and clear of his bars — live rigs, high-gain, vintage history. Sean is the obvious alternate but wrote AL2, so rotate. **Confirmed no colliding slug.** |
+| AM2 | summing-two-signals-into-one-amp-input | Two Cables Into One Input: What Actually Happens at the Jack | "two guitars one amp input," "can i plug two pedals into one amp," "summing two signals one input," "y cable into amp input" | Nathan Cross | 3 — Signal Chain & Tone Theory | **Surfaced by Post 1's mixer-resistor work and kept out of it.** Post 1 explains why two channels sum cleanly inside an amp: each gets its own mixing resistor and the designer chose the values. A passive Y cable into one jack has neither — the two sources load each other directly, which is why it works badly and why the failure is level-and-tone rather than silence. Distinct content: why an amp's internal summing node is not the same as a splitter run backwards, what each source's output impedance does to the other, the difference between a passive Y, a resistive combiner and an active summing box, and the one case where a Y actually is fine. F&K has the **splitting** side covered in three posts (`wire-buffered-splitter-amp-foh-tuner-three-output`, `transformer-isolated-vs-active-buffered-splitters`, `buffer-vs-true-bypass-looper`) and **nothing on summing**, which is the more commonly attempted and more commonly broken direction. **Gate 7 guard: must be about summing, with impedance reasoning, not a restatement of the splitter posts — link to them rather than re-explaining. Must handle the "can I run two guitars into one amp" case with the honest answer rather than a flat no. Do NOT assert dB loss figures without computing them from stated impedances in-run.** Nathan's demonstrated lane (he wrote both splitter posts) and clear of his bars — metal, budget/punk rigs, vintage collecting. **Confirmed no colliding slug.** |
+| AM3 | two-cabs-instead-of-two-amps-dual-cab-block | Two Cabs Beat Two Amps, and Cost a Sixth as Much | "helix dual cab block," "two cabs one amp modeler," "cab dual vs two amps helix," "blend two cabs guitar tone" | Jess Kowalski | 4 — Modeler Masterclass | **Line 6 recommends this in its own optimisation tips and never says what it gets you.** The manual: "Instead of a parallel path with two Amp+Cab blocks or two separate Amps and Cabs, try adding a single Amp block followed by one Cab > Dual block (mixing two different Cabs can provide some substantial variations)." Post 2 quotes it as a DSP lever (40.13 + 6.67 against roughly 80) and stops, because Post 2 is a cut procedure. The distinct question is tonal: **what does blending two different cabs do that one cannot?** And Post 3 supplies the answer's raw material — two cabs with different drivers have different published resonances, so a 12-inch (Fs 75) blended with a 10-inch (Fs 97) sums two different low-frequency corners rather than averaging one. Distinct content: the pairing logic by published Fs and range rather than by vibe, what the Dual block's pan and level controls actually do to that sum, the phase question between two captures of different distances, and the structural limits (two Dual Cab blocks per preset, one per path — verified from the 3.80 block rules this run). **Gate 7 guard: must ship specific pairings justified by the published driver figures from Post 3's tables, not "try a V30 with a Greenback." If it becomes a list of popular cab pairings with adjectives, drop it. Do NOT assert phase measurements between IR captures — argue from what a capture is, as Post 3's sibling did.** Jess's lane (comparisons, practical value, the shortcut that costs less — here two voices for 6.67 units instead of 40) and clear of her bars: vintage deep-dives, jazz/fusion, boutique pedal reviews. She is at 0 posts for the week. **Confirmed no colliding slug.** |
