@@ -572,3 +572,52 @@ refusals, counts refusals of *any* kind toward the abort guard, and keeps
 information about our data. Re-run first. And when adding a failure path to
 `lookup`, route it through `refused()` so it advances the guard; returning a
 bare `null` silently recreates this bug a third time.
+
+### A derived band name is not evidence — the whole-slug fallback (2026-10-11)
+
+Third variant of "the album-art audit flagged the run, not the data." This
+one produced exactly **one** flag, which is what made it easy to mistake for
+a real mismatch: a lone `⚠ review` row sitting in an otherwise clean sweep
+looks far more like a bad cover than 69 contiguous ones do.
+
+`scripts/audit-album-art.ts` has no `band` field to read — song entries carry
+`artist_slug` (the *guitarist*, e.g. `john-petrucci`), and searching iTunes by
+guitarist returns nothing for band-credited albums. So `bandFromSlug()`
+recovers the band by walking the slugified title against the song slug, which
+is minted as `{title-slug}-{band-slug}`, and returning the leftover tokens.
+
+The walk has an asymmetry: on a mismatch it advances the **title** pointer
+(`ti++`), on the assumption that the title carries a parenthetical the slug
+dropped. When the slug spells the title *differently* from `title`, that
+assumption inverts and the loop runs the title pointer to the end without
+ever consuming a slug token. The leftover is then the entire slug, and the
+function hands that back as a band name.
+
+Dream Theater's **6:00** is the catalog's only instance. `slugify("6:00")`
+yields `6-00`, but the slug reads `six-oclock-dream-theater` — the title was
+spelled out in words when the slug was minted. The derived "band" became
+`six oclock dream theater`, the search for a group that has never existed
+returned a single name-collision (*"Over The Road (Mastered)"* by **Two Edged
+Sword**, via Darrell Scott's *Theatre of the Unheard*), and the row flagged.
+The stored artwork was correct all along — verified visually, the real
+*Awake* cover, gilded mirror and statue.
+
+**Why this is the dangerous shape:** an `error` row announces itself and a
+69-row block is obviously structural, but a single `review` row with one
+plausible-looking candidate is exactly what a genuine mismatch looks like.
+The tell is the **candidate list**, not the count: when the suggestions are
+by a *different artist* than the song's, the query was wrong before iTunes
+ever saw it. Read the band in the `[n/245] <band> — <title>` progress line
+and ask whether it is a real group. `six oclock dream theater` is not.
+
+**The rule:**
+- `bandFromSlug()` returns `null` when the walk consumes zero slug tokens.
+  The whole slug is never a band; null makes the caller fall back to
+  `artist_slug` instead of inventing one.
+- Slugs that spell their title out in words go in `BAND_OVERRIDES`, keyed by
+  song slug. Keep that map small and specific — it is for slugs the walk
+  genuinely cannot parse, **not** a place to silence flags you would rather
+  not verify. Adding a song there because its cover is wrong is the album-art
+  equivalent of softening an audit rule.
+- Never change an `album_art_url` on the strength of candidates by an artist
+  other than the song's own. Fix the query first, then re-judge the row.

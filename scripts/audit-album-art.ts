@@ -67,14 +67,37 @@ function slugify(s: string): string {
 }
 
 /**
+ * Slugs whose title is not literally encoded in them, so the token walk below
+ * cannot recover the band. Keyed by song slug. Keep this tiny — it exists for
+ * slugs that spell a title out in words ("6:00" -> "six-oclock"), not as a
+ * dumping ground for flags you would rather not look at.
+ */
+const BAND_OVERRIDES: Record<string, string> = {
+  "six-oclock-dream-theater": "dream theater",
+};
+
+/**
  * Recover the band from `song.slug`, which is built as `{title}-{band}`.
  *
  * Walks the title's tokens against the slug's and returns what's left. Two
  * wrinkles the corpus actually contains: slugs spell "&" as "and" while the
  * slugified title drops it ("3s-and-7s-qotsa"), and slugs omit parentheticals
- * the title keeps ("Be Quiet and Drive (Far Away)"). Resolves 205/205 songs.
+ * the title keeps ("Be Quiet and Drive (Far Away)"). Resolves 244/245 songs;
+ * the holdout is covered by BAND_OVERRIDES.
+ *
+ * Returns null when the walk consumes no slug tokens at all. That happens when
+ * the slug spells the title differently from `title` ("6:00" vs "six-oclock"):
+ * the loop advances past the whole title without matching anything, and the
+ * leftover is the ENTIRE slug. Handing that to iTunes as a band name searches
+ * for a group that does not exist and returns a name-collision (6:00 drew
+ * "Theatre of the Unheard" by Darrell Scott on 2026-10-11), which reads as a
+ * data flag when the stored artwork is in fact correct. Null lets the caller
+ * fall back to artist_slug instead of inventing a band.
  */
 export function bandFromSlug(song: { slug: string; title: string }): string | null {
+  const override = BAND_OVERRIDES[song.slug];
+  if (override) return override;
+
   const titleTokens = slugify(song.title).split("-").filter(Boolean);
   const slugTokens = song.slug.split("-").filter(Boolean);
   let si = 0;
@@ -97,6 +120,10 @@ export function bandFromSlug(song: { slug: string; title: string }): string | nu
       ti++; // title has a parenthetical the slug omits
     }
   }
+
+  // No slug token matched the title: the "leftover" is the whole slug, which is
+  // never a band. Signal failure rather than fabricate one.
+  if (si === 0) return null;
 
   const rest = slugTokens.slice(si);
   return rest.length ? rest.join(" ") : null;
