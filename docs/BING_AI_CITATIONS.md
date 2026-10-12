@@ -223,3 +223,41 @@ Five observations of the Browser 1 slot now read: `c0f2daee` (08-19) → `c0f2da
 **Cross-signal to carry into the next capture (updated):** Google has now confirmed `hillsong-guitar-tone-helix` indexed across **10** reads and `elevation-worship-guitar-tone-helix` across **3**. As of the last successful Bing capture (08-10), Hillsong was drawing **zero** AI citations despite being indexed. If entry 3 shows Hillsong *still* at zero with Elevation also at zero, that is strong confirmation that Google indexing is **necessary but not sufficient** for AI citation — the split first flagged in the 08-10 entry, and by then testable against two indexed worship posts instead of one.
 
 **Content guidance is unaffected by the gap.** The canonical finding from entries 1–2 stands and should keep steering work: citation share tracks **original measurement** — pages carrying a test we ran ourselves hold **57–83%** share, generic head terms **13–25%**. Recommend original measurement, not volume.
+
+### 2026-10-12 — third read (✅ data captured — first successful read since 08-12)
+**Unblocked.** The Chrome layer had a browser already settled for the session (`c0f2daee-…`, "Browser 2" on this computer) and the Microsoft session was live — no device pick, no sign-in wall. Dashboard loaded directly.
+
+Window **07-23 → 10-10** (80 days; the date tab reported as selected was `30 D`, but the chart and totals span the full series from 07-23 — treat as cumulative, same as 08-12). **36.4K** citations (36,339 by day-sum), **78** avg cited pages/day, **361** distinct pages (was 160), **101** grounding queries in the sample (was 36).
+
+The 19 days captured on 08-12 (07-23 → 08-10) came back **byte-identical** again, so the history is stable and this read can be diffed against the old one.
+
+**Daily series, the 62 days missed (08-11 → 10-10):** 187 · 289 · 236 · 236 · 196 · 217 · 244 · 275 · 269 · 176 · 344 · 234 · 294 · 368 · 510 · 443 · 461 · 433 · 370 · 423 · 564 · 486 · 533 · 508 · 491 · 354 · 472 · 429 · 436 · 410 · 397 · 493 · 389 · 408 · 448 · 544 · 429 · 358 · **1.4K · 1.5K · 1.3K · 1.4K · 1.4K · 1.5K** · 673 · 503 · 540 · 458 · 565 · 666 · 786 · 540 · 567 · 488 · 504 · 603 · 497 · 603 · 691 · 571 · 606.
+- The 7-day average went from **208/day** (08-04 → 08-10) to **582/day** (10-04 → 10-10), about **2.8×**. The last two weeks are flat against each other (581 vs 582).
+- Avg cited pages/day went from roughly 28–80 in early August to **87–107** now.
+- **A 6-day spike, 09-18 → 09-23 (1.3–1.5K/day),** then a step down to a new plateau of about 500–700. The top query and page below are the likely cause: `master volume` drew **6.0K** citations at only 8.74% share, and `/blog/amp-gain-volume-master-controls` drew **6.4K**. A single generic head term accounts for about **17%** of all citations in the window.
+
+**Top 5 pages (of 361):**
+| Page | Citations | vs 08-12 |
+|---|---|---|
+| `/blog/amp-gain-volume-master-controls` | **6.4K** | **new**, not in the prior top 5 |
+| `/blog/bone-vs-tusq-vs-graph-tech-nut-materials` | **1.5K** | 427 → 1.5K, now #2 (was #1) |
+| `/blog/boss-katana-settings-guide-every-genre` | **773** | **new to top 5** |
+| `/blog/best-frfr-speakers-for-modelers` | **638** | 79 → 638 (#4 → #4) |
+| `/blog/signal-chain-order-guide` | **629** | 85 → 629 (#3 → #5) |
+
+Pages 6–10: diy-pedal-starter-guide 501 · guitar-eq-guide 495 (was #2) · line-6-helix-family-compared 468 · boss-katana-hidden-settings 402 · reverb-before-or-after-delay-chain-order 364. Pages 11–15: jcm800-settings-guide 331 · impulse-response-ir-guide 297 · news/fender-tone-master-pro-firmware-1-8-45-evh-5150 296 · 4-wire-method-explained 264 · open-back-vs-closed-back-cab-tone 258. The-edge-delay-settings fell from #5 to #16 (256). Nut and tuner luthiery pages hold several top-25 slots: nut-slot-geometry 254, nut-slot-width-by-string-gauge 235, locking-tuner-installation 205, how-to-recut-binding-guitar-nut 194.
+
+**Top 15 grounding queries (citations · share):** master volume 6.0K · 8.74% · 5 things your guitar must get right file the nut 319 · 52.38% · fender tone master pro update 268 · 24.50% · best frfr speakers for guitar 165 · 33.00% · diy guitar pedals 159 · 19.37% · nut slot file size 1 11/16 inch acoustic guitar 126 · 43.90% · hipshot locking tuners 124 · 25.05% · best material for guitar nut 121 · 32.35% · sustainiac pickup 106 · 14.62% · ir files 105 · 33.76% · 4 cable method 92 · 21.55% · eq profile for guitar meaning 88 · 33.33% · best guitar nut materials intonation action 87 · 44.39% · Gotoh vs Grover guitar tuners comparison 67 · 20.36% · bone nut vs TUSQ nut guitar comparison 61 · 32.45%.
+
+**3 highest shares (top 25 by citations):** are behringer pedals good **61.54%** · graphite vs silicone lubricant guitar tuning pegs nut slots **57.01%** · 5 things your guitar must get right file the nut **52.38%**.
+**3 lowest:** darkglass anagram guitar essentials **7.51%** · master volume **8.74%** · sustainiac pickup **14.62%**.
+
+**Share movers vs 08-12 (queries present in both reads):** graphite vs silicone lubricant 51.52% → **57.01%** (+5.5) · tonex modeler 15.65% → 15.43% · qc capture 18.75% → 18.35%. **No share moved more than ~15 points.** The two flagship measured queries from 08-12 (tuning machines 83.3%, bass locking tuners 71.4%) are no longer in the top 25 by volume. Their shares were not checked because pagination was not walked.
+
+**Thesis check (§3):** it holds, and the extremes are now sharper. Nut-material, nut-slot and lubricant queries, where we publish our own measurements and specs, sit at **32–57%**. Generic head terms sit at **7–25%**: master volume 8.7%, darkglass 7.5%, sustainiac 14.6%, tonex 15.4%, diy pedals 19.4%. The biggest volume win of the window is the lowest-share query on the board. Volume came from a generic head term. Share came from measurement.
+
+**Worship:** a server-side search of grounding queries for `worship` returned **"No data available"**. That makes **zero worship queries** across 101, the third read in a row with none. The page-list search for `worship` / `tone-helix` did **not** apply: the result count stayed at 361 and the filter needs the Search button, not Return. So whether the 5 artist posts or the evergreen worship pages are cited **was not established this run**. None appear in the top 25 pages. No song-preset query appears in the top 25 queries.
+
+**Trend readable yet? Partially.** The daily series is now 80 days long and its history has been stable across reads, which supports one directional statement: **citations rose about 2.8× from early August to early October and have held flat for the last two weeks.** Share trends are **not** readable. This is only the third snapshot, with a 61-day hole between snapshots 2 and 3, and only the top 25 queries were captured. Weekly share entries need to resume before share-level movement can be read.
+
+**Capture caveats:** top 25 of 101 queries and top 25 of 361 pages were captured through the UI, without walking pagination. `Download all` CSVs were **not** committed again this run. That is still the most valuable fix: next run, download and commit them.
