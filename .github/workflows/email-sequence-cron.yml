@@ -3,6 +3,14 @@
 # signup email (account step 1) lands within the hour, and the day-3/5/7 steps
 # land in the hour they come due. An empty queue run is a fast no-op.
 #
+# The request is made FROM THE DROPLET, not from the GitHub runner: Cloudflare
+# Bot Fight Mode JS-challenges datacenter IPs, so a runner curl to
+# https://faderandknob.com/api/cron/* gets 403 HTML and never reaches Next.js.
+# This workflow was failing every hour for that reason, which meant the queue
+# grew without ever draining. See the header of sunday-setlist-cron.yml for
+# the full diagnosis; the same loopback-inside-the-container trick is used
+# here, as in the IndexNow step of build-image.yml.
+#
 # Same CRON_ENABLED kill switch as sunday-setlist-cron.yml.
 #
 # Manual runs: workflow_dispatch with test_email set sends EVERY sequence step
@@ -29,18 +37,32 @@ jobs:
     if: vars.CRON_ENABLED == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
-      - name: Drain email sequence queue
-        run: |
-          url="https://faderandknob.com/api/cron/email-sequence"
-          if [ -n "${{ inputs.test_email }}" ]; then
-            url="$url?test=${{ inputs.test_email }}"
-          fi
-          code=$(curl -s -o /tmp/body -w "%{http_code}" \
-            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
-            "$url")
-          echo "HTTP $code"
-          cat /tmp/body
-          [ "$code" = "200" ] || exit 1
+      - name: Drain email sequence queue from the droplet
+        uses: appleboy/ssh-action@v1
+        env:
+          TEST_EMAIL: ${{ inputs.test_email }}
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          # Forwarded (not interpolated) so a dispatch input can't inject shell.
+          envs: TEST_EMAIL
+          script: |
+            set -eu
+            cd /opt/faderandknob
+            docker compose exec -T -e TEST_EMAIL="${TEST_EMAIL:-}" app \
+              node --input-type=module -e '
+                const secret = process.env.CRON_SECRET;
+                if (!secret) { console.error("CRON_SECRET missing in container env"); process.exit(1); }
+                const test = (process.env.TEST_EMAIL || "").trim();
+                const url = "http://localhost:3000/api/cron/email-sequence"
+                  + (test ? "?test=" + encodeURIComponent(test) : "");
+                const res = await fetch(url, { headers: { Authorization: `Bearer ${secret}` } });
+                const body = await res.text();
+                console.log("HTTP", res.status, body);
+                // Unlike the setlist send, 0 sent is a normal empty-queue run.
+                if (!res.ok) process.exit(1);
+              '
 
       # Hourly failures compound quietly (queue keeps growing) — surface them.
       - name: File issue on failure

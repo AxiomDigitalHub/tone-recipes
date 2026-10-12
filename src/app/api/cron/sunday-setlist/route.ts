@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { songs, getRecipesBySongSlug, getArtistBySlug } from "@/lib/data";
 import { sendSundaySetlist, type SetlistSong } from "@/lib/email";
+import { findDraftForSunday, nextSundayLabel } from "@/lib/newsletter-draft";
 
 /**
  * GET /api/cron/sunday-setlist
@@ -12,10 +13,19 @@ import { sendSundaySetlist, type SetlistSong } from "@/lib/email";
  * their setlist early in the week and need tones by Sunday, so Tuesday
  * is the purchase/learn trigger.
  *
- * It is fully automated: it assembles a setlist of worship songs that
- * actually have recipes on the site, rotating the window each week (by ISO
- * week number) so the email is fresh, then sends to every active newsletter
- * subscriber via the existing sendSundaySetlist() template.
+ * Content comes from one of two places, in order:
+ *
+ *   1. A hand-researched draft in content/newsletters/ whose `sundayDate`
+ *      matches the upcoming Sunday (see src/lib/newsletter-draft.ts). These
+ *      are CCLI-chart-aware and carry real delay times, BPMs and snapshot
+ *      names — this is the email we actually want to send.
+ *   2. Failing that, an auto-generated setlist of worship songs that have
+ *      recipes on the site, rotating by ISO week. A weaker email (its tone
+ *      notes are just truncated recipe descriptions), but it keeps the
+ *      newsletter from silently going dark when no draft was written.
+ *
+ * Either way it sends to every active newsletter subscriber via the existing
+ * sendSundaySetlist() template, and reports which source it used.
  *
  * Auth: the workflow attaches `Authorization: Bearer ${CRON_SECRET}`. We
  * reject anything else so the endpoint can't be triggered publicly to spam
@@ -35,13 +45,6 @@ function isoWeek(d: Date): number {
   date.setUTCDate(date.getUTCDate() + 4 - day);
   const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
   return Math.ceil(((date.getTime() - yearStart.getTime()) / 86400000 + 1) / 7);
-}
-
-/** Next upcoming Sunday, formatted like "June 29". */
-function nextSundayLabel(from: Date): string {
-  const d = new Date(from);
-  d.setUTCDate(d.getUTCDate() + ((7 - d.getUTCDay()) % 7 || 7));
-  return d.toLocaleDateString("en-US", { month: "long", day: "numeric", timeZone: "UTC" });
 }
 
 /** Trim a recipe description to a tight 2-sentence tone note. */
@@ -103,47 +106,77 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ sent: 0, reason: "no active subscribers" });
   }
 
-  // ---- Build the setlist from worship songs that actually have recipes ----
-  // Stable sort so the weekly rotation is deterministic and idempotent.
-  const eligible = songs
-    .filter((s) => s.genres.some((g) => WORSHIP_GENRES.has(g)))
-    .filter((s) => getRecipesBySongSlug(s.slug).length > 0)
-    .sort((a, b) => a.slug.localeCompare(b.slug));
-
-  if (eligible.length === 0) {
-    console.error("[sunday-setlist] no worship songs with recipes — aborting");
-    return NextResponse.json({ error: "No eligible content." }, { status: 500 });
-  }
-
+  // ---- Content: a hand-researched draft if one exists, else generated ----
   const now = new Date();
-  const start = (isoWeek(now) * SONGS_PER_EMAIL) % eligible.length;
-  const picks = Array.from({ length: Math.min(SONGS_PER_EMAIL, eligible.length) }, (_, i) =>
-    eligible[(start + i) % eligible.length],
-  );
-
-  const setlistSongs: SetlistSong[] = picks.map((song) => {
-    const recipe = getRecipesBySongSlug(song.slug)[0];
-    const artist = getArtistBySlug(song.artist_slug);
-    return {
-      title: song.title,
-      artist: artist?.name ?? song.artist_slug,
-      tone: toneNote(recipe.description),
-      links: [{ label: "Get this tone", url: `/recipe/${recipe.slug}` }],
-    };
-  });
-
   const sundayDate = nextSundayLabel(now);
+
+  let source: "draft" | "generated";
+  let subject: string;
+  let intro: string;
+  let outro: string | undefined;
+  let setlistSongs: SetlistSong[];
+  /** Recipe/song slugs for the event log — empty for draft-sourced sends. */
+  let songSlugs: string[] = [];
+
+  const lookup = findDraftForSunday(sundayDate, now);
+
+  if (lookup.draft) {
+    const { draft, file } = lookup.draft;
+    source = "draft";
+    subject = draft.subject;
+    intro = draft.intro;
+    outro = draft.outro;
+    setlistSongs = draft.songs;
+    console.log(`[sunday-setlist] using draft ${file} (${draft.songs.length} songs)`);
+  } else {
+    // No usable draft. Say why — this is the line that tells you whether the
+    // researched email is being skipped for a fixable reason (bad sundayDate,
+    // failed validation) rather than because nobody wrote one.
+    console.warn(`[sunday-setlist] falling back to generated setlist: ${lookup.reason}`);
+
+    // Stable sort so the weekly rotation is deterministic and idempotent.
+    const eligible = songs
+      .filter((s) => s.genres.some((g) => WORSHIP_GENRES.has(g)))
+      .filter((s) => getRecipesBySongSlug(s.slug).length > 0)
+      .sort((a, b) => a.slug.localeCompare(b.slug));
+
+    if (eligible.length === 0) {
+      console.error("[sunday-setlist] no worship songs with recipes — aborting");
+      return NextResponse.json({ error: "No eligible content." }, { status: 500 });
+    }
+
+    const start = (isoWeek(now) * SONGS_PER_EMAIL) % eligible.length;
+    const picks = Array.from({ length: Math.min(SONGS_PER_EMAIL, eligible.length) }, (_, i) =>
+      eligible[(start + i) % eligible.length],
+    );
+
+    source = "generated";
+    songSlugs = picks.map((p) => p.slug);
+    subject = `Sunday Setlist: ${picks[0].title} & ${picks.length - 1} more`;
+    intro =
+      `Your setlist's in. Here are tones for ${picks.length} songs you might be ` +
+      `playing this Sunday — amp, snapshot, and the recipe to dial each one in. ` +
+      `Got the rest of the set? Reply and we'll point you at the right tones.`;
+    setlistSongs = picks.map((song) => {
+      const recipe = getRecipesBySongSlug(song.slug)[0];
+      const artist = getArtistBySlug(song.artist_slug);
+      return {
+        title: song.title,
+        artist: artist?.name ?? song.artist_slug,
+        tone: toneNote(recipe.description),
+        links: [{ label: "Get this tone", url: `/recipe/${recipe.slug}` }],
+      };
+    });
+  }
 
   // ---- Send ----
   const result = await sendSundaySetlist({
     to,
-    subject: `Sunday Setlist: ${picks[0].title} & ${picks.length - 1} more`,
-    intro:
-      `Your setlist's in. Here are tones for ${picks.length} songs you might be ` +
-      `playing this Sunday — amp, snapshot, and the recipe to dial each one in. ` +
-      `Got the rest of the set? Reply and we'll point you at the right tones.`,
+    subject,
+    intro,
     sundayDate,
     songs: setlistSongs,
+    outro,
   });
 
   if (!result.success) {
@@ -157,7 +190,9 @@ export async function GET(req: NextRequest) {
       params: {
         type: "sunday_setlist",
         recipients: result.sent,
-        songs: picks.map((p) => p.slug),
+        source,
+        songs: songSlugs,
+        titles: setlistSongs.map((s) => s.title),
         sunday_date: sundayDate,
       },
     } as never);
@@ -165,12 +200,13 @@ export async function GET(req: NextRequest) {
 
   console.log(
     `[sunday-setlist]${isTest ? " TEST" : ""} sent to ${result.sent} ` +
-      `recipient${result.sent === 1 ? "" : "s"} (${picks.length} songs)`,
+      `recipient${result.sent === 1 ? "" : "s"} (${setlistSongs.length} songs, ${source})`,
   );
   return NextResponse.json({
     sent: result.sent,
     test: isTest,
-    songs: picks.map((p) => p.slug),
+    source,
+    songs: setlistSongs.map((s) => s.title),
     sundayDate,
   });
 }

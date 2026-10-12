@@ -43,7 +43,12 @@ host-portable images; this doc is the remaining human steps + cutover plan.
   main (free minutes: public repo). Deploy job dormant until
   `DEPLOY_ENABLED=true`
 - `.github/workflows/sunday-setlist-cron.yml` — replaces the vercel.json
-  cron; dormant until `CRON_ENABLED=true` (avoids double-send)
+  cron; dormant until `CRON_ENABLED=true` (avoids double-send).
+  **2026-10-11:** rewired to run its fetch on the droplet instead of the
+  runner — Cloudflare Bot Fight Mode 403s datacenter IPs, which silently
+  killed 13 weeks of sends. Anything that must reach our own origin over
+  HTTP has to run on the VPS, not on a GH runner. See
+  `VERCEL_DECOMMISSION_SPRINT.md` item 0.
 - GitHub repo vars/secrets set: `NEXT_PUBLIC_SUPABASE_URL`,
   `NEXT_PUBLIC_SUPABASE_ANON_KEY` (vars), `CRON_SECRET` (secret, rotated
   2026-07-06 and synced to Vercel), `DEPLOY_ENABLED=false`,

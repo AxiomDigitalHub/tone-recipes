@@ -1,11 +1,23 @@
-# Fires the Sunday Setlist newsletter endpoint every Tuesday 14:00 UTC
-# with the CRON_SECRET bearer token. Live since cutover (CRON_ENABLED=true,
-# 2026-07-08).
+# Fires the Sunday Setlist newsletter every Tuesday 14:00 UTC.
 #
-# The CRON_ENABLED gate existed to prevent double-sends while the old
-# Vercel cron was still active; it stays as a kill switch. NOTE: until the
-# Vercel project is paused/deleted, its cron ALSO fires Tue 14:00 UTC and
-# will double-send — see docs/VERCEL_DECOMMISSION_SPRINT.md item 2.
+# The request is made FROM THE DROPLET, not from the GitHub runner.
+# Cloudflare Bot Fight Mode serves a "Just a moment..." JS managed challenge
+# to datacenter IPs, so a runner curl to https://faderandknob.com/api/cron/*
+# gets 403 HTML and never reaches Next.js. That is not theoretical: between
+# 2026-07-14 and 2026-10-06 this workflow failed 13 times for exactly that
+# reason and never once delivered the newsletter. Bot Fight Mode is zone-wide
+# on the free plan and CANNOT be bypassed with a WAF skip rule.
+#
+# So we SSH in and fetch over the container's own loopback, the same trick the
+# IndexNow step in build-image.yml already uses. The app container only
+# `expose`s 3000 (no host port publish, see docker-compose.yml), so the fetch
+# runs *inside* the container via `docker compose exec`.
+#
+# CRON_SECRET is read from the container's own env (.env.production) rather
+# than passed over SSH, so the secret never transits the channel or appears
+# in a workflow log.
+#
+# Kill switch: repo var CRON_ENABLED=false.
 
 name: Sunday Setlist cron
 
@@ -13,6 +25,11 @@ on:
   schedule:
     - cron: "0 14 * * 2"
   workflow_dispatch:
+    inputs:
+      test_email:
+        description: "Send only to this address (test mode). Empty = the real list."
+        required: false
+        default: ""
 
 permissions:
   issues: write
@@ -22,14 +39,38 @@ jobs:
     if: vars.CRON_ENABLED == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger newsletter endpoint
-        run: |
-          code=$(curl -s -o /tmp/body -w "%{http_code}" \
-            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
-            "https://faderandknob.com/api/cron/sunday-setlist")
-          echo "HTTP $code"
-          cat /tmp/body
-          [ "$code" = "200" ] || exit 1
+      - name: Trigger newsletter endpoint from the droplet
+        uses: appleboy/ssh-action@v1
+        env:
+          TEST_EMAIL: ${{ inputs.test_email }}
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          # Forwarded (not interpolated) so a dispatch input can't inject shell.
+          envs: TEST_EMAIL
+          script: |
+            set -eu
+            cd /opt/faderandknob
+            docker compose exec -T -e TEST_EMAIL="${TEST_EMAIL:-}" app \
+              node --input-type=module -e '
+                const secret = process.env.CRON_SECRET;
+                if (!secret) { console.error("CRON_SECRET missing in container env"); process.exit(1); }
+                const test = (process.env.TEST_EMAIL || "").trim();
+                const url = "http://localhost:3000/api/cron/sunday-setlist"
+                  + (test ? "?test=" + encodeURIComponent(test) : "");
+                const res = await fetch(url, { headers: { Authorization: `Bearer ${secret}` } });
+                const body = await res.text();
+                console.log("HTTP", res.status, body);
+                if (!res.ok) process.exit(1);
+                // A 200 that sent nothing is not a success worth staying quiet
+                // about — an empty list means the loop is not actually running.
+                try {
+                  const json = JSON.parse(body);
+                  if (json.sent === 0) { console.error("sent 0 recipients"); process.exit(1); }
+                  console.log(`source: ${json.source}`);
+                } catch {}
+              '
 
       # Scheduled runs fail silently unless someone checks the Actions tab —
       # file an issue so a broken newsletter send actually surfaces.

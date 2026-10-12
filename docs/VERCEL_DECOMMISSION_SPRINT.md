@@ -20,6 +20,32 @@ droplet (endpoint returns the by-design 404, not the unconfigured 503);
 
 ## P0 — time-sensitive
 
+### 0. ~~Both email crons 403'd by Cloudflare for 13 weeks~~ FIXED 2026-10-11
+The handover in item 1 below worked exactly once. From **2026-07-14 to
+2026-10-06 the GH Actions Sunday Setlist cron failed 13/13 runs** and the
+hourly email-sequence cron failed with it — so the newsletter has been dark
+since the Vercel cron sent the 2026-07-07 issue, and the welcome-sequence
+queue never drained.
+
+Cause: **Cloudflare Bot Fight Mode** (`fight_mode: true`, zone
+`5dd3ae78d38551488f3dee0a114208f7`) serves the "Just a moment..." JS managed
+challenge to datacenter IPs. A GitHub runner's curl to
+`https://faderandknob.com/api/cron/*` got 403 HTML and never reached
+Next.js — so `CRON_SECRET`, Resend and Supabase were all red herrings. The
+routes were healthy the whole time (a curl from a home IP returns a clean
+JSON 401).
+
+Bot Fight Mode is zone-wide on the free plan and **cannot be bypassed with a
+WAF skip rule** — don't try. Fix: both workflows now SSH to the droplet and
+fetch over the container's own loopback, the same trick the IndexNow step in
+`build-image.yml` already used for the same reason. `CRON_SECRET` is read
+from the container env rather than passed over SSH.
+
+Why it stayed invisible: failures only surfaced as auto-filed issues (7 were
+open), and the separate `sunday-setlist-email` scheduled task reported "send
+skipped — email keys not in .env.local" every week, which read like an
+expected not-live-yet state.
+
 ### 1. ~~This week's Sunday Setlist is in limbo~~ RESOLVED 2026-07-07
 Vercel runtime logs settled it: the **old Vercel deployment's cron fired
 Tue 2026-07-07 14:00:16 UTC and sent to 5 recipients**

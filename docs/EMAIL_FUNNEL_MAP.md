@@ -41,7 +41,7 @@
 - **Profile:** plays Sunday services on Helix/HX Stomp; setlist arrives Tuesday. Pages LIVE but Google-gated (authority); Bing/AI carry them meanwhile.
 - **Landing (LIVE):** /worship hub + Hillsong/Bethel/Elevation/Brewster/Wickham posts. **Capture (LIVE):** email signup feeding Sunday Setlist.
 - **Sequence E (TO WRITE, 3 emails):** E1 instant: "this Sunday's five sounds, ready now." E2 day 4: "eight sounds, one download" → Worship Set Pack $19. E3 day 10: "your whole team, same sounds" → Pro now, Team tier when it ships.
-- **Ends:** Set Pack/Pro → PAID; otherwise → Sunday Setlist weekly (their newsletter; already sends Tuesdays).
+- **Ends:** Set Pack/Pro → PAID; otherwise → Sunday Setlist weekly (their newsletter; sends Tuesdays — dark 2026-07-14→10-11 on the Cloudflare 403 described in `VERCEL_DECOMMISSION_SPRINT.md` item 0).
 
 ## Funnel 5: Boss Katana owner (underserved; no competitor ecosystem)
 

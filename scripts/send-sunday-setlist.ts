@@ -31,15 +31,12 @@
 import { readFileSync } from "node:fs";
 import { createClient } from "@supabase/supabase-js";
 import { createInterface } from "node:readline/promises";
-import { sendSundaySetlist, type SetlistSong } from "../src/lib/email";
-
-interface Draft {
-  subject: string;
-  sundayDate: string;
-  intro: string;
-  songs: SetlistSong[];
-  outro?: string;
-}
+import { sendSundaySetlist } from "../src/lib/email";
+import {
+  validateDraft as validateDraftShape,
+  nextSundayLabel,
+  type SetlistDraft as Draft,
+} from "../src/lib/newsletter-draft";
 
 interface Args {
   file?: string;
@@ -64,22 +61,15 @@ function fail(msg: string): never {
   process.exit(1);
 }
 
+/**
+ * Validate against the same rules the cron route applies, so a draft that
+ * passes here is one the route will actually send rather than silently skip
+ * in favour of its generated fallback.
+ */
 function validateDraft(d: unknown): Draft {
-  const draft = d as Draft;
-  if (!draft.subject) fail("draft missing subject");
-  if (!draft.sundayDate) fail("draft missing sundayDate");
-  if (!draft.intro) fail("draft missing intro");
-  if (!Array.isArray(draft.songs) || draft.songs.length < 3)
-    fail("draft needs at least 3 songs");
-  for (const s of draft.songs) {
-    if (!s.title || !s.artist || !s.tone) fail(`song incomplete: ${JSON.stringify(s)}`);
-    if (!Array.isArray(s.links) || s.links.length === 0)
-      fail(`song "${s.title}" has no site links — every song must link back to F&K`);
-    for (const l of s.links) {
-      if (!l.url?.startsWith("/")) fail(`song "${s.title}" link must be a site-relative URL: ${l.url}`);
-    }
-  }
-  return draft;
+  const errors = validateDraftShape(d);
+  if (errors.length > 0) fail(`draft is not sendable:\n  - ${errors.join("\n  - ")}`);
+  return d as Draft;
 }
 
 async function loadSubscribers(): Promise<string[]> {
@@ -116,6 +106,18 @@ async function main() {
     fail("NEWSLETTER_UNSUBSCRIBE_SECRET not set — needed for unsubscribe links");
 
   const draft = validateDraft(JSON.parse(readFileSync(args.file, "utf8")));
+
+  // The cron route matches a draft by `sundayDate` against the upcoming
+  // Sunday. A mismatch is the one error that costs nothing locally and
+  // silently demotes the whole email to the generated fallback in prod.
+  const upcoming = nextSundayLabel(new Date());
+  if (draft.sundayDate.trim() !== upcoming) {
+    console.warn(
+      `warning: draft sundayDate "${draft.sundayDate}" != upcoming Sunday ` +
+        `"${upcoming}" — the Tuesday cron will NOT pick this draft up and will ` +
+        `send its generated fallback instead.`,
+    );
+  }
 
   let recipients: string[];
   if (args.test) {
