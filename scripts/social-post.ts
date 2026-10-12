@@ -10,8 +10,9 @@
  *   npx tsx scripts/social-post.ts --slug <slug> --live                  # actually publish/queue
  *
  * Safe by default: prints what it WOULD do. Add --live to publish (Zernio if
- * ZERNIO_API_KEY is set, else the local queue) — video-gated TikTok/YouTube
- * always go to the queue.
+ * ZERNIO_API_KEY is set, else the local queue). TikTok/YouTube need a video:
+ * they publish when https://faderandknob.com/videos/blog/<slug>.mp4 is live
+ * (see scripts/generate-social-clip.ts) and queue when it isn't.
  */
 import fs from "fs";
 import path from "path";
@@ -27,7 +28,23 @@ function arg(name: string): string | undefined {
 }
 const hasFlag = (name: string) => process.argv.includes(`--${name}`);
 
-function itemFromSlug(slug: string): ContentItem {
+/**
+ * TikTok and YouTube fetch the video from a public URL, so a clip sitting in
+ * public/videos/blog/ is useless until it has shipped. Ask the live site, and
+ * treat anything but a 200 — including a network error — as "not there yet", so
+ * the post stays queued rather than handing the networks a 404.
+ */
+async function liveVideoUrl(slug: string): Promise<string | undefined> {
+  const url = `${SITE}/videos/blog/${slug}.mp4`;
+  try {
+    const res = await fetch(url, { method: "HEAD", signal: AbortSignal.timeout(10_000) });
+    return res.ok ? url : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+async function itemFromSlug(slug: string): Promise<ContentItem> {
   const file = path.join(BLOG_DIR, `${slug}.mdx`);
   const { data } = matter(fs.readFileSync(file, "utf-8"));
   return {
@@ -35,6 +52,7 @@ function itemFromSlug(slug: string): ContentItem {
     description: String(data.description ?? ""),
     url: `${SITE}/blog/${slug}`,
     imageUrl: data.image ? `${SITE}${data.image}` : undefined,
+    videoUrl: await liveVideoUrl(slug),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
     category: data.category ? String(data.category) : undefined,
   };
@@ -62,7 +80,14 @@ function latestSlugs(n: number): string[] {
 const PROMOTED_LOG = path.join(process.cwd(), "docs", "social-queue", "promoted.log");
 function promotedSlugs(): Set<string> {
   try {
-    return new Set(fs.readFileSync(PROMOTED_LOG, "utf-8").split("\n").map((l) => l.trim()).filter(Boolean));
+    // Each line is `slug\t<iso timestamp>` — key the set on the slug only.
+    return new Set(
+      fs
+        .readFileSync(PROMOTED_LOG, "utf-8")
+        .split("\n")
+        .map((l) => l.split("\t")[0].trim())
+        .filter(Boolean),
+    );
   } catch {
     return new Set();
   }
@@ -94,8 +119,11 @@ async function run() {
   console.log(`Publisher: ${process.env.ZERNIO_API_KEY ? "Zernio" : "local queue (no ZERNIO_API_KEY)"}\n`);
 
   for (const s of slugs) {
-    const item = itemFromSlug(s);
+    const item = await itemFromSlug(s);
     console.log(`\n──────── ${item.title}\n   ${item.url}`);
+    console.log(
+      `   video: ${item.videoUrl ?? "none live — run `npx tsx scripts/generate-social-clip.ts --slug " + s + "`, then deploy"}`,
+    );
     const results = await promoteContent(item, { dryRun: !live });
     for (const { post, result } of results) {
       const tags = post.hashtags.map((t) => `#${t}`).join(" ");
@@ -116,8 +144,22 @@ async function run() {
       console.log(`    ${tags}`);
       console.log(`    media: ${post.media.map((m) => `${m.kind}${m.url ? "" : "(none)"}`).join(", ") || "none"}`);
     }
-    // In --auto --live mode, record the slug so we never re-promote it.
-    if (auto && live) markPromoted(s);
+    // In --auto --live mode, record the slug so we never re-promote it — but
+    // only once something actually reached a network. Every queued path sets
+    // ok:false, so ok===true means a real publish. A run where everything
+    // queued or failed stays unmarked, so the next --auto run retries this post
+    // instead of silently skipping past it forever.
+    if (auto && live) {
+      const published = results.filter(({ result }) => result?.ok);
+      if (published.length > 0) {
+        markPromoted(s);
+      } else {
+        console.log(
+          `\n  ⚠️  Not marking as promoted — nothing published (queued or failed only).` +
+            ` The next --auto run will retry this post.`,
+        );
+      }
+    }
   }
   console.log("\n");
 }

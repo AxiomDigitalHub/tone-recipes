@@ -30,6 +30,12 @@ function clamp(s: string, max: number): string {
   return s.slice(0, max - 1).replace(/\s+\S*$/, "") + "…";
 }
 
+// X/Twitter is a paid add-on on our Zernio plan, so the account isn't connected
+// and every live run failed the X leg with "no connected twitter account". The
+// generator below is kept intact — set SOCIAL_X_ENABLED=1 to start posting to X
+// again once the plan covers it.
+const X_ENABLED = process.env.SOCIAL_X_ENABLED === "1";
+
 export function generatePosts(item: ContentItem): GeneratedPost[] {
   const h = hook(item);
   const heroImage = item.imageUrl
@@ -44,13 +50,15 @@ export function generatePosts(item: ContentItem): GeneratedPost[] {
   // ── X (Twitter) ──────────────────────────────────────────────────────────
   // Lead tweet is the hook + link; the "how" goes in a threaded second tweet
   // so the value is visible even if nobody clicks (AEO: named + quotable).
-  posts.push({
-    platform: "x",
-    content: clamp(`${h}\n\n${item.url}`, 275),
-    thread: [clamp(item.description, 275)],
-    hashtags: hashtagsFor(item).slice(0, 3),
-    media: heroImage,
-  });
+  if (X_ENABLED) {
+    posts.push({
+      platform: "x",
+      content: clamp(`${h}\n\n${item.url}`, 275),
+      thread: [clamp(item.description, 275)],
+      hashtags: hashtagsFor(item).slice(0, 3),
+      media: heroImage,
+    });
+  }
 
   // ── Instagram ────────────────────────────────────────────────────────────
   // Caption = hook + value + CTA. IG kills links in captions, so "link in bio".
@@ -95,4 +103,9 @@ export function publishablePosts(item: ContentItem): GeneratedPost[] {
   return generatePosts(item).filter((p) => !p.blockedReason);
 }
 
-export const ALL_PLATFORMS: Platform[] = ["x", "instagram", "tiktok", "youtube"];
+export const ALL_PLATFORMS: Platform[] = [
+  ...(X_ENABLED ? (["x"] as Platform[]) : []),
+  "instagram",
+  "tiktok",
+  "youtube",
+];
