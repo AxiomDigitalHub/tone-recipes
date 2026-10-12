@@ -1,0 +1,98 @@
+{
+  "subject": "Sunday Setlist — October 18: half the set is in 6/8",
+  "sundayDate": "October 18",
+  "intro": "You got the setlist Tuesday. Here's what to do with it by Sunday. Six songs the charts say you're most likely to play on October 18: four that have sat in the CCLI top 20 all year, plus two climbing right now — both of them gratitude songs, which is a ramp that starts about now and runs through November. One thing worth knowing before you build: three of the six are in 6/8, where a dotted-eighth delay quietly ruins everything. It all runs off one AC30-style base (Essex A30 on Helix), a Klon-style boost always on, one delay block and one plate. Build it once, then change two numbers per song.",
+  "songs": [
+    {
+      "title": "What a Beautiful Name",
+      "artist": "Hillsong Worship",
+      "tone": "68 BPM in D — dotted-eighth at 662 ms, two repeats, mix around 22%. Verses sit on snapshot 1 (Clean) with the boost already on; the title-line lift is snapshot 5 (Clean Ambi) with the plate up, not more gain. Save snapshot 3 (Drive+) for the final chorus — the song peaks once, and if you spend it in verse 2 you have nowhere left to go.",
+      "links": [
+        {
+          "label": "Full recipe: Nigel Hendroff's What a Beautiful Name tone",
+          "url": "/recipe/hendroff-what-a-beautiful-name"
+        },
+        {
+          "label": "What a Beautiful Name on Helix",
+          "url": "/blog/what-a-beautiful-name-guitar-tone-helix"
+        }
+      ]
+    },
+    {
+      "title": "Gratitude",
+      "artist": "Brandon Lake",
+      "tone": "78 BPM in B, and it's 6/8 — so kill the dotted eighth. At 45000÷78 it lands on 577 ms and fights the compound-meter grouping until the part smears; use the straight eighth instead, 30000÷78 = 385 ms, with mix back at 12%. Snapshot 1 (Clean) carries the verses on the AC30's bloom alone, and the stripped bridge wants you off the strings entirely.",
+      "links": [
+        {
+          "label": "Why the dotted eighth breaks in 6/8",
+          "url": "/blog/dotted-eighth-delay-no-tap-tempo"
+        },
+        {
+          "label": "Delay time BPM calculator",
+          "url": "/blog/delay-time-bpm-calculator"
+        }
+      ]
+    },
+    {
+      "title": "Trust In God",
+      "artist": "Elevation Worship",
+      "tone": "Charted at 148 BPM in C and felt in 6/8, which gives you two usable eighth-note times: 203 ms against the driving subdivision, 405 ms against the half-time 74 feel. Pick per section — 203 ms on snapshot 2 (Drive) for the choruses, 405 ms on snapshot 5 (Clean Ambi) for the verses. Same preset, one delay-time change, and the part stops arguing with the drummer.",
+      "links": [
+        {
+          "label": "Elevation Worship guitar tone on Helix",
+          "url": "/blog/elevation-worship-guitar-tone-helix"
+        },
+        {
+          "label": "Sunday-morning snapshot layout",
+          "url": "/blog/helix-worship-snapshots-sunday-morning"
+        }
+      ]
+    },
+    {
+      "title": "Firm Foundation (He Won't)",
+      "artist": "Cody Carnes",
+      "tone": "The studio cut is 75 BPM in Db and live versions run it at 150 — either way it's 6/8, so straight eighths again: 200 ms at the fast count, 400 ms at the slow one. The trap here is reverb, not delay — a long plate under a 150 BPM 6/8 turns the chorus to mush, so pull decay back to 1.6 s and predelay to 20 ms. Snapshot 2 (Drive) through the verses, snapshot 6 (Ambi Drive) once the room is singing.",
+      "links": [
+        {
+          "label": "Worship guitar tone on Helix (the base preset)",
+          "url": "/blog/worship-guitar-tone-helix"
+        },
+        {
+          "label": "When reverb tails collide with the tempo",
+          "url": "/blog/reverb-decay-vs-song-tempo-when-tails-collide"
+        }
+      ]
+    },
+    {
+      "title": "God I'm Just Grateful",
+      "artist": "Elevation Worship / Chandler Moore",
+      "tone": "72 BPM in D and properly 4/4, so you finally get a clean dotted eighth: 625 ms, three repeats, mix 25%. This is a volume-pedal song — snapshot 5 (Clean Ambi), heel down, swell into each chord change with no pick attack at all. Snapshot 4 (Lead) only for the turnaround.",
+      "links": [
+        {
+          "label": "Volume swell technique",
+          "url": "/blog/volume-swell-technique"
+        },
+        {
+          "label": "Sunday-morning snapshot layout",
+          "url": "/blog/helix-worship-snapshots-sunday-morning"
+        }
+      ]
+    },
+    {
+      "title": "In The Presence Of The King",
+      "artist": "Charity Gayle",
+      "tone": "73 BPM in G — dotted eighth at 616 ms, two repeats, mix 20%. New enough that most rooms are still learning it, so keep the build obvious: snapshot 1 (Clean) through the verses, snapshot 3 (Drive+) from the chorus, boost on the whole way. If it's fighting the keys, that's 2 dB out at 2.5 kHz, not a different amp.",
+      "links": [
+        {
+          "label": "Vox AC30 settings guide",
+          "url": "/blog/vox-ac30-settings-guide"
+        },
+        {
+          "label": "Single-coil vs humbucker for ambient worship",
+          "url": "/blog/single-coil-vs-humbucker-worship-ambient-tone"
+        }
+      ]
+    }
+  ],
+  "outro": "Six songs, one preset, two numbers that change. The 6/8 thing is the whole lesson this week: if a song feels like it's counted in three, the dotted eighth is working against you and the straight eighth is the fix. Everything else lives at faderandknob.com/guides/worship-guitar, and there's a Worship Set Pack if you'd rather load the presets than build them. Now the part I actually want: hit reply with your setlist for Sunday. I read every one, and the songs that keep showing up are the ones that get recipes next."
+}
