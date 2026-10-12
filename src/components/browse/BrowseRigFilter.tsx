@@ -15,10 +15,17 @@ import { countCardMatches } from "@/lib/gear-match";
  * toggle and flips a `data-rig-hidden` attribute that CSS uses to hide
  * non-matching cards.
  *
- * Filter is purely visual — pagination/sort still operate on the full
- * server-rendered list; we just dim/hide cards that don't match. Anon
- * users with no localStorage gear see a disabled toggle linking to
+ * Filter is purely visual — sort and the server-side facets still
+ * operate on the full catalog; we just hide cards that don't match.
+ * Anon users with no localStorage gear see a disabled toggle linking to
  * /dashboard/my-gear.
+ *
+ * SCOPE: this walks the DOM, so since /browse paginated it can only see
+ * the cards on the CURRENT page — matches on other pages stay hidden
+ * from the count. The copy below says so rather than implying the
+ * number is catalog-wide. Making it catalog-wide would mean a
+ * server-side facet, which anon users can't have: their gear lives in
+ * localStorage and never reaches the server.
  */
 
 const STORAGE_KEY = "tone-recipes-user-gear";
@@ -169,8 +176,9 @@ export default function BrowseRigFilter() {
             lineHeight: 1.4,
           }}
         >
-          Hiding recipes that don&apos;t share gear with your rig. Click again
-          to show all.
+          {matchedCount === 0
+            ? "No recipes on this page share gear with your rig — try the next page, or click again to show all."
+            : "Hiding recipes that don’t share gear with your rig. Counts this page only; click again to show all."}
         </p>
       )}
     </div>

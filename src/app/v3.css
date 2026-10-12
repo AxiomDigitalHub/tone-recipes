@@ -4871,6 +4871,75 @@
   .fk-preview .browse-grid { grid-template-columns: 1fr; }
 }
 
+/* Browse: pagination nav */
+.fk-preview .browse-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--paper-line);
+}
+.fk-preview .browse-page-list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.fk-preview .browse-page-link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-decoration: none;
+  padding: 6px 10px;
+  min-width: 32px;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+.fk-preview .browse-page-link:hover { color: var(--ink); }
+.fk-preview .browse-page-link.is-active {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+/* Prev/Next at the ends of the run get the dashed tape treatment the
+   other browse affordances use (cf. .browse-filter-clear). */
+.fk-preview .browse-page-step {
+  color: var(--tape);
+  letter-spacing: 0.18em;
+}
+.fk-preview .browse-page-step:hover { color: var(--tape-2); }
+.fk-preview .browse-page-link.is-disabled {
+  color: var(--ink-faint);
+  cursor: default;
+}
+.fk-preview .browse-page-gap {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--ink-faint);
+  padding: 0 2px;
+  user-select: none;
+}
+@media (max-width: 600px) {
+  .fk-preview .browse-pagination { gap: 4px; }
+  /* Taller hit area on touch: the desktop 30px box is well under the
+     44px touch-target guideline, and page numbers are small targets
+     people tab through repeatedly. Width stays tight so 1…6 plus
+     prev/next still fits one row at 375px. */
+  .fk-preview .browse-page-link {
+    padding: 13px 9px;
+    min-width: 30px;
+  }
+}
+
 /* ═══════════════════════════════════════════════════════════════════════
    v3.7 — Field Notes cross-linking
    ═══════════════════════════════════════════════════════════════════════ */
