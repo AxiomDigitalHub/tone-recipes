@@ -203,3 +203,23 @@ Four observations of the Browser 1 slot now read: `c0f2daee` (08-19) → `c0f2da
 **Standing recommendation, unchanged and now five weeks overdue:** on the next successful read, capture the AI Performance `Download all` CSVs and commit them, so a future gap costs interpretation rather than raw data. Five blind weeks is precisely the scenario that recommendation was written for, and it is now the most valuable single action available on this doc.
 
 **Content guidance is unaffected by the gap.** The canonical finding from entries 1–2 stands and should keep steering work: citation share tracks **original measurement** — pages carrying a test we ran ourselves hold **57–83%** share, generic head terms **13–25%**. Recommend original measurement, not volume.
+
+### 2026-10-11 — SKIPPED (blocked, no data) — **sixth consecutive miss; same device pair, 13 hours later**
+Dashboard never reached. Identical failure mode to 09-27 and 10-10: the Claude-in-Chrome layer reports **two connected Chrome extensions with none selected for the session**, mandating an interactive pick that an unattended run cannot make and is explicitly forbidden from making unilaterally.
+
+**Device ids — unchanged from yesterday, and that is the new information:**
+
+- **Browser 1 — `c0f2daee-8c65-4ddb-b9ef-ca4354dfd446`** — same slot, same id as 10-10.
+- **Browser 2 — `b89db820-bd49-45cb-b08c-b65da091b763`** — the long-lived instance, unchanged across all six runs.
+
+Five observations of the Browser 1 slot now read: `c0f2daee` (08-19) → `c0f2daee` (08-24) → `fe28ff9d` (09-27) → `c0f2daee` (10-10) → `c0f2daee` (10-11). This run spanned only **13 hours**, so the stability is weak evidence — it shows ids are stable *within a day*, not across weeks. The 09-27 excursion still stands as proof the slot churns on week-scale intervals. **The durable fix remains pinning this task to `b89db820-…`**, the only id stable across all six runs.
+
+**Session state:** unknown — dashboard never reached. 09-05 established the Microsoft session in `b89db820-…` had **expired**, and nothing since could have renewed it. Assume **two stacked blockers**: a device pick *and* a re-login. Unblock both in one sitting, or the next run clears the pick and stalls on the sign-in wall exactly as 09-05 did.
+
+**Cost of the gap:** **six consecutive misses** (08-19, 08-24, 09-05, 09-27, 10-10, 10-11) now sit between entry 2 and any future entry 3 — though note 10-10 and 10-11 are 13 hours apart, so this is **six missed *runs*, not six missed weeks**; the calendar gap is what matters and it stands at **62 days**. The last captured window ended **2026-08-10**. The dashboard shows a rolling window, so those days have aged out of retention and are permanently unrecoverable. Trend is **not readable**, and the series remains **broken** rather than merely delayed: entry 3, whenever it lands, will be a coarse before/after against a two-month-stale baseline with no way to locate when anything changed inside the gap.
+
+**Standing recommendation, unchanged and now six runs overdue:** on the next successful read, capture the AI Performance `Download all` CSVs and commit them, so a future gap costs interpretation rather than raw data. This is still the single most valuable action available on this doc.
+
+**Cross-signal to carry into the next capture (updated):** Google has now confirmed `hillsong-guitar-tone-helix` indexed across **10** reads and `elevation-worship-guitar-tone-helix` across **3**. As of the last successful Bing capture (08-10), Hillsong was drawing **zero** AI citations despite being indexed. If entry 3 shows Hillsong *still* at zero with Elevation also at zero, that is strong confirmation that Google indexing is **necessary but not sufficient** for AI citation — the split first flagged in the 08-10 entry, and by then testable against two indexed worship posts instead of one.
+
+**Content guidance is unaffected by the gap.** The canonical finding from entries 1–2 stands and should keep steering work: citation share tracks **original measurement** — pages carrying a test we ran ourselves hold **57–83%** share, generic head terms **13–25%**. Recommend original measurement, not volume.
