@@ -2,10 +2,11 @@
 title: 'Helix Cab and IR Pairings: The Reference Table for Every Amp Model'
 seo_title: "Helix Cab and IR Pairings for Every Amp Model"
 description: >-
-  The right IR turns a Helix amp model from competent to convincing. This is the
-  reference guide for cab and IR pairings by amp family, with starting EQ
-  corrections for each pairing.
+  Which Helix cab goes with which amp model: the cab Line 6 captured from the
+  same amp or maker, by the 3.80 manual's own lists, plus starting mic and EQ
+  settings for each family.
 date: '2026-04-16'
+updated: '2026-10-13'
 author: Sean Nakamura
 author_slug: sean-nakamura
 category: modeler-masterclass
@@ -18,134 +19,204 @@ tags:
   - helix-settings
   - modeler
   - tone-shaping
-readingTime: 12
+readingTime: 11
 image: /images/blog/helix-cab-ir-pairings.jpg
-image_alt: a composition illustrating "Helix Cab and IR Pairings"
+image_alt: >-
+  A Helix-style multi-effects floor unit and a small modeler pedal on a desk
+  under a lamp, lit by teal and violet wall lighting
+takeaways:
+  - >-
+    For 26 Helix amp families, the 3.80 cab list contains a cab captured from
+    the same amp or the same maker — Tweed Blues to 4x10 Tweed P10R, US Deluxe
+    to 1x12 US Deluxe, A30 Fawn to 2x12 Blue Bell. Start there before reaching
+    for a third-party IR.
+  - >-
+    Several of the most-repeated Helix pairings are mismatches by Line 6's own
+    lists. The Deluxe Reverb cab in Helix is captured with an Oxford speaker,
+    not a Jensen C12N; the C12N cab is the Twin's.
+  - >-
+    Combo models paired with a 4x12 sound like a combo's head driving a 4x12,
+    which is a real rig but not the combo. For combo accuracy, use the combo's
+    own 1x8, 1x10, 1x12 or 2x12 capture.
+  - >-
+    A Greenback and a Vintage 30 both publish a 75 Hz resonance, so blending
+    them changes the mids and top, not the low end. A 4x10 Tweed P10R (97 Hz)
+    is the stock cab that changes the bottom.
+  - >-
+    Two cab-block defaults are worth setting in nearly every preset: Low Cut
+    around 80 Hz, and High Cut somewhere between 6 and 8 kHz, adjusted by ear
+    rather than left at Off.
+faq:
+  - q: Which Helix cab should I use with each amp model?
+    a: >-
+      Start with the cab Line 6 captured from the same amp or maker, which the
+      3.80 manual's cab list identifies — for example 4x10 Tweed P10R for the
+      Tweed Blues (Bassman), 1x12 US Deluxe for the US Deluxe models, 2x12 Blue
+      Bell for the A30 Fawn models, and 4x12 Cali V30 for Cali Rectifire.
+  - q: Do I need third-party IRs or are the stock Helix cabs good enough?
+    a: >-
+      Since firmware 3.50 the stock cabs are IR-based and cost about a third of
+      the DSP of the Legacy cabs, so start with them. Third-party IRs are worth
+      buying when you want a specific cab, mic or room the stock list lacks,
+      not as a default upgrade.
+  - q: Should I use the Dual Cab block in Helix?
+    a: >-
+      Yes, when you want one sound thicker rather than two sounds. Choose two
+      cabs whose speakers differ where you want a change: a P10R 4x10 with a
+      V30 4x12 changes the low end, a Greenback with a V30 changes only the mids
+      and top. Keep both mics within about 3 inches of each other's distance to
+      avoid a phasey midrange notch.
+  - q: Does mic position matter as much as cab choice?
+    a: >-
+      Often, yes. The Helix Position parameter moves the mic from the center to
+      the edge of the cone, and that move can change the top end as much as
+      switching cabs. Center is brighter with more pick attack; toward the edge
+      is darker with more body.
+  - q: Why does my Helix Fender model sound too boomy with a 4x12?
+    a: >-
+      Because Fender combo circuits were voiced for open-back 1x10, 1x12 and
+      2x12 cabinets, and a closed 4x12 adds low-mid weight they never had. Use
+      the matching combo cab — 1x12 US Deluxe, 2x12 Double C12N or 1x10 US
+      Princess — or cut 200 to 300 Hz by 1 to 2 dB.
 ---
 
-> **Start Here:** The three things that determine whether a Helix amp model sounds right:
-> 1. **The IR matches the amp's character.** Bright amps need darker cabs; dark amps need cabs that open them up.
-> 2. **The mic position is set correctly.** Center vs. edge and distance dramatically affect frequency response.
-> 3. **The EQ correction is applied.** Most amp + IR combinations need a small corrective cut somewhere.
+> **Start Here:** The three things that decide whether a Helix amp model sounds right:
+> 1. **The cab matches the amp it was built for.** The 3.80 cab list often has a capture from the same amp or maker. Use it first.
+> 2. **The mic position is set deliberately.** Center vs. edge, and distance, move the top end as much as a cab change does.
+> 3. **The cab block's filters are set.** Low Cut and High Cut are on every cab block, and Off is rarely the right setting.
 
-The table below is organized by amp family. Each entry includes the amp model name as it appears in HX Edit, the real amp it's based on, the recommended cab or IR family, mic starting position, and common EQ correction.
-
----
-
-## How to Use This Guide
-
-A few things to understand before the table:
-
-**Stock cabs vs. third-party IRs:** The stock Helix cabs are usable, and some of them are genuinely good. Third-party IRs from Ownhammer, Celestion, and York Audio are more accurate to the real cabs they're modeled on and tend to have better high-frequency behavior. For this guide, I'll recommend by cab type. You can use stock or third-party, and I'll note where it specifically matters.
-
-**Mic position:** The Helix lets you choose microphone type and position. The two primary variables are center vs. edge (how close to the center of the speaker cone you place the virtual mic) and distance (close vs. 3–4 inches away). Center position = brighter, more present, more transient detail. Edge position = darker, more body, less attack. I'll specify which position suits each pairing as a starting point.
-
-**EQ corrections:** Almost every amp + IR combination benefits from a small high-frequency cut around 4–8kHz to remove digital fizz, and a small low-mid cut around 200–300Hz to clear up mud. I'll be specific where other corrections are consistently needed.
-
-**This is a starting point, not a fixed truth.** These pairings work on my Quad Cortex running identical amp models and translated well to Helix in testing. Your guitar, your playing, and your monitoring environment will change what sounds right. Use this as a structured starting point, not a finished result.
-
----
-
-## British Amps
-
-### Brit Plexi (1959 Super Lead) and Brit Brit (JCM800)
-
-The Plexi models want a mid-voiced cab. The 4x12 with Greenback-style speakers is the classic pairing, and it's classic because it works. The Greenback's resonance peak around 2.5–3kHz fills in the frequency range where the Plexi's output transformer has a natural softness.
-
-| Amp Model | Real Amp | Recommended Cab | Mic Position | EQ Correction |
-|---|---|---|---|---|
-| Brit Plexi Nrm | Marshall 1959SLP | 4x12 Greenback (Celestion G12M) | Edge, close | Cut 5–6kHz by 2–3dB |
-| Brit Plexi Brt | Marshall 1959SLP (bright input) | 4x12 Greenback | Center, close | Cut 5–7kHz by 3dB |
-| Brit 2204 | Marshall JCM800 | 4x12 Greenback or V30 | Edge, close | Cut 4–5kHz by 2dB; boost 400Hz by 1dB |
-| Brit J45 Nrm | Marshall JMP 45W | 2x12 Greenback | Edge, 2–3in away | Cut 6kHz by 2dB |
-
-**Notes on the Plexi models:** The Brit Plexi Brt (bright input) has a lot of energy above 5kHz that sounds correct on the real amp when the guitar's input impedance is interacting with the amp's front end, but that interaction is absent in the modeler. The cut above 5kHz corrects for this. If you're hearing ice-pick treble on the Brit Plexi Brt, this is why.
-
-### Vox-Style Models
-
-| Amp Model | Real Amp | Recommended Cab | Mic Position | EQ Correction |
-|---|---|---|---|---|
-| A30 Fawn Nrm | Vox AC30 (Normal channel) | 2x12 Alnico Blue | Center, close | Slight cut at 3kHz if bright; no cut often needed |
-| A30 Fawn Brt | Vox AC30 (Brilliant channel) | 2x12 Alnico Blue | Edge, close | Cut 6–7kHz by 2dB |
-| AC Boost | Vox AC15 with boost | 1x12 Alnico Blue | Center, close | Usually none; this model is naturally well-voiced |
-
-**Notes on Vox models:** The Alnico Blue cab is the essential pairing for the AC30 models. A Greenback cab with the Vox models produces a sound that technically works but loses the chime character (the top-end silk that defines the AC30's contribution to clean tones). If you don't have a Celestion Alnico Blue IR, the York Audio CA-15 pack is an accurate substitute. The AC Boost model is the most naturally voiced Vox model in the Helix; it needs the least EQ intervention of any model in this table.
-
----
-
-## American Amps
-
-### Fender Models
-
-| Amp Model | Real Amp | Recommended Cab | Mic Position | EQ Correction |
-|---|---|---|---|---|
-| US Deluxe Nrm | Fender Deluxe Reverb | 1x12 Jensen C12N | Edge, close | Cut 200Hz by 1–2dB if muddy |
-| US Deluxe Vib | Fender Deluxe Reverb (vibrato channel) | 1x12 Jensen C12N | Center, 2in away | Cut 200Hz by 1dB |
-| US Double Nrm | Fender Twin Reverb | 2x12 Jensen C12N | Center, close | Cut 300Hz by 1–2dB; cut 8kHz by 1dB |
-| US Blackface 'lux | Fender Princeton Reverb | 1x10 Jensen P10R | Edge, close | Usually none at low gain; cut 200Hz by 1dB at higher gain |
-
-**Notes on Fender models:** The Jensen C12N pairing with the Deluxe Reverb models is reliable and consistent. The key insight with Fender models specifically is that the original amps were never scooped at the mids. The "Fender clean" sound that most players chase has a full midrange. Don't EQ the mids out of the Helix Fender models. The low-mid cut around 200–300Hz is for cleaning up cab boom, not hollowing out the midrange.
-
-The US Double Nrm (Twin Reverb) is the most difficult Fender model to IR-match because the real Twin has a very specific low-frequency resonance from its 2x12 open-back design. Closed-back cabs with this model will sound thicker and less airy than the real amp. If you have an open-back 2x12 IR, use it. The result is much closer.
-
-### Mesa/Boogie and High-Gain American
-
-| Amp Model | Real Amp | Recommended Cab | Mic Position | EQ Correction |
-|---|---|---|---|---|
-| Cali Recti-Silver | Mesa Boogie Dual Rectifier | 4x12 Mesa Oversized (V30) | Edge, close | Cut 5–6kHz by 3dB; cut 150Hz by 1–2dB |
-| Cali Recti-Orange | Mesa Boogie Dual Rectifier (Orange channel) | 4x12 Mesa Oversized (V30) | Edge, close | Cut 5kHz by 4dB; boost 700Hz by 1dB for mid presence |
-| Cali IV Rhythm 1 | Mesa Boogie Mark IV | 1x12 Mesa Thiele (V30) | Center, close | Cut 4kHz by 2dB |
-| Line 6 Badonk | Original model (no real amp reference) | 4x12 V30 | Edge, close | Cut 5kHz by 3dB; this model is naturally scooped |
-
-**Notes on Mesa models:** The Rectifier models have more energy in the 4–6kHz range than most players want. This is accurate to the real amp (the Dual Rectifier can be bright and aggressive in the high-mids), but it becomes fatiguing over extended playing. The cuts listed above represent a starting point for a more mix-ready sound. Don't over-correct: cutting too much 5kHz with a Rectifier model produces a dark, tubby tone that sits behind guitars in a mix.
-
-The V30 speaker pairing is non-negotiable for Rectifier models. It's the combination Mesa used for the sounds these models are based on. Greenbacks with a Rectifier model produce a midrange buildup that's difficult to EQ out.
+This guide has two parts. The first is the matching table: for each amp family, the cab Line 6 captured from the same amp or the same maker, read from the Helix 3.80 manual's amp and cab lists. The second is a set of starting mic and EQ settings by family, including the departures from the matched cab that are worth making.
 
 ---
 
-## Boutique and Clean Amps
+## How This Table Was Built
 
-| Amp Model | Real Amp | Recommended Cab | Mic Position | EQ Correction |
-|---|---|---|---|---|
-| Cartographer | Carr Rambler | 1x12 Alnico Gold | Center, close | Usually none; model is well-voiced from the factory |
-| Jumbo | Trainwreck Liverpool | 4x12 Greenback | Center, close | Cut 2–3kHz by 1dB if the British jangle gets harsh |
-| Archetype: Cory Wong | Fender Blackface into clean IR | See below | See below | See below |
+The matching table is not taste. The Helix 3.80 manual lists every amp model with the amp it's based on, and every IR-based cab with the cabinet and speaker it was captured from. Where both lists name the same amp, or the same maker, that's a pairing Line 6's own catalogue supports. Model names are exactly as they appear in the manual and in HX Edit.
 
-**Notes on boutique models:** The Archetype: Cory Wong style clean tones deserve a specific note: if you're running this kind of clean model and want maximum funk-clean transparency, use the flattest possible IR. The Celestion F12-X200 "flat" response IR is designed for exactly this. It removes the cab character entirely and lets the amp model breathe. Pair with a gentle high-cut around 8kHz and you're close to the clean direct-to-console sound.
+The mic and EQ starting points in the second half are exactly that — starting points. They're reasoned from the amp's voicing and the speaker, not from a measurement of your rig, and your guitar and monitoring will move them.
+
+**Stock cabs vs. third-party IRs:** As of firmware 3.50, Helix's cabs are IR-based, and the manual notes they use "significantly less DSP power" than the older Legacy cabs (about 3.33 units against 9.60 for a single cab, in community-measured figures). For most presets, the stock list is the right place to start. Third-party IRs earn their place when you want a cab, mic or room the stock list doesn't have.
 
 ---
 
-## Global EQ Settings That Help Every Amp
+## The Matched-Cab Table
 
-Regardless of which amp model you choose, two global EQ moves help almost every preset:
+| Amp model | Based on | Matched Helix cab | Captured from |
+|---|---|---|---|
+| US Small Tweed | Fender Champ | 1x8 Small Tweed | 1x8 Fender Champ |
+| US Princess | Fender Princeton Reverb | 1x10 US Princess | 1x10 Fender Princeton Reverb |
+| Fullerton Nrm / Brt / Jump | Fender 5C3 Tweed Deluxe | 1x12 Fullerton | 1x12 Fender 5C3 Tweed Deluxe |
+| US Deluxe Nrm / Vib | Fender Deluxe Reverb | 1x12 US Deluxe | 1x12 Fender Deluxe, Oxford |
+| US Double Nrm / Vib | Fender Twin Reverb | 2x12 Double C12N | 2x12 Fender Twin, C12N |
+| Tweed Blues Nrm / Brt | Fender Bassman | 4x10 Tweed P10R | 4x10 Fender Bassman, P10R |
+| US Super Nrm / Vib | Fender Super Reverb | 4x10 US Super | 4x10 Fender Super Reverb, CTS alnico |
+| Soup Pro | Supro S6616 | Soup Pro Ellipse | 1x6x9 Supro S6616 |
+| GrammaticoLG Nrm / Brt / Jmp | Grammatico LaGrange | 1x12 Grammatico | 1x12 Grammatico LaGrange |
+| Essex A15 | Vox AC-15 | 1x12 Blue Bell | 1x12 Vox AC-15, Blue Alnico |
+| A30 Fawn Nrm / Brt | Vox AC-30 Fawn | 2x12 Blue Bell | 2x12 Vox AC-30 Fawn, Blue Alnico |
+| Essex A30 | Vox AC-30 with top boost | 2x12 Silver Bell | 2x12 Vox AC-30TB, Silver Alnico |
+| Matchstick Ch1 / Ch2 / Jump | Matchless DC30 | 2x12 Match H30 or 2x12 Match G25 | 2x12 Matchless DC30, G12H-30 or G12M-35 |
+| Jazz Rivet 120 | Roland JC-120 | 2x12 Jazz Rivet | 2x12 Roland JC-120 |
+| Interstate Zed | Dr Z Route 66 | 2x12 Interstate | 2x12 Dr Z Z Best, V30 (same maker) |
+| Mandarin 80 / Mandarin Rocker | Orange OR80 / Rockerverb | 2x12 Mandarin30 or 4x12 Mandarin EM | Orange 2x12 V30 / 4x12 Eminence |
+| Brit J45 / Brit Trem / Brit Plexi | Marshall JTM-45 / JTM-50 / Super Lead 100 | 4x12 Greenback20 or Greenback25 | Marshall Basketweave 4x12, G12M-20 / G12M-25 |
+| Brit 2203 / Brit 2204 | Marshall JCM-800 | 4x12 1960A T75 or 4x12 Brit V30 | Marshall 1960A, G12T-75 / 1960AV, V30 |
+| Brit P75 Nrm / Brt | Park 75 | 4x12 Blackback30 | 4x12 Park 75, G12H-30 |
+| WhoWatt 100 | Hiwatt DR-103 | 4x12 WhoWatt | 4x12 Hiwatt AP, Fane |
+| MOO)))N T Brt / Jump | Sunn Model T | 4x12 MOO)))N T75 | 4x12 Sunn, G12T-75 |
+| Cali IV Rhythm 1 / 2 / Lead | Mesa Mark IV | 1x12 Cali IV | 1x12 Mesa Mark IV combo |
+| Cali Rectifire | Mesa Dual Rectifier | 4x12 Cali V30 | 4x12 Mesa 4FB, V30 |
+| German Xtra Blue / Red, Mahadeva, Ubersonic | Bogner Ecstasy / Shiva / Uberschall | 4x12 Uber V30 or 4x12 Uber T75 | 4x12 Bogner Uberkab |
+| ANGL Meteor | ENGL Fireball 100 | 4x12 XXL V30 | 4x12 ENGL XXL, V30 |
+| Solo Lead Clean / Crunch / OD | Soldano SLO-100 | 4x12 SoloLead EM | 4x12 Soldano, Eminence |
 
-**High-frequency shelf:** A gentle shelf cut starting at 6–7kHz, 2–3dB of reduction. This removes digital fizz that accumulates in the modeler's signal chain. It's the most common recommendation in the Helix community for a reason: it works. Don't overdo it or you'll lose air and presence.
+Two corrections to pairings that get repeated a lot, including in an earlier version of this guide:
 
-**Low-cut on the cab block:** Most IR and cab blocks in the Helix allow a low-cut filter. Setting this at 80–100Hz removes subsonic content that doesn't contribute to guitar tone but can interact badly with subwoofers and cause low-frequency issues in a PA. Apply this by default.
+- **The Deluxe Reverb cab is not a C12N.** Helix's 1x12 US Deluxe is captured with an Oxford speaker. The C12N cab is the Twin's 2x12. If you've been pairing US Deluxe with a C12N because that's what "Fender clean" is supposed to use, try the matched cab — it's the speaker in the cab Line 6 actually captured for this amp.
+- **Not every Fender-family cab is a Jensen.** The Super Reverb 4x10 is captured with CTS alnico speakers; the Bassman 4x10 with P10Rs. They're both "Fender 4x10," and they're different speakers.
 
 ---
 
-## The Two Most Common IR Pairing Mistakes
+## Starting Mic and EQ by Family
 
-**1. Using a 4x12 IR with a single-channel combo amp model.** Combo amp models (the Deluxe Reverb, Princeton, AC15) were voiced with their own internal speakers. Pairing them with a 4x12 IR produces a physically accurate sound of running a combo's output into a 4x12 (which real players do), but it changes the character significantly. For single-channel combo accuracy, use a 1x12 or 2x12 IR.
+Every cab block has the same core parameters: Mic, Distance (1 to 12 inches), Position (center to edge of the cone), Angle (0 or 45 degrees), Low Cut, High Cut and Level. Set the filters on every preset — the two defaults at the end of this section apply almost everywhere.
 
-**2. Using a Greenback IR with every high-gain amp.** The Greenback has a pronounced midrange peak around 2.5–3kHz that's essential for Plexi tones and adds character to JCM800 tones. For modern high-gain (Rectifier models, EVH models, any of the scooped-midrange designs), the Greenback's mid peak creates a honky, nasal quality that doesn't work. Use V30 or a Mesa-specific IR for these models.
+### Marshall family
+
+| Amp model | Cab | Mic position | EQ starting point |
+|---|---|---|---|
+| Brit Plexi Nrm | 4x12 Greenback25 | Toward the edge, 1–2 in | Cut 5–6 kHz by 2–3 dB if spiky |
+| Brit Plexi Brt | 4x12 Greenback25 | Center, 1–2 in | Cut 5–7 kHz by about 3 dB |
+| Brit 2204 | 4x12 1960A T75 or 4x12 Brit V30 | Toward the edge, 1–2 in | Cut 4–5 kHz by 2 dB; +1 dB at 400 Hz if thin |
+| Brit J45 Nrm | 4x12 Greenback20 | Toward the edge, 2–3 in | Cut around 6 kHz by 2 dB |
+
+The bright-channel Plexi carries a lot above 5 kHz. If it reads as ice-pick treble, check the Input block's Guitar In-Z setting before reaching for EQ. The manual's description: a lower value gives "some high frequency attenuation, lower gain, and an overall 'softer' feel," a higher value "full frequency response." Dropping In-Z one or two steps is the gentler fix, and the high cut can then be smaller.
+
+### Vox family
+
+| Amp model | Cab | Mic position | EQ starting point |
+|---|---|---|---|
+| A30 Fawn Nrm | 2x12 Blue Bell | Center, close | Often none; cut around 3 kHz if bright |
+| A30 Fawn Brt | 2x12 Blue Bell | Toward the edge, close | Cut 6–7 kHz by 2 dB |
+| Essex A30 | 2x12 Silver Bell | Toward the edge, close | Cut 5–6 kHz by 1–2 dB |
+| Essex A15 | 1x12 Blue Bell | Center, close | Usually none |
+
+A Greenback cab under a Vox model works, and it gives up the bell-like top end the Blue Bell carries — the AC30 starts sounding like a small Marshall. Keep the alnico cabs for the Vox models unless that's the sound you want.
+
+### Fender family
+
+| Amp model | Cab | Mic position | EQ starting point |
+|---|---|---|---|
+| US Deluxe Nrm | 1x12 US Deluxe | Toward the edge, close | Cut 200 Hz by 1–2 dB if muddy |
+| US Deluxe Vib | 1x12 US Deluxe | Center, 2 in | Cut 200 Hz by 1 dB |
+| US Double Nrm | 2x12 Double C12N | Center, close | Cut 300 Hz by 1–2 dB; 8 kHz by 1 dB |
+| US Princess | 1x10 US Princess | Toward the edge, close | Usually none at low gain |
+| Tweed Blues Nrm | 4x10 Tweed P10R | Center, 1–2 in | Cut 250 Hz by 1 dB if it booms |
+
+The original Fender circuits were never scooped in the midrange, so don't EQ the mids out of the models. The 200–300 Hz cuts above are for cab boom, not for hollowing the middle. The Twin is the one to watch: its reference cab is an open-back 2x12, and a closed-back 4x12 under the US Double models sounds thicker and less airy than the amp ever did.
+
+### Mesa and modern high gain
+
+| Amp model | Cab | Mic position | EQ starting point |
+|---|---|---|---|
+| Cali Rectifire | 4x12 Cali V30 | Toward the edge, close | Cut 5–6 kHz by 3 dB; cut 150 Hz by 1–2 dB |
+| Cali IV Rhythm 1 | 1x12 Cali IV | Center, close | Cut 4 kHz by 2 dB |
+| ANGL Meteor | 4x12 XXL V30 | Toward the edge, close | Cut 5 kHz by 2 dB |
+| Line 6 Badonk | 4x12 Brit V30 or 4x12 Uber V30 | Toward the edge, close | Cut 5 kHz by 3 dB |
+
+The Rectifier model has a lot of energy between 4 and 6 kHz. That's accurate to the amp, and it gets fatiguing over a set. Don't over-correct: past about 4 dB of cut at 5 kHz it turns dark and tubby and sits behind everything. Keep the V30 under it — a Greenback under a Rectifire piles up upper mids that are hard to EQ back out.
+
+### Clean platforms
+
+| Amp model | Cab | Mic position | EQ starting point |
+|---|---|---|---|
+| Jazz Rivet 120 | 2x12 Jazz Rivet | Center, 2 in | Usually none |
+| Cartographer | 1x12 Open Cream or 2x12 Match G25 | Center, close | Usually none |
+| Line 6 Clarity | 1x12 Open Cast | Center, 2 in | High Cut around 8 kHz |
+
+Cartographer is based on the Ben Adrian Cartographer, which has no matched capture in the list — the two cabs above are reasonable open-back and 2x12 starting points, not a catalogue match.
+
+### Two defaults for nearly every preset
+
+**Low Cut around 80 Hz on the cab block.** It removes content below the guitar's useful range that a PA subwoofer will happily reproduce. On drop tunings, lower it to about 55–60 Hz — [the low C and B fundamentals sit at 65.41 and 61.74 Hz](/blog/what-your-amps-speaker-size-decides-before-you-plug-in).
+
+**High Cut between 6 and 8 kHz, by ear.** A real guitar speaker passes very little above about 5 kHz, and an IR at Off can carry more top than a speaker in a room ever does. Bring the High Cut down until the fizz goes and stop before the pick attack dulls.
 
 ---
 
-## FAQ
+## Blending Two Cabs
 
-**Do I need third-party IRs or are the stock Helix cabs good enough?**
-The stock cabs are usable, and some are genuinely good, especially the Greenback options. Third-party IRs from Ownhammer or York Audio are typically more accurate and have better high-frequency behavior. The difference is most audible in the 4–8kHz range and in how the IR responds to different mic positions. If you're recording seriously, third-party IRs are worth the cost.
+A Cab > Dual block costs twice a single cab — about 6.67 units — and gives you two cabs, each with its own mic and settings plus Pan and Delay. The choice that matters is the pair, and the published speaker figures help: the Greenback and the V30 both resonate at 75 Hz, so that classic blend changes the mids and the top, not the bottom. A 4x10 Tweed P10R (97 Hz) with a 4x12 V30 is the stock pairing that actually changes the low end. [The Dual Cab article has the pairing table and the Delay settings that fall apart on a mono PA](/blog/two-cabs-instead-of-two-amps-dual-cab-block).
 
-**Should I use the dual-cab option in Helix?**
-Sometimes. Blending two cabs (typically a Greenback and a V30 at around 60/40) is a legitimate studio technique and many commercial sounds use this approach. The Greenback's upper-mid presence blends with the V30's low-mid warmth. Start with two versions of the same cab, then experiment with mixing cab types.
+---
 
-**Does mic position matter as much as cab choice?**
-Yes. Moving the mic from center to edge of the same cab IR often changes the sound as much as switching to a different cab. Center = brighter and more detailed; edge = darker with more body. Try edge position first on high-gain patches and center position first on clean or low-gain patches.
+## The Two Most Common Pairing Mistakes
 
-**Which IR pack should I buy first?**
-York Audio makes a consistent, well-priced collection. Their British packs (Greenback, V30) are especially good. If budget is a consideration, Celestion's official IR packs are reliable and available as individual IRs rather than full bundles. Ownhammer is the standard for American cabs.
+**1. A 4x12 under a combo model.** The Deluxe Reverb, Princeton and AC15 models were built around their own 1x10, 1x12 and 2x12 cabinets. Pairing them with a 4x12 gives you the real sound of a combo's output driving a 4x12 — some players do exactly that on purpose — but it isn't the combo. For combo accuracy, use the matched cab from the table.
+
+**2. A Greenback under every high-gain amp.** The Greenback's upper-mid emphasis is what Plexi and JCM800 tones are built on. Under a Rectifire or a Bogner model it turns honky. Those amps were built around V30 cabs, and the matched cabs say so.
+
+[What a cab actually passes at the low end](/blog/guitar-speaker-low-end-rolloff-what-a-cab-actually-passes) is the companion to the filter defaults above, and [the preset-budget article](/blog/why-your-modeler-preset-wont-fit-what-to-cut-first) covers why a Legacy cab block left in an old preset is costing you about 6 DSP units for nothing.
 
 <SaveThisTone
   title="Every recipe ships a Helix preset"

@@ -6,6 +6,7 @@ description: >-
   the structural limits first, then cut by tone cost per DSP unit recovered —
   with the arithmetic for each step.
 date: '2026-10-10'
+updated: '2026-10-13'
 author_slug: sean-nakamura
 category: modeler-masterclass
 tags:
@@ -70,6 +71,13 @@ faq:
       0.29 on a Fender Champ to 21.33 on a tweed Deluxe, and several Line 6
       Original models save nothing at all. Look up your amp rather than assuming
       a percentage.
+  - q: Should I use Preamp blocks instead of Amp blocks on a direct Helix rig?
+    a: >-
+      Only as a deliberate trade. Line 6 recommends Preamp models for feeding an
+      external power amp, such as a real amp or a Powercab, where a real power
+      section replaces the modelled one. Direct into a cab block or IR, nothing
+      replaces it, so you lose power-amp distortion and compression. The trade
+      costs least on clean presets run at a low Master.
   - q: Do snapshots reduce DSP usage?
     a: >-
       No. A preset's DSP requirement accounts for every block in the preset
@@ -156,7 +164,13 @@ The cab line is the one most presets already have for free and don't know it —
 
 ### Tier 3 — Give up the power amp model
 
-Switching an amp block to its Preamp variant drops the modelled power section and keeps the preamp. On a direct rig into a cab block or an impulse response this is frequently the right choice regardless, because the part you removed is the part a real cabinet and microphone were going to re-shape anyway.
+Switching an amp block to its Preamp variant keeps the preamp and gives up most of the modelled power section. Line 6's manual is specific about when that is the intended use: Preamp models "provide the tone of just the preamp stage of the amp—recommended when feeding Helix into an external amplifier," whether that's a traditional amp or a Powercab or DT over L6 LINK. In that rig, the power section you removed gets replaced by a real one.
+
+**Correction (October 13):** an earlier version of this section said the swap is "frequently the right choice regardless" on a direct rig into a cab block or IR, because a cab and mic would re-shape that part anyway. That was wrong, and it runs opposite to Line 6's own guidance. On a direct rig nothing replaces the power section. The manual's Common Amp Settings table describes Master as adjusting "the amount of power amp distortion," Sag as trading tight response against touch dynamics and sustain, and Bias X as setting how the power tubes react when pushed hard. A cab block or IR is a fixed filter: it can re-shape frequency response, but it cannot put back compression or power-amp distortion that was never generated.
+
+So on a direct rig, Tier 3 is a tone trade rather than a free one. It costs least where the power section was contributing least. The manual notes that "the lower the Master is set, the less effect the other controls will have," which points to clean and edge-of-breakup presets run at a low Master as the safest place to make the swap. That is an inference from the manual's wording, not a measurement — audition it.
+
+It is also not a clean subtraction. Line 6 does not publish a per-model parameter list for Preamp blocks, and users on [Line 6's own forum](https://line6.com/support/topic/18699-why-is-there-a-master-in-the-preamp-block) report that Preamp models still expose Master and Sag while dropping controls such as Presence, Bias and Bias X. Open the model in HX Edit before assuming which knobs you have lost.
 
 I went into this expecting the saving to be predictable by amp family — bigger on the simple vintage circuits, smaller on the modern high-gain ones, since the high-gain amps carry more preamp and proportionally less power amp. The first half is wrong and the second half is wrong for an interesting reason.
 
@@ -214,7 +228,7 @@ The preset that would not build now builds with a quarter of the path spare, and
 
 Two cases where no amount of cutting is the fix.
 
-**You need two amps and a developed effects chain.** On an HX Stomp that is two of eight blocks spent on 60 to 80 units before a single effect. Line 6's own tip offers the alternative: "Instead of a parallel path with two Amp+Cab blocks or two separate Amps and Cabs, try adding a single Amp block followed by one Cab > Dual block." One amp, two cabs — 40.13 plus 6.67 against roughly 80 for the two-amp version. It is not the same sound, and it is frequently the better preset.
+**You need two amps and a developed effects chain.** On an HX Stomp that is two of eight blocks spent on 60 to 80 units before a single effect. Line 6's own tip offers the alternative: "Instead of a parallel path with two Amp+Cab blocks or two separate Amps and Cabs, try adding a single Amp block followed by one Cab > Dual block." One amp, two cabs — 40.13 plus 6.67 against roughly 80 for the two-amp version. It is not the same sound, and it is frequently the better preset. [Which two cabs to put in that Dual block, and the Delay setting that breaks in mono](/blog/two-cabs-instead-of-two-amps-dual-cab-block), has its own article.
 
 **You want a jumped-channel blend an amp model doesn't offer.** Building that by hand is two preamps in parallel, which on a Plexi is 40.40 against Brit Plexi Jump's 27.24 — [and the Jump models only exist for six amps](/blog/jumping-amp-channels-what-the-patch-cable-actually-does).
 

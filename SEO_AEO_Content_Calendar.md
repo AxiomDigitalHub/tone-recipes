@@ -7566,3 +7566,102 @@ matched none of the drafts' assumptions.
 | AM1 | what-you-lose-switching-amp-block-to-preamp | What You Actually Give Up When You Switch an Amp Block to Preamp | "helix preamp vs amp block," "should i use preamp block helix," "amp block vs preamp direct," "what does preamp only mean modeler" | Dev Okonkwo | 4 — Modeler Masterclass | **Post 2 surfaced the saving and deliberately did not explain the cost.** Its Tier 3 says switching to Preamp is "frequently the right choice" on a direct rig and leaves it there. The distinct question is what the modelled power section was contributing, and it is answerable rather than philosophical: the 3.80 manual's Common Amp Settings table documents **Master** ("Adjusts the amount of power amp distortion… the lower the Master is set, the less effect the other controls will have") and **Sag** ("Lower Sag values offer 'tighter' responsiveness for metal and djent playing; higher values provide more touch dynamics & sustain") — both verified in the manual this run — and a Preamp block is the variant where those parameters stop existing. Distinct content: which parameters disappear per variant, what power-amp compression and sag do that no EQ replaces, when a real cab and mic were going to re-shape that anyway, and the per-model table of what the saving actually is (Champ 0.29, tweed Deluxe 21.33) so the trade is priced. **Gate 7 guard: must enumerate the parameter differences from the manual's own amp tables — if the per-variant parameter lists cannot be extracted, drop it; a "preamps sound thinner" piece with no parameter inventory is commodity. Do NOT assert latency or CPU differences beyond the allocation figures.** Dev's lane (direct recording, frequency space, headphone rigs) and clear of his bars — live rigs, high-gain, vintage history. Sean is the obvious alternate but wrote AL2, so rotate. **Confirmed no colliding slug.** |
 | AM2 | summing-two-signals-into-one-amp-input | Two Cables Into One Input: What Actually Happens at the Jack | "two guitars one amp input," "can i plug two pedals into one amp," "summing two signals one input," "y cable into amp input" | Nathan Cross | 3 — Signal Chain & Tone Theory | **Surfaced by Post 1's mixer-resistor work and kept out of it.** Post 1 explains why two channels sum cleanly inside an amp: each gets its own mixing resistor and the designer chose the values. A passive Y cable into one jack has neither — the two sources load each other directly, which is why it works badly and why the failure is level-and-tone rather than silence. Distinct content: why an amp's internal summing node is not the same as a splitter run backwards, what each source's output impedance does to the other, the difference between a passive Y, a resistive combiner and an active summing box, and the one case where a Y actually is fine. F&K has the **splitting** side covered in three posts (`wire-buffered-splitter-amp-foh-tuner-three-output`, `transformer-isolated-vs-active-buffered-splitters`, `buffer-vs-true-bypass-looper`) and **nothing on summing**, which is the more commonly attempted and more commonly broken direction. **Gate 7 guard: must be about summing, with impedance reasoning, not a restatement of the splitter posts — link to them rather than re-explaining. Must handle the "can I run two guitars into one amp" case with the honest answer rather than a flat no. Do NOT assert dB loss figures without computing them from stated impedances in-run.** Nathan's demonstrated lane (he wrote both splitter posts) and clear of his bars — metal, budget/punk rigs, vintage collecting. **Confirmed no colliding slug.** |
 | AM3 | two-cabs-instead-of-two-amps-dual-cab-block | Two Cabs Beat Two Amps, and Cost a Sixth as Much | "helix dual cab block," "two cabs one amp modeler," "cab dual vs two amps helix," "blend two cabs guitar tone" | Jess Kowalski | 4 — Modeler Masterclass | **Line 6 recommends this in its own optimisation tips and never says what it gets you.** The manual: "Instead of a parallel path with two Amp+Cab blocks or two separate Amps and Cabs, try adding a single Amp block followed by one Cab > Dual block (mixing two different Cabs can provide some substantial variations)." Post 2 quotes it as a DSP lever (40.13 + 6.67 against roughly 80) and stops, because Post 2 is a cut procedure. The distinct question is tonal: **what does blending two different cabs do that one cannot?** And Post 3 supplies the answer's raw material — two cabs with different drivers have different published resonances, so a 12-inch (Fs 75) blended with a 10-inch (Fs 97) sums two different low-frequency corners rather than averaging one. Distinct content: the pairing logic by published Fs and range rather than by vibe, what the Dual block's pan and level controls actually do to that sum, the phase question between two captures of different distances, and the structural limits (two Dual Cab blocks per preset, one per path — verified from the 3.80 block rules this run). **Gate 7 guard: must ship specific pairings justified by the published driver figures from Post 3's tables, not "try a V30 with a Greenback." If it becomes a list of popular cab pairings with adjectives, drop it. Do NOT assert phase measurements between IR captures — argue from what a capture is, as Post 3's sibling did.** Jess's lane (comparisons, practical value, the shortcut that costs less — here two voices for 6.67 units instead of 40) and clear of her bars: vintage deep-dives, jazz/fusion, boutique pedal reviews. She is at 0 posts for the week. **Confirmed no colliding slug.** |
+
+---
+
+## Daily Run — 2026-10-13 (2 new posts + 2 refreshes, 1 queued topic dropped)
+
+### Posts published: summing-two-signals-into-one-amp-input, two-cabs-instead-of-two-amps-dual-cab-block
+
+**Velocity:** `persona-velocity.ts` reported **6 posts across 5 authors in the
+last 7 days** — Viktor 2, Hank, Margot, Rick and Sean 1 each. Nathan and Jess
+were at 0; both queued bylines taken as queued. Re-checked against the bars
+themselves, per the 10-10 lesson: Nathan's bars are "metal or high-gain,"
+"budget/punk rig guides," "vintage gear collecting" — AM2 is none of them.
+Jess's are "vintage gear deep-dives," "jazz or fusion," "high-end boutique
+pedal reviews" — AM3 is none of them. **Both slugs collision-checked at build
+time — clear.**
+
+### Dropped topic — AM1, what-you-lose-switching-amp-block-to-preamp
+
+Dropped on its own Gate 7 guard, which said: "if the per-variant parameter
+lists cannot be extracted, drop it." They cannot. The Helix 3.80 manual's
+Common Amp Settings table describes Master, Sag, Hum/Ripple, Bias and Bias X
+but never says which of them a Preamp block has; the Stadium manual's "Common
+Amp and Preamp Parameters" page is one shared list with no per-variant split.
+**Worse, the queue's premise was wrong.** It said a Preamp block "is the
+variant where those parameters stop existing." Users on Line 6's own forum
+(topic 18699, "why is there a master in the preamp block") and The Gear Forum
+report that Preamp models **keep Master and Sag** and drop Presence, Bias,
+Bias X and Depth. Without an official list that is a forum claim, not a
+publishable inventory. The recovered time went into R1, which this finding
+made necessary.
+
+### SERP analysis
+
+| Post | Target query | Top results (standard search) | Gap our post fills | AI Overview? F&K cited? |
+|---|---|---|---|---|
+| summing-two-signals-into-one-amp-input | "two guitars one amp input y cable" | AmpRidge GA-101 dual-guitar adapter retail pages (WWBW, zZounds — listed discontinued at one), Seymour Duncan forum, JCF forum "Y cord," a thin softhandtech "ultimate guide" | Every result asserts the volume-knob interaction anecdotally ("the volume on each guitar will turn the other one off"); none explains why, quantifies it, or notes the **partial-volume treble loss** (−8 dB at 3 kHz at halfway, simplified model) that makes the failure hard to diagnose. Nobody covers the Fender two-input jack as a resistive combiner with numbers, or one-guitar-per-channel as the better answer. | Not observable — the search tool returns organic links only. Logged unknown, same as prior runs. |
+| summing-two-signals-into-one-amp-input (secondary) | "stereo pedal into mono amp y cable both outputs" | TalkBass (CEB-3 Y cable; Y-cable feedback), Rig-Talk, Soma Terra manual/forum, MPC forums | Results correctly say "don't, use mono mode" but nobody breaks down **what** a passive L+R sum does by content type (identical 0 dB, one-sided −6 dB, decorrelated −3 dB, opposite-polarity cancels). Note: CEB-3 result shows some pedals' second output is dry rather than R — the post's "check the manual" line covers it. | Not observable. |
+| two-cabs-instead-of-two-amps-dual-cab-block | "helix dual cab block which cabs to blend" | Line 6 forum threads 63080 ("dual cab — where's the pan control"), 33820, 21419, 31476, 32726; Neural DSP Unity thread; Line 6 Stadium manual cab pages | **Stale-answer gap:** the top Line 6 threads say the Dual Cab has no per-cab pan and recommend split paths instead. The 3.80 manual lists per-cab **Pan and Delay (to 50 ms, with Auto)**. No result offers pairings by published speaker figures, the distance→first-notch table, or the mono-PA failure of the Delay doubling trick. | Not observable. |
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | why-your-modeler-preset-wont-fit-what-to-cut-first | **A wrong claim corrected, labelled as a correction in the body.** Tier 3 said swapping Amp→Preamp is "frequently the right choice regardless" on a direct rig into a cab block or IR "because the part you removed is the part a real cabinet and microphone were going to re-shape anyway." That runs opposite to Line 6's own manual, which recommends Preamp models "when feeding Helix into an external amplifier" (real amp, Powercab, DT). On a direct rig nothing replaces the power section, and a cab/IR is a fixed filter that can't regenerate power-amp distortion or compression. Rewrote the section: Line 6's intended use quoted; the correction stated; the trade located using the manual's own Master description ("the lower the Master is set, the less effect the other controls will have") with the inference labelled as an inference; the forum report that Preamp blocks keep Master and Sag cited with the "check HX Edit" caveat. New FAQ pair on Preamp vs Amp for direct rigs. Link to the Dual Cab post added beside the Line 6 tip it quotes. `updated: 2026-10-13`. | Found while verifying AM1. Three days old, but it's the DSP-budget page the cluster links to and it was advising a tone trade as free. |
+| R2 | helix-cab-ir-pairings | **A reference page rebuilt on the manual's own lists.** The April version had: model names that are not Helix models ("Cali Recti-Silver/Orange," "US Blackface 'lux," "Brit Brit," "AC Boost," "Jumbo"), a **Neural DSP** model in a Helix table ("Archetype: Cory Wong"), **Cartographer attributed to the Carr Rambler** (it is the Ben Adrian Cartographer), the Deluxe Reverb paired with a **C12N** (Helix's 1x12 US Deluxe is captured with an **Oxford**; the C12N cab is the Twin's), a Greenback "resonance peak around 2.5–3 kHz" (resonance is 75 Hz; that's the presence region), a "Plexi output transformer softness" claim, and **a first-person testing claim** ("these pairings work on my Quad Cortex… and translated well to Helix in testing") — which breaks the no-human-testing rule. New: a 26-row **matched-cab table** pairing each amp family with the cab Line 6 captured from the same amp or maker, read from the 3.80 amp and cab lists; every per-family table re-keyed to real model and cab names; Guitar In-Z check quoted from the manual; drop-tuning Low Cut figures tied to the B1/C2 fundamentals; Dual Cab section tied to the 75 Hz Greenback/V30 finding and linked to the new post. Body FAQ migrated to frontmatter `faq:` (5 pairs), `takeaways:` added (5), image_alt rewritten from the placeholder. `updated: 2026-10-13`. | Linked from the preset-fit post and now from the Dual Cab post; it was the weakest page in the cab cluster and had no FAQ/takeaways surface. |
+
+**Gates (self-audit):** Post 1 — 0 identity self-references, 0 signature
+phrases, opener about the jack; Gate 5 is the half-volume result (expected
+backing off guitar B to help guitar A; low end recovers, 3 kHz gets worse).
+Post 2 — 1 experience line removed ("most clubs I've played" → removed as a
+human-experience claim), 0 signature phrases, one ALL-CAPS word; Gate 5 is the
+Greenback/V30 both-75-Hz finding. Gate 6 sweep: "lush" removed from Post 1.
+Gate 7 for both: computed tables absent from all top results (above).
+
+**Image pipeline note:** `--model=black-forest-labs/flux-2-pro` first time,
+both clean — no legible brand marks (Post 1's pedals carry illegible
+pseudo-labels). `stage_haze` for both. Both `image_alt` values rewritten after
+generation. **The R2 hero image (`helix-cab-ir-pairings.jpg`, April) carries a
+legible HELIX wordmark** on both units — not regenerated this run; added to
+debt.
+
+**Refresh debt carried forward** (items 1–13 from 10-10 unchanged) plus:
+14. **NEW — Preamp-block parameter inventory.** Needs HX Edit or hardware.
+    Unblocks AM1 if anyone wants it back; it would also let R1 drop its
+    forum-sourced caveat.
+15. **NEW — Alnico Blue / Alnico Silver resonance figures.** Post 2 left the
+    Blue Bell and Silver Bell cabs out of its resonance table for want of a
+    figure read to the Post 3 standard. AN1 below would resolve it.
+16. **NEW — the Dual Cab Delay "Auto" behaviour.** Post 2 infers from the
+    manual's wording that the IR captures are time-aligned and Auto restores
+    the arrival gap; it says so. Confirming needs an IR export or a null test.
+17. **NEW — `helix-cab-ir-pairings.jpg` brand-mark leak** (HELIX wordmark).
+    Regenerate with flux-2-pro.
+18. **NEW — 5E3 two-input figures disagree with Robinette's summary.**
+    Robinette says both guitars "act like Hi inputs" and lists the low-jack
+    guitar as seeing 1.136M; that holds only if the other guitar is an open
+    circuit. With a real source on the other jack each guitar arrives ~6 dB
+    down and sees ~125–140k. Post 1 cites Robinette for the topology only and
+    publishes its own computed figures with assumptions stated. Worth a bench
+    check.
+
+### 2 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 2, dropped 1, added 2 — **queue goes from 3 to 2.** Deliberately
+> not refilled to 3: the run's surfaced gaps were mostly re-slices (rejected
+> below). Bylines are best-fit proposals; the executing run re-checks velocity
+> **and quotes the never-assign bar it checked**, and verifies no colliding slug.
+>
+> **Rejected as re-slices:** (a) "what the Helix Mixer's B Polarity does to a
+> two-cab blend" — Post 2 plus `hx-stomp-polarity-trick`; (b) "which output of
+> a stereo pedal is mono" — a per-pedal lookup, commodity; (c) "wet/dry vs
+> stereo outputs" — three wet-dry-wet posts exist; (d) "which Helix amps have
+> no matched cab" — R2's table re-sliced; (e) "A/B/Y box for two amps" — the
+> splitter posts.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AN1 | alnico-vs-ceramic-speaker-same-cone-published-specs | Alnico or Ceramic, Same Cone: What the Spec Sheets Actually Change | "alnico vs ceramic speaker," "does speaker magnet matter," "jensen p12r vs p12q," "alnico blue vs greenback specs" | Viktor Kessler | 3 — Signal Chain & Tone Theory / Gear Lab | **Surfaced by Post 2's empty Blue Bell row.** Jensen's Vintage line publishes the same diameter in alnico (P-R) and ceramic (P-Q), and Celestion publishes Alnico and ceramic variants of related cones — so magnet type can be isolated the way Post 3 isolated diameter. Distinct content: Fs, sensitivity, rated power and Thiele-Small differences where magnet is the only stated variable, and what they do and do not predict. **Gate 7 guard: must publish a same-maker, same-diameter, magnet-only comparison from published spec sheets. If no pair isolates magnet type, drop it; "alnico is smoother" with no figures is commodity. Do NOT claim audible differences beyond what the figures support.** Viktor's bar checked: "Vintage gear or gear history — doesn't care about provenance." These are current-production spec sheets, not provenance. Clear. **Confirmed no colliding slug** (`pickup-magnet-types-…` is pickups; `alnico-blue-vs-greenback-ac30-worship` is a worship tone piece without specs). |
+| AN2 | oxford-vs-jensen-blackface-fender-speakers | Oxford or Jensen: The Speaker Lottery Inside a Blackface Fender | "oxford speakers fender," "blackface deluxe reverb original speaker," "oxford vs jensen c12n," "fender oxford speaker tone" | Hank Presswood | 2 — Gear History | **Surfaced by R2:** Helix's 1x12 US Deluxe is captured with an **Oxford**, while its Twin cab carries a **C12N** — and players chasing "the Deluxe sound" buy Jensen reissues. Distinct question: Fender sourced speakers from more than one maker in the same model years, so which speaker a given blackface shipped with varied; what is documented about the Oxford and Jensen units used, and what that means for anyone matching a Deluxe sound. **Gate 7 guard: must rest on documented sources (Fender service literature, speaker date/EIA-code references, published spec data) — if Oxford specifications cannot be found in any published form, narrow the post to the documented sourcing history and say the figures are unavailable; if even the sourcing is forum-tier only, drop it.** Hank's bar checked: "Modeler workflows or digital gear deep-dives" — the Helix capture is a one-line hook, not the subject. Clear. **Confirmed no colliding slug.** |

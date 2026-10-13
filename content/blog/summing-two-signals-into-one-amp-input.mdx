@@ -1,0 +1,182 @@
+---
+title: 'Two Cables Into One Input: What Actually Happens at the Jack'
+seo_title: 'Two Guitars, One Amp Input: What Happens at the Jack'
+description: >-
+  A Y cable into one amp input makes two sources load each other. Each drops
+  about 6 dB, and turning one guitar down can mute the other. Here are the
+  numbers and what to use instead.
+date: '2026-10-13'
+author_slug: nathan-cross
+category: signal-chain
+tags:
+  - signal-chain
+  - impedance
+  - y-cable
+  - amp-inputs
+  - stereo-pedals
+  - mixing
+  - worship-guitar
+image: /images/blog/summing-two-signals-into-one-amp-input.jpg
+image_alt: >-
+  A cabled pedalboard on a dark stage floor in front of wedge monitors, with haze and colored stage lights behind
+takeaways:
+  - >-
+    A passive Y cable into one amp input joins two sources directly, so each one
+    becomes the other's load. With two passive guitars both on 10, each arrives
+    about 6 dB down — and if one guitar's volume goes to zero, its pot shorts
+    the shared node and the other guitar goes silent too.
+  - >-
+    Turning the second guitar halfway down does not fix it. In a simplified
+    pickup model the first guitar's low end recovers to about 2 dB down while
+    its 3 kHz content falls to about 8 dB down, so it gets darker rather than
+    louder.
+  - >-
+    The two inputs on one channel of a Fender-style amp are a resistive combiner
+    with 68k on each leg. Each guitar still arrives about 6 dB down and sees a
+    load nearer 125-140k than 1 megohm, but a guitar turned to zero no longer
+    mutes the other.
+  - >-
+    For two guitars into one four-input amp, put one guitar in each channel.
+    Each gets its own preamp and volume control before the channels meet.
+  - >-
+    A stereo pedal's left and right outputs summed through a Y cable average
+    rather than add. Content common to both sides stays level, ping-pong repeats
+    that appear on one side only drop about 6 dB, and anything in opposite
+    polarity cancels. Use the pedal's mono output mode instead.
+faq:
+  - q: Can I plug two guitars into one amp input with a Y cable?
+    a: >-
+      It will make sound, but it works badly. The two guitars load each other
+      directly, so each arrives about 6 dB down, and if either player turns
+      their volume knob to zero the pot shorts the shared connection and both
+      guitars go silent. Use the amp's second input or second channel instead.
+  - q: Is it OK to use both inputs on the same channel of a Fender amp?
+    a: >-
+      Yes — that is what the second jack is for. The two 68k resistors behind
+      the jacks act as a resistive combiner, so each guitar arrives about 6 dB
+      down and a guitar turned to zero no longer mutes the other. The cost is a
+      heavier load on each pickup, roughly 125-140k instead of 1 megohm, and the
+      two players share one volume and tone stack.
+  - q: How do I run a stereo pedal into a mono amp?
+    a: >-
+      Use the pedal's mono output mode, or only its left (mono) output jack, not
+      a Y cable on its two outputs. Summing left and right passively averages
+      them, so ping-pong repeats drop about 6 dB and any stereo widening built
+      from opposite-polarity content partly cancels.
+  - q: Why does my guitar go quiet when the other guitarist turns down?
+    a: >-
+      Because the two guitars share a connection with no resistance between
+      them. A volume pot at zero connects its output to ground, and with a Y
+      cable that ground is now across your guitar's output as well. A resistive
+      combiner or the amp's second input prevents it.
+  - q: What is the best way to combine two guitars into one amp?
+    a: >-
+      An active mixer or a modeler with two inputs is best, because each source
+      drives its own buffered input and nothing loads anything else. Second best
+      is one guitar per channel on a four-input amp. Third is both inputs of one
+      channel. A passive Y cable is last.
+---
+
+A passive Y cable into one amp input does not mix two signals. It connects two outputs to each other, and whatever the amp hears is what's left after they've finished loading one another. With two passive guitars on one cable, each arrives about 6 dB quieter than it would alone — and if either player rolls their volume knob to zero, both guitars go silent.
+
+That last part is the one that catches people at a youth-room rehearsal or a small Sunday setup where there's one spare amp and two guitarists. The amp isn't broken. The cable is doing exactly what wires do.
+
+## The Short Answer: What to Use for Each Summing Job
+
+| You want to combine | Use | Why |
+|---|---|---|
+| Two guitars into a four-input amp (Fender, Marshall) | One guitar per **channel** | Each gets its own preamp stage and volume before the channels meet |
+| Two guitars into a one-channel, two-input amp | Both **inputs** of that channel | The built-in 68k resistors stop one guitar muting the other |
+| A stereo pedal into a mono amp | The pedal's **mono output mode** | The pedal sums internally; a Y cable averages and cancels |
+| Two buffered pedal outputs that are always on | A Y cable is tolerable | Each drops about 6 dB, but nothing shorts out |
+| Two guitars, two players, levels that move | An active mixer or a two-input modeler | Every source sees its own input; nothing loads anything |
+| Two passive guitars | Never a passive Y | One volume knob at zero mutes both |
+
+## Why an Amp's Internal Summing Is Not a Y Cable
+
+Inside a two-channel amp, signals are summed all the time. The Normal and Vibrato channels on a blackface Fender meet at a pair of 220k mixing resistors on the way to the phase inverter, and that works because each channel reaches the junction through its own resistor, at a level and impedance the designer chose. [The jumpering article walks through that junction in detail](/blog/jumping-amp-channels-what-the-patch-cable-actually-does), including why those two particular channels arrive in opposite polarity.
+
+A Y cable has no resistors. It's a splitter run backwards, and a splitter is only harmless in the forward direction because one source driving two high-impedance inputs is easy work. [F&K covers that direction in three posts](/blog/transformer-isolated-vs-active-buffered-splitters). Run backwards, the cable puts two sources in parallel. Each one's output impedance becomes part of the other's load, and the signal at the junction is a voltage divider between them.
+
+When the two output impedances are equal, the divider is exactly half. Half the voltage is 6.02 dB. That figure is the floor for a passive Y — it applies whether the sources are two guitars or two pedals.
+
+## What Two Passive Guitars Do to Each Other
+
+To put numbers on it, I used a simplified model of a single-coil guitar: a 6.5 kΩ, 2.5 H pickup, 250k volume and tone pots, a 1 MΩ amp input, and no cable capacitance. Real guitars differ, and the cable would add a treble loss of its own, so treat these as comparisons between connections rather than absolute figures. Each row is guitar A's level at the amp with guitar B connected through the Y, compared against guitar A alone.
+
+| Guitar B's volume | Guitar A at 100 Hz | Guitar A at 1 kHz | Guitar A at 3 kHz |
+|---|---|---|---|
+| 10 | −6.0 dB | −6.0 dB | −5.9 dB |
+| About halfway (10% of the pot's track, audio taper) | −2.1 dB | −3.5 dB | −8.0 dB |
+| About 2 (2% of the track) | −7.1 dB | −11.7 dB | −19.1 dB |
+| 0 | Silent | Silent | Silent |
+
+The zero row is mechanical. On a standard volume wiring the output jack connects to the pot's wiper, and at zero the wiper sits on the ground lug. With a Y cable, that ground is now across guitar A's output too. Nothing reaches the amp.
+
+The middle rows are where I had it wrong. I expected that turning guitar B partly down would get it out of the way — less of B in the junction, more room for A. In the low end that's roughly what happens: at halfway, guitar A recovers to about 2 dB down at 100 Hz. But at 3 kHz it gets *worse*, falling to 8 dB down, because the part of B's volume pot left between the junction and ground is now a low resistance sitting directly across A's pickup. A's level barely changes, its treble does, and the player hears their guitar slide behind a curtain whenever the other player backs off for a verse. Pull B down to 2 and A loses 19 dB at 3 kHz. That's not a balance problem. It's a tone control neither player is touching.
+
+This is also why the failure is so hard to diagnose in the moment. The guitar doesn't cut out cleanly. It dulls and sags in step with someone else's hand.
+
+## The Two Inputs on One Fender Channel
+
+Older Fender amps, and many amps copied from them, have two jacks per channel. Rob Robinette's [walkthrough of the 5E3 input circuit](https://robrobinette.com/How_Fender_Input_Jacks_Work.htm) shows the arrangement: a 1 MΩ resistor to ground on the high input, and a 68k resistor from each jack to the first tube's grid. Used alone, the low jack's 68k forms a divider with the other 68k and arrives just over 6 dB down. Used together, those same two resistors become a mixing network.
+
+Here's what the same model gives with guitar A in the high jack and guitar B in the low jack, both on 10:
+
+| Measurement | 100 Hz | 1 kHz | 3 kHz |
+|---|---|---|---|
+| Guitar A at the grid, vs. A alone in the high jack | −6.0 dB | −6.0 dB | −6.0 dB |
+| Guitar B at the grid, vs. A alone in the high jack | −6.0 dB | −6.0 dB | −5.8 dB |
+| Load guitar A sees | 124 kΩ | 126 kΩ | 139 kΩ |
+| Guitar A if guitar B goes to zero | −6.4 dB | −6.6 dB | −7.5 dB |
+
+Two things changed from the Y cable and one didn't. Each guitar still arrives about 6 dB down — the second jack is not a free mixer. But turning one guitar to zero now costs the other about half a dB at the bottom and 1.5 dB at 3 kHz instead of muting it, because there's 68k between B's grounded wiper and the grid. That resistor is the whole difference.
+
+What stayed the same is the load. Each pickup now sees something like 125-140k instead of the full megohm it gets alone. On a bright single coil that reads as the top octave being pulled in a little — the glassy edge of a Strat neck pickup is the first thing to soften. Most players won't object. Some will hear it as the guitar losing its sparkle and blame the amp.
+
+The 6 dB is easy to make up: this is the first gain stage, and the channel volume is right there. The bigger constraint is musical. Both guitars now share one volume knob, one tone stack and one reverb send, so the person setting the amp is setting it for both players.
+
+## The Better Answer for Two Guitars: One per Channel
+
+On a four-input amp — blackface Fenders, Plexi-era Marshalls — plug one guitar into each channel. Each guitar gets its own first gain stage, its own volume, and on a Fender its own tone stack, before the channels meet at the mixing resistors. That's the summing the designer built, and it's the closest an amp gets to a two-channel mixer.
+
+There's a wrinkle that's worth knowing and doesn't matter here. On a blackface Fender the Vibrato channel comes out in opposite polarity to the Normal channel, which is why [you can't jumper those two channels with one guitar](/blog/fender-normal-vs-vibrato-channel). With two *different* guitars it makes no difference. Two players' signals aren't correlated, so polarity has nothing to cancel against.
+
+The one caution: each channel's volume control still changes the impedance at the shared junction slightly, so turning one channel down nudges the other. It's a small effect next to anything above, but the two volumes are not perfectly independent.
+
+## A Stereo Pedal Into a Mono Amp
+
+This is the version of the Y cable that shows up on worship pedalboards most often: a stereo delay or reverb with both outputs bridged into one amp, because the board was built for stereo in-ears and the room has one amp on stage.
+
+Both outputs are buffered and roughly equal in impedance, so the junction voltage is simply the average of the two. That sounds harmless until you split the content up:
+
+| Content in the pedal's output | What the Y cable does to it |
+|---|---|
+| Identical on both sides (the dry signal, a mono delay) | Stays at full level — the average of two equal signals is the signal |
+| On one side only (ping-pong repeats) | Drops about 6 dB |
+| Different on each side (decorrelated reverb tails) | Drops by about 3 dB on average |
+| Opposite polarity between sides (some widening algorithms) | Cancels, partly or completely |
+
+So the dry note stays put and the effect shrinks, unevenly, depending on how the algorithm builds its width. A ping-pong delay becomes a delay whose repeats are half as loud as you set them. A wide stereo hall can lose the very part of the tail that made it feel like it surrounded the room.
+
+Most stereo pedals have a mono output mode in their global settings, or treat the left jack alone as the mono output. Use that. The pedal then sums inside its own processing, where it can decide how — instead of handing two outputs to a cable that just averages them. Do check the pedal's manual: some pedals expect a cable in the right jack to mean stereo and change their routing when it's there.
+
+The same averaging happens one step later, which is worth remembering for the front-of-house side. A stereo patch that falls apart through a Y cable will fall apart the same way when an engineer sums it to mono at the desk. [The stereo architecture article covers which blocks survive that fold-down](/blog/stereo-signal-chain-architecture).
+
+## When a Y Cable Is Actually Fine
+
+Two buffered outputs that stay on, where losing 6 dB is acceptable and nobody's going to turn either one to zero. In the model, two 1 kΩ outputs into a 1 MΩ input arrive at −6.02 dB each, flat across the band, because a 1 kΩ source has no treble for the other source to steal. A drum machine and a keyboard into a small practice amp, or two always-on pedal outputs, are the realistic cases.
+
+What makes even that safe is the source impedance, not the cable. The moment one side is a passive guitar, or a true-bypass pedal in bypass passing a passive guitar straight through, you're back in the first table.
+
+If you need a passive solution for two buffered sources and don't trust either to stay on, a resistor in each leg builds a combiner. With 10k per leg and 1 kΩ sources into 1 MΩ, each arrives at −6.1 dB, and if one source shorts to ground the other only falls to −6.5 dB. That's the same idea as the two Fender jacks, built into a box. It is not a good idea for passive guitars, though: the resistor plus the other leg loads the pickup the way the second Fender jack does, and there's no gain stage after it to make the level back.
+
+## On a Modeler
+
+A modeler with two inputs solves this properly, because each input is its own buffered converter and nothing loads anything. On a Helix Floor the Input block's **Multi** setting runs the Guitar, Aux and Variax inputs at once, and you can instead give Path 1 the Guitar input and Path 2 the Aux input so each player has their own chain, meeting at the Merge Mixer. One catch from Line 6's own manual: the **Aux in is 10kΩ**, described as being for an active-pickup guitar or bass. A passive guitar into 10k is a heavier load than anything in the tables above, so the second player needs active pickups or a buffer pedal first.
+
+On a single-input unit like an HX Stomp, a Quad Cortex or a Kemper, the guitar input is meant for one instrument. For two players, sum them first with a small active mixer and accept that they're now sharing one preset — or give each player their own device. [Matching two guitars' levels into one modeler](/blog/one-modeler-two-guitars-different-output-levels) is a separate problem with its own fixes.
+
+## What to Do This Week
+
+If two guitarists are sharing an amp on Sunday, look at the front panel before you reach for a cable. Four jacks: one guitar per channel, and set each channel's volume for its own player. Two jacks: use both, expect each guitar about 6 dB quieter than it is alone, and turn the channel up to match. If there's only one jack, borrow a small mixer or a second amp. And if there's a stereo pedal at the end of a board going into one amp, find its mono mode today rather than discovering half the delay repeats are missing during the bridge.

@@ -1,0 +1,183 @@
+---
+title: 'One Amp, Two Cabs: What a Helix Dual Cab Block Actually Gets You'
+seo_title: 'Helix Dual Cab Block: Which Two Cabs to Blend'
+description: >-
+  A second voice from a Dual Cab costs about 3 DSP units against 40 for a second
+  amp. Which cab pairs change anything, by published speaker resonance, and the
+  Delay setting that breaks in mono.
+date: '2026-10-13'
+author_slug: jess-kowalski
+category: modeler-masterclass
+tags:
+  - helix
+  - hx-stomp
+  - cab-simulation
+  - dual-cab
+  - dsp
+  - speakers
+  - live-sound
+image: /images/blog/two-cabs-instead-of-two-amps-dual-cab-block.jpg
+image_alt: An unbranded floor multi-effects unit with an expression pedal on a hazy stage under magenta, cyan and amber lights
+takeaways:
+  - >-
+    Upgrading a Helix single cab to a Cab > Dual block adds 3.34 DSP units. A
+    second Amp+Cab adds 40.13. Line 6's own optimisation tips recommend one Amp
+    plus one Dual Cab instead of two amp paths.
+  - >-
+    The popular Greenback-plus-V30 blend does not move the low corner by the
+    published numbers — both speakers resonate at 75 Hz — so its difference
+    lives in the mids and top. For a low-end change, pair a 10-inch P10R cab (97
+    Hz) with a 12-inch V30 cab (75 Hz).
+  - >-
+    The Dual Cab's Delay parameter has an Auto mode that adds the arrival gap
+    implied by each cab's mic Distance. An 11-inch difference is about 0.8 ms,
+    which puts the first cancellation near 614 Hz when the two cabs are blended
+    at similar levels.
+  - >-
+    The double-tracking trick — two cabs panned hard with 10 to 20 ms of Delay —
+    combs badly when a club PA sums it to mono, with notches every 50 to 100 Hz.
+    For a mono room, pan both to center and set Delay to 0.
+  - >-
+    Helix allows two Dual Cab blocks per preset, one per path. On an HX Stomp,
+    one Amp plus one Dual Cab takes two block slots and about 43 DSP units on a
+    Plexi, against roughly 80 for two Amp+Cab blocks.
+faq:
+  - q: How much DSP does a Helix Dual Cab block use?
+    a: >-
+      About 6.67 units on the new 3.50+ cab engine, exactly twice a single cab
+      at 3.33. These are community-measured allocation figures, not Line 6
+      specifications, and they are good to about one unit. Line 6's manual
+      states only that Dual Cabs take twice as much DSP as single Cabs.
+  - q: Is a Dual Cab block better than running two amps?
+    a: >-
+      It is a different sound, not a smaller version of the same one. Two amps
+      give you two preamp and power-amp responses; a Dual Cab gives you one amp
+      heard through two speakers and mics. If the second amp was only there to
+      thicken one sound, a Dual Cab gets most of that for about a twelfth of the
+      DSP cost of the extra voice.
+  - q: What two cabs sound good together in a Helix Dual Cab?
+    a: >-
+      Pick cabs whose speakers differ where you want a change. A 4x10 Tweed P10R
+      with a 4x12 Brit V30 changes the low end, because the published speaker
+      resonances are 97 Hz and 75 Hz. A Greenback with a V30 changes only the
+      mids and top, because both resonate at 75 Hz. Two cabs with the same
+      speaker mostly change the mic and box, not the voice.
+  - q: Should I use the Delay parameter on a Helix Dual Cab live?
+    a: >-
+      Only if the PA is genuinely stereo. Hard-panned cabs with 10 to 20 ms of
+      Delay sound wide in headphones but comb-filter when a mono PA sums them,
+      with notches every 50 to 100 Hz. Most club systems are mono, so pan both
+      cabs to center and set Delay to 0 or Auto.
+  - q: How many Dual Cab blocks can I use in one Helix preset?
+    a: >-
+      Two, with a maximum of one per path, according to the Helix 3.80 manual.
+      An HX Stomp has one path, so plan on one Dual Cab there.
+---
+
+Two amp paths for one guitar sound is the most expensive way to make a preset sound bigger. Most of the time the thing you were after — a sound that's thicker than one speaker and one mic — lives in the cab, not the amp, and a Helix Dual Cab block gets you there for loose change.
+
+Line 6 says as much in the manual's own optimisation tips: instead of two Amp+Cab blocks on parallel paths, "try adding a single Amp block followed by one Cab > Dual block." What the manual doesn't tell you is which two cabs to put in it, or what the block's Delay control does to you on a mono PA. That's this article.
+
+## The Short Version
+
+| Goal | Cab A | Cab B | Pan | Delay | Why |
+|---|---|---|---|---|---|
+| More low-end weight under a 10-inch voice | 4x10 Tweed P10R | 4x12 Brit V30 | Center / center | 0 or Auto | Published resonance 97 Hz vs 75 Hz — two different low corners |
+| Same low end, different mids and top | 4x12 Greenback25 | 4x12 Brit V30 | Center / center | 0 or Auto | Both resonate at 75 Hz; the difference is above that |
+| A small step on a Marshall sound | 4x12 Greenback25 | 4x12 1960A T75 | Center / center | 0 or Auto | Same box family, 75 vs 85 Hz |
+| Wide doubled rhythm, stereo recording only | Any two different cabs | — | Hard L / hard R | 10–20 ms | Haas-style width; collapses in mono |
+| Mono club PA, any pairing | — | — | Center / center | 0 | No time offset, nothing to cancel |
+
+Starting levels: equal, then pull the cab you like less down 3 to 6 dB until the blend stops sounding like two things.
+
+## The Price
+
+Figures are from the community-measured Helix 3.80 allocation table (good to about one unit — Line 6 doesn't publish per-block costs). On a Brit Plexi Brt:
+
+| Rig | DSP units | Block slots |
+|---|---|---|
+| One Amp+Cab | 40.13 | 1 |
+| One Amp + one Cab > Dual | 43.47 | 2 |
+| Two Amp+Cab blocks on parallel paths | 80.26 | 2, plus the split |
+
+Going from one cab to two costs 3.34 units. Going from one amp to two costs 40.13. That's the second voice at about a twelfth of the price, and on an HX Stomp it's the difference between a preset with room for a delay and reverb and [a preset that won't build at all](/blog/why-your-modeler-preset-wont-fit-what-to-cut-first).
+
+What you give up is real, though. Two amps means two preamps and two power sections responding to your pick differently. A Dual Cab is one amp heard through two speakers and two mics. If the second amp was there for a second *gain* character, keep it. If it was there to make one sound fatter, it was the wrong tool.
+
+## Picking the Pair: Start With the Speaker, Not the Name
+
+Here's where I expected the obvious answer and got a different one. The pairing everybody recommends is a Greenback with a V30. Classic. I assumed it worked because it changes everything about the sound, bottom included.
+
+Then I checked the published speaker figures from our [speaker-size comparison](/blog/what-your-amps-speaker-size-decides-before-you-plug-in). The Celestion G12M Greenback and the Vintage 30 both list a resonance of **75 Hz**. Same number. Whatever that blend is doing, it isn't moving the low corner. It's a mids-and-top blend — the Greenback's rounder upper mids against the V30's forward bark — and it'll sound like that: the same weight underneath, a different edge on top.
+
+If you want the blend to change what happens under the note, you need speakers with different resonances. The Helix 3.80 cab list tells you what driver each model was captured with, so you can match them to published figures:
+
+| Helix cab | Captured from | Published speaker resonance |
+|---|---|---|
+| 4x10 Tweed P10R | Fender Bassman, Jensen P10R | 97 Hz |
+| 4x12 Greenback25 | Marshall Basketweave, G12M-25 | 75 Hz |
+| 4x12 Brit V30 | Marshall 1960AV, Vintage 30 | 75 Hz |
+| 4x12 Cali V30 / Uber V30 / XXL V30 | Mesa 4FB / Bogner / ENGL, Vintage 30 | 75 Hz |
+| 4x12 1960A T75 / MOO)))N T75 / Uber T75 | Marshall 1960A / Sunn / Bogner, G12T-75 | 85 Hz |
+
+Your open low E is 82.41 Hz. A 75 Hz speaker resonates just under it; a 97 Hz speaker resonates 15 Hz above it, where output is already falling away. Blend the P10R cab with a V30 cab and you've got one speaker holding the fundamental and another one that's quieter down there and busier on the attack — two different low corners summed, not one corner averaged. That's the pairing that actually sounds like more than one box.
+
+The honest caveats (because these numbers are easy to oversell):
+
+- **Resonance is a free-air driver figure.** In a cabinet it shifts, and an IR captures the box and the mic too. The figure tells you which cab will have less going on at the bottom. It doesn't tell you the curve.
+- **Same speaker, different box is a small move.** Brit V30 into Cali V30 is mostly cabinet construction and mic placement. Fine for a subtle thicken. Don't expect a new voice.
+- **Not every cab has a published figure I trust.** The Blue Bell and Silver Bell cabs are captured from Celestion Alnico Blue and Silver drivers, and I haven't pinned those resonances down to the same standard, so they're not in the table.
+
+## The Delay Control Is the Part That Bites
+
+Each cab in a Dual block gets the normal cab parameters — Mic, Distance (1 to 12 inches), Position, Angle, Low Cut, High Cut, Level — plus two that only the Dual block has: **Pan**, and **Delay**, up to 50 ms per cab.
+
+Delay has two jobs, and they're opposites.
+
+### Job one: Auto, the realistic one
+
+The manual says the Auto setting "automatically applies a delay amount to approximate the selected cab's 'Distance' parameter value," for "a more accurate representation of the two cabs' mics blending together." Reading that, the captures themselves appear to be time-aligned, and Auto adds back the arrival gap a real mic further away would have. (That's an inference from the manual's wording, not something I measured in the IRs.)
+
+A real arrival gap means real comb filtering when the two cabs are at similar levels — the same thing that happens with [a close mic and a room mic](/blog/close-mic-plus-room-mic-guitar-cab-phase-blend). At the speed of sound, here's where the first cancellation lands for a given difference in the two Distance settings:
+
+| Distance difference | Arrival gap | First notch |
+|---|---|---|
+| 1 inch | 0.074 ms | 6,752 Hz |
+| 2 inches | 0.148 ms | 3,376 Hz |
+| 3 inches | 0.222 ms | 2,251 Hz |
+| 5 inches | 0.370 ms | 1,350 Hz |
+| 11 inches (1 vs 12) | 0.815 ms | 614 Hz |
+
+A 1-inch difference puts the first notch near the top of what a guitar speaker reproduces anyway. Nobody will hear it. An 11-inch difference drops it to 614 Hz, right in the middle of the guitar, and that's the hollow, phasey sound people blame on "two cabs fighting." It's not the cabs. It's the Distance settings. Keep the two mics within about 3 inches of each other and the first notch stays above 2 kHz, where a cab's output is already sloping off.
+
+### Job two: the double-tracking trick
+
+The manual's other suggestion is to delay one cab and pan the two hard apart to fake a double-tracked part. In stereo it works — 10 to 20 ms on one side and a single rhythm part sounds like two takes.
+
+Now sum that to mono. Which is what happens at a lot of clubs, because a lot of club PAs are mono, full stop. A fixed delay summed with itself is a comb filter with notches evenly spaced across the whole band:
+
+| Delay on one cab | Notches at | Spacing |
+|---|---|---|
+| 5 ms | 100, 300, 500 Hz… | 200 Hz |
+| 10 ms | 50, 150, 250 Hz… | 100 Hz |
+| 20 ms | 25, 75, 125 Hz… | 50 Hz |
+| 50 ms | 10, 30, 50 Hz… | 20 Hz |
+
+That's the guitar going thin and seasick at front of house while it sounds HUGE in your in-ears. [The stereo architecture article flags this exact row](/blog/stereo-signal-chain-architecture) as one of the ways a correct preset still fails in mono.
+
+So: if you don't know the PA is stereo, it isn't. Pan both cabs to center, set Delay to 0, and do the blend with Level. You lose nothing in mono because there's nothing to cancel.
+
+## Building It
+
+1. Put a single **Amp** block (not Amp+Cab) on the path, then a **Cab > Dual** block after it.
+2. Pick Cab A and Cab B from the pairing table. If the global Link Dual Cabs preference is on, choosing Cab A also sets Cab B — turn it off in Global Settings > Preferences or you'll keep getting two of the same cab.
+3. Same mic on both to start (a 57 is fine), Distances within 3 inches of each other, Angle 0 on both.
+4. Pan center/center, Delay 0, both Levels at 0 dB.
+5. Listen to each cab alone by dropping the other's Level, then bring it back and pull the weaker one down 3 to 6 dB.
+6. Recording in stereo? Now try hard L/R with Delay at 10 to 15 ms on one cab, and check it in mono before you commit.
+
+Structural limit from the 3.80 manual: up to two Dual Cab blocks per preset, one per path. An HX Stomp has one path, so that's one Dual Cab, and it takes two of your block slots with the Amp. Still cheaper than two Amp+Cab blocks on DSP, same slot count.
+
+## Not on a Helix?
+
+The pairing logic doesn't care about the brand. Quad Cortex and Fractal units can both put more than one cab or IR in a single cab block with its own level and pan — check your manual for whether there's a per-cab delay, because if there is, the mono rules above apply exactly. On a real stage the equivalent is a 2x12 loaded with one of each speaker, which players have been doing for decades for the same reason. Pick the two speakers by where they differ, keep the mics close to the same distance, and don't trust a wide sound until you've heard it in mono.
