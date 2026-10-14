@@ -1800,5 +1800,41 @@
     "completePlatforms": [],
     "droppedCount": 2,
     "substitutedCount": 8
+  },
+  "hetfield-for-whom-the-bell-tolls-riff": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 2,
+    "substitutedCount": 10
+  },
+  "cobain-come-as-you-are-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 8
+  },
+  "cantrell-man-in-the-box-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 9
+  },
+  "dimebag-cowboys-from-hell-riff": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 2,
+    "substitutedCount": 6
+  },
+  "armstrong-basket-case-rhythm": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 9
   }
 }

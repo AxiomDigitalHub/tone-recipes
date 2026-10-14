@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-10-12
-**Recipes:** 245
-**Clean (no errors, no warns):** 245
+**Date:** 2026-10-14
+**Recipes:** 250
+**Clean (no errors, no warns):** 250
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,8 +16,8 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `settings-outside-unverified-range` | info | 245 / 245 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
-| `katana-kemper-multidrive-default-off` | info | 31 / 245 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `settings-outside-unverified-range` | info | 250 / 250 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
+| `katana-kemper-multidrive-default-off` | info | 31 / 250 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -50,6 +50,12 @@ Passes every rule.
 ### `angus-young-back-in-black-rhythm` — ✓ clean
 
 *Angus Young's Back in Black Rhythm Tone*
+
+Passes every rule.
+
+### `armstrong-basket-case-rhythm` — ✓ clean
+
+*Green Day's Basket Case Rhythm Tone*
 
 Passes every rule.
 
@@ -167,6 +173,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `cantrell-man-in-the-box-riff` — ✓ clean
+
+*Alice in Chains' Man in the Box Riff Tone*
+
+Passes every rule.
+
 ### `cantrell-rooster-lead` — ✓ clean
 
 *Jerry Cantrell's Rooster Lead Tone*
@@ -230,6 +242,12 @@ Passes every rule.
 ### `clarke-overkill-riff` — ✓ clean
 
 *Motorhead's Overkill Riff Tone*
+
+Passes every rule.
+
+### `cobain-come-as-you-are-riff` — ✓ clean
+
+*Nirvana's Come as You Are Riff Tone*
 
 Passes every rule.
 
@@ -332,6 +350,12 @@ Passes every rule.
 ### `dimebag-cemetery-gates-clean-to-crushing` — ✓ clean
 
 *Pantera's Cemetery Gates Clean-to-Crushing Tone*
+
+Passes every rule.
+
+### `dimebag-cowboys-from-hell-riff` — ✓ clean
+
+*Pantera's Cowboys from Hell Riff Tone*
 
 Passes every rule.
 
@@ -596,6 +620,12 @@ Passes every rule.
 ### `hetfield-enter-sandman-tight-rhythm` — ✓ clean
 
 *James Hetfield's Enter Sandman Tight Rhythm Tone*
+
+Passes every rule.
+
+### `hetfield-for-whom-the-bell-tolls-riff` — ✓ clean
+
+*Metallica's For Whom the Bell Tolls Riff Tone*
 
 Passes every rule.
 
