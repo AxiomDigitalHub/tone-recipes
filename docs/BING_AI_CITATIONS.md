@@ -261,3 +261,36 @@ Pages 6–10: diy-pedal-starter-guide 501 · guitar-eq-guide 495 (was #2) · lin
 **Trend readable yet? Partially.** The daily series is now 80 days long and its history has been stable across reads, which supports one directional statement: **citations rose about 2.8× from early August to early October and have held flat for the last two weeks.** Share trends are **not** readable. This is only the third snapshot, with a 61-day hole between snapshots 2 and 3, and only the top 25 queries were captured. Weekly share entries need to resume before share-level movement can be read.
 
 **Capture caveats:** top 25 of 101 queries and top 25 of 361 pages were captured through the UI, without walking pagination. `Download all` CSVs were **not** committed again this run. That is still the most valuable fix: next run, download and commit them.
+
+### 2026-10-19 — fourth read (✅ data captured, first on-cadence weekly read)
+The Chrome layer already had `c0f2daee-…` settled for the session and the Microsoft session was live. No device pick and no sign-in were needed.
+
+Window **07-23 → 10-17** (87 days, cumulative as before). **41.6K** citations (was 36.4K, so +5.2K in the 7 new days). **79** avg cited pages/day (was 78). **390** distinct pages (was 361). **103** grounding queries in the sample (was 101). History through 10-10 came back identical to the 10-12 read.
+
+**New days (10-11 → 10-17):** 753 · 688 · 779 · 776 · 727 · 884 · 588. That averages **742/day**, against 582/day for 10-04 → 10-10, so **+27% week over week** and the end of the two-week plateau noted on 10-12. 10-16 (884) is the highest day outside the 09-18 → 09-23 spike. Avg cited pages/day ran 80–103.
+
+**Top 5 pages (of 390):** same five pages, same order as 10-12.
+| Page | Citations | vs 10-12 |
+|---|---|---|
+| `/blog/amp-gain-volume-master-controls` | **6.5K** | 6.4K |
+| `/blog/bone-vs-tusq-vs-graph-tech-nut-materials` | **1.7K** | 1.5K |
+| `/blog/boss-katana-settings-guide-every-genre` | **1.2K** | 773 (+55%, fastest grower in the top 5) |
+| `/blog/best-frfr-speakers-for-modelers` | **775** | 638 |
+| `/blog/signal-chain-order-guide` | **694** | 629 |
+
+Pages 6–15: guitar-eq-guide 623 (back up from #7) · diy-pedal-starter-guide 547 · boss-katana-hidden-settings 501 · line-6-helix-family-compared 472 · reverb-before-or-after-delay-chain-order 416 · jcm800-settings-guide 394 · news/fender-tone-master-pro-firmware-1-8-45-evh-5150 356 · impulse-response-ir-guide 351 · the-edge-delay-settings 312 (back into the top 15 from #16) · eq-pedal-placement 286 (new to the top 15). Luthiery pages are still in the top 25: nut-slot-geometry 284, nut-slot-width-by-string-gauge 264, locking-tuner-installation 212, plus floyd-rose-setup-guide 207.
+
+**Top 15 grounding queries (citations · share):** master volume 6.0K · 6.94% · 5 things your guitar must get right file the nut 352 · 52.38% · fender tone master pro update 296 · 24.61% · best frfr speakers for guitar 186 · 32.01% · diy guitar pedals 159 · 19.37% · nut slot file size 1 11/16 inch acoustic guitar 134 · 43.51% · hipshot locking tuners 131 · 25.29% · best material for guitar nut 129 · 31.85% · sustainiac pickup 106 · 14.62% · ir files 105 · 33.76% · 4 cable method 101 · 21.31% · melofty axom max 101 · 22.39% (new to the top 15) · best guitar nut materials intonation action 95 · 43.78% · eq profile for guitar meaning 88 · 33.33% · fender tonemaster pro firmware update 71 · 23.05%.
+
+**3 highest shares (top 25 by citations):** are behringer pedals good **61.54%** · graphite vs silicone lubricant guitar tuning pegs nut slots **57.01%** · 5 things your guitar must get right file the nut **52.38%**. These are the same three as 10-12 with identical values.
+**3 lowest:** master volume **6.94%** · darkglass anagram guitar essentials **7.86%** · sustainiac pickup **14.62%**.
+
+**Share movers vs 10-12:** master volume 8.74% → **6.94%** (−1.8). Its citation count held at 6.0K, so the competing pool grew around it. Everything else moved by less than 1 point: darkglass +0.35, frfr −0.99, gotoh −0.80, best guitar nut materials −0.61. **No share moved more than ~15 points.** The high- and low-share sets are unchanged.
+
+**Thesis check (§3):** it still holds. Measured nut, slot and lubricant queries sit at **31–57%**, and generic head terms sit at **7–25%**. The biggest-volume query is still the lowest-share one on the board, and it slipped further.
+
+**Worship: first time established.** A page-list search for `worship`, applied with the Search button, returned **10 cited pages, 414 citations total**. That is about 1% of the window: guides/worship-guitar 135 · blog/worship-guitar-tone-helix 91 · worship-pedalboard-guide 57 · hx-stomp-vs-helix-lt-worship 45 · helix-worship-snapshots-sunday-morning 36 · pod-go-worship-setup-snapshots-presets 27 · worship-guitar-tone-boss-katana 8 · **elevation-worship-guitar-tone-helix 7** · single-coil-vs-humbucker-worship-ambient-tone 6 · walrus-slo-vs-strymon-bluesky-worship-reverb 2. **Of the 5 artist posts, only Elevation is cited at all.** Hillsong does not appear in this filter, although its slug lacks "worship", so a `tone-helix` search would be needed to rule it out. Lincoln Brewster, Bethel and Phil Wickham do not appear either and would need the same check. The evergreen worship hub and how-to pages outdraw the artist posts by an order of magnitude. Worship grounding queries were not re-searched this run. None appear in the top 25, and no song-preset query appears in the top 25.
+
+**Trend readable yet? Volume yes, share not yet.** The 87-day daily series has stayed stable across four reads. Citations rose about 2.8× from early August to early October and then **rose another ~27% this week after a two-week plateau**. This is the first adjacent-week pair of share snapshots (10-12 → 10-19), and it is flat. One stable pair is not a trend. Readable share movement needs two to three more consecutive weekly reads.
+
+**Capture caveats:** only the top 25 of 103 queries and the top 25 of 390 pages were captured, without walking pagination. `Download all` CSVs were still **not** committed. That remains the fix for the next run.
