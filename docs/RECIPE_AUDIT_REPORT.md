@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-10-14
-**Recipes:** 250
-**Clean (no errors, no warns):** 250
+**Date:** 2026-10-22
+**Recipes:** 255
+**Clean (no errors, no warns):** 255
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,8 +16,8 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `settings-outside-unverified-range` | info | 250 / 250 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
-| `katana-kemper-multidrive-default-off` | info | 31 / 250 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `settings-outside-unverified-range` | info | 255 / 255 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
+| `katana-kemper-multidrive-default-off` | info | 31 / 255 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -50,6 +50,12 @@ Passes every rule.
 ### `angus-young-back-in-black-rhythm` — ✓ clean
 
 *Angus Young's Back in Black Rhythm Tone*
+
+Passes every rule.
+
+### `armstrong-american-idiot-riff` — ✓ clean
+
+*Green Day's American Idiot Riff Tone*
 
 Passes every rule.
 
@@ -425,6 +431,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `fisher-crazy-on-you-riff` — ✓ clean
+
+*Heart's Crazy on You Electric Riff Tone*
+
+Passes every rule.
+
 ### `followill-use-somebody-octave-lead` — ✓ clean
 
 *Followill's Use Somebody Octave Lead Tone*
@@ -614,6 +626,12 @@ Passes every rule.
 ### `hendroff-what-a-beautiful-name` — ✓ clean
 
 *Hendroff's What a Beautiful Name Ambient Worship Tone*
+
+Passes every rule.
+
+### `hetfield-creeping-death-rhythm` — ✓ clean
+
+*Metallica's Creeping Death Rhythm Tone*
 
 Passes every rule.
 
@@ -1295,6 +1313,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `scholz-peace-of-mind-lead` — ✓ clean
+
+*Boston's Peace of Mind Lead Tone*
+
+Passes every rule.
+
 ### `shermann-a-dangerous-meeting-riff` — ✓ clean
 
 *Mercyful Fate's A Dangerous Meeting Riff Tone*
@@ -1406,6 +1430,12 @@ Passes every rule.
 ### `sult-electric-worry-riff` — ✓ clean
 
 *Electric Worry Riff Tone*
+
+Passes every rule.
+
+### `summers-every-breath-you-take-rhythm` — ✓ clean
+
+*The Police's Every Breath You Take Guitar Tone*
 
 Passes every rule.
 

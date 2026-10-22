@@ -804,6 +804,20 @@ export const artists: Artist[] = [
     genres: ["punk", "pop-punk", "alternative"],
     image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/88/83/e7/8883e74b-1b7c-0725-09de-21e4e00d54b5/093624915713.jpg/600x600bb.jpg",
   },
+  {
+    name: "Roger Fisher",
+    slug: "roger-fisher",
+    bio: "Heart's original lead guitarist, from the band's Vancouver years through 1979, and the player who wrote the galloping A-minor-to-F electric riff that crashes in after Nancy Wilson's acoustic intro on Crazy on You. His own account of the Dreamboat Annie setup is about as simple as rock rigs get: a Gibson Les Paul through a Fender Twin Reverb, played loud, with a Univibe on hand. Howard Leese doubled up on lead parts from the same sessions.",
+    genres: ["classic-rock", "hard-rock", "rock"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/6b/eb/a8/6beba879-07ae-a03f-c1bc-091ca7064842/13UMGIM47968.rgb.jpg/600x600bb.jpg",
+  },
+  {
+    name: "Andy Summers",
+    slug: "andy-summers",
+    bio: "The Police's guitarist, and the player who taught a generation of rock guitarists to leave space. Summers built his parts from close-voiced, ringing chord shapes -- added ninths instead of thirds -- and from an early-1960s Telecaster he modified with a Gibson humbucker in the neck, a phase switch and an onboard boost. On Synchronicity that guitar went into a Roland JC-120, whose stereo chorus became the sound of Every Breath You Take.",
+    genres: ["new-wave", "rock", "post-punk"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/a4/67/ba/a467ba62-87df-9d10-98d2-c517f68ac870/16UMGIM60882.rgb.jpg/600x600bb.jpg",
+  },
 ];
 
 export const songs: Song[] = [
@@ -4149,6 +4163,72 @@ export const songs: Song[] = [
       "https://www.songsterr.com/a/wa/search?pattern=green+day+basket+case",
     external_video_url:
       "https://www.youtube.com/results?search_query=basket+case+green+day+guitar+lesson",
+  },
+  {
+    artist_slug: "james-hetfield",
+    title: "Creeping Death",
+    slug: "creeping-death-metallica",
+    album: "Ride the Lightning",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/0f/7a/74/0f7a7472-92fa-e77d-384a-1e4304705e83/dj.jbiruenb.png/600x600bb.jpg",
+    year: 1984,
+    genres: ["thrash-metal", "metal"],
+    difficulty: "intermediate",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=metallica+creeping+death",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=creeping+death+metallica+guitar+lesson",
+  },
+  {
+    artist_slug: "tom-scholz",
+    title: "Peace of Mind",
+    slug: "peace-of-mind-boston",
+    album: "Boston",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/e3/08/9a/e3089ac9-a820-5ee9-64be-39500ad8a5e2/886444824972.jpg/600x600bb.jpg",
+    year: 1976,
+    genres: ["classic-rock", "arena-rock"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=boston+peace+of+mind",
+    external_video_url: "https://www.youtube.com/results?search_query=peace+of+mind+boston+guitar+lesson",
+  },
+  {
+    artist_slug: "roger-fisher",
+    title: "Crazy on You",
+    slug: "crazy-on-you-heart",
+    album: "Dreamboat Annie",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/6b/eb/a8/6beba879-07ae-a03f-c1bc-091ca7064842/13UMGIM47968.rgb.jpg/600x600bb.jpg",
+    year: 1976,
+    genres: ["classic-rock", "hard-rock"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=heart+crazy+on+you",
+    external_video_url: "https://www.youtube.com/results?search_query=crazy+on+you+heart+electric+guitar+lesson",
+  },
+  {
+    artist_slug: "billie-joe-armstrong",
+    title: "American Idiot",
+    slug: "american-idiot-green-day",
+    album: "American Idiot",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/0e/17/f0/0e17f011-aadf-d4d1-1c7e-b61ce39f968b/093624947301.jpg/600x600bb.jpg",
+    year: 2004,
+    genres: ["punk", "pop-punk", "alternative"],
+    difficulty: "beginner",
+    external_tab_url:
+      "https://www.songsterr.com/a/wa/search?pattern=green+day+american+idiot",
+    external_video_url:
+      "https://www.youtube.com/results?search_query=american+idiot+green+day+guitar+lesson",
+  },
+  {
+    artist_slug: "andy-summers",
+    title: "Every Breath You Take",
+    slug: "every-breath-you-take-the-police",
+    album: "Synchronicity",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/a4/67/ba/a467ba62-87df-9d10-98d2-c517f68ac870/16UMGIM60882.rgb.jpg/600x600bb.jpg",
+    year: 1983,
+    genres: ["new-wave", "rock", "pop-rock"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=the+police+every+breath+you+take",
+    external_video_url: "https://www.youtube.com/results?search_query=every+breath+you+take+guitar+lesson+andy+summers",
   },
 ];
 
@@ -77457,6 +77537,1099 @@ export const toneRecipes: ToneRecipe[] = [
         ],
         notes:
           "Capture-driven. A Dookie-mod Plexi capture, a light gate, a short room, and two takes panned left and right.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- James Hetfield - Creeping Death (rhythm) ----
+  {
+    id: "seed-hetfield-creeping-death",
+    song_slug: "creeping-death-metallica",
+    title: "Metallica's Creeping Death Rhythm Tone",
+    slug: "hetfield-creeping-death-rhythm",
+    created_at: "2026-10-21",
+    description:
+      "Creeping Death is the fastest downpicking on Ride the Lightning, and it was played on a borrowed amp. Hetfield's modified Marshall was stolen weeks before the Copenhagen sessions, so he tracked on a stock Marshall master-volume head lent by a Danish band, pushed by an Ibanez Tube Screamer. In Guitar World he names his guitar for this song: 'By then I had the Gibson Explorer.' The tone is a midrange Marshall with the low end kept tight enough to survive the gallop.",
+    tone_context: "rhythm",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Explorer (white, 1984)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "Hetfield confirms the Explorer for this song in Guitar World's song-by-song feature; the white finish and the stock passive Dirty Fingers humbuckers come from gear-press accounts, not from him. The EMG 81s came later, around 1987. Standard E tuning is tab consensus, not interview-confirmed, and the string gauge is not documented, so .010-.046 is a neutral stand-in.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "overdrive",
+        gear_slug: null,
+        gear_name: "Ibanez Tube Screamer",
+        icon_type: "ibanez",
+        icon_color: "#22c55e",
+        is_in_effects_loop: false,
+        settings: { Overdrive: 2, Tone: 6, Level: 8 },
+        notes:
+          "Hetfield told Guitar Player in 1992 that Ride the Lightning was the last time he used a distortion pedal: 'an Ibanez Tube Screamer, like Kirk uses.' The exact model isn't pinned. It is set as a boost, low drive and high level, because its job was to stand in for the stolen head's extra gain stage and tighten the low end, not to add fuzz. On a riff this fast, a looser low end turns the gallop into mush.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 2203 (100W master volume), borrowed",
+        icon_type: "marshall_head",
+        icon_color: "#d4a017",
+        is_in_effects_loop: false,
+        settings: { Presence: 6, Bass: 5, Middle: 5, Treble: 7, "Master Volume": 7, "Pre-amp Volume": 8 },
+        notes:
+          "Flemming Rasmussen says local metal players brought in 'good Marshall amps and cabs' and they tried them until one sounded right. The 2203 identification is reported by gear researchers, not stated by Rasmussen. Bass sits a notch lower than you'd set it for slower riffs: at Creeping Death's tempo every downstroke has to stop before the next one starts. Mids stay at noon -- this is a midrange Marshall record, not the scooped Mesa sound of Master of Puppets.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12 (borrowed, reportedly Celestion G12-65)",
+        icon_type: "cab_4x12",
+        icon_color: "#d4a017",
+        is_in_effects_loop: false,
+        settings: { Speakers: "Celestion G12-65 (reported)" },
+        notes:
+          "The cabs were borrowed along with the amp, so the exact model isn't knowable. One German gear survey puts G12-65s in the half-stack; the '1960B' in some gear lists has no session citation. The 65 is a stiff, flat speaker, which helps keep palm-mutes defined at volume.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Shure SM7 + Neumann U87 close, AKG The Tube, B&K 4006 room",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Close: "SM7 + U87 at cone centre", Cabinet: "AKG The Tube, one per cab", Room: "B&K 4006 pair" },
+        notes:
+          "Rasmussen's description of how he miked Hetfield's cabinets across the 1980s albums, not a song-specific sheet. Two close mics give the attack; the tube condenser and room omnis give the size. That's why the riff sounds big with almost no reverb.",
+      },
+    ],
+    original_gear: {
+      guitar: "Gibson Explorer (confirmed by Hetfield for this song); white 1984 model with stock Dirty Fingers humbuckers per gear-press accounts",
+      effects: ["Ibanez Tube Screamer used as a boost (Hetfield, Guitar Player 1992; exact model not documented)"],
+      amp: "Borrowed Marshall master-volume head, reported as a stock 2203",
+      cabinet: "Borrowed Marshall 4x12, reportedly loaded with Celestion G12-65s",
+      microphone: "Shure SM7 and Neumann U87 close; AKG The Tube on each cabinet; B&K 4006 room pair (Rasmussen, album-era practice)",
+      other_notes:
+        "Recorded at Sweet Silence Studios, Copenhagen, February-March 1984, with Flemming Rasmussen. Hetfield calls the 'Die by my hand' section the 'crunchy' breakdown, and it was the band's first big gang-vocal session -- no gear change is documented for it, so play it on the same patch. Kirk Hammett's double-tracked solo (Rasmussen's suggestion) was a different rig: a black Gibson Flying V, a Boss distortion pedal, Marshalls and a TC Electronic EQ, per Hammett in the same Guitar World feature. That TC EQ is Kirk's, not Hetfield's.",
+    },
+    tags: ["thrash-metal", "metallica", "rhythm", "marshall", "80s-metal", "downpicking"],
+    sources: [
+      "https://www.guitarworld.com/magazine/prime-cuts-metallicas-james-hetfield-and-kirk-hammett-critique-key-songs-band-s-harsh-noble-history",
+      "https://www.loudersound.com/features/metallica-ride-the-lightning-story-behind-the-album",
+      "https://tapeop.com/interviews/172/flemming-rasmussen-riding-the-sweet-silence",
+      "https://www.groundguitar.com/james-hetfield-guitars-and-gear/james-hetfields-marshall-jmp-2203/",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Noise Gate",
+            block_category: "Dynamics",
+            original_gear: "Gain-structure housekeeping",
+            settings: { Threshold: -48, Decay: 10 },
+            notes:
+              "Faster decay than you'd use on a slower Metallica riff. The gallop has tiny gaps between figures, and a short decay lets each one close cleanly instead of hissing into the next.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Trident console / tape compression",
+            settings: { Threshold: -18, Ratio: 2, Knee: 4, Attack: 15, Release: 100, Mix: 20, Level: 0 },
+            notes:
+              "Low mix, tape-style. A slow attack keeps each downstroke's transient, which is what makes fast downpicking sound precise rather than smeared.",
+          },
+          {
+            position: 3,
+            block_name: "Scream 808",
+            block_category: "Distortion",
+            original_gear: "Ibanez Tube Screamer (boost)",
+            enabled: true,
+            settings: { Gain: 2, Tone: 6, Level: 8 },
+            notes:
+              "DEFAULT-ON as a boost. Gain near zero, Level high: it tightens the bass going into the amp. That tightening matters more on this song than on any other track on the album, because the riff never slows down.",
+          },
+          {
+            position: 4,
+            block_name: "Brit 2204",
+            block_category: "Amp",
+            original_gear: "Marshall 2203 100W master volume",
+            settings: { Drive: 7, Bass: 5, Mid: 5, Treble: 7, Presence: 6, ChVol: 6, Master: 6, Bias: 6, BiasX: 5, Sag: 3.5, Hum: 4, Ripple: 4 },
+            notes:
+              "Helix's JCM800 is the 50W 2204, the same master-volume preamp as the 2203. Bass at 5 and Sag down at 3.5 for a stiffer, faster-responding power section -- the gallop needs the amp to recover between strokes. Don't scoop the mids.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 Blackback 30",
+            block_category: "Cab",
+            original_gear: "Borrowed Marshall 4x12, reportedly G12-65s",
+            settings: { Mic: 0, Distance: 1.5, Position: 0.2, Angle: 0, LowCut: 90, HighCut: 7500, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "No G12-65 cab on Helix; the Blackback is the nearest voicing, stiffer than a Greenback. Mic 0 (57 Dynamic) near the centre stands in for the SM7. LowCut a touch higher than usual at 90 Hz keeps the open-E chugs from booming.",
+          },
+          {
+            position: 6,
+            block_name: "10 Band Graphic EQ",
+            block_category: "EQ",
+            original_gear: "Trident A Range console EQ",
+            settings: { "125Hz": 0.5, "250Hz": -1.5, "500Hz": 0, "1kHz": 1, "4kHz": 1, "8kHz": -2 },
+            notes:
+              "Pull 250 Hz a little: that's where fast palm-mutes pile up into mud. A small lift at 1 kHz keeps the pick attack audible against the drums.",
+          },
+          {
+            position: 7,
+            block_name: "Room",
+            block_category: "Reverb",
+            original_gear: "Sweet Silence room mics",
+            settings: { Mix: 10, Decay: 0.8, Predelay: 12, LowCut: 220, HighCut: 6500, Level: 0 },
+            notes:
+              "Short and quiet, standing in for Rasmussen's room mics. Any longer and the gallop blurs.",
+          },
+        ],
+        notes:
+          "Gate -> tape-style comp -> Scream 808 boost -> Brit 2204 with the mids in -> Blackback 4x12 -> console EQ -> short room. Same borrowed-Marshall rig as the rest of Ride the Lightning, set tighter for the tempo. For Kirk's solo, add a snapshot with a distortion pedal in front -- he used a Boss distortion, not the Tube Screamer.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -48, Decay: 10 }, notes: "Short decay so the gaps in the gallop stay silent." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Trident console / tape compression", settings: { Threshold: -18, Ratio: 2, Attack: 15, Release: 100, Mix: 20, Level: 0 }, notes: "Light, tape-style glue with a slow attack so every downstroke cuts." },
+          { position: 3, block_name: "Green Scream", block_category: "Drive", original_gear: "Ibanez Tube Screamer (boost)", enabled: true, settings: { Drive: 2.0, Tone: 6.0, Level: 8.0 }, notes: "DEFAULT-ON as a boost to tighten the amp's low end for the fast riff." },
+          { position: 4, block_name: "Brit 2203", block_category: "Amp", original_gear: "Marshall 2203 100W master volume", settings: { Gain: 7.0, Bass: 5.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, Master: 6.0, Sag: 3.5 }, notes: "The same circuit as the borrowed head. Bass trimmed to 5 so the gallop stays articulate." },
+          { position: 5, block_name: "4x12 G12-65", block_category: "Cab", original_gear: "Borrowed Marshall 4x12, reportedly G12-65s", settings: { Mic: "SM57", Distance: 1.5, Position: 0.2, LowCut: 90, HighCut: 7500, Level: 0 }, notes: "A G12-65 4x12 if you have one; stiffer and flatter than a Greenback." },
+          { position: 6, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Trident A Range console EQ", settings: { "125Hz": 0.5, "250Hz": -1.5, "1kHz": 1, "4kHz": 1, "8kHz": -2 }, notes: "Cut 250 Hz where fast palm-mutes get muddy; a little 1 kHz for pick attack." },
+          { position: 7, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Sweet Silence room mics", settings: { Decay: 0.8, Predelay: 12, Mix: 10, Level: 0 }, notes: "Short room, low in the mix." },
+        ],
+        notes:
+          "Gate -> light comp -> Green Scream boost -> Brit 2203 -> G12-65 4x12 -> EQ -> short room. A direct translation: the QC has the 2203 circuit Hetfield borrowed.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Booster", block_category: "Booster", enabled: true, original_gear: "Ibanez Tube Screamer (boost)", settings: { Drive: 15, Bottom: 2, Tone: 6, Level: 80 }, notes: "DEFAULT-ON: the Tube Screamer was always in front on this album. T-Scream type, Bottom low so the gallop stays tight." },
+          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Marshall 2203 100W master volume", settings: { Gain: 60, Volume: 50, Bass: 50, Middle: 50, Treble: 70, Presence: 60, Master: 50 }, notes: "Lead, not Brown: Brown is the scooped voice, and this record has its mids. Bass at noon keeps fast downstrokes from blurring." },
+          { position: 3, block_name: "Noise Gate", block_category: "FX", original_gear: "Gain-structure housekeeping", settings: { Threshold: 40, Release: 20 }, notes: "Quick release for the short gaps in the riff." },
+          { position: 4, block_name: "Reverb", block_category: "Reverb", original_gear: "Sweet Silence room mics", settings: { Time: 8, PreDelay: 12, Tone: 5, EffectLevel: 8 }, notes: "Room type, short and low." },
+        ],
+        notes:
+          "T-Scream booster on -> Lead channel, mids at noon, bass trimmed -> gate -> short room. If the gallop sounds woolly, lower Bass before you touch the gain.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -48, Decay: 10 }, notes: "Input-section gate with a fast decay for the gallop's gaps." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Trident console / tape compression", settings: { Intensity: 2, Attack: 15, Volume: 0 }, notes: "Slot A, light, to even out downstrokes." },
+          { position: 3, block_name: "Green Scream", block_category: "Drive", original_gear: "Ibanez Tube Screamer (boost)", enabled: true, settings: { Drive: 2.0, Tone: 6.0, Volume: 8.0 }, notes: "Slot B, DEFAULT-ON as a boost. Always in front on these sessions." },
+          { position: 4, block_name: "Search Rig Exchange for 'Marshall JCM800 2203' or 'JMP 2203'", block_category: "Profile", original_gear: "Marshall 2203 100W master volume + 4x12", settings: { Gain: 7, Bass: 5, Middle: 5, Treble: 7, Presence: 6 }, notes: "A stock 2203 profile with a Marshall 4x12. Skip anything labelled 'modded' -- the modded head was the one that got stolen. Cab is baked into the profile." },
+          { position: 5, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Sweet Silence room mics", settings: { Decay: 0.8, Predelay: 12, Mix: 10 }, notes: "REV slot, short room." },
+        ],
+        notes:
+          "Gate -> light comp -> Green Scream boost -> stock 2203 profile -> short room. If the profile is boomy on the gallop, cut its post-EQ bass rather than lowering gain.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate/Expander", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -48, Ratio: 4, Release: 10 }, notes: "Fast release so the gaps in the gallop stay clean." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Trident console / tape compression", settings: { Threshold: -18, Ratio: 2, Attack: 15, Release: 100, Mix: 0.2, Level: 0 }, notes: "Parallel and light, like tape." },
+          { position: 3, block_name: "T808 OD", block_category: "Drive", original_gear: "Ibanez Tube Screamer (boost)", enabled: true, settings: { Drive: 2.0, Tone: 6.0, Level: 8.0 }, notes: "DEFAULT-ON as a boost into the amp." },
+          { position: 4, block_name: "Brit 800", block_category: "Amp", original_gear: "Marshall 2203 100W master volume", settings: { Drive: 7.0, Bass: 5.0, Mid: 5.0, Treble: 7.0, Presence: 6.0, MV: 6.0, Cut: 0 }, notes: "Choose the 2203 (100W) variant. Bass at 5 for the tempo; mids stay at noon." },
+          { position: 5, block_name: "4x12 G12-65", block_category: "Cab", original_gear: "Borrowed Marshall 4x12, reportedly G12-65s", settings: { Mic: "57 Dynamic", Distance: 1.5, LowCut: 90, HighCut: 7500, Level: 0 }, notes: "A G12-65 Marshall IR if available; a G12H-30 cab is the next-closest." },
+          { position: 6, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Trident A Range console EQ", settings: { "125Hz": 0.5, "250Hz": -1.5, "1kHz": 1, "4kHz": 1, "8kHz": -2 }, notes: "Small cut at 250 Hz for palm-mute clarity." },
+          { position: 7, block_name: "Room", block_category: "Reverb", original_gear: "Sweet Silence room mics", settings: { Mix: 0.1, Decay: 0.8, Predelay: 12 }, notes: "Short room only." },
+        ],
+        notes:
+          "Gate -> parallel comp -> T808 boost -> Brit 800 (2203) -> G12-65 4x12 -> EQ -> short room. Use the cab block's room-mic blend for size instead of a bigger reverb.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'JCM800 2203 boosted' or 'Ride the Lightning'",
+            block_category: "Tone Model",
+            original_gear: "Marshall 2203 + Tube Screamer boost + Marshall 4x12",
+            settings: {},
+            notes:
+              "Pick a stock 2203 with a Tube Screamer boost into a 4x12. Avoid 'Hetfield' captures built on the Master of Puppets Mesa tone. Test it on the gallop at full tempo: each downstroke should stop dead before the next one.",
+          },
+        ],
+        notes: "Capture-driven. A boosted stock 2203 capture, a fast gate in front, a short room after.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Tom Scholz - Peace of Mind (lead) ----
+  {
+    id: "seed-scholz-peace-of-mind",
+    song_slug: "peace-of-mind-boston",
+    title: "Boston's Peace of Mind Lead Tone",
+    slug: "scholz-peace-of-mind-lead",
+    created_at: "2026-10-21",
+    description:
+      "Every lead on Boston's first album except two is Tom Scholz, and he has said so himself. Peace of Mind was a 1974 basement demo he re-cut almost note for note in his Watertown basement. His own description of the rig is short: a Gold Top Les Paul into a Marshall head turned up and brought down to a sane level by his prototype Power Soak, a Cry Baby wah used as an EQ, a Maestro Echoplex in front of the amp, and an Electro-Voice RE16 on the cab. Nothing went direct.",
+    tone_context: "lead",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Les Paul Goldtop (1968)",
+      pickup_config: "P90",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge: "not documented for 1976",
+      notable_mods:
+        "Scholz says he had two Gold Top Les Pauls that 'sounded very similar' and doesn't say which one played which part. The Gibson Collector's Choice reissue describes the debut-album guitar as a 1968 Goldtop with a DiMarzio Super Distortion in the bridge, the original P-90 kept in the neck, and the gold stripped to natural; that comes from the reissue documentation, not from Scholz, so treat it as Grade B. The very light .008 sets often quoted for Scholz are from his 2013 sessions, not 1976.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "wah",
+        gear_slug: null,
+        gear_name: "Dunlop Cry Baby wah (parked)",
+        icon_type: "wah",
+        icon_color: "#111827",
+        is_in_effects_loop: false,
+        settings: { Position: "parked around 60% (inferred)" },
+        notes:
+          "Scholz lists a Crybaby among the few things in front of the amp. Accounts of the sessions describe it parked as a fixed midrange filter rather than rocked. That is a large part of why his leads sound vocal and slightly nasal instead of like a raw Marshall. The exact position is not documented; set it by ear until the upper mids sing.",
+      },
+      {
+        position: 2,
+        category: "effect",
+        subcategory: "delay",
+        gear_slug: null,
+        gear_name: "Maestro Echoplex (tape)",
+        icon_type: "delay",
+        icon_color: "#78716c",
+        is_in_effects_loop: false,
+        settings: { Delay: "short, inferred", Mix: "low" },
+        notes:
+          "Named by Scholz as being in front of the amp. Settings are not documented. Even used subtly, an Echoplex's tape preamp adds a little level and top end before the amp, and a short, quiet repeat thickens a sustained lead without sounding like an obvious echo.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 100W Super Lead-era head + prototype Power Soak",
+        icon_type: "marshall_head",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Presence: 5, Bass: 4, Middle: 7, Treble: 6, "Volume I": 9 },
+        notes:
+          "Scholz says the Marshall was what he used 'mostly', turned up into his prototype Power Soak so the power tubes could saturate at low volume. He doesn't name the model; '1959 Super Lead' is the press's label. Mids high and bass low because the lead has to sit above several layered rhythm guitars. The Power Soak is why it sounds cranked without being harsh -- the attenuator also softens the top end slightly.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall-style 4x12 ('a standard cabinet')",
+        icon_type: "cab_4x12",
+        icon_color: "#a1a1aa",
+        is_in_effects_loop: false,
+        settings: { Speakers: "not documented" },
+        notes:
+          "Scholz calls it a standard cabinet and gives no speaker details. A Greenback-loaded 4x12 is the neutral assumption for a mid-1970s Marshall.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Electro-Voice RE16, close",
+        icon_type: "dynamic_mic",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "close to the speaker" },
+        notes:
+          "Scholz's own mic choice. The RE16 is a supercardioid dynamic with less proximity bump than a 57, which suits a mid-forward lead that has to stay clear in a dense mix.",
+      },
+    ],
+    original_gear: {
+      guitar: "Gibson Les Paul Goldtop -- Scholz had two that sounded alike; the 1968 guitar (DiMarzio bridge, P-90 neck) per the Gibson reissue documentation",
+      effects: [
+        "Dunlop Cry Baby wah, used as a fixed EQ (Scholz names it; parked use per session accounts)",
+        "Maestro Echoplex tape delay in front of the amp (Scholz)",
+        "An EQ (Scholz; unit not named)",
+      ],
+      amp: "Marshall 100W head (Super Lead era; model not named by Scholz) into his prototype Power Soak attenuator",
+      cabinet: "Standard Marshall-style 4x12 (speakers not documented)",
+      microphone: "Electro-Voice RE16 close-miked; nothing recorded direct",
+      other_notes:
+        "Peace of Mind was on Scholz's 1974 basement demo and was re-recorded almost exactly in his Watertown basement for the album, with Sib Hashian on drums; Brad Delp's vocals were done at Capitol in LA and the album was mixed at Westlake. Scholz says Barry Goudreau played lead only on Long Time and Let Me Take You Home Tonight, so this lead is Scholz. The Rockman didn't exist until the early 1980s and no homemade compressor is documented for 1976 -- the sustain is the power-soaked Marshall plus heavy layering. The harmony-lead writing is the song's signature; to get it, record the lead twice with a harmony part rather than reaching for a harmonizer.",
+    },
+    tags: ["classic-rock", "arena-rock", "les-paul", "lead", "scholz", "wah"],
+    sources: [
+      "https://www.guitarworld.com/features/interview-tom-scholz-recalls-making-boston-and-don-t-look-back",
+      "https://lefsetz.com/wordpress/2011/05/03/re-foreplaylong-time-2/",
+      "https://en.wikipedia.org/wiki/Peace_of_Mind_(Boston_song)",
+      "https://www.vintageguitar.com/13753/gibson-custom-shop-adds-tom-scholz-lp-deluxe-to-collectors-choice-line",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Console / tape compression",
+            settings: { Threshold: -22, Ratio: 3, Knee: 4, Attack: 25, Release: 200, Mix: 30, Level: 0 },
+            notes:
+              "Not a Scholz pedal -- no compressor is documented for 1976. It stands in for the tape and console squash on a heavily layered record, and evens out the lead so held notes don't drop away.",
+          },
+          {
+            position: 2,
+            block_name: "Teardrop 310",
+            block_category: "Wah",
+            original_gear: "Dunlop Cry Baby (parked)",
+            settings: { Position: 60, Mix: 100, Level: 0 },
+            notes:
+              "Parked, not rocked. Assign it to a footswitch rather than the expression pedal and set Position by ear until the upper mids lift and the lows thin out. That fixed filter is the Scholz lead voice.",
+          },
+          {
+            position: 3,
+            block_name: "Transistor Tape",
+            block_category: "Delay",
+            original_gear: "Maestro Echoplex",
+            settings: { Time: 140, Feedback: 10, Mix: 12, Level: 0 },
+            notes:
+              "Helix's Echoplex EP-3 model, placed before the amp where Scholz had it. Short time and low mix so it thickens rather than echoes. Settings are inferred.",
+          },
+          {
+            position: 4,
+            block_name: "Brit Plexi Brt",
+            block_category: "Amp",
+            original_gear: "Marshall 100W Super Lead-era head + Power Soak",
+            settings: { Drive: 8, Bass: 4, Mid: 7, Treble: 6, Presence: 5, ChVol: 5, Master: 10, Bias: 6, BiasX: 6, Sag: 6, Hum: 5, Ripple: 5 },
+            notes:
+              "Master at 10 because a non-master-volume Super Lead is all power-tube drive; on Helix that is how you emulate a cranked head into an attenuator. Use the output level, not the Master, to set volume. Sag at 6 gives the softer, compressed feel the Power Soak adds.",
+          },
+          {
+            position: 5,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Standard Marshall 4x12 (speakers not documented)",
+            settings: { Mic: 4, Distance: 1.5, Position: 0.3, Angle: 0, LowCut: 100, HighCut: 7000, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "Mic 4 is the 20 Dynamic (EV RE20), the closest Helix mic to Scholz's EV RE16 -- same maker, same tight, low-proximity character. LowCut at 100 Hz keeps the lead out of the rhythm guitars' low end.",
+          },
+          {
+            position: 6,
+            block_name: "Parametric",
+            block_category: "EQ",
+            original_gear: "Scholz's EQ (unit not named)",
+            settings: { LowFreq: 250, LowGain: -2, HighFreq: 1800, HighGain: 2, Level: 0 },
+            notes:
+              "Scholz mentions an EQ without naming it. A lift around 1.8 kHz and a cut at 250 Hz push the lead to the front of a dense arrangement.",
+          },
+          {
+            position: 7,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Mixdown reverb (unit not documented)",
+            settings: { Mix: 14, Decay: 1.4, Predelay: 25, LowCut: 200, HighCut: 6000, Level: 0 },
+            notes:
+              "The reverb isn't documented, so keep it modest. A short plate with a 25 ms predelay gives the lead some air without washing out the fast phrases.",
+          },
+        ],
+        notes:
+          "Comp -> parked Teardrop wah -> Echoplex in front -> Brit Plexi Brt cranked -> Greenback 4x12 with an RE20 -> mid-forward EQ -> short plate. The documented core is the Marshall, the Power Soak, the parked wah and the Echoplex; the rest is studio glue. Record the harmony line as a second pass.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Console / tape compression", settings: { Threshold: -22, Ratio: 3, Attack: 25, Release: 200, Mix: 30, Level: 0 }, notes: "Studio glue for a dense, layered record -- not a documented Scholz pedal." },
+          { position: 2, block_name: "Wah 846", block_category: "Wah", original_gear: "Dunlop Cry Baby (parked)", settings: { Position: 60, Mix: 100, Level: 0 }, notes: "Parked as a fixed filter. Set Position by ear until the upper mids sing." },
+          { position: 3, block_name: "Tape Delay", block_category: "Delay", original_gear: "Maestro Echoplex", settings: { Time: 140, Feedback: 10, Mix: 12, Level: 0 }, notes: "Before the amp, short and quiet, as Scholz ran it." },
+          { position: 4, block_name: "Brit Plexi 100", block_category: "Amp", original_gear: "Marshall 100W Super Lead-era head + Power Soak", settings: { Gain: 8.0, Bass: 4.0, Mid: 7.0, Treble: 6.0, Presence: 5.0, Master: 10.0 }, notes: "Cranked: a Super Lead has no master volume. Set loudness at the output." },
+          { position: 5, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Standard Marshall 4x12", settings: { Mic: "RE20", Distance: 1.5, Position: 0.3, LowCut: 100, HighCut: 7000, Level: 0 }, notes: "An EV dynamic, the closest to Scholz's RE16." },
+          { position: 6, block_name: "Parametric EQ", block_category: "EQ", original_gear: "Scholz's EQ", settings: { LowFreq: 250, LowGain: -2, HighFreq: 1800, HighGain: 2, Level: 0 }, notes: "Mid-forward shaping so the lead clears the rhythm layers." },
+          { position: 7, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Mixdown reverb", settings: { Decay: 1.4, Predelay: 25, Mix: 14, Level: 0 }, notes: "Modest plate; the reverb isn't documented." },
+        ],
+        notes: "Comp -> parked wah -> tape delay -> cranked Plexi -> Greenback 4x12 -> mid EQ -> plate. The parked wah is the part most covers forget.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Pedal Wah", block_category: "Pedal FX", original_gear: "Dunlop Cry Baby (parked)", settings: { PedalPosition: 60, EffectLevel: 50 }, notes: "Cry Wah type, parked. If you have no expression pedal, set the position in Tone Studio and leave it." },
+          { position: 2, block_name: "Lead", block_category: "Amp Type", original_gear: "Marshall 100W Super Lead-era head + Power Soak", settings: { Gain: 65, Volume: 50, Bass: 40, Middle: 70, Treble: 60, Presence: 50, Master: 50 }, notes: "Lead for the saturated Plexi feel; mids high, bass low, so the lead sits above the layers." },
+          { position: 3, block_name: "Tape Echo", block_category: "Delay", original_gear: "Maestro Echoplex", settings: { Time: 140, Feedback: 10, EffectLevel: 12 }, notes: "Short and quiet. The Katana's delay sits after the amp; keep it subtle so the difference doesn't matter." },
+          { position: 4, block_name: "Reverb", block_category: "Reverb", original_gear: "Mixdown reverb", settings: { Time: 14, PreDelay: 25, Tone: 5, EffectLevel: 12 }, notes: "Plate type, modest." },
+        ],
+        notes: "Parked wah -> Lead channel with mids up -> short tape echo -> plate. Use the Power Control at a low wattage setting -- it does the Power Soak's job.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Console / tape compression", settings: { Intensity: 3, Attack: 25, Volume: 0 }, notes: "Slot A, light studio glue." },
+          { position: 2, block_name: "Wah Wah", block_category: "Stomp", original_gear: "Dunlop Cry Baby (parked)", settings: { Manual: 6, Range: 5, Mix: 100 }, notes: "Slot B, with Pedal Mode off and Manual set by ear -- a fixed filter, as Scholz used it." },
+          { position: 3, block_name: "Search Rig Exchange for 'Marshall Super Lead Plexi' or '1959 Plexi cranked'", block_category: "Profile", original_gear: "Marshall 100W Super Lead-era head + 4x12", settings: { Gain: 8, Bass: 4, Middle: 7, Treble: 6, Presence: 5 }, notes: "A cranked Plexi profile, ideally captured through an attenuator. The cab is in the profile." },
+          { position: 4, block_name: "Tape Delay", block_category: "Delay", original_gear: "Maestro Echoplex", settings: { Time: 140, Feedback: 10, Mix: 12 }, notes: "DLY slot, short and quiet." },
+          { position: 5, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Mixdown reverb", settings: { Decay: 1.4, Predelay: 25, Mix: 14 }, notes: "REV slot, modest plate." },
+        ],
+        notes: "Light comp -> parked wah -> cranked Plexi profile -> short tape delay -> plate.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Console / tape compression", settings: { Threshold: -22, Ratio: 3, Attack: 25, Release: 200, Mix: 0.3, Level: 0 }, notes: "Light glue, not a documented pedal." },
+          { position: 2, block_name: "Cry Babe", block_category: "Wah", original_gear: "Dunlop Cry Baby (parked)", settings: { Position: 0.6, Mix: 1.0, Level: 0 }, notes: "Fixed position, set by ear." },
+          { position: 3, block_name: "Tape Delay", block_category: "Delay", original_gear: "Maestro Echoplex", settings: { Time: 140, Feedback: 10, Mix: 0.12, Level: 0 }, notes: "Before the amp, short and quiet." },
+          { position: 4, block_name: "Plexi 100W High", block_category: "Amp", original_gear: "Marshall 100W Super Lead-era head + Power Soak", settings: { Drive: 8.0, Bass: 4.0, Mid: 7.0, Treble: 6.0, Presence: 5.0, MV: 10.0 }, notes: "Cranked, no master. Fractal's power-amp modelling responds to this the way the real head did into the Power Soak." },
+          { position: 5, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Standard Marshall 4x12", settings: { Mic: "RE20", Distance: 1.5, LowCut: 100, HighCut: 7000, Level: 0 }, notes: "An EV dynamic IR if available, as the nearest to the RE16." },
+          { position: 6, block_name: "Parametric EQ", block_category: "EQ", original_gear: "Scholz's EQ", settings: { LowFreq: 250, LowGain: -2, HighFreq: 1800, HighGain: 2, Level: 0 }, notes: "Mid-forward shaping." },
+          { position: 7, block_name: "Plate", block_category: "Reverb", original_gear: "Mixdown reverb", settings: { Mix: 0.14, Decay: 1.4, Predelay: 25 }, notes: "Modest plate." },
+        ],
+        notes: "Comp -> parked Cry Babe -> tape delay -> Plexi 100W High cranked -> Greenback 4x12 -> mid EQ -> plate.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Plexi cranked attenuator' or 'Super Lead 100' or 'Boston'",
+            block_category: "Tone Model",
+            original_gear: "Marshall Super Lead-era head + Power Soak + 4x12",
+            settings: {},
+            notes:
+              "Look for a cranked non-master Plexi, ideally captured through an attenuator. Avoid 'Rockman' captures -- that's 1980s Scholz, not this record. Add a parked wah in front.",
+          },
+        ],
+        notes: "Capture-driven. A cranked Plexi capture with a parked wah in front and a short tape echo.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Roger Fisher - Crazy on You (electric riff) ----
+  {
+    id: "seed-fisher-crazy-on-you",
+    song_slug: "crazy-on-you-heart",
+    title: "Heart's Crazy on You Electric Riff Tone",
+    slug: "fisher-crazy-on-you-riff",
+    created_at: "2026-10-21",
+    description:
+      "After Nancy Wilson's acoustic intro, Roger Fisher's electric riff crashes in over the A-minor to F change. His own description of the Dreamboat Annie setup is short: 'Les Paul through a Fender Twin Reverb, LOUD,' with a Univibe on hand. That makes this a cranked clean amp breaking up, not a Marshall, and it is why the riff sounds bright and wide rather than thick. Howard Leese also played electric on this track, on a 1966 Telecaster.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Les Paul (Fisher recalls a '65 Goldtop)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "standard",
+      string_gauge: "not documented",
+      notable_mods:
+        "Fisher names a Les Paul for the album. Asked about his favourite guitar of the Heart years he said 'I think it was a '65 Gold Top with the standard humbuckers' -- hedged, and not tied to this record, so treat the year as his best recollection. Howard Leese's 1966 Telecaster (once owned by Mars Bonfire) is also on this song by Leese's own account, so the finished track blends a humbucker Les Paul with a single-coil Tele.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "effect",
+        subcategory: "modulation",
+        gear_slug: null,
+        gear_name: "Univibe",
+        icon_type: "pedal",
+        icon_color: "#9ca3af",
+        is_in_effects_loop: false,
+        settings: { Speed: "slow", Intensity: "moderate" },
+        notes:
+          "Fisher says he 'used a Univibe at the time.' Which songs it's on is not documented, so this recipe keeps it optional and off by default. If you hear a slow throb on your copy of the record, that's where it would be.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Fender Twin Reverb, played loud",
+        icon_type: "fender_combo",
+        icon_color: "#1f2937",
+        is_in_effects_loop: false,
+        settings: { Volume: 8, Treble: 6, Middle: 6, Bass: 4, Reverb: 1.5, "Bright switch": "off" },
+        notes:
+          "The documented core of the tone. A Twin has huge clean headroom, so 'loud' is the whole point -- at 8 the power section starts to compress and break up. That breakup is brighter and more open than a Marshall's, and it's why the riff cuts without sounding heavy. Fisher also says he 'think[s]' he used a distortion pedal but can't remember which, so none is specified here. Bass stays low because a cranked Twin gets flubby fast.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Twin Reverb 2x12 (onboard)",
+        icon_type: "cab_2x12",
+        icon_color: "#1f2937",
+        is_in_effects_loop: false,
+        settings: { Speakers: "2x12 (stock speakers not documented)" },
+        notes:
+          "The Twin's own open-back 2x12. The open back is part of the wide, airy sound; a closed 4x12 would make it tighter and darker.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Close dynamic mic (not documented)",
+        icon_type: "dynamic_mic",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "not documented" },
+        notes:
+          "Mics and the studio chain at Mushroom Studios in Vancouver aren't documented. A close dynamic is the neutral assumption for a 1970s rock guitar track.",
+      },
+    ],
+    original_gear: {
+      guitar: "Gibson Les Paul (Fisher; he recalls a '65 Goldtop with humbuckers); Howard Leese's 1966 Telecaster also on the track",
+      effects: ["Univibe (Fisher, album-era; song use not documented)", "A distortion pedal Fisher can't recall (not specified)"],
+      amp: "Fender Twin Reverb, played loud (Fisher; year not documented)",
+      cabinet: "Twin Reverb's onboard 2x12",
+      microphone: "Not documented",
+      other_notes:
+        "Dreamboat Annie was recorded in Vancouver with producer Mike Flicker. The acoustic intro is Nancy Wilson alone -- don't build an electric patch for it. Fisher is credited with the main electric riff; the album credits list both Fisher and Howard Leese on electric guitar, and Leese says he was brought in for some of the lead work and played on this song. No source says who played the solo, so this recipe covers the riff. Fisher's Hiwatt rig was his later live favourite, not this record.",
+    },
+    tags: ["classic-rock", "heart", "riff", "les-paul", "fender-twin", "70s-rock"],
+    sources: [
+      "https://web.archive.org/web/20091215085654/http://www.woodytone.com/2009/12/03/roger-fishers-heart-gear/",
+      "https://vintageguitar.com/3654/howard-leese",
+      "https://en.wikipedia.org/wiki/Crazy_on_You",
+      "https://www.songfacts.com/facts/heart/crazy-on-you",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Console / tape compression",
+            settings: { Threshold: -20, Ratio: 2, Knee: 4, Attack: 20, Release: 120, Mix: 25, Level: 0 },
+            notes:
+              "Studio glue only. A loud Twin already compresses itself; this just evens the strummed chords against the busy rhythm section.",
+          },
+          {
+            position: 2,
+            block_name: "Ubiquitous Vibe",
+            block_category: "Modulation",
+            original_gear: "Univibe",
+            enabled: false,
+            settings: { Speed: 2, Intensity: 6, Mix: 100, Level: 0 },
+            notes:
+              "OFF by default. Fisher used a Univibe in this era, but no source puts it on this song. Turn it on for a slow throb if you want the era flavour.",
+          },
+          {
+            position: 3,
+            block_name: "US Double Nrm",
+            block_category: "Amp",
+            original_gear: "Fender Twin Reverb, played loud",
+            settings: { Drive: 8, Bass: 3.5, Mid: 6, Treble: 6, Presence: 5, ChVol: 7, Master: 10, Bias: 6, BiasX: 6, Sag: 5, Hum: 5, Ripple: 5 },
+            notes:
+              "Helix's Twin. Drive at 8 and Master at 10 is the 'LOUD' part: you want the power section working, not a pristine clean. Bass at 3.5 because a cranked Twin goes flubby on the low strings, and Mid at 6 so the riff doesn't sound hollow.",
+          },
+          {
+            position: 4,
+            block_name: "2x12 Double C12N",
+            block_category: "Cab",
+            original_gear: "Twin Reverb onboard 2x12",
+            settings: { Mic: 0, Distance: 2, Position: 0.3, Angle: 0, LowCut: 90, HighCut: 8000, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "The Twin's open-back 2x12. A 57 Dynamic slightly off centre is a neutral choice, since the original mic isn't documented. HighCut at 8 kHz keeps the bright amp from getting brittle.",
+          },
+          {
+            position: 5,
+            block_name: "Parametric",
+            block_category: "EQ",
+            original_gear: "Console EQ",
+            settings: { LowFreq: 150, LowGain: -1.5, HighFreq: 3000, HighGain: 1, Level: 0 },
+            notes:
+              "A small low cut keeps the Les Paul's humbucker from muddying the Twin; a small lift at 3 kHz gives the strummed accents some bite.",
+          },
+          {
+            position: 6,
+            block_name: "Spring",
+            block_category: "Reverb",
+            original_gear: "Twin Reverb onboard spring",
+            settings: { Mix: 12, Decay: 1.2, Predelay: 0, LowCut: 150, HighCut: 6000, Level: 0 },
+            notes:
+              "The amp's own spring, kept low. Reverb settings aren't documented; low is the safe call for a riff this busy.",
+          },
+        ],
+        notes:
+          "Light comp -> optional Univibe (off) -> US Double Nrm cranked -> open 2x12 -> light EQ -> a little spring. Les Paul bridge pickup. This is a loud clean amp breaking up; if it sounds like a Marshall, you're using a drive pedal you don't need.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Console / tape compression", settings: { Threshold: -20, Ratio: 2, Attack: 20, Release: 120, Mix: 25, Level: 0 }, notes: "Light studio glue." },
+          { position: 2, block_name: "Vibe", block_category: "Modulation", original_gear: "Univibe", enabled: false, settings: { Rate: 2, Depth: 6, Mix: 100, Level: 0 }, notes: "OFF by default -- Univibe use on this song isn't documented." },
+          { position: 3, block_name: "US Twin Nrm", block_category: "Amp", original_gear: "Fender Twin Reverb, played loud", settings: { Volume: 8.0, Bass: 3.5, Mid: 6.0, Treble: 6.0, Presence: 5.0 }, notes: "Cranked so the power section breaks up. Keep bass low." },
+          { position: 4, block_name: "2x12 Twin", block_category: "Cab", original_gear: "Twin Reverb onboard 2x12", settings: { Mic: "SM57", Distance: 2, Position: 0.3, LowCut: 90, HighCut: 8000, Level: 0 }, notes: "Open-back 2x12 with a dynamic mic." },
+          { position: 5, block_name: "Parametric EQ", block_category: "EQ", original_gear: "Console EQ", settings: { LowFreq: 150, LowGain: -1.5, HighFreq: 3000, HighGain: 1, Level: 0 }, notes: "Trim the lows, a touch of bite." },
+          { position: 6, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Twin Reverb onboard spring", settings: { Decay: 1.2, Mix: 12, Level: 0 }, notes: "Low spring." },
+        ],
+        notes: "Comp -> optional vibe -> cranked Twin -> 2x12 -> EQ -> spring.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Crunch", block_category: "Amp Type", original_gear: "Fender Twin Reverb, played loud", settings: { Gain: 45, Volume: 60, Bass: 35, Middle: 60, Treble: 60, Presence: 50, Master: 60 }, notes: "Crunch, not Clean: a Twin turned up breaks up, and the Clean channel stays too polite. Keep gain moderate -- it's edge-of-breakup, not distortion." },
+          { position: 2, block_name: "Uni-V", block_category: "Mod", enabled: false, original_gear: "Univibe", settings: { Rate: 20, Depth: 60, EffectLevel: 50 }, notes: "OFF by default; song use undocumented." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Twin Reverb onboard spring", settings: { Time: 12, PreDelay: 0, Tone: 5, EffectLevel: 12 }, notes: "Spring type, low." },
+        ],
+        notes: "Crunch channel at edge-of-breakup -> optional Uni-V -> low spring. Use the Les Paul's bridge pickup and dig in.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Console / tape compression", settings: { Intensity: 2, Attack: 20, Volume: 0 }, notes: "Slot A, light." },
+          { position: 2, block_name: "Vibe", block_category: "Modulation", original_gear: "Univibe", enabled: false, settings: { Rate: 2, Depth: 6, Mix: 100 }, notes: "Slot B, OFF by default." },
+          { position: 3, block_name: "Search Rig Exchange for 'Fender Twin Reverb cranked' or 'Twin Reverb breakup'", block_category: "Profile", original_gear: "Fender Twin Reverb + onboard 2x12", settings: { Gain: 6, Bass: 3.5, Middle: 6, Treble: 6, Presence: 5 }, notes: "A Twin profile captured loud enough to break up -- not a pristine clean capture. Cab is in the profile." },
+          { position: 4, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Twin Reverb onboard spring", settings: { Decay: 1.2, Mix: 12 }, notes: "REV slot, low." },
+        ],
+        notes: "Light comp -> optional vibe -> cranked Twin profile -> low spring.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Console / tape compression", settings: { Threshold: -20, Ratio: 2, Attack: 20, Release: 120, Mix: 0.25, Level: 0 }, notes: "Light glue." },
+          { position: 2, block_name: "Vibe", block_category: "Modulation", original_gear: "Univibe", enabled: false, settings: { Rate: 2, Depth: 6, Mix: 1.0, Level: 0 }, notes: "OFF by default." },
+          { position: 3, block_name: "Double Verb", block_category: "Amp", original_gear: "Fender Twin Reverb, played loud", settings: { Drive: 8.0, Bass: 3.5, Mid: 6.0, Treble: 6.0, Presence: 5.0, MV: 10.0 }, notes: "Fractal's Twin, cranked. Power-amp breakup is the tone." },
+          { position: 4, block_name: "2x12 Double C12N", block_category: "Cab", original_gear: "Twin Reverb onboard 2x12", settings: { Mic: "57 Dynamic", Distance: 2, LowCut: 90, HighCut: 8000, Level: 0 }, notes: "Open-back Twin IR." },
+          { position: 5, block_name: "Parametric EQ", block_category: "EQ", original_gear: "Console EQ", settings: { LowFreq: 150, LowGain: -1.5, HighFreq: 3000, HighGain: 1, Level: 0 }, notes: "Light shaping." },
+          { position: 6, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Twin Reverb onboard spring", settings: { Mix: 0.12, Decay: 1.2 }, notes: "Low spring." },
+        ],
+        notes: "Comp -> optional vibe -> Double Verb cranked -> Twin 2x12 -> EQ -> spring.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Twin Reverb cranked' or 'Twin breakup Les Paul'",
+            block_category: "Tone Model",
+            original_gear: "Fender Twin Reverb, played loud",
+            settings: {},
+            notes: "Pick a Twin capture with the volume high enough to break up. A pristine clean capture will sound too stiff; a Marshall capture will sound too thick.",
+          },
+        ],
+        notes: "Capture-driven. A loud Twin capture, a little spring, Les Paul bridge pickup.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Billie Joe Armstrong - American Idiot (riff) ----
+  {
+    id: "seed-armstrong-american-idiot",
+    song_slug: "american-idiot-green-day",
+    title: "Green Day's American Idiot Riff Tone",
+    slug: "armstrong-american-idiot-riff",
+    created_at: "2026-10-21",
+    description:
+      "Ten years after Dookie, Billie Joe swapped the Strat copy for Les Paul Juniors and their single P-90, which gives the American Idiot riff its spiky, slightly raw bite. Guitar World names the album's two main amps: a Marshall dubbed the 'Idiot Amp', modded with an extra gain stage for a thick crunch, and a 50-watt Park 75 carrying a version of his Dookie mod. A tweed Fender took the smaller, cleaner tones like the song's intro. It's a layered two-amp sound, thicker than Dookie's single Plexi.",
+    tone_context: "riff",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Gibson Les Paul Junior (likely his 1956, 'Floyd')",
+      pickup_config: "P90",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "24.75",
+      tuning: "eb_standard",
+      string_gauge: ".010-.046",
+      notable_mods:
+        "Guitar World documents a Les Paul Junior as Armstrong's main guitar on the album, alongside a Les Paul Standard nicknamed 'Boobie'. That it's specifically his 1956 Junior 'Floyd' is reported by Wikipedia and gear sites without a primary citation, and the same uncited account puts a '59-style Les Paul on the doubled solo. The single bridge P-90 is the point: brighter and spikier than a humbucker, with less compression. E-flat tuning follows from the recording's key, not from an interview; strings are a stand-in.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Modified Marshall 'Idiot Amp' (extra gain stage)",
+        icon_type: "marshall_head",
+        icon_color: "#b91c1c",
+        is_in_effects_loop: false,
+        settings: { Presence: 6, Bass: 5, Middle: 7, Treble: 6, Volume: 7 },
+        notes:
+          "Guitar World describes it as modded 'with an extra gain stage for a crunchy, excessively thick sound.' No source says who modded it or which Marshall it started as, so the settings describe the sound, not a schematic. Mids high: with a single P-90, the thickness has to come from the amp.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Park 75 (50W) with a Dookie-style mod",
+        icon_type: "marshall_head",
+        icon_color: "#374151",
+        is_in_effects_loop: false,
+        settings: { Presence: 6, Bass: 5, Middle: 6, Treble: 6, Volume: 7 },
+        notes:
+          "The second documented amp. Park was Marshall's sister brand, so the Park 75 is essentially a Marshall-circuit head; with the cascaded Dookie-style gain mod it adds a rawer layer that blends with the Idiot Amp. Which amp is on which side of the stereo spread isn't documented.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12 (not documented)",
+        icon_type: "cab_4x12",
+        icon_color: "#374151",
+        is_in_effects_loop: false,
+        settings: { Speakers: "not documented" },
+        notes:
+          "The cabinets for these sessions aren't documented. A Marshall 4x12 is the neutral match for two Marshall-family heads.",
+      },
+      {
+        position: 4,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Close dynamic mic (not documented)",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Position: "not documented" },
+        notes:
+          "No mic setup for the album has been published. A close dynamic on each cab, with the two amps panned apart, is the standard way to get this kind of wide, layered rhythm sound.",
+      },
+    ],
+    original_gear: {
+      guitar: "Gibson Les Paul Junior, single P-90 (documented for the album; the '56 'Floyd' specifically is reported); Les Paul Standard 'Boobie' also a main guitar",
+      effects: ["None named -- Armstrong mentions 'messing with different pedals' but no pedal is documented for this song"],
+      amp: "Marshall 'Idiot Amp' modded with an extra gain stage, layered with a 50W Park 75 carrying a Dookie-style mod; a tweed amp for the clean intro",
+      cabinet: "Not documented (Marshall 4x12 assumed)",
+      microphone: "Not documented",
+      other_notes:
+        "Produced by Rob Cavallo. Guitar World says a tweed Fender Tremolux handled the cleaner, 'smaller' tones such as this song's intro; a Reverb listing of Armstrong's gear instead credits his Victoria 'Little Vicky' tweed-style amp with the album's cleans. Either way it's a small tweed amp, not the Marshall. Differs from Dookie on every count: P-90 Junior instead of the humbucker Strat copy, two modded heads layered instead of one Plexi, and a separate clean amp.",
+    },
+    tags: ["punk", "pop-punk", "green-day", "riff", "p90", "les-paul-junior"],
+    sources: [
+      "https://www.guitarworld.com/features/green-day-billie-joe-armstrong-on-the-making-of-american-idiot",
+      "https://www.guitarworld.com/features/5-guitars-that-shaped-billie-joe-armstrongs-career-in-punk",
+      "https://www.groundguitar.com/billie-joe-armstrong-guitars-and-gear/billie-joe-armstrongs-park-75/",
+      "https://en.wikipedia.org/wiki/American_Idiot_(song)",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Noise Gate",
+            block_category: "Dynamics",
+            original_gear: "Gain-structure housekeeping",
+            settings: { Threshold: -55, Decay: 25 },
+            notes:
+              "A P-90 hums, and a modded high-gain Marshall amplifies it. The riff has hard stops, so a gate keeps them clean.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Console / mix compression",
+            settings: { Threshold: -18, Ratio: 2, Knee: 4, Attack: 15, Release: 120, Mix: 20, Level: 0 },
+            notes:
+              "Light mix-bus-style compression. A P-90 has less natural compression than a humbucker, so this evens out the power chords a little without blunting the pick.",
+          },
+          {
+            position: 3,
+            block_name: "Placater Dirty",
+            block_category: "Amp",
+            original_gear: "Modified Marshall 'Idiot Amp' (extra gain stage)",
+            settings: { Drive: 6.5, Bass: 5, Mid: 7, Treble: 6, Presence: 6, ChVol: 6, Master: 6, Bias: 6, BiasX: 5, Sag: 4, Hum: 4, Ripple: 4 },
+            notes:
+              "Helix's Friedman BE is itself a hot-rodded Marshall with an added gain stage -- the closest stock model to a Marshall 'modded with an extra gain stage'. Keep Drive around 6.5: it's thick punk crunch, not metal. Mid at 7 keeps the P-90 from sounding thin.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 Greenback 25",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 (not documented)",
+            settings: { Mic: 0, Distance: 1, Position: 0.25, Angle: 0, LowCut: 85, HighCut: 7500, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "A neutral Marshall 4x12 with a 57 close. For the second layer, duplicate the path with Brit P75 Brt (Helix's Park 75) at Drive 7 and pan the two paths apart -- that's the Idiot Amp + Park blend.",
+          },
+          {
+            position: 5,
+            block_name: "10 Band Graphic EQ",
+            block_category: "EQ",
+            original_gear: "Mix EQ",
+            settings: { "125Hz": 1, "250Hz": -1, "500Hz": 0, "1kHz": 0.5, "4kHz": 1, "8kHz": -2 },
+            notes:
+              "A little 125 Hz for weight a P-90 lacks, a little 8 kHz off to tame single-coil fizz.",
+          },
+          {
+            position: 6,
+            block_name: "Room",
+            block_category: "Reverb",
+            original_gear: "Studio room",
+            settings: { Mix: 8, Decay: 0.7, Predelay: 10, LowCut: 250, HighCut: 6000, Level: 0 },
+            notes:
+              "Barely there. The record's rhythm guitars are dry and in your face; a short room just stops the patch sounding like it's in a closet.",
+          },
+        ],
+        notes:
+          "Gate -> light comp -> Placater Dirty (modded-Marshall stand-in) -> Greenback 4x12 -> EQ -> tiny room. Les Paul Junior bridge P-90, E-flat tuning. Duplicate the amp path with Brit P75 Brt and pan them apart for the two-amp layer. For the clean intro, a snapshot with a tweed amp (Tweed Blues Nrm at low drive) and the P-90.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -55, Decay: 25 }, notes: "Controls P-90 hum at gain." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Console / mix compression", settings: { Threshold: -18, Ratio: 2, Attack: 15, Release: 120, Mix: 20, Level: 0 }, notes: "Light evening-out of the power chords." },
+          { position: 3, block_name: "Brit 2203", block_category: "Amp", original_gear: "Modified Marshall 'Idiot Amp' (extra gain stage)", settings: { Gain: 7.5, Bass: 5.0, Mid: 7.0, Treble: 6.0, Presence: 6.0, Master: 6.0 }, notes: "A master-volume Marshall run hot to approximate the added gain stage. Mids high for the P-90." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (not documented)", settings: { Mic: "SM57", Distance: 1, Position: 0.25, LowCut: 85, HighCut: 7500, Level: 0 }, notes: "Neutral Marshall cab, close 57." },
+          { position: 5, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Mix EQ", settings: { "125Hz": 1, "250Hz": -1, "1kHz": 0.5, "4kHz": 1, "8kHz": -2 }, notes: "Weight in, fizz out." },
+          { position: 6, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room", settings: { Decay: 0.7, Predelay: 10, Mix: 8, Level: 0 }, notes: "Barely there." },
+        ],
+        notes: "Gate -> comp -> hot Brit 2203 -> Greenback 4x12 -> EQ -> tiny room. For the Park layer, add a second row with a Plexi-family amp and pan the rows apart.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Lead", block_category: "Amp Type", original_gear: "Modified Marshall 'Idiot Amp' (extra gain stage)", settings: { Gain: 60, Volume: 50, Bass: 50, Middle: 70, Treble: 60, Presence: 55, Master: 50 }, notes: "Lead for a hot-rodded Marshall feel; mids up for the P-90. No booster -- no pedal is documented on this song." },
+          { position: 2, block_name: "Noise Gate", block_category: "FX", original_gear: "Gain-structure housekeeping", settings: { Threshold: 45, Release: 25 }, notes: "Keeps P-90 hum out of the stops." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Studio room", settings: { Time: 7, PreDelay: 10, Tone: 5, EffectLevel: 8 }, notes: "Room type, barely there." },
+        ],
+        notes: "Lead channel, mids up -> gate -> tiny room. Double-track it and pan the takes for the two-amp width.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -55, Decay: 25 }, notes: "Input-section gate for P-90 hum." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Console / mix compression", settings: { Intensity: 2, Attack: 15, Volume: 0 }, notes: "Slot A, light." },
+          { position: 3, block_name: "Search Rig Exchange for 'Park 75' or 'modded Marshall Green Day' or 'Dookie mod'", block_category: "Profile", original_gear: "Modded Marshall / Park 75 + 4x12", settings: { Gain: 7, Bass: 5, Middle: 7, Treble: 6, Presence: 6 }, notes: "A Park 75 or hot-modded Marshall profile with moderate gain and strong mids. Cab is in the profile." },
+          { position: 4, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Studio room", settings: { Decay: 0.7, Predelay: 10, Mix: 8 }, notes: "REV slot, barely there." },
+        ],
+        notes: "Gate -> light comp -> modded Marshall/Park profile -> tiny room.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate/Expander", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -55, Ratio: 4, Release: 25 }, notes: "For P-90 hum." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Console / mix compression", settings: { Threshold: -18, Ratio: 2, Attack: 15, Release: 120, Mix: 0.2, Level: 0 }, notes: "Light." },
+          { position: 3, block_name: "Friedman BE", block_category: "Amp", original_gear: "Modified Marshall 'Idiot Amp' (extra gain stage)", settings: { Drive: 6.5, Bass: 5.0, Mid: 7.0, Treble: 6.0, Presence: 6.0, MV: 6.0 }, notes: "A hot-rodded Marshall with an added gain stage. For the second layer, use Amp 2 on Park 75 and pan apart." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 (not documented)", settings: { Mic: "57 Dynamic", Distance: 1, LowCut: 85, HighCut: 7500, Level: 0 }, notes: "Neutral Marshall cab." },
+          { position: 5, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Mix EQ", settings: { "125Hz": 1, "250Hz": -1, "1kHz": 0.5, "4kHz": 1, "8kHz": -2 }, notes: "Weight in, fizz out." },
+          { position: 6, block_name: "Room", block_category: "Reverb", original_gear: "Studio room", settings: { Mix: 0.08, Decay: 0.7, Predelay: 10 }, notes: "Barely there." },
+        ],
+        notes: "Gate -> comp -> Friedman BE (with Park 75 on Amp 2) -> Greenback 4x12 -> EQ -> tiny room.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Park 75' or 'American Idiot' or 'modded Marshall P90'",
+            block_category: "Tone Model",
+            original_gear: "Modded Marshall / Park 75 + 4x12",
+            settings: {},
+            notes: "A Park 75 or hot-rodded Marshall capture at medium-high gain. Test with an open E-flat power chord on a P-90: it should bite and stay a little raw, not smooth.",
+          },
+        ],
+        notes: "Capture-driven. Modded Marshall or Park capture, gate in front, double-tracked and panned.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Andy Summers - Every Breath You Take (rhythm) ----
+  {
+    id: "seed-summers-every-breath-you-take",
+    song_slug: "every-breath-you-take-the-police",
+    title: "The Police's Every Breath You Take Guitar Tone",
+    slug: "summers-every-breath-you-take-rhythm",
+    created_at: "2026-10-21",
+    description:
+      "The riff isn't strummed; it's an arpeggio with an added ninth where the third would be, played in one take after Sting told Summers to make the part his own. The guitar is his modified early-'60s Telecaster, and the sound is a Roland JC-120 with its built-in chorus on, one speaker dry and one chorused, close-miked and panned hard left and right. Everything distinctive about it is that stereo split. The Marshalls in the studio were for the guitar synth, not this part.",
+    tone_context: "rhythm",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Fender Telecaster (early 1960s, modified)",
+      pickup_config: "H",
+      pickup_position: "neck",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: "not documented",
+      notable_mods:
+        "Summers' Tele carries a Gibson humbucker in the neck, a phase switch and an onboard boost/preamp on a third knob. The year is disputed ('61 per Summers, '63 elsewhere). How the switches were set for this song isn't documented; the neck humbucker is this recipe's choice because it gives the arpeggio its round, even attack -- try the bridge single-coil if your copy of the record sounds brighter to you.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Roland JC-120 Jazz Chorus",
+        icon_type: "roland_combo",
+        icon_color: "#111827",
+        is_in_effects_loop: false,
+        settings: { Volume: 4, Treble: 6, Middle: 5, Bass: 4, "Chorus": "on", Speed: 3, Depth: 4 },
+        notes:
+          "Documented by both Mix and Sound on Sound. The JC-120 is a solid-state amp with enormous clean headroom, so the notes stay separate -- vital for an arpeggio where every string has to ring through the next. Its chorus is genuinely stereo: one speaker gets the dry signal, the other the modulated one. That's the whole effect.",
+      },
+      {
+        position: 2,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "JC-120 onboard 2x12",
+        icon_type: "cab_2x12",
+        icon_color: "#111827",
+        is_in_effects_loop: false,
+        settings: { Speakers: "2x12, one dry / one chorused" },
+        notes:
+          "Each speaker was close-miked separately and panned hard left and right. Mic them together and you lose the effect: the stereo chorus only works because the two sides stay apart.",
+      },
+      {
+        position: 3,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Close dynamic mics, one per speaker",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Placement: "one per speaker, panned hard L/R" },
+        notes:
+          "Sound on Sound says Sennheiser MD421s; Mix says SM57s. Both are close dynamics, which is what matters. The part was sometimes double-tracked with the sides swapped, which makes the stereo image even wider.",
+      },
+    ],
+    original_gear: {
+      guitar: "Andy Summers' modified early-1960s Fender Telecaster -- Gibson humbucker in the neck, phase switch, onboard boost",
+      effects: ["Roland JC-120 built-in stereo chorus (the only modulation documented for this part)"],
+      amp: "Roland JC-120 Jazz Chorus",
+      cabinet: "JC-120 onboard 2x12, one speaker dry and one chorused",
+      microphone: "Close dynamics, one per speaker, panned hard L/R (MD421 per Sound on Sound; SM57 per Mix)",
+      other_notes:
+        "Backing tracks were cut at AIR Montserrat with Hugh Padgham in late 1982; overdubs and the mix were done at Le Studio in Quebec. Sound on Sound says the track was built instrument by instrument. Summers played the guitar part in one take. Summers had 100W Marshall stacks in the studio, but both features tie them to the Roland guitar-synth parts, not this riff. No delay or Electric Mistress is documented on this song -- those belong to earlier Police records.",
+    },
+    tags: ["new-wave", "the-police", "rhythm", "clean-tone", "chorus", "telecaster"],
+    sources: [
+      "https://www.soundonsound.com/techniques/classic-tracks-police-every-breath-you-take",
+      "https://www.mixonline.com/recording/polices-every-breath-you-take-365310",
+      "https://www.guitarplayer.com/guitarists/andy-summers-on-the-telecaster-behind-the-police-s-greatest-hits",
+      "https://guitarworld.com/features/andy-summers-modded-fender-telecaster",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "LA Studio Comp",
+            block_category: "Compressor",
+            original_gear: "Console compression",
+            settings: { PeakReduction: 3, Gain: 5, Emphasis: 4, Mix: 40, Level: 0 },
+            notes:
+              "Gentle. In an arpeggio, every string should land at the same level so the pattern sounds like one continuous line. This does that without squashing the pick attack.",
+          },
+          {
+            position: 2,
+            block_name: "70s Chorus",
+            block_category: "Modulation",
+            original_gear: "JC-120 built-in chorus",
+            settings: { Speed: 0.6, Depth: 5, Mix: 100, Level: 0 },
+            notes:
+              "Helix's Boss CE-1 model -- the CE-1's chorus circuit came from the JC-120, so it's the right family. Run it in a stereo path with the chorus on one side only (or use a split with one branch dry) and pan the branches hard. A mono chorus mixed in at 50% is not the same sound.",
+          },
+          {
+            position: 3,
+            block_name: "Jazz Rivet 120",
+            block_category: "Amp",
+            original_gear: "Roland JC-120",
+            settings: { Drive: 3, Bass: 4, Mid: 5, Treble: 6, Presence: 5, ChVol: 7, Master: 5, Bias: 5, BiasX: 5, Sag: 2, Hum: 2, Ripple: 2 },
+            notes:
+              "Low drive and low Sag: the JC-120 is solid-state, with no power-tube sag or breakup. The arpeggio needs that stiffness so the notes don't blur together.",
+          },
+          {
+            position: 4,
+            block_name: "2x12 Jazz Rivet",
+            block_category: "Cab",
+            original_gear: "JC-120 onboard 2x12",
+            settings: { Mic: 2, Distance: 1.5, Position: 0.3, Angle: 0, LowCut: 100, HighCut: 9000, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "Mic 2 is the 421 Dynamic, matching Sound on Sound's account (switch to Mic 0, the 57, for Mix's version). Use one cab per stereo branch, one panned left, one right.",
+          },
+          {
+            position: 5,
+            block_name: "Parametric",
+            block_category: "EQ",
+            original_gear: "Console EQ",
+            settings: { LowFreq: 200, LowGain: -2, HighFreq: 4000, HighGain: 1, Level: 0 },
+            notes:
+              "Cut 200 Hz so the guitar stays out of Sting's bass line, which carries the song's low end. A small lift at 4 kHz gives the arpeggio its glassy top.",
+          },
+          {
+            position: 6,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Mixdown reverb (not documented)",
+            settings: { Mix: 12, Decay: 1.2, Predelay: 30, LowCut: 250, HighCut: 7000, Level: 0 },
+            notes:
+              "No guitar reverb is documented. A short plate with some predelay keeps each note clear while giving the stereo image some depth.",
+          },
+        ],
+        notes:
+          "Comp -> 70s Chorus on one stereo branch only -> Jazz Rivet 120 -> 2x12 Jazz Rivet per branch, panned hard L/R -> EQ -> short plate. Tele neck humbucker. The dry-left / chorused-right split is the sound -- get that right before anything else.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "LA Compressor", block_category: "Compressor", original_gear: "Console compression", settings: { PeakReduction: 3, Gain: 5, Mix: 40, Level: 0 }, notes: "Keeps every string of the arpeggio level." },
+          { position: 2, block_name: "Vintage Chorus", block_category: "Modulation", original_gear: "JC-120 built-in chorus", settings: { Rate: 0.6, Depth: 5, Mix: 100, Level: 0 }, notes: "Put it on one row only, with a dry row beside it, and pan the two rows apart." },
+          { position: 3, block_name: "Jazz 120", block_category: "Amp", original_gear: "Roland JC-120", settings: { Volume: 4.0, Bass: 4.0, Mid: 5.0, Treble: 6.0 }, notes: "The QC's JC-120. Clean and stiff." },
+          { position: 4, block_name: "2x12 Jazz Cab", block_category: "Cab", original_gear: "JC-120 onboard 2x12", settings: { Mic: "MD421", Distance: 1.5, Position: 0.3, LowCut: 100, HighCut: 9000, Level: 0 }, notes: "421 per Sound on Sound; an SM57 per Mix." },
+          { position: 5, block_name: "Parametric EQ", block_category: "EQ", original_gear: "Console EQ", settings: { LowFreq: 200, LowGain: -2, HighFreq: 4000, HighGain: 1, Level: 0 }, notes: "Out of the bass's way, a little glass on top." },
+          { position: 6, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Mixdown reverb", settings: { Decay: 1.2, Predelay: 30, Mix: 12, Level: 0 }, notes: "Short plate." },
+        ],
+        notes: "Comp -> chorus on one row, dry on the other -> Jazz 120 -> Jazz 2x12 -> EQ -> plate, rows panned hard.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Clean", block_category: "Amp Type", original_gear: "Roland JC-120", settings: { Gain: 20, Volume: 50, Bass: 40, Middle: 50, Treble: 60, Presence: 50, Master: 50 }, notes: "The Katana's Clean is Roland's JC voicing -- the closest match on any of these platforms. Keep gain low." },
+          { position: 2, block_name: "Chorus", block_category: "Mod", original_gear: "JC-120 built-in chorus", settings: { Rate: 30, Depth: 45, EffectLevel: 70, DirectMix: 100 }, notes: "On a stereo Katana (or two units), keep the direct signal full and the chorus wide. On a mono Katana you'll only get part of the effect." },
+          { position: 3, block_name: "Reverb", block_category: "Reverb", original_gear: "Mixdown reverb", settings: { Time: 12, PreDelay: 30, Tone: 5, EffectLevel: 10 }, notes: "Plate type, short." },
+        ],
+        notes: "Clean channel -> chorus -> short plate. The stereo split needs a stereo Katana or two amps.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Compressor", block_category: "Compressor", original_gear: "Console compression", settings: { Intensity: 3, Attack: 20, Volume: 0 }, notes: "Slot A, gentle." },
+          { position: 2, block_name: "Search Rig Exchange for 'Roland JC-120' or 'Jazz Chorus clean'", block_category: "Profile", original_gear: "Roland JC-120 + onboard 2x12", settings: { Gain: 2, Bass: 4, Middle: 5, Treble: 6, Presence: 5 }, notes: "A JC-120 clean profile. Profiles capture one speaker without the chorus, so add it below." },
+          { position: 3, block_name: "Chorus", block_category: "Modulation", original_gear: "JC-120 built-in chorus", settings: { Rate: 0.6, Depth: 5, Mix: 50 }, notes: "Use the Kemper's stereo output with the chorus set to Mix 50 and wide stereo -- the closest to one dry and one chorused speaker." },
+          { position: 4, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Mixdown reverb", settings: { Decay: 1.2, Predelay: 30, Mix: 12 }, notes: "REV slot, short." },
+        ],
+        notes: "Gentle comp -> JC-120 profile -> stereo chorus -> short plate.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Console compression", settings: { Threshold: -20, Ratio: 2.5, Attack: 20, Release: 150, Mix: 0.4, Level: 0 }, notes: "Even arpeggio levels." },
+          { position: 2, block_name: "Jazz 120", block_category: "Amp", original_gear: "Roland JC-120", settings: { Drive: 3.0, Bass: 4.0, Mid: 5.0, Treble: 6.0, MV: 5.0 }, notes: "Fractal's JC-120, stiff and clean." },
+          { position: 3, block_name: "2x12 Jazz Cab", block_category: "Cab", original_gear: "JC-120 onboard 2x12", settings: { Mic: "421 Dynamic", Distance: 1.5, LowCut: 100, HighCut: 9000, Level: 0 }, notes: "421 per Sound on Sound." },
+          { position: 4, block_name: "Analog Chorus", block_category: "Modulation", original_gear: "JC-120 built-in chorus", settings: { Rate: 0.6, Depth: 5, Mix: 1.0, Level: 0 }, notes: "On one row of a split, dry on the other, panned hard. Fractal's chorus also has a 'Dry/Wet stereo' style that does the same thing in one block." },
+          { position: 5, block_name: "Parametric EQ", block_category: "EQ", original_gear: "Console EQ", settings: { LowFreq: 200, LowGain: -2, HighFreq: 4000, HighGain: 1, Level: 0 }, notes: "Clear the bass's range." },
+          { position: 6, block_name: "Plate", block_category: "Reverb", original_gear: "Mixdown reverb", settings: { Mix: 0.12, Decay: 1.2, Predelay: 30 }, notes: "Short plate." },
+        ],
+        notes: "Comp -> Jazz 120 -> Jazz 2x12 -> chorus on one side only -> EQ -> plate.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Roland JC-120' or 'Jazz Chorus clean'",
+            block_category: "Tone Model",
+            original_gear: "Roland JC-120",
+            settings: {},
+            notes: "A JC-120 clean capture, chorus off (captures can't hold modulation). Add a stereo chorus after it on one side only.",
+          },
+        ],
+        notes: "Capture-driven. JC-120 capture, then a dry/chorused stereo split.",
       },
     },
     is_editorial: true,

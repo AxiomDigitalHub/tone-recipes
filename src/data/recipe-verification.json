@@ -1836,5 +1836,41 @@
     ],
     "droppedCount": 1,
     "substitutedCount": 9
+  },
+  "hetfield-creeping-death-rhythm": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 2,
+    "substitutedCount": 10
+  },
+  "scholz-peace-of-mind-lead": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 6
+  },
+  "fisher-crazy-on-you-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 6
+  },
+  "armstrong-american-idiot-riff": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 1,
+    "substitutedCount": 8
+  },
+  "summers-every-breath-you-take-rhythm": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 7
   }
 }
