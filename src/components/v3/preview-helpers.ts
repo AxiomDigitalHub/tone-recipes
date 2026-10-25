@@ -49,6 +49,30 @@ export interface PreviewBlockData {
   kind?: string;
   /** Per-block engineer note, if the recipe has one. */
   notes?: string;
+  /** Source block category ("Dynamics", "Reverb"…). `sub` shows the real
+   *  gear when there is one, so labels can't rely on it naming the type. */
+  category?: string;
+}
+
+/** Short type label for a chain tile ("Comp", "Cab·Mic", "Verb"). Shared by
+ *  the recipe-page schematic and the social cards. */
+export function chainKindLabel(block: PreviewBlockData): string {
+  if (block.variant === "amp") return "Amp";
+  if (block.variant === "cab") return "Cab·Mic";
+  const hay = `${block.name} ${block.sub} ${block.category ?? ""}`.toLowerCase();
+  if (/gate/.test(hay)) return "Gate";
+  if (/comp/.test(hay)) return "Comp";
+  if (/volume|vol |pan/.test(hay)) return "Vol/Pan";
+  if (/fuzz/.test(hay)) return "Fuzz";
+  if (/dist/.test(hay)) return "Dist";
+  if (/drive|screamer|808|overdrive|klon|bd-?2|blues|rat/.test(hay)) return "Drive";
+  if (/delay|echo/.test(hay)) return "Delay";
+  if (/reverb|hall|plate|spring|room/.test(hay)) return "Verb";
+  if (/chorus|flang|phase|trem|vibe/.test(hay)) return "Mod";
+  if (/wah|filter/.test(hay)) return "Wah";
+  if (/eq|graphic|parametric/.test(hay)) return "EQ";
+  if (/pitch|octav|whammy/.test(hay)) return "Pitch";
+  return "FX";
 }
 
 /* ── Helpers ─────────────────────────────────────────────────────── */

@@ -50,7 +50,7 @@ export function guitarAssetFor(name: string): string {
 export function iconKeyFor(block: PreviewBlockData): IconKey {
   const name = (block.name || "").toLowerCase();
   const sub = (block.sub || "").toLowerCase();
-  const hay = `${name} ${sub}`;
+  const hay = `${name} ${sub} ${(block.category || "").toLowerCase()}`;
   if (block.variant === "amp") return "amp";
   if (block.variant === "cab") return "cab";
   if (block.variant === "source") return "guitar";
@@ -60,7 +60,7 @@ export function iconKeyFor(block: PreviewBlockData): IconKey {
   if (/dist/.test(hay)) return "dist";
   if (/drive|screamer|808|overdrive|klon|bd-?2|blues|rat/.test(hay)) return "drive";
   if (/delay|echo/.test(hay)) return "delay";
-  if (/reverb|hall|plate|spring/.test(hay)) return "reverb";
+  if (/reverb|hall|plate|spring|room/.test(hay)) return "reverb";
   if (/chorus|flang|phase|trem|vibe|mod /.test(hay)) return "mod";
   if (/wah|filter/.test(hay)) return "wah";
   if (/eq|graphic|parametric/.test(hay)) return "eq";

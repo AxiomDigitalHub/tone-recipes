@@ -2,6 +2,7 @@
 
 import type { PreviewBlockData } from "./PreviewBlocks";
 import { BlockIcon } from "./BlockIcon";
+import { chainKindLabel } from "./preview-helpers";
 
 /**
  * <PreviewSchematicChain> — interactive patchbay view, V1 layout in V2
@@ -78,7 +79,7 @@ export function PreviewSchematicChain({
                   >
                     <BlockIcon block={b} />
                     <span className="chain-node-kind">
-                      {kindLabel(b)}
+                      {chainKindLabel(b)}
                     </span>
                   </button>
                 ) : (
@@ -89,7 +90,7 @@ export function PreviewSchematicChain({
                   >
                     <BlockIcon block={b} />
                     <span className="chain-node-kind">
-                      {kindLabel(b)}
+                      {chainKindLabel(b)}
                     </span>
                   </div>
                 )}
@@ -152,20 +153,3 @@ export function GuitarProfile({ block }: { block: PreviewBlockData }) {
 }
 
 /** Short label inside the tile — derived from gear name/sub. */
-function kindLabel(block: PreviewBlockData): string {
-  if (block.variant === "amp") return "Amp";
-  if (block.variant === "cab") return "Cab·Mic";
-  const hay = `${block.name} ${block.sub}`.toLowerCase();
-  if (/comp/.test(hay)) return "Comp";
-  if (/volume|vol |pan/.test(hay)) return "Vol/Pan";
-  if (/fuzz/.test(hay)) return "Fuzz";
-  if (/dist/.test(hay)) return "Dist";
-  if (/drive|screamer|808|overdrive|klon|bd-?2|blues|rat/.test(hay)) return "Drive";
-  if (/delay|echo/.test(hay)) return "Delay";
-  if (/reverb|hall|plate|spring/.test(hay)) return "Verb";
-  if (/chorus|flang|phase|trem|vibe/.test(hay)) return "Mod";
-  if (/wah|filter/.test(hay)) return "Wah";
-  if (/eq|graphic|parametric/.test(hay)) return "EQ";
-  if (/pitch|octav|whammy/.test(hay)) return "Pitch";
-  return "FX";
-}

@@ -14,6 +14,7 @@
 import type { ToneRecipe, PlatformTranslation, Platform } from "@/types/recipe";
 import type { PreviewBlockData } from "./PreviewBlocks";
 import { lookupParam } from "@/lib/parameters/registry";
+import { formatPickups, formatTuning, guitarModelName } from "@/lib/guitar-specs";
 
 /** Helix-convention color map — effect TYPE drives the color, not the
  *  individual gear. Every drive is yellow, every comp is teal, every
@@ -91,10 +92,12 @@ export function recipeToBlocks(
     blocks.push({
       variant: "source",
       kind: "input src",
-      name: g.model_name || "Guitar",
+      name: guitarModelName(g) || "Guitar",
+      // GuitarProfile splits this on " · " into Pickups / Tuning / Strings, so
+      // each part must be one token ("P90 (bridge)", not "P90 · bridge").
       sub: [
-        g.pickup_config ? `${g.pickup_config} · ${g.pickup_position}` : null,
-        g.tuning ? g.tuning : null,
+        g.pickup_config ? formatPickups(g) : null,
+        g.tuning ? formatTuning(g) : null,
         g.string_gauge ? g.string_gauge : null,
       ]
         .filter(Boolean)
@@ -164,6 +167,7 @@ function nodeToBlock(
     variant,
     name: node.gear_name || node.subcategory || node.category,
     sub: summarizeNode(node),
+    category: node.subcategory || node.category,
     color: pickColor(node.gear_name ?? "", node.category),
     controls,
     values,
@@ -207,6 +211,7 @@ function platformBlockToBlock(
     variant,
     name: block.block_name || block.original_gear || "Block",
     sub: block.original_gear ? `← ${block.original_gear}` : block.block_category || "",
+    category: block.block_category || undefined,
     color: pickColor(block.block_name ?? "", block.block_category ?? ""),
     controls,
     values,

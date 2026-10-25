@@ -18,6 +18,7 @@ import EQCurve, { extractEQBands } from "@/components/settings/EQCurve";
 import { usePlatformStore } from "@/lib/stores/platform-store";
 import { useAuth } from "@/lib/auth/auth-context";
 import { canViewAllPlatforms, canDownloadPresets, FREE_PLATFORM_LIMIT } from "@/lib/permissions";
+import { formatTuning, guitarModelName } from "@/lib/guitar-specs";
 
 /* ------------------------------------------------------------------ */
 /*  Pretext-style category → color mapping                             */
@@ -871,7 +872,7 @@ export default function UnifiedChainView({
         {/* Guitar meta */}
         <div style={{ flex: 1 }}>
           <div style={{ fontSize: 11, color: "#5a7090", marginBottom: 5, fontWeight: 500 }}>Guitar</div>
-          <div style={{ fontSize: 19, fontWeight: 700, color: "#f0eadf", marginBottom: 16 }}>{guitarSpecs.model_name}</div>
+          <div style={{ fontSize: 19, fontWeight: 700, color: "#f0eadf", marginBottom: 16 }}>{guitarModelName(guitarSpecs)}</div>
           <div style={{ display: "flex", gap: 32, flexWrap: "wrap" }}>
             <div>
               <div style={{ fontSize: 10, color: "#3a4a60", fontWeight: 600, letterSpacing: 1, textTransform: "uppercase", marginBottom: 3 }}>Pickups</div>
@@ -880,13 +881,7 @@ export default function UnifiedChainView({
             <div>
               <div style={{ fontSize: 10, color: "#3a4a60", fontWeight: 600, letterSpacing: 1, textTransform: "uppercase", marginBottom: 3 }}>Tuning</div>
               <div style={{ fontSize: 13, color: "#c8d8e8", fontWeight: 600 }}>
-                {guitarSpecs.tuning
-                  .replace(/_/g, " ")
-                  .replace(/\beb\b/gi, "Eb")
-                  .replace(/\bdb\b/gi, "Db")
-                  .replace(/\bab\b/gi, "Ab")
-                  .replace(/\bbb\b/gi, "Bb")
-                  .replace(/\b\w/g, (c) => c.toUpperCase())}
+                {formatTuning(guitarSpecs)}
               </div>
             </div>
             <div>

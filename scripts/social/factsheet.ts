@@ -4,6 +4,7 @@ import { lookupParam } from "@/lib/parameters/registry";
 import { getAllWriters } from "@/lib/writers";
 import { parseBlog, isSettingsTable, type Table } from "./blog-parse";
 import { helixTiles } from "./render/site-chain";
+import { formatTuning, guitarModelName } from "@/lib/guitar-specs";
 import { usedRows } from "./ledger";
 import { SITE } from "./paths";
 import { numberTokens, SOURCE_BPM_RE, SOURCE_KEY_RE } from "./tokens";
@@ -49,13 +50,6 @@ export function formatSetting(label: string, category: string, value: string | n
   const inRange = meta && meta.kind !== "text" && value >= meta.min && value <= meta.max;
   if (!meta?.unit || !inRange) return String(value);
   return meta.unit.startsWith(":") ? `${value}${meta.unit}` : `${value} ${meta.unit}`;
-}
-
-/** "eb_standard" → "Eb standard", "drop_d" → "Drop D". Data enums, never shown raw. */
-function humanTuning(t: string | undefined): string | undefined {
-  if (!t) return t;
-  const words = t.split(/[_\s]+/).filter(Boolean);
-  return words.map((w, i) => (i === 0 || w.length <= 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w)).join(" ");
 }
 
 class FactBuilder {
@@ -198,9 +192,9 @@ export function buildFactSheet(plan: SlotPlan, ledger: LedgerRow[], cfg: Config)
         };
         spec("Pickups", g.pickup_config, "pickup_config");
         spec("Position", g.pickup_position, "pickup_position");
-        spec("Tuning", g.tuning === "custom" ? g.tuning_custom : humanTuning(g.tuning), "tuning");
+        spec("Tuning", g.tuning ? formatTuning(g) : undefined, "tuning");
         // "(likely his 1956, 'Floyd')" is provenance prose: it names a player's own guitar, so it stays off the card.
-        const model = g.model_name.replace(TRAILING_PAREN, "").trim();
+        const model = guitarModelName(g);
         guitar = { nameFactId: fb.add("g", { kind: "text", display: model, label: "guitar", sourcePath: "recipe.guitar_specs.model_name" }), iconSvg: site.guitarIconSvg, specs };
       }
     }
