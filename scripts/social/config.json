@@ -1,0 +1,29 @@
+{
+  "_note": "Daniel's knobs for social v2. profileReady gates every live publish; approvalMode puts posts in Zernio pending_approval. Timezone is an assumption (America/Chicago) — confirm.",
+  "timezone": "America/Chicago",
+  "profileReady": false,
+  "approvalMode": true,
+  "platforms": { "instagram": true, "pinterest": false },
+  "pinterestBoardId": null,
+  "postTime": "11:30",
+  "slots": {
+    "mon": "knob_card",
+    "tue": "sunday_sound",
+    "wed": "fix_it",
+    "thu": "new_tone",
+    "fri": "worship_rig"
+  },
+  "seasonal": [
+    { "from": "2026-11-30", "to": "2027-01-15", "day": "mon", "format": "knob_card", "filter": "unwrapped" }
+  ],
+  "cooldownDays": { "entity": 56 },
+  "hashtagPools": {
+    "sunday_sound": ["worshipguitar", "line6helix", "worshipleader"],
+    "worship_rig": ["worshipguitar", "line6helix", "hxstomp"],
+    "knob_card": ["line6helix", "helixtone", "guitartone"],
+    "fix_it": ["guitartone", "line6helix", "hxstomp"],
+    "new_tone": ["line6helix", "guitartone", "helixtone"]
+  },
+  "fixItAllowlist": [],
+  "unwrappedGear": ["hx stomp", "hx-stomp", "katana", "pod go", "helix lt", "hx effects"]
+}

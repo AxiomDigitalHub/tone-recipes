@@ -57,7 +57,9 @@ function pickColor(
 function variantFor(category: string): PreviewBlockData["variant"] {
   const c = (category || "").toLowerCase();
   if (c.includes("guitar") || c.includes("input")) return "source";
-  if (c.includes("cab") || c.includes("mic") || c.includes("cabinet"))
+  // Whole-word "mic": a bare includes("mic") also caught "Dynamics", turning
+  // every noise gate into a Cab·Mic tile.
+  if (c.includes("cab") || /\bmic(rophone)?\b/.test(c))
     return "cab";
   if (c.includes("amp")) return "amp";
   return "pedal";

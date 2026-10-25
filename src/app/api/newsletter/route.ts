@@ -15,6 +15,22 @@ function getClient() {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+/**
+ * Social attribution for the /ig link page (docs/social-strategy). Stored in
+ * the existing `source` column as `social:<utm_source>:<utm_content>` so no
+ * migration is needed; anything that isn't a clean slug falls back to the
+ * old "website" value. utm_content is the social slot id (e.g.
+ * 2026-11-03-sunday_sound), which joins a signup back to the post.
+ */
+function sourceFromUtm(utmSource: unknown, utmContent: unknown): string {
+  const clean = (v: unknown, max: number) =>
+    typeof v === "string" && /^[a-z0-9_-]{1,64}$/i.test(v) ? v.toLowerCase().slice(0, max) : null;
+  const src = clean(utmSource, 24);
+  if (!src) return "website";
+  const content = clean(utmContent, 64);
+  return content ? `social:${src}:${content}` : `social:${src}`;
+}
+
 export async function POST(request: Request) {
   // Rate limit: 5 signup attempts per minute per IP
   const { limited } = rateLimit(`newsletter:${getClientIp(request)}`, 5, 60_000);
@@ -42,13 +58,16 @@ export async function POST(request: Request) {
 
   try {
     let email: string | undefined;
+    let source = "website";
     if (isFormSubmit) {
       const form = await request.formData().catch(() => null);
       const value = form?.get("email");
       email = typeof value === "string" ? value : undefined;
+      source = sourceFromUtm(form?.get("utm_source"), form?.get("utm_content"));
     } else {
       const body = await request.json();
       email = body?.email;
+      source = sourceFromUtm(body?.utm_source, body?.utm_content);
     }
 
     if (!email || !EMAIL_RE.test(email)) {
@@ -64,7 +83,7 @@ export async function POST(request: Request) {
 
     const { error } = await supabase
       .from("newsletter_subscribers")
-      .insert({ email: normalizedEmail, source: "website" } as any);
+      .insert({ email: normalizedEmail, source } as any);
 
     if (error) {
       // Unique constraint violation — already subscribed.

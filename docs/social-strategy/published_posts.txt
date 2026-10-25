@@ -1,0 +1,80 @@
+--- published 2026-10-20T17:02:35.293Z https://www.instagram.com/p/DeuUq_gDaxJ/
+Your Preset Won't Fit. Here's the Order to Cut Things In.
+
+When a Helix or HX Stomp preset stops building, the fix has an order. Check the structural limits first, then cut by tone cost per DSP unit recovered — with the arithmetic for each step.
+
+Full walkthrough — link in bio → faderandknob.com
+
+#helix #hxstomp #dsp #presetbuilding #modeler #signalchain #guitarist #ampsim #tonequest #guitartone #line6helix #worshipguitar
+--- published 2026-10-19T17:07:06.870Z https://www.instagram.com/p/DerwaaNDbZW/
+An 8, a 10 and a 12 From One Maker: What Diameter Actually Decides
+
+Jensen publishes the same magnet, voice coil and power rating across three cone sizes. The resonance goes 135, 97, 80 Hz — and your open low E is 82.41 Hz. Here is what that decides.
+
+Full walkthrough — link in bio → faderandknob.com
+
+#speakers #cabinets #droptuning #impulseresponse #gearcomparison #frequencyresponse #guitarist #ampsim #tonequest #guitartone #helix #line6helix #worshipguitar
+--- published 2026-10-19T16:54:16.759Z https://www.instagram.com/p/Deru8SvDX7-/
+Jumping Your Amp's Channels: Which Amps It Works On, and Why
+
+Jumping two channels with a patch cable only works when both channels have the same number of gain stages. On a blackface Fender they don't, and the signals partly cancel. Here is the per-amp rule.
+
+Full walkthrough — link in bio → faderandknob.com
+
+#marshall #fender #ampsettings #vintage #helix #signalchain #guitarist #ampsim #tonequest #guitartone #line6helix #worshipguitar
+--- published 2026-10-17T17:06:41.280Z https://www.instagram.com/p/DemmxFdkZEQ/
+Oxford or Jensen: The Speaker Lottery Inside a Blackface Fender
+
+Blackface Deluxe Reverbs from the same years turn up with Oxford 12K5s, Jensen C12Ns and Jensen P12Qs. How to read the code on yours, what is documented, and what no one ever published.
+
+Full walkthrough — link in bio → faderandknob.com
+
+#fenderdeluxereverb #fender #speakers #vintagegear #blackface #gearhistory #guitarist #ampsim #tonequest #guitartone #helix #line6helix #worshipguitar
+--- published 2026-10-16T17:06:42.149Z https://www.instagram.com/p/DekB-F2CGj7/
+Alnico or Ceramic, Same Speaker: What the Spec Sheets Actually Change
+
+Jensen sells the same speaker in alnico and ceramic. Across four pairs the sensitivity moves 0.6 to 1.4 dB in no fixed direction. The magnet weight is the only thing that always changes.
+
+Full walkthrough — link in bio → faderandknob.com
+
+#speakers #alnico #cabinets #gearcomparison #frequencyresponse #impulseresponse #guitarist #ampsim #tonequest #guitartone #helix #line6helix #worshipguitar
+--- published 2026-10-15T17:06:25.893Z https://www.instagram.com/p/DehdJ7uAEPZ/
+One Amp, Two Cabs: What a Helix Dual Cab Block Actually Gets You
+
+A second voice from a Dual Cab costs about 3 DSP units against 40 for a second amp. Which cab pairs change anything, by published speaker resonance, and the Delay setting that breaks in mono.
+
+Full walkthrough — link in bio → faderandknob.com
+
+#helix #hxstomp #cabsimulation #dualcab #dsp #speakers #livesound #guitarist #ampsim #tonequest #guitartone #line6helix #worshipguitar
+--- published 2026-10-13T17:06:46.055Z https://www.instagram.com/p/DecTmqAjHxH/
+Two Cables Into One Input: What Actually Happens at the Jack
+
+A Y cable into one amp input makes two sources load each other. Each drops about 6 dB, and turning one guitar down can mute the other. Here are the numbers and what to use instead.
+
+Full walkthrough — link in bio → faderandknob.com
+
+#signalchain #impedance #ycable #ampinputs #stereopedals #mixing #worshipguitar #guitarist #ampsim #tonequest #guitartone #helix #line6helix
+--- failed None None
+Jumping Your Amp's Channels: Which Amps It Works On, and Why
+
+Jumping two channels with a patch cable only works when both channels have the same number of gain stages. On a blackface Fender they don't, and the signals partly cancel. Here is the per-amp rule.
+
+Full walkthrough — link in bio → faderandknob.com
+
+#marshall #fender #ampsettings #vintage #helix #signalchain #guitarist #ampsim #tonequest #guitartone #line6helix #worshipguitar
+--- failed None None
+Jumping Your Amp's Channels: Which Amps It Works On, and Why
+
+Jumping two channels with a patch cable only works when both channels have the same number of gain stages. On a blackface Fender they don't, and the signals partly cancel. Here is the per-amp rule.
+
+Full walkthrough — link in bio → faderandknob.com
+
+#marshall #fender #ampsettings #vintage #helix #signalchain #guitarist #ampsim #tonequest #guitartone #line6helix #worshipguitar
+--- failed None None
+Jumping Your Amp's Channels: Which Amps It Works On, and Why
+
+Jumping two channels with a patch cable only works when both channels have the same number of gain stages. On a blackface Fender they don't, and the signals partly cancel. Here is the per-amp rule.
+
+Full walkthrough — link in bio → faderandknob.com
+
+#marshall #fender #ampsettings #vintage #helix #signalchain #guitarist #ampsim #tonequest #guitartone #line6helix #worshipguitar

@@ -1,0 +1,12 @@
+{
+  "_note": "Blog slug -> entityKey, so a blog post about the same song as a recipe shares its cooldown (never post Goodness of God twice in 8 weeks).",
+  "goodness-of-god-guitar-tone-helix": "song:goodness-of-god-bethel-music",
+  "what-a-beautiful-name-guitar-tone-helix": "song:what-a-beautiful-name-hillsong-worship",
+  "way-maker-guitar-tone-helix": "song:way-maker-leeland",
+  "phil-wickham-guitar-tone-helix": "artist:phil-wickham",
+  "hillsong-guitar-tone-helix": "artist:hillsong",
+  "bethel-music-guitar-tone-helix": "artist:bethel-music",
+  "elevation-worship-guitar-tone-helix": "artist:elevation-worship",
+  "lincoln-brewster-tone-helix": "artist:lincoln-brewster",
+  "holy-forever-guitar-tone-helix": "song:holy-forever"
+}

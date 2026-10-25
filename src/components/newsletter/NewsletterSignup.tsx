@@ -11,6 +11,8 @@ interface NewsletterSignupProps {
   buttonText?: string;
   source?: string;
   className?: string;
+  /** Social attribution (the /ig link page). Sent to /api/newsletter, stored as social:<source>:<content>. */
+  utm?: { source: string; content?: string | null };
 }
 
 export default function NewsletterSignup({
@@ -20,6 +22,7 @@ export default function NewsletterSignup({
   buttonText = "Subscribe",
   source = "newsletter",
   className = "",
+  utm,
 }: NewsletterSignupProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -36,7 +39,7 @@ export default function NewsletterSignup({
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source }),
+        body: JSON.stringify({ email, source, ...(utm ? { utm_source: utm.source, utm_content: utm.content ?? undefined } : {}) }),
       });
 
       if (!res.ok) {

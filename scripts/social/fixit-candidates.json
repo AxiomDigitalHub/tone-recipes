@@ -1,0 +1,40 @@
+{
+  "status": "UNREVIEWED",
+  "_note": "Candidates for config.json fixItAllowlist. NOT live: until Daniel (or a reviewing session) copies a slug into fixItAllowlist, Wednesday falls back to knob_card. Picked by Theo 2026-10-25: quick-fixes posts with a symptom/cause/fix table, no first-person persona-testing lines, Helix/worship relevance. Each still needs a human read of the numbers before it is frozen into an image.",
+  "reviewedBy": null,
+  "reviewedAt": null,
+  "candidates": [
+    {
+      "slug": "reverb-sounds-washed-out-fix",
+      "reason": "Cause/What you hear/Fix table maps 1:1 onto the 3-slide Fix-It; worship-relevant (7 mentions). Check: 'about 8-10 o'clock' mix and '10-20ms pre-delay' are rules of thumb, fine as ranges."
+    },
+    {
+      "slug": "why-delay-sounds-muddy",
+      "reason": "Parameter/Starting point table with ranges (15–25 ms pre-delay, 150–200 Hz low cut); the classic worship-delay complaint. Check: the dotted-eighth row links out — render the text only."
+    },
+    {
+      "slug": "what-to-ask-the-sound-tech-guitar-worship",
+      "reason": "What you hear / what to ask for / cost table is pure Q5 for worship volunteers; values are the standard EQ zones (120, 250–300, 700, 3k, 8k). Check: quoted asks are prose, not settings."
+    },
+    {
+      "slug": "modeler-preset-sounds-different-live",
+      "reason": "Home vs live adjustment table (cut 2-3dB below 100Hz, high shelf 8-10kHz) — a top Helix-at-church frustration. Check: '-2 to -4dB' negative ranges render correctly."
+    },
+    {
+      "slug": "solo-patch-volume-drop-fix",
+      "reason": "Per-platform 'where to add level' table, Helix row first (+2 to +4 dB). Check: Katana row says 50 EX and above — model claim, verify."
+    },
+    {
+      "slug": "level-match-modeler-presets",
+      "reason": "Symptom -> where the fix lives table; Helix-heavy (12 mentions). Light on numbers, so pairs with a takeaway slide. Check: ≥6 numeric facts may not exist — the inventory gate will exclude it if not."
+    },
+    {
+      "slug": "stop-feedback-stage-physics",
+      "reason": "Symptom -> most likely cause table, stage/worship context. Check: low number density; may only qualify via takeaways."
+    },
+    {
+      "slug": "how-to-stop-pedal-hiss",
+      "reason": "Hiss type -> likely cause table is a clean Q5 diagnosis. Check: pedalboard-centric rather than Helix; lower ICP fit."
+    }
+  ]
+}
