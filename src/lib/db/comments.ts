@@ -22,8 +22,28 @@ function getClient() {
   return _client;
 }
 
+type Author = NonNullable<Comment["author"]>;
+
 /**
- * Fetch all comments for a recipe, joined with profiles for author info.
+ * Author info for a set of user ids, keyed by id. A separate query rather
+ * than a PostgREST embed: comments.user_id references auth.users, not
+ * profiles, so `profiles!user_id(...)` has no relationship to follow and
+ * fails the whole request with PGRST200 (400). profiles.id is the same
+ * auth.users id, so a plain `in` lookup joins them.
+ */
+async function authorsFor(userIds: string[]): Promise<Map<string, Author>> {
+  const ids = [...new Set(userIds)];
+  if (!ids.length) return new Map();
+  const { data } = await getClient()
+    .from("profiles")
+    .select("id, display_name, username, avatar_url")
+    .in("id", ids);
+  const rows = (data ?? []) as (Author & { id: string })[];
+  return new Map(rows.map(({ id, ...author }) => [id, author]));
+}
+
+/**
+ * Fetch all comments for a recipe, with author info attached.
  * Returns a flat array — the client is responsible for building the reply tree.
  */
 export async function getComments(recipeSlug: string): Promise<Comment[]> {
@@ -32,12 +52,14 @@ export async function getComments(recipeSlug: string): Promise<Comment[]> {
   const supabase = getClient();
   const { data, error } = await supabase
     .from("comments")
-    .select("*, author:profiles!user_id(display_name, username, avatar_url)")
+    .select("*")
     .eq("recipe_slug", recipeSlug)
     .order("created_at", { ascending: true });
 
   if (error || !data) return [];
-  return data as Comment[];
+  const comments = data as Comment[];
+  const authors = await authorsFor(comments.map((c) => c.user_id));
+  return comments.map((c) => ({ ...c, author: authors.get(c.user_id) }));
 }
 
 /**
@@ -64,11 +86,13 @@ export async function addComment(params: {
       downvotes: 0,
       is_deleted: false,
     })
-    .select("*, author:profiles!user_id(display_name, username, avatar_url)")
+    .select("*")
     .single();
 
   if (error || !row) return null;
-  return row as Comment;
+  const comment = row as Comment;
+  const authors = await authorsFor([comment.user_id]);
+  return { ...comment, author: authors.get(comment.user_id) };
 }
 
 /**
