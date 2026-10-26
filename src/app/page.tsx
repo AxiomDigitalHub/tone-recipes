@@ -174,27 +174,26 @@ export default function PreviewIndex() {
         <ol className="how-steps">
           <li className="how-step">
             <span className="how-step-no" aria-hidden="true">1</span>
-            <h3 className="how-step-title">We chase the tone</h3>
+            <h3 className="how-step-title">Find your tone</h3>
             <p className="how-step-body">
-              Producer interviews, gear lists, period photos, session logs.
-              AI reads the historical record and reconstructs what was
-              actually plugged into what — sources cited.
+              Search by song, artist, or guitarist. Every recipe is built
+              from the original recording: the gear, the chain, the sources.
             </p>
           </li>
           <li className="how-step">
             <span className="how-step-no" aria-hidden="true">2</span>
-            <h3 className="how-step-title">We map the chain</h3>
+            <h3 className="how-step-title">Download it</h3>
             <p className="how-step-body">
-              Every block. Every knob. Every tap-tempo. Documented like a
-              service manual.
+              Grab the preset for Helix, Quad Cortex, or Katana. On TONEX,
+              Fractal, Kemper, or pedalboards, dial it in by hand.
             </p>
           </li>
           <li className="how-step">
             <span className="how-step-no" aria-hidden="true">3</span>
-            <h3 className="how-step-title">You get the numbers</h3>
+            <h3 className="how-step-title">Rock on</h3>
             <p className="how-step-body">
-              Translated for your Helix, Quad Cortex, TONEX, Fractal,
-              Kemper, Katana — or your pedalboard. One click, import, play.
+              Plug in and play along with the record. Tweak to taste from
+              there. Then turn it right up to 11.
             </p>
           </li>
         </ol>
