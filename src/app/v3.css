@@ -3920,6 +3920,15 @@
   align-items: baseline;
   gap: 8px;
 }
+/* Brush-script wordmark (src/components/brand/Logo.tsx). The swashes
+   overhang the letter box, so negative block margins keep the bar at
+   the height the old 22px text wordmark gave it. */
+.fk-preview .preview-subnav-logo {
+  display: block;
+  height: 50px;
+  width: auto;
+  margin: -11px 0;
+}
 /* Suppress the global amber-box focus outline on the brand link.
    The global `:focus-visible { outline: 2px solid #e4a235 }` rule reads
    as a hard-edged box around the wordmark when a user clicks it (Chrome
@@ -3934,10 +3943,8 @@
 }
 .fk-preview .preview-subnav-brand:focus-visible,
 .fk-preview .preview-subnav-drawer-brand:focus-visible {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-  text-decoration-color: var(--ink-muted);
+  outline: 1px solid var(--ink-muted);
+  outline-offset: 4px;
 }
 .fk-preview .preview-subnav-mark {
   font-family: var(--font-mono);
@@ -6611,9 +6618,9 @@
 
 .fk-preview .fk-footer-brand { display: flex; flex-direction: column; gap: 10px; }
 .fk-preview .fk-footer-mark {
-  font-size: 28px;
-  letter-spacing: -0.01em;
-  color: var(--ink);
+  display: block;
+  height: 64px;
+  width: auto;
 }
 .fk-preview .fk-footer-tagline {
   font-style: italic;
@@ -7109,7 +7116,7 @@
 
   /* Footer — already has its own breakpoint; bump padding tighter */
   .fk-preview .fk-footer-inner { padding: 36px 18px 20px; }
-  .fk-preview .fk-footer-mark { font-size: 22px; }
+  .fk-preview .fk-footer-mark { height: 52px; }
 }
 
 /* Very narrow (≤380px) — last-mile fits on the smallest still-sold iPhones */

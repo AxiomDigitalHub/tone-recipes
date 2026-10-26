@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { Wordmark } from "@/components/brand/Logo";
 
 // The footer is the full map — the top nav stays minimal (Tones / Blog /
 // News / Pricing) and everything else is findable here.
@@ -89,7 +90,7 @@ export default function Footer() {
       <div className="fk-footer-inner">
         <div className="fk-footer-grid">
           <div className="fk-footer-brand">
-            <span className="fk-footer-mark display">Fader &amp; Knob</span>
+            <Wordmark tone="ink" className="fk-footer-mark" />
             <p className="fk-footer-tagline">Stop tweaking. Start playing.</p>
           </div>
 

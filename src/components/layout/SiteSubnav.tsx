@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Search } from "lucide-react";
 import { useAuth } from "@/lib/auth/auth-context";
 import { loginHref } from "@/lib/auth/redirect";
+import { Wordmark } from "@/components/brand/Logo";
 
 /**
  * v3 sub-nav — editorial chrome under the masthead bar.
@@ -136,8 +137,8 @@ export default function SiteSubnav() {
       className={`preview-subnav ${open ? "is-open" : ""}${menuOpen ? " account-open" : ""}`}
     >
       <div className="preview-subnav-inner">
-        <Link href="/" className="preview-subnav-brand">
-          Fader &amp; Knob
+        <Link href="/" className="preview-subnav-brand" aria-label="Fader & Knob home">
+          <Wordmark tone="ink" title="" className="preview-subnav-logo" />
         </Link>
 
         <div className="preview-subnav-links">
@@ -262,8 +263,9 @@ export default function SiteSubnav() {
             href="/"
             className="preview-subnav-drawer-brand"
             onClick={() => setOpen(false)}
+            aria-label="Fader & Knob home"
           >
-            Fader &amp; Knob
+            <Wordmark tone="ink" title="" className="preview-subnav-logo" />
           </Link>
           <button
             type="button"
