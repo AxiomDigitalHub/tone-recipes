@@ -1,5 +1,6 @@
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { isSupabaseConfigured } from "./client";
+import { fetchAuthors } from "./authors";
 import type { Notification, NotificationType } from "@/types/community";
 
 /**
@@ -24,7 +25,7 @@ function getClient() {
 
 /**
  * Get notifications for a user. Optionally filter to unread only.
- * Joined with profiles for actor info. Ordered by created_at desc.
+ * Actor info comes from a second profiles lookup (see fetchAuthors). Ordered by created_at desc.
  */
 export async function getNotifications(
   userId: string,
@@ -39,7 +40,7 @@ export async function getNotifications(
 
   let query = supabase
     .from("notifications")
-    .select("*, profiles!notifications_actor_id_fkey(display_name, username, avatar_url)")
+    .select("*")
     .eq("user_id", userId)
     .order("created_at", { ascending: false })
     .range(offset, offset + limit - 1);
@@ -52,6 +53,7 @@ export async function getNotifications(
 
   if (error || !data) return [];
 
+  const actors = await fetchAuthors(supabase, data.map((r: Record<string, unknown>) => r.actor_id as string));
   return data.map((row: Record<string, unknown>) => ({
     id: row.id as string,
     user_id: row.user_id as string,
@@ -62,7 +64,7 @@ export async function getNotifications(
     is_read: row.is_read as boolean,
     actor_id: (row.actor_id as string) ?? null,
     created_at: row.created_at as string,
-    actor: row.profiles as Notification["actor"],
+    actor: row.actor_id ? actors.get(row.actor_id as string) : undefined,
   })) as Notification[];
 }
 

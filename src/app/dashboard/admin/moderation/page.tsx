@@ -6,6 +6,7 @@ import { useAuth } from "@/lib/auth/auth-context";
 import { isSupabaseConfigured } from "@/lib/db/client";
 import { getPendingReports, resolveReport } from "@/lib/db/reports";
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
+import { fetchAuthors } from "@/lib/db/authors";
 import type { Report, UserRecipe } from "@/types/community";
 import {
   Shield,
@@ -222,17 +223,19 @@ export default function ModerationPage() {
       const supabase = getClient();
       const { data, error } = await supabase
         .from("user_recipes")
-        .select(
-          "*, profiles!user_recipes_user_id_fkey(display_name, username, avatar_url)",
-        )
+        .select("*")
         .eq("status", "pending")
         .order("created_at", { ascending: false });
 
       if (error) throw error;
 
-      const mapped = (data ?? []).map((row: Record<string, unknown>) => ({
-        ...(row as unknown as UserRecipe),
-        author: row.profiles as PendingRecipeWithAuthor["author"],
+      // Authors via a second lookup: user_recipes.user_id references
+      // auth.users, so a profiles embed fails the whole query (PGRST200).
+      const rows = (data ?? []) as unknown as UserRecipe[];
+      const authors = await fetchAuthors(supabase, rows.map((r) => r.user_id));
+      const mapped = rows.map((row) => ({
+        ...row,
+        author: authors.get(row.user_id) as PendingRecipeWithAuthor["author"],
       }));
 
       setPendingRecipes(mapped);
