@@ -565,8 +565,8 @@ const SEQUENCE_STEPS: Record<string, SequenceStep> = {
         See what Pro includes &rarr;
       </a>
       <p style="line-height: 1.6; color: #a3a3a3; margin-top: 24px;">
-        Either way, you'll keep getting the weekly email like everyone else: one recipe,
-        one insight, one thing worth knowing. That part is free forever too.
+        Either way, you'll keep getting tone recipes and news like everyone else.
+        That part is free forever too.
       </p>
       ${seqFooter(to)}`,
   },

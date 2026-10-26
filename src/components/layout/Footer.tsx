@@ -56,7 +56,7 @@ function NewsletterInline() {
   if (state === "ok") {
     return (
       <p className="fk-footer-news-ok">
-        <span aria-hidden>✦</span> You&apos;re on the list. Friday delivery.
+        <span aria-hidden>✦</span> You&apos;re on the list.
       </p>
     );
   }
@@ -117,9 +117,9 @@ export default function Footer() {
           </nav>
 
           <div className="fk-footer-col fk-footer-news">
-            <h3 className="fk-footer-colhead">The Friday send</h3>
+            <h3 className="fk-footer-colhead">The Send</h3>
             <p className="fk-footer-news-dek">
-              One recipe, one field note, one quick fix. Every Friday.
+              Get tone recipes + news.
             </p>
             <NewsletterInline />
           </div>

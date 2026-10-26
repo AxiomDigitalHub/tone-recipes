@@ -21,8 +21,8 @@ export default function IgSignup() {
       variant="card"
       source="ig-link-page"
       utm={utm}
-      headline="One sound, every setting, every Friday"
-      subtext="Exact knob settings for Helix and HX Stomp — worship sounds, amp guides, fixes. Researched and written by AI; corrections published. Unsubscribe anytime."
+      headline="One sound, every setting, in your inbox"
+      subtext="Exact knob settings for Helix and HX Stomp — worship sounds, amp guides, fixes. Researched and written by AI; corrections published."
     />
   );
 }

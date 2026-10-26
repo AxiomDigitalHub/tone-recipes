@@ -207,7 +207,7 @@ export default function HomeV3() {
           <div className="mx-auto max-w-2xl px-4">
             <NewsletterSignup
               headline="Tone of the Week — free in your inbox"
-              subtext="Every Friday: one killer tone recipe, one blog deep dive, one quick tip you can use tonight. Join free."
+              subtext="Get tone recipes + news. Join free."
               buttonText="Send it to me"
               source="homepage-v3"
             />

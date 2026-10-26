@@ -43,7 +43,7 @@ export default function FridaySendForm() {
   if (status === "success") {
     return (
       <p className="newsletter-confirm" role="status">
-        You&apos;re in — check your inbox Friday.
+        You&apos;re in.
       </p>
     );
   }

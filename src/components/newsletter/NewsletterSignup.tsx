@@ -17,8 +17,8 @@ interface NewsletterSignupProps {
 
 export default function NewsletterSignup({
   variant = "card",
-  headline = "Get a free tone recipe every Friday",
-  subtext = "One recipe, one blog post, one quick tip. No spam, unsubscribe anytime.",
+  headline = "Get tone recipes + news",
+  subtext = "The sounds behind your favorite songs, plus all that’s new in guitar tone.",
   buttonText = "Subscribe",
   source = "newsletter",
   className = "",
@@ -61,7 +61,7 @@ export default function NewsletterSignup({
       <div className={`flex items-center justify-center gap-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-6 text-center ${className}`}>
         <Check className="h-5 w-5 text-emerald-400" />
         <p className="font-medium text-emerald-400">
-          You&apos;re in! Check your inbox Friday.
+          You&apos;re in!
         </p>
       </div>
     );

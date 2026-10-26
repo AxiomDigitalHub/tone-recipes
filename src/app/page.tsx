@@ -273,13 +273,12 @@ export default function PreviewIndex() {
       <section className="newsletter container">
         <div className="newsletter-row">
           <div className="newsletter-text">
-            <span className="newsletter-kicker">The Friday Send</span>
+            <span className="newsletter-kicker">The Send</span>
             <h2 className="display newsletter-title">
-              One free tone recipe, every Friday
+              Get tone recipes + news
             </h2>
             <p className="newsletter-body">
-              One recipe, one quick tip, one short read · no spam ·
-              unsubscribe anytime.
+              The sounds behind your favorite songs, plus all that&rsquo;s new in guitar tone.
             </p>
           </div>
           <FridaySendForm />
