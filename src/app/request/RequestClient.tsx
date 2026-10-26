@@ -288,7 +288,7 @@ export default function RequestClient({
           <h1 className="recipe-title display">Request a tone</h1>
           <p className="recipe-summary">
             Can&apos;t find the tone you&apos;re looking for? File a request, watch
-            the community upvote it, and we&apos;ll cut a verified recipe.
+            the community upvote it, and we&apos;ll research and publish the recipe.
           </p>
         </header>
 

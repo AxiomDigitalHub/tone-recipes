@@ -139,7 +139,7 @@ const FAQ = [
   },
   {
     q: "Will there be more Set Packs?",
-    a: "Yes. Blues, Classic Rock, Metal, and Indie are next. Buy them à la carte ($19 each), or get every pack we ship included with Pro — for as long as you're subscribed.",
+    a: "Yes. Classic Rock, 90s/Alternative, and Blues are next. Buy them à la carte ($19 each), or get every pack we ship included with Pro — for as long as you're subscribed.",
   },
   {
     q: "What about people on the old (2026) Tone Pass or Pro tiers?",

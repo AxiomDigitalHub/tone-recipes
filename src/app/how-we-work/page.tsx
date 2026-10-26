@@ -28,9 +28,9 @@ export default function HowWeWorkPage() {
         <section>
           <p>
             Fader & Knob is an experiment in what happens when one person
-            directs AI to build an entire guitar resource. We use AI
-            extensively — for research, writing, preset generation, and code —
-            and we think you should know exactly how. The running log, with
+            directs AI to build an entire guitar resource. AI does the
+            research, the writing, the preset generation, and the code, and
+            this page explains how. The running log, with
             every number generated from the repository, lives at{" "}
             <Link
               href="/experiment"
@@ -69,10 +69,8 @@ export default function HowWeWorkPage() {
               <span className="mt-1 shrink-0 text-[var(--amber-2)]">3.</span>
               <div>
                 <strong className="text-[var(--ink)]">Writes blog content.</strong>{" "}
-                Our blog posts are written by AI editorial voices — each with a
-                distinct perspective and area of expertise. They are not real
-                people. They are AI writers with consistent styles tuned to
-                specific topics.
+                Our blog posts are written by AI editorial voices, each tuned
+                to a topic and a style. They are not real people.
               </div>
             </li>
             <li className="flex gap-3">
@@ -80,8 +78,8 @@ export default function HowWeWorkPage() {
               <div>
                 <strong className="text-[var(--ink)]">Translates across platforms.</strong>{" "}
                 When we create a recipe for one modeler, AI maps the signal chain
-                to equivalent blocks on other platforms — matching amp models,
-                effect types, and parameter ranges.
+                to the closest blocks on other platforms: amp models, effect
+                types, and parameter ranges.
               </div>
             </li>
           </ul>
@@ -96,7 +94,7 @@ export default function HowWeWorkPage() {
               <div>
                 <strong className="text-[var(--ink)]">Run the correction loop.</strong>{" "}
                 When a preset fails to load, a setting reads wrong, or a reader
-                flags an error, it gets fixed — and the fix ships as a public
+                flags an error, it gets fixed and the fix ships as a public
                 commit. The correction count sits on{" "}
                 <Link
                   href="/experiment"
@@ -112,7 +110,7 @@ export default function HowWeWorkPage() {
               <div>
                 <strong className="text-[var(--ink)]">Curate and direct.</strong>{" "}
                 A human decides which songs to cover, which tones matter, and
-                what quality bar to hit. AI executes; humans set the standard.
+                what quality bar to hit.
               </div>
             </li>
             <li className="flex gap-3">
@@ -120,9 +118,8 @@ export default function HowWeWorkPage() {
               <div>
                 <strong className="text-[var(--ink)]">Own the mistakes.</strong>{" "}
                 Research is cross-checked against gear lists, live footage, and
-                studio documentation — and when it&apos;s still wrong, the
-                error is acknowledged and corrected in the open, not quietly
-                swapped.
+                studio documentation. When it&apos;s still wrong, the error is
+                acknowledged and corrected in the open.
               </div>
             </li>
           </ul>
@@ -132,16 +129,16 @@ export default function HowWeWorkPage() {
         <section>
           <h2 className="mb-4 text-xl font-bold text-[var(--ink)]">Why This Approach</h2>
           <p>
-            Building 50 tone recipes across multiple platforms with detailed
-            signal chains, settings, and downloadable presets would take a
-            traditional team months. AI lets us move faster, cover more ground,
-            and keep prices low — and the public correction record keeps the
-            output honest: every fix is a visible commit, not a quiet edit.
+            Researching a song&apos;s gear, mapping the chain, and translating
+            it for six platforms would take a traditional team weeks per
+            recipe. AI lets one person cover far more songs and keep prices
+            low. The public correction record is the check on that speed:
+            every fix is a visible commit.
           </p>
           <p className="mt-4">
-            We think this is more honest than a polished marketing page that
-            hides how the sausage gets made. The tones work. The presets load.
-            The settings are accurate. How they got there is part of the story.
+            We&apos;d rather show how the sausage gets made than hide it behind
+            a polished marketing page. How a recipe got made is part of
+            judging whether to trust it.
           </p>
         </section>
 
@@ -149,11 +146,10 @@ export default function HowWeWorkPage() {
         <section>
           <h2 className="mb-4 text-xl font-bold text-[var(--ink)]">About Our Writers</h2>
           <p>
-            Our blog posts are written by AI editorial voices — not real people.
-            Each voice has a consistent style and area of focus (gear reviews,
-            tone science, playing technique, etc.), which makes the content more
-            readable than a single generic AI output. We chose distinct voices
-            over a single byline because it produces better, more focused writing.
+            Our blog posts are written by AI editorial voices, not real people.
+            Each voice sticks to one area (gear reviews, tone science, playing
+            technique) and one style. We split them up because one generic
+            byline wrote blander posts.
           </p>
           <p className="mt-4">
             Posts are generated from cited research and corrected in public
@@ -166,12 +162,12 @@ export default function HowWeWorkPage() {
 
         {/* The Bottom Line */}
         <section className="rounded-2xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-8">
-          <h2 className="mb-3 text-xl font-bold text-[var(--ink)]">The Bottom Line</h2>
+          <h2 className="mb-3 text-xl font-bold text-[var(--ink)]">Judge the output</h2>
           <p>
             AI researches. AI writes. AI generates presets. A human sets the
-            direction, and the record — what worked and what got fixed — is
-            public. Judge us by the output: load a preset, dial in a tone, and
-            see if it gets you closer to the sound you hear in your head.
+            direction, and the record of what worked and what got fixed is
+            public. Load a preset, dial in a tone, and see if it gets you
+            closer to the sound you hear in your head.
           </p>
         </section>
       </div>

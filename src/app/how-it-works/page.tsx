@@ -18,45 +18,45 @@ const STEPS = [
     no: "1",
     title: "We chase the tone",
     body:
-      "Every recipe starts with the historical record: producer interviews, gear lists, period photos, live footage, and (where it exists) the actual session log. Our AI research pipeline reads all of it and reconstructs what was actually plugged into what — era-correct, source-cited, and honest about what's inferred versus documented. When the record is thin, the recipe says so.",
+      "Every recipe starts with the historical record: producer interviews, gear lists, period photos, live footage, and the session log when one exists. Our AI research pipeline reads all of it and works out what was plugged into what, with sources cited and inferred settings marked as inferred. When the record is thin, the recipe says so.",
     tag: "Research",
   },
   {
     no: "2",
     title: "We map the chain",
     body:
-      "Every block, every knob, every tap-tempo. The full signal path — guitar, drives, amp, cab, mic placement, post effects — documented like a service manual. If the original tone uses snapshot switching, parallel routing, or a specific footswitch assignment, we say so. You shouldn't have to reverse-engineer it.",
+      "Every block, every knob, every tap-tempo. The full signal path (guitar, drives, amp, cab, mic placement, post effects) is documented like a service manual. If the original tone uses snapshot switching, parallel routing, or a specific footswitch assignment, the recipe spells it out.",
     tag: "Schematic",
   },
   {
     no: "3",
     title: "You get the numbers",
     body:
-      "The chain gets translated into the exact block names and parameter values your modeler expects — Helix, Quad Cortex, TONEX, Fractal, Kemper, Katana, or your physical pedalboard. dB is dB. Hz is Hz. Time is ms. Download the patch, import once, and you're playing.",
+      "The chain gets translated into the block names and parameter values your modeler uses: Helix, Quad Cortex, TONEX, Fractal, Kemper, Katana, or a physical pedalboard. dB is dB, Hz is Hz, time is ms. Helix, Quad Cortex, and Katana players download a preset; everyone else dials the numbers in by hand.",
     tag: "For your rig",
   },
 ];
 
 const PROMISES = [
   {
-    head: "Sourced, not guessed",
+    head: "Sources cited",
     body:
-      "Every recipe cites its sources — producer interviews, equipboard listings, gear photos, period-correct mods. When we don't know, we say so. And when we get one wrong, the fix ships as a public commit.",
+      "Every recipe cites its sources: producer interviews, Equipboard listings, gear photos, period-correct mods. When we don't know, we say so. When we get one wrong, the fix ships as a public commit.",
   },
   {
     head: "Era-correct gear",
     body:
-      "We don't list signature pickups on a recording from 1969. The Hetfield Master of Puppets recipe ships with the Jackson King V's stock pickups, not the EMG 81/60 he switched to on …And Justice For All.",
+      "We don't list signature pickups on a recording from 1969. The Hetfield Master of Puppets recipe leaves out the EMG 81/60 set he moved to on …And Justice For All.",
   },
   {
-    head: "Real ranges, not 0–10",
+    head: "Real units on every knob",
     body:
-      "Every knob value reads in the actual unit your modeler expects. dB on the cab Level. Hz on the high-pass. Milliseconds on the delay. Generic 0–10 marks are the enemy of repeatable tone.",
+      "dB on the cab level, Hz on the high-pass, milliseconds on the delay. A generic 0–10 mark is impossible to repeat.",
   },
   {
     head: "Cab + mic placement",
     body:
-      "When the original tone is dual-mic'd (SRV's 4x10 Vibroverb with a Sennheiser 421 close + a Royer 121 ribbon further back), the recipe ships in WithPan and the second mic is in the same patch.",
+      "When the original tone is dual-mic'd (SRV's 4x10 Vibroverb with a Sennheiser 421 close and a Royer 121 ribbon further back), the second mic is built into the same Helix patch.",
   },
 ];
 
@@ -76,7 +76,7 @@ export default function HowItWorksPage() {
 
         <p className="hiw-lede">
           Three steps from your favorite song to your rig. We do the
-          listening. We do the chain. You get the numbers.
+          listening and map the chain; you get the numbers.
         </p>
 
         <ol className="how-steps hiw-steps">
@@ -109,8 +109,8 @@ export default function HowItWorksPage() {
         <section className="hiw-cta">
           <h2 className="display">Ready to play</h2>
           <p>
-            Browse the archive, pick a tone, dial it in. Or read the field
-            notes if you want to go deeper into the why.
+            Pick a song from the archive and dial it in. The blog goes
+            deeper on why the settings work.
           </p>
           <div className="hero-cta-row">
             <Link href="/browse" className="hero-cta hero-cta-primary">
@@ -121,7 +121,7 @@ export default function HowItWorksPage() {
             </Link>
           </div>
           <p style={{ marginTop: 24, fontSize: 14, color: "var(--ink-muted)" }}>
-            Curious who&apos;s behind this? An AI, mostly — openly.{" "}
+            Curious who&apos;s behind this? Mostly an AI, and we say so.{" "}
             <Link
               href="/how-we-work"
               style={{ color: "var(--amber-2)", textDecoration: "underline" }}

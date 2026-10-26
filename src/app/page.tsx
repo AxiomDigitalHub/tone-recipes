@@ -163,42 +163,6 @@ export default function PreviewIndex() {
         </div>
       </section>
 
-      {/* How this works — three-step editorial feature */}
-      <section className="how container" id="how-it-works">
-        <div className="how-head">
-          <h2 className="display">
-            Three steps from your favorite song to your rig
-          </h2>
-          <span className="section-rule" aria-hidden="true" />
-        </div>
-        <ol className="how-steps">
-          <li className="how-step">
-            <span className="how-step-no" aria-hidden="true">1</span>
-            <h3 className="how-step-title">Find your tone</h3>
-            <p className="how-step-body">
-              Search by song, artist, or guitarist. Every recipe is built
-              from the original recording: the gear, the chain, the sources.
-            </p>
-          </li>
-          <li className="how-step">
-            <span className="how-step-no" aria-hidden="true">2</span>
-            <h3 className="how-step-title">Download it</h3>
-            <p className="how-step-body">
-              Grab the preset for Helix, Quad Cortex, or Katana. On TONEX,
-              Fractal, Kemper, or pedalboards, dial it in by hand.
-            </p>
-          </li>
-          <li className="how-step">
-            <span className="how-step-no" aria-hidden="true">3</span>
-            <h3 className="how-step-title">Rock on</h3>
-            <p className="how-step-body">
-              Plug in and play along with the record. Tweak to taste from
-              there. Then turn it right up to 11.
-            </p>
-          </li>
-        </ol>
-      </section>
-
       {/* Audition picker — LP rack of real recipes */}
       <section className="audition container">
         <div className="audition-head">
@@ -266,6 +230,42 @@ export default function PreviewIndex() {
             Browse all recipes <span aria-hidden="true">→</span>
           </Link>
         </div>
+      </section>
+
+      {/* How this works — three-step editorial feature */}
+      <section className="how container" id="how-it-works">
+        <div className="how-head">
+          <h2 className="display">
+            Three steps from your favorite song to your rig
+          </h2>
+          <span className="section-rule" aria-hidden="true" />
+        </div>
+        <ol className="how-steps">
+          <li className="how-step">
+            <span className="how-step-no" aria-hidden="true">1</span>
+            <h3 className="how-step-title">Find your tone</h3>
+            <p className="how-step-body">
+              Search by song, artist, or guitarist. Every recipe is built
+              from the original recording: the gear, the chain, the sources.
+            </p>
+          </li>
+          <li className="how-step">
+            <span className="how-step-no" aria-hidden="true">2</span>
+            <h3 className="how-step-title">Download it</h3>
+            <p className="how-step-body">
+              Grab the preset for Helix, Quad Cortex, or Katana. On TONEX,
+              Fractal, Kemper, or pedalboards, dial it in by hand.
+            </p>
+          </li>
+          <li className="how-step">
+            <span className="how-step-no" aria-hidden="true">3</span>
+            <h3 className="how-step-title">Rock on</h3>
+            <p className="how-step-body">
+              Plug in and play along with the record. Tweak to taste from
+              there. Then turn it right up to 11.
+            </p>
+          </li>
+        </ol>
       </section>
 
       {/* Newsletter signup — one piece carried over from production */}

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/request" },
   title: "Request a tone — Fader & Knob",
   description:
-    "Tell us what tone you want next. Submit a song, the community upvotes it, we cut a verified recipe.",
+    "Tell us what tone you want next. Submit a song, the community upvotes it, and we research and publish the recipe.",
   openGraph: {
     title: "Request a tone — Fader & Knob",
     description:

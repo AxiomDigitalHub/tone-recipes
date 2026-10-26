@@ -97,9 +97,9 @@ export default function UpgradePromptModal({
 
         <ul className="mb-5 space-y-1.5 text-sm">
           {[
-            "Unlimited preset downloads (.hlx, .tsl)",
+            "Unlimited preset downloads",
             "Unlimited saved recipes",
-            "New recipes every week",
+            "Unlimited recipe PDFs",
             "Ad-free, cancel anytime",
           ].map((bullet) => (
             <li key={bullet} className="flex items-start gap-2">

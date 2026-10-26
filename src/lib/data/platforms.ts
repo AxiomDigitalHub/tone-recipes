@@ -18,27 +18,27 @@ export interface PlatformMeta {
 const PLATFORM_META: Record<string, { manufacturer: string; tagline: string }> = {
   helix: {
     manufacturer: "Line 6",
-    tagline: "The amp-modeler that rewrote the rulebook on live guitar tone.",
+    tagline: "Line 6’s flagship floor modeler, and the HX Stomp’s big brother.",
   },
   quad_cortex: {
     manufacturer: "Neural DSP",
-    tagline: "Neural captures meet powerful modeling in a pedalboard-sized powerhouse.",
+    tagline: "Neural DSP’s amp models plus captures of your own rig, in a pedalboard-sized unit.",
   },
   tonex: {
     manufacturer: "IK Multimedia",
-    tagline: "AI-powered Tone Models that capture the soul of real amps and pedals.",
+    tagline: "Tone Models: AI-trained captures of real amps and pedals.",
   },
   kemper: {
     manufacturer: "Kemper",
-    tagline: "The original profiling amp. One box, every amp you have ever played.",
+    tagline: "The original profiling amp, built around captures of real rigs.",
   },
   fractal: {
     manufacturer: "Fractal Audio",
-    tagline: "Studio-grade amp modeling with surgical precision and endless routing.",
+    tagline: "Axe-Fx and FM-series modelers with deep amp parameters and a free-form routing grid.",
   },
   katana: {
     manufacturer: "Boss",
-    tagline: "Affordable, gig-ready modeling with a hidden depth that rewards digging in.",
+    tagline: "Boss’s affordable combo, with far more under the hood than the front panel shows.",
   },
 };
 

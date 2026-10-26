@@ -106,23 +106,23 @@ export default function PreviewPlatformsIndex() {
             position, the pedals in front, the amp and its knob positions,
             the cabinet and where the mic sat. That chain is the source of
             truth. Every platform page below is that same chain re-expressed
-            in the block names and parameter ranges your unit actually uses
-            — a Tube Screamer becomes a Screamer on Helix and a TS808 on
-            Fractal, and the drive knob is converted into whatever scale
-            that block reports, not copied across as a number that happens
+            in the block names and parameter ranges your unit uses. A Tube
+            Screamer becomes a Screamer on Helix and a TS808 on Fractal, and
+            the drive knob is converted into whatever scale that block
+            reports instead of being copied across as a number that happens
             to look right.
           </p>
 
           <h3>Where you get a file, and where you get settings</h3>
           <p>
             Helix, Quad Cortex, and Boss Katana recipes build a preset file
-            you can import — a <code>.hlx</code>, a bundle, or a{" "}
-            <code>.tsl</code> — because those formats are documented well
+            you can import (a <code>.hlx</code>, a bundle, or a{" "}
+            <code>.tsl</code>) because those formats are documented well
             enough to write correctly. TONEX, Fractal, and Kemper recipes
             give you the full block list and every value to dial in by hand.
-            That split is a limitation of the file formats, not of the
-            research behind the recipe, and it&apos;s marked on each recipe
-            before you click anything.
+            The split comes from the file formats; the research behind the
+            recipe is the same either way, and each recipe marks which you
+            get before you click anything.
           </p>
 
           <h3>What survives the port, and what doesn&apos;t</h3>
@@ -133,18 +133,17 @@ export default function PreviewPlatformsIndex() {
             Exact captures don&apos;t. A Kemper profile of a specific 1959
             Bassman and a Helix model of the same amp are different pieces
             of software, so the recipe gives you the closest model plus the
-            settings that get its behaviour into the same place, not a
-            claim that they are identical. Where a platform has no
-            equivalent block at all, the chain says so rather than
-            substituting something quietly.
+            settings that get its behavior into the same place. Where a
+            platform has no equivalent block at all, the chain says so
+            instead of quietly substituting something.
           </p>
 
           <h3>Don&apos;t own a modeler?</h3>
           <p>
             The pedalboard view drops the translation layer and shows the
-            original hardware chain — real pedals, real amp, real settings.
-            It&apos;s the same recipe, which is the point: the modeler
-            versions are derived from it, not the other way round. You can
+            original hardware chain: real pedals, real amp, real settings.
+            It&apos;s the same recipe, and the modeler versions are derived
+            from it. You can
             also put two chains next to each other on the{" "}
             <Link href="/compare">compare page</Link> to see how a rig
             changes from one player to another, or start from{" "}

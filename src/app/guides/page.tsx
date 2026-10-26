@@ -128,9 +128,8 @@ export default function GuidesIndexPage() {
           The reference shelf for guitar tone.
         </h1>
         <p className="archive-lede">
-          Eight pillar guides. Each one a canonical reference for its topic —
-          a curated collection of our deepest posts, organized into a single
-          teaching arc.
+          Eight guides, each one collecting our longest posts on a topic and
+          putting them in the order you&apos;d want to read them.
         </p>
       </header>
 

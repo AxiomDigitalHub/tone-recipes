@@ -36,12 +36,12 @@ export default function AboutPage() {
 
         <div className="about-mission">
           <p className="about-lede">
-            Fader &amp; Knob is the tone library and field manual for guitar
-            players who use modelers. We document iconic recordings — the
-            full signal chain, every knob, every snapshot — and translate
-            the settings for your Helix, Quad Cortex, TONEX, Fractal,
-            Kemper, Katana, or pedalboard. No guessing. No 0–10 marks.
-            Just the numbers.
+            Fader &amp; Knob is a tone library for guitar players who use
+            modelers. We document how famous recordings were made (the full
+            signal chain, every knob, every snapshot) and translate the
+            settings for your Helix, Quad Cortex, TONEX, Fractal, Kemper,
+            Katana, or pedalboard. You get the numbers instead of a vague
+            &ldquo;set the gain around 7.&rdquo;
           </p>
         </div>
 
@@ -54,10 +54,10 @@ export default function AboutPage() {
             <div className="hiw-promise">
               <h3 className="hiw-promise-head">Sources cited, corrections public</h3>
               <p className="hiw-promise-body">
-                Every recipe cites its sources — producer interviews,
-                equipboard listings, period photos, the actual session log
-                where it exists. When we don&apos;t know, we say so. And when
-                we get one wrong, the fix ships as a public commit — the{" "}
+                Every recipe cites its sources: producer interviews,
+                Equipboard listings, period photos, and the session log when
+                one exists. When we don&apos;t know, we say so. When we get
+                one wrong, the fix ships as a public commit, and the{" "}
                 <Link href="/experiment">correction log</Link> is part of the
                 site.
               </p>
@@ -66,25 +66,22 @@ export default function AboutPage() {
               <h3 className="hiw-promise-head">Era-correct gear</h3>
               <p className="hiw-promise-body">
                 We don&apos;t list signature pickups on a recording from
-                1969. The Hetfield Master of Puppets recipe ships with the
-                Jackson King V&apos;s stock pickups, not the EMG 81/60 he
-                switched to on …And Justice For All.
+                1969. The Hetfield Master of Puppets recipe leaves out the
+                EMG 81/60 set he moved to on …And Justice For All.
               </p>
             </div>
             <div className="hiw-promise">
               <h3 className="hiw-promise-head">Real ranges, not 0–10</h3>
               <p className="hiw-promise-body">
-                Every knob value reads in the actual unit your modeler
-                expects. dB. Hz. ms. Generic 0–10 marks are the enemy of
-                repeatable tone.
+                Every knob value reads in the unit your modeler shows: dB,
+                Hz, ms. A generic 0–10 mark is impossible to repeat.
               </p>
             </div>
             <div className="hiw-promise">
-              <h3 className="hiw-promise-head">Weekly publishing</h3>
+              <h3 className="hiw-promise-head">Recipes get revisited</h3>
               <p className="hiw-promise-body">
-                New recipes and field notes ship every week. The archive
-                grows. Old recipes get re-edited as new research surfaces
-                — we don&apos;t set and forget.
+                When better research turns up, an old recipe gets re-edited,
+                and the change is logged like any other fix.
               </p>
             </div>
           </div>

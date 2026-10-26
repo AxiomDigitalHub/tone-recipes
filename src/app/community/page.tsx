@@ -19,14 +19,14 @@ const sections = [
     eyebrow: "Read",
     title: "Field Notes",
     description:
-      "Editorial blog with tone recipes, gear guides, signal-chain theory, and weekly new posts.",
+      "Gear guides, signal-chain theory, and the stories behind the recipes.",
     href: "/blog",
   },
   {
     eyebrow: "Browse",
     title: "Tone recipes",
     description:
-      "The full catalog. Signal chains, exact settings, presets for Helix and Katana.",
+      "The full catalog. Signal chains, exact settings, presets for Helix, Quad Cortex, and Katana.",
     href: "/browse",
   },
   {
@@ -54,8 +54,8 @@ export default function CommunityPage() {
           </div>
           <h1 className="recipe-title display">Community</h1>
           <p className="recipe-summary">
-            Connect with other guitarists, share your tones, and level up
-            together.
+            Request a tone, publish your own chain, or tell us what we got
+            wrong.
           </p>
         </div>
 
@@ -98,9 +98,9 @@ export default function CommunityPage() {
           <p>
             There isn&apos;t a forum here. There was one; it ran for months
             without meaningful discussion and was retired in May 2026, and
-            pretending otherwise would waste your time. What&apos;s left is
-            narrower and actually gets used: ways to put something into the
-            archive, or to correct what&apos;s already in it.
+            pretending otherwise would waste your time. What&apos;s left gets
+            used: ways to add something to the archive, or to correct
+            what&apos;s already in it.
           </p>
 
           <h3>Ask for a tone</h3>
@@ -108,9 +108,8 @@ export default function CommunityPage() {
             If a song isn&apos;t covered,{" "}
             <Link href="/request">request it</Link>. Requests are researched
             against interviews, gear lists, and live footage, then published
-            as a full recipe with its sources attached — the same pipeline
-            everything else in the archive goes through, not a private
-            reply.
+            as a full recipe with its sources attached. It goes through the
+            same pipeline as everything else in the archive.
           </p>
 
           <h3>Publish your own chain</h3>
@@ -125,14 +124,13 @@ export default function CommunityPage() {
 
           <h3>Report something wrong</h3>
           <p>
-            Corrections are the part that matters most. Recipes here are
-            researched and generated rather than played into a mic by a
-            session engineer, so errors happen — a wrong pickup position, a
-            model that doesn&apos;t exist on your firmware, a value outside
-            the block&apos;s range. Reported mistakes get fixed as public
+            Corrections matter most. Recipes here are researched and
+            generated, not played into a mic by a session engineer, so errors
+            happen: a wrong pickup position, a model that doesn&apos;t exist
+            on your firmware, a value outside the block&apos;s range. Reported mistakes get fixed as public
             commits and counted on{" "}
             <Link href="/experiment">the experiment page</Link>, next to
-            everything else. Nothing is quietly swapped.
+            everything else.
           </p>
         </section>
       </div>

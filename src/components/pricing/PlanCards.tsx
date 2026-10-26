@@ -22,15 +22,15 @@ type Interval = "annual" | "monthly";
 
 const FREE_FEATURES = [
   "Browse every tone recipe",
-  "5 preset downloads / month (.hlx, .tsl)",
+  "5 preset downloads / month (Helix, Quad Cortex, Katana)",
   "10 recipe PDFs / month",
   "Unlimited saved recipes",
-  "Community forum & comments",
+  "Recipe comments",
 ];
 
 const PASS_FEATURES = [
   "Everything in Free",
-  "Unlimited preset downloads (.hlx, .tsl)",
+  "Unlimited preset downloads (Helix, Quad Cortex, Katana)",
   "Unlimited recipe PDFs",
   "Early access — new recipes 1 week before public",
   "Members-only deep-dive content (A/Bs, video breakdowns)",

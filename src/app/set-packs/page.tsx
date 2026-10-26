@@ -25,7 +25,7 @@ const packs = [
   {
     slug: "90s-alternative",
     name: "90s / Alternative",
-    description: "Nirvana to Pearl Jam to RHCP. Grunge, alternative, and everything in between.",
+    description: "Nirvana, Pearl Jam, RHCP, Smashing Pumpkins: grunge and alt-rock staples.",
     status: "coming-soon" as const,
   },
   {

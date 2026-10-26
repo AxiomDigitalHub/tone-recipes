@@ -26,10 +26,10 @@ export const TIERS: Record<UserRole, TierConfig> = {
     price: null,
     features: [
       "Browse all tone recipes",
-      "5 preset downloads / month (.hlx, .tsl)",
+      "5 preset downloads / month (Helix, Quad Cortex, Katana)",
       "Unlimited saved recipes",
       "Recipe PDFs",
-      "Community forum & comments",
+      "Recipe comments",
     ],
     limits: {
       savedRecipes: -1,
