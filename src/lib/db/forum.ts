@@ -1,5 +1,6 @@
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { isSupabaseConfigured } from "./client";
+import { fetchAuthors, withAuthors } from "./authors";
 import type {
   ForumCategory,
   ForumThread,
@@ -107,7 +108,7 @@ export async function getThreadsByCategory(
   // Get paginated threads with author + category
   const { data, error } = await supabase
     .from("forum_threads")
-    .select("*, profiles!forum_threads_user_id_fkey(display_name, username, avatar_url), forum_categories!forum_threads_category_id_fkey(name, slug)")
+    .select("*, forum_categories!forum_threads_category_id_fkey(name, slug)")
     .eq("category_id", categoryId)
     .order("is_pinned", { ascending: false })
     .order("last_reply_at", { ascending: false, nullsFirst: false })
@@ -115,6 +116,7 @@ export async function getThreadsByCategory(
 
   if (error || !data) return { threads: [], total: count ?? 0 };
 
+  const authors = await fetchAuthors(supabase, data.map((r: Record<string, unknown>) => r.user_id as string));
   const threads = data.map((row: Record<string, unknown>) => ({
     id: row.id as string,
     category_id: row.category_id as string,
@@ -129,7 +131,7 @@ export async function getThreadsByCategory(
     last_reply_at: (row.last_reply_at as string) ?? null,
     created_at: row.created_at as string,
     updated_at: row.updated_at as string,
-    author: row.profiles as ForumThread["author"],
+    author: authors.get(row.user_id as string),
     category: row.forum_categories as ForumThread["category"],
   })) as ForumThread[];
 
@@ -148,7 +150,7 @@ export async function getThread(
 
   const { data, error } = await supabase
     .from("forum_threads")
-    .select("*, profiles!forum_threads_user_id_fkey(display_name, username, avatar_url)")
+    .select("*")
     .eq("slug", threadSlug)
     .single();
 
@@ -177,7 +179,7 @@ export async function getThread(
     last_reply_at: (row.last_reply_at as string) ?? null,
     created_at: row.created_at as string,
     updated_at: row.updated_at as string,
-    author: row.profiles as ForumThread["author"],
+    author: (await fetchAuthors(supabase, [row.user_id as string])).get(row.user_id as string),
   } as ForumThread;
 }
 
@@ -204,11 +206,12 @@ export async function createThread(params: {
       slug,
       body: params.body,
     })
-    .select("*, profiles!forum_threads_user_id_fkey(display_name, username, avatar_url)")
+    .select("*")
     .single();
 
   if (error || !data) return null;
-  return data as ForumThread;
+  const [thread] = await withAuthors(supabase, [data as ForumThread]);
+  return thread;
 }
 
 /**
@@ -222,12 +225,13 @@ export async function getRecentThreads(
   const supabase = getClient();
   const { data, error } = await supabase
     .from("forum_threads")
-    .select("*, profiles!forum_threads_user_id_fkey(display_name, username, avatar_url), forum_categories!forum_threads_category_id_fkey(name, slug)")
+    .select("*, forum_categories!forum_threads_category_id_fkey(name, slug)")
     .order("created_at", { ascending: false })
     .limit(limit ?? 10);
 
   if (error || !data) return [];
 
+  const authors = await fetchAuthors(supabase, data.map((r: Record<string, unknown>) => r.user_id as string));
   return data.map((row: Record<string, unknown>) => ({
     id: row.id as string,
     category_id: row.category_id as string,
@@ -242,7 +246,7 @@ export async function getRecentThreads(
     last_reply_at: (row.last_reply_at as string) ?? null,
     created_at: row.created_at as string,
     updated_at: row.updated_at as string,
-    author: row.profiles as ForumThread["author"],
+    author: authors.get(row.user_id as string),
     category: row.forum_categories as ForumThread["category"],
   })) as ForumThread[];
 }
@@ -277,13 +281,14 @@ export async function getReplies(
   // Get paginated replies
   const { data, error } = await supabase
     .from("forum_replies")
-    .select("*, profiles!forum_replies_user_id_fkey(display_name, username, avatar_url)")
+    .select("*")
     .eq("thread_id", threadId)
     .order("created_at", { ascending: true })
     .range(from, to);
 
   if (error || !data) return { replies: [], total: count ?? 0 };
 
+  const authors = await fetchAuthors(supabase, data.map((r: Record<string, unknown>) => r.user_id as string));
   const replies = data.map((row: Record<string, unknown>) => ({
     id: row.id as string,
     thread_id: row.thread_id as string,
@@ -293,7 +298,7 @@ export async function getReplies(
     upvotes: row.upvotes as number,
     created_at: row.created_at as string,
     updated_at: row.updated_at as string,
-    author: row.profiles as ForumReply["author"],
+    author: authors.get(row.user_id as string),
   })) as ForumReply[];
 
   return { replies, total: count ?? 0 };
@@ -320,10 +325,11 @@ export async function createReply(params: {
       user_id: params.user_id,
       body: params.body,
     })
-    .select("*, profiles!forum_replies_user_id_fkey(display_name, username, avatar_url)")
+    .select("*")
     .single();
 
   if (error || !data) return null;
 
-  return data as ForumReply;
+  const [reply] = await withAuthors(supabase, [data as ForumReply]);
+  return reply;
 }
