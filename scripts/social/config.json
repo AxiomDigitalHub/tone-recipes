@@ -1,7 +1,7 @@
 {
   "_note": "Daniel's knobs for social v2. profileReady gates every live publish; approvalMode puts posts in Zernio pending_approval. Timezone is an assumption (America/Chicago) — confirm.",
   "timezone": "America/Chicago",
-  "profileReady": false,
+  "profileReady": true,
   "approvalMode": true,
   "platforms": { "instagram": true, "pinterest": false },
   "pinterestBoardId": null,
