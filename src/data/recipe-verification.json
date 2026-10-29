@@ -1872,5 +1872,29 @@
     ],
     "droppedCount": 0,
     "substitutedCount": 7
+  },
+  "friedman-tornado-of-souls-solo": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 8
+  },
+  "mustaine-symphony-of-destruction-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 8
+  },
+  "cantrell-them-bones-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 8
   }
 }

@@ -818,6 +818,20 @@ export const artists: Artist[] = [
     genres: ["new-wave", "rock", "post-punk"],
     image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/a4/67/ba/a467ba62-87df-9d10-98d2-c517f68ac870/16UMGIM60882.rgb.jpg/600x600bb.jpg",
   },
+  {
+    name: "Marty Friedman",
+    slug: "marty-friedman",
+    bio: "Megadeth's lead guitarist from 1990 to 2000, and the player whose exotic, Eastern-influenced scales and wide, vocal vibrato set the Rust in Peace era apart from every other thrash record. Before Megadeth he played in Hawaii and Cacophony. When he joined, he repainted his 1985 Jackson Kelly black and cut it down to one bridge humbucker and one volume knob, and that guitar is on Rust in Peace and Countdown to Extinction.",
+    genres: ["thrash-metal", "heavy-metal", "instrumental-rock"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/df/fe/a7/dffea722-e8d7-b2ac-2b31-e207fb738b8e/13UABIM36806.rgb.jpg/600x600bb.jpg",
+  },
+  {
+    name: "Dave Mustaine",
+    slug: "dave-mustaine",
+    bio: "Megadeth's founder, singer, songwriter and rhythm guitarist, known for fast, angular, picking-hand-driven riffs and a sound built on Jackson V guitars. By Countdown to Extinction in 1992 he and Marty Friedman had moved to rack rigs, a Custom Audio Electronics 3+ preamp into a VHT power amp. That's why the record sounds tighter and less saturated than the thrash albums before it.",
+    genres: ["thrash-metal", "heavy-metal"],
+    image_url: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/41/90/ca/4190ca89-8a22-7ccc-4183-f6556f04ca80/23UMGIM14872.rgb.jpg/600x600bb.jpg",
+  },
 ];
 
 export const songs: Song[] = [
@@ -4229,6 +4243,43 @@ export const songs: Song[] = [
     difficulty: "intermediate",
     external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=the+police+every+breath+you+take",
     external_video_url: "https://www.youtube.com/results?search_query=every+breath+you+take+guitar+lesson+andy+summers",
+  },
+  {
+    artist_slug: "marty-friedman",
+    title: "Tornado of Souls",
+    slug: "tornado-of-souls-megadeth",
+    album: "Rust in Peace",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/df/fe/a7/dffea722-e8d7-b2ac-2b31-e207fb738b8e/13UABIM36806.rgb.jpg/600x600bb.jpg",
+    year: 1990,
+    genres: ["thrash-metal", "heavy-metal"],
+    difficulty: "advanced",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=megadeth+tornado+of+souls",
+    external_video_url: "https://www.youtube.com/results?search_query=tornado+of+souls+solo+guitar+lesson+marty+friedman",
+  },
+  {
+    artist_slug: "dave-mustaine",
+    title: "Symphony of Destruction",
+    slug: "symphony-of-destruction-megadeth",
+    album: "Countdown to Extinction",
+    album_art_url: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/41/90/ca/4190ca89-8a22-7ccc-4183-f6556f04ca80/23UMGIM14872.rgb.jpg/600x600bb.jpg",
+    year: 1992,
+    genres: ["thrash-metal", "heavy-metal"],
+    difficulty: "beginner",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=megadeth+symphony+of+destruction",
+    external_video_url: "https://www.youtube.com/results?search_query=symphony+of+destruction+guitar+lesson+megadeth",
+  },
+  {
+    artist_slug: "jerry-cantrell",
+    title: "Them Bones",
+    slug: "them-bones-alice-in-chains",
+    album: "Dirt",
+    album_art_url:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/54/26/62/5426627b-4707-7867-acc0-ce616d250381/074645247526.jpg/600x600bb.jpg",
+    year: 1992,
+    genres: ["grunge", "alternative-metal", "hard-rock"],
+    difficulty: "intermediate",
+    external_tab_url: "https://www.songsterr.com/a/wa/search?pattern=alice+in+chains+them+bones",
+    external_video_url: "https://www.youtube.com/results?search_query=them+bones+alice+in+chains+guitar+lesson",
   },
 ];
 
@@ -78630,6 +78681,648 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes: "Capture-driven. JC-120 capture, then a dry/chorused stereo split.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Marty Friedman (Megadeth) - Tornado of Souls (solo) ----
+  {
+    id: "seed-friedman-tornado-of-souls",
+    song_slug: "tornado-of-souls-megadeth",
+    title: "Marty Friedman's Tornado of Souls Solo Tone",
+    slug: "friedman-tornado-of-souls-solo",
+    created_at: "2026-10-29",
+    description:
+      "The solo people call the best in thrash came from a stripped-down guitar: Friedman's 1985 Jackson Kelly, which he had repainted black and rewired to one bridge humbucker and one volume knob when he joined Megadeth. His amp for the Rust in Peace sessions is listed as a Bogner Triple Giant rack preamp. Expect a smooth, saturated, mid-forward lead, with the exotic phrasing and vibrato doing what a pedalboard would do for most players. There are almost no effects on it.",
+    tone_context: "solo",
+    attribution_confidence: "documented",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "1985 Jackson Kelly San Dimas ('#2')",
+      pickup_config: "H",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: "not documented",
+      notable_mods:
+        "From Friedman's own certificate of authenticity, quoted by Guitar.com and Guitar Player when the guitar was sold: bought in Hawaii around 1985 with a tiger-stripe finish, two humbuckers and two tone pots, then 'repainted black and converted into a single humbucker with one volume pot' when he joined Megadeth. Both outlets say it is the guitar heard on Rust in Peace and Countdown to Extinction. The pickup is reported as a Seymour Duncan JB (an Equipboard note and a Seymour Duncan forum thread), but that isn't confirmed in Friedman's own words. With no tone control and one pickup, all the shading comes from the volume knob and the picking hand.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Bogner Triple Giant rack preamp (#11 of 25)",
+        icon_type: "rack_preamp",
+        icon_color: "#111827",
+        is_in_effects_loop: false,
+        settings: { Gain: 7, Bass: 5, Middle: 7, Treble: 6, Presence: 5 },
+        notes:
+          "Friedman's gear list ties this unit to the Rust in Peace album and tour. It's a Bogner-designed three-channel tube rack preamp, the same hot-rodded-Marshall family as the Bogner mods of that era. No settings are documented, so these are a starting point. Keep the mids high. A lead this melodic needs midrange to sing, and a scooped metal setting turns his bends thin and fizzy.",
+      },
+      {
+        position: 2,
+        category: "power_amp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Rack tube power amp (not documented)",
+        icon_type: "rack_power",
+        icon_color: "#111827",
+        is_in_effects_loop: false,
+        settings: { Volume: "not documented" },
+        notes:
+          "A rack preamp needs a separate power amp, and the one used on this record isn't documented. Friedman's list also names a VHT 2150 and a Crate Blue Voodoo as former power amps, but it doesn't tie either to these sessions, so neither is named here. On a modeller, choose an amp model whose power section stays tight. The gain comes from the preamp.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "4x12 cabinet (not documented)",
+        icon_type: "cab_4x12",
+        icon_color: "#111827",
+        is_in_effects_loop: false,
+        settings: { Speakers: "not documented" },
+        notes:
+          "The cab and mic aren't documented for these sessions. One fan account mentions Marshall heads and Crate cabinets, which conflicts with the rack rig, so this recipe doesn't rely on it. A closed-back 4x12 with a close dynamic mic is the honest default for a 1990 metal lead.",
+      },
+    ],
+    original_gear: {
+      guitar: "1985 Jackson Kelly San Dimas ('#2') -- repainted black, one bridge humbucker (reportedly a Seymour Duncan JB), one volume pot",
+      effects: ["None documented on this solo -- any delay or reverb you hear was added at the mix"],
+      amp: "Bogner Triple Giant rack preamp (#11 of 25), listed for the Rust in Peace album and tour; the power amp isn't documented",
+      cabinet: "Not documented -- 4x12 assumed",
+      microphone: "Not documented",
+      other_notes:
+        "Rust in Peace was recorded at Rumbo Recorders in Canoga Park, California. Mike Clink produced the early sessions, which covered mostly bass, drums and Friedman's guitar. Engineer Micajah Ryan finished the guitars and vocals with Mustaine, and Max Norman mixed. Friedman also listed a Maxon AF-9 auto wah and a Soldano SLO-100 rack unit, but they aren't tied to this solo (the Soldano is dated around 1992). The 2004 remix changes the guitar balance, so match your tone to the 1990 mix if you can.",
+    },
+    tags: ["thrash-metal", "megadeth", "solo", "lead", "high-gain", "jackson"],
+    sources: [
+      "https://guitar.com/news/music-news/marty-friedman-jackson-kelly-san-dimas-up-for-sale",
+      "https://www.guitarplayer.com/news/marty-friedman-jackson-kelly-reverb-sale",
+      "https://en.wikipedia.org/wiki/Marty_Friedman",
+      "https://en.wikipedia.org/wiki/Rust_in_Peace",
+      "https://equipboard.com/marty-friedman",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Noise Gate",
+            block_category: "Dynamics",
+            original_gear: "Gain-structure housekeeping",
+            settings: { Threshold: -54, Decay: 30 },
+            notes:
+              "Keep the gate light and the decay long. The solo's held notes and wide vibrato have to fade naturally. A tight rhythm-style gate cuts off the ends of phrases.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Console / tape compression",
+            settings: { Threshold: -20, Ratio: 2, Knee: 4, Attack: 20, Release: 150, Mix: 25, Level: 0 },
+            notes:
+              "Barely any. A saturated preamp already compresses. This only evens out the legato runs so the hammer-ons sit at the same level as the picked notes.",
+          },
+          {
+            position: 3,
+            block_name: "Placater Dirty",
+            block_category: "Amp",
+            original_gear: "Bogner Triple Giant rack preamp",
+            settings: { Drive: 7, Bass: 4.5, Mid: 7, Treble: 6, Presence: 5, ChVol: 6, Master: 5, Bias: 5.5, BiasX: 5, Sag: 3, Hum: 3, Ripple: 3 },
+            notes:
+              "Helix has no Triple Giant. The Placater (a Friedman BE-100, also a hot-rodded Marshall design) is the nearest relative. Mid 7 makes the lead vocal-sounding instead of fizzy. Sag stays low because the original was a rack preamp feeding a stiff power amp, with no cranked-combo squash.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 Uber V30",
+            block_category: "Cab",
+            original_gear: "4x12 (not documented)",
+            settings: { Mic: 0, Distance: 1.5, Position: 0.3, Angle: 0, LowCut: 90, HighCut: 7000, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "A Bogner V30 4x12 suits a Bogner preamp, but it's a choice, not documentation. HighCut at 7 kHz removes the top-end fizz that saturated leads produce through a DI'd modeller.",
+          },
+          {
+            position: 5,
+            block_name: "Parametric",
+            block_category: "EQ",
+            original_gear: "Console EQ",
+            settings: { LowFreq: 150, LowGain: -2, HighFreq: 1800, HighGain: 1.5, Level: 0 },
+            notes:
+              "Trim the lows so the lead sits above Ellefson's bass, and add a little at 1.8 kHz so the fast exotic-scale runs stay articulate in a dense mix.",
+          },
+          {
+            position: 6,
+            block_name: "Simple Delay",
+            block_category: "Delay",
+            original_gear: "Mixdown delay (not documented)",
+            settings: { Time: 380, Feedback: 15, Mix: 12, Level: 0 },
+            notes:
+              "No delay is documented, and the solo sounds mostly dry. A low-mix delay only fills out the held notes. Turn it off if you want the record exactly.",
+          },
+          {
+            position: 7,
+            block_name: "Plate",
+            block_category: "Reverb",
+            original_gear: "Mixdown reverb (not documented)",
+            settings: { Mix: 10, Decay: 1.4, Predelay: 25, LowCut: 200, HighCut: 6500, Level: 0 },
+            notes:
+              "A short plate with predelay keeps the attack of each note clean and puts the solo in the same space as the rest of the 1990 mix.",
+          },
+        ],
+        notes:
+          "Light gate -> light comp -> Placater Dirty, mids high -> V30 4x12 -> EQ -> low delay -> short plate. Bridge humbucker, volume on 10. The tone is easy. The phrasing is the hard part.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -54, Decay: 30 }, notes: "Light, with a long decay so the vibrato tails ring out." },
+          { position: 2, block_name: "Studio Compressor", block_category: "Compressor", original_gear: "Console / tape compression", settings: { Threshold: -20, Ratio: 2, Attack: 20, Release: 150, Mix: 25, Level: 0 }, notes: "Evens out legato against picked notes." },
+          { position: 3, block_name: "Brit 2203", block_category: "Amp", original_gear: "Bogner Triple Giant rack preamp", settings: { Gain: 8.0, Bass: 4.5, Mid: 7.0, Treble: 6.0, Presence: 5.0, Master: 5.0 }, notes: "The Triple Giant is a hot-rodded Marshall-style design, so start from a JCM800 with the gain high and the mids up." },
+          { position: 4, block_name: "4x12 Uber V30", block_category: "Cab", original_gear: "4x12 (not documented)", settings: { Mic: "SM57", Distance: 1.5, Position: 0.3, LowCut: 90, HighCut: 7000, Level: 0 }, notes: "A V30 4x12 with a close 57. The cab is a choice, not documented." },
+          { position: 5, block_name: "Parametric EQ", block_category: "EQ", original_gear: "Console EQ", settings: { LowFreq: 150, LowGain: -2, HighFreq: 1800, HighGain: 1.5, Level: 0 }, notes: "Lows out of the bass's way, presence for the runs." },
+          { position: 6, block_name: "Digital Delay", block_category: "Delay", original_gear: "Mixdown delay (not documented)", settings: { Time: 380, Feedback: 15, Mix: 12, Level: 0 }, notes: "Optional and low." },
+          { position: 7, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Mixdown reverb", settings: { Decay: 1.4, Predelay: 25, Mix: 10, Level: 0 }, notes: "Short plate." },
+        ],
+        notes: "Gate -> comp -> Brit 2203 with mids up -> V30 4x12 -> EQ -> low delay -> plate.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Lead", block_category: "Amp Type", original_gear: "Bogner Triple Giant rack preamp", settings: { Gain: 70, Volume: 50, Bass: 45, Middle: 70, Treble: 60, Presence: 50, Master: 50 }, notes: "Lead, not Brown. Brown is the scooped voice, and this solo needs its mids. The gain is high, but stop before the low notes get flabby." },
+          { position: 2, block_name: "Noise Suppressor", block_category: "FX", original_gear: "Gain-structure housekeeping", settings: { Threshold: 30, Release: 50 }, notes: "Low threshold and slow release so the sustain isn't cut off." },
+          { position: 3, block_name: "Delay", block_category: "Delay", original_gear: "Mixdown delay (not documented)", settings: { Time: 380, Feedback: 15, EffectLevel: 12 }, notes: "Optional, low in the mix." },
+          { position: 4, block_name: "Reverb", block_category: "Reverb", original_gear: "Mixdown reverb", settings: { Time: 14, PreDelay: 25, Tone: 5, EffectLevel: 10 }, notes: "Plate type, short." },
+        ],
+        notes: "Lead channel with mids high -> light noise suppressor -> optional delay -> short plate. No booster: none is documented.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: 2, Volume: 0 }, notes: "Input-section gate, set low." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Console / tape compression", settings: { Intensity: 2, Attack: 20, Volume: 0 }, notes: "Slot A, light." },
+          { position: 3, block_name: "Search Rig Exchange for 'Bogner Triple Giant' or 'Bogner modded Marshall lead'", block_category: "Profile", original_gear: "Bogner Triple Giant preamp + 4x12", settings: { Gain: 7, Bass: 4.5, Middle: 7, Treble: 6, Presence: 5 }, notes: "Triple Giant profiles are rare. A Bogner-modded Marshall or Bogner Ecstasy blue-channel lead profile is the next best. Avoid anything labelled 'modern' or 'scooped'." },
+          { position: 4, block_name: "Delay", block_category: "Delay", original_gear: "Mixdown delay (not documented)", settings: { Time: 380, Feedback: 15, Mix: 12 }, notes: "DLY slot, optional." },
+          { position: 5, block_name: "Plate Reverb", block_category: "Reverb", original_gear: "Mixdown reverb", settings: { Decay: 1.4, Predelay: 25, Mix: 10 }, notes: "REV slot, short." },
+        ],
+        notes: "Gate -> light comp -> Bogner-family lead profile with mids up -> optional delay -> plate.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate/Expander", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -54, Ratio: 2, Release: 30 }, notes: "Gentle, long release." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Console / tape compression", settings: { Threshold: -20, Ratio: 2, Attack: 20, Release: 150, Mix: 0.25, Level: 0 }, notes: "Light, for even legato." },
+          { position: 3, block_name: "Brit Brown", block_category: "Amp", original_gear: "Bogner Triple Giant rack preamp", settings: { Drive: 7.0, Bass: 4.5, Mid: 7.0, Treble: 6.0, Presence: 5.0, MV: 5.0 }, notes: "Fractal's hot-rodded Marshall voice is the nearest stand-in for a Bogner-designed preamp. Mids stay up." },
+          { position: 4, block_name: "4x12 Uber V30", block_category: "Cab", original_gear: "4x12 (not documented)", settings: { Mic: "57 Dynamic", Distance: 1.5, LowCut: 90, HighCut: 7000, Level: 0 }, notes: "A V30 4x12 IR. The cab is a choice, not documented." },
+          { position: 5, block_name: "Parametric EQ", block_category: "EQ", original_gear: "Console EQ", settings: { LowFreq: 150, LowGain: -2, HighFreq: 1800, HighGain: 1.5, Level: 0 }, notes: "Lows out, presence in." },
+          { position: 6, block_name: "Digital Mono", block_category: "Delay", original_gear: "Mixdown delay (not documented)", settings: { Time: 380, Feedback: 15, Mix: 0.12, Level: 0 }, notes: "Optional, low." },
+          { position: 7, block_name: "Plate", block_category: "Reverb", original_gear: "Mixdown reverb", settings: { Mix: 0.1, Decay: 1.4, Predelay: 25 }, notes: "Short plate." },
+        ],
+        notes: "Gate -> comp -> Brit Brown with mids up -> V30 4x12 -> EQ -> optional delay -> plate.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Bogner Triple Giant' or 'Rust in Peace lead' or 'Bogner modded Marshall'",
+            block_category: "Tone Model",
+            original_gear: "Bogner Triple Giant preamp + 4x12",
+            settings: {},
+            notes: "A mid-forward, high-gain Bogner or modded-Marshall lead capture. Test it with a slow, wide vibrato on the B string: the note should bloom and hold without turning to fizz.",
+          },
+        ],
+        notes: "Capture-driven. Mid-forward Bogner-family lead capture, light gate, short plate after.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Dave Mustaine (Megadeth) - Symphony of Destruction (main riff) ----
+  {
+    id: "seed-mustaine-symphony-of-destruction",
+    song_slug: "symphony-of-destruction-megadeth",
+    title: "Megadeth's Symphony of Destruction Riff Tone",
+    slug: "mustaine-symphony-of-destruction-riff",
+    created_at: "2026-10-29",
+    description:
+      "Countdown to Extinction is the record where Megadeth slowed down and tightened up, and the guitar sound changed to match. Both Mustaine and Friedman went through the same rig: a Custom Audio Electronics 3+ rack preamp into a VHT 2150 power amp and Marshall 4x12s. That gives a cleaner, more open tone with less gain than Rust in Peace. The riff is mostly space, so it needs a tone that hits hard and then stops dead.",
+    tone_context: "riff",
+    attribution_confidence: "documented",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "Jackson V (Mustaine's custom 'Number One' V)",
+      pickup_config: "HH",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "standard",
+      string_gauge: "not documented",
+      notable_mods:
+        "No source names the exact guitar on this track. Equipboard describes Mustaine's custom Jackson V 'Number One' as his main studio guitar from after Peace Sells onward, which covers this record. Seymour Duncan says he used passive JB and Jazz humbuckers 'for years', but doesn't date it. The recipe uses the bridge humbucker. Friedman's 1985 Jackson Kelly is also on this album per Guitar Player, so either guitarist's Jackson fits the double-tracked riff.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Custom Audio Electronics 3+ SE rack preamp",
+        icon_type: "rack_preamp",
+        icon_color: "#111827",
+        is_in_effects_loop: false,
+        settings: { Gain: 5.5, Bass: 5, Middle: 5, Treble: 6, Presence: 6 },
+        notes:
+          "Tied to Countdown to Extinction and Youthanasia by Friedman's gear list and by Equipboard's CAE 3+ SE entry for both guitarists. Bob Bradshaw built the 3+ after a Toto rig that combined Boogie, Marshall and Soldano sounds. It's tight and articulate rather than saturated. Keep the gain well below Rust in Peace levels: this riff uses palm-muted single notes and stops, and too much gain fills the gaps with hiss and bloom.",
+      },
+      {
+        position: 2,
+        category: "power_amp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "VHT 2150 power amp (6550 tubes)",
+        icon_type: "rack_power",
+        icon_color: "#111827",
+        is_in_effects_loop: false,
+        settings: { Volume: "not documented" },
+        notes:
+          "Friedman's gear list names a VHT 2150. The CAE-plus-VHT pairing for these sessions comes from secondhand sources (WoodyTone and player forums), which also report 6550 power tubes. 6550s have more headroom and a firmer low end than EL34s, which is why the low-string chugs sound like a punch instead of a smear.",
+      },
+      {
+        position: 3,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12",
+        icon_type: "cab_4x12",
+        icon_color: "#111827",
+        is_in_effects_loop: false,
+        settings: { Speakers: "not documented (V30s are Mustaine's later preference)" },
+        notes:
+          "Marshall 4x12s are reported for the album. The speakers aren't documented. Mustaine's later signature cabs use Celestion Vintage 30s, but that's a later preference, not evidence for 1992. The mic and placement at The Enterprise aren't documented either.",
+      },
+    ],
+    original_gear: {
+      guitar: "Jackson V (Mustaine's custom 'Number One', bridge humbucker, reportedly a Seymour Duncan JB); Friedman's 1985 Jackson Kelly is also on the album",
+      effects: ["None documented on the riff"],
+      amp: "Custom Audio Electronics 3+ SE preamp into a VHT 2150 power amp (6550s), used by both guitarists",
+      cabinet: "Marshall 4x12 (speakers not documented)",
+      microphone: "Not documented",
+      other_notes:
+        "Recorded at The Enterprise in Burbank, January 6 to April 28, 1992. Produced by Mustaine and Max Norman, engineered by Fred Kelly Jr. with Micajah Ryan, and mixed by Norman. Mustaine wrote the riff, and it is double-tracked. Forum and fan sources call this the tightest, least saturated guitar sound of Megadeth's early-'90s records, with a mid-scooped mix. Get the scoop at the mix EQ and keep the preamp's mids intact. The 2004 remix is noticeably different from the 1992 original.",
+    },
+    tags: ["thrash-metal", "heavy-metal", "megadeth", "riff", "rhythm", "rack-rig"],
+    sources: [
+      "https://en.wikipedia.org/wiki/Marty_Friedman",
+      "https://equipboard.com/items/custom-audio-electronics-cae-3-se",
+      "https://equipboard.com/pros/dave-mustaine",
+      "https://www.woodytone.com/2010/10/13/woody-crunch-mustaines-countdown-gear/",
+      "https://en.wikipedia.org/wiki/Countdown_to_Extinction",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Noise Gate",
+            block_category: "Dynamics",
+            original_gear: "Gain-structure housekeeping",
+            settings: { Threshold: -48, Decay: 8 },
+            notes:
+              "Fast decay. The riff's power comes from the silence between hits, and the gate makes those gaps truly silent when you stop the strings.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Console compression",
+            settings: { Threshold: -18, Ratio: 2, Knee: 4, Attack: 25, Release: 100, Mix: 20, Level: 0 },
+            notes:
+              "A slow attack and a low mix let the pick transient through. That transient is what makes each chug hit.",
+          },
+          {
+            position: 3,
+            block_name: "Solo Lead OD",
+            block_category: "Amp",
+            original_gear: "CAE 3+ SE preamp into VHT 2150",
+            settings: { Drive: 5.5, Bass: 5, Mid: 5, Treble: 6, Presence: 6, ChVol: 6, Master: 6, Bias: 4.5, BiasX: 5, Sag: 2, Hum: 3, Ripple: 3 },
+            notes:
+              "Helix has no CAE 3+. The Soldano SLO model is the right start because Bradshaw designed the 3+'s lead channel to improve on the Soldano preamp. Drive stays at 5.5 for a tight, open crunch. Sag stays at 2 and Bias leans cold to suggest a 6550 power section with lots of headroom.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 1960 T75",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 (speakers not documented)",
+            settings: { Mic: 0, Distance: 1.5, Position: 0.25, Angle: 0, LowCut: 90, HighCut: 7500, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "A Marshall 4x12 matches the documented cab type, though the speakers aren't known. A close 57 is the default. Try a V30 cab if you want Mustaine's later sound.",
+          },
+          {
+            position: 5,
+            block_name: "Parametric",
+            block_category: "EQ",
+            original_gear: "Max Norman's mix EQ",
+            settings: { LowFreq: 100, LowGain: 1, MidFreq: 650, MidGain: -2.5, HighFreq: 3500, HighGain: 1, Level: 0 },
+            notes:
+              "Put the scoop here, after the amp, the way the mix did it. Cutting 650 Hz gives the record's hollow, polished quality while the amp's own mids keep the riff solid.",
+          },
+          {
+            position: 6,
+            block_name: "Room",
+            block_category: "Reverb",
+            original_gear: "Mixdown ambience",
+            settings: { Mix: 8, Decay: 0.7, Predelay: 10, LowCut: 250, HighCut: 6000, Level: 0 },
+            notes:
+              "Almost dry. A small room adds depth without smearing the stops. Anything longer fills the gaps.",
+          },
+        ],
+        notes:
+          "Fast gate -> slow-attack comp -> Solo Lead OD at moderate drive -> Marshall 4x12 -> post-amp mid scoop -> tiny room. Double-track it and pan hard left and right. Mute the strings completely between hits.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -48, Decay: 8 }, notes: "Fast, so the stops are silent." },
+          { position: 2, block_name: "Studio Compressor", block_category: "Compressor", original_gear: "Console compression", settings: { Threshold: -18, Ratio: 2, Attack: 25, Release: 100, Mix: 20, Level: 0 }, notes: "Slow attack keeps the pick hit." },
+          { position: 3, block_name: "Solo 100 Lead", block_category: "Amp", original_gear: "CAE 3+ SE preamp into VHT 2150", settings: { Gain: 5.5, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 6.0, Master: 6.0 }, notes: "The QC's Soldano SLO lead, at moderate gain. The 3+ was designed to improve on this circuit." },
+          { position: 4, block_name: "4x12 Brit T75", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "SM57", Distance: 1.5, Position: 0.25, LowCut: 90, HighCut: 7500, Level: 0 }, notes: "A Marshall 4x12 with a close 57." },
+          { position: 5, block_name: "Parametric EQ", block_category: "EQ", original_gear: "Max Norman's mix EQ", settings: { LowFreq: 100, LowGain: 1, MidFreq: 650, MidGain: -2.5, HighFreq: 3500, HighGain: 1, Level: 0 }, notes: "Scoop after the amp." },
+          { position: 6, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Mixdown ambience", settings: { Decay: 0.7, Predelay: 10, Mix: 8, Level: 0 }, notes: "Tiny room." },
+        ],
+        notes: "Gate -> comp -> Solo 100 Lead at moderate gain -> Marshall 4x12 -> post-amp scoop -> tiny room.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Lead", block_category: "Amp Type", original_gear: "CAE 3+ SE preamp into VHT 2150", settings: { Gain: 50, Volume: 50, Bass: 55, Middle: 50, Treble: 60, Presence: 60, Master: 50 }, notes: "Lead at moderate gain. Brown would scoop the amp itself, but the scoop belongs in the EQ." },
+          { position: 2, block_name: "Noise Suppressor", block_category: "FX", original_gear: "Gain-structure housekeeping", settings: { Threshold: 45, Release: 15 }, notes: "Fast release for the stops." },
+          { position: 3, block_name: "Graphic EQ", block_category: "EQ", original_gear: "Max Norman's mix EQ", settings: { "500Hz": -3, "1kHz": -1, "4kHz": 1 }, notes: "Mild mid scoop after the amp." },
+          { position: 4, block_name: "Reverb", block_category: "Reverb", original_gear: "Mixdown ambience", settings: { Time: 6, PreDelay: 10, Tone: 5, EffectLevel: 6 }, notes: "Room type, barely there." },
+        ],
+        notes: "Lead channel at moderate gain -> tight noise suppressor -> post-amp scoop -> tiny room. No booster: none is documented.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: 5, Volume: 0 }, notes: "Input gate, set tight." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Console compression", settings: { Intensity: 2, Attack: 25, Volume: 0 }, notes: "Slot A, light." },
+          { position: 3, block_name: "Search Rig Exchange for 'CAE 3+ SE' or 'Custom Audio 3+' or 'Bradshaw 3+'", block_category: "Profile", original_gear: "CAE 3+ SE + VHT 2150 + Marshall 4x12", settings: { Gain: 5.5, Bass: 5, Middle: 5, Treble: 6, Presence: 6 }, notes: "CAE 3+ profiles are fairly common because of the Lukather connection. Pick a channel-2 or channel-3 rhythm profile, not the lead with the gain maxed." },
+          { position: 4, block_name: "Studio Equalizer", block_category: "EQ", original_gear: "Max Norman's mix EQ", settings: { LowGain: 1, Mid1Freq: 650, Mid1Gain: -2.5, HighGain: 1 }, notes: "Post-amp slot, mild scoop." },
+          { position: 5, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Mixdown ambience", settings: { Decay: 0.7, Predelay: 10, Mix: 8 }, notes: "REV slot, tiny." },
+        ],
+        notes: "Gate -> light comp -> CAE 3+ profile at moderate gain -> mild scoop -> tiny room.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate/Expander", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -48, Ratio: 4, Release: 8 }, notes: "Fast release." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Console compression", settings: { Threshold: -18, Ratio: 2, Attack: 25, Release: 100, Mix: 0.2, Level: 0 }, notes: "Light, slow attack." },
+          { position: 3, block_name: "CA3+ Rhythm", block_category: "Amp", original_gear: "CAE 3+ SE preamp into VHT 2150", settings: { Drive: 5.5, Bass: 5.0, Mid: 5.0, Treble: 6.0, Presence: 6.0, MV: 6.0 }, notes: "Fractal models the 3+ SE directly, the only platform here that does. Use the rhythm channel and set the power tubes to 6550." },
+          { position: 4, block_name: "4x12 1960 T75", block_category: "Cab", original_gear: "Marshall 4x12", settings: { Mic: "57 Dynamic", Distance: 1.5, LowCut: 90, HighCut: 7500, Level: 0 }, notes: "A Marshall 4x12 IR." },
+          { position: 5, block_name: "Parametric EQ", block_category: "EQ", original_gear: "Max Norman's mix EQ", settings: { LowFreq: 100, LowGain: 1, MidFreq: 650, MidGain: -2.5, HighFreq: 3500, HighGain: 1, Level: 0 }, notes: "Scoop after the amp." },
+          { position: 6, block_name: "Room", block_category: "Reverb", original_gear: "Mixdown ambience", settings: { Mix: 0.08, Decay: 0.7, Predelay: 10 }, notes: "Tiny room." },
+        ],
+        notes: "Gate -> comp -> CA3+ Rhythm with 6550s -> Marshall 4x12 -> post-amp scoop -> tiny room.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'CAE 3+' or 'Countdown to Extinction' or 'Bradshaw 3+ SE'",
+            block_category: "Tone Model",
+            original_gear: "CAE 3+ SE + VHT 2150 + Marshall 4x12",
+            settings: {},
+            notes: "A CAE 3+ rhythm capture at moderate gain. Test it with the riff's opening palm-muted E notes: each one should hit and stop, with no bloom left behind.",
+          },
+        ],
+        notes: "Capture-driven. Moderate-gain CAE 3+ capture, tight gate in front, mild scoop after.",
+      },
+    },
+    is_editorial: true,
+    view_count: 0,
+    rating_avg: 0,
+    rating_count: 0,
+  },
+  // ---- Jerry Cantrell (Alice in Chains) - Them Bones (drop-D riff) ----
+  {
+    id: "seed-cantrell-them-bones",
+    song_slug: "them-bones-alice-in-chains",
+    title: "Alice in Chains' Them Bones Riff Tone",
+    slug: "cantrell-them-bones-riff",
+    created_at: "2026-10-29",
+    description:
+      "Dirt opens with this riff, and it sounds like one massive guitar. It's actually six tracks. Dave Jerden split Cantrell's G&L Rampage across three rigs, each covering one frequency band: a Bogner Fish preamp into a VHT for the lows, a Bogner Ecstasy for the mids and a Rockman direct for the highs. He then doubled each one and panned the pairs apart. The song is in drop D tuned down a half step, and it's played dry. There's no flanger like Rooster has, just the split and the odd-meter riff.",
+    tone_context: "riff",
+    attribution_confidence: "documented",
+    guitar_specs: {
+      body_type: "solid",
+      model_name: "1984 G&L Rampage 'Blue Dress'",
+      pickup_config: "H",
+      pickup_position: "bridge",
+      string_count: 6,
+      scale_length: "25.5",
+      tuning: "drop_c_sharp",
+      string_gauge: ".010-.052",
+      notable_mods:
+        "Drop D down a half step (Db-Ab-Db-Gb-Bb-Eb). MusicRadar's Dirt lesson notes that Cantrell is always a half step down, and Them Bones and Dam That River drop the low string a further whole step. The Rampage has an all-maple body and neck and a single bridge humbucker, later a Seymour Duncan JB (believed to be the JB by Dirt, though not confirmed), plus a Kahler with a Floyd Rose locking nut. Cantrell says it's on nearly everything he has recorded, though no source places it on this exact track. An all-maple guitar with one hot humbucker is bright and hard-attacking, which keeps the slack, low tuning defined.",
+    },
+    signal_chain: [
+      {
+        position: 1,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Bogner Fish preamp into a VHT power amp (low band)",
+        icon_type: "rack_preamp",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Gain: 6, Bass: 7, Middle: 4, Treble: 3.5, Presence: 3 },
+        notes:
+          "This is the low third of Jerden's split, as he described it in a 2022 Gearspace Q&A reported by Guitar.com and Mixdown. Alone it sounds dark and woolly. On this song it carries the weight of the dropped-Db root notes, so its bass can run high without the riff turning muddy, because the other two amps carry the definition.",
+      },
+      {
+        position: 2,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Bogner Ecstasy (mid band)",
+        icon_type: "amp_head",
+        icon_color: "#f59e0b",
+        is_in_effects_loop: false,
+        settings: { Gain: 6, Bass: 4, Middle: 7, Treble: 5, Presence: 5 },
+        notes:
+          "Jerden says he tracked the mid amp first, because most of a guitar's harmonic content sits there. If you build only one amp, build this one, with the mids up. The famous Alice in Chains scoop is a result of the three-amp blend. A single scooped amp loses the riff's chromatic movement.",
+      },
+      {
+        position: 3,
+        category: "preamp",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Rockman headphone amp, direct (high band)",
+        icon_type: "pedal",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Mode: "distortion", Level: "low in the blend" },
+        notes:
+          "A pocket Rockman straight into the desk with no cab or mic, used only for the top end. Its compressed, fizzy edge gives the pick attack a clear front on each chug. It's mixed low. Turned up, it sounds like a cheap practice amp.",
+      },
+      {
+        position: 4,
+        category: "cabinet",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Marshall 4x12 with Vox Bulldog speakers",
+        icon_type: "cab_4x12",
+        icon_color: "#111827",
+        is_in_effects_loop: false,
+        settings: { Speakers: "Vox Bulldog (Celestion Alnico Blue-era)" },
+        notes:
+          "Jerden names this cab for the Fish/VHT low rig. Bulldogs are alnico speakers with a soft, rounded top end, which suits the band that handles only the lows.",
+      },
+      {
+        position: 5,
+        category: "microphone",
+        subcategory: null,
+        gear_slug: null,
+        gear_name: "Shure SM57 (close)",
+        icon_type: "sm57",
+        icon_color: "#6b7280",
+        is_in_effects_loop: false,
+        settings: { Placement: "close on the cab" },
+        notes:
+          "The SM57 is the reported mic for the cab-based rigs on Dirt. Each amp was doubled and panned as a pair, so the sound is six close-miked or direct tracks, not a room sound.",
+      },
+    ],
+    original_gear: {
+      guitar: "1984 G&L Rampage 'Blue Dress' -- all maple, single bridge humbucker (believed to be a Seymour Duncan JB by this point)",
+      effects: ["None on the riff -- the width comes from the three-amp split and double-tracking, not from modulation"],
+      amp: "Three-way frequency split, split with a Lucas Deceiver: Bogner Fish preamp into VHT (lows), Bogner Ecstasy (mids), Rockman direct (highs)",
+      cabinet: "Marshall 4x12 loaded with Vox Bulldog speakers (low rig)",
+      microphone: "Shure SM57 on the cabs; the Rockman went direct",
+      other_notes:
+        "Recorded March to May 1992 at Eldorado Recording Studios in Burbank and One on One in Los Angeles, with Dave Jerden producing. Jerden describes the six-track, three-band method for the album's rhythm guitars as a whole. No source breaks it down for Them Bones specifically, so this applies the album method to the album's opening riff. Some sources mention 5150s and Dual Rectifiers on Dirt, but that's less certain, so this recipe doesn't use them.",
+    },
+    tags: ["grunge", "alternative-metal", "riff", "drop-tuning", "alice-in-chains", "multi-amp"],
+    sources: [
+      "https://guitar.com/features/artist-rigs/the-gear-used-by-jerry-cantrell-on-alice-in-chains-dirt/",
+      "https://mixdownmag.com.au/features/the-secrets-of-the-alice-in-chains-dirt-guitar-sound/",
+      "https://musicradar.com/how-to/alice-in-chains-dirt-guitar-lesson-jerry-cantrell",
+      "https://equipboard.com/pros/jerry-cantrell",
+    ],
+    platform_translations: {
+      helix: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Noise Gate",
+            block_category: "Dynamics",
+            original_gear: "Gain-structure housekeeping",
+            settings: { Threshold: -50, Decay: 10 },
+            notes:
+              "The riff has hard stops between phrases, and slack drop-Db strings ring sympathetically more than standard tuning does. A moderate gate with a short decay keeps the stops clean.",
+          },
+          {
+            position: 2,
+            block_name: "Deluxe Comp",
+            block_category: "Compressor",
+            original_gear: "Console / tape compression",
+            settings: { Threshold: -18, Ratio: 2.5, Knee: 4, Attack: 20, Release: 120, Mix: 30, Level: 0 },
+            notes:
+              "Light glue. Six tracks on tape compress each other, and one amp on a modeller doesn't, so this adds a little of that density without dulling the pick.",
+          },
+          {
+            position: 3,
+            block_name: "German Mahadeva",
+            block_category: "Amp",
+            original_gear: "Bogner Ecstasy (mid band) -- the band to build if you build one",
+            settings: { Drive: 6, Bass: 5, Mid: 6.5, Treble: 5.5, Presence: 5, ChVol: 6, Master: 6, Bias: 5.5, BiasX: 5, Sag: 4, Hum: 3, Ripple: 3 },
+            notes:
+              "Helix has no Ecstasy, so this uses its Bogner (a Shiva). It's modelled on the mid amp because that's where the riff's note movement is. Bass sits a little higher than a lead patch would to stand in for the missing Fish low rig. Mid at 6.5 is deliberate: the scoop belongs to the blend, not to any single amp.",
+          },
+          {
+            position: 4,
+            block_name: "4x12 Greenback25",
+            block_category: "Cab",
+            original_gear: "Marshall 4x12 with Vox Bulldogs",
+            settings: { Mic: 0, Distance: 1.5, Position: 0.4, Angle: 0, LowCut: 80, HighCut: 6800, Resonance: 5, Level: 0, Pan: 0.5, Delay: 0 },
+            notes:
+              "Helix has no Bulldog cab. A Greenback 4x12 is the closest vintage British speaker with a soft top end. Mic 0 is the SM57. HighCut at 6.8 kHz keeps the dropped-tuning chugs from fizzing.",
+          },
+          {
+            position: 5,
+            block_name: "Parametric",
+            block_category: "EQ",
+            original_gear: "The three-band blend",
+            settings: { LowFreq: 110, LowGain: 1.5, MidFreq: 700, MidGain: -1.5, HighFreq: 3200, HighGain: 1.5, Level: 0 },
+            notes:
+              "This is a one-amp shortcut for the split. The low shelf stands in for the Fish rig, the high shelf for the Rockman, and the mild 700 Hz dip is the scoop that the blend creates. For the real version, put three amps on parallel paths: dark, mid-heavy and thin.",
+          },
+          {
+            position: 6,
+            block_name: "Room",
+            block_category: "Reverb",
+            original_gear: "Mixdown ambience",
+            settings: { Mix: 8, Decay: 0.8, Predelay: 10, LowCut: 250, HighCut: 6000, Level: 0 },
+            notes:
+              "Barely there. This riff is dry and chuggy, with none of Rooster's flanger or plate.",
+          },
+        ],
+        notes:
+          "Gate -> light comp -> German Mahadeva with mids up -> Greenback 4x12 -> EQ that imitates the three-band blend -> tiny room. Tune to Db-Ab-Db-Gb-Bb-Eb, double-track and pan hard. For the full method, split three paths: dark (bass up, treble down), mid-heavy (this amp), and a thin direct high band mixed low.",
+      },
+      quad_cortex: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -50, Decay: 10 }, notes: "Short decay so the stops stay clean." },
+          { position: 2, block_name: "Studio Compressor", block_category: "Compressor", original_gear: "Console / tape compression", settings: { Threshold: -18, Ratio: 2.5, Attack: 20, Release: 120, Mix: 30, Level: 0 }, notes: "Light glue." },
+          { position: 3, block_name: "Ecstasy Red", block_category: "Amp", original_gear: "Bogner Ecstasy (mid band)", settings: { Gain: 6.0, Bass: 5.0, Mid: 6.5, Treble: 5.5, Presence: 5.0, Master: 6.0 }, notes: "The QC has the actual amp in the mid band. Keep the mids up." },
+          { position: 4, block_name: "4x12 Marshall Bulldog", block_category: "Cab", original_gear: "Marshall 4x12 with Vox Bulldogs", settings: { Mic: "SM57", Distance: 1.5, Position: 0.4, LowCut: 80, HighCut: 6800, Level: 0 }, notes: "A Bulldog-loaded 4x12 if your library has one, otherwise a Greenback." },
+          { position: 5, block_name: "Parametric EQ", block_category: "EQ", original_gear: "The three-band blend", settings: { LowFreq: 110, LowGain: 1.5, MidFreq: 700, MidGain: -1.5, HighFreq: 3200, HighGain: 1.5, Level: 0 }, notes: "Imitates the split in one row. Use three rows for the real thing." },
+          { position: 6, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Mixdown ambience", settings: { Decay: 0.8, Predelay: 10, Mix: 8, Level: 0 }, notes: "Tiny room." },
+        ],
+        notes: "Gate -> comp -> Ecstasy Red with mids up -> Bulldog 4x12 -> EQ for the blend -> tiny room. Three rows for the full split.",
+      },
+      katana: {
+        chain_blocks: [
+          { position: 1, block_name: "Lead", block_category: "Amp Type", original_gear: "Bogner Ecstasy (mid band)", settings: { Gain: 55, Volume: 50, Bass: 55, Middle: 65, Treble: 55, Presence: 50, Master: 50 }, notes: "Lead for its mids. Brown would scoop the one amp you have, and the scoop needs to come from the EQ instead." },
+          { position: 2, block_name: "Noise Suppressor", block_category: "FX", original_gear: "Gain-structure housekeeping", settings: { Threshold: 40, Release: 20 }, notes: "Keeps the slack low string quiet in the stops." },
+          { position: 3, block_name: "Graphic EQ", block_category: "EQ", original_gear: "The three-band blend", settings: { "125Hz": 2, "500Hz": -1, "1kHz": -1, "4kHz": 2 }, notes: "Lifts the lows and highs and dips the mids slightly, a one-amp sketch of the split." },
+          { position: 4, block_name: "Reverb", block_category: "Reverb", original_gear: "Mixdown ambience", settings: { Time: 6, PreDelay: 10, Tone: 5, EffectLevel: 6 }, notes: "Room type, barely there." },
+        ],
+        notes: "Lead channel with mids up -> noise suppressor -> blend-imitating EQ -> tiny room. No booster: none is documented.",
+      },
+      kemper: {
+        chain_blocks: [
+          { position: 1, block_name: "Noise Gate", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: 4, Volume: 0 }, notes: "Input gate, moderate." },
+          { position: 2, block_name: "Compressor", block_category: "Compressor", original_gear: "Console / tape compression", settings: { Intensity: 3, Attack: 20, Volume: 0 }, notes: "Slot A, light glue." },
+          { position: 3, block_name: "Search Rig Exchange for 'Bogner Ecstasy' or 'Bogner Fish'", block_category: "Profile", original_gear: "Bogner Ecstasy + Marshall 4x12 (Bulldogs)", settings: { Gain: 6, Bass: 5, Middle: 6.5, Treble: 5.5, Presence: 5 }, notes: "An Ecstasy red- or blue-channel profile for the mids. With a Fish profile too, run one on each side of the stereo field for a two-thirds version of the split." },
+          { position: 4, block_name: "Studio Equalizer", block_category: "EQ", original_gear: "The three-band blend", settings: { LowGain: 1.5, Mid1Freq: 700, Mid1Gain: -1.5, HighGain: 1.5 }, notes: "Post-amp slot, imitates the blend." },
+          { position: 5, block_name: "Room Reverb", block_category: "Reverb", original_gear: "Mixdown ambience", settings: { Decay: 0.8, Predelay: 10, Mix: 8 }, notes: "REV slot, tiny." },
+        ],
+        notes: "Gate -> light comp -> Ecstasy profile with mids up -> blend EQ -> tiny room.",
+      },
+      fractal: {
+        chain_blocks: [
+          { position: 1, block_name: "Gate/Expander", block_category: "Dynamics", original_gear: "Gain-structure housekeeping", settings: { Threshold: -50, Ratio: 4, Release: 10 }, notes: "Short release." },
+          { position: 2, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Console / tape compression", settings: { Threshold: -18, Ratio: 2.5, Attack: 20, Release: 120, Mix: 0.3, Level: 0 }, notes: "Light glue." },
+          { position: 3, block_name: "Euro Red", block_category: "Amp", original_gear: "Bogner Ecstasy (mid band)", settings: { Drive: 6.0, Bass: 5.0, Mid: 6.5, Treble: 5.5, Presence: 5.0, MV: 6.0 }, notes: "Fractal's Ecstasy red channel. On an Axe-Fx III or FM9 with two amp blocks, add 'Euro Blue' dialed dark for the low band and pan the two apart." },
+          { position: 4, block_name: "4x12 Greenback", block_category: "Cab", original_gear: "Marshall 4x12 with Vox Bulldogs", settings: { Mic: "57 Dynamic", Distance: 1.5, LowCut: 80, HighCut: 6800, Level: 0 }, notes: "Use an alnico Blue/Bulldog IR if you have one, otherwise a Greenback." },
+          { position: 5, block_name: "Parametric EQ", block_category: "EQ", original_gear: "The three-band blend", settings: { LowFreq: 110, LowGain: 1.5, MidFreq: 700, MidGain: -1.5, HighFreq: 3200, HighGain: 1.5, Level: 0 }, notes: "Imitates the split in one block." },
+          { position: 6, block_name: "Room", block_category: "Reverb", original_gear: "Mixdown ambience", settings: { Mix: 0.08, Decay: 0.8, Predelay: 10 }, notes: "Tiny room." },
+        ],
+        notes: "Gate -> comp -> Euro Red with mids up (plus a dark second amp if your unit allows) -> Greenback 4x12 -> blend EQ -> tiny room.",
+      },
+      tonex: {
+        chain_blocks: [
+          {
+            position: 1,
+            block_name: "Search ToneNET for 'Bogner Ecstasy' or 'Bogner Fish preamp' or 'Alice in Chains Dirt'",
+            block_category: "Tone Model",
+            original_gear: "Bogner Ecstasy / Fish + Marshall 4x12",
+            settings: {},
+            notes: "A mid-forward Ecstasy capture. Test it with the riff's opening low-Db chug: it should thud and stop cleanly, with the pick attack still clear despite the slack string.",
+          },
+        ],
+        notes: "Capture-driven. Ecstasy capture with mids intact, gate in front, double-tracked and panned.",
       },
     },
     is_editorial: true,

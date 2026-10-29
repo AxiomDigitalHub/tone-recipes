@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-10-22
-**Recipes:** 255
-**Clean (no errors, no warns):** 255
+**Date:** 2026-10-29
+**Recipes:** 258
+**Clean (no errors, no warns):** 258
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,8 +16,8 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `settings-outside-unverified-range` | info | 255 / 255 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
-| `katana-kemper-multidrive-default-off` | info | 31 / 255 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `settings-outside-unverified-range` | info | 258 / 258 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
+| `katana-kemper-multidrive-default-off` | info | 31 / 258 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -188,6 +188,12 @@ Passes every rule.
 ### `cantrell-rooster-lead` — ✓ clean
 
 *Jerry Cantrell's Rooster Lead Tone*
+
+Passes every rule.
+
+### `cantrell-them-bones-riff` — ✓ clean
+
+*Alice in Chains' Them Bones Riff Tone*
 
 Passes every rule.
 
@@ -440,6 +446,12 @@ Passes every rule.
 ### `followill-use-somebody-octave-lead` — ✓ clean
 
 *Followill's Use Somebody Octave Lead Tone*
+
+Passes every rule.
+
+### `friedman-tornado-of-souls-solo` — ✓ clean
+
+*Marty Friedman's Tornado of Souls Solo Tone*
 
 Passes every rule.
 
@@ -1154,6 +1166,12 @@ Passes every rule.
 ### `murray-trooper-galloping-lead` — ✓ clean
 
 *Dave Murray's The Trooper Galloping Lead Tone*
+
+Passes every rule.
+
+### `mustaine-symphony-of-destruction-riff` — ✓ clean
+
+*Megadeth's Symphony of Destruction Riff Tone*
 
 Passes every rule.
 
