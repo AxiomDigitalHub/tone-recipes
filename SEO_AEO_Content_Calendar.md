@@ -7734,3 +7734,73 @@ before drafting; research re-pointed.
 |---|---|---|---|---|---|---|
 | AO1 | recone-vs-replace-vintage-guitar-speaker | Recone or Replace: What Actually Changes When an Old Speaker Gets a New Cone | "recone vintage speaker worth it," "recone vs replace guitar speaker," "does reconing change tone," "reconed jensen value" | Hank Presswood | 2 — Gear History / Gear Lab | **Surfaced by AN1 meeting AN2.** AN1 found that Jensen's alnico/ceramic sensitivity gaps are predicted by the **moving assembly** (Mms, BL), not the magnet. A recone replaces exactly that assembly — cone, voice coil, spider, surround — and keeps the frame and magnet, which are the parts that carry the brand, the EIA code and the magnet type players credit. Distinct question: what a recone preserves (originality, code, magnet) and what it replaces (the parts that set sensitivity and resonance), with the AN1 figures as the evidence for why two reconed "originals" can differ more than two brands. **Gate 7 guard: must name what a recone kit replaces from a recone supplier's or reconer's published documentation, and must cite at least one documented vintage-value position (dealer or reference-book, graded) rather than asserting value effects. No listening claims.** Hank's bar checked: "Budget gear roundups — he'd recommend a $3,000 vintage alternative every time" — this is a repair decision, not a roundup. Clear. **Confirmed no colliding slug.** |
 | AO2 | fender-twin-jbl-d120f-option-what-it-changed | The JBL Option: Why a Twin Reverb Cost Extra With D120Fs | "fender twin jbl d120f," "jbl d120f vs jensen c12n," "jbl fender amp speaker option," "d120f twin reverb tone" | Carl Beckett | 2 — Gear History | **Surfaced by AN2's table: the JBL rows are the only speakers that were ever a choice.** HARMAN's own history documents the F-series as developed with Fender; a 1968 listing prices the option at $150 on a $499.50 Twin. Distinct question: what the D120F was (published JBL figures — sensitivity, power, magnet, weight; the Premier Guitar 13 lb vs 7 lb C12N weight comparison is a lead to verify), what it changed against the stock speaker, and why country and steel players are the ones who paid for it. **Gate 7 guard: must ship published JBL D120F figures (JBL catalog or spec sheet, graded) against the published Jensen C12N figures. If no JBL figures can be found, drop it — "JBLs are cleaner" is commodity.** Carl's lane (country, Telecaster, clean platforms). Bars checked, quoted: "Any modeler deep-dive" — not this; "Gear roundups or shootouts" — **borderline**, since the post sets D120F figures against C12N figures. Keep it a history-of-one-option piece with the comparison as a single table; if the executing run finds it reads as a shootout, reassign to Hank (alternate). **Confirmed no colliding slug.** |
+
+## Daily Run — 2026-10-29 (2 new posts + 1 refresh; both new posts were stranded drafts)
+
+### Posts published: recone-vs-replace-vintage-guitar-speaker, fender-twin-jbl-d120f-option-what-it-changed
+
+**Stranded work shipped, not rewritten.** AO1 and AO2 were drafted by an
+earlier run (files dated 2026-10-25, frontmatter `date: 2026-10-20`) and never
+committed — no images, no calendar log. No daily-content commit has landed
+since 2026-10-16. Today's run verified both drafts against sources, fixed
+what failed, generated heroes, and redated both to **2026-10-29** (the real
+publish date; they were never live).
+
+**Velocity:** `persona-velocity.ts` reported **0 posts in the last 7 days**.
+Hank (AO1) and Carl (AO2) taken as queued. Bars re-checked: Hank's "budget gear
+roundups" — AO1 is a repair decision; Carl's "gear roundups or shootouts" — AO2
+keeps the D120F/C12N comparison to one table inside a history piece. Clear.
+
+**Verification results:**
+- AO1: Reconing Speakers' P12N kit specs confirmed (1.522″ coil ID, 4.133″ cup
+  spider on the C6385/C6230/C4962 kit, glue sold separately). Blue Book / Dave
+  Boze quotes confirmed verbatim from the bluebookofguitarvalues.com PDF
+  (originally a ToneQuest Report article). Premier Guitar / Ed Hoffman piece
+  confirmed. **Removed:** a quoted "service, not modification" position
+  attributed to a Mahar's Vintage blog post (May 2026) — no such post or
+  phrase could be found; the table row, a takeaway and an FAQ answer that
+  leaned on it were rewritten onto the two confirmed sources. **Softened:** a
+  claim that Celestion and Eminence kits are "described the same way" (not
+  sourced) → the kit-catalogue pattern Reconing Speakers actually shows.
+- AO2: RetroFret 1968 Twin listing ($150 JBL add-on on $499.50 list) confirmed;
+  radiomuseum.org independently lists D120F 4″ edgewound aluminium coil, 12,000
+  gauss, 8 Ω, 100 W; Harvey Gerst's "F = Fender" and 35–60 W nominal ratings
+  confirmed via his Usenet posts. No changes needed beyond date and image_alt.
+
+### SERP analysis
+
+| Post | Target query | Top results (standard search) | Gap our post fills | AI Overview? F&K cited? |
+|---|---|---|---|---|
+| recone-vs-replace-vintage-guitar-speaker | "recone vs replace vintage guitar speaker value" | Premier Guitar (Hoffman), Steel Guitar Forum (two threads), jazzguitar.be, TDPRI, Music Electronics Forum, Seymour Duncan forum | Every result is forum rule-of-thumb ("recone if rare, replace if common"). None names what a kit physically contains, and none explains that the kit replaces the parts that set Fs and most of sensitivity. Ours: part-by-part kit table, the BL²/(Re·Mms²) mass table, Jensen's own 8 Ω/16 Ω C12N mass spread, two graded value sources, decision table. | Not observable — search tool returns organic links only. |
+| fender-twin-jbl-d120f-option-what-it-changed | "fender twin reverb jbl d120f option" | Dealer listings only: MM Guitar Bar (1975), Chicago Music Exchange, Cream City (1966), Vintage & Rare (1965), Carter Vintage (1974), Steel Guitar Forum | Listings call JBLs a "factory upgrade" with "tons of headroom"; none prints the JBL figures, the option price, or the fact that JBL's own sheet publishes no sensitivity. Ours: the 1970 JBL figures against current C12N figures, the $150/$499.50 documentation, Gerst's rating method. | Not observable. |
+| alnico-blue-vs-greenback-ac30-worship (R1) | "alnico blue vs greenback ac30" | rig-talk thread (three URLs), The Gear Forum thread, zZounds AC30C2 / AC30HW listings | Forums split on taste ("Blues sizzly with dirt" vs "Blues flubby"); vendor copy states the C2/C2X split. None tabulates Celestion's figures, notes the shared 75 Hz Fs, or does the 2×15 W = 30 W power-margin arithmetic. | Not observable. |
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | alnico-blue-vs-greenback-ac30-worship | **Debt item 19 closed — rebuilt.** Removed the first-person FOH listening anecdote (human-testing claim). Removed "an alnico magnet compresses earlier and more sweetly" stated as fact. Removed the "Greenback introduced around 1968" date. **Fixed a factual error:** it said a cranked AC30 pushes "four" Blues — the AC30 is a 2x12. **Fixed a framing error:** it called the Blue the AC30's stock voice; Vox's current AC30C2 ships with Greenbacks and the AC30C2X with Blues. Added Celestion's published figures table (Blue 15 W / 100 dB / 75 Hz; G12M 25 W / 98 dB / 75 Hz, one retailer lists 97), the power-margin arithmetic (2×15 W = the amp's 30 W; 2×25 W = 50 W), the 2 dB sensitivity consequence for miked vs unmiked stages, and the Helix catch (Greenback models are 4x12s, so the A/B changes cabinet too). Rewrote all 5 takeaways and 5 FAQ answers. New links: alnico-vs-ceramic, recone post, harsh-through-PA quick fix, AC30 settings, Cut knob, speaker power handling. `updated: 2026-10-29`. | Worship/AC30 cluster page carrying a testing claim and two factual errors. |
+
+Only one refresh today: the stranded-draft verification took the second slot.
+
+**Gates (self-audit):** AO1 — self-references 2 ("I expected," "The Part I Had the Wrong Way Round" heading counts with it), "We found" once; 0 signature phrases; Gate 5 is the half-measure reversal (recone replaces the parts that set resonance and most of sensitivity); Gate 6 clean. AO2 — 2 self-references (heading + "I expected"); 0 signature phrases; Gate 5 is JBL's sheet publishing no sensitivity at all; Gate 6 clean ("crisp and brilliant" only as quoted JBL copy). R1 — 1 self-reference ("I expected the two sheets to split at the low end"); a drafted signature line ("They don't make 'em like…") cut in self-audit; Gate 5 is the shared 75 Hz Fs; Gate 6 sweep clean (only "warm" left is in image_alt). Gate 7 for all three: see SERP gaps.
+
+**Image pipeline note:** the tag fallback gave both posts the same "4x12 cab with a dynamic mic" subject, and the recone hero rendered a legible **Fender script** on generation 1 (fifth consecutive run with a grille-logo leak). Added `SUBJECT_OVERRIDES` for both slugs with "no logo, badge or lettering" and regenerated. Recone hero clean. JBL hero came back on the tech_bench workbench (not the stage the old alt described) with two gibberish badges and a gibberish script on the pedal steel — blurred with PIL; image_alt rewritten to match the image. **The template fix is still owed:** the `tech_bench` and amp-subject prompts need a global "plain grille cloth, no logo, badge or lettering" clause instead of per-slug overrides.
+
+**Refresh debt carried forward** (items 1–18, 20–23 unchanged; 19 closed) plus:
+24. **NEW — process note:** two weeks with no daily-content commit (2026-10-16 → 10-29) and two drafts stranded on disk. Same failure shape as the recipe-run isolate bug; worth checking why the 10-20-era run stopped before Step 6.
+
+### 2 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 2, dropped 0, added 2 — **queue stays at 2.** Bylines are best-fit
+> proposals; the executing run re-checks velocity **and quotes the never-assign
+> bar it checked**, and verifies no colliding slug.
+>
+> **Rejected as re-slices:** (a) "AC30C2 vs AC30C2X" — R1's table, narrowed;
+> (b) "does reconing change tone" — AO1's FAQ; (c) "JBL D120F vs D130F" — AO2
+> with a second JBL row; queue as an update to AO2 if a D130F sheet surfaces.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AP1 | alnico-speaker-magnet-recharge-does-it-weaken | Do Alnico Speaker Magnets Lose Strength, and What a Recharge Actually Restores | "alnico speaker magnet weaken over time," "recharge alnico speaker magnet," "remagnetize jensen p12r" | Hank Presswood | 2 — Gear History / Gear Lab | **Surfaced by AO1's SERP:** forum advice that an alnico speaker may need its magnet "recharged" alongside a recone. Distinct question from AO1 (what a recone replaces): whether the one part a recone *keeps* degrades. **Gate 7 guard: must cite a published demagnetisation mechanism (alnico V coercivity vs ferrite, from a magnet manufacturer's data sheet, graded) and at least one reconer's or maker's published statement on when a recharge is done and how it is measured (gauss/flux before-after). No listening claims; if no published flux figures exist, drop it.** Hank's bar checked: "Budget gear roundups" — not this. |
+| AP2 | pedal-steel-amp-headroom-how-much-clean-power | How Much Clean Headroom a Pedal Steel Actually Needs From an Amp | "best amp for pedal steel," "pedal steel amp wattage," "why do steel players use big amps" | Carl Beckett | 3 — Rigs / Country | **Surfaced by AO2's "Who It Was For" section and the D120F SERP (Steel Guitar Forum dominates).** Distinct question: the steel's signal (no string-damping pick attack, volume-pedal swells, sustained chords) and what it demands of amp and speaker. **Gate 7 guard: must ship published figures — rated clean output of the amps steel players name (Twin Reverb, Peavey Session 400/Nashville 400/112, Quilter Steelaire) from maker sheets, graded, and the volume-pedal taper/impedance spec of at least one common steel pedal (Goodrich / Hilton). The forum "4× the power" rule may appear only as a claim being checked. No listening claims.** Carl's bars checked: "Any modeler deep-dive" — not this; "Gear roundups or shootouts" — **borderline** (names several amps); keep it one table of rated figures inside a how-much-headroom piece; reassign to fk-staff if it reads as a roundup. **Confirm no colliding slug at build.** |

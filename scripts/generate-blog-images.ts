@@ -151,6 +151,11 @@ const SUBJECT_OVERRIDES: Record<string, string> = {
     "a digital multimeter with its test probes resting on the output jack of an electric guitar lying on a workbench, an unmounted humbucker pickup and a spool of fine copper wire beside it, unbranded",
   "capo-split-two-guitarists-same-song":
     "two acoustic guitars leaning against folding chairs in an empty rehearsal room, one with a capo clamped partway up the neck and the other without, unbranded",
+  // Tag fallback gives both a miked cab on a bench; describe the real subject.
+  "recone-vs-replace-vintage-guitar-speaker":
+    "a bare vintage guitar speaker frame and magnet with its cone removed, lying on a repair workbench beside a new paper cone, a spider and a voice coil, plain metal with no logo, label or lettering",
+  "fender-twin-jbl-d120f-option-what-it-changed":
+    "a large silver-panel two-speaker combo amplifier on a small honky-tonk stage beside a pedal steel guitar, plain grille cloth with no logo, badge or lettering",
   // Auto-derived subject from this title trips the provider's sensitivity
   // filter (the "Axl" token reads as a real person). Describe the scene instead.
   "ask-axl-ai-guitar-tone-assistant": "a laptop on a desk beside a floor modeler and an electric guitar, the screen showing a chat window with a signal chain diagram of amp and pedal blocks, warm desk lamp light",
