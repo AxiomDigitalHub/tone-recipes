@@ -95,9 +95,21 @@ function hashtagFrom(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9]/g, "");
 }
 
-function pickHashtags(cfg: Config, format: Format, extra: string[]): string[] {
+/** Rig-specific pool tags, dropped when the post is about a different rig. */
+const RIG_TAGS: Record<string, RegExp> = { line6helix: /helix|hx/i, helixtone: /helix|hx/i, hxstomp: /hx stomp/i };
+
+/** Which rig a blog post is about, from its title first (the body often name-drops others). */
+export function blogRigLabel(title: string, body: string): string {
+  if (/katana/i.test(title)) return "Boss Katana";
+  if (/pedalboard|pedal board/i.test(title)) return "pedalboard";
+  if (/hx stomp/i.test(title)) return "HX Stomp";
+  if (/helix/i.test(title)) return "Helix";
+  return /hx stomp/i.test(body) && !/helix(?! stomp)/i.test(body) ? "HX Stomp" : "Helix";
+}
+
+function pickHashtags(cfg: Config, format: Format, extra: string[], rig = "Helix"): string[] {
   const generic = new Set(["guitar", "tone", "settings", "helix", "amp", "amps", "modeler", "modelers"]);
-  const tags = [...cfg.hashtagPools[format]];
+  const tags = cfg.hashtagPools[format].filter((t) => !RIG_TAGS[t] || RIG_TAGS[t].test(rig));
   for (const e of extra.map(hashtagFrom)) {
     if (tags.length >= 5) break;
     if (e && e.length >= 4 && e.length <= 30 && !generic.has(e) && !tags.includes(e)) tags.push(e);
@@ -240,7 +252,7 @@ export function buildFactSheet(plan: SlotPlan, ledger: LedgerRow[], cfg: Config)
       band: null,
       album: null,
       year: null,
-      platformLabel: /hx stomp/i.test(p.body) && !/helix(?! stomp)/i.test(p.body) ? "HX Stomp" : "Helix",
+      platformLabel: blogRigLabel(String(fm.title ?? ""), p.body),
       otherPlatforms: [],
     };
     fb.add("d", { kind: "display", display: display.title, label: "title", sourcePath: "blog.frontmatter.title" });
@@ -269,7 +281,8 @@ export function buildFactSheet(plan: SlotPlan, ledger: LedgerRow[], cfg: Config)
   }
 
   const worshipFormat = plan.format === "sunday_sound" || plan.format === "worship_rig";
-  const line = worshipFormat || item.sourceKind === "recipe" ? attributionLine(confidence, display.album, display.year) : null;
+  // The credit caveat is about who played a recorded part, so it only applies when there is a song.
+  const line = display.song && (worshipFormat || item.sourceKind === "recipe") ? attributionLine(confidence, display.album, display.year) : null;
 
   return {
     schema: "fk.factsheet.v1",
@@ -287,7 +300,7 @@ export function buildFactSheet(plan: SlotPlan, ledger: LedgerRow[], cfg: Config)
     tables,
     takeawayFactIds,
     ...recentHistory(ledger),
-    hashtags: pickHashtags(cfg, plan.format, extraTags),
+    hashtags: pickHashtags(cfg, plan.format, extraTags, display.platformLabel),
     cta: CTA[plan.format],
     disclosure: DISCLOSURE,
   };

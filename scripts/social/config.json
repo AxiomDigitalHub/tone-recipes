@@ -1,6 +1,6 @@
 {
-  "_note": "Daniel's knobs for social v2. profileReady gates every live publish; approvalMode puts posts in Zernio pending_approval. Timezone is an assumption (America/Chicago) — confirm.",
-  "timezone": "America/Chicago",
+  "_note": "Daniel's knobs for social v2. profileReady gates every live publish; approvalMode puts posts in Zernio pending_approval. Timezone confirmed Pacific 2026-10-29.",
+  "timezone": "America/Los_Angeles",
   "profileReady": true,
   "approvalMode": true,
   "platforms": { "instagram": true, "pinterest": false },
