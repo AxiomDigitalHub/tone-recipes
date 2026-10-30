@@ -7804,3 +7804,94 @@ Only one refresh today: the stranded-draft verification took the second slot.
 |---|---|---|---|---|---|---|
 | AP1 | alnico-speaker-magnet-recharge-does-it-weaken | Do Alnico Speaker Magnets Lose Strength, and What a Recharge Actually Restores | "alnico speaker magnet weaken over time," "recharge alnico speaker magnet," "remagnetize jensen p12r" | Hank Presswood | 2 — Gear History / Gear Lab | **Surfaced by AO1's SERP:** forum advice that an alnico speaker may need its magnet "recharged" alongside a recone. Distinct question from AO1 (what a recone replaces): whether the one part a recone *keeps* degrades. **Gate 7 guard: must cite a published demagnetisation mechanism (alnico V coercivity vs ferrite, from a magnet manufacturer's data sheet, graded) and at least one reconer's or maker's published statement on when a recharge is done and how it is measured (gauss/flux before-after). No listening claims; if no published flux figures exist, drop it.** Hank's bar checked: "Budget gear roundups" — not this. |
 | AP2 | pedal-steel-amp-headroom-how-much-clean-power | How Much Clean Headroom a Pedal Steel Actually Needs From an Amp | "best amp for pedal steel," "pedal steel amp wattage," "why do steel players use big amps" | Carl Beckett | 3 — Rigs / Country | **Surfaced by AO2's "Who It Was For" section and the D120F SERP (Steel Guitar Forum dominates).** Distinct question: the steel's signal (no string-damping pick attack, volume-pedal swells, sustained chords) and what it demands of amp and speaker. **Gate 7 guard: must ship published figures — rated clean output of the amps steel players name (Twin Reverb, Peavey Session 400/Nashville 400/112, Quilter Steelaire) from maker sheets, graded, and the volume-pedal taper/impedance spec of at least one common steel pedal (Goodrich / Hilton). The forum "4× the power" rule may appear only as a claim being checked. No listening claims.** Carl's bars checked: "Any modeler deep-dive" — not this; "Gear roundups or shootouts" — **borderline** (names several amps); keep it one table of rated figures inside a how-much-headroom piece; reassign to fk-staff if it reads as a roundup. **Confirm no colliding slug at build.** |
+
+## Daily Run — 2026-10-30 (2 new posts + 1 refresh)
+
+### Posts published: alnico-speaker-magnet-recharge-does-it-weaken, pedal-steel-amp-headroom-how-much-clean-power
+
+**Velocity:** `persona-velocity.ts` reported **2 posts in 7 days** (Hank 1,
+Carl 1). AP1 → Hank, AP2 → Carl, as queued; both end at 2/week. Bars checked,
+quoted: Hank's "Budget gear roundups" — AP1 is a repair/mechanism piece, clear.
+Carl's "Gear roundups or shootouts" — AP2 names five amps, but in one table of
+rated figures inside a how-much-headroom piece; the rest is EQ, setting method
+and the volume pedal. Kept with Carl. Both slugs collision-checked — clear.
+
+**Gate 7 guards met:**
+- AP1: published demagnetisation mechanism (Adams Magnetic chart: cast alnico 5
+  Br 12,800 G / Hc 640 Oe vs ceramic 8 3,900 G / 2,950 Oe); published aging data
+  (Indiana General, reprinted by Seymour Duncan: alnico 5 loses 0.01–0.4 % per
+  11.4-yr log cycle); maker statement on when demag happens and how much (Greg
+  Timbers, JBL, via the cieri.net "Great Alnico/Ferrite Debate" compilation:
+  permanent, up to 3 dB, 1–1.5 dB on 4″ motors, caused by drive current from big
+  solid-state amps, not time); reconer's practice (Weber demag/realign/remag in
+  vintage Jensen recones, per Legendary Tones). **No published before/after
+  gauss figures found for a guitar speaker** — the post says so and makes the
+  gauss reading the reader's ask, not our claim.
+- AP2: maker ratings (Nashville 112 80 W RMS @4 Ω; '65 Twin Reverb reissue 85 W
+  @4 Ω; Steel-King 200 W @4 Ω; Steelaire 200 W; Nashville 400 210 W RMS @4 Ω).
+  Pedal spec: Goodrich-branded 500K audio-taper replacement for 120/L120/H10K/
+  L10K (Tonetronix listing, grade B); one L120 listing names a 470K Dunlop pot —
+  both stated. **Goodrich publishes no spec page reachable to WebFetch; Hilton
+  specs found only in forum posts and not used.** The "4× power" rule appears
+  only as a claim checked against Peavey's manual (each 3 dB of low boost
+  doubles power; 4× = 6 dB).
+
+### SERP analysis
+
+| Post | Target query | Top results (standard search) | Gap our post fills | AI Overview? F&K cited? |
+|---|---|---|---|---|
+| alnico-speaker-magnet-recharge-does-it-weaken | "do alnico speaker magnets weaken over time recharge" | CR4 thread, diyAudio (two posts), AudioKarma (three threads), Audio Heritage, homerecording.com, Polk forum, Harmony Central | All forum; aging-rate claims range from "½ % per year" to "2–3 % per decade" with no source. Ours: the Indiana General log-cycle table showing alnico 5 aging is near zero, JBL's own engineer on drive-current demag (and the amp-history consequence), the BL-loss table (1 dB = 89 % motor), and a situation → action table. | Not observable — search tool returns organic links only. |
+| pedal-steel-amp-headroom-how-much-clean-power | "pedal steel amp wattage how much headroom" | Steel Guitar Forum (≈10 threads), Dr Z Surgical Steel listing, Quilter TT12 (Equipboard), Reverb Nashville 400 listing, Milkman 85 W | Forum opinions span "30 W tube is fine" to "4–8× a lead guitar"; one poster notes bass costs power, unsourced. Ours: maker ratings in dB terms, Peavey's own manual as the source for the bass-power rule, the pedal-floored setting method, and the passive-pot R/4 output-impedance point. | Not observable. |
+| alnico-vs-ceramic-speaker-same-cone-published-specs (R1) | "neodymium vs ceramic guitar speaker jensen n12k c12k" | loudspeakerdatabase (N12K, C12K pages), jensentone N12K, Cedist, Premier Guitar launch news, Tube Amp Doctor | Spec pages in isolation plus launch copy; none sets the pair side by side or explains the gap. Ours: the BL-predicts-−1.75 dB vs published −1.8 dB check, and the Celestion pair as the matched control. | Not observable. |
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | alnico-vs-ceramic-speaker-same-cone-published-specs | **Debt item 23 closed.** New section "The Third Magnet: Neodymium": Celestion Neo Creamback vs G12M-65 Creamback (both 97 dB / 75 Hz from Celestion sheets; 1.9 vs 3.6 kg) and Jensen N12K vs C12K (97.2 vs 99 dB, 116 vs 115 Hz, BL 12.05 vs 13.7, Mms 32.5 vs 33.4 g, 160 g vs 1,450 g magnet). Finding: on the Jensen neo pair the moving assembly is matched and the **motor** explains the gap (predicted −1.75 dB vs published −1.8 dB, Re assumed equal) — the mirror of the alnico/ceramic pairs, where mass explained it. Hedged: N12K BL/Mms are distributor/database figures (grade B); loudspeakerdatabase lists the 16 Ω C12K at 96.5 dB vs Jensen's 99. Added a paragraph separating temporary alnico compression from permanent demag, linking the new AP1 post. Weight line in "How to Decide" extended to neo. One takeaway and one FAQ added. `updated: 2026-10-30`. | Queued since 10-16; extends the post's thesis to a third magnet type rather than spinning a neo-vs-ceramic URL. |
+
+Only one refresh today; the second slot went to source verification for AP2's
+pedal specs (Goodrich/Hilton), which mostly dead-ended in forum posts.
+
+**Gates (self-audit):** AP1 — 1 self-reference ("I expected the shelf to be the
+villain"); 0 signature phrases; Gate 5 is the aging reversal (shelf time ≈ no
+loss; drive current is the cause); Gate 6 clean. AP2 — 1 self-reference ("I
+expected the answer to be the attack"); 0 signature phrases; no em dashes or
+italics (Carl); Gate 5 is Peavey's manual locating the power draw in bass EQ, not
+transients; Gate 6 clean. **Fact fix caught in self-audit:** first draft said E9's
+low B (123 Hz) is "well under a guitar's open A" — open A is 110 Hz; rewritten.
+Gate 10: AP1 has the IR line; AP2 covers home/80 W, direct-to-PA, and tube vs
+solid-state amps.
+
+**Image pipeline note:** the global "generic and unbranded" clause is now in the
+script and both posts got `SUBJECT_OVERRIDES`. AP1 clean on generation 1
+(vintage_film basement, not a shop — image_alt rewritten to match). AP2
+generation 1 (tech_bench) put vacuum tubes on the pedal steel and a Fender-style
+script on the amp; regenerated with a tighter subject, clean on generation 2.
+
+**Refresh debt carried forward** (items 1–18, 20–22, 24 unchanged; 23 closed) plus:
+25. **NEW — Goodrich volume pedal spec.** No first-party spec found; AP2 uses a
+    retailer's Goodrich-branded 500K replacement listing. If goodrichsound.com
+    publishes pot value/taper, upgrade the citation.
+26. **NEW — Peavey Session 400 rating.** Forum-only (200 W @4 Ω); left out of AP2's
+    table. A Peavey catalog scan would let it in.
+27. **NEW — legacy `<FAQ>` migrations** have not been touched in the last three
+    runs; next run with spare capacity should take one.
+
+### 2 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 2, dropped 0, added 2 — **queue stays at 2.** Bylines are best-fit
+> proposals; the executing run re-checks velocity **and quotes the never-assign
+> bar it checked**, and verifies no colliding slug.
+>
+> **Rejected as re-slices:** (a) "best pedal steel amp" — AP2's table as a
+> roundup, and Carl's never-assign bar; (b) "how to recharge a speaker magnet
+> yourself" — AP1's FAQ plus equipment we can't document; (c) "neodymium speaker
+> pros and cons" — R1's new section; (d) "250K vs 500K volume pedal" — overlaps
+> `expression-pedal-vs-volume-pedal` and `volume-pedal-dynamics-control`; check
+> those for an update instead.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AQ1 | volume-pedal-treble-loss-halfway-why | Why Your Guitar Dulls With the Volume Pedal Halfway Down | "volume pedal tone suck halfway," "passive volume pedal treble loss," "low impedance vs high impedance volume pedal" | Sean Nakamura | 1 — Signal Chain | **Surfaced by AP2's pedal section.** A passive pot's output impedance peaks at R/4 at mid travel (125K for 500K, 62.5K for 250K); with cable capacitance that sets a low-pass corner that moves with the pedal. Distinct from `volume-pedal-dynamics-control` (technique) and `expression-pedal-vs-volume-pedal` (device type): this is the circuit question. **Gate 7 guard: must ship computed −3 dB corners for 250K/500K at 25/50/75 % travel with a stated cable capacitance (pF/ft from a maker's cable spec, graded), and name at least one pedal maker's published low-Z/high-Z spec (Ernie Ball VP Jr. 250K/25K is the lead to verify). No listening claims.** Sean's bars to check at build. **Check collision with the two existing volume-pedal posts before drafting; if either already covers R/4, queue an update instead.** |
+| AQ2 | solid-state-amp-into-vintage-speaker-safe-power | Putting a Big Solid-State Amp on a Vintage Speaker: What Power Is Actually Safe | "solid state amp vintage speaker damage," "can a 100 watt amp blow a 25 watt speaker clean," "vintage jensen power handling clean amp" | Hank Presswood (alt: Rick Dalton) | 2 — Gear Lab | **Surfaced by AP1 meeting AP2:** Timbers' point that 15–30 W tube amps couldn't hurt alnico motors, while steel/bass players now run 200 W solid-state into vintage drivers. Distinct question from `speaker-power-handling-watts-cab` (matching ratings in a new cab): the risks specific to old speakers on clean high-power amps — thermal (coil), mechanical (excursion below Fs), and magnetic (alnico demag). **Gate 7 guard: must cite published power ratings of named vintage speakers (Jensen P12R 25 W, P12Q 40 W reissue figures; vintage originals if a catalog surfaces, graded) and a maker statement on clean vs distorted power (Celestion or Eminence FAQ). No listening claims.** Hank's velocity: AP1 puts him at 2/week as of 10-30; check at build. |

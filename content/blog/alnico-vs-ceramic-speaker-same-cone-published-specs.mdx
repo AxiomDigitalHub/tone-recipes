@@ -6,6 +6,7 @@ description: >-
   sensitivity moves 0.6 to 1.4 dB in no fixed direction. The magnet weight is
   the only thing that always changes.
 date: '2026-10-16'
+updated: '2026-10-30'
 author_slug: viktor-kessler
 category: gear-lab
 tags:
@@ -39,6 +40,10 @@ takeaways:
     The one difference every pair shows is magnet weight: 200 g alnico against
     270 g ceramic on Jensen's R models, and 11 oz against 30 oz on Weber's
     12A125 and 12F125 — about three pounds per speaker on the Weber pair.
+  - >-
+    Neodymium follows the same rule. Celestion's Neo Creamback and G12M-65
+    Creamback share 97 dB and 75 Hz; Jensen's N12K is 1.8 dB below the C12K,
+    and its lower published BL predicts almost exactly that gap.
 faq:
   - q: Do alnico speakers sound different from ceramic speakers?
     a: >-
@@ -66,6 +71,13 @@ faq:
       alnico models use a 200 g magnet against 270 g of ferrite in the ceramic
       versions. Weber's 12A125 uses an 11 oz alnico magnet against 30 oz of
       ceramic in the 12F125, and the complete speakers weigh 4.85 lb and 7.8 lb.
+  - q: Are neodymium guitar speakers quieter than ceramic ones?
+    a: >-
+      Not as a rule. Celestion publishes its Neo Creamback and ceramic G12M-65
+      Creamback at the same 97 dB sensitivity and 75 Hz resonance. Jensen's
+      neodymium N12K is published at 97.2 dB against the ceramic C12K's 99 dB,
+      a gap its lower BL accounts for. Both neo speakers weigh about half as
+      much as their ceramic counterparts.
   - q: Can a modeler or impulse response capture alnico compression?
     a: >-
       No. An impulse response is a linear snapshot of the speaker, cabinet and
@@ -140,11 +152,32 @@ Weber's pairs match on cone, coil and power — the magnet is the only listed va
 
 What they do tell you is weight. The 12A125 is about three pounds lighter than the 12F125. In a 4x12 that is roughly 12 pounds off the cabinet, for $64 more across four speakers at Weber's listed prices. That is the most reliable difference in this entire article, and it is a logistics number, not a tone number.
 
+## The Third Magnet: Neodymium
+
+Neodymium is the magnet makers now use when weight is the point, and two of them publish a neo speaker against a ceramic one it is meant to match. Neither pair is as clean as Jensen's P/C pairs — the power ratings and voice coils are not guaranteed identical — so treat these as cousins, not twins.
+
+| Speaker | Magnet | Magnet weight | Rated power | Sensitivity | Resonance (Fs) | BL (T·m) | Mms | Speaker weight |
+|---|---|---|---|---|---|---|---|---|
+| **Celestion G12M-65 Creamback** | Ceramic | 990 g (35 oz) | 65 W | 97 dB | 75 Hz | not published | not published | 3.6 kg |
+| **Celestion Neo Creamback** | Neodymium | not published | 60 W | 97 dB | 75 Hz | not published | not published | 1.9 kg |
+| **Jensen C12K** (8 Ω) | Ceramic | 1,450 g | 100 W | 99 dB | 115 Hz | 13.7 | 33.4 g | 4.3 kg |
+| **Jensen N12K** (8 Ω) | Neodymium | 160 g | 100 W | 97.2 dB | 116 Hz | 12.05 | 32.5 g | 2.0 kg |
+
+*Celestion figures from its spec sheets. Jensen C12K and N12K sensitivity, resonance and weights from Jensen's product pages; Jensen's N12K page publishes no BL or Mms, so those two are from a distributor listing (BL) and loudspeakerdatabase.com (Mms) and are grade B.*
+
+Celestion's pair lands on identical sensitivity and resonance. Jensen's does not: the N12K is 1.8 dB quieter than the C12K. Jensen's own copy calls the N12K the closest sound and feel of the C12K at half the weight — not the same speaker. One caution on the size of that gap: loudspeakerdatabase.com lists the 16 Ω C12K at 96.5 dB, well below Jensen's own figure, so the Jensen numbers are used throughout here and the comparison holds only within one source.
+
+The same efficiency relation explains the Jensen gap, but this time from the other side. Resonance is within 1 Hz and moving mass is within 3 percent, so the moving assembly is effectively matched. What changed is the motor. BL drops 12 percent, from 13.7 to 12.05. Squared, that predicts **−2.2 dB**; the 3 percent lighter moving mass gives back about 0.5 dB; net **−1.75 dB** against a published **−1.8 dB**. (Jensen does not publish the N12K's Re, so this assumes it matches the C12K's 6.75 Ω.)
+
+So across all six pairs with published output figures, the rule holds. Magnet material sets the weight. Motor strength and moving mass set the output. On the alnico/ceramic pairs the mass moved and the motor didn't matter enough; on the Jensen neo pair the mass held still and the motor came up short. Where a maker matched both, as Celestion appears to have, the published output matches too.
+
 ## What a Spec Sheet Cannot Show
 
 The case for alnico is not about any figure in these tables. It is about **compression at high power**: the claim that an alnico magnet's field sags when the coil is driven hard, which softens the attack and evens out the level. Weber's own Q&A describes alnico as "smooth, compressed and fattened at higher volumes, less headroom," and notes the effect "is not permanent."
 
 Every number above is a small-signal measurement. Thiele-Small parameters are taken at low drive, where the speaker behaves linearly. Power compression is by definition what happens when it stops behaving linearly. So the published figures neither confirm nor refute the alnico claim — they are measured in the wrong regime to say anything about it. Eminence's FAQ goes further, saying that at equal flux "you probably won't notice a difference in tonality," and putting any difference down to the magnet's position and the resulting flux rather than the material.
+
+Do not confuse that temporary compression with permanent flux loss. Alnico's low coercivity also means a large enough voice-coil current can partly demagnetize it for good, which lowers BL and therefore sensitivity until the magnet is recharged. That is a different mechanism with its own figures — see [whether alnico speaker magnets lose strength](/blog/alnico-speaker-magnet-recharge-does-it-weaken).
 
 That has a direct consequence for anyone on a modeler.
 
@@ -157,7 +190,7 @@ What an IR of an alnico speaker does carry is its small-signal response, and in 
 ## How to Decide
 
 1. **Choosing between the P and C version of the same Jensen:** expect up to 1.4 dB of level difference. That is the alnico P12R needing 28 percent less power than the C12R for the same level — real, but under half of the 3 dB that doubling your amplifier's power buys. Do not buy either version expecting a different voicing on the strength of the magnet letter alone.
-2. **If weight matters:** this is the one argument the figures fully support. Alnico saves 70 g of magnet per Jensen R-series speaker and about three pounds per Weber 12A125.
+2. **If weight matters:** this is the one argument the figures fully support. Alnico saves 70 g of magnet per Jensen R-series speaker and about three pounds per Weber 12A125. Neodymium saves more: 1.7 kg on Celestion's Creamback pair and 2.3 kg on Jensen's C12K/N12K, which is about 9 kg off a 4x12. On the Jensen, budget 1.8 dB for it.
 3. **If you want the alnico compression:** the only way to evaluate it is to drive the speaker hard in the room, because no spec sheet and no IR contains it. Buy where you can return.
 4. **If you are comparing across makers:** stop at resonance and sensitivity. Jensen's published Qts values run 1.5 to 2.5; Eminence's run near 0.6 for comparable guitar speakers. Those are not two different physics. They are two different test methods, so Thiele-Small figures only compare within one maker's sheets.
 
