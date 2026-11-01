@@ -7895,3 +7895,65 @@ script on the amp; regenerated with a tighter subject, clean on generation 2.
 |---|---|---|---|---|---|---|
 | AQ1 | volume-pedal-treble-loss-halfway-why | Why Your Guitar Dulls With the Volume Pedal Halfway Down | "volume pedal tone suck halfway," "passive volume pedal treble loss," "low impedance vs high impedance volume pedal" | Sean Nakamura | 1 — Signal Chain | **Surfaced by AP2's pedal section.** A passive pot's output impedance peaks at R/4 at mid travel (125K for 500K, 62.5K for 250K); with cable capacitance that sets a low-pass corner that moves with the pedal. Distinct from `volume-pedal-dynamics-control` (technique) and `expression-pedal-vs-volume-pedal` (device type): this is the circuit question. **Gate 7 guard: must ship computed −3 dB corners for 250K/500K at 25/50/75 % travel with a stated cable capacitance (pF/ft from a maker's cable spec, graded), and name at least one pedal maker's published low-Z/high-Z spec (Ernie Ball VP Jr. 250K/25K is the lead to verify). No listening claims.** Sean's bars to check at build. **Check collision with the two existing volume-pedal posts before drafting; if either already covers R/4, queue an update instead.** |
 | AQ2 | solid-state-amp-into-vintage-speaker-safe-power | Putting a Big Solid-State Amp on a Vintage Speaker: What Power Is Actually Safe | "solid state amp vintage speaker damage," "can a 100 watt amp blow a 25 watt speaker clean," "vintage jensen power handling clean amp" | Hank Presswood (alt: Rick Dalton) | 2 — Gear Lab | **Surfaced by AP1 meeting AP2:** Timbers' point that 15–30 W tube amps couldn't hurt alnico motors, while steel/bass players now run 200 W solid-state into vintage drivers. Distinct question from `speaker-power-handling-watts-cab` (matching ratings in a new cab): the risks specific to old speakers on clean high-power amps — thermal (coil), mechanical (excursion below Fs), and magnetic (alnico demag). **Gate 7 guard: must cite published power ratings of named vintage speakers (Jensen P12R 25 W, P12Q 40 W reissue figures; vintage originals if a catalog surfaces, graded) and a maker statement on clean vs distorted power (Celestion or Eminence FAQ). No listening claims.** Hank's velocity: AP1 puts him at 2/week as of 10-30; check at build. |
+
+## Monthly AI-Visibility Spot Check — 2026-11-01
+
+> Per `docs/AI_SEARCH_PLAYBOOK.md` §8, run from the weekly recipe audit on the
+> first Sunday. Same 5 queries as 2026-09-06 so the comparison is like-for-like.
+> **No October entry exists** (the 2026-10-04 slot was not logged), so the
+> deltas below are against September.
+
+### 1. Target-query citation check (5 queries, live web-search API)
+
+| # | Query | F&K cited? | vs. Sep | Notes |
+|---|-------|-----------|---------|-------|
+| 1 | john mayer clean tone helix settings | **No** | = | Same commodity shape: worshiptutorials preset, a reach.dog storefront, ~10 line6.com threads, cainkong Gumroad, bluguitar, planetz, guitarchalk. |
+| 2 | tube screamer settings blues | **No** | ▼ **lost** | Re-formed again, now guitarchalk-dominated (7 of 17 results) plus guitarbites, artistworks, ploutone, musicstrive, Thomann. September's gain did not hold. |
+| 3 | worship guitar tone Line 6 Helix settings | **No** | = (still lost) | Now **18 of 18 results are praisecharts.com song-patch pages**. This is a different result set from the one we lost in September, not a slow slide: the SERP has collapsed into a single-domain product catalog. |
+| 4 | HX Stomp worship ambient delay reverb settings | **No** | = | worshiptutorials, MultiTracks, Secuencias, payhip, line6.com, helixhelp, modelrec. Still storefront-heavy. |
+| 5 | Big Muff settings guide best tones | **No** | ▼ **lost** | Guitar World, Equipboard, TalkBass, Guitar Pro, Thomann, gilmourish, ehx.com, Reverb News. Was 7th in September. |
+
+**Citation rate: 0/5 (Sep 2/5, Aug 2/5).** First zero since the cadence began.
+
+**Not a technical regression, verified this run.** All three previously-cited
+pages (`/blog/tube-screamer-settings-guide`, `/blog/big-muff-settings-guide`,
+`/blog/hillsong-guitar-tone-helix`) return 200 to a Googlebot UA with
+`index, follow`, a self-canonical, and (for the two settings guides) a
+sitemap entry. This is ranking and result-set drift.
+
+**Caveat on method:** the web-search tool returns a ranked link list and a
+synthesized summary, not Google's AI Overview, so "AI Overview present?" is
+not observable from this run. Treat this as a retrieval-ranking proxy. One
+month of 0/5 on a 5-query sample is a signal to watch, not a conclusion; the
+Q2 and Q5 result sets have now re-formed in two consecutive months.
+
+### 2. Crawler reachability at the edge — PASS
+
+```
+curl -sI https://faderandknob.com/robots.txt  →  HTTP/2 200
+no x-vercel-mitigated header;  cf-nel present (Cloudflare)
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /   (disallows unchanged: /admin /dashboard /saved /api/ /invite/ /login /signup /dev/ /*?*sort=)
+```
+
+The homepage returns 200 to `GPTBot/1.0`, `OAI-SearchBot/1.0`, `ClaudeBot/1.0`
+and `PerplexityBot/1.0` UAs. The source of truth is still
+`src/app/robots.txt/route.ts` (not `robots.ts`), and its output is unchanged.
+
+### 3. AI crawler hit counts — STILL UNAVAILABLE (debt now 3 months old)
+
+The site is on the DO droplet behind Cloudflare, so the Vercel-MCP log path
+in §8.3 has nothing to read. There is still no Cloudflare or Caddy-log
+replacement. With citations at 0/5, this is now the measurement that would
+separate "not retrieved" from "retrieved but not chosen". Logged, not built,
+because it is a strategy-level build.
+
+### 4. AI referral traffic — SKIPPED
+
+GA4 needs interactive auth under `authuser=1`, and no API route exists.
+
+### 5. Regressions — FLAGGED
+
+Citation rate is 2/5 → 0/5. Q2 and Q5 were lost, and Q3 is still lost. Crawl
+and indexability are verified healthy. No strategy changes were made from this
+audit run; flagged for the content side.
