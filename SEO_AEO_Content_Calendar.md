@@ -7957,3 +7957,127 @@ GA4 needs interactive auth under `authuser=1`, and no API route exists.
 Citation rate is 2/5 → 0/5. Q2 and Q5 were lost, and Q3 is still lost. Crawl
 and indexability are verified healthy. No strategy changes were made from this
 audit run; flagged for the content side.
+
+## Daily Run — 2026-11-03 (2 new posts + 1 refresh + 1 factual correction)
+
+### Posts published: volume-pedal-treble-loss-halfway-why, solid-state-amp-into-vintage-speaker-safe-power
+
+**Velocity:** `persona-velocity.ts` reported **4 posts in 7 days** (Hank 2,
+Carl 2). AQ1 → Sean (0 → 1). AQ2 → Hank (2 → **3, now at cap**). Skip Hank
+on any new post before 2026-11-07. Bars checked, quoted: Sean's "Live gigging
+logistics" covers AQ1's pedalboard-order advice, but the piece is a circuit
+question, so it's clear. Hank's "Modeler workflows or digital gear
+deep-dives": AQ2 has one modeler paragraph, so it's clear.
+
+**AQ1 re-angled at build (collision check).** The queued hook (R/4 corners at
+25/50/75 % travel) was already in `treble-bleed-when-you-actually-need-one`
+(guitar-knob corner table) and `volume-pot-value-250k-vs-500k-what-it-loads`.
+To keep AQ1 a distinct question, the post covers what changes when the pot is
+a **pedal**:
+(a) Audio taper puts peak source resistance at about **72 % of travel, −6 dB**,
+not at halfway (half travel is already −20 dB, with 22.5k on a 250k pedal).
+(b) The **cable after the pedal** sets audibility: about 50 kHz into a short
+patch to a buffered input vs about 3.2 kHz into 20 ft.
+(c) **Full-up load:** 83k → 62.5k with a 250k pedal, 19k with a 25k pedal.
+(d) Buffer placement and pot-value choice.
+The treble-bleed post is linked as the guitar-knob companion.
+
+**Gate 7 guards met:**
+- AQ1: cable capacitance is Mogami W2524 at 130 pF/m (39.7 pF/ft) @ 1 kHz,
+  plus W2319 at 47.3 pF/ft. Both are the maker figure as reproduced by
+  distributors (grade B; no first-party page reachable). Ernie Ball VP Jr
+  250k (passive, micro-taper switch) and 25k (voiced for active signals) come
+  from retailer and Ernie Ball buying-guide wording via search. The
+  ernieball.com product and blog pages returned 403 or were empty to fetch
+  (grade B). Boss FV-500H/L publish no ohm figures, so they are not used.
+  Corners are computed from x(1−x)R with a two-segment A taper (10 % at
+  mid-rotation), and that assumption is stated in the post.
+- AQ2: the Jensen first-party spec pages for P10R, P12R and P12Q (rated and
+  musical power, Fs, Xmax, Qts, BL, Re, Cms) were fetched. Jensen's tone
+  chart supplies the 2× cabinet guideline and the C12N at 50 W. The Eminence
+  "Understanding Loudspeaker Power Ratings" page (curl; WebFetch got a 429)
+  supplies EIA 426A free-air noise at a 6 dB crest factor ("basically a
+  thermal limit"), music program = 2× continuous, and the bass-excursion
+  statements. Timbers (JBL) on drive-current demag is reused from AP1. The
+  excursion table is computed from Jensen's BL·(V/Re)·Cms (free air, below
+  Fs). The post states that **Xmax is not the damage limit, and no maker
+  publishes Xmech** for these drivers. The Guitar.com "+90 % over clean
+  rating" figure is via search summary (grade B). No listening claims.
+
+### SERP analysis
+
+| Post | Target query | Top results (standard search) | Gap our post fills | AI Overview? F&K cited? |
+|---|---|---|---|---|
+| volume-pedal-treble-loss-halfway-why | "volume pedal tone suck halfway passive treble loss" | musicplayer forum, Premier Guitar "Bass Bench: Passive Interplay", Seymour Duncan forum (EB fix thread), Steel Guitar Forum (×4), Music Electronics Forum, PedalPCB forum, Mission VM-1 listings | All forum or vendor copy. Correct cause ("raising resistance… depends on cable after the VP"), no numbers, and a vendor blames the tuner-out split. Ours adds the source-resistance-vs-travel table, the downstream-cable table with a maker's pF/ft figure, the full-up load figures, and a ranked fix list. | Not observable: the search tool returns organic links only. |
+| solid-state-amp-into-vintage-speaker-safe-power | "can a high wattage solid state amp damage a vintage 25 watt speaker clean" | TDPRI, Audiogon, diyAudio (×3), All About Circuits, Heritage Owners Club, Kemper forum, Seymour Duncan forum, nextgenguitars.ca, EDN | Consensus is "clipping is the danger, keep volume moderate", which is thermal-only. Nobody separates heat from excursion or uses a maker's T/S data. Ours adds the Xmax-vs-power table from Jensen's own figures, the voltage table for real amps, Fs sitting at the 82 Hz low E, and the alnico demag route. | Not observable. |
+| big-muff-settings-guide (R1) | "big muff settings guide best tones" | Guitar World (fuzz buying guide), Equipboard "10 Big Muffs ranked", TalkBass, Mixwave EHX user guide, Guitar Pro lesson, Thomann reviews, ehx.com settings topic | Settings advice only ("start low," "noon on a Marshall"). Nobody says where the scoop is or what the Tone knob does to it. Ours, after the refresh: dip frequency and depth at three knob positions, the 9–10 dB stack loss, the clockwise-moves-the-dip-down finding, and concrete post-Muff EQ numbers. | Not observable. Note: this was query Q5 in the 11-01 spot check, where F&K was **lost** (was 7th in Sep). This refresh is the content-side response. |
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | big-muff-settings-guide | **New section "What the Tone Knob Actually Does to the Scoop":** a computed tone-stack response for the standard 39k/10nF + 4nF/22k stack at 9:00, noon and 3:00, plus a 22k-LP variant. The noon dip is about 1.0 kHz and 6–7 dB deep, and the stack's overall loss is about 9–10 dB. **Gate 5 finding:** clockwise slides the dip *down* to about 530 Hz rather than filling it, and counterclockwise moves it to about 2.7 kHz. Load sensitivity checked (50–250k moves the noon dip by less than 20 Hz). Added post-Muff EQ prescriptions (GE-7 800 Hz +4–6 dB / 1.6 kHz +2–3; modeler PEQ 1 kHz +5–6, Q 0.7–1). **Factual fixes:** (1) the old FAQ said loud playing makes the scoop sound *fuller*, which is backwards per equal-loudness, so it was rewritten; (2) the post said Gilmour used the Ram's Head "throughout the *Wish You Were Here* era". Gilmourish and Reverb place his first Big Muff use at the 1976 *Animals* sessions, so all three mentions are corrected; (3) the Tone Wicker row now names the Tone switch that removes the tone stack (EHX copy); (4) "Tone up recovers mids" was rewritten to the moving-dip reality. **Migration:** the markdown-H3 body FAQ was moved to frontmatter `faq:` (6 Q&As) and 5 `takeaways:` were added (the post had neither). Gate 6 sweep: 9 standalone warm/warmth/transparent/musical were rewritten. `updated: 2026-11-03`. | Lost its AI-citation slot (Q5) on 11-01. It had no AEO surfaces, a wrong FAQ answer and a wrong Gilmour attribution. |
+| — | david-gilmour-pink-floyd-tone | **One-sentence factual correction, not redated:** the claim that the Ram's Head was used "extensively on *Wish You Were Here*" was changed to "from the *Animals* sessions in 1976 onward". | Same error as R1. It's a correction, not a refresh, so `updated:` is unchanged. |
+
+Only one refresh today. The second slot went to AQ1's collision re-angle and
+the source-verification dead ends (Boss, Dunlop, Ernie Ball pages).
+
+**Gates (self-audit):**
+- **AQ1** (Sean): self-references 1 ("I expected the worst dulling at half
+  travel"); 0 signature phrases; Gate 5 is the peak at about 72 % of travel,
+  not 50 %; Gate 6 clean; Gate 10 has a modeler volume-block section plus a
+  passive pedal into a modeler.
+- **AQ2** (Hank): self-references 2 ("I expected the danger… to be heat";
+  "I couldn't find it published"); 0 signature phrases; no exclamation
+  points; Gate 5 is that heat is the lesser risk and peak-voltage excursion
+  is the real one; Gate 6 clean (only "musical power", which is a spec
+  name); Gate 10 has a modeler + class-D power amp section and the IR route.
+- **Fact fixes caught in self-audit:** the Qts line originally said "about 2
+  for all three" (P10R is 1.62), now corrected; a "Twin of the first reverb
+  era" was removed from the low-wattage-amp opener; and a "Strat-style"
+  load figure was made generic (vintage Strat wiring drops the tone pots on
+  the bridge position).
+- **R1:** new section has 1 self-reference ("I expected turning Tone
+  clockwise to fill the scoop"); "I worked the response through" is
+  method, not persona.
+
+**Image pipeline note:** `SUBJECT_OVERRIDES` were added for both slugs.
+- **AQ2 (tech_bench):** generation 1 put a gibberish "AIRSCHES" brand on the
+  amp head and lettering on a book (sixth consecutive run with a lettering
+  leak on amp subjects). Blurred with PIL. It also rendered a front-facing
+  cab on a workbench, not the open back, so `image_alt` was rewritten to
+  match.
+- **AQ1 (bedroom_producer):** clean apart from a tiny label on the buffer
+  pedal, which was blurred. The scene is a desk, not a pedalboard, so
+  `image_alt` was rewritten.
+- The global no-lettering clause is still not holding on `tech_bench`.
+
+**Refresh debt carried forward** (items 1–18, 20–22, 24–26 unchanged; 27
+partly paid: one legacy FAQ migration done today, big-muff-settings-guide):
+28. **NEW: Ernie Ball first-party VP Jr spec.** ernieball.com returned 403
+    or empty to both fetch paths. If a first-party page with the 250k/25k
+    wording becomes reachable, upgrade AQ1's grade-B citation.
+29. **NEW: Gilmour/Big Muff attribution sweep.** Two posts carried "Big Muff
+    on *Wish You Were Here*". `david-gilmour-animals-tone` and the recipe
+    `gilmour-*` pages were not checked this run. Grep them for the same claim.
+30. **NEW: Hank at cap** (3/7d as of 11-03). The next Gear Lab speaker topic
+    goes to fk-staff or waits until 11-07.
+
+### 1 New Topic Idea (genuinely distinct question, not a keyword variant — per Gate 7 / Playbook §6)
+
+> Drained 2, dropped 0, added 1 — **queue now at 1.** A second idea was
+> considered and rejected (below). The next run should source a second topic
+> from GSC striking-distance data rather than spin one.
+>
+> **Rejected as re-slices:**
+> (a) "EQ pedal before or after fuzz": `eq-pedal-placement` already
+> answers it; R1's post-Muff EQ numbers are the update.
+> (b) "How to read a guitar speaker spec sheet": overlaps
+> `guitar-speaker-low-end-rolloff-…` and `alnico-vs-ceramic-…`, which already
+> work through Fs/BL/Mms.
+> (c) "Is Xmax the damage limit?": AQ2's caution paragraph.
+> (d) "500k vs 250k volume pedal": AQ1's fix #4.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AR1 | volume-pedal-tuner-out-tone-loss-does-it-load | Does a Volume Pedal's Tuner Output Cost You Tone? | "volume pedal tuner out tone loss," "tuner out volume pedal treble," "does tuner out load signal" | Jess Kowalski | 1 — Signal Chain | **Surfaced by AQ1's SERP:** a vendor blames passive-pedal tone loss on the tuner-out split. This is a different mechanism from AQ1. The tuner's input impedance and cable sit in **parallel at the pedal's input**, so they act whatever the pedal position, while AQ1's effect is the pedal's series resistance partway down. **Gate 7 guard:** ship published input impedance for at least three common tuners (Boss TU-3, TC Polytune 3, Peterson StroboStomp; first-party manuals, graded), the computed combined load vs a passive pickup at full volume, and which pedals take the tuner feed before or after the pot (Ernie Ball MVP, Boss FV-500H, Dunlop DVP3; manuals). No listening claims. Jess's bars to check at build. **Collision check:** `volume-pedal-treble-loss-halfway-why` (AQ1). Keep it to the tuner-out path only. |

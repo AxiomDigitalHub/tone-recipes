@@ -1,0 +1,172 @@
+---
+title: Why Your Guitar Dulls With the Volume Pedal Partway Down (and Where It Peaks)
+seo_title: 'Volume Pedal Treble Loss: Where It Peaks and Why'
+description: >-
+  A passive volume pedal's treble loss peaks near three-quarters up, not
+  halfway, and the cable after the pedal sets how bad it gets. Corner
+  frequencies and fixes.
+date: '2026-11-03'
+author_slug: sean-nakamura
+category: signal-chain
+tags:
+  - volume-pedal
+  - impedance
+  - cable-capacitance
+  - buffer
+  - signal-chain
+  - pedalboard
+  - potentiometer
+image: /images/blog/volume-pedal-treble-loss-halfway-why.jpg
+image_alt: "A passive volume pedal on a desk wired by a short patch cable to a small buffer pedal, with a long coiled instrument cable beside them"
+takeaways:
+  - >-
+    A passive volume pedal's source resistance peaks at a quarter of the pot
+    value: 62.5k for a 250k pedal and 125k for a 500k pedal. That resistance and
+    the capacitance after the pedal form the low-pass filter you hear as
+    dulling.
+  - >-
+    On an audio-taper pot that peak lands around 70 to 75 percent of the pedal's
+    travel, not at halfway. At half travel a standard audio taper is already
+    about 20 dB down, with source resistance near 22.5k on a 250k pedal.
+  - >-
+    The cable after the pedal decides how audible it is. At the 62.5k peak, a
+    20-foot run of Mogami W2524 (39.7 pF per foot) puts the corner near 3.2 kHz.
+    A short patch into a buffered input puts it around 50 kHz.
+  - >-
+    A 25k pedal peaks at only 6.25k of source resistance, which keeps the corner
+    above 30 kHz even into 20 feet of cable. But it loads a passive guitar
+    heavily at every setting, so it belongs after a buffer.
+  - >-
+    A modeler's volume block is math after the converter. It has no source
+    resistance and no corner frequency to move.
+faq:
+  - q: Why does my guitar sound dull when the volume pedal is partly down?
+    a: >-
+      A passive volume pedal is a potentiometer. When it is partly down, it puts
+      resistance in series with your signal, and that resistance plus the
+      capacitance of the cable after the pedal forms a low-pass filter. The
+      filter is strongest where the pot's source resistance peaks, at a quarter
+      of its value.
+  - q: Where in the pedal's travel is the treble loss worst?
+    a: >-
+      At the pot's resistive midpoint. On a standard audio taper, with about 10
+      percent of the resistance at half rotation, that falls around 70 to 75
+      percent of the travel, roughly 6 dB below full volume. Taper switches and
+      string-and-pulley mechanisms move it, but it stays in the upper half on
+      audio-taper pedals.
+  - q: Should I use a 250k or 25k volume pedal?
+    a: >-
+      Use 250k (or 500k) when the pedal is the first thing your passive pickups
+      see. Use 25k when the pedal comes after a buffer, an active preamp or an
+      effects loop. Ernie Ball sells its VP Jr in a 250k version for passive
+      electronics and a 25k version voiced for active signals.
+  - q: Does putting a buffer before the volume pedal fix tone loss?
+    a: >-
+      It removes the pickup's impedance from the equation and lets you use a 25k
+      pedal, whose peak source resistance is only 6.25k. A buffer immediately
+      after the pedal also works, because the pedal then drives a short patch
+      cable instead of a long one.
+  - q: Does the length of cable after a volume pedal matter?
+    a: >-
+      Yes, more than anything else in this circuit. The corner frequency is
+      inversely proportional to that capacitance. With a 250k pedal at its worst
+      point, 10 feet of 39.7 pF-per-foot cable gives a corner near 6.4 kHz, and
+      20 feet gives about 3.2 kHz.
+  - q: Do modeler volume blocks lose treble the same way?
+    a: >-
+      No. A Helix, Quad Cortex or similar volume block scales the digital signal
+      after the input converter, and the expression pedal controlling it only
+      sends a control voltage. No audio passes through that pot, so there is
+      nothing to filter.
+---
+
+Back a passive volume pedal off a little and the guitar gets quieter. Back it off a bit more and the top end goes soft, like someone laid a towel over the speaker. That second effect isn't the pedal "sucking tone" in some vague way. It's a first-order low-pass filter with a corner frequency you can calculate, and the two numbers that set it are the pot's position and the cable *after* the pedal.
+
+The quick answer, before the math:
+
+| Volume pedal | Peak source resistance | Where the peak sits (audio taper) | Corner at the peak, 20 ft cable after the pedal | Corner at the peak, short patch into a buffered pedal |
+|---|---|---|---|---|
+| 500k passive | 125k | about 70–75% of travel | about 1.6 kHz | about 25 kHz |
+| 250k passive | 62.5k | about 70–75% of travel | about 3.2 kHz | about 50 kHz |
+| 25k (for active signals) | 6.25k | about 70–75% of travel | about 32 kHz | well above audio |
+
+Cable figure: Mogami W2524, published at 130 pF per meter (39.7 pF per foot) at 1 kHz, so 20 feet is about 794 pF. "Short patch into a buffered pedal" assumes about 50 pF total, which is generous for a 6-inch patch and an input jack. These are best-case figures with an ideal source driving the pedal. A passive pickup in front makes them worse, as the section below on the guitar side explains.
+
+## What the Volume Pedal Is Actually Doing
+
+A volume pedal is a three-terminal potentiometer. Your signal goes across the whole track to ground, and the output comes off the wiper. Call the fraction of the track between the wiper and ground *x*. At *x* = 1 the wiper is at the top: full volume, no resistance in series, no filter. At *x* = 0 the output is grounded.
+
+Anywhere in between, the circuit downstream sees the pedal as a source with a resistance of *x*(1 − *x*) times the pot value. That's the upper and lower legs of the track in parallel. It's zero at both ends and peaks at *x* = 0.5, where it equals a quarter of the pot value: 62.5k for a 250k pedal, 125k for a 500k pedal.
+
+That source resistance drives whatever capacitance comes next, which is mostly cable. Resistance plus capacitance is a low-pass filter with its −3 dB corner at 1 / (2π × R × C). This is the same mechanism as rolling back the volume knob on the guitar, which our [treble bleed piece](/blog/treble-bleed-when-you-actually-need-one) works through for the guitar's own pot. The volume pedal adds two differences that change the answer: it sits somewhere else in the chain, and it usually has a different taper and value.
+
+## The Peak Isn't at Halfway
+
+I expected the worst dulling at half travel, because that's where the pot is "half on." The taper says otherwise.
+
+Volume pedals use audio-taper (logarithmic) pots, so rotation and resistance aren't proportional. A common audio-taper spec puts about 10 percent of the track resistance at half rotation. Modeled as two straight segments either side of that point, here is what a 250k pedal does across its travel:
+
+| Pedal travel | Track fraction to ground (*x*) | Level change | Source resistance | Corner, 10 ft after (≈400 pF) | Corner, 20 ft after (≈794 pF) |
+|---|---|---|---|---|---|
+| 100% (toe down) | 1.00 | 0 dB | 0 | none | none |
+| 90% | 0.82 | −1.7 dB | 36.9k | 10.8 kHz | 5.4 kHz |
+| 80% | 0.64 | −3.9 dB | 57.6k | 6.9 kHz | 3.5 kHz |
+| 72% | 0.50 | −6.1 dB | 62.5k (peak) | 6.4 kHz | 3.2 kHz |
+| 60% | 0.28 | −11.1 dB | 50.4k | 7.9 kHz | 4.0 kHz |
+| 50% | 0.10 | −20.0 dB | 22.5k | 17.7 kHz | 8.9 kHz |
+| 25% | 0.05 | −26.0 dB | 11.9k | 33.5 kHz | 16.9 kHz |
+
+Double every resistance and halve every corner for a 500k pedal. Divide every resistance by ten for a 25k pedal.
+
+Two things fall out of that table.
+
+1. **The darkest point is in the swell, not the fade.** Peak source resistance arrives around 72 percent of travel, about 6 dB down. That's the region a volume swell passes through on its way to full, and the region a player "riding" the pedal a notch below full spends a lot of time in. At half travel the signal is already 20 dB down, and the corner has climbed back up.
+2. **The filter moves while you move.** Sweep from heel to toe and the corner falls, bottoms out around three-quarters up, then disappears at the top. It's a moving low-pass glued to your level, which is why it reads as "the swell sounds dull on the way up" rather than as a fixed EQ change.
+
+The exact peak position depends on the pedal's mechanism. String-and-pulley designs and taper switches change how travel maps to resistance. Ernie Ball's 250k VP Jr, for example, has a micro-taper switch with two swell rates. On any audio-taper pedal, though, the peak stays in the upper half of the travel.
+
+## The Cable After the Pedal Is the Other Half of the Filter
+
+The resistance only becomes a filter when it has capacitance to work against, and almost all of that capacitance is the cable run from the pedal's output to the next input that isn't another passive part.
+
+That's why the same pedal can be inaudible on one board and obvious on another. At the 250k peak:
+
+| What follows the volume pedal | Approximate capacitance | Corner at 62.5k |
+|---|---|---|
+| 6-inch patch into a buffered pedal or tuner | about 50 pF | about 50 kHz |
+| A few true-bypass pedals, then 10 ft to the amp | about 450 pF | about 5.7 kHz |
+| A few true-bypass pedals, then 20 ft to the amp | about 850 pF | about 3.0 kHz |
+| 20 ft of thinner 47.3 pF/ft cable (Mogami W2319) | about 946 pF | about 2.7 kHz |
+
+True-bypass pedals that are switched off are just more wire, so they don't isolate anything. The capacitance keeps adding up until the signal reaches an input with an active stage behind it: a buffered pedal, a tuner with a buffer, or the amp. A passive volume pedal first on the board, followed directly by a buffered tuner, is driving roughly 50 pF and will barely touch the top end. The same pedal last on a true-bypass board, feeding 20 feet to the amp, is filtering down around 3 kHz at its worst point. That's well inside the range where pick attack and string definition live.
+
+## The Guitar Side: Load at Full Volume, Worse Corners Below
+
+The table above treats whatever drives the pedal as an ideal source. A passive guitar plugged straight into the pedal isn't one, and that costs you twice.
+
+**At full volume, the pedal is a load.** Toe down, there's no series resistance, but the whole pot track still sits across your pickup to ground, in parallel with the guitar's own pots. A guitar with a 250k volume pot and two 250k tone pots in circuit presents roughly 83k at treble frequencies, because a tone pot on 10 still hangs its full resistance to ground through a capacitor that is close to a short up there. Add a 250k pedal and the total drops to about 62.5k. A 500k pedal brings it to about 71k. A 25k pedal pulls it down to about 19k, which flattens the pickup's resonant peak at every pedal position, not just partway down. That's the reason the low-value pedals are sold for active signals. Our [pot value piece](/blog/volume-pot-value-250k-vs-500k-what-it-loads) covers what that loading does to the pickup's resonance.
+
+**Partway down, the pickup adds to the series resistance.** With an ideal source the upper leg of the pot goes to a zero-impedance node. With a passive pickup it goes to an inductor, whose impedance rises with frequency. At treble frequencies that pushes the pedal's effective source resistance above the *x*(1 − *x*) figure and toward the resistance of the lower leg alone. So with a passive guitar in front, the corners in the travel table are the best case, and the real ones sit lower.
+
+## How to Fix It (in Order of Effort)
+
+1. **Check what comes right after the pedal.** If the next input is a buffered tuner or a buffered pedal on a short patch, the filter is already up near 50 kHz on a 250k pedal and there's nothing to fix. Reordering the board to make that true costs nothing.
+2. **Put a buffer immediately after the volume pedal.** The pedal then drives a few inches of cable, whatever comes later. This keeps a 250k pedal's light load on the pickups and removes the long-cable corner.
+3. **Put a buffer before the pedal and switch to a 25k pedal.** With a buffer in front, the pickup is out of the equation and the low-value pot is the right choice. Peak source resistance drops to 6.25k, and even 20 feet of cable after it puts the corner around 32 kHz. Ernie Ball sells its VP Jr in a 25k version voiced for active signals for exactly this slot. (A pedal's effects loop is the same kind of buffered, low-impedance signal.)
+4. **Don't fix it with a bigger pot.** A 500k pedal loads the pickups less at full volume, but its peak source resistance doubles to 125k, which halves every corner frequency in the travel table. It trades a better top end toe-down for a worse one in the swell.
+5. **Consider a treble bleed only as a last resort.** Players do fit them to volume pedals, but a cap across the pot changes the taper and can let a little signal through heel-down. The [treble bleed piece](/blog/treble-bleed-when-you-actually-need-one) covers why the values that suit a guitar knob don't automatically suit a pedal.
+
+## On a Modeler
+
+A modeler sidesteps the whole problem. A Helix, Quad Cortex or Fractal volume block scales the signal after the input converter, so there's no resistance and no capacitance in the audio path to form a filter. The expression pedal controlling the block only sends a control voltage, which means the pot inside it never carries audio. If your swells sound duller on the modeler, look at the amp model's response to lower input level, not at the pedal.
+
+If you run a passive volume pedal *in front of* a modeler, the downstream load is a short cable into a high-impedance input. That's the "short patch into a buffered pedal" row, so the treble loss is minimal. Some modelers also let you set the input impedance, which changes how the pickup and pedal are loaded; our [modeler input impedance guide](/blog/modeler-input-impedance-setting-what-to-set-it-to) covers what each setting does.
+
+## The Short Version
+
+1. Treble loss in a passive volume pedal is an RC low-pass filter: the pot's source resistance against the cable after it.
+2. It peaks at a quarter of the pot value, around 70 to 75 percent of travel on an audio taper, which puts the darkest point inside the swell.
+3. A buffer next to the pedal, on either side, fixes it far more reliably than changing pots.
+4. Use 250k when the pedal sees passive pickups first. Use 25k after a buffer.
+
+If swells are the job (ambient pads, pedal steel imitations, violin-style entries), the technique side matters as much as the circuit. Our [volume pedal dynamics guide](/blog/volume-pedal-dynamics-control) covers taper feel and foot technique, and [expression vs. volume pedal](/blog/expression-pedal-vs-volume-pedal) covers when a modeler's expression input is the better tool. For the cable numbers behind every corner frequency above, see [does cable length affect tone](/blog/does-cable-length-affect-tone).

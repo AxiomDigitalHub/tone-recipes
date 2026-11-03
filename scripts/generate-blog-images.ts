@@ -160,6 +160,10 @@ const SUBJECT_OVERRIDES: Record<string, string> = {
     "a vintage alnico guitar speaker with its cone removed, the round magnet and bare frame on a repair bench beside a handheld gauss meter with a thin probe, plain metal with no logo, label or lettering",
   "pedal-steel-amp-headroom-how-much-clean-power":
     "a pedal steel guitar standing on its own four legs on a wooden floor, its foot pedals and knee levers visible, a plain black-tolex combo amplifier behind it with plain black grille cloth and no logo, badge or lettering, a volume pedal on the floor",
+  "volume-pedal-treble-loss-halfway-why":
+    "a plain passive guitar volume pedal on a pedalboard, its footplate half raised, a short patch cable running from it to a small plain buffer pedal and a long coiled instrument cable lying beside the board, plain metal enclosures with no logo, label or lettering",
+  "solid-state-amp-into-vintage-speaker-safe-power":
+    "the open back of a small vintage tweed-covered speaker cabinet showing one alnico speaker's magnet and frame, a plain modern black amplifier head sitting on a wooden floor beside it, a speaker cable between them, plain grille cloth and panels with no logo, badge or lettering",
   // Auto-derived subject from this title trips the provider's sensitivity
   // filter (the "Axl" token reads as a real person). Describe the scene instead.
   "ask-axl-ai-guitar-tone-assistant": "a laptop on a desk beside a floor modeler and an electric guitar, the screen showing a chat window with a signal chain diagram of amp and pedal blocks, warm desk lamp light",
