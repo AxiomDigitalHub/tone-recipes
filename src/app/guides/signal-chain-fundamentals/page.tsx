@@ -4,6 +4,7 @@ import PillarHub from "@/components/guides/PillarHub";
 /** Pillar V — Signal Chain Fundamentals. */
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/guides/signal-chain-fundamentals" },
   title: "Signal Chain Fundamentals — The Engineering Behind Your Tone",
   description:
     "Pedal order, gain staging, impedance, true bypass vs buffered, parallel routing — the engineering principles that shape every guitar tone.",
