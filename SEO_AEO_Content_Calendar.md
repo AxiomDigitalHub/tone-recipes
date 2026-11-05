@@ -8081,3 +8081,114 @@ partly paid: one legacy FAQ migration done today, big-muff-settings-guide):
 | # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
 |---|---|---|---|---|---|---|
 | AR1 | volume-pedal-tuner-out-tone-loss-does-it-load | Does a Volume Pedal's Tuner Output Cost You Tone? | "volume pedal tuner out tone loss," "tuner out volume pedal treble," "does tuner out load signal" | Jess Kowalski | 1 — Signal Chain | **Surfaced by AQ1's SERP:** a vendor blames passive-pedal tone loss on the tuner-out split. This is a different mechanism from AQ1. The tuner's input impedance and cable sit in **parallel at the pedal's input**, so they act whatever the pedal position, while AQ1's effect is the pedal's series resistance partway down. **Gate 7 guard:** ship published input impedance for at least three common tuners (Boss TU-3, TC Polytune 3, Peterson StroboStomp; first-party manuals, graded), the computed combined load vs a passive pickup at full volume, and which pedals take the tuner feed before or after the pot (Ernie Ball MVP, Boss FV-500H, Dunlop DVP3; manuals). No listening claims. Jess's bars to check at build. **Collision check:** `volume-pedal-treble-loss-halfway-why` (AQ1). Keep it to the tuner-out path only. |
+
+## Daily Run — 2026-11-05 (2 new posts + 1 refresh)
+
+### Posts published: volume-pedal-tuner-out-tone-loss-does-it-load, praise-elevation-worship-guitar-tone-helix
+
+**Velocity:** `persona-velocity.ts` reported **6 posts in 7 days** (Hank 3 at
+cap, Carl 2, Sean 1). AR1 → Jess (0 → 1). Second slot: the queue held only
+AR1, so the topic came from the worship cluster spec instead of a spun idea:
+**CCLI Tier-2 #3, "Praise" (Elevation Worship)** → Nathan (0 → 1). Bars
+checked, quoted: Jess's "Vintage gear deep-dives / Jazz or fusion / High-end
+boutique pedal reviews": AR1 is none of them, clear. Nathan's "Metal or
+high-gain / Budget/punk rig guides / Vintage gear collecting": Praise is a
+driven-but-clean worship anthem, clear. Hank skipped (cap through 11-07).
+
+**Gate 7 guards met:**
+- **AR1:** first-party Peterson StroboStomp HD spec summary rev 1.0 (PDF,
+  pdftotext): 5 MΩ input in buffered/monitor modes; in True Bypass "Tuner
+  function is not connected" while playing (so the tuner-out user must run
+  monitor/buffered mode). Boss TU-3S/TU-3W 1 MΩ (boss.info, grade A for the
+  siblings; TU-3 1 MΩ via retailer, grade B). Polytune 3 1 MΩ (retailer spec
+  sheets + SOS on the Bonafide buffer, grade B). Boss FV-500 manual
+  (static.roland.com FV-500L PDF, grade A): tuner on TUNER OUT, return pedal
+  to minimum to tune; implies pre-pot tap. Dunlop DVP3 "active regardless of
+  rocker position" + 250k volume mode (manual via search, grade B; the PDF
+  hosts returned HTML). Ernie Ball 6180 heel-down tuning (retailer copy,
+  grade B). **Computed** (lumped pickup model stated in the post): single coil
+  peak 3,020 Hz with nothing on the tuner out → 2,820 Hz (1 MΩ, 3 ft) → 2,300
+  Hz (20 ft); 1 MΩ vs 5 MΩ on 3 ft = ~55 Hz; buffer-first = 3,520 Hz; a 1 MΩ
+  series resistor at the pedal end restores a 20 ft run to ~2,930 Hz. The
+  series-resistor fix is credited to a Steel Guitar Forum report (grade C,
+  labelled as a report) and backed by the computation.
+- **Praise:** Multitracks listing (A, 127 BPM, 4/4, 4:56; Alastair remix A /
+  128), PraiseCharts (radio arrangement charted in Ab), Wikipedia (six
+  writers; single 2024-02-12; album 2023). No claim about the session
+  guitarist's rig; framed as "build this sound." Non-commodity hook: the
+  **reverb-decay-in-beats table** (4 s = 8.5 beats at 127 vs 4.8 at 72) and
+  the finding that a tempo-synced delay's tail is constant in beats, so the
+  reverb, not the delay, is the block to reset for fast songs. **Model-name
+  fix at build:** `Essex A30 TB` is a model-map alias, not a Helix name; the
+  post uses **Essex A30**, and its knob grid follows the real control set
+  (Drive, Bass, Treble, Cut, Presence, Master; no Mid), per Line 6 forum
+  preset listings (grade B).
+
+### SERP analysis
+
+| Post | Target query | Top results (standard search) | Gap our post fills | AI Overview? F&K cited? |
+|---|---|---|---|---|
+| volume-pedal-tuner-out-tone-loss-does-it-load | "volume pedal tuner out tone loss does tuner output load signal" | Ernie Ball forum (×3), Steel Guitar Forum (×2), stinkfoot.se, thefretboard.co.uk, Mission VM-1 / JHS VP Jr. mod retailer copy, TalkBass, madbean | All forum or vendor copy. stinkfoot has the right parallel-load idea but uses 500k tuner inputs and no capacitance; vendors sell mods on it. Ours: published input impedance for three current tuners, the tuner-out tap location from three manuals, a computed table showing cable length matters ~10× more than tuner impedance, and a ranked fix list (buffer-first beats every tuner-out fix). | Not observable: the search tool returns organic links only. |
+| praise-elevation-worship-guitar-tone-helix | "praise elevation worship guitar tone helix patch" | PraiseCharts Helix patch pages (other Elevation songs, ×10+), Worship Tutorials paid Praise preset | Paid patches only; no free breakdown of the song's tempo math or why a slow-song preset fails at 127 BPM. Ours: delay times by note value, the reverb-in-beats table, a 4-snapshot layout and HX Stomp/pedalboard versions. | Not observable. |
+| expression-pedal-vs-volume-pedal (R1) | "expression pedal vs volume pedal helix volume block before or after amp" | Line 6 forum (×10), Neural DSP Unity, Fractal forum (×3) | Forum consensus covers block placement but never the pickup-loading cost of a passive pedal or which jacks take what. Ours after the refresh: the full-up load and partway-down figures, jack-by-jack facts for Helix Floor/LT, HX Stomp, QC. | Not observable. |
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | expression-pedal-vs-volume-pedal | **Factual fixes:** (1) the post said Helix has "a hardware 1/4″ Volume/Expression input that accepts a standard TS passive volume pedal directly" — false; EXP jacks pass no audio. Rewritten to the real jacks (Floor/LT rear EXP 2 + EXP 3; built-in treadle EXP 1/2 toggle; Volume Pedal block defaults to EXP 2). (2) HX Stomp "TS for passive volume" — false; one EXP 1/2 FS 4/5 TRS jack, two pedals via Y-cable per the manual. (3) Quad Cortex "single expression input" — false; EXP 1 + EXP 2. (4) "most transparent software volume control of the three" — unsupported, cut. (5) "0–5V range" expression framing replaced with what an expression pedal is (a pot, e.g. Mission SP1-ND 10k linear, on a TRS control jack). **New section "The Tone Cost a Passive Pedal Brings With It":** series resistance peak (from AQ1) and full-up load 111k → 77k, single-coil peak ~3,520 → ~3,020 Hz (from AR1's model). **Gate 5-style finding:** a volume block *before* the amp, driven by an expression pedal, gives clean-up with no pickup loading — the placement list now covers before-amp / pre-time-effects / end-of-chain. Top-of-post decision table added. **Migration:** body `<FAQ>` → frontmatter `faq:` (5 Q&As, two new) + 5 `takeaways:` (post had neither). Description and image_alt rewritten. `updated: 2026-11-05`. | Three platform-fact errors in a post that sits in the volume-pedal cluster that AQ1 and AR1 now link into; it had no AEO surfaces. |
+| — | volume-pedal-treble-loss-halfway-why, elevation-worship-guitar-tone-helix | **Reciprocal links only, not redated:** one sentence each pointing to AR1 and the Praise post. | Internal-linking rule (new posts get 1–2 inbound links). |
+
+**Gates (self-audit):**
+- **AR1** (Jess): self-references 1 ("I expected the tuner's impedance to be
+  the whole story"); signature phrases 0; one ALL-CAPS line; Gate 5 is the
+  cable ≈10× tuner impedance finding plus the pot-bigger-than-tuner result;
+  Gate 6 sweep clean; Gate 10 has a modeler section (expression vs passive,
+  Helix Guitar In-Z). A 1 MΩ-vs-5 MΩ humbucker figure was corrected from
+  "80 Hz" to "about 100 Hz" in self-audit (computed 99 Hz).
+- **Praise** (Nathan): self-references 1 ("I expected the delay to be the
+  problem"); signature phrases 0; Gate 5 is delay-scales / reverb-doesn't;
+  Gate 6 sweep clean; Gate 10 has HX Stomp + analog board + Katana. A Katana
+  "AC30 voice" claim was replaced with the Crunch channel in self-audit.
+- **R1** (fk-staff): editorial-neutral; no persona content.
+
+**Image pipeline note:** `SUBJECT_OVERRIDES` added for both slugs. AR1's
+first generation put gibberish lettering on the tuner display and cable;
+blurring left a visible grey patch on the white background, so it was
+regenerated (~$0.06 extra) with a "display switched off, no knobs" prompt;
+the second render still had a small "VOLUME" stamp on the tuner, blurred.
+Praise had a script logo on the headstock and text on the modeler's top strip,
+both blurred. `image_alt` rewritten on both to match the renders. Total image
+spend ≈ $0.18. **Pipeline bug to fix:** the image script re-serialises
+frontmatter, and a later regex edit of `image_alt` left the old folded-scalar
+lines behind, which broke YAML until removed. Edit `image_alt` before running
+the script, or edit the folded block as a whole.
+
+**Refresh debt carried forward** (items 1–18, 20–22, 24–30 unchanged):
+31. **NEW: Helix model-name alias leak.** `Essex A30 TB` (an alias in
+    `src/lib/helix/model-map.ts`) appears as if it were a Helix model in
+    `elevation-worship-guitar-tone-helix`, and `holy-forever-guitar-tone-helix`
+    uses "Essex A30 Fawn Brt" (Helix name is "A30 Fawn Brt"). Sweep the
+    worship cluster for alias names and for knob grids that give the Essex A30
+    a Mid control.
+32. **NEW: Elevation hub's "chorus pedal identified as central to Praise"**
+    has no source in the post. Find one or soften it; the Praise post keeps
+    chorus optional and unattributed.
+
+### 2 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 1 (AR1) + 1 cluster-spec song, dropped 0, added 2 — **queue now at
+> 2.** Bylines are best-fit proposals; the executing run re-checks velocity
+> **and quotes the never-assign bar it checked**, and verifies no colliding
+> slug.
+>
+> **Rejected as re-slices:** (a) "volume block before or after amp" — R1's
+> new placement section; (b) "how long should worship reverb be" — the Praise
+> post's beats table; queue an update to `stacking-reverbs-guide` with the
+> table instead if it shows up in striking distance; (c) "best tuner for a
+> volume pedal" — AR1's fix list as a roundup.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AS1 | expression-pedal-pot-value-10k-25k-50k-modeler | Does an Expression Pedal's Pot Value Matter for Helix, HX Stomp and Quad Cortex? | "expression pedal 10k vs 25k," "expression pedal not full range helix," "which expression pedal works with quad cortex" | Sean Nakamura | 4 — Modeler Masterclass | **Surfaced by R1:** Mission's SP1-ND lists a 10k linear pot; forum threads on HX Stomp report pedals that won't sweep 0–100. Distinct question from R1 (which tool) and AQ1 (audio pots): what a control pot's value, taper and TRS polarity do to the reading. **Gate 7 guard:** ship maker-published pot values for ≥4 common expression pedals (Line 6 EXP/EX-1, Mission SP1 family, Boss EV-30, M-Audio EX-P, Roland EV-5; graded) plus each modeler's published calibration method (Helix Min/Max, QC POSITION calibration, Neural's tested-pedal list). Computed: how much of the sweep a mismatched taper wastes. No listening claims. Sean's bars to check at build. |
+| AS2 | gratitude-brandon-lake-guitar-tone-helix | Gratitude Guitar Tone on the Line 6 Helix (Brandon Lake) | "gratitude brandon lake guitar tone," "gratitude helix patch" | Nathan Cross | 3 — Worship cluster (Tier 2 #4) | **Next in CCLI rank order** after today's #3. Must verify key/BPM from Multitracks or PraiseCharts at build and carry a song-specific computed hook (delay grid, reverb-in-beats, or capo/key-driven voicing choice), not a template of the Praise post. Use real Helix model names only (see debt #31). Nathan's velocity: 1 after today; check at build. |

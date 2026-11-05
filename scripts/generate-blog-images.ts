@@ -160,6 +160,10 @@ const SUBJECT_OVERRIDES: Record<string, string> = {
     "a vintage alnico guitar speaker with its cone removed, the round magnet and bare frame on a repair bench beside a handheld gauss meter with a thin probe, plain metal with no logo, label or lettering",
   "pedal-steel-amp-headroom-how-much-clean-power":
     "a pedal steel guitar standing on its own four legs on a wooden floor, its foot pedals and knee levers visible, a plain black-tolex combo amplifier behind it with plain black grille cloth and no logo, badge or lettering, a volume pedal on the floor",
+  "volume-pedal-tuner-out-tone-loss-does-it-load":
+    "a plain passive guitar volume pedal on a pedalboard with a very short patch cable running from its side jack to a small plain unpainted metal tuner pedal whose display is switched off and solid black, a coiled plain black instrument cable beside the board, no knobs on the tuner, no logo, label, numbers, printing or lettering anywhere",
+  "praise-elevation-worship-guitar-tone-helix":
+    "an electric guitar on a stand beside a plain black floor multi-effects unit with blank footswitches on a church stage, bright white and amber stage lights sweeping across a haze, drum kit blurred in the background, plain unbranded gear with no logo, screen text or lettering",
   "volume-pedal-treble-loss-halfway-why":
     "a plain passive guitar volume pedal on a pedalboard, its footplate half raised, a short patch cable running from it to a small plain buffer pedal and a long coiled instrument cable lying beside the board, plain metal enclosures with no logo, label or lettering",
   "solid-state-amp-into-vintage-speaker-safe-power":

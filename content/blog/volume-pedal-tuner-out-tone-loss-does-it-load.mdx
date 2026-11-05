@@ -1,0 +1,155 @@
+---
+title: Does a Volume Pedal's Tuner Output Cost You Tone?
+seo_title: 'Volume Pedal Tuner Out: Does It Cost You Tone?'
+description: >-
+  A volume pedal's tuner out hangs your tuner across the guitar at every pedal
+  position. The tuner barely matters; its cable does. Numbers and fixes.
+date: '2026-11-05'
+author_slug: jess-kowalski
+category: signal-chain
+tags:
+  - volume-pedal
+  - tuner
+  - impedance
+  - cable-capacitance
+  - buffer
+  - pedalboard
+  - signal-chain
+image: /images/blog/volume-pedal-tuner-out-tone-loss-does-it-load.jpg
+image_alt: "A passive volume pedal with a small tuner pedal sitting on its base, a short patch cable between them and a long coiled instrument cable alongside"
+takeaways:
+  - >-
+    A volume pedal's tuner out is a parallel tap on the pedal's input, so the
+    tuner and its cable load your pickups at every pedal position, heel down or
+    toe down.
+  - >-
+    The tuner itself is a small load. Boss's TU-3, TC Electronic's Polytune 3
+    and Peterson's StroboStomp HD all spec 1 megohm or more, and swapping a
+    1-megohm tuner for a 5-megohm one on a 3-foot patch moves a single coil's
+    resonant peak by only about 50 Hz.
+  - >-
+    The tuner cable is the real cost. With a passive single coil, the peak falls
+    from about 2,820 Hz on a 3-foot tuner patch to about 2,300 Hz on a 20-foot
+    run, roughly ten times the effect of the tuner's impedance.
+  - >-
+    The 250k volume pedal costs more than any tuner. A buffer ahead of the pedal
+    lifts the same single coil's peak from about 3,020 Hz to about 3,520 Hz,
+    which beats every tuner-out fix.
+  - >-
+    The fix order: keep the tuner patch under a foot, put a buffer (or a
+    buffered tuner) first, and never run the tuner out to a tuner across the
+    stage.
+faq:
+  - q: Does using the tuner out on a volume pedal cause tone loss?
+    a: >-
+      A little, and mostly through the cable. The tuner out is wired to the
+      pedal's input, so the tuner's input impedance and the capacitance of its
+      cable sit across your pickups all the time. With a 1-megohm tuner on a
+      1-foot patch, a passive single coil's resonant peak drops about 4 percent.
+      On a 20-foot run it drops about 24 percent.
+  - q: Is the tuner out before or after the volume pot?
+    a: >-
+      Before, on the common pedals. Boss tells you to return the FV-500H to
+      minimum to tune silently, Dunlop says the DVP3's tuner signal is active
+      regardless of rocker position, and Ernie Ball sells the VP Jr. tuner out
+      for silent heel-down tuning. All three only work if the tuner jack is fed
+      from the input side.
+  - q: Does a higher-impedance tuner fix the problem?
+    a: >-
+      Barely. Peterson specs the StroboStomp HD at 5 megohms in its buffered and
+      monitor modes, against 1 megohm for the TU-3 and Polytune 3. On a 3-foot
+      patch that is worth about 50 Hz of resonant peak on a single coil. Cutting
+      the patch cable from 20 feet to 3 feet is worth about 520 Hz.
+  - q: What is the best way to connect a tuner to a passive volume pedal?
+    a: >-
+      Skip the tuner out and put a buffered tuner first in the chain, ahead of
+      the volume pedal. The tuner's buffer then drives the pedal, and your
+      pickups see one 1-megohm input instead of a 250k pot, a second cable and a
+      tuner. If you must use the tuner out, keep the patch under a foot.
+  - q: Does this matter with a Helix or other modeler?
+    a: >-
+      Only if you run a passive volume pedal in front of the modeler and use its
+      tuner out to a separate tuner. A modeler's built-in tuner reads the input
+      after the converter and adds no cable, and an expression pedal driving a
+      volume block never touches the audio.
+---
+
+> **The short answer:** the tuner out loads your guitar all the time, but the tuner is the small part. Its **cable** is the big part, and the **250k pot** in the pedal is bigger than both.
+
+| Tuner hookup (passive single coil, 15 ft guitar cable, 250k pedal full up) | Resonant peak | −3 dB point |
+|---|---|---|
+| No tuner on the tuner out | ~3,020 Hz | ~4,870 Hz |
+| 1 MΩ tuner, 1 ft patch | ~2,900 Hz | ~4,700 Hz |
+| 1 MΩ tuner, 3 ft patch | ~2,820 Hz | ~4,540 Hz |
+| 5 MΩ tuner, 3 ft patch | ~2,870 Hz | ~4,600 Hz |
+| 1 MΩ tuner, 10 ft run | ~2,570 Hz | ~4,080 Hz |
+| 1 MΩ tuner, 20 ft run | ~2,300 Hz | ~3,610 Hz |
+| Buffered tuner **first**, no tuner out | ~3,520 Hz | ~5,550 Hz |
+
+Somebody on a forum, or a product page, told you your volume pedal's tuner out is stealing your top end. They're half right. The split does cost treble, and it costs it at every pedal position, not just partway down. But the thing everyone argues about (the tuner's input impedance) is the smallest number in the chain.
+
+This post is the companion to our breakdown of [why a passive volume pedal dulls partway down](/blog/volume-pedal-treble-loss-halfway-why). That one is about the pot's series resistance when the pedal is part-way down. This one is about a separate path: the tuner jack.
+
+## Where the Tuner Out Actually Taps the Signal
+
+On the pedals people actually own, the tuner jack is wired to the **input**, ahead of the pot. You can tell from what the manuals promise:
+
+- **Boss FV-500H:** connect a tuner to TUNER OUT, return the pedal to minimum, and you can tune silently. That only works if the tuner is fed before the volume control. (Boss owner's manual.)
+- **Dunlop DVP3 Volume (X):** the manual says the tuner signal is "active regardless of rocker position." It's a 250k pot in volume mode. (Dunlop manual, via retailer copies.)
+- **Ernie Ball VP Jr. (6180, 250k):** sold on silent heel-down tuning through the tuner jack. (Ernie Ball and retailer copy.)
+
+So the tuner and its cable are in **parallel** with your pickups whether you're heel down, toe down, or anywhere in between. That's the key difference from the halfway-down problem, which comes and goes with pedal travel. This one never leaves.
+
+## What the Tuner Itself Adds
+
+Here are the published input impedances for three tuners you'll actually find on boards:
+
+| Tuner | Input impedance | Source |
+|---|---|---|
+| Boss TU-3 | 1 MΩ | Boss TU-3S/TU-3W spec pages; TU-3 retailer spec |
+| TC Electronic Polytune 3 | 1 MΩ | Retailer spec sheets (Long & McQuade, others) |
+| Peterson StroboStomp HD | 5 MΩ (buffered and monitor modes) | Peterson spec summary, rev 1.0 |
+
+A megohm is a light load. Your guitar is already looking at its own 250k volume and tone pots, the pedal's 250k pot, and whatever input comes after the pedal. Put a 250k pedal into a 1 MΩ input and the guitar sees about 77k total. Add a 1 MΩ tuner and it drops to about 71k. That's a real change, but it's a 7 percent nudge on a load that's already heavy.
+
+**One Peterson gotcha.** The spec sheet says that in True Bypass mode, while playing, "Tuner function is not connected." On a tuner out, where you want the tuner to read without interrupting anything, run the StroboStomp in buffered or monitor mode so it's actually listening.
+
+## The Cable Is the Part That Costs You
+
+I expected the tuner's impedance to be the whole story, because it's what every thread argues about. What the math says is different. On a 3 ft patch, swapping a 1 MΩ tuner for Peterson's 5 MΩ buys back about **50 Hz** of resonant peak on a single coil. Shortening the tuner cable from 20 ft to 3 ft buys back about **520 Hz**. The cable is roughly ten times the problem.
+
+Here's why. Every foot of instrument cable adds capacitance (Mogami's W2524 is about 39.7 pF per foot, per the maker's spec as distributors list it). Your pickup's inductance and that capacitance make a resonant peak, and the peak is where a single coil gets its bite. Pile on more capacitance and the peak slides down and the top end above it falls away sooner. A tuner cable at the pedal's input is just more guitar cable, as far as the pickup can tell.
+
+- **1 ft patch:** adds about 40 pF. Peak drops about 4 percent. You'd struggle to pick it in a blind test on a loud stage.
+- **3 ft patch:** adds about 120 pF. Peak drops about 7 percent.
+- **20 ft run** (tuner sitting on your amp, or a floor tuner across the stage): adds about 790 pF. Peak drops about **24 percent**, from roughly 3,020 Hz to 2,300 Hz. That's the difference between a Strat that snaps and a Strat that sounds like the neck pickup is on.
+
+Humbuckers start lower and lose less in proportion, but the order is the same. With the same chain, a typical humbucker's peak goes from about 1,900 Hz with nothing on the tuner out to about 1,770 Hz on a 3 ft patch and 1,575 Hz on a 20 ft run. One difference: on a humbucker with a short patch, the tuner's resistance counts for more of the loss. A 5 MΩ tuner keeps about 100 Hz more peak than a 1 MΩ one on a 1 ft patch. Still not worth buying a tuner over.
+
+*How we got these numbers:* a lumped pickup model (single coil 2.5 H and 6k DC resistance; humbucker 4.5 H and 8k; about 100–120 pF of coil capacitance), a 15 ft guitar cable, 250k volume and tone pots in the guitar, a 250k volume pedal at full up, a 3 ft patch after the pedal into a 1 MΩ input, and Mogami's 39.7 pF/ft for every cable. Change the pickup and the numbers move; the ranking doesn't.
+
+## The Bigger Problem Is the Pedal Itself
+
+Notice the last row of the table up top. Put a **buffer ahead of the volume pedal** and the same single coil's peak goes *up* to about 3,520 Hz. That's higher than the "no tuner at all" row, because a passive 250k pedal is a heavier load than any tuner on its output jack. NOBODY TALKS ABOUT THIS PART. People blame the tuner jack when the pot is the bigger load.
+
+Which makes the cleanest fix kind of funny: stop using the tuner out.
+
+## Fixes, Best First
+
+1. **Buffered tuner first, tuner out unused.** Guitar → Boss TU-3 (buffered bypass) or Polytune 3 (buffer on) → volume pedal → everything else. Your pickups see one 1 MΩ input and your guitar cable. The tuner's low-impedance output drives the pedal, which also kills most of the [partway-down dulling](/blog/volume-pedal-treble-loss-halfway-why). Tune by stomping the tuner (it mutes) instead of rocking heel down. One box, one less cable. If you're worried a buffer "colors" things, our [buffer myth breakdown](/blog/buffer-myth-buffered-bypass) covers what a decent one actually does.
+2. **If you keep the tuner out, keep the patch under a foot.** Mount the tuner right next to the volume pedal. A 6-inch patch is close to free.
+3. **Never run the tuner out to a tuner on the amp or across the stage.** A 20 ft tuner run costs about as much treble as adding 20 ft to your guitar cable, because that's exactly what it is. If the tuner has to live somewhere far away, feed it from a buffered output or a splitter. Our [three-output buffered splitter build](/blog/wire-buffered-splitter-amp-foh-tuner-three-output) gives the tuner its own driven leg.
+4. **DIY: a 1 MΩ resistor in series at the pedal end of the tuner cable.** A steel player on the Steel Guitar Forum reported this cut the loss, and the math agrees. It hides the cable's capacitance behind the resistor, and a 20 ft tuner run goes back to about 2,930 Hz of peak. The tuner sees about 6 dB less level, which it doesn't care about. This is a soldering job inside a plug, not a store-bought part, so only do it if you're comfortable with an iron.
+5. **Check old tuners.** Forum users report bigger losses with older tuners. If yours doesn't publish an input impedance, assume it's worse than 1 MΩ and treat it like fix #3.
+
+What doesn't help much: buying a higher-impedance tuner just for the tuner out. It's the most expensive fix on the list and the weakest one.
+
+## On a Modeler
+
+If your volume control is an expression pedal driving a volume block in a Helix, HX Stomp, Quad Cortex or Katana, none of this applies. The expression pedal is just sending a control value. No audio goes through it, and the built-in tuner reads the signal after the converter with no extra cable. The only modeler rig with this problem is one with a passive volume pedal in *front* of the input and its tuner out feeding a separate tuner. Then everything above applies, and fix #1 becomes "let the modeler's tuner do the job and leave the tuner out empty."
+
+One more modeler note: Helix-family units have a **Guitar In-Z** input setting. That's the modeler deciding what load your pickups see, and it sits in the same spot in the chain as a tuner on a tuner out. If you've already got a passive volume pedal in front of it, the pedal's 250k is still the bigger load.
+
+## The Bottom Line
+
+The tuner out does cost you some top end, and it costs it all the time. But the tuner is a rounding error next to its own cable, and the cable is smaller than the 250k pot you're plugging it into. Buffer first, short patches, no long tuner runs. That's it. Spend the money you were going to put into a fancier tuner on strings, and check what your [cable length is already doing](/blog/does-cable-length-affect-tone) before you blame anything on the board.

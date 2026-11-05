@@ -1,0 +1,172 @@
+---
+title: Praise Guitar Tone on the Line 6 Helix (Elevation Worship)
+seo_title: Praise (Elevation Worship) Guitar Tone on Helix
+description: >-
+  Build the Praise (Elevation Worship) guitar tone on the Helix: A major at 127
+  BPM, a 354 ms dotted eighth, and why the reverb, not the delay, needs
+  resetting.
+date: '2026-11-05'
+author_slug: nathan-cross
+category: tone-recipes
+tags:
+  - worship
+  - helix
+  - elevation-worship
+  - praise
+  - dotted-eighth-delay
+  - snapshots
+  - reverb
+  - hx-stomp
+image: /images/blog/praise-elevation-worship-guitar-tone-helix.jpg
+image_alt: "An electric guitar on a stand beside a floor modeler on a church stage, with a drummer and bright stage lights in the haze behind"
+takeaways:
+  - >-
+    Praise runs at 127 BPM in A major on the Can You Imagine? recording, so the
+    dotted-eighth delay is 354 ms, a straight eighth is 236 ms and a quarter
+    note is 472 ms.
+  - >-
+    The delay takes care of itself at a fast tempo. Its repeats are spaced in
+    beats, so the same feedback setting gives the same number of beats of tail
+    at 127 BPM as at 72.
+  - >-
+    The reverb does not scale. A 4-second decay covers about 8.5 beats at 127
+    BPM, two full bars, against about 4.8 beats at 72 BPM, so a slow-song reverb
+    smears Praise's driving eighths.
+  - >-
+    Set the reverb in beats for this song: about 2 seconds of decay keeps the
+    tail inside one bar, with the mix near 20 percent instead of the 30 to 40
+    percent a slow anthem can carry.
+  - >-
+    Praise is a drive song. A Klon-style boost into an edge-of-breakup AC30
+    voice, with a mid-hump overdrive stacked for the big choruses, does more of
+    the work than any ambient block.
+faq:
+  - q: What key and tempo is Praise by Elevation Worship?
+    a: >-
+      The original recording from Can You Imagine? (2023) is in A major at 127
+      BPM in 4/4, per the Multitracks listing. The 2024 Alastair remix is listed
+      at 128 BPM in the same key, and the radio arrangement is charted in Ab, so
+      check which version your team plays before you set any delay times.
+  - q: What delay time should I use for Praise?
+    a: >-
+      A dotted-eighth delay at 127 BPM is (60000 / 127) × 0.75, which is about
+      354 ms. A quarter note is about 472 ms and a straight eighth about 236 ms.
+      Set it by the number rather than tapping, because a tap that is 5 BPM off
+      is easy to hear against a band playing driving eighths.
+  - q: >-
+      Why does my Praise tone sound muddy even though my slow-song tone sounds
+      great?
+    a: >-
+      Usually the reverb. A decay that works on a 72 BPM anthem covers almost
+      twice as many beats at 127 BPM, so each chord's tail is still ringing when
+      the next two chords arrive. Drop the decay to about 2 seconds and the mix
+      to about 20 percent for this song, and leave the delay alone.
+  - q: What amp and drive give the Praise guitar tone on the Helix?
+    a: >-
+      An AC30-style amp just at the edge of breakup, such as the Essex A30, with
+      a Minotaur (Klon-style) boost on through most of the song and a Scream 808
+      stacked for the biggest choruses. The size of this song comes from the
+      drive and the band, not from the ambience.
+  - q: Can I play Praise on an HX Stomp?
+    a: >-
+      Yes. Use six blocks: Deluxe Comp, Minotaur, Scream 808, Essex A30 with its
+      cab, a 354 ms dotted-eighth delay and a short plate. Three snapshots
+      (Verse, Chorus, Big) cover the song, and the short reverb leaves DSP
+      headroom that a big shimmer would eat.
+---
+
+> **Start Here: Praise in Five Moves**
+> 1. Tempo: **127 BPM, A major** (Can You Imagine? recording). Dotted eighth = **354 ms**.
+> 2. Amp: **Essex A30** at the edge of breakup into a 2x12 Blue Bell cab
+> 3. Drive: **Minotaur** on most of the song; **Scream 808** stacked for the biggest choruses
+> 4. Delay: dotted eighth, mix **~20%**, feedback ~30. Leave it alone; it scales with the tempo.
+> 5. Reverb: **~2 s decay, ~20% mix.** This is the block that has to change for a fast song.
+
+| Note value at 127 BPM | Delay time |
+|---|---|
+| Quarter | ~472 ms |
+| Dotted eighth | ~354 ms |
+| Eighth | ~236 ms |
+| Sixteenth | ~118 ms |
+
+## A Fast Song Asks Different Things of a Worship Rig
+
+Praise is the song in a set where the drummer finally gets to play. It runs at 127 BPM in A major on Elevation Worship's *Can You Imagine?* recording (Multitracks lists 4/4, about 4:56), and it was released as a single in February 2024 with Brandon Lake, Chris Brown and Chandler Moore on vocals. The writing credit is long: Lake, Moore, Brown, Cody Carnes, Pat Barrett and Steven Furtick. None of that tells you what a session player plugged into, and this post doesn't pretend to. It's a guide to building a Helix tone that does what the song asks on a Sunday morning: drive, momentum, and a band that stays clear at almost twice the tempo of the anthems on either side of it.
+
+That last part is where most worship presets go wrong. A preset built for a 72 BPM song like [Holy Forever](/blog/holy-forever-guitar-tone-helix) carries a lot of ambience, and at that tempo the ambience has room to land. Bring the same preset to Praise and it turns to fog. The question is which block causes it.
+
+## The Delay Takes Care of Itself
+
+I expected the delay to be the problem. More notes per second, more repeats piling up, so surely that's what smears. The math says otherwise. A tempo-synced delay spaces its repeats in beats, so when the song gets faster, the repeats get closer together in exactly the same proportion as the notes you're playing. With feedback around 30, each repeat is about 10 dB quieter than the last, and the tail is close to gone after three repeats. That's three repeats whether the song is at 72 BPM or 127. In seconds, the tail is about 1.1 seconds at 127 and about 1.9 at 72, but in the only units the band cares about, beats, it hasn't changed.
+
+So set the delay to the number and leave it:
+
+| Parameter | Setting | Why |
+|---|---|---|
+| Time | 354 ms (dotted eighth) | (60000 / 127) × 0.75 |
+| Feedback | ~30 | Three audible repeats, the same in beats as on a slow song |
+| Mix | ~20% | Under the strumming, not a second guitar part |
+| High cut | ~5.5 kHz | Dark repeats keep away from the pick attack |
+
+Use a **Vintage Digital** or **Transistor Tape** block. Don't tap it. A tap that lands at 122 instead of 127 puts the repeats about 15 ms late on every dotted eighth, and against straight eighths on the hi-hat that drift is audible within a bar. If tap tempo has bitten you mid-service before, here's how to [set the dotted eighth without tapping](/blog/dotted-eighth-delay-no-tap-tempo).
+
+## The Reverb Is the Block You Have to Reset
+
+Reverb doesn't know the tempo. A decay of 4 seconds is 4 seconds no matter what the drummer is doing, and that's the whole problem:
+
+| Reverb decay | Beats covered at 72 BPM | Beats covered at 127 BPM |
+|---|---|---|
+| 1.5 s | 1.8 | 3.2 |
+| 2 s | 2.4 | 4.2 (about one bar) |
+| 4 s | 4.8 | 8.5 (about two bars) |
+| 7 s | 8.4 | 14.8 |
+
+The slow-song reverb that gives a 72 BPM anthem its room covers two bars of Praise. Every chord is still blooming when the next two arrive, and the low mids under the bass guitar fill with the tails of chords that have already passed. It isn't loud. It's just never clear.
+
+For Praise, set your reverb in beats: aim for a tail that's mostly gone inside one bar, which is about **2 seconds**. On the Helix, a **Plateaux** or plain plate with its decay pulled down, **mix around 20%**, pre-delay near 25 ms so the pick attack lands dry before the reverb arrives, and a low cut around 200 Hz to keep the tails out from under the bass. If you keep one big shimmer in the preset for the slow songs, give Praise its own snapshot with that block bypassed rather than turned down. The section on [stacking reverbs](/blog/stacking-reverbs-guide) covers how to keep a short plate and a big hall in one preset without both running at once.
+
+## The Amp and Drive: This Is a Drive Song
+
+The size in Praise comes from drive and the band, not from ambience. Start with the **Essex A30**, Line 6's model of a top-boost AC30, just at the edge of breakup so a hard strum crunches and a light one cleans up. Into the **2x12 Blue Bell** cab, low cut near 90 Hz, high cut near 7 kHz.
+
+<SettingsGrid title="Amp" subtitle="Essex A30">
+  <Knob name="Drive" value={5} />
+  <Knob name="Bass" value={4} />
+  <Knob name="Treble" value={6} />
+  <Knob name="Cut" value={4.5} />
+  <Knob name="Presence" value={5} />
+  <Knob name="Master" value={6} />
+</SettingsGrid>
+
+The Bass is low on purpose. A driving eighth-note part in A sits on the open A and E strings a lot, and at 127 BPM a fat low end turns into a drone under the bass player. The model has no Mid knob, like the real top-boost channel, so the balance lives between Treble and Cut. Cut works backwards: turning it up takes top end away. Treble at 6 with Cut near 4.5 gives the chime without the 3 kHz edge that a bright PA exaggerates, and the Scream 808 below supplies the mids.
+
+Then the drives:
+
+- **Minotaur** (Klon-style boost): Gain about 3.5, Treble 5.5, Output 6. On for most of the song, from the first chorus on. It sounds like the amp sitting up straighter, not like a pedal.
+- **Scream 808** (Tube Screamer): Drive about 3, Tone 5.5, Level 6, stacked after the Minotaur for the biggest choruses and the bridge. The mid hump around 720 Hz keeps the guitar on top of a full band without needing more volume.
+- **Deluxe Comp** first in the chain: Threshold about −25, Ratio 3, Mix 50%. It evens out the strumming so the 808 doesn't jump every time you dig in.
+
+If you use the subtle chorus from our [Elevation Worship tone guide](/blog/elevation-worship-guitar-tone-helix), keep it in the verse snapshot only. On a driven chorus at 127 BPM, modulation reads as pitch wobble rather than width.
+
+## The Snapshot Layout
+
+Praise builds fast and stays up, so three or four snapshots cover it:
+
+| Snapshot | Song moment | Drives | Delay mix | Reverb |
+|---|---|---|---|---|
+| 1 — Verse | Intro, verses | Minotaur off | 15% | Plate, 2 s, 18% |
+| 2 — Chorus | Choruses | Minotaur on | 20% | Plate, 2 s, 20% |
+| 3 — Big | Final choruses, bridge | Minotaur + Scream 808 | 18% | Plate, 1.5 s, 16% |
+| 4 — Out | Ending, transition to next song | Off | 25% | Large hall, long, 30% |
+
+Two things in that table go against instinct. The biggest snapshot has the *least* ambience, because that's where the band is loudest and the guitar most needs to stay defined. And the long reverb lives only in the last snapshot, where the song ends and the next one begins. Turn trails on so it carries across the change without cutting off. Our guide to [Helix snapshots for Sunday morning](/blog/helix-worship-snapshots-sunday-morning) covers the trails and spillover settings in detail.
+
+## HX Stomp and Pedalboard Versions
+
+**HX Stomp:** Deluxe Comp → Minotaur → Scream 808 → Essex A30 with cab → Vintage Digital at 354 ms → a short plate. That's six blocks and fits comfortably. Run three snapshots (Verse, Chorus, Big) and use the footswitch for the 808. Because the reverb is a short plate rather than a big shimmer, you have DSP left over, which is useful if your Sunday preset also has to cover the slow songs. If you're weighing the two units, we compared them for [worship use](/blog/hx-stomp-vs-helix-lt-worship).
+
+**Analog pedalboard:** the same chain with real boxes. A Klon-style boost, a Tube Screamer or similar mid-hump overdrive, any digital delay set to 354 ms, and a reverb with its decay pulled well back from where your slow-song setting sits. Into an AC30-style amp at the edge of breakup, or a Katana's Crunch channel if that's the church amp. The one change that matters most is the same on every platform: a shorter reverb for this song.
+
+## Before Sunday
+
+Check which version your team plays. The album recording is 127 BPM in A; the Alastair remix is listed at 128, and the radio arrangement is charted in Ab. A single BPM off on the delay is fine. A key change on the capo isn't a tone problem, but a delay set for the wrong arrangement's tempo is. Then put the reverb in its own snapshot so the slow songs keep their room, and let Praise keep its pace.
