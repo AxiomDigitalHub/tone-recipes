@@ -1896,5 +1896,43 @@
     ],
     "droppedCount": 1,
     "substitutedCount": 8
+  },
+  "cuomo-buddy-holly-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 6
+  },
+  "hetfield-blackened-rhythm": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 5
+  },
+  "slayer-raining-blood-rhythm": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 1,
+    "substitutedCount": 6
+  },
+  "armstrong-when-i-come-around-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 8
+  },
+  "adkins-the-middle-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 8
   }
 }

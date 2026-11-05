@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-11-01
-**Recipes:** 258
-**Clean (no errors, no warns):** 258
+**Date:** 2026-11-05
+**Recipes:** 263
+**Clean (no errors, no warns):** 263
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,8 +16,8 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `settings-outside-unverified-range` | info | 258 / 258 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
-| `katana-kemper-multidrive-default-off` | info | 31 / 258 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `settings-outside-unverified-range` | info | 263 / 263 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
+| `katana-kemper-multidrive-default-off` | info | 31 / 263 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -26,6 +26,12 @@
 ### `abasi-cafo-riff` — ✓ clean
 
 *Animals as Leaders' CAFO Riff Tone*
+
+Passes every rule.
+
+### `adkins-the-middle-riff` — ✓ clean
+
+*Jimmy Eat World's The Middle Riff Tone*
 
 Passes every rule.
 
@@ -62,6 +68,12 @@ Passes every rule.
 ### `armstrong-basket-case-rhythm` — ✓ clean
 
 *Green Day's Basket Case Rhythm Tone*
+
+Passes every rule.
+
+### `armstrong-when-i-come-around-riff` — ✓ clean
+
+*Green Day's When I Come Around Riff Tone*
 
 Passes every rule.
 
@@ -302,6 +314,12 @@ Passes every rule.
 ### `cronise-open-casket-riff` — ✓ clean
 
 *Open Casket Doom Riff*
+
+Passes every rule.
+
+### `cuomo-buddy-holly-riff` — ✓ clean
+
+*Weezer's Buddy Holly Crunch Riff Tone*
 
 Passes every rule.
 
@@ -638,6 +656,12 @@ Passes every rule.
 ### `hendroff-what-a-beautiful-name` — ✓ clean
 
 *Hendroff's What a Beautiful Name Ambient Worship Tone*
+
+Passes every rule.
+
+### `hetfield-blackened-rhythm` — ✓ clean
+
+*Metallica's Blackened Rhythm Tone*
 
 Passes every rule.
 
@@ -1376,6 +1400,12 @@ Passes every rule.
 ### `slash-welcome-to-jungle-aggressive-riff` — ✓ clean
 
 *Slash's Welcome to the Jungle Aggressive Riff Tone*
+
+Passes every rule.
+
+### `slayer-raining-blood-rhythm` — ✓ clean
+
+*Slayer's Raining Blood Rhythm Tone*
 
 Passes every rule.
 
