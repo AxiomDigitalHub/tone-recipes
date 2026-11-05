@@ -14,6 +14,8 @@ export type NewsCategory =
 export interface NewsPost {
   slug: string;
   title: string;
+  /** Optional short <title> for search; the headline stays on the page. */
+  seo_title?: string;
   date: string; // ISO date
   category: NewsCategory;
   excerpt: string;
@@ -52,6 +54,7 @@ export function getNewsPostBySlug(slug: string): NewsPostWithContent | null {
   return {
     slug: data.slug ?? slug,
     title: data.title ?? "",
+    seo_title: data.seo_title || undefined,
     date: data.date ?? "",
     category: data.category ?? "industry",
     excerpt: data.excerpt ?? "",

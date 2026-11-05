@@ -1,5 +1,6 @@
 ---
 title: "CorOS 4.1.0 Actually Ships: Device Presets, Eight New Virtual Devices, and the End of the PCOM Waiting List"
+seo_title: "Neural DSP CorOS 4.1.0 Ships With Device Presets"
 date: "2026-08-28"
 category: "firmware-update"
 slug: "neural-dsp-coros-4-1-0-ships-device-presets-virtual-devices"

@@ -1,5 +1,6 @@
 ---
 title: "Mooer's GE100 Pro Puts NAM, MNRS 2.0, and AI Tone-From-Text in a $96 Modeler"
+seo_title: "Mooer GE100 Pro: NAM and AI Tone in a $96 Modeler"
 date: "2026-06-09"
 category: "new-gear"
 slug: "mooer-ge100-pro-ai-modeler-under-100"

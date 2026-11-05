@@ -1,5 +1,6 @@
 ---
 title: "Marshall's First Signature Amp in 14 Years Is Billie Joe's Baby-Blue Dookie Plexi — Here's How to Cop It on a Modeler for $0"
+seo_title: "Marshall 1959BJA: Billie Joe's Dookie Plexi"
 date: "2026-07-21"
 category: "new-gear"
 slug: "marshall-1959bja-billie-joe-armstrong-dookie-plexi"

@@ -1,5 +1,6 @@
 ---
 title: "TONEX ONE+ Adds Bluetooth App Control and MIDI to IK's Pocket Modeler at $249.99"
+seo_title: "TONEX ONE+ Adds Bluetooth and MIDI for $249.99"
 date: "2026-05-12"
 category: "new-gear"
 slug: "ik-multimedia-tonex-one-plus-wireless-midi"

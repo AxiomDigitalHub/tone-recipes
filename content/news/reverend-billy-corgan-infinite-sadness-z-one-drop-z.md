@@ -1,5 +1,6 @@
 ---
 title: "Reverend's $1,899 Billy Corgan Infinite Sadness Guitars Have 14.5k Ceramic Humbuckers — and Both of Our Corgan Recipes Are Built on a Strat"
+seo_title: "Reverend Billy Corgan Infinite Sadness Guitars"
 date: "2026-09-21"
 category: "new-gear"
 slug: "reverend-billy-corgan-infinite-sadness-z-one-drop-z"

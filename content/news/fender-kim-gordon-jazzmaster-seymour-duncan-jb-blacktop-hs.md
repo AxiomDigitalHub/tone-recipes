@@ -1,5 +1,6 @@
 ---
 title: "Fender's Kim Gordon Jazzmaster Puts a Seymour Duncan JB Next to a Jazzmaster Neck Pickup. That's Two Very Different Outputs on One Switch, and Your Presets Need to Know"
+seo_title: "Kim Gordon Jazzmaster: Setting Up a JB and Jazz Neck"
 date: "2026-10-29"
 category: "new-gear"
 slug: "fender-kim-gordon-jazzmaster-seymour-duncan-jb-blacktop-hs"

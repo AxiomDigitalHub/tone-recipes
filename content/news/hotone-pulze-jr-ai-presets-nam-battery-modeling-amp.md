@@ -1,5 +1,6 @@
 ---
 title: "Hotone's Pulze Jr. Puts NAM Loading, AI Presets, and 8 Hours of Battery in a $299 Practice Amp"
+seo_title: "Hotone Pulze Jr.: A $299 NAM Practice Amp"
 date: "2026-08-24"
 category: "new-gear"
 slug: "hotone-pulze-jr-ai-presets-nam-battery-modeling-amp"

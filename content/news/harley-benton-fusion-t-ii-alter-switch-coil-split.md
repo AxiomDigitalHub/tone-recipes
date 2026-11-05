@@ -1,5 +1,6 @@
 ---
 title: "Harley Benton's Fusion-T II Puts Stainless Frets, a Babicz Bridge and a Coil-Split Switch Under $500 — Across 18 Models"
+seo_title: "Harley Benton Fusion-T II: Stainless Frets Under $500"
 date: "2026-07-27"
 category: "new-gear"
 slug: "harley-benton-fusion-t-ii-alter-switch-coil-split"

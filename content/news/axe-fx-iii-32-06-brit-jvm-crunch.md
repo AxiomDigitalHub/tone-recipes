@@ -1,5 +1,6 @@
 ---
 title: "Axe-Fx III Firmware 32.06 Adds Three Brit JVM Crunch Models And Changes Plex Block Behavior"
+seo_title: "Axe-Fx III 32.06: Brit JVM Crunch Models, Plex Changes"
 date: "2026-07-02"
 category: "firmware-update"
 slug: "axe-fx-iii-32-06-brit-jvm-crunch"

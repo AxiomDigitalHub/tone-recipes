@@ -1,5 +1,6 @@
 ---
 title: "Kemper OS 14.0 Leaves Beta — Profiling 2.0 Is Now Live for All MK2 and Player Owners"
+seo_title: "Kemper OS 14.0 Leaves Beta, Profiling 2.0 Goes Live"
 date: "2026-04-12"
 category: "firmware-update"
 slug: "kemper-os-14-stable-profiling-2-live"

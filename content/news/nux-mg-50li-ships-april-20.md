@@ -1,5 +1,6 @@
 ---
 title: "NUX MG-50Li Ships April 20 With Three-DSP Modeling, DeepImage Profiling, and 5-Hour Battery"
+seo_title: "NUX MG-50Li: Battery Modeler With DeepImage Profiling"
 date: "2026-04-13"
 category: "new-gear"
 slug: "nux-mg-50li-ships-april-20"

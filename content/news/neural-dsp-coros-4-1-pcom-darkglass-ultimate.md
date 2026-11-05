@@ -1,5 +1,6 @@
 ---
 title: "Neural DSP Announces CorOS 4.1.0, Darkglass Ultimate, and a US Price Increase on May 7"
+seo_title: "Neural DSP CorOS 4.1.0 and Darkglass Ultimate"
 date: "2026-04-23"
 category: "firmware-update"
 slug: "neural-dsp-coros-4-1-pcom-darkglass-ultimate"

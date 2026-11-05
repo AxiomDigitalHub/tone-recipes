@@ -1,5 +1,6 @@
 ---
 title: "Fender Gave John 5 Three More Telecasters and Took the Tone Knob Off All of Them — the D Activator Is a Passive Pickup Pretending to Be Active, and Your Modeler Can Tell"
+seo_title: "Fender's Three New John 5 Teles Have No Tone Knob"
 date: "2026-10-08"
 category: "new-gear"
 slug: "fender-john-5-ghost-phantom-telecaster-d-activator-killswitch"

@@ -1,5 +1,6 @@
 ---
 title: "Harley Benton's Aged Series Puts Nitro, Roasted Maple and Real Relic'ing on a $238 Guitar — 20 Models Deep"
+seo_title: "Harley Benton Aged Series: A Nitro Relic for $238"
 date: "2026-07-30"
 category: "new-gear"
 slug: "harley-benton-aged-series-relic-nitro-238"

@@ -1,5 +1,6 @@
 ---
 title: "Neural DSP's Archetype X 1.1.0 Quietly Changes How Your Tim Henson X Presets Sound — Here's What to Check Before You Update"
+seo_title: "Archetype X 1.1.0 Changes How Your Presets Sound"
 date: "2026-07-29"
 category: "firmware-update"
 slug: "neural-dsp-archetype-x-1-1-0-phase-fix-preset-explorer"

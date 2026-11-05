@@ -1,5 +1,6 @@
 ---
 title: "Epiphone's Lzzy Hale Explorer Custom Ships With a New High-Output Humbucker — And That's a Gain Staging Problem Nobody Will Warn You About"
+seo_title: "Epiphone Lzzy Hale Explorer: High-Output Gain Staging"
 date: "2026-08-19"
 category: "new-gear"
 slug: "epiphone-lzzy-hale-explorer-custom-probucker-ignite"

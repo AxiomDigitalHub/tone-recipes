@@ -1,5 +1,6 @@
 ---
 title: "Orange's New $249 Baby Terror Is 20 Solid-State Watts With No Cab Sim on the DI — Which Makes It a Modeler Player's Amp, Not a Purist's"
+seo_title: "Orange Baby Terror: 20 Watts, No Cab Sim on the DI"
 date: "2026-07-29"
 category: "new-gear"
 slug: "orange-baby-terror-20-watt-jfet-lunchbox-head"

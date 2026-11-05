@@ -1,5 +1,6 @@
 ---
 title: "Jackson's Legend Series Rebuilds Rhoads' Concorde, Friedman's Kelly, Scott Ian's 'NOT' and Ellefson's First Five-String. The Rhoads Guitar Is the One That Will Break Your Crazy Train Preset"
+seo_title: "Jackson Legend Series: Rhoads, Friedman, Ian, Ellefson"
 date: "2026-10-15"
 category: "new-gear"
 slug: "jackson-legend-series-rhoads-cd1-friedman-ke1-scott-ian-not-ellefson"

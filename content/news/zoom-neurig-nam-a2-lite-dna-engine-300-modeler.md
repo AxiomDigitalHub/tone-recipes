@@ -1,5 +1,6 @@
 ---
 title: "Zoom's Neurig Is a ~$300 Battery Modeler With NAM A2 Lite, a Knob-Aware 'DNA Engine,' and Capture via the Effects Loop Coming in December. Here's What Each Part Means for Your Tones"
+seo_title: "Zoom Neurig: A ~$300 Battery Modeler With NAM A2 Lite"
 date: "2026-10-13"
 category: "new-gear"
 slug: "zoom-neurig-nam-a2-lite-dna-engine-300-modeler"

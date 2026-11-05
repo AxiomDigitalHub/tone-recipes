@@ -1,5 +1,6 @@
 ---
 title: "JHS Answered the 'Flerb' Meme With a $99 Phaser-Reverb Called the Pherb. The Interesting Part Is the Order: the Phaser Comes After the Reverb, So It Sweeps the Tail"
+seo_title: "JHS Pherb: A $99 Phaser-Reverb Born From a Meme"
 date: "2026-10-27"
 category: "new-gear"
 slug: "jhs-pherb-phaser-reverb-break-bitcrusher-99"

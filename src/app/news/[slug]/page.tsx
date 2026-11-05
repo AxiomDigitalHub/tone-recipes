@@ -8,6 +8,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { settingsMdxComponents } from "@/components/settings/mdx-components";
 import { blogMdxComponents } from "@/components/mdx";
+import { fitTitle, firstClause } from "@/lib/seo-title";
 import {
   getNewsPostBySlug,
   getNewsSlugs,
@@ -34,7 +35,7 @@ export async function generateMetadata({
     return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
   }
   return {
-    title: post.title,
+    title: fitTitle([post.seo_title, post.title, firstClause(post.title)]),
     description: post.excerpt,
     alternates: { canonical: `/news/${slug}` },
     openGraph: {

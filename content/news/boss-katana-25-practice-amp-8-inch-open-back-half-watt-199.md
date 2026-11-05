@@ -1,5 +1,6 @@
 ---
 title: "Boss's $199 Katana-25 Is a Katana-50 Locked at Its Middle Setting, Through Half the Speaker. That's the Point."
+seo_title: "Boss Katana-25: What the $199 Practice Amp Gives Up"
 date: "2026-10-30"
 category: "new-gear"
 slug: "boss-katana-25-practice-amp-8-inch-open-back-half-watt-199"

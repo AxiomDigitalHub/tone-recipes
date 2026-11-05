@@ -1,5 +1,6 @@
 ---
 title: "Fulltone's $299 OCD-Lux Puts Two OCDs in One Box, Adds a 'Raw' Voicing and Lets You Stack Them. Here's How to Build the Stack on a Helix Before It Ships"
+seo_title: "Fulltone OCD-Lux: Two Stackable OCDs for $299"
 date: "2026-10-29"
 category: "new-gear"
 slug: "fulltone-ocd-lux-dual-drive-raw-voicing-hp-lp-stack-299"

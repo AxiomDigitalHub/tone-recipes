@@ -1,5 +1,6 @@
 ---
 title: "JHS Cut the AT+ Down to $129 by Deleting the One Control That Was Never About Wattage"
+seo_title: "JHS AT Mini: The $129 AT+ With One Control Cut"
 date: "2026-08-31"
 category: "new-gear"
 slug: "jhs-at-mini-andy-timmons-100-watt-mode-only"

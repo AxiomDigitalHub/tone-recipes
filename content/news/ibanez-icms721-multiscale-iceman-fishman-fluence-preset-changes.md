@@ -1,5 +1,6 @@
 ---
 title: "Ibanez Put a 27.2-Inch Bass Side and Active Fluences on a $1,699 Iceman — Three Preset Settings That Are Now Wrong"
+seo_title: "Ibanez ICMS721: A $1,699 Multiscale Iceman"
 date: "2026-09-04"
 category: "new-gear"
 slug: "ibanez-icms721-multiscale-iceman-fishman-fluence-preset-changes"

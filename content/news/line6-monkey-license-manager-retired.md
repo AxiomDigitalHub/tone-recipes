@@ -1,5 +1,6 @@
 ---
 title: "Goodbye, Old Friend: Line 6 Monkey and License Manager Are Gone"
+seo_title: "Line 6 Monkey and License Manager Are Gone"
 date: "2026-04-10"
 category: "news"
 slug: "line6-monkey-license-manager-retired"

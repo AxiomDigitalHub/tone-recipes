@@ -1,5 +1,6 @@
 ---
 title: "It's Official: Digital Modelers Outsold Tube Amps on Reverb in 2025"
+seo_title: "Digital Modelers Outsold Tube Amps on Reverb in 2025"
 date: "2026-03-20"
 category: "industry"
 slug: "modelers-outsell-tube-amps-2025-reverb-data"

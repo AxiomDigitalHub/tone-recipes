@@ -1,5 +1,6 @@
 ---
 title: "Kramer's Malina Moye Pacer Deluxe Pairs Two Vintage-Output Single-Coils With a Super Distortion — and That Gap Will Wreck Your Presets"
+seo_title: "Kramer Malina Moye Pacer: An HSS Output Gap"
 date: "2026-07-30"
 category: "new-gear"
 slug: "kramer-malina-moye-pacer-deluxe-dimarzio-hss"

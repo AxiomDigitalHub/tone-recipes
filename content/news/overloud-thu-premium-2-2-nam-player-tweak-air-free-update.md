@@ -1,5 +1,6 @@
 ---
 title: "Overloud THU Premium 2.2 Loads NAM Captures Inside a Full Amp Sim, Free for Owners. The Free NAM Plugin Already Plays Them. What You're Getting Is the Room and the Tweak Controls"
+seo_title: "Overloud THU 2.2 Loads NAM Captures, Free Update"
 date: "2026-11-03"
 category: "new-gear"
 slug: "overloud-thu-premium-2-2-nam-player-tweak-air-free-update"

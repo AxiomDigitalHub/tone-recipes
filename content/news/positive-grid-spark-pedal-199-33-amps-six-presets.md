@@ -1,5 +1,6 @@
 ---
 title: "Positive Grid's Spark PEDAL Is a $199 Modeler With a Battery and a Looper — the Spec That Matters Is Six Presets"
+seo_title: "Positive Grid Spark PEDAL: A $199 Battery Modeler"
 date: "2026-09-09"
 category: "new-gear"
 slug: "positive-grid-spark-pedal-199-33-amps-six-presets"

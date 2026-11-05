@@ -1,5 +1,6 @@
 ---
 title: "Fender Drops the Roman Numeral and Fixes the Strat Saddle Screw That's Been Biting Palms Since 1954. The Change That Matters at Your Modeler Is the Hotter V-Mod III Pickups"
+seo_title: "Fender American Professional 2026: The Saddle Fix"
 date: "2026-10-13"
 category: "new-gear"
 slug: "fender-american-professional-2026-v-mod-iii-radial-saddles-hotter-pickups-modeler-input"

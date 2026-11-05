@@ -1,5 +1,6 @@
 ---
 title: "Death By Audio and Rainger FX Put a Real 3-Watt Amp, a 2-Inch Speaker, and a Microphone Inside a Pedal — and the Reason It Works Is the One Thing an IR Physically Cannot Do"
+seo_title: "Amp Crash: A Real 3-Watt Amp and Mic Inside a Pedal"
 date: "2026-08-22"
 category: "new-gear"
 slug: "death-by-audio-rainger-fx-amp-crash-real-3-watt-amp-speaker-mic"

@@ -1,5 +1,6 @@
 ---
 title: "PRS Tekton: Four Bolt-On Shred Guitars, New Stylus Pickups and a 26.5\" Seven-String. The Pickups Are the Part Your Presets Will Notice"
+seo_title: "PRS Tekton: Four Bolt-On Shred Guitars, Stylus Pickups"
 date: "2026-10-21"
 category: "new-gear"
 slug: "prs-tekton-four-model-shred-family-stylus-pickups-26-5-svn"

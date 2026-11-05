@@ -1,5 +1,6 @@
 ---
 title: "Axe-Fx III Firmware 32.05 Adds PVH 6160 Block Clean And Deluxe Tweed Normal"
+seo_title: "Axe-Fx III 32.05 Adds PVH 6160 Clean and Tweed Normal"
 date: "2026-05-26"
 category: "firmware-update"
 slug: "axe-fx-iii-32-05-pvh-6160-block-clean"

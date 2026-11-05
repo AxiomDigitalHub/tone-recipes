@@ -1,5 +1,6 @@
 ---
 title: "Positive Grid's REACTOR Builds a Tone From a Text Prompt, a Recording, or a Photo — and It's $349"
+seo_title: "Positive Grid REACTOR Builds Tones From Text Prompts"
 date: "2026-06-03"
 category: "new-gear"
 slug: "positive-grid-reactor-amp-intelligence-tone-from-prompt"

@@ -1,5 +1,6 @@
 ---
 title: "Kemper OS 14.0 Public Beta Brings Profiling 2.0 With 100K+ Frequency Analysis"
+seo_title: "Kemper OS 14.0 Beta Brings Profiling 2.0"
 date: "2026-03-15"
 category: "firmware-update"
 slug: "kemper-profiling-2-os-14-public-beta"

@@ -1,5 +1,6 @@
 ---
 title: "Seymour Duncan Cloned the P-90s in Bonamassa's Pawn-Shop 1961 SG for $375 — and the One Helix Setting That Can Erase What You Paid For"
+seo_title: "Seymour Duncan Clones Bonamassa's 1961 SG P-90s"
 date: "2026-09-11"
 category: "new-gear"
 slug: "seymour-duncan-bonamassa-pawn-shop-special-1961-p90-set"

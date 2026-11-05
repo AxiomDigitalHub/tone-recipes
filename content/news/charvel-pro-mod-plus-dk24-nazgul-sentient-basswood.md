@@ -1,5 +1,6 @@
 ---
 title: "Charvel's New Pro-Mod Plus DK24s Are a Pickup Decision, Not a Finish Decision — Here's Which One Matches Your Amp Block"
+seo_title: "Charvel Pro-Mod Plus DK24: Choose by Pickups"
 date: "2026-08-20"
 category: "new-gear"
 slug: "charvel-pro-mod-plus-dk24-nazgul-sentient-basswood"

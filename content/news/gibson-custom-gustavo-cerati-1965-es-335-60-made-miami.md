@@ -1,5 +1,6 @@
 ---
 title: "Gibson Made 60 Gustavo Cerati ES-335s and You Can Only Buy One in Miami — the Guitar Is a 1965, the Tone Was a Rack"
+seo_title: "Gibson's 60 Gustavo Cerati ES-335s, Sold Only in Miami"
 date: "2026-09-21"
 category: "new-gear"
 slug: "gibson-custom-gustavo-cerati-1965-es-335-60-made-miami"

@@ -1,5 +1,6 @@
 ---
 title: "Crossroads 2026: Clapton's Blind Faith Tele Returns, Mayer's Silver Sky Goes Incline Blue"
+seo_title: "Crossroads 2026: Clapton's Blind Faith Tele Returns"
 date: "2026-08-28"
 category: "new-gear"
 slug: "guitar-center-crossroads-2026-clapton-blind-faith-tele-mayer-silver-sky"

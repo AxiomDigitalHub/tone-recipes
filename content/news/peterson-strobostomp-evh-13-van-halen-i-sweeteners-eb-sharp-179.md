@@ -1,5 +1,6 @@
 ---
 title: "Peterson's StroboStomp EVH Has 13 Tunings Taken From Van Halen I, Track by Track. The Record Isn't Exactly in Eb, and That's Why Your Brown Sound Fights the Album"
+seo_title: "Peterson StroboStomp EVH: 13 Van Halen I Tunings"
 date: "2026-11-03"
 category: "new-gear"
 slug: "peterson-strobostomp-evh-13-van-halen-i-sweeteners-eb-sharp-179"

@@ -1,5 +1,6 @@
 ---
 title: "Keeley RK2000 Funk Siren Delay Ships at $369, Reviving the Ibanez DM2000 Trey Anastasio Has Used for Decades"
+seo_title: "Keeley RK2000 Revives the Ibanez DM2000 Delay"
 date: "2026-04-21"
 category: "new-gear"
 slug: "keeley-rk2000-funk-siren-delay"

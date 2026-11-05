@@ -1,5 +1,6 @@
 ---
 title: "Fender Tone Master Pro Firmware 1.8.45 Adds EVH 5150 III Amps, 8 New Cabs, and 15 Effects"
+seo_title: "Tone Master Pro 1.8.45 Adds EVH 5150 III Amps"
 date: "2026-06-04"
 category: "firmware-update"
 slug: "fender-tone-master-pro-firmware-1-8-45-evh-5150"

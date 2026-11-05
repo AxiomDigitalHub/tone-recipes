@@ -1,5 +1,6 @@
 ---
 title: "JHS's $299 Wanderer Puts a Klon and a Bluesbreaker in One Box With an Order Switch — Which Means It Ships With the Argument Built In. Here's How to Settle It on Your Modeler First"
+seo_title: "JHS Wanderer: A Klon and Bluesbreaker in One Box"
 date: "2026-10-14"
 category: "new-gear"
 slug: "jhs-wanderer-notaklon-morning-glory-order-switch-299"

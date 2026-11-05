@@ -1,5 +1,6 @@
 ---
 title: "Helix Stadium Firmware 1.10 Drops With 8 New Amp Models and Proxy Cloning Improvements"
+seo_title: "Helix Stadium 1.10 Adds 8 Amp Models"
 date: "2026-03-28"
 category: "firmware-update"
 slug: "helix-stadium-firmware-1-10-new-amps"

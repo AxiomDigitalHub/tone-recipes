@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { fitTitle } from "@/lib/seo-title";
 import {
   gearItems,
   getGearBySlug,
@@ -34,7 +35,12 @@ export async function generateMetadata({
     return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
   }
   // Brand comes from the root layout's title template — don't repeat it.
-  const title = `${g.name} — Recipes & modeler equivalents`;
+  const fullTitle = `${g.name} — Recipes & modeler equivalents`;
+  const title = fitTitle([
+    fullTitle,
+    `${g.name} — Modeler equivalents`,
+    g.name,
+  ]);
   const description = `${g.name} on Fader & Knob: which recipes use it, how to model it on Helix, Quad Cortex, TONEX, Fractal, and Kemper.`;
   return {
     title,
@@ -43,7 +49,7 @@ export async function generateMetadata({
     keywords: [g.name, g.type, g.manufacturer, "tone recipe", "modeler equivalent", "guitar gear"].filter(
       Boolean,
     ) as string[],
-    openGraph: { title, description, type: "website" },
+    openGraph: { title: fullTitle, description, type: "website" },
   };
 }
 
