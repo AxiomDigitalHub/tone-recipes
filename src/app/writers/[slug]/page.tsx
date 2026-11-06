@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getAllWriters, getWriter } from "@/lib/writers";
 import { getAllPosts } from "@/lib/blog";
 import { writerJsonLdSet } from "@/lib/seo/jsonld";
+import { fitTitle } from "@/lib/seo-title";
 
 /**
  * /writers/[slug] — AI editorial voice profile page.
@@ -34,12 +35,19 @@ export async function generateMetadata({
       robots: { index: false, follow: false },
     };
   }
-  const title = `${writer.name} — ${writer.title} | Fader & Knob`;
+  // Lead with the voice and its beat, not the persona's name: these are AI
+  // writers, and a name-first title reads like a real person's byline page.
+  // The name stays in the <h1> next to the "AI Writer" badge. Brand comes from
+  // the root layout's template.
+  const title = writer.beat
+    ? fitTitle([`${writer.title}: ${writer.beat}`, writer.title])
+    : writer.name;
+  const ogTitle = writer.beat ? `${writer.title}: ${writer.beat} (AI Writer)` : writer.name;
   return {
     title,
     description: writer.bio.slice(0, 160),
     alternates: { canonical: `/writers/${slug}` },
-    openGraph: { title, description: writer.bio.slice(0, 160), type: "profile" },
+    openGraph: { title: ogTitle, description: writer.bio.slice(0, 160), type: "profile" },
   };
 }
 

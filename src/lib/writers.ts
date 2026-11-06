@@ -30,6 +30,8 @@ export interface Writer {
   slug: string;
   name: string;
   title: string;
+  /** What this voice covers; leads the profile page <title> instead of the name. */
+  beat?: string;
   bio: string;
   image?: string;
   identity?: WriterIdentity;
@@ -41,6 +43,7 @@ const WRITERS: Writer[] = [
     slug: "rick-dalton",
     name: "Rick Dalton",
     title: "The Analog Patriarch",
+    beat: "Classic Rock and Analog Amps",
     identity: {
       birthYear: 1964,
       formativeBands: ["AC/DC", "Van Halen", "Black Sabbath", "Thin Lizzy", "Judas Priest", "ZZ Top"],
@@ -63,6 +66,7 @@ const WRITERS: Writer[] = [
     slug: "jess-kowalski",
     name: "Jess Kowalski",
     title: "The Punk Engineer",
+    beat: "Punk, Indie and Budget Gear",
     identity: {
       birthYear: 1994,
       formativeBands: ["Green Day", "Blink-182", "My Chemical Romance", "Paramore", "Fall Out Boy", "Against Me!"],
@@ -85,6 +89,7 @@ const WRITERS: Writer[] = [
     slug: "sean-nakamura",
     name: "Sean Nakamura",
     title: "The Digital Architect",
+    beat: "Digital Modelers",
     identity: {
       birthYear: 2000,
       formativeBands: ["Animals as Leaders", "Periphery", "Plini", "Polyphia", "Chon", "Intervals"],
@@ -107,6 +112,7 @@ const WRITERS: Writer[] = [
     slug: "margot-thiessen",
     name: "Margot Thiessen",
     title: "The Tone Sommelier",
+    beat: "Blues, Roots and Soul Tone",
     identity: {
       birthYear: 1993,
       formativeBands: ["John Mayer", "Norah Jones", "Amy Winehouse", "Bon Iver", "Feist", "Iron & Wine"],
@@ -129,6 +135,7 @@ const WRITERS: Writer[] = [
     slug: "carl-beckett",
     name: "Carl Beckett",
     title: "The One-Guitar Guy",
+    beat: "Simple One-Guitar Rigs",
     identity: {
       birthYear: 1976,
       formativeBands: ["Merle Haggard", "Garth Brooks", "Alan Jackson", "Eagles", "George Strait", "Vince Gill"],
@@ -151,6 +158,7 @@ const WRITERS: Writer[] = [
     slug: "dev-okonkwo",
     name: "Dev Okonkwo",
     title: "The Bedroom Producer",
+    beat: "Plugins and Bedroom Recording",
     identity: {
       birthYear: 2003,
       formativeBands: ["Toro y Moi", "Tycho", "Frank Ocean", "Tyler the Creator", "Mac DeMarco", "Khruangbin"],
@@ -173,6 +181,7 @@ const WRITERS: Writer[] = [
     slug: "nathan-cross",
     name: "Nathan Cross",
     title: "The Worship Architect",
+    beat: "Worship Guitar",
     identity: {
       birthYear: 1992,
       formativeBands: ["NOFX", "Bad Religion", "Rise Against", "Hillsong United", "Chris Tomlin", "Switchfoot"],
@@ -195,6 +204,7 @@ const WRITERS: Writer[] = [
     slug: "viktor-kessler",
     name: "Viktor Kessler",
     title: "The Metal Scientist",
+    beat: "Metal and High-Gain Tone",
     identity: {
       birthYear: 1998,
       formativeBands: ["Meshuggah", "Periphery", "Animals as Leaders", "Gojira", "TesseracT", "After the Burial"],
@@ -217,6 +227,7 @@ const WRITERS: Writer[] = [
     slug: "hank-presswood",
     name: "Hank Presswood",
     title: "The Vintage Collector",
+    beat: "Vintage Gear and Reissues",
     identity: {
       birthYear: 1970,
       formativeBands: ["Stevie Ray Vaughan", "Allman Brothers Band", "ZZ Top", "Eric Johnson", "Bonnie Raitt", "Albert Collins"],
@@ -239,6 +250,7 @@ const WRITERS: Writer[] = [
     slug: "elena-ruiz",
     name: "Elena Ruiz",
     title: "The Parent Player",
+    beat: "Guitar for Busy Parents",
     identity: {
       birthYear: 1990,
       formativeBands: ["Arcade Fire", "The Strokes", "Yeah Yeah Yeahs", "Modest Mouse", "Death Cab for Cutie", "The Shins"],
