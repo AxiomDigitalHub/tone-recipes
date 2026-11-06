@@ -8192,3 +8192,128 @@ the script, or edit the folded block as a whole.
 |---|---|---|---|---|---|---|
 | AS1 | expression-pedal-pot-value-10k-25k-50k-modeler | Does an Expression Pedal's Pot Value Matter for Helix, HX Stomp and Quad Cortex? | "expression pedal 10k vs 25k," "expression pedal not full range helix," "which expression pedal works with quad cortex" | Sean Nakamura | 4 — Modeler Masterclass | **Surfaced by R1:** Mission's SP1-ND lists a 10k linear pot; forum threads on HX Stomp report pedals that won't sweep 0–100. Distinct question from R1 (which tool) and AQ1 (audio pots): what a control pot's value, taper and TRS polarity do to the reading. **Gate 7 guard:** ship maker-published pot values for ≥4 common expression pedals (Line 6 EXP/EX-1, Mission SP1 family, Boss EV-30, M-Audio EX-P, Roland EV-5; graded) plus each modeler's published calibration method (Helix Min/Max, QC POSITION calibration, Neural's tested-pedal list). Computed: how much of the sweep a mismatched taper wastes. No listening claims. Sean's bars to check at build. |
 | AS2 | gratitude-brandon-lake-guitar-tone-helix | Gratitude Guitar Tone on the Line 6 Helix (Brandon Lake) | "gratitude brandon lake guitar tone," "gratitude helix patch" | Nathan Cross | 3 — Worship cluster (Tier 2 #4) | **Next in CCLI rank order** after today's #3. Must verify key/BPM from Multitracks or PraiseCharts at build and carry a song-specific computed hook (delay grid, reverb-in-beats, or capo/key-driven voicing choice), not a template of the Praise post. Use real Helix model names only (see debt #31). Nathan's velocity: 1 after today; check at build. |
+
+## Daily Run — 2026-11-06 (2 new posts + 1 refresh + 1 factual correction)
+
+### Posts published: expression-pedal-pot-value-10k-25k-50k-modeler, gratitude-brandon-lake-guitar-tone-helix
+
+**Velocity:** `persona-velocity.ts` reported **6 posts in 7 days** (Hank 2,
+Carl 1, Nathan 1, Sean 1, Jess 1). AS1 → Sean (1 → 2). AS2 → Nathan (1 → 2).
+Bars checked, quoted: Sean's "Vintage gear history/collecting / 'Tone is in
+the fingers' / Live gigging logistics": AS1 is a modeler-input circuit
+question, clear. Nathan's "Metal or high-gain / Budget/punk rig guides /
+Vintage gear collecting": Gratitude is a clean-to-driven 6/8 worship song,
+clear. Collision checks: no existing gratitude slug; AS1 vs
+`expression-pedal-vs-volume-pedal` (which tool) and
+`volume-pedal-treble-loss-halfway-why` (audio pot) stays distinct.
+
+**Gate 7 guards met:**
+- **AS1:** Line 6 store/KB listings for Mission EP1-L6 and SP1-L6H: "10K Ohm
+  Linear", "single TS cable… TRS cables are not required" (grade A). Line 6
+  EX-1 "passive 10K ohm mono linear taper pot" via FAQ quoted on Line 6
+  forum (B). Fractal FM3 manual (manualslib copy): linear, 10–100 kΩ, TRS,
+  control voltage on tip, SETUP: I/O: Pedal → Calibrate (B). Boss EV-30 and
+  Roland EV-5 first-party spec pages: no pot value published; MIN knobs,
+  POLARITY on EXP 2, TRS cable (A). M-Audio EX-P ~12k pot via one user
+  teardown (C). Helix input full scale 10k (open = no pedal, short = 0 %,
+  10k = 100 %) is **one modder's measurement (C)** and is labelled so.
+  **Core finding (Gate 5):** pot value cancels on TRS divider inputs (QC,
+  Fractal) but *is* the reading on Line 6's TS rheostat input. **Computed:**
+  25k linear saturates at 40 % travel, 50k at 20 %; 10k audio taper reaches
+  50 % at 72 % travel; the 100k ∥ 11.1k forum hack reads 53 % at 10 % travel
+  and 91 % at halfway; a TRS-divider pedal on a TS leg reads x(1−x)R (zero,
+  peak at half travel, zero), matching a Line 6 forum report (DVP4 on a
+  Y-cable, fixed by the pedal's tip/ring switch). Software Min/Max can't
+  recover saturated travel. Helix Volume Pedal block Linear/Logarithmic
+  taper option via user reports (B). QC: TRS, per-input calibration in I/O
+  settings (Neural support/forum, B; support.neuraldsp.com page 404'd).
+- **AS2:** MultiTracks House of Miracles listing (B, 78 BPM, 6/8, 5:33,
+  2020, Hastings/Lake/Bowe, song map); other versions: Tear Off the Roof Bb/78,
+  Essential Worship Bb/76, Passion LIFT G/68 (MultiTracks via search, B);
+  PraiseCharts Passion 2023 orig Bb, "Med Slow" (B). **Tempo convention
+  argued from two clues, both stated in the post:** a user-uploaded chart at
+  52 in 6/8 (= 78 × 2/3; grade C) and the in-house Great Are You Lord
+  MultiTracks 72 vs publisher 144 pairing. **Non-commodity hook (Gate 5):**
+  tapping the felt dotted-quarter pulse on a Helix reads ~52 BPM as quarter
+  notes, so 1/8 = 577 ms and 1/8 dotted = 865 ms (both off-grid) and the
+  real eighth is **1/8 triplet** (385 ms); corroborated by Line 6 forum
+  thread 32227 (B). Plus the reverb-in-felt-beats table (4 s ≈ 1.7 bars) as
+  the inverse of the Praise post. No claim about the session guitarist's rig
+  (backlog row 6 still needs the artist pass). Real Helix names only (Essex
+  A30 with its verified Drive/Bass/Treble/Cut/Presence/Master set, 1x12 Blue
+  Bell, Kinky Boost, Teemah!, Deluxe Comp, Plateaux, Dynamic Hall).
+
+### SERP analysis
+
+| Post | Target query | Top results (standard search) | Gap our post fills | AI Overview? F&K cited? |
+|---|---|---|---|---|
+| expression-pedal-pot-value-10k-25k-50k-modeler | "expression pedal 10k vs 25k helix not full range" | Line 6 forum (×10: calibration, "limited range 85–100", VP Jr on LT, EV-5 works, Mission works backward, known-compatibility list), music-electronics-forum FV-500L pot swap, Fractal forum (×2), unofficialwarmoth homebrew thread, Mission EP-25K retailer | Forum consensus "10k linear works best, 25k hit and miss", no mechanism and no numbers. Ours: why value matters on TS rheostat inputs and cancels on TRS dividers, the travel-vs-reading table for 10k/25k/50k/audio/parallel-hack, the x(1−x)R up-and-down signature, why Min/Max can't fix it, and a one-meter-sweep diagnostic. | Not observable: the search tool returns organic links only. |
+| gratitude-brandon-lake-guitar-tone-helix | "gratitude brandon lake guitar tone helix" | Worship Tutorials paid Helix/Fractal patches (×4; one listing has a "Behold" copy-paste error), PraiseCharts Helix patches for other Brandon Lake songs (×10) | Paid patches only, nothing on the 6/8 tempo math. Ours: the listed-78-vs-felt-52 explanation, the tap-tempo note-value table (1/8 triplet), why the dotted eighth fails in 6/8, version-by-version delay times, reverb-in-felt-beats table, snapshot map from the MultiTracks song map. | Not observable. |
+| dotted-eighth-delay-no-tap-tempo (R1) | "dotted eighth delay 6/8 time signature tap tempo wrong" | Ableton forum (×4), Singular Sound forum (×2), Steinberg forum (×3), Line 6 thread 32227, Neural DSP Unity, guitarchalk dotted-eighth explainer | Scattered DAW-forum fixes; no guitar page explains the 6/8 listing convention or the 1/8-triplet answer with numbers. Ours after the refresh: the 6/8 table (eighth / felt beat / avoid) for 68–78 BPM and the Helix tap trap. | Not observable. |
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | dotted-eighth-delay-no-tap-tempo | **Factual fixes:** (1) "Why the Dotted Eighth Works" said the repeat lands on the "and" of the following beat — wrong; a dotted-eighth repeat of an on-beat note lands on the "a" (last sixteenth). Rewritten with the real interlock (played eighths + repeats on e/a = continuous sixteenths). (2) Method 1's by-ear diagnostics were backwards ("lands on the 'and' = dotted-eighth window"; a repeat on the "and" is a straight eighth, i.e. too short) — rewritten, plus a straight-eighths check step. (3) Takeaway and FAQ carried the same "and" error — fixed. (4) "For Modeler Users" said tap tempo "solves this entirely" — false on 6/8; rewritten. **New section "When the Song Is in 6/8":** why the dotted eighth fails in compound meter, the listed-tempo convention, a 68/72/76/78 table (eighth 30000÷BPM, felt beat 90000÷BPM, dotted eighth to avoid), the 20000÷BPM fallback, and the Helix tap trap (1/8 triplet / 1/4). New FAQ (6/8), one takeaway replaced (the ±10 ms one, still in body). Gate 6: "analog warmth" in the settings table rewritten. Description updated. `updated: 2026-11-06`. | Three newsletters link this post (one as "Why the dotted eighth breaks in 6/8") and it had no 6/8 content; it also taught the by-ear method backwards. |
+| — | expression-pedal-vs-volume-pedal | **Correction, not redated** (refreshed 11-05): said expression pedals sit on a "TRS control jack" read by a reference voltage and called Helix's rear jacks "TRS expression" — Line 6 uses TS, 10k linear, read as resistance. Fixed in a takeaway, the body and the Helix Floor paragraph, with a link to AS1. | Same-cluster factual error surfaced by AS1's research. |
+
+Inbound links for new posts: AS1 ← expression-pedal-vs-volume-pedal; AS2 ←
+dotted-eighth-delay-no-tap-tempo.
+
+**Gates (self-audit):**
+- **AS1** (Sean): self-references 1 ("I expected pot value to matter on every
+  modeler"); "that I could find" / "I can't tell from the thread" are
+  method, not persona; signature phrases 0; Gate 5 = value cancels on
+  dividers; Gate 6: no tone descriptors; Gate 10: Helix, HX Stomp, QC,
+  Fractal, Boss/Morningstar. Sourcing tightened in self-audit: SP1-ND
+  downgraded to grade B; an "85–100 turned out to be Min=85" claim softened
+  to what the thread says; "most Boss multi-effects" narrowed to GT-1/GX-100.
+- **AS2** (Nathan): self-references 1 ("I expected tap tempo to be the safe
+  choice"); signature phrases 0; no exclamation points (Teemah! is a model
+  name); Gate 5 = the 1/8-triplet tap result; Gate 6 sweep clean ("chime",
+  "12-string in a bigger room"); Gate 10: HX Stomp, analog board, Katana. A
+  Teemah! line claiming it keeps lows "tighter than a Tube Screamer"
+  (backwards) was replaced with the mid-hump contrast in self-audit.
+- **R1** (fk-staff): editorial-neutral.
+
+**Image pipeline note:** `SUBJECT_OVERRIDES` added for both slugs. AS1's
+first render (modeler + pedals + "potentiometer") leaked a logo, knob labels
+and cable printing, and the pot rendered as a jack; blurring left visible
+smears, so it was **regenerated** with a pedals-and-cable-only prompt
+(~$0.06 extra); two tiny badge ovals on the treadles blurred. AS2 rendered
+magenta/cyan concert lighting rather than amber and put text on the
+modeler's top strip and footswitch labels (blurred). `image_alt` rewritten
+on both to match the renders, editing the folded block whole (per 11-05
+note). Total image spend ≈ $0.18.
+
+**Refresh debt carried forward** (items 1–18, 20–22, 24–32 unchanged):
+33. **NEW: Gratitude newsletter note (10-11 issue)** says the "stripped
+    bridge wants you off the strings"; the MultiTracks map has the bridge
+    ×3 followed by three interludes, which reads as the build. Not
+    verifiable without listening; leave the newsletter (sent) but don't
+    repeat the claim.
+34. **NEW: model-map cab aliases.** `src/lib/helix/model-map.ts` maps
+    "2x12 US Deluxe" and "2x10 Fender" to the Double C12N cab, and
+    "1x15 Vibroverb" likewise — alias names that aren't Helix cab names.
+    Same class as debt #31; include in that sweep.
+35. **NEW: support.neuraldsp.com expression article 404s** (old
+    cortex-support URL 301s to it). Re-find the live QC calibration page and
+    upgrade AS1's grade-B QC citations.
+
+### 3 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 2, dropped 0, added 3 — **queue now at 3.** Bylines are best-fit
+> proposals; the executing run re-checks velocity **and quotes the
+> never-assign bar it checked**, and verifies no colliding slug.
+>
+> **Rejected as re-slices:** (a) "can I use a VP Jr as an expression pedal on
+> Helix" — AS1's table already covers a large pot on a TS input; (b) "best
+> delay for 6/8 worship songs" — R1's new section; (c) "Helix tap tempo
+> settings" — AS2's tap table.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AT1 | trust-in-god-elevation-worship-guitar-tone-helix | Trust in God Guitar Tone on the Line 6 Helix (Elevation Worship) | "trust in god elevation worship guitar tone," "trust in god helix patch" | Nathan Cross | 3 — Worship cluster (Tier 2 #5) | Next in CCLI order. Verify key/BPM/meter on MultiTracks + PraiseCharts at build; carry a song-specific computed hook (not the Praise/Gratitude templates). Real Helix names only (debt #31/#34). Nathan at 2 after today — check the 7-day window at build; fk-staff if he's at cap. |
+| AT2 | helix-midi-clock-playback-click-worship | Should Your Helix Follow the Click? MIDI Clock From Playback, Ableton and MultiTracks | "helix midi clock playback," "sync helix to click track," "multitracks playback midi clock delay" | fk-staff (Nathan if under cap) | 1 — Signal Chain / workflow | Existing posts mention MIDI clock in one line each. Distinct question: what the Helix does with incoming clock (Global Settings MIDI clock receive, tempo per preset vs global, what happens at a tempo-map change mid-song, 6/8 songs where the click's BPM ≠ felt pulse — ties to AS2). **Gate 7 guard:** first-party Line 6 manual text on MIDI clock receive + Playback/Ableton docs on what clock they send in 6/8; computed delay drift from a 1–2 BPM mismatch over a bar. No listening claims. Sean's "live gigging logistics" bar rules him out. |
+| AT3 | contactless-expression-pedal-magnetic-optical-modeler | Optical and Magnetic Expression Pedals: What a Modeler Sees When There's No Pot | "optical expression pedal helix," "magnetic sensor expression pedal quad cortex," "expression pedal sensor dead zone" | Sean Nakamura | 4 — Modeler Masterclass | **Surfaced by AS1's SERP:** a Line 6 thread traced a range problem to a sensor not seeing the low end of travel, fixed with contrasting tape. Distinct from AS1 (pots): how sensor pedals emulate a pot for TS vs TRS inputs, why they need their own calibration, failure modes. **Gate 7 guard:** maker docs for ≥3 contactless pedals (e.g. Dunlop optical wah/X-pedal family, Morningstar or Mission sensor models, any Boss/Roland sensor pedal) with published output modes; no listening claims. Sean's bars to check at build. |

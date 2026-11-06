@@ -1,0 +1,182 @@
+---
+title: Gratitude Guitar Tone on the Line 6 Helix (Brandon Lake)
+seo_title: Gratitude (Brandon Lake) Guitar Tone on Helix
+description: >-
+  Build Brandon Lake's Gratitude on the Helix: B major in 6/8, a 385 ms eighth,
+  and why tapping the felt beat sets every delay wrong unless you pick 1/8
+  triplet.
+date: '2026-11-06'
+author_slug: nathan-cross
+category: tone-recipes
+tags:
+  - worship
+  - helix
+  - brandon-lake
+  - gratitude
+  - six-eight
+  - tap-tempo
+  - snapshots
+  - hx-stomp
+image: /images/blog/gratitude-brandon-lake-guitar-tone-helix.jpg
+image_alt: >-
+  An electric guitar leaning against a floor modeler on a stage, magenta and cyan spotlights cutting through haze behind it
+takeaways:
+  - >-
+    MultiTracks lists Gratitude on House of Miracles (2020) in B at 78 BPM in
+    6/8. That 78 counts pairs of eighth notes, so the eighth note is about 385
+    ms and the beat you sway to is about 52 per minute.
+  - >-
+    If you tap the beat you feel into a Helix, it reads about 52 BPM and treats
+    each tap as a quarter note. A 1/8 setting then gives 577 ms and a dotted
+    eighth gives 865 ms, and neither lands on the song's grid.
+  - >-
+    After tapping the felt beat, the right note values are 1/8 triplet for the
+    eighth (385 ms) and 1/4 for one full beat (1,154 ms).
+  - >-
+    The common dotted-eighth formula, 45000 divided by 78, gives 577 ms, which
+    is one and a half eighths. In 6/8 it lands between the notes rather than on
+    them.
+  - >-
+    Gratitude is slower than its number. A 4-second reverb covers about 1.7
+    bars, so the verses can carry more room than a song listed at 78 BPM
+    suggests.
+faq:
+  - q: What key and tempo is Gratitude by Brandon Lake?
+    a: >-
+      The House of Miracles studio recording is listed by MultiTracks in B at 78
+      BPM in 6/8, 5:33 long. The Tear Off the Roof live version is in Bb at 78,
+      Essential Worship's version is in Bb at 76, and the Passion version from
+      the LIFT conference is in G at 68, so check which recording your team
+      follows.
+  - q: What delay time should I use for Gratitude?
+    a: >-
+      For the House of Miracles version, use a straight eighth at about 385 ms
+      (30000 divided by 78) with the mix around 12 percent, or one full beat at
+      about 1,154 ms for swells. Skip the dotted eighth: at 577 ms it falls
+      halfway between eighth notes in 6/8.
+  - q: Why does my tap tempo give the wrong delay on a 6/8 song?
+    a: >-
+      Tap tempo on a Helix treats each tap as a quarter note. If you tap the
+      sway of a 6/8 song, each tap is really a dotted quarter, so every note
+      value comes out one and a half times too long. After tapping the felt
+      beat, choose 1/8 triplet for the eighth note and 1/4 for the full beat.
+  - q: Should I use a capo for Gratitude in B?
+    a: >-
+      Capo 4 with G shapes or capo 2 with A shapes both put you in B and keep
+      open strings ringing under the pads. Capo 4 sounds brighter and a little
+      thinner, which suits a second guitar playing above the keys. For the Bb
+      versions, move each down one fret.
+  - q: Can I play Gratitude on an HX Stomp?
+    a: >-
+      Yes. Use one delay block with its note value controlled by snapshot (1/4
+      dotted for the verse swells, 1/8 for the choruses) at a stored tempo of
+      78, plus a compressor, a boost, a mid drive, the amp and cab, and one
+      reverb. That's six blocks, and three snapshots cover the song.
+---
+
+> **Start Here: Gratitude in Five Moves**
+> 1. Tempo: **78 BPM in 6/8, key of B** (House of Miracles). Eighth note = **385 ms**. Felt beat = **1,154 ms** (about 52 per minute).
+> 2. Delay: store the tempo at **78** and use **1/8** for choruses, **1/4 dotted** for verse swells. No dotted eighth.
+> 3. If you tap the felt beat, switch the note value to **1/8 triplet** (eighth) or **1/4** (beat).
+> 4. Amp: **Essex A30** clean enough that a soft strum stays clean, into a **1x12 Blue Bell**.
+> 5. Reverb: the song is slower than it looks, so the verses can carry **3.5–4 s** of decay.
+
+| What you want | Tempo stored as 78 | Tapped felt beat (Helix reads ~52) |
+|---|---|---|
+| Eighth note, 385 ms | 1/8 | 1/8 triplet |
+| One felt beat, 1,154 ms | 1/4 dotted | 1/4 |
+| Avoid: 577 ms (1.5 eighths) | 1/8 dotted | 1/8 |
+| Avoid: 865 ms (2.25 eighths) | — | 1/8 dotted |
+
+## A 6/8 Song With a Misleading Number
+
+Gratitude has been a fixture of the fall calendar since Brandon Lake released it on *House of Miracles* in 2020, and Thanksgiving Sunday puts it back in a lot of setlists. The writers are Lake, Benjamin Hastings and Dante Bowe. MultiTracks lists the studio master in **B at 78 BPM in 6/8**, 5:33 long. Nothing published tells us what the session guitarist used, so this is a guide to building a Helix tone that does what the song needs rather than a copy of anyone's rig.
+
+What the song needs, more than any particular amp, is a delay that agrees with the meter. And that starts with the tempo number, because in 6/8 the number on the listing isn't the pulse you feel.
+
+6/8 groups six eighth notes into two beats of three. When you sway to Gratitude, you're moving on those big beats, the dotted quarters. The listed 78 counts something else: pairs of eighth notes, the way a click track in 4/4 would count quarter notes. Two clues point that way. A user-uploaded chart for a G arrangement gives the tempo as 52 in 6/8, which is exactly 78 × 2/3, the same song counted in dotted quarters. And MultiTracks' 72 for *Great Are You Lord* sits beside a publisher listing at 144, which is the eighth-note count. On that reading, Gratitude's eighth note is 60000 ÷ 156, about **385 ms**, and the beat you sway to is about **1,154 ms**, a little over 52 per minute.
+
+That's slow. It's the reason this song can hold the kind of space that a 72 BPM anthem in 4/4 only gets on its bridge. It's also the reason two of the most common delay habits go wrong.
+
+## The Dotted Eighth Doesn't Belong Here
+
+The dotted-eighth formula is 45000 ÷ BPM, and at 78 it gives **577 ms**. In 4/4 that's the familiar pattern, a repeat that falls between the sixteenths and makes a strummed eighth-note part sound like it's moving twice as fast. In 6/8, 577 ms is one and a half eighth notes. The first repeat lands halfway between two notes of the triplet grouping, the second lands on the next beat's second eighth, and the pattern never settles. It doesn't sound like an effect. It sounds like the guitar is slightly out of time with the band.
+
+Two delay times sit on Gratitude's grid instead:
+
+| Delay | Time | Where it lands | Use it for |
+|---|---|---|---|
+| Straight eighth | ~385 ms | On every subdivision | Choruses and strummed parts: thickens without adding a rhythm, mix ~12% |
+| One felt beat (dotted quarter) | ~1,154 ms | On each big beat | Intro, verses and swells: a clear echo with room around it, mix ~22% |
+| Quarter (two eighths) | ~769 ms | Every other eighth, crossing the beat | Only on purpose: it sets up a two-against-three pull |
+| Dotted eighth | ~577 ms | Between subdivisions | Skip it |
+
+The eighth-note delay works in a way that surprises people the first time. Because every repeat lands where you'd play the next note of the pattern anyway, it doesn't read as echo at all. It makes an arpeggio sound like it's being played on a 12-string in a bigger room. Keep the mix low and the feedback around 25 so the tail stays inside a beat. The one-beat delay is the opposite: it's audible, one repeat per sway, and that's what you want under a held chord at the start of the song.
+
+## The Tap Tempo Trap
+
+I expected tap tempo to be the safe choice for a 6/8 song, since you can follow the drummer instead of trusting a number. That's true on a pedal that only cares about the interval between taps. On a Helix it isn't, because the Helix turns your taps into a tempo and then treats each tap as a quarter note.
+
+Tap the sway of Gratitude, the beat your congregation moves to, and the Helix reads about 52 BPM. Every note value is now calculated from a 1,154 ms "quarter note":
+
+| Note value after tapping the felt beat | Time | On the grid? |
+|---|---|---|
+| 1/4 | 1,154 ms | Yes, one felt beat |
+| 1/8 dotted | 865 ms | No, 2.25 eighths |
+| 1/8 | 577 ms | No, 1.5 eighths |
+| 1/8 triplet | 385 ms | Yes, one eighth note |
+
+So the delay you'd reach for in 4/4, an eighth or a dotted eighth, comes out wrong by a factor of one and a half, and the one that looks strange in the list, 1/8 triplet, is the actual eighth note of the song. A Line 6 forum thread on tapping 6/8 lands on the same answer: the note division is relative to whatever you tapped, and 1/8 triplet is the subdivision that fits a dotted-quarter tap.
+
+The cleaner route is not to tap at all. Store the tempo at 78 in the preset (set Tempo Select to per-preset or per-snapshot in Global Settings) and use **1/8** for the eighth and **1/4 dotted** for the felt beat. If your drummer drifts a few BPM, it barely matters at these times: 76 BPM moves the eighth from 385 to 395 ms. If your band plays the Passion arrangement in G at 68, the eighth is about 441 ms and the beat about 1,324 ms, so change the stored tempo rather than the note values. Our walk-through on [setting a delay without tap tempo](/blog/dotted-eighth-delay-no-tap-tempo) covers the per-song tempo workflow.
+
+## The Reverb Can Stay Longer Than You'd Think
+
+Because the felt beat is so long, reverb decay goes further here than the number 78 suggests:
+
+| Reverb decay | Felt beats covered | Bars of 6/8 covered |
+|---|---|---|
+| 2 s | 1.7 | 0.9 |
+| 3.5 s | 3.0 | 1.5 |
+| 5 s | 4.3 | 2.2 |
+| 7 s | 6.1 | 3.0 |
+
+Compare that with an up-tempo song like [Praise](/blog/praise-elevation-worship-guitar-tone-helix), where 4 seconds covers two full bars at 127 BPM and fogs the driving eighths. In Gratitude, 3.5 to 4 seconds is about a bar and a half, so each chord's tail fades as the next one settles in. That's the space the verses want.
+
+On the Helix, a **Plateaux** or a **Dynamic Hall** at about 3.5 to 4 seconds, mix near 25 percent, pre-delay about 30 ms so the pick attack lands before the room answers, and a low cut around 200 Hz. When the band comes in, pull it back rather than adding more: about 2.5 seconds and 16 percent for the bridge. The bigger the band gets, the less ambience the guitar needs to carry. If you want a short plate and a long hall in the same preset, our [reverb-stacking guide](/blog/stacking-reverbs-guide) covers how to keep only one of them running at a time.
+
+## The Amp, the Drive and a Capo
+
+**Amp:** the **Essex A30** into a **1x12 Blue Bell**, set cleaner than you'd run it for a driving song. A soft strum on the verses should stay clean and chime; digging in should only start to break up. Drive near 3.5, Bass 4.5, Treble 6, Cut 5, Presence 4.5, Master 5. The model has no Mid control (the real top-boost channel doesn't either), so tame any harshness with Cut, which removes treble as you turn it up. Low cut on the cab near 90 Hz, high cut near 7 kHz.
+
+**Drives:**
+- **Kinky Boost** (Xotic EP Booster) for the choruses, gain low and level up a few dB. It firms up the low mids and adds a touch of push.
+- **Teemah!** (Timmy-style) stacked for the bridge and the last choruses, Gain about 4, Level matched so it adds weight without a volume jump. It has far less mid hump than a Tube Screamer, so the arpeggios keep their chime when it stacks. If the low B and F# start to drone under the bass player, pull the amp's Bass down before touching the drive.
+- **Deluxe Comp** first, Threshold about −22, Ratio 3, Mix 50 percent, to even out the arpeggios.
+
+**Capo:** B is a hard key for open voicings. Capo 4 with G shapes or capo 2 with A shapes both put you there with open strings ringing. Capo 4 sits higher and brighter, which helps a second electric stay above the keys, while capo 2 keeps more weight in the low strings. For the Bb versions, move down a fret. There's more on why that choice changes the sound, not just the key, in our piece on [capo position as a tone decision](/blog/capo-position-as-a-tone-decision).
+
+## Snapshot Layout, Mapped to the Song
+
+MultiTracks' song map for the studio version runs Intro, two verses, two choruses, a vamp, a third verse, two choruses, an interlude, the bridge three times, three more interludes, two choruses and an ending. That long middle stretch is where a build lives, and the snapshots follow it:
+
+| Snapshot | Song sections | Drives | Delay | Reverb |
+|---|---|---|---|---|
+| 1 — Swell | Intro, verses | Off | 1/4 dotted (1,154 ms), 22% | 4 s, 25% |
+| 2 — Chorus | Choruses, vamp | Kinky Boost | 1/8 (385 ms), 12% | 3 s, 20% |
+| 3 — Build | Bridge ×3, interludes | Kinky + Teemah! | 1/8 (385 ms), 10% | 2.5 s, 16% |
+| 4 — Out | Ending | Off | 1/4 dotted, 25% | 6 s, 30% |
+
+Assign the delay's note value to snapshot control (right-click it in HX Edit and choose the snapshot option) so one delay block switches between the beat and the eighth. Turn trails on for the delay and reverb so the switch into the ending carries over. Forum users report that a delay can't swap between a millisecond time and a note value per snapshot, so keep both settings as note values at the stored tempo of 78. More on trails and spillover is in our guide to [Helix snapshots for Sunday morning](/blog/helix-worship-snapshots-sunday-morning).
+
+## HX Stomp, Analog Board and Katana
+
+**HX Stomp:** Deluxe Comp → Kinky Boost → Teemah! → Essex A30 with cab → Transistor Tape or Vintage Digital with its note value on snapshots → Plateaux. Six blocks, and three snapshots (Swell, Chorus, Build) cover the song if you let the Build snapshot's reverb grow back into the ending by hand. The [HX Stomp vs Helix LT comparison](/blog/hx-stomp-vs-helix-lt-worship) covers what you give up with three footswitches.
+
+**Analog pedalboard:** most digital delays let you set a time directly. Set two presets, 385 ms and 1,154 ms, rather than tapping. If your delay only taps and has a subdivision switch, tap the felt beat and pick the triplet setting for the eighth note, the same logic as the Helix. A Timmy-style or other low-gain drive after a clean boost, into an AC30-style amp or a Fender-style clean amp with a little hair.
+
+**Boss Katana:** the Crunch channel with the gain low for the verses and a boost for the choruses, the delay set to 385 ms in Tone Studio, and the reverb longer than your default. The [Katana worship guide](/blog/worship-guitar-tone-boss-katana) has the full layout.
+
+## Before Sunday
+
+Confirm the version. B at 78 is the studio and House of Miracles live recording. Bb is the Tear Off the Roof and Essential Worship versions. G at 68 is the Passion arrangement. Then set the tempo once, by the number, and pick the delay by what it should land on, not by habit. In 6/8, the delay that sounds right in every other song is the one that will fight this one.

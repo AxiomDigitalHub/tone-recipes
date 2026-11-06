@@ -162,6 +162,10 @@ const SUBJECT_OVERRIDES: Record<string, string> = {
     "a pedal steel guitar standing on its own four legs on a wooden floor, its foot pedals and knee levers visible, a plain black-tolex combo amplifier behind it with plain black grille cloth and no logo, badge or lettering, a volume pedal on the floor",
   "volume-pedal-tuner-out-tone-loss-does-it-load":
     "a plain passive guitar volume pedal on a pedalboard with a very short patch cable running from its side jack to a small plain unpainted metal tuner pedal whose display is switched off and solid black, a coiled plain black instrument cable beside the board, no knobs on the tuner, no logo, label, numbers, printing or lettering anywhere",
+  "expression-pedal-pot-value-10k-25k-50k-modeler":
+    "two plain matte black expression pedals with smooth unmarked treadles side by side on a bare white desk, one rocked forward and one rocked back, a coiled plain black cable with no printing between them, nothing else in frame, no logo, label, numbers, printing or lettering anywhere",
+  "gratitude-brandon-lake-guitar-tone-helix":
+    "an electric guitar with a capo clamped on the neck resting against a plain black floor multi-effects unit with blank footswitches on a dim church stage, soft amber light glowing behind in a light haze, plain unbranded gear with no logo, headstock logo, screen text or lettering",
   "praise-elevation-worship-guitar-tone-helix":
     "an electric guitar on a stand beside a plain black floor multi-effects unit with blank footswitches on a church stage, bright white and amber stage lights sweeping across a haze, drum kit blurred in the background, plain unbranded gear with no logo, screen text or lettering",
   "volume-pedal-treble-loss-halfway-why":

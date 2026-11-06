@@ -1,0 +1,182 @@
+---
+title: >-
+  Does an Expression Pedal's Pot Value Matter for Helix, HX Stomp and Quad
+  Cortex?
+seo_title: 'Expression Pedal Pot Value on Helix, HX Stomp, QC'
+description: >-
+  Line 6 reads an expression pedal's resistance, so 10k linear is the whole
+  spec. Quad Cortex and Fractal read a ratio, so pot value cancels. Sweep math
+  and fixes.
+date: '2026-11-06'
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - expression-pedal
+  - helix
+  - hx-stomp
+  - quad-cortex
+  - potentiometer
+  - pot-taper
+  - calibration
+image: /images/blog/expression-pedal-pot-value-10k-25k-50k-modeler.jpg
+image_alt: >-
+  Two plain black expression pedals side by side on a white desk, one rocked toe-down and one heel-down, with a coiled control cable between them
+takeaways:
+  - >-
+    Line 6 builds its expression inputs around a 10k linear pot on a plain TS
+    cable, and its own store listings for the Mission EP1-L6 and SP1-L6H say TRS
+    cables are not required.
+  - >-
+    A TS input reads the pot's resistance, so the pot value sets the reading. If
+    the input's full scale is 10k, a 25k linear pot hits 100 percent at 40
+    percent of travel and a 50k at 20 percent.
+  - >-
+    A TRS input such as the Quad Cortex's or Fractal's reads the wiper as a
+    fraction of a reference voltage, so the pot value cancels out. Fractal asks
+    for any linear pot from 10k to 100k.
+  - >-
+    Taper matters on every platform. An audio-taper pot on a linear input puts
+    only about 10 percent of the reading in the first half of travel and crosses
+    50 percent at about 72 percent of travel.
+  - >-
+    A software Min and Max setting rescales the parameter, not the pedal. It
+    cannot recover travel that a mismatched pot has already used up.
+faq:
+  - q: >-
+      What pot value should an expression pedal have for a Line 6 Helix or HX
+      Stomp?
+    a: >-
+      10k linear. Line 6 sells the Mission EP1-L6 and SP1-L6H with a 10k linear
+      pot and says they connect with a single TS cable. A larger pot reaches the
+      top of its range early on a Line 6 input, and an audio-taper pot bunches
+      the response at the toe end.
+  - q: Why doesn't my expression pedal sweep 0 to 100 on my HX Stomp?
+    a: >-
+      Check four things in order: the pedal's MIN knob is fully down, its
+      polarity switch matches the HX Stomp's tip and ring settings in Global
+      Settings, the cable type matches the pedal, and the pot is 10k linear.
+      Some reports also blame mechanical dead zones in the treadle, which no
+      setting can fix.
+  - q: Does pot value matter for a Quad Cortex expression pedal?
+    a: >-
+      Much less than on Line 6. The Quad Cortex takes TRS expression pedals and
+      calibrates each EXP input in its I/O settings, and a TRS input reads the
+      pedal as a ratio, so a 10k and a 50k linear pedal read the same. Taper
+      still matters, so use a linear pedal and recalibrate after changing the
+      pedal or its MIN knob.
+  - q: Can I fix a 100k expression pedal on a Helix with a resistor in parallel?
+    a: >-
+      It fixes the end value but not the curve. A 100k pot across about 11k
+      reads close to 10k at full travel, but it reaches about 53 percent of the
+      range at 10 percent of travel and 91 percent at halfway, so nearly all of
+      the control sits in the first quarter of the sweep.
+  - q: 'Why does my expression pedal go 0, then 100, then back to 0?'
+    a: >-
+      That shape is the signature of a pot whose two outer legs have ended up in
+      parallel, which happens when a TRS-wired pedal is plugged in with a TS
+      cable or a Y-cable leg that ties its ring to its sleeve. The reading peaks
+      at half travel. Flip the pedal's polarity or tip and ring switch, or use
+      the cable type the pedal was built for.
+---
+
+> **Short Answer by Platform**
+> - **Helix, HX Stomp, other Line 6:** pot value *is* the reading. Use **10k linear on a TS cable.**
+> - **Quad Cortex, Fractal and other TRS-divider inputs:** pot value cancels. Use **any linear pot in the maker's range** (Fractal: 10k–100k) and **calibrate.**
+> - **Everywhere:** taper matters. An audio-taper pot on a linear input wastes the first half of the sweep.
+> - **Software Min/Max can't recover lost travel.** It only rescales what the pedal already sends.
+
+| Platform | What the input measures | Pot value matters? | Taper matters? | Calibration |
+|---|---|---|---|---|
+| Helix Floor/LT rear EXP 2, EXP 3 | Resistance, tip to sleeve (TS) | Yes, it sets the reading | Yes | No documented step for external pedals; Min/Max per assignment |
+| HX Stomp EXP 1/2 jack | Same, on tip and ring separately via a Y-cable | Yes | Yes | Tip/ring polarity in Global Settings |
+| Quad Cortex EXP 1, EXP 2 | Wiper voltage as a fraction of a reference (TRS) | Barely | Yes | Per input, in I/O settings |
+| Fractal (FM3, FM9) | Same, TRS, control voltage on the tip | Barely, within 10k–100k | Yes, linear required | SETUP: I/O: Pedal, Calibrate |
+
+## Two Ways a Modeler Reads a Pedal
+
+An expression pedal is a potentiometer and nothing else. No audio passes through it. What changes between platforms is how the jack on the modeler turns that pot's position into a number, and there are two designs in common use.
+
+**The divider (TRS).** The modeler puts a small reference voltage across the pot's two outer legs, on ring and sleeve, and reads the wiper on the tip. The reading is the wiper's voltage as a fraction of the reference. Fractal's FM3 manual describes this directly: the full control voltage goes out on one contact, the sleeve is ground, and the pedal must be TRS. Neural DSP's support pages and forum answers point Quad Cortex users at TRS cabling for the same reason.
+
+**The rheostat (TS).** The modeler measures the resistance between tip and sleeve. One end of the pot and the wiper are all it needs, so a mono cable does the job. This is how Line 6 does it. Line 6's own store listings for the Mission EP1-L6 and SP1-L6H list the pot as **10K Ohm Linear** and say the pedal "connects to the Line 6 device with a single TS cable. TRS cables are not required for Line 6 expression pedals." A Line 6 support-forum post quoting the EX-1 FAQ describes Line 6's own pedal the same way: a passive 10k linear pot on a mono cable. One modder who measured a Helix input reports that open circuit reads as no pedal, a dead short as 0 percent, and 10k tip-to-sleeve as 100 percent.
+
+That one design difference decides the whole question.
+
+I expected pot value to matter on every modeler, since every forum thread treats "is it 10k?" as the first diagnostic. It turns out to matter on only one of the two designs. On a divider, the pot's resistance appears on both sides of the fraction and cancels: a 10k and a 50k linear pot at half travel both put the wiper at exactly half the reference. On a rheostat, the resistance *is* the measurement, so a pot of the wrong value gives a wrong number at every position.
+
+## The Sweep Math on a Line 6 Input
+
+Here's what happens if you take a Line 6 input at the 10k full scale that the modder measured and feed it a range of pots wired as rheostats. These are computed, not measured. The audio-taper row uses the usual two-segment approximation, 10 percent of resistance at mid-rotation, and the parallel-resistor row is a 100k pot with an 11.1k resistor across it, a common forum workaround.
+
+| Travel | 10k linear | 25k linear | 50k linear | 10k audio taper | 100k ∥ 11.1k |
+|---|---|---|---|---|---|
+| 10% | 10% | 25% | 50% | 2% | 53% |
+| 25% | 25% | 62% | 100% | 5% | 77% |
+| 50% | 50% | 100% | 100% | 10% | 91% |
+| 75% | 75% | 100% | 100% | 55% | 97% |
+| 100% | 100% | 100% | 100% | 100% | 100% |
+| Hits 100% at | 100% of travel | 40% | 20% | 100% | ~100% (but 90% by halfway) |
+
+Three things come out of that table.
+
+1. **A 25k pot isn't "a bit off."** If the input really saturates at 10k, 60 percent of the treadle does nothing. That matches the forum reports of pedals that hit full wah or full volume a third of the way down.
+2. **The parallel-resistor trick fixes the end value, not the curve.** The combination does read about 10k at the toe, which is why it looks right on a meter. But half the range arrives in the first 10 percent of travel. The pedal feels like a switch with a little bit of fade at the end.
+3. **An audio-taper pot fails the other way.** The first half of travel moves the reading by 10 percent, then the last quarter moves it by 45. On a volume swell that feels like nothing happening, then the guitar jumping in.
+
+Line 6 doesn't document a calibration step for external pedals on the Helix's EXP 2 and EXP 3 that I could find, and forum users disagree about whether the unit learns a pedal's range on its own. The consistent part across Line 6's listings, the EX-1 description and the modder's measurement is the 10k linear target. Build to it and the auto-learn question doesn't come up.
+
+## Why Min and Max Don't Rescue a Mismatched Pot
+
+Every Helix controller assignment has **Min Value** and **Max Value**, and they're the first thing people reach for. They map the pedal's reading onto the parameter's range: Min 0 and Max 100 on a Volume Pedal block's level, say, or Min 20 and Max 80 on a wah's position. They can also reverse a pedal by swapping the two.
+
+What they can't do is change where in the pedal's travel the reading arrives. If a 25k pot has already sent 100 percent by 40 percent of travel, setting Max to 100 still lands at 40 percent of travel, and setting Max to 50 just makes the top half of the parameter unreachable. Software sits downstream of the measurement, so it can compress what the pedal sends or flip it, but it can't put back travel that the pot used up. A Line 6 forum thread about a pedal stuck in an 85-to-100 range points at exactly this, so check the assignment's Min before you blame the pot.
+
+There's one software curve that is worth knowing about. Users report that the Helix **Volume Pedal** block has a taper setting, Linear by default with a Logarithmic option, per patch. That reshapes how a *linear* pedal's reading maps to volume, which is the right fix for a swell that feels like nothing then everything. It is the wrong fix for an audio-taper pot, because it stacks a second curve on top of the first.
+
+## Dual Pedals and the Y-Cable on HX Stomp
+
+The HX Stomp has one **EXP 1/2 FS 4/5** jack. Per the manual as quoted on Line 6's forum, a Y-cable (TRS plug split to two TS plugs) connects two expression pedals, one on tip and one on ring, and Global Settings has tip and ring polarity settings for that jack. Each leg of that Y-cable is a TS rheostat input in its own right, so each pedal wants to be 10k linear.
+
+The trap is a pedal built as a TRS divider on the end of a TS leg. A TS plug in a TRS jack ties the pedal's ring to its sleeve, which connects the pot's two outer legs together. The tip now sees the two halves of the track in parallel, x(1−x)R, the same curve that sets a passive volume pedal's tone loss in [our treble-loss breakdown](/blog/volume-pedal-treble-loss-halfway-why). It's zero at heel, peaks at a quarter of the pot's value at half travel, and is back to zero at toe. On a 10k pedal that's 2.5k at the peak: the reading climbs to about 25 percent and falls back.
+
+One HX Stomp user on Line 6's forum reported exactly that shape, 0 at heel, 100 at halfway and 0 at toe, with a Dunlop DVP4 on the ring leg of a Y-cable. The fix was a toggle on the pedal (the DVP4 has an internal tip/ring switch). I can't tell from the thread what pot value produced 100 at the peak, but the up-and-back-down shape is the giveaway. If you see it, the problem is the cable or the pedal's wiring mode, not the modeler.
+
+A separate thread, a Boss EV-30 on an HX Stomp with the stock TRS cable, reports the parameter moving only between about a quarter and three quarters of the sweep. Replies blame either polarity or the pedal's mechanical range, and one user fixed it by putting a spacer under the back of the treadle. No one in the thread confirmed the cause, so treat the EV-30's range there as a report, not a measurement.
+
+## What the Common Pedals Publish
+
+| Pedal | Pot value (published) | Cable / wiring | Range controls | Source grade |
+|---|---|---|---|---|
+| Mission EP1-L6 / SP1-L6H | 10k linear | TS ("TRS cables are not required") | None | A, Line 6 store listing |
+| Line 6 EX-1 | 10k linear, passive | Mono instrument cable | None | B, FAQ quoted on Line 6 forum |
+| Mission SP1-ND (Quad Cortex) | 10k linear | TRS | None | B, maker and retailer listings |
+| Boss EV-30 | Not published | TRS, two outputs | MIN knob per output; POLARITY switch on EXP 2 | A, boss.info specs |
+| Roland EV-5 | Not published | TRS cable, 2 m | Minimum volume knob | A, roland.com specs |
+| M-Audio EX-P | Not published | TRS | Polarity switch | C, one user teardown reports about 12k plus a 1k series resistor and a trim pot |
+
+The pedals that don't publish a value are the ones built to work with many brands, and they all carry a polarity switch, a MIN knob or both. That's a design choice that fits divider inputs well: a MIN knob raises the floor of the ratio, and calibration on a Quad Cortex or Fractal maps the new floor back to zero. On a Line 6 rheostat input with no calibration step, a MIN knob that isn't fully down just means the reading never reaches zero.
+
+## The Fix List, by Platform
+
+**Helix Floor, Helix LT, HX Stomp, HX Effects:**
+1. Use a 10k linear TS pedal: a Line 6 or Mission L6 model, or any pedal you can confirm is 10k linear wired tip to sleeve.
+2. If it's a TRS-divider pedal with a polarity switch, set the switch for "other brands" or the Line 6 position if it has one, set MIN fully down, and match the HX Stomp's tip and ring polarity in Global Settings.
+3. Check the controller assignment's Min and Max before you blame the pedal.
+4. Use the Volume Pedal block's Logarithmic setting to shape a swell, not to correct a pot.
+5. Skip the parallel-resistor trick. It reads right on a meter and feels like a switch under your foot.
+
+**Quad Cortex:**
+1. Any linear TRS expression pedal works, and pot value barely matters.
+2. Calibrate each EXP input in the I/O settings after any change to the pedal, its MIN knob or its polarity switch. Neural DSP's support article also covers splitting a dual-output pedal across EXP 1 and EXP 2 and notes that the pedal needs a TRS expression output, not a wah or volume output.
+
+**Fractal FM3, FM9, Axe-Fx:**
+1. Linear taper, 10k to 100k, TRS, per the manual.
+2. SETUP: I/O: Pedal, then Calibrate.
+
+**Boss, Morningstar and other controllers:** Morningstar's manual, as quoted on its forum, says a 10k linear pot gives the smoothest response and 10k to 25k works. Boss's GT-1 and GX-100 guides include a pedal calibration page, so check yours before rewiring anything.
+
+If the question is which kind of pedal to buy in the first place, our comparison of [expression and volume pedals on modelers](/blog/expression-pedal-vs-volume-pedal) covers that. For the audio side of the same pot math, the [tuner-out loading breakdown](/blog/volume-pedal-tuner-out-tone-loss-does-it-load) does the numbers on a passive pedal in front of the amp.
+
+## What to Check Before You Buy Anything
+
+Put a meter on the pedal's plug, tip to sleeve, and sweep it. A Line 6-ready pedal reads close to 0 at one end and close to 10k at the other, rising evenly in between. A reading that climbs and falls again tells you the outer legs are in parallel. A reading that stays near zero until the last third tells you it's audio taper. A reading that tops out at 25k, 50k or 100k tells you that a divider input would be fine with it and a Line 6 input won't be. That one sweep answers the question faster than any compatibility list.

@@ -29,8 +29,9 @@ takeaways:
     the same as rolling off the guitar's volume knob.
   - >-
     An expression pedal carries no audio. It is a pot, often 10k linear, on a
-    TRS cable, and the modeler reads its position to move a parameter, so it
-    adds no load and no treble loss to your pickups.
+    control cable (TS for Line 6, TRS for most other brands), and the modeler
+    reads its position to move a parameter, so it adds no load and no treble
+    loss to your pickups.
   - >-
     A passive 250k volume pedal costs treble twice: its series resistance peaks
     at a quarter of its value near three-quarters of the travel, and at full up
@@ -101,7 +102,7 @@ Because it sits before the modeler, every block sees the new level. Backing off 
 
 ### Expression Pedal (Controlling a Volume Block)
 
-An expression pedal is also a pot, commonly 10k linear (Mission Engineering's SP1-ND for the Quad Cortex lists a 10k linear pot), but it's wired to a TRS control jack, not to the audio. The modeler puts a small reference voltage across it and reads where the pedal is. That position moves whatever parameter you've assigned: the level of a Volume Pedal block, a wah's sweep, a reverb's mix.
+An expression pedal is also a pot, commonly 10k linear (Mission Engineering's SP1-ND for the Quad Cortex lists a 10k linear pot), but it's wired to a control jack, not to the audio. Most modelers put a small reference voltage across it on a TRS cable and read where the wiper sits; Line 6 reads its resistance on a plain TS cable instead, which is why pot value matters more on a Helix (see [expression pedal pot values by platform](/blog/expression-pedal-pot-value-10k-25k-50k-modeler)). That position moves whatever parameter you've assigned: the level of a Volume Pedal block, a wah's sweep, a reverb's mix.
 
 Your guitar's audio never goes through it. The pedal itself does nothing to your tone. The tone change comes from **where you put the block it controls.**
 
@@ -149,7 +150,7 @@ A passive pedal changes level as the pot moves. An expression pedal is read by t
 
 None of these units pass audio through their EXP jacks. A passive TS volume pedal plugged into an EXP jack will not act as a volume control.
 
-**Helix Floor:** the built-in treadle covers EXP 1, and its toe switch toggles it to EXP 2 when no external pedal is connected. The rear panel has **EXP 2 and EXP 3** jacks for external TRS expression pedals; plug a pedal into EXP 2 and the built-in treadle stays on EXP 1. A new Volume Pedal block defaults to EXP 2, and a Wah defaults to EXP 1, per Line 6's manual as quoted by users.
+**Helix Floor:** the built-in treadle covers EXP 1, and its toe switch toggles it to EXP 2 when no external pedal is connected. The rear panel has **EXP 2 and EXP 3** jacks for external expression pedals (Line 6 and Mission's L6 models use a TS cable, 10k linear); plug a pedal into EXP 2 and the built-in treadle stays on EXP 1. A new Volume Pedal block defaults to EXP 2, and a Wah defaults to EXP 1, per Line 6's manual as quoted by users.
 
 **Helix LT:** same idea, with a built-in treadle and rear EXP 2 and EXP 3 jacks.
 
