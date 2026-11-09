@@ -164,6 +164,12 @@ const SUBJECT_OVERRIDES: Record<string, string> = {
     "a plain passive guitar volume pedal on a pedalboard with a very short patch cable running from its side jack to a small plain unpainted metal tuner pedal whose display is switched off and solid black, a coiled plain black instrument cable beside the board, no knobs on the tuner, no logo, label, numbers, printing or lettering anywhere",
   "expression-pedal-pot-value-10k-25k-50k-modeler":
     "two plain matte black expression pedals with smooth unmarked treadles side by side on a bare white desk, one rocked forward and one rocked back, a coiled plain black cable with no printing between them, nothing else in frame, no logo, label, numbers, printing or lettering anywhere",
+  "trust-in-god-elevation-worship-guitar-tone-helix":
+    "a sunburst electric guitar with a capo high on the neck lying across a plain black floor multi-effects unit with blank footswitches, on a wooden church stage at dusk, a single warm amber light from the side and soft haze, plain unbranded gear with no logo, headstock logo, screen text or lettering",
+  "helix-midi-clock-playback-click-worship":
+    "a plain matte black floor multi-effects unit with six blank square footswitches lying on a dark wooden stage floor, one plain black cable running from it toward a closed silver laptop on a small stand in soft focus behind, dim blue and amber stage light in light haze, smooth unmarked surfaces with no knobs, labels, logo, screen, numbers, printing or lettering anywhere",
+  "delay-time-bpm-calculator":
+    "a single plain black delay pedal with four unlabeled knobs and one footswitch on a dark wooden pedalboard, a small plain black metronome with a swinging pendulum beside it, warm amber light from the side, no logo, label, numbers, printing or lettering anywhere",
   "gratitude-brandon-lake-guitar-tone-helix":
     "an electric guitar with a capo clamped on the neck resting against a plain black floor multi-effects unit with blank footswitches on a dim church stage, soft amber light glowing behind in a light haze, plain unbranded gear with no logo, headstock logo, screen text or lettering",
   "praise-elevation-worship-guitar-tone-helix":

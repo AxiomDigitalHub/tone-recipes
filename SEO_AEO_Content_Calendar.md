@@ -8317,3 +8317,133 @@ note). Total image spend ≈ $0.18.
 | AT1 | trust-in-god-elevation-worship-guitar-tone-helix | Trust in God Guitar Tone on the Line 6 Helix (Elevation Worship) | "trust in god elevation worship guitar tone," "trust in god helix patch" | Nathan Cross | 3 — Worship cluster (Tier 2 #5) | Next in CCLI order. Verify key/BPM/meter on MultiTracks + PraiseCharts at build; carry a song-specific computed hook (not the Praise/Gratitude templates). Real Helix names only (debt #31/#34). Nathan at 2 after today — check the 7-day window at build; fk-staff if he's at cap. |
 | AT2 | helix-midi-clock-playback-click-worship | Should Your Helix Follow the Click? MIDI Clock From Playback, Ableton and MultiTracks | "helix midi clock playback," "sync helix to click track," "multitracks playback midi clock delay" | fk-staff (Nathan if under cap) | 1 — Signal Chain / workflow | Existing posts mention MIDI clock in one line each. Distinct question: what the Helix does with incoming clock (Global Settings MIDI clock receive, tempo per preset vs global, what happens at a tempo-map change mid-song, 6/8 songs where the click's BPM ≠ felt pulse — ties to AS2). **Gate 7 guard:** first-party Line 6 manual text on MIDI clock receive + Playback/Ableton docs on what clock they send in 6/8; computed delay drift from a 1–2 BPM mismatch over a bar. No listening claims. Sean's "live gigging logistics" bar rules him out. |
 | AT3 | contactless-expression-pedal-magnetic-optical-modeler | Optical and Magnetic Expression Pedals: What a Modeler Sees When There's No Pot | "optical expression pedal helix," "magnetic sensor expression pedal quad cortex," "expression pedal sensor dead zone" | Sean Nakamura | 4 — Modeler Masterclass | **Surfaced by AS1's SERP:** a Line 6 thread traced a range problem to a sensor not seeing the low end of travel, fixed with contrasting tape. Distinct from AS1 (pots): how sensor pedals emulate a pot for TS vs TRS inputs, why they need their own calibration, failure modes. **Gate 7 guard:** maker docs for ≥3 contactless pedals (e.g. Dunlop optical wah/X-pedal family, Morningstar or Mission sensor models, any Boss/Roland sensor pedal) with published output modes; no listening claims. Sean's bars to check at build. |
+
+## Daily Run — 2026-11-09 (2 new posts + 2 refreshes, 1 queued topic deferred)
+
+### Posts published: trust-in-god-elevation-worship-guitar-tone-helix, helix-midi-clock-playback-click-worship
+
+**Velocity:** `persona-velocity.ts` reported **6 posts in 7 days** (Sean 2,
+Nathan 2, Hank 1, Jess 1). AT1 → Nathan (2 → 3, now at cap). AT2 → fk-staff
+(Nathan would exceed cap; Sean ruled out by his "Live gigging logistics" bar).
+Bar checked for Nathan, quoted: "Metal or high-gain / Budget/punk rig guides /
+Vintage gear collecting": Trust in God is a clean-to-driven 6/8 worship song,
+clear. Collision checks: no trust-in-god, midi-clock or click slug existed;
+the four posts that mention MIDI clock do so in one line each.
+
+**Gate 7 guards met:**
+- **AT1:** MultiTracks original master: C, 74 BPM, 6/8, 7:26, *Can You
+  Imagine?* (2023), writers Brown/Furtick/Wong/Lake, full song map (A).
+  PraiseCharts: C/Db, 6/8, "Medium slow", feat. Chris Brown (A). Radio
+  version and I AM THEY Chapel Sessions also C (A). Blessed Assurance quote,
+  single date (B, Wikipedia; its infobox says A and 4/4, which three
+  first-party listings contradict). **Tempo convention now grade A:**
+  MultiTracks help center says Playback "calculates 6/8 time signature using
+  the industry standard quarter note BPM" (×3/2 conversion), which upgrades
+  the Gratitude post's two-clue inference. **Non-commodity hook (Gate 5):**
+  drone-interval table for three capo/shape choices over C/F/Am/G; open C
+  shapes put both drones on 9th + maj7 over F, capo 5 G shapes keep a chord
+  tone on every chord. Plus a 4-step echo test for charts from other sources
+  and a 15-section → 4-snapshot map from the MultiTracks song map. No claim
+  about the session guitarists or rig (none published; Worship Online's open
+  text misattributes the album). Real Helix names only (US Double Nrm,
+  2x12 Double C12N, Deluxe Comp, Teemah!, Kinky Boost, Simple Delay,
+  Transistor Tape, Plateaux, Dynamic Hall).
+- **AT2:** Playback MIDI clock out, Premium-only, follows tempo in real time
+  (A, help center 5524066); Playback 6/8 = quarter-note BPM (A, 4720422);
+  Ableton manual sync destination + Sync Delay (A); Ableton Clock Type
+  (B, help article 403'd); Quad Cortex MIDI CLOCK IN/OUT, LED blue on receive
+  (A, Neural manual); GT-1000 SYNC CLOCK (A, Roland MIDI implementation);
+  Helix Stadium Receive/Send MIDI Clock (A, manuals.line6.com); Helix
+  Floor/LT/Rack/HX Stomp parameter names and "TAP flashes blue" (**B, manual
+  text via helixhelp mirror; no Line 6 3.x manual reachable**); Prime no clock
+  (A, staff reply, dated 2020); delay pitch-morph on clock stop and RC-600
+  "All Stop" issue (C, Line 6 threads 70308, 68581). **Computed:** 24 ppqn
+  pulse spacing at 74 (34 ms); stored-tempo mismatch table (73/72/70 vs 74:
+  third dotted-eighth repeat 25/51/104 ms late = 12/25/51% of a sixteenth);
+  6/8 note-value table under clock vs tapping. Ableton tempo-automation
+  behaviour left explicitly unverified in the post. Gate 5 (editorial "we"):
+  clock *fixes* the 6/8 tap trap rather than causing trouble.
+
+### Dropped/deferred topic — AT3, contactless-expression-pedal-magnetic-optical-modeler
+
+Research verified only **two** contactless pedals with first-party docs
+(Morley electro-optical MMV/PVA/EOV, A; Lehle Dual Expression Hall sensor
+with digital-pot TS/TRS/RTS outputs 5k–100k, A; Lehle Mono Volume has no
+expression out). DVP4 and Mission SP1 turned out to be pots; Boss EV-1-WL
+sensor type is only from an aggregator, and it has no analog output. The guard
+needs ≥3, and no maker states Helix TS-input compatibility for a sensor pedal.
+**Deferred, not killed:** re-queue when a third maker doc surfaces (Hotone
+Soul Press, Xvive, M-Vave not yet checked). Useful leads banked: Helix LT
+optical pedal 85–100% fixed by re-taping the reflective plate (Line 6 thread
+64869, C); QC reading 100% at ~70% travel with Lehle/DVP4/EV-30 (Neural Unity
+22517, C; Neural reportedly reproducing). Recovered time went to R2.
+
+### SERP analysis
+
+| Post | Target query | Top results (standard search) | Gap our post fills | AI Overview? F&K cited? |
+|---|---|---|---|---|
+| trust-in-god-elevation-worship-guitar-tone-helix | "trust in god elevation worship guitar tone helix" | Worship Tutorials paid Helix/Fractal patch ($7.99), PraiseCharts Helix/HX Stomp/POD Go patch pages for other Elevation songs (×10), Sweetwater InSync worship prep | Paid patches only, no settings, no meter discussion. Ours: verified key/tempo/meter with the quarter-note convention cited, 6/8 delay table, capo-drone interval table, 15-section snapshot map. | Not observable: search tool returns organic links only. |
+| helix-midi-clock-playback-click-worship | "helix midi clock playback multitracks sync delay" | Line 6 forum threads (×12: clock issues, pitch morphing 70308, HX Effects + Ableton, tempo-synced delays help, Helix as clock source), MultiTracks help center 5524066 (×2), Blokas/Roland sync-delay docs, Steinberg forum | Scattered forum troubleshooting plus one vendor setup page. Ours: one table across Helix/Stomp/Stadium/QC/GT-1000/Playback/Ableton/Prime with source grades, the stop-between-songs fallback, the mismatch math, and 6/8 under clock. | Not observable. |
+| delay-time-bpm-calculator (R1) | "how to calculate delay time by bpm 6/8" | ProSoundWeb, guitar9, Omni Calculator (×3), Sweetwater BPM cheat sheet (×2), Mixing Audio appendix, KVR thread, sengpielaudio, mixgraph | Calculators either ignore 6/8 or assume the BPM is the dotted-quarter pulse (Omni), which contradicts Playback/MultiTracks' quarter-note convention. Ours after refresh: both conventions with formulas (30000/90000/20000 ÷ BPM), a 6/8 table, triplet table, and the corrected dotted-eighth placement. | Not observable. |
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | delay-time-bpm-calculator | **Factual fixes:** the dotted-eighth repeat was described as landing "about halfway between beats" (it lands on the "a", three-quarters through); the follow-on overlap description was wrong; FAQ said 6/8 counted "with a half-note = one beat"; FAQ blamed processing latency for tap feel (latency delays dry and wet equally). **New:** answer-first intro, "When the Song Is in 6/8" section + table (60–84 BPM: eighth, felt beat, dotted eighth to avoid), triplet section rewritten to separate eighth-note vs quarter-note triplets + half-note/triplet table, MIDI clock 24 ppqn note. Body FAQ (markdown, not `<FAQ>`) migrated to frontmatter `faq:` (5) + `takeaways:` (5). Links added: dotted-eighth-delay-no-tap-tempo, gratitude, delay-pedal-settings-guide, worship-guitar-tone-helix, AT2. **Hero regenerated** (old one had baked-in title text and gibberish labels; ~$0.06), Gate 6 "musical" removed, `image_alt` rewritten. `updated: 2026-11-09`. | Pillar-1 calculator with no takeaways/FAQ and two wrong explanations of the cluster's core pattern; SERP shows calculators split on the 6/8 convention. |
+| R2 | elevation-worship-guitar-tone-helix | **Closes debt #31 (this post) and #32.** "Essex A30 TB" alias → Essex A30; knob table moved from 0–1 to 0–10 and the nonexistent Mids control replaced with Cut/Presence/Master; Minotaur params named (Gain/Treble/Output). Unsourced "chorus pedal identified as central to Praise" softened everywhere (Start Here, body, takeaway, FAQ) to optional width with a stated no-source note. Unsourced Fender/Gretsch/Strymon/Eventide rig claims removed. A first-person "I built this for a Sunday set" human-testing claim removed. **New "Elevation songs in 6/8" subsection** (Trust in God numbers), replaced chorus FAQ with a 6/8 delay FAQ, a takeaway on 6/8. Links to AT1 + AT2. `updated: 2026-11-09`. | Hub for the Elevation cluster carried two logged debts and a dotted-eighth default that's wrong for its own 6/8 songs. |
+
+Inbound links for new posts: AT1 ← elevation-worship-guitar-tone-helix,
+helix-midi-clock-playback-click-worship; AT2 ← delay-time-bpm-calculator,
+elevation-worship-guitar-tone-helix, trust-in-god-….
+
+**Gates (self-audit):**
+- **AT1** (Nathan): self-references 1 ("I expected open C shapes…");
+  signature phrases 0; no exclamation points (Teemah! is a model name);
+  Gate 5 = drone table over F; Gate 6 sweep clean ("upper-mid chime" lives
+  in R2; AT1 uses "room with a high ceiling", "cloudy when a piano plays a
+  plain F"); Gate 10: HX Stomp, analog delay with ms display. Chord set is
+  presented as "C-major worship songs' four chords; check your chart," not
+  as the song's verified progression.
+- **AT2** (fk-staff): editorial "we" only; "Transparent" appears only as the
+  Helix setting name; Gate 10: Helix, HX Stomp, Stadium, QC, GT-1000,
+  Fractal, analog MIDI delays.
+- **R1** (Nathan): self-references 2 ("I used to describe…" is the
+  correction itself; the in-ears paragraph is original).
+- **R2** (Nathan): self-references reduced from 1 to 0.
+
+**Image pipeline note:** overrides added for AT1, AT2 and R1. AT1 rendered a
+semi-hollow with no capo and a script headstock logo + amp logo (blurred, plus
+a label on the modeler). AT2's first render was a desktop unit covered in
+labels with an open laptop; blurring left smears, so it was **regenerated**
+with a footswitch-only prompt — the second render leaked Marshall/other amp
+logos and a laptop logo (blurred). R1's new hero had tiny label text on the
+pedal and metronome (blurred). `image_alt` rewritten on all three to match.
+Total image spend ≈ $0.24.
+
+**Refresh debt carried forward** (items 1–18, 20–22, 24–30, 33–35 unchanged;
+#31 now closed for the Elevation hub only — `holy-forever-guitar-tone-helix`
+"Essex A30 Fawn Brt" and the model-map aliases still open; #32 closed):
+36. **NEW: Gratitude post's tempo-convention paragraph** argues the
+    quarter-note reading from two clues; MultiTracks help center 4720422 now
+    makes it grade A. Swap in the citation on its next touch (no redate for
+    that alone).
+37. **NEW: Wikipedia "Trust in God" infobox** gives key A and 4/4; don't
+    reuse it as a source for the cluster.
+
+### 2 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 2 (AT1, AT2), deferred 1 (AT3, stays queued), added 2 — **queue now
+> at 3.** Bylines are best-fit proposals; the executing run re-checks velocity
+> **and quotes the never-assign bar it checked**, and verifies no colliding
+> slug. Nathan is at cap until 2026-11-13 at the earliest.
+>
+> **Rejected as re-slices:** (a) "best capo position for worship guitar" —
+> AT1's drone table, generalised; (b) "Playback MIDI setup guide" — AT2's
+> setup section; (c) "6/8 delay calculator" — R1's new table.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AT3 | contactless-expression-pedal-magnetic-optical-modeler | (carried, see deferral note) | — | Sean Nakamura | 4 | Needs a third first-party sensor-pedal doc before build. |
+| AU1 | helix-tap-tempo-pitch-accurate-vs-transparent | Helix Tap Tempo Pitch: What Accurate and Transparent Do to Your Repeats | "helix tap tempo pitch transparent," "delay pitch warble tempo change helix," "helix delay pitch shift when tapping" | Sean Nakamura | 4 — Modeler Masterclass | **Surfaced by AT2:** clock-stop and re-tap pitch morph. Distinct question: why changing a delay time bends the pitch of repeats already in the buffer (a moving read head is a Doppler shift), and what each setting trades. **Gate 7 guard:** Line 6 manual/KB text for the setting (grade it; the 3.x manual was unreachable this run), plus computed pitch shift for a delay-time glide (e.g. 625→608 ms over a stated glide time = cents of shift), and the same behaviour on QC/analog BBD delays from maker docs. No listening claims. Sean's bars to check at build. |
+| AU2 | (next CCLI-order worship song after Trust in God) | — Guitar Tone on the Line 6 Helix | song-specific | Nathan Cross (after 11-13) or fk-staff | 3 — Worship cluster (Tier 2 #6) | Verify key/BPM/meter on MultiTracks + PraiseCharts at build; carry a song-specific computed hook that is not the Praise/Gratitude/Trust in God templates (no tap-table, no drone table unless the key demands it). Real Helix names only. |

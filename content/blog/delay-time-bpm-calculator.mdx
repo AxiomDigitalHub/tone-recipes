@@ -1,11 +1,11 @@
 ---
 title: How to Calculate Delay Time by BPM (With a Reference Table for Every Tempo)
-seo_title: "How to Calculate Delay Time by BPM"
+seo_title: How to Calculate Delay Time by BPM
 description: >-
-  The formula for syncing delay to tempo is simple. The reference table below
-  covers every BPM from 60 to 180 with values for quarter note, dotted eighth,
-  and eighth note delays.
+  Delay time = 60,000 ÷ BPM. Tables for quarter, dotted eighth, eighth, triplet
+  and 6/8 delays from 60 to 180 BPM, plus where each repeat lands.
 date: '2026-04-15'
+updated: '2026-11-09'
 author: Nathan Cross
 author_slug: nathan-cross
 category: signal-chain
@@ -18,9 +18,61 @@ tags:
   - tempo-sync
   - ms-calculator
   - worship-guitar
-readingTime: 7
+  - six-eight
+  - triplet-delay
+readingTime: 8
 image: /images/blog/delay-time-bpm-calculator.jpg
-image_alt: a composition illustrating "How to Calculate Delay Time by BPM"
+image_alt: >-
+  A black delay pedal and a pendulum metronome side by side on a small pedalboard, on a sunlit wooden floor in an empty church hall
+takeaways:
+  - >-
+    A quarter-note delay is 60,000 divided by the BPM in milliseconds. The
+    dotted eighth is 45,000 ÷ BPM, the eighth 30,000 ÷ BPM and the sixteenth
+    15,000 ÷ BPM.
+  - >-
+    A dotted-eighth repeat of a note played on the beat lands on the last
+    sixteenth before the next beat (the "a"), not halfway between beats. Over
+    straight eighths, the repeats fill in the sixteenths you didn't play.
+  - >-
+    In 6/8 the listed BPM usually counts pairs of eighth notes. Use 30,000 ÷ BPM
+    for the eighth and 90,000 ÷ BPM for the beat you feel, and skip the dotted
+    eighth, which lands between the notes.
+  - >-
+    An eighth-note triplet is 20,000 ÷ BPM and a quarter-note triplet is 40,000
+    ÷ BPM. At 120 BPM those are 167 ms and 333 ms.
+  - >-
+    Being 2 BPM off matters more than processing latency. A song listed at 72
+    and played at 74 moves the dotted eighth from 625 ms to 608 ms, while
+    latency in a modeler delays the dry note and the repeats by the same amount.
+faq:
+  - q: What is the formula for delay time in milliseconds?
+    a: >-
+      Divide 60,000 by the BPM for a quarter note. Multiply that by 0.75 for a
+      dotted eighth, 0.5 for an eighth, 0.25 for a sixteenth, 2/3 for a
+      quarter-note triplet and 1/3 for an eighth-note triplet. At 120 BPM that
+      gives 500, 375, 250, 125, 333 and 167 ms.
+  - q: What delay time should I use for a song in 6/8?
+    a: >-
+      If the chart lists the tempo as eighth-note pairs, which MultiTracks does,
+      set an eighth-note delay at 30,000 ÷ BPM or a one-beat delay at 90,000 ÷
+      BPM. At 72 BPM that's 417 ms and 1,250 ms. Avoid the dotted eighth, which
+      falls halfway between eighth notes in compound meter.
+  - q: Why does my tap tempo delay feel slightly off even when I tap accurately?
+    a: >-
+      Usually the band isn't at the listed tempo, or one tap was uneven. Tap
+      four or more even quarter notes with the drummer rather than the chart.
+      Processing latency isn't the cause: a modeler delays the dry note and the
+      repeats by the same amount, so the spacing between them doesn't change.
+  - q: Can I enter these values into a Helix or Quad Cortex?
+    a: >-
+      Yes. Both let you set a delay block's time in milliseconds or as a note
+      value against a stored tempo. A note value is easier to maintain, since
+      changing the preset's tempo moves every delay at once.
+  - q: What delay time works for ambient swells with no band?
+    a: >-
+      A quarter note at 60 to 70 BPM, which is 857 to 1,000 ms. That leaves
+      enough room to play a second note before the first one's repeat arrives,
+      so the repeat answers the phrase instead of landing on it.
 ---
 
 > **The formula:**
@@ -29,7 +81,7 @@ image_alt: a composition illustrating "How to Calculate Delay Time by BPM"
 > - **Eighth note delay:** 60,000 ÷ BPM × 0.5 = milliseconds
 > - **Sixteenth note delay:** 60,000 ÷ BPM × 0.25 = milliseconds
 
-If your delay has tap tempo, you can ignore all of this; just tap. If it doesn't (or if you're setting presets ahead of a set), the table below gives you the calculated values.
+To calculate delay time by BPM, divide 60,000 by the tempo and you have one beat in milliseconds; everything else is a fraction of that. Tap tempo saves you the math in 4/4, but not in 6/8 (see below), and not when you're building presets before rehearsal. The tables below give you the values.
 
 ---
 
@@ -76,29 +128,51 @@ If your delay has tap tempo, you can ignore all of this; just tap. If it doesn't
 
 ## Why the Dotted Eighth Matters More Than the Quarter Note
 
-The dotted eighth note delay is the defining delay sound of modern worship and ambient guitar, the sound associated with U2's "Where the Streets Have No Name," most of Hillsong United's ambient builds, and essentially every ambient guitar texture in the last 30 years.
+The dotted eighth note delay is the defining delay sound of modern worship and ambient guitar, the pattern behind U2's "Where the Streets Have No Name" and most of Hillsong United's ambient builds.
 
-Why does it work? A dotted eighth is 1.5 eighth notes (three sixteenth notes). When you play a sequence of eighth notes with a dotted eighth delay, the delay repeats fall in between your played notes rather than on top of them. You get rhythmic interleaving: your pick hits, then the repeat fills the space, then you pick again. It creates a cascading, forward-moving texture that adds rhythmic density without requiring you to play faster.
+Why does it work? A dotted eighth is three sixteenth notes. Play a note on the beat, and the first repeat arrives on the last sixteenth before the next beat (the "a" if you count "1 e and a"). The second repeat lands on the "and" of the next beat, the third on the following "e". Now play straight eighths: your picked notes sit on the beats and the "ands", and the repeats fill the "e" and "a" between them. You hear continuous sixteenths while only playing half of them. That's the whole trick of the Edge's part: a moving texture that sounds twice as busy as the hands.
 
-Compare this to a quarter note delay, where the repeat falls exactly on the next beat you'd normally play. Quarter note delay creates parallel doubling: the same rhythmic phrase happening twice, which can support a part but doesn't create the same propulsive forward motion.
+Compare this to a quarter note delay, where the repeat falls exactly on the next beat you'd normally play. Quarter note delay creates parallel doubling: the same phrase happening twice, which can support a part but doesn't add any subdivisions.
 
 For a song at 76 BPM:
-- **Quarter note delay:** 789ms
-- **Dotted eighth delay:** 592ms
+- **Quarter note delay:** 789 ms
+- **Dotted eighth delay:** 592 ms
 
-Play a single quarter note. With the dotted eighth delay, the repeat falls about halfway between beats one and two. If you then play on beat two, your note and the delay repeat briefly overlap, then the second delay repeat fills the space before beat three. The whole pattern meshes with the rhythm section in a way that feels intentional rather than coincidental.
+I used to describe the dotted-eighth repeat as landing "halfway between beats," and it's a common way to explain it. Count it against a click and it's wrong: 592 ms is three-quarters of the way to the next beat, one sixteenth short of it. That matters when you check a delay by ear. A repeat that sits exactly halfway, on the "and," is a straight eighth, which means your time is too short.
 
-This is not a subtle difference. Once you hear it correctly synced, an out-of-tempo delay sounds genuinely wrong.
+Once you hear it correctly synced, an out-of-tempo delay sounds genuinely wrong, like the guitar is a hair behind the band. For more ways to set it by ear, see our guide to [setting a dotted eighth without tap tempo](/blog/dotted-eighth-delay-no-tap-tempo).
+
+---
+
+## When the Song Is in 6/8
+
+The formulas above assume the BPM counts quarter notes. In 6/8 there are six eighth notes per bar, grouped into two beats of three, and the big beat you sway to is a dotted quarter. Charts and click apps don't agree on what to count. MultiTracks generally lists 6/8 songs by eighth-note pairs, so a song you feel at about 48 beats per minute shows up as 72. If you plug that 72 into a 4/4 dotted-eighth formula, you get 625 ms, which is one and a half eighth notes and lands between the notes of the triplet grouping every time.
+
+Use these instead when the listed BPM counts eighth-note pairs:
+
+| Listed BPM (6/8) | Eighth note, 30,000 ÷ BPM | Felt beat (dotted quarter), 90,000 ÷ BPM | Avoid: "dotted eighth", 45,000 ÷ BPM |
+|---|---|---|---|
+| 60 | 500 | 1500 | 750 |
+| 66 | 455 | 1364 | 682 |
+| 68 | 441 | 1324 | 662 |
+| 72 | 417 | 1250 | 625 |
+| 76 | 395 | 1184 | 592 |
+| 78 | 385 | 1154 | 577 |
+| 84 | 357 | 1071 | 536 |
+
+If your chart gives the tempo as the felt beat instead (a "52" where MultiTracks says 78), the eighth note is 20,000 ÷ BPM. Either way, the eighth-note delay is the one to reach for on strummed and arpeggiated parts: every repeat lands where the next note of the pattern would anyway, so it thickens the part without adding a new rhythm. The one-beat delay is the audible one, a single echo per sway under a held chord.
+
+Tap tempo needs the same care. A Helix treats each tap as a quarter note, so tapping the felt beat of a 6/8 song makes every note value one and a half times too long; after tapping, 1/8 triplet gives you the real eighth and 1/4 gives you the beat. Our [Gratitude build](/blog/gratitude-brandon-lake-guitar-tone-helix) walks through that on a real song at 78 BPM.
 
 ---
 
 ## Using a Preset Delay Time When Tap Tempo Isn't Available
 
-Most gigging worship and band situations use tap tempo, either directly on the delay pedal or through a MIDI controller. The formula matters most in two situations:
+Most gigging worship and band situations use tap tempo, either directly on the delay pedal or through a MIDI controller. The formula matters most in three situations:
 
 **1. Preset-based playing:** If you're programming presets for specific songs (a set list locked to specific tempos), calculate the value and enter it directly. The Strymon Timeline, Boss DD-500, and most looper-delay pedals allow entering delay time by millisecond. Use the table.
 
-**2. Clock-based signal chain:** Some setups receive MIDI clock from a DAW or click track. In this case, the delay syncs automatically, but knowing the expected millisecond value lets you verify the sync is working correctly.
+**2. Clock-based signal chain:** Some setups receive MIDI clock from a DAW or playback rig. MIDI clock sends 24 pulses per quarter note, so the delay follows the click, but knowing the expected millisecond value lets you check the sync is working. On a 6/8 song, check what the click is counting before you trust it. Our guide to [syncing a Helix to Playback or Ableton](/blog/helix-midi-clock-playback-click-worship) covers the setup and what happens between songs.
 
 **3. Older pedals without tap tempo:** The Boss DD-3, original Boss DM-2, and many vintage-style analog delays don't have tap tempo. For these, calculate the time, set it before the song starts, and adjust during soundcheck. A 5ms error at 120 BPM is barely perceptible; a 30ms error is noticeably off.
 
@@ -106,7 +180,7 @@ Most gigging worship and band situations use tap tempo, either directly on the d
 
 ## Setting Feedback and Mix for Tempo-Synced Delay
 
-Getting the time right is step one. Getting the feedback and mix right determines whether the delay sounds musical or cluttered.
+Getting the time right is step one. Getting the feedback and mix right determines whether the repeats sit behind the part like a second guitarist a few feet back, or pile up into a wash that blurs the strumming.
 
 **Feedback (number of repeats):** For dotted eighth rhythmic delay, 2–3 audible repeats is the working range. More than 4 audible repeats and the rhythmic texture starts to stack on itself and muddy the time feel. Less than 2 and the effect loses its momentum. Start at 3 audible repeats and adjust.
 
@@ -118,29 +192,19 @@ One thing I've learned playing in large church services: the mix setting that so
 
 ## Dotted Eighth vs. Triplet Delay
 
-The triplet delay (one-third of a quarter note = 60,000 ÷ BPM ÷ 3) is less common in modern playing but has its own characteristic feel: rounder, slightly swung, associated with blues and country more than the ambient textures the dotted eighth creates.
+"Triplet delay" means two different settings, and pedals don't always say which one they use. An **eighth-note triplet** is a third of a beat (20,000 ÷ BPM). A **quarter-note triplet** is two-thirds of a beat (40,000 ÷ BPM), which is the one that sounds like a lazy, rolling echo.
 
-At 120 BPM:
-- Dotted eighth: 375ms
-- Triplet: 167ms (very fast; barely a repeat, almost a slap)
+| BPM | Half note (ms) | Quarter-note triplet (ms) | Eighth-note triplet (ms) |
+|---|---|---|---|
+| 60 | 2000 | 667 | 333 |
+| 72 | 1667 | 556 | 278 |
+| 80 | 1500 | 500 | 250 |
+| 90 | 1333 | 444 | 222 |
+| 100 | 1200 | 400 | 200 |
+| 120 | 1000 | 333 | 167 |
+| 140 | 857 | 286 | 143 |
 
-For worship and ambient: dotted eighth. For blues, country, or anything with a swing feel: triplet. For straight-ahead rock: quarter note or half note. The delay value is a rhythmic choice as much as it is a technical one.
-
----
-
-## FAQ
-
-**My tap tempo feels slightly off even when I tap accurately. Why?**
-Latency in the signal chain can cause delay time to feel off even when the pedal is correctly synced. Check for latency introduced by any digital pedals or modelers in your chain; even 10ms of processing latency changes the perceived feel of a synced delay. Also check that you're tapping on the downbeat consistently and not drifting.
-
-**Does the dotted eighth formula work for any time signature?**
-The formula calculates delay time relative to a quarter note. In 4/4, 3/4, or 6/8, the quarter note duration at a given BPM is the same. In 6/8 at 120 BPM counted in two (with a half-note = one beat), you'd need to recalculate. In standard worship contexts, 4/4 is almost always the relevant time signature and the formula applies directly.
-
-**Can I use these values for modelers with delay blocks?**
-Yes. The Helix, Quad Cortex, and Kemper all allow entering delay time in milliseconds. Use the table values directly, or use the MIDI clock sync features if your setup supports it.
-
-**What's the best delay time for ambient swells without a band?**
-For solo ambient playing where you're creating layered textures, a longer quarter note delay (at a slower BPM like 60–70) gives you enough space between repeats to play a second note before the first repeat arrives. At 60 BPM, the quarter note is 1,000ms, a full second. That's enough space to play a two-note phrase and have the first note's repeat answer the second note. The [delay settings guide](/blog/delay-pedal-settings-guide) covers ambient applications in more depth.
+At 120 BPM the eighth-note triplet is 167 ms, almost a slapback, while the quarter-note triplet at 333 ms is a clear echo that pulls against straight eighths. Both suit blues, country and shuffles more than the ambient textures the dotted eighth creates. For straight-ahead rock, a quarter note or half note keeps the repeats on the beat. The delay value is a rhythmic choice as much as a technical one. For feedback, filtering and mix settings by style, see the [delay settings guide](/blog/delay-pedal-settings-guide), and for a full worship preset built around these times, the [worship guitar tone on Helix](/blog/worship-guitar-tone-helix) walk-through.
 
 <SaveThisTone
   title="Pick a tone to chase"

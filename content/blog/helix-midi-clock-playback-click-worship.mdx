@@ -1,0 +1,153 @@
+---
+title: Should Your Helix Follow the Click? MIDI Clock From Playback and Ableton
+seo_title: Sync Helix to Playback or Ableton With MIDI Clock
+description: >-
+  How a Helix, HX Stomp or Quad Cortex follows MIDI clock from Playback or
+  Ableton, what happens in 6/8 and between songs, and when a stored tempo wins.
+date: '2026-11-09'
+author_slug: fk-staff
+category: workflow
+tags:
+  - midi-clock
+  - helix
+  - hx-stomp
+  - quad-cortex
+  - playback
+  - ableton
+  - click-track
+  - worship
+  - six-eight
+image: /images/blog/helix-midi-clock-playback-click-worship.jpg
+image_alt: >-
+  A black floor footswitch unit on a dark wooden floor with a cable running back toward a laptop, amps and a rack of gear glowing in the background
+takeaways:
+  - >-
+    Helix Floor, LT and Rack have MIDI Clock Receive and MIDI Clock Send under
+    Global Settings > MIDI/Tempo, over 5-pin MIDI or USB. The TAP switch flashes
+    blue instead of red while external clock is driving the tempo.
+  - >-
+    Playback by MultiTracks sends MIDI clock whenever tracks are playing and
+    updates it in real time with the song's tempo, but only on Playback Premium.
+    Loop Community's Prime did not send clock as of its staff's 2020 answer.
+  - >-
+    Playback counts 6/8 songs in quarter notes (pairs of eighths), so under
+    clock a Helix's 1/8 is the song's real eighth note and 1/4 dotted is the
+    beat you sway to. Clock removes the 6/8 tap-tempo trap.
+  - >-
+    When clock stops between songs, a Helix falls back to the preset's stored
+    tempo, and users report the delay pitch-bending as it moves. Storing each
+    song's tempo in its preset makes that jump zero.
+  - >-
+    A stored tempo 2 BPM off the click puts a dotted-eighth delay's third repeat
+    51 ms late at 74 BPM, a quarter of a sixteenth note. Short tails hide that;
+    long, high-feedback swells don't.
+faq:
+  - q: How do I make my Helix follow MIDI clock?
+    a: >-
+      On Helix Floor, LT or Rack, turn on MIDI Clock Receive in Global Settings
+      > MIDI/Tempo and send clock into the 5-pin MIDI In or over USB. The HX
+      Stomp follows incoming clock by default. When it's locked, the TAP switch
+      flashes blue.
+  - q: Can Playback by MultiTracks send MIDI clock to a Helix?
+    a: >-
+      Yes, with Playback Premium. Choose the output in Playback's MIDI Settings
+      under Select Ports. Clock goes out whenever tracks are playing and follows
+      the song's tempo, including tempo changes. You'll need a USB MIDI
+      interface or a USB connection the Helix accepts.
+  - q: Does MIDI clock work for songs in 6/8?
+    a: >-
+      Yes, if the tempo is entered the way Playback expects: quarter-note BPM,
+      which is the dotted-quarter tempo times 3 divided by 2. Then the Helix's
+      1/8 note value is the song's eighth note. If someone entered the
+      dotted-quarter tempo instead, every delay comes out one and a half times
+      too long.
+  - q: Why does my delay warble when the click stops?
+    a: >-
+      When clock stops, the Helix returns to the preset or snapshot's stored
+      tempo, and the delay time glides to the new value, which bends the pitch
+      of the repeats. Users report it even with Tap Tempo Pitch set to
+      Transparent. Save each song's preset at the click's tempo so the stored
+      value matches.
+  - q: Does the Quad Cortex receive MIDI clock?
+    a: >-
+      Yes. Settings > Device > MIDI has MIDI CLOCK IN and MIDI CLOCK OUT, each
+      over USB or the TRS MIDI ports. Clock over USB also needs MIDI Over USB
+      turned on, and the tempo LED turns blue while receiving.
+---
+
+> **Quick answer:** If your band plays to a click from Playback or Ableton, especially with tempo changes or songs in 6/8, let the Helix follow MIDI clock. If there's no playback rig, or clock stops and starts between songs, store each song's tempo in its preset. The best setup does both: clock for the song, a matching stored tempo for the gaps.
+
+| Device | Receive clock | Send clock | Where | Source grade |
+|---|---|---|---|---|
+| Helix Floor / LT / Rack | MIDI Clock Receive | MIDI Clock Send | Global Settings > MIDI/Tempo; 5-pin or USB | B (manual text via mirror) |
+| HX Stomp / XL | On by default | Off by default | Global Settings > MIDI/Tempo | B |
+| Helix Stadium | Receive MIDI Clock (Auto) | Send MIDI Clock | Global Settings > Tempo/Click; USB-C and/or MIDI In | A (Line 6 manual) |
+| Quad Cortex | MIDI CLOCK IN | MIDI CLOCK OUT | Settings > Device > MIDI; USB and/or TRS MIDI | A (Neural manual) |
+| Boss GT-1000 | SYNC CLOCK set to anything but INTERNAL | CLOCK OUT on, SYNC CLOCK internal | MENU > MIDI > MIDI SETTING | A (Roland MIDI implementation) |
+| Playback (MultiTracks) | — | Yes, Premium only | MIDI Settings > Select Ports | A (help center) |
+| Ableton Live | Yes | Yes | Link, Tempo & MIDI settings: Sync on the port | A (Live manual) |
+| Prime (Loop Community) | — | No, as of 2020 | — | A (staff reply, dated) |
+
+## What a Helix Does With Incoming Clock
+
+MIDI clock is a stream of timing pulses, 24 per quarter note, with no tempo number attached. The receiving device measures the gap between pulses and works out the BPM. At 74 BPM a pulse arrives about every 34 ms. The Helix needs MIDI Clock Receive turned on (Floor, LT and Rack), and Line 6's manual text says it can take clock "via its MIDI 5-pin in/out, as well as via USB." The HX Stomp follows incoming clock by default and has sending turned off by default.
+
+While clock is driving the tempo, the TAP switch flashes blue instead of red. That light is the quickest check at soundcheck. If it's red, the Helix is running on its own stored or tapped tempo, whatever the playback rig is doing.
+
+Every tempo-synced block then follows the clock. Delays set to note values, modulation set to note values, and anything else on the tempo all move together. Blocks set in milliseconds don't, which is the most common reason a "synced" rig still drifts: one delay was set to 450 ms instead of 1/8 dotted.
+
+**Tempo Select** decides where the Helix's own tempo is stored: per snapshot, per preset, or globally, with 0.1 BPM resolution. Under clock, that stored tempo is ignored. It comes back the moment clock stops, and that's where most of the trouble starts.
+
+## The Gap Between Songs
+
+Playback sends clock "anytime tracks are playing," according to MultiTracks' help center. When the song ends or someone hits stop, the pulses stop and the Helix goes back to the stored tempo of whatever preset or snapshot is active. A Line 6 forum thread describes the result: the delay repeats audibly bend in pitch as the delay time glides from the click's tempo to the stored one, and setting Tap Tempo Pitch (under Global Settings > Preferences) to Transparent didn't stop it. The poster's workaround, and the only one offered in the thread, was to store a tempo in each song's preset that matches the track.
+
+That workaround is worth doing anyway. If clock drops out mid-song, from a loose cable or a laptop hiccup, a preset already stored at the right tempo means nothing audible changes. One user also reported a Helix Floor that stopped following clock after a Boss RC-600 looper sent an "All Stop" message, with no fix posted. If you chain a looper or a second clock source, test a full stop-and-restart at rehearsal.
+
+The stored tempo doesn't have to be perfect, but the closer the better:
+
+| Stored tempo vs. a 74 BPM click | 1/8 dotted per repeat | 3rd repeat lands | Share of a sixteenth (203 ms) |
+|---|---|---|---|
+| 74 (matched) | 608 ms | on time | 0 |
+| 73 | 616 ms | 25 ms late | 12% |
+| 72 | 625 ms | 51 ms late | 25% |
+| 70 | 643 ms | 104 ms late | 51% |
+
+A stored tempo 1 BPM off is inside what a drummer drifts by anyway. At 4 BPM off, the third repeat lands halfway to the next sixteenth, and a high-feedback swell starts to sound like it's arguing with the band.
+
+## 6/8 Songs: Clock Fixes the Tap Trap
+
+We expected 6/8 songs to be where clock caused trouble, since a 6/8 tempo can count two different beats. The documentation points the other way. MultiTracks' help center says Playback "calculates 6/8 time signature using the industry standard quarter note BPM," and tells users who have a dotted-quarter tempo to multiply it by 3 and divide by 2. A song you sway to at 52 is entered as 78, and the clock runs at 78 quarter notes per minute. In 6/8, that quarter note is two eighths.
+
+So under Playback's clock, a Helix's note values mean what they say:
+
+| Note value under clock (6/8 song at 78) | Time | What it is in the song |
+|---|---|---|
+| 1/8 | 385 ms | One eighth note |
+| 1/4 dotted | 1,154 ms | One felt beat (the sway) |
+| 1/4 | 769 ms | Two eighths, crossing the beat |
+| 1/8 dotted | 577 ms | Between the notes; avoid |
+
+Compare that with tapping. If a guitarist taps the sway of the same song, the Helix reads about 52 BPM and treats each tap as a quarter note, so 1/8 comes out at 577 ms and the eighth note moves to 1/8 triplet. Clock removes that guesswork, as long as the song was entered in Playback the standard way. If someone typed the dotted-quarter tempo straight in, everything is one and a half times too long, and the giveaway is a 1/8 delay that lands between the notes. Our [Gratitude](/blog/gratitude-brandon-lake-guitar-tone-helix) and [Trust in God](/blog/trust-in-god-elevation-worship-guitar-tone-helix) builds work through real 6/8 songs at 78 and 74.
+
+## Setting It Up
+
+**From Playback (MultiTracks):**
+1. Playback Premium is required for MIDI clock out.
+2. In Playback's MIDI Settings, choose the output under Select Ports. That's either a USB MIDI interface's 5-pin out (into the Helix's MIDI In) or a direct USB connection if your computer and Helix see each other as MIDI devices.
+3. Clock goes out while tracks are playing and follows the song's tempo in real time, including tempo changes in the click.
+
+**From Ableton Live:**
+1. In Live's settings, open the Link, Tempo & MIDI tab and turn on Sync for the output port that feeds the Helix.
+2. If the delays feel a hair early or late against the click, adjust that port's Sync Delay, which shifts Live's timing against the clock it sends.
+3. The clock follows Live's tempo while the transport runs. We couldn't find Ableton documentation on how tempo automation is sent as clock, so if your set has tempo changes, play through one at rehearsal and watch the Helix's tempo readout.
+
+**On the Helix:** turn on MIDI Clock Receive, set every delay and modulation you want synced to a note value (not milliseconds), and store each preset at the song's click tempo. On an HX Stomp, only the last two steps are needed. Our [Sunday-morning snapshots guide](/blog/helix-worship-snapshots-sunday-morning) covers how to lay out one preset per song.
+
+**Other modelers:** the Quad Cortex has MIDI CLOCK IN under Settings > Device > MIDI, over USB or its TRS MIDI ports (USB also needs MIDI Over USB turned on), and its tempo LED turns blue while receiving. On a Boss GT-1000, set MIDI SETTING > SYNC CLOCK to anything but INTERNAL. Fractal users report the Axe-Fx III and FM3 follow clock at MIDI In; we couldn't confirm USB clock from Fractal's own documentation. On an analog board, a MIDI-capable delay such as a Strymon Timeline or Boss DD-500 takes clock the same way; everything without MIDI stays on tap.
+
+## When Not to Bother
+
+Clock earns its setup time when the band plays to a click from a computer, the set includes tempo changes, or there are 6/8 songs in it. It doesn't help if the click lives in the drummer's ears from a standalone metronome, since there's no clock to send. And Loop Community's Prime, at least as of its staff's 2020 reply, sends MIDI cues but not clock.
+
+If that's your situation, the stored tempo is the whole system. Calculate each song's values with the [delay-time calculator](/blog/delay-time-bpm-calculator), store them per preset, and check the 6/8 songs against the recording before Sunday.
