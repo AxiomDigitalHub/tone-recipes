@@ -168,6 +168,12 @@ const SUBJECT_OVERRIDES: Record<string, string> = {
     "a sunburst electric guitar with a capo high on the neck lying across a plain black floor multi-effects unit with blank footswitches, on a wooden church stage at dusk, a single warm amber light from the side and soft haze, plain unbranded gear with no logo, headstock logo, screen text or lettering",
   "helix-midi-clock-playback-click-worship":
     "a plain matte black floor multi-effects unit with six blank square footswitches lying on a dark wooden stage floor, one plain black cable running from it toward a closed silver laptop on a small stand in soft focus behind, dim blue and amber stage light in light haze, smooth unmarked surfaces with no knobs, labels, logo, screen, numbers, printing or lettering anywhere",
+  "helix-tap-tempo-pitch-accurate-vs-transparent":
+    "close-up of a plain matte black floor multi-effects unit's row of blank round footswitches on a dark wooden floor, one footswitch ring glowing soft blue, a plain black cable curling away into shadow, shallow depth of field, smooth unmarked surfaces with no screen, knobs, labels, logo, numbers, printing or lettering anywhere",
+  "firm-foundation-cody-carnes-guitar-tone-helix":
+    "a plain cream-colored electric guitar with a rosewood neck leaning against a plain black floor multi-effects unit with blank footswitches on a wooden church stage, warm amber light from behind through soft haze, plain unbranded gear with no logo, headstock logo, screen text, numbers or lettering anywhere",
+  "delay-types-analog-digital-tape":
+    "a vintage tape echo machine with a visible loop of brown tape beside a small plain dark green metal stompbox with three bare knobs and a plain black box with two bare knobs, on a dark wooden table, warm side light, smooth blank faceplates with no screen, no logo, label, numbers, printing or lettering anywhere",
   "delay-time-bpm-calculator":
     "a single plain black delay pedal with four unlabeled knobs and one footswitch on a dark wooden pedalboard, a small plain black metronome with a swinging pendulum beside it, warm amber light from the side, no logo, label, numbers, printing or lettering anywhere",
   "gratitude-brandon-lake-guitar-tone-helix":

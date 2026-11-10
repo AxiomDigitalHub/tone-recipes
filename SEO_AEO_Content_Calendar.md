@@ -8447,3 +8447,123 @@ Total image spend ≈ $0.24.
 | AT3 | contactless-expression-pedal-magnetic-optical-modeler | (carried, see deferral note) | — | Sean Nakamura | 4 | Needs a third first-party sensor-pedal doc before build. |
 | AU1 | helix-tap-tempo-pitch-accurate-vs-transparent | Helix Tap Tempo Pitch: What Accurate and Transparent Do to Your Repeats | "helix tap tempo pitch transparent," "delay pitch warble tempo change helix," "helix delay pitch shift when tapping" | Sean Nakamura | 4 — Modeler Masterclass | **Surfaced by AT2:** clock-stop and re-tap pitch morph. Distinct question: why changing a delay time bends the pitch of repeats already in the buffer (a moving read head is a Doppler shift), and what each setting trades. **Gate 7 guard:** Line 6 manual/KB text for the setting (grade it; the 3.x manual was unreachable this run), plus computed pitch shift for a delay-time glide (e.g. 625→608 ms over a stated glide time = cents of shift), and the same behaviour on QC/analog BBD delays from maker docs. No listening claims. Sean's bars to check at build. |
 | AU2 | (next CCLI-order worship song after Trust in God) | — Guitar Tone on the Line 6 Helix | song-specific | Nathan Cross (after 11-13) or fk-staff | 3 — Worship cluster (Tier 2 #6) | Verify key/BPM/meter on MultiTracks + PraiseCharts at build; carry a song-specific computed hook that is not the Praise/Gratitude/Trust in God templates (no tap-table, no drone table unless the key demands it). Real Helix names only. |
+
+## Daily Run — 2026-11-10 (2 new posts + 1 refresh + 1 citation fix)
+
+### Posts published: helix-tap-tempo-pitch-accurate-vs-transparent, firm-foundation-cody-carnes-guitar-tone-helix
+
+**Velocity:** `persona-velocity.ts` reported **8 posts in 7 days** (Nathan 3
+at cap, Sean 2, fk-staff 1, Hank 1, Jess 1). AU1 → Sean (2 → 3, now at cap).
+AU2 → fk-staff (Nathan at cap until 11-13). Bar checked for Sean, quoted:
+"Vintage gear history/collecting / 'Tone is in the fingers' / Live gigging
+logistics": AU1 is a DSP-behaviour question, clear. Collision checks: no
+tap-tempo-pitch or firm-foundation slug existed; the MIDI-clock post mentions
+Tap Tempo Pitch in one FAQ line only.
+
+**Gate 7 guards met:**
+- **AU1:** HX Effects owner's manual 40-00-0399 Rev A for fw 2.50 (Line 6 PDF
+  via Adorama; grade A): Preferences knob 3 "Tempo Pitch", "Authtc"/"Transpr",
+  "Determines how delay repeats behave when repeatedly pressing TAP…". Helix
+  Floor/LT/Rack text "Tap Tempo Pitch", Preferences knob 2, Accurate/Transparent
+  (helixhelp mirror, **B**; 3.x manual still unreachable). Line 6 thread 30144
+  (2017): fw 2.21 shows "Authentic", Digital_Igloo "Will be fixed in the next
+  rev" (B). Helix Native lacks it (thread 67569, C). Clock-stop morph with
+  Transparent (thread 70308, Apr 2025, C); snapshot tempo changes don't morph
+  with Transparent (user report, C); reverts after updates / Transparent
+  glitching (SERP-surfaced user reports, C). Eventide staff (TimeFactor forum,
+  Aug 2018): glide in Vintage Delay/Tape Echo is part of the feedback loop, use
+  Digital Delay (B). El Capistan manual: TIME changes tape speed in Fixed/Multi
+  (A). **Computed:** pitch ratio = 1 − ΔD/T; 625→608 ms (72→74 BPM dotted
+  eighth) = +270/+113/+58/+29 cents over 0.1/0.25/0.5/1 s; ±100 ms table incl.
+  read-point stall at ΔD/T = 1. **Gate 5:** with feedback the bent slice is
+  re-recorded, so it persists in the tail (40% feedback = −8 dB per repeat).
+  Line 6's glide time and Transparent's method are stated as undocumented.
+- **AU2:** MultiTracks original master: Bb, 75 BPM, 6/8, 6:18, 2021, Sparrow,
+  writers Davis/Moore/Carnes, 19-section map with **no verse** (A). Live From
+  Europe medley with Great Are You Lord: A, 75, 6/8, 8:24, 2024, 21 sections,
+  no tempo change marked (A). Worship Together: Bb, **148 BPM**, "Medium", CCLI
+  7188203, keys A/Bb/D/G, chart has "Alt Verse 1" (B). PraiseCharts radio: Bb,
+  6/8, "Med Fast", keys A/Bb/G (A). MultiTracks quarter-note 6/8 convention
+  (help center, A, carried from 11-09). **Non-commodity hook (Gate 5,
+  editorial "we"):** 75 and 148 are the same tempo (eighth = 150/min, 1.3% off);
+  storing 148 makes Helix 1/8 a 203 ms sixteenth and drifts a 1/4 repeat 5 ms
+  late per pass (22 ms by repeat 4). Plus the chorus-ladder snapshot map for a
+  song with 8 chorus + 3 refrain sections and no verse. No rig claim (the
+  PraiseCharts patch's PRS/Lambertones guitar is the patch builder's, not the
+  recording's). Real Helix names only (US Deluxe Nrm, 1x12 US Deluxe, LA Studio
+  Comp, Minotaur, Simple Delay, Glitz, Dynamic Hall).
+
+### SERP analysis
+
+| Post | Target query | Top results (standard search) | Gap our post fills | AI Overview? F&K cited? |
+|---|---|---|---|---|
+| helix-tap-tempo-pitch-accurate-vs-transparent | "helix tap tempo pitch accurate vs transparent" | Line 6 forum (×15: 70308, 28109 snapshot delay times, 22538, 27070, 30144, 33379 drift, 45340 clock glitches), Neural Unity "Transparent Tap Tempo" (4818), Line 6 KB on FX and tap tempo, Eventide forum | Forum anecdotes only; nobody explains the mechanism or quantifies the bend. Ours: the Doppler formula + cents table, why feedback makes the bend persist, the scope of Transparent (tap/snapshot vs clock stop), a 5-step test, and the tape/BBD/Eventide equivalents. | Not observable: search tool returns organic links only. |
+| firm-foundation-cody-carnes-guitar-tone-helix | "firm foundation cody carnes guitar tone helix" | PraiseCharts paid Helix/HX Stomp/POD Go/Fractal/Kemper patches (×10), Worship Tutorials paid Helix + Fractal patches | Paid patches with no settings or tempo discussion. Ours: the 75-vs-148 reconciliation and which number to store, note-value table for both, no-verse chorus-ladder snapshots, Bb vs A version capo move. | Not observable. |
+| delay-types-analog-digital-tape (R1) | "analog vs digital vs tape delay differences" | Laney blog, Produce Like A Pro, Boss articles, Audio Masterclass, SoundBetter KB, Empress support, Reverb, Joey Sturgis Tones | All describe sound and decay; none covers what happens when you change the delay time per type. Ours after refresh: comparison table incl. time-change behaviour, the BBD-clock / tape-speed / digital-choice section, corrected digital-feedback explanation. | Not observable. |
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | delay-types-analog-digital-tape | **Factual fix:** said each digital-delay repeat passes through "the A/D and D/A conversion chain" again — feedback stays in the digital domain; rewritten. **Honesty fixes:** removed two unsourced first-person testing claims ("in a live service context where I'm running…", "I've had analog delays drift… over a 90-minute service") and the unsourced "temperature sensitivity" claim; replaced with clock/tap-tempo mechanics. **New:** answer-first Start Here + 4-row comparison table; "What Happens When You Change the Delay Time?" section (BBD clock, El Capistan tape speed, Eventide staff on digital, Helix Tap Tempo Pitch); body FAQ (markdown) migrated to frontmatter `faq:` (6, incl. new pitch-bend and 6/8 answers) + `takeaways:` (4). Gate 6: six standalone "warm"s qualified or replaced. Links added: AU1, MIDI-clock post, delay-time calculator, bbd-vs-pt2399. Edge attribution tightened to "Where the Streets Have No Name". **Hero regenerated** (old one had baked-in "Analog / Digital / Tape / Modulated" labels and a fake "Delay Tester" logo). `updated: 2026-11-10`. | Signal-chain explainer with no takeaways/FAQ, a wrong mechanism claim, human-testing claims, and no coverage of the time-change behaviour the cluster now links to. |
+| — | gratitude-brandon-lake-guitar-tone-helix | **Closes debt #36.** Tempo-convention paragraph now quotes the MultiTracks help center (grade A) before the two inferential clues. Not redated (citation-only). | Logged debt. |
+
+Inbound links for new posts: AU1 ← delay-types-analog-digital-tape,
+firm-foundation-…; AU2 ← (none yet; add from the worship hub
+`worship-guitar-tone-helix` on its next refresh — debt #41).
+
+**Gates (self-audit):**
+- **AU1** (Sean): self-references 1 ("I expected the pitch bend to be a
+  wobble…"); signature phrases 1 ("Here's what's actually happening under the
+  hood"); no disagreement staging; Gate 6: "Transparent" only as the setting
+  name; Gate 10: Helix, HX Effects, Eventide TimeFactor, El Capistan/tape, BBD
+  pedals. Two claims softened in self-audit (a "five or six repeats" figure →
+  "several repeats" with the −8 dB/repeat math; "most players call it out of
+  tune" → "sounds sour against a sustained chord").
+- **AU2** (fk-staff): editorial "we" only; "Med Fast" explanation hedged with
+  "probably"; two unverifiable phrases removed in self-audit ("the page most
+  teams pull the chart from", "the version a lot of teams have heard
+  recently"); Gate 10: HX Stomp, pedalboard with ms display, Quad Cortex.
+- **R1** (Nathan): self-references reduced from 4 to 2 ("what I'd describe
+  as a soft landing", "I trust digital").
+
+**Image pipeline note:** overrides added for AU1, AU2 and R1. AU1 rendered
+clean (editorial_white). AU2 leaked an amp-maker script logo on the combo's
+grille plus modeler label/screen text (blurred). R1's first regeneration put
+tiny text on all three units; blurring smeared the pedal, so it was
+**regenerated** with a blank-faceplate prompt; the second render had small
+label text on the tape unit and pedals (lightly blurred). `image_alt`
+rewritten on all three. Total image spend ≈ $0.24 (4 renders; one earlier
+AU1 attempt errored at no cost).
+
+**Refresh debt carried forward** (items 1–18, 20–22, 24–30, 33–35, 37
+unchanged; #31 partly open; #36 closed):
+38. **NEW: HX Stomp Tap Tempo Pitch unverified.** No HX Stomp manual text
+    found this run; AU1 doesn't claim it. Confirm and add a line.
+39. **NEW: Quad Cortex tap behaviour.** Neural Unity threads 4818 ("Transparent
+    Tap Tempo") and a 2026 "Delay Issues - Transparent Tap Tempo & MicroPitch"
+    topic surfaced in SERP. Check whether QC shipped a comparable option; if so,
+    add it to AU1's Gate 10 coverage.
+40. **NEW: PraiseCharts Firm Foundation patch** names a PRS Custom 24 with
+    Lambertones pickups — that's the patch builder's guitar. Don't cite it as
+    the recording's rig anywhere in the cluster.
+41. **NEW: AU2 has no inbound link.** Add from `worship-guitar-tone-helix`
+    (song list) on its next substantive refresh.
+
+### 2 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 2 (AU1, AU2), AT3 still deferred, added 2 — **queue now at 3.**
+> Bylines are best-fit proposals; the executing run re-checks velocity **and
+> quotes the never-assign bar it checked**, and verifies no colliding slug.
+> Sean and Nathan are both at cap until 11-13 at the earliest.
+>
+> **Rejected as re-slices:** (a) "Quad Cortex tap tempo pitch" — AU1 platform
+> variant; queue as debt #39 instead; (b) "Firm Foundation HX Stomp patch" —
+> AU2's HX Stomp paragraph; (c) "what BPM is Firm Foundation" — AU2's tempo
+> section; (d) "does analog delay bend pitch" — R1's new section.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AT3 | contactless-expression-pedal-magnetic-optical-modeler | (carried, see 11-09 deferral note) | — | Sean Nakamura | 4 | Needs a third first-party sensor-pedal doc before build. |
+| AV1 | delay-drifts-from-tap-light-long-repeats | Why a Tempo-Synced Delay Drifts From the Tap Light After Long Tails | "helix delay drifting out of time tap light," "tempo synced delay not in time after repeats," "delay time rounding" | Sean Nakamura (after 11-13) | 4 — Modeler Masterclass | **Surfaced by AU1's SERP:** Line 6 thread 33379 reports a 1,000 ms Simple Delay at 60 BPM half a beat behind the tap light after ~100 repeats (5 ms/repeat). Distinct question from AU1 (pitch) and the MIDI-clock post (stored-tempo mismatch): where per-repeat timing error comes from (time quantised to ms or samples, display rounding, buffer-length limits) and how it accumulates. **Gate 7 guard:** maker docs on delay-time resolution for ≥2 platforms (Line 6, Neural, Fractal or Boss); computed accumulation table (0.5/1/5 ms per repeat × 10/50/100 repeats vs a sixteenth at common tempos). No listening claims. |
+| AV2 | great-are-you-lord-all-sons-daughters-guitar-tone-helix | Great Are You Lord Guitar Tone on the Line 6 Helix (All Sons & Daughters) | "great are you lord guitar tone," "great are you lord helix patch" | Nathan Cross (after 11-13) or fk-staff | 3 — Worship cluster (Tier 2 #7) | Next in CCLI order. Verify key/BPM/meter on MultiTracks + publisher (the 72-vs-144 pairing is already logged — **don't rebuild AU2's 75-vs-148 framing**; find a different song-specific computed hook, e.g. the Firm Foundation medley transition in A, or the song's own voicing/key choice). Real Helix names only. |

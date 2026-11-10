@@ -1,0 +1,150 @@
+---
+title: 'Helix Tap Tempo Pitch: What Accurate and Transparent Do to Your Repeats'
+seo_title: 'Helix Tap Tempo Pitch: Accurate vs Transparent Explained'
+description: >-
+  Why changing a delay's time bends the pitch of its repeats, what Helix's Tap
+  Tempo Pitch setting trades, and the math for how far a tempo change bends.
+date: '2026-11-10'
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - helix
+  - hx-effects
+  - tap-tempo
+  - delay
+  - pitch
+  - tape-delay
+  - midi-clock
+  - global-settings
+image: /images/blog/helix-tap-tempo-pitch-accurate-vs-transparent.jpg
+image_alt: >-
+  A plain black floor footswitch unit on a dark wooden floor, two footswitch rings glowing blue, a cable curling away behind it
+  with a cable curling away into shadow
+takeaways:
+  - >-
+    Tap Tempo Pitch lives in Global Settings > Preferences on Helix and HX
+    Effects. Line 6's text says Accurate (shown as Authentic on some firmware)
+    keeps the pitch bend a real delay makes when its time knob moves, and
+    Transparent minimizes it.
+  - >-
+    A delay's read point moving through the buffer is a Doppler shift. The pitch
+    ratio during a change is 1 minus the rate the delay time changes, so a 17 ms
+    change spread over half a second bends the repeats about 58 cents.
+  - >-
+    Lengthening the time bends the repeats down and shortening it bends them up.
+    If the time grows as fast as real time passes, the read point stops, and
+    faster than that it runs backward.
+  - >-
+    With feedback up, the bent slice is written back into the buffer, so it
+    comes back on every later repeat instead of ending when the change ends.
+    Eventide's staff describe their tape and vintage delays the same way.
+  - >-
+    Users report that Transparent stops the bend for taps and snapshot tempo
+    changes, but not when MIDI clock stops and the Helix falls back to the
+    preset's stored tempo. Store each song's tempo in its preset to avoid that
+    jump.
+faq:
+  - q: Where is Tap Tempo Pitch on the Helix?
+    a: >-
+      Global Settings > Preferences. On HX Effects it's the third knob on that
+      page, labelled Tempo Pitch. The two options are Accurate (Authentic on
+      some firmware) and Transparent. Helix Native doesn't have the setting,
+      according to a Line 6 forum thread.
+  - q: Should I set Tap Tempo Pitch to Accurate or Transparent?
+    a: >-
+      Transparent if you tap tempo live or change tempo between snapshots in the
+      middle of a song, because the bent repeats will otherwise hang around in
+      the tail. Accurate if you want the tape-machine bend as an effect, or if
+      you never change tempo while repeats are sounding.
+  - q: Why does my delay change pitch when I tap tempo?
+    a: >-
+      Each tap changes the delay time, and the delay reads the stored audio at a
+      different rate while the time moves. Read faster and the repeats go sharp;
+      read slower and they go flat. It's the same reason a tape echo warbles
+      when you turn its time knob.
+  - q: How much does a tempo change bend the repeats?
+    a: >-
+      Pitch ratio equals 1 minus the change in delay time divided by how long
+      the change takes. Going from 72 to 74 BPM moves a dotted eighth from 625
+      to 608 ms. Spread over 500 ms that's about 58 cents sharp; over 100 ms
+      it's about 270 cents, more than two semitones.
+  - q: Why does my Helix delay still warble with Transparent selected?
+    a: >-
+      The setting's description covers repeated TAP presses. Users report a
+      pitch morph when external MIDI clock stops and the Helix returns to the
+      preset's stored tempo, even with Transparent set. Saving each song's
+      preset at the click's tempo makes that change zero.
+---
+
+Turn the time knob on a tape echo while it's repeating and the repeats bend in pitch. A Helix can do the same thing every time you tap a new tempo, and a setting most people never open decides whether it does. **Tap Tempo Pitch**, in Global Settings > Preferences, has two values, and the difference between them is a few lines of physics.
+
+| Setting | What Line 6 says it does | Use it when |
+|---|---|---|
+| **Accurate** (Authentic on some firmware) | Respects the pitch fluctuations a real delay makes when its time knob moves | You want the tape-style bend as part of the sound, or you never change tempo while repeats are ringing |
+| **Transparent** | Minimizes those artifacts | You tap tempo live, or snapshots change the tempo mid-song |
+
+The label varies with the firmware. The Helix owner's manual says Accurate; a 2017 Line 6 forum thread reported that firmware 2.21 displays Authentic, and Line 6's product manager replied that the manual would be fixed. The HX Effects manual (revision A, for firmware 2.50) lists it as **Tempo Pitch**, third knob on the Preferences page, with values "Authtc" and "Transpr." Line 6's description is the same in both: the setting "determines how delay repeats behave when repeatedly pressing TAP." A Line 6 forum thread says Helix Native doesn't expose it.
+
+## What Happens When a Delay's Time Changes?
+
+A digital delay writes your signal into a buffer and reads it back a fixed distance behind the write point. That distance is the delay time. Change it, and the read point has to move relative to the audio that's already stored.
+
+While it moves, the delay plays the stored audio back at the wrong speed. If the delay gets shorter, the read point catches up with the write point, so it runs through the audio faster than it was recorded and the repeats go sharp. If the delay gets longer, the read point falls back and the repeats go flat. It's a Doppler shift, the same one you hear when a siren passes, and it's why a tape echo warbles when you turn its time knob. Strymon's El Capistan manual describes its Fixed and Multi head modes this way: the TIME knob changes the tape speed, and on any tape machine a speed change is a pitch change.
+
+The math is short. If the delay time changes by ΔD over a period T, the playback rate during the change is:
+
+**pitch ratio = 1 − ΔD ÷ T**
+
+and the bend in cents is 1,200 × log₂(ratio). Line 6 doesn't publish how long a Helix takes to move from one delay time to the next, so here's the range, using two real cases: tapping from 72 to 74 BPM with a dotted eighth (625 ms to 608 ms, a 17 ms change) and a bigger jump of 100 ms, roughly what a snapshot change between two songs' tempos produces.
+
+| Delay time change | Spread over 100 ms | 250 ms | 500 ms | 1 second |
+|---|---|---|---|---|
+| 17 ms shorter (72 → 74 BPM) | +270 cents | +113 cents | +58 cents | +29 cents |
+| 17 ms longer (74 → 72 BPM) | −321 cents | −121 cents | −60 cents | −30 cents |
+| 100 ms shorter | +1,200 cents (an octave) | +583 cents | +316 cents | +165 cents |
+| 100 ms longer | read point stops | −884 cents | −386 cents | −182 cents |
+
+For scale, 100 cents is a semitone, and a held note 10 to 20 cents off already sounds sour against a sustained chord. Even a slow one-second glide on a small tap correction puts the repeats about a third of a semitone sharp for that second.
+
+The bottom-left cell is the strange one. When the delay time grows exactly as fast as real time passes, the read point stands still and the repeats freeze on one instant. Grow it faster than that and the read point runs backward through the buffer. That's the reverse-tape squeal you get by spinning a tape echo's time knob hard toward long, and it's built into the formula.
+
+## Why the Bend Hangs Around With Feedback Up
+
+I expected the pitch bend to be a wobble that ends when the delay time stops moving. On a single repeat, it is. With feedback up, it isn't.
+
+Here's what's actually happening under the hood. Feedback takes the delay's output and writes it back into the buffer. During the change, the output is the bent audio, so the bent slice gets recorded. On the next pass, the delay time is steady and the read speed is normal, but it's reading a slice that was already recorded at the wrong pitch. That slice comes back sharp (or flat) on every repeat until the feedback lets it decay. At 40 percent feedback each repeat is 8 dB quieter than the last, so one badly timed tap leaves a sour fragment that's audible for several repeats.
+
+Eventide gave the same explanation for its TimeFactor. In a 2018 reply on its forum, a staff member said the pitch glide on time changes in the Vintage Delay and Tape Echo algorithms is part of the feedback loop, and that removing it would mean losing the previous delayed signal. Their suggestion for a delay that doesn't bend was the Digital Delay algorithm. The trade-off is the same one Line 6 offers in a global switch: keep the tail continuous and accept the bend, or keep the pitch steady and handle the tail some other way.
+
+Line 6 doesn't document how Transparent minimizes the artifacts. The two common ways to avoid a Doppler bend are to jump the read point straight to the new time or to crossfade between the old and new read points; either one avoids a sustained pitch change, though a jump can leave a small seam in the tail. What a Transparent change sounds like on your delay model is the thing to check, and the test below does it in a minute.
+
+## Where Transparent Doesn't Reach
+
+The setting's description covers repeated presses of TAP. User reports on the Line 6 forum add two data points:
+
+- **Snapshot tempo changes:** a user with Transparent set reports that changing between snapshots with different stored tempos doesn't cause pitch morphing either.
+- **MIDI clock stopping:** a separate April 2025 thread reports that when external clock stops and the Helix returns to the preset or snapshot tempo, the delays morph in pitch even with Transparent set. No Line 6 staff reply appears on that thread. The workaround from another user is to save each song's preset at the same tempo as its click track, so the fallback tempo matches and nothing moves.
+
+- **After firmware updates:** users in a separate thread say the setting reverted to Authentic on its own after updating, and one reports that Transparent produces digital glitching on their setup, which fits the jump-or-crossfade seam described above.
+
+That's user reports, not documentation, so treat them as the starting hypothesis, and check the setting again after every firmware update. The clock case matters most for worship teams running tracks; our guide to [syncing a Helix to MIDI clock from Playback or Ableton](/blog/helix-midi-clock-playback-click-worship) covers the stored-tempo fix in detail.
+
+## A One-Minute Test on Your Own Rig
+
+1. Put a **Simple Delay** or **Transistor Tape** on a clean preset, Time set to 1/8 dotted, Feedback about 45 percent, Mix about 40 percent.
+2. Set Tap Tempo Pitch to **Accurate**. Tap a steady tempo, play one short note, and while the repeats are ringing tap noticeably faster.
+3. Listen for the repeats going sharp, then for that sharp fragment coming back on later repeats.
+4. Switch to **Transparent** and repeat step 2.
+5. If you use snapshots with different tempos, repeat the test by switching snapshots instead of tapping.
+
+On an analog or tape pedal, steps 2 and 3 work with the time knob. A [BBD analog delay](/blog/delay-types-analog-digital-tape) changes its clock speed when you turn the time, so it bends the same way, which is part of why the knob-twist oscillation trick works on those pedals at all (our [self-oscillation guide](/blog/controlled-delay-self-oscillation-ambient-noise-instrument) uses exactly that).
+
+## Which One Should You Run?
+
+1. **Tap live, or change tempo by snapshot inside a song:** Transparent. A sour fragment in a long tail is the kind of thing nobody in the room can name but everyone hears as out of tune.
+2. **Never change tempo with repeats sounding:** either setting. The bend only happens while the time is moving.
+3. **Want the tape-machine bend:** Accurate, and use the table above to aim it. A 100 ms change over a quarter second is about half an octave; small corrections land in the 30 to 100 cent range, which reads as wobble rather than effect.
+4. **Running MIDI clock:** store each preset at the click's tempo regardless of this setting.
+5. **Worship sets in 6/8:** check the stored tempo against the right note value first. The [6/8 delay table](/blog/delay-time-bpm-calculator) shows which values land, and getting them right before the service means nobody is tapping a correction mid-song.
+
+The setting is global, so it applies to every preset on the unit. Pick the one that matches how you change tempo, not the one that sounds best in a single test with nothing else ringing.
