@@ -1934,5 +1934,35 @@
     ],
     "droppedCount": 0,
     "substitutedCount": 8
+  },
+  "page-heartbreaker-solo": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 5
+  },
+  "fisher-barracuda-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 7
+  },
+  "hetfield-harvester-of-sorrow-rhythm": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 5
+  },
+  "mustaine-hangar-18-solo": {
+    "level": "partial",
+    "completePlatforms": [],
+    "droppedCount": 1,
+    "substitutedCount": 7
   }
 }

@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-11-05
-**Recipes:** 263
-**Clean (no errors, no warns):** 263
+**Date:** 2026-11-11
+**Recipes:** 267
+**Clean (no errors, no warns):** 267
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,8 +16,8 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `settings-outside-unverified-range` | info | 263 / 263 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
-| `katana-kemper-multidrive-default-off` | info | 31 / 263 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `settings-outside-unverified-range` | info | 267 / 267 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
+| `katana-kemper-multidrive-default-off` | info | 31 / 267 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -455,6 +455,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `fisher-barracuda-riff` — ✓ clean
+
+*Heart's Barracuda Riff Tone*
+
+Passes every rule.
+
 ### `fisher-crazy-on-you-riff` — ✓ clean
 
 *Heart's Crazy on You Electric Riff Tone*
@@ -680,6 +686,12 @@ Passes every rule.
 ### `hetfield-for-whom-the-bell-tolls-riff` — ✓ clean
 
 *Metallica's For Whom the Bell Tolls Riff Tone*
+
+Passes every rule.
+
+### `hetfield-harvester-of-sorrow-rhythm` — ✓ clean
+
+*Metallica's Harvester of Sorrow Rhythm Tone*
 
 Passes every rule.
 
@@ -1193,6 +1205,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `mustaine-hangar-18-solo` — ✓ clean
+
+*Megadeth's Hangar 18 Dual Solo Tone*
+
+Passes every rule.
+
 ### `mustaine-symphony-of-destruction-riff` — ✓ clean
 
 *Megadeth's Symphony of Destruction Riff Tone*
@@ -1220,6 +1238,12 @@ Passes every rule.
 ### `page-black-dog-riff` — ✓ clean
 
 *Jimmy Page's Black Dog Riff Tone*
+
+Passes every rule.
+
+### `page-heartbreaker-solo` — ✓ clean
+
+*Jimmy Page's Heartbreaker Solo Tone*
 
 Passes every rule.
 
