@@ -8567,3 +8567,112 @@ unchanged; #31 partly open; #36 closed):
 | AT3 | contactless-expression-pedal-magnetic-optical-modeler | (carried, see 11-09 deferral note) | — | Sean Nakamura | 4 | Needs a third first-party sensor-pedal doc before build. |
 | AV1 | delay-drifts-from-tap-light-long-repeats | Why a Tempo-Synced Delay Drifts From the Tap Light After Long Tails | "helix delay drifting out of time tap light," "tempo synced delay not in time after repeats," "delay time rounding" | Sean Nakamura (after 11-13) | 4 — Modeler Masterclass | **Surfaced by AU1's SERP:** Line 6 thread 33379 reports a 1,000 ms Simple Delay at 60 BPM half a beat behind the tap light after ~100 repeats (5 ms/repeat). Distinct question from AU1 (pitch) and the MIDI-clock post (stored-tempo mismatch): where per-repeat timing error comes from (time quantised to ms or samples, display rounding, buffer-length limits) and how it accumulates. **Gate 7 guard:** maker docs on delay-time resolution for ≥2 platforms (Line 6, Neural, Fractal or Boss); computed accumulation table (0.5/1/5 ms per repeat × 10/50/100 repeats vs a sixteenth at common tempos). No listening claims. |
 | AV2 | great-are-you-lord-all-sons-daughters-guitar-tone-helix | Great Are You Lord Guitar Tone on the Line 6 Helix (All Sons & Daughters) | "great are you lord guitar tone," "great are you lord helix patch" | Nathan Cross (after 11-13) or fk-staff | 3 — Worship cluster (Tier 2 #7) | Next in CCLI order. Verify key/BPM/meter on MultiTracks + publisher (the 72-vs-144 pairing is already logged — **don't rebuild AU2's 75-vs-148 framing**; find a different song-specific computed hook, e.g. the Firm Foundation medley transition in A, or the song's own voicing/key choice). Real Helix names only. |
+
+## Daily Run — 2026-11-13 (2 new posts + 1 refresh)
+
+### Posts published: delay-drifts-from-tap-light-long-repeats, great-are-you-lord-all-sons-daughters-guitar-tone-helix
+
+**Velocity:** `persona-velocity.ts` reported **6 posts in 7 days** (Sean 2,
+Nathan 2, fk-staff 2). AV1 → Sean (2 → 3, at cap). AV2 → Nathan (2 → 3, at
+cap). Bars checked, quoted: Sean's "Vintage gear history/collecting / 'Tone is
+in the fingers' / Live gigging logistics": AV1 is a DSP-timing question,
+clear. Nathan's "Metal or high-gain / Budget/punk rig guides / Vintage gear
+collecting": a 6/8 worship ballad, clear. Collision checks: no drift or
+great-are-you-lord slug existed; the Firm Foundation post mentions the Kari
+Jobe medley in one paragraph only.
+
+**Gate 7 guards met:**
+- **AV1:** Line 6 forum thread 33379 (May 2018 to May 2020; C, with one
+  relayed support answer, B): OP's 99% feedback, 60 BPM/4 s delay out of step
+  in ~30 s with repeats ahead of the light; second user's Simple Delay 1,000
+  ms at 60 BPM about half a beat behind after ~100 repeats and 275–276 LED
+  flashes vs 280 at 140 BPM over 2 min; Line 6 QA via Support Europe "the
+  delay timing is spot on… TAP LED may be slightly off because it runs on a
+  separate clock"; OP reports fixed 2.81, back in 2.90, fixed 2.92. Line 6 KB
+  "Helix FX models and their relations to tap tempo" (A): closest in-tempo
+  value in range, Bucket Brigade max 300 ms, 400 ms tap → 200 ms. Strymon
+  TimeLine MX FAQ (A): dBucket 80–800 ms, Quarter tap > 800 ms "repeats heard
+  will likely not be in sync", "!" indicator. Helix Stadium manual (A):
+  BPM [Whole] + BPM [Hundredths]; TAP ignored < 40.00 BPM. Earlier Helix 0.1
+  BPM resolution (forum, C). TimeLine manual (A): Tap Mode Preset/Global, Tap
+  Division saved per preset. QC manual (A): Global/Preset tempo mode.
+  **Computed:** decay per repeat = 20·log10(feedback); repeats to −60 dB
+  (7.5 at 40% … 687 at 99%); accumulated error table at 0.1/0.5/5 ms per
+  repeat. **Gate 5:** 1,000 ms at 60 BPM has nothing to round, and 5 ms/repeat
+  is 10× worst-case whole-ms rounding, so rounding can't explain the report;
+  the 140 BPM count was of the LED (≈1.8% slow); OP's 60.2 BPM workaround
+  implies ≈0.3% mismatch. Boss DD-500 "1/2 or 1/4" text was found only for
+  the wave-pedal parameter, so **all Boss claims were cut** in self-audit.
+- **AV2:** MultiTracks (A): All Sons & Daughters Live, A, 72, 6/8, 4:55,
+  2013, Integrity, writers Leonard/Jordan/Ingram, 18-section map with
+  Breakdown → Bridge ×3. Passion Whole Heart (2018): A, 74, 6/8, 8:26 (A).
+  Kari Jobe & Cody Carnes medley w/ Firm Foundation (2024): A, 75, 6/8, 8:24
+  (A, carried from 11-10). Gateway Worship "Gratitude / Great Are You Lord"
+  medley, Church Moments: B, 78, 6/8, 5:19 (A). Integrity listing A, 144, 6/8;
+  PraiseCharts original key A, "Med Slow", CCLI 6460220, Essential Music
+  Publishing (B, via search). **Non-commodity hook:** four recordings span
+  72–78 BPM (up to 8%); computed per-repeat lateness of a 72-BPM ms delay at
+  74/75/78 (17 ms/repeat at 75 → 100 ms by the third quarter repeat = half a
+  6/8 sixteenth); snapshot ladder for three consecutive bridges; capo map
+  (A versions vs B medley). Deliberately not the 75-vs-148 framing (one line
+  + link only). No rig claim for the recording.
+
+### SERP analysis
+
+| Post | Target query | Top results (standard search) | Gap our post fills | AI Overview? F&K cited? |
+|---|---|---|---|---|
+| delay-drifts-from-tap-light-long-repeats | "helix delay drifting out of time tap light" | Line 6 forum 33379, Singular Sound BeatBuddy/HX Stomp MIDI sync thread, Line 6 forum 6375, 7457 (dotted 8th not consistent), 34656 (long delay times), Line 6 KB on tap tempo | Forum anecdotes with no resolution; nobody separates LED vs delay vs out-of-range vs stored tempo, or quantifies rounding. Ours: symptom→cause table, feedback-decay vs accumulated-error table, the 1,000 ms/60 BPM rounding disproof, a DAW-grid test, TimeLine/QC equivalents. | Not observable: search tool returns organic links only. |
+| great-are-you-lord-all-sons-daughters-guitar-tone-helix | "great are you lord guitar tone helix patch" | PraiseCharts patch pages for other songs (You Are The Lord, Lord I Need You, Good Good Father…), Worship Tutorials patch pages; **no Great Are You Lord Helix patch surfaced** | No free or paid GAYL Helix build in results. Ours: version/tempo table across 4 recordings, ms-drift table, three-bridge snapshot ladder, capo map, HX Stomp/QC/pedalboard translations. | Not observable. |
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | worship-guitar-tone-helix | **Closes debt #41.** New "Is the Song in 6/8? Change the Note Value" section with a 5-song cluster table (Praise, Gratitude, Trust in God, Firm Foundation, Great Are You Lord: key/BPM/meter/delay, each linked) — the hub's dotted-eighth default is wrong for 4 of 5 cluster songs. **Factual fixes:** cab changed from 1x12 US Deluxe ("Fender Deluxe Reverb speaker" on an AC30 build) to **2x12 Blue Bell** (AC30 Celestion Blue cab, fw 3.50) with US Deluxe as the pre-3.50 fallback; Searchlights described as a Line 6 original that forum users compare to BigSky Cloud (was stated as BigSky's algorithm); QC "Horizon Precision Drive" (a plugin, not a QC block) replaced with a generic Klon-style block/capture; "the foundation… from Hillsong to Bethel to Elevation" softened. **FAQ:** removed unsupported claim that Transistor Tape "masks small timing errors"; replaced with store-tempo/note-value/Tap Tempo Pitch answer; added a 6/8 delay FAQ. New takeaway on 6/8. Gate 6: "warmth", "warm repeats", "transparent glue", "musical dynamic" replaced. Links added: MIDI-clock, Tap Tempo Pitch, all five song builds. `updated: 2026-11-13`. | Highest-value worship hub (target segment); its default contradicted the cluster it should anchor, and it carried three wrong model facts. |
+
+Inbound links for new posts: AV1 ← great-are-you-lord…; AV2 ←
+worship-guitar-tone-helix (R1). AU2 (Firm Foundation) now ← R1.
+
+**Gates (self-audit):**
+- **AV1** (Sean): self-references 1 ("I expected millisecond rounding to be the
+  answer"); signature phrases 0; no disagreement staging; Gate 6 clean; Gate
+  10: Helix, Helix Stadium, Quad Cortex, Strymon TimeLine/MX, non-sync pedals.
+  Cut in self-audit: all Boss DD-500 claims (source was a different parameter),
+  an unverified QC "tail keeps old time" claim, a "BBD delays top out under a
+  second" generalisation.
+- **AV2** (Nathan): self-references 1 ("I assumed the medley versions would sit
+  at the original's tempo"); signature phrases 0; Gate 6: "transparent-style
+  drive" → "Klon-style"; an "open B and E strings over I, IV, V" capo claim was
+  wrong (B is fretted in an open A shape) and was cut; Gate 10: HX Stomp, QC,
+  pedalboard.
+- **R1** (Nathan): no new self-references.
+
+**Image pipeline note:** overrides added for AV1 and AV2. AV1 rendered with
+tiny label text on the unit's top panel (blurred). AV2 leaked a headstock
+script logo on the guitar (feathered blur). `image_alt` rewritten on both to
+match the renders. Spend ≈ $0.11 (2 renders).
+
+**Refresh debt carried forward** (items 1–18, 20–22, 24–30, 33–35, 37–40
+unchanged; #31 partly open; #41 closed):
+42. **NEW: Helix (non-Stadium) tempo resolution.** 0.1 BPM is a forum claim
+    only; AV1 labels it so. Confirm from a 3.x owner's manual and upgrade.
+43. **NEW: Great Are You Lord rig/attribution.** No documented guitar rig for
+    the All Sons & Daughters live recording was found; keep AV2 rig-free until
+    a grade A/B source appears.
+
+### 2 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 2 (AV1, AV2), AT3 still deferred, added 2 — **queue now at 3.**
+> Bylines are best-fit proposals; the executing run re-checks velocity **and
+> quotes the never-assign bar it checked**, and verifies no colliding slug.
+> Sean and Nathan are both at cap until 11-17 at the earliest.
+>
+> **Rejected as re-slices:** (a) "Kari Jobe Great Are You Lord medley Helix" —
+> AV2's version table; (b) "how to turn off Helix tap LED" — AV1's test
+> section; (c) "HX Stomp delay drift" — AV1 platform variant.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AT3 | contactless-expression-pedal-magnetic-optical-modeler | (carried, see 11-09 deferral note) | — | Sean Nakamura | 4 | Needs a third first-party sensor-pedal doc before build. |
+| AW1 | delay-max-time-per-model-slow-tempo-worship | Which Helix Delays Run Out of Time at Slow Tempos? | "helix delay max time," "bucket brigade delay half speed tap," "delay doesn't follow tap tempo slow song" | Viktor Kessler or fk-staff | 4 — Modeler Masterclass | **Surfaced by AV1:** the out-of-range halving case. Distinct question: which delay models' maximum times cut off which note values at which tempos. **Gate 7 guard:** first-party max-time list for Helix models (Line 6 manual/KB, grade A/B) plus ≥1 other platform's ranges (Strymon TimeLine machine ranges); computed table of the slowest tempo each model can hold at 1/4, 1/4 dotted and 1/2. No listening claims. |
+| AW2 | (next CCLI-order worship song after Great Are You Lord) | — Guitar Tone on the Line 6 Helix | song-specific | Nathan Cross (after 11-17) or fk-staff | 3 — Worship cluster (Tier 2 #8) | Verify key/BPM/meter on MultiTracks + publisher at build; carry a song-specific computed hook that is not the tap-table, drone-table, 75-vs-148 or version-tempo templates. Real Helix names only. |

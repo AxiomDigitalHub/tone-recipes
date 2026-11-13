@@ -1,0 +1,158 @@
+---
+title: Why a Tempo-Synced Delay Drifts From the Tap Light on Long Repeats
+seo_title: Delay Drifting From the Tap Light? What Is Actually Drifting
+description: >-
+  Long delay tails that slide off the tap LED: the four causes, the math on how
+  per-repeat error adds up, and a two-minute test to find which one you have.
+date: '2026-11-13'
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - helix
+  - delay
+  - tap-tempo
+  - tempo-sync
+  - feedback
+  - quad-cortex
+  - strymon-timeline
+  - midi-clock
+image: /images/blog/delay-drifts-from-tap-light-long-repeats.jpg
+image_alt: >-
+  A black desktop effects unit with one footswitch ring glowing red on a dark desk, a laptop behind it showing an audio waveform on a timing grid
+takeaways:
+  - >-
+    When long delay repeats seem to slide away from a flashing tap LED, the
+    light can be the part that's wrong. In a 2018 support ticket relayed on the
+    Line 6 forum, Line 6 QA said the Helix delay timing was spot on and the TAP
+    LED may be slightly off because it runs on a separate clock.
+  - >-
+    Timing error in a delay adds up linearly: an error of e milliseconds per
+    repeat puts repeat n late by n times e. Whole-millisecond rounding is at
+    most 0.5 ms per repeat, which is under 4 ms by the time a 40 percent
+    feedback tail has dropped 60 dB.
+  - >-
+    The forum report of a 1,000 ms Simple Delay at 60 BPM falling about half a
+    beat behind the light over roughly 100 repeats is 5 ms per repeat. 1,000 ms
+    at 60 BPM involves no rounding at all, so rounding can't be the cause.
+  - >-
+    A delay set past its model's maximum doesn't drift, it locks to a shorter
+    subdivision. Line 6 and Strymon both document this: the Helix picks the
+    closest in-tempo value in range, and a TimeLine MX dBucket set past 800 ms
+    shows an exclamation mark.
+  - >-
+    The fastest check is to record the delay against a DAW grid at the same
+    tempo. If the repeats sit on the grid and the light doesn't, ignore the
+    light or turn it off.
+faq:
+  - q: Why does my Helix delay drift out of time with the tap tempo light?
+    a: >-
+      Often it's the light. Line 6 QA, quoted in a 2018 forum thread, said the
+      delay timing was correct and the TAP LED may be slightly off because it
+      runs on a separate clock. Users in the same thread reported the problem
+      came and went across firmware 2.81, 2.90 and 2.92, so update first, then
+      record the delay against a DAW grid to see which one is moving.
+  - q: Can millisecond rounding make a delay drift?
+    a: >-
+      Only with very long feedback. Rounding to whole milliseconds is at most
+      0.5 ms per repeat. At 40 percent feedback the tail falls 60 dB in about
+      7.5 repeats, so the last audible repeat is under 4 ms off. At 99 percent
+      feedback the tail lasts about 690 repeats and the same rounding adds up to
+      about a third of a second.
+  - q: Why does my delay suddenly play twice as fast after I tap a slow tempo?
+    a: >-
+      The tapped time is longer than the model's maximum. Line 6 says the Helix
+      then chooses the closest value that's in tempo and within range, so a
+      Bucket Brigade (300 ms maximum) tapped at 400 ms is set to 200 ms.
+      Strymon's TimeLine MX FAQ warns that a dBucket delay set past its 800 ms
+      range won't stay in sync with the tapped tempo.
+  - q: Does a stored tempo of 72 instead of 72.05 matter?
+    a: >-
+      Against a click track, yes over a whole song. A 0.05 BPM difference at 72
+      BPM adds up to about 208 ms over five minutes, which is why tempo should
+      come from MIDI clock when a click is running. Against the delay's own
+      repeats it's irrelevant, because the light and the delay both read the
+      same stored tempo.
+  - q: How do I stop a long delay from drifting?
+    a: >-
+      Set the time as a note value rather than milliseconds so it tracks the
+      tempo, keep the note value inside the model's maximum time, sync to MIDI
+      clock when there's a click, and update firmware if the drift showed up
+      after an update. If a recording shows the repeats on the grid, the
+      remaining drift is the light.
+---
+
+A delay with the feedback up near runaway, synced to the tempo, should keep landing on the tap light for as long as the tail lasts. Helix owners have reported for years that it doesn't: the repeats slide ahead of or behind the flashing LED within a minute or two. The fix depends on which of four different things is actually drifting, and two of them aren't the delay at all.
+
+| What you see | Most likely cause | How to check |
+|---|---|---|
+| Repeats and LED slowly part ways over dozens of repeats | The LED, not the delay | Record the delay against a DAW grid at the same tempo |
+| Repeats suddenly come twice (or four times) as often as the light | Tapped time is past the model's maximum | Look up the model's max time; on a TimeLine MX look for "!" |
+| Repeats drift only when the time is in milliseconds | The ms value isn't exactly the beat | Switch the time to a note value |
+| Delay and light agree, but both slide off the click | Stored tempo doesn't match the click | Sync to MIDI clock |
+
+## Is the Delay Drifting, or Is the Light?
+
+The longest record of this problem is a Line 6 forum thread that ran from May 2018 to May 2020. The original poster used very long delays at 99 percent feedback for improvised pieces. At 60 BPM with a four-second delay, the repeats and the light were out of step within about 30 seconds, with the repeats arriving faster than the light. It happened with tapped tempo, a typed tempo, a millisecond time and a note value.
+
+Another user tested a **Simple Delay** at 1,000 ms and 60 BPM on a Helix Floor and reported the light about half a beat behind after roughly 100 repeats. The same user counted the light at 140 BPM over two minutes and got about 275 or 276 flashes instead of 280, then got a test that was exactly on time a few days later.
+
+A Line 6 Support Europe agent relayed the QA answer to the original poster's ticket: the delay timing was spot on, and the TAP LED "may be slightly off because it runs on a separate clock." A Line 6 forum expert later suggested turning the LED off in Global Settings if it bothered you. The thread complicates that answer, though. The original poster reported the delay and light "glued together" on firmware 2.81, the problem back and worse on 2.90, unchanged on 2.91, and fixed again on 2.92. A light on a hardware clock that firmware can't touch wouldn't come and go with updates, so something in the firmware was involved at least some of the time. Line 6 never published which.
+
+That's user reports and one relayed support answer, not documentation. What the numbers can do is rule causes in or out.
+
+## How Much Can Rounding Explain?
+
+I expected millisecond rounding to be the answer, because it's the obvious suspect: a dotted eighth at 74 BPM is 608.108 ms, and if the delay stores 608, every repeat is 0.108 ms early. Timing error in a delay accumulates linearly. If each pass through the buffer is off by e milliseconds, repeat n is off by n × e. Rounding to whole milliseconds caps e at 0.5 ms. Line 6 doesn't publish the internal resolution of the delay time; at the Helix's 48 kHz sample rate a one-sample step would be about 0.02 ms, so 0.5 ms is the pessimistic case.
+
+The other half of the math is how long the tail stays audible. Each repeat is quieter than the last by 20 × log₁₀(feedback) dB, so the number of repeats before the tail is 60 dB down depends almost entirely on how close to 100 percent the feedback is:
+
+| Feedback | Drop per repeat | Repeats to −60 dB | Error by then at 0.1 ms/repeat | at 0.5 ms/repeat | at 5 ms/repeat |
+|---|---|---|---|---|---|
+| 40% | 8.0 dB | 7.5 | 0.8 ms | 3.8 ms | 38 ms |
+| 50% | 6.0 dB | 10 | 1.0 ms | 5.0 ms | 50 ms |
+| 70% | 3.1 dB | 19 | 1.9 ms | 9.7 ms | 97 ms |
+| 90% | 0.9 dB | 66 | 6.6 ms | 33 ms | 328 ms |
+| 95% | 0.45 dB | 135 | 13 ms | 67 ms | 673 ms |
+| 99% | 0.09 dB | 687 | 69 ms | 344 ms | 3.4 s |
+
+Two things fall out of that table. First, at the feedback settings most people run, rounding can't produce anything you'd notice: under 10 ms by the time a 70 percent tail is gone. Only the near-runaway settings in that thread give rounding enough repeats to add up.
+
+Second, the 1,000 ms test can't be rounding at all. A quarter note at 60 BPM is exactly 1,000 ms, with nothing to round. Half a beat over about 100 repeats is 5 ms per repeat, a 0.5 percent timing error, ten times the worst whole-millisecond rounding. And the 140 BPM count was of the light, not the delay: 275 flashes where 280 were due is the light running about 1.8 percent slow. The original poster's own workaround points the same way. Setting 60.2 BPM with a four-second delay stayed in step much longer than 60.0; four beats at 60.2 BPM is 3,987 ms, so whatever the light was counting ran about 0.3 percent long against the delay.
+
+None of that proves which clock was wrong, but it rules out the arithmetic of the delay time as the cause, and the support answer and the firmware history both point at the light.
+
+## When the Delay Really Is Out of Time
+
+Two causes produce a real mismatch, and neither is a slow drift.
+
+**The time is past the model's maximum.** Line 6's knowledge base says that when a tapped tempo is outside a model's range, the Helix "will automatically choose the closest value" that is in tempo and within range. Its example is the **Bucket Brigade**, with a maximum of 300 ms: tap at 400 ms and the delay is set to 200 ms. Strymon's FAQ for the TimeLine MX says the same about its dBucket type, which runs 80 to 800 ms: with a Quarter Note tap division above 800 ms, "the repeats heard will likely not be in sync with the current Tap Tempo," and an exclamation mark appears on that delay's selector. The symptom is repeats at double or quadruple the rate of the light, from the first repeat, which is easy to mistake for drift if the feedback is low.
+
+**The time is in milliseconds and the tempo moved.** A delay typed in as 625 ms is a dotted eighth at 72 BPM and nothing else. Change the tempo to 74 and the dotted eighth is 608 ms, so each repeat lands 17 ms late against the new beat: 34 ms by repeat two, 51 ms by repeat three. That's a real, audible drift, and it's the most common one. Setting the time as a note value fixes it on every platform here.
+
+## Drifting Against the Click Instead of the Light
+
+If the delay and the light agree with each other but both slide away from a click track, the stored tempo is the problem. The light and the delay share one stored tempo, so a wrong number moves both of them together, while the click runs on its own clock. Helix Stadium's manual sets tempo with separate whole-number and hundredths knobs, so a stored tempo can be exact to 0.01 BPM. A Line 6 forum post gives earlier Helix units 0.1 BPM resolution. Over a song, small differences add up: 72.00 against a click at 72.05 is about 208 ms apart after five minutes. That's why our [MIDI clock guide](/blog/helix-midi-clock-playback-click-worship) recommends letting the click drive the tempo when there is one. If the tempo changes while repeats are ringing, the [Tap Tempo Pitch setting](/blog/helix-tap-tempo-pitch-accurate-vs-transparent) decides whether those repeats also bend in pitch.
+
+## A Two-Minute Test
+
+1. Make a preset with one delay, Time as a note value (**1/4**), Feedback as high as it goes without running away, Mix at 100 percent, at a typed tempo of exactly 60 BPM.
+2. Record the output into a DAW session set to 60 BPM, with the grid visible. Play one short, muted pick click on beat one.
+3. Let it run for a minute, then zoom in on the last clearly visible repeats and measure how far they sit from the grid lines.
+4. Watch the tap light against the DAW's playhead at the same time, or film both on a phone.
+5. Repeat at 140 BPM, and again with the time typed in milliseconds instead of a note value.
+
+If the repeats sit on the grid and the light wanders, the delay is fine; turn the LED off or ignore it. If the repeats wander by a few milliseconds per repeat, note your firmware version and the delay model and send it to support with the recording, because that's a timing error the documentation doesn't explain.
+
+## The Same Problem on Other Platforms
+
+- **Quad Cortex:** the manual's tempo menu toggles between Global and Preset modes, and in Preset mode each preset saves its own BPM. Before testing for drift, check which mode you're in, because a preset change in Preset mode is a tempo change.
+- **Strymon TimeLine:** the Tap Mode global decides whether a tapped tempo survives a preset change (Global) or the delay reverts to the time saved in the preset (Preset), and Tap Division is saved per preset. Run the test above with Tap Mode set the way you'll use it live. On the TimeLine MX, the "!" on a delay selector is the out-of-range warning.
+- **Pedals with a time knob and no sync:** the time is whatever the knob says, so any drift against the band is the knob position, not a clock. Tap-tempo analog pedals have short maximum times, like the Helix Bucket Brigade's 300 ms, so the out-of-range case comes up at much faster tempos; the [delay types guide](/blog/delay-types-analog-digital-tape) covers how their clocks set the time.
+
+## What to Do
+
+1. **Set times as note values, not milliseconds.** It removes the most common real drift entirely.
+2. **Keep the note value inside the model's range** at your slowest tempo. A dotted quarter at 60 BPM is 1,500 ms; check that against the model's maximum before the gig, not during it.
+3. **Sync to MIDI clock when there's a click.** It removes the stored-tempo mismatch, the only drift that a whole band will hear.
+4. **Update firmware if the drift appeared after an update.** The 2018–2020 thread shows the light-versus-delay behaviour changing between versions.
+5. **Trust a recording over the light.** A DAW grid is the only clock in the room whose accuracy you can check. For the arithmetic of which note values land where, the [delay time calculator](/blog/delay-time-bpm-calculator) has the tables.

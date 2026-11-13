@@ -3,7 +3,7 @@ title: "Modern Worship Guitar Tone on Helix: A Complete Preset Walkthrough"
 seo_title: "Modern Worship Guitar Tone on Helix: A Walkthrough"
 description: "How to build a worship guitar preset on the Line 6 Helix, from ambient cleans to full lead, with exact block names, settings, and snapshot assignments."
 date: "2026-03-30"
-updated: "2026-06-16"
+updated: "2026-11-13"
 author: "Nathan Cross"
 author_slug: "nathan-cross"
 category: "tone-recipes"
@@ -33,6 +33,10 @@ takeaways:
     second delay into the reverb's modulation, and drop the compressor before you
     drop anything tonal — the 3-snapshot limit becomes clean, full, ambient.
   - >-
+    The dotted eighth is a 4/4 setting. Many worship songs are in 6/8, where it
+    lands between the notes; there, use 1/8 for the eighth note and 1/4 dotted
+    for the beat you sway to, with the song's tempo stored in the preset.
+  - >-
     Keep every ambient effect mix lower than feels exciting in headphones — the
     tone has to leave room for the congregation to sing, so the dry chord stays
     the loudest thing in every snapshot.
@@ -61,15 +65,21 @@ faq:
     a: >-
       Use the Output block's level parameter per snapshot. The building and full
       snapshots usually need +1 to +2 dB above the clean snapshot to account for
-      the musical dynamic, so the lead actually lifts rather than just adding
+      the band dynamic, so the lead actually lifts rather than just adding
       gain. Set these by ear against the band, not in isolation.
   - q: What if my worship leader changes tempo mid-set?
     a: >-
       Sync the Helix to MIDI clock from a backing or click track and tempo
-      changes follow automatically. Without MIDI, assign tap tempo to a footswitch
-      and tap the new tempo during a transition. The Transistor Tape delay is more
-      forgiving of slight tempo mismatches than a clean digital delay because the
-      analog character masks small timing errors.
+      changes follow automatically. Without MIDI, store each song's tempo in its
+      preset and set delay times as note values, so the delays follow the stored
+      number. If you must tap during a song, set Tap Tempo Pitch to Transparent
+      so the repeats already ringing don't bend in pitch.
+  - q: What delay setting should I use for a worship song in 6/8?
+    a: >-
+      Not the dotted eighth. With the tempo stored as the chart's BPM, use 1/8
+      for the eighth note and 1/4 dotted for the beat you sway to. At 72 BPM
+      that's 417 ms and 1,250 ms. Don't tap the sway in, because the Helix reads
+      each tap as a quarter note.
 ---
 
 > **Start Here: The Worship Tone in Five Blocks:**
@@ -112,7 +122,7 @@ Worship playing involves a lot of dynamic range: soft arpeggios that need to be 
 | Gain | Unity (adjust by ear) | Match compressed level to uncompressed |
 | Mix | 70% | Parallel blend; keeps transient attack natural |
 
-The Mix control is key. At 100%, the compressor handles everything. At 70%, your pick attack comes through naturally while the sustain tail gets lifted. This is the difference between worship compression (transparent glue) and country compression (aggressive leveling).
+The Mix control is key. At 100%, the compressor handles everything. At 70%, your pick attack comes through naturally while the sustain tail gets lifted. This is the difference between worship compression, where you only notice it when it is switched off, and country compression, where the leveling is part of the sound.
 
 ---
 
@@ -132,7 +142,7 @@ For the lead snapshot, bump the Gain to 4.5 and the Level to 7.5. This pushes th
 
 ## Block 3: Amp+Cab (Essex A30 TB)
 
-The Vox AC30 Top Boost is the worship guitar amp. Its chimey high end, complex midrange, and natural compression when pushed make it the foundation of modern worship tone from Hillsong to Bethel to Elevation.
+The Vox AC30 Top Boost is one of the most common amps in modern worship guitar. Its chimey high end, busy midrange, and the way it compresses when the master is pushed make it a forgiving foundation for clean-to-edge-of-breakup parts.
 
 On the Helix, the model is called **Essex A30 TB**.
 
@@ -147,7 +157,7 @@ On the Helix, the model is called **Essex A30 TB**.
 
 ### Cabinet Choice
 
-Use the stock **1x12 US Deluxe** cab (Fender Deluxe Reverb speaker) or a third-party Celestion Blue IR. The Blue speaker is what's actually in the AC30, and it has a distinctive chime in the upper midrange that defines the worship clean sound.
+Use the **2x12 Blue Bell** cab, Line 6's model of a 2x12 AC30 cabinet with Celestion Blue speakers, added in firmware 3.50. On older firmware, the **1x12 US Deluxe** or a third-party Celestion Blue IR is the substitute. The Blue cab is the matched pairing for the Essex A30 TB, and its upper-mid chime is the part of the sound that lets a quiet arpeggio cut through a full band without being turned up.
 
 If the top end feels harsh through your FRFR or in-ears, apply a high cut on the cab block at **8kHz**. This removes fizzy frequencies that real speakers naturally roll off. More on this in the [fizzy modeler fix guide](/blog/why-modeler-tone-sounds-fizzy).
 
@@ -157,7 +167,7 @@ If the top end feels harsh through your FRFR or in-ears, apply a high cut on the
 
 The dotted eighth delay is the rhythmic backbone of modern worship guitar. It turns simple eighth-note strumming or arpeggios into a flowing, rhythmic pattern that fills the sonic space between vocal phrases.
 
-The **Transistor Tape** is Helix's Maestro Echoplex model. It adds warmth and slight saturation to the repeats, which helps them sit behind the dry signal rather than competing with it.
+The **Transistor Tape** is Helix's Maestro Echoplex model. Its repeats come back slightly saturated and darker than the dry note, which helps them sit behind the dry signal rather than competing with it.
 
 | Parameter | Setting | Notes |
 |---|---|---|
@@ -166,9 +176,25 @@ The **Transistor Tape** is Helix's Maestro Echoplex model. It adds warmth and sl
 | Mix | 25% | Present but not dominant |
 | Wow/Flutter | 2 | Subtle tape warble; adds organic movement |
 | Bass | 4 | Roll off low end on repeats to prevent mud |
-| Treble | 5 | Warm repeats, not bright |
+| Treble | 5 | Repeats darker than the dry note, so they don't compete with it |
 
-Set the tempo with tap tempo before the first song. If your worship leader uses a click, sync the Helix to MIDI clock for automatic tempo changes.
+Store each song's tempo in its preset rather than tapping it in before the song. If your worship leader uses a click, sync the Helix to MIDI clock instead; our [MIDI clock guide](/blog/helix-midi-clock-playback-click-worship) covers Playback and Ableton. If tempo does change while repeats are ringing, the [Tap Tempo Pitch setting](/blog/helix-tap-tempo-pitch-accurate-vs-transparent) decides whether those repeats bend.
+
+### Is the Song in 6/8? Change the Note Value
+
+The dotted eighth is a 4/4 setting. A lot of the worship catalogue is in 6/8, and there the dotted eighth is one and a half eighth notes, so the repeat lands halfway between two notes and sounds like the guitar is dragging. For a 6/8 song, use **1/8** (the song's eighth note) under strummed parts and **1/4 dotted** (the beat the room sways to) under swells, with the chart's BPM stored in the preset. MultiTracks counts 6/8 tempos in pairs of eighth notes, so those two note values come out right without any conversion.
+
+Here are the songs we've built so far, with the delay that lands for each:
+
+| Song | Key | BPM | Meter | Main delay | Build |
+|---|---|---|---|---|---|
+| *Praise* (Elevation Worship) | A | 127 | 4/4 | 1/8 dotted, 354 ms | [Praise on Helix](/blog/praise-elevation-worship-guitar-tone-helix) |
+| *Gratitude* (Brandon Lake) | B | 78 | 6/8 | 1/8, 385 ms | [Gratitude on Helix](/blog/gratitude-brandon-lake-guitar-tone-helix) |
+| *Trust in God* (Elevation Worship) | C | 74 | 6/8 | 1/8, 405 ms | [Trust in God on Helix](/blog/trust-in-god-elevation-worship-guitar-tone-helix) |
+| *Firm Foundation (He Won't)* (Cody Carnes) | Bb | 75 | 6/8 | 1/8, 400 ms | [Firm Foundation on Helix](/blog/firm-foundation-cody-carnes-guitar-tone-helix) |
+| *Great Are You Lord* (All Sons & Daughters) | A | 72 | 6/8 | 1/8, 417 ms | [Great Are You Lord on Helix](/blog/great-are-you-lord-all-sons-daughters-guitar-tone-helix) |
+
+Keys and tempos are the MultiTracks listings for the original recordings; live and medley versions often differ, so check the version your team is learning. Four of five songs on that list would be wrong with this preset's default dotted eighth, which is the strongest argument for setting delays per song instead of once per preset.
 
 For deeper exploration of delay types and the dotted-eighth technique, see [The Edge's delay settings guide](/blog/the-edge-delay-settings). The same rhythmic approach applied differently.
 
@@ -194,7 +220,7 @@ This delay is the "secret weapon" block. During verses, keep the mix low so it a
 
 ## Block 6: Reverb (Searchlights)
 
-The **Searchlights** reverb is Helix's take on a Strymon BigSky Cloud-style algorithm. It creates a large, diffuse reverb field that's the foundation of the ambient worship sound.
+The **Searchlights** reverb is a Line 6 original ambient reverb with modulation built in; Line 6 forum users compare it to the Cloud setting on a Strymon BigSky. It creates a large, diffuse reverb field that's the foundation of the ambient worship sound.
 
 | Parameter | Setting | Notes |
 |---|---|---|
@@ -242,7 +268,7 @@ The same signal chain works on the Quad Cortex with equivalent blocks:
 | Helix Block | QC Equivalent |
 |---|---|
 | Essex A30 TB | UK C30 TopBoost |
-| Minotaur | Horizon Precision Drive or OD pedal capture |
+| Minotaur | A Klon-style overdrive block or a capture of one |
 | Transistor Tape | Tape Delay |
 | Elephant Man | Analog Delay with modulation |
 | Searchlights | Cloud reverb or Nordic Concert Hall (CorOS 4.0) |
