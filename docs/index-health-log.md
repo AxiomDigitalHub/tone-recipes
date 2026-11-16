@@ -361,3 +361,18 @@ Canonical finding: low Google index coverage on this site is an **AUTHORITY** pr
 - **⚠️ PARTIAL ALERT:** 3 of 5 worship posts are still absent from Google **136 days** after the 2026-06-26 submission.
 - **Bing AI citation log: ✅ captured** (first since 10-19). See docs/BING_AI_CITATIONS.md.
 - **Verdict:** the site is healthy: sitemap 1,055 (+19), all `200`. Google worship coverage is flat at 2/5 across six reads. Weekly observation has stopped adding information, so action is needed: run interactive `/index-health`, request indexing in GSC for lincoln-brewster, bethel-music and phil-wickham, and get inbound links to them. Coverage is gated by **authority (0 backlinks)**, not page count, so don't publish more pages.
+
+## 2026-11-16
+
+- **Sitemap:** reachable (`200`), **1,071** `<loc>` URLs, **+16** vs 1,055 on 11-09. No drop. Seven consecutive reads have grown or held. All 5 worship posts are in the sitemap (plus the trust-in-god and praise Elevation song posts).
+- **HTTP:** homepage `200`, `/blog/lincoln-brewster-tone-helix` `200`, with and without redirects followed. No non-200s.
+- **`site:` spot-checks** ran in `extended` mode, which honoured the domain on every targeted query. The bare `site:faderandknob.com` (standard mode) returned **zero** F&K URLs, only fader-knob noise from other sites. That query has been unreliable for weeks, so it isn't treated as a signal.
+  - `lincoln brewster tone helix`: blog index, hillsong, the Helix guide, homepage, kemper-vs-helix, a browse page, the amp-settings guide. The post's title shows up only as a line on the `/blog` index. **No lincoln-brewster URL.**
+  - `hillsong guitar tone helix`: ✅ `/blog/hillsong-guitar-tone-helix` was #1 (15th confirmation).
+  - `bethel music guitar tone helix`: `/artist/david-hislop`, blog index, way-maker, what-a-beautiful-name, the strymon-timeline-mx news post, helix-worship-snapshots. Title appears only on the `/blog` index. **Not bethel-music-guitar-tone-helix** (8th identical read).
+  - `elevation worship phil wickham guitar tone helix`: ✅ `/blog/elevation-worship-guitar-tone-helix` was #2 behind the blog index (8th confirmation). Phil Wickham title appears only on the `/blog` index. **No phil-wickham URL.**
+- **5 worship posts indexed? 2 of 5, unchanged** for a 7th straight valid read. Indexed: hillsong, elevation. Not indexed: lincoln-brewster, bethel-music, phil-wickham.
+- **Cross-check from Bing:** Bing AI cites lincoln-brewster (**17**, up from 7) and bethel-music (8). Both pages work and get crawled; the gap is specific to Google. phil-wickham is still absent from both engines.
+- **⚠️ PARTIAL ALERT:** 3 of 5 worship posts are still absent from Google **143 days** after the 2026-06-26 submission.
+- **Bing AI citation log: ✅ captured** (second week in a row). See docs/BING_AI_CITATIONS.md.
+- **Verdict:** the site is healthy: sitemap 1,071 (+16), all `200`. Google worship coverage is flat at 2/5 across seven reads, and watching it weekly isn't changing anything. Run interactive `/index-health`, request indexing in GSC for lincoln-brewster, bethel-music and phil-wickham, and get inbound links to them. Coverage is gated by **authority (0 backlinks)**, not page count, so don't publish more pages.

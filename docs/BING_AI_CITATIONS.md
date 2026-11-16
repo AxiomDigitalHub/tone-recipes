@@ -329,3 +329,35 @@ Pages 6–15: guitar-eq-guide 776 · boss-katana-hidden-settings 769 · line-6-h
 **Trend readable yet? Volume yes. Share partly.** There are now three share snapshots (10-12, 10-19, 11-09), but the last pair is three weeks apart, not one. The direction across all three is consistent: stable for measured queries, slowly eroding for head terms. One more on-cadence weekly read makes four and gives a readable share trend. From now on the rolling window means each total is a 90-day sum, so compare weekly averages from the daily series, not headline totals.
 
 **Capture caveats:** only the top 25 of 108 queries and the top 25 of 445 pages were captured, without walking pagination. The worship numbers come from a server-side search, so they are complete. `Download all` CSVs were **not** committed again. They are more important now that the window rolls, because days older than 90 days are gone for good.
+
+### 2026-11-16: sixth read (✅ data captured, 2nd consecutive week)
+
+**Window: 08-16 → 11-14** (91 days, `3 M`, rolling). **56.4K** citations (56,327 by day-sum; was 52.8K on 08-09 → 11-06). The headline total is a rolling 90-day sum, so it isn't a like-for-like delta. **87** avg cited pages/day (was 86). **460** distinct pages (was 445). **105** grounding queries in the sample (was 108).
+
+**Weekly averages (citations/day):** 10-11→17 **742** · 10-18→24 **742** · 10-25→31 **686** · 11-01→07 **690** · 11-08→14 **677**. Volume has eased about 9% off the mid-October level and has held at about 680–690/day for three weeks. 11-14 (406) is the last day shown and may be partial. Peak day this stretch: 11-11 at 940.
+
+**Top 5 pages (of 460):** **new entrant: `guitar-eq-guide`** moved #6 → #4 and pushed `signal-chain-order-guide` out of the top 5.
+| Page | Citations | vs 11-09 |
+|---|---|---|
+| `/blog/amp-gain-volume-master-controls` | **6.9K** | 6.9K |
+| `/blog/boss-katana-settings-guide-every-genre` | **2.4K** | 2.1K (still the fastest grower) |
+| `/blog/bone-vs-tusq-vs-graph-tech-nut-materials` | **1.5K** | 1.7K (down; days rolling off) |
+| `/blog/guitar-eq-guide` | **1.0K** | 776 (**new to the top 5**) |
+| `/blog/best-frfr-speakers-for-modelers` | **978** | 953 |
+
+Pages 6–15: signal-chain-order-guide 863 · boss-katana-hidden-settings 839 · line-6-helix-family-compared 778 · diy-pedal-starter-guide 719 · reverb-before-or-after-delay-chain-order 707 · jcm800-settings-guide 613 · the-edge-delay-settings 505 · fender-deluxe-reverb-settings 503 · eq-pedal-placement 482 · pickup-position-guide 478. Next: nut-slot-geometry 447 · complete-guide-line-6-helix-tone-2026 446 · nut-slot-width-by-string-gauge 423 · impulse-response-ir-guide 415 · news/fender-tone-master-pro-firmware 412 · onboard-9v-battery 393 · tube-screamer-settings-guide 392 · **big-muff-settings-guide 382 (new to the top 25)** · **news/melofty-axom-max 358 (new to the top 25)** · **helix-vs-quad-cortex 347 (new to the top 25)**.
+
+**Top 15 grounding queries (citations · share):** master volume 6.3K · 3.90% · 5 things your guitar must get right file the nut 550 · 52.38% · fender tone master pro update 290 · 21.43% · melofty axom max 254 · 18.29% · hipshot locking tuners 209 · 25.77% · best frfr speakers for guitar 184 · 25.52% · diy guitar pedals 159 · 19.37% · nut slot file size 1 11/16 inch acoustic guitar 140 · 43.48% · fender tonemaster pro firmware update 125 · 21.04% · 4 cable method 109 · 21.17% · sustainiac pickup 106 · 14.62% · best material for guitar nut 98 · 29.88% · guitar signal chain 96 · 30.38% · best guitar nut materials intonation action 94 · 38.84% · ir files 91 · 33.83%. Rest of the top 25: best nut material acoustic 80 · 32.39% · how to make a guitar pedal 72 · 25.00% · darkglass anagram guitar essentials 69 · 7.77% · darkglass anagram guitar 64 · 32.16% · quad cortex vs helix stadium 59 · 17.40% · gotoh vs grover 58 · 15.85% · reverb before or after delay 57 · 32.76% · are behringer pedals good 56 · 61.54% · graphite vs silicone lubricant 54 · 53.47% · choosing nut material for mandolin 50 · 52.63%.
+
+**3 highest shares (top 25 by citations):** are behringer pedals good **61.54%** · graphite vs silicone lubricant guitar tuning pegs nut slots **53.47%** · choosing nut material for mandolin **52.63%** (5 things… file the nut 52.38% essentially tied). Same set as 11-09.
+**3 lowest:** master volume **3.90%** · darkglass anagram guitar essentials **7.77%** · sustainiac pickup **14.62%**. Same three for the 3rd straight read.
+
+**Share movers vs 11-09:** best frfr speakers 28.91 → **25.52** (−3.4) · fender tone master pro update 22.42 → 21.43 (−1.0) · graphite 54.55 → 53.47 (−1.1) · fender tonemaster pro firmware update 22.75 → 21.04 (−1.7) · master volume 4.30 → **3.90** (−0.4, 4th straight decline: 8.74 → 6.94 → 4.30 → 3.90) · best guitar nut materials 38.84 (flat) · hipshot 25.77 (flat) · melofty 18.75 → 18.29. **No share moved more than ~15 points.** The slow downward drift on contested commercial and head queries continues; measured nut and slot queries are flat.
+
+**Thesis check (§3):** it still holds. Measured nut, slot and lubricant queries sit at **30–54%**, and generic head terms sit at **4–21%**. The highest-volume query is the lowest-share one and still falling.
+
+**Worship (`tone-helix` page search, full list):** 6 pages, 211 citations (was 188): worship-guitar-tone-helix **156** (was 143) · hillsong-guitar-tone-helix 21 (flat) · **lincoln-brewster-tone-helix 17 (was 7)** · bethel-music-guitar-tone-helix 8 (flat) · elevation-worship-guitar-tone-helix 7 (flat) · holy-forever-guitar-tone-helix 2. 4 of 5 artist posts are still cited; **phil-wickham is still absent**. A grounding-query search for `worship` returned **0 rows**. Still **no worship and no song-preset grounding query** anywhere in the sample.
+
+**Trend readable yet? Volume yes. Share: now yes, for direction.** This is the first on-cadence adjacent weekly pair since 10-12 → 10-19, giving four share snapshots (10-12, 10-19, 11-09, 11-16). The direction is consistent across all four: measured queries hold at 30–60%, and head and commercial terms erode by 1–3 points per read. Magnitudes are still too small and too few to project.
+
+**Capture caveats:** only the top 25 of 105 queries and the top 25 of 460 pages were captured, without walking pagination. The worship numbers come from server-side searches, so they are complete. `Download all` CSVs were **not** committed (scheduled runs don't download files without approval). Days older than 90 days are now gone for good.
