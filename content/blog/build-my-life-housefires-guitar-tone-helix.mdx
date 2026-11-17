@@ -1,0 +1,148 @@
+---
+title: Build My Life Guitar Tone on the Line 6 Helix (Housefires / Pat Barrett)
+seo_title: Build My Life Guitar Tone on the Helix
+description: >-
+  Build My Life on the Helix: five recordings from 63 to 72 BPM, which delay
+  models can hold its long notes at each tempo, and a four-snapshot preset.
+date: '2026-11-17'
+author_slug: nathan-cross
+category: tone-recipes
+tags:
+  - worship
+  - helix
+  - housefires
+  - pat-barrett
+  - build-my-life
+  - delay
+  - snapshots
+  - volume-swells
+image: /images/blog/build-my-life-housefires-guitar-tone-helix.jpg
+image_alt: >-
+  A natural-finish electric guitar on a stand behind a small pedalboard with a multi-effects unit and a volume pedal, on a stage under colored spotlights and haze
+takeaways:
+  - >-
+    MultiTracks lists Build My Life between 63 and 72 BPM, all in 4/4: Pat
+    Barrett in Ab at 72, Chris Tomlin in G at 71.92, Passion in G at 70, and
+    Bethel Music with Pat Barrett in F at 63. The 2016 Housefires original is in
+    G per PraiseCharts, with no published BPM.
+  - >-
+    At 63 BPM a half note is 1,905 ms. That is longer than the Helix Adriatic
+    Delay's 1.8 second maximum (Line 6's DL4 MkII figure), so a half-note
+    Adriatic that works on every other version halves on the Bethel version.
+  - >-
+    Analog-voiced delays can't hold this song's dotted eighth at any listed
+    tempo. It runs 625 to 714 ms, past both the Bucket Brigade's 300 ms and the
+    Elephant Man's 500 ms ceilings.
+  - >-
+    A bar of Build My Life lasts 3.3 seconds at 72 BPM and 3.8 seconds at 63, so
+    a reverb decay around 3 to 3.5 seconds lets a held chord fade inside the bar
+    instead of smearing into the next one.
+  - >-
+    Four snapshots cover the Pat Barrett arrangement: verse, chorus, vamp and
+    first bridge, and second bridge into the final chorus.
+faq:
+  - q: What key and tempo is Build My Life?
+    a: >-
+      It depends on the recording. MultiTracks lists Pat Barrett's 2018 version
+      in Ab at 72 BPM, Chris Tomlin's in G at 71.92, Passion's in G at 70 and
+      Bethel Music's in F at 63, all in 4/4. PraiseCharts gives G as the
+      original key of the 2016 Housefires recording.
+  - q: What delay settings work for Build My Life?
+    a: >-
+      A dotted eighth on a digital or tape model at about 20 percent mix, with a
+      quarter or half note underneath for swells. At 72 BPM the dotted eighth is
+      625 ms; at 63 BPM it is 714 ms. Set times as note values and the delay
+      follows the tempo of whichever version you play.
+  - q: >-
+      Why does my half-note delay suddenly sound twice as fast on the slow
+      version?
+    a: >-
+      At 63 BPM a half note is 1,905 ms, past the maximum of some delay models.
+      Line 6 documents that the Helix then picks the closest in-tempo value
+      within range, which halves it. Use a model with at least 2 seconds, such
+      as Transistor Tape or Vintage Digital.
+  - q: Who played guitar on the original Build My Life recording?
+    a: >-
+      Housefires has not published per-track guitar credits or a rig for
+      Housefires III, and no interview we found documents one. This build is a
+      way to get the sound on a Helix, not a copy of a documented rig.
+  - q: Can I play Build My Life on an HX Stomp?
+    a: >-
+      Yes, with one delay. Keep the comp, drive, amp, cab, one Transistor Tape
+      set to the dotted eighth and a reverb, and use a snapshot to switch the
+      delay to a quarter note with more mix for the bridge.
+---
+
+*Build My Life* is a slow 4/4 song that keeps building without ever getting fast, and that shape decides almost every guitar choice in it. The electric's job is to sit under the vocal like the room answering back: long, quiet repeats in the verses, more width in the choruses, and swells that leave space for the congregation in the bridge. The catch is that "slow" spans nine BPM across the recordings people actually play, and at the slow end some delay models can no longer hold the long notes the song wants.
+
+| Recording | Key | BPM (MultiTracks) | Length | Dotted 1/8 | 1/4 | 1/2 |
+|---|---|---|---|---|---|---|
+| Housefires, *Housefires III* (2016) | G (PraiseCharts) | not published | 8:11 | — | — | — |
+| Passion feat. Brett Younker, *Worthy of Your Name* (2017) | G | 70 | 6:38 | 643 ms | 857 ms | 1,714 ms |
+| Pat Barrett, *Pat Barrett* (2018) | Ab | 72 | 4:13 | 625 ms | 833 ms | 1,667 ms |
+| Chris Tomlin, *Holy Roar: Live From Church* (2019) | G | 71.92 | 5:18 | 626 ms | 834 ms | 1,669 ms |
+| Bethel Music with Pat Barrett, *PEACE, Vol. II* (2021) | F | 63 | 5:24 | 714 ms | 952 ms | 1,905 ms |
+
+MultiTracks credits the song to Pat Barrett, Matt Redman, Brett Younker, Kirby Kaple and Karl Martin; PraiseCharts lists it as CCLI 7070345. The MultiTracks page for the Housefires original has no tempo data, so if your team learned it from that recording, count it against the Pat Barrett or Passion version and set the tempo from there.
+
+## Which Delays Can Hold the Long Notes?
+
+A tempo-synced delay only plays the note value you choose if that note fits inside the model's maximum time. Line 6's knowledge base says that when it doesn't, the Helix "will automatically choose the closest value that is in tempo and within range," which in practice means half the note. The [delay maximums guide](/blog/delay-max-time-per-model-slow-tempo) has the full table; here's what it means for this song.
+
+| Model (max time) | Dotted 1/8 | 1/4 | 1/2 at 70–72 | 1/2 at 63 (Bethel) |
+|---|---|---|---|---|
+| Bucket Brigade (300 ms) | Halves | Halves | Halves | Halves |
+| Elephant Man (500 ms) | Halves | Halves | Halves | Halves |
+| Adriatic Delay (1.8 s) | Holds | Holds | Holds | **Halves** |
+| Transistor Tape, Cosmos Echo (2 s) | Holds | Holds | Holds | Holds |
+| Vintage Digital, Ducked Delay (4 s) | Holds | Holds | Holds | Holds |
+
+The Bucket Brigade figure is from Line 6's Helix article. The others are Line 6's published maximums for the same-named DL4 MkII models; Elephant Man's 500 ms also matches Helix owner reports. Check the rest against your own unit by turning Time fully clockwise in milliseconds.
+
+I assumed the Bethel version was just the same arrangement moved down to F. The tempo changes more than the key: the half-note swell delay on Adriatic, which sounds right on the Pat Barrett and Passion versions, plays quarter notes at 63 BPM, so the swells suddenly have twice as many echoes and the bridge fills up instead of opening. Nothing on the screen tells you. If your church plays the Bethel arrangement, build the long delay on Transistor Tape instead.
+
+The analog-voiced models are out for the main dotted-eighth part on every version. At 625 to 714 ms, the dotted eighth is past both the Bucket Brigade and the Elephant Man, so they'd quietly play a dotted sixteenth.
+
+## How Long Should the Reverb Be?
+
+At 72 BPM a bar of 4/4 is 3.33 seconds; at 70 it's 3.43; at 63 it's 3.81. A reverb decay a little under the bar length lets a held chord fade before the next bar's chord arrives, so changes stay clear even with the reverb fairly high. Set decay around 3 seconds for the 70–72 versions and 3.5 for the Bethel version. A longer tail belongs in the bridge only, where the band drops out and the pad can fill the gap.
+
+## The Helix Preset
+
+Set the preset's tempo to the version you're playing, or better, let the click drive it over MIDI clock ([setup guide](/blog/helix-midi-clock-playback-click-worship)). Every time is a note value, so the same preset follows all five versions.
+
+| Block | Settings | Why |
+|---|---|---|
+| **Deluxe Comp** | Threshold −20 dB, Ratio 3:1, Mix 60% | Evens out the picked verse figures without flattening swells |
+| **Teemah!** | Gain 2.5, Bass 4, Treble 5.5, Level 6; off until chorus 2 | Light grit for the second chorus and the last bridge |
+| **Essex A30** | Drive 3.5, Bass 4, Treble 5.5, Cut 4, Ch Vol to taste | Clean with chime; breaks up a little when the Teemah! is on |
+| **2x12 Blue Bell** | Low Cut 100 Hz, High Cut 7.5 kHz | Keeps the low end out of the bass player's way and the top out of the in-ears |
+| **Transistor Tape** | Time 1/8 dotted, Feedback 30%, Mix 18% | The main rhythmic delay; holds 714 ms at 63 BPM with room to spare |
+| **Vintage Digital** | Time 1/2, Feedback 35%, Mix 0% in verses | The swell delay for the vamp and bridge; a 4-second ceiling holds the half note even at 63 BPM |
+| **Plateaux** | Decay about 3 s (3.5 at 63 BPM), Mix 22%, Low Cut 200 Hz | Tail fades inside one bar |
+
+Put the volume pedal before the Deluxe Comp if you swell with your foot, so the compressor doesn't pull the swell's tail back up.
+
+## Four Snapshots for the Pat Barrett Arrangement
+
+MultiTracks maps the Pat Barrett version as Intro, Verse 1, Verse 2, Chorus, Turnaround, Verse 2, Chorus, Vamp, Bridge, Bridge, Chorus, Ending.
+
+| Snapshot | Where | Changes |
+|---|---|---|
+| 1: Verse | Intro, verses | Teemah! off, Transistor Tape 15%, swell delay 0%, Plateaux 20% |
+| 2: Chorus | Choruses, turnaround | Transistor Tape 20%, Plateaux 25% |
+| 3: Vamp / Bridge 1 | Vamp and first bridge | Volume swells, Transistor Tape 10%, swell delay 25%, Plateaux decay 4.5 s, mix 35% |
+| 4: Bridge 2 / Final chorus | Second bridge to the end | Teemah! on, Transistor Tape 20%, swell delay 10%, Plateaux back to 3 s |
+
+The Passion version is longer and returns to the bridge three times, with two interludes before it. Use snapshot 3 for the interludes and first bridge, snapshot 4 for the second, and step back to snapshot 3 for the third bridge if the band drops down again before the last choruses. The Bethel version adds a breakdown after the bridges; snapshot 3 fits it.
+
+## Other Platforms
+
+- **HX Stomp:** drop the Vintage Digital. Run one Transistor Tape at a dotted eighth, and in snapshot 3 change its Time to a half note with Feedback 40% and Mix 25%. Two seconds covers the half note at every listed tempo.
+- **Quad Cortex:** check whether the tempo menu is in Global or Preset mode before rehearsal; in Preset mode each preset carries its own BPM, so save one per version you play. Use a digital or tape delay rather than an analog-voiced one for the dotted eighth.
+- **Pedalboard with a Strymon TimeLine:** the TimeLine's tap divisions are Quarter, Dotted Eighth, Eighth, Triplets and Sixteenth, with no half note. For the bridge swells, use a second preset on the Digital or dTape machine with the division on Quarter and tap at half the song's tempo: 31.5 BPM for the Bethel version gives 1,905 ms, inside the 2,500 ms range. dBucket tops out at 800 ms and won't hold the dotted eighth here either.
+- **Tap-tempo pedals without sync:** set the dotted eighth by ear from the table above, and expect to retap between versions; 625 ms against a 63 BPM band lands 89 ms early on every repeat.
+
+## Before Sunday
+
+Find out which version the team is learning, then check three numbers: the tempo, whether the long delay model can hold a half note at that tempo, and the bar length for the reverb. For more songs in this set, see the builds for [Great Are You Lord](/blog/great-are-you-lord-all-sons-daughters-guitar-tone-helix) and [Firm Foundation](/blog/firm-foundation-cody-carnes-guitar-tone-helix), the [Bethel Music tone guide](/blog/bethel-music-guitar-tone-helix) for that team's broader sound, and the [worship Helix hub](/blog/worship-guitar-tone-helix) for the preset the snapshots above grow out of.

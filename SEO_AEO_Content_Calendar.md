@@ -8676,3 +8676,107 @@ unchanged; #31 partly open; #41 closed):
 | AT3 | contactless-expression-pedal-magnetic-optical-modeler | (carried, see 11-09 deferral note) | — | Sean Nakamura | 4 | Needs a third first-party sensor-pedal doc before build. |
 | AW1 | delay-max-time-per-model-slow-tempo-worship | Which Helix Delays Run Out of Time at Slow Tempos? | "helix delay max time," "bucket brigade delay half speed tap," "delay doesn't follow tap tempo slow song" | Viktor Kessler or fk-staff | 4 — Modeler Masterclass | **Surfaced by AV1:** the out-of-range halving case. Distinct question: which delay models' maximum times cut off which note values at which tempos. **Gate 7 guard:** first-party max-time list for Helix models (Line 6 manual/KB, grade A/B) plus ≥1 other platform's ranges (Strymon TimeLine machine ranges); computed table of the slowest tempo each model can hold at 1/4, 1/4 dotted and 1/2. No listening claims. |
 | AW2 | (next CCLI-order worship song after Great Are You Lord) | — Guitar Tone on the Line 6 Helix | song-specific | Nathan Cross (after 11-17) or fk-staff | 3 — Worship cluster (Tier 2 #8) | Verify key/BPM/meter on MultiTracks + publisher at build; carry a song-specific computed hook that is not the tap-table, drone-table, 75-vs-148 or version-tempo templates. Real Helix names only. |
+
+## Daily Run — 2026-11-17 (2 new posts + 1 refresh)
+
+### Posts published: delay-max-time-per-model-slow-tempo, build-my-life-housefires-guitar-tone-helix
+
+**Velocity:** `persona-velocity.ts` reported **4 posts in 7 days** (Sean 2,
+fk-staff 1, Nathan 1). AW1 → Viktor (0 → 1). AW2 → Nathan (1 → 2). Bars
+checked, quoted: Viktor's "Worship or ambient tone guides / Vintage gear or gear
+history / Budget roundups": AW1 is a delay-range data post, so the queued
+"-worship" suffix was **dropped from the slug** and the slow-tempo examples are
+generic/doom, not worship. Nathan's "Metal or high-gain / Budget/punk rig
+guides / Vintage gear collecting": a slow 4/4 worship song, clear. Collision
+checks: no max-time, slow-tempo or build-my-life slug existed.
+
+**Gate 7 guards met:**
+- **AW1:** Line 6 KB "Helix FX models and their relations to tap tempo" (A):
+  closest in-tempo value in range, Bucket Brigade 300 ms, 400 ms → 200 ms,
+  "cut in half". Line 6 KB "Maximum delay times for DL4 MkII models" (A for
+  DL4 MkII; **inference only for Helix**, labelled as such in the post):
+  Elephant Man/Euclidean/Glitch 500 ms, Adriatic 1.8 s, Cosmos/Criss
+  Cross/Dual/Harmony/Transistor Tape 2 s, Vintage Digital/Ducked/Heliosphere/
+  Multi Pass/Pitch 4 s, legacy 2.5 s. Helix Elephant Man 500 ms (forum 31876,
+  2018, C) matches. TimeLine manual Rev F (A): dBucket 40–400/80–800 ms, most
+  machines 60–2,500, dTape Fast 30–1,250; tap divisions stop at Quarter (no
+  half note). TimeLine MX FAQ (A). Boss DD-500 10 s "depends on delay mode" (A).
+  **The queue's guard asked for a first-party Helix per-model list; none
+  exists** (Simple Delay, Ping Pong, Multitap, Sweep, Reverse, Legacy: no
+  published max anywhere). Shipped anyway because the post says so explicitly,
+  grades every row, and gives the on-unit test. **Computed:** slowest-BPM table
+  for 9 ceilings × 5 note values. **Gate 5:** Bucket Brigade can't hold a
+  dotted eighth below 150 BPM; Elephant Man quarter dies between 120 and 119
+  BPM; a 2 s half note has zero headroom at 60.
+- **AW2:** MultiTracks (A): Pat Barrett 2018 Ab/72/4:4/4:13 with song map;
+  Passion 2017 G/70/6:38 with map (Bridge ×3); Chris Tomlin 2019 G/71.92/5:18;
+  Bethel w/ Pat Barrett *PEACE Vol. II* 2021 F/63/5:24; Housefires III page
+  has **no tempo data**. PraiseCharts (A): Housefires original key G, "Slow",
+  CCLI 7070345. JesusFreakHideout (B): Housefires III Aug 2016, track 8:11.
+  Writers from MultiTracks (5 incl. Barrett). **No rig/guitarist found — post
+  is rig-free.** **Non-commodity hook (new template, not tap/drone/75-vs-148/
+  version-drift):** which delay models hold each version's long notes — the
+  Adriatic half note works on every version except Bethel's 63 BPM (1,905 >
+  1,800 ms); analog-voiced models can't hold the 625–714 ms dotted eighth on
+  any version; reverb decay sized to bar length (3.33–3.81 s).
+
+### SERP analysis
+
+| Post | Target query | Top results (standard search) | Gap our post fills | AI Overview? F&K cited? |
+|---|---|---|---|---|
+| delay-max-time-per-model-slow-tempo | "helix delay max time per model slow tempo" | Line 6 KB tap-tempo article, The Gear Page HX Effects timing thread, Line 6 forum 31876 (Elephant Man), 63263 (Bucket Brigade), 24205, DL4 MkII max-times KB, line6 fandom DM-2 | Results cover one model each; nobody tabulates ceilings or computes the slowest BPM per note value, and nobody compares TimeLine/MX. Ours: graded max-time table, 9×5 tempo-floor table, on-unit test. | Not observable: search tool returns organic links only. |
+| build-my-life-housefires-guitar-tone-helix | "build my life guitar tone helix patch" | Line 6 CustomTone 5654065 (free), Joey Cobra (paid), PraiseCharts Helix patch (Passion), Worship Tutorials (paid), YouTube cover | All are Passion-version patch products; none cover tempo across versions or model ceilings. Ours: 5-version table, model-holds table, bar-length reverb sizing, Pat Barrett + Passion snapshot maps, HX Stomp/QC/TimeLine translations. | Not observable. |
+| rew-modeler-global-eq (R1) | "room eq wizard helix global eq" | Alex Strabala global settings, komposition101 Helix EQ cheat sheet, gearforum REW mics thread, Line 6 forum 65516/21316/16925, Gear Page | Forum fragments; no step-by-step that maps REW's auto-EQ (cuts-only, &lt;200 Hz) to the Helix 3-band / QC 5-band global EQ or uses per-output assignment to keep FOH flat. | Not observable. |
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | rew-modeler-global-eq | **Factual fixes:** Helix Global EQ was "four parametric bands", path "Global Settings → Global EQ", and a "footswitch assignment for global EQ bypass" — now three parametric bands + low/high cut (manual text quoted on Line 6 forum 22577), Menu → Global EQ, and **Apply EQ to 1/4", XLR or both** (forum 62547) so FOH stays flat; footswitch claim removed (unverified). QC Global EQ was "8 bands" in "Settings" with "profiles" — now 5-band, in I/O Settings, assignable to one or both output pairs, 32 user presets, auto-disabled when a preset exceeds DSP (QC manual, CorOS 4.1.1). Helix Stadium's three per-output Global EQs (1/4", XLR, Phones) added. Removed advice to boost a −3 dB dip. **New:** answer-first intro + 5-row workflow table; 3-position sweep test to separate fixed peaks from nulls; REW EQ-window workflow (Individual/Overall Max Boost 0, match range ≤200 Hz, quoting REW help); headphone-curve placement per unit. Legacy `<FAQ>` → frontmatter `faq:` (6) + `takeaways:` (5). Generic `image_alt` ("a composition illustrating…") rewritten. Links added: headphone frequency response, FRFR placement, in-ear monitors. Typo fixed. `updated: 2026-11-17`. | Legacy-FAQ migration on a Helix/QC post with three wrong spec claims about the exact feature it teaches. |
+
+Inbound links for new posts: AW1 ← build-my-life…; AW2 ← AW1.
+
+**Gates (self-audit):**
+- **AW1** (Viktor): self-references 2 ("I expected the long-time limit…",
+  "anywhere I could find"); signature phrases 0; Gate 6 clean; Gate 10: Helix,
+  HX Stomp, DL4 MkII, TimeLine, TimeLine MX, DD-500. Added in self-audit: a
+  caveat that one forum user saw a manually set ms time exceed the tap ceiling,
+  so the on-unit test confirms by ear rather than trusting the knob.
+- **AW2** (Nathan): self-references 1 ("I assumed the Bethel version…");
+  signature phrases 0; swell delay moved from Simple Delay (no published max)
+  to Vintage Digital (4 s); Gate 10: HX Stomp, QC, TimeLine, non-sync pedals.
+- **R1** (Dev): no new self-references; existing first-person "Three Things"
+  section kept unchanged.
+
+**Image pipeline note:** overrides added for AW1 and AW2. Both renders carry
+small gibberish label text, no real brand marks. `image_alt` rewritten to match
+(AW2 rendered a concert stage, not a church). Spend ≈ $0.11 (2 renders).
+
+**Refresh debt carried forward** (items 1–18, 20–22, 24–30, 33–35, 37–40, 42–43
+unchanged; #31 partly open):
+44. **NEW: Helix per-model delay maxima.** Only Bucket Brigade is first-party
+    for Helix; AW1 uses DL4 MkII figures as labelled inference. Upgrade if a
+    Line 6 Helix source appears.
+45. **NEW: Build My Life writer list.** MultiTracks credits 5 (incl. Barrett);
+    PraiseCharts lists 4 (omits Barrett); SongSelect returned 403. Confirm.
+46. **NEW: ms-knob vs tap ceiling.** Forum claim that Elephant Man's manual ms
+    time can exceed the tapped limit; test before strengthening AW1 step 2.
+47. **NEW: Way Maker / What a Beautiful Name posts** (CCLI #9/#10, already
+    published) predate the version-tempo and model-ceiling checks — refresh
+    candidates rather than new posts.
+
+### 2 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 2 (AW1, AW2), AT3 still deferred, added 2 — **queue now at 3.**
+> Bylines are best-fit proposals; the executing run re-checks velocity **and
+> quotes the never-assign bar it checked**, and verifies no colliding slug.
+>
+> **Rejected as re-slices:** (a) "Elephant Man max delay time" — AW1 row;
+> (b) "Build My Life Bethel version Helix" — AW2 version table; (c) "Helix
+> Global EQ for FRFR" — R1 + FRFR placement post.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AT3 | contactless-expression-pedal-magnetic-optical-modeler | (carried, see 11-09 deferral note) | — | Sean Nakamura | 4 | Needs a third first-party sensor-pedal doc before build. |
+| AX1 | blessed-be-your-name-matt-redman-guitar-tone-helix | Blessed Be Your Name Guitar Tone on the Line 6 Helix | "blessed be your name guitar tone," "blessed be your name helix patch" | Nathan Cross (now 2/3) or fk-staff | 3 — Worship cluster (Tier 2 #11; #9 Way Maker and #10 What a Beautiful Name already published) | Verify key/BPM/meter on MultiTracks + PraiseCharts; derive the song-specific hook from its verified tempo and arrangement — not the tap, drone, 75-vs-148, version-drift or model-ceiling templates. No rig claim without A/B source. |
+| AX2 | room-correction-ir-loader-vs-global-eq | Can an IR Do Room Correction on a Modeler? | "room correction ir helix," "sonarworks ir modeler," "global eq vs ir room correction" | Dev Okonkwo | 4 — Modeler Masterclass | **Surfaced by R1 SERP:** forum users bake room correction into a stereo IR. Distinct question: what an IR loader's length limit does to low-frequency correction. **Gate 7 guard:** first-party IR length/sample-rate specs for Helix and QC IR blocks (grade A), computed frequency resolution vs. the &lt;200 Hz range REW recommends correcting; no listening claims. |

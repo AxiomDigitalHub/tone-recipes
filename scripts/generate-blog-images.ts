@@ -172,6 +172,10 @@ const SUBJECT_OVERRIDES: Record<string, string> = {
     "close-up of a plain matte black floor multi-effects unit's row of blank round footswitches on a dark wooden floor, one footswitch ring glowing soft blue, a plain black cable curling away into shadow, shallow depth of field, smooth unmarked surfaces with no screen, knobs, labels, logo, numbers, printing or lettering anywhere",
   "delay-drifts-from-tap-light-long-repeats":
     "a plain black floor footswitch unit with blank faceplate, one footswitch ring glowing red, low close angle on a dark wooden desk beside a laptop showing an audio waveform grid, no text, no logos",
+  "delay-max-time-per-model-slow-tempo":
+    "a plain small metal delay pedal with three blank knobs beside a plain matte black floor multi-effects unit with blank footswitches on a dark stage floor, one footswitch ring glowing red, low angle, light haze, smooth unmarked surfaces with no labels, logo, screen text, numbers, printing or lettering anywhere",
+  "build-my-life-housefires-guitar-tone-helix":
+    "a plain natural-wood electric guitar leaning against a pedalboard with a plain black floor multi-effects unit and a plain volume pedal on a wooden church stage, warm stage lights blurred in soft haze behind, plain unbranded gear with no logo, headstock logo, screen text, numbers or lettering anywhere",
   "great-are-you-lord-all-sons-daughters-guitar-tone-helix":
     "a sunburst electric guitar on a stand beside a plain floor multi-effects unit with lit footswitch rings, church stage in low blue light, a wooden cross softly out of focus behind, no text, no logos",
   "firm-foundation-cody-carnes-guitar-tone-helix":

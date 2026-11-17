@@ -1,0 +1,152 @@
+---
+title: Which Delays Run Out of Time at Slow Tempos? Max Delay Time by Model
+seo_title: Delay Max Time by Model and the Slowest Tempo Each Can Hold
+description: >-
+  Helix, DL4 MkII and Strymon TimeLine delay maximums, the slowest BPM each can
+  hold a 1/4, dotted 1/4 or 1/2 note at, and what happens past the limit.
+date: '2026-11-17'
+author_slug: viktor-kessler
+category: modeler-masterclass
+tags:
+  - delay
+  - helix
+  - hx-stomp
+  - tap-tempo
+  - dl4-mkii
+  - strymon-timeline
+  - tempo-sync
+  - bucket-brigade
+image: /images/blog/delay-max-time-per-model-slow-tempo.jpg
+image_alt: >-
+  A silver delay pedal beside a black floor effects unit with one red-lit ring, on a wet floor under pink and green neon light
+takeaways:
+  - >-
+    A tempo-synced delay can only hold a note value if that note is shorter than
+    the model's maximum time. The slowest tempo it can hold is 60,000 times the
+    note length in beats, divided by the maximum in milliseconds.
+  - >-
+    Line 6 documents that when a tapped time is beyond a Helix delay model's
+    range, the Helix picks the closest in-tempo value inside the range. For the
+    Bucket Brigade, with a 300 ms maximum, a 400 ms tap becomes 200 ms.
+  - >-
+    A 300 ms maximum can't hold a dotted eighth below 150 BPM or a quarter note
+    below 200 BPM, so a Bucket Brigade set to a dotted eighth at a typical
+    ballad tempo is really playing a dotted sixteenth.
+  - >-
+    Line 6's official DL4 MkII table puts Elephant Man, Euclidean and Glitch at
+    500 ms, Adriatic at 1.8 seconds, Cosmos Echo and Transistor Tape at 2
+    seconds, and Vintage Digital, Ducked Delay and Heliosphere at 4 seconds.
+  - >-
+    The original Strymon TimeLine's tap divisions stop at a quarter note, and
+    its dBucket machine tops out at 800 ms in Double range, so a tapped quarter
+    note on dBucket only holds at 75 BPM and above.
+faq:
+  - q: Why does my delay play twice as fast when I tap a slow tempo?
+    a: >-
+      The tapped note value is longer than the model's maximum time. Line 6 says
+      the Helix then picks the closest value that is both in tempo and in range,
+      which is usually half the note. A Bucket Brigade, maximum 300 ms, tapped
+      at 400 ms plays at 200 ms.
+  - q: What is the maximum delay time on the Helix Elephant Man?
+    a: >-
+      500 ms. Line 6 publishes that figure for the DL4 MkII's Elephant Man, a
+      Helix user reported the same 500 ms ceiling on the Helix in 2018, and a
+      Line 6 forum expert said it had been that way since launch. A quarter note
+      fits only at 120 BPM and faster.
+  - q: What is the slowest tempo for a half-note delay?
+    a: >-
+      Divide 120,000 by the model's maximum in milliseconds. A 2-second model
+      holds a half note down to 60 BPM, Adriatic at 1.8 seconds down to about 67
+      BPM, and a 4-second model down to 30 BPM.
+  - q: How do I find a delay model's maximum time if it isn't published?
+    a: >-
+      Switch the Time parameter from a note value to milliseconds and turn it
+      fully clockwise, then confirm by tapping a tempo just slower than that
+      value allows and listening for the repeats to double in speed. Write it
+      down per model, because the Helix manuals don't list them.
+  - q: Does the Strymon TimeLine have a half-note tap division?
+    a: >-
+      No. The TimeLine manual lists Quarter, Dotted Eighth, Eighth, Triplets and
+      Sixteenth. For a half note, tap at half the song's tempo with the division
+      on Quarter, keeping the result under 2,500 ms.
+---
+
+A tempo-synced delay has two numbers in it: the time the note value asks for and the longest time the model can produce. When the first is bigger than the second, the delay doesn't stop or warn you on most units. It quietly picks a shorter note. At slow tempos, that happens far earlier than most presets assume.
+
+| Max delay time | Slowest BPM for 1/8 | dotted 1/8 | 1/4 | dotted 1/4 | 1/2 |
+|---|---|---|---|---|---|
+| 300 ms (Helix Bucket Brigade) | 100 | 150 | 200 | 300 | 400 |
+| 400 ms (TimeLine dBucket, Single) | 75 | 113 | 150 | 225 | 300 |
+| 500 ms (Elephant Man, Euclidean, Glitch) | 60 | 90 | 120 | 180 | 240 |
+| 800 ms (TimeLine dBucket Double, TimeLine MX dBucket) | 38 | 56 | 75 | 113 | 150 |
+| 1,800 ms (Adriatic) | 17 | 25 | 33 | 50 | 67 |
+| 2,000 ms (Cosmos Echo, Transistor Tape) | 15 | 23 | 30 | 45 | 60 |
+| 2,500 ms (TimeLine Digital, dTape Normal) | 12 | 18 | 24 | 36 | 48 |
+| 4,000 ms (Vintage Digital, Ducked, Heliosphere) | 8 | 11 | 15 | 23 | 30 |
+
+Below the BPM in a cell, that note value doesn't fit and the unit substitutes something shorter. The formula is **slowest BPM = 60,000 × note length in beats ÷ maximum ms**, with a dotted eighth at 0.75 beats, a quarter at 1, a dotted quarter at 1.5 and a half at 2.
+
+## What Happens When the Note Doesn't Fit?
+
+Line 6's knowledge base article on Helix FX models and tap tempo states the rule: if a tapped tempo is beyond the range of the effect model, the Helix "will automatically choose the closest value that is in tempo and within range." Its example is the **Bucket Brigade**, which has a 300 ms maximum. Tap 400 ms and the delay runs at 200 ms. The same article notes that a delay or modulation that seems to slow down as you raise the note value has passed its limit, because the time is being cut in half.
+
+So the failure mode is a halving, from the first repeat. It isn't drift and it isn't silence. A delay set to a dotted eighth that comes back as a dotted sixteenth still lands on the grid, which is exactly why nobody notices it in the preset and everybody notices it in the room.
+
+Strymon's handling is louder. The TimeLine MX FAQ says that with dBucket and a quarter-note tap division above 800 ms, the repeats "will likely not be in sync" with the tapped tempo, and an exclamation indicator appears on the delay selector. At least it tells you.
+
+## Which Maximums Are Documented?
+
+This is where the published data runs thin, so here's what each number in the table rests on.
+
+| Model / machine | Max | Source | Grade |
+|---|---|---|---|
+| Helix Bucket Brigade | 300 ms | Line 6 KB, Helix tap tempo article | Official |
+| DL4 MkII Elephant Man, Euclidean, Glitch | 500 ms | Line 6 KB, DL4 MkII max delay times | Official (DL4 MkII) |
+| DL4 MkII Adriatic | 1.8 s | same | Official (DL4 MkII) |
+| DL4 MkII Cosmos Echo, Criss Cross, Dual, Harmony, Transistor Tape | 2 s | same | Official (DL4 MkII) |
+| DL4 MkII Vintage Digital, Ducked, Heliosphere, Multi Pass, Pitch | 4 s | same | Official (DL4 MkII) |
+| DL4 MkII legacy (original DL4) models | 2.5 s | same | Official (DL4 MkII) |
+| Helix Elephant Man | 500 ms | Line 6 forum user report, 2018 | User report |
+| Strymon TimeLine dBucket | 40–400 ms Single, 80–800 ms Double | TimeLine manual Rev F | Official |
+| Strymon TimeLine Digital and most machines | 60–2,500 ms | same | Official |
+| Strymon TimeLine dTape | 60–2,500 ms Normal, 30–1,250 ms Fast | same | Official |
+| Strymon TimeLine MX dBucket / Oil Can / Drum | 60–800 / 200–800 / 200–2,000 ms | TimeLine MX FAQ | Official |
+| Boss DD-500 | 10 s, "depends on delay mode" | Boss specifications | Official |
+
+Line 6 doesn't publish a per-model table for Helix. The DL4 MkII uses the same model names as the Helix delays, and the one Helix figure that's been checked independently — Elephant Man at 500 ms, reported by a user in 2018 and described by a Line 6 forum expert as unchanged since launch — matches the DL4 MkII number. That's good inference, not confirmation, so for any Helix model other than Bucket Brigade, verify the ceiling on your own unit before building a preset around it. Simple Delay, Ping Pong, Multitap, Sweep, Reverse and the Legacy models don't have a published maximum anywhere I could find.
+
+## The Numbers That Catch People
+
+I expected the long-time limit to be a slow-tempo problem only, something that matters at 60 BPM and nowhere else. The table says otherwise for the short models.
+
+- **Bucket Brigade can't hold a dotted eighth below 150 BPM.** A dotted eighth at 120 BPM is 375 ms, past the 300 ms ceiling, so it plays 187.5 ms instead. Anyone who picked the Bucket Brigade for a dark, degrading dotted-eighth part at a mid tempo has been playing dotted sixteenths.
+- **Elephant Man's quarter note dies at 119 BPM.** At 120 BPM a quarter is exactly 500 ms and fits. At 119 BPM it's 504 ms and halves to an eighth. One BPM separates the two.
+- **Elephant Man's dotted eighth needs 90 BPM or faster.** A 2018 forum report from firmware 2.50 described Elephant Man playing an eighth note whether it was set to 1/8, 1/4, 1/2 or 1/1, which is what this ceiling predicts at moderate tempos.
+- **A half note on a 2-second model has exactly one tempo of headroom at 60 BPM.** 2,000 ms is the half note at 60 BPM. At 59 BPM it halves.
+- **The original TimeLine has no half-note division at all.** Its manual lists Quarter, Dotted Eighth, Eighth, Triplets and Sixteenth. Doom tempos that want a half-note echo have to tap at half speed instead.
+
+## How to Find a Model's Maximum on Your Own Unit
+
+1. Load the delay and switch Time from a note value to milliseconds. On Helix, pressing the Time knob toggles between ms and note divisions.
+2. Turn Time fully clockwise. The number it stops at should be the model's ceiling. A Line 6 forum user once reported a manually set time on Elephant Man going longer than the tapped time would, so don't trust the knob alone: step 5 confirms the ceiling that tap tempo actually uses.
+3. Divide 60,000 by that number to get the slowest BPM for a quarter note. Multiply by 0.75 for a dotted eighth, 1.5 for a dotted quarter, 2 for a half.
+4. Compare against the slowest song you'll use the preset on. If the song is below the floor, change the model or the note value, not the tempo.
+5. To confirm halving by ear, tap the song's tempo with the note value set, then switch to a note one step longer. If the repeats speed up, the longer note didn't fit.
+
+## Picking a Model for a Slow Song
+
+At 60 BPM a quarter is 1,000 ms, a dotted quarter 1,500 ms and a half note 2,000 ms. Working from the documented numbers:
+
+- **Quarter note at 60 BPM:** anything 1 second or longer. Adriatic, Cosmos Echo, Transistor Tape, Vintage Digital, TimeLine Digital or dTape Normal. Not dBucket, not Elephant Man, not Bucket Brigade.
+- **Dotted quarter at 60 BPM:** Adriatic (1.8 s) and up.
+- **Half note at 60 BPM:** 2 seconds exactly fits; a 4-second model such as Vintage Digital or Ducked Delay has room for tempo to wander below 60. On a TimeLine, set the machine to Digital or dTape Normal and tap at 30 BPM with the division on Quarter. For a worked example across five recordings of one slow song, from 63 to 72 BPM, see the [Build My Life build](/blog/build-my-life-housefires-guitar-tone-helix).
+- **Dark, degrading repeats at a slow tempo:** a modeled analog delay can't do it at long note values. Use a tape or digital model with its tone rolled down — Transistor Tape at 2 seconds keeps the smeared, top-end-shedding repeats down to a 30 BPM quarter note — or put a low-pass filter after a 4-second digital delay.
+
+For the per-tempo millisecond values, the [delay time calculator](/blog/delay-time-bpm-calculator) has the full tables. If the repeats are in time but slide away from the tap light over a long tail, that's a different problem, covered in [why a synced delay drifts from the tap light](/blog/delay-drifts-from-tap-light-long-repeats). The [delay types guide](/blog/delay-types-analog-digital-tape) explains why the analog-voiced models get the short ceilings: the bucket-brigade chips they're modeled on lose bandwidth as the delay gets longer, so the real pedals never went far past half a second either.
+
+| Situation | Do this |
+|---|---|
+| Analog-voiced model, dotted 1/8 under 150 BPM | Change to Adriatic or a tape model |
+| Any 500 ms model, quarter note under 120 BPM | Change model; the note will halve |
+| Half note under 60 BPM | Use a 4-second model, or tap half-time on a Quarter division |
+| Unit doesn't publish its maximums | Turn Time fully clockwise in ms and write the number down |

@@ -4,11 +4,10 @@ title: >-
   Correction
 seo_title: "Room EQ Wizard for Modeler Global EQ Correction"
 description: >-
-  Ear-based global EQ gets you 80% of the way to a balanced modeler tone in any
-  room. A measurement microphone and Room EQ Wizard get you the remaining 20%.
-  Here is the workflow for guitarists, not studio engineers, with specific setup
-  tips for Helix and Quad Cortex.
+  Measure your room with Room EQ Wizard and a UMIK-1, then turn the result into
+  Helix, HX Stomp or Quad Cortex Global EQ settings without boosting room nulls.
 date: '2026-04-28'
+updated: '2026-11-17'
 author: Dev Okonkwo
 author_slug: dev-okonkwo
 category: "modeler-masterclass"
@@ -21,14 +20,78 @@ tags:
   - room-correction
   - helix
   - quad-cortex
-readingTime: 11
+readingTime: 12
 image: /images/blog/rew-modeler-global-eq.jpg
 image_alt: >-
-  a composition illustrating "Setting Global EQ With Room Measurement: How to
-  Use Room EQ Wizard for Modeler Correction"
+  A home studio desk at night with a tablet showing a measured frequency
+  response graph beside a rack-mount guitar modeler and a small USB box
+takeaways:
+  - >-
+    Room EQ Wizard (free) plus a calibrated USB measurement mic such as the
+    miniDSP UMIK-1 shows exactly which frequencies your room and monitors are
+    boosting or cancelling at your listening position.
+  - >-
+    Cut peaks and leave dips alone: a dip that moves when you shift the mic a
+    foot is a room cancellation, and boosting it wastes headroom without
+    filling it in.
+  - >-
+    REW's own help recommends usually limiting correction filters to below
+    about 200 Hz, and its EQ window can cap boost at zero so the auto-match
+    only cuts.
+  - >-
+    Helix Floor, LT and Rack Global EQ has three parametric bands plus low and
+    high cut and can be applied to the 1/4-inch outputs, the XLR outputs, or
+    both, so the monitor feed can be corrected while the FOH feed stays flat.
+  - >-
+    Quad Cortex Global EQ (CorOS 4.1.1) is a five-band parametric EQ assigned to
+    one or both output pairs, with up to 32 saved user presets, which suits one
+    correction curve per room.
+faq:
+  - q: Is the UMIK-1 the only measurement microphone that works with REW?
+    a: >-
+      No. Any calibrated measurement mic works, such as a Dayton Audio EMM-6 or
+      Behringer ECM8000 through an audio interface. The UMIK-1 is the simplest
+      because it is USB and has a per-serial-number calibration file from
+      miniDSP.
+  - q: Should I boost the dips REW shows?
+    a: >-
+      Usually not. Move the mic 30 cm and measure again. A dip that shifts or
+      disappears is a position-dependent cancellation, and boosting it only
+      raises level everywhere else. Correct peaks that stay put across
+      positions, and cap any boost at about 3 dB.
+  - q: How many bands do I need on the modeler?
+    a: >-
+      Fewer than you think. Helix has three parametric bands plus cuts and the
+      Quad Cortex Global EQ has five. Spend them on the largest peaks below
+      about 200 Hz first, where rooms do the most damage, and set REW's auto-EQ
+      to the same number of filters.
+  - q: Will REW corrections work for live FOH?
+    a: >-
+      No. The venue and PA have their own response, and the FOH engineer EQs
+      for them. On a Helix, apply Global EQ to the 1/4-inch outputs feeding
+      your monitors and leave the XLR outputs to FOH uncorrected; on a Quad
+      Cortex, assign it only to the output pair feeding your monitors.
+  - q: How often should I re-measure my room?
+    a: >-
+      Whenever the geometry changes: monitors moved, desk rearranged, acoustic
+      treatment added or removed. Room response is a property of where the
+      speakers, the listener and the walls are.
+  - q: Can I correct headphones with REW?
+    a: >-
+      Not reliably with a UMIK-1. Use a published measurement for your model
+      and apply only the broad deviations. Helix Stadium has a separate Global
+      EQ for its Phones output, which is the cleanest place for that curve.
 ---
 
-> **The short version:** Room EQ Wizard (REW) is free, the measurement microphone you need (UMIK-1) is around $100, and the workflow takes about 30 minutes the first time you do it. The output is a frequency response graph that shows exactly which bands your room is boosting and cutting. This is information your ear has been trying to compensate for. You then dial those exact corrections into your modeler's global EQ. The result is a baseline tone that translates between rooms, headphones, and monitors more reliably than any ear-based setup. This is how studio engineers calibrate; the tools just got cheap enough that guitarists can use them.
+Room EQ Wizard (REW) is free software that plays a sweep through your monitors, records it with a calibrated measurement mic at your listening position, and graphs how loud each frequency arrives. Turn that graph into a few cuts in your modeler's global EQ and your presets stop compensating for the room. The whole job takes about 30 minutes the first time.
+
+| Step | Setting | Why |
+|---|---|---|
+| Mic | miniDSP UMIK-1 with its serial-number calibration file | Removes the mic's own coloration from the measurement |
+| Level | 75–80 dB SPL at the listening position | Loud enough to clear room noise without exciting rattles |
+| Sweep | 20 Hz – 20 kHz, then repeat with the mic moved 30 cm | Separates fixed peaks from position-dependent nulls |
+| Correct | Cuts only, largest peaks first, mostly below ~200 Hz | Matches REW's own guidance and your band count |
+| Apply | Helix: 1/4" outputs only (monitors). Quad Cortex: monitor output pair only | Keeps the FOH feed flat |
 
 The [global EQ guide](/blog/modeler-global-eq-guide) recommends an ear-based approach to setting your modeler's global EQ: listen, identify problems, dial in cuts and boosts, repeat. That works. It's how I did it for the first year I owned a Quad Cortex.
 
@@ -47,7 +110,7 @@ The hardware list is short.
 | Item | Why | Cost |
 |---|---|---|
 | Room EQ Wizard (REW) | The measurement and analysis software | Free |
-| miniDSP UMIK-1 | A USB measurement microphone with calibration file | ~$100 |
+| miniDSP UMIK-1 | A USB measurement microphone with calibration file | ~$100 street (2026) |
 | Computer with USB | To run REW and connect the microphone | (already have) |
 | Monitor speakers or headphones | Whatever you actually monitor through | (already have) |
 | Microphone stand or mic boom | To position the UMIK-1 at your listening position | ~$25 if you don't have one |
@@ -72,7 +135,7 @@ This distinction matters. Some players run REW and assume the corrections will f
 
 ## Setting Up REW (15 Minutes)
 
-Download REW from roomeqwizard.com. The Windows, Mac, and Linux versions are all the free.
+Download REW from roomeqwizard.com. The Windows, Mac, and Linux versions are all free.
 
 Connect the UMIK-1 to a USB port. The mic ships with a small SD card or a printed serial number. Find your mic's calibration file at minidsp.com (search the serial number) and download the .cal file.
 
@@ -107,53 +170,48 @@ This is your room's signature. Every room has one.
 
 ## Translating Measurements to Global EQ
 
-Now the work. The measurement tells you what your room is doing; the global EQ should do the opposite.
+Now the work. The measurement tells you what your room is doing; the global EQ should do the opposite, but only where the opposite is physically possible.
 
-| Room measurement | Global EQ correction |
+Before you dial anything, run the sweep a second time with the microphone moved about 30 cm, then a third time 30 cm the other way. Overlay the three curves in REW. Peaks that stay put across all three are the room's and the speakers' fixed signature, and they're what an EQ can correct. Dips that move, shrink or vanish are cancellations: sound arriving from a wall or the desk out of phase with the direct sound at one exact spot. Boosting a cancellation pumps more energy into both arrivals, so the hole stays and everything near it gets louder.
+
+| What the overlaid curves show | Global EQ move |
 |---|---|
-| **+4 dB peak at 100 Hz** | -4 dB cut at 100 Hz with Q matching the peak's width |
-| **-3 dB dip at 250 Hz** | +3 dB boost at 250 Hz (use cautiously; boosts can cause feedback) |
-| **+2 dB peak at 2.5 kHz** | -2 dB cut at 2.5 kHz |
-| **-6 dB roll-off above 10 kHz** | Subtle high-shelf boost above 10 kHz, +2-3 dB max |
+| **+4 dB peak at 100 Hz, same on all three sweeps** | −4 dB cut at 100 Hz, Q matched to the peak's width |
+| **−8 dB notch at 160 Hz that moves between sweeps** | Nothing. Move the monitors or the chair instead |
+| **+2 dB broad rise at 2.5 kHz** | Optional −2 dB cut, wide Q, only if you have a band spare |
+| **Roll-off above 10 kHz** | Usually leave it; at least half of it is the mic being off-axis and the listening distance |
 
-The principle: cut peaks, treat dips with care. Cuts are almost always safe. Boosts can cause feedback and amplify noise that wasn't audible before. As a rule, never boost more than 3 dB at any frequency in a global EQ correction. Cuts can be larger.
+REW's help for its EQ window makes the same point from the other direction: "it is usually best to limit filters to low frequencies (less than 200 Hz or so)." Rooms do most of their damage there, and above a few hundred hertz the response changes too much with small head movements for a fixed filter to help.
 
-Most modelers limit global EQ to 4-6 bands. Use them where the measurement shows the largest deviations from flat. A 4 dB peak at 100 Hz is more important to correct than a 1 dB peak at 5 kHz. Fix the big problems first.
+**Let REW pick the filters.** In the EQ window, choose a generic parametric equaliser, set the number of filters to the number of bands your modeler has, set **Individual Max Boost** and **Overall Max Boost** to 0 dB, limit the match range to roughly 20–200 Hz, and click **Match Response to Target**. You get a cuts-only filter list (frequency, gain, Q) you can copy straight into the modeler. With boost capped at zero, the auto-match can't chase a null.
+
+Band count is the real constraint, so spend them in order of size. A 4 dB peak at 100 Hz matters more than a 1 dB wobble at 5 kHz.
 
 ---
 
 ## Helix-Specific Setup
 
-The Helix global EQ has four parametric bands plus a low cut and a high cut. To apply REW corrections:
+Line 6's manual describes the Helix Global EQ as "three fully parametric bands plus variable low and high cut filters," applied to all setlists and presets and audible "from the 1/4" outputs, XLR outputs, or both." HX Stomp uses the same five-section layout: Low Cut, Low, Mid, High, High Cut.
 
-1. **Press the menu button → Global Settings → Global EQ**
-2. **Enable Global EQ** (this toggles the entire global EQ section on or off)
-3. **Set the Low Cut to about 60 Hz** (rolls off subsonic content; this is almost always a good idea)
-4. **For each band:**
-   - Set the frequency to match the REW measurement peak
-   - Set the gain to the inverse of the measurement (peak shows +4 dB → set band to -4 dB)
-   - Set the Q to about 1.4 for narrow peaks, 0.7 for wider deviations
-5. **Set the High Cut at 18 kHz or higher** to leave the air range intact unless your room shows severe high-end resonance
+1. **Open Global EQ from the Menu** and enable it.
+2. **Low Cut around 40–60 Hz** if REW shows the monitors or room piling up below the guitar's lowest useful content.
+3. **Low, Mid and High bands:** enter REW's three largest cuts — frequency, gain (peak shows +4 dB → band at −4 dB), and Q from REW's filter list.
+4. **High Cut** at its highest setting unless the measurement shows a real high-frequency problem.
+5. **Apply EQ to the output that feeds the monitors you measured.** It's on the Global EQ's later parameter page. If the 1/4" outputs go to your studio monitors and the XLRs go to a front-of-house desk, apply it to 1/4" only and FOH never sees your room correction.
 
-The Helix global EQ applies after the patch but before the output, so it corrects the entire signal regardless of which preset is loaded. Set it once for your studio environment and it stays in place.
-
-Important: bypass the global EQ when playing through a different system (in-ear monitors, FOH at a venue, headphones if you measured for monitors). The Helix has a footswitch assignment for global EQ bypass; set it on a switch you can reach during a soundcheck.
+That output choice is the most useful thing in the Helix implementation. You don't have to remember to bypass anything at soundcheck; the correction simply isn't on the FOH feed. On Helix Stadium it goes further: the manual says there are three Global EQs, one each for the 1/4", XLR and Phones outputs, each with its own shelves, three parametric bands and cuts.
 
 ---
 
 ## Quad Cortex-Specific Setup
 
-The Quad Cortex global EQ has 8 bands and is more flexible than the Helix. To apply REW corrections:
+In the Quad Cortex manual (CorOS 4.1.1), Global EQ lives in **I/O Settings**: swipe down from the Grid, then tap **GLOBAL EQ** at the top. It's "a 5-Band Parametric EQ that can be assigned to one or both output pairs."
 
-1. **Settings → Global EQ → Enable**
-2. **Choose a profile** (Cortex supports multiple profiles; name them by playback environment, e.g., "Studio Monitors," "Headphones," "FOH")
-3. **For each band:**
-   - Set frequency to match measurement
-   - Set gain inverse of measurement
-   - Set Q to 1.0 default; tighten to 2.0 for narrow peaks; widen to 0.5 for shelf-like deviations
-4. **Toggle the profile by environment** (the Cortex's multiple profiles is what makes it more useful than the Helix here; switch profiles between rooms without re-dialing)
+1. **Assign it to the output pair that feeds your monitors** on the OUT tab, and leave the pair that goes to FOH unassigned.
+2. **Enter REW's five largest cuts**, each with type, gain, frequency and Q.
+3. **Save it as a Global EQ preset** ("Save Current Parameters As…" in the upper-left menu). The QC holds up to 32 user presets, so one curve per room (home monitors, rehearsal space, the church's stage wedges if you measured them) is a load rather than a re-dial.
 
-The Cortex profiles let you measure once for each playback environment and recall the appropriate correction. This is a major workflow improvement over the Helix's single global EQ.
+One caution from the same manual: Global EQ is disabled automatically if a preset exceeds the available processing. A preset that sounds suddenly boomy at home may be one that's using every last DSP block.
 
 ---
 
@@ -169,7 +227,9 @@ For my Sony MDR-7506: rtings shows a +3 dB peak around 8 kHz and a +2 dB peak ar
 
 **Option 2: Use a software-based approach.** REW supports headphone measurement workflows that use the headphones themselves as the measurement chain, but the procedure requires more equipment and is less reliable than the published-curves approach. Unless you're an audio engineer, skip this.
 
-The headphones approach is less precise than the monitor measurement, but it's still better than ear-based guessing. Apply the corrections, listen, and trust that the correction is closer to neutral than no correction at all.
+The headphones approach is less precise than the monitor measurement, but it's still better than ear-based guessing. Apply only the broad deviations (a 2 dB shelf, a 3 dB bump an octave wide), not every ripple in a published curve, because fit and ear shape move the narrow features from person to person.
+
+Where that curve goes depends on the unit. Helix Stadium has a separate Global EQ on its Phones output, so the headphone correction never touches the monitors. On a Quad Cortex, save it as its own Global EQ preset and load it when you switch. On a Helix Floor, LT, Rack or HX Stomp, the Global EQ follows the 1/4" and XLR outputs, so a headphone curve is better kept as an EQ block in a dedicated headphone preset. The [headphone frequency response guide](/blog/bedroom-modeler-headphone-frequency-response) covers what to cut by model.
 
 ---
 
@@ -197,34 +257,9 @@ The REW workflow earns its place when you're moving between multiple playback ch
 
 For everyone else, the [ear-based global EQ guide](/blog/modeler-global-eq-guide) is enough.
 
-<FAQ
-  questions={[
-    {
-      q: "Is the UMIK-1 the only measurement microphone that works with REW?",
-      a: "No. Any calibrated measurement microphone works: Behringer ECM8000 with a separate interface, Dayton Audio EMM-6, Earthworks M30. The UMIK-1 is the simplest because it's USB and ships with a calibration file. The others require an audio interface and you have to source the calibration file separately. For most guitarists, the UMIK-1 is the right choice."
-    },
-    {
-      q: "How often should I re-measure my room?",
-      a: "Once when you first set up the workflow. Then any time the physical environment changes: moved your monitors, rearranged the desk, added or removed acoustic treatment. The room's frequency response is a property of the geometry; if the geometry changes, re-measure."
-    },
-    {
-      q: "Will REW corrections work for live FOH?",
-      a: "No, and don't try. The venue's room and PA each have their own frequency response, and the FOH engineer is doing their own EQ. Bypass your global EQ when going to FOH. Apply the global EQ only when monitoring through equipment you've actually measured."
-    },
-    {
-      q: "Can I run REW with just my modeler's headphone output, no audio interface?",
-      a: "Yes, with one caveat. You'll need to route the modeler's output to the computer somehow (a USB connection if your modeler supports class-compliant USB audio, or a re-amp loop through an interface). The Quad Cortex and Helix both support direct USB connection to a computer for this purpose."
-    },
-    {
-      q: "Does REW also help with patch-level EQ tuning?",
-      a: "Indirectly. Once your global EQ has corrected for room coloration, your patch-level EQ choices are about the patch itself rather than about compensating for the room. This makes patches more portable between rooms. A patch built on a corrected monitoring chain will sound closer to itself in a different room than a patch built on an uncorrected chain."
-    }
-  ]}
-/>
-
 Room measurement isn't necessary for good tone. It's necessary for *consistent* tone across multiple playback environments. If you've ever built a patch that sounded great at home and lost something at a friend's place, your room was doing more work than you realized. REW makes that work visible, and once it's visible, the global EQ becomes the precise tool it was designed to be.
 
-For the conceptual frame, see [our guide to modeler global EQ](/blog/modeler-global-eq-guide). For the broader signal chain implications, see [the stereo signal chain architecture post](/blog/stereo-signal-chain-architecture).
+For the conceptual frame, see [our guide to modeler global EQ](/blog/modeler-global-eq-guide). If the speaker is an FRFR wedge rather than desk monitors, measure after you've settled [where the cab sits and how it's tilted](/blog/frfr-cab-placement-floor-tilted-raised-stand), because placement moves the low-end peaks more than any EQ band will. For in-ear rigs, where the room drops out entirely, see [guitar tone in in-ear monitors](/blog/guitar-tone-in-ear-monitors). For the broader signal chain implications, see [the stereo signal chain architecture post](/blog/stereo-signal-chain-architecture).
 
 <SaveThisTone
   title="Every recipe ships a Helix preset"
