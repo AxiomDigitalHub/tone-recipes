@@ -1,8 +1,8 @@
 # Recipe Audit Report
 
-**Date:** 2026-11-11
-**Recipes:** 267
-**Clean (no errors, no warns):** 267
+**Date:** 2026-11-18
+**Recipes:** 271
+**Clean (no errors, no warns):** 271
 **Warn-only:** 0
 **With errors:** 0
 
@@ -16,8 +16,8 @@
 
 | Rule | Severity | Recipes failing | Description |
 | --- | --- | --- | --- |
-| `settings-outside-unverified-range` | info | 267 / 267 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
-| `katana-kemper-multidrive-default-off` | info | 31 / 267 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
+| `settings-outside-unverified-range` | info | 271 / 271 | Settings outside a declared range that has NOT been verified — usually the registry lagging a platform, not bad data |
+| `katana-kemper-multidrive-default-off` | info | 31 / 271 | When Helix ships a multi-drive stack (≥2 drive blocks), Katana Booster + Kemper Stomp drive blocks default OFF so the player picks the flavor |
 
 ---
 
@@ -344,6 +344,12 @@ Passes every rule.
 ### `deleo-plush-les-paul` — ✓ clean
 
 *Stone Temple Pilots' Plush Tone*
+
+Passes every rule.
+
+### `delonge-all-the-small-things-riff` — ✓ clean
+
+*Tom DeLonge's All the Small Things Riff Tone*
 
 Passes every rule.
 
@@ -923,6 +929,12 @@ Passes every rule.
 
 Passes every rule.
 
+### `klett-far-behind-riff` — ✓ clean
+
+*Candlebox's Far Behind Riff and Lead Tone*
+
+Passes every rule.
+
 ### `knopfler-money-for-nothing-intro` — ✓ clean
 
 *Knopfler's Money for Nothing Intro Riff Tone*
@@ -968,6 +980,12 @@ Passes every rule.
 ### `lifeson-la-villa-strangiato-solo` — ✓ clean
 
 *Rush's La Villa Strangiato Solo Tone*
+
+Passes every rule.
+
+### `lifeson-limelight-solo` — ✓ clean
+
+*Rush's Limelight Solo Tone*
 
 Passes every rule.
 
@@ -1358,6 +1376,12 @@ Passes every rule.
 ### `root-before-i-forget-riff` — ✓ clean
 
 *Before I Forget Riff Tone*
+
+Passes every rule.
+
+### `rossington-tuesdays-gone-lead` — ✓ clean
+
+*Rossington's Tuesday's Gone Lead Tone*
 
 Passes every rule.
 

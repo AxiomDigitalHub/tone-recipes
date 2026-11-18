@@ -1964,5 +1964,37 @@
     "completePlatforms": [],
     "droppedCount": 1,
     "substitutedCount": 7
+  },
+  "delonge-all-the-small-things-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 9
+  },
+  "lifeson-limelight-solo": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 9
+  },
+  "klett-far-behind-riff": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 1,
+    "substitutedCount": 9
+  },
+  "rossington-tuesdays-gone-lead": {
+    "level": "complete",
+    "completePlatforms": [
+      "helix"
+    ],
+    "droppedCount": 0,
+    "substitutedCount": 7
   }
 }
