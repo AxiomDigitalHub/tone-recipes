@@ -33,7 +33,6 @@ const PASS_FEATURES = [
   "Unlimited preset downloads (Helix, Quad Cortex, Katana)",
   "Unlimited recipe PDFs",
   "Early access — new recipes 1 week before public",
-  "Members-only deep-dive content (A/Bs, video breakdowns)",
 ];
 
 const PRO_FEATURES = [
@@ -131,9 +130,8 @@ export default function PlanCards() {
           </div>
           <p className="pricing-subnote">{passSub}</p>
           <p className="pricing-blurb">
-            Stop counting downloads. Unlimited presets and PDFs, early
-            access, and the members-only deep dives. For players who use
-            the site every week.
+            Stop counting downloads. Unlimited presets and PDFs, plus early
+            access to new recipes. For players who use the site every week.
           </p>
           <ul className="pricing-features">
             {PASS_FEATURES.map((f) => (

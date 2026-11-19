@@ -67,7 +67,7 @@ function subscriptionProduct(
 const PRICING_JSON_LD = [
   subscriptionProduct(
     "Fader & Knob Pass",
-    "Unlimited preset downloads and recipe PDFs, early access to new recipes, and members-only deep-dive content.",
+    "Unlimited preset downloads and recipe PDFs, plus early access to new recipes.",
     "49.00",
     "4.99",
   ),
@@ -119,11 +119,11 @@ const SET_PACK = {
 const FAQ = [
   {
     q: "What's the difference between Free, Pass, and Pro?",
-    a: "Free gives you the entire recipe catalog plus 5 preset downloads and 10 recipe PDFs per month. Pass ($49/yr) removes those quotas — unlimited downloads and PDFs — and adds early access to new recipes (1 week before public) and members-only deep-dive content. Pro ($79/yr) is everything in Pass plus every Set Pack included while you're subscribed, ToneTrace priority access at launch, and a commercial-use license.",
+    a: "Free gives you the entire recipe catalog plus 5 preset downloads and 10 recipe PDFs per month. Pass ($49/yr) removes those quotas — unlimited downloads and PDFs — and adds early access to new recipes (1 week before public). Pro ($79/yr) is everything in Pass plus every Set Pack included while you're subscribed, ToneTrace priority access at launch, and a commercial-use license.",
   },
   {
     q: "Pass or Pro — which should I pick?",
-    a: "Start with Pass if you mostly want unlimited downloads and the members-only content. Pick Pro if you'd buy Set Packs: each pack is $19 on its own, so if you'd grab even one a year, Pro ($79/yr vs Pass's $49/yr) already pays for itself — and you get every future pack too while subscribed.",
+    a: "Start with Pass if you mostly want unlimited downloads. Pick Pro if you'd buy Set Packs: each pack is $19 on its own, so if you'd grab even one a year, Pro ($79/yr vs Pass's $49/yr) already pays for itself — and you get every future pack too while subscribed.",
   },
   {
     q: "Is there a free trial?",
@@ -179,7 +179,7 @@ export default function PricingPage() {
           <h1 className="recipe-title display">Pricing</h1>
           <p className="recipe-summary">
             Free to browse, every recipe, every platform. Upgrade to Pass for
-            unlimited preset downloads and members-only depth, or Pro to bundle
+            unlimited preset downloads and PDFs, or Pro to bundle
             every Set Pack. Set Packs are also one-time purchases — you buy
             them, you keep them.
           </p>

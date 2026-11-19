@@ -50,7 +50,6 @@ export const TIERS: Record<UserRole, TierConfig> = {
       "Unlimited preset downloads",
       "Unlimited recipe PDFs",
       "Early access — new recipes 1 week before public",
-      "Members-only deep-dive content (A/Bs, video breakdowns)",
     ],
     limits: {
       savedRecipes: -1,

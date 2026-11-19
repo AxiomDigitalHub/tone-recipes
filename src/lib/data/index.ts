@@ -10911,11 +10911,11 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "hetfield-master-of-puppets-rhythm",
     created_at: "2026-03-22",
     description:
-      "The definitive thrash metal rhythm guitar tone. James Hetfield's sound on Master of Puppets is built on an ESP Explorer with EMG pickups through a Mesa/Boogie Mark IIC+ — a combination that produces a tight, aggressive, scooped-mid tone with razor-sharp pick attack and crushing low end. The Mark IIC+ is the holy grail of metal amps: its lead channel provides high-gain saturation with incredible note definition even at extreme gain levels. Hetfield's relentless downpicking technique is the engine that drives this tone.",
+      "The definitive thrash metal rhythm guitar tone. James Hetfield's sound on Master of Puppets is built on a Jackson Custom Shop King V with Seymour Duncan Invader humbuckers through a Mesa/Boogie Mark IIC+ — a combination that produces a tight, aggressive, scooped-mid tone with razor-sharp pick attack and crushing low end. The Mark IIC+ is the holy grail of metal amps: its lead channel provides high-gain saturation with incredible note definition even at extreme gain levels. Hetfield's relentless downpicking technique is the engine that drives this tone.",
     tone_context: "full_song",
     guitar_specs: {
       body_type: "solid",
-      model_name: "ESP Explorer (custom)",
+      model_name: "Jackson Custom Shop King V",
       pickup_config: "HH",
       pickup_position: "bridge",
       string_count: 6,
@@ -10923,7 +10923,7 @@ export const toneRecipes: ToneRecipe[] = [
       tuning: "standard",
       string_gauge: ".011-.048",
       notable_mods:
-        "ESP custom Explorer with EMG 81 in the bridge position. The active EMG 81 provides a hot, compressed output that is perfectly suited for high-gain metal tones: tight low end, scooped mids, and extended high-frequency response.",
+        "Hetfield's white 1985 Jackson Custom Shop King V (later nicknamed 'Kill Bon Jovi') with Seymour Duncan Invader humbuckers. The Invaders are hot passive ceramic pickups that push the Mark IIC+ hard. The EMG 81/60 set went in around 1987, after this album.",
     },
     signal_chain: [
       {
@@ -10976,7 +10976,7 @@ export const toneRecipes: ToneRecipe[] = [
     ],
     original_gear: {
       guitar:
-        "ESP Explorer (custom), EMG 81 bridge pickup, standard tuning, .011-.048 strings",
+        "Jackson Custom Shop King V, Seymour Duncan Invader bridge pickup, standard tuning, .011-.048 strings",
       effects: [],
       amp: "Mesa/Boogie Mark IIC+ (Lead channel)",
       cabinet: "Mesa/Boogie 4x12 with Celestion Vintage 30 speakers",
@@ -11069,7 +11069,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Master of Puppets era (1985 Sweet Silence Studios sessions). Jackson King V Custom 'Kill Bon Jovi' with stock factory pickups (NOT EMG 81/60 — those came on …And Justice For All). NO drive pedals in front of the amp — the IIC+ does it all. Mark IIC+ preamp → Marshall power amp ('ZX-Boogie') is approximated via Cali IV Lead with Sag=0.45 for British power-tube tightness. Down-picking technique is half the tone.",
+          "Master of Puppets era (1985 Sweet Silence Studios sessions). Jackson Custom Shop King V (later nicknamed 'Kill Bon Jovi') with Seymour Duncan Invaders (NOT EMG 81/60, which went in around 1987). NO drive pedals in front of the amp — the IIC+ does it all. Mark IIC+ preamp → Marshall power amp ('ZX-Boogie') is approximated via Cali IV Lead with Sag=0.45 for British power-tube tightness. Down-picking technique is half the tone.",
       },
       quad_cortex: {
         chain_blocks: [
@@ -11129,7 +11129,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           { position: 1, block_name: "Search ToneNET for 'Mesa Mark IIC+' or 'Metallica' or 'Master of Puppets'", block_category: "Tone Model", original_gear: "Mesa/Boogie Mark IIC+", settings: {}, notes: "Search ToneNET for a Mesa Mark IIC+ Tone Model capture on the Lead channel. The Mark IIC+ is one of the most captured amps on ToneNET. Look for tight, aggressive high-gain captures with strong midrange." },
         ],
-        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Mesa Mark IIC+ or Metallica captures. No effects needed — ESP Explorer with EMG 81 straight into the amp. Hetfield's relentless all-downstroke picking technique is the most critical element. The percussive, aggressive attack of downpicking cannot be replicated with alternate picking.",
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for Mesa Mark IIC+ or Metallica captures. No effects needed: King V with Seymour Duncan Invaders straight into the amp. Hetfield's relentless all-downstroke picking technique is the most critical element. The percussive, aggressive attack of downpicking cannot be replicated with alternate picking.",
       },
       katana: {
         chain_blocks: [

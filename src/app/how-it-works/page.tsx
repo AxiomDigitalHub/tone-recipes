@@ -46,7 +46,7 @@ const PROMISES = [
   {
     head: "Era-correct gear",
     body:
-      "We don't list signature pickups on a recording from 1969. The Hetfield Master of Puppets recipe leaves out the EMG 81/60 set he moved to on …And Justice For All.",
+      "We don't list signature pickups on a recording from 1969. The Hetfield Master of Puppets recipe uses the Seymour Duncan Invaders in his 1985 King V, not the EMG 81/60 set he switched to two years later.",
   },
   {
     head: "Real units on every knob",

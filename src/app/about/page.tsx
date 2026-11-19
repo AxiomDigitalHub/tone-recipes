@@ -66,8 +66,9 @@ export default function AboutPage() {
               <h3 className="hiw-promise-head">Era-correct gear</h3>
               <p className="hiw-promise-body">
                 We don&apos;t list signature pickups on a recording from
-                1969. The Hetfield Master of Puppets recipe leaves out the
-                EMG 81/60 set he moved to on …And Justice For All.
+                1969. The Hetfield Master of Puppets recipe uses the Seymour
+                Duncan Invaders in his 1985 King V, not the EMG 81/60 set he
+                switched to two years later.
               </p>
             </div>
             <div className="hiw-promise">

@@ -59,10 +59,10 @@ export default function HowWeWorkPage() {
               <span className="mt-1 shrink-0 text-[var(--amber-2)]">2.</span>
               <div>
                 <strong className="text-[var(--ink)]">Generates preset files.</strong>{" "}
-                Our Helix .hlx presets are generated programmatically using a
-                model map verified against 300+ real presets. Every model ID,
-                parameter name, and value range has been cross-referenced with
-                actual hardware output.
+                Helix, Quad Cortex, and Katana presets are generated
+                programmatically from a map of each unit&apos;s model IDs and
+                parameter ranges. When one fails to load, the fix ships as a
+                public commit.
               </div>
             </li>
             <li className="flex gap-3">
