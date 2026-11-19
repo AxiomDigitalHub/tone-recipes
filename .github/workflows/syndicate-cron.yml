@@ -1,0 +1,78 @@
+# Daily content syndication (docs/SYNDICATION.md).
+#
+# Same droplet-loopback pattern as sunday-setlist-cron.yml: a GH runner can't
+# reach faderandknob.com through Cloudflare Bot Fight Mode, so we SSH in and
+# fetch inside the app container. CRON_SECRET and every platform token live
+# in the container env (.env.production) and never transit this workflow.
+#
+# Kill switch: repo var SYNDICATE_ENABLED != 'true' stops the schedule.
+# Manual runs default to a dry run so a dispatch can't publish by accident.
+
+name: Syndication cron
+
+on:
+  schedule:
+    - cron: "30 15 * * *"
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: "Dry run (plan + render only, nothing published)"
+        type: boolean
+        default: true
+      platform:
+        description: "Only this platform id (medium, hashnode, blogger, wordpress). Empty = all."
+        required: false
+        default: ""
+
+permissions:
+  issues: write
+
+jobs:
+  syndicate:
+    if: vars.SYNDICATE_ENABLED == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger syndication endpoint from the droplet
+        uses: appleboy/ssh-action@v1
+        env:
+          # Scheduled runs are real runs; dispatches honor the checkbox.
+          DRY: ${{ github.event_name == 'workflow_dispatch' && inputs.dry && '1' || '' }}
+          PLATFORM: ${{ inputs.platform }}
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          envs: DRY,PLATFORM
+          command_timeout: 10m
+          script: |
+            set -eu
+            cd /opt/faderandknob
+            docker compose exec -T -e DRY="${DRY:-}" -e PLATFORM="${PLATFORM:-}" app \
+              node --input-type=module -e '
+                const secret = process.env.CRON_SECRET;
+                if (!secret) { console.error("CRON_SECRET missing in container env"); process.exit(1); }
+                const q = new URLSearchParams();
+                if (process.env.DRY) q.set("dry", "1");
+                if (process.env.PLATFORM) q.set("platform", process.env.PLATFORM);
+                const url = "http://localhost:3000/api/cron/syndicate" + (q.size ? "?" + q : "");
+                const res = await fetch(url, { headers: { Authorization: `Bearer ${secret}` } });
+                const body = await res.text();
+                console.log("HTTP", res.status, body);
+                if (!res.ok) process.exit(1);
+                const json = JSON.parse(body);
+                const bad = json.results.filter((r) => /failed/.test(r.outcome));
+                if (bad.length || json.stuckPending.length) {
+                  console.error(`${bad.length} failed, ${json.stuckPending.length} stuck pending`);
+                  process.exit(1);
+                }
+              '
+
+      - name: File issue on failure
+        if: failure() && github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Syndication cron failed ($(date -u +%F))" \
+            --body "Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+            || echo "issue creation failed (non-fatal)"
