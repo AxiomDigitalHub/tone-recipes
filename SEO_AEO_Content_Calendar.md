@@ -8780,3 +8780,108 @@ unchanged; #31 partly open):
 | AT3 | contactless-expression-pedal-magnetic-optical-modeler | (carried, see 11-09 deferral note) | — | Sean Nakamura | 4 | Needs a third first-party sensor-pedal doc before build. |
 | AX1 | blessed-be-your-name-matt-redman-guitar-tone-helix | Blessed Be Your Name Guitar Tone on the Line 6 Helix | "blessed be your name guitar tone," "blessed be your name helix patch" | Nathan Cross (now 2/3) or fk-staff | 3 — Worship cluster (Tier 2 #11; #9 Way Maker and #10 What a Beautiful Name already published) | Verify key/BPM/meter on MultiTracks + PraiseCharts; derive the song-specific hook from its verified tempo and arrangement — not the tap, drone, 75-vs-148, version-drift or model-ceiling templates. No rig claim without A/B source. |
 | AX2 | room-correction-ir-loader-vs-global-eq | Can an IR Do Room Correction on a Modeler? | "room correction ir helix," "sonarworks ir modeler," "global eq vs ir room correction" | Dev Okonkwo | 4 — Modeler Masterclass | **Surfaced by R1 SERP:** forum users bake room correction into a stereo IR. Distinct question: what an IR loader's length limit does to low-frequency correction. **Gate 7 guard:** first-party IR length/sample-rate specs for Helix and QC IR blocks (grade A), computed frequency resolution vs. the &lt;200 Hz range REW recommends correcting; no listening claims. |
+
+---
+
+## Daily Run — 2026-11-20 (2 new posts + 1 refresh)
+
+### Posts published: blessed-be-your-name-matt-redman-guitar-tone-helix, room-correction-ir-loader-vs-global-eq
+
+**Velocity:** `persona-velocity.ts` reported **4 posts in 7 days** (Nathan 2,
+Sean 1, Viktor 1). AX1 → Nathan (2 → 3, now at cap). AX2 → Dev (0 → 1). Bars
+checked, quoted: Nathan's "Metal or high-gain / Budget/punk rig guides /
+Vintage gear collecting": an up-tempo worship song with light drive, clear.
+Dev's "Live rig or pedalboard reviews / High-gain or metal tones / Vintage
+gear or gear history": a monitoring/DSP question, clear. Collision checks: no
+blessed-be-your-name or room-correction slug existed. AT3 still deferred.
+
+**Gate 7 guards met:**
+- **AX1:** MultiTracks (A): Redman *Coming Back To The Heart* 2024 Bb/116/4:48
+  with song map; *Let There Be Wonder (Acoustic)* 2020 A/116/3:53; Worship
+  Initiative Vol. 3 2014 B/114; Maranatha *Top 25 2012* B/120; *He Reigns*
+  C/120 (not labelled Newsboys — not called Newsboys in post). PraiseCharts (A):
+  2002 original B, "Med Fast", "Rock", CCLI 3798438, © 2002 Thankyou Music;
+  Tree63 Db; 2024 interlude chords Bbmaj7/F4/Gm7/Ebsus2+4. WorshipTogether (A):
+  A/120 — conflict with PraiseCharts' B **stated in the post**. Wikipedia (B,
+  cites Billboard): Tree63 No. 2 Hot Christian Songs. **No rig/guitarist found
+  — post is rig-free.** **Non-commodity hook (new template, per the queue's
+  ban on tap/drone/75-vs-148/version-drift/model-ceiling):** one A-shape
+  voicing set with capo 0–4 covers all five published keys; section count from
+  the 2024 map (2 verses vs 3 vamps + 4 interludes + 3 bridge passes) → preset
+  built around the interlude; three-pass bridge build. **Gate 5:** expected a
+  verse-chorus song; the live map is mostly interlude/vamp.
+- **AX2:** Line 6 KB (A): Helix converts IRs to 48 kHz mono, left side only,
+  2,048 samples, 1024 option fades halfway. Helix Stadium manual (A): 2,048
+  samples, 48 kHz, 32-bit float mono. QC manual (A): resized to 1,024 samples.
+  Fractal Blocks Guide (A): FullRes up to 1.37 s, Axe-Fx III Mark II only;
+  DynaCab 1,024 on FM9/FM3. Boss IR-200 spec (A): 500 ms, mono/stereo, up to
+  96 kHz. REW help (A): correct below ~200 Hz; filter IR export 131,072
+  samples. Biamp KB + Pat Brown/ProSoundWeb (B): resolution = Fs/taps.
+  **Computed:** resolution and points-below-200 Hz per device; 1.6%/0.8% of a
+  REW filter survives. **Gate 5:** expected the IR to be the more precise tool;
+  below 200 Hz a single IIR parametric band beats a 2,048-sample FIR. **No
+  listening claims**; verification step uses REW overlay with "expect" wording.
+  HX Stomp left out of the 2,048 row (no first-party text names it).
+
+### SERP analysis
+
+| Post | Target query | Top results (standard search) | Gap our post fills | AI Overview? F&K cited? |
+|---|---|---|---|---|
+| blessed-be-your-name-matt-redman-guitar-tone-helix | "blessed be your name guitar tone" / "…helix patch" | WonderHowTo acoustic lesson, PraiseCharts tab (B), Karaoke-Version Tree63 backing track, zZounds songbook; then generic tone articles. No Helix patch for this song anywhere (PraiseCharts sells them for other Redman songs). | No tone content for the song at all. Ours: 6-version key/BPM table, capo map for 5 keys, interlude voicings, preset + snapshots built from the 2024 song map, HX Stomp/QC/pedalboard. | Not observable: search tool returns organic links only. |
+| room-correction-ir-loader-vs-global-eq | "room correction ir helix", "sonarworks ir modeler", "global eq vs ir room correction" | Wikipedia DRC, Microsoft Learn, Roon REW thread, Dirac, Line 6 cab-tone threads; KVR/SOS/MusicTech Sonarworks reviews; CE Pro, Gearspace, MathWorks, CamillaFIR, Dirac blog | Nothing modeler-specific. Ours: per-device IR length → resolution table, what truncation does to a REW filter, routing problem, when Global EQ vs IR vs long-IR hardware. | Not observable. |
+| way-maker-guitar-tone-helix (R1) | "way maker guitar tone helix" / "way maker helix patch" | PraiseCharts Helix / HX Stomp / POD Go / patch-pack product pages; second query weak (WorshipTutorials list page, Music Gateway roundup, That Worship Sound install doc, unrelated Line 6 thread, MultiTracks Tyler Logan pack) | All paid patch pages; no free editorial guide. Ours now adds verified version table, synced-delay drift math, song-map snapshot plan. | Not observable. |
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | way-maker-guitar-tone-helix | **Factual fix:** removed "rig well documented in rig walkthroughs of Leeland guitarist Casey Moore's setup — Strat, volume pedal, Klon-style drive, dotted-eighth delay, reverb, AC30". Casey Moore is confirmed as Leeland's guitarist (his SoundBetter profile, A), but the only first-party gear statement is a desert-island answer ("Ac30, delay pedal, strat"); community gear lists show a Jazzmaster/White Falcon and differ on Klon; nothing ties any gear to the *Better Word* track. Now stated that way. **New:** versions table (Leeland E/68/8:15, Passion D/69/6:52, REVERE A/71.5/8:04 from MultiTracks; Sinach B, CCLI 7115744, 2016 from PraiseCharts) with dotted-1/8, 1/4 and bar length; MultiTracks' tempo-variation note → delay set as a synced note value (was fixed 661 ms) with drift math (18/36/54 ms at 70 BPM) and MIDI-clock link; Leeland and Passion song maps → snapshot assignments; reverb decay vs bar length; QC + pedalboard section (Gate 10). FAQ: added key/BPM Q; two answers updated to synced time. Takeaways: +1, one rewritten. `seo_title` added. `updated: 2026-11-20`. Links added: MIDI clock, tap-light drift, delay maximums. | Refresh-debt #47 + an unsourced rig attribution on the top worship query (CCLI top 10), against the worship attribution convention. |
+
+Inbound links for new posts: AX1 ← none yet (links out to Build My Life, Way Maker, hub); AX2 ← none yet (links out to REW, room modes, headphone FR, IR guide, Global EQ guide). Add inbound links on the next refresh of rew-modeler-global-eq and the worship hub.
+
+**Gates (self-audit):**
+- **AX1** (Nathan): self-references 1 ("I expected a verse-chorus rock song");
+  signature phrases 0; Gate 6 clean (no bare warm/lush/etc.; "one gray
+  block" for over-wet strumming); Gate 10: HX Stomp, QC, pedalboard. Fixed in
+  self-audit: claimed open B *and* E strings ring through all four interlude
+  shapes — only high E does (A in two); Scream 808 "Drive" → Gain; legacy
+  Plate → Plateaux (decay in seconds).
+- **AX2** (Dev): self-references 1 ("I expected the IR to be the more precise
+  tool"); signature phrases 0; one ellipsis; Gate 10: Helix, Stadium, QC,
+  Fractal III/FM9/FM3, Boss IR-200.
+- **R1** (fk-staff): editorial-neutral, no first person added.
+
+**Image pipeline note:** overrides added for AX1 and AX2. AX1 rendered a
+sunburst semi-hollow with no capo; AX2 rendered brand_pop split-wall scene
+with a studio mic rather than a measurement mic. Both carry only gibberish
+label text. `image_alt` rewritten to match. Spend ≈ $0.11 (2 renders).
+
+**Refresh debt carried forward** (items 1–18, 20–22, 24–30, 33–35, 37–40,
+42–46 unchanged; #31 partly open; #47 Way Maker done, What a Beautiful Name
+still open):
+48. **NEW: Helix IR spec drift.** `helix-ir-shootout` and
+    `impulse-response-ir-guide` say Helix accepts 24-bit WAVs and stores
+    "up to 1024 IRs"; Line 6 KB says Helix Edit converts to 16-bit/48 kHz mono
+    and numbers IR slots 1–128 (Stadium: 32-bit float, 2,048 IRs). Fix both.
+49. **NEW: `moore-way-maker` recipe attribution.** Recipe slug and data credit
+    Casey Moore with a Way Maker rig no source documents. Check the recipe
+    page copy against the convention.
+50. **NEW: Matchstick Ch1 / Kinky Boost parameter labels** in AX1 are
+    generic (Drive/Bass/Mid/Treble; Gain/Level). Confirm against the Helix
+    manual model list.
+
+### 2 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 2 (AX1, AX2), AT3 still deferred, added 2 — **queue now at 3.**
+> Bylines are best-fit proposals; the executing run re-checks velocity **and
+> quotes the never-assign bar it checked**, and verifies no colliding slug.
+>
+> **Rejected as re-slices:** (a) "Blessed Be Your Name capo chart" — AX1
+> capo table; (b) "Helix IR length 2048 vs 1024" — AX2 table + existing IR
+> guide; (c) "Way Maker Passion version Helix" — R1 version table.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AT3 | contactless-expression-pedal-magnetic-optical-modeler | (carried, see 11-09 deferral note) | — | Sean Nakamura | 4 | Needs a third first-party sensor-pedal doc before build. |
+| AY1 | ten-thousand-reasons-matt-redman-guitar-tone-helix | 10,000 Reasons (Bless the Lord) Guitar Tone on the Line 6 Helix | "10000 reasons guitar tone," "10000 reasons helix patch" | fk-staff (Nathan at 3/3 until 11-24) | 3 — Worship cluster | **Surfaced by AX1 SERP:** PraiseCharts sells a Helix patch, no editorial guide ranks. Verify versions on MultiTracks/PraiseCharts; derive a hook from its verified arrangement — not tap, drone, 75-vs-148, version-drift, model-ceiling or capo-map templates. No rig claim without A/B source. |
+| AY2 | long-ir-500ms-room-mic-capture-what-it-adds | What Does a Long IR Capture That a 43 ms Cab IR Can't? | "long impulse response guitar cab," "fullres ir," "ir-200 500ms ir" | Sean Nakamura | 4 — Modeler Masterclass | **Surfaced by AX2 research:** Boss IR-200 (500 ms) and Axe-Fx III Mk II FullRes (1.37 s) vs 1,024/2,048-sample cab slots. Distinct question: room-mic distance and early reflections in captures, not correction. **Gate 7 guard:** first-party lengths (have) + computed arrival times for mic distances (sound travels ~34 cm/ms) vs IR duration; no listening claims without a test. |

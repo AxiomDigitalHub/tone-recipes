@@ -1,10 +1,11 @@
 ---
 title: Way Maker Guitar Tone on the Line 6 Helix (Leeland)
+seo_title: "Way Maker Guitar Tone on the Helix (Leeland)"
 description: >-
-  Build the Way Maker (Leeland) electric tone on the Helix — a chiming
-  Alnico-Blue AC30, a 661 ms dotted-eighth delay, volume-pedal swells, and a
-  verse-to-bridge snapshot layout.
+  Way Maker on the Helix: Leeland's E/68 BPM version vs Passion and REVERE,
+  dotted-eighth times per version, a chiming AC30 and a song-map snapshot plan.
 date: '2026-07-10'
+updated: '2026-11-20'
 author_slug: fk-staff
 category: tone-recipes
 tags:
@@ -27,9 +28,14 @@ takeaways:
     top — master the swell and the delay timing and you have most of the part
     before you touch an amp knob.
   - >-
-    At 68 BPM, the dotted-eighth delay lands at about 661 ms. Set it by the
-    number or tap it to the click, because an off-tempo dotted eighth is the
-    fastest way to make this tone sound wrong.
+    MultiTracks lists Leeland's Way Maker in E at 68 BPM (dotted eighth 662
+    ms), Passion's in D at 69 (652 ms) and REVERE's in A at 71.5 (629 ms).
+    Set the delay as a note value, not a fixed millisecond time, so one preset
+    covers every version.
+  - >-
+    MultiTracks notes the Leeland track has tempo variations, so a delay typed
+    in at 661 ms will drift against the band; follow the click over MIDI clock
+    or retap at each section.
   - >-
     The amp voice is a chiming Alnico-Blue AC30, not a Greenback one — on the
     Helix that is the Essex A30 into a 2x12 Blue Bell cab, and the cab choice
@@ -45,12 +51,18 @@ takeaways:
 faq:
   - q: What delay setting is used on Way Maker?
     a: >-
-      A dotted-eighth delay locked to the song tempo. The Leeland recording
-      runs at about 68 BPM in E, and a dotted eighth at 68 BPM is (60000 / 68)
-      × 0.75 — roughly 661 ms. On the Helix, set an Adriatic Delay to 661 ms
-      (or tap it to the click), feedback around 38, mix around 30%, with the
-      high cut near 6 kHz so the repeats add motion without turning into a
-      rhythmic figure over the pad.
+      A dotted-eighth delay locked to the song tempo. MultiTracks lists the
+      Leeland recording in E at 68 BPM, where a dotted eighth is (60000 / 68)
+      × 0.75, about 662 ms. On the Helix, set an Adriatic Delay's Time to a
+      dotted-eighth note value so it follows the preset or MIDI-clock tempo,
+      feedback around 38, mix around 30%, with the high cut near 6 kHz so the
+      repeats add motion without turning into a rhythmic figure over the pad.
+  - q: What key and BPM is Way Maker?
+    a: >-
+      It depends on the version. MultiTracks lists Leeland (Better Word, 2019)
+      in E at 68 BPM, Passion (Roar) in D at 69 and REVERE with Darlene Zschech
+      and William McDowell in A at 71.5, all in 4/4. PraiseCharts gives B as
+      the original key of Sinach's single, CCLI 7115744.
   - q: What amp gives the Way Maker guitar tone on the Helix?
     a: >-
       A Vox AC30 with its stock Celestion Alnico Blue speakers — the chiming,
@@ -69,8 +81,8 @@ faq:
     a: >-
       Almost always the delay. If the dotted eighth is not locked to the song
       tempo, or the feedback and mix run too high, the repeats compete with
-      the pad instead of supporting it. Set the time to about 661 ms at 68
-      BPM, keep the mix near 30%, roll the delay's high cut down to about 6
+      the pad instead of supporting it. Sync the time to a dotted eighth (about
+      662 ms at Leeland's 68 BPM), keep the mix near 30%, roll the delay's high cut down to about 6
       kHz so the repeats go dark, and play sparse — the swell plus a
       well-timed delay does the work.
   - q: How is the Way Maker tone different from Goodness of God?
@@ -87,7 +99,7 @@ faq:
 > 1. Amp: **Essex A30** into a **2x12 Blue Bell** cab — the chiming Alnico-Blue AC30
 > 2. Compressor: **Deluxe Comp**, always on, light — evens the swells
 > 3. Boost: **Minotaur** (Klon-style), off by default — the chorus lift
-> 4. Delay: **Adriatic Delay**, dotted eighth at 68 BPM (≈661 ms), repeats dark
+> 4. Delay: **Adriatic Delay**, synced dotted eighth (≈662 ms at Leeland's 68 BPM), repeats dark
 > 5. Reverb: **Plateaux**, plate/hall bed at ~38% mix — the floor the swells float on
 
 ---
@@ -96,11 +108,22 @@ faq:
 
 What you hear on Leeland's recording of Way Maker is a wide, swelling wall of ambience that feels like three instruments. What it actually is: a Strat-style guitar, a volume pedal, one dotted-eighth delay, and a reverb. The complexity is in the timing and the signal order, not the gear count.
 
-The rig behind the recording is well documented in rig walkthroughs of Leeland guitarist Casey Moore's setup — a Strat into a volume pedal, a Klon-style drive, a dotted-eighth delay, and a reverb pedal in front of a Vox AC30 — and it translates to the [Helix](/platforms/helix) in seven blocks. Every block name below is exact and ports to Helix Floor, LT, HX Stomp, and Native. Three of the settings carry the whole tone; get those right and the rest is scaffolding.
+Nobody has published who played which electric part on the *Better Word* recording, or the rig used for it. Casey Moore is Leeland's guitarist, and asked on his SoundBetter profile which gear he'd keep on a desert island, he answered an AC30, a delay pedal and a Strat. That's a preference, not a rig rundown for this track, so treat what follows as a way to get the sound on the [Helix](/platforms/helix), not a copy of a documented signal chain. It takes seven blocks. Every block name below is exact and ports to Helix Floor, LT, HX Stomp, and Native. Three of the settings carry the whole tone; get those right and the rest is scaffolding.
+
+## Which Version Are You Playing?
+
+| Recording (MultiTracks) | Key | BPM | Length | Dotted 1/8 | 1/4 | Bar of 4/4 |
+|---|---|---|---|---|---|---|
+| Leeland, *Better Word* (2019, Integrity) | E | 68 | 8:15 | 662 ms | 882 ms | 3.53 s |
+| Passion, *Roar* (2020) | D | 69 | 6:52 | 652 ms | 870 ms | 3.48 s |
+| REVERE with Darlene Zschech and William McDowell (2020) | A | 71.5 | 8:04 | 629 ms | 839 ms | 3.36 s |
+| Sinach, *Way Maker* single (2016) | B (PraiseCharts) | not published | — | — | — | — |
+
+Sinach (Osinachi Kalu Okoro Egbu) wrote the song; PraiseCharts lists it as CCLI 7115744. Leeland's version is the one most teams learned, and its 8:15 runtime is why the snapshot plan below spends so much time on the refrain and the instrumental. If your team plays the Passion or REVERE arrangement, the preset still works as long as the delay is synced to a note value rather than typed in as milliseconds.
 
 ## The Full Helix Chain
 
-Key of E, 68 BPM. Verses clean and swelling, choruses lifted by the boost.
+Leeland version: key of E, 68 BPM. Verses clean and swelling, choruses lifted by the boost.
 
 | Position | Block | On/off | Key settings |
 |---|---|---|---|
@@ -109,14 +132,16 @@ Key of E, 68 BPM. Verses clean and swelling, choruses lifted by the boost.
 | 3 | Minotaur (Klon-style) | Off in verse | Gain 3, Tone 6, Level 6.5 |
 | 4 | Essex A30 (amp) | On | Drive 4.0, Bass 5.0, Mid 5.5, Treble 6.0, Sag 5.5, Master 4.0 |
 | 5 | 2x12 Blue Bell (cab) | On | Low cut 90 Hz, High cut 8.5 kHz, Position 0.45 |
-| 6 | Adriatic Delay | On | Time 661 ms, Feedback 38, Mix 30%, High cut 6 kHz |
+| 6 | Adriatic Delay | On | Time 1/8 dotted (662 ms at 68 BPM), Feedback 38, Mix 30%, High cut 6 kHz |
 | 7 | Plateaux (reverb) | On | Decay 6.5, Mix 38%, Pre-delay 20, Low cut 130 Hz |
 
 Note the amp knobs are on the Helix 0–10 scale — Drive at 4.0 is just shy of breakup, which is exactly where this tone lives.
 
-## Number One: 661 Milliseconds
+## Number One: The Dotted Eighth, Synced
 
-The delay time is not a taste decision. The standard worship formula is `(60000 / BPM) × 0.75`, and at 68 BPM that lands at **≈661 ms**. Set the Adriatic block to 661 and it locks to the song; tap it in live if you prefer, but tap to the click, not to your gut.
+The delay time is not a taste decision. The standard worship formula is `(60000 / BPM) × 0.75`, and at Leeland's 68 BPM that lands at **≈662 ms**. The obvious move is to type 661 into the Adriatic block and call it done. The MultiTracks page for the Leeland track says otherwise: it notes tempo variations in the recording and recommends playing with the included click rather than a fixed tempo. A live 8-minute take that drifts even to 70 BPM wants a 643 ms dotted eighth, and a fixed 661 ms delay lands 18 ms late on the first repeat, 36 on the second and 54 on the third, which is exactly the "second guitarist playing the wrong rhythm" smear this part can't afford.
+
+So set Time to the dotted-eighth note value and let the tempo come from somewhere honest: the click track over MIDI clock ([setup guide](/blog/helix-midi-clock-playback-click-worship)), or a retap at each section if you're playing to a drummer. The [tap-light drift guide](/blog/delay-drifts-from-tap-light-long-repeats) covers why long repeats expose small tempo errors. The Adriatic Delay's 1.8 second ceiling (Line 6's published figure for the same model on the DL4 MkII) holds a dotted eighth or a quarter at every tempo in the table above, so none of the versions trips the halving behavior covered in the [delay maximums guide](/blog/delay-max-time-per-model-slow-tempo).
 
 Why this matters more than any other setting: a dotted-eighth delay that is even slightly off-tempo does not sound like a slightly wrong delay — it sounds like a second guitarist playing the wrong rhythm. It is the same interval The Edge built a career on ([the Edge delay settings](/blog/the-edge-delay-settings) covers that lineage), applied here to a slow swell instead of a driving riff. Roll the delay's high cut down to about 6 kHz while you are in there: dark repeats add motion, bright repeats tick and slap over the pad. The deeper logic of locking delay and reverb to one tempo grid is covered in [one BPM, one grid](/blog/one-tempo-grid-predelay-dotted-eighth-delay).
 
@@ -136,7 +161,7 @@ The boost exists for one job: the lift. Kick it on and the transparent, low-gain
 
 ## Verse, Chorus, Bridge: The Snapshot Layout
 
-Way Maker builds in long waves — declarative verses, a chorus that opens wide, and a bridge that repeats and grows until it becomes the biggest moment in the room. Four snapshots cover the arc:
+Way Maker builds in long waves — declarative verses, a chorus that opens wide, and a bridge that repeats and grows until it becomes the biggest moment in the room. MultiTracks maps the Leeland version as Intro, Verse 1, Chorus, Verse 2, Verse 3, Chorus, Refrain, Chorus, Bridge, Chorus, Refrain, Chorus, Instrumental, Refrain, Ending. Four snapshots cover that arc: snapshot 1 for the intro and all three verses, 2 for the first two choruses, 3 for the refrains and the choruses after the bridge, and 4 for the bridge and the instrumental. Passion's map (Intro, V1, Chorus, V2, V3, Chorus, Refrain, Interlude, Bridge, Chorus, Refrain, Ending) uses the same four, with the interlude on snapshot 3.
 
 | Snapshot | Song moment | Minotaur | Delay | Reverb mix |
 |---|---|---|---|---|
@@ -158,11 +183,20 @@ Every number above can be handed to you. The volume-pedal swell cannot. Heel bac
 
 The pedal sits first in the chain on purpose: swelling *into* the compressor, amp, delay, and reverb means the swell shapes how everything downstream blooms — the reverb tail grows with the note instead of arriving pre-formed. The mechanics are covered in [volume swells 101](/blog/volume-swell-technique), but the honest truth is that it is reps, not reading.
 
+## Reverb Against the Bar
+
+At 68 BPM a bar of 4/4 lasts 3.53 seconds. The Plateaux's 6.5 second decay therefore spans almost two bars, which is what makes the verses feel like a held pad rather than a strummed part, and also why the choruses can turn to mush once the band is in. If chord changes blur in snapshot 2, drop the decay toward 3.5 seconds there and keep the long tail for snapshots 1 and 4.
+
 ## On an HX Stomp
 
 The chain already fits: Volume Pedal · Deluxe Comp · Minotaur · Essex A30 (with the Blue Bell cab) · Adriatic Delay · Plateaux is six blocks. Collapse the four snapshots to the Stomp's three — Swell Pad, Lift, and Bridge Build — and cover the clean chorus by riding the volume pedal from the Pad snapshot. For a whole-service version of this layout, the [four-snapshot Sunday morning system](/blog/helix-worship-snapshots-sunday-morning) generalizes the same architecture.
 
 ---
+
+## Other Platforms
+
+- **Quad Cortex:** a chiming AC30 capture or model into a Blue-voiced cab, a tempo-synced digital or tape delay at a dotted eighth and a plate. Check whether tempo is set Global or per Preset before rehearsal, and save one preset per version if your team switches between Leeland and Passion.
+- **Pedalboard:** any delay with tap and a dotted-eighth division covers it. With the division set to dotted eighth, tapping quarter notes at 68 BPM puts the repeats at 662 ms. Retap when the band moves, since a pedal without MIDI clock won't follow the click on its own.
 
 <SaveThisTone recipeSlug="moore-way-maker" />
 

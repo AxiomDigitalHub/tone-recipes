@@ -1,0 +1,118 @@
+---
+title: Can an IR Do Room Correction on a Modeler?
+seo_title: Room Correction With an IR on Helix or Quad Cortex?
+description: >-
+  Why a 1,024 or 2,048-sample cab IR can't fix room modes below 200 Hz, what
+  Helix, Quad Cortex, Fractal and Boss IR lengths allow, and when to use Global
+  EQ.
+date: '2026-11-20'
+author_slug: dev-okonkwo
+category: modeler-masterclass
+tags:
+  - room-correction
+  - impulse-response
+  - global-eq
+  - room-eq-wizard
+  - helix
+  - quad-cortex
+  - fractal
+  - studio-monitors
+image: /images/blog/room-correction-ir-loader-vs-global-eq.jpg
+image_alt: >-
+  Two black studio monitors and a microphone on a white desk against a split yellow and blue wall, with a floor guitar modeler on the ground below
+takeaways:
+  - >-
+    An impulse response's frequency resolution is roughly the sample rate
+    divided by its length: about 23 Hz for a 2,048-sample IR at 48 kHz and about
+    47 Hz for 1,024 samples.
+  - >-
+    Helix and Helix Stadium cab IRs run at 2,048 samples (about 43 ms) and the
+    Quad Cortex resizes IRs to 1,024 samples (about 21 ms), which leaves only a
+    handful of points below the 200 Hz range REW recommends correcting.
+  - >-
+    REW exports a correction filter as a 131,072-sample WAV. Loading it into a
+    2,048-sample IR slot keeps about 1.6 percent of it, and the part thrown away
+    is the long tail that does the bass correction.
+  - >-
+    A parametric band in Global EQ has no length limit, so it can notch a narrow
+    60 Hz room peak that a short IR can only smear across 20 Hz or more.
+  - >-
+    Long-IR hardware changes the math: the Boss IR-200 accepts 500 ms IRs and
+    the Axe-Fx III Mark II's FullRes mode accepts up to 1.37 seconds.
+faq:
+  - q: Can I load a room correction filter into my Helix IR block?
+    a: >-
+      You can load it, but Line 6 says Helix shortens every IR to 2,048 samples
+      at 48 kHz and keeps only the left channel. A REW filter is 131,072 samples
+      long, so most of its low-frequency correction is cut off before it plays.
+  - q: How short is too short for bass correction?
+    a: >-
+      At 48 kHz, frequency resolution is about 48,000 divided by the number of
+      samples. A 2,048-sample IR resolves about 23 Hz steps, which gives only
+      eight points between 0 and 200 Hz. Room modes are often only a few hertz
+      wide, so they fall between those points.
+  - q: Is Global EQ better than an IR for room correction?
+    a: >-
+      Below about 200 Hz, yes. A parametric band can be centered exactly on a
+      room peak with a narrow Q, and on a Helix Floor, LT or Rack you can apply
+      Global EQ only to the outputs that feed your monitors, so the FOH or
+      recording feed stays flat.
+  - q: Does Sonarworks SoundID export an IR for a modeler?
+    a: >-
+      Not that we could find. Sonarworks documents profile export as .bin files
+      for supported hardware integrations, not as a WAV impulse response.
+  - q: When does an IR make sense for correction?
+    a: >-
+      For broad, smooth changes above a few hundred hertz, such as taming a
+      monitor's bright top or matching a headphone curve, where 23 Hz resolution
+      is plenty. For room modes, use Global EQ or a long-IR device.
+---
+
+Rooms misbehave in the low end. A boomy note on the A string, a kick of bass when you sit back in the chair, a hole at 90 Hz that moves when you lean forward... that's the space between your monitors and your ears shaping the guitar before you hear it. Measurement software like Room EQ Wizard (REW) can design a filter to undo some of it, and since modelers already have convolution built in for cab impulse responses (IRs), loading a correction filter into an IR slot looks like the obvious shortcut. The length limit on those slots decides whether it works, and for the bass, where REW says correction matters most, it mostly doesn't.
+
+| Device | IR length the cab/IR block plays | Duration | Resolution at 48 kHz | Points between 0 and 200 Hz |
+|---|---|---|---|---|
+| Quad Cortex | 1,024 samples (resized on upload) | ~21 ms | ~47 Hz | 4 |
+| Helix 1024 option | 1,024 samples (fades out halfway) | ~21 ms | ~47 Hz | 4 |
+| Helix, Helix Stadium | 2,048 samples | ~43 ms | ~23 Hz | 8 |
+| Boss IR-200 | up to 500 ms | 500 ms | ~2 Hz | ~100 |
+| Axe-Fx III Mark II, FullRes | up to 1.37 s | 1.37 s | ~0.7 Hz | ~270 |
+| REW filter export | 131,072 samples | ~2.7 s | ~0.4 Hz | ~550 |
+
+Lengths are from Line 6's IR knowledge base and Helix Stadium manual, the Quad Cortex manual, the Boss IR-200 spec page, Fractal's Blocks Guide and the REW help file. Resolution is the standard FIR (finite impulse response) relationship, sample rate divided by filter length; Biamp's support notes and Pat Brown's writing on FIR filters both state it the same way.
+
+## Why Length Is Resolution
+
+An IR is a recording of how a system responds to a single click. Played through convolution, it becomes a filter, and the only frequency detail it can carry is the detail that fits inside its duration. A low frequency takes a long time to describe: one cycle of 50 Hz lasts 20 ms, so a 21 ms IR holds barely one cycle of it. Pat Brown puts it simply: the lower the frequency you want to affect, the more taps (samples) the filter needs.
+
+Room modes are where this bites. A mode is a resonance between parallel surfaces, and its peak can be only a few hertz wide (the [room modes guide](/blog/room-modes-standing-waves-boomy-note) shows how to find yours). A 2,048-sample IR has its frequency points about 23 Hz apart: 0, 23, 47, 70, 94 Hz and on up. A narrow peak at 60 Hz sits between two of them. The best a filter that short can do is a broad dip spread across tens of hertz, which also pulls down the notes around the one you meant to fix.
+
+I expected the IR to be the more precise tool. It's thousands of coefficients against a parametric band's three knobs, and FIR filters are what high-end room correction systems use. The numbers say the opposite for anything under 200 Hz: a single Global EQ band set to 60 Hz with a narrow Q hits that peak exactly, because an IIR (infinite impulse response) filter like a parametric EQ isn't limited by a sample count. The IR only wins when it's long enough, and on a Helix or Quad Cortex it isn't.
+
+## What Happens When You Load a REW Filter
+
+REW can export its correction filters as a WAV impulse response: 131,072 samples, mono or stereo, at a sample rate you choose. Line 6's knowledge base says Helix Edit converts any WAV to 48 kHz mono, uses only the left side of a stereo file, and shortens or lengthens every IR to 2,048 samples. Helix Stadium processes cab IRs as 2,048-sample, 48 kHz, 32-bit float mono files regardless of the source. The Quad Cortex manual says files of any length are resized to 1,024 samples.
+
+So a 131,072-sample correction filter becomes its first 2,048 samples, about 1.6 percent of the file on a Helix and 0.8 percent on a Quad Cortex. The energy at the start of the filter (the broad, higher-frequency corrections) survives. The long low-level tail, which is where a narrow bass correction lives, is gone. A file made by a linear-phase design tool fares worse: those filters put their main peak in the middle of the file, about 1.4 seconds in, so the first 43 ms may contain almost nothing.
+
+You can check this before trusting your ears. Trim a copy of the exported WAV to 2,048 samples in any audio editor, import both files into REW as impulse responses, and overlay their frequency responses. Expect the trimmed version to follow the original above a few hundred hertz and lose the narrow features below it.
+
+There's a routing problem too. A correction IR has to sit in the signal path, and on most modelers the IR slot is the cab slot. Either you give up the cab IR, or you add a second IR block in every preset, or you convolve the cab and the correction into one file offline and rebuild that file each time you change cabs. Every route puts the correction into the outputs that feed the PA or the DAW as well, unless you split the path per output.
+
+## What to Use Instead
+
+**Room modes below 200 Hz: Global EQ.** REW's own help recommends limiting correction filters to below about 200 Hz unless you're fixing a general speaker trait. That's exactly where parametric bands do best. The [REW Global EQ guide](/blog/rew-modeler-global-eq) walks through measuring, cutting peaks only, and setting REW's auto-EQ to the number of bands your unit has: three parametric bands plus low and high cut on Helix Floor, LT and Rack, applied to the 1/4-inch outputs, the XLR outputs or both; five bands on the Quad Cortex, assignable per output pair. That per-output choice keeps the room fix on your monitors and off the recording.
+
+**Broad tilts above 300 Hz or so: an IR can work.** A monitor that's a little bright above 4 kHz, or a curve that makes your headphones read more like your speakers, is a smooth shape tens or hundreds of hertz wide. At 23 Hz resolution, 2,048 samples is plenty for that. The [headphone frequency response guide](/blog/bedroom-modeler-headphone-frequency-response) covers that kind of matching; a short IR or the Global EQ's high shelf both do the job.
+
+**Real bass correction in the box: long-IR hardware.** The Boss IR-200 accepts mono or stereo IRs up to 500 ms at up to 96 kHz, about 2 Hz resolution. Fractal's Axe-Fx III Mark II has a FullRes mode for IRs up to 1.37 seconds, and Fractal notes it can even work as a convolution reverb. Those lengths can hold a meaningful room correction. Fractal's FM9 and FM3 can't: FullRes is Mark II only, and their DynaCab IRs are 1,024 samples.
+
+**Correction for the whole desk: do it after the modeler.** If the room problem affects everything you listen to (mixes, references, the guitar), correction belongs on the monitor path, in a monitor controller, the interface's DSP or room correction software on the computer, where it doesn't touch the guitar's signal at all.
+
+## A Note on Sonarworks
+
+Forum users on the Fractal board have talked about turning Sonarworks corrections into IRs for the IR Player block, with mixed results (one reported silent files). Sonarworks' own documentation describes exporting profiles as .bin files for supported hardware integrations, and we couldn't find a documented WAV export. Even if you capture one by measuring the corrected output, the length math above still applies once it lands in a 2,048-sample slot.
+
+## The Short Version
+
+Measure first, because you need to know what's wrong before choosing a tool. If the problem is a peak or two under 200 Hz, a Global EQ band per peak will do more than any cab-length IR can. If it's a broad tilt in the top end, an IR or a shelf both work. And if you want true convolution room correction inside the guitar rig, the device needs IRs measured in hundreds of milliseconds, not tens. The [IR guide](/blog/impulse-response-ir-guide) and the [modeler Global EQ guide](/blog/modeler-global-eq-guide) cover the rest of the setup.
