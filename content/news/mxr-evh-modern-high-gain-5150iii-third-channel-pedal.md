@@ -52,6 +52,5 @@ For everyone else who is already happy with their modeler's 5150 III block, this
 
 ## Dig Deeper on Fader & Knob
 
-- Our [high-gain rhythm tone guide](/blog/high-gain-rhythm-tones) breaks down the signal chain choices that separate a tight, articulate Channel-3 rhythm from a loose mess — the same trade-offs the Bass Shift switch is making.
-- The [Helix 5150 III block](/blog/helix-5150-iii-channels) walks through the differences between Channel 1, 2, and 3 inside the modeler, with parameter targets for each channel.
-- If you are running a hybrid rig, the [pedal-into-modeler routing guide](/blog/pedal-into-modeler-routing) covers the input-impedance and gain-staging considerations that determine whether an external drive sounds right going into a digital front end.
+- Our guide to [fixing fizzy high-gain tone](/blog/fix-fizzy-high-gain) covers the gain and EQ choices that keep a Channel-3 rhythm tight instead of loose.
+- Running a hybrid rig? The [4-cable method guide](/blog/where-to-put-noise-gate-4-cable-method) covers how to place external pedals around a modeler's amp block.

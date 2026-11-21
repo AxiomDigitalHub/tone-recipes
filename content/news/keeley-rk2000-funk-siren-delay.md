@@ -40,6 +40,4 @@ At $369 with presets and MIDI, the price is reasonable for what Keeley is delive
 
 ## Dig Deeper on Fader & Knob
 
-- The [Strymon Fairfax](/news/strymon-fairfax-analog-drive) is the other boutique builder story from early 2026 — their first all-analog pedal, shipped February.
-- Our [delay block guide for modelers](/blog/delay-block-guide) breaks down how to approximate analog delay character inside an HX Stomp or Quad Cortex if you're not ready for another pedal on the board.
-- Browse the [delay tone recipes](/blog/delay-recipes) for preset frameworks that use pitch-shifted and modulated delay tones from the songs you know.
+- Our [analog vs. digital vs. tape delay guide](/blog/delay-types-analog-digital-tape) explains where analog delay character comes from, which helps when approximating it on a modeler.

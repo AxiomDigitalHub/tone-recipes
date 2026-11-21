@@ -130,6 +130,9 @@ export default function SaveThisTone({
           {finalCtaLabel}
           <ArrowRight className="h-4 w-4" />
         </TrackedLink>
+        {/* Secondary link only when the primary goes somewhere else, or the
+            default CTA renders two identical "Browse the catalog" buttons. */}
+        {finalHref !== "/browse" && (
         <TrackedLink
           href="/browse"
           event="save_this_tone_click"
@@ -148,6 +151,7 @@ export default function SaveThisTone({
         >
           Browse the catalog
         </TrackedLink>
+        )}
       </div>
     </aside>
   );

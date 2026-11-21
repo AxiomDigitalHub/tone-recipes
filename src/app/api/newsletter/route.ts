@@ -68,6 +68,12 @@ export async function POST(request: Request) {
       const body = await request.json();
       email = body?.email;
       source = sourceFromUtm(body?.utm_source, body?.utm_content);
+      // In-post signup on /blog/<slug>: stored as blog:<slug> so signups
+      // can be traced back to the guide that earned them.
+      const postSource = body?.source;
+      if (source === "website" && typeof postSource === "string" && /^blog:[a-z0-9-]{1,80}$/.test(postSource)) {
+        source = postSource;
+      }
     }
 
     if (!email || !EMAIL_RE.test(email)) {

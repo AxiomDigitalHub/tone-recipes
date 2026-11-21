@@ -44,5 +44,5 @@ Whether that provenance translates into a sound you couldn't get from a cheaper 
 ## Dig Deeper on Fader & Knob
 
 - New to capture-based tone? Start with our [TONEX platform guide](/platforms/tonex) for signal chain fundamentals.
-- Wondering how TONEX captures compare to the other AI platform? See [TONEX vs. Quad Cortex captures](/blog/tonex-vs-quad-cortex-captures).
+- New to TONEX? Our [guide to choosing TONEX tone models](/blog/tonex-tone-models-guide) covers how to pick the right capture.
 - Want the wireless pedal that comes with this collection free? Here's our take on the [TONEX ONE+](/news/ik-multimedia-tonex-one-plus-wireless-midi).

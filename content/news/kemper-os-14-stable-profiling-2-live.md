@@ -46,7 +46,4 @@ If you are on a MK1 Profiler, the update is still worth taking — you can play 
 
 ## Dig Deeper on Fader & Knob
 
-- Our [Kemper profiling workflow guide](/blog/kemper-profiling-workflow) walks through the full process from mic placement to saving your finished profile, now updated for the Profiling 2.0 timing changes.
-- Re-profiling your collection? Our [guide to profiling high-gain amps on Kemper](/blog/kemper-high-gain-profiling) covers the settings that most affect accuracy on Mesa and Marshall voicings.
-- New to Kemper? Start with our [Kemper vs. Quad Cortex](/blog/kemper-vs-quad-cortex) comparison to understand where each platform's profiling approach has practical advantages.
 - Browse all our [Kemper tone recipes](/platforms/kemper) for community-tested preset frameworks.

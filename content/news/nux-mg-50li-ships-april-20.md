@@ -47,6 +47,4 @@ Sweetwater has pre-orders open now. The MG-50Li ships in dark blue and white on 
 ## Dig Deeper on Fader & Knob
 
 - We covered [Valeton's GP-150 and GP-180](/news/valeton-gp-150-gp-180-nam-support) yesterday — the direct sub-$200 competition with NAM support built in.
-- The [mid-range modeler comparison guide](/blog/mid-range-modeler-comparison) covers how the MG-30 stacks up against Mooer and Valeton in the current price tier.
-- Want to understand the difference between profiling and modeling? Our [amp profiling vs. modeling explainer](/blog/amp-profiling-vs-modeling) breaks down the practical implications for live use.
-- Browse our [NUX tone recipes](/platforms/nux) for preset frameworks built on the MG series.
+- Browse our [tone recipes](/browse) for preset frameworks you can adapt to the MG series.

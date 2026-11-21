@@ -59,6 +59,5 @@ Take your time. Listen to it. Decide whether the '80s rack thing is a tone you a
 
 ## Dig Deeper on Fader & Knob
 
-- The [Strymon Fairfax](/news/strymon-fairfax-analog-drive) is the closest comparison point in 2026 boutique pedal land — their first all-analog pedal, with a similarly considered design philosophy.
 - The [Keeley RK2000 Funk Siren Delay](/news/keeley-rk2000-funk-siren-delay) is a $369 delay built around a different vintage rack reference (the Ibanez DM2000) — useful context for understanding what specific-sound delay pedals are doing right now.
-- Our [delay block guide for modelers](/blog/delay-block-guide) covers how to approximate vintage rack delay character inside an HX Stomp or Quad Cortex if a $999 outboard pedal is not the move.
+- Our [analog vs. digital vs. tape delay guide](/blog/delay-types-analog-digital-tape) explains where analog delay character comes from, which helps when approximating it on a modeler.

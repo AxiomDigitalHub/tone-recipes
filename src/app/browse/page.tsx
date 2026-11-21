@@ -14,6 +14,7 @@ import { buildRigTokens } from "@/lib/gear-match";
 import { getBandName } from "@/lib/song-band";
 import { parsePageParam, pageWindow, paginate } from "@/lib/pagination";
 import BrowseRigFilter from "@/components/browse/BrowseRigFilter";
+import TrackedLink from "@/components/analytics/TrackedLink";
 
 /**
  * Per-facet metadata. The browse filters (?era, ?genre, ?platform,
@@ -481,10 +482,15 @@ export default async function PreviewBrowse({
                   const rBand = rSong ? getBandName(rSong, rArtist) : null;
                   return (
                     <li key={r.slug} className="audition-card-item">
-                    <Link
+                    {/* browse_card_click was defined but never fired, so GA4
+                        showed /browse as a dead end. This makes click-through
+                        from the catalog to a recipe measurable. */}
+                    <TrackedLink
                       href={`/recipe/${r.slug}`}
                       className="audition-card"
                       data-rig-tokens={rigTokens}
+                      event="browse_card_click"
+                      eventParams={{ recipe_slug: r.slug, page }}
                     >
                       <div className="audition-art">
                         <LpArt
@@ -520,7 +526,7 @@ export default async function PreviewBrowse({
                           See the chain <span aria-hidden="true">→</span>
                         </span>
                       </div>
-                    </Link>
+                    </TrackedLink>
                     </li>
                   );
                 })}

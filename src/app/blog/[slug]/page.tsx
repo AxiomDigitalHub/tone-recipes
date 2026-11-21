@@ -18,6 +18,7 @@ import { getWriter } from "@/lib/writers";
 import { extractToc } from "@/lib/toc";
 import { ToC } from "@/components/v3/ToC";
 import { RelatedRecipes } from "@/components/RelatedRecipes";
+import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
 import type { Metadata } from "next";
 
 /**
@@ -320,6 +321,7 @@ export default async function PreviewBlogPost({
             viewports (handled in CSS). */}
         <div className="post-reading">
           {tocEntries.length > 0 && <ToC entries={tocEntries} />}
+          <div>
           <div className="post-body">
             <MDXRemote
               source={post.content}
@@ -337,6 +339,18 @@ export default async function PreviewBlogPost({
                 ...settingsMdxComponents,
               }}
             />
+          </div>
+          {/* End-of-post email capture. GA4 (10-23 → 11-19) showed ~1%
+              week-one return on guides people read for 2–4 minutes, and no
+              way to bring them back. Placed where a finished reader lands. */}
+          <NewsletterSignup
+            variant="banner"
+            headline="Get new tone recipes by email"
+            subtext="New recipes, settings guides and modeler news in one weekly email. Unsubscribe anytime."
+            buttonText="Subscribe"
+            source={`blog:${post.slug}`}
+            className="post-signup mt-12"
+          />
           </div>
         </div>
 

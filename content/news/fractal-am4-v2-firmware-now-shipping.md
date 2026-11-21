@@ -39,7 +39,4 @@ V2.00 removes the last legitimate argument against it: that it was behind the fl
 
 ## Dig Deeper on Fader & Knob
 
-- Our [Fractal AM4 preset building guide](/blog/fractal-am4-preset-guide) walks through the signal chain from input to output, including how to configure the gate block for tight, low-tuned tone.
-- The new Swedish Metal Drive model pairs well with the approaches in our [HM-2 chainsaw tone recipe](/blog/hm2-chainsaw-tone) for players chasing that Stockholm sound.
-- Comparing the AM4 to the QC Mini or Helix HX Stomp? Our [compact modeler comparison](/blog/compact-modeler-comparison) breaks down the real-world tradeoffs.
 - Browse all our [Fractal tone recipes](/platforms/fractal) for ready-to-load preset frameworks.

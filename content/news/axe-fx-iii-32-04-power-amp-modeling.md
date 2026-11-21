@@ -46,6 +46,5 @@ A note for anyone on the Mark II Turbo: you have more DSP headroom to play with 
 ## Dig Deeper on Fader & Knob
 
 - Our coverage of the [Fractal AM4 V2.00 firmware](/news/fractal-am4-v2-firmware-now-shipping) walks through the prior amp modeling refinements that 32.04 builds on, including how the new analysis methods affect high-gain low-end behavior.
-- The [Fractal preset building guide](/blog/fractal-am4-preset-guide) covers signal chain construction with the gate block, drive block, and amp block — directly relevant when redialing presets after a 32.04 update.
 - For comparison context, the [Neural DSP CorOS 4.1.0 announcement](/news/neural-dsp-coros-4-1-pcom-darkglass-ultimate) covers what is shipping on the Quad Cortex side this month.
 - Browse all our [Fractal tone recipes](/platforms/fractal) for preset frameworks built on Axe-Fx III, FM9, and FM3.

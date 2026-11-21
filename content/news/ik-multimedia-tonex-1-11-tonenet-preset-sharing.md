@@ -49,5 +49,5 @@ For TONEX users who primarily relied on ToneNET for Tone Models, this update sig
 ## Dig Deeper on Fader & Knob
 
 - Building your first TONEX rig? Our [TONEX tone recipe guide](/platforms/tonex) walks through signal chain fundamentals.
-- Comparing AI capture platforms? See how TONEX stacks up in our [TONEX vs. Quad Cortex captures comparison](/blog/tonex-vs-quad-cortex-captures).
+- New to TONEX? Our [guide to choosing TONEX tone models](/blog/tonex-tone-models-guide) covers how to pick the right capture.
 - Want to dial in a specific sound? Browse our [TONEX tone recipes](/platforms/tonex) for ready-to-load presets.

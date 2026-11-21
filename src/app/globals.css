@@ -318,3 +318,15 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(245, 158, 11, 0.15);
 }
+
+/* In-post newsletter signup (blog/[slug]). `.fk-preview button` resets
+   background and padding on every button inside the v3 shell, which beat
+   the Tailwind utilities and left Subscribe as bare text. */
+.fk-preview .post-signup button[type="submit"] {
+  background: var(--amber);
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+}
+.fk-preview .post-signup button[type="submit"]:hover {
+  background: var(--amber-2);
+}

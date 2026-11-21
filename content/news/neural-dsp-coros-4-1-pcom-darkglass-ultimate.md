@@ -65,7 +65,6 @@ CorOS 4.1.0 release date and full Darkglass Ultimate changelog will be covered h
 
 ## Dig Deeper on Fader & Knob
 
-- New to PCOM? Our [Quad Cortex plugin compatibility guide](/blog/quad-cortex-pcom-guide) explains how Archetype X plugins run on the hardware and what to expect from each title.
 - Already own Archetype: Misha Mansoor X on desktop? Our [Periphery tone recipe on Quad Cortex](/platforms/quad_cortex) walks the signal chain that holds up under Neural Capture v2.
 - Comparing platforms before you buy? Our [Helix vs. Quad Cortex](/blog/helix-vs-quad-cortex) comparison includes the PCOM ecosystem as a factor.
 - Browse all our [Quad Cortex tone recipes](/platforms/quad_cortex) for signal chain frameworks ready to build on.

@@ -43,7 +43,4 @@ The honest comparison is probably not against the Helix or QC Mini. The real que
 
 ## Dig Deeper on Fader & Knob
 
-- New to NAM? Our [beginner's guide to Neural Amp Modeler captures](/blog/nam-captures-beginners-guide) covers how to find, download, and load community captures.
-- If you are comparing budget modelers, our [sub-$300 modeler roundup](/blog/budget-modeler-roundup) puts the GP-150, NUX MG-30, and Mooer GE300 side by side.
-- Want to push a GP-series unit further? Our [getting more from budget modelers](/blog/budget-modeler-tips) guide covers IR loading, parallel routing tricks, and output matching for direct-to-PA use.
-- Browse all our [budget-friendly tone recipes](/platforms/budget) for preset frameworks that work on GP-series units.
+- Shopping in this price range? See our roundup of the [best guitar modelers under $500](/blog/best-modeler-under-500).
