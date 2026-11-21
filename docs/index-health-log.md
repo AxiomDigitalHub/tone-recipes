@@ -376,3 +376,28 @@ Canonical finding: low Google index coverage on this site is an **AUTHORITY** pr
 - **⚠️ PARTIAL ALERT:** 3 of 5 worship posts are still absent from Google **143 days** after the 2026-06-26 submission.
 - **Bing AI citation log: ✅ captured** (second week in a row). See docs/BING_AI_CITATIONS.md.
 - **Verdict:** the site is healthy: sitemap 1,071 (+16), all `200`. Google worship coverage is flat at 2/5 across seven reads, and watching it weekly isn't changing anything. Run interactive `/index-health`, request indexing in GSC for lincoln-brewster, bethel-music and phil-wickham, and get inbound links to them. Coverage is gated by **authority (0 backlinks)**, not page count, so don't publish more pages.
+
+## 2026-11-20 (interactive: GSC coverage export + GA4 exports)
+
+Source: a GSC Page indexing export ("All known pages", data through 11-15) and GA4 exports for 10-23 → 11-19, both downloaded by hand and read in a session. This is the first full-coverage read in this log. The weekly pulse can't reach GSC.
+
+- **Impressions:** about 2,800/day on 08-22 → **7,616/day on 11-15 (~2.7×)**. Steepest climb since 10-19. Single-day outlier on 10-19 (6,891), which didn't hold.
+- **Indexed:** 1,270 (08-27) → **1,852** (11-15). That's more than the 1,071-URL sitemap, because the self-canonical /browse facet pages also get indexed.
+- **Not indexed: 4,010**, mostly by design:
+
+  | Reason | Pages | Read |
+  |---|---|---|
+  | Alternate page with proper canonical | 2,867 | Expected: recipe `?platform=` deep links and /browse variants canonicalised to their main page. Open the list once to confirm no real canonical URL is in it. |
+  | Blocked by robots.txt | 864 | Expected: `?sort=` (blocked since August) plus /dashboard, /login, /signup, /api, /dev. |
+  | Page with redirect | 169 | Fine. |
+  | Not found (404) | 44 | **Check the list.** |
+  | Crawled – currently not indexed | 66 | **The only bucket where Google read a page and declined it.** Check whether lincoln-brewster, bethel-music and phil-wickham are in it. |
+  | Indexed, though blocked by robots.txt (non-critical) | 90 | Probably sort URLs indexed before the August block. Should age out. |
+
+- **11-09 jump:** not-indexed +883 and indexed +163 on the same day. Indexed pages rose with it and the new exclusions landed in the deliberate buckets, so this reads as a large recrawl, not a regression.
+- **GA4 (28 days):** 5,730 active users. New users by channel: organic 3,533, direct 2,065, AI assistant 45, referral 17, organic social 1.
+  - **Bots:** about 600–800 users show no engagement. Zero-engagement countries (Singapore 88 users / 1 engaged session, Brazil, Hong Kong, Vietnam, Japan, Mexico, Indonesia) add up to about 400. Data-centre cities (San Jose, North Bergen, Ashburn, Santa Clara, The Dalles, Council Bluffs, Moses Lake, Reston) add about 370 more. Treat direct traffic and US engagement rate as inflated.
+  - **What draws traffic:** amp and pedal settings guides (Deluxe Reverb 249 views, FRFR 244, Big Muff 184, Katana 176, JCM800 160, AC30 153), with 1.5–4 min average engagement. Worship/Helix target pages are small (worship-guitar-tone-helix 37, complete Helix guide 34).
+  - **/browse:** the most-viewed path (1,709 views) but 27 s average engagement and **0 key events**.
+  - **Conversion:** 150 key events, 0 qualified leads, 1 purchase ($19). The Katana settings guide produced the most key events (17). Week-1 return rate is about 1% (Nov 1–7 cohort: 12 of 1,967).
+- **Verdict:** indexing is mostly working as designed. Google is excluding the URLs we meant it to exclude, and impressions are compounding. Next actions: (1) check the 66 crawled-not-indexed and 44 404 URLs in GSC; (2) put email capture or recipe saves on the top settings guides; (3) give /browse a next step; (4) read GA4 with data-centre and zero-engagement traffic excluded. The Google worship gap is still an **authority** problem (0 backlinks), not a page-count one.
