@@ -49,7 +49,6 @@ export const TIERS: Record<UserRole, TierConfig> = {
       "Everything in Free",
       "Unlimited preset downloads",
       "Unlimited recipe PDFs",
-      "Early access — new recipes 1 week before public",
     ],
     limits: {
       savedRecipes: -1,
