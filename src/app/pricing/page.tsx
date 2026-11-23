@@ -73,7 +73,7 @@ const PRICING_JSON_LD = [
   ),
   subscriptionProduct(
     "Fader & Knob Pro",
-    "Everything in Pass, plus every Set Pack included while subscribed, ToneTrace priority access, and a commercial-use license.",
+    "Everything in Pass, plus every Set Pack included while subscribed, and a commercial-use license.",
     "79.00",
     "7.99",
   ),
@@ -119,7 +119,7 @@ const SET_PACK = {
 const FAQ = [
   {
     q: "What's the difference between Free, Pass, and Pro?",
-    a: "Free gives you the entire recipe catalog plus 5 preset downloads and 10 recipe PDFs per month. Pass ($49/yr) removes those quotas: unlimited downloads and PDFs. Pro ($79/yr) is everything in Pass plus every Set Pack included while you're subscribed, ToneTrace priority access at launch, and a commercial-use license.",
+    a: "Free gives you the entire recipe catalog plus 5 preset downloads and 10 recipe PDFs per month. Pass ($49/yr) removes those quotas: unlimited downloads and PDFs. Pro ($79/yr) is everything in Pass plus every Set Pack included while you're subscribed, and a commercial-use license.",
   },
   {
     q: "Pass or Pro — which should I pick?",

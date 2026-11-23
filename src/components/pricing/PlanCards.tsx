@@ -37,7 +37,6 @@ const PASS_FEATURES = [
 const PRO_FEATURES = [
   "Everything in Pass",
   "All Set Packs included while subscribed",
-  "ToneTrace priority access (at launch)",
   "Commercial-use license",
 ];
 

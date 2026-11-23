@@ -64,7 +64,7 @@ export const TIERS: Record<UserRole, TierConfig> = {
   // `pro` — 2026-06-15 model (docs/PRICING_MODEL.md). Everything in Pass,
   // plus every Set Pack bundled while subscribed (the Pass→Pro upgrade
   // lever: one pack is $19, so anyone buying even one a year nets ahead),
-  // ToneTrace priority access at launch, and a commercial-use license.
+  // and a commercial-use license.
   // Set Pack entitlement is enforced via setPackAccess() below — the
   // download/checkout routes read it, not a `set_pack_purchases` row.
   pro: {
@@ -73,7 +73,6 @@ export const TIERS: Record<UserRole, TierConfig> = {
     features: [
       "Everything in Pass",
       "All Set Packs included while subscribed",
-      "ToneTrace priority access (at launch)",
       "Commercial-use license",
     ],
     limits: {
