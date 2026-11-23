@@ -401,3 +401,17 @@ Source: a GSC Page indexing export ("All known pages", data through 11-15) and G
   - **/browse:** the most-viewed path (1,709 views) but 27 s average engagement and **0 key events**.
   - **Conversion:** 150 key events, 0 qualified leads, 1 purchase ($19). The Katana settings guide produced the most key events (17). Week-1 return rate is about 1% (Nov 1–7 cohort: 12 of 1,967).
 - **Verdict:** indexing is mostly working as designed. Google is excluding the URLs we meant it to exclude, and impressions are compounding. Next actions: (1) check the 66 crawled-not-indexed and 44 404 URLs in GSC; (2) put email capture or recipe saves on the top settings guides; (3) give /browse a next step; (4) read GA4 with data-centre and zero-engagement traffic excluded. The Google worship gap is still an **authority** problem (0 backlinks), not a page-count one.
+
+## 2026-11-23
+
+- **Sitemap:** reachable (`200`), **1,090** `<loc>` URLs, **+19** vs 1,071 on 11-16. No drop. Eight consecutive reads have grown or held.
+- **HTTP:** homepage `200`, `/blog/lincoln-brewster-tone-helix` `200`, `/sitemap.xml` `200`. No non-200s.
+- **`site:` spot-checks** ran in `extended` mode. I skipped the bare `site:faderandknob.com` query because it has been unreliable for weeks.
+  - `lincoln brewster tone helix`: worship-guitar guide, `/blog` index, hillsong, the Helix guide, browse pages, the amp-settings guide, how-to-dial-in-modeler-tone. The Brewster post's title appears only as a line on the `/blog` index. **No lincoln-brewster URL.**
+  - `hillsong guitar tone helix`: ✅ `/blog/hillsong-guitar-tone-helix` was #1 (16th confirmation).
+  - `bethel music guitar tone helix`: `/artist/david-hislop`, worship guide, `/blog` index, what-a-beautiful-name, way-maker, elevation. The title appears only on the `/blog` index. **No bethel-music-guitar-tone-helix URL** (9th identical read). The tool loosened the operator, so third-party Bethel preset pages leaked in.
+  - `elevation worship phil wickham guitar tone helix`: ✅ `/blog/elevation-worship-guitar-tone-helix` was #3 (9th confirmation). The Phil Wickham title appears only on the `/blog` index. **No phil-wickham URL.**
+- **5 worship posts indexed? 2 of 5, unchanged** for an 8th straight valid read. Indexed: hillsong, elevation. Not indexed: lincoln-brewster, bethel-music, phil-wickham.
+- **⚠️ PARTIAL ALERT:** 3 of 5 worship posts are still absent from Google **150 days** after the 2026-06-26 submission.
+- **Bing AI citation log: ⚠️ BLOCKED.** Chrome redirected the dashboard to the signed-out `/webmasters/about` page, so no Microsoft session. Week of 11-23 skipped; see docs/BING_AI_CITATIONS.md.
+- **Verdict:** the site is healthy: sitemap 1,090 (+19), all `200`. Google worship coverage hasn't moved off 2/5, and the 11-20 interactive pass already named the next step. In GSC, check whether lincoln-brewster, bethel-music and phil-wickham are in the 66 "Crawled – currently not indexed" pages, then request indexing and get inbound links to them. Coverage is limited by **authority (0 backlinks)**, not page count.

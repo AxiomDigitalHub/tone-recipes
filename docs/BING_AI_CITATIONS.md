@@ -361,3 +361,7 @@ Pages 6–15: signal-chain-order-guide 863 · boss-katana-hidden-settings 839 ·
 **Trend readable yet? Volume yes. Share: now yes, for direction.** This is the first on-cadence adjacent weekly pair since 10-12 → 10-19, giving four share snapshots (10-12, 10-19, 11-09, 11-16). The direction is consistent across all four: measured queries hold at 30–60%, and head and commercial terms erode by 1–3 points per read. Magnitudes are still too small and too few to project.
 
 **Capture caveats:** only the top 25 of 105 queries and the top 25 of 460 pages were captured, without walking pagination. The worship numbers come from server-side searches, so they are complete. `Download all` CSVs were **not** committed (scheduled runs don't download files without approval). Days older than 90 days are now gone for good.
+
+### 2026-11-23: SKIPPED (blocked, no data)
+
+The scheduled pulse opened the dashboard in Claude-in-Chrome. Bing redirected it to the signed-out marketing page (`/webmasters/about?…&from=aiperformance`), so there was no Microsoft session. Nothing was captured. This breaks the two-week on-cadence streak (11-09, 11-16). The rolling window keeps 08-23 onward only until about 11-30 (90 days). Re-run this week to keep an adjacent weekly pair.
