@@ -837,3 +837,27 @@
   .fk-preview .fk-chip,
   .fk-preview .fk-iconbtn { transition: none; }
 }
+
+/* ── Dial cell (step 2): dial, label, mono value ────────────────────── */
+.fk-preview .fk-dialcell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 64px;
+}
+.fk-preview .fk-dialcell-label {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--fk-ink-2);
+}
+.fk-preview .fk-dialcell-value {
+  font-family: var(--fk-mono);
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--fk-ink);
+  font-variant-numeric: tabular-nums;
+}
+.fk-preview .fk-dialcell.is-inverse .fk-dialcell-label { color: var(--fk-on-inverse-2); }
+.fk-preview .fk-dialcell.is-inverse .fk-dialcell-value { color: var(--fk-on-inverse); }
