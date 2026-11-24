@@ -3,6 +3,8 @@ import { ChevronRight } from "lucide-react";
 import { getArtistBySlug, getSongBySlug } from "@/lib/data";
 import { getBandName } from "@/lib/song-band";
 import { monogramFor } from "@/components/v3/LpArt";
+import TrackedLink from "@/components/analytics/TrackedLink";
+import type { EventName } from "@/lib/analytics";
 import type { ToneRecipe } from "@/types/recipe";
 
 /**
@@ -10,13 +12,25 @@ import type { ToneRecipe } from "@/types/recipe";
  * year and block count. Used on the home page and wherever recipes are
  * listed. Server component.
  */
-export default function ToneCard({ recipe, eager = false }: { recipe: ToneRecipe; eager?: boolean }) {
+export default function ToneCard({
+  recipe,
+  eager = false,
+  track,
+  rigTokens,
+}: {
+  recipe: ToneRecipe;
+  eager?: boolean;
+  /** Fire an analytics event on click (browse does). */
+  track?: { event: EventName; params?: Record<string, string | number | boolean | undefined> };
+  /** Gear tokens for the browse page's "Match my rig" filter. */
+  rigTokens?: string;
+}) {
   const song = getSongBySlug(recipe.song_slug);
   const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
   const band = song ? getBandName(song, artist) : null;
   const blocks = recipe.signal_chain?.length ?? 0;
-  return (
-    <Link href={`/recipe/${recipe.slug}`} className="fk-card">
+  const inner = (
+    <>
       <div className="fk-card-art">
         {song?.album_art_url ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -42,6 +56,19 @@ export default function ToneCard({ recipe, eager = false }: { recipe: ToneRecipe
           {[song?.year, blocks ? `${blocks} blocks` : null].filter(Boolean).join(" · ")}
         </p>
       </div>
+    </>
+  );
+  const href = `/recipe/${recipe.slug}`;
+  if (track) {
+    return (
+      <TrackedLink href={href} className="fk-card" data-rig-tokens={rigTokens} event={track.event} eventParams={track.params}>
+        {inner}
+      </TrackedLink>
+    );
+  }
+  return (
+    <Link href={href} className="fk-card" data-rig-tokens={rigTokens}>
+      {inner}
     </Link>
   );
 }

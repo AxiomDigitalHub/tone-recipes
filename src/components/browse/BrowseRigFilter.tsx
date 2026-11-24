@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import { useAuth } from "@/lib/auth/auth-context";
 import { isSupabaseConfigured } from "@/lib/db/client";
 import { getUserGear } from "@/lib/db/profile";
@@ -75,22 +76,24 @@ export default function BrowseRigFilter() {
   const applyFilter = useCallback(
     (on: boolean, gearNames: string[]) => {
       const cards = document.querySelectorAll<HTMLElement>(
-        ".audition-card[data-rig-tokens]",
+        "[data-rig-tokens]",
       );
       let visible = 0;
       cards.forEach((card) => {
+        // Hide the list item, not the link inside it, so the grid closes up.
+        const cell = card.closest<HTMLElement>("li") ?? card;
         if (!on) {
-          card.style.display = "";
+          cell.style.display = "";
           visible++;
           return;
         }
         const tokens = card.getAttribute("data-rig-tokens") ?? "";
         const matches = countCardMatches(tokens, gearNames);
         if (matches >= MIN_MATCHES_DEFAULT) {
-          card.style.display = "";
+          cell.style.display = "";
           visible++;
         } else {
-          card.style.display = "none";
+          cell.style.display = "none";
         }
       });
       setMatchedCount(on ? visible : null);
@@ -115,71 +118,37 @@ export default function BrowseRigFilter() {
   });
 
   if (userGear === null) {
-    // Loading — render a placeholder shell so layout doesn't jump.
-    return (
-      <div className="browse-filter-group">
-        <h3 className="browse-filter-label">Your rig</h3>
-        <div className="browse-rigfilter-placeholder" aria-hidden="true">
-          {" "}
-        </div>
-      </div>
-    );
+    // Loading: hold the tile's space so the rail doesn't jump.
+    return <div className="fk-tile fk-rigtile is-loading" aria-hidden="true" />;
   }
 
   if (userGear.length === 0) {
     return (
-      <div className="browse-filter-group">
-        <h3 className="browse-filter-label">Your rig</h3>
-        <div className="browse-rigfilter-empty">
-          <p style={{ fontSize: 13, color: "var(--ink-faint)", marginBottom: 8 }}>
-            Add gear to filter recipes by what you own.
-          </p>
-          <Link
-            href="/dashboard/my-gear"
-            className="browse-filter-link"
-            style={{ display: "inline-block" }}
-          >
-            Set up My Rig →
-          </Link>
-        </div>
-      </div>
+      <Link href="/dashboard/my-gear" className="fk-tile fk-rigtile">
+        <span className="fk-rigtile-head">
+          Your rig
+          <ChevronRight size={20} strokeWidth={1.75} aria-hidden />
+        </span>
+        <span className="fk-caption">
+          Tell us what you own and each recipe shows what matches.
+        </span>
+      </Link>
     );
   }
 
   return (
-    <div className="browse-filter-group">
-      <h3 className="browse-filter-label">Your rig</h3>
-      <button
-        type="button"
-        onClick={onToggle}
-        className={`browse-filter-link browse-rigfilter-toggle ${active ? "is-active" : ""}`}
-        style={{
-          width: "100%",
-          textAlign: "left",
-          background: "none",
-          border: "none",
-          cursor: "pointer",
-        }}
-        aria-pressed={active}
-      >
-        <span>{active ? "Showing rig matches" : "Match my rig"}</span>
-        {active && matchedCount !== null && (
-          <span className="browse-filter-count">{matchedCount}</span>
-        )}
+    <div className="fk-tile fk-rigtile">
+      <span className="fk-rigtile-head">Your rig</span>
+      <button type="button" onClick={onToggle} className="fk-chip" aria-pressed={active}>
+        {active ? "Showing rig matches" : "Match my rig"}
+        {active && matchedCount !== null && <span className="fk-data fk-rigtile-count">{matchedCount}</span>}
       </button>
       {active && (
-        <p
-          style={{
-            fontSize: 11,
-            color: "var(--ink-faint)",
-            marginTop: 6,
-            lineHeight: 1.4,
-          }}
-        >
+        <span className="fk-caption">
           {matchedCount === 0
-            ? "No recipes on this page share gear with your rig — try the next page, or click again to show all."
-            : "Hiding recipes that don’t share gear with your rig. Counts this page only; click again to show all."}
-        </p>
+            ? "No recipes on this page share gear with your rig. Try the next page, or press again to show all."
+            : "Hiding recipes that don\u2019t share gear with your rig. Counts this page only. Press again to show all."}
+        </span>
       )}
     </div>
   );

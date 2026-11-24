@@ -1,45 +1,26 @@
+/** Skeleton for /browse while the results render. */
 export default function BrowseLoading() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
-      {/* Header */}
-      <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div className="space-y-2">
-          <div className="h-8 w-64 animate-pulse rounded bg-[var(--paper-2)]" />
-          <div className="h-4 w-96 max-w-full animate-pulse rounded bg-[var(--paper-2)]" />
+    <div className="fk-browse" aria-hidden="true">
+      <section className="fk-wrap fk-browse-head">
+        <div className="fk-browse-headcopy">
+          <div className="fk-skel" style={{ height: 58, width: 320, maxWidth: "100%" }} />
+          <div className="fk-skel" style={{ height: 30, width: 460, maxWidth: "100%" }} />
         </div>
-        <div className="h-9 w-36 shrink-0 animate-pulse rounded-lg bg-[var(--paper-2)]" />
-      </div>
-
-      {/* Filter chips row */}
-      <div className="mb-8 flex gap-2 overflow-hidden pb-2">
-        {Array.from({ length: 8 }).map((_, i) => (
-          <div
-            key={i}
-            className="h-8 shrink-0 animate-pulse rounded-full bg-[var(--paper-2)]"
-            style={{ width: `${60 + (i % 3) * 20}px` }}
-          />
-        ))}
-      </div>
-
-      {/* Platform filter chips */}
-      <div className="mb-10 flex gap-2 overflow-hidden">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <div
-            key={i}
-            className="h-8 w-24 shrink-0 animate-pulse rounded-full bg-[var(--paper-2)]"
-          />
-        ))}
-      </div>
-
-      {/* Recipe card grid */}
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {Array.from({ length: 9 }).map((_, i) => (
-          <div
-            key={i}
-            className="h-56 animate-pulse rounded-xl bg-[var(--paper-2)]"
-          />
-        ))}
-      </div>
+      </section>
+      <section className="fk-wrap fk-browse-layout">
+        <div className="fk-rail">
+          <div className="fk-skel" style={{ height: 92 }} />
+          <div className="fk-skel" style={{ height: 320 }} />
+        </div>
+        <div className="fk-browse-results">
+          <div className="fk-card-grid fk-browse-grid">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="fk-skel" style={{ aspectRatio: "1 / 1" }} />
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -5,8 +5,6 @@ import {
   getSongBySlug,
   getArtistBySlug,
 } from "@/lib/data";
-import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
-import { LpArt, monogramFor } from "@/components/v3/LpArt";
 import { getAllPlatforms } from "@/lib/data/platforms";
 import { PLATFORMS, platformLabel } from "@/lib/constants";
 import type { Platform } from "@/types/recipe";
@@ -14,7 +12,9 @@ import { buildRigTokens } from "@/lib/gear-match";
 import { getBandName } from "@/lib/song-band";
 import { parsePageParam, pageWindow, paginate } from "@/lib/pagination";
 import BrowseRigFilter from "@/components/browse/BrowseRigFilter";
-import TrackedLink from "@/components/analytics/TrackedLink";
+import ToneCard from "@/components/recipe/redesign/ToneCard";
+import BrowseSort from "@/components/browse/BrowseSort";
+import { Search } from "lucide-react";
 
 /**
  * Per-facet metadata. The browse filters (?era, ?genre, ?platform,
@@ -44,24 +44,6 @@ const isKnownPlatform = (id: string) => PLATFORMS.some((p) => p.id === id);
 /** Cards per page. Multiple of 3 so the 3-wide grid never ends ragged. */
 const PAGE_SIZE = 48;
 
-/**
- * Catalog ordinal (1-based) per recipe slug, built ONCE at module load.
- *
- * The card loop used to recover this with
- * `toneRecipes.findIndex((tr) => tr.slug === r.slug)` — a full linear
- * scan per card, i.e. O(n²) per request, on a route that renders
- * uncached on every single view. A Map matches how the data layer
- * already resolves slugs (getSongBySlug/getArtistBySlug are Map gets).
- *
- * It must stay keyed on catalog position, not the position within the
- * filtered/sorted page, because it feeds LpArt's `hue` — deriving the
- * hue from the page index would recolour a recipe's art every time the
- * viewer sorted or filtered.
- */
-const catalogOrdinalBySlug = new Map<string, number>(
-  toneRecipes.map((r, i) => [r.slug, i + 1]),
-);
-
 /** Shared by generateMetadata and the page — keep the two in step. */
 type BrowseSearchParams = {
   era?: string;
@@ -70,6 +52,8 @@ type BrowseSearchParams = {
   artist?: string;
   sort?: string;
   page?: string;
+  /** Free-text search: song, artist, band, album. */
+  q?: string;
 };
 
 function titleCaseSlug(slug: string): string {
@@ -115,10 +99,15 @@ export async function generateMetadata({
   }
   if (sp.artist) parts.push(titleCaseSlug(sp.artist));
 
+  // A search result page is a view, not a landing page: it canonicals to
+  // the facet URL (q is left out above) and stays out of the index.
+  const robots = sp.q ? { index: false, follow: true } : undefined;
+
   if (parts.length === 0) {
     const title = `Browse Tones${pageSuffixTitle}`;
     return {
       title,
+      robots,
       description:
         "The full archive of tone recipes. Filter by era, platform, or genre — every recipe with full signal chains and exact settings." +
         pageSuffixDesc,
@@ -141,6 +130,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    robots,
     alternates: { canonical },
     openGraph: { title: `${title} — Fader & Knob`, description, type: "website" },
   };
@@ -158,8 +148,8 @@ const SORT_OPTIONS: { key: SortKey; label: string }[] = [
   { key: "newest", label: "Newest" },
   { key: "oldest", label: "Oldest" },
   { key: "song-year", label: "Song year" },
-  { key: "song-az", label: "Song A–Z" },
-  { key: "artist-az", label: "Artist A–Z" },
+  { key: "song-az", label: "Song A to Z" },
+  { key: "artist-az", label: "Artist A to Z" },
   { key: "blocks-desc", label: "Most blocks" },
 ];
 
@@ -177,9 +167,24 @@ export default async function PreviewBrowse({
   const artistFilter = sp.artist;
   const sort: SortKey = (SORT_OPTIONS.find((s) => s.key === sp.sort)?.key) ?? "newest";
   const requestedPage = parsePageParam(sp.page);
+  const q = (sp.q ?? "").trim().slice(0, 80);
 
   // Filter cascade
   let filtered = toneRecipes;
+  if (q) {
+    // Every word must appear somewhere in the song, artist, band, album or
+    // recipe title. Same field set the site-wide SearchAction promises.
+    const words = q.toLowerCase().split(/\s+/).filter(Boolean);
+    filtered = filtered.filter((r) => {
+      const s = getSongBySlug(r.song_slug);
+      const a = s ? getArtistBySlug(s.artist_slug) : undefined;
+      const text = [s?.title, a?.name, s ? getBandName(s, a) : null, s?.album, r.title]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+      return words.every((w) => text.includes(w));
+    });
+  }
   if (era) {
     const decade = Number(era);
     filtered = filtered.filter((r) => {
@@ -298,7 +303,7 @@ export default async function PreviewBrowse({
     // proper canonical tag" purely because of the key order.
     const changesResultSet =
       "era" in next || "genre" in next || "platform" in next ||
-      "artist" in next || "sort" in next;
+      "artist" in next || "sort" in next || "q" in next;
     const nextPage = next.page ?? (changesResultSet ? undefined : (page > 1 ? String(page) : undefined));
     const merged: Record<string, string | undefined> = {
       era,
@@ -306,6 +311,7 @@ export default async function PreviewBrowse({
       platform: platformFilter,
       artist: artistFilter,
       sort: sort === "newest" ? undefined : sort,
+      q: q || undefined,
       ...next,
       page: nextPage === "1" ? undefined : nextPage,
     };
@@ -317,275 +323,187 @@ export default async function PreviewBrowse({
     return s ? `/browse?${s}` : `/browse`;
   };
 
-  const hasFilters = Boolean(era || platformFilter || genreFilter || artistFilter);
+  const hasFilters = Boolean(era || platformFilter || genreFilter || artistFilter || q);
+  const genreLabel = (g: string) => {
+    const t = g.replace(/-/g, " ");
+    return t.charAt(0).toUpperCase() + t.slice(1);
+  };
+
+  const rail = (title: string, rows: { href: string; label: string; count: number; on: boolean }[]) => (
+    <nav className="fk-rail-group" aria-label={title}>
+      <h2 className="fk-rail-title">{title}</h2>
+      <ul>
+        {rows.map((row) => (
+          <li key={row.label}>
+            <Link
+              href={row.href}
+              className={`fk-rail-link r-md${row.on ? " is-on" : ""}`}
+              aria-current={row.on ? "true" : undefined}
+            >
+              <span>{row.label}</span>
+              <span className="fk-data">{row.count}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
 
   return (
-    <div className="container">
-      <section className="archive-page">
-        <div className="recipe-crumbs">
-          <Link href="/">Home</Link>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>Browse</span>
+    <div className="fk-browse">
+      <section className="fk-wrap fk-browse-head">
+        <div className="fk-browse-headcopy">
+          <h1 className="fk-display">Browse tones</h1>
+          <p className="fk-lead">Tone recipes with full signal chains. Filter by era, platform or genre.</p>
         </div>
+        <form role="search" action="/browse" method="get" className="fk-search fk-browse-search">
+          <Search size={20} strokeWidth={1.75} aria-hidden />
+          <label htmlFor="browse-q" className="fk-sr">
+            Search tones
+          </label>
+          <input
+            id="browse-q"
+            name="q"
+            type="search"
+            defaultValue={q}
+            placeholder="Try a song, artist or guitarist"
+          />
+          {/* Carry the active facets through a search. */}
+          {era && <input type="hidden" name="era" value={era} />}
+          {genreFilter && <input type="hidden" name="genre" value={genreFilter} />}
+          {platformFilter && <input type="hidden" name="platform" value={platformFilter} />}
+          {artistFilter && <input type="hidden" name="artist" value={artistFilter} />}
+          <button type="submit">Search</button>
+        </form>
+      </section>
 
-        <header className="archive-page-head browse-page-head">
-          <h1 className="archive-title">Browse Tones</h1>
-        </header>
+      <section className="fk-wrap fk-browse-layout">
+        <aside className="fk-rail" aria-label="Filters">
+          <BrowseRigFilter />
 
-        {/* Two-column layout: filter sidebar on the left, results on the right.
-            Sidebar is sticky so it stays in view as the grid scrolls. */}
-        <div className="browse-layout">
-          <aside className="browse-sidebar" aria-label="Filters">
-            {hasFilters && (
-              <div className="browse-sidebar-clear">
-                <Link href="/browse" className="browse-filter-clear">
-                  Clear filters ✕
-                </Link>
-              </div>
-            )}
+          {rail("Era", [
+            { href: buildHref({ era: undefined }), label: "All eras", count: totalRecipes, on: !era },
+            ...DECADES.filter((d) => (decadeCounts.get(d) ?? 0) > 0).map((d) => ({
+              href: buildHref({ era: String(d) }),
+              label: `${d}s`,
+              count: decadeCounts.get(d) ?? 0,
+              on: era === String(d),
+            })),
+          ])}
 
-            <BrowseRigFilter />
+          {rail("Platform", [
+            { href: buildHref({ platform: undefined }), label: "All platforms", count: totalRecipes, on: !platformFilter },
+            ...allPlatforms.map((p) => ({
+              href: buildHref({ platform: p.id }),
+              label: p.label,
+              count: platformCounts.get(p.id) ?? 0,
+              on: platformFilter === p.id,
+            })),
+          ])}
 
-            <div className="browse-filter-group">
-              <h3 className="browse-filter-label">Era</h3>
-              <ul className="browse-filter-list">
-                <li>
-                  <Link
-                    href={buildHref({ era: undefined })}
-                    className={`browse-filter-link ${!era ? "is-active" : ""}`}
-                  >
-                    <span>All eras</span>
-                    <span className="browse-filter-count">{totalRecipes}</span>
+          {rail("Genre", [
+            { href: buildHref({ genre: undefined }), label: "All genres", count: totalRecipes, on: !genreFilter },
+            ...topGenres.map((g) => ({
+              href: buildHref({ genre: g }),
+              label: genreLabel(g),
+              count: genreCounts.get(g) ?? 0,
+              on: genreFilter === g,
+            })),
+          ])}
+        </aside>
+
+        <div className="fk-browse-results">
+          <div className="fk-browse-bar">
+            <p className="fk-body-sm">
+              {sorted.length === 0
+                ? "No matches"
+                : `Showing ${rangeFrom.toLocaleString()} to ${rangeTo.toLocaleString()} of ${sorted.length.toLocaleString()}`}
+              {q && <> for &ldquo;{q}&rdquo;</>}
+              {hasFilters && (
+                <>
+                  {" "}
+                  <Link href="/browse" className="fk-link">
+                    Clear filters
                   </Link>
-                </li>
-                {DECADES.map((d) => {
-                  const count = decadeCounts.get(d) ?? 0;
-                  if (count === 0) return null;
-                  return (
-                    <li key={d}>
-                      <Link
-                        href={buildHref({ era: String(d) })}
-                        className={`browse-filter-link ${era === String(d) ? "is-active" : ""}`}
-                      >
-                        <span>The {d}s</span>
-                        <span className="browse-filter-count">{count}</span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-
-            <div className="browse-filter-group">
-              <h3 className="browse-filter-label">Platform</h3>
-              <ul className="browse-filter-list">
-                <li>
-                  <Link
-                    href={buildHref({ platform: undefined })}
-                    className={`browse-filter-link ${!platformFilter ? "is-active" : ""}`}
-                  >
-                    <span>All platforms</span>
-                    <span className="browse-filter-count">{totalRecipes}</span>
-                  </Link>
-                </li>
-                {allPlatforms.map((p) => {
-                  const count = platformCounts.get(p.id) ?? 0;
-                  return (
-                    <li key={p.id}>
-                      <Link
-                        href={buildHref({ platform: p.id })}
-                        className={`browse-filter-link ${platformFilter === p.id ? "is-active" : ""}`}
-                      >
-                        <span>{p.label}</span>
-                        <span className="browse-filter-count">{count}</span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-
-            <div className="browse-filter-group">
-              <h3 className="browse-filter-label">Genre</h3>
-              <ul className="browse-filter-list">
-                <li>
-                  <Link
-                    href={buildHref({ genre: undefined })}
-                    className={`browse-filter-link ${!genreFilter ? "is-active" : ""}`}
-                  >
-                    <span>All genres</span>
-                    <span className="browse-filter-count">{totalRecipes}</span>
-                  </Link>
-                </li>
-                {topGenres.map((g) => (
-                  <li key={g}>
-                    <Link
-                      href={buildHref({ genre: g })}
-                      className={`browse-filter-link ${genreFilter === g ? "is-active" : ""}`}
-                    >
-                      <span style={{ textTransform: "capitalize" }}>
-                        {g.replace(/-/g, " ")}
-                      </span>
-                      <span className="browse-filter-count">
-                        {genreCounts.get(g) ?? 0}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
-
-          <div className="browse-results">
-            <div className="browse-results-head">
-              <div className="browse-result-meta">
-                {sorted.length === 0
-                  ? "No matches"
-                  : `Showing ${rangeFrom.toLocaleString()}–${rangeTo.toLocaleString()} of ${sorted.length.toLocaleString()}${
-                      sorted.length === totalRecipes ? "" : ` (filtered)`
-                    }`}
-              </div>
-              <div className="browse-sort">
-                <span className="browse-filter-label browse-sort-label">Sort</span>
-                {SORT_OPTIONS.map((s) => (
-                  <Link
-                    key={s.key}
-                    href={buildHref({ sort: s.key === "newest" ? undefined : s.key })}
-                    className={`browse-sort-link ${sort === s.key ? "is-active" : ""}`}
-                  >
-                    {s.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {sorted.length === 0 ? (
-              <div className="browse-empty">
-                <p>No recipes match these filters.</p>
-                <Link href="/browse" className="browse-filter-clear">
-                  Clear filters and start over →
-                </Link>
-              </div>
-            ) : (
-              /* A results list is a list. <ul>/<li> gives the grid real
-                 structure for assistive tech and parsers instead of ~700
-                 undifferentiated <div>s (the "low semantic HTML" flag). */
-              <ul className="audition-grid browse-grid">
-                {pageItems.map((r) => {
-                  const rSong = getSongBySlug(r.song_slug);
-                  const rArtist = rSong
-                    ? getArtistBySlug(rSong.artist_slug)
-                    : undefined;
-                  const rIdx = catalogOrdinalBySlug.get(r.slug) ?? 1;
-                  const rBlocks = recipeToBlocks(r, "helix");
-                  const rigTokens = buildRigTokens(r.signal_chain);
-                  const rBand = rSong ? getBandName(rSong, rArtist) : null;
-                  return (
-                    <li key={r.slug} className="audition-card-item">
-                    {/* browse_card_click was defined but never fired, so GA4
-                        showed /browse as a dead end. This makes click-through
-                        from the catalog to a recipe measurable. */}
-                    <TrackedLink
-                      href={`/recipe/${r.slug}`}
-                      className="audition-card"
-                      data-rig-tokens={rigTokens}
-                      event="browse_card_click"
-                      eventParams={{ recipe_slug: r.slug, page }}
-                    >
-                      <div className="audition-art">
-                        <LpArt
-                          cover={rSong?.album_art_url}
-                          monogram={monogramFor(rArtist?.name)}
-                          meta={`${rBlocks.length} blocks`}
-                          hue={rIdx}
-                          alt={`${rSong?.album ?? rSong?.title ?? r.title} cover`}
-                        />
-                      </div>
-                      <div className="audition-meta">
-                        <span className="audition-song">
-                          {rSong?.title ?? r.title}
-                        </span>
-                        <span className="audition-artist">
-                          {rBand ? (
-                            <>
-                              {rBand}
-                              <span className="audition-artist-sep" aria-hidden="true"> / </span>
-                              <em>{rArtist?.name ?? "Unknown"}</em>
-                            </>
-                          ) : (
-                            <em>{rArtist?.name ?? "Unknown"}</em>
-                          )}
-                        </span>
-                        {rSong?.album && (
-                          <span className="audition-album">
-                            {rSong.album}
-                            {rSong.year ? ` · ${rSong.year}` : ""}
-                          </span>
-                        )}
-                        <span className="audition-cta">
-                          See the chain <span aria-hidden="true">→</span>
-                        </span>
-                      </div>
-                    </TrackedLink>
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
-
-            {totalPages > 1 && (
-              <nav className="browse-pagination" aria-label="Browse pages">
-                {page > 1 ? (
-                  <Link
-                    href={buildHref({ page: String(page - 1) })}
-                    className="browse-page-link browse-page-step"
-                    rel="prev"
-                  >
-                    <span aria-hidden="true">←</span> Prev
-                  </Link>
-                ) : (
-                  <span className="browse-page-link browse-page-step is-disabled">
-                    <span aria-hidden="true">←</span> Prev
-                  </span>
-                )}
-
-                <ul className="browse-page-list">
-                  {pageWindow(page, totalPages).map((p, i) =>
-                    p === "gap" ? (
-                      <li key={`gap-${i}`} className="browse-page-gap" aria-hidden="true">
-                        …
-                      </li>
-                    ) : (
-                      <li key={p}>
-                        <Link
-                          href={buildHref({ page: String(p) })}
-                          className={`browse-page-link ${p === page ? "is-active" : ""}`}
-                          aria-label={`Page ${p}`}
-                          aria-current={p === page ? "page" : undefined}
-                        >
-                          {p}
-                        </Link>
-                      </li>
-                    ),
-                  )}
-                </ul>
-
-                {page < totalPages ? (
-                  <Link
-                    href={buildHref({ page: String(page + 1) })}
-                    className="browse-page-link browse-page-step"
-                    rel="next"
-                  >
-                    Next <span aria-hidden="true">→</span>
-                  </Link>
-                ) : (
-                  <span className="browse-page-link browse-page-step is-disabled">
-                    Next <span aria-hidden="true">→</span>
-                  </span>
-                )}
-              </nav>
-            )}
+                </>
+              )}
+            </p>
+            {/* A select, not six links: sort variants only reorder the same
+                set, and as links they multiplied the crawlable space. */}
+            <BrowseSort
+              value={sort}
+              options={SORT_OPTIONS.map((s) => ({
+                key: s.key,
+                label: s.label,
+                href: buildHref({ sort: s.key === "newest" ? undefined : s.key }),
+              }))}
+            />
           </div>
+
+          {sorted.length === 0 ? (
+            <div className="fk-tile fk-browse-empty">
+              <p className="fk-body">No recipes match {q ? "that search" : "these filters"}.</p>
+              <Link href="/browse" className="fk-link fk-label">
+                Clear filters and start over
+              </Link>
+            </div>
+          ) : (
+            /* A results list is a list: real structure for assistive tech
+               and parsers. */
+            <ul className="fk-card-grid fk-browse-grid">
+              {pageItems.map((r, i) => (
+                <li key={r.slug}>
+                  {/* browse_card_click makes click-through from the catalog
+                      to a recipe measurable. */}
+                  <ToneCard
+                    recipe={r}
+                    eager={i < 4}
+                    rigTokens={buildRigTokens(r.signal_chain)}
+                    track={{ event: "browse_card_click", params: { recipe_slug: r.slug, page } }}
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {totalPages > 1 && (
+            <nav className="fk-pages" aria-label="Pages">
+              {page > 1 ? (
+                <Link href={buildHref({ page: String(page - 1) })} className="fk-pages-step" rel="prev">
+                  Previous
+                </Link>
+              ) : (
+                <span className="fk-pages-step is-disabled">Previous</span>
+              )}
+              <ul>
+                {pageWindow(page, totalPages).map((p, i) =>
+                  p === "gap" ? (
+                    <li key={`gap-${i}`} className="fk-pages-gap" aria-hidden="true">
+                      …
+                    </li>
+                  ) : (
+                    <li key={p}>
+                      <Link
+                        href={buildHref({ page: String(p) })}
+                        className={`fk-pages-num${p === page ? " is-on" : ""}`}
+                        aria-label={`Page ${p}`}
+                        aria-current={p === page ? "page" : undefined}
+                      >
+                        {p}
+                      </Link>
+                    </li>
+                  ),
+                )}
+              </ul>
+              {page < totalPages ? (
+                <Link href={buildHref({ page: String(page + 1) })} className="fk-pages-step" rel="next">
+                  Next
+                </Link>
+              ) : (
+                <span className="fk-pages-step is-disabled">Next</span>
+              )}
+            </nav>
+          )}
         </div>
       </section>
     </div>
