@@ -8885,3 +8885,119 @@ still open):
 | AT3 | contactless-expression-pedal-magnetic-optical-modeler | (carried, see 11-09 deferral note) | — | Sean Nakamura | 4 | Needs a third first-party sensor-pedal doc before build. |
 | AY1 | ten-thousand-reasons-matt-redman-guitar-tone-helix | 10,000 Reasons (Bless the Lord) Guitar Tone on the Line 6 Helix | "10000 reasons guitar tone," "10000 reasons helix patch" | fk-staff (Nathan at 3/3 until 11-24) | 3 — Worship cluster | **Surfaced by AX1 SERP:** PraiseCharts sells a Helix patch, no editorial guide ranks. Verify versions on MultiTracks/PraiseCharts; derive a hook from its verified arrangement — not tap, drone, 75-vs-148, version-drift, model-ceiling or capo-map templates. No rig claim without A/B source. |
 | AY2 | long-ir-500ms-room-mic-capture-what-it-adds | What Does a Long IR Capture That a 43 ms Cab IR Can't? | "long impulse response guitar cab," "fullres ir," "ir-200 500ms ir" | Sean Nakamura | 4 — Modeler Masterclass | **Surfaced by AX2 research:** Boss IR-200 (500 ms) and Axe-Fx III Mk II FullRes (1.37 s) vs 1,024/2,048-sample cab slots. Distinct question: room-mic distance and early reflections in captures, not correction. **Gate 7 guard:** first-party lengths (have) + computed arrival times for mic distances (sound travels ~34 cm/ms) vs IR duration; no listening claims without a test. |
+
+---
+
+## Daily Run — 2026-11-24 (2 new posts + 1 refresh + 1 factual correction)
+
+### Posts published: ten-thousand-reasons-matt-redman-guitar-tone-helix, long-ir-500ms-room-mic-capture-what-it-adds
+
+**Velocity:** `persona-velocity.ts` reported **5 posts in 7 days** (Nathan 2,
+Viktor 1, fk-staff 1, Dev 1). AY1 → Nathan (2 → 3, at cap again). AY2 → Sean
+(0 → 1). Bars checked, quoted: Nathan's "Metal or high-gain / Budget/punk rig
+guides / Vintage gear collecting": a slow worship song, clear. Sean's "Vintage
+gear history/collecting / 'Tone is in the fingers' philosophical pieces / Live
+gigging logistics": an IR-length computation, clear. Collision checks: no
+ten-thousand-reasons or long-ir slug existed. AT3 still deferred.
+
+**Gate 7 guards met:**
+- **AY1:** MultiTracks (A, six pages fetched): Redman G/72.5/4/4/5:46 with
+  song map (Intro, C, V1, C, V2, C, Instrumental, Breakdown, V3, C, C, Tag ×2,
+  Outro, Tag ×3, Ending); Maranatha G/72.5/4:21; Jesus Culture *Unstoppable
+  Love* 2014 C/70/7:15 with map; Maker & The Instrument 2019 A/64/4:47;
+  Stephen McWhirter 2025 A/60/4:12 with map. PraiseCharts (A): original key G,
+  "Med Slow", 4/4, style "Celtic", CCLI 6016351; 10th Anniversary Db; Rend
+  Collective E; sells Helix / HX Stomp / POD Go patches (product pages not
+  fetched). WorshipTogether (A): 72.5 BPM, "Original Key: C" while its chart
+  shows C G D/F# Em / C G Dsus D at two beats each — **conflict stated in the
+  post** (G-major chords, song starts on IV). Wikipedia (B): two Grammys 2013;
+  album personnel credits electric guitar at album level only (Nockels,
+  Burkum, a third player) — **post is rig-free, no names used.**
+  **Non-commodity hook (new template — not tap, drone, 75-vs-148,
+  version-drift, model-ceiling or capo-map):** harmonic rhythm. Two chords per
+  bar = 1.66 s per chord at 72.5 BPM, so decay and delay feedback are budgeted
+  per chord: 4 s decay is only ~25 dB down at the change, 1.7 s is ~58 dB
+  down; third dotted-eighth repeat lands 207 ms into the next chord.
+  **Gate 5:** expected a 72.5 BPM song to take the longest reverb in the set;
+  the chart's chord pace equals a 145 BPM song changing once per bar.
+- **AY2:** Boss IR-200 spec page (A, fetched today): max 500 ms, mono/stereo,
+  44.1/48/96 kHz, 128 user slots, Room/Studio/Hall ambience, "natural bass
+  response" rationale. Strymon Iridium page (A, fetched today): 500 ms cab
+  IRs, 24-bit/96 kHz; Room = 256 ms stereo room IR + algorithm; ~80 ms early
+  reflection remark. Helix 2,048 / 1,024, QC 1,024, FullRes 1.37 s (Mark II
+  only) carried from the 11-20 run's first-party log; Line 6 KB 16-bit/48 kHz
+  mono/2,048 re-confirmed via search snippet today (kb.line6.com/
+  impulse-response-irs). **Fractal wiki, Two Notes, Neural manual URLs all
+  403/404 today — Two Notes left out of the post entirely.** **Computed:**
+  path length per IR window at 343 m/s; direct-arrival and first-reflection
+  times for stated geometries; decay captured = 60 × t / RT60 for RT60 0.3,
+  0.5, 1.0 s. **Gate 5:** expected a room mic not to fit a short IR; a 3 m mic
+  plus floor/ceiling/wall bounces lands within ~21 ms — what is cut is the
+  decay (5 dB down at 42.7 ms in a 0.5 s room). **No listening claims**
+  ("expect it to read as distance without ambience" is the only prediction
+  and is worded as one).
+
+### SERP analysis
+
+| Post | Target query | Top results (standard search) | Gap our post fills | AI Overview? F&K cited? |
+|---|---|---|---|---|
+| ten-thousand-reasons-matt-redman-guitar-tone-helix | "10000 reasons guitar tone" / "10000 reasons helix patch" | First query: generic Helix content (Long & McQuade, Line 6 forum threads, Musician's Friend, MultiTracks patch packs, Music Gateway roundup, WorshipTutorials). Second query: Scribd tone guide, WorshipOnline reverb/delay guides, Reverb.com worship articles, PraiseCharts FM3 / POD Go / FM9 / Kemper patch product pages for the song. | No free editorial guide for this song. Ours: six-version key/BPM table, chord-length column, per-chord reverb/delay budget, preset, four snapshots from the MultiTracks map, HX Stomp/QC/pedalboard. | Not observable: search tool returns organic links only. |
+| long-ir-500ms-room-mic-capture-what-it-adds | "long impulse response guitar cab," "fullres ir," "ir-200 500ms ir" | Premier Guitar "what is an impulse response" (several URLs), Guitar World IR explainer, SOS Colin Cartmell interview (20–41 ms recommendation), Andertons, Sweetwater, Tone3000 beginner guide; second query: Line 6 KB + forum threads (24436 "IR length 200ms or 500ms", 20457, 17912). | Explainers say "long = room" without numbers; forum threads assert it. Ours: arrival-time table, decay-captured-per-device table by RT60, file-length check, per-device advice. | Not observable. |
+| impulse-response-ir-guide (R1) | "what is an impulse response guitar" | Same explainer set as above. | Now has a per-device IR-length table and the truncation mistake, linking both length posts. | Not observable. |
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | impulse-response-ir-guide | New "Loading an IR That's Longer Than the Slot" section under Common IR Mistakes: five-device length table (QC, Helix/Stadium, IR-200, Iridium, Axe-Fx III Mk II FullRes), what truncation does to room-mic and room-correction files, a file-length check. Helix note rewritten to Line 6's wording (48 kHz mono, left side only, 2,048 samples, 1,024 option). Links to AX2 and AY2. `updated: 2026-11-24`. | Refresh debt #48; gives AX2 and AY2 an inbound link from the pillar. Elena's byline kept; no first person added. |
+| C1 | helix-ir-shootout | **Factual correction (debt #48):** "accepts mono 24-bit 48 kHz" → HX Edit converts to 48 kHz mono, 2,048 samples; "store up to 1024 IRs" → 128 slots; "need to be converted" → shortened on import, with link to AY2. Takeaway bullet fixed to match. `updated: 2026-11-24`. | Stated spec contradicted Line 6's KB. |
+
+Also: added a 10,000 Reasons row to the song table in `worship-guitar-tone-helix` and changed "Four of five" to "Four of six" (no `updated:` bump — a link row only). AX1 and AX2 inbound-link gap from 11-20: AX2 now linked from the IR guide and AY2; AX1 linked from AY1. AX1 still has no hub row (its MultiTracks listing is the 2024 live version, not the original; the hub table is labelled originals).
+
+**Gates (self-audit):**
+- **AY1** (Nathan): self-references 1 ("I expected a 72.5 BPM song…");
+  signature phrases 0; closing is a rehearsal check, no signoff; Gate 6 clean
+  (no bare warm/lush/etc.); Gate 10: HX Stomp, QC, pedalboard. Fixed in
+  self-audit: removed an unverified claim about Way Maker's chord pace; "the
+  chorus and verses keep the same pace" → "run through the same chords in the
+  same order" (the chart only marks beats in the intro).
+- **AY2** (Sean): self-references 1 ("I expected the room mic…"); signature
+  phrases 0; Gate 6 clean; Gate 10: Helix, QC, IR-200, Iridium, Axe-Fx III,
+  DAW. Fixed in self-audit: "IRs are shortened from the end" → states what
+  Line 6 and Neural actually say; dropped unsourced "fairly live rehearsal
+  space" and "large live room" labels for the RT60 values.
+
+**Image pipeline note:** overrides added for AY1 and AY2 (Flux 2 Pro). AY2
+rendered a combo amp on white with two mics, gibberish badge only;
+`image_alt` rewritten to match. AY1's first render showed a script headstock
+logo — regenerated with the headstock out of frame; clean. Spend ≈ $0.17
+(3 renders).
+
+**Refresh debt carried forward** (items 1–18, 20–22, 24–30, 33–35, 37–40,
+42–47, 49–50 unchanged; #31 partly open; **#48 done**):
+51. **NEW: Fractal wiki / Two Notes / Neural manual fetches fail (403/404).**
+    FullRes and QC lengths in AY2 rest on the 11-20 log. Re-verify in a
+    browser; add a Two Notes row to AY2 and the IR guide table if a
+    first-party max IR length turns up.
+52. **NEW: AY1 parameter labels.** Minotaur (Gain/Tone/Level) and Matchstick
+    Ch1 labels are unverified against the Helix model list, same as #50.
+53. **NEW: Helix truncation direction.** Line 6 says IRs are shortened to
+    2,048 samples but not which end is kept; AY2 says so. A trimmed-file
+    import test in HX Edit would settle it.
+
+### 2 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 2 (AY1, AY2), AT3 still deferred, added 2 — **queue now at 3.**
+> Bylines are best-fit proposals; the executing run re-checks velocity **and
+> quotes the never-assign bar it checked**, and verifies no colliding slug.
+>
+> **Rejected as re-slices:** (a) "reverb decay for slow worship songs" —
+> `reverb-decay-vs-song-tempo-when-tails-collide` + AY1; (b) "Helix IR length
+> in ms" — AX2/AY2 tables + IR guide; (c) "10,000 Reasons Jesus Culture
+> version Helix" — AY1 version table.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AT3 | contactless-expression-pedal-magnetic-optical-modeler | (carried, see 11-09 deferral note) | — | Sean Nakamura | 4 | Needs a third first-party sensor-pedal doc before build. |
+| AZ1 | how-great-is-our-god-chris-tomlin-guitar-tone-helix | How Great Is Our God Guitar Tone on the Line 6 Helix | "how great is our god guitar tone," "how great is our god helix patch" | fk-staff (Nathan at 3/3 until 12-01) | 3 — Worship cluster (Tier 2 #12) | Verify versions on MultiTracks/PraiseCharts; derive the hook from its verified arrangement — not tap, drone, 75-vs-148, version-drift, model-ceiling, capo-map or harmonic-rhythm templates. No rig claim without A/B source. |
+| AZ2 | capture-cab-ir-room-mic-export-length | Capturing Your Own Cab IR With a Room Mic: What Length to Export | "capture cab impulse response," "make your own cab ir room mic," "rew export impulse response wav length" | Dev Okonkwo | 4 — Modeler Masterclass | **Surfaced by AY2:** a self-captured room-mic IR is the one case where the long slot pays off, and no post covers cab (not acoustic-body) capture. **Gate 7 guard:** first-party export options (REW, Strymon Impulse Manager, Boss IR-200 loader, Fractal Cab-Lab) with lengths and formats per target device; no listening claims without a test. |

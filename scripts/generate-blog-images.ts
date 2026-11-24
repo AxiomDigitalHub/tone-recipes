@@ -174,6 +174,10 @@ const SUBJECT_OVERRIDES: Record<string, string> = {
     "a plain black floor footswitch unit with blank faceplate, one footswitch ring glowing red, low close angle on a dark wooden desk beside a laptop showing an audio waveform grid, no text, no logos",
   "delay-max-time-per-model-slow-tempo":
     "a plain small metal delay pedal with three blank knobs beside a plain matte black floor multi-effects unit with blank footswitches on a dark stage floor, one footswitch ring glowing red, low angle, light haze, smooth unmarked surfaces with no labels, logo, screen text, numbers, printing or lettering anywhere",
+  "ten-thousand-reasons-matt-redman-guitar-tone-helix":
+    "the body of an electric guitar leaning on a stand, headstock out of frame, beside a plain black floor multi-effects unit and a volume pedal on a small empty church stage, wooden floorboards, soft window light, no logos, no text, no lettering",
+  "long-ir-500ms-room-mic-capture-what-it-adds":
+    "a guitar speaker cabinet in a large empty studio live room, one microphone close to the grille and a second microphone on a tall stand several meters back, unbranded, no lettering",
   "blessed-be-your-name-matt-redman-guitar-tone-helix":
     "a plain sunburst electric guitar with a plain capo on the neck leaning against a pedalboard with a plain black floor multi-effects unit on a wooden worship stage, warm amber and blue stage lights blurred in soft haze behind, plain unbranded gear with no logo, headstock logo, screen text, numbers or lettering anywhere",
   "room-correction-ir-loader-vs-global-eq":
