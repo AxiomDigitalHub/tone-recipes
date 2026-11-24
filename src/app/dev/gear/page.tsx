@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Gear from "@/components/gear/Gear";
 import Dial, { DialCell } from "@/components/gear/Dial";
 import { GEAR_KINDS, GEAR_NAMES, type GearKind } from "@/lib/gear/draw";
+import { FINISHES } from "@/lib/gear/guitar-finish";
+import { GUITARS } from "@/lib/gear/guitars";
 
 export const metadata: Metadata = {
   title: "Gear set",
@@ -127,6 +129,33 @@ export default function GearSetPage() {
           <Gear kind="head" height={170} color="#D9CDB4" cloth="#6B5B45" />
           <Gear kind="fuzz" height={200} chain />
         </div>
+      </Section>
+
+      <Section
+        title="Guitars and finishes"
+        note="The 13 drawings shared with Diagram Wiring, then one shape in every finish the recipe pages can paint."
+      >
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))", gap: 12 }}>
+          {Object.entries(GUITARS).map(([key, alt]) => (
+            <div key={key} className="r-md" style={{ ...tile, aspectRatio: "4 / 3" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`/guitars/${key}.svg`} alt={alt} style={{ width: "86%" }} loading="lazy" />
+            </div>
+          ))}
+        </div>
+        {(["strat", "les-paul"] as const).map((shape) => (
+          <div key={shape} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(130px, 1fr))", gap: 12 }}>
+            {Object.entries(FINISHES).map(([finish, spec]) => (
+              <figure key={finish} style={{ margin: 0, display: "flex", flexDirection: "column", gap: 6 }}>
+                <div className="r-md" style={{ ...tile, aspectRatio: "4 / 3" }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`/guitar-art/${shape}.${finish}.svg`} alt={`${shape} in ${spec.label}`} style={{ width: "88%" }} loading="lazy" />
+                </div>
+                <figcaption className="fk-caption">{spec.label}</figcaption>
+              </figure>
+            ))}
+          </div>
+        ))}
       </Section>
 
       <Section title="Sizes" note="The same drawing from thumbnail to hero.">

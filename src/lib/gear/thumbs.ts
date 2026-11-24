@@ -47,12 +47,53 @@ export type ThumbFrame = keyof typeof FRAME;
 
 export type ThumbTopic = "drive" | "time" | "amps" | "cabs" | "chain" | "other";
 
-export const TOPICS: { id: Exclude<ThumbTopic, "other">; title: string; blurb: string; pattern: ThumbPattern; gear: { kind: GearKind; color?: string; cloth?: string }[] }[] = [
-  { id: "drive", title: "Drive, fuzz and compression", blurb: "Gain staging, stacking, where the squeeze goes.", pattern: "wave", gear: [{ kind: "comp" }, { kind: "drive" }, { kind: "fuzz" }] },
-  { id: "time", title: "Delay and reverb", blurb: "Tap tempo, note values, trails.", pattern: "ripple", gear: [{ kind: "delay" }, { kind: "reverb" }] },
-  { id: "amps", title: "Amps", blurb: "Channels, headroom, bias and sag.", pattern: "tolex", gear: [{ kind: "head", color: "#D9CDB4", cloth: "#6B5B45" }, { kind: "preamp" }] },
-  { id: "cabs", title: "Cabs, mics and IRs", blurb: "Speakers, mic position, room correction.", pattern: "cloth", gear: [{ kind: "cab" }, { kind: "mic" }] },
-  { id: "chain", title: "The whole signal chain", blurb: "Block order, volume pedals, buffers.", pattern: "path", gear: [{ kind: "vol" }, { kind: "eq" }, { kind: "mod" }] },
+/** One picture on a Learn topic tile. Each topic uses a different kind of picture. */
+export interface TopicArt {
+  pattern: ThumbPattern;
+  color?: ThumbColor;
+  frame?: ThumbFrame;
+  layout?: "row" | "scatter" | "stagger";
+  gear?: { kind: GearKind; color?: string; cloth?: string; disp?: string; vals?: number[] }[];
+  dials?: number[];
+  gearHeight?: number;
+}
+
+export const TOPICS: { id: Exclude<ThumbTopic, "other">; title: string; blurb: string; art: TopicArt }[] = [
+  {
+    id: "drive",
+    title: "Drive, fuzz and compression",
+    blurb: "Gain staging, stacking, where the squeeze goes.",
+    // Three pedals tipped together.
+    art: { pattern: "wave", color: "amber", layout: "scatter", gearHeight: 158, gear: [{ kind: "comp", vals: [4, 6] }, { kind: "drive", vals: [7, 4, 6] }, { kind: "fuzz", vals: [9, 5] }] },
+  },
+  {
+    id: "time",
+    title: "Delay and reverb",
+    blurb: "Tap tempo, note values, trails.",
+    // One pedal, close on the knobs and the readout.
+    art: { pattern: "ripple", color: "teal", frame: "close", gearHeight: 150, gear: [{ kind: "delay", disp: "375", vals: [6, 4, 3] }] },
+  },
+  {
+    id: "amps",
+    title: "Amps",
+    blurb: "Channels, headroom, bias and sag.",
+    // A head, straight on, on tolex.
+    art: { pattern: "tolex", gearHeight: 190, gear: [{ kind: "head", color: "#D9CDB4", cloth: "#6B5B45", vals: [6, 4, 7, 6, 5, 4] }] },
+  },
+  {
+    id: "cabs",
+    title: "Cabs, mics and IRs",
+    blurb: "Speakers, mic position, room correction.",
+    // A mic up against a cab, cropped at the corner.
+    art: { pattern: "cloth", frame: "corner", layout: "row", gearHeight: 150, gear: [{ kind: "cab" }, { kind: "mic" }] },
+  },
+  {
+    id: "chain",
+    title: "The whole signal chain",
+    blurb: "Block order, volume pedals, buffers.",
+    // The chain itself: six small blocks in order.
+    art: { pattern: "path", color: "blue", layout: "stagger", gearHeight: 96, gear: [{ kind: "vol" }, { kind: "comp" }, { kind: "drive" }, { kind: "amp" }, { kind: "delay" }, { kind: "reverb" }] },
+  },
 ];
 export const TOPIC_TITLE: Record<ThumbTopic, string> = {
   drive: "Drive, fuzz and compression",

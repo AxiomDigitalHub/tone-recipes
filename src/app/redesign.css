@@ -2476,3 +2476,142 @@ html[data-theme="dark"] .fk-preview :is(.fk-chain, .fk-blockcard-art, .fk-guitar
 html[data-theme="dark"] .fk-preview .fk-home-card { background: #ffffff; --fk-ink: #131416; --fk-ink-2: #4a4f55; --fk-ink-3: #666c73; --fk-line: #dcdfe2; --fk-line-2: #eceef0; color: #131416; }
 html[data-theme="dark"] .fk-preview .fk-home-search { background: #ffffff; --fk-ink: #131416; --fk-ink-3: #666c73; --fk-paper: #ffffff; border-color: #ffffff; }
 html[data-theme="dark"] .fk-preview .fk-home-search button { background: #131416; color: #ffffff; }
+
+/* ── Thumbnail layouts and kinds (more variety on Learn) ─────────────── */
+.fk-preview .fk-thumb-gear.is-scatter { gap: 0; }
+.fk-preview .fk-thumb-gear.is-scatter > :nth-child(odd) { transform: rotate(-9deg) translateY(6%); }
+.fk-preview .fk-thumb-gear.is-scatter > :nth-child(even) { transform: rotate(7deg) translateY(-4%); z-index: 1; }
+.fk-preview .fk-thumb-gear.is-scatter > * + * { margin-left: -6%; }
+.fk-preview .fk-thumb-gear.is-stagger { gap: 2px; }
+.fk-preview .fk-thumb-gear.is-stagger > :nth-child(odd) { transform: translateY(-9%); }
+.fk-preview .fk-thumb-gear.is-stagger > :nth-child(even) { transform: translateY(9%); }
+.fk-preview .fk-thumb-guitar { width: auto; display: block; }
+.fk-preview .fk-guiderows a.has-thumb { flex-wrap: nowrap; align-items: center; gap: 16px; }
+.fk-preview .fk-guiderows a.has-thumb .fk-thumb { width: 64px; flex-shrink: 0; }
+.fk-preview .fk-guiderows a.has-thumb .fk-guiderow-title { flex: 1; min-width: 0; }
+.fk-preview .fk-guitarcard-wiring { padding-top: 14px; align-self: flex-start; }
+@media (max-width: 640px) {
+  .fk-preview .fk-learn-topics .fk-thumb-gear.is-stagger svg { height: 62px; }
+  .fk-preview .fk-guiderows a.has-thumb .fk-guiderow-meta { display: none; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   Modals and overlays, in the new design.
+   Search palette, the settings PDF gate, the sign-up and upgrade prompts,
+   and toasts. Markup and behaviour are unchanged.
+   ══════════════════════════════════════════════════════════════════════ */
+.fk-overlay-scope,
+[role="dialog"][aria-modal="true"]:not(.fk-header-drawer) {
+  font-family: var(--fk-sans);
+  color: var(--fk-ink);
+}
+[role="dialog"][aria-modal="true"]:not(.fk-header-drawer) :is(h1, h2, h3, p, span, a, button, label, input, div, kbd, li) {
+  font-family: var(--fk-sans);
+  text-transform: none;
+  letter-spacing: normal;
+  font-style: normal;
+}
+/* Scrim: a plain dim, no blur. */
+[role="dialog"][aria-modal="true"]:not(.fk-header-drawer) > :is([class*="backdrop-blur"], [class*="bg-black"]),
+.fk-overlay-scope .pdf-gate {
+  background: rgba(12, 13, 14, 0.5);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+/* The card. */
+[role="dialog"][aria-modal="true"]:not(.fk-header-drawer) :is([class*="max-w-sm"], [class*="max-w-lg"], [class*="max-w-md"])[class*="rounded"],
+.fk-overlay-scope .pdf-gate-card {
+  background: var(--fk-paper);
+  border: 1px solid var(--fk-line);
+  border-radius: var(--fk-r-lg);
+  corner-shape: squircle;
+  box-shadow: 0 24px 64px var(--fk-shadow);
+}
+.fk-overlay-scope .pdf-gate-card { padding: 32px; max-width: 440px; }
+[role="dialog"][aria-modal="true"]:not(.fk-header-drawer) :is(h2, h3),
+.fk-overlay-scope .pdf-gate-title {
+  font-family: var(--fk-sans);
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--fk-ink);
+}
+.fk-overlay-scope .pdf-gate-dek {
+  font-family: var(--fk-sans);
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--fk-ink-2);
+}
+/* Fields. */
+[role="dialog"][aria-modal="true"]:not(.fk-header-drawer) input:not([type="checkbox"]):not([type="radio"]),
+.fk-overlay-scope .pdf-gate-input {
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid var(--fk-line-strong);
+  border-radius: var(--fk-r-md);
+  corner-shape: squircle;
+  background: var(--fk-paper);
+  color: var(--fk-ink);
+  font-family: var(--fk-sans);
+  font-size: 16px;
+}
+[role="dialog"][aria-label="Search"] input { border: 0; height: auto; padding: 16px; background: transparent; }
+/* Buttons are pills. The main action is ink. */
+[role="dialog"][aria-modal="true"]:not(.fk-header-drawer) :is(a, button)[class*="rounded-lg"][class*="w-full"],
+.fk-overlay-scope .pdf-gate-submit {
+  min-height: 48px;
+  border-radius: var(--fk-r-pill);
+  font-family: var(--fk-sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  text-transform: none;
+}
+[role="dialog"][aria-modal="true"]:not(.fk-header-drawer) :is(a, button)[class*="bg-[var(--amber)]"],
+[role="dialog"][aria-modal="true"]:not(.fk-header-drawer) button[type="submit"],
+.fk-overlay-scope .pdf-gate-submit {
+  background: var(--fk-ink);
+  color: var(--fk-paper);
+  border: 1px solid var(--fk-ink);
+}
+.fk-overlay-scope .pdf-gate-submit:hover:not(:disabled),
+[role="dialog"][aria-modal="true"]:not(.fk-header-drawer) :is(a, button)[class*="bg-[var(--amber)]"]:hover {
+  background: var(--fk-ink);
+  color: var(--fk-paper);
+  opacity: 0.82;
+}
+/* Close buttons: the round icon button. */
+[role="dialog"][aria-modal="true"]:not(.fk-header-drawer) button[aria-label="Close"],
+.fk-overlay-scope .pdf-gate-close {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--fk-r-pill);
+  border: 1px solid var(--fk-line);
+  background: var(--fk-paper);
+  color: var(--fk-ink);
+  font-family: var(--fk-sans);
+}
+/* Tag pills inside modals read as plain captions. */
+[role="dialog"][aria-modal="true"]:not(.fk-header-drawer) span[class*="rounded-full"][class*="uppercase"] {
+  background: none;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--fk-ink-3);
+}
+.fk-overlay-scope .pdf-gate-foot,
+.fk-overlay-scope .pdf-gate-error { font-family: var(--fk-sans); font-size: 14px; letter-spacing: normal; text-transform: none; }
+.fk-overlay-scope .pdf-gate-foot a { color: var(--fk-ink); text-decoration: underline; text-underline-offset: 3px; }
+/* Search palette rows. */
+[role="dialog"][aria-label="Search"] [role="option"] { border-radius: var(--fk-r-sm); }
+[role="dialog"][aria-label="Search"] [role="option"][aria-selected="true"] { background: var(--fk-wash); }
+[role="dialog"][aria-label="Search"] kbd { border-radius: 6px; border-color: var(--fk-line); font-family: var(--fk-mono); }
+/* Toasts. */
+.fk-preview ~ [aria-live], [aria-live="polite"] > div[class*="rounded-xl"] {
+  border-radius: var(--fk-r-md);
+  font-family: var(--fk-sans);
+}

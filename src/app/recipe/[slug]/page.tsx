@@ -13,7 +13,7 @@ import { RecipePlatformProvider } from "@/components/recipe/redesign/RecipePlatf
 import RecipeActions from "@/components/recipe/redesign/RecipeActions";
 import RecipeChain from "@/components/recipe/redesign/RecipeChain";
 import { ChevronRight } from "lucide-react";
-import { guitarFor, guitarSrc, GUITARS } from "@/lib/gear/guitars";
+import { guitarArt, wiringLink } from "@/lib/gear/guitars";
 import { buyInfoFor, type BuyInfo } from "@/lib/gear/retail";
 import { formatPickups, formatTuning, guitarModelName } from "@/lib/guitar-specs";
 import { getBandName } from "@/lib/song-band";
@@ -158,7 +158,8 @@ export default async function PreviewRecipePage({
   const band = song ? getBandName(song, artist) : null;
   const credit = [artist?.name, band, song?.year].filter(Boolean).join(", ");
   const guitar = recipe.guitar_specs;
-  const guitarKey = guitarFor(guitar);
+  const art = guitarArt(recipe.slug, guitar);
+  const wiring = wiringLink(art.key);
   const facts: [string, string][] = guitar
     ? ([
         ["Pickups", guitar.pickup_config ? formatPickups(guitar) : ""],
@@ -306,8 +307,8 @@ export default async function PreviewRecipePage({
               {/* Decorative: the model name is the card's heading. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={guitarSrc(guitarKey)}
-                alt={GUITARS[guitarKey]}
+                src={art.src}
+                alt={art.alt}
                 width={260}
                 height={205}
                 className="fk-guitarcard-art"
@@ -322,6 +323,12 @@ export default async function PreviewRecipePage({
                     </div>
                   ))}
                 </dl>
+                {/* Sister site: how this style of guitar is wired. */}
+                {wiring && (
+                  <a href={wiring.href} className="fk-link fk-body-sm fk-guitarcard-wiring">
+                    How {wiring.label} is wired
+                  </a>
+                )}
               </div>
             </div>
           )}

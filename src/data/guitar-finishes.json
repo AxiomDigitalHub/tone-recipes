@@ -1,0 +1,678 @@
+{
+  "angus-whole-lotta-rosie-riff": {
+    "finish": "walnut",
+    "source": "recipe",
+    "note": "Recipe notes: 'Angus's late-'60s walnut SG Standard'."
+  },
+  "armstrong-basket-case-rhythm": {
+    "finish": "sonic-blue",
+    "source": "documented",
+    "url": "https://www.guitarworld.com/artists/guitarists/billie-joe-armstrong-on-his-first-ever-guitar-that-defined-green-days-sound",
+    "note": "Guitar World: 'a cheap, light blue Fernandes copy', core to Dookie; now heavily stickered."
+  },
+  "armstrong-when-i-come-around-riff": {
+    "finish": "sonic-blue",
+    "source": "documented",
+    "url": "https://www.guitarworld.com/artists/guitarists/billie-joe-armstrong-on-his-first-ever-guitar-that-defined-green-days-sound",
+    "note": "Guitar World: 'a cheap, light blue Fernandes copy', core to Dookie; now heavily stickered."
+  },
+  "blackmore-gates-of-babylon-solo": {
+    "finish": "sunburst",
+    "source": "recipe",
+    "note": "Recipe: \"1974 sunburst Fender Stratocaster\"."
+  },
+  "blackmore-kill-the-king-riff": {
+    "finish": "sunburst",
+    "source": "recipe",
+    "note": "Recipe: \"1974 sunburst Fender Stratocaster\"."
+  },
+  "blackmore-smoke-on-the-water-riff": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: \"Black-finished 1968 Strat\" (not independently checked)."
+  },
+  "blackmore-stargazer-solo": {
+    "finish": "white",
+    "source": "recipe",
+    "note": "Recipe: \"1974 Olympic-white Fender Stratocaster\"."
+  },
+  "brian-may-bohemian-rhapsody": {
+    "finish": "cherry",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Red_Special",
+    "note": "Wikipedia: reddish-brown colour from stain under clear Rustins Plastic Coating; translucent red-brown over mahogany, so 'cherry' is nearest ('red' is the solid-colour alternative)."
+  },
+  "campbell-dont-talk-to-strangers-clean": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: 'refinished matte black' (originally wine red, repainted by Campbell before Dio)."
+  },
+  "campbell-holy-diver-les-paul-marshall": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: 'refinished matte black' (originally wine red, repainted by Campbell before Dio)."
+  },
+  "campbell-refugee-lead": {
+    "finish": "red",
+    "source": "documented",
+    "url": "https://guitarworld.com/gear/electric-guitars/mike-campbell-fender-red-dog-telecaster",
+    "note": "Guitar World: Masterbuilt 'closest replica of the original Red Dog' has a 'faded red metallic finish' (faded candy apple red); used on Refugee."
+  },
+  "campbell-stand-up-and-shout-riff": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: 'refinished matte black' (originally wine red, repainted by Campbell before Dio)."
+  },
+  "campbell-the-last-in-line-solo": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: 'refinished matte black' (originally wine red, repainted by Campbell before Dio)."
+  },
+  "campbell-we-rock-riff": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: 'refinished matte black' (originally wine red, repainted by Campbell before Dio)."
+  },
+  "cantrell-man-in-the-box-riff": {
+    "finish": "white",
+    "source": "recipe",
+    "note": "Stated in the sibling Rooster recipe for the same guitar: 'originally white, later covered in stickers'; this recipe's own notes give no colour."
+  },
+  "cantrell-rooster-lead": {
+    "finish": "white",
+    "source": "recipe",
+    "note": "Recipe: 'originally white, later covered in stickers' (base colour only; G&L's Blue Dress signature model is listed as ivory)."
+  },
+  "cantrell-them-bones-riff": {
+    "finish": "white",
+    "source": "recipe",
+    "note": "Stated in the sibling Rooster recipe for the same guitar: 'originally white, later covered in stickers'; this recipe's own notes give no colour."
+  },
+  "carpenter-be-quiet-and-drive": {
+    "finish": "surf-green",
+    "source": "recipe",
+    "note": "Recipe: 'His turquoise Horizon'. Turquoise is not an allowed value; surf-green chosen as nearest (sonic-blue is the alternative). Not confirmed by an outside source."
+  },
+  "clapton-layla-lead": {
+    "finish": "tobacco-burst",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Brownie_(guitar)",
+    "note": "Brownie has a 'two-tone sunburst finish' and was used on the Layla album; mapped to the 2-tone burst value."
+  },
+  "cobain-teen-spirit-grunge": {
+    "finish": "blue",
+    "source": "documented",
+    "url": "https://guitarworld.com/news/kurt-cobain-fender-mustang-smells-like-teen-spirit-auction",
+    "note": "1969 Competition Mustang, 'Lake Placid Blue' (with racing stripe); source ties it to the video, studio use not confirmed in the page opened."
+  },
+  "corgan-cherub-rock-big-muff": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe notes: 'refinished black-over-candy-apple-red' (black top coat over the original red; red may show through wear)."
+  },
+  "dave-murray-wrathchild-riff": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: \"Murray's black Strat\"."
+  },
+  "deleo-plush-les-paul": {
+    "finish": "sunburst",
+    "source": "recipe",
+    "note": "Recipe: '1978 sunburst Gibson Les Paul Standard'."
+  },
+  "dimebag-cemetery-gates-clean-to-crushing": {
+    "finish": "blue",
+    "source": "recipe",
+    "note": "Recipe: 'blue lightning-bolt graphics'; graphic finish, blue dominant."
+  },
+  "dimebag-cowboys-from-hell-riff": {
+    "finish": "blue",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Dimebag_Darrell",
+    "note": "Graphic finish: repainted from maroon to 'blue-and-black with a lightning bolt finish' before 1987; blue is the dominant base."
+  },
+  "dimebag-walk-groove-metal": {
+    "finish": "blue",
+    "source": "recipe",
+    "note": "Recipe: 'Blue lightning-bolt graphic'; graphic finish, blue dominant."
+  },
+  "downing-victim-of-changes-riff": {
+    "finish": "red",
+    "source": "recipe",
+    "note": "Recipe model field: \"Gibson Flying V (1967, red refinish -- K.K. Downing)\"."
+  },
+  "evh-eruption-brown-sound": {
+    "finish": "white",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Frankenstrat",
+    "note": "Striped: in 1978 the Frankenstrat was white with black stripes; the red coat was added in March 1979, after this recording."
+  },
+  "evh-panama-brown-sound": {
+    "finish": "red",
+    "source": "recipe",
+    "note": "Recipe: 'custom red/black/white striped body'; striped, red dominant (red added 1979 per Wikipedia)."
+  },
+  "felder-hotel-california-solo": {
+    "finish": "sunburst",
+    "source": "recipe",
+    "note": "Recipe: '1959 Gibson Les Paul Standard (Sunburst)'."
+  },
+  "friedman-tornado-of-souls-solo": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe (quoting Friedman's COA): \"repainted black and converted into a single humbucker\"."
+  },
+  "fripp-red-riff": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: \"1959 Gibson Les Paul Custom, the three-pickup Black Beauty\"."
+  },
+  "frusciante-snow-hey-oh-intro": {
+    "finish": "sunburst",
+    "source": "documented",
+    "url": "https://www.groundguitar.com/john-frusciante-gear/john-frusciantes-1962-fender-stratocaster/",
+    "note": "1962 Strat has a heavily worn three-tone sunburst finish; Stadium Arcadium 'was largely recorded using this guitar' (not song-specific)."
+  },
+  "garrard-great-are-you-lord": {
+    "finish": "blue",
+    "source": "recipe",
+    "note": "Recipe: 'well-known blue Mexican Telecaster'; shade not specified."
+  },
+  "gibbons-la-grange-blues-crunch": {
+    "finish": "sunburst",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Pearly_Gates_(guitar)",
+    "note": "Wikipedia: 'a sunburst 1959 Gibson Les Paul Standard' (classic faded 'burst)."
+  },
+  "gilmour-comfortably-numb-solo": {
+    "finish": "black",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/The_Black_Strat",
+    "note": "The Black Strat: black body (repainted from sunburst at Manny's); Wikipedia lists Comfortably Numb among its uses."
+  },
+  "gilmour-dogs-solo": {
+    "finish": "tobacco-burst",
+    "source": "recipe",
+    "note": "Recipe model: 'two-colour sunburst'; mapped to the 2-tone burst value."
+  },
+  "gilmour-money-solo": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: 'a 1969 black-bodied Strat' (primary guitar; the Bill Lewis is only on the third solo section)."
+  },
+  "gilmour-shine-on-sustain": {
+    "finish": "black",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/The_Black_Strat",
+    "note": "The Black Strat: black body (repainted from sunburst at Manny's); Wikipedia lists Comfortably Numb among its uses."
+  },
+  "gilmour-time-solo-lead": {
+    "finish": "black",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/The_Black_Strat",
+    "note": "The Black Strat: black body (repainted from sunburst at Manny's); Wikipedia lists Comfortably Numb among its uses."
+  },
+  "gorham-boys-are-back-twin-lead": {
+    "finish": "cherry-burst",
+    "source": "recipe",
+    "note": "Recipe: \"Gorham's cherry-sunburst Les Paul Deluxe\"."
+  },
+  "grohl-all-my-life-riff": {
+    "finish": "cherry",
+    "source": "documented",
+    "url": "https://musicradar.com/news/dave-grohl-pays-tribute-to-trini-lopez-my-1967-trini-lopez-signature-guitar-is-the-sound-of-our-band",
+    "note": "Grohl: every Foo Fighters album 'was recorded with my red 1967 Trini Lopez'; Trini Lopez red is Gibson cherry, so 'cherry' chosen over solid 'red'."
+  },
+  "grohl-monkey-wrench-riff": {
+    "finish": "cherry",
+    "source": "documented",
+    "url": "https://musicradar.com/news/dave-grohl-pays-tribute-to-trini-lopez-my-1967-trini-lopez-signature-guitar-is-the-sound-of-our-band",
+    "note": "Grohl: every Foo Fighters album 'was recorded with my red 1967 Trini Lopez'; Trini Lopez red is Gibson cherry, so 'cherry' chosen over solid 'red'."
+  },
+  "grohl-the-pretender-riff": {
+    "finish": "cherry",
+    "source": "documented",
+    "url": "https://musicradar.com/news/dave-grohl-pays-tribute-to-trini-lopez-my-1967-trini-lopez-signature-guitar-is-the-sound-of-our-band",
+    "note": "Grohl: every Foo Fighters album 'was recorded with my red 1967 Trini Lopez'; Trini Lopez red is Gibson cherry, so 'cherry' chosen over solid 'red'."
+  },
+  "grohl-times-like-these-riff": {
+    "finish": "cherry",
+    "source": "documented",
+    "url": "https://musicradar.com/news/dave-grohl-pays-tribute-to-trini-lopez-my-1967-trini-lopez-signature-guitar-is-the-sound-of-our-band",
+    "note": "Grohl: every Foo Fighters album 'was recorded with my red 1967 Trini Lopez'; Trini Lopez red is Gibson cherry, so 'cherry' chosen over solid 'red'."
+  },
+  "hackett-firth-of-fifth-solo": {
+    "finish": "goldtop",
+    "source": "recipe",
+    "note": "Recipe: '1957 Gibson Les Paul Goldtop'."
+  },
+  "hackett-moonlit-knight-tapping": {
+    "finish": "goldtop",
+    "source": "recipe",
+    "note": "Recipe: 'The same stock-PAF 1957 Goldtop'."
+  },
+  "hammond-last-nite-riff": {
+    "finish": "white",
+    "source": "recipe",
+    "url": "https://fender.com/en-US/albert-hammond-jr-artist",
+    "note": "Recipe notes: 'a white 1985 Japanese '70s-style reissue Stratocaster' (Olympic White per Fender search result, page not opened)."
+  },
+  "hetfield-blackened-rhythm": {
+    "finish": "white",
+    "source": "documented",
+    "url": "https://www.groundguitar.com/james-hetfield-guitars-and-gear/",
+    "note": "Ground Guitar calls it 'the \"Eet Fuk\" white ESP', his main guitar of the Justice era."
+  },
+  "hetfield-creeping-death-rhythm": {
+    "finish": "white",
+    "source": "recipe",
+    "url": "https://www.groundguitar.com/james-hetfield-guitars-and-gear/",
+    "note": "Recipe: 'white 1984 model' (finish from gear-press accounts, per the recipe); Ground Guitar says 'cream-white finish'."
+  },
+  "hetfield-for-whom-the-bell-tolls-riff": {
+    "finish": "white",
+    "source": "recipe",
+    "url": "https://www.groundguitar.com/james-hetfield-guitars-and-gear/",
+    "note": "Recipe: 'White 1984 Gibson Explorer'; Ground Guitar describes the 1984 Explorer as 'a cream-white finish' (yellowed later)."
+  },
+  "hetfield-harvester-of-sorrow-rhythm": {
+    "finish": "white",
+    "source": "documented",
+    "url": "https://www.groundguitar.com/james-hetfield-guitars-and-gear/",
+    "note": "Ground Guitar calls it 'the \"Eet Fuk\" white ESP', his main guitar of the Justice era."
+  },
+  "hetfield-master-of-puppets-rhythm": {
+    "finish": "white",
+    "source": "recipe",
+    "url": "https://www.groundguitar.com/james-hetfield-guitars-and-gear/",
+    "note": "Recipe: 'white 1985 Jackson Custom Shop King V'; Ground Guitar also says it 'featured a white body finish'."
+  },
+  "iommi-children-of-the-sea-solo": {
+    "finish": "cherry",
+    "source": "recipe",
+    "url": "https://www.guitarguitar.co.uk/news/141014",
+    "note": "Recipe: 'Monkey', left-handed, 'cherry red'."
+  },
+  "iommi-iron-man-doom-riff": {
+    "finish": "cherry",
+    "source": "documented",
+    "url": "https://www.guitarguitar.co.uk/news/141014",
+    "note": "'Monkey': guitarguitar describes 'a mid 60s Cherry Red SG Special' used for main parts on the first five Sabbath records."
+  },
+  "iommi-neon-knights-riff": {
+    "finish": "cherry",
+    "source": "recipe",
+    "url": "https://www.guitarguitar.co.uk/news/141014",
+    "note": "Recipe: 'Monkey', left-handed, 'cherry red'."
+  },
+  "iommi-the-mob-rules-riff": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: 'John Birch SG Custom (1975, black, 24-fret)'."
+  },
+  "jack-white-seven-nation-army": {
+    "finish": "natural",
+    "source": "documented",
+    "url": "https://www.guitarlobby.com/jack-white-guitars-and-gear/",
+    "note": "Kay 'originally had a sunburst finish' but White 'covered it with kraft paper' (tan/brown paper; reportedly 2001, before this 2003 song); 'natural' is the nearest paintable colour, a judgement call."
+  },
+  "jake-e-lee-bark-at-the-moon-riff": {
+    "finish": "blue",
+    "source": "recipe",
+    "note": "Recipe: 'Blue-burst Charvel San Dimas Style 1' (a burst; blue is the dominant colour)."
+  },
+  "jake-e-lee-killer-of-giants-solo": {
+    "finish": "blue",
+    "source": "recipe",
+    "note": "Recipe model says 'blue burst' (a burst, blue is the dominant colour); note the recipe's own gear line says the white Charvel did basic tracks and solos, doubled with the blue burst."
+  },
+  "jones-jambi-drop-d-talk-box": {
+    "finish": "silverburst",
+    "source": "recipe",
+    "note": "Recipe notes: 'late-'70s Les Paul Custom Silverburst'."
+  },
+  "jones-schism-dark-heavy": {
+    "finish": "silverburst",
+    "source": "recipe",
+    "note": "Recipe notes: 'Stock Les Paul Silverburst' (recipe calls it a Standard here, a Custom elsewhere)."
+  },
+  "jones-sober-dynamic-crush": {
+    "finish": "silverburst",
+    "source": "recipe",
+    "note": "Recipe notes: '1979 Les Paul Custom Silverburst'."
+  },
+  "jones-stinkfist-drop-d-crush": {
+    "finish": "silverburst",
+    "source": "recipe",
+    "note": "Recipe notes: '1979 Les Paul Custom Silverburst'."
+  },
+  "jones-the-pot-drop-c-crush": {
+    "finish": "silverburst",
+    "source": "recipe",
+    "note": "Recipe notes: '1979 Les Paul Custom Silverburst'."
+  },
+  "kelliher-blood-and-thunder-riff": {
+    "finish": "silverburst",
+    "source": "recipe",
+    "note": "Model lists two guitars, but the drawn shape (Flying V) is Hinds' '1979 Silverburst Flying V' and Kelliher's 1979 Custom is also Silverburst per recipe; his 1982 Custom's finish is not stated in this recipe."
+  },
+  "kelliher-colony-of-birchmen-riff": {
+    "finish": "silverburst",
+    "source": "recipe",
+    "note": "Recipe notes: 'Gibson Les Paul Custom in Silverburst'."
+  },
+  "kelliher-oblivion-riff": {
+    "finish": "silverburst",
+    "source": "recipe",
+    "note": "Model lists two guitars but recipe states both are Silverburst ('1982 Gibson Les Paul Custom Silverburst'; '1979 Silverburst Flying V')."
+  },
+  "kelliher-wolf-is-loose-riff": {
+    "finish": "silverburst",
+    "source": "recipe",
+    "note": "Model lists two guitars but recipe states both are Silverburst (Kelliher's LP Custom and Hinds' '1979 Silverburst Flying V')."
+  },
+  "kk-downing-hell-bent-for-leather-riff": {
+    "finish": "red",
+    "source": "recipe",
+    "note": "Recipe: \"Downing's red-refinished 1967 Gibson Flying V\"."
+  },
+  "leadon-take-it-easy-tele-lead": {
+    "finish": "walnut",
+    "source": "recipe",
+    "note": "Recipe notes: 'brown-refinished early-'60s Telecaster (originally white...)'; walnut is the nearest allowed value to brown."
+  },
+  "lifeson-la-villa-strangiato-solo": {
+    "finish": "white",
+    "source": "documented",
+    "url": "https://www.guitarworld.com/gear/electric-guitars/epiphone-alex-lifeson-es-355",
+    "note": "Lifeson's 1976 ES-355 'Whitey' is Alpine White per Guitar World; source does not tie it to this track by name."
+  },
+  "lifeson-spirit-of-radio-intro": {
+    "finish": "white",
+    "source": "documented",
+    "url": "https://www.guitarworld.com/gear/electric-guitars/epiphone-alex-lifeson-es-355",
+    "note": "Lifeson's 1976 ES-355 'Whitey' is Alpine White per Guitar World; source does not tie it to this track by name."
+  },
+  "lifeson-tom-sawyer-chorus": {
+    "finish": "white",
+    "source": "documented",
+    "url": "https://www.guitarworld.com/gear/electric-guitars/epiphone-alex-lifeson-es-355",
+    "note": "Lifeson's 1976 ES-355 'Whitey' is Alpine White per Guitar World; source does not tie it to this track by name."
+  },
+  "lynch-unchain-the-night-riff": {
+    "finish": "sunburst",
+    "source": "recipe",
+    "note": "Recipe: \"Sunburst 'Tiger' super-strat\"; graphic guitar (tiger stripes over a burst)."
+  },
+  "marr-how-soon-is-now-tremolo": {
+    "finish": "black",
+    "source": "documented",
+    "url": "https://www.enfieldindependent.co.uk/leisure/national/26559833.two-johnny-marr-guitars-sold-half-million-pounds/",
+    "note": "Marr's Smiths-era Rickenbacker is a '1982 Rickenbacker 330 Jetglo' (black); caveat: gear guides disagree on whether the Rick is on this track (Casino / Les Paul also credited)."
+  },
+  "marr-there-is-a-light-jangle": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: 'Marr's Jetglo Rickenbacker 330' (Jetglo = black)."
+  },
+  "marr-this-charming-man-jangle": {
+    "finish": "black",
+    "source": "recipe",
+    "url": "https://www.enfieldindependent.co.uk/leisure/national/26559833.two-johnny-marr-guitars-sold-half-million-pounds/",
+    "note": "Recipe: 'Marr's Jetglo Rickenbacker 330'; Christie's sale report confirms '1982 Rickenbacker 330 Jetglo' heard on This Charming Man."
+  },
+  "mccready-alive-solo": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: \"Black 1962 Japanese-reissue Stratocaster\"."
+  },
+  "mccready-black-solo": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: \"Black 1962 Japanese-reissue Stratocaster\"."
+  },
+  "mccready-even-flow-solo": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: \"The same black 1962 Japanese-reissue Strat used across Ten\"."
+  },
+  "metallica-battery-acoustic-to-thrash": {
+    "finish": "white",
+    "source": "recipe",
+    "url": "https://www.groundguitar.com/james-hetfield-guitars-and-gear/",
+    "note": "Recipe: 'white Custom Shop King V'; Ground Guitar also says it 'featured a white body finish'."
+  },
+  "metallica-one-clean-to-thrash": {
+    "finish": "white",
+    "source": "documented",
+    "url": "https://www.groundguitar.com/james-hetfield-guitars-and-gear/",
+    "note": "Ground Guitar calls it 'the \"Eet Fuk\" white ESP', his main guitar of the Justice era."
+  },
+  "morello-bulls-on-parade": {
+    "finish": "sonic-blue",
+    "source": "documented",
+    "url": "https://www.guitarworld.com/gear/electric-guitars/fender-tom-morello-arm-the-homeless-guitar",
+    "note": "Graphic guitar: pale metallic blue base with hand-drawn hippos and slogan; Guitar World says Fender's faithful replica is 'blue ice metallic'. Original's finish not separately dated to this year."
+  },
+  "morello-cochise-riff": {
+    "finish": "black",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Tom_Morello",
+    "note": "Wikipedia: 'a modified, black Fender Aerodyne-series Stratocaster with the slogan \"Soul Power\"'."
+  },
+  "morello-guerrilla-radio": {
+    "finish": "sonic-blue",
+    "source": "documented",
+    "url": "https://www.guitarworld.com/gear/electric-guitars/fender-tom-morello-arm-the-homeless-guitar",
+    "note": "Graphic guitar: pale metallic blue base with hand-drawn hippos and slogan; Guitar World says Fender's faithful replica is 'blue ice metallic'. Original's finish not separately dated to this year."
+  },
+  "morello-like-a-stone-solo": {
+    "finish": "black",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Tom_Morello",
+    "note": "Wikipedia: 'a modified, black Fender Aerodyne-series Stratocaster with the slogan \"Soul Power\"'."
+  },
+  "morello-people-of-the-sun": {
+    "finish": "sonic-blue",
+    "source": "documented",
+    "url": "https://www.guitarworld.com/gear/electric-guitars/fender-tom-morello-arm-the-homeless-guitar",
+    "note": "Graphic guitar: pale metallic blue base with hand-drawn hippos and slogan; Guitar World says Fender's faithful replica is 'blue ice metallic'. Original's finish not separately dated to this year."
+  },
+  "morello-show-me-how-to-live-riff": {
+    "finish": "black",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Tom_Morello",
+    "note": "Wikipedia: 'a modified, black Fender Aerodyne-series Stratocaster with the slogan \"Soul Power\"'."
+  },
+  "morello-sleep-now-in-the-fire": {
+    "finish": "sonic-blue",
+    "source": "documented",
+    "url": "https://www.guitarworld.com/gear/electric-guitars/fender-tom-morello-arm-the-homeless-guitar",
+    "note": "Graphic guitar: pale metallic blue base with hand-drawn hippos and slogan; Guitar World says Fender's faithful replica is 'blue ice metallic'. Original's finish not separately dated to this year."
+  },
+  "murray-22-acacia-avenue-riff": {
+    "finish": "black",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Dave_Murray_(musician)",
+    "note": "Wikipedia: 'His black 1957/63 ... Stratocaster' ex-Paul Kossoff, used approx. 1978-1988."
+  },
+  "murray-aces-high-gallop": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: \"Murray's black Strat\"."
+  },
+  "murray-phantom-of-the-opera-riff": {
+    "finish": "black",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Dave_Murray_(musician)",
+    "note": "Wikipedia: 'His black 1957/63 ... Stratocaster' ex-Paul Kossoff, used approx. 1978-1988."
+  },
+  "murray-run-to-the-hills-gallop": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: \"Murray's black Strat\"."
+  },
+  "mustaine-symphony-of-destruction-riff": {
+    "finish": "silver",
+    "source": "documented",
+    "url": "https://www.guitarworld.com/artists/guitarists/dave-mustaine-a-life-in-guitars",
+    "note": "Guitar World: the King V nicknamed 'Number One' has a silver sparkle finish and was his main guitar on the classic records."
+  },
+  "page-black-dog-riff": {
+    "finish": "sunburst",
+    "source": "documented",
+    "url": "https://guitargangsters.net/jimmy-page/",
+    "note": "Number One described as 'the 1959 Gibson Les Paul Standard Sunburst he purchased from Joe Walsh' (weak-tier source; guitar.com's Page Les Paul feature was blocked)."
+  },
+  "page-whole-lotta-love-heavy-riff": {
+    "finish": "sunburst",
+    "source": "documented",
+    "url": "https://guitargangsters.net/jimmy-page/",
+    "note": "Same guitar: 'the 1959 Gibson Les Paul Standard Sunburst he purchased from Joe Walsh'; Guitar Player (guitarplayer.com/news/jimmy-page-explains-why-he-switched-to-a-les-paul-for-led-zeppelin-ii) confirms the Walsh Les Paul on Whole Lotta Love."
+  },
+  "perry-sweet-emotion-talk-box": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: 'Perry's ~1973 black Strat (rosewood board)' (the recipe itself treats the guitar as an inference)."
+  },
+  "rhoads-crazy-train-lead": {
+    "finish": "cream",
+    "source": "documented",
+    "url": "https://www.premierguitar.com/gear/the-guitars-of-randy-rhoads",
+    "note": "Premier Guitar: Les Paul Custom was 'white when new' but yellowed to 'cream-colored'; recipe says \"Gibson Les Paul Custom (white)\", cream chosen to match the Mr. Crowley recipe."
+  },
+  "rhoads-diary-of-a-madman": {
+    "finish": "black",
+    "source": "documented",
+    "url": "https://www.dimarzio.com/stories/birth-sandoval-randy-rhoads-dot-v",
+    "note": "Polka-dot graphic: DiMarzio/Sandoval account says '3/4-inch white dots on the black finish'; base colour black."
+  },
+  "rhoads-flying-high-again-solo": {
+    "finish": "black",
+    "source": "documented",
+    "url": "https://www.dimarzio.com/stories/birth-sandoval-randy-rhoads-dot-v",
+    "note": "Polka-dot graphic: 'white dots on the black finish'; base colour black."
+  },
+  "rhoads-mr-crowley-solo": {
+    "finish": "cream",
+    "source": "recipe",
+    "url": "https://www.premierguitar.com/gear/the-guitars-of-randy-rhoads",
+    "note": "Recipe model field: \"Gibson Les Paul Custom (1974, cream)\"; Premier Guitar agrees (white aged to cream)."
+  },
+  "richards-start-me-up-open-g": {
+    "finish": "butterscotch",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Keith_Richards",
+    "note": "Recipe names 'Micawber'; Wikipedia: 1953 Telecaster, 'acquired this butterscotch Telecaster in 1971'."
+  },
+  "rossington-tuesdays-gone-lead": {
+    "finish": "sunburst",
+    "source": "recipe",
+    "note": "Recipe model: '1959, sunburst, \"Bernice\"'; but its notes concede a 1969 Goldtop could be the guitar on this track."
+  },
+  "scholz-more-than-a-feeling-riff": {
+    "finish": "goldtop",
+    "source": "recipe",
+    "note": "Recipe: on the 1976 record 'the Goldtop still had its P-90s' and he 'only later... stripped the finish'. Conflicts with the sibling Peace of Mind recipe; stripping date not externally confirmed."
+  },
+  "slash-dirty-little-thing-riff": {
+    "finish": "sunburst",
+    "source": "documented",
+    "url": "https://www.musicradar.com/reviews/gibson-slash-les-paul-standard",
+    "note": "MusicRadar: 'faded Lemon Drop finish as per his original Derrig/Baranet replica', a faded 'burst; track use is the recipe's general-Slash attribution."
+  },
+  "slash-november-rain-solo": {
+    "finish": "sunburst",
+    "source": "documented",
+    "url": "https://www.guitarplayer.com/gear/a-look-back-at-slashs-les-paul-standard-copy",
+    "note": "Derrig '59 replica: Guitar Player describes a highly figured maple top 'with no cherry tint around the edges', a faded amber 'unburst', so sunburst is the nearest value, not a red-edged burst."
+  },
+  "slash-slither-riff": {
+    "finish": "sunburst",
+    "source": "documented",
+    "url": "https://www.musicradar.com/reviews/gibson-slash-les-paul-standard",
+    "note": "MusicRadar: Appetite Amber is 'a faded Lemon Drop finish as per his original Derrig/Baranet replica', a faded 'burst; track use is the recipe's general-Slash attribution."
+  },
+  "slash-sweet-child-o-mine-lead": {
+    "finish": "sunburst",
+    "source": "documented",
+    "url": "https://www.guitarplayer.com/gear/a-look-back-at-slashs-les-paul-standard-copy",
+    "note": "Derrig '59 replica: Guitar Player describes a highly figured maple top 'with no cherry tint around the edges', a faded amber 'unburst', so sunburst is the nearest value, not a red-edged burst."
+  },
+  "slash-welcome-to-jungle-aggressive-riff": {
+    "finish": "sunburst",
+    "source": "documented",
+    "url": "https://www.guitarplayer.com/gear/a-look-back-at-slashs-les-paul-standard-copy",
+    "note": "Derrig '59 replica: Guitar Player describes a highly figured maple top 'with no cherry tint around the edges', a faded amber 'unburst', so sunburst is the nearest value, not a red-edged burst."
+  },
+  "smith-evil-that-men-do-solo": {
+    "finish": "white",
+    "source": "recipe",
+    "note": "Recipe notes: 'Smith's white Jackson custom superstrat'."
+  },
+  "smith-sea-of-madness-riff": {
+    "finish": "white",
+    "source": "recipe",
+    "note": "Model field says 'prototype (1986, white)'; notes add he also used a black Charvel San Dimas in this period, so the track-level guitar is not pinned."
+  },
+  "smith-wasted-years-riff": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe notes: 'the black San Dimas seen in the Wasted Years video'."
+  },
+  "srv-little-wing-hendrix-tribute": {
+    "finish": "sunburst",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Stevie_Ray_Vaughan_Stratocaster",
+    "note": "Wikipedia: signature model is 'what Number One would be if brand new... three-color sunburst'; the real guitar's burst was heavily worn; Met listing (search result, page not opened) also says sunburst."
+  },
+  "srv-pride-and-joy-rhythm": {
+    "finish": "sunburst",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Stevie_Ray_Vaughan_Stratocaster",
+    "note": "Wikipedia: signature model is 'what Number One would be if brand new... three-color sunburst'; the real guitar's burst was heavily worn; Met listing (search result, page not opened) also says sunburst."
+  },
+  "srv-texas-flood-slow-blues-lead": {
+    "finish": "sunburst",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Stevie_Ray_Vaughan_Stratocaster",
+    "note": "Wikipedia: signature model is 'what Number One would be if brand new... three-color sunburst'; the real guitar's burst was heavily worn; Met listing (search result, page not opened) also says sunburst."
+  },
+  "srv-the-sky-is-crying-slow-blues": {
+    "finish": "sunburst",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Stevie_Ray_Vaughan_Stratocaster",
+    "note": "Wikipedia: signature model is 'what Number One would be if brand new... three-color sunburst'; the real guitar's burst was heavily worn; Met listing (search result, page not opened) also says sunburst."
+  },
+  "summers-every-breath-you-take-rhythm": {
+    "finish": "sunburst",
+    "source": "documented",
+    "url": "https://www.guitarworld.com/features/andy-summers-modded-fender-telecaster",
+    "note": "Guitar World: 'a sunburst Telecaster Custom' (3-tone, heavily worn); his main Police guitar, not tied to this track by name."
+  },
+  "tatler-am-i-evil-riff": {
+    "finish": "white",
+    "source": "recipe",
+    "note": "Recipe: '1979 Gibson Flying V, white, bought new and stock'."
+  },
+  "tatler-lightning-to-the-nations-riff": {
+    "finish": "white",
+    "source": "recipe",
+    "note": "Recipe model field: 'Gibson Flying V (1979, white)'."
+  },
+  "thomson-duality-riff": {
+    "finish": "black",
+    "source": "recipe",
+    "note": "Recipe: \"his black 'HATE'-inlay B.C. Rich Warlock\"."
+  },
+  "tremonti-my-own-prison-riff": {
+    "finish": "red",
+    "source": "recipe",
+    "note": "Recipe: \"a 1986 red Gibson Les Paul with a stock Kahler vibrato\"."
+  },
+  "zakk-wylde-miracle-man-riff": {
+    "finish": "cream",
+    "source": "recipe",
+    "note": "Recipe: 'cream at the time of this album'; the bullseye graphic came afterwards."
+  }
+}

@@ -58,7 +58,7 @@ function Features({ items }: { items: string[] }) {
 }
 
 export default function PlanCards() {
-  const [interval, setInterval] = useState<Interval>("annual");
+  const [interval, setInterval] = useState<Interval>("monthly");
   const yearly = interval === "annual";
 
   const passPrice = yearly ? "$49" : "$4.99";

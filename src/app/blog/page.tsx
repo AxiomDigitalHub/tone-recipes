@@ -150,7 +150,7 @@ export default function LearnPage() {
         <div className="fk-learn-topics">
           {TOPICS.map((t) => (
             <a key={t.id} href={`#guides:topic=${t.id}`} className="fk-card">
-              <Thumb pattern={t.pattern} gear={t.gear} gearHeight={150} />
+              <Thumb {...t.art} />
               <div className="fk-card-body">
                 <div className="fk-card-head">
                   <h2 className="fk-t3">{t.title}</h2>
@@ -179,7 +179,7 @@ export default function LearnPage() {
                       <Link key={p.slug} href={`/blog/${p.slug}`} className="fk-learn-pathitem">
                         <Thumb
                           pattern={path.pattern}
-                          color={path.color}
+                          color={spec.color ?? path.color}
                           frame={spec.frame}
                           gear={[{ kind: spec.gear }]}
                           gearHeight={62}
@@ -249,7 +249,8 @@ export default function LearnPage() {
         <ul className="fk-guiderows">
           {latest.map((p) => (
             <li key={p.slug}>
-              <Link href={`/blog/${p.slug}`}>
+              <Link href={`/blog/${p.slug}`} className="has-thumb">
+                <Thumb spec={specs.get(p.slug)!} gearHeight={48} ratio="1 / 1" radius="r-md" />
                 <span className="fk-guiderow-title">{p.headline}</span>
                 <span className="fk-data fk-guiderow-meta">
                   {shortDate(p.date)} · {minutes(p.readingTime)}

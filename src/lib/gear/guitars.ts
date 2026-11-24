@@ -5,6 +5,8 @@
  * card tilts the guitar only 10 degrees.
  */
 import type { GuitarSpecs } from "@/types/recipe";
+import finishes from "@/data/guitar-finishes.json";
+import { FINISHES, isFinish } from "./guitar-finish";
 
 export type GuitarKey =
   | "strat" | "tele" | "les-paul" | "sg" | "335" | "hss" | "offset"
@@ -65,4 +67,62 @@ export function guitarFor(specs: Pick<GuitarSpecs, "model_name" | "pickup_config
     case "H": return "junior";
     default: return "les-paul";
   }
+}
+
+/**
+ * The drawing for a recipe, painted the colour of the real instrument when
+ * src/data/guitar-finishes.json has a sourced finish for that recipe.
+ */
+const SHAPE_NAME: Record<GuitarKey, string> = {
+  strat: "Strat style guitar",
+  tele: "Tele style guitar",
+  "les-paul": "Les Paul style guitar",
+  sg: "SG style guitar",
+  "335": "335 style semi-hollow guitar",
+  hss: "HSS superstrat guitar",
+  offset: "Offset guitar",
+  junior: "Single-cut P-90 guitar",
+  prs: "PRS style guitar",
+  firebird: "Firebird style guitar",
+  "flying-v": "Flying V style guitar",
+  rg: "RG style guitar",
+  explorer: "Explorer style guitar",
+};
+
+export function guitarArt(
+  slug: string,
+  specs: Pick<GuitarSpecs, "model_name" | "pickup_config" | "body_type"> | undefined,
+): { key: GuitarKey; src: string; alt: string } {
+  const key = guitarFor(specs);
+  const entry = (finishes as Record<string, { finish?: string }>)[slug];
+  if (entry && isFinish(entry.finish)) {
+    return {
+      key,
+      src: `/guitar-art/${key}.${entry.finish}.svg`,
+      alt: `${SHAPE_NAME[key]} in ${FINISHES[entry.finish].label}`,
+    };
+  }
+  return { key, src: guitarSrc(key), alt: GUITARS[key] };
+}
+
+/**
+ * Sister-site cross-link: the stock wiring diagram for this style of guitar
+ * on Diagram Wiring. Every target was checked to exist. Shapes with no
+ * matching stock diagram get no link.
+ */
+const WIRING: Partial<Record<GuitarKey, { slug: string; label: string }>> = {
+  strat: { slug: "stock-strat-style", label: "a Strat" },
+  tele: { slug: "stock-tele-style", label: "a Tele" },
+  "les-paul": { slug: "stock-les-paul-style", label: "a Les Paul" },
+  sg: { slug: "stock-sg-style", label: "an SG" },
+  "335": { slug: "stock-es-335-style", label: "a 335" },
+  hss: { slug: "stock-hss", label: "an HSS guitar" },
+  offset: { slug: "stock-jazzmaster-style", label: "a Jazzmaster" },
+  junior: { slug: "one-p-90", label: "a single P-90 guitar" },
+  rg: { slug: "hsh-on-a-5-way-super-switch", label: "an HSH guitar" },
+};
+
+export function wiringLink(key: GuitarKey): { href: string; label: string } | null {
+  const w = WIRING[key];
+  return w ? { href: `https://diagramwiring.com/diagrams/${w.slug}`, label: w.label } : null;
 }

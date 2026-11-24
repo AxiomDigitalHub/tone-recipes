@@ -90,6 +90,14 @@ export default function Footer() {
             from qualifying purchases.{" "}
             <Link href="/affiliate-disclosure">Full disclosure</Link>.
           </p>
+          {/* Line 6's third-party guidelines ask for this credit wherever its
+              trademarks are used, and allow the names but not the logos. */}
+          <p className="fk-caption fk-foot-note">
+            Line 6, Helix and POD are trademarks of Line 6, Inc., registered in the United States
+            and other countries. Quad Cortex, TONEX, Axe-Fx, Kemper Profiler, Katana and all other
+            product names are trademarks of their owners. Fader &amp; Knob is not affiliated with
+            or endorsed by any of them.
+          </p>
         </div>
       </div>
     </footer>
