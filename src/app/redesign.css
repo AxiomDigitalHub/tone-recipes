@@ -1452,6 +1452,63 @@
 @media (min-width: 641px) {
   .fk-preview .fk-home-news .newsletter-form { flex-wrap: nowrap; flex-shrink: 0; }
 }
+.fk-preview .fk-home-search-go { display: none; }
+
+/* Phones: the hero drops its dark box and sits on the page, like Diagram
+   Wiring's mobile home. Text and buttons switch to the page ink, the search
+   submit becomes a round icon so the hint fits, the two buttons stack full
+   width, and each step number sits on the line of its title. */
+@media (max-width: 640px) {
+  .fk-preview .fk-home-hero { padding: 0; }
+  .fk-preview .fk-home-hero .fk-band {
+    background: transparent;
+    color: var(--fk-ink);
+    border-radius: 0;
+    padding: 32px 0 0;
+  }
+  .fk-preview .fk-home-h1 { color: var(--fk-ink); }
+  .fk-preview .fk-home-hero-copy { gap: 24px; }
+  .fk-preview .fk-home-hero-copy .fk-lead,
+  .fk-preview .fk-home-hero-copy .fk-body-sm,
+  .fk-preview .fk-home-hero-side > .fk-caption { color: var(--fk-ink-2); }
+  .fk-preview .fk-home-hero-copy .fk-body-sm a { color: var(--fk-ink); }
+
+  .fk-preview .fk-home-search {
+    max-width: none;
+    padding-left: 20px;
+    border-color: var(--fk-line-strong);
+  }
+  .fk-preview .fk-home-search > svg:first-child { display: none; }
+  .fk-preview .fk-home-search button {
+    width: 44px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .fk-preview .fk-home-search-text { display: none; }
+  .fk-preview .fk-home-search-go { display: block; }
+
+  .fk-preview .fk-home-hero-cta { flex-direction: column; }
+  .fk-preview .fk-home-hero-cta .fk-btn {
+    width: 100%;
+    background: transparent;
+    color: var(--fk-ink);
+    border-color: var(--fk-line-strong);
+  }
+
+  .fk-preview .fk-home-card { border: 1px solid var(--fk-line); }
+
+  .fk-preview .fk-home-steps li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 14px;
+    row-gap: 10px;
+  }
+  .fk-preview .fk-home-steps li > p { grid-column: 1 / -1; margin: 0; }
+  .fk-preview .fk-home-steps h3 { margin: 0; }
+}
 @media (max-width: 640px) {
   .fk-preview .fk-home-card-dials { justify-content: flex-start; gap: 14px 18px; }
 }
