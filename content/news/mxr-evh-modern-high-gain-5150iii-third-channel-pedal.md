@@ -1,5 +1,6 @@
 ---
 title: "MXR Ships the EVH Modern High Gain — A Pedal Built Around 5150 III Channel 3, Not the Brown Sound"
+seo_title: "MXR EVH Modern High Gain: 5150 III Channel 3 in a Pedal"
 date: "2026-04-30"
 category: "new-gear"
 slug: "mxr-evh-modern-high-gain-5150iii-third-channel-pedal"

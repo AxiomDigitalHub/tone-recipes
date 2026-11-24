@@ -1,5 +1,6 @@
 ---
 title: "Fractal AM4 Is Finally In Stock — And V2.00 Firmware Makes It Worth the Wait"
+seo_title: "Fractal AM4 Is In Stock With V2.00 Firmware"
 date: "2026-04-12"
 category: "firmware-update"
 slug: "fractal-am4-v2-firmware-now-shipping"

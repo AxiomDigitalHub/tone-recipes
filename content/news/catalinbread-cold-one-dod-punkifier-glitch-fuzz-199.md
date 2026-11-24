@@ -1,5 +1,6 @@
 ---
 title: "Catalinbread's $199 Cold One Brings Back the DOD Punkifier — Plus a Glitch Knob, and a Blend Trick Your Modeler Can Do Today"
+seo_title: "Catalinbread's $199 Cold One Revives the DOD Punkifier"
 date: "2026-10-20"
 category: "new-gear"
 slug: "catalinbread-cold-one-dod-punkifier-glitch-fuzz-199"

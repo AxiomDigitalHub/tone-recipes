@@ -1,5 +1,6 @@
 ---
 title: "Strymon's $199 La Brea Has No Firmware — and Its Best Knob Is One Your Modeler Can Copy Tonight, If You Fix the Phase First"
+seo_title: "Strymon's $199 La Brea Analog Tape Drive"
 date: "2026-09-29"
 category: "new-gear"
 slug: "strymon-la-brea-analog-tape-drive-199-dry-blend-phase"

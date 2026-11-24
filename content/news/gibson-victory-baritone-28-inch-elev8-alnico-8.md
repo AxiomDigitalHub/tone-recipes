@@ -1,5 +1,6 @@
 ---
 title: "Gibson Revives a Norlin-Era Flop as a 28-Inch Baritone — and Puts Alnico 8 Humbuckers In It"
+seo_title: "Gibson Victory Returns as a 28-Inch Baritone"
 date: "2026-08-26"
 category: "new-gear"
 slug: "gibson-victory-baritone-28-inch-elev8-alnico-8"

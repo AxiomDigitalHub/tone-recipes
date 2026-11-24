@@ -1,5 +1,6 @@
 ---
 title: "Blackstar Shrinks Doug Aldrich's Signature Amp Into a 5-Watt Combo — Here's How to Cop That Whitesnake Lead Tone on a Modeler"
+seo_title: "Blackstar DA5 Ruby: Doug Aldrich's 5-Watt Combo"
 date: "2026-07-22"
 category: "new-gear"
 slug: "blackstar-da5-ruby-doug-aldrich-signature-combo"

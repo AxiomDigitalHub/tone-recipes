@@ -31,7 +31,7 @@ export async function generateMetadata({
   const writer = getWriter(slug);
   if (!writer) {
     return {
-      title: "Writer not found — Fader & Knob",
+      title: "Writer not found | Fader & Knob",
       robots: { index: false, follow: false },
     };
   }
@@ -172,7 +172,7 @@ export default async function WriterProfilePage({
                           textUnderlineOffset: "4px",
                         }}
                       >
-                        {p.title}
+                        {p.headline}
                       </h3>
                       <span
                         className="shrink-0 text-[10px] uppercase tracking-[0.18em]"

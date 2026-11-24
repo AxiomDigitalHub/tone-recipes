@@ -1,5 +1,6 @@
 ---
 title: "BluGuitar Finally Set a Date for the AMPX — 50 Units, $2,000, and a 100-Watt Analog Amp That Is Not a Modeler"
+seo_title: "BluGuitar AMPX Gets a Date: 50 Units at $2,000"
 date: "2026-09-08"
 category: "new-gear"
 slug: "bluguitar-ampx-guitar-summit-launch-fifty-units-analog"

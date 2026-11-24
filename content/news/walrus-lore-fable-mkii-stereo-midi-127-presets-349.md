@@ -1,5 +1,6 @@
 ---
 title: "Walrus Audio's Lore and Fable Go MKII: Stereo Out, MIDI and 127 Presets for $349.99 Each. The Stereo Is the Easy Part. Your Sunday Mix Is Mono"
+seo_title: "Walrus Lore and Fable MKII: Stereo, MIDI, 127 Presets"
 date: "2026-10-16"
 category: "new-gear"
 slug: "walrus-lore-fable-mkii-stereo-midi-127-presets-349"

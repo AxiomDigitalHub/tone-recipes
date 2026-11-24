@@ -1,5 +1,6 @@
 ---
 title: "Eventide Puts the Full H90 Library Into the H9 Footprint — the H9 Harmonizer Gen 2 Is $599, Ships June 24"
+seo_title: "Eventide H9 Harmonizer Gen 2: The H90 Library for $599"
 date: "2026-06-08"
 category: "new-gear"
 slug: "eventide-h9-harmonizer-gen-2-full-h90-library"

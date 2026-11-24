@@ -1,5 +1,6 @@
 ---
 title: "Blackstar ID:X Floor Gets Native NAM A2-Lite — but Your Pre-Amp FX Switch Off When a Capture Loads"
+seo_title: "Blackstar ID:X Floor Gets Native NAM A2-Lite"
 date: "2026-11-13"
 category: "firmware-update"
 slug: "blackstar-idx-floor-nam-a2-lite-tone3000-pre-fx-disabled"

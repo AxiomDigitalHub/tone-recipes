@@ -7,7 +7,7 @@ import PillarHub from "@/components/guides/PillarHub";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/guides/worship-guitar" },
-  title: "Worship Guitar — Live Rigs and Sunday-Morning Tone",
+  title: "Worship Guitar: Live Rigs and Sunday-Morning Tone",
   description:
     "Worship guitar tone from first principles. AC30 + Klon + delays + shimmer. Live rigs, in-ear mix workflow, pedalboard organization, and how to dial the Hillsong/Bethel/Elevation sound on whatever gear you own.",
 };
@@ -62,7 +62,7 @@ const ARTIST_TONES = [
     tag: "Artist tone",
   },
   {
-    title: "Hillsong Worship Tone — Nigel Hendroff (Helix)",
+    title: "Hillsong Worship Tone: Nigel Hendroff (Helix)",
     href: "/blog/hillsong-guitar-tone-helix",
     blurb:
       "The sound that defined modern worship guitar — a chimey Gretsch into a semi-clean Vox, always-on boost and comp, dotted-eighth delay, big ambient reverb.",
@@ -76,7 +76,7 @@ const ARTIST_TONES = [
     tag: "Artist tone",
   },
   {
-    title: "Bethel Music Tone — Paul Hislop (Helix)",
+    title: "Bethel Music Tone: Paul Hislop (Helix)",
     href: "/blog/bethel-music-guitar-tone-helix",
     blurb:
       "The most pad-forward worship sound — a clean AC30, octave-up shimmer, stacked delays, and huge swell reverb. Volume swells are half the tone.",

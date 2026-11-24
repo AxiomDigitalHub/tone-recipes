@@ -12,7 +12,7 @@ import { collectionPageJsonLd } from "@/lib/seo/jsonld";
  */
 
 export const metadata: Metadata = {
-  title: "Guides — Tone, Gear, and Signal Chain Fundamentals",
+  title: "Guides: Tone, Gear, and Signal Chain Fundamentals",
   description:
     "Pillar guides from Fader & Knob: artist tone recipes, pedal settings, amp settings, modeler mastery, signal chain theory, worship guitar, bedroom tone, and tone troubleshooting.",
 };

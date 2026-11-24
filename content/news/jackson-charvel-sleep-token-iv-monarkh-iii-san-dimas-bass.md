@@ -1,5 +1,6 @@
 ---
 title: "Sleep Token's First Signature Instruments Arrive — and the Jackson's 30\" Octave-Down Spec Breaks Every Metal Preset You Own"
+seo_title: "Sleep Token's First Signature Jackson and Charvel"
 date: "2026-08-26"
 category: "new-gear"
 slug: "jackson-charvel-sleep-token-iv-monarkh-iii-san-dimas-bass"

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/how-it-works" },
-  title: "How Fader & Knob works — tone recipes, every modeler",
+  title: "How Fader & Knob works: tone recipes, every modeler",
   description:
     "We chase the original gear, map the signal chain, and translate it to every major modeler. Helix, Quad Cortex, TONEX, Fractal, Kemper, pedalboard. The numbers are the product.",
   openGraph: {

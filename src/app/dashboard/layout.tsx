@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import DashboardShell from "./DashboardShell";
 
 export const metadata: Metadata = {
-  title: "Dashboard — Fader & Knob",
+  title: "Dashboard",
   robots: { index: false, follow: false },
 };
 

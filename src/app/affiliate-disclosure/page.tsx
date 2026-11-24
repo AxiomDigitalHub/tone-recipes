@@ -3,7 +3,7 @@ import { LegalShell } from "@/components/v3/LegalShell";
 import { ContactEmailLink } from "@/components/ui/ContactEmail";
 
 export const metadata: Metadata = {
-  title: "Affiliate Disclosure — Fader & Knob",
+  title: "Affiliate disclosure",
   description:
     "Which gear links on Fader & Knob earn a commission, which retailers we work with, and why a recipe's signal chain is never chosen to sell you anything.",
   alternates: { canonical: "/affiliate-disclosure" },

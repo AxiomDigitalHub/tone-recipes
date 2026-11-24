@@ -34,6 +34,12 @@ export interface BlogPost {
    * Set it via `seo_title:` in frontmatter; the H1 always uses `title`.
    */
   seoTitle?: string;
+  /**
+   * The headline shown on the site: the short `seo_title` when a post has
+   * one, else `title`. The long editorial titles (median 71 characters,
+   * many with two clauses) stay in front matter and in the feeds.
+   */
+  headline: string;
   description: string;
   date: string; // ISO date — first publish
   updated?: string; // ISO date — last meaningful edit (optional)
@@ -108,6 +114,7 @@ export function getPostBySlug(slug: string): BlogPostWithContent | null {
     slug,
     title: data.title ?? "",
     seoTitle: data.seo_title ?? undefined,
+    headline: data.seo_title || data.title || "",
     description: data.description ?? "",
     date: data.date ?? "",
     updated: data.updated ?? undefined,

@@ -1,5 +1,6 @@
 ---
 title: "Crazy Tube Circuits Pulled the Amp Out of the Triptychon — the €189 Rapture Is a Headroom Pedal, and Its MOD Switch Is a Setting Your Modeler Already Has"
+seo_title: "Crazy Tube Circuits Rapture: A €189 Headroom Pedal"
 date: "2026-10-20"
 category: "new-gear"
 slug: "crazy-tube-circuits-rapture-triptychon-overdrive-189-more-mod-headroom"

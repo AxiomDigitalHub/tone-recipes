@@ -4,11 +4,11 @@ import { getRequests } from "@/lib/db/tone-requests";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/request" },
-  title: "Request a tone — Fader & Knob",
+  title: "Request a tone",
   description:
     "Tell us what tone you want next. Submit a song, the community upvotes it, and we research and publish the recipe.",
   openGraph: {
-    title: "Request a tone — Fader & Knob",
+    title: "Request a tone | Fader & Knob",
     description:
       "Submit a song, watch it climb the queue, get a verified recipe.",
     type: "website",

@@ -1,5 +1,6 @@
 ---
 title: "Marshall Put Hendrix's Name on a 20-Watt Plexi — Which Is the One Wattage Jimi Never Used"
+seo_title: "Marshall's Hendrix 20-Watt Studio Plexi"
 date: "2026-08-31"
 category: "new-gear"
 slug: "marshall-jmh-studio-hendrix-60th-plexi-20-watt"

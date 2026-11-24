@@ -1,5 +1,6 @@
 ---
 title: "Behringer Teases 200–300 Pedals at $10–$15 Each. If You Run an HX Stomp, Here's the Math That Actually Matters"
+seo_title: "Behringer Teases 200 to 300 Pedals at $10 to $15 Each"
 date: "2026-11-04"
 category: "new-gear"
 slug: "behringer-teases-200-300-pedals-10-15-dollars-hx-stomp-block-budget"

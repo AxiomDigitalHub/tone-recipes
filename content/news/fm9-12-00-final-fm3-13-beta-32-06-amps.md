@@ -1,5 +1,6 @@
 ---
 title: "FM9 Firmware 12.00 Goes Final And FM3 13.0 Hits Beta — Both Now Carry The Axe-Fx III 32.06 Amps"
+seo_title: "FM9 Firmware 12.00 Goes Final, FM3 13.0 Hits Beta"
 date: "2026-07-08"
 category: "firmware-update"
 slug: "fm9-12-00-final-fm3-13-beta-32-06-amps"

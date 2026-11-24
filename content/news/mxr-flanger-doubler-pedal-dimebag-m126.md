@@ -1,5 +1,6 @@
 ---
 title: "MXR Reissued the Rack Dimebag Never Turned Off — And Almost Everyone Chasing That Sound Builds the Wrong Effect"
+seo_title: "MXR Reissues the Flanger/Doubler Dimebag Used"
 date: "2026-08-12"
 category: "new-gear"
 slug: "mxr-flanger-doubler-pedal-dimebag-m126"

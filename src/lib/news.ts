@@ -16,6 +16,8 @@ export interface NewsPost {
   title: string;
   /** Optional short <title> for search; the headline stays on the page. */
   seo_title?: string;
+  /** The headline shown on the site: `seo_title` when set, else `title`. */
+  headline: string;
   date: string; // ISO date
   category: NewsCategory;
   excerpt: string;
@@ -62,6 +64,7 @@ export function getNewsPostBySlug(slug: string): NewsPostWithContent | null {
     slug: data.slug ?? slug,
     title: data.title ?? "",
     seo_title: data.seo_title || undefined,
+    headline: data.seo_title || data.title || "",
     date: data.date ?? "",
     category: data.category ?? "industry",
     excerpt: data.excerpt ?? "",

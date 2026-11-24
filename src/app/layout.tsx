@@ -59,13 +59,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Fader & Knob",
-    title: "Fader & Knob — Tone Recipes for Guitar & Modelers",
+    title: "Fader & Knob: Tone Recipes for Guitar & Modelers",
     description:
       "Tone recipes from the songs you love. Get exact settings for your Helix, Quad Cortex, TONEX, or physical rig.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fader & Knob — Tone Recipes for Guitar & Modelers",
+    title: "Fader & Knob: Tone Recipes for Guitar & Modelers",
     description:
       "Tone recipes from the songs you love. Get exact settings for your Helix, Quad Cortex, TONEX, or physical rig.",
   },

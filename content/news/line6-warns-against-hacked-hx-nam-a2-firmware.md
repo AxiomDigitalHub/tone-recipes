@@ -1,5 +1,6 @@
 ---
 title: "Line 6 Warns HX Owners Off Hacked NAM A2 Firmware — What It Means for Your Presets"
+seo_title: "Line 6 Warns HX Owners Off Hacked NAM A2 Firmware"
 date: "2026-11-16"
 category: "firmware-update"
 slug: "line6-warns-against-hacked-hx-nam-a2-firmware"

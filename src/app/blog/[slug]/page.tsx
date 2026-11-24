@@ -14,6 +14,7 @@ import {
 } from "@/lib/blog";
 import Thumb from "@/components/gear/Thumb";
 import { thumbFor, TOPIC_TITLE } from "@/lib/gear/thumbs";
+import { metaDescription } from "@/lib/seo/text";
 import { getWriter } from "@/lib/writers";
 import { extractToc } from "@/lib/toc";
 import { ToC } from "@/components/v3/ToC";
@@ -52,12 +53,12 @@ export async function generateMetadata({
     // `seo_title` frontmatter overrides when the editorial headline is
     // longer than a SERP will render; the H1 keeps the full headline.
     title: { absolute: post.seoTitle ?? post.title },
-    description: post.description,
+    description: metaDescription(post.description),
     keywords: post.tags,
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {
-      title: post.title,
-      description: post.description,
+      title: post.headline,
+      description: metaDescription(post.description),
       type: "article",
       publishedTime: post.date,
       authors: [post.author],
@@ -66,8 +67,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: post.image ? "summary_large_image" : "summary",
-      title: post.title,
-      description: post.description,
+      title: post.headline,
+      description: metaDescription(post.description),
       ...(post.image ? { images: [post.image] } : {}),
     },
   };
@@ -116,7 +117,8 @@ export default async function PreviewBlogPost({
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: post.title,
+    // Matches the visible H1.
+    headline: post.headline,
     description: post.description,
     datePublished: post.date,
     dateModified: post.updated ?? post.date,
@@ -168,9 +170,9 @@ export default async function PreviewBlogPost({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Field Notes", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 1, name: "Learn", item: `${SITE_URL}/blog` },
       { "@type": "ListItem", position: 2, name: catLabel },
-      { "@type": "ListItem", position: 3, name: post.title },
+      { "@type": "ListItem", position: 3, name: post.headline },
     ],
   };
 
@@ -241,7 +243,7 @@ export default async function PreviewBlogPost({
           </nav>
           <div className="fk-guide-head">
             <div className="fk-guide-headcopy">
-              <h1 className="fk-guide-h1">{post.title}</h1>
+              <h1 className="fk-guide-h1">{post.headline}</h1>
               <p className="fk-lead">{post.description}</p>
               {/* The writers are AI voices and are labelled as such. */}
               <p className="fk-caption">
@@ -344,7 +346,7 @@ export default async function PreviewBlogPost({
                   <Link key={r.slug} href={`/blog/${r.slug}`} className="fk-card">
                     <Thumb spec={thumbFor(r)} gearHeight={150} />
                     <div className="fk-card-body">
-                      <h3 className="fk-t3">{r.title}</h3>
+                      <h3 className="fk-t3">{r.headline}</h3>
                       <p className="fk-caption">
                         {r.author}. {r.readingTime}.
                       </p>

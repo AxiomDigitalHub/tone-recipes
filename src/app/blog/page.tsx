@@ -14,18 +14,17 @@ import type { Metadata } from "next";
  *
  * Topic tiles, starter paths, platform hubs, every guide, and what is new.
  * The URL is still /blog and every /blog/... URL is unchanged; the nav
- * calls this "Learn". Metadata and the CollectionPage JSON-LD are kept as
- * they were.
+ * calls this "Learn", and so do the title and the CollectionPage JSON-LD.
  */
 
 export const metadata: Metadata = {
-  title: "Field Notes — Fader & Knob",
+  title: "Learn guitar tone: guides for modeler players",
   description:
-    "Long-form writing on tone, gear, and the songs you love. Pedalboard architecture, modeler block deep-dives, vintage gear histories, signal chain forensics.",
+    "Guides on drive, delay, amps, cabs and signal chains for Helix, Quad Cortex, TONEX, Fractal, Kemper and Katana players.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Field Notes — Fader & Knob",
-    description: "Long-form writing on tone, gear, and the songs you love.",
+    title: "Learn guitar tone | Fader & Knob",
+    description: "Guides on signal chains, modeler blocks and the gear behind the records.",
     type: "website",
   },
 };
@@ -95,7 +94,7 @@ export default function LearnPage() {
 
   const rows: GuideRow[] = all.map((p) => ({
     slug: p.slug,
-    title: p.title,
+    title: p.headline,
     date: shortDate(p.date),
     read: minutes(p.readingTime),
     category: p.category,
@@ -125,9 +124,9 @@ export default function LearnPage() {
   // CollectionPage + ItemList JSON-LD covering the top 30 most-recent
   // posts. Unchanged from the previous index.
   const collectionLd = collectionPageJsonLd({
-    name: "Field Notes — Fader & Knob",
+    name: "Learn guitar tone | Fader & Knob",
     description:
-      "Long-form writing on tone, gear, and the songs you love. Pedalboard architecture, modeler block deep-dives, vintage gear histories, signal chain forensics.",
+      "Guides on drive, delay, amps, cabs and signal chains for Helix, Quad Cortex, TONEX, Fractal, Kemper and Katana players.",
     url: "https://faderandknob.com/blog",
     items: all.slice(0, 30).map((p) => ({
       url: `https://faderandknob.com/blog/${p.slug}`,
@@ -187,7 +186,7 @@ export default function LearnPage() {
                           ratio="1 / 1"
                           radius="r-md"
                         />
-                        <span>{p.title}</span>
+                        <span>{p.headline}</span>
                       </Link>
                     );
                   })}
@@ -202,7 +201,7 @@ export default function LearnPage() {
                 <span key={s}>
                   {i > 0 && " · "}
                   <Link href={`/blog/${s}`} className="fk-link">
-                    {bySlug.get(s)!.title}
+                    {bySlug.get(s)!.headline}
                   </Link>
                 </span>
               ))}
@@ -251,7 +250,7 @@ export default function LearnPage() {
           {latest.map((p) => (
             <li key={p.slug}>
               <Link href={`/blog/${p.slug}`}>
-                <span className="fk-guiderow-title">{p.title}</span>
+                <span className="fk-guiderow-title">{p.headline}</span>
                 <span className="fk-data fk-guiderow-meta">
                   {shortDate(p.date)} · {minutes(p.readingTime)}
                 </span>

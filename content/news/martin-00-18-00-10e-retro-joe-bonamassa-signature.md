@@ -1,5 +1,6 @@
 ---
 title: "Martin's Two Joe Bonamassa Signatures Chase a $45 Guitar From 1937 — And Only One of Them Is Built to Get Plugged In"
+seo_title: "Martin's Two Joe Bonamassa Signature Acoustics"
 date: "2026-08-13"
 category: "new-gear"
 slug: "martin-00-18-00-10e-retro-joe-bonamassa-signature"

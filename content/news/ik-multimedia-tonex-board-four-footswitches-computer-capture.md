@@ -1,5 +1,6 @@
 ---
 title: "IK's $999 TONEX Board Has Four Footswitches — and Still Can't Capture Without a Computer"
+seo_title: "IK's $999 TONEX Board Still Needs a Computer to Capture"
 date: "2026-09-03"
 category: "new-gear"
 slug: "ik-multimedia-tonex-board-four-footswitches-computer-capture"

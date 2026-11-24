@@ -1,5 +1,6 @@
 ---
 title: "EHX Turned Adrian Belew's Broken Switch Into a Mode — and the Setting That Matters Is One You Already Own"
+seo_title: "EHX's Adrian Belew Echoflanger and Its Filter Matrix Mode"
 date: "2026-09-15"
 category: "new-gear"
 slug: "ehx-adrian-belew-echoflanger-filter-matrix-depth-zero"

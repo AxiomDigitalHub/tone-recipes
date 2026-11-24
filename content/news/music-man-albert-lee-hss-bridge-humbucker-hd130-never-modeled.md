@@ -1,5 +1,6 @@
 ---
 title: "Ernie Ball Music Man Put a Bridge Humbucker on the Albert Lee — the One Position His Whole Tone Comes From — and the Amp He Actually Plays Has Never Been Modeled by Anybody"
+seo_title: "Music Man Albert Lee Gets a Bridge Humbucker"
 date: "2026-10-10"
 category: "new-gear"
 slug: "music-man-albert-lee-hss-bridge-humbucker-hd130-never-modeled"

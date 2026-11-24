@@ -1,5 +1,6 @@
 ---
 title: "Gibson's Two Billy Gibbons 'Pearly Gates' Les Pauls: a $19,999 Murphy Lab Scan and a $3,199 Standard, and Why the Strings Matter More Than Either"
+seo_title: "Gibson's Two Billy Gibbons Pearly Gates Les Pauls"
 date: "2026-11-18"
 category: "new-gear"
 slug: "gibson-billy-gibbons-pearly-gates-les-paul-murphy-lab-standard-3199"

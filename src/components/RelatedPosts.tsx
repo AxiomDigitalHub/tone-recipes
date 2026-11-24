@@ -52,7 +52,7 @@ export function RelatedPosts({ recipe }: { recipe: ToneRecipe }) {
                   />
                 )}
               </div>
-              <div className="feat-card-song">{m.post.title}</div>
+              <div className="feat-card-song">{m.post.headline}</div>
               <div className="feat-card-artist">
                 {m.post.author} · {formatDate(m.post.date)}
               </div>

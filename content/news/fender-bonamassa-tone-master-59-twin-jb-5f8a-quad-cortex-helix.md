@@ -1,5 +1,6 @@
 ---
 title: "Joe Bonamassa Just Put His Name on a Digital Amp — and the Circuit Inside It Has Been Sitting in Your Quad Cortex Since 2022, Four Different Ways, While Your Helix Has Never Had It At All"
+seo_title: "Fender's Bonamassa Tone Master '59 Twin Digital Amp"
 date: "2026-10-08"
 category: "new-gear"
 slug: "fender-bonamassa-tone-master-59-twin-jb-5f8a-quad-cortex-helix"

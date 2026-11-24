@@ -1,5 +1,6 @@
 ---
 title: "John Mayer Gets His First Martin Road Series Guitars — the OM-13E and OMC-13E at $1,999, and How to Make Them Sound Right Direct"
+seo_title: "John Mayer's Martin Road Series OM-13E and OMC-13E"
 date: "2026-11-10"
 category: "new-gear"
 slug: "martin-om-13e-omc-13e-john-mayer-road-series-1999"

@@ -3,7 +3,7 @@ import { LegalShell } from "@/components/v3/LegalShell";
 import { ContactEmailLink } from "@/components/ui/ContactEmail";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Fader & Knob",
+  title: "Privacy policy",
   // Without its own description this page inherited the site default,
   // which /terms and /affiliate-disclosure also inherited — three
   // duplicate meta descriptions in the site audit.

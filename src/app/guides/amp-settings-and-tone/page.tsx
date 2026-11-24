@@ -4,7 +4,7 @@ import PillarHub from "@/components/guides/PillarHub";
 /** Pillar III — Amp Settings & Tone. */
 
 export const metadata: Metadata = {
-  title: "Amp Settings Guide — From Blackface to 5150",
+  title: "Amp Settings Guide: From Blackface to 5150",
   description:
     "How to dial every canonical amp — Plexi, JCM800, AC30, Deluxe Reverb, Twin, Bassman, 5150 — for its signature voice. Settings, reasoning, and why each amp sounds like itself.",
 };

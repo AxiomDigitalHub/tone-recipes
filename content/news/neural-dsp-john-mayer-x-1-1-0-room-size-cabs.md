@@ -1,5 +1,6 @@
 ---
 title: "Neural DSP's John Mayer X 1.1.0 Just Documented 14 Signal Chains — and Added Room-Size Cabs Worth Stealing"
+seo_title: "Neural DSP John Mayer X 1.1.0 Adds Room-Size Cabs"
 date: "2026-06-26"
 category: "firmware-update"
 slug: "neural-dsp-john-mayer-x-1-1-0-room-size-cabs"

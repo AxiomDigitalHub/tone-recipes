@@ -1,5 +1,6 @@
 ---
 title: "Blackstar's $130 Beam Solo Now Runs NAM Natively — the First Headphone Amp to Do It"
+seo_title: "Blackstar's $130 Beam Solo Now Runs NAM Natively"
 date: "2026-07-10"
 category: "firmware-update"
 slug: "blackstar-beam-solo-native-nam-a2"

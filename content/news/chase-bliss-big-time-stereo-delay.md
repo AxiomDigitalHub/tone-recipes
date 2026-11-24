@@ -1,5 +1,6 @@
 ---
 title: "Chase Bliss Ships the Big Time at $999 — A Six-Year Stereo Delay Built Around '80s Rack DNA"
+seo_title: "Chase Bliss Big Time: A $999 Stereo Delay"
 date: "2026-05-04"
 category: "new-gear"
 slug: "chase-bliss-big-time-stereo-delay"

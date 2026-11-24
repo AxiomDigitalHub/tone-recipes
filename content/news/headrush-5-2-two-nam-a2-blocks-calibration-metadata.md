@@ -1,5 +1,6 @@
 ---
 title: "HeadRush 5.2 Answers the Question 5.1 Left Open: Two NAM A2 Full Captures Per Rig, Four Lite. Here's How to Spend Them Without Building a Phase Problem"
+seo_title: "HeadRush 5.2: Two Full NAM A2 Captures Per Rig"
 date: "2026-10-12"
 category: "firmware-update"
 slug: "headrush-5-2-two-nam-a2-blocks-calibration-metadata"

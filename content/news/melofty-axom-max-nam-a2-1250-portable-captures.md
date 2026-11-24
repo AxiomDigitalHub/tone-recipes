@@ -1,5 +1,6 @@
 ---
 title: "Melofty's $1,250 Axom Max Loads NAM Files — Which Matters More Than the 400 Amps, Because NAM Files Are the Only Part of Your Rig You Can Take With You"
+seo_title: "Melofty's $1,250 Axom Max Loads NAM Files"
 date: "2026-09-29"
 category: "new-gear"
 slug: "melofty-axom-max-nam-a2-1250-portable-captures"

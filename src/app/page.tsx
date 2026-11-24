@@ -14,12 +14,12 @@ import type { GearKind } from "@/lib/gear/draw";
 import FridaySendForm from "@/components/newsletter/FridaySendForm";
 
 export const metadata: Metadata = {
-  title: "Fader & Knob — Tone recipes for modeler players",
+  title: "Fader & Knob: Tone recipes for modeler players",
   description:
     "Exact signal chains for the songs you love, ported across Helix, Quad Cortex, TONEX, Fractal, Kemper, and pedalboard. Stop tweaking. Start playing.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Fader & Knob — Tone recipes for modeler players",
+    title: "Fader & Knob: Tone recipes for modeler players",
     description:
       "Exact signal chains for the songs you love, ported across every modeler.",
     type: "website",
@@ -227,7 +227,7 @@ export default function HomePage() {
                       <Gear kind={gearForPost(`${post.title} ${post.tags.join(" ")}`)} height={86} label="" />
                     </div>
                     <div>
-                      <h3 className="fk-rowcard-title">{post.title}</h3>
+                      <h3 className="fk-rowcard-title">{post.headline}</h3>
                       <p className="fk-caption">
                         {[BLOG_CATEGORIES[post.category] ?? null, post.readingTime].filter(Boolean).join(", ")}
                       </p>

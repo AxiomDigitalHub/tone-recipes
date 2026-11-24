@@ -1,5 +1,6 @@
 ---
 title: "SolidGoldFX's $199 Fuzzbox Has a Switch for Buffers — Which Is the Switch Modeler Players Have Been Asking For"
+seo_title: "SolidGoldFX's $199 Fuzzbox Has a Switch for Buffers"
 date: "2026-09-14"
 category: "new-gear"
 slug: "solidgoldfx-fuzzbox-vintage-modern-switch-modeler-buffer"

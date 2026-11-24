@@ -4,7 +4,7 @@ import PillarHub from "@/components/guides/PillarHub";
 /** Pillar II — Pedal Settings Guides. */
 
 export const metadata: Metadata = {
-  title: "Pedal Settings Guides — Every Canonical Pedal, Dialed In",
+  title: "Pedal Settings Guides: Every Canonical Pedal, Dialed In",
   description:
     "Exact settings for Klon Centaur, Tube Screamer, Big Muff, RAT, DS-1, Blues Driver, and every other canonical pedal — with the reasoning for each knob position.",
   openGraph: {

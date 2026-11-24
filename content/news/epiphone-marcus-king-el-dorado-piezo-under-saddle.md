@@ -1,5 +1,6 @@
 ---
 title: "Epiphone's Marcus King El Dorado Puts Solid Rosewood Under $1,000 — Then Ships It With the One Pickup That Hides It"
+seo_title: "Epiphone Marcus King El Dorado: Solid Rosewood Under $1,000"
 date: "2026-08-06"
 category: "new-gear"
 slug: "epiphone-marcus-king-el-dorado-piezo-under-saddle"

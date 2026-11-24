@@ -1,5 +1,6 @@
 ---
 title: "Helix Stadium 1.4 Puts Four Different Plexis Behind One 'Era' Knob — and Quietly Gives Worship Teams MIDI Mute Over the Click and Tracks. Here's How to Use Both"
+seo_title: "Helix Stadium 1.4: Four Plexis and MIDI Mute for Tracks"
 date: "2026-10-14"
 category: "firmware-update"
 slug: "helix-stadium-1-4-eras-update-brit-sl100-four-plexis-stems-matrix-midi"

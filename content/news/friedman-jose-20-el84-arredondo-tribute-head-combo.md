@@ -1,5 +1,6 @@
 ---
 title: "Friedman's Jose 20 Puts the Arredondo Mod in an EL84 Chassis — and Names the Man Who Made It"
+seo_title: "Friedman Jose 20: The Arredondo Mod With EL84s"
 date: "2026-08-28"
 category: "new-gear"
 slug: "friedman-jose-20-el84-arredondo-tribute-head-combo"

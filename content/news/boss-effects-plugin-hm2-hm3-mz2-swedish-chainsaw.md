@@ -1,5 +1,6 @@
 ---
 title: "Boss Just Put the HM-2 in a Plugin — Your Helix Has Had It Since Firmware 3.0, and Almost Nobody Sets It Right"
+seo_title: "Boss Puts the HM-2 in a Plugin"
 date: "2026-09-21"
 category: "new-gear"
 slug: "boss-effects-plugin-hm2-hm3-mz2-swedish-chainsaw"

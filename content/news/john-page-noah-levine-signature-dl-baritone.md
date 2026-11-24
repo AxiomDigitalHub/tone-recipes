@@ -1,5 +1,6 @@
 ---
 title: "John Page Built Noah Kahan's Guitarist a $5,995 Baritone — And If You Copy Our Drop-Tuning Settings Onto One, You'll Ruin It"
+seo_title: "John Page's $5,995 Noah Levine Signature Baritone"
 date: "2026-08-12"
 category: "new-gear"
 slug: "john-page-noah-levine-signature-dl-baritone"

@@ -1,5 +1,6 @@
 ---
 title: "Axe-Fx III Firmware 32.04 Reworks Power Amp Modeling — FM9 In Private Beta, FM3 To Follow"
+seo_title: "Axe-Fx III Firmware 32.04 Reworks Power Amp Modeling"
 date: "2026-04-27"
 category: "firmware-update"
 slug: "axe-fx-iii-32-04-power-amp-modeling"

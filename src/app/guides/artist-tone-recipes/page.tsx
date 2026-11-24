@@ -18,11 +18,11 @@ import type { ToneRecipe } from "@/types/recipe";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/guides/artist-tone-recipes" },
-  title: "Artist Tone Recipes — Any Guitar Tone on Any Rig",
+  title: "Artist Tone Recipes: Any Guitar Tone on Any Rig",
   description:
     "How to get the exact guitar tone of the artists who defined rock, blues, metal, and pop — with signal chains, exact settings, and presets for Helix, Quad Cortex, TONEX, Fractal, Kemper, and Boss Katana.",
   openGraph: {
-    title: "Artist Tone Recipes — Fader & Knob",
+    title: "Artist Tone Recipes | Fader & Knob",
     description:
       "Signal chains, exact settings, and presets for iconic guitar tones. Reproduce Gilmour, SRV, Page, Van Halen, Hendrix, Hetfield, and more on any rig.",
   },

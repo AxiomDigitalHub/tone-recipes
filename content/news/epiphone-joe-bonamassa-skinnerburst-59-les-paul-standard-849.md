@@ -1,5 +1,6 @@
 ---
 title: "Epiphone's $849 Bonamassa Skinnerburst '59 Les Paul: What's Actually in It, and Why Your Neck Pickup Matters More Than the Burst"
+seo_title: "Epiphone's $849 Bonamassa Skinnerburst '59 Les Paul"
 date: "2026-11-19"
 category: "new-gear"
 slug: "epiphone-joe-bonamassa-skinnerburst-59-les-paul-standard-849"

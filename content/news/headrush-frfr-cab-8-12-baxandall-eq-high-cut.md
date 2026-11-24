@@ -1,5 +1,6 @@
 ---
 title: "HeadRush's New FRFR Cabs Put a Baxandall EQ and a High-Cut on the Back — Which Is a Preset Decision, Not a Speaker Decision"
+seo_title: "HeadRush's New FRFR Cabs Add a Baxandall EQ and High Cut"
 date: "2026-09-03"
 category: "new-gear"
 slug: "headrush-frfr-cab-8-12-baxandall-eq-high-cut"

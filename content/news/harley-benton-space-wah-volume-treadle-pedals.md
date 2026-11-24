@@ -1,5 +1,6 @@
 ---
 title: "Harley Benton's Space Wah and Space Volume Land at €39–€49 — And If You're Going Direct, Only One of Them Belongs on Your Board"
+seo_title: "Harley Benton Space Wah and Space Volume at €39 to €49"
 date: "2026-08-06"
 category: "new-gear"
 slug: "harley-benton-space-wah-volume-treadle-pedals"

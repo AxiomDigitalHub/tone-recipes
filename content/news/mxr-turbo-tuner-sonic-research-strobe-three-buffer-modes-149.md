@@ -1,5 +1,6 @@
 ---
 title: "MXR's First Tuner Is the Sonic Research Turbo Tuner Reborn at $149.99 — and the Buffer Switch Matters More Than the Strobe If You Play a Modeler"
+seo_title: "MXR Turbo Tuner: The Sonic Research Strobe at $149.99"
 date: "2026-10-22"
 category: "new-gear"
 slug: "mxr-turbo-tuner-sonic-research-strobe-three-buffer-modes-149"

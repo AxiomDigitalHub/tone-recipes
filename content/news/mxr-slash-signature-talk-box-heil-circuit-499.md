@@ -1,5 +1,6 @@
 ---
 title: "MXR Built Slash a $499 Talk Box — and Your Helix Has Had a Block Named After One for Eight Years That Can't Do It"
+seo_title: "MXR's $499 Slash Signature Talk Box"
 date: "2026-09-16"
 category: "new-gear"
 slug: "mxr-slash-signature-talk-box-heil-circuit-499"

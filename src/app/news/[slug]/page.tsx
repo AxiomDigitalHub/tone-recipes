@@ -17,6 +17,7 @@ import {
 } from "@/lib/news";
 import { newsArt, sourceHost as hostOf } from "@/lib/news-art";
 import NewsPicture from "@/components/news/NewsPicture";
+import { clampText, metaDescription } from "@/lib/seo/text";
 
 const SITE_URL = "https://faderandknob.com";
 
@@ -36,15 +37,15 @@ export async function generateMetadata({
   }
   return {
     title: fitTitle([post.seo_title, post.title, firstClause(post.title)]),
-    description: post.excerpt,
+    description: metaDescription(post.excerpt),
     alternates: { canonical: `/news/${slug}` },
     openGraph: {
-      title: `${post.title} — Fader & Knob`,
-      description: post.excerpt,
+      title: `${post.headline} | Fader & Knob`,
+      description: metaDescription(post.excerpt),
       type: "article",
       publishedTime: post.date,
     },
-    twitter: { card: "summary_large_image", title: post.title, description: post.excerpt },
+    twitter: { card: "summary", title: post.headline, description: metaDescription(post.excerpt) },
   };
 }
 
@@ -76,7 +77,8 @@ export default async function PreviewNewsArticle({
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
-    headline: post.title,
+    // Matches the visible H1.
+    headline: post.headline,
     description: post.excerpt,
     datePublished: post.date,
     publisher: { "@type": "Organization", name: "Fader & Knob", url: SITE_URL },
@@ -89,7 +91,7 @@ export default async function PreviewNewsArticle({
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "News", item: `${SITE_URL}/news` },
       { "@type": "ListItem", position: 2, name: catLabel },
-      { "@type": "ListItem", position: 3, name: post.title },
+      { "@type": "ListItem", position: 3, name: post.headline },
     ],
   };
 
@@ -114,7 +116,7 @@ export default async function PreviewNewsArticle({
             </Link>
           </nav>
           <div className="fk-newsarticle-head">
-            <h1 className="fk-guide-h1">{post.title}</h1>
+            <h1 className="fk-guide-h1">{post.headline}</h1>
             <p className="fk-lead">{post.excerpt}</p>
             <p className="fk-caption">
               <span className="fk-data">{formatDate(post.date)}</span>
@@ -168,8 +170,8 @@ export default async function PreviewNewsArticle({
                         <p className="fk-caption">
                           <span className="fk-data">{formatDate(p.date)}</span>
                         </p>
-                        <h3 className="fk-t3">{p.title}</h3>
-                        <p className="fk-body-sm">{p.excerpt}</p>
+                        <h3 className="fk-t3">{p.headline}</h3>
+                        <p className="fk-body-sm">{clampText(p.excerpt, 200)}</p>
                       </div>
                     </Link>
                   </li>

@@ -19,12 +19,12 @@ import { ContactEmailLink } from "@/components/ui/ContactEmail";
 const SITE = "https://faderandknob.com";
 
 export const metadata: Metadata = {
-  title: "The Experiment — Fader & Knob",
+  title: "The Experiment",
   description:
     "Can AI build guitar resources players actually use? Fader & Knob is that question, answered in public — a running log with every number generated from the repository.",
   alternates: { canonical: `${SITE}/experiment` },
   openGraph: {
-    title: "The Experiment — Fader & Knob",
+    title: "The Experiment | Fader & Knob",
     description:
       "One person, AI, and a running public log: tone recipes, ten AI writers, a tone chatbot — corrections included.",
     type: "website",

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LoginClient from "./LoginClient";
 
 export const metadata: Metadata = {
-  title: "Log in — Fader & Knob",
+  title: "Log in",
   robots: { index: false, follow: false },
 };
 

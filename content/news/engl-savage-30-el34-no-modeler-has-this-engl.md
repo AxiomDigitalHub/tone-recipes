@@ -1,5 +1,6 @@
 ---
 title: "ENGL's New Savage 30 Runs EL34s — Which Means No Modeler on Earth Has This ENGL, and the One in Your Helix Is a Different Amp Entirely"
+seo_title: "ENGL's Savage 30 Runs EL34s. No Modeler Has It"
 date: "2026-09-27"
 category: "new-gear"
 slug: "engl-savage-30-el34-no-modeler-has-this-engl"

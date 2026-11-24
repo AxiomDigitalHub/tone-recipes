@@ -1,5 +1,6 @@
 ---
 title: "Reverend Put Three P-90s in a Semi-Hollow — Then Built It on a 25.5\" Scale, Which Quietly Invalidates Most P-90 Overdrive Advice"
+seo_title: "Reverend Kingbolt Air 390: Three P-90s in a Semi-Hollow"
 date: "2026-08-14"
 category: "new-gear"
 slug: "reverend-kingbolt-air-390-three-steelhead-p90-semi-hollow"

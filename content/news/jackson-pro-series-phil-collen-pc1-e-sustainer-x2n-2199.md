@@ -1,5 +1,6 @@
 ---
 title: "Jackson Put Phil Collen's PC1 in the Pro Series for $2,199.99 — That Is Not a Pro Series Price, and the 18-Volt Sustainer Is Why"
+seo_title: "Jackson Pro Series Phil Collen PC1 at $2,199.99"
 date: "2026-09-27"
 category: "new-gear"
 slug: "jackson-pro-series-phil-collen-pc1-e-sustainer-x2n-2199"

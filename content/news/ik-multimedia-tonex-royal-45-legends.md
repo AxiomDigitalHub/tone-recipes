@@ -1,5 +1,6 @@
 ---
 title: "IK Multimedia Captures Three Museum-Grade '60s Marshall 45s for TONEX — Royal 45 Legends"
+seo_title: "IK TONEX Royal 45 Legends: Three '60s Marshall 45s"
 date: "2026-06-01"
 category: "new-gear"
 slug: "ik-multimedia-tonex-royal-45-legends"

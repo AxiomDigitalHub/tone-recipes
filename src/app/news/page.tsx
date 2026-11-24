@@ -8,14 +8,15 @@ import {
 import { newsArt, sourceHost } from "@/lib/news-art";
 import NewsPicture from "@/components/news/NewsPicture";
 import SignupBox from "@/components/newsletter/SignupBox";
+import { clampText } from "@/lib/seo/text";
 
 export const metadata: Metadata = {
-  title: "Modeler News — Fader & Knob",
+  title: "Modeler news: firmware, new gear and what it means",
   description:
     "Firmware updates, gear announcements, industry trends, and practical tips for guitar modeler players.",
   alternates: { canonical: "/news" },
   openGraph: {
-    title: "Modeler News — Fader & Knob",
+    title: "Modeler News | Fader & Knob",
     description:
       "Firmware updates, gear announcements, and tips for modeler players.",
     type: "website",
@@ -55,7 +56,7 @@ export default async function NewsPage({
   const collectionLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Modeler News — Fader & Knob",
+    name: "Modeler news | Fader & Knob",
     description:
       "Firmware updates, gear announcements, industry trends, and practical tips for guitar modeler players.",
     url: `${SITE_URL}/news`,
@@ -82,8 +83,8 @@ export default async function NewsPage({
         <NewsPicture art={newsArt(post)} size="row" />
         <div className="fk-news-rowbody">
           {meta(post)}
-          <h3 className="fk-t3">{post.title}</h3>
-          <p className="fk-body-sm">{post.excerpt}</p>
+          <h3 className="fk-t3">{post.headline}</h3>
+          <p className="fk-body-sm">{clampText(post.excerpt, 200)}</p>
         </div>
       </Link>
     </li>
@@ -141,8 +142,8 @@ export default async function NewsPage({
                 <NewsPicture art={newsArt(lead)} size="lead" />
                 <div className="fk-news-leadbody">
                   {meta(lead)}
-                  <h2 className="fk-news-leadtitle">{lead.title}</h2>
-                  <p className="fk-body fk-muted">{lead.excerpt}</p>
+                  <h2 className="fk-news-leadtitle">{lead.headline}</h2>
+                  <p className="fk-body fk-muted">{clampText(lead.excerpt, 320)}</p>
                 </div>
               </Link>
               {fresh.length > 0 && <ul className="fk-news-rows">{fresh.map(row)}</ul>}
@@ -165,7 +166,7 @@ export default async function NewsPage({
                 {firmware.map((p) => (
                   <li key={p.slug}>
                     <Link href={`/news/${p.slug}`}>
-                      <span className="fk-news-fwtitle">{p.title}</span>
+                      <span className="fk-news-fwtitle">{p.headline}</span>
                       <span className="fk-data">{formatDate(p.date, newestYear)}</span>
                     </Link>
                   </li>

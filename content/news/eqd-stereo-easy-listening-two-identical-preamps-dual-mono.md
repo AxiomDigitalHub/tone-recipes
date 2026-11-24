@@ -1,5 +1,6 @@
 ---
 title: "EarthQuaker's $249 Stereo Easy Listening Runs Two Identical Preamps — Which Is Not the Same Thing as Stereo"
+seo_title: "EarthQuaker's $249 Stereo Easy Listening Is Dual Mono"
 date: "2026-09-10"
 category: "new-gear"
 slug: "eqd-stereo-easy-listening-two-identical-preamps-dual-mono"

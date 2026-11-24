@@ -1,5 +1,6 @@
 ---
 title: "Epiphone Just Dropped the Guitar Half of the Dookie Rig — a $545 P-90 Junior. Here's How to Voice One Pickup Into Your Modeler"
+seo_title: "Epiphone's $545 Billie Joe Armstrong Les Paul Junior"
 date: "2026-07-22"
 category: "new-gear"
 slug: "epiphone-billie-joe-armstrong-les-paul-junior-radiant-red"

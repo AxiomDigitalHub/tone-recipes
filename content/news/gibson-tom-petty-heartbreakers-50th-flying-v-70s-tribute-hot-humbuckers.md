@@ -1,5 +1,6 @@
 ---
 title: "Gibson Built 250 Tom Petty Flying Vs for the Heartbreakers' 50th — and Loaded Them With Pickups Twice as Hot as Anything on a Petty Record"
+seo_title: "Gibson's Tom Petty Flying V for the Heartbreakers' 50th"
 date: "2026-10-22"
 category: "new-gear"
 slug: "gibson-tom-petty-heartbreakers-50th-flying-v-70s-tribute-hot-humbuckers"

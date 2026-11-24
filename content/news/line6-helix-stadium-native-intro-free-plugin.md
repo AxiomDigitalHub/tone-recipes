@@ -1,5 +1,6 @@
 ---
 title: "Line 6's First Free Plugin Ever Has Five Amps and Zero HX Models — Which Means None of Your Helix Presets Open in It. Here's the Translation Table"
+seo_title: "Line 6's First Free Plugin: Helix Stadium Native Intro"
 date: "2026-08-05"
 category: "new-gear"
 slug: "line6-helix-stadium-native-intro-free-plugin"

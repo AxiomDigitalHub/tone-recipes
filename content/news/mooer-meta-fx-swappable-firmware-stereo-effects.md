@@ -1,5 +1,6 @@
 ---
 title: "Mooer's Meta FX Is a £149 Stereo Effects Pedal You Reflash — One Reverb, Delay, or Mod Firmware at a Time"
+seo_title: "Mooer Meta FX: A £149 Stereo Pedal You Reflash"
 date: "2026-07-21"
 category: "new-gear"
 slug: "mooer-meta-fx-swappable-firmware-stereo-effects"

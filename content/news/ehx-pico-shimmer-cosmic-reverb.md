@@ -1,5 +1,6 @@
 ---
 title: "EHX Ships the Pico Shimmer Cosmic Reverb at $149 — And Most of It Already Lives in Your Modeler"
+seo_title: "EHX Pico Shimmer Cosmic Reverb Ships at $149"
 date: "2026-06-19"
 category: "new-gear"
 slug: "ehx-pico-shimmer-cosmic-reverb"

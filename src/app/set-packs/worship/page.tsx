@@ -7,7 +7,7 @@ import SetPackAccess from "@/components/set-packs/SetPackAccess";
 import { ContactEmailText } from "@/components/ui/ContactEmail";
 
 export const metadata: Metadata = {
-  title: "Worship Set Pack — Helix Preset with 8 Snapshots",
+  title: "Worship Set Pack: Helix Preset with 8 Snapshots",
   alternates: { canonical: "/set-packs/worship" },
   description:
     "One Helix preset with 8 snapshots that covers your entire worship setlist. AC30 + Klon + delays + shimmer reverb. Includes Setlist Mapper for 30 top worship songs.",

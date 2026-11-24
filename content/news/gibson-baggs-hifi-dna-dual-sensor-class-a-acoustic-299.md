@@ -1,5 +1,6 @@
 ---
 title: "Gibson and Baggs Split the Acoustic Pickup in Two — and If It Works, Your Sunday EQ Is Now Wrong"
+seo_title: "Gibson and Baggs Split the Acoustic Pickup in Two"
 date: "2026-09-16"
 category: "new-gear"
 slug: "gibson-baggs-hifi-dna-dual-sensor-class-a-acoustic-299"

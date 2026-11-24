@@ -1,5 +1,6 @@
 ---
 title: "Two Notes Genome 2.0 Adds a Free Parametric Capture Engine — And It Quietly Fixes the One Thing Static Captures Always Got Wrong"
+seo_title: "Two Notes Genome 2.0 Adds Free Parametric Capture"
 date: "2026-06-22"
 category: "new-gear"
 slug: "two-notes-genome-2-paradex-parametric-capture"

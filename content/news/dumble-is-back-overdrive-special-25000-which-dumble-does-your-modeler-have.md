@@ -1,5 +1,6 @@
 ---
 title: "Dumble Is Back and the Overdrive Special Lists at $25,000 — But the Real Question Is Which Dumble Your Modeler Actually Has, Because All Three Majors Picked a Different One"
+seo_title: "Dumble Is Back: The $25,000 Overdrive Special"
 date: "2026-10-08"
 category: "new-gear"
 slug: "dumble-is-back-overdrive-special-25000-which-dumble-does-your-modeler-have"

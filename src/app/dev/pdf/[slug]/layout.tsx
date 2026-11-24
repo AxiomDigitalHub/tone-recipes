@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "PDF preview (dev) — Fader & Knob",
+  title: "PDF preview (dev)",
   robots: { index: false, follow: false },
 };
 

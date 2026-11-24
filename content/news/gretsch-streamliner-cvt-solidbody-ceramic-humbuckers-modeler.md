@@ -1,5 +1,6 @@
 ---
 title: "Gretsch Built a $278 Solidbody With Two Ceramic Humbuckers — and It Drives Your Modeler Nothing Like a Gretsch"
+seo_title: "Gretsch's $278 Streamliner CVT Solidbody"
 date: "2026-07-24"
 category: "new-gear"
 slug: "gretsch-streamliner-cvt-solidbody-ceramic-humbuckers-modeler"

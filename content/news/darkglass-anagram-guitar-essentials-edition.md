@@ -1,5 +1,6 @@
 ---
 title: "Darkglass Brings the Anagram to Guitar: The Essentials Edition Is a $1,300 NAM-Native Modeler"
+seo_title: "Darkglass Anagram Essentials: A $1,300 NAM Modeler"
 date: "2026-06-30"
 category: "new-gear"
 slug: "darkglass-anagram-guitar-essentials-edition"

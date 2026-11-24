@@ -1,5 +1,6 @@
 ---
 title: "Walrus Audio's Canvas Expression Has a Selectable-Resistance Output — Which Means It's the First Expression Pedal That Doesn't Care Whose Modeler You Own"
+seo_title: "Walrus Canvas Expression Has Selectable Resistance"
 date: "2026-08-20"
 category: "new-gear"
 slug: "walrus-audio-canvas-expression-pedal-selectable-resistance"

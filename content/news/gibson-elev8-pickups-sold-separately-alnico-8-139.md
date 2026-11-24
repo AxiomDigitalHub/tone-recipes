@@ -1,5 +1,6 @@
 ---
 title: "Gibson Will Now Sell You Its First Alnico 8 Humbucker for $139 — and the Magnet Is Why Your Presets Stop Working"
+seo_title: "Gibson's $139 Elev8 Alnico 8 Humbucker, Sold Separately"
 date: "2026-09-14"
 category: "new-gear"
 slug: "gibson-elev8-pickups-sold-separately-alnico-8-139"

@@ -1,5 +1,6 @@
 ---
 title: "Harley Benton Will Sell You a UK-Made Celestion V30 in a Box for $237 — The Speaker Alone Costs $160, and Your Modeler Already Has Five V30 Cabs You Never Chose"
+seo_title: "Harley Benton's $237 Cab With a UK-Made Celestion V30"
 date: "2026-10-10"
 category: "new-gear"
 slug: "harley-benton-v30uk-limited-cabs-237-uk-celestion"

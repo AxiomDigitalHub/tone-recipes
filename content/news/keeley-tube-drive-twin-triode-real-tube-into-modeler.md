@@ -1,5 +1,6 @@
 ---
 title: "Keeley Put a Real 168-Volt Tube in a $399 Pedal — Here's the Only Reason That Matters in Front of a Modeler"
+seo_title: "Keeley's $399 Tube Drive Runs a Real 168-Volt Tube"
 date: "2026-09-03"
 category: "new-gear"
 slug: "keeley-tube-drive-twin-triode-real-tube-into-modeler"

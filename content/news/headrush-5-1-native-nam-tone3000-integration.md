@@ -1,5 +1,6 @@
 ---
 title: "HeadRush 5.1 Puts the Whole TONE3000 Library on the Touchscreen — Free, Native, No Computer. Here Are the Two Preset Habits to Break Before You Load a Capture"
+seo_title: "HeadRush 5.1 Adds Native NAM and the TONE3000 Library"
 date: "2026-08-03"
 category: "firmware-update"
 slug: "headrush-5-1-native-nam-tone3000-integration"

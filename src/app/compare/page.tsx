@@ -13,11 +13,11 @@ import type { Platform } from "@/types/recipe";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/compare" },
-  title: "Compare tone recipes side-by-side — Fader & Knob",
+  title: "Compare tone recipes side by side",
   description:
     "Pick any two recipes from the archive and view their signal chains side-by-side. Switch the platform to see how each chain ports across modelers.",
   openGraph: {
-    title: "Compare tone recipes — Fader & Knob",
+    title: "Compare tone recipes | Fader & Knob",
     description: "Two signal chains, side-by-side, on every modeler.",
     type: "website",
   },

@@ -1,5 +1,6 @@
 ---
 title: "Squier's First Paranormal Signature Is a $599 12-String Tele — and It Solves the Two Problems That Make People Quit 12-Strings"
+seo_title: "Squier's $599 Troy Van Leeuwen 12-String Telecaster"
 date: "2026-09-09"
 category: "new-gear"
 slug: "squier-paranormal-troy-van-leeuwen-telecaster-xii-12-string"

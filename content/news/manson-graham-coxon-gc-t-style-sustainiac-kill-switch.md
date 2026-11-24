@@ -1,5 +1,6 @@
 ---
 title: "Graham Coxon's Manson GC T-Style: A Humbucker Tele With a Sustainiac and a Kill Switch, and How to Fake All Three on a Modeler"
+seo_title: "Graham Coxon's Manson GC T-Style: Sustainiac and Kill Switch"
 date: "2026-11-20"
 category: "new-gear"
 slug: "manson-graham-coxon-gc-t-style-sustainiac-kill-switch"

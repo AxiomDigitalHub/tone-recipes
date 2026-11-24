@@ -1,5 +1,6 @@
 ---
 title: "Strymon's TimeLine MX Runs Two Delay Machines at Once for $679 — Here's What Your Helix Can and Can't Do About It"
+seo_title: "Strymon TimeLine MX: Two Delay Machines for $679"
 date: "2026-07-07"
 category: "new-gear"
 slug: "strymon-timeline-mx-dual-engine-delay"

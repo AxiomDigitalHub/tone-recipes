@@ -1,5 +1,6 @@
 ---
 title: "MXR Put a Granular Synth in a Pedal for $269 — Here's What Your Helix Already Does, and the One Mode It Can't Touch"
+seo_title: "MXR Textures: A $269 Granular Synth Pedal"
 date: "2026-07-28"
 category: "new-gear"
 slug: "mxr-textures-granular-synth-engine"

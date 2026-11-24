@@ -1,5 +1,6 @@
 ---
 title: "JAM Pedals Built a $399 Box to Sound Like a $29 Amp — And the Reason It Works Is Bandwidth, Not Gain"
+seo_title: "JAM Pedals' $399 Tiny Amp Destroyer"
 date: "2026-08-19"
 category: "new-gear"
 slug: "jam-pedals-tiny-amp-destroyer-stu-mackenzie"

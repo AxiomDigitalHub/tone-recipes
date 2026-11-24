@@ -1,5 +1,6 @@
 ---
 title: "TONE3000 Releases NAM Architecture 2 — Free, Open-Source, and It Beat Neural DSP and Line 6 in Blind Tests"
+seo_title: "TONE3000 Releases NAM Architecture 2, Free and Open"
 date: "2026-06-05"
 category: "new-gear"
 slug: "tone3000-nam-architecture-2-a2-open-source-modeling"

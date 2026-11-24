@@ -1,5 +1,6 @@
 ---
 title: "Axe-Fx III Firmware 33 Will Run NAM A2 Captures: A Four-Channel NAM Player Block, TONE3000 Inside Axe-Edit, and a Mark I Cab-Bank Warning"
+seo_title: "Axe-Fx III Firmware 33 Will Run NAM A2 Captures"
 date: "2026-11-02"
 category: "firmware-update"
 slug: "fractal-axe-fx-iii-firmware-33-nam-a2-player-tone3000-axe-edit"

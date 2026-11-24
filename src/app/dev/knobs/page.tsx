@@ -5,7 +5,7 @@ import SettingsGrid from "@/components/settings/SettingsGrid";
 import EQCurve from "@/components/settings/EQCurve";
 
 export const metadata: Metadata = {
-  title: "Knobs & Faders — Design Preview",
+  title: "Knobs & Faders: Design Preview",
   description: "Visual preview of the Fader & Knob setting controls.",
   robots: { index: false, follow: false },
 };

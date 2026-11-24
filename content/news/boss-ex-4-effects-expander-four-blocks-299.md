@@ -1,5 +1,6 @@
 ---
 title: "Boss's $299 EX-4 Gives You Four Simultaneous Effects — Which Is Exactly What an HX Stomp Gives You After the Amp and Cab"
+seo_title: "Boss's $299 EX-4 Runs Four Effects at Once"
 date: "2026-09-27"
 category: "new-gear"
 slug: "boss-ex-4-effects-expander-four-blocks-299"
