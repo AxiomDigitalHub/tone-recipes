@@ -10,8 +10,8 @@ import CheckoutButton from "@/components/checkout/CheckoutButton";
  * Free / Pass / Pro cards (redesign, from the Pricing reference).
  *
  * Owns ONE toggle that drives both paid cards, so the user compares Pass
- * and Pro at the same cadence. Yearly is selected by default: better LTV,
- * and the saving is real:
+ * and Pro at the same cadence. Monthly is selected by default (Daniel, 2026-11-24).
+ * The yearly saving:
  *   Pass: 12 x $4.99 = $59.88 vs $49 yearly  → about 18% off
  *   Pro:  12 x $7.99 = $95.88 vs $79 yearly  → about 18% off
  *
@@ -64,8 +64,8 @@ export default function PlanCards() {
   const passPrice = yearly ? "$49" : "$4.99";
   const proPrice = yearly ? "$79" : "$7.99";
   const period = yearly ? "a year" : "a month";
-  const passSub = yearly ? "$4.08 a month, billed yearly" : "Billed monthly. Yearly saves about 18%";
-  const proSub = yearly ? "$6.58 a month, billed yearly" : "Billed monthly. Yearly saves about 18%";
+  const passSub = yearly ? "$4.08 a month, billed yearly" : "Billed monthly";
+  const proSub = yearly ? "$6.58 a month, billed yearly" : "Billed monthly";
 
   return (
     <>
@@ -73,7 +73,7 @@ export default function PlanCards() {
         <div className="fk-pricing-headcopy">
           <h1 className="fk-display">Pricing</h1>
           <p className="fk-lead">
-            Browsing is free: every recipe, on every platform. Pay only if you want unlimited
+            Every recipe is free to read, on every platform. You pay only if you want unlimited
             downloads or the Set Packs.
           </p>
         </div>
@@ -109,7 +109,7 @@ export default function PlanCards() {
           <Link href="/signup" className="fk-btn fk-btn-secondary fk-plan-cta">
             Sign up free
           </Link>
-          <p className="fk-plan-fine">No card. No upsell on the way in.</p>
+          <p className="fk-plan-fine">No upsell on the way in.</p>
         </article>
 
         {/* Pass: the recommended plan. The one dark card, and the one
@@ -117,7 +117,7 @@ export default function PlanCards() {
         <article className="fk-plan is-inverse r-lg">
           <div className="fk-plan-head">
             <h2 className="fk-t3">Pass</h2>
-            <span className="fk-plan-note">Most players pick this</span>
+            <span className="fk-plan-note">Our pick</span>
           </div>
           <div className="fk-plan-price">
             <p>
@@ -127,8 +127,8 @@ export default function PlanCards() {
             <p className="fk-plan-sub">{passSub}</p>
           </div>
           <p className="fk-plan-blurb">
-            Stop counting downloads. Unlimited presets and PDFs for players who use the site every
-            week.
+            Unlimited presets and PDFs, so you stop counting downloads. For players who use the
+            site every week.
           </p>
           <Features items={PASS_FEATURES} />
           <CheckoutButton tier="pass" interval={interval} label="Start Pass" className="fk-plan-checkout is-accent" />
@@ -148,12 +148,12 @@ export default function PlanCards() {
             <p className="fk-plan-sub">{proSub}</p>
           </div>
           <p className="fk-plan-blurb">
-            Everything in Pass, plus every Set Pack while you are subscribed. One pack is $19, so
-            one pack a year pays for the upgrade.
+            Everything in Pass, plus every Set Pack while you&apos;re subscribed. Packs are $19
+            each, so Pro pays for itself once you&apos;d buy two in a year.
           </p>
           <Features items={PRO_FEATURES} />
           <CheckoutButton tier="pro" interval={interval} label="Start Pro" className="fk-plan-checkout" />
-          <p className="fk-plan-fine">Set Packs stay yours to use for as long as you are on Pro.</p>
+          <p className="fk-plan-fine">Set Packs stay yours to use for as long as you&apos;re on Pro.</p>
         </article>
       </div>
     </>

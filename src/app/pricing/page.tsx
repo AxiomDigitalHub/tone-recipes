@@ -32,7 +32,7 @@ function subscriptionProduct(
     offers: [
       {
         "@type": "Offer",
-        name: `${name} — annual`,
+        name: `${name}, annual`,
         priceCurrency: "USD",
         price: annual,
         availability: "https://schema.org/InStock",
@@ -48,7 +48,7 @@ function subscriptionProduct(
       },
       {
         "@type": "Offer",
-        name: `${name} — monthly`,
+        name: `${name}, monthly`,
         priceCurrency: "USD",
         price: monthly,
         availability: "https://schema.org/InStock",
@@ -101,7 +101,7 @@ export const metadata: Metadata = {
 const SET_PACK = {
   name: "Worship Set Pack",
   price: "$19",
-  blurb: "One Helix preset. 8 snapshots. 30 worship songs mapped to snapshots.",
+  blurb: "One Helix preset with 8 snapshots, and 30 worship songs mapped to them.",
   features: [
     "FK-Worship.hlx preset",
     "8 snapshots, from clean to rock crunch",
@@ -148,19 +148,19 @@ function CompareCell({ value }: { value: Cell }) {
 const FAQ = [
   {
     q: "Pass or Pro?",
-    a: "Start with Pass if you mostly want unlimited downloads. Pick Pro if you would buy Set Packs. Each pack is $19 on its own, so one pack a year covers the difference, and you get every future pack while subscribed.",
+    a: "Start with Pass if you mostly want unlimited downloads. Pick Pro if you'd buy Set Packs: each one is $19 on its own and Pro costs $30 a year more than Pass, so it pays off at two packs, and you get every later pack while you're subscribed.",
   },
   {
     q: "Is there a free trial?",
-    a: "The free plan is the trial. You get 5 downloads a month, every feature is visible, and no card is needed. If you keep hitting the limit, upgrade. If you do not, you did not need a subscription.",
+    a: "The free plan is the trial. You get 5 downloads a month, every feature is visible, and no card is needed. If you keep hitting the limit, upgrade; if you don't, you didn't need a subscription.",
   },
   {
     q: "Can I cancel any time?",
-    a: "Yes, from your dashboard. No email needed. You keep your paid features until the end of the period you paid for, then your account goes back to Free. There are no partial refunds for unused time.",
+    a: "Yes, from your dashboard, without emailing us. You keep your paid features until the period you paid for ends, then your account goes back to Free. We don't refund unused time.",
   },
   {
     q: "Why are Set Packs a one-time price?",
-    a: "A Set Pack solves one problem: your gig. One preset, eight snapshots, 30 songs mapped. You use it for years, so you pay for it once. Pro subscribers get every pack included.",
+    a: "A Set Pack covers one kind of gig with a single preset, eight snapshots and 30 songs mapped to them. You'll use it for years, so you pay for it once. Pro includes every pack while you're subscribed.",
   },
   {
     q: "Will there be more Set Packs?",
@@ -236,7 +236,7 @@ export default function PricingPage() {
                 once and keep it.
               </p>
               <p className="fk-body fk-muted">
-                On Pro, every Set Pack is included while you are subscribed.
+                On Pro, every Set Pack is included while you&apos;re subscribed.
               </p>
               <ul className="fk-pricing-next">
                 <li>
