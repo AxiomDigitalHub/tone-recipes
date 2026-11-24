@@ -861,3 +861,410 @@
 }
 .fk-preview .fk-dialcell.is-inverse .fk-dialcell-label { color: var(--fk-on-inverse-2); }
 .fk-preview .fk-dialcell.is-inverse .fk-dialcell-value { color: var(--fk-on-inverse); }
+
+/* ══════════════════════════════════════════════════════════════════════
+   Recipe page (step 3). Reference: Recipe.html, RecipePedalboard.html.
+   ══════════════════════════════════════════════════════════════════════ */
+.fk-preview .fk-muted { color: var(--fk-ink-2); }
+.fk-preview .fk-linkbtn { font: inherit; cursor: pointer; padding: 0; }
+
+.fk-preview .fk-recipe { padding-top: 32px; }
+.fk-preview .fk-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.fk-preview .fk-crumbs a:hover { color: var(--fk-ink); }
+.fk-preview .fk-crumbs [aria-current="page"] { color: var(--fk-ink); }
+
+.fk-preview .fk-recipe-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  gap: 48px 64px;
+  align-items: start;
+}
+.fk-preview .fk-recipe-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+.fk-preview .fk-recipe-titlerow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 24px;
+  align-items: center;
+}
+.fk-preview .fk-recipe-cover {
+  width: 132px;
+  height: 132px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--fk-wash);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fk-ink-3);
+}
+.fk-preview .fk-recipe-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.fk-preview .fk-recipe-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 240px;
+  flex: 1;
+}
+.fk-preview .fk-recipe-titles a:hover { color: var(--fk-ink); }
+.fk-preview .fk-recipe-summary { max-width: 620px; }
+.fk-preview .fk-recipe-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.fk-preview .fk-recipe-textlink { padding: 12px 8px; }
+.fk-preview .fk-recipe-spotify { max-width: 620px; }
+
+/* Guitar card: the drawing tilted 10 degrees, neck off the right edge. */
+.fk-preview .fk-guitarcard {
+  position: relative;
+  overflow: hidden;
+  background: var(--fk-wash);
+  padding: 28px;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+}
+.fk-preview .fk-guitarcard-art {
+  position: absolute;
+  /* 24px past the right edge on a wide card; on a narrow one the neck
+     runs further off so the facts stay clear. */
+  left: max(calc(100% - 236px), 272px);
+  top: 58px;
+  width: 260px;
+  height: 205px;
+  max-width: none;
+  transform: rotate(-10deg);
+}
+.fk-preview .fk-guitarcard-facts {
+  position: relative;
+  width: 230px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.fk-preview .fk-guitarcard-facts h2 { padding-bottom: 12px; }
+.fk-preview .fk-guitarcard-facts dl { margin: 0; }
+.fk-preview .fk-guitarcard-facts dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-top: 1px solid var(--fk-line);
+}
+.fk-preview .fk-guitarcard-facts dd { margin: 0; text-align: right; }
+
+/* Sections */
+.fk-preview .fk-recipe-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 64px;
+}
+.fk-preview .fk-recipe-section-lg { padding-top: 96px; gap: 32px; }
+.fk-preview .fk-recipe-section-md { padding-top: 64px; gap: 20px; }
+.fk-preview .fk-recipe-sectionhead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px 48px;
+}
+.fk-preview .fk-recipe-sectionhead.is-end { align-items: flex-end; }
+.fk-preview .fk-recipe-sectionintro {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Signal chain: no cables, no guitar. Scrolls sideways when it must. */
+.fk-preview .fk-chain {
+  background: var(--fk-wash);
+  padding: 40px 24px 32px;
+  overflow-x: auto;
+}
+.fk-preview .fk-chain-row {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  gap: 6px;
+  width: max-content;
+}
+.fk-preview .fk-chain-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  max-width: 190px;
+}
+.fk-preview .fk-chain-name {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  color: var(--fk-ink);
+  text-align: center;
+}
+
+/* Block cards */
+.fk-preview .fk-blockcards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(480px, 100%), 1fr));
+  gap: 24px;
+}
+.fk-preview .fk-blockcard {
+  border: 1px solid var(--fk-line);
+  background: var(--fk-paper);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  scroll-margin-top: 24px;
+  min-width: 0;
+}
+.fk-preview .fk-blockcard.is-wide { grid-column: 1 / -1; }
+.fk-preview .fk-blockcard:target { border-color: var(--fk-ink); }
+.fk-preview .fk-blockcard-main {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.fk-preview .fk-blockcard-art {
+  background: var(--fk-wash);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+.fk-preview .fk-blockcard-body {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.fk-preview .fk-blockcard-head { display: flex; flex-direction: column; gap: 2px; }
+.fk-preview .fk-blockcard-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+}
+.fk-preview .fk-blockcard-title .fk-caption { white-space: nowrap; }
+.fk-preview .fk-blockcard-dials { display: flex; flex-direction: column; gap: 20px; }
+.fk-preview .fk-blockcard-dialrow { display: flex; flex-wrap: wrap; gap: 16px 14px; }
+.fk-preview .fk-blockcard-notes { max-width: 640px; }
+.fk-preview .fk-blockcard-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--fk-line-2);
+  padding-top: 16px;
+}
+.fk-preview .fk-blockcard-foot p { flex: 1 1 240px; margin: 0; }
+.fk-preview .fk-blockcard-buy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.fk-preview .fk-disclosure {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--fk-ink-2);
+  background: var(--fk-wash);
+  padding: 12px 16px;
+  max-width: 420px;
+}
+
+/* Shopping list */
+.fk-preview .fk-shoplist {
+  background: var(--fk-wash);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.fk-preview .fk-shoplist-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+.fk-preview .fk-shoplist-rows { list-style: none; margin: 0; padding: 0; }
+.fk-preview .fk-shoplist-rows li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 14px 0;
+  border-top: 1px solid var(--fk-line);
+}
+.fk-preview .fk-shoplist-name {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
+  color: var(--fk-ink);
+}
+.fk-preview .fk-shoplist-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0;
+}
+.fk-preview .fk-shoplist-empty { color: var(--fk-ink-2); padding: 14px 0; border-top: 1px solid var(--fk-line); }
+.fk-preview .fk-shoplist-foot { padding-top: 12px; }
+
+/* Sources */
+.fk-preview .fk-sources ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+@media (max-width: 640px) {
+  .fk-preview .fk-recipe { padding-top: 20px; }
+  .fk-preview .fk-recipe-cover { width: 96px; height: 96px; }
+  .fk-preview .fk-recipe-titles { min-width: 0; }
+  .fk-preview .fk-recipe-section { padding-top: 48px; }
+  .fk-preview .fk-recipe-section-lg { padding-top: 64px; }
+  .fk-preview .fk-chain { padding: 28px 16px 24px; }
+  .fk-preview .fk-blockcard { padding: 16px; }
+  .fk-preview .fk-blockcard-main { gap: 16px; }
+  .fk-preview .fk-shoplist { padding: 20px; }
+  .fk-preview .fk-guitarcard { min-height: 280px; padding: 20px; }
+  .fk-preview .fk-guitarcard-facts { width: 180px; }
+  .fk-preview .fk-guitarcard-art { left: max(calc(100% - 236px), 208px); }
+}
+
+/* Floating download chip (appears once the button row scrolls away). */
+.fk-preview .recipe-dl-chip-btn {
+  display: inline-flex;
+  align-items: center;
+  height: var(--fk-control-h);
+  padding: 0 22px;
+  border-radius: var(--fk-r-pill);
+  border: 1px solid var(--fk-ink);
+  background: var(--fk-ink);
+  color: var(--fk-paper);
+  font-family: var(--fk-sans);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  box-shadow: 0 8px 24px rgba(19, 20, 22, 0.18);
+}
+.fk-preview .recipe-dl-chip-btn:hover { background: var(--fk-ink); color: var(--fk-paper); opacity: 0.86; }
+
+/* ── Modules on the recipe page not redrawn yet (ratings, comments, mic
+   pick, related guides). Until their own step they lose the old theme's
+   capitals, tracking, italics and mono labels. ── */
+.fk-preview .fk-recipe-legacy * {
+  font-family: var(--fk-sans);
+  text-transform: none;
+  letter-spacing: normal;
+  font-style: normal;
+}
+
+/* What we checked */
+.fk-preview .fk-recipe-legacy .rv {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 760px;
+}
+.fk-preview .fk-recipe-legacy .rv-head { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; border: 0; }
+.fk-preview .fk-recipe-legacy .rv-head h4 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--fk-ink);
+}
+.fk-preview .fk-recipe-legacy .rv-sub { margin: 0; font-size: 13px; line-height: 18px; color: var(--fk-ink-3); }
+.fk-preview .fk-recipe-legacy .rv-sub a,
+.fk-preview .fk-recipe-legacy .rv a { color: var(--fk-ink); text-decoration: underline; text-underline-offset: 3px; }
+.fk-preview .fk-recipe-legacy .rv-body { display: flex; flex-direction: column; gap: 24px; }
+.fk-preview .fk-recipe-legacy .rv-group { display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; border: 0; }
+.fk-preview .fk-recipe-legacy .rv-group-label {
+  margin: 0;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--fk-ink);
+}
+.fk-preview .fk-recipe-legacy .rv-presets { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.fk-preview .fk-recipe-legacy .rv-preset {
+  margin: 0;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: var(--fk-r-md);
+  corner-shape: squircle;
+  background: var(--fk-wash);
+  color: var(--fk-ink);
+  font-size: 16px;
+  line-height: 26px;
+}
+.fk-preview .fk-recipe-legacy .rv-preset-clean { background: var(--fk-good-wash); color: var(--fk-good); }
+.fk-preview .fk-recipe-legacy .rv-preset-platform { font-weight: 600; font-size: 16px; color: inherit; }
+.fk-preview .fk-recipe-legacy .rv-preset-verdict { font-size: 16px; color: inherit; }
+.fk-preview .fk-recipe-legacy .rv-preset-detail { margin-top: 6px; font-size: 14px; line-height: 22px; color: var(--fk-ink-2); }
+.fk-preview .fk-recipe-legacy .rv-preset-detail summary { cursor: pointer; font-size: 14px; color: var(--fk-ink); text-decoration: underline; text-underline-offset: 3px; }
+.fk-preview .fk-recipe-legacy .rv-preset-detail p { margin: 8px 0 0; }
+.fk-preview .fk-recipe-legacy .rv-facts { display: flex; flex-direction: column; margin: 0; }
+.fk-preview .fk-recipe-legacy .rv-fact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  padding: 12px 0;
+  border-top: 1px solid var(--fk-line);
+}
+.fk-preview .fk-recipe-legacy .rv-fact dt { flex: 0 0 140px; margin: 0; font-size: 14px; line-height: 22px; font-weight: 600; color: var(--fk-ink); }
+.fk-preview .fk-recipe-legacy .rv-fact dd { flex: 1 1 280px; margin: 0; font-size: 14px; line-height: 22px; color: var(--fk-ink); }
+.fk-preview .fk-recipe-legacy .rv-fact-caveat { color: var(--fk-ink-2); }
+.fk-preview .fk-recipe-legacy .rv-unchecked ul { margin: 0; padding-left: 20px; list-style: disc; display: flex; flex-direction: column; gap: 6px; }
+.fk-preview .fk-recipe-legacy .rv-unchecked li { font-size: 14px; line-height: 22px; color: var(--fk-ink-2); padding: 0; }
+.fk-preview .fk-recipe-legacy .rv-unchecked li::before { content: none; }
+.fk-preview .fk-recipe-legacy .rv-fact dt,
+.fk-preview .fk-recipe-legacy .rv-preset-detail summary,
+.fk-preview .fk-recipe-legacy .rv-preset-platform,
+.fk-preview .fk-recipe-legacy .rv-group-label,
+.fk-preview .fk-recipe-legacy .rv-sub {
+  font-family: var(--fk-sans);
+  text-transform: none;
+  letter-spacing: normal;
+}

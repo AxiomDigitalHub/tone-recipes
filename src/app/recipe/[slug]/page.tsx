@@ -7,10 +7,16 @@ import {
   getArtistBySlug,
 } from "@/lib/data";
 import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
-import { LpArt, monogramFor } from "@/components/v3/LpArt";
+import { monogramFor } from "@/components/v3/LpArt";
 import { RelatedPosts } from "@/components/RelatedPosts";
-import RecipePlatformView from "./RecipePlatformView";
-import RecipeCompatibility from "@/components/recipe/RecipeCompatibility";
+import { RecipePlatformProvider } from "@/components/recipe/redesign/RecipePlatform";
+import RecipeActions from "@/components/recipe/redesign/RecipeActions";
+import RecipeChain from "@/components/recipe/redesign/RecipeChain";
+import { ChevronRight } from "lucide-react";
+import { guitarFor, guitarSrc, GUITARS } from "@/lib/gear/guitars";
+import { buyInfoFor, type BuyInfo } from "@/lib/gear/retail";
+import { formatPickups, formatTuning, guitarModelName } from "@/lib/guitar-specs";
+import { getBandName } from "@/lib/song-band";
 import RecipeInteractions from "./RecipeInteractions";
 import RecipeAudioDemo from "@/components/recipe/RecipeAudioDemo";
 import RecipeMicPick from "@/components/recipe/RecipeMicPick";
@@ -23,11 +29,12 @@ import type { RatingStats } from "@/types/community";
 import type { Metadata } from "next";
 
 /**
- * /recipe/[slug] — audition route for the new editorial / hardware-
- * catalog visual direction.
+ * /recipe/[slug]: the tone recipe page (redesign step 3).
  *
- * Uses the same real recipe data as production but renders through the new
- * visual system. When the direction locks and migrates, this route retires.
+ * Layout follows the handoff reference (Recipe.html, RecipePedalboard.html):
+ * album cover by the title, the guitar card, the signal chain drawn with
+ * every knob at the recipe's setting, then every setting broken out as a
+ * dial. Data, URLs and structured data are unchanged from before.
  */
 
 // 1-hour ISR so the AggregateRating in JSON-LD doesn't lag too far
@@ -140,8 +147,25 @@ export default async function PreviewRecipePage({
     validPlatforms.map((p) => [p.id, recipeToBlocks(recipe, p.id)]),
   );
 
-  const recipeIdx =
-    toneRecipes.findIndex((r) => r.slug === recipe.slug) + 1;
+  // Buy info for the Pedalboard view, resolved on the server: the affiliate
+  // tag is a server-side env var. Aligned with blocksByPlatform.pedalboard,
+  // which leads with the guitar when the recipe has guitar specs.
+  const pedalBuy: (BuyInfo | null)[] = [
+    ...(recipe.guitar_specs ? [null] : []),
+    ...(recipe.signal_chain ?? []).map((n) => buyInfoFor(n)),
+  ];
+
+  const band = song ? getBandName(song, artist) : null;
+  const credit = [artist?.name, band, song?.year].filter(Boolean).join(", ");
+  const guitar = recipe.guitar_specs;
+  const guitarKey = guitarFor(guitar);
+  const facts: [string, string][] = guitar
+    ? ([
+        ["Pickups", guitar.pickup_config ? formatPickups(guitar) : ""],
+        ["Tuning", guitar.tuning ? formatTuning(guitar) : ""],
+        ["Strings", guitar.string_gauge ?? ""],
+      ] as [string, string][]).filter(([, v]) => v)
+    : [];
 
   // Related recipes — same artist if possible, else same first tag
   const related = toneRecipes
@@ -191,7 +215,7 @@ export default async function PreviewRecipePage({
   const mediaNodes = recipeMediaJsonLd(recipeForSchema, song);
 
   return (
-    <div className="container">
+    <RecipePlatformProvider platforms={validPlatforms} defaultPlatform={defaultPlatform}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howTo) }}
@@ -213,211 +237,133 @@ export default async function PreviewRecipePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="recipe">
-        {/* Breadcrumbs */}
-        <div className="recipe-crumbs">
-          <Link href="/">Home</Link>
-          <span className="sep">/</span>
-          <Link href="/browse">Archive</Link>
+      <div className="fk-wrap fk-recipe">
+        <nav aria-label="Breadcrumb" className="fk-crumbs fk-caption">
+          <Link href="/browse">Tones</Link>
           {artist && (
             <>
-              <span className="sep">/</span>
-              <Link href={`/artist/${artist.slug}`}>
-                {artist.name}
-              </Link>
+              <span aria-hidden="true">/</span>
+              <Link href={`/artist/${artist.slug}`}>{artist.name}</Link>
             </>
           )}
           {song && (
             <>
-              <span className="sep">/</span>
-              <Link href={`/song/${song.slug}`}>
+              <span aria-hidden="true">/</span>
+              <Link href={`/song/${song.slug}`} aria-current="page">
                 {song.title}
               </Link>
             </>
           )}
-        </div>
+        </nav>
 
-        {/* Title / credits / artwork — song · artist · album · year order */}
-        <div className="recipe-head">
-          <div>
-            <div className="recipe-issue">
-              <span className="pill">No. {String(recipeIdx).padStart(3, "0")}</span>
-              {song?.year && <span>{song.year}</span>}
-              {song?.year && <span>·</span>}
-              {artist?.genres?.[0] && <span>{artist.genres[0]}</span>}
-              {recipe.signal_chain && (
-                <>
-                  <span>·</span>
-                  <span>{recipe.signal_chain.length} blocks</span>
-                </>
-              )}
-            </div>
-            <h1 className="recipe-title display">
-              {song?.title ?? recipe.title}
-            </h1>
-            <div className="recipe-credits">
-              {artist ? (
-                <Link
-                  href={`/artist/${artist.slug}`}
-                  className="song-artist-link"
-                >
-                  <em>{artist.name}</em>
-                </Link>
-              ) : (
-                <em>Unknown</em>
-              )}
-              {song?.album && (
-                <>
-                  <br />
-                  <Link
-                    href={`/song/${song.slug}`}
-                    className="song-artist-link"
-                    style={{ marginTop: 6, display: "inline-block" }}
-                  >
-                    {song.album}
-                    {song.year ? ` · ${song.year}` : ""}
-                  </Link>
-                </>
-              )}
-            </div>
-            {recipe.description && (
-              <p className="recipe-summary">{recipe.description}</p>
-            )}
-            {(song?.external_video_url || song?.external_tab_url) && (
-              <div className="recipe-listen-row">
-                {song?.external_video_url && (
-                  <a
-                    href={song.external_video_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="song-listen-cta"
-                  >
-                    Listen on YouTube <span aria-hidden="true">↗</span>
-                  </a>
-                )}
-                {song?.external_tab_url && (
-                  <a
-                    href={song.external_tab_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="song-listen-cta song-listen-cta-secondary"
-                  >
-                    Tab on Songsterr <span aria-hidden="true">↗</span>
-                  </a>
+        {/* Title, summary and buttons on the left. Guitar card on the right. */}
+        <div className="fk-recipe-top">
+          <div className="fk-recipe-intro">
+            <div className="fk-recipe-titlerow">
+              <div className="fk-recipe-cover r-md">
+                {song?.album_art_url ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={song.album_art_url}
+                    alt={`${song.album ?? song.title} album cover`}
+                    width={132}
+                    height={132}
+                  />
+                ) : (
+                  <span className="fk-t2" aria-hidden="true">
+                    {monogramFor(artist?.name)}
+                  </span>
                 )}
               </div>
-            )}
-            {song?.spotify_track_id && (
-              <div className="recipe-spotify">
-                <SpotifyEmbed
-                  trackId={song.spotify_track_id}
-                  size="compact"
-                />
+              <div className="fk-recipe-titles">
+                <h1 className="fk-display">{song?.title ?? recipe.title}</h1>
+                {credit && (
+                  <p className="fk-lead">
+                    {artist ? (
+                      <Link href={`/artist/${artist.slug}`}>{artist.name}</Link>
+                    ) : null}
+                    {artist && (band || song?.year) ? ", " : ""}
+                    {[band, song?.year].filter(Boolean).join(", ")}
+                  </p>
+                )}
               </div>
-            )}
-          </div>
-          <div className="recipe-art recipe-art-lp">
-            <LpArt
-              cover={song?.album_art_url}
-              monogram={monogramFor(artist?.name)}
-              meta={song?.album ?? `Side A · T.${String(recipeIdx).padStart(2, "0")}`}
-              hue={recipeIdx}
-              alt={`${song?.album ?? song?.title ?? recipe.title} cover`}
+            </div>
+            {recipe.description && <p className="fk-body fk-recipe-summary">{recipe.description}</p>}
+            <RecipeActions
+              slug={recipe.slug}
+              videoUrl={song?.external_video_url}
+              tabUrl={song?.external_tab_url}
             />
+            {song?.spotify_track_id && (
+              <div className="fk-recipe-spotify">
+                <SpotifyEmbed trackId={song.spotify_track_id} size="compact" />
+              </div>
+            )}
           </div>
+
+          {guitar && (
+            <div className="fk-guitarcard r-lg">
+              {/* Decorative: the model name is the card's heading. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={guitarSrc(guitarKey)}
+                alt={GUITARS[guitarKey]}
+                width={260}
+                height={205}
+                className="fk-guitarcard-art"
+              />
+              <div className="fk-guitarcard-facts">
+                <h2 className="fk-t3">{guitarModelName(guitar) || "Guitar"}</h2>
+                <dl>
+                  {facts.map(([k, v]) => (
+                    <div key={k}>
+                      <dt className="fk-body-sm">{k}</dt>
+                      <dd className="fk-data">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Platform switcher, export buttons, download chip and the
-            interactive chain. All platform-dependent, all client-owned so
-            this route stays statically rendered. */}
-        <RecipePlatformView
-          slug={recipe.slug}
-          platforms={validPlatforms}
-          blocksByPlatform={blocksByPlatform}
-          defaultPlatform={defaultPlatform}
-        >
-          {/* My Rig compatibility — reads viewer's user_gear (Supabase or
-              localStorage) and reports how many signal-chain blocks match.
-              Renders nothing while loading; shows a "Set up My Rig" prompt
-              when empty. Sits between the chip and the chain, so it's
-              passed through as children rather than hoisted out. */}
-          <RecipeCompatibility
-            signalChain={(recipe.signal_chain ?? []).map((b) => ({
-              gear_name: b.gear_name ?? "",
-              gear_slug: b.gear_slug ?? null,
-              category: b.category ?? "",
-            }))}
-          />
-        </RecipePlatformView>
+        {/* Platform chips, the chain and the per-block cards. All
+            platform-dependent, all client-owned so this route stays
+            statically rendered. */}
+        <RecipeChain slug={recipe.slug} blocksByPlatform={blocksByPlatform} pedalBuy={pedalBuy} />
 
-        {/* What a program actually checked about this recipe — preset build
+        {/* What a program actually checked about this recipe: preset build
             result, blocks that don't survive into the file, DSP cost, source
             tier, attribution confidence, and the matching list of what nobody
-            checked. Sits directly under the chain because "can I trust these
-            numbers?" is the next question after reading them. */}
-        <RecipeVerification recipe={recipe} />
+            checked. Sits directly under the settings because "can I trust
+            these numbers?" is the next question after reading them. */}
+        <div className="fk-recipe-section fk-recipe-section-md fk-recipe-legacy">
+          <RecipeVerification recipe={recipe} />
 
-        {/* Self-produced tone demo (renders only when a clip exists). The
-            audible proof + "Verified" date that backs the settings. */}
-        <RecipeAudioDemo demo={audioDemo} />
+          {/* Self-produced tone demo (renders only when a clip exists). */}
+          <RecipeAudioDemo demo={audioDemo} />
 
-        {/* Mic affiliate module. Placed after the chain and the demo — the
-            reader has seen how the tone is built and heard it, which is the
-            moment the one buyable part of the chain is worth surfacing.
-            Renders nothing when the chain's mic can't be resolved. */}
-        <RecipeMicPick
-          signalChain={recipe.signal_chain ?? []}
-          recipeSlug={recipe.slug}
-        />
+          {/* Mic affiliate module. Renders nothing when the chain's mic
+              can't be resolved. */}
+          <RecipeMicPick signalChain={recipe.signal_chain ?? []} recipeSlug={recipe.slug} />
+        </div>
 
         {/* The "Engineer's note" block was removed 2026-08-05. It reprinted
-            `recipe.description` verbatim — the same paragraph already rendered
-            as `.recipe-summary` at the top of the page, roughly halving the
-            unique word count — and then signed it "— {artist.name}", which
-            presented an AI-written summary as a quote from a real, frequently
-            deceased, guitarist. Neither the duplication nor the fabricated
-            attribution was defensible, and the verification band above now
-            occupies this slot with something the reader can check. */}
+            `recipe.description` verbatim and signed it with the artist's
+            name, presenting an AI-written summary as a quote. Do not bring
+            it back. */}
 
-        {/* Sources — primary citations backing the signal-chain claims. */}
+        {/* Sources: primary citations backing the signal-chain claims. */}
         {recipe.sources && recipe.sources.length > 0 && (
-          <div
-            className="recipe-sources"
-            style={{
-              marginTop: 32,
-              paddingTop: 16,
-              borderTop: "1px solid var(--rule, rgba(0,0,0,0.08))",
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: 9.5,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                color: "var(--ink-faint)",
-                marginBottom: 8,
-              }}
-            >
-              Sources · Verified by
-            </div>
-            <ul
-              style={{
-                listStyle: "none",
-                padding: 0,
-                margin: 0,
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "8px 16px",
-                fontSize: 13,
-              }}
-            >
+          <section className="fk-recipe-section fk-recipe-section-md fk-sources">
+            <h2 className="fk-t3">Sources</h2>
+            <ul>
               {recipe.sources.map((url) => {
                 let label = url;
                 try {
                   label = new URL(url).hostname.replace(/^www\./, "");
                 } catch {
-                  // Not a parseable URL — render the raw string.
+                  // Not a parseable URL: render the raw string.
                 }
                 return (
                   <li key={url}>
@@ -425,86 +371,76 @@ export default async function PreviewRecipePage({
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
-                      className="recipe-source-link"
+                      className="fk-link fk-body-sm"
                     >
-                      {label} <span aria-hidden="true">↗</span>
+                      {label}
                     </a>
                   </li>
                 );
               })}
             </ul>
-          </div>
+          </section>
         )}
 
-        {/* Ratings + comments — recipe_ratings + comments tables.
+        {/* Ratings + comments: recipe_ratings + comments tables.
             Auth-gated post; anon users see read-only with sign-in CTA. */}
-        <RecipeInteractions recipeSlug={recipe.slug} initialStats={ratingStats} />
+        <div className="fk-recipe-legacy">
+          <RecipeInteractions recipeSlug={recipe.slug} initialStats={ratingStats} />
 
-        {/* Field notes on this tone — precision-first recipe→blog links
-            (reverse of RelatedRecipes on /blog/[slug]; renders nothing
-            when no post genuinely matches). */}
-        <RelatedPosts recipe={recipe} />
+          {/* Guides on this tone: precision-first recipe to blog links
+              (renders nothing when no post genuinely matches). */}
+          <RelatedPosts recipe={recipe} />
+        </div>
 
-        {/* Related recipes */}
         {related.length > 0 && (
-          <div className="related">
-            <div className="related-head">
-              <h3 className="display">More like this</h3>
-              <span className="related-meta">Curated</span>
+          <section className="fk-recipe-section fk-recipe-section-lg">
+            <div className="fk-recipe-sectionhead">
+              <h2 className="fk-t2">More like this</h2>
+              <Link href="/browse" className="fk-link fk-label">
+                Browse all recipes
+              </Link>
             </div>
-            <div className="feat-grid">
-              {related.map((r, i) => {
+            <div className="fk-card-grid">
+              {related.map((r) => {
                 const rSong = getSongBySlug(r.song_slug);
                 const rArtist = rSong ? getArtistBySlug(rSong.artist_slug) : undefined;
-                const rIdx =
-                  toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
-                const rBlocks = recipeToBlocks(r, "helix");
+                const rBand = rSong ? getBandName(rSong, rArtist) : null;
+                const rBlocks = r.signal_chain?.length ?? 0;
                 return (
-                  <div
-                    key={r.slug}
-                    style={{ gridColumn: "span 4" }}
-                  >
-                    <Link
-                      href={`/recipe/${r.slug}`}
-                      className="feat-card"
-                      style={{ display: "block" }}
-                    >
-                      <div className="feat-card-num">
-                        No. {String(rIdx).padStart(3, "0")} · Side {(["A","B","C","D"][i % 4])}
-                      </div>
-                      <div className="feat-card-art-wrap">
-                        <LpArt
-                          cover={rSong?.album_art_url}
-                          monogram={monogramFor(rArtist?.name)}
-                          meta={`${rBlocks.length} blocks`}
-                          hue={rIdx}
-                          shape="banner"
-                          alt={`${rSong?.album ?? rSong?.title ?? r.title} cover`}
+                  <Link key={r.slug} href={`/recipe/${r.slug}`} className="fk-card">
+                    <div className="fk-card-art">
+                      {rSong?.album_art_url ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={rSong.album_art_url}
+                          alt={`${rSong.album ?? rSong.title} album cover`}
+                          loading="lazy"
                         />
+                      ) : (
+                        <span className="fk-t2" aria-hidden="true">
+                          {monogramFor(rArtist?.name)}
+                        </span>
+                      )}
+                    </div>
+                    <div className="fk-card-body">
+                      <div className="fk-card-head">
+                        <h3 className="fk-t3">{rSong?.title ?? r.title}</h3>
+                        <ChevronRight size={20} strokeWidth={1.75} aria-hidden />
                       </div>
-                      <div className="feat-card-song">
-                        {rSong?.title ?? r.title}
-                      </div>
-                      <div className="feat-card-artist">
-                        <em>{rArtist?.name ?? "Unknown"}</em>
-                        {rSong?.year ? ` · ${rSong.year}` : ""}
-                      </div>
-                    </Link>
-                  </div>
+                      <p className="fk-body-sm">
+                        {[rBand, rArtist?.name].filter(Boolean).join(", ")}
+                      </p>
+                      <p className="fk-card-meta">
+                        {[rSong?.year, rBlocks ? `${rBlocks} blocks` : null].filter(Boolean).join(" · ")}
+                      </p>
+                    </div>
+                  </Link>
                 );
               })}
             </div>
-          </div>
+          </section>
         )}
-
-        {/* Catch-all browse affordance — without this, the only path
-            back to the catalogue is the global sub-nav. */}
-        <div className="recipe-foot-browse">
-          <Link href="/browse" className="recipe-foot-browse-link">
-            Browse all recipes →
-          </Link>
-        </div>
       </div>
-    </div>
+    </RecipePlatformProvider>
   );
 }
