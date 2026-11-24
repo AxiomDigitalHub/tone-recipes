@@ -46,6 +46,12 @@ export interface BlogPost {
   featured?: boolean;
   image?: string;
   imageAlt?: string;
+  /**
+   * Optional hand override for the drawn thumbnail (see src/lib/gear/thumbs.ts).
+   * Front matter: `thumb: { gear: delay, pattern: ripple, frame: tilt, color: teal }`.
+   * Anything left out comes from the post's topic and a hash of its slug.
+   */
+  thumb?: Partial<{ gear: string; pattern: string; frame: string; color: string }>;
   /** 3-5 takeaway bullets — drives the "Key Takeaways" callout for AEO. */
   takeaways?: string[];
   /** 3-6 Q&A pairs — drives the on-page FAQ AND FAQPage JSON-LD. */
@@ -114,6 +120,7 @@ export function getPostBySlug(slug: string): BlogPostWithContent | null {
     featured: data.featured ?? false,
     image: data.image ?? undefined,
     imageAlt: data.image_alt ?? undefined,
+    thumb: data.thumb && typeof data.thumb === "object" ? data.thumb : undefined,
     takeaways: Array.isArray(data.takeaways) ? data.takeaways : undefined,
     faq: Array.isArray(data.faq)
       ? (data.faq as BlogFaq[]).filter((f) => f && f.q && f.a)

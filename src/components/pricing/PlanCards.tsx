@@ -2,19 +2,21 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { Check } from "lucide-react";
 import CheckoutButton from "@/components/checkout/CheckoutButton";
 
 /**
- * <PlanCards /> — the Free / Pass / Pro subscription comparison row.
+ * <PlanCards />: the page heading, the Yearly / Monthly toggle and the
+ * Free / Pass / Pro cards (redesign, from the Pricing reference).
  *
- * Owns ONE annual ↔ monthly toggle that drives both paid cards, so the
- * user compares Pass and Pro at the same cadence. Annual is selected by
- * default — better LTV, and the savings is real:
- *   Pass: 12×$4.99 = $59.88 vs $49 annual  → ~18% off
- *   Pro:  12×$7.99 = $95.88 vs $79 annual  → ~18% off
+ * Owns ONE toggle that drives both paid cards, so the user compares Pass
+ * and Pro at the same cadence. Yearly is selected by default: better LTV,
+ * and the saving is real:
+ *   Pass: 12 x $4.99 = $59.88 vs $49 yearly  → about 18% off
+ *   Pro:  12 x $7.99 = $95.88 vs $79 yearly  → about 18% off
  *
- * The whole section is a client component (rather than just the cards)
- * so the toggle can swap every price/subnote without a round trip.
+ * Checkout is unchanged: <CheckoutButton tier interval /> posts the same
+ * tier and interval ("annual" | "monthly") to /api/checkout as before.
  * Pricing per docs/PRICING_MODEL.md (locked 2026-06-15).
  */
 
@@ -22,8 +24,8 @@ type Interval = "annual" | "monthly";
 
 const FREE_FEATURES = [
   "Browse every tone recipe",
-  "5 preset downloads / month (Helix, Quad Cortex, Katana)",
-  "10 recipe PDFs / month",
+  "5 preset downloads a month (Helix, Quad Cortex, Katana)",
+  "10 recipe PDFs a month",
   "Unlimited saved recipes",
   "Recipe comments",
 ];
@@ -36,144 +38,123 @@ const PASS_FEATURES = [
 
 const PRO_FEATURES = [
   "Everything in Pass",
-  "All Set Packs included while subscribed",
+  "Every Set Pack while subscribed",
   "Commercial-use license",
 ];
 
+function Features({ items }: { items: string[] }) {
+  return (
+    <div className="fk-plan-features">
+      <ul>
+        {items.map((f) => (
+          <li key={f}>
+            <Check size={20} strokeWidth={1.75} aria-hidden />
+            <span>{f}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function PlanCards() {
   const [interval, setInterval] = useState<Interval>("annual");
+  const yearly = interval === "annual";
 
-  const passPrice = interval === "annual" ? "$49" : "$4.99";
-  const passPeriod = interval === "annual" ? "/year" : "/month";
-  const passSub =
-    interval === "annual"
-      ? "Just $4.08/month, billed annually. Save ~18% vs monthly."
-      : "Cancel anytime. Switch to annual to save ~18%.";
-
-  const proPrice = interval === "annual" ? "$79" : "$7.99";
-  const proPeriod = interval === "annual" ? "/year" : "/month";
-  const proSub =
-    interval === "annual"
-      ? "Just $6.58/month, billed annually. One Set Pack pays for the upgrade."
-      : "Cancel anytime. Switch to annual to save ~18%.";
+  const passPrice = yearly ? "$49" : "$4.99";
+  const proPrice = yearly ? "$79" : "$7.99";
+  const period = yearly ? "a year" : "a month";
+  const passSub = yearly ? "$4.08 a month, billed yearly" : "Billed monthly. Yearly saves about 18%";
+  const proSub = yearly ? "$6.58 a month, billed yearly" : "Billed monthly. Yearly saves about 18%";
 
   return (
     <>
-      {/* Shared billing toggle — drives both paid cards. */}
-      <div className="pricing-billing-toggle">
-        <div
-          className="pricing-toggle"
-          role="tablist"
-          aria-label="Billing interval"
-        >
-          <button
-            type="button"
-            role="tab"
-            aria-selected={interval === "annual"}
-            onClick={() => setInterval("annual")}
-            className={`pricing-toggle-btn ${interval === "annual" ? "is-active" : ""}`}
-          >
-            Annual
-            <span className="pricing-toggle-save">Save ~18%</span>
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={interval === "monthly"}
-            onClick={() => setInterval("monthly")}
-            className={`pricing-toggle-btn ${interval === "monthly" ? "is-active" : ""}`}
-          >
-            Monthly
-          </button>
+      <div className="fk-pricing-head">
+        <div className="fk-pricing-headcopy">
+          <h1 className="fk-display">Pricing</h1>
+          <p className="fk-lead">
+            Browsing is free: every recipe, on every platform. Pay only if you want unlimited
+            downloads or the Set Packs.
+          </p>
+        </div>
+        <div className="fk-pricing-billing">
+          <div className="fk-toggle" role="group" aria-label="Billing period">
+            <button type="button" aria-pressed={yearly} onClick={() => setInterval("annual")}>
+              Yearly
+            </button>
+            <button type="button" aria-pressed={!yearly} onClick={() => setInterval("monthly")}>
+              Monthly
+            </button>
+          </div>
+          <span className="fk-body-sm">Yearly saves about 18%</span>
         </div>
       </div>
 
-      <div className="pricing-grid pricing-grid-trio">
-        {/* Free */}
-        <div className="pricing-card">
-          <h2 className="pricing-name">Free</h2>
-          <div className="pricing-price-row">
-            <span className="pricing-price">$0</span>
-            <span className="pricing-period">/forever</span>
+      <div className="fk-plans">
+        <article className="fk-plan r-lg">
+          <div className="fk-plan-head">
+            <h2 className="fk-t3">Free</h2>
           </div>
-          <p className="pricing-subnote">
-            Generous on purpose. Quota only catches you if you&rsquo;re a
-            heavy downloader.
+          <div className="fk-plan-price">
+            <p>
+              <span className="fk-plan-amount">$0</span>
+              <span className="fk-plan-period">forever</span>
+            </p>
+            <p className="fk-plan-sub">No card needed</p>
+          </div>
+          <p className="fk-plan-blurb">
+            The whole recipe library on every platform, plus 5 preset downloads a month.
           </p>
-          <p className="pricing-blurb">
-            The entire recipe library, every platform, plus 5 preset
-            downloads each month. No card.
-          </p>
-          <ul className="pricing-features">
-            {FREE_FEATURES.map((f) => (
-              <li key={f}>{f}</li>
-            ))}
-          </ul>
-          <Link
-            href="/signup"
-            className="hero-cta hero-cta-secondary pricing-cta"
-          >
+          <Features items={FREE_FEATURES} />
+          <Link href="/signup" className="fk-btn fk-btn-secondary fk-plan-cta">
             Sign up free
           </Link>
-          <p className="pricing-fine">No card. No upsell on the free flow.</p>
-        </div>
+          <p className="fk-plan-fine">No card. No upsell on the way in.</p>
+        </article>
 
-        {/* Pass — recommended entry tier */}
-        <div className="pricing-card is-highlight">
-          <span className="pricing-badge">Most popular</span>
-          <h2 className="pricing-name">Pass</h2>
-          <div className="pricing-price-row">
-            <span className="pricing-price">{passPrice}</span>
-            <span className="pricing-period">{passPeriod}</span>
+        {/* Pass: the recommended plan. The one dark card, and the one
+            accent button on the screen. */}
+        <article className="fk-plan is-inverse r-lg">
+          <div className="fk-plan-head">
+            <h2 className="fk-t3">Pass</h2>
+            <span className="fk-plan-note">Most players pick this</span>
           </div>
-          <p className="pricing-subnote">{passSub}</p>
-          <p className="pricing-blurb">
-            Stop counting downloads. Unlimited presets and PDFs, for players
-            who use the site every week.
+          <div className="fk-plan-price">
+            <p>
+              <span className="fk-plan-amount">{passPrice}</span>
+              <span className="fk-plan-period">{period}</span>
+            </p>
+            <p className="fk-plan-sub">{passSub}</p>
+          </div>
+          <p className="fk-plan-blurb">
+            Stop counting downloads. Unlimited presets and PDFs for players who use the site every
+            week.
           </p>
-          <ul className="pricing-features">
-            {PASS_FEATURES.map((f) => (
-              <li key={f}>{f}</li>
-            ))}
-          </ul>
-          <CheckoutButton
-            tier="pass"
-            interval={interval}
-            className="pricing-cta-wrap"
-          />
-          <p className="pricing-fine">
-            No card-trial gotchas. Cancel from your dashboard any time.
-          </p>
-        </div>
+          <Features items={PASS_FEATURES} />
+          <CheckoutButton tier="pass" interval={interval} label="Start Pass" className="fk-plan-checkout is-accent" />
+          <p className="fk-plan-fine">Cancel from your dashboard any time.</p>
+        </article>
 
-        {/* Pro — Set Packs bundled */}
-        <div className="pricing-card">
-          <span className="pricing-badge">Best value</span>
-          <h2 className="pricing-name">Pro</h2>
-          <div className="pricing-price-row">
-            <span className="pricing-price">{proPrice}</span>
-            <span className="pricing-period">{proPeriod}</span>
+        <article className="fk-plan r-lg">
+          <div className="fk-plan-head">
+            <h2 className="fk-t3">Pro</h2>
+            <span className="fk-plan-note">Best value with Set Packs</span>
           </div>
-          <p className="pricing-subnote">{proSub}</p>
-          <p className="pricing-blurb">
-            Everything in Pass, plus every Set Pack bundled while you&rsquo;re
-            subscribed. One pack is $19 — so if you&rsquo;d buy even one a
-            year, Pro nets out ahead.
+          <div className="fk-plan-price">
+            <p>
+              <span className="fk-plan-amount">{proPrice}</span>
+              <span className="fk-plan-period">{period}</span>
+            </p>
+            <p className="fk-plan-sub">{proSub}</p>
+          </div>
+          <p className="fk-plan-blurb">
+            Everything in Pass, plus every Set Pack while you are subscribed. One pack is $19, so
+            one pack a year pays for the upgrade.
           </p>
-          <ul className="pricing-features">
-            {PRO_FEATURES.map((f) => (
-              <li key={f}>{f}</li>
-            ))}
-          </ul>
-          <CheckoutButton
-            tier="pro"
-            interval={interval}
-            className="pricing-cta-wrap"
-          />
-          <p className="pricing-fine">
-            Set Packs included for as long as you stay on Pro.
-          </p>
-        </div>
+          <Features items={PRO_FEATURES} />
+          <CheckoutButton tier="pro" interval={interval} label="Start Pro" className="fk-plan-checkout" />
+          <p className="fk-plan-fine">Set Packs stay yours to use for as long as you are on Pro.</p>
+        </article>
       </div>
     </>
   );

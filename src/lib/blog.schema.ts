@@ -210,6 +210,17 @@ export const BlogFrontmatterSchema = z.object({
   /** Featured flag for the homepage carousel. */
   featured: z.boolean().optional(),
 
+  /** Hand override for the drawn thumbnail. Every part is optional; the
+   *  rest comes from the post's topic and a hash of its slug. */
+  thumb: z
+    .object({
+      gear: z.enum(["vol", "comp", "drive", "drive2", "fuzz", "mod", "delay", "delay2", "reverb", "eq", "amp", "head", "preamp", "cab", "mic"]).optional(),
+      pattern: z.enum(["wave", "ripple", "path", "dots", "stripes", "plain", "tolex", "cloth"]).optional(),
+      frame: z.enum(["front", "tilt", "tiltR", "close", "foot", "corner", "edge", "top"]).optional(),
+      color: z.enum(["amber", "teal", "blue", "pink", "lilac", "sand", "green", "char"]).optional(),
+    })
+    .optional(),
+
   /**
    * Reading-time hint — accepted as either a number ("8") or a string
    * ("8 min read"). Legacy posts (200+) used the string form; new posts

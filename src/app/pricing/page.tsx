@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import PlanCards from "@/components/pricing/PlanCards";
 import { ContactEmailText } from "@/components/ui/ContactEmail";
+import { Check } from "lucide-react";
+import Thumb from "@/components/gear/Thumb";
 
 /**
  * JSON-LD: a Product + multi-Offer entry for each subscription tier
@@ -93,60 +95,83 @@ export const metadata: Metadata = {
 };
 
 /* -------------------------------------------------------------------------- */
-/*  Set Pack card — one-time purchase, unchanged from prior model              */
+/*  Set Packs: one-time purchases                                              */
 /* -------------------------------------------------------------------------- */
 
 const SET_PACK = {
   name: "Worship Set Pack",
   price: "$19",
-  period: "one-time",
-  blurb:
-    "One Helix preset. 8 snapshots. 30 worship songs mapped to snapshots. Yours to keep.",
+  blurb: "One Helix preset. 8 snapshots. 30 worship songs mapped to snapshots.",
   features: [
     "FK-Worship.hlx preset",
-    "8 snapshots — clean → rock crunch",
-    "30-song Setlist Mapper",
-    "Lifetime updates as the pack refines",
+    "8 snapshots, from clean to rock crunch",
+    "30-song setlist mapper",
+    "Lifetime updates as the pack improves",
   ],
-  cta: "Buy Worship Set Pack",
+  cta: "Buy the Worship Set Pack",
   href: "/set-packs/worship",
 };
 
 /* -------------------------------------------------------------------------- */
-/*  FAQ                                                                        */
+/*  Compare the plans                                                          */
 /* -------------------------------------------------------------------------- */
 
+/** true = included, false = not included, a string prints as is. */
+type Cell = boolean | string;
+const COMPARE: [string, Cell, Cell, Cell][] = [
+  ["Browse every recipe", true, true, true],
+  ["Preset downloads", "5 a month", "Unlimited", "Unlimited"],
+  ["Recipe PDFs", "10 a month", "Unlimited", "Unlimited"],
+  ["Saved recipes", "Unlimited", "Unlimited", "Unlimited"],
+  ["Set Packs", "$19 each", "$19 each", "Included"],
+  ["Commercial-use license", false, false, true],
+];
+
+function CompareCell({ value }: { value: Cell }) {
+  if (value === true) {
+    return (
+      <span className="fk-compare-yes" role="img" aria-label="Included">
+        <Check size={20} strokeWidth={1.75} aria-hidden />
+      </span>
+    );
+  }
+  if (value === false) return <span className="fk-compare-no">Not included</span>;
+  return <>{value}</>;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Questions                                                                  */
+/* -------------------------------------------------------------------------- */
+
+// The old "difference between Free, Pass and Pro" question is the
+// "Compare the plans" table above.
 const FAQ = [
   {
-    q: "What's the difference between Free, Pass, and Pro?",
-    a: "Free gives you the entire recipe catalog plus 5 preset downloads and 10 recipe PDFs per month. Pass ($49/yr) removes those quotas: unlimited downloads and PDFs. Pro ($79/yr) is everything in Pass plus every Set Pack included while you're subscribed, and a commercial-use license.",
-  },
-  {
-    q: "Pass or Pro — which should I pick?",
-    a: "Start with Pass if you mostly want unlimited downloads. Pick Pro if you'd buy Set Packs: each pack is $19 on its own, so if you'd grab even one a year, Pro ($79/yr vs Pass's $49/yr) already pays for itself — and you get every future pack too while subscribed.",
+    q: "Pass or Pro?",
+    a: "Start with Pass if you mostly want unlimited downloads. Pick Pro if you would buy Set Packs. Each pack is $19 on its own, so one pack a year covers the difference, and you get every future pack while subscribed.",
   },
   {
     q: "Is there a free trial?",
-    a: "The free tier IS the trial. 5 downloads per month, every feature visible, no card required. Try us for a month — if you're hitting the quota and want more, upgrade. If you're not hitting it, you didn't need a subscription anyway.",
+    a: "The free plan is the trial. You get 5 downloads a month, every feature is visible, and no card is needed. If you keep hitting the limit, upgrade. If you do not, you did not need a subscription.",
   },
   {
-    q: "Can I cancel anytime?",
-    a: "Yes — from your dashboard, no email required, no friction. You keep your paid features until the end of the period you already paid for, then your account flips back to free (with the 5 downloads/month quota). No partial refunds for the unused portion of a paid period.",
+    q: "Can I cancel any time?",
+    a: "Yes, from your dashboard. No email needed. You keep your paid features until the end of the period you paid for, then your account goes back to Free. There are no partial refunds for unused time.",
   },
   {
-    q: "Why one-time Set Pack pricing instead of subscription?",
-    a: "Set Packs are a single solution to a single problem — your gig. One preset, eight snapshots, 30+ songs mapped. That's a thing you use forever, not a thing you re-evaluate every month. We sell it that way for everyone except Pro subscribers, who get every pack bundled.",
+    q: "Why are Set Packs a one-time price?",
+    a: "A Set Pack solves one problem: your gig. One preset, eight snapshots, 30 songs mapped. You use it for years, so you pay for it once. Pro subscribers get every pack included.",
   },
   {
     q: "Will there be more Set Packs?",
-    a: "Yes. Classic Rock, 90s/Alternative, and Blues are next. Buy them à la carte ($19 each), or get every pack we ship included with Pro — for as long as you're subscribed.",
+    a: "Yes. Classic Rock, 90s and Alternative, and Blues are next. Buy them one at a time for $19 each, or get every pack with Pro.",
   },
   {
-    q: "What about people on the old (2026) Tone Pass or Pro tiers?",
-    // {EMAIL} is substituted for <ContactEmailText/> at render — a raw
+    q: "What about the old 2026 Tone Pass and Pro plans?",
+    // {EMAIL} is substituted for <ContactEmailText/> at render. A raw
     // address in this string gets rewritten by Cloudflare into a link to
     // its 404ing /cdn-cgi/l/email-protection endpoint.
-    a: "Those original plans are retired and are unrelated to today's Pass/Pro. Anyone who subscribed back then keeps full access for as long as they want — billing simply stopped. Email {EMAIL} if you want a prorated refund on remaining time.",
+    a: "Those plans are retired and are separate from the current Pass and Pro. If you subscribed then, you keep full access and billing has stopped. Email {EMAIL} if you want a prorated refund on the time left.",
   },
 ];
 
@@ -156,98 +181,140 @@ const FAQ = [
 
 export default function PricingPage() {
   return (
-    <div className="container">
+    <div className="fk-pricing">
       {PRICING_JSON_LD.map((ld, i) => (
         <script
           key={i}
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
         />
       ))}
-      <section className="pricing-page">
-        <div className="recipe-crumbs">
-          <Link href="/">Home</Link>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>Pricing</span>
-        </div>
 
-        <header className="archive-masthead archive-masthead-tight">
-          <div className="recipe-issue">
-            <span className="pill">Pricing</span>
-          </div>
-          <h1 className="recipe-title display">Pricing</h1>
-          <p className="recipe-summary">
-            Free to browse, every recipe, every platform. Upgrade to Pass for
-            unlimited preset downloads and PDFs, or Pro to bundle
-            every Set Pack. Set Packs are also one-time purchases — you buy
-            them, you keep them.
-          </p>
-        </header>
-
-        {/* Free / Pass / Pro — client component owns the shared
-            annual/monthly toggle that drives both paid cards. */}
+      {/* Heading, Yearly / Monthly toggle and the Free / Pass / Pro cards.
+          A client component owns the toggle that drives both paid cards. */}
+      <section className="fk-wrap fk-pricing-top">
         <PlanCards />
+      </section>
 
-        {/* Set Packs — kept below the subscription comparison so the
-            primary upgrade narrative is Free → Pass, not Free → Set
-            Pack. Set Packs are a secondary purchase pattern (one-time,
-            problem-specific) and live in their own section. */}
-        <section className="pricing-set-packs">
-          <header className="how-head">
-            <h2 className="display">Set Packs</h2>
-            <span className="section-rule" aria-hidden="true" />
-          </header>
-          <p className="pricing-set-packs-intro">
-            One-time purchases. A single preset, eight snapshots, and the
-            song-to-snapshot map for your gig. On <strong>Pro</strong>, every
-            Set Pack is <strong>included</strong> while you&rsquo;re subscribed.
-          </p>
-          <div className="pricing-grid pricing-grid-single">
-            <div className="pricing-card">
-              <h3 className="pricing-name">{SET_PACK.name}</h3>
-              <div className="pricing-price-row">
-                <span className="pricing-price">{SET_PACK.price}</span>
-                <span className="pricing-period">{SET_PACK.period}</span>
-              </div>
-              <p className="pricing-blurb">{SET_PACK.blurb}</p>
-              <ul className="pricing-features">
-                {SET_PACK.features.map((f) => (
-                  <li key={f}>{f}</li>
-                ))}
+      <section className="fk-wrap fk-pricing-compare">
+        <h2 className="fk-t2">Compare the plans</h2>
+        <div className="fk-tablewrap r-md">
+          <table className="fk-table">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <span className="fk-sr">Feature</span>
+                </th>
+                <th scope="col">Free</th>
+                <th scope="col">Pass</th>
+                <th scope="col">Pro</th>
+              </tr>
+            </thead>
+            <tbody>
+              {COMPARE.map(([feature, free, pass, pro]) => (
+                <tr key={feature}>
+                  <th scope="row">{feature}</th>
+                  <td><CompareCell value={free} /></td>
+                  <td><CompareCell value={pass} /></td>
+                  <td><CompareCell value={pro} /></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Set Packs sit below the plans so the main story is Free to Pass.
+          They are a second kind of purchase: one time, one problem. */}
+      <section className="fk-pricing-packs">
+        <div className="fk-pricing-wash">
+          <div className="fk-wrap fk-pricing-packs-grid">
+            <div className="fk-pricing-packs-copy">
+              <h2 className="fk-t1">Set Packs</h2>
+              <p className="fk-lead">
+                One preset, eight snapshots and a map of which snapshot fits which song. You buy it
+                once and keep it.
+              </p>
+              <p className="fk-body fk-muted">
+                On Pro, every Set Pack is included while you are subscribed.
+              </p>
+              <ul className="fk-pricing-next">
+                <li>
+                  <Thumb pattern="wave" color="amber" frame="tilt" gear={[{ kind: "head" }]} gearHeight={46} ratio="1 / 1" radius="r-md" />
+                  <div>
+                    <span className="fk-pricing-next-name">Classic Rock</span>
+                    <span className="fk-caption">Coming next</span>
+                  </div>
+                </li>
+                <li>
+                  <Thumb pattern="stripes" color="lilac" frame="close" gear={[{ kind: "fuzz" }]} gearHeight={58} ratio="1 / 1" radius="r-md" />
+                  <div>
+                    <span className="fk-pricing-next-name">90s and Alternative</span>
+                    <span className="fk-caption">Coming next</span>
+                  </div>
+                </li>
+                <li>
+                  <Thumb pattern="dots" color="blue" frame="tiltR" gear={[{ kind: "drive" }]} gearHeight={58} ratio="1 / 1" radius="r-md" />
+                  <div>
+                    <span className="fk-pricing-next-name">Blues</span>
+                    <span className="fk-caption">Coming next</span>
+                  </div>
+                </li>
               </ul>
-              <Link
-                href={SET_PACK.href}
-                className="hero-cta hero-cta-secondary pricing-cta"
-              >
-                {SET_PACK.cta}
-              </Link>
             </div>
-          </div>
-        </section>
 
-        {/* FAQ */}
-        <section className="pricing-faq">
-          <div className="how-head">
-            <h2 className="display">Frequently asked</h2>
-            <span className="section-rule" aria-hidden="true" />
-          </div>
-          <dl className="pricing-faq-list">
-            {FAQ.map((f) => (
-              <div key={f.q} className="pricing-faq-item">
-                <dt>{f.q}</dt>
-                <dd>
-                  {f.a.split("{EMAIL}").map((part, i, parts) => (
-                    <span key={i}>
-                      {part}
-                      {i < parts.length - 1 && <ContactEmailText />}
-                    </span>
+            <article className="fk-packcard r-lg">
+              <Thumb
+                pattern="ripple"
+                color="teal"
+                gear={[{ kind: "preamp" }, { kind: "delay" }, { kind: "reverb" }]}
+                gearHeight={150}
+                ratio="16 / 9"
+                radius="r-md"
+              />
+              <div className="fk-packcard-body">
+                <div className="fk-packcard-head">
+                  <h3 className="fk-t2">{SET_PACK.name}</h3>
+                  <p className="fk-packcard-price">
+                    <span>{SET_PACK.price}</span>
+                    <span className="fk-body-sm">one time</span>
+                  </p>
+                </div>
+                <p className="fk-body fk-muted">{SET_PACK.blurb}</p>
+                <ul className="fk-checklist">
+                  {SET_PACK.features.map((f) => (
+                    <li key={f}>
+                      <Check size={20} strokeWidth={1.75} aria-hidden />
+                      <span>{f}</span>
+                    </li>
                   ))}
-                </dd>
+                </ul>
+                <Link href={SET_PACK.href} className="fk-btn fk-plan-cta">
+                  {SET_PACK.cta}
+                </Link>
               </div>
-            ))}
-          </dl>
-        </section>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="fk-wrap fk-pricing-faq">
+        <h2 className="fk-t2">Questions</h2>
+        <dl>
+          {FAQ.map((f) => (
+            <div key={f.q}>
+              <dt className="fk-t3">{f.q}</dt>
+              <dd className="fk-body fk-muted">
+                {f.a.split("{EMAIL}").map((part, i, parts) => (
+                  <span key={i}>
+                    {part}
+                    {i < parts.length - 1 && <ContactEmailText />}
+                  </span>
+                ))}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </section>
     </div>
   );
