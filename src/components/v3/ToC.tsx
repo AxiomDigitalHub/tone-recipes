@@ -96,7 +96,7 @@ export function ToC({ entries }: { entries: TocEntry[] }) {
   return (
     <aside className="toc" aria-label="Table of contents">
       <div className="toc-head">
-        <span className="toc-head-label">In this article</span>
+        <span className="toc-head-label">In this guide</span>
         <button
           type="button"
           className="toc-mobile-toggle"

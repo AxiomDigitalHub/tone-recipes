@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
@@ -11,9 +10,10 @@ import {
   getAllPosts,
   getPostBySlug,
   getPostSlugs,
-  getCallNumber,
   BLOG_CATEGORIES,
 } from "@/lib/blog";
+import Thumb from "@/components/gear/Thumb";
+import { thumbFor, TOPIC_TITLE } from "@/lib/gear/thumbs";
 import { getWriter } from "@/lib/writers";
 import { extractToc } from "@/lib/toc";
 import { ToC } from "@/components/v3/ToC";
@@ -94,14 +94,20 @@ export default async function PreviewBlogPost({
   if (!post) notFound();
 
   const catLabel = BLOG_CATEGORIES[post.category] ?? post.category;
-  const callNo = getCallNumber(post.slug);
+  const thumb = thumbFor(post);
+  const allPosts = getAllPosts();
   const writer = getWriter(post.authorSlug);
   const tocEntries = extractToc(post.content);
 
   // Related: same category, excluding this post, up to 3
-  const related = getAllPosts()
-    .filter((p) => p.category === post.category && p.slug !== post.slug)
-    .slice(0, 3);
+  // Keep learning: same topic first, then same category, newest first.
+  const others = allPosts.filter((p) => p.slug !== post.slug);
+  const sameTopic = thumb.topic === "other" ? [] : others.filter((p) => thumbFor(p).topic === thumb.topic);
+  const related = [...sameTopic, ...others.filter((p) => p.category === post.category && !sameTopic.includes(p))].slice(0, 3);
+  const moreTitle =
+    thumb.topic === "other"
+      ? `More in ${catLabel.charAt(0) + catLabel.slice(1).toLowerCase()}`
+      : `Keep learning about ${TOPIC_TITLE[thumb.topic].charAt(0).toLowerCase() + TOPIC_TITLE[thumb.topic].slice(1)}`;
 
   // JSON-LD — Article schema gives answer engines a clean, structured
   // summary of the post. Published + modified dates, author with URL,
@@ -187,7 +193,7 @@ export default async function PreviewBlogPost({
     : null;
 
   return (
-    <div className="container">
+    <div className="fk-guide">
       {/* JSON-LD: Article + Breadcrumb always; FAQPage and HowTo
           conditionally. Switched from next/script's <Script
           strategy="beforeInteractive"> to plain <script> on 2026-05-12
@@ -197,236 +203,157 @@ export default async function PreviewBlogPost({
           the SSR HTML, which is what Googlebot and AI engines want. */}
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
+         
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
       />
       {faqLd && (
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
+           
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
         />
       )}
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
+         
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       {howToLd && (
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
+           
           dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }}
         />
       )}
 
-      <article className="recipe">
-        {/* Breadcrumbs */}
-        <div className="recipe-crumbs">
-          <Link href="/">Home</Link>
-          <span className="sep">/</span>
-          <Link href="/blog">Field Notes</Link>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>{catLabel}</span>
-        </div>
-
-        {/* Hero cover — title, masthead, dek, byline all overlaid on the
-            feature image. Reads like a magazine cover / LP jacket. */}
-        <div className={`post-cover ${post.image ? "has-image" : "no-image"}`}>
-          {post.image && (
-            <>
-              <Image
-                src={post.image}
-                alt={post.imageAlt ?? post.title}
-                fill
-                priority
-                unoptimized
-                sizes="(max-width: 960px) 100vw, 960px"
-                className="post-cover-img"
-              />
-              <div className="post-cover-scrim" aria-hidden="true" />
-            </>
-          )}
-
-          <div className="post-cover-inner">
-            {/* Masthead strip — pinned to the top */}
-            <div className="post-cover-masthead">
-              <span className="pill">No. {callNo}</span>
-              <span>{catLabel}</span>
-              <span>·</span>
-              <span>{formatDate(post.date)}</span>
-              <span>·</span>
-              <span>{post.readingTime}</span>
-              {post.updated && (
-                <>
-                  <span>·</span>
-                  <span>Updated {formatDate(post.updated)}</span>
-                </>
-              )}
+      <article>
+        <section className="fk-wrap fk-guide-top">
+          <nav aria-label="Breadcrumb" className="fk-crumbs fk-caption">
+            <Link href="/blog">Learn</Link>
+            <span aria-hidden="true">/</span>
+            {thumb.topic === "other" ? (
+              <Link href={`/blog#guides:category=${post.category}`}>
+                {catLabel.charAt(0) + catLabel.slice(1).toLowerCase()}
+              </Link>
+            ) : (
+              <Link href={`/blog#guides:topic=${thumb.topic}`}>{TOPIC_TITLE[thumb.topic]}</Link>
+            )}
+          </nav>
+          <div className="fk-guide-head">
+            <div className="fk-guide-headcopy">
+              <h1 className="fk-guide-h1">{post.title}</h1>
+              <p className="fk-lead">{post.description}</p>
+              {/* The writers are AI voices and are labelled as such. */}
+              <p className="fk-caption">
+                By <Link href={`/writers/${writer.slug}`} className="fk-link">{post.author}</Link>, an AI
+                voice. {formatDate(post.date)}. {post.readingTime.replace(/^(\d+ min) read$/, "$1 read")}.
+                {post.updated && <> Updated {formatDate(post.updated)}.</>}
+              </p>
             </div>
-
-            {/* Title + dek — bottom-anchored */}
-            <div className="post-cover-headline">
-              <h1 className="post-title display">{post.title}</h1>
-              <p className="post-dek">{post.description}</p>
-              <div className="post-cover-byline">
-                <div>
-                  <span className="label">Filed by · AI voice</span>
-                  <em>
-                    <Link
-                      href={`/writers/${writer.slug}`}
-                      style={{ color: "inherit" }}
-                    >
-                      {post.author}
-                    </Link>
-                  </em>
-                </div>
-                <div>
-                  <span className="label">Tagged</span>
-                  <span>{post.tags.slice(0, 4).join(" · ")}</span>
-                </div>
-                <div className="side-mark">
-                  <span>Side A</span>
-                  <span>File {callNo}</span>
-                </div>
-              </div>
-            </div>
+            <Thumb spec={thumb} gearHeight={230} ratio="4 / 3" />
           </div>
-        </div>
+        </section>
 
-        {/* Key Takeaways — boxed, bulleted summary for quick scanning
-            and for AI answer engines to quote directly. Only rendered
-            if the post frontmatter supplies them. */}
+        {/* The short version: a numbered summary for quick scanning and for
+            AI answer engines to quote. Only when the post supplies it. */}
         {post.takeaways && post.takeaways.length > 0 && (
-          <aside className="post-takeaways" aria-label="Key takeaways">
-            <div className="post-takeaways-head">
-              <span className="post-takeaways-mark" aria-hidden="true">
-                ⤷
-              </span>
-              <span className="post-takeaways-label">Key takeaways</span>
-              <span className="post-takeaways-meta">
-                {post.readingTime} · {post.wordCount.toLocaleString()} words
-              </span>
-            </div>
-            <ul className="post-takeaways-list">
-              {post.takeaways.map((t) => (
-                <li key={t}>{t}</li>
-              ))}
-            </ul>
-          </aside>
-        )}
-
-        {/* Reading frame — sticky ToC in the right rail, prose on the left.
-            ToC collapses to an inline accordion below the dek on narrow
-            viewports (handled in CSS). */}
-        <div className="post-reading">
-          {tocEntries.length > 0 && <ToC entries={tocEntries} />}
-          <div>
-          <div className="post-body">
-            <MDXRemote
-              source={post.content}
-              options={{
-                mdxOptions: {
-                  remarkPlugins: [remarkGfm],
-                  rehypePlugins: [
-                    rehypeSlug,
-                    [rehypeAutolinkHeadings, { behavior: "wrap" }],
-                  ],
-                },
-              }}
-              components={{
-                ...blogMdxComponents,
-                ...settingsMdxComponents,
-              }}
-            />
-          </div>
-          {/* End-of-post email capture. GA4 (10-23 → 11-19) showed ~1%
-              week-one return on guides people read for 2–4 minutes, and no
-              way to bring them back. Placed where a finished reader lands. */}
-          <NewsletterSignup
-            variant="banner"
-            headline="Get new tone recipes by email"
-            subtext="New recipes, settings guides and modeler news in one weekly email. Unsubscribe anytime."
-            buttonText="Subscribe"
-            source={`blog:${post.slug}`}
-            className="post-signup mt-12"
-          />
-          </div>
-        </div>
-
-        {/* FAQ — rendered as real <h3> Q / <p> A pairs so the prose is
-            indexable and so the FAQPage JSON-LD above has a visible
-            on-page counterpart. */}
-        {post.faq && post.faq.length > 0 && (
-          <section className="post-faq" aria-labelledby="faq-head">
-            <div className="section-head">
-              <h2 id="faq-head" className="section-title">
-                Frequently asked
-              </h2>
-              <span className="section-rule" aria-hidden="true" />
-            </div>
-            <dl className="post-faq-list">
-              {post.faq.map((f, i) => (
-                <div key={f.q} className="post-faq-item">
-                  <dt className="post-faq-q">
-                    <span className="post-faq-num" aria-hidden="true">
-                      Q{String(i + 1).padStart(2, "0")}
+          <section className="fk-wrap fk-guide-short">
+            <div className="fk-tile fk-guide-shorttile" aria-label="Key takeaways">
+              <h2 className="fk-t3">The short version</h2>
+              <ol>
+                {post.takeaways.map((t, i) => (
+                  <li key={t}>
+                    <span className="fk-data" aria-hidden="true">
+                      {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span>{f.q}</span>
-                  </dt>
-                  <dd className="post-faq-a">{f.a}</dd>
-                </div>
-              ))}
-            </dl>
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </section>
         )}
 
-        {/* End-of-file mark */}
-        <div className="post-endmark" aria-hidden="true">
-          ▪ ▪ ▪
-        </div>
+        {/* Contents rail on the left, the guide on the right. */}
+        <section className="fk-wrap fk-guide-body">
+          {tocEntries.length > 0 && <ToC entries={tocEntries} />}
+          <div className="fk-guide-main">
+            <div className="fk-prose">
+              <MDXRemote
+                source={post.content}
+                options={{
+                  mdxOptions: {
+                    remarkPlugins: [remarkGfm],
+                    rehypePlugins: [
+                      rehypeSlug,
+                      [rehypeAutolinkHeadings, { behavior: "wrap" }],
+                    ],
+                  },
+                }}
+                components={{
+                  ...blogMdxComponents,
+                  ...settingsMdxComponents,
+                }}
+              />
+            </div>
 
-        {/* From the recipe archive — auto-matched recipe pages, linking the
-            blog cluster into the catalog (the non-commodity moat). Renders
-            nothing when no recipe genuinely matches. */}
-        <RelatedRecipes postTitle={post.title} postTags={post.tags} />
+            {/* FAQ: real question and answer pairs so the prose is indexable
+                and the FAQPage JSON-LD has a visible counterpart. */}
+            {post.faq && post.faq.length > 0 && (
+              <section className="fk-guide-faq" aria-labelledby="faq-head">
+                <h2 id="faq-head" className="fk-t2">
+                  Questions
+                </h2>
+                <dl>
+                  {post.faq.map((f) => (
+                    <div key={f.q}>
+                      <dt className="fk-t3">{f.q}</dt>
+                      <dd className="fk-body fk-muted">{f.a}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            )}
 
-        {/* Related filings */}
-        {related.length > 0 && (
-          <div className="related">
-            <h3 className="display">Also filed under {catLabel}</h3>
-            <div className="feat-grid">
-              {related.map((r) => (
-                <div key={r.slug} style={{ gridColumn: "span 4" }}>
-                  <Link
-                    href={`/blog/${r.slug}`}
-                    className="feat-card"
-                    style={{ display: "block" }}
-                  >
-                    <div className="feat-card-num">
-                      No. {getCallNumber(r.slug)}
-                    </div>
-                    <div className="feat-card-art">
-                      {r.image && (
-                        <Image
-                          src={r.image}
-                          alt={r.imageAlt ?? r.title}
-                          fill
-                          unoptimized
-                          sizes="(max-width: 960px) 33vw, 300px"
-                          style={{ objectFit: "cover" }}
-                        />
-                      )}
-                    </div>
-                    <div className="feat-card-song">{r.title}</div>
-                    <div className="feat-card-artist">
-                      {r.author} · {formatDate(r.date)}
-                    </div>
-                  </Link>
-                </div>
-              ))}
+            {/* End-of-guide email capture, where a finished reader lands. */}
+            <div className="fk-guide-signup">
+              <NewsletterSignup
+                variant="banner"
+                headline="Get new tone recipes by email"
+                subtext="New recipes, settings guides and modeler news in one weekly email. Unsubscribe anytime."
+                buttonText="Subscribe"
+                source={`blog:${post.slug}`}
+                className="post-signup"
+              />
             </div>
           </div>
+        </section>
+
+        {/* From the recipe archive: auto-matched recipe pages, linking the
+            guides into the catalog. Renders nothing when no recipe matches. */}
+        <div className="fk-wrap fk-recipe-legacy fk-guide-recipes">
+          <RelatedRecipes postTitle={post.title} postTags={post.tags} />
+        </div>
+
+        {related.length > 0 && (
+          <section className="fk-wrap fk-guide-more">
+            <div className="fk-learn-rule">
+              <h2 className="fk-t2">{moreTitle}</h2>
+              <div className="fk-guide-moregrid">
+                {related.map((r) => (
+                  <Link key={r.slug} href={`/blog/${r.slug}`} className="fk-card">
+                    <Thumb spec={thumbFor(r)} gearHeight={150} />
+                    <div className="fk-card-body">
+                      <h3 className="fk-t3">{r.title}</h3>
+                      <p className="fk-caption">
+                        {r.author}. {r.readingTime}.
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
         )}
       </article>
     </div>
