@@ -7522,7 +7522,7 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "frusciante-under-the-bridge-clean",
     created_at: "2026-03-19",
     description:
-      "One of the most beautiful clean guitar tones in rock. The intro to Under the Bridge is Frusciante alone, playing delicate chord voicings on the neck pickup of a 1962 Stratocaster through a clean Marshall with a touch of chorus. The tone is warm, round, and shimmering, with the CE-1 chorus adding subtle movement that keeps the sound alive and breathing. The neck pickup is essential: it provides the full, rounded character that makes this tone so inviting. The Marshall is run clean at low volume, a departure from the typical cranked Marshall approach.",
+      "One of the most beautiful clean guitar tones in rock. The intro to Under the Bridge is Frusciante alone, playing delicate chord voicings on the neck pickup of a Stratocaster through a clean Marshall with a touch of chorus. The tone is warm, round, and shimmering, with the CE-1 chorus adding subtle movement that keeps the sound alive and breathing. The neck pickup is essential: it provides the full, rounded character that makes this tone so inviting. The Marshall is run clean at low volume, a departure from the typical cranked Marshall approach.",
     tone_context: "intro",
     guitar_specs: {
       body_type: "solid",
@@ -7534,7 +7534,7 @@ export const toneRecipes: ToneRecipe[] = [
       tuning: "standard",
       string_gauge: ".010-.046",
       notable_mods:
-        "1962 Stratocaster with stock single-coils. The neck pickup is key for the warm, round clean tone of the intro. Vintage-spec single-coils have a lower output and a sweeter, more articulate character than modern replacements.",
+        "Frusciante said in 1991 that a Stratocaster, which he called a '58, was his main guitar on the album, with his Fender Jaguar used for solos and overdubs. The intro was a later overdub and is often credited to the Jaguar; that is not confirmed. This recipe uses a Strat neck pickup, which gives the warm, round clean tone of the intro.",
     },
     signal_chain: [
       {
@@ -7611,7 +7611,7 @@ export const toneRecipes: ToneRecipe[] = [
     ],
     original_gear: {
       guitar:
-        "1962 Fender Stratocaster, neck pickup, stock single-coils, standard tuning",
+        "Fender Stratocaster, neck pickup, standard tuning (the intro is often credited to his Fender Jaguar, not confirmed)",
       effects: ["Boss CE-1 Chorus Ensemble (chorus mode, subtle)"],
       amp: "Marshall Major 200W (clean, low volume)",
       cabinet: "Marshall 4x12 with Celestion Greenbacks",
@@ -7621,6 +7621,8 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["alternative", "clean", "chorus", "funk-rock", "frusciante", "rock"],
     sources: [
+      "https://invisible-movement.net/press/1991-10-guitarplayer",
+      "https://invisible-movement.net/press/1991-11-guitarworld",
       "https://equipboard.com/pros/john-frusciante",
     ],
     platform_translations: {
@@ -9644,13 +9646,13 @@ export const toneRecipes: ToneRecipe[] = [
       body_type: "solid",
       model_name: "Fender Stratocaster (1961)",
       pickup_config: "SSS",
-      pickup_position: "neck",
+      pickup_position: "bridge+middle",
       string_count: 6,
       scale_length: "25.5",
       tuning: "standard",
       string_gauge: ".010-.046",
       notable_mods:
-        "A 1961 Fender Stratocaster with stock single-coil pickups. Knopfler primarily uses the neck pickup for the warm, round lead tone, switching to the bridge pickup for brighter rhythm parts. No modifications — the guitar is stock.",
+        "A 1961 Fender Stratocaster, which Knopfler says was basically the only guitar he played on the first album. He describes wedging its three-way selector into an in-between position for this sound. The guitar was bought stripped to bare wood and refinished red in late 1978, after the album sessions, and a DiMarzio FS-1 had replaced one of the original pickups.",
     },
     signal_chain: [
       {
@@ -9708,7 +9710,7 @@ export const toneRecipes: ToneRecipe[] = [
     ],
     original_gear: {
       guitar:
-        "1961 Fender Stratocaster, neck pickup for leads, stock single-coils, .010-.046 strings, played with bare fingers (no pick)",
+        "1961 Fender Stratocaster, selector wedged between positions, .010-.046 strings, played with bare fingers (no pick)",
       effects: ["MXR Dyna Comp (light studio compression)"],
       amp: "Fender Vibrolux Reverb (clean)",
       cabinet: "Built-in 2x10 speakers",
@@ -9718,6 +9720,8 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["rock", "classic-rock", "clean", "fingerpicking", "knopfler", "strat"],
     sources: [
+      "https://guitarworld.com/artists/mark-knopfler-discusses-his-61-strat-and-sultans-swing",
+      "https://guitar.com/guides/essential-guide/guitar-legends-mark-knopfler-the-guitarist-with-inimitable-touch/",
       "https://equipboard.com/pros/mark-knopfler",
       "https://www.guitar.com/news/gear-news/mark-knopfler-rig-rundown-dire-straits",
     ],
@@ -9815,11 +9819,11 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "EQ",
             original_gear: "Tilt EQ (global brightness)",
             settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 },
-            notes: "Global brightness adjustment. Vibrolux + Strat neck pickup is mellow; bump Tilt > 0.5 if your FRFR rig is too dark.",
+            notes: "Global brightness adjustment. Vibrolux + Strat is mellow; bump Tilt > 0.5 if your FRFR rig is too dark.",
           },
         ],
         notes:
-          "Knopfler's clean fingerstyle tone — a Dyna Comp default-on into a clean Vibrolux Reverb. NO drive pedals on the original recording (drives scaffolded but off). Bare fingers (no pick), neck pickup, dynamic right-hand control. The compression is the secret weapon.",
+          "Knopfler's clean fingerstyle tone — a Dyna Comp default-on into a clean Vibrolux Reverb. NO drive pedals on the original recording (drives scaffolded but off). Bare fingers (no pick), in-between pickup position, dynamic right-hand control. The compression is the secret weapon.",
       },
       quad_cortex: {
         chain_blocks: [
@@ -9871,13 +9875,13 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Light comp into clean Vibrolux into a 2x10 + spring reverb. The QC's clean amp models shine here. The technique is everything — fingers not a pick, neck pickup, dynamic right hand.",
+          "Light comp into clean Vibrolux into a 2x10 + spring reverb. The QC's clean amp models shine here. The technique is everything — fingers not a pick, in-between pickup position, dynamic right hand.",
       },
       tonex: {
         chain_blocks: [
           { position: 1, block_name: "Search ToneNET for 'Fender Vibrolux' or 'Fender clean'", block_category: "Tone Model", original_gear: "Fender Vibrolux Reverb", settings: {}, notes: "Search ToneNET for a clean Fender Vibrolux Reverb Tone Model capture. The clean amp is the entire signal chain — Knopfler's fingerpicking technique is what creates the tone." },
         ],
-        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a clean Fender Vibrolux capture. Use TONEX Pedal's built-in Compressor for light compression if desired. The single most important element is Knopfler's fingerpicking technique — playing without a pick produces a warmer, softer attack. No amount of gear can replicate this without the technique. Strat neck pickup.",
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a clean Fender Vibrolux capture. Use TONEX Pedal's built-in Compressor for light compression if desired. The single most important element is Knopfler's fingerpicking technique — playing without a pick produces a warmer, softer attack. No amount of gear can replicate this without the technique. Strat in an in-between pickup position.",
       },
       katana: {
         chain_blocks: [
@@ -9950,7 +9954,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. Compressor → clean Vibrolux profile → spring reverb. Fingers not a pick, neck pickup.",
+          "Kemper profiles include the cab, so no separate cab block is needed. Compressor → clean Vibrolux profile → spring reverb. Fingers not a pick, in-between pickup position.",
       },
       fractal: {
         chain_blocks: [
@@ -9960,7 +9964,7 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 4, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Vibrolux spring tank", settings: { Mix: 0.18, Decay: 2.0, Predelay: 20 }, notes: "Subtle spring reverb to match the Vibrolux's onboard tank." },
           { position: 5, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Studio comp → clean Vibrato Lux → 1x12 Deluxe → spring reverb → tilt EQ. Strat neck pickup. Fingerpicking technique is essential.",
+        notes: "Studio comp → clean Vibrato Lux → 1x12 Deluxe → spring reverb → tilt EQ. Strat in an in-between pickup position. Fingerpicking technique is essential.",
       },
     },
     is_editorial: true,
@@ -9980,7 +9984,7 @@ export const toneRecipes: ToneRecipe[] = [
     tone_context: "full_song",
     guitar_specs: {
       body_type: "semi_hollow",
-      model_name: "Gibson ES-355 'Lucille'",
+      model_name: "Gibson ES-355 ('Lucille')",
       pickup_config: "HH",
       pickup_position: "neck",
       string_count: 6,
@@ -9988,7 +9992,7 @@ export const toneRecipes: ToneRecipe[] = [
       tuning: "standard",
       string_gauge: ".010-.044",
       notable_mods:
-        "B.B. King's 'Lucille' is an ES-355 with the f-holes filled to reduce feedback at high volume. Lighter strings (.010 gauge) for easy bending. The neck pickup provides the warm, round tone that is King's signature.",
+        "King called every guitar Lucille. In 1969 that was a standard ES-355 with f-holes; the sealed-body Lucille signature model did not arrive until 1980. MusicRadar reports the Varitone was engaged on this track. Lighter strings (.010 gauge) for easy bending. The neck pickup provides the warm, round tone that is King's signature.",
     },
     signal_chain: [
       {
@@ -10059,7 +10063,7 @@ export const toneRecipes: ToneRecipe[] = [
     ],
     original_gear: {
       guitar:
-        "Gibson ES-355 'Lucille' (f-holes filled), neck pickup, .010-.044 strings",
+        "Gibson ES-355 'Lucille', neck pickup, .010-.044 strings",
       effects: ["Studio compressor (LA-2A style, light)"],
       amp: "Fender Bassman (moderate volume)",
       cabinet: "Fender Bassman 4x10",
@@ -10069,6 +10073,9 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["blues", "electric-blues", "clean", "warm", "bb-king", "vibrato"],
     sources: [
+      "https://www.mixonline.com/recording/classic-tracks-bb-kings-thrill-gone-365491",
+      "https://www.musicradar.com/news/5-songs-guitarists-need-to-hear-by-bb-king",
+      "https://www.guitarworld.com/gear/electric-guitars/what-kind-of-guitar-was-bb-king-lucille",
       "https://equipboard.com/pros/bb-king",
     ],
     platform_translations: {
@@ -10587,20 +10594,20 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "morello-killing-in-the-name",
     created_at: "2026-03-22",
     description:
-      "Tom Morello's approach to guitar is unlike anyone else: he uses a simple rig — Les Paul, Marshall JCM800, Whammy pedal, and wah — but manipulates them in unconventional ways to create sounds that resemble turntables, synthesizers, and samples. On Killing in the Name, the core rhythm tone is a Les Paul through a cranked JCM800 for aggressive, tight palm-muted riffs. The Whammy and wah are used for the song's iconic solos and DJ-like scratching effects.",
+      "Tom Morello's approach to guitar is unlike anyone else: he uses a simple rig (a Telecaster, a Marshall JCM800, a Whammy pedal and a wah) but manipulates them in unconventional ways to create sounds that resemble turntables, synthesizers, and samples. On Killing in the Name, the core rhythm tone is his drop-D Telecaster through a cranked JCM800, doubled by a Les Paul overdub, for aggressive, tight palm-muted riffs. The Whammy and wah are used for the song's iconic solos and DJ-like scratching effects.",
     tone_context: "full_song",
     guitar_specs: {
       body_type: "solid",
-      model_name: "Gibson Les Paul Standard ('Arm the Homeless')",
-      pickup_config: "HH",
+      model_name: "Fender Telecaster ('Sendero Luminoso')",
+      pickup_config: "SS",
       pickup_position: "bridge",
       string_count: 6,
-      scale_length: "24.75",
+      scale_length: "25.5",
       tuning: "drop_d",
       tuning_custom: "D-A-D-G-B-E",
       string_gauge: ".010-.046",
       notable_mods:
-        "Morello's 'Arm the Homeless' Les Paul has a killswitch installed — a toggle that cuts the signal instantly for rhythmic stuttering effects. The guitar also has an EMG active humbucker in the bridge position for a tight, hot output.",
+        "Morello says his Telecaster, the guitar he keeps in drop D, carried the riffs on the debut album, and that a Gibson Les Paul Standard was his overdub guitar and doubles the Tele on this song. The Telecaster is reported as a stock early-1980s model with its two original single-coils. Which pickup he used is not documented; bridge is our starting point.",
     },
     signal_chain: [
       {
@@ -10657,7 +10664,7 @@ export const toneRecipes: ToneRecipe[] = [
     ],
     original_gear: {
       guitar:
-        "Gibson Les Paul ('Arm the Homeless'), bridge EMG humbucker, killswitch, Drop D tuning, .010-.046 strings",
+        "Fender Telecaster ('Sendero Luminoso'), stock single-coils, Drop D tuning, .010-.046 strings; a Gibson Les Paul Standard doubles it as an overdub",
       effects: [
         "Dunlop Cry Baby Wah",
         "DigiTech Whammy (various pitch settings)",
@@ -10670,6 +10677,8 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["alternative-metal", "rap-rock", "aggressive", "whammy", "morello", "drop-d"],
     sources: [
+      "https://www.guitarworld.com/news/turns-out-tom-morello-used-a-les-paul-on-rage-against-the-machines-debut-album",
+      "https://en.wikipedia.org/wiki/Killing_in_the_Name",
       "https://equipboard.com/pros/tom-morello",
     ],
     platform_translations: {
@@ -10800,7 +10809,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       tonex: {
         chain_blocks: [
-          { position: 1, block_name: "Search ToneNET for 'JCM800' or 'Marshall 2205'", block_category: "Tone Model", original_gear: "Marshall JCM800 2205", settings: {}, notes: "Search ToneNET for a cranked JCM800 Tone Model capture. The core rhythm tone is a Les Paul through a cranked Marshall — the aggressive, tight palm-muted riffs come from the amp's natural distortion." },
+          { position: 1, block_name: "Search ToneNET for 'JCM800' or 'Marshall 2205'", block_category: "Tone Model", original_gear: "Marshall JCM800 2205", settings: {}, notes: "Search ToneNET for a cranked JCM800 Tone Model capture. The core rhythm tone is a Telecaster through a cranked Marshall, doubled by a Les Paul — the aggressive, tight palm-muted riffs come from the amp's natural distortion." },
         ],
         notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a JCM800 capture. The Cry Baby wah and DigiTech Whammy are NOT available in TONEX — these are essential to Morello's innovative sounds and must come from external pedals. The killswitch stuttering effect also requires an external killswitch or guitar modification. TONEX provides the amp tone foundation only.",
       },
@@ -11820,19 +11829,19 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "townshend-wont-get-fooled-again",
     created_at: "2026-03-25",
     description:
-      "Pete Townshend's windmill-strumming attack through a cranked Hiwatt is one of the most powerful rhythm guitar sounds in rock. On Won't Get Fooled Again, the SG's humbuckers hit the Hiwatt DR103 at full volume, producing a massive, ringing power chord tone with incredible clarity and sustain. The Hiwatt's enormous clean headroom means it stays articulate even when pushed hard, preventing the mush that a Marshall might produce at similar volumes.",
+      "Pete Townshend's windmill-strumming attack through a cranked Hiwatt is one of the most powerful rhythm guitar sounds in rock. The studio take of Won't Get Fooled Again was a 1959 Gretsch 6120 into a small Fender Bandmaster. This recipe is the stage version: a Gibson SG Special into a Hiwatt DR103 at full volume, a massive, ringing power chord tone with clarity and sustain. The Hiwatt's enormous clean headroom means it stays articulate even when pushed hard, preventing the mush that a Marshall might produce at similar volumes.",
     tone_context: "full_song",
     guitar_specs: {
       body_type: "solid",
       model_name: "Gibson SG Special",
-      pickup_config: "HH",
+      pickup_config: "P90",
       pickup_position: "bridge",
       string_count: 6,
       scale_length: "24.75",
       tuning: "standard",
       string_gauge: ".010-.046",
       notable_mods:
-        "Townshend used various SG models during the Who's Next era. Stock humbuckers provide the thick, aggressive attack needed for his windmill strumming technique.",
+        "On the record Townshend played a 1959 Gretsch 6120 given to him by Joe Walsh, which he said he used across Who's Next and kept for the studio because it would not stay in tune on stage. On stage from 1968 to 1971 he played Gibson SG Specials with P-90 pickups, the guitar this recipe is built on.",
     },
     signal_chain: [
       {
@@ -11875,7 +11884,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
     ],
     original_gear: {
-      guitar: "Gibson SG Special, bridge humbucker, standard tuning",
+      guitar: "Gibson SG Special, bridge P-90, standard tuning (stage rig; the studio take was a Gretsch 6120)",
       effects: [],
       amp: "Hiwatt DR103 Custom 100 (cranked)",
       cabinet: "WEM 4x12 with Fane Crescendo speakers",
@@ -11885,6 +11894,9 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["rock", "classic-rock", "power-chords", "rhythm", "the-who"],
     sources: [
+      "https://guitarworld.com/gear/the-secrets-behind-pete-townshends-tone-on-the-whos-wont-get-fooled-again",
+      "https://www.thewho.net/whotabs/gear/guitar/gretsch.html",
+      "https://www.thewho.net/whotabs/gear/guitar/sg.html",
       "https://equipboard.com/pros/pete-townshend",
       "https://www.premierguitar.com/artists/pete-townshend-rig-rundown",
     ],
@@ -11949,7 +11961,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Volume → comp → WhoWatt 100 → dual-mic Greenback → plate → tilt EQ. Bridge humbucker, full-arm windmill strumming.",
+          "Volume → comp → WhoWatt 100 → dual-mic Greenback → plate → tilt EQ. Bridge pickup, full-arm windmill strumming.",
       },
       quad_cortex: {
         chain_blocks: [
@@ -12002,13 +12014,13 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Comp → Hiwatt capture → WEM/Greenback → plate → tilt EQ. Bridge humbucker, windmill strumming.",
+          "Comp → Hiwatt capture → WEM/Greenback → plate → tilt EQ. Bridge pickup, windmill strumming.",
       },
       tonex: {
         chain_blocks: [
           { position: 1, block_name: "Search ToneNET for 'Hiwatt DR103' or 'Hiwatt cranked'", block_category: "Tone Model", original_gear: "Hiwatt DR103", settings: {}, notes: "Search ToneNET for a cranked Hiwatt DR103 Tone Model capture. Townshend's aggressive windmill strumming requires a loud, clean amp that stays tight under heavy attack." },
         ],
-        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a cranked Hiwatt capture. No effects needed — SG bridge humbucker straight into the amp. Townshend's aggressive windmill strumming technique and explosive power chord attack are the defining elements, not the gear.",
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a cranked Hiwatt capture. No effects needed — SG bridge pickup straight into the amp. Townshend's aggressive windmill strumming technique and explosive power chord attack are the defining elements, not the gear.",
       },
       katana: {
         chain_blocks: [
@@ -12045,7 +12057,7 @@ export const toneRecipes: ToneRecipe[] = [
             notes: "Subtle plate to match the Olympic Studios capture.",
           },
         ],
-        notes: "Comp booster + Brown amp + plate. Bridge humbucker; strum hard with full-arm windmills.",
+        notes: "Comp booster + Brown amp + plate. Bridge pickup; strum hard with full-arm windmills.",
       },
       kemper: {
         chain_blocks: [
@@ -12076,7 +12088,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Kemper profiles include the cab. Comp → cranked Hiwatt profile → plate. Bridge humbucker, windmill attack.",
+          "Kemper profiles include the cab. Comp → cranked Hiwatt profile → plate. Bridge pickup, windmill attack.",
       },
       fractal: {
         chain_blocks: [
@@ -12086,7 +12098,7 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate", settings: { Mix: 0.18, Decay: 1.5, Predelay: 30 }, notes: "Subtle plate to match the Olympic Studios capture." },
           { position: 5, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Comp → cranked Hipower → WEM/Greenback → plate → tilt EQ. SG Special, bridge humbucker, windmill strumming.",
+        notes: "Comp → cranked Hipower → WEM/Greenback → plate → tilt EQ. SG Special, bridge pickup, windmill strumming.",
       },
     },
     is_editorial: true,
@@ -12101,11 +12113,11 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "garcia-truckin-clean-sparkle",
     created_at: "2026-03-25",
     description:
-      "Jerry Garcia's tone on Truckin' is a sparkling, clean Guild Starfire sound through a Fender Twin Reverb. This is about clarity and articulation, not distortion. Every note rings out with bell-like precision, and the Twin's massive clean headroom ensures the tone stays pristine even at volume. The touch of spring reverb adds depth without washing out the details. Garcia's tone is the opposite of most rock guitarists: clean, bright, and dynamically responsive to his fingerpicking and flatpicking technique.",
+      "Jerry Garcia's tone on Truckin' is a sparkling clean sound through a Fender Twin Reverb. This is about clarity and articulation, not distortion. Every note rings out with bell-like precision, and the Twin's massive clean headroom ensures the tone stays pristine even at volume. The touch of spring reverb adds depth without washing out the details. Garcia's tone is the opposite of most rock guitarists: clean, bright, and dynamically responsive to his fingerpicking and flatpicking technique.",
     tone_context: "full_song",
     guitar_specs: {
-      body_type: "semi_hollow",
-      model_name: "Guild Starfire",
+      body_type: "solid",
+      model_name: "Gibson SG (studio guitar not documented)",
       pickup_config: "HH",
       pickup_position: "middle",
       string_count: 6,
@@ -12113,7 +12125,7 @@ export const toneRecipes: ToneRecipe[] = [
       tuning: "standard",
       string_gauge: ".010-.046",
       notable_mods:
-        "Garcia used a Guild Starfire during the American Beauty era. The semi-hollow body adds natural resonance and warmth to the clean tone heard on Truckin'.",
+        "The studio guitar on Truckin' is not documented. Garcia's Guild Starfire dates from the mid-1960s; by 1970 his stage guitar was a Gibson SG (Guitar Player), so that is what this recipe assumes.",
     },
     signal_chain: [
       {
@@ -12156,7 +12168,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
     ],
     original_gear: {
-      guitar: "Guild Starfire, middle position, standard tuning",
+      guitar: "Gibson SG (his 1970 stage guitar; studio guitar not documented), middle position, standard tuning",
       effects: [],
       amp: "Fender Twin Reverb (clean with spring reverb)",
       cabinet: "Built-in 2x12 Jensen speakers",
@@ -12166,6 +12178,7 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["clean", "sparkle", "jam-band", "psychedelic", "grateful-dead"],
     sources: [
+      "https://www.guitarplayer.com/players/how-jerry-garcia-revolutionized-the-custom-guitar-industry-in-his-pursuit-of-excellence",
       "https://equipboard.com/pros/jerry-garcia",
       "https://www.premierguitar.com/artists/jerry-garcia-rig-rundown",
     ],
@@ -12296,7 +12309,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           { position: 1, block_name: "Search ToneNET for 'Fender Twin Reverb' or 'Twin Reverb clean'", block_category: "Tone Model", original_gear: "Fender Twin Reverb", settings: {}, notes: "Search ToneNET for a clean Fender Twin Reverb Tone Model capture with spring reverb character. Garcia's tone is all about a pristine, dynamic clean amp that responds to every nuance of touch." },
         ],
-        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a Twin Reverb capture. No effects needed — Garcia's clean tone is about touch, dynamics, and fingerpicking technique. TONEX Pedal users: use the built-in Reverb for spring reverb ambience. The Guild Starfire's middle position through a clean Twin is the entire signal chain.",
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a Twin Reverb capture. No effects needed — Garcia's clean tone is about touch, dynamics, and fingerpicking technique. TONEX Pedal users: use the built-in Reverb for spring reverb ambience. Both pickups on through a clean Twin is the entire signal chain.",
       },
       katana: {
         chain_blocks: [
@@ -14090,19 +14103,19 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "satriani-surfing-with-the-alien-lead",
     created_at: "2026-03-25",
     description:
-      "Joe Satriani's tone on Surfing with the Alien is a fluid, singing lead sound designed for legato playing and whammy bar acrobatics. The Ibanez JS guitar's high-output DiMarzio pickups drive a cranked Marshall into smooth saturation, while a wah pedal adds expression and a delay provides spacious depth. The tone has enough gain for effortless legato runs but enough clarity for each note to speak distinctly during rapid passages. This is the quintessential instrumental rock guitar tone.",
+      "Joe Satriani's tone on Surfing with the Alien is a fluid, singing lead sound designed for legato playing and whammy bar acrobatics. The humbuckers of his Kramer Pacer drive a cranked Marshall into smooth saturation, while a wah pedal adds expression and a delay provides spacious depth. The tone has enough gain for effortless legato runs but enough clarity for each note to speak distinctly during rapid passages. This is the quintessential instrumental rock guitar tone.",
     tone_context: "full_song",
     guitar_specs: {
       body_type: "solid",
-      model_name: "Ibanez JS Series",
-      pickup_config: "HSH",
+      model_name: "Kramer Pacer",
+      pickup_config: "HH",
       pickup_position: "bridge",
       string_count: 6,
       scale_length: "25.5",
       tuning: "standard",
       string_gauge: ".009-.042",
       notable_mods:
-        "DiMarzio PAF Pro (neck) and Fred (bridge) humbuckers with a single-coil in the middle position. Edge tremolo system for whammy bar dive bombs and squeals. Fast neck profile with jumbo frets for effortless legato playing.",
+        "Satriani says he made the album with two Kramer Pacers and a hardtail Strat-style parts guitar; his Ibanez JS model came later. The white Pacer had two humbuckers and an early Floyd Rose with no fine tuners, which he says drifted out of tune. The whammy bar work on this track points to the Pacer.",
     },
     signal_chain: [
       {
@@ -14184,7 +14197,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
     ],
     original_gear: {
-      guitar: "Ibanez JS Series with DiMarzio pickups, bridge humbucker, standard tuning",
+      guitar: "Kramer Pacer, bridge humbucker, Floyd Rose, standard tuning",
       effects: ["Dunlop Cry Baby Wah", "Boss DS-1 Distortion", "Boss DD-2 Digital Delay (loop)"],
       amp: "Marshall JCM800 2203",
       cabinet: "Marshall 4x12",
@@ -14194,6 +14207,7 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["instrumental-rock", "lead", "wah", "delay", "satriani", "hard-rock"],
     sources: [
+      "https://www.musicradar.com/news/joe-satriani-talks-surfing-with-the-alien-track-by-track",
       "https://equipboard.com/pros/joe-satriani",
       "https://www.premierguitar.com/artists/joe-satriani-rig-rundown",
     ],
@@ -14466,7 +14480,7 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "gallagher-wonderwall-jangly-rhythm",
     created_at: "2026-03-25",
     description:
-      "Wonderwall's guitar tone is a wall of jangly, layered acoustic and electric guitar. The electric guitar parts use an Epiphone Riviera semi-hollow through a Marshall, producing a bright, chiming rhythm tone. The semi-hollow body adds natural resonance and airiness, while the Marshall provides just enough crunch to give the chords bite without overwhelming the song's delicate melodic quality. Multiple guitar layers and a capo create the signature Britpop wall of sound.",
+      "Wonderwall's studio guitar sound is layered acoustic: Noel Gallagher tracked it on a Takamine, and producer Owen Morris describes three overdubbed acoustic parts with no strummed electric. This recipe is an electric take on the part for players without an acoustic to hand: an Epiphone Riviera semi-hollow through a Marshall, bright and chiming, with just enough crunch to give the chords bite. Capo on the 2nd fret.",
     tone_context: "full_song",
     guitar_specs: {
       body_type: "semi_hollow",
@@ -14478,7 +14492,7 @@ export const toneRecipes: ToneRecipe[] = [
       tuning: "standard",
       string_gauge: ".010-.046",
       notable_mods:
-        "Stock Epiphone Riviera with mini-humbuckers. Capo on the 2nd fret for the song's chord voicings. Both pickups on for full, jangly tone.",
+        "The recording is acoustic (a Takamine, per MusicRadar); no electric model is documented on the track. We use a semi-hollow Riviera with mini-humbuckers as the electric stand-in. Capo on the 2nd fret for the song's chord voicings. Both pickups on for full, jangly tone.",
     },
     signal_chain: [
       {
@@ -14521,16 +14535,18 @@ export const toneRecipes: ToneRecipe[] = [
       },
     ],
     original_gear: {
-      guitar: "Epiphone Riviera with capo on 2nd fret, both pickups",
+      guitar: "Takamine acoustic on the recording, capo on 2nd fret; this recipe substitutes an Epiphone Riviera, both pickups",
       effects: [],
       amp: "Marshall JCM900 (moderate crunch)",
       cabinet: "Marshall 4x12 with Greenbacks",
       microphone: "Shure SM57",
       other_notes:
-        "Wonderwall's massive sound comes from layering multiple guitar tracks: acoustic guitars, electric rhythm parts, and overdubbed lead fills. The individual electric tone is relatively simple.",
+        "Wonderwall's sound comes from layering: Owen Morris describes three overdubbed acoustic guitar parts on the track. Any electric version is an adaptation, so keep it simple and bright.",
     },
     tags: ["britpop", "alternative", "jangly", "rhythm", "oasis"],
     sources: [
+      "https://www.musicradar.com/news/oasis-whats-the-story-morning-glory-guitars-noel-gallagher-wonderwall",
+      "https://www.soundonsound.com/techniques/classic-tracks-oasis-wonderwall",
       "https://equipboard.com/pros/noel-gallagher",
       "https://www.premierguitar.com/artists/noel-gallagher-rig-rundown",
     ],
@@ -18259,14 +18275,14 @@ export const toneRecipes: ToneRecipe[] = [
     tone_context: "full_song",
     guitar_specs: {
       body_type: "solid",
-      model_name: "Fender Stratocaster (with hot-rodded pickups)",
-      pickup_config: "HSS",
+      model_name: "Fender Stratocaster (1957, ex-Paul Kossoff)",
+      pickup_config: "HSH",
       pickup_position: "bridge",
       string_count: 6,
       scale_length: "25.5",
       tuning: "standard",
       string_gauge: ".009-.042",
-      notable_mods: "Seymour Duncan Hot Rails humbucker in bridge position for hotter output while retaining the Strat body resonance.",
+      notable_mods: "Murray's main guitar of the era was the 1957 Strat once owned by Paul Kossoff, retrofitted with DiMarzio Super Distortion humbuckers in the neck and bridge positions (Premier Guitar, MusicRadar). The humbuckers give hotter output while keeping the Strat's body resonance.",
     },
     signal_chain: [
       {
@@ -18307,7 +18323,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
     ],
     original_gear: {
-      guitar: "Fender Stratocaster with Seymour Duncan Hot Rails (bridge)",
+      guitar: "Fender Stratocaster (1957, ex-Kossoff) with DiMarzio Super Distortion humbuckers, bridge pickup",
       effects: [],
       amp: "Marshall JCM800 2203",
       cabinet: "Marshall 4x12 with Celestion speakers",
@@ -18316,6 +18332,8 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["metal", "nwobhm", "galloping", "iron-maiden", "harmonies", "jcm800"],
     sources: [
+      "https://www.musicradar.com/reviews/guitars/fender-dave-murray-stratocaster-209615",
+      "https://www.premierguitar.com/gear/gallery-iron-maidens-2010-touring-gear?rebelltitem=33",
       "https://equipboard.com/pros/dave-murray",
       "https://www.premierguitar.com/artists/iron-maiden-rig-rundown",
     ],
@@ -18347,7 +18365,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           { position: 1, block_name: "Search ToneNET for 'JCM800' or 'Marshall 2203'", block_category: "Tone Model", original_gear: "Marshall JCM800 2203", settings: {}, notes: "Search ToneNET for a JCM800 Tone Model capture at moderate gain. Iron Maiden's tone requires clarity and note definition — avoid overly saturated captures. The galloping triplet patterns must remain articulate." },
         ],
-        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a moderate-gain JCM800 capture. No effects needed — Strat bridge pickup with Hot Rails humbucker straight into the Marshall. Keep gain moderate for the fast galloping passages to remain clear and defined.",
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a moderate-gain JCM800 capture. No effects needed — Strat with a bridge humbucker straight into the Marshall. Keep gain moderate for the fast galloping passages to remain clear and defined.",
       },
       katana: {
         chain_blocks: [
@@ -18397,7 +18415,7 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 5, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate", settings: { Mix: 0.18, Decay: 1.4, Predelay: 30 }, notes: "Tight plate for studio dimension." },
           { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Comp → TS (off) → JCM800 → Greenback → plate → tilt EQ. Strat with Hot Rails, bridge pickup. Galloping clarity.",
+        notes: "Comp → TS (off) → JCM800 → Greenback → plate → tilt EQ. Strat with a bridge humbucker. Galloping clarity.",
       },
     },
     is_editorial: true,
@@ -18571,14 +18589,14 @@ export const toneRecipes: ToneRecipe[] = [
     tone_context: "riff",
     guitar_specs: {
       body_type: "solid",
-      model_name: "Manson MB-1 (custom)",
+      model_name: "Manson custom (studio guitar not confirmed)",
       pickup_config: "HH",
       pickup_position: "bridge",
       string_count: 6,
       scale_length: "25.5",
       tuning: "standard",
       string_gauge: ".011-.049",
-      notable_mods: "Built-in Fernandes Sustainer, MIDI controller, Kaoss pad. Bridge humbucker for the heavy riff tone.",
+      notable_mods: "The Manson MB-1 signature model was not announced until 2009, so it is not the guitar on this 2001 recording. Bellamy's first custom Manson, the aluminium-clad 'DeLorean' with a Z.Vex Fuzz Factory built in, is the guitar he wrote the riff on (Guitar World), but no source we could open confirms it for the studio take. Bridge humbucker for the heavy riff tone.",
     },
     signal_chain: [
       {
@@ -18631,7 +18649,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
     ],
     original_gear: {
-      guitar: "Manson MB-1 with Fernandes Sustainer and custom pickups",
+      guitar: "Hugh Manson custom, bridge humbucker (studio guitar not confirmed)",
       effects: ["DigiTech Whammy (octave up)", "Fuzz Factory / Big Muff"],
       amp: "Marshall (various)",
       cabinet: "Marshall 4x12",
@@ -18640,6 +18658,8 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["alternative", "fuzz", "whammy", "muse", "octave", "progressive", "riff"],
     sources: [
+      "https://www.musicradar.com/reviews/guitars/manson-guitars-mb-1-standard-matt-bellamy-signature-guitar-241595",
+      "https://www.guitarworld.com/news/manson-matt-bellamy-dl-or-dl-or-relic",
       "https://equipboard.com/pros/matt-bellamy",
       "https://www.premierguitar.com/artists/matt-bellamy-rig-rundown",
     ],
@@ -18763,7 +18783,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "The signature Muse riff formula: Whammy (octave up) → fuzz → cranked Marshall. Whammy off by default — assign to EXP 2 for real-time toe-down/heel-up. Triangle Fuzz default-on for the thick Plug In Baby riff distortion. Manson Sustainiac guitar (or any humbucker) recommended for sustain.",
+          "The signature Muse riff formula: Whammy (octave up) → fuzz → cranked Marshall. Whammy off by default — assign to EXP 2 for real-time toe-down/heel-up. Triangle Fuzz default-on for the thick Plug In Baby riff distortion. Any bridge humbucker works; a sustainer pickup helps the long notes.",
       },
       quad_cortex: {
         chain_blocks: [
@@ -18868,18 +18888,18 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "auerbach-lonely-boy-raw-garage",
     created_at: "2026-03-27",
     description:
-      "Lonely Boy's riff is a raw, fat, garage-rock tone built on simplicity: a Les Paul Junior with a single P-90 pickup into a cranked small amp. The tone is warm, slightly fuzzy, and dripping with character from the amp's natural breakup. No fancy effects -- just a guitar, a cable, and a loud amp doing what they do best.",
+      "Lonely Boy's riff is a raw, fat, garage-rock tone built on simplicity: a 1950s Stratocaster into a cranked small amp. The tone is warm, slightly fuzzy, and dripping with character from the amp's natural breakup. Auerbach has said the riff came out of a pitch-shift pedal; this recipe covers the core guitar and amp sound.",
     tone_context: "riff",
     guitar_specs: {
       body_type: "solid",
-      model_name: "Gibson Les Paul Junior",
-      pickup_config: "P90",
+      model_name: "Fender Stratocaster (1954)",
+      pickup_config: "SSS",
       pickup_position: "bridge",
       string_count: 6,
-      scale_length: "24.75",
+      scale_length: "25.5",
       tuning: "standard",
       string_gauge: ".011-.050",
-      notable_mods: "Stock Les Paul Junior with a single bridge P-90 pickup. The rawness of the P-90 is essential to the tone.",
+      notable_mods: "Auerbach says he played his '54 Strat on Lonely Boy (Guitar World, 2022). Vintage Guitar's 2012 piece lists a '58 Strat for the album, so the year is not settled. Which pickup he used is not documented; bridge is our starting point.",
     },
     signal_chain: [
       {
@@ -18892,7 +18912,7 @@ export const toneRecipes: ToneRecipe[] = [
         icon_color: "#ef4444",
         is_in_effects_loop: false,
         settings: { Volume: 10 },
-        notes: "A small tube amp cranked to maximum. The natural breakup of a pushed small amp is the entire tone. No pedals, no effects — just raw amp distortion.",
+        notes: "A small tube amp cranked to maximum. The natural breakup of a pushed small amp is the entire tone. The distortion is all amp.",
       },
       {
         position: 2,
@@ -18920,15 +18940,17 @@ export const toneRecipes: ToneRecipe[] = [
       },
     ],
     original_gear: {
-      guitar: "Gibson Les Paul Junior, bridge P-90",
+      guitar: "Fender Stratocaster (1950s), bridge single-coil",
       effects: [],
       amp: "Small tube amp (various, cranked to maximum)",
       cabinet: "Built-in small speaker",
       microphone: "Shure SM57",
       other_notes: "Auerbach's tone philosophy is minimal and raw. Guitar straight into a cranked amp. The imperfections ARE the tone.",
     },
-    tags: ["blues-rock", "garage-rock", "raw", "lo-fi", "black-keys", "p90", "cranked-amp"],
+    tags: ["blues-rock", "garage-rock", "raw", "lo-fi", "black-keys", "strat", "cranked-amp"],
     sources: [
+      "https://www.guitarworld.com/features/dan-auerbach-5-black-keys-tracks",
+      "https://vintageguitar.com/12131/dan-auerbach",
       "https://equipboard.com/pros/dan-auerbach",
     ],
     platform_translations: {
@@ -18945,7 +18967,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
       quad_cortex: {
         chain_blocks: [
-          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light)", settings: { Threshold: -36, Ratio: 2, Attack: 60, Release: 910, Mix: 0.74, Level: 0 }, notes: "Light parallel compression — Mix 0.74 keeps the dry attack of the P-90's bite. Optional. Bypass for the absolute rawest take." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor (light)", settings: { Threshold: -36, Ratio: 2, Attack: 60, Release: 910, Mix: 0.74, Level: 0 }, notes: "Light parallel compression — Mix 0.74 keeps the dry attack of the pick. Optional. Bypass for the absolute rawest take." },
           { position: 2, block_name: "Search Cortex Cloud for 'Fender Champ' capture", block_category: "Amp", original_gear: "Fender Champ", settings: { Gain: 10.0, Bass: 5.0, Mid: 6.0, Treble: 5.0, Master: 8.0 }, notes: "Cranked small amp capture. Capture-driven authenticity beats the QC's stock small-amp model for this lo-fi character. Look for captures of Champs, Silvertones, or Valcos at their loudest." },
           { position: 3, block_name: "1x8 Tweed", block_category: "Cab", original_gear: "Champ 1x8", settings: { Mic: "SM57", Distance: "1 inch", Position: 0.30, LowCut: 80, HighCut: 7500, Level: 0 }, notes: "Small-cone cab. SM57 close to the cone, HighCut at 7.5k to tame small-speaker fizz." },
           { position: 4, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Tracking room ambience", settings: { Decay: 0.3, Predelay: 15, Mix: 18, Level: 0 }, notes: "Subtle spring matching the lo-fi tracking-room ambience." },
@@ -18957,7 +18979,7 @@ export const toneRecipes: ToneRecipe[] = [
         chain_blocks: [
           { position: 1, block_name: "Search ToneNET for 'Fender Champ' or 'small tube amp cranked'", block_category: "Tone Model", original_gear: "Small tube amp (cranked)", settings: {}, notes: "Search ToneNET for a cranked Fender Champ or small tube amp Tone Model capture. The lo-fi, raw overdrive character of a tiny amp at full volume is what defines the Black Keys sound." },
         ],
-        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for cranked small amp captures — Fender Champ, Silvertone, or similar. Guitar straight into the Tone Model with no effects. The raw, lo-fi imperfections ARE the tone. P-90 pickup for extra grit.",
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for cranked small amp captures — Fender Champ, Silvertone, or similar. Guitar straight into the Tone Model with no effects. The raw, lo-fi imperfections ARE the tone. Bridge single-coil for extra bite.",
       },
       katana: {
         chain_blocks: [
@@ -18965,7 +18987,7 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 2, block_name: "Crunch", block_category: "Amp Type", original_gear: "Small tube amp", settings: { Gain: 9, Volume: 7, Bass: 5, Middle: 6, Treble: 5, Presence: 5 }, notes: "Crunch channel pushed hard for natural amp breakup. Gain at 9 cranks the preamp; Volume 7 keeps the master in check. The amp does all the work." },
           { position: 3, block_name: "Spring", block_category: "Reverb", original_gear: "Tracking room ambience", settings: { Time: 3, PreDelay: 15, Tone: 5, EffectLevel: 3 }, notes: "Subtle spring reverb in the REV slot — small studio amp ambience, not a wash. Effect Level 3 keeps the rawness intact." },
         ],
-        notes: "Crunch channel cranked, P-90 straight in. Booster optional for FRFR rigs (off by default — the original is pedal-free). Touch of spring for the tracking-room ambience.",
+        notes: "Crunch channel cranked, guitar straight in. Booster optional for FRFR rigs (off by default). Touch of spring for the tracking-room ambience.",
       },
       fractal: {
         chain_blocks: [
@@ -19016,7 +19038,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Kemper profiles include the cab, so no separate cab block is needed. Cranked small-amp profile with a touch of spring reverb. Booster optional for FRFR rigs. Les Paul Junior with a P-90 for the raw, fat garage-rock tone. Keep it simple — the Black Keys way.",
+          "Kemper profiles include the cab, so no separate cab block is needed. Cranked small-amp profile with a touch of spring reverb. Booster optional for FRFR rigs. A Strat on the bridge pickup for the raw garage-rock tone. Keep it simple — the Black Keys way.",
       },
     },
     is_editorial: true,
@@ -19031,18 +19053,18 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "gary-clark-bright-lights-modern-blues",
     created_at: "2026-03-27",
     description:
-      "Gary Clark Jr.'s tone on Bright Lights is a modern take on classic blues guitar. An SG through a Fender Vibro-King produces a warm, fat clean tone that breaks up beautifully when he digs in. The tone has more midrange warmth than a typical Fender clean, thanks to the SG's humbuckers. Clark uses a Tube Screamer-style overdrive for solo boosts, pushing the amp into rich, singing sustain.",
+      "Gary Clark Jr.'s tone on Bright Lights is a modern take on classic blues guitar. His Epiphone Casino through a Fender Vibro-King produces a warm, fat clean tone that breaks up beautifully when he digs in. The tone has more midrange warmth than a typical Fender clean, thanks to the Casino's P-90s and hollow body. Clark uses a Tube Screamer-style overdrive for solo boosts, pushing the amp into rich, singing sustain.",
     tone_context: "full_song",
     guitar_specs: {
-      body_type: "solid",
-      model_name: "Gibson SG Standard",
-      pickup_config: "HH",
+      body_type: "hollow",
+      model_name: "Epiphone Casino",
+      pickup_config: "P90",
       pickup_position: "neck",
       string_count: 6,
       scale_length: "24.75",
       tuning: "standard",
       string_gauge: ".011-.050",
-      notable_mods: "Stock SG with PAF-style humbuckers. Neck pickup for the warm, fat blues tone.",
+      notable_mods: "Clark says he used his cherry red Epiphone Casino on a good portion of Blak and Blu, with an ES-335 on some tracks (MusicRadar). No source names the guitar on this track itself. Neck pickup for the warm, fat blues tone.",
     },
     signal_chain: [
       {
@@ -19067,7 +19089,7 @@ export const toneRecipes: ToneRecipe[] = [
         icon_color: "#ef4444",
         is_in_effects_loop: false,
         settings: { Volume: 6, Treble: 5, Bass: 5, Mid: 6, Reverb: 3, Speed: 0 },
-        notes: "The Vibro-King at moderate volume provides warm, touch-sensitive cleans that break up naturally when you play harder. The mid control adds extra warmth that pairs well with humbuckers.",
+        notes: "The Vibro-King at moderate volume provides warm, touch-sensitive cleans that break up naturally when you play harder. The mid control adds extra warmth that pairs well with P-90s.",
       },
       {
         position: 3,
@@ -19083,15 +19105,17 @@ export const toneRecipes: ToneRecipe[] = [
       },
     ],
     original_gear: {
-      guitar: "Gibson SG Standard, neck pickup",
+      guitar: "Epiphone Casino, neck pickup",
       effects: ["Tube Screamer-style overdrive (solo boost)"],
       amp: "Fender Vibro-King",
       cabinet: "Built-in 3x10 speakers",
       microphone: "Shure SM57",
       other_notes: "Clark's aggressive playing dynamics and use of the volume knob are key. He rides the amp's edge of breakup with his picking attack.",
     },
-    tags: ["blues", "modern-blues", "gary-clark-jr", "sg", "fender", "dynamic"],
+    tags: ["blues", "modern-blues", "gary-clark-jr", "casino", "fender", "dynamic"],
     sources: [
+      "https://musicradar.com/news/guitars/interview-gary-clark-jr-talks-blues-guitars-and-new-album-blak-and-blu-565165",
+      "https://www.guitarworld.com/features/interview-gary-clark-jr-discusses-his-new-album-blak-and-blu",
       "https://equipboard.com/pros/gary-clark-jr",
       "https://www.premierguitar.com/artists/gary-clark-jr-rig-rundown",
     ],
@@ -19101,12 +19125,12 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { Pedal: 1.0, VolumeTaper: false }, notes: "Assigned to EXP 1." },
           { position: 2, block_name: "Deluxe Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Knee: 6, Attack: 38, Release: 200, Mix: 50, Level: 0 }, notes: "Light parallel comp for dynamic consistency." },
           { position: 3, block_name: "Scream 808", block_category: "Distortion", enabled: false, original_gear: "Ibanez Tube Screamer (solo boost)", settings: { Drive: 4, Tone: 5.5, Level: 7 }, notes: "ALTERNATE drive (off by default). Stomp on for solo boost — adds mid-hump and sustain." },
-          { position: 4, block_name: "US Deluxe Vib", block_category: "Amp", original_gear: "Fender Vibro-King", settings: { Drive: 5.5, Bass: 5, Mid: 6, Treble: 5.5, Presence: 5, ChVol: 6.5, Master: 10, Bias: 5.5, BiasX: 5, Sag: 5.5, Hum: 5, Ripple: 5 }, notes: "Warm Fender at edge of breakup. Mid 0.60 for the SG humbucker pairing." },
+          { position: 4, block_name: "US Deluxe Vib", block_category: "Amp", original_gear: "Fender Vibro-King", settings: { Drive: 5.5, Bass: 5, Mid: 6, Treble: 5.5, Presence: 5, ChVol: 6.5, Master: 10, Bias: 5.5, BiasX: 5, Sag: 5.5, Hum: 5, Ripple: 5 }, notes: "Warm Fender at edge of breakup. Mid 0.60 for the Casino's P-90s." },
           { position: 5, block_name: "4x10 Tweed P10R", block_category: "Cab", original_gear: "Fender Vibro-King 3x10", settings: { Mic: 0, Distance: 1, Position: 0.30, Angle: 0, LowCut: 19.9, HighCut: 20100, Level: 0, Pan: 0.5, Delay: 0 }, cabSibling: { Mic: 5, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5, LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0 }, notes: "Dual-mic multi-10 cab. Closest match to a 3x10 Vibro-King." },
           { position: 6, block_name: "Spring", block_category: "Reverb", original_gear: "Vibro-King spring tank", settings: { Mix: 22, Decay: 0.8, Predelay: 20, LowCut: 200, HighCut: 6500 }, notes: "Spring reverb matching the Vibro-King's onboard tank." },
           { position: 7, block_name: "Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment for FRFR systems." },
         ],
-        notes: "Volume → comp → TS (off) → Vibro-King → 3x10 → spring → tilt EQ. SG neck pickup, dynamics are everything.",
+        notes: "Volume → comp → TS (off) → Vibro-King → 3x10 → spring → tilt EQ. Casino neck pickup, dynamics are everything.",
       },
       quad_cortex: {
         chain_blocks: [
@@ -19142,7 +19166,7 @@ export const toneRecipes: ToneRecipe[] = [
           { position: 5, block_name: "Spring Reverb", block_category: "Reverb", original_gear: "Vibro-King spring tank", settings: { Mix: 0.22, Decay: 0.8, Predelay: 20 }, notes: "Spring matching the onboard tank." },
           { position: 6, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Comp → TS (off) → Vibra-King → 3x10 → spring → tilt EQ. SG neck pickup. Dynamics are everything.",
+        notes: "Comp → TS (off) → Vibra-King → 3x10 → spring → tilt EQ. Casino neck pickup. Dynamics are everything.",
       },
       kemper: {
         chain_blocks: [
@@ -19183,7 +19207,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Kemper profiles include the cab. Comp → TS (off) → Vibro-King profile → spring. SG neck pickup; toggle the Green Scream for solo boost.",
+          "Kemper profiles include the cab. Comp → TS (off) → Vibro-King profile → spring. Casino neck pickup; toggle the Green Scream for solo boost.",
       },
     },
     is_editorial: true,
@@ -19198,18 +19222,18 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "bonamassa-sloe-gin-blues-rock-lead",
     created_at: "2026-03-27",
     description:
-      "Sloe Gin features Bonamassa's signature blues-rock lead tone: a vintage Les Paul through a Marshall and Dumble blend that produces a thick, creamy sustain with singing upper harmonics. The tone is rich and saturated but never loses note definition. Bonamassa's precise vibrato and dynamic control bring each note to life with an expressiveness that bridges classic Clapton-era blues with modern production values.",
+      "Sloe Gin features Bonamassa's signature blues-rock lead tone: a '59 reissue Les Paul through a Marshall and Dumble blend that produces a thick, creamy sustain with singing upper harmonics. The tone is rich and saturated but never loses note definition. Bonamassa's precise vibrato and dynamic control bring each note to life with an expressiveness that bridges classic Clapton-era blues with modern production values.",
     tone_context: "solo",
     guitar_specs: {
       body_type: "solid",
-      model_name: "Gibson Les Paul Standard (1959)",
+      model_name: "Gibson Les Paul ('59 reissue, with Bigsby)",
       pickup_config: "HH",
       pickup_position: "neck",
       string_count: 6,
       scale_length: "24.75",
       tuning: "standard",
       string_gauge: ".011-.052",
-      notable_mods: "Vintage 1959 Les Paul with PAF humbuckers. Neck pickup for the creamy, sustaining lead tone.",
+      notable_mods: "Bonamassa told MusicRadar he made the album with a '59 reissue Les Paul fitted with a Bigsby, the guitar his later signature model was based on. Neck pickup for the creamy, sustaining lead tone.",
     },
     signal_chain: [
       {
@@ -19250,7 +19274,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
     ],
     original_gear: {
-      guitar: "Gibson Les Paul Standard (1959), neck pickup",
+      guitar: "Gibson Les Paul ('59 reissue, Bigsby), neck pickup",
       effects: ["Tube Screamer (light overdrive/boost)"],
       amp: "Dumble Overdrive Special + Marshall (blended)",
       cabinet: "Marshall 4x12",
@@ -19259,6 +19283,7 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["blues-rock", "blues", "lead", "sustain", "bonamassa", "dumble", "les-paul"],
     sources: [
+      "https://www.musicradar.com/news/joe-bonamassa-sloe-gin-interview",
       "https://equipboard.com/pros/joe-bonamassa",
       "https://www.premierguitar.com/artists/joe-bonamassa-rig-rundown",
     ],
@@ -19377,18 +19402,18 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "hammett-fade-to-black-clean-wah-solo",
     created_at: "2026-03-27",
     description:
-      "Fade to Black begins with one of metal's most beautiful clean arpeggios before building to a wah-drenched lead solo. Hammett's ESP through a Mesa Boogie with a Cry Baby wah creates two distinct tones: the clean intro uses the neck pickup through a clean channel for crystalline arpeggios, while the solo engages the lead channel with a wah for Hammett's signature vocal phrasing.",
+      "Fade to Black begins with one of metal's most beautiful clean arpeggios before building to a wah-drenched lead solo. Hammett's Gibson Flying V through a Mesa Boogie with a Cry Baby wah creates two distinct tones: the clean intro uses the neck pickup through a clean channel for crystalline arpeggios, while the solo engages the lead channel with a wah for Hammett's signature vocal phrasing.",
     tone_context: "full_song",
     guitar_specs: {
       body_type: "solid",
-      model_name: "ESP KH (custom)",
+      model_name: "Gibson Flying V (1979)",
       pickup_config: "HH",
       pickup_position: "neck",
       string_count: 6,
       scale_length: "24.75",
       tuning: "standard",
       string_gauge: ".009-.046",
-      notable_mods: "EMG 81/60 active pickups. Neck EMG 60 for the clean intro, bridge EMG 81 for the lead solo.",
+      notable_mods: "Hammett says his 1979 Flying V was his main studio guitar on Metallica's early albums, though no source names the guitar for this song. Guitar World reports he fitted EMGs to it only in the late 1980s, so in 1984 it had passive humbuckers. Neck pickup for the clean intro, bridge for the solo.",
     },
     signal_chain: [
       {
@@ -19429,7 +19454,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
     ],
     original_gear: {
-      guitar: "ESP KH, EMG 81 (bridge) / EMG 60 (neck)",
+      guitar: "Gibson Flying V (1979), passive humbuckers: neck for the intro, bridge for the solo",
       effects: ["Dunlop Cry Baby Wah"],
       amp: "Mesa/Boogie Mark IIC+ (clean and lead channels)",
       cabinet: "Mesa 4x12 with Celestion V30s",
@@ -19438,6 +19463,8 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["thrash-metal", "metal", "wah", "clean", "solo", "metallica", "dynamic"],
     sources: [
+      "https://blabbermouth.net/news/metallicas-kirk-hammett-partners-with-gibson-to-create-his-1979-flying-v",
+      "https://www.guitarworld.com/news/gibson-kirk-hammett-1979-flying-v",
       "https://equipboard.com/pros/kirk-hammett",
       "https://www.premierguitar.com/artists/kirk-hammett-rig-rundown",
     ],
@@ -21673,11 +21700,11 @@ export const toneRecipes: ToneRecipe[] = [
     created_at: "2026-06-01",
     updated_at: "2026-06-21",
     description:
-      "One of the most-mythologized accidental tones in rock. Mark Knopfler tracked the Money for Nothing intro riff at AIR Studios Montserrat (April 1985) on a Gibson Les Paul Junior through a Laney Klipp 2x12 combo, with a Morley wah pedal kept half-cocked in front. The SM57 had slipped off its stand the night before and was pointing at the floor, four inches from the speaker — by accident. Engineer Neil Dorfsman and Knopfler heard it through the talkback, told the room not to touch anything, and tracked the riff exactly as it stood. The tone has never been re-created since.",
+      "One of the most-mythologized accidental tones in rock. Mark Knopfler tracked the Money for Nothing intro riff at AIR Studios Montserrat (April 1985) on a Gibson Les Paul Junior through a Laney combo by engineer Neil Dorfsman's account (a Les Paul Standard is also credited), with a Morley wah pedal kept half-cocked in front. The SM57 had slipped off its stand the night before and was pointing at the floor, four inches from the speaker — by accident. Engineer Neil Dorfsman and Knopfler heard it through the talkback, told the room not to touch anything, and tracked the riff exactly as it stood.",
     tone_context: "intro_riff",
     guitar_specs: {
       body_type: "solid",
-      model_name: "Gibson Les Paul Junior (1958, single P-90)",
+      model_name: "Gibson Les Paul Junior (engineer's account; a Les Paul Standard is also credited)",
       pickup_config: "P90",
       pickup_position: "bridge",
       string_count: 6,
@@ -21685,7 +21712,7 @@ export const toneRecipes: ToneRecipe[] = [
       tuning: "standard",
       string_gauge: ".010-.046",
       notable_mods:
-        "Stock Gibson Les Paul Junior with a single P-90 dogear pickup at the bridge. Knopfler famously plays without a pick — bare fingers — so the P-90 hears the soft attack of the thumb and fingertips, which combined with the half-cocked wah is half the tone.",
+        "Accounts differ. Engineer Neil Dorfsman recalls a Les Paul Junior through a Laney (Sound on Sound). Christie's, which sold Knopfler's guitars in 2024, says his 1983 Les Paul Standard '59 reissue recorded the song. This recipe follows Dorfsman's account: a single P-90 at the bridge. Knopfler plays with bare fingers, so the pickup hears the soft attack of thumb and fingertips, which with the half-cocked wah is half the tone.",
     },
     signal_chain: [
       {
@@ -21742,7 +21769,7 @@ export const toneRecipes: ToneRecipe[] = [
     ],
     original_gear: {
       guitar:
-        "1958 Gibson Les Paul Junior with single P-90 dogear bridge pickup, .010-.046 strings, standard tuning — played with bare fingers (no pick)",
+        "Gibson Les Paul Junior with a P-90 at the bridge (engineer's account; a 1983 Les Paul Standard reissue is also credited), .010-.046 strings, standard tuning, played with bare fingers (no pick)",
       effects: ["Morley Wah Pedal — kept half-cocked / partly open as a fixed mid-EQ boost, NOT swept"],
       amp: "Laney Klipp 2x12 combo (1980s), Volume around 7 — into singing breakup",
       cabinet: "Laney Klipp built-in 2x12",
@@ -21752,6 +21779,8 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["rock", "classic-rock", "fingerpicking", "wah", "knopfler", "p90"],
     sources: [
+      "https://www.soundonsound.com/techniques/classic-tracks-dire-straits-money-nothing",
+      "https://www.christies.com.cn/en/stories/mark-knopfler-guitar-collection-a9058db914514f9b83516d99ff7c15f4",
       "https://www.toontrack.com/news/the-money-for-nothing-tone/",
       "https://guitar.com/news/music-news/mark-knopfler-guitar-tone-money-for-nothing-dire-straits/",
       "https://www.guitarplayer.com/news/classic-tones-money-for-nothing-dire-straits",
@@ -38505,11 +38534,11 @@ export const toneRecipes: ToneRecipe[] = [
     attribution_confidence: "pool",
     created_at: "2026-06-12",
     description:
-      "The blueprint for modern worship guitar. Nigel Hendroff builds this from a clean Gretsch into a chiming Vox AC30 held on the edge of breakup by an always-on boost — not a wall of gain, but an amp working just hard enough to bloom. A Strymon Timeline lays a dotted-eighth pulse under the verses while a BigSky hall washes everything wide, then the bridge swells into a big, reverb-soaked lead. The secret is the always-on boost and the ambient delay/reverb, not a distortion pedal. Key of D, 136 BPM.",
+      "The blueprint for modern worship guitar. This recipe builds it from a clean Gretsch into a chiming Vox AC30 held on the edge of breakup by an always-on boost — not a wall of gain, but an amp working just hard enough to bloom. A Strymon Timeline lays a dotted-eighth pulse under the verses while a BigSky hall washes everything wide, then the bridge swells into a big, reverb-soaked lead. The secret is the always-on boost and the ambient delay/reverb, not a distortion pedal. Key of D, 136 BPM.",
     tone_context: "full_song",
     guitar_specs: {
       body_type: "solid",
-      model_name: "Gretsch G6134TFM-NH Signature Penguin",
+      model_name: "Gretsch (recording guitar not documented)",
       pickup_config: "HH",
       pickup_position: "bridge+neck",
       string_count: 6,
@@ -38517,7 +38546,7 @@ export const toneRecipes: ToneRecipe[] = [
       tuning: "standard",
       string_gauge: ".010-.046",
       notable_mods:
-        "Hendroff's signature Penguin carries two Broad'Tron BT-65 humbuckers voiced by Tim Shaw — brighter and more open than a stock humbucker, sitting between single-coil chime and humbucker thickness. The both-pickups middle position gives the jangly bed; the neck pickup rounds off the bridge lead. Stock .010-.046 nickel strings, standard tuning.",
+        "The guitar on this 2016 live recording is not documented: the album credits six electric guitarists and names no instruments. Hendroff is a long-time Gretsch player, and his signature Penguin (2022) postdates the recording, so treat the Gretsch here as a representative choice. Two humbuckers; the both-pickups middle position gives the jangly bed and the neck pickup rounds off the bridge lead. .010-.046 nickel strings, standard tuning.",
     },
     signal_chain: [
       {
@@ -38614,7 +38643,7 @@ export const toneRecipes: ToneRecipe[] = [
     ],
     original_gear: {
       guitar:
-        "Gretsch G6134TFM-NH Signature Penguin with Broad'Tron BT-65 humbuckers, .010-.046, standard tuning",
+        "Gretsch with two humbuckers (representative; recording guitar not documented), .010-.046, standard tuning",
       effects: [
         "CMATMODS Deluxe Signa Comp (light compression)",
         "Jackson Audio Prism (always-on boost)",
@@ -38629,6 +38658,7 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["worship", "ambient-worship", "ccm", "hendroff", "hillsong", "vox-ac30", "ambient"],
     sources: [
+      "https://www.guitarworld.com/news/gretsch-nigel-hendroff-signature-penguin",
       "https://en.wikipedia.org/wiki/Let_There_Be_Light_(album)",
       "https://www.multitracks.com/sounds/nigel-hendroff/bigsky-presets-by-nigel-hendroff-and-peter-james-bigsky/",
     ],
@@ -55404,11 +55434,11 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "myers-second-chance-lead",
     created_at: "2026-06-24",
     description:
-      "Shinedown's breakout radio anthem from 2008's The Sound of Madness. Zach Myers built it on a PRS Santana that he had converted into a semi-hollow -- the guitar he still brings out specifically for this song -- run into his longtime Diezel Herbert. The verses are chiming, clean arpeggios; the choruses and the soaring melodic lead push the amp into a smooth, vocal singing sustain. A polished, big-radio production with plate ambience holding it all together.",
+      "Shinedown's breakout radio anthem from 2008's The Sound of Madness. The studio guitars are not documented track by track: the album credits Zach Myers on rhythm, Nick Perri on lead and several session players. This recipe follows Myers' live rig for the song, a PRS Santana converted into a semi-hollow, into his Diezel Herbert. The verses are chiming, clean arpeggios; the choruses and the soaring melodic lead push the amp into a smooth, vocal singing sustain. A polished, big-radio production with plate ambience holding it all together.",
     tone_context: "lead",
     guitar_specs: {
       body_type: "semi_hollow",
-      model_name: "PRS Santana (semi-hollow conversion)",
+      model_name: "PRS Santana (semi-hollow conversion, live guitar)",
       pickup_config: "HH",
       pickup_position: "neck",
       string_count: 6,
@@ -55416,7 +55446,7 @@ export const toneRecipes: ToneRecipe[] = [
       tuning: "Standard E (E-A-D-G-B-E)",
       string_gauge: ".010-.046",
       notable_mods:
-        "Myers had a PRS Santana model transformed into a semi-hollow, and it's the guitar he specifically brings out for 'Second Chance.' The semi-hollow body adds a woody, airy resonance and bloom that suits the clean arpeggios and the singing lead; the neck humbucker rolled-back gives the warm, rounded clean, while the bridge handles the brighter chorus push.",
+        "Myers had a PRS Santana model transformed into a semi-hollow, and it's the guitar he brings out for 'Second Chance' on stage (Premier Guitar Rig Rundown, 2022). What was used on the 2008 recording is not documented. The semi-hollow body adds a woody, airy resonance and bloom that suits the clean arpeggios and the singing lead; the neck humbucker rolled-back gives the warm, rounded clean, while the bridge handles the brighter chorus push.",
     },
     signal_chain: [
       {
@@ -55487,16 +55517,18 @@ export const toneRecipes: ToneRecipe[] = [
     ],
     original_gear: {
       guitar:
-        "PRS Santana converted to a semi-hollow -- the specific guitar Myers brings out for 'Second Chance'",
+        "PRS Santana converted to a semi-hollow, the guitar Myers brings out for 'Second Chance' live (2022); studio guitar not documented",
       effects: ["Studio compression", "Transparent boost (for the lead/chorus push)"],
       amp: "Diezel Herbert (Myers' main Shinedown head for nearly a decade)",
       cabinet: "Diezel 4x12 with Celestion V30 speakers",
       microphone: "Undocumented (Shure SM57 assumed)",
       other_notes:
-        "The Sound of Madness (2008) was produced by Rob Cavallo. The hard-verified facts are the semi-hollow PRS Santana (which Myers names as the 'Second Chance' guitar) and the Diezel Herbert as his documented main head; the boost, comp, exact cab and mic are inferred from his documented rig. The song lives on the clean-verse / singing-lead contrast -- the recipe defaults the boost off for the arpeggios and on for the chorus and lead.",
+        "The Sound of Madness (2008) was produced by Rob Cavallo. The documented facts are the semi-hollow PRS Santana as his live guitar for the song (2022) and the Diezel Herbert as his main head. The album credits Nick Perri on lead guitar and several session rhythm players with no per-track credit, so the studio guitars are unknown; the boost, comp, exact cab and mic are inferred from his documented rig. The song lives on the clean-verse / singing-lead contrast -- the recipe defaults the boost off for the arpeggios and on for the chorus and lead.",
     },
     tags: ["hard-rock", "post-grunge", "lead", "shinedown", "zach-myers", "prs"],
     sources: [
+      "https://www.premierguitar.com/videos/rig-rundown/shinedown-2022",
+      "https://en.wikipedia.org/wiki/The_Sound_of_Madness",
       "https://www.premierguitar.com/videos/rig-rundown/shinedown",
       "https://equipboard.com/pros/zach-myers",
       "https://en.wikipedia.org/wiki/Zach_Myers",
@@ -58676,19 +58708,19 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "tremonti-what-if-riff",
     created_at: "2026-07-01",
     description:
-      "The pummeling drop-D riff that opens Human Clay's heaviest cut. Mark Tremonti's rhythm sound on that album was a Mesa/Boogie Triple Rectifier with an Ibanez Tube Screamer slammed into the front, tracked through a PRS Singlecut — the Recto's tight, aggressive gain plus the TS mid-hump is the whole Creed crunch. Drop D tuning gives the riff its low, chugging weight. The Cornford RK100 handled leads; the Triple Rec is the rhythm engine here.",
+      "The pummeling drop-D riff that opens Human Clay's heaviest cut. Mark Tremonti has said the first two Creed records were made on Gibson Les Pauls, and that he is not sure which amp he used on Human Clay. We build the rhythm sound with a Mesa/Boogie Triple Rectifier and an Ibanez Tube Screamer slammed into the front: the Recto's tight, aggressive gain plus the TS mid-hump gets the Creed crunch. Drop D tuning gives the riff its low, chugging weight.",
     tone_context: "riff",
     guitar_specs: {
       body_type: "solid",
-      model_name: "PRS Singlecut (stoptail)",
+      model_name: "Gibson Les Paul",
       pickup_config: "HH",
       pickup_position: "bridge",
       string_count: 6,
-      scale_length: "25.0",
+      scale_length: "24.75",
       tuning: "drop D",
       string_gauge: ".011-.049",
       notable_mods:
-        "Tremonti tracked Human Clay on early stoptail PRS Singlecuts (pre-signature). He runs a D'Addario hybrid set — .011 for the low E/A/D, .010 for the G/B/E — so the dropped low D stays tight while the top strings bend easily. Bridge humbucker for the rhythm crunch.",
+        "Tremonti says the first two Creed records were made on Les Pauls: a red Les Paul Studio Lite on the debut and, as he recalls it, a Goldtop alongside it for Human Clay. His PRS guitars came after the album. He runs a D'Addario hybrid set (.011 for the low E/A/D, .010 for the G/B/E) so the dropped low D stays tight while the top strings bend easily. Bridge humbucker for the rhythm crunch.",
     },
     signal_chain: [
       {
@@ -58745,16 +58777,17 @@ export const toneRecipes: ToneRecipe[] = [
       },
     ],
     original_gear: {
-      guitar: "PRS Singlecut (stoptail), bridge humbucker, drop D, D'Addario hybrid .011-.049",
+      guitar: "Gibson Les Paul, bridge humbucker, drop D, D'Addario hybrid .011-.049",
       effects: ["Ibanez Tube Screamer (tightening boost into the Mesa)"],
-      amp: "Mesa/Boogie Triple Rectifier (rhythm, main amp on Human Clay); Cornford RK100 for leads",
+      amp: "Mesa/Boogie Triple Rectifier (our reconstruction; Tremonti is unsure which amp he used on Human Clay)",
       cabinet: "Mesa/Boogie oversized 4x12 (Celestion V30)",
       microphone: "Shure SM57, close",
       other_notes:
-        "Tremonti's own account: the Triple Recs were the main amps on Human Clay, with a Cornford RK100 handling lead tones, and a Tube Screamer in front of the cranked Mesa is central to the distorted sound. His full PRS signature and later Bogner/Dumble rig postdate Creed. What If is in drop D.",
+        "Tremonti has said the first two Creed records were made on Les Pauls and that his PRS guitars came around 1999 to 2000. He is unsure which amp he used on Human Clay, so the Triple Rectifier and Tube Screamer here are our reconstruction of the sound, not a documented session rig. What If is in drop D.",
     },
     tags: ["post-grunge", "alternative-metal", "hard-rock", "drop-d", "creed", "riff"],
     sources: [
+      "https://www.musicradar.com/news/a-lot-of-our-best-songs-happened-that-way-mark-tremonti-on-the-key-to-creeds-success-on-human-clay-and-their-remarkable-comeback-25-years-on",
       "https://www.premierguitar.com/rig-rundown-creeds-mark-tremonti",
       "https://www.groundguitar.com/mark-tremonti-guitars-and-gear/",
       "https://www.vintageguitar.com/13821/mark-tremonti/",
@@ -74979,7 +75012,7 @@ export const toneRecipes: ToneRecipe[] = [
     attribution_confidence: "documented",
     guitar_specs: {
       body_type: "solid",
-      model_name: "Manson MB-1 Matt Bellamy Signature",
+      model_name: "Manson custom (studio guitar not documented)",
       pickup_config: "H",
       pickup_position: "bridge",
       string_count: 6,
@@ -74987,7 +75020,7 @@ export const toneRecipes: ToneRecipe[] = [
       tuning: "standard",
       string_gauge: ".011-.049",
       notable_mods:
-        "The MB-1 is the guitar built as a production version of Bellamy's customs, released the same year as this album. Its defining feature is a Z.Vex Fuzz Factory wired into the body with its knobs on the face of the guitar, alongside a Kaoss Pad touchscreen and a Fernandes Sustainer in the neck position. On this song the on-board fuzz is not the point -- it is the whammy-bar guitar, used for the dive-bombs and the pitch gestures that punctuate the gallop, which is why a trem-equipped instrument matters more here than the fuzz circuit does.",
+        "No source we could open names the guitar on this recording. Bellamy's custom Mansons of the period share a bridge humbucker and a neck P-90 (Total Guitar, 2007), and he has described heavy whammy bar use on the song, so a trem-equipped humbucker guitar is the starting point. The Manson MB-1 signature model was not announced until 2009, three years after the album.",
     },
     signal_chain: [
       {
@@ -75058,11 +75091,11 @@ export const toneRecipes: ToneRecipe[] = [
     ],
     original_gear: {
       guitar:
-        "Manson MB-1 Matt Bellamy Signature -- on-board Z.Vex Fuzz Factory, Kaoss Pad, Fernandes Sustainer, whammy bar",
+        "Manson custom with a whammy bar (studio guitar not documented)",
       effects: [
         "MXR Phase 90 (the defining effect on this part)",
         "DigiTech Whammy (octave-up gestures)",
-        "Z.Vex Fuzz Factory built into the guitar",
+        "Z.Vex Fuzz Factory",
       ],
       amp: "Diezel VH4",
       cabinet: "4x12 with Celestion V30s",
@@ -75072,6 +75105,7 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["alternative-rock", "lead", "phaser", "high-gain", "bellamy", "muse", "diezel"],
     sources: [
+      "https://www.musicradar.com/reviews/guitars/manson-guitars-mb-1-standard-matt-bellamy-signature-guitar-241595",
       "https://en.wikipedia.org/wiki/Knights_of_Cydonia",
       "https://equipboard.com/pros/matthew-bellamy",
       "https://mixdownmag.com.au/features/gear-rundown-matt-bellamy/",
@@ -78291,7 +78325,7 @@ export const toneRecipes: ToneRecipe[] = [
     tone_context: "riff",
     guitar_specs: {
       body_type: "solid",
-      model_name: "Gibson Les Paul (Fisher recalls a '65 Goldtop)",
+      model_name: "Gibson Les Paul",
       pickup_config: "HH",
       pickup_position: "bridge",
       string_count: 6,
@@ -78299,7 +78333,7 @@ export const toneRecipes: ToneRecipe[] = [
       tuning: "standard",
       string_gauge: "not documented",
       notable_mods:
-        "Fisher names a Les Paul for the album. Asked about his favourite guitar of the Heart years he said 'I think it was a '65 Gold Top with the standard humbuckers' -- hedged, and not tied to this record, so treat the year as his best recollection. Howard Leese's 1966 Telecaster (once owned by Mars Bonfire) is also on this song by Leese's own account, so the finished track blends a humbucker Les Paul with a single-coil Tele.",
+        "Fisher names a Les Paul for the album. Asked about his favourite guitar of the Heart years he said 'I think it was a '65 Gold Top with the standard humbuckers' (hedged, and not tied to this record). Gibson built no single-cut Les Pauls between 1961 and 1968, so the year cannot be right. Howard Leese's 1966 Telecaster (once owned by Mars Bonfire) is also on this song by Leese's own account, so the finished track blends a humbucker Les Paul with a single-coil Tele.",
     },
     signal_chain: [
       {
@@ -78356,7 +78390,7 @@ export const toneRecipes: ToneRecipe[] = [
       },
     ],
     original_gear: {
-      guitar: "Gibson Les Paul (Fisher; he recalls a '65 Goldtop with humbuckers); Howard Leese's 1966 Telecaster also on the track",
+      guitar: "Gibson Les Paul with humbuckers (Fisher; year and finish not established); Howard Leese's 1966 Telecaster also on the track",
       effects: ["Univibe (Fisher, album-era; song use not documented)", "A distortion pedal Fisher can't recall (not specified)"],
       amp: "Fender Twin Reverb, played loud (Fisher; year not documented)",
       cabinet: "Twin Reverb's onboard 2x12",
@@ -78366,6 +78400,7 @@ export const toneRecipes: ToneRecipe[] = [
     },
     tags: ["classic-rock", "heart", "riff", "les-paul", "fender-twin", "70s-rock"],
     sources: [
+      "https://en.wikipedia.org/wiki/Gibson_Les_Paul",
       "https://web.archive.org/web/20091215085654/http://www.woodytone.com/2009/12/03/roger-fishers-heart-gear/",
       "https://vintageguitar.com/3654/howard-leese",
       "https://en.wikipedia.org/wiki/Crazy_on_You",

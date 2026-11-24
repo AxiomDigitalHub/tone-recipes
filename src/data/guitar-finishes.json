@@ -674,5 +674,29 @@
     "finish": "cream",
     "source": "recipe",
     "note": "Recipe: 'cream at the time of this album'; the bullseye graphic came afterwards."
+  },
+  "hammett-fade-to-black-clean-wah-solo": {
+    "finish": "black",
+    "source": "documented",
+    "url": "https://blabbermouth.net/news/metallicas-kirk-hammett-partners-with-gibson-to-create-his-1979-flying-v",
+    "note": "Hammett calls it his first black Flying V, from 1979."
+  },
+  "satriani-surfing-with-the-alien-lead": {
+    "finish": "white",
+    "source": "documented",
+    "url": "https://www.musicradar.com/news/joe-satriani-talks-surfing-with-the-alien-track-by-track",
+    "note": "Satriani describes the white two-humbucker Kramer Pacer."
+  },
+  "murray-trooper-galloping-lead": {
+    "finish": "black",
+    "source": "documented",
+    "url": "https://en.wikipedia.org/wiki/Dave_Murray_(musician)",
+    "note": "Black 1957 Strat, ex-Paul Kossoff."
+  },
+  "gary-clark-bright-lights-modern-blues": {
+    "finish": "cherry",
+    "source": "documented",
+    "url": "https://musicradar.com/news/guitars/interview-gary-clark-jr-talks-blues-guitars-and-new-album-blak-and-blu-565165",
+    "note": "Clark's cherry red Epiphone Casino, used on much of the album."
   }
 }
