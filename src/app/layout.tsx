@@ -98,8 +98,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Theme: light by default. Dark is opt-in for review (redesign
+            step 9): ?theme=dark turns it on and remembers it, ?theme=light
+            turns it off. Runs before paint so there is no flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var p=new URLSearchParams(location.search).get("theme");if(p==="dark"||p==="light"){localStorage.setItem("fk-theme",p)}if(localStorage.getItem("fk-theme")==="dark"){document.documentElement.setAttribute("data-theme","dark")}}catch(e){}})()`,
+          }}
+        />
         {/* Preconnect to critical third-party origins — saves 1 RTT each */}
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight, Search } from "lucide-react";
+import ThemeSwitch from "@/components/ui/ThemeSwitch";
 
 export const metadata: Metadata = {
   title: "UI foundation",
@@ -52,8 +53,10 @@ export default function UiFoundationPage() {
         <h1 className="fk-display">UI foundation</h1>
         <p className="fk-lead fk-wrap-text">
           Step 1 of the redesign: tokens, fonts, header, footer, buttons, chips
-          and cards. Light mode only for now.
+          and cards. Light is the default. Dark is here to review: the switch below turns it on
+          for the whole site in this browser.
         </p>
+        <ThemeSwitch />
       </header>
 
       <Section title="Colour">

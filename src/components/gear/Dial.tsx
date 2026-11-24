@@ -75,7 +75,8 @@ export function DialCell({
 }) {
   return (
     <div className={`fk-dialcell${inverse ? " is-inverse" : ""}`}>
-      <Dial {...dial} size={size} track={inverse ? "#2b2e32" : "#DCDFE2"} />
+      {/* Track colours are tokens, so the dial follows the theme. */}
+      <Dial {...dial} size={size} track={inverse ? "var(--fk-inverse-line, #2b2e32)" : "var(--fk-line, #DCDFE2)"} />
       <span className="fk-dialcell-label">{label}</span>
       <span className="fk-dialcell-value">{display}</span>
     </div>

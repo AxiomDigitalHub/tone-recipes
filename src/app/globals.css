@@ -4,7 +4,7 @@
    handoff's tokens.json, so pages still written with bg-surface,
    text-foreground, text-muted and friends sit on white instead of leaking
    the old dark theme. Dark returns as a proper mode in step 9. */
-@theme inline {
+@theme {
   --color-background: #ffffff;
   --color-foreground: #131416;
   --color-surface: #f6f6f4;
@@ -19,6 +19,10 @@
   --color-qc-teal: #00b4d8;
   --color-tonex-orange: #ff6b00;
   --color-katana-rose: #e11d48;
+}
+/* Fonts stay inline: they point at next/font variables set on <body>. The
+   colours above are real custom properties so dark mode can override them. */
+@theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-geist-sans);

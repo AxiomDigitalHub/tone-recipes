@@ -34,6 +34,13 @@
   --fk-accent-text: #7a5200;
   --fk-good: #2f6b3a;
   --fk-good-wash: #eef6ef;
+  --fk-danger: #b4473a;
+  /* On the inverse band: hairlines, control borders, field fill, soft danger. */
+  --fk-inverse-line: #2b2e32;
+  --fk-inverse-line-strong: #70767d;
+  --fk-inverse-field: #151618;
+  --fk-inverse-danger: #f1c1bc;
+  --fk-shadow: rgba(19, 20, 22, 0.14);
 
   /* Type */
   --fk-sans: var(--font-geist-sans), -apple-system, "Helvetica Neue", Arial, sans-serif;
@@ -277,13 +284,13 @@
 /* For the dark inverse band. */
 .fk-preview .fk-btn-light {
   background: var(--fk-on-inverse);
-  color: var(--fk-ink);
+  color: var(--fk-inverse);
   border-color: var(--fk-on-inverse);
 }
 .fk-preview .fk-btn-ghost {
   background: transparent;
   color: var(--fk-on-inverse);
-  border-color: #70767d;
+  border-color: var(--fk-inverse-line-strong);
 }
 .fk-preview .fk-iconbtn {
   display: inline-flex;
@@ -635,7 +642,7 @@
   border: 1px solid var(--fk-line);
   border-radius: var(--fk-r-md);
   corner-shape: squircle;
-  box-shadow: 0 12px 32px rgba(19, 20, 22, 0.1);
+  box-shadow: 0 12px 32px var(--fk-shadow);
   display: flex;
   flex-direction: column;
 }
@@ -1182,7 +1189,7 @@
   font-weight: 500;
   letter-spacing: -0.005em;
   text-transform: none;
-  box-shadow: 0 8px 24px rgba(19, 20, 22, 0.18);
+  box-shadow: 0 8px 24px var(--fk-shadow);
 }
 .fk-preview .recipe-dl-chip-btn:hover { background: var(--fk-ink); color: var(--fk-paper); opacity: 0.86; }
 
@@ -1389,17 +1396,17 @@
   width: 280px;
   max-width: 100%;
   padding: 0 16px;
-  border: 1px solid #70767d;
+  border: 1px solid var(--fk-inverse-line-strong);
   border-radius: var(--fk-r-md);
   corner-shape: squircle;
-  background: #151618;
+  background: var(--fk-inverse-field);
   color: var(--fk-on-inverse);
   font-family: var(--fk-sans);
   font-size: 16px;
   letter-spacing: normal;
   text-transform: none;
 }
-.fk-preview .fk-home-news .newsletter-input::placeholder { color: #8f959c; opacity: 1; }
+.fk-preview .fk-home-news .newsletter-input::placeholder { color: var(--fk-on-inverse-2); opacity: 1; }
 .fk-preview .fk-home-news .newsletter-submit {
   height: 48px;
   padding: 0 22px;
@@ -1785,7 +1792,7 @@
   line-height: 18px;
   letter-spacing: normal;
   text-transform: none;
-  color: #b4473a;
+  color: var(--fk-danger);
 }
 
 .fk-preview .fk-plan.is-inverse { background: var(--fk-inverse); color: var(--fk-on-inverse); border-color: var(--fk-inverse); }
@@ -1795,8 +1802,8 @@
 .fk-preview .fk-plan.is-inverse .fk-plan-sub,
 .fk-preview .fk-plan.is-inverse .fk-plan-blurb,
 .fk-preview .fk-plan.is-inverse .fk-plan-fine { color: var(--fk-on-inverse-2); }
-.fk-preview .fk-plan.is-inverse .fk-plan-features { border-top-color: #2b2e32; }
-.fk-preview .fk-plan.is-inverse .pricing-cta-error { color: #f1c1bc; }
+.fk-preview .fk-plan.is-inverse .fk-plan-features { border-top-color: var(--fk-inverse-line); }
+.fk-preview .fk-plan.is-inverse .pricing-cta-error { color: var(--fk-inverse-danger); }
 
 .fk-preview .fk-pricing-compare { padding-top: 64px; display: flex; flex-direction: column; gap: 24px; }
 .fk-preview .fk-compare-yes { display: inline-flex; color: var(--fk-ink); }
@@ -2391,3 +2398,81 @@
   border-radius: var(--fk-r-md);
   corner-shape: squircle;
 }
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   Dark mode (step 9).
+
+   Tokens from the handoff's tokens.json. Light is the default and dark is
+   opt-in: it applies only when <html data-theme="dark">, which the small
+   script in layout.tsx sets from ?theme=dark (remembered in localStorage)
+   or the switch on /dev/ui. Nothing follows the system setting yet, and
+   there is no switch in the header: dark was not drawn, so it is here to
+   be reviewed before it ships.
+
+   In dark the "inverse" band flips to light, as tokens.json has it.
+   ══════════════════════════════════════════════════════════════════════ */
+html[data-theme="dark"],
+html[data-theme="dark"] .fk-preview,
+html[data-theme="dark"] .fk-overlay-scope {
+  --fk-paper: #0c0d0e;
+  --fk-wash: #151618;
+  --fk-inverse: #f6f6f4;
+  --fk-on-inverse: #131416;
+  --fk-on-inverse-2: #4a4f55;
+  --fk-ink: #f4f4f2;
+  --fk-ink-2: #b9bdc2;
+  --fk-ink-3: #8f959c;
+  --fk-line: #2b2e32;
+  --fk-line-2: #1f2124;
+  --fk-line-strong: #70767d;
+  --fk-accent: #e4a235;
+  --fk-accent-text: #f0c06a;
+  /* Not in tokens.json: derived to hold 4.5:1 on the dark paper. */
+  --fk-good: #8fd19b;
+  --fk-good-wash: #14231a;
+  --fk-danger: #f1a79f;
+  --fk-inverse-line: #dcdfe2;
+  --fk-inverse-line-strong: #858b92;
+  --fk-inverse-field: #ffffff;
+  --fk-inverse-danger: #b4473a;
+  --fk-shadow: rgba(0, 0, 0, 0.5);
+
+  /* Tailwind theme tokens, for pages still written with them. */
+  --color-background: #0c0d0e;
+  --color-foreground: #f4f4f2;
+  --color-surface: #151618;
+  --color-surface-hover: #1f2124;
+  --color-primary: #f4f4f2;
+  --color-primary-light: #b9bdc2;
+  --color-muted: #b9bdc2;
+  --color-border: #2b2e32;
+
+  color-scheme: dark;
+}
+html[data-theme="dark"] body { background: #0c0d0e; color: #f4f4f2; }
+html[data-theme="dark"] .fk-preview,
+html[data-theme="dark"] .fk-overlay-scope {
+  /* Old theme names that are not plain remaps. */
+  --ink-2: #b9bdc2;
+  --panel: #151618;
+  --panel-2: #1f2124;
+  --panel-3: #2b2e32;
+}
+/* Amber and the pastel grounds stay as they are: text on them is always ink. */
+html[data-theme="dark"] .fk-preview :is(.fk-btn-accent, .fk-step-num, .fk-plan-checkout.is-accent .pricing-cta, .fk-home-news .newsletter-submit, .bg-accent) {
+  color: #131416;
+}
+html[data-theme="dark"] .fk-preview .fk-plan-checkout.is-accent .pricing-cta:hover:not(:disabled) { color: #131416; }
+/* The wordmark follows the ink colour. */
+.fk-preview :is(.fk-header-logo, .fk-foot-logo) path { fill: var(--fk-ink); }
+/* Drawings and photos keep their own light; ease them a touch on dark paper. */
+html[data-theme="dark"] .fk-preview :is(.fk-card-art, .fk-recipe-cover) img { filter: brightness(0.92); }
+/* The guitar card and gear tiles: the drawings carry soft dark shadows that
+   need a lighter ground than the dark wash to read. */
+html[data-theme="dark"] .fk-preview :is(.fk-chain, .fk-blockcard-art, .fk-guitarcard, .fk-home-guide-art) {
+  background: #1f2124;
+}
+html[data-theme="dark"] .fk-preview .fk-home-card { background: #ffffff; --fk-ink: #131416; --fk-ink-2: #4a4f55; --fk-ink-3: #666c73; --fk-line: #dcdfe2; --fk-line-2: #eceef0; color: #131416; }
+html[data-theme="dark"] .fk-preview .fk-home-search { background: #ffffff; --fk-ink: #131416; --fk-ink-3: #666c73; --fk-paper: #ffffff; border-color: #ffffff; }
+html[data-theme="dark"] .fk-preview .fk-home-search button { background: #131416; color: #ffffff; }
