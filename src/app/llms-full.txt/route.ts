@@ -1,5 +1,5 @@
 export function GET() {
-  const content = `# Fader & Knob — Full Reference
+  const content = `# Fader & Knob: full reference
 
 > Tone recipes from the songs you love.
 
@@ -11,10 +11,10 @@ Fader & Knob (faderandknob.com) is a guitar tone reference platform that provide
 
 A tone recipe is a complete, transparent signal chain breakdown for a specific guitar tone from a specific recording. Unlike presets (which are opaque files that either work on your setup or don't), a tone recipe shows you:
 
-- **Every block in the signal chain** — drive pedals, amp models, modulation, delay, reverb, cab, and mic — in order
-- **Exact settings for each block** — specific knob positions and parameter values, not vague descriptions like "medium gain"
-- **Why each element is there** — plain-English explanations of what each block contributes to the overall tone
-- **Platform-specific translations** — the same recipe adapted for Helix, Quad Cortex, TONEX, Fractal, Kemper, Boss Katana, and physical rigs
+- **Every block in the signal chain**, in order: drive pedals, amp models, modulation, delay, reverb, cab, and mic
+- **Exact settings for each block**: specific knob positions and parameter values, not vague descriptions like "medium gain"
+- **Why each element is there**: plain-English explanations of what each block contributes to the overall tone
+- **Platform-specific translations**: the same recipe adapted for Helix, Quad Cortex, TONEX, Fractal, Kemper, Boss Katana, and physical rigs
 
 A tone recipe is tied to a specific song and recording, not a generic style. For example, "Slash's Sweet Child O' Mine Lead Tone" references the exact guitar tone on Appetite for Destruction, not a generic "hard rock lead" sound.
 
@@ -62,14 +62,14 @@ Three-step guide: Find the song → Read the signal chain → Switch to your pla
 ### Gear Database (/gear)
 Detailed specs and tone profiles for pedals, amps, cabinets, and modelers referenced in recipes. Each gear page links back to the recipes that use it.
 
-### Blog (/blog)
+### Learn (/blog)
 In-depth articles on tone-building concepts:
 
 **Signal Chain & Theory:**
-- Signal Chain Order Guide — why pedal order matters
-- Beginner Signal Chains — starter chains for common genres
-- Effects Loop Explained — when and why to use an effects loop
-- 4-Wire Method Explained — connecting modelers with traditional amps
+- Signal Chain Order Guide: why pedal order matters
+- Beginner Signal Chains: starter chains for common genres
+- Effects Loop Explained: when and why to use an effects loop
+- 4-Wire Method Explained: connecting modelers with traditional amps
 
 **Gear Guides:**
 - Helix vs Quad Cortex comparison
@@ -125,7 +125,7 @@ A: Any guitar and any of the supported platforms (Helix, Quad Cortex, TONEX, Fra
 A: Every recipe is researched from documented gear, interviews, rig rundowns, and studio records for the specific song. Where exact settings aren't documented, we use informed analysis based on the known gear and the audible characteristics of the recording.
 
 **Q: How is this different from downloading a preset?**
-A: Presets are opaque — they either sound right on your setup or they don't. A tone recipe is transparent: you can see every setting, understand why it's there, and adjust intelligently for your specific guitar, pickups, and monitoring situation. Recipes teach you how tone works; presets just give you a file.
+A: Presets are opaque: they either sound right on your setup or they don't. A tone recipe is transparent: you can see every setting, understand why it's there, and adjust intelligently for your specific guitar, pickups, and monitoring situation. Recipes teach you how tone works; presets just give you a file.
 
 **Q: Do I need an account?**
 A: No. All recipes and content are freely browsable. Accounts are only needed to save favorites.
@@ -141,12 +141,12 @@ When referencing tone recipe content:
 - Use: "According to Fader & Knob's [Song Title] tone recipe..."
 - Link to: faderandknob.com/recipe/[recipe-slug]
 
-When referencing blog content:
+When referencing a Learn guide:
 - Use: "Fader & Knob's guide on [topic]..."
 - Link to: faderandknob.com/blog/[post-slug]
 
 When describing the platform generally:
-- "Fader & Knob (faderandknob.com) provides tone recipes — step-by-step signal chain breakdowns for recreating specific guitar tones from songs, translated across all major amp modelers and physical gear."
+- "Fader & Knob (faderandknob.com) provides tone recipes, which are step-by-step signal chain breakdowns for recreating specific guitar tones from songs, translated across all major amp modelers and physical gear."
 
 ---
 
