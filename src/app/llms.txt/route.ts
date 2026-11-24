@@ -31,7 +31,7 @@ A tone recipe is a complete signal chain breakdown for a specific guitar tone fr
 - [The Experiment](https://faderandknob.com/experiment): The running log, with the build timeline and repository-generated statistics.
 - [Gear Database](https://faderandknob.com/gear): Detailed specs and tone profiles for pedals, amps, and modelers.
 - [Learn](https://faderandknob.com/blog): Guides on signal chain theory, gear comparisons, and tone-building techniques.
-- [Topic guides](https://faderandknob.com/guides): Hub pages that group the Learn guides by subject, including worship guitar and modeler setup.
+- [Guides by subject](https://faderandknob.com/guides): Five pillar pages that group the Learn guides: [worship guitar on Helix](https://faderandknob.com/guides/worship-guitar), [Helix and modeler setup](https://faderandknob.com/guides/modeler-mastery), [amps, drive and pedals](https://faderandknob.com/guides/amp-settings-and-tone), [signal chain and effects](https://faderandknob.com/guides/signal-chain-fundamentals), and [fix your tone](https://faderandknob.com/guides/tone-troubleshooting).
 - [News](https://faderandknob.com/news): Gear and modeler news, with sources linked.
 - [Pricing](https://faderandknob.com/pricing): Reading every recipe is free. Paid plans cover unlimited preset downloads and Set Packs.
 - [Compare](https://faderandknob.com/compare): Side-by-side comparison of tone recipes across platforms.

@@ -12,6 +12,7 @@
 
 import type { PreviewBlockData } from "@/components/v3/preview-helpers";
 import type { GearKind } from "./draw";
+import { pedalColor } from "./pedal-colors";
 
 type Range = { min?: number; max?: number; neutral?: number; unit?: string };
 
@@ -23,6 +24,8 @@ export interface GearPick {
   title?: string;
   /** Delay readout, milliseconds. */
   disp?: string;
+  /** Enclosure colour, when the block names a pedal whose colour we know. */
+  color?: string;
 }
 
 export interface DialSpec {
@@ -275,6 +278,8 @@ export function gearFor(block: PreviewBlockData, drivesBefore = 0, delaysBefore 
   };
 }
 
+const NOT_A_PEDAL = new Set<GearKind>(["amp", "head", "preamp", "cab", "mic"]);
+
 /** Run gearFor over a chain, keeping the family counts. Source blocks are skipped. */
 export function gearForChain(blocks: PreviewBlockData[]): (GearPick | null)[] {
   let drives = 0;
@@ -282,6 +287,7 @@ export function gearForChain(blocks: PreviewBlockData[]): (GearPick | null)[] {
   return blocks.map((b) => {
     if (b.variant === "source") return null;
     const pick = gearFor(b, drives, delays);
+    if (b.variant === "pedal" && !NOT_A_PEDAL.has(pick.kind)) pick.color = pedalColor(b.name);
     if (pick.kind === "drive" || pick.kind === "drive2") drives++;
     if (pick.kind === "delay" || pick.kind === "delay2") delays++;
     return pick;

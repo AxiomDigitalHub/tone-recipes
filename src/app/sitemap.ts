@@ -59,13 +59,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Pillar hubs — topical authority anchors. Indexed at high priority since
     // they're the internal-linking backbone for every leaf tone-recipe post.
     { url: `${baseUrl}/guides`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${baseUrl}/guides/artist-tone-recipes`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${baseUrl}/guides/pedal-settings-guides`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/guides/amp-settings-and-tone`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/guides/modeler-mastery`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/guides/signal-chain-fundamentals`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/guides/worship-guitar`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${baseUrl}/guides/bedroom-and-home-recording`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/guides/tone-troubleshooting`, lastModified: latestBlogDate, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/privacy`, lastModified: launchDate, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/affiliate-disclosure`, lastModified: contentRewriteDate, changeFrequency: "yearly", priority: 0.3 },

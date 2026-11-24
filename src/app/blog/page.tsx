@@ -5,6 +5,7 @@ import { getAllWriters } from "@/lib/writers";
 import { getAllPlatforms } from "@/lib/data/platforms";
 import { collectionPageJsonLd } from "@/lib/seo/jsonld";
 import Thumb from "@/components/gear/Thumb";
+import PillarTiles from "@/components/guides/PillarTiles";
 import GuideIndex, { type GuideRow } from "@/components/blog/GuideIndex";
 import { thumbFor, TOPICS, type ThumbColor, type ThumbPattern } from "@/lib/gear/thumbs";
 import type { Metadata } from "next";
@@ -12,7 +13,7 @@ import type { Metadata } from "next";
 /**
  * /blog: the Learn page (redesign step 6). Replaces the blog index.
  *
- * Topic tiles, starter paths, platform hubs, every guide, and what is new.
+ * Pillar tiles (src/lib/pillars.ts), starter paths, platform hubs, every guide, and what is new.
  * The URL is still /blog and every /blog/... URL is unchanged; the nav
  * calls this "Learn", and so do the title and the CollectionPage JSON-LD.
  */
@@ -145,22 +146,9 @@ export default function LearnPage() {
       <section className="fk-wrap fk-learn-top">
         <div className="fk-learn-head">
           <h1 className="fk-display">Learn</h1>
-          <p className="fk-lead">Pick a part of the chain, or start at the beginning below.</p>
+          <p className="fk-lead">Pick a subject, or start at the beginning below.</p>
         </div>
-        <div className="fk-learn-topics">
-          {TOPICS.map((t) => (
-            <a key={t.id} href={`#guides:topic=${t.id}`} className="fk-card">
-              <Thumb {...t.art} />
-              <div className="fk-card-body">
-                <div className="fk-card-head">
-                  <h2 className="fk-t3">{t.title}</h2>
-                  <ChevronRight size={20} strokeWidth={1.75} aria-hidden />
-                </div>
-                <p className="fk-body-sm">{t.blurb}</p>
-              </div>
-            </a>
-          ))}
-        </div>
+        <PillarTiles />
       </section>
 
       <section className="fk-wrap fk-learn-start">

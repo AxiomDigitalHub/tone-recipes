@@ -144,7 +144,7 @@ export default function RecipeChain({
             {items.map(({ block, pick, i }) => (
               <li key={`${block.name}-${i}`}>
                 <a href={`#block-${i + 1}`} className="fk-chain-item">
-                  <Gear kind={pick.kind} height={146} vals={pick.vals} title={pick.title} disp={pick.disp} label="" />
+                  <Gear kind={pick.kind} height={146} vals={pick.vals} title={pick.title} disp={pick.disp} color={pick.color} label="" />
                   <span className="fk-caption">{gearTypeLabel(block, pick)}</span>
                   <span className="fk-chain-name">{block.name}</span>
                 </a>
@@ -204,6 +204,7 @@ export default function RecipeChain({
                       vals={pick.vals}
                       title={pick.title}
                       disp={pick.disp}
+                      color={pick.color}
                       label={`${block.name}, drawn at the recipe's settings`}
                     />
                   </div>

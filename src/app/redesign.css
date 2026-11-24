@@ -2615,3 +2615,32 @@ html[data-theme="dark"] .fk-preview .fk-home-search button { background: #131416
   border-radius: var(--fk-r-md);
   font-family: var(--fk-sans);
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   Pillar pages (/guides, /guides/[slug]). Built from Learn and Guide parts.
+   ══════════════════════════════════════════════════════════════════════ */
+.fk-preview .fk-pillar-sections {
+  padding-top: 72px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  gap: 56px 64px;
+  align-items: start;
+}
+.fk-preview .fk-pillar-sec { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.fk-preview .fk-pillar-cta { padding-top: 64px; }
+.fk-preview .fk-pillar-ctatile {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding: 24px;
+}
+.fk-preview .fk-pillar-ctatile > div { display: flex; flex-direction: column; gap: 6px; }
+.fk-preview .fk-pillar-ctatile p { margin: 0; }
+.fk-preview .fk-pillar-others { padding-bottom: 32px; }
+.fk-preview .fk-pillar .fk-learn-top > div > .fk-crumbs { margin-bottom: 20px; }
+@media (max-width: 640px) {
+  .fk-preview .fk-pillar-sections { padding-top: 48px; gap: 40px; }
+  .fk-preview .fk-pillar .fk-guide-head .fk-thumb-gear.is-stagger svg { height: 62px; }
+}

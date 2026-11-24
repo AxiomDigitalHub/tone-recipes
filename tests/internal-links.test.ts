@@ -5,6 +5,7 @@ import { getPostSlugs } from "@/lib/blog";
 import { getNewsSlugs } from "@/lib/news";
 import { artists, gearItems, songs, toneRecipes } from "@/lib/data";
 import { getAllPlatforms } from "@/lib/data/platforms";
+import { PILLARS } from "@/lib/pillars";
 
 /**
  * Every internal markdown link in content/blog and content/news must point
@@ -28,6 +29,7 @@ const dynamic: Record<string, Set<string>> = {
   artist: new Set(artists.map((a) => a.slug)),
   gear: new Set(gearItems.map((g) => g.slug)),
   platforms: new Set(getAllPlatforms().map((p) => p.id)),
+  guides: new Set(PILLARS.map((p) => p.slug)),
 };
 
 /** A static route exists if src/app/<path> holds a page or route file. */

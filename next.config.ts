@@ -61,6 +61,10 @@ const nextConfig: NextConfig = {
         destination: "/platforms/quad_cortex",
         permanent: true,
       },
+      // Five pillars (src/lib/pillars.ts): the three retired pillar pages.
+      { source: "/guides/pedal-settings-guides", destination: "/guides/amp-settings-and-tone", permanent: true },
+      { source: "/guides/bedroom-and-home-recording", destination: "/guides/tone-troubleshooting", permanent: true },
+      { source: "/guides/artist-tone-recipes", destination: "/browse", permanent: true },
       {
         source: "/recipes",
         destination: "/browse",

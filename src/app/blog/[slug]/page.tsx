@@ -14,6 +14,7 @@ import {
 } from "@/lib/blog";
 import Thumb from "@/components/gear/Thumb";
 import { thumbFor, TOPIC_TITLE } from "@/lib/gear/thumbs";
+import { pillarFor } from "@/lib/pillars";
 import { metaDescription } from "@/lib/seo/text";
 import { getWriter } from "@/lib/writers";
 import { extractToc } from "@/lib/toc";
@@ -165,13 +166,17 @@ export default async function PreviewBlogPost({
       }
     : null;
 
-  // BreadcrumbList — Browse > Field Notes > {category} > {post}
+  // BreadcrumbList: Learn > {pillar} > {post}. Artist tone posts have no
+  // pillar and keep their category.
+  const pillar = pillarFor(post);
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Learn", item: `${SITE_URL}/blog` },
-      { "@type": "ListItem", position: 2, name: catLabel },
+      pillar
+        ? { "@type": "ListItem", position: 2, name: pillar.title, item: `${SITE_URL}/guides/${pillar.slug}` }
+        : { "@type": "ListItem", position: 2, name: catLabel },
       { "@type": "ListItem", position: 3, name: post.headline },
     ],
   };
@@ -233,7 +238,9 @@ export default async function PreviewBlogPost({
           <nav aria-label="Breadcrumb" className="fk-crumbs fk-caption">
             <Link href="/blog">Learn</Link>
             <span aria-hidden="true">/</span>
-            {thumb.topic === "other" ? (
+            {pillar ? (
+              <Link href={`/guides/${pillar.slug}`}>{pillar.title}</Link>
+            ) : thumb.topic === "other" ? (
               <Link href={`/blog#guides:category=${post.category}`}>
                 {catLabel.charAt(0) + catLabel.slice(1).toLowerCase()}
               </Link>

@@ -133,6 +133,7 @@ export default function HomePage() {
                         vals={pick.vals}
                         title={pick.title}
                         disp={pick.disp}
+                        color={pick.color}
                         label={block.name}
                       />
                     ))}
