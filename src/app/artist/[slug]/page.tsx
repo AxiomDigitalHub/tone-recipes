@@ -220,11 +220,9 @@ export default async function PreviewArtistDetail({
                 .map((s) => {
                   const sIdx = songs.findIndex((x) => x.slug === s.slug) + 1;
                   return (
-                    <Link
-                      key={s.slug}
-                      href={`/song/${s.slug}`}
-                      className="archive-item"
-                    >
+                    // Plain text, not a link: a song with no recipe has no
+                    // page worth indexing (its /song/ stub is noindex).
+                    <div key={s.slug} className="archive-item">
                       <div className="archive-item-num">
                         No.<br />
                         {String(sIdx).padStart(3, "0")}
@@ -236,7 +234,7 @@ export default async function PreviewArtistDetail({
                           {s.year ? ` · ${s.year}` : ""}
                         </div>
                       </div>
-                    </Link>
+                    </div>
                   );
                 })}
             </div>

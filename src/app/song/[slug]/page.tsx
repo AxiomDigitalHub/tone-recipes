@@ -29,10 +29,14 @@ export async function generateMetadata({
   const artist = getArtistBySlug(s.artist_slug);
   const title = `${s.title}${artist ? ` by ${artist.name}` : ""} — Tone Recipes`;
   const description = `Tone recipes for "${s.title}"${artist ? ` by ${artist.name}` : ""}. Signal chains across Helix, Quad Cortex, TONEX, Fractal, Kemper, and pedalboard.`;
+  // A song with no recipe yet is a thin stub: keep it out of the index but
+  // let crawlers follow its links. (One-recipe songs redirect to the recipe.)
+  const noRecipes = getRecipesBySongSlug(slug).length === 0;
   return {
     title,
     description,
     alternates: { canonical: `/song/${slug}` },
+    ...(noRecipes ? { robots: { index: false, follow: true } } : {}),
     keywords: [s.title, artist?.name, ...(s.genres ?? []), "tone recipe", "guitar tone"].filter(
       Boolean,
     ) as string[],
