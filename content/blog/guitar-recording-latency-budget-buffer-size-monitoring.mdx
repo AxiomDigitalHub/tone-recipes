@@ -114,9 +114,9 @@ The practical move is two presets. Track at 64 or 128. Mix at 512 or 1024. Flip 
 
 ## The Floor You Can't Buffer Away
 
-Here's the part that surprised me when I started measuring instead of assuming. I had it in my head that latency was a slider: drag the buffer to zero and the lag goes to zero. So I A/B'd my interface's reported round-trip at 1024 samples versus 32 samples, expecting the low setting to be a tiny fraction of the high one.
+The obvious assumption is that latency is a slider: drag the buffer to zero and the lag goes to zero. On that assumption, the round-trip at 32 samples should be a tiny fraction of the round-trip at 1024 samples.
 
-It wasn't. The high buffer reported around 48 ms; the low one reported around 5 ms, but not the near-zero I expected, because roughly 3–4 ms of that was fixed conversion and driver overhead that didn't move when the buffer did. Halving the buffer from 64 to 32 changed the total by under a millisecond. That's the law of diminishing returns made audible: once you're past the knee, you're grinding your CPU for tenths of a millisecond nobody can feel. Find the lowest *stable* buffer, not the lowest possible one, and stop there.
+It isn't. The buffer's share shrinks with the setting, but the fixed conversion and driver overhead doesn't move when the buffer does, and at low settings that floor is most of the total. Halving the buffer from 64 to 32 takes the one-way buffer time from ~1.3 ms to ~0.7 ms and leaves the floor where it was. That's the law of diminishing returns: once you're past the knee, you're grinding your CPU for tenths of a millisecond nobody can feel. Find the lowest *stable* buffer, not the lowest possible one, and stop there.
 
 ## Sample Rate Is Not the Second Lever
 
@@ -124,7 +124,7 @@ Someone always asks the obvious next question: if buffer size controls latency, 
 
 ## Palm Mutes Tell on You
 
-The other thing measuring taught me: how much latency you can hear depends on what you're playing. I ran the same rig at a deliberately ugly buffer and played two things. A slow, sustained lead line over a pad. Honestly couldn't tell it was lagging, because the notes are long and the attack is soft. Then a fast, palm-muted gallop on the low string. Instantly obvious. It felt like the chug was arriving a hair behind my hand, the way a cheap Bluetooth speaker drags a podcast a frame behind the video.
+How much latency you can hear also depends on what you're playing. Take the same rig at a deliberately ugly buffer and play two things. A slow, sustained lead line over a pad. The lag is hard to pick out, because the notes are long and the attack is soft. Then a fast, palm-muted gallop on the low string. Instantly obvious. The chug arrives a hair behind your hand, the way a cheap Bluetooth speaker drags a podcast a frame behind the video.
 
 That's the test that matters. Tight, percussive, low-string playing has a sharp transient and a fast rhythmic grid, so a few milliseconds of slip shows up as a feel that's dragging. Legato leads and ambient parts hide latency that would make a metal rhythm track unplayable. So budget for your hardest material: if you track djent or fast rhythm, you need a lower buffer than someone overdubbing swells, even on the same interface.
 

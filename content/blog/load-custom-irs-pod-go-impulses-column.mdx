@@ -91,7 +91,7 @@ The preset stores the **reference** ("use slot 12"), not the audio file. When yo
 
 So when a downloaded preset lands on your POD Go and slot 12 is empty, the IR block has nothing to load. It passes the preamp signal through with no cab. A guitar preamp with no cab sim is all upper-mid honk and top-end fizz, like a wasp trapped in a tin can. Once you've heard that fizz, you can diagnose it across the room.
 
-This tripped me up the first time I chased it, and I'll admit I looked in the wrong place for a solid ten minutes. I assumed a firmware or version mismatch, because the editor *showed* an IR name on the block, so surely it was loaded. It wasn't. The reference stores the IR's name too, and the name persists even when the file behind it is gone. The block was confidently displaying the name of an IR that didn't exist in my slots. Lesson: trust the audio, not the label.
+The obvious guess here is a firmware or version mismatch, because the editor *shows* an IR name on the block, so surely it is loaded. It isn't. The reference stores the IR's name too, and the name persists even when the file behind it is gone. The block will confidently display the name of an IR that doesn't exist in your slots. Lesson: trust the audio, not the label.
 
 ## How to Load Your Own IRs — Step by Step
 
@@ -105,7 +105,7 @@ The block now has a real cab in it and the fizz is gone.
 
 ## Why Slot Order Is the Thing That Actually Matters
 
-Because presets reference slots by number, **slot layout is a system.** If you download presets from a specific builder, load their IRs into the slots their documentation specifies. If you build your own library, pick a layout and keep it. I keep a plain-text map of which IR lives in which slot, because "slot 12 is the Blue-alnico 2x12, slot 13 is the Greenback 4x12" is the difference between a shared preset loading right and a fizzy mess.
+Because presets reference slots by number, **slot layout is a system.** If you download presets from a specific builder, load their IRs into the slots their documentation specifies. If you build your own library, pick a layout and keep it. Keep a plain-text map of which IR lives in which slot, because "slot 12 is the Blue-alnico 2x12, slot 13 is the Greenback 4x12" is the difference between a shared preset loading right and a fizzy mess.
 
 This matters most if you came from a Quad Cortex, where IRs and captures ride along *inside* the preset through the cloud and you never think about slots. POD Go, Helix, and HX Stomp all work the other way: the file and the reference are separate. That is a different contract rather than a worse one, and the fizz-with-no-cab sound is what you get when you forget it.
 

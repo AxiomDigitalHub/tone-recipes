@@ -103,9 +103,9 @@ Almost every acoustic-electric uses an under-saddle piezo pickup, and piezos hav
 | ~3 kHz | Cut 2-3 dB | The plastic "quack", the most artificial part of the piezo |
 | ~8-10 kHz | Gentle shelf up, 1-2 dB | A little air back on top, so it doesn't sound dead after the cuts |
 
-To find your exact quack frequency, do what I do with any problem tone: set a narrow EQ band to a boost, sweep it through 2-4 kHz until it sounds worst, then turn that boost into a cut. Your guitar's worst frequency is specific to your pickup; the numbers above are the starting line, not the answer. The [general guitar EQ guide](/blog/guitar-eq-guide) has the wider map if you want it, but for acoustic-through-a-DI these three moves cover most of it.
+To find your exact quack frequency, set a narrow EQ band to a boost, sweep it through 2-4 kHz until it sounds worst, then turn that boost into a cut. Your guitar's worst frequency is specific to your pickup; the numbers above are the starting line, not the answer. The [general guitar EQ guide](/blog/guitar-eq-guide) has the wider map if you want it, but for acoustic-through-a-DI these three moves cover most of it.
 
-**The thing that surprised me:** I spent an embarrassing amount of time hunting for an acoustic-simulator block, convinced the fix was *adding* a realistic body sound. It wasn't. Turning off the cab and cutting 3 dB at 300 Hz did more than any sim I tried. The fix was removing the plastic sound, not adding an acoustic one. Once the honk and quack are gone, the guitar underneath was fine the whole time.
+**The counterintuitive part:** the obvious move is to hunt for an acoustic-simulator block, on the theory that the fix is *adding* a realistic body sound. It isn't. Turning off the cab and cutting 3 dB at 300 Hz does more than a sim adds. The fix is removing the plastic sound, not adding an acoustic one. Once the honk and quack are gone, the guitar underneath turns out to have been fine the whole time.
 
 ## Step Three: A Little Compression
 

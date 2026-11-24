@@ -94,7 +94,7 @@ Now drop the frequency to 50Hz and hold the voltage at 120V. The denominator shr
 
 **60 / 50 = 1.20**
 
-A **20% increase in flux density**, with zero change in voltage. On a transformer that was already running with a modest safety margin, 20% is enough to push the core into saturation on every cycle. What saturation costs you, measured:
+A **20% increase in flux density**, with zero change in voltage. On a transformer that was already running with a modest safety margin, 20% is enough to push the core into saturation on every cycle. What saturation costs you:
 
 - **Magnetizing current rises steeply**: not 20%, but several times over, because past the knee of the saturation curve a small flux increase demands a large current increase.
 - **The core runs hotter.** That excess magnetizing current is dissipated as heat in the iron and the primary winding.
@@ -119,7 +119,7 @@ And here's the detail I didn't expect when I first ran the numbers: **100V at 50
 
 ## Under-Volting Is the Safe Direction
 
-The instinct is that under-volting a tube amp is risky, that you're starving it. Measure what happens and the risk is on the other side.
+The instinct is that under-volting a tube amp is risky, that you're starving it. Work through what happens and the risk is on the other side.
 
 Drop to 100V and:
 
@@ -135,7 +135,7 @@ The tool is a step-down transformer or voltage converter sized for the amp's sur
 
 - **If your converter has a 100V tap** (many Japanese-market and pro touring units do), use it directly on 50Hz mains. That's the V/Hz-correct point.
 - **If it only does 120V,** you're back to the over-flux condition. A small bucking transformer or a variac to trim 120V down to ~100V on 50Hz solves it. Set it once, meter it, leave it.
-- **Modeler users:** none of this applies to you. A digital amp has a switching power supply that doesn't care about mains frequency, and no output transformer to saturate. This is a tube-amp-with-an-iron-power-transformer problem. That's the one win the modeler crowd gets to hold over us on tour.
+- **Modeler users:** none of this applies to you. A digital amp has a switching power supply that doesn't care about mains frequency, and no output transformer to saturate. This is a tube-amp-with-an-iron-power-transformer problem. That's the one win the modeler crowd gets to hold over the tube-amp crowd on tour.
 
 Meter the output of your converter before you plug the amp in. You want to see roughly 100V on the secondary when you're on 50Hz. If you see 120V, you have fixed only the voltage problem, and the frequency was the part doing the damage. The direction map of which countries need stepping which way is in the [touring voltage map](/blog/touring-guitarist-voltage-map-step-up-step-down); the V/Hz correction is the refinement you layer on top once you know you're landing on 50Hz.
 
