@@ -1,9 +1,9 @@
 ---
-title: "Axe-Fx III Firmware 33 Will Run NAM A2 Captures: A Four-Channel NAM Player Block, TONE3000 Inside Axe-Edit, and a Mark I Cab-Bank Warning"
+title: "Axe-Fx III Firmware 33 Runs NAM A2 Captures: A Four-Channel NAM Player Block, TONE3000 Inside Axe-Edit, and a Mark I Cab-Bank Warning"
 date: "2026-11-02"
 category: "firmware-update"
 slug: "fractal-axe-fx-iii-firmware-33-nam-a2-player-tone3000-axe-edit"
-excerpt: "TONE3000 and Fractal Audio announced on October 30 that Axe-Fx III firmware 33 adds a NAM Player block that loads NAM A2 captures, plus TONE3000 browsing inside Axe-Edit III 1.15.03. Firmware 33 is not on Fractal's download page yet (32.06 is still current). Each NAM Player holds four captures across four channels, A2 Full allows two blocks per preset, and Mark I owners lose User Cab Bank 2 to capture storage."
+excerpt: "TONE3000 and Fractal Audio announced on October 30 that Axe-Fx III firmware 33 adds a NAM Player block that loads NAM A2 captures, plus TONE3000 browsing inside Axe-Edit III 1.15.03. Updated November 23: Fractal's download page now lists firmware 33.01, dated October 31. Per the announcement, each NAM Player holds four captures across four channels, A2 Full allows two blocks per preset, and Mark I owners lose User Cab Bank 2 to capture storage."
 source_url: "https://www.tone3000.com/blog/fractal-axe-fx-iii-nam-a2"
 image_url: ""
 author_slug: "viktor-kessler"
@@ -11,7 +11,9 @@ author_slug: "viktor-kessler"
 
 On October 30, TONE3000 published a partnership announcement saying Axe-Fx III firmware 33 will run Neural Amp Modeler A2 captures natively, with TONE3000's library browsable from inside Axe-Edit III. Of everything in the NAM A2 rollout so far, this is the one I didn't expect. Fractal built its reputation on modeling amp circuits, not capturing them. Now its flagship will run captures and models side by side, in the same preset.
 
-Before anything else, here is the status: **firmware 33 is announced, not released.** TONE3000's post calls it upcoming. As of today, November 2, Fractal's Axe-Fx III download page still lists 32.06, dated June 25. Axe-Edit III 1.15.03, the editor version TONE3000 lists as the minimum, is already posted. Without the firmware, though, it gives you nothing NAM-related to load. Everything below comes from the announcement. I'll check it against Fractal's own release notes when 33.0 ships.
+**Update, November 23, 2026: firmware 33 is out.** Fractal's [Axe-Fx III downloads page](https://www.fractalaudio.com/axe-fx-iii-downloads/) lists **firmware 33.01**, marked compatible with all Axe-Fx III models and dated **October 31, 2026**. When this post first went up on November 2 it said the page still showed 32.06 and that firmware 33 was unreleased. That status was wrong or out of date, and it has been corrected here.
+
+One limit on what follows: the NAM Player details below come from TONE3000's October 30 announcement, which described the firmware as upcoming. The downloads page carries no release notes, and we have not yet checked these details against Fractal's own notes for 33.01. Confirm the block limits on your unit before you build a set around them.
 
 ## What Firmware 33 Adds, Per the Announcement
 
@@ -78,17 +80,17 @@ It doesn't make Fractal's own modeling less relevant. The amp models still respo
 ## What I'd Do Now
 
 1. **Mark I owners:** back up User Cab Bank 2 today and map which presets use it.
-2. **Everyone:** don't install anything NAM-related until 33.0 appears on Fractal's [Axe-Fx III downloads page](https://www.fractalaudio.com/axe-fx-iii-downloads/) with its release notes. Axe-Edit 1.15.03 is already out, but by itself it doesn't add NAM support.
-3. **When it ships:** build one preset. One NAM Player, four channels from one capture author, the Cab block set correctly for the capture type, levels matched. Test it before you add a second block or a hybrid Amp path. One variable at a time.
+2. **Everyone:** firmware 33.01 is on Fractal's [Axe-Fx III downloads page](https://www.fractalaudio.com/axe-fx-iii-downloads/). Fractal's instructions there are to update Axe-Edit first, then install the firmware with Fractal-Bot from the Tools menu. Back up your presets and user cabs before you do, and read the DynaCabs warning on that page.
+3. **Once you're on 33:** build one preset. One NAM Player, four channels from one capture author, the Cab block set correctly for the capture type, levels matched. Test it before you add a second block or a hybrid Amp path. One variable at a time.
 
-I'll cover the full firmware 33 release notes, including Cygnus X-4, the Drive remaster, and the new DynaCabs, when Fractal posts them.
+A follow-up will check the NAM Player limits above against Fractal's release notes for 33.01.
 
-*Announcement via [TONE3000](https://www.tone3000.com/blog/fractal-axe-fx-iii-nam-a2) (October 30, 2026). Firmware 33 had not been posted on Fractal Audio's download page as of November 2, 2026, which still listed 32.06.*
+*Announcement via [TONE3000](https://www.tone3000.com/blog/fractal-axe-fx-iii-nam-a2) (October 30, 2026). Release status via Fractal Audio's download page, which lists firmware 33.01 dated October 31, 2026. Corrected November 23, 2026.*
 
 ## Dig Deeper on Fader & Knob
 
 - [NAM Architecture 2 (A2) explained](/news/tone3000-nam-architecture-2-a2-open-source-modeling): why A2 has Full and Lite variants.
-- [Axe-Fx III 32.06: Brit JVM Crunch models](/news/axe-fx-iii-32-06-brit-jvm-crunch): the current shipping firmware.
+- [Axe-Fx III 32.06: Brit JVM Crunch models](/news/axe-fx-iii-32-06-brit-jvm-crunch): the firmware before 33.
 - [HeadRush 5.2: two NAM A2 captures per rig](/news/headrush-5-2-two-nam-a2-blocks-calibration-metadata): another implementation of multiple captures.
 - [Captures vs. models](/blog/quad-cortex-captures-vs-models): what a snapshot can and can't do.
 - [Phase cancellation in dual-amp presets](/blog/phase-cancellation-dual-amp-modeler-presets): required before any hybrid Amp + NAM preset.

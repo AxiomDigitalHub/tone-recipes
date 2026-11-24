@@ -1,60 +1,47 @@
 ---
-title: "It's Official: Digital Modelers Outsold Tube Amps on Reverb in 2025"
-seo_title: "Digital Modelers Outsold Tube Amps on Reverb in 2025"
+title: "Reverb: Modelers Top the Charts, but Traditional Amps Still Outsell Them"
+seo_title: "Reverb: Traditional Amps Still Outsell Modelers"
 date: "2026-03-20"
 category: "industry"
 slug: "modelers-outsell-tube-amps-2025-reverb-data"
-excerpt: "Reverb's annual market report confirms what many suspected: digital modelers and profilers accounted for more transactions than traditional tube amplifiers for the first time in the platform's history."
-source_url: "https://reverb.com/news"
+excerpt: "Reverb's Joel Handley told Guitar World that the Neural DSP Quad Cortex brought in more revenue in 2024 than any other piece of gear on the marketplace, and that tube and traditional solid-state amps still outpace modelers as a category. This post was corrected on November 23, 2026; the original headline claimed the opposite."
+source_url: "https://www.guitarworld.com/gear/trends-behind-the-used-guitar-gear-market"
 image_url: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80"
 ---
 
-Reverb has published its 2025 annual marketplace report, and one data point stands out above the rest: digital modelers and profilers outsold traditional tube amplifiers in transaction volume for the first time since the platform launched in 2013.
+**Correction, November 23, 2026.** The original version of this post said digital modelers outsold tube amps on Reverb in 2025, and gave growth percentages, average prices and a ranked top-five list. None of those figures appear in the source we can find, and the headline claim is contradicted by Reverb's own spokesperson. The post has been rewritten around what Reverb actually said. The URL keeps its original wording so existing links still work.
 
-## The Numbers
+Two things are true about amp modelers on Reverb, and they point in different directions.
 
-According to Reverb's data, modeler and profiler transactions grew 34% year-over-year in 2025, while tube amp sales declined 8%. When you factor in multi-effects processors that include amp modeling (like the Line 6 HX Stomp and Boss GT-1000), the gap widens further.
+The first: a modeler was the single biggest earner on the site. In a [Guitar World interview published December 25, 2025](https://www.guitarworld.com/gear/trends-behind-the-used-guitar-gear-market), Reverb senior content manager Joel Handley said amp modelers "have exploded in popularity," and that in 2024 more revenue came from the Neural DSP Quad Cortex than from any other piece of gear.
 
-The five most-transacted modelers on Reverb in 2025 were:
+The second: modelers as a category are still behind. In the same answer Handley said that tube and traditional solid-state amps still outpace modelers on the whole, even though individual modelers can be bestsellers. His summary was that traditional amps "aren't going anywhere."
 
-1. Line 6 HX Stomp / HX Stomp XL
-2. Neural DSP Quad Cortex
-3. Line 6 Helix Floor / Helix LT
-4. Kemper Profiler (all versions)
-5. Fractal Audio FM3
+## How both can be true
 
-The HX Stomp family's dominance is notable -- its combination of compact size, sub-$700 price point, and full Helix-quality amp models has made it the entry point for a generation of players moving into the modeler world.
+Reverb did not explain the gap in the interview. This is our reading of it, and it comes down to how the two markets are shaped.
 
-## What Is Driving the Shift
+The modeler market is concentrated. A handful of products (Quad Cortex, the Helix family, Kemper, Fractal's FM units, TONEX) take most of the sales, so any one of them can post a very large number.
 
-Several factors converged in 2025 to accelerate this trend:
+The amp market is spread thin. There are hundreds of combos and heads across decades of production, new and used. No single Deluxe Reverb reissue or Marshall head will out-earn a Quad Cortex, but added together they still move more than modelers do.
 
-**Price accessibility.** The average transaction price for a used modeler on Reverb was $485, compared to $680 for a tube amp. As modelers have matured, the used market has become robust enough to offer genuine value. A used HX Stomp at $350 replaces thousands of dollars worth of amps and pedals.
+Price matters too. Handley's figure is revenue. A product that sells for well over a thousand dollars climbs a revenue chart with fewer sales than a $400 combo needs.
 
-**Apartment-friendly playing.** The continued urbanization trend means more players live in spaces where cranking a tube amp is not an option. Modelers with headphone outputs and USB audio interfaces solve this problem completely.
+So "a modeler is Reverb's top earner" and "modelers outsold tube amps" are different claims. The first is what Reverb said. The second is not.
 
-**Touring economics.** Fly dates and international touring have made lightweight, reliable rigs essential. A Quad Cortex in a backpack replaces a pedalboard, amp head, and cabinet on every flight.
+## What this means if you play a modeler
 
-**Quality parity.** The modeling technology from the current generation -- Helix Stadium's Agoura engine, the Quad Cortex's neural captures, Kemper's Profiling 2.0 -- has reached a point where the differences from tube amps are genuinely difficult to detect in a live or recorded context.
+- **You are not in a niche.** The best-earning product on the largest used-gear marketplace is a floor modeler. Presets, captures, IRs and support all follow sales.
+- **The tube amp is not on clearance.** If you were waiting for a wave of cheap used tube amps from players switching to digital, Reverb's own read is that the traditional amp market is holding.
 
-## Tube Amps Are Not Going Away
+## What Reverb did not say
 
-Before anyone sounds the alarm: tube amps are not dying. Reverb's data also shows that vintage and boutique tube amp prices remain strong, with certain categories (Fender blackface amps, Marshall Plexi variants, boutique builders like Friedman and Revv) actually increasing in average transaction price.
-
-What is happening is a bifurcation. Tube amps are becoming more of a premium, studio, and collector market, while modelers are becoming the default choice for working musicians, home players, and anyone prioritizing versatility and practicality.
-
-## What This Means for Players
-
-If you are a modeler player, this trend is unambiguously good news. A growing market means more competition between manufacturers, faster innovation, better products, and a deeper ecosystem of presets, captures, and community resources. The golden age of digital modeling is not ending -- it is accelerating.
-
-If you are a tube amp player, this changes nothing about your tone. A great amp is a great amp regardless of market trends. But it does mean the used tube amp market may offer some bargains as players sell their analog rigs to fund modeler purchases.
-
-Either way, the data tells a clear story: the modeler era is no longer emerging. It has arrived.
+The interview gives no year-over-year growth rate for modelers, no average transaction prices, and no ranked list of best-selling modelers. If you see those numbers quoted, including in the earlier version of this page, treat them as unsourced.
 
 ## Dig Deeper on Fader & Knob
 
-- Curious about the modeler vs. tube debate? We put them head-to-head in our [modeler vs. tube amp shootout](/blog/modeler-vs-tube-amp-shootout).
-- Thinking about making the switch? Start with [how to dial in your modeler tone](/blog/how-to-dial-in-modeler-tone) — it is the guide we wish we had when we started.
-- On a budget? Our [$500 gigging rig challenge](/blog/500-dollar-gigging-rig) shows what is possible with a modeler and smart shopping.
-- Going FRFR? Read [FRFR vs. guitar cab for modelers](/blog/frfr-vs-guitar-cab-for-modelers) before you buy a speaker.
-- Browse all our [tone recipes](/browse) and filter by your platform.
+- The comparison itself: our [modeler vs. tube amp shootout](/blog/modeler-vs-tube-amp-shootout).
+- Starting out on a modeler: [how to dial in your modeler tone](/blog/how-to-dial-in-modeler-tone).
+- On a budget: the [$500 gigging rig challenge](/blog/500-dollar-gigging-rig).
+- Choosing a speaker: [FRFR vs. guitar cab for modelers](/blog/frfr-vs-guitar-cab-for-modelers).
+- The whole year in context: [2026 in guitar modelers, amps and pedals](/blog/guitar-modeler-amp-pedal-year-in-review-2026).
