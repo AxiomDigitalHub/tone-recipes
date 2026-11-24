@@ -1268,3 +1268,183 @@
   text-transform: none;
   letter-spacing: normal;
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   Home (step 4). Reference: Main.html.
+   ══════════════════════════════════════════════════════════════════════ */
+.fk-preview .fk-home-hero { padding: 12px; }
+.fk-preview .fk-home-hero .fk-band { padding: 96px 0; }
+.fk-preview .fk-home-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr));
+  gap: 64px;
+  align-items: center;
+}
+.fk-preview .fk-home-hero-copy { display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+.fk-preview .fk-home-h1 {
+  margin: 0;
+  font-family: var(--fk-sans);
+  font-size: 64px;
+  line-height: 66px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--fk-on-inverse);
+  text-wrap: balance;
+}
+.fk-preview .fk-home-hero-copy .fk-lead { color: var(--fk-on-inverse-2); max-width: 520px; }
+.fk-preview .fk-home-hero-copy .fk-body-sm { color: var(--fk-on-inverse-2); }
+.fk-preview .fk-home-hero-copy .fk-body-sm a {
+  color: var(--fk-on-inverse);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.fk-preview .fk-home-search { border-color: var(--fk-paper); }
+.fk-preview .fk-home-hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.fk-preview .fk-home-hero-side { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.fk-preview .fk-home-hero-side > .fk-caption { color: var(--fk-on-inverse-2); }
+.fk-preview .fk-home-card { text-decoration: none; }
+.fk-preview .fk-home-card:hover { opacity: 0.96; }
+.fk-preview .fk-home-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.fk-preview .fk-home-card-head > div { display: flex; flex-direction: column; gap: 2px; }
+.fk-preview .fk-home-card-count { color: var(--fk-ink-3); }
+.fk-preview .fk-home-card-gear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.fk-preview .fk-home-card-amp {
+  border-top: 1px solid var(--fk-line-2);
+  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.fk-preview .fk-home-card-ampname { color: var(--fk-ink); font-weight: 600; }
+.fk-preview .fk-home-card-dials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 10px;
+  justify-content: space-between;
+}
+
+.fk-preview .fk-home-section { padding-top: 96px; }
+.fk-preview .fk-home-stack { display: flex; flex-direction: column; gap: 32px; }
+.fk-preview .fk-home-sectionhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.fk-preview .fk-home-sectionintro { display: flex; flex-direction: column; gap: 8px; }
+.fk-preview .fk-home-tones { grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr)); }
+.fk-preview .fk-home-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 32px 48px;
+}
+.fk-preview .fk-home-steps li { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.fk-preview .fk-home-wash { background: var(--fk-wash); padding: 96px 0; }
+.fk-preview .fk-home-guides {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 24px 40px;
+}
+.fk-preview .fk-home-guide-art { background: var(--fk-paper); }
+
+.fk-preview .fk-home-news { padding: 96px 12px 0; }
+.fk-preview .fk-home-news .fk-band { padding: 64px 0; }
+.fk-preview .fk-home-news-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: center;
+  justify-content: space-between;
+}
+.fk-preview .fk-home-news-copy { display: flex; flex-direction: column; gap: 8px; max-width: 520px; }
+.fk-preview .fk-home-news-copy .fk-t2 { color: var(--fk-on-inverse); }
+.fk-preview .fk-home-news-copy .fk-body { color: var(--fk-on-inverse-2); }
+.fk-preview .fk-home-news .newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.fk-preview .fk-home-news .newsletter-input {
+  height: 48px;
+  width: 280px;
+  max-width: 100%;
+  padding: 0 16px;
+  border: 1px solid #70767d;
+  border-radius: var(--fk-r-md);
+  corner-shape: squircle;
+  background: #151618;
+  color: var(--fk-on-inverse);
+  font-family: var(--fk-sans);
+  font-size: 16px;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.fk-preview .fk-home-news .newsletter-input::placeholder { color: #8f959c; opacity: 1; }
+.fk-preview .fk-home-news .newsletter-submit {
+  height: 48px;
+  padding: 0 22px;
+  border-radius: var(--fk-r-pill);
+  border: 0;
+  /* The one accent button on this screen. Text on amber is ink. */
+  background: var(--fk-accent);
+  color: var(--fk-ink);
+  font-family: var(--fk-sans);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  cursor: pointer;
+}
+.fk-preview .fk-home-news .newsletter-confirm,
+.fk-preview .fk-home-news .newsletter-error {
+  margin: 0;
+  font-family: var(--fk-sans);
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--fk-on-inverse);
+}
+.fk-preview .fk-home-news .newsletter-error { flex-basis: 100%; font-size: 14px; }
+
+@media (max-width: 640px) {
+  .fk-preview .fk-home-hero { padding: 8px; }
+  .fk-preview .fk-home-hero .fk-band { padding: 48px 0; }
+  .fk-preview .fk-home-hero-grid { gap: 40px; }
+  .fk-preview .fk-home-h1 { font-size: 40px; line-height: 44px; letter-spacing: -0.03em; }
+  .fk-preview .fk-home-section { padding-top: 64px; }
+  .fk-preview .fk-home-wash { padding: 64px 0; }
+  .fk-preview .fk-home-news { padding: 64px 8px 0; }
+  .fk-preview .fk-home-news .fk-band { padding: 40px 0; }
+  .fk-preview .fk-home-news .newsletter-input { width: 100%; }
+  .fk-preview .fk-panel { padding: 20px; }
+  .fk-preview .fk-home-card-gear svg { height: 104px; width: auto; }
+}
+.fk-preview .fk-home-news .newsletter-form { flex: 0 1 auto; }
+@media (min-width: 641px) {
+  .fk-preview .fk-home-news .newsletter-form { flex-wrap: nowrap; flex-shrink: 0; }
+}
+@media (max-width: 640px) {
+  .fk-preview .fk-home-card-dials { justify-content: flex-start; gap: 14px 18px; }
+}
