@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
@@ -16,7 +15,8 @@ import {
   NEWS_CATEGORIES,
   type NewsCategory,
 } from "@/lib/news";
-import { getNewsImageSync } from "@/lib/unsplash";
+import { newsArt, sourceHost as hostOf } from "@/lib/news-art";
+import NewsPicture from "@/components/news/NewsPicture";
 
 const SITE_URL = "https://faderandknob.com";
 
@@ -70,10 +70,8 @@ export default async function PreviewNewsArticle({
     .filter((p) => p.category === post.category && p.slug !== post.slug)
     .slice(0, 3);
 
-  const sourceHost =
-    post.source_url && !post.source_url.includes("faderandknob")
-      ? new URL(post.source_url).hostname.replace(/^www\./, "")
-      : null;
+  const sourceHost = hostOf(post.source_url);
+  const art = newsArt(post);
 
   const articleLd = {
     "@context": "https://schema.org",
@@ -96,7 +94,7 @@ export default async function PreviewNewsArticle({
   };
 
   return (
-    <div className="container">
+    <div className="fk-guide fk-newsarticle">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
@@ -106,118 +104,77 @@ export default async function PreviewNewsArticle({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
-      <article className="recipe">
-        <div className="recipe-crumbs">
-          <Link href="/">Home</Link>
-          <span className="sep">/</span>
-          <Link href="/news">News</Link>
-          <span className="sep">/</span>
-          <Link href={`/news?category=${post.category}`}>{catLabel}</Link>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>{post.title}</span>
-        </div>
-
-        <div className={`post-cover ${post.image_url ? "has-image" : "no-image"}`}>
-          <Image
-            src={getNewsImageSync(post.slug, post.category, post.image_url || undefined)}
-            alt={post.title}
-            fill
-            priority
-            unoptimized
-            sizes="(max-width: 960px) 100vw, 960px"
-            className="post-cover-img"
-          />
-          <div className="post-cover-scrim" aria-hidden="true" />
-
-          <div className="post-cover-inner">
-            <div className="post-cover-masthead">
-              <span className="pill">{catLabel}</span>
-              <span>{formatDate(post.date)}</span>
-              {post.readingTime && (
-                <>
-                  <span>·</span>
-                  <span>{post.readingTime}</span>
-                </>
-              )}
-              {sourceHost && (
-                <>
-                  <span>·</span>
-                  <span>via {sourceHost}</span>
-                </>
-              )}
-            </div>
-
-            <div className="post-cover-headline">
-              <h1 className="post-title display">{post.title}</h1>
-              <p className="post-dek">{post.excerpt}</p>
-            </div>
+      <article>
+        <section className="fk-wrap fk-guide-top">
+          <nav aria-label="Breadcrumb" className="fk-crumbs fk-caption">
+            <Link href="/news">News</Link>
+            <span aria-hidden="true">/</span>
+            <Link href={`/news?category=${post.category}`}>
+              {catLabel.charAt(0) + catLabel.slice(1).toLowerCase()}
+            </Link>
+          </nav>
+          <div className="fk-newsarticle-head">
+            <h1 className="fk-guide-h1">{post.title}</h1>
+            <p className="fk-lead">{post.excerpt}</p>
+            <p className="fk-caption">
+              <span className="fk-data">{formatDate(post.date)}</span>
+              {post.readingTime && <> · {post.readingTime}</>}
+              {sourceHost && <> · via {sourceHost}</>}
+            </p>
           </div>
-        </div>
+          <NewsPicture art={art} size="article" />
+        </section>
 
-        <div className="post-body">
-          <MDXRemote
-            source={post.content}
-            components={{ ...settingsMdxComponents, ...blogMdxComponents }}
-            options={{
-              mdxOptions: {
-                remarkPlugins: [remarkGfm],
-                rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: "wrap" }]],
-              },
-            }}
-          />
-        </div>
+        <section className="fk-wrap fk-newsarticle-body">
+          <div className="fk-prose">
+            <MDXRemote
+              source={post.content}
+              components={{ ...settingsMdxComponents, ...blogMdxComponents }}
+              options={{
+                mdxOptions: {
+                  remarkPlugins: [remarkGfm],
+                  rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: "wrap" }]],
+                },
+              }}
+            />
+          </div>
 
-        {sourceHost && post.source_url && (
-          <aside className="post-source">
-            <p>
+          {sourceHost && post.source_url && (
+            <p className="fk-body-sm fk-newsarticle-source">
               Originally reported by{" "}
-              <a href={post.source_url} target="_blank" rel="noopener noreferrer">
+              <a href={post.source_url} target="_blank" rel="noopener noreferrer" className="fk-link">
                 {sourceHost}
               </a>
+              .
             </p>
-          </aside>
-        )}
+          )}
+        </section>
 
         {related.length > 0 && (
-          <section className="news-related">
-            <header className="how-head">
-              <span className="section-rule" />
-              <h2 className="display">Related</h2>
-              <Link href="/news" className="section-meta">
-                All news →
-              </Link>
-            </header>
-            <div className="news-grid">
-              {related.map((p) => {
-                const relLabel =
-                  NEWS_CATEGORIES[p.category as NewsCategory] ?? p.category;
-                return (
-                  <Link key={p.slug} href={`/news/${p.slug}`} className="news-card">
-                    <div className="news-card-image">
-                      <Image
-                        src={getNewsImageSync(
-                          p.slug,
-                          p.category,
-                          p.image_url || undefined,
-                        )}
-                        alt={p.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, 33vw"
-                        style={{ objectFit: "cover" }}
-                      />
-                    </div>
-                    <div className="news-card-body">
-                      <div className="news-card-meta">
-                        <span>{relLabel}</span>
-                        <span> · </span>
-                        <span>{formatDate(p.date)}</span>
+          <section className="fk-wrap fk-guide-more">
+            <div className="fk-learn-rule">
+              <div className="fk-recipe-sectionhead">
+                <h2 className="fk-t2">Related news</h2>
+                <Link href="/news" className="fk-link fk-label">
+                  All news
+                </Link>
+              </div>
+              <ul className="fk-news-rows">
+                {related.map((p) => (
+                  <li key={p.slug}>
+                    <Link href={`/news/${p.slug}`} className="fk-news-row">
+                      <NewsPicture art={newsArt(p)} size="row" />
+                      <div className="fk-news-rowbody">
+                        <p className="fk-caption">
+                          <span className="fk-data">{formatDate(p.date)}</span>
+                        </p>
+                        <h3 className="fk-t3">{p.title}</h3>
+                        <p className="fk-body-sm">{p.excerpt}</p>
                       </div>
-                      <h3 className="news-card-title">{p.title}</h3>
-                      <p className="news-card-dek">{p.excerpt}</p>
-                    </div>
-                  </Link>
-                );
-              })}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
         )}

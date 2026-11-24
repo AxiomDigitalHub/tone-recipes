@@ -21,6 +21,13 @@ export interface NewsPost {
   excerpt: string;
   source_url: string;
   image_url: string;
+  /**
+   * Credit line for `image_url`. The News image rule (redesign handoff):
+   * a photo runs only when it is the maker's own press photo, taken from
+   * the maker's site or press release, and carries a credit. An image_url
+   * with no credit is not shown.
+   */
+  image_credit?: string;
   readingTime: string;
 }
 
@@ -60,6 +67,7 @@ export function getNewsPostBySlug(slug: string): NewsPostWithContent | null {
     excerpt: data.excerpt ?? "",
     source_url: data.source_url ?? "",
     image_url: data.image_url ?? "",
+    image_credit: data.image_credit || undefined,
     readingTime: stats.text,
     content,
   };
