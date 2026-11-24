@@ -5,6 +5,7 @@ import { getArtistBySlug, getRecipeBySlug, getRecipesBySongSlug, getSongBySlug, 
 import { songHref } from "@/lib/song-href";
 import { browseIndexing } from "@/lib/browse-seo";
 import { recipeH1Text, recipeSeoDescription, recipeSeoTitle } from "@/lib/recipe-seo";
+import { getBandName } from "@/lib/song-band";
 
 const root = path.resolve(__dirname, "..");
 
@@ -84,5 +85,19 @@ describe("SEO fix 1: recipe titles and descriptions", () => {
     const artist = getArtistBySlug(song!.artist_slug);
     expect(recipeSeoTitle(r, song, artist)).toBe("Pride and Joy Guitar Tone (Stevie Ray Vaughan): Helix Preset");
     expect(recipeH1Text(r, song, artist)).toBe("Pride and Joy by Stevie Ray Vaughan: guitar tone recipe");
+  });
+
+  it("shows the band, with the guitarist, for band recipes", () => {
+    const r = getRecipeBySlug("gilmour-comfortably-numb-solo")!;
+    const song = getSongBySlug(r.song_slug);
+    const artist = getArtistBySlug(song!.artist_slug);
+    expect(recipeSeoTitle(r, song, artist)).toBe("Comfortably Numb Solo Guitar Tone (Pink Floyd): Helix Preset");
+    expect(recipeH1Text(r, song, artist)).toBe("Comfortably Numb by Pink Floyd (David Gilmour): solo tone recipe");
+    expect(recipeSeoDescription(r, song, artist)).toContain("Pink Floyd's Comfortably Numb solo tone");
+  });
+
+  it("finds the band when the title has a subtitle", () => {
+    const song = getSongBySlug("my-own-summer-deftones")!;
+    expect(getBandName(song, getArtistBySlug(song.artist_slug))).toBe("Deftones");
   });
 });

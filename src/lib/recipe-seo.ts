@@ -1,4 +1,5 @@
 import type { Artist, Song, ToneRecipe } from "@/types/recipe";
+import { getBandName } from "@/lib/song-band";
 
 /**
  * SEO title, H1 and meta description for /recipe/[slug].
@@ -10,6 +11,10 @@ import type { Artist, Song, ToneRecipe } from "@/types/recipe";
  *
  * Recipe titles have NO "| Fader & Knob" suffix: with it they ran 70 to 88
  * characters and got cut off in results. Google already shows the site name.
+ *
+ * `artist.name` is the guitarist (David Gilmour), so the band (Pink Floyd)
+ * comes from the song via getBandName. People search the band more often
+ * than the guitarist, so the band leads wherever both are shown.
  */
 
 /** Recipe titles must fit in this many characters. */
@@ -50,20 +55,40 @@ function join(...parts: string[]): string {
   return parts.filter(Boolean).join(" ");
 }
 
+/** The band, or null for a solo artist (or no song). */
+export function recipeBand(song: Song | undefined, artist: Artist | undefined): string | null {
+  if (!song) return null;
+  const band = getBandName(song, artist);
+  return band && band !== artist?.name ? band : null;
+}
+
+/** The names to show, band first: "Pink Floyd, David Gilmour" and so on. */
+function nameOptions(song: Song | undefined, artist: Artist | undefined): string[] {
+  const band = recipeBand(song, artist);
+  if (band && artist) return [`${band}, ${artist.name}`, band];
+  if (band) return [band];
+  if (artist) return [artist.name];
+  return [];
+}
+
 /** The ordered title candidates, before the length check. */
 export function recipeSeoTitleCandidates(
   recipe: ToneRecipe,
-  song: Pick<Song, "title"> | undefined,
-  artist: Pick<Artist, "name"> | undefined,
+  song: Song | undefined,
+  artist: Artist | undefined,
 ): string[] {
   if (!song) return [recipe.title];
   const preset = recipe.platform_translations?.helix ? "Helix Preset" : "Preset";
   const head = `${join(song.title, recipePart(recipe))} Guitar Tone`;
   const list: string[] = [];
-  if (artist) {
-    list.push(`${head} (${artist.name}): ${preset} and Settings`);
-    list.push(`${head} (${artist.name}): ${preset}`);
+  const names = nameOptions(song, artist);
+  for (const n of names) {
+    list.push(`${head} (${n}): ${preset} and Settings`);
+    list.push(`${head} (${n}): ${preset}`);
   }
+  // Long song names: drop "Guitar" before dropping the band.
+  const shortHead = `${join(song.title, recipePart(recipe))} Tone`;
+  for (const n of names) list.push(`${shortHead} (${n}): ${preset}`);
   list.push(`${head}: ${preset} and Settings`);
   list.push(`${head}: ${preset}`);
   list.push(recipe.title);
@@ -73,8 +98,8 @@ export function recipeSeoTitleCandidates(
 /** First candidate that fits in RECIPE_TITLE_MAX; else the recipe name. */
 export function recipeSeoTitle(
   recipe: ToneRecipe,
-  song: Pick<Song, "title"> | undefined,
-  artist: Pick<Artist, "name"> | undefined,
+  song: Song | undefined,
+  artist: Artist | undefined,
 ): string {
   const list = recipeSeoTitleCandidates(recipe, song, artist);
   return list.find((c) => c.length <= RECIPE_TITLE_MAX) ?? recipe.title;
@@ -82,27 +107,30 @@ export function recipeSeoTitle(
 
 /**
  * The two lines of the H1: the song as the large line, then
- * "by {Artist}: {part} tone recipe" ("guitar" for a full-song recipe).
+ * "by {Band} ({Guitarist}): {part} tone recipe", or "by {Artist}: ..." for a
+ * solo artist ("guitar" for a full-song recipe).
  */
 export function recipeH1(
   recipe: ToneRecipe,
-  song: Pick<Song, "title"> | undefined,
-  artist: Pick<Artist, "name"> | undefined,
+  song: Song | undefined,
+  artist: Artist | undefined,
 ): { main: string; sub: string } {
   const part = recipePart(recipe).toLowerCase() || "guitar";
   const main = song?.title ?? recipe.title;
-  const sub = artist ? `by ${artist.name}: ${part} tone recipe` : `${part} tone recipe`;
+  const band = recipeBand(song, artist);
+  const by = band && artist ? `${band} (${artist.name})` : (band ?? artist?.name);
+  const sub = by ? `by ${by}: ${part} tone recipe` : `${part} tone recipe`;
   return { main, sub };
 }
 
 /** H1 as one plain string, for audits. */
 export function recipeH1Text(
   recipe: ToneRecipe,
-  song: Pick<Song, "title"> | undefined,
-  artist: Pick<Artist, "name"> | undefined,
+  song: Song | undefined,
+  artist: Artist | undefined,
 ): string {
   const { main, sub } = recipeH1(recipe, song, artist);
-  return artist ? `${main} ${sub}` : `${main}: ${sub}`;
+  return sub.startsWith("by ") ? `${main} ${sub}` : `${main}: ${sub}`;
 }
 
 /** First amp in the chain, with anything in brackets removed. */
@@ -114,6 +142,11 @@ export function recipeAmpName(recipe: ToneRecipe): string | undefined {
     .replace(/\s{2,}/g, " ")
     .trim();
   return name || undefined;
+}
+
+/** "Pink Floyd's", "Guns N' Roses'". */
+function possessive(name: string): string {
+  return /s$/i.test(name) ? `${name}'` : `${name}'s`;
 }
 
 /** "a" or "an" for the amp name (an Ampeg, a Fender). */
@@ -133,8 +166,8 @@ function introFallback(description: string, max: number): string {
 
 export function recipeSeoDescription(
   recipe: ToneRecipe,
-  song: Pick<Song, "title"> | undefined,
-  artist: Pick<Artist, "name"> | undefined,
+  song: Song | undefined,
+  artist: Artist | undefined,
 ): string {
   const platforms = PLATFORM_SHORT.filter(([id]) => recipe.platform_translations?.[id]).map(
     ([, short]) => short,
@@ -150,11 +183,22 @@ export function recipeSeoDescription(
       : shown.length === 1
         ? shown[0]
         : `${shown.slice(0, -1).join(", ")} and ${shown[shown.length - 1]}`;
-  const part = recipePart(recipe).toLowerCase();
-  const lead = `${artist.name}'s ${join(song.title, part)} tone on ${platformList}: ${article(amp)} ${amp}, exact settings`;
-  const full = `${lead} and the full signal chain.`;
-  if (full.length <= RECIPE_DESCRIPTION_MAX) return full;
-  const short = `${lead}.`;
-  if (short.length <= RECIPE_DESCRIPTION_MAX) return short;
+  const songPart = join(song.title, recipePart(recipe).toLowerCase());
+  const tail = `on ${platformList}: ${article(amp)} ${amp}, exact settings`;
+  const band = recipeBand(song, artist);
+  // Band first, with the guitarist where it fits:
+  // "Pink Floyd's Comfortably Numb solo tone, played by David Gilmour, on ..."
+  const leads = band
+    ? [
+        `${possessive(band)} ${songPart} tone, played by ${artist.name}, ${tail}`,
+        `${possessive(band)} ${songPart} tone ${tail}`,
+      ]
+    : [`${possessive(artist.name)} ${songPart} tone ${tail}`];
+  // Keeping a name beats keeping "and the full signal chain".
+  for (const lead of leads) {
+    for (const text of [`${lead} and the full signal chain.`, `${lead}.`]) {
+      if (text.length <= RECIPE_DESCRIPTION_MAX) return text;
+    }
+  }
   return introFallback(recipe.description, RECIPE_DESCRIPTION_MAX);
 }
