@@ -72,11 +72,11 @@ faq:
       reliable default.
 ---
 
-Among the questions guitarists ask about signal chain order, the delay-versus-reverb sequence is one of the few where there's a genuine default — and a small set of well-defined reasons to break it. This post gives the standard answer first, explains why it works, and then maps the exceptions so you can decide which arrangement serves the sound you're after.
+Among the questions guitarists ask about signal chain order, the delay-versus-reverb sequence is one of the few where there's a clear default and a small set of well-defined reasons to break it. The standard answer, the reason it works, and the exceptions together let you decide which arrangement serves the sound you're after.
 
 ## Should Reverb Go Before or After Delay?
 
-**The default: delay first, reverb last.** Put the delay earlier in the chain and the reverb at the very end, and each delay repeat gets wrapped in its own reverb tail. That's how echoes behave in a real acoustic space — a sound bounces off a far wall (the delay) and each of those bounces decays into the ambience of the room (the reverb). The chain mirrors physics, which is why it sounds natural and stays articulate even with both effects pushed.
+**The default: delay first, reverb last.** Put the delay earlier in the chain and the reverb at the end, and each delay repeat gets wrapped in its own reverb tail. That's how echoes behave in a real acoustic space: a sound bounces off a far wall (the delay) and each of those bounces decays into the ambience of the room (the reverb). The chain mirrors physics, which is why it sounds natural and stays articulate even with both effects pushed.
 
 | Order | Character | Best for |
 |---|---|---|
@@ -86,27 +86,27 @@ Among the questions guitarists ask about signal chain order, the delay-versus-re
 
 ## Why the Default Works
 
-When the delay comes first, the reverb processes the dry note *and* every repeat equally. A note plays, the delay throws three echoes behind it, and the reverb gives all four events — the original plus three repeats — the same decay into the same space. Everything sits in one coherent room. The repeats stay distinct because the reverb is applied after they've already been spaced out in time.
+When the delay comes first, the reverb processes the dry note *and* every repeat equally. A note plays, the delay throws three echoes behind it, and the reverb gives all four events (the original plus three repeats) the same decay into the same space. Everything sits in one coherent room. The repeats stay distinct because the reverb is applied after they've already been spaced out in time.
 
 The audible signature of this order is separation: you can count the repeats, and each one trails off cleanly rather than blurring into the next. It's the sound of a slap-back behind a country lead, or a rhythmic dotted-eighth delay under an arpeggio where you still hear every note.
 
 ## When to Flip It: Reverb Into Delay
 
-Now reverse them. With reverb first, the delay no longer samples the dry note — it samples the reverb's *output*, which is already a diffuse, blurred wash. Each echo repeats that wash, and the repeats pile reverb on top of reverb. The result is thick, oceanic, and deliberately indistinct: the ambient guitarist's secret handshake.
+Now reverse them. With reverb first, the delay samples the reverb's *output* instead of the dry note, and that output is already a diffuse, blurred wash. Each echo repeats that wash, and the repeats pile reverb on top of reverb. The result is thick, oceanic, and deliberately indistinct: the ambient guitarist's secret handshake.
 
-This is the texture under a lot of shoegaze and ambient guitar — the sound of a chord that seems to keep expanding instead of decaying, where you can't tell where one repeat ends and the next begins. The effect is less "echo in a room" and more "the room itself is echoing." If you've heard a guitar that sounds like weather, this ordering is usually part of it.
+This is the texture under a lot of shoegaze and ambient guitar: the sound of a chord that seems to keep expanding instead of decaying, where you can't tell where one repeat ends and the next begins. The effect is less "echo in a room" and more "the room itself is echoing." If you've heard a guitar that sounds like weather, this ordering is usually part of it.
 
-One practical warning. Reverb-into-delay builds up wash and noise *fast*, because you're feeding an already-saturated signal into a multiplier. Keep the reverb's mix lower than you would at the end of the chain — start around 20 to 25 percent — and use a shorter or more controlled delay so the repeats don't avalanche. Pushed too far, the gorgeous wash collapses into an undifferentiated mush with no pitch left in it.
+One practical warning. Reverb-into-delay builds up wash and noise *fast*, because you're feeding an already-saturated signal into a multiplier. Keep the reverb's mix lower than you would at the end of the chain (start around 20 to 25 percent) and use a shorter or more controlled delay so the repeats don't avalanche. Pushed too far, the gorgeous wash collapses into an undifferentiated mush with no pitch left in it.
 
 ## The Exception Nobody Mentions: Parallel Routing
 
-Here's where the whole question can dissolve. Everything above assumes the two effects are in *series* — one feeding the other down a single wire. But if your reverb and delay run in **parallel**, each gets a copy of the dry signal on its own path, and the two are mixed back together at the end without ever touching each other.
+Parallel routing can dissolve the whole question. Everything above assumes the two effects are in *series*, one feeding the other down a single wire. But if your reverb and delay run in **parallel**, each gets a copy of the dry signal on its own path, and the two are mixed back together at the end without ever touching each other.
 
-In a parallel arrangement, asking whether reverb is "before" or "after" delay has no answer, because neither processes the other's output. You hear a clean delay *and* a clean reverb layered over the dry note, each unmuddied by the other. This is how wet/dry/wet rigs and many stereo setups work, and it's the cleanest-sounding option of all — at the cost of more routing complexity. If you've ever wondered why a big touring ambient rig sounds enormous yet still defined, parallel routing is a large part of the answer. Our [signal chain order guide](/blog/signal-chain-order-guide) covers where these time-based blocks sit relative to drive and modulation.
+In a parallel arrangement, asking whether reverb is "before" or "after" delay has no answer, because neither processes the other's output. You hear a clean delay *and* a clean reverb layered over the dry note, each unmuddied by the other. This is how wet/dry/wet rigs and many stereo setups work, and it's the cleanest-sounding option of all, at the cost of more routing complexity. If you've ever wondered why a big touring ambient rig sounds enormous yet still defined, parallel routing is a large part of the answer. Our [signal chain order guide](/blog/signal-chain-order-guide) covers where these time-based blocks sit relative to drive and modulation.
 
 ## Doing It on a Modeler
 
-On a Helix, Quad Cortex, or any modeler, "chain order" is just the sequence of blocks on the grid — which makes this the easiest place on earth to test both arrangements. Drop a delay and a reverb block in series, play a phrase, then drag the reverb in front of the delay and play the same phrase. The difference is obvious within a bar, and you've spent ten seconds instead of repatching a board.
+On a Helix, Quad Cortex, or any modeler, "chain order" is the sequence of blocks on the grid, which makes this the easiest place to test both arrangements. Drop a delay and a reverb block in series, play a phrase, then drag the reverb in front of the delay and play the same phrase. The difference is obvious within a bar, and you've spent ten seconds instead of repatching a board.
 
 A few modeler-specific notes:
 
@@ -114,8 +114,8 @@ A few modeler-specific notes:
 - **Watch your stereo field.** Many modeler delays and reverbs are stereo; in series, the first effect's stereo image feeds the second, which can collapse or widen the field depending on the algorithms.
 - **For parallel, use a split.** Route a parallel path (split the signal, reverb on one lane, delay on the other, mix back) to get the no-interaction sound described above.
 
-If you also run a looper, the order question gets one more wrinkle — the [looper, delay, and reverb placement guide](/blog/looper-delay-reverb-signal-chain) walks through whether you loop the dry signal or the wet one.
+If you also run a looper, the order question gets one more wrinkle. The [looper, delay, and reverb placement guide](/blog/looper-delay-reverb-signal-chain) walks through whether you loop the dry signal or the wet one.
 
 ## The Short Version
 
-Start with delay first and reverb last. It's the default for a reason: it sounds like a real space and it stays clean. Flip to reverb-into-delay only when you specifically want the ambience to smear and echo — and when you do, pull the reverb mix back so the wash doesn't swallow the note. And if you have the routing for it, parallel sidesteps the whole question. The order isn't a rule to obey; it's a tool, and now you know which sound each setting hands you.
+Start with delay first and reverb last. It's the default for a reason: it sounds like a real space and it stays clean. Flip to reverb-into-delay only when you want the ambience to smear and echo, and when you do, pull the reverb mix back so the wash doesn't swallow the note. And if you have the routing for it, parallel sidesteps the whole question. Treat the order as a tool: each arrangement hands you a different sound.

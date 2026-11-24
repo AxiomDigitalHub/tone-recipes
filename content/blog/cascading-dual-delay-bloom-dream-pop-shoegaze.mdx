@@ -81,11 +81,11 @@ faq:
       and pull the lows down there.
 ---
 
-A lot of the most beautiful guitar washes ever recorded aren't reverb. The endless, blooming, underwater shimmer on a Cocteau Twins record — the thing that sounds like the guitar is playing inside a cathedral made of glass — is mostly two delay lines stacked on top of each other, doing something reverb can't quite do. Once you know that, you stop reaching for a bigger reverb plugin to chase that sound, because the reverb was never the point. The point was delay all along... it was just hiding.
+A lot of the most beautiful guitar washes ever recorded aren't reverb. The endless, underwater shimmer on a Cocteau Twins record (the thing that sounds like the guitar is playing inside a cathedral made of glass) is mostly two delay lines stacked on top of each other, doing something reverb can't do. Once you know that, you stop reaching for a bigger reverb plugin to chase that sound, because the reverb was never the point. The point was delay all along... it was hiding.
 
 ## The Recipe, Up Front
 
-You need two delays. A short, clean one and a long, modulated one. The short one seeds a rhythm; the long one blooms it into a wash. Here's the starting point:
+You need two delays. A short, clean one and a long, modulated one. The short one seeds a rhythm; the long one blooms it into a wash. Start here:
 
 <SettingsGrid title="Delay 1" subtitle="The seed — short, clean">
   <Knob name="Time" value={250} min={0} max={1000} unit="ms" />
@@ -101,36 +101,36 @@ You need two delays. A short, clean one and a long, modulated one. The short one
   <Knob name="Mod" value={70} min={0} max={100} unit="%" />
 </SettingsGrid>
 
-Run Delay 1 *into* Delay 2 — output of the first into the input of the second. That's the cascade. Play a single note and listen: the short delay throws a few quick repeats, the long delay catches those repeats and smears them into a slow, detuned cloud that hangs in the air long after you've stopped playing. That cloud is the sound. Everything below is how it works and how to bend it.
+Run Delay 1 *into* Delay 2 (output of the first into the input of the second). That's the cascade. Play a single note and listen: the short delay throws a few quick repeats, the long delay catches those repeats and smears them into a slow, detuned cloud that hangs in the air long after you've stopped playing. That cloud is the sound. Everything below is how it works and how to bend it.
 
 ## Why It Reads as Reverb
 
-Think about what reverb actually is. It's not one echo — it's thousands of reflections bouncing off walls and arriving at your ears so densely, and so smeared by the room, that you can't isolate any single bounce. Your brain stops hearing individual events and starts hearing *space*.
+Think about what reverb is: thousands of reflections bouncing off walls and arriving at your ears so densely, and so smeared by the room, that you can't isolate any single bounce. Your brain stops hearing individual events and starts hearing *space*.
 
-A single delay can't do that. It gives you discrete, countable echoes — tick, tick, tick — and the ear locks onto the rhythm immediately. That's an echo, not a space. But stack two delays whose times don't divide evenly into each other, crank the feedback so each one regenerates, and add modulation, and the math changes. The repeats start landing in between each other, at slightly wrong pitches, in a pattern too complex to follow. Past a certain density the ear gives up counting and just hears a wash. You've faked diffusion — the thing a reverb's algorithm spends all its processing power on — with two delays and a feedback knob.
+A single delay can't do that. It gives you discrete, countable echoes (tick, tick, tick) and the ear locks onto the rhythm immediately. That's an echo, not a space. But stack two delays whose times don't divide evenly into each other, crank the feedback so each one regenerates, and add modulation, and the math changes. The repeats start landing in between each other, at slightly wrong pitches, in a pattern too complex to follow. Past a certain density the ear gives up counting and hears a wash. You've faked diffusion, the thing a reverb's algorithm spends all its processing power on, with two delays and a feedback knob.
 
 The modulation is the secret ingredient. Without it, even a dense pile of repeats still sounds like delay, because every repeat is at the same pitch as the note you played, so they reinforce into a recognizable echo. Detune each repeat a few cents with the modulation, and they stop agreeing with each other. They blur. That blur is what your ear reads as "room" instead of "echo."
 
 ## The Thing That Surprised Me
 
-I went into this assuming feedback was the magic knob — that more feedback meant more reverb-like density, and the path to a bigger wash was just turning Delay 2's feedback higher and higher. So I did. And somewhere past 75% it stopped getting more reverb-like and started getting *worse* — the repeats piled up into a defined, throbbing rhythm again, a self-oscillating drone that pulled the rhythmic identity right back out of hiding. The wash collapsed back into echo.
+I went into this assuming feedback was the magic knob, that more feedback meant more reverb-like density, and the path to a bigger wash was just turning Delay 2's feedback higher and higher. So I did. And somewhere past 75% it stopped getting more reverb-like and started getting *worse*: the repeats piled up into a defined, throbbing rhythm again, a self-oscillating drone that pulled the rhythmic identity right back out of hiding. The wash collapsed back into echo.
 
 What actually controls how "reverb-like" it sounds is the modulation depth, not the feedback. When I left feedback around 65% and pushed the modulation up instead, the repeats got blurrier and more diffuse without the rhythm reasserting itself. The feedback sets how *long* the tail lasts; the modulation sets how much it sounds like a space versus a stutter. I had the wrong knob the whole time. Once I treated modulation as the diffusion control, the bloom got deep and smooth and stopped fighting me.
 
 ## Keeping It Out of the Mud
 
-The failure mode of any high-feedback delay is mud. Every repeat carries the low end of the note, and when repeats stack, those lows accumulate into a boomy soup that swallows the rest of the mix. The fix is to filter the feedback path: high-pass the repeats around 150–200 Hz so the low frequencies don't regenerate. The first hit keeps its body; the tail thins out and stays clear. This is the same low-cut move that fixes [a single delay that sounds muddy](/blog/why-delay-sounds-muddy), just doing double duty across two lines.
+The failure mode of any high-feedback delay is mud. Every repeat carries the low end of the note, and when repeats stack, those lows accumulate into a boomy soup that swallows the rest of the mix. The fix is to filter the feedback path: high-pass the repeats around 150–200 Hz so the low frequencies don't regenerate. The first hit keeps its body; the tail thins out and stays clear. This is the same low-cut move that fixes [a single delay that sounds muddy](/blog/why-delay-sounds-muddy), doing double duty across two lines.
 
-Roll some high end off the feedback too. Real reverb tails get darker as they decay — the air and the room absorb the highs first. A delay with a low-pass in the loop mimics that, so each repeat is a little duller than the last and the wash fades into warmth instead of an icy stack of identical copies. If your delay has no filtering inside the feedback loop, put an EQ after both delays and pull the lows down there. It's not as elegant, but it gets you most of the way.
+Roll some high end off the feedback too. Real reverb tails get darker as they decay: the air and the room absorb the highs first. A delay with a low-pass in the loop mimics that, so each repeat is a little duller than the last and the wash fades into warmth instead of an icy stack of identical copies. If your delay has no filtering inside the feedback loop, put an EQ after both delays and pull the lows down there. It's not as elegant, but it gets you most of the way.
 
 ## Cascade vs. Parallel
 
-The recipe above cascades the delays — short into long — and that's the densest, most reverb-like result, because the long delay is processing the short delay's output, repeats of repeats, maximum smear.
+The recipe above cascades the delays (short into long), and that's the densest, most reverb-like result, because the long delay is processing the short delay's output, repeats of repeats, maximum smear.
 
-But you can also run them in parallel: both delays fed from the dry signal, their outputs summed, neither feeding the other. That keeps the two rhythms distinct — a dotted-eighth shimmer sitting clearly over a longer half-note wash, more like [the rhythmic delay layering The Edge built a career on](/blog/the-edge-delay-settings). Parallel keeps the groove; cascade dissolves it. Dream pop wants the dissolve. A more rhythmic, post-rock build might want the parallel clarity. Try both — it's one routing change and they're completely different instruments.
+But you can also run them in parallel: both delays fed from the dry signal, their outputs summed, neither feeding the other. That keeps the two rhythms distinct: a dotted-eighth shimmer sitting clearly over a longer half-note wash, more like [the rhythmic delay layering The Edge built a career on](/blog/the-edge-delay-settings). Parallel keeps the groove; cascade dissolves it. Dream pop wants the dissolve. A more rhythmic, post-rock build might want the parallel clarity. Try both. It's one routing change and they're completely different instruments.
 
 ## On Every Platform
 
-None of this is gear-specific. **Two pedals:** a clean digital delay (the seed) into an analog or tape-style delay (the bloom) — the cascade is literally one patch cable. **One pedal:** any dual-engine box does both lines internally — a Boss DD-200, a Strymon delay with two voices, an Empress. Set engine A short and clean, engine B long and modulated. **In the box:** two delay plugins in series, or honestly a single Valhalla Supermassive, which is built around exactly this idea — it's a free plugin that does the modulated-delay-as-reverb thing better than reverbs that cost real money.
+None of this is gear-specific. **Two pedals:** a clean digital delay (the seed) into an analog or tape-style delay (the bloom). The cascade is one patch cable. **One pedal:** any dual-engine box does both lines internally: a Boss DD-200, a Strymon delay with two voices, an Empress. Set engine A short and clean, engine B long and modulated. **In the box:** two delay plugins in series, or a single Valhalla Supermassive, which is built around this idea. It's a free plugin that does the modulated-delay-as-reverb thing better than reverbs that cost real money.
 
-Whatever you're running it on, the move is the same: short clean delay, long modulated delay, high feedback, filter the lows, push the modulation until the rhythm disappears. When the echo stops sounding like an echo and starts sounding like a place, you're there. That's the bloom — and it's been delay this whole time.
+Whatever you're running it on, the move is the same: short clean delay, long modulated delay, high feedback, filter the lows, push the modulation until the rhythm disappears. When the echo stops sounding like an echo and starts sounding like a place, you're there. That's the bloom, and it's been delay this whole time.

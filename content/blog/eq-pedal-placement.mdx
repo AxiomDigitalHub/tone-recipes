@@ -83,25 +83,25 @@ faq:
       sub-harmonic content, not the fundamental.
 ---
 
-> **Start Here:** EQ before dirt controls what gets distorted. EQ after dirt controls what you hear after distortion. Same EQ settings, different positions — different results. The correct placement depends on what problem you're solving.
+> **Start Here:** EQ before dirt controls what gets distorted. EQ after dirt controls what you hear after distortion. Same EQ settings, different positions, different results. The correct placement depends on what problem you're solving.
 
-EQ placement in a signal chain isn't a preference question. It's a signal processing question. The two positions do fundamentally different things, and treating them as interchangeable is how you end up with a muddy low-end you can't EQ out, or a midrange you boosted twice and didn't mean to.
+EQ placement in a signal chain is a signal processing question, not a matter of preference. The two positions do different things, and treating them as interchangeable is how you end up with a muddy low-end you can't EQ out, or a midrange you boosted twice and didn't mean to.
 
-This post covers exactly what each placement does to the signal, genre-specific use cases where each excels, and the specific scenarios where using both — pre and post — is the right answer.
+This post covers what each placement does to the signal, the genre-specific use cases where each excels, and the scenarios where using both (pre and post) is the right answer.
 
 ---
 
 ## What Does EQ Before Dirt Actually Do?
 
-When an EQ sits before a distortion or overdrive circuit, it shapes the frequency content that enters the clipping stage. This is the important part: **distortion doesn't treat all frequencies equally**. A clipping circuit saturates differently depending on what it's receiving.
+When an EQ sits before a distortion or overdrive circuit, it shapes the frequency content that enters the clipping stage, and **distortion doesn't treat all frequencies equally**. A clipping circuit saturates differently depending on what it's receiving.
 
 Specifically:
 
-1. **Bass frequencies clip first and hardest.** Low-end energy is high-amplitude. In a distortion circuit, that amplitude excess is the first thing to saturate. If you cut bass before the gain stage, you reduce the low-frequency saturation — the result is a tighter, more defined low end. This is why a high-pass filter (HPF) before a high-gain amp is not optional for extended-range guitars in a serious mix.
+1. **Bass frequencies clip first and hardest.** Low-end energy is high-amplitude. In a distortion circuit, that amplitude excess is the first thing to saturate. If you cut bass before the gain stage, you reduce the low-frequency saturation, and the result is a tighter, more defined low end. This is why a high-pass filter (HPF) before a high-gain amp is not optional for extended-range guitars in a serious mix.
 
-2. **Mid boosts before a gain stage change the distortion character.** A Tube Screamer-into-Marshall-style OD isn't adding drive from the TS — it's pushing the amp's input with a shaped signal. The TS's midrange hump enters the amp's preamp and saturates those frequencies harder. The result: more compression, more midrange presence, less bass flub. This is what players mean when they say the TS "tightens" a high-gain amp.
+2. **Mid boosts before a gain stage change the distortion character.** A Tube Screamer-into-Marshall-style OD pushes the amp's input with a shaped signal instead of adding drive from the TS. The TS's midrange hump enters the amp's preamp and saturates those frequencies harder. The result: more compression, more midrange presence, less bass flub. This is what players mean when they say the TS "tightens" a high-gain amp.
 
-3. **Presence cuts before a gain stage affect fizz generation.** If your distortion produces excessive high-frequency hash, cutting the highs before the clipping stage reduces the high-frequency content that gets amplified and distorted. This is a cleaner fix than cutting the fizz post-distortion, because the fizz is generated from high-frequency content — remove the source, remove the problem.
+3. **Presence cuts before a gain stage affect fizz generation.** If your distortion produces excessive high-frequency hash, cutting the highs before the clipping stage reduces the high-frequency content that gets amplified and distorted. This is a cleaner fix than cutting the fizz post-distortion, because the fizz is generated from high-frequency content. Remove the source, remove the problem.
 
 ---
 
@@ -111,11 +111,11 @@ Post-dirt EQ operates on the output of the clipping stage. The distortion has al
 
 This is useful for:
 
-1. **Surgical removal of unpleasant frequencies.** There's a 2–3kHz harshness that appears in many high-gain setups — particularly with certain amp models. Post-EQ lets you cut it without affecting the distortion character. A narrow notch at the offending frequency removes the harshness while leaving everything else intact.
+1. **Surgical removal of unpleasant frequencies.** There's a 2–3kHz harshness that appears in many high-gain setups, particularly with certain amp models. Post-EQ lets you cut it without affecting the distortion character. A narrow notch at the offending frequency removes the harshness while leaving everything else intact.
 
-2. **Presence adjustments.** Boosting the 1–1.5kHz range post-distortion adds note definition and cut without changing what's being distorted. This is different from the pre-distortion mid boost — you're not changing the clipping behavior, you're adding definition to the output.
+2. **Presence adjustments.** Boosting the 1–1.5kHz range post-distortion adds note definition and cut without changing what's being distorted. This is different from the pre-distortion mid boost: the clipping behavior stays the same and the output gains definition.
 
-3. **The traditional scooped metal sound.** Cutting mids post-distortion creates the scooped EQ sound associated with '80s and '90s thrash and death metal. Note: this is the placement that removes your guitar from the mix. Scooped mids post-distortion means less midrange content reaching the speakers, which means less presence in a band context. This is a known tradeoff, not a mistake — but it's a tradeoff you should make consciously.
+3. **The traditional scooped metal sound.** Cutting mids post-distortion creates the scooped EQ sound associated with '80s and '90s thrash and death metal. Note: this is the placement that removes your guitar from the mix. Scooped mids post-distortion means less midrange content reaching the speakers, which means less presence in a band context. This is a known tradeoff, not a mistake, but make it consciously.
 
 ---
 
@@ -136,9 +136,9 @@ This is useful for:
 
 ### Metal and High-Gain: Pre-EQ HPF Is Non-Negotiable
 
-For any extended-range guitar work in drop tunings — drop D, drop B, anything lower — a high-pass filter set between 80Hz and 100Hz before the gain stage is the most important EQ move you can make. Here's why:
+For any extended-range guitar work in drop tunings (drop D, drop B, anything lower), a high-pass filter set between 80Hz and 100Hz before the gain stage is the most important EQ move you can make.
 
-The fundamental frequencies of low strings in drop tunings are high-amplitude, low-frequency content. When that content hits a high-gain circuit, it saturates first and most aggressively, creating bass-frequency mush that no amount of post-EQ will resolve cleanly. You're not EQ-ing a clean signal; you're trying to EQ mud out of something that was distorted mud from the beginning.
+The fundamental frequencies of low strings in drop tunings are high-amplitude, low-frequency content. When that content hits a high-gain circuit, it saturates first and most aggressively, creating bass-frequency mush that no amount of post-EQ will resolve cleanly. At that point you're trying to EQ mud out of something that was distorted mud from the beginning, not EQ-ing a clean signal.
 
 I tested this with an 8-string in drop E running into an EVH 5150 III without and then with a high-pass at 90Hz pre-amp. Without the HPF: low-string riffs were indistinct, the low end felt pillowy and undefined regardless of pick attack. With the HPF: the low-string transients were clear, palm mutes had definition, and the fundamental actually came through.
 
@@ -155,7 +155,7 @@ The HPF doesn't make the guitar sound thin in a mix. It makes the distorted low 
 
 ### Blues and Classic Rock: Post-EQ Presence Boost
 
-Blues and classic rock generally benefit from post-distortion presence work rather than pre-distortion shaping. The goal isn't to change the saturation character — it's to add note definition and cut after the overdrive has already produced its characteristic warmth and compression.
+Blues and classic rock generally benefit from post-distortion presence work rather than pre-distortion shaping. The goal is to add note definition and cut after the overdrive has already produced its characteristic warmth and compression, leaving the saturation character alone.
 
 A +3 to +4 dB boost in the 1–2kHz range post-overdrive adds the "cut" that makes a lead tone audible in a full band context without changing the overdrive's response. This position matters: boosting that frequency range before the overdrive would change how the midrange saturates. Post-overdrive, it's purely a presence addition.
 
@@ -166,7 +166,7 @@ Shoegaze presets and ambient high-gain sounds often benefit from EQ in both posi
 - **Pre-dirt:** Slight high cut before the fuzz or heavy overdrive reduces the brightest harmonics entering the clipping stage, producing a slightly softer, more woolen distortion character.
 - **Post-dirt:** Low cut removes the low-frequency build that happens when multiple overdriven voices stack. This keeps the texture from becoming a low-frequency wash.
 
-This dual-EQ approach — pre-dirt to shape the clipping, post-dirt to clean the output — is standard in professional recording of heavy guitar tracks and increasingly common on live boards.
+This dual-EQ approach (pre-dirt to shape the clipping, post-dirt to clean the output) is standard in professional recording of heavy guitar tracks and increasingly common on live boards.
 
 ---
 
@@ -178,15 +178,15 @@ The most complete approach for high-gain or recording-critical applications:
 2. **Gain stage(s):** Overdrive, distortion, amp.
 3. **Post-EQ (presence/cut):** Shapes the distorted output. Removes harsh frequencies, adds definition, positions the guitar in the mix.
 
-This is functionally what a good amp's EQ section does — the tone stack interacts with the preamp gain, which is pre-EQ behavior, while the presence/depth controls operate on the output stage, which is post-EQ behavior. Adding external EQ stages at each point just gives you more control over the same process.
+This is functionally what a good amp's EQ section does: the tone stack interacts with the preamp gain, which is pre-EQ behavior, while the presence/depth controls operate on the output stage, which is post-EQ behavior. Adding external EQ stages at each point gives you more control over the same process.
 
 ---
 
 ## Static Placement Solves Constant Problems. Spikes Are a Different Job.
 
-Everything here — pre-dirt, post-dirt, the sandwich — is *static* EQ: a fixed cut or boost that applies to every note equally. That's correct for the constant problems this post targets: a low-end that always turns to mud, a midrange that's always too honest, a presence peak that's always there.
+Everything here (pre-dirt, post-dirt, the sandwich) is *static* EQ: a fixed cut or boost that applies to every note equally. That's correct for the constant problems this post targets: a low-end that always turns to mud, a midrange that's always too honest, a presence peak that's always there.
 
-It's the wrong tool when the harshness is intermittent — an upper-mid ice-pick that only jumps out when you dig into a chord, or a band that only needs to move when a vocal is loud. A static cut deep enough to catch those spikes dulls every softer note you play. That's what dynamic EQ is for, and it lives downstream in the DAW or at the console rather than on the board — the full breakdown of when each one wins is in [dynamic EQ vs. static EQ for taming harsh guitar](/blog/dynamic-eq-vs-static-eq-taming-harsh-guitar). Placement decides *what* gets shaped; static-versus-dynamic decides *when*.
+It's the wrong tool when the harshness is intermittent: an upper-mid ice-pick that only jumps out when you dig into a chord, or a band that only needs to move when a vocal is loud. A static cut deep enough to catch those spikes dulls every softer note you play. That's what dynamic EQ is for, and it lives downstream in the DAW or at the console rather than on the board. The full breakdown of when each one wins is in [dynamic EQ vs. static EQ for taming harsh guitar](/blog/dynamic-eq-vs-static-eq-taming-harsh-guitar). Placement decides *what* gets shaped; static-versus-dynamic decides *when*.
 
 <SaveThisTone
   title="Want a high-gain starting point?"

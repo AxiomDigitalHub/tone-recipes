@@ -78,7 +78,7 @@ faq:
       the two paths and it disappears.
 ---
 
-The latency question gets argued like it's a matter of opinion, and it isn't. There's a real number, it's measurable, and the confusion comes almost entirely from people quoting the wrong one. Buffer size is not your latency. It's one ingredient in your latency. The number you actually feel under your pick is round-trip latency, and once you know how to read it, the whole "can you hear it or not" debate gets a lot quieter.
+The latency question gets argued like a matter of opinion. There's a number, it's measurable, and most of the confusion comes from people quoting the wrong one. Buffer size is one ingredient in your latency. The number you feel under your pick is round-trip latency, and once you know how to read it, the "can you hear it or not" debate gets a lot quieter.
 
 Let me walk you through what's in that number, what it costs you, and how to spend your latency budget so the tight parts feel tight and the mix doesn't choke.
 
@@ -88,58 +88,58 @@ When you play a note while monitoring through the computer, the signal makes a f
 
 It has four parts:
 
-1. **Input conversion** — analog-to-digital, a small fixed cost.
-2. **The buffer** — the chunk of samples the computer waits to collect before processing. This is the part you control.
-3. **Output conversion** — digital-to-analog, another small fixed cost.
-4. **Driver and bus overhead** — what the USB/Thunderbolt connection and the driver add.
+1. **Input conversion**: analog-to-digital, a small fixed cost.
+2. **The buffer**: the chunk of samples the computer waits to collect before processing. This is the part you control.
+3. **Output conversion**: digital-to-analog, another small fixed cost.
+4. **Driver and bus overhead**: what the USB/Thunderbolt connection and the driver add.
 
-Your buffer is the only one of these you can change. The other three are a fixed floor for your specific interface. Most DAWs and interface control panels report the resulting round-trip number directly — Reaper, Logic, Pro Tools, and the Focusrite/Universal Audio/MOTU control panels all show it. Read that number. Don't compute it from the buffer alone and don't trust the theoretical figure on the box.
+Your buffer is the only one of these you can change. The other three are a fixed floor for your specific interface. Most DAWs and interface control panels report the resulting round-trip number directly: Reaper, Logic, Pro Tools, and the Focusrite/Universal Audio/MOTU control panels all show it. Read that number. Don't compute it from the buffer alone and don't trust the theoretical figure on the box.
 
 ## What the Buffer Actually Buys
 
-The buffer is a tradeoff. Small buffer, less latency, more CPU strain. Big buffer, more latency, more headroom for plugins. Here's the budget, at a 48 kHz sample rate, in round terms:
+The buffer is a tradeoff. Small buffer, less latency, more CPU strain. Big buffer, more latency, more headroom for plugins. The budget, at a 48 kHz sample rate, in round terms:
 
 | Buffer (samples) | Buffer time, one way | Use it for |
 |---|---|---|
-| 32 | ~0.7 ms | Tracking on a fast, modern interface — if your CPU can take it |
+| 32 | ~0.7 ms | Tracking on a fast, modern interface, if your CPU can take it |
 | 64 | ~1.3 ms | The sweet spot for tracking guitar on most rigs |
 | 128 | ~2.7 ms | Tracking with a couple of input plugins; very safe feel |
 | 256 | ~5.3 ms | The upper edge of comfortable for tight rhythm |
 | 512 | ~10.7 ms | Mixing, or tracking pads and slow leads |
 | 1024 | ~21.3 ms | Mixing a heavy session; do not track live into this |
 
-Remember those are the buffer's share, one direction. Double it for the round trip, then add the fixed conversion and driver overhead. So a 64-sample buffer doesn't give you 1.3 ms round-trip — it gives you that buffer time twice plus the floor, which on a real interface usually lands somewhere around 5–7 ms total. Still firmly playable.
+Remember those are the buffer's share, one direction. Double it for the round trip, then add the fixed conversion and driver overhead. So a 64-sample buffer gives you more than 1.3 ms round-trip: that buffer time twice plus the floor, which on a real interface usually lands somewhere around 5–7 ms total. Still firmly playable.
 
-The practical move is two presets. Track at 64 or 128. Mix at 512 or 1024. Flip between them depending on what the session needs — input feel or plugin count. You almost never need both at once.
+The practical move is two presets. Track at 64 or 128. Mix at 512 or 1024. Flip between them depending on what the session needs: input feel or plugin count. You almost never need both at once.
 
 ## The Floor You Can't Buffer Away
 
 Here's the part that surprised me when I started measuring instead of assuming. I had it in my head that latency was a slider: drag the buffer to zero and the lag goes to zero. So I A/B'd my interface's reported round-trip at 1024 samples versus 32 samples, expecting the low setting to be a tiny fraction of the high one.
 
-It wasn't. The high buffer reported around 48 ms; the low one reported around 5 ms — but not the near-zero I expected, because roughly 3–4 ms of that was fixed conversion and driver overhead that didn't move when the buffer did. Halving the buffer from 64 to 32 changed the total by under a millisecond. That's the law of diminishing returns made audible: once you're past the knee, you're grinding your CPU for tenths of a millisecond nobody can feel. Find the lowest *stable* buffer, not the lowest possible one, and stop there.
+It wasn't. The high buffer reported around 48 ms; the low one reported around 5 ms, but not the near-zero I expected, because roughly 3–4 ms of that was fixed conversion and driver overhead that didn't move when the buffer did. Halving the buffer from 64 to 32 changed the total by under a millisecond. That's the law of diminishing returns made audible: once you're past the knee, you're grinding your CPU for tenths of a millisecond nobody can feel. Find the lowest *stable* buffer, not the lowest possible one, and stop there.
 
 ## Sample Rate Is Not the Second Lever
 
-Someone always asks the obvious next question: if buffer size controls latency, doesn't a higher sample rate control it too? On paper, yes — 128 samples represents less time at 96 kHz than at 48 kHz, so the buffer's share of the delay shrinks. But look at what you just read. The buffer share isn't the problem; the fixed conversion-and-driver floor is, and raising the sample rate doesn't touch it. So the round-trip drops by a millisecond or two while your CPU load roughly doubles, because every plugin now processes twice as many samples per second. You spend half your plugin headroom to save what the buffer floor won't give back anyway. The sample rate is a tone decision — aliasing, high-gain top end — not a latency decision. I broke that math down in full in [does 96 kHz actually lower your latency](/blog/does-96khz-lower-latency-sample-rate-buffer-size). The short version: use the buffer for latency, and pick a sample rate for reasons that have nothing to do with it.
+Someone always asks the obvious next question: if buffer size controls latency, doesn't a higher sample rate control it too? On paper it does: 128 samples represents less time at 96 kHz than at 48 kHz, so the buffer's share of the delay shrinks. But look at what you just read. The buffer share isn't the problem; the fixed conversion-and-driver floor is, and raising the sample rate doesn't touch it. So the round-trip drops by a millisecond or two while your CPU load roughly doubles, because every plugin now processes twice as many samples per second. You spend half your plugin headroom to save what the buffer floor won't give back anyway. The sample rate is a tone decision (aliasing, high-gain top end), not a latency decision. I broke that math down in full in [does 96 kHz actually lower your latency](/blog/does-96khz-lower-latency-sample-rate-buffer-size). The short version: use the buffer for latency, and pick a sample rate for reasons that have nothing to do with it.
 
 ## Palm Mutes Tell on You
 
-The other thing measuring taught me: how much latency you can hear depends entirely on what you're playing. I ran the same rig at a deliberately ugly buffer and played two things. A slow, sustained lead line over a pad — honestly couldn't tell it was lagging, because the notes are long and the attack is soft. Then a fast, palm-muted gallop on the low string. Instantly obvious. It felt like the chug was arriving a hair behind my hand, the way a cheap Bluetooth speaker drags a podcast a frame behind the video.
+The other thing measuring taught me: how much latency you can hear depends on what you're playing. I ran the same rig at a deliberately ugly buffer and played two things. A slow, sustained lead line over a pad. Honestly couldn't tell it was lagging, because the notes are long and the attack is soft. Then a fast, palm-muted gallop on the low string. Instantly obvious. It felt like the chug was arriving a hair behind my hand, the way a cheap Bluetooth speaker drags a podcast a frame behind the video.
 
-That's the test that actually matters. Tight, percussive, low-string playing has a sharp transient and a fast rhythmic grid, so a few milliseconds of slip shows up as a feel that's dragging. Legato leads and ambient parts hide latency that would make a metal rhythm track unplayable. So budget for your hardest material: if you track djent or fast rhythm, you need a lower buffer than someone overdubbing swells, even on the same interface.
+That's the test that matters. Tight, percussive, low-string playing has a sharp transient and a fast rhythmic grid, so a few milliseconds of slip shows up as a feel that's dragging. Legato leads and ambient parts hide latency that would make a metal rhythm track unplayable. So budget for your hardest material: if you track djent or fast rhythm, you need a lower buffer than someone overdubbing swells, even on the same interface.
 
 ## The Monitoring Fork (and the Comb-Filter Trap)
 
 There are two ways to hear yourself while tracking, and they solve different problems.
 
-**Direct (hardware) monitoring** routes your input straight to the headphone output inside the interface, before the computer ever sees it. Latency is effectively zero. The catch: it's a *dry* signal. No amp sim, no effects — just your raw pickup. Great for a real-amp rig you're micing, useless if the sound you play to lives in a plugin.
+**Direct (hardware) monitoring** routes your input straight to the headphone output inside the interface, before the computer ever sees it. Latency is effectively zero. The tradeoff is a *dry* signal: no amp sim, no effects, only your raw pickup. Great for a real-amp rig you're micing, useless if the sound you play to lives in a plugin.
 
 **DAW monitoring** sends your signal through the computer so you hear your amp sim, your reverb, your whole processed tone. The cost is the round-trip latency we've been budgeting. Get the buffer low enough and it's comfortable.
 
-The trap is running both at once. If your interface is feeding you the dry direct signal *and* the DAW is feeding you the wet monitored signal a few milliseconds later, you're hearing two copies of yourself offset in time. That's comb filtering — a hollow, phasey, flange-like tone as frequencies cancel and reinforce. People chase this for an hour thinking their pickup died or their cab sim is broken. It's neither. Mute one path. Pick direct *or* DAW, never both.
+The trap is running both at once. If your interface is feeding you the dry direct signal *and* the DAW is feeding you the wet monitored signal a few milliseconds later, you're hearing two copies of yourself offset in time. That's comb filtering: a hollow, phasey, flange-like tone as frequencies cancel and reinforce. People chase this for an hour thinking their pickup died or their cab sim is broken. It's neither. Mute one path. Pick direct *or* DAW, never both.
 
-If you record a modeler or IR loader instead, the latency math shifts onto the hardware, and that's its own [how-much-can-you-hear question](/blog/ir-loader-cab-sim-pedal-latency-how-much-you-can-hear) — a fixed conversion delay inside the box rather than a buffer you can tune. And if you're printing a clean DI to re-cab later, the round-trip number is exactly what determines whether your blended tracks stay phase-aligned, which matters when you [reamp a clean DI through a cab sim](/blog/reamp-clean-di-through-cab-sim-pedal).
+If you record a modeler or IR loader instead, the latency math shifts onto the hardware, and that's its own [how-much-can-you-hear question](/blog/ir-loader-cab-sim-pedal-latency-how-much-you-can-hear), a fixed conversion delay inside the box rather than a buffer you can tune. And if you're printing a clean DI to re-cab later, the round-trip number determines whether your blended tracks stay phase-aligned, which matters when you [reamp a clean DI through a cab sim](/blog/reamp-clean-di-through-cab-sim-pedal).
 
 ## The Short Version
 
-Read the round-trip number your DAW reports, not the buffer size. Track at 64–128 samples, mix at 512–1024, and keep the two as saved presets. Don't bother chasing the buffer below the point where the total stops moving — the conversion floor eats your effort. Test your feel on your tightest part, not your prettiest one. And when you hear that hollow flange while tracking, it's not your gear failing, it's two monitor paths fighting — kill one. Do that and latency stops being a debate and goes back to being a setting.
+Read the round-trip number your DAW reports, not the buffer size. Track at 64–128 samples, mix at 512–1024, and keep the two as saved presets. Don't bother chasing the buffer below the point where the total stops moving. The conversion floor eats your effort. Test your feel on your tightest part, not your prettiest one. And when you hear that hollow flange while tracking, your gear isn't failing. Two monitor paths are fighting. Kill one. Do that and latency stops being a debate and goes back to being a setting.

@@ -96,17 +96,17 @@ faq:
 ---
 
 > **Start Here: The Way Maker Tone in Five Blocks:**
-> 1. Amp: **Essex A30** into a **2x12 Blue Bell** cab — the chiming Alnico-Blue AC30
-> 2. Compressor: **Deluxe Comp**, always on, light — evens the swells
-> 3. Boost: **Minotaur** (Klon-style), off by default — the chorus lift
+> 1. Amp: **Essex A30** into a **2x12 Blue Bell** cab, the chiming Alnico-Blue AC30
+> 2. Compressor: **Deluxe Comp**, always on, light, to even the swells
+> 3. Boost: **Minotaur** (Klon-style), off by default, for the chorus lift
 > 4. Delay: **Adriatic Delay**, synced dotted eighth (≈662 ms at Leeland's 68 BPM), repeats dark
-> 5. Reverb: **Plateaux**, plate/hall bed at ~38% mix — the floor the swells float on
+> 5. Reverb: **Plateaux**, plate/hall bed at ~38% mix, the floor the swells float on
 
 ---
 
 ## Simpler Than It Sounds — and That Is the Trap
 
-What you hear on Leeland's recording of Way Maker is a wide, swelling wall of ambience that feels like three instruments. What it actually is: a Strat-style guitar, a volume pedal, one dotted-eighth delay, and a reverb. The complexity is in the timing and the signal order, not the gear count.
+What you hear on Leeland's recording of Way Maker is a wide, swelling wall of ambience that feels like three instruments. It is a Strat-style guitar, a volume pedal, one dotted-eighth delay, and a reverb. The complexity is in the timing and the signal order, not the gear count.
 
 Nobody has published who played which electric part on the *Better Word* recording, or the rig used for it. Casey Moore is Leeland's guitarist, and asked on his SoundBetter profile which gear he'd keep on a desert island, he answered an AC30, a delay pedal and a Strat. That's a preference, not a rig rundown for this track, so treat what follows as a way to get the sound on the [Helix](/platforms/helix), not a copy of a documented signal chain. It takes seven blocks. Every block name below is exact and ports to Helix Floor, LT, HX Stomp, and Native. Three of the settings carry the whole tone; get those right and the rest is scaffolding.
 
@@ -117,7 +117,7 @@ Nobody has published who played which electric part on the *Better Word* recordi
 | Leeland, *Better Word* (2019, Integrity) | E | 68 | 8:15 | 662 ms | 882 ms | 3.53 s |
 | Passion, *Roar* (2020) | D | 69 | 6:52 | 652 ms | 870 ms | 3.48 s |
 | REVERE with Darlene Zschech and William McDowell (2020) | A | 71.5 | 8:04 | 629 ms | 839 ms | 3.36 s |
-| Sinach, *Way Maker* single (2016) | B (PraiseCharts) | not published | — | — | — | — |
+| Sinach, *Way Maker* single (2016) | B (PraiseCharts) | not published | n/a | n/a | n/a | n/a |
 
 Sinach (Osinachi Kalu Okoro Egbu) wrote the song; PraiseCharts lists it as CCLI 7115744. Leeland's version is the one most teams learned, and its 8:15 runtime is why the snapshot plan below spends so much time on the refrain and the instrumental. If your team plays the Passion or REVERE arrangement, the preset still works as long as the delay is synced to a note value rather than typed in as milliseconds.
 
@@ -127,7 +127,7 @@ Leeland version: key of E, 68 BPM. Verses clean and swelling, choruses lifted by
 
 | Position | Block | On/off | Key settings |
 |---|---|---|---|
-| 1 | Volume Pedal (EXP 1) | On | Heel back — swell in |
+| 1 | Volume Pedal (EXP 1) | On | Heel back, swell in |
 | 2 | Deluxe Comp | On | Threshold −32, Ratio 3, Attack 15, Release 200, Mix 70% |
 | 3 | Minotaur (Klon-style) | Off in verse | Gain 3, Tone 6, Level 6.5 |
 | 4 | Essex A30 (amp) | On | Drive 4.0, Bass 5.0, Mid 5.5, Treble 6.0, Sag 5.5, Master 4.0 |
@@ -135,53 +135,53 @@ Leeland version: key of E, 68 BPM. Verses clean and swelling, choruses lifted by
 | 6 | Adriatic Delay | On | Time 1/8 dotted (662 ms at 68 BPM), Feedback 38, Mix 30%, High cut 6 kHz |
 | 7 | Plateaux (reverb) | On | Decay 6.5, Mix 38%, Pre-delay 20, Low cut 130 Hz |
 
-Note the amp knobs are on the Helix 0–10 scale — Drive at 4.0 is just shy of breakup, which is exactly where this tone lives.
+Note the amp knobs are on the Helix 0–10 scale. Drive at 4.0 is just shy of breakup, which is where this tone lives.
 
 ## Number One: The Dotted Eighth, Synced
 
-The delay time is not a taste decision. The standard worship formula is `(60000 / BPM) × 0.75`, and at Leeland's 68 BPM that lands at **≈662 ms**. The obvious move is to type 661 into the Adriatic block and call it done. The MultiTracks page for the Leeland track says otherwise: it notes tempo variations in the recording and recommends playing with the included click rather than a fixed tempo. A live 8-minute take that drifts even to 70 BPM wants a 643 ms dotted eighth, and a fixed 661 ms delay lands 18 ms late on the first repeat, 36 on the second and 54 on the third, which is exactly the "second guitarist playing the wrong rhythm" smear this part can't afford.
+The delay time is not a taste decision. The standard worship formula is `(60000 / BPM) × 0.75`, and at Leeland's 68 BPM that lands at **≈662 ms**. The obvious move is to type 661 into the Adriatic block and call it done. The MultiTracks page for the Leeland track says otherwise: it notes tempo variations in the recording and recommends playing with the included click rather than a fixed tempo. A live 8-minute take that drifts even to 70 BPM wants a 643 ms dotted eighth, and a fixed 661 ms delay lands 18 ms late on the first repeat, 36 on the second and 54 on the third, which is the "second guitarist playing the wrong rhythm" smear this part can't afford.
 
 So set Time to the dotted-eighth note value and let the tempo come from somewhere honest: the click track over MIDI clock ([setup guide](/blog/helix-midi-clock-playback-click-worship)), or a retap at each section if you're playing to a drummer. The [tap-light drift guide](/blog/delay-drifts-from-tap-light-long-repeats) covers why long repeats expose small tempo errors. The Adriatic Delay's 1.8 second ceiling (Line 6's published figure for the same model on the DL4 MkII) holds a dotted eighth or a quarter at every tempo in the table above, so none of the versions trips the halving behavior covered in the [delay maximums guide](/blog/delay-max-time-per-model-slow-tempo).
 
-Why this matters more than any other setting: a dotted-eighth delay that is even slightly off-tempo does not sound like a slightly wrong delay — it sounds like a second guitarist playing the wrong rhythm. It is the same interval The Edge built a career on ([the Edge delay settings](/blog/the-edge-delay-settings) covers that lineage), applied here to a slow swell instead of a driving riff. Roll the delay's high cut down to about 6 kHz while you are in there: dark repeats add motion, bright repeats tick and slap over the pad. The deeper logic of locking delay and reverb to one tempo grid is covered in [one BPM, one grid](/blog/one-tempo-grid-predelay-dotted-eighth-delay).
+Why this matters more than any other setting: a dotted-eighth delay that is even slightly off-tempo sounds like a second guitarist playing the wrong rhythm, not like a slightly wrong delay. It is the same interval The Edge built a career on ([the Edge delay settings](/blog/the-edge-delay-settings) covers that lineage), applied here to a slow swell instead of a driving riff. Roll the delay's high cut down to about 6 kHz while you are in there: dark repeats add motion, bright repeats tick and slap over the pad. The deeper logic of locking delay and reverb to one tempo grid is covered in [one BPM, one grid](/blog/one-tempo-grid-predelay-dotted-eighth-delay).
 
 ## Number Two: The Cab Is a Blue, Not a Greenback
 
-Way Maker and [Goodness of God](/blog/goodness-of-god-guitar-tone-helix) are sibling tones — both AC30s, both dotted-eighth-into-reverb — and the fastest way to hear what separates them is the cab block. Goodness of God runs a **Greenback** cab: warm, woolly, top rolled off. Way Maker runs the AC30's stock **Alnico Blue** voice, which *chimes* — it keeps the top end (high cut at 8.5 kHz, not 7), it sparkles under single-coils, and it gives the swells their glassy shimmer.
+Way Maker and [Goodness of God](/blog/goodness-of-god-guitar-tone-helix) are sibling tones (both AC30s, both dotted-eighth-into-reverb), and the fastest way to hear what separates them is the cab block. Goodness of God runs a **Greenback** cab: warm, woolly, top rolled off. Way Maker runs the AC30's stock **Alnico Blue** voice, which *chimes*: it keeps the top end (high cut at 8.5 kHz, not 7), it sparkles under single-coils, and it gives the swells their glassy shimmer.
 
-Run the identical Essex A30 into both cabs back to back and the character flips completely: one is a warm hug, the other is sunlight on water. The lesson generalizes — on a Helix, the cab block is not an afterthought, it is carrying half the tonal identity. [Helix cab models decoded](/blog/helix-cab-models-decoded) explains why two cabs on nominally the same amp diverge this hard. For Way Maker, pick the **2x12 Blue Bell**; if the patch sounds muddy, you probably have a Greenback loaded and you are fighting the wrong speaker.
+Run the identical Essex A30 into both cabs back to back and the character flips completely: one is a warm hug, the other is sunlight on water. The lesson generalizes: on a Helix, the cab block carries half the tonal identity. [Helix cab models decoded](/blog/helix-cab-models-decoded) explains why two cabs on nominally the same amp diverge this hard. For Way Maker, pick the **2x12 Blue Bell**; if the patch sounds muddy, you probably have a Greenback loaded and you are fighting the wrong speaker.
 
-A neck-position single-coil is the classic guitar pairing here — round and glassy, it swells smoothly where a bridge humbucker jumps out with attack the part does not want. The other Blue-cab sibling in this cluster, [What a Beautiful Name](/blog/what-a-beautiful-name-guitar-tone-helix), leans on the same chiming cab but keeps its boost on all the time — a useful A/B if you want to hear how the boost-on-versus-boost-off choice reshapes the same amp.
+A neck-position single-coil is the classic guitar pairing here. Round and glassy, it swells smoothly where a bridge humbucker jumps out with attack the part does not want. The other Blue-cab sibling in this cluster, [What a Beautiful Name](/blog/what-a-beautiful-name-guitar-tone-helix), leans on the same chiming cab but keeps its boost on all the time, a useful A/B if you want to hear how the boost-on-versus-boost-off choice reshapes the same amp.
 
 ## Number Three: The Boost Is Off
 
-The **Minotaur** — the Klon-style boost — stays off for the entire verse. The Way Maker verses are clean volume-swell pads with the AC30 just shy of breakup. No drive, no hair.
+The **Minotaur** (the Klon-style boost) stays off for the entire verse. The Way Maker verses are clean volume-swell pads with the AC30 just shy of breakup. No drive, no hair.
 
 The boost exists for one job: the lift. Kick it on and the transparent, low-gain, level-up voicing pushes the AC30 into a singing edge so a single-note line cuts over the full band. This is the structural opposite of Goodness of God, which has no Klon-style boost anywhere and gets its grit from stacked amp-breakup drives instead. Same family, different engine.
 
 ## Verse, Chorus, Bridge: The Snapshot Layout
 
-Way Maker builds in long waves — declarative verses, a chorus that opens wide, and a bridge that repeats and grows until it becomes the biggest moment in the room. MultiTracks maps the Leeland version as Intro, Verse 1, Chorus, Verse 2, Verse 3, Chorus, Refrain, Chorus, Bridge, Chorus, Refrain, Chorus, Instrumental, Refrain, Ending. Four snapshots cover that arc: snapshot 1 for the intro and all three verses, 2 for the first two choruses, 3 for the refrains and the choruses after the bridge, and 4 for the bridge and the instrumental. Passion's map (Intro, V1, Chorus, V2, V3, Chorus, Refrain, Interlude, Bridge, Chorus, Refrain, Ending) uses the same four, with the interlude on snapshot 3.
+Way Maker builds in long waves: declarative verses, a chorus that opens wide, and a bridge that repeats and grows until it becomes the biggest moment in the room. MultiTracks maps the Leeland version as Intro, Verse 1, Chorus, Verse 2, Verse 3, Chorus, Refrain, Chorus, Bridge, Chorus, Refrain, Chorus, Instrumental, Refrain, Ending. Four snapshots cover that arc: snapshot 1 for the intro and all three verses, 2 for the first two choruses, 3 for the refrains and the choruses after the bridge, and 4 for the bridge and the instrumental. Passion's map (Intro, V1, Chorus, V2, V3, Chorus, Refrain, Interlude, Bridge, Chorus, Refrain, Ending) uses the same four, with the interlude on snapshot 3.
 
 | Snapshot | Song moment | Minotaur | Delay | Reverb mix |
 |---|---|---|---|---|
-| 1 — Swell Pad | Intro, verses | Off | Mix 30%, FB 38 | 38% |
-| 2 — Clean Rhythm | Chorus 1 | Off | Mix 30%, FB 38 | 32% |
-| 3 — Lift | Chorus 2, lead lines | On | Mix 30%, FB 38 | 32% |
-| 4 — Bridge Build | Bridge, tag | On | Mix 32%, FB 45 | 45% |
+| 1 (Swell Pad) | Intro, verses | Off | Mix 30%, FB 38 | 38% |
+| 2 (Clean Rhythm) | Chorus 1 | Off | Mix 30%, FB 38 | 32% |
+| 3 (Lift) | Chorus 2, lead lines | On | Mix 30%, FB 38 | 32% |
+| 4 (Bridge Build) | Bridge, tag | On | Mix 32%, FB 45 | 45% |
 
-- **Snapshot 1 — Swell Pad.** The verses. Volume pedal heeled back, every entrance swelled in, the reverb doing the holding. Play almost nothing; the delay fills the space between.
-- **Snapshot 2 — Clean Rhythm.** The first chorus opens up but stays clean — light strums and arpeggios with the dotted eighth carrying the motion. Reverb pulled back a step because the band is now in.
-- **Snapshot 3 — Lift.** Minotaur on for the second chorus and any melodic lead line. The AC30 tips into its singing edge; a single-note melody now carries over the full band without you digging in.
-- **Snapshot 4 — Bridge Build.** The long repeating bridge. Keep the boost on, push the delay feedback up so repeats stack, and open the reverb back up — this is the one section where the wash is allowed to grow with the band until the final chorus lands.
+- **Snapshot 1 (Swell Pad).** The verses. Volume pedal heeled back, every entrance swelled in, the reverb doing the holding. Play almost nothing; the delay fills the space between.
+- **Snapshot 2 (Clean Rhythm).** The first chorus opens up but stays clean: light strums and arpeggios with the dotted eighth carrying the motion. Reverb pulled back a step because the band is now in.
+- **Snapshot 3 (Lift).** Minotaur on for the second chorus and any melodic lead line. The AC30 tips into its singing edge; a single-note melody now carries over the full band without you digging in.
+- **Snapshot 4 (Bridge Build).** The long repeating bridge. Keep the boost on, push the delay feedback up so repeats stack, and open the reverb back up. This is the one section where the wash is allowed to grow with the band until the final chorus lands.
 
 Turn **trails on** so the tails carry across changes, and set snapshot 3 a touch louder (+1 dB on the output block) so the lift reads as a lift.
 
 ## The Part Nobody Can Set for You: The Swell
 
-Every number above can be handed to you. The volume-pedal swell cannot. Heel back, pluck, roll the toe forward so the note fades in with zero pick attack — that motion is the actual instrument on this song, and it lives in your foot and your patience.
+Every number above can be handed to you. The volume-pedal swell cannot. Heel back, pluck, roll the toe forward so the note fades in with zero pick attack. That motion is the instrument on this song, and it lives in your foot and your patience.
 
-The pedal sits first in the chain on purpose: swelling *into* the compressor, amp, delay, and reverb means the swell shapes how everything downstream blooms — the reverb tail grows with the note instead of arriving pre-formed. The mechanics are covered in [volume swells 101](/blog/volume-swell-technique), but the honest truth is that it is reps, not reading.
+The pedal sits first in the chain on purpose: swelling *into* the compressor, amp, delay, and reverb means the swell shapes how everything downstream blooms: the reverb tail grows with the note instead of arriving pre-formed. The mechanics are covered in [volume swells 101](/blog/volume-swell-technique), but it comes down to reps, not reading.
 
 ## Reverb Against the Bar
 
@@ -189,7 +189,7 @@ At 68 BPM a bar of 4/4 lasts 3.53 seconds. The Plateaux's 6.5 second decay there
 
 ## On an HX Stomp
 
-The chain already fits: Volume Pedal · Deluxe Comp · Minotaur · Essex A30 (with the Blue Bell cab) · Adriatic Delay · Plateaux is six blocks. Collapse the four snapshots to the Stomp's three — Swell Pad, Lift, and Bridge Build — and cover the clean chorus by riding the volume pedal from the Pad snapshot. For a whole-service version of this layout, the [four-snapshot Sunday morning system](/blog/helix-worship-snapshots-sunday-morning) generalizes the same architecture.
+The chain already fits: Volume Pedal · Deluxe Comp · Minotaur · Essex A30 (with the Blue Bell cab) · Adriatic Delay · Plateaux is six blocks. Collapse the four snapshots to the Stomp's three (Swell Pad, Lift, and Bridge Build) and cover the clean chorus by riding the volume pedal from the Pad snapshot. For a whole-service version of this layout, the [four-snapshot Sunday morning system](/blog/helix-worship-snapshots-sunday-morning) generalizes the same architecture.
 
 ---
 

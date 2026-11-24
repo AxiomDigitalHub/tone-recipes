@@ -85,33 +85,33 @@ faq:
       compression without piling more fuzz onto the preamp.
 ---
 
-You've probably been told that overdrive belongs in front of the amp and time-based effects belong in the loop. The first half of that is right, but the reason usually gets left out — and the reason is what lets you break the rule on purpose. A drive pedal doesn't have a fixed sound; it has a *job*, and the job changes completely depending on which side of the preamp you plug it into. Here's what each placement actually does to the signal, the two cases where the loop wins, and how the whole thing collapses into a single block-drag on a modeler.
+You've probably been told that overdrive belongs in front of the amp and time-based effects belong in the loop. The first half of that is right, but the reason usually gets left out, and the reason is what lets you break the rule on purpose. A drive pedal has a *job* rather than a fixed sound, and the job changes completely depending on which side of the preamp you plug it into. This post covers what each placement does to the signal, the two cases where the loop wins, and how the whole thing collapses into a single block-drag on a modeler.
 
 ## The Short Answer
 
 | Placement | What it pushes | Typical result | Use it for |
 |---|---|---|---|
 | Front of amp | The preamp | Touch-sensitive breakup, amp-shaped | Almost all overdrive/distortion |
-| Loop (drive) | Post-preamp signal | Harsh, fizzy, un-EQ-able | Rarely — only a clean power amp |
+| Loop (drive) | Post-preamp signal | Harsh, fizzy, un-EQ-able | Rarely: only a clean power amp |
 | Loop (clean boost) | The power amp | Round power-tube compression, louder | Lead boost, power-amp breakup |
 
-**The rule:** dirt goes in front. The loop is for a *boost*, not for *distortion* — and even then only when you want the power amp to do the work.
+**The rule:** dirt goes in front. The loop is for a *boost*, not for *distortion*, and even then only when you want the power amp to do the work.
 
 ## What "In Front" Actually Does
 
 Plug a drive pedal into the front input and it hits the preamp first. That placement matters for three reasons that all compound:
 
-1. **The preamp re-shapes it.** Your pedal's clipping becomes the *input* to the preamp's own gain and tone stack. The amp doesn't just pass the pedal through — it distorts and EQs the pedal's output. A Tube Screamer into a cranked Plexi doesn't sound like a Tube Screamer; it sounds like a Plexi being shoved.
+1. **The preamp re-shapes it.** Your pedal's clipping becomes the *input* to the preamp's own gain and tone stack. The amp distorts and EQs the pedal's output instead of passing it through. A Tube Screamer into a cranked Plexi sounds like a Plexi being shoved, not like a Tube Screamer.
 2. **It stays touch-sensitive.** Because the preamp is still doing most of the gain work, your pick attack and guitar volume knob still move the breakup around. Roll back the volume and it cleans up.
-3. **The amp's EQ controls it.** The tone stack sits *after* the pedal, so Bass/Mid/Treble shape the drive. This is why a midrange-humped pedal like a TS works so well in front — it's feeding the EQ, not bypassing it.
+3. **The amp's EQ controls it.** The tone stack sits *after* the pedal, so Bass/Mid/Treble shape the drive. This is why a midrange-humped pedal like a TS works so well in front: it's feeding the EQ, not bypassing it.
 
-That's the classic formula: a low-to-medium-gain pedal at, say, 9–10 o'clock on the Drive, Level to taste, into an amp that's already at the edge of breakup. The pedal isn't the sound. It's the thing pushing the sound.
+That's the classic formula: a low-to-medium-gain pedal at, say, 9–10 o'clock on the Drive, Level to taste, into an amp that's already at the edge of breakup. The pedal is the thing pushing the sound, not the sound itself.
 
 ## What "In the Loop" Actually Does
 
 The effects loop is an insert point *between* the preamp and the power amp. Whatever you patch there processes a signal that has already been through the preamp's gain stages and the tone stack. Drop a distortion pedal in and two problems show up immediately.
 
-**You're distorting distortion.** On a dirty channel, the preamp has already clipped the signal. Adding a second clipping stage after it doesn't give you "more amp" — it gives you a fizzy, granular texture as the pedal chops up harmonics the preamp already generated. Even on a clean channel, you're distorting a full-level, tone-stacked signal, which tends to sound flat and buzzy rather than dynamic.
+**You're distorting distortion.** On a dirty channel, the preamp has already clipped the signal. Adding a second clipping stage after it gives you a fizzy, granular texture, not "more amp," as the pedal chops up harmonics the preamp already generated. Even on a clean channel, you're distorting a full-level, tone-stacked signal, which tends to sound flat and buzzy rather than dynamic.
 
 **The EQ is in the wrong place.** The tone stack is upstream of the loop, so your amp's Bass/Mid/Treble can't shape the distortion the pedal just made. You've created a tone you can't tune with the amp. That alone is usually enough to send the pedal back to the front of the board.
 
@@ -119,34 +119,34 @@ There's also a level mismatch waiting for you, which I'll come back to.
 
 ### The Surprise: It's Not That Loop Dirt Is "Worse" — It's a Different Job
 
-I expected a Tube Screamer in the loop to just sound bad, and into a tube power amp it did — thin and brittle, with none of the bloom it has out front. But running a *clean boost* in the loop did something the front placement can't: it pushed the power tubes into their own breakup without touching the preamp gain at all. The distortion got rounder and more compressed, not fizzier. That reframed the whole thing for me. The loop isn't a worse place to add gain. It's a different place to *move the distortion to* — from the preamp to the power amp. Once you see it as "which stage do I want to push," the placement stops being a rule and starts being a choice.
+I expected a Tube Screamer in the loop to just sound bad, and into a tube power amp it did: thin and brittle, with none of the bloom it has out front. But running a *clean boost* in the loop did something the front placement can't: it pushed the power tubes into their own breakup without touching the preamp gain at all. The distortion got rounder and more compressed, not fizzier. That reframed the whole thing for me. The loop isn't a worse place to add gain. It's a different place to *move the distortion to*: from the preamp to the power amp. Once you see it as "which stage do I want to push," the placement stops being a rule and starts being a choice.
 
 ## The Two Times the Loop Wins
 
 Both legitimate uses share one condition: **the power amp is clean and you want it dirty, or it's clean and you want it to stay the only variable.**
 
 - **Clean boost to push the power amp.** A transparent boost (think a flat-EQ clean boost, not a midrange drive) in the loop raises the level hitting the power section, driving the power tubes into compression and breakup. This is the squishy, dynamic power-amp distortion that a master-volume amp at bedroom levels can't give you. You're using the loop as a power-amp gain knob. For why preamp and power-amp distortion are two different sounds, the [master-volume vs. non-master-volume breakdown](/blog/master-volume-vs-non-master-amp-breakup) covers the circuit side.
-- **A single drive stage into a clean power section.** If your "amp" is really a clean platform — a modeler's flat power amp, a solid-state power amp, a powered FRFR — then there's no preamp distortion to stack onto. A drive pedal in that signal path is your *only* clipping stage, so it behaves predictably instead of compounding. This is closer to how a pedal-platform rig works than a traditional amp.
+- **A single drive stage into a clean power section.** If your "amp" is a clean platform (a modeler's flat power amp, a solid-state power amp, a powered FRFR), then there's no preamp distortion to stack onto. A drive pedal in that signal path is your *only* clipping stage, so it behaves predictably instead of compounding. This is closer to how a pedal-platform rig works than a traditional amp.
 
 Notice that neither case is "distortion into a distorting preamp." That combination is the one to avoid.
 
 ## The Catch: Loops Run Hot
 
-Even when you have a good reason to use the loop, there's a level problem. Many effects loops run at **line level**, which is significantly hotter than the **instrument level** a drive pedal is built for. Feed a line-level signal into a pedal designed for the front of an amp and its input stage clips before you've turned anything up — which reads as exactly the harshness people blame on "loop dirt" when it's really a gain-structure mismatch. Check whether your amp's loop has an instrument/line switch and set it to match the pedal; the [line-level vs. instrument-level loop guide](/blog/line-level-vs-instrument-level-effects-loop) walks through diagnosing it. And know whether your loop is [series or parallel](/blog/series-vs-parallel-effects-loop) — a parallel loop blends dry signal back in, which dilutes a drive pedal into uselessness.
+Even when you have a good reason to use the loop, there's a level problem. Many effects loops run at **line level**, which is significantly hotter than the **instrument level** a drive pedal is built for. Feed a line-level signal into a pedal designed for the front of an amp and its input stage clips before you've turned anything up. That reads as the harshness people blame on "loop dirt" when it's a gain-structure mismatch. Check whether your amp's loop has an instrument/line switch and set it to match the pedal; the [line-level vs. instrument-level loop guide](/blog/line-level-vs-instrument-level-effects-loop) walks through diagnosing it. And know whether your loop is [series or parallel](/blog/series-vs-parallel-effects-loop). A parallel loop blends dry signal back in, which dilutes a drive pedal into uselessness.
 
 ## On a Modeler
 
-A modeler makes the entire debate literal. There's no loop jack — the signal chain is a row of blocks, and the amp block is the dividing line. "In front of the amp" means the drive block sits *before* the amp block. "In the loop" means it sits *after* it.
+A modeler makes the entire debate literal. There's no loop jack: the signal chain is a row of blocks, and the amp block is the dividing line. "In front of the amp" means the drive block sits *before* the amp block. "In the loop" means it sits *after* it.
 
 So the experiment that needs cables and re-patching on a real rig is a two-second drag here:
 
-1. Put a drive block before the amp block, play a riff. That's "in front" — it pushes the modeled preamp, touch-sensitive and amp-shaped.
-2. Drag the same block to the right of the amp block. That's "in the loop" — now it's distorting the modeled preamp's output, and you'll hear the same fizzy, un-EQ-able harshness a real loop gives you.
+1. Put a drive block before the amp block, play a riff. That's "in front": it pushes the modeled preamp, touch-sensitive and amp-shaped.
+2. Drag the same block to the right of the amp block. That's "in the loop": now it's distorting the modeled preamp's output, and you'll hear the same fizzy, un-EQ-able harshness a real loop gives you.
 
-There's a bonus on a modeler: the amp block already separates preamp gain (the **Drive** parameter) from power-amp behavior (**Master** / **Sag**). So the "clean boost in the loop to push the power amp" trick is mostly redundant — you just raise the amp block's Master to model power-amp push directly. The one thing worth keeping after the amp block is a clean **level/volume** block for a solo boost, which raises output without adding any gain. For the full picture of why block order changes the sound, the [signal chain order guide](/blog/signal-chain-order-guide) lays out the whole row, and the companion [reverb in the loop or out front](/blog/reverb-effects-loop-vs-front-of-amp) piece applies the same after-the-amp logic to time-based effects.
+There's a bonus on a modeler: the amp block already separates preamp gain (the **Drive** parameter) from power-amp behavior (**Master** / **Sag**). So the "clean boost in the loop to push the power amp" trick is mostly redundant: you raise the amp block's Master to model power-amp push directly. The one thing worth keeping after the amp block is a clean **level/volume** block for a solo boost, which raises output without adding any gain. For the full picture of why block order changes the sound, the [signal chain order guide](/blog/signal-chain-order-guide) lays out the whole row, and the companion [reverb in the loop or out front](/blog/reverb-effects-loop-vs-front-of-amp) piece applies the same after-the-amp logic to time-based effects.
 
 ## Making the Call
 
-If you play overdrive or distortion, put it in front of the amp — it's not a rule, it's where the pedal's job (push the preamp) actually happens. Reach for the loop only when the thing you want to push is the *power amp*: a clean boost there drives power-tube breakup without touching your preamp gain, and on a clean platform a single drive stage in the path is predictable instead of stacked. And if you want to *hear* the difference instead of taking my word for it, load a modeler, drag a drive block from one side of the amp block to the other, and play the same riff twice. The singing breakup on the left and the buzz on the right is the whole reason the front of your amp and the loop are different places.
+If you play overdrive or distortion, put it in front of the amp. Treat that less as a rule than as the place where the pedal's job (push the preamp) happens. Reach for the loop only when the thing you want to push is the *power amp*: a clean boost there drives power-tube breakup without touching your preamp gain, and on a clean platform a single drive stage in the path is predictable instead of stacked. And if you want to *hear* the difference instead of taking my word for it, load a modeler, drag a drive block from one side of the amp block to the other, and play the same riff twice. The singing breakup on the left and the buzz on the right is the whole reason the front of your amp and the loop are different places.
 
-For the deeper question of what kind of dirt you're even reaching for, the [overdrive vs. distortion vs. fuzz guide](/blog/overdrive-vs-distortion-vs-fuzz) sorts out the three before you decide where to put it.
+For the deeper question of what kind of dirt you're reaching for, the [overdrive vs. distortion vs. fuzz guide](/blog/overdrive-vs-distortion-vs-fuzz) sorts out the three before you decide where to put it.
