@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import Link from "next/link";
-import { Geist, Geist_Mono, Fraunces } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "@/components/layout/Footer";
-import experimentStats from "@/data/experiment-stats.json";
 import SiteSubnav from "@/components/layout/SiteSubnav";
 import LazySearchPalette from "@/components/search/LazySearchPalette";
 import WebMcpProvider from "@/components/webmcp/WebMcpProvider";
@@ -14,35 +12,27 @@ import { Suspense } from "react";
 import PurchaseTracker from "@/components/analytics/PurchaseTracker";
 import "./globals.css";
 import "./v3.css";
+// Redesign foundation: new tokens, fonts, header, footer and shared pieces.
+// Must load after v3.css (it remaps the legacy v3 tokens).
+import "./redesign.css";
 
+// Geist 400/500/600 and Geist Mono are the whole type system (redesign).
+// Both are variable fonts, so one file each covers every weight in use.
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-// Geist Mono isn't used on the homepage / hero — disable preload so it
-// doesn't compete for bandwidth with Fraunces (the LCP font on the H1).
-// Pages that actually use the mono variable will still lazy-load it.
+// Mono is only for real data (knob values, counts, dates, prices), never the
+// LCP text, so it is not preloaded.
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
   preload: false,
 });
 
-// Fraunces — variable display serif for headlines + italic credits.
-// Picked for its proper italic and screen-tuned optical sizing across
-// the wide range of display sizes the site uses (recipe-title, post-
-// title, page-title, archive-eyebrow et al.). Self-hosted via
-// next/font so we don't pay a roundtrip to Google.
-const fraunces = Fraunces({
-  variable: "--font-display",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-});
-
-
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#ffffff",
 };
 
 export const metadata: Metadata = {
@@ -166,7 +156,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} flex min-h-screen flex-col bg-background font-sans text-foreground antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col bg-background font-sans text-foreground antialiased`}
       >
         {/* GTM noscript — standard install pair for the lazyOnload script
             near the end of body. */}
@@ -186,38 +176,6 @@ export default function RootLayout({
             <PurchaseTracker />
           </Suspense>
           <div className="fk-preview flex min-h-screen flex-col flex-1">
-            {/* Masthead ticker — the sitewide inroad to /experiment. Live
-                numbers from experiment-stats.json (regenerated with content
-                drops), replacing the old hardcoded Vol./Issue fiction. */}
-            <div className="masthead-bar">
-              <div className="masthead-bar-inner">
-                <Link
-                  href="/experiment"
-                  style={{ color: "inherit", textDecoration: "none" }}
-                >
-                  <span className="tape-dot" />
-                  Open experiment · Day{" "}
-                  {/* Against generated_at (not Date.now) — pure render, and
-                      the ticker always agrees with the /experiment page. */}
-                  {Math.max(
-                    1,
-                    Math.round(
-                      (new Date(
-                        experimentStats.generated_at + "T00:00:00Z",
-                      ).getTime() -
-                        new Date(
-                          experimentStats.first_commit + "T00:00:00Z",
-                        ).getTime()) /
-                        86_400_000,
-                    ),
-                  )}{" "}
-                  · {experimentStats.commits} commits ·{" "}
-                  {experimentStats.public_corrections} public corrections
-                </Link>
-                <div>Stop tweaking. Start playing.</div>
-              </div>
-            </div>
-
             <SiteSubnav />
 
             <LazySearchPalette />

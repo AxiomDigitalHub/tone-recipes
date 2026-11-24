@@ -1,0 +1,17 @@
+# Fader & Knob staging: the `redesign` branch (container faderandknob-staging
+# from /opt/faderandknob-staging, shared network). Append to
+# /opt/faderandknob/Caddyfile on the droplet.
+#
+# basic_auth stands in for the login wall a hosted preview would have, and
+# keeps crawlers and visitors off a second copy of the site. Replace the
+# hash placeholder on the droplet; do not commit a real hash.
+# DNS: proxied (orange cloud) A record `redesign` -> the droplet, in the
+# faderandknob.com Cloudflare zone.
+redesign.faderandknob.com {
+	encode zstd gzip
+	header X-Robots-Tag "noindex, nofollow"
+	basic_auth {
+		daniel <BCRYPT_HASH>
+	}
+	reverse_proxy faderandknob-staging:3000
+}

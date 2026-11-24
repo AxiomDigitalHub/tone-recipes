@@ -1,0 +1,86 @@
+# Staging for the `redesign` branch (see HANDOFF build brief).
+#
+# Builds the same Docker image as production but tags it `:redesign`, never
+# `:latest`, so the production container (which tracks `:latest`) is not
+# touched. The deploy job restarts only the `faderandknob-staging` container
+# on the droplet, which Caddy serves at redesign.faderandknob.com behind
+# basic auth with a noindex header. Stack: deploy/staging/.
+#
+# Production is built and deployed by build-image.yml, on `main` only.
+
+name: Build & deploy staging (redesign)
+
+on:
+  push:
+    branches: [redesign]
+  workflow_dispatch:
+
+concurrency:
+  group: build-staging-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Hardcoded lowercase: registries reject the mixed-case github.repository.
+  IMAGE: ghcr.io/axiomdigitalhub/tone-recipes
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          # NOT :latest. Production pulls :latest.
+          tags: |
+            ${{ env.IMAGE }}:redesign
+            ${{ env.IMAGE }}:redesign-${{ github.sha }}
+          build-args: |
+            NEXT_PUBLIC_SUPABASE_URL=${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
+            NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+            AMAZON_ASSOCIATES_TAG=${{ vars.AMAZON_ASSOCIATES_TAG }}
+            NEXT_PUBLIC_GOOGLE_CLIENT_ID=${{ vars.NEXT_PUBLIC_GOOGLE_CLIENT_ID }}
+          cache-from: type=gha,scope=staging
+          cache-to: type=gha,mode=max,scope=staging
+
+  deploy:
+    needs: build
+    if: vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull + restart staging on VPS
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: |
+            cd /opt/faderandknob-staging
+            docker compose pull staging
+            docker compose up -d staging
+            docker image prune -f

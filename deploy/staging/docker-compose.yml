@@ -1,0 +1,34 @@
+# Fader & Knob staging: the `redesign` branch, at redesign.faderandknob.com.
+#
+# Lives on the droplet at /opt/faderandknob-staging. Built and restarted by
+# .github/workflows/build-staging.yml on every push to `redesign`.
+#
+# - Service is named `staging`, NOT `app`. Two containers answering to the
+#   alias `app` on the shared network once sent production traffic to the
+#   wrong container. Caddy addresses this one by container_name.
+# - Joins the production stack's network so the shared Caddy can reach it.
+# - Reuses the production env file, so staging reads and writes the SAME
+#   Supabase project and holds the live Stripe and Resend keys. Treat
+#   sign-ups, saves and checkouts on staging as real. Caddy's basic auth is
+#   what keeps the public out.
+# - Memory is capped: the droplet has 1 GB and production comes first.
+
+services:
+  staging:
+    image: ghcr.io/axiomdigitalhub/tone-recipes:redesign
+    container_name: faderandknob-staging
+    restart: unless-stopped
+    env_file:
+      - /opt/faderandknob/.env.production
+    environment:
+      LOCAL_CHROME_PATH: ""
+      HOME: /tmp
+    expose:
+      - "3000"
+    mem_limit: 400m
+    networks:
+      - faderandknob_default
+
+networks:
+  faderandknob_default:
+    external: true
