@@ -84,25 +84,25 @@ faq:
 ---
 
 > **Start Here: The Goodness of God Tone in Five Blocks:**
-> 1. Amp: **A30 Fawn Brt** into a **4x12 Greenback 25** cab — the warm, woolly AC30
-> 2. Compressor: **Deluxe Comp**, always on — evens the swells
+> 1. Amp: **A30 Fawn Brt** into a **4x12 Greenback 25** cab (the warm, woolly AC30)
+> 2. Compressor: **Deluxe Comp**, always on (evens the swells)
 > 3. Drives: **Kinky Boost** + **Teemah**, off until the bridge and final choruses
 > 4. Delay: **Adriatic Delay**, dotted eighth at 82 BPM (≈549 ms), repeats kept dark
-> 5. Reverb: **Plateaux**, big shimmer-plate wash at ~42% mix — the featured instrument
+> 5. Reverb: **Plateaux**, big shimmer-plate wash at ~42% mix (the featured instrument)
 
 ---
 
 ## Start With the Reverb, Because That Is What the Song Is
 
-The electric part on Bethel's recording of Goodness of God is not a guitar part with reverb on it — it is a reverb with a guitar feeding it. The wash is the featured instrument, and everything upstream exists to give it something warm to hold. That reframing changes how you build the patch: dial the guitar first and add reverb last and you will get the notes right and the atmosphere wrong. Decide what the space should feel like, then feed it.
+The electric part on Bethel's recording of Goodness of God is best heard as a reverb with a guitar feeding it, rather than a guitar part with reverb on it. The wash is the featured instrument, and everything upstream exists to give it something warm to hold. That reframing changes how you build the patch: dial the guitar first and add reverb last and you will get the notes right and the atmosphere wrong. Decide what the space should feel like, then feed it.
 
-The sound sits squarely in the [Bethel ambient lineage](/blog/bethel-music-guitar-tone-helix) — the recording's electric atmosphere is built on a Gretsch-into-AC30 rig with a Strymon-style delay-and-shimmer setup, credited to Bethel's Victory-era guitarist David Hislop. This walkthrough builds that sound from an empty [Helix](/platforms/helix) preset, mapped to the actual sections of the song. Every block name is exact and ports to Helix Floor, LT, HX Stomp, and Native.
+The sound sits squarely in the [Bethel ambient lineage](/blog/bethel-music-guitar-tone-helix). The recording's electric atmosphere is built on a Gretsch-into-AC30 rig with a Strymon-style delay-and-shimmer setup, credited to Bethel's Victory-era guitarist David Hislop. This walkthrough builds that sound from an empty [Helix](/platforms/helix) preset, mapped to the sections of the song. Every block name is exact and ports to Helix Floor, LT, HX Stomp, and Native.
 
-We put this song in rotation about once a month at my church, and the pad snapshot is the part that earns its keep — it has to hold the room alone under prayer before the band comes back in, and a picked chord there sounds like an interruption where a swelled one sounds like the room breathing.
+We put this song in rotation about once a month at my church, and the pad snapshot is the part that earns its keep. It has to hold the room alone under prayer before the band comes back in, and a picked chord there sounds like an interruption where a swelled one sounds like the room breathing.
 
 ## The Amp: A Greenback AC30, Warmer Than You Expect
 
-AC30 usually means chime. This one does not. The amp voice behind this tone is an AC30 loaded with **Celestion Greenbacks** instead of the stock Alnico Blues, and that swaps the whole character — Greenbacks roll off the top and push the midrange forward, so the amp is woollier and more compressed. That warmth is why the tone survives under this much reverb; a bright AC30 into a big shimmer turns to ice.
+AC30 usually means chime. This one does not. The amp voice behind this tone is an AC30 loaded with **Celestion Greenbacks** instead of the stock Alnico Blues, and that swaps the whole character. Greenbacks roll off the top and push the midrange forward, so the amp is woollier and more compressed. That warmth is why the tone survives under this much reverb; a bright AC30 into a big shimmer turns to ice.
 
 On the Helix, that is the **A30 Fawn Brt** amp into the **4x12 Greenback 25** cab:
 
@@ -110,55 +110,55 @@ On the Helix, that is the **A30 Fawn Brt** amp into the **4x12 Greenback 25** ca
 |---|---|---|
 | Drive | 5.0 | Blooms with the drives, stays clean for the verse pads. |
 | Bass | 5.0 | Full but not boomy under the swells. |
-| Mid | 6.0 | The Greenback midrange is the identity — keep it forward. |
+| Mid | 6.0 | The Greenback midrange is the identity; keep it forward. |
 | Treble | 6.0 | Warmth with definition, not jangle. |
 | Presence | 5.0 | Moderate; the cab's high cut does the taming. |
 | Sag | 6.0 | Up a touch for the compressed, blooming feel. |
 
-On the cab, set the low cut around 100 Hz and the **high cut at 7 kHz** — that roll-off is the Greenback voice. If the patch sounds thin, the first thing to check is whether you left a stock AC30 cab loaded. To hear the opposite decision on the same amp, the chime-cab siblings [Way Maker](/blog/way-maker-guitar-tone-helix) and [What a Beautiful Name](/blog/what-a-beautiful-name-guitar-tone-helix) run the bright Alnico-Blue cab — and [why that one speaker choice moves the tone this far](/blog/alnico-blue-vs-greenback-ac30-worship) is worth a read before you commit.
+On the cab, set the low cut around 100 Hz and the **high cut at 7 kHz**. That roll-off is the Greenback voice. If the patch sounds thin, the first thing to check is whether you left a stock AC30 cab loaded. To hear the opposite decision on the same amp, the chime-cab siblings [Way Maker](/blog/way-maker-guitar-tone-helix) and [What a Beautiful Name](/blog/what-a-beautiful-name-guitar-tone-helix) run the bright Alnico-Blue cab, and [why that one speaker choice moves the tone this far](/blog/alnico-blue-vs-greenback-ac30-worship) is worth a read before you commit.
 
 ## Time and Space: A Dark Delay Feeding a Big Wash
 
-The recording runs at **82 BPM in Ab**, and the delay is a dotted eighth locked to it. The math is the standard worship formula — `(60000 / BPM) × 0.75` — which at 82 BPM lands at **≈549 ms** on an **Adriatic Delay** block: Feedback 35, Mix 28%, and the important part, **high cut down near 5.5 kHz**. Dark repeats stop sounding like a delay and start sounding like more reverb; they blur into the tail and the two become one wide bed instead of a slap over the pad. [One BPM, one grid](/blog/one-tempo-grid-predelay-dotted-eighth-delay) covers the timing logic if you want to go deeper.
+The recording runs at **82 BPM in Ab**, and the delay is a dotted eighth locked to it. The math is the standard worship formula, `(60000 / BPM) × 0.75`, which at 82 BPM lands at **≈549 ms** on an **Adriatic Delay** block: Feedback 35, Mix 28%, and the important part, **high cut down near 5.5 kHz**. Dark repeats stop sounding like a delay and start sounding like more reverb; they blur into the tail and the two become one wide bed instead of a slap over the pad. [One BPM, one grid](/blog/one-tempo-grid-predelay-dotted-eighth-delay) covers the timing logic if you want to go deeper.
 
-Then the reverb: **Plateaux**, decay around 8.0, pre-delay 15 ms, low cut 150 Hz — and **Mix at 42%**. That mix looks wrong on paper; most tone guides say keep reverb under 30% so the guitar stays defined. Defined is not the goal here. The reverb is the instrument, so it gets to be loud, and the low cut and high cut are what keep a mix that hot from collapsing into mud. The filtering logic is the same one covered in [stacking reverbs](/blog/stacking-reverbs-guide).
+Then the reverb: **Plateaux**, decay around 8.0, pre-delay 15 ms, low cut 150 Hz, and **Mix at 42%**. That mix looks wrong on paper; most tone guides say keep reverb under 30% so the guitar stays defined. Defined is not the goal here. The reverb is the instrument, so it gets to be loud, and the low cut and high cut are what keep a mix that hot from collapsing into mud. The filtering logic is the same one covered in [stacking reverbs](/blog/stacking-reverbs-guide).
 
 ## The Drives Stay Off Until the End
 
-In the verses there is no distortion at all — and notably, **no Klon-style boost anywhere in this tone**. The lift comes from two stacked drives that stay off for most of the song:
+In the verses there is no distortion at all, and **no Klon-style boost anywhere in this tone**. The lift comes from two stacked drives that stay off for most of the song:
 
-1. **Kinky Boost** — a Supro-style amp-breakup voice. Gain 4, Tone 5.5, Level 6.
-2. **Teemah** — a mid-pushing overdrive to stack on top. Gain 4.5, Tone 6, Level 6.
+1. **Kinky Boost**: a Supro-style amp-breakup voice. Gain 4, Tone 5.5, Level 6.
+2. **Teemah**: a mid-pushing overdrive to stack on top. Gain 4.5, Tone 6, Level 6.
 
 The first comes on as the band fills out in the back half; both together push the AC30 into a thick, mid-forward grit that lets a melodic line sing over a full band at the bridge peak. Keep the **Deluxe Comp** (Threshold −32, Ratio 4, Mix 65%) always on ahead of them so the swells bloom evenly whether the drives are on or off.
 
 ## Verse, Chorus, Bridge: The Snapshot Layout
 
-Goodness of God is a slow build — restrained verses, a chorus that opens up, and a long repeating bridge that grows until the final chorus lands. That arc maps onto four snapshots:
+Goodness of God is a slow build: restrained verses, a chorus that opens up, and a long repeating bridge that grows until the final chorus lands. That arc maps onto four snapshots:
 
 | Snapshot | Song moment | Drives | Delay mix | Reverb mix |
 |---|---|---|---|---|
-| 1 — Pad | Intro, verses, tag/outro | Off | 20% | 42% |
-| 2 — Clean | Chorus 1 | Off | 28% | 35% |
-| 3 — Drive | Chorus 2, early bridge passes | Kinky Boost on | 28% | 30% |
-| 4 — Lead | Bridge peak, final chorus | Kinky Boost + Teemah | 30% | 30% |
+| 1: Pad | Intro, verses, tag/outro | Off | 20% | 42% |
+| 2: Clean | Chorus 1 | Off | 28% | 35% |
+| 3: Drive | Chorus 2, early bridge passes | Kinky Boost on | 28% | 30% |
+| 4: Lead | Bridge peak, final chorus | Kinky Boost + Teemah | 30% | 30% |
 
-- **Snapshot 1 — Pad.** Volume-swell territory: drives off, reverb at its hottest, delay tucked low so it thickens instead of ticking. This is the intro, both verses, and the quiet tag at the end.
-- **Snapshot 2 — Clean.** The first chorus opens up but stays clean — picked and lightly strummed, delay mix up so the dotted eighth adds motion, reverb pulled back a step because the band is now filling the space the wash was covering.
-- **Snapshot 3 — Drive.** Second chorus and the first passes of the bridge. The Kinky Boost pushes the AC30 to edge-of-breakup so strummed parts have hair without turning into a rock tone.
-- **Snapshot 4 — Lead.** The bridge peak and final chorus. Both drives on, delay mix up a touch — and notice the reverb goes *down* as the song gets bigger. A long shimmer smears a melodic line into mush; the moment reads as huge because the band is huge, and the medium wash just keeps the lead from sounding dry.
+- **Snapshot 1: Pad.** Volume-swell territory: drives off, reverb at its hottest, delay tucked low so it thickens instead of ticking. This is the intro, both verses, and the quiet tag at the end.
+- **Snapshot 2: Clean.** The first chorus opens up but stays clean: picked and lightly strummed, delay mix up so the dotted eighth adds motion, reverb pulled back a step because the band is now filling the space the wash was covering.
+- **Snapshot 3: Drive.** Second chorus and the first passes of the bridge. The Kinky Boost pushes the AC30 to edge-of-breakup so strummed parts have hair without turning into a rock tone.
+- **Snapshot 4: Lead.** The bridge peak and final chorus. Both drives on, delay mix up a touch, and the reverb goes *down* as the song gets bigger. A long shimmer smears a melodic line into mush; the moment reads as huge because the band is huge, and the medium wash keeps the lead from sounding dry.
 
-Turn **trails on** so the reverb and delay tails carry across every snapshot change — the wash should never audibly cut.
+Turn **trails on** so the reverb and delay tails carry across every snapshot change. The wash should never audibly cut.
 
 ## The Volume Swell Is Half the Part
 
-Everything above is the sound; this is what makes it a *part*. Put a **Volume Pedal** block first in the chain on EXP 1. Heel back, pluck the chord, roll the toe forward so the note fades in with no pick attack — swelling *into* the comp, amp, delay, and reverb means the whole wash blooms with the note instead of arriving pre-formed. A picked chord into 42% reverb sounds cluttered; a swelled one sounds like a pad a keys player would envy. If the technique is new, [volume swells 101](/blog/volume-swell-technique) breaks down the timing — but honestly, it is reps.
+Everything above is the sound; this is what makes it a *part*. Put a **Volume Pedal** block first in the chain on EXP 1. Heel back, pluck the chord, roll the toe forward so the note fades in with no pick attack. Swelling *into* the comp, amp, delay, and reverb means the whole wash blooms with the note instead of arriving pre-formed. A picked chord into 42% reverb sounds cluttered; a swelled one sounds like a pad a keys player would envy. If the technique is new, [volume swells 101](/blog/volume-swell-technique) breaks down the timing, though what teaches it is reps.
 
 ## On an HX Stomp
 
-Collapse to six blocks: Volume Pedal · Deluxe Comp · Kinky Boost · A30 Fawn Brt (with the Greenback cab) · Adriatic Delay · Plateaux, across three snapshots — Pad, Clean, Lead. You lose the two-stage drive lift, so set the single drive hot enough to carry the final chorus on its own, and let the volume pedal handle the in-between dynamics.
+Collapse to six blocks: Volume Pedal · Deluxe Comp · Kinky Boost · A30 Fawn Brt (with the Greenback cab) · Adriatic Delay · Plateaux, across three snapshots: Pad, Clean, Lead. You lose the two-stage drive lift, so set the single drive hot enough to carry the final chorus on its own, and let the volume pedal handle the in-between dynamics.
 
-If you want this layout as part of a whole-service preset rather than a per-song patch, the [four-snapshot Sunday morning system](/blog/helix-worship-snapshots-sunday-morning) is the same architecture generalized — this song lives almost entirely in its Pad and Lead snapshots.
+If you want this layout as part of a whole-service preset rather than a per-song patch, the [four-snapshot Sunday morning system](/blog/helix-worship-snapshots-sunday-morning) is the same architecture generalized. This song lives almost entirely in its Pad and Lead snapshots.
 
 ---
 

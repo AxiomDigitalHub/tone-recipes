@@ -81,7 +81,7 @@ faq:
       remaining drift is the light.
 ---
 
-A delay with the feedback up near runaway, synced to the tempo, should keep landing on the tap light for as long as the tail lasts. Helix owners have reported for years that it doesn't: the repeats slide ahead of or behind the flashing LED within a minute or two. The fix depends on which of four different things is actually drifting, and two of them aren't the delay at all.
+A delay with the feedback up near runaway, synced to the tempo, should keep landing on the tap light for as long as the tail lasts. Helix owners have reported for years that it doesn't: the repeats slide ahead of or behind the flashing LED within a minute or two. The fix depends on which of four different things is drifting, and two of them aren't the delay.
 
 | What you see | Most likely cause | How to check |
 |---|---|---|
@@ -92,7 +92,7 @@ A delay with the feedback up near runaway, synced to the tempo, should keep land
 
 ## Is the Delay Drifting, or Is the Light?
 
-The longest record of this problem is a Line 6 forum thread that ran from May 2018 to May 2020. The original poster used very long delays at 99 percent feedback for improvised pieces. At 60 BPM with a four-second delay, the repeats and the light were out of step within about 30 seconds, with the repeats arriving faster than the light. It happened with tapped tempo, a typed tempo, a millisecond time and a note value.
+The longest record of this problem is a Line 6 forum thread that ran from May 2018 to May 2020. The original poster used long delays at 99 percent feedback for improvised pieces. At 60 BPM with a four-second delay, the repeats and the light were out of step within about 30 seconds, with the repeats arriving faster than the light. It happened with tapped tempo, a typed tempo, a millisecond time and a note value.
 
 Another user tested a **Simple Delay** at 1,000 ms and 60 BPM on a Helix Floor and reported the light about half a beat behind after roughly 100 repeats. The same user counted the light at 140 BPM over two minutes and got about 275 or 276 flashes instead of 280, then got a test that was exactly on time a few days later.
 
@@ -117,7 +117,7 @@ The other half of the math is how long the tail stays audible. Each repeat is qu
 
 Two things fall out of that table. First, at the feedback settings most people run, rounding can't produce anything you'd notice: under 10 ms by the time a 70 percent tail is gone. Only the near-runaway settings in that thread give rounding enough repeats to add up.
 
-Second, the 1,000 ms test can't be rounding at all. A quarter note at 60 BPM is exactly 1,000 ms, with nothing to round. Half a beat over about 100 repeats is 5 ms per repeat, a 0.5 percent timing error, ten times the worst whole-millisecond rounding. And the 140 BPM count was of the light, not the delay: 275 flashes where 280 were due is the light running about 1.8 percent slow. The original poster's own workaround points the same way. Setting 60.2 BPM with a four-second delay stayed in step much longer than 60.0; four beats at 60.2 BPM is 3,987 ms, so whatever the light was counting ran about 0.3 percent long against the delay.
+Second, the 1,000 ms test can't be rounding. A quarter note at 60 BPM is exactly 1,000 ms, with nothing to round. Half a beat over about 100 repeats is 5 ms per repeat, a 0.5 percent timing error, ten times the worst whole-millisecond rounding. And the 140 BPM count was of the light, not the delay: 275 flashes where 280 were due is the light running about 1.8 percent slow. The original poster's own workaround points the same way. Setting 60.2 BPM with a four-second delay stayed in step much longer than 60.0; four beats at 60.2 BPM is 3,987 ms, so whatever the light was counting ran about 0.3 percent long against the delay.
 
 None of that proves which clock was wrong, but it rules out the arithmetic of the delay time as the cause, and the support answer and the firmware history both point at the light.
 
@@ -151,7 +151,7 @@ If the repeats sit on the grid and the light wanders, the delay is fine; turn th
 
 ## What to Do
 
-1. **Set times as note values, not milliseconds.** It removes the most common real drift entirely.
+1. **Set times as note values, not milliseconds.** It removes the most common real drift.
 2. **Keep the note value inside the model's range** at your slowest tempo. A dotted quarter at 60 BPM is 1,500 ms; check that against the model's maximum before the gig, not during it.
 3. **Sync to MIDI clock when there's a click.** It removes the stored-tempo mismatch, the only drift that a whole band will hear.
 4. **Update firmware if the drift appeared after an update.** The 2018–2020 thread shows the light-versus-delay behaviour changing between versions.

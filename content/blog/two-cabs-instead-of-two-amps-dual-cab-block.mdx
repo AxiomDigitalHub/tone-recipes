@@ -74,25 +74,25 @@ faq:
       An HX Stomp has one path, so plan on one Dual Cab there.
 ---
 
-Two amp paths for one guitar sound is the most expensive way to make a preset sound bigger. Most of the time the thing you were after — a sound that's thicker than one speaker and one mic — lives in the cab, not the amp, and a Helix Dual Cab block gets you there for loose change.
+Two amp paths for one guitar sound is the most expensive way to make a preset sound bigger. Most of the time the thing you were after (a sound that's thicker than one speaker and one mic) lives in the cab, not the amp, and a Helix Dual Cab block gets you there for loose change.
 
-Line 6 says as much in the manual's own optimisation tips: instead of two Amp+Cab blocks on parallel paths, "try adding a single Amp block followed by one Cab > Dual block." What the manual doesn't tell you is which two cabs to put in it, or what the block's Delay control does to you on a mono PA. That's this article.
+Line 6 says as much in the manual's own optimisation tips: instead of two Amp+Cab blocks on parallel paths, "try adding a single Amp block followed by one Cab > Dual block." The manual doesn't tell you which two cabs to put in it, or what the block's Delay control does to you on a mono PA.
 
 ## The Short Version
 
 | Goal | Cab A | Cab B | Pan | Delay | Why |
 |---|---|---|---|---|---|
-| More low-end weight under a 10-inch voice | 4x10 Tweed P10R | 4x12 Brit V30 | Center / center | 0 or Auto | Published resonance 97 Hz vs 75 Hz — two different low corners |
+| More low-end weight under a 10-inch voice | 4x10 Tweed P10R | 4x12 Brit V30 | Center / center | 0 or Auto | Published resonance 97 Hz vs 75 Hz: two different low corners |
 | Same low end, different mids and top | 4x12 Greenback25 | 4x12 Brit V30 | Center / center | 0 or Auto | Both resonate at 75 Hz; the difference is above that |
 | A small step on a Marshall sound | 4x12 Greenback25 | 4x12 1960A T75 | Center / center | 0 or Auto | Same box family, 75 vs 85 Hz |
-| Wide doubled rhythm, stereo recording only | Any two different cabs | — | Hard L / hard R | 10–20 ms | Haas-style width; collapses in mono |
-| Mono club PA, any pairing | — | — | Center / center | 0 | No time offset, nothing to cancel |
+| Wide doubled rhythm, stereo recording only | Any two different cabs | (see Cab A) | Hard L / hard R | 10–20 ms | Haas-style width; collapses in mono |
+| Mono club PA, any pairing | Any | Any | Center / center | 0 | No time offset, nothing to cancel |
 
 Starting levels: equal, then pull the cab you like less down 3 to 6 dB until the blend stops sounding like two things.
 
 ## The Price
 
-Figures are from the community-measured Helix 3.80 allocation table (good to about one unit — Line 6 doesn't publish per-block costs). On a Brit Plexi Brt:
+Figures are from the community-measured Helix 3.80 allocation table (good to about one unit; Line 6 doesn't publish per-block costs). On a Brit Plexi Brt:
 
 | Rig | DSP units | Block slots |
 |---|---|---|
@@ -106,9 +106,9 @@ What you give up is real, though. Two amps means two preamps and two power secti
 
 ## Picking the Pair: Start With the Speaker, Not the Name
 
-Here's where I expected the obvious answer and got a different one. The pairing everybody recommends is a Greenback with a V30. Classic. I assumed it worked because it changes everything about the sound, bottom included.
+I expected the obvious answer here and got a different one. The pairing everybody recommends is a Greenback with a V30. Classic. I assumed it worked because it changes everything about the sound, bottom included.
 
-Then I checked the published speaker figures from our [speaker-size comparison](/blog/what-your-amps-speaker-size-decides-before-you-plug-in). The Celestion G12M Greenback and the Vintage 30 both list a resonance of **75 Hz**. Same number. Whatever that blend is doing, it isn't moving the low corner. It's a mids-and-top blend — the Greenback's rounder upper mids against the V30's forward bark — and it'll sound like that: the same weight underneath, a different edge on top.
+Then I checked the published speaker figures from our [speaker-size comparison](/blog/what-your-amps-speaker-size-decides-before-you-plug-in). The Celestion G12M Greenback and the Vintage 30 both list a resonance of **75 Hz**. Same number. Whatever that blend is doing, it isn't moving the low corner. It's a mids-and-top blend (the Greenback's rounder upper mids against the V30's forward bark), and it'll sound like that: the same weight underneath, a different edge on top.
 
 If you want the blend to change what happens under the note, you need speakers with different resonances. The Helix 3.80 cab list tells you what driver each model was captured with, so you can match them to published figures:
 
@@ -120,9 +120,9 @@ If you want the blend to change what happens under the note, you need speakers w
 | 4x12 Cali V30 / Uber V30 / XXL V30 | Mesa 4FB / Bogner / ENGL, Vintage 30 | 75 Hz |
 | 4x12 1960A T75 / MOO)))N T75 / Uber T75 | Marshall 1960A / Sunn / Bogner, G12T-75 | 85 Hz |
 
-Your open low E is 82.41 Hz. A 75 Hz speaker resonates just under it; a 97 Hz speaker resonates 15 Hz above it, where output is already falling away. Blend the P10R cab with a V30 cab and you've got one speaker holding the fundamental and another one that's quieter down there and busier on the attack — two different low corners summed, not one corner averaged. That's the pairing that actually sounds like more than one box.
+Your open low E is 82.41 Hz. A 75 Hz speaker resonates just under it; a 97 Hz speaker resonates 15 Hz above it, where output is already falling away. Blend the P10R cab with a V30 cab and you've got one speaker holding the fundamental and another one that's quieter down there and busier on the attack. That's two different low corners summed, not one corner averaged, and it's the pairing that sounds like more than one box.
 
-The honest caveats (because these numbers are easy to oversell):
+The caveats (because these numbers are easy to oversell):
 
 - **Resonance is a free-air driver figure.** In a cabinet it shifts, and an IR captures the box and the mic too. The figure tells you which cab will have less going on at the bottom. It doesn't tell you the curve.
 - **Same speaker, different box is a small move.** Brit V30 into Cali V30 is mostly cabinet construction and mic placement. Fine for a subtle thicken. Don't expect a new voice.
@@ -130,7 +130,7 @@ The honest caveats (because these numbers are easy to oversell):
 
 ## The Delay Control Is the Part That Bites
 
-Each cab in a Dual block gets the normal cab parameters — Mic, Distance (1 to 12 inches), Position, Angle, Low Cut, High Cut, Level — plus two that only the Dual block has: **Pan**, and **Delay**, up to 50 ms per cab.
+Each cab in a Dual block gets the normal cab parameters: Mic, Distance (1 to 12 inches), Position, Angle, Low Cut, High Cut, Level. Two more exist only on the Dual block: **Pan**, and **Delay**, up to 50 ms per cab.
 
 Delay has two jobs, and they're opposites.
 
@@ -138,7 +138,7 @@ Delay has two jobs, and they're opposites.
 
 The manual says the Auto setting "automatically applies a delay amount to approximate the selected cab's 'Distance' parameter value," for "a more accurate representation of the two cabs' mics blending together." Reading that, the captures themselves appear to be time-aligned, and Auto adds back the arrival gap a real mic further away would have. (That's an inference from the manual's wording, not something I measured in the IRs.)
 
-A real arrival gap means real comb filtering when the two cabs are at similar levels — the same thing that happens with [a close mic and a room mic](/blog/close-mic-plus-room-mic-guitar-cab-phase-blend). At the speed of sound, here's where the first cancellation lands for a given difference in the two Distance settings:
+A real arrival gap means real comb filtering when the two cabs are at similar levels, the same thing that happens with [a close mic and a room mic](/blog/close-mic-plus-room-mic-guitar-cab-phase-blend). At the speed of sound, the first cancellation lands here for a given difference in the two Distance settings:
 
 | Distance difference | Arrival gap | First notch |
 |---|---|---|
@@ -148,11 +148,11 @@ A real arrival gap means real comb filtering when the two cabs are at similar le
 | 5 inches | 0.370 ms | 1,350 Hz |
 | 11 inches (1 vs 12) | 0.815 ms | 614 Hz |
 
-A 1-inch difference puts the first notch near the top of what a guitar speaker reproduces anyway. Nobody will hear it. An 11-inch difference drops it to 614 Hz, right in the middle of the guitar, and that's the hollow, phasey sound people blame on "two cabs fighting." It's not the cabs. It's the Distance settings. Keep the two mics within about 3 inches of each other and the first notch stays above 2 kHz, where a cab's output is already sloping off.
+A 1-inch difference puts the first notch near the top of what a guitar speaker reproduces anyway. Nobody will hear it. An 11-inch difference drops it to 614 Hz, right in the middle of the guitar, and that's the hollow, phasey sound people blame on "two cabs fighting." The cause is the Distance settings, not the cabs. Keep the two mics within about 3 inches of each other and the first notch stays above 2 kHz, where a cab's output is already sloping off.
 
 ### Job two: the double-tracking trick
 
-The manual's other suggestion is to delay one cab and pan the two hard apart to fake a double-tracked part. In stereo it works — 10 to 20 ms on one side and a single rhythm part sounds like two takes.
+The manual's other suggestion is to delay one cab and pan the two hard apart to fake a double-tracked part. In stereo it works: 10 to 20 ms on one side and a single rhythm part sounds like two takes.
 
 Now sum that to mono. Which is what happens at a lot of clubs, because a lot of club PAs are mono, full stop. A fixed delay summed with itself is a comb filter with notches evenly spaced across the whole band:
 
@@ -170,7 +170,7 @@ So: if you don't know the PA is stereo, it isn't. Pan both cabs to center, set D
 ## Building It
 
 1. Put a single **Amp** block (not Amp+Cab) on the path, then a **Cab > Dual** block after it.
-2. Pick Cab A and Cab B from the pairing table. If the global Link Dual Cabs preference is on, choosing Cab A also sets Cab B — turn it off in Global Settings > Preferences or you'll keep getting two of the same cab.
+2. Pick Cab A and Cab B from the pairing table. If the global Link Dual Cabs preference is on, choosing Cab A also sets Cab B, so turn it off in Global Settings > Preferences or you'll keep getting two of the same cab.
 3. Same mic on both to start (a 57 is fine), Distances within 3 inches of each other, Angle 0 on both.
 4. Pan center/center, Delay 0, both Levels at 0 dB.
 5. Listen to each cab alone by dropping the other's Level, then bring it back and pull the weaker one down 3 to 6 dB.
@@ -180,4 +180,4 @@ Structural limit from the 3.80 manual: up to two Dual Cab blocks per preset, one
 
 ## Not on a Helix?
 
-The pairing logic doesn't care about the brand. Quad Cortex and Fractal units can both put more than one cab or IR in a single cab block with its own level and pan — check your manual for whether there's a per-cab delay, because if there is, the mono rules above apply exactly. On a real stage the equivalent is a 2x12 loaded with one of each speaker, which players have been doing for decades for the same reason. Pick the two speakers by where they differ, keep the mics close to the same distance, and don't trust a wide sound until you've heard it in mono.
+The pairing logic doesn't care about the brand. Quad Cortex and Fractal units can both put more than one cab or IR in a single cab block with its own level and pan. Check your manual for whether there's a per-cab delay, because if there is, the mono rules above apply as written. On a real stage the equivalent is a 2x12 loaded with one of each speaker, which players have been doing for decades for the same reason. Pick the two speakers by where they differ, keep the mics close to the same distance, and don't trust a wide sound until you've heard it in mono.

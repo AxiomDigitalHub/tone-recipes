@@ -95,7 +95,7 @@ The math is short. If the delay time changes by ΔD over a period T, the playbac
 
 **pitch ratio = 1 − ΔD ÷ T**
 
-and the bend in cents is 1,200 × log₂(ratio). Line 6 doesn't publish how long a Helix takes to move from one delay time to the next, so here's the range, using two real cases: tapping from 72 to 74 BPM with a dotted eighth (625 ms to 608 ms, a 17 ms change) and a bigger jump of 100 ms, roughly what a snapshot change between two songs' tempos produces.
+and the bend in cents is 1,200 × log₂(ratio). Line 6 doesn't publish how long a Helix takes to move from one delay time to the next, so the table gives a range, using two real cases: tapping from 72 to 74 BPM with a dotted eighth (625 ms to 608 ms, a 17 ms change) and a bigger jump of 100 ms, roughly what a snapshot change between two songs' tempos produces.
 
 | Delay time change | Spread over 100 ms | 250 ms | 500 ms | 1 second |
 |---|---|---|---|---|
@@ -112,7 +112,7 @@ The bottom-left cell is the strange one. When the delay time grows exactly as fa
 
 I expected the pitch bend to be a wobble that ends when the delay time stops moving. On a single repeat, it is. With feedback up, it isn't.
 
-Here's what's actually happening under the hood. Feedback takes the delay's output and writes it back into the buffer. During the change, the output is the bent audio, so the bent slice gets recorded. On the next pass, the delay time is steady and the read speed is normal, but it's reading a slice that was already recorded at the wrong pitch. That slice comes back sharp (or flat) on every repeat until the feedback lets it decay. At 40 percent feedback each repeat is 8 dB quieter than the last, so one badly timed tap leaves a sour fragment that's audible for several repeats.
+The cause is the feedback loop. Feedback takes the delay's output and writes it back into the buffer. During the change, the output is the bent audio, so the bent slice gets recorded. On the next pass, the delay time is steady and the read speed is normal, but it's reading a slice that was already recorded at the wrong pitch. That slice comes back sharp (or flat) on every repeat until the feedback lets it decay. At 40 percent feedback each repeat is 8 dB quieter than the last, so one badly timed tap leaves a sour fragment that's audible for several repeats.
 
 Eventide gave the same explanation for its TimeFactor. In a 2018 reply on its forum, a staff member said the pitch glide on time changes in the Vintage Delay and Tape Echo algorithms is part of the feedback loop, and that removing it would mean losing the previous delayed signal. Their suggestion for a delay that doesn't bend was the Digital Delay algorithm. The trade-off is the same one Line 6 offers in a global switch: keep the tail continuous and accept the bend, or keep the pitch steady and handle the tail some other way.
 
@@ -137,7 +137,7 @@ That's user reports, not documentation, so treat them as the starting hypothesis
 4. Switch to **Transparent** and repeat step 2.
 5. If you use snapshots with different tempos, repeat the test by switching snapshots instead of tapping.
 
-On an analog or tape pedal, steps 2 and 3 work with the time knob. A [BBD analog delay](/blog/delay-types-analog-digital-tape) changes its clock speed when you turn the time, so it bends the same way, which is part of why the knob-twist oscillation trick works on those pedals at all (our [self-oscillation guide](/blog/controlled-delay-self-oscillation-ambient-noise-instrument) uses exactly that).
+On an analog or tape pedal, steps 2 and 3 work with the time knob. A [BBD analog delay](/blog/delay-types-analog-digital-tape) changes its clock speed when you turn the time, so it bends the same way, which is part of why the knob-twist oscillation trick works on those pedals (our [self-oscillation guide](/blog/controlled-delay-self-oscillation-ambient-noise-instrument) uses that trick).
 
 ## Which One Should You Run?
 
