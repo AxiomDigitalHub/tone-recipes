@@ -1,23 +1,27 @@
 @import "tailwindcss";
 
+/* Redesign: the Tailwind theme tokens now carry the light palette from the
+   handoff's tokens.json, so pages still written with bg-surface,
+   text-foreground, text-muted and friends sit on white instead of leaking
+   the old dark theme. Dark returns as a proper mode in step 9. */
 @theme inline {
-  --color-background: #0a0a0f;
-  --color-foreground: #fafafa;
-  --color-surface: #1a1a2e;
-  --color-surface-hover: #252542;
-  --color-primary: #1e3a5f;
-  --color-primary-light: #2a5080;
-  --color-accent: #f59e0b;
-  --color-accent-hover: #d97706;
-  --color-muted: #b0b0ba;
-  --color-border: #2a2a3e;
+  --color-background: #ffffff;
+  --color-foreground: #131416;
+  --color-surface: #f6f6f4;
+  --color-surface-hover: #eceef0;
+  --color-primary: #131416;
+  --color-primary-light: #4a4f55;
+  --color-accent: #e4a235;
+  --color-accent-hover: #d2922b;
+  --color-muted: #4a4f55;
+  --color-border: #dcdfe2;
   --color-helix-red: #cc0000;
   --color-qc-teal: #00b4d8;
   --color-tonex-orange: #ff6b00;
   --color-katana-rose: #e11d48;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-display), var(--font-geist-sans);
+  --font-display: var(--font-geist-sans);
 }
 
 body {

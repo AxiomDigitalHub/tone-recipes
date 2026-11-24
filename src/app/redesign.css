@@ -2269,3 +2269,125 @@
   .fk-preview .fk-newspic.is-lead .fk-thumb-gear svg,
   .fk-preview .fk-newspic.is-article .fk-thumb-gear svg { height: 150px; width: auto; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   Remaining pages (step 8).
+
+   Pages not redrawn yet (gear, compare, community, tone chat, request,
+   about, account, platforms, artist, song and the rest) keep their own
+   markup. This block gives them the shared system: Geist everywhere,
+   sentence case, no italics, no wide tracking, pill buttons, squircle
+   fields and tiles, hairlines.
+
+   A page counts as "not redrawn" when the element directly inside <main>
+   has no fk- class. Every rebuilt page's root has one, so nothing here
+   touches them. The doubled .fk-preview lifts these rules above the old
+   theme's, which are mostly one class deep.
+   ══════════════════════════════════════════════════════════════════════ */
+.fk-preview.fk-preview main > :not([class*="fk-"]) :is(h1, h2, h3, h4, h5, h6, p, span, a, li, dt, dd, button, label, div, em, i, th, td, small, strong, summary, legend, input, select, textarea, time, figcaption, blockquote, code) {
+  font-family: var(--fk-sans);
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: normal;
+}
+.fk-preview.fk-preview main > :not([class*="fk-"]) :is(h1, h2, h3) {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--fk-ink);
+  text-wrap: balance;
+}
+.fk-preview.fk-preview main > :not([class*="fk-"]) h1 { letter-spacing: -0.035em; line-height: 1.04; }
+.fk-preview.fk-preview main > :not([class*="fk-"]) :is(h4, h5, h6, dt, th, legend) { font-weight: 600; }
+/* Buttons and button-like links are pills. */
+.fk-preview.fk-preview main > :not([class*="fk-"]) :is(button, input[type="submit"], a[class*="cta"], a[class*="btn"], a[class*="button"], [class*="-cta"]:is(a, button), [class*="chip"], [class*="-tab"]:is(a, button), [class*="-cat"]:is(a, button)) {
+  border-radius: var(--fk-r-pill);
+}
+.fk-preview.fk-preview main > :not([class*="fk-"]) :is(input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]), select, textarea) {
+  border-radius: var(--fk-r-md);
+  corner-shape: squircle;
+  border-color: var(--fk-line-strong);
+}
+/* The old "pill" and "kicker" labels were all-caps tags. They read as plain captions now. */
+.fk-preview.fk-preview main > :not([class*="fk-"]) :is(.pill, .eyebrow, .caps, .kicker, [class*="kicker"], [class*="eyebrow"]) {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  color: var(--fk-ink-3);
+}
+/* Heavy rules become hairlines. */
+.fk-preview.fk-preview main > :not([class*="fk-"]) :is(.rule-heavy, .rule-double, .section-rule) {
+  height: 1px;
+  border: 0;
+  background: var(--fk-line);
+  opacity: 1;
+}
+.fk-preview.fk-preview main > :not([class*="fk-"]).container,
+.fk-preview.fk-preview main > :not([class*="fk-"]) .container {
+  max-width: var(--fk-wrap);
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media (max-width: 640px) {
+  .fk-preview.fk-preview main > :not([class*="fk-"]).container,
+  .fk-preview.fk-preview main > :not([class*="fk-"]) .container { padding-left: 16px; padding-right: 16px; }
+}
+
+/* Tailwind-token pages. Amber is a background and an accent, never text on
+   white: amber text uses the darker accent-text, and text on amber is ink. */
+.fk-preview :is(.text-accent, .hover\:text-accent:hover, .group:hover .group-hover\:text-accent) { color: var(--fk-accent-text); }
+.fk-preview :is(.bg-accent, .hover\:bg-accent:hover, .bg-accent-hover) { color: var(--fk-ink); }
+.fk-preview .text-white:is(.bg-accent, .bg-accent *) { color: var(--fk-ink); }
+
+/* 404 */
+.fk-preview .fk-notfound {
+  min-height: 56vh;
+  padding-top: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.fk-preview .fk-notfound-cta { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 12px; }
+
+/* Remaining pages, second pass: hairlines, soft tiles, ink primary buttons. */
+.fk-preview,
+.fk-overlay-scope {
+  /* The old red "tape" accent is retired. Emphasis is ink. */
+  --tape: var(--fk-ink);
+  --tape-2: var(--fk-ink);
+}
+.fk-preview.fk-preview main > :not([class*="fk-"]) *,
+.fk-preview.fk-preview main > :not([class*="fk-"]) *::before,
+.fk-preview.fk-preview main > :not([class*="fk-"]) *::after {
+  border-color: var(--fk-line);
+}
+.fk-preview.fk-preview main > :not([class*="fk-"]) :is([class*="card"], [class*="-box"], [class*="panel"], [class*="tile"], [class*="-item"]:is(article, li > a, a)) {
+  border-radius: var(--fk-r-lg);
+  corner-shape: squircle;
+  border-style: solid;
+  box-shadow: none;
+}
+/* Primary actions are ink. Amber is kept for one accent per screen on the
+   pages that were drawn. */
+.fk-preview.fk-preview main > :not([class*="fk-"]) :is(button[type="submit"], [class*="primary"]:is(a, button), [class*="-submit"]:is(a, button), .bg-accent:is(a, button)) {
+  background: var(--fk-ink);
+  color: var(--fk-paper);
+  border-color: var(--fk-ink);
+}
+.fk-preview.fk-preview main > :not([class*="fk-"]) :is(button, a[class*="cta"], a[class*="btn"]) {
+  border-color: var(--fk-line-strong);
+}
+/* Section heads carried 2px and 3px ink rules in the old theme. One hairline below. */
+.fk-preview.fk-preview main > :not([class*="fk-"]) :is(.archive-masthead, .archive-page-head, .artist-head, .audition-head, .browse-page-head, .colophon-foot, .gear-head, .how-head, .platform-head, .recipe-head, .related-head, .section-head, .song-head, .news-head) {
+  border-width: 0 0 1px;
+}
+.fk-preview.fk-preview main > :not([class*="fk-"]) :is(.gear-pick, .mic-pick, .selected-panel-note, .hero-sub, blockquote) {
+  border-width: 0;
+  background: var(--fk-wash);
+  border-radius: var(--fk-r-md);
+  corner-shape: squircle;
+}

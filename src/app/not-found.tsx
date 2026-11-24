@@ -2,28 +2,15 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-[60vh] flex-col items-center justify-center px-4 text-center">
-      <h1
-        className="mb-4 text-4xl font-bold text-foreground md:text-5xl"
-        style={{ letterSpacing: "-0.02em" }}
-      >
-        This page doesn&apos;t exist.
-      </h1>
-      <p className="mb-8 max-w-md text-lg text-muted">
-        The tone you&apos;re looking for might be somewhere else.
-      </p>
-      <div className="flex flex-col gap-4 sm:flex-row">
-        <Link
-          href="/browse"
-          className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
-        >
-          Browse the Tones
+    <div className="fk-wrap fk-notfound">
+      <h1 className="fk-display">This page doesn&apos;t exist</h1>
+      <p className="fk-lead">The tone you&apos;re looking for might be somewhere else.</p>
+      <div className="fk-notfound-cta">
+        <Link href="/browse" className="fk-btn">
+          Browse the tones
         </Link>
-        <Link
-          href="/"
-          className="rounded-lg border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-surface"
-        >
-          Back to Home
+        <Link href="/" className="fk-btn fk-btn-secondary">
+          Back to home
         </Link>
       </div>
     </div>
