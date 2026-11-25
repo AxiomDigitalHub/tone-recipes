@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/community" },
   title: "Community",
   description:
-    "Join the Fader & Knob community — discuss gear, share tone recipes, get help dialing in your sound, and connect with other guitarists.",
+    "Join the Fader & Knob community. Discuss gear, share tone recipes, get help dialing in your sound, and connect with other guitarists.",
   openGraph: {
     title: "Community | Fader & Knob",
     description:

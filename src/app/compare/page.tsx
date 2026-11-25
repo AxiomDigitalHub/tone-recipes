@@ -74,7 +74,7 @@ export default async function ComparePage({
         </header>
 
         <p className="compare-lede">
-          Pick two recipes — see the chain, the gear, and the settings
+          Pick two recipes and see the chain, the gear, and the settings
           side by side. Useful for &quot;Should I cop SRV&apos;s tone or
           Mayer&apos;s clean?&quot; decisions.
         </p>
@@ -137,7 +137,7 @@ export default async function ComparePage({
             The amp model and its gain setting decide most of what you hear.
             If one chain runs a clean amp with a drive pedal doing the
             distortion and the other runs a cranked amp with a boost, no
-            amount of matching the pedals will get you across — those are
+            amount of matching the pedals will get you across. Those are
             two different distortion sources with different compression and
             different response to your picking hand.
           </p>
@@ -155,7 +155,7 @@ export default async function ComparePage({
           <p>
             Delay and reverb settings are the most visible difference
             between two chains and usually the least important to the core
-            tone. Get the amp and drive right first — the ambience is quick
+            tone. Get the amp and drive right first; the ambience is quick
             to match once the front of the chain is in the right place.
           </p>
 

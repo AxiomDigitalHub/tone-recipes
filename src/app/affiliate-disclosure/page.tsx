@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function AffiliatePage() {
   return (
-    <LegalShell title="Affiliate Disclosure" updated="July 29, 2026">
+    <LegalShell title="Affiliate disclosure" updated="July 29, 2026">
       <p>
-        Some of the gear links on Fader &amp; Knob are affiliate links —
+        Some of the gear links on Fader &amp; Knob are affiliate links:
         clicking through and buying may earn us a commission at no extra
         cost to you. Reverb, Sweetwater, and Amazon are the main ones.
       </p>
@@ -27,7 +27,7 @@ export default function AffiliatePage() {
       <h2>About the prices we quote</h2>
       <p>
         Any price on this site is an approximate street price at the time we
-        wrote the piece — a rough guide to what tier of gear we&apos;re
+        wrote the piece, a rough guide to what tier of gear we&apos;re
         talking about. It is not a live quote from any retailer, and it is
         not Amazon&apos;s price. Prices change constantly; the retailer&apos;s
         own page is the only accurate one. Always check there before buying.
@@ -52,7 +52,7 @@ export default function AffiliatePage() {
         the gear pages themselves, and a single module on recipe pages that
         surfaces the microphone from that recipe&apos;s chain. The recipe
         module is the only one placed automatically, and it renders nothing
-        when the chain&apos;s mic can&apos;t be resolved to a product — it
+        when the chain&apos;s mic can&apos;t be resolved to a product. It
         doesn&apos;t substitute something else in to fill the slot.
       </p>
       <p>
@@ -68,7 +68,7 @@ export default function AffiliatePage() {
         pedal, or a specific studio&apos;s console. There&apos;s no link for
         those, and we don&apos;t pretend a modern reissue is the same thing.
         Where a current-production equivalent gets genuinely close, the
-        recipe says how close and where it differs — which is also why the
+        recipe says how close and where it differs, which is also why the
         modeler translations exist: they&apos;re the realistic route to most
         of these tones.
       </p>

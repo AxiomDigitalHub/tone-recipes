@@ -28,7 +28,7 @@ export default function PreviewPlatformsIndex() {
   const platforms = getAllPlatforms();
 
   const collectionLd = collectionPageJsonLd({
-    name: "Platforms — Fader & Knob",
+    name: "Platforms | Fader & Knob",
     description:
       "Every recipe ports to Helix, Quad Cortex, TONEX, Fractal, Kemper, Boss Katana, and pedalboard. Pick your modeler.",
     url: "https://faderandknob.com/platforms",

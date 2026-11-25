@@ -71,7 +71,7 @@ export default function SetPackInterestForm({
         <button
           type="submit"
           disabled={status === "loading"}
-          className="shrink-0 rounded-lg border border-[var(--ink)]/20 bg-[var(--paper)] px-3 py-2 text-xs font-semibold text-[var(--ink)] transition-colors hover:border-[var(--amber)]/60 disabled:opacity-50"
+          className="shrink-0 whitespace-nowrap rounded-full border border-[var(--ink)] bg-[var(--ink)] px-4 py-2 text-xs font-semibold text-[var(--paper)] transition-opacity hover:opacity-90 disabled:opacity-50"
         >
           {status === "loading" ? (
             <Loader2 className="h-3.5 w-3.5 animate-spin" />

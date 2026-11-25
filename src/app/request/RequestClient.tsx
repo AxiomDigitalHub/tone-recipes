@@ -222,7 +222,7 @@ export default function RequestClient({
     try {
       const token = await getAccessToken();
       if (!token) {
-        setSubmitError("Your session expired — please log in again.");
+        setSubmitError("Your session expired. Please log in again.");
         return;
       }
 
@@ -300,7 +300,7 @@ export default function RequestClient({
                 <header className="auth-card-head">
                   <h2 className="display auth-title">Submit a request</h2>
                   <p className="auth-sub">
-                    Requests are a member feature — sign in and your fulfilled
+                    Requests are a member feature. Sign in and your fulfilled
                     tones land in your dashboard.
                   </p>
                 </header>
@@ -312,8 +312,8 @@ export default function RequestClient({
                     No account yet?{" "}
                     <Link href="/signup" className="auth-link auth-link-strong">
                       Sign up free
-                    </Link>{" "}
-                    — free accounts get 2 requests a month.
+                    </Link>
+                    . Free accounts get 2 requests a month.
                   </p>
                 </div>
               </div>
@@ -375,7 +375,7 @@ export default function RequestClient({
                   <textarea
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    placeholder="The specific moment or sound — e.g. 'the solo at 3:42' or 'the clean intro'"
+                    placeholder="The specific moment or sound, e.g. 'the solo at 3:42' or 'the clean intro'"
                     rows={3}
                     className="auth-input"
                   />
@@ -412,7 +412,7 @@ export default function RequestClient({
 
                 {submitSuccess && (
                   <p className="request-flash request-flash-ok">
-                    Request submitted — it&apos;s now in the queue. Track it in{" "}
+                    Request submitted. It&apos;s now in the queue. Track it in{" "}
                     <Link href="/dashboard/my-tones" className="auth-link auth-link-strong">
                       your tones
                     </Link>
@@ -422,7 +422,7 @@ export default function RequestClient({
                 {submitError && <p className="request-flash request-flash-err">{submitError}</p>}
                 {showUpgrade && (
                   <Link href="/pricing" className="hero-cta hero-cta-secondary auth-submit">
-                    Upgrade to Pass — 10 requests a month
+                    Upgrade to Pass for 10 requests a month
                   </Link>
                 )}
               </form>

@@ -38,8 +38,8 @@ const packs = [
 
 export default function SetPacksPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16 md:py-24">
-      <h1 className="page-title page-title-md">Set Packs</h1>
+    <div className="mx-auto max-w-4xl px-4 py-16 md:py-24 fkx-wrap">
+      <h1 className="page-title page-title-md">Set packs</h1>
       <p className="mt-4 max-w-xl text-lg text-[var(--ink-muted)]">
         One preset with 8 snapshots that covers your entire gig. Each pack includes a Setlist Mapper
         showing which snapshot to use for every song.
@@ -51,15 +51,15 @@ export default function SetPacksPage() {
             key={pack.slug}
             className={`rounded-2xl border p-6 transition-all ${
               pack.status === "available"
-                ? "border-[var(--amber)]/40 bg-[var(--amber)]/5 hover:border-[var(--amber)]"
+                ? "border-[var(--ink)]/15 bg-[var(--paper)] hover:border-[var(--ink)]/40"
                 : "border-[var(--ink)]/15 bg-[var(--paper-2)]"
             }`}
           >
             <div className="flex items-start justify-between gap-3">
               <h2 className="text-lg font-bold text-[var(--ink)]">{pack.name}</h2>
               {pack.status === "coming-soon" && (
-                <span className="rounded-full border border-[var(--ink)]/20 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
-                  Coming Soon
+                <span className="shrink-0 rounded-full border border-[var(--ink)]/20 px-2.5 py-0.5 text-xs text-[var(--ink-muted)]">
+                  Coming soon
                 </span>
               )}
             </div>
@@ -67,9 +67,9 @@ export default function SetPacksPage() {
             {pack.status === "available" ? (
               <Link
                 href={`/set-packs/${pack.slug}`}
-                className="mt-4 inline-block rounded-lg bg-[var(--amber)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
+                className="mt-4 inline-block rounded-full bg-[var(--ink)] px-5 py-2.5 text-sm font-semibold text-[var(--paper)] transition-opacity hover:opacity-90"
               >
-                View Set Pack
+                View the set pack
               </Link>
             ) : (
               <SetPackInterestForm packSlug={pack.slug} packName={pack.name} />

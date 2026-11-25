@@ -74,7 +74,6 @@ export default async function PreviewArtistDetail({
     const s = getSongBySlug(r.song_slug);
     return s?.artist_slug === slug;
   });
-  const artistIdx = artists.findIndex((a) => a.slug === slug) + 1;
 
   // Field Notes that mention this artist or their songs
   const artistPosts = findRelatedPosts({
@@ -112,12 +111,6 @@ export default async function PreviewArtistDetail({
 
         <header className="artist-head">
           <div className="artist-head-text">
-            <div className="recipe-issue">
-              <span className="pill">
-                Player No. {String(artistIdx).padStart(3, "0")}
-              </span>
-              {artist.genres?.[0] && <span>{artist.genres[0]}</span>}
-            </div>
             <h1 className="recipe-title display">{artist.name}</h1>
             <p className="artist-bio">{artist.bio}</p>
             <div className="artist-genres">
@@ -143,10 +136,6 @@ export default async function PreviewArtistDetail({
                 {monogramFor(artist.name)}
               </div>
             )}
-            <div className="artist-portrait-label">
-              <span>{artist.name.split(" ").slice(-1)[0]}</span>
-              <span>FILE {String(artistIdx).padStart(3, "0")}</span>
-            </div>
           </div>
         </header>
 
