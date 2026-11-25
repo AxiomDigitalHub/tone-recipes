@@ -2400,6 +2400,12 @@
 }
 
 /* Remaining pages, third pass (QA of the step 8 pages). */
+/* .fk-preview a { color: inherit } outranks Tailwind text colors on links,
+   so ink pill links (tone chat sign-in, gear and set pack CTAs) lost their
+   paper text. Give them their light text back. */
+.fk-preview.fk-preview a[class*="bg-[var(--ink"] {
+  color: var(--fk-paper, #fff);
+}
 /* Tailwind roots line up with the header's 1180px wrap. */
 .fk-preview.fk-preview main > .fkx-wrap {
   max-width: var(--fk-wrap);
