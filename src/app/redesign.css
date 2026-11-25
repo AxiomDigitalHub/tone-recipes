@@ -2522,6 +2522,9 @@
   font-size: 14px;
 }
 @media (max-width: 920px) {
+  /* 1fr let the scrolling nav row widen the page; clamp it. */
+  .fk-preview.fk-preview main .dashboard-grid { grid-template-columns: minmax(0, 1fr); }
+  .fk-preview.fk-preview main .dashboard-sidebar { min-width: 0; }
   .fk-preview.fk-preview main .dashboard-sidebar .dept-list {
     flex-direction: row;
     flex-wrap: nowrap;
