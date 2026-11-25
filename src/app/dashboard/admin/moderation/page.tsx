@@ -399,7 +399,7 @@ export default function ModerationPage() {
               user_id: fulfilled.requested_by,
               type: "request_completed",
               title: `Your tone request is ready: ${fulfilled.song_name}`,
-              body: `${fulfilled.song_name} — ${fulfilled.artist_name} is now a full recipe.`,
+              body: `${fulfilled.song_name} by ${fulfilled.artist_name} is now a full recipe.`,
               link: slug ? `/recipe/${slug}` : "/dashboard/my-tones",
             }).catch(() => {});
           }

@@ -128,7 +128,7 @@ export default function MyTonesPage() {
         <div>
           <h1 className="page-title page-title-sm">Your tones</h1>
           <p className="dashboard-inner-dek">
-            Tones you&apos;ve requested — completed ones link straight to the recipe.
+            Tones you&apos;ve requested. Completed ones link straight to the recipe.
           </p>
         </div>
         <Link href="/request" className="hero-cta hero-cta-primary">
@@ -182,7 +182,7 @@ export default function MyTonesPage() {
                 : `No ${TABS.find((t) => t.value === activeTab)?.label.toLowerCase()} requests`}
             </p>
             <p className="dashboard-notif-empty-dek">
-              Tell us the song — we&apos;ll build the recipe.
+              Tell us the song and we&apos;ll build the recipe.
             </p>
             <Link
               href="/request"
@@ -201,7 +201,7 @@ export default function MyTonesPage() {
                 <div className="dashboard-myrx-row-head">
                   <h3 className="dashboard-myrx-title">
                     {req.song_name}
-                    <span className="dashboard-mytones-artist"> — {req.artist_name}</span>
+                    <span className="dashboard-mytones-artist">, {req.artist_name}</span>
                   </h3>
                   <span
                     className={`dashboard-myrx-status dashboard-myrx-status-${status.tone}`}
