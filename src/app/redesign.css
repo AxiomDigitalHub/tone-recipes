@@ -1514,7 +1514,8 @@
   .fk-preview .fk-home-news .newsletter-input { flex: none; width: 100%; }
 }
 @media (max-width: 640px) {
-  .fk-preview .fk-home-card-dials { justify-content: flex-start; gap: 14px 18px; }
+  /* Three knobs a row, so six read 3 + 3 with none left alone. */
+  .fk-preview .fk-home-card-dials { display: grid; grid-template-columns: repeat(3, 1fr); justify-items: center; gap: 16px 12px; }
 }
 
 /* ══════════════════════════════════════════════════════════════════════
