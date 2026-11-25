@@ -11833,46 +11833,46 @@ export const toneRecipes: ToneRecipe[] = [
     slug: "townshend-wont-get-fooled-again",
     created_at: "2026-03-25",
     description:
-      "Pete Townshend's windmill-strumming attack through a cranked Hiwatt is one of the most powerful rhythm guitar sounds in rock. The studio take of Won't Get Fooled Again was a 1959 Gretsch 6120 into a small Fender Bandmaster. This recipe is the stage version: a Gibson SG Special into a Hiwatt DR103 at full volume, a massive, ringing power chord tone with clarity and sustain. The Hiwatt's enormous clean headroom means it stays articulate even when pushed hard, preventing the mush that a Marshall might produce at similar volumes.",
+      "The power chords on Won't Get Fooled Again were not cut on Townshend's stage rig. The studio take is a 1959 Gretsch 6120 through an Edwards volume pedal into a 1959 Fender Bandmaster, a tweed 3x10 combo, all given to him by Joe Walsh. A small tweed amp turned up gives a thick, ringing crunch that sounds enormous on record. On stage he played the song on Gibson SG Specials through Hiwatt stacks, which is a different sound from this one.",
     tone_context: "full_song",
     guitar_specs: {
-      body_type: "solid",
-      model_name: "Gibson SG Special",
-      pickup_config: "P90",
+      body_type: "hollow",
+      model_name: "Gretsch 6120 Chet Atkins (1959)",
+      pickup_config: "HH",
       pickup_position: "bridge",
       string_count: 6,
-      scale_length: "24.75",
+      scale_length: "24.6",
       tuning: "standard",
       string_gauge: ".010-.046",
       notable_mods:
-        "On the record Townshend played a 1959 Gretsch 6120 given to him by Joe Walsh, which he said he used across Who's Next and kept for the studio because it would not stay in tune on stage. On stage from 1968 to 1971 he played Gibson SG Specials with P-90 pickups, the guitar this recipe is built on.",
+        "A 1959 Gretsch 6120 in Gretsch orange with two Filter'Tron pickups, given to Townshend by Joe Walsh in 1970. Townshend said he used it on every track of Who's Next. Guitar World puts the track on the bridge Filter'Tron. The 24.6-inch scale is the standard 6120 figure, not something the sources state.",
     },
     signal_chain: [
       {
         position: 1,
         category: "preamp",
         subcategory: null,
-        gear_slug: "hiwatt-dr103",
-        gear_name: "Hiwatt DR103 Custom 100",
-        icon_type: "marshall_head",
-        icon_color: "#8b5cf6",
+        gear_slug: null,
+        gear_name: "Fender Bandmaster (1959 tweed, 3x10)",
+        icon_type: "fender_combo",
+        icon_color: "#d4a574",
         is_in_effects_loop: false,
-        settings: { "Normal Vol": 8, "Brilliant Vol": 0, Bass: 5, Treble: 7, Presence: 7, Master: 8 },
+        settings: { Volume: 8, Treble: 7, Bass: 5, Presence: 6 },
         notes:
-          "The Hiwatt is cranked for maximum power and clarity. Unlike a Marshall, the Hiwatt stays relatively clean even at high volume, providing a powerful, ringing tone with natural compression rather than fuzzy distortion. The Brilliant channel is off; Normal channel only.",
+          "Guitar World and Townshend's own account put the track on a 1959 Fender Bandmaster, with an Edwards volume pedal between guitar and amp. His guitar tech Alan Rogan remembered a Twin and a Bassman instead, so the amp is not beyond dispute. The settings are not documented; a tweed amp turned well up, with the volume pedal backing it off for the quieter passages, is our starting point.",
       },
       {
         position: 2,
         category: "cabinet",
         subcategory: null,
         gear_slug: null,
-        gear_name: "WEM 4x12 Cabinet (Fane speakers)",
-        icon_type: "cab_4x12",
-        icon_color: "#8b5cf6",
+        gear_name: "Built-in 3x10 speakers",
+        icon_type: "cab_1x12",
+        icon_color: "#d4a574",
         is_in_effects_loop: false,
         settings: {},
         notes:
-          "Townshend used WEM cabinets loaded with Fane speakers. These provide a more open, hi-fi character than Celestion-loaded Marshalls, complementing the Hiwatt's clarity.",
+          "The tweed Bandmaster is a combo with three 10-inch speakers. Small speakers working hard give the midrange bark and the slightly ragged edge of the chords.",
       },
       {
         position: 3,
@@ -11884,19 +11884,19 @@ export const toneRecipes: ToneRecipe[] = [
         icon_color: "#6b7280",
         is_in_effects_loop: false,
         settings: { Position: "on-axis" },
-        notes: "Standard close-miking. Glyn Johns' production captured the raw power of the live band.",
+        notes: "The mic on the amp is not documented. A close SM57 is our choice.",
       },
     ],
     original_gear: {
-      guitar: "Gibson SG Special, bridge P-90, standard tuning (stage rig; the studio take was a Gretsch 6120)",
-      effects: [],
-      amp: "Hiwatt DR103 Custom 100 (cranked)",
-      cabinet: "WEM 4x12 with Fane Crescendo speakers",
-      microphone: "Shure SM57",
+      guitar: "Gretsch 6120 Chet Atkins (1959), bridge Filter'Tron, standard tuning",
+      effects: ["Edwards volume pedal"],
+      amp: "Fender Bandmaster (1959 tweed 3x10 combo)",
+      cabinet: "Built-in 3x10",
+      microphone: "Not documented (Shure SM57 is our choice)",
       other_notes:
-        "Townshend's aggressive windmill strumming technique is as important as the gear. He attacks the strings with full-arm swings, producing a percussive, explosive attack that defines the Who's sound.",
+        "Townshend's attack matters as much as the gear: hard, full-arm strums that make the chords explode. For the live sound of the song, swap in a P-90 guitar and a Hiwatt model; on stage he used Gibson SG Specials and Hiwatt stacks.",
     },
-    tags: ["rock", "classic-rock", "power-chords", "rhythm", "the-who"],
+    tags: ["rock", "classic-rock", "power-chords", "rhythm", "the-who", "gretsch", "tweed"],
     sources: [
       "https://guitarworld.com/gear/the-secrets-behind-pete-townshends-tone-on-the-whos-wont-get-fooled-again",
       "https://www.thewho.net/whotabs/gear/guitar/gretsch.html",
@@ -11907,7 +11907,7 @@ export const toneRecipes: ToneRecipe[] = [
     platform_translations: {
       helix: {
         chain_blocks: [
-          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Expression pedal for real-time volume control." },
+          { position: 1, block_name: "Volume Pedal", block_category: "Volume/Pan", original_gear: "Edwards volume pedal", settings: { "Pedal Position": 1.0 }, notes: "Townshend ran an Edwards volume pedal into the Bandmaster. Back it off to clean up the quieter passages." },
           {
             position: 2,
             block_name: "Deluxe Comp",
@@ -11918,15 +11918,15 @@ export const toneRecipes: ToneRecipe[] = [
           },
           {
             position: 3,
-            block_name: "WhoWatt 100",
+            block_name: "Tweed Blues Nrm",
             block_category: "Amp",
-            original_gear: "Hiwatt DR103",
+            original_gear: "Fender Bandmaster (1959 tweed)",
             settings: {
               Drive: 7.0,
               Bass: 5.0,
               Mid: 5.0,
               Treble: 7.0,
-              Presence: 7.0,
+              Presence: 6.0,
               Master: 1,
               Bias: 0.5,
               BiasX: 0.5,
@@ -11936,24 +11936,24 @@ export const toneRecipes: ToneRecipe[] = [
               "Ch Vol": 7.5,
             },
             notes:
-              "WhoWatt 100 is Helix's Hiwatt model. Push it hard for the powerful, clear overdrive Townshend is known for.",
+              "Helix has no Bandmaster. Tweed Blues Nrm, its tweed Bassman, is the nearest tweed Fender. Push it hard for a thick, ringing crunch.",
           },
           {
             position: 4,
-            block_name: "4x12 Greenback 25",
+            block_name: "4x10 Tweed P10R",
             block_category: "Cab",
-            original_gear: "WEM 4x12 with Fane Crescendo speakers",
+            original_gear: "Bandmaster 3x10",
             settings: { Mic: 0, Distance: 1, Position: 0.30, Angle: 0, LowCut: 19.9, HighCut: 20100, Level: 0, Pan: 0.5, Delay: 0 },
             cabSibling: { Mic: 5, Position: 0.30, Distance: 1, Angle: 0, Pan: 0.5, LowCut: 19.9, HighCut: 20100, Level: 0, Delay: 0 },
-            notes: "Dual-mic Greenback (closest stock match to a Fane-loaded WEM). SM57 + ribbon at Position 0.30 for the open, hi-fi WEM character.",
+            notes: "Tweed 10-inch speakers, the closest stock match to the Bandmaster's 3x10. SM57 plus ribbon at Position 0.30.",
           },
           {
             position: 5,
             block_name: "Dynamic Plate",
             block_category: "Reverb",
-            original_gear: "Studio plate (Olympic / Glyn Johns)",
+            original_gear: "Studio plate",
             settings: { Mix: 18, Decay: 1.5, LowCut: 130, HighCut: 8000, Level: 0, PreDelay: 30, BassFreq: 100, BassBoost: 0, VarDelayAmpl: 0.55, Damping: 4500, MatrFreq: 0.33 },
-            notes: "Subtle plate matching the Olympic Studios live-band capture — adds room dimension without softening the windmill attack.",
+            notes: "Subtle plate for room dimension without softening the attack. The reverb on the record is not documented.",
           },
           {
             position: 6,
@@ -11965,7 +11965,7 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Volume → comp → WhoWatt 100 → dual-mic Greenback → plate → tilt EQ. Bridge pickup, full-arm windmill strumming.",
+          "Volume → comp → tweed amp → 4x10 tweed cab → plate → tilt EQ. Bridge pickup, hard full-arm strums.",
       },
       quad_cortex: {
         chain_blocks: [
@@ -11975,13 +11975,13 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "Compressor",
             original_gear: "Studio compressor",
             settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 50, Level: 2 },
-            notes: "Light parallel comp — windmill strumming has huge dynamic peaks; comp evens them out without crushing the attack.",
+            notes: "Light parallel comp. Hard strumming has huge dynamic peaks; comp evens them out without crushing the attack.",
           },
           {
             position: 2,
-            block_name: "Search Cortex Cloud for 'Hiwatt DR103' capture",
+            block_name: "US Bassman",
             block_category: "Amp",
-            original_gear: "Hiwatt DR103 (cranked)",
+            original_gear: "Fender Bandmaster (1959 tweed)",
             settings: {
               Gain: 7.0,
               Bass: 5.0,
@@ -11990,15 +11990,15 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 7.0,
               Master: 7.5,
             },
-            notes: "The QC's Hiwatt model captures the clean power and clarity well.",
+            notes: "QC has no Bandmaster model. A tweed Bassman model is the nearest tweed Fender; push the gain for a thick crunch. A Cortex Cloud capture of a tweed Bandmaster is worth a search.",
           },
           {
             position: 3,
-            block_name: "4x12 Green 25",
+            block_name: "4x10 US",
             block_category: "Cab",
-            original_gear: "WEM 4x12 with Fane Crescendo",
+            original_gear: "Bandmaster 3x10",
             settings: { Mic: "SM57", Distance: "2 inches", Position: 0.30, LowCut: 80, HighCut: 9000, Level: 0 },
-            notes: "Load a WEM/Fane IR for better accuracy if available; Greenback close-miked is the closest stock option.",
+            notes: "Tweed 4x10, close-miked, for the Bandmaster's 10-inch speakers.",
           },
           {
             position: 4,
@@ -12006,7 +12006,7 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "Reverb",
             original_gear: "Studio plate",
             settings: { Decay: 1.5, Predelay: 30, Mix: 18, Level: 0 },
-            notes: "Subtle plate to match the Olympic Studios live-band capture.",
+            notes: "Subtle plate for room dimension. The reverb on the record is not documented.",
           },
           {
             position: 5,
@@ -12018,13 +12018,13 @@ export const toneRecipes: ToneRecipe[] = [
           },
         ],
         notes:
-          "Comp → Hiwatt capture → WEM/Greenback → plate → tilt EQ. Bridge pickup, windmill strumming.",
+          "Comp → tweed amp → 4x10 → plate → tilt EQ. Bridge pickup, hard strumming.",
       },
       tonex: {
         chain_blocks: [
-          { position: 1, block_name: "Search ToneNET for 'Hiwatt DR103' or 'Hiwatt cranked'", block_category: "Tone Model", original_gear: "Hiwatt DR103", settings: {}, notes: "Search ToneNET for a cranked Hiwatt DR103 Tone Model capture. Townshend's aggressive windmill strumming requires a loud, clean amp that stays tight under heavy attack." },
+          { position: 1, block_name: "Search ToneNET for 'tweed Bandmaster' or 'tweed Bassman cranked'", block_category: "Tone Model", original_gear: "Fender Bandmaster (1959 tweed)", settings: {}, notes: "Search ToneNET for a cranked tweed Bandmaster Tone Model, or a tweed Bassman if none turns up. You want a tweed Fender turned up until the chords crunch." },
         ],
-        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a cranked Hiwatt capture. No effects needed — SG bridge pickup straight into the amp. Townshend's aggressive windmill strumming technique and explosive power chord attack are the defining elements, not the gear.",
+        notes: "TONEX uses AI-captured Tone Models. Search ToneNET for a cranked tweed Fender capture. No effects needed: a Filter'Tron or other bridge humbucker straight into the amp, with your guitar's volume knob doing the job of Townshend's volume pedal. His hard strumming is as much the sound as the gear.",
       },
       katana: {
         chain_blocks: [
@@ -12034,13 +12034,13 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "Booster",
             original_gear: "Studio compressor",
             settings: { Drive: 0, Bottom: 5, Tone: 5, Level: 5 },
-            notes: "Booster slot used as a comp stand-in. Tames the windmill peaks without crushing the attack.",
+            notes: "Booster slot used as a comp stand-in. Tames the strumming peaks without crushing the attack.",
           },
           {
             position: 2,
-            block_name: "Brown",
+            block_name: "Crunch",
             block_category: "Amp Type",
-            original_gear: "Hiwatt DR103",
+            original_gear: "Fender Bandmaster (1959 tweed)",
             settings: {
               Gain: 6,
               Volume: 8,
@@ -12050,7 +12050,7 @@ export const toneRecipes: ToneRecipe[] = [
               Presence: 7,
             },
             notes:
-              "Brown channel at moderate gain for a powerful, clear crunch. The Hiwatt's clean power is approximated by keeping the gain lower than you might expect while pushing the volume.",
+              "Crunch channel for a pushed tweed amp: moderate gain, volume up. Keep the gain lower than you expect so the chords stay clear.",
           },
           {
             position: 3,
@@ -12058,10 +12058,10 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "Reverb",
             original_gear: "Studio plate",
             settings: { Time: 4, PreDelay: 30, Tone: 5, EffectLevel: 18 },
-            notes: "Subtle plate to match the Olympic Studios capture.",
+            notes: "Subtle plate for room dimension.",
           },
         ],
-        notes: "Comp booster + Brown amp + plate. Bridge pickup; strum hard with full-arm windmills.",
+        notes: "Comp booster + Crunch amp + plate. Bridge pickup; strum hard.",
       },
       kemper: {
         chain_blocks: [
@@ -12071,16 +12071,16 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "Compressor",
             original_gear: "Studio compressor",
             settings: { Intensity: 3.0, Attack: 40, Volume: 2.0 },
-            notes: "Slot A. Light comp tames the windmill dynamic peaks.",
+            notes: "Slot A. Light comp tames the strumming peaks.",
           },
           {
             position: 2,
-            block_name: "Search Rig Exchange for 'Hiwatt'",
+            block_name: "Search Rig Exchange for 'tweed Bandmaster' or 'tweed Bassman'",
             block_category: "Profile",
-            original_gear: "Hiwatt DR103 (cranked)",
+            original_gear: "Fender Bandmaster (1959 tweed)",
             settings: { Gain: 7.0, Bass: 5.0, Middle: 5.0, Treble: 7.0, Presence: 7.0 },
             notes:
-              "Search Rig Exchange for cranked Hiwatt DR103 profiles. With Liquid Profiling, select the Hiwatt tone stack.",
+              "Search Rig Exchange for a cranked tweed Bandmaster profile, or a tweed Bassman if none turns up. With Liquid Profiling, select a tweed Fender tone stack.",
           },
           {
             position: 3,
@@ -12088,21 +12088,21 @@ export const toneRecipes: ToneRecipe[] = [
             block_category: "Reverb",
             original_gear: "Studio plate",
             settings: { Decay: 1.5, Predelay: 30, Mix: 18 },
-            notes: "REV slot. Subtle plate matching the Olympic Studios live-band capture.",
+            notes: "REV slot. Subtle plate for room dimension.",
           },
         ],
         notes:
-          "Kemper profiles include the cab. Comp → cranked Hiwatt profile → plate. Bridge pickup, windmill attack.",
+          "Kemper profiles include the cab. Comp → cranked tweed profile → plate. Bridge pickup, hard attack.",
       },
       fractal: {
         chain_blocks: [
-          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 0.5, Level: 2 }, notes: "Light parallel comp tames the windmill peaks." },
-          { position: 2, block_name: "Hipower", block_category: "Amp", original_gear: "Hiwatt DR103 (cranked)", settings: { Drive: 7.0, Bass: 5.0, Mid: 5.0, Treble: 7.0, Presence: 7.0, MV: 7.5 }, notes: "Hipower model pushed hard for Townshend's powerful, clear overdrive." },
-          { position: 3, block_name: "4x12 Green 25W", block_category: "Cab", original_gear: "WEM 4x12 with Fane Crescendo", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "No WEM cab available — Greenback 4x12 is the closest option." },
-          { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate", settings: { Mix: 0.18, Decay: 1.5, Predelay: 30 }, notes: "Subtle plate to match the Olympic Studios capture." },
+          { position: 1, block_name: "Studio Comp", block_category: "Compressor", original_gear: "Studio compressor", settings: { Threshold: -34, Ratio: 2, Attack: 38, Release: 200, Mix: 0.5, Level: 2 }, notes: "Light parallel comp tames the strumming peaks." },
+          { position: 2, block_name: "59 Bassguy", block_category: "Amp", original_gear: "Fender Bandmaster (1959 tweed)", settings: { Drive: 7.0, Bass: 5.0, Mid: 5.0, Treble: 7.0, Presence: 7.0, MV: 7.5 }, notes: "59 Bassguy, Fractal's tweed Bassman, is the nearest tweed Fender to the Bandmaster. Push it for a thick, ringing crunch." },
+          { position: 3, block_name: "4x10 Tweed", block_category: "Cab", original_gear: "Bandmaster 3x10", settings: { Mic: "57 Dynamic", Distance: 2.0, LowCut: 80, HighCut: 9000, Level: 0 }, notes: "Tweed 4x10 for the Bandmaster's 10-inch speakers." },
+          { position: 4, block_name: "Plate", block_category: "Reverb", original_gear: "Studio plate", settings: { Mix: 0.18, Decay: 1.5, Predelay: 30 }, notes: "Subtle plate for room dimension." },
           { position: 5, block_name: "Filter Tilt", block_category: "EQ", original_gear: "Tilt EQ (global brightness)", settings: { Tilt: 0.5, CenterFreq: 1000, Level: 0 }, notes: "Global brightness adjustment at chain end." },
         ],
-        notes: "Comp → cranked Hipower → WEM/Greenback → plate → tilt EQ. SG Special, bridge pickup, windmill strumming.",
+        notes: "Comp → 59 Bassguy → 4x10 tweed → plate → tilt EQ. Bridge humbucker, hard strumming.",
       },
     },
     is_editorial: true,
