@@ -1511,7 +1511,7 @@
 
   /* Newsletter: the email field spans the whole box. */
   .fk-preview .fk-home-news .newsletter-form { flex: 1 1 100%; width: 100%; }
-  .fk-preview .fk-home-news .newsletter-input { flex: 1 1 100%; width: 100%; }
+  .fk-preview .fk-home-news .newsletter-input { flex: none; width: 100%; }
 }
 @media (max-width: 640px) {
   .fk-preview .fk-home-card-dials { justify-content: flex-start; gap: 14px 18px; }
