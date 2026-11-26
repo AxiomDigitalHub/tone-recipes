@@ -17,6 +17,8 @@ interface PresetDownloadButtonProps {
   source: string;
   /** Optional override; falls back to "Download .hlx pack ↓" etc. */
   label?: string;
+  /** Accessible name, for when the visible label is terse or symbolic. */
+  ariaLabel?: string;
   /** Tailwind classes for the rendered button. */
   className?: string;
   children?: React.ReactNode;
@@ -54,6 +56,7 @@ export default function PresetDownloadButton({
   platform,
   source,
   label,
+  ariaLabel,
   className,
   children,
 }: PresetDownloadButtonProps) {
@@ -143,6 +146,7 @@ export default function PresetDownloadButton({
       onClick={onClick}
       disabled={busy}
       className={className}
+      aria-label={ariaLabel}
       aria-busy={busy}
     >
       {children ?? (busy ? "Building…" : label ?? meta.label)}

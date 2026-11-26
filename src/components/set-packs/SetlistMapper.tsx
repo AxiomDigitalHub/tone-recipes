@@ -114,12 +114,12 @@ export default function SetlistMapper() {
           <tbody>
             {filtered.map((row) => (
               <tr key={row.song}>
-                <td>
+                <td className="fkp-mapper-song">
                   <div className="fk-label">{row.song}</div>
                   <div className="fk-caption">{row.artist}</div>
                 </td>
                 {sections.map((sec) => (
-                  <td key={sec} className="is-center">
+                  <td key={sec} className="is-center" data-label={sectionLabels[sec]}>
                     <SnapPill name={row[sec]} />
                   </td>
                 ))}

@@ -89,7 +89,6 @@ export default async function PreviewArtistDetail({
   });
 
   const { musicGroup, breadcrumb } = artistJsonLdSet(artist);
-  const lastName = artist.name.split(" ").slice(-1)[0];
   const queue = artistSongs.filter((s) => !recipes.some((r) => r.song_slug === s.slug));
 
   return (
@@ -143,7 +142,7 @@ export default async function PreviewArtistDetail({
 
       {recipes.length > 0 && (
         <section className="fkp-section">
-          <h2 className="fk-t2">The {lastName} catalogue</h2>
+          <h2 className="fk-t2">{artist.name} catalogue</h2>
           <div className="fk-card-grid">
             {recipes.map((r) => (
               <ToneCard key={r.slug} recipe={r} />
@@ -153,7 +152,7 @@ export default async function PreviewArtistDetail({
       )}
 
       {/* Field notes that mention this artist */}
-      <PostsRail title={`Field notes on ${lastName}`} posts={artistPosts} />
+      <PostsRail title={`Field notes on ${artist.name}`} posts={artistPosts} />
 
       {/* Songs without recipes yet */}
       {queue.length > 0 && (

@@ -652,7 +652,7 @@
 .fk-preview .fk-nl-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .fk-preview .fk-nl-card .fk-nl-sub { max-width: 28rem; }
 .fk-preview .fk-nl-card .fk-nl-form { margin-top: 20px; width: 100%; max-width: 24rem; }
-.fk-preview .fk-nl .fk-nl-input { flex: 1; min-width: 0; width: 100%; }
+.fk-preview .fk-nl .fk-nl-input { flex: 1 1 auto; min-width: 0; width: 100%; height: var(--fk-control-h); }
 .fk-preview .fk-nl .fk-nl-input::placeholder { color: var(--fk-ink-3); opacity: 1; }
 .fk-preview .fk-nl .fk-nl-input:focus { outline: 0; border-color: var(--fk-ink); }
 .fk-preview .fk-nl .fk-nl-btn { flex-shrink: 0; }
@@ -696,6 +696,9 @@
   .fk-preview .fk-nl-card { padding: 22px; }
   .fk-preview .fk-nl-banner .fk-nl-form,
   .fk-preview .fk-nl-card .fk-nl-form { flex-direction: column; max-width: none; }
+  /* Stacked: a zero flex-basis collapsed the input to its text height. */
+  .fk-preview .fk-nl-banner .fk-nl-input,
+  .fk-preview .fk-nl-card .fk-nl-input { flex: 0 0 auto; }
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -895,6 +898,10 @@
   text-underline-offset: 3px;
 }
 .fk-preview .legal-page .legal-prose a:hover { opacity: 0.78; }
+/* Tailwind's preflight strips list markers; prose lists keep them. */
+.fk-preview .legal-page .legal-prose ul { list-style: disc; padding-left: 22px; }
+.fk-preview .legal-page .legal-prose ol { list-style: decimal; padding-left: 22px; }
+.fk-preview .legal-page .legal-prose li::marker { color: var(--fk-ink-3); }
 .fk-preview .legal-page .legal-prose em {
   display: block;
   margin-top: 32px;
@@ -1065,4 +1072,65 @@
   font-weight: 500;
   letter-spacing: normal;
   color: var(--fk-ink);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   Floating preset download chip (recipe pages)
+   ══════════════════════════════════════════════════════════════════════ */
+/* On phones the chip pins full width to the bottom edge. Reserve that strip
+   at the end of the page so the footer's last lines never sit under it. */
+@media (max-width: 720px) {
+  .fk-preview:has(.recipe-dl-chip) { padding-bottom: calc(var(--fk-control-h) + 24px); }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   Experiment system map
+   ══════════════════════════════════════════════════════════════════════ */
+/* Below ~660px the map would scale its 12px labels down to about 7px.
+   Hold it at a readable size and let it scroll sideways in its own box. */
+.fk-preview .sm-scroll { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; }
+.fk-preview .sm-scroll .sm-root { min-width: 660px; }
+
+/* ══════════════════════════════════════════════════════════════════════
+   Search palette input row (rendered in the overlay portal)
+   ══════════════════════════════════════════════════════════════════════ */
+/* The generic dialog field rule (redesign.css) boxed this input inside the
+   palette and the global focus ring painted it amber. Here the input is
+   borderless; the row's hairline turns ink while it has focus. */
+.fk-overlay-scope [role="dialog"][aria-label="Search"] .fk-palette-field input.fk-palette-input:not([type="checkbox"]) {
+  height: 56px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  font-size: 17px;
+}
+.fk-overlay-scope .fk-palette-input:focus,
+.fk-overlay-scope .fk-palette-input:focus-visible { outline: none; }
+.fk-overlay-scope .fk-palette-field { gap: 4px; padding: 0 16px 0 18px; transition: border-color 140ms ease; }
+.fk-overlay-scope .fk-palette-field:focus-within { border-bottom-color: var(--fk-ink); }
+.fk-overlay-scope .fk-palette-esc {
+  margin-left: 8px;
+  padding: 3px 8px;
+  border: 1px solid var(--fk-line);
+  border-radius: var(--fk-r-sm);
+  font-family: var(--fk-sans);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--fk-ink-3);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   Prose tables (blog posts, guides)
+   ══════════════════════════════════════════════════════════════════════ */
+/* Tables already scroll inside .post-table-scroll; on phones the 560px
+   floor still squeezed the first column into a narrow stack of lines.
+   Let the table size to its content and give every column a floor. */
+@media (max-width: 720px) {
+  .fk-preview .fk-prose table { width: max-content; min-width: 100%; max-width: none; }
+  .fk-preview .fk-prose th,
+  .fk-preview .fk-prose td { min-width: 112px; max-width: 280px; }
+  .fk-preview .fk-prose th:first-child,
+  .fk-preview .fk-prose td:first-child { min-width: 136px; }
 }

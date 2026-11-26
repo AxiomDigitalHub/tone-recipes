@@ -30,15 +30,18 @@ export default function SystemMap() {
   // Palette bound to the real site tokens (see src/app/v3.css). All fills,
   // strokes and text below use these classes: no hex anywhere.
   return (
+    // Scrolls sideways on narrow screens instead of shrinking the text
+    // below a readable size (see .sm-scroll in redesign-components.css).
+    <div className="sm-scroll">
     <svg
-      viewBox="0 0 720 1580"
+      viewBox="0 0 720 1436"
       width="100%"
       height="auto"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       aria-labelledby="sysmap-title sysmap-desc"
       className="sm-root"
-      style={{ maxWidth: 720, display: "block", margin: "0 auto" }}
+      style={{ maxWidth: 720, display: "block" }}
     >
       <title id="sysmap-title">
         Who works at Fader &amp; Knob: every worker is a piece of software
@@ -118,7 +121,7 @@ export default function SystemMap() {
       `}</style>
 
       {/* ===================== page ===================== */}
-      <rect className="sm-page" x="0" y="0" width="720" height="1580" />
+      <rect className="sm-page" x="0" y="0" width="720" height="1436" />
 
       {/* ============================================================= */}
       {/* DEPT 1: THE WRITERS' ROOM                                    */}
@@ -218,18 +221,19 @@ export default function SystemMap() {
         <line className="sm-flow" x1="360" y1="588" x2="360" y2="606" />
         <text className="sm-flowlabel" x="376" y="602">Translated to six platforms</text>
 
-        {/* six platform tiles: 3 amber (downloadable) top row, 3 muted bottom row */}
+        {/* six platform tiles: 3 muted (on-page) top row, 3 emphasised
+            (downloadable) bottom row, directly above the Download Pack */}
         {/* tile w=200 h=64, 3 cols x: 44, 260, 476 (gap 16) */}
-        {/* row1 y=616, row2 y=692 */}
+        {/* row1 y=616, row2 y=716 */}
 
-        {/* --- Row 1: DOWNLOADABLE FILES (amber) --- */}
+        {/* --- Row 2: downloadable files (emphasised) --- */}
         {[
           { name: "Line 6 Helix", tag: ".hlx file" },
           { name: "Boss Katana", tag: ".tsl file" },
           { name: "Quad Cortex", tag: "build sheet (.json)" },
         ].map((p, i) => {
           const x = 44 + i * 216;
-          const y = 616;
+          const y = 716;
           return (
             <g key={p.name}>
               <rect className="sm-box-amber" x={x} y={y} width="200" height="64" rx="12" />
@@ -242,16 +246,16 @@ export default function SystemMap() {
             </g>
           );
         })}
-        <text className="sm-tag-amber" x="44" y="608">Downloadable: a file you load</text>
+        <text className="sm-tag-amber" x="44" y="704">Downloadable: a file you load</text>
 
-        {/* --- Row 2: on-page settings only / search (muted) --- */}
+        {/* --- Row 1: on-page settings only / search (muted) --- */}
         {[
           { name: "Kemper", tag: "on-page settings" },
           { name: "Fractal", tag: "on-page settings" },
           { name: "TONEX", tag: "one ToneNET search" },
         ].map((p, i) => {
           const x = 44 + i * 216;
-          const y = 700;
+          const y = 616;
           return (
             <g key={p.name}>
               <rect className="sm-box" x={x} y={y} width="200" height="64" rx="12" opacity="0.72" />
@@ -264,25 +268,18 @@ export default function SystemMap() {
             </g>
           );
         })}
-        <text className="sm-tag" x="44" y="692">Read on the page: no file, by design</text>
+        <text className="sm-tag" x="44" y="608">Read on the page: no file, by design</text>
 
-        {/* the three file-makers feed the Download Pack. To avoid stabbing
-            through the muted on-page row below, the amber tiles drop to a short
-            collector bus just under their row, then the merged line runs down
-            the clean column gaps (x=252 / x=468): never over a muted box , 
-            into the pack. */}
-        <line className="sm-flow-amber" x1="144" y1="680" x2="144" y2="688" />
-        <line className="sm-flow-amber" x1="360" y1="680" x2="360" y2="688" />
-        <line className="sm-flow-amber" x1="576" y1="680" x2="576" y2="688" />
-        {/* collector bus + the two side drops down the tile-column gaps */}
-        <line className="sm-flow-amber" x1="144" y1="688" x2="576" y2="688" />
-        <line className="sm-flow-amber" x1="252" y1="688" x2="252" y2="820" />
-        <line className="sm-flow-amber" x1="468" y1="688" x2="468" y2="820" />
-        <line className="sm-flow-amber" x1="252" y1="820" x2="468" y2="820" />
-        <line className="sm-flow-amber" x1="360" y1="820" x2="360" y2="838" markerEnd="url(#sm-arrow-amber)" />
+        {/* the three file-makers drop onto a short collector bus right under
+            their row, then one arrow runs down into the pack */}
+        <line className="sm-flow-amber" x1="144" y1="780" x2="144" y2="800" />
+        <line className="sm-flow-amber" x1="360" y1="780" x2="360" y2="800" />
+        <line className="sm-flow-amber" x1="576" y1="780" x2="576" y2="800" />
+        <line className="sm-flow-amber" x1="144" y1="800" x2="576" y2="800" />
+        <line className="sm-flow-amber" x1="360" y1="800" x2="360" y2="838" markerEnd="url(#sm-arrow-amber)" />
 
         {/* Download Pack box */}
-        <rect className="sm-box-amber" x="180" y="842" width="360" height="60" rx="12" />
+        <rect className="sm-box-amber" x="130" y="842" width="460" height="60" rx="12" />
         <text className="sm-title-amber" x="360" y="866" textAnchor="middle">The Download Pack</text>
         <text className="sm-body" x="360" y="886" textAnchor="middle">
           preset + why-each-block notes + install guide + troubleshooter
@@ -363,7 +360,8 @@ export default function SystemMap() {
         d="M 40 1080 L 16 1080 L 16 240 L 40 240"
         markerEnd="url(#sm-arrow)"
       />
-      <text className="sm-tag" x="24" y="670" transform="rotate(-90 24 670)" textAnchor="middle">
+      <rect className="sm-page" x="8" y="546" width="15" height="248" />
+      <text className="sm-tag" x="19" y="670" transform="rotate(-90 19 670)" textAnchor="middle">
         Everything is graded before you see it
       </text>
 
@@ -393,5 +391,6 @@ export default function SystemMap() {
         Every day, on a $6 server of its own, behind Cloudflare. The page you&apos;re reading is served from that box.
       </text>
     </svg>
+    </div>
   );
 }

@@ -246,7 +246,7 @@ export default function SearchPalette({
       <div className="fixed inset-0 flex items-start justify-center pt-[15vh]">
         <div className="relative w-full max-w-lg rounded-xl border border-[var(--paper-line)] bg-[var(--paper)] shadow-2xl">
           {/* Search input */}
-          <div className="flex items-center border-b border-[var(--paper-line)] px-4">
+          <div className="fk-palette-field flex items-center border-b border-[var(--paper-line)] px-4">
             <svg
               className="h-5 w-5 shrink-0 text-[var(--ink-muted)]"
               fill="none"
@@ -270,9 +270,9 @@ export default function SearchPalette({
               aria-autocomplete="list"
               aria-controls="search-results-listbox"
               aria-activedescendant={flatResults[activeIndex] ? `search-result-${activeIndex}` : undefined}
-              className="w-full bg-transparent p-4 text-lg text-[var(--ink)] placeholder:text-[var(--ink-muted)] outline-none"
+              className="fk-palette-input w-full bg-transparent p-4 text-lg text-[var(--ink)] placeholder:text-[var(--ink-muted)] outline-none"
             />
-            <kbd className="shrink-0 rounded border border-[var(--ink)]/15 px-1.5 py-0.5 text-xs text-[var(--ink-muted)]">
+            <kbd className="fk-palette-esc shrink-0 rounded border border-[var(--ink)]/15 px-1.5 py-0.5 text-xs text-[var(--ink-muted)]">
               Esc
             </kbd>
           </div>

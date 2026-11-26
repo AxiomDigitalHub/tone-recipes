@@ -97,10 +97,9 @@ export default async function WriterProfilePage({
             </ul>
             <p className="fk-lead">{writer.bio}</p>
             <p className="fk-body-sm fkp-muted">
-              {writer.name} is not a person. This is one of Fader &amp;
-              Knob&apos;s AI editorial voices: a differently-trained writing
-              persona, and the bio above is its character card. Why we write
-              this way is documented in{" "}
+              {/* One string: the compiler dropped the space after {writer.name}
+                  when the sentence ran on as multi-line JSX text. */}
+              {`${writer.name} is not a person. This is one of Fader & Knob's AI editorial voices: a differently-trained writing persona, and the bio above is its character card. Why we write this way is documented in`}{" "}
               <Link href="/experiment" className="fk-link">
                 the experiment
               </Link>

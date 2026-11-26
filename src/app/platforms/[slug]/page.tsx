@@ -107,7 +107,7 @@ const PLATFORM_FAMILY: Record<
       "Cab + Mic always uses WithPan when the dual-mic blend is part of the original tone",
     ],
     preset_load: [
-      "Download the .hlx file from the recipe's platform switcher (the one labelled HELIX).",
+      "Download the .hlx file from the recipe's platform switcher (the one labelled Helix).",
       "Connect your Helix to the computer via USB. The unit doesn't need to be in any special mode.",
       "Open HX Edit (free from Line 6). Your unit shows up in the device picker at the top of the window.",
       "File → Open Preset (or ⌘O / Ctrl+O) and pick the .hlx file. The preset loads into the current edit buffer.",
@@ -350,7 +350,7 @@ export default async function PreviewPlatformDetail({
           <div className="fk-tile fkp-linktile">
             <h3 className="fk-t3">Block names you can search</h3>
             <p className="fk-body-sm">
-              Every recipe lists the exact {platform.label} block names:
+              Every recipe lists the exact {platform.label}{" "}block names:
               the same strings that show up in the editor or your
               unit&apos;s display. No guessing which model matches what.
             </p>

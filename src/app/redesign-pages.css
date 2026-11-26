@@ -338,6 +338,29 @@
   color: var(--fk-ink);
 }
 .fk-preview .print-mode .print-spec-val .u { color: var(--fk-ink-3); font-size: 11px; }
+/* Narrow screens: the sheet is a fixed 8.5in on screen, which pushed the
+   page sideways on phones. Screen only and below the PDF renderer's 1200px
+   viewport, so paper and PDF output keep the letter layout. */
+@media screen and (max-width: 860px) {
+  .fk-preview .print-mode { overflow-x: clip; }
+  .fk-preview .print-mode .print-doc { max-width: none; padding: 16px 0; }
+  .fk-preview .print-mode .print-page {
+    width: auto;
+    max-width: 8.5in;
+    margin: 0 12px 16px;
+    padding: 28px 20px 24px;
+  }
+  .fk-preview .print-mode .print-masthead { margin-bottom: 24px; }
+  .fk-preview .print-mode .print-cover-top { grid-template-columns: minmax(0, 1fr); gap: 20px; margin-bottom: 28px; }
+  .fk-preview .print-mode .print-cover-art { width: 120px; }
+  .fk-preview .print-mode .print-cover-title { font-size: 36px; line-height: 40px; }
+  .fk-preview .print-mode .print-page-title { font-size: 30px; line-height: 34px; }
+  .fk-preview .print-mode .print-spec-row > td,
+  .fk-preview .print-mode .print-spec-row > th,
+  .fk-preview .print-mode .print-spec thead th { padding-left: 8px; padding-right: 8px; }
+  .fk-preview .print-mode .print-spec-val { overflow-wrap: anywhere; }
+  .fk-preview .print-mode .print-sources-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+}
 .fk-preview .print-mode .print-spec-empty { font-size: 12px; font-style: normal; color: var(--fk-ink-3); }
 .fk-preview .print-mode .print-page-foot {
   border-top: 1px solid var(--fk-line);
@@ -599,6 +622,36 @@
 .fk-preview .fkp-mapper-table tbody tr:hover td:first-child { background: var(--fk-wash); }
 .fk-preview .fkp-mapper-table .is-center { text-align: center; padding-left: 8px; padding-right: 8px; }
 .fk-preview .fkp-mapper-count { margin: 0; text-align: right; }
+/* Phones: each song becomes a row card (name on top, one labelled pill per
+   section) so nothing sits past the right edge. Header stays for screen
+   readers. */
+@media (max-width: 600px) {
+  .fk-preview .fkp-mapper-table { overflow-x: visible; }
+  .fk-preview .fkp-mapper-table table { min-width: 0; }
+  .fk-preview .fkp-mapper-table thead {
+    position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  .fk-preview .fkp-mapper-table tbody { display: block; }
+  .fk-preview .fkp-mapper-table tbody tr {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+    gap: 8px 4px;
+    padding: 12px 12px 14px;
+    border-bottom: 1px solid var(--fk-line-2);
+  }
+  .fk-preview .fkp-mapper-table tbody tr:last-child { border-bottom: 0; }
+  .fk-preview .fkp-mapper-table tbody tr:hover td,
+  .fk-preview .fkp-mapper-table tbody tr:hover td:first-child { background: none; }
+  .fk-preview .fkp-mapper-table td,
+  .fk-preview .fkp-mapper-table td:first-child { position: static; min-width: 0; padding: 0; border: 0; background: none; }
+  .fk-preview .fkp-mapper-table td.fkp-mapper-song,
+  .fk-preview .fkp-mapper-table td[colspan] { grid-column: 1 / -1; padding: 0 4px 2px; }
+  .fk-preview .fkp-mapper-table td[data-label] { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .fk-preview .fkp-mapper-table td[data-label]::before {
+    content: attr(data-label);
+    font-size: 12px; line-height: 16px; color: var(--fk-ink-3);
+  }
+}
 
 /* ── Writers ───────────────────────────────────────────────────────── */
 .fk-preview .fkp-quote { margin: 0; padding: 20px 22px; }
@@ -656,3 +709,6 @@
 .fk-preview .fkp-iglink-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .fk-preview .fkp-iglink svg { flex-shrink: 0; color: var(--fk-ink-3); }
 .fk-preview .recipe-feedback.fkp-feedback h3 { font-family: var(--fk-sans); font-weight: 600; color: var(--fk-ink); }
+
+/* Dates set in mono never break mid-date. */
+.fk-preview time.fk-data { white-space: nowrap; }
